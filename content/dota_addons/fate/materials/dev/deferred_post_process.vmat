@@ -1,0 +1,59 @@
+// THIS FILE IS AUTO-GENERATED
+
+Layer0
+{
+	shader "deferred_post_process_experimental.vfx"
+
+	//---- Outlines ----
+	F_OUTLINES 1
+
+	//---- Style ----
+	F_STYLE 1 // Ink
+
+	//---- Color ----
+	g_flColorStepBlend "0.156"
+	g_flColorStepPower "100.000"
+	g_flColorSteps "4.872"
+	g_flColorStepsoftness "1.000"
+	g_flEffectInTransparency "0.000"
+	g_flNormalizeColors "0.000"
+	g_flOffsetColors "0.000"
+	g_flRimBoost "0.000"
+	g_vFilterColor "[0.501961 0.501961 0.501961 0.000000]"
+	g_vPaperColor "[1.000000 1.000000 1.000000 0.000000]"
+
+	//---- Fog ----
+	g_flForceFogDistance "100000.000"
+	g_flForceFogOpacity "0.000"
+	g_flForceFogStart "-0.002"
+	g_flFOWColorFade "0.000"
+	g_flFOWOriginalStrength "0.900"
+	g_vFOWColor "[1.000000 1.000000 1.000000 0.000000]"
+
+	//---- Hatching ----
+	g_flColorHatching "0.000"
+	g_flHatchingAnimSpeed "0.000"
+	g_flHatchingContrast "1.000"
+	g_flHatchingDepth "0.200"
+	g_flHatchingScale "1.000"
+	g_flRotateHatchingByNormal "0.000"
+	g_flRotateHatchingOffset "0.000"
+	TextureHatching ""
+
+	//---- Ink ----
+	g_flInkRimPower "1.000"
+	g_flInkStrength "0.000"
+	g_flMaxInk "0.100"
+	g_vInkColor "[0.000000 0.000000 0.000000 0.000000]"
+
+	//---- Noise ----
+	g_flNoiseScale "1.000"
+	g_flNoiseStrength "1.000"
+	TextureNoise ""
+
+	//---- Outline ----
+	g_flOutlineDepthTolerance "0.200"
+	g_flOutlineStrength "1.000"
+	g_flOutlineWidth "0.006"
+	g_flOutlineWidthVariation "0.000"
+}

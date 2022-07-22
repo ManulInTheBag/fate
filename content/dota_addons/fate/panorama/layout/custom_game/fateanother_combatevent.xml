@@ -1,0 +1,16 @@
+<root>
+    <styles>
+        <include src="s2r://panorama/styles/dotastyles.vcss_c" />
+        <include src="s2r://panorama/styles/custom_game/fateanother_combatevent.vcss_c" />
+    </styles>
+    <scripts>
+        <include src="s2r://panorama/scripts/custom_game/fateanother_combatevent.vjs_c" /> 
+    </scripts>
+    <Panel class="CombatEventRoot" hittest="false">
+        <Panel id="GoldEventPanel" hittest="false">
+        </Panel>
+        <Panel id="CombatEventPanel" hittest="false" >
+        </Panel>
+    </Panel>
+
+</root>

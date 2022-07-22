@@ -1,0 +1,1663 @@
+"DOTAAbilities"
+{
+	//=================================================================================================================
+	// Tamamo : Armed Up
+	//=================================================================================================================
+	"tamamo_armed_up"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityTextureName"			"custom/tamamo_armed_up"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"25"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityCooldown"				"45"
+		"precache"
+		{
+		}
+		
+		"AbilitySpecial"
+		{		
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"charge"				"12"
+			}	
+		}
+		
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"		"tamamo_ability"
+				"Function"			"OnArmedUpStart"
+			}
+		}
+		"Modifiers"
+		{
+		}
+	}
+
+	//=================================================================================================================
+	// Tamamo : Fiery Heaven
+	//=================================================================================================================
+	"tamamo_fiery_heaven"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"25"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityTextureName"			"custom/tamamo_fiery_heaven"
+		"AbilityCastAnimation" 			"ACT_DOTA_ITEM_PICKUP"
+		"AnimationPlaybackRate" 		"1.0"
+		
+		"precache"
+		{
+			"particle"			"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
+		}
+		
+		"AbilityCooldown"				"1"
+		"AbilityManaCost"				"0"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage"			"5"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stack_damage"			"15"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"tamamo_ability"
+				"Function"		"OnFireCharmLoaded"
+			}
+		}
+
+		"OnRespawn"
+		{
+		}
+
+		"Modifiers"
+		{
+			"modifier_fiery_heaven_indicator"
+			{
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"tamamo_ability"
+						"Function"		"OnCharmAttacked"
+						"Radius"		"%radius"
+						"Damage"		"%damage"
+						"StackDamage"	"%stack_damage"
+					}					
+				}
+			}
+			"modifier_fiery_heaven_indicator_enemy"
+			{
+				"Duration"		"10"
+				"IsDebuff"		"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+	    		"EffectName"		"particles/units/heroes/hero_huskar/huskar_burning_spear_debuff.vpcf"
+				"EffectAttachType"	"follow_origin"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Tamamo : Frigid Heaven
+	//=================================================================================================================
+	"tamamo_frigid_heaven"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"25"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityTextureName"			"custom/tamamo_frigid_heaven"
+		"AbilityCastAnimation" 			"ACT_DOTA_ITEM_PICKUP"
+		"AnimationPlaybackRate" 		"1.0"
+		
+		"precache"
+		{
+			"particle"				"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
+		}
+		
+		"AbilityCooldown"				"1"
+		"AbilityManaCost"				"0"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"0.5"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"slow"				"-50"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stack_stun_duration"				"1.0"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"tamamo_ability"
+				"Function"		"OnFreezeCharmLoaded"
+			}	
+		}
+
+		"OnRespawn"
+		{
+		}
+
+		"Modifiers"
+		{
+			"modifier_frigid_heaven_indicator"
+			{
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"tamamo_ability"
+						"Function"		"OnCharmAttacked"
+						"Duration"		"%duration"
+						"StackStunDuration"		"%stack_stun_duration"
+					}					
+				}
+			}
+			"modifier_frigid_heaven_indicator_enemy"
+			{
+				"Duration"		"10"
+				"IsDebuff"		"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+	    		"EffectName"		"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
+				"EffectAttachType"	"follow_origin"
+			}
+	    	"modifier_frigid_heaven_slow"
+	    	{
+	    		"Duration"			"%duration"
+	    		"IsDebuff"			"1"
+	    		"Properties"
+	    		{
+	    			"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%slow"
+	    		}
+	    	}
+			"modifier_frigid_heaven_stun_fx"
+			{
+				"IsHidden"		"1"
+				"IsDebuff"		"1"
+				"Duration"		"%stack_stun_duration"
+	    		"EffectName"		"particles/units/heroes/hero_crystalmaiden/maiden_frostbite_buff.vpcf"
+				"EffectAttachType"	"follow_origin"
+				
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Tamamo : Gust Heaven
+	//=================================================================================================================
+	"tamamo_gust_heaven"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"25"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityTextureName"			"custom/tamamo_gust_heaven"
+		"AbilityCastAnimation" 			"ACT_DOTA_ITEM_PICKUP"
+		"AnimationPlaybackRate" 		"1.0"
+		
+		"precache"
+		{	
+			"particle"			"particles/units/heroes/hero_windrunner/windrunner_windrun.vpcf"
+		}
+		
+		"AbilityCooldown"				"1"
+		"AbilityManaCost"				"0"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"mr_reduction"			"-4"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"			"0.1"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stack_lock_duration"			"1.0"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stack_slow_duration"			"3.0"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stack_initial_slow"			"100"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"tamamo_ability"
+				"Function"		"OnGustCharmLoaded"
+			}				
+		}
+
+		"OnRespawn"
+		{
+		}
+
+		"Modifiers"
+		{
+			"modifier_gust_heaven_indicator"
+			{
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"tamamo_ability"
+						"Function"		"OnCharmAttacked"
+					}					
+				}
+			}
+			"modifier_gust_heaven_indicator_enemy"
+			{
+				"Duration"		"10"
+				"IsDebuff"		"1"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%mr_reduction"
+				}
+		    	"EffectName"		"particles/units/heroes/hero_windrunner/windrunner_windrun.vpcf"
+				"EffectAttachType"	"follow_origin"
+			}
+	    	"modifier_gust_heaven_purge"
+	    	{
+	    		"EffectName"		"particles/generic_gameplay/generic_purge.vpcf"
+				"EffectAttachType"	"follow_origin"
+	    		"Duration"			"%stack_lock_duration"
+	    		"IsDebuff"			"1"
+	    		"States"
+	    		{
+	    			"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+	    		}
+	    	}
+	    	"modifier_gust_heaven_purge_slow_tier1"
+	    	{
+	    		"EffectName"		"particles/generic_gameplay/generic_purge.vpcf"
+				"EffectAttachType"	"follow_origin"
+	    		"Duration"			"1.5"
+	    		"IsDebuff"			"1"
+	    		"Properties"
+	    		{
+	    			"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-80"
+	    		}
+	    	}
+	    	"modifier_gust_heaven_purge_slow_tier2"
+	    	{
+	    		"EffectName"		"particles/generic_gameplay/generic_purge.vpcf"
+				"EffectAttachType"	"follow_origin"	
+	    		"Duration"			"%stack_slow_duration"
+	    		"IsDebuff"			"1"
+	    		"Properties"
+	    		{
+	    			"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-30"
+	    		}
+	    	}
+		}
+	}
+
+	//=================================================================================================================
+	// Tamamo : Void Cleft
+	//=================================================================================================================
+	"tamamo_void_cleft"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"25"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"			"custom/tamamo_void_cleft"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
+		"AnimationPlaybackRate" 		"1.0"
+		
+		"precache"
+		{
+		}
+		
+		"AbilityCooldown"				"1"
+		"AbilityManaCost"				"0"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"heal_amount"			"370 425 480 535 590"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"tamamo_ability"
+				"Function"		"OnVoidCharmLoaded"
+			}
+		}
+
+		"OnRespawn"
+		{
+		}
+
+		"Modifiers"
+		{
+			"modifier_void_cleft_indicator"
+			{
+				"OnCreated"
+				{
+					
+				}
+			}
+		}
+	}
+	//=================================================================================================================
+	// Tamamo : Close Spellbook
+	//=================================================================================================================
+	"tamamo_close_spellbook"
+	{
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"			"silencer_last_word"
+		
+		"AbilityCastPoint"				"0.0"
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"tamamo_ability"
+				"Function"		"OnCharmListClosed"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Tamamo : Soulstream
+	//=================================================================================================================
+	"tamamo_soulstream"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/tamamo_soulstream"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
+		"AnimationPlaybackRate" 		"1.5"
+		"AOERadius"						"%radius"
+
+		
+		"precache"
+		{
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_lina.vsndevts"
+			"particle"					"particles/units/heroes/hero_wisp/wisp_guardian_.vpcf"
+			"particle"					"particles/units/heroes/hero_wisp/wisp_guardian_explosion.vpcf"
+			"particle"					"particles/units/heroes/hero_wisp/wisp_guardian_explosion_small.vpcf"
+			"particle"					"particles/units/heroes/hero_lina/lina_spell_light_strike_array.vpcf"
+			"particle"					"particles/custom/tamamo/tamamo_soulstream_red_.vpcf"
+			"particle"					"particles/custom/tamamo/tamamo_soulstream_green_.vpcf"
+			"particle"					"particles/custom/tamamo/tamamo_soulstream_blue_.vpcf"
+			"particle"					"particles/custom/tamamo/tamamo_soulstream_explosion_green.vpcf"
+			"particle"					"particles/custom/tamamo/tamamo_soulstream_explosion_red.vpcf"
+			"particle"					"particles/custom/tamamo/tamamo_soulstream_explosion_blue.vpcf"
+		}
+		
+		"AbilityCastPoint"				"0.15"
+		"AbilityCooldown"				"5 4 3 2 1"
+		"AbilityManaCost"				"100"
+		"AbilityCastRange"				"1150"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"70 85 100 115 130"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"155"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"stack_damage_bonus"				"0"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stack_ms"				"5 7 9 11 13"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"stack_mana_cost"				"100"
+			}
+		}
+		
+		"OnUpgrade"
+		{
+			//"RunScript"
+			//{
+			//	"ScriptFile"    "tamamo_ability"
+			//	"Function"      "OnSoulStreamInitialize"
+			//}			
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"    "tamamo_ability"
+				"Function"      "OnSoulstreamStart"
+				"Target"		"POINT"
+				"Damage"		"%damage"
+				"Radius"		"%radius"
+			}
+		}
+		
+		"Modifiers"
+		{		
+			"modifier_soulstream_stack"
+			{
+				"Duration"		"7.0"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%stack_ms"
+				}
+			}
+			"modifier_soulstream_projectile"
+			{
+				"IsHidden"			"1"
+				"Duration"			"2.0"
+				"ThinkInterval" 		"0.03"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"tamamo_ability"
+						"Function"				"OnSoulstreamProjectileTick"
+						"Damage"				"%damage"
+						"StackBonus"			"%stack_damage_bonus"
+						"Radius"		"%radius"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"tamamo_ability"
+						"Function"				"OnSoulstreamProjectileEnd"
+					}
+				}
+			}
+		}
+	}
+
+
+	//=================================================================================================================
+	// Tamamo : Subterraean Grasp
+	//=================================================================================================================
+	"tamamo_subterranean_grasp"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityTextureName"			"custom/tamamo_subterranean_grasp"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
+		"precache"
+		{
+			"particle"				"particles/units/heroes/hero_winter_wyvern/wyvern_cold_embrace_borealis.vpcf"
+			"particle"				"particles/units/heroes/hero_winter_wyvern/wyvern_cold_embrace_buff.vpcf"
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_visage.vsndevts"
+		}
+		
+		// Ability stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"20000"
+		"AbilityCastRangeBuffer"		"0"
+		"AbilityCastPoint"				"0.35"
+		"AbilityCooldown"				"45 30 18 9 4"
+		"AbilityManaCost"				"200"
+		
+		// Ability special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"delay"			"1.0"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"mr_reduction"			"-10 -12.5 -15 -17.5 -20"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"duration"			"1.5"
+			}
+		}
+		
+		// Data driven
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"						
+		{
+		}
+		
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"			"tamamo_ability"
+				"Function"				"OnSGStart"
+			}
+		}
+	
+		
+		"Modifiers"
+		{
+			"modifier_subterranean_grasp_delay"
+			{
+				"IsDebuff"		"1"
+				"IsHidden"		"1"
+				"Duration"		"%delay"
+				"EffectName"			"particles/units/heroes/hero_winter_wyvern/wyvern_cold_embrace_borealis.vpcf"
+				"EffectAttachType"		"follow_origin"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"tamamo_ability"
+						"Function"			"OnSGApplyCC"
+						"Duration"			"%duration"
+					}
+				}
+			}
+			"modifier_subterranean_grasp"
+			{
+				"EffectName"			"particles/units/heroes/hero_winter_wyvern/wyvern_cold_embrace_buff.vpcf"
+				"EffectAttachType"		"follow_origin"
+				"Duration"				"%duration"
+				"IsDebuff"				"1"
+				"OnCreated"
+				{
+					"FireSound"
+					{
+						"EffectName"	"Hero_Visage.GraveChill.Target"
+						"Target"		"TARGET"
+					}
+					"ApplyModifier"
+					{
+						"ModifierName"	"modifier_subterranean_grasp_revoke"
+						"Target"		"TARGET"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"tamamo_ability"
+						"Function"			"OnSGDestroy"
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%mr_reduction"
+				}
+			}
+			"modifier_subterranean_grasp_revoke"
+			{
+				"IsHidden"				"1"
+				"Duration"				"%duration"
+				"IsDebuff"				"1"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Tamamo : Mantra
+	//=================================================================================================================
+	"tamamo_mantra"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_BOTH"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityTextureName"			"custom/tamamo_mantra"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
+		"precache"
+		{
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_lich.vsndevts"
+			"particle"				"particles/units/heroes/hero_templar_assassin/templar_assassin_refraction_break.vpcf"
+			"particle"				"particles/custom/tamamo/tamamo_mantra.vpcf"
+			"particle"				"particles/units/heroes/hero_oracle/oracle_purifyingflames_halo.vpcf"
+			"particle"					"particles/units/heroes/hero_wisp/wisp_tether.vpcf"
+		}
+		
+		// Ability stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"700"
+		"AbilityCastRangeBuffer"		"300"
+		"AbilityCastPoint"				"0.2"
+		"AbilityCooldown"				"29"
+		"AbilityManaCost"				"400"
+		
+		// Ability special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"cast_delay"		"0.2"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage_modifier"			"300 325 350 375 400"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage_modifier_enemy"			"150 150 175 200 200"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"orb_amount"				"4 5 6 7 8"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"duration"				"7"
+			}
+		}
+		
+		// Data driven
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"						
+		{
+		}
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"			"tamamo_ability"
+				"Function"				"OnMantraCast"
+			}
+		}
+		
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"			"tamamo_ability"
+				"Function"				"OnMantraStart"
+				"OrbAmount"				"%orb_amount"
+			}
+		}
+	
+		
+		"Modifiers"
+		{
+			"modifier_mantra_ally"
+			{
+				"Duration"		"%duration"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"OnTakeDamage"
+				{
+					"RunScript"
+					{
+						"ScriptFile"    "tamamo_ability"
+						"Function"      "OnMantraTakeDamage"
+						"DamageTaken"	"%attack_damage"
+						"BlockAmt"		"%damage_modifier"
+					}
+				}
+			}
+
+			"modifier_mantra_enemy"
+			{
+				"IsDebuff"		"1"
+				"Duration"		"%duration"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"OnTakeDamage"
+				{
+					"RunScript"
+					{
+						"ScriptFile"    "tamamo_ability"
+						"Function"      "OnMantraTakeDamage"
+						"DamageTaken"	"%attack_damage"
+						"Damage"		"%damage_modifier_enemy"
+					}
+				}
+			}
+
+			"modifier_mantra_vfx"
+			{
+				"IsHidden"		"1"
+				"Duration"		"%duration"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"				"TARGET"
+						"EffectName"			"particles/custom/tamamo/tamamo_mantra.vpcf"
+						"EffectAttachType"		"start_at_customorigin"
+						"ControlPointEntities"
+						{
+							"TARGET"			"attach_origin"
+							"TARGET"			"attach_origin"
+							"TARGET"			"attach_origin"
+						}
+					}
+				}				
+			}
+
+			"modifier_mantra_tether"
+			{
+				"Duration"			"7.0"
+				"ThinkInterval" 		"0.033"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"tamamo_ability"
+						"Function"				"OnMantraTetherTick"
+					}
+				}
+				"OnCreated"
+				{
+					"FireSound"
+					{
+						"EffectName"		"Hero_Wisp.Tether.Target"
+						"Target"			"TARGET"
+					}
+					
+					"AttachEffect"
+					{
+						"EffectName"		"particles/units/heroes/hero_wisp/wisp_tether.vpcf"
+						"EffectAttachType"	"attach_origin"
+						"Target"			"TARGET"
+						
+						"ControlPointEntities"
+						{
+							"CASTER"	"attach_origin"
+							"TARGET"	"attach_origin"
+						}
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"    "tamamo_ability"
+						"Function"      "OnMantraTetherEnd"
+					}
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"15"
+				}
+			}
+			"modifier_mantra_mr_buff"
+			{
+				"IsHidden"		"1"
+				"Duration"		"%duration"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"15"
+				}				
+			}
+			"modifier_mantra_mr_debuff"
+			{
+				"IsHidden"		"1"
+				"Duration"		"%duration"
+				"IsDebuff"		"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"-15"
+				}				
+			}
+		}
+	}
+	//=================================================================================================================
+	// Tamamo : Mystic Shackle
+	//=================================================================================================================
+	"tamamo_mystic_shackle"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"			"wisp_tether"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_wisp/wisp_relocate_teleport.vpcf"
+		}
+		
+		// Ability stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"700"
+		"AbilityCastPoint"				"0.3"
+		"AbilityCooldown"				"30"
+		"AbilityManaCost"				"200"
+		
+		// Ability special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+		}
+		
+		// Data driven
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"						
+		{
+		}
+		
+		"OnAbilityPhaseStart"
+		{
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"			"tamamo_ability"
+				"Function"				"OnShackleStart"
+				"OrbAmount"				"%orb_amount"
+				"Target"				"POINT"
+			}
+		}
+	
+		
+		"Modifiers"
+		{
+			"modifier_mystic_shackle_cooldown"
+			{
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+			}
+
+			"modifier_mystic_shackle"
+			{
+				"IsDebuff"		"1"
+				"Duration"			"3.0"
+				"ThinkInterval" 		"0.01"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"tamamo_ability"
+						"Function"				"OnShackleThink"
+					}
+				}
+				"OnCreated"
+				{
+					"FireSound"
+					{
+						"EffectName"		"Hero_Wisp.Tether.Target"
+						"Target"			"TARGET"
+					}
+					
+					"AttachEffect"
+					{
+						"EffectName"		"particles/units/heroes/hero_wisp/wisp_tether.vpcf"
+						"EffectAttachType"	"attach_origin"
+						"Target"			"TARGET"
+						
+						"ControlPointEntities"
+						{
+							"CASTER"	"attach_origin"
+							"TARGET"	"attach_origin"
+						}
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"    "tamamo_ability"
+						"Function"      "OnMantraShackleEnd"
+					}
+				}
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Tamamo : Fate's Call
+	//=================================================================================================================
+	"tamamo_fates_call"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"			"wisp_tether"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_wisp/wisp_relocate_teleport.vpcf"
+		}
+		
+		// Ability stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"850"
+		"AbilityCastPoint"				"0.3"
+		"AbilityCooldown"				"45"
+		"AbilityManaCost"				"200"
+		
+		// Ability special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+		}
+		
+		// Data driven
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"						
+		{
+		}
+		
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"			"tamamo_ability"
+				"Function"				"OnFatesCallCast"
+			}			
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"			"tamamo_ability"
+				"Function"				"OnFatesCallStart"
+				"OrbAmount"				"%orb_amount"
+				"Target"				"POINT"
+			}
+		}
+	
+		
+		"Modifiers"
+		{
+			"modifier_fates_call_cooldown"
+			{
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+			}
+
+			"modifier_fates_call"
+			{
+				"Duration"		"%duration"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"    "tamamo_ability"
+						"Function"      "OnMantraTakeDamage"
+						"DamageTaken"	"%attack_damage"
+						"Damage"		"%damage_modifier"
+					}
+				}
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Tamamo : Eightfold Blessing of Amaterasu
+	//=================================================================================================================
+	"tamamo_amaterasu"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityTextureName"			"custom/tamamo_amaterasu"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+
+		// Ability stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"700 775 850 875 1000"
+		"AbilityCastRangeBuffer"		"0"
+		"AbilityCastPoint"				"0.4"
+		"AbilityCooldown"				"49"
+		"AbilityManaCost"				"800"
+
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_keeper_of_the_light/keeper_mana_leak.vpcf"
+			"particle"		"particles/units/heroes/hero_dazzle/dazzle_shallow_grave.vpcf"
+			"particle"		"particles/units/heroes/hero_dazzle/dazzle_weave.vpcf"
+			"particle"		"particles/custom/tamamo/tamamo_amaterasu_continuous.vpcf"
+			"particle"		"particles/units/heroes/hero_visage/visage_grave_chill_tgt.vpcf"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_keeper_of_the_light.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_dazzle.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_visage.vsndevts"
+			"model"			"models/misc/templedoor.vmdl"
+		}
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"intelligence"			"0 5 10 15 20"
+			}	
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"radius"			"700 775 850 875 1000"
+			}	
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"mana_regen"			"4 5 6 7 8"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"movespeed_modifier"			"8 16 24 32 40"
+			}		
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"heal_amount"			"300"
+			}	
+			"06"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"mana_amount"			"200"
+			}	
+			"07"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"duration"			"6 7 8 9 10"
+			}	
+			"08"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"mana_regen_enemy"			"-4 -5 -6 -7 -8"
+			}
+			"09"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"movespeed_modifier_enemy"			"-8 -16 -24 -32 -40"
+			}
+			"10"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"cast_point"			"0.4"
+			}			
+		}
+		
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"		"tamamo_ability"
+				"Function"			"OnAmaterasuStart"
+				"Radius"			"%radius"
+				"Duration"			"%duration"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_amaterasu_passive"
+			{
+				"Passive"	"1"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_INTELLECT_BONUS"	"%intelligence"
+				}
+			}
+			"modifier_amaterasu_aura"
+			{
+				"IsHidden"		"1"
+				"Duration"		"%duration"
+				"EffectName"			"particles/units/heroes/hero_dazzle/dazzle_shallow_grave.vpcf"
+				"EffectAttachType"		"follow_origin"
+				"ThinkInterval" 		"0.25"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"tamamo_ability"
+						"Function"				"OnAmaterasuApplyAura"
+						"Radius"				"%radius"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"			"tamamo_ability"
+						"Function"				"OnAmaterasuEnd"
+					}
+				}
+			}
+			"modifier_amaterasu_ally"
+			{
+				"Duration"			"0.25"
+				"EffectName"			"particles/units/heroes/hero_keeper_of_the_light/keeper_mana_leak.vpcf"
+				"EffectAttachType"		"follow_origin"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_REGEN_TOTAL_PERCENTAGE"	"%mana_regen"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%movespeed_modifier"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%movespeed_modifier"
+				}
+			}
+			"modifier_amaterasu_enemy"
+			{
+				"IsDebuff"			"1"
+				"Duration"			"0.25"
+				"EffectName"			"particles/units/heroes/hero_keeper_of_the_light/keeper_mana_leak.vpcf"
+				"EffectAttachType"		"follow_origin"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MANA_REGEN_TOTAL_PERCENTAGE"	"%mana_regen_enemy"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%movespeed_modifier_enemy"
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%movespeed_modifier_enemy"
+				}
+			}
+			"modifier_amaterasu_witchcraft_slow"
+			{
+				"Duration"		"1.5"
+				"IsDebuff"		"1"
+				"EffectName"			"particles/items3_fx/silver_edge_slow.vpcf"
+				"EffectAttachType"		"follow_origin"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-70"
+				}
+			}
+		}
+	}
+
+
+	//=================================================================================================================
+	// Tamamo : Polygamist Castration Fist
+	//=================================================================================================================
+	"tamamo_polygamist_castration_fist"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"			"custom/tamamo_kick"
+		"MaxLevel"						"1"
+
+		// Ability stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"500"
+		"AbilityCastRangeBuffer"		"0"
+		"AbilityCooldown"				"120"
+		"AbilityManaCost"				"600"
+
+		"precache"
+		{
+			"particle"			"particles/custom/tamamo/tamamo_kick_trail.vpcf"
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_tusk.vsndevts"
+			"particle"			"particles/units/heroes/hero_ember_spirit/ember_spirit_hit.vpcf"
+			"particle"			"particles/units/heroes/hero_lina/lina_spell_light_strike_array.vpcf"
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_lina.vsndevts"
+			"particle"				"particles/custom/screen_violet_splash.vpcf"
+		}
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"search_radius"			"700"
+			}	
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"lunge_delay"			"0.5"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"kick_damage"			"500"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"recoil_distance"			"700"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"explosion_int_ratio"			"10"
+			}		
+		}
+		
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"		"tamamo_ability"
+				"Function"			"OnKickStart"
+				"LungeDelay"		"%lunge_delay"
+				"SearchRadius"		"%search_radius"
+				"Damage"			"%kick_damage"
+				"RecoilDistance"	"%recoil_distance"
+				"ExplosionRatio"	"%explosion_int_ratio"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_polygamist_cooldown"
+			{
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+			}
+
+			"modifier_polygamist"
+			{
+				"Duration"		"2.2"
+				"States"
+				{
+					"MODIFIER_STATE_UNSELECTABLE" "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"    "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NOT_ON_MINIMAP" "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"				"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_STUNNED"				"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Tamamo : Polygamist Castration Fist(with attribute)
+	//=================================================================================================================
+	"tamamo_polygamist_castration_fist_2"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
+		"AbilityTextureName"			"custom/tamamo_kick"
+		"MaxLevel"						"1"
+
+		// Ability stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"500"
+		"AbilityCastRangeBuffer"		"0"
+		"AbilityCooldown"				"120"
+		"AbilityManaCost"				"600"
+
+		"precache"
+		{
+			"particle"			"particles/custom/tamamo/tamamo_kick_trail.vpcf"
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_tusk.vsndevts"
+			"particle"			"particles/units/heroes/hero_ember_spirit/ember_spirit_hit.vpcf"
+			"particle"			"particles/units/heroes/hero_lina/lina_spell_light_strike_array.vpcf"
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_lina.vsndevts"
+			"particle"				"particles/custom/screen_violet_splash.vpcf"
+		}
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"search_radius"			"500"
+			}	
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"lunge_delay"			"0.5"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"kick_damage"			"500"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"recoil_distance"			"400"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"explosion_int_ratio"			"10"
+			}		
+		}
+		
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"		"tamamo_ability"
+				"Function"			"OnKickStart"
+				"LungeDelay"		"%lunge_delay"
+				"SearchRadius"		"%search_radius"
+				"Damage"			"%kick_damage"
+				"RecoilDistance"	"%recoil_distance"
+				"ExplosionRatio"	"%explosion_int_ratio"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_polygamist_shorter"
+			{
+				"Duration"		"1.45"
+				"States"
+				{
+					"MODIFIER_STATE_UNSELECTABLE" "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_INVULNERABLE"    "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NOT_ON_MINIMAP" "MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"				"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_STUNNED"				"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+
+	//=======================================
+	// Tamamo : Spirit Theft
+	//=======================================
+	"tamamo_attribute_spirit_theft"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/tamamo_spirit_theft"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"12"
+
+		"precache"
+		{
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"int_ratio"			"0.5"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"mana_drain"			"25"
+			}
+		}
+		
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"tamamo_ability"
+				"Function"		"OnSpiritTheftAcquired"
+			}
+		}
+	}
+
+	//=======================================
+	// Tamamo : Severed Fate
+	//=======================================
+	"tamamo_attribute_severed_fate"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"wisp_tether"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"13"
+
+		"precache"
+		{
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"bonus_mr"			"15"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"distance"			"1250"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"fates_call_max_delay"			"2.5"
+			}
+		}
+		
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"tamamo_ability"
+				"Function"		"OnSeveredFateAcquired"
+			}
+		}
+	}
+
+	//=======================================
+	// Tamamo : Mystic Shackle
+	//=======================================
+	"tamamo_attribute_mystic_shackle"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"wisp_tether"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"13"
+
+		"precache"
+		{
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"bonus_mr"			"15"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"distance"			"700"
+			}
+		}
+		
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"tamamo_ability"
+				"Function"		"OnSeveredFateAcquired"
+			}
+		}
+	}
+
+	//=======================================
+	// Tamamo : Polygamist Castration Fist
+	//=======================================
+	"tamamo_attribute_tamamo_escape"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/tamamo_kick"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"15"
+
+		"precache"
+		{
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"reduction"			"50"
+			}
+		}
+		
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"tamamo_ability"
+				"Function"		"OnPCFAcquired"
+			}
+		}
+	}
+
+	//=======================================
+	// Tamamo : Witchcraft
+	//=======================================
+	"tamamo_attribute_witchcraft"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/tamamo_witchcraft"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"16"
+
+		"precache"
+		{
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"silence_duration"			"0.5"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"slow_amount"			"70"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"stun_duration"			"2"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"cooldown"			"15"
+			}
+		}
+		
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"tamamo_ability"
+				"Function"		"OnWitchcraftAcquired"
+			}
+		}
+	}
+}

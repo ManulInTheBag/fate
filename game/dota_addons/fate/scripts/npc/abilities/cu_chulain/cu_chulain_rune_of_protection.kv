@@ -1,0 +1,41 @@
+"DOTAAbilities"
+{
+	//=================================================================================================================
+	// Lancer : Rune of Protection
+	//=================================================================================================================
+	"cu_chulain_rune_of_protection"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/cu_chulain/cu_chulain_rune_of_protection"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"25"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"			"antimage_spell_shield"
+		
+		"AbilityCastPoint"				"0.3"
+		"AbilityManaCost"				"100"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
+		"AnimationPlaybackRate" 		"1.0"
+		"AbilityCooldown"				"60 55 50 45 40"
+
+		"precache"
+		{
+			"particle"				"particles/units/heroes/hero_phantom_assassin/phantom_assassin_phantom_strike_end.vpcf"
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_phantom_lancer.vsndevts"
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type" 		"FIELD_FLOAT"
+				"duration"		"3"
+			}
+			"02"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"cooldown"		"60 55 50 45 40"
+			}
+		}
+	}
+}

@@ -1,0 +1,1 @@
+jeanne_fires = class({})

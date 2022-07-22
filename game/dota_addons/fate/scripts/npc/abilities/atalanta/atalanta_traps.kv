@@ -1,0 +1,241 @@
+"DOTAAbilities"
+{
+	//=======================================
+  // Atalanta: Traps (spellbook)
+  //=======================================
+  "atalanta_traps"
+  {
+    "BaseClass"						"ability_lua"
+    "ScriptFile"					"abilities/atalanta/traps"
+    "MaxLevel"						"5"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL" 
+    
+    "AbilityCastPoint"				"0"
+    "AbilityCooldown"				"0"
+    "AbilityManaCost"				"0"
+    "LevelsBetweenUpgrades"				"2"
+    "AbilityTextureName"			"custom/atalanta_traps"
+
+    "precache"
+    {
+      "particle" "particles/custom/atalanta/sting/ring.vpcf"
+      "particle" "particles/generic_gameplay/generic_sleep.vpcf"
+      "particle" "particles/custom/atalanta/sting/shot.vpcf"
+      
+      "particle" "particles/custom/atalanta/cobweb_arrow.vpcf"
+      "particle" "particles/custom/atalanta/cobweb_web.vpcf"
+      "particle" "particles/custom/atalanta/cobweb_web_current.vpcf"
+      "particle" "particles/custom/atalanta/cobweb_arrow_bounce.vpcf"
+      
+      "soundfile"	"soundevents/game_sounds_heroes/game_sounds_drowranger.vsndevts"
+      "model" "models/props_nature/bush_00.vmdl"
+      "particle" "particles/units/heroes/hero_windrunner/windrunner_shackleshot_pair_tree.vpcf"
+      "particle" "particles/custom/atalanta/trap_triggered.vpcf" 
+      "particle"  "particles/custom/atalanta/entangle/pair_tree.vpcf"
+      "particle"  "particles/custom/atalanta/entangle_better/pair_tree.vpcf"
+
+
+    }
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_FLOAT"
+        "gcd"		"10"
+      }
+    }
+  }
+  "atalanta_traps_close"
+  {
+    "BaseClass"						"ability_lua"
+    "ScriptFile"					"abilities/atalanta/traps"
+    "MaxLevel"						"1"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    "AbilityTextureName"			"silencer_last_word"
+    
+    "AbilityCastPoint"				"0"
+    "AbilityCooldown"				"0"
+    "AbilityManaCost"				"0"
+  }
+  //=======================================
+  // Atalanta: Sting Shot (traps)
+  //=======================================
+  "atalanta_sting_shot"
+  {
+    "BaseClass"						"ability_lua"
+    "ScriptFile"					"abilities/atalanta/sting_shot"
+    "MaxLevel"						"5"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    "AbilityTextureName"			"custom/atalanta_sting_shot"
+    "RequiredLevel"					"25"
+    "LevelsBetweenUpgrades"				"1"    
+    "AbilityCastPoint"				"0.7"
+    "AbilityCooldown"				"25"
+    "AbilityManaCost"				"150"
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_FLOAT"
+        "sleep_duration"		"2.5 3 3.5 4 4.5"
+      }
+      "02"
+      {
+        "var_type"					"FIELD_FLOAT"
+        "range"		"2500"
+      }      
+      "03"
+      {
+        "var_type"					"FIELD_FLOAT"
+        "cast_point"		"0.7"
+      }   
+    }
+  }
+  //=======================================
+  // Atalanta: Cobweb Shot (traps)
+  //=======================================
+  "atalanta_cobweb_shot"
+  {
+    "BaseClass"						"ability_lua"
+    "ScriptFile"					"abilities/atalanta/cobweb_shot"
+    "MaxLevel"						"5"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
+    "AbilityTextureName"			"custom/atalanta_cobweb_shot"
+    "AbilityCastAnimation" 			"ACT_DOTA_ATTACK"
+    "RequiredLevel"					"25"
+    "LevelsBetweenUpgrades"				"1"    
+    "AbilityCastPoint"				"0.3"
+    "AbilityCooldown"				"25"
+    "AbilityManaCost"				"200"
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_FLOAT"
+        "number_of_webs"		"6 7 8 9 10"
+      }
+      "02"
+      {
+        "var_type"					"FIELD_FLOAT"
+        "dps"		"150 185 220 255 290"
+      }
+      "03"
+      {
+        "var_type"					"FIELD_FLOAT"
+        "web_duration"		"6 7 8 9 10"
+      }
+      "04"
+      {
+        "var_type"					"FIELD_FLOAT"
+        "max_range_of_bounce"		"2500"
+      }
+      "05"
+      {
+        "var_type"					"FIELD_FLOAT"
+        "web_slow"		"-40"
+      }
+      "06"
+      {
+        "var_type"					"FIELD_FLOAT"
+        "web_lock_duration"		"1"
+      }
+    }
+  }
+  //=======================================
+  // Atalanta: Entangling Trap (traps)
+  //=======================================
+  "atalanta_entangling_trap"
+  {
+    "BaseClass"						"ability_lua"
+    "ScriptFile"					"abilities/atalanta/entangling_trap"
+    "MaxLevel"						"5"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
+    "AbilityTextureName"			"enchantress_untouchable"
+    "AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
+    "RequiredLevel"					"25"
+    "LevelsBetweenUpgrades"				"1"    
+    "AbilityCastPoint"				"0.2"
+    "AbilityCooldown"				"25"
+    "AbilityManaCost"				"300"
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_FLOAT"
+        "entangle_radius"		"400 450 500 550 600"
+      }
+      "02"
+      {
+        "var_type"					"FIELD_FLOAT"
+        "entangle_punish_dist"		"400"
+      }
+      "03"
+      {
+        "var_type"					"FIELD_FLOAT"
+        "damage"		"500 600 700 800 900"
+      }
+      "04"
+      {
+        "var_type"					"FIELD_FLOAT"
+        "entangle_duration"		"4 4.5 5 5.5 6"
+      }
+      "05"
+      {
+        "var_type"					"FIELD_FLOAT"
+        "stun_duration"		"1.5"
+      }
+      "06"
+      {
+        "var_type"					"FIELD_FLOAT"
+        "trigger_radius"		"300"
+      }
+      "07"
+      {
+        "var_type"					"FIELD_FLOAT"
+        "arm_delay"		"2"
+      }
+      "08"
+      {
+        "var_type"					"FIELD_FLOAT"
+        "initial_pull"		"200"
+      }
+      "09"
+      {
+        "var_type"					"FIELD_FLOAT"
+        "cast_range"		"400"
+      }
+      "10"
+      {
+        "var_type"					"FIELD_FLOAT"
+        "max_targets__TT"		"3"
+      }
+    }
+  }
+  //=======================================
+  // Atalanta: Reload (traps)
+  //=======================================
+  "atalanta_reload"
+  {
+    "BaseClass"						"ability_lua"
+    "ScriptFile"					"abilities/atalanta/reload"
+    "MaxLevel"						"5"
+    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    "AbilityTextureName"			"custom/atalanta_reload"
+    "RequiredLevel"					"25"
+    "LevelsBetweenUpgrades"				"1"    
+    "AbilityCastPoint"				"0"
+    "AbilityCooldown"				"10"
+    "AbilityManaCost"				"150"
+    
+    "AbilitySpecial"
+    {
+      "01"
+      {
+        "var_type"					"FIELD_FLOAT"
+        "channel_duration"		"3.1 2.7 2.3 1.9 1.5"
+      }
+    }
+  }
+}

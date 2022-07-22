@@ -1,0 +1,48 @@
+"DOTAAbilities"
+{
+	//=======================================
+	// Diarmuid : Minds Eye
+	//=======================================
+	"diarmuid_minds_eye"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/diarmuid/diarmuid_minds_eye"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"25"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityTextureName"			"custom/diarmuid_attribute_minds_eye"	
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"15"
+		"AbilityManaCost"				"0"
+
+		"precache"
+		{
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"duration"			"3.5"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"magic_res"			"0"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"evasion" 			"75"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"radius"			"1500"
+			}
+		}
+	}
+}

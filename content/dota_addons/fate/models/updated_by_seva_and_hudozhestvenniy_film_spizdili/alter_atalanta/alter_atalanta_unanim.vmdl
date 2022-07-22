@@ -1,0 +1,511 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc30:version{66cd490f-437b-4d7d-b009-7907d45422e2} -->
+{
+	rootNode = 
+	{
+		_class = "RootNode"
+		children = 
+		[
+			{
+				_class = "MaterialGroupList"
+				children = 
+				[
+					{
+						_class = "DefaultMaterialGroup"
+						remaps = 
+						[
+							{
+								from = "heroatalantaalter1.vmat"
+								to = "materials/atalanta/alteratalanta.vmat"
+							},
+							{
+								from = "heroatalantaalter5.vmat"
+								to = "materials/atalanta/atalanta_hair2.vmat"
+							},
+							{
+								from = "heroatalantaalter6.vmat"
+								to = "materials/atalanta/atalanta_head3.vmat"
+							},
+							{
+								from = "heroatalantaalter7.vmat"
+								to = "materials/updated_by_seva_and_hudozhestvenniy_film_spizdili/alter_atalanta/alter_atalanta7.vmat"
+							},
+						]
+						use_global_default = false
+						global_default_material = ""
+					},
+				]
+			},
+			{
+				_class = "AttachmentList"
+				children = 
+				[
+					{
+						_class = "Attachment"
+						name = "attach_hitloc"
+						parent_bone = "bone_newp0"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_attack1"
+						parent_bone = "Bone10"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+				]
+			},
+			{
+				_class = "HitboxSetList"
+				children = 
+				[
+					{
+						_class = "HitboxSet"
+						name = "default"
+						children = 
+						[
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone01"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -40.252274, -17.755234, -20.923798 ]
+								hitbox_maxs = [ 40.252396, 192.61261, 58.739609 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bonea65"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -16.518997, -24.004948, -90.424988 ]
+								hitbox_maxs = [ 46.481941, 19.866211, 8.003754 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone05"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -47.688187, -24.004948, -90.430664 ]
+								hitbox_maxs = [ 15.312721, 19.866219, 8.003754 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "BoneA66"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -11.297951, -11.917999, -106.371231 ]
+								hitbox_maxs = [ 18.499489, 35.021324, 4.37149 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone06"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -20.00703, -10.535561, -105.128036 ]
+								hitbox_maxs = [ 12.068497, 34.688236, 5.61467 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone02"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -22.39415, -14.559433, -0.563599 ]
+								hitbox_maxs = [ 22.463898, 14.594398, 17.321121 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone58"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -13.412689, -16.830441, -21.490509 ]
+								hitbox_maxs = [ 54.27565, 8.8172, 21.686066 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone08"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -62.581284, -31.290192, -17.515594 ]
+								hitbox_maxs = [ 16.963396, 26.122948, 57.19693 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "BoneA67"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -9.513748, -25.516144, -33.66885 ]
+								hitbox_maxs = [ 10.799149, 13.402622, 3.464005 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone63"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -11.051556, -25.434437, -33.639893 ]
+								hitbox_maxs = [ 9.261345, 13.484325, 3.493015 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_new1"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -21.325272, -14.591671, -0.812103 ]
+								hitbox_maxs = [ 21.327744, 17.241165, 23.314087 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone42"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -21.793091, -12.230095, -16.291534 ]
+								hitbox_maxs = [ 62.362274, 18.870552, 27.200256 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone09"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -56.765533, -11.012863, -15.480042 ]
+								hitbox_maxs = [ 28.575132, 12.555603, 27.077881 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_neww0"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -11.492035, -14.167301, -16.587952 ]
+								hitbox_maxs = [ 9.809807, 1.238541, 14.827454 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_newk1"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -9.732811, -14.210556, -16.583038 ]
+								hitbox_maxs = [ 11.618362, 1.19529, 14.832367 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone04"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -52.62616, -28.44401, -149.5354 ]
+								hitbox_maxs = [ 52.955307, 85.098686, 46.49292 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "BoneA68"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -9.903046, -16.946804, -9.866585 ]
+								hitbox_maxs = [ 10.409851, 2.365652, 2.006967 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone64"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -10.191242, -16.855495, -9.902047 ]
+								hitbox_maxs = [ 10.121658, 2.456961, 1.971454 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone03"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -26.499744, -15.477032, -2.054779 ]
+								hitbox_maxs = [ 26.569527, 25.441704, 51.412384 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone43"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.900391, -16.076103, -14.154419 ]
+								hitbox_maxs = [ 36.259888, 9.679153, 4.264313 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone10"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -36.367023, -16.050816, -14.181305 ]
+								hitbox_maxs = [ 0.794491, 9.704445, 4.237396 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_new2"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -9.635841, -11.25425, -9.074097 ]
+								hitbox_maxs = [ 9.613495, 2.073914, 11.204926 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_new3"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -9.530403, -11.227814, -9.039673 ]
+								hitbox_maxs = [ 9.718903, 2.100353, 11.239349 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_newp0"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.0, -2.0, -2.0 ]
+								hitbox_maxs = [ 2.0, 2.0, 2.0 ]
+							},
+						]
+					},
+				]
+			},
+			{
+				_class = "RenderMeshList"
+				children = 
+				[
+					{
+						_class = "RenderMeshFile"
+						name = "alter_atalanta_unanim"
+						filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/alter_atalanta/alter_atalanta_unanim.fbx"
+						import_scale = 1.0
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = [  ]
+						}
+					},
+				]
+			},
+			{
+				_class = "AnimationList"
+				children = 
+				[
+					{
+						_class = "AnimFile"
+						name = "alteratalanta_walk"
+						children = 
+						[
+							{
+								_class = "AnimSmoothLoop"
+								frames_from_start = 5
+								frames_from_end = 3
+							},
+						]
+						activity_name = "ACT_DOTA_RUN"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/alter_atalanta/alteratalanta.fbx"
+						start_frame = 445
+						end_frame = 468
+						framerate = 30.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "alteratalanta_idle"
+						activity_name = "ACT_DOTA_IDLE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/alter_atalanta/alteratalanta.fbx"
+						start_frame = 30
+						end_frame = 94
+						framerate = 30.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "alteratalanta_attack"
+						activity_name = "ACT_DOTA_ATTACK"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/alter_atalanta/alteratalanta.fbx"
+						start_frame = 174
+						end_frame = 200
+						framerate = 40.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "alteratalanta_spin"
+						activity_name = "ACT_DOTA_OVERRIDE_ABILITY_2"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/alter_atalanta/alteratalanta.fbx"
+						start_frame = 150
+						end_frame = 160
+						framerate = 10.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "alteratalanta_death"
+						activity_name = "ACT_DOTA_DIE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/alter_atalanta/alteratalanta.fbx"
+						start_frame = 498
+						end_frame = 581
+						framerate = 30.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "alteratalanta_jump"
+						activity_name = "ACT_DOTA_CAST_ABILITY_3"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/alter_atalanta/alteratalanta.fbx"
+						start_frame = 205
+						end_frame = 240
+						framerate = 10.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "alteratalanta_spin_attack"
+						activity_name = "ACT_DOTA_CAST_ABILITY_1"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/alter_atalanta/alteratalanta.fbx"
+						start_frame = 250
+						end_frame = 280
+						framerate = 30.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "alteratalanta_tauropolos"
+						activity_name = "ACT_DOTA_CAST_ABILITY_6"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/alter_atalanta/alteratalanta.fbx"
+						start_frame = 620
+						end_frame = 710
+						framerate = 30.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "alteratalanta_detonate"
+						activity_name = "ACT_DOTA_CAST_ABILITY_4"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/alter_atalanta/alteratalanta.fbx"
+						start_frame = 94
+						end_frame = 140
+						framerate = 30.0
+						reverse = false
+					},
+				]
+				default_root_bone_name = ""
+			},
+		]
+		model_archetype = ""
+		primary_associated_entity = ""
+		anim_graph_name = ""
+		importer_notes = """
+Imported from VMDL
+"""
+	}
+}

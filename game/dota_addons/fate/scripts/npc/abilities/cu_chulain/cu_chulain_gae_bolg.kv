@@ -1,0 +1,78 @@
+"DOTAAbilities"
+{
+	//=================================================================================================================
+	// Lancer : Gae Bolg - The Spear of Impaling Barbed Death
+	//=================================================================================================================
+	"cu_chulain_gae_bolg"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/cu_chulain/cu_chulain_gae_bolg"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityTextureName"			"custom/lancer_5th_gae_bolg"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3"
+		"AnimationPlaybackRate" 		"1.0"
+		
+		"IsCastableWhileHidden"			"1"
+		
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_chaos_knight/chaos_knight_reality_rift.vpcf"
+			"particle"		"particles/units/heroes/hero_centaur/centaur_double_edge.vpcf"
+			"particle"		"particles/units/heroes/hero_axe/axe_culling_blade_kill.vpcf"
+			"particle"		"particles/custom/lancer/lancer_heart_break_txt.vpcf"
+			"particle"		"particles/items_fx/dagon.vpcf"
+			"particle"		"particles/custom/diarmuid/gae_dearg_slash.vpcf"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_lion.vsndevts"
+		}
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"300"
+		"AbilityCastRangeBuffer"		"1000"
+		"AbilityCastPoint"				"1"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"18.0"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"400 525 650 775 900"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"400"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"delay"				"0.8"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"400 525 650 775 900"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"heart_break"		"200 240 280 320 360"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"atr_hb_pct"		"10 13 16 19 22"
+			}
+		}
+	}
+}

@@ -1,0 +1,58 @@
+"DOTAAbilities"
+{
+	"lancelot_harpe"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"		
+		"ScriptFile"                    "abilities/lancelot/lancelot_harpe"
+		"MaxLevel"						"3"
+		"LevelsBetweenUpgrades"         "322"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/lancelot_harpe"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3"
+		"AnimationPlaybackRate" 		"1.0"
+
+		"AbilityCastPoint"				"0.3"
+		"AbilityCastRange"				"%pull_range"
+		"AbilityCooldown"				"20"
+		"AbilityManaCost"				"350"
+
+		"precache"
+		{
+			"particle"				"particles/units/heroes/hero_night_stalker/nightstalker_void.vpcf"
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_night_stalker.vsndevts"
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"450 525 600"
+			}
+			"02"			
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"1.0 1.5 2.0"
+			}			
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"pull_range"			"500"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"min_radius"			"200"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"max_radius"			"350"
+			}
+		}		
+	}
+}
