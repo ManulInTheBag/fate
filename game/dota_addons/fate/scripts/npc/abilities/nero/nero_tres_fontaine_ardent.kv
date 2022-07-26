@@ -1,0 +1,828 @@
+"DOTAAbilities"
+{
+	//=================================================================================================================
+	// Nero : Tres Fontaine Ardent
+	//=================================================================================================================
+	"nero_tres_fontaine_ardent"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/nero/nero_tres_fontaine_ardent"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityTextureName"			"custom/nero_tres_fontaine_ardent"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
+		"AnimationPlaybackRate" 		"1.0"
+
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AbilityCastPoint"				"0.1"
+		"AbilityCooldown"				"7 6 5 4 3"
+		"AbilityManaCost"				"100"
+
+		"precache"
+		{
+			"particle"		"particles/items_fx/battlefury_cleave.vpcf"
+			"particle"		"particles/units/heroes/hero_ursa/ursa_enrage_buff.vpcf"
+			"particle"		"particles/units/heroes/hero_ember_spirit/ember_spirit_sleight_of_fist_targetted_marker.vpcf"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_ember_spirit.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_dragon_knight.vsndevts"
+		}
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"radius"			"700"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"150 200 250 300 350"
+			}		
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"interval_slash"	"0.2"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"aestus_cooldown"	"3"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"cooldown"			"12 11 10 9 8"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"max_range"			"1500"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Nero : Tres Fontaine Ardent new
+	//=================================================================================================================
+	"nero_tres_new"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/nero/nero_tres_new"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/nero_tres_fontaine_ardent"
+		//"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3"
+		//"AnimationPlaybackRate" 		"1.0"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+
+		"AbilityCastPoint"                          "0"
+        "AbilityManaCost"                           "200"
+        "AbilityCooldown"                           "10"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"speed"					"2000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"distance"				"600"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"200 225 250 275 300"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"400"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"window_duration"		"3"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"slash_damage"			"150 190 230 270 310"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"slash_count"			"5"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_per_stack"		"0"
+			}
+			"09"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"slash_damage_per_stack"	"0"
+			}
+			"10"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_scale"			"40"
+			}
+			"11"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"slash_damage_scale"	"20"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Nero : Gladiusanus Blauserum new
+	//=================================================================================================================
+	"nero_gladiusanus_new"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/nero/nero_gladiusanus_new"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/nero_gladiusanus_blauserum"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
+		"AnimationPlaybackRate" 		"1.0"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+
+		"AbilityCastPoint"                          "0.2"
+        "AbilityManaCost"                           "200"
+        "AbilityCooldown"                           "10"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration"			"1 1.25 1.5 1.75 2.0"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"width"					"100"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"120 165 210 255 300"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"range"					"300"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"window_duration"		"3"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"root_duration"			"1.5"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"landing_radius"		"500"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_scale"			"80"
+			}
+			"09"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_per_stack"		"0"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Nero : Rosa Ichthys
+	//=================================================================================================================
+	"nero_rosa_new"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/nero/nero_rosa_new"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/nero_rosa_ichthys"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3"
+		
+		// Ability stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"700"
+		"AbilityCastRangeBuffer"		"125"
+		"AbilityCastPoint"				"0.05"
+		"AbilityCooldown"				"10"
+		"AbilityManaCost"				"200"
+
+		// Data driven
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"						
+		{
+			"particle"			"particles/custom/archer/archer_overedge_slash.vpcf"
+			"particle"			"particles/units/heroes/hero_legion_commander/legion_duel_start_text_burst_flare.vpcf"
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_lion.vsndevts"
+		}		
+
+		// Ability special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"200 250 300 350 400"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"range"				"700"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"stun_duration"		"1.5"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"speed"					"2000"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"window_duration"				"3"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"motion_distance"			"1000"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_per_hit"		"150 200 250 300 350"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_scale"			"50"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_per_stack"		"0"
+			}
+			"09"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_per_hit_scale"	"25"
+			}
+			"10"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_per_hit_per_stack"	"0"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Nero : Tres Fontaine Ardent new
+	//=================================================================================================================
+	"nero_tres_buffed"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/nero/nero_tres_buffed"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/nero/nero_q"
+		//"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3"
+		//"AnimationPlaybackRate" 		"1.0"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+
+		"AbilityCastPoint"                          "0"
+        "AbilityManaCost"                           "0"
+        "AbilityCooldown"                           "0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"speed"					"2000"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"distance"				"1200"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"300 400 500 600 700"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"400"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"window_duration"		"3"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_per_second"		"80 110 140 170 200"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"duration"				"4"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_scale"			"120"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Nero : Gladiusanus Blauserum new
+	//=================================================================================================================
+	"nero_gladiusanus_buffed"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/nero/nero_gladiusanus_buffed"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/nero/nero_w"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
+		"AnimationPlaybackRate" 		"1.0"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+
+		"AbilityCastPoint"                          "0.2"
+        "AbilityManaCost"                           "0"
+        "AbilityCooldown"                           "0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration"			"2.5"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"width"					"100"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"225 300 375 450 525"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"range"					"200"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"window_duration"		"3"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"root_duration"			"1.5"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"		"1000"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_scale"			"100"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Nero : Rosa Ichthys
+	//=================================================================================================================
+	"nero_rosa_buffed"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/nero/nero_rosa_buffed"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/nero/nero_e"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3"
+		
+		// Ability stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"700"
+		"AbilityCastRangeBuffer"		"125"
+		"AbilityCastPoint"				"0.05"
+		"AbilityCooldown"				"0"
+		"AbilityManaCost"				"0"
+
+		// Data driven
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"						
+		{
+			"particle"			"particles/custom/archer/archer_overedge_slash.vpcf"
+			"particle"			"particles/units/heroes/hero_legion_commander/legion_duel_start_text_burst_flare.vpcf"
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_lion.vsndevts"
+		}		
+
+		// Ability special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"500 650 800 950 1100"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"range"				"700"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"stun_duration"		"1"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"speed"					"2000"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"window_duration"				"3"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"motion_distance"			"1000"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_per_hit"		"150 180 210 240 270"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_scale"			"200"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Nero : Flamma Imperatoria
+	//=================================================================================================================
+	"nero_heat"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/nero/nero_heat"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/nero/nero_heat_0"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1_END"
+		
+		// Ability stats
+		//-------------------------------------------------------------------------------------------------------------
+		//"AbilityCastRange"				"700"
+		//"AbilityCastRangeBuffer"		"125"
+		//"AbilityCastPoint"				"0.05"
+		//"AbilityCooldown"				"14 13 12 11 10"
+		//"AbilityManaCost"				"200"
+		"AbilityCooldown"				"20"
+
+		// Ability special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"duration"			"5"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"vectis_damage"		"50"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"vectis_damage_per_stack"	"10"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"radius"			"350"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Nero : Laus Saint Cladius
+	//=================================================================================================================
+	"nero_laus_saint_claudius_new"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/nero/nero_laus_saint_claudius_new"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/nero_laus_saint"
+		//"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3"
+		
+		// Ability stats
+		//-------------------------------------------------------------------------------------------------------------
+		//"AbilityCastPoint"				"0.3"
+		"AbilityCooldown"				"120"
+		"AbilityManaCost"				"0"
+		
+		// Data driven
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"						
+		{
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_lion.vsndevts"
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_ember_spirit.vsndevts"
+			"soundfile"         "soundevents/gachi.vsndevts"
+		}
+
+		// Ability special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"1500"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"stun_duration"		"2.8"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"burn_damage"		"400"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"duration"			"3"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"explosion_damage"	"200"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"explosion_count"	"8"
+			}
+		}		
+	}
+	//=================================================================================================================
+	// Nero : Imperial Privilege
+	//=================================================================================================================
+	"nero_imperial_open"
+    {
+    	    "BaseClass"                                     "ability_lua"
+    	    "ScriptFile"                                    "abilities/nero/nero_imperial"
+    	    "AbilityBehavior"                               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    	    "AbilityTextureName"                            "custom/nero/nero_w_2"
+
+            "AbilityCastPoint"                              "0.0"
+            "AbilityCooldown"                               "0"
+            "AbilityManaCost"                               "0"
+
+            "MaxLevel"                                      "2"
+            "RequiredLevel"                                 "1"
+            "LevelsBetweenUpgrades"                         "1"
+
+            "AbilitySpecial"
+            {
+                "01"
+                {
+                    "var_type"                              "FIELD_INTEGER"
+                    "mana_cost"                             "25"
+                }
+            }
+    }
+
+    "nero_imperial_close"
+    {
+    	    "BaseClass"                                     "ability_lua"
+    	    "ScriptFile"                                    "abilities/nero/nero_imperial"
+    	    "AbilityBehavior"                               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL |  DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    	    "AbilityTextureName"                            "custom/nero/nero_w_2"
+
+            "AbilityCastPoint"                              "0.0"
+            "AbilityCooldown"                               "0"
+            "AbilityManaCost"                               "0"
+
+            "MaxLevel"                                      "2"
+    }
+
+    "nero_imperial_activate"
+    {
+    	    "BaseClass"                                     "ability_lua"
+    	    "ScriptFile"                                    "abilities/nero/nero_imperial"
+    	    "AbilityBehavior"                               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL |  DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    	    "AbilityTextureName"                            "custom/nero/nero_question"
+
+            "AbilityCastPoint"                              "0.0"
+            "AbilityCooldown"                               "0"
+            "AbilityManaCost"                               "0"
+
+            "MaxLevel"                                      "2"
+            "AbilitySpecial"
+            {
+                "01"
+                {
+                    "var_type"                              "FIELD_INTEGER"
+                    "duration"                             	"6"
+                }
+            }
+    }
+    "nero_health"
+    {
+    	    "BaseClass"                                     "ability_lua"
+    	    "ScriptFile"                                    "abilities/nero/nero_imperial"
+    	    "AbilityBehavior"                               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL |  DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    	    "AbilityTextureName"                            "custom/nero/nero_health"
+
+            "AbilityCastPoint"                              "0.0"
+            "AbilityCooldown"                               "0"
+            "AbilityManaCost"                               "0"
+
+            "MaxLevel"                                      "2"
+            "AbilitySpecial"
+            {
+                "01"
+                {
+                    "var_type"                              "FIELD_INTEGER"
+                    "base_value"                            "0 20"
+                }
+                "02"
+                {
+                    "var_type"                              "FIELD_INTEGER"
+                    "bonus_value"                           "20"
+                }
+            }
+    }
+    "nero_mana"
+    {
+    	    "BaseClass"                                     "ability_lua"
+    	    "ScriptFile"                                    "abilities/nero/nero_imperial"
+    	    "AbilityBehavior"                               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL |  DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    	    "AbilityTextureName"                            "custom/nero/nero_mana"
+
+            "AbilityCastPoint"                              "0.0"
+            "AbilityCooldown"                               "0"
+            "AbilityManaCost"                               "0"
+
+            "MaxLevel"                                      "2"
+            "AbilitySpecial"
+            {
+                "01"
+                {
+                    "var_type"                              "FIELD_INTEGER"
+                    "base_value"                            "0 6"
+                }
+                "02"
+                {
+                    "var_type"                              "FIELD_INTEGER"
+                    "bonus_value"                           "6"
+                }
+            }
+    }
+    "nero_tactics"
+    {
+    	    "BaseClass"                                     "ability_lua"
+    	    "ScriptFile"                                    "abilities/nero/nero_imperial"
+    	    "AbilityBehavior"                               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL |  DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    	    "AbilityTextureName"                            "custom/nero/nero_defence"
+
+            "AbilityCastPoint"                              "0.0"
+            "AbilityCooldown"                               "0"
+            "AbilityManaCost"                               "0"
+
+            "MaxLevel"                                      "2"
+            "AbilitySpecial"
+            {
+                "01"
+                {
+                    "var_type"                              "FIELD_INTEGER"
+                    "base_value"                            "0 0"
+                }
+                "02"
+                {
+                    "var_type"                              "FIELD_FLOAT"
+                    "bonus_value"                           "0.7 1.4"
+                }
+            }
+    }
+    "nero_defence"
+    {
+    	    "BaseClass"                                     "ability_lua"
+    	    "ScriptFile"                                    "abilities/nero/nero_imperial"
+    	    "AbilityBehavior"                               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL |  DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    	    "AbilityTextureName"                            "custom/nero/nero_tactics"
+
+            "AbilityCastPoint"                              "0.0"
+            "AbilityCooldown"                               "0"
+            "AbilityManaCost"                               "0"
+
+            "MaxLevel"                                      "2"
+            "AbilitySpecial"
+            {
+                "01"
+                {
+                    "var_type"                              "FIELD_INTEGER"
+                    "base_mr"                            	"0 2.0"
+                }
+                "02"
+                {
+                    "var_type"                              "FIELD_FLOAT"
+                    "bonus_mr"                           	"2.0"
+            	}
+            	"03"
+                {
+                    "var_type"                              "FIELD_INTEGER"
+                    "base_armor"                            "0 2"
+                }
+                "04"
+                {
+                    "var_type"                              "FIELD_INTEGER"
+                    "bonus_armor"                           "2"
+                }
+            }
+    }
+}

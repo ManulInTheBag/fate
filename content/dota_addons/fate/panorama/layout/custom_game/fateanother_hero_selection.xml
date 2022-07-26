@@ -1,0 +1,76 @@
+<root>
+    <styles>
+        <include src="s2r://panorama/styles/dotastyles.vcss_c" />
+        <include src="s2r://panorama/styles/custom_game/fateanother_hero_selection.vcss_c" />
+    </styles>
+    <scripts>
+        <include src="s2r://panorama/scripts/custom_game/fateanother_hero_selection.vjs_c" />
+    </scripts>
+    <Panel class="HeroSelection" hittest="false">
+         <Panel class="Hidden">
+             <Image src="s2r://panorama/images/custom_game/selection/npc_dota_hero_bounty_hunter_png.vtex"/>
+             <Image src="s2r://panorama/images/custom_game/selection/npc_dota_hero_huskar_png.vtex"/>
+             <Image src="s2r://panorama/images/custom_game/selection/npc_dota_hero_omniknight_png.vtex"/>
+             <Image src="s2r://panorama/images/custom_game/selection/npc_dota_hero_crystal_maiden_png.vtex"/>
+             <Image src="s2r://panorama/images/custom_game/selection/npc_dota_hero_phantom_lancer_png.vtex"/>
+             <Image src="s2r://panorama/images/custom_game/selection/npc_dota_hero_legion_commander_png.vtex"/>
+             <Image src="s2r://panorama/images/custom_game/selection/npc_dota_hero_windrunner_png.vtex"/>
+             <Image src="s2r://panorama/images/custom_game/selection/npc_dota_hero_vengefulspirit_png.vtex"/>
+             <Image src="s2r://panorama/images/custom_game/selection/npc_dota_hero_mirana_png.vtex"/>
+             <Image src="s2r://panorama/images/custom_game/selection/npc_dota_hero_skywrath_mage_png.vtex"/>
+             <Image src="s2r://panorama/images/custom_game/selection/npc_dota_hero_bloodseeker_png.vtex"/>
+             <Image src="s2r://panorama/images/custom_game/selection/npc_dota_hero_enchantress_png.vtex"/>
+             <Image src="s2r://panorama/images/custom_game/selection/npc_dota_hero_sven_png.vtex"/>
+             <Image src="s2r://panorama/images/custom_game/selection/npc_dota_hero_doom_bringer_png.vtex"/>
+             <Image src="s2r://panorama/images/custom_game/selection/npc_dota_hero_templar_assassin_png.vtex"/>
+             <Image src="s2r://panorama/images/custom_game/selection/npc_dota_hero_queenofpain_png.vtex"/>
+             <Image src="s2r://panorama/images/custom_game/selection/npc_dota_hero_juggernaut_png.vtex"/>
+             <Image src="s2r://panorama/images/custom_game/selection/npc_dota_hero_shadow_shaman_png.vtex"/>
+             <Image src="s2r://panorama/images/custom_game/selection/npc_dota_hero_ember_spirit_png.vtex"/>
+             <Image src="s2r://panorama/images/custom_game/selection/npc_dota_hero_spectre_png.vtex"/>
+             <Image src="s2r://panorama/images/custom_game/selection/npc_dota_hero_lina_png.vtex"/>
+             <Image src="s2r://panorama/images/custom_game/selection/npc_dota_hero_chen_png.vtex"/>
+             <Image src="s2r://panorama/images/custom_game/selection/npc_dota_hero_drow_ranger_png.vtex"/>
+    		 <Image src="s2r://panorama/images/custom_game/selection/npc_dota_hero_tidehunter_png.vtex"/>
+             <Image src="s2r://panorama/images/custom_game/selection/npc_dota_hero_phantom_assassin_png.vtex"/>
+             <Image src="s2r://panorama/images/custom_game/selection/npc_dota_hero_beastmaster_png.vtex"/>
+             <Image src="s2r://panorama/images/custom_game/selection/npc_dota_hero_naga_siren_png.vtex"/>
+             <Image src="s2r://panorama/images/custom_game/selection/npc_dota_hero_riki_png.vtex"/>
+           
+             <Image src="s2r://panorama/images/custom_game/selection/random_png.vtex"/>
+
+             <Image src="s2r://panorama/images/custom_game/portrait/npc_dota_hero_bounty_hunter_png.vtex"/>
+             <Image src="s2r://panorama/images/custom_game/portrait/npc_dota_hero_huskar_png.vtex"/>
+             <Image src="s2r://panorama/images/custom_game/portrait/npc_dota_hero_omniknight_png.vtex"/>
+             <Image src="s2r://panorama/images/custom_game/portrait/npc_dota_hero_crystal_maiden_png.vtex"/>
+             <Image src="s2r://panorama/images/custom_game/portrait/npc_dota_hero_phantom_lancer_png.vtex"/>
+             <Image src="s2r://panorama/images/custom_game/portrait/npc_dota_hero_legion_commander_png.vtex"/>
+             <Image src="s2r://panorama/images/custom_game/portrait/npc_dota_hero_windrunner_png.vtex"/>
+             <Image src="s2r://panorama/images/custom_game/portrait/npc_dota_hero_vengefulspirit_png.vtex"/>
+             <Image src="s2r://panorama/images/custom_game/portrait/npc_dota_hero_mirana_png.vtex"/>
+             <Image src="s2r://panorama/images/custom_game/portrait/npc_dota_hero_skywrath_mage_png.vtex"/>
+             <Image src="s2r://panorama/images/custom_game/portrait/npc_dota_hero_bloodseeker_png.vtex"/>
+             <Image src="s2r://panorama/images/custom_game/portrait/npc_dota_hero_enchantress_png.vtex"/>
+             <Image src="s2r://panorama/images/custom_game/portrait/npc_dota_hero_sven_png.vtex"/>
+             <Image src="s2r://panorama/images/custom_game/portrait/npc_dota_hero_doom_bringer_png.vtex"/>
+             <Image src="s2r://panorama/images/custom_game/portrait/npc_dota_hero_templar_assassin_png.vtex"/>
+             <Image src="s2r://panorama/images/custom_game/portrait/npc_dota_hero_queenofpain_png.vtex"/>
+             <Image src="s2r://panorama/images/custom_game/portrait/npc_dota_hero_juggernaut_png.vtex"/>
+             <Image src="s2r://panorama/images/custom_game/portrait/npc_dota_hero_shadow_shaman_png.vtex"/>
+             <Image src="s2r://panorama/images/custom_game/portrait/npc_dota_hero_ember_spirit_png.vtex"/>
+             <Image src="s2r://panorama/images/custom_game/portrait/npc_dota_hero_spectre_png.vtex"/>
+             <Image src="s2r://panorama/images/custom_game/portrait/npc_dota_hero_lina_png.vtex"/>
+             <Image src="s2r://panorama/images/custom_game/portrait/npc_dota_hero_chen_png.vtex"/>
+             <Image src="s2r://panorama/images/custom_game/portrait/npc_dota_hero_drow_ranger_png.vtex"/>
+    		 <Image src="s2r://panorama/images/custom_game/portrait/npc_dota_hero_tidehunter_png.vtex"/>
+             <Image src="s2r://panorama/images/custom_game/portrait/npc_dota_hero_phantom_assassin_png.vtex"/>
+             <Image src="s2r://panorama/images/custom_game/portrait/npc_dota_hero_beastmaster_png.vtex"/>
+             <Image src="s2r://panorama/images/custom_game/portrait/npc_dota_hero_naga_siren_png.vtex"/>
+             <Image src="s2r://panorama/images/custom_game/portrait/npc_dota_hero_riki_png.vtex"/>
+         </Panel>
+        <Panel id="container" class="container">             <Panel class="pickStatus">                 <Label id="status" class="statusLabel"></Label>                 <Panel id="timePanel" class="timePanel">                     <Label id="time" class="timeLabel"></Label>                     <Image class="timeRing" src="file://{images}/status_icons/timer_ring.psd"/>                 </Panel>             </Panel>             <Panel id="heroes" class="heroes">
+			        
+				 <Label class="LabelHIF1" text="Easy Tier:"/>
+				  <Label class="LabelHIF2" text="Normal Tier:"/>
+				   <Label class="LabelHIF3" text="Hard Tier:"/>
+				                <Panel id="EasyHero" class="EasyHero" hittest="false">                </Panel>                <Panel id="NormalHero" class="NormalHero" hittest="false">                 </Panel>				<Panel id="HardHero" class="HardHero" hittest="false">                 </Panel>			             </Panel>         </Panel>    </Panel></root>

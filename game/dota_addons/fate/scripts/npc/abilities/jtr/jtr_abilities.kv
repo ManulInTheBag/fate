@@ -1,0 +1,335 @@
+#base "jtr_dagger_throw.kv"
+#base "jtr_surgery.kv"
+#base "jtr_murderer_mist.kv"
+#base "jtr_maria_the_ripper.kv"
+#base "jtr_whitechapel_murderer.kv"
+#base "jtr_information_erase.kv"
+
+"DOTAAbilities"
+{
+	//=======================================
+	// Holy Mother Attribute
+	//=======================================
+	"jtr_holy_mother_attribute"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/jtr/jtr_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/jtr/holy_mother"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"14"
+
+		"precache"
+		{
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"stack_duration"				"20"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_per_stack"		"12"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Holy Mother Passive
+	//=================================================================================================================
+	"jtr_holy_mother_passive"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/jtr/jtr_holy_mother_passive"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityTextureName"			"custom/jtr/holy_mother"
+		"MaxLevel"						"1"
+		
+		"precache"
+		{
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"stack_duration"				"20"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_per_stack"		"12"
+			}
+		}
+	}
+
+	//=======================================
+	// Jack : Mental Pollution Attribute
+	//=======================================
+	"jtr_mental_pollution_attribute"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/jtr/jtr_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/jtr/bloody_thirst_d"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"16"
+
+		"precache"
+		{
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cdr_on_damage"			"2"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cooldown"				"20"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Jack : Mental Pollution Passive
+	//=================================================================================================================
+	"jtr_mental_pollution_passive"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/jtr/jtr_mental_pollution_passive"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityTextureName"			"custom/jtr/mental_pollution"
+		"MaxLevel"						"1"
+		
+		"precache"
+		{
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cdr_on_damage"			"2"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cooldown"				"20"
+			}
+		}
+	}
+
+	//=======================================
+	// Jack : Surgical Procedure Attribute
+	//=======================================
+	"jtr_surgical_procedure_attribute"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/jtr/jtr_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/jtr/surgical_procedure"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"16"
+
+		"precache"
+		{
+		}
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_healing"			"35"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"agi_bonus"				"1.0"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"healing_cap"			"8"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Jack : Surgical Procedure Passive
+	//=================================================================================================================
+	"jtr_surgical_procedure_passive"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/jtr/jtr_surgical_procedure_passive"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityTextureName"			"custom/jtr/surgical_procedure"
+		"MaxLevel"						"1"
+		
+		"precache"
+		{
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"base_healing"			"35"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"agi_bonus"				"100"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"kill_heal"				"50"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"kill_mana"				"50"
+			}
+		}
+	}
+
+	//=======================================
+	// Efficient Killer Attribute
+	//=======================================
+	"jtr_efficient_killer_attribute"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/jtr/jtr_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/jtr/maria_the_ripper_sequence"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"14"
+
+		"precache"
+		{
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"300"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cast_range"			"800"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Efficient Killer Passive
+	//=================================================================================================================
+	"jtr_efficient_killer_passive"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/jtr/jtr_efficient_killer_passive"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityTextureName"			"custom/jtr/maria_the_ripper_sequence"
+		"MaxLevel"						"1"
+		
+		"precache"
+		{
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_agi"				"30"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"agi_damage"			"1"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Bloody Thirst
+	//=================================================================================================================
+	"jtr_bloody_thirst"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/jtr/jtr_bloody_thirst"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityTextureName"			"custom/jtr/bloody_thirst_color_correction"
+		"MaxLevel"						"2"
+		"AbilityCooldown"				"28"
+		"AbilityCastAnimation" 			"ACT_DOTA_DIE"
+		
+		"precache"
+		{
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"health_threshold"		"25"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"wounded_radius"		"800 1000"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"passive_duration"		"4 8"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"active_duration"		"2.5"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"behavior"				"2 4"		//2 for passive, 4 for no target
+			}
+		}
+	}
+}

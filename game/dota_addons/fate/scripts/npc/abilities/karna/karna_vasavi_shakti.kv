@@ -1,0 +1,57 @@
+"DOTAAbilities"
+{	
+	"karna_vasavi_shakti"
+	{		
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/karna/karna_vasavi_shakti"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY" 
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/karna/karna_vasavi_shakti"
+		
+		"precache"
+		{
+			"particle"			"particles/custom/karna/vasavi_shakti/vasavi_shakti_beam.vpcf"
+			"particle"			"particles/custom/karna/vasavi_shakti/vasavi_ground.vpcf"
+			"particle"			"particles/custom/karna/vasavi_shakti/fire_stream.vpcf"
+			"particle"			"particles/custom/karna/vasavi_shakti/ground_erupt/karna_fire_eruption.vpcf"
+		}
+		
+		"AbilityCastPoint"				"0.4"
+		"AbilityCooldown"				"52"
+		"AbilityManaCost"				"800"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"cast_point"			"0.4"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"600"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"800 1150 1500 1850 2200"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"remove_duration"		"35"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cast_range"			"1000"
+			}
+		}
+	}
+}

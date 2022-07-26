@@ -1,0 +1,55 @@
+"DOTAAbilities"
+{
+	"jtr_surgery"
+    {
+        "BaseClass"                     "ability_lua"
+        "ScriptFile"                    "abilities/jtr/jtr_surgery.lua"
+        "MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE"
+		"AbilityTextureName"			"custom/jtr/surgery_slash"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
+		"AbilityCastPoint"				"0.3"
+        "AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"        
+		"AbilityCooldown"				"28 26 24 22 20"
+		"AbilityManaCost"				"200"
+		"AbilityCastRange"				"450"
+
+		"precache"
+		{
+			"particle"					"particles/custom/gawain/gawain_meltdown.vpcf"
+			"particle"					"particles/custom/gawain/gawain_supernova_explosion.vpcf"
+			"particle"					"particles/custom/gawain/manjinx_gawain_e.vpcf"
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_phoenix.vsndevts"
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_warlock.vsndevts"
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{	
+				"var_type"			"FIELD_INTEGER"
+				"slashes"			"8"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"attack_radius"			"300"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"base_damage"		"80 90 100 110 120"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"blood_rage_vision"	"750 875 1000 1125 1250"
+			}		
+		}
+    }	
+}

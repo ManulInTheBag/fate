@@ -1,0 +1,66 @@
+"DOTAAbilities"
+{
+	"lishuwen_cosmic_orbit"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/lishuwen/lishuwen_cosmic_orbit"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityTextureName"			"custom/lishuwen_cosmic_orbit"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AnimationPlaybackRate" 		"1"
+		"precache"
+		{
+			"particle"					"particles/custom/generic/fate_red_shield.vpcf"
+			"particle"					"particles/items2_fx/satanic_buff.vpcf"
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_sven.vsndevts"
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_night_stalker.vsndevts"
+		}
+		
+		// Cast
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.5"
+		"AbilityCooldown"				"4"
+		"AbilityManaCost"				"200"
+		
+		// Ability Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"number_of_attacks"			"5"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"attack_speed"				"100 125 150 175 200"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"					"40 55 70 85 100"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"8"
+			}
+			"05"
+			{				
+				"var_type"					"FIELD_FLOAT"
+				"movespeed_duration"		"1.0 1.5 2.0 2.5 3.0"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"attribute_bonus_attacks"	"2"
+			}
+		}		
+	}
+}

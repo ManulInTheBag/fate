@@ -1,0 +1,127 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf27:version{36c3961f-02a4-4c52-bf8f-6e3147d7d142} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_flConstantRadius = 96.0
+	m_flMaxDrawDistance = 100000.0
+	m_nMaxParticles = 96
+	m_Children = 
+	[
+		{
+			m_ChildRef = resource:"particles/atalanta/rider_bellerophon_1_trail.vpcf"
+			m_bPreventNameBasedLookup = false
+		},
+	]
+	m_Operators = 
+	[
+		{
+			_class = "C_OP_Decay"
+		},
+		{
+			_class = "C_OP_FadeInSimple"
+			m_flFadeInTime = 0.1
+		},
+		{
+			_class = "C_OP_FadeOutSimple"
+			m_flFadeOutTime = 0.8
+		},
+		{
+			_class = "C_OP_OscillateVector"
+			m_RateMin = [ -3.0, -3.0, -3.0 ]
+			m_RateMax = [ 3.0, 3.0, 3.0 ]
+			m_FrequencyMax = [ 3.0, 3.0, 3.0 ]
+		},
+		{
+			_class = "C_OP_BasicMovement"
+			m_Gravity = [ 0.0, 0.0, 50.0 ]
+			m_fDrag = 0.05
+		},
+		{
+			_class = "C_OP_PositionLock"
+		},
+		{
+			_class = "C_OP_ColorInterpolate"
+			m_ColorFade = [ 94, 62, 199, 255 ]
+		},
+		{
+			_class = "C_OP_InterpolateRadius"
+			m_flStartScale = 3.0
+			m_flBias = 0.75
+		},
+	]
+	m_Renderers = 
+	[
+		{
+			_class = "C_OP_RenderSprites"
+			m_nSequenceCombineMode = "2"
+			m_bAdditive = true
+			m_nRefractBlurType = "2"
+			m_hTexture = resource:"materials/particle/particle_flares/particle_flare_006.vtex"
+			VisibilityInputs = 
+			{
+				m_flInputMax = 0.0
+			}
+		},
+	]
+	m_Initializers = 
+	[
+		{
+			_class = "C_INIT_RandomLifeTime"
+			m_fLifetimeMin = 0.15
+			m_fLifetimeMax = 0.4
+		},
+		{
+			_class = "C_INIT_CreateWithinSphere"
+		},
+		{
+			_class = "C_INIT_RandomRotation"
+		},
+		{
+			_class = "C_INIT_RandomColor"
+			m_ColorMin = [ 80, 13, 128, 255 ]
+			m_ColorMax = [ 34, 9, 43, 255 ]
+			m_nTintBlendMode = "2"
+		},
+		{
+			_class = "C_INIT_RandomYaw"
+		},
+		{
+			_class = "C_INIT_RandomRadius"
+			m_flRadiusMin = 80.0
+			m_flRadiusMax = 112.0
+		},
+	]
+	m_Emitters = 
+	[
+		{
+			_class = "C_OP_ContinuousEmitter"
+			m_flEmitRate = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 90.0
+			}
+		},
+	]
+	m_nBehaviorVersion = 10
+	m_controlPointConfigurations = 
+	[
+		{
+			m_name = "preview"
+			m_drivers = 
+			[
+				{
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_vecOffset = [ 0.0, 0.0, 0.0 ]
+					m_angOffset = [ null, null, null ]
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 1
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_vecOffset = [ 0.0, 0.0, 0.0 ]
+					m_angOffset = [ null, null, null ]
+					m_entityName = "self"
+				},
+			]
+		},
+	]
+}

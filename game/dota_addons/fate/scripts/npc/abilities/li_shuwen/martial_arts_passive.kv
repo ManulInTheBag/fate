@@ -1,0 +1,29 @@
+"DOTAAbilities"
+{
+	"lishuwen_martial_arts_passive_dummy"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/lishuwen/lishuwen_martial_arts_passive_dummy"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"322"
+		"AbilityBehavior" 				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"		
+		"AbilityTextureName"			"custom/lishuwen_attribute_improve_martial_arts"
+
+		"precache"
+		{
+			"particle"			"particles/econ/items/antimage/antimage_weapon_basher_ti5/am_manaburn_basher_ti_5.vpcf"
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_antimage.vsndevts"
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"mana_burn_amount"			"72"
+			}			
+		}
+	}
+}

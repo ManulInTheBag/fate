@@ -1,0 +1,658 @@
+"DOTAAbilities"
+{
+	//========================================
+	// True Assassin : Self Modification
+	//========================================
+	"true_assassin_self_modification"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityTextureName"			"custom/true_assassin_self_modification"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_6"
+		"AnimationPlaybackRate" 		"1.0"
+		"precache"
+		{
+			"particle"				"particles/units/heroes/hero_bane/bane_fiendsgrip_ground_rubble.vpcf"
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_life_stealer.vsndevts"
+		}
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"18"
+		"AbilityCastPoint"				"0.5"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"200"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"heal_amount"				"200 250 300 350 400"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"duration"					"5"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"agi_increase"				"1 1.25 1.5 1.75 2"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"heal_over_time"			"40 50 60 70 80"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"actual_heal_over_time"		"10 12 15 17 20"
+			}
+		}
+		
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"		"Hero_LifeStealer.OpenWounds.Cast"
+				"Target"			"CASTER"
+			}
+			//"Heal"
+			//{
+			//	"Target"		"CASTER"
+			//	"HealAmount"	"%heal_amount"
+			//}
+			"RunScript"
+			{
+				"ScriptFile"		"ta_ability"
+				"Function"			"OnModStart"
+				"StatIncrease"		"%stat_increase"
+				"HealAmount"		"%heal_amount"
+			}
+		}
+
+		"OnUpgrade"
+		{
+			"RunScript"
+			{
+				"ScriptFile"		"ta_ability"
+				"Function"			"SelfModRefresh"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_ta_self_mod"
+			{
+				"IsPurgable"		"true"
+				"ThinkInterval"		"0.25"
+				"OnIntervalThink"
+				{
+					"Heal"
+					{
+						"Target"		"CASTER"
+						"HealAmount"	"%actual_heal_over_time"
+					}		
+				}	// Search
+
+
+				"Duration"		"5.0"
+			}
+			"modifier_ta_self_mod_passive"
+			{
+				"Passive"		"1"
+				"IsHidden"		"1"
+				"OnKill"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"ta_ability"
+						"Function"			"SelfModRefresh"
+					}					
+				}
+				"OnRespawn"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"ta_ability"
+						"Function"			"SelfModRefresh"
+					}					
+				}
+			}
+			"modifier_ta_agi_bonus"
+			{
+				"IsHidden"		"0"
+				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE | MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"		"%agi_increase"
+				}
+			}
+		}
+	}
+
+	//=====================================
+	// True Assassin : Snatch Strike
+	//=====================================
+	"true_assassin_snatch_strike"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/true_assassin_snatch_strike"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3"
+		"AnimationPlaybackRate" 		"1.0"
+		
+		"AbilityCastPoint"				"0.3"
+		"AbilityCastRange"				"%range"
+		"AbilityCooldown"				"25"
+		"AbilityManaCost"				"400"
+		
+		"precache"
+		{
+			"particle"					"particles/units/heroes/hero_night_stalker/nightstalker_void.vpcf"
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_night_stalker.vsndevts"
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"15 20 25 30 35"
+			}
+
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attack_ratio"			"100 150 200 250 300"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"15"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"heal_ratio"			"50"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"range"					"400"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"visionDuration"		"5"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"set_vision"			"250"
+			}
+		}
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"			"ta_ability"
+				"Function"				"OnStealAbilityStart"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+				"EffectName"			"Hero_Nightstalker.Void"
+				"Target"				"CASTER"
+			}
+			"RunScript"
+			{
+				"ScriptFile"			"ta_ability"
+				"Function"				"OnStealStart"
+				"Damage"				"%damage"
+				"StrSteal"				"%str_steal"
+				"Duration"				"%duration"
+			}
+		}
+		"Modifiers"
+		{
+			"modifier_steal_str_reduction"
+			{
+				"EffectName"			"particles/units/heroes/hero_night_stalker/nightstalker_void.vpcf"
+				"EffectAttachType"		"follow_origin"
+				"IsDebuff"				"1"
+				"Duration"				"%duration"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"%str_steal"
+				}
+			}
+			"modifier_steal_str_increase"
+			{
+				"Duration"		"%duration"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS"			"%agi_gain"
+				}
+			}
+			"modifier_steal_vision"
+			{
+				"IsDebuff"		"1"
+				"Duration"		"%visionDuration"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"ta_ability"
+						"Function"		"ReduceVision"
+					}
+				}	
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"ta_ability"
+						"Function"		"RevertVision"
+					}
+				}
+			}
+		}
+	}
+
+	
+	//=====================================
+	// True Assassin : Ambush
+	//=====================================
+	"true_assassin_ambush"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"BaseClass"						"ability_datadriven"
+		"AbilityTextureName"			"custom/true_assassin_ambush"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"12 11 10 9 8"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100"		
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"cast_delay"			"0.3"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"6.0"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"100 150 200 250 300"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_movement_speed"	"50"
+			}
+		}
+
+		"precache"
+		{
+			"particle"		"particles\units\heroes\hero_pugna\pugna_decrepify.vpcf"
+			"particle"		"particles/units/heroes/hero_bounty_hunter/bounty_hunter_windwalk.vpcf"
+			"particle"		"particles/msg_fx/msg_crit.vpcf"
+			"soundfile"   	"soundevents/game_sounds_heroes/game_sounds_templar_assassin.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_bounty_hunter.vsndevts"
+		}
+	}
+	
+	//=====================================
+	// True Assassin : Ambush
+	//=====================================
+	"true_assassin_ambush_kv"
+	{
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"BaseClass"						"ability_datadriven"
+		"AbilityTextureName"			"custom/true_assassin_ambush"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"12 11 10 9 8"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100"		
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"cast_delay"			"0.3"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"6.0"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"100 150 200 250 300"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_movement_speed"	"50"
+			}
+		}
+
+		"precache"
+		{
+			"particle"		"particles\units\heroes\hero_pugna\pugna_decrepify.vpcf"
+			"particle"		"particles/units/heroes/hero_bounty_hunter/bounty_hunter_windwalk.vpcf"
+			"particle"		"particles/msg_fx/msg_crit.vpcf"
+			"soundfile"   	"soundevents/game_sounds_heroes/game_sounds_templar_assassin.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_bounty_hunter.vsndevts"
+		}
+
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+			    "EffectName"	"Hero_BountyHunter.WindWalk"
+			    "Target" 		"CASTER"
+			}
+			"FireEffect"
+			{
+				"Target"			"CASTER"
+				"EffectName"		"particles/units/heroes/hero_bounty_hunter/bounty_hunter_windwalk.vpcf"
+				"EffectAttachType"	"attach_origin"
+			}
+			"RunScript"
+			{
+				"ScriptFile"		"ta_ability"
+				"Function"			"OnAmbushStart"				
+			}
+
+		}
+
+		"Modifiers"
+		{
+			"modifier_ambush"
+			{
+			    "OnCreated"
+			    {
+				    "FireEffect"
+				    {
+					     "EffectName"  		"particles/units/heroes/hero_bounty_hunter/bounty_hunter_windwalk_smoke.vpcf"
+					     "EffectAttachType" "follow_origin"
+					     "Target" 			"CASTER"
+				    }
+			    }
+				"OnAttackStart"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"ta_ability"
+						"Function"			"OnAmbushBroken"
+					}					
+				}	
+				"Duration"					"%duration"
+				"EffectName"				"particles\units\heroes\hero_pugna\pugna_decrepify.vpcf"	
+				"EffectAttachType"			"follow_overhead"
+				"States"
+			    {
+				    "MODIFIER_STATE_INVISIBLE" 			"MODIFIER_STATE_VALUE_ENABLED"
+				    "MODIFIER_STATE_NO_UNIT_COLLISION" 	"MODIFIER_STATE_VALUE_ENABLED"
+			    }
+			    "Properties"
+			    {
+			    	"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%bonus_movement_speed"
+			    }
+			}
+			"modifier_ambush_empowered"
+			{
+			    "OnCreated"
+			    {
+				    "FireEffect"
+				    {
+					     "EffectName"  		"particles/units/heroes/hero_bounty_hunter/bounty_hunter_windwalk_smoke.vpcf"
+					     "EffectAttachType" "follow_origin"
+					     "Target" 			"CASTER"
+				    }
+			    }
+				"OnAttackStart"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"ta_ability"
+						"Function"			"OnAmbushBroken"
+					}					
+				}	
+				"Duration"					"%duration"
+				"EffectName"				"particles\units\heroes\hero_pugna\pugna_decrepify.vpcf"	
+				"EffectAttachType"			"follow_overhead"
+				"States"
+			    {
+				    "MODIFIER_STATE_INVISIBLE" 			"MODIFIER_STATE_VALUE_ENABLED"
+				    "MODIFIER_STATE_TRUESIGHT_IMMUNE"	"MODIFIER_STATE_VALUE_ENABLED"
+				    "MODIFIER_STATE_NO_UNIT_COLLISION" 	"MODIFIER_STATE_VALUE_ENABLED"
+			    }
+			    "Properties"
+			    {
+			    	"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%bonus_movement_speed"
+			    }
+			}
+			"modifier_first_hit"
+			{
+				"Duration"		"%duration" //Reduced from duration+1 to duration, I assume +1 is to account for travel time of dagger when one breaks ambush at the end of duration. No longer necessary.
+				"IsHidden"		"0"
+				"OnAttackStart"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"ta_ability"
+						"Function"			"OnFirstHitStart"
+					}					
+				}				
+				"OnAttackFailed"
+				{
+					"RemoveModifier"
+					{
+						"ModifierName"		"modifier_first_hit"
+						"Target"			"CASTER"
+					}
+				}
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"ta_ability"
+						"Function"			"OnAbilityCast"
+					}								
+				}
+			}
+			"modifier_thrown"
+			{
+				"Duration"		"1.0" //I don't think any attack takes > 1s to land.
+				"IsHidden"		"1"			
+				"OnAttackLanded"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"ta_ability"
+						"Function"			"OnFirstHitLanded"
+						"Damage"			"%damage"
+					}	
+					"FireEffect"
+					{
+						"EffectName"		"particles/units/heroes/hero_bounty_hunter/bounty_hunter_jinada_sparks.vpcf"
+						"EffectAttachType"	"attach_hitloc"
+						"Target"			"TARGET"
+					}
+					"FireEffect"
+					{
+						"EffectName"		"particles/msg_fx/msg_crit.vpcf"
+						"EffectAttachType"	"follow_overhead"
+						"Target"			"TARGET"
+						"ControlPoints"
+						{
+							"01"		"9 %damage 4"			//pre number post
+							"02"		"1 4 0"					//lifetime digits
+							"03"		"255 0 0"				//color
+						}
+					}				
+				}
+			}
+		}
+
+	}
+	
+	//=====================================
+	// True Assassin : Dirk
+	//=====================================
+	"true_assassin_dirk_attr_temp"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"						"2"
+		"RequiredLevel"					"25"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AbilityTextureName"			"custom/true_assassin_dirk"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_4"
+		"AnimationPlaybackRate" 		"1.0"
+		"AbilityUnitTargetFlag"			"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityCastPoint"				"0.1"
+		"AbilityCastRange"				"1100"		
+		"AbilityCastRangeBuffer"		"300"
+		"AbilityCooldown"				"8"
+		"AbilityManaCost"				"100"
+		
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_phantom_assassin/phantom_assassin_stifling_dagger.vpcf"
+			"particle"		"particles/units/heroes/hero_dazzle/dazzle_poison_debuff.vpcf"
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_phantom_assassin.vsndevts"
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"180"
+			}
+
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"poison_dot"			"15 30"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"poison_slow"			"-15 -30"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"duration"				"5 10"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"max_target"			"5"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"		"ta_ability"
+				"Function"			"OnDirkStart"
+				"Damage"			"%damage"
+				"MaxTarget"		"%max_target"
+			}
+			"FireSound"
+			{
+				"EffectName"	"Hero_PhantomAssassin.Dagger.Cast"
+				"Target"		"CASTER"
+			}
+		}
+
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"			"true"
+			"RunScript"
+			{
+				"ScriptFile"    "ta_ability"
+				"Function"      "OnDirkHit"
+				"Damage"		"%damage"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_dirk_poison"
+			{
+				"EffectName"		"particles/units/heroes/hero_dazzle/dazzle_poison_debuff.vpcf"
+				"EffectAttachType"	"follow_origin"			
+				"IsDebuff"		"1"
+				"Duration"		"%duration"
+				"ThinkInterval"		"1.0"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"ta_ability"
+						"Function"			"OnDirkPoisonTick"
+						"Damage"			"%poison_dot"
+					}
+				}			
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%poison_slow"
+					"MODIFIER_PROPERTY_STATS_STRENGTH_BONUS"		"-5"
+				}
+			}
+		}
+	}
+	
+}

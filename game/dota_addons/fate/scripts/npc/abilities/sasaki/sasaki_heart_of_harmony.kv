@@ -1,0 +1,78 @@
+"DOTAAbilities"
+{
+	//========================================
+	// False Assassin : Heart of Harmony
+	//========================================
+	"sasaki_heart_of_harmony"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/sasaki/sasaki_heart_of_harmony.lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityTextureName"			"custom/false_assassin_heart_of_harmony"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AbilityCastAnimation" 			"ACT_DOTA_ITEM_PICKUP"
+		"AnimationPlaybackRate" 		"1.0"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+
+		"precache"
+		{
+			"particle"					"particles/econ/items/abaddon/abaddon_alliance/abaddon_aphotic_shield_alliance.vpcf"
+			"particle"					"particles/units/heroes/hero_pugna/pugna_decrepify.vpcf"	
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_abaddon.vsndevts"
+		}
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.0"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"15"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"0.5"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"threshold"				"300 250 200 150 100"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage_reduc"			"-65 -70 -75 -80 -85"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"slash_count"			"3 3 4 4 5"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration"			"1.5"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"stun_threshold"		"0"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"focus_regen"			"100"
+			}
+		}
+	}
+
+}

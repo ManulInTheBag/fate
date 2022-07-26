@@ -1,0 +1,34 @@
+"DOTAAbilities"
+{
+	//================================================
+	// Iskander : Charisma
+	//================================================
+	"iskandar_charisma"
+	{
+		"BaseClass" 					"ability_lua"
+		"ScriptFile"					"abilities/iskandar/iskandar_charisma"
+		"AbilityBehavior" 				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityTextureName"            "custom/iskander_charisma"
+		"MaxLevel"                      "2"
+		"AbilityCastRange"				"1000"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"radius"			"1000"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"bonus_ms"			"15"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"bonus_damage"		"0 20"
+			}
+		}
+	}
+}

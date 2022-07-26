@@ -1,0 +1,41 @@
+"DOTAAbilities"
+{
+    "semiramis_sikera_usum"
+    {
+    	    "BaseClass"                                     "ability_lua"
+    	    "ScriptFile"                                    "abilities/semiramis/semiramis_sikera_usum"
+    	    "AbilityBehavior"                               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL "
+    	    "AbilityTextureName"                            "custom/semiramis/semiramis_arrogant_king"
+
+            "AbilityCastPoint"                              "0.0"
+            "AbilityCooldown"                               "0"
+            "AbilityManaCost"                               "0"
+
+            "MaxLevel"                                      "5"
+            "RequiredLevel"                                 "1"
+            "LevelsBetweenUpgrades"                         "2"
+
+            "AbilitySpecial"
+            {
+                "01"
+                {
+                    "var_type"                              "FIELD_INTEGER"
+                    "mana_return"                           "100"
+                }
+            }
+    }
+
+    "semiramis_sikera_usum_close"
+    {
+    	    "BaseClass"                                     "ability_lua"
+    	    "ScriptFile"                                    "abilities/semiramis/semiramis_sikera_usum"
+    	    "AbilityBehavior"                               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    	    "AbilityTextureName"                            "silencer_last_word"
+
+            "AbilityCastPoint"                              "0.0"
+            "AbilityCooldown"                               "0"
+            "AbilityManaCost"                               "0"
+
+            "MaxLevel"                                      "1"
+    }
+}
