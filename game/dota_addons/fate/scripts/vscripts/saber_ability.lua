@@ -1,3 +1,5 @@
+LinkLuaModifier("modifier_excalibur_slow", "saber_ability", LUA_MODIFIER_MOTION_NONE)
+
 avalonCooldown = true -- UP if true, 
 vectorA = Vector(0,0,0)
 combo_available = false
@@ -89,7 +91,7 @@ function InvisibleAirPull(keys)
 	ability:ApplyDataDrivenModifier(caster, target, "modifier_invisible_air_target", {})
 
 	if caster.IsChivalryAcquired then
-		keys.Damage = keys.Damage + 150
+		keys.Damage = keys.Damage + 100
 	end
 
 	DoDamage(caster, target , keys.Damage, DAMAGE_TYPE_MAGICAL, 0, keys.ability, false)
@@ -252,7 +254,17 @@ function OnExcaliburStart(keys)
 		if caster:IsAlive() then
 			excal.vSpawnOrigin = caster:GetAbsOrigin() 
 			excal.vVelocity = caster:GetForwardVector() * keys.Speed/0.3
-			local projectile = ProjectileManager:CreateLinearProjectile(excal)
+			local counter = 10
+			Timers:CreateTimer(0, function()        
+            counter = counter -1
+            if not caster:IsAlive() then return end
+            local projectile = ProjectileManager:CreateLinearProjectile(excal)
+            	if(counter == 0) then
+                return  
+            	end
+            return 0.08
+        	end)
+ 
 			ScreenShake(caster:GetOrigin(), 5, 0.1, 2, 20000, 0, true)
 			AddFOWViewer(2,Vector(caster:GetAbsOrigin().x,caster:GetAbsOrigin().y,caster:GetAbsOrigin().z + 200) + caster:GetForwardVector()*100, 10, 1, false)
     		AddFOWViewer(3,Vector(caster:GetAbsOrigin().x,caster:GetAbsOrigin().y,caster:GetAbsOrigin().z + 200) + caster:GetForwardVector()*100, 10, 1, false)
@@ -326,12 +338,33 @@ function OnExcaliburHit(keys)
 	local caster = keys.caster
 	local target = keys.target 
 	local damage = keys.Damage
+	local ManaScaling = keys.ManaScaling
 	local ply = caster:GetPlayerOwner()
-	if caster.IsExcaliburAcquired == true then damage = caster:GetMaxMana()*(1+0.2*keys.ability:GetLevel()) end
+	if caster.IsExcaliburAcquired == true then
+		 damage = damage + (caster:GetMaxMana()*  ManaScaling/100)/10
+	end
 	if target:GetUnitName() == "gille_gigantic_horror" then keys.Damage = keys.Damage*1.3 end
-	
+	target:AddNewModifier(caster, keys.ability, "modifier_excalibur_slow", {Duration = 1})
+	giveUnitDataDrivenModifier(caster, target, "locked", 1)
 	DoDamage(keys.caster, keys.target, damage , DAMAGE_TYPE_MAGICAL, 0, keys.ability, false)
 end
+
+modifier_excalibur_slow = class({})
+
+function modifier_excalibur_slow:DeclareFunctions()
+	local funcs = {MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE}
+
+	return funcs
+end
+
+function modifier_excalibur_slow:GetModifierMoveSpeedBonus_Percentage()
+	return -self:GetAbility():GetSpecialValueFor("slow_power")
+end
+
+function modifier_excalibur_slow:IsHidden()
+	return false 
+end
+
 
 function OnExcaliburVfxStart(keys)
 	local caster = keys.caster
@@ -434,16 +467,7 @@ function OnExcaliburStart(keys)
 end
 ]]
 
-function OnExcaliburHit(keys)
-	local caster = keys.caster
-	local target = keys.target 
-	local damage = keys.Damage
-	local ply = caster:GetPlayerOwner()
-	if caster.IsExcaliburAcquired == true then damage = caster:GetMaxMana()*(1+0.2*keys.ability:GetLevel()) end
-	if target:GetUnitName() == "gille_gigantic_horror" then keys.Damage = keys.Damage*1.3 end
-	
-	DoDamage(keys.caster, keys.target, damage , DAMAGE_TYPE_MAGICAL, 0, keys.ability, false)
-end
+
 
 function OnMaxVfxStart(keys)
 	local caster = keys.caster
@@ -984,8 +1008,11 @@ function OnChivalryAcquired(keys)
 	local caster = keys.caster
 	local ply = caster:GetPlayerOwner()
 	local hero = caster:GetPlayerOwner():GetAssignedHero()
+	local chivalry_cd = hero:AddAbility("chivalry_cd")
 	hero.IsChivalryAcquired = true
-	hero:AddNewModifier(hero,hero:FindAbilityByName("saber_caliburn"),"modifier_chivalry_attribute",{})
+	chivalry_cd:SetLevel(1)
+	chivalry_cd:SetHidden(true)
+
 
 	-- Set master 1's mana 
 	local master = hero.MasterUnit

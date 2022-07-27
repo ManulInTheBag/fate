@@ -156,6 +156,7 @@ end
 function modifier_atalanta_curse_passive:OnTakeDamage(args)
 	if not self:GetParent().EvolutionAcquired then return end
 	if args.attacker ~= self:GetParent() then return end
+	if(  args.unit:GetTeam() == self:GetParent():GetTeam()) then return end
 	if args.damage_type == 2 then
 		self:GetParent():Heal(args.damage*0.15, self:GetParent())
 	end

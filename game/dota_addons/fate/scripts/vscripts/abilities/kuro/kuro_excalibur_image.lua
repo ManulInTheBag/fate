@@ -44,7 +44,7 @@ function kuro_excalibur_image:OnSpellStart()
 	local ability = self
 	local target_enemy = self:GetCursorTarget()
 	local target_point = target_enemy:GetAbsOrigin()
-
+	if IsSpellBlocked(target_enemy) then return end
 	local point = ability:GetCursorTarget():GetAbsOrigin()
     --local sound_cast = "CD.Cast.Dora"
 

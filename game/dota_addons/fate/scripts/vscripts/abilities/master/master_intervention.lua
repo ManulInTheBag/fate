@@ -17,8 +17,8 @@ function master_intervention:OnSpellStart()
 
 	if not hero then hero = caster.HeroUnit end
 
-	for i = 1, #revokes do
-		if hero:HasModifier(revokes[i]) then
+	for i = 1, #d_seal_locked do
+		if hero:HasModifier(d_seal_locked[i]) then
 			self:EndCooldown()
 			SendErrorMessage(caster:GetPlayerOwnerID(), "#Revoked_Error")
 			return

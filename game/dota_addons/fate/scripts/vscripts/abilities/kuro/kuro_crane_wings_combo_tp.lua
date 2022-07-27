@@ -27,7 +27,7 @@ function kuro_crane_wings_combo_tp:OnSpellStart()
 	local ability = self
 	local radius = self:GetSpecialValueFor("radius")
 	local crane_ability = caster:FindAbilityByName("kuro_crane_wings")
-	local damage = crane_ability:GetDamage()
+	local damage = self:GetSpecialValueFor("damage") + caster:GetAverageTrueAttackDamage(caster) * self:GetSpecialValueFor("atk_ratio_first") / 100
 
 	local dist = 300
 	local kappa = true
@@ -136,7 +136,7 @@ function kuro_crane_wings_combo_tp:OnProjectileHit_ExtraData(hTarget, vLocation,
 
 	local caster = self:GetCaster()
 	local kanshou_ability = caster:FindAbilityByName("kuro_kanshou_byakuya")
-	local damage = kanshou_ability:GetDamage()
+	local damage = self:GetSpecialValueFor("damage_swords") + caster:GetAverageTrueAttackDamage(caster) * self:GetSpecialValueFor("atk_ratio_second") / 100
 	local KBHitFx = ParticleManager:CreateParticle("particles/econ/courier/courier_mechjaw/mechjaw_death_sparks.vpcf", PATTACH_CUSTOMORIGIN, caster)
 	ParticleManager:SetParticleControl(KBHitFx, 0, hTarget:GetAbsOrigin()) 
 	-- Destroy particle after delay

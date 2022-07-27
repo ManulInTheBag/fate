@@ -42,7 +42,8 @@ softdispellable = {
     "modifier_jeanne_trail_debuff",
     "modifier_saito_mind_eye_buff",
     "modifier_saito_quickslash_bonus",
-    "modifier_master_intervention"
+    "modifier_master_intervention",
+    "modifier_merlin_excalibur_attack"
 }
 
 strongdispellable = {
@@ -88,6 +89,7 @@ strongdispellable = {
     "modifier_saito_quickslash_bonus",
     --"modifier_true_assassin_selfmod",
     "modifier_selfmod_agility",
+    "modifier_merlin_excalibur_attack",
 
     -- Strong Dispelable
     "modifier_b_scroll",
@@ -101,6 +103,7 @@ strongdispellable = {
     "modifier_cursed_lance_bp",
     "modifier_saito_fdb_vision",
     "modifier_saito_formlessness_invis",
+    "modifier_merlin_hero_creation",
     "modifier_replenishment_heal",
     --"modifier_heracles_berserk",
     "modifier_master_intervention" 
@@ -150,6 +153,7 @@ deargdispellable = {
     "modifier_saito_quickslash_bonus",
     --"modifier_true_assassin_selfmod",
     "modifier_selfmod_agility", 
+    "modifier_merlin_excalibur_attack",
 
 
     -- Strong Dispelable
@@ -165,6 +169,7 @@ deargdispellable = {
     "modifier_replenishment_heal",
     "modifier_saito_fdb_vision",
     "modifier_saito_formlessness_invis",
+    "modifier_merlin_hero_creation",
     --"modifier_heracles_berserk",
     "modifier_master_intervention",
   
@@ -183,6 +188,14 @@ revokes = {
     "round_pause",
     "modifier_nss_shock",
     "modifier_tres_fontaine_nero"
+}
+
+--this revokes will not give you to use D seal. If you want to make it unusable in revoke just change the intervention table to check to 'revokes'
+d_seal_locked = {
+    "jump_pause",
+    "pause_sealdisabled",
+    "round_pause",
+    "modifier_tres_fontaine_nero" --idk wtf this is lols
 }
 
 locks = {
@@ -252,6 +265,7 @@ cleansable = {
     "modifier_medusa_breaker_facing_stack",
     "modifier_medusa_breaker_not_facing",
     "modifier_saito_slow",
+    "modifier_morgan_slow",
     -- Other CCs
     "modifier_stunned",
     "modifier_rule_breaker",
@@ -280,11 +294,18 @@ cleansable = {
     "modifier_jeanne_trail_debuff",
     "modifier_khsn_silence",
     "modifier_saito_magres_down",
+    "modifier_merlin_orb_silence",
+    "modifier_merlin_illusion",
+    "modifier_pepe_mute",
 
     -- Debuffs
     "modifier_gust_heaven_indicator_enemy",
     "modifier_tamamo_wind_debuff",
-    "modifier_tamamo_ice_debuff"
+    "modifier_tamamo_fire_debuff",
+    "modifier_tamamo_ice_debuff",
+    "modifier_subterranean_grasp_void",
+    "modifier_subterranean_grasp_fire",
+    "modifier_tamamo_witchcraft_debuff"
 }
 
 slowmodifier = {
@@ -323,7 +344,8 @@ slowmodifier = {
     "modifier_death_door",
     "modifier_khsn_blink_slow",
     "modifier_roar_slow",
-    "modifier_saito_slow"
+    "modifier_saito_slow",
+    "modifier_morgan_slow",
 }
 
 donotlevel = {
@@ -396,6 +418,7 @@ CannotReset = {
     "medea_hecatic_graea_combo",
     "lancelot_blessing_of_fairy",
     "lancelot_arms_mastership_improved",
+    "lancelot_arms_mastership",
     "lancelot_nuke",
     "avenger_endless_loop",
     "avenger_dark_passage",
@@ -471,7 +494,18 @@ CannotReset = {
     "medusa_monstrous_strength",
     "nero_heat",
     "saito_undefeatable_style",
-    "saito_undefeatable_style_active"
+    "saito_undefeatable_style_active",
+    "gilles_prelati_spellbook",
+    "emiya_rho_aias",
+    "atalanta_crossing_arcadia",
+    "merlin_avalon",
+    "merlin_hero_creation",
+    "merlin_garden_of_avalon",
+    "arturia_alter_mana_discharge",
+    "okita_mind_eye" 
+    
+    
+    
    
 }
 
@@ -591,11 +625,12 @@ tHorsemanClass = {
     "npc_dota_hero_windrunner",
     "npc_dota_hero_phantom_assassin",
     "npc_dota_hero_riki",
-    "npc_dota_hero_skeleton_king"
+    "npc_dota_hero_skeleton_king",
+    "npc_dota_hero_puck"
 }
 
 tipTable = { "<font color='#58ACFA'>Tip : C Scroll</font> is everyone's bread-and-butter item that you should be carrying at all times. Use it to guarantee your skill combo, or help your teammate by interrupting enemy.",
-    "<font color='#58ACFA'>Tip : </font>Work towards gathering 20 all stats in order to acquire <font color='#58ACFA'>Combo</font>, a defining move of hero that can turn the tides of battle. You can level  Stat Bonus of your hero or buy stats with Master's mana  to boost the timing of acquisition.",
+    "<font color='#58ACFA'>Tip : </font>Work towards gathering 30 all stats in order to acquire <font color='#58ACFA'>Combo</font>, a defining move of hero that can turn the tides of battle. You can level  Stat Bonus of your hero or buy stats with Master's mana  to boost the timing of acquisition.",
     "<font color='#58ACFA'>Tip : </font>To increase your survivability, consider carrying <font color='#58ACFA'>A Scroll and B Scroll</font> that grant you significant damage mitigation for duration.",
     "<font color='#58ACFA'>Tip : </font>Using <font color='#58ACFA'>Scout Familiar and Ward Familiar</font> is an excellent way to develop a vision control, allowing your team to plan ahead for enemy moves.",
     "<font color='#58ACFA'>Tip : </font>You will get a warning ping when enemy Servant's presence is detected within 2500 range around your hero.",
@@ -1171,7 +1206,9 @@ end
 function IsFemaleServant(target)
     for i=1, #femaleservant do
         if target:GetName() == femaleservant[i] then
-            return true
+            if( not target:HasModifier("modifier_merlin_hero_creation")) then
+                 return true
+            end
         end
     end
     
@@ -1529,6 +1566,15 @@ function DoDamage(source, target , dmg, dmg_type, dmg_flag, abil, isLoop)
         end
     end
 
+    --SAITO DAMAGE REDUCTION
+    if(target:GetName() == "npc_dota_hero_terrorblade" and dmg < 2500) then
+        if(  target:HasModifier("modifier_saito_fdb_vision")) then
+            dmg = dmg*(1- target:FindAbilityByName("saito_hajime_fdb"):GetSpecialValueFor("resist")/100) 
+        elseif( target:HasModifier("modifier_saito_combo")) then
+            dmg = dmg*(1- target:FindAbilityByName("saito_undefeatable_style"):GetSpecialValueFor("resist")/100) 
+         end
+    end
+
     -- Check if target has Avalon up
     if target:GetName() == "npc_dota_hero_legion_commander" and target:HasModifier("modifier_avalon") then
         local incomingDmg = dmg
@@ -1607,7 +1653,7 @@ function DoDamage(source, target , dmg, dmg_type, dmg_flag, abil, isLoop)
           and not isLoop
           and not (abil:GetName() == "avenger_verg_avesta" and source:GetTeam() == target:GetTeam())
          --Queens glass game attribute fix
-          and not (target:HasModifier("modifier_queens_glass_game_check_link") and not target:HasModifier("modifier_qgg_oracle"))
+          and not (target:HasModifier("modifier_queens_glass_game_check_link") and not target:HasModifier("modifier_qgg_oracle")) 
           and target.linkTable ~= nil
         then
             -- Calculate the damage to secondary targets separately, in order to prevent MR from being twice as effective on primary target.
@@ -1802,6 +1848,11 @@ function RandomPointInCircle(origin, radius)
     u = RandomFloat(0, radius)+RandomFloat(0, radius)
     if u > radius then u = radius * 2 - u end
     return Vector(u*math.cos(t), u*math.sin(t),0) + origin
+end
+--hi! im too //Zlodemon
+function PointOnCircle(origin, radius, angle)
+    
+    return Vector(radius*math.cos(angle), radius*math.sin(angle),0) + origin
 end
 
 -- Colors
@@ -2166,7 +2217,9 @@ local heroNames = {
     ["npc_dota_hero_skeleton_king"] = "King Hassan",
     ["npc_dota_hero_ursa"] = "Atalanta Alter",
     ["npc_dota_hero_razor"] = "Jeanne d'Arc Alter",
-    ["npc_dota_hero_terrorblade"] = "Saito Hajime"
+    ["npc_dota_hero_terrorblade"] = "Saito Hajime",
+    ["npc_dota_hero_puck"] = "Merlin"
+    
 }
 
 
@@ -2218,7 +2271,9 @@ local heroCombos = {
     ["npc_dota_hero_skeleton_king"] = "khsn_combo",
     ["npc_dota_hero_ursa"] = "atalanta_skia",
     ["npc_dota_hero_razor"] = "jeanne_lagron_combo",
-    ["npc_dota_hero_terrorblade"] = "saito_undefeatable_style"
+    ["npc_dota_hero_terrorblade"] = "saito_undefeatable_style",
+    ["npc_dota_hero_puck"] = "merlin_garden_of_avalon"
+    
 }
 
 function GetHeroCombo(hero)

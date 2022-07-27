@@ -74,7 +74,7 @@ function kuro_rosa_ichthys:OnSpellStart()
 	local target = self:GetCursorTarget()
 	local damage = self:GetSpecialValueFor("damage")
 	local hCaster = self:GetCaster()
-
+	if IsSpellBlocked(target) then return end
 	local close_ability = self:GetCaster():FindAbilityByName("kuro_spellbook_close")
 	close_ability:OnSpellCalled(self)
 
@@ -98,7 +98,7 @@ function kuro_rosa_ichthys:OnSpellStart()
 	StartAnimation(caster, {duration = 1, activity = ACT_DOTA_ATTACK_EVENT, rate = 1.5})	
 	caster:MoveToTargetToAttack(target)
 
-	if IsSpellBlocked(target) then return end
+	
 
 	caster:AddNewModifier(caster,self,"modifier_rosa_buffer", {})
 

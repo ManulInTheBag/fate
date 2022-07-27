@@ -29,8 +29,9 @@ function medea_hecatic_graea_combo:OnSpellStart()
 	local boltradius = self:GetSpecialValueFor("radius_bolt")
 	local boltvector = nil
 	local boltCount  = 0
-	local maxBolt = 10
-	local barrageRadius = self:GetSpecialValueFor("radius")
+	local maxBolt = 20
+	local barrageRadius_small = self:GetSpecialValueFor("radius_small")
+	local barrageRadius_big = self:GetSpecialValueFor("radius_big")
 	local travelTime = 0.7
 	local ascendTime = travelTime + 4.0
 	local descendTime = ascendTime + 0.75
@@ -58,9 +59,8 @@ function medea_hecatic_graea_combo:OnSpellStart()
 	HGAbility:StartCooldown(HGCooldown)
 	
 	if caster.IsHGImproved then
-		barrageRadius = barrageRadius + 300
-		maxBolt = 13
-		damage = damage + caster:GetIntellect() * 1.5
+		maxBolt = 23
+		damage = damage + caster:GetIntellect() * 1
 	end 
 
 	caster:AddNewModifier(caster, ability, "modifier_hecatic_graea_anim", { Duration = 4 })
@@ -100,40 +100,62 @@ function medea_hecatic_graea_combo:OnSpellStart()
         		end
     		end)
 	end)
+	 
+	local isFirstLoop  = false
+ 
+	local targeted_rays_amount = 0
+	local big_bolts  = 0
+	local big_bolts_temp = 0
 	Timers:CreateTimer(travelTime, function()
+		-- For the first round of shots, find all servants within AoE and guarantee one ray hit
 		if isFirstLoop == false then
 			isFirstLoop = true
-			initTargets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false) 
-			for k,v in pairs(initTargets) do
-				self:DropRay(caster, damage, boltradius, ability, v:GetAbsOrigin(), "particles/custom/caster/hecatic_graea/ray.vpcf")
-			end
-			maxBolt = maxBolt - #initTargets
+			self:DropRay(caster, damage, boltradius, ability, targetPoint, "particles/custom/caster/hecatic_graea/ray.vpcf")
+			initTargets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, barrageRadius_big, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false) 
+			targeted_rays_amount = #initTargets
+			big_bolts = math.ceil(maxBolt/3)
+			big_bolts_temp = big_bolts
+			return 0.1
+		elseif targeted_rays_amount ~= 0 then
+		self:DropRay(caster, damage, boltradius, ability, initTargets[targeted_rays_amount]:GetAbsOrigin(), "particles/custom/caster/hecatic_graea/ray.vpcf")
+		targeted_rays_amount = targeted_rays_amount - 1
+ 		maxBolt = maxBolt - 1
+		big_bolts = math.ceil(maxBolt/3)
+		 big_bolts_temp = big_bolts
+		return 0.1
 		else
 			if maxBolt <= boltCount then return end
 		end
-
-		local rayTarget = RandomPointInCircle(GetGroundPosition(caster:GetAbsOrigin(), caster), radius)
-		while GridNav:IsBlocked(rayTarget) or not GridNav:IsTraversable(rayTarget) do
-			rayTarget = RandomPointInCircle(GetGroundPosition(caster:GetAbsOrigin(), caster), radius)
+		local radius = barrageRadius_big
+		local maxbolt_temp = 	maxBolt  
+		local lazy_removal = 0
+		if(big_bolts ~= 0) then 
+			 radius = barrageRadius_small
+			big_bolts = big_bolts - 1
+			maxbolt_temp = big_bolts_temp
+	 	else
+			lazy_removal = big_bolts_temp
 		end
-		self:DropRay(caster, damage, boltradius, ability, rayTarget, "particles/custom/caster/hecatic_graea_powered/ray.vpcf")
+		rayTarget =  PointOnCircle(GetGroundPosition(caster:GetAbsOrigin(), caster), radius - 150, (maxbolt_temp -  boltCount    )*360/(maxbolt_temp-lazy_removal) )
 
+		self:DropRay(caster, damage, boltradius, ability, rayTarget, "particles/custom/caster/hecatic_graea/ray.vpcf")
 	    boltCount = boltCount + 1
-		return 0.1
+		return 0.085
     end
+    
     )
 
 	
 	Timers:CreateTimer(travelTime + 2.5, function()
-		local targets = FindUnitsInRadius(caster:GetTeam(), GetGroundPosition(caster:GetAbsOrigin(), caster), nil, barrageRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
+		local targets = FindUnitsInRadius(caster:GetTeam(), GetGroundPosition(caster:GetAbsOrigin(), caster), nil, barrageRadius_big, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
 		for k,v in pairs(targets) do
         	DoDamage(caster, v, 1500, DAMAGE_TYPE_MAGICAL, 0, ability, false)
         	v:AddNewModifier(caster, v, "modifier_stunned", {Duration = 1.5})
 		end
   	  	local particle = ParticleManager:CreateParticle("particles/custom/caster/hecatic_graea_powered/area.vpcf", PATTACH_CUSTOMORIGIN, caster)
   	  	ParticleManager:SetParticleControl(particle, 0, GetGroundPosition(caster:GetAbsOrigin(), caster)) 
-	    ParticleManager:SetParticleControl(particle, 1, Vector(barrageRadius * 2.5, 1, 1))
-	    ParticleManager:SetParticleControl(particle, 2, Vector(barrageRadius * 75, 1, 1))
+	    ParticleManager:SetParticleControl(particle, 1, Vector(barrageRadius_big * 2.5, 1, 1))
+	    ParticleManager:SetParticleControl(particle, 2, Vector(barrageRadius_big * 75, 1, 1))
 	    EmitGlobalSound("Medea_Combo_1")
 	    caster:EmitSound("Hero_ObsidianDestroyer.SanityEclipse.Cast")
 		return

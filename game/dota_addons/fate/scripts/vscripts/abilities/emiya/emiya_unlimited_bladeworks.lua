@@ -13,8 +13,8 @@ local ubwTargets = nil
 local ubwTargetLoc = nil
 local ubwCasterPos = nil
 local ubwdummies = nil
-local ubwCenter = Vector(5600, -4398, 200)
-local aotkCenter = Vector(500, -4800, 208)
+local ubwCenter = Vector(5926, -4837, 222)
+local aotkCenter = Vector(288,-4504, 261)
 
 function emiya_unlimited_bladeworks:GetBuffDuration()
     local caster = self:GetCaster()
@@ -289,7 +289,7 @@ function emiya_unlimited_bladeworks:EndUBW()
         end
     end
 
-    local units = FindUnitsInRadius(caster:GetTeam(), ubwCenter, nil, 1200, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
+    local units = FindUnitsInRadius(caster:GetTeam(), ubwCenter, nil, 1300, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
 
     i = 1
     while i <= #units do

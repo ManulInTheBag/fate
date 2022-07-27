@@ -5,12 +5,13 @@
 	//=================================================================================================================
 	// Saber Alter : Mana Shroud
 	//=================================================================================================================
-	"saber_alter_mana_shroud"
+	"arturia_alter_mana_shroud"
 	{
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"          			"ability_lua"
+		"ScriptFile"					"abilities/arturia_alter/arturia_alter_mana_shroud_attribute_passive"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"			"custom/saber_alter_mana_shroud"
-		"MaxLevel"						"2"
+		"MaxLevel"						"1"
 		"RequiredLevel"					"25"
 		"LevelsBetweenUpgrades"			"1"
 		
@@ -19,17 +20,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"Range"					"500"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"mana_regen_bonus"		"15"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"armor"					"0 10"
+				"mana_regen_bonus"		"1"
 			}
 		}
 		
@@ -269,143 +260,78 @@
 	//=================================================================================================================
 	// Saber Alter : Derange
 	//=================================================================================================================
-	"saber_alter_derange"
+	"arturia_alter_derange"
 	{
-		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"          			"ability_lua"
+		"ScriptFile"					"abilities/arturia_alter/arturia_alter_derange"
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_TOGGLE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityTextureName"			"custom/saber_alter_derange"
 		
 		"AbilityCastPoint"				"0.3"
-		"AbilityCooldown"				"10"
+		"AbilityCooldown"				"10 8.5 7 5.5 4"
 		"AbilityManaCost"				"100"
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
 		"AnimationPlaybackRate" 		"1.0"
-
-		"precache"
-		{
-			"particle"				"particles/units/heroes/hero_spectre/spectre_ambient.vpcf"
-			"particle"				"particles/custom/saber_alter/saber_alter_mana_catalyst.vpcf"
-		}
 		
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"aspd_modifier"			"5 10 15 20 25"
+				"as"					"70 80 90 100 110"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"mspd_modifier"			"3 6 9 12 15"
+				"ms"					"5 6 7 8 9"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"dmg_modifier"			"20 40 60 80 100"
+				"dmg"					"100 125 150 175 200"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"armor_reduction"		"-4 -8 -12 -16 -20"
+				"maximum_charges"		"9"
 			}
 			"05"
 			{
+				"var_type"				"FIELD_FLOAT"
+				"mana_drain_percentage_1"		"0.3"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"mana_drain_percentage_2"		"0.75"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"mana_drain_percentage_3"		"7"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"armor_bonus"			"12 14 16 18 20"
+			}
+			"09"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"mr_bonus"				"6 7 8 9 10"
+			}
+			"10"
+			{
 				"var_type"				"FIELD_INTEGER"
-				"maximum_charges"		"9"
+				"max_mana_consumption_per_second"				"4"
 			}
 		}
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"saber_alter_ability"
-				"Function"		"OnDerangeStart"
-			}
-		}
 		
-			
-		"Modifiers"
-		{
-			"modifier_derange"
-			{
-				"Duration"		"15.0"
-				
-				"EffectName"		"particles/units/heroes/hero_spectre/spectre_ambient.vpcf"
-				"EffectAttachType"	"follow_origin"
-				
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"	"%aspd_modifier"
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%mspd_modifier"
-					"MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE"	"%dmg_modifier"
-				}
-				"OnAttackStart"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"saber_alter_ability"
-						"Function"		"OnDerangeAttackStart"
-					}
-				}
-			}
-			
-			"modifier_armor_reduction"
-			{
-				"Duration"	"1.0"
-				"IsDebuff"	"1"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"     		"%armor_reduction"
-				}
-			}
-			
-			"modifier_derange_counter"
-			{
-				"Passive"		"1"
-				"IsPurgable"	"0"
-				"OnDeath"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"saber_alter_ability"
-						"Function"		"OnDerangeDeath"
-					}
-				}
-			}
-			
-			"modifier_derange_mana_catalyst_VFX"
-			{
-				"IsPurgable"	"0"
-				"IsHidden"		"1"
-				"Attributes"	"MODIFIER_ATTRIBUTE_MULTIPLE"
-				
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"Target"				"TARGET"
-						"EffectName"			"particles/custom/saber_alter/saber_alter_mana_catalyst.vpcf"
-						"EffectAttachType"		"start_at_customorigin"
-						"ControlPointEntities"
-						{
-							"TARGET"			"attach_origin"
-							"TARGET"			"attach_origin"
-							"TARGET"			"attach_origin"
-						}
-					}
-				}
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT"		"10"
-				}
-			}
-		}
+		
 	}
 	
 	//=================================================================================================================
@@ -557,7 +483,22 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"mana_ratio"				"1.3"
+				"mana_ratio"			"1.2"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"first_dmg_radius"		"700"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"second_dmg_radius"		"1300"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"third_dmg_radius"		"2000"
 			}
 		}
 		
@@ -760,8 +701,6 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"	
 		"AbilityTextureName"			"custom/saber_alter_excalibur"
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_4"
-		"AnimationPlaybackRate" 		"0.9"
 		"precache"
 		{
 			"particle"				"particles/econ/items/doom/doom_f2p_death_effect/doom_bringer_f2p_death_ring_d_black.vpcf"
@@ -794,7 +733,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"delay"					"2.7"
+				"delay"					"2"
 			}
 			"02"
 			{
@@ -814,13 +753,28 @@
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"900 1300 1700 2100 2500"
+				"damage"				"120 155 190 225 260"
 			}
 			// Extra variables
 			"06"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"pause_duration"		"4.0"
+				"pause_duration"		"3.0"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"slow_power"			"80"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"slow_duration"			"1"
+			}
+			"09"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"lock_duration"			"1"
 			}
 		}
 		
@@ -863,7 +817,6 @@
 			{
 				"Duration"		"%pause_duration"
 				"IsHidden"	"1"
-				"OverrideAnimation"     "ACT_DOTA_CAST_ABILITY_4"				
 				"OnCreated"
 				{
 					"RunScript"
@@ -878,7 +831,7 @@
 			"dark_excalibur_vfx_phase_1"
 			{
 				"IsHidden"					"1"
-				"Duration"					"1.5"
+				"Duration"					"1.05"
 			
 				"OnCreated"
 				{
@@ -916,7 +869,7 @@
 					}
 				}
 				
-				"ThinkInterval"				"1.1"
+				"ThinkInterval"				"0.75"
 				"OnIntervalThink"
 				{
 					"RunScript"
@@ -930,7 +883,7 @@
 			"dark_excalibur_vfx_phase_2"
 			{
 				"IsHidden"					"1"
-				"Duration"					"1.9"
+				"Duration"					"1.3"
 				
 				"OnCreated"
 				{
@@ -969,7 +922,7 @@
 			"dark_excalibur_vfx_phase_3"
 			{
 				"IsHidden"					"1"
-				"Duration"					"3.0"
+				"Duration"					"2.1"
 				
 				"OnCreated"
 				{
@@ -984,13 +937,120 @@
 		}
 	}
 
+	//=================================================================================================================
+	// Saber Alter : Mana Discharge
+	//=================================================================================================================
+	"arturia_alter_mana_discharge"
+	{
+		"BaseClass"          			"ability_lua"
+		"ScriptFile"					"abilities/arturia_alter/arturia_alter_mana_discharge"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"26"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"			"custom/arturia_alter/mana_discharge"
+		
+		"AbilityCastPoint"				"0.2"
+		"AbilityCooldown"				"30"
+		"AbilityManaCost"				"0"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
+		"AnimationPlaybackRate" 		"1.0"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cast_delay"			"0.2"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"as"					"70 80 90 100 110"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"ms"					"5 6 7 8 9"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"dmg"					"100 125 150 175 200"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"mana_drain_percentage_1"		"0.9"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"mana_drain_percentage_2"		"2.25"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"mana_drain_percentage_3"		"22"
+			}
+			"8"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"armor_bonus"			"36 42 48 54 60"
+			}
+			"9"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"mr_bonus"				"18 21 24 27 30"
+			}
+			"10"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"250"
+			}
+			"10"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_mana"			"100"
+			}
+			"11"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"600"
+			}
+			"12"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration"				"1.3"
+			}
+			"13"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration_self"		"0.5"
+			}
+			"14"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"max_mana_consumption_per_second"				"20"
+			}
+			"15"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"additional_mana_consumption_per_second"		"46"
+			}
+		
+		}
+			
+	}
+
 	//=======================================
 	// Saber Alter Attribute : Improve Mana Shroud
 	//=======================================
-	"saber_alter_attribute_mana_shroud"
+	"arturia_alter_improve_mana_shroud"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"          			"ability_lua"
+		"ScriptFile"					"abilities/arturia_alter/arturia_alter_attributes"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/saber_alter_attribute_mana_shroud"
@@ -1009,41 +1069,27 @@
 			"01"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"bonus_armor"					"20"
+				"bonus_mana"					"500"
 			}
 			"02"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"bonus_mr"						"5"
+				"bonus_armor"					"12 14 16 18 20"
 			}
 			"03"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"bonus_radius"					"200"
+				"bonus_mr"						"6 7 8 9 10"
 			}
 			"04"
 			{
 				"var_type"						"FIELD_INTEGER"
-				"mana_burst_int_ratio"			"3"
+				"bonus_radius"					"200"
 			}
 			"05"
 			{
-				"var_type"						"FIELD_INTEGER"
-				"max_mana_burst_int_ratio"		"5"
-			}
-			"06"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"bonus_mana"					"500"
-			}
-		}
-		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"saber_alter_ability"
-				"Function"		"OnImproveManaShroundAcquired"
+				"var_type"						"FIELD_FLOAT"
+				"stun_duration"					"0.3"
 			}
 		}
 	}
@@ -1051,10 +1097,11 @@
 	//=======================================
 	// Saber Alter Attribute : Mana Blast
 	//=======================================
-	"saber_alter_attribute_mana_blast"
+	"arturia_alter_improve_mana_burst"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"          			"ability_lua"
+		"ScriptFile"					"abilities/arturia_alter/arturia_alter_attributes"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/saber_alter_attribute_mana_blast"
@@ -1063,7 +1110,7 @@
 		
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"9999"
-		"AbilityManaCost"				"15"
+		"AbilityManaCost"				"12"
 
 		"precache"
 		{
@@ -1074,41 +1121,27 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"catalyst_numbers_gen_min"		"1"
+				"mana_required_for_catalyst"		"200"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"catalyst_numbers_gen_max"		"3"
+				"max_catalyst"			"9"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"max_catalyst"			"7"
+				"catalyst_damage"		"100"
 			}
 			"04"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_ms"				"10"
+				"var_type"				"FIELD_INTEGER"
+				"mana_burst_mana_ratio"	"10"
 			}
 			"05"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"catalyst_damage"		"150"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"mana_burst_mana_ratio"	"25"
-			}
-		}
-		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"saber_alter_ability"
-				"Function"		"OnManaBlastAcquired"
+				"bonus_damage"			"0.3"
 			}
 		}
 	}
@@ -1116,10 +1149,11 @@
 	//=======================================
 	// Saber Alter Attribute : Improve Ferocity
 	//=======================================
-	"saber_alter_attribute_improve_ferocity"
+	"arturia_alter_improve_ferocity"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"          			"ability_lua"
+		"ScriptFile"					"abilities/arturia_alter/arturia_alter_attributes"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/saber_alter_attribute_improve_ferocity"
@@ -1153,21 +1187,12 @@
 			"04"
 			{
 				"var_type"							"FIELD_FLOAT"
-				"uf_int_ratio"						"1.5"
+				"uf_int_ratio"						"0.75"
 			}
 			"05"
 			{
 				"var_type"							"FIELD_FLOAT"
-				"uf_str_ratio"						"1.5"
-			}
-		}
-		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"saber_alter_ability"
-				"Function"		"OnImproveFerocityAcquired"
+				"uf_str_ratio"						"0.75"
 			}
 		}
 	}
@@ -1175,18 +1200,19 @@
 	//=======================================
 	// Saber Alter Attribute : The Sword of Ultimate Darklight
 	//=======================================
-	"saber_alter_attribute_ultimate_darklight"
+	"arturia_alter_sword_of_ultimate_darklight"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"          			"ability_lua"
+		"ScriptFile"					"abilities/arturia_alter/arturia_alter_attributes"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityTextureName"			"custom/saber_alter_attribute_ultimate_darklight"
+		"AbilityTextureName"			"custom/arturia_alter/sword_of_ultimate_darklight"
 		
 		
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"9999"
-		"AbilityManaCost"				"17"
+		"AbilityManaCost"				"10"
 
 		"precache"
 		{
@@ -1197,32 +1223,115 @@
 			"01"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"bonus_damage"				"75"
+				"excalibur_bonus_damage"	"30 35 40 45 50"
+			}
+		}
+	}
+
+	//=======================================
+	// Saber Alter Attribute : God is Great
+	//=======================================
+	"arturia_alter_god_is_great"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"          			"ability_lua"
+		"ScriptFile"					"abilities/arturia_alter/arturia_alter_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/arturia_alter/mana_discharge"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"8"
+
+		"precache"
+		{
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cast_delay"			"0.2"
 			}
 			"02"
 			{
-				"var_type"					"FIELD_FLOAT"
-				"crit_rate"					"35"
+				"var_type"				"FIELD_INTEGER"
+				"as"					"50 55 60 65 70"
 			}
 			"03"
 			{
-				"var_type"					"FIELD_FLOAT"
-				"crit_damage"				"175"
+				"var_type"				"FIELD_INTEGER"
+				"ms"					"5 6 7 8 9"
 			}
 			"04"
 			{
-				"var_type"					"FIELD_FLOAT"
-				"excalibur_bonus_damage"	"10 15 20 25 30"
+				"var_type"				"FIELD_INTEGER"
+				"dmg"					"100 125 150 175 200"
 			}
-		}
-		
-		"OnSpellStart"
-		{
-			"RunScript"
+			"05"
 			{
-				"ScriptFile"	"saber_alter_ability"
-				"Function"		"OnDarklightAcquired"
+				"var_type"				"FIELD_FLOAT"
+				"mana_drain_percentage_1"		"0.6"
 			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"mana_drain_percentage_2"		"1.5"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"mana_drain_percentage_3"		"15"
+			}
+			"8"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"armor_bonus"			"36 42 48 54 60"
+			}
+			"9"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"mr_bonus"				"18 21 24 27 30"
+			}
+			"10"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"250"
+			}
+			"10"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_mana"			"100"
+			}
+			"11"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"600"
+			}
+			"12"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration"				"1.3"
+			}
+			"13"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration_self"		"2"
+			}
+			"14"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"max_mana_consumption_per_second"				"20"
+			}
+			"15"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"additional_mana_consumption_per_second"		"46"
+			}
+		
 		}
 	}
 }

@@ -83,7 +83,9 @@ function medusa_bellerophon:OnSpellStart()
 
 	--caster:SetForwardVector(-Vector(ascendVec.x, ascendVec.y, 0))
 
-	giveUnitDataDrivenModifier(caster, caster, "jump_pause", 2.2)
+	giveUnitDataDrivenModifier(caster, caster, "jump_pause", 1.4)
+	giveUnitDataDrivenModifier(caster, caster, "stunned", 2.2)
+	giveUnitDataDrivenModifier(caster, caster, "revoked", 2.2)
 	caster:SetForwardVector(Vector(ascendVec.x, ascendVec.y, 0))
 
 	local first_time_huh = false
@@ -104,7 +106,9 @@ function medusa_bellerophon:OnSpellStart()
 	unseen:SetLevel(1)
 	chTarget:SetAbsOrigin(caster:GetAbsOrigin())
 	chTarget:SetForwardVector(caster:GetForwardVector())
-	giveUnitDataDrivenModifier(caster, chTarget, "jump_pause", 2.2)
+	giveUnitDataDrivenModifier(caster, chTarget, "jump_pause", 1.4)
+	giveUnitDataDrivenModifier(caster, caster, "stunned", 2.2)
+	giveUnitDataDrivenModifier(caster, caster, "revoked", 2.2)
 
 	StartAnimation(caster, {duration=1.0, activity=ACT_DOTA_RAZE_3, rate=0.3})
 	StartAnimation(chTarget, {duration=1.0, activity=ACT_DOTA_RAZE_2, rate=0.3})
@@ -228,8 +232,8 @@ function medusa_bellerophon:OnSpellStart()
 					EffectName = nil,
 					vSpawnOrigin = caster:GetAbsOrigin(),
 					fDistance = 900,
-					fStartRadius = 400,
-					fEndRadius = 400,
+					fStartRadius = 350,
+					fEndRadius = 350,
 					Source = self:GetCaster(),
 					bHasFrontalCone = false,
 					bReplaceExisting = false,

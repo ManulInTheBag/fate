@@ -27,7 +27,14 @@ end
 function saito_undefeatable_style:OnSpellStart()
     local caster = self:GetCaster()
     local ability = self
- 
+    LoopOverPlayers(function(player, playerID, playerHero)
+        --print("looping through " .. playerHero:GetName())
+        if playerHero.gachi == true and playerHero == self:GetCaster() then
+            -- apply legion horn vsnd on their client
+            CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="saito_ikuze"})
+            --caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+        end
+    end)
     self.fx = ParticleManager:CreateParticle("particles/saito/saito_combo_smoke.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 
     caster:EmitSound("saito_combo_phrase")
@@ -56,8 +63,36 @@ modifier_saito_combo = class({})
 
 function modifier_saito_combo:OnTakeDamage(args)
     local caster =self:GetParent()
-    if(  args.attacker ~= caster) then return end
-    if(args.damage_category == 0) then
+    local ability = self:GetAbility()
+    --if(  args.attacker ~= caster) then return end
+    local counter = 4
+    local dmgmod = 1
+    if(args.damage < 30) then
+        counter = 1
+        dmgmod = 4
+    end
+    local resist = self:GetAbility():GetSpecialValueFor("resist") 
+    if(  args.attacker ~= caster and args.inflictor ~= ability and args.damage<2500)then
+        Timers:CreateTimer(1.5, function()        
+            counter = counter -1
+             damagepertick = args.damage/(100-resist)*resist/4*dmgmod
+             --if(caster:HasModifier("modifier_saito_combo")) then
+             --   damagepertick = damagepertick/(100-resist)*100
+            -- end
+          
+             if (caster:GetHealth() - damagepertick  > 0) then
+                caster:SetHealth(caster:GetHealth() -  damagepertick )
+            else 
+                DoDamage(args.attacker, caster , damagepertick*100, DAMAGE_TYPE_PURE,  0, ability, true)
+            end
+            if(counter == 0) then
+                return  
+            end
+            return 0.25
+        
+        end)
+    end
+    if(args.damage_category == 0 and args.inflictor ~= self:GetAbility() and args.unit:GetTeam() ~= caster:GetTeam())  then
         local ability = self:GetParent():FindAbilityByName("saito_undefeatable_style")
       
         print(caster:GetMana()+ability:GetSpecialValueFor("mana_refund")) 
@@ -106,12 +141,15 @@ function modifier_saito_combo:DeclareFunctions()
         MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
 		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
  
+ 
 	}
 end
 
 function modifier_saito_combo:GetModifierMagicalResistanceBonus()
 	return  self:GetAbility():GetSpecialValueFor("magic_res") 
 end
+
+ 
 
 function modifier_saito_combo:GetModifierPhysicalArmorBonus()
     return self:GetAbility():GetSpecialValueFor("armor")

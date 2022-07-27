@@ -1,4 +1,4 @@
-﻿"lang"
+"lang"
 {
 	"Language"		"English"
 	"Tokens"
@@ -152,6 +152,41 @@
 
 		"DOTA_Tooltip_modifier_saito_slow"					"Slam slow"
 		"DOTA_Tooltip_modifier_saito_slow_Description"		"Slowed"
+
+		"DOTA_Tooltip_modifier_saito_combo"					"Undefeatable style"
+		"DOTA_Tooltip_modifier_saito_combo_Description"		"Motivated"
+
+		"DOTA_Tooltip_modifier_merlin_avalon"					"Avalon"
+		"DOTA_Tooltip_modifier_merlin_avalon_Description"		"Invulnerable"
+
+		"DOTA_Tooltip_modifier_merlin_illusion"					"Illusion"
+		"DOTA_Tooltip_modifier_merlin_illusion"					"I dont recommend sleeping at daytime. Head still hurts"
+
+		"DOTA_Tooltip_modifier_merlin_illusion_overslept"					"Illusion overleep"
+		"DOTA_Tooltip_modifier_merlin_illusion_overslept_Description"					"you slept for too long. Next sleep will be shorter"
+
+		"DOTA_Tooltip_modifier_merlin_excalibur_attack"					"Excalibur attack"
+		"DOTA_Tooltip_modifier_merlin_excalibur_attack_Description"		"magic damage on hit"
+
+		"DOTA_Tooltip_modifier_merlin_garden_of_avalon"					"Garden of avalon"
+		"DOTA_Tooltip_modifier_merlin_garden_of_avalon_Description"		"Increased regeneration and debuff cleanse"
+
+		"DOTA_Tooltip_modifier_merlin_orb_silence"					"Silence"
+		"DOTA_Tooltip_modifier_merlin_orb_silence_Description"		""
+
+		"DOTA_Tooltip_modifier_rapid_chanting"					"Rapid chanting"
+		"DOTA_Tooltip_modifier_rapid_chanting_Description"		"Increased attack speed"
+
+
+		"DOTA_Tooltip_modifier_merlin_charisma"					"Charisma"
+		"DOTA_Tooltip_modifier_merlin_charisma_Description"		"Increased hp and regeneration"
+
+		"DOTA_Tooltip_modifier_merlin_combo_cd"					"Garden of Avalon cooldown"
+		"DOTA_Tooltip_modifier_merlin_combo_cd_Description"		""
+
+		"DOTA_Tooltip_modifier_merlin_hero_creation"					"Hero creation"
+		"DOTA_Tooltip_modifier_merlin_hero_creation_Description"		"Enjoy your d*ck, Sir"
+	
 
 		
 		"DOTA_Tooltip_modifier_white_queen_slow"						"White Queen's Enigma Slow"
@@ -1237,14 +1272,17 @@
 		"DOTA_Tooltip_modifier_aspd_increase"                                             "Aspd Increase"
 		"DOTA_Tooltip_modifier_aspd_increase_Description"                                 ""
 
-		"DOTA_Tooltip_saber_alter_mana_shroud_aura_effect"                                "Saber Alter Mana Shroud Aura Effect"
-		"DOTA_Tooltip_saber_alter_mana_shroud_aura_effect_Description"                    ""
-
 		"DOTA_Tooltip_modifier_derange"                                                   "Derange"
-		"DOTA_Tooltip_modifier_derange_Description"                                       ""
+		"DOTA_Tooltip_modifier_derange_Description"                                       "Grants Arturia various buffs and consumes portion of her maximum mana every second"
+
+		"DOTA_Tooltip_modifier_mana_shroud"                                               "Mana Shroud"
+		"DOTA_Tooltip_modifier_mana_shroud_Description"                                   "Regenerates a portion of Arturia's maximum mana pool"
 
 		"DOTA_Tooltip_modifier_armor_reduction"                                           "Armor Reduction"
 		"DOTA_Tooltip_modifier_armor_reduction_Description"                               ""
+
+		"DOTA_Tooltip_modifier_catalyst"												"Catalyst"
+		"DOTA_Tooltip_modifier_catalyst_Description"                                    "Catalysts will be released upon activation of mana burst"
 
 		"DOTA_Tooltip_modifier_derange_counter"                                           "Derange Counter"
 		"DOTA_Tooltip_modifier_derange_counter_Description"                               ""
@@ -1876,7 +1914,7 @@
 		"DOTA_Tooltip_ability_saber_caliburn_Note0"		"Target damage and AoE damage are separate instances, and may not fall into proc range of certain abilities such as Lancer(5th)'s Battle Continuation"
 		
 		"DOTA_Tooltip_Ability_saber_excalibur"				"Excalibur"
-		"DOTA_Tooltip_ability_saber_excalibur_description"	"Saber supercharges Excalibur with her prana and swings it to unleash a wave of light, dealing damage to every enemy in the path of light.\n\nUpgradable with attribute Improve Excalibur"
+		"DOTA_Tooltip_ability_saber_excalibur_description"	"Saber supercharges Excalibur with her prana and swings it to unleash a wave of light, dealing damage to every enemy in the path of light. Damage is dealt in 10 ticks, each applying a 60% slow and dimensional lock for 1 second  \n\nUpgradable with attribute Improve Excalibur"
 		"DOTA_Tooltip_ability_saber_excalibur_Lore"	"The lone King's ideal shines the brightest in the starry night." 
 		"DOTA_Tooltip_ability_saber_excalibur_cast_delay"		"CAST DELAY:"
 		"DOTA_Tooltip_ability_saber_excalibur_length"		"RANGE:"
@@ -1911,8 +1949,8 @@
 		"DOTA_Tooltip_ability_saber_strike_air_wall_stun"			"WALL STUN DURATION:"
 	
 		"DOTA_Tooltip_Ability_saber_attribute_improve_excalibur"						"Improve Excalibur"
-		"DOTA_Tooltip_ability_saber_attribute_improve_excalibur_Description"			"Increases Excalibur and The Sword of Promised Victory's damage. Excalibur deals 1+(0.2*Excalibur level)*Arturia's max manapool damage, do not believe that 'excalibur bonus damage' part, it's lie. Max Excalibur still gains bonus damage, but it costs all your mana to cost it."
-		"DOTA_Tooltip_ability_saber_attribute_improve_excalibur_excal_bonus_damage"	    "EXCALIBUR BONUS DAMAGE:"
+		"DOTA_Tooltip_ability_saber_attribute_improve_excalibur_Description"			"Increases The Sword of Promised Victory's damage. Increases Excalibur damage based on Saber's mana"
+		"DOTA_Tooltip_ability_saber_attribute_improve_excalibur_mana_scaling"	    "%Excalibur damage from mana:"
 		"DOTA_Tooltip_ability_saber_attribute_improve_excalibur_max_excal_bonus_damage"	"COMBO EXCALIBUR BONUS DAMAGE:"
 
 		"DOTA_Tooltip_Ability_saber_attribute_improve_instinct"							"Improve Instinct"
@@ -2191,11 +2229,10 @@
 		"npc_dota_hero_spectre_hype"	""
 		"npc_dota_hero_spectre_bio"	""
 		
-		"DOTA_Tooltip_Ability_saber_alter_mana_shroud"			"Mana Shroud"
-		"DOTA_Tooltip_ability_saber_alter_mana_shroud_Description"	"Endless fountain of mana overflows to nearby allies, granting them extra mana regen.\n\nUpgradable by Improve Mana Shroud ability"
-		"DOTA_Tooltip_ability_saber_alter_mana_shroud_Lore"	"No longer bounded by limited supply of mana, her body is infused with magical energy at all times."
-		"DOTA_Tooltip_ability_saber_alter_mana_shroud_mana_regen_bonus"	"BONUS MANA REGEN:"
-		"DOTA_Tooltip_ability_saber_alter_mana_shroud_range"	"RADIUS:"
+		"DOTA_Tooltip_Ability_arturia_alter_mana_shroud"			"Mana Shroud"
+		"DOTA_Tooltip_ability_arturia_alter_mana_shroud_Description"	"Endless fountain of mana overflows saber, granting her extra mana regeneration.\n\nUpgradable by Improve Mana Shroud ability"
+		"DOTA_Tooltip_ability_arturia_alter_mana_shroud_Lore"	"No longer bounded by limited supply of mana, her body is infused with magical energy at all times."
+		"DOTA_Tooltip_ability_arturia_alter_mana_shroud_mana_regen_bonus"	"%BONUS MANA REGEN:"
 		
 		"DOTA_Tooltip_Ability_saber_alter_unleashed_ferocity"	"Unleashed Ferocity"
 		"DOTA_Tooltip_ability_saber_alter_unleashed_ferocity_Description"	"Saber's fierce mana starts chain reaction with oxygen to cause periodic explosion, dealing damage to nearby enemies based on their current health and <font color='#FF3399'>ministunning</font> them simultaneously.\n\nUpgradable by attribute Improve Ferocity."
@@ -2205,20 +2242,27 @@
 		"DOTA_Tooltip_ability_saber_alter_unleashed_ferocity_explosion_count"	"EXPLOSION COUNT:"
 		"DOTA_Tooltip_ability_saber_alter_unleashed_ferocity_damage"	"%DAMAGE:"
 		
-		"DOTA_Tooltip_Ability_saber_alter_derange"			"Derange"
-		"DOTA_Tooltip_ability_saber_alter_derange_Description"	"The element of darkness runs amok inside Saber, granting her movement and attack speed. During duration, her base attack reduces target's armor."
-		"DOTA_Tooltip_ability_saber_alter_derange_Lore"	"Succumb to darkness."
-		"DOTA_Tooltip_ability_saber_alter_derange_aspd_modifier"	"%BONUS ATTACK SPEED"
-		"DOTA_Tooltip_ability_saber_alter_derange_mspd_modifier"	"%BONUS MOVEMENT SPEED"
-		"DOTA_Tooltip_ability_saber_alter_derange_dmg_modifier"		"%BONUS DAMAGE"
-		"DOTA_Tooltip_ability_saber_alter_derange_armor_reduction"	"ARMOR REDUCTION"
+		"DOTA_Tooltip_Ability_arturia_alter_derange"			"Derange"
+		"DOTA_Tooltip_ability_arturia_alter_derange_Description"	"The element of darkness runs amok inside Saber, strenghtening her. When activated gives Arturia various buffs and consumes a percentage of her max mana. \n\nUpgradable by Attribute Improve Mana Shroud"
+		"DOTA_Tooltip_ability_arturia_alter_derange_Lore"	"Succumb to darkness."
+		"DOTA_Tooltip_ability_arturia_alter_derange_as"			"%BONUS ATTACK SPEED"
+		"DOTA_Tooltip_ability_arturia_alter_derange_ms"			"%BONUS MOVEMENT SPEED"
+		"DOTA_Tooltip_ability_arturia_alter_derange_dmg"		"BONUS DAMAGE"
+		"DOTA_Tooltip_ability_arturia_alter_derange_mana_drain_percentage_1"		"%BONUS ATTACK SPEED FROM MAX MANA"
+		"DOTA_Tooltip_ability_arturia_alter_derange_mana_drain_percentage_2"		"%BONUS MOVEMENT SPEED FROM MAX MANA"
+		"DOTA_Tooltip_ability_arturia_alter_derange_mana_drain_percentage_3"		"%BONUS DAMAGE FROM MAX MANA"
+		"DOTA_Tooltip_ability_arturia_alter_derange_armor_bonus"					"BONUS ARMOR"
+		"DOTA_Tooltip_ability_arturia_alter_derange_mr_bonus"						"%BONUS MAGIC RESISTANCE"
+		"DOTA_Tooltip_ability_arturia_alter_derange_max_mana_consumption_per_second"						"%MAX MANA CONSUMPTION PER SECOND"
+		"DOTA_Tooltip_ability_arturia_alter_derange_Note0"	"Soft dispel removes the buff."
+
 		
 		"DOTA_Tooltip_Ability_saber_alter_mana_burst"		"Mana Burst"
 		"DOTA_Tooltip_ability_saber_alter_mana_burst_Description" "Bursts nearby enemies with prana, dealing damage and <font color='#FF3399'>ministunning</font> them.\n\nUpgradable by attribute Improve Mana Shroud and Mana Blast."
 		"DOTA_Tooltip_ability_saber_alter_mana_burst_Lore" 	"With such overwhelming amount, even the unrefined, pure prana can be a deadly weapon."
-		"DOTA_Tooltip_ability_saber_alter_mana_burst_delay" 	"CAST DELAY:"
-		"DOTA_Tooltip_ability_saber_alter_mana_burst_damage" 	"DAMAGE:"
-		"DOTA_Tooltip_ability_saber_alter_mana_burst_radius" 	"RADIUS:"
+		"DOTA_Tooltip_ability_saber_alter_mana_burst_delay" 		"CAST DELAY:"
+		"DOTA_Tooltip_ability_saber_alter_mana_burst_damage" 		"DAMAGE:"
+		"DOTA_Tooltip_ability_saber_alter_mana_burst_radius" 		"RADIUS:"
 		
 		"DOTA_Tooltip_Ability_saber_alter_vortigern"		"Vortigern"
 		"DOTA_Tooltip_ability_saber_alter_vortigern_Description"	"Saber swings her sword in crescent, dealing damage to enemies in trail and <font color='#FF3399'>stunning</font> them. Units at the start of swing take less damage and are stunned for shorter duration, but as sword gets momentum it deals more damage and stuns longer at the end.\n\nUpgradable by attribute Improve Ferocity."
@@ -2228,55 +2272,94 @@
 		"DOTA_Tooltip_ability_saber_alter_vortigern_low_end"	"%MIN. DAMAGE:"
 		"DOTA_Tooltip_ability_saber_alter_vortigern_high_end"	"%MAX. DAMAGE:"
 		"DOTA_Tooltip_ability_saber_alter_vortigern_stun_duration"	"STUN DURATION:"
+
+		"DOTA_Tooltip_Ability_arturia_alter_mana_discharge"	"Mana Discharge"
+		"DOTA_Tooltip_ability_arturia_alter_mana_discharge_Description"	"Alter's mana runs rampant accumulating in her body and grealy enchancing her physical capabilities at the expense of rapid mana consumption. When there is no more mana left to consume all of the accumulated in this way mana bursts out of her body dealing magic damage and stunning all nearby enemies. As a result of the explosion Saber is unable to act for a shor period of time. \n This ability REQUIRES activated derange in order to be used. Damage from consumed mana is capped at 50% of Saber's total mana and positive effects granted by this ability persists for an additional 2.5 seconds after explosion."
+		"DOTA_Tooltip_ability_arturia_alter_mana_discharge_Lore"	""
+		"DOTA_Tooltip_ability_arturia_alter_mana_discharge_cast_delay"								"CAST DELAY:"
+		"DOTA_Tooltip_ability_arturia_alter_mana_discharge_as"										"%BONUS ATTACK SPEED"
+		"DOTA_Tooltip_ability_arturia_alter_mana_discharge_ms"										"%BONUS MOVEMENT SPEED"
+		"DOTA_Tooltip_ability_arturia_alter_mana_discharge_dmg"										"BONUS DAMAGE"
+		"DOTA_Tooltip_ability_arturia_alter_mana_discharge_mana_drain_percentage_1"					"%BONUS ATTACK SPEED FROM MAX MANA"
+		"DOTA_Tooltip_ability_arturia_alter_mana_discharge_mana_drain_percentage_2"					"%BONUS MOVEMENT SPEED FROM MAX MANA"
+		"DOTA_Tooltip_ability_arturia_alter_mana_discharge_mana_drain_percentage_3"					"%BONUS DAMAGE FROM MAX MANA"
+		"DOTA_Tooltip_ability_arturia_alter_mana_discharge_armor_bonus"								"BONUS ARMOR"
+		"DOTA_Tooltip_ability_arturia_alter_mana_discharge_mr_bonus"								"%BONUS MAGIC RESISTANCE"
+		"DOTA_Tooltip_ability_arturia_alter_mana_discharge_damage"									"BASE EXPLOSION DAMAGE"
+		"DOTA_Tooltip_ability_arturia_alter_mana_discharge_damage_mana"								"%DAMAGE FROM CONSUMED MANA"
+		"DOTA_Tooltip_ability_arturia_alter_mana_discharge_radius"									"EXPLOSION RADIUS"
+		"DOTA_Tooltip_ability_arturia_alter_mana_discharge_stun_duration"							"ENEMY STUN DURATION"
+		"DOTA_Tooltip_ability_arturia_alter_mana_discharge_stun_duration_self"						"SELF STUN DURATION"
+		"DOTA_Tooltip_ability_arturia_alter_mana_discharge_max_mana_consumption_per_second"			"%MAX MANA CONSUMPTION PER SECOND"
+		"DOTA_Tooltip_ability_arturia_alter_mana_discharge_additional_mana_consumption_per_second"	"%ADDITIONAL MANA CONSUMPTION PER SECOND"
 		
 		"DOTA_Tooltip_Ability_saber_alter_excalibur"		"Excalibur"
-		"DOTA_Tooltip_ability_saber_alter_excalibur_Description"	"Saber releases a devastating torrent of dark prana that destroys everything in its path.\n\nUpgradable by attribute Sword of Ultimate Darklight"
-		"DOTA_Tooltip_ability_saber_alter_excalibur_Lore"	"The sword mirrors its owner."
-		"DOTA_Tooltip_ability_saber_alter_excalibur_delay"	"DELAY:"
-		"DOTA_Tooltip_ability_saber_alter_excalibur_damage"	"DAMAGE:"
-		"DOTA_Tooltip_ability_saber_alter_excalibur_length"	"RANGE:"
+		"DOTA_Tooltip_ability_saber_alter_excalibur_Description"	"Saber releases a devastating torrent of dark prana that destroys everything in its path. This ability deals damage within 10 instances over a period of 0.8 seconds. Enemies hit are greatly slowed and dimensionally locked for a short period of time.\n\nUpgradable by attribute Sword of Ultimate Darklight"
+		"DOTA_Tooltip_ability_saber_alter_excalibur_Lore"			"The sword mirrors its owner."
+		"DOTA_Tooltip_ability_saber_alter_excalibur_delay"			"DELAY:"
+		"DOTA_Tooltip_ability_saber_alter_excalibur_damage"			"DAMAGE:"
+		"DOTA_Tooltip_ability_saber_alter_excalibur_length"			"RANGE:"
+		"DOTA_Tooltip_ability_saber_alter_excalibur_slow_power"		"%MOVE SPEED SLOW:"
+		"DOTA_Tooltip_ability_saber_alter_excalibur_slow_duration"	"SLOW DURATION:"
+		"DOTA_Tooltip_ability_saber_alter_excalibur_lock_duration"	"LOCK DURATION:"
 		"DOTA_Tooltip_ability_saber_alter_excalibur_Note0"	"Saber is stunned and revoked from Master until she finishes casting."
 
 		"DOTA_Tooltip_Ability_saber_alter_max_mana_burst"		"Combo: Max Mana Burst"
-		"DOTA_Tooltip_ability_saber_alter_max_mana_burst_Description" "<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : Q-F-W in 5 seconds</font>\nSaber Alter's bottomless pool of mana explodes outward to create a gigantic sphere of destruction around her, dealing damage based on maximum mana to enemies in large area. Deals 2 damage per manapoint to enemies in radius 700, 1.2 per manapoint to enemies in radius 1300 and 0.8 per manapoint to enemies in radius 2000. \n\nUpgradable by Improve Mana Shroud attribute."
+		"DOTA_Tooltip_ability_saber_alter_max_mana_burst_Description" "<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : Q-F-W in 5 seconds</font>\nSaber Alter's bottomless pool of mana explodes outward to create a gigantic sphere of destruction around her, dealing damage based on her maximum mana to enemies in large area. Damage of this ability decreases the furhter the target is."
 		"DOTA_Tooltip_ability_saber_alter_max_mana_burst_Lore" 	"The meltdown is near."
-		"DOTA_Tooltip_ability_saber_alter_max_mana_burst_damage" 	"DAMAGE:"
-		"DOTA_Tooltip_ability_saber_alter_max_mana_burst_radius" 	"RADIUS:"
-		"DOTA_Tooltip_ability_saber_alter_max_mana_burst_mana_ratio" 	"MAX MANA RATIO:"
-		"DOTA_Tooltip_ability_saber_alter_max_mana_burst_Note0" 	"Bypasses B Scroll."
-		"DOTA_Tooltip_ability_saber_alter_max_mana_burst_Note1" 	"Type -music_true in chat to hear a song after casting this ability."
+		"DOTA_Tooltip_ability_saber_alter_max_mana_burst_damage" 				"DAMAGE:"
+		"DOTA_Tooltip_ability_saber_alter_max_mana_burst_first_dmg_radius" 		"FULL DAMAGE RADIUS:"
+		"DOTA_Tooltip_ability_saber_alter_max_mana_burst_second_dmg_radius" 	"60 % DAMAGE RADIUS:"
+		"DOTA_Tooltip_ability_saber_alter_max_mana_burst_third_dmg_radius" 		"40 % DAMAGE RADIUS:"
+		"DOTA_Tooltip_ability_saber_alter_max_mana_burst_mana_ratio" 			"MAX MANA RATIO:"
+		"DOTA_Tooltip_ability_saber_alter_max_mana_burst_Note0" 				"Type -music_true in chat to hear a song after casting this ability."
 
-		"DOTA_Tooltip_Ability_saber_alter_attribute_mana_shroud"					"Attribute: Improve Mana Shroud"
-		"DOTA_Tooltip_ability_saber_alter_attribute_mana_shroud_Description"		"Grants Saber bonus mana, armor and magic resistance. Also, increases Mana Burst and MAX Mana Burst's radius and grants them bonus damage based on INT."
-		"DOTA_Tooltip_ability_saber_alter_attribute_mana_shroud_bonus_mana"			"BONUS MANA:"
-		"DOTA_Tooltip_ability_saber_alter_attribute_mana_shroud_bonus_armor"		"BONUS ARMOR:"
-		"DOTA_Tooltip_ability_saber_alter_attribute_mana_shroud_bonus_mr"			"BONUS MAGIC RES:"
-		"DOTA_Tooltip_ability_saber_alter_attribute_mana_shroud_bonus_radius"		"EXTRA RADIUS:"
-		"DOTA_Tooltip_ability_saber_alter_attribute_mana_shroud_mana_burst_int_ratio"	"MANA BURST INT RATIO:"
-		"DOTA_Tooltip_ability_saber_alter_attribute_mana_shroud_max_mana_burst_int_ratio"	"MAX MANA BURST INT RATIO:"
+		"DOTA_Tooltip_Ability_arturia_alter_improve_mana_shroud"					"Attribute: Improved Mana Shroud"
+		"DOTA_Tooltip_ability_arturia_alter_improve_mana_shroud_Description"		"Increases Sabers's mana pool. \n Derange additionally provides bonus armor and magic resistance while the buff is granted. \n Radius and stun duration of mana burst are increased."
+		"DOTA_Tooltip_ability_arturia_alter_improve_mana_shroud_bonus_mana"			"BONUS MANA:"
+		"DOTA_Tooltip_ability_arturia_alter_improve_mana_shroud_bonus_armor"		"BONUS ARMOR:"
+		"DOTA_Tooltip_ability_arturia_alter_improve_mana_shroud_bonus_mr"			"BONUS MAGIC RES:"	
+		"DOTA_Tooltip_ability_arturia_alter_improve_mana_shroud_bonus_radius"		"EXTRA RADIUS:"
+		"DOTA_Tooltip_ability_arturia_alter_improve_mana_shroud_stun_duration"		"EXTRA STUN DURATION:"
 
-		"DOTA_Tooltip_Ability_saber_alter_attribute_mana_blast"				"Attribute: Mana Blast"
-		"DOTA_Tooltip_ability_saber_alter_attribute_mana_blast_Description"	"Each cast of Derange generates several Mana Catalysts, each granting bonus movement speed to Saber. While Mana Catalysts persist, casting Mana Burst releases all accumulated Catalysts to nearby enemies for magic damage. Mana Burst permanently consumes 20%% of Alter's remaining mana and deal bonus damage equal to the amount of mana consumed this way."
-		"DOTA_Tooltip_Ability_saber_alter_attribute_mana_blast_catalyst_numbers_gen_min"			"MIN. GENERATION AMOUNT"
-		"DOTA_Tooltip_Ability_saber_alter_attribute_mana_blast_catalyst_numbers_gen_max"			"MAX. GENERATION AMOUNT"
-		"DOTA_Tooltip_Ability_saber_alter_attribute_mana_blast_max_catalyst"			"MAX ACCUMULATION LIMIT:"
-		"DOTA_Tooltip_Ability_saber_alter_attribute_mana_blast_bonus_ms"			"BONUS MS. PER CATALYST:"
-		"DOTA_Tooltip_Ability_saber_alter_attribute_mana_blast_catalyst_damage"			"DAMAGE PER CATALYST:"
-		"DOTA_Tooltip_Ability_saber_alter_attribute_mana_blast_Note0"		"Mana Blast does not activate if there is no enemy caught within Mana Burst."
+		"DOTA_Tooltip_Ability_arturia_alter_improve_mana_burst"						"Attribute: Mana Blast"
+		"DOTA_Tooltip_ability_arturia_alter_improve_mana_burst_Description"			"Every time a certain amount of mana is spent as a reult of derange's passive mana drain. Arturia gains 1 mana catalyst. While Mana Catalysts persist, casting Mana Burst releases all accumulated Catalysts to random enemies in radius dealing magic damage. \n Mana Burst permanently consumes portion of Alter's current mana and deals bonus magic damage equal to the amount of mana spent this way."
+		"DOTA_Tooltip_Ability_arturia_alter_improve_mana_burst_mana_required_for_catalyst"	"MANA DRAIN REQUIRED FOR 1 CATALYST:"
+		"DOTA_Tooltip_Ability_arturia_alter_improve_mana_burst_max_catalyst"				"CATALYST LIMIT:"
+		"DOTA_Tooltip_Ability_arturia_alter_improve_mana_burst_catalyst_damage"				"DAMAGE PER CATALYST:"
+		"DOTA_Tooltip_Ability_arturia_alter_improve_mana_burst_mana_burst_mana_ratio"		"%CURRENT MANA CONSUMPTION:"
+		"DOTA_Tooltip_ability_arturia_alter_improve_mana_burst_mana_burst_bonus_damage" 	"BONUS COMBO MANA RATIO:"
+		"DOTA_Tooltip_Ability_arturia_alter_improve_mana_burst_Note0"						"Mana Blast does not activate if there are no enemies caught within Mana Burst."
 
-		"DOTA_Tooltip_Ability_saber_alter_attribute_improve_ferocity"				"Attribute: Improve Ferocity"
-		"DOTA_Tooltip_ability_saber_alter_attribute_improve_ferocity_Description"	"Vortigern can be used two more times in quick succession. Damage of the 3rd Vortigern is not reduced.\nUnleashed Ferocity costs more mana, but deals bonus damage based on STR and INT."
-		"DOTA_Tooltip_Ability_saber_alter_attribute_improve_ferocity_new_vort_max_swing__TT"		"%NEW VORTIGERN MAX SWING SCALING:"
-		"DOTA_Tooltip_Ability_saber_alter_attribute_improve_ferocity_uf_mana_cost"		"UNLEASHED FEROCITY ADDITIONAL MANA COST:"
-		"DOTA_Tooltip_Ability_saber_alter_attribute_improve_ferocity_uf_int_ratio"		"UNLEASHED FEROCITY INT RATIO:"
-		"DOTA_Tooltip_Ability_saber_alter_attribute_improve_ferocity_uf_str_ratio"		"UNLEASHED FEROCITY STR RATIO:"
+		"DOTA_Tooltip_Ability_arturia_alter_improve_ferocity"					"Attribute: Improved Ferocity"
+		"DOTA_Tooltip_ability_arturia_alter_improve_ferocity_Description"		"Vortigern can be used two more times in quick succession.\nUnleashed Ferocity costs more mana, but deals bonus damage based on STR and INT."
+		"DOTA_Tooltip_Ability_arturia_alter_improve_ferocity_uf_mana_cost"		"UNLEASHED FEROCITY ADDITIONAL MANA COST:"
+		"DOTA_Tooltip_Ability_arturia_alter_improve_ferocity_uf_int_ratio"		"UNLEASHED FEROCITY INT RATIO:"
+		"DOTA_Tooltip_Ability_arturia_alter_improve_ferocity_uf_str_ratio"		"UNLEASHED FEROCITY STR RATIO:"
 
-		"DOTA_Tooltip_Ability_saber_alter_attribute_ultimate_darklight"				"Attribute: Sword of Ultimate Darklight"
-		"DOTA_Tooltip_ability_saber_alter_attribute_ultimate_darklight_Description"	"Grants bonus attack damage and a chance to deal critical damage and disarm enemy for 0.5 seconds on base attack. Excalibur Morgan deals additional damage based on capacity of her mana pool."		
-		"DOTA_Tooltip_Ability_saber_alter_attribute_ultimate_darklight_bonus_damage"		"BONUS ATTACK DAMAGE:"
-		"DOTA_Tooltip_Ability_saber_alter_attribute_ultimate_darklight_crit_rate"		"%CRITICAL CHANCE:"
-		"DOTA_Tooltip_Ability_saber_alter_attribute_ultimate_darklight_crit_damage"		"%CRITICAL DAMAGE"
-		"DOTA_Tooltip_Ability_saber_alter_attribute_ultimate_darklight_excalibur_bonus_damage"		"%EXCALIBUR BONUS MANA DAMAGE:"
+		"DOTA_Tooltip_Ability_arturia_alter_sword_of_ultimate_darklight"				"Attribute: Sword of Ultimate Darklight"
+		"DOTA_Tooltip_ability_arturia_alter_sword_of_ultimate_darklight_Description"	"Excalibur Morgan deals additional damage based on Artuia's total mana pool."		
+		"DOTA_Tooltip_Ability_arturia_alter_sword_of_ultimate_darklight_excalibur_bonus_damage"		"%EXCALIBUR'S BONUS DAMAGE FROM MANA:"
+
+		"DOTA_Tooltip_Ability_arturia_alter_god_is_great"						"Attribute: Unstable mana"
+		"DOTA_Tooltip_ability_arturia_alter_god_is_great_Description"			"Grants Arturia new ability 'mana discharge'. \n Decreases colldown of derange by 4 seconds."
+		"DOTA_Tooltip_ability_arturia_alter_god_is_great_Lore"	""
+		"DOTA_Tooltip_ability_arturia_alter_god_is_great_cast_delay"								"CAST DELAY:"
+		"DOTA_Tooltip_ability_arturia_alter_god_is_great_as"										"%BONUS ATTACK SPEED"
+		"DOTA_Tooltip_ability_arturia_alter_god_is_great_ms"										"%BONUS MOVEMENT SPEED"
+		"DOTA_Tooltip_ability_arturia_alter_god_is_great_dmg"										"BONUS DAMAGE"
+		"DOTA_Tooltip_ability_arturia_alter_god_is_great_mana_drain_percentage_1"					"%BONUS ATTACK SPEED FROM MAX MANA"
+		"DOTA_Tooltip_ability_arturia_alter_god_is_great_mana_drain_percentage_2"					"%BONUS MOVEMENT SPEED FROM MAX MANA"
+		"DOTA_Tooltip_ability_arturia_alter_god_is_great_mana_drain_percentage_3"					"%BONUS DAMAGE FROM MAX MANA"
+		"DOTA_Tooltip_ability_arturia_alter_god_is_great_armor_bonus"								"BONUS ARMOR"
+		"DOTA_Tooltip_ability_arturia_alter_god_is_great_mr_bonus"									"%BONUS MAGIC RESISTANCE"
+		"DOTA_Tooltip_ability_arturia_alter_god_is_great_damage"									"BASE EXPLOSION DAMAGE"
+		"DOTA_Tooltip_ability_arturia_alter_god_is_great_damage_mana"								"DAMAGE FROM CONSUMED MANA"
+		"DOTA_Tooltip_ability_arturia_alter_god_is_great_radius"									"EXPLOSION RADIUS"
+		"DOTA_Tooltip_ability_arturia_alter_god_is_great_stun_duration"								"ENEMY STUN DURATION"
+		"DOTA_Tooltip_ability_arturia_alter_god_is_great_stun_duration_self"						"SELF STUN DURATION"
+		"DOTA_Tooltip_ability_arturia_alter_god_is_great_max_mana_consumption_per_second"			"%MAX MANA CONSUMPTION PER SECOND"
+		"DOTA_Tooltip_ability_arturia_alter_god_is_great_additional_mana_consumption_per_second"	"%ADDITIONAL MANA CONSUMPTION PER SECOND"
 
 		//=================================================================================================================
 		//	Rider(5th)
@@ -2314,8 +2397,7 @@
 		"DOTA_Tooltip_ability_rider_5th_breaker_gorgon_duration""DURATION:"
 		
 		"DOTA_Tooltip_Ability_rider_5th_bloodfort_andromeda"	"Bloodfort Andromeda"
-		"DOTA_Tooltip_ability_rider_5th_bloodfort_andromeda_Description"	"Rider creates a zone of blood that <font color='#FF3399'>slows</font> movement speed of enemies inside and sucks away their life force."
-		"DOTA_Tooltip_ability_rider_5th_bloodfort_andromeda_Note0"	"Mana drain is 1/2 of HP drain."
+		"DOTA_Tooltip_ability_rider_5th_bloodfort_andromeda_Description"	"Rider creates a zone of blood that <font color='#FF3399'>slows</font> movement speed of enemies inside and sucks away their life force. \n Mana drain is 35% of HP drain." 
 		"DOTA_Tooltip_ability_rider_5th_bloodfort_andromeda_Lore"	"Disintegrate and Drain."
 		"DOTA_Tooltip_ability_rider_5th_bloodfort_andromeda_delay"	"Delay:"
 		"DOTA_Tooltip_ability_rider_5th_bloodfort_andromeda_radius"	"Radius:"
@@ -2384,11 +2466,11 @@
 		"DOTA_Tooltip_Ability_medusa_breaker_break_damage"			"%Petrification max health break damage:"
 
 		"DOTA_Tooltip_Ability_medusa_monstrous_strength"			"Monstrous Strength"
-		"DOTA_Tooltip_Ability_medusa_monstrous_strength_Description"	"Medusa temporarily releases her inner beast, sealing away Bellerophon and Bellerophon II, but gaining insane melee properties.\nHer autoattacks deal magic damage based on target's max health and disarm it. Also gains bonus attack speed."
+		"DOTA_Tooltip_Ability_medusa_monstrous_strength_Description"	"Allows Medusa to deal twice her strengths as magic damage, as well as providing her bonus attack speed and strength for a duaration. Each attack while under the effect of Monstrous Strength disarms the target. This ability seal the usage of Bellerophon and Bellerophon II for its duration."
 		"DOTA_Tooltip_Ability_medusa_monstrous_strength_Lore"			"The longer she uses this power, the more she turns into a legendary monster, Gorgon."
 		"DOTA_Tooltip_Ability_medusa_monstrous_strength_duration"			"Duration:"
 		"DOTA_Tooltip_Ability_medusa_monstrous_strength_disarm_duration"			"Disarm duration:"
-		"DOTA_Tooltip_Ability_medusa_monstrous_strength_health_percent"			"%Max health damage:"
+				"DOTA_Tooltip_Ability_medusa_monstrous_attribute_str_bonus"			"Bonus strength:"
 		"DOTA_Tooltip_Ability_medusa_monstrous_strength_as_bonus"			"Attack speed bonus:"
 
 		"DOTA_Tooltip_Ability_medusa_gorgon_rush"			"Gorgon Rush"
@@ -2419,10 +2501,10 @@
 		"DOTA_Tooltip_Ability_medusa_seal_attribute_Description"	"Upgrades <font color='#58ACFA'>Mystic Eyes of Cybele</font>."
 
 		"DOTA_Tooltip_Ability_medusa_monstrous_attribute"		"Attribute: Ancient Beast"
-		"DOTA_Tooltip_Ability_medusa_monstrous_attribute_Description"		"Unlocks <font color='#58ACFA'>Monstrous Strength</font>. Using <font color='#58ACFA'>Monstrous Strength</font> allows Medusa to deal magic damage based on target's max health and disarm it with autoattacks, as well as gives her bonus attack speed, but seals away Bellerophon and Bellerophon 2 temporarily."
+		"DOTA_Tooltip_Ability_medusa_monstrous_attribute_Description"		"Unlocks <font color='#58ACFA'>Monstrous Strength</font>. \nUsing <font color='#58ACFA'>Monstrous Strength</font> allows Medusa to deal twice her strengths as magic damage, as well as providing her bonus attack speed and strength for a duaration. Each attack while under the effect of Monstrous Strength disarms the target. This ability seal the usage of Bellerophon and Bellerophon II for its duration."
 		"DOTA_Tooltip_Ability_medusa_monstrous_attribute_duration"			"Duration:"
 		"DOTA_Tooltip_Ability_medusa_monstrous_attribute_disarm_duration"			"Disarm duration:"
-		"DOTA_Tooltip_Ability_medusa_monstrous_attribute_health_percent"			"%Max health damage:"
+		"DOTA_Tooltip_Ability_medusa_monstrous_attribute_str_bonus"			"Bonus strength:"
 		"DOTA_Tooltip_Ability_medusa_monstrous_attribute_as_bonus"			"Attack speed bonus:"
 
 		"DOTA_Tooltip_Ability_medusa_chain_attribute"		"Attribute: Chain Mastery"
@@ -2660,7 +2742,7 @@
 		"DOTA_Tooltip_ability_heracles_berserk_duration"			"DURATION:"
 
 		"DOTA_Tooltip_Ability_pepeg_jump"					"Berserk's Toss"
-		"DOTA_Tooltip_ability_pepeg_jump_Description"		"Heracles tosses the nearest unit towards the target point, dealing magic damage and percent of the max health of thrown target as a pure damage and <font color='#FF3399'>slowing</font> all enemies in radius around the arrival point. If target is enemy, it suffers a huge magic damage and doubled portion of it's max health as pure damage and is <font color='#FF3399'>slowed</font> more than other enemies. \n<font color='#FF0000'>Berserked:</font> Increases cast range. Instead of throwing someone, Berserk leaps towards the target point himself, dealing significant magic damage and portion of his max health as pure damage and <font color='#FF3399'>slowing</font> enemies as if they were thrown themselves."
+		"DOTA_Tooltip_ability_pepeg_jump_Description"		"Heracles tosses the nearest unit towards the target point, dealing magic damage and percent of the max health of thrown target as a pure damage and <font color='#FF3399'>slowing and muting</font> all enemies in radius around the arrival point. If target is enemy, it suffers a huge magic damage and doubled portion of it's max health as pure damage and is <font color='#FF3399'>slowed</font> more than other enemies while muted for the same duration. \n<font color='#FF0000'>Berserked:</font> Increases cast range. Instead of throwing someone, Berserk leaps towards the target point himself, dealing significant magic damage and portion of his max health as pure damage and <font color='#FF3399'>slowing</font> and muting all enemies as if they were thrown themselves."
 		"DOTA_Tooltip_ability_pepeg_jump_Lore"				"Cu Chulain dislikes this."
 		"DOTA_Tooltip_ability_pepeg_jump_radius"			"Radius:"
 		"DOTA_Tooltip_ability_pepeg_jump_range"			"Range:"
@@ -2671,6 +2753,7 @@
 		"DOTA_Tooltip_ability_pepeg_jump_target_damage"			"Damage to thrown enemy:"
 		"DOTA_Tooltip_ability_pepeg_jump_pepeg_damage"			"Berserked damage:"
 		"DOTA_Tooltip_ability_pepeg_jump_health_percent"			"%Max health damage:"
+		"DOTA_Tooltip_ability_pepeg_jump_mute_duration"			"Mute duration:"
 		
 
 		"DOTA_Tooltip_Ability_heracles_nine_lives"					"Nine Lives"
@@ -2702,12 +2785,15 @@
 		"DOTA_Tooltip_ability_berserker_5th_nine_lives_Note0"	"Berserker is stunned and revoked from Master until she finishes casting."
 
 		"DOTA_Tooltip_Ability_berserker_5th_madmans_roar"	"Combo: Madman's Roar"
-		"DOTA_Tooltip_ability_berserker_5th_madmans_roar_Description"	"<font color='#58ACFA'>Combo Requirement : 40 Strength and Agility</font>\n<font color='#58ACFA'>Combo Sequence : Q-W-D in 4 seconds</font>\nBerserker lets out a deafening howl, putting all players in coma where screen is altered. All enemies in 3000 range suffer damage and crowd control, differing based on the distance from Berserker and on Berserker's strength. \nStrong <font color='#FF3399'>slow</font>, <font color='#FF3399'>revoke</font>, and high damage + 2x Berserker's strength as damage in 350 range.\nStrong <font color='#FF3399'>slow</font> and medium damage + 1.5x Berserker's strength as damage in 1000 range.\nWeaker <font color='#FF3399'>slow</font> and moderate damage + 1x Berserker's strength as damage in 3000 range.\nOnly weak <font color='#FF3399'>slow</font> across all the map."
+		"DOTA_Tooltip_ability_berserker_5th_madmans_roar_Description"	"<font color='#58ACFA'>Combo Requirement : 40 Strength and Agility</font>\n<font color='#58ACFA'>Combo Sequence : Q-W-D in 4 seconds</font>\nBerserker lets out a deafening howl, putting all players in coma where screen is altered. All enemies in 3000 range suffer damage and crowd control, differing based on the distance from Berserker and on Berserker's strength. \nStrong <font color='#FF3399'>slow</font>, <font color='#FF3399'>revoke</font>, dimensional lock, and high damage + 2x Berserker's strength as damage in 350 range.\nStrong <font color='#FF3399'>slow</font>, dimensional lock and medium damage + 1.5x Berserker's strength as damage in 1000 range.\nWeaker <font color='#FF3399'>slow</font>, dimensional lock and moderate damage + 1x Berserker's strength as damage in 3000 range.\nOnly weak <font color='#FF3399'>slow</font> across all the map."
 		"DOTA_Tooltip_ability_berserker_5th_madmans_roar_Lore"	"Berserker's shout engraves the terror deep into the very core of enemies, even manipulating the visual neural system temporarily."
 		"DOTA_Tooltip_ability_berserker_5th_madmans_roar_damage"	"HIGH DAMAGE:"
+		"DOTA_Tooltip_ability_berserker_5th_madmans_roar_lock_duration_1"	"Lock duration:"
 		"DOTA_Tooltip_ability_berserker_5th_madmans_roar_stun_duration"	"STUN DURATION:"		
 		"DOTA_Tooltip_ability_berserker_5th_madmans_roar_damage2"	"MEDIUM DAMAGE:"
+		"DOTA_Tooltip_ability_berserker_5th_madmans_roar_lock_duration_2"	"Lock duration:"
 		"DOTA_Tooltip_ability_berserker_5th_madmans_roar_damage3"	"MODERATE DAMAGE:"
+		"DOTA_Tooltip_ability_berserker_5th_madmans_roar_lock_duration_3"	"Lock duration:"
 		"DOTA_Tooltip_ability_berserker_5th_madmans_roar_slow"	"%STRONG SLOW:"		
 		"DOTA_Tooltip_ability_berserker_5th_madmans_roar_moderate_slow"	"%WEAK SLOW:"			
 
@@ -2718,7 +2804,7 @@
 		"DOTA_Tooltip_Ability_berserker_5th_attribute_improve_divinity_damage_block"	"DAMAGE BLOCK:"
 
 		"DOTA_Tooltip_Ability_berserker_5th_attribute_berserk"						"Attribute: Eternal Rage"
-		"DOTA_Tooltip_ability_berserker_5th_attribute_berserk_Description"			"Grants Heracles a chance to deal bonus damage on base attack (proc cooldown 1.5 seconds).\nCourage gains additional base stats (25 strength, 10%% movespeed, 25 damage, 25 attackspeed)."
+		"DOTA_Tooltip_ability_berserker_5th_attribute_berserk_Description"			"Grants Heracles a chance to deal bonus damage on base attack (proc cooldown 1.5 seconds).\nCourage gains additional base stats (25 strength, 10%% movespeed, 25 damage, 25 attackspeed). \n For the duration of Berserk every second deal magical damage in a small radius to all nearby enemies, damage is equal to 20% of all damage taken between each tick of damage"
 		"DOTA_Tooltip_Ability_berserker_5th_attribute_berserk_Note0"				"Bash has 1.5 seconds cooldown."	
 		"DOTA_Tooltip_Ability_berserker_5th_attribute_berserk_Note1"				"Berserk's periodic damage is equivalent to the amount of mana replenished from damage taken for 1 second."
 		"DOTA_Tooltip_Ability_berserker_5th_attribute_berserk_bash_chance"			"%COURAGE BASH CHANCE:"
@@ -2745,7 +2831,7 @@
 		"DOTA_Tooltip_ability_pepeg_combo_final_gachi_Description"	"<font color='#58ACFA'>Combo Requirement : 80 Intellect. </font>\n<font color='#58ACFA'>Combo Sequence : Q-Q in 4 seconds</font>\nBerserker uses his true Gachi Power to teach target right ways of fisting."	
 
 		"DOTA_Tooltip_Ability_heracles_mad_enhancement_attribute"					"Attribute: Mad Enhancement"
-		"DOTA_Tooltip_ability_heracles_mad_enhancement_attribute_Description"		"Berserk gives Heracles up to 154 additional attack speed, 100%% additional movespeed and 100%% additional base damage based on how much health he's lost.\nSuffering more than 500 damage in one impact will reduce Berserk's cooldown by 2 seconds. Effect cooldown: 2 seconds."	
+		"DOTA_Tooltip_ability_heracles_mad_enhancement_attribute_Description"		"Berserk gives Heracles up to 154 additional attack speed, 100%% additional movespeed and 100%% additional base damage based on how much health he's lost.\nSuffering more than 500 damage in one impact will reduce Berserk's cooldown by 2 seconds. Effect cooldown: 2 seconds. \n Increase duration of the berserk by 1 second"	
 		//"DOTA_Tooltip_Ability_heracles_mad_enhancement_attribute_Note0"				"Slow Immunity is only while Berserk is active."
 		//=================================================================================================================
 		//	Sakura Saber
@@ -2772,7 +2858,7 @@
 		"DOTA_Tooltip_Ability_okita_tennen_Lore"	"Tennen Rishin-ryū is commonly known as the style practiced by several core members of the Shinsengumi."
 
 		"DOTA_Tooltip_Ability_okita_jce"		"Hira-Seigan"
-		"DOTA_Tooltip_Ability_okita_jce_Description"	"Okita makes a step outside of our dimension, using Reduced Ground technique, becoming immune to all harms for a moment. After a brief delay, she will slice the space-time itself, dealing composite (2/3 magical, 1/3 pure) damage to everyone in the area."
+		"DOTA_Tooltip_Ability_okita_jce_Description"	"Okita makes a step outside of our dimension, using Reduced Ground technique, becoming immune to all harms for a moment. After a brief delay, she will slice the space-time itself, dealing  magical  damage to everyone in the area."
 		"DOTA_Tooltip_Ability_okita_jce_base_damage"	"Base damage:"
 		"DOTA_Tooltip_Ability_okita_jce_attack_damage"	"%Attack damage:"
 		"DOTA_Tooltip_Ability_okita_jce_multiplier"	"Max multiplier:"
@@ -2790,7 +2876,7 @@
 		"DOTA_Tooltip_Ability_okita_seigan_Lore" "It's over."
 
 		"DOTA_Tooltip_Ability_okita_sandanzuki"		"Mumyou Sandan-Zuki"
-		"DOTA_Tooltip_Ability_okita_sandanzuki_Description"	"Okita prepares her ultimative technique - Lightless, Three-Stage Thrust. Performing it includes 3 steps, the final step is combined with slash. Okita has 6 seconds to complete it. After completing them, the one and only target will suffer huge damage dealt 3 times as magical, magical and pure damage after a delay. \nEach damage impact breaks Intervention effect afterwards, making it useless to try to escape it somehow."
+		"DOTA_Tooltip_Ability_okita_sandanzuki_Description"	"Okita prepares her ultimative technique - Lightless, Three-Stage Thrust. Performing it includes 3 steps, the final step is combined with slash. Okita has 6 seconds to complete it. After completing them, the one and only target will suffer huge damage dealt 3 times as magical  after a delay. \nEach damage impact breaks Intervention effect afterwards, making it useless to try to escape it somehow."
 		"DOTA_Tooltip_Ability_okita_sandanzuki_distance"	"Step distance:"
 		"DOTA_Tooltip_Ability_okita_sandanzuki_base_damage"	"Impact damage:"
 		"DOTA_Tooltip_Ability_okita_sandanzuki_delay_duration"	"Delay duration:"
@@ -3449,7 +3535,7 @@
 		"DOTA_Tooltip_ability_caster_5th_hecatic_graea_bolt_amount"	"RAY AMOUNT:"
 
 		"DOTA_Tooltip_Ability_medea_hecatic_graea_combo"	 				"Combo: Hecatic Graea Powered"
-		"DOTA_Tooltip_ability_medea_hecatic_graea_combo_Description"		"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : E-R in 5 seconds</font>\nCaster bombards targeted area with regular Hecatic Graea, followed by an enormous mana explosion that inflicts damage in a large area. Caster is invulnerable until landing.\n\nUpgradable by attribute Improve Hecatic Graea."
+		"DOTA_Tooltip_ability_medea_hecatic_graea_combo_Description"		"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : E-R in 5 seconds</font>\nCaster bombards targeted area with an powered Hecatic Graea, followed by an enormous mana explosion that inflicts damage in a large area. Caster is invulnerable until landing.\n\nUpgradable by attribute Improve Hecatic Graea."
 		"DOTA_Tooltip_ability_medea_hecatic_graea_combo_Lore"	""
 		"DOTA_Tooltip_ability_medea_hecatic_graea_combo_damage"			"RAY DAMAGE:"
 		"DOTA_Tooltip_ability_medea_hecatic_graea_combo_lasthit_damage"	"BARRAGE DAMAGE: "
@@ -3473,12 +3559,10 @@
 		"DOTA_Tooltip_Ability_caster_5th_attribute_improve_hecatic_graea"				"Attribute: Witchcraft"
 		"DOTA_Tooltip_ability_caster_5th_attribute_improve_hecatic_graea_Description"	"Hecatic Graea unleashes more rays, and Hecatic Graea Powered's last hit deals more damage in a larger radius. Additionally, all of Caster's offensive abilities deal bonus damage based on INT."
 		"DOTA_Tooltip_Ability_caster_5th_attribute_improve_hecatic_graea_bonus_ray"	"ADDITIONAL RAY AMOUNT:"
-		"DOTA_Tooltip_Ability_caster_5th_attribute_improve_hecatic_graea_bonus_damage"	"COMBO BONUS DAMAGE:"
-		"DOTA_Tooltip_Ability_caster_5th_attribute_improve_hecatic_graea_bonus_radius"	"COMBO BONUS RADIUS:"
 		"DOTA_Tooltip_Ability_caster_5th_attribute_improve_hecatic_graea_int_ratio"		"INT RATIO:"
 
 		"DOTA_Tooltip_Ability_caster_5th_attribute_dagger_of_treachery"				"Attribute: Dagger of Treachery"
-		"DOTA_Tooltip_ability_caster_5th_attribute_dagger_of_treachery_Description"	"Reduces Rule Breaker's cooldown and causes it to steal mana from the target's master, granting it to Medea's master.\nIf the target would be killed while under the effect of Rule Breaker, the target's master will lose 1 master health and Medea's master restores 1 health."
+		"DOTA_Tooltip_ability_caster_5th_attribute_dagger_of_treachery_Description"	"Reduces Rule Breaker's cooldown, causes it to steal mana from the target's master, granting it to Medea's master and apply revoke.\nIf the target would be killed while under the effect of Rule Breaker, the target's master will lose 1 master health and Medea's master restores 1 health."
 		"DOTA_Tooltip_Ability_caster_5th_attribute_dagger_of_treachery_cd_reduction"			"COOLDOWN REDUCTION:"
 		"DOTA_Tooltip_Ability_caster_5th_attribute_dagger_of_treachery_revoke_duration"			"REVOKE DURATION:"
 		"DOTA_Tooltip_Ability_caster_5th_attribute_dagger_of_treachery_mana_steal_amount"		"MANA STEAL AMOUNT:"
@@ -3822,7 +3906,7 @@
         "DOTA_Tooltip_Ability_avenger_attribute_overdrive_max_aspd"			"%MAX ATTACK SPEED BONUS:"
 
         "DOTA_Tooltip_Ability_avenger_attribute_demon_incarnate"					"Attribute: Demon Incarnate"
-        "DOTA_Tooltip_ability_avenger_attribute_demon_incarnate_Description"		"While toggled on, Demon Core increases Verg Avesta damage.\nWhile toggled on, Demon Core reduces True Form's cooldown each second.\nIncreases all damage taken by 10%."
+        "DOTA_Tooltip_ability_avenger_attribute_demon_incarnate_Description"		"While toggled on, Demon Core increases Verg Avesta damage.\nWhile toggled on, Demon Core reduces True Form's cooldown each second."
         "DOTA_Tooltip_Ability_avenger_attribute_demon_incarnate_return_bonus"		"%Damage Increase:"
         "DOTA_Tooltip_Ability_avenger_attribute_demon_incarnate_trueform_cdr"		"TRUE FORM COOLDOWN REDUCTION:"
 
@@ -4273,7 +4357,7 @@
 		"npc_dota_hero_ursa_bio"	""
 
 		"DOTA_Tooltip_Ability_atalanta_roar"	"Roar"
-		"DOTA_Tooltip_Ability_atalanta_roar_Description"	"Berserker roars loudly, slowing down all the enemies in the path, damaging, pulling and cursing them."
+		"DOTA_Tooltip_Ability_atalanta_roar_Description"	"Berserker roars loudly, slowing down and dimensional locking all the enemies in the path, damaging, pulling and cursing them."
 		"DOTA_Tooltip_Ability_atalanta_roar_base_damage"	"Damage:"
 		"DOTA_Tooltip_Ability_atalanta_roar_cast_range"	"Roar cast range:"
 		"DOTA_Tooltip_Ability_atalanta_roar_distance"	"Roar distance:"
@@ -4281,6 +4365,7 @@
 		"DOTA_Tooltip_Ability_atalanta_roar_ms_slow"	"%Movespeed slow:"
 		"DOTA_Tooltip_Ability_atalanta_roar_as_slow"	"Attackspeed slow:"
 		"DOTA_Tooltip_Ability_atalanta_roar_duration"	"Slow duration:"
+		"DOTA_Tooltip_Ability_atalanta_roar_duration_locked"	"Lock duration:"
 		"DOTA_Tooltip_Ability_atalanta_roar_base_stacks"	"Curse stack count:"
 
 		"DOTA_Tooltip_Ability_atalanta_ora"	"Attack of the Beast"
@@ -4447,7 +4532,7 @@
 		"DOTA_Tooltip_Ability_khsn_bc_attribute_Description"	"Abyss of Death: This swordsman who is no longer certain whether he is alive or dead, even if he receives a fatal wound or loses half of his body for example, will keep snapping at the enemy as if he was in perfectly good health. When his health drops down to zero, he restores 25%% of his max health and activates Evening Bell instead of dying.\nCooldown: 99 seconds.\nEvening Bell gives additional 40 regen and 25 armor.\nKing Hassan also cannot be executed."
 
 		"DOTA_Tooltip_Ability_khsn_presence_attribute"	"Attribute - Death's Presence"
-		"DOTA_Tooltip_Ability_khsn_presence_attribute_Description"	"Death's Presence: Presence of a being heavily connected with Death fears even the bravest warriors. Enemies under Death's Door effect deal 20%% less damage.\nEvening Bell does 20/40/60/80/100 magic damage in 700 radius while active."
+		"DOTA_Tooltip_Ability_khsn_presence_attribute_Description"	"Death's Presence: Presence of a being heavily connected with Death fears even the bravest warriors. Enemies under Death's Door effect deal 10% less damage.\nEvening Bell does 20/40/60/80/100 magic damage in 700 radius while active."
 
 		"DOTA_Tooltip_Ability_khsn_flame_attribute"	"Attribute - Being of Phantasm"
 		"DOTA_Tooltip_Ability_khsn_flame_attribute_Description"	"\nToggle: <font color='#58ACFA'>Eternal Flame</font>: King Hassan ignites all enemies under the Death Door effect with the Phantasmal Flame, dealing 30/45/60/75/90 damage per second based on level of Azrael and providing vision of the ignited enemies. The longer this ability is active, the more mana will it cost.\nThis ability goes on cooldown whenever it deactivates."
@@ -5060,7 +5145,7 @@
         "DOTA_Tooltip_Ability_tamamo_amaterasu_duration"     		"DURATION:"
 
         "DOTA_Tooltip_Ability_tamamo_castration_fist"					"Polygamist Castration Fist"
-        "DOTA_Tooltip_Ability_tamamo_castration_fist_Description"		"Tamamo lunges towards the target enemy and kicks him or her three times, dealing light magic damage and stunning the target. She ends with a kick that sends the target flying backwards. The final kick does more damage than the first two. If the target is a male servant, damage is increased."
+        "DOTA_Tooltip_Ability_tamamo_castration_fist_Description"		"Tamamo lunges towards the target enemy and kicks him or her three times, dealing magic damage and stunning the target. She ends with a kick that sends the target flying backwards. The final kick does more damage than the first two. If the target is a male servant, damage is increased."
         "DOTA_Tooltip_Ability_tamamo_castration_fist_range"				"Cast Range:"
         "DOTA_Tooltip_Ability_tamamo_castration_fist_damage"			"First two kick damage:"
         "DOTA_Tooltip_Ability_tamamo_castration_fist_final_damage"		"Final kick damage:"
@@ -5087,12 +5172,12 @@
         "DOTA_Tooltip_ability_tamamo_polygamist_castration_fist_2_Description"    "Activate Combo:Polygamist Castration Kick with half damage and lunge delay, even when <font color='#FF3399'>stunned</font> or <font color='#FF3399'>revoked</font> from Master."
 
         "DOTA_Tooltip_Ability_tamamo_attribute_spirit_theft"         "Attribute: Spirit Theft"
-        "DOTA_Tooltip_ability_tamamo_attribute_spirit_theft_Description"       "Soulstream inflicts bonus magic damage based on INT, and drains mana from target.\nAdditionally, if Tamamo is under effect of Eightfold Blessing of Amaterasu, Subterranean Grasp <font color='#FF3399'>revokes</font> target from Master for duration."  
-        "DOTA_Tooltip_Ability_tamamo_attribute_spirit_theft_int_ratio"         "INT RATIO:"
-        "DOTA_Tooltip_Ability_tamamo_attribute_spirit_theft_mana_drain"         "MANA DRAIN AMOUNT:"
+        "DOTA_Tooltip_ability_tamamo_attribute_spirit_theft_Description"       "Soulstream deal additional magic damage and burns mana equal to additional damage dealt this way. \nAdditionally, if Tamamo is under effect of Eightfold Blessing of Amaterasu, Subterranean Grasp <font color='#FF3399'>revokes</font> target from Master for duration."  
+        "DOTA_Tooltip_Ability_tamamo_attribute_spirit_theft_int_ratio"         "Bonus damage INT ratio:"
+        "DOTA_Tooltip_Ability_tamamo_attribute_spirit_theft_mana_drain"         "Bonus damage:"
  
         "DOTA_Tooltip_Ability_tamamo_attribute_tamamo_escape"         			"Attribute: Polygamist Castration Fist"
-        "DOTA_Tooltip_Ability_tamamo_attribute_tamamo_escape_Description"       "Enables the usage of Polygamist Castration Fist. \nPolygamist Castration Fist: Tamamo lunges toward target enemy and kicks him or her three times, dealing light magic damage and stunning the target. She ends with a kick that sends the target flying backwards. The final kick does more damage than the first two. If the target is a male servant, damage is increased and damage type is changed to pure instead."
+        "DOTA_Tooltip_Ability_tamamo_attribute_tamamo_escape_Description"       "Enables the usage of Polygamist Castration Fist. \nPolygamist Castration Fist: Tamamo lunges towards the target enemy and kicks him or her three times, dealing magic damage and stunning the target. She ends with a kick that sends the target flying backwards. The final kick does more damage than the first two. If the target is a male servant, damage is increased."
         "DOTA_Tooltip_Ability_tamamo_attribute_tamamo_escape_range"         	"Cast Range:"
         "DOTA_Tooltip_Ability_tamamo_attribute_tamamo_escape_damage"         	"First two kick damage:"
         "DOTA_Tooltip_Ability_tamamo_attribute_tamamo_escape_final_damage"      "Final kick damage:"
@@ -5274,7 +5359,7 @@
         //"DOTA_Tooltip_Ability_jeanne_magic_resistance_ex_regen_duration"		"RECOVERY PERIOD:"
 
 		"DOTA_Tooltip_Ability_jeanne_saint"		"Saint"
-        "DOTA_Tooltip_Ability_jeanne_saint_Description"	"Due to Ruler's divine mission, the abilities have an additional <font color='#ff9900'>Saint</font> effect based on how sinful the impacted enemies are. One kill means 1 sin, one assist means 1/5 sin, one death means -1 sin. Sin can't be lower than zero."
+        "DOTA_Tooltip_Ability_jeanne_saint_Description"	"Due to Ruler's divine mission, the abilities have an additional <font color='#ff9900'>Saint</font> effect based on how sinful the impacted enemies are. One kill means 1 sin, one assist means 1/5 sin, one death means -1 sin. Sin can't be lower than zero and is capped at 10."
         "DOTA_Tooltip_Ability_jeanne_saint_Lore"	"The scale of justice misses no sinner."
 
         "DOTA_Tooltip_Ability_jeanne_identity_discernment" 	"Identity Discernment"
@@ -5293,6 +5378,7 @@
 	"DOTA_Tooltip_Ability_jeanne_charisma_damage"	"SAINT BASE DAMAGE:"
 	"DOTA_Tooltip_Ability_jeanne_charisma_sin_damage"	"SAINT DAMAGE PER SIN:"
         "DOTA_Tooltip_Ability_jeanne_charisma_duration"			"DURATION:"
+        "DOTA_Tooltip_Ability_jeanne_charisma_reveal_duration"			"REVEAL DURATION:"
 
         "DOTA_Tooltip_Ability_jeanne_purge_the_unjust"	"Purge the Unjust"
         "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_Description"		"Ruler marks the ground with a holy symbol. After a delay, heavenly light strikes the area, damaging enemies, <font color='#FF3399'>disarming</font> and <font color='#FF3399'>silencing</font> them.\n<font color='#ff9900'>Saint</font>: Increases the base damage for each dead teammate. Deals additional damage based on how sinful the enemies are."
@@ -5301,10 +5387,11 @@
         "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_damage"		"DAMAGE:"
         "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_silence_duration"		"SILENCE/DISARM DURATION:"
         "DOTA_Tooltip_Ability_jeanne_purge_the_unjust_bonus_damage_per_dead"	"%EXTRA DAMAGE PER DEAD TEAMMATE:"
-	"DOTA_Tooltip_Ability_jeanne_purge_the_unjust_sin_damage"		"SAINT DAMAGE PER SIN:"
+		"DOTA_Tooltip_Ability_jeanne_purge_the_unjust_sin_damage"		"SAINT DAMAGE PER SIN:"
+		"DOTA_Tooltip_Ability_jeanne_purge_the_unjust_reveal_duration"			"REVEAL DURATION:"
 
         "DOTA_Tooltip_Ability_jeanne_gods_resolution"		"God's Resolution"
-        "DOTA_Tooltip_Ability_jeanne_gods_resolution_Description"	"<font color='#58ACFA'>PASSIVE:</font> Does not work without Revelation attribute.\nRuler's attacks deal bonus pure damage based on the target's missing health.\nCooldown: 5 seconds.\n<font color='#58ACFA'>ACTIVE:</font> Channels the wrath of god around her, continously dealing damage to nearby enemies and <font color='#FF3399'>slowing</font> their movement and attack speeds. Ruler gains bonus magic resistance while channeling.\n<font color='#ff9900'>Saint</font>: Both passive and active deal additional damage based on how sinful the enemies are."
+        "DOTA_Tooltip_Ability_jeanne_gods_resolution_Description"	"<font color='#58ACFA'>PASSIVE:</font> Does not work without Revelation attribute.\nRuler's attacks deal bonus pure damage based on the target's current health.\nCooldown: 5 seconds.\n<font color='#58ACFA'>ACTIVE:</font> Channels the wrath of god around her, continously dealing damage to nearby enemies and <font color='#FF3399'>slowing</font> their movement and attack speeds. Ruler gains bonus magic resistance while channeling.\n<font color='#ff9900'>Saint</font>: Both passive and active efeects deal additional damage based on how sinful the enemies are."
         "DOTA_Tooltip_Ability_jeanne_gods_resolution_Note0"		"Ruler is stunned and revoked from Master while casting."
         "DOTA_Tooltip_Ability_jeanne_gods_resolution_passive_damage_percentage"		"%PASSIVE DAMAGE:"
 	"DOTA_Tooltip_Ability_jeanne_gods_resolution_proc_sin_damage"		"%PASSIVE SIN DAMAGE:"
@@ -5315,7 +5402,7 @@
         "DOTA_Tooltip_Ability_jeanne_gods_resolution_radius"					"ACTIVE RADIUS:"
         "DOTA_Tooltip_Ability_jeanne_gods_resolution_slow_amount"				"%ACTIVE SLOW AMOUNT:"
         "DOTA_Tooltip_Ability_jeanne_gods_resolution_mr_bonus"					"%ACTIVE BONUS MR:"
-        //"DOTA_Tooltip_Ability_jeanne_gods_resolution_armor_bonus"				"ACTIVE BONUS ARMOR:"
+        "DOTA_Tooltip_Ability_jeanne_gods_resolution_reveal_duration"			"REVEAL DURATION:"
 
 
         "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle"		"Luminosite Eternelle"
@@ -5364,14 +5451,14 @@
         //"DOTA_Tooltip_Ability_jeanne_attribute_improve_saint_bonus_damage"	"%DAMAGE AMPLIFICATION:"	
 
         "DOTA_Tooltip_Ability_jeanne_attribute_punishment"				"Attribute: Punishment"
-        "DOTA_Tooltip_Ability_jeanne_attribute_punishment_Description"	"Purge the Unjust slows the enemies.\nIncreases God's Resolution active duration and causes it to ministun the targets after 1 second of casting."
+        "DOTA_Tooltip_Ability_jeanne_attribute_punishment_Description"	"Purge the Unjust slows the enemies.\nIncreases God's Resolution active duration and causes it to ministun the targets (for 0.05 seconds) after 1 second of casting."
         //"DOTA_Tooltip_Ability_jeanne_attribute_punishment_bonus_damage"	"%PURGE THE UNJUST EXTRA DAMAGE PER DEAD TEAMMATE:"
         //"DOTA_Tooltip_Ability_jeanne_attribute_punishment_slow_amount"	"%PURGE THE UNJUST SLOW AMOUNT:"
         //"DOTA_Tooltip_Ability_jeanne_attribute_punishment_slow_duration"	"SLOW AND REVOKE DURATION:"
         "DOTA_Tooltip_Ability_jeanne_attribute_punishment_active_duration"	"GODS RESOLUTION ACTIVE DURATION:"
 
         "DOTA_Tooltip_Ability_jeanne_attribute_divine_symbol"	"Attribute: Divine Symbol"
-        "DOTA_Tooltip_Ability_jeanne_attribute_divine_symbol_Description"	"Increases Luminosite Eternelle's damage absorption.\nLuminosite Eternelle does not take damage while Ruler is inside the barrier.\nWhen thrown, Luminosite Eternelle roots all enemies in it's way and in barrier radius for 0.6/0.7/0.8/0.9/1.0 (+ 0.1 for each sin) seconds.\nQ cleanses the target when used."
+        "DOTA_Tooltip_Ability_jeanne_attribute_divine_symbol_Description"	"Increases Luminosite Eternelle's damage absorption.\nLuminosite Eternelle does not take damage while Ruler is inside the barrier.\nWhen thrown, Luminosite Eternelle roots all enemies in it's way and in barrier radius for 0.8/1/1.2/1.4/1.6 (+ 0.02 for each sin) seconds.\nQ cleanses the target when used."
         "DOTA_Tooltip_Ability_jeanne_attribute_divine_symbol_Note0"				"Charisma effect follows current level."
         "DOTA_Tooltip_Ability_jeanne_attribute_divine_symbol_bonus_reduction"	"%Bonus reduction:"
 
@@ -6260,11 +6347,14 @@
         "DOTA_Tooltip_ability_kuro_gae_bolg_heartbreak"		"%Attribute Projection Heartbreak Threshold:"
 
 		"DOTA_Tooltip_ability_kuro_crane_wings_combo_tp"     				"Triple-Linked Crane Wings"
-        "DOTA_Tooltip_ability_kuro_crane_wings_combo_tp_Description"		"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : D, while D is active - Q-D in 4 seconds. </font>.\nChloe prepares her ultimate technique - Triple-Linked Crane Wings and marks the point. If there are any enemies at the target location, after 0.4 seconds Chloe hurls 4 projected blades at the enemy closest to the target point, then proceed to teleport to that enemy, attacking simultaneously as the blades strike, dealing heavy magic damage. Each blade deals damage equal to Kanshou & Byakuya's base damage while Chloe's slashes deals damage equal to Crane Wings' damage."
+        "DOTA_Tooltip_ability_kuro_crane_wings_combo_tp_Description"		"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : D, while D is active - Q-D in 4 seconds. </font>.\nChloe prepares her ultimate technique - Triple-Linked Crane Wings and marks the point. If there are any enemies at the target location, after 0.4 seconds Chloe hurls 4 projected blades at the enemy closest to the target point, then proceed to teleport to that enemy, attacking simultaneously as the blades strike, dealing heavy magic damage." 
         "DOTA_Tooltip_ability_kuro_crane_wings_combo_tp_Lore"				"Black Bird Scissorhands."
-	"DOTA_Tooltip_ability_kuro_crane_wings_combo_tp_radius"				"Radius:"
+		"DOTA_Tooltip_ability_kuro_crane_wings_combo_tp_radius"				"Radius:"
         "DOTA_Tooltip_ability_kuro_crane_wings_combo_tp_range"				"Max range:"
-	"DOTA_Tooltip_ability_kuro_crane_wings_combo_tp_stun_duration"			"Delay:"
+		"DOTA_Tooltip_ability_kuro_crane_wings_combo_tp_damage"					"Jump damage:"
+		"DOTA_Tooltip_ability_kuro_crane_wings_combo_tp_damage_swords"			"Sword damage:"
+		"DOTA_Tooltip_ability_kuro_crane_wings_combo_tp_atk_ratio_first"			"Jump atk scale:"
+		"DOTA_Tooltip_ability_kuro_crane_wings_combo_tp_atk_ratio_second"			"Swords atk scale:"
 
 	"DOTA_Tooltip_ability_kuro_crane_wings_combo"     				"Triple-Linked Crane Wings"
         "DOTA_Tooltip_ability_kuro_crane_wings_combo_Description"		"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : Q 4 times. </font>.\nChloe hurls 4 projected blades at the target enemy, then proceed to teleport behind the target, attacking simultaneously as the blades strike, dealing heavy magic damage. Each blade deals damage equal to Kanshou & Byakuya's damage while Chloe's slashes deals damage equal to Crane Wings' damage."
@@ -6404,92 +6494,237 @@
 		"npc_dota_hero_terrorblade_bio"						""
 
         "DOTA_Tooltip_ability_saito_quickslash"						"Quick slash"
-        "DOTA_Tooltip_ability_saito_quickslash_Description"			"Dashes to the target location, dealing damage to every enemy on the way. If there was no obstacles, Saito will automaticly turn 180 degrees.\nSaito is rooted, locked and disarmed while dashing.\nThis ability range will be halfed if used 2 or more times in a row "
+        "DOTA_Tooltip_ability_saito_quickslash_Description"			"Dashes to the target location, dealing damage which scale with atk to every enemy on the way and rooting them for 0.2s . If there was no obstacles, Saito will automaticly turn 180 degrees.\nSaito is rooted, locked and disarmed while dashing.\nThis ability range will be halfed if used 2 or more times in a row "
         
         "DOTA_Tooltip_ability_saito_quickslash_dist"				"Distance:"
         "DOTA_Tooltip_ability_saito_quickslash_damage"				"Damage:"
+        "DOTA_Tooltip_ability_saito_quickslash_atk_scale"				"Damage scale from atk:"
+        "DOTA_Tooltip_ability_saito_quickslash_Lore"				"One must be quick to catch bad guys, you know"
          
 
         "DOTA_Tooltip_ability_saito_clap"					"Ground slam"
-        "DOTA_Tooltip_ability_saito_clap_Description"	 	"Saito slams the ground, dealing damage in radius around himself and stunning all enemies hit.\n
+        "DOTA_Tooltip_ability_saito_clap_Description"	 	"Saito slams the ground, dealing damage which scale with atk in radius around himself and stunning all enemies hit.\n
         This ability stun duration and damage will be halfed  if used 2 or more times in a row. "
         "DOTA_Tooltip_ability_saito_clap_damage"			"Damage:"
         "DOTA_Tooltip_ability_saito_clap_radius"			"Radius:"
         "DOTA_Tooltip_ability_saito_clap_stun_duration"		"Stun duration:"
+        "DOTA_Tooltip_ability_saito_clap_atk_scale"				"Damage scale from atk:"
+        "DOTA_Tooltip_ability_saito_clap_Lore"			"Sometimes there is no need in sword"
  
 	 
 
         "DOTA_Tooltip_ability_saito_inv_sword"					"Invincible sword"
         "DOTA_Tooltip_ability_saito_inv_sword_Description"	 	"Saito slashes enemies in front of him twice. First strike microstuns enemies hit. \n
-        This ability damage will be halfed if used 2 or more times in a row."
+        This ability damage will be halfed if used 2 or more times in a row. Damage scales with atk"
         "DOTA_Tooltip_ability_saito_inv_sword_damage"			"Damage:"
         "DOTA_Tooltip_ability_saito_inv_sword_range"			"Range:"
+        "DOTA_Tooltip_ability_saito_inv_sword_atk_scale"				"Damage scale from atk:"
+        "DOTA_Tooltip_ability_saito_inv_sword_Lore"				"My principle's that I don't lose duels. That's what being invincible is all about."
 
         "DOTA_Tooltip_ability_saito_mind_eye"					"Mind eye"
-        "DOTA_Tooltip_ability_saito_mind_eye_Description"		"Saito takes a stance for  %duration% seconds, reducing all damage received, evading projectiles and blocking  1 targeted spell. At the end of effect Saito will shoot forward a projectile, dealing damage to all enemies hit. If saito receives damage above the threshold or blocks a spell, he will shoot powered projectile immediately, endind the ability.\nPowered projectile deals twice as much damage and stuns enemies hit."
-        "DOTA_Tooltip_ability_saito_mind_eye_resist"	"%Damage resistance:"
-        "DOTA_Tooltip_ability_saito_mind_eye_damage"		"Damage:"
-        "DOTA_Tooltip_ability_saito_mind_eye_threshold"	"Threshold:"
-        "DOTA_Tooltip_ability_saito_mind_eye_range"		"Projectile range:"
+        "DOTA_Tooltip_ability_saito_mind_eye_Description"		"Saito takes a stance for  %duration% seconds, reducing all damage received, evading projectiles and blocking  1 targeted spell. At the end of effect Saito will shoot forward a projectile, dealing damage to all enemies hit. If saito receives damage above the threshold or blocks a spell, he will shoot powered projectile immediately, endind the ability.\nPowered projectile deals 2.0x damage and stuns enemies hit. If Saito procked powered projectile, he will become immune to magic damage for 1.5 seconds."
+        "DOTA_Tooltip_ability_saito_mind_eye_resist"			"%Damage resistance:"
+        "DOTA_Tooltip_ability_saito_mind_eye_damage"				"Damage:"
+        "DOTA_Tooltip_ability_saito_mind_eye_threshold"			"Threshold:"
+        "DOTA_Tooltip_ability_saito_mind_eye_range"				"Projectile range:"
         "DOTA_Tooltip_ability_saito_mind_eye_stun_duration"		"Powered projectile stun:"
+        "DOTA_Tooltip_ability_saito_mind_eye_Lore"				"The bad part about all this mind eye thing is that you may already know that you are dead, but have absolutely no options to fix that"
 
         "DOTA_Tooltip_ability_saito_hajime_fdb"				"Freely drawn blade"
         "DOTA_Tooltip_ability_saito_hajime_fdb_Description"	"Passive: Quickslash, Ground slam and Invincible sword abilities share the same cooldown, and can be used up to %recast_amount% times. If you use same ability 2 or more times in a row, it will be weakened and their cast point will be doubled. All these abilities must be used in sequence and if you fail to fit in the interval, they will go on cooldown. Time interval starts with 1 second and decreases by 0.05 on every consecutive use. On >3 and >5 consecutive use these abilities will have their cast point lowered. Both Mind eye and Formlessness could be used in combination without interrupting it.\n
-        Active: Saito gains buff, gaining vision on all enemies around himself and restoring mana every time he deals damage with any of his abilities."
-        "DOTA_Tooltip_ability_saito_hajime_fdb_vision_duration"			"Active duration:"
+        Active: Saito gains buff, gaining vision on all enemies around himself, restores mana every time he deals damage with any of his abilities and  delays part of damage received by 1.5 seconds."
+        "DOTA_Tooltip_ability_saito_hajime_fdb_vision_duration"			"Vision duration:"
+        "DOTA_Tooltip_ability_saito_hajime_fdb_buff_duration"			"Buff duration:"
         "DOTA_Tooltip_ability_saito_hajime_fdb_vision_range"			"Vision radius:"
         "DOTA_Tooltip_ability_saito_hajime_fdb_mana_refund"				"Mana gained:"
+        "DOTA_Tooltip_ability_saito_hajime_fdb_resist"					"%Damage delayed:"
+        "DOTA_Tooltip_ability_saito_hajime_fdb_Lore"						"School? No, I didn't use that, I just swung that katana over there at that time until I put an end to it."
+        "DOTA_Tooltip_ability_saito_hajime_fdb_Note0"					"delayed damage is lethal and will be dealt in 1 second"	
  
 
         "DOTA_Tooltip_ability_saito_formlessness"						"Formlessness"
-        "DOTA_Tooltip_ability_saito_formlessness_Description"			"Saito creates a contollable illusion of him standing, while gaining movement speed bonus and invisibility for a duration, allowing to recast this ability up to %number_of_slashes% times. First 3 casts are double-slashes, dealing damage. Last slash deals a lot more damage and dimensionally locks the target\nInvisibility will break for 1 second if saito deal damage with any other ability."
-        "DOTA_Tooltip_ability_saito_formlessness_damage"			"Slash damage:"
+        "DOTA_Tooltip_ability_saito_formlessness_Description"			"Saito creates a contollable illusion of him standing, while gaining movement speed bonus and invisibility for a duration, allowing to recast this ability up to %number_of_slashes% times. First 3 casts are double-slashes, dealing damage and dimensional locking enemy hit for 0.5s. Last slash deals a lot more damage and dimensionally locks the target\nInvisibility will break for 1 second if saito deal damage with any other ability."
+        "DOTA_Tooltip_ability_saito_formlessness_damage"					"Slash damage:"
         "DOTA_Tooltip_ability_saito_formlessness_damage_last_slash"			"Last slash damage:"
         "DOTA_Tooltip_ability_saito_formlessness_duration"					"Duration:"
         "DOTA_Tooltip_ability_saito_formlessness_movement_bonus"			"%Movement speed bonus:"
         "DOTA_Tooltip_ability_saito_formlessness_lock_duration"				"Lock duration:"
+        "DOTA_Tooltip_ability_saito_formlessness_Lore"						"They didn't even realize they were killed"
   
 
 		"DOTA_Tooltip_ability_saito_undefeatable_style"						"Combo: Undefeatable style"
-        "DOTA_Tooltip_ability_saito_undefeatable_style_Description"			"Saito becomes serious, concentrating on defence for a short period, gaining armor and magic resistance. Every %spellblock_cd% seconds he can block a targeted spell. \nHis technique also benefits from concentration, Saito restores mana every time he deals damage with an ability\nFor a  duration  this ability changes to One by one\nOne by one: Saito attacks all enemies around him, pushing them away and stunning for a short duration"
+        "DOTA_Tooltip_ability_saito_undefeatable_style_Description"			"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: F-F in 2 seconds</font>\nSaito becomes serious, concentrating on defence for a short period, gaining armor, magic resistance and delayed damage just like with Freely Drawn Blade. Every %spellblock_cd% seconds he can block a targeted spell. \nHis technique also benefits from concentration, Saito restores mana every time he deals damage with an ability\nFor a  duration  this ability changes to One by one\nOne by one: Saito attacks all enemies around him, pushing them away, stunning and silensing for a short 	duration."
         "DOTA_Tooltip_ability_saito_undefeatable_style_armor"			"Bonus armor:"
-        "DOTA_Tooltip_ability_saito_undefeatable_style_magic_res"		"Bonus magic resist:"
+        "DOTA_Tooltip_ability_saito_undefeatable_style_magic_res"		"%Bonus magic resist:"
 		"DOTA_Tooltip_ability_saito_undefeatable_style_mana_refund"		"Mana gained:"
 		"DOTA_Tooltip_ability_saito_undefeatable_style_duration"		"Duration:"
+		"DOTA_Tooltip_ability_saito_undefeatable_style_resist"		    "%Damage delayed:"
+		"DOTA_Tooltip_ability_saito_undefeatable_style_Lore"			"I look so serious? ...Eh? I wasn't even trying."
 
 		"DOTA_Tooltip_ability_saito_undefeatable_style_active"		"One by one"
-		"DOTA_Tooltip_ability_saito_undefeatable_style_active_Description"	"Saito attacks all enemies around him, pushing them away and stunning for a short 	duration."
-		"DOTA_Tooltip_ability_saito_undefeatable_style_active_radius"		"Radius:"
-		"DOTA_Tooltip_ability_saito_undefeatable_style_active_damage"		"Damage:"
-		"DOTA_Tooltip_ability_saito_undefeatable_style_active_stun_duration" "Stun duration:"
+		"DOTA_Tooltip_ability_saito_undefeatable_style_active_Description"	"Saito attacks all enemies around him, pushing them away, stunning and silensing for a short 	duration."
+		"DOTA_Tooltip_ability_saito_undefeatable_style_active_radius"			"Radius:"
+		"DOTA_Tooltip_ability_saito_undefeatable_style_active_damage"			"Damage:"
+		"DOTA_Tooltip_ability_saito_undefeatable_style_active_stun_duration" 	"Stun duration:"
+		"DOTA_Tooltip_ability_saito_undefeatable_style_active_silence_duration" "Silence duration:"
  
  
 
         "DOTA_Tooltip_ability_saito_undefeatable_swordsman_attribute"				"Attribute: Undefeatable swordsman"
-        "DOTA_Tooltip_ability_saito_undefeatable_swordsman_attribute_Description"	"Dealing damage with abilities while having Freely drawn blade or Undefeatable style active restores hp. Increases Freely drawn blade duration by 2 seconds"
+        "DOTA_Tooltip_ability_saito_undefeatable_swordsman_attribute_Description"	"Dealing damage with abilities while having Freely drawn blade or Undefeatable style active restores hp. Increases Freely drawn blade self buff duration by 2 seconds"
         "DOTA_Tooltip_ability_saito_undefeatable_swordsman_attribute_fdb_health"		"FDB health restored:"
         "DOTA_Tooltip_ability_saito_undefeatable_swordsman_attribute_combo_health"		"Combo health restored:"
 
         "DOTA_Tooltip_ability_saito_shinsengumi_attribute"				"Attribute: Shinsengumi"
-        "DOTA_Tooltip_ability_saito_shinsengumi_attribute_Description"	"Increases Formlessness duration by 2 seconds. Formlessness last slash will deal additional damaged based on current Freely drawn blade combination counter."
+        "DOTA_Tooltip_ability_saito_shinsengumi_attribute_Description"	"Formlessness last slash will deal additional damaged based on current Freely drawn blade combination counter.\nIncrease all slash damage based on attack"
         "DOTA_Tooltip_ability_saito_shinsengumi_attribute_damage_per_stack"			"Damage per stack:"
+        "DOTA_Tooltip_ability_saito_shinsengumi_attribute_damage_atk_scale"			"Slash damage from atk:"
+        "DOTA_Tooltip_ability_saito_shinsengumi_attribute_damage_atk_scale_last"			"Last slash damage from atk:"
 
         "DOTA_Tooltip_ability_saito_free_spirit_attribute"				"Attribute: Free spirit"
-        "DOTA_Tooltip_ability_saito_free_spirit_attribute_Description"	"Mind eye now grants evasion and magic resistance bonuses to Saito  for 2 seconds after shooting powered projectile. When this buff ends, Saito hard cleanses himself."
+        "DOTA_Tooltip_ability_saito_free_spirit_attribute_Description"	"Mind eye now grants evasion and magic resistance bonuses to Saito  for 2 seconds after shooting powered projectile. When this buff ends, Saito hard cleanses himself. Increases magic damage immunity duration from powered projectile prock by 1 second."
         "DOTA_Tooltip_ability_saito_free_spirit_attribute_evasion" "%Evasion:"
         "DOTA_Tooltip_ability_saito_free_spirit_attribute_mr"	 "%Bonus magic resistance:"
 
         "DOTA_Tooltip_ability_saito_freestyle_attribute"				"Attribute: Freestyle"
-        "DOTA_Tooltip_ability_saito_freestyle_attribute_Description"	"Increases Saito's Quickslash, Ground slam and Invincible sword abilities damage based on Saito's attack. Increases interval between these skills by 0.2."
+        "DOTA_Tooltip_ability_saito_freestyle_attribute_Description"	"Additionaly increases Saito's Quickslash, Ground slam and Invincible sword abilities damage based on Saito's attack. Increases interval between these skills by 0.3."
         "DOTA_Tooltip_ability_saito_freestyle_attribute_atk_scale_q" 	"Quickslash atk modifier:"
         "DOTA_Tooltip_ability_saito_freestyle_attribute_atk_scale_w" 	"Ground slam modifier:"
         "DOTA_Tooltip_ability_saito_freestyle_attribute_atk_scale_e" 	"Invincible sword atk modifier:"
 
         "DOTA_Tooltip_ability_saito_mastery_attribute"				"Attribute: Mastery"
-        "DOTA_Tooltip_ability_saito_mastery_attribute_Description"	"Hitting enemies with Quickslash, Ground slam and Invincible sword second slash applies effects for 2 seconds:\nQuickslash:Increases Saito's turnrate\nGround slam: applies movement slow on enemies\nInvincible sword: decreases enemies hit magic resistance"
+        "DOTA_Tooltip_ability_saito_mastery_attribute_Description"	"Hitting enemies with Quickslash, Ground slam and Invincible sword second slash applies effects for 2 seconds:\nQuickslash:Increases Saito's turnrate\nGround slam: applies movement slow on enemies\nInvincible sword: decreases enemies hit magic resistance\nFormlessness slashes root enemies on each hit"
         "DOTA_Tooltip_ability_saito_mastery_attribute_q_turnrate" 		"Quickslash bonus turnrate:"
         "DOTA_Tooltip_ability_saito_mastery_attribute_w_slow" 			"%Ground slam slow:"
         "DOTA_Tooltip_ability_saito_mastery_attribute_e_magres_down" 	"%Invincible sword magres down:"
+        "DOTA_Tooltip_ability_saito_mastery_attribute_r_root_duration" 	"Formlessness root duration:"
+        
+   		//====================================
+		//   Merlin 
+        //====================================
+        "npc_dota_hero_puck"						"Merlin"
+
+		"npc_dota_hero_puck_hype"					""
+		"npc_dota_hero_puck_bio"						""
+
+        "DOTA_Tooltip_ability_flower_beam"							"Flower beam"
+        "DOTA_Tooltip_ability_flower_beam_Description"			"Vector target. Merlin creates an image of him shooting a laser, which travels along the selected vector, dealing damage to all enemies on its path, which scales with the enemy max health. Beam applies a slow effect on each hit"
+        
+        "DOTA_Tooltip_ability_flower_beam_range"					"Range:"
+        "DOTA_Tooltip_ability_flower_beam_damage"					"Damage per tick:"
+        "DOTA_Tooltip_ability_flower_beam_maxhpdmgpercent"			"%Max HP damage per tick:"
+        "DOTA_Tooltip_ability_flower_beam_damage_ticks"				"Amount of damage ticks:"
+        "DOTA_Tooltip_ability_flower_beam_slow_power"				"Slow power"
+        "DOTA_Tooltip_ability_flower_beam_Lore"						""
+         
+
+        "DOTA_Tooltip_ability_merlin_orbs"					"Tracking orbs"
+        "DOTA_Tooltip_ability_merlin_orbs_Description"	 	"Merlin sends 3 magical orbs to a targeted enemy. They will follow him for a short time and if they touch him, they will explode, dealing aoe damage, microstunning and silencing all enemies hit."
+        "DOTA_Tooltip_ability_merlin_orbs_damage"				"Damage:"
+        "DOTA_Tooltip_ability_merlin_orbs_radius"				"Explosion radius:"
+        "DOTA_Tooltip_ability_merlin_orbs_silence_duration"		"Silence duration:"
+        "DOTA_Tooltip_ability_merlin_orbs_projectile_fade_time"	"Tracking duration:"
+        "DOTA_Tooltip_ability_merlin_orbs_Lore"					""
+ 
+	 
+
+        "DOTA_Tooltip_ability_merlin_illusion"					"Illusion"
+        "DOTA_Tooltip_ability_merlin_illusion_Description"	 	"Merlin sends an illusion on enemies in the radius, sending them to sleep. Sleep duration decreases with amount of enemies hit. Enemy will awake if total damage he received under this effect will be greater than threshold."
+        "DOTA_Tooltip_ability_merlin_illusion_basic_duration"			"Sleep base duration:"
+        "DOTA_Tooltip_ability_merlin_illusion_min_duration"				"Sleep minimum duration:"
+        "DOTA_Tooltip_ability_merlin_illusion_damage_to_awake"			"Damage to awake:"
+        "DOTA_Tooltip_ability_merlin_illusion_duration_red_per_unit"	"Duration reduction per unit:"
+        "DOTA_Tooltip_ability_merlin_illusion_Lore"				""
+
+        "DOTA_Tooltip_ability_merlin_avalon"				"Avalon"
+        "DOTA_Tooltip_ability_merlin_avalon_Description"		"Merlin quickly returns to Avalon, dissapearing  for a short duration. He can use this ability again to reappear immediately at the point in radius around dissapearance place"
+        "DOTA_Tooltip_ability_merlin_avalon_range"			"Reappearance range:"
+        "DOTA_Tooltip_ability_merlin_avalon_duration"		"Duration:"
+        "DOTA_Tooltip_ability_merlin_avalon_Lore"			""
+        "DOTA_Tooltip_ability_merlin_avalon_Note0"					"Merlin is not completely outside of the map. He will still be killed by effects, which bypass invulnerability and will be transfered to reality marble if will be casted close to his dissapearance place."	
+
+
+        "DOTA_Tooltip_ability_merlin_avalon_release"				"Return"
+        "DOTA_Tooltip_ability_merlin_avalon_release_Description"		"Return to the world in the place selected"
+        "DOTA_Tooltip_ability_merlin_avalon_release_Lore"				""
+
+
+
+        "DOTA_Tooltip_ability_merlin_charisma"				"Charisma"
+        "DOTA_Tooltip_ability_merlin_charisma_Description"	"Merlin is so attractive naturally that he increases health and regeneration of all allies around him."
+        "DOTA_Tooltip_ability_merlin_charisma_health_bonus"				"Health bonus:"
+        "DOTA_Tooltip_ability_merlin_charisma_health_regen_bonus"		"%Health regeneration bonus:"
+        "DOTA_Tooltip_ability_merlin_charisma_mana_regen_bonus"			"Mana regeneration bonus:"
+        "DOTA_Tooltip_ability_merlin_charisma_aura_radius"				"Radius:"
+         "DOTA_Tooltip_ability_merlin_charisma_Lore"						""
+	
+ 
+
+        "DOTA_Tooltip_ability_merlin_hero_creation"						"Hero creation"
+        "DOTA_Tooltip_ability_merlin_hero_creation_Description"			"Merlin buffs one of his allies or himself, granting his target greatly increase in his main attribute. Buff amount increases even further for each ally around the new created Hero."
+        "DOTA_Tooltip_ability_merlin_hero_creation_base_stat_bonus"						"Base stat bonus:"
+        "DOTA_Tooltip_ability_merlin_hero_creation_duration"							"Duration:"
+        "DOTA_Tooltip_ability_merlin_hero_creation_radius"								"Ally search radius:"
+        "DOTA_Tooltip_ability_merlin_hero_creation_stat_increase_per_teammate"			"Stat increase per each teammate:"
+        "DOTA_Tooltip_ability_merlin_hero_creation_Lore"								"it DO gives you a snake in the pants. Thats the price for being hero."
+
+
+        "DOTA_Tooltip_ability_merlin_excalibur"						"Excalibur"
+        "DOTA_Tooltip_ability_merlin_excalibur_Description"			"Merlin strikes the ground with Excalibur, releasing a lot of mana to deal damage to all enemies in the line.\nDamage is increasing while ability is in use. All enemies hit who is more than 500 range away from merlin would be pulled towards him.\nMerlin gains a magic damage on his attacks effect for a short time  after the usage of Excalibur"
+        "DOTA_Tooltip_ability_merlin_excalibur_damage_min"							"Damage:"
+        "DOTA_Tooltip_ability_merlin_excalibur_damage_increase"						"Damage increase per tick:"
+        "DOTA_Tooltip_ability_merlin_excalibur_range"								"Range:"
+        "DOTA_Tooltip_ability_merlin_excalibur_damage_ticks"						"Damage ticks:"
+   		"DOTA_Tooltip_ability_merlin_excalibur_on_hit_dmg"							"On-hit damage:"
+   		"DOTA_Tooltip_ability_merlin_excalibur_buff_duration"						"Buff duration:"
+        "DOTA_Tooltip_ability_merlin_excalibur_Lore"								""
+  
+
+		"DOTA_Tooltip_ability_merlin_garden_of_avalon"						"Combo: Garden of Avalon"
+        "DOTA_Tooltip_ability_merlin_garden_of_avalon_Description"			"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: D-E in 1 second</font>\nMerlin materialises the Garden of Avalon into this world after a chant. While chanting Merlin is silenced and muted. When the chant is finished, merlin will become absolutely invulnerable to any harm, while all his allies gain huge health and mana regeneration and all debuff cleanse every 0.1 seconds. When the garden is fully materialised, Merlin can stop it by using an ability in the Avalon slot"
+        "DOTA_Tooltip_abilitymerlin_garden_of_avalon_radius"					"Radius:"
+        "DOTA_Tooltip_ability_merlin_garden_of_avalon_duration_visible"			"Garden duration:"
+		"DOTA_Tooltip_ability_merlin_garden_of_avalon_health_regen_bonus"		"%Health regeneration:"
+		"DOTA_Tooltip_ability_merlin_garden_of_avalon_health_regen_bonus_const"	 "Health regeneration:"
+		"DOTA_Tooltip_ability_merlin_garden_of_avalon_mana_regen_bonus"			"%Mana regeneration:"
+		"DOTA_Tooltip_ability_saito_undefeatable_style_Lore"			""
+
+		"DOTA_Tooltip_ability_merlin_avalon_garden_stop"		"Stop Garden of Avalon"
+		"DOTA_Tooltip_ability_merlin_avalon_garden_stop_Description"	"Immediately ends garden of Avalon"
+	 
+ 
+ 
+
+        "DOTA_Tooltip_ability_merlin_independent_manifestation_attribute"				"Attribute: Independent manifestation"
+        "DOTA_Tooltip_ability_merlin_independent_manifestation_attribute_Description"	"Upgrades Avalon increasing its range, duration and decreasing cooldown. If Avalon release was casted close to an enemy, merlin will strike him with his staff on appearance, dealing damage and dimensionally locking him."
+        "DOTA_Tooltip_ability_merlin_independent_manifestation_attribute_duration"				"lock duration:"
+        "DOTA_Tooltip_ability_merlin_independent_manifestation_attribute_att_search_radius"		"Search radius:"
+        "DOTA_Tooltip_ability_merlin_independent_manifestation_attribute_att_damage"			"Damage:"
+    
+
+        "DOTA_Tooltip_ability_merlin_dreamlike_charisma_attribute"				"Attribute: Dreamlike charisma"
+        "DOTA_Tooltip_ability_merlin_dreamlike_charisma_attribute_Description"	"Upgrades charisma, increasing all its values and granting it mana regeneration bonus."
+ 
+
+        "DOTA_Tooltip_ability_merlin_hero_creation_attribute"				"Attribute: Hero creation"
+        "DOTA_Tooltip_ability_merlin_hero_creation_attribute_Description"	"Unlocks hero creation \nHero creation:Merlin buffs one of his allies or himself, granting his target greatly increase in his main attribute. Buff amount increases even further for each ally around the new created Hero."
+        "DOTA_Tooltip_ability_merlin_hero_creation_attribute_base_stat_bonus."						"Base stat bonus:"
+        "DOTA_Tooltip_ability_merlin_hero_creation_attribute_duration"							"Duration:"
+        "DOTA_Tooltip_ability_merlin_hero_creation_attribute_radius"								"Ally search radius:"
+        "DOTA_Tooltip_ability_merlin_hero_creation_attribute_stat_increase_per_teammate"			"Stat increase per each teammate:"
+ 
+
+        "DOTA_Tooltip_ability_merlin_rapid_chanting_attribute"				"Attribute: Rapid chanting"
+        "DOTA_Tooltip_ability_merlin_rapid_chanting_attribute_Description"	"Increases Flower beam damage based on INT, and reduces cooldown of all  other Merlin basic abilities by 1 second when he uses any of them."
+        "DOTA_Tooltip_ability_merlin_rapid_chanting_attribute_att_dmg_per_int" 	"Int damage per tick:"
+ 
+
+        "DOTA_Tooltip_ability_merlin_king_assistant_attribute"				"Attribute: King's assistant"
+        "DOTA_Tooltip_ability_merlin_king_assistant_attribute_Description"	"Increases Excalibur on-hit damage based on INT, each time Merlin uses an ability he gains a stackable refreshing attack speed buff, capped at 6. Also increase Excalibur damage based on Merlin INT "
+        "DOTA_Tooltip_ability_merlin_king_assistant_attribute_att_attackspeed_per_stack" 		"Attack speed per stack:"
+        "DOTA_Tooltip_ability_merlin_king_assistant_attribute_att_duration" 					"Attackspeed duration:"
+ 		"DOTA_Tooltip_ability_merlin_king_assistant_attribute_dmg_per_int" 						"Dmg per int:"
+        
   
 
 

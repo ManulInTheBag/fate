@@ -176,7 +176,7 @@ function tamamo_soul_stream:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
 	local hCharmDebuff = tData["sDebuffName"]
 	local hCharmAbility = hCaster:FindAbilityByName(tData["sCharmAbility"])
 
-	local fManaBurn = 25 + hCaster:GetIntellect() * 0.5
+	local fManaBurn = 25 + hCaster:GetIntellect() * 0.2
 
 	if hCaster.IsSpiritTheftAcquired then
 		fDamage = fDamage + fManaBurn
@@ -407,7 +407,7 @@ if IsServer() then
 	end
 
 	function modifier_soulstream_buff:OnRefresh(args)
-		self:SetStackCount(math.min((self:GetStackCount() or 0) + 1, 4))
+		self:SetStackCount(math.min((self:GetStackCount() or 0) + 1, self:GetAbility():GetSpecialValueFor("max_stack")))
 	end
 end
 

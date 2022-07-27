@@ -815,7 +815,7 @@ function OnArgosStart(keys)
 		keys.ShieldAmount = keys.ShieldAmount + 100
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_argos_armor", {})
 	end
-
+	CasterCheckCombo( caster, ability)	
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_argos_shield", {})
 	
 	if caster.argosShieldAmount == nil then 
@@ -873,6 +873,7 @@ function OnArgosStart(keys)
 			end
 		)
 	end
+
 end
 
 function OnArgosDamaged(keys)
@@ -1202,7 +1203,7 @@ function OnRBStart(keys)
 		keys.ability:ApplyDataDrivenModifier(caster, target, "modifier_l_rule_breaker", {}) 
 	end
 	--EmitGlobalSound("Caster.RuleBreaker") 
-	CasterCheckCombo(keys.caster,keys.ability)	
+	
 	
 	--print(caster:GetName())
 	--print(keys.StunDuration)
@@ -1457,7 +1458,7 @@ end
 
 function CasterCheckCombo(caster, ability)
 	if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 and caster:GetIntellect() >= 29.1 then
-		if ability == caster:FindAbilityByName("caster_5th_rule_breaker") and caster:FindAbilityByName("medea_hecatic_graea"):IsCooldownReady() and caster:FindAbilityByName("medea_hecatic_graea_combo"):IsCooldownReady() then
+		if ability == caster:FindAbilityByName("caster_5th_argos") and caster:FindAbilityByName("medea_hecatic_graea"):IsCooldownReady() and caster:FindAbilityByName("medea_hecatic_graea_combo"):IsCooldownReady() then
 			caster:SwapAbilities("medea_hecatic_graea", "medea_hecatic_graea_combo", false, true) 
 			caster.IsHGComboEnabled = true
 			Timers:CreateTimer({

@@ -1,6 +1,7 @@
 LinkLuaModifier("modifier_saito_mind_eye","abilities/saito/saito_mind_eye", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_saito_fdb_repeated", "abilities/saito/saito_fdb", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_saito_mind_eye_buff", "abilities/saito/saito_mind_eye", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_saito_mind_eye_magic_dmg_immune", "abilities/saito/saito_mind_eye", LUA_MODIFIER_MOTION_NONE)
 saito_mind_eye = class({})
 function saito_mind_eye:GetAOERadius()
     return self:GetSpecialValueFor("range")
@@ -9,6 +10,7 @@ end
 function saito_mind_eye:OnSpellStart()
 	local caster = self:GetCaster()	
     local duration = self:GetSpecialValueFor("duration")
+    self.target = self:GetCursorPosition()
     self.powered = 0
     if(IsServer) then
         if(caster:HasModifier("modifier_saito_fdb_repeated")) then
@@ -16,11 +18,23 @@ function saito_mind_eye:OnSpellStart()
             self.stackCount = self.modifierRepeated:GetStackCount()
         end
     end
-	caster:AddNewModifier(caster, self, "modifier_saito_mind_eye",{duration = duration})
+   
+	caster:AddNewModifier(caster, self, "modifier_saito_mind_eye",{duration = duration })
+    caster:Stop()
+    caster:SetForwardVector( (  self.target-caster:GetAbsOrigin()):Normalized())
+  
+    LoopOverPlayers(function(player, playerID, playerHero)
+        --print("looping through " .. playerHero:GetName())
+        if playerHero.gachi == true then
+            -- apply legion horn vsnd on their client
+            CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="saito_ligmaballs"})
+            --caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+        end
+    end)
     self.blocking_particle = ParticleManager:CreateParticle("particles/saito/saitoquickslash_core.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster())
     StartAnimation(caster, {duration=duration, activity=ACT_DOTA_CAST_ABILITY_4, rate=1})
     Timers:CreateTimer("saito_mind_eye", {
-		endTime = duration,
+		endTime = duration ,
 		callback = function()
         self:RemoveParticle()
      
@@ -39,7 +53,8 @@ function saito_mind_eye:SendProjectile()
         
 	local caster = self:GetCaster()	
     local ability = self
-	local velocity = caster:GetForwardVector()* self:GetSpecialValueFor("projectile_speed")
+    local velocity = caster:GetForwardVector()* self:GetSpecialValueFor("projectile_speed")
+ 
     local duration = self:GetSpecialValueFor("duration")
     StartAnimation(caster, {duration=duration, activity=ACT_DOTA_CAST_ABILITY_4_END, rate=1})
     if(self.modifierRepeated ~= nil) then
@@ -78,18 +93,31 @@ function saito_mind_eye:SendProjectile()
    
 end
 
-function saito_mind_eye:OnFateSpellBlocked()
+function saito_mind_eye:OnFateSpellBlocked( )
+ 
+    local ability = self
 
-    local ability = self 
     ability:SendProjectile()
     Timers:RemoveTimer("saito_mind_eye")
     ability:RemoveParticle()
     local caster = self:GetCaster()
     ability.powered = 1
+      
+    LoopOverPlayers(function(player, playerID, playerHero)
+        --print("looping through " .. playerHero:GetName())
+        if playerHero.gachi == true then
+            -- apply legion horn vsnd on their client
+            CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="saito_ligma_boom"})
+            --caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+        end
+    end)
+    --caster:SetForwardVector( ( AbilityCaster:GetAbsOrigin() -caster:GetAbsOrigin()):Normalized())
     if(caster.FreeSpiritAcquired) then
         caster:AddNewModifier(caster,ability,"modifier_saito_mind_eye_buff",{duration = 2})
+        caster:AddNewModifier(caster,ability,"modifier_saito_mind_eye_magic_dmg_immune",{duration = 2.5})
+    else
+    caster:AddNewModifier(caster,ability,"modifier_saito_mind_eye_magic_dmg_immune",{duration = 1.5})
     end
-
 end
 
 
@@ -102,7 +130,7 @@ function saito_mind_eye:OnProjectileHit_ExtraData(hTarget, vLocation, table)
 	--hTarget:EmitSound("Hero_Sniper.AssassinateDamage")
     if(self.powered == 1) then
         hTarget:AddNewModifier(caster, self, "modifier_stunned", {Duration = self:GetSpecialValueFor("stun_duration")})   
-        damage = damage *1.5  
+        damage = damage *2
     end
 	DoDamage(caster, hTarget, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
 end
@@ -120,9 +148,8 @@ end
 
 
 function modifier_saito_mind_eye:OnIntervalThink()
-    if IsServer() then
-	    ProjectileManager:ProjectileDodge(self:GetParent())
-    end
+    if not IsServer then return end
+    self:GetParent():SetForwardVector( (  self:GetAbility().target-self:GetParent():GetAbsOrigin()):Normalized())
 end
 
 function modifier_saito_mind_eye:OnTakeDamage(args)
@@ -143,10 +170,22 @@ function modifier_saito_mind_eye:OnTakeDamage(args)
 			ability:SendProjectile()
 			Timers:RemoveTimer("saito_mind_eye")
             if(caster.FreeSpiritAcquired) then
-                 caster:AddNewModifier(caster,ability,"modifier_saito_mind_eye_buff",{duration = 2})
+                caster:AddNewModifier(caster,ability,"modifier_saito_mind_eye_buff",{duration = 2})
+                caster:AddNewModifier(caster,ability,"modifier_saito_mind_eye_magic_dmg_immune",{duration = 2.5})
+            else
+            caster:AddNewModifier(caster,ability,"modifier_saito_mind_eye_magic_dmg_immune",{duration = 1.5})
             end
             ability:RemoveParticle()
             ability.powered = 1
+            LoopOverPlayers(function(player, playerID, playerHero)
+                --print("looping through " .. playerHero:GetName())
+                if playerHero.gachi == true then
+                    -- apply legion horn vsnd on their client
+                    CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="saito_ligma_boom"})
+                    --caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+                end
+            end)
+            --caster:SetForwardVector( ( args.unit:GetAbsOrigin() -caster:GetAbsOrigin()):Normalized())
             self:Destroy()
         end
     end
@@ -170,7 +209,8 @@ end
  
 
 function modifier_saito_mind_eye:GetModifierIncomingDamage_Percentage() 
-    return  -1*self:GetAbility():GetSpecialValueFor("resist")
+     return  -1*self:GetAbility():GetSpecialValueFor("resist")
+ 
 end
 
 function modifier_saito_mind_eye:DeclareFunctions()
@@ -230,4 +270,25 @@ end
 function modifier_saito_mind_eye_buff:IsHidden()	return false end
 function modifier_saito_mind_eye_buff:RemoveOnDeath()return true end 
 function modifier_saito_mind_eye_buff:IsDebuff() 	return false end
+ 
+
+
+modifier_saito_mind_eye_magic_dmg_immune = class({})
+
+function modifier_saito_mind_eye_magic_dmg_immune:DeclareFunctions()
+
+    return { 
+    MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS }
+
+end
+
+function modifier_saito_mind_eye_magic_dmg_immune:GetModifierMagicalResistanceBonus()
+    return 100
+end
+ 
+ 
+
+function modifier_saito_mind_eye_magic_dmg_immune:IsHidden()	return false end
+function modifier_saito_mind_eye_magic_dmg_immune:RemoveOnDeath()return true end 
+function modifier_saito_mind_eye_magic_dmg_immune:IsDebuff() 	return false end
  

@@ -243,9 +243,14 @@
 			}
 			"06"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"sin_damage"		"5"
+				"var_type"			"FIELD_FLOAT"
+				"sin_damage"		"5 5.75 6.5 7.25 8"
 			}
+			"07"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"reveal_duration"	"3"
+			}			
 		}
 		
 		// Data driven
@@ -362,7 +367,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"500 575 650 725 800"
+				"damage"			"600 700 800 900 1000"
 			}
 			"04"
 			{
@@ -371,14 +376,19 @@
 			}
 			"05"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"bonus_damage_per_dead"	"10"
+				"var_type"			"FIELD_INTEGER" //DELETED
+				"bonus_damage_per_dead"	"0"
 			}
 			"06"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"sin_damage"		"40"
+				"var_type"			"FIELD_FLOAT"
+				"sin_damage"		"20 25 30 35 40"
 			}
+			"07"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"reveal_duration"	"3"
+			}			
 		}
 		
 		"OnSpellStart"
@@ -446,28 +456,28 @@
 		{
 			"01"
 			{
-				"var_type"			"FIELD_FLOAT"
+				"var_type"			"FIELD_FLOAT" //DELETED
 				"passive_chance"			"15"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"passive_damage_percentage"			"2 4 6 8 10"
+				"passive_damage_percentage"			"20"
 			}
 			"03"
 			{
-				"var_type"			"FIELD_INTEGER"
+				"var_type"			"FIELD_INTEGER" //DELETED
 				"passive_revoke_duration"			"3 4 5 6 7"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"active_dps"			"500 625 750 875 1000"
+				"active_dps"			"400 500 600 700 800"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"active_damage_per_tick"		"100 125 150 175 200"
+				"active_damage_per_tick"		"80 100 120 140 160"
 			}
 			"06"
 			{
@@ -487,7 +497,7 @@
 			"09"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"mr_bonus"			"60"
+				"mr_bonus"			"30"
 			}
 			"10"
 			{
@@ -496,14 +506,19 @@
 			}
 			"11"
 			{
-				"var_type"			"FIELD_INTEGER"
-				"sin_damage"		"25"    
+				"var_type"			"FIELD_FLOAT"
+				"sin_damage"		"12.5 15.625 18.75 21.875 25"    
 			}
 			"12"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"proc_sin_damage"	"0.2"
+				"proc_sin_damage"	"0.5"
 			}
+			"13"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"reveal_duration"	"3"
+			}			
 		}
 		
 		"OnSpellStart"
@@ -604,7 +619,7 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"45.0"
+		"AbilityCooldown"				"45 40 35 30 25"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -621,16 +636,16 @@
 			{
 				"var_type"			"FIELD_INTEGER"
 				"range"				"1000"
-			}			
+			}
 			"03"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"reveal_duration"	"1.0 2.0 3.0 4.0 5.0"
-			}
+				"reveal_duration"	"3"
+			}			
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"damage_reduction"	"-10 -15 -20 -25 -30"
+				"damage_reduction"	"-30 -32.5 -35 -37.5 -40"
 			}
 			"05"
 			{
@@ -650,17 +665,17 @@
 			"08"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"damage_reduction_improved"	"-15 -20 -25 -30 -35"
+				"damage_reduction_improved"	"-40 -42.5 -45 -47.5 -50"
 			}
 			"09"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"cc_duration"		"0.6 0.7 0.8 0.9 1.0"
+				"cc_duration"		"0.8 1 1.2 1.4 1.6"
 			}
 			"10"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"sin_duration"		"0.1"
+				"sin_duration"		"0.02"
 			}
 		}
 		
@@ -1123,7 +1138,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"bonus_reduction"		"5"
+				"bonus_reduction"		"10"
 			}	
 		}
 		
@@ -1163,7 +1178,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"5.0"
+				"duration"				"5"
 			}
 			"02"
 			{

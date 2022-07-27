@@ -206,7 +206,7 @@ function atalanta_celestial_arrow:ArrowHit(target, slow, bIsPhoebus, bIsCombo)
     end
     
     if bIsPhoebus and bIsPhoebus == 1 and not (bIsCombo and bIsCombo == 1) then
-        damage = damage * 0.75
+        damage = damage * caster:FindAbilityByName("atalanta_phoebus_catastrophe_barrage"):GetSpecialValueFor("arrows_damage_percentage")/100
     end
 
     if target:HasModifier("modifier_protection_from_arrows") then

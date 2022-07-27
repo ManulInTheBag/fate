@@ -24,7 +24,7 @@ function medea_hecatic_graea:OnSpellStart()
 	local caster = self:GetCaster()
 	local ability = self
 	local targetPoint = self:GetCursorPosition()
-	local radius = self:GetSpecialValueFor("radius")
+	local radius = self:GetSpecialValueFor("radius") 
 	local boltradius = self:GetSpecialValueFor("radius_bolt")
 	local boltvector = nil
 	local boltCount  = 0
@@ -37,7 +37,7 @@ function medea_hecatic_graea:OnSpellStart()
 
 	if caster.IsHGImproved then
 		maxBolt = maxBolt + 3
-		damage = damage + caster:GetIntellect() * 1.5
+		damage = damage + caster:GetIntellect() * 1
 	end 
 
 	local initTargets = 0
@@ -89,25 +89,37 @@ function medea_hecatic_graea:OnSpellStart()
         		end
     		end)
 	end)
-
-	local isFirstLoop = false
+	 
+	local isFirstLoop  = false
+ 
+	local targeted_rays_amount = 0
 	Timers:CreateTimer(0.7, function()
 		-- For the first round of shots, find all servants within AoE and guarantee one ray hit
 		if isFirstLoop == false then
 			isFirstLoop = true
+			self:DropRay(caster, damage, boltradius, ability, targetPoint, "particles/custom/caster/hecatic_graea/ray.vpcf")
 			initTargets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false) 
-			for k,v in pairs(initTargets) do
-				self:DropRay(caster, damage, boltradius, ability, v:GetAbsOrigin(), "particles/custom/caster/hecatic_graea/ray.vpcf")
-			end
-			maxBolt = maxBolt - #initTargets
+			targeted_rays_amount = #initTargets
+			return 0.1
+		elseif targeted_rays_amount ~= 0 then
+		self:DropRay(caster, damage, boltradius, ability, initTargets[targeted_rays_amount]:GetAbsOrigin(), "particles/custom/caster/hecatic_graea/ray.vpcf")
+		targeted_rays_amount = targeted_rays_amount - 1
+	 
+		maxBolt = maxBolt - 1
+		return 0.1
 		else
 			if maxBolt <= boltCount then return end
 		end
-
-		local rayTarget = RandomPointInCircle(GetGroundPosition(caster:GetAbsOrigin(), caster), radius - 150)
+--[[ 	local rayTarget = RandomPointInCircle(GetGroundPosition(caster:GetAbsOrigin(), caster), radius - 150)
 		while GridNav:IsBlocked(rayTarget) or not GridNav:IsTraversable(rayTarget) do
 			rayTarget = RandomPointInCircle(GetGroundPosition(caster:GetAbsOrigin(), caster), radius - 150)
 		end
+		self:DropRay(caster, damage, boltradius, ability, rayTarget, "particles/custom/caster/hecatic_graea/ray.vpcf")
+	    boltCount = boltCount + 1
+		return 0.1
+		]]--
+		rayTarget =  PointOnCircle(GetGroundPosition(caster:GetAbsOrigin(), caster), radius - 150, (maxBolt - boltCount)*360/maxBolt)
+	 
 		self:DropRay(caster, damage, boltradius, ability, rayTarget, "particles/custom/caster/hecatic_graea/ray.vpcf")
 	    boltCount = boltCount + 1
 		return 0.1

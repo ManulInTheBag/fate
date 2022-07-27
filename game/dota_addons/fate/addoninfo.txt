@@ -1,9 +1,14 @@
 "AddonInfo"
 {
-	"maps"			"fate_elim_7v7"
+	"maps"			"anime_fate_7vs7_beta fate_elim_7v7" 
 	"IsPlayable"	"1"
 	"PenaltiesEnabled"	"0"	
 	"fate_elim_7v7"
+	{
+		"MaxPlayers" "14"
+		"TeamCount"	"2"
+	}
+	"anime_fate_7vs7_beta"
 	{
 		"MaxPlayers" "14"
 		"TeamCount"	"2"

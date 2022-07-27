@@ -56,6 +56,8 @@ function cu_chulain_gae_bolg_jump:OnSpellStart()
 	local ply = caster:GetPlayerOwner()
 	local ascendCount = 0
 	local descendCount = 0	
+
+	EmitGlobalSound("lancer_gae_bolg_2")
 	
 	Timers:CreateTimer( 1.0, function()
 		ParticleManager:DestroyParticle( self.GBCastFx, false )
@@ -75,7 +77,6 @@ function cu_chulain_gae_bolg_jump:OnSpellStart()
 		endTime = 0.35,
 		callback = function()
 		StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_CAST_ABILITY_4, rate=2})
-	   	EmitGlobalSound("lancer_gae_bolg_2")
 
 		local projectileOrigin = caster:GetAbsOrigin() + Vector(0,0,300)
 		local projectile = CreateUnitByName("dummy_unit", projectileOrigin, false, caster, caster, caster:GetTeamNumber())

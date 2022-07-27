@@ -114,6 +114,9 @@ function nero_imperial_activate:OnSpellStart()
     local caster = self:GetCaster()
     if not caster:FindModifierByName("modifier_nero_heat").rank then
         caster:FindModifierByName("modifier_nero_heat").rank = 0
+        if(  self:GetParent():HasModifier("modifier_nero_heat_stacks")) then  
+            self:GetParent():FindModifierByName("modifier_nero_heat_stacks"):SetStackCount(0)
+        end
     end
     if caster:HasModifier("modifier_aestus_domus_aurea_nero") and caster:FindModifierByName("modifier_nero_heat").rank == 1 then
         return
@@ -133,8 +136,14 @@ function modifier_imperial_buff:OnCreated()
         self.rank = self.parent:FindModifierByName("modifier_nero_heat").rank
         if self.parent:HasModifier("modifier_aestus_domus_aurea_nero") then
             self.parent:FindModifierByName("modifier_nero_heat").rank = 1
+            if(  self:GetParent():HasModifier("modifier_nero_heat_stacks")) then  
+                self:GetParent():FindModifierByName("modifier_nero_heat_stacks"):SetStackCount(1)
+            end
         else
             self.parent:FindModifierByName("modifier_nero_heat").rank = 0
+            if(  self:GetParent():HasModifier("modifier_nero_heat_stacks")) then  
+                self:GetParent():FindModifierByName("modifier_nero_heat_stacks"):SetStackCount(0)
+            end
         end
         if self.parent.ImperialChoose == "nero_tactics" then
             local cooldown = self.rank*self.parent:FindAbilityByName("nero_tactics"):GetSpecialValueFor("bonus_value")
@@ -235,7 +244,6 @@ function modifier_imperial_buff_h:OnCreated()
         local caster = self:GetCaster()
         print(self.parent.ImperialChoose)
         self.rank = self.parent:FindModifierByName("modifier_nero_heat").rank
-        print(self.rank)
         if self.parent.ImperialChoose == "nero_tactics" then
             local cooldown = self.rank*self.parent:FindAbilityByName("nero_tactics"):GetSpecialValueFor("bonus_value")
             local tresFontCD = caster:FindAbilityByName("nero_tres_new"):GetCooldownTimeRemaining()

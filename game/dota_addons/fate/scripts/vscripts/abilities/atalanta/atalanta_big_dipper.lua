@@ -1,5 +1,5 @@
 atalanta_big_dipper = class({})
-LinkLuaModifier("modifier_tanya_elinium_slow", "abilities/atalanta/atalanta_big_dipper", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_atalanta_big_dipper_slow", "abilities/atalanta/atalanta_big_dipper", LUA_MODIFIER_MOTION_NONE)
 
 function atalanta_big_dipper:GetAOERadius()
     return self:GetSpecialValueFor("radius")
@@ -18,14 +18,7 @@ function atalanta_big_dipper:GetCustomCastErrorLocation(location)
     return "#Not_enough_arrows"
 end
 function atalanta_big_dipper:OnSpellStart()
-    LoopOverPlayers(function(player, playerID, playerHero)
-            --print("looping through " .. playerHero:GetName())
-            if playerHero.gachi == true then
-                -- apply legion horn vsnd on their client
-                CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="elinium"})
-                --caster:EmitSound("Hero_LegionCommander.PressTheAttack")
-            end
-        end)
+
 end
 function atalanta_big_dipper:OnChannelFinish(bInterrupted)
     if bInterrupted then
@@ -44,14 +37,23 @@ function atalanta_big_dipper:OnChannelFinish(bInterrupted)
 
         caster:UseArrow(3)
 
+        LoopOverPlayers(function(player, playerID, playerHero)
+            --print("looping through " .. playerHero:GetName())
+            if playerHero.gachi == true then
+                -- apply legion horn vsnd on their client
+                CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="elinium"})
+                --caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+            end
+        end)
+
         local elinium_projectile = {    Ability             = self,
                                         EffectName          = "particles/custom/atalanta/atalanta_arrow_10stack.vpcf",
                                         vSpawnOrigin        = caster:GetAbsOrigin() + Vector(0,0,150),
                                         fDistance           = distance,
-                                        fStartRadius        = 0,
+                                        fStartRadius        = width,
                                         fEndRadius          = width,
                                         Source              = caster,
-                                        bHasFrontalCone     = true,
+                                        bHasFrontalCone     = false,
                                         bReplaceExisting    = false,
                                         iUnitTargetTeam     = self:GetAbilityTargetTeam(),
                                         iUnitTargetFlags    = self:GetAbilityTargetFlags(),

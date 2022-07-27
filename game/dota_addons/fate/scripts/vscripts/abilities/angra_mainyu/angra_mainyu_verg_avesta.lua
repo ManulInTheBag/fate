@@ -26,7 +26,7 @@ function angra_mainyu_verg_avesta:OnSpellStart()
 		local multiplier = self:GetSpecialValueFor("multiplier")
 
 		if caster.IsDIAcquired and caster:HasModifier("modifier_true_form") then
-			multiplier = multiplier + 50
+			multiplier = multiplier + 25
 		end
 
 		damage = damage * (multiplier / 100)

@@ -163,7 +163,7 @@ function medusa_bellerophon_2:OnSpellStart()
 					Ability = self,
 					EffectName = nil,
 					vSpawnOrigin = caster:GetAbsOrigin(),
-					fDistance = 5440,
+					fDistance = 3440,
 					fStartRadius = 400,
 					fEndRadius = 400,
 					Source = self:GetCaster(),
@@ -192,7 +192,7 @@ function medusa_bellerophon_2:OnSpellStart()
 		Timers:CreateTimer(function()
 			local origin = caster:GetAbsOrigin()
 			--if (origin - targetPoint):Length2D() > 2000 then return end
-			if descendCount == 20 then
+			if descendCount == 15 then
 				FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
 				return
 			end
@@ -227,7 +227,7 @@ function medusa_bellerophon_2:OnSpellStart()
 					Ability = self,
 					EffectName = nil,
 					vSpawnOrigin = caster:GetAbsOrigin(),
-					fDistance = 5440,
+					fDistance = 3440,
 					fStartRadius = 400,
 					fEndRadius = 400,
 					Source = self:GetCaster(),

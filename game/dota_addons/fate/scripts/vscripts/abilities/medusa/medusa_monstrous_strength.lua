@@ -17,11 +17,16 @@ function modifier_medusa_monstrous_strength:IsHidden() return false end
 function modifier_medusa_monstrous_strength:IsDebuff() return false end
 
 function modifier_medusa_monstrous_strength:DeclareFunctions()
-	return { MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,}
+	return { MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
+			MODIFIER_PROPERTY_STATS_STRENGTH_BONUS}
 end
 
 function modifier_medusa_monstrous_strength:GetModifierAttackSpeedBonus_Constant()
 	return self:GetAbility():GetSpecialValueFor("as_bonus")
+end
+
+function modifier_medusa_monstrous_strength:GetModifierBonusStats_Strength()
+	return self:GetAbility():GetSpecialValueFor("str_bonus")
 end
 
 function modifier_medusa_monstrous_strength:OnAttackLanded(args)
@@ -29,7 +34,7 @@ function modifier_medusa_monstrous_strength:OnAttackLanded(args)
 
 	--args.attacker:EmitSound("Astolfo_Sanity_" .. RandomInt(1, 8))
 	giveUnitDataDrivenModifier(args.attacker, args.target, "modifier_disarmed", self:GetAbility():GetSpecialValueFor("disarm_duration"))
-	DoDamage(args.attacker, args.target, args.target:GetMaxHealth()*self:GetAbility():GetSpecialValueFor("health_percent")/100, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
+	DoDamage(args.attacker, args.target, self:GetParent():GetStrength()*2, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
 end
 
 function modifier_medusa_monstrous_strength:GetEffectName()

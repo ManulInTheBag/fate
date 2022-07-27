@@ -77,7 +77,10 @@ function cmd_seal_2:OnSpellStart()
  
 	if(hero:GetName() == "npc_dota_hero_terrorblade") then
 		hero:FindModifierByName("modifier_saito_fdb"):SetStackCount(hero:FindModifierByName("modifier_saito_fdb"):GetMaxStackCount())
-	 
+		if(hero:HasModifier("modifier_saito_formlessness_tracker")) then
+			hero:FindAbilityByName("saito_formlessness").isRefreshed = 1
+		end
+		 
 	end
 
 	-- Set cooldown

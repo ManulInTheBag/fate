@@ -70,6 +70,7 @@ function sasaki_tsubame_gaeshi:OnSpellStart()
 	if caster:GetMana() > 99 then
 		enhanced = true
 	end
+	if IsSpellBlocked(target) and( enhanced == false or not caster.IsGanryuAcquired )then return end
 	caster:AddNewModifier(caster, self, "modifier_exhausted", { Duration = self:GetSpecialValueFor("exhausted_duration") })
 
 	if caster.IsGanryuAcquired then			
@@ -169,7 +170,7 @@ function sasaki_tsubame_gaeshi:PerformSlash(caster, target, damage, soundQueue, 
 		target:EmitSound("Hero_Juggernaut.PreAttack")
 	end
 
-	if IsSpellBlocked(target) and not flag == DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY then return end
+	if  not flag == DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY then return end
 
 	if caster.IsGanryuAcquired then
 		target:AddNewModifier(caster, self, "modifier_ganryu_armor_shred", { Duration = 1})
@@ -207,7 +208,7 @@ function sasaki_tsubame_gaeshi:PerformSlashk(caster, target, damage, soundQueue)
 		target:EmitSound("Hero_Juggernaut.PreAttack")
 	end
 
-	if IsSpellBlocked(target) and not flag == DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY then return end
+	if   not flag == DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY then return end
 
 	if caster.IsGanryuAcquired then
 		target:AddNewModifier(caster, self, "modifier_ganryu_armor_shred", { Duration = 1})

@@ -85,9 +85,9 @@ function berserker_5th_madmans_roar:OnSpellStart()
 
 	if soundQueue <= 25 then		
 		caster:EmitSound("Heracles_Combo_Easter_" .. math.random (2,3))
-		Damage1 = Damage1 * 1.25
-		Damage2 = Damage2 * 1.25
-		Damage3 = Damage3 * 1.25
+		Damage1 = Damage1 * 1
+		Damage2 = Damage2 * 1
+		Damage3 = Damage3 * 1
 	end
 
 	local casterloc = caster:GetAbsOrigin()
@@ -96,7 +96,7 @@ function berserker_5th_madmans_roar:OnSpellStart()
 	local finaldmg = 0
 	for k,v in pairs(targets) do
 		local dist = (v:GetAbsOrigin() - casterloc):Length2D() 
-		if dist <= 350 then
+		if dist <= 500 then
 			finaldmg = Damage1
 			--v:AddNewModifier(caster, v, "modifier_stunned", { Duration = 3.0 })
 		    --giveUnitDataDrivenModifier(caster, v, "stunned", 3.0)
@@ -104,16 +104,19 @@ function berserker_5th_madmans_roar:OnSpellStart()
 				v:AddNewModifier(caster, self, "modifier_madmans_roar_slow_strong", {duration = 10})
 			end
 			giveUnitDataDrivenModifier(caster, v, "rb_sealdisabled", 3.0)
-		elseif dist > 350 and dist <= 1000 then
+			giveUnitDataDrivenModifier(caster, v, "locked", self:GetSpecialValueFor("lock_duration_1"))
+		elseif dist > 500 and dist <= 1000 then
 			finaldmg = Damage2
 			if not IsImmuneToSlow(v) then 
 				v:AddNewModifier(caster, self, "modifier_madmans_roar_slow_strong", {duration = 10})
 			end
+			giveUnitDataDrivenModifier(caster, v, "locked", self:GetSpecialValueFor("lock_duration_2"))
 		elseif dist > 1000 and dist <= 3000 then
 			finaldmg = Damage3
 			if not IsImmuneToSlow(v) then 
 				v:AddNewModifier(caster, self, "modifier_madmans_roar_slow_moderate", {duration = 10})
 			end
+			giveUnitDataDrivenModifier(caster, v, "locked", self:GetSpecialValueFor("lock_duration_3"))
 		elseif dist > 3000 then
 			finaldmg = 0
 			if not IsImmuneToSlow(v) then 

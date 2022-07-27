@@ -4,6 +4,7 @@ function modifier_cosmic_orbit:OnCreated(keys)
 	if IsServer() then 
 		self.MovespeedPct = 100
 		self.DamageType = keys.DamageType
+		self.MovespeedDuration = keys.MovespeedDuration
 
 		local caster = self:GetParent()
 		self.AttackSpeedBonus = keys.AttackSpeedBonus
@@ -51,6 +52,11 @@ function modifier_cosmic_orbit:OnIntervalThink()
 	self.MovespeedPct = 5
 
 	self:StartIntervalThink(-1)
+end
+
+function modifier_cosmic_orbit:OnRefresh()
+	self.MovespeedPct = 100
+	self:StartIntervalThink(self.MovespeedDuration)
 end
 
 function modifier_cosmic_orbit:OnAttackLanded(keys)

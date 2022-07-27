@@ -20,7 +20,7 @@ if IsServer() then
 		local hTarget = args.target
 		local hCaster = args.attacker
 		local base_damage = self:GetAbility():GetSpecialValueFor("base_damage")
-		local duration = self:GetAbility():GetSpecialValueFor("duration")/3
+		local duration = self:GetAbility():GetSpecialValueFor("duration")
 		local soulstream_abil = hCaster:FindAbilityByName("tamamo_soul_stream")
 
 		--if not hCaster:HasModifier("modifier_soulstream_buff") then return end
