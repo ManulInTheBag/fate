@@ -1,5 +1,6 @@
 LinkLuaModifier("modifier_pepeg_jump", "abilities/heracles/pepeg_jump", LUA_MODIFIER_MOTION_BOTH)
 LinkLuaModifier("modifier_pepe_slow", "abilities/heracles/pepeg_jump", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_pepe_mute", "abilities/heracles/pepeg_jump", LUA_MODIFIER_MOTION_NONE)
 
 pepeg_jump = class({})
 
@@ -219,8 +220,6 @@ function modifier_pepeg_jump:PlayEffects()
                                             FIND_ANY_ORDER, 
                                             false)
 
-        print(self.ability:GetSpecialValueFor("health_percent"))
-
         if self.parent == self.caster then
             self.damage = self:GetAbility():GetSpecialValueFor("pepeg_damage") + (self.caster.IsInhumanStrengthAcquired and 1.25 or 0)*self.caster:GetStrength()
             self.percent_damage = self.parent:GetMaxHealth()*self.ability:GetSpecialValueFor("health_percent")/50
@@ -253,6 +252,7 @@ function modifier_pepeg_jump:PlayEffects()
                 DoDamage(self.caster, enemy, self.percent_damage, DAMAGE_TYPE_PURE, 0, self:GetAbility(), false)
                 CustomNetTables:SetTableValue("sync","pepe_slow" .. enemy:GetName(), { slow = -1*self:GetAbility():GetSpecialValueFor("slow") })
                 enemy:AddNewModifier(self.caster, self, "modifier_pepe_slow", {duration = 2})
+                enemy:AddNewModifier(self.caster, self, "modifier_pepe_mute", {duration = self:GetAbility():GetSpecialValueFor("mute_duration")})
             end
         end
         if (self.parent:GetTeamNumber() ~= self.caster:GetTeamNumber()) then
@@ -262,6 +262,7 @@ function modifier_pepeg_jump:PlayEffects()
             DoDamage(self.caster, self.parent, self.self_percent_damage, DAMAGE_TYPE_PURE, 0, self:GetAbility(), false)
             CustomNetTables:SetTableValue("sync","pepe_slow" .. self.parent:GetName(), { slow = -1*self:GetAbility():GetSpecialValueFor("target_slow") })
             self.parent:AddNewModifier(self.caster, self, "modifier_pepe_slow", {duration = 2})
+            self.parent:AddNewModifier(self.caster, self, "modifier_pepe_mute", {duration = self:GetAbility():GetSpecialValueFor("mute_duration")})
         end
     end
 end
@@ -339,6 +340,16 @@ function modifier_pepe_slow:RemoveOnDeath()
     return true
 end
 
-function modifier_pepe_slow:GetTexture()
-    return "custom/s_scroll"
+modifier_pepe_mute = class({})
+
+function modifier_pepe_mute:CheckState()
+    local state =   {
+                    [MODIFIER_STATE_MUTED] = true,
+                    }
+ 
+    return state
 end
+
+function modifier_pepe_mute:IsHidden() return false end
+function modifier_pepe_mute:RemoveOnDeath() return true end
+function modifier_pepe_mute:IsDebuff() return true end

@@ -62,13 +62,13 @@ modifier_khsn_blink_checker = class({})
 
 function modifier_khsn_blink_checker:DeclareFunctions()
 	return {MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
-		MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE}
+		MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE}
 end
 
 function modifier_khsn_blink_checker:IsHidden() return false end
 function modifier_khsn_blink_checker:IsDebuff() return false end
 
-function modifier_khsn_blink_checker:GetModifierBaseAttack_BonusDamage()
+function modifier_khsn_blink_checker:GetModifierPreAttack_BonusDamage()
 	return self:GetAbility():GetSpecialValueFor("dmg_bonus")
 end
 

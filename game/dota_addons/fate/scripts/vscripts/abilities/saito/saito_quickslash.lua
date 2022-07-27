@@ -24,18 +24,19 @@ function saito_quickslash:GetCastPoint()
 	 
 	local Caster = self:GetCaster() 
 	local stack_count = 0
+	 
 	if(Caster:HasModifier("modifier_saito_fdb_repeated")) then
 		stack_count = Caster:GetModifierStackCount("modifier_saito_fdb_repeated", Caster) 
 	end
 	if(Caster:HasModifier("modifier_saito_fdb_lastQ")) then
-		return 0.7
+		return 0.6
 	end
 	if stack_count <=2 then
-		return 0.35
+		return 0.25
 	elseif stack_count > 2 and stack_count < 4 then
-		return 0.245
+		return 0.2
 	else
-		return 0.14
+		return 0.15
 	end
 end
 
@@ -66,6 +67,15 @@ function saito_quickslash:OnSpellStart()
 			dist = dist/2
 		end
 	end
+	ProjectileManager:ProjectileDodge(caster)
+	LoopOverPlayers(function(player, playerID, playerHero)
+        --print("looping through " .. playerHero:GetName())
+        if playerHero.gachi == true and playerHero == self:GetCaster() then
+            -- apply legion horn vsnd on their client
+            CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="saito_neow"})
+            --caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+        end
+    end)
     hitFlag = 0
 	local anim_rate = 1+(0.35-self:GetCastPoint())*2
 	--StartAnimation(caster, {duration = 1, activity = ACT_DOTA_CAST_ABILITY_1, rate = 1+anim_rate})  
@@ -159,21 +169,33 @@ end
 function saito_quickslash:OnProjectileHit_ExtraData(hTarget, vLocation, table)
 	if hTarget == nil then return end
 	local caster = self:GetCaster()
-	local damage = self:GetSpecialValueFor("damage")
+	local damage = self:GetSpecialValueFor("damage") + caster:GetAttackDamage()*self:GetSpecialValueFor("atk_scale")
 	if(caster.FreestyleAcquired) then
         damage = damage + caster:GetAttackDamage()*self:GetSpecialValueFor("atk_scale")
+		
     end
 	if(caster.MasteryAcquired) then
 		caster:AddNewModifier(caster, self, "modifier_saito_quickslash_bonus",{duration = 2})
 	end
 	--hTarget:EmitSound("Hero_Sniper.AssassinateDamage")
 	DoDamage(caster, hTarget, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+	giveUnitDataDrivenModifier(caster,hTarget, "rooted", 0.2)
 	--local slashes = ParticleManager:CreateParticle("particles/saito/saito_slash_enemy.vpcf", PATTACH_CUSTOMORIGIN, nil)
 	--ParticleManager:SetParticleControl(slashes, 0, hTarget:GetAbsOrigin())
 
 end
 
+
+
+
+
 modifier_saito_quickslash = class({})
+function modifier_saito_quickslash:DeclareFunctions()
+	local funcs = {MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE }
+
+	return funcs
+end
+
 function modifier_saito_quickslash:GetModifierTurnRate_Percentage()
 	return 300
 end
@@ -207,9 +229,22 @@ function modifier_saito_quickslash_lock:RemoveOnDeath() return true end
 
 
 modifier_saito_quickslash_bonus = class({})
+
+
+function modifier_saito_quickslash_bonus:DeclareFunctions()
+	local funcs = {MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE }
+
+	return funcs
+end
+
 function modifier_saito_quickslash_bonus:GetModifierTurnRate_Percentage()
 	return self:GetAbility():GetSpecialValueFor("turnrate_bonus")
 end
 function modifier_saito_quickslash_bonus:IsHidden() return false end
 function modifier_saito_quickslash_bonus:IsDebuff() return false end
 function modifier_saito_quickslash_bonus:RemoveOnDeath() return true end
+
+
+
+
+ 

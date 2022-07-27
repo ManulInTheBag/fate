@@ -17,13 +17,21 @@ end
 function gilgamesh_enkidu:OnSpellStart()
 	local caster = self:GetCaster()
 	local target = self:GetCursorTarget()
-	
+	self.stopOrder_self = {
+		UnitIndex = caster:entindex(), 
+		OrderType = DOTA_UNIT_ORDER_STOP
+	}
+
+	if IsSpellBlocked(target) then
+		ExecuteOrderFromTable(self.stopOrder_self)  return
+		 end
 	caster:EmitSound("Gilgamesh_Enkidu_2")
 
 	local stopOrder = {
  		UnitIndex = target:entindex(), 
  		OrderType = DOTA_UNIT_ORDER_STOP
  	}
+
 
  	ExecuteOrderFromTable(stopOrder) 
 
@@ -38,11 +46,16 @@ function gilgamesh_enkidu:OnSpellStart()
 end
 
 function gilgamesh_enkidu:OnChannelThink(fInterval)
+
 	self.elapsed = self.elapsed + fInterval
 	if self.elapsed > 0.5 then
 		local caster = self:GetCaster()
 		local target = self:GetCursorTarget()
+		if( not target:HasModifier("modifier_enkidu_hold")) then
+			ExecuteOrderFromTable(self.stopOrder_self) 
+		end
 		DoDamage(caster, target, target:GetMaxHealth()*self:GetSpecialValueFor("damage")/100, DAMAGE_TYPE_MAGICAL, 0, self, false)
+
 		self.elapsed = 0
 	end
 end

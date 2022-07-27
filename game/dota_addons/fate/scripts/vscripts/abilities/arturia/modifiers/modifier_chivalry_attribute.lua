@@ -13,8 +13,8 @@ if IsServer() then
 
 		local invisairCD = caster:FindAbilityByName("saber_invisible_air"):GetCooldownTimeRemaining()
 		caster:FindAbilityByName("saber_invisible_air"):EndCooldown()
-		if invisairCD - 1 > 0 then
-			caster:FindAbilityByName("saber_invisible_air"):StartCooldown(invisairCD - 1)
+		if invisairCD - 0.5 > 0 then
+			caster:FindAbilityByName("saber_invisible_air"):StartCooldown(invisairCD - 0.5)
 		end 
 
 		local caliburnCD = caster:FindAbilityByName("saber_caliburn"):GetCooldownTimeRemaining()

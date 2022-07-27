@@ -5,6 +5,7 @@ LinkLuaModifier("modifier_f16_forward", "abilities/lancelot/lancelot_f16", LUA_M
 LinkLuaModifier("modifier_f16_mana", "abilities/lancelot/lancelot_f16", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_f16_owner", "abilities/lancelot/lancelot_f16", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_vision_provider", "abilities/general/modifiers/modifier_vision_provider", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_f16_timer", "abilities/lancelot/lancelot_f16", LUA_MODIFIER_MOTION_NONE)
 
 modifier_f16_owner = class({})
 
@@ -12,15 +13,32 @@ function modifier_f16_owner:OnDestroy()
     self.parent = self:GetParent()
     FindClearSpaceForUnit(self.parent, self.parent:GetAbsOrigin(), true)
 end
+ 
 
 function modifier_f16_owner:IsHidden() return true end
 
 lancelot_f16 = class({})
 
+
+function lancelot_f16:OnAbilityPhaseStart()
+    local caster = self:GetCaster()
+    self.cast = ParticleManager:CreateParticle("particles/lancelot/f16_cast_smoke.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+    return true
+end
+function lancelot_f16:OnAbilityPhaseInterrupted()
+
+    ParticleManager:DestroyParticle(self.cast, false)
+    ParticleManager:ReleaseParticleIndex(self.cast)
+end
+
+
+
+
 function lancelot_f16:OnSpellStart()
 	local caster = self:GetCaster()
 	local f16 = CreateUnitByName("f16_at_vinta", caster:GetAbsOrigin(), true, nil, nil, caster:GetTeamNumber())
-
+    ParticleManager:DestroyParticle(self.cast, false)
+    ParticleManager:ReleaseParticleIndex(self.cast)
     local kappapride = "at_vinta"..math.random(1,2)
     LoopOverPlayers(function(player, playerID, playerHero)
         --print("looping through " .. playerHero:GetName())
@@ -49,7 +67,17 @@ function lancelot_f16:OnSpellStart()
 	f16:FindAbilityByName("lancelot_f16_forward"):SetLevel(caster:FindAbilityByName("lancelot_arondite"):GetLevel())
 
 	f16:AddNewModifier(hCaster, self, "modifier_kill", { duration = 30.0 })
+    f16:AddNewModifier(caster, self, "modifier_f16_timer", {duration = 30})
 end
+
+modifier_f16_timer = class({})
+
+function modifier_f16_timer:GetIntrinsicModifierName()
+    return "modifier_f16_timer"
+end
+
+function modifier_f16_timer:IsHidden() return false end
+function modifier_f16_timer:IsDebuff() return false end
 
 lancelot_f16_barrage = class({})
 
@@ -59,7 +87,7 @@ function lancelot_f16_barrage:OnSpellStart()
 
 	caster:EmitSound("Hero_Gyrocopter.CallDown.Fire")
 	local torpedo_projectile1 = {	Ability 		  = self,
-									EffectName		  = "particles/heroes/anime_hero_enterprise/enterprise_torpedo.vpcf",
+									EffectName		  = "particles/lancelot/rocket.vpcf",
 									vSpawnOrigin 	  = caster:GetAbsOrigin(),
 									vVelocity 		  = vDirection:Normalized() * 2000 * Vector(1,1,0),
 									fDistance 		  = 2000,
@@ -77,9 +105,12 @@ function lancelot_f16_barrage:OnSpellStart()
 	ProjectileManager:CreateLinearProjectile(torpedo_projectile1)
 
 	Timers:CreateTimer(0.2, function()
+        if( not caster:IsAlive()) then
+            return end
+        local vDirection = caster:GetForwardVector()
 		caster:EmitSound("Hero_Gyrocopter.CallDown.Fire")
 		local torpedo_projectile2 = {	Ability 		  = self,
-									EffectName		  = "particles/heroes/anime_hero_enterprise/enterprise_torpedo.vpcf",
+                                      EffectName		  = "particles/lancelot/rocket.vpcf",
 									vSpawnOrigin 	  = caster:GetAbsOrigin(),
 									vVelocity 		  = vDirection:Normalized() * 2000 * Vector(1,1,0),
 									fDistance 		  = 2000,
@@ -97,9 +128,12 @@ function lancelot_f16_barrage:OnSpellStart()
 		ProjectileManager:CreateLinearProjectile(torpedo_projectile2)
 	end)
 	Timers:CreateTimer(0.4, function()
+        if( not caster:IsAlive()) then
+            return end
+        local vDirection = caster:GetForwardVector()
 		caster:EmitSound("Hero_Gyrocopter.CallDown.Fire")
 		local torpedo_projectile3 = {	Ability 		  = self,
-									EffectName		  = "particles/heroes/anime_hero_enterprise/enterprise_torpedo.vpcf",
+                                      EffectName		  = "particles/lancelot/rocket.vpcf",
 									vSpawnOrigin 	  = caster:GetAbsOrigin(),
 									vVelocity 		  = vDirection:Normalized() * 2000 * Vector(1,1,0),
 									fDistance 		  = 2000,
@@ -130,7 +164,7 @@ function lancelot_f16_barrage:OnProjectileHit(hTarget, vLocation)
 	local damage_radius = self:GetSpecialValueFor("damage_radius")
 	local damage = self:GetSpecialValueFor("damage")
 
-	local particle_cast = "particles/econ/items/lina/lina_ti7/lina_spell_light_strike_array_ti7.vpcf"
+	local particle_cast = "particles/lancelot/explosion_fx.vpcf"
 
 	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_WORLDORIGIN, nil )
 						ParticleManager:SetParticleControl( effect_cast, 0, vLocation )
@@ -293,7 +327,7 @@ lancelot_f16_forward = class({})
 
 function lancelot_f16_forward:OnSpellStart()
 	local caster = self:GetCaster()
-	Timers:CreateTimer(1, function()
+	Timers:CreateTimer(2, function()
 		LoopOverPlayers(function(player, playerID, playerHero)
 	    	--print("looping through " .. playerHero:GetName())
 	        if playerHero.gachi == true then
@@ -306,8 +340,11 @@ function lancelot_f16_forward:OnSpellStart()
     caster:AddNewModifier(caster, caster, "modifier_forward_cmd_disable", {duration = 2.0})
 	--caster:AddNewModifier(caster, caster, "modifier_stunned", {Duration = 2.0})
 	Timers:CreateTimer(2, function()
-		EmitGlobalSound("Lancelot.Nuke_Impact")
+
 		local targetPoint = caster:GetAbsOrigin()
+        if( not caster:IsAlive()) then
+            return end
+        EmitGlobalSound("Lancelot.Nuke_Impact")
 		local targets = FindUnitsInRadius(caster:GetTeam(), targetPoint, nil, self:GetSpecialValueFor("damage_radius"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
         for k,v in pairs(targets) do
             DoDamage(caster, v, self:GetSpecialValueFor("damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)

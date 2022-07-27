@@ -1,12 +1,20 @@
 LinkLuaModifier("modifier_nero_heat", "abilities/nero/nero_heat", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_laus_saint_ready_checker", "abilities/nero/modifiers/modifier_laus_saint_ready_checker", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_imperial_buff_h", "abilities/nero/nero_imperial", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_nero_heat_stacks", "abilities/nero/nero_heat", LUA_MODIFIER_MOTION_NONE)
 
 nero_heat = class({})
 
 function nero_heat:GetIntrinsicModifierName()
 	return "modifier_nero_heat"
 end
+
+function nero_heat:GetAbilityTextureName()
+	local rank = self:GetSequence()
+ 	
+	return  "custom/nero/rank_"..rank 	
+end
+ 
 function nero_heat:OnSpellStart()
 	local caster = self:GetCaster()
 	--if not caster:HasModifier("modifier_aestus_domus_aurea_nero") then return end
@@ -25,9 +33,13 @@ function nero_heat:IncreaseHeat(caster)
 	local caster = caster
 	local modifier = caster:FindModifierByName("modifier_nero_heat")
 
+	if(not caster:HasModifier("modifier_nero_heat_stacks")) then
+		caster:AddNewModifier(caster, self, "modifier_nero_heat_stacks", {})
+	end
 	modifier.duration_remaining = self:GetSpecialValueFor("duration")
 	if not modifier.rank then
 		modifier.rank = 0
+		caster:FindModifierByName("modifier_nero_heat_stacks"):SetStackCount(0)
 	end
 
 	if caster.DiabolisVectisAcquired then
@@ -50,6 +62,7 @@ function nero_heat:IncreaseHeat(caster)
 
 	if modifier.rank < 6 or (modifier.rank < 7 and caster:HasModifier("modifier_aestus_domus_aurea_nero")) then
 		modifier.rank = modifier.rank + 1
+		caster:FindModifierByName("modifier_nero_heat_stacks"):SetStackCount(modifier.rank)
 		modifier:UpdateParticle()
 	end
 
@@ -67,6 +80,13 @@ function nero_heat:RefreshHeatDuration(caster)
 	end
 
 	modifier.duration_remaining = self:GetSpecialValueFor("duration")
+end
+
+ 
+function nero_heat:GetSequence()
+	local caster = self:GetCaster()
+	if( not caster:HasModifier("modifier_nero_heat_stacks")) then return 0 end
+	return caster:GetModifierStackCount("modifier_nero_heat_stacks", caster)
 end
 
 modifier_nero_heat = class({})
@@ -88,13 +108,13 @@ function modifier_nero_heat:GetAttributes()
     return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE + MODIFIER_ATTRIBUTE_PERMANENT
 end
 function modifier_nero_heat:UpdateParticle()
-	print(self.rank)
 	if not self.particle then
 		self.particle = ParticleManager:CreateParticle("particles/nero/nero.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 	    ParticleManager:SetParticleControl(self.particle, 0, self:GetParent():GetAbsOrigin())
 	    self:StartIntervalThink(FrameTime())
 	end
 	ParticleManager:SetParticleControl(self.particle, 1, Vector(self.rank, 0, 0))
+ 
 end
 function modifier_nero_heat:OnIntervalThink()
 	if not self:GetParent():HasModifier("modifier_aestus_domus_aurea_nero") then
@@ -103,8 +123,12 @@ function modifier_nero_heat:OnIntervalThink()
 	--print(self.duration_remaining)
 	if self.duration_remaining <= 0 then
 		self.rank = 0
+		if(  self:GetParent():HasModifier("modifier_nero_heat_stacks")) then  
+			self:GetParent():FindModifierByName("modifier_nero_heat_stacks"):SetStackCount(0)
+		end
 	end
 	self:UpdateParticle()
+ 
 end
 function modifier_nero_heat:DeclareFunctions()
     return {
@@ -116,3 +140,19 @@ function modifier_nero_heat:DeclareFunctions()
         MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
     }
 end
+
+ 
+function modifier_nero_heat:GetTexture()
+	local rank = self:GetAbility():GetSequence()
+ 	
+		return  "custom/nero/rank_"..rank 	
+ 
+ 
+end
+
+
+modifier_nero_heat_stacks = class({})
+
+function modifier_nero_heat_stacks:IsHidden() return true end
+function modifier_nero_heat_stacks:IsDebuff() return false end
+function modifier_nero_heat_stacks:RemoveOnDeath() return false end

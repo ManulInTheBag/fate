@@ -31,7 +31,7 @@ function kuro_broken_phantasm:OnSpellStart()
     local hTarget = self:GetCursorTarget()
     local hPlayer = hCaster:GetPlayerOwner()
     self.hTarget = hTarget
-
+	
     self:EndCooldown()
     hCaster:GiveMana(self:GetManaCost(-1))
 
@@ -66,10 +66,17 @@ function kuro_broken_phantasm:OnChannelFinish(bInterrupted)
     local hCaster = self:GetCaster()
     local hTarget = self:GetCursorTarget()
     local hPlayer = hCaster:GetPlayerOwner()
-
-    ParticleManager:DestroyParticle(self.pcMarker, false)
-    ParticleManager:ReleaseParticleIndex(self.pcMarker)
-
+   
+    if(self.pcMarker ~= null) then
+        ParticleManager:DestroyParticle(self.pcMarker, false)
+        ParticleManager:ReleaseParticleIndex(self.pcMarker)
+    end
+    if IsSpellBlocked(hTarget) then 
+        Say(hPlayer, "Broken Phantasm failed.", true)
+        self:StartCooldown(self:GetCooldown(self:GetLevel()))
+        hCaster:SpendMana(self:GetManaCost(-1), self)
+        return 
+    end
     --[[local prop = Attachments:GetCurrentAttachment(hCaster, "attach_attack2")
     if not prop:IsNull() then prop:RemoveSelf() end]]
 
@@ -115,7 +122,7 @@ function kuro_broken_phantasm:OnProjectileHit_ExtraData(hTarget, vLocation, tDat
     local fRadius = self:GetSpecialValueFor("radius")
     local fStun = self:GetSpecialValueFor("stun_duration")
     
-    if IsSpellBlocked(hTarget) then return end
+     
 
     local pcExplosion = ParticleManager:CreateParticle("particles/units/heroes/hero_sven/sven_storm_bolt_projectile_explosion.vpcf", PATTACH_ABSORIGIN_FOLLOW, hTarget)
     ParticleManager:SetParticleControl(pcExplosion, 3, hTarget:GetAbsOrigin())

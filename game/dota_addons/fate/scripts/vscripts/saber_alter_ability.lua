@@ -2,8 +2,9 @@
 --isLeftside = nil
 
 LinkLuaModifier("modifier_vortigern_ferocity", "abilities/arturia_alter/modifiers/modifier_vortigern_ferocity", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_morgan_slow", "saber_alter_ability", LUA_MODIFIER_MOTION_NONE)
 
-function OnDerangeStart(keys)
+--[[function OnDerangeStart(keys)
 	local caster = keys.caster
 	local ability = keys.ability
 	local ply = caster:GetPlayerOwner()
@@ -14,7 +15,7 @@ function OnDerangeStart(keys)
 	if caster.IsManaBlastAcquired then
 		--[[
 			Fix a bug where user can have more than 7 charges and add VFX
-		]]
+		
 		local maximum_charges = keys.ability:GetLevelSpecialValueFor( "maximum_charges", keys.ability:GetLevel() - 1 )
 		
 		-- Check the amount of next charge
@@ -45,7 +46,7 @@ function OnDerangeStart(keys)
 
 	caster:EmitSound("Saber_Alter.Derange")
 	caster:EmitSound("saber_alter_other_01")
-end
+end]]
 
 function OnDerangeAttackStart(keys)
 	local caster = keys.caster
@@ -72,7 +73,7 @@ function OnUFStart(keys)
 	local bonusDamage = 0
 
 	if caster.IsFerocityImproved then
-		bonusDamage = caster:GetStrength()*1.5 + caster:GetIntellect()*1.5
+		bonusDamage = caster:GetStrength()*0.75 + caster:GetIntellect()*0.75
 	end
 
 	caster:EmitSound("saber_alter_other_03") 
@@ -120,16 +121,11 @@ function OnMBStart(keys)
 	local ply = caster:GetPlayerOwner()
 	local stunDuration = 0.2
 
-	if caster.IsManaShroudImproved == true then 
-		keys.Radius = keys.Radius + 200 
-		keys.Damage = keys.Damage + 3 * caster:GetIntellect()
-	end
-
-
 	if caster.IsManaBlastAcquired then
-		keys.Damage = keys.Damage + (caster:GetMana() * 0.2)
-		caster:SpendMana(caster:GetMana() * 0.4, ability)
+		keys.Damage = keys.Damage + (caster:GetMana() * 0.1)
+		caster:SpendMana(caster:GetMana() * 0.1, ability)
 		stunDuration = 0.5
+		keys.Radius = keys.Radius + 200 
 	end
 
 	caster:EmitSound("Saber_Alter.ManaBurst") 
@@ -151,15 +147,12 @@ function OnMBStart(keys)
 		while caster:HasModifier( "modifier_derange_mana_catalyst_VFX" ) do
 			caster:RemoveModifierByName( "modifier_derange_mana_catalyst_VFX" )
 		end
-		
-		while caster.ManaBlastCount ~= 0 do
+
+		while caster:GetModifierStackCount("modifier_catalyst", self) ~= 0 do
 			info.Target = targets[math.random(#targets)]
 			ProjectileManager:CreateTrackingProjectile(info) 
-			caster.ManaBlastCount = caster.ManaBlastCount - 1
+			caster:SetModifierStackCount("modifier_catalyst", self, caster:GetModifierStackCount("modifier_catalyst", self) - 1)
 		end
-		
-		-- Update the charge
-		caster:SetModifierStackCount( "modifier_derange_counter", caster, caster.ManaBlastCount )
 	end
 
 	-- 1.24c particle fix
@@ -178,7 +171,7 @@ function OnMBStart(keys)
 end
 
 function OnManaBlastHit(keys)
-	DoDamage(keys.caster, keys.target, 150 , DAMAGE_TYPE_MAGICAL, 0, keys.ability, false)
+	DoDamage(keys.caster, keys.target, 100 , DAMAGE_TYPE_MAGICAL, 0, keys.ability, false)
 end
 
 function OnMMBStart(keys)
@@ -215,9 +208,9 @@ function OnMMBStart(keys)
 		ParticleManager:DestroyParticle( BlueSplashFx, false )
 	end)
 
-	local dmg = caster:GetMaxMana()
+	local dmg = caster:GetMaxMana()*1.2
 	if caster.IsManaBlastAcquired then
-		dmg = dmg * 2
+		dmg = caster:GetMaxMana()*1.5
 	end
 	local finaldmg = dmg
 
@@ -282,7 +275,6 @@ function OnVortigernStart(keys)
 			local stacks = ferocity_modifier:GetStackCount()
 			if stacks > 1 then
 				ability:EndCooldown()
-				caster:GiveMana(200)
 				ferocity_modifier:SetStackCount(stacks - 1)
 			else
 				caster:RemoveModifierByName("modifier_vortigern_ferocity")
@@ -290,7 +282,6 @@ function OnVortigernStart(keys)
 		else
 			local ferocity_modifier = caster:AddNewModifier(caster, ability, "modifier_vortigern_ferocity", { Duration = 3 })
 			ability:EndCooldown()
-			caster:GiveMana(200)
 			ferocity_modifier:SetStackCount(2)
 		end		
 	end
@@ -439,8 +430,9 @@ function OnDexStart(keys)
 	local range = keys.Range
 	local width = keys.Width
 	EmitGlobalSound("Saber.Caliburn")
-	EmitGlobalSound("Excalibur_Morgan_Precast")
+	--EmitGlobalSound("Excalibur_Morgan_Precast")
 	ability:ApplyDataDrivenModifier(caster, caster, "dark_excalibur_VFX_controller", {})
+	StartAnimation(caster, {duration = 2, activity = ACT_DOTA_CAST_ABILITY_4, rate = 1.35})
 	local dex = 
 	{
 		Ability = keys.ability,
@@ -461,17 +453,27 @@ function OnDexStart(keys)
 		vVelocity = caster:GetForwardVector() * keys.Speed
 	}	
 
-	Timers:CreateTimer(1.0, function() 
+	Timers:CreateTimer(0, function() 
 		if caster:IsAlive() then
 			EmitGlobalSound("Excalibur_Morgan")
 		end
 	end)
 
-	Timers:CreateTimer(2.75, function()
+	Timers:CreateTimer(2, function()
 		if caster:IsAlive() then
 			dex.vSpawnOrigin = caster:GetAbsOrigin() 
 			dex.vVelocity = caster:GetForwardVector() * keys.Speed/0.3
-			local projectile = ProjectileManager:CreateLinearProjectile(dex)
+			
+			local counter = 10
+			Timers:CreateTimer(0, function()        
+            counter = counter -1
+            if not caster:IsAlive() then return end
+            local projectile = ProjectileManager:CreateLinearProjectile(dex)
+            	if(counter == 0) then
+                return  
+            	end
+            return 0.08
+        	end)
 			ScreenShake(caster:GetOrigin(), 5, 0.1, 2, 20000, 0, true)
 			AddFOWViewer(2,Vector(caster:GetAbsOrigin().x,caster:GetAbsOrigin().y,caster:GetAbsOrigin().z + 200) + caster:GetForwardVector()*100, 10, 1, false)
     		AddFOWViewer(3,Vector(caster:GetAbsOrigin().x,caster:GetAbsOrigin().y,caster:GetAbsOrigin().z + 200) + caster:GetForwardVector()*100, 10, 1, false)
@@ -497,42 +499,6 @@ function OnDexStart(keys)
 			end)
 		end
 	end)
-
-	Timers:CreateTimer(2.75, function()
-		if caster:IsAlive() then
-			-- Create Particle for projectile
-			local casterFacing = caster:GetForwardVector()
-			local dummy = CreateUnitByName("dummy_unit", caster:GetAbsOrigin(), false, caster, caster, caster:GetTeamNumber())
-			dummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
-			dummy:SetForwardVector(casterFacing)
-			Timers:CreateTimer( function()
-					if IsValidEntity(dummy) then
-						local newLoc = dummy:GetAbsOrigin() + keys.Speed * 0.03 * casterFacing
-						dummy:SetAbsOrigin(GetGroundPosition(newLoc,dummy))
-						-- DebugDrawCircle(newLoc, Vector(255,0,0), 0.5, keys.StartRadius, true, 0.15)
-						return 0.03
-					else
-						return nil
-					end
-				end
-			)
-			
-			--local excalFxIndex = ParticleManager:CreateParticle("particles/custom/saber_alter/excalibur/shockwave.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, dummy )
-
-			Timers:CreateTimer( 1.5, function()
-					--ParticleManager:DestroyParticle( excalFxIndex, false )
-					--ParticleManager:ReleaseParticleIndex( excalFxIndex )
-					Timers:CreateTimer( 0.5, function()
-							dummy:RemoveSelf()
-							return nil
-						end
-					)
-					return nil
-				end
-			)
-			return 
-		end
-	end)
 end
 
 function OnDexHit(keys)
@@ -540,10 +506,29 @@ function OnDexHit(keys)
 	local target = keys.target
 	local ability = keys.ability
 	local ply = caster:GetPlayerOwner()
-	if caster.IsDarklightAcquired then keys.Damage = keys.Damage + caster:GetMaxMana()*(5 + ability:GetLevel()*5)/100 end
+	if caster.IsDarklightAcquired then keys.Damage = keys.Damage + caster:GetMaxMana()*(25 + ability:GetLevel()*5)/1000 end
 	if target:GetUnitName() == "gille_gigantic_horror" then keys.Damage = keys.Damage*1.3 end
 	DoDamage(keys.caster, keys.target, keys.Damage , DAMAGE_TYPE_MAGICAL, 0, keys.ability, false)
+	target:AddNewModifier(caster, ability, "modifier_morgan_slow", {Duration = 1})
+	giveUnitDataDrivenModifier(caster, target, "locked", 1)
 end
+
+modifier_morgan_slow = class({})
+
+function modifier_morgan_slow:DeclareFunctions()
+	local funcs = {MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE}
+
+	return funcs
+end
+
+function modifier_morgan_slow:GetModifierMoveSpeedBonus_Percentage()
+	return -self:GetAbility():GetSpecialValueFor("slow_power")
+end
+
+function modifier_morgan_slow:IsHidden()
+	return false 
+end
+
 
 	--[[
 	local vortigernBeam =
@@ -585,83 +570,14 @@ DTime = GameRules:GetGameTime()
 UFTime = 0
 	
 function DSCheckCombo(caster, ability)
-	if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 and caster:GetIntellect() >= 29.1 then
-		if ability == caster:FindAbilityByName("saber_alter_derange") then
-			DUsed = true
-			DTime = GameRules:GetGameTime()
-			Timers:CreateTimer({
-				endTime = 5,
-				callback = function()
-				DUsed = false
-			end
-			})
-		elseif ability == caster:FindAbilityByName("saber_alter_unleashed_ferocity") and caster:FindAbilityByName("saber_alter_mana_burst"):IsCooldownReady() and caster:FindAbilityByName("saber_alter_max_mana_burst"):IsCooldownReady() then
-                        if not caster:FindAbilityByName("saber_alter_max_mana_burst"):IsHidden() then return end
-			if DUsed == true then 
-				caster:SwapAbilities("saber_alter_mana_burst", "saber_alter_max_mana_burst", false, true)
-				local newTime =  GameRules:GetGameTime()
-				Timers:CreateTimer({
-					endTime = 5 - (newTime - DTime),
-					callback = function()
-					caster:SwapAbilities("saber_alter_mana_burst", "saber_alter_max_mana_burst", true, false)
-					DUsed = false
-				end
-				})
-			end
-		end
+	if caster:HasModifier("modifier_arturia_alter_combo_window") then
+		if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 and caster:GetIntellect() >= 29.1 then
+	    	if caster:FindAbilityByName("saber_alter_max_mana_burst"):IsCooldownReady() and caster:FindAbilityByName("saber_alter_mana_burst"):IsCooldownReady() and caster:IsAlive() then	    		
+	    		caster:SwapAbilities("saber_alter_max_mana_burst", "saber_alter_mana_burst", true, false)
+	    		Timers:CreateTimer(3, function()
+	    			caster:SwapAbilities("saber_alter_max_mana_burst", "saber_alter_mana_burst", false, true)
+	    	    end)   		
+	    	end
+	    end
 	end
-end
-
-function OnImproveManaShroundAcquired(keys)
-	local caster = keys.caster
-	local ply = caster:GetPlayerOwner()
-	local hero = caster:GetPlayerOwner():GetAssignedHero()
-
-	hero:FindAbilityByName("saber_alter_mana_shroud"):SetLevel(2)
-	hero:FindAbilityByName("arturia_alter_mana_shroud_attribute_passive"):SetLevel(1)
-	--hero:SetBaseMagicalResistanceValue(25)
-	hero:CalculateStatBonus(true)
-	hero.IsManaShroudImproved = true
-
-	-- Set master 1's mana 
-	local master = hero.MasterUnit
-	master:SetMana(master:GetMana() - keys.ability:GetManaCost(keys.ability:GetLevel()))
-end
-
--- needs particle
-function OnManaBlastAcquired(keys)
-	local caster = keys.caster
-	local ply = caster:GetPlayerOwner()
-	local hero = caster:GetPlayerOwner():GetAssignedHero()
-	hero.IsManaBlastAcquired = true
-	hero.ManaBlastCount = 0
-
-	-- Set master 1's mana 
-	local master = hero.MasterUnit
-	master:SetMana(master:GetMana() - keys.ability:GetManaCost(keys.ability:GetLevel()))
-end
-
-function OnImproveFerocityAcquired(keys)
-	local caster = keys.caster
-	local ply = caster:GetPlayerOwner()
-	local hero = caster:GetPlayerOwner():GetAssignedHero()
-	hero.IsFerocityImproved = true
-	hero:FindAbilityByName("saber_alter_unleashed_ferocity"):SetLevel(2)
-	hero:SwapAbilities("saber_alter_unleashed_ferocity","saber_alter_unleashed_ferocity_improved", false, true)
-
-	-- Set master 1's mana 
-	local master = hero.MasterUnit
-	master:SetMana(master:GetMana() - keys.ability:GetManaCost(keys.ability:GetLevel()))
-end
-
-function OnDarklightAcquired(keys)
-	local caster = keys.caster
-	local ply = caster:GetPlayerOwner()
-	local hero = caster:GetPlayerOwner():GetAssignedHero()
-	hero:FindAbilityByName("saber_alter_darklight_passive"):SetLevel(1)
-	hero.IsDarklightAcquired = true
-
-	-- Set master 1's mana 
-	local master = hero.MasterUnit
-	master:SetMana(master:GetMana() - keys.ability:GetManaCost(keys.ability:GetLevel()))
 end

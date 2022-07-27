@@ -44,6 +44,16 @@ if IsServer() then
 		parent:SetHealth(self.LockedHealth)
 	end
 
+	function modifier_heracles_berserk:OnTakeDamage(args)
+		local caster = self:GetParent()
+    	if IsServer() then
+        	if args.unit ~= self:GetParent() then return end
+
+        	caster.BerserkDamageTaken = caster.BerserkDamageTaken + args.damage
+    	end
+	end
+
+
 	--[[function modifier_heracles_berserk:OnTakeDamage(args)
 		if args.unit ~= self:GetParent() then return end
 

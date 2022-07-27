@@ -13,7 +13,7 @@ end
 function modifier_excalibur_galatine_burn:OnIntervalThink()
 	local caster = self:GetCaster()
 	local target = self:GetParent()
-	local damage = self:GetAbility():GetSpecialValueFor("dot_damage")
+	local damage = self:GetAbility():GetSpecialValueFor("dot_damage")/2
 
 	DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
 end

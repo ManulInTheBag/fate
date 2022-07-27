@@ -8,18 +8,19 @@ function saito_inv_sword:GetCastPoint()
     
 	local Caster = self:GetCaster() 
     local stack_count = 0
+    
     if(Caster:HasModifier("modifier_saito_fdb_repeated")) then
 		stack_count = Caster:GetModifierStackCount("modifier_saito_fdb_repeated", Caster)  
 	end
 	if(Caster:HasModifier("modifier_saito_fdb_lastE")) then
-		return 0.6
+		return 0.6 
 	end
     if stack_count <=2 then
-		return 0.3
-	elseif stack_count > 2 and stack_count < 5 then
-		return 0.25
-	else
 		return 0.2
+	elseif stack_count > 2 and stack_count < 5 then
+		return 0.18
+	else
+		return 0.15
 	end
 end
 
@@ -56,7 +57,7 @@ end
 function saito_inv_sword:OnSpellStart()
 	local caster = self:GetCaster()
 	local ability = self
-    local damage = self:GetSpecialValueFor("damage")
+    local damage = self:GetSpecialValueFor("damage")+ caster:GetAttackDamage()*self:GetSpecialValueFor("atk_scale")
     if(caster.FreestyleAcquired) then
         damage = damage + caster:GetAttackDamage()*self:GetSpecialValueFor("atk_scale")
     end
@@ -66,6 +67,15 @@ function saito_inv_sword:OnSpellStart()
 			 
 		end
 	end
+    
+    LoopOverPlayers(function(player, playerID, playerHero)
+        --print("looping through " .. playerHero:GetName())
+        if playerHero.gachi == true and playerHero == self:GetCaster() then
+            -- apply legion horn vsnd on their client
+            CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="saito_shing"})
+            --caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+        end
+    end)
     local range = self:GetSpecialValueFor("range")
     local width = 120
     local FirstTarget = nil

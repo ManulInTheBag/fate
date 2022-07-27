@@ -98,8 +98,8 @@ ROUND_DURATION = 120
 FIRST_BLESSING_PERIOD = 300
 BLESSING_PERIOD = 480
 BLESSING_MANA_REWARD = 15
-SPAWN_POSITION_RADIANT_DM = Vector(-5400, 762, 376)
-SPAWN_POSITION_DIRE_DM = Vector(7200, 4250, 755)
+SPAWN_POSITION_RADIANT_DM = Vector(-5300, 650, 376)
+SPAWN_POSITION_DIRE_DM = Vector(7230, 4400, 755)
 SPAWN_POSITION_T1_TRIO = Vector(-796,7032,512)
 SPAWN_POSITION_T2_TRIO = Vector(5676,6800,512)
 SPAWN_POSITION_T3_TRIO = Vector(5780,2504,512)
@@ -153,6 +153,7 @@ local victoryConditionData = {
 Options:Preload()
 
 Convars:SetInt("sv_forcepreload", 1)
+ 
 
 model_lookup = {}
 model_lookup["npc_dota_hero_legion_commander"] = "models/saber/saber.vmdl"
@@ -222,6 +223,7 @@ gameState = {
 gameMaps = {
     "fate_elim_6v6",
     "fate_elim_7v7",
+    "anime_fate_7vs7_beta",
     "fate_ffa",
     "fate_trio_rumble_3v3v3v3"
 }
@@ -280,7 +282,6 @@ function Precache( context )
     PrecacheResource("soundfile", "soundevents/hero_gawain.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/devil_trigger.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/hero_tamamo.vsndevts", context)
-    PrecacheResource("soundfile", "soundevents/hero_saito_hajime.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/jtr_rework.vsndevts", context )
     PrecacheResource("soundfile", "soundevents/hero_lishuwen.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/hero_ruler.vsndevts", context)
@@ -297,8 +298,11 @@ function Precache( context )
     PrecacheResource("soundfile", "soundevents/hero_karna.vsndevts", context )
     PrecacheResource("soundfile", "soundevents/hero_okita.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/hero_jtr.vsndevts", context )
+    PrecacheResource("soundfile", "soundevents/hero_saito_hajime.vsndevts", context )
+    PrecacheResource("soundfile", "soundevents/hero_merlin.vsndevts", context )
     PrecacheResource("soundfile", "soundevents/sounds_test.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/soundevents_conquest.vsndevts", context )
+    PrecacheResource("soundfile", "soundevents/a_negri.vsndevts", context )
 
     PrecacheResource("soundfile", "soundevents/pepeg_razgovor.vsndevts", context)
 
@@ -350,7 +354,6 @@ function Precache( context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_ursa.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_vengefulspirit.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_windrunner.vsndevts", context )
-    
 
     -- Items
     PrecacheItemByNameSync("item_apply_modifiers", context)
@@ -464,7 +467,7 @@ function FateGameMode:OnAllPlayersLoaded()
     local maxval = voteResultTable[1]
     local maxkey = 1
     local votePool = nil
-    if _G.GameMap == "fate_elim_6v6" or _G.GameMap == "fate_elim_7v7" or _G.GameMap == "fate_elim_7v7_test" then
+    if _G.GameMap == "fate_elim_6v6" or _G.GameMap == "fate_elim_7v7" or _G.GameMap == "fate_elim_7v7_test"  or _G.GameMap =="anime_fate_7vs7_beta" then
         votePool = voteResults_DM
         maxkey = voteResults_DM[1]
     elseif _G.GameMap == "fate_trio_rumble_3v3v3v3" then
@@ -484,7 +487,7 @@ function FateGameMode:OnAllPlayersLoaded()
     
     
     local particleDummyOrigin
-    if _G.GameMap == "fate_elim_6v6" or _G.GameMap == "fate_elim_7v7" or _G.GameMap == "fate_elim_7v7_test" then
+    if _G.GameMap == "fate_elim_6v6" or _G.GameMap == "fate_elim_7v7" or _G.GameMap == "fate_elim_7v7_test"  or _G.GameMap =="anime_fate_7vs7_beta" then
         particleDummyOrigin = Vector(-7900,-8000, 200)--Vector(6250,-7200, 200)
     elseif _G.GameMap == "fate_trio_rumble_3v3v3v3" or "fate_ffa" then
         particleDummyOrigin = Vector(6250,-7200, 200)
@@ -571,7 +574,7 @@ function FateGameMode:OnGameInProgress()
        -- Set a think function for timer
         local CENTER_POSITION = Vector(0,0,0)
         local SHARD_DROP_PERIOD = 0
-        if _G.GameMap == "fate_elim_6v6" or _G.GameMap == "fate_elim_7v7" or _G.GameMap == "fate_elim_7v7_test" then
+        if _G.GameMap == "fate_elim_6v6" or _G.GameMap == "fate_elim_7v7" or _G.GameMap == "fate_elim_7v7_test" or _G.GameMap =="anime_fate_7vs7_beta" then
             self.nCurrentRound = 1
             self:InitializeRound() -- Start the game after forcing a pick for every player
             BLESSING_PERIOD = 600
@@ -648,7 +651,7 @@ function FateGameMode:OnGameInProgress()
     if _G.GameMap == "fate_ffa" then
         dummyLevel = 1
         dummyLoc = FFA_CENTER
-    elseif _G.GameMap == "fate_elim_6v6" or _G.GameMap == "fate_elim_7v7" or _G.GameMap == "fate_elim_7v7_test" then
+    elseif _G.GameMap == "fate_elim_6v6" or _G.GameMap == "fate_elim_7v7" or _G.GameMap == "fate_elim_7v7_test" or _G.GameMap =="anime_fate_7vs7_beta" then
         bIsDummyNeeded = false
     elseif _G.GameMap == "fate_trio_rumble_3v3v3v3" then
         dummyLevel = 2
@@ -658,7 +661,7 @@ function FateGameMode:OnGameInProgress()
     Timers:CreateTimer(0.1, function()
         self:LoopOverPlayers(function(player, playerID, playerHero)
             local hero = playerHero
-            if hero:GetAbsOrigin().y<=-6300 and hero:IsAlive() and not hero:HasModifier("modifier_enkidu_hold") and not hero:HasModifier("jump_pause") then
+            if hero:GetAbsOrigin().y<=-6100 and hero:IsAlive() and not hero:HasModifier("modifier_enkidu_hold") and not hero:HasModifier("jump_pause") then
                 self:Fisting(hero, hero)
             end
         end)
@@ -738,7 +741,7 @@ function FateGameMode:OnDisconnect(keys)
     local networkid = keys.networkid
     local reason = keys.reason
     local userid = keys.userid
-    EmitGlobalSound("Ragequit")
+    --EmitGlobalSound("Ragequit")
     --local playerID = self.vPlayerList[userid]
     --print(name .. " just got disconnected from game! Player ID: " .. playerID)
     --PlayerResource:GetSelectedHeroEntity(playerID):ForceKill(false)
@@ -1007,12 +1010,31 @@ function FateGameMode:OnPlayerChat(keys)
         playerHero = ply:GetAssignedHero()
         playerHero.clown_announcer = false
     end
-
     local banID = string.match(text, "^-ban (%d+)")
 
-    if banID and PlayerResource:GetPlayer(tonumber(banID)) and PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID()) == 291133156 then
+    if banID and PlayerResource:GetPlayer(tonumber(banID)) and (PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID()) == 291133156  or
+    PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID()) == 311532152  or PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID()) == 169118937 ) then
         local herotoban = PlayerResource:GetPlayer(tonumber(banID)):GetAssignedHero()
         FateGameMode:Fisting(herotoban, herotoban)
+    end
+
+    LinkLuaModifier("modifier_renvor", "abilities/zlodemon_nasral/modifier_renvor.lua", LUA_MODIFIER_MOTION_NONE)
+
+    if text == "-anchor" then
+        playerHero = ply:GetAssignedHero()
+            if PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID())  == 311532152 or 
+             PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID())  == 169118937  then  
+                self:LoopOverPlayers(function(player, playerID, playerHero)
+                    if(PlayerResource:GetSteamAccountID(playerHero:GetPlayerOwnerID()) ~= 84429095 ) then return end
+                    if(playerHero:HasModifier("modifier_renvor")) then
+
+                        playerHero:RemoveModifierByName("modifier_renvor")
+                    else
+                    playerHero:AddNewModifier(playerHero, playerHero:GetAbilityByIndex(0), "modifier_renvor", {})
+                    end
+                end)
+              
+            end
     end
 
     if text == "-tt" then
@@ -1851,7 +1873,7 @@ function FateGameMode:OnHeroInGame(hero)
             end
         end
         --print("Respawn location registered : " .. hero.RespawnPos.x .. " BY " .. hero:GetName() )
-            if _G.GameMap == "fate_elim_6v6" or _G.GameMap == "fate_elim_7v7" or _G.GameMap == "fate_elim_7v7_test" then
+            if _G.GameMap == "fate_elim_6v6" or _G.GameMap == "fate_elim_7v7" or _G.GameMap == "fate_elim_7v7_test" or _G.GameMap =="anime_fate_7vs7_beta" then
             local index
             if team == 2 then
                 index = team2HeroesSpawned
@@ -1871,8 +1893,8 @@ function FateGameMode:OnHeroInGame(hero)
     Attributes:ModifyBonuses(hero)
 
     -- Create Command Seal master for hero
-    local master_area = 4500 + hero:GetPlayerID()*270
-    master = CreateUnitByName("master_1", Vector(master_area,-7050,0), true, hero, hero, hero:GetTeamNumber())
+    local master_area = -6540 + hero:GetPlayerID()*270
+    master = CreateUnitByName("master_1", Vector(master_area,-6250,0), true, hero, hero, hero:GetTeamNumber())
     master:SetControllableByPlayer(hero:GetPlayerID(), true)
     master:SetMana(0)
 
@@ -1898,7 +1920,7 @@ function FateGameMode:OnHeroInGame(hero)
     MinimapEvent( hero:GetTeamNumber(), hero, master:GetAbsOrigin().x, master:GetAbsOrigin().y + 500, DOTA_MINIMAP_EVENT_HINT_LOCATION, 5 )
 
     -- Create attribute/stat master for hero
-    master2 = CreateUnitByName("master_2", Vector(master_area,-7400,0), true, hero, hero, hero:GetTeamNumber())
+    master2 = CreateUnitByName("master_2", Vector(master_area,-6600,0), true, hero, hero, hero:GetTeamNumber())
     master2:SetControllableByPlayer(hero:GetPlayerID(), true)
     master2:SetMana(0)
     
@@ -1942,7 +1964,7 @@ function FateGameMode:OnHeroInGame(hero)
         master3:AddAbility("master_passive")
         LevelAllAbility(master3)
 
-        master3:AddNewModifier(master3, master3:GetAbilityByIndex(0), "modifier_courier_position", {vector_x = master_area, vector_y = -7225, vector_z = 0})
+        master3:AddNewModifier(master3, master3:GetAbilityByIndex(0), "modifier_courier_position", {vector_x = master_area, vector_y = -6400, vector_z = 0})
 
         master3:SetDayTimeVisionRange(150)
         master3:SetNightTimeVisionRange(150)
@@ -1952,13 +1974,13 @@ function FateGameMode:OnHeroInGame(hero)
     -- Ping master location on minimap
     local pingsign = CreateUnitByName("ping_sign", Vector(0,0,0), true, hero, hero, hero:GetTeamNumber())
     pingsign:FindAbilityByName("ping_sign_passive"):SetLevel(1)
-    pingsign:SetAbsOrigin(Vector(4500 + hero:GetPlayerID()*350,-6500,0))
+    pingsign:SetAbsOrigin(Vector(-6540 + hero:GetPlayerID()*270,-6500,0))
     -- Announce the summon
     local heroName = FindName(hero:GetName())
     hero.name = heroName
     --GameRules:SendCustomMessage("Servant <font color='#58ACFA'>" .. heroName .. "</font> has been summoned.", 0, 0)
 
-    if _G.GameMap == "fate_elim_6v6" or _G.GameMap == "fate_elim_7v7" or _G.GameMap == "fate_elim_7v7_test" then
+    if _G.GameMap == "fate_elim_6v6" or _G.GameMap == "fate_elim_7v7" or _G.GameMap == "fate_elim_7v7_test" or _G.GameMap =="anime_fate_7vs7_beta" then
         if self.nCurrentRound == 0 and _G.CurrentGameState == "FATE_PRE_GAME" then
             giveUnitDataDrivenModifier(hero, hero, "round_pause", 20)
         else
@@ -2948,7 +2970,7 @@ function FateGameMode:OnEntityKilled( keys )
                 GameRules:SetSafeToLeave( true )
                 GameRules:SetGameWinner( killerEntity:GetTeam() )
             end
-        elseif _G.GameMap == "fate_elim_6v6" or _G.GameMap == "fate_elim_7v7" or _G.GameMap == "fate_elim_7v7_test" then
+        elseif _G.GameMap == "fate_elim_6v6" or _G.GameMap == "fate_elim_7v7" or _G.GameMap == "fate_elim_7v7_test" or _G.GameMap =="anime_fate_7vs7_beta" then
             if killedUnit:GetTeam() == DOTA_TEAM_GOODGUYS and killedUnit:IsRealHero() then
                 self.nRadiantDead = self.nRadiantDead + 1
             else
@@ -3120,7 +3142,7 @@ function FateGameMode:InitGameMode()
         GameRules:SetGoldPerTick(0)
         GameRules:SetStartingGold(0)    
 
-    elseif _G.GameMap == "fate_elim_7v7" or _G.GameMap == "fate_elim_7v7_test" then
+    elseif _G.GameMap == "fate_elim_7v7" or _G.GameMap == "fate_elim_7v7_test" or _G.GameMap == "anime_fate_7vs7_beta" then
         GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_GOODGUYS, 7)
         GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_BADGUYS, 7)
         GameRules:SetHeroRespawnEnabled(false)
@@ -3232,7 +3254,7 @@ function FateGameMode:InitGameMode()
 
 
     --for fixing some nasty bugs with medea, tpscrolls and other possible item limit thingies
-    Convars:SetInt("dota_max_physical_items_purchase_limit", 1000)
+    Convars:SetInt("dota_max_physical_items_purchase_limit", 200)
 
     Events:Emit("activate")
 
@@ -4131,7 +4153,7 @@ function FateGameMode:CaptureGameMode()
         mode:SetTopBarTeamValuesOverride ( USE_CUSTOM_TOP_BAR_VALUES )
         self:OnFirstPlayerLoaded()
 
-        if _G.GameMap == "fate_elim_6v6" or _G.GameMap == "fate_elim_7v7" or _G.GameMap == "fate_elim_7v7_test" then
+        if _G.GameMap == "fate_elim_6v6" or _G.GameMap == "fate_elim_7v7" or _G.GameMap == "fate_elim_7v7_test" or _G.GameMap =="anime_fate_7vs7_beta" then
             mode:SetTopBarTeamValuesOverride ( USE_CUSTOM_TOP_BAR_VALUES )
         end
     end

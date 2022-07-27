@@ -431,7 +431,7 @@ function jtr_mtr_new:PerformSlash(caster, target, delay)
 		return 
 	end)
 
-	if IsSpellBlocked(target) then return end
+	--if IsSpellBlocked(target) then return end
 
 	Timers:CreateTimer(delay, function()
 		if target and target:IsAlive() then
@@ -462,7 +462,7 @@ function jtr_mtr_new:PerformEmpoweredSlash(caster, target, delay)
 		return 
 	end)
 
-	if IsSpellBlocked(target) then return end
+	--if IsSpellBlocked(target) then return end
 
 	local sound_cast = "Hero_PhantomAssassin.CoupDeGrace"
 

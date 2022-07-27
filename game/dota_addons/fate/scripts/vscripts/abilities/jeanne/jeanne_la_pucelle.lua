@@ -85,7 +85,8 @@ function jeanne_la_pucelle:OnSpellStart()
 	        	DoDamage(caster, damage_targets[i], damage, DAMAGE_TYPE_PURE, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self, false)
 	        end
 
-	        DoDamage(caster, caster, damage-1, DAMAGE_TYPE_PURE, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self, false)
+	        --DoDamage(caster, caster, damage-1, DAMAGE_TYPE_PURE, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self, false)
+	        caster:SetHealth(1)
 	        caster:AddNewModifier(caster, self, "modifier_jeanne_health_lock", {duration = 5})        
        	end
 

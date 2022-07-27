@@ -59,7 +59,7 @@ end]]
 function nero_rosa_new:OnSpellStart()
 	local caster = self:GetCaster()
 	local target = self:GetCursorTarget()
-
+	if IsSpellBlocked(target) then return end
 	if not caster:HasModifier("modifier_nero_rosa_new") then
 		caster:EmitSound("Nero.Skill1")
 		if not caster:HasModifier("modifier_nero_rosa_window") then
@@ -81,7 +81,7 @@ function nero_rosa_new:OnSpellStart()
 		StartAnimation(caster, {duration = 1, activity = ACT_DOTA_CAST_ABILITY_3_END, rate = 1.5})	
 		caster:MoveToTargetToAttack(target)
 
-		if IsSpellBlocked(target) then return end
+		
 
 		--caster:AddNewModifier(caster,self,"modifier_rosa_buffer", {})
 

@@ -40,10 +40,10 @@ ModuleLinkLuaModifier(..., "modifier_hero_selection_transformation")
 
 Events:Register("activate", function ()
 	if IsInToolsMode() then
-		HERO_SELECTION_PICK_TIME = 15
+		HERO_SELECTION_PICK_TIME = 3
 	end
 	GameRules:SetHeroSelectionTime(-1)
-	local preTime = HERO_SELECTION_PICK_TIME + HERO_SELECTION_STRATEGY_TIME + 15-- + Options:GetValue("PreGameTime")
+	local preTime = HERO_SELECTION_PICK_TIME + HERO_SELECTION_STRATEGY_TIME + 3-- + Options:GetValue("PreGameTime")
 	if Options:GetValue("BanningPhaseBannedPercentage") > 0 then
 		preTime = preTime + HERO_SELECTION_BANNING_TIME
 	end

@@ -576,7 +576,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"37.0"
 		
-		"AbilityDamage"					"850 1150 1450 1750 2050"
+		"AbilityDamage"					"90 120 140 170 200"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -594,7 +594,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"width"					"300"
+				"width"					"275"
 			}
 			"03"
 			{
@@ -609,13 +609,23 @@
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"850 1075 1300 1525 1750"
+				"damage"				"90 120 140 170 200"
 			}
 			// Extra variables
 			"06"
 			{
 				"var_type"				"FIELD_FLOAT"
 				"pause_duration"		"4.0"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"manaScaling"		    "40 45 50 55 60"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"slow_power"		    "60"
 			}
 		}
 		
@@ -645,6 +655,7 @@
 			 	"ScriptFile"	"saber_ability"
 			 	"Function"		"OnExcaliburHit"
 			 	"Damage"		"%damage"
+			 	"ManaScaling"		"%manaScaling"
 			}	
 			"FireEffect"
 			{
@@ -947,7 +958,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"excal_bonus_damage"		"400"
+				"mana_scaling"		"40 45 50 55 60"
 			}
 			"02"
 			{
@@ -1355,7 +1366,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"proc_chance"				"10"
+				"proc_chance"			"10"
 			}
 			"02"
 			{
@@ -1365,7 +1376,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"knockup_duration"				"1.25"
+				"knockup_duration"		"0.5"
 			}
 		}
 		
@@ -1445,7 +1456,7 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"3000"
-		"AbilityCastPoint"				"0.1"
+		"AbilityCastPoint"				"0.3"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -1462,7 +1473,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"cast_time"				"3.0"
+				"cast_time"				"2.8"
 			}
 			"02"
 			{
@@ -1654,5 +1665,17 @@
 				}
 			}
 		}
+	}
+	//=================================================================================================================
+	// Saber : Chivalry (cd)
+	//=================================================================================================================
+	"chivalry_cd"
+	{
+		"BaseClass"          			"ability_lua"
+		"ScriptFile"					"abilities/arturia/chivalry_cd"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"custom/saber_strike_air"
+		"MaxLevel"						"1"
+		
 	}	
 }

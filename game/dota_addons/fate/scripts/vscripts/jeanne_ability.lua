@@ -224,7 +224,7 @@ function OnIRStart(keys, fromFlag)
 		ParticleManager:DestroyParticle(jeanne_charisma_particle, false)
 		ParticleManager:ReleaseParticleIndex(jeanne_charisma_particle )
 	end)
-    if fromFlag ~= true then
+    if (fromFlag ~= true) and (caster == target) then
 	    caster:AddNewModifier(caster, ability, "modifier_charisma_used", { Duration = 3 })
 	end
 end
@@ -241,7 +241,7 @@ function OnIRThink(keys)
 		for i = 1, #tTargets do
 			DoDamage(caster, tTargets[i], damage + SinCount(caster, tTargets[i]), DAMAGE_TYPE_MAGICAL, 0, ability, false)
 			if caster.IsRevelationAcquired then
-		       	tTargets[i]:AddNewModifier(caster, ability, "modifier_jeanne_vision", { Duration = 5 })
+		       	tTargets[i]:AddNewModifier(caster, ability, "modifier_jeanne_vision", { Duration = ability:GetSpecialValueFor("reveal_duration") })
 		    end
 		end
 	--end
@@ -315,7 +315,9 @@ function OnPurgeStart(keys)
 			hDeadTeammates = CountDeadTeammates(false)
 		end
 
-		baseDamage = baseDamage*(1 + 0.1*hDeadTeammates)
+		
+
+		--baseDamage = baseDamage*(1 + 0.1*hDeadTeammates) in case you need it
 
 		local targets = FindUnitsInRadius(caster:GetTeam(), targetPoint, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		for k,v in pairs(targets) do
@@ -326,7 +328,7 @@ function OnPurgeStart(keys)
 			end
 
 	        if caster.IsRevelationAcquired then
-	        	v:AddNewModifier(caster, ability, "modifier_jeanne_vision", { Duration = 5 })
+	        	v:AddNewModifier(caster, ability, "modifier_jeanne_vision", { Duration = ability:GetSpecialValueFor("reveal_duration") })
 	        end
 	    end
 
@@ -369,7 +371,7 @@ function OnGodResolutionProc(keys)
 	local target = keys.target
 	local duration = keys.RevokeDuration
 	local sin_damage = keys.SinDamage
-	local damage = (target:GetMaxHealth() - target:GetHealth()) * (keys.Damage + sin_damage*SinCount(caster, target))/100
+	local damage = (target:GetHealth() ) * (keys.Damage + sin_damage*SinCount(caster, target))/100
 
 	if not caster.IsRevelationAcquired then return end
 	--[[if caster.IsPunishmentAcquired then
@@ -383,9 +385,9 @@ function OnGodResolutionProc(keys)
 	--if caster.IsPunishmentAcquired and caster:HasModifier("modifier_saint_buff") then
 	if IsGRProcOnCooldown == false then
 		DoDamage(caster, target, damage, DAMAGE_TYPE_PURE, 0, ability, false)
-		target:AddNewModifier(caster, self, "modifier_jeanne_vision", {duration = duration})
+		target:AddNewModifier(caster, self, "modifier_jeanne_vision", { Duration = ability:GetSpecialValueFor("reveal_duration") })
 		IsGRProcOnCooldown = true
-		Timers:CreateTimer(5, function()
+		Timers:CreateTimer(2, function()
 			IsGRProcOnCooldown = false
 		end)
 	end
@@ -434,11 +436,15 @@ function OnGodResolutionStart(keys)
 		for k,v in pairs(targets) do
 			if elapsedTime >= 1 then
 				if caster.IsPunishmentAcquired then
-					v:AddNewModifier(caster, v, "modifier_stunned", { Duration = 0.1 })
+					v:AddNewModifier(caster, v, "modifier_stunned", { Duration = 0.05 })
 				end
 			end
 	        DoDamage(caster, v, tickDamage + tickSinDamage*SinCount(caster, v), DAMAGE_TYPE_MAGICAL, 0, ability, false)
 	        if not IsImmuneToSlow(v) then ability:ApplyDataDrivenModifier(caster, v, "modifier_gods_resolution_slow", {}) end
+
+	        if caster.IsRevelationAcquired then
+	        	v:AddNewModifier(caster, ability, "modifier_jeanne_vision", { Duration = ability:GetSpecialValueFor("reveal_duration") })
+	        end
 	    end
 
 		local purgeFx = ParticleManager:CreateParticle("particles/custom/ruler/gods_resolution/gods_resolution_active_circle.vpcf", PATTACH_CUSTOMORIGIN, nil)

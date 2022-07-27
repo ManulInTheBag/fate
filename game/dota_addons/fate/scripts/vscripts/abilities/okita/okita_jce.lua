@@ -99,9 +99,9 @@ function okita_jce:JudgementCutEnd()
     local unitGroup = FindUnitsInRadius(caster:GetTeam(), self.origin, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
 	for i = 1, #unitGroup do
 		--DoDamage(caster, unitGroup[i], damage/3, DAMAGE_TYPE_PHYSICAL, 0, self, false)
-		DoDamage(caster, unitGroup[i], damage/3, DAMAGE_TYPE_PURE, 0, self, false)
+		--DoDamage(caster, unitGroup[i], damage/3, DAMAGE_TYPE_PURE, 0, self, false)
 		if not unitGroup[i]:IsMagicImmune() then
-			DoDamage(caster, unitGroup[i], damage*2/3, DAMAGE_TYPE_MAGICAL, 0, self, false)
+			DoDamage(caster, unitGroup[i], damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
 		end
 	end
 end

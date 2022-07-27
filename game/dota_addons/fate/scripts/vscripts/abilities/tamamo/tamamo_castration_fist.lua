@@ -47,7 +47,7 @@ function tamamo_castration_fist:OnSpellStart()
 	local final_damage = self:GetSpecialValueFor("final_damage")
 	local count = 0
 	local damage_type = DAMAGE_TYPE_MAGICAL
-
+	if IsSpellBlocked(target) then return end
 	caster:AddNewModifier(caster, self, "modifier_polygamist_cooldown", { Duration = self:GetCooldown(1) })
 	caster:EmitSound("tamamo_castration_fist_1")
 	giveUnitDataDrivenModifier(caster, caster, "dragged", 1.25)

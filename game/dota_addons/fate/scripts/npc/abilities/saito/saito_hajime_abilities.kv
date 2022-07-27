@@ -10,7 +10,7 @@
 		"AbilityTextureName"				"custom/saito/saito_fdb"
 		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE "
 		"MaxLevel"							"5"
-		"AbilityCooldown"				    "30 27 24 21 18"
+		"AbilityCooldown"				    "18 16 14 12 10"
 		"AbilityManaCost"					"400"
 		"AbilityCastPoint"					"0.2"
 		"AbilityCastAnimation"                      "ACT_DOTA_CAST_ABILITY_8"
@@ -29,7 +29,7 @@
 			"03"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"mana_refund"				"50"
+				"mana_refund"				"60 70 80 90 100"
 			}
 			"04"
 			{
@@ -39,7 +39,17 @@
 			"05"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"health_refund"				"50"
+				"buff_duration"				"6"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"health_refund"				"60 70 80 90 100"
+			}
+			"07"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"resist"					"30 35 40 45 50"
 			}
 		}
 	}
@@ -58,7 +68,7 @@
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
 		"AbilityManaCost"				"100"
-		"AbilityCooldown"			"20 17 14 11 8"	
+		"AbilityCooldown"			"10 9 8 7 6"	
 		"AbilitySpecial"
 		{
 			"01"
@@ -84,7 +94,7 @@
 			"05"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"turnrate_bonus"					"200"
+				"turnrate_bonus"					"600"
 			}									
 		}
 	}
@@ -103,7 +113,7 @@
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
 		"AbilityManaCost"				"100"
-		"AbilityCooldown"			"20 17 14 11 8"	
+		"AbilityCooldown"			"10 9 8 7 6"	
 
 		
 		"AbilitySpecial"
@@ -121,7 +131,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"stun_duration"				"0.25"
+				"stun_duration"				"0.35"
 			}	
 			"04"
 			{
@@ -160,7 +170,7 @@
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
 		"AbilityManaCost"				"100"
-		"AbilityCooldown"				"20 17 14 11 8"	
+		"AbilityCooldown"				"10 9 8 7 6"	
 	
 	
 		"AbilitySpecial"
@@ -183,7 +193,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"atk_scale"					"0.5"
+				"atk_scale"					"0.4"
 			}	
 			"05"
 			{
@@ -199,7 +209,7 @@
 	{
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/saito/saito_mind_eye"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityTextureName"			"custom/saito/saito_mind_eye"
 		"AnimationPlaybackRate" 		"1.0"
@@ -235,7 +245,7 @@
 			"05"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"threshold"				"300"
+				"threshold"				"300 250 200 150 100"
 			}	
 			"06"
 			{
@@ -250,7 +260,7 @@
 			"08"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"stun_duration"				"0.6 0.7 0.8 0.9 1"
+				"stun_duration"				"0.8 1 1.2 1.4 1.6"
 			}	
 			"09"
 			{
@@ -294,17 +304,17 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage"				"70 80 90 100 110"
+				"damage"				"80 90 100 110 120"
 			}	
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage_last_slash"		"500 600 700 800 900"
+				"damage_last_slash"		"600 700 800 900 1000"
 			}	
 			"04"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"3"
+				"duration"				"5"
 			}	
 			"05"
 			{
@@ -341,6 +351,26 @@
 				"var_type"				"FIELD_FLOAT"
 				"damage_per_stack"		 "50"
 			}
+			"11"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"root_duration"			 "0.5"
+			}
+			"12"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"atk_scale"					"0.25"
+			}	
+			"13"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"atk_scale_last"					"2"
+			}	
+			"14"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"blink_dist"					"300"
+			}	
 			
 		}
 	}
@@ -357,7 +387,7 @@
 		"AnimationPlaybackRate" 		"1.0"
 		"MaxLevel"						"1"
 		"AbilityManaCost"				"400"
-		"AbilityCooldown"				"120"
+		"AbilityCooldown"				"100"
 		"AbilityCastPoint"				"0.3"
 		"AbilityCastAnimation"                      "ACT_DOTA_CAST_ABILITY_8"
 		"AbilitySpecial"
@@ -366,7 +396,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"5"
+				"duration"				"14"
 			}	
 			"02"
 			{
@@ -386,12 +416,17 @@
 			"05"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"mana_refund"		 	 "100"
+				"mana_refund"		 	 "200"
 			}
 			"06"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"health_refund"		 	 "100"
+				"health_refund"		 	 "200"
+			}
+			"07"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"resist"					"50"
 			}
 			 
 			 
@@ -432,7 +467,12 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"stun_duration"				"1.1"
-			}	
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"silence_duration"				"1.65"
+			}		
 		 
 			 
 		}
@@ -459,12 +499,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"fdb_health"			"50"
+				"fdb_health"			"60 70 80 90 100"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"combo_health"			"100"
+				"combo_health"			"200"
 			}
 			 
 		}		
@@ -493,6 +533,20 @@
 				"var_type"				"FIELD_INTEGER"
 				"damage_per_stack"	 	"50"
 			}
+
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage_atk_scale"	 	"0.25"
+			}
+			 
+
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage_atk_scale_last"	 	"2"
+			}
+			 
 			 
 		}		
 	}
@@ -560,7 +614,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"atk_scale_e"			"0.5"
+				"atk_scale_e"			"0.4"
 			}
 			 
 		}		
@@ -586,7 +640,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"q_turnrate"			"500"
+				"q_turnrate"			"600"
 			}
 			"02"
 			{
@@ -597,6 +651,11 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"e_magres_down"			"10"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"r_root_duration"		"0.5"
 			}
 			 
 		}		

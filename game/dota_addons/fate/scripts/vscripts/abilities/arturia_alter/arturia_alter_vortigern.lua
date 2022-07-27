@@ -6,7 +6,7 @@ function arturia_alter_vortigern:GetManaCost(iLevel)
 	local caster = self:GetCaster()	
 
 	if caster:HasModifier("modifier_vortigern_ferocity") then
-		return 200
+		return 400
 	else
 		return 400
 	end

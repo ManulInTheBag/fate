@@ -916,7 +916,7 @@ function UpdateGodhandProgress(caster)
 	if not caster:HasModifier("modifier_reincarnation_progress") then
 		caster:FindAbilityByName("berserker_5th_reincarnation"):ApplyDataDrivenModifier(caster, caster, "modifier_reincarnation_progress", {})
 	end
-	caster:SetModifierStackCount("modifier_reincarnation_progress", caster, damageTaken / 200)
+	caster:SetModifierStackCount("modifier_reincarnation_progress", caster, damageTaken / 1000)
 end
 
 function GainReincarnationRegenStack(caster, ability)

@@ -21,7 +21,7 @@ function emiya_broken_phantasm:OnSpellStart()
     local hTarget = self:GetCursorTarget()
     local hPlayer = hCaster:GetPlayerOwner()
     self.hTarget = hTarget
-
+	
     self:EndCooldown()
     hCaster:GiveMana(self:GetManaCost(-1))
 
@@ -43,7 +43,12 @@ function emiya_broken_phantasm:OnChannelFinish(bInterrupted)
 
     ParticleManager:DestroyParticle(self.pcMarker, false)
     ParticleManager:ReleaseParticleIndex(self.pcMarker)
-
+    if IsSpellBlocked(hTarget) then 
+        Say(hPlayer, "Broken Phantasm failed.", true)
+        self:StartCooldown(self:GetCooldown(self:GetLevel()))
+        hCaster:SpendMana(self:GetManaCost(-1), self)
+        return 
+    end
     if IsValidEntity(hPlayer) and not hPlayer:IsNull() then
         if bInterrupted or not hCaster:CanEntityBeSeenByMyTeam(hTarget) or hCaster:GetRangeToUnit(hTarget) > (self:GetCastRange() + 1000) or hCaster:GetMana() < self:GetManaCost(-1) or not IsInSameRealm(hCaster:GetAbsOrigin(), hTarget:GetAbsOrigin()) then 
             Say(hPlayer, "Broken Phantasm failed.", true)
@@ -95,7 +100,7 @@ function emiya_broken_phantasm:OnProjectileHit_ExtraData(hTarget, vLocation, tDa
 
     hTarget:EmitSound("Misc.Crash")
     
-    if not hTarget:IsMagicImmune() and not IsSpellBlocked(hTarget) and not hTarget:IsInvulnerable() then
+    if not hTarget:IsMagicImmune()   and not hTarget:IsInvulnerable() then
         hTarget:AddNewModifier(hCaster, hTarget, "modifier_stunned", {Duration = fStun})
         DoDamage(hCaster, hTarget, fTargetDamage, DAMAGE_TYPE_MAGICAL, 0, self, false)
     else

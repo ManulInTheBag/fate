@@ -1014,6 +1014,7 @@ function OnKickStart(keys)
 	local nextTarget = caster
 	local count = 0
 	local targets = 0
+	if IsSpellBlocked(keys.target) then return end
 
 	if ability:GetAbilityName() == "tamamo_polygamist_castration_fist" then
 		-- Set master's combo cooldown

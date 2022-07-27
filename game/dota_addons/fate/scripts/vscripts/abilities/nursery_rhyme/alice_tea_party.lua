@@ -59,6 +59,11 @@ function alice_tea_party:OnSpellStart()
 				ParticleManager:ReleaseParticleIndex(self.GroundParticle)
 				caster.CircleDummy:RemoveSelf()
 				CustomGameEventManager:Send_ServerToAllClients("stop_horn_sound", {})
+				LoopOverPlayers(function(player, playerID, playerHero)
+        		if playerHero.gachi == true then
+            		CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound = "lyonya_stol"})
+       			end
+    		end)
 			end)
 
 			local enemies = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
@@ -90,6 +95,12 @@ function alice_tea_party:OnOwnerDied()
 	ParticleManager:ReleaseParticleIndex(self.GroundParticle)
 
 	CustomGameEventManager:Send_ServerToAllClients("stop_horn_sound", {})
+
+	LoopOverPlayers(function(player, playerID, playerHero)
+    if playerHero.gachi == true then
+    CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound = "lyonya_stol"})
+    end
+   	end)
 
 	if IsValidEntity(caster.CircleDummy) then
 		caster.CircleDummy:RemoveSelf()

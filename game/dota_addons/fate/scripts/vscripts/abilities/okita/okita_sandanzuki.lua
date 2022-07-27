@@ -238,7 +238,7 @@ function okita_sandanzuki_release:OnProjectileHit_ExtraData(hTarget, vLocation, 
         hTarget:EmitSound("Tsubame_Slash_" .. math.random(1,3))
     end)
     Timers:CreateTimer(1.0, function()
-        DoDamage(caster, hTarget, damage, DAMAGE_TYPE_PURE, 0, self, false)
+        DoDamage(caster, hTarget, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
         hTarget:RemoveModifierByName("modifier_master_intervention")
         hTarget:EmitSound("Tsubame_Focus")
     end)
@@ -333,9 +333,7 @@ function modifier_okita_sandanzuki_release:OnRefresh(table)
 end
 function modifier_okita_sandanzuki_release:UpdateHorizontalMotion(me, dt)
     if IsServer() then
-        if self.parent:IsStunned() then
-            return nil
-        end
+         
 
         if self.distance >= 0 then
             local units_per_dt = self.speed * dt

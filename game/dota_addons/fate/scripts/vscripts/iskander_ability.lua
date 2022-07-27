@@ -626,8 +626,8 @@ end
 ManulInTheBag, 09.06.2022]]
 
 aotkTargets = nil
-aotkCenter = Vector(500, -4800, 208)
-ubwCenter = Vector(5600, -4398, 200)
+aotkCenter = Vector(288,-4504, 261)
+ubwCenter = Vector(5926, -4837, 222)
 aotkCasterPos = nil
 --aotkAbilityHandle = nil	-- handle of AOTK ability
 

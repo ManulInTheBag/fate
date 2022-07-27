@@ -36,7 +36,10 @@ function true_assassin_dirk:OnSpellStart()
 	local target = self:GetCursorTarget()
 	local ability = self
 	local maxTarget = self:GetSpecialValueFor("max_target")
-
+	if IsSpellBlocked(target) then
+        caster:UseDagger(5)
+        self:StartCooldown(self:GetSpecialValueFor("restock_dur") - caster.nextDagger)
+         return end
 	--local range = caster:GetRangeToUnit(target) + 200
     Timers:CreateTimer(FrameTime(), function()
         if caster and caster:IsAlive() and caster:HasDagger() and (caster:GetAbsOrigin() - target:GetAbsOrigin()):Length2D() <= 950 then
@@ -89,7 +92,7 @@ function true_assassin_dirk:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
     local fPoisonDamage = self:GetSpecialValueFor("poison_dot")
     
    -- if IsSpellBlocked(hTarget) or hTarget:IsMagicImmune() then return end
-    if IsSpellBlocked(hTarget) then return end
+ 
 
     --if not hCaster.IsWeakeningVenomAcquired then
     	fDamage = fDamage + (hCaster:GetAverageTrueAttackDamage(hCaster) * self:GetSpecialValueFor("atk_ratio")/100)

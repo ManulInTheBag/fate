@@ -10,9 +10,10 @@ function heracles_berserk:OnSpellStart()
 	local duration = self:GetSpecialValueFor("duration")
 	local attack_speed = self:GetSpecialValueFor("bns_att_spd")
 	local radius = 300
+	caster.BerserkDamageTaken = 0
 
 	if caster:HasModifier("modifier_mad_enhancement_attribute") then
-		duration = duration + 2
+		duration = duration + 1
 	end
 
 	caster:AddNewModifier(caster, ability, "modifier_heracles_berserk", { BonusAttSpd = attack_speed, 
@@ -27,7 +28,7 @@ function heracles_berserk:OnSpellStart()
         end
     end)
 
-	local casterHealth = caster:GetHealth()
+	--[[local casterHealth = caster:GetHealth()
 	if casterHealth - hplock > 0 then
 		local berserkDamage = math.min((casterHealth - hplock), self:GetSpecialValueFor("max_damage"))  
 		caster:EmitSound("Hero_Centaur.HoofStomp")
@@ -39,7 +40,7 @@ function heracles_berserk:OnSpellStart()
 		for k,v in pairs(targets) do
 	        DoDamage(caster, v, berserkDamage, DAMAGE_TYPE_MAGICAL, 0, self, false)
 		end
-	end
+	end]]
 
 	if caster.IsEternalRageAcquired then 
 		local explosionCounter = 0
@@ -64,5 +65,5 @@ function heracles_berserk:OnSpellStart()
 	end
 	
 	EmitGlobalSound("Berserker.Roar")
-end
 
+end

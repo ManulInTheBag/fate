@@ -24,6 +24,7 @@ function emiya_nine_lives:OnSpellStart()
 	local caster = self:GetCaster()
 	local hCaster = self:GetCaster()
 	local target = self:GetCursorTarget()
+	if IsSpellBlocked(target) then return end
 	local enhanced = false
 	local delay = 0.2
 	local delay_per_slash = 0.1
@@ -136,7 +137,7 @@ function emiya_nine_lives:PerformSlash(caster, target, damage, soundQueue)
 		end   
 	end
 
-	if IsSpellBlocked(target) and not flag == DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY then return end
+	if not flag == DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY then return end
 
 	DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, flag, self, false)
 end

@@ -593,7 +593,7 @@ function OnTGStart(keys)
 	local target = keys.target
 	local ability = keys.ability
 
-	--if IsSpellBlocked(keys.target) then return end -- Linken effect checker
+	if IsSpellBlocked(keys.target) then return end -- Linken effect checker
 	EmitGlobalSound("FA.Chop")
 
 	-- Check if caster is FA or Lancelot
@@ -634,7 +634,7 @@ function OnTGStart(keys)
 		if caster:IsAlive() and target:IsAlive() then
 			local diff = (target:GetAbsOrigin() - caster:GetAbsOrigin() ):Normalized() 
 			caster:SetAbsOrigin(target:GetAbsOrigin() - diff*100) 
-			if IsSpellBlocked(target) then return end
+			--if IsSpellBlocked(target) then return end
 			
 			DoDamage(caster, target, keys.Damage, DAMAGE_TYPE_PURE, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, keys.ability, false)
 			caster:PerformAttack( target, true, true, true, true, false, false, false )
@@ -653,7 +653,7 @@ function OnTGStart(keys)
 		if caster:IsAlive() and target:IsAlive() then
 			local diff = (target:GetAbsOrigin() - caster:GetAbsOrigin() ):Normalized() 
 			caster:SetAbsOrigin(target:GetAbsOrigin() - diff*100) 
-			if IsSpellBlocked(target) then return end
+			--if IsSpellBlocked(target) then return end
 			
 			DoDamage(caster, target, keys.Damage, DAMAGE_TYPE_PURE, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, keys.ability, false)
 			caster:PerformAttack( target, true, true, true, true, false, false, false )
@@ -673,7 +673,7 @@ function OnTGStart(keys)
 			local diff = (target:GetAbsOrigin() - caster:GetAbsOrigin() ):Normalized() 
 			caster:SetAbsOrigin(target:GetAbsOrigin() - diff*100)
 
-			if IsSpellBlocked(target) then return end
+			--if IsSpellBlocked(target) then return end
 			
 			DoDamage(caster, target, keys.LastDamage, DAMAGE_TYPE_PURE, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, keys.ability, false)
 			caster:PerformAttack( target, true, true, true, true, false, false, false )

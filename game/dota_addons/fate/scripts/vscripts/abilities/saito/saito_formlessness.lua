@@ -1,6 +1,6 @@
 LinkLuaModifier("modifier_saito_formlessness_invis", "abilities/saito/saito_formlessness", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_saito_formlessness_tracker", "abilities/saito/saito_formlessness", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_saito_formlessness_casting", "abilities/saito/saito_formlessness", LUA_MODIFIER_MOTION_NONE)
+ 
 LinkLuaModifier("modifier_saito_illusion_disarm", "abilities/saito/saito_formlessness", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_saito_fdb_repeated", "abilities/saito/saito_fdb", LUA_MODIFIER_MOTION_NONE)
 
@@ -13,7 +13,13 @@ end
 
 function saito_formlessness:GetCastPoint()
 	if self:CheckSequence() == self:GetSpecialValueFor("number_of_slashes") then
-		return 0.6
+		if(self:GetCaster():HasModifier("modifier_saito_combo")) then
+		
+			return 0.3
+	
+		else
+			return 0.6
+		end
 	elseif self:CheckSequence()>0 then
 		return 0.03
 	else
@@ -38,7 +44,7 @@ function saito_formlessness:GetBehavior()
 	elseif self:CheckSequence() > 0 then
 		return DOTA_ABILITY_BEHAVIOR_UNIT_TARGET
 	else
-		return DOTA_ABILITY_BEHAVIOR_NO_TARGET
+		return DOTA_ABILITY_BEHAVIOR_POINT
 	end
 end
 
@@ -114,7 +120,7 @@ function saito_formlessness:SequenceSkill()
 	local modifier = caster:FindModifierByName("modifier_saito_formlessness_tracker")
 
 	if not modifier then
-		caster:AddNewModifier(caster, ability, "modifier_saito_formlessness_tracker", {Duration = (self:GetSpecialValueFor("duration")+ (caster.ShinsengumiAcquired and 2 or 0))})
+		caster:AddNewModifier(caster, ability, "modifier_saito_formlessness_tracker", {Duration = (self:GetSpecialValueFor("duration") )})
 		caster:SetModifierStackCount("modifier_saito_formlessness_tracker", ability, 0)
  
 	elseif modifier:GetStackCount() <self:GetSpecialValueFor("number_of_slashes")  then
@@ -128,28 +134,30 @@ function saito_formlessness:OnAbilityPhaseStart()
 		caster:StopSound("saito_cast_ulti")
 		caster:EmitSound("saito_last_slash_phrase")
 	end
-	if(self:CheckSequence() ~= -1) then return true end
+	--if(self:CheckSequence() ~= -1) then return true end
  
 	if(IsServer) then
         if(caster:HasModifier("modifier_saito_fdb_repeated")) then
             self.modifierRepeated = caster:FindModifierByName("modifier_saito_fdb_repeated")
             self.stackCount = self.modifierRepeated:GetStackCount()
-			caster:AddNewModifier(caster, self, "modifier_saito_formlessness_casting", {})
-
+			 
         end
     end
     return true
 end
 
 function saito_formlessness:OnAbilityPhaseInterrupted()
-	if(self:CheckSequence() ~= -1) then return end
 	local caster = self:GetCaster()
+ 	if( caster:GetModifierStackCount("modifier_saito_formlessness_tracker", caster) == 3) then
+		caster:StopSound("saito_last_slash_phrase")
+	end
+
     self.modifierRepeated = nil
     self.stackCount = 0
 	local abilitycd = caster:GetAbilityByIndex(1):GetCooldown(caster:GetAbilityByIndex(1):GetLevel()-1)
-	caster:RemoveModifierByName("modifier_saito_formlessness_casting")
+ 
 
-	if( not caster:HasModifier("modifier_saito_fdb_repeated")) then
+	if( not caster:HasModifier("modifier_saito_fdb_repeated") and caster:GetModifierStackCount("modifier_saito_fdb", caster) ~= caster:FindModifierByName("modifier_saito_fdb"):GetMaxStackCount()) then
 
 		caster:GetAbilityByIndex(0):StartCooldown(abilitycd)    
 		caster:GetAbilityByIndex(1):StartCooldown(abilitycd)
@@ -157,7 +165,7 @@ function saito_formlessness:OnAbilityPhaseInterrupted()
 		caster:RemoveModifierByName("modifier_saito_fdb_lastQ")
 		caster:RemoveModifierByName("modifier_saito_fdb_lastE")
 		caster:RemoveModifierByName("modifier_saito_fdb_lastW")
-		self:GetParent():FindModifierByName("modifier_saito_fdb"):SetStackCount(self:GetParent():FindModifierByName("modifier_saito_fdb"):GetMaxStackCount())
+		caster:FindModifierByName("modifier_saito_fdb"):SetStackCount(self:GetParent():FindModifierByName("modifier_saito_fdb"):GetMaxStackCount())
 	end
 end
 
@@ -182,8 +190,17 @@ function saito_formlessness:SaitoFormlessnessStart()
 	self:EndCooldown()
 	self:StartCooldown( self:GetSpecialValueFor("slashes_start_delay"))
 	local pid = caster:GetPlayerID()
-	
-	caster:AddNewModifier(caster, self, "modifier_saito_formlessness_invis", {duration =(self:GetSpecialValueFor("duration")+ (caster.ShinsengumiAcquired and 2 or 0))})
+	local target = self:GetCursorPosition()
+	self.isRefreshed = 0
+	caster:AddNewModifier(caster, self, "modifier_saito_formlessness_invis", {duration =(self:GetSpecialValueFor("duration") )})
+	LoopOverPlayers(function(player, playerID, playerHero)
+		--print("looping through " .. playerHero:GetName())
+		if playerHero.gachi == true then
+			-- apply legion horn vsnd on their client
+			CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="saito_omaewa_mou"})
+			--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+		end
+	end)
 	if(self.modifierRepeated ~= nil) then
     
         caster:RemoveModifierByName("modifier_saito_fdb_repeated")
@@ -191,67 +208,75 @@ function saito_formlessness:SaitoFormlessnessStart()
         caster:FindModifierByName("modifier_saito_fdb_repeated"):SetStackCount(self.stackCount)
         self.modifierRepeated = nil
         self.stackCount = 0
-		caster:RemoveModifierByName("modifier_saito_formlessness_casting")
+ 
    end
    	caster:EmitSound("saito_cast_ulti")
-	local illusion = CreateUnitByName(caster:GetUnitName(), caster:GetAbsOrigin(), true, caster, nil, caster:GetTeamNumber())
+	   local dist = self:GetSpecialValueFor("blink_dist")  
+
+		if (target - caster:GetAbsOrigin()):Length2D() > dist then
+			target = caster:GetAbsOrigin() + (((target - caster:GetAbsOrigin()):Normalized()) * dist)
+		end
+		 
+			FindClearSpaceForUnit(caster, target, true)
+	 
+	--local illusion = CreateUnitByName(caster:GetUnitName(), caster:GetAbsOrigin(), true, caster, nil, caster:GetTeamNumber())
 	
-	illusion:SetPlayerID(pid) 
-	illusion:AddNewModifier(caster, ability, "modifier_illusion", { duration = duration, outgoing_damage = 0, incoming_damage = 100 })
-	illusion:MakeIllusion()
-	illusion:SetControllableByPlayer(pid, true)
-	caster.illusion = illusion
-	illusion:SetOwner(caster)
-	illusion:SetForwardVector(caster:GetForwardVector())
-	illusion:AddNewModifier(caster, illusion, "modifier_saito_illusion_disarm", {})
+	--illusion:SetPlayerID(pid) 
+	--illusion:AddNewModifier(caster, ability, "modifier_illusion", { duration = duration, outgoing_damage = 0, incoming_damage = 100 })
+	--illusion:MakeIllusion()
+	--illusion:SetControllableByPlayer(pid, true)
+	--caster.illusion = illusion
+	--illusion:SetOwner(caster)
+	--illusion:SetForwardVector(caster:GetForwardVector())
+	--illusion:AddNewModifier(caster, illusion, "modifier_saito_illusion_disarm", {})
 	--illusion:SetOwner(caster) -- Attempt to change color of illusion on minimap but failed, worked for ZC but not for this. Wtf.
 
-	for i=1, (caster:GetLevel()-1) do
-		illusion:HeroLevelUp(false)
-	end
+	--for i=1, (caster:GetLevel()-1) do
+	--	illusion:HeroLevelUp(false)
+	--end
 
-	for i = 1, #itemModifiers do
-		if caster:HasModifier(itemModifiers[i]) then
-			ability:ApplyDataDrivenModifier(caster, illusion, itemModifiers[i], {duration = caster:FindModifierByName(itemModifiers[i]):GetRemainingTime()})		
-		end
-	end
+	--for i = 1, #itemModifiers do
+	--	if caster:HasModifier(itemModifiers[i]) then
+	--		ability:ApplyDataDrivenModifier(caster, illusion, itemModifiers[i], {duration = caster:FindModifierByName(itemModifiers[i]):GetRemainingTime()})		
+	--	end
+	--end
 
-	for itemSlot=0,5 do
-		local item = caster:GetItemInSlot(itemSlot)
-		if item ~= nil then
-			local itemName = item:GetName()
-			local newItem = CreateItem(itemName, illusion, illusion)
-			local currCharge = item:GetCurrentCharges()
-			CreateItemAtSlot(illusion, itemName, itemSlot, currCharge, 1, 1)
-		end
-	end
+	--for itemSlot=0,5 do
+	--	local item = caster:GetItemInSlot(itemSlot)
+	--	if item ~= nil then
+	--		local itemName = item:GetName()
+	--		local newItem = CreateItem(itemName, illusion, illusion)
+	--		local currCharge = item:GetCurrentCharges()
+	--		CreateItemAtSlot(illusion, itemName, itemSlot, currCharge, 1, 1)
+	--	end
+	--end
 
-	for abilitySlot=0,10 do
-		if abilitySlot == 9 then goto skip9 end --skip presence_detection_passive
-		local abilityCopy = caster:GetAbilityByIndex(abilitySlot)
-		if abilityCopy ~= nil then 
-			local abilityLevel = abilityCopy:GetLevel()
-			local abilityName = abilityCopy:GetAbilityName()
-			local illusionAbility = illusion:FindAbilityByName(abilityName)
-			illusionAbility:SetLevel(abilityLevel)
-		end
-		::skip9::
-	end
+	--for abilitySlot=0,10 do
+	--	if abilitySlot == 9 then goto skip9 end --skip presence_detection_passive
+	--	local abilityCopy = caster:GetAbilityByIndex(abilitySlot)
+	--	if abilityCopy ~= nil then 
+	--		local abilityLevel = abilityCopy:GetLevel()
+	--		local abilityName = abilityCopy:GetAbilityName()
+	--		local illusionAbility = illusion:FindAbilityByName(abilityName)
+	--		illusionAbility:SetLevel(abilityLevel)
+	--	end
+	--	::skip9::
+	--end
 
-	illusion:SetBaseStrength(caster:GetBaseStrength())
-	illusion:SetBaseIntellect(caster:GetBaseIntellect())
-	illusion:SetBaseAgility(caster:GetBaseAgility())
-	illusion:ModifyAgility(0)  
+	--illusion:SetBaseStrength(caster:GetBaseStrength())
+	--illusion:SetBaseIntellect(caster:GetBaseIntellect())
+	--illusion:SetBaseAgility(caster:GetBaseAgility())
+	--illusion:ModifyAgility(0)  
 
-	illusion:SetMaxHealth(caster:GetMaxHealth())
-	illusion:SetMana(caster:GetMana())
+	--illusion:SetMaxHealth(caster:GetMaxHealth())
+	--illusion:SetMana(caster:GetMana())
 
-	illusion:SetBaseHealthRegen(caster:GetHealthRegen() - caster:GetStrength() * (0.03))  
-	illusion:SetBaseManaRegen(caster:GetManaRegen() + caster:GetIntellect() * (0.25 - 0.04))  
-	illusion:SetPhysicalArmorBaseValue(caster:GetPhysicalArmorBaseValue()) 
-	illusion:SetBaseMoveSpeed(caster:GetBaseMoveSpeed()) 
-	illusion:SetBaseDamageMin(caster:GetBaseDamageMin())
-	illusion:SetBaseDamageMax(caster:GetBaseDamageMax())
+	--illusion:SetBaseHealthRegen(caster:GetHealthRegen() - caster:GetStrength() * (0.03))  
+	--illusion:SetBaseManaRegen(caster:GetManaRegen() + caster:GetIntellect() * (0.25 - 0.04))  
+	--illusion:SetPhysicalArmorBaseValue(caster:GetPhysicalArmorBaseValue()) 
+	--illusion:SetBaseMoveSpeed(caster:GetBaseMoveSpeed()) 
+--	illusion:SetBaseDamageMin(caster:GetBaseDamageMin())
+--	illusion:SetBaseDamageMax(caster:GetBaseDamageMax())
 
 end
 
@@ -265,7 +290,9 @@ function saito_formlessness:SaitoFormlessnessSlash()
 	local damage = self:GetSpecialValueFor("damage")
 	local target = self:GetCursorTarget()
  
- 
+	if(caster.ShinsengumiAcquired) then
+		damage = damage  +  caster:GetAttackDamage()*self:GetSpecialValueFor("atk_scale")
+	end
 	if IsSpellBlocked(target) then return end
 	local slashes = ParticleManager:CreateParticle("particles/saito/saito_formless_slash_new.vpcf", PATTACH_CUSTOMORIGIN, nil) 
  
@@ -278,6 +305,21 @@ function saito_formlessness:SaitoFormlessnessSlash()
 	  ParticleManager:SetParticleControl(slashes, 6,   target:GetRightVector() *Vector(120,120,0))
 
 	DoDamage(caster, target, damage, DamageType, 0, self, false)
+	giveUnitDataDrivenModifier(caster, target, "locked", 0.5)
+	if(caster.MasteryAcquired) then
+		giveUnitDataDrivenModifier(caster,target, "rooted", self:GetSpecialValueFor("root_duration"))
+	end
+
+	if(IsServer) then
+		if(caster:HasModifier("modifier_saito_fdb_repeated")) then
+			caster:RemoveModifierByName("modifier_saito_fdb_repeated")
+			caster:AddNewModifier(caster, self.modifierRepeated.ability, "modifier_saito_fdb_repeated", { } )
+			caster:FindModifierByName("modifier_saito_fdb_repeated"):SetStackCount(self.stackCount)
+			self.modifierRepeated = nil
+			self.stackCount = 0
+
+		end
+	end
 
 	Timers:CreateTimer( self:GetSpecialValueFor("cd_between_slashes"), function()
 		local slashes = ParticleManager:CreateParticle("particles/saito/saito_formless_slash_new.vpcf", PATTACH_CUSTOMORIGIN, nil) 
@@ -303,22 +345,44 @@ function saito_formlessness:SaitoFormlessnessLastSlash()
 	local DamageType = DAMAGE_TYPE_MAGICAL
 	local damage = self:GetSpecialValueFor("damage_last_slash")
 	if(caster.ShinsengumiAcquired) then
-		damage = damage + caster:GetModifierStackCount("modifier_saito_fdb_repeated",caster) *self:GetSpecialValueFor("damage_per_stack")
+		damage = damage + caster:GetModifierStackCount("modifier_saito_fdb_repeated",caster) *self:GetSpecialValueFor("damage_per_stack") +  caster:GetAttackDamage()*self:GetSpecialValueFor("atk_scale_last")
 	end
 	local target = self:GetCursorTarget()
 	local angle = VectorToAngles(caster:GetForwardVector()).y
-	local illusion  = caster.illusion 
- 
+	--local illusion  = caster.illusion 
+	LoopOverPlayers(function(player, playerID, playerHero)
+		--print("looping through " .. playerHero:GetName())
+		if playerHero.gachi == true then
+			-- apply legion horn vsnd on their client
+			CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="saito_nani"})
+			--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+		end
+	end)
+	 
 	caster:RemoveModifierByName("modifier_saito_formlessness_tracker")
 	caster:RemoveModifierByName("modifier_saito_formlessness_invis")
-	if IsValidEntity(illusion) and not illusion:IsNull() then 
-		caster.illusion:ForceKill(false)
-	end
+	--if IsValidEntity(illusion) and not illusion:IsNull() then 
+	--	caster.illusion:ForceKill(false)
+	--end
 	if IsSpellBlocked(target) then return end
 	DoDamage(caster, target, damage, DamageType, 0, self, false)
 	target:EmitSound("saito_last_slash")
 
 	giveUnitDataDrivenModifier(caster, target, "locked", self:GetSpecialValueFor("lock_duration"))
+	if(caster.MasteryAcquired) then
+		giveUnitDataDrivenModifier(caster,target, "rooted", self:GetSpecialValueFor("root_duration"))
+	end
+	
+	if(IsServer) then
+		if(caster:HasModifier("modifier_saito_fdb_repeated")) then
+			caster:RemoveModifierByName("modifier_saito_fdb_repeated")
+			caster:AddNewModifier(caster, self.modifierRepeated.ability, "modifier_saito_fdb_repeated", { } )
+			caster:FindModifierByName("modifier_saito_fdb_repeated"):SetStackCount(self.stackCount)
+			self.modifierRepeated = nil
+			self.stackCount = 0
+
+		end
+	end
 	local slashes = ParticleManager:CreateParticle("particles/saito/saito_formless_slash_last.vpcf", PATTACH_CUSTOMORIGIN, nil)
 	local range = (target:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D()
 	ParticleManager:SetParticleControl(slashes, 0, target:GetAbsOrigin()- caster:GetForwardVector()*100   )
@@ -350,10 +414,10 @@ end
 
 
 function modifier_saito_formlessness_invis:OnDestroy()
-	local illusion =  self:GetCaster().illusion 
-	if IsValidEntity(illusion) and not illusion:IsNull() then 
-		illusion:ForceKill(false)
-	end
+	--local illusion =  self:GetCaster().illusion 
+	--if IsValidEntity(illusion) and not illusion:IsNull() then 
+	--	illusion:ForceKill(false)
+	--end
 
 end
 
@@ -418,7 +482,15 @@ function modifier_saito_formlessness_invis:RemoveOnDeath() return true end
 
 modifier_saito_formlessness_tracker = class({})
 
-function modifier_saito_formlessness_invis:GetTexture()
+
+function modifier_saito_formlessness_tracker:OnDestroy()
+	if(self:GetAbility().isRefreshed ~= 1) then
+		self:GetParent():FindAbilityByName("saito_formlessness"):StartCooldown(self:GetParent():FindAbilityByName("saito_formlessness"):GetCooldown(1))
+	end
+	 
+
+end
+function modifier_saito_formlessness_tracker:GetTexture()
 	local caster = self:GetAbility()
 	if caster:CheckSequence() == caster:GetSpecialValueFor("number_of_slashes") then		
 		return  "custom/saito/saito_formlessness_slash4"
@@ -453,8 +525,4 @@ function modifier_saito_illusion_disarm:IsDebuff() return false end
 function modifier_saito_illusion_disarm:RemoveOnDeath() return true end
  
 
-modifier_saito_formlessness_casting = class({})
  
-function modifier_saito_formlessness_casting:IsHidden() return true end
-function modifier_saito_formlessness_casting:IsDebuff() return false end
-function modifier_saito_formlessness_casting:RemoveOnDeath() return true end

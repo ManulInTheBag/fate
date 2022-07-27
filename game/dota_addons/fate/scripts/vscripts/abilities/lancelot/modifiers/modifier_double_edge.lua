@@ -4,7 +4,7 @@ function modifier_double_edge:DeclareFunctions()
 	return { MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
 			 MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
 			 MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
-			 MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE }
+			 MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE}
 end
 
 if IsServer() then
@@ -61,7 +61,7 @@ function modifier_double_edge:GetModifierMoveSpeedBonus_Percentage()
 	end
 end
 
-function modifier_double_edge:GetModifierBaseAttack_BonusDamage()
+function modifier_double_edge:GetModifierPreAttack_BonusDamage()
 	if IsServer() then
 		return self.DamageAmp
 	elseif IsClient() then
