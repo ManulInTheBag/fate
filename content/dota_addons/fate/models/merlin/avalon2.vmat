@@ -1,0 +1,35 @@
+// THIS FILE IS AUTO-GENERATED
+
+Layer0
+{
+	shader "global_lit_simple.vfx"
+
+	//---- Tint Mask ----
+	F_TINT_MASK 1
+
+	//---- Translucent ----
+	F_ALPHA_TEST 1
+
+	//---- Color ----
+	g_vColorTint "[0.992157 0.470588 0.964706 0.000000]"
+	g_vColorTint2 "[1.000000 0.941177 0.988235 0.000000]"
+	g_vTexCoordOffset "[0.000 0.000]"
+	g_vTexCoordScale "[1.000 1.000]"
+	TextureColor "models/merlin/sakura.png"
+	TextureTintMask "materials/default/default_mask.tga"
+
+	//---- Translucent ----
+	g_flAlphaTestReference "0.094"
+	TextureTranslucency "models/merlin/sakura.png"
+
+
+	VariableState
+	{
+		"Color"
+		{
+		}
+		"Translucent"
+		{
+		}
+	}
+}

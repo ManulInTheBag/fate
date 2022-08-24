@@ -186,7 +186,28 @@
 
 		"DOTA_Tooltip_modifier_merlin_hero_creation"					"Hero creation"
 		"DOTA_Tooltip_modifier_merlin_hero_creation_Description"		"Enjoy your d*ck, Sir"
+
+		"DOTA_Tooltip_modifier_muramasa_tsumukari"						"Tsumukari Muramasa chants"
+		"DOTA_Tooltip_modifier_muramasa_tsumukari_Description"			""
+
+		"DOTA_Tooltip_modifier_muramasa_tsumukari_buff"						"Tsumukari Muramasa Active"
+		"DOTA_Tooltip_modifier_muramasa_tsumukari_Description"				""
 	
+		"DOTA_Tooltip_modifier_muramasa_sword_creation"						"Sword creation"
+		"DOTA_Tooltip_modifier_muramasa_sword_creation_Description"				"amount of swords held"
+
+		"DOTA_Tooltip_modifier_muramasa_rush_mr"							"Rush buff"
+		"DOTA_Tooltip_modifier_muramasa_rush_mr_Description"				"MR increased"
+
+		"DOTA_Tooltip_modifier_muramasa_sword_trial_buff"							"Sword trial"
+		"DOTA_Tooltip_modifier_muramasa_sword_trial_buff_Description"				"Next attack is powered"
+
+		"DOTA_Tooltip_modifier_muramasa_combo_cd"									"Tsumukari Muramasa - Karma cd"
+		"DOTA_Tooltip_modifier_muramasa_combo_cd_Description"				"combo is on cooldown"
+
+		"DOTA_Tooltip_modifier_eye_of_karma"									"Eye of karma"
+		"DOTA_Tooltip_modifier_eye_of_karma_Description"				"less than 50% hp"
+		
 
 		
 		"DOTA_Tooltip_modifier_white_queen_slow"						"White Queen's Enigma Slow"
@@ -6681,7 +6702,7 @@
   
 
 		"DOTA_Tooltip_ability_merlin_garden_of_avalon"						"Combo: Garden of Avalon"
-        "DOTA_Tooltip_ability_merlin_garden_of_avalon_Description"			"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: D-E in 1 second</font>\nMerlin materialises the Garden of Avalon into this world after a chant. While chanting Merlin is silenced and muted. When the chant is finished, merlin will become absolutely invulnerable to any harm, while all his allies gain huge health and mana regeneration and all debuff cleanse every 0.1 seconds. When the garden is fully materialised, Merlin can stop it by using an ability in the Avalon slot"
+        "DOTA_Tooltip_ability_merlin_garden_of_avalon_Description"			"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: D-E in 1 second</font>\nMerlin materialises the Garden of Avalon into this world after a chant. While chanting Merlin is silenced and muted. When the chant is finished, merlin will get a 70% resistance to any harm, while all his allies gain huge health and mana regeneration and all debuff cleanse every 0.1 seconds. When the garden is fully materialised, Merlin can stop it by using an ability in the Avalon slot"
         "DOTA_Tooltip_abilitymerlin_garden_of_avalon_radius"					"Radius:"
         "DOTA_Tooltip_ability_merlin_garden_of_avalon_duration_visible"			"Garden duration:"
 		"DOTA_Tooltip_ability_merlin_garden_of_avalon_health_regen_bonus"		"%Health regeneration:"
@@ -6725,7 +6746,152 @@
         "DOTA_Tooltip_ability_merlin_king_assistant_attribute_att_duration" 					"Attackspeed duration:"
  		"DOTA_Tooltip_ability_merlin_king_assistant_attribute_dmg_per_int" 						"Dmg per int:"
         
-  
+
+        //====================================
+		//   Muramasa
+        //====================================
+        "npc_dota_hero_magnataur"						"Muramasa"
+
+		"npc_dota_hero_magnataur_hype"						""
+		"npc_dota_hero_magnataur_bio"						""
+
+        "DOTA_Tooltip_ability_muramasa_dance"							"Sword dance"
+        "DOTA_Tooltip_ability_muramasa_dance_Description"			"Muramasa starts a ferocious series of attacks in the target direction, attacking all enemies in his reach 5 times. Series consists of 2 slash, 2 pierce attacks and one aoe attack each dealing a 100% of muramasa atk and a part of his on-hit magic attack.\n This ability can be stopped by reusing it. If muramasa receive a stun debuff, ability will be stopped.\nWhen this ability is upgraded, Muramasa will cleanse all of his debuffs, disjoint projectiles before each hit and will apply a stackable debuff with each hit, which increase enemies damage taken."      
+        "DOTA_Tooltip_ability_muramasa_dance_duration"					"Duration:"
+        "DOTA_Tooltip_ability_muramasa_dance_dmg_mod"					"%Magic on-hit damage:"
+        "DOTA_Tooltip_ability_muramasa_dance_dmg_amp"					"%Damage taken increase per stack:"
+        "DOTA_Tooltip_ability_muramasa_dance_dmg_amp_duration"			"Debuff duration:"
+        "DOTA_Tooltip_ability_muramasa_dance_Lore"						"You can't create a sword withoud deep undestandind of how it will cut"
+         
+
+        "DOTA_Tooltip_ability_muramasa_dance_upgraded"							"Sword dance upgraded"
+        "DOTA_Tooltip_ability_muramasa_dance_upgraded_Description"			"Muramasa starts a ferocious series of attacks in the target direction, attacking all enemies in his reach 5 times. Series consists of 2 slash, 2 pierce attacks and one aoe attack each dealing a 100% of muramasa atk and a part of his on-hit magic attack.\n This ability can be stopped by reusing it.\nMuramasa will cleanse all of his debuffs, disjoint projectiles before each hit and will apply a stackable debuff with each hit, which increase enemies damage taken."      
+        "DOTA_Tooltip_ability_muramasa_dance_upgraded_duration"					"Duration:"
+        "DOTA_Tooltip_ability_muramasa_dance_upgraded_dmg_mod"					"%Magic on-hit damage:"
+        "DOTA_Tooltip_ability_muramasa_dance_upgraded_dmg_amp"					"%Damage taken increase per stack:"
+        "DOTA_Tooltip_ability_muramasa_dance_upgraded_dmg_amp_duration"			"Debuff duration:"
+        "DOTA_Tooltip_ability_muramasa_dance_upgraded_Lore"			"You can't create a sword withoud deep undestandind of how it will cut"
+
+        "DOTA_Tooltip_ability_muramasa_dance_stop"							"Stop sword dance"
+        "DOTA_Tooltip_ability_muramasa_dance_stop_Description"			    "Stop the ability."      
+
+
+
+        "DOTA_Tooltip_ability_muramasa_throw"					"Throw"
+        "DOTA_Tooltip_ability_muramasa_throw_Description"	 	"Unit-vector target.\nMuramasa grabs an enemy and throws him in the targeted direction. Enemy is stunned while grabbed and thrown. If enemy collides with a wall or another enemy, he and all enemies around will  take damage and be stunned. If enemy dispells stun debuff while he is grabbed, muramasa will not throw him and ability will end.\n When this ability is upgraded, it will throw enemy further, faster and it will push all enemies hit with main target."
+        "DOTA_Tooltip_ability_muramasa_throw_damage"				"Damage:"
+        "DOTA_Tooltip_ability_muramasa_throw_duration"				"Stun duration:"
+        "DOTA_Tooltip_ability_muramasa_throw_range"				"Grab range:"
+        "DOTA_Tooltip_ability_muramasa_throw_throw_range"			"Throw range:"
+        "DOTA_Tooltip_ability_muramasa_throw_throw_speed"			"Throw speed:"
+        "DOTA_Tooltip_ability_muramasa_throw_throw_range_up"		"Throw range upgraded:"
+        "DOTA_Tooltip_ability_muramasa_throw_throw_speed_up"		"Throw speed upgraded:"
+        "DOTA_Tooltip_ability_muramasa_throw_Lore"					"One must be very strong to work with metal."
+ 
+
+        "DOTA_Tooltip_ability_muramasa_throw_upgraded"					"Throw upgraded"
+        "DOTA_Tooltip_ability_muramasa_throw_upgraded_Description"	 	"Unit-vector target.\nMuramasa grabs an enemy and throws him in the targeted direction. Enemy is stunned while grabbed and thrown. If enemy collides with a wall, he and all enemies around will  take damage and be stunned. If enemy dispells stun debuff while he is grabbed, muramasa will not throw him and ability will end.\nIt will push all enemies hit with main target."
+        "DOTA_Tooltip_ability_muramasa_throw_upgraded_damage"				"Damage:"
+        "DOTA_Tooltip_ability_muramasa_throw_upgraded_duration"			"Stun duration:"
+        "DOTA_Tooltip_ability_muramasa_throw_upgraded_range"				"Grab range:"
+        "DOTA_Tooltip_ability_muramasa_throw_upgraded_throw_range"			"Throw range:"
+        "DOTA_Tooltip_ability_muramasa_throw_upgraded_throw_speed"			"Throw speed:"
+        "DOTA_Tooltip_ability_muramasa_throw_upgraded_Lore"				"One must be very strong to throw out bad guys from your forge."
+ 
+	 	
+
+        "DOTA_Tooltip_ability_muramasa_rush"					"Rush"
+        "DOTA_Tooltip_ability_muramasa_rush_Description"	 	"Muramasa charges a rush attack up to 0.5 seconds. Rush range scales with channel time. If muramasa hit someone with rush, he will deal damage, attack and apply a burn debuff, ticking every 0.5 seconds. While Muramasa charges this ability and is moving, he has bonus magic resistance.\nWhen upgraded, Muramasa will fly immediate into the point selected and will root all enemies hit for 1 second."
+        "DOTA_Tooltip_ability_muramasa_rush_damage"					"Damage:"
+        "DOTA_Tooltip_ability_muramasa_rush_duration"				"Burn duration:"
+        "DOTA_Tooltip_ability_muramasa_rush_range"					"Max range:"
+        "DOTA_Tooltip_ability_muramasa_rush_burn_dmg_per_tick"		"Burn damage per tick:"
+        "DOTA_Tooltip_ability_muramasa_rush_bonus_mr"				"Bonus resistance:"
+        "DOTA_Tooltip_ability_muramasa_rush_Lore"					""
+
+        "DOTA_Tooltip_ability_muramasa_rush_upgraded"					"Rush upgraded"
+        "DOTA_Tooltip_ability_muramasa_rush_upgraded_Description"	 	"Muramasa rushes to point selected. If muramasa hit someone with rush, he will deal damage, attack, apply a burn debuff, ticking every 0.5 seconds, and root enemies hit for 1 second. While Muramasa is moving, he has bonus magic resistance."
+        "DOTA_Tooltip_ability_muramasa_rush_upgraded_damage"				"Damage:"
+        "DOTA_Tooltip_ability_muramasa_rush_upgraded_duration"				"Burn duration:"
+        "DOTA_Tooltip_ability_muramasa_rush_upgraded_range"					"Max range:"
+        "DOTA_Tooltip_ability_muramasa_rush_upgraded_burn_dmg_per_tick"		"Burn damage per tick:"
+        "DOTA_Tooltip_ability_muramasa_rush_upgradeds_mr"					"Bonus resistance:"
+        "DOTA_Tooltip_ability_muramasa_rush_upgraded_Lore"					""
+
+
+
+        "DOTA_Tooltip_ability_muramasa_sword_creation"					"Sword creation"
+        "DOTA_Tooltip_ability_muramasa_sword_creation_Description"		"Active: Muramasa creates a sword with a maximum of 5\nPassive: attacks of Muramasa deal additional magic damage in small radius on hit. This damage is increased based on muramasa BASE agility. Muramasa cannot increase his attackspeed with default options. Using berserk scroll increases his damage instead of giving him AS boost."
+        "DOTA_Tooltip_ability_muramasa_sword_creation_max_stacks"				"Maximum swords:"
+        "DOTA_Tooltip_ability_muramasa_sword_creation_attack_aoe_radius"		"Attack aoe:"
+        "DOTA_Tooltip_ability_muramasa_sword_creation_base_dmg"					"Base magic damage:"
+        "DOTA_Tooltip_ability_muramasa_sword_creation_dmg_per_agi"				"Damage per base agi:"
+        "DOTA_Tooltip_ability_muramasa_sword_creation_dmg_berserker"			"Dmg under berserk:"
+        "DOTA_Tooltip_ability_muramasa_sword_creation_Lore"			"If I get a request, I'll be sure to make something great."
+
+        "DOTA_Tooltip_ability_muramasa_upgrade"				"Upgrade"
+        "DOTA_Tooltip_ability_muramasa_upgrade_Description"		"Muramasa uses some swords to upgrade next QWE ability he will use. You can upgrade again only after you use previous upgraded ability. Upgraded abilities share the same cooldown with default ones."
+        "DOTA_Tooltip_ability_muramasa_upgrade_cost"			"Sword cost:"
+        "DOTA_Tooltip_ability_muramasa_upgrade_Lore"			"Best swords can store enough magic energy to release a true power of its wielder."
+
+
+
+       
+
+
+        "DOTA_Tooltip_ability_muramasa_tsumukari"				"Tsumukari Muramasa chant"
+        "DOTA_Tooltip_ability_muramasa_tsumukari_Description"		"Requires 1 sword\nMuramasa chants a line of his noble phantasm. Upon reaching 8 stack, he will receive a powerfull buff for his attacks, increasing his attackspeed to 2 attacks per second, increasing magic attack aoe and applying a modifier to his attacks magic damage. While this buff persists, muramasa can use this ability again to release a powerful swing, cracking earth in the direction of cast and pulling all enemies hit. After a delay crack explodes, dealing damage."
+        "DOTA_Tooltip_ability_muramasa_tsumukari_buff_duration"				"Buff duration:"
+        "DOTA_Tooltip_ability_muramasa_tsumukari_atk_dmg_amplify"				"Atk modifier:"
+        "DOTA_Tooltip_ability_muramasa_tsumukari_Lore"				"There is only one way a weapon mighty enough to sever fate may be born."
+        "DOTA_Tooltip_ability_muramasa_tsumukari_Note0"				"Muramasa cant chant while in buff, but release ability can be refreshed" 
+
+
+        "DOTA_Tooltip_ability_muramasa_tsumukari_release"				"Tsumukari Muramasa release"
+        "DOTA_Tooltip_ability_muramasa_tsumukari_release_Description"		"Muramasa releases a powerful swing, cracking earth in the direction of cast and pulling all enemies hit and applying a powerful slow to them. After a delay crack explodes, dealing magic damage"
+        "DOTA_Tooltip_ability_muramasa_tsumukari_release_slow_power"					"%Slow power:"
+        "DOTA_Tooltip_ability_muramasa_tsumukari_release_damage_first"					"Crack damage:"
+        "DOTA_Tooltip_ability_muramasa_tsumukari_release_damage_impact"					"Explosion damage:"
+
+
+        "DOTA_Tooltip_ability_muramasa_tsumukari_combo"				"Combo: Tsumukari Muramasa - Karma"
+        "DOTA_Tooltip_ability_muramasa_tsumukari_combo_Description"		"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: D-R in 2 seconds while under tsumukari muramasa buff and upgraded skills</font>\nMuramasa chants a powered version of Tsumukari Muramasa, releasing a huge swing dealing damage and stunning for 1 second, after which he sends a crack on the ground, dealing damage, dimensional locking and rooting enemies hit. After a couple of seconds crack explodes dealing burst damage and damage over time."   
+        "DOTA_Tooltip_ability_muramasa_tsumukari_combo_range"							"Range:"
+        "DOTA_Tooltip_ability_muramasa_tsumukari_combo_damage_first"					"Slash damage:"
+        "DOTA_Tooltip_ability_muramasa_tsumukari_combo_damage_impact"					"Crack damage:"
+        "DOTA_Tooltip_ability_muramasa_tsumukari_combo_damage_explosion"				"Explosion damage:"
+        "DOTA_Tooltip_ability_muramasa_tsumukari_combo_burn_dmg_per_tick"				"Burn damage:"
+        "DOTA_Tooltip_ability_muramasa_tsumukari_combo_debuffs_duration"				"Debuffs duration:"
+
+        //
+        //Muramasa attributes
+        //
+
+        "DOTA_Tooltip_ability_muramasa_appreciation_of_swords_attribute"				"Attribute: Appreciation of swords"
+        "DOTA_Tooltip_ability_muramasa_appreciation_of_swords_attribute_Description"	"Increases muramasa's armor and magic resistance per stack of Tsumukari Muramasa chant. If Muramasa is under its buff, he gains maximum stacks bonuses multiplied by 1.5"
+        "DOTA_Tooltip_ability_muramasa_appreciation_of_swords_attribute_mr_bonus"				"%Magic resistance per stack:"
+        "DOTA_Tooltip_ability_muramasa_appreciation_of_swords_attribute_armor_bonus"			"Armor per stack:"
+    
+
+        "DOTA_Tooltip_ability_muramasa_sword_trial_attribute"				"Attribute: Sword trial"
+        "DOTA_Tooltip_ability_muramasa_sword_trial_attribute_Description"	"After chanting Tsumukari Muramasa, Muramasa gains a buff, which increases his attackspeed to 0.5 seconds per attack for 1 attack and will reduce Tsumukari cooldown to 1 second with this attack."
+        "DOTA_Tooltip_ability_muramasa_sword_trial_attribute_buff_duration"				"Buff duration:"
+ 
+ 		
+        "DOTA_Tooltip_ability_muramasa_flame_attribute"				"Attribute: Flame"
+        "DOTA_Tooltip_ability_muramasa_flame_attribute_Description"	"When Muramasa burns his sword to chant Tsumukari Muramasa or upgrade his abilities, he deal magic damage around himself, scaling with his BASE agility"
+        "DOTA_Tooltip_ability_muramasa_flame_attribute_radius"					"Radius:"
+        "DOTA_Tooltip_ability_muramasa_flame_attribute_base_dmg"					"Base dmg:"
+        "DOTA_Tooltip_ability_muramasa_flame_attribute_dmg_per_agi"				"Dmg per base agi:"
+
+        "DOTA_Tooltip_ability_muramasa_eye_of_karma_attribute"				"Attribute: Eye of karma"
+        "DOTA_Tooltip_ability_muramasa_eye_of_karma_attribute_Description"	"Muramasa is able to see Karma in living beings. Enemies hit by his E are now visible while burning, when muramasa health is lower then 50% he gains damage reduction."
+        "DOTA_Tooltip_ability_muramasa_eye_of_karma_attribute_reduction"					"%Damage reduction:"
+
+ 		"DOTA_Tooltip_ability_muramasa_territory_creation_attribute"				"Attribute: Territory creation"
+        "DOTA_Tooltip_ability_muramasa_territory_creation_attribute_Description"	"Muramasa's workshop is always with him. Decreases sword creation cooldown."
+        "DOTA_Tooltip_ability_muramasa_territory_creation_attribute_cooldown"					"New cooldown:"
+
 
 
         //     Archer(Extra)

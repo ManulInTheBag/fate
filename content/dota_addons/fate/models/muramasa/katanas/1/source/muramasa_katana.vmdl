@@ -1,0 +1,87 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc31:version{165d48dd-8adc-4f1d-abf7-4992e04ad577} -->
+{
+	rootNode = 
+	{
+		_class = "RootNode"
+		children = 
+		[
+			{
+				_class = "RenderMeshList"
+				children = 
+				[
+					{
+						_class = "RenderMeshFile"
+						name = "muramasa"
+						filename = "models/muramasa/katanas/1/source/muramasa.fbx"
+						import_scale = 1.0
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = 
+							[
+								"Scabbard_01",
+								"Scabbard_Lock_01",
+							]
+						}
+					},
+				]
+			},
+			{
+				_class = "MaterialGroupList"
+				children = 
+				[
+					{
+						_class = "DefaultMaterialGroup"
+						remaps = 
+						[
+							{
+								from = "black.vmat"
+								to = "materials/dev/black.vmat"
+							},
+							{
+								from = "blinn3.vmat"
+								to = "materials/dev/black.vmat"
+							},
+							{
+								from = "blinn5.vmat"
+								to = "materials/dev/hero_black.vmat"
+							},
+							{
+								from = "blinn6.vmat"
+								to = "materials/dev/primary_black.vmat"
+							},
+							{
+								from = "blinn8.vmat"
+								to = "materials/dev/black.vmat"
+							},
+							{
+								from = "sword_metal.vmat"
+								to = "materials/building/bridge/metal.vmat"
+							},
+							{
+								from = "gold.vmat"
+								to = "materials/building/bridge/metal.vmat"
+							},
+							{
+								from = "cloth.vmat"
+								to = "materials/dev/debug_cloth.vmat"
+							},
+							{
+								from = "surfaceshader2.vmat"
+								to = "materials/dev/metal_simple.vmat"
+							},
+						]
+						use_global_default = false
+						global_default_material = ""
+					},
+				]
+			},
+		]
+		model_archetype = ""
+		primary_associated_entity = ""
+		anim_graph_name = ""
+		importer_notes = """
+Imported from VMDL
+"""
+	}
+}

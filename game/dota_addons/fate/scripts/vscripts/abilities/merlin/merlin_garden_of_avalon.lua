@@ -214,7 +214,7 @@ end
 
 
 function modifier_merlin_avalon_self:GetModifierIncomingDamage_Percentage() 
-	return -100
+	return -70
 end
 function modifier_merlin_avalon_self:GetModifierProvidesFOWVision()
     return 1
@@ -223,12 +223,12 @@ end
 function modifier_merlin_avalon_self:CheckState()
     local state =   { 
  
-						[MODIFIER_STATE_INVULNERABLE] = true,
+						--[MODIFIER_STATE_INVULNERABLE] = true,
 						[MODIFIER_STATE_ROOTED] = true,
 						[MODIFIER_STATE_DISARMED] = true,
-						[MODIFIER_STATE_UNTARGETABLE] = true,
-						[MODIFIER_STATE_NO_UNIT_COLLISION] = true,
-						[MODIFIER_STATE_NO_HEALTH_BAR] = true,
+						--[MODIFIER_STATE_UNTARGETABLE] = true,
+						--[MODIFIER_STATE_NO_UNIT_COLLISION] = true,
+						--[MODIFIER_STATE_NO_HEALTH_BAR] = true,
 						[MODIFIER_STATE_STUNNED] = true,
 						  
 						  

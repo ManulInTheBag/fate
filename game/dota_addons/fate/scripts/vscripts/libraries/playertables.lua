@@ -420,6 +420,41 @@ function PlayerTables:SetTableValue(tableName, key, value)
 	end
 end
 
+
+function PlayerTables:SetTableValue(tableName, key, value, PID, bAlwaysUpdate)
+  if value == nil then
+    self:DeleteTableKey(tableName, key)
+    return 
+  end
+  if not self.tables[tableName] then
+    print("[playertables.lua] Warning: Table '" .. tableName .. "' does not exist.")
+    return
+  end
+
+  local table = self.tables[tableName]
+  local pids = self.subscriptions[tableName]
+
+  if bAlwaysUpdate or not self:equals(table[key], value) then
+    table[key] = value
+    if IsNotNull(PID) then
+      local player = PlayerResource:GetPlayer(PID)
+      if player then  
+        CustomGameEventManager:Send_ServerToPlayer(player, "pt_uk", {name=tableName, changes={[key]=value}} ) --NEW LINE
+      end
+    else
+      for pid,v in pairs(pids) do
+        if PlayerResource then -- After Activate called
+          local player = PlayerResource:GetPlayer(pid)
+          if player then  
+            CustomGameEventManager:Send_ServerToPlayer(player, "pt_uk", {name=tableName, changes={[key]=value}} )
+          end
+        end
+      end
+    end
+  end
+end
+
+
 function PlayerTables:SetTableValues(tableName, changes)
 	if not self.tables[tableName] then
 		print("[playertables.lua] Warning: Table '" .. tableName .. "' does not exist.")
