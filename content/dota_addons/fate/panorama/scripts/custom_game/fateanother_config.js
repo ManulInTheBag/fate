@@ -16,45 +16,38 @@ function OnFateConfigButtonPressed()
         configPanel.FindChildTraverse("option6").checked = buffBar.enabled;
     }
 }
-
-
-function OnCameraDistSubmitted()
+function CameraDistanceSlider(bFirstInition)
 {
-    var panel = $("#ConfigCameraValue");
-    var number = parseFloat(panel.text);
-    if (number > 1900)
+    const hCameraDistanceSlider = $("#CameraDistanceSlider");
+    
+    const fMin = 1600;
+    const fMax = 1900;
+
+    if ( bFirstInition )
     {
-        number = 1900;
+        hCameraDistanceSlider.value = 1
     }
-    GameUI.SetCameraDistance(number);
-    panel.text = number.toString();
-}
 
-function RenderCamera(){
-    var oSlider = $("#ConfigCameraSlider");
-    var fMin = 1600;
-    var fMax = 1900;
-    var fDistance = fMin + oSlider.value * (fMax - fMin);
-
-    if (fDistance > fMax){
-        fDistance = fMax;
-    }
+    const fDistance = AnimeLerp(hCameraDistanceSlider.value, fMin, fMax);
 
     GameUI.SetCameraDistance(fDistance);
 
-    if(bRenderCamera === true){
-        $.Schedule(0.016, RenderCamera);
+    if (hCameraDistanceSlider.BHasHoverStyle() || bFirstInition)
+    {
+        $.Schedule(1/30, CameraDistanceSlider);
     }
 };
 
-function OnCamSliderIn(){
-    bRenderCamera = true;
-    RenderCamera();
-};
+(function()
+{
+    CameraDistanceSlider(true);
+})();
 
-function OnCamSliderOut(){
-    bRenderCamera = false;
-};
+function AnimeLerp(percent, a, b)
+{
+    return a + percent * (b - a);
+}
+
 
 function OnConfig1Toggle()
 {

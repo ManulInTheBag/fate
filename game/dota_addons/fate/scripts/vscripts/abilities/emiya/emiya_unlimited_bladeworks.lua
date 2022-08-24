@@ -103,7 +103,7 @@ function emiya_unlimited_bladeworks:StartUBW()
 
         ExecuteOrderFromTable(stopOrder)]] 
         --w:AddNewModifier(caster, self, "modifier_ubw_chronosphere", { Duration = castDelay })
-        giveUnitDataDrivenModifier(caster, w, "modifier_rooted", castDelay)
+        giveUnitDataDrivenModifier(caster, w, "rooted", castDelay)
         giveUnitDataDrivenModifier(caster, w, "locked", castDelay)
     end
 

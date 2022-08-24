@@ -36,6 +36,7 @@
 #base "abilities/jeanne_alter/jeanne_alter_abilities.kv"
 #base "abilities/saito/saito_hajime_abilities.kv"
 #base "abilities/merlin/merlin_abilities.kv"
+#base "abilities/muramasa/muramasa_abilities.kv"
 
 
 #base "abilities/master/master_abilities.kv"
@@ -638,6 +639,13 @@
 				{
 					"MODIFIER_STATE_UNSELECTABLE"	"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_OUT_OF_GAME"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"no_collision"
+			{
+				"States"
+				{
 					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
@@ -3155,10 +3163,5 @@
 	{
 		"ItemPurchasable" "0"
 	}
-	"item_voodoo_mask"
-	{
-		"ItemPurchasable" "0"
-	}
-
 }
 

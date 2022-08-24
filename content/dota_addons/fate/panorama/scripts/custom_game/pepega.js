@@ -50,5 +50,5 @@ function UpdateCamera(tableName, changesObject, deletionsObject) {
 
 
 (function() {
-	DynamicSubscribePTListener('hero_camera', UpdateCamera);
+	 //DynamicSubscribePTListener('hero_camera', UpdateCamera);
 })();

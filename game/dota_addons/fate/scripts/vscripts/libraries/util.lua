@@ -266,6 +266,7 @@ cleansable = {
     "modifier_medusa_breaker_not_facing",
     "modifier_saito_slow",
     "modifier_morgan_slow",
+    "modifier_muramasa_tsumukari_hit_slow",
     -- Other CCs
     "modifier_stunned",
     "modifier_rule_breaker",
@@ -346,6 +347,7 @@ slowmodifier = {
     "modifier_roar_slow",
     "modifier_saito_slow",
     "modifier_morgan_slow",
+    "modifier_muramasa_tsumukari_hit_slow",
 }
 
 donotlevel = {
@@ -502,7 +504,8 @@ CannotReset = {
     "merlin_hero_creation",
     "merlin_garden_of_avalon",
     "arturia_alter_mana_discharge",
-    "okita_mind_eye" 
+    "okita_mind_eye",
+    "muramasa_tsumukari_combo", 
     
     
     
@@ -578,7 +581,8 @@ tRemoveTheseModifiers = {
     "modifier_army_of_the_king_death_checker",
     "modifier_gae_buidhe",
     "modifier_gae_dearg",
-    "modifier_atalanta_curse"
+    "modifier_atalanta_curse",
+    "modifier_muramasa_tsumukari_buff"
 }
 
 tDivineHeroes = {
@@ -606,7 +610,8 @@ tKnightClass = {
     "npc_dota_hero_abaddon",
     "npc_dota_hero_beastmaster",
     "npc_dota_hero_dark_willow",
-    "npc_dota_hero_terrorblade"
+    "npc_dota_hero_terrorblade",
+    "npc_dota_hero_magnataur"
 }
 
 tHorsemanClass = {
@@ -2218,7 +2223,8 @@ local heroNames = {
     ["npc_dota_hero_ursa"] = "Atalanta Alter",
     ["npc_dota_hero_razor"] = "Jeanne d'Arc Alter",
     ["npc_dota_hero_terrorblade"] = "Saito Hajime",
-    ["npc_dota_hero_puck"] = "Merlin"
+    ["npc_dota_hero_puck"] = "Merlin",
+    ["npc_dota_hero_magnataur"] = "Muramasa"
     
 }
 
@@ -2272,7 +2278,8 @@ local heroCombos = {
     ["npc_dota_hero_ursa"] = "atalanta_skia",
     ["npc_dota_hero_razor"] = "jeanne_lagron_combo",
     ["npc_dota_hero_terrorblade"] = "saito_undefeatable_style",
-    ["npc_dota_hero_puck"] = "merlin_garden_of_avalon"
+    ["npc_dota_hero_puck"] = "merlin_garden_of_avalon",
+    ["npc_dota_hero_magnataur"] = "muramasa_tsumukari_combo"
     
 }
 
