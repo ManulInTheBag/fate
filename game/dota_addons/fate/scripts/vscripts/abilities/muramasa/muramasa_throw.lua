@@ -86,11 +86,11 @@ function muramasa_throw:OnSpellStart()
     local casterstartvector = caster:GetForwardVector()
  
     Timers:CreateTimer( 0, function()
-    if(counter  == 10 or   caster:IsAlive() == false  or caster:IsStunned() == true or  self.target:IsStunned() == false ) then 
+    if(counter  == 5 or   caster:IsAlive() == false  or caster:IsStunned() == true or  self.target:IsStunned() == false ) then 
         
        return end
     
-    caster:SetForwardVector( casterstartvector + turn/( 5 ) * counter)
+    caster:SetForwardVector( casterstartvector + turn/( 2.5 ) * counter)
  
     caster:FaceTowards(self.target:GetAbsOrigin())
  
@@ -101,7 +101,7 @@ function muramasa_throw:OnSpellStart()
     return 0.03
     end)
 
-    Timers:CreateTimer( 0.31, function()
+    Timers:CreateTimer( 0.16, function()
         if( caster:IsAlive() == false  or caster:IsStunned() == true or  self.target:IsStunned() == false) then return end
         local throw_direction = (directionpoint-self.target:GetAbsOrigin()):Normalized()
         local sin = Physics:Unit( self.target)

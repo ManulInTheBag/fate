@@ -40,7 +40,11 @@ local selfstacks = caster:GetModifierStackCount("modifier_muramasa_tsumukari", c
  
     local currentStacks = caster:GetModifierStackCount("modifier_muramasa_sword_creation", caster)
     local sound = "muramasa_chant_"..(selfstacks+1) 
-    EmitGlobalSound(sound) 
+    if(selfstacks == 7) then
+        EmitGlobalSound(sound) 
+    else
+        caster:EmitSound(sound)
+    end
     if(currentStacks <1 ) then return end 
     caster:SetModifierStackCount("modifier_muramasa_sword_creation", caster, currentStacks - 1)
     if(caster.FlameAcquired) then

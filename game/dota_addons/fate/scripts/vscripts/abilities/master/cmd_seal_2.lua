@@ -47,7 +47,7 @@ function cmd_seal_2:OnSpellStart()
 		caster:SetMana(caster:GetMana() + self:GetManaCost(1))
 		SendErrorMessage(caster:GetPlayerOwnerID(), "#Master_Not_Enough_Health")
 		return 
-	elseif not hero:IsAlive() or IsRevoked(hero) then
+	elseif not hero:IsAlive() or ( IsRevoked(hero) and not hero:HasModifier("modifier_master_intervention")) then
 		self:EndCooldown()
 		caster:SetMana(caster:GetMana() + self:GetManaCost(1))
 		SendErrorMessage(caster:GetPlayerOwnerID(), "#Revoked_Error")

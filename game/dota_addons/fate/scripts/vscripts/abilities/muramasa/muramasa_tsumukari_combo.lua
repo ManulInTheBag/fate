@@ -136,7 +136,7 @@ local pull_center = caster:GetAbsOrigin() + caster:GetForwardVector() * 1250
 local start_point = caster:GetAbsOrigin()
 local radius = self:GetSpecialValueFor("hit_radius")
 local start_vec =caster:GetForwardVector()
-local speed = 600
+local speed = 1200
 local distance =  self:GetSpecialValueFor("range")
 local damage_impact = self:GetSpecialValueFor("damage_impact")
 local damage_explosion = self:GetSpecialValueFor("damage_explosion")
@@ -167,7 +167,7 @@ local tsumukariProjectile =
 ------------------------------------------------------------------------------------------------
 -------------------------------------explosion--------------------------------------------------
 ------------------------------------------------------------------------------------------------
-Timers:CreateTimer(5, function()   
+Timers:CreateTimer(4, function()   
     EmitGlobalSound("muramasa_explosion")
     Timers:CreateTimer(0, function()  
     EmitGlobalSound("muramasa_explosion_2")
@@ -216,7 +216,7 @@ Timers:CreateTimer(1.7, function()
     Timers:CreateTimer(0.3, function() 
         EmitGlobalSound("muramasa_crack_sound")
     end)
-    Timers:CreateTimer(3.2, function() 
+    Timers:CreateTimer(2.4, function() 
         StopGlobalSound("muramasa_crack_sound") 
     end)
   
@@ -228,7 +228,7 @@ Timers:CreateTimer(1.7, function()
         ParticleManager:SetParticleControl(CrackFx, 0, caster:GetAbsOrigin() + caster:GetForwardVector() * 100)
         ParticleManager:SetParticleControl(CrackFx, 1, caster:GetAbsOrigin() + caster:GetForwardVector() * 2500 )
         
-        Timers:CreateTimer(5.5, function() 
+        Timers:CreateTimer(3.0, function() 
             ParticleManager:DestroyParticle(CrackFx, true)
             ParticleManager:ReleaseParticleIndex(CrackFx)
           

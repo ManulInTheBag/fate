@@ -26,7 +26,7 @@ function OnSeal1Start(keys)
 		return 
 	end
 
-	if not hero:IsAlive() or IsRevoked(hero) then
+	if not hero:IsAlive() or  ( IsRevoked(hero) and not hero:HasModifier("modifier_master_intervention")) then
 		caster:SetMana(caster:GetMana()+2) 
 		keys.ability:EndCooldown() 
 		SendErrorMessage(caster:GetPlayerOwnerID(), "#Revoked_Error")
@@ -143,7 +143,7 @@ function OnSeal2Start(keys)
 		end
 	end
 
-	if not hero:IsAlive() or IsRevoked(hero) then
+	if not hero:IsAlive() or  ( IsRevoked(hero) and not hero:HasModifier("modifier_master_intervention")) then
 		keys.ability:EndCooldown() 		
 		SendErrorMessage(caster:GetPlayerOwnerID(), "#Revoked_Error")
 		return
@@ -205,7 +205,7 @@ function OnSeal3Start(keys)
 		return 
 	end
 
-	if not hero:IsAlive() or IsRevoked(hero) then
+	if not hero:IsAlive() or  ( IsRevoked(hero) and not hero:HasModifier("modifier_master_intervention")) then
 		caster:SetMana(caster:GetMana()+1) 
 		keys.ability:EndCooldown() 
 		SendErrorMessage(caster:GetPlayerOwnerID(), "#Revoked_Error")
@@ -259,7 +259,7 @@ function OnSeal4Start(keys)
 		keys.ability:EndCooldown() 
 		SendErrorMessage(caster:GetPlayerOwnerID(), "#Master_Not_Enough_Health")
 		return 
-	elseif not hero:IsAlive() or IsRevoked(hero)  then
+	elseif not hero:IsAlive() or  ( IsRevoked(hero) and not hero:HasModifier("modifier_master_intervention"))  then
 		caster:SetMana(caster:GetMana()+1) 
 		keys.ability:EndCooldown() 
 		SendErrorMessage(caster:GetPlayerOwnerID(), "#Revoked_Error")
