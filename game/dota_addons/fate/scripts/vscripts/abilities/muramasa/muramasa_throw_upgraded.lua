@@ -99,11 +99,11 @@ function muramasa_throw_upgraded:OnSpellStart()
     local casterstartvector = caster:GetForwardVector()
     local sin1 = Physics:Unit( caster)
     Timers:CreateTimer( 0, function()
-    if(counter  == 10 or caster:IsAlive() == false or caster:IsStunned() == true or  self.target:IsStunned() == false) then 
+    if(counter  == 7 or caster:IsAlive() == false or caster:IsStunned() == true or  self.target:IsStunned() == false) then 
         
        return end
     
-    caster:SetForwardVector( casterstartvector + turn/( 4 ) * counter)
+    caster:SetForwardVector( casterstartvector + turn/( 2 ) * counter)
  
     caster:FaceTowards(self.target:GetAbsOrigin())
  
@@ -114,7 +114,7 @@ function muramasa_throw_upgraded:OnSpellStart()
     return 0.03
     end)
     if( caster:IsAlive() == false) then return end
-    Timers:CreateTimer( 0.15, function()
+    Timers:CreateTimer( 0.12, function()
         if( caster:IsAlive() == false or caster:IsStunned() == true or  self.target:IsStunned() == false) then return end
         caster:StopAnimation()
         StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_CAST_TORNADO, rate=1.0})
@@ -122,7 +122,7 @@ function muramasa_throw_upgraded:OnSpellStart()
         caster:SetPhysicsVelocity(Vector(0,0,2500))
     end)
 
-    Timers:CreateTimer( 0.31, function()
+    Timers:CreateTimer( 0.25, function()
         if( caster:IsAlive() == false or caster:IsStunned() == true or  self.target:IsStunned() == false) then 
             caster:SetBounceMultiplier(0)
             caster:PreventDI(false)

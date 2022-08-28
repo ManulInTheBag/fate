@@ -44,7 +44,7 @@ self.knockback = { should_stun = false,
               
 local radius = self:GetSpecialValueFor("hit_radius")
 local start_vec =caster:GetForwardVector()
-local speed = 1500
+local speed = 3600
 local damage_impact = self:GetSpecialValueFor("damage_impact")
 local tsumukariProjectile = 
     {
@@ -67,7 +67,7 @@ local tsumukariProjectile =
         vVelocity = start_vec * speed
     }
 
-Timers:CreateTimer(2, function()  
+Timers:CreateTimer(1, function()  
     EmitGlobalSound("muramasa_explosion") 
 for i = 1, 10 do
     local point = pull_center + i *start_vec * 120
@@ -95,7 +95,7 @@ end)
 
 function muramasa_tsumukari_release:OnProjectileThink(location)
     local caster = self:GetCaster()
-        AddFOWViewer(caster:GetTeamNumber(), location, 30, 2, false)
+        AddFOWViewer(caster:GetTeamNumber(), location, 30, 1.5, false)
      
 end
 

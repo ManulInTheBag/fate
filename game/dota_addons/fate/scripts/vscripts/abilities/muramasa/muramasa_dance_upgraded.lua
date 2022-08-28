@@ -137,6 +137,7 @@ end})
      ParticleManager:SetParticleControl(     particle5 , 3,  caster:GetAbsOrigin()+ 50 * caster:GetForwardVector()  )  
      self.sound = "muramasa_dance_attack_"..math.random(1,4)
      caster:EmitSound(self.sound)
+     local damage_base = self:GetSpecialValueFor("base_dmg")
      local enemies = FindUnitsInRadius(  caster:GetTeamNumber(),
                  caster:GetAbsOrigin() + 50 * caster:GetForwardVector(),
                  nil,
@@ -149,6 +150,7 @@ end})
      for _,enemy in pairs(enemies) do
           enemy:AddNewModifier(caster, self, "modifier_muramasa_dance_debuff", {Duration = self:GetSpecialValueFor("dmg_amp_duration")})
           caster:PerformAttack( enemy, true, true, true, true, false, false, false )
+          DoDamage(caster, enemy, damage_base, DAMAGE_TYPE_MAGICAL, 0, self, false)
      end
      Timers:CreateTimer( 1.2, function()
        ParticleManager:DestroyParticle(  particle5, true)
@@ -167,6 +169,7 @@ end
  
 function muramasa_dance_upgraded:DanceAttack()
     caster = self:GetCaster()
+    local damage_base = self:GetSpecialValueFor("base_dmg")
     self.sound = "muramasa_dance_attack_"..math.random(1,4)
     caster:EmitSound(self.sound)
     local enemies = FindUnitsInRadius(  caster:GetTeamNumber(),
@@ -196,7 +199,7 @@ function muramasa_dance_upgraded:DanceAttack()
  if result_angle <= 120  then
     enemy:AddNewModifier(caster, self, "modifier_muramasa_dance_debuff", {Duration = self:GetSpecialValueFor("dmg_amp_duration")})
     caster:PerformAttack( enemy, true, true, true, true, false, false, false )
-
+    DoDamage(caster, enemy, damage_base, DAMAGE_TYPE_MAGICAL, 0, self, false)
  end
 
  end
@@ -205,6 +208,7 @@ end
    
 function muramasa_dance_upgraded:DanceAttack_Pierce()
    caster = self:GetCaster()
+   local damage_base = self:GetSpecialValueFor("base_dmg")
    self.sound = "muramasa_dance_attack_"..math.random(1,4)
    caster:EmitSound(self.sound)
   local enemies = FindUnitsInLine(  caster:GetTeamNumber(),
@@ -220,7 +224,7 @@ function muramasa_dance_upgraded:DanceAttack_Pierce()
 for _,enemy in pairs(enemies) do
    enemy:AddNewModifier(caster, self, "modifier_muramasa_dance_debuff", {Duration = self:GetSpecialValueFor("dmg_amp_duration")})
    caster:PerformAttack( enemy, true, true, true, true, false, false, false )
- 
+   DoDamage(caster, enemy, damage_base, DAMAGE_TYPE_MAGICAL, 0, self, false)
 
 end
 

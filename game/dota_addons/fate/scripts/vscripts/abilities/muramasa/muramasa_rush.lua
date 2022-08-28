@@ -21,7 +21,9 @@ end
 function muramasa_rush:OnChannelThink(fInterval)
     local caster = self:GetCaster()
     if(self.pathfx == nil) then
-        self.pathfx = ParticleManager:CreateParticle("particles/muramasa/vector.vpcf", PATTACH_CUSTOMORIGIN  , nil )
+         
+			
+        self.pathfx = ParticleManager:CreateParticleForPlayer("particles/muramasa/vector.vpcf", PATTACH_CUSTOMORIGIN  , nil, PlayerResource:GetPlayer(caster:GetPlayerOwnerID()) )
         ParticleManager:SetParticleControl(        self.pathfx , 6,  Vector(1000, 0,0 )  )  
         ParticleManager:SetParticleControl(        self.pathfx , 4,  Vector(100, 100, 230)  )  
     end

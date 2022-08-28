@@ -6756,20 +6756,22 @@
 		"npc_dota_hero_magnataur_bio"						""
 
         "DOTA_Tooltip_ability_muramasa_dance"							"Sword dance"
-        "DOTA_Tooltip_ability_muramasa_dance_Description"			"Muramasa starts a ferocious series of attacks in the target direction, attacking all enemies in his reach 5 times. Series consists of 2 slash, 2 pierce attacks and one aoe attack each dealing a 100% of muramasa atk and a part of his on-hit magic attack.\n This ability can be stopped by reusing it. If muramasa receive a stun debuff, ability will be stopped.\nWhen this ability is upgraded, Muramasa will cleanse all of his debuffs, disjoint projectiles before each hit and will apply a stackable debuff with each hit, which increase enemies damage taken."      
+        "DOTA_Tooltip_ability_muramasa_dance_Description"			"Muramasa starts a ferocious series of attacks in the target direction, attacking all enemies in his reach 5 times. Series consists of 2 slash, 2 pierce attacks and one aoe attack each dealing a 100% of muramasa atk, a part of his on-hit magic attack and base magic damage.\n This ability can be stopped by reusing it. If muramasa receive a stun debuff, ability will be stopped.\nWhen this ability is upgraded, Muramasa will cleanse all of his debuffs, disjoint projectiles before each hit and will apply a stackable debuff with each hit, which increase enemies damage taken."      
         "DOTA_Tooltip_ability_muramasa_dance_duration"					"Duration:"
         "DOTA_Tooltip_ability_muramasa_dance_dmg_mod"					"%Magic on-hit damage:"
         "DOTA_Tooltip_ability_muramasa_dance_dmg_amp"					"%Damage taken increase per stack:"
         "DOTA_Tooltip_ability_muramasa_dance_dmg_amp_duration"			"Debuff duration:"
+        "DOTA_Tooltip_ability_muramasa_dance_base_dmg"					"Base dmg:"
         "DOTA_Tooltip_ability_muramasa_dance_Lore"						"You can't create a sword withoud deep undestandind of how it will cut"
          
 
         "DOTA_Tooltip_ability_muramasa_dance_upgraded"							"Sword dance upgraded"
-        "DOTA_Tooltip_ability_muramasa_dance_upgraded_Description"			"Muramasa starts a ferocious series of attacks in the target direction, attacking all enemies in his reach 5 times. Series consists of 2 slash, 2 pierce attacks and one aoe attack each dealing a 100% of muramasa atk and a part of his on-hit magic attack.\n This ability can be stopped by reusing it.\nMuramasa will cleanse all of his debuffs, disjoint projectiles before each hit and will apply a stackable debuff with each hit, which increase enemies damage taken."      
+        "DOTA_Tooltip_ability_muramasa_dance_upgraded_Description"			"Muramasa starts a ferocious series of attacks in the target direction, attacking all enemies in his reach 5 times. Series consists of 2 slash, 2 pierce attacks and one aoe attack each dealing a 100% of muramasa atk, a part of his on-hit magic attack and base magic damage.\n This ability can be stopped by reusing it.\nMuramasa will cleanse all of his debuffs, disjoint projectiles before each hit and will apply a stackable debuff with each hit, which increase enemies damage taken."      
         "DOTA_Tooltip_ability_muramasa_dance_upgraded_duration"					"Duration:"
         "DOTA_Tooltip_ability_muramasa_dance_upgraded_dmg_mod"					"%Magic on-hit damage:"
         "DOTA_Tooltip_ability_muramasa_dance_upgraded_dmg_amp"					"%Damage taken increase per stack:"
         "DOTA_Tooltip_ability_muramasa_dance_upgraded_dmg_amp_duration"			"Debuff duration:"
+        "DOTA_Tooltip_ability_muramasa_dance_upgraded_base_dmg"					"Base dmg:"
         "DOTA_Tooltip_ability_muramasa_dance_upgraded_Lore"			"You can't create a sword withoud deep undestandind of how it will cut"
 
         "DOTA_Tooltip_ability_muramasa_dance_stop"							"Stop sword dance"
