@@ -61,7 +61,10 @@ function merlin_excalibur:OnSpellStart()
  
         Timers:CreateTimer(0.0, function() 
                counter = counter - 1
-       
+            if(caster:IsAlive() == false) then
+                counter = 0
+                 return
+                 end
             if(counter == 0 ) then 
                 ParticleManager:DestroyParticle(self.excalibur_glow, true)
                 ParticleManager:ReleaseParticleIndex(self.excalibur_glow)
@@ -86,7 +89,7 @@ function merlin_excalibur:OnSpellStart()
             
 
             local targets = FindUnitsInLine(  caster:GetTeamNumber(),
-                                              caster:GetAbsOrigin(),
+                                              caster:GetAbsOrigin() +caster:GetForwardVector() * 200,
                                               caster:GetAbsOrigin()+range*caster:GetForwardVector(),
                                               nil,
                                               width,

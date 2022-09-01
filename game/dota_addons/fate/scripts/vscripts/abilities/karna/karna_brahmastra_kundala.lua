@@ -37,6 +37,24 @@ function karna_brahmastra_kundala:OnSpellStart()
 		caster:EmitSound("karna_sunstrike_2")
 		return
 	end)
+
+	Timers:CreateTimer(0.4, function()
+		local point_particle = ParticleManager:CreateParticle("particles/karna/kundala_aoe.vpcf", PATTACH_CUSTOMORIGIN, nil)
+		local point_particle_2 = ParticleManager:CreateParticle("particles/karna/kundala_aoe.vpcf", PATTACH_CUSTOMORIGIN, nil)
+		ParticleManager:SetParticleControl(point_particle, 0,  target_point )
+		ParticleManager:SetParticleControl(point_particle, 1,  Vector(300,0,0) )
+
+		ParticleManager:SetParticleControl(point_particle_2, 0,  target_point+Vector(0,0,350) )
+		ParticleManager:SetParticleControl(point_particle_2, 1,  Vector(300,0,0) )
+
+		Timers:CreateTimer(0.8, function()
+			ParticleManager:DestroyParticle(point_particle, false)
+			ParticleManager:ReleaseParticleIndex(point_particle)
+			ParticleManager:DestroyParticle(point_particle_2, false)
+			ParticleManager:ReleaseParticleIndex(point_particle_2)
+		end)
+		return
+	end)
 	
 	--EmitSoundOnLocationForAllies(target_point, "karna_brahmastra_kundala_cast", caster)
 	EmitGlobalSound("karna_brahmastra_kundala_cast")
@@ -64,7 +82,7 @@ function karna_brahmastra_kundala:OnSpellStart()
 
         local particle = ParticleManager:CreateParticle("particles/custom/karna/brahmastra_kundala/brahmastra_kundala_explosion_beam.vpcf", PATTACH_ABSORIGIN, self.Dummy)
 		ParticleManager:SetParticleControl(particle, 0, target_point) 
-
+		StopGlobalSound("karna_brahmastra_kundala_cast")
 		EmitGlobalSound("karna_brahmastra_kundala_explosion")
 
 		Timers:CreateTimer(2, function()

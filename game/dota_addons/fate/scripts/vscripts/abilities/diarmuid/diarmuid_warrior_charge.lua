@@ -35,6 +35,10 @@ function diarmuid_warrior_charge:OnSpellStart()
 	if IsSpellBlocked(target) then return end -- Linken effect checker
 
 	local diff = (target:GetAbsOrigin() - caster:GetAbsOrigin() ):Normalized() 
+	if((target:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D() > self:GetSpecialValueFor("cast_range_checker")) then
+		self:EndCooldown()
+		return
+	end
 	caster:SetAbsOrigin(target:GetAbsOrigin() - diff * 100) 
 	FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
 
@@ -43,13 +47,16 @@ function diarmuid_warrior_charge:OnSpellStart()
 
 	local radius = self:GetSpecialValueFor("radius")
 	local damage = self:GetSpecialValueFor("damage")
+	local duration = self:GetSpecialValueFor("duration")
 
 	local targets = FindUnitsInRadius(caster:GetTeam(), target:GetOrigin(), nil, radius , DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	for k,v in pairs(targets) do
     	DoDamage(caster, v, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
 	end
 
-	target:AddNewModifier(caster, v, "modifier_stunned", {Duration = 0.75})
+	--target:AddNewModifier(caster, v, "modifier_stunned", {Duration = 0.75})
+
+	target:AddNewModifier(caster, v, "modifier_rooted", {Duration = duration})
 	caster:PerformAttack(target, true, true, true, true, false, false, false)
 
 	if caster:HasModifier("modifier_doublespear_active") or caster:HasModifier("modifier_rampant_warrior") then 

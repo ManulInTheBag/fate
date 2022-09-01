@@ -45,6 +45,18 @@ function diarmuid_double_spearmanship:OnSpellStart()
 																					 AttackSpeed = attack_speed,
 																					 OnHit = self:GetSpecialValueFor("on_hit") })
 		caster:EmitSound("Diarmuid_Skill_1")
+		if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 and caster:GetIntellect() >= 29.1 then
+			if  not caster:HasModifier("modifier_rampant_warrior_cooldown") then
+				caster:AddNewModifier(caster, self, "modifier_rampant_warrior_window", { Duration = 3 })
+				self:EndCooldown()
+				Timers:CreateTimer(2.95, function()
+				if(caster:HasModifier("modifier_rampant_warrior_window")) then
+					self:StartCooldown(self:GetCooldown(self:GetLevel()) - 3) 
+				end
+				
+				end)
+			end
+		end
 	end	
 end
 

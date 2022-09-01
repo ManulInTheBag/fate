@@ -4,6 +4,7 @@ LinkLuaModifier("modifier_muramasa_combo_cd", "abilities/muramasa/muramasa_tsumu
  
 function muramasa_tsumukari_combo:OnSpellStart()
 local caster = self:GetCaster()
+self.casted = true
 local masterCombo = caster.MasterUnit2:FindAbilityByName(self:GetAbilityName())
 masterCombo:EndCooldown()
 masterCombo:StartCooldown(self:GetCooldown(1))
@@ -95,6 +96,7 @@ end)
 local slash_range = 500 
 local slash_damage = self:GetSpecialValueFor("damage_first")
 Timers:CreateTimer(1.5, function()   
+    if(caster:IsAlive() == false) then return end
     EmitGlobalSound("muramasa_slash") 
     StartAnimation(caster, {duration=1, activity=ACT_DOTA_ARCTIC_BURN_END, rate=1})
     Timers:CreateTimer(0.3, function()  
@@ -131,7 +133,7 @@ end)
 ------------------------------------------------------------------------------------------------
 ------------------------------------------CRACK-------------------------------------------------
 ------------------------------------------------------------------------------------------------
-
+if(caster:IsAlive() == false) then return end
 local pull_center = caster:GetAbsOrigin() + caster:GetForwardVector() * 1250
 local start_point = caster:GetAbsOrigin()
 local radius = self:GetSpecialValueFor("hit_radius")
@@ -168,11 +170,13 @@ local tsumukariProjectile =
 -------------------------------------explosion--------------------------------------------------
 ------------------------------------------------------------------------------------------------
 Timers:CreateTimer(4, function()   
+    if(self.casted == false ) then return end
     EmitGlobalSound("muramasa_explosion")
     Timers:CreateTimer(0, function()  
     EmitGlobalSound("muramasa_explosion_2")
     end)
 for i = 1, 10 do
+    if(self.casted == false ) then return end
     local point = start_point + i *start_vec * 250
     local explosionFx = ParticleManager:CreateParticle("particles/muramasa/muramasa_tsumukari_fire_combo.vpcf", PATTACH_CUSTOMORIGIN, nil)
     ParticleManager:SetParticleControl(explosionFx, 0, point)
@@ -213,6 +217,11 @@ end)
 
 
 Timers:CreateTimer(1.7, function() 
+    if(caster:IsAlive() == false) then 
+        StopGlobalSound("muramasa_combo_cast")
+        self.casted = false
+        return
+     end
     Timers:CreateTimer(0.3, function() 
         EmitGlobalSound("muramasa_crack_sound")
     end)

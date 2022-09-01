@@ -43,7 +43,7 @@ function OnSeal1Start(keys)
 	local master2 = hero.MasterUnit2
 	master2:SetMana(master2:GetMana() - keys.ability:GetManaCost(keys.ability:GetLevel()))
 	-- Set master's health
-	caster:SetHealth(caster:GetHealth() - 1) 
+	caster:SetHealth(caster:GetHealth() - 2) 
 
 	-- Particle
 	hero:EmitSound("Misc.CmdSeal")
