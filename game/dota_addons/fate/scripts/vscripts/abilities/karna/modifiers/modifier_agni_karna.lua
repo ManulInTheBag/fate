@@ -1,6 +1,7 @@
 modifier_agni_karna = class({})
 
 LinkLuaModifier("modifier_agni_burn", "abilities/karna/modifiers/modifier_agni_burn", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_bash_counter", "abilities/karna/modifiers/modifier_agni_karna", LUA_MODIFIER_MOTION_NONE)
 
 function modifier_agni_karna:DeclareFunctions()
 	return { --MODIFIER_EVENT_ON_ATTACK_LANDED
@@ -35,31 +36,26 @@ if IsServer() then
 		local target = args.target
 		local ability = self:GetAbility()
 
-		local modifier = target:AddNewModifier(caster, ability, "modifier_agni_burn", { Duration = self.BurnDuration,
-																	   					BurnDamage = self.BurnDamage})
-
-		local damage = self.OnHitDamage
-		local stacks = 0
-
-		if modifier then
-			stacks = modifier:GetStackCount()
-		end
-
-		damage = damage + (damage * stacks)
-		DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
-
 		local burn_targets = FindUnitsInRadius(caster:GetTeam(), target:GetOrigin(), nil, self.BurnAOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 
-		if #burn_targets > 1 then
+		
 			for i = 1, #burn_targets do
 				burn_targets[i]:AddNewModifier(caster, ability, "modifier_agni_burn", { Duration = self.BurnDuration,
 																		   				BurnDamage = self.BurnDamage})
 			end
-		end
+		
 
-		if caster.ManaBurstAttribute and stacks % 6 < 1 then
+		local stacks  = target:GetModifierStackCount( "modifier_agni_burn", caster)
+
+		local damage = self.OnHitDamage
+		
+		damage = damage + (damage * stacks-1)
+		DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+		target:AddNewModifier(caster, ability, "modifier_bash_counter", { Duration = self.BurnDuration})
+				
+		if caster.ManaBurstAttribute and target:GetModifierStackCount( "modifier_bash_counter", caster) == 6 then
 			target:AddNewModifier(caster, target, "modifier_stunned", {Duration = 0.35 })
-
+			target:RemoveModifierByName("modifier_bash_counter")
 			local enemies = FindUnitsInRadius(caster:GetTeam(), target:GetOrigin(), nil, self.ExplodeAOE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 			for k,v in pairs(enemies) do
 		        DoDamage(caster, v, self.ExplodeDamage * stacks, DAMAGE_TYPE_MAGICAL, 0, ability, false)
@@ -99,4 +95,25 @@ end
 
 function modifier_agni_karna:RemoveOnDeath()
 	return true 
+end
+
+modifier_bash_counter = class({})
+
+
+
+function modifier_bash_counter:IsDebuff()
+	return true
+end
+
+function modifier_bash_counter:RemoveOnDeath()
+	return true 
+end
+
+function modifier_bash_counter:OnRefresh(args)
+	self:SetStackCount(self:GetStackCount() + 1)
+end
+
+function modifier_bash_counter:OnCreated(args)
+	self:SetStackCount(args.Stacks or 1)
+
 end

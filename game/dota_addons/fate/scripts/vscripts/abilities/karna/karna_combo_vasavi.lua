@@ -14,15 +14,19 @@ end
 
 function karna_combo_vasavi:OnSpellStart()
 	local caster = self:GetCaster()
-	self.target = caster:GetAbsOrigin() + caster:GetForwardVector()*3000
-
-	local fire_delay = self:GetSpecialValueFor("fire_delay")
-	local sound_delay = self:GetSpecialValueFor("prefire_delay")
+	self.target = self:GetCursorPosition()
+	local range =(self.target- caster:GetAbsOrigin()):Length2D()
+	if(range > 3000) then 
+		self.target = self.target:Normalized()*3000
+	end
+	local fire_delay = self:GetSpecialValueFor("fire_delay") 
+	local sound_delay = self:GetSpecialValueFor("prefire_delay") 
 
 	local ascendCount = 0
 	local descendCount = 0
 
-	EmitGlobalSound("karna_vasavi_start_" .. math.random(1,5))
+	local sound_number =  math.random(1,5)
+	EmitGlobalSound("karna_vasavi_start_" ..sound_number)
 
 	local masterCombo = caster.MasterUnit2:FindAbilityByName(self:GetAbilityName())
 	masterCombo:EndCooldown()
@@ -33,15 +37,18 @@ function karna_combo_vasavi:OnSpellStart()
 
 	caster:AddNewModifier(caster, self, "modifier_combo_vasavi_cooldown", { Duration = self:GetCooldown(1) })
 
-	giveUnitDataDrivenModifier(caster, caster, "pause_sealdisabled", 4)
+	giveUnitDataDrivenModifier(caster, caster, "pause_sealdisabled", 3.4)
 	StartAnimation(caster, {duration=sound_delay, activity=ACT_DOTA_CAST_ABILITY_1, rate=0.5})
+	Timers:CreateTimer(fire_delay + 1.0, function()
 
+	end)
+	--[[ this particle is bugged anyways, so i removed it //Zlodemon
 	local weapon_spark_location = caster:GetOrigin() + Vector(caster:GetForwardVector().x, caster:GetForwardVector().y, 0) * 175 + Vector(0, 0, 125)
 
 	self.WeaponSpark = ParticleManager:CreateParticle("particles/custom/karna/combo/combo_vasavi_attach.vpcf", PATTACH_CUSTOMORIGIN, caster)
 	ParticleManager:SetParticleControl(self.WeaponSpark, 0, weapon_spark_location) 
 	--ParticleManager:SetParticleControlEnt(self.WeaponSpark, 0, caster, PATTACH_POINT_FOLLOW, "attach_weapon", caster:GetOrigin(), true)
-
+	]]
     Timers:CreateTimer(fire_delay + 1.0, function()
     	ParticleManager:DestroyParticle( self.flameFx1, false )
         ParticleManager:ReleaseParticleIndex( self.flameFx1 )
@@ -84,18 +91,27 @@ function karna_combo_vasavi:OnSpellStart()
 	Timers:CreateTimer(sound_delay, function()
 		if caster:IsAlive() then
 			StartAnimation(caster, {duration=1, activity=ACT_DOTA_ATTACK, rate=0.7})
-			EmitGlobalSound("karna_vasavi_end")
+ 
 		end
 		return
 	end)
 
+	Timers:CreateTimer(sound_delay*(1- (3000 -range   )/5500), function()
+		if caster:IsAlive() then
+			EmitGlobalSound("karna_vasavi_end")
+			StopGlobalSound("karna_vasavi_start_" ..sound_number)
+		end
+		return
+	end)
+
+
 	Timers:CreateTimer(fire_delay, function()
-		ParticleManager:DestroyParticle(self.WeaponSpark, true)
-		ParticleManager:ReleaseParticleIndex(self.WeaponSpark)
+		--ParticleManager:DestroyParticle(self.WeaponSpark, true)
+		--ParticleManager:ReleaseParticleIndex(self.WeaponSpark)
 
 		if caster:IsAlive() then
 			local aoe = self:GetSpecialValueFor("beam_aoe")
-			local range = self:GetSpecialValueFor("range")	
+			local range =(self.target- caster:GetAbsOrigin()):Length2D()
 
 			--forwardVec = GetGroundPosition(forwardVec, nil)
 
@@ -154,11 +170,11 @@ function karna_combo_vasavi:OnProjectileHit_ExtraData(hTarget, vLocation, table)
 
 		for i = 1, #end_targets do
 			if IsDivineServant(end_targets[i]) and hCaster.IndraAttribute then
-				full_damage = full_damage * 1.5
-				damage_difference = damage_difference * 1.5
+				full_damage = full_damage * 1.3
+				damage_difference = damage_difference * 1.3
 			elseif hCaster.IndraAttribute then
-				full_damage = full_damage * 1.25
-				damage_difference = damage_difference * 1.25
+				full_damage = full_damage * 1.2
+				damage_difference = damage_difference * 1.2
 			end
 
 			if not end_targets[i]:HasModifier("modifier_vasavi_hit") then
@@ -175,8 +191,8 @@ function karna_combo_vasavi:OnProjectileHit_ExtraData(hTarget, vLocation, table)
 		ParticleManager:DestroyParticle(self.LaserBeam, false)
 		ParticleManager:ReleaseParticleIndex(self.LaserBeam)
 
-		ParticleManager:DestroyParticle(self.WeaponSpark, true)
-		ParticleManager:ReleaseParticleIndex(self.WeaponSpark)
+		--ParticleManager:DestroyParticle(self.WeaponSpark, true)
+		--ParticleManager:ReleaseParticleIndex(self.WeaponSpark)
 
 		EmitGlobalSound("karna_vasavi_explosion")
 

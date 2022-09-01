@@ -3940,10 +3940,10 @@
 	"npc_dota_hero_huskar_bio"	""
 
         "DOTA_Tooltip_Ability_diarmuid_love_spot"       			"Love Spot"
-        "DOTA_Tooltip_ability_diarmuid_love_spot_Description"   	"For duration, Lancer's inhumanly hansome look charms nearby female Servants. Charmed Servants are forced to walk towards Lancer and deal reduced damage to him."
+        "DOTA_Tooltip_ability_diarmuid_love_spot_Description"   	"For duration, Lancer's inhumanly hansome look charms targeted  Servants. Charmed Servants are forced to walk towards Lancer and if they are woman they will deal reduced damage to him."
         "DOTA_Tooltip_ability_diarmuid_love_spot_duration"			"Duration:"
         "DOTA_Tooltip_ability_diarmuid_love_spot_damage_reduction"	"%Damage Reduction:"
-        "DOTA_Tooltip_ability_diarmuid_love_spot_radius"			"Radius:"
+        "DOTA_Tooltip_ability_diarmuid_love_spot_radius"			"Range:"
         "DOTA_Tooltip_ability_diarmuid_love_spot_Lore"  			"Diarmuid gives the term 'devilish look' a whole new meaning."
 
         "DOTA_Tooltip_Ability_diarmuid_minds_eye"					"Mind's Eye"
@@ -3953,11 +3953,13 @@
         "DOTA_Tooltip_Ability_diarmuid_minds_eye_duration"			"Active Duration:"
 
         "DOTA_Tooltip_Ability_diarmuid_warrior_charge"				"Warrior's Charge"
-        "DOTA_Tooltip_ability_diarmuid_warrior_charge_Description"	"Diarmuid instantly closes gap to target and strikes nearby enemies on arrival, dealing damage. The primary target is stunned for a short duration and attacked by Diarmuid once. If Double Spearmanship or Rampant Warrior is active, Diarmuid deals additional damage as physical and attacks the target twice instead of once."
+        "DOTA_Tooltip_ability_diarmuid_warrior_charge_Description"	"Diarmuid instantly closes gap to target and strikes nearby enemies on arrival, dealing damage. The primary target is rooted for a short duration and attacked by Diarmuid once. If Double Spearmanship or Rampant Warrior is active, Diarmuid deals additional damage as physical and attacks the target twice instead of once."
         "DOTA_Tooltip_ability_diarmuid_warrior_charge_Lore"    "The blinding charge by first spear of Fianna Knights is a prelude to the showstopper's showdown."
         "DOTA_Tooltip_ability_diarmuid_warrior_charge_damage"	"Damage:"
         //"DOTA_Tooltip_ability_diarmuid_warrior_charge_radius"	"Radius:"
         "DOTA_Tooltip_ability_diarmuid_warrior_charge_radius"	"Area of Effect:"
+        "DOTA_Tooltip_ability_diarmuid_warrior_charge_duration"	"Root duration:"
+
         //"DOTA_Tooltip_ability_diarmuid_warrior_charge_slow_amount"	"%SLOW:"
         //"DOTA_Tooltip_ability_diarmuid_warrior_charge_slow_duration"	"SLOW DURATION:"
 
@@ -3988,7 +3990,7 @@
         "DOTA_Tooltip_ability_diarmuid_gae_dearg_min_damage"	"Min Damage:"
         "DOTA_Tooltip_ability_diarmuid_gae_dearg_max_damage"	"Max Damage:" 
         "DOTA_Tooltip_ability_diarmuid_gae_dearg_range"			"Cast Range:" 
-        "DOTA_Tooltip_ability_diarmuid_gae_dearg_Note0"			"The damage tops at 200 range and is minimized at 500 range."
+        "DOTA_Tooltip_ability_diarmuid_gae_dearg_Note0"			"The damage tops at 200 range and is minimized at 350 range."
         "DOTA_Tooltip_ability_diarmuid_gae_dearg_Note1"			"Gae Dearg is considered a strong dispel, and will remove shield effects as well(i.e B Scroll, Archer's Rho Aias)"
 
         "DOTA_Tooltip_Ability_diarmuid_double_spear_strike"       		"Double Spear Strike(On/Off)"
@@ -4025,7 +4027,7 @@
         "DOTA_Tooltip_Ability_diarmuid_attribute_doublespear_attack_speed"		"Double Spearmanship Attack Speed:"
  
         "DOTA_Tooltip_Ability_diarmuid_rampant_warrior_proxy"					"Combo: Rampant Warrior"
-        "DOTA_Tooltip_ability_diarmuid_rampant_warrior_proxy_Description"		"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : D-W in 3 seconds</font>\nDiarmuid puts everything he's got into battle. For a short duration, Gae Buidhe and Gae Dearg has a fixed cooldown, greatly reduced mana cost and reduced cast point. His attacks always hits twice and deals bonus magical and pure damage and he gains a massive amount of attack speed."
+        "DOTA_Tooltip_ability_diarmuid_rampant_warrior_proxy_Description"		"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : W-W in 3 seconds</font>\nDiarmuid puts everything he's got into battle. For a short duration, Gae Buidhe and Gae Dearg has a fixed cooldown, greatly reduced mana cost and reduced cast point. His attacks always hits twice and deals bonus magical and pure damage and he gains a massive amount of attack speed."
         "DOTA_Tooltip_ability_diarmuid_rampant_warrior_proxy_Lore"			""
         "DOTA_Tooltip_ability_diarmuid_rampant_warrior_proxy_cast_reduc"		"%Cast Point Reduction:"
         "DOTA_Tooltip_ability_diarmuid_rampant_warrior_proxy_spear_mana"		"Gae Mana Cost:"
@@ -6881,7 +6883,7 @@
  
  		
         "DOTA_Tooltip_ability_muramasa_flame_attribute"				"Attribute: Flame"
-        "DOTA_Tooltip_ability_muramasa_flame_attribute_Description"	"When Muramasa burns his sword to chant Tsumukari Muramasa or upgrade his abilities, he deal magic damage around himself, scaling with his BASE agility"
+        "DOTA_Tooltip_ability_muramasa_flame_attribute_Description"	"When Muramasa burns his sword to chant Tsumukari Muramasa or upgrade his abilities, he deal magic damage around himself, scaling with his BASE agility. When Muramasa attacks his target, he inflicts a debuff, that will explode after 0.5 seconds dealing muramasa on-hit magic damage multiplied by 0.3"
         "DOTA_Tooltip_ability_muramasa_flame_attribute_radius"					"Radius:"
         "DOTA_Tooltip_ability_muramasa_flame_attribute_base_dmg"					"Base dmg:"
         "DOTA_Tooltip_ability_muramasa_flame_attribute_dmg_per_agi"				"Dmg per base agi:"
@@ -6954,7 +6956,7 @@
 		"DOTA_Tooltip_Ability_master_shard_of_prosperity_Lore"			"A shard of the legendary artifact that is known to descend upon the soul in its most dire situation. Despite being a makeshift, a trivial wish of mere human may not be asking too much...\n"
 
 		"DOTA_Tooltip_Ability_cmd_seal_1"				"1st Command Seal"
-		"DOTA_Tooltip_ability_cmd_seal_1_Description"		"<font color='#58ACFA'>Master Mana Required : 2</font>\n<font color='#FF0000'>Master Health Required : 1</font>\nFor 20 seconds, Master can cast Command Seal for only 1 mana and without cooldown limitation."
+		"DOTA_Tooltip_ability_cmd_seal_1_Description"		"<font color='#58ACFA'>Master Mana Required : 3</font>\n<font color='#FF0000'>Master Health Required : 2</font>\nFor 20 seconds, Master can cast Command Seal without cooldown limitation."
 
 		"DOTA_Tooltip_Ability_cmd_seal_2"				"2nd Command Seal"
 		"DOTA_Tooltip_ability_cmd_seal_2_Description"		"<font color='#58ACFA'>Master Mana Required : 2</font>\n<font color='#FF0000'>Master Health Required : 1</font>\nResets all cooldowns of Servant's abilities and items."

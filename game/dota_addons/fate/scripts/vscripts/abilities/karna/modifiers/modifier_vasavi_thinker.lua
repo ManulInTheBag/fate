@@ -21,9 +21,9 @@ if IsServer() then
 
 		for i = 1, #targets do
 			if IsDivineServant(targets[i]) and caster.IndraAttribute then
-				damage = self.Damage * 1.5
+				damage = self.Damage * 1.30
 			elseif caster.IndraAttribute then
-				damage = self.Damage * 1.2
+				damage = self.Damage * 1.3
 			else
 				damage = self.Damage
 			end

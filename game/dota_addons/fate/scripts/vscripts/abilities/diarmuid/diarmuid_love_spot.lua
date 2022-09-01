@@ -3,15 +3,24 @@ diarmuid_love_spot = class({})
 LinkLuaModifier("modifier_love_spot", "abilities/diarmuid/modifiers/modifier_love_spot", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_rampant_warrior_window", "abilities/diarmuid/modifiers/modifier_rampant_warrior_window", LUA_MODIFIER_MOTION_NONE)
 
+LinkLuaModifier("modifier_love_spot_charmed", "abilities/diarmuid/modifiers/modifier_love_spot_charmed", LUA_MODIFIER_MOTION_NONE)
+
 function diarmuid_love_spot:OnSpellStart()
 	local caster = self:GetCaster()
-
-	caster:AddNewModifier(caster, self, "modifier_love_spot", { Duration = self:GetSpecialValueFor("duration"),
-																Radius = self:GetSpecialValueFor("radius") })
-
-	self:CheckCombo()
+	local target  = self:GetCursorTarget()
+	local forcemove = {
+		UnitIndex = nil,
+		OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION ,
+		Position = nil
+	}
+	--caster:AddNewModifier(caster, self, "modifier_love_spot", { Duration = self:GetSpecialValueFor("duration"),	Radius = self:GetSpecialValueFor("radius") })
+	--self:CheckCombo()
+	target:AddNewModifier(caster, self, "modifier_love_spot_charmed", { Duration = self:GetSpecialValueFor("duration") })
+	
+	caster:EmitSound("Hero_Warlock.ShadowWord")
 end
 
+--[[
 function diarmuid_love_spot:CheckCombo()
 	local caster = self:GetCaster()
 
@@ -21,3 +30,4 @@ function diarmuid_love_spot:CheckCombo()
 		end
 	end
 end
+]]

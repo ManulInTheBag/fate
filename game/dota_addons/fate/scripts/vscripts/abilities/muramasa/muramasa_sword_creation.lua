@@ -1,5 +1,6 @@
 muramasa_sword_creation = class({})
 LinkLuaModifier("modifier_muramasa_sword_creation","abilities/muramasa/muramasa_sword_creation", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_muramasa_flame","abilities/muramasa/muramasa_sword_creation", LUA_MODIFIER_MOTION_NONE)
 --LinkLuaModifier("modifier_muramasa_rush_mr","abilities/muramasa/muramasa_sword_creation", LUA_MODIFIER_MOTION_NONE)
 
 function muramasa_sword_creation:GetIntrinsicModifierName()
@@ -95,7 +96,7 @@ end
 local point = args.target:GetAbsOrigin()
 
 local radius = self:GetAbility():GetSpecialValueFor("attack_aoe_radius")
-local damage = self:GetAbility():GetSpecialValueFor("base_dmg") + self:GetAbility():GetSpecialValueFor("dmg_per_agi") *caster:GetBaseAgility() 
+local damage = self:GetAbility():GetSpecialValueFor("base_dmg") + self:GetAbility():GetSpecialValueFor("dmg_per_agi") *caster:GetAgilityGain()*caster:GetLevel() 
 local particlestring = "particles/muramasa/muramasa_atk_explosion_base.vpcf"
 
 if(caster:HasModifier("modifier_berserk_scroll")) then
@@ -112,13 +113,35 @@ if(caster:GetAbilityByIndex(0):GetName() == "muramasa_dance_stop") then -- check
     damage = damage * self:GetCaster():FindAbilityByName("muramasa_dance"):GetSpecialValueFor("dmg_mod")/100
  
 end
+
+
 local explosionFx = ParticleManager:CreateParticle(particlestring, PATTACH_CUSTOMORIGIN, nil)
 ParticleManager:SetParticleControl(explosionFx, 0, point)
  local targets = FindUnitsInRadius(caster:GetTeam(), point, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
     for k,v in pairs(targets) do            
          DoDamage(caster, v, damage, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
-    
+         if(caster.FlameAcquired) then
+            v:AddNewModifier(caster, self:GetAbility(), "modifier_muramasa_flame", { Duration = 0.5, Damage = damage })
+         end
        
     end 
 
  end
+
+ modifier_muramasa_flame = class({})
+
+
+
+
+function modifier_muramasa_flame:IsHidden()	return false end
+function modifier_muramasa_flame:RemoveOnDeath()return true end 
+function modifier_muramasa_flame:IsDebuff() 	return true end
+function modifier_muramasa_flame:OnCreated(args)
+self.damage  = args.Damage
+end
+
+function modifier_muramasa_flame:OnDestroy()  
+    if(IsServer()) then
+        DoDamage(self:GetCaster(), self:GetParent(), self.damage*0.3, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
+    end
+end

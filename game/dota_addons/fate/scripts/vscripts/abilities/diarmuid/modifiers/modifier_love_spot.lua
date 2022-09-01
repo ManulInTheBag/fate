@@ -9,7 +9,7 @@ function modifier_love_spot:OnCreated(args)
 
 		self.Radius = args.Radius
 
-		self:StartIntervalThink(0.25)
+		--self:StartIntervalThink(0.25)
 	end
 end
 
@@ -27,7 +27,7 @@ function modifier_love_spot:OnDestroy()
 		caster:StopSound("Hero_Warlock.ShadowWord")
 	end
 end
-
+--[[
 function modifier_love_spot:OnIntervalThink()
 	local caster = self:GetParent()
 	local ability = self:GetAbility()
@@ -56,3 +56,4 @@ function modifier_love_spot:OnIntervalThink()
     local particle2 = ParticleManager:CreateParticle("particles/units/heroes/hero_doom_bringer/doom_bringer_lvl_death.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
     ParticleManager:SetParticleControl(particle2, 0, caster:GetAbsOrigin())
 end
+]]

@@ -50,7 +50,7 @@ local selfstacks = caster:GetModifierStackCount("modifier_muramasa_tsumukari", c
     if(caster.FlameAcquired) then
         local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, self:GetSpecialValueFor("radius"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
         for k,v in pairs(targets) do            
-            DoDamage(caster, v, self:GetSpecialValueFor("base_dmg") + caster:GetBaseAgility()*self:GetSpecialValueFor("dmg_per_agi"), DAMAGE_TYPE_MAGICAL, 0, self, false)
+            DoDamage(caster, v, self:GetSpecialValueFor("base_dmg") + caster:GetAgilityGain()*caster:GetLevel() *self:GetSpecialValueFor("dmg_per_agi"), DAMAGE_TYPE_MAGICAL, 0, self, false)
         end 
     end
     if(caster.SwordTrialAcquired) then

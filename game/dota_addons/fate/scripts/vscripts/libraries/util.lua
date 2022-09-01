@@ -306,7 +306,13 @@ cleansable = {
     "modifier_tamamo_ice_debuff",
     "modifier_subterranean_grasp_void",
     "modifier_subterranean_grasp_fire",
-    "modifier_tamamo_witchcraft_debuff"
+    "modifier_tamamo_witchcraft_debuff",
+    "modifier_bash_counter",
+    "modifier_discern_poor_knights",
+    "modifier_discern_poor_horseman",
+    "modifier_discern_poor_extra",
+    "modifier_agni_burn",
+    "modifier_muramasa_flame"
 }
 
 slowmodifier = {
