@@ -13,6 +13,13 @@ function nero_gladiusanus_new:OnUpgrade()
     hCaster:FindAbilityByName("nero_gladiusanus_buffed"):SetLevel(self:GetLevel())
 end
 
+function nero_gladiusanus_new:GetCastAnimation()
+    if self:GetCaster():HasModifier("modifier_nero_performance") then
+        return ACT_DOTA_ATTACK
+    end
+    return ACT_DOTA_CAST_ABILITY_2
+end
+
 function nero_gladiusanus_new:OnSpellStart()
 	local caster = self:GetCaster()
 	local ability = self
@@ -21,7 +28,7 @@ function nero_gladiusanus_new:OnSpellStart()
     local width = self:GetSpecialValueFor("width")
     local FirstTarget = nil
     local AttackedTargets = {}
-    StartAnimation(caster, {duration = 1, activity = ACT_DOTA_CAST_ABILITY_3, rate = 1})  
+    StartAnimation(caster, {duration = 0.2, activity = ACT_DOTA_CAST_ABILITY_3, rate = 5})
     local targets = FindUnitsInRadius(  caster:GetTeamNumber(),
                                         caster:GetAbsOrigin(),
                                         nil,
@@ -31,7 +38,9 @@ function nero_gladiusanus_new:OnSpellStart()
                                         DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
                                         FIND_ANY_ORDER,
                                         false)
-    if not caster:HasModifier("modifier_nero_rosa_new") then
+    caster:RemoveModifierByName("modifier_nero_spectaculi_initium")
+    if not caster:HasModifier("modifier_nero_performance") then
+        caster:EmitSound("nero_w")
         local slash_fx = ParticleManager:CreateParticle("particles/nero/juggernaut_arcana_counter_slash_down.vpcf", PATTACH_WORLDORIGIN, caster)
         ParticleManager:SetParticleControl(slash_fx, 0, caster:GetAbsOrigin() + caster:GetForwardVector()*150)
         ParticleManager:SetParticleControl(slash_fx, 7, caster:GetAbsOrigin() + caster:GetForwardVector()*150)
@@ -52,11 +61,12 @@ function nero_gladiusanus_new:OnSpellStart()
 
         --print(caster:GetPhysicsVelocity())
 
+        caster:FindAbilityByName("nero_heat"):StartPerformance(2000, 4000/1.5)
+
         for _, enemy in pairs(targets) do
             if enemy and not enemy:IsNull() and IsValidEntity(enemy) then
                 if not FirstTarget then
                     local heat_abil = caster:FindAbilityByName("nero_heat")
-                    enemy:EmitSound("nero_w")
                     heat_abil:IncreaseHeat(caster)
                     if not caster:HasModifier("modifier_nero_gladiusanus_window") then
                         caster:AddNewModifier(caster, self, "modifier_nero_gladiusanus_window", {duration = self:GetSpecialValueFor("window_duration")})
@@ -109,15 +119,14 @@ function nero_gladiusanus_new:OnSpellStart()
             ParticleManager:ReleaseParticleIndex(slash_fx)
         end)
 
-        caster:RemoveModifierByName("modifier_nero_rosa_new")
         caster:SetAbsOrigin(GetGroundPosition(caster:GetAbsOrigin(),caster))
+        caster:FindAbilityByName("nero_heat"):EndPerformance()
         --print(caster:GetPhysicsVelocity())
 
         for _, enemy in pairs(targets) do
             if enemy and not enemy:IsNull() and IsValidEntity(enemy) then
                 if not FirstTarget then
                     local heat_abil = caster:FindAbilityByName("nero_heat")
-                    enemy:EmitSound("nero_w")
                     heat_abil:IncreaseHeat(caster)
                     if not caster:HasModifier("modifier_nero_gladiusanus_window") then
                         caster:AddNewModifier(caster, self, "modifier_nero_gladiusanus_window", {duration = self:GetSpecialValueFor("window_duration")})
@@ -144,17 +153,17 @@ function nero_gladiusanus_new:OnSpellStart()
                 end
             end
         end
-        if FirstTarget then
-            local hit_fx = ParticleManager:CreateParticle("particles/nero/atalanta_earthshock.vpcf", PATTACH_ABSORIGIN, caster )
-            ParticleManager:SetParticleControl( hit_fx, 0, GetGroundPosition(FirstTarget:GetAbsOrigin(), caster))
-            ParticleManager:SetParticleControl( hit_fx, 1, Vector(self:GetSpecialValueFor("landing_radius"), 300, 150))
-            local enemies = FindUnitsInRadius(caster:GetTeam(), FirstTarget:GetAbsOrigin(), nil, self:GetSpecialValueFor("landing_radius"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
-            for _,enemy in pairs(enemies) do
-                if enemy and not enemy:IsNull() and IsValidEntity(enemy) and not AttackedTargets[enemy:entindex()] then
-                    if not enemy:IsMagicImmune() then
-                        DoDamage(caster, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
-                        enemy:AddNewModifier(caster, enemy, "modifier_stunned", {duration = self:GetSpecialValueFor("stun_duration")})
-                    end
+        local hit_point = caster:GetAbsOrigin() + caster:GetForwardVector()*50
+        EmitSoundOnLocationWithCaster(hit_point, "Hero_Leshrac.Split_Earth", caster)  
+        local hit_fx = ParticleManager:CreateParticle("particles/nero/atalanta_earthshock.vpcf", PATTACH_ABSORIGIN, caster )
+        ParticleManager:SetParticleControl( hit_fx, 0, GetGroundPosition(hit_point, caster))
+        ParticleManager:SetParticleControl( hit_fx, 1, Vector(self:GetSpecialValueFor("landing_radius"), 300, 150))
+        local enemies = FindUnitsInRadius(caster:GetTeam(), hit_point, nil, self:GetSpecialValueFor("landing_radius"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+        for _,enemy in pairs(enemies) do
+            if enemy and not enemy:IsNull() and IsValidEntity(enemy) and not AttackedTargets[enemy:entindex()] then
+                if not enemy:IsMagicImmune() then
+                    DoDamage(caster, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+                    enemy:AddNewModifier(caster, enemy, "modifier_stunned", {duration = self:GetSpecialValueFor("stun_duration")})
                 end
             end
         end

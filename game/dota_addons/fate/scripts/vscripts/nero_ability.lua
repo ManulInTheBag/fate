@@ -748,7 +748,7 @@ function NeroTakeDamage(keys)
 	local damageTaken = keys.damageTaken
 	local healCounter = 0
 
-	if caster:GetHealth() == 0 and IsRevivePossible(caster) and caster.IsISAcquired and not caster:HasModifier("modifier_invictus_spiritus_cooldown") and not IsRevoked(caster) then
+	--[[[if caster:GetHealth() == 0 and IsRevivePossible(caster) and caster.IsISAcquired and not caster:HasModifier("modifier_invictus_spiritus_cooldown") and not IsRevoked(caster) then
 		--RemoveDebuffsForRevival(caster)
 		caster:SetHealth(caster:GetMaxHealth()*0.30)
 		caster:FindAbilityByName("nero_invictus_spiritus"):ApplyDataDrivenModifier(caster, caster, "modifier_invictus_spiritus",{})
@@ -768,7 +768,7 @@ function NeroTakeDamage(keys)
 		caster:EmitSound("Hero_SkeletonKing.Reincarnate")
 		--giveUnitDataDrivenModifier(keys.caster, keys.caster, "rb_sealdisabled", 4.5)
 		caster:FindAbilityByName("nero_invictus_spiritus"):ApplyDataDrivenModifier(caster, caster, "modifier_invictus_spiritus_cooldown", {duration = 130})
-	end
+	end]]
 end
 
 function OnISStart(keys)
@@ -809,7 +809,7 @@ function OnPrivilegeImproved(keys)
 
     hero:FindAbilityByName("nero_health"):SetLevel(2)
     hero:FindAbilityByName("nero_mana"):SetLevel(2)
-    hero:FindAbilityByName("nero_tactics"):SetLevel(2)
+    --hero:FindAbilityByName("nero_tactics"):SetLevel(2)
     hero:FindAbilityByName("nero_defence"):SetLevel(2)
     hero:FindAbilityByName("nero_imperial_close"):SetLevel(2)
     hero:FindAbilityByName("nero_imperial_activate"):SetLevel(2)

@@ -1,5 +1,6 @@
 nero_aestus_domus_aurea = class({})
 
+LinkLuaModifier("modifier_nero_aestus_cooldown", "abilities/nero/nero_aestus_domus_aurea", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_aestus_domus_aurea_enemy", "abilities/nero/modifiers/modifier_aestus_domus_aurea_enemy", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_aestus_domus_aurea_ally", "abilities/nero/modifiers/modifier_aestus_domus_aurea_ally", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_aestus_domus_aurea_nero", "abilities/nero/modifiers/modifier_aestus_domus_aurea_nero", LUA_MODIFIER_MOTION_NONE)
@@ -58,10 +59,20 @@ function nero_aestus_domus_aurea:OnSpellStart()
 		radius = radius + 150
 	end
 
+	caster:SwapAbilities("nero_aestus_domus_aurea", "nero_heat", false, true)
+
 	giveUnitDataDrivenModifier(caster, caster, "locked", delay)
 
+	caster:AddNewModifier(caster, ability, "modifier_nero_aestus_cooldown", {Duration = self:GetCooldown(1)})
+	local masterCombo = caster.MasterUnit2:FindAbilityByName(ability:GetAbilityName())
+	masterCombo:EndCooldown()
+	masterCombo:StartCooldown(ability:GetCooldown(1))
+
 	Timers:CreateTimer(delay, function()
-		if caster:IsAlive() then					
+		if caster:IsAlive() then
+			if caster.IsISAcquired then
+				HardCleanse(caster)
+			end		
 			--self:ReduceCooldown()
 			caster:EmitSound("Hero_LegionCommander.Duel.Victory")
 			caster.CircleDummy = CreateUnitByName("sight_dummy_unit", caster:GetAbsOrigin(), false, caster, caster, caster:GetTeamNumber())
@@ -73,9 +84,14 @@ function nero_aestus_domus_aurea:OnSpellStart()
 			
 			ability.FxDestroyed = false	
 
-			ability.TheatreRingFx = ParticleManager:CreateParticle("particles/custom/nero/nero_domus_ring_border.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster.CircleDummy)
+			--[[ability.TheatreRingFx = ParticleManager:CreateParticle("particles/custom/nero/nero_domus_ring_border.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster.CircleDummy)
 			ParticleManager:SetParticleControl(ability.TheatreRingFx, 0, Vector(radius + 100,0,0))	
-			ParticleManager:SetParticleControl(ability.TheatreRingFx, 1, Vector(radius + 100,0,0))	
+			ParticleManager:SetParticleControl(ability.TheatreRingFx, 1, Vector(radius + 100,0,0))]]
+
+			ability.TheatreRingFx = ParticleManager:CreateParticle("particles/nero/nero_chronosphere.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster.CircleDummy)
+			ParticleManager:SetParticleControl(ability.TheatreRingFx, 0, caster.CircleDummy:GetAbsOrigin())	
+			ParticleManager:SetParticleControl(ability.TheatreRingFx, 1, Vector(radius, 1, 500))
+			ParticleManager:SetParticleControl(ability.TheatreRingFx, 2, Vector(self:GetSpecialValueFor("duration") + 5, 0, 0))
 
 			--ability:CreateBannerInCircle(caster, caster:GetAbsOrigin(), radius)
 			ability.ColosseumParticle = ParticleManager:CreateParticle("particles/custom/nero/colosseum_ring.vpcf", PATTACH_CUSTOMORIGIN, self:GetCaster())
@@ -109,9 +125,9 @@ function nero_aestus_domus_aurea:OnSpellStart()
 				end
 			end
 
-			caster:AddNewModifier(caster, ability, "modifier_aestus_domus_aurea_nero", { Resist = ability:GetSpecialValueFor("resist_reduc") * -1,
-																						 Armor = ability:GetSpecialValueFor("armor_reduc") * -1,
-																						 Movespeed = ability:GetSpecialValueFor("movespeed_reduc") * -1,
+			caster:AddNewModifier(caster, ability, "modifier_aestus_domus_aurea_nero", { Resist = ability:GetSpecialValueFor("resist_reduc"),
+																						 Armor = ability:GetSpecialValueFor("armor_reduc"),
+																						 Movespeed = ability:GetSpecialValueFor("movespeed_reduc"),
 																						 TheatreCenterX = caster:GetAbsOrigin().x,
 																						 TheatreCenterY = caster:GetAbsOrigin().y,
 																						 TheatreCenterZ = caster:GetAbsOrigin().z,
@@ -134,7 +150,7 @@ function nero_aestus_domus_aurea:OnSpellStart()
 		if caster:IsAlive() then
 			EmitGlobalSound("Nero.NP2.1")
 		end
-	end)	
+	end)
 end
 
 --[[function nero_aestus_domus_aurea:ReduceCooldown()
@@ -225,4 +241,26 @@ function nero_aestus_domus_aurea:CheckCombo()
     		end)
     	end
     end
+end
+
+modifier_nero_aestus_cooldown = class({})
+
+function modifier_nero_aestus_cooldown:GetTexture()
+	return "custom/nero_aestus_domus_aurea"
+end
+
+function modifier_nero_aestus_cooldown:IsHidden()
+	return false 
+end
+
+function modifier_nero_aestus_cooldown:RemoveOnDeath()
+	return false
+end
+
+function modifier_nero_aestus_cooldown:IsDebuff()
+	return true 
+end
+
+function modifier_nero_aestus_cooldown:GetAttributes()
+	return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end

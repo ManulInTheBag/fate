@@ -90,4 +90,7 @@ function nero_gladiusanus_buffed:OnSpellStart()
     if caster:GetAbilityByIndex(2):GetName() ~= "nero_rosa_new" then
         caster:SwapAbilities("nero_rosa_buffed", "nero_rosa_new", false, true)
     end
+    if caster:GetAbilityByIndex(5):GetName() ~= "nero_spectaculi_initium" then
+        caster:SwapAbilities("nero_spectaculi_buffed", "nero_spectaculi_initium", false, true)
+    end
 end

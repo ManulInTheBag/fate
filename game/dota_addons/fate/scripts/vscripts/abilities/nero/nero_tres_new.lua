@@ -17,27 +17,30 @@ function nero_tres_new:OnSpellStart()
 	local caster = self:GetCaster()
 	local ability = self
 	local FirstTarget = nil
-	if not caster:HasModifier("modifier_nero_rosa_new") then
+    caster:RemoveModifierByName("modifier_nero_spectaculi_initium")
+	if not caster:HasModifier("modifier_nero_performance") then
 		caster:AddNewModifier(caster, self, "modifier_nero_tres_new", {})
 		caster:EmitSound("Nero_Skill_" .. math.random(1,4))
 	else
 		local counter = 0
 		local sound_counter = 1
-		caster:RemoveModifierByName("modifier_nero_rosa_new")
         --caster:SetAbsOrigin(GetGroundPosition(caster:GetAbsOrigin(),caster))
         caster:EmitSound("Nero_Skill_" .. math.random(1,4))
-		Timers:CreateTimer(FrameTime(), function()
-			counter = counter + 1
-			local sound_counter = sound_counter + 1
-			if sound_counter > 2 then
-				sound_counter = 1
-			end
-			EmitSoundOn("nero_swoosh_"..sound_counter, caster)
-			local slash_fx = ParticleManager:CreateParticle("particles/nero/juggernaut_blade_fury.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
-	        ParticleManager:SetParticleControl(slash_fx, 0, caster:GetAbsOrigin() + Vector(0, 0, 80))
-	        ParticleManager:SetParticleControl(slash_fx, 5, Vector(400, 1, 1))
-	        ParticleManager:SetParticleControl(slash_fx, 10, Vector(counter*30, 0, 0))
-			local enemies = FindUnitsInRadius(  caster:GetTeamNumber(),
+        Timers:RemoveTimer("nero_tres_buffed")
+        Timers:CreateTimer("nero_tres_buffed", {
+            endTime = FrameTime(),
+            callback = function()
+            counter = counter + 1
+            local sound_counter = sound_counter + 1
+            if sound_counter > 2 then
+                sound_counter = 1
+            end
+            EmitSoundOn("nero_swoosh_"..sound_counter, caster)
+            local slash_fx = ParticleManager:CreateParticle("particles/nero/juggernaut_blade_fury.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+            ParticleManager:SetParticleControl(slash_fx, 0, caster:GetAbsOrigin() + Vector(0, 0, 80))
+            ParticleManager:SetParticleControl(slash_fx, 5, Vector(400, 1, 1))
+            ParticleManager:SetParticleControl(slash_fx, 10, Vector(counter*30, 0, 0))
+            local enemies = FindUnitsInRadius(  caster:GetTeamNumber(),
                                         caster:GetAbsOrigin(),
                                         nil,
                                         400,
@@ -47,28 +50,35 @@ function nero_tres_new:OnSpellStart()
                                         FIND_ANY_ORDER,
                                         false)
 
-		    for _,enemy in pairs(enemies) do
-		    	if not FirstTarget then
-		    		local heat_abil = caster:FindAbilityByName("nero_heat")
-	            	heat_abil:IncreaseHeat(caster)
-	            	if not caster:HasModifier("modifier_nero_tres_window") then
-	            		caster:AddNewModifier(caster, self, "modifier_nero_tres_window", {duration = self:GetSpecialValueFor("window_duration")})
-	            	else
-	            		caster:RemoveModifierByName("modifier_nero_tres_window")
-	            	end
+            for _,enemy in pairs(enemies) do
+                if not FirstTarget then
+                    local heat_abil = caster:FindAbilityByName("nero_heat")
+                    heat_abil:IncreaseHeat(caster)
+                    if not caster:HasModifier("modifier_nero_tres_window") then
+                        caster:AddNewModifier(caster, self, "modifier_nero_tres_window", {duration = self:GetSpecialValueFor("window_duration")})
+                    else
+                        caster:RemoveModifierByName("modifier_nero_tres_window")
+                    end
 
-	                FirstTarget = enemy
-            	end
+                    FirstTarget = enemy
+                end
                 local damage = self:GetSpecialValueFor("slash_damage") + self:GetSpecialValueFor("slash_damage_per_stack")*caster:FindModifierByName("modifier_nero_heat").rank + (caster:HasModifier("modifier_sovereign_attribute") and caster:GetAverageTrueAttackDamage(caster)*self:GetSpecialValueFor("slash_damage_scale")/100 or 0)
-				if not enemy:IsMagicImmune() then
-					DoDamage(caster, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
-				   	enemy:AddNewModifier(caster, self, "modifier_stunned", {Duration = 0.02})
-				    --EmitSoundOn("nero_fast_slash", enemy)
-				end
-		    end
-		    if counter < self:GetSpecialValueFor("slash_count") then
-		    	return 0.1
-		    end
+                if not enemy:IsMagicImmune() then
+                    DoDamage(caster, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+                    enemy:AddNewModifier(caster, self, "modifier_stunned", {Duration = 0.02})
+                    --EmitSoundOn("nero_fast_slash", enemy)
+                end
+            end
+            if counter < self:GetSpecialValueFor("slash_count") then
+                return 0.1
+            else
+                if caster.IsISAcquired then
+                    HardCleanse(caster)
+                end
+            end
+        end
+        })
+		Timers:CreateTimer(FrameTime(), function()
 		end)
 	end
 end
@@ -228,6 +238,9 @@ function modifier_nero_tres_new:OnHorizontalMotionInterrupted()
 end
 function modifier_nero_tres_new:OnDestroy()
     if IsServer() then
+        if self.parent.IsISAcquired then
+            HardCleanse(self.parent)
+        end
         self.parent:InterruptMotionControllers(true)
     end
 end

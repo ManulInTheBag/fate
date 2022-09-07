@@ -115,7 +115,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"slash_damage"			"150 190 230 270 310"
+				"slash_damage"			"80 110 140 170 200"
 			}
 			"07"
 			{
@@ -140,7 +140,7 @@
 			"11"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"slash_damage_scale"	"20"
+				"slash_damage_scale"	"10"
 			}
 		}
 	}
@@ -310,6 +310,84 @@
 				"var_type"				"FIELD_INTEGER"
 				"damage_per_hit_per_stack"	"0"
 			}
+			"11"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"motion_time"			"0.5"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Nero : Spectaculi Initium
+	//=================================================================================================================
+	"nero_spectaculi_initium"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/nero/nero_spectaculi_initium"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityTextureName"			"custom/nero/nero_e"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1_END"
+		"AnimationPlaybackRate" 		"1.0"
+
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"10"
+		"AbilityManaCost"				"200"
+
+		"precache"
+		{
+			"particle"		"particles/items_fx/battlefury_cleave.vpcf"
+			"particle"		"particles/units/heroes/hero_ursa/ursa_enrage_buff.vpcf"
+			"particle"		"particles/units/heroes/hero_ember_spirit/ember_spirit_sleight_of_fist_targetted_marker.vpcf"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_ember_spirit.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_dragon_knight.vsndevts"
+		}
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"radius"			"500"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"delay"				"0.35"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"window_duration"		"3"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"300 350 400 450 500"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"invul_duration"	"0.3"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"cast_range"		"700"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"second_radius"		"300"
+			}
+			"08"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage_scale"		"80"
+			}
 		}
 	}
 	//=================================================================================================================
@@ -460,7 +538,7 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityTextureName"			"custom/nero/nero_e"
+		"AbilityTextureName"			"custom/nero/nero_e_2"
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3"
 		
 		// Ability stats
@@ -527,6 +605,79 @@
 		}
 	}
 	//=================================================================================================================
+	// Nero : Spectaculi Initium
+	//=================================================================================================================
+	"nero_spectaculi_buffed"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/nero/nero_spectaculi_buffed"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityTextureName"			"custom/nero/nero_spectaculi"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
+		"AnimationPlaybackRate" 		"1.0"
+
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"0"
+		"AbilityManaCost"				"0"
+
+		"precache"
+		{
+			"particle"		"particles/items_fx/battlefury_cleave.vpcf"
+			"particle"		"particles/units/heroes/hero_ursa/ursa_enrage_buff.vpcf"
+			"particle"		"particles/units/heroes/hero_ember_spirit/ember_spirit_sleight_of_fist_targetted_marker.vpcf"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_ember_spirit.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_dragon_knight.vsndevts"
+		}
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"radius"			"500"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"delay"				"0.35"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"window_duration"		"3"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"300 350 400 450 500"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"invul_duration"	"0.3"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"cast_range"		"700"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"second_radius"		"300"
+			}
+			"08"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage_scale"		"80"
+			}
+		}
+	}
+	//=================================================================================================================
 	// Nero : Flamma Imperatoria
 	//=================================================================================================================
 	"nero_heat"
@@ -538,7 +689,7 @@
 		"MaxLevel"						"1"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
@@ -600,7 +751,7 @@
 		// Ability stats
 		//-------------------------------------------------------------------------------------------------------------
 		//"AbilityCastPoint"				"0.3"
-		"AbilityCooldown"				"120"
+		"AbilityCooldown"				"10"
 		"AbilityManaCost"				"0"
 		
 		// Data driven

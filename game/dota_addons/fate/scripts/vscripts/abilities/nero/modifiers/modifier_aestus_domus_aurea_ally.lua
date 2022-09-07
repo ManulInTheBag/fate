@@ -18,7 +18,9 @@ if IsServer() then
 
 		--[[CustomNetTables:SetTableValue("sync","aestus_domus_lock", { magic_resist = self.ResistReduc,
 															 		 armor_reduction = self.ArmorReduc,
-															 		 movespeed = self.MovespeedReduc })]]		
+															 		 movespeed = self.MovespeedReduc })]]
+
+		self:StartIntervalThink(FrameTime())	
 	end
 
 	function modifier_aestus_domus_aurea_ally:OnRefresh(args)
@@ -31,7 +33,7 @@ if IsServer() then
 		end
 	end
 
-	function modifier_aestus_domus_aurea_ally:OnUnitMoved()	
+	function modifier_aestus_domus_aurea_ally:OnIntervalThink()	
 		local parent = self:GetParent()
 		local TheatreCenter = Vector(self.TheatreCenterX, self.TheatreCenterY, self.TheatreCenterZ)
 		--print("Parent Origin Ally: ", parent:GetAbsOrigin())

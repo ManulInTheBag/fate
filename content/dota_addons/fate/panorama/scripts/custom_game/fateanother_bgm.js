@@ -42,7 +42,7 @@ function PlayBGM()
     g_GameConfig.BGMSchedule = $.Schedule(BGMduration, function(){
         if (g_GameConfig.bIsBGMOn === true){
             if (!g_GameConfig.bRepeat) {
-                g_GameConfig.nextBGMIndex = Math.floor((Math.random() * 8) + 1);
+                g_GameConfig.nextBGMIndex = Math.floor((Math.random() * 12) + 1);
             }
             PlayBGM();
         }

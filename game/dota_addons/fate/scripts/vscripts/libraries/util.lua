@@ -210,6 +210,7 @@ locks = {
     "modifier_rho_aias",
     "modifier_binding_chains",
     "modifier_nero_tres_new",
+    "modifier_nero_performance",
     --"modifier_whitechapel_murderer",
     --"modifier_whitechapel_murderer_ally",
     --"modifier_whitechapel_murderer_enemy",
@@ -511,7 +512,8 @@ CannotReset = {
     "merlin_garden_of_avalon",
     "arturia_alter_mana_discharge",
     "okita_mind_eye",
-    "muramasa_tsumukari_combo", 
+    "muramasa_tsumukari_combo",
+    "nero_aestus_domus_aurea",
     
     
     

@@ -16,7 +16,7 @@ if IsServer() then
 															 		armor_bonus = self.Armor,
 															 		movespeed = self.Movespeed })
 
-		self:StartIntervalThink(0.5)
+		self:StartIntervalThink(FrameTime())
 	end
 
 	function modifier_aestus_domus_aurea_nero:OnRefresh(args)
@@ -54,7 +54,7 @@ if IsServer() then
 		end
 	end
 
-	function modifier_aestus_domus_aurea_nero:OnUnitMoved()	
+	function modifier_aestus_domus_aurea_nero:OnIntervalThink()	
 		local parent = self:GetParent()
 		local theatreCenter = Vector(self.TheatreCenterX, self.TheatreCenterY, self.TheatreCenterZ)
 

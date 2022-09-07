@@ -18,7 +18,8 @@ if IsServer() then
 
 		CustomNetTables:SetTableValue("sync","aestus_domus_enemy", { magic_resist = self.ResistReduc,
 															 		 armor_reduction = self.ArmorReduc,
-															 		 movespeed = self.MovespeedReduc })		
+															 		 movespeed = self.MovespeedReduc })	
+		self:StartIntervalThink(FrameTime())
 	end
 
 	function modifier_aestus_domus_aurea_enemy:OnRefresh(args)
@@ -31,7 +32,7 @@ if IsServer() then
 		end
 	end
 
-	function modifier_aestus_domus_aurea_enemy:OnUnitMoved()	
+	function modifier_aestus_domus_aurea_enemy:OnIntervalThink()	
 		local parent = self:GetParent()
 		local TheatreCenter = Vector(self.TheatreCenterX, self.TheatreCenterY, self.TheatreCenterZ)
 
@@ -43,6 +44,19 @@ if IsServer() then
 			FindClearSpaceForUnit(parent, parent:GetAbsOrigin(), true)
 		end
 	end
+
+	--[[function modifier_aestus_domus_aurea_enemy:OnUnitMoved()	
+		local parent = self:GetParent()
+		local TheatreCenter = Vector(self.TheatreCenterX, self.TheatreCenterY, self.TheatreCenterZ)
+
+		if math.abs((parent:GetAbsOrigin() - TheatreCenter):Length2D()) > self.TheatreSize then
+			local diff = parent:GetAbsOrigin() - TheatreCenter
+			diff = diff:Normalized()
+
+			parent:SetAbsOrigin(TheatreCenter + diff * self.TheatreSize)
+			FindClearSpaceForUnit(parent, parent:GetAbsOrigin(), true)
+		end
+	end]]
 end
 
 function modifier_aestus_domus_aurea_enemy:DeclareFunctions()

@@ -252,9 +252,9 @@ function emiya_unlimited_bladeworks:EnterUBW()
                 ubwTargets[i]:RemoveModifierByName("modifier_aestus_domus_aurea_ally")
                 ubwTargets[i]:RemoveModifierByName("modifier_aestus_domus_aurea_nero")
 
-                if ubwTargets[i]:GetName() == "npc_dota_hero_bounty_hunter" or ubwTargets[i]:GetName() == "npc_dota_hero_riki" then
+                --if ubwTargets[i]:GetName() == "npc_dota_hero_bounty_hunter" or ubwTargets[i]:GetName() == "npc_dota_hero_riki" then
                     ubwTargets[i]:AddNewModifier(caster, self, "modifier_inside_marble", { Duration = 15 })
-                end
+                --end
 
                 ubwTargetPos = ubwTargets[i]:GetAbsOrigin()
                 ubwTargetLoc[i] = ubwTargetPos

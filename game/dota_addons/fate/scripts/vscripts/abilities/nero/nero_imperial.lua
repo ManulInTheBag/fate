@@ -10,7 +10,7 @@ local tStandardAbilities = {
     "nero_rosa_new",
     "nero_heat",
     "nero_imperial_open",
-    "nero_aestus_domus_aurea",
+    "nero_spectaculi_initium",
     "attribute_bonus_custom"
 }
 
@@ -21,7 +21,7 @@ local tUpdatedAbilities = {
     "nero_rosa_new",
     "nero_heat",
     "nero_imperial_activate",
-    "nero_aestus_domus_aurea",
+    "nero_spectaculi_initium",
     "attribute_bonus_custom"
 }
 
@@ -31,7 +31,7 @@ local tProjections = {
     "nero_defence",
     "fate_empty1",
     "nero_imperial_close",
-    "nero_aestus_domus_aurea",
+    "nero_spectaculi_initium",
     "attribute_bonus_custom"
 }
 
@@ -40,7 +40,7 @@ function nero_imperial_open:OnUpgrade()
     
     hCaster:FindAbilityByName("nero_health"):SetLevel(self:GetLevel())
     hCaster:FindAbilityByName("nero_mana"):SetLevel(self:GetLevel())
-    hCaster:FindAbilityByName("nero_tactics"):SetLevel(self:GetLevel())
+    --hCaster:FindAbilityByName("nero_tactics"):SetLevel(self:GetLevel())
     hCaster:FindAbilityByName("nero_defence"):SetLevel(self:GetLevel())
     hCaster:FindAbilityByName("nero_imperial_close"):SetLevel(self:GetLevel())
 end
