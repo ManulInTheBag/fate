@@ -255,6 +255,9 @@
 		"DOTA_Tooltip_modifier_khsn_toggle_mana"		"Amaterasu"
 		"DOTA_Tooltip_modifier_khsn_toggle_mana_Description"	"You know, what it means"
 
+		"DOTA_Tooltip_modifier_khsn_eternal_frame"		"Eternal flame"
+		"DOTA_Tooltip_modifier_khsn_eternal_frame_Description"	"Enemies are burning"
+
 		"DOTA_Tooltip_modifier_death_door_pepeg"		"Death Door"
 		"DOTA_Tooltip_modifier_death_door_pepeg_Description"	"Counts the damage you've taken from King Hassan and slows you. If your HP will drop under 22%%, you will die instantly."
 
@@ -3556,7 +3559,7 @@
 		"DOTA_Tooltip_ability_caster_5th_hecatic_graea_bolt_amount"	"RAY AMOUNT:"
 
 		"DOTA_Tooltip_Ability_medea_hecatic_graea_combo"	 				"Combo: Hecatic Graea Powered"
-		"DOTA_Tooltip_ability_medea_hecatic_graea_combo_Description"		"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : E-R in 5 seconds</font>\nCaster bombards targeted area with an powered Hecatic Graea, followed by an enormous mana explosion that inflicts damage in a large area. Caster is invulnerable until landing.\n\nUpgradable by attribute Improve Hecatic Graea."
+		"DOTA_Tooltip_ability_medea_hecatic_graea_combo_Description"		"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : Q-R in 5 seconds</font>\nCaster bombards targeted area with an powered Hecatic Graea, followed by an enormous mana explosion that inflicts damage in a large area. Caster is invulnerable until landing.\n\nUpgradable by attribute Improve Hecatic Graea."
 		"DOTA_Tooltip_ability_medea_hecatic_graea_combo_Lore"	""
 		"DOTA_Tooltip_ability_medea_hecatic_graea_combo_damage"			"RAY DAMAGE:"
 		"DOTA_Tooltip_ability_medea_hecatic_graea_combo_lasthit_damage"	"BARRAGE DAMAGE: "
@@ -4522,10 +4525,11 @@
 		"DOTA_Tooltip_Ability_khsn_stab_Lore"	"Showing your back to the Death means you're already dead."
 
 		"DOTA_Tooltip_Ability_khsn_flame_active"	"Eternal Flame"
-		"DOTA_Tooltip_Ability_khsn_flame_active_Description"	"\nToggle: <font color='#58ACFA'>Eternal Flame</font>: King Hassan ignites all enemies under the Death Door effect with the Phantasmal Flame, dealing 30/45/60/75/90 damage per second based on level of Azrael and providing vision of the ignited enemies. The longer this ability is active, the more mana will it cost.\nThis ability goes on cooldown whenever it deactivates."
-		"DOTA_Tooltip_Ability_khsn_flame_active_base_mana_per_second"	"Mana per second:"
-		"DOTA_Tooltip_Ability_khsn_flame_active_add_mana_per_second"	"Manacost increase per second:"
-		"DOTA_Tooltip_Ability_khsn_flame_active_cooldown"	"Cooldown:"
+		"DOTA_Tooltip_Ability_khsn_flame_active_Description"	"<font color='#58ACFA'>Eternal Flame</font>: King Hassan ignites all enemies under the Death Door effect with the Phantasmal Flame, dealing 30/45/60/75/90 damage per second based on level of Azrael and providing vision of the ignited enemies."
+		//"DOTA_Tooltip_Ability_khsn_flame_active_base_mana_per_second"	"Mana per second:"
+		//"DOTA_Tooltip_Ability_khsn_flame_active_add_mana_per_second"	"Manacost increase per second:"
+		//"DOTA_Tooltip_Ability_khsn_flame_active_cooldown"	"Cooldown:"
+		"DOTA_Tooltip_Ability_khsn_flame_active_duration"	"Duration:"
 
 		"DOTA_Tooltip_Ability_khsn_bc"			"Abyss of Death"
 		"DOTA_Tooltip_Ability_khsn_bc_Description"	"This swordsman who is no longer certain whether he is alive or dead, even if he receives a fatal wound or loses half of his body for example, will keep snapping at the enemy as if he was in perfectly good health. When his health drops down to zero, he restores 25%% of his max health and activates Evening Bell instead of dying.\nCooldown: 99 seconds.\nEvening Bell gives additional 40 regen and 25 armor.\nKing Hassan also cannot be executed."
@@ -4558,10 +4562,9 @@
 		"DOTA_Tooltip_Ability_khsn_presence_attribute_Description"	"Death's Presence: Presence of a being heavily connected with Death fears even the bravest warriors. Enemies under Death's Door effect deal 10% less damage.\nEvening Bell does 20/40/60/80/100 magic damage in 700 radius while active."
 
 		"DOTA_Tooltip_Ability_khsn_flame_attribute"	"Attribute - Being of Phantasm"
-		"DOTA_Tooltip_Ability_khsn_flame_attribute_Description"	"\nToggle: <font color='#58ACFA'>Eternal Flame</font>: King Hassan ignites all enemies under the Death Door effect with the Phantasmal Flame, dealing 30/45/60/75/90 damage per second based on level of Azrael and providing vision of the ignited enemies. The longer this ability is active, the more mana will it cost.\nThis ability goes on cooldown whenever it deactivates."
-		"DOTA_Tooltip_Ability_khsn_flame_attribute_duration"	"Mana per second:"
-		"DOTA_Tooltip_Ability_khsn_flame_attribute_damage_per_second"	"Additional mana per second:"
-		"DOTA_Tooltip_Ability_khsn_flame_attribute_cooldown"	"Cooldown:"
+		"DOTA_Tooltip_Ability_khsn_flame_attribute_Description"	"<font color='#58ACFA'>Eternal Flame</font>: King Hassan ignites all enemies under the Death Door effect with the Phantasmal Flame, dealing 30/45/60/75/90 damage per second based on level of Azrael and providing vision of the ignited enemies."
+		"DOTA_Tooltip_Ability_khsn_flame_attribute_duration"	"Duration:"
+		"DOTA_Tooltip_Ability_khsn_flame_attribute_manacost"	"Mana cost:"
 
 		"DOTA_Tooltip_Ability_khsn_azrael_attribute"	"Attribute - Valley of the Shadow of Death"
 		"DOTA_Tooltip_Ability_khsn_azrael_attribute_Description"	"Azrael and Combo - The Angel That Announces Death, Azrael gain bonus damage and bonus Death's Door damage multiplier.\nIf Azrael or it's combo version drops target's health under 22%%, the target will be killed instantly.\nDeath's Door damage part deals pure damage instead of magic.\nDeath's Door slows it's target by additional 10%."
@@ -6177,11 +6180,11 @@
 		"DOTA_Tooltip_ability_karna_agni_Lore"				"O'fire, burn away the sins of my enemy."
 
 		"DOTA_Tooltip_ability_karna_brahmastra"					"Brahmastra"
-		"DOTA_Tooltip_ability_karna_brahmastra_Description" 	"Fires a beam of energy, dealing damage in a line. Briefly stuns all enemies along the path as the beam is fired."
+		"DOTA_Tooltip_ability_karna_brahmastra_Description" 	"Channel ability.\n If channel was interrupted, fires a beam of energy, dealing damage in a line. If channel was not interrupted, fires the same beam 20% further, with 20% more damage and leaves a burning trail for 1.5 seconds, dealing damage. Beam briefly stuns all enemies along the path as the beam is fired."
 		"DOTA_Tooltip_ability_karna_brahmastra_beam_aoe" 		"Beam Width:"
 		"DOTA_Tooltip_ability_karna_brahmastra_range"			"Range:"
-		"DOTA_Tooltip_ability_karna_brahmastra_cast_range"		"Cast Range:"
 		"DOTA_Tooltip_ability_karna_brahmastra_damage"			"Damage:"
+		"DOTA_Tooltip_ability_karna_brahmastra_burn_dmg_per_second"			"Burn dps:"
 		"DOTA_Tooltip_ability_karna_brahmastra_Lore"			"A true hero kills with his eye."
 
 		"DOTA_Tooltip_ability_karna_brahmastra_kundala"					"Brahmastra Kundala"

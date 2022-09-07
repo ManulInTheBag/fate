@@ -27,7 +27,7 @@ function khsn_combo:StartCombo(hui)
     local target = hui
     local ability = self
 
-    giveUnitDataDrivenModifier(caster, caster, "jump_pause_nosilence", 9999)
+    giveUnitDataDrivenModifier(caster, caster, "jump_pause", 9999)
     caster:AddNewModifier(caster, self, "modifier_azrael_particle", {duration = 6.26 + 2.210})
     --caster:AddNewModifier(caster, self, "modifier_azrael_move", {duration = 1.63+3.25})
     EmitGlobalSound("azrael_start")
@@ -35,6 +35,9 @@ function khsn_combo:StartCombo(hui)
    Timers:CreateTimer(1.63, function()
         if target and not target:IsNull() and target:IsAlive() then
             EmitGlobalSound("azrael_middle")
+        else
+            caster:RemoveModifierByName("jump_pause")
+            caster:RemoveModifierByName("modifier_azrael_particle")
         end
     end)
 
@@ -42,6 +45,9 @@ function khsn_combo:StartCombo(hui)
         if target and not target:IsNull() and target:IsAlive() then
             target:AddNewModifier(caster, self, "modifier_azrael_stun", {duration = 2.75})
             EmitGlobalSound("azrael_end")
+        else
+            caster:RemoveModifierByName("jump_pause")
+            caster:RemoveModifierByName("modifier_azrael_particle")
         end
     end)
 
@@ -66,7 +72,7 @@ function khsn_combo:StartCombo(hui)
         if target and not target:IsNull() and target:IsAlive() then
             if not target:IsRealHero() then
                 target:Kill(self, caster)
-                caster:RemoveModifierByName("jump_pause_nosilence")
+                caster:RemoveModifierByName("jump_pause")
                 caster:RemoveModifierByName("modifier_azrael_particle")
                 return
             end
@@ -89,7 +95,7 @@ function khsn_combo:StartCombo(hui)
                     end
                     DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, flag, self, false)
                     DoDamage(caster, target, modifier_damage, caster.AzraelAcquired and DAMAGE_TYPE_PURE or DAMAGE_TYPE_MAGICAL, flag, self, false)
-                    caster:RemoveModifierByName("jump_pause_nosilence")
+                    caster:RemoveModifierByName("jump_pause")
                     --caster:SetAbsOrigin(position)
                     EmitGlobalSound("azrael_bell")
                     local slashFx = ParticleManager:CreateParticle("particles/kinghassan/khsn_feathers.vpcf", PATTACH_ABSORIGIN, target )
@@ -123,12 +129,12 @@ function khsn_combo:StartCombo(hui)
                         self:EndCooldown()
                     end]]
                 else
-                    caster:RemoveModifierByName("jump_pause_nosilence")
+                    caster:RemoveModifierByName("jump_pause")
                     caster:RemoveModifierByName("modifier_azrael_particle")
                 end
             end)
         else
-            caster:RemoveModifierByName("jump_pause_nosilence")
+            caster:RemoveModifierByName("jump_pause")
             caster:RemoveModifierByName("modifier_azrael_particle")
         end
     end)
