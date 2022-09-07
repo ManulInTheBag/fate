@@ -1,137 +1,69 @@
-.FateConfigRoot
-{
-    horizontal-align: left;
-    vertical-align: bottom;
-    margin-bottom: 24%;
-    margin-left: 0%;
-    flow-children: down; 
-    z-index: 9999;
-}
-
-/*.AspectRatio16x10 .FateConfigRoot
-{
-    horizontal-align: left;
-    vertical-align: bottom;
-    margin-bottom: 20.5%;
-    margin-left: 8.3%;
-    flow-children: down; 
-}
-
-.AspectRatio16x9 .FateConfigRoot
-{
-    horizontal-align: left;
-    vertical-align: bottom;
-    margin-bottom: 20.5%;
-    margin-left: 7.8%;
-    flow-children: down; 
-}
-
-.AspectRatio4x3 .FateConfigRoot
-{
-    horizontal-align: left;
-    vertical-align: bottom;
-    margin-bottom: 20.5%;
-    margin-left: 11%;
-    flow-children: down; 
-}*/
-
-#FateConfigButton
-{
-    width: 150px;
-    height: 40px;
-    brightness: 1.5;
-}
-
-#FateConfigBoard
-{
-    width: 400px;
-    height: 700px;
-    background-color: gradient( linear, 0% 0%, 0% 100%, from( #486186 ), color-stop( 0.5, #21262c ), to( #486186 ) );
-    //border-radius: 50px 50px 50px 50px;
-    //border:3px solid #DAA520;
-    //flow-children: right;
-    horizontal-align: center;
-    //overflow: scroll;
-    opacity: 0.9;
-    //background-image: url("s2r://panorama/images/custom_game/pepe_jpg.vtex");
-    //background-position: center;
-    //background-repeat: no-repeat;
-    //background-size: 100% 100%;
-}
-
-#FateConfigButtonImageText
-{
-    vertical-align: middle;
-    transition-property: opacity;
-    transition-duration: 0.12s;
-    transition-timing-function: ease-in-out;
-    background-color: gradient( linear, 0% 0%, 100% 0%, from( #425663cc ), color-stop( .5, #42566355 ), to( #0000 ) );
-}
-
-#FateConfigMainPanel
+.ConfigRoot
 {
     width: 100%;
     height: 100%;
-    flow-children: down;
+    margin: 40px 20px 20px 20px;
+    flow-children: down-wrap;
 }
-#FateConfigCameraPanel
+
+.ConfigSection
 {
-    width: 90%;
-    height: 6%;
-    margin-left: 5%;
-    margin-top: 2.5%;
-    flow-children: right;
+    flow-children: down-wrap;
+    width: 330px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
-#FateConfigCameraText
+
+.SectionHeader
 {
-    margin-top: 3%;
+    font-size: 24px;
+    font-weight: thin;
+    color: #939da0;
+    text-transform: uppercase;
 }
-#FateConfigCameraValue
+
+
+#ConfigCameraDist
 {
-    width: 25%;
-    height: 30px;
-    margin-left: 20%;
-    flow-children: right;
+    margin-top: 5px;
+    flow-children: down-wrap;
+    height: 150px;
 }
-#FateConfigBGMPanel
+
+#ConfigCameraSlider
 {
-    width: 90%;
-    height: 13%;
-    margin-left: 5%;
-    margin-top: 2%;
-    flow-children: right-wrap;
+    width: 320px;
+}
+
+#ConfigAudioSection
+{
+    height: 230px;
+}
+
+#FateConfigBGMList
+{
+    margin-top: 40px;
+    height: 60px;
+    width: 320px;
 }
 
 #FateConfigBGMToggle
 {
-    margin-left: 50%;
-}
-#FateConfigBGMList
-{
+    horizontal-align: right;
 }
 
-#FateConfigTogglePannel
+#ConfigOptionsSection
 {
-    width: 90%;
-    height: 30%;
-    margin-left: 5%;
-    margin-top: 2%;
-    flow-children: down;
+    height: 100%;
 }
 
-#FateConfigCmdPanel
+.ConfigCmdText
 {
-    width: 90%;
-    height: 50%;
-    margin-left: 5%;
-    margin-top: 2%;
-    flow-children: down-wrap;
+    text-overflow: clip;
 }
-.FateConfigOpenText
+
+.ConfigCmdLabel
 {
-    font-weight: bold;
+    text-overflow: clip;
     color: white;
-    font-size: 22px;
-    text-shadow: 2px 2px 2px #000000;
-    color: gradient( linear, 0% 0%, 0% 100%, from( #c88423 ), color-stop( 0.25, #c88423 ), color-stop( 0.5, #fffb84 ), color-stop( 0.75, #c88423 ), to( #9a6717 ) );
 }

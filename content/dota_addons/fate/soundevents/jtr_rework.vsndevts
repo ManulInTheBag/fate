@@ -2671,7 +2671,7 @@
 					}
 					"volume"
 					{
-						"value"		"5.000000"
+						"value"		"2.500000"
 					}
 					"pitch"
 					{
@@ -2703,7 +2703,7 @@
 					}
 					"volume"
 					{
-						"value"		"5.000000"
+						"value"		"2.500000"
 					}
 					"pitch"
 					{
@@ -2735,7 +2735,7 @@
 					}
 					"volume"
 					{
-						"value"		"5.000000"
+						"value"		"2.500000"
 					}
 					"pitch"
 					{
@@ -3608,6 +3608,38 @@
 					"volume"
 					{
 						"value"		"4.000000"
+					}
+					"pitch"
+					{
+						"value"		"1.000000"
+					}
+				}
+			}
+		}
+	}
+}
+"nero_pup"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/nero/System_PowerUpA.vsnd"
+						}
+					}
+					"volume"
+					{
+						"value"		"2.000000"
 					}
 					"pitch"
 					{

@@ -8,6 +8,8 @@ function modifier_aestus_domus_aurea_neutral:OnCreated(args)
 		self.TheatreCenter = args.TheatreCenter
 		self.TheatreSize = args.TheatreSize
 
+		self:StartIntervalThink(FrameTime())
+
 		--[[CustomNetTables:SetTableValue("sync","aestus_domus_lock", { magic_resist = self.ResistReduc,
 															 		 armor_reduction = self.ArmorReduc,
 															 		 movespeed = self.MovespeedReduc })]]
@@ -54,7 +56,7 @@ function modifier_aestus_domus_aurea_neutral:GetModifierMoveSpeedBonus_Percentag
 	end
 end]]
 
-function modifier_aestus_domus_aurea_neutral:OnUnitMoved()
+function modifier_aestus_domus_aurea_neutral:OnIntervalThink()
 	if IsServer() then
 		local parent = self:GetParent()
 

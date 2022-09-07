@@ -41,6 +41,8 @@ function jtr_dagger_throw:OnSpellStart()
 
     local hits_done = 1
 
+    EmitSoundOn("jtr_slash", caster)
+
     Timers:CreateTimer(0, function()
     	if caster and IsValidEntity(caster) and enemies and #enemies>0 then
 		    for _, enemy in pairs(enemies) do

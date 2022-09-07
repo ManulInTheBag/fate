@@ -8,10 +8,10 @@
 		// General		//------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/nero/nero_aestus_domus_aurea"
-		"MaxLevel"						"5"
+		"MaxLevel"						"1"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"2"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY" 
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
 		"AbilityTextureName"			"custom/nero_aestus_domus_aurea"
@@ -32,21 +32,21 @@
 			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_legion_commander.vsndevts"
 		}
 		
-		"AbilityCooldown"			"44"
-		"AbilityManaCost"			"800"
-		"AbilityCastRange"			"1050"
+		"AbilityCooldown"			"200"
+		"AbilityManaCost"			"400"
+		"AbilityCastRange"			"1500"
 		
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"form_delay"		"1.0"
+				"form_delay"		"0.5"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"radius"			"900 975 1050 1125 1200"
+				"radius"			"1500"
 			}
 			"03"
 			{
@@ -56,32 +56,57 @@
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"resist_reduc"		"-5 -10 -15 -20 -25"
+				"resist_reduc"		"25"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"armor_reduc"		"-5 -10 -15 -20 -25"
+				"armor_reduc"		"25"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"movespeed_reduc"	"-5 -10 -15 -20 -25"
+				"movespeed_reduc"	"25"
 			}
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"cast_delay"		"1.0"
+				"cast_delay"		"0.5"
 			}
 			"07"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"explosion_count"	"3 4 5 6 7"
+				"explosion_count"	"9"
 			}
 			"08"
 			{
 				"var_type"			"FIELD_INTEGER"
 				"mana_regen"		"0"
+			}
+			"09"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"1500"
+			}
+			"10"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"stun_duration"		"2.8"
+			}
+			"11"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"burn_damage"		"400"
+			}
+			"12"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"explosion_damage"	"200"
+			}
+			"13"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"fire_duration"		"3"
 			}
 		}
 	}

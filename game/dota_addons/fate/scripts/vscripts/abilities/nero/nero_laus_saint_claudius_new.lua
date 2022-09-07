@@ -12,8 +12,8 @@ function nero_laus_saint_claudius_new:OnSpellStart()
 	local modifier = caster:FindModifierByName("modifier_aestus_domus_aurea_nero")
 	local center_point = Vector(modifier.TheatreCenterX, modifier.TheatreCenterY, modifier.TheatreCenterZ)
 	local counter = 0
-	caster:SwapAbilities("nero_laus_saint_claudius_new", "nero_aestus_domus_aurea", false, true)
-    caster:AddNewModifier(caster, ability, "modifier_laus_saint_claudius_cooldown", {Duration = ability:GetCooldown(1)})
+	caster:SwapAbilities("nero_laus_saint_claudius_new", "nero_heat", false, true)
+    --caster:AddNewModifier(caster, ability, "modifier_laus_saint_claudius_cooldown", {Duration = ability:GetCooldown(1)})
 
     if caster.UpgradeLSK == true then
     	caster.UpgradeLSK = false
@@ -62,9 +62,9 @@ function nero_laus_saint_claudius_new:OnSpellStart()
 
 	        local enemies = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 99999, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false)
 
-	        local masterCombo = caster.MasterUnit2:FindAbilityByName(ability:GetAbilityName())
+	        --[[local masterCombo = caster.MasterUnit2:FindAbilityByName(ability:GetAbilityName())
 	        masterCombo:EndCooldown()
-	        masterCombo:StartCooldown(ability:GetCooldown(1))
+	        masterCombo:StartCooldown(ability:GetCooldown(1))]]
 
 	        if caster:HasModifier("modifier_laus_saint_ready_checker") then
 	        	caster:RemoveModifierByName("modifier_laus_saint_ready_checker")
@@ -117,6 +117,9 @@ function nero_laus_saint_claudius_new:OnSpellStart()
     	    Timers:CreateTimer(self:GetSpecialValueFor("stun_duration") - 0.05, function()
 	    	    if caster:IsAlive() then
 	    	    	local teleported = false
+	    	    	if caster.IsISAcquired then
+						HardCleanse(caster)
+					end
 	    		    for i = 1, #enemies do
 				        if enemies[i]:IsAlive() and enemies[i]:HasModifier("modifier_lsk_stunned") then
 				        	if not teleported then
@@ -126,6 +129,16 @@ function nero_laus_saint_claudius_new:OnSpellStart()
 	            				heat_abil:IncreaseHeat(caster)
 					        	teleported = true
 					        end
+					        if i > 1 then
+					        	local trail_fx = ParticleManager:CreateParticle("particles/nero/nero_trail.vpcf", PATTACH_ABSORIGIN, caster)
+								ParticleManager:SetParticleControl(trail_fx, 0, enemies[i-1]:GetAbsOrigin())
+								ParticleManager:SetParticleControl(trail_fx, 1, enemies[i]:GetAbsOrigin())
+
+								Timers:CreateTimer(0.5, function()
+									ParticleManager:DestroyParticle(trail_fx, false)
+									ParticleManager:ReleaseParticleIndex(trail_fx)
+								end)
+							end
 					        enemies[i]:EmitSound("Hero_Lion.FingerOfDeath")
 			                --StartAnimation(caster, {duration = 1, activity = ACT_DOTA_CAST_ABILITY_3_END, rate = 1.5})	
 			                CreateSlashFx(caster, enemies[i]:GetAbsOrigin() + Vector(1200, 1200, 300),enemies[i]:GetAbsOrigin() + Vector(-1200, -1200, 300))

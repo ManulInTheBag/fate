@@ -2,6 +2,7 @@ LinkLuaModifier("modifier_nero_heat", "abilities/nero/nero_heat", LUA_MODIFIER_M
 LinkLuaModifier("modifier_laus_saint_ready_checker", "abilities/nero/modifiers/modifier_laus_saint_ready_checker", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_imperial_buff_h", "abilities/nero/nero_imperial", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_nero_heat_stacks", "abilities/nero/nero_heat", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_nero_performance", "abilities/nero/nero_heat", LUA_MODIFIER_MOTION_NONE)
 
 nero_heat = class({})
 
@@ -17,8 +18,9 @@ end
  
 function nero_heat:OnSpellStart()
 	local caster = self:GetCaster()
+	StartAnimation(caster, {duration = 2.0, activity = ACT_DOTA_CAST_ABILITY_1_END, rate = 1})
 	--if not caster:HasModifier("modifier_aestus_domus_aurea_nero") then return end
-	if caster:FindModifierByName("modifier_nero_heat").rank >= 6 then
+	if caster:FindModifierByName("modifier_nero_heat").rank >= 4 then
 		caster.UpgradeBase = true
 	end
 	if caster:FindModifierByName("modifier_nero_heat").rank == 7 then
@@ -29,6 +31,7 @@ function nero_heat:OnSpellStart()
 		caster:AddNewModifier(caster, self, "modifier_laus_saint_ready_checker", {duration = 4})
 	end)
 end
+
 function nero_heat:IncreaseHeat(caster)
 	local caster = caster
 	local modifier = caster:FindModifierByName("modifier_nero_heat")
@@ -81,12 +84,103 @@ function nero_heat:RefreshHeatDuration(caster)
 
 	modifier.duration_remaining = self:GetSpecialValueFor("duration")
 end
-
  
 function nero_heat:GetSequence()
 	local caster = self:GetCaster()
 	if( not caster:HasModifier("modifier_nero_heat_stacks")) then return 0 end
 	return caster:GetModifierStackCount("modifier_nero_heat_stacks", caster)
+end
+
+function nero_heat:StartPerformance(vel_z, acc_z)
+	local caster = self:GetCaster()
+
+	caster:AddNewModifier(caster, self, "modifier_nero_performance", {vel_z = vel_z, acc_z = acc_z})
+end
+
+function nero_heat:PausePerformance(time)
+	local caster = self:GetCaster()
+	if caster:HasModifier("modifier_nero_performance") then
+		caster:FindModifierByName("modifier_nero_performance").pause_time = time
+	end
+end
+
+function nero_heat:EndPerformance()
+	local caster = self:GetCaster()
+
+	if caster:HasModifier("modifier_nero_performance") then
+		caster:RemoveModifierByName("modifier_nero_performance")
+	end
+	FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
+end
+
+modifier_nero_performance = class({})
+
+function modifier_nero_performance:IsHidden() return true end
+function modifier_nero_performance:IsDebuff() return false end
+function modifier_nero_performance:IsPurgable() return false end
+function modifier_nero_performance:IsPurgeException() return false end
+function modifier_nero_performance:RemoveOnDeath() return true end
+function modifier_nero_performance:GetPriority() return MODIFIER_PRIORITY_HIGH end
+function modifier_nero_performance:GetMotionPriority() return DOTA_MOTION_CONTROLLER_PRIORITY_HIGH end
+function modifier_nero_performance:CheckState()
+    local state =   { 
+                        --[MODIFIER_STATE_COMMAND_RESTRICTED] = true,
+                        --[MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true,
+                        [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
+                        [MODIFIER_STATE_ROOTED] = true,
+                        --[MODIFIER_STATE_DISARMED] = true,
+                        --[MODIFIER_STATE_SILENCED] = true,
+                        --[MODIFIER_STATE_MUTED] = true,
+                    }
+    return state
+end
+function modifier_nero_performance:OnCreated(args)
+    self.parent = self:GetParent()
+    self.pause_time = 0
+    self.vel = Vector(0, 0, args.vel_z)
+    self.acc = Vector(0, 0, args.acc_z)
+    self.first_frame = true
+    self.position = self.parent:GetAbsOrigin()
+
+    if IsServer() then
+        self:StartIntervalThink(FrameTime())
+    end
+end
+function modifier_nero_performance:OnIntervalThink()
+    self:UpdateVerticalMotion(self.parent, FrameTime())
+end
+function modifier_nero_performance:OnRefresh(args)
+    self:OnCreated(args)
+end
+function modifier_nero_performance:UpdateVerticalMotion(me, dt)
+    if IsServer() then
+    	if self.pause_time > 0 then
+    		self.pause_time = self.pause_time - dt
+    		return
+    	end
+        if self.first_frame or GetGroundPosition(self.parent:GetAbsOrigin(), self.parent).z <= self.parent:GetAbsOrigin().z then
+        	self.first_frame = false
+        	local ori = self.parent:GetAbsOrigin()
+        	--print(GetGroundPosition(self.parent:GetAbsOrigin(), self.parent).z)
+        	--print(self.parent:GetAbsOrigin().z)
+        	local next_pos = Vector(ori.x, ori.y, self.position.z) + self.vel*dt
+        	self.parent:SetAbsOrigin(next_pos)
+        	self.position = self.parent:GetAbsOrigin()
+        	self.vel = self.vel - self.acc*dt + (-1 * 0.05 * self.vel)
+        else
+            self:Destroy()
+        end
+    end
+end
+function modifier_nero_performance:OnVerticalMotionInterrupted()
+    if IsServer() then
+        self:Destroy()
+    end
+end
+function modifier_nero_performance:OnDestroy()
+    if IsServer() then
+        self.parent:InterruptMotionControllers(true)
+    end
 end
 
 modifier_nero_heat = class({})

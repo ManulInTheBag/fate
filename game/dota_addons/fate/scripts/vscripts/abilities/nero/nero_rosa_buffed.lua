@@ -63,6 +63,9 @@ function nero_rosa_buffed:OnSpellStart()
 	if caster:GetAbilityByIndex(2):GetName() ~= "nero_rosa_new" then
 		caster:SwapAbilities("nero_rosa_buffed", "nero_rosa_new", false, true)
 	end
+	if caster:GetAbilityByIndex(5):GetName() ~= "nero_spectaculi_initium" then
+		caster:SwapAbilities("nero_spectaculi_buffed", "nero_spectaculi_initium", false, true)
+	end
 
 	if IsSpellBlocked(target) then return end
 
@@ -74,6 +77,9 @@ function nero_rosa_buffed:OnSpellStart()
 		CreateSlashFx(caster, target:GetAbsOrigin() + Vector(900, -900, 300),target:GetAbsOrigin() + Vector(-900, 900, 300))
 	end)
 	Timers:CreateTimer(1, function()
+		if caster.IsISAcquired then
+			HardCleanse(caster)
+		end
 		local diff = target:GetAbsOrigin() - caster:GetAbsOrigin()
 		CreateSlashFx(caster, target:GetAbsOrigin() + Vector(900, 900, 300),target:GetAbsOrigin() + Vector(-900, -900, 300))
 		caster:SetAbsOrigin(target:GetAbsOrigin() + diff:Normalized() * 150)

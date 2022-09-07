@@ -24,6 +24,9 @@ function nero_tres_buffed:OnSpellStart()
     if caster:GetAbilityByIndex(2):GetName() ~= "nero_rosa_new" then
         caster:SwapAbilities("nero_rosa_buffed", "nero_rosa_new", false, true)
     end
+    if caster:GetAbilityByIndex(5):GetName() ~= "nero_spectaculi_initium" then
+        caster:SwapAbilities("nero_spectaculi_buffed", "nero_spectaculi_initium", false, true)
+    end
 end
 
 modifier_nero_tres_buffed = class({})
@@ -205,6 +208,9 @@ function modifier_nero_tres_buffed:OnHorizontalMotionInterrupted()
 end
 function modifier_nero_tres_buffed:OnDestroy()
     if IsServer() then
+        if self.parent.IsISAcquired then
+            HardCleanse(self.parent)
+        end
         self.parent:InterruptMotionControllers(true)
     end
 end

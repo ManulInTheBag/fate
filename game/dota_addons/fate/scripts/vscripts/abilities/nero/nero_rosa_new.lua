@@ -5,16 +5,41 @@ LinkLuaModifier("modifier_rosa_slow", "abilities/nero/modifiers/modifier_rosa_sl
 LinkLuaModifier("modifier_nero_rosa_window", "abilities/nero/nero_rosa_new", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_nero_rosa_new", "abilities/nero/nero_rosa_new", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_nero_rosa_motion_enemy", "abilities/nero/nero_rosa_new", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_nero_rosa_motion", "abilities/nero/nero_rosa_new", LUA_MODIFIER_MOTION_HORIZONTAL)
+LinkLuaModifier("modifier_nero_rosa_motion", "abilities/nero/nero_rosa_new", LUA_MODIFIER_MOTION_NONE)
 
 function nero_rosa_new:GetCastRange(vLocation, hTarget)
 	local caster = self:GetCaster()
 
-	if caster:HasModifier("modifier_nero_rosa_new") then
-		return 300
+	if caster:HasModifier("modifier_nero_performance") then
+		return 9999
 	else
 		return self:GetSpecialValueFor("range")
 	end
+end
+
+function nero_rosa_new:CastFilterResultLocation(hLocation)
+    local caster = self:GetCaster()
+   	if IsServer() and not IsInSameRealm(caster:GetAbsOrigin(), hLocation) then
+    	return UF_FAIL_CUSTOM
+    else
+    	return UF_SUCCESS
+    end
+end
+
+function nero_rosa_new:GetCustomCastErrorLocation(hLocation)
+	local caster = self:GetCaster()
+  	if not IsInSameRealm(caster:GetAbsOrigin(), hLocation) then
+    	return "#Wrong_Target_Location"
+    end
+end
+
+function nero_rosa_new:GetBehavior()
+	local caster = self:GetCaster()
+
+	if caster:HasModifier("modifier_nero_performance") then
+		return DOTA_ABILITY_BEHAVIOR_POINT
+	end
+	return DOTA_ABILITY_BEHAVIOR_UNIT_TARGET
 end
 
 function nero_rosa_new:OnUpgrade()
@@ -58,9 +83,93 @@ end]]
 
 function nero_rosa_new:OnSpellStart()
 	local caster = self:GetCaster()
-	local target = self:GetCursorTarget()
-	if IsSpellBlocked(target) then return end
-	if not caster:HasModifier("modifier_nero_rosa_new") then
+	caster:RemoveModifierByName("modifier_nero_spectaculi_initium")
+	if caster:HasModifier("modifier_nero_performance") or (self:GetCursorTarget() == nil) then
+		if not caster:HasModifier("modifier_nero_rosa_window") then
+	        caster:AddNewModifier(caster, self, "modifier_nero_rosa_window", {duration = self:GetSpecialValueFor("window_duration")})
+	    else
+	        caster:RemoveModifierByName("modifier_nero_rosa_window")
+	    end
+
+	    local target_point = self:GetCursorPosition()
+	    local target = nil
+	    if caster:HasModifier("modifier_aestus_domus_aurea_nero") then
+	    	local modifier = caster:FindModifierByName("modifier_aestus_domus_aurea_nero")
+	    	local ori = caster:GetAbsOrigin()
+			local center_point = Vector(modifier.TheatreCenterX, modifier.TheatreCenterY, modifier.TheatreCenterZ)
+			local enemies = FindUnitsInRadius(caster:GetTeam(), center_point, nil, caster:FindAbilityByName("nero_aestus_domus_aurea"):GetSpecialValueFor("radius"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+		    local dist = 99999
+		    for i = 1, #enemies do
+		    	print((ori - enemies[i]:GetAbsOrigin()):Length2D())
+		    	print(dist)
+				if enemies[i]:IsAlive() and (ori - enemies[i]:GetAbsOrigin()):Length2D() < dist then
+					target = enemies[i]
+					dist = (ori - enemies[i]:GetAbsOrigin()):Length2D()
+				end
+			end
+			if not target then
+				enemies = FindUnitsInRadius(caster:GetTeam(), center_point, nil, caster:FindAbilityByName("nero_aestus_domus_aurea"):GetSpecialValueFor("radius"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+				for i = 1, #enemies do
+					if enemies[i]:IsAlive() and (ori - enemies[i]:GetAbsOrigin()):Length2D() < dist then
+						target = enemies[i]
+						dist = (ori - enemies[i]:GetAbsOrigin()):Length2D()
+					end
+				end
+			end
+		else
+		    local enemies = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 700, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false)
+		    for i = 1, #enemies do
+				if enemies[i]:IsAlive() then
+					target = enemies[i]
+					break
+				end
+			end
+			if not target then
+				enemies = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 700, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false)
+				for i = 1, #enemies do
+					if enemies[i]:IsAlive() then
+						target = enemies[i]
+						break
+					end
+				end
+			end
+		end
+
+		if not target then return end
+
+	    caster:EmitSound("nero_e2")
+	    target:EmitSound("nero_e2")
+
+	    local heat_abil = caster:FindAbilityByName("nero_heat")
+        heat_abil:IncreaseHeat(caster)
+		--caster:FaceTowards(Vector(target:GetAbsOrigin().x, target:GetAbsOrigin().y, caster:GetAbsOrigin().z))
+		--[[caster:PreventDI(false)
+		caster:SetPhysicsVelocity(Vector(0,0,0))
+		caster:SetPhysicsAcceleration(Vector(0,0,0))
+		caster:OnPhysicsFrame(nil)
+		caster:Hibernate(true)]]
+		caster:FindAbilityByName("nero_heat"):PausePerformance(self:GetSpecialValueFor("motion_time"))
+		Physics:Unit(target)
+		target:PreventDI(false)
+		target:SetPhysicsVelocity(Vector(0,0,0))
+		target:SetPhysicsAcceleration(Vector(0,0,0))
+		target:OnPhysicsFrame(nil)
+		target:Hibernate(true)
+
+		local tar_loc = target:GetAbsOrigin() - (target:GetAbsOrigin() - target_point):Normalized()*50
+		caster:SetAbsOrigin(Vector(target:GetAbsOrigin().x, target:GetAbsOrigin().y, caster:GetAbsOrigin().z))
+		local distance = 1000
+		if caster:HasModifier("modifier_aestus_domus_aurea_nero") then
+			print((target:GetAbsOrigin() - target_point):Length2D())
+			distance = (target:GetAbsOrigin() - target_point):Length2D()
+		else
+			distance = math.min((target:GetAbsOrigin() - target_point):Length2D(), self:GetSpecialValueFor("motion_distance"))
+		end
+		caster:AddNewModifier(caster, self, "modifier_nero_rosa_motion", {destination_x = target_point.x, destination_y = target_point.y, destination_z = target_point.z, distance = distance, entindex = target:entindex()})
+		target:AddNewModifier(caster, self, "modifier_nero_rosa_motion_enemy", {})
+	else
+		local target = self:GetCursorTarget()
+		if IsSpellBlocked(target) then return end
 		caster:EmitSound("Nero.Skill1")
 		if not caster:HasModifier("modifier_nero_rosa_window") then
 	        caster:AddNewModifier(caster, self, "modifier_nero_rosa_window", {duration = self:GetSpecialValueFor("window_duration")})
@@ -153,9 +262,10 @@ function nero_rosa_new:OnSpellStart()
 			local duration = 1.5 - target:FindModifierByName("modifier_airborne_marker").elapsed
 			local knockupSpeed = target:GetPhysicsVelocity()[3]
 			local knockupAcc = target:GetPhysicsAcceleration()[3]
-			caster:AddNewModifier(caster, self, "modifier_nero_rosa_new", {duration = duration})
+			--caster:AddNewModifier(caster, self, "modifier_nero_rosa_new", {duration = duration})
 			caster:SetAbsOrigin(Vector(caster:GetAbsOrigin().x, caster:GetAbsOrigin().y, target:GetAbsOrigin().z))
-			Physics:Unit(caster)
+			caster:FindAbilityByName("nero_heat"):StartPerformance(knockupSpeed, -knockupAcc)
+			--[[Physics:Unit(caster)
 			caster:PreventDI()
 	    	caster:SetPhysicsVelocity(Vector(0,0,knockupSpeed))
 	    	caster:SetPhysicsAcceleration(Vector(0,0,knockupAcc))
@@ -169,34 +279,8 @@ function nero_rosa_new:OnSpellStart()
 		        caster:SetPhysicsAcceleration(Vector(0,0,0))
 		        caster:OnPhysicsFrame(nil)
 		        caster:Hibernate(true)
-		    end)
+		    end)]]
 	    end
-	else
-		if not caster:HasModifier("modifier_nero_rosa_window") then
-	        caster:AddNewModifier(caster, self, "modifier_nero_rosa_window", {duration = self:GetSpecialValueFor("window_duration")})
-	    else
-	        caster:RemoveModifierByName("modifier_nero_rosa_window")
-	    end
-
-	    caster:EmitSound("nero_e2")
-	    target:EmitSound("nero_e2")
-
-	    local heat_abil = caster:FindAbilityByName("nero_heat")
-        heat_abil:IncreaseHeat(caster)
-		--caster:FaceTowards(Vector(target:GetAbsOrigin().x, target:GetAbsOrigin().y, caster:GetAbsOrigin().z))
-		caster:PreventDI(false)
-		caster:SetPhysicsVelocity(Vector(0,0,0))
-		caster:SetPhysicsAcceleration(Vector(0,0,0))
-		caster:OnPhysicsFrame(nil)
-		caster:Hibernate(true)
-		target:PreventDI(false)
-		target:SetPhysicsVelocity(Vector(0,0,0))
-		target:SetPhysicsAcceleration(Vector(0,0,0))
-		target:OnPhysicsFrame(nil)
-		target:Hibernate(true)
-		caster:AddNewModifier(caster, self, "modifier_nero_rosa_motion", {})
-		caster:RemoveModifierByName("modifier_nero_rosa_new")
-		target:AddNewModifier(caster, self, "modifier_nero_rosa_motion_enemy", {})
 	end
 end
 
@@ -246,8 +330,8 @@ function modifier_nero_rosa_motion:IsDebuff() return false end
 function modifier_nero_rosa_motion:IsPurgable() return false end
 function modifier_nero_rosa_motion:IsPurgeException() return false end
 function modifier_nero_rosa_motion:RemoveOnDeath() return true end
-function modifier_nero_rosa_motion:GetPriority() return MODIFIER_PRIORITY_HIGH end
-function modifier_nero_rosa_motion:GetMotionPriority() return DOTA_MOTION_CONTROLLER_PRIORITY_HIGH end
+--function modifier_nero_rosa_motion:GetPriority() return MODIFIER_PRIORITY_HIGH end
+--function modifier_nero_rosa_motion:GetMotionPriority() return DOTA_MOTION_CONTROLLER_PRIORITY_HIGH end
 function modifier_nero_rosa_motion:CheckState()
     local state =   { 
                         --[MODIFIER_STATE_COMMAND_RESTRICTED] = true,
@@ -271,16 +355,17 @@ end
 function modifier_nero_tres_new:GetOverrideAnimationRate()
     return 2.0
 end]]
-function modifier_nero_rosa_motion:OnCreated(table)
+function modifier_nero_rosa_motion:OnCreated(args)
     self.caster = self:GetCaster()
     self.parent = self:GetParent()
     self.ability = self:GetAbility()
     --self.heat_abil = self.parent:FindAbilityByName("nero_heat")
 
     if IsServer() then
-    	self.target = self.ability:GetCursorTarget()
-        self.speed          = self.ability:GetSpecialValueFor("speed")
-        self.distance       = self.ability:GetSpecialValueFor("motion_distance")
+    	self.target = EntIndexToHScript(args.entindex)
+        self.motion_time          = self.ability:GetSpecialValueFor("motion_time")
+        self.distance       = args.distance
+        self.speed = self.distance/self.motion_time
         self.damage         = self.ability:GetSpecialValueFor("damage_per_hit") + self.ability:GetSpecialValueFor("damage_per_hit_per_stack")*self.parent:FindModifierByName("modifier_nero_heat").rank + (self.parent:HasModifier("modifier_sovereign_attribute") and self.parent:GetAverageTrueAttackDamage(self.parent)*self.ability:GetSpecialValueFor("damage_per_hit_scale")/100 or 0)
         self.sequence = 0
         --self.crit           = self.ability:GetSpecialValueFor("crit")
@@ -288,7 +373,7 @@ function modifier_nero_rosa_motion:OnCreated(table)
 
         --self.second_targets_damage = self.ability:GetSpecialValueFor("second_targets_damage") * 0.01
 
-        self.direction      = (Vector(self.target:GetAbsOrigin().x, self.target:GetAbsOrigin().y, 0) - Vector(self.parent:GetAbsOrigin().x, self.parent:GetAbsOrigin().y, 0)):Normalized()
+        self.direction      = (Vector(args.destination_x, args.destination_y, 0) - Vector(self.parent:GetAbsOrigin().x, self.parent:GetAbsOrigin().y, 0)):Normalized()
         self.point          = self.parent:GetAbsOrigin() + self.direction * self.distance
 
         --self.parent:SetForwardVector(self.direction)
@@ -296,7 +381,7 @@ function modifier_nero_rosa_motion:OnCreated(table)
         self.AttackedTargets    = {}
         self.FirstTarget        = nil
 
-        self.distance_elapsed = 9999
+        self.time_elapsed = 9999
 
         --[[local dash_fx = ParticleManager:CreateParticle("particles/okita/okita_vendetta_try.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
         ParticleManager:SetParticleControl(dash_fx, 0, self.parent:GetAbsOrigin())
@@ -329,9 +414,24 @@ function modifier_nero_rosa_motion:UpdateHorizontalMotion(me, dt)
             local parent_pos = self.parent:GetAbsOrigin()
 
             local next_pos = parent_pos + self.direction * units_per_dt
+
+            if not self.parent:HasModifier("modifier_inside_marble") then
+	            if next_pos.x > 8160 then
+					next_pos.x = 8160
+				end
+				if next_pos.x < -8160 then
+					next_pos.x = -8160
+				end
+				if next_pos.y > 7000 then
+					next_pos.y = 7000
+				end
+				if next_pos.y < -1568 then
+					next_pos.y = -1568
+				end
+			end
             local distance_will = self.distance - units_per_dt
 
-            self.distance_elapsed = self.distance_elapsed + units_per_dt
+            self.time_elapsed = self.time_elapsed + dt
 
             --[[if distance_will < 0 then
                 next_pos = self.point
@@ -344,9 +444,9 @@ function modifier_nero_rosa_motion:UpdateHorizontalMotion(me, dt)
             self.target:SetOrigin(next_pos + self.direction*190)
             --self.parent:FaceTowards(self.point)
 
-            if self.distance_elapsed > 400 then
+            if self.time_elapsed > 0.3 then
             	self:PlayEffects()
-            	self.distance_elapsed = 0
+            	self.time_elapsed = 0
             end
 
             self.distance = self.distance - units_per_dt
@@ -393,7 +493,10 @@ function modifier_nero_rosa_motion:OnHorizontalMotionInterrupted()
 end
 function modifier_nero_rosa_motion:OnDestroy()
     if IsServer() then
-        self.parent:InterruptMotionControllers(true)
+        --self.parent:InterruptMotionControllers(true)
+        if self.parent.IsISAcquired then
+			HardCleanse(self.parent)
+		end
         self.target:RemoveModifierByName("modifier_nero_rosa_motion_enemy")
     end
 end
