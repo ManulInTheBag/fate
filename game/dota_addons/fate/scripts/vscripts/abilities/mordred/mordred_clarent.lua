@@ -1,4 +1,5 @@
 LinkLuaModifier("pedigree_off", "abilities/mordred/mordred_pedigree", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_clarent_slow", "abilities/mordred/mordred_clarent", LUA_MODIFIER_MOTION_NONE)
 
 mordred_clarent = class({})
 
@@ -48,7 +49,18 @@ function mordred_clarent:OnSpellStart()
 		if caster:IsAlive() then
 			excal.vSpawnOrigin = caster:GetAbsOrigin() 
 			excal.vVelocity = caster:GetForwardVector() * self:GetSpecialValueFor("speed")/0.3
-			local projectile = ProjectileManager:CreateLinearProjectile(excal)
+
+			local counter = 10
+			Timers:CreateTimer(0, function()        
+	            counter = counter -1
+	            if not caster:IsAlive() then return end
+	            local projectile = ProjectileManager:CreateLinearProjectile(excal)
+	            if(counter == 0) then
+	            	return  
+	            end
+	            return 0.08
+        	end)
+
 			ScreenShake(caster:GetOrigin(), 5, 0.1, 2, 20000, 0, true)
 			AddFOWViewer(2,Vector(caster:GetAbsOrigin().x,caster:GetAbsOrigin().y,caster:GetAbsOrigin().z + 200) + caster:GetForwardVector()*100, 10, 1, false)
     		AddFOWViewer(3,Vector(caster:GetAbsOrigin().x,caster:GetAbsOrigin().y,caster:GetAbsOrigin().z + 200) + caster:GetForwardVector()*100, 10, 1, false)
@@ -124,13 +136,33 @@ function mordred_clarent:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
 
 	local caster = self:GetCaster()
 	local target = hTarget 
-	local damage = self:GetSpecialValueFor("damage") + caster:GetMaxMana()*self:GetSpecialValueFor("mana_percent")/100
+	local damage = self:GetSpecialValueFor("damage") + caster:GetMaxMana()*self:GetSpecialValueFor("mana_percent")/1000
 	if caster:HasModifier("modifier_mordred_overload") then
-		damage = damage + caster:GetMaxMana()*1/5
+		damage = damage + caster:GetMaxMana()*1/25
 	end
+
+	target:AddNewModifier(caster, self, "modifier_clarent_slow", {Duration = self:GetSpecialValueFor("slow_duration")})
+	giveUnitDataDrivenModifier(caster, target, "locked", self:GetSpecialValueFor("lock_duration"))
+
 	local ply = caster:GetPlayerOwner()
 	if target:GetUnitName() == "gille_gigantic_horror" then damage = damage*1.3 end
-	if target:GetName() == "npc_dota_hero_legion_commander" or target:GetName() == "npc_dota_hero_spectre" then damage = damage + 200 end
+	if target:GetName() == "npc_dota_hero_legion_commander" or target:GetName() == "npc_dota_hero_spectre" then damage = damage + 20 end
 	
 	DoDamage(caster, target, damage , DAMAGE_TYPE_MAGICAL, 0, self, false)
+end
+
+modifier_clarent_slow = class({})
+
+function modifier_clarent_slow:DeclareFunctions()
+	local funcs = {MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE}
+
+	return funcs
+end
+
+function modifier_clarent_slow:GetModifierMoveSpeedBonus_Percentage()
+	return -self:GetAbility():GetSpecialValueFor("slow")
+end
+
+function modifier_clarent_slow:IsHidden()
+	return true 
 end
