@@ -21,7 +21,7 @@ function saito_formlessness:GetCastPoint()
 			return 0.6
 		end
 	elseif self:CheckSequence()>0 then
-		return 0.03
+		return 0.0
 	else
 		return 0.3
 	end
@@ -186,6 +186,7 @@ end
 function saito_formlessness:SaitoFormlessnessStart()
 
 	local caster = self:GetCaster()
+	caster.formlessnessmeme = false
 	self:SequenceSkill()
 	self:EndCooldown()
 	self:StartCooldown( self:GetSpecialValueFor("slashes_start_delay"))
@@ -345,8 +346,9 @@ function saito_formlessness:SaitoFormlessnessLastSlash()
 	local DamageType = DAMAGE_TYPE_MAGICAL
 	local damage = self:GetSpecialValueFor("damage_last_slash")
 	if(caster.ShinsengumiAcquired) then
-		damage = damage + caster:GetModifierStackCount("modifier_saito_fdb_repeated",caster) *self:GetSpecialValueFor("damage_per_stack") +  caster:GetAttackDamage()*self:GetSpecialValueFor("atk_scale_last")
-	end
+		damage = damage  +  caster:GetAttackDamage()*self:GetSpecialValueFor("atk_scale_last")
+ 	end
+	
 	local target = self:GetCursorTarget()
 	local angle = VectorToAngles(caster:GetForwardVector()).y
 	--local illusion  = caster.illusion 

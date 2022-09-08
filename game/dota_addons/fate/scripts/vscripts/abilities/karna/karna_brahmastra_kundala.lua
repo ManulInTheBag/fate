@@ -47,7 +47,7 @@ function karna_brahmastra_kundala:OnSpellStart()
 		ParticleManager:SetParticleControl(point_particle_2, 0,  target_point+Vector(0,0,350) )
 		ParticleManager:SetParticleControl(point_particle_2, 1,  Vector(300,0,0) )
 
-		Timers:CreateTimer(0.8, function()
+		Timers:CreateTimer(1.0, function()
 			ParticleManager:DestroyParticle(point_particle, false)
 			ParticleManager:ReleaseParticleIndex(point_particle)
 			ParticleManager:DestroyParticle(point_particle_2, false)

@@ -18,9 +18,13 @@ function saito_mind_eye:OnSpellStart()
             self.stackCount = self.modifierRepeated:GetStackCount()
         end
     end
+
+    caster:RemoveModifierByName("modifier_saito_fdb_lastQ")
+	caster:RemoveModifierByName("modifier_saito_fdb_lastW")
+    caster:RemoveModifierByName("modifier_saito_fdb_lastE")
    
 	caster:AddNewModifier(caster, self, "modifier_saito_mind_eye",{duration = duration })
-    caster:Stop()
+ 
     caster:SetForwardVector( (  self.target-caster:GetAbsOrigin()):Normalized())
   
     LoopOverPlayers(function(player, playerID, playerHero)
@@ -215,11 +219,15 @@ end
 
 function modifier_saito_mind_eye:DeclareFunctions()
     local funcs = {
-        MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,    
+        MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,  
+        MODIFIER_PROPERTY_DISABLE_TURNING   
 		
     }
  
     return funcs
+end
+function modifier_saito_mind_eye:GetModifierDisableTurning()
+    return 1
 end
 
 function modifier_saito_mind_eye:CheckState()
@@ -229,8 +237,7 @@ function modifier_saito_mind_eye:CheckState()
                         [MODIFIER_STATE_DISARMED] = true,
 						[MODIFIER_STATE_SILENCED] = true,
 						[MODIFIER_STATE_MUTED] = true,
-                        [MODIFIER_STATE_COMMAND_RESTRICTED] = true
-
+   
                     }
     return state
 end
