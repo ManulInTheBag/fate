@@ -4634,8 +4634,10 @@
 		"DOTA_Tooltip_Ability_mordred_rush_Lore"	"You think, you can escape? Huh."
 
 		"DOTA_Tooltip_Ability_mordred_clarent"	"Clarent Blood Arhtur"
-		"DOTA_Tooltip_Ability_mordred_clarent_Description"	"Mordred supercharges Clarent with her prana using Mana Burst to utilize it as an Anti-Army Noble Phantasm and then swing it, releasing a deadly wave of crimson light. Deals additional damage based on her max mana (but does not spend it).\nRemoves her helmet on cast."
-		"DOTA_Tooltip_Ability_mordred_clarent_damage"	"Base damage:"
+		"DOTA_Tooltip_Ability_mordred_clarent_Description"	"Mordred supercharges Clarent with her prana using Mana Burst to utilize it as an Anti-Army Noble Phantasm and then swing it, releasing a deadly wave of crimson light. This ability deals damage within 10 instances over a period of 0.8 seconds. Enemies hit are greatly slowed and dimensionally locked for a short period of time. Deals additional damage based on her max mana (but does not spend it).\nRemoves her helmet on cast."
+		"DOTA_Tooltip_Ability_mordred_clarent_damage"	"Base damage per tick:"
+		"DOTA_Tooltip_Ability_mordred_clarent_slow"		"%Slow:"
+		
 		"DOTA_Tooltip_Ability_mordred_clarent_mana_percent"	"%Max mana converted to damage:"
 		"DOTA_Tooltip_Ability_mordred_clarent_range"	"Range:"
 		"DOTA_Tooltip_Ability_mordred_clarent_Lore"	"This is the cursed sword that destroyed my Father. Clarent Blood Arthur!"
@@ -4667,7 +4669,7 @@
 		"DOTA_Tooltip_Ability_mordred_pedigree_attribute_Description"	"Gives additional armor and magic resistance from Secret of Pedigree."
 
 		"DOTA_Tooltip_Ability_mordred_overload_attribute"	"Attribute: Lightning Overload"
-		"DOTA_Tooltip_Ability_mordred_overload_attribute_Description"	"When Mordred casts a spell, she deals 10*(Slash + Hit + Rage Rush levels) magic damage, stuns all enemies for 0.05*(Slash+Hit+Rage Rush levels) in 400 radius and reveals this area. Clarent Blood Arthur 20% more damage from mana."
+		"DOTA_Tooltip_Ability_mordred_overload_attribute_Description"	"When Mordred casts a spell, she deals 10*(Slash + Hit + Rage Rush levels) magic damage, stuns all enemies for 0.05*(Slash+Hit+Rage Rush levels) in 400 radius and reveals this area. Clarent Blood Arthur 40% more damage from mana."
 		
 
 		//====================================
