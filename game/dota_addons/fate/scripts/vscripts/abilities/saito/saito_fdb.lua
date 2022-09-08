@@ -1,5 +1,6 @@
 
 LinkLuaModifier("modifier_saito_fdb", "abilities/saito/saito_fdb", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_saito_fdb_pause", "abilities/saito/saito_fdb", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_saito_fdb_repeated", "abilities/saito/saito_fdb", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_saito_fdb_lastQ", "abilities/saito/saito_fdb", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_saito_fdb_lastW", "abilities/saito/saito_fdb", LUA_MODIFIER_MOTION_NONE)
@@ -104,23 +105,40 @@ function modifier_saito_fdb:SpendStack()
     local stacks = self:GetStackCount()
     local caster = self:GetParent()
     local abilitycd = caster:GetAbilityByIndex(1):GetCooldown(caster:GetAbilityByIndex(1):GetLevel()-1)
+    if(caster:HasModifier("modifier_saito_combo")) then
+        abilitycd = 3
+    end
     if(stacks<=0) then 
+        caster:GetAbilityByIndex(0):EndCooldown()    
+        caster:GetAbilityByIndex(1):EndCooldown()
+        caster:GetAbilityByIndex(2):EndCooldown()
         caster:GetAbilityByIndex(0):StartCooldown(abilitycd)    
         caster:GetAbilityByIndex(1):StartCooldown(abilitycd)
         caster:GetAbilityByIndex(2):StartCooldown(abilitycd)
+        caster.qused = 0
+        caster.wused = 0
+        caster.eused = 0
         --caster:GetAbilityByIndex(4):StartCooldown(abilitycd)
         caster:RemoveModifierByName("modifier_saito_fdb_lastQ")
         caster:RemoveModifierByName("modifier_saito_fdb_lastE")
         caster:RemoveModifierByName("modifier_saito_fdb_lastW")
+        caster.formlessnessmeme = true
         return false end
     if(stacks==1) then 
+        caster:GetAbilityByIndex(0):EndCooldown()    
+        caster:GetAbilityByIndex(1):EndCooldown()
+        caster:GetAbilityByIndex(2):EndCooldown()
             caster:GetAbilityByIndex(0):StartCooldown(abilitycd)    
             caster:GetAbilityByIndex(1):StartCooldown(abilitycd)
             caster:GetAbilityByIndex(2):StartCooldown(abilitycd)
+            caster.qused = 0
+            caster.wused = 0
+            caster.eused = 0
            -- caster:GetAbilityByIndex(4):StartCooldown(abilitycd)
             caster:RemoveModifierByName("modifier_saito_fdb_lastQ")
             caster:RemoveModifierByName("modifier_saito_fdb_lastE")
             caster:RemoveModifierByName("modifier_saito_fdb_lastW")
+            caster.formlessnessmeme = true
     end  
     local caster = self:GetAbility():GetCaster()
     self:SetStackCount(stacks-1)
@@ -150,6 +168,9 @@ function modifier_saito_fdb_repeated:OnCreated()
     self:SetStackCount(1)
     local caster = self:GetParent()
     local abilitycd = caster:GetAbilityByIndex(1):GetCooldown(caster:GetAbilityByIndex(1):GetLevel()-1)
+    if(caster:HasModifier("modifier_saito_combo")) then
+        abilitycd = 3
+    end
     if(IsServer) then
         if(caster:GetModifierStackCount("modifier_saito_fdb",caster)>0) then
              caster:GetAbilityByIndex(0):EndCooldown()    
@@ -168,17 +189,29 @@ function modifier_saito_fdb_repeated:OnCreated()
         self:GetParent():RemoveModifierByName("modifier_saito_fdb_repeated")
       
         --caster:GetAbilityByIndex(4):StartCooldown(abilitycd)
+        caster:GetAbilityByIndex(0):EndCooldown()    
+        caster:GetAbilityByIndex(1):EndCooldown()
+        caster:GetAbilityByIndex(2):EndCooldown()
         caster:GetAbilityByIndex(0):StartCooldown(abilitycd)    
         caster:GetAbilityByIndex(1):StartCooldown(abilitycd)
         caster:GetAbilityByIndex(2):StartCooldown(abilitycd)
+        caster.qused = 0
+        caster.wused = 0
+        caster.eused = 0
         caster:RemoveModifierByName("modifier_saito_fdb_lastQ")
         caster:RemoveModifierByName("modifier_saito_fdb_lastE")
         caster:RemoveModifierByName("modifier_saito_fdb_lastW")
         if(not (caster:HasModifier("modifier_saito_mind_eye") or caster:HasModifier("modifier_saito_formlessness_casting") ) ) then
             --caster:GetAbilityByIndex(4):StartCooldown(abilitycd)
+            caster:GetAbilityByIndex(0):EndCooldown()    
+            caster:GetAbilityByIndex(1):EndCooldown()
+            caster:GetAbilityByIndex(2):EndCooldown()
             caster:GetAbilityByIndex(0):StartCooldown(abilitycd)    
             caster:GetAbilityByIndex(1):StartCooldown(abilitycd)
             caster:GetAbilityByIndex(2):StartCooldown(abilitycd)
+            caster.qused = 0
+            caster.wused = 0
+            caster.eused = 0
             caster:RemoveModifierByName("modifier_saito_fdb_lastQ")
             caster:RemoveModifierByName("modifier_saito_fdb_lastE")
             caster:RemoveModifierByName("modifier_saito_fdb_lastW")
@@ -194,6 +227,9 @@ function modifier_saito_fdb_repeated:OnStackCountChanged()
     local caster = self:GetParent()
      
     local abilitycd = caster:GetAbilityByIndex(1):GetCooldown(caster:GetAbilityByIndex(1):GetLevel()-1)
+    if(caster:HasModifier("modifier_saito_combo")) then
+        abilitycd = 3
+    end
     if( caster:GetModifierStackCount("modifier_saito_fdb",caster)>0) then
         caster:GetAbilityByIndex(0):EndCooldown()    
         caster:GetAbilityByIndex(1):EndCooldown()
@@ -214,9 +250,15 @@ function modifier_saito_fdb_repeated:OnStackCountChanged()
        
         if(not (caster:HasModifier("modifier_saito_mind_eye") or caster:HasModifier("modifier_saito_formlessness_casting")  ) ) then
             --caster:GetAbilityByIndex(4):StartCooldown(abilitycd)
+            caster:GetAbilityByIndex(0):EndCooldown()    
+            caster:GetAbilityByIndex(1):EndCooldown()
+            caster:GetAbilityByIndex(2):EndCooldown()
             caster:GetAbilityByIndex(0):StartCooldown(abilitycd)    
             caster:GetAbilityByIndex(1):StartCooldown(abilitycd)
             caster:GetAbilityByIndex(2):StartCooldown(abilitycd)
+            caster.qused = 0
+            caster.wused = 0
+            caster.eused = 0
             caster:RemoveModifierByName("modifier_saito_fdb_lastQ")
             caster:RemoveModifierByName("modifier_saito_fdb_lastE")
             caster:RemoveModifierByName("modifier_saito_fdb_lastW") 
@@ -368,3 +410,16 @@ end
 function modifier_saito_fdb_vision_provider:GetAttributes()
 	return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
+
+modifier_saito_fdb_pause = class({})
+
+function modifier_saito_fdb_pause:IsHidden()	return true end
+function modifier_saito_fdb_pause:RemoveOnDeath()return true end 
+function modifier_saito_fdb_pause:IsDebuff() 	return false end
+
+function modifier_saito_fdb_pause:CheckState()
+	return { [MODIFIER_STATE_DISARMED] = true,
+			 [MODIFIER_STATE_ROOTED] = true,
+             [MODIFIER_STATE_MUTED] = true,
+             [MODIFIER_STATE_SILENCED] = true,}
+end	

@@ -20,14 +20,14 @@ function OnSeal1Start(keys)
 	local hero = ply:GetAssignedHero()
 
 	if caster:GetHealth() == 1 then
-		caster:SetMana(caster:GetMana()+2) 
+		caster:SetMana(caster:GetMana()+3) 
 		keys.ability:EndCooldown() 
 		SendErrorMessage(caster:GetPlayerOwnerID(), "#Master_Not_Enough_Health")
 		return 
 	end
 
 	if not hero:IsAlive() or  ( IsRevoked(hero) and not hero:HasModifier("modifier_master_intervention")) then
-		caster:SetMana(caster:GetMana()+2) 
+		caster:SetMana(caster:GetMana()+3) 
 		keys.ability:EndCooldown() 
 		SendErrorMessage(caster:GetPlayerOwnerID(), "#Revoked_Error")
 		return
@@ -236,10 +236,10 @@ function OnSeal3Start(keys)
 	if caster.IsFirstSeal == true then
 		keys.ability:EndCooldown()
 	else
-		caster:FindAbilityByName("cmd_seal_1"):StartCooldown(30)
-		caster:FindAbilityByName("cmd_seal_2"):StartCooldown(30)
-		caster:FindAbilityByName("cmd_seal_3"):StartCooldown(30)
-		caster:FindAbilityByName("cmd_seal_4"):StartCooldown(30)
+		caster:FindAbilityByName("cmd_seal_1"):StartCooldown(20)
+		caster:FindAbilityByName("cmd_seal_2"):StartCooldown(20)
+		caster:FindAbilityByName("cmd_seal_3"):StartCooldown(20)
+		caster:FindAbilityByName("cmd_seal_4"):StartCooldown(20)
 		keys.ability:ApplyDataDrivenModifier(keys.caster, hero, "modifier_command_seal_3",{})
 	end
 end
@@ -293,10 +293,10 @@ function OnSeal4Start(keys)
 	if caster.IsFirstSeal == true then
 		keys.ability:EndCooldown()
 	else
-		caster:FindAbilityByName("cmd_seal_1"):StartCooldown(30)
-		caster:FindAbilityByName("cmd_seal_2"):StartCooldown(30)
-		caster:FindAbilityByName("cmd_seal_3"):StartCooldown(30)
-		caster:FindAbilityByName("cmd_seal_4"):StartCooldown(30)
+		caster:FindAbilityByName("cmd_seal_1"):StartCooldown(10)
+		caster:FindAbilityByName("cmd_seal_2"):StartCooldown(10)
+		caster:FindAbilityByName("cmd_seal_3"):StartCooldown(10)
+		caster:FindAbilityByName("cmd_seal_4"):StartCooldown(10)
 		keys.ability:ApplyDataDrivenModifier(keys.caster, hero, "modifier_command_seal_4",{})
 	end
 end

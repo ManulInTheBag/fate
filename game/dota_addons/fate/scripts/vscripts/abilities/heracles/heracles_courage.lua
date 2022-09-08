@@ -12,7 +12,13 @@ function heracles_courage:OnSpellStart()
 	local ability = self
 	local radius = self:GetAOERadius()
 	local lazy_counter = 0
-
+	if(caster.MEacquired == true) then
+		local cd = caster:FindAbilityByName("heracles_nine_lives"):GetCooldownTimeRemaining()
+		caster:FindAbilityByName("heracles_nine_lives"):EndCooldown()
+		if(cd > 0 ) then
+			caster:FindAbilityByName("heracles_nine_lives"):StartCooldown(cd -5)
+		end
+	end
 	-- Apply stackable speed buff
 	--[[local currentStack = caster:GetModifierStackCount("modifier_courage_self_buff", self)
 	if modifier then 

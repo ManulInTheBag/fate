@@ -12,8 +12,7 @@ function heracles_mad_enhancement_attribute:OnSpellStart()
 	end
 
 	hero:FindAbilityByName("heracles_mad_enhancement_passive"):SetLevel(1)
-
-	-- Set master 1's mana 
+	hero.MEacquired = true
 	local master = hero.MasterUnit
 	master:SetMana(master:GetMana() - self:GetManaCost(self:GetLevel()))
 end

@@ -19,6 +19,7 @@
 		"arena_game_mode_type_elim_7v7" "WELCOME TO THE BRIDGE"
 		"arena_game_mode_type_fate_7v7_beta" "WELCOME TO THE BRIDGE"
 		"arena_game_mode_type_elim_7v7_test" "WELCOME TO THE BRIDGE"
+		"arena_game_mode_type_fate_7vs7_beta" "WELCOME TO THE BRIDGE"
 		"arena_game_mode_type_ffa" "HOKKAIDO MOUNTAIN TRAINING"
 		"arena_game_mode_type_trio_rumble_3v3v3v3" "CIRCUS IS STARTING"
 
@@ -207,7 +208,7 @@
 		"DOTA_Tooltip_modifier_muramasa_combo_cd_Description"				"combo is on cooldown"
 
 		"DOTA_Tooltip_modifier_eye_of_karma"									"Eye of karma"
-		"DOTA_Tooltip_modifier_eye_of_karma_Description"				"less than 50% hp"
+		"DOTA_Tooltip_modifier_eye_of_karma_Description"				"less than half hp"
 		
 
 		
@@ -2856,7 +2857,7 @@
 		"DOTA_Tooltip_ability_pepeg_combo_final_gachi_Description"	"<font color='#58ACFA'>Combo Requirement : 80 Intellect. </font>\n<font color='#58ACFA'>Combo Sequence : Q-Q in 4 seconds</font>\nBerserker uses his true Gachi Power to teach target right ways of fisting."	
 
 		"DOTA_Tooltip_Ability_heracles_mad_enhancement_attribute"					"Attribute: Mad Enhancement"
-		"DOTA_Tooltip_ability_heracles_mad_enhancement_attribute_Description"		"Berserk gives Heracles up to 154 additional attack speed, 100%% additional movespeed and 100%% additional base damage based on how much health he's lost.\nSuffering more than 500 damage in one impact will reduce Berserk's cooldown by 2 seconds. Effect cooldown: 2 seconds. \n Increase duration of the berserk by 1 second"	
+		"DOTA_Tooltip_ability_heracles_mad_enhancement_attribute_Description"		"Berserk gives Heracles up to 154 additional attack speed, 100%% additional movespeed and 100%% additional base damage based on how much health he's lost.\nSuffering more than 500 damage in one impact will reduce Berserk's cooldown by 2 seconds. Effect cooldown: 2 seconds. \n Increase duration of the berserk by 1 second.\nUsing courage lowers nine lives cooldown by 5 seconds."	
 		//"DOTA_Tooltip_Ability_heracles_mad_enhancement_attribute_Note0"				"Slow Immunity is only while Berserk is active."
 		//=================================================================================================================
 		//	Sakura Saber
@@ -6545,7 +6546,7 @@
 		"npc_dota_hero_terrorblade_bio"						""
 
         "DOTA_Tooltip_ability_saito_quickslash"						"Quick slash"
-        "DOTA_Tooltip_ability_saito_quickslash_Description"			"Dashes to the target location, dealing damage which scale with atk to every enemy on the way and rooting them for 0.2s . If there was no obstacles, Saito will automaticly turn 180 degrees.\nSaito is rooted, locked and disarmed while dashing.\nThis ability range will be halfed if used 2 or more times in a row "
+        "DOTA_Tooltip_ability_saito_quickslash_Description"			"Dashes to the target location, dealing damage which scale with atk to every enemy on the way and rooting them for 0.2s . If there was no obstacles, Saito will automaticly turn to the closest enemy.\nSaito is rooted, locked and disarmed while dashing.\nThis ability range will be halfed if used 2 or more times in a row "
         
         "DOTA_Tooltip_ability_saito_quickslash_dist"				"Distance:"
         "DOTA_Tooltip_ability_saito_quickslash_damage"				"Damage:"
@@ -6565,7 +6566,7 @@
 	 
 
         "DOTA_Tooltip_ability_saito_inv_sword"					"Invincible sword"
-        "DOTA_Tooltip_ability_saito_inv_sword_Description"	 	"Saito slashes enemies in front of him twice. First strike microstuns enemies hit. \n
+        "DOTA_Tooltip_ability_saito_inv_sword_Description"	 	"Saito quickly slashes all enemies around him. \n
         This ability damage will be halfed if used 2 or more times in a row. Damage scales with atk"
         "DOTA_Tooltip_ability_saito_inv_sword_damage"			"Damage:"
         "DOTA_Tooltip_ability_saito_inv_sword_range"			"Range:"
@@ -6582,7 +6583,7 @@
         "DOTA_Tooltip_ability_saito_mind_eye_Lore"				"The bad part about all this mind eye thing is that you may already know that you are dead, but have absolutely no options to fix that"
 
         "DOTA_Tooltip_ability_saito_hajime_fdb"				"Freely drawn blade"
-        "DOTA_Tooltip_ability_saito_hajime_fdb_Description"	"Passive: Quickslash, Ground slam and Invincible sword abilities share the same cooldown, and can be used up to %recast_amount% times. If you use same ability 2 or more times in a row, it will be weakened and their cast point will be doubled. All these abilities must be used in sequence and if you fail to fit in the interval, they will go on cooldown. Time interval starts with 1 second and decreases by 0.05 on every consecutive use. On >3 and >5 consecutive use these abilities will have their cast point lowered. Both Mind eye and Formlessness could be used in combination without interrupting it.\n
+        "DOTA_Tooltip_ability_saito_hajime_fdb_Description"	"Passive: Quickslash, Ground slam and Invincible sword abilities share the same cooldown, and can be used up to %recast_amount% times. If you use same ability 2 or more times in a row, it will be weakened. All these abilities must be used in sequence and if you fail to fit in the interval, they will go on cooldown. If you use same ability 3 times, combination will end. Time interval starts with 1 second and decreases by 0.05 on every consecutive use.  Both Mind eye and Formlessness could be used in combination without interrupting it.\n
         Active: Saito gains buff, gaining vision on all enemies around himself, restores mana every time he deals damage with any of his abilities and  delays part of damage received by 1.5 seconds."
         "DOTA_Tooltip_ability_saito_hajime_fdb_vision_duration"			"Vision duration:"
         "DOTA_Tooltip_ability_saito_hajime_fdb_buff_duration"			"Buff duration:"
@@ -6604,7 +6605,7 @@
   
 
 		"DOTA_Tooltip_ability_saito_undefeatable_style"						"Combo: Undefeatable style"
-        "DOTA_Tooltip_ability_saito_undefeatable_style_Description"			"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: F-F in 2 seconds</font>\nSaito becomes serious, concentrating on defence for a short period, gaining armor, magic resistance and delayed damage just like with Freely Drawn Blade. Every %spellblock_cd% seconds he can block a targeted spell. \nHis technique also benefits from concentration, Saito restores mana every time he deals damage with an ability\nFor a  duration  this ability changes to One by one\nOne by one: Saito attacks all enemies around him, pushing them away, stunning and silensing for a short 	duration."
+        "DOTA_Tooltip_ability_saito_undefeatable_style_Description"			"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: F-F in 2 seconds</font>\nSaito becomes serious, gaining armor, magic resistance and delayed damage just like with Freely Drawn Blade. Every %spellblock_cd% seconds he can block a targeted spell. \nHis technique also benefits from concentration, Saito restores mana every time he deals damage with an ability and his QWE abilities have only 3 seconds cooldown for a duration\nFor a  duration  this ability changes to One by one\nOne by one: Saito attacks all enemies around him, pushing them away, stunning and silensing for a short 	duration."
         "DOTA_Tooltip_ability_saito_undefeatable_style_armor"			"Bonus armor:"
         "DOTA_Tooltip_ability_saito_undefeatable_style_magic_res"		"%Bonus magic resist:"
 		"DOTA_Tooltip_ability_saito_undefeatable_style_mana_refund"		"Mana gained:"
@@ -6627,8 +6628,7 @@
         "DOTA_Tooltip_ability_saito_undefeatable_swordsman_attribute_combo_health"		"Combo health restored:"
 
         "DOTA_Tooltip_ability_saito_shinsengumi_attribute"				"Attribute: Shinsengumi"
-        "DOTA_Tooltip_ability_saito_shinsengumi_attribute_Description"	"Formlessness last slash will deal additional damaged based on current Freely drawn blade combination counter.\nIncrease all slash damage based on attack"
-        "DOTA_Tooltip_ability_saito_shinsengumi_attribute_damage_per_stack"			"Damage per stack:"
+        "DOTA_Tooltip_ability_saito_shinsengumi_attribute_Description"	"\nIncrease all formlessness slash damage based on attack. Using same QWE ability for third time will have an additional effect:Quickslash's dash speed is greatly increased, ground slam has doubled radius and Invinsible sword is casted twice."
         "DOTA_Tooltip_ability_saito_shinsengumi_attribute_damage_atk_scale"			"Slash damage from atk:"
         "DOTA_Tooltip_ability_saito_shinsengumi_attribute_damage_atk_scale_last"			"Last slash damage from atk:"
 

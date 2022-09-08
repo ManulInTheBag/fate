@@ -11,7 +11,10 @@ end
 
 
 function saito_undefeatable_style_active:OnSpellStart()
+    
     local caster = self:GetCaster()
+    StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_CAST_ABILITY_1, rate=1})	
+    Timers:CreateTimer(0.2, function()
     local ability = self
     local radius = self:GetSpecialValueFor("radius")
     local damage = self:GetSpecialValueFor("damage")
@@ -59,7 +62,7 @@ function saito_undefeatable_style_active:OnSpellStart()
 					end)
     end 
 
-   
+end)
 end
 
 modifier_saito_combo_silence = class({})

@@ -1907,6 +1907,11 @@ function FateGameMode:OnHeroInGame(hero)
         hero:AddNewModifier(hero, hero:FindAbilityByName("nursery_rhyme_queens_glass_game"), "modifier_rhyme_flying_book", {})
     end
 
+    if hero:GetName() == "npc_dota_hero_terrorblade" then
+        hero.qused = 0
+        hero.wused = 0
+        hero.eused = 0
+    end
     if hero:GetName() == "npc_dota_hero_juggernaut" then -- or hero:GetName() == "npc_dota_hero_shadow_shaman" then
         hero:FindAbilityByName("attribute_bonus_custom_no_int"):SetHidden(false)
     else
