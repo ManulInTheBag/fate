@@ -14,10 +14,13 @@ function OnDropDownChanged()
     var selection = $("#FateConfigBGMList").GetSelected();
     g_GameConfig.nextBGMIndex = parseInt(selection.id);
     //$.Msg("Next BGM Index: " + selection.id);
+    //$.Msg("Schedule num: " + g_GameConfig.BGMSchedule);
     if (g_GameConfig.BGMSchedule != 0) {
+        $.Msg("schedule probably cancelled")
         $.CancelScheduled(g_GameConfig.BGMSchedule, {});
     }
     PlayBGM();
+    //$.CancelScheduled(g_GameConfig.BGMSchedule, {});
 }
 
 function PlayBGM()
@@ -34,19 +37,22 @@ function PlayBGM()
 
     // Set a flag so that OnDropDownChange() does not run due to SetSelected()
     g_GameConfig.bIsAutoChange = true;
+    //$.Msg("Scheduled destroying")
     $.Schedule(0.033, function(){g_GameConfig.bIsAutoChange = false;})
 
     if (dropPanel) {dropPanel.SetSelected(g_GameConfig.nextBGMIndex)};
     g_GameConfig.curBGMentindex = Game.EmitSound(BGMname);
 
     g_GameConfig.BGMSchedule = $.Schedule(BGMduration, function(){
+        //$.Msg("Schedule worked, destroying current BGM" + g_GameConfig.curBGMIndex.toString())
         if (g_GameConfig.bIsBGMOn === true){
             if (!g_GameConfig.bRepeat) {
-                g_GameConfig.nextBGMIndex = Math.floor((Math.random() * 12) + 1);
+                g_GameConfig.nextBGMIndex = Math.floor((Math.random() * 16) + 1);
             }
             PlayBGM();
         }
     });
+    //$.Msg(g_GameConfig.BGMSchedule)
 }
 
 function StopBGM()
