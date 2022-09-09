@@ -27,7 +27,9 @@ if(caster.wused == 3) then
 	caster:SetModifierStackCount("modifier_saito_fdb",caster,0)
 end
 modifier_jopa:SpendStack()
-Timers:CreateTimer(0.1, function()
+caster.currentused = caster.currentused+1
+local additional_delay = (caster.currentused-1)/8
+Timers:CreateTimer(0.1 + additional_delay, function()
  
 	
 
@@ -60,7 +62,7 @@ Timers:CreateTimer(0.1, function()
 		end
 	end)
 
-
+	caster.currentused = caster.currentused-1
     local point = caster:GetAbsOrigin() -- + caster:GetForwardVector()*self:GetSpecialValueFor("range") 
     --StartAnimation(caster, {duration = 1, activity = ACT_DOTA_RAZE_2, rate = 1+(0.4-self:GetCastPoint())*2})  
  	 local 	partname

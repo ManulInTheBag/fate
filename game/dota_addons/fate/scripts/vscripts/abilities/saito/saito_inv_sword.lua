@@ -31,7 +31,9 @@ function saito_inv_sword:OnSpellStart()
 		caster:SetModifierStackCount("modifier_saito_fdb",caster,0)
 	end
     modifier_jopa:SpendStack()
-Timers:CreateTimer(0.1, function()
+    caster.currentused = caster.currentused+1
+	local additional_delay = (caster.currentused-1)/8
+Timers:CreateTimer(0.1 + additional_delay, function()
 	local ability = self
     local damage = self:GetSpecialValueFor("damage")+ caster:GetAttackDamage()*self:GetSpecialValueFor("atk_scale")
     
@@ -55,7 +57,7 @@ Timers:CreateTimer(0.1, function()
     end)
     local radius = self:GetSpecialValueFor("radius")
     local width = 120
-    
+    caster.currentused = caster.currentused-1
     caster:AddNewModifier(caster, caster, "modifier_saito_fdb_lastE",{duration = 15})
 	caster:RemoveModifierByName("modifier_saito_fdb_lastQ")
 	caster:RemoveModifierByName("modifier_saito_fdb_lastW")

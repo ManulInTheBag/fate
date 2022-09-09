@@ -118,6 +118,7 @@ function modifier_saito_fdb:SpendStack()
         caster.qused = 0
         caster.wused = 0
         caster.eused = 0
+        caster.currentused = 0
         --caster:GetAbilityByIndex(4):StartCooldown(abilitycd)
         caster:RemoveModifierByName("modifier_saito_fdb_lastQ")
         caster:RemoveModifierByName("modifier_saito_fdb_lastE")
@@ -134,6 +135,7 @@ function modifier_saito_fdb:SpendStack()
             caster.qused = 0
             caster.wused = 0
             caster.eused = 0
+            caster.currentused = 0
            -- caster:GetAbilityByIndex(4):StartCooldown(abilitycd)
             caster:RemoveModifierByName("modifier_saito_fdb_lastQ")
             caster:RemoveModifierByName("modifier_saito_fdb_lastE")
@@ -198,6 +200,7 @@ function modifier_saito_fdb_repeated:OnCreated()
         caster.qused = 0
         caster.wused = 0
         caster.eused = 0
+        caster.currentused = 0
         caster:RemoveModifierByName("modifier_saito_fdb_lastQ")
         caster:RemoveModifierByName("modifier_saito_fdb_lastE")
         caster:RemoveModifierByName("modifier_saito_fdb_lastW")
@@ -212,6 +215,7 @@ function modifier_saito_fdb_repeated:OnCreated()
             caster.qused = 0
             caster.wused = 0
             caster.eused = 0
+            caster.currentused = 0
             caster:RemoveModifierByName("modifier_saito_fdb_lastQ")
             caster:RemoveModifierByName("modifier_saito_fdb_lastE")
             caster:RemoveModifierByName("modifier_saito_fdb_lastW")
@@ -259,6 +263,7 @@ function modifier_saito_fdb_repeated:OnStackCountChanged()
             caster.qused = 0
             caster.wused = 0
             caster.eused = 0
+            caster.currentused = 0
             caster:RemoveModifierByName("modifier_saito_fdb_lastQ")
             caster:RemoveModifierByName("modifier_saito_fdb_lastE")
             caster:RemoveModifierByName("modifier_saito_fdb_lastW") 

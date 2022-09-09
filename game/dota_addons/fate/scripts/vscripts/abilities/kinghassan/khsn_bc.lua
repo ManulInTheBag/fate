@@ -2,77 +2,73 @@ LinkLuaModifier("modifier_khsn_bc", "abilities/kinghassan/khsn_bc", LUA_MODIFIER
 LinkLuaModifier("modifier_khsn_bc_pepega", "abilities/kinghassan/khsn_bc", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_khsn_bc_cooldown", "abilities/kinghassan/khsn_bc", LUA_MODIFIER_MOTION_NONE)
 
-khsn_bc = class({})
+khsn_bc = khsn_bc or class({})
 
 function khsn_bc:GetIntrinsicModifierName()
     return "modifier_khsn_bc_pepega"
 end
 
-modifier_khsn_bc_pepega = class({})
+modifier_khsn_bc_pepega = modifier_khsn_bc_pepega or class({})
 
-
+function modifier_khsn_bc_pepega:IsHidden()         return true end
+function modifier_khsn_bc_pepega:IsPermanent()      return true end
+function modifier_khsn_bc_pepega:RemoveOnDeath()    return false end
 function modifier_khsn_bc_pepega:DeclareFunctions()
-    return { --MODIFIER_EVENT_ON_TAKEDAMAGE,
-             }
+    local hFunc =   {
+                        MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK
+                    }
+    return hFunc
 end
+function modifier_khsn_bc_pepega:GetModifierTotal_ConstantBlock(keys)
+    if IsServer()
+        and ( ( self.hParent.BattleContinuationAcquired and not self.hParent:HasModifier("modifier_khsn_bc_cooldown") ) or Convars:GetBool("dota_ability_debug") ) then
+        local fHealth = keys.target:GetHealth() - keys.damage
+        if fHealth < 1 then
+            self.hParent:ModifyHealth(fHealth, self.hAbility, false, DOTA_DAMAGE_FLAG_NONE)
 
-function modifier_khsn_bc_pepega:IsHidden() 
-    return true 
-end
+            local fHeal = self.hParent:GetMaxHealth() * 0.25
 
-function modifier_khsn_bc_pepega:IsPermanent()
-    return true
-end
+            self.hParent:Heal(fHeal, self.hAbility)
+            
+            SendOverheadEventMessage(nil, OVERHEAD_ALERT_BLOCKED, keys.target, keys.damage, nil)
 
-function modifier_khsn_bc_pepega:RemoveOnDeath()
-    return false
-end
-
-function modifier_khsn_bc_pepega:GetAttributes()
-  return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
-end
-
-function modifier_khsn_bc_pepega:OnTakeDamage(args)
-    self.parent = self:GetParent()
-    local caster = self:GetParent()
-    if not caster.BattleContinuationAcquired then return end
-    if args.unit ~= self.parent then return end
-    if caster:HasModifier("modifier_khsn_bc_cooldown") then return end
-
-    if self.parent:GetHealth()<=0 then
-         LoopOverPlayers(function(player, playerID, playerHero)
-        --print("looping through " .. playerHero:GetName())
-            if playerHero.voice == true then
-                -- apply legion horn vsnd on their client
-                CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="fucking_invincible"})
-                --caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+            local hMDE_Ability = self.hCaster:FindAbilityByName("khsn_mde")
+            if hMDE_Ability
+                and hMDE_Ability:IsTrained() then
+                self.hParent:AddNewModifier(self.hCaster, self.hAbility, "modifier_khsn_mde_active", {duration = hMDE_Ability:GetSpecialValueFor("duration")})
             end
-        end)
-        self.parent:SetHealth(self.parent:GetMaxHealth()*0.25)
-        self:GetAbility():StartCooldown(self:GetAbility():GetCooldown(1))
-        caster:AddNewModifier(caster, caster:FindAbilityByName("khsn_mde"), "modifier_khsn_mde_active", {duration = caster:FindAbilityByName("khsn_mde"):GetSpecialValueFor("duration")})
-        caster:AddNewModifier(caster, self:GetAbility(), "modifier_khsn_bc_cooldown", {duration = self:GetAbility():GetCooldown(1)})
+
+            self.hParent:AddNewModifier(self.hCaster, self.hAbility, "modifier_khsn_bc_cooldown", {duration = self.hAbility:GetEffectiveCooldown(-1)})
+            
+            self.hAbility:UseResources(false, false, true)
+
+            LoopOverPlayers(
+                function(hPlayer, nPlayerID, hPlayerHero)
+                    if hPlayerHero.voice == true then
+                        CustomGameEventManager:Send_ServerToPlayer(hPlayer, "emit_horn_sound", {sound="fucking_invincible"})
+                    end
+                end)
+
+            return math.ceil(fHealth + 1)
+        end
     end
 end
-
-modifier_khsn_bc_cooldown = class({})
-
-function modifier_khsn_bc_cooldown:IsHidden()
-    return false 
+function modifier_khsn_bc_pepega:OnCreated(hTable)
+    self.hCaster = self:GetCaster()
+    self.hParent = self:GetParent()
+    self.hAbility = self:GetAbility()
+end
+function modifier_khsn_bc_pepega:OnRefresh(hTable)
+    self:OnCreated(hTable)
 end
 
-function modifier_khsn_bc_cooldown:RemoveOnDeath()
-    return false
-end
+modifier_khsn_bc_cooldown = modifier_khsn_bc_cooldown or class({})
 
-function modifier_khsn_bc_cooldown:IsDebuff()
-    return true 
-end
-
-function modifier_khsn_bc_cooldown:GetAttributes()
-    return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
-end
-
+function modifier_khsn_bc_cooldown:IsHidden()           return false end
+function modifier_khsn_bc_cooldown:IsDebuff()           return true end
+function modifier_khsn_bc_cooldown:IsPurgable()         return false end
+function modifier_khsn_bc_cooldown:IsPurgeException()   return false end
+function modifier_khsn_bc_cooldown:RemoveOnDeath()      return false end
 
 ----------------------- inactive part, "live while attacking" version
 
