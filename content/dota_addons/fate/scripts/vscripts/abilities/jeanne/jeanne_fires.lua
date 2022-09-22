@@ -1,1 +1,0 @@
-jeanne_fires = class({})
