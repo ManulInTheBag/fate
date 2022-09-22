@@ -1,0 +1,64 @@
+"DOTAAbilities"
+{
+	//========================================
+	// Jack Whitechapel Murderer
+	//========================================
+	"jtr_whitechapel_murderer"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/jtr/jtr_whitechapel_murderer"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityTextureName"			"custom/jtr/whitechapel_murderer"
+		"AbilityCastAnimation" 			"ACT_DOTA_ITEM_PICKUP"
+		"AnimationPlaybackRate" 		"1.0"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"25"
+		"LevelsBetweenUpgrades"			"1"
+
+		"precache"
+		{
+			"particle"					"particles/custom/jtr/invis_smoke.vpcf"
+			"particle"					"particles/custom/jtr/jtr_invis_ring.vpcf"
+			"particle"  				"particles/custom/jtr/murderer_mist.vpcf"
+			"particle"  				"particles/custom/jtr/murderer_mist_cloud.vpcf"
+			"particle"  				"particles/custom/jtr/murderer_mist_cloud_center.vpcf"
+			"particle"  				"particles/custom/jtr/murderer_mist_dust.vpcf"
+			"particle"  				"particles/custom/jtr/murderer_mist_start.vpcf"
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_templar_assassin.vsndevts"
+			"soundfile"					"soundevents/hero_jtr.vsndevts"
+		}
+		
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"120"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"400"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"duration"				"15"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"agi_bonus"				"25"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"crit_chance"			"35"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"crit_damage"			"200"
+			}
+		}
+	}
+}

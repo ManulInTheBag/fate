@@ -1,0 +1,65 @@
+"DOTAAbilities"
+{
+	"true_assassin_ambush"
+	{
+		"BaseClass"							"ability_lua"
+		"ScriptFile"						"abilities/true_assassin/true_assassin_ambush"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"		
+		"AbilityTextureName"				"custom/true_assassin_ambush"
+		"AbilityUnitDamageType"				"DAMAGE_TYPE_PHYSICAL"
+		"MaxLevel"							"2"
+		"RequiredLevel"						"25"
+		"LevelsBetweenUpgrades"				"1"
+		
+		"AbilityCooldown"					"12 6"		
+		"AbilityManaCost"					"100"		
+
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_pugna/pugna_decrepify.vpcf"
+			"particle"		"particles/units/heroes/hero_bounty_hunter/bounty_hunter_windwalk.vpcf"
+			"particle"		"particles/msg_fx/msg_crit.vpcf"
+			"soundfile"   	"soundevents/game_sounds_heroes/game_sounds_templar_assassin.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_bounty_hunter.vsndevts"
+		}	
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"fade_delay"				"0.1"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"30"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"					"0"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"attribute_movement_speed"	"550"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"break_threshold"			"1"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"attack_speed"				"0"
+			}
+			"07"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"recover_dagger"			"0"
+			}
+		}
+	}
+}

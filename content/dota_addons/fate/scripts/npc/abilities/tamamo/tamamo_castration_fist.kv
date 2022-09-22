@@ -1,0 +1,66 @@
+"DOTAAbilities"
+{
+	//=================================================================================================================
+	// Tamamo: Polygamist Castration Fist
+	//=================================================================================================================
+	"tamamo_castration_fist"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/tamamo/tamamo_castration_fist"
+		"MaxLevel"						"3"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/tamamo/tamamo_castration_fist"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
+		
+		// Ability stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"350"
+		"AbilityCastRangeBuffer"		"100"
+		"AbilityCastPoint"				"0.4"
+		"AbilityCooldown"				"40"
+		"AbilityManaCost"				"400"
+
+		// Data driven
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"						
+		{
+			"particle"			"particles/custom/tamamo/tamamo_kick_trail.vpcf"
+			"particle"			"particles/units/heroes/hero_ember_spirit/ember_spirit_hit.vpcf"
+			"particle"			"particles/units/heroes/hero_lina/lina_spell_light_strike_array.vpcf"			
+			"particle"			"particles/custom/screen_violet_splash.vpcf"			
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_tusk.vsndevts"
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_lina.vsndevts"
+		}		
+
+		// Ability special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"range"				"350"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"250 325 400"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"final_damage"		"350 425 500"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"male_bonus"		"50"
+			}
+		}
+	}
+}

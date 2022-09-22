@@ -1,0 +1,17 @@
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
+		<include src="s2r://panorama/styles/custom_game/pepega.vcss_c" />
+	</styles>
+	<scripts>
+		<include src="s2r://panorama/scripts/arena_util.vjs_c" />
+		<include src="s2r://panorama/scripts/libraries/anime_vector_targeting.vjs_c" />
+		<include src="s2r://panorama/scripts/custom_game/pepega.vjs_c" />
+	</scripts>
+	<Panel hittest="false" class="base Shown CanRepick RandomingEnabled">
+		<Panel hittest="false" id="BlackBarTop">
+		</Panel>
+		<Panel hittest="false" id="BlackBarBottom">
+		</Panel>
+	</Panel>
+</root>

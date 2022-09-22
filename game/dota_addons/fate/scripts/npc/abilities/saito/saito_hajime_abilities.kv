@@ -10,7 +10,7 @@
 		"AbilityTextureName"				"custom/saito/saito_fdb"
 		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE "
 		"MaxLevel"							"5"
-		"AbilityCooldown"				    "18 16 14 12 10"
+		"AbilityCooldown"				    "18 17 16 15 14"
 		"AbilityManaCost"					"400"
 		"AbilityCastPoint"					"0.0"
 		"AbilityCastAnimation"                      "ACT_DOTA_CAST_ABILITY_8"
@@ -60,7 +60,7 @@
 	{
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/saito/saito_quickslash"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT| DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityTextureName"			"custom/saito/saito_quickslash_2"
 		"AnimationPlaybackRate" 		"1.0"
@@ -68,14 +68,14 @@
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
 		"AbilityManaCost"				"100"
-			"AbilityCastPoint"					"0.0"
-		"AbilityCooldown"			"10 9 8 7 6"	
+		"AbilityCastPoint"					"0.2"
+		"AbilityCooldown"			"10"	
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"dist"				    "500 550 600 650 700"
+				"dist"				    "500 525 550 575 600"
 			}
 			"02"
 			{
@@ -106,7 +106,7 @@
 	{
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/saito/saito_clap"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE| DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityTextureName"			"custom/saito/saito_clap_2"
 		"AnimationPlaybackRate" 		"1.0"
@@ -114,8 +114,8 @@
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
 		"AbilityManaCost"				"100"
-		"AbilityCooldown"			"10 9 8 7 6"	
-		"AbilityCastPoint"					"0.0"
+		"AbilityCooldown"			"10"	
+		"AbilityCastPoint"					"0.2"
 
 		
 		"AbilitySpecial"
@@ -164,7 +164,7 @@
 	{
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/saito/saito_inv_sword"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET| DOTA_ABILITY_BEHAVIOR_IMMEDIATE| DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET|DOTA_ABILITY_BEHAVIOR_AOE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityTextureName"			"custom/saito/saito_inv_sword_2"
 		"AbilityCastAnimation"                      "ACT_DOTA_CAST_ABILITY_3"
@@ -173,8 +173,8 @@
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
 		"AbilityManaCost"				"100"
-		"AbilityCooldown"				"10 9 8 7 6"	
-		"AbilityCastPoint"					"0.1"
+		"AbilityCooldown"				"10"	
+		"AbilityCastPoint"					"0.2"
 	
 		"AbilitySpecial"
 		{
@@ -186,7 +186,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage"				"240 300 360 420 480"
+				"damage"				"240 290 340 390 440"
 			}	
 			"03"
 			{
@@ -196,7 +196,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"atk_scale"					"0.5"
+				"atk_scale"					"0.4"
 			}	
 			"05"
 			{
@@ -391,7 +391,7 @@
 		"AnimationPlaybackRate" 		"1.0"
 		"MaxLevel"						"1"
 		"AbilityManaCost"				"400"
-		"AbilityCooldown"				"100"
+		"AbilityCooldown"				"150"
 		"AbilityCastPoint"				"0.3"
 		"AbilityCastAnimation"                      "ACT_DOTA_CAST_ABILITY_8"
 		"AbilitySpecial"
@@ -405,7 +405,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"spellblock_cd"			"0.5"
+				"spellblock_cd"			"0.7"
 			}		
 			"03"
 			{
@@ -480,7 +480,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"silence_duration"				"1.65"
+				"silence_duration"				"0"
 			}		
 		 
 			 
@@ -623,7 +623,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"atk_scale_e"			"0.5"
+				"atk_scale_e"			"0.4"
 			}
 			 
 		}		

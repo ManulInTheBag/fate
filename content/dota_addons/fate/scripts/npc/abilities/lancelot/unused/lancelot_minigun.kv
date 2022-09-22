@@ -1,0 +1,48 @@
+"DOTAAbilities"
+{
+	"lancelot_minigun"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"                    "abilities/lancelot/lancelot_minigun"
+		"MaxLevel"						"3"
+		"LevelsBetweenUpgrades"         "322"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/lancelot_minigun"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3"
+		"AnimationPlaybackRate" 		"1.0"
+
+		"AbilityCastPoint"				"0.8"
+		"AbilityCastRange"				"%range"
+		"AbilityCooldown"				"40"
+		"AbilityManaCost"				"550"
+
+		"precache"
+		{
+			"particle"				"particles/units/heroes/hero_night_stalker/nightstalker_void.vpcf"
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_night_stalker.vsndevts"
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"80 105 130"
+			}
+			"02"			
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"3.0"
+			}			
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"range"					"2500"
+			}
+		}		
+	}
+}

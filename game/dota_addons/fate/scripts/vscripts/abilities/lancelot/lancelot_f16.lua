@@ -285,16 +285,17 @@ function lancelot_f16_nuke:OnSpellStart()
         EmitGlobalSound("Tactical_Nuke_Incoming")
     end
 
-    local nukeMarker = ParticleManager:CreateParticle( "particles/custom/lancelot/lancelot_nuke_calldown_marker_c.vpcf", PATTACH_CUSTOMORIGIN, nil )
+    --local nukeMarker = ParticleManager:CreateParticle( "particles/custom/lancelot/lancelot_nuke_calldown_marker_c.vpcf", PATTACH_CUSTOMORIGIN, nil )
+    local nukeMarker = ParticleManager:CreateParticle( "particles/lancelot/lancelot_marker.vpcf", PATTACH_WORLDORIGIN, nil )
+    ParticleManager:SetParticleShouldCheckFoW(nukeMarker, false)
     ParticleManager:SetParticleControl( nukeMarker, 0, targetPoint)
-    ParticleManager:SetParticleControl( nukeMarker, 1, Vector(300, 300, 300))
+    ParticleManager:SetParticleControl( nukeMarker, 1, Vector(1500, 0, -1500))
+    ParticleManager:ReleaseParticleIndex( nukeMarker )
     -- Destroy particle after delay
-    Timers:CreateTimer( 3.0, function()
-        ParticleManager:DestroyParticle( nukeMarker, false )
-        ParticleManager:ReleaseParticleIndex( nukeMarker )
-    end)
-
+   
 	Timers:CreateTimer(3.0, function()
+        --ParticleManager:DestroyParticle( nukeMarker, false )
+       
         EmitGlobalSound("Lancelot.Nuke_Impact")
         local targets = FindUnitsInRadius(caster:GetTeam(), targetPoint, nil, 1500, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
         for k,v in pairs(targets) do
@@ -302,24 +303,26 @@ function lancelot_f16_nuke:OnSpellStart()
             if not v:IsMagicImmune() then v:AddNewModifier(caster, v, "modifier_stunned", {Duration = 1.0}) end
         end
         -- particle
-        local impactFxIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_gyrocopter/gyro_calldown_explosion_second.vpcf", PATTACH_CUSTOMORIGIN, nil )
+        local impactFxIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_gyrocopter/gyro_calldown_explosion_second.vpcf", PATTACH_WORLDORIGIN, nil )
+        ParticleManager:SetParticleShouldCheckFoW(impactFxIndex, false)
         ParticleManager:SetParticleControl( impactFxIndex, 0, targetPoint)
         ParticleManager:SetParticleControl( impactFxIndex, 1, Vector(2500, 2500, 1500))
         ParticleManager:SetParticleControl( impactFxIndex, 2, Vector(2500, 2500, 2500))
         ParticleManager:SetParticleControl( impactFxIndex, 3, targetPoint)
         ParticleManager:SetParticleControl( impactFxIndex, 4, Vector(2500, 2500, 2500))
         ParticleManager:SetParticleControl( impactFxIndex, 5, Vector(2500, 2500, 2500))
+        ParticleManager:ReleaseParticleIndex( impactFxIndex )
 
-        local mushroom = ParticleManager:CreateParticle( "particles/units/heroes/hero_lina/lina_spell_light_strike_array_explosion.vpcf", PATTACH_CUSTOMORIGIN, nil )
+        local mushroom = ParticleManager:CreateParticle( "particles/units/heroes/hero_lina/lina_spell_light_strike_array_explosion.vpcf", PATTACH_WORLDORIGIN, nil )
+        ParticleManager:SetParticleShouldCheckFoW(mushroom, false)
         ParticleManager:SetParticleControl( mushroom, 0, targetPoint)
+        ParticleManager:ReleaseParticleIndex( mushroom )
+     
 
-        -- Destroy particle after delay
-        Timers:CreateTimer( 2.0, function()
-            ParticleManager:DestroyParticle( impactFxIndex, false )
-            ParticleManager:ReleaseParticleIndex( impactFxIndex )
-            ParticleManager:DestroyParticle( mushroom, false )
-            ParticleManager:ReleaseParticleIndex( mushroom )
-        end)
+        
+
+        
+       
     end)
 end
 

@@ -1,0 +1,77 @@
+"DOTAAbilities"
+{	
+	"karna_combo_vasavi"
+	{		
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/karna/karna_combo_vasavi"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY" 
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/karna/karna_vasavi_shakti_combo"
+		
+		"precache"
+		{
+			"particle"			"particles/custom/karna/combo/vasavi_beam.vpcf"
+			"particle"			"particles/custom/karna/combo/vasavi_explode.vpcf"
+			"particle"			"particles/custom/karna/combo/combo_vasavi_attach.vpcf"	
+			"particle"			"particles/custom/karna/combo/vasavi_shakti_beam_combo.vpcf"		
+		}
+		
+		"AbilityCastPoint"				"0.5"
+		"AbilityCooldown"				"150"
+		"AbilityManaCost"				"800"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"beam_aoe"				"250"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"range"					"2500"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cast_range"			"2500"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"beam_damage"			"2000"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"full_damage"			"4000"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"fire_delay"			"3.2"
+			}	
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"prefire_delay"			"2.3"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"cast_point"			"0.5"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"end_radius"			"700"
+			}
+		}		
+	}
+}

@@ -1815,14 +1815,21 @@ function FateGameMode:OnHeroInGame(hero)
     hero:SetGold(0, false)
     hero.OriginalModel = hero:GetModelName()
     LevelAllAbility(hero)
-    hero:AddItem(CreateItem("item_dummy_item_unusable", hero, hero))
-    hero:AddItem(CreateItem("item_dummy_item_unusable", hero, hero))
-    hero:AddItem(CreateItem("item_dummy_item_unusable", hero, hero))
+    hero:RemoveItem(hero:FindItemInInventory("item_tpscroll"))
+    hero:AddItem(CreateItem("item_dummy_item_unusable", nil, nil))
+    hero:SwapItems(DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_7)
+    hero:AddItem(CreateItem("item_dummy_item_unusable", nil, nil))
+    hero:SwapItems(DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_8) 
+    hero:AddItem(CreateItem("item_dummy_item_unusable", nil, nil))
+    hero:SwapItems(DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_9)
+    hero:AddItem(CreateItem("item_dummy_item_unusable", nil, nil))
+    hero:SwapItems(DOTA_ITEM_SLOT_1, DOTA_ITEM_TP_SCROLL)
     --hero:AddItem(CreateItem("item_dummy_item_unusable", hero, hero))
-    Timers:CreateTimer(0.25, function() hero:SwapItems(DOTA_ITEM_SLOT_1, DOTA_ITEM_SLOT_7) end)
-    Timers:CreateTimer(0.5, function() hero:SwapItems(DOTA_ITEM_SLOT_2, DOTA_ITEM_SLOT_8) end)
-    Timers:CreateTimer(0.75, function() hero:SwapItems(DOTA_ITEM_SLOT_3, DOTA_ITEM_SLOT_9) end)
-    Timers:CreateTimer(0.75, function()
+    
+    
+    
+    
+     
         --hero:SwapItems(DOTA_ITEM_SLOT_4, DOTA_STASH_SLOT_1)
         hero:AddItem(CreateItem("item_blink_scroll", nil, nil) ) -- Give blink scroll
         --nahuy tpshku, ebuchiy generator bagov
@@ -1830,8 +1837,7 @@ function FateGameMode:OnHeroInGame(hero)
         if huynya then
             hero:RemoveItem(huynya)
         end]]
-        hero:AddItem(CreateItem("item_tpscroll", nil, nil))
-    end)
+  
 
     -- Removing Talents
     for i=0,23 do
@@ -1908,10 +1914,11 @@ function FateGameMode:OnHeroInGame(hero)
     end
 
     if hero:GetName() == "npc_dota_hero_terrorblade" then
-        hero.qused = 0
-        hero.wused = 0
-        hero.eused = 0
-        hero.currentused = 0
+         
+    end
+
+    if hero:GetName() == "npc_dota_hero_skywrath_mage" then
+         hero:GetAbilityByIndex(2):ToggleAutoCast()
     end
     if hero:GetName() == "npc_dota_hero_juggernaut" then -- or hero:GetName() == "npc_dota_hero_shadow_shaman" then
         hero:FindAbilityByName("attribute_bonus_custom_no_int"):SetHidden(false)
@@ -1940,7 +1947,7 @@ function FateGameMode:OnHeroInGame(hero)
         shardUnit = master:entindex(),
         hero = hero:entindex()
     }
-    hero:AddNewModifier(hero, hero:GetAbilityByIndex(0), "modifier_tp_cooldown", {})
+    --hero:AddNewModifier(hero, hero:GetAbilityByIndex(0), "modifier_tp_cooldown", {})
     --[[-- Create personal stash for hero
     masterStash = CreateUnitByName("master_stash", Vector(4500 + hero:GetPlayerID()*350,-7250,0), true, hero, hero, hero:GetTeamNumber())
     masterStash:SetControllableByPlayer(hero:GetPlayerID(), true)
@@ -2378,6 +2385,7 @@ function FateGameMode:OnItemPurchased( keys )
             hero:ModifyGold(-diff, true, 0)]]
         else
             SendErrorMessage(plyID,  "#Not_Enough_Gold_Item")
+            
             hero:ModifyGold(itemCost, false, 0)
             local isItemDropped = true
 
@@ -2406,11 +2414,13 @@ function FateGameMode:OnItemPurchased( keys )
             if droppedItem == nil then
                 print("Unexpected: Item was nil - " .. itemName)
             else
+
                 if droppedItem:GetContainer() then
                     droppedItem:GetContainer():RemoveSelf()
                 else
                     droppedItem:RemoveSelf()
                 end
+                GameRules:IncreaseItemStock(PlayerResource:GetTeam(plyID),itemName,1,plyID)
             end
         end
     end
@@ -3139,7 +3149,8 @@ end
 function FateGameMode:InitGameMode()
     FateGameMode = self
     local hGameModeEntity = GameRules:GetGameModeEntity()
-
+    hGameModeEntity:SetGiveFreeTPOnDeath(false)
+    
     -- Find out which map we are using
     _G.GameMap = GetMapName()
     if _G.GameMap == "fate_elim_6v6" then
@@ -3261,7 +3272,7 @@ function FateGameMode:InitGameMode()
 
 
     --for fixing some nasty bugs with medea, tpscrolls and other possible item limit thingies
-    Convars:SetInt("dota_max_physical_items_purchase_limit", 200)
+    Convars:SetInt("dota_max_physical_items_purchase_limit", 75)
 
     Events:Emit("activate")
 
@@ -3429,7 +3440,7 @@ function FateGameMode:ExecuteOrderFilter(hFilterTable)
     local vPosition    = Vector(hFilterTable.position_x, hFilterTable.position_y, hFilterTable.position_z)
     local iOrder       = hFilterTable.order_type
     local iPlayerID    = hFilterTable.issuer_player_id_const
-
+ 
     local hUnit = hUnits["0"]
           hUnit = type(hUnit) == "number" 
                   and EntIndexToHScript(hUnit) 

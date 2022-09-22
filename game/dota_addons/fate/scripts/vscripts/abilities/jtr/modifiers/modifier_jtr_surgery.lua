@@ -70,6 +70,13 @@ function modifier_jtr_surgery:OnCreated(args)
         self:StartIntervalThink(FrameTime())
     end
 end
+function modifier_jtr_surgery:OnDestroy()
+    if not IsServer() then return end
+    ParticleManager:ReleaseParticleIndex(self.swing2_fx)
+    ParticleManager:ReleaseParticleIndex(self.swing_fx)
+end
+
+
 function modifier_jtr_surgery:OnIntervalThink()
     if IsServer() then
         if self.time_elapsed >= 0.1 then

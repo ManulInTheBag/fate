@@ -1,0 +1,68 @@
+"DOTAAbilities"
+{
+	//=====================================
+	// Gilgamesh : Gram
+	//=====================================
+	"gilgamesh_gram"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/gilgamesh/gilgamesh_gram"
+		"MaxLevel"						"2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/gilgamesh_gram"
+		
+		"AbilityCastPoint"				"0.1"
+		"AbilityCastRange"				"850"
+		"AbilityCastRangeBuffer"		"150"
+		"AbilityCooldown"				"6"
+		"AbilityManaCost"				"100"
+		//"AbilityCastAnimation" 			"ACT_DOTA_ATTACK2"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+		"AnimationPlaybackRate" 		"0.9"
+		
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_skywrath_mage/skywrath_mage_concussive_shot.vpcf"
+			"particle"		"particles/units/heroes/hero_skywrath_mage/skywrath_mage_concussive_shot_cast_c.vpcf"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_skywrath_mage.vsndevts"			
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"cast_delay"			"0.3"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cast_range"			"850"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"300 125"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration"			"0.4"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"extra_swords"			"0 4"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"400"
+			}
+		}
+	}
+}

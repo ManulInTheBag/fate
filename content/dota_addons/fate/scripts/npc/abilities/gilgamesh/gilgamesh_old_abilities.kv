@@ -1,0 +1,322 @@
+"DOTAAbilities"
+{
+	//=====================================
+	// Gilgamesh : Enkidu
+	//=====================================
+	"gilgamesh_enkidu"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/gilgamesh_enkidu"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_4"
+		"AnimationPlaybackRate" 		"1.0"
+
+
+		"AbilityChannelTime"			"2.0 2.5 3.0 3.5 4.0"		
+		"AbilityCastPoint"				"0.4"
+		"AbilityCastRange"				"400"
+		"AbilityCastRangeBuffer"		"100"
+		"AbilityCooldown"				"15"
+		"AbilityManaCost"				"100"
+		
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_skywrath_mage/skywrath_mage_ancient_seal_debuff.vpcf"
+			"particle"		"particles/custom/archer/archer_sword_barrage_impact_circle.vpcf"
+			"particle"		"particles/custom/gilgamesh/gilgamesh_sword_barrage_model.vpcf"
+			"particle"		"particles/units/heroes/hero_gyrocopter/gyro_guided_missile_explosion.vpcf"
+			"particle"		"particles/custom/gilgamesh/gilgamesh_enkidu.vpcf"
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"2.0 2.5 3.0 3.5 4.0"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_tooltip"		"6"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"		"gilg_ability"
+				"Function"			"OnChainStart"
+				"Duration"			"%duration"
+			}
+		}
+
+		"OnChannelFinish"
+		{
+			"RunScript"
+			{
+				"ScriptFile"		"gilg_ability"
+				"Function"			"OnChainBroken"
+			}
+		}
+		"OnChannelInterrupted"
+		{
+			"RunScript"
+			{
+				"ScriptFile"		"gilg_ability"
+				"Function"			"OnChainBroken"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_enkidu_hold"
+			{
+				"IsDebuff"		"1"
+	            "ThinkInterval"		"0.49"
+	            "OnIntervalThink"
+	         	{
+	         		"RunScript"
+	         		{
+	         			"ScriptFile"	"gilg_ability"
+	         			"Function"		"OnChainThink"
+	         			"Damage"		"%damage_tooltip"
+	         		}
+				}
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}	
+
+		
+
+	//=====================================
+	// Gilgamesh : Sword Barrage
+	//=====================================
+	"gilgamesh_sword_barrage"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/gilgamesh_sword_barrage"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
+		"AnimationPlaybackRate" 		"3.0"
+
+		"AOERadius"						"%radius"
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_luna/luna_lucent_beam.vpcf"
+			"particle"		"particles/custom/archer/archer_sword_barrage_impact_circle.vpcf"
+			"particle"		"particles/custom/gilgamesh/gilgamesh_sword_barrage_model.vpcf"
+			"particle"		"particles/units/heroes/hero_gyrocopter/gyro_guided_missile_explosion.vpcf"
+			
+		}
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"800"
+		"AbilityCastPoint"				"0.15"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"2"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"75"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"strike_amount"		"5"
+			}			
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"radius"			"200"
+			}
+		}
+		
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+			 	"ScriptFile"	"gilg_ability"
+			 	"Function"		"OnBarrageStart"
+			 	"Target"		"POINT"
+			 	"Damage"		"%damage"
+			 	"Radius"		"%radius"
+			}
+		}
+	}
+
+	//=====================================
+	// Gilgamesh : Sword Barrage
+	//=====================================
+	"gilgamesh_sword_barrage_improved"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/gilgamesh_sword_barrage_improved"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
+		"AnimationPlaybackRate" 		"3.0"
+
+		"AOERadius"						"%radius"
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_luna/luna_lucent_beam.vpcf"
+			"particle"		"particles/custom/archer/archer_sword_barrage_impact_circle.vpcf"
+			"particle"		"particles/custom/gilgamesh/gilgamesh_sword_barrage_model.vpcf"
+			"particle"		"particles/units/heroes/hero_gyrocopter/gyro_guided_missile_explosion.vpcf"
+		}
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"800"
+		"AbilityCastPoint"				"0.15"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"2"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"75"
+			}
+			
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"radius"			"500"
+			}
+		}
+		
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+			 	"ScriptFile"	"gilg_ability"
+			 	"Function"		"OnBarrageStart"
+			 	"Target"		"POINT"
+			 	"Damage"		"%damage"
+			 	"Radius"		"%radius"
+			}
+		}
+	}
+	
+	//=====================================
+	// Gilgamesh : Gram
+	//=====================================
+	"gilgamesh_gram"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/gilgamesh_gram"
+		
+		"AbilityCastPoint"				"0.3"
+		"AbilityCastRange"				"850"
+		"AbilityCastRangeBuffer"		"150"
+		"AbilityCooldown"				"4"
+		"AbilityManaCost"				"200"
+		"AbilityCastAnimation" 			"ACT_DOTA_ATTACK2"
+		"AnimationPlaybackRate" 		"0.9"
+
+		"AbilityDamage"			"250 325 400 475 550"
+		
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_skywrath_mage/skywrath_mage_concussive_shot.vpcf"
+			"particle"		"particles/units/heroes/hero_skywrath_mage/skywrath_mage_concussive_shot_cast_c.vpcf"
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_skywrath_mage.vsndevts"
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"cast_delay"			"0.3"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"250 325 400 475 550"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration"			"1.0"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"		"gilg_ability"
+				"Function"			"OnGramStart"
+			}
+			"FireSound"
+			{
+				"EffectName"		"Hero_SkywrathMage.ConcussiveShot.Cast"
+				"Target"			"CASTER"
+			}
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"			"true"
+			"RunScript"
+			{
+				"ScriptFile"    "gilg_ability"
+				"Function"      "OnGramHit"
+				"Damage"		"%damage"
+				"StunDuration"		"%stun_duration"
+			}
+		}
+	}
+}

@@ -1,0 +1,151 @@
+"DOTAAbilities"
+{
+	//=================================================================================================================
+	// Assassin(Extra) : Fierce Tiger Strike(first strike)
+	//=================================================================================================================
+	"lishuwen_tiger_strike"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/lishuwen/lishuwen_tiger_strike"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AbilityTextureName"			"custom/lishuwen_fierce_tiger_strike"
+		"AbilityCastAnimation" 			"ACT_DOTA_ATTACK"
+		"AnimationPlaybackRate" 		"1.0"
+		"precache"
+		{
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_earthshaker.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_juggernaut.vsndevts"
+			"particle"		"particles/econ/items/earthshaker/egteam_set/hero_earthshaker_egset/earthshaker_echoslam_start_fallback_low_egset.vpcf"
+			"particle"		"particles/econ/items/juggernaut/jugg_arcana/juggernaut_arcana_v2_crit_tgt.vpcf"
+			"particle"		"particles/units/heroes/hero_earthshaker/earthshaker_echoslam_start_f_fallback_low.vpcf"
+			"particle"		"particles/units/heroes/hero_ember_spirit/ember_spirit_sleightoffist_trail.vpcf"
+			"particle"		"particles/units/heroes/hero_phantom_assassin/phantom_assassin_crit_impact.vpcf"
+			"particle"		"particles/custom/lishuwen/lishuwen_first_hit.vpcf"
+			"particle"		"particles/custom/lishuwen/lishuwen_second_hit.vpcf"
+			"particle"		"particles/custom/lishuwen/lishuwen_third_hit.vpcf"
+			"particle"		"particles/custom/lishuwen/lishuwen_no_second_strike_hit.vpcf"
+		}
+		
+		// Ability stats
+		//-------------------------------------------------------------------------------------------------------------
+		//"AbilityCastRange"			"700"
+		"AbilityCastRangeBuffer"		"100"
+		//"AbilityCastPoint"				"0.3"
+		"AbilityCooldown"				"23"
+		"AbilityManaCost"				"200"
+		
+		// Ability special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{			
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage_1"					"280 320 360 400 440"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"slow_amount"				"-55"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"slow_duration"				"2.0 2.0 2.5 2.5 3.0"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"damage_2"					"240 280 320 360 400"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"stun_duration"				"0.70"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage_3_magical"			"50 75 100 125 150"
+			}
+			"07"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage_2_physical"			"60"
+			}
+			"08"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"window_duration"			"3.5"
+			}
+			"09"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"regen_amount"				"50"
+			}
+			"10"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"regen_duration"			"2.0"
+			}
+			"11"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"strike_1_range"			"500"
+			}
+			"12"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"strike_2_range"			"200"
+			}
+			"13"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"reduced_cooldown"			"7"
+			}
+			"14"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"furious_chain_cooldown"	"2"
+			}
+			"15"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"chain_switch_penalty"		"0.5"
+			}
+			"16"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"chain_bonus_multiplier"	"1.25"
+			}
+			"17"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"strength_ratio"			"0.33"
+			}
+			"18"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"critical_chance"			"25"
+			}
+			"19"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"crit_multiplier"			"200"
+			}
+			"20"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"losthealth_multiplier"		"1.0"
+			}
+		}
+	}
+}

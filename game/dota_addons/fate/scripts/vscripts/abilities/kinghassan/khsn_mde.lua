@@ -126,7 +126,6 @@ end
 
 function modifier_khsn_mde_active:IsHidden() return false end
 function modifier_khsn_mde_active:IsDebuff() return false end
-
 function modifier_khsn_mde_active:DeclareFunctions()
 	return {
 		MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
@@ -165,3 +164,15 @@ end
 function modifier_khsn_mde_active:GetEffectAttachType()
 	return PATTACH_POINT_FOLLOW
 end
+
+
+
+
+
+
+
+
+
+LinkLuaModifier("modifier_khsn_bc_active", "abilities/kinghassan/khsn_mde", LUA_MODIFIER_MOTION_NONE)
+
+modifier_khsn_bc_active = modifier_khsn_bc_active or class(modifier_khsn_mde_active)

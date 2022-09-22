@@ -1,0 +1,62 @@
+<root>
+  <scripts>
+    <include src="s2r://panorama/scripts/custom_game/custom_loading_screen.vjs_c"/>
+  </scripts>
+  <styles>
+    <include src="s2r://panorama/styles/custom_game/custom_loading_screen.vcss_c" />
+    <include src="s2r://panorama/styles/custom_game/util.vcss_c" />
+  </styles>
+  <Panel class="LoadingScreen" hittest="false">
+    <Panel id="Background" hittest="false">
+      <Image id="BackgroundLogo" src="s2r://panorama/images/custom_game/loading_screen/logo_png.vtex" hittest="false"/>
+    </Panel>
+    <Panel id="Tip" hittest="false">
+      <Label id="TipLabel" hittest="false"/>
+    </Panel>
+    <Panel class="Hidden">
+  		<Image src="s2r://panorama/images/custom_game/loading_screen/1_png.vtex"/>
+  		<Image src="s2r://panorama/images/custom_game/loading_screen/2_png.vtex"/>
+  		<Image src="s2r://panorama/images/custom_game/loading_screen/3_png.vtex"/>
+  		<Image src="s2r://panorama/images/custom_game/loading_screen/4_png.vtex"/>
+  		<Image src="s2r://panorama/images/custom_game/loading_screen/5_png.vtex"/>
+  		<Image src="s2r://panorama/images/custom_game/loading_screen/6_png.vtex"/>
+  		<Image src="s2r://panorama/images/custom_game/loading_screen/7_png.vtex"/>
+  		<Image src="s2r://panorama/images/custom_game/loading_screen/8_png.vtex"/>
+  		<Image src="s2r://panorama/images/custom_game/loading_screen/9_png.vtex"/>
+      <Image src="s2r://panorama/images/custom_game/loading_screen/10_png.vtex"/>
+      <Image src="s2r://panorama/images/custom_game/loading_screen/11_png.vtex"/>
+      <Image src="s2r://panorama/images/custom_game/loading_screen/12_png.vtex"/>
+      <Image src="s2r://panorama/images/custom_game/loading_screen/13_png.vtex"/>
+      <Image src="s2r://panorama/images/custom_game/loading_screen/14_png.vtex"/>
+      <Image src="s2r://panorama/images/custom_game/loading_screen/15_png.vtex"/>
+      <Image src="s2r://panorama/images/custom_game/loading_screen/16_png.vtex"/>
+      <Image src="s2r://panorama/images/custom_game/loading_screen/17_png.vtex"/>
+      <Image src="s2r://panorama/images/custom_game/loading_screen/18_png.vtex"/>
+      <Image src="s2r://panorama/images/custom_game/loading_screen/19_png.vtex"/>
+      <Image src="s2r://panorama/images/custom_game/loading_screen/20_png.vtex"/>
+      <Image src="s2r://panorama/images/custom_game/loading_screen/21_png.vtex"/>
+      <Image src="s2r://panorama/images/custom_game/loading_screen/22_png.vtex"/>
+      <Image src="s2r://panorama/images/custom_game/loading_screen/23_png.vtex"/>
+      <Image src="s2r://panorama/images/custom_game/loading_screen/24_png.vtex"/>
+      <Image src="s2r://panorama/images/custom_game/loading_screen/25_png.vtex"/>
+      <Image src="s2r://panorama/images/custom_game/loading_screen/26_png.vtex"/>
+      <Image src="s2r://panorama/images/custom_game/loading_screen/27_png.vtex"/>
+      <Image src="s2r://panorama/images/custom_game/loading_screen/28_png.vtex"/>
+      <Image src="s2r://panorama/images/custom_game/loading_screen/29_png.vtex"/>
+      <Image src="s2r://panorama/images/custom_game/loading_screen/30_png.vtex"/>
+      <Image src="s2r://panorama/images/custom_game/loading_screen/31_png.vtex"/>
+      <Image src="s2r://panorama/images/custom_game/loading_screen/32_png.vtex"/>
+      <Image src="s2r://panorama/images/custom_game/loading_screen/33_png.vtex"/>
+	<Image src="s2r://panorama/images/custom_game/loading_screen/34_png.vtex"/>
+    </Panel>
+    <!--<Panel id="BG" >
+      <Image id="gamemode" class="SeqImg" src="s2r://panorama/images/custom_game/loading_screen/diarmuid_png.vtex" />
+    </Panel>
+    <Panel id="TitlePanel">
+      <Label id="AddonTitle" text="FATE/ANOTHER" style="" />
+    </Panel>
+    <Panel id="Text">
+      <Label id="MoreText" text="Version 1.24\nPatch Notes: dota2fa.blogspot.com\nDiscord: discord.gg/nSzm6uk\nhttp://steamcommunity.com/groups/dota2fate" style="" />
+    </Panel>-->
+  </Panel>
+</root>

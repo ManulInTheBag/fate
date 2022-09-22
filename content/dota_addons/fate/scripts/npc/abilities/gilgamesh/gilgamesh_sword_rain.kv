@@ -1,0 +1,82 @@
+"DOTAAbilities"
+{
+	//=====================================
+	// Gilgamesh : Sword Barrage
+	//=====================================
+	"gilgamesh_sword_rain"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/gilgamesh/gilgamesh_sword_rain"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/gilgamesh_sword_barrage"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
+		"AnimationPlaybackRate" 		"3.0"
+
+		"AOERadius"						"%radius"
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_luna/luna_lucent_beam.vpcf"
+			"particle"		"particles/custom/archer/archer_sword_barrage_impact_circle.vpcf"
+			"particle"		"particles/custom/gilgamesh/gilgamesh_sword_barrage_model.vpcf"
+			"particle"		"particles/units/heroes/hero_gyrocopter/gyro_guided_missile_explosion.vpcf"		
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_juggernaut.vsndevts"	
+		}
+
+		"AbilityCastRange"				"1150"
+		"AbilityCastPoint"				"0.15"
+		"AbilityCooldown"				"2"
+		"AbilityManaCost"				"200"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"radius"					"350"
+			}			
+			"02"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"					"75 100 125 150 175"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"total_damage"				"375 500 625 750 875"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"					"1.0"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"attribute_bonus_aoe"		"50"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"attrbute_bonus_damage"		"15"
+			}
+			"07"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"manacost"					"200"
+			}
+			"08"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"attribute_bonus_manacost"	"30"
+			}
+		}
+	}
+}

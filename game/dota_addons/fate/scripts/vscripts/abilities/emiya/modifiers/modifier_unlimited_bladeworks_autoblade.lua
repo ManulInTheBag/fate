@@ -27,7 +27,7 @@ function modifier_unlimited_bladeworks_autoblade:OnIntervalThink()
         
         Timers:CreateTimer(0.1, function()
             if swordTarget:IsAlive() and not swordTarget:HasModifier("modifier_lancer_protection_from_arrows_active") then
-                DoDamage(caster, swordTarget, 75, DAMAGE_TYPE_PHYSICAL, 0, self:GetAbility(), false)
+                DoDamage(caster, swordTarget, 55, DAMAGE_TYPE_PHYSICAL, 0, self:GetAbility(), false)
             end
             ParticleManager:DestroyParticle(swordFxIndex, false )
             ParticleManager:ReleaseParticleIndex( swordFxIndex )

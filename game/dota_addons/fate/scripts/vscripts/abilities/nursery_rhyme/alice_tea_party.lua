@@ -50,7 +50,8 @@ function alice_tea_party:OnSpellStart()
         			CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="Aeriality"})
    			 end)
 
-			self.GroundParticle = ParticleManager:CreateParticle("particles/units/heroes/hero_treant/treant_eyesintheforest.vpcf", PATTACH_ABSORIGIN, caster.CircleDummy)
+			self.GroundParticle = ParticleManager:CreateParticle("particles/units/heroes/hero_treant/treant_eyesintheforest.vpcf", PATTACH_WORLDORIGIN, nil)
+			ParticleManager:SetParticleShouldCheckFoW(self.GroundParticle, false)
 			ParticleManager:SetParticleControl(self.GroundParticle, 0, caster.CircleDummy:GetAbsOrigin())	
 			ParticleManager:SetParticleControl(self.GroundParticle, 1, Vector(radius + 0,0,0))	
 

@@ -1,0 +1,89 @@
+"DOTAAbilities"
+{
+    "kuro_broken_phantasm"
+    {
+        "BaseClass"                                 "ability_lua"
+        "ScriptFile"                                "abilities/kuro/kuro_broken_phantasm"
+        "AbilityBehavior"                           "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELED | DOTA_ABILITY_BEHAVIOR_DONT_ALERT_TARGET"
+        "AbilityTextureName"                        "custom/kuro/kuro_broken_phantasm"
+
+        "MaxLevel"                                  "5"
+        "RequiredLevel"                             "1"
+        "LevelsBetweenUpgrades"                     "1"
+
+        "AbilityUnitTargetTeam"                     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"                     "DOTA_UNIT_TARGET_ALL"
+        "AbilityUnitDamageType"                     "DAMAGE_TYPE_MAGICAL"
+        "AbilityCastAnimation"                      "ACT_DOTA_CAST_ABILITY_4"
+
+        "AbilityCastPoint"                          "0.1"
+        "AbilityManaCost"                           "200"
+        "AbilityCooldown"                           "18"
+        "AbilityCastRange"                          "1000"
+        "AbilityCastRangeBuffer"                    "125"
+        "AbilityChannelTime"                        "0.4"
+
+		"precache"
+		{
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_sven.vsndevts"
+			"particle"				"particles/units/heroes/hero_sven/sven_storm_bolt_projectile_explosion.vpcf"
+			"particle"				"particles/units/heroes/hero_clinkz/clinkz_searing_arrow.vpcf"
+			"particle"				"particles/custom/archer/archer_broken_phantasm/archer_broken_phantasm_crosshead.vpcf"
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"cast_delay"			"0.4"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"target_damage"			"225 275 325 375 425"
+			}
+
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"splash_damage"			"175 225 275 325 375"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"350"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration"			"0.75 0.75 1.0 1.0 1.25"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cast_range"			"1750"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"total_damage"			"400 500 600 700 800"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_range"			"500"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cooldown"				"18"
+			}
+			"09"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cooldown_reduction"	"35"
+			}
+		}
+    }
+}

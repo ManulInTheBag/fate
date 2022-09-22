@@ -1,0 +1,38 @@
+"DOTAAbilities"
+{
+	//=================================================================================================================
+	// Lancer : Protection from Arrows
+	//=================================================================================================================
+	"cu_chulain_protection_from_arrows"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/cu_chulain/cu_chulain_protection_from_arrows"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityTextureName"			"custom/lancer_5th_protection_from_arrows"
+		"AbilityCooldown"				"60"
+
+		"Precache"
+		{
+			"particle"		"particles/customgames/capturepoints/cp_wind.vpcf"
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"duration"			"4"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"evasion"			"35.0"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage_reduc"		"35"
+			}
+		}
+	}
+}

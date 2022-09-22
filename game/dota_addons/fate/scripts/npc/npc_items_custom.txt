@@ -864,13 +864,13 @@
 	    "ID"           "1107"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
-		"Model"							"models/props_gameplay/observer_ward_bundle.mdl"
+		"Model"							"models/props_gameplay/observer_ward_bundle.vmdl"
 		"AbilityTextureName" "custom/observer_ward"
 		"AbilityCastAnimation" 			"ACT_DOTA_ITEM_PICKUP"
 
 		// Stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"200"
+		"AbilityCastRange"				"400"
 		"AbilityCooldown"				"1.0"
 
 		// Item Info
@@ -2695,9 +2695,11 @@
 	    "ItemQuality"  "consumable"
 
 	    "ItemCost"     "1"
+
 	    "ItemKillable" "0" 
 	    "ItemSellable" "0"
 	    "ItemPurchasable" "0"
+
 	    "ItemDroppable" "1"
 	    "ItemShareability" "ITEM_FULLY_SHAREABLE"
 	    "ItemStackable" "0"

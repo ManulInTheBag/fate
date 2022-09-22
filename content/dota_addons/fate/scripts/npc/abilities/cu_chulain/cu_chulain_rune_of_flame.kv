@@ -1,0 +1,55 @@
+"DOTAAbilities"
+{
+	"cu_chulain_rune_of_flame"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/cu_chulain/cu_chulain_rune_of_flame"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"25"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AOERadius"						"%radius"
+		"AbilityTextureName"			"templar_assassin_psionic_trap"
+		"AbilityManaCost"				"100"
+		"AbilityCastPoint"				"0.1"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
+		"AnimationPlaybackRate" 		"1.0"
+		"AbilityCastRange"				"500"
+		"AbilityCooldown"				"10"
+
+		"precache"
+		{
+			"particle"				"particles/units/heroes/hero_templar_assassin/templar_assassin_trap_explode.vpcf"
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_templar_assassin.vsndevts"
+			"model"					"models/props_gameplay/rune_haste01.vmdl"
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type" 		"FIELD_FLOAT"
+				"cooldown"		"10"
+			}
+			"02"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"radius"		"400"
+			}
+			"03"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"duration"		"30.0"
+			}
+			"03"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"damage"		"200 250 300 350 400"
+			}
+			"03"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"stun_duration"	"0.35"
+			}
+		}
+	}
+}

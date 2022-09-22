@@ -315,7 +315,7 @@
 								rotation_xyz = [ 0.0, 0.0, 0.0 ]
 							},
 						]
-						activity_name = "ACT_DOTA_CAST_ABILITY_3"
+						activity_name = "ACT_DOTA_CAST_ABILITY_3OLD"
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -518,7 +518,7 @@
 						import_bone_scales = false
 						start_frame = 465
 						end_frame = 506
-						framerate = -1.0
+						framerate = 90.0
 						reverse = false
 					},
 					{
@@ -627,7 +627,7 @@
 						weight_list_name = ""
 						fade_in_time = 0.2
 						fade_out_time = 0.2
-						looping = true
+						looping = false
 						delta = false
 						worldSpace = false
 						hidden = false
@@ -640,6 +640,73 @@
 						end_frame = 607
 						framerate = 15.0
 						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "InV_Sword"
+						children = 
+						[
+							{
+								_class = "AnimOffset"
+								translation = [ 0.0, 0.0, 1.0 ]
+								rotation_xyz = [ 0.0, 0.0, 0.0 ]
+							},
+						]
+						activity_name = "ACT_DOTA_CAST_ABILITY_3"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.0
+						fade_out_time = 0.0
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/saito/saito.fbx"
+						import_bone_scales = false
+						start_frame = 462
+						end_frame = 487
+						framerate = 60.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "saito_stunned"
+						children = 
+						[
+							{
+								_class = "AnimOffset"
+								translation = [ 0.0, 0.0, 1.0 ]
+								rotation_xyz = [ 0.0, 0.0, 0.0 ]
+							},
+						]
+						activity_name = "ACT_DOTA_DISABLED"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.0
+						fade_out_time = 0.0
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/saito/saito.fbx"
+						import_bone_scales = false
+						start_frame = 148
+						end_frame = 149
+						framerate = -1.0
+						reverse = false
+						anim_hold_list = 
+						[
+							{
+								frame = 142
+								frame_count = 15
+							},
+						]
 					},
 				]
 				default_root_bone_name = ""
@@ -922,6 +989,21 @@
 								hitbox_maxs = [ 38.459526, 41.713394, 58.346336 ]
 							},
 						]
+					},
+				]
+			},
+			{
+				_class = "AttachmentList"
+				children = 
+				[
+					{
+						_class = "Attachment"
+						name = "slash"
+						parent_bone = "m3bone_root"
+						relative_origin = [ -11.300613, -35.072857, 73.288933 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
 					},
 				]
 			},

@@ -189,7 +189,7 @@ function OnGOBStart(keys)
 	local gobWeapon = 
 	{
 		Ability = ability,
-        EffectName = "particles/custom/gilgamesh/gilgamesh_gob_model.vpcf",
+        EffectName = "particles/gilgamesh/gob_weapon.vpcf",
         vSpawnOrigin = Vector(0,0,0),
         fDistance = 1000,
         fStartRadius = 100,
@@ -228,7 +228,7 @@ function CreateGOB(keys, proj)
 	dummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1) 
 	dummy:SetForwardVector(caster:GetForwardVector())
 	
-	local portalFxIndex = ParticleManager:CreateParticle( "particles/custom/gilgamesh/gilgamesh_gob.vpcf", PATTACH_CUSTOMORIGIN, dummy )
+	local portalFxIndex = ParticleManager:CreateParticle( "particles/gilgamesh/gob.vpcf", PATTACH_CUSTOMORIGIN, dummy )
 	ParticleManager:SetParticleControlEnt( portalFxIndex, 0, dummy, PATTACH_ABSORIGIN, nil, dummy:GetAbsOrigin(), false )
 	--ParticleManager:SetParticleControl( portalFxIndex, 0, dummy:GetAbsOrigin() )
 	ParticleManager:SetParticleControl( portalFxIndex, 1, Vector( 300, 300, 300 ) )
@@ -594,9 +594,9 @@ function OnPowerOfSumerAcquired(keys)
 
 	hero.IsSumerAcquired = true
 
-	hero:SwapAbilities("gilgamesh_gate_of_babylon_toggle", "gilgamesh_golden_rule", true, false)
-	hero:FindAbilityByName("gilgamesh_gate_of_babylon_toggle"):ToggleAbility()
-	hero:FindAbilityByName("gilgamesh_gram"):SetLevel(2)
+	--hero:SwapAbilities("gilgamesh_gate_of_babylon_toggle", "gilgamesh_golden_rule", true, false)
+	--hero:FindAbilityByName("gilgamesh_gate_of_babylon_toggle"):ToggleAbility()
+	--hero:FindAbilityByName("gilgamesh_gram"):SetLevel(2)
 
 	-- Set master 1's mana 
 	local master = hero.MasterUnit

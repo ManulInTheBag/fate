@@ -8,10 +8,8 @@
 		// General		//------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/gilgamesh/gilgamesh_enkidu"
-		"MaxLevel"						"5"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"MaxLevel"						"2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET|DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
@@ -20,12 +18,12 @@
 		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
 		"AnimationPlaybackRate" 		"1.0"
 
-		"AbilityCastPoint"				"0.3"
-		"AbilityCastRange"				"350"
+		"AbilityCastPoint"				"0.2"
+		"AbilityCastRange"				"400"
 		"AbilityCastRangeBuffer"		"100"
-		"AbilityCooldown"				"19 17 15 13 11"
-		"AbilityManaCost"				"100"
-		"AbilityChannelTime"            "2.0 2.5 3.0 3.5 4.0"
+		"AbilityCooldown"				"20"
+		"AbilityManaCost"				"200"
+		//"AbilityChannelTime"            "2.0 2.5 3.0 3.5 4.0"
 		
 		"precache"
 		{
@@ -41,17 +39,22 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"cast_range"			"350"				
+				"cast_range"			"400"				
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"2.0 2.5 3.0 3.5 4.0"
+				"duration"				"1.5 2.5"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage"				"5"
+				"damage"				"100"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"att_sword_count"				"8"
 			}
 		}
 	}	

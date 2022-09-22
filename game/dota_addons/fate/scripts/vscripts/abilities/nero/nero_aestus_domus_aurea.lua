@@ -51,6 +51,8 @@ function nero_aestus_domus_aurea:OnSpellStart()
 	local ability = self	
 	local radius = self:GetSpecialValueFor("radius")
 
+
+	caster:FindAbilityByName("nero_heat"):EndCooldown()
 	--[[if caster:HasModifier("modifier_laus_saint_ready_checker") then
 		caster:RemoveModifierByName("modifier_laus_saint_ready_checker")
 	end]]
@@ -88,13 +90,17 @@ function nero_aestus_domus_aurea:OnSpellStart()
 			ParticleManager:SetParticleControl(ability.TheatreRingFx, 0, Vector(radius + 100,0,0))	
 			ParticleManager:SetParticleControl(ability.TheatreRingFx, 1, Vector(radius + 100,0,0))]]
 
-			ability.TheatreRingFx = ParticleManager:CreateParticle("particles/nero/nero_chronosphere.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster.CircleDummy)
+			ability.TheatreRingFx = ParticleManager:CreateParticle("particles/nero/nero_chronosphere.vpcf", PATTACH_WORLDORIGIN, nil)
+			ParticleManager:SetParticleShouldCheckFoW(ability.TheatreRingFx, false)
 			ParticleManager:SetParticleControl(ability.TheatreRingFx, 0, caster.CircleDummy:GetAbsOrigin())	
 			ParticleManager:SetParticleControl(ability.TheatreRingFx, 1, Vector(radius, 1, 500))
 			ParticleManager:SetParticleControl(ability.TheatreRingFx, 2, Vector(self:GetSpecialValueFor("duration") + 5, 0, 0))
+			
 
 			--ability:CreateBannerInCircle(caster, caster:GetAbsOrigin(), radius)
-			ability.ColosseumParticle = ParticleManager:CreateParticle("particles/custom/nero/colosseum_ring.vpcf", PATTACH_CUSTOMORIGIN, self:GetCaster())
+			ability.ColosseumParticle = ParticleManager:CreateParticle("particles/custom/nero/colosseum_ring.vpcf", PATTACH_WORLDORIGIN, nil)
+			ParticleManager:SetParticleShouldCheckFoW(ability.ColosseumParticle, false)
+			ParticleManager:SetParticleControl(ability.ColosseumParticle, 0, caster.CircleDummy:GetAbsOrigin())
 			ParticleManager:SetParticleControl(ability.ColosseumParticle, 1, Vector(radius + 100, 0, 0))
 			ParticleManager:SetParticleControl(ability.ColosseumParticle, 2, caster:GetAbsOrigin())
 

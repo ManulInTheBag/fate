@@ -9,6 +9,26 @@ function saito_quickslash:GetAOERadius()
 end
 
 
+function saito_quickslash:GetCastPoint()
+	 
+	local Caster = self:GetCaster() 
+	local stack_count = 0
+	 
+	if(Caster:HasModifier("modifier_saito_fdb_repeated")) then
+		stack_count = Caster:GetModifierStackCount("modifier_saito_fdb_repeated", Caster) 
+	end
+	if(Caster:HasModifier("modifier_saito_fdb_lastQ")) then
+		return 0.6
+	end
+	if stack_count <=2 then
+		return 0.25
+	elseif stack_count > 2 and stack_count < 4 then
+		return 0.2
+	else
+		return 0.15
+	end
+end
+
 local hitFlag = 0
 function saito_quickslash:OnUpgrade()
     local Caster = self:GetCaster() 
@@ -26,19 +46,19 @@ end
 function saito_quickslash:OnSpellStart()
 	local caster = self:GetCaster()
 	local ability = self
-	local point  = self:GetCursorPosition()
-
+	local point  = self:GetCursorPosition()+caster:GetForwardVector()
+	local lastq = false
 	local direction      = (point - caster:GetAbsOrigin()):Normalized()
+	direction.z = 0
+	local modifier_jopa = caster:FindModifierByName("modifier_saito_fdb")
 	local dist = self:GetSpecialValueFor("dist")
-	caster.currentused = caster.currentused+1
-	local additional_delay = (caster.currentused-1)/8
-Timers:CreateTimer( additional_delay + 0.1, function()
+ 
+ 
+	 
+	modifier_jopa:SpendStack()
+ 
 	caster:SetForwardVector(direction)
-	caster.qused = caster.qused + 1
-	if(caster.qused == 3)then
-		caster:SetModifierStackCount("modifier_saito_fdb",caster,0)
-	end
-	
+	if( not caster:IsAlive()) then return end
 	if(IsServer )then
 		if(caster:HasModifier("modifier_saito_fdb_lastQ")) then
 			dist = dist/2
@@ -56,12 +76,14 @@ Timers:CreateTimer( additional_delay + 0.1, function()
     hitFlag = 0
 	local anim_rate = 1+(0.35-self:GetCastPoint())*2
 	--StartAnimation(caster, {duration = 1, activity = ACT_DOTA_CAST_ABILITY_1, rate = 1+anim_rate})  
-	local target = self:GetCursorPosition()
-    local modifier_jopa = caster:FindModifierByName("modifier_saito_fdb")
-	local modifyByCastSpeed = (1+(0.35-self:GetCastPoint())/0.35)
+	local target = point
+
  
-    modifier_jopa:SpendStack()
-	caster.currentused = caster.currentused-1
+ 
+    
+	  
+	 
+	 
 	if (target - caster:GetAbsOrigin()):Length2D() > dist then
 		target = caster:GetAbsOrigin() + (((target - caster:GetAbsOrigin()):Normalized()) * dist)
 	end
@@ -76,14 +98,15 @@ Timers:CreateTimer( additional_delay + 0.1, function()
 	caster:RemoveModifierByName("modifier_saito_fdb_lastE")
 	caster:EmitSound("saito_dash")
 	local speed =self:GetSpecialValueFor("speed")
-	if(caster.ShinsengumiAcquired and caster.qused == 0) then
+	if(caster.ShinsengumiAcquired and modifier_jopa:GetStackCount() == 0) then
 		speed = 4000
 	end
+ 
 	local qdProjectile = 
 	{
 		Ability = ability,
         --EffectName = "particles/saito/saitoquickslash.vpcf",
-        iMoveSpeed = self:GetSpecialValueFor("speed")*modifyByCastSpeed,
+        iMoveSpeed = self:GetSpecialValueFor("speed"),
         vSpawnOrigin = caster:GetOrigin(),
         fDistance = (target - caster:GetAbsOrigin()):Length2D(),
         fStartRadius = 150,
@@ -96,7 +119,7 @@ Timers:CreateTimer( additional_delay + 0.1, function()
         iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
         fExpireTime = GameRules:GetGameTime() + 5.0,
 		bDeleteOnHit = false,
-		vVelocity = caster:GetForwardVector()*speed*modifyByCastSpeed
+		vVelocity = caster:GetForwardVector()*speed
 	}
 
 	--caster:EmitSound("Astolfo_Slide_" .. math.random(1,5))
@@ -105,7 +128,7 @@ Timers:CreateTimer( additional_delay + 0.1, function()
 	if(speed < 3000) then
 		local sin = Physics:Unit(caster)
 		caster:SetPhysicsFriction(0)
-		caster:SetPhysicsVelocity(caster:GetForwardVector() * speed*modifyByCastSpeed)
+		caster:SetPhysicsVelocity(caster:GetForwardVector() * speed)
 		caster:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
 		--local startpos = self:GetAbsOrigin()
 		Timers:CreateTimer( (target - caster:GetAbsOrigin()):Length2D()/speed/2, function()
@@ -115,7 +138,7 @@ Timers:CreateTimer( additional_delay + 0.1, function()
 			end
 		end)
 		Timers:CreateTimer("saito_dash", {
-			endTime = (target - caster:GetAbsOrigin()):Length2D()/(speed*(modifyByCastSpeed)),
+			endTime = (target - caster:GetAbsOrigin()):Length2D()/(speed),
 			callback = function()
 			caster:OnPreBounce(nil)
 			caster:SetBounceMultiplier(0)
@@ -125,11 +148,11 @@ Timers:CreateTimer( additional_delay + 0.1, function()
 			caster:AddNewModifier(caster, self, "modifier_saito_quickslash", {duration = self:GetSpecialValueFor("dist")/self:GetSpecialValueFor("speed")/4})
 			local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_CLOSEST, false) 
 			if(targets[1] ~= nil ) then
-				caster:Stop()
+				 
 				--caster:SetForwardVector((targets[1]:GetAbsOrigin() -caster:GetAbsOrigin()):Normalized())
 				caster:MoveToTargetToAttack(targets[1])
 			else
-				caster:Stop()
+				 
 				caster:FaceTowards(target)
 				
 			end
@@ -169,7 +192,7 @@ Timers:CreateTimer( additional_delay + 0.1, function()
 		ParticleManager:DestroyParticle(self.fx, false)
 		ParticleManager:ReleaseParticleIndex(self.fx)
 	end)
-end)
+ 
 end
 
 function saito_quickslash:OnProjectileHit_ExtraData(hTarget, vLocation, table)

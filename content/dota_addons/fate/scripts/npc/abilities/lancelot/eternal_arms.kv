@@ -1,0 +1,40 @@
+"DOTAAbilities"
+{
+	//=================================================================================================================
+	// Lancelot : Eternal Arms Mastership
+	//=================================================================================================================
+	"lancelot_arms_mastership"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/lancelot/lancelot_arms_mastership"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityTextureName"			"custom/lancelot_arms_mastership"
+		"MaxLevel"						"1"
+		"AbilityCooldown"				"30"
+		"precache"
+		{
+			"particle"					"particles/prototype_fx/item_linkens_buff.vpcf"
+			"particle"					"particles/custom/abaddon_death_coil_explosion.vpcf"
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_abaddon.vsndevts"
+		}
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"active_duration"	"1.5 3.0"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"crit_chance"		"10 30"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"crit_damage"		"140"
+			}
+		}
+	}
+}

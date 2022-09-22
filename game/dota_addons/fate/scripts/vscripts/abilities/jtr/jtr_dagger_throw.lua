@@ -77,13 +77,21 @@ function jtr_dagger_throw:PlayEffects1( origin, target )
     					    ParticleManager:SetParticleControl( effect_cast, 0, origin )
     					    ParticleManager:SetParticleControl( effect_cast, 1, target)
     					    ParticleManager:SetParticleControl( effect_cast, 2, target )
-    					    ParticleManager:ReleaseParticleIndex( effect_cast )
+                            Timers:CreateTimer(1.0, function()
+                                ParticleManager:DestroyParticle(effect_cast, true)
+                                ParticleManager:ReleaseParticleIndex( effect_cast )
+                            end)
+    					
     else
         local effect_cast = ParticleManager:CreateParticle( "particles/jtr/jtr_slash.vpcf", PATTACH_WORLDORIGIN, self:GetCaster() )
                         ParticleManager:SetParticleControl( effect_cast, 0, origin )
                         ParticleManager:SetParticleControl( effect_cast, 1, origin)
                         ParticleManager:SetParticleControl( effect_cast, 2, target )
                         ParticleManager:ReleaseParticleIndex( effect_cast )
+                        Timers:CreateTimer(1.0, function()
+                            ParticleManager:DestroyParticle(effect_cast, true)
+                            ParticleManager:ReleaseParticleIndex( effect_cast )
+                        end)
     end
 
     --EmitSoundOnLocationWithCaster( origin, sound_start, self:GetCaster() )

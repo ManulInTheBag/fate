@@ -1,5 +1,6 @@
 LinkLuaModifier("modifier_saito_magres_down","abilities/saito/saito_inv_sword", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_saito_fdb_pause", "abilities/saito/saito_fdb", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_saito_invsword_damage_delayed", "abilities/saito/saito_inv_sword", LUA_MODIFIER_MOTION_NONE)
  saito_inv_sword = class({})
 
 function saito_inv_sword:GetAOERadius()
@@ -7,7 +8,25 @@ function saito_inv_sword:GetAOERadius()
 end
 
 
- 
+function saito_inv_sword:GetCastPoint()
+    
+	local Caster = self:GetCaster() 
+    local stack_count = 0
+    
+    if(Caster:HasModifier("modifier_saito_fdb_repeated")) then
+		stack_count = Caster:GetModifierStackCount("modifier_saito_fdb_repeated", Caster)  
+	end
+	if(Caster:HasModifier("modifier_saito_fdb_lastE")) then
+		return 0.7 
+	end
+    if stack_count <=2 then
+		return 0.2
+	elseif stack_count > 2 and stack_count < 5 then
+		return 0.17
+	else
+		return 0.14
+	end
+end
 
 
 function saito_inv_sword:OnUpgrade()
@@ -25,15 +44,10 @@ function saito_inv_sword:OnSpellStart()
     --caster:AddNewModifier(caster, caster, "modifier_saito_fdb_pause",{duration = 0.2})
     StartAnimation(caster, {duration=0.4, activity=ACT_DOTA_CAST_ABILITY_3, rate=1})	
     local modifier_jopa = caster:FindModifierByName("modifier_saito_fdb")
-   
-    caster.eused = caster.eused + 1
-    if(caster.eused == 3) then
-		caster:SetModifierStackCount("modifier_saito_fdb",caster,0)
-	end
+ 
     modifier_jopa:SpendStack()
-    caster.currentused = caster.currentused+1
-	local additional_delay = (caster.currentused-1)/8
-Timers:CreateTimer(0.1 + additional_delay, function()
+ 
+    if( not caster:IsAlive()) then return end
 	local ability = self
     local damage = self:GetSpecialValueFor("damage")+ caster:GetAttackDamage()*self:GetSpecialValueFor("atk_scale")
     
@@ -57,7 +71,7 @@ Timers:CreateTimer(0.1 + additional_delay, function()
     end)
     local radius = self:GetSpecialValueFor("radius")
     local width = 120
-    caster.currentused = caster.currentused-1
+  
     caster:AddNewModifier(caster, caster, "modifier_saito_fdb_lastE",{duration = 15})
 	caster:RemoveModifierByName("modifier_saito_fdb_lastQ")
 	caster:RemoveModifierByName("modifier_saito_fdb_lastW")
@@ -78,7 +92,8 @@ Timers:CreateTimer(0.1 + additional_delay, function()
 
 for _,enemy in pairs(enemies) do
  
-        DoDamage(caster, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+        --DoDamage(caster, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+        enemy:AddNewModifier(caster, self, "modifier_saito_invsword_damage_delayed", {Duration = 0.5, Damage = damage})     
         if(caster.MasteryAcquired) then 
             enemy:AddNewModifier(caster, self, "modifier_saito_magres_down", {Duration = 2})     
         end
@@ -86,13 +101,13 @@ for _,enemy in pairs(enemies) do
 
 end
  
-if(caster.ShinsengumiAcquired and caster.eused == 0) then
+if(caster.ShinsengumiAcquired and  modifier_jopa:GetStackCount() == 0) then
     StartAnimation(caster, {duration=0.2, activity=ACT_DOTA_CAST_ABILITY_3, rate=1})	
  
     Timers:CreateTimer(0.1, function()
     caster:EmitSound("saito_inv_sword2")
 
-
+         
 
     local enemies = FindUnitsInRadius(  caster:GetTeamNumber(),
     caster:GetAbsOrigin(),
@@ -106,7 +121,8 @@ if(caster.ShinsengumiAcquired and caster.eused == 0) then
 
     for _,enemy in pairs(enemies) do
  
-        DoDamage(caster, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+        --DoDamage(caster, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+        enemy:AddNewModifier(caster, self, "modifier_saito_invsword_damage_delayed", {Duration = 0.5, Damage = damage})     
         if(caster.MasteryAcquired) then 
             enemy:AddNewModifier(caster, self, "modifier_saito_magres_down", {Duration = 2})     
         end
@@ -117,7 +133,7 @@ end)
 end
 
  
-end)
+ 
 end
 
 modifier_saito_magres_down = class({})
@@ -138,4 +154,52 @@ end
 
 function modifier_saito_magres_down:RemoveOnDeath()
 	return true 
+end
+
+modifier_saito_invsword_damage_delayed = class({})
+
+  
+function modifier_saito_invsword_damage_delayed:IsHidden()
+	return false 
+end
+
+function modifier_saito_invsword_damage_delayed:RemoveOnDeath()
+	return true 
+end
+
+function modifier_saito_invsword_damage_delayed:IsDebuff()
+	return true 
+end
+
+
+function modifier_saito_invsword_damage_delayed:OnCreated(args)
+    if not IsServer() then return end
+	self.damage = args.Damage
+    self.slashIndex = ParticleManager:CreateParticle( "particles/saito/saito_inv_sword_explosion.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
+    ParticleManager:SetParticleControl(self.slashIndex, 0, self:GetParent():GetAbsOrigin() + Vector(0,0,100))
+ 
+    Timers:CreateTimer(0.3, function()
+        ParticleManager:DestroyParticle(self.slashIndex, true)
+        ParticleManager:ReleaseParticleIndex(self.slashIndex)
+    end)
+end
+
+
+function modifier_saito_invsword_damage_delayed:OnDestroy()
+    if not IsServer() then return end
+    DoDamage(self:GetCaster(), self:GetParent(), self.damage, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
+    self.explosion = ParticleManager:CreateParticle( "particles/saito/saito_inv_sword_explosion_real.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
+    ParticleManager:SetParticleControl(self.explosion, 0, self:GetParent():GetAbsOrigin() + Vector(0,0,100))
+    Timers:CreateTimer(0.3, function()
+    ParticleManager:DestroyParticle(self.explosion, true)
+    ParticleManager:ReleaseParticleIndex(self.explosion)
+ 
+    end)
+
+end
+
+
+
+function modifier_saito_invsword_damage_delayed:GetAttributes()
+	return MODIFIER_ATTRIBUTE_MULTIPLE
 end

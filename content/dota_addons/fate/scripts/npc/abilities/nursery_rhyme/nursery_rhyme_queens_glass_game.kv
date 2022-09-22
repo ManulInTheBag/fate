@@ -1,0 +1,82 @@
+"DOTAAbilities"
+{
+	//====================================
+	// Nursery Rhyme: Queen's Glass Game
+	//====================================
+	"nursery_rhyme_queens_glass_game"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/nursery_rhyme/nursery_rhyme_queens_glass_game"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityTextureName"			"custom/nursery_rhyme_queens_glass_game"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
+
+		"AnimationPlaybackRate" 		"1.0"
+		"precache"
+		{
+			"particle"		"particles/custom/nursery_rhyme/queens_glass_game/queens_glass_game_aoe.vpcf"
+			"particle"		"particles/custom/nursery_rhyme/nursery_timelapse.vpcf"
+			"particle"		"particles/custom/nursery_rhyme/queens_glass_game/queens_glass_game_bookswirl.vpcf"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_weaver.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_faceless_void.vsndevts"
+		}
+
+		"AbilityCastPoint"				"0.5"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"50"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"800"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"1000 1200 1400 1600 1800"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"duration"				"4 7 10 13 16"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"active_cooldown"		"2"
+			}
+		}
+	}
+
+	//====================================
+	// Nursery Rhyme: Queens Glass Game Active
+	//====================================
+	"nursery_rhyme_queens_glass_game_activate"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/nursery_rhyme/nursery_rhyme_queens_glass_game"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"24"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"			"custom/nursery_rhyme_queens_glass_game"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
+
+		"AbilityCastPoint"				"0.1"
+		"AbilityCooldown"				"2"
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+	}
+}

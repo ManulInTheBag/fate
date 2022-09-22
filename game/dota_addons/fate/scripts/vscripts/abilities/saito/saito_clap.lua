@@ -5,6 +5,28 @@ function saito_clap:GetAOERadius()
     return self:GetSpecialValueFor("range")
 end
 
+function saito_clap:GetCastPoint()
+ 
+	local Caster = self:GetCaster() 
+	local stack_count = 0
+ 
+	if(Caster:HasModifier("modifier_saito_fdb_lastW")) then
+		
+		return 0.8
+
+	end
+	if(Caster:HasModifier("modifier_saito_fdb_repeated")) then
+		stack_count = Caster:GetModifierStackCount("modifier_saito_fdb_repeated",Caster) 
+	end
+    if stack_count <=2 then
+		return 0.3
+	elseif stack_count > 2 and stack_count < 5 then
+		return 0.25
+	else
+		return 0.2
+	end
+end
+
 
 function saito_clap:OnUpgrade()
     local Caster = self:GetCaster() 
@@ -19,24 +41,21 @@ end
 
 function saito_clap:OnSpellStart()
 	local caster = self:GetCaster()
+	local lastw = false
 StartAnimation(caster, {duration=0.4, activity=ACT_DOTA_CAST_ABILITY_2, rate=1})		
 --caster:AddNewModifier(caster, caster, "modifier_saito_fdb_pause",{duration = 0.2})
 local modifier_jopa = caster:FindModifierByName("modifier_saito_fdb")
-caster.wused = caster.wused + 1
-if(caster.wused == 3) then
-	caster:SetModifierStackCount("modifier_saito_fdb",caster,0)
-end
-modifier_jopa:SpendStack()
-caster.currentused = caster.currentused+1
-local additional_delay = (caster.currentused-1)/8
-Timers:CreateTimer(0.1 + additional_delay, function()
  
-	
+modifier_jopa:SpendStack()
+ 
+ 
+	if( not caster:IsAlive()) then return end
 
     local ability = self
     local radius = self:GetSpecialValueFor("radius")
-	if(caster.ShinsengumiAcquired and caster.wused == 0) then
+	if(caster.ShinsengumiAcquired and modifier_jopa:GetStackCount() == 0) then
 		radius = radius*2
+ 
 	end
     local damage = self:GetSpecialValueFor("damage")+ caster:GetAttackDamage()*self:GetSpecialValueFor("atk_scale")
 	if(caster.FreestyleAcquired) then
@@ -62,7 +81,7 @@ Timers:CreateTimer(0.1 + additional_delay, function()
 		end
 	end)
 
-	caster.currentused = caster.currentused-1
+	 
     local point = caster:GetAbsOrigin() -- + caster:GetForwardVector()*self:GetSpecialValueFor("range") 
     --StartAnimation(caster, {duration = 1, activity = ACT_DOTA_RAZE_2, rate = 1+(0.4-self:GetCastPoint())*2})  
  	 local 	partname
@@ -91,7 +110,7 @@ Timers:CreateTimer(0.1 + additional_delay, function()
 
 	caster:EmitSound("saito_clap")
  
-end)
+ 
 end
 
 modifier_saito_slow = class({})

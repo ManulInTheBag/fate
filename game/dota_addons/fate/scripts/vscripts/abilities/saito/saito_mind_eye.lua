@@ -56,6 +56,7 @@ function saito_mind_eye:SendProjectile()
     if not IsServer() then return end
         
 	local caster = self:GetCaster()	
+    if(not caster:IsAlive()) then return end
     local ability = self
     local velocity = caster:GetForwardVector()* self:GetSpecialValueFor("projectile_speed")
  
@@ -118,9 +119,9 @@ function saito_mind_eye:OnFateSpellBlocked( )
     --caster:SetForwardVector( ( AbilityCaster:GetAbsOrigin() -caster:GetAbsOrigin()):Normalized())
     if(caster.FreeSpiritAcquired) then
         caster:AddNewModifier(caster,ability,"modifier_saito_mind_eye_buff",{duration = 2})
-        caster:AddNewModifier(caster,ability,"modifier_saito_mind_eye_magic_dmg_immune",{duration = 2.5})
+        caster:AddNewModifier(caster,ability,"modifier_saito_mind_eye_magic_dmg_immune",{duration = 0.5 })
     else
-    caster:AddNewModifier(caster,ability,"modifier_saito_mind_eye_magic_dmg_immune",{duration = 1.5})
+    --caster:AddNewModifier(caster,ability,"modifier_saito_mind_eye_magic_dmg_immune",{duration = 1.5})
     end
 end
 
@@ -152,8 +153,10 @@ end
 
 
 function modifier_saito_mind_eye:OnIntervalThink()
-    if not IsServer then return end
-    self:GetParent():SetForwardVector( (  self:GetAbility().target-self:GetParent():GetAbsOrigin()):Normalized())
+    if not IsServer() then return end
+    local vector = (self:GetAbility().target-self:GetParent():GetAbsOrigin()):Normalized()
+    vector.z = 0
+    self:GetParent():SetForwardVector( vector)
 end
 
 function modifier_saito_mind_eye:OnTakeDamage(args)
@@ -175,9 +178,9 @@ function modifier_saito_mind_eye:OnTakeDamage(args)
 			Timers:RemoveTimer("saito_mind_eye")
             if(caster.FreeSpiritAcquired) then
                 caster:AddNewModifier(caster,ability,"modifier_saito_mind_eye_buff",{duration = 2})
-                caster:AddNewModifier(caster,ability,"modifier_saito_mind_eye_magic_dmg_immune",{duration = 2.5})
+                caster:AddNewModifier(caster,ability,"modifier_saito_mind_eye_magic_dmg_immune",{duration = 0.5})
             else
-            caster:AddNewModifier(caster,ability,"modifier_saito_mind_eye_magic_dmg_immune",{duration = 1.5})
+            --caster:AddNewModifier(caster,ability,"modifier_saito_mind_eye_magic_dmg_immune",{duration = 1.5})
             end
             ability:RemoveParticle()
             ability.powered = 1

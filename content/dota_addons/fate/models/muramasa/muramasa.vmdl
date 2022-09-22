@@ -720,6 +720,35 @@
 						framerate = -1.0
 						reverse = false
 					},
+					{
+						_class = "AnimFile"
+						name = "Muramasa_stunned"
+						activity_name = "ACT_DOTA_DISABLED"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.0
+						fade_out_time = 0.0
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/muramasa/muramasa.fbx"
+						import_bone_scales = false
+						start_frame = 865
+						end_frame = 875
+						framerate = -1.0
+						reverse = false
+						anim_hold_list = 
+						[
+							{
+								frame = 875
+								frame_count = 20
+							},
+						]
+					},
 				]
 				default_root_bone_name = ""
 			},

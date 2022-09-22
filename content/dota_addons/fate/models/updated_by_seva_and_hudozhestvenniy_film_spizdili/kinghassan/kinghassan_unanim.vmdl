@@ -1,1000 +1,597 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc31:version{165d48dd-8adc-4f1d-abf7-4992e04ad577} -->
 {
-	m_meshList = 
+	rootNode = 
 	{
-		m_meshList = 
+		_class = "RootNode"
+		children = 
 		[
 			{
-				m_meshName = "kinghassan_unanim"
-				m_meshFile = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/kinghassan/kinghassan_unanim.fbx"
-				m_materialSearchPath = ""
-				m_bSkinParentedObjects = true
-				m_bLegacySkinParentedTransforms = false
-				m_bExpensiveTangents = false
-				m_bHighPrecisionTexCoords = false
-				m_bPerVertexCurvature = false
-				m_bBentNormals = false
-				m_bIgnoreCloth = false
-				m_bGetSkinningFromLod0 = false
-				m_bPreferHighDensityTrianglesInUvDensityCalculation = false
-				m_pMorphInfo = null
-			},
-		]
-	}
-	m_clothProxyMeshList = 
-	{
-		_class = "CVClothProxyMeshList"
-		m_flClothEnableThreshold = 0.05
-		m_bCreateStaticBone = false
-		m_nMaxBonesPerVertex = 4
-		m_bRemoveUnusedBonesEnabled = false
-		m_bDriveMeshesWithBacksolvedJointsOnly = true
-		m_flMatchProxiesToMeshes = 1.0
-		m_flFallbackEnvelope = 1.0
-		m_nReservedInt = 0
-		m_bSoftSkinAnimation = false
-		m_bReservedBool2 = false
-		m_bReservedBool3 = false
-		m_bReservedBool4 = false
-		m_clothProxyMeshList = [  ]
-	}
-	m_physicsMeshList = 
-	{
-		m_meshList = [  ]
-	}
-	m_pModelInfo = null
-	m_pBoneFlagList = 
-	{
-		m_pObject = null
-	}
-	m_pHitBoxSetLists = 
-	[
-		{
-			m_pObject = 
-			{
-				m_HitBoxSets = 
+				_class = "MaterialGroupList"
+				children = 
 				[
 					{
-						m_name = "default"
-						m_HitBoxes = 
+						_class = "DefaultMaterialGroup"
+						remaps = 
 						[
 							{
-								m_name = "bone_new0"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_new0"
-								m_vMinBounds = [ -3.6236, -2.418417, -0.566448 ]
-								m_vMaxBounds = [ 3.620455, 2.848283, 4.255457 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								from = "khsn_eye.vmat"
+								to = "materials/updated_by_seva_and_hudozhestvenniy_film_spizdili/kinghassan/khsn_eye.vmat"
 							},
 							{
-								m_name = "bone_new3"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_new3"
-								m_vMinBounds = [ -4.267521, -3.117275, 0.208321 ]
-								m_vMaxBounds = [ 4.30444, 4.04482, 7.110291 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								from = "khsn_manto.vmat"
+								to = "materials/updated_by_seva_and_hudozhestvenniy_film_spizdili/kinghassan/khsn_manto.vmat"
 							},
 							{
-								m_name = "bone_new6"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_new6"
-								m_vMinBounds = [ -4.521812, -1.810902, -4.916025 ]
-								m_vMaxBounds = [ 0.596755, 2.388939, 1.050747 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								from = "khsn_body.vmat"
+								to = "materials/updated_by_seva_and_hudozhestvenniy_film_spizdili/kinghassan/khsn_body.vmat"
 							},
 							{
-								m_name = "bone_new19"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_new19"
-								m_vMinBounds = [ -5.381804, -1.296588, -4.645338 ]
-								m_vMaxBounds = [ 0.790607, 2.372346, 3.579678 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								from = "khsn_armor.vmat"
+								to = "materials/updated_by_seva_and_hudozhestvenniy_film_spizdili/kinghassan/khsn_armor.vmat"
 							},
 							{
-								m_name = "bone_new21"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_new21"
-								m_vMinBounds = [ -1.967435, -1.085557, -2.531628 ]
-								m_vMaxBounds = [ 0.358035, 0.977202, 0.470362 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								from = "khsn_sword.vmat"
+								to = "materials/updated_by_seva_and_hudozhestvenniy_film_spizdili/kinghassan/khsn_sword.vmat"
+							},
+						]
+						use_global_default = false
+						global_default_material = ""
+					},
+				]
+			},
+			{
+				_class = "AttachmentList"
+				children = 
+				[
+					{
+						_class = "Attachment"
+						name = "ATTACH_HITLOC"
+						parent_bone = "bone_newv0"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "ATTACH_ATTACK1"
+						parent_bone = "bone_newk0"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+				]
+			},
+			{
+				_class = "HitboxSetList"
+				children = 
+				[
+					{
+						_class = "HitboxSet"
+						name = "default"
+						children = 
+						[
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_new0"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.6236, -2.418417, -0.566448 ]
+								hitbox_maxs = [ 3.620455, 2.848283, 4.255457 ]
 							},
 							{
-								m_name = "bone_new7"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_new7"
-								m_vMinBounds = [ -0.652124, -1.805747, -5.009829 ]
-								m_vMaxBounds = [ 4.466441, 2.394093, 0.956949 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bone_new3"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.267521, -3.117275, 0.208321 ]
+								hitbox_maxs = [ 4.30444, 4.04482, 7.110291 ]
 							},
 							{
-								m_name = "bone_new11"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_new11"
-								m_vMinBounds = [ -8.346005, -1.072284, -6.189199 ]
-								m_vMaxBounds = [ 8.117522, 3.890746, -0.505344 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bone_new6"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.521812, -1.810902, -4.916025 ]
+								hitbox_maxs = [ 0.596755, 2.388939, 1.050747 ]
 							},
 							{
-								m_name = "bone_newd1"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_newd1"
-								m_vMinBounds = [ -1.958647, -2.056243, -7.828375 ]
-								m_vMaxBounds = [ 2.309697, 1.805327, 0.548626 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bone_new19"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.381804, -1.296588, -4.645338 ]
+								hitbox_maxs = [ 0.790607, 2.372346, 3.579678 ]
 							},
 							{
-								m_name = "bone_newk2"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_newk2"
-								m_vMinBounds = [ -2.295344, -2.074178, -7.825231 ]
-								m_vMaxBounds = [ 1.972999, 1.787384, 0.551769 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bone_new21"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.967435, -1.085557, -2.531628 ]
+								hitbox_maxs = [ 0.358035, 0.977202, 0.470362 ]
 							},
 							{
-								m_name = "bone_newk0"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_newk0"
-								m_vMinBounds = [ -2.717899, -26.589493, -1.199429 ]
-								m_vMaxBounds = [ 2.678531, 5.572144, 1.388992 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bone_new7"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.652124, -1.805747, -5.009829 ]
+								hitbox_maxs = [ 4.466441, 2.394093, 0.956949 ]
 							},
 							{
-								m_name = "bone_new20"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_new20"
-								m_vMinBounds = [ -0.674296, -1.287695, -4.873436 ]
-								m_vMaxBounds = [ 5.498122, 2.381232, 3.351532 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bone_new11"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -8.346005, -1.072284, -6.189199 ]
+								hitbox_maxs = [ 8.117522, 3.890746, -0.505344 ]
 							},
 							{
-								m_name = "bone_new16"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_new16"
-								m_vMinBounds = [ -4.519959, -1.652202, -8.012532 ]
-								m_vMaxBounds = [ 1.369139, 1.113979, 0.630779 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bone_newd1"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.958647, -2.056243, -7.828375 ]
+								hitbox_maxs = [ 2.309697, 1.805327, 0.548626 ]
 							},
 							{
-								m_name = "bone_new17"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_new17"
-								m_vMinBounds = [ -1.468506, -1.478633, -8.228306 ]
-								m_vMaxBounds = [ 4.420592, 1.287556, 0.415007 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bone_newk2"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.295344, -2.074178, -7.825231 ]
+								hitbox_maxs = [ 1.972999, 1.787384, 0.551769 ]
 							},
 							{
-								m_name = "bone_new10"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_new10"
-								m_vMinBounds = [ -2.285713, -4.370203, -9.579923 ]
-								m_vMaxBounds = [ 2.253949, 3.172388, 7.914495 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bone_newk0"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.717899, -26.589493, -1.199429 ]
+								hitbox_maxs = [ 2.678531, 5.572144, 1.388992 ]
 							},
 							{
-								m_name = "bone_new9"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_new9"
-								m_vMinBounds = [ -2.264113, -4.33321, -9.666265 ]
-								m_vMaxBounds = [ 2.27555, 3.209381, 7.828146 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bone_new20"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.674296, -1.287695, -4.873436 ]
+								hitbox_maxs = [ 5.498122, 2.381232, 3.351532 ]
 							},
 							{
-								m_name = "bone_new12"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_new12"
-								m_vMinBounds = [ -7.334266, -1.250988, -8.620319 ]
-								m_vMaxBounds = [ 7.172692, 4.502202, 0.273724 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bone_new16"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.519959, -1.652202, -8.012532 ]
+								hitbox_maxs = [ 1.369139, 1.113979, 0.630779 ]
 							},
 							{
-								m_name = "bone_newv0"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_newv0"
-								m_vMinBounds = [ -2.0, -2.0, -2.0 ]
-								m_vMaxBounds = [ 2.0, 2.0, 2.0 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bone_new17"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.468506, -1.478633, -8.228306 ]
+								hitbox_maxs = [ 4.420592, 1.287556, 0.415007 ]
 							},
 							{
-								m_name = "bone_new4"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_new4"
-								m_vMinBounds = [ -3.498722, -2.643496, -2.897635 ]
-								m_vMaxBounds = [ 2.55758, 2.679482, 1.959846 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bone_new10"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.285713, -4.370203, -9.579923 ]
+								hitbox_maxs = [ 2.253949, 3.172388, 7.914495 ]
 							},
 							{
-								m_name = "bone_newk1"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_newk1"
-								m_vMinBounds = [ -0.000009, -1.494529, -9.789591 ]
-								m_vMaxBounds = [ -0.000008, 0.531617, -0.910748 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bone_new9"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.264113, -4.33321, -9.666265 ]
+								hitbox_maxs = [ 2.27555, 3.209381, 7.828146 ]
 							},
 							{
-								m_name = "bone_new5"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_new5"
-								m_vMinBounds = [ -2.579564, -2.67076, -2.871634 ]
-								m_vMaxBounds = [ 3.510616, 2.652218, 1.892029 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bone_new12"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.334266, -1.250988, -8.620319 ]
+								hitbox_maxs = [ 7.172692, 4.502202, 0.273724 ]
 							},
 							{
-								m_name = "bone_new22"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_new22"
-								m_vMinBounds = [ -0.357064, -0.955313, -2.34367 ]
-								m_vMaxBounds = [ 1.993299, 0.992453, 0.463747 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bone_newv0"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.0, -2.0, -2.0 ]
+								hitbox_maxs = [ 2.0, 2.0, 2.0 ]
 							},
 							{
-								m_name = "bone_new8"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_new8"
-								m_vMinBounds = [ -3.413391, -1.566354, -0.629013 ]
-								m_vMaxBounds = [ 3.41798, 1.343377, 3.982239 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bone_new4"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.498722, -2.643496, -2.897635 ]
+								hitbox_maxs = [ 2.55758, 2.679482, 1.959846 ]
 							},
 							{
-								m_name = "bone_new15"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_new15"
-								m_vMinBounds = [ -2.590272, -1.74672, -7.67123 ]
-								m_vMaxBounds = [ 0.207775, 0.823711, -1.951775 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bone_newk1"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.000009, -1.494529, -9.789591 ]
+								hitbox_maxs = [ -0.000008, 0.531617, -0.910748 ]
 							},
 							{
-								m_name = "bone_new18"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_new18"
-								m_vMinBounds = [ -0.3006, -1.65448, -7.184321 ]
-								m_vMaxBounds = [ 2.497439, 0.915959, -1.464895 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bone_new5"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.579564, -2.67076, -2.871634 ]
+								hitbox_maxs = [ 3.510616, 2.652218, 1.892029 ]
 							},
 							{
-								m_name = "bone_new2"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_new2"
-								m_vMinBounds = [ -5.811649, -0.601642, -7.029715 ]
-								m_vMaxBounds = [ 5.87817, 2.913056, 0.183464 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bone_new22"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.357064, -0.955313, -2.34367 ]
+								hitbox_maxs = [ 1.993299, 0.992453, 0.463747 ]
 							},
 							{
-								m_name = "bone_newd0"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_newd0"
-								m_vMinBounds = [ -1.366628, -5.163377, -2.731901 ]
-								m_vMaxBounds = [ 1.417202, 1.926286, -0.075033 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bone_new8"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.413391, -1.566354, -0.629013 ]
+								hitbox_maxs = [ 3.41798, 1.343377, 3.982239 ]
 							},
 							{
-								m_name = "bone_newp1"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_newp1"
-								m_vMinBounds = [ -1.430705, -5.162152, -2.731906 ]
-								m_vMaxBounds = [ 1.353121, 1.927499, -0.075033 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bone_new15"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.590272, -1.74672, -7.67123 ]
+								hitbox_maxs = [ 0.207775, 0.823711, -1.951775 ]
 							},
 							{
-								m_name = "bone_newp0"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_newp0"
-								m_vMinBounds = [ -10.865376, -4.169291, -9.271315 ]
-								m_vMaxBounds = [ 10.86537, 7.386878, 0.127066 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bone_new18"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.3006, -1.65448, -7.184321 ]
+								hitbox_maxs = [ 2.497439, 0.915959, -1.464895 ]
 							},
 							{
-								m_name = "bone_new13"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_new13"
-								m_vMinBounds = [ -3.058146, -1.57989, -8.970724 ]
-								m_vMaxBounds = [ 0.3197, 2.060309, 0.90649 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bone_new2"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.811649, -0.601642, -7.029715 ]
+								hitbox_maxs = [ 5.87817, 2.913056, 0.183464 ]
 							},
 							{
-								m_name = "bone_new14"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_new14"
-								m_vMinBounds = [ -0.567729, -1.575354, -8.667564 ]
-								m_vMaxBounds = [ 2.810116, 1.874329, 1.209648 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bone_newd0"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.366628, -5.163377, -2.731901 ]
+								hitbox_maxs = [ 1.417202, 1.926286, -0.075033 ]
 							},
 							{
-								m_name = "bone_newv1"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_newv1"
-								m_vMinBounds = [ -1.504543, -0.194838, -8.099874 ]
-								m_vMaxBounds = [ 1.572334, 0.085243, 0.142824 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bone_newp1"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.430705, -5.162152, -2.731906 ]
+								hitbox_maxs = [ 1.353121, 1.927499, -0.075033 ]
 							},
 							{
-								m_name = "bone_new1"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_new1"
-								m_vMinBounds = [ -5.585319, -2.787397, -3.352108 ]
-								m_vMaxBounds = [ 5.542311, 4.783674, 2.059141 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bone_newp0"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -10.865376, -4.169291, -9.271315 ]
+								hitbox_maxs = [ 10.86537, 7.386878, 0.127066 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_new13"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.058146, -1.57989, -8.970724 ]
+								hitbox_maxs = [ 0.3197, 2.060309, 0.90649 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_new14"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.567729, -1.575354, -8.667564 ]
+								hitbox_maxs = [ 2.810116, 1.874329, 1.209648 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_newv1"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.504543, -0.194838, -8.099874 ]
+								hitbox_maxs = [ 1.572334, 0.085243, 0.142824 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_new1"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.585319, -2.787397, -3.352108 ]
+								hitbox_maxs = [ 5.542311, 4.783674, 2.059141 ]
 							},
 						]
 					},
 				]
-				m_AutoCreateSetName = ""
-			}
-		},
-	]
-	m_pAttachmentLists = 
-	[
-		{
-			m_pObject = 
+			},
 			{
-				m_name = ""
-				m_attachments = 
+				_class = "RenderMeshList"
+				children = 
 				[
 					{
-						m_name = "ATTACH_HITLOC"
-						m_influences = 
-						[
-							{
-								m_influenceName = "bone_newv0"
-								m_vTranslationOffset = [ 0.0, 0.0, 0.0 ]
-								m_vRotationOffset = [ 0.0, 0.0, 0.0 ]
-								m_flWeight = 1.0
-								m_bRoot = false
-							},
-						]
-					},
-					{
-						m_name = "ATTACH_ATTACK1"
-						m_influences = 
-						[
-							{
-								m_influenceName = "bone_newk0"
-								m_vTranslationOffset = [ 0.0, 0.0, 0.0 ]
-								m_vRotationOffset = [ 0.0, 0.0, 0.0 ]
-								m_flWeight = 1.0
-								m_bRoot = false
-							},
-						]
+						_class = "RenderMeshFile"
+						name = "kinghassan_unanim"
+						filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/kinghassan/kinghassan_unanim.fbx"
+						import_scale = 1.0
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = [  ]
+						}
 					},
 				]
-			}
-		},
-	]
-	m_pAnimGroup = 
-	{
-		m_pObject = 
-		{
-			m_Name = ""
-			m_pBoneFlagList = 
-			{
-				m_pObject = null
-			}
-			m_pSeqGroup = 
-			{
-				m_pObject = null
-			}
-			m_pAnimGroups = [  ]
-			m_Vanim = 
-			[
-				{
-					m_Animationname = "kinghassan_idle"
-					m_Filepath = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/kinghassan/kinghassan.fbx"
-					m_nStartframe = 63
-					m_nEndframe = 125
-					m_flFps = 45.0
-					m_Loop = 
-					{
-						m_bLoop = true
-						m_bSmoothLoop = false
-						m_nSmoothLoopStart = 0
-						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
-						{
-							_class = "CVAnimCmdStartLoop"
-							m_bEnabled = false
-							m_nLoopRestart = 0
-						}
-					}
-					m_bHidden = false
-					m_bDisable = false
-					m_Activities = 
-					[
-						{
-							m_Name = "ACT_DOTA_IDLE"
-							m_nWeight = 1
-						},
-					]
-					m_AnimationEvents = [  ]
-					m_MotionFrames = [  ]
-					m_pIkRules = [  ]
-					m_pAlignAnimation = null
-					m_adjustAnimation = 
-					{
-						m_translation = [ 0.0, 0.0, 0.0 ]
-						m_rotation = [ 0.0, 0.0, 0.0 ]
-					}
-					m_Keywords = [  ]
-					m_sequenceParams = 
-					{
-						m_flFadeInTime = 0.2
-						m_flFadeOutTime = 0.2
-					}
-					m_folderName = ""
-					m_MotionFramesRootBone = ""
-				},
-				{
-					m_Animationname = "kinghassan_run"
-					m_Filepath = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/kinghassan/kinghassan.fbx"
-					m_nStartframe = 157
-					m_nEndframe = 187
-					m_flFps = 60.0
-					m_Loop = 
-					{
-						m_bLoop = true
-						m_bSmoothLoop = false
-						m_nSmoothLoopStart = 0
-						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
-						{
-							_class = "CVAnimCmdStartLoop"
-							m_bEnabled = false
-							m_nLoopRestart = 0
-						}
-					}
-					m_bHidden = false
-					m_bDisable = false
-					m_Activities = 
-					[
-						{
-							m_Name = "ACT_DOTA_RUN"
-							m_nWeight = 1
-						},
-					]
-					m_AnimationEvents = [  ]
-					m_MotionFrames = [  ]
-					m_pIkRules = [  ]
-					m_pAlignAnimation = null
-					m_adjustAnimation = 
-					{
-						m_translation = [ 0.0, 0.0, 0.0 ]
-						m_rotation = [ 0.0, 0.0, 0.0 ]
-					}
-					m_Keywords = [  ]
-					m_sequenceParams = 
-					{
-						m_flFadeInTime = 0.2
-						m_flFadeOutTime = 0.2
-					}
-					m_folderName = ""
-					m_MotionFramesRootBone = ""
-				},
-				{
-					m_Animationname = "kinghassan_spin"
-					m_Filepath = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/kinghassan/kinghassan.fbx"
-					m_nStartframe = 218
-					m_nEndframe = 250
-					m_flFps = 60.0
-					m_Loop = 
-					{
-						m_bLoop = false
-						m_bSmoothLoop = false
-						m_nSmoothLoopStart = 0
-						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
-						{
-							_class = "CVAnimCmdStartLoop"
-							m_bEnabled = false
-							m_nLoopRestart = 0
-						}
-					}
-					m_bHidden = false
-					m_bDisable = false
-					m_Activities = 
-					[
-						{
-							m_Name = "ACT_DOTA_CAST_ABILITY_3"
-							m_nWeight = 1
-						},
-					]
-					m_AnimationEvents = [  ]
-					m_MotionFrames = [  ]
-					m_pIkRules = [  ]
-					m_pAlignAnimation = null
-					m_adjustAnimation = 
-					{
-						m_translation = [ 0.0, 0.0, 0.0 ]
-						m_rotation = [ 0.0, 0.0, 0.0 ]
-					}
-					m_Keywords = [  ]
-					m_sequenceParams = 
-					{
-						m_flFadeInTime = 0.2
-						m_flFadeOutTime = 0.2
-					}
-					m_folderName = ""
-					m_MotionFramesRootBone = ""
-				},
-				{
-					m_Animationname = "kinghassan_attack"
-					m_Filepath = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/kinghassan/kinghassan.fbx"
-					m_nStartframe = 282
-					m_nEndframe = 313
-					m_flFps = 20.0
-					m_Loop = 
-					{
-						m_bLoop = false
-						m_bSmoothLoop = false
-						m_nSmoothLoopStart = 0
-						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
-						{
-							_class = "CVAnimCmdStartLoop"
-							m_bEnabled = false
-							m_nLoopRestart = 0
-						}
-					}
-					m_bHidden = false
-					m_bDisable = false
-					m_Activities = 
-					[
-						{
-							m_Name = "ACT_DOTA_ATTACK"
-							m_nWeight = 1
-						},
-					]
-					m_AnimationEvents = [  ]
-					m_MotionFrames = [  ]
-					m_pIkRules = [  ]
-					m_pAlignAnimation = null
-					m_adjustAnimation = 
-					{
-						m_translation = [ 0.0, 0.0, 0.0 ]
-						m_rotation = [ 0.0, 0.0, 0.0 ]
-					}
-					m_Keywords = [  ]
-					m_sequenceParams = 
-					{
-						m_flFadeInTime = 0.2
-						m_flFadeOutTime = 0.2
-					}
-					m_folderName = ""
-					m_MotionFramesRootBone = ""
-				},
-				{
-					m_Animationname = "kinghassan_death"
-					m_Filepath = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/kinghassan/kinghassan.fbx"
-					m_nStartframe = 343
-					m_nEndframe = 375
-					m_flFps = 30.0
-					m_Loop = 
-					{
-						m_bLoop = false
-						m_bSmoothLoop = false
-						m_nSmoothLoopStart = 0
-						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
-						{
-							_class = "CVAnimCmdStartLoop"
-							m_bEnabled = false
-							m_nLoopRestart = 0
-						}
-					}
-					m_bHidden = false
-					m_bDisable = false
-					m_Activities = 
-					[
-						{
-							m_Name = "ACT_DOTA_DIE"
-							m_nWeight = 1
-						},
-					]
-					m_AnimationEvents = [  ]
-					m_MotionFrames = [  ]
-					m_pIkRules = [  ]
-					m_pAlignAnimation = null
-					m_adjustAnimation = 
-					{
-						m_translation = [ 0.0, 0.0, 0.0 ]
-						m_rotation = [ 0.0, 0.0, 0.0 ]
-					}
-					m_Keywords = [  ]
-					m_sequenceParams = 
-					{
-						m_flFadeInTime = 0.2
-						m_flFadeOutTime = 0.2
-					}
-					m_folderName = ""
-					m_MotionFramesRootBone = ""
-				},
-				{
-					m_Animationname = "kinghassan_kappa"
-					m_Filepath = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/kinghassan/kinghassan.fbx"
-					m_nStartframe = 409
-					m_nEndframe = 487
-					m_flFps = 30.0
-					m_Loop = 
-					{
-						m_bLoop = false
-						m_bSmoothLoop = false
-						m_nSmoothLoopStart = 0
-						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
-						{
-							_class = "CVAnimCmdStartLoop"
-							m_bEnabled = false
-							m_nLoopRestart = 0
-						}
-					}
-					m_bHidden = false
-					m_bDisable = false
-					m_Activities = 
-					[
-						{
-							m_Name = "ACT_DOTA_CAST_ABILITY_4"
-							m_nWeight = 1
-						},
-					]
-					m_AnimationEvents = [  ]
-					m_MotionFrames = [  ]
-					m_pIkRules = [  ]
-					m_pAlignAnimation = null
-					m_adjustAnimation = 
-					{
-						m_translation = [ 0.0, 0.0, 0.0 ]
-						m_rotation = [ 0.0, 0.0, 0.0 ]
-					}
-					m_Keywords = [  ]
-					m_sequenceParams = 
-					{
-						m_flFadeInTime = 0.2
-						m_flFadeOutTime = 0.2
-					}
-					m_folderName = ""
-					m_MotionFramesRootBone = ""
-				},
-				{
-					m_Animationname = "kinghassan_azrael"
-					m_Filepath = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/kinghassan/kinghassan.fbx"
-					m_nStartframe = 530
-					m_nEndframe = 656
-					m_flFps = 30.0
-					m_Loop = 
-					{
-						m_bLoop = false
-						m_bSmoothLoop = false
-						m_nSmoothLoopStart = 0
-						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
-						{
-							_class = "CVAnimCmdStartLoop"
-							m_bEnabled = false
-							m_nLoopRestart = 0
-						}
-					}
-					m_bHidden = false
-					m_bDisable = false
-					m_Activities = 
-					[
-						{
-							m_Name = "ACT_DOTA_CAST_ABILITY_4_END"
-							m_nWeight = 1
-						},
-					]
-					m_AnimationEvents = [  ]
-					m_MotionFrames = [  ]
-					m_pIkRules = [  ]
-					m_pAlignAnimation = null
-					m_adjustAnimation = 
-					{
-						m_translation = [ 0.0, 0.0, 0.0 ]
-						m_rotation = [ 0.0, 0.0, 0.0 ]
-					}
-					m_Keywords = [  ]
-					m_sequenceParams = 
-					{
-						m_flFadeInTime = 0.2
-						m_flFadeOutTime = 0.2
-					}
-					m_folderName = ""
-					m_MotionFramesRootBone = ""
-				},
-				{
-					m_Animationname = "kinghassan_blink"
-					m_Filepath = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/kinghassan/kinghassan.fbx"
-					m_nStartframe = 750
-					m_nEndframe = 781
-					m_flFps = 120.0
-					m_Loop = 
-					{
-						m_bLoop = false
-						m_bSmoothLoop = false
-						m_nSmoothLoopStart = 0
-						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
-						{
-							_class = "CVAnimCmdStartLoop"
-							m_bEnabled = false
-							m_nLoopRestart = 0
-						}
-					}
-					m_bHidden = false
-					m_bDisable = false
-					m_Activities = 
-					[
-						{
-							m_Name = "ACT_DOTA_CAST_ABILITY_1"
-							m_nWeight = 1
-						},
-					]
-					m_AnimationEvents = [  ]
-					m_MotionFrames = [  ]
-					m_pIkRules = [  ]
-					m_pAlignAnimation = null
-					m_adjustAnimation = 
-					{
-						m_translation = [ 0.0, 0.0, 0.0 ]
-						m_rotation = [ 0.0, 0.0, 0.0 ]
-					}
-					m_Keywords = [  ]
-					m_sequenceParams = 
-					{
-						m_flFadeInTime = 0.2
-						m_flFadeOutTime = 0.2
-					}
-					m_folderName = ""
-					m_MotionFramesRootBone = ""
-				},
-				{
-					m_Animationname = "kinghassan_w"
-					m_Filepath = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/kinghassan/kinghassan.fbx"
-					m_nStartframe = 687
-					m_nEndframe = 730
-					m_flFps = 30.0
-					m_Loop = 
-					{
-						m_bLoop = true
-						m_bSmoothLoop = false
-						m_nSmoothLoopStart = 0
-						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
-						{
-							_class = "CVAnimCmdStartLoop"
-							m_bEnabled = false
-							m_nLoopRestart = 0
-						}
-					}
-					m_bHidden = false
-					m_bDisable = false
-					m_Activities = 
-					[
-						{
-							m_Name = "ACT_DOTA_CAST_ABILITY_2"
-							m_nWeight = 1
-						},
-					]
-					m_AnimationEvents = [  ]
-					m_MotionFrames = [  ]
-					m_pIkRules = [  ]
-					m_pAlignAnimation = null
-					m_adjustAnimation = 
-					{
-						m_translation = [ 0.0, 0.0, 0.0 ]
-						m_rotation = [ 0.0, 0.0, 0.0 ]
-					}
-					m_Keywords = [  ]
-					m_sequenceParams = 
-					{
-						m_flFadeInTime = 0.2
-						m_flFadeOutTime = 0.2
-					}
-					m_folderName = ""
-					m_MotionFramesRootBone = ""
-				},
-			]
-			m_sScripts = [  ]
-			m_folderNames = [  ]
-			m_sCompileScripts = [  ]
-			m_pActivityWhiteList = 
-			{
-				m_pObject = null
-			}
-		}
-	}
-	m_pMaterialGroupList = 
-	{
-		m_pObject = null
-	}
-	m_pMeshGroupList = 
-	{
-		m_pObject = null
-	}
-	m_pLodGroupList = 
-	{
-		m_pObject = null
-	}
-	m_pPropBreakableList = 
-	{
-		m_pObject = null
-	}
-	m_pPropDataList = 
-	{
-		m_pObject = null
-	}
-	m_pConstraintLists = [  ]
-	m_collision = ""
-	m_softbody = ""
-	m_sMDLFilename = ""
-	m_sOffsetHitboxSets = [  ]
-	m_vHitboxSetOffset = [ 0.0, 0.0, 0.0 ]
-	m_scriptFiles = [  ]
-	m_pMaterialRemapList = 
-	{
-		m_vMaterialRemapList = 
-		[
-			{
-				m_sSearchMaterial = "khsn_eye.vmat"
-				m_sReplaceMaterial = "materials/updated_by_seva_and_hudozhestvenniy_film_spizdili/kinghassan/khsn_eye.vmat"
 			},
 			{
-				m_sSearchMaterial = "khsn_manto.vmat"
-				m_sReplaceMaterial = "materials/updated_by_seva_and_hudozhestvenniy_film_spizdili/kinghassan/khsn_manto.vmat"
-			},
-			{
-				m_sSearchMaterial = "khsn_body.vmat"
-				m_sReplaceMaterial = "materials/updated_by_seva_and_hudozhestvenniy_film_spizdili/kinghassan/khsn_body.vmat"
-			},
-			{
-				m_sSearchMaterial = "khsn_armor.vmat"
-				m_sReplaceMaterial = "materials/updated_by_seva_and_hudozhestvenniy_film_spizdili/kinghassan/khsn_armor.vmat"
-			},
-			{
-				m_sSearchMaterial = "khsn_sword.vmat"
-				m_sReplaceMaterial = "materials/updated_by_seva_and_hudozhestvenniy_film_spizdili/kinghassan/khsn_sword.vmat"
+				_class = "AnimationList"
+				children = 
+				[
+					{
+						_class = "AnimFile"
+						name = "kinghassan_idle"
+						activity_name = "ACT_DOTA_IDLE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/kinghassan/kinghassan.fbx"
+						import_bone_scales = false
+						start_frame = 63
+						end_frame = 125
+						framerate = 45.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "kinghassan_run"
+						activity_name = "ACT_DOTA_RUN"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/kinghassan/kinghassan.fbx"
+						import_bone_scales = false
+						start_frame = 157
+						end_frame = 187
+						framerate = 60.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "kinghassan_spin"
+						activity_name = "ACT_DOTA_CAST_ABILITY_3"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/kinghassan/kinghassan.fbx"
+						import_bone_scales = false
+						start_frame = 218
+						end_frame = 250
+						framerate = 60.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "kinghassan_attack"
+						activity_name = "ACT_DOTA_ATTACK"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/kinghassan/kinghassan.fbx"
+						import_bone_scales = false
+						start_frame = 282
+						end_frame = 313
+						framerate = 20.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "kinghassan_death"
+						activity_name = "ACT_DOTA_DIE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/kinghassan/kinghassan.fbx"
+						import_bone_scales = false
+						start_frame = 343
+						end_frame = 375
+						framerate = 30.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "kinghassan_kappa"
+						activity_name = "ACT_DOTA_CAST_ABILITY_4"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/kinghassan/kinghassan.fbx"
+						import_bone_scales = false
+						start_frame = 409
+						end_frame = 487
+						framerate = 30.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "kinghassan_azrael"
+						activity_name = "ACT_DOTA_CAST_ABILITY_4_END"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/kinghassan/kinghassan.fbx"
+						import_bone_scales = false
+						start_frame = 530
+						end_frame = 656
+						framerate = 30.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "kinghassan_blink"
+						activity_name = "ACT_DOTA_CAST_ABILITY_1"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/kinghassan/kinghassan.fbx"
+						import_bone_scales = false
+						start_frame = 750
+						end_frame = 781
+						framerate = 120.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "kinghassan_w"
+						activity_name = "ACT_DOTA_CAST_ABILITY_2"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/kinghassan/kinghassan.fbx"
+						import_bone_scales = false
+						start_frame = 687
+						end_frame = 730
+						framerate = 30.0
+						reverse = false
+					},
+				]
+				default_root_bone_name = ""
 			},
 		]
+		model_archetype = ""
+		primary_associated_entity = ""
+		anim_graph_name = ""
+		importer_notes = """
+Imported from VMDL
+"""
 	}
-	m_flFbxScale = 1.0
-	m_flQCScale = 1.0
-	m_vOrigin = [ 0.0, 0.0, 0.0 ]
-	m_bEmbedAnimsInAnimGroup = false
-	m_pPsfList = null
-	m_keyValueText = ""
-	m_bStaticProp = false
-	m_bEnableClothProcessing = true
-	m_flClothEnableThreshold = 0.05
-	m_nMaxClothVertsPerMesh = 2048
-	m_bBuildClothBoneHierarchy = false
-	m_nNavType = "AUTH_NAV_MESH"
-	m_bMakeUniqueVMeshes = false
-	m_bMakeImplicitBindPoseSequence = false
-	m_bAdjustSkeletonFromBoneFlags = false
-	m_bHiddenAssetFlag = false
-	m_pAnimGroups = [  ]
 }

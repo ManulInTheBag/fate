@@ -47,17 +47,84 @@
 	}		
 
 	//=====================================
+	// Gilgamesh : Sword barrage
+	//=====================================
+	"gilgamesh_sword_barrage"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/gilgamesh/gilgamesh_sword_barrage"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET|DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/gilgamesh/gilgamesh_sword_barrage"
+		
+		"AbilityCastPoint"				"0.1"
+		"AbilityCastRange"				"850"
+		"AbilityCastRangeBuffer"		"150"
+		"AbilityCooldown"				"6"
+		"AbilityManaCost"				"100"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+		"AnimationPlaybackRate" 		"0.9"
+
+		
+		
+		 
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"cast_delay"			"0.3"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cast_range"			"850"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"60 75 90 105 120"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration"			"0.3"
+			}
+			
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"400"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"strike_amount"				"5"
+			}
+		}
+		
+		 
+	}
+	//=====================================
 	// Gilgamesh : Gate of Babylon
 	//=====================================
 	"gilgamesh_gate_of_babylon"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/gilgamesh/gilgamesh_gate_of_babylon"
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"2"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT|DOTA_ABILITY_BEHAVIOR_AUTOCAST"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
@@ -106,54 +173,14 @@
 				"var_type"			"FIELD_FLOAT"
 				"duration"			"8"
 			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"range"			"1000"
+			}
 		}
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-			 	"ScriptFile"	"gilg_ability"
-			 	"Function"		"OnGOBStart"
-			 	"Target"		"POINT"
-			 	"Damage"		"%damage"
-			 	"Duration"		"%duration"
-			}
-		}
-
-		"OnProjectileHitUnit"
-		{
-			"RunScript"
-			{
-			 	"ScriptFile"	"gilg_ability"
-			 	"Function"		"OnGOBHit"
-			 	"Damage"		"%damage"
-			}
-		}
-
-		"Modifiers"
-		{
-			"modifier_gob_thinker"
-			{
-				"Duration"			"%duration"
-	            "ThinkInterval"		"0.06"
-	            "OnIntervalThink"
-	         	{
-					"RunScript"
-					{
-					 	"ScriptFile"	"gilg_ability"
-					 	"Function"		"OnGOBThink"
-					}
-				}	
-				"OnDestroy"
-				{
-					"RunScript"
-					{
-					 	"ScriptFile"	"gilg_ability"
-					 	"Function"		"OnGOBEnd"
-					}					
-				}			
-			}
-		}
+		 
 	}
 	//=======================================
 	// Gilgamesh : GOB Toggle
@@ -736,6 +763,11 @@
 				"var_type"			"FIELD_FLOAT"
 				"dmg_ratio"			"0.35"
 			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"dmg_ratio_q"			"0.5"
+			}
 		}
 		
 		"OnSpellStart"
@@ -745,6 +777,48 @@
 				"ScriptFile"	"gilg_ability"
 				"Function"		"OnPowerOfSumerAcquired"
 			}
+		}
+	}
+
+	//=======================================
+	// Gilgamesh Attribute : Chains of heaven
+	//=======================================
+	"gilgamesh_attribute_chains_of_heaven"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/gilgamesh/gilgamesh_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/gilgamesh/chains_of_heaven"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"10"
+
+		"precache"
+		{
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"amount_of_swords"		"8"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"sword_damage"			"100"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"bonus_duration"		"1"
+			}
+		 
 		}
 	}
 

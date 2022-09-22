@@ -58,12 +58,16 @@ end)
       ProjectileManager:ProjectileDodge(caster)
       HardCleanse(caster)
       caster:StopAnimation()
-     
-    StartAnimation(caster, {duration=attack_time, activity=ACT_DOTA_ALCHEMIST_CHEMICAL_RAGE_END, rate=2.0})
-    Timers:CreateTimer( 0.1, function()
-      local particle2 = ParticleManager:CreateParticle("particles/muramasa/muramasa_sword_dance_pierce.vpcf", PATTACH_CUSTOMORIGIN, nil)
-      ParticleManager:SetParticleControl(     particle2 , 0,  caster:GetAbsOrigin() + Vector(0,0,120)  )  
-      ParticleManager:SetParticleControl(     particle2 , 1,  caster:GetAbsOrigin() +caster:GetForwardVector()*250 + Vector(0,0,40)  )  
+      StartAnimation(caster, {duration=attack_time, activity=ACT_DOTA_RAZE_2, rate=2.0})
+    --StartAnimation(caster, {duration=attack_time, activity=ACT_DOTA_ALCHEMIST_CHEMICAL_RAGE_END, rate=2.0})
+    local particle2 = ParticleManager:CreateParticle("particles/muramasa/muramasa_sword_dance_first_hit.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+    ParticleManager:SetParticleControl(     particle2 , 0,  caster:GetAbsOrigin()  )  
+    Timers:CreateTimer( 0.2, function()
+      --local particle2 = ParticleManager:CreateParticle("particles/muramasa/muramasa_sword_dance_pierce.vpcf", PATTACH_CUSTOMORIGIN, nil)
+      self:DanceAttack()
+      self.attacks_completed = 2
+      --ParticleManager:SetParticleControl(     particle2 , 0,  caster:GetAbsOrigin() + Vector(0,0,120)  )  
+      --ParticleManager:SetParticleControl(     particle2 , 1,  caster:GetAbsOrigin() +caster:GetForwardVector()*250 + Vector(0,0,40)  )  
       Timers:CreateTimer( 0.5, function()
       if(particle2 ~= nil) then
          ParticleManager:DestroyParticle(  particle2, true)
@@ -71,10 +75,10 @@ end)
       end
 
       end)
-        self:DanceAttack_Pierce()
-        
+        --self:DanceAttack_Pierce()
+           
     end)
-    self.attacks_completed = 2
+   
  end})
  Timers:CreateTimer("muramasa_attack_2", {
     endTime = attack_time*2,
@@ -83,11 +87,14 @@ end)
       caster:StopAnimation()
       ProjectileManager:ProjectileDodge(caster)
       HardCleanse(caster)
-    StartAnimation(caster, {duration=attack_time, activity=ACT_DOTA_RAZE_2, rate=2.0})
-    Timers:CreateTimer( 0.15, function()
-      self:DanceAttack_Pierce()
-      local particle3 = ParticleManager:CreateParticle("particles/muramasa/muramasa_sword_dance_first_hit.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
-      ParticleManager:SetParticleControl(     particle3 , 0,  caster:GetAbsOrigin()  )  
+    --StartAnimation(caster, {duration=attack_time, activity=ACT_DOTA_RAZE_2, rate=2.0})
+    StartAnimation(caster, {duration=attack_time, activity=ACT_DOTA_ALCHEMIST_CHEMICAL_RAGE_START, rate=2.0})
+    local particle3 = ParticleManager:CreateParticle("particles/muramasa/muramasa_sword_dance_first_hit_true.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+    ParticleManager:SetParticleControl(     particle3 , 0,  caster:GetAbsOrigin()  ) 
+    Timers:CreateTimer( 0.2, function()
+      --self:DanceAttack_Pierce()
+      self:DanceAttack()
+      self.attacks_completed = 3
   end)
   Timers:CreateTimer( 0.2, function()
     if(particle3 ~= nil) then
@@ -96,7 +103,8 @@ end)
     end
    
   end)
-  self.attacks_completed = 4
+
+ 
 end})
     
  Timers:CreateTimer("muramasa_attack_3", {
@@ -106,22 +114,27 @@ end})
       caster:StopAnimation()
       ProjectileManager:ProjectileDodge(caster)
       HardCleanse(caster)
-    StartAnimation(caster, {duration=attack_time, activity=ACT_DOTA_ALCHEMIST_CONCOCTION, rate=2.0})
-    Timers:CreateTimer( 0.125, function()
-      local particle4 = ParticleManager:CreateParticle("particles/muramasa/muramasa_sword_dance_pierce.vpcf", PATTACH_CUSTOMORIGIN, nil)
-      ParticleManager:SetParticleControl(     particle4 , 0,  caster:GetAbsOrigin()  + Vector(0,0,120))  
-      ParticleManager:SetParticleControl(     particle4 , 1,  caster:GetAbsOrigin() +caster:GetForwardVector()*250 + Vector(0,0,60) )  
-  
+      StartAnimation(caster, {duration=attack_time, activity=ACT_DOTA_RAZE_2, rate=2.0})
+    --StartAnimation(caster, {duration=attack_time, activity=ACT_DOTA_ALCHEMIST_CONCOCTION, rate=2.0})
+    local particle4 = ParticleManager:CreateParticle("particles/muramasa/muramasa_sword_dance_first_hit.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+    ParticleManager:SetParticleControl(     particle4 , 0,  caster:GetAbsOrigin()  ) 
+    Timers:CreateTimer( 0.2, function()
+      --local particle4 = ParticleManager:CreateParticle("particles/muramasa/muramasa_sword_dance_pierce.vpcf", PATTACH_CUSTOMORIGIN, nil)
+   
+      --ParticleManager:SetParticleControl(     particle4 , 0,  caster:GetAbsOrigin()  + Vector(0,0,120))  
+      --ParticleManager:SetParticleControl(     particle4 , 1,  caster:GetAbsOrigin() +caster:GetForwardVector()*250 + Vector(0,0,60) )  
+      self:DanceAttack()
+      self.attacks_completed = 4
       Timers:CreateTimer( 0.5, function()
       if(particle4 ~= nil) then
          ParticleManager:DestroyParticle(  particle4, true)
          ParticleManager:ReleaseParticleIndex(  particle4)
       end
       end)
-      self:DanceAttack()
+     
        
   end)
-  self.attacks_completed = 3
+
 end})
     
  Timers:CreateTimer("muramasa_attack_4", {
@@ -135,8 +148,8 @@ end})
     Timers:CreateTimer( 0.22, function()
      local particle5 = ParticleManager:CreateParticle("particles/muramasa/muramasa_sword_dance_last_hit.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
      ParticleManager:SetParticleControl(     particle5 , 3,  caster:GetAbsOrigin()+ 50 * caster:GetForwardVector()  )  
-     self.sound = "muramasa_dance_attack_"..math.random(1,4)
-     caster:EmitSound(self.sound)
+     --self.sound = "muramasa_dance_attack_"..math.random(1,4)
+     --caster:EmitSound(self.sound)
      local damage_base = self:GetSpecialValueFor("base_dmg")
      local enemies = FindUnitsInRadius(  caster:GetTeamNumber(),
                  caster:GetAbsOrigin() + 50 * caster:GetForwardVector(),
@@ -171,7 +184,7 @@ function muramasa_dance_upgraded:DanceAttack()
     caster = self:GetCaster()
     local damage_base = self:GetSpecialValueFor("base_dmg")
     self.sound = "muramasa_dance_attack_"..math.random(1,4)
-    caster:EmitSound(self.sound)
+    --caster:EmitSound(self.sound)
     local enemies = FindUnitsInRadius(  caster:GetTeamNumber(),
                     caster:GetAbsOrigin(),
                     nil,
@@ -210,7 +223,7 @@ function muramasa_dance_upgraded:DanceAttack_Pierce()
    caster = self:GetCaster()
    local damage_base = self:GetSpecialValueFor("base_dmg")
    self.sound = "muramasa_dance_attack_"..math.random(1,4)
-   caster:EmitSound(self.sound)
+   --caster:EmitSound(self.sound)
   local enemies = FindUnitsInLine(  caster:GetTeamNumber(),
                                         caster:GetAbsOrigin(),
                                         caster:GetAbsOrigin()+250*caster:GetForwardVector(),

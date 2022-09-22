@@ -3,13 +3,15 @@
 	//=====================================
 	// Gilgamesh : Gram
 	//=====================================
-	"gilgamesh_gram"
+	"gilgamesh_sword_barrage"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/gilgamesh/gilgamesh_gram"
-		"MaxLevel"						"2"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"ScriptFile"					"abilities/gilgamesh/gilgamesh_sword_barrage"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET|DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
@@ -46,17 +48,17 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"300 125"
+				"damage"				"60 75 90 105 120"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"stun_duration"			"0.4"
+				"stun_duration"			"0.3"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"extra_swords"			"0 4"
+				"extra_swords"			"4"
 			}
 			"04"
 			{

@@ -101,7 +101,7 @@ function kuro_rosa_ichthys:OnSpellStart()
 	
 
 	caster:AddNewModifier(caster,self,"modifier_rosa_buffer", {})
-
+	giveUnitDataDrivenModifier(caster, target, "rooted", 0.5)
 	DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
 	caster:PerformAttack(target, true, true, true, true, false, false, false)
 	--[[if not target:HasModifier("modifier_rosa_buffer") then

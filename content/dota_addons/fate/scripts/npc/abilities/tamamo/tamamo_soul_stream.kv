@@ -1,0 +1,76 @@
+"DOTAAbilities"
+{
+	//=======================================
+	// Tamamo: Soul Stream
+	//=======================================
+	"tamamo_soul_stream"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/tamamo/tamamo_soul_stream"
+		"MaxLevel"						"5"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityTextureName"			"custom/tamamo_soulstream"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
+		"AbilityCastPoint"				"0.2"
+		"AbilityCooldown"				"3 3 2 2 1"
+		"AbilityManaCost"				"100"
+
+		"precache"
+		{
+			"particle"					"particles/custom/tamamo/charms_blue_explosion.vpcf"
+	  		"particle"					"particles/custom/tamamo/charms_blue.vpcf"
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"range"				"800"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"radius"			"225"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"explode_radius"	"200"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"70 100 130 160 190"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"aspd_per_stack"	"25"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"mvsp_per_stack"	"10"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"max_stack"			"4"
+			}
+			"08"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"spirit_count"		"6"
+			}
+			"09"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"buff_dur"			"4.0"
+			}
+		}
+	}
+}

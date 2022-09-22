@@ -1,0 +1,89 @@
+"DOTAAbilities"
+{
+	//=================================================================================================================
+	// Assassin(Extra) : No Second Strike
+	//=================================================================================================================
+	"lishuwen_no_second_strike"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/lishuwen/lishuwen_no_second_strike"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityTextureName"			"custom/lishuwen_no_second_strike"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_4"
+		"AnimationPlaybackRate" 		"0.5"
+		"precache"
+		{
+			"particle"			"particles/units/heroes/hero_bloodseeker/bloodseeker_rupture.vpcf"		
+			"particle"			"particles/units/heroes/hero_nyx_assassin/nyx_assassin_mana_burn.vpcf"
+			"particle"			"particles/custom/lishuwen/lishuwen_no_second_strike_windup.vpcf"
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_nyx_assassin.vsndevts"
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_bloodseeker.vsndevts"
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_spirit_breaker.vsndevts"
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_oracle.vsndevts"
+		}
+		
+		// Ability stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"150"
+		"AbilityCastRangeBuffer"		"50"
+		"AbilityCastPoint"				"0.6"
+		"AbilityCooldown"				"30"
+		"AbilityManaCost"				"800"
+		
+		// Ability special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"cast_delay"				"0.6"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"initial_damage"			"650 750 850 950 1050"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"stun_duration"				"0.5"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"revoke_duration"			"2.00"	
+			}
+			"05"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"shock_damage"				"250 300 350 400 450"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"attribute_stun_duration"	"1.0"
+			}
+			"07"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"attribute_revoke_duration"	"2.00"
+			}
+			"08"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"attribute_kb_distance"		"250"
+			}
+		}
+	}
+}

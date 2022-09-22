@@ -6,7 +6,7 @@ function merlin_hero_creation:OnSpellStart()
 	local caster = self:GetCaster()
 	local target = self:GetCursorTarget()
     self.lasttargetprimarystat = target:GetPrimaryAttribute() 
-    print(target:GetPrimaryAttribute() )
+  
     target:AddNewModifier(target, self, "modifier_merlin_hero_creation", {duration = self:GetSpecialValueFor("duration")})
 
     caster:FindAbilityByName("merlin_charisma"):AttStack() 
@@ -24,8 +24,10 @@ function modifier_merlin_hero_creation:OnCreated()
     self.strbonus = 0 
     self.agibonus = 0
     self.intbonus = 0
+    self.msbonus = 0
+    self.msbonusbase =  self:GetAbility():GetSpecialValueFor("ms_base")
     self.primaryatr = self:GetAbility().lasttargetprimarystat 
-    print( self.primaryatr)
+ 
     self.base_stat_bonus = self:GetAbility():GetSpecialValueFor("base_stat_bonus")
  
 
@@ -54,6 +56,7 @@ function modifier_merlin_hero_creation:OnIntervalThink()
         else
             self.intbonus = self.base_stat_bonus +  self.increase_per_teammate * (seva_spasibo-1)
         end
+        self.msbonus =  self.msbonusbase +  self.increase_per_teammate * (seva_spasibo-1)
     end
 end
 
@@ -69,7 +72,8 @@ function modifier_merlin_hero_creation:IsDebuff() return false end
 function modifier_merlin_hero_creation:DeclareFunctions()
 	return { MODIFIER_PROPERTY_STATS_STRENGTH_BONUS, 
 	MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
-    MODIFIER_PROPERTY_STATS_INTELLECT_BONUS      }
+    MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
+    MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,      }
 end
 
 
@@ -83,6 +87,11 @@ end
 function modifier_merlin_hero_creation:GetModifierBonusStats_Agility()
 	return  self.agibonus 
 end
+
+function modifier_merlin_hero_creation:GetModifierMoveSpeedBonus_Percentage()
+	return self.msbonus
+end
+
 
  
 

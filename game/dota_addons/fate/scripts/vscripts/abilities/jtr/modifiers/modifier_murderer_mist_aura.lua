@@ -13,10 +13,11 @@ if IsServer() then
 		ParticleManager:SetParticleControl(self.AuraBorderFx, 1, Vector(args.AuraRadius,0,0))
 		ParticleManager:SetParticleShouldCheckFoW(self.AuraBorderFx, false)
 
-		self.MistParticle = ParticleManager:CreateParticle("particles/custom/jtr/murderer_mist.vpcf", PATTACH_ABSORIGIN, self:GetParent())
+		self.MistParticle = ParticleManager:CreateParticle("particles/custom/jtr/murderer_mist.vpcf", PATTACH_WORLDORIGIN, nil)
+		ParticleManager:SetParticleShouldCheckFoW(self.MistParticle, false)
 		ParticleManager:SetParticleControl(self.MistParticle, 0, self:GetParent():GetAbsOrigin())	
 		ParticleManager:SetParticleControl(self.MistParticle, 1, Vector(args.AuraRadius + 300,0,0))
-		ParticleManager:SetParticleShouldCheckFoW(self.MistParticle, false)
+		
 
 		--particles/custom/jtr/jtr_invis_ring.vpcf
 

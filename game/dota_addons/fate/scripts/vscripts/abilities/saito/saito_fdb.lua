@@ -91,7 +91,11 @@ end
 
 
 function modifier_saito_fdb:OnRespawn()
-    print("jopa")
+    local caster = self:GetParent()
+    caster.qused = 0
+    caster.wused = 0
+    caster.eused = 0
+    caster.currentused = 0
     self:SetStackCount(self:GetMaxStackCount())
 end
 
@@ -103,45 +107,27 @@ end
 
 function modifier_saito_fdb:SpendStack()
     local stacks = self:GetStackCount()
+    if(stacks < 1) then
+        stacks = 1
+
+    end
     local caster = self:GetParent()
     local abilitycd = caster:GetAbilityByIndex(1):GetCooldown(caster:GetAbilityByIndex(1):GetLevel()-1)
     if(caster:HasModifier("modifier_saito_combo")) then
         abilitycd = 3
     end
-    if(stacks<=0) then 
+    if(stacks<=1) then 
         caster:GetAbilityByIndex(0):EndCooldown()    
         caster:GetAbilityByIndex(1):EndCooldown()
         caster:GetAbilityByIndex(2):EndCooldown()
         caster:GetAbilityByIndex(0):StartCooldown(abilitycd)    
         caster:GetAbilityByIndex(1):StartCooldown(abilitycd)
         caster:GetAbilityByIndex(2):StartCooldown(abilitycd)
-        caster.qused = 0
-        caster.wused = 0
-        caster.eused = 0
-        caster.currentused = 0
-        --caster:GetAbilityByIndex(4):StartCooldown(abilitycd)
-        caster:RemoveModifierByName("modifier_saito_fdb_lastQ")
-        caster:RemoveModifierByName("modifier_saito_fdb_lastE")
-        caster:RemoveModifierByName("modifier_saito_fdb_lastW")
-        caster.formlessnessmeme = true
-        return false end
-    if(stacks==1) then 
-        caster:GetAbilityByIndex(0):EndCooldown()    
-        caster:GetAbilityByIndex(1):EndCooldown()
-        caster:GetAbilityByIndex(2):EndCooldown()
-            caster:GetAbilityByIndex(0):StartCooldown(abilitycd)    
-            caster:GetAbilityByIndex(1):StartCooldown(abilitycd)
-            caster:GetAbilityByIndex(2):StartCooldown(abilitycd)
-            caster.qused = 0
-            caster.wused = 0
-            caster.eused = 0
-            caster.currentused = 0
-           -- caster:GetAbilityByIndex(4):StartCooldown(abilitycd)
-            caster:RemoveModifierByName("modifier_saito_fdb_lastQ")
-            caster:RemoveModifierByName("modifier_saito_fdb_lastE")
-            caster:RemoveModifierByName("modifier_saito_fdb_lastW")
-            caster.formlessnessmeme = true
-    end  
+ 
+         
+ 
+        
+    end
     local caster = self:GetAbility():GetCaster()
     self:SetStackCount(stacks-1)
     if(caster:HasModifier("modifier_saito_fdb_repeated")) then
@@ -185,10 +171,15 @@ function modifier_saito_fdb_repeated:OnCreated()
     if(caster.FreestyleAcquired) then
         time_interval = time_interval +0.3
     end
+    if (caster:GetModifierStackCount("modifier_saito_fdb",caster) == 0) then
+        time_interval = 0.01 
+    end
     Timers:CreateTimer("repeated_saito", {
 		endTime = time_interval, 
         callback = function()
-        self:GetParent():RemoveModifierByName("modifier_saito_fdb_repeated")
+        if(caster:HasModifier("modifier_saito_fdb_repeated")) then
+            caster:RemoveModifierByName("modifier_saito_fdb_repeated")
+        end
       
         --caster:GetAbilityByIndex(4):StartCooldown(abilitycd)
         caster:GetAbilityByIndex(0):EndCooldown()    
@@ -197,10 +188,8 @@ function modifier_saito_fdb_repeated:OnCreated()
         caster:GetAbilityByIndex(0):StartCooldown(abilitycd)    
         caster:GetAbilityByIndex(1):StartCooldown(abilitycd)
         caster:GetAbilityByIndex(2):StartCooldown(abilitycd)
-        caster.qused = 0
-        caster.wused = 0
-        caster.eused = 0
-        caster.currentused = 0
+ 
+         
         caster:RemoveModifierByName("modifier_saito_fdb_lastQ")
         caster:RemoveModifierByName("modifier_saito_fdb_lastE")
         caster:RemoveModifierByName("modifier_saito_fdb_lastW")
@@ -212,10 +201,7 @@ function modifier_saito_fdb_repeated:OnCreated()
             caster:GetAbilityByIndex(0):StartCooldown(abilitycd)    
             caster:GetAbilityByIndex(1):StartCooldown(abilitycd)
             caster:GetAbilityByIndex(2):StartCooldown(abilitycd)
-            caster.qused = 0
-            caster.wused = 0
-            caster.eused = 0
-            caster.currentused = 0
+       
             caster:RemoveModifierByName("modifier_saito_fdb_lastQ")
             caster:RemoveModifierByName("modifier_saito_fdb_lastE")
             caster:RemoveModifierByName("modifier_saito_fdb_lastW")
@@ -250,7 +236,9 @@ function modifier_saito_fdb_repeated:OnStackCountChanged()
     Timers:CreateTimer("repeated_saito", {
 		endTime = time_interval, 
         callback = function()
-        self:GetParent():RemoveModifierByName("modifier_saito_fdb_repeated")
+        if(caster:HasModifier("modifier_saito_fdb_repeated")) then
+            caster:RemoveModifierByName("modifier_saito_fdb_repeated")
+        end
        
         if(not (caster:HasModifier("modifier_saito_mind_eye") or caster:HasModifier("modifier_saito_formlessness_casting")  ) ) then
             --caster:GetAbilityByIndex(4):StartCooldown(abilitycd)
@@ -260,10 +248,7 @@ function modifier_saito_fdb_repeated:OnStackCountChanged()
             caster:GetAbilityByIndex(0):StartCooldown(abilitycd)    
             caster:GetAbilityByIndex(1):StartCooldown(abilitycd)
             caster:GetAbilityByIndex(2):StartCooldown(abilitycd)
-            caster.qused = 0
-            caster.wused = 0
-            caster.eused = 0
-            caster.currentused = 0
+           
             caster:RemoveModifierByName("modifier_saito_fdb_lastQ")
             caster:RemoveModifierByName("modifier_saito_fdb_lastE")
             caster:RemoveModifierByName("modifier_saito_fdb_lastW") 
@@ -299,40 +284,63 @@ function modifier_saito_fdb_lastE:IsDebuff() 	return false end
 
 modifier_saito_fdb_vision = class({})
 
+
+ 
+
+function modifier_saito_fdb_vision:OnIntervalThink()
+    local ability = self:GetAbility()
+    local caster = self:GetCaster()
+    local resist = self:GetAbility():GetSpecialValueFor("resist") 
+    local counter = 4
+    
+    if(self.damage_stored == 0 or self.attacker == nil) then return end
+    local  damagepertick =   self.damageStored/4
+    damagepertick = damagepertick/(100-resist)*resist
+    local attacker = self.attacker
+    self.damageStored = 0
+    self.attacker = nil
+    Timers:CreateTimer(1.5, function()      
+        if(not caster:IsAlive())then return end  
+        counter = counter -1
+ 
+         --if(caster:HasModifier("modifier_saito_fdb_vision")) then
+         --   damagepertick = damagepertick/(100-resist)*100
+         --end
+      
+         
+        if (caster:GetHealth() - damagepertick  > 0) then
+            caster:SetHealth(caster:GetHealth() -  damagepertick )
+        else 
+            caster:SetHealth(1)
+            DoDamage(attacker, caster , damagepertick, DAMAGE_TYPE_PURE,  0, ability, true)
+        end
+        if(counter == 0) then
+          
+            return  
+        end
+        return 0.25
+    
+    end)
+   
+
+end
+
 function modifier_saito_fdb_vision:OnTakeDamage(args)
     local caster =self:GetParent()
     local ability = self:GetAbility()
     --if(  args.attacker ~= caster) then return end
-    local counter = 4
-    local dmgmod = 1
     local resist = self:GetAbility():GetSpecialValueFor("resist") 
-    if(args.damage < 30) then
-        counter = 1
-        dmgmod = 4
-    end
-    if(  args.attacker ~= caster and args.inflictor ~= ability and args.damage<2500)then
-         
-        Timers:CreateTimer(1.5, function()        
-            counter = counter -1
-             damagepertick = args.damage/(100-resist)*resist/4 * dmgmod
-             --if(caster:HasModifier("modifier_saito_fdb_vision")) then
-             --   damagepertick = damagepertick/(100-resist)*100
-             --end
-          
-             
-            if (caster:GetHealth() - damagepertick  > 0) then
-                caster:SetHealth(caster:GetHealth() -  damagepertick )
-            else 
-                DoDamage(args.attacker, caster , damagepertick*100, DAMAGE_TYPE_PURE,  0, ability, true)
-            end
-            if(counter == 0) then
-                return  
-            end
-            return 0.25
+
+    ----damage 
+    if(  args.attacker ~= caster and args.inflictor ~= ability)then
         
-        end)
-            
+            self.damageStored = self.damageStored + args.damage 
+            self.attacker = args.attacker
+ 
+    
     end
+
+    ----------mana refund
     if(args.damage_category == 0 and args.inflictor ~= self:GetAbility() and args.unit:GetTeam() ~= caster:GetTeam()) then
         local ability = self:GetParent():FindAbilityByName("saito_hajime_fdb")
       
@@ -371,8 +379,9 @@ function modifier_saito_fdb_vision:OnRefresh()
   --  end
 function modifier_saito_fdb_vision:OnCreated()
 self.particleid = self:GetAbility().fx
-
---self:StartIntervalThink(0.2)
+self.damageStored = 0
+self.attacker = nil
+self:StartIntervalThink(0.5)
 
 end
 

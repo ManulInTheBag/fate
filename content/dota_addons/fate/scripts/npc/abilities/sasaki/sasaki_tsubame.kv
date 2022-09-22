@@ -1,0 +1,70 @@
+"DOTAAbilities"
+{
+	"sasaki_tsubame_gaeshi"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/sasaki/sasaki_tsubame_gaeshi"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityTextureName"			"custom/false_assassin_tsubame_gaeshi"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
+		"AnimationPlaybackRate" 		"1.5"
+		
+		"AbilityCastPoint"				"0.80"
+		"AbilityCastRange"				"150"
+		"AbilityCastRangeBuffer"		"100"
+		"AbilityCooldown"				"45"
+		"AbilityManaCost"				"0"
+		
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_axe/axe_counterhelix_unused.vpcf"
+			"particle"		"particles/custom/false_assassin/fa_tsubame_gaeshi_first_slash.vpcf"
+			"particle"		"particles/custom/false_assassin/fa_tsubame_gaeshi_second_slash.vpcf"
+			"particle"		"particles/custom/false_assassin/fa_tsubame_gaeshi_third_slash.vpcf"
+			"particle"		"particles/units/heroes/hero_wisp/wisp_overcharge.vpcf"
+			"particle"		"particles/custom/false_assassin/fa_illusory_wanderer_sword_glow.vpcf"
+			"particle"		"particles/custom/false_assassin/tsubame_gaeshi/slashes.vpcf"
+			"particle"		"particles/custom/false_assassin/tsubame_gaeshi/tsubame_gaeshi_windup_indicator.vpcf"
+			"soundfile"   	"soundevents/game_sounds_heroes/game_sounds_templar_assassin.vsndevts"
+			"soundfile"   	"soundevents/game_sounds_heroes/game_sounds_juggernaut.vsndevts"
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"delay"					"0.80"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_split"			"275 300 350 375 425"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_final"			"400 500 600 650 750"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_combined"		"950 1100 1300 1400 1600"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"exhausted_duration"	"7 7 6 6 5"
+			}
+		}		
+	}
+}

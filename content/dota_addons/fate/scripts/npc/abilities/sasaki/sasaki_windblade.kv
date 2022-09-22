@@ -1,0 +1,65 @@
+"DOTAAbilities"
+{
+	//========================================
+	// False Assassin : Windblade
+	//========================================
+	"sasaki_windblade"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/sasaki/sasaki_windblade"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityTextureName"			"custom/false_assassin_windblade"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AnimationPlaybackRate" 		"3.3"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.3"
+		"AbilityCastRange"				"500"
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"24"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		"precache"
+		{
+			"particle"	"particles/custom/false_assassin/fa_thunder_clap.vpcf"
+		}
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"500"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration"			"0.75"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"		
+				"base_slashes"			"3 5 7 9 11"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"		
+				"empowered_slashes"		"7"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"exhausted_duration"	"6 6 5 5 4"
+			}
+		}
+	}
+}

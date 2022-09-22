@@ -1,0 +1,6 @@
+semiramis_attribute_placeholder = class({})
+semiramis_attribute_placeholder2 = class({})
+semiramis_attribute_placeholder3 = class({})
+semiramis_attribute_placeholder4 = class({})
+semiramis_attribute_placeholder5 = class({})
+semiramis_attribute_placeholder6 = class({})

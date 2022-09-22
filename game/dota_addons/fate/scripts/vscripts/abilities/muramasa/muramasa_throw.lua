@@ -40,7 +40,10 @@ function muramasa_throw:OnAbilityPhaseStart()
     self.fire_particle = ParticleManager:CreateParticle("particles/muramasa/muramasa_throw_burning_hand.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
     ParticleManager:SetParticleControlEnt(self.fire_particle, 1, caster, PATTACH_POINT_FOLLOW, "hand", Vector(0,0,0), true)
     ParticleManager:SetParticleControlEnt(self.fire_particle, 0, caster, PATTACH_POINT_FOLLOW, "hand", Vector(0,0,0), true)
-  
+    Timers:CreateTimer( 0.5, function()
+        ParticleManager:DestroyParticle(  self.fire_particle , true)
+        ParticleManager:ReleaseParticleIndex(  self.fire_particle )
+    end)
     return true
 end
 
@@ -56,7 +59,7 @@ function muramasa_throw:OnSpellStart()
     caster:FindAbilityByName("muramasa_throw_upgraded"):StartCooldown(caster:FindAbilityByName("muramasa_throw_upgraded"):GetCooldown(caster:FindAbilityByName("muramasa_throw_upgraded"):GetLevel()))
     caster:EmitSound("muramasa_grab_sound")
     local damage = self:GetSpecialValueFor("damage")
-     caster:AddNewModifier(caster, self, "modifier_merlin_self_pause", {Duration = 0.80}) 
+     caster:AddNewModifier(caster, self, "modifier_merlin_self_pause", {Duration = 0.40}) 
 	local ability = self
     self.target = self:GetCursorTarget()
     if IsSpellBlocked(self.target ) then return end
@@ -78,7 +81,7 @@ function muramasa_throw:OnSpellStart()
         ParticleManager:DestroyParticle(  self.fire_particle , true)
 		ParticleManager:ReleaseParticleIndex(  self.fire_particle )
         ParticleManager:DestroyParticle(  self.fire_particle_2 , true)
-        ParticleManager:ReleaseParticleIndex(  self.fire_particle_2 )
+        ParticleManager:ReleaseParticleIndex(  self.fire_particle_2 ) 
     end)
     local counter = 1
     
@@ -89,8 +92,9 @@ function muramasa_throw:OnSpellStart()
     if(counter  == 5 or   caster:IsAlive() == false  or caster:IsStunned() == true or  self.target:IsStunned() == false ) then 
         
        return end
-    
-    caster:SetForwardVector( casterstartvector + turn/( 2.5 ) * counter)
+    local vector =  casterstartvector + turn/( 2.5 ) * counter
+    vector.z = 0
+    caster:SetForwardVector( vector)
  
     caster:FaceTowards(self.target:GetAbsOrigin())
  

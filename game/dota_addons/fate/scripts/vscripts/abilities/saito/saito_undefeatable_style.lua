@@ -21,6 +21,14 @@ end
 function saito_undefeatable_style:OnFateSpellBlocked()
     local caster = self:GetCaster()
     --caster:SetAbsOrigin(caster:GetAbsOrigin()+Vector(math.random(-30,30),math.random(-30,30),0))
+    if(caster:HasModifier("modifier_saito_combo")) then
+        Timers:CreateTimer(self:GetSpecialValueFor("spellblock_cd"), function()
+            if(caster:HasModifier("modifier_saito_combo")) then
+              caster:AddNewModifier(caster, self, "modifier_saito_combo_spellblock", { duration   = self:GetSpecialValueFor("duration")  } )
+            end
+        
+        end)
+    end
 end
 
 
@@ -46,7 +54,7 @@ function saito_undefeatable_style:OnSpellStart()
     caster:RemoveModifierByName( "modifier_saito_fdb_vision")
     caster:AddNewModifier(caster, ability, "modifier_saito_combo",{duration = self:GetSpecialValueFor("duration") })
     caster:AddNewModifier(caster, ability, "modifier_saito_combo_cd",{duration = ability:GetCooldown(1) })
- 
+    caster:AddNewModifier(caster, ability, "modifier_saito_combo_spellblock", { duration = self:GetSpecialValueFor("duration")} )
   
 end
 
@@ -61,36 +69,56 @@ function modifier_saito_combo_cd:IsDebuff() 	return true end
     
 modifier_saito_combo = class({})
 
+
+function modifier_saito_combo:OnIntervalThink()
+    local ability = self:GetAbility()
+    local caster = self:GetCaster()
+    local resist = self:GetAbility():GetSpecialValueFor("resist") 
+    local counter = 4
+    if(self.damage_stored == 0 or self.attacker == nil) then return end
+    local  damagepertick =   self.damageStored/4
+    damagepertick = damagepertick/(100-resist)*resist
+    local attacker = self.attacker
+    self.damageStored = 0
+    self.attacker = nil
+    Timers:CreateTimer(1.5, function()        
+        counter = counter -1
+        if(not caster:IsAlive())then return end  
+         
+         
+          
+      
+         
+        if (caster:GetHealth() - damagepertick  > 0) then
+            caster:SetHealth(caster:GetHealth() -  damagepertick )
+        else 
+            caster:SetHealth(1)
+            DoDamage(attacker, caster , damagepertick, DAMAGE_TYPE_PURE,  0, ability, true)
+        end
+        if(counter == 0) then
+          
+            return  
+        end
+        return 0.25
+    
+    end)
+   
+
+end
+
 function modifier_saito_combo:OnTakeDamage(args)
     local caster =self:GetParent()
     local ability = self:GetAbility()
     --if(  args.attacker ~= caster) then return end
     local counter = 4
     local dmgmod = 1
-    if(args.damage < 30) then
-        counter = 1
-        dmgmod = 4
-    end
+   
     local resist = self:GetAbility():GetSpecialValueFor("resist") 
-    if(  args.attacker ~= caster and args.inflictor ~= ability and args.damage<2500)then
-        Timers:CreateTimer(1.5, function()        
-            counter = counter -1
-             damagepertick = args.damage/(100-resist)*resist/4*dmgmod
-             --if(caster:HasModifier("modifier_saito_combo")) then
-             --   damagepertick = damagepertick/(100-resist)*100
-            -- end
-          
-             if (caster:GetHealth() - damagepertick  > 0) then
-                caster:SetHealth(caster:GetHealth() -  damagepertick )
-            else 
-                DoDamage(args.attacker, caster , damagepertick*100, DAMAGE_TYPE_PURE,  0, ability, true)
-            end
-            if(counter == 0) then
-                return  
-            end
-            return 0.25
-        
-        end)
+    if(  args.attacker ~= caster and args.inflictor ~= ability)then
+            self.damageStored = self.damageStored + args.damage 
+            self.attacker = args.attacker
+ 
+    
     end
     if(args.damage_category == 0 and args.inflictor ~= self:GetAbility() and args.unit:GetTeam() ~= caster:GetTeam())  then
         local ability = self:GetParent():FindAbilityByName("saito_undefeatable_style")
@@ -111,7 +139,10 @@ function modifier_saito_combo:OnCreated()
         local caster = self:GetCaster()
         self.particleid = self:GetAbility().fx
         caster:SwapAbilities("saito_undefeatable_style", "saito_undefeatable_style_active", false, true)
-        self:StartIntervalThink(self:GetAbility():GetSpecialValueFor("spellblock_cd"))
+        --self:StartIntervalThink(self:GetAbility():GetSpecialValueFor("spellblock_cd"))
+        self.damageStored = 0
+        self.attacker = nil
+        self:StartIntervalThink(0.5)
     end
 
 end
@@ -124,10 +155,13 @@ function modifier_saito_combo:OnDestroy()
         caster:SwapAbilities("saito_hajime_fdb", "saito_undefeatable_style_active", true, false)
         ParticleManager:DestroyParticle(self.particleid, false)
         ParticleManager:ReleaseParticleIndex(self.particleid)
+        if(caster:HasModifier("modifier_saito_combo_spellblock")) then
+            caster:RemoveModifierByName("modifier_saito_combo_spellblock")
+        end
     end
 end
 
-
+--[[
 
 function modifier_saito_combo:OnIntervalThink()
     if IsServer() then
@@ -135,6 +169,8 @@ function modifier_saito_combo:OnIntervalThink()
         caster:AddNewModifier(caster, self:GetAbility(), "modifier_saito_combo_spellblock", { duration = self:GetAbility():GetSpecialValueFor("spellblock_cd") -0.033} )
     end
 end
+
+]]
 
 function modifier_saito_combo:DeclareFunctions()
 	return {

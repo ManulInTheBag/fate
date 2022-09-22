@@ -31,7 +31,9 @@ function merlin_avalon_release:OnSpellStart()
 		local target_pos = target:GetAbsOrigin()
 		local point = target_pos + RandomVector(170)
 		FindClearSpaceForUnit( caster, point, true )
-		caster:SetForwardVector( ( target_pos-caster:GetAbsOrigin()):Normalized())
+		local vector = ( target_pos-caster:GetAbsOrigin()):Normalized()
+		vector.z = 0
+		caster:SetForwardVector(vector )
 		self.flowers_fx = ParticleManager:CreateParticle("particles/merlin/avalon_flower_petals.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 
 	

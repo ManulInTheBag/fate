@@ -41,7 +41,10 @@ function muramasa_throw_upgraded:OnAbilityPhaseStart()
     self.fire_particle = ParticleManager:CreateParticle("particles/muramasa/muramasa_throw_burning_hand.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
     ParticleManager:SetParticleControlEnt(self.fire_particle, 1, caster, PATTACH_POINT_FOLLOW, "hand", Vector(0,0,0), true)
     ParticleManager:SetParticleControlEnt(self.fire_particle, 0, caster, PATTACH_POINT_FOLLOW, "hand", Vector(0,0,0), true)
-
+    Timers:CreateTimer( 0.5, function()
+        ParticleManager:DestroyParticle(  self.fire_particle , true)
+        ParticleManager:ReleaseParticleIndex(  self.fire_particle )
+    end)
     return true
 end
 
@@ -79,12 +82,16 @@ function muramasa_throw_upgraded:OnSpellStart()
     local throw_range = self:GetSpecialValueFor("throw_range")
     local throw_speed = self:GetSpecialValueFor("throw_speed")
     local throw_duration = self:GetSpecialValueFor("throw_duration")
-    caster:AddNewModifier(caster, self, "modifier_merlin_self_pause", {Duration = 0.80}) 
+    caster:AddNewModifier(caster, self, "modifier_merlin_self_pause", {Duration = 0.40}) 
     giveUnitDataDrivenModifier(caster,  self.target, "stunned", 0.8)
     self.target:AddNewModifier(caster, self, "modifier_muramasa_throw_collision_fix", {Duration = 0.31}) 
     self.fire_particle_2 = ParticleManager:CreateParticle("particles/muramasa/muramasa_throw_burning_hand.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
     ParticleManager:SetParticleControlEnt(self.fire_particle_2, 1, caster, PATTACH_POINT_FOLLOW, "leg", Vector(0,0,0), true)
     ParticleManager:SetParticleControlEnt(self.fire_particle_2, 0, caster, PATTACH_POINT_FOLLOW, "leg", Vector(0,0,0), true)
+    Timers:CreateTimer( 0.5, function()
+        ParticleManager:DestroyParticle(  self.fire_particle_2 , true)
+        ParticleManager:ReleaseParticleIndex(  self.fire_particle_2 )
+    end)
     Timers:CreateTimer( 0.7, function()
 
         ParticleManager:DestroyParticle(  self.fire_particle , true)
@@ -103,7 +110,9 @@ function muramasa_throw_upgraded:OnSpellStart()
         
        return end
     
-    caster:SetForwardVector( casterstartvector + turn/( 2 ) * counter)
+       local vector =    casterstartvector + turn/( 2 ) * counter 
+       vector.z = 0
+    caster:SetForwardVector( vector)
  
     caster:FaceTowards(self.target:GetAbsOrigin())
  

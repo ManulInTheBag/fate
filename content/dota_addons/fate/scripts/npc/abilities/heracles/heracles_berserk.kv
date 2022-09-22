@@ -1,0 +1,59 @@
+"DOTAAbilities"
+{
+	//========================================
+	// Berserker : Berserk
+	//========================================
+	"heracles_berserk"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/heracles/heracles_berserk"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityTextureName"			"custom/berserker_5th_berserk"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_4"
+		"AnimationPlaybackRate" 		"2.0"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+
+		"precache"
+		{
+			"particle"	"particles/custom/berserker/berserk/buff.vpcf"
+			"particle"	"particles/custom/berserker/berserk/eternal_rage_shockwave.vpcf"
+			"particle"	"particles/custom/berserker/berserk/mana_conversion.vpcf"
+		}
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"180.0"
+		"AbilityCastPoint"				"0.6"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"600"
+
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"health_constant"		"20"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"10.0"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"max_damage"			"480 585 690 795 900"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bns_att_spd"			"154"
+			}
+		}
+	}
+}

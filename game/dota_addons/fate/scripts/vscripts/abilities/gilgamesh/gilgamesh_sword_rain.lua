@@ -35,7 +35,15 @@ end
 
 function gilgamesh_sword_rain:OnSpellStart()
 	local caster = self:GetCaster()
-
+	local target = self:GetCursorPosition()
+ 	self.dummy = CreateUnitByName("dummy_unit", target, false, caster, caster, caster:GetTeamNumber())
+	self.dummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1) 
+	local dummy = self.dummy
+	Timers:CreateTimer(3, function()
+		dummy:RemoveSelf()
+	end)
+ 
+ 
 	local damage_per_tick = self:GetSpecialValueFor("damage")
 
 	if caster:HasModifier("modifier_rain_of_swords_attribute") and self:GetCaster():HasModifier("modifier_rain_of_swords_count") then
@@ -44,7 +52,7 @@ function gilgamesh_sword_rain:OnSpellStart()
 	end
 
 	caster:EmitSound("Archer.UBWAmbient")
-	CreateModifierThinker(caster, self, "modifier_sword_rain_thinker", 
+	CreateModifierThinker(self.dummy, self, "modifier_sword_rain_thinker", 
 						  { Damage = damage_per_tick,
 						    Radius = self:GetAOERadius(),
 						    Duration = self:GetSpecialValueFor("duration") + 0.033 }, 

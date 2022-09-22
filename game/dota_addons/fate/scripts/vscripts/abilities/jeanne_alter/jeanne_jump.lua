@@ -29,6 +29,7 @@ function jeanne_jump:OnSpellStart()
 	--print(self:GetCursorTargetingNothing())
 
 	giveUnitDataDrivenModifier(caster, caster, "jump_pause_nosilence", delay)
+	giveUnitDataDrivenModifier(caster, caster, "silenced", delay)
 	
 	Timers:CreateTimer(delay, function()
 		caster:EmitSound("jeanne_jump_sfx")

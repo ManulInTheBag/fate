@@ -110,7 +110,7 @@ function merlin_excalibur:OnSpellStart()
                     if((v:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D() > 200) then
                         v:AddNewModifier(caster, self, "modifier_knockback", self.knockback)   
                     end
-                    v:AddNewModifier(caster, ability, "modifier_stunned", {duration = 0.02})
+                    v:AddNewModifier(caster, ability, "modifier_stunned", {duration = 0.2})
 
                    -- v:AddNewModifier(caster, ability, "modifier_merlin_movement",{duration = 0.11 })
               end

@@ -31,8 +31,8 @@ end)
 function Structures:AddHealers()
 	for _,v in ipairs(Entities:FindAllByClassname("npc_dota_healer")) do
 		local model = TEAM_HEALER_MODELS[v:GetTeamNumber()]
-		v:SetOriginalModel(model.mdl)
-		v:SetModel(model.mdl)
+		v:SetOriginalModel(model.vmdl)
+		v:SetModel(model.vmdl)
 		if model.color then v:SetRenderColor(unpack(model.color)) end
 		v:RemoveModifierByName("modifier_invulnerable")
 		v:AddNewModifier(v, nil, "modifier_arena_healer", nil)

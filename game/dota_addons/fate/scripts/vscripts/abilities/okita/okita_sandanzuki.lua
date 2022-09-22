@@ -223,8 +223,9 @@ function okita_sandanzuki_release:OnProjectileHit_ExtraData(hTarget, vLocation, 
     ParticleManager:SetParticleControl(slashIndex, 1, Vector(500,0,150))
     ParticleManager:SetParticleControl(slashIndex, 2, Vector(0.2,0,0))
     Timers:CreateTimer(0.4, function()
-        local particle = ParticleManager:CreateParticle("particles/custom/false_assassin/tsubame_gaeshi/slashes.vpcf", PATTACH_ABSORIGIN, caster)
-        ParticleManager:SetParticleControl(particle, 0, hTarget:GetAbsOrigin())
+        self.particle = ParticleManager:CreateParticle("particles/custom/false_assassin/tsubame_gaeshi/slashes.vpcf", PATTACH_ABSORIGIN, caster)
+        ParticleManager:SetParticleControl(self.particle, 0, hTarget:GetAbsOrigin())
+        
     end)
     Timers:CreateTimer(0.8, function()
         EmitGlobalSound("Okita.Sandanzuki")
@@ -241,7 +242,14 @@ function okita_sandanzuki_release:OnProjectileHit_ExtraData(hTarget, vLocation, 
         DoDamage(caster, hTarget, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
         hTarget:RemoveModifierByName("modifier_master_intervention")
         hTarget:EmitSound("Tsubame_Focus")
+       
     end)
+    Timers:CreateTimer(1.5, function()
+        ParticleManager:DestroyParticle(self.particle, true)
+        ParticleManager:ReleaseParticleIndex(self.particle)
+        ParticleManager:DestroyParticle(slashIndex, true)
+        ParticleManager:ReleaseParticleIndex(slashIndex)
+        end)
 
 end
 

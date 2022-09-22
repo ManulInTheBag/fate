@@ -2,7 +2,7 @@ modifier_enkidu_hold = class({})
 
 if IsServer() then 
 	function modifier_enkidu_hold:OnCreated(args)
-		self.Particle = ParticleManager:CreateParticle( "particles/custom/gilgamesh/gilgamesh_enkidu.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+		self.Particle = ParticleManager:CreateParticle( "particles/gilgamesh/enkidu.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 		ParticleManager:SetParticleControlEnt( self.Particle, 0, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_origin", self:GetParent():GetAbsOrigin(), true )
 		ParticleManager:SetParticleControl( self.Particle, 1, self:GetParent():GetAbsOrigin() )
 	end

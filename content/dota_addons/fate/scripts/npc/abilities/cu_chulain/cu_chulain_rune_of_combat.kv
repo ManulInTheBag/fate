@@ -1,0 +1,51 @@
+"DOTAAbilities"
+{
+	//=================================================================================================================
+	// Lancer : Rune of Combat
+	//=================================================================================================================
+	"cu_chulain_rune_of_combat"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/cu_chulain/cu_chulain_rune_of_combat"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"25"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"			"custom/cu_chulain/cu_chulain_rune_of_combat"
+		
+		"AbilityCastPoint"				"0.3"
+		"AbilityManaCost"				"100"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
+		"AnimationPlaybackRate" 		"1.0"
+		"AbilityCooldown"				"40"
+
+		"precache"
+		{
+			"particle"				"particles/units/heroes/hero_phantom_assassin/phantom_assassin_phantom_strike_end.vpcf"
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_phantom_lancer.vsndevts"
+		}
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type" 		"FIELD_FLOAT"
+				"duration"		"10"
+			}
+			"01"
+			{
+				"var_type" 		"FIELD_INTEGER"
+				"bonus_atk"		"3 5 7 9 11"
+			}
+			"01"
+			{
+				"var_type" 		"FIELD_FLOAT"
+				"stun_dur"		"0.25"
+			}
+			"02"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"cooldown"		"40"
+			}
+		}
+	}
+}

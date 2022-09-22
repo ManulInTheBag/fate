@@ -187,7 +187,7 @@
 		"DOTA_Tooltip_modifier_merlin_combo_cd_Description"		""
 
 		"DOTA_Tooltip_modifier_merlin_hero_creation"					"Hero creation"
-		"DOTA_Tooltip_modifier_merlin_hero_creation_Description"		"Enjoy your d*ck, Sir"
+		"DOTA_Tooltip_modifier_merlin_hero_creation_Description"		"You are a hero now. Win this for me"
 
 		"DOTA_Tooltip_modifier_muramasa_tsumukari"						"Tsumukari Muramasa chants"
 		"DOTA_Tooltip_modifier_muramasa_tsumukari_Description"			""
@@ -2709,7 +2709,7 @@
 		//"DOTA_Tooltip_ability_emiya_attribute_overedge_Note1"			"The blades can be disjointed."
 
 		"DOTA_Tooltip_Ability_emiya_attribute_projection"				"Attribute: Improve Projection"
-		"DOTA_Tooltip_ability_emiya_attribute_projection_Description"	"Improves Archer's projection capability.\n<font color='#58ACFA'>Unlimited Blade Works:</font> Swords passively fly toward and attacks enemies, dealing 55 physical damage each.\n<font color='#58ACFA'>Sword Barrage - Retreat:</font> Roots target hit for 1.5 seconds and gains bonus damage equal to 100%% of Emiya's Agility.\n<font color='#58ACFA'>Sword Barrage - Confine:</font> Disables target's Blink Scroll for the duration and increases damage taken from Sword Barrage by 25%%.\n<font color='#58ACFA'>Gae Bolg:</font> Damage increased by 500%% of Emiya's Agility and stun duration by 0.5 seconds.\n<font color='#58ACFA'>Sword Barrage - Bombard: </font>Mana cost decreased to 100, cooldown reduced to 3 seconds.\n<font color='#58ACFA'>Nine Lives:</font> Stun duration increased to 1.5 seconds for the final hit and damage on every hit increased by 100%% of Emiya's Strength."	
+		"DOTA_Tooltip_ability_emiya_attribute_projection_Description"	"Improves Archer's projection capability.\n<font color='#58ACFA'>Unlimited Blade Works:</font> Swords passively fly toward and attacks enemies, dealing 55 physical damage each.\n<font color='#58ACFA'>Sword Barrage - Retreat:</font> Roots target hit for 1.5 seconds and gains bonus damage equal to 100%% of Emiya's Agility.\n<font color='#58ACFA'>Sword Barrage - Confine:</font> Disables target's Blink Scroll for the duration.\n<font color='#58ACFA'>Gae Bolg:</font> Damage increased by 500%% of Emiya's Agility.\n<font color='#58ACFA'>Sword Barrage - Bombard: </font>Mana cost decreased to 100, cooldown reduced to 3 seconds.\n<font color='#58ACFA'>Nine Lives:</font> Stun duration increased to 1.5 seconds for the final hit and damage on every hit increased by 100%% of Emiya's Strength."	
 		"DOTA_Tooltip_Ability_emiya_attribute_projection_Lore"			"Emiya's projection copies not only the object, but its experience and history as well."
 		//"DOTA_Tooltip_Ability_emiya_attribute_projection_sword_base_damage"	"SWORD BASE DAMAGE:"
 		//"DOTA_Tooltip_Ability_emiya_attribute_projection_sword_int_ratio"	"SWORD INT RATIO:"
@@ -3282,7 +3282,7 @@
 		"npc_dota_hero_skywrath_mage_hype"	""
 		"npc_dota_hero_skywrath_mage_bio"	""
 
-		"DOTA_Tooltip_Ability_gilgamesh_sword_rain"					"Sword Barrage"
+		"DOTA_Tooltip_Ability_gilgamesh_sword_rain"					"Sword Rain"
 		"DOTA_Tooltip_ability_gilgamesh_sword_rain_Description"		"Gilgamesh releases a barrage of weapons from the sky onto target location, dealing damage over time."
 		"DOTA_Tooltip_ability_gilgamesh_sword_rain_Lore"			"At Gilgamesh's will, a flurry of weapons hails upon his enemies."
 		"DOTA_Tooltip_ability_gilgamesh_sword_rain_radius"			"Area of Effect:"
@@ -3299,7 +3299,7 @@
 
 		
 		"DOTA_Tooltip_Ability_gilgamesh_sword_barrage"	"Sword Barrage"
-		"DOTA_Tooltip_ability_gilgamesh_sword_barrage_Description"	"Rains down targeted area with weapons, inflicting damage over time.\n\nUpgradable by attribute Rain of Swords."
+		"DOTA_Tooltip_ability_gilgamesh_sword_barrage_Description"	"Fires swords from Gate of Babylon locking onto targets, briefly <font color='#FF3399'>stunning</font> and damaging them. Half of the damage is dealt in small aoe." 
 		"DOTA_Tooltip_ability_gilgamesh_sword_barrage_Lore"	"At Archer's will, the flurry of weapons mercilessly skewer the enemies of their master."
 		"DOTA_Tooltip_ability_gilgamesh_sword_barrage_damage"	"DAMAGE:"
 		"DOTA_Tooltip_ability_gilgamesh_sword_barrage_strike_amount"	"STRIKE AMOUNT:"
@@ -3318,13 +3318,14 @@
 		"DOTA_Tooltip_ability_gilgamesh_golden_rule_gold_gain"		"GOLD PER SECOND:"
 
 		"DOTA_Tooltip_Ability_gilgamesh_enkidu"					"Enkidu"	
-		"DOTA_Tooltip_ability_gilgamesh_enkidu_Description"		"A stream of chains bind the enemy target solid, <font color='#FF3399'>stunning</font> and <font color='#FF3399'>revoking</font> target from Master until channeling ends or duration expires. Also, target is dealt percentage of their maximum health every 0.5 seconds."
+		"DOTA_Tooltip_ability_gilgamesh_enkidu_Description"		"A stream of chains bind the enemy target solid, <font color='#FF3399'>stunning</font> and <font color='#FF3399'>revoking</font> target from Master until channeling ends or duration expires. This ability is undispellable."
 		"DOTA_Tooltip_ability_gilgamesh_enkidu_Lore"			"Of King of Heroes' limitless arsenal, Chains of Heaven is his most trusted weapon."
 		"DOTA_Tooltip_ability_gilgamesh_enkidu_duration"		"MAX DURATION:"
-		"DOTA_Tooltip_ability_gilgamesh_enkidu_damage"	"%DAMAGE BASED ON MAX HEALTH:"
+		"DOTA_Tooltip_ability_gilgamesh_enkidu_damage"	"Attribute sword damage:"
+		"DOTA_Tooltip_ability_gilgamesh_enkidu_att_sword_count"	"Attribute sword count:"
 		
 		"DOTA_Tooltip_Ability_gilgamesh_gate_of_babylon"	"Gate of Babylon"	
-		"DOTA_Tooltip_ability_gilgamesh_gate_of_babylon_Description"	"Gilgamesh opens a portal to his arsenal, which sends forth numerous weapons over duration."
+		"DOTA_Tooltip_ability_gilgamesh_gate_of_babylon_Description"	"Gilgamesh opens a portal to his arsenal, which sends forth numerous weapons over duration.\nWhen this ability is toggled, gate will follow Gilgamesh, otherwise it will stay in place. If you refresh this ability, current gate will stay in place, while new one will follow be one to toggle state of."
 		"DOTA_Tooltip_ability_gilgamesh_gate_of_babylon_damage"	"WEAPON DAMAGE:"
 		"DOTA_Tooltip_ability_gilgamesh_gate_of_babylon_duration"	"DURATION:"
 		"DOTA_Tooltip_ability_gilgamesh_gate_of_babylon_Note0"	"Bypasses B Scroll."
@@ -3376,8 +3377,15 @@
 		"DOTA_Tooltip_Ability_gilgamesh_attribute_improve_golden_rule_bounty_bonus"	"%BONUS GOLD BOUNTY:"
 
 		"DOTA_Tooltip_Ability_gilgamesh_attribute_power_of_sumer"					"Attribute: Power of Sumer"
-		"DOTA_Tooltip_ability_gilgamesh_attribute_power_of_sumer_Description"		"Allows Gate of Babylon to follow behind Gilgamesh, and causes weapon projectile to deal bonus physical damage based on Gilgamesh's attack damage. Reduces the damage from Gram, but increases the number of swords fired. Additional blades fired from Gram targets a random enemy nearby the main target, and can target the main target himself."
-		"DOTA_Tooltip_Ability_gilgamesh_attribute_power_of_sumer_dmg_ratio"			"ATTACK DAMAGE RATIO:"
+		"DOTA_Tooltip_ability_gilgamesh_attribute_power_of_sumer_Description"		"Increases Gilgamesh's gate of babylon and sword barrage damage based on ATK. Bonus damage is dealth as physical."
+		"DOTA_Tooltip_Ability_gilgamesh_attribute_power_of_sumer_dmg_ratio"			"ATTACK DAMAGE RATIO E:"
+		"DOTA_Tooltip_Ability_gilgamesh_attribute_power_of_sumer_dmg_ratio_q"			"ATTACK DAMAGE RATIO Q:"
+
+		"DOTA_Tooltip_Ability_gilgamesh_attribute_chains_of_heaven"					"Attribute: Chains of heaven"
+		"DOTA_Tooltip_ability_gilgamesh_attribute_chains_of_heaven_Description"		"Upgrades Enkidu, making it lasting longer and shooting blades from gate of babylon into its target, dealing damage, half of which is dealt in aoe."
+		"DOTA_Tooltip_Ability_gilgamesh_attribute_chains_of_heaven_amount_of_swords"			"Sword amount:"
+		"DOTA_Tooltip_Ability_gilgamesh_attribute_chains_of_heaven_sword_damage"			"Sword damage:"
+		"DOTA_Tooltip_Ability_gilgamesh_attribute_chains_of_heaven_bonus_duration"			"Bonus duration:"
 
 
 		"DOTA_Tooltip_Ability_gilgamesh_attribute_rain_of_swords"					"Attribute: Rain of Swords"
@@ -5538,7 +5546,7 @@
 	"DOTA_Tooltip_Ability_jeanne_trail_range"		"Range:"
 	"DOTA_Tooltip_Ability_jeanne_trail_width"		"Width:"
 	"DOTA_Tooltip_Ability_jeanne_trail_initial_damage"	"Initial damage:"
-	"DOTA_Tooltip_Ability_jeanne_trail_damage_per_second"		"Damage per second:"
+	"DOTA_Tooltip_Ability_jeanne_trail_burn_damage"		"Damage per second:"
 	"DOTA_Tooltip_Ability_jeanne_trail_stun_duration"		"Debuffs duration:"
 
 	"DOTA_Tooltip_Ability_jeanne_trail_reactivate"		"The Final Judgement"
@@ -6313,7 +6321,7 @@
 		"DOTA_Tooltip_ability_kuro_clairvoyance_duration"		"Duration:"
 
 		"DOTA_Tooltip_Ability_kuro_rosa_ichthys"     			"Rosa Ichthys"
-        	"DOTA_Tooltip_ability_kuro_rosa_ichthys_Description" 		"Kuro makes copy of Aestus Estus, rushes to the target and attacks it for a large amount of magical damage, <font color='#FF3399'>stunning</font> them. Enemies behind the target takes half as much damage as well. \nProjection Bonus: deals additional damage, also has increased cast range."
+        	"DOTA_Tooltip_ability_kuro_rosa_ichthys_Description" 		"Kuro makes copy of Aestus Estus, rushes to the target and attacks it for a large amount of magical damage, <font color='#FF3399'>rooting</font> them for 0.5 s. Enemies behind the target takes half as much damage as well. \nProjection Bonus: deals additional damage, also has increased cast range."
       	 	"DOTA_Tooltip_ability_kuro_rosa_ichthys_Lore"			"The flower falls upon the victor of Arena, leaving the defeated behind."
       		"DOTA_Tooltip_ability_kuro_rosa_ichthys_damage"			"Damage:"
     		"DOTA_Tooltip_ability_kuro_rosa_ichthys_stun_duration"		"Stun Duration:"
@@ -6566,7 +6574,7 @@
 	 
 
         "DOTA_Tooltip_ability_saito_inv_sword"					"Invincible sword"
-        "DOTA_Tooltip_ability_saito_inv_sword_Description"	 	"Saito quickly slashes all enemies around him. \n
+        "DOTA_Tooltip_ability_saito_inv_sword_Description"	 	"Saito quickly slashes all enemies around him, applying a debuff, which will explode, dealing damage after 0.5 seconds. \n
         This ability damage will be halfed if used 2 or more times in a row. Damage scales with atk"
         "DOTA_Tooltip_ability_saito_inv_sword_damage"			"Damage:"
         "DOTA_Tooltip_ability_saito_inv_sword_range"			"Range:"
@@ -6574,7 +6582,7 @@
         "DOTA_Tooltip_ability_saito_inv_sword_Lore"				"My principle's that I don't lose duels. That's what being invincible is all about."
 
         "DOTA_Tooltip_ability_saito_mind_eye"					"Mind eye"
-        "DOTA_Tooltip_ability_saito_mind_eye_Description"		"Saito takes a stance for  %duration% seconds, reducing all damage received, evading projectiles and blocking  1 targeted spell. At the end of effect Saito will shoot forward a projectile, dealing damage to all enemies hit. If saito receives damage above the threshold or blocks a spell, he will shoot powered projectile immediately, endind the ability.\nPowered projectile deals 2.0x damage and stuns enemies hit. If Saito procked powered projectile, he will become immune to magic damage for 1.5 seconds."
+        "DOTA_Tooltip_ability_saito_mind_eye_Description"		"Saito takes a stance for  %duration% seconds, reducing all damage received, evading projectiles and blocking  1 targeted spell. At the end of effect Saito will shoot forward a projectile, dealing damage to all enemies hit. If saito receives damage above the threshold or blocks a spell, he will shoot powered projectile immediately, endind the ability.\nPowered projectile deals 2.0x damage and stuns enemies hit."
         "DOTA_Tooltip_ability_saito_mind_eye_resist"			"%Damage resistance:"
         "DOTA_Tooltip_ability_saito_mind_eye_damage"				"Damage:"
         "DOTA_Tooltip_ability_saito_mind_eye_threshold"			"Threshold:"
@@ -6605,7 +6613,7 @@
   
 
 		"DOTA_Tooltip_ability_saito_undefeatable_style"						"Combo: Undefeatable style"
-        "DOTA_Tooltip_ability_saito_undefeatable_style_Description"			"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: F-F in 2 seconds</font>\nSaito becomes serious, gaining armor, magic resistance and delayed damage just like with Freely Drawn Blade. Every %spellblock_cd% seconds he can block a targeted spell. \nHis technique also benefits from concentration, Saito restores mana every time he deals damage with an ability and his QWE abilities have only 3 seconds cooldown for a duration\nFor a  duration  this ability changes to One by one\nOne by one: Saito attacks all enemies around him, pushing them away, stunning and silensing for a short 	duration."
+        "DOTA_Tooltip_ability_saito_undefeatable_style_Description"			"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: F-F in 2 seconds</font>\nSaito becomes serious, gaining armor, magic resistance and delayed damage just like with Freely Drawn Blade. Every %spellblock_cd% seconds he can block a targeted spell. \nHis technique also benefits from concentration, Saito restores mana every time he deals damage with an ability and his QWE abilities have only 3 seconds cooldown for a duration\nFor a  duration  this ability changes to One by one\nOne by one: Saito attacks all enemies around him, pushing them away, stunning for a short duration."
         "DOTA_Tooltip_ability_saito_undefeatable_style_armor"			"Bonus armor:"
         "DOTA_Tooltip_ability_saito_undefeatable_style_magic_res"		"%Bonus magic resist:"
 		"DOTA_Tooltip_ability_saito_undefeatable_style_mana_refund"		"Mana gained:"
@@ -6614,11 +6622,11 @@
 		"DOTA_Tooltip_ability_saito_undefeatable_style_Lore"			"I look so serious? ...Eh? I wasn't even trying."
 
 		"DOTA_Tooltip_ability_saito_undefeatable_style_active"		"One by one"
-		"DOTA_Tooltip_ability_saito_undefeatable_style_active_Description"	"Saito attacks all enemies around him, pushing them away, stunning and silensing for a short 	duration."
+		"DOTA_Tooltip_ability_saito_undefeatable_style_active_Description"	"Saito attacks all enemies around him, pushing them away, stunning for a short duration."
 		"DOTA_Tooltip_ability_saito_undefeatable_style_active_radius"			"Radius:"
 		"DOTA_Tooltip_ability_saito_undefeatable_style_active_damage"			"Damage:"
 		"DOTA_Tooltip_ability_saito_undefeatable_style_active_stun_duration" 	"Stun duration:"
-		"DOTA_Tooltip_ability_saito_undefeatable_style_active_silence_duration" "Silence duration:"
+		//"DOTA_Tooltip_ability_saito_undefeatable_style_active_silence_duration" "Silence duration:"
  
  
 
@@ -6633,7 +6641,7 @@
         "DOTA_Tooltip_ability_saito_shinsengumi_attribute_damage_atk_scale_last"			"Last slash damage from atk:"
 
         "DOTA_Tooltip_ability_saito_free_spirit_attribute"				"Attribute: Free spirit"
-        "DOTA_Tooltip_ability_saito_free_spirit_attribute_Description"	"Mind eye now grants evasion and magic resistance bonuses to Saito  for 2 seconds after shooting powered projectile. When this buff ends, Saito hard cleanses himself. Increases magic damage immunity duration from powered projectile prock by 1 second."
+        "DOTA_Tooltip_ability_saito_free_spirit_attribute_Description"	"Mind eye now grants evasion and magic resistance bonuses to Saito  for 2 seconds after shooting powered projectile. When this buff ends, Saito hard cleanses himself. Grants Saito magic damage immunity after powered projectile prock for 0.5 second."
         "DOTA_Tooltip_ability_saito_free_spirit_attribute_evasion" "%Evasion:"
         "DOTA_Tooltip_ability_saito_free_spirit_attribute_mr"	 "%Bonus magic resistance:"
 
@@ -6666,7 +6674,7 @@
         "DOTA_Tooltip_ability_flower_beam_maxhpdmgpercent"			"%Max HP damage per tick:"
         "DOTA_Tooltip_ability_flower_beam_damage_ticks"				"Amount of damage ticks:"
         "DOTA_Tooltip_ability_flower_beam_slow_power"				"Slow power"
-        "DOTA_Tooltip_ability_flower_beam_Lore"						""
+        "DOTA_Tooltip_ability_flower_beam_Lore"						"Shooting beams is nothing hard to a magus of my Level, but if i add a small portion of Avalon's energy, it will become much deadlier. You'd better not breathe in the scent of these flowers."
          
 
         "DOTA_Tooltip_ability_merlin_orbs"					"Tracking orbs"
@@ -6685,13 +6693,13 @@
         "DOTA_Tooltip_ability_merlin_illusion_min_duration"				"Sleep minimum duration:"
         "DOTA_Tooltip_ability_merlin_illusion_damage_to_awake"			"Damage to awake:"
         "DOTA_Tooltip_ability_merlin_illusion_duration_red_per_unit"	"Duration reduction per unit:"
-        "DOTA_Tooltip_ability_merlin_illusion_Lore"				""
+        "DOTA_Tooltip_ability_merlin_illusion_Lore"				"Illusions may be used with a lot of different purposes. But the most effective is to show someone their paradise. Almost no one could see through beautiful illusion of reality they wished and struggled to see, especially when inhuman caster is the one who made it."
 
         "DOTA_Tooltip_ability_merlin_avalon"				"Avalon"
         "DOTA_Tooltip_ability_merlin_avalon_Description"		"Merlin quickly returns to Avalon, dissapearing  for a short duration. He can use this ability again to reappear immediately at the point in radius around dissapearance place"
         "DOTA_Tooltip_ability_merlin_avalon_range"			"Reappearance range:"
         "DOTA_Tooltip_ability_merlin_avalon_duration"		"Duration:"
-        "DOTA_Tooltip_ability_merlin_avalon_Lore"			""
+        "DOTA_Tooltip_ability_merlin_avalon_Lore"			"The land of Avalon is not a paradise. It's deadly for ordinary humans, so it will be better to be used as a weapon."
         "DOTA_Tooltip_ability_merlin_avalon_Note0"					"Merlin is not completely outside of the map. He will still be killed by effects, which bypass invulnerability and will be transfered to reality marble if will be casted close to his dissapearance place."	
 
 
@@ -6707,17 +6715,18 @@
         "DOTA_Tooltip_ability_merlin_charisma_health_regen_bonus"		"%Health regeneration bonus:"
         "DOTA_Tooltip_ability_merlin_charisma_mana_regen_bonus"			"Mana regeneration bonus:"
         "DOTA_Tooltip_ability_merlin_charisma_aura_radius"				"Radius:"
-         "DOTA_Tooltip_ability_merlin_charisma_Lore"						""
+         "DOTA_Tooltip_ability_merlin_charisma_Lore"						"Merlin naturally posesses charisma, he's not a leader or a king, you just feel happy with him around."
 	
  
 
         "DOTA_Tooltip_ability_merlin_hero_creation"						"Hero creation"
-        "DOTA_Tooltip_ability_merlin_hero_creation_Description"			"Merlin buffs one of his allies or himself, granting his target greatly increase in his main attribute. Buff amount increases even further for each ally around the new created Hero."
+        "DOTA_Tooltip_ability_merlin_hero_creation_Description"			"Merlin buffs one of his allies or himself, granting his target greatly increase in his main attribute and movement speed. Buff amount increases even further for each ally around the new created Hero."
         "DOTA_Tooltip_ability_merlin_hero_creation_base_stat_bonus"						"Base stat bonus:"
+        "DOTA_Tooltip_ability_merlin_hero_creation_ms_base"								"%Base ms:"
         "DOTA_Tooltip_ability_merlin_hero_creation_duration"							"Duration:"
         "DOTA_Tooltip_ability_merlin_hero_creation_radius"								"Ally search radius:"
         "DOTA_Tooltip_ability_merlin_hero_creation_stat_increase_per_teammate"			"Stat increase per each teammate:"
-        "DOTA_Tooltip_ability_merlin_hero_creation_Lore"								"it DO gives you a snake in the pants. Thats the price for being hero."
+        "DOTA_Tooltip_ability_merlin_hero_creation_Lore"								"Being a hero is not only a bonus, it also comes with a responsibility"
 
 
         "DOTA_Tooltip_ability_merlin_excalibur"						"Excalibur"
@@ -6758,8 +6767,9 @@
  
 
         "DOTA_Tooltip_ability_merlin_hero_creation_attribute"				"Attribute: Hero creation"
-        "DOTA_Tooltip_ability_merlin_hero_creation_attribute_Description"	"Unlocks hero creation \nHero creation:Merlin buffs one of his allies or himself, granting his target greatly increase in his main attribute. Buff amount increases even further for each ally around the new created Hero."
+        "DOTA_Tooltip_ability_merlin_hero_creation_attribute_Description"	"Unlocks hero creation \nHero creation:Merlin buffs one of his allies or himself, granting his target greatly increase in his main attribute and movement speed. Buff amount increases even further for each ally around the new created Hero."
         "DOTA_Tooltip_ability_merlin_hero_creation_attribute_base_stat_bonus."						"Base stat bonus:"
+        "DOTA_Tooltip_ability_merlin_hero_creation_attribute_ms_base"								"%Base ms:"
         "DOTA_Tooltip_ability_merlin_hero_creation_attribute_duration"							"Duration:"
         "DOTA_Tooltip_ability_merlin_hero_creation_attribute_radius"								"Ally search radius:"
         "DOTA_Tooltip_ability_merlin_hero_creation_attribute_stat_increase_per_teammate"			"Stat increase per each teammate:"
@@ -6786,7 +6796,7 @@
 		"npc_dota_hero_magnataur_bio"						""
 
         "DOTA_Tooltip_ability_muramasa_dance"							"Sword dance"
-        "DOTA_Tooltip_ability_muramasa_dance_Description"			"Muramasa starts a ferocious series of attacks in the target direction, attacking all enemies in his reach 5 times. Series consists of 2 slash, 2 pierce attacks and one aoe attack each dealing a 100% of muramasa atk, a part of his on-hit magic attack and base magic damage.\n This ability can be stopped by reusing it. If muramasa receive a stun debuff, ability will be stopped.\nWhen this ability is upgraded, Muramasa will cleanse all of his debuffs, disjoint projectiles before each hit and will apply a stackable debuff with each hit, which increase enemies damage taken."      
+        "DOTA_Tooltip_ability_muramasa_dance_Description"			"Muramasa starts a ferocious series of attacks in the target direction, attacking all enemies in his reach 5 times. Series consists of 4 slash attacks and one aoe attack at the end each dealing a 100% of muramasa atk, a part of his on-hit magic attack and base magic damage.\n This ability can be stopped by reusing it. If muramasa receive a stun debuff, ability will be stopped.\nWhen this ability is upgraded, Muramasa will cleanse all of his debuffs, disjoint projectiles before each hit and will apply a stackable debuff with each hit, which increase enemies damage taken."      
         "DOTA_Tooltip_ability_muramasa_dance_duration"					"Duration:"
         "DOTA_Tooltip_ability_muramasa_dance_dmg_mod"					"%Magic on-hit damage:"
         "DOTA_Tooltip_ability_muramasa_dance_dmg_amp"					"%Damage taken increase per stack:"
@@ -6796,7 +6806,7 @@
          
 
         "DOTA_Tooltip_ability_muramasa_dance_upgraded"							"Sword dance upgraded"
-        "DOTA_Tooltip_ability_muramasa_dance_upgraded_Description"			"Muramasa starts a ferocious series of attacks in the target direction, attacking all enemies in his reach 5 times. Series consists of 2 slash, 2 pierce attacks and one aoe attack each dealing a 100% of muramasa atk, a part of his on-hit magic attack and base magic damage.\n This ability can be stopped by reusing it.\nMuramasa will cleanse all of his debuffs, disjoint projectiles before each hit and will apply a stackable debuff with each hit, which increase enemies damage taken."      
+        "DOTA_Tooltip_ability_muramasa_dance_upgraded_Description"			"Muramasa starts a ferocious series of attacks in the target direction, attacking all enemies in his reach 5 times. Series consists of 4 slash attacks and one aoe attack at the end each dealing a 100% of muramasa atk, a part of his on-hit magic attack and base magic damage.\n This ability can be stopped by reusing it.\nMuramasa will cleanse all of his debuffs, disjoint projectiles before each hit and will apply a stackable debuff with each hit, which increase enemies damage taken."      
         "DOTA_Tooltip_ability_muramasa_dance_upgraded_duration"					"Duration:"
         "DOTA_Tooltip_ability_muramasa_dance_upgraded_dmg_mod"					"%Magic on-hit damage:"
         "DOTA_Tooltip_ability_muramasa_dance_upgraded_dmg_amp"					"%Damage taken increase per stack:"

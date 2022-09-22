@@ -13,7 +13,7 @@ end
 
 function karna_vasavi_shakti:OnSpellStart()
 	local caster = self:GetCaster()
-	local target_point = self:GetCursorPosition()
+	local target_point = GetGroundPosition( self:GetCursorPosition(), caster)
 
 	local ascendCount = 0
 	local descendCount = 0
@@ -21,8 +21,7 @@ function karna_vasavi_shakti:OnSpellStart()
 	self.FxDestroyed = false
 
 	local damage = self:GetSpecialValueFor("damage")
-	local dummy = CreateUnitByName("dummy_unit", target_point, false, caster, caster, caster:GetTeamNumber())
-	dummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
+ 
 
 	--[[local enemy = PickRandomEnemy(caster)
 	if enemy ~= nil then
@@ -47,12 +46,16 @@ function karna_vasavi_shakti:OnSpellStart()
 
 	   		EmitGlobalSound("karna_vasavi_short_" .. math.random(1,2))
 
-	   		local beam_particle = ParticleManager:CreateParticle("particles/custom/karna/vasavi_shakti/vasavi_shakti_beam.vpcf", PATTACH_CUSTOMORIGIN, dummy)
+	   		local beam_particle = ParticleManager:CreateParticle("particles/custom/karna/vasavi_shakti/vasavi_shakti_beam.vpcf", PATTACH_ABSORIGIN, caster)
+			   ParticleManager:SetParticleShouldCheckFoW(beam_particle, false)
+			   --ParticleManager:SetParticleControl(beam_particle,0, caster:GetAttachmentOrigin(caster:ScriptLookupAttachment("attach_weapon"))+Vector(0,0,150))
+		
 	   		ParticleManager:SetParticleControlEnt(beam_particle, 0, caster, PATTACH_POINT_FOLLOW, "attach_weapon", caster:GetOrigin(), true)
 	   		--ParticleManager:SetParticleControl(beam_particle, 0, Vector(caster:GetOrigin().x, caster:GetOrigin().y, caster:GetOrigin().z + 50))
 	   		ParticleManager:SetParticleControl(beam_particle, 1, target_point) 
 
-	   		self.FireParticle = ParticleManager:CreateParticle("particles/custom/karna/vasavi_shakti/vasavi_ground.vpcf", PATTACH_CUSTOMORIGIN, dummy)
+	   		self.FireParticle = ParticleManager:CreateParticle("particles/custom/karna/vasavi_shakti/vasavi_ground.vpcf", PATTACH_WORLDORIGIN, nil)
+			ParticleManager:SetParticleShouldCheckFoW(self.FireParticle, false)
 	   		ParticleManager:SetParticleControl(self.FireParticle, 0, target_point) 
 
 	   		CreateModifierThinker(caster, self, "modifier_vasavi_thinker", { Duration = 1.15,
@@ -65,7 +68,7 @@ function karna_vasavi_shakti:OnSpellStart()
 	   		Timers:CreateTimer(1.5, function()
 				ParticleManager:DestroyParticle(beam_particle, true)
 				ParticleManager:ReleaseParticleIndex(beam_particle)
-				dummy:RemoveSelf()
+				
 				
 				return
 			end)

@@ -1,1423 +1,908 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc31:version{165d48dd-8adc-4f1d-abf7-4992e04ad577} -->
 {
-	m_meshList = 
+	rootNode = 
 	{
-		m_meshList = 
+		_class = "RootNode"
+		children = 
 		[
 			{
-				m_meshName = "drake"
-				m_meshFile = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/drake/drake.fbx"
-				m_materialSearchPath = ""
-				m_bSkinParentedObjects = true
-				m_bLegacySkinParentedTransforms = false
-				m_bExpensiveTangents = false
-				m_bHighPrecisionTexCoords = false
-				m_bPerVertexCurvature = false
-				m_bBentNormals = false
-				m_bIgnoreCloth = false
-				m_bGetSkinningFromLod0 = false
-				m_bPreferHighDensityTrianglesInUvDensityCalculation = false
-				m_pMorphInfo = null
-			},
-		]
-	}
-	m_clothProxyMeshList = 
-	{
-		_class = "CVClothProxyMeshList"
-		m_flClothEnableThreshold = 0.05
-		m_bCreateStaticBone = false
-		m_nMaxBonesPerVertex = 4
-		m_bRemoveUnusedBonesEnabled = false
-		m_bDriveMeshesWithBacksolvedJointsOnly = true
-		m_flMatchProxiesToMeshes = 1.0
-		m_flFallbackEnvelope = 1.0
-		m_nReservedInt = 0
-		m_bSoftSkinAnimation = false
-		m_bReservedBool2 = false
-		m_bReservedBool3 = false
-		m_bReservedBool4 = false
-		m_clothProxyMeshList = [  ]
-	}
-	m_physicsMeshList = 
-	{
-		m_meshList = [  ]
-	}
-	m_pModelInfo = null
-	m_pBoneFlagList = 
-	{
-		m_pObject = null
-	}
-	m_pHitBoxSetLists = 
-	[
-		{
-			m_pObject = 
-			{
-				m_HitBoxSets = 
+				_class = "MaterialGroupList"
+				children = 
 				[
 					{
-						m_name = "default"
-						m_HitBoxes = 
+						_class = "DefaultMaterialGroup"
+						remaps = 
 						[
 							{
-								m_name = "A"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "A"
-								m_vMinBounds = [ -65.222351, -43.655071, -15.616816 ]
-								m_vMaxBounds = [ 55.309486, 50.948616, 106.30864 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								from = "1012.vmat"
+								to = "materials/updated_by_seva_and_hudozhestvenniy_film_spizdili/drake/drake.vmat"
 							},
 							{
-								m_name = "Bone02"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Bone02"
-								m_vMinBounds = [ -11.656065, -7.914069, -6.926666 ]
-								m_vMaxBounds = [ 11.927439, 9.191611, 4.651894 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								from = "1013.vmat"
+								to = "materials/updated_by_seva_and_hudozhestvenniy_film_spizdili/drake/drake.vmat"
 							},
 							{
-								m_name = "Bone03"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Bone03"
-								m_vMinBounds = [ -15.188963, -10.011662, -9.949806 ]
-								m_vMaxBounds = [ 15.460342, 11.46796, 21.114952 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								from = "1014.vmat"
+								to = "materials/updated_by_seva_and_hudozhestvenniy_film_spizdili/drake/drake.vmat"
 							},
 							{
-								m_name = "Bone04"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Bone04"
-								m_vMinBounds = [ -14.82988, -10.101689, -2.259277 ]
-								m_vMaxBounds = [ 8.488342, 10.70682, 20.415344 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								from = "1015.vmat"
+								to = "materials/updated_by_seva_and_hudozhestvenniy_film_spizdili/drake/drake.vmat"
 							},
 							{
-								m_name = "Bone29"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Bone29"
-								m_vMinBounds = [ -2.512619, -6.196952, -19.069473 ]
-								m_vMaxBounds = [ 21.376835, 5.319009, 5.4431 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								from = "1016.vmat"
+								to = "materials/updated_by_seva_and_hudozhestvenniy_film_spizdili/drake/drake.vmat"
 							},
 							{
-								m_name = "Bone40"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Bone40"
-								m_vMinBounds = [ -21.376816, -6.197118, -19.069496 ]
-								m_vMaxBounds = [ 2.783991, 5.318828, 5.4431 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								from = "1017.vmat"
+								to = "materials/updated_by_seva_and_hudozhestvenniy_film_spizdili/drake/drake.vmat"
 							},
 							{
-								m_name = "Bone27"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Bone27"
-								m_vMinBounds = [ -7.860575, -7.433113, -35.964104 ]
-								m_vMaxBounds = [ 8.722157, 10.203825, -2.664253 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								from = "1011.vmat"
+								to = "materials/updated_by_seva_and_hudozhestvenniy_film_spizdili/drake/drake.vmat"
+							},
+						]
+						use_global_default = false
+						global_default_material = ""
+					},
+				]
+			},
+			{
+				_class = "AttachmentList"
+				children = 
+				[
+					{
+						_class = "Attachment"
+						name = "ATTACH_HITLOC"
+						parent_bone = "Bone03"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "ATTACH_ORIGIN"
+						parent_bone = "m3bone_root"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "ATTACH_ATTACK1"
+						parent_bone = "Point35"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "ATTACH_ATTACK2"
+						parent_bone = "Point36"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "ATTACH_HEAD"
+						parent_bone = "Point21"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+				]
+			},
+			{
+				_class = "HitboxSetList"
+				children = 
+				[
+					{
+						_class = "HitboxSet"
+						name = "default"
+						children = 
+						[
+							{
+								_class = "Hitbox"
+								parent_bone = "A"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -65.222351, -43.655071, -15.616816 ]
+								hitbox_maxs = [ 55.309486, 50.948616, 106.30864 ]
 							},
 							{
-								m_name = "Bone06"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Bone06"
-								m_vMinBounds = [ -8.450777, -7.433112, -35.964104 ]
-								m_vMaxBounds = [ 8.131943, 10.203828, -2.664253 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Bone02"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -11.656065, -7.914069, -6.926666 ]
+								hitbox_maxs = [ 11.927439, 9.191611, 4.651894 ]
 							},
 							{
-								m_name = "Point32"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Point32"
-								m_vMinBounds = [ -10.75421, -4.315784, -19.155167 ]
-								m_vMaxBounds = [ 5.135684, 16.73048, 1.006836 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Bone03"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -15.188963, -10.011662, -9.949806 ]
+								hitbox_maxs = [ 15.460342, 11.46796, 21.114952 ]
 							},
 							{
-								m_name = "Point23"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Point23"
-								m_vMinBounds = [ -2.192186, -3.725576, -5.2509 ]
-								m_vMaxBounds = [ 3.460483, 5.192666, 0.541382 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Bone04"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -14.82988, -10.101689, -2.259277 ]
+								hitbox_maxs = [ 8.488342, 10.70682, 20.415344 ]
 							},
 							{
-								m_name = "Point26"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Point26"
-								m_vMinBounds = [ -2.453232, -2.551735, -5.440033 ]
-								m_vMaxBounds = [ 1.488343, 5.692663, 0.717041 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Bone29"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.512619, -6.196952, -19.069473 ]
+								hitbox_maxs = [ 21.376835, 5.319009, 5.4431 ]
 							},
 							{
-								m_name = "Point29"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Point29"
-								m_vMinBounds = [ -3.864318, -4.315786, -19.155167 ]
-								m_vMaxBounds = [ 12.025584, 16.73048, 1.227081 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Bone40"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -21.376816, -6.197118, -19.069496 ]
+								hitbox_maxs = [ 2.783991, 5.318828, 5.4431 ]
 							},
 							{
-								m_name = "Bone28"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Bone28"
-								m_vMinBounds = [ -1.466595, -7.417532, -19.630791 ]
-								m_vMaxBounds = [ 20.456434, 6.190605, 1.63678 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Bone27"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.860575, -7.433113, -35.964104 ]
+								hitbox_maxs = [ 8.722157, 10.203825, -2.664253 ]
 							},
 							{
-								m_name = "Bone41"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Bone41"
-								m_vMinBounds = [ -20.456419, -7.418265, -19.630821 ]
-								m_vMaxBounds = [ 1.46661, 6.189872, 1.636757 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Bone06"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -8.450777, -7.433112, -35.964104 ]
+								hitbox_maxs = [ 8.131943, 10.203828, -2.664253 ]
 							},
 							{
-								m_name = "Point07"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Point07"
-								m_vMinBounds = [ -1.310232, -2.98913, -15.995834 ]
-								m_vMaxBounds = [ 9.6603, 1.18801, -4.341438 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Point32"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -10.75421, -4.315784, -19.155167 ]
+								hitbox_maxs = [ 5.135684, 16.73048, 1.006836 ]
 							},
 							{
-								m_name = "Point08"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Point08"
-								m_vMinBounds = [ 0.612067, -6.440025, -13.00444 ]
-								m_vMaxBounds = [ 7.825399, 8.593799, -3.366196 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Point23"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.192186, -3.725576, -5.2509 ]
+								hitbox_maxs = [ 3.460483, 5.192666, 0.541382 ]
 							},
 							{
-								m_name = "Point09"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Point09"
-								m_vMinBounds = [ -4.864314, 0.733148, -15.42775 ]
-								m_vMaxBounds = [ 10.780772, 6.939028, -3.877983 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Point26"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.453232, -2.551735, -5.440033 ]
+								hitbox_maxs = [ 1.488343, 5.692663, 0.717041 ]
 							},
 							{
-								m_name = "Point10"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Point10"
-								m_vMinBounds = [ -9.388927, -2.989205, -15.995834 ]
-								m_vMaxBounds = [ 1.5816, 1.187844, -4.341438 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Point29"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.864318, -4.315786, -19.155167 ]
+								hitbox_maxs = [ 12.025584, 16.73048, 1.227081 ]
 							},
 							{
-								m_name = "Point13"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Point13"
-								m_vMinBounds = [ -7.554022, -6.440175, -13.00444 ]
-								m_vMaxBounds = [ -0.3407, 8.593574, -3.366196 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Bone28"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.466595, -7.417532, -19.630791 ]
+								hitbox_maxs = [ 20.456434, 6.190605, 1.63678 ]
 							},
 							{
-								m_name = "Point18"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Point18"
-								m_vMinBounds = [ -10.509394, 0.732981, -15.42775 ]
-								m_vMaxBounds = [ 5.135685, 6.939027, -3.877983 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Bone41"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -20.456419, -7.418265, -19.630821 ]
+								hitbox_maxs = [ 1.46661, 6.189872, 1.636757 ]
 							},
 							{
-								m_name = "Bone26"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Bone26"
-								m_vMinBounds = [ -4.692492, -4.401403, -30.850441 ]
-								m_vMaxBounds = [ 5.381756, 7.602907, -1.664626 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Point07"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.310232, -2.98913, -15.995834 ]
+								hitbox_maxs = [ 9.6603, 1.18801, -4.341438 ]
 							},
 							{
-								m_name = "Bone07"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Bone07"
-								m_vMinBounds = [ -5.110384, -4.401448, -30.850441 ]
-								m_vMaxBounds = [ 4.96386, 7.602817, -1.664626 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Point08"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ 0.612067, -6.440025, -13.00444 ]
+								hitbox_maxs = [ 7.825399, 8.593799, -3.366196 ]
 							},
 							{
-								m_name = "Point33"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Point33"
-								m_vMinBounds = [ -27.180979, 8.208649, -19.556305 ]
-								m_vMaxBounds = [ 5.635683, 33.83828, -6.976883 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Point09"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.864314, 0.733148, -15.42775 ]
+								hitbox_maxs = [ 10.780772, 6.939028, -3.877983 ]
 							},
 							{
-								m_name = "Point21"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Point21"
-								m_vMinBounds = [ -12.543559, -5.14946, -6.502808 ]
-								m_vMaxBounds = [ -0.214757, -0.008195, 0.286499 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Point10"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -9.388927, -2.989205, -15.995834 ]
+								hitbox_maxs = [ 1.5816, 1.187844, -4.341438 ]
 							},
 							{
-								m_name = "Point24"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Point24"
-								m_vMinBounds = [ -1.534595, -2.517552, -3.537964 ]
-								m_vMaxBounds = [ 2.061868, 3.464382, 1.016479 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Point13"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.554022, -6.440175, -13.00444 ]
+								hitbox_maxs = [ -0.3407, 8.593574, -3.366196 ]
 							},
 							{
-								m_name = "Point27"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Point27"
-								m_vMinBounds = [ -1.759121, -2.549339, -3.570328 ]
-								m_vMaxBounds = [ 1.27871, 4.692665, 1.872971 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Point18"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -10.509394, 0.732981, -15.42775 ]
+								hitbox_maxs = [ 5.135685, 6.939027, -3.877983 ]
 							},
 							{
-								m_name = "Point30"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Point30"
-								m_vMinBounds = [ -5.364317, 0.880943, -19.556305 ]
-								m_vMaxBounds = [ 27.452353, 33.83828, -2.053772 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Bone26"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.692492, -4.401403, -30.850441 ]
+								hitbox_maxs = [ 5.381756, 7.602907, -1.664626 ]
 							},
 							{
-								m_name = "Bone30"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Bone30"
-								m_vMinBounds = [ -3.325001, -5.162832, -9.96096 ]
-								m_vMaxBounds = [ 6.273204, 3.219049, 3.056534 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Bone07"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.110384, -4.401448, -30.850441 ]
+								hitbox_maxs = [ 4.96386, 7.602817, -1.664626 ]
 							},
 							{
-								m_name = "Bone42"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Bone42"
-								m_vMinBounds = [ -6.273198, -5.176524, -9.960991 ]
-								m_vMaxBounds = [ 3.325004, 3.205372, 3.056511 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Point33"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -27.180979, 8.208649, -19.556305 ]
+								hitbox_maxs = [ 5.635683, 33.83828, -6.976883 ]
 							},
 							{
-								m_name = "Point04"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Point04"
-								m_vMinBounds = [ -3.211246, -5.052011, -20.183182 ]
-								m_vMaxBounds = [ 10.511559, -0.314156, -2.00444 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Point21"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -12.543559, -5.14946, -6.502808 ]
+								hitbox_maxs = [ -0.214757, -0.008195, 0.286499 ]
 							},
 							{
-								m_name = "Point05"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Point05"
-								m_vMinBounds = [ -0.353226, -7.976525, -14.962524 ]
-								m_vMaxBounds = [ 9.977942, 11.63223, -0.178123 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Point24"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.534595, -2.517552, -3.537964 ]
+								hitbox_maxs = [ 2.061868, 3.464382, 1.016479 ]
 							},
 							{
-								m_name = "Point06"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Point06"
-								m_vMinBounds = [ -6.864313, -1.414744, -23.510742 ]
-								m_vMaxBounds = [ 15.574503, 10.791574, -0.178123 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Point27"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.759121, -2.549339, -3.570328 ]
+								hitbox_maxs = [ 1.27871, 4.692665, 1.872971 ]
 							},
 							{
-								m_name = "Point11"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Point11"
-								m_vMinBounds = [ -10.240184, -5.052132, -20.183182 ]
-								m_vMaxBounds = [ 3.482614, -0.314336, -2.00444 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Point30"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.364317, 0.880943, -19.556305 ]
+								hitbox_maxs = [ 27.452353, 33.83828, -2.053772 ]
 							},
 							{
-								m_name = "Point14"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Point14"
-								m_vMinBounds = [ -9.706568, -7.976781, -14.962524 ]
-								m_vMaxBounds = [ 0.624596, 11.631914, -0.178123 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Bone30"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.325001, -5.162832, -9.96096 ]
+								hitbox_maxs = [ 6.273204, 3.219049, 3.056534 ]
 							},
 							{
-								m_name = "Point16"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Point16"
-								m_vMinBounds = [ -15.30313, -1.41497, -23.510742 ]
-								m_vMaxBounds = [ 7.135684, 10.791573, -0.178123 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Bone42"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.273198, -5.176524, -9.960991 ]
+								hitbox_maxs = [ 3.325004, 3.205372, 3.056511 ]
 							},
 							{
-								m_name = "Bone24"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Bone24"
-								m_vMinBounds = [ -3.561984, -6.854881, -18.504734 ]
-								m_vMaxBounds = [ 4.558829, 6.00196, 0.929064 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Point04"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.211246, -5.052011, -20.183182 ]
+								hitbox_maxs = [ 10.511559, -0.314156, -2.00444 ]
 							},
 							{
-								m_name = "Bone08"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Bone08"
-								m_vMinBounds = [ -4.78746, -6.854942, -18.504734 ]
-								m_vMaxBounds = [ 3.333353, 6.001915, 0.929064 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Point05"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.353226, -7.976525, -14.962524 ]
+								hitbox_maxs = [ 9.977942, 11.63223, -0.178123 ]
 							},
 							{
-								m_name = "Point34"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Point34"
-								m_vMinBounds = [ -8.434347, -7.119055, -11.373558 ]
-								m_vMaxBounds = [ 7.135683, 17.022177, 5.946228 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Point06"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.864313, -1.414744, -23.510742 ]
+								hitbox_maxs = [ 15.574503, 10.791574, -0.178123 ]
 							},
 							{
-								m_name = "Point22"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Point22"
-								m_vMinBounds = [ -1.581661, 0.295588, -7.438278 ]
-								m_vMaxBounds = [ -0.531568, 7.027962, -1.437073 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Point11"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -10.240184, -5.052132, -20.183182 ]
+								hitbox_maxs = [ 3.482614, -0.314336, -2.00444 ]
 							},
 							{
-								m_name = "Point25"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Point25"
-								m_vMinBounds = [ -2.334595, -1.767552, -1.578415 ]
-								m_vMaxBounds = [ 2.87116, 4.183574, 3.058807 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Point14"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -9.706568, -7.976781, -14.962524 ]
+								hitbox_maxs = [ 0.624596, 11.631914, -0.178123 ]
 							},
 							{
-								m_name = "Point28"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Point28"
-								m_vMinBounds = [ -1.443169, -2.049304, -4.733582 ]
-								m_vMaxBounds = [ 1.423454, 2.588743, 0.07132 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Point16"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -15.30313, -1.41497, -23.510742 ]
+								hitbox_maxs = [ 7.135684, 10.791573, -0.178123 ]
 							},
 							{
-								m_name = "Point31"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Point31"
-								m_vMinBounds = [ -6.864317, -3.538363, -11.556305 ]
-								m_vMaxBounds = [ 25.952353, 25.838278, 1.023117 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Bone24"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.561984, -6.854881, -18.504734 ]
+								hitbox_maxs = [ 4.558829, 6.00196, 0.929064 ]
 							},
 							{
-								m_name = "Point36"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Point36"
-								m_vMinBounds = [ -2.943175, -31.096928, -10.293442 ]
-								m_vMaxBounds = [ 3.156954, 9.529835, 7.841743 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Bone08"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.78746, -6.854942, -18.504734 ]
+								hitbox_maxs = [ 3.333353, 6.001915, 0.929064 ]
 							},
 							{
-								m_name = "Point35"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Point35"
-								m_vMinBounds = [ -3.032805, -31.398712, -6.193512 ]
-								m_vMaxBounds = [ 3.067338, 9.229842, 11.941673 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Point34"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -8.434347, -7.119055, -11.373558 ]
+								hitbox_maxs = [ 7.135683, 17.022177, 5.946228 ]
 							},
 							{
-								m_name = "Point01"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Point01"
-								m_vMinBounds = [ -5.745276, -4.158213, -19.976913 ]
-								m_vMaxBounds = [ 10.223693, 2.03051, 3.101318 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Point22"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.581661, 0.295588, -7.438278 ]
+								hitbox_maxs = [ -0.531568, 7.027962, -1.437073 ]
 							},
 							{
-								m_name = "Point02"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Point02"
-								m_vMinBounds = [ -1.506815, -13.513561, -21.357414 ]
-								m_vMaxBounds = [ 13.141312, 12.594841, 2.362694 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Point25"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.334595, -1.767552, -1.578415 ]
+								hitbox_maxs = [ 2.87116, 4.183574, 3.058807 ]
 							},
 							{
-								m_name = "Point03"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Point03"
-								m_vMinBounds = [ -23.554508, -6.153274, -36.697277 ]
-								m_vMaxBounds = [ 46.630833, 40.657211, 0.037476 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Point28"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.443169, -2.049304, -4.733582 ]
+								hitbox_maxs = [ 1.423454, 2.588743, 0.07132 ]
 							},
 							{
-								m_name = "Point12"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Point12"
-								m_vMinBounds = [ -9.952326, -4.158395, -19.976913 ]
-								m_vMaxBounds = [ 6.01664, 2.030239, 3.101318 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Point31"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.864317, -3.538363, -11.556305 ]
+								hitbox_maxs = [ 25.952353, 25.838278, 1.023117 ]
 							},
 							{
-								m_name = "Point15"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Point15"
-								m_vMinBounds = [ -12.869942, -13.513891, -21.357414 ]
-								m_vMaxBounds = [ 1.778189, 12.594419, 2.362694 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Point36"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.943175, -31.096928, -10.293442 ]
+								hitbox_maxs = [ 3.156954, 9.529835, 7.841743 ]
 							},
 							{
-								m_name = "Point17"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Point17"
-								m_vMinBounds = [ -51.605907, -5.902596, -36.330303 ]
-								m_vMaxBounds = [ 27.16214, 38.995354, 0.037101 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Point35"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.032805, -31.398712, -6.193512 ]
+								hitbox_maxs = [ 3.067338, 9.229842, 11.941673 ]
 							},
 							{
-								m_name = "Bone25"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Bone25"
-								m_vMinBounds = [ -3.743608, -8.760445, -2.004733 ]
-								m_vMaxBounds = [ 5.056654, 1.703679, 2.446802 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Point01"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.745276, -4.158213, -19.976913 ]
+								hitbox_maxs = [ 10.223693, 2.03051, 3.101318 ]
 							},
 							{
-								m_name = "Bone09"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "Bone09"
-								m_vMinBounds = [ -4.785289, -8.760535, -2.004733 ]
-								m_vMaxBounds = [ 4.014976, 1.703528, 2.446802 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "Point02"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.506815, -13.513561, -21.357414 ]
+								hitbox_maxs = [ 13.141312, 12.594841, 2.362694 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Point03"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -23.554508, -6.153274, -36.697277 ]
+								hitbox_maxs = [ 46.630833, 40.657211, 0.037476 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Point12"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -9.952326, -4.158395, -19.976913 ]
+								hitbox_maxs = [ 6.01664, 2.030239, 3.101318 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Point15"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -12.869942, -13.513891, -21.357414 ]
+								hitbox_maxs = [ 1.778189, 12.594419, 2.362694 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Point17"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -51.605907, -5.902596, -36.330303 ]
+								hitbox_maxs = [ 27.16214, 38.995354, 0.037101 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone25"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.743608, -8.760445, -2.004733 ]
+								hitbox_maxs = [ 5.056654, 1.703679, 2.446802 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone09"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.785289, -8.760535, -2.004733 ]
+								hitbox_maxs = [ 4.014976, 1.703528, 2.446802 ]
 							},
 						]
 					},
 				]
-				m_AutoCreateSetName = ""
-			}
-		},
-	]
-	m_pAttachmentLists = 
-	[
-		{
-			m_pObject = 
+			},
 			{
-				m_name = ""
-				m_attachments = 
+				_class = "RenderMeshList"
+				children = 
 				[
 					{
-						m_name = "ATTACH_HITLOC"
-						m_influences = 
-						[
-							{
-								m_influenceName = "Bone03"
-								m_vTranslationOffset = [ 0.0, 0.0, 0.0 ]
-								m_vRotationOffset = [ 0.0, 0.0, 0.0 ]
-								m_flWeight = 1.0
-								m_bRoot = false
-							},
-						]
-					},
-					{
-						m_name = "ATTACH_ORIGIN"
-						m_influences = 
-						[
-							{
-								m_influenceName = "m3bone_root"
-								m_vTranslationOffset = [ 0.0, 0.0, 0.0 ]
-								m_vRotationOffset = [ 0.0, 0.0, 0.0 ]
-								m_flWeight = 1.0
-								m_bRoot = false
-							},
-						]
-					},
-					{
-						m_name = "ATTACH_ATTACK1"
-						m_influences = 
-						[
-							{
-								m_influenceName = "Point35"
-								m_vTranslationOffset = [ 0.0, 0.0, 0.0 ]
-								m_vRotationOffset = [ 0.0, 0.0, 0.0 ]
-								m_flWeight = 1.0
-								m_bRoot = false
-							},
-						]
-					},
-					{
-						m_name = "ATTACH_ATTACK2"
-						m_influences = 
-						[
-							{
-								m_influenceName = "Point36"
-								m_vTranslationOffset = [ 0.0, 0.0, 0.0 ]
-								m_vRotationOffset = [ 0.0, 0.0, 0.0 ]
-								m_flWeight = 1.0
-								m_bRoot = false
-							},
-						]
-					},
-					{
-						m_name = "ATTACH_HEAD"
-						m_influences = 
-						[
-							{
-								m_influenceName = "Point21"
-								m_vTranslationOffset = [ 0.0, 0.0, 0.0 ]
-								m_vRotationOffset = [ 0.0, 0.0, 0.0 ]
-								m_flWeight = 1.0
-								m_bRoot = false
-							},
-						]
+						_class = "RenderMeshFile"
+						name = "drake"
+						filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/drake/drake.fbx"
+						import_scale = 1.0
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = [  ]
+						}
 					},
 				]
-			}
-		},
-	]
-	m_pAnimGroup = 
-	{
-		m_pObject = 
-		{
-			m_Name = ""
-			m_pBoneFlagList = 
-			{
-				m_pObject = null
-			}
-			m_pSeqGroup = 
-			{
-				m_pObject = null
-			}
-			m_pAnimGroups = [  ]
-			m_Vanim = 
-			[
-				{
-					m_Animationname = "drake_idle"
-					m_Filepath = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/drake/drake.fbx"
-					m_nStartframe = 11
-					m_nEndframe = 62
-					m_flFps = 30.0
-					m_Loop = 
-					{
-						m_bLoop = true
-						m_bSmoothLoop = false
-						m_nSmoothLoopStart = 0
-						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
-						{
-							_class = "CVAnimCmdStartLoop"
-							m_bEnabled = false
-							m_nLoopRestart = 0
-						}
-					}
-					m_bHidden = false
-					m_bDisable = false
-					m_Activities = 
-					[
-						{
-							m_Name = "ACT_DOTA_IDLE"
-							m_nWeight = 1
-						},
-					]
-					m_AnimationEvents = [  ]
-					m_MotionFrames = [  ]
-					m_pIkRules = [  ]
-					m_pAlignAnimation = null
-					m_adjustAnimation = 
-					{
-						m_translation = [ 0.0, 0.0, 0.0 ]
-						m_rotation = [ 0.0, 0.0, 0.0 ]
-					}
-					m_Keywords = [  ]
-					m_sequenceParams = 
-					{
-						m_flFadeInTime = 0.2
-						m_flFadeOutTime = 0.2
-					}
-					m_folderName = ""
-					m_MotionFramesRootBone = ""
-				},
-				{
-					m_Animationname = "drake_run"
-					m_Filepath = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/drake/drake.fbx"
-					m_nStartframe = 183
-					m_nEndframe = 207
-					m_flFps = 30.0
-					m_Loop = 
-					{
-						m_bLoop = true
-						m_bSmoothLoop = false
-						m_nSmoothLoopStart = 0
-						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
-						{
-							_class = "CVAnimCmdStartLoop"
-							m_bEnabled = false
-							m_nLoopRestart = 0
-						}
-					}
-					m_bHidden = false
-					m_bDisable = false
-					m_Activities = 
-					[
-						{
-							m_Name = "ACT_DOTA_RUN"
-							m_nWeight = 1
-						},
-					]
-					m_AnimationEvents = [  ]
-					m_MotionFrames = [  ]
-					m_pIkRules = [  ]
-					m_pAlignAnimation = null
-					m_adjustAnimation = 
-					{
-						m_translation = [ 0.0, 0.0, 0.0 ]
-						m_rotation = [ 0.0, 0.0, 0.0 ]
-					}
-					m_Keywords = [  ]
-					m_sequenceParams = 
-					{
-						m_flFadeInTime = 0.2
-						m_flFadeOutTime = 0.2
-					}
-					m_folderName = ""
-					m_MotionFramesRootBone = ""
-				},
-				{
-					m_Animationname = "drake_attack"
-					m_Filepath = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/drake/drake.fbx"
-					m_nStartframe = 219
-					m_nEndframe = 250
-					m_flFps = 30.0
-					m_Loop = 
-					{
-						m_bLoop = false
-						m_bSmoothLoop = false
-						m_nSmoothLoopStart = 0
-						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
-						{
-							_class = "CVAnimCmdStartLoop"
-							m_bEnabled = false
-							m_nLoopRestart = 0
-						}
-					}
-					m_bHidden = false
-					m_bDisable = false
-					m_Activities = 
-					[
-						{
-							m_Name = "ACT_DOTA_ATTACK"
-							m_nWeight = 1
-						},
-					]
-					m_AnimationEvents = [  ]
-					m_MotionFrames = [  ]
-					m_pIkRules = [  ]
-					m_pAlignAnimation = null
-					m_adjustAnimation = 
-					{
-						m_translation = [ 0.0, 0.0, 0.0 ]
-						m_rotation = [ 0.0, 0.0, 0.0 ]
-					}
-					m_Keywords = [  ]
-					m_sequenceParams = 
-					{
-						m_flFadeInTime = 0.2
-						m_flFadeOutTime = 0.2
-					}
-					m_folderName = ""
-					m_MotionFramesRootBone = ""
-				},
-				{
-					m_Animationname = "drake_attack2"
-					m_Filepath = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/drake/drake.fbx"
-					m_nStartframe = 260
-					m_nEndframe = 291
-					m_flFps = 30.0
-					m_Loop = 
-					{
-						m_bLoop = false
-						m_bSmoothLoop = false
-						m_nSmoothLoopStart = 0
-						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
-						{
-							_class = "CVAnimCmdStartLoop"
-							m_bEnabled = false
-							m_nLoopRestart = 0
-						}
-					}
-					m_bHidden = false
-					m_bDisable = false
-					m_Activities = 
-					[
-						{
-							m_Name = "ACT_DOTA_ATTACK2"
-							m_nWeight = 1
-						},
-					]
-					m_AnimationEvents = [  ]
-					m_MotionFrames = [  ]
-					m_pIkRules = [  ]
-					m_pAlignAnimation = null
-					m_adjustAnimation = 
-					{
-						m_translation = [ 0.0, 0.0, 0.0 ]
-						m_rotation = [ 0.0, 0.0, 0.0 ]
-					}
-					m_Keywords = [  ]
-					m_sequenceParams = 
-					{
-						m_flFadeInTime = 0.2
-						m_flFadeOutTime = 0.2
-					}
-					m_folderName = ""
-					m_MotionFramesRootBone = ""
-				},
-				{
-					m_Animationname = "drake_wtf"
-					m_Filepath = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/drake/drake.fbx"
-					m_nStartframe = 302
-					m_nEndframe = 351
-					m_flFps = 30.0
-					m_Loop = 
-					{
-						m_bLoop = false
-						m_bSmoothLoop = false
-						m_nSmoothLoopStart = 0
-						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
-						{
-							_class = "CVAnimCmdStartLoop"
-							m_bEnabled = false
-							m_nLoopRestart = 0
-						}
-					}
-					m_bHidden = false
-					m_bDisable = false
-					m_Activities = [  ]
-					m_AnimationEvents = [  ]
-					m_MotionFrames = [  ]
-					m_pIkRules = [  ]
-					m_pAlignAnimation = null
-					m_adjustAnimation = 
-					{
-						m_translation = [ 0.0, 0.0, 0.0 ]
-						m_rotation = [ 0.0, 0.0, 0.0 ]
-					}
-					m_Keywords = [  ]
-					m_sequenceParams = 
-					{
-						m_flFadeInTime = 0.2
-						m_flFadeOutTime = 0.2
-					}
-					m_folderName = ""
-					m_MotionFramesRootBone = ""
-				},
-				{
-					m_Animationname = "drake_order"
-					m_Filepath = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/drake/drake.fbx"
-					m_nStartframe = 362
-					m_nEndframe = 412
-					m_flFps = 30.0
-					m_Loop = 
-					{
-						m_bLoop = false
-						m_bSmoothLoop = false
-						m_nSmoothLoopStart = 0
-						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
-						{
-							_class = "CVAnimCmdStartLoop"
-							m_bEnabled = false
-							m_nLoopRestart = 0
-						}
-					}
-					m_bHidden = false
-					m_bDisable = false
-					m_Activities = [  ]
-					m_AnimationEvents = [  ]
-					m_MotionFrames = [  ]
-					m_pIkRules = [  ]
-					m_pAlignAnimation = null
-					m_adjustAnimation = 
-					{
-						m_translation = [ 0.0, 0.0, 0.0 ]
-						m_rotation = [ 0.0, 0.0, 0.0 ]
-					}
-					m_Keywords = [  ]
-					m_sequenceParams = 
-					{
-						m_flFadeInTime = 0.2
-						m_flFadeOutTime = 0.2
-					}
-					m_folderName = ""
-					m_MotionFramesRootBone = ""
-				},
-				{
-					m_Animationname = "drake_no_idea"
-					m_Filepath = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/drake/drake.fbx"
-					m_nStartframe = 423
-					m_nEndframe = 489
-					m_flFps = 30.0
-					m_Loop = 
-					{
-						m_bLoop = false
-						m_bSmoothLoop = false
-						m_nSmoothLoopStart = 0
-						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
-						{
-							_class = "CVAnimCmdStartLoop"
-							m_bEnabled = false
-							m_nLoopRestart = 0
-						}
-					}
-					m_bHidden = false
-					m_bDisable = false
-					m_Activities = [  ]
-					m_AnimationEvents = [  ]
-					m_MotionFrames = [  ]
-					m_pIkRules = [  ]
-					m_pAlignAnimation = null
-					m_adjustAnimation = 
-					{
-						m_translation = [ 0.0, 0.0, 0.0 ]
-						m_rotation = [ 0.0, 0.0, 0.0 ]
-					}
-					m_Keywords = [  ]
-					m_sequenceParams = 
-					{
-						m_flFadeInTime = 0.2
-						m_flFadeOutTime = 0.2
-					}
-					m_folderName = ""
-					m_MotionFramesRootBone = ""
-				},
-				{
-					m_Animationname = "drake_makedon"
-					m_Filepath = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/drake/drake.fbx"
-					m_nStartframe = 500
-					m_nEndframe = 516
-					m_flFps = 30.0
-					m_Loop = 
-					{
-						m_bLoop = true
-						m_bSmoothLoop = false
-						m_nSmoothLoopStart = 0
-						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
-						{
-							_class = "CVAnimCmdStartLoop"
-							m_bEnabled = false
-							m_nLoopRestart = 0
-						}
-					}
-					m_bHidden = false
-					m_bDisable = false
-					m_Activities = [  ]
-					m_AnimationEvents = [  ]
-					m_MotionFrames = [  ]
-					m_pIkRules = [  ]
-					m_pAlignAnimation = null
-					m_adjustAnimation = 
-					{
-						m_translation = [ 0.0, 0.0, 0.0 ]
-						m_rotation = [ 0.0, 0.0, 0.0 ]
-					}
-					m_Keywords = [  ]
-					m_sequenceParams = 
-					{
-						m_flFadeInTime = 0.2
-						m_flFadeOutTime = 0.2
-					}
-					m_folderName = ""
-					m_MotionFramesRootBone = ""
-				},
-				{
-					m_Animationname = "drake_double"
-					m_Filepath = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/drake/drake.fbx"
-					m_nStartframe = 491
-					m_nEndframe = 527
-					m_flFps = 30.0
-					m_Loop = 
-					{
-						m_bLoop = false
-						m_bSmoothLoop = false
-						m_nSmoothLoopStart = 0
-						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
-						{
-							_class = "CVAnimCmdStartLoop"
-							m_bEnabled = false
-							m_nLoopRestart = 0
-						}
-					}
-					m_bHidden = false
-					m_bDisable = false
-					m_Activities = [  ]
-					m_AnimationEvents = [  ]
-					m_MotionFrames = [  ]
-					m_pIkRules = [  ]
-					m_pAlignAnimation = null
-					m_adjustAnimation = 
-					{
-						m_translation = [ 0.0, 0.0, 0.0 ]
-						m_rotation = [ 0.0, 0.0, 0.0 ]
-					}
-					m_Keywords = [  ]
-					m_sequenceParams = 
-					{
-						m_flFadeInTime = 0.2
-						m_flFadeOutTime = 0.2
-					}
-					m_folderName = ""
-					m_MotionFramesRootBone = ""
-				},
-				{
-					m_Animationname = "drake_rose"
-					m_Filepath = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/drake/drake.fbx"
-					m_nStartframe = 535
-					m_nEndframe = 559
-					m_flFps = 30.0
-					m_Loop = 
-					{
-						m_bLoop = true
-						m_bSmoothLoop = true
-						m_nSmoothLoopStart = 0
-						m_nSmoothLoopEnd = 1
-						m_StartLoop = 
-						{
-							_class = "CVAnimCmdStartLoop"
-							m_bEnabled = false
-							m_nLoopRestart = 0
-						}
-					}
-					m_bHidden = false
-					m_bDisable = false
-					m_Activities = [  ]
-					m_AnimationEvents = [  ]
-					m_MotionFrames = [  ]
-					m_pIkRules = [  ]
-					m_pAlignAnimation = null
-					m_adjustAnimation = 
-					{
-						m_translation = [ 0.0, 0.0, 0.0 ]
-						m_rotation = [ 0.0, 0.0, 0.0 ]
-					}
-					m_Keywords = [  ]
-					m_sequenceParams = 
-					{
-						m_flFadeInTime = 0.2
-						m_flFadeOutTime = 0.2
-					}
-					m_folderName = ""
-					m_MotionFramesRootBone = ""
-				},
-				{
-					m_Animationname = "drake_eh"
-					m_Filepath = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/drake/drake.fbx"
-					m_nStartframe = 527
-					m_nEndframe = 584
-					m_flFps = 30.0
-					m_Loop = 
-					{
-						m_bLoop = false
-						m_bSmoothLoop = false
-						m_nSmoothLoopStart = 0
-						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
-						{
-							_class = "CVAnimCmdStartLoop"
-							m_bEnabled = false
-							m_nLoopRestart = 0
-						}
-					}
-					m_bHidden = false
-					m_bDisable = false
-					m_Activities = [  ]
-					m_AnimationEvents = [  ]
-					m_MotionFrames = [  ]
-					m_pIkRules = [  ]
-					m_pAlignAnimation = null
-					m_adjustAnimation = 
-					{
-						m_translation = [ 0.0, 0.0, 0.0 ]
-						m_rotation = [ 0.0, 0.0, 0.0 ]
-					}
-					m_Keywords = [  ]
-					m_sequenceParams = 
-					{
-						m_flFadeInTime = 0.2
-						m_flFadeOutTime = 0.2
-					}
-					m_folderName = ""
-					m_MotionFramesRootBone = ""
-				},
-				{
-					m_Animationname = "drake_swim"
-					m_Filepath = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/drake/drake.fbx"
-					m_nStartframe = 584
-					m_nEndframe = 614
-					m_flFps = 30.0
-					m_Loop = 
-					{
-						m_bLoop = false
-						m_bSmoothLoop = false
-						m_nSmoothLoopStart = 0
-						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
-						{
-							_class = "CVAnimCmdStartLoop"
-							m_bEnabled = false
-							m_nLoopRestart = 0
-						}
-					}
-					m_bHidden = false
-					m_bDisable = false
-					m_Activities = [  ]
-					m_AnimationEvents = [  ]
-					m_MotionFrames = [  ]
-					m_pIkRules = [  ]
-					m_pAlignAnimation = null
-					m_adjustAnimation = 
-					{
-						m_translation = [ 0.0, 0.0, 0.0 ]
-						m_rotation = [ 0.0, 0.0, 0.0 ]
-					}
-					m_Keywords = [  ]
-					m_sequenceParams = 
-					{
-						m_flFadeInTime = 0.2
-						m_flFadeOutTime = 0.2
-					}
-					m_folderName = ""
-					m_MotionFramesRootBone = ""
-				},
-				{
-					m_Animationname = "drake_die"
-					m_Filepath = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/drake/drake.fbx"
-					m_nStartframe = 687
-					m_nEndframe = 731
-					m_flFps = 30.0
-					m_Loop = 
-					{
-						m_bLoop = false
-						m_bSmoothLoop = false
-						m_nSmoothLoopStart = 0
-						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
-						{
-							_class = "CVAnimCmdStartLoop"
-							m_bEnabled = false
-							m_nLoopRestart = 0
-						}
-					}
-					m_bHidden = false
-					m_bDisable = false
-					m_Activities = 
-					[
-						{
-							m_Name = "ACT_DOTA_DIE"
-							m_nWeight = 1
-						},
-					]
-					m_AnimationEvents = [  ]
-					m_MotionFrames = [  ]
-					m_pIkRules = [  ]
-					m_pAlignAnimation = null
-					m_adjustAnimation = 
-					{
-						m_translation = [ 0.0, 0.0, 0.0 ]
-						m_rotation = [ 0.0, 0.0, 0.0 ]
-					}
-					m_Keywords = [  ]
-					m_sequenceParams = 
-					{
-						m_flFadeInTime = 0.2
-						m_flFadeOutTime = 0.2
-					}
-					m_folderName = ""
-					m_MotionFramesRootBone = ""
-				},
-			]
-			m_sScripts = [  ]
-			m_folderNames = [  ]
-			m_sCompileScripts = [  ]
-			m_pActivityWhiteList = 
-			{
-				m_pObject = null
-			}
-		}
-	}
-	m_pMaterialGroupList = 
-	{
-		m_pObject = null
-	}
-	m_pMeshGroupList = 
-	{
-		m_pObject = null
-	}
-	m_pLodGroupList = 
-	{
-		m_pObject = null
-	}
-	m_pPropBreakableList = 
-	{
-		m_pObject = null
-	}
-	m_pPropDataList = 
-	{
-		m_pObject = null
-	}
-	m_pConstraintLists = [  ]
-	m_collision = ""
-	m_softbody = ""
-	m_sMDLFilename = ""
-	m_sOffsetHitboxSets = [  ]
-	m_vHitboxSetOffset = [ 0.0, 0.0, 0.0 ]
-	m_scriptFiles = [  ]
-	m_pMaterialRemapList = 
-	{
-		m_vMaterialRemapList = 
-		[
-			{
-				m_sSearchMaterial = "1012.vmat"
-				m_sReplaceMaterial = "materials/updated_by_seva_and_hudozhestvenniy_film_spizdili/drake/drake.vmat"
 			},
 			{
-				m_sSearchMaterial = "1013.vmat"
-				m_sReplaceMaterial = "materials/updated_by_seva_and_hudozhestvenniy_film_spizdili/drake/drake.vmat"
-			},
-			{
-				m_sSearchMaterial = "1014.vmat"
-				m_sReplaceMaterial = "materials/updated_by_seva_and_hudozhestvenniy_film_spizdili/drake/drake.vmat"
-			},
-			{
-				m_sSearchMaterial = "1015.vmat"
-				m_sReplaceMaterial = "materials/updated_by_seva_and_hudozhestvenniy_film_spizdili/drake/drake.vmat"
-			},
-			{
-				m_sSearchMaterial = "1016.vmat"
-				m_sReplaceMaterial = "materials/updated_by_seva_and_hudozhestvenniy_film_spizdili/drake/drake.vmat"
-			},
-			{
-				m_sSearchMaterial = "1017.vmat"
-				m_sReplaceMaterial = "materials/updated_by_seva_and_hudozhestvenniy_film_spizdili/drake/drake.vmat"
-			},
-			{
-				m_sSearchMaterial = "1011.vmat"
-				m_sReplaceMaterial = "materials/updated_by_seva_and_hudozhestvenniy_film_spizdili/drake/drake.vmat"
+				_class = "AnimationList"
+				children = 
+				[
+					{
+						_class = "AnimFile"
+						name = "drake_idle"
+						activity_name = "ACT_DOTA_IDLE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/drake/drake.fbx"
+						import_bone_scales = false
+						start_frame = 11
+						end_frame = 62
+						framerate = 30.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "drake_run"
+						activity_name = "ACT_DOTA_RUN"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/drake/drake.fbx"
+						import_bone_scales = false
+						start_frame = 183
+						end_frame = 207
+						framerate = 30.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "drake_attack"
+						activity_name = "ACT_DOTA_ATTACK"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/drake/drake.fbx"
+						import_bone_scales = false
+						start_frame = 219
+						end_frame = 250
+						framerate = 30.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "drake_attack2"
+						activity_name = "ACT_DOTA_ATTACK2"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/drake/drake.fbx"
+						import_bone_scales = false
+						start_frame = 260
+						end_frame = 291
+						framerate = 30.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "drake_wtf"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/drake/drake.fbx"
+						import_bone_scales = false
+						start_frame = 302
+						end_frame = 351
+						framerate = 30.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "drake_order"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/drake/drake.fbx"
+						import_bone_scales = false
+						start_frame = 362
+						end_frame = 412
+						framerate = 30.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "drake_no_idea"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/drake/drake.fbx"
+						import_bone_scales = false
+						start_frame = 423
+						end_frame = 489
+						framerate = 30.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "drake_makedon"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/drake/drake.fbx"
+						import_bone_scales = false
+						start_frame = 500
+						end_frame = 516
+						framerate = 30.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "drake_double"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/drake/drake.fbx"
+						import_bone_scales = false
+						start_frame = 491
+						end_frame = 527
+						framerate = 30.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "drake_rose"
+						children = 
+						[
+							{
+								_class = "AnimSmoothLoop"
+								frames_from_start = 0
+								frames_from_end = 1
+							},
+						]
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/drake/drake.fbx"
+						import_bone_scales = false
+						start_frame = 535
+						end_frame = 559
+						framerate = 30.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "drake_eh"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/drake/drake.fbx"
+						import_bone_scales = false
+						start_frame = 527
+						end_frame = 584
+						framerate = 30.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "drake_swim"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/drake/drake.fbx"
+						import_bone_scales = false
+						start_frame = 584
+						end_frame = 614
+						framerate = 30.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "drake_die"
+						activity_name = "ACT_DOTA_DIE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/drake/drake.fbx"
+						import_bone_scales = false
+						start_frame = 687
+						end_frame = 731
+						framerate = 30.0
+						reverse = false
+					},
+				]
+				default_root_bone_name = ""
 			},
 		]
+		model_archetype = ""
+		primary_associated_entity = ""
+		anim_graph_name = ""
+		importer_notes = """
+Imported from VMDL
+"""
 	}
-	m_flFbxScale = 1.0
-	m_flQCScale = 1.0
-	m_vOrigin = [ 0.0, 0.0, 0.0 ]
-	m_bEmbedAnimsInAnimGroup = false
-	m_pPsfList = null
-	m_keyValueText = ""
-	m_bStaticProp = false
-	m_bEnableClothProcessing = true
-	m_flClothEnableThreshold = 0.05
-	m_nMaxClothVertsPerMesh = 2048
-	m_bBuildClothBoneHierarchy = false
-	m_nNavType = "AUTH_NAV_MESH"
-	m_bMakeUniqueVMeshes = false
-	m_bMakeImplicitBindPoseSequence = false
-	m_bAdjustSkeletonFromBoneFlags = false
-	m_bHiddenAssetFlag = false
-	m_pAnimGroups = [  ]
 }

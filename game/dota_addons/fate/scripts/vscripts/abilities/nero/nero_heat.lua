@@ -69,6 +69,12 @@ function nero_heat:IncreaseHeat(caster)
 		modifier:UpdateParticle()
 	end
 
+	--[[
+	if(caster:HasModifier("modifier_aestus_domus_aurea_nero") and modifier.rank == 7) then
+		self:EndCooldown()
+	end
+	]]--Ended bad, no D cd in arena after reaching SSS
+
 	if caster.IsPrivilegeImproved then
 		caster:AddNewModifier(caster, self, "modifier_imperial_buff_h", {duration = 5})
 	end

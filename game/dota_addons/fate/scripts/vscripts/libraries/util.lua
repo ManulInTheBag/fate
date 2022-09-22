@@ -195,6 +195,7 @@ d_seal_locked = {
     "jump_pause",
     "pause_sealdisabled",
     "round_pause",
+    "modifier_enkidu_hold",
     "modifier_tres_fontaine_nero" --idk wtf this is lols
 }
 
@@ -514,6 +515,7 @@ CannotReset = {
     "okita_mind_eye",
     "muramasa_tsumukari_combo",
     "nero_aestus_domus_aurea",
+    "gilgamesh_enkidu",
     
     
     

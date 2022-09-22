@@ -1,0 +1,68 @@
+"DOTAAbilities"
+{	
+	//=======================================
+	// Nero Attribute : Aestus Estus
+	//=======================================
+	"nero_aestus_estus_attribute"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/nero/nero_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/aestus_estus"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"6"
+
+		"precache"
+		{
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cdr_per_hit"			"1"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"dmg_on_hit"			"75"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Nero: Aestus Estus Passive
+	//=================================================================================================================
+	"nero_aestus_estus_passive"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/nero/nero_aestus_estus_passive"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityTextureName"			"custom/nero/nero_gladiusanus_blauserum"
+		"MaxLevel"						"1"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cdr_per_hit"			"1"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"dmg_on_hit"			"75"
+			}
+		}
+		
+		"OnSpelLStart"
+		{
+		}
+	}
+}

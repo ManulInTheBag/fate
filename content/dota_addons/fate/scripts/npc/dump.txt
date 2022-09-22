@@ -1,0 +1,88 @@
+"item_recipe_condensed_mana_essence"
+	{
+	    "ID" "1101"
+	    "BaseClass"           	"item_datadriven"
+	    "ItemRecipe"         	"1" //destroyed after combine
+	    "ItemShopTags"			""
+	    "ItemCost"           	"0" //if its 0, it will combine without needing a recipe.
+	    "ItemResult"         	"item_condensed_mana_essence" //the result of combining the ItemRequirements
+	    "ItemRequirements"
+	    {
+	        "01" "item_mana_essence;item_mana_essence;item_dummy_item_something_else"
+	    }
+	}
+
+	"item_recipe_b_scroll"
+	{
+	    "ID" 					"1115"
+	    "BaseClass"           	"item_datadriven"
+	    "ItemRecipe"         	"1" //destroyed after combine
+	    "ItemShopTags"			""
+	    "ItemCost"           	"0" //if its 0, it will combine without needing a recipe.
+	    "ItemResult"         	"item_b_scroll" 
+	    "ItemRequirements"
+	   	{
+	        "01" "item_c_scroll;item_c_scroll;item_dummy_item_something_else"
+	    }
+	}
+
+	"item_recipe_a_scroll"
+	{
+	    "ID" 					"1117"
+	    "BaseClass"           	"item_datadriven"
+	    "ItemRecipe"         	"1" //destroyed after combine
+	    "ItemShopTags"			""
+	    "ItemCost"           	"0" //if its 0, it will combine without needing a recipe.
+	    "ItemResult"         	"item_a_scroll" 
+	    "ItemRequirements"
+	   	{
+	        "01" "item_b_scroll;item_b_scroll;item_dummy_item_something_else"
+	    }
+	}
+
+
+	"item_recipe_a_plus_scroll"
+	{
+	    "ID" 					"1119"
+	    "BaseClass"           	"item_datadriven"
+	    "ItemRecipe"         	"1" //destroyed after combine
+	    "ItemShopTags"			""
+	    "ItemCost"           	"0" //if its 0, it will combine without needing a recipe.
+	    "ItemResult"         	"item_a_plus_scroll" 
+	    "ItemRequirements"
+	   	{
+	        "01" 				"item_a_scroll;item_healing_scroll;item_dummy_item_something_else"
+	    }
+	}
+
+
+
+	"item_recipe_s_scroll"
+	{
+	    "ID" 					"1121"
+	    "BaseClass"           	"item_datadriven"
+	    "ItemRecipe"         	"1" //destroyed after combine
+	    "ItemShopTags"			""
+	    "ItemCost"           	"0" 
+	    "ItemResult"         	"item_s_scroll" 
+	    "ItemRequirements"
+	   	{
+	        "01" "item_a_scroll;item_a_scroll;item_dummy_item_something_else"
+	    }
+	}
+
+	
+
+	"item_recipe_ex_scroll"
+	{
+	    "ID" 					"1123"
+	    "BaseClass"           	"item_datadriven"
+	    "ItemRecipe"         	"1" //destroyed after combine
+	    "ItemShopTags"			""
+	    "ItemCost"           	"0" 
+	    "ItemResult"         	"item_ex_scroll" 
+	    "ItemRequirements"
+	   	{
+	        "01" "item_s_scroll;item_s_scroll;item_dummy_item_something_else"
+	    }
+	}
