@@ -6,6 +6,7 @@
 	m_nMaxParticles = 10
 	m_flConstantRadius = 0.7
 	m_nGroupID = 1
+	m_flConstantLifespan = 2.0
 	m_controlPointConfigurations = 
 	[
 		{
@@ -157,6 +158,10 @@
 			m_vecCPMinPos = [ -100.0, -100.0, 0.0 ]
 			m_vecCPMaxPos = [ 100.0, 100.0, 0.0 ]
 		},
+		{
+			_class = "C_OP_PlayEndCapWhenFinished"
+			m_bDisableOperator = true
+		},
 	]
 	m_Emitters = 
 	[
@@ -261,6 +266,10 @@
 		},
 		{
 			m_ChildRef = resource:"particles/gilgamesh/chain_model.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/gilgamesh/gob_weapon_sparks.vpcf"
+			m_bEndCap = true
 		},
 	]
 }

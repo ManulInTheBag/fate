@@ -27,7 +27,7 @@ function gilgamesh_sword_barrage:CreateGOB(position)
 	ParticleManager:SetParticleControl(portalFxIndex, 3, position ) 
 	ParticleManager:SetParticleControl(portalFxIndex, 10, Vector(1,0,0)) 
 	Timers:CreateTimer(0.6, function()
-		ParticleManager:DestroyParticle(portalFxIndex, true)
+		ParticleManager:DestroyParticle(portalFxIndex, false)
 		ParticleManager:ReleaseParticleIndex(portalFxIndex)
 	end)
 end

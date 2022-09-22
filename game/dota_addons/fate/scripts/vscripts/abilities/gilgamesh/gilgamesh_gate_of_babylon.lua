@@ -1,6 +1,11 @@
 gilgamesh_gate_of_babylon = class({})
 LinkLuaModifier("modifier_gob_thinker","abilities/gilgamesh/gilgamesh_gate_of_babylon", LUA_MODIFIER_MOTION_NONE)
 
+
+ 
+
+
+
 function gilgamesh_gate_of_babylon:OnSpellStart()
 	local caster = self:GetCaster()
 	caster:EmitSound("Gilgamesh.GOB")
@@ -12,6 +17,18 @@ function gilgamesh_gate_of_babylon:OnSpellStart()
 	self.dummy:SetForwardVector(caster:GetForwardVector())
 	self.dummy:AddNewModifier(caster,self, "modifier_gob_thinker", {Duration  = 10})
 	self.lastgobdummy = self.dummy 
+
+	if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 and caster:GetIntellect() >= 29.1 then
+		if self == caster:FindAbilityByName("gilgamesh_gate_of_babylon") and caster:FindAbilityByName("gilgamesh_enuma_elish"):IsCooldownReady() and caster:FindAbilityByName("gilgamesh_max_enuma_elish"):IsCooldownReady() then
+			caster:SwapAbilities("gilgamesh_enuma_elish", "gilgamesh_max_enuma_elish", false, true) 
+			Timers:CreateTimer({
+				endTime = 5,
+				callback = function()
+				caster:SwapAbilities("gilgamesh_enuma_elish", "gilgamesh_max_enuma_elish", true, false) 
+			end
+			})			
+		end
+	end
 
 end
 
@@ -63,7 +80,7 @@ function gilgamesh_gate_of_babylon:OnProjectileHit_ExtraData(hTarget, vLocation,
 	local particle = ParticleManager:CreateParticle("particles/custom_game/heroes/gilgamesh/gilgamesh_enlarge_gate_hit/gilgamesh_enlarge_gate_hit.vpcf", PATTACH_ABSORIGIN, hTarget)
 	ParticleManager:SetParticleControl(particle, 0, hTarget:GetAbsOrigin())
 	Timers:CreateTimer(0.3,function()
-		ParticleManager:DestroyParticle(particle, true)
+		ParticleManager:DestroyParticle(particle, false)
 		ParticleManager:ReleaseParticleIndex(particle)
 	
 	end)
@@ -103,7 +120,7 @@ if IsServer() then
 		if not gil:IsAlive() then return end 
 		
 		local ForwardVector= caster:GetForwardVector()
-		if self:GetAbility().lastgobdummy == caster and self:GetAbility():GetAutoCastState() == true  then
+		if gil.IsSumerAcquired and self:GetAbility().lastgobdummy == caster and self:GetAbility():GetAutoCastState() == true  then
 			caster:SetAbsOrigin(gil:GetAbsOrigin() - gil:GetForwardVector() )
 			caster:SetForwardVector( gil:GetForwardVector() )
 		end

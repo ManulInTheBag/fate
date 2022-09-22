@@ -46,6 +46,9 @@ local radius = self:GetSpecialValueFor("hit_radius")
 local start_vec =caster:GetForwardVector()
 local speed = 3600
 local damage_impact = self:GetSpecialValueFor("damage_impact")
+if caster.SwordTrialAcquired then 
+    damage_impact = damage_impact + self:GetSpecialValueFor("str_scale")*caster:GetStrength()
+end
 local tsumukariProjectile = 
     {
         Ability = self,
@@ -104,7 +107,9 @@ function muramasa_tsumukari_release:OnProjectileHit_ExtraData(hTarget, vLocation
 
     local caster = self:GetCaster()
     local damage_first = self:GetSpecialValueFor("damage_first")
- 
+    if caster.SwordTrialAcquired then 
+        damage_first = damage_first + self:GetSpecialValueFor("str_scale")*caster:GetStrength()
+    end
  
         if( not hTarget:HasModifier("modifier_muramasa_tsumukari_hit_slow")) then 
              hTarget:EmitSound("Hero_Sniper.AssassinateDamage")

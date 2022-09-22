@@ -8,7 +8,7 @@ if IsServer() then
 	end
 
 	function modifier_enkidu_hold:OnDestroy()
-		ParticleManager:DestroyParticle( self.Particle, true )
+		ParticleManager:DestroyParticle( self.Particle, false )
 		ParticleManager:ReleaseParticleIndex( self.Particle )
 	end
 end

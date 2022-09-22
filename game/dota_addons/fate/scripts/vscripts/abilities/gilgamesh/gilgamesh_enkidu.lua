@@ -38,7 +38,7 @@ function gilgamesh_enkidu:OnSpellStart()
 
  	target:AddNewModifier(caster, self, "modifier_enkidu_hold", { Duration = self:GetSpecialValueFor("duration") })
 	if(caster.IsChainsAcquired) then
-		Timers:CreateTimer(1.2,function()
+		Timers:CreateTimer(1.0,function()
 		local vTargetOrigin = target:GetAbsOrigin()
 		local vForwardVector = target:GetForwardVector()
 		local vLeftVector = target:GetLeftVector()
@@ -189,12 +189,12 @@ function gilgamesh_enkidu:OnSpellStart()
 
 		local counter = 1
 		local info  = {info1, info2, info3,info4,info5,info6,info7,info8}
-		Timers:CreateTimer(0.5,function()
+		Timers:CreateTimer(0.4,function()
 			if counter == 9 then return end
 		
 			ProjectileManager:CreateTrackingProjectile(info[counter]) 
 			counter = counter + 1
-			return 0.033
+			return 0.07
 			end)
 		 
 		end)

@@ -1917,9 +1917,7 @@ function FateGameMode:OnHeroInGame(hero)
          
     end
 
-    if hero:GetName() == "npc_dota_hero_skywrath_mage" then
-         hero:GetAbilityByIndex(2):ToggleAutoCast()
-    end
+  
     if hero:GetName() == "npc_dota_hero_juggernaut" then -- or hero:GetName() == "npc_dota_hero_shadow_shaman" then
         hero:FindAbilityByName("attribute_bonus_custom_no_int"):SetHidden(false)
     else

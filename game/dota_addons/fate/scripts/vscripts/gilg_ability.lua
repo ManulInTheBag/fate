@@ -593,7 +593,9 @@ function OnPowerOfSumerAcquired(keys)
 	end
 
 	hero.IsSumerAcquired = true
-
+	 
+		--hero:GetAbilityByIndex(2):ToggleAutoCast()
+    
 	--hero:SwapAbilities("gilgamesh_gate_of_babylon_toggle", "gilgamesh_golden_rule", true, false)
 	--hero:FindAbilityByName("gilgamesh_gate_of_babylon_toggle"):ToggleAbility()
 	--hero:FindAbilityByName("gilgamesh_gram"):SetLevel(2)

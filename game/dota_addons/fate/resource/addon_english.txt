@@ -3325,7 +3325,7 @@
 		"DOTA_Tooltip_ability_gilgamesh_enkidu_att_sword_count"	"Attribute sword count:"
 		
 		"DOTA_Tooltip_Ability_gilgamesh_gate_of_babylon"	"Gate of Babylon"	
-		"DOTA_Tooltip_ability_gilgamesh_gate_of_babylon_Description"	"Gilgamesh opens a portal to his arsenal, which sends forth numerous weapons over duration.\nWhen this ability is toggled, gate will follow Gilgamesh, otherwise it will stay in place. If you refresh this ability, current gate will stay in place, while new one will follow be one to toggle state of."
+		"DOTA_Tooltip_ability_gilgamesh_gate_of_babylon_Description"	"Gilgamesh opens a portal to his arsenal, which sends forth numerous weapons over duration.\n If you upgraded Power of Sumer attribute, when this ability is toggled, gate will follow Gilgamesh, otherwise it will stay in place. If you refresh this ability, current gate will stay in place, while new one will follow be one to toggle state of."
 		"DOTA_Tooltip_ability_gilgamesh_gate_of_babylon_damage"	"WEAPON DAMAGE:"
 		"DOTA_Tooltip_ability_gilgamesh_gate_of_babylon_duration"	"DURATION:"
 		"DOTA_Tooltip_ability_gilgamesh_gate_of_babylon_Note0"	"Bypasses B Scroll."
@@ -3377,7 +3377,7 @@
 		"DOTA_Tooltip_Ability_gilgamesh_attribute_improve_golden_rule_bounty_bonus"	"%BONUS GOLD BOUNTY:"
 
 		"DOTA_Tooltip_Ability_gilgamesh_attribute_power_of_sumer"					"Attribute: Power of Sumer"
-		"DOTA_Tooltip_ability_gilgamesh_attribute_power_of_sumer_Description"		"Increases Gilgamesh's gate of babylon and sword barrage damage based on ATK. Bonus damage is dealth as physical."
+		"DOTA_Tooltip_ability_gilgamesh_attribute_power_of_sumer_Description"		"Increases Gilgamesh's gate of babylon and sword barrage damage based on ATK. Bonus damage is dealth as physical. Allow Gate of Babylon to follow Gilgamesh when ability is toggled on."
 		"DOTA_Tooltip_Ability_gilgamesh_attribute_power_of_sumer_dmg_ratio"			"ATTACK DAMAGE RATIO E:"
 		"DOTA_Tooltip_Ability_gilgamesh_attribute_power_of_sumer_dmg_ratio_q"			"ATTACK DAMAGE RATIO Q:"
 
@@ -6916,8 +6916,9 @@
     
 
         "DOTA_Tooltip_ability_muramasa_sword_trial_attribute"				"Attribute: Sword trial"
-        "DOTA_Tooltip_ability_muramasa_sword_trial_attribute_Description"	"After chanting Tsumukari Muramasa, Muramasa gains a buff, which increases his attackspeed to 0.5 seconds per attack for 1 attack and will reduce Tsumukari cooldown to 1 second with this attack."
+        "DOTA_Tooltip_ability_muramasa_sword_trial_attribute_Description"	"After chanting Tsumukari Muramasa, Muramasa gains a buff, which increases his attackspeed to 0.5 seconds per attack for 1 attack and will reduce Tsumukari cooldown to 1 second with this attack. Also increases Tsumukari Muramasa release damage based on Muramasa's strenght."
         "DOTA_Tooltip_ability_muramasa_sword_trial_attribute_buff_duration"				"Buff duration:"
+        "DOTA_Tooltip_ability_muramasa_sword_trial_attribute_str_scale"				"All impact damage per STR:"
  
  		
         "DOTA_Tooltip_ability_muramasa_flame_attribute"				"Attribute: Flame"
