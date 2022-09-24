@@ -13,7 +13,7 @@ function modifier_mana_shroud:DeclareFunctions()
 end
 
 function modifier_mana_shroud:GetModifierTotalPercentageManaRegen()
-	return 1
+	return 2
 end
 
 arturia_alter_mana_shroud_attribute_passive = class({})

@@ -86,9 +86,7 @@ function modifier_derange_discharge:OnIntervalThink()
     	for k,v in pairs(targets) do            
         	DoDamage(self.parent, v, self.mana_discharge, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
         	v:AddNewModifier(self.parent, self.ability, "modifier_stunned", {Duration = self.ability:GetSpecialValueFor("stun_duration")})
-        	self.parent:AddNewModifier(self.parent, self.ability, "modifier_stunned", {Duration = self.ability:GetSpecialValueFor("stun_duration")})
     	end
-    	self.parent:AddNewModifier(self.parent, self.ability, "modifier_stunned", {Duration = self.ability:GetSpecialValueFor("stun_duration_self")})
      	self.explosionFx = ParticleManager:CreateParticle("particles/custom/saber_alter/god_is_great/boom.vpcf", PATTACH_CUSTOMORIGIN, nil)
     	ParticleManager:SetParticleControl(self.explosionFx, 0, self:GetParent():GetAbsOrigin())
     	ParticleManager:SetParticleControl(self.explosionFx, 1, Vector(600,600,0))

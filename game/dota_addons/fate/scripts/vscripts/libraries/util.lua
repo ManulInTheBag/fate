@@ -195,7 +195,6 @@ d_seal_locked = {
     "jump_pause",
     "pause_sealdisabled",
     "round_pause",
-    "modifier_enkidu_hold",
     "modifier_tres_fontaine_nero" --idk wtf this is lols
 }
 

@@ -92,9 +92,7 @@ end
 
 function modifier_saito_fdb:OnRespawn()
     local caster = self:GetParent()
-    caster.qused = 0
-    caster.wused = 0
-    caster.eused = 0
+
     caster.currentused = 0
     self:SetStackCount(self:GetMaxStackCount())
 end

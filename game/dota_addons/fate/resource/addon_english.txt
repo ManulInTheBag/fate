@@ -3160,12 +3160,13 @@
 		"npc_dota_hero_bounty_hunter_bio"	""
 		
 		"DOTA_Tooltip_Ability_true_assassin_dirk"				"Dirks"
-		"DOTA_Tooltip_ability_true_assassin_dirk_Description"	"Throws all daggers he has at target enemy, dealing damage and applying a poison that <font color='#FF3399'>slows</font> for %poison_duration% seconds. Number of daggers available in stock recharges every %restock_dur% seconds."
+		"DOTA_Tooltip_ability_true_assassin_dirk_Description"	"Throws all daggers he has at target enemy, dealing damage and applying a poison that <font color='#FF3399'>slows</font> for %poison_duration% seconds. Number of daggers available in stock recharges every %restock_dur% seconds. Additionaly deal part of Hassan's agility as magic damage if thrown while self modification is active."
 		"DOTA_Tooltip_ability_true_assassin_dirk_Lore"			"The hunter's call begins with flurry of daggers, coated in poison."
 		"DOTA_Tooltip_ability_true_assassin_dirk_damage"		"Damage:"
 		"DOTA_Tooltip_ability_true_assassin_dirk_atk_ratio"		"%Attack Ratio:"
 		"DOTA_Tooltip_ability_true_assassin_dirk_range"			"Range:"
 		"DOTA_Tooltip_ability_true_assassin_dirk_poison_slow"	"%Poison Slow:"
+		"DOTA_Tooltip_ability_true_assassin_dirk_agi_mult"		"Agility Multiplier:"
 		//"DOTA_Tooltip_ability_true_assassin_dirk_poison_dot"	"Damage Per Second:"
 
 		"DOTA_Tooltip_Ability_true_assassin_presence_concealment"				"Presence Concealment"
@@ -3318,7 +3319,7 @@
 		"DOTA_Tooltip_ability_gilgamesh_golden_rule_gold_gain"		"GOLD PER SECOND:"
 
 		"DOTA_Tooltip_Ability_gilgamesh_enkidu"					"Enkidu"	
-		"DOTA_Tooltip_ability_gilgamesh_enkidu_Description"		"A stream of chains bind the enemy target solid, <font color='#FF3399'>stunning</font> and <font color='#FF3399'>revoking</font> target from Master until channeling ends or duration expires. This ability is undispellable."
+		"DOTA_Tooltip_ability_gilgamesh_enkidu_Description"		"A stream of chains bind the enemy target solid, <font color='#FF3399'>stunning</font> and <font color='#FF3399'>revoking</font> target from Master until channeling ends or duration expires."
 		"DOTA_Tooltip_ability_gilgamesh_enkidu_Lore"			"Of King of Heroes' limitless arsenal, Chains of Heaven is his most trusted weapon."
 		"DOTA_Tooltip_ability_gilgamesh_enkidu_duration"		"MAX DURATION:"
 		"DOTA_Tooltip_ability_gilgamesh_enkidu_damage"	"Attribute sword damage:"

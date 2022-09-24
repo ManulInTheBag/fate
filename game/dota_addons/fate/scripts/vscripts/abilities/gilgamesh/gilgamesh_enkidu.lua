@@ -39,6 +39,7 @@ function gilgamesh_enkidu:OnSpellStart()
  	target:AddNewModifier(caster, self, "modifier_enkidu_hold", { Duration = self:GetSpecialValueFor("duration") })
 	if(caster.IsChainsAcquired) then
 		Timers:CreateTimer(1.0,function()
+		if not target:HasModifier("modifier_enkidu_hold") then return end
 		local vTargetOrigin = target:GetAbsOrigin()
 		local vForwardVector = target:GetForwardVector()
 		local vLeftVector = target:GetLeftVector()

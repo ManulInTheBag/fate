@@ -96,6 +96,10 @@ function true_assassin_dirk:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
 
     --if not hCaster.IsWeakeningVenomAcquired then
     	fDamage = fDamage + (hCaster:GetAverageTrueAttackDamage(hCaster) * self:GetSpecialValueFor("atk_ratio")/100)
+        if hCaster:HasModifier("modifier_selfmod_agility") then
+            local Damage = math.floor(self:GetCaster():GetAgility() * self:GetSpecialValueFor("agi_mult"))
+            DoDamage(hCaster, hTarget, Damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+        end
     --else
     	--fDamage = fDamage + (hCaster:GetAverageTrueAttackDamage(hCaster) * 2.5)
     --end

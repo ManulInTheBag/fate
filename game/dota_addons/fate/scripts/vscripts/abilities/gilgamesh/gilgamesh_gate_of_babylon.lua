@@ -15,7 +15,7 @@ function gilgamesh_gate_of_babylon:OnSpellStart()
 	self.dummy = CreateUnitByName("dummy_unit", caster:GetAbsOrigin() - 60 * frontward, false, caster, caster, caster:GetTeamNumber())
 	self.dummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1) 
 	self.dummy:SetForwardVector(caster:GetForwardVector())
-	self.dummy:AddNewModifier(caster,self, "modifier_gob_thinker", {Duration  = 10})
+	self.dummy:AddNewModifier(caster,self, "modifier_gob_thinker", {Duration  = self:GetSpecialValueFor("duration")})
 	self.lastgobdummy = self.dummy 
 
 	if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 and caster:GetIntellect() >= 29.1 then
@@ -72,7 +72,7 @@ function gilgamesh_gate_of_babylon:OnProjectileHit_ExtraData(hTarget, vLocation,
 	local damage = self:GetSpecialValueFor("damage")	
 	local damage1 = 0
 	if hCaster.IsSumerAcquired then
-		damage1 = hCaster:GetAttackDamage() * 0.35
+		damage1 = hCaster:GetAttackDamage() * 0.175
 		DoDamage(hCaster, hTarget, damage1, DAMAGE_TYPE_PHYSICAL, 0, self, false)
 	end
 	

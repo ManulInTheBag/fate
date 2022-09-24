@@ -80,15 +80,15 @@ if IsServer() then
         local target = args.target
         if caster == target then return end
 
-        DoDamage(caster, target, self.bonusDamage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
-        target:EmitSound("Hero_TemplarAssassin.Meld.Attack")
+        --DoDamage(caster, target, self.bonusDamage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+        --target:EmitSound("Hero_TemplarAssassin.Meld.Attack")
         self:Destroy()
     end
 
     function modifier_ambush_invis:OnAbilityFullyCast(args)
         if args.unit == self:GetParent() then
             if not self.Faded then return end
-            if args.ability:GetName() ~= "true_assassin_ambush" and args.ability:GetName() ~= "true_assassin_combo" then
+            if args.ability:GetName() ~= "true_assassin_ambush" and args.ability:GetName() ~= "true_assassin_combo" and args.ability:GetName() ~= "true_assassin_selfmod" then
                 self:Destroy()
             end
         end

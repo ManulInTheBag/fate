@@ -28,6 +28,15 @@ function saito_inv_sword:GetCastPoint()
 	end
 end
 
+function saito_inv_sword:GetBehavior()
+	if self:GetCaster():HasModifier("modifier_saito_combo") then 
+		return  DOTA_ABILITY_BEHAVIOR_NO_TARGET + DOTA_ABILITY_BEHAVIOR_AOE + DOTA_ABILITY_BEHAVIOR_IMMEDIATE 
+	else
+		return  DOTA_ABILITY_BEHAVIOR_NO_TARGET + DOTA_ABILITY_BEHAVIOR_AOE +DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING 
+	end
+end
+
+
 
 function saito_inv_sword:OnUpgrade()
     local Caster = self:GetCaster() 
@@ -41,6 +50,10 @@ end
 
 function saito_inv_sword:OnSpellStart()
 	local caster = self:GetCaster()
+    if(caster:HasModifier("modifier_saito_combo")) then
+        self:CastImmediate()
+        return
+    end
     --caster:AddNewModifier(caster, caster, "modifier_saito_fdb_pause",{duration = 0.2})
     StartAnimation(caster, {duration=0.4, activity=ACT_DOTA_CAST_ABILITY_3, rate=1})	
     local modifier_jopa = caster:FindModifierByName("modifier_saito_fdb")
@@ -134,6 +147,103 @@ end
 
  
  
+end
+
+function saito_inv_sword:CastImmediate()
+    local caster = self:GetCaster()
+    local modifier_jopa = caster:FindModifierByName("modifier_saito_fdb")
+    modifier_jopa:SpendStack()
+    caster.currentused = caster.currentused+1
+	local additional_delay = (caster.currentused-1)/8
+
+    Timers:CreateTimer(0.1 + additional_delay, function()
+        StartAnimation(caster, {duration=0.4, activity=ACT_DOTA_CAST_ABILITY_3, rate=1})	
+        if( not caster:IsAlive()) then return end
+        local ability = self
+        local damage = self:GetSpecialValueFor("damage")+ caster:GetAttackDamage()*self:GetSpecialValueFor("atk_scale")
+        
+        if(caster.FreestyleAcquired) then
+            damage = damage + caster:GetAttackDamage()*self:GetSpecialValueFor("atk_scale")
+        end
+      
+        if(IsServer )then
+            if(caster:HasModifier("modifier_saito_fdb_lastE")) then
+                damage = damage/2
+                 
+            end
+        end
+     
+        local sword_fx = ParticleManager:CreateParticle("particles/saito/saito_inv_sword_new.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+        ParticleManager:SetParticleControlEnt(sword_fx, 4, caster, PATTACH_POINT_FOLLOW, "slash", Vector(0,0,0), true)
+        LoopOverPlayers(function(player, playerID, playerHero)
+            if playerHero.gachi == true and playerHero == self:GetCaster() then
+                CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="saito_shing"})
+            end
+        end)
+        local radius = self:GetSpecialValueFor("radius")
+        local width = 120
+      
+        caster:AddNewModifier(caster, caster, "modifier_saito_fdb_lastE",{duration = 15})
+        caster:RemoveModifierByName("modifier_saito_fdb_lastQ")
+        caster:RemoveModifierByName("modifier_saito_fdb_lastW")
+    
+     
+    
+        caster:EmitSound("saito_inv_sword1")
+    
+        local enemies = FindUnitsInRadius(  caster:GetTeamNumber(),
+        caster:GetAbsOrigin(),
+        nil,
+        radius,
+        DOTA_UNIT_TARGET_TEAM_ENEMY,
+        DOTA_UNIT_TARGET_ALL,
+        DOTA_UNIT_TARGET_FLAG_NONE,
+        FIND_ANY_ORDER,
+        false)
+    
+    for _,enemy in pairs(enemies) do
+     
+            --DoDamage(caster, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+            enemy:AddNewModifier(caster, self, "modifier_saito_invsword_damage_delayed", {Duration = 0.5, Damage = damage})     
+            if(caster.MasteryAcquired) then 
+                enemy:AddNewModifier(caster, self, "modifier_saito_magres_down", {Duration = 2})     
+            end
+     
+    
+    end
+    caster.currentused = caster.currentused-1
+    if(caster.ShinsengumiAcquired and  modifier_jopa:GetStackCount() == 0) then
+        StartAnimation(caster, {duration=0.2, activity=ACT_DOTA_CAST_ABILITY_3, rate=1})	
+     
+        Timers:CreateTimer(0.1, function()
+        caster:EmitSound("saito_inv_sword2")
+    
+             
+    
+        local enemies = FindUnitsInRadius(  caster:GetTeamNumber(),
+        caster:GetAbsOrigin(),
+        nil,
+        radius,
+        DOTA_UNIT_TARGET_TEAM_ENEMY,
+        DOTA_UNIT_TARGET_ALL,
+        DOTA_UNIT_TARGET_FLAG_NONE,
+        FIND_ANY_ORDER,
+        false)
+    
+        for _,enemy in pairs(enemies) do
+     
+            --DoDamage(caster, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+            enemy:AddNewModifier(caster, self, "modifier_saito_invsword_damage_delayed", {Duration = 0.5, Damage = damage})     
+            if(caster.MasteryAcquired) then 
+                enemy:AddNewModifier(caster, self, "modifier_saito_magres_down", {Duration = 2})     
+            end
+     
+    
+        end
+    end)
+    end
+
+    end)
 end
 
 modifier_saito_magres_down = class({})
