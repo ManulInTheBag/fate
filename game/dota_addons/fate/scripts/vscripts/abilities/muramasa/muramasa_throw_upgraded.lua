@@ -11,25 +11,22 @@ function muramasa_throw_upgraded:OnUpgrade()
 	 
 end
 
-function muramasa_throw_upgraded:GetAnimeVectorTargetingRange()
-    return   self:GetSpecialValueFor("throw_range")
-end
-function muramasa_throw_upgraded:GetAnimeVectorTargetingStartRadius()
-    return 100
-end
-function muramasa_throw_upgraded:GetAnimeVectorTargetingEndRadius()
-    return 100
-end
-function muramasa_throw_upgraded:IsAnimeVectorTargetingIgnoreWidth()
-	return false
-end
-function muramasa_throw_upgraded:GetAnimeVectorTargetingColor()
-    return Vector(124, 252, 0)
-end
+ 
 
 function muramasa_throw_upgraded:OnAbilityPhaseStart()
     local caster = self:GetCaster()
     local fire_location = caster:GetAttachmentOrigin(1) 
+    local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, self:GetSpecialValueFor("range"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_CLOSEST, false)
+    self.target = targets[1]
+    if(self.target ~= nil ) then
+        self.pullparticle = ParticleManager:CreateParticle("particles/muramasa/muramasa_throw_pull.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+        ParticleManager:SetParticleControlEnt(self.pullparticle, 0, caster, PATTACH_POINT_FOLLOW, "hand", Vector(0,0,0), true)
+        ParticleManager:SetParticleControl(self.pullparticle, 1, self.target:GetAbsOrigin())
+        Timers:CreateTimer( 0.5, function()
+            ParticleManager:DestroyParticle(  self.pullparticle , true)
+            ParticleManager:ReleaseParticleIndex(  self.pullparticle )
+        end)
+    end
     if(self.fire_particle ~= nil ) then
         ParticleManager:DestroyParticle(  self.fire_particle , true)
 		ParticleManager:ReleaseParticleIndex(  self.fire_particle )
@@ -46,6 +43,7 @@ function muramasa_throw_upgraded:OnAbilityPhaseStart()
         ParticleManager:ReleaseParticleIndex(  self.fire_particle )
     end)
     return true
+    
 end
 
 function muramasa_throw_upgraded:OnAbilityPhaseInterrupted()
@@ -57,7 +55,22 @@ end
 function muramasa_throw_upgraded:OnSpellStart()
 
 	local caster = self:GetCaster()
-    caster:EmitSound("muramasa_grab_sound")
+ 
+ 
+    local damage = self:GetSpecialValueFor("damage")
+     caster:AddNewModifier(caster, self, "modifier_merlin_self_pause", {Duration = 0.40}) 
+	local ability = self
+
+    if(self.target == nil or (self.target:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D() > 400) then
+        self:RefundManaCost()
+        self:EndCooldown()
+        caster:RemoveModifierByName("modifier_merlin_self_pause")
+        ParticleManager:DestroyParticle(  self.fire_particle , true)
+        ParticleManager:ReleaseParticleIndex(  self.fire_particle )
+       
+        
+        return 
+    end
     caster:FindAbilityByName("muramasa_throw"):StartCooldown(caster:FindAbilityByName("muramasa_throw"):GetCooldown(caster:FindAbilityByName("muramasa_throw"):GetLevel()))
 
     if( caster:GetAbilityByIndex(0):GetName() ~="muramasa_dance") then
@@ -71,20 +84,20 @@ function muramasa_throw_upgraded:OnSpellStart()
     if( caster:GetAbilityByIndex(2):GetName() ~="muramasa_rush") then
         caster:SwapAbilities("muramasa_rush", "muramasa_rush_upgraded", true, false)
     end
-    local damage = self:GetSpecialValueFor("damage")
-	local ability = self
-    self.target = self:GetCursorTarget()
-    if IsSpellBlocked(self.target ) then return end
-	local direction = self:GetAnimeVectorTargetingMainDirection()
-    local directionpoint = self:GetAnimeVectorTargetingRange()*self:GetAnimeVectorTargetingMainDirection() +self.target:GetAbsOrigin()
-    local throw_direction
+    caster:EmitSound("muramasa_grab_sound")
+    
     local duration = self:GetSpecialValueFor("duration")
     local throw_range = self:GetSpecialValueFor("throw_range")
     local throw_speed = self:GetSpecialValueFor("throw_speed")
     local throw_duration = self:GetSpecialValueFor("throw_duration")
-    caster:AddNewModifier(caster, self, "modifier_merlin_self_pause", {Duration = 0.40}) 
+    if IsSpellBlocked(self.target ) then return end
+	local direction = (self:GetCursorPosition() - caster:GetAbsOrigin()):Normalized()
+    local directionpoint = throw_range*direction +self.target:GetAbsOrigin()
+  
+  
     giveUnitDataDrivenModifier(caster,  self.target, "stunned", 0.8)
-    self.target:AddNewModifier(caster, self, "modifier_muramasa_throw_collision_fix", {Duration = 0.31}) 
+
+    self.target:AddNewModifier(caster, self, "modifier_muramasa_throw_collision_fix", {Duration = 0.16}) 
     self.fire_particle_2 = ParticleManager:CreateParticle("particles/muramasa/muramasa_throw_burning_hand.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
     ParticleManager:SetParticleControlEnt(self.fire_particle_2, 1, caster, PATTACH_POINT_FOLLOW, "leg", Vector(0,0,0), true)
     ParticleManager:SetParticleControlEnt(self.fire_particle_2, 0, caster, PATTACH_POINT_FOLLOW, "leg", Vector(0,0,0), true)
@@ -122,6 +135,11 @@ function muramasa_throw_upgraded:OnSpellStart()
  
     return 0.03
     end)
+    caster:SetForwardVector( direction)
+ 
+    self.target:SetAbsOrigin(caster:GetAbsOrigin()+caster:GetForwardVector()*150 )
+    caster:FaceTowards(self.target:GetAbsOrigin())
+ 
     if( caster:IsAlive() == false) then return end
     Timers:CreateTimer( 0.12, function()
         if( caster:IsAlive() == false or caster:IsStunned() == true or  self.target:IsStunned() == false) then return end

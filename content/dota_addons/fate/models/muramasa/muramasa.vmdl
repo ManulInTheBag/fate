@@ -279,8 +279,8 @@
 						activity_name = "ACT_DOTA_CAST_ABILITY_2"
 						activity_weight = 1
 						weight_list_name = ""
-						fade_in_time = 0.2
-						fade_out_time = 0.2
+						fade_in_time = 0.0
+						fade_out_time = 0.0
 						looping = false
 						delta = false
 						worldSpace = false

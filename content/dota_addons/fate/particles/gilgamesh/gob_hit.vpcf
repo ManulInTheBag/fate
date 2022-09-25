@@ -327,12 +327,14 @@
 	[
 		{
 			m_ChildRef = resource:"particles/custom_game/heroes/gilgamesh/gilgamesh_enlarge_gate_hit/gilgamesh_enlarge_gate_hit_b.vpcf"
+			m_nDetailLevel = "PARTICLEDETAIL_HIGH"
 		},
 		{
 			m_ChildRef = resource:"particles/gilgamesh/gilgamesh_enlarge_gate_hit_c.vpcf"
 		},
 		{
 			m_ChildRef = resource:"particles/gilgamesh/gilgamesh_enlarge_gate_hit_a.vpcf"
+			m_nDetailLevel = "PARTICLEDETAIL_HIGH"
 		},
 	]
 }
