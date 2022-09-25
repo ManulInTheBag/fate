@@ -102,7 +102,7 @@ function nero_rosa_new:OnSpellStart()
 		    for i = 1, #enemies do
 		    	print((ori - enemies[i]:GetAbsOrigin()):Length2D())
 		    	print(dist)
-				if enemies[i]:IsAlive() and (ori - enemies[i]:GetAbsOrigin()):Length2D() < dist then
+				if enemies[i]:IsAlive() and enemies[i]:CanBeSeenByAnyOpposingTeam() and (ori - enemies[i]:GetAbsOrigin()):Length2D() < dist then
 					target = enemies[i]
 					dist = (ori - enemies[i]:GetAbsOrigin()):Length2D()
 				end
@@ -110,24 +110,24 @@ function nero_rosa_new:OnSpellStart()
 			if not target then
 				enemies = FindUnitsInRadius(caster:GetTeam(), center_point, nil, caster:FindAbilityByName("nero_aestus_domus_aurea"):GetSpecialValueFor("radius"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
 				for i = 1, #enemies do
-					if enemies[i]:IsAlive() and (ori - enemies[i]:GetAbsOrigin()):Length2D() < dist then
+					if enemies[i]:IsAlive() and enemies[i]:CanBeSeenByAnyOpposingTeam() and (ori - enemies[i]:GetAbsOrigin()):Length2D() < dist then
 						target = enemies[i]
 						dist = (ori - enemies[i]:GetAbsOrigin()):Length2D()
 					end
 				end
 			end
 		else
-		    local enemies = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 700, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false)
+		    local enemies = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false)
 		    for i = 1, #enemies do
-				if enemies[i]:IsAlive() then
+				if enemies[i]:IsAlive() and enemies[i]:CanBeSeenByAnyOpposingTeam() then
 					target = enemies[i]
 					break
 				end
 			end
 			if not target then
-				enemies = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 700, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false)
+				enemies = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false)
 				for i = 1, #enemies do
-					if enemies[i]:IsAlive() then
+					if enemies[i]:IsAlive() and enemies[i]:CanBeSeenByAnyOpposingTeam() then
 						target = enemies[i]
 						break
 					end
