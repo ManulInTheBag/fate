@@ -460,17 +460,17 @@ function CasterFarSight(keys)
 
 	if caster.IsMobilized then return end 
 
-	if ClairUsed(caster:GetTeamNumber(), 8) then
-		keys.ability:EndCooldown() 
-		caster:GiveMana(100)
-		SendErrorMessage(caster:GetPlayerOwnerID(), "#another_clair_used")
-		return
-	end
-
 	if dist > 500 then
 		keys.ability:EndCooldown() 
 		caster:GiveMana(100)
 		SendErrorMessage(caster:GetPlayerOwnerID(), "#Caster_Out_Of_Radius")
+		return
+	end
+
+	if ClairUsed(caster:GetTeamNumber(), 8) then
+		keys.ability:EndCooldown() 
+		caster:GiveMana(100)
+		SendErrorMessage(caster:GetPlayerOwnerID(), "#another_clair_used")
 		return
 	end
 
