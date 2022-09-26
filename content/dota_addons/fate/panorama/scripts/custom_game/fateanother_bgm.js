@@ -47,7 +47,7 @@ function PlayBGM()
         //$.Msg("Schedule worked, destroying current BGM" + g_GameConfig.curBGMIndex.toString())
         if (g_GameConfig.bIsBGMOn === true){
             if (!g_GameConfig.bRepeat) {
-                g_GameConfig.nextBGMIndex = Math.floor((Math.random() * 17) + 1);
+                g_GameConfig.nextBGMIndex = Math.floor((Math.random() * 21) + 1);
             }
             PlayBGM();
         }
