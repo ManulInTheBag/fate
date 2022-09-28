@@ -10,7 +10,7 @@ end
 
 function muramasa_tsumukari:CastFilterResult()
     local caster = self:GetCaster()
-    if caster:GetModifierStackCount("modifier_muramasa_sword_creation", self) < 1 or caster:HasModifier("modifier_muramasa_tsumukari_buff") then
+    if  caster:HasModifier("modifier_muramasa_tsumukari_buff") then
         return UF_FAIL_CUSTOM
     else
         return UF_SUCESS
@@ -21,8 +21,6 @@ function muramasa_tsumukari:GetCustomCastError()
     local caster = self:GetCaster()
     if(caster:HasModifier("modifier_muramasa_tsumukari_buff") ) then 
         return "Already under ability effect"
-    else
-    return "Not enough swords"
     end
 end
 
@@ -38,20 +36,34 @@ function muramasa_tsumukari:OnSpellStart()
 local caster = self:GetCaster()
 local selfstacks = caster:GetModifierStackCount("modifier_muramasa_tsumukari", caster)
  
-    local currentStacks = caster:GetModifierStackCount("modifier_muramasa_sword_creation", caster)
     local sound = "muramasa_chant_"..(selfstacks+1) 
     if(selfstacks == 7) then
         EmitGlobalSound(sound) 
     else
         caster:EmitSound(sound)
     end
-    if(currentStacks <1 ) then return end 
-    caster:SetModifierStackCount("modifier_muramasa_sword_creation", caster, currentStacks - 1)
     if(caster.FlameAcquired) then
         local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, self:GetSpecialValueFor("radius"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
         for k,v in pairs(targets) do            
             DoDamage(caster, v, self:GetSpecialValueFor("base_dmg") + caster:GetAgilityGain()*caster:GetLevel() *self:GetSpecialValueFor("dmg_per_agi"), DAMAGE_TYPE_MAGICAL, 0, self, false)
         end 
+    end
+    if(selfstacks <7) then
+        if(caster.swordsfx ~= nil ) then
+            Timers:RemoveTimer("muramasa_swords_particle")
+            ParticleManager:DestroyParticle(caster.swordsfx, true)
+            ParticleManager:ReleaseParticleIndex(caster.swordsfx)
+        end
+        caster.swordsfx = ParticleManager:CreateParticle("particles/muramasa/muramasa_sword_creation.vpcf", PATTACH_ABSORIGIN_FOLLOW  , caster )
+        ParticleManager:SetParticleControl(        caster.swordsfx , 1,  Vector(selfstacks+ 1, 0,0 )  )  
+
+        Timers:CreateTimer("muramasa_swords_particle", {
+                 endTime = 0.6,
+                 callback = function()
+                 ParticleManager:DestroyParticle(caster.swordsfx, true)
+                 ParticleManager:ReleaseParticleIndex(caster.swordsfx)
+                 caster.swordsfx = nil
+        end})
     end
     if(caster.SwordTrialAcquired) then
         caster:AddNewModifier(caster, self, "modifier_muramasa_sword_trial_buff", {duration = self:GetSpecialValueFor("att_duration")})

@@ -1,8 +1,8 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf37:version{f9a1c8c4-159b-4786-b740-4d1a118c8f46} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf45:version{73c3d623-a141-4df2-b548-41dd786e6300} -->
 {
 	_class = "CParticleSystemDefinition"
 	m_bShouldHitboxesFallbackToRenderBounds = false
-	m_nMaxParticles = 5
+	m_nMaxParticles = 8
 	m_nBehaviorVersion = 12
 	m_controlPointConfigurations = 
 	[
@@ -82,9 +82,13 @@
 	m_Initializers = 
 	[
 		{
-			_class = "C_INIT_RandomLifeTime"
-			m_fLifetimeMin = 0.66
-			m_fLifetimeMax = 0.66
+			_class = "C_INIT_InitFloat"
+			m_InputValue = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 0.66
+			}
+			m_nOutputField = 1
 		},
 		{
 			_class = "C_INIT_PositionOffset"
@@ -490,12 +494,26 @@
 			}
 		},
 		{
-			_class = "C_INIT_RandomRadius"
-			m_flRadiusMin = 100.0
-			m_flRadiusMax = 150.0
+			_class = "C_INIT_InitFloat"
+			m_InputValue = 
+			{
+				m_nType = "PF_TYPE_RANDOM_UNIFORM"
+				m_flRandomMin = 100.0
+				m_flRandomMax = 150.0
+				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+			}
 		},
 		{
-			_class = "C_INIT_RandomRotation"
+			_class = "C_INIT_InitFloat"
+			m_InputValue = 
+			{
+				m_nType = "PF_TYPE_RANDOM_UNIFORM"
+				m_flRandomMin = 0.0
+				m_flRandomMax = 360.0
+				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+				m_bHasRandomSignFlip = true
+			}
+			m_nOutputField = 4
 		},
 		{
 			_class = "C_INIT_RandomColor"

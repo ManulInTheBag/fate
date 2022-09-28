@@ -28,12 +28,10 @@ function saito_quickslash:GetCastPoint()
 	if(Caster:HasModifier("modifier_saito_fdb_lastQ")) then
 		return 0.6
 	end
-	if stack_count <=2 then
-		return 0.25
-	elseif stack_count > 2 and stack_count < 4 then
-		return 0.2
+	if stack_count <=0 then
+		return 0
 	else
-		return 0.15
+		return stack_count*0.05+0.05
 	end
 end
 

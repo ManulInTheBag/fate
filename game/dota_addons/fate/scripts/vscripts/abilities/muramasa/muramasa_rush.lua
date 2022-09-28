@@ -9,45 +9,30 @@ function muramasa_rush:OnUpgrade()
    end
     
   end
+
  
+ 
+ 
+
+
 function muramasa_rush:OnSpellStart()
     self.ChannelTime = 0
     local caster = self:GetCaster()
     caster:FindAbilityByName("muramasa_rush_upgraded"):StartCooldown(caster:FindAbilityByName("muramasa_rush_upgraded"):GetCooldown(caster:FindAbilityByName("muramasa_rush_upgraded"):GetLevel()))
     self.RushPoint = self:GetCursorPosition()
-    caster:AddNewModifier(caster, self, "modifier_muramasa_rush_mr",{duration = 0.5 })
-end
-
-function muramasa_rush:OnChannelThink(fInterval)
-    local caster = self:GetCaster()
-    if(self.pathfx == nil) then
-         
-			
-        self.pathfx = ParticleManager:CreateParticleForPlayer("particles/muramasa/vector.vpcf", PATTACH_CUSTOMORIGIN  , nil, PlayerResource:GetPlayer(caster:GetPlayerOwnerID()) )
-        ParticleManager:SetParticleControl(        self.pathfx , 6,  Vector(1000, 0,0 )  )  
-        ParticleManager:SetParticleControl(        self.pathfx , 4,  Vector(100, 100, 230)  )  
-    end
-    
-    self.ChannelTime = self.ChannelTime + fInterval
-    caster:FaceTowards(self.RushPoint)
-    ParticleManager:SetParticleControl(        self.pathfx , 0,  caster:GetAbsOrigin()  )  
-    ParticleManager:SetParticleControl(        self.pathfx , 1,  caster:GetAbsOrigin() + caster:GetForwardVector()* self:GetSpecialValueFor("range_per_second") *   self.ChannelTime *1.7   )  
-   
-end
-
-function muramasa_rush:OnChannelFinish(bInterrupted)
-    local caster = self:GetCaster()
-
+    caster.firstenemy = nil
     local ability = self
-    ParticleManager:DestroyParticle(  self.pathfx , true)
-    ParticleManager:ReleaseParticleIndex(  self.pathfx )
-    self.pathfx = nil
-    caster:RemoveModifierByName("modifier_muramasa_rush_mr" )
+ 
+    --caster:RemoveModifierByName("modifier_muramasa_rush_mr" )
     local speed = self:GetSpecialValueFor("speed")  
     local max_range = self:GetSpecialValueFor("range")  
-    local range = self:GetSpecialValueFor("range_per_second") *   self.ChannelTime *2 
+    local range = (self.RushPoint - caster:GetAbsOrigin()):Length2D()
+    if(range > max_range) then
+        range = max_range
+
+    end
     local rush_time = range/speed
-     caster:AddNewModifier(caster, ability, "modifier_muramasa_rush_mr",{duration = rush_time })
+     --caster:AddNewModifier(caster, ability, "modifier_muramasa_rush_mr",{duration = rush_time })
     StartAnimation(caster, {duration=rush_time, activity=ACT_DOTA_CAST_ABILITY_4_END, rate=1.0})
 
     local qdProjectile = 
@@ -119,8 +104,16 @@ end
 
 function muramasa_rush:OnProjectileHit_ExtraData(hTarget, vLocation, table)
     if hTarget == nil then return end
-
     local caster = self:GetCaster()
+    if caster.firstenemy == nil then
+        if hTarget:IsHero() and self:GetAutoCastState()  == true  then
+            caster.firstenemy = hTarget
+            Timers:CreateTimer( 1, function()
+                caster.firstenemy = nil
+            end)
+        end
+    end
+  
     local damage = self:GetSpecialValueFor("damage")
     local duration = self:GetSpecialValueFor("duration")
  
@@ -169,9 +162,18 @@ modifier_muramasa_rush_mr = class({})
 
 function modifier_muramasa_rush_mr:DeclareFunctions()
     return {
-        MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
+        --MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
                }
 end
+
+function modifier_muramasa_rush_mr:CheckState()
+    local state =   { 
+					[MODIFIER_STATE_INVULNERABLE] = true,
+
+                    }
+    return state
+end
+
 
 
 function modifier_muramasa_rush_mr:GetModifierMagicalResistanceBonus()

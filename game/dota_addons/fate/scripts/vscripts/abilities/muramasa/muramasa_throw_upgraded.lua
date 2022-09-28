@@ -15,6 +15,10 @@ end
 
 function muramasa_throw_upgraded:OnAbilityPhaseStart()
     local caster = self:GetCaster()
+    if(caster.WickedSwordAcquired and caster.firstenemy ~= nil) then
+        FindClearSpaceForUnit(caster,caster.firstenemy:GetAbsOrigin() + caster.firstenemy:GetForwardVector() * -50,false) 
+        self.isAttri = true
+    end
     local fire_location = caster:GetAttachmentOrigin(1) 
     local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, self:GetSpecialValueFor("range"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_CLOSEST, false)
     self.target = targets[1]
@@ -245,7 +249,13 @@ function muramasa_throw_upgraded:OnSpellStart()
             DoDamage(caster, v, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
             v:AddNewModifier(caster, self, "modifier_stunned", {Duration = duration})     
             end 
-
+            if(  self.isAttri) then
+                caster.targetqenemy = unit
+                Timers:CreateTimer( 1, function()
+                    caster.targetqenemy = nil
+                end)
+                self.isAttri = false
+            end
           
         end)
 	end)
@@ -282,6 +292,14 @@ function muramasa_throw_upgraded:OnSpellStart()
             v:AddNewModifier(caster, self, "modifier_stunned", {Duration = duration})     
             end     
         end)
+
+        if(  self.isAttri) then
+            caster.targetqenemy = self.target
+            Timers:CreateTimer( 1, function()
+                caster.targetqenemy = nil
+            end)
+            self.isAttri = false
+        end
 
 
         hTarget:OnPreBounce(function(unit, normal) -- stop the pushback when unit hits wall

@@ -6864,7 +6864,7 @@
 
 
         "DOTA_Tooltip_ability_muramasa_sword_creation"					"Sword creation"
-        "DOTA_Tooltip_ability_muramasa_sword_creation_Description"		"Active: Muramasa creates a sword with a maximum of 5\nPassive: attacks of Muramasa deal additional magic damage in small radius on hit. This damage is increased based on muramasa BASE agility. Muramasa cannot increase his attackspeed with default options. Using berserk scroll increases his damage instead of giving him AS boost."
+        "DOTA_Tooltip_ability_muramasa_sword_creation_Description"		"Passive: attacks of Muramasa deal additional magic damage in small radius on hit. This damage is increased based on muramasa BASE agility. Muramasa cannot increase his attackspeed with default options. Using berserk scroll increases his damage instead of giving him AS boost."
         "DOTA_Tooltip_ability_muramasa_sword_creation_max_stacks"				"Maximum swords:"
         "DOTA_Tooltip_ability_muramasa_sword_creation_attack_aoe_radius"		"Attack aoe:"
         "DOTA_Tooltip_ability_muramasa_sword_creation_base_dmg"					"Base magic damage:"
@@ -6873,8 +6873,7 @@
         "DOTA_Tooltip_ability_muramasa_sword_creation_Lore"			"If I get a request, I'll be sure to make something great."
 
         "DOTA_Tooltip_ability_muramasa_upgrade"				"Upgrade"
-        "DOTA_Tooltip_ability_muramasa_upgrade_Description"		"Muramasa uses some swords to upgrade next QWE ability he will use. You can upgrade again only after you use previous upgraded ability. Upgraded abilities share the same cooldown with default ones."
-        "DOTA_Tooltip_ability_muramasa_upgrade_cost"			"Sword cost:"
+        "DOTA_Tooltip_ability_muramasa_upgrade_Description"		"Muramasa uses some magic energy to upgrade next QWE ability he will use. You can upgrade again only after you use previous upgraded ability. Upgraded abilities share the same cooldown with default ones."
         "DOTA_Tooltip_ability_muramasa_upgrade_Lore"			"Best swords can store enough magic energy to release a true power of its wielder."
 
 
@@ -6883,7 +6882,7 @@
 
 
         "DOTA_Tooltip_ability_muramasa_tsumukari"				"Tsumukari Muramasa chant"
-        "DOTA_Tooltip_ability_muramasa_tsumukari_Description"		"Requires 1 sword\nMuramasa chants a line of his noble phantasm. Upon reaching 8 stack, he will receive a powerfull buff for his attacks, increasing his attackspeed to 2 attacks per second, increasing magic attack aoe and applying a modifier to his attacks magic damage. While this buff persists, muramasa can use this ability again to release a powerful swing, cracking earth in the direction of cast and pulling all enemies hit. After a delay crack explodes, dealing damage."
+        "DOTA_Tooltip_ability_muramasa_tsumukari_Description"		"Muramasa chants a line of his noble phantasm. Upon reaching 8 stack, he will receive a powerfull buff for his attacks, increasing his attackspeed to 2 attacks per second, increasing magic attack aoe and applying a modifier to his attacks magic damage. While this buff persists, muramasa can use this ability again to release a powerful swing, cracking earth in the direction of cast and pulling all enemies hit. After a delay crack explodes, dealing damage."
         "DOTA_Tooltip_ability_muramasa_tsumukari_buff_duration"				"Buff duration:"
         "DOTA_Tooltip_ability_muramasa_tsumukari_atk_dmg_amplify"				"Atk modifier:"
         "DOTA_Tooltip_ability_muramasa_tsumukari_Lore"				"There is only one way a weapon mighty enough to sever fate may be born."
@@ -6923,7 +6922,7 @@
  
  		
         "DOTA_Tooltip_ability_muramasa_flame_attribute"				"Attribute: Flame"
-        "DOTA_Tooltip_ability_muramasa_flame_attribute_Description"	"When Muramasa burns his sword to chant Tsumukari Muramasa or upgrade his abilities, he deal magic damage around himself, scaling with his BASE agility. When Muramasa attacks his target, he inflicts a debuff, that will explode after 0.5 seconds dealing muramasa on-hit magic damage multiplied by 0.3"
+        "DOTA_Tooltip_ability_muramasa_flame_attribute_Description"	"When Muramasa chants Tsumukari Muramasa or upgrades his abilities, he deal magic damage around himself, scaling with his BASE agility. When Muramasa attacks his target, he inflicts a debuff, that will explode after 0.5 seconds dealing muramasa on-hit magic damage multiplied by 0.3"
         "DOTA_Tooltip_ability_muramasa_flame_attribute_radius"					"Radius:"
         "DOTA_Tooltip_ability_muramasa_flame_attribute_base_dmg"					"Base dmg:"
         "DOTA_Tooltip_ability_muramasa_flame_attribute_dmg_per_agi"				"Dmg per base agi:"
@@ -6935,6 +6934,11 @@
  		"DOTA_Tooltip_ability_muramasa_territory_creation_attribute"				"Attribute: Territory creation"
         "DOTA_Tooltip_ability_muramasa_territory_creation_attribute_Description"	"Muramasa's workshop is always with him. Decreases sword creation cooldown."
         "DOTA_Tooltip_ability_muramasa_territory_creation_attribute_cooldown"					"New cooldown:"
+
+        "DOTA_Tooltip_ability_muramasa_wicked_sword_attribute"				"Attribute: Wicked sword"
+        "DOTA_Tooltip_ability_muramasa_wicked_sword_attribute_Description"	"If muramasa set autocast on his Rush ability, using throw in 1 second after using it will teleport muramasa to first enemy hit and perform throw using current throw values.
+If enemy hits a wall or another enemy, muramasa can use Q to teleport to him immediately and perform a current level sword dance."
+        "DOTA_Tooltip_ability_muramasa_wicked_sword_attribute_cast_window"					"Cast window:"
 
 
 

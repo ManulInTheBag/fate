@@ -8,8 +8,7 @@ end
 
 function muramasa_upgrade:CastFilterResult()
     local caster = self:GetCaster()
-    if (caster:GetModifierStackCount("modifier_muramasa_sword_creation", self) < self:GetSpecialValueFor("cost") or 
-      caster:GetAbilityByIndex(1):GetName() ~="muramasa_throw") and
+    if(caster:GetAbilityByIndex(1):GetName() ~="muramasa_throw") and
        (caster:GetStrength() < 29.1 or caster:GetAgility() < 29.1 or caster:GetIntellect() < 29.1 
        or caster:GetAbilityByIndex(1):GetName() =="muramasa_throw" or 
        not caster:HasModifier("modifier_muramasa_tsumukari_buff") or caster:GetAbilityByIndex(5):GetName() == "muramasa_tsumukari_combo" 
@@ -24,8 +23,6 @@ function muramasa_upgrade:GetCustomCastError()
     local caster = self:GetCaster()
     if(   caster:GetAbilityByIndex(1):GetName() ~="muramasa_throw" ) then
         return "Skills are already upgraded"
-    else
-        return "Not enough swords"
     end
 end
 
@@ -56,10 +53,6 @@ caster:HasModifier("modifier_muramasa_tsumukari_buff")) then
     end
 
 else
-    local cost = self:GetSpecialValueFor("cost")
-    local currentStacks = caster:GetModifierStackCount("modifier_muramasa_sword_creation", caster)
-    if(currentStacks<cost ) then return end 
-    caster:SetModifierStackCount("modifier_muramasa_sword_creation", caster, currentStacks - cost)
     if(caster.FlameAcquired) then
         local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, self:GetSpecialValueFor("radius"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
          for k,v in pairs(targets) do            

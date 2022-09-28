@@ -9,8 +9,18 @@ function muramasa_dance:OnUpgrade()
    
 end
 
+ 
+
 function muramasa_dance:OnSpellStart()
  local caster = self:GetCaster()
+ print(caster.targetqenemy)
+ if(caster.targetqenemy ~= nil) then
+   FindClearSpaceForUnit(caster,caster.targetqenemy:GetAbsOrigin() + caster.targetqenemy:GetForwardVector() * -100,false)
+   local vector =  (-caster:GetAbsOrigin()+caster.targetqenemy:GetAbsOrigin()):Normalized()
+   vector.z = 0
+   caster:SetForwardVector(vector) 
+   caster.targetqenemy = nil
+ end
  caster:FindAbilityByName("muramasa_dance_upgraded"):StartCooldown(caster:FindAbilityByName("muramasa_dance_upgraded"):GetCooldown(caster:FindAbilityByName("muramasa_dance_upgraded"):GetLevel()))
  caster.lastdance = true
  caster:SwapAbilities("muramasa_dance", "muramasa_dance_stop",false , true)
@@ -232,7 +242,7 @@ function muramasa_dance:DanceAttack()
  local result_angle = enemy_angle - caster_angle
  result_angle = math.abs(result_angle)
 
- if result_angle <= 120  then
+ if result_angle <= 140  then
   
     caster:PerformAttack( enemy, true, true, true, true, false, false, false )
     DoDamage(caster, enemy, damage_base, DAMAGE_TYPE_MAGICAL, 0, self, false)

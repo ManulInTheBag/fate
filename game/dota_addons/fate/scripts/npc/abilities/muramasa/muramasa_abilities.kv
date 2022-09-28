@@ -18,7 +18,7 @@
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
 		"AnimationPlaybackRate" 		"1.0"
 		"AbilityCastPoint"				"0.1"
-		"AbilityCastRange"				"250"
+		"AbilityCastRange"				"500"
  		"AbilityCooldown"				"20 19 18 17 16"
 		"AbilityManaCost"				"100"
 		"AbilitySpecial"
@@ -70,7 +70,7 @@
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
 		"AnimationPlaybackRate" 		"1.0"
 		"AbilityCastPoint"				"0.1"
-		"AbilityCastRange"				"250"
+		"AbilityCastRange"				"500"
  		"AbilityCooldown"				"20 19 18 17 16"
 		"AbilityManaCost"				"100"
 		"AbilitySpecial"
@@ -114,7 +114,7 @@
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"25"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET|
-		DOTA_ABILITY_BEHAVIOR_HIDDEN|DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE|DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		DOTA_ABILITY_BEHAVIOR_HIDDEN|"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
 		"AbilityTextureName"			"custom/muramasa/muramasa_dance"
@@ -277,7 +277,7 @@
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELED"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT|DOTA_ABILITY_BEHAVIOR_AUTOCAST"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
@@ -285,11 +285,12 @@
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_4"
 		"AnimationPlaybackRate" 		"1.0"
 		"AOERadius"						"%range"
-		"AbilityCastPoint"				"0.1"
+		"AbilityCastPoint"				"0.2"
 		"AbilityCastRange"				"1100"
  		"AbilityCooldown"				"28 27 26 25 24"
 		"AbilityManaCost"				"400"
-		"AbilityChannelTime"			"0.5"
+
+		//"AbilityChannelTime"			"0.5"
 		"AbilitySpecial"
 		{
 			"01"
@@ -320,7 +321,7 @@
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"bonus_mr"				"40"
+				"bonus_mr"				"0"
 			}
 			 "07"
 			{
@@ -345,7 +346,7 @@
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT|DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT|DOTA_ABILITY_BEHAVIOR_HIDDEN|DOTA_ABILITY_BEHAVIOR_AUTOCAST"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
@@ -387,7 +388,7 @@
 			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"bonus_mr"				"40"
+				"bonus_mr"				"0"
 			}
 			 "07"
 			{
@@ -423,8 +424,8 @@
 		"AnimationPlaybackRate" 		"1.0"
 		"AbilityCastPoint"				"0.2"
 		//"AbilityCastRange"				"300"
- 		"AbilityCooldown"				"7"
-		"AbilityManaCost"				"0"
+ 		"AbilityCooldown"				"5"
+		"AbilityManaCost"				"200"
 		"AbilitySpecial"
 		{
 			 
@@ -468,18 +469,13 @@
 	{
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/muramasa/muramasa_sword_creation"
-		"MaxLevel"						"2"
+		"MaxLevel"						"1"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"25"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET| DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"			"custom/muramasa/muramasa_sword_creation"
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_7"
 		"AnimationPlaybackRate" 		"1.0"
-		"AOERadius"						"%range"
-		"AbilityCastPoint"				"0.3"
-		"AbilityCastRange"				"0"
- 		"AbilityCooldown"				"3 1.5"
-		"AbilityManaCost"				"100"
 		"AbilitySpecial"
 		{
 			"01"
@@ -531,7 +527,7 @@
 		"AbilityCastPoint"				"0.0"
 		"AbilityCastRange"				"800"
  		"AbilityCooldown"				"3"
-		"AbilityManaCost"				"0"
+		"AbilityManaCost"				"100"
 		"AbilitySpecial"
 		{
 			"01"
@@ -603,7 +599,7 @@
 		"AbilityCastPoint"				"0.4"
 		"AbilityCastRange"				"1200"
  		"AbilityCooldown"				"20"
-		"AbilityManaCost"				"600"
+		"AbilityManaCost"				"400"
 		"AbilitySpecial"
 		{
 			"01"
@@ -866,6 +862,32 @@
 			{
 				"var_type"				"FIELD_FLOAT"
 				"cooldown"				"1.5"
+			}
+			 
+		}		
+	}
+
+	"muramasa_wicked_sword_attribute"
+	{
+		 
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/muramasa/muramasa_attributes"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/muramasa/muramasa_wicked_sword_attribute"
+		"AbilityCooldown"				"9999"
+
+		"AbilityManaCost"				"11"
+
+		 
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"cast_window"				"1"
 			}
 			 
 		}		

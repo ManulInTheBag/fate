@@ -107,7 +107,7 @@ function saito_mind_eye:OnFateSpellBlocked( )
     ability:RemoveParticle()
     local caster = self:GetCaster()
     ability.powered = 1
-      
+    HardCleanse(caster)
     LoopOverPlayers(function(player, playerID, playerHero)
         --print("looping through " .. playerHero:GetName())
         if playerHero.gachi == true then

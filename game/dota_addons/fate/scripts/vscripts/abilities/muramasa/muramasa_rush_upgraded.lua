@@ -9,10 +9,12 @@ function muramasa_rush_upgraded:OnUpgrade()
    end
     
 end
+
  
 function muramasa_rush_upgraded:OnSpellStart()
     self.ChannelTime = 0
     local caster = self:GetCaster()
+    caster.firstenemy = nil
     self.RushPoint = self:GetCursorPosition()
     caster:FindAbilityByName("muramasa_rush"):StartCooldown(caster:FindAbilityByName("muramasa_rush"):GetCooldown(caster:FindAbilityByName("muramasa_rush"):GetLevel()))
 
@@ -31,7 +33,7 @@ function muramasa_rush_upgraded:OnSpellStart()
 
     local ability = self
    
-    caster:RemoveModifierByName("modifier_muramasa_rush_mr" )
+    --caster:RemoveModifierByName("modifier_muramasa_rush_mr" )
     local speed = self:GetSpecialValueFor("speed")  
     local max_range = self:GetSpecialValueFor("range")  
     local range = (self.RushPoint - caster:GetAbsOrigin()):Length2D()
@@ -40,7 +42,7 @@ function muramasa_rush_upgraded:OnSpellStart()
 
     end
     local rush_time = range/speed
-     caster:AddNewModifier(caster, ability, "modifier_muramasa_rush_mr",{duration = rush_time })
+    caster:AddNewModifier(caster, ability, "modifier_muramasa_rush_mr",{duration = rush_time })
     StartAnimation(caster, {duration=rush_time, activity=ACT_DOTA_CAST_ABILITY_4_END, rate=1.0})
 
     local qdProjectile = 
@@ -113,8 +115,18 @@ end
 
 function muramasa_rush_upgraded:OnProjectileHit_ExtraData(hTarget, vLocation, table)
     if hTarget == nil then return end
-
     local caster = self:GetCaster()
+    if caster.firstenemy == nil then
+        if hTarget:IsHero() and self:GetAutoCastState() == true  then
+            caster.firstenemy = hTarget
+             
+            Timers:CreateTimer( 1, function()
+                caster.firstenemy = nil
+            end)
+        end
+    end
+    
+    
     local damage = self:GetSpecialValueFor("damage")
     local duration = self:GetSpecialValueFor("duration")
  
@@ -123,6 +135,7 @@ function muramasa_rush_upgraded:OnProjectileHit_ExtraData(hTarget, vLocation, ta
     DoDamage(caster, hTarget, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
     hTarget:AddNewModifier(caster, self , "modifier_muramasa_rush_burn",{duration = duration })
     giveUnitDataDrivenModifier(caster, hTarget, "rooted", duration/2)
+    caster:PerformAttack( hTarget, true, true, true, true, false, false, false )
     caster:PerformAttack( hTarget, true, true, true, true, false, false, false )
 end
  

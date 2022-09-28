@@ -7,40 +7,7 @@ function muramasa_sword_creation:GetIntrinsicModifierName()
     return "modifier_muramasa_sword_creation"
 end
 
-
-function muramasa_sword_creation:CastFilterResult()
-    local caster = self:GetCaster()
-    if caster:GetModifierStackCount("modifier_muramasa_sword_creation", self) >= self:GetSpecialValueFor("max_stacks") then
-        return UF_FAIL_CUSTOM
-    else
-        return UF_SUCESS
-    end
-end
-
-function muramasa_sword_creation:GetCustomCastError()
-	return "Already reached maximum stacks"
-end
-
-function muramasa_sword_creation:OnSpellStart()
-    local caster = self:GetCaster()
-    local currentstacks = caster:GetModifierStackCount("modifier_muramasa_sword_creation", self)
-    caster:SetModifierStackCount("modifier_muramasa_sword_creation",caster, currentstacks+ 1)
-    if(self.swordsfx ~= nil ) then
-        Timers:RemoveTimer("muramasa_swords_particle")
-        ParticleManager:DestroyParticle(self.swordsfx, true)
-        ParticleManager:ReleaseParticleIndex(self.swordsfx)
-    end
-    self.swordsfx = ParticleManager:CreateParticle("particles/muramasa/muramasa_sword_creation.vpcf", PATTACH_ABSORIGIN_FOLLOW  , caster )
-    ParticleManager:SetParticleControl(        self.swordsfx , 1,  Vector(currentstacks+ 1, 0,0 )  )  
-
-    Timers:CreateTimer("muramasa_swords_particle", {
-        endTime = 0.6,
-        callback = function()
-            ParticleManager:DestroyParticle(self.swordsfx, true)
-            ParticleManager:ReleaseParticleIndex(self.swordsfx)
-            self.swordsfx = nil
-   end})
-end
+ 
  
 modifier_muramasa_sword_creation = class({})
 
@@ -78,13 +45,13 @@ end
 
 function modifier_muramasa_sword_creation:OnUnitMoved(args)
     if(args.unit ~= self:GetParent() ) then return end
-    if(self:GetAbility().swordsfx == nil) then return end
+        if(self:GetParent().swordsfx == nil) then return end
     Timers:CreateTimer(0.2, function() 
-        if(self:GetAbility().swordsfx ~= nil) then
+        if(self:GetParent().swordsfx ~= nil) then
             Timers:RemoveTimer("muramasa_swords_particle")
-            ParticleManager:DestroyParticle(self:GetAbility().swordsfx, true)
-            ParticleManager:ReleaseParticleIndex(self:GetAbility().swordsfx)
-            self:GetAbility().swordsfx = nil
+            ParticleManager:DestroyParticle(self:GetParent().swordsfx, true)
+            ParticleManager:ReleaseParticleIndex(self:GetParent().swordsfx)
+            self:GetParent().swordsfx = nil
         end
     end)
 end

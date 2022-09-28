@@ -339,7 +339,7 @@ function modifier_saito_fdb_vision:OnTakeDamage(args)
     end
 
     ----------mana refund
-    if(args.damage_category == 0 and args.inflictor ~= self:GetAbility() and args.unit:GetTeam() ~= caster:GetTeam()) then
+    if(args.damage_category == 0 and args.inflictor ~= self:GetAbility() and args.unit:GetTeam() ~= caster:GetTeam() and args.unit:GetName() ~= "npc_dota_ward_base" ) then
         local ability = self:GetParent():FindAbilityByName("saito_hajime_fdb")
       
         

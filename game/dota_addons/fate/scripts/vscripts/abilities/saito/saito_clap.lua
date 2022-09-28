@@ -18,12 +18,10 @@ function saito_clap:GetCastPoint()
 	if(Caster:HasModifier("modifier_saito_fdb_repeated")) then
 		stack_count = Caster:GetModifierStackCount("modifier_saito_fdb_repeated",Caster) 
 	end
-    if stack_count <=2 then
-		return 0.3
-	elseif stack_count > 2 and stack_count < 5 then
-		return 0.25
+	if stack_count <=0 then
+		return 0
 	else
-		return 0.2
+		return stack_count*0.05+0.05
 	end
 end
 

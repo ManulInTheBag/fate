@@ -54,6 +54,8 @@ function muramasa_flame_attribute:OnSpellStart()
 	master:SetMana(master:GetMana() - self:GetManaCost(self:GetLevel()))
 end
 
+--unused
+-------
 muramasa_territory_creation_attribute = class({})
 
 function muramasa_territory_creation_attribute:OnSpellStart()
@@ -63,6 +65,19 @@ function muramasa_territory_creation_attribute:OnSpellStart()
 
 	hero.TerritoryCreationAcquired= true
  	hero:FindAbilityByName("muramasa_sword_creation"):SetLevel(2)
+	local master = hero.MasterUnit
+	master:SetMana(master:GetMana() - self:GetManaCost(self:GetLevel()))
+end
+--------
+
+muramasa_wicked_sword_attribute = class({})
+
+function muramasa_wicked_sword_attribute:OnSpellStart()
+	local caster = self:GetCaster()
+	local ply = caster:GetPlayerOwner()
+	local hero = caster:GetPlayerOwner():GetAssignedHero()
+
+	hero.WickedSwordAcquired = true
 	local master = hero.MasterUnit
 	master:SetMana(master:GetMana() - self:GetManaCost(self:GetLevel()))
 end

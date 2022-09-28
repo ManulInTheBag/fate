@@ -194,12 +194,10 @@ function saito_formlessness:SaitoFormlessnessStart()
 	local target = self:GetCursorPosition()
 	self.isRefreshed = 0
 	caster:AddNewModifier(caster, self, "modifier_saito_formlessness_invis", {duration =(self:GetSpecialValueFor("duration") )})
-	LoopOverPlayers(function(player, playerID, playerHero)
-		--print("looping through " .. playerHero:GetName())
-		if playerHero.gachi == true then
-			-- apply legion horn vsnd on their client
+ 	
+	 LoopOverPlayers(function(player, playerID, playerHero)
+		if playerHero.gachi == true and playerHero == self:GetCaster() then
 			CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="saito_omaewa_mou"})
-			--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
 		end
 	end)
 	if(self.modifierRepeated ~= nil) then
