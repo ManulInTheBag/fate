@@ -143,6 +143,9 @@
 		"DOTA_Tooltip_modifier_saito_fdb_vision"					"Freely drawn blade active"
 		"DOTA_Tooltip_modifier_saito_fdb_vision_Description"		"Restoring mana every time you deal damage with abilities"
 
+		"DOTA_Tooltip_modifier_saito_fdb_vision_provider"					"FDB vision"
+		"DOTA_Tooltip_modifier_saito_fdb_vision_provider_Description"		"You are revealed to Saito and his team"
+
 		"DOTA_Tooltip_modifier_saito_fdb_repeated"					"Freely drawn blade combo counter"
 		"DOTA_Tooltip_modifier_saito_fdb_repeated_Description"		"Amount of QWE casted in this combo"
 
@@ -6555,7 +6558,7 @@
 		"npc_dota_hero_terrorblade_bio"						""
 
         "DOTA_Tooltip_ability_saito_quickslash"						"Quick slash"
-        "DOTA_Tooltip_ability_saito_quickslash_Description"			"Dashes to the target location, dealing damage which scale with atk to every enemy on the way and rooting them for 0.2s . If there was no obstacles, Saito will automaticly turn to the closest enemy.\nSaito is rooted, locked and disarmed while dashing.\nThis ability range will be halfed if used 2 or more times in a row "
+        "DOTA_Tooltip_ability_saito_quickslash_Description"			"Dashes to the target location, dealing damage which scale with atk to every enemy on the way and rooting them for 0.2s. If there was no obstacles, Saito will automaticly turn to the closest enemy.\nSaito is rooted, locked and disarmed while dashing.\nThis ability range will be halfed if used 2 or more times in a row. Saito dodges projectiles on dash start."
         
         "DOTA_Tooltip_ability_saito_quickslash_dist"				"Distance:"
         "DOTA_Tooltip_ability_saito_quickslash_damage"				"Damage:"
@@ -6575,7 +6578,7 @@
 	 
 
         "DOTA_Tooltip_ability_saito_inv_sword"					"Invincible sword"
-        "DOTA_Tooltip_ability_saito_inv_sword_Description"	 	"Saito quickly slashes all enemies around him, applying a debuff, which will explode, dealing damage after 0.5 seconds. \n
+        "DOTA_Tooltip_ability_saito_inv_sword_Description"	 	"Saito quickly slashes all enemies around him, dealing damage and applying a debuff, which will explode, dealing 30% of this ability damage after 0.5 seconds. \n
         This ability damage will be halfed if used 2 or more times in a row. Damage scales with atk"
         "DOTA_Tooltip_ability_saito_inv_sword_damage"			"Damage:"
         "DOTA_Tooltip_ability_saito_inv_sword_range"			"Range:"
@@ -6583,7 +6586,7 @@
         "DOTA_Tooltip_ability_saito_inv_sword_Lore"				"My principle's that I don't lose duels. That's what being invincible is all about."
 
         "DOTA_Tooltip_ability_saito_mind_eye"					"Mind eye"
-        "DOTA_Tooltip_ability_saito_mind_eye_Description"		"Saito takes a stance for  %duration% seconds, reducing all damage received, evading projectiles and blocking  1 targeted spell. At the end of effect Saito will shoot forward a projectile, dealing damage to all enemies hit. If saito receives damage above the threshold or blocks a spell, he will shoot powered projectile immediately, endind the ability.\nPowered projectile deals 2.0x damage and stuns enemies hit."
+        "DOTA_Tooltip_ability_saito_mind_eye_Description"		"Saito takes a stance for  %duration% seconds, reducing all damage received, evading projectiles and blocking  1 targeted spell. At the end of effect Saito will shoot forward a projectile, dealing damage to all enemies hit. If saito receives damage above the threshold or blocks a spell, he will shoot powered projectile immediately, endind the ability and hard cleanses self.\nPowered projectile deals 2.0x damage and stuns enemies hit."
         "DOTA_Tooltip_ability_saito_mind_eye_resist"			"%Damage resistance:"
         "DOTA_Tooltip_ability_saito_mind_eye_damage"				"Damage:"
         "DOTA_Tooltip_ability_saito_mind_eye_threshold"			"Threshold:"
@@ -6592,7 +6595,7 @@
         "DOTA_Tooltip_ability_saito_mind_eye_Lore"				"The bad part about all this mind eye thing is that you may already know that you are dead, but have absolutely no options to fix that"
 
         "DOTA_Tooltip_ability_saito_hajime_fdb"				"Freely drawn blade"
-        "DOTA_Tooltip_ability_saito_hajime_fdb_Description"	"Passive: Quickslash, Ground slam and Invincible sword abilities share the same cooldown, and can be used up to %recast_amount% times. If you use same ability 2 or more times in a row, it will be weakened. All these abilities must be used in sequence and if you fail to fit in the interval, they will go on cooldown. If you use same ability 3 times, combination will end. Time interval starts with 1 second and decreases by 0.05 on every consecutive use.  Both Mind eye and Formlessness could be used in combination without interrupting it.\n
+        "DOTA_Tooltip_ability_saito_hajime_fdb_Description"	"Passive: Quickslash, Ground slam and Invincible sword abilities share the same cooldown, and can be used up to %recast_amount% times. If you use same ability 2 or more times in a row, it will be weakened. All these abilities must be used in sequence and if you fail to fit in the interval, they will go on cooldown. Time interval starts with 1 second and decreases by 0.05 on every consecutive use. QWE abilities have scaling castpoints starting with 0 (0 0.1 0.15 0.2 0.25 0.3 0.35).  Both Mind eye and Formlessness could be used in combination without interrupting it.\n
         Active: Saito gains buff, gaining vision on all enemies around himself, restores mana every time he deals damage with any of his abilities and  delays part of damage received by 1.5 seconds."
         "DOTA_Tooltip_ability_saito_hajime_fdb_vision_duration"			"Vision duration:"
         "DOTA_Tooltip_ability_saito_hajime_fdb_buff_duration"			"Buff duration:"
@@ -6604,7 +6607,7 @@
  
 
         "DOTA_Tooltip_ability_saito_formlessness"						"Formlessness"
-        "DOTA_Tooltip_ability_saito_formlessness_Description"			"Saito creates a contollable illusion of him standing, while gaining movement speed bonus and invisibility for a duration, allowing to recast this ability up to %number_of_slashes% times. First 3 casts are double-slashes, dealing damage and dimensional locking enemy hit for 0.5s. Last slash deals a lot more damage and dimensionally locks the target\nInvisibility will break for 1 second if saito deal damage with any other ability."
+        "DOTA_Tooltip_ability_saito_formlessness_Description"			"Saito gains movement speed bonus and invisibility for a duration, allowing to recast this ability up to %number_of_slashes% times. First 3 casts are double-slashes, dealing damage and dimensional locking enemy hit for 0.5s. Last slash deals a lot more damage and dimensionally locks the target\nInvisibility will break for 1 second if saito deal damage with any other ability."
         "DOTA_Tooltip_ability_saito_formlessness_damage"					"Slash damage:"
         "DOTA_Tooltip_ability_saito_formlessness_damage_last_slash"			"Last slash damage:"
         "DOTA_Tooltip_ability_saito_formlessness_duration"					"Duration:"
@@ -6614,7 +6617,7 @@
   
 
 		"DOTA_Tooltip_ability_saito_undefeatable_style"						"Combo: Undefeatable style"
-        "DOTA_Tooltip_ability_saito_undefeatable_style_Description"			"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: F-F in 2 seconds</font>\nSaito becomes serious, gaining armor, magic resistance and delayed damage just like with Freely Drawn Blade. Every %spellblock_cd% seconds he can block a targeted spell. \nHis technique also benefits from concentration, Saito restores mana every time he deals damage with an ability and his QWE abilities have only 3 seconds cooldown for a duration\nFor a  duration  this ability changes to One by one\nOne by one: Saito attacks all enemies around him, pushing them away, stunning for a short duration."
+        "DOTA_Tooltip_ability_saito_undefeatable_style_Description"			"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: F-F in 2 seconds</font>\nSaito becomes serious, gaining armor, magic resistance and delayed damage just like with Freely Drawn Blade. Every %spellblock_cd% seconds he can block a targeted spell. \nHis technique also benefits from concentration, Saito's QWE abilities castpoints are replaced with cast delays and cannot be interrupted.Also he restores mana every time he deals damage with an ability and his QWE abilities have only 3 seconds cooldown for a duration\nFor a  duration  this ability changes to One by one\nOne by one: Saito attacks all enemies around him, pushing them away, stunning for a short duration."
         "DOTA_Tooltip_ability_saito_undefeatable_style_armor"			"Bonus armor:"
         "DOTA_Tooltip_ability_saito_undefeatable_style_magic_res"		"%Bonus magic resist:"
 		"DOTA_Tooltip_ability_saito_undefeatable_style_mana_refund"		"Mana gained:"
@@ -6637,7 +6640,7 @@
         "DOTA_Tooltip_ability_saito_undefeatable_swordsman_attribute_combo_health"		"Combo health restored:"
 
         "DOTA_Tooltip_ability_saito_shinsengumi_attribute"				"Attribute: Shinsengumi"
-        "DOTA_Tooltip_ability_saito_shinsengumi_attribute_Description"	"\nIncrease all formlessness slash damage based on attack. Using same QWE ability for third time will have an additional effect:Quickslash's dash speed is greatly increased, ground slam has doubled radius and Invinsible sword is casted twice."
+        "DOTA_Tooltip_ability_saito_shinsengumi_attribute_Description"	"\nIncrease all formlessness slash damage based on attack. Last use of QWE ability in combination will have an additional effect:Quickslash dash changed for blink, ground slam has doubled radius and Invinsible sword is casted twice."
         "DOTA_Tooltip_ability_saito_shinsengumi_attribute_damage_atk_scale"			"Slash damage from atk:"
         "DOTA_Tooltip_ability_saito_shinsengumi_attribute_damage_atk_scale_last"			"Last slash damage from atk:"
 
@@ -6748,7 +6751,7 @@
 		"DOTA_Tooltip_ability_merlin_garden_of_avalon_health_regen_bonus"		"%Health regeneration:"
 		"DOTA_Tooltip_ability_merlin_garden_of_avalon_health_regen_bonus_const"	 "Health regeneration:"
 		"DOTA_Tooltip_ability_merlin_garden_of_avalon_mana_regen_bonus"			"%Mana regeneration:"
-		"DOTA_Tooltip_ability_saito_undefeatable_style_Lore"			""
+
 
 		"DOTA_Tooltip_ability_merlin_avalon_garden_stop"		"Stop Garden of Avalon"
 		"DOTA_Tooltip_ability_merlin_avalon_garden_stop_Description"	"Immediately ends garden of Avalon"
@@ -6877,6 +6880,14 @@
         "DOTA_Tooltip_ability_muramasa_upgrade_Lore"			"Best swords can store enough magic energy to release a true power of its wielder."
 
 
+        "DOTA_Tooltip_ability_muramasa_eye_of_karma"				"Eye of karma"
+        "DOTA_Tooltip_ability_muramasa_eye_of_karma_Description"	"Muramasa is able to see Karma in living beingsMuramasa finds closest enemy in range and applies a debuff, which will grant vision over him and dimensionally locks him after one second. Each Muramasa attack will extend its duration and reduce enemy magic resistance if Muramasa is under Tsumukari Muramasa buff. This ability always finds non-assasin enemy first."
+        "DOTA_Tooltip_ability_muramasa_eye_of_karma_search_radius"						"Search radius:"
+        "DOTA_Tooltip_ability_muramasa_eye_of_karma_duration"								"Base duration:"
+        "DOTA_Tooltip_ability_muramasa_eye_of_karma_duration_per_attack"					"Bonus duration per attack:"
+        "DOTA_Tooltip_ability_muramasa_eye_of_karma_mr_reduction_per_attack"				"%MR reduction per attack:"
+
+
 
        
 
@@ -6928,8 +6939,12 @@
         "DOTA_Tooltip_ability_muramasa_flame_attribute_dmg_per_agi"				"Dmg per base agi:"
 
         "DOTA_Tooltip_ability_muramasa_eye_of_karma_attribute"				"Attribute: Eye of karma"
-        "DOTA_Tooltip_ability_muramasa_eye_of_karma_attribute_Description"	"Muramasa is able to see Karma in living beings. Enemies hit by his E are now visible while burning, when muramasa health is lower then 50% he gains damage reduction."
-        "DOTA_Tooltip_ability_muramasa_eye_of_karma_attribute_reduction"					"%Damage reduction:"
+        "DOTA_Tooltip_ability_muramasa_eye_of_karma_attribute_Description"	"Muramasa is able to see Karma in living beings. Enemies hit by his E are now visible while burning, when muramasa health is lower then 50% he gains damage reduction.\nMuramasa gains new Eye of Karma ability.\nEye of karma: Muramasa finds closest enemy in range and applies a debuff, which will grant vision over him and dimensionally locks him after one second. Each Muramasa attack will extend its duration and reduce enemy magic resistance if Muramasa is under Tsumukari Muramasa buff. This ability always finds non-assasin enemy first."
+        "DOTA_Tooltip_ability_muramasa_eye_of_karma_attribute_reduction"							"%Damage reduction:"
+        "DOTA_Tooltip_ability_muramasa_eye_of_karma_attribute_search_radius"						"Search radius:"
+        "DOTA_Tooltip_ability_muramasa_eye_of_karma_attribute_duration"								"Base duration:"
+        "DOTA_Tooltip_ability_muramasa_eye_of_karma_attribute_duration_per_attack"					"Bonus duration per attack:"
+        "DOTA_Tooltip_ability_muramasa_eye_of_karma_attribute_mr_reduction_per_attack"				"%MR reduction per attack:"
 
  		"DOTA_Tooltip_ability_muramasa_territory_creation_attribute"				"Attribute: Territory creation"
         "DOTA_Tooltip_ability_muramasa_territory_creation_attribute_Description"	"Muramasa's workshop is always with him. Decreases sword creation cooldown."

@@ -313,7 +313,8 @@ cleansable = {
     "modifier_discern_poor_horseman",
     "modifier_discern_poor_extra",
     "modifier_agni_burn",
-    "modifier_muramasa_flame"
+    "modifier_muramasa_flame",
+    "muramasa_eye_of_karma"
 }
 
 slowmodifier = {
@@ -515,7 +516,7 @@ CannotReset = {
     "muramasa_tsumukari_combo",
     "nero_aestus_domus_aurea",
     "gilgamesh_enkidu",
-    
+    "muramasa_eye_of_karma",
     
     
    

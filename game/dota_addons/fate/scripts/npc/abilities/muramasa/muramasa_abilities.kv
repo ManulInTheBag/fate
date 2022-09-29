@@ -506,6 +506,52 @@
 			 
 		}
 	}		
+
+
+	//=================================================================================================================
+	// Muramasa - Eye of karma (attribute D)
+	//=================================================================================================================
+	"muramasa_eye_of_karma"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/muramasa/muramasa_eye_of_karma"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"25"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET|DOTA_ABILITY_BEHAVIOR_IMMEDIATE|DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"			"custom/muramasa/muramasa_eye_of_karma"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityCooldown"				"45"
+		"AbilityManaCost"				"200"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_9"
+		"AnimationPlaybackRate" 		"0.0"
+		"AbilityCastPoint"				"0.0"
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"search_radius"				"2500"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"				"5"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration_per_attack"				"0.5"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"mr_reduction_per_attack"				"2"
+			}
+		}
+	}		
+	 
 	 
 	//=================================================================================================================
 	// Muramasa - tsumukari muramasa (R)
@@ -786,7 +832,7 @@
 		"AbilityTextureName"			"custom/muramasa/muramasa_eye_of_karma_attribute"
 		"AbilityCooldown"				"9999"
 
-		"AbilityManaCost"				"9"
+		"AbilityManaCost"				"12"
 
 		 
 		"AbilitySpecial"
@@ -801,6 +847,26 @@
 				"var_type"			"FIELD_FLOAT"
 				"reduction"				"10"
 			} 
+			"03"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"search_radius"				"2500"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"				"5"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration_per_attack"				"0.5"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"mr_reduction_per_attack"				"2"
+			}
 			
 			
 			 

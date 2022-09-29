@@ -36,6 +36,7 @@ function muramasa_eye_of_karma_attribute:OnSpellStart()
 
 	hero.EyeOfKarmaAcquired = true
  
+	hero:SwapAbilities("muramasa_eye_of_karma", "muramasa_sword_creation", true, false)
 	local master = hero.MasterUnit
 	master:SetMana(master:GetMana() - self:GetManaCost(self:GetLevel()))
 end
