@@ -54,7 +54,7 @@ for i = 1,kappa do
 		self:FireSword(lsword_origin, left_forward)
 		local projectileDurationL = 900 / 1350
 		local dmyLLoc = lsword_origin 
-		local dummyL = CreateUnitByName("dummy_unit", dmyLLoc, false, caster, caster, caster:GetTeamNumber())
+		local dummyL = CreateUnitByName("dummy_unit", dmyLLoc, false, nil, nil, caster:GetTeamNumber())
 		dummyL:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
 		dummyL:SetForwardVector(left_forward)
 
@@ -88,7 +88,7 @@ for i = 1,kappa do
 		self:FireSword(rsword_origin, right_forward)
 		local projectileDurationR = 900 / 1350
 		local dmyRLoc = rsword_origin 
-		local dummyR = CreateUnitByName("dummy_unit", dmyRLoc, false, caster, caster, caster:GetTeamNumber())
+		local dummyR = CreateUnitByName("dummy_unit", dmyRLoc, false, nil, nil, caster:GetTeamNumber())
 		dummyR:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
 		dummyR:SetForwardVector(right_forward)	
 

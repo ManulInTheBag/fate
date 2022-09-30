@@ -41,7 +41,7 @@ function jeanne_lagron:LaunchLagronProjectile(checker, point, stored_damage)
     if not caster:IsAlive() then return end
 
     if not checker then
-        local hTarget = CreateUnitByName("hrunt_illusion", point, true, caster, nil, caster:GetOpposingTeamNumber())
+        local hTarget = CreateUnitByName("hrunt_illusion", point, true, nil, nil, caster:GetOpposingTeamNumber())
         hTarget:SetModel("models/development/invisiblebox.vmdl")
         hTarget:SetOriginalModel("models/development/invisiblebox.vmdl")
         hTarget:SetModelScale(1)

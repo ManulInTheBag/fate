@@ -137,7 +137,7 @@ function karna_combo_vasavi:OnSpellStart()
 			self.timexp = 0
 		    local projectile = ProjectileManager:CreateLinearProjectile(projectileTable)
 
-		    self.Dummy = CreateUnitByName("dummy_unit", caster:GetAbsOrigin(), false, caster, caster, caster:GetTeamNumber())
+		    self.Dummy = CreateUnitByName("dummy_unit", caster:GetAbsOrigin(), false, nil, nil, caster:GetTeamNumber())
 			self.Dummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1)			
 
 		    self.LaserBeam = ParticleManager:CreateParticle("particles/custom/karna/combo/vasavi_shakti_beam_combo.vpcf", PATTACH_CUSTOMORIGIN, self.Dummy)

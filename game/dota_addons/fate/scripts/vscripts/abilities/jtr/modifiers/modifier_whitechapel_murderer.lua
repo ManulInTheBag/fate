@@ -19,7 +19,7 @@ if IsServer() then
 
 		CustomNetTables:SetTableValue("sync","whitechapel_murderer", { agility_bonus = self.AgiBonus })
 
-		self.ParticleDummy = CreateUnitByName("dummy_unit", self:GetParent():GetAbsOrigin(), false, self:GetParent(), self:GetParent(), self:GetParent():GetTeamNumber())
+		self.ParticleDummy = CreateUnitByName("dummy_unit", self:GetParent():GetAbsOrigin(), false, nil, nil, self:GetParent():GetTeamNumber())
 		self.ParticleDummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
 
 		--[[self.MistParticle = ParticleManager:CreateParticle("particles/custom/jtr/whitechapel_murderer_cloud.vpcf", PATTACH_EYES_FOLLOW, self:GetParent())

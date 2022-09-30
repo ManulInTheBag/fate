@@ -41,8 +41,8 @@ function imba_pudge_meat_hook:OnSpellStart()
 	-- local hook_range = self:GetSpecialValueFor("base_range") + self:GetCaster():FindTalentValue("special_bonus_imba_pudge_5")
 	local hook_dmg = self:GetSpecialValueFor("base_damage")
 
-	self.chTarget = CreateUnitByName("hrunt_illusion", self:GetCaster():GetAbsOrigin(), true, self:GetCaster(), nil, self:GetCaster():GetTeamNumber())
-	self.chTarget2 = CreateUnitByName("hrunt_illusion", self:GetCaster():GetAbsOrigin(), true, self:GetCaster(), nil, self:GetCaster():GetOpposingTeamNumber())
+	self.chTarget = CreateUnitByName("hrunt_illusion", self:GetCaster():GetAbsOrigin(), true, nil, nil, self:GetCaster():GetTeamNumber())
+	self.chTarget2 = CreateUnitByName("hrunt_illusion", self:GetCaster():GetAbsOrigin(), true, nil, nil, self:GetCaster():GetOpposingTeamNumber())
 
 	self.chTarget:SetModel("models/development/invisiblebox.vmdl")
     self.chTarget:SetOriginalModel("models/development/invisiblebox.vmdl")
@@ -198,7 +198,7 @@ function imba_pudge_meat_hook:OnProjectileHit_ExtraData(hTarget, vLocation, Extr
 		local bVision = false
 
 		if not target then
-			target = CreateUnitByName("npc_dummy_unit", vLocation, false, self:GetCaster(), self:GetCaster(), self:GetCaster():GetTeamNumber())
+			target = CreateUnitByName("npc_dummy_unit", vLocation, false, nil, nil, self:GetCaster():GetTeamNumber())
 			local unseen = target:FindAbilityByName("lancer_trap_passive")
     		unseen:SetLevel(1)
     		caster = target

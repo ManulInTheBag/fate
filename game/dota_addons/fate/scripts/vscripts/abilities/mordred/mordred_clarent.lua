@@ -97,7 +97,7 @@ function mordred_clarent:OnSpellStart()
 			if caster:IsAlive() then
 				-- Create Particle for projectile
 				local casterFacing = caster:GetForwardVector()
-				local dummy = CreateUnitByName("dummy_unit", caster:GetAbsOrigin(), false, caster, caster, caster:GetTeamNumber())
+				local dummy = CreateUnitByName("dummy_unit", caster:GetAbsOrigin(), false, nil, nil, caster:GetTeamNumber())
 				dummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
 				dummy:SetForwardVector(casterFacing)
 				Timers:CreateTimer( function()

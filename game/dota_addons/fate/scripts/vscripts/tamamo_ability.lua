@@ -877,7 +877,7 @@ function OnAmaterasuStart(keys)
 
 	--EmitGlobalSound("Hero_KeeperOfTheLight.ManaLeak.Cast")
 	caster.AmaterasuCastLoc = caster:GetAbsOrigin()
-	local dummy = CreateUnitByName("dummy_unit", caster:GetAbsOrigin(), false, caster, caster, caster:GetTeamNumber())
+	local dummy = CreateUnitByName("dummy_unit", caster:GetAbsOrigin(), false, nil, nil, caster:GetTeamNumber())
 	caster.CurrentAmaterasuDummy = dummy
 	dummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1) 
 	dummy:AddNewModifier(caster, nil, "modifier_phased", {duration=1.0})

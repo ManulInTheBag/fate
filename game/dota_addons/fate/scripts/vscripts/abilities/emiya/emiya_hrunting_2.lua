@@ -23,7 +23,7 @@ end
 function emiya_hrunting_2:OnSpellStart()
     local hCaster = self:GetCaster()
     self.TargetPos = self:GetCursorPosition()
-    self.hTarget = CreateUnitByName("hrunt_illusion", self.TargetPos, true, hCaster, nil, hCaster:GetOpposingTeamNumber())
+    self.hTarget = CreateUnitByName("hrunt_illusion", self.TargetPos, true, nil, nil, hCaster:GetOpposingTeamNumber())
     self.hTarget:SetModel("models/development/invisiblebox.vmdl")
     self.hTarget:SetOriginalModel("models/development/invisiblebox.vmdl")
     self.hTarget:SetModelScale(1)
@@ -70,7 +70,7 @@ end
 
 function emiya_hrunting_2:OnChannelFinish(bInterrupted)
     local hCaster = self:GetCaster()
-    --self.hTarget = CreateUnitByName("pseudo_illusion", illusionSpawnLoc, true, target, nil, target:GetTeamNumber())
+    --self.hTarget = CreateUnitByName("pseudo_illusion", illusionSpawnLoc, true, nil, nil, target:GetTeamNumber())
     local hPlayer = hCaster:GetPlayerOwner()
     local hTarget = self.hTarget
 

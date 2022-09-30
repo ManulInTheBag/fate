@@ -36,7 +36,7 @@ function gilgamesh_enuma_elish:VFX3_Projectile(caster)
   local frontward = caster:GetForwardVector()
   local targetPoint = self:GetCursorPosition()
 
-  local dummy = CreateUnitByName("dummy_unit", caster:GetAbsOrigin(), false, caster, caster, caster:GetTeamNumber())
+  local dummy = CreateUnitByName("dummy_unit", caster:GetAbsOrigin(), false, nil, nil, caster:GetTeamNumber())
   dummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
   dummy:SetForwardVector(frontward)
 

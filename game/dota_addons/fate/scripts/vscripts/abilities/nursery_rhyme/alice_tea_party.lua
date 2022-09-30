@@ -39,7 +39,7 @@ function alice_tea_party:OnSpellStart()
 	Timers:CreateTimer(delay, function()
 		if caster:IsAlive() then					
 			--caster:EmitSound("Hero_LegionCommander.Duel.Victory")
-			caster.CircleDummy = CreateUnitByName("alice_tea_table", caster:GetAbsOrigin(), false, caster, caster, caster:GetTeamNumber())
+			caster.CircleDummy = CreateUnitByName("alice_tea_table", caster:GetAbsOrigin(), false, nil, nil, caster:GetTeamNumber())
 			caster.CircleDummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
 			caster.CircleDummy:SetDayTimeVisionRange(radius)
 			caster.CircleDummy:SetNightTimeVisionRange(radius)

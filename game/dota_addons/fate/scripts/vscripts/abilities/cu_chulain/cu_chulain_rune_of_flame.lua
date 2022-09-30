@@ -26,7 +26,7 @@ function cu_chulain_rune_of_flame:OnSpellStart()
 	local stunDuration = self:GetSpecialValueFor("stun_duration")
 	local trapDuration = 0
 
-	local lancertrap = CreateUnitByName("lancer_trap", targetPoint, true, caster, caster, caster:GetTeamNumber())
+	local lancertrap = CreateUnitByName("lancer_trap", targetPoint, true, nil, nil, caster:GetTeamNumber())
 	Timers:CreateTimer(1.0, function()
 		LevelAllAbility(lancertrap)
 		lancertrap:AddNewModifier(caster, self, "modifier_rune_of_flame", { Duration = self:GetSpecialValueFor("duration"),

@@ -142,7 +142,7 @@ function modifier_medusa_gorgon_rush:PlayEffects()
 	        	anglevalue = -anglevalue
 	        end
 
-		    local temptarget = CreateUnitByName("hrunt_illusion", enemy:GetAbsOrigin(), true, caster, nil, caster:GetTeamNumber())
+		    local temptarget = CreateUnitByName("hrunt_illusion", enemy:GetAbsOrigin(), true, nil, nil, caster:GetTeamNumber())
 			temptarget:SetModel("models/development/invisiblebox.vmdl")
 		    temptarget:SetOriginalModel("models/development/invisiblebox.vmdl")
 		    temptarget:SetModelScale(1)

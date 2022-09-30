@@ -36,7 +36,7 @@ end
 function gilgamesh_sword_rain:OnSpellStart()
 	local caster = self:GetCaster()
 	local target = self:GetCursorPosition()
- 	self.dummy = CreateUnitByName("dummy_unit", target, false, caster, caster, caster:GetTeamNumber())
+ 	self.dummy = CreateUnitByName("dummy_unit", target, false, nil, nil, caster:GetTeamNumber())
 	self.dummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1) 
 	local dummy = self.dummy
 	Timers:CreateTimer(3, function()

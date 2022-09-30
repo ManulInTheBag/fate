@@ -298,7 +298,7 @@ function OnExcaliburStart(keys)
 			if caster:IsAlive() then
 				-- Create Particle for projectile
 				local casterFacing = caster:GetForwardVector()
-				local dummy = CreateUnitByName("dummy_unit", caster:GetAbsOrigin(), false, caster, caster, caster:GetTeamNumber())
+				local dummy = CreateUnitByName("dummy_unit", caster:GetAbsOrigin(), false, nil, nil, caster:GetTeamNumber())
 				dummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
 				dummy:SetForwardVector(casterFacing)
 				Timers:CreateTimer( function()
@@ -621,7 +621,7 @@ function FireSingleMaxParticle(keys)
 	local caster = keys.caster
 	local casterFacing = caster:GetForwardVector()
 	if caster.AltPart.combo == 1 then
-		local dummy = CreateUnitByName("dummy_unit", caster:GetAbsOrigin() + 700 * casterFacing, false, caster, caster, caster:GetTeamNumber())
+		local dummy = CreateUnitByName("dummy_unit", caster:GetAbsOrigin() + 700 * casterFacing, false, nil, nil, caster:GetTeamNumber())
 		dummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
 		dummy:SetForwardVector(casterFacing)
 		Timers:CreateTimer( function()
@@ -650,7 +650,7 @@ function FireSingleMaxParticle(keys)
 			return nil
 		end)
 	else
-		local dummy = CreateUnitByName("dummy_unit", caster:GetAbsOrigin() + 300 * casterFacing, false, caster, caster, caster:GetTeamNumber())
+		local dummy = CreateUnitByName("dummy_unit", caster:GetAbsOrigin() + 300 * casterFacing, false, nil, nil, caster:GetTeamNumber())
 		dummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
 		dummy:SetForwardVector(casterFacing)
 		Timers:CreateTimer( function()

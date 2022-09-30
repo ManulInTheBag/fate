@@ -101,7 +101,7 @@ function medusa_bellerophon:OnSpellStart()
 	local trail_fx = ParticleManager:CreateParticle( "particles/medusa/medusa_trail_test_3.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, caster)
 	ParticleManager:SetParticleControlEnt(trail_fx, 1, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true)
 
-	local chTarget = CreateUnitByName("medusa_pegasus", caster:GetAbsOrigin(), true, caster, nil, caster:GetTeamNumber())
+	local chTarget = CreateUnitByName("medusa_pegasus", caster:GetAbsOrigin(), true, nil, nil, caster:GetTeamNumber())
 	local unseen = chTarget:FindAbilityByName("dummy_unit_passive_no_fly")
 	unseen:SetLevel(1)
 	chTarget:SetAbsOrigin(caster:GetAbsOrigin())
@@ -351,7 +351,7 @@ function medusa_bellerophon:OnProjectileHit_ExtraData(hTarget, vLocation, hTable
 	        	anglevalue = -anglevalue
 	        end
 
-		    local temptarget = CreateUnitByName("hrunt_illusion", enemy:GetAbsOrigin(), true, caster, nil, caster:GetTeamNumber())
+		    local temptarget = CreateUnitByName("hrunt_illusion", enemy:GetAbsOrigin(), true, nil, nil, caster:GetTeamNumber())
 			temptarget:SetModel("models/development/invisiblebox.vmdl")
 		    temptarget:SetOriginalModel("models/development/invisiblebox.vmdl")
 		    temptarget:SetModelScale(1)

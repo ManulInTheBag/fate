@@ -101,7 +101,7 @@ end
 
 function tamamo_combo:CreateProjectile(isFire, orbOrigin, targetLocation)
 	local caster = self:GetCaster()
-	local projectile = CreateUnitByName("dummy_unit", orbOrigin, false, caster, caster, caster:GetTeamNumber())
+	local projectile = CreateUnitByName("dummy_unit", orbOrigin, false, nil, nil, caster:GetTeamNumber())
 	projectile:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
 	projectile:SetAbsOrigin(orbOrigin)
 
@@ -164,7 +164,7 @@ end
 
 function tamamo_combo:ThrowFinalProjectile(orbOrigin, targetLocation)
 	local caster = self:GetCaster()
-	local projectile = CreateUnitByName("dummy_unit", orbOrigin, false, caster, caster, caster:GetTeamNumber())
+	local projectile = CreateUnitByName("dummy_unit", orbOrigin, false, nil, nil, caster:GetTeamNumber())
 	projectile:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
 	projectile:SetAbsOrigin(orbOrigin)
 

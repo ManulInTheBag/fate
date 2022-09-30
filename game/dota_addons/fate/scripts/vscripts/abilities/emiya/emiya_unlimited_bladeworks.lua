@@ -120,7 +120,7 @@ function emiya_unlimited_bladeworks:StartUBW()
         callback = function()
         if caster:IsAlive() then
             local newLocation = caster:GetAbsOrigin()
-            caster.UBWLocator = CreateUnitByName("ping_sign2", caster:GetAbsOrigin(), true, caster, caster, caster:GetTeamNumber())
+            caster.UBWLocator = CreateUnitByName("ping_sign2", caster:GetAbsOrigin(), true, nil, nil, caster:GetTeamNumber())
             caster.UBWLocator:FindAbilityByName("ping_sign_passive"):SetLevel(1)
             caster.UBWLocator:AddNewModifier(caster, caster, "modifier_kill", {duration = 15})
             caster.UBWLocator:SetAbsOrigin(caster:GetAbsOrigin())
@@ -137,7 +137,7 @@ function emiya_unlimited_bladeworks:StartUBW()
     })    
 
     for i=2, 3 do
-        local dummy = CreateUnitByName("dummy_unit", casterLocation, false, caster, caster, i)
+        local dummy = CreateUnitByName("dummy_unit", casterLocation, false, nil, nil, i)
         dummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
         dummy:SetAbsOrigin(ubwCenter)
         AddFOWViewer(i, ubwCenter, 1800, 3, false)
@@ -213,10 +213,10 @@ function emiya_unlimited_bladeworks:EnterUBW()
     end)]]
 
     -- Add sword shooting dummies
-    local ubwdummy1 = CreateUnitByName("dummy_unit", ubwdummyLoc1, false, caster, caster, caster:GetTeamNumber())
-    local ubwdummy2 = CreateUnitByName("dummy_unit", ubwdummyLoc2, false, caster, caster, caster:GetTeamNumber())
-    local ubwdummy3 = CreateUnitByName("dummy_unit", ubwdummyLoc3, false, caster, caster, caster:GetTeamNumber())
-    local ubwdummy4 = CreateUnitByName("dummy_unit", ubwdummyLoc4, false, caster, caster, caster:GetTeamNumber())
+    local ubwdummy1 = CreateUnitByName("dummy_unit", ubwdummyLoc1, false, nil, nil, caster:GetTeamNumber())
+    local ubwdummy2 = CreateUnitByName("dummy_unit", ubwdummyLoc2, false, nil, nil, caster:GetTeamNumber())
+    local ubwdummy3 = CreateUnitByName("dummy_unit", ubwdummyLoc3, false, nil, nil, caster:GetTeamNumber())
+    local ubwdummy4 = CreateUnitByName("dummy_unit", ubwdummyLoc4, false, nil, nil, caster:GetTeamNumber())
     ubwdummies = {ubwdummy1, ubwdummy2, ubwdummy3, ubwdummy4}
     
     ubwdummy1:SetAbsOrigin(ubwdummyLoc1)

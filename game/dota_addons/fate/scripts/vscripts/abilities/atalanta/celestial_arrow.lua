@@ -78,12 +78,12 @@ end
 
 function atalanta_celestial_arrow:CreateShockRing(facing)
     local caster = self:GetCaster()
-    local dummy = CreateUnitByName("visible_dummy_unit", caster:GetOrigin(), false, caster, caster, caster:GetTeamNumber())
+    --[[local dummy = CreateUnitByName("visible_dummy_unit", caster:GetOrigin(), false, nil, nil, caster:GetTeamNumber())
     dummy:FindAbilityByName("dummy_visible_unit_passive"):SetLevel(1)
     dummy:SetDayTimeVisionRange(0)
     dummy:SetNightTimeVisionRange(0)
     dummy:SetOrigin(caster:GetOrigin())
-    dummy:SetForwardVector(facing or caster:GetForwardVector())
+    dummy:SetForwardVector(facing or caster:GetForwardVector())]]
     
     local particle = "particles/econ/items/windrunner/windrunner_ti6/windrunner_spell_powershot_channel_ti6_shock_ring.vpcf"
 
@@ -91,13 +91,13 @@ function atalanta_celestial_arrow:CreateShockRing(facing)
         particle = "particles/custom/atalanta/atalanta_shock_ring.vpcf"
     end
 
-    local casterFX = ParticleManager:CreateParticle(particle, PATTACH_ABSORIGIN_FOLLOW, dummy)
-    ParticleManager:SetParticleControlEnt(casterFX, 1, dummy, PATTACH_ABSORIGIN_FOLLOW, nil, caster:GetOrigin(), false)
+    local casterFX = ParticleManager:CreateParticle(particle, PATTACH_ABSORIGIN, caster)
+    ParticleManager:SetParticleControlEnt(casterFX, 1, caster, PATTACH_ABSORIGIN, nil, caster:GetOrigin(), false)
     ParticleManager:ReleaseParticleIndex(casterFX)
 
-    Timers:CreateTimer(3, function()
+    --[[Timers:CreateTimer(3, function()
         dummy:RemoveSelf()
-    end)
+    end)]]
 end
 
 function atalanta_celestial_arrow:OnSpellStart()

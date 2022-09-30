@@ -79,7 +79,7 @@ function emiya_throw_swords:ThrowSword(caster, targetPoint, originVec, delay)
 		local projectile = ProjectileManager:CreateLinearProjectile( projectileTable )		
 		local projectileDuration = GameRules:GetGameTime() + delay 
 
-		local dummy = CreateUnitByName("dummy_unit", originVec, false, caster, caster, caster:GetTeamNumber())
+		local dummy = CreateUnitByName("dummy_unit", originVec, false, nil, nil, caster:GetTeamNumber())
 		local dummyLoc = originVec
 		dummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
 		dummy:SetForwardVector(projectileVector)

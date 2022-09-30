@@ -12,7 +12,7 @@ function gilgamesh_gate_of_babylon:OnSpellStart()
 	caster:EmitSound("Saber_Alter.Derange")
 	caster:EmitSound("Archer.UBWAmbient")
 	local frontward = caster:GetForwardVector()
-	self.dummy = CreateUnitByName("dummy_unit", caster:GetAbsOrigin() - 60 * frontward, false, caster, caster, caster:GetTeamNumber())
+	self.dummy = CreateUnitByName("dummy_unit", caster:GetAbsOrigin() - 60 * frontward, false, nil, nil, caster:GetTeamNumber())
 	self.dummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1) 
 	self.dummy:SetForwardVector(caster:GetForwardVector())
 	self.dummy:AddNewModifier(caster,self, "modifier_gob_thinker", {Duration  = self:GetSpecialValueFor("duration")})
@@ -77,13 +77,13 @@ function gilgamesh_gate_of_babylon:OnProjectileHit_ExtraData(hTarget, vLocation,
 	end
 	
 	DoDamage(hCaster, hTarget, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
-	local particle = ParticleManager:CreateParticle("particles/custom_game/heroes/gilgamesh/gilgamesh_enlarge_gate_hit/gilgamesh_enlarge_gate_hit.vpcf", PATTACH_ABSORIGIN, hTarget)
+	--[[local particle = ParticleManager:CreateParticle("particles/custom_game/heroes/gilgamesh/gilgamesh_enlarge_gate_hit/gilgamesh_enlarge_gate_hit.vpcf", PATTACH_ABSORIGIN, hTarget)
 	ParticleManager:SetParticleControl(particle, 0, hTarget:GetAbsOrigin())
 	Timers:CreateTimer(0.3,function()
 		ParticleManager:DestroyParticle(particle, false)
 		ParticleManager:ReleaseParticleIndex(particle)
 	
-	end)
+	end)]]
 	hTarget:EmitSound("Hero_Juggernaut.OmniSlash.Damage")
 end
 

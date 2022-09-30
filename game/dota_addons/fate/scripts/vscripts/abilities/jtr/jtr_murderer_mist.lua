@@ -25,7 +25,7 @@ function jtr_murderer_mist:OnSpellStart()
 		self.AuraDummy:RemoveSelf()
 	end
 
-	self.AuraDummy = CreateUnitByName("sight_dummy_unit", self:GetCursorPosition(), false, caster, caster, caster:GetTeamNumber())
+	self.AuraDummy = CreateUnitByName("sight_dummy_unit", self:GetCursorPosition(), false, nil, nil, caster:GetTeamNumber())
 	self.AuraDummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
 	self.AuraDummy:SetDayTimeVisionRange(0)
 	self.AuraDummy:SetNightTimeVisionRange(0)

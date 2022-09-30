@@ -22,7 +22,7 @@ if IsServer() then
 
 			parent:EmitSound("Hero_TemplarAssassin.Trap.Explode")
 
-			local fxDummy = CreateUnitByName("dummy_unit", parent:GetAbsOrigin(), false, caster, caster, caster:GetTeamNumber())
+			local fxDummy = CreateUnitByName("dummy_unit", parent:GetAbsOrigin(), false, nil, nil, caster:GetTeamNumber())
 			fxDummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1)	
 
 			local trapFX = ParticleManager:CreateParticle("particles/units/heroes/hero_templar_assassin/templar_assassin_trap_explode.vpcf", PATTACH_ABSORIGIN_FOLLOW, fxDummy)

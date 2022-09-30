@@ -90,7 +90,7 @@ function atalanta_crossing_arcadia:ShootAoEArrow(keys)
     local position
 
     if keys.Origin then
-        local originDummy = CreateUnitByName("dummy_unit", keys.Origin, false, caster, caster, caster:GetTeamNumber())
+        local originDummy = CreateUnitByName("dummy_unit", keys.Origin, false, nil, nil, caster:GetTeamNumber())
         originDummy:SetOrigin(keys.Origin)
         originDummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
 
@@ -106,7 +106,7 @@ function atalanta_crossing_arcadia:ShootAoEArrow(keys)
     end
 
     if not keys.Target then
-        dummy = CreateUnitByName("dummy_unit", keys.Position, false, caster, caster, caster:GetTeamNumber())
+        dummy = CreateUnitByName("dummy_unit", keys.Position, false, nil, nil, caster:GetTeamNumber())
         dummy:SetOrigin(keys.Position)
         dummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
 

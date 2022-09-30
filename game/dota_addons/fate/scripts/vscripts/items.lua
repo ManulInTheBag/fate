@@ -279,30 +279,20 @@ function WardFam(keys)
 	local caster = keys.caster
 	local ability = keys.ability
 	local hero = keys.caster:GetPlayerOwner():GetAssignedHero()
-	print("1")
 	if caster:HasModifier("jump_pause_nosilence") then
 		RefundItem(caster, ability)
 		return
 	end
 	hero.ServStat:useWard()
-	print("2")
 	local targetPoint = keys.target_points[1]
-	print("3")
-	caster.ward = CreateUnitByName("ward_familiar", targetPoint, true, caster, caster, caster:GetTeamNumber())
-	print("4")
+	caster.ward = CreateUnitByName("ward_familiar", targetPoint, true, nil, nil, caster:GetTeamNumber())
 
 	caster.ward:SetDayTimeVisionRange(keys.Radius)
-	print("5")
 	caster.ward:SetNightTimeVisionRange(keys.Radius)
-	print("6")
 	caster.ward:AddNewModifier(caster, caster, "modifier_invisible", {})
-	print("7")
 	caster.ward:AddNewModifier(caster, caster, "modifier_item_ward_true_sight", {true_sight_range = keys.Radius, duration = keys.Duration})
-	print("8")
     caster.ward:AddNewModifier(caster, caster, "modifier_kill", {duration = keys.Duration})
-    print("9")
-    giveUnitDataDrivenModifier(caster.ward, caster.ward, "modifier_ward_dmg_reduce", {duration = keys.Duration})
-    print("10")
+    giveUnitDataDrivenModifier(caster, caster.ward, "modifier_ward_dmg_reduce", {duration = keys.Duration})
     EmitSoundOnLocationForAllies(targetPoint,"DOTA_Item.ObserverWard.Activate",caster)
 end
 
@@ -362,14 +352,14 @@ function BecomeWard(keys)
 	hero.ServStat:useWard()
 	hero.ServStat:trueWorth(1200)
 
-	local transform = CreateUnitByName("sentry_familiar", caster:GetAbsOrigin(), true, hero, hero, caster:GetTeamNumber())	
+	local transform = CreateUnitByName("sentry_familiar", caster:GetAbsOrigin(), true, nil, nil, caster:GetTeamNumber())	
 	local wardPos = transform:GetAbsOrigin()
 	transform:SetDayTimeVisionRange(375)
 	transform:SetNightTimeVisionRange(375)
 	transform:AddNewModifier(hero, hero, "modifier_invisible", {})
 	transform:AddNewModifier(hero, hero, "modifier_item_ward_true_sight", {true_sight_range = 1400, duration = 30})
 	transform:AddNewModifier(hero, hero, "modifier_kill", {duration = 30})
-	giveUnitDataDrivenModifier(transform, transform, "modifier_ward_dmg_reduce", {duration = 30})
+	giveUnitDataDrivenModifier(hero, transform, "modifier_ward_dmg_reduce", {duration = 30})
 	caster:EmitSound("DOTA_Item.ObserverWard.Activate")
 	caster:RemoveSelf()
 end
@@ -565,7 +555,7 @@ function CScroll(keys)
 		return
 	end
 	local pid = caster:GetPlayerID()
-	cdummy = CreateUnitByName("dummy_unit", caster:GetAbsOrigin(), true, caster, caster, caster:GetTeamNumber())
+	cdummy = CreateUnitByName("dummy_unit", caster:GetAbsOrigin(), true, nil, nil, caster:GetTeamNumber())
 	cdummy:AddNewModifier(caster, caster, "modifier_kill", {duration = 10})
 	local dummy_passive = cdummy:FindAbilityByName("dummy_unit_passive")
 	dummy_passive:SetLevel(1)
@@ -592,10 +582,10 @@ function CScrollHit(keys)
 	local target = keys.target
 
 	if IsSpellBlocked(keys.target) then return end
-	DoDamage(keys.caster:GetPlayerOwner():GetAssignedHero(), keys.target, 100, DAMAGE_TYPE_MAGICAL, 0, keys.ability, false)
+	DoDamage(keys.caster:FindModifierByName("modifier_kill"):GetCaster(), keys.target, 100, DAMAGE_TYPE_MAGICAL, 0, keys.ability, false)
 	keys.target:EmitSound("Hero_EmberSpirit.FireRemnant.Explode")
 	if not keys.target:IsMagicImmune() then
-		keys.target:AddNewModifier(keys.caster:GetPlayerOwner():GetAssignedHero(), keys.target, "modifier_stunned", {Duration = 1.0})
+		keys.target:AddNewModifier(keys.caster:FindModifierByName("modifier_kill"):GetCaster(), keys.target, "modifier_stunned", {Duration = 1.0})
 	end
 end
 

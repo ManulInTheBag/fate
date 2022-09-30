@@ -141,7 +141,7 @@ function kuro_crane_wings:FireExtraSwords(targetPoint, radius)
 
 		for i = 1, 4 do
 			targetPoint = targetPoint + RandomVector(500)
-			local dummy = CreateUnitByName("dummy_unit", targetPoint, false, caster, caster, caster:GetTeamNumber())
+			local dummy = CreateUnitByName("dummy_unit", targetPoint, false, nil, nil, caster:GetTeamNumber())
 			dummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
 
 			Timers:CreateTimer(2, function()

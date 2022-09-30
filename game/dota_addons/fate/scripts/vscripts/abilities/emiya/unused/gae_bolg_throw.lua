@@ -39,7 +39,7 @@ function OnGBAOEStart(keys)
 		endTime = 0.45,
 		callback = function()
 		local projectileOrigin = caster:GetAbsOrigin() + Vector(0,0,300)
-		local projectile = CreateUnitByName("dummy_unit", projectileOrigin, false, caster, caster, caster:GetTeamNumber())
+		local projectile = CreateUnitByName("dummy_unit", projectileOrigin, false, nil, nil, caster:GetTeamNumber())
 		projectile:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
 		projectile:SetAbsOrigin(projectileOrigin)
 

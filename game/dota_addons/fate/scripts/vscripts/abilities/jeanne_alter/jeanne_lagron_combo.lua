@@ -33,7 +33,7 @@ function jeanne_lagron_combo:OnSpellStart()
 
 	self.FxDestroyed = false
 
-	local dummy = CreateUnitByName("dummy_unit", target_point, false, caster, caster, caster:GetTeamNumber())
+	local dummy = CreateUnitByName("dummy_unit", target_point, false, nil, nil, caster:GetTeamNumber())
 	dummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
 
 	--giveUnitDataDrivenModifier(caster, caster, "jump_pause", delay + 1.65)

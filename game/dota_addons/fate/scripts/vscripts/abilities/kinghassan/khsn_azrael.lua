@@ -299,7 +299,7 @@ end
 modifier_azrael_particle = class({})
 
 function modifier_azrael_particle:OnCreated()
-	self.ParticleDummy = CreateUnitByName("dummy_unit", self:GetParent():GetAbsOrigin(), false, self:GetParent(), self:GetParent(), self:GetParent():GetTeamNumber())
+	self.ParticleDummy = CreateUnitByName("dummy_unit", self:GetParent():GetAbsOrigin(), false, nil, nil, self:GetParent():GetTeamNumber())
 	self.ParticleDummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
 	self.Particle = ParticleManager:CreateParticle("particles/kinghassan/khsn_shadow.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, self.ParticleDummy)
     ParticleManager:SetParticleControl(self.Particle, 1, self.ParticleDummy:GetAbsOrigin())

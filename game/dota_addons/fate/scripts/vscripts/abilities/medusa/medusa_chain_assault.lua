@@ -79,7 +79,7 @@ function medusa_chain_assault:OnSpellStart()
 	caster:EmitSound("medusa_power2")
 	--EmitSoundOn("medusa_w"..math.random(1,2), self:GetCaster())
 
-	local chTarget = CreateUnitByName("hrunt_illusion", self:GetCaster():GetAbsOrigin(), true, self:GetCaster(), nil, self:GetCaster():GetTeamNumber())
+	local chTarget = CreateUnitByName("hrunt_illusion", self:GetCaster():GetAbsOrigin(), true, nil, nil, self:GetCaster():GetTeamNumber())
 	chTarget:SetModel("models/development/invisiblebox.vmdl")
     chTarget:SetOriginalModel("models/development/invisiblebox.vmdl")
     chTarget:SetModelScale(1)
@@ -217,7 +217,7 @@ function medusa_chain_assault:OnProjectileHit_ExtraData(hTarget, vLocation, hTab
 					modifier.primary_enemy = hTarget
 				end
 			else
-	        	local chTarget = CreateUnitByName("hrunt_illusion", hTarget:GetAbsOrigin(), true, hCaster, nil, hCaster:GetTeamNumber())
+	        	local chTarget = CreateUnitByName("hrunt_illusion", hTarget:GetAbsOrigin(), true, nil, nil, hCaster:GetTeamNumber())
 				chTarget:SetModel("models/development/invisiblebox.vmdl")
 			    chTarget:SetOriginalModel("models/development/invisiblebox.vmdl")
 			    chTarget:SetModelScale(1)
@@ -485,7 +485,7 @@ function modifier_medusa_chain_movement:PlayEffects()
 	        	anglevalue = -anglevalue
 	        end
 
-		    local temptarget = CreateUnitByName("hrunt_illusion", enemy:GetAbsOrigin(), true, caster, nil, caster:GetTeamNumber())
+		    local temptarget = CreateUnitByName("hrunt_illusion", enemy:GetAbsOrigin(), true, nil, nil, caster:GetTeamNumber())
 			temptarget:SetModel("models/development/invisiblebox.vmdl")
 		    temptarget:SetOriginalModel("models/development/invisiblebox.vmdl")
 		    temptarget:SetModelScale(1)

@@ -37,7 +37,7 @@ function gilgamesh_combo_final_hour:OnSpellStart()
  	EmitGlobalSound("Gilgamesh_Alt_Combo_" .. math.random(1,3))
  	ExecuteOrderFromTable(stopOrder)  	
 
- 	local gramDummy = CreateUnitByName("dummy_unit", caster:GetAbsOrigin(), false, caster, caster, caster:GetTeamNumber())
+ 	local gramDummy = CreateUnitByName("dummy_unit", caster:GetAbsOrigin(), false, nil, nil, caster:GetTeamNumber())
 	gramDummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1) 
 	gramDummy:SetAbsOrigin(caster:GetAbsOrigin() + Vector(0, 0, 250))
 

@@ -20,7 +20,7 @@ end
 
 function vlad_kazikli_bey:VFX2_LastSpikes(caster)
 	---[[using dummy stops bloodrite splash doing random shit so it will stay for now
-	local dummy = CreateUnitByName("visible_dummy_unit", caster:GetOrigin(), false, caster, caster, caster:GetTeamNumber())
+	local dummy = CreateUnitByName("visible_dummy_unit", caster:GetOrigin(), false, nil, nil, caster:GetTeamNumber())
   dummy:FindAbilityByName("dummy_visible_unit_passive"):SetLevel(1)
   dummy:SetDayTimeVisionRange(0)
   dummy:SetNightTimeVisionRange(0)

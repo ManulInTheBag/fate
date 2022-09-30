@@ -57,7 +57,7 @@ function medusa_nail_hook:OnSpellStart()
 	caster:SetForwardVector(direction)
 	StartAnimation(caster, {duration=1.26, activity=ACT_DOTA_CAST_ABILITY_1, rate=2})
 
-	local chTarget = CreateUnitByName("hrunt_illusion", self:GetCaster():GetAbsOrigin(), true, self:GetCaster(), nil, self:GetCaster():GetTeamNumber())
+	local chTarget = CreateUnitByName("hrunt_illusion", self:GetCaster():GetAbsOrigin(), true, nil, nil, self:GetCaster():GetTeamNumber())
 	chTarget:SetModel("models/development/invisiblebox.vmdl")
     chTarget:SetOriginalModel("models/development/invisiblebox.vmdl")
     chTarget:SetModelScale(1)
@@ -268,7 +268,7 @@ function modifier_medusa_hook_movement:PlayEffects()
 	        	anglevalue = -anglevalue
 	        end
 
-		    local temptarget = CreateUnitByName("hrunt_illusion", enemy:GetAbsOrigin(), true, caster, nil, caster:GetTeamNumber())
+		    local temptarget = CreateUnitByName("hrunt_illusion", enemy:GetAbsOrigin(), true, nil, nil, caster:GetTeamNumber())
 			temptarget:SetModel("models/development/invisiblebox.vmdl")
 		    temptarget:SetOriginalModel("models/development/invisiblebox.vmdl")
 		    temptarget:SetModelScale(1)

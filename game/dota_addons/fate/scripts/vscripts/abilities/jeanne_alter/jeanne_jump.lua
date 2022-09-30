@@ -51,7 +51,7 @@ function jeanne_jump:OnSpellStart()
         AddFOWViewer(2, origin, 10, duration, false)
     	AddFOWViewer(3, origin, 10, duration, false)
 
-        local AuraDummy = CreateUnitByName("sight_dummy_unit", caster:GetAbsOrigin(), false, caster, caster, caster:GetTeamNumber())
+        local AuraDummy = CreateUnitByName("sight_dummy_unit", caster:GetAbsOrigin(), false, nil, nil, caster:GetTeamNumber())
 		AuraDummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
 		AuraDummy:SetDayTimeVisionRange(radius)
 		AuraDummy:SetNightTimeVisionRange(radius)

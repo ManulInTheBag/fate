@@ -113,7 +113,7 @@ function kuro_excalibur_image:OnSpellStart()
 			caster:EmitSound("chloe_excalibur_sfx")
 
 			--local casterFacing = caster:GetForwardVector()
-			local dummy = CreateUnitByName("dummy_unit", caster:GetAbsOrigin(), false, caster, caster, caster:GetTeamNumber())
+			local dummy = CreateUnitByName("dummy_unit", caster:GetAbsOrigin(), false, nil, nil, caster:GetTeamNumber())
 			dummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
 			dummy:SetForwardVector(beam_vector)
 			Timers:CreateTimer( function()

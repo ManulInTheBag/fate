@@ -44,7 +44,7 @@ function jeanne_trail:OnSpellStart()
 
     --caster:EmitSound("Hero_Phoenix.FireSpirits.Launch")
 
-    local trailDummy = CreateUnitByName("sight_dummy_unit", caster:GetAbsOrigin(), false, caster, caster, caster:GetTeamNumber())
+    local trailDummy = CreateUnitByName("sight_dummy_unit", caster:GetAbsOrigin(), false, nil, nil, caster:GetTeamNumber())
     trailDummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
     trailDummy:SetDayTimeVisionRange(0)
     trailDummy:SetNightTimeVisionRange(0)

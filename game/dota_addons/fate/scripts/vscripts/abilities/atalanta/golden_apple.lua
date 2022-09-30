@@ -37,7 +37,7 @@ function atalanta_golden_apple:OnSpellStart()
         Position = nil
     }
 
-    local dummy = CreateUnitByName("visible_dummy_unit", position, false, caster, caster, caster:GetTeamNumber())
+    local dummy = CreateUnitByName("visible_dummy_unit", position, false, nil, nil, caster:GetTeamNumber())
     dummy:SetOrigin(position)
     dummy:FindAbilityByName("dummy_visible_unit_passive"):SetLevel(1)
     dummy:SetDayTimeVisionRange(0)

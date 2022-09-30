@@ -17,7 +17,7 @@ function nursery_rhyme_queens_glass_game:OnSpellStart()
 	local tParams = {Duration = self:GetSpecialValueFor("duration")}
 
 	hCaster.GlassGameOrigin = hCaster:GetAbsOrigin()	
-	hCaster.GlassGameAura = CreateUnitByName("sight_dummy_unit", hCaster:GetAbsOrigin(), false, hCaster, hCaster, hCaster:GetTeamNumber())
+	hCaster.GlassGameAura = CreateUnitByName("sight_dummy_unit", hCaster:GetAbsOrigin(), false, nil, nil, hCaster:GetTeamNumber())
 	hCaster.GlassGameAura:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
 	hCaster.GlassGameAura:SetDayTimeVisionRange(25)
 	hCaster.GlassGameAura:SetNightTimeVisionRange(25)

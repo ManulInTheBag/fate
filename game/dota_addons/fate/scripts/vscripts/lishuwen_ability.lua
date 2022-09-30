@@ -627,7 +627,7 @@ function OnDragonStrike3Start(keys)
 
 	giveUnitDataDrivenModifier(keys.caster, keys.caster, "jump_pause", keys.KnockupDuration)
 
-	local dummy = CreateUnitByName("godhand_res_locator", caster:GetAbsOrigin(), false, caster, caster, caster:GetTeamNumber())
+	local dummy = CreateUnitByName("godhand_res_locator", caster:GetAbsOrigin(), false, nil, nil, caster:GetTeamNumber())
 	dummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1) 
 	dummy:AddNewModifier(caster, nil, "modifier_phased", {duration=2})
 	dummy:AddNewModifier(caster, nil, "modifier_kill", {duration=2})

@@ -46,7 +46,7 @@ function atalanta_phoebus_catastrophe_snipe:OnSpellStart()
     local origin = caster:GetOrigin()
     local arrows = self:GetSpecialValueFor("arrows")
 
-    local dummy = CreateUnitByName("sight_dummy_unit", caster:GetOrigin(), false, caster, caster, caster:GetTeamNumber())
+    local dummy = CreateUnitByName("sight_dummy_unit", caster:GetOrigin(), false, nil, nil, caster:GetTeamNumber())
     dummy:SetDayTimeVisionRange(400)
     dummy:SetNightTimeVisionRange(400)
     dummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1)

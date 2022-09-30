@@ -77,7 +77,7 @@ function karna_brahmastra_kundala:OnSpellStart()
             end
         end 
 
-        self.Dummy = CreateUnitByName("dummy_unit", target_point, false, caster, caster, caster:GetTeamNumber())
+        self.Dummy = CreateUnitByName("dummy_unit", target_point, false, nil, nil, caster:GetTeamNumber())
 		self.Dummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
 
         local particle = ParticleManager:CreateParticle("particles/custom/karna/brahmastra_kundala/brahmastra_kundala_explosion_beam.vpcf", PATTACH_ABSORIGIN, self.Dummy)

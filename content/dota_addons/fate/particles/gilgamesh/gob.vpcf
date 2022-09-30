@@ -564,20 +564,15 @@
 			m_nFeatheringMode = "PARTICLE_DEPTH_FEATHERING_ON_OPTIONAL"
 			m_nSortMethod = "PARTICLE_SORTING_CREATION_TIME"
 		},
-		{
-			_class = "C_OP_RenderSound"
-			m_nChannel = 2
-			m_pszSoundName = "Gilgamesh.PortalSpawn"
-		},
 	]
 	m_Children = 
 	[
 		{
-			m_ChildRef = resource:"particles/custom_game/heroes/gilgamesh/gilgamesh_gate_of_babylon/gilgamesh_gate_of_babylon_portal_b.vpcf"
+			m_ChildRef = resource:"particles/gilgamesh/gilgamesh_gate_of_babylon_portal_b.vpcf"
 			m_nDetailLevel = "PARTICLEDETAIL_MEDIUM"
 		},
 		{
-			m_ChildRef = resource:"particles/custom_game/heroes/gilgamesh/gilgamesh_gate_of_babylon/gilgamesh_gate_of_babylon_portal_a.vpcf"
+			m_ChildRef = resource:"particles/gilgamesh/gilgamesh_gate_of_babylon_portal_a.vpcf"
 			m_nDetailLevel = "PARTICLEDETAIL_MEDIUM"
 		},
 	]

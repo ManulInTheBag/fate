@@ -7,7 +7,7 @@ function modifier_gatekeeper:OnCreated(keys)
 		self.LeashDistance = keys.LeashDistance
 		self.BonusAttack = keys.BonusAttack
 
-		self.CircleDummy = CreateUnitByName("dummy_unit", caster:GetAbsOrigin(), false, caster, caster, caster:GetTeamNumber())
+		self.CircleDummy = CreateUnitByName("dummy_unit", caster:GetAbsOrigin(), false, nil, nil, caster:GetTeamNumber())
 		local gkdummypassive = self.CircleDummy:FindAbilityByName("dummy_unit_passive")
 		gkdummypassive:SetLevel(1)
 

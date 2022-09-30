@@ -48,11 +48,11 @@ function atalanta_phoebus_catastrophe_wrapper(ability)
         local midpoint = (origin + position) / 2
         local targetLocation = midpoint + Vector(0, 0, 1000)
 
-        local dummy = CreateUnitByName("dummy_unit", targetLocation, false, caster, caster, caster:GetTeamNumber())
+        local dummy = CreateUnitByName("dummy_unit", targetLocation, false, nil, nil, caster:GetTeamNumber())
         dummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
 	dummy:SetOrigin(targetLocation + Vector(100, 0, 0))
 
-        local dummy2 = CreateUnitByName("dummy_unit", targetLocation, false, caster, caster, caster:GetTeamNumber())
+        local dummy2 = CreateUnitByName("dummy_unit", targetLocation, false, nil, nil, caster:GetTeamNumber())
         dummy2:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
 	dummy2:SetOrigin(targetLocation + Vector(-100, 0, 0))
     

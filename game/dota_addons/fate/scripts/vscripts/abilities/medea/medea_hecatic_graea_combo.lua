@@ -80,7 +80,7 @@ function medea_hecatic_graea_combo:OnSpellStart()
 		caster:SetAutoUnstuck(true)
 	return end) 
 	Timers:CreateTimer(ascendTime, function()  
-		local dummy = CreateUnitByName( "sight_dummy_unit", caster:GetAbsOrigin(), false, caster, caster, caster:GetTeamNumber() );
+		local dummy = CreateUnitByName( "sight_dummy_unit", caster:GetAbsOrigin(), false, nil, nil, caster:GetTeamNumber() );
 		caster:SetPhysicsVelocity( Vector( 0, 0, -950 ) )
 		dummy:RemoveSelf()
 	return end) 

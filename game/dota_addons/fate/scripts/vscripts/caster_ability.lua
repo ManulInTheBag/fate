@@ -65,7 +65,7 @@ function OnTerritoryCreated(keys)
 	-- Do special handling for attribute
 	Timers:CreateTimer(5, function() --because it takes 5 seconds for territory to be built
 		if hero.IsTerritoryImproved and hero.IsTerritoryPresent and not caster.Territory:IsNull() then 
-			truesightdummy = CreateUnitByName("sight_dummy_unit", caster.Territory:GetAbsOrigin(), false, keys.caster, keys.caster, keys.caster:GetTeamNumber())
+			truesightdummy = CreateUnitByName("sight_dummy_unit", caster.Territory:GetAbsOrigin(), false, nil, nil, keys.caster:GetTeamNumber())
 			truesightdummy:AddNewModifier(caster, caster, "modifier_item_ward_true_sight", {true_sight_range = 600}) 
 			local unseen = truesightdummy:FindAbilityByName("dummy_unit_passive")
 			unseen:SetLevel(1)
@@ -474,7 +474,7 @@ function CasterFarSight(keys)
 		return
 	end
 
-	local truesightdummy = CreateUnitByName("sight_dummy_unit", keys.target_points[1], false, keys.caster, keys.caster, keys.caster:GetTeamNumber())
+	local truesightdummy = CreateUnitByName("sight_dummy_unit", keys.target_points[1], false, nil, nil, keys.caster:GetTeamNumber())
 	truesightdummy:SetDayTimeVisionRange(radius)
 	truesightdummy:SetNightTimeVisionRange(radius)
 	truesightdummy:EmitSound("Hero_KeeperOfTheLight.BlindingLight") 
@@ -562,7 +562,7 @@ end
 function OnTerritoryOrbStart(keys)
 	local caster = keys.caster
 
-	local truesightdummy = CreateUnitByName("sight_dummy_unit", keys.target_points[1], false, keys.caster, keys.caster, keys.caster:GetTeamNumber())
+	local truesightdummy = CreateUnitByName("sight_dummy_unit", keys.target_points[1], false, nil, nil, keys.caster:GetTeamNumber())
 	truesightdummy:SetDayTimeVisionRange(900)
 	truesightdummy:SetNightTimeVisionRange(900)
 	local unseen = truesightdummy:FindAbilityByName("dummy_unit_passive")
@@ -692,7 +692,7 @@ function OnArcaneWrathStart(keys)
 	local caster = keys.caster
 	local targetPos = keys.target_points[1]
 	--provide vision
-	local truesightdummy = CreateUnitByName("sight_dummy_unit", keys.target_points[1], false, keys.caster, keys.caster, keys.caster:GetTeamNumber())
+	local truesightdummy = CreateUnitByName("sight_dummy_unit", keys.target_points[1], false, nil, nil, keys.caster:GetTeamNumber())
 	truesightdummy:SetDayTimeVisionRange(keys.Radius)
 	truesightdummy:SetNightTimeVisionRange(keys.Radius)
 	local unseen = truesightdummy:FindAbilityByName("dummy_unit_passive")
@@ -1035,7 +1035,7 @@ function OnDWStart(keys)
     	if rainCount == (3 + bonus_beams) then return end
     	caster:EmitSound("Hero_Luna.LucentBeam.Target")
     	local vecLocation = targetPoint + RandomVector(50)
-		local dummy = CreateUnitByName("dummy_unit", vecLocation, false, caster, caster, caster:GetTeamNumber())
+		local dummy = CreateUnitByName("dummy_unit", vecLocation, false, nil, nil, caster:GetTeamNumber())
 		dummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
 		dummy:SetAbsOrigin(vecLocation)
 		local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_luna/luna_lucent_beam.vpcf", PATTACH_ABSORIGIN, dummy)
@@ -1325,7 +1325,7 @@ function DropRay(caster, damage, radius, ability, targetPoint, particle)
 	
 	-- print(damage)
 	-- Particle
-	local dummy = CreateUnitByName("dummy_unit", targetPoint, false, caster, caster, caster:GetTeamNumber())
+	local dummy = CreateUnitByName("dummy_unit", targetPoint, false, nil, nil, caster:GetTeamNumber())
 	dummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
 
 	local fxIndex = ParticleManager:CreateParticle(particle, PATTACH_POINT, dummy)
@@ -1405,7 +1405,7 @@ function OnHGPStart(keys)
 		caster:SetAutoUnstuck(true)
 	return end) 
 	Timers:CreateTimer(ascendTime, function()  
-		local dummy = CreateUnitByName( "sight_dummy_unit", caster:GetAbsOrigin(), false, keys.caster, keys.caster, keys.caster:GetTeamNumber() );
+		local dummy = CreateUnitByName( "sight_dummy_unit", caster:GetAbsOrigin(), false, nil, nil, keys.caster:GetTeamNumber() );
 		caster:SetPhysicsVelocity( Vector( 0, 0, -950 ) )
 		dummy:RemoveSelf()
 	return end) 

@@ -79,7 +79,7 @@ function cu_chulain_gae_bolg_jump:OnSpellStart()
 		StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_CAST_ABILITY_4, rate=2})
 
 		local projectileOrigin = caster:GetAbsOrigin() + Vector(0,0,300)
-		local projectile = CreateUnitByName("dummy_unit", projectileOrigin, false, caster, caster, caster:GetTeamNumber())
+		local projectile = CreateUnitByName("dummy_unit", projectileOrigin, false, nil, nil, caster:GetTeamNumber())
 		projectile:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
 		projectile:SetAbsOrigin(projectileOrigin)
 
@@ -168,7 +168,7 @@ function cu_chulain_gae_bolg_jump:OnGaeBolgHit(position, projectile)
 
 	Timers:CreateTimer(0.75, function()
 		local hCaster = self:GetCaster()
-		self.Dummy = CreateUnitByName("dummy_unit_ground", targetPoint, false, hCaster, hCaster, hCaster:GetTeamNumber())
+		self.Dummy = CreateUnitByName("dummy_unit_ground", targetPoint, false, nil, nil, hCaster:GetTeamNumber())
 		self.Dummy:FindAbilityByName("dummy_unit_passive_no_fly"):SetLevel(1)
 
 	    local tProjectile = {

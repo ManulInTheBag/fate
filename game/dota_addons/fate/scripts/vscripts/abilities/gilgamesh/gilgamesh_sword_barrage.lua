@@ -14,7 +14,7 @@ function gilgamesh_sword_barrage:CreateGOB(position)
 	local caster = self:GetCaster()
 	local vCasterOrigin = caster:GetAbsOrigin()
 	 
-	self.gramDummy = CreateUnitByName("dummy_unit", caster:GetAbsOrigin(), false, caster, caster, caster:GetTeamNumber())
+	self.gramDummy = CreateUnitByName("dummy_unit", caster:GetAbsOrigin(), false, nil, nil, caster:GetTeamNumber())
 	self.gramDummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1) 
 	self.gramDummy:SetAbsOrigin(position)
 	local gramDummy = self.gramDummy
@@ -39,7 +39,7 @@ function gilgamesh_sword_barrage:OnSpellStart()
 	local vForwardVector =  caster:GetForwardVector()
 
 
-	self.gramDummy = CreateUnitByName("dummy_unit", caster:GetAbsOrigin(), false, caster, caster, caster:GetTeamNumber())
+	self.gramDummy = CreateUnitByName("dummy_unit", caster:GetAbsOrigin(), false, nil, nil, caster:GetTeamNumber())
 	self.gramDummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1) 
 	self.gramDummy:SetForwardVector((vCasterOrigin-self.target:GetAbsOrigin()):Normalized())
 	local vLeftVector = self.gramDummy:GetLeftVector()

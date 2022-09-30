@@ -77,7 +77,7 @@ function nero_aestus_domus_aurea:OnSpellStart()
 			end		
 			--self:ReduceCooldown()
 			caster:EmitSound("Hero_LegionCommander.Duel.Victory")
-			caster.CircleDummy = CreateUnitByName("sight_dummy_unit", caster:GetAbsOrigin(), false, caster, caster, caster:GetTeamNumber())
+			caster.CircleDummy = CreateUnitByName("sight_dummy_unit", caster:GetAbsOrigin(), false, nil, nil, caster:GetTeamNumber())
 			caster.CircleDummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
 			caster.CircleDummy:SetDayTimeVisionRange(radius)
 			caster.CircleDummy:SetNightTimeVisionRange(radius)

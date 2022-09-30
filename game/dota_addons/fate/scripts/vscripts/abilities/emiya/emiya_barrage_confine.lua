@@ -28,7 +28,7 @@ function emiya_barrage_confine:OnSpellStart()
 	Timers:CreateTimer(delay, function()
 		--ability:ApplyDataDrivenModifier(caster, caster, "modifier_sword_barrage_confine", {})
 		for i=1,8 do
-			local confineDummy = CreateUnitByName("ubw_sword_confine_dummy", Vector(targetPoint.x + math.cos(i*0.8) * (radius-30), targetPoint.y + math.sin(i*0.8) * (radius-30), 5000)  , false, caster, caster, caster:GetTeamNumber())
+			local confineDummy = CreateUnitByName("ubw_sword_confine_dummy", Vector(targetPoint.x + math.cos(i*0.8) * (radius-30), targetPoint.y + math.sin(i*0.8) * (radius-30), 5000)  , false, nil, nil, caster:GetTeamNumber())
 			confineDummy:FindAbilityByName("dummy_visible_unit_passive_no_fly"):SetLevel(1)
 			confineDummy:SetForwardVector(Vector(0,0,-1))
 

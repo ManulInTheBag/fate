@@ -69,7 +69,7 @@ function atalanta_tauropolos_new:OnAbilityPhaseInterrupted()
 end
 function atalanta_tauropolos_new:CreateShockRing(vFacing)
   local caster = self:GetCaster()
-  local dummy = CreateUnitByName("visible_dummy_unit", caster:GetOrigin(), false, caster, caster, caster:GetTeamNumber())
+  local dummy = CreateUnitByName("visible_dummy_unit", caster:GetOrigin(), false, nil, nil, caster:GetTeamNumber())
   dummy:FindAbilityByName("dummy_visible_unit_passive"):SetLevel(1)
   dummy:SetDayTimeVisionRange(0)
   dummy:SetNightTimeVisionRange(0)

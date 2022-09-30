@@ -69,7 +69,7 @@ end
 function mordred_mmb_lightning:FireSingleParticle()
 	local caster = self:GetCaster()
 	local casterFacing = caster:GetForwardVector()
-	local dummy = CreateUnitByName("dummy_unit", caster:GetAbsOrigin(), false, caster, caster, caster:GetTeamNumber())
+	local dummy = CreateUnitByName("dummy_unit", caster:GetAbsOrigin(), false, nil, nil, caster:GetTeamNumber())
 	local tPillarTargets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, self:GetSpecialValueFor("width")/2, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	for j = 1, #tPillarTargets do
 		if not tPillarTargets[j]:HasModifier("modifier_mordred_mmb_checker") then
@@ -130,7 +130,7 @@ function modifier_mordred_mmb:FireSingleParticleKappa(i)
 	local caster = self:GetParent()
 	local casterFacing = caster:GetForwardVector()
 	local vPillarLoc = caster:GetAbsOrigin() + RandomVector(self:GetAbility():GetSpecialValueFor("blast_radius") * 1/10*i)
-	local dummy = CreateUnitByName("dummy_unit", vPillarLoc, false, caster, caster, caster:GetTeamNumber())
+	local dummy = CreateUnitByName("dummy_unit", vPillarLoc, false, nil, nil, caster:GetTeamNumber())
 	dummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
 	dummy:SetForwardVector((vPillarLoc - caster:GetAbsOrigin()):Normalized())
 	

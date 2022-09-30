@@ -555,7 +555,7 @@ function OnLEStart(keys)
 
 	-- Create particle dummy
 	local origin_location = caster:GetAbsOrigin()
-	local projectile = CreateUnitByName("dummy_unit", origin_location, false, caster, caster, caster:GetTeamNumber())
+	local projectile = CreateUnitByName("dummy_unit", origin_location, false, nil, nil, caster:GetTeamNumber())
 	projectile:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
 	projectile:SetAbsOrigin(origin_location)
 
