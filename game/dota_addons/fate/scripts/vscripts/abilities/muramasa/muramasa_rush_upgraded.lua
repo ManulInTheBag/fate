@@ -119,9 +119,12 @@ function muramasa_rush_upgraded:OnProjectileHit_ExtraData(hTarget, vLocation, ta
     if caster.firstenemy == nil then
         if hTarget:IsHero() and self:GetAutoCastState() == true  then
             caster.firstenemy = hTarget
+            self.swordfx = ParticleManager:CreateParticle("particles/muramasa/muramasa_sword_in_enemy.vpcf", PATTACH_OVERHEAD_FOLLOW  , hTarget )
              
-            Timers:CreateTimer( 1, function()
+            Timers:CreateTimer( 1.2, function()
                 caster.firstenemy = nil
+                ParticleManager:DestroyParticle(  self.swordfx, true)
+                ParticleManager:ReleaseParticleIndex(  self.swordfx)
             end)
         end
     end

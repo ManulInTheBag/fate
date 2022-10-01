@@ -26,7 +26,7 @@ function modifier_heracles_nine_lives:OnIntervalThink()
 	if self.HitNumber < 9 then
 		--print("hit " .. self.HitNumber)
 		caster:EmitSound("Hero_EarthSpirit.StoneRemnant.Impact") 		
-		local targets = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), caster, self.LargeRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, 1, false)
+		local targets = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), caster, self.SmallRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, 1, false)
 
 		for k,v in pairs(targets) do
 			DoDamage(caster, v, self.SmallDamage, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)

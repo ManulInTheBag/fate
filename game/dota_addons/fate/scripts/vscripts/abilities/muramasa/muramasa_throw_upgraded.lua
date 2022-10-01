@@ -251,8 +251,11 @@ function muramasa_throw_upgraded:OnSpellStart()
             end 
             if(  self.isAttri) then
                 caster.targetqenemy = unit
-                Timers:CreateTimer( 1, function()
-                    caster.targetqenemy = nil
+                self.swordsfx = ParticleManager:CreateParticle("particles/muramasa/muramasa_swords_on_enemy.vpcf", PATTACH_OVERHEAD_FOLLOW  , unit )
+                Timers:CreateTimer( 1.2, function()
+                   caster.targetqenemy = nil
+                   ParticleManager:DestroyParticle(   self.swordsfx, true)
+                   ParticleManager:ReleaseParticleIndex(   self.swordsfx)
                 end)
                 self.isAttri = false
             end
@@ -295,8 +298,11 @@ function muramasa_throw_upgraded:OnSpellStart()
 
         if(  self.isAttri) then
             caster.targetqenemy = self.target
-            Timers:CreateTimer( 1, function()
-                caster.targetqenemy = nil
+            self.swordsfx = ParticleManager:CreateParticle("particles/muramasa/muramasa_swords_on_enemy.vpcf", PATTACH_OVERHEAD_FOLLOW  , self.target )
+            Timers:CreateTimer( 1.2, function()
+               caster.targetqenemy = nil
+               ParticleManager:DestroyParticle(   self.swordsfx, true)
+               ParticleManager:ReleaseParticleIndex(   self.swordsfx)
             end)
             self.isAttri = false
         end

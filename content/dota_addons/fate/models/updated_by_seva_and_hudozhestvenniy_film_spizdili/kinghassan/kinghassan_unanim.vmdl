@@ -583,6 +583,28 @@
 						framerate = 30.0
 						reverse = false
 					},
+					{
+						_class = "AnimFile"
+						name = "kinghassan_stunned"
+						activity_name = "ACT_DOTA_DISABLED"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.0
+						fade_out_time = 0.0
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/kinghassan/kinghassan.fbx"
+						import_bone_scales = false
+						start_frame = 687
+						end_frame = 687
+						framerate = 30.0
+						reverse = false
+					},
 				]
 				default_root_bone_name = ""
 			},

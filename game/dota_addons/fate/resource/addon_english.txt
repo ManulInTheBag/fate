@@ -199,7 +199,7 @@
 		"DOTA_Tooltip_modifier_muramasa_tsumukari_Description"				""
 	
 		"DOTA_Tooltip_modifier_muramasa_sword_creation"						"Sword creation"
-		"DOTA_Tooltip_modifier_muramasa_sword_creation_Description"				"amount of swords held"
+		"DOTA_Tooltip_modifier_muramasa_sword_creation_Description"				"Magic on-hit damage"
 
 		"DOTA_Tooltip_modifier_muramasa_rush_mr"							"Rush buff"
 		"DOTA_Tooltip_modifier_muramasa_rush_mr_Description"				"MR increased"
@@ -4015,8 +4015,9 @@
         "DOTA_Tooltip_ability_diarmuid_double_spear_strike_Note0"       "When Double Spear Strike activates, there is 0.033 second interval between two spears."
 
         "DOTA_Tooltip_Ability_diarmuid_attribute_love_spot"					"Attribute: Improve Love Spot"
-        "DOTA_Tooltip_ability_diarmuid_attribute_love_spot_Description"		"Increases duration of Love Spot."
+        "DOTA_Tooltip_ability_diarmuid_attribute_love_spot_Description"		"Increases duration and castrange of Love Spot."
         "DOTA_Tooltip_Ability_diarmuid_attribute_love_spot_duration"		"Bonus Duration:"
+        "DOTA_Tooltip_Ability_diarmuid_attribute_love_spot_range"			"Bonus range:"
  
         "DOTA_Tooltip_Ability_diarmuid_attribute_minds_eye"					"Attribute: Mind's Eye"
         "DOTA_Tooltip_ability_diarmuid_attribute_minds_eye_Description"		"Diarmuid gains Mind's Eye, which passive allows him to detect enemies over obstacles. When activated, Diarmuid gains a large amount of magic resist and evasion for a short duration or until he blocks a spell. Activating Mind's Eye also reveals all enemies within a larger area of effect."
@@ -6847,21 +6848,19 @@
 	 	
 
         "DOTA_Tooltip_ability_muramasa_rush"					"Rush"
-        "DOTA_Tooltip_ability_muramasa_rush_Description"	 	"Muramasa charges a rush attack up to 0.5 seconds. Rush range scales with channel time. If muramasa hit someone with rush, he will deal damage, attack and apply a burn debuff, ticking every 0.5 seconds. While Muramasa charges this ability and is moving, he has bonus magic resistance.\nWhen upgraded, Muramasa will fly immediate into the point selected and will root all enemies hit for 1 second."
+        "DOTA_Tooltip_ability_muramasa_rush_Description"	 	"Muramasa rushes to point selected. If muramasa hit someone with rush, he will deal damage, attack and apply a burn debuff, ticking every 0.5 seconds.\nWhen upgraded, Muramasa will attack twice, all enemies hit will be rooted for 1 second, and Muramasa will be invincible while flying."
         "DOTA_Tooltip_ability_muramasa_rush_damage"					"Damage:"
         "DOTA_Tooltip_ability_muramasa_rush_duration"				"Burn duration:"
         "DOTA_Tooltip_ability_muramasa_rush_range"					"Max range:"
         "DOTA_Tooltip_ability_muramasa_rush_burn_dmg_per_tick"		"Burn damage per tick:"
-        "DOTA_Tooltip_ability_muramasa_rush_bonus_mr"				"Bonus resistance:"
         "DOTA_Tooltip_ability_muramasa_rush_Lore"					""
 
         "DOTA_Tooltip_ability_muramasa_rush_upgraded"					"Rush upgraded"
-        "DOTA_Tooltip_ability_muramasa_rush_upgraded_Description"	 	"Muramasa rushes to point selected. If muramasa hit someone with rush, he will deal damage, attack, apply a burn debuff, ticking every 0.5 seconds, and root enemies hit for 1 second. While Muramasa is moving, he has bonus magic resistance."
+        "DOTA_Tooltip_ability_muramasa_rush_upgraded_Description"	 	"Muramasa rushes to point selected. If muramasa hit someone with rush, he will deal damage, attack, apply a burn debuff, ticking every 0.5 seconds, and root enemies hit for 1 second. While Muramasa is moving, he is invincible."
         "DOTA_Tooltip_ability_muramasa_rush_upgraded_damage"				"Damage:"
         "DOTA_Tooltip_ability_muramasa_rush_upgraded_duration"				"Burn duration:"
         "DOTA_Tooltip_ability_muramasa_rush_upgraded_range"					"Max range:"
         "DOTA_Tooltip_ability_muramasa_rush_upgraded_burn_dmg_per_tick"		"Burn damage per tick:"
-        "DOTA_Tooltip_ability_muramasa_rush_upgradeds_mr"					"Bonus resistance:"
         "DOTA_Tooltip_ability_muramasa_rush_upgraded_Lore"					""
 
 
@@ -6881,7 +6880,7 @@
 
 
         "DOTA_Tooltip_ability_muramasa_eye_of_karma"				"Eye of karma"
-        "DOTA_Tooltip_ability_muramasa_eye_of_karma_Description"	"Muramasa is able to see Karma in living beingsMuramasa finds closest enemy in range and applies a debuff, which will grant vision over him and dimensionally locks him after one second. Each Muramasa attack will extend its duration and reduce enemy magic resistance if Muramasa is under Tsumukari Muramasa buff. This ability always finds non-assasin enemy first."
+        "DOTA_Tooltip_ability_muramasa_eye_of_karma_Description"	"Muramasa is able to see Karma in living beings. Muramasa finds closest enemy in range and applies a debuff, which will grant vision over him and dimensionally locks him after 1.5 second. Each Muramasa attack will extend its duration and reduce enemy magic resistance if Muramasa is under Tsumukari Muramasa buff. This ability always finds non-assasin enemy first."
         "DOTA_Tooltip_ability_muramasa_eye_of_karma_search_radius"						"Search radius:"
         "DOTA_Tooltip_ability_muramasa_eye_of_karma_duration"								"Base duration:"
         "DOTA_Tooltip_ability_muramasa_eye_of_karma_duration_per_attack"					"Bonus duration per attack:"

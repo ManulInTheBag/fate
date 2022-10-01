@@ -570,13 +570,21 @@ end
 function OnTentacleHookStart(keys)
 	local caster = keys.caster
 	local targetPoint = keys.target_points[1]
+	caster.unithit = false 
 end
 
 function OnTentacleHookHit(keys)
 	local caster = keys.caster
 	local target = keys.target
-	if target:GetUnitName() == "gille_gigantic_horror" or caster.IsHookHit then return end
-	caster.IsHookHit = true
+ 
+	if caster.IsHookHit or caster.unithit then return end
+ 
+	if(target:GetUnitName() ~= "gille_gigantic_horror") then
+		caster.unithit = true 
+		caster.IsHookHit = true
+	else
+		return
+	end
 	target:EmitSound("Hero_Pudge.AttackHookImpact")
 	local diff = (caster:GetAbsOrigin() - target:GetAbsOrigin()):Length2D() 
 	target:AddNewModifier(target, target, "modifier_stunned", {Duration = 0.75})
@@ -606,6 +614,7 @@ function OnTentacleHookHit(keys)
 	end)
   	Timers:CreateTimer(1.0, function()
 		caster.IsHookHit = false
+		caster.unithit = false 
 	end)
 end
 
@@ -664,7 +673,7 @@ function OnSubSkewerStart(keys)
 		if tentacleCounter1 > 10 then return end
 		print("tentacles")
 		local tentacleFx = ParticleManager:CreateParticle("particles/units/heroes/hero_tidehunter/tidehunter_spell_ravage_hit.vpcf", PATTACH_CUSTOMORIGIN, caster)
-		ParticleManager:SetParticleControl(tentacleFx, 0, casterLoc + diff * 110 * tentacleCounter1)
+		ParticleManager:SetParticleControl(tentacleFx, 0, casterLoc + diff * 110 * tentacleCounter1 )
 		Timers:CreateTimer( 3.0, function()
 			ParticleManager:DestroyParticle( tentacleFx, false )
 			ParticleManager:ReleaseParticleIndex( tentacleFx )

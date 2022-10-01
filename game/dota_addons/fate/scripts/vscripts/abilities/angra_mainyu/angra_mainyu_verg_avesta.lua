@@ -33,12 +33,11 @@ function angra_mainyu_verg_avesta:OnSpellStart()
 
 		LoopOverPlayers(function(player, playerID, playerHero)
 	        if playerHero:IsAlive() and playerHero:HasModifier("modifier_verg_marker") and not playerHero:IsMagicImmune() then
-	        	DoDamage(caster, playerHero, damage, DAMAGE_TYPE_MAGICAL, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self, true)
-	        	if not playerHero:IsAlive() then
-	        		if playerHero:GetTeamNumber() == caster:GetTeamNumber() then
-	        			EmitGlobalSound("body_reported")
-	        		end
-	        	end
+				if playerHero:GetTeamNumber() ~= caster:GetTeamNumber() then
+					DoDamage(caster, playerHero, damage, DAMAGE_TYPE_MAGICAL, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self, true) 
+					--EmitGlobalSound("body_reported")
+	        	 
+				end
 	        	playerHero:RemoveModifierByName("modifier_verg_marker")
 
 	        	playerHero:EmitSound("Hero_WitchDoctor.Maledict_Tick")

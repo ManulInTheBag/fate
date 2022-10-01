@@ -40,11 +40,14 @@ self.atkstacks = 0
 caster.eyeofkarmafx = ParticleManager:CreateParticle("particles/muramasa/eye_of_karma_base.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetParent())
  ParticleManager:SetParticleShouldCheckFoW(caster.eyeofkarmafx, false)
 self.visionenabled = 0
+self:GetParent():EmitSound("Hero_Bane.Nightmare.Loop")
 ------ to grant vision and lock after 1 second
 local duration = self:GetAbility():GetSpecialValueFor("duration") 
 Timers:CreateTimer(1.55, function()      
+    self:GetParent():StopSound("Hero_Bane.Nightmare.Loop")
     giveUnitDataDrivenModifier(caster,  self:GetParent(), "locked", duration)
     self:GetParent():AddNewModifier(caster, self:GetAbility(), "modifier_vision_provider", { Duration = duration })
+    self:GetParent():EmitSound("Hero_Bane.Nightmare")
 end)
  
 ------

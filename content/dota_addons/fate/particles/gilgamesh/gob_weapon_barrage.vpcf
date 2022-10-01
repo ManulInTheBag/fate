@@ -8,7 +8,7 @@
 	m_bShouldSort = false
 	m_nConstantSequenceNumber1 = 3
 	m_flNoDrawTimeToGoToSleep = 60.0
-	m_nBehaviorVersion = 5
+	m_nBehaviorVersion = 12
 	m_controlPointConfigurations = 
 	[
 		{
@@ -142,7 +142,7 @@
 		},
 		{
 			_class = "C_OP_Orient2DRelToCP"
-			m_nCP = 1
+			m_nCP = 3
 			m_nFieldOutput = 20
 		},
 	]
