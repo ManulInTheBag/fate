@@ -11,13 +11,13 @@ function muramasa_eye_of_karma:OnSpellStart()
     for _,v in pairs(targets) do
     	if   CanBeDetected(v) then
             target = v
-            target:AddNewModifier(caster, self, "modifier_muramasa_eye_of_karma", { duration = self:GetSpecialValueFor("duration") })
+            target:AddNewModifier(caster, self, "modifier_muramasa_eye_of_karma", { duration = self:GetSpecialValueFor("duration")+ 1.55 })
             return
          end
     end	
     if(target == nil and targets[1] ~= nil) then
        target = targets[1] 
-       target:AddNewModifier(caster, self, "modifier_muramasa_eye_of_karma", { duration = self:GetSpecialValueFor("duration") })
+       target:AddNewModifier(caster, self, "modifier_muramasa_eye_of_karma", { duration = self:GetSpecialValueFor("duration") + 1.55 })
     end    
      
 end
@@ -41,8 +41,8 @@ caster.eyeofkarmafx = ParticleManager:CreateParticle("particles/muramasa/eye_of_
  ParticleManager:SetParticleShouldCheckFoW(caster.eyeofkarmafx, false)
 self.visionenabled = 0
 ------ to grant vision and lock after 1 second
-local duration = self:GetAbility():GetSpecialValueFor("duration")-1.1
-Timers:CreateTimer(1.1, function()      
+local duration = self:GetAbility():GetSpecialValueFor("duration") 
+Timers:CreateTimer(1.55, function()      
     giveUnitDataDrivenModifier(caster,  self:GetParent(), "locked", duration)
     self:GetParent():AddNewModifier(caster, self:GetAbility(), "modifier_vision_provider", { Duration = duration })
 end)

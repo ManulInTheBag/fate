@@ -13,7 +13,9 @@ function merlin_avalon_release:OnSpellStart()
 	local flag_found_unit = true
 	caster:FindAbilityByName("merlin_charisma"):AttStack() 
 	 caster:RemoveModifierByName("modifier_merlin_avalon")
- 
+	if(caster:GetAbilityByIndex(3):GetName()~= "merlin_avalon") then
+		caster:SwapAbilities("merlin_avalon", "merlin_avalon_release", true, false)
+	end
 	 if (point - caster:GetAbsOrigin()):Length2D() > dist then
 		point = caster:GetAbsOrigin() + (((point - caster:GetAbsOrigin()):Normalized()) * dist)
 	end

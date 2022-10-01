@@ -7,6 +7,7 @@
 	m_bShouldSort = false
 	m_nBehaviorVersion = 12
 	m_nFirstMultipleOverride_BackwardCompat = 5
+	m_flConstantLifespan = 2.0
 	m_controlPointConfigurations = 
 	[
 		{
@@ -21,7 +22,7 @@
 			{
 				m_nType = "PF_TYPE_LITERAL"
 				m_nMapType = "PF_MAP_TYPE_DIRECT"
-				m_flLiteralValue = 1.0
+				m_flLiteralValue = 1.5
 				m_NamedValue = ""
 				m_nControlPoint = 0
 				m_nScalarAttribute = 3

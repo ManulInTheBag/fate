@@ -135,6 +135,7 @@ function TurnBGMOff(event)
 
 function TurnBGMOn(event)
 {
+   
     PlayBGM();
     g_GameConfig.bIsBGMOn = true;
 }

@@ -10,6 +10,12 @@ function merlin_avalon:OnSpellStart()
 	caster:AddNewModifier(caster, self, "modifier_merlin_avalon", { Duration =  self:GetSpecialValueFor("duration")})
 	caster:FindAbilityByName("merlin_charisma"):AttStack() 
  	caster:SwapAbilities("merlin_avalon", "merlin_avalon_release", false, true)
+	 Timers:CreateTimer(1.5, function()   
+		if(caster:GetAbilityByIndex(3):GetName()~= "merlin_avalon") then
+			caster:SwapAbilities("merlin_avalon", "merlin_avalon_release", true, false)
+		end
+
+	 end)
 	 caster:AddEffects(EF_NODRAW)
 	 caster:Stop()
 	 if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 and caster:GetIntellect() >= 29.1 then      
@@ -47,13 +53,17 @@ end
 
 
 function modifier_merlin_avalon:OnDestroy()
+ if(IsServer()) then
+	local caster = self:GetCaster()
 	if(self:GetAbility().flowers_fx ~= nil) then 
 		ParticleManager:DestroyParticle(self:GetAbility().flowers_fx, true)
 		ParticleManager:ReleaseParticleIndex(self:GetAbility().flowers_fx) 
 	end
-
-self:GetCaster():SwapAbilities("merlin_avalon", "merlin_avalon_release", true, false)
-self:GetCaster():RemoveEffects(EF_NODRAW)
+	if(caster:GetAbilityByIndex(3):GetName()~= "merlin_avalon") then
+		caster:SwapAbilities("merlin_avalon", "merlin_avalon_release", true, false)
+	end
+	caster:RemoveEffects(EF_NODRAW)
+ end
 end
  
 function modifier_merlin_avalon:IsHidden() return false end

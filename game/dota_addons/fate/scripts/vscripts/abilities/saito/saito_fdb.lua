@@ -46,7 +46,7 @@ function saito_hajime_fdb:OnSpellStart()
     caster:AddNewModifier(caster, self, "modifier_saito_fdb_vision",{duration = (self:GetSpecialValueFor("buff_duration")+ (caster.UndefeatableSwordsmanAcquired and 2 or 0) )})
 	local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetOrigin(), nil, self:GetSpecialValueFor("vision_range"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
     for _,v in pairs(targets) do
-    	if not v:HasModifier("modifier_murderer_mist_in") then
+    	if not v:HasModifier("modifier_murderer_mist_in") and   CanBeDetected(v) then
 			v:AddNewModifier(caster, self, "modifier_saito_fdb_vision_provider", { duration = self:GetSpecialValueFor("vision_duration") })
 		end
     end	
@@ -80,6 +80,8 @@ modifier_saito_fdb = class({})
  
 
 function modifier_saito_fdb:OnCreated()
+    local caster = self:GetCaster()
+    caster.currentused = 0
     self:SetStackCount(self:GetMaxStackCount())
 end
 

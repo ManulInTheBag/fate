@@ -45,7 +45,7 @@ function merlin_garden_of_avalon:OnSpellStart()
 		else
 			counter = counter +1 
 		end
-		ParticleManager:SetParticleControl(self.particle , 1, Vector(32*counter,0,0) )  
+		ParticleManager:SetParticleControl(self.particle , 1, Vector(32*counter,counter*17+150,0) )  
 		if(counter == 50) then
 	 
 			caster:SwapAbilities("merlin_avalon", "merlin_avalon_garden_stop", false, true)

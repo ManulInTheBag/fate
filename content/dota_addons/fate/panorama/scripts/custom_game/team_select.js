@@ -5,7 +5,7 @@ g_GameConfig.curBGMentindex = 0;
 g_GameConfig.curBGMIndex = 1;
 g_GameConfig.nextBGMIndex = 1;
 g_GameConfig.BGMSchedule = 0;
-g_GameConfig.duration = [186,327,138,149,183,143,184,181];
+g_GameConfig.duration = [186,327,219,142,183,143,233,212,247,241,280,224,288,187,318,270,344,255,375,292,184,202,142,162,215];
 //g_GameConfig.duration = [5,5,5,5,5,5,5,5];
 g_GameConfig.bRepeat = false;
 g_GameConfig.bIsBGMOn = true;
@@ -326,20 +326,19 @@ function SendVotes( )
 {
 	transitionHappened = true
 	var killsVoted = 1
-
+	var localPlayerId = Game.GetLocalPlayerID();
+	
 	if ($( "#RoundButton1" ).checked == true) {
-		killsVoted = 1
+		if (Players.IsValidPlayerID(localPlayerId) && !Players.IsSpectator(localPlayerId)) {
+		}
 	} else if ($( "#RoundButton2" ).checked == true) {
-		killsVoted = 2
-	} else if ($( "#RoundButton3" ).checked == true) {
-		killsVoted = 3
-	} else if ($( "#RoundButton4" ).checked == true) {
-		killsVoted = 4
-	} else if ($( "#RoundButton5" ).checked == true) {
-		killsVoted = 5
+		if (Players.IsValidPlayerID(localPlayerId) && !Players.IsSpectator(localPlayerId)) {
+			g_GameConfig.bIsBGMOn = false;
+			StopBGM();
+		}
 	};
 	$.Msg("selected mode : " + killsVoted)
-	var localPlayerId = Game.GetLocalPlayerID();
+	
 	if (Players.IsValidPlayerID(localPlayerId) && !Players.IsSpectator(localPlayerId)) {
 		GameEvents.SendCustomGameEventToServer("vote_finished", {player: Players.GetLocalPlayer(), killsVoted: killsVoted})
 	}
