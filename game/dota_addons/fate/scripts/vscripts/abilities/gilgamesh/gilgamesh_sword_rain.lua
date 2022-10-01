@@ -52,7 +52,7 @@ function gilgamesh_sword_rain:OnSpellStart()
 	end
 
 	caster:EmitSound("Archer.UBWAmbient")
-	CreateModifierThinker(self.dummy, self, "modifier_sword_rain_thinker", 
+	CreateModifierThinker(caster, self, "modifier_sword_rain_thinker", 
 						  { Damage = damage_per_tick,
 						    Radius = self:GetAOERadius(),
 						    Duration = self:GetSpecialValueFor("duration") + 0.033 }, 
