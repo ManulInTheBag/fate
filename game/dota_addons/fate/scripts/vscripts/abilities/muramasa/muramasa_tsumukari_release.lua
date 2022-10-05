@@ -25,7 +25,7 @@ caster:EmitSound("muramasa_tsumukari_release")
 
  
   
-  Timers:CreateTimer(0.25, function()   
+  Timers:CreateTimer(0.15, function()   
  local attackFx = ParticleManager:CreateParticle("particles/muramasa/muramasa_tsumukari_slash.vpcf", PATTACH_ABSORIGIN_FOLLOW  , caster)
     ParticleManager:SetParticleControl(attackFx, 0, caster:GetAbsOrigin())   
      ParticleManager:SetParticleControlEnt(attackFx, 0, caster, PATTACH_POINT_FOLLOW, "body", Vector(0,0,0), true)

@@ -1156,7 +1156,101 @@ function FateGameMode:OnPlayerChat(keys)
     if newDefaultGold ~= nil then
         hero.defaultSendGold = newDefaultGold
     end
+----------------------Eyeoflie -all command
 
+    local nPlayerID   = keys.playerid
+    local sText 	  = string.lower(keys.text)
+    local bTeam       = keys.teamonly > 0
+    local nTeamNumber = PlayerResource:GetTeam(nPlayerID)
+
+	local nToPlayerID, nGoldShare = string.match(sText, "^-(%d%d?) (%d+)")
+      	  nToPlayerID, nGoldShare = tonumber(nToPlayerID), tonumber(nGoldShare)
+
+	if type(nToPlayerID) ~= "nil"
+    	and type(nGoldShare) ~= "nil"
+    	and nPlayerID ~= nToPlayerID
+    	and nTeamNumber == PlayerResource:GetTeam(nToPlayerID) then
+    	local nSpendGold = -PlayerResource:ModifyGold(nPlayerID, -nGoldShare, false, DOTA_ModifyGold_SharedGold)
+    	local nAddGold   = PlayerResource:ModifyGold(nToPlayerID, nSpendGold, false, DOTA_ModifyGold_SharedGold)
+    	
+		CustomGameEventManager:Send_ServerToTeam(nTeamNumber, "fate_gold_sent",	{
+																					goldAmt  = nAddGold,
+																					sender   = PlayerResource:GetSelectedHeroEntity(nPlayerID):entindex(),
+																					recipent = PlayerResource:GetSelectedHeroEntity(nToPlayerID):entindex()
+																				})
+	end
+
+	if string.starts(sText, "-all") then
+		local nGoldShareAll     = string.match(sText, "^-all (%d+)")
+		local bSplitToMaxOnAlly = false
+		local nMaxGoldOnAlly    = 4950
+
+		if type(nGoldShareAll) == "nil" then
+			nGoldShareAll	  = PlayerResource:GetGold(nPlayerID)
+			bSplitToMaxOnAlly = true
+		end
+
+		local tActiveAllies = {}
+		for iPlayerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
+			if PlayerResource:IsValidPlayerID(iPlayerID)
+				and PlayerResource:HasSelectedHero(iPlayerID)
+				and PlayerResource:GetTeam(iPlayerID) == nTeamNumber
+				and iPlayerID ~= nPlayerID then
+				table.insert(tActiveAllies, iPlayerID)
+			end
+		end
+
+	    local nActiveAllies = #tActiveAllies
+		if nActiveAllies > 0 then
+			if bSplitToMaxOnAlly then
+				local nCanSpendGold = PlayerResource:GetGold(nPlayerID)
+				if nCanSpendGold > 0 then
+					local tActiveAlliesMuch = {}
+
+					for _, nToPlayerID in pairs(tActiveAllies) do
+						local nGoldNow  = PlayerResource:GetGold(nToPlayerID)
+						local nCalcGold = math.max(math.min(nMaxGoldOnAlly - nGoldNow, nMaxGoldOnAlly), 0)
+						if nCalcGold > 0 then
+							table.insert(tActiveAlliesMuch, {nToPlayerID = nToPlayerID, nCalcGold = nCalcGold})
+						end
+					end
+
+					table.sort(tActiveAlliesMuch, function(hA, hB) return ( hA.nCalcGold > hB.nCalcGold ) end)
+
+					for _, tPlayerTable in pairs(tActiveAlliesMuch) do
+						local nSpendGold = -PlayerResource:ModifyGold(nPlayerID, -tPlayerTable.nCalcGold, false, DOTA_ModifyGold_SharedGold)
+			            local nAddGold   = PlayerResource:ModifyGold(tPlayerTable.nToPlayerID, nSpendGold, false, DOTA_ModifyGold_SharedGold)
+
+						CustomGameEventManager:Send_ServerToTeam(nTeamNumber, "fate_gold_sent",	{
+																									goldAmt  = nAddGold,
+																									sender   = PlayerResource:GetSelectedHeroEntity(nPlayerID):entindex(),
+																									recipent = PlayerResource:GetSelectedHeroEntity(tPlayerTable.nToPlayerID):entindex()
+																								})
+					end
+				end
+			else
+				local nSpendGold = -PlayerResource:ModifyGold(nPlayerID, -nGoldShareAll, false, DOTA_ModifyGold_SharedGold)
+				if nSpendGold > 0 then
+			     	local nGoldShareEach = math.floor(nSpendGold / nActiveAllies)
+			     	for _, nToPlayerID in pairs(tActiveAllies) do
+			            local nAddGold = PlayerResource:ModifyGold(nToPlayerID, nGoldShareEach, false, DOTA_ModifyGold_SharedGold)
+
+						CustomGameEventManager:Send_ServerToTeam(nTeamNumber, "fate_gold_sent",	{
+																									goldAmt  = nAddGold,
+																									sender   = PlayerResource:GetSelectedHeroEntity(nPlayerID):entindex(),
+																									recipent = PlayerResource:GetSelectedHeroEntity(nToPlayerID):entindex()
+																								})
+			        end
+			    end
+		    end
+	    end
+    end
+
+---------------------------
+
+
+
+--[[
     local pID, goldAmt = string.match(text, "^-(%d%d?) (%d+)")
 
     if pID == nil and goldAmt == nil then
@@ -1196,7 +1290,7 @@ function FateGameMode:OnPlayerChat(keys)
             DistributeGoldV2(hero, 4950)
         end
     end
-
+]]
     if text == "-dmg" then
         if hero.AntiSpamCooldown1 ~= true then
             local teamHeroes = {}

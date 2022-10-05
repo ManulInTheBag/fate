@@ -1684,9 +1684,12 @@ function DoDamage(source, target , dmg, dmg_type, dmg_flag, abil, isLoop)
                 -- for other linked targets, we need DoDamage
                 else
                     if target.linkTable[i] ~= nil then
-                        if hLinkTarget:GetHealth() >= CalculateDamagePostReduction(DAMAGE_TYPE_MAGICAL, damageToAllies, hLinkTarget) then
+                        local curhealth = hLinkTarget:GetHealth() 
+                        local damage = CalculateDamagePostReduction(DAMAGE_TYPE_MAGICAL, damageToAllies, hLinkTarget)
+                        if curhealth >= damage then
                             --DoDamage(source, hLinkTarget, damageToAllies,  DAMAGE_TYPE_MAGICAL, 0, abil, true)
-                            DoDamage(target, hLinkTarget, damageToAllies,  DAMAGE_TYPE_MAGICAL, 128, abil, true)
+                            --DoDamage(target, hLinkTarget, damageToAllies,  DAMAGE_TYPE_MAGICAL, 128, abil, true)
+                            hLinkTarget:SetHealth(curhealth - damage)
                         else
                             hLinkTarget:SetHealth(1)
                             hLinkTarget:RemoveModifierByName("modifier_share_damage")
