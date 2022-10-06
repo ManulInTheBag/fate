@@ -1154,9 +1154,11 @@ function IsSpellBlocked(target)
         --ParticleManager:CreateParticle("particles/items_fx/immunity_sphere.vpcf", PATTACH_ABSORIGIN, target)
         --return true
     elseif target:HasModifier("modifier_diarmuid_minds_eye") then
+        if target:FindModifierByName("modifier_diarmuid_minds_eye").IsSpellBlockReady == false then return false end
+        local ability = target:FindModifierByName("modifier_diarmuid_minds_eye")
+        ability:OnFateSpellBlocked()
         EmitSoundWithCooldown("DOTA_Item.LinkensSphere.Activate", target, 1)
         ParticleManager:CreateParticle("particles/items_fx/immunity_sphere.vpcf", PATTACH_ABSORIGIN, target)
-        target:RemoveModifierByName("modifier_diarmuid_minds_eye")
         return true
     elseif target:HasModifier("modifier_rune_of_protection") then
         EmitSoundWithCooldown("DOTA_Item.LinkensSphere.Activate", target, 1)

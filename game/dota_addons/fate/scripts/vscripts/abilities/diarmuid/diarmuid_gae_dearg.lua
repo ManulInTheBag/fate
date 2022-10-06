@@ -2,6 +2,7 @@ diarmuid_gae_dearg =  class({})
 
 LinkLuaModifier("modifier_gae_dearg", "abilities/diarmuid/modifiers/modifier_gae_dearg", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_doublespear_dearg", "abilities/diarmuid/modifiers/modifier_doublespear_dearg", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_doublespear_attribute", "abilities/diarmuid/modifiers/modifier_doublespear_attribute", LUA_MODIFIER_MOTION_NONE)
 
 function diarmuid_gae_dearg:GetCooldown(iLevel)
 	local caster = self:GetCaster()
@@ -18,10 +19,10 @@ function diarmuid_gae_dearg:GetManaCost(iLevel)
 
 	if caster:HasModifier("modifier_rampant_warrior") then
 		return 250
-	elseif caster:HasModifier("modifier_crimson_rose_attribute") then
-		return 450
+	elseif caster:HasModifier("modifier_doublespear_attribute") then
+		return 400
 	else
-		return 550
+		return 500
 	end
 end
 

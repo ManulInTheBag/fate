@@ -2,6 +2,7 @@ diarmuid_gae_buidhe =  class({})
 
 LinkLuaModifier("modifier_gae_buidhe", "abilities/diarmuid/modifiers/modifier_gae_buidhe", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_doublespear_buidhe", "abilities/diarmuid/modifiers/modifier_doublespear_buidhe", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_doublespear_attribute", "abilities/diarmuid/modifiers/modifier_doublespear_attribute", LUA_MODIFIER_MOTION_NONE)
 
 function diarmuid_gae_buidhe:GetCooldown(iLevel)
 	local caster = self:GetCaster()
@@ -18,10 +19,10 @@ function diarmuid_gae_buidhe:GetManaCost(iLevel)
 
 	if caster:HasModifier("modifier_rampant_warrior") then
 		return 250
-	elseif caster:HasModifier("modifier_golden_rose_attribute") then
-		return 450
+	elseif caster:HasModifier("modifier_doublespear_attribute") then
+		return 400
 	else
-		return 550
+		return 500
 	end
 end
 
@@ -117,7 +118,7 @@ function diarmuid_gae_buidhe:OnSpellStart()
 
 	if target:GetHealth() > 0 and target:IsAlive() and caster:IsAlive() and nStacks > 1 then
 		--target:RemoveModifierByName("modifier_gae_buidhe") 
-		target:AddNewModifier(caster, self, "modifier_gae_buidhe", { Stacks = currentStack + nStacks})
+		target:AddNewModifier(caster, self, "modifier_gae_buidhe", { Stacks = currentStack + nStacks, Duration = 40})
 		if target:IsRealHero() then target:CalculateStatBonus(true) end
 	--Whoops
 	--else

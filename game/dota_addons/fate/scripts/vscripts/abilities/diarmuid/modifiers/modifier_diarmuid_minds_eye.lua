@@ -9,10 +9,14 @@ function modifier_diarmuid_minds_eye:OnCreated(args)
 	if IsServer() then
 		self.MagicResist = args.MagicResist
 		self.Evasion = args.Evasion
-
+		self.IsSpellBlockReady = true
 		CustomNetTables:SetTableValue("sync","diarmuid_minds_eye", { magic_resist = self.MagicResist,
 																	 evasion = self.Evasion })
 	end
+end
+
+function modifier_diarmuid_minds_eye:OnFateSpellBlocked()
+	self.IsSpellBlockReady = false
 end
 
 function modifier_diarmuid_minds_eye:GetModifierMagicalResistanceBonus()

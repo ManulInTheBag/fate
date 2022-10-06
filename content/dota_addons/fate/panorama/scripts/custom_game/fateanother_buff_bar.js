@@ -252,7 +252,8 @@ AltClickBuffs.prototype.OnUpdate = function(dontSchedule) {
     for (var i = 0; i < panels.length; i++) {
         var circlePanel = panels[i].FindChildTraverse("CircularDuration");
         var clip;
-        if (visibleBuffs[i]) {
+        if (typeof(visibleBuffs[i]) == "number") 
+        {
             var buff = visibleBuffs[i];
             var name = Buffs.GetName(unit, buff);
             if (buffProgress[name]) {

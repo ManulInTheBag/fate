@@ -34,6 +34,7 @@ function modifier_love_spot_charmed:OnIntervalThink()
 		Position = nil
 	}
 	giveUnitDataDrivenModifier(caster, target, "silenced",0.25)
+	giveUnitDataDrivenModifier(caster, target, "disarmed",0.25)
 	forcemove.UnitIndex = target:entindex()
 	forcemove.Position = caster:GetAbsOrigin() 
 	target:Stop()

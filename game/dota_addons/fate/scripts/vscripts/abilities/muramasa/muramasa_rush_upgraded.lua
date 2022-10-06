@@ -117,7 +117,7 @@ function muramasa_rush_upgraded:OnProjectileHit_ExtraData(hTarget, vLocation, ta
     if hTarget == nil then return end
     local caster = self:GetCaster()
     if caster.firstenemy == nil then
-        if hTarget:IsHero() and self:GetAutoCastState() == true  then
+        if hTarget:IsHero() and self:GetAutoCastState() == true and caster.WickedSwordAcquired then
             caster.firstenemy = hTarget
             self.swordfx = ParticleManager:CreateParticle("particles/muramasa/muramasa_sword_in_enemy.vpcf", PATTACH_OVERHEAD_FOLLOW  , hTarget )
              

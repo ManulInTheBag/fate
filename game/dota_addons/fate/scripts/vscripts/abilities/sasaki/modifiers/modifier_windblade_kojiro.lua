@@ -29,7 +29,7 @@ if IsServer() then
 	function modifier_windblade_kojiro:OnIntervalThink()
 		local caster = self:GetParent()
 		local target_search = FindUnitsInRadius(caster:GetTeam(), self.WindbladeOrigin, nil, self.Radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_ANY_ORDER, false)
-
+		local damage = self:GetAbility():GetSpecialValueFor("base_damage")
 		local continue_possible = true
 		local current_location = caster:GetAbsOrigin()
 		local skip_target = false
@@ -51,6 +51,7 @@ if IsServer() then
 				FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)				
 
 				caster:PerformAttack(target_search[i], true, true, true, true, false, false, false)
+				DoDamage(caster, target_search[i], damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
 				self.RemainingHits = self.RemainingHits - 1
 
 				if caster:HasModifier("modifier_sasaki_kappa") then

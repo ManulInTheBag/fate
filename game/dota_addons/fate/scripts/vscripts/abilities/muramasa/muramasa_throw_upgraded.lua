@@ -249,7 +249,7 @@ function muramasa_throw_upgraded:OnSpellStart()
             DoDamage(caster, v, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
             v:AddNewModifier(caster, self, "modifier_stunned", {Duration = duration})     
             end 
-            if(  self.isAttri) then
+            if(  self.isAttri) and caster.WickedSwordAcquired then
                 caster.targetqenemy = unit
                 self.swordsfx = ParticleManager:CreateParticle("particles/muramasa/muramasa_swords_on_enemy.vpcf", PATTACH_OVERHEAD_FOLLOW  , unit )
                 Timers:CreateTimer( 1.2, function()
@@ -296,7 +296,7 @@ function muramasa_throw_upgraded:OnSpellStart()
             end     
         end)
 
-        if(  self.isAttri) then
+        if(  self.isAttri) and caster.WickedSwordAcquired then
             caster.targetqenemy = self.target
             self.swordsfx = ParticleManager:CreateParticle("particles/muramasa/muramasa_swords_on_enemy.vpcf", PATTACH_OVERHEAD_FOLLOW  , self.target )
             Timers:CreateTimer( 1.2, function()

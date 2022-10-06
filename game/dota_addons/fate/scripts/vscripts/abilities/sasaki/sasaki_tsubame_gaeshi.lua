@@ -77,8 +77,8 @@ function sasaki_tsubame_gaeshi:OnSpellStart()
 		delay = 0.2
 
 		--if not enhanced then
-			split_damage = split_damage + caster:GetAverageTrueAttackDamage(caster)*2/3
-			final_damage = final_damage + caster:GetAverageTrueAttackDamage(caster)*2/3
+			split_damage = split_damage + caster:GetAverageTrueAttackDamage(caster)*0.3
+			final_damage = final_damage + caster:GetAverageTrueAttackDamage(caster)*0.5
 		--else
 		--	combined_damage = combined_damage + caster:GetAverageTrueAttackDamage(caster)
 		--end

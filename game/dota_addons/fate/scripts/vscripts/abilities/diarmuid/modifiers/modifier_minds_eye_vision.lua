@@ -1,13 +1,5 @@
 modifier_minds_eye_vision = class({})
 
-local tCannotDetect = {
-    "npc_dota_hero_juggernaut",
-    "npc_dota_hero_bounty_hunter",
-    "npc_dota_hero_bloodseeker",
-    "npc_dota_hero_riki",
-    "npc_dota_hero_skeleton_king"
-}
-
 function modifier_minds_eye_vision:DeclareFunctions()
     local funcs = {
         MODIFIER_PROPERTY_PROVIDES_FOW_POSITION,
@@ -17,7 +9,7 @@ function modifier_minds_eye_vision:DeclareFunctions()
 end
 
 function modifier_minds_eye_vision:GetModifierProvidesFOWVision()
-	return self:CanBeDetected(self:GetParent())
+	return 1
 end
 
 function modifier_minds_eye_vision:IsHidden()
@@ -30,14 +22,4 @@ end
 
 function modifier_minds_eye_vision:RemoveOnDeath()
     return true
-end
-
-function modifier_minds_eye_vision:CanBeDetected(hHero)
-    for i=1, #tCannotDetect do
-        if hHero:GetName() == tCannotDetect[i] or hHero:HasModifier("modifier_murderer_mist_in") then
-            return 0
-        end
-    end
-    
-    return 1
 end
