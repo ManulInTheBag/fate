@@ -1,0 +1,1488 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc31:version{165d48dd-8adc-4f1d-abf7-4992e04ad577} -->
+{
+	rootNode = 
+	{
+		_class = "RootNode"
+		children = 
+		[
+			{
+				_class = "RenderMeshList"
+				children = 
+				[
+					{
+						_class = "RenderMeshFile"
+						name = "knife"
+						filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/ryougi/ryougi.fbx"
+						import_scale = 1.0
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = [  ]
+						}
+					},
+					{
+						_class = "RenderMeshFile"
+						name = "no_knife"
+						filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/ryougi/ryougi.fbx"
+						import_scale = 1.0
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = 
+							[
+								"Object003",
+							]
+						}
+					},
+				]
+			},
+			{
+				_class = "AnimationList"
+				children = 
+				[
+					{
+						_class = "AnimFile"
+						name = "idle"
+						activity_name = "ACT_DOTA_IDLE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/ryougi/ryougi.fbx"
+						import_bone_scales = false
+						start_frame = 10
+						end_frame = 94
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "walk"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/ryougi/ryougi.fbx"
+						import_bone_scales = false
+						start_frame = 110
+						end_frame = 140
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "attack1"
+						activity_name = "ACT_DOTA_ATTACK"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/ryougi/ryougi.fbx"
+						import_bone_scales = false
+						start_frame = 160
+						end_frame = 196
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "attack2"
+						activity_name = "ACT_DOTA_ATTACK2"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/ryougi/ryougi.fbx"
+						import_bone_scales = false
+						start_frame = 216
+						end_frame = 252
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "backflip"
+						activity_name = "ACT_DOTA_CAST_ABILITY_4"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/ryougi/ryougi.fbx"
+						import_bone_scales = false
+						start_frame = 272
+						end_frame = 308
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "spell_one"
+						activity_name = "ACT_DOTA_CAST_ABILITY_2_ES_ROLL_END"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/ryougi/ryougi.fbx"
+						import_bone_scales = false
+						start_frame = 328
+						end_frame = 384
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "spell_two"
+						activity_name = "ACT_DOTA_RAZE_1"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/ryougi/ryougi.fbx"
+						import_bone_scales = false
+						start_frame = 385
+						end_frame = 413
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "spell_three"
+						activity_name = "ACT_DOTA_RAZE_2"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/ryougi/ryougi.fbx"
+						import_bone_scales = false
+						start_frame = 487
+						end_frame = 519
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "spell_four"
+						activity_name = "ACT_DOTA_RAZE_3"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/ryougi/ryougi.fbx"
+						import_bone_scales = false
+						start_frame = 539
+						end_frame = 572
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "spell_five"
+						children = 
+						[
+							{
+								_class = "AnimForceBonePosition"
+								bone = "bone_new0"
+								translation = [ 0.0, 0.0, 124.0 ]
+								rotation_xyz = [ -12.0, 0.0, 90.0 ]
+							},
+						]
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/ryougi/ryougi.fbx"
+						import_bone_scales = false
+						start_frame = 592
+						end_frame = 620
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "spell_throw"
+						children = 
+						[
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_BODYGROUP_SET_VALUE"
+								event_frame = 13
+								event_keys = 
+								{
+									bodygroup = "knife"
+									value = 1
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_BODYGROUP_SET_VALUE"
+								event_frame = 1
+								event_keys = 
+								{
+									bodygroup = "knife"
+									value = 0
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_BODYGROUP_SET_VALUE"
+								event_frame = 14
+								event_keys = 
+								{
+									bodygroup = "knife"
+									value = 1
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_BODYGROUP_SET_VALUE"
+								event_frame = 15
+								event_keys = 
+								{
+									bodygroup = "knife"
+									value = 1
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_BODYGROUP_SET_VALUE"
+								event_frame = 16
+								event_keys = 
+								{
+									bodygroup = "knife"
+									value = 1
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_BODYGROUP_SET_VALUE"
+								event_frame = 17
+								event_keys = 
+								{
+									bodygroup = "knife"
+									value = 1
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_BODYGROUP_SET_VALUE"
+								event_frame = 18
+								event_keys = 
+								{
+									bodygroup = "knife"
+									value = 1
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_BODYGROUP_SET_VALUE"
+								event_frame = 19
+								event_keys = 
+								{
+									bodygroup = "knife"
+									value = 1
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_BODYGROUP_SET_VALUE"
+								event_frame = 20
+								event_keys = 
+								{
+									bodygroup = "knife"
+									value = 1
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_BODYGROUP_SET_VALUE"
+								event_frame = 21
+								event_keys = 
+								{
+									bodygroup = "knife"
+									value = 1
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_BODYGROUP_SET_VALUE"
+								event_frame = 22
+								event_keys = 
+								{
+									bodygroup = "knife"
+									value = 1
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_BODYGROUP_SET_VALUE"
+								event_frame = 23
+								event_keys = 
+								{
+									bodygroup = "knife"
+									value = 1
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_BODYGROUP_SET_VALUE"
+								event_frame = 24
+								event_keys = 
+								{
+									bodygroup = "knife"
+									value = 1
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_BODYGROUP_SET_VALUE"
+								event_frame = 25
+								event_keys = 
+								{
+									bodygroup = "knife"
+									value = 1
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_BODYGROUP_SET_VALUE"
+								event_frame = 26
+								event_keys = 
+								{
+									bodygroup = "knife"
+									value = 1
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_BODYGROUP_SET_VALUE"
+								event_frame = 27
+								event_keys = 
+								{
+									bodygroup = "knife"
+									value = 1
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_BODYGROUP_SET_VALUE"
+								event_frame = 28
+								event_keys = 
+								{
+									bodygroup = "knife"
+									value = 1
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_BODYGROUP_SET_VALUE"
+								event_frame = 29
+								event_keys = 
+								{
+									bodygroup = "knife"
+									value = 1
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_BODYGROUP_SET_VALUE"
+								event_frame = 30
+								event_keys = 
+								{
+									bodygroup = "knife"
+									value = 1
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_BODYGROUP_SET_VALUE"
+								event_frame = 31
+								event_keys = 
+								{
+									bodygroup = "knife"
+									value = 1
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_BODYGROUP_SET_VALUE"
+								event_frame = 32
+								event_keys = 
+								{
+									bodygroup = "knife"
+									value = 1
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_BODYGROUP_SET_VALUE"
+								event_frame = 33
+								event_keys = 
+								{
+									bodygroup = "knife"
+									value = 1
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_BODYGROUP_SET_VALUE"
+								event_frame = 34
+								event_keys = 
+								{
+									bodygroup = "knife"
+									value = 1
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_BODYGROUP_SET_VALUE"
+								event_frame = 35
+								event_keys = 
+								{
+									bodygroup = "knife"
+									value = 1
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_BODYGROUP_SET_VALUE"
+								event_frame = 36
+								event_keys = 
+								{
+									bodygroup = "knife"
+									value = 1
+								}
+							},
+						]
+						activity_name = "ACT_DOTA_CAST_ABILITY_2_ES_ROLL"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/ryougi/ryougi.fbx"
+						import_bone_scales = false
+						start_frame = 640
+						end_frame = 676
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "death"
+						activity_name = "ACT_DOTA_DIE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/ryougi/ryougi.fbx"
+						import_bone_scales = false
+						start_frame = 696
+						end_frame = 756
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "strange_run"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/ryougi/ryougi.fbx"
+						import_bone_scales = false
+						start_frame = 776
+						end_frame = 790
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "spell_slam_backjump"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/ryougi/ryougi.fbx"
+						import_bone_scales = false
+						start_frame = 810
+						end_frame = 852
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "run"
+						activity_name = "ACT_DOTA_RUN"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/ryougi/ryougi.fbx"
+						import_bone_scales = false
+						start_frame = 872
+						end_frame = 886
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "spell_channel_one"
+						activity_name = "ACT_DOTA_CAST_ABILITY_2"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/ryougi/ryougi.fbx"
+						import_bone_scales = false
+						start_frame = 907
+						end_frame = 956
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "spell_channel_two"
+						activity_name = "ACT_DOTA_CAST_ABILITY_1_END"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/ryougi/ryougi.fbx"
+						import_bone_scales = false
+						start_frame = 996
+						end_frame = 1017
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "spell_channel_three"
+						activity_name = "ACT_DOTA_CAST_ABILITY_2_END"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/ryougi/ryougi.fbx"
+						import_bone_scales = false
+						start_frame = 1037
+						end_frame = 1045
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "spell_channel_four"
+						activity_name = "ACT_DOTA_CAST_ABILITY_3_END"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/ryougi/ryougi.fbx"
+						import_bone_scales = false
+						start_frame = 1094
+						end_frame = 1126
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "spell_channel_five"
+						activity_name = "ACT_DOTA_CAST_ABILITY_4_END"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/ryougi/ryougi.fbx"
+						import_bone_scales = false
+						start_frame = 1146
+						end_frame = 1183
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "1"
+						activity_name = "ACT_DOTA_SPAWN"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/ryougi/ryougi.fbx"
+						import_bone_scales = false
+						start_frame = 1203
+						end_frame = 1229
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "2"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/ryougi/ryougi.fbx"
+						import_bone_scales = false
+						start_frame = 1249
+						end_frame = 1285
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "3"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/ryougi/ryougi.fbx"
+						import_bone_scales = false
+						start_frame = 1305
+						end_frame = 1360
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "4"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/ryougi/ryougi.fbx"
+						import_bone_scales = false
+						start_frame = 1380
+						end_frame = 1414
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "5"
+						activity_name = "ACT_DOTA_CAST_ABILITY_5"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/ryougi/ryougi.fbx"
+						import_bone_scales = false
+						start_frame = 1434
+						end_frame = 1449
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "6"
+						activity_name = "ACT_DOTA_CAST_ABILITY_6"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/ryougi/ryougi.fbx"
+						import_bone_scales = false
+						start_frame = 1488
+						end_frame = 1538
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "7"
+						activity_name = "ACT_DOTA_CAST_ABILITY_3"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/ryougi/ryougi.fbx"
+						import_bone_scales = false
+						start_frame = 1538
+						end_frame = 1574
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "8"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/ryougi/ryougi.fbx"
+						import_bone_scales = false
+						start_frame = 1594
+						end_frame = 1630
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "rekka_start"
+						activity_name = "ACT_DOTA_CAST_ABILITY_1"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/ryougi/ryougi.fbx"
+						import_bone_scales = false
+						start_frame = 976
+						end_frame = 993
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "stunned"
+						children = 
+						[
+							{
+								_class = "AnimSmoothLoop"
+								frames_from_start = 2
+								frames_from_end = 2
+							},
+						]
+						activity_name = "ACT_DOTA_DISABLED"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/ryougi/ryougi.fbx"
+						import_bone_scales = false
+						start_frame = 1391
+						end_frame = 1406
+						framerate = -1.0
+						reverse = false
+					},
+				]
+				default_root_bone_name = ""
+			},
+			{
+				_class = "MaterialGroupList"
+				children = 
+				[
+					{
+						_class = "DefaultMaterialGroup"
+						remaps = 
+						[
+							{
+								from = "imported material 01.vmat"
+								to = "materials/updated_by_seva_and_hudozhestvenniy_film_spizdili/ryougi/ryougi.vmat"
+							},
+						]
+						use_global_default = false
+						global_default_material = ""
+					},
+					{
+						_class = "MaterialGroup"
+						name = "no_eyes"
+						remaps = 
+						[
+							{
+								from = "imported material 01.vmat"
+								to = "materials/updated_by_seva_and_hudozhestvenniy_film_spizdili/ryougi/ryougi.vmat"
+							},
+						]
+					},
+					{
+						_class = "MaterialGroup"
+						name = "eyes"
+						remaps = 
+						[
+							{
+								from = "imported material 01.vmat"
+								to = "materials/updated_by_seva_and_hudozhestvenniy_film_spizdili/ryougi/ryougi_eyes.vmat"
+							},
+						]
+					},
+				]
+			},
+			{
+				_class = "AttachmentList"
+				children = 
+				[
+					{
+						_class = "Attachment"
+						name = "ATTACH_ATTACK1"
+						parent_bone = "bone_new20"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "ATTACH_HITLOC"
+						parent_bone = "bone_new3"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+				]
+			},
+			{
+				_class = "HitboxSetList"
+				children = 
+				[
+					{
+						_class = "HitboxSet"
+						name = "default"
+						children = 
+						[
+							{
+								_class = "Hitbox"
+								name = "bone_new0"
+								parent_bone = "bone_new0"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -18.303432, -16.49777, -19.038223 ]
+								hitbox_maxs = [ 18.505642, 11.031693, 19.753845 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new1"
+								parent_bone = "bone_new1"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -76.418686, -82.363754, -133.234344 ]
+								hitbox_maxs = [ 100.258018, 104.116722, 102.820557 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new2"
+								parent_bone = "bone_new2"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -15.409773, -9.791342, -0.53801 ]
+								hitbox_maxs = [ 15.464567, 14.314754, 7.461441 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new3"
+								parent_bone = "bone_new3"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -15.832151, -10.409441, -1.773331 ]
+								hitbox_maxs = [ 16.134884, 21.172173, 30.499924 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new8"
+								parent_bone = "bone_new8"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -53.168442, -62.768227, -73.146683 ]
+								hitbox_maxs = [ 64.370613, 48.953918, 62.534912 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new6"
+								parent_bone = "bone_new6"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.161371, -10.387252, -11.462646 ]
+								hitbox_maxs = [ 13.15694, 13.094106, 5.909943 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new9"
+								parent_bone = "bone_new9"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.161928, -8.21602, -26.466309 ]
+								hitbox_maxs = [ 25.412466, 7.416, 7.896423 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new11"
+								parent_bone = "bone_new11"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.068932, -6.419511, -24.840256 ]
+								hitbox_maxs = [ 26.932922, 6.637574, 4.4133 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new13"
+								parent_bone = "bone_new13"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.511616, -4.754278, -9.37291 ]
+								hitbox_maxs = [ 11.01849, 4.819366, 2.189957 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new16"
+								parent_bone = "bone_new16"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.784195, -1.998727, -2.704712 ]
+								hitbox_maxs = [ 2.758549, 1.680374, 1.731461 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new24"
+								parent_bone = "bone_new24"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.102768, -4.585269, -1.032837 ]
+								hitbox_maxs = [ 1.17672, 5.011928, 1.462662 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new5"
+								parent_bone = "bone_new5"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -13.102432, -10.387253, -13.443527 ]
+								hitbox_maxs = [ 2.095968, 13.094105, 5.909943 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new10"
+								parent_bone = "bone_new10"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -25.357958, -8.216024, -26.466156 ]
+								hitbox_maxs = [ 2.216722, 7.415997, 7.896423 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new12"
+								parent_bone = "bone_new12"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -26.932907, -6.419521, -24.84021 ]
+								hitbox_maxs = [ 3.068943, 6.637564, 4.413208 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new18"
+								parent_bone = "bone_new18"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -11.018475, -4.754297, -9.37291 ]
+								hitbox_maxs = [ 1.511581, 4.819347, 2.189957 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new19"
+								parent_bone = "bone_new19"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.185051, -2.256634, -1.885971 ]
+								hitbox_maxs = [ 2.290207, 1.422467, 2.550354 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new23"
+								parent_bone = "bone_new23"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.176765, -4.585294, -2.90213 ]
+								hitbox_maxs = [ 1.102715, 5.011901, 1.462662 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new32"
+								parent_bone = "bone_new32"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -8.224403, -4.219406, -0.681396 ]
+								hitbox_maxs = [ 33.009171, 4.154407, 1.403839 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new_r25"
+								parent_bone = "bone_new_r25"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -9.25676, -10.369638, -46.819382 ]
+								hitbox_maxs = [ 7.761277, 10.910683, 1.350143 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new27"
+								parent_bone = "bone_new27"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -30.567644, -35.46965, -60.890793 ]
+								hitbox_maxs = [ 22.724827, 31.881201, 60.076363 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new26"
+								parent_bone = "bone_new26"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -27.576122, -23.461559, -76.634186 ]
+								hitbox_maxs = [ 19.470093, 20.554611, 1.350113 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new28"
+								parent_bone = "bone_new28"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -25.876116, -46.529762, -60.890778 ]
+								hitbox_maxs = [ 40.257072, 49.97924, 54.25425 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new_r0"
+								parent_bone = "bone_new_r0"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.972786, -8.377935, -24.916733 ]
+								hitbox_maxs = [ 4.53633, 10.419039, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new4"
+								parent_bone = "bone_new4"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.833069, -7.750423, -19.441467 ]
+								hitbox_maxs = [ 5.261351, 9.601498, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new_r6"
+								parent_bone = "bone_new_r6"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -19.512945, -23.913424, -77.363014 ]
+								hitbox_maxs = [ 28.824249, 19.105894, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new7"
+								parent_bone = "bone_new7"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.917982, -6.700796, -0.637886 ]
+								hitbox_maxs = [ 4.217114, 8.075727, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new_r1"
+								parent_bone = "bone_new_r1"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -10.431111, -1.543793, -24.026978 ]
+								hitbox_maxs = [ 7.517419, 1.530367, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new_r9"
+								parent_bone = "bone_new_r9"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -18.011223, -1.255192, -19.387115 ]
+								hitbox_maxs = [ 7.49773, 2.026493, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new_r10"
+								parent_bone = "bone_new_r10"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -34.978127, -30.021341, -80.199646 ]
+								hitbox_maxs = [ 43.539585, 34.909515, 45.956787 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new_r11"
+								parent_bone = "bone_new_r11"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -17.580498, -1.468428, -0.5 ]
+								hitbox_maxs = [ 5.504883, 2.37145, 0.606689 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new_r2"
+								parent_bone = "bone_new_r2"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.012912, -7.795069, -25.283066 ]
+								hitbox_maxs = [ 2.9585, 10.299255, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new_r13"
+								parent_bone = "bone_new_r13"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.635777, -7.027591, -19.391731 ]
+								hitbox_maxs = [ 0.5, 6.087705, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new14"
+								parent_bone = "bone_new14"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -9.450569, -26.885769, -65.698669 ]
+								hitbox_maxs = [ 8.435186, 43.050365, 30.819611 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new_r15"
+								parent_bone = "bone_new_r15"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.956633, -5.98835, -0.5 ]
+								hitbox_maxs = [ 0.5, 5.32369, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new_r3"
+								parent_bone = "bone_new_r3"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -11.524508, -1.496093, -24.768982 ]
+								hitbox_maxs = [ 11.533129, 2.417299, 0.512726 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new_r17"
+								parent_bone = "bone_new_r17"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -53.097202, -24.587982, -81.114853 ]
+								hitbox_maxs = [ 13.265038, 30.23032, 9.84993 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new_r19"
+								parent_bone = "bone_new_r19"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -36.683907, -15.629322, -63.601952 ]
+								hitbox_maxs = [ 13.855565, 20.459087, 26.4767 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new21"
+								parent_bone = "bone_new21"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.381718, -3.270941, -0.5 ]
+								hitbox_maxs = [ 5.617354, 1.242702, 0.606697 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new_r20"
+								parent_bone = "bone_new_r20"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -19.322424, -21.045645, -70.217056 ]
+								hitbox_maxs = [ 22.619871, 11.693967, 50.977806 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new_r22"
+								parent_bone = "bone_new_r22"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.305352, -3.270949, -0.5 ]
+								hitbox_maxs = [ 5.381595, 1.394592, 0.606682 ]
+							},
+						]
+					},
+				]
+			},
+			{
+				_class = "BodyGroupList"
+				children = 
+				[
+					{
+						_class = "BodyGroup"
+						name = "knife"
+						children = 
+						[
+							{
+								_class = "BodyGroupChoice"
+								name = "0"
+								meshes = 
+								[
+									"knife",
+								]
+							},
+							{
+								_class = "BodyGroupChoice"
+								name = "1"
+								meshes = 
+								[
+									"no_knife",
+								]
+							},
+						]
+						hidden_in_tools = false
+					},
+				]
+			},
+		]
+		model_archetype = ""
+		primary_associated_entity = ""
+		anim_graph_name = ""
+	}
+}

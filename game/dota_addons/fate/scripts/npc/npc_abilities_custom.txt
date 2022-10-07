@@ -37,6 +37,7 @@
 #base "abilities/saito/saito_hajime_abilities.kv"
 #base "abilities/merlin/merlin_abilities.kv"
 #base "abilities/muramasa/muramasa_abilities.kv"
+#base "abilities/ryougi/ryougi_abilities.kv"
 
 
 #base "abilities/master/master_abilities.kv"
@@ -557,6 +558,17 @@
 				"States"
 				{
 					"MODIFIER_STATE_SILENCED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}				
+			}
+			"muted"
+			{
+				"TextureName"	"silencer_last_word"
+				"IsDebuff"		"1"
+				//"EffectName"			"particles/generic_gameplay/generic_silence.vpcf"
+				//"EffectAttachType"		"follow_overhead"
+				"States"
+				{
+					"MODIFIER_STATE_MUTED"	"MODIFIER_STATE_VALUE_ENABLED"
 				}				
 			}
 			"stunned"

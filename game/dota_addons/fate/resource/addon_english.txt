@@ -6194,10 +6194,91 @@
 		//      Semiramis
         //====================================
 
-		"npc_dota_hero_phantom_assassin"				"Semiramis"
+        //====================================
+		//      Shiki Ryougi
+        //====================================
+
+		"npc_dota_hero_phantom_assassin"				"Shiki Ryougi"
 
 		"npc_dota_hero_phantom_assassin_hype"		""
 		"npc_dota_hero_phantom_assassin_bio"		""
+
+		"DOTA_Tooltip_modifier_ryougi_knife_fan_slow"				"Hidden Dagger (ying)"
+		"DOTA_Tooltip_modifier_ryougi_knife_fan_slow_Description"	"Slowed"
+
+		"DOTA_Tooltip_modifier_ryougi_lines"						"Mystic Eyes of Death Perception"
+		"DOTA_Tooltip_modifier_ryougi_lines_Description"			"You are not alive. Partially."
+
+		"DOTA_Tooltip_modifier_ryougi_mystic_eyes_active"			"Mystic Eyes of Death Perception"
+		"DOTA_Tooltip_modifier_ryougi_mystic_eyes_active_Description"	"You see death."
+
+		"DOTA_Tooltip_ability_ryougi_knife_throw"					"Hidden Dagger (yang)"
+		"DOTA_Tooltip_ability_ryougi_knife_throw_Description"		"Shiki throws 1 dagger forward. It deals %damage% physical damage to the first enemy."
+		"DOTA_Tooltip_ability_ryougi_knife_throw_range"				"Range:"
+		"DOTA_Tooltip_ability_ryougi_knife_throw_speed"				"Speed:"
+		"DOTA_Tooltip_ability_ryougi_knife_throw_attribute_silence_duration"	"Attribute silence duration:"
+
+		"DOTA_Tooltip_ability_ryougi_knife_fan"						"Hidden Dagger (ying)"
+		"DOTA_Tooltip_ability_ryougi_knife_fan_Description"		"Shiki throws 6 daggers forward. They deal %damage% physical damage each."
+		"DOTA_Tooltip_ability_ryougi_knife_fan_range"				"Range:"
+		"DOTA_Tooltip_ability_ryougi_knife_fan_speed"				"Speed:"
+		"DOTA_Tooltip_ability_ryougi_knife_fan_attribute_slow_duration"	"Attribute slow duration:"
+
+		"DOTA_Tooltip_ability_ryougi_avidya_moon"				"Avidya Moon"
+		"DOTA_Tooltip_ability_ryougi_avidya_moon_Description"	"Shiki flips into the air, while flying forward, and deals physical damage in front of herself."
+		"DOTA_Tooltip_ability_ryougi_avidya_moon_Note0"			"This ability has 0.1 delay. If Shiki is stunned by the end of it, it won't go off. And yeah, hitboxes are awkward. Good luck understanding, how they work."
+		"DOTA_Tooltip_ability_ryougi_avidya_moon_range"			"Range:"
+		"DOTA_Tooltip_ability_ryougi_avidya_moon_damage"		"Damage:"
+
+		"DOTA_Tooltip_ability_ryougi_glass_moon"				"Glass Moon"
+		"DOTA_Tooltip_ability_ryougi_glass_moon_Description"	"Shiki dashes forward, flips into the air and deals physical damage behind herself."
+		"DOTA_Tooltip_ability_ryougi_glass_moon_Note0"			"If Shiki is stunned by the end of dash, the ability won't go off. And yeah, hitboxes are awkward. Good luck understanding, how they work."
+		"DOTA_Tooltip_ability_ryougi_glass_moon_range"			"Range:"
+		"DOTA_Tooltip_ability_ryougi_glass_moon_dash_range"			"Range:"
+		"DOTA_Tooltip_ability_ryougi_glass_moon_damage"		"Damage:"
+
+		"DOTA_Tooltip_ability_ryougi_double_belfry"				"Double Belfry - Row of Beads"
+		"DOTA_Tooltip_ability_ryougi_double_belfry_Description"	"Series of slashes with %radius% range and %window_duration% second window.\n<font color='#58ACFA'>1st (E):</font> Shiki slashes enemies in front of her, dealing %first_damage% physical damage.\n<font color='#58ACFA'>Kick (E-R):</font> Shiki slides forward for %kick_range%. Deals %kick_damage% physical damage in front of her and stuns enemies for %kick_stun% seconds. Ends the sequence.\n<font color='#58ACFA'>2nd (E-E):</font> Shiki quickly slashes enemies in front of her, dealing %second_damage% physical damage.\n<font color='#58ACFA'>3rd (E-E-E):</font> Shiki performs a slash which targets weak points, dealing %third_damage% physical damage and muting enemies for %third_mute_duration% seconds. Ends the sequence.\n<font color='#58ACFA'>4th (E-E-R):</font> Shiki performs a powerful slash, dealing %fourth_damage% physical damage in front of her, pushing enemies back and stunning them for %fourth_stun_duration%."
+
+		"DOTA_Tooltip_ability_ryougi_double_belfry_mech"		"Double Belfry - Row of Beads"
+		"DOTA_Tooltip_ability_ryougi_double_belfry_mech_description"	"Why are we still here? Just to suffer?"
+
+		"DOTA_Tooltip_ability_ryougi_kimono"				"Culled Long-Sleeved Kimono"
+		"DOTA_Tooltip_ability_ryougi_kimono_Description"	"Series of 2 strikes with %window_duration% second window.\n<font color='#58ACFA'>1st (E):</font> Shiki dashes forward for %range% and slashes everything in front of her, dealing %first_damage% physical damage. If she slashes through an enemy, it gets stunned for %first_stun_duration% seconds.\n<font color='#58ACFA'>2nd (E-E):</font> Shiki performs a powerful backward stab, dealing %second_damage% physical damage to the first enemy behind her and locking it for %second_stun_duration% seconds."
+
+		"DOTA_Tooltip_ability_ryougi_backflip"				"Stumbling Cat"
+		"DOTA_Tooltip_ability_ryougi_backflip_Description"	"Shiki flips backwards, becoming invulnerable for 0.7 seconds and disjointing projectiles."
+		"DOTA_Tooltip_ability_ryougi_backflip_range"		"Flip range:"
+		"DOTA_Tooltip_ability_ryougi_backflip_Note0"		"This ability has 0.1 delay. If Shiki is stunned by the end of it, it won't go off."
+
+		"DOTA_Tooltip_ability_ryougi_ying_yang"				"Ying Yang - Paradox Spiral"
+		"DOTA_Tooltip_ability_ryougi_ying_yang_Description"	"Switches between two ability sets Shiki has."
+		"DOTA_Tooltip_ability_ryougi_ying_yang_Note0"		"Can be used while stunned."
+
+		"DOTA_Tooltip_ability_ryougi_mystic_eyes"			"Mystic Eyes of Death Perception"
+		"DOTA_Tooltip_ability_ryougi_mystic_eyes_Description"	"Shiki activates her Mystic Eyes for %duration% seconds. While they are active, each different move except for Double Belfry - Kick cuts one line. Shiki can't continue to cut lines of one enemy with similar moves.\nWhen line is cut, Shiki restores %mana_restore% mana and enemy recieves %immediate_damage%%  of it's maximum health as pure damage and recieves 1 stack of debuff for %line_duration% seconds.\nWhile this debuff persists, it softloks target's health for %health_percent%%  of it's maximum health per stack. If it's higher than that, it's health will slowly decay.\nWhen debuff reaches 4, 8, or 12 stacks, enemy will be locked for %stun_duration% seconds.\nWhen debuff reaches 10 stacks, it will be prolonged until the end of the round."
+		"DOTA_Tooltip_ability_ryougi_mystic_eyes_Note0"			"Health decay is not considered damage."
+		"DOTA_Tooltip_ability_ryougi_mystic_eyes_bonus_vision"	"Attribute bonus vision radius:"
+		"DOTA_Tooltip_ability_ryougi_mystic_eyes_true_sight_range"			"Attribute true sight range:"
+
+		"DOTA_Tooltip_ability_ryougi_collapse"				"Combo: Mystic Eyes of Death Perception - Five Scenic Collapse"
+		"DOTA_Tooltip_ability_ryougi_collapse_Description"	"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: R-R in 4 seconds</font>\n\nShiki dashes forward. If she dashes through an enemy hero, she will dash through him two more times, becoming invulnerable, and then slash him %line_count% times, cutting %line_count% lines and dealing %damage% total physical damage."
+		"DOTA_Tooltip_ability_ryougi_collapse_range"		"Range:"
+
+		"DOTA_Tooltip_ability_ryougi_demise_attribute"		"Attribute: Mystic Eyes of Death Perception - Seven Scenic Demise"
+		"DOTA_Tooltip_ability_ryougi_demise_attribute_Description"		"Using Mystic Eyes of Death Perception taught Shiki a bit about weak points. Each time she deals damage with her knife, she also deals %damage% + %mult% of Shiki's agility pure damage."
+
+		"DOTA_Tooltip_ability_ryougi_selfless_knowledge_attribute"		"Attribute: Selfless Knowledge - Empty Heart, Possess Truth"
+		"DOTA_Tooltip_ability_ryougi_selfless_knowledge_attribute_Description"		"Changes Shiki's class to assassin.\nWhenever Shiki activates Mystic Eyes of Death Perception, she reveals all enemies with lines cut for 3 seconds."
+
+		"DOTA_Tooltip_ability_ryougi_pure_knowledge_attribute"		"Attribute: Pure Knowledge - Empty Boundaries"
+		"DOTA_Tooltip_ability_ryougi_pure_knowledge_attribute_Description"		"Activating Mystic Eyes of Death Perception grants Shiki true sight in small range and additional vision radius."
+
+		"DOTA_Tooltip_ability_ryougi_kiyohime_passing_attribute"		"Attribute: Kiyohime Passing"
+		"DOTA_Tooltip_ability_ryougi_kiyohime_passing_attribute_Description"	"Using Double Belfry - Row of Beads E-E-E or E-E-R reduces it's cooldown to 2 seconds.\nUsing Culled Long-Sleeved Kimono E-E reduces it's cooldown to 4 seconds."
+
+		"DOTA_Tooltip_ability_ryougi_black_moon_attribute"		"Attribute: Black Moon Kite"
+		"DOTA_Tooltip_ability_ryougi_black_moon_attribute_Description"		"Hidden Daggers recieve additional effects: slow (ying) and silence (yang).\nAvidya Moon and Glass Moon can be unit-targetted and if Shiki is close enought to the target at the start of the leap, she will follow them whenever they go."
 
 		//====================================
 		//      Karna

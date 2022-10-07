@@ -314,7 +314,8 @@ cleansable = {
     "modifier_discern_poor_extra",
     "modifier_agni_burn",
     "modifier_muramasa_flame",
-    "muramasa_eye_of_karma"
+    "muramasa_eye_of_karma",
+    "modifier_ryougi_knife_fan_slow"
 }
 
 slowmodifier = {
@@ -356,6 +357,7 @@ slowmodifier = {
     "modifier_saito_slow",
     "modifier_morgan_slow",
     "modifier_muramasa_tsumukari_hit_slow",
+    "modifier_ryougi_knife_fan_slow"
 }
 
 donotlevel = {
@@ -517,7 +519,8 @@ CannotReset = {
     "nero_aestus_domus_aurea",
     "gilgamesh_enkidu",
     "muramasa_eye_of_karma",
-    
+    "ryougi_backflip",
+    "ryougi_collapse"
     
    
 }
@@ -592,7 +595,8 @@ tRemoveTheseModifiers = {
     "modifier_gae_buidhe",
     "modifier_gae_dearg",
     "modifier_atalanta_curse",
-    "modifier_muramasa_tsumukari_buff"
+    "modifier_muramasa_tsumukari_buff",
+    "modifier_ryougi_lines"
 }
 
 tDivineHeroes = {
@@ -2228,7 +2232,7 @@ local heroNames = {
     ["npc_dota_hero_windrunner"] = "Nursery Rhyme",
     ["npc_dota_hero_drow_ranger"] = "Atalanta",
     ["npc_dota_hero_tidehunter"] = "Vlad",
-    ["npc_dota_hero_phantom_assassin"] = "Semiramis",
+    ["npc_dota_hero_phantom_assassin"] = "Shiki Ryougi",
     ["npc_dota_hero_beastmaster"] = "Karna",
     ["npc_dota_hero_naga_siren"] = "Chloe von Einzbern",
     ["npc_dota_hero_riki"] = "Jack the Ripper",
@@ -2283,7 +2287,7 @@ local heroCombos = {
     ["npc_dota_hero_windrunner"] = "nursery_rhyme_story_for_somebodys_sake",
     ["npc_dota_hero_drow_ranger"] = "atalanta_phoebus_catastrophe_barrage",
     ["npc_dota_hero_tidehunter"] = "vlad_combo",
-    ["npc_dota_hero_phantom_assassin"] = "vlad_combo",
+    ["npc_dota_hero_phantom_assassin"] = "ryougi_collapse",
     ["npc_dota_hero_beastmaster"] = "karna_combo_vasavi",
     ["npc_dota_hero_naga_siren"] = "kuro_crane_wings_combo",
     ["npc_dota_hero_riki"] = "jtr_whitechapel_murderer",
@@ -2516,6 +2520,10 @@ function CanBeDetected(hHero)
         if hHero:GetName() == tCannotDetect[i] then
             return false
         end
+    end
+
+    if hHero.SelflessKnowledgeAcquired then
+        return false
     end
     
     return true
