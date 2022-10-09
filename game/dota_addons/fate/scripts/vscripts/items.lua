@@ -779,11 +779,13 @@ function HealingScroll(keys)
 	local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 600
             , DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
 	for k,v in pairs(targets) do
-		if v:GetName() ~= "npc_dota_ward_base" then
-			ParticleManager:SetParticleControl(healFx, 1, v:GetAbsOrigin()) -- target effect location
-    	    v:ApplyHeal(555, caster)
-       		--ability :ApplyDataDrivenModifier(caster, v, "modifier_healing_scroll", {})
-       	end
+		Timers:CreateTimer(0, function()
+			if v:GetName() ~= "npc_dota_ward_base" then
+				ParticleManager:SetParticleControl(healFx, 1, v:GetAbsOrigin()) -- target effect location
+	    	    v:ApplyHeal(555, caster)
+	       		--ability :ApplyDataDrivenModifier(caster, v, "modifier_healing_scroll", {})
+	       	end
+	    end)
     end
 
    	Timers:CreateTimer(2.0, function()

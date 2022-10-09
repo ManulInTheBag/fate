@@ -14,7 +14,15 @@ function ryougi_kimono:GetCastPoint()
 	if self:CheckSequence() == 2 then
 		return 0.50
 	else
-		return 0.40
+		return 0.20
+	end
+end
+
+function ryougi_kimono:GetPlaybackRateOverride()
+    if self:CheckSequence() == 2 then
+		return 1.0
+	else
+		return 2.0
 	end
 end
 
@@ -134,7 +142,7 @@ function ryougi_kimono:Kimono1()
 								        width,
 										DOTA_UNIT_TARGET_TEAM_ENEMY,
 										DOTA_UNIT_TARGET_ALL,
-										DOTA_UNIT_TARGET_FLAG_NONE
+										DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
     								)
 
     EmitSoundOn("jtr_slash", caster)
@@ -158,7 +166,7 @@ function ryougi_kimono:Kimono1()
                                         self:GetSpecialValueFor("radius"),
                                         DOTA_UNIT_TARGET_TEAM_ENEMY,
                                         DOTA_UNIT_TARGET_ALL,
-                                        DOTA_UNIT_TARGET_FLAG_NONE,
+                                        DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
                                         FIND_ANY_ORDER,
                                         false)
 
@@ -195,7 +203,7 @@ end
 function ryougi_kimono:Kimono2()
 	local caster = self:GetCaster()
 	local origin = caster:GetAbsOrigin()
-	local target = origin - caster:GetForwardVector()*150
+	local target = origin - caster:GetForwardVector()*250
 	local damage = self:GetSpecialValueFor("second_damage")
 	local attacked = false
 	local eyes = caster:FindAbilityByName("ryougi_mystic_eyes")
@@ -205,10 +213,10 @@ function ryougi_kimono:Kimono2()
 								        origin,
 								        target,
 								        nil,
-								        50,
+								        100,
 										DOTA_UNIT_TARGET_TEAM_ENEMY,
 										DOTA_UNIT_TARGET_ALL,
-										DOTA_UNIT_TARGET_FLAG_NONE
+										DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
     								)
 
     EmitSoundOn("jtr_slash", caster)

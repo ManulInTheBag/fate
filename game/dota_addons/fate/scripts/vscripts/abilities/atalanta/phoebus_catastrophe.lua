@@ -55,6 +55,13 @@ function atalanta_phoebus_catastrophe_wrapper(ability)
         local dummy2 = CreateUnitByName("dummy_unit", targetLocation, false, nil, nil, caster:GetTeamNumber())
         dummy2:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
 	dummy2:SetOrigin(targetLocation + Vector(-100, 0, 0))
+
+
+    --небольшой комментарий: еблан, который писал этот ебаный ульт аталанты - пожалуйста, выйди в окно нахуй. Тот факт, что он не удалял дамми-юниты - это просто пиздец
+    Timers:CreateTimer(10, function()
+        dummy:RemoveSelf()
+        dummy2:RemoveSelf()
+    end)
     
         caster:ShootArrow({
             Target = dummy,

@@ -29,7 +29,7 @@ function ryougi_glass_moon:OnSpellStart()
 	Timers:CreateTimer(0.0, function()
 		if caster:IsStunned() then return end
 
-		EmitSoundOn("ryougi_moon_1", caster)
+		caster:EmitSound("ryougi_moon_1")
 
 		local target = self:GetCursorPosition()
 		local target_enemy = nil
@@ -65,7 +65,7 @@ function ryougi_glass_moon:OnSpellStart()
 		caster:SetPhysicsVelocity(direction*speed)
 		caster:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
 
-		if targetted and ((origin - origin_e):Length2D() > range/2 + self:GetSpecialValueFor("dash_range")) then
+		if targetted and ((origin - origin_e):Length2D() > (range+200)/2 + self:GetSpecialValueFor("dash_range")) then
 			targetted = false
 		end
 
@@ -139,7 +139,7 @@ function ryougi_glass_moon:OnSpellStart()
 													self:GetAbilityTargetFlags()
 			    								)
 
-					    EmitSoundOn("jtr_slash", caster)
+					    caster:EmitSound("jtr_slash")
 
 					    local damage = self:GetSpecialValueFor("damage")
 
@@ -239,7 +239,7 @@ function ryougi_glass_moon:OnSpellStart()
 													self:GetAbilityTargetFlags()
 			    								)
 
-					    EmitSoundOn("jtr_slash", caster)
+					    caster:EmitSound("jtr_slash")
 
 					    local damage = self:GetSpecialValueFor("damage")
 

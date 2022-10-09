@@ -78,7 +78,7 @@ function muramasa_throw:OnSpellStart()
     local throw_range = self:GetSpecialValueFor("throw_range")
     local throw_speed = self:GetSpecialValueFor("throw_speed")
     local throw_duration = self:GetSpecialValueFor("throw_duration")
-    if IsSpellBlocked(self.target ) then return end
+    --if IsSpellBlocked(self.target ) then return end
 	local direction = (self:GetCursorPosition() - caster:GetAbsOrigin()):Normalized()
     local directionpoint = throw_range*direction +self.target:GetAbsOrigin()
   

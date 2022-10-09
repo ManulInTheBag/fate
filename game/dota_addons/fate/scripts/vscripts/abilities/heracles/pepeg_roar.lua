@@ -61,7 +61,7 @@ function berserker_5th_madmans_roar:OnSpellStart()
 	--caster:SetRenderColor(255, 127, 127)
 
 	local soundQueue = math.random(1,100)
-	EmitGlobalSound("Haru_Yo")
+	EmitGlobalSound("berserker_roar_02")
 	LoopOverPlayers(function(player, playerID, playerHero)
     	--print("looping through " .. playerHero:GetName())
         if playerHero.gachi == true then

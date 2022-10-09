@@ -27,7 +27,15 @@ function modifier_battle_cont_active:GetDisableHealing()
 end
 function modifier_battle_cont_active:OnCreated(table)
     if IsServer() then
-        EmitSoundOn("Swordland", self:GetParent())
+        LoopOverPlayers(function(player, playerID, playerHero)
+             --print("looping through " .. playerHero:GetName())
+                if playerHero.music == true then
+                -- apply legion horn vsnd on their client
+                    CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="Swordland"})
+                --caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+                end
+            end)
+        --EmitSoundOn("Swordland", self:GetParent())
 
         --[[if table.killer == nil then
             self.killer = self:GetParent()
@@ -45,7 +53,7 @@ function modifier_battle_cont_active:OnRefresh(table)
 end
 function modifier_battle_cont_active:OnDestroy()
     if IsServer() then
-        StopSoundOn("Swordland", self:GetParent())
+        --StopSoundOn("Swordland", self:GetParent())
 
         self:GetParent():RemoveModifierByName("modifier_rho_aias")
 

@@ -94,7 +94,7 @@ function atalanta_crossing_arcadia:ShootAoEArrow(keys)
         originDummy:SetOrigin(keys.Origin)
         originDummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
 
-        Timers:CreateTimer(1, function()
+        Timers:CreateTimer(keys.Delay + 0.1, function()
             originDummy:RemoveSelf()
         end)
 

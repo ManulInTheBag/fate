@@ -141,7 +141,7 @@ function ryougi_double_belfry:Belfry1()
                                         self:GetSpecialValueFor("radius"),
                                         DOTA_UNIT_TARGET_TEAM_ENEMY,
                                         DOTA_UNIT_TARGET_ALL,
-                                        DOTA_UNIT_TARGET_FLAG_NONE,
+                                        DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
                                         FIND_ANY_ORDER,
                                         false)
 
@@ -195,7 +195,7 @@ function ryougi_double_belfry:Belfry2()
                                         self:GetSpecialValueFor("radius"),
                                         DOTA_UNIT_TARGET_TEAM_ENEMY,
                                         DOTA_UNIT_TARGET_ALL,
-                                        DOTA_UNIT_TARGET_FLAG_NONE,
+                                        DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
                                         FIND_ANY_ORDER,
                                         false)
 
@@ -248,7 +248,7 @@ function ryougi_double_belfry:Belfry3()
                                         self:GetSpecialValueFor("radius"),
                                         DOTA_UNIT_TARGET_TEAM_ENEMY,
                                         DOTA_UNIT_TARGET_ALL,
-                                        DOTA_UNIT_TARGET_FLAG_NONE,
+                                        DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
                                         FIND_ANY_ORDER,
                                         false)
 
@@ -402,7 +402,7 @@ function ryougi_double_belfry_mech:Belfry2()
 								        75,
 										DOTA_UNIT_TARGET_TEAM_ENEMY,
 										DOTA_UNIT_TARGET_ALL,
-										DOTA_UNIT_TARGET_FLAG_NONE
+										DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
     								)
 
     if caster and IsValidEntity(caster) and enemies and #enemies>0 then
@@ -441,7 +441,7 @@ function ryougi_double_belfry_mech:Belfry3()
                                         self:GetSpecialValueFor("radius"),
                                         DOTA_UNIT_TARGET_TEAM_ENEMY,
                                         DOTA_UNIT_TARGET_ALL,
-                                        DOTA_UNIT_TARGET_FLAG_NONE,
+                                        DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
                                         FIND_ANY_ORDER,
                                         false)
 

@@ -6,7 +6,18 @@ function modifier_rampant_warrior:OnCreated(args)
 		self.HitDamage = args.HitDamage
 		self.ProcReady = true
 		self.AttackSpeed = args.AttackSpeed
-		EmitGlobalSound("Gay_Power")
+		--EmitGlobalSound("icefield_waltz")
+
+		LoopOverPlayers(function(player, playerID, playerHero)
+        --print("looping through " .. playerHero:GetName())
+	        if playerHero.gachi == true then
+	            -- apply legion horn vsnd on their client
+	            CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="gay_power_2"})
+	            --caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+	        else
+	        	CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="icefield_waltz"})
+	        end
+   		end)
 
 		--print("Synching net table stats")
 		CustomNetTables:SetTableValue("sync","rampant_warrior", { attack_speed = self.AttackSpeed })

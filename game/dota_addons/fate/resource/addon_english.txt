@@ -6212,6 +6212,9 @@
 		"DOTA_Tooltip_modifier_ryougi_mystic_eyes_active"			"Mystic Eyes of Death Perception"
 		"DOTA_Tooltip_modifier_ryougi_mystic_eyes_active_Description"	"You see death."
 
+		"DOTA_Tooltip_modifier_ryougi_collapse_cd"					"Combo: Mystic Eyes of Death Perception - Five Scenic Collapse"
+		"DOTA_Tooltip_modifier_ryougi_collapse_cd_Description"		"Is on cooldown."
+
 		"DOTA_Tooltip_ability_ryougi_knife_throw"					"Hidden Dagger (yang)"
 		"DOTA_Tooltip_ability_ryougi_knife_throw_Description"		"Shiki throws 1 dagger forward. It deals %damage% physical damage to the first enemy."
 		"DOTA_Tooltip_ability_ryougi_knife_throw_range"				"Range:"
@@ -6234,7 +6237,7 @@
 		"DOTA_Tooltip_ability_ryougi_glass_moon_Description"	"Shiki dashes forward, flips into the air and deals physical damage behind herself."
 		"DOTA_Tooltip_ability_ryougi_glass_moon_Note0"			"If Shiki is stunned by the end of dash, the ability won't go off. And yeah, hitboxes are awkward. Good luck understanding, how they work."
 		"DOTA_Tooltip_ability_ryougi_glass_moon_range"			"Range:"
-		"DOTA_Tooltip_ability_ryougi_glass_moon_dash_range"			"Range:"
+		"DOTA_Tooltip_ability_ryougi_glass_moon_dash_range"			"Dash range:"
 		"DOTA_Tooltip_ability_ryougi_glass_moon_damage"		"Damage:"
 
 		"DOTA_Tooltip_ability_ryougi_double_belfry"				"Double Belfry - Row of Beads"
@@ -6256,7 +6259,7 @@
 		"DOTA_Tooltip_ability_ryougi_ying_yang_Note0"		"Can be used while stunned."
 
 		"DOTA_Tooltip_ability_ryougi_mystic_eyes"			"Mystic Eyes of Death Perception"
-		"DOTA_Tooltip_ability_ryougi_mystic_eyes_Description"	"Shiki activates her Mystic Eyes for %duration% seconds. While they are active, each different move except for Double Belfry - Kick cuts one line. Shiki can't continue to cut lines of one enemy with similar moves.\nWhen line is cut, Shiki restores %mana_restore% mana and enemy recieves %immediate_damage%%  of it's maximum health as pure damage and recieves 1 stack of debuff for %line_duration% seconds.\nWhile this debuff persists, it softloks target's health for %health_percent%%  of it's maximum health per stack. If it's higher than that, it's health will slowly decay.\nWhen debuff reaches 4, 8, or 12 stacks, enemy will be locked for %stun_duration% seconds.\nWhen debuff reaches 10 stacks, it will be prolonged until the end of the round."
+		"DOTA_Tooltip_ability_ryougi_mystic_eyes_Description"	"<font color='#58ACFA'>Passive:</font> each knife slash or thrown knife deals additional physical damage equal to Shiki's attack damage.\n<font color='#58ACFA'>Active:</font> Shiki activates her Mystic Eyes for %duration% seconds. While they are active, each different move except for Double Belfry - Kick cuts one line. Shiki can't continue to cut lines of one enemy with similar moves.\nWhen line is cut, Shiki restores %mana_restore% mana and enemy recieves %immediate_damage%%  of it's maximum health as pure damage and recieves 1 stack of debuff for %line_duration% seconds.\nWhile this debuff persists, it softloks target's health for %health_percent%%  of it's maximum health per stack. If it's higher than that, it's health will slowly decay.\nWhen debuff reaches 4, 8, or 12 stacks, enemy will be locked for %stun_duration% seconds.\nWhen debuff reaches 10 stacks, it will be prolonged until the end of the round."
 		"DOTA_Tooltip_ability_ryougi_mystic_eyes_Note0"			"Health decay is not considered damage."
 		"DOTA_Tooltip_ability_ryougi_mystic_eyes_bonus_vision"	"Attribute bonus vision radius:"
 		"DOTA_Tooltip_ability_ryougi_mystic_eyes_true_sight_range"			"Attribute true sight range:"

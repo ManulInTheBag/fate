@@ -606,7 +606,6 @@ tDivineHeroes = {
     "npc_dota_hero_skywrath_mage",
     "npc_dota_hero_chen",
     "npc_dota_hero_enchantress",
-    "npc_dota_hero_phantom_assassin",
     "npc_dota_hero_beastmaster"
 }
 

@@ -9,7 +9,7 @@ ryougi_mystic_eyes = class({})
 function ryougi_mystic_eyes:OnSpellStart()
 	local caster = self:GetCaster()
 
-	EmitSoundOn("ryougi_eyes", caster)
+	caster:EmitSound("ryougi_eyes")
 
 	if caster:HasModifier("modifier_ryougi_pure_knowledge") then
 		caster:AddNewModifier(caster, self, "modifier_item_ward_true_sight", {true_sight_range = self:GetSpecialValueFor("true_sight_range"), duration = self:GetSpecialValueFor("duration")})
@@ -43,15 +43,18 @@ function ryougi_mystic_eyes:CutLine(enemy, line_name, is_fan)
 	end
 
 	if not enemy:IsAlive() then return end
+
+	DoDamage(caster, enemy, caster:GetAverageTrueAttackDamage(caster)*multiplier, DAMAGE_TYPE_PHYSICAL, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self, false)
+
+	if caster.DemiseAcquired then
+		DoDamage(caster, enemy, (self:GetSpecialValueFor("demise_damage") + caster:GetAgility()*self:GetSpecialValueFor("agi_mult"))*multiplier, DAMAGE_TYPE_PURE, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self, false)
+	end
+
 	if not enemy:IsHero() then
 		if caster:HasModifier("modifier_ryougi_mystic_eyes_active") then
 			DoDamage(caster, enemy, enemy:GetMaxHealth()*0.1*multiplier, DAMAGE_TYPE_PURE, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self, false)
 		end
 		return
-	end
-
-	if caster.DemiseAcquired then
-		DoDamage(caster, enemy, (self:GetSpecialValueFor("demise_damage") + caster:GetAgility()*self:GetSpecialValueFor("agi_mult"))*multiplier, DAMAGE_TYPE_PURE, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self, false)
 	end
 
 	if not caster:HasModifier("modifier_ryougi_mystic_eyes_active") then return end

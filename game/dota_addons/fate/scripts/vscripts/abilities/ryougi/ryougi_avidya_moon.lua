@@ -38,7 +38,7 @@ function ryougi_avidya_moon:OnSpellStart()
 		direction_e = (Vector(origin_e.x, origin_e.y, 0) - Vector(origin.x, origin.y, 0)):Normalized()
 	end
 
-	if targetted and ((origin - origin_e):Length2D() > self:GetSpecialValueFor("range")/2) then
+	if targetted and ((origin - origin_e):Length2D() > (self:GetSpecialValueFor("range")+200)/2) then
 		targetted = false
 		target = origin_e
 	end
@@ -54,7 +54,8 @@ function ryougi_avidya_moon:OnSpellStart()
 		end
 		local counter = 0
 
-		EmitSoundOn("ryougi_moon_2", caster)
+		--EmitSoundOn("ryougi_moon_2", caster)
+		caster:EmitSound("ryougi_moon_2")
 
 		caster:AddNewModifier(caster, self, "modifier_ryougi_avidya_moon", {duration = 0.3})
 		--giveUnitDataDrivenModifier(caster, caster, "jump_pause", 0.6)
@@ -71,7 +72,7 @@ function ryougi_avidya_moon:OnSpellStart()
 
 			if targetted then
 				caster:SetForwardVector(direction_e)
-				caster:SetAbsOrigin(target_enemy:GetAbsOrigin() + direction_e*(-250 + 0.033*range/0.3*counter))
+				caster:SetAbsOrigin(target_enemy:GetAbsOrigin() + direction_e*(-1*range/2 + 0.033*range/0.3*counter))
 			else
 				local origin_t = caster:GetAbsOrigin()
 				caster:SetForwardVector(direction)
@@ -90,7 +91,7 @@ function ryougi_avidya_moon:OnSpellStart()
 											self:GetAbilityTargetFlags()
 	    								)
 
-			    EmitSoundOn("jtr_slash", caster)
+			    caster:EmitSound("jtr_slash")
 
 			    local damage = self:GetSpecialValueFor("damage")
 
