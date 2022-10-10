@@ -135,7 +135,8 @@ function atalanta_celestial_arrow:OnProjectileThink(location)
         local radius = tAttributeTable.fVisionRadius
         local duration = tAttributeTable.fVisionDuration
 
-        AddFOWViewer(caster:GetTeamNumber(), location, radius, duration, false)
+        --AddFOWViewer(caster:GetTeamNumber(), location, radius, duration, false)
+        SpawnVisionDummy(caster, location, radius, duration, false)
     end
 end
 --[[

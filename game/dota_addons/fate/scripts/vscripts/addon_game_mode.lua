@@ -3503,13 +3503,13 @@ function FateGameMode:TakeDamageFilter(filterTable)
     end
     
     -- Functionality for the False Promise part of NR's new ult.
-    if victim:HasModifier("modifier_qgg_oracle") then
+    --[[if victim:HasModifier("modifier_qgg_oracle") then
         local hModifier = victim:FindModifierByName("modifier_qgg_oracle")
         local tInfo = { hAttacker = attacker, fDamage = damage, eDamageType = damageType }
         tInfo.hAbility = inflictor
         table.insert(hModifier.tDamageInstances, tInfo)
         return false
-    end
+    end]]
 
     -- if Nursery Rhyme's Doppelganger is attemping to deal lethal damage
     if inflictor and inflictor:GetName() == "nursery_rhyme_doppelganger" and damage > victim:GetHealth() then

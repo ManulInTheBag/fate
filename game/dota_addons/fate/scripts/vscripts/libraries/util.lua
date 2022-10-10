@@ -670,7 +670,7 @@ end
 LinkLuaModifier("modifier_chloe_hrunting_possibility_provider", "abilities/kuro/modifiers/modifier_chloe_hrunting_possibility_provider", LUA_MODIFIER_MOTION_NONE)
 
 function SpawnVisionDummy(owner, location, radius, duration, bTrueSight)
-    local visiondummy = CreateUnitByName("sight_dummy_unit", location, false, owner, owner, owner:GetTeamNumber())
+    local visiondummy = CreateUnitByName("sight_dummy_unit", location, false, nil, nil, owner:GetTeamNumber())
     visiondummy:SetDayTimeVisionRange(radius)
     visiondummy:SetNightTimeVisionRange(radius)
     local unseen = visiondummy:FindAbilityByName("dummy_unit_passive")
