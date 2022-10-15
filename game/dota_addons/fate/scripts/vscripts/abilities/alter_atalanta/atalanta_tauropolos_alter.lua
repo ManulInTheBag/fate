@@ -17,7 +17,13 @@ function atalanta_tauropolos_alter:GetCustomCastError()
 end
 
 function atalanta_tauropolos_alter:OnAbilityPhaseStart()
-    self:GetCaster():EmitSound("atalanta_ultimate_"..math.random(1,2))
+    
+    if( self:GetCaster():HasModifier( "modifier_atalanta_jump")) then
+        
+         EmitSoundOn("atalanta_ultimate_"..math.random(1,2),  self:GetCaster())
+    else
+        self:GetCaster():EmitSound("atalanta_ultimate_"..math.random(1,2))
+    end
     return true
 end
 

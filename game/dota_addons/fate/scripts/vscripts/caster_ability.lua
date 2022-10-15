@@ -473,37 +473,40 @@ function CasterFarSight(keys)
 		SendErrorMessage(caster:GetPlayerOwnerID(), "#another_clair_used")
 		return
 	end
-
-	local truesightdummy = CreateUnitByName("sight_dummy_unit", keys.target_points[1], false, nil, nil, keys.caster:GetTeamNumber())
+	local truesightdummy = SpawnVisionDummy(caster, keys.target_points[1], radius, 9, true)
 	truesightdummy:SetDayTimeVisionRange(radius)
 	truesightdummy:SetNightTimeVisionRange(radius)
 	truesightdummy:EmitSound("Hero_KeeperOfTheLight.BlindingLight") 
 
 	local unseen = truesightdummy:FindAbilityByName("dummy_unit_passive")
 	unseen:SetLevel(1)
+ 
 
+	local circleFxIndexEnemyTeam = ParticleManager:CreateParticleForTeam( "particles/custom/archer/archer_clairvoyance_circle_enemyteam.vpcf",  PATTACH_WORLDORIGIN, nil, caster:GetOpposingTeamNumber() )
+	ParticleManager:SetParticleShouldCheckFoW(circleFxIndexEnemyTeam, false)
+	ParticleManager:SetParticleControl( circleFxIndexEnemyTeam, 0, truesightdummy:GetAbsOrigin() )
+	ParticleManager:SetParticleControl( circleFxIndexEnemyTeam, 1, Vector( radius, radius, radius ) )
+	ParticleManager:SetParticleControl( circleFxIndexEnemyTeam, 2, Vector( 8, 0, 0 ) )
+	local circleFxIndexTeam = ParticleManager:CreateParticleForTeam( "particles/custom/archer/archer_clairvoyance_circle_yourteam.vpcf", PATTACH_WORLDORIGIN, nil,caster:GetTeamNumber() )
+	ParticleManager:SetParticleControl( circleFxIndexTeam, 0, truesightdummy:GetAbsOrigin() )
+	ParticleManager:SetParticleControl( circleFxIndexTeam, 1, Vector( radius, radius, radius ) )
+	ParticleManager:SetParticleControl( circleFxIndexTeam, 2, Vector( 8, 0, 0 ) )
 	
-	Timers:CreateTimer(8, function() DummyEnd(truesightdummy) return end)
-
-	local circleFxIndex = ParticleManager:CreateParticle( "particles/custom/archer/archer_clairvoyance_circle.vpcf", PATTACH_CUSTOMORIGIN, truesightdummy )
-	ParticleManager:SetParticleControl( circleFxIndex, 0, truesightdummy:GetAbsOrigin() )
-	ParticleManager:SetParticleControl( circleFxIndex, 1, Vector( radius, radius, radius ) )
-	ParticleManager:SetParticleControl( circleFxIndex, 2, Vector( 8, 0, 0 ) )
-	
-	local dustFxIndex = ParticleManager:CreateParticle( "particles/custom/archer/archer_clairvoyance_dust.vpcf", PATTACH_CUSTOMORIGIN, truesightdummy )
+	local dustFxIndex = ParticleManager:CreateParticle( "particles/custom/archer/archer_clairvoyance_dust.vpcf",  PATTACH_WORLDORIGIN, nil )
+	ParticleManager:SetParticleShouldCheckFoW(dustFxIndex, false)
 	ParticleManager:SetParticleControl( dustFxIndex, 0, truesightdummy:GetAbsOrigin() )
 	ParticleManager:SetParticleControl( dustFxIndex, 1, Vector( radius, radius, radius ) )
 	
-	truesightdummy.circle_fx = circleFxIndex
-	truesightdummy.dust_fx = dustFxIndex
 	ParticleManager:SetParticleControl( dustFxIndex, 1, Vector( radius, radius, radius ) )
 			
 	-- Destroy particle after delay
 	Timers:CreateTimer( 8, function()
-			ParticleManager:DestroyParticle( circleFxIndex, false )
+			ParticleManager:DestroyParticle( circleFxIndexEnemyTeam, false )
 			ParticleManager:DestroyParticle( dustFxIndex, false )
-			ParticleManager:ReleaseParticleIndex( circleFxIndex )
+			ParticleManager:ReleaseParticleIndex( circleFxIndexEnemyTeam )
 			ParticleManager:ReleaseParticleIndex( dustFxIndex )
+			ParticleManager:DestroyParticle( circleFxIndexTeam, false )
+			ParticleManager:ReleaseParticleIndex( circleFxIndexTeam )
 			return nil
 		end
 	)

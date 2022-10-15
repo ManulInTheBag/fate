@@ -22,13 +22,25 @@ end]]
 function jeanne_lagron:OnSpellStart()
 	local caster = self:GetCaster()
 	local block = self:GetSpecialValueFor("block_duration")
-
+    local target_point = self:GetCursorPosition()
     StartAnimation(caster, {duration=block + 0.5, activity=ACT_DOTA_CAST_ABILITY_6, rate=0.2})
 
     caster:EmitSound("lagron")
 
 	caster:AddNewModifier(caster, self, "modifier_jeanne_lagron_block", {duration = block})
-
+    Timers:CreateTimer(0.2, function()
+		local point_particle = ParticleManager:CreateParticle("particles/jeanne_alter/lagron_aoe.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	 
+		ParticleManager:SetParticleControl(point_particle, 0,  target_point )
+		ParticleManager:SetParticleControl(point_particle, 1,  Vector(300,0,0) )
+ 
+		Timers:CreateTimer(1.0, function()
+			ParticleManager:DestroyParticle(point_particle, false)
+			ParticleManager:ReleaseParticleIndex(point_particle)
+		 
+		end)
+		return
+	end)
     caster:FaceTowards(self:GetCursorPosition())
 end
 

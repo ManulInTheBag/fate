@@ -147,13 +147,17 @@ function kuro_crane_wings:FireExtraSwords(targetPoint, radius)
 			Timers:CreateTimer(2, function()
 				dummy:RemoveSelf()
 			end)
-
+			local effectName = "particles/custom/archer/emiya_kb_swords_left.vpcf"
+			if(i == 2 or i == 4) then
+				effectName = "particles/custom/archer/emiya_kb_swords_right.vpcf"
+			
+			end 
 			local projectileSpeed = (targetPoint - target:GetAbsOrigin()):Length2D() / 0.55
 			local info = {
 				Target = target, 
 				Source = dummy,
 				Ability = kbAbility,
-				EffectName = "particles/units/heroes/hero_queenofpain/queen_shadow_strike.vpcf",
+				EffectName = effectName,
 				vSpawnOrigin = dummy:GetAbsOrigin(),
 				iMoveSpeed = projectileSpeed,
 				bDodgeable = true,

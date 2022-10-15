@@ -60,7 +60,7 @@ for i = 1,kappa do
 		dummyL:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
 		dummyL:SetForwardVector(left_forward)
 
-		local fxIndex1 = ParticleManager:CreateParticle( "particles/custom/archer/emiya_kb_swords.vpcf", PATTACH_ABSORIGIN_FOLLOW, dummyL )
+		local fxIndex1 = ParticleManager:CreateParticle( "particles/custom/archer/emiya_kb_swords_left.vpcf", PATTACH_ABSORIGIN_FOLLOW, dummyL )
 		ParticleManager:SetParticleControl( fxIndex1, 0, dummyL:GetAbsOrigin() )
 
 		Timers:CreateTimer(function()
@@ -96,7 +96,7 @@ for i = 1,kappa do
 		dummyR:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
 		dummyR:SetForwardVector(right_forward)	
 
-		local fxIndex2 = ParticleManager:CreateParticle( "particles/custom/archer/emiya_kb_swords.vpcf", PATTACH_ABSORIGIN_FOLLOW, dummyR )
+		local fxIndex2 = ParticleManager:CreateParticle( "particles/custom/archer/emiya_kb_swords_right.vpcf", PATTACH_ABSORIGIN_FOLLOW, dummyR )
 		ParticleManager:SetParticleControl( fxIndex2, 0, dummyR:GetAbsOrigin() )
 
 		Timers:CreateTimer(function()

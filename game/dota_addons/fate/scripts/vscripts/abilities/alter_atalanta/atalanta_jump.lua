@@ -178,7 +178,7 @@ function modifier_atalanta_jump:PlayEffects()
 		for _,enemy in ipairs(enemies2) do
 	            local knockback = { should_stun = self.parent.EvolutionAcquired,
 	                                knockback_duration = 0.5,
-	                                duration = 1.0,
+	                                duration = 0.5,
 	                                knockback_distance = self.parent.TornadoAcquired and -300 or 0,
 	                                knockback_height = self.parent.EvolutionAcquired and 50 or 0,
 	                                center_x = self.parent:GetAbsOrigin().x,

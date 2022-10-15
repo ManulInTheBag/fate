@@ -31,9 +31,9 @@ function mordred_slash:OnSpellStart()
                                         false)
 
     for _,enemy in pairs(enemies) do
-        local origin_difference = caster:GetAbsOrigin() - enemy:GetAbsOrigin()
-   		local origin_difference_norm = origin_difference:Normalized()
-   		if caster:GetForwardVector():Dot(origin_difference) < 0 then
+		local origin_diff = enemy:GetAbsOrigin() - caster:GetAbsOrigin()
+		local origin_diff_norm = origin_diff:Normalized()
+		if caster:GetForwardVector():Dot(origin_diff_norm) > 0 then
 			if caster:HasModifier("pedigree_off") and not enemy:IsMagicImmune() then
 				DoDamage(caster, enemy, self:GetSpecialValueFor("mana_damage")/100*caster:GetMana()*self:GetSpecialValueFor("mana_percent")/100, DAMAGE_TYPE_MAGICAL, 0, self, false)
 		       	enemy:AddNewModifier(caster, self, "modifier_stunned", {Duration = self:GetSpecialValueFor("duration")})

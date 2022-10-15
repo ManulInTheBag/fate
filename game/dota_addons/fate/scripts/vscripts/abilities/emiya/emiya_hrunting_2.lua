@@ -129,6 +129,8 @@ function emiya_hrunting_2:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
     for k,v in pairs(targets) do
         DoDamage(hCaster, v, fTargetDamage, DAMAGE_TYPE_MAGICAL, 0, self, false)
         v:AddNewModifier(hCaster, v, "modifier_stunned", {Duration = fStun})
+        giveUnitDataDrivenModifier(hCaster, v, "locked", fStun + 1.5)
+        giveUnitDataDrivenModifier(hCaster, v, "silenced", fStun + 1.5 )
     end
 end
 

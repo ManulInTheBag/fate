@@ -146,9 +146,9 @@ function ryougi_double_belfry:Belfry1()
                                         false)
 
     for _,enemy in pairs(enemies) do
-		local origin_difference = caster:GetAbsOrigin() - enemy:GetAbsOrigin()
-		local origin_difference_norm = origin_difference:Normalized()
-		if caster:GetForwardVector():Dot(origin_difference) < 0 then
+		local origin_diff = enemy:GetAbsOrigin() - caster:GetAbsOrigin()
+		local origin_diff_norm = origin_diff:Normalized()
+		if caster:GetForwardVector():Dot(origin_diff_norm) > 0 then
 		    DoDamage(caster, enemy, self:GetSpecialValueFor("first_damage"), DAMAGE_TYPE_PHYSICAL, 0, self, false)
 		    EmitSoundOn("ryougi_hit", enemy)
 		    eyes:CutLine(enemy, "belfry_1")
@@ -189,9 +189,9 @@ function ryougi_double_belfry:Belfry2()
                                         false)
 
     for _,enemy in pairs(enemies) do
-		local origin_difference = caster:GetAbsOrigin() - enemy:GetAbsOrigin()
-		local origin_difference_norm = origin_difference:Normalized()
-		if caster:GetForwardVector():Dot(origin_difference) < 0 then
+		local origin_diff = enemy:GetAbsOrigin() - caster:GetAbsOrigin()
+		local origin_diff_norm = origin_diff:Normalized()
+		if caster:GetForwardVector():Dot(origin_diff_norm) > 0 then
 		    DoDamage(caster, enemy, self:GetSpecialValueFor("second_damage"), DAMAGE_TYPE_PHYSICAL, 0, self, false)
 		    EmitSoundOn("ryougi_hit", enemy)
 		    eyes:CutLine(enemy, "belfry_2")
@@ -231,9 +231,9 @@ function ryougi_double_belfry:Belfry3()
                                         false)
 
     for _,enemy in pairs(enemies) do
-		local origin_difference = caster:GetAbsOrigin() - enemy:GetAbsOrigin()
-		local origin_difference_norm = origin_difference:Normalized()
-		if caster:GetForwardVector():Dot(origin_difference) < 0 then
+		local origin_diff = enemy:GetAbsOrigin() - caster:GetAbsOrigin()
+		local origin_diff_norm = origin_diff:Normalized()
+		if caster:GetForwardVector():Dot(origin_diff_norm) > 0 then
 		    DoDamage(caster, enemy, self:GetSpecialValueFor("third_damage"), DAMAGE_TYPE_PHYSICAL, 0, self, false)
 		    --enemy:AddNewModifier(caster, self, "modifier_muted", {duration = self:GetSpecialValueFor("third_mute_duration")})
 		    giveUnitDataDrivenModifier(caster, enemy, "muted", self:GetSpecialValueFor("third_mute_duration"))
@@ -413,9 +413,9 @@ function ryougi_double_belfry_mech:Belfry3()
                                         false)
 
     for _,enemy in pairs(enemies) do
-		local origin_difference = caster:GetAbsOrigin() - enemy:GetAbsOrigin()
-		local origin_difference_norm = origin_difference:Normalized()
-		if caster:GetForwardVector():Dot(origin_difference) < 0 then
+		local origin_diff = enemy:GetAbsOrigin() - caster:GetAbsOrigin()
+		local origin_diff_norm = origin_diff:Normalized()
+		if caster:GetForwardVector():Dot(origin_diff_norm) > 0 then
         	local kborigin = caster:GetAbsOrigin()
         	local knockback = { should_stun = false,
 	                                knockback_duration = 0.05,

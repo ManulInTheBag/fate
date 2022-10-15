@@ -44,7 +44,7 @@ function atalanta_roar:OnSpellStart()
 
 		v:AddNewModifier(caster, self, "modifier_roar_slow", {duration = self:GetSpecialValueFor("duration")})
 
-		giveUnitDataDrivenModifier(caster, v, "locked", self:GetSpecialValueFor("duration_locked"))
+		--giveUnitDataDrivenModifier(caster, v, "locked", self:GetSpecialValueFor("duration_locked"))
 
 		DoDamage(caster, v, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
 		for i = 1,(count+stacks) do

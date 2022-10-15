@@ -41,10 +41,14 @@ function ryougi_mystic_eyes:CutLine(enemy, line_name, is_fan)
 	if is_fan then
 		multiplier = 1/6
 	end
-
+		 
+	if(line_name:find("^collapse")) then
+		--print("collapse_line")
+		multiplier = 1/5
+	end
 	if not enemy:IsAlive() then return end
 
-	DoDamage(caster, enemy, caster:GetAverageTrueAttackDamage(caster)*multiplier, DAMAGE_TYPE_PHYSICAL, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self, false)
+	DoDamage(caster, enemy, caster:GetAverageTrueAttackDamage(caster)*multiplier*1.5, DAMAGE_TYPE_PHYSICAL, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self, false)
 
 	if caster.DemiseAcquired then
 		DoDamage(caster, enemy, (self:GetSpecialValueFor("demise_damage") + caster:GetAgility()*self:GetSpecialValueFor("agi_mult"))*multiplier, DAMAGE_TYPE_PURE, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self, false)

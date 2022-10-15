@@ -204,15 +204,15 @@ function muramasa_dance_upgraded:DanceAttack()
                     false)
 
  for _,enemy in pairs(enemies) do
- local origin_difference = caster:GetAbsOrigin() - enemy:GetAbsOrigin()
- local origin_difference_norm = origin_difference:Normalized()
-  if caster:GetForwardVector():Dot(origin_difference) < 0 then
-     enemy:AddNewModifier(caster, self, "modifier_muramasa_dance_debuff", {Duration = self:GetSpecialValueFor("dmg_amp_duration")})
+   local origin_diff = enemy:GetAbsOrigin() - caster:GetAbsOrigin()
+   local origin_diff_norm = origin_diff:Normalized()
+   if caster:GetForwardVector():Dot(origin_diff_norm) > 0 then
+    enemy:AddNewModifier(caster, self, "modifier_muramasa_dance_debuff", {Duration = self:GetSpecialValueFor("dmg_amp_duration")})
      caster:PerformAttack( enemy, true, true, true, true, false, false, false )
      DoDamage(caster, enemy, damage_base, DAMAGE_TYPE_MAGICAL, 0, self, false)
-  end
-
+   end
  end
+  
 
 end
    

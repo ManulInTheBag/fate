@@ -18,6 +18,16 @@ function kuro_rho_aias:CastFilterResultTarget(hTarget)
 		return filter
 	end
 end
+function kuro_rho_aias:GetManaCost(iLevel)
+	local caster = self:GetCaster()
+	local manacostrecud = caster:FindAbilityByName("kuro_projection"):GetSpecialValueFor("manacost_reduction")
+	local manacost = self:GetSpecialValueFor("manacost")
+	if(manacost - manacostrecud *caster:GetModifierStackCount("modifier_projection_active",caster)  < 0 ) then
+		return 0
+	else
+		return manacost - manacostrecud  *caster:GetModifierStackCount("modifier_projection_active",caster)
+	end
+end
 
 function kuro_rho_aias:GetCustomCastErrorTarget(hTarget)
 	return "#Cannot_Cast"

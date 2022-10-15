@@ -46,7 +46,7 @@ function lancelot_arondite:OnSpellStart()
 
     caster:AddNewModifier(caster, self, "modifier_arondite", {	Duration = self:GetSpecialValueFor("duration"),
     															StrengthBonus = bonus_stats,
-    															AgilityBonus = bonus_stats,
+    															AgilityBonus = bonus_stats/2,
     															IntelligenceBonus = bonus_stats,
     															BonusDamage = bonus_damage,
     															KotlAttribute = caster:HasModifier("modifier_kotl_attribute") })

@@ -38,10 +38,11 @@ function ryougi_knife_throw:OnSpellStart()
     ExtraData = {fDamage = fDamage}
   	}
  	self.iProjectile = ProjectileManager:CreateLinearProjectile(tProjectile)
+    self.hitenemy = false
 end
 
 function ryougi_knife_throw:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
-	if hTarget == nil then
+	if hTarget == nil or self.hitenemy  then --ты можешь подумать что я насрал и если инстом кинуть два ножа можно словить баг, но ты его и так ловил, удаляя ласт нож если хитнул любой из них так что похуй
   		return
   	end
   	local hCaster = self:GetCaster()
@@ -55,6 +56,7 @@ function ryougi_knife_throw:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
   	eyes:CutLine(hTarget, "knife_throw")
   	--hTarget:EmitSound("Atalanta.RImpact")
    	--EmitGlobalSound("Atalanta.RImpact2")
+    self.hitenemy = true
    	Timers:CreateTimer(0.033,function()
    		ProjectileManager:DestroyLinearProjectile(self.iProjectile)
   	end)

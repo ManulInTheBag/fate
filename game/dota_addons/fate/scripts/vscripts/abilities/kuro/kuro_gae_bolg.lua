@@ -10,6 +10,19 @@ function kuro_gae_bolg:GetCooldown(iLevel)
 	return cooldown
 end
 
+function kuro_gae_bolg:GetManaCost(iLevel)
+	local caster = self:GetCaster()
+	local manacostrecud = caster:FindAbilityByName("kuro_projection"):GetSpecialValueFor("manacost_reduction")
+	local manacost = self:GetSpecialValueFor("manacost")
+	if(manacost - manacostrecud *caster:GetModifierStackCount("modifier_projection_active",caster)  < 0 ) then
+		return 0
+	else
+		return manacost - manacostrecud  *caster:GetModifierStackCount("modifier_projection_active",caster)
+	end
+end
+
+
+
 function kuro_gae_bolg:CastFilterResultTarget(hTarget)
 	local caster = self:GetCaster()
 	local filter = UnitFilter(hTarget, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, caster:GetTeamNumber())

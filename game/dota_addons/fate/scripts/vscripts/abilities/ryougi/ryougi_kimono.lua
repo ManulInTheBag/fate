@@ -152,7 +152,7 @@ function ryougi_kimono:Kimono1()
 	    	if not self.AffectedTargets[enemy:entindex()] then
 	    		print("pepeg")
 		    	self.AffectedTargets[enemy:entindex()] = true
-		    	enemy:AddNewModifier(caster, self, "modifier_stunned", { Duration = self:GetSpecialValueFor("first_stun_duration") })
+		    	enemy:AddNewModifier(caster, self, "modifier_rooted", { Duration = self:GetSpecialValueFor("first_stun_duration") })
 		        DoDamage(caster, enemy, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
 		        EmitSoundOn("ryougi_hit", enemy)
 		        eyes:CutLine(enemy, "kimono_1")
@@ -174,9 +174,9 @@ function ryougi_kimono:Kimono1()
     	if not self.AffectedTargets[enemy:entindex()] then
 			self.AffectedTargets[enemy:entindex()] = true
 
-			local origin_difference = caster:GetAbsOrigin() - enemy:GetAbsOrigin()
-			local origin_difference_norm = origin_difference:Normalized()
-			if caster:GetForwardVector():Dot(origin_difference) < 0 then
+			local origin_diff = enemy:GetAbsOrigin() - caster:GetAbsOrigin()
+			local origin_diff_norm = origin_diff:Normalized()
+			if caster:GetForwardVector():Dot(origin_diff_norm) > 0 then
 			    DoDamage(caster, enemy, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
 			    EmitSoundOn("ryougi_hit", enemy)
 			    eyes:CutLine(enemy, "kimono_1")

@@ -2668,7 +2668,7 @@
 		"DOTA_Tooltip_ability_emiya_hrunting_bounce_damage"	"%Bounce Damage:"
 
 		"DOTA_Tooltip_Ability_emiya_hrunting_2"				"Hrunting"
-		"DOTA_Tooltip_ability_emiya_hrunting_2_Description"	"After precise aiming, Emiya injects a large amount of his mana into a projectile weapon and fires it towards target location. When Hrunting arrives, it will explode, dealing insane damage in small area. Damage is based on damage of Broken Phantasm plus a portion of Emiya's current mana."
+		"DOTA_Tooltip_ability_emiya_hrunting_2_Description"	"After precise aiming, Emiya injects a large amount of his mana into a projectile weapon and fires it towards target location. When Hrunting arrives, it will explode, dealing  damage in small area, stunning and applying a dimensional lock and silence for stun duration + 1.5. Damage is based on damage of Broken Phantasm plus a portion of Emiya's current mana."
 		"DOTA_Tooltip_ability_emiya_hrunting_2_Lore" 			"The ravenous bite of Hound of the Red Plains brings death from afar."
 		"DOTA_Tooltip_Ability_emiya_hrunting_2_stun_duration"	"Stun Duration:"
 		"DOTA_Tooltip_Ability_emiya_hrunting_2_mana_used"		"%Mana Used:"
@@ -3731,7 +3731,7 @@
         "DOTA_Tooltip_ability_lancelot_gae_dearg_Note1"		"Gae Dearg is considered a strong dispel, and will remove shield effects as well(i.e B Scroll, Archer's Rho Aias)"		
 
         "DOTA_Tooltip_Ability_lancelot_arondite"        			"Arondight"
-        "DOTA_Tooltip_ability_lancelot_arondite_Description"    	"Lancelot unveils his true weapon, Arondight. Greatly increases his parameters, recovering some health, rendering Lancelot immune to negative effects (hardcleanses himself every 0.5 seconds), as well as causing his attacks to create a cone of fire, dealing magical damage to all enemies hit if he has the mana. \nLancelot MAY use Knight of Honor and Submachine Guns while this ability is active, not lore, we know."
+        "DOTA_Tooltip_ability_lancelot_arondite_Description"    	"Lancelot unveils his true weapon, Arondight. Greatly increases his parameters (agility is half of the amount), recovering some health, rendering Lancelot immune to negative effects (hardcleanses himself every 0.5 seconds), as well as causing his attacks to create a cone of fire, dealing magical damage to all enemies hit if he has the mana. \nLancelot MAY use Knight of Honor and Submachine Guns while this ability is active, not lore, we know."
         "DOTA_Tooltip_ability_lancelot_arondite_Lore"   			"The unfading light of the lake, blackened by the madness and resentment of Lancelot."
         "DOTA_Tooltip_ability_lancelot_arondite_activate_heal" 		"Health Regained:"
         //"DOTA_Tooltip_ability_lancelot_arondite_radius" 			"RADIUS :"
@@ -4397,7 +4397,7 @@
 		"npc_dota_hero_ursa_bio"	""
 
 		"DOTA_Tooltip_Ability_atalanta_roar"	"Roar"
-		"DOTA_Tooltip_Ability_atalanta_roar_Description"	"Berserker roars loudly, slowing down and dimensional locking all the enemies in the path, damaging, pulling and cursing them."
+		"DOTA_Tooltip_Ability_atalanta_roar_Description"	"Berserker roars loudly, slowing down all the enemies in the path, damaging, pulling and cursing them."
 		"DOTA_Tooltip_Ability_atalanta_roar_base_damage"	"Damage:"
 		"DOTA_Tooltip_Ability_atalanta_roar_cast_range"	"Roar cast range:"
 		"DOTA_Tooltip_Ability_atalanta_roar_distance"	"Roar distance:"
@@ -4405,7 +4405,7 @@
 		"DOTA_Tooltip_Ability_atalanta_roar_ms_slow"	"%Movespeed slow:"
 		"DOTA_Tooltip_Ability_atalanta_roar_as_slow"	"Attackspeed slow:"
 		"DOTA_Tooltip_Ability_atalanta_roar_duration"	"Slow duration:"
-		"DOTA_Tooltip_Ability_atalanta_roar_duration_locked"	"Lock duration:"
+		//"DOTA_Tooltip_Ability_atalanta_roar_duration_locked"	"Lock duration:"
 		"DOTA_Tooltip_Ability_atalanta_roar_base_stacks"	"Curse stack count:"
 
 		"DOTA_Tooltip_Ability_atalanta_ora"	"Attack of the Beast"
@@ -5655,7 +5655,7 @@
         "DOTA_Tooltip_Ability_astolfo_hippogriff_vanish_Lore"		"The beast of impossible existence drags its victim to dimension where it belongs."
  
         "DOTA_Tooltip_Ability_astolfo_trap_of_argalia"        		"Trap of Argalia"
-        "DOTA_Tooltip_Ability_astolfo_trap_of_argalia_Description"	"Astolfo strikes enemies in a line, dealing damage, rooting and locking all enemies hit for a short duration."
+        "DOTA_Tooltip_Ability_astolfo_trap_of_argalia_Description"	"Astolfo strikes enemies in a line, dealing damage, locking all enemies hit for a short duration."
         "DOTA_Tooltip_Ability_astolfo_trap_of_argalia_damage"		"Damage:"
         "DOTA_Tooltip_Ability_astolfo_trap_of_argalia_duration"		"Root and Lock duration:"
         "DOTA_Tooltip_Ability_astolfo_trap_of_argalia_Lore"			"Only little is known about how clumsy, seemingly unreliable paladin reigned as the king of cavalry tournament."
@@ -6462,7 +6462,7 @@
 		"DOTA_Tooltip_ability_kuro_rho_aias_duration"			"Duration:"
 
 		"DOTA_Tooltip_Ability_kuro_projection"					"Projection Empower"
-		"DOTA_Tooltip_ability_kuro_projection_Description"		"Chloe concentrates her will to make her next projection more powerful. Each cast adds 1 stack of Projection, that lasts 20 seconds and refreshes the stack expire time. Projection stacks allow Chloe to use Phantasms from her spellbook. Also buffs her basic abilities.\nWhen Chloe reaches 4 stacks, she uses all of them to refresh all her abilities except Triple-Linked Crane Wings."
+		"DOTA_Tooltip_ability_kuro_projection_Description"		"Chloe concentrates her will to make her next projection more powerful. Each cast adds 1 stack of Projection, that lasts 20 seconds and refreshes the stack expire time. Projection stacks allow Chloe to use Phantasms from her spellbook. Also buffs her basic abilities.\nWhen Chloe reaches 4 stacks, she uses all of them to refresh all her abilities except Triple-Linked Crane Wings. Each stack decreases projections manacost by 50"
 		"DOTA_Tooltip_ability_kuro_projection_gae_bolg_damage"				"Attribute Gae Bolg Damage:"
 		"DOTA_Tooltip_ability_kuro_projection_gae_stun_duration"			"Attribute Gae Bolg Stun Duration:"
 		"DOTA_Tooltip_ability_kuro_projection_broken_damage"				"Broken Phantasm Damage per Stack:"
