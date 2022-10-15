@@ -31,20 +31,9 @@ function mordred_slash:OnSpellStart()
                                         false)
 
     for _,enemy in pairs(enemies) do
-        local caster_angle = caster:GetAnglesAsVector().y
         local origin_difference = caster:GetAbsOrigin() - enemy:GetAbsOrigin()
-
-        local origin_difference_radian = math.atan2(origin_difference.y, origin_difference.x)
-
-        origin_difference_radian = origin_difference_radian * 180
-        local enemy_angle = origin_difference_radian / math.pi
-
-        enemy_angle = enemy_angle + 180.0
-
-        local result_angle = enemy_angle - caster_angle
-        result_angle = math.abs(result_angle)
-
-        if result_angle <= 160 then
+   		local origin_difference_norm = origin_difference:Normalized()
+   		if caster:GetForwardVector():Dot(origin_difference) < 0 then
 			if caster:HasModifier("pedigree_off") and not enemy:IsMagicImmune() then
 				DoDamage(caster, enemy, self:GetSpecialValueFor("mana_damage")/100*caster:GetMana()*self:GetSpecialValueFor("mana_percent")/100, DAMAGE_TYPE_MAGICAL, 0, self, false)
 		       	enemy:AddNewModifier(caster, self, "modifier_stunned", {Duration = self:GetSpecialValueFor("duration")})

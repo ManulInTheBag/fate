@@ -6067,7 +6067,7 @@
 	"npc_dota_hero_tidehunter_bio"		""
 
 		"DOTA_Tooltip_ability_vlad_attribute_innocent_monster" 										"Attribute: Innocent Monster"
-		"DOTA_Tooltip_ability_vlad_attribute_innocent_monster_Description"							"Passively increases Vlad's magic resistance by flat value. \nPassively grants attack speed and health regen bonus per each 1% HP missing. \nMelee attacks now splash in AoE dealing magic damage and heal Lancer for percentage of damage done to each target."
+		"DOTA_Tooltip_ability_vlad_attribute_innocent_monster_Description"							"Passively increases Vlad's magic resistance by flat value. \nPassively grants attack speed and health regen bonus per each 1% HP missing. \nMelee attacks now splash in AoE dealing damage and heal Lancer for percentage of damage done to each target."
 		"DOTA_Tooltip_ability_vlad_attribute_innocent_monster_bonus_mres"							"%BONUS MAGIC RESIST:"
 		"DOTA_Tooltip_ability_vlad_attribute_innocent_monster_bonus_as_per_1"						"BONUS ATTACK SPEED PER 1% HP MISSING:"
 		"DOTA_Tooltip_ability_vlad_attribute_innocent_monster_bonus_hp_regen_per_1"					"BONUS HP REGEN PER 1% HP MISSING:"
@@ -6724,7 +6724,7 @@
         "DOTA_Tooltip_ability_saito_undefeatable_swordsman_attribute_combo_health"		"Combo health restored:"
 
         "DOTA_Tooltip_ability_saito_shinsengumi_attribute"				"Attribute: Shinsengumi"
-        "DOTA_Tooltip_ability_saito_shinsengumi_attribute_Description"	"\nIncrease all formlessness slash damage based on attack. Last use of QWE ability in combination will have an additional effect:Quickslash dash changed for blink, ground slam has doubled radius and Invinsible sword is casted twice."
+        "DOTA_Tooltip_ability_saito_shinsengumi_attribute_Description"	"\nIncrease all formlessness slash damage based on attack. Last use of QWE ability in combination will have an additional effect:Quickslash dash changed for blink, ground slam has doubled radius and Invinsible sword is casted twice(damage is scaled based on max qwe recasts, (max qwe)/5 * default E damage."
         "DOTA_Tooltip_ability_saito_shinsengumi_attribute_damage_atk_scale"			"Slash damage from atk:"
         "DOTA_Tooltip_ability_saito_shinsengumi_attribute_damage_atk_scale_last"			"Last slash damage from atk:"
 

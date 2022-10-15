@@ -49,8 +49,10 @@ function kuro_kanshou_byakuya:OnSpellStart()
 	if caster:HasModifier("modifier_kuro_overedge") then
 		kappa = 2
 	end
+	local timeL = 0.1
+	local timeR = 0.25
 for i = 1,kappa do
-	Timers:CreateTimer(0.1, function()
+	Timers:CreateTimer(timeL, function()
 		self:FireSword(lsword_origin, left_forward)
 		local projectileDurationL = 900 / 1350
 		local dmyLLoc = lsword_origin 
@@ -81,10 +83,12 @@ for i = 1,kappa do
 
 			return nil
 		end)
+				
 	end)
-
+	timeL = timeL + 0.3
 	-- Right Sword
-	Timers:CreateTimer(0.25, function()
+	
+	Timers:CreateTimer(timeR, function()
 		self:FireSword(rsword_origin, right_forward)
 		local projectileDurationR = 900 / 1350
 		local dmyRLoc = rsword_origin 
@@ -113,8 +117,11 @@ for i = 1,kappa do
 				return nil
 			end)
 			return nil
+			
 		end)
+		
 	end)
+	timeR = timeR + 0.3	
 end
 	if caster:HasModifier("modifier_projection_active") then
 		if caster:FindModifierByName("modifier_projection_active"):GetStackCount()>1 then		

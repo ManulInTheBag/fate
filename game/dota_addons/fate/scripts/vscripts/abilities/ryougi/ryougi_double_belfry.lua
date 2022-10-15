@@ -146,20 +146,9 @@ function ryougi_double_belfry:Belfry1()
                                         false)
 
     for _,enemy in pairs(enemies) do
-        local caster_angle = caster:GetAnglesAsVector().y
-        local origin_difference = caster:GetAbsOrigin() - enemy:GetAbsOrigin()
-
-        local origin_difference_radian = math.atan2(origin_difference.y, origin_difference.x)
-
-        origin_difference_radian = origin_difference_radian * 180
-        local enemy_angle = origin_difference_radian / math.pi
-
-        enemy_angle = enemy_angle + 180.0
-
-        local result_angle = enemy_angle - caster_angle
-        result_angle = math.abs(result_angle)
-
-        if result_angle <= 180 then
+		local origin_difference = caster:GetAbsOrigin() - enemy:GetAbsOrigin()
+		local origin_difference_norm = origin_difference:Normalized()
+		if caster:GetForwardVector():Dot(origin_difference) < 0 then
 		    DoDamage(caster, enemy, self:GetSpecialValueFor("first_damage"), DAMAGE_TYPE_PHYSICAL, 0, self, false)
 		    EmitSoundOn("ryougi_hit", enemy)
 		    eyes:CutLine(enemy, "belfry_1")
@@ -200,20 +189,9 @@ function ryougi_double_belfry:Belfry2()
                                         false)
 
     for _,enemy in pairs(enemies) do
-        local caster_angle = caster:GetAnglesAsVector().y
-        local origin_difference = caster:GetAbsOrigin() - enemy:GetAbsOrigin()
-
-        local origin_difference_radian = math.atan2(origin_difference.y, origin_difference.x)
-
-        origin_difference_radian = origin_difference_radian * 180
-        local enemy_angle = origin_difference_radian / math.pi
-
-        enemy_angle = enemy_angle + 180.0
-
-        local result_angle = enemy_angle - caster_angle
-        result_angle = math.abs(result_angle)
-
-        if result_angle <= 180 then
+		local origin_difference = caster:GetAbsOrigin() - enemy:GetAbsOrigin()
+		local origin_difference_norm = origin_difference:Normalized()
+		if caster:GetForwardVector():Dot(origin_difference) < 0 then
 		    DoDamage(caster, enemy, self:GetSpecialValueFor("second_damage"), DAMAGE_TYPE_PHYSICAL, 0, self, false)
 		    EmitSoundOn("ryougi_hit", enemy)
 		    eyes:CutLine(enemy, "belfry_2")
@@ -253,20 +231,9 @@ function ryougi_double_belfry:Belfry3()
                                         false)
 
     for _,enemy in pairs(enemies) do
-        local caster_angle = caster:GetAnglesAsVector().y
-        local origin_difference = caster:GetAbsOrigin() - enemy:GetAbsOrigin()
-
-        local origin_difference_radian = math.atan2(origin_difference.y, origin_difference.x)
-
-        origin_difference_radian = origin_difference_radian * 180
-        local enemy_angle = origin_difference_radian / math.pi
-
-        enemy_angle = enemy_angle + 180.0
-
-        local result_angle = enemy_angle - caster_angle
-        result_angle = math.abs(result_angle)
-
-        if result_angle <= 180 then
+		local origin_difference = caster:GetAbsOrigin() - enemy:GetAbsOrigin()
+		local origin_difference_norm = origin_difference:Normalized()
+		if caster:GetForwardVector():Dot(origin_difference) < 0 then
 		    DoDamage(caster, enemy, self:GetSpecialValueFor("third_damage"), DAMAGE_TYPE_PHYSICAL, 0, self, false)
 		    --enemy:AddNewModifier(caster, self, "modifier_muted", {duration = self:GetSpecialValueFor("third_mute_duration")})
 		    giveUnitDataDrivenModifier(caster, enemy, "muted", self:GetSpecialValueFor("third_mute_duration"))
@@ -446,20 +413,9 @@ function ryougi_double_belfry_mech:Belfry3()
                                         false)
 
     for _,enemy in pairs(enemies) do
-        local caster_angle = caster:GetAnglesAsVector().y
-        local origin_difference = caster:GetAbsOrigin() - enemy:GetAbsOrigin()
-
-        local origin_difference_radian = math.atan2(origin_difference.y, origin_difference.x)
-
-        origin_difference_radian = origin_difference_radian * 180
-        local enemy_angle = origin_difference_radian / math.pi
-
-        enemy_angle = enemy_angle + 180.0
-
-        local result_angle = enemy_angle - caster_angle
-        result_angle = math.abs(result_angle)
-
-        if result_angle <= 180 then
+		local origin_difference = caster:GetAbsOrigin() - enemy:GetAbsOrigin()
+		local origin_difference_norm = origin_difference:Normalized()
+		if caster:GetForwardVector():Dot(origin_difference) < 0 then
         	local kborigin = caster:GetAbsOrigin()
         	local knockback = { should_stun = false,
 	                                knockback_duration = 0.05,

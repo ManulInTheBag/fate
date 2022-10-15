@@ -102,9 +102,25 @@ end
 
 modifier_tea_party_model = class({})
 
+function modifier_tea_party_model:OnCreated()
+	self.parent = self:GetParent()
+	self.oldscale = self.parent:GetModelScale()
+	self.parent:SetModelScale(0.78)
+end
+
+
+function modifier_tea_party_model:OnDestroy() 
+ 
+	self.parent:SetModelScale(self.oldscale)
+end
+
+
 function modifier_tea_party_model:DeclareFunctions()
-	return { MODIFIER_PROPERTY_MODEL_CHANGE,
-			 }
+	local funcs = {
+				MODIFIER_PROPERTY_MODEL_CHANGE
+	}
+
+	return funcs
 end
 
 function modifier_tea_party_model:GetModifierModelChange()
@@ -112,6 +128,7 @@ function modifier_tea_party_model:GetModifierModelChange()
 	return self.model_fx
 end
 
+ 
 function modifier_tea_party_model:IsHidden()
 	return true
 end

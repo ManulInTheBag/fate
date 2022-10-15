@@ -174,20 +174,9 @@ function ryougi_kimono:Kimono1()
     	if not self.AffectedTargets[enemy:entindex()] then
 			self.AffectedTargets[enemy:entindex()] = true
 
-	        local caster_angle = caster:GetAnglesAsVector().y
-	        local origin_difference = caster:GetAbsOrigin() - enemy:GetAbsOrigin()
-
-	        local origin_difference_radian = math.atan2(origin_difference.y, origin_difference.x)
-
-	        origin_difference_radian = origin_difference_radian * 180
-	        local enemy_angle = origin_difference_radian / math.pi
-
-	        enemy_angle = enemy_angle + 180.0
-
-	        local result_angle = enemy_angle - caster_angle
-	        result_angle = math.abs(result_angle)
-
-	        if result_angle <= 180 then
+			local origin_difference = caster:GetAbsOrigin() - enemy:GetAbsOrigin()
+			local origin_difference_norm = origin_difference:Normalized()
+			if caster:GetForwardVector():Dot(origin_difference) < 0 then
 			    DoDamage(caster, enemy, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
 			    EmitSoundOn("ryougi_hit", enemy)
 			    eyes:CutLine(enemy, "kimono_1")

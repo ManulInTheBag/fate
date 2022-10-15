@@ -137,6 +137,7 @@ function emiya_unlimited_bladeworks:StartUBW()
     })    
 
     for i=2, 3 do
+        --небольшой комментарий: еблан, который писал этот ебаный ульт аталанты - пожалуйста, выйди в окно нахуй. Тот факт, что он не удалял дамми-юниты - это просто пиздец
         local dummy = CreateUnitByName("dummy_unit", casterLocation, false, nil, nil, i)
         dummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
         dummy:SetAbsOrigin(ubwCenter)
@@ -151,6 +152,10 @@ function emiya_unlimited_bladeworks:StartUBW()
                 ParticleManager:SetParticleControl(particle, 1, Vector(particleRadius,0,0))
                 return 0.03
             end
+        end)
+        Timers:CreateTimer(16, function()
+            dummy:RemoveSelf()
+
         end)
     end
 end
@@ -285,12 +290,12 @@ function emiya_unlimited_bladeworks:EndUBW()
 
     for i=1, #ubwdummies do
         if not ubwdummies[i]:IsNull() and IsValidEntity(ubwdummies[i]) then 
-            ubwdummies[i]:ForceKill(true) 
+            ubwdummies[i]:RemoveSelf()
         end
     end
 
     local units = FindUnitsInRadius(caster:GetTeam(), ubwCenter, nil, 1300, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
-
+     
     i = 1
     while i <= #units do
         if IsValidEntity(units[i]) and not units[i]:IsNull() then
@@ -351,7 +356,59 @@ function emiya_unlimited_bladeworks:EndUBW()
             end 
         end
     end
-
+    Timers:CreateTimer(0.5, function()
+        local units = FindUnitsInRadius(caster:GetTeam(), ubwCenter, nil, 1300, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
+        for i=1, #units do
+            --print("removing units in UBW")
+            if IsValidEntity(units[i]) and not units[i]:IsNull() then
+                units[i]:RemoveModifierByName("modifier_aestus_domus_aurea_enemy")
+                units[i]:RemoveModifierByName("modifier_aestus_domus_aurea_ally")
+                units[i]:RemoveModifierByName("modifier_aestus_domus_aurea_nero")
+    
+                if units[i]:GetName() == "npc_dota_hero_bounty_hunter" or units[i]:GetName() == "npc_dota_hero_riki" then
+                    units[i]:RemoveModifierByName("modifier_inside_marble")
+                end
+    
+                ProjectileManager:ProjectileDodge(units[i])
+                if units[i]:GetName() == "npc_dota_hero_chen" and units[i]:HasModifier("modifier_army_of_the_king_death_checker") then
+                    units[i]:RemoveModifierByName("modifier_army_of_the_king_death_checker")
+                end
+                local IsUnitGeneratedInUBW = true
+                if ubwTargets ~= nil then
+                    for j=1, #ubwTargets do
+                        if not ubwTargets[j]:IsNull() and IsValidEntity(ubwTargets[j]) then 
+                            if units[i] == ubwTargets[j] then
+                                if ubwTargetLoc[j] ~= nil then
+                                    units[i]:SetAbsOrigin(ubwTargetLoc[j]) 
+                                    units[i]:Stop()
+                                end
+                                FindClearSpaceForUnit(units[i], units[i]:GetAbsOrigin(), true)
+                                Timers:CreateTimer(0.1, function() 
+                                    units[i]:AddNewModifier(units[i], units[i], "modifier_camera_follow", {duration = 1.0})
+                                end)
+                                IsUnitGeneratedInUBW = false
+                                break 
+                            end
+                        end
+                    end 
+                end
+                if IsUnitGeneratedInUBW then
+                    diff = ubwCenter - units[i]:GetAbsOrigin()
+                    if ubwCasterPos ~= nil then
+                        units[i]:SetAbsOrigin(ubwCasterPos - diff)
+                        units[i]:Stop()
+                    end
+                    FindClearSpaceForUnit(units[i], units[i]:GetAbsOrigin(), true) 
+                    Timers:CreateTimer(0.1, function() 
+                        if not units[i]:IsNull() and IsValidEntity(units[i]) then
+                            units[i]:AddNewModifier(units[i], units[i], "modifier_camera_follow", {duration = 1.0})
+                        end
+                    end)
+                end 
+            end
+        end
+    
+    end)
     ubwTargets = nil
     ubwTargetLoc = nil
 

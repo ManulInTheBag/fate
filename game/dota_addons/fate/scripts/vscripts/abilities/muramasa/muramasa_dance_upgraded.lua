@@ -204,24 +204,13 @@ function muramasa_dance_upgraded:DanceAttack()
                     false)
 
  for _,enemy in pairs(enemies) do
- local caster_angle = caster:GetAnglesAsVector().y
  local origin_difference = caster:GetAbsOrigin() - enemy:GetAbsOrigin()
-
- local origin_difference_radian = math.atan2(origin_difference.y, origin_difference.x)
-
- origin_difference_radian = origin_difference_radian * 180
- local enemy_angle = origin_difference_radian / math.pi
-
- enemy_angle = enemy_angle + 180.0
-
- local result_angle = enemy_angle - caster_angle
- result_angle = math.abs(result_angle)
-
- if result_angle <= 140  then
-    enemy:AddNewModifier(caster, self, "modifier_muramasa_dance_debuff", {Duration = self:GetSpecialValueFor("dmg_amp_duration")})
-    caster:PerformAttack( enemy, true, true, true, true, false, false, false )
-    DoDamage(caster, enemy, damage_base, DAMAGE_TYPE_MAGICAL, 0, self, false)
- end
+ local origin_difference_norm = origin_difference:Normalized()
+  if caster:GetForwardVector():Dot(origin_difference) < 0 then
+     enemy:AddNewModifier(caster, self, "modifier_muramasa_dance_debuff", {Duration = self:GetSpecialValueFor("dmg_amp_duration")})
+     caster:PerformAttack( enemy, true, true, true, true, false, false, false )
+     DoDamage(caster, enemy, damage_base, DAMAGE_TYPE_MAGICAL, 0, self, false)
+  end
 
  end
 

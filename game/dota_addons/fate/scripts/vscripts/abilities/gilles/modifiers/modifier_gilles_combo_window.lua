@@ -2,14 +2,19 @@ modifier_gilles_combo_window = class({})
 
 if IsServer() then
 	function modifier_gilles_combo_window:OnCreated(args)
-		self:GetParent():SwapAbilities("gilles_abyssal_contract", "gille_larret_de_mort", false, true) 
+		self.caster = self:GetParent() 
+		if(self.caster:GetAbilityByIndex(5):GetName() == "gilles_abyssal_contract") then
+			self.caster:SwapAbilities("gille_larret_de_mort", "gilles_abyssal_contract", true, false)
+		end
 	end
 
 	function modifier_gilles_combo_window:OnRefresh(args)
 	end
 
 	function modifier_gilles_combo_window:OnDestroy()
-		self:GetParent():SwapAbilities("gille_larret_de_mort", "gilles_abyssal_contract", false, true)
+		if(self.caster:GetAbilityByIndex(5):GetName() == "gille_larret_de_mort") then
+			self.caster:SwapAbilities("gille_larret_de_mort", "gilles_abyssal_contract", false, true)
+		end
 	end
 end
 

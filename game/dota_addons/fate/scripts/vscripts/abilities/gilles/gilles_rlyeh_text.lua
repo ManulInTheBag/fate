@@ -11,6 +11,16 @@ local tStandardAbilities = {
     "attribute_bonus_custom"
 }
 
+local tStandardAbilitiesCombo = {
+    "gilles_summon_jellyfish",
+    "gilles_rlyeh_text_open",
+    "gilles_cthulhu_favour",
+    "gilles_prelati_spellbook",
+    "gilles_eye_for_art_passive",
+    "gille_larret_de_mort",
+    "attribute_bonus_custom"
+}
+
 local tRlyehSkills = {
     "gilles_torment",
     "gilles_smother",
@@ -33,13 +43,14 @@ end
 
 function gilles_rlyeh_text_open:OnSpellStart()
     local hCaster = self:GetCaster()
-    
-    hCaster:RemoveModifierByName("modifier_gilles_combo_window")
     UpdateAbilityLayout(hCaster, tRlyehSkills)
 end
 
 function gilles_rlyeh_text_close:OnSpellStart()
     local hCaster = self:GetCaster()
-
-    UpdateAbilityLayout(hCaster, tStandardAbilities)
+    if(hCaster:HasModifier("modifier_gilles_combo_window")) then
+        UpdateAbilityLayout(hCaster, tStandardAbilitiesCombo)
+    else
+        UpdateAbilityLayout(hCaster, tStandardAbilities)
+    end
 end

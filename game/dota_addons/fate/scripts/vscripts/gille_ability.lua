@@ -671,7 +671,7 @@ function OnSubSkewerStart(keys)
 	local tentacleCounter1 = 0
 	Timers:CreateTimer(1.0, function()
 		if tentacleCounter1 > 10 then return end
-		print("tentacles")
+		
 		local tentacleFx = ParticleManager:CreateParticle("particles/units/heroes/hero_tidehunter/tidehunter_spell_ravage_hit.vpcf", PATTACH_CUSTOMORIGIN, caster)
 		ParticleManager:SetParticleControl(tentacleFx, 0, casterLoc + diff * 110 * tentacleCounter1 )
 		Timers:CreateTimer( 3.0, function()
@@ -862,7 +862,7 @@ function OnGilleComboStart(keys)
 	local radius = 1000
 	--print(tentacle)
 	--print(tentacle:IsAlive())
-
+	caster:RemoveModifierByName("modifier_gilles_combo_window")
 	LoopOverPlayers(function(player, playerID, playerHero)
 	        --print("looping through " .. playerHero:GetName())
 	        if playerHero.gachi == true then

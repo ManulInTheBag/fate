@@ -45,13 +45,15 @@ if IsServer() then
       local targets_splash = FindUnitsInRadius(parent:GetTeamNumber(), target:GetAbsOrigin(), nil, splash_aoe, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	    parent:AddBleedStack(target,true)
       parent:ApplyHeal(damage*lifesteal,parent)
+      print(damage*lifesteal)
+      print(damage)
       Timers:CreateTimer(1,function()
         FxDestroyer(PI1, false)
       end)
       for k,v in pairs(targets_splash) do
         if v ~= target and v:IsRealHero() then
           parent:ApplyHeal(damage_splash*lifesteal,parent)
-          DoDamage(parent, v, damage_splash, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+          DoDamage(parent, v, damage_splash, DAMAGE_TYPE_PHYSICAL, 0, ability, false)
           parent:AddBleedStack(v,true)
         end
       end

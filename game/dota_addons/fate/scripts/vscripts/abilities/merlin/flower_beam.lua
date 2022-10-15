@@ -62,18 +62,26 @@ function flower_beam:OnSpellStart()
 	local movement_time = self:GetSpecialValueFor("movement_time")
 	local tick_time = movement_time/beam_counter_starting
 	local illusion  = CreateIllusions(caster,caster,nil,1,0,false,false)
- 
+	local beam_particle
 	 illusion[1]:AddNewModifier(caster, self, "modifier_merlin_self_slow", {duration = 0 +movement_time }) 
+	 Timers:CreateTimer( 0 +movement_time, function()
+ 
+			ParticleManager:DestroyParticle( beam_particle, true)
+			ParticleManager:ReleaseParticleIndex( beam_particle)
+ 
+	
+	 end)
 	 illusion[1]:SetForwardVector(caster:GetForwardVector())
 	 StartAnimation( illusion[1], {duration=1, activity=ACT_DOTA_CAST_ABILITY_1, rate=1})
+	 
 	Timers:CreateTimer(0.1, function() 
 		if( not caster:IsAlive()) then return end
 		local start_location = illusion[1]:GetAttachmentOrigin(2) 
 		if(beam_counter == beam_counter_starting) then
-			self.beam_particle = ParticleManager:CreateParticle("particles/merlin/merlin_beam.vpcf", PATTACH_CUSTOMORIGIN, nil)
-			ParticleManager:SetParticleControl(self.beam_particle, 1, start_location) 
+			 beam_particle = ParticleManager:CreateParticle("particles/merlin/merlin_beam.vpcf", PATTACH_CUSTOMORIGIN, nil)
+			ParticleManager:SetParticleControl( beam_particle, 1, start_location) 
 		end
-		if(beam_counter == 0 ) then 	ParticleManager:DestroyParticle(self.beam_particle, true)  return end
+		if(beam_counter == 0 ) then 	ParticleManager:DestroyParticle( beam_particle, true)  return end
 		beam_counter = beam_counter - 1
 
 		local targets = FindUnitsInRadius(caster:GetTeam(), point, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
@@ -82,8 +90,8 @@ function flower_beam:OnSpellStart()
 			DoDamage(caster, v, damage +v:GetMaxHealth()*self:GetSpecialValueFor("maxhpdmgpercent")/100 , DAMAGE_TYPE_MAGICAL, 0, ability, false)
 			v:AddNewModifier(caster, self, "modifier_merlin_slow", {Duration = 0.2})   
 		end
-		ParticleManager:SetParticleControl(self.beam_particle, 1, start_location) 
-		ParticleManager:SetParticleControl(self.beam_particle, 0, point) 
+		ParticleManager:SetParticleControl( beam_particle, 1, start_location) 
+		ParticleManager:SetParticleControl( beam_particle, 0, point) 
 		local flower_particle = ParticleManager:CreateParticle("particles/merlin/merlin_beam_flowers.vpcf", PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControl(flower_particle, 0, point) 
 		point = point + direction *move_per_tick
@@ -118,6 +126,7 @@ function modifier_merlin_self_slow:CheckState()
 						[MODIFIER_STATE_NO_UNIT_COLLISION] = true,
 						[MODIFIER_STATE_NO_HEALTH_BAR] = true,
 						[MODIFIER_STATE_STUNNED] = true,
+						[MODIFIER_STATE_UNSELECTABLE] = true
 
                     }
     return state
@@ -126,10 +135,6 @@ end
 
 
 function modifier_merlin_self_slow:OnDestroy() 
-	if(self:GetAbility().beam_particle ~= nil) then  
-		ParticleManager:DestroyParticle(self:GetAbility().beam_particle, true)
-		ParticleManager:ReleaseParticleIndex(self:GetAbility().beam_particle)
-	end
 	self:GetParent():ForceKill(false)
 end
 

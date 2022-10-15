@@ -98,8 +98,8 @@ end)
 
 function muramasa_tsumukari_release:OnProjectileThink(location)
     local caster = self:GetCaster()
-        AddFOWViewer(caster:GetTeamNumber(), location, 30, 1.5, false)
-     
+        --AddFOWViewer(caster:GetTeamNumber(), location, 30, 1.5, false)
+        SpawnVisionDummy(caster, location, 30,  1.5, false)
 end
 
 function muramasa_tsumukari_release:OnProjectileHit_ExtraData(hTarget, vLocation, table)

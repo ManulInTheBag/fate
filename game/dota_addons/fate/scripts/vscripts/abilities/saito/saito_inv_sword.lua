@@ -135,8 +135,8 @@ if(caster.ShinsengumiAcquired and  modifier_jopa:GetStackCount() == 0) then
     for _,enemy in pairs(enemies) do
  
         --DoDamage(caster, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
-        enemy:AddNewModifier(caster, self, "modifier_saito_invsword_damage_delayed", {Duration = 0.5, Damage = damage})    
-        DoDamage(caster, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+        enemy:AddNewModifier(caster, self, "modifier_saito_invsword_damage_delayed", {Duration = 0.5, Damage = damage* modifier_jopa:GetMaxStackCount()/5})    
+        DoDamage(caster, enemy, damage * modifier_jopa:GetMaxStackCount()/5, DAMAGE_TYPE_MAGICAL, 0, self, false)
  
         if(caster.MasteryAcquired) then 
             enemy:AddNewModifier(caster, self, "modifier_saito_magres_down", {Duration = 2})     

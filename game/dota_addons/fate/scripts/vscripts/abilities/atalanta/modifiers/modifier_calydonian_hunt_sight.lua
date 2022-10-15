@@ -16,7 +16,7 @@ end
 --end
 
 function modifier_calydonian_hunt_sight:GetModifierProvidesFOWVision()
-	if self:GetParent():HasModifier("modifier_murderer_mist_in") then
+	if self:GetParent():HasModifier("modifier_murderer_mist_in")  then
 		return 0
 	end
     return 1
@@ -82,7 +82,7 @@ end
 --end
 
 function modifier_calydonian_hunt_sight_2:GetModifierProvidesFOWVision()
-    if self:GetParent():HasModifier("modifier_murderer_mist_in") then
+    if self:GetParent():HasModifier("modifier_murderer_mist_in") or not self:GetCaster():IsAlive() then
         return 0
     end
     if self.hp_perc <= 60 then
