@@ -299,8 +299,9 @@ end
 modifier_azrael_particle = class({})
 
 function modifier_azrael_particle:OnCreated()
-	self.ParticleDummy = CreateUnitByName("dummy_unit", self:GetParent():GetAbsOrigin(), false, nil, nil, self:GetParent():GetTeamNumber())
-	self.ParticleDummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
+	if not IsServer() then return nil end
+	self.ParticleDummy = self:GetParent()--CreateUnitByName("dummy_unit", self:GetParent():GetAbsOrigin(), false, nil, nil, self:GetParent():GetTeamNumber())
+	--self.ParticleDummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
 	self.Particle = ParticleManager:CreateParticle("particles/kinghassan/khsn_shadow.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, self.ParticleDummy)
     ParticleManager:SetParticleControl(self.Particle, 1, self.ParticleDummy:GetAbsOrigin())
     ParticleManager:SetParticleControl(self.Particle, 2, self.ParticleDummy:GetAbsOrigin())
@@ -309,6 +310,7 @@ function modifier_azrael_particle:OnCreated()
     self:StartIntervalThink(0.033)
 end
 function modifier_azrael_particle:OnIntervalThink()
+	if not IsServer() then return nil end
 	self.ParticleDummy:SetAbsOrigin(self:GetParent():GetAbsOrigin())
 	ParticleManager:SetParticleControl(self.Particle, 1, self.ParticleDummy:GetAbsOrigin())
     ParticleManager:SetParticleControl(self.Particle, 2, self.ParticleDummy:GetAbsOrigin())
@@ -316,7 +318,11 @@ function modifier_azrael_particle:OnIntervalThink()
     ParticleManager:SetParticleControl(self.Particle, 4, self.ParticleDummy:GetAbsOrigin())
 end
 function modifier_azrael_particle:OnDestroy()
-	ParticleManager:DestroyParticle(self.Particle, true)
-	ParticleManager:ReleaseParticleIndex(self.Particle)
-	self.ParticleDummy:RemoveSelf()
+	if type(self.Particle) == "number" then
+		ParticleManager:DestroyParticle(self.Particle, false)
+		ParticleManager:ReleaseParticleIndex(self.Particle)
+		--self.ParticleDummy:RemoveSelf()
+
+		self.Particle = nil
+	end
 end

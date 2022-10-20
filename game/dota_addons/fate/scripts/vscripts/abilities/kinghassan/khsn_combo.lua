@@ -85,6 +85,10 @@ function khsn_combo:StartCombo(hui)
             local light_index = ParticleManager:CreateParticle("particles/kinghassan/khsn_domus_ray.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
             ParticleManager:SetParticleControl( light_index, 0, target:GetAbsOrigin())
             ParticleManager:SetParticleControl( light_index, 7, target:GetAbsOrigin())
+
+            caster:SetForwardVector(GetDirection(target, caster)) --NEW LINE FOR FORWARDING
+            caster:FaceTowards(target:GetAbsOrigin())
+
             Timers:CreateTimer(1.370, function()
                 if target and not target:IsNull() and target:IsAlive() then
                     local modifier_death2 = target:FindModifierByName("modifier_death_door")
@@ -110,6 +114,8 @@ function khsn_combo:StartCombo(hui)
                         end
                     end)
 
+
+
                     Timers:CreateTimer( 2.0, function()
                         ParticleManager:DestroyParticle( slashFx, false )
                         ParticleManager:ReleaseParticleIndex( slashFx )
@@ -125,6 +131,8 @@ function khsn_combo:StartCombo(hui)
                                                                                             damage = damage})]]
                         target:Execute(self, caster, { bExecution = true })
                     end
+
+
                     --[[if not target:IsAlive() and caster.AzraelAcquired then
                         self:EndCooldown()
                     end]]

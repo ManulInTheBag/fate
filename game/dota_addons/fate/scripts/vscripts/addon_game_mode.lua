@@ -301,6 +301,7 @@ function Precache( context )
     PrecacheResource("soundfile", "soundevents/hero_saito_hajime.vsndevts", context )
     PrecacheResource("soundfile", "soundevents/hero_merlin.vsndevts", context )
     PrecacheResource("soundfile", "soundevents/hero_muramasa.vsndevts", context )
+    PrecacheResource("soundfile", "soundevents/hero_oda_nobunaga.vsndevts", context )
     PrecacheResource("soundfile", "soundevents/sounds_test.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/soundevents_conquest.vsndevts", context )
     PrecacheResource("soundfile", "soundevents/a_negri.vsndevts", context )
@@ -335,6 +336,7 @@ function Precache( context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_drowranger.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_ember_spirit.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_enchantress.vsndevts", context )
+    PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_gyrocopter.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_huskar.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_juggernaut.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_legion_commander.vsndevts", context )
@@ -2011,6 +2013,11 @@ function FateGameMode:OnHeroInGame(hero)
 
     if hero:GetName() == "npc_dota_hero_terrorblade" then
          
+    end
+
+    if hero:GetName() == "npc_dota_hero_gyrocopter" then
+         hero.ISDOW = false
+         hero.isCharisma = false
     end
 
   

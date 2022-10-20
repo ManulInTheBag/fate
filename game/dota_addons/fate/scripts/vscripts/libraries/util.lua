@@ -268,6 +268,7 @@ cleansable = {
     "modifier_saito_slow",
     "modifier_morgan_slow",
     "modifier_muramasa_tsumukari_hit_slow",
+    "modifier_nobu_slow",
     -- Other CCs
     "modifier_stunned",
     "modifier_rule_breaker",
@@ -357,7 +358,8 @@ slowmodifier = {
     "modifier_saito_slow",
     "modifier_morgan_slow",
     "modifier_muramasa_tsumukari_hit_slow",
-    "modifier_ryougi_knife_fan_slow"
+    "modifier_ryougi_knife_fan_slow",
+    "modifier_nobu_slow"
 }
 
 donotlevel = {
@@ -520,9 +522,11 @@ CannotReset = {
     "gilgamesh_enkidu",
     "muramasa_eye_of_karma",
     "ryougi_backflip",
-    "ryougi_collapse"
-    
-   
+    "ryougi_collapse",
+    "nobu_combo",
+    "nobu_divinity_mark",
+    "nobu_dash",
+    "nobu_leader_of_innovation",
 }
 
 femaleservant = {
@@ -541,6 +545,7 @@ femaleservant = {
     "npc_dota_hero_dark_willow",
     "npc_dota_hero_abaddon",
     "npc_dota_hero_ursa",
+    "npc_dota_hero_gyrocopter",
     "npc_dota_hero_razor"
 }
 
@@ -624,7 +629,9 @@ tKnightClass = {
     "npc_dota_hero_beastmaster",
     "npc_dota_hero_dark_willow",
     "npc_dota_hero_terrorblade",
+    "npc_dota_hero_gyrocopter",
     "npc_dota_hero_magnataur"
+    
 }
 
 tHorsemanClass = {
@@ -2242,7 +2249,8 @@ local heroNames = {
     ["npc_dota_hero_razor"] = "Jeanne d'Arc Alter",
     ["npc_dota_hero_terrorblade"] = "Saito Hajime",
     ["npc_dota_hero_puck"] = "Merlin",
-    ["npc_dota_hero_magnataur"] = "Muramasa"
+    ["npc_dota_hero_magnataur"] = "Muramasa",
+    ["npc_dota_hero_gyrocopter"] = "Oda Nobunaga"
     
 }
 
@@ -2297,7 +2305,8 @@ local heroCombos = {
     ["npc_dota_hero_razor"] = "jeanne_lagron_combo",
     ["npc_dota_hero_terrorblade"] = "saito_undefeatable_style",
     ["npc_dota_hero_puck"] = "merlin_garden_of_avalon",
-    ["npc_dota_hero_magnataur"] = "muramasa_tsumukari_combo"
+    ["npc_dota_hero_magnataur"] = "muramasa_tsumukari_combo",
+    ["npc_dota_hero_gyrocopter"] = "nobu_combo"
     
 }
 
@@ -2556,7 +2565,9 @@ end
 
 function IsDivineServant(hTarget)
     if not hTarget:IsHero() then return false end
-
+    if(hTarget:HasModifier("modifier_nobu_divinity_mark_activated")) then
+        return true
+    end
     for i = 1, #tDivineHeroes do
         if hTarget:GetName() == tDivineHeroes[i] then
             return true

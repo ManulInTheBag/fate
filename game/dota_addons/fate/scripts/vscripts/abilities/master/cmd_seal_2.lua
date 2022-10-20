@@ -76,6 +76,13 @@ function cmd_seal_2:OnSpellStart()
 	if hero:GetName() == "npc_dota_hero_doom_bringer" and RandomInt(1, 100) <= 35 then
 		EmitGlobalSound("Shiro_Onegai")
 	end
+
+	if(hero:GetName() == "npc_dota_hero_gyrocopter"  ) then
+		if(hero:FindAbilityByName("nobu_dash"):GetCurrentAbilityCharges() ~= hero:FindAbilityByName("nobu_dash"):GetMaxAbilityCharges(-1)) then
+			
+			hero:FindAbilityByName("nobu_dash"):SetCurrentAbilityCharges(hero:FindAbilityByName("nobu_dash"):GetCurrentAbilityCharges() + 1)
+		end
+	end
  
 	if(hero:GetName() == "npc_dota_hero_terrorblade") then
 		hero:FindModifierByName("modifier_saito_fdb"):SetStackCount(hero:FindModifierByName("modifier_saito_fdb"):GetMaxStackCount())

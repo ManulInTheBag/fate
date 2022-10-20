@@ -6,7 +6,7 @@ if IsServer() then
 		self.BonusAttSpd = (1.2 - self:GetParent():GetHealth()/self:GetParent():GetMaxHealth())*self:GetAbility():GetSpecialValueFor("bns_att_spd")
 		self.BonusDamage = (1.2 - self:GetParent():GetHealth()/self:GetParent():GetMaxHealth())*100
 		self.BonusMs = (1.2 - self:GetParent():GetHealth()/self:GetParent():GetMaxHealth())*100
-		self:GetParent():SetRenderColor(255, 127, 127)
+		--self:GetParent():SetRenderColor(255, 127, 127)
 		self:StartIntervalThink(0.033)
 		self.dt = 0
 		
@@ -20,7 +20,7 @@ if IsServer() then
 	end
 
 	function modifier_heracles_berserk:OnDestroy()
-		self:GetParent():SetRenderColor(255, 255, 255)
+		--self:GetParent():SetRenderColor(255, 255, 255)
 	end
 
 	function modifier_heracles_berserk:OnIntervalThink()
@@ -126,4 +126,12 @@ end
 
 function modifier_heracles_berserk:GetEffectAttachType()
 	return PATTACH_ABSORIGIN_FOLLOW
+end
+
+function modifier_heracles_berserk:GetStatusEffectName()
+	return "particles/custom/berserker/berserk/berserk_status_fx.vpcf"
+end
+
+function modifier_heracles_berserk:StatusEffectPriority()
+    return 1000
 end

@@ -212,8 +212,28 @@
 
 		"DOTA_Tooltip_modifier_eye_of_karma"									"Eye of karma"
 		"DOTA_Tooltip_modifier_eye_of_karma_Description"				"less than half hp"
-		
 
+
+		"DOTA_Tooltip_modifier_nobu_charisma"									"Demon charisma"
+		"DOTA_Tooltip_modifier_nobu_charisma_Description"				"Armor and MS increased"
+		
+		"DOTA_Tooltip_modifier_nobu_combo_cd"									"Demon king of the sixth heaven cd"
+		"DOTA_Tooltip_modifier_nobu_combo_cd_Description"				"Demon king of the sixth heaven is on cd"
+
+		"DOTA_Tooltip_modifier_nobu_innovation"									"Innovation"
+		"DOTA_Tooltip_modifier_nobu_innovation_Description"				"Allies dealing damage will heal Nobu, Nobu dealing damage will speedbost allies."
+
+		"DOTA_Tooltip_modifier_nobu_turnlock"									"Shooting"
+		"DOTA_Tooltip_modifier_nobu_turnlock_Description"				"Nobu is slowed if going backwards."
+
+		"DOTA_Tooltip_modifier_nobu_divinity_mark"									"Divinity mark"
+		"DOTA_Tooltip_modifier_nobu_divinity_mark_Description"				"If Nobu shoots you 10 times, you will receive a debuff."
+
+		"DOTA_Tooltip_modifier_nobu_divinity_mark_activated"									"Divinity mark active"
+		"DOTA_Tooltip_modifier_nobu_divinity_mark_activated_Description"				"You are divine and have armor reduced."
+
+		"DOTA_Tooltip_modifier_nobu_slow"									"Slowed"
+		"DOTA_Tooltip_modifier_nobu_slow_Description"				""
 		
 		"DOTA_Tooltip_modifier_white_queen_slow"						"White Queen's Enigma Slow"
 		"DOTA_Tooltip_modifier_white_queen_slow_Description"			"Slowed"
@@ -6873,6 +6893,146 @@
         "DOTA_Tooltip_ability_merlin_king_assistant_attribute_att_attackspeed_per_stack" 		"Attack speed per stack:"
         "DOTA_Tooltip_ability_merlin_king_assistant_attribute_att_duration" 					"Attackspeed duration:"
  		"DOTA_Tooltip_ability_merlin_king_assistant_attribute_dmg_per_int" 						"Dmg per int:"
+        
+
+        //====================================
+		//  Oda Nobunaga (Archer)
+        //====================================
+        "npc_dota_hero_gyrocopter"						"Oda Nobunaga"
+
+		"npc_dota_hero_gyrocopter_hype"					""
+		"npc_dota_hero_gyrocopter_bio"						""
+        "DOTA_Tooltip_ability_nobu_guns"							"Demon guns"
+        "DOTA_Tooltip_ability_nobu_guns_Description"			"All of Nobunaga's damaging abilities are utilizing her muskets. Each musket damage is scaled based on Nobunaga's atk"
+        "DOTA_Tooltip_ability_nobu_guns_base_dmg"					"Base dmg:"
+        "DOTA_Tooltip_ability_nobu_guns_dmg_per_atk"					"Atk modifier:"
+        
+        "DOTA_Tooltip_ability_nobu_guns_Lore"						"Guns will never be of value on the battlefield. That was what everybody thought at the time. Then I just need to gather a whole bunch of them and fire away right?"
+         
+
+        "DOTA_Tooltip_ability_nobu_shot"					"Shoot"
+        "DOTA_Tooltip_ability_nobu_shot_Description"	 	"Nobunaga shoots her gun in the direction. If she hit enemy, he will take physical damage and will be slowed."
+        "DOTA_Tooltip_ability_nobu_shot_damage_mod"				"Rifle damage modifier:"
+        "DOTA_Tooltip_ability_nobu_shot_slow_power"				"Slow power:"
+        "DOTA_Tooltip_ability_nobu_shot_duration"				"Slow duration:"
+        "DOTA_Tooltip_ability_nobu_shot_Lore"					""
+ 
+	 
+
+        "DOTA_Tooltip_ability_nobu_dash"					"Dash"
+        "DOTA_Tooltip_ability_nobu_dash_Description"	 	"Nobunaga immediately dashes in the target direction. Each charge is replenished over time, refreshing ability will restore one charge."
+        "DOTA_Tooltip_ability_nobu_dash_Lore"				""
+
+        "DOTA_Tooltip_ability_nobu_double_shots"				"Targeted shots"
+        "DOTA_Tooltip_ability_nobu_double_shots_Description"		"Nobunaga start a series of shoots in the target direction or into target enemy, locking her rotation to always look on her target.\nSending an attack order will change target to enemy attacked.\nNobunaga cannot use other rifle abilities while shooting, can move freely, but moving backwards will have its speed greatly decreased.\nAfter 0.5 seconds after casting this ability, it can be canceled by repeated use."
+        "DOTA_Tooltip_ability_nobu_double_shots_damage_mod"		"Rifle damage modifier:"
+        "DOTA_Tooltip_ability_nobu_double_shots_duration"		"Duration:"
+        "DOTA_Tooltip_ability_nobu_double_shots_sps"			"Shots per second:"
+        "DOTA_Tooltip_ability_nobu_double_shots_Lore"			""
+        "DOTA_Tooltip_ability_nobu_double_shots_Note0"					"If enemy is not visible by Nobunaga's team, she will be shooting at the last place where he has been seen."	
+
+
+        "DOTA_Tooltip_ability_nobu_double_shots_stop"				"Stop shooting"
+        "DOTA_Tooltip_ability_nobu_double_shots_stop_Description"		"Stop series of shots."
+        "DOTA_Tooltip_ability_nobu_double_shots_stop_Lore"				""
+
+
+
+        "DOTA_Tooltip_ability_nobu_demon_king_open"				"Demon King"
+        "DOTA_Tooltip_ability_nobu_demon_king_open_Description"	"At the begging of each round, Nobunaga can alter her spirit origin, gaining bonuses for this round."
+        "DOTA_Tooltip_ability_nobu_demon_king_open_Lore"						""
+	
+
+        "DOTA_Tooltip_ability_nobu_dow"				"Spirit altering: Destroyer of worlds"
+        "DOTA_Tooltip_ability_nobu_dow_Description"	"Each time nobunaga hits enemy with her rifle abilities, she will summon an additional rifle, which will shoot in closest enemy. Can only occur once in a seconds, damage is equal to base guns damage.\n With Demon King Expanding attribute this choice will grant both Destroyer of worlds and Destroyer of Gods and Buddhas bonuses."
+        "DOTA_Tooltip_ability_nobu_dow_Lore" ""
+
+        "DOTA_Tooltip_ability_nobu_dogab"				"Spirit altering: Destroyer of Gods and Buddhas"
+        "DOTA_Tooltip_ability_nobu_dogab_Description"	"Nobunaga gains an active ability called  Divinity mark.\nDivinity mark:\n Nobunaga marks target enemy for 10 seconds. Each time she deals damage to it, it gains a stackable effect. When this effect reaches 10 stacks, enemy will be marked divine and its armor will be reduced by its base value. Non-refreshable. 40 seconds cooldown.\n With Demon King Expanding attribute this choice will grant both Destroyer of Gods and Buddhas and Fool of Owari bonuses."
+        "DOTA_Tooltip_ability_nobu_dogab_Lore" ""
+
+        "DOTA_Tooltip_ability_nobu_fool_of_owari"				"Spirit altering: Fool of Owari"
+        "DOTA_Tooltip_ability_nobu_fool_of_owari_Description"	"Grants oda nobunaga Charisma aura in 1000 range, increasing all allies armor by 7 and movement speed  and 10%%.\n With Demon King Expanding attribute this choice will grant both Fool of Owari and King of innovation bonuses."
+        "DOTA_Tooltip_ability_nobu_fool_of_owari_Lore" ""
+
+        "DOTA_Tooltip_ability_nobu_king_of_innovation"				"Spirit altering: King of innovation"
+        "DOTA_Tooltip_ability_nobu_king_of_innovation_Description"	"Gives Oda Nobunaga new ability: Leader of innovation\nLeader of innovation:\nUpon cast, Oda Nobunaga will receive an aura for 10 seconds. Each time a Nobunaga deals damage, all of her allies gain a 50% ms buff for 1 seconds on a 1 second cooldown. Each time an ally of Nobunaga deals damage, she heals herself for 80 + STR health with a cooldown of a 1 second.\n With Demon King Expanding attribute this choice will grant both King of innovation and Destroyer of worlds bonuses."
+        "DOTA_Tooltip_ability_nobu_king_of_innovation_Lore" 				""
+
+        "DOTA_Tooltip_ability_nobu_demon_king_close"				"Demon King close"
+        "DOTA_Tooltip_ability_nobu_demon_king_close_Description"	"close the spellbook."
+        "DOTA_Tooltip_ability_nobu_demon_king_close_Lore"			""
+ 
+
+        "DOTA_Tooltip_ability_nobu_charisma"						"Demon Charisma"
+        "DOTA_Tooltip_ability_nobu_charisma_Description"			"Increases all allies around armor and movement speed."
+        "DOTA_Tooltip_ability_nobu_charisma_aura_radius"						"Aura radius:"
+        "DOTA_Tooltip_ability_nobu_charisma_ms_bonus"								"%MS bonus:"
+        "DOTA_Tooltip_ability_nobu_charisma_armor_bonus"							"Armor bonus:"
+        "DOTA_Tooltip_ability_nobu_charisma_Lore"								""
+
+        "DOTA_Tooltip_ability_nobu_dow_passive"						"Destroyer of worlds"
+        "DOTA_Tooltip_ability_nobu_dow_passive_Description"			"IEach time nobunaga hits enemy with her rifle abilities, she will summon an additional rifle, which will shoot in closest enemy. Can only occur once in a seconds, damage is equal to base guns damage."
+        "DOTA_Tooltip_ability_nobu_dow_passive_Lore"								""
+
+         "DOTA_Tooltip_ability_nobu_leader_of_innovation"						"Leader of innovation"
+        "DOTA_Tooltip_ability_nobu_leader_of_innovation_Description"			"Increases all allies around armor and movement speed"
+        "DOTA_Tooltip_ability_nobu_leader_of_innovation_aura_radius"						"Aura radius:"
+        "DOTA_Tooltip_ability_nobu_leader_of_innovation_ms_bonus"								"%MS bonus:"
+        "DOTA_Tooltip_ability_nobu_leader_of_innovation_health_base"								"Base heal:"
+        "DOTA_Tooltip_ability_nobu_leader_of_innovation_duration"								"Duration:"
+        "DOTA_Tooltip_ability_nobu_leader_of_innovation_ms_duration"								"MS bonus duration:"
+        "DOTA_Tooltip_ability_nobu_leader_of_innovation_Lore"								""
+
+           "DOTA_Tooltip_ability_nobu_divinity_mark"						"Divinity mark"
+        "DOTA_Tooltip_ability_nobu_divinity_mark_Description"			"Nobunaga marks target enemy for 10 seconds. Each time she deals damage to it, it gains a stackable effect. When this effect reaches 10 stacks, enemy will be marked divine and its armor will be reduced by its base value."
+        "DOTA_Tooltip_ability_nobu_divinity_mark_cast_range"						"Cast range:"
+        "DOTA_Tooltip_ability_nobu_divinity_mark_duration"								"Duration:"
+        "DOTA_Tooltip_ability_nobu_divinity_mark_activated_duration"							"Activated duration:"
+        "DOTA_Tooltip_ability_nobu_nobu_divinity_mark_Lore"								""
+
+
+        "DOTA_Tooltip_ability_nobu_3000"						"Three line formation"
+        "DOTA_Tooltip_ability_nobu_3000_Description"			"Nobunaga starts gathering rifles for her noble phantasm. every 0.5 seconds a new rifle appear. When released, all rifles starts shooting with a 30 shots per second speed"
+        "DOTA_Tooltip_ability_nobu_3000_damage_mod"							"Rifle damage mod:"
+        "DOTA_Tooltip_ability_nobu_3000_channel_time"						"Maximum channel time:"
+        "DOTA_Tooltip_ability_nobu_3000_Lore"								""
+  
+
+		"DOTA_Tooltip_ability_nobu_combo"						"Combo: Demon king of the sixth heaven"
+        "DOTA_Tooltip_ability_nobu_combo_Description"			"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: W-D in 2 seconds</font>\nNobunaga takes a 1.5 seconds charge and then run into the target enemy with insane speed. If she reaches enemy, he will be stunned, she will became invulnerable and will deal magic damage, followed by 25 rifle shots."
+        "DOTA_Tooltip_abilitymerlin_garden_of_avalon_radius"					"Radius:"
+        "DOTA_Tooltip_ability_nobu_combo_radius"			"Cast range:"
+		"DOTA_Tooltip_ability_nobu_combo_run_speed"		"Run speed:"
+		"DOTA_Tooltip_ability_nobu_combo_run_duration"	 "Maximum run duration:"
+		"DOTA_Tooltip_ability_nobu_combo_dmg_initial"			"First hit damage:"
+		"DOTA_Tooltip_ability_nobu_combo_dmg_mod"			"Rifles damage mod:"
+ 
+ 
+
+        "DOTA_Tooltip_ability_nobu_strategy_attribute"				"Attribute: Strategy"
+        "DOTA_Tooltip_ability_nobu_strategy_attribute_Description"	"If Oda Nobunaga didn't dealt damage to any enemies for 10 seconds, next time when she deals damage to any enemy she will receive a bonus to movement speed and damage for a duration."
+        "DOTA_Tooltip_ability_nobu_strategy_attribute_cooldown_time				"Cooldown:"
+        "DOTA_Tooltip_ability_nobu_strategy_attribute_bonus_ms"			"%MS bonus:"
+        "DOTA_Tooltip_ability_nobu_strategy_attribute_bonus_attack"			"ATK bonus:"
+     	"DOTA_Tooltip_ability_nobu_strategy_attribute_duration"			"Duration:"
+
+        "DOTA_Tooltip_ability_nobu_expanding_attribute"				"Attribute: Demon king expanding"
+        "DOTA_Tooltip_ability_nobu_expanding_attribute_Description"	"Nobunaga can alter her personality even further, combining a passive and active effects of her Demon King ability. Choises are written inside the spellbook."
+ 
+
+        "DOTA_Tooltip_ability_nobu_3000_attribute"				"Attribute: 3000 worlds"
+        "DOTA_Tooltip_ability_nobu_3000_attribute_Description"	"Oda nobunaga's three line formation ability projectiles change to lasers, which pierce enemies and deal portion of their damage as pure."
+        "DOTA_Tooltip_ability_nobu_3000_attribute_pure_percentage"						"%Pure dmg:"
+      
+ 
+
+        "DOTA_Tooltip_ability_nobu_unifying_attribute"				"Attribute: Unifying the Nation by Force"
+        "DOTA_Tooltip_ability_nobu_unifying_attribute_Description"	"Increases Oda Nobunaga's rifle damage based on ATK. Oda nobunaga's rifle abilities deal additional damage to divine servants."
+        "DOTA_Tooltip_ability_nobu_unifying_attribute_additional_atkmod" 	"Additional atk rifle scaling:"
+         "DOTA_Tooltip_ability_nobu_unifying_attribute_divine_damage_mod" 	"Divine damage modifier:"
+ 
+ 
         
 
         //====================================

@@ -6,6 +6,11 @@ khsn_mde = class({})
 function khsn_mde:GetIntrinsicModifierName() return "modifier_khsn_mde" end
 function khsn_mde:OnSpellStart()
 	local caster = self:GetCaster()
+
+	if caster.BattleContinuationAcquired then
+		caster:AddNewModifier(caster, self, "modifier_khsn_bk_improved", {})
+	end
+
 	caster:AddNewModifier(caster, self, "modifier_khsn_mde_active", {duration = self:GetSpecialValueFor("duration")})
 	caster:EmitSound("Hero_Necrolyte.SpiritForm.Cast")
 	--caster:Heal(self:GetSpecialValueFor("heal"), caster)
@@ -72,7 +77,17 @@ function modifier_khsn_mde:OnAttackLanded(args)
 	DoDamage(self.parent, target, damage, self.parent.BoundaryAcquired and DAMAGE_TYPE_PURE or DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
 end
 
-modifier_khsn_mde_active = class({})
+
+
+
+
+
+
+
+
+
+
+modifier_khsn_mde_active = modifier_khsn_mde_active or class({})
 
 --[[function modifier_khsn_mde_active:CheckState()
 	return {
@@ -85,24 +100,24 @@ function modifier_khsn_mde_active:OnCreated()
 	self.parent = self:GetParent()
 	if self.parent.PresenceAcquired then
 		self:StartIntervalThink(1)
-		local enemies2 = FindUnitsInRadius(  self.parent:GetTeamNumber(),
-                                            self.parent:GetAbsOrigin(), 
-                                            nil, 
-                                            self:GetAbility():GetSpecialValueFor("attr_radius"), 
-                                            DOTA_UNIT_TARGET_TEAM_ENEMY, 
-                                            DOTA_UNIT_TARGET_ALL, 
-                                            0, 
-                                            FIND_ANY_ORDER, 
-                                            false)
-		for _,enemy in ipairs(enemies2) do
-			DoDamage(self.parent, enemy, self:GetAbility():GetSpecialValueFor("attr_dps"), DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
-	    end
+		self:OnIntervalThink()
 	end
+
+	self.fRegenHP = self:GetAbility():GetSpecialValueFor("hp_regen")
+	self.fArmor   = self:GetAbility():GetSpecialValueFor("bonus_armor")
+
+	if self.parent:HasModifier("modifier_khsn_bk_improved") then
+		self.fRegenHP = self.fRegenHP + 40
+		self.fArmor   = self.fArmor + 25
+	end
+
 	--[[if self.parent:GetAbilityByIndex(1):GetName() ~= "khsn_mde_end" then
 		self.parent:SwapAbilities("khsn_mde", "khsn_mde_end", false, true)
 	end]]
 end
-
+function modifier_khsn_mde_active:OnRefresh(tTable)
+	self:OnCreated(tTable)
+end
 function modifier_khsn_mde_active:OnDestroy()
 	--[[if self.parent:GetAbilityByIndex(1):GetName() ~= "khsn_mde" then
 		self.parent:SwapAbilities("khsn_mde", "khsn_mde_end", true, false)
@@ -141,13 +156,11 @@ end
 end]]
 
 function modifier_khsn_mde_active:GetModifierConstantHealthRegen()
-	local regen = (self:GetAbility():GetSpecialValueFor("hp_regen") + (self:GetCaster().BattleContinuationAcquired and 40 or 0))
-	return regen
+	return self.fRegenHP
 end
 
 function modifier_khsn_mde_active:GetModifierPhysicalArmorBonus()
-	local bonus_armor = (self:GetAbility():GetSpecialValueFor("bonus_armor") + (self:GetCaster().BattleContinuationAcquired and 25 or 0))
-	return bonus_armor
+	return self.fArmor
 end
 
 function modifier_khsn_mde_active:GetModifierMoveSpeedBonus_Percentage()
@@ -169,8 +182,14 @@ end
 
 
 
+LinkLuaModifier("modifier_khsn_bk_improved", "abilities/kinghassan/khsn_mde", LUA_MODIFIER_MOTION_NONE)
 
+modifier_khsn_bk_improved = modifier_khsn_bk_improved or class({})
 
+function modifier_khsn_bk_improved:IsHidden() return true end
+function modifier_khsn_bk_improved:RemoveOnDeath() return false end
+function modifier_khsn_bk_improved:IsPurgable() return false end
+function modifier_khsn_bk_improved:IsPurgeException() return false end
 
 
 LinkLuaModifier("modifier_khsn_bc_active", "abilities/kinghassan/khsn_mde", LUA_MODIFIER_MOTION_NONE)
