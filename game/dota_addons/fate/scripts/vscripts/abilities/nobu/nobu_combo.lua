@@ -5,6 +5,21 @@ LinkLuaModifier("modifier_nobu_combo_mark", "abilities/nobu/nobu_combo", LUA_MOD
 LinkLuaModifier("modifier_nobu_combo_stun", "abilities/nobu/nobu_combo", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_merlin_self_pause","abilities/merlin/merlin_orbs", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_nobu_combo_cd", "abilities/nobu/nobu_combo", LUA_MODIFIER_MOTION_NONE)
+
+function nobu_combo:CastFilterResultLocation(vLocation)
+    local caster = self:GetCaster()
+    if IsServer() and  caster:FindModifierByName("modifier_nobu_turnlock") then
+        return UF_FAIL_CUSTOM
+    else
+        return UF_SUCESS
+    end
+end
+
+function nobu_combo:GetCustomCastErrorLocation(vLocation)
+    return "Can not be used while shooting"
+end
+
+
 function nobu_combo:OnSpellStart()
     local hCaster = self:GetCaster()
     hCaster:AddNewModifier(hCaster, self, "modifier_nobu_combo_self", {duration = self:GetSpecialValueFor("run_duration") + 1.5} )
@@ -169,7 +184,11 @@ end
 
 function modifier_nobu_combo_self:OnIntervalThink()
     if not IsServer() then return end
-    if(not self.caster.target_enemy:IsAlive()  or not self.caster:IsAlive() ) then return end
+    if(not self.caster.target_enemy:IsAlive()  or not self.caster:IsAlive() or
+     ( self.caster.target_enemy:HasModifier("modifier_inside_marble") and not self.caster:HasModifier("modifier_inside_marble"))) then
+        StopGlobalSound("nobu_combo_cast") 
+        self:Destroy() return
+     end
     if(self.caster.target_enemy:GetAbsOrigin()- self.caster:GetAbsOrigin()):Length2D() < 250 then
         self:GetAbility():AttackEnemy()
         self:Destroy()

@@ -17,7 +17,7 @@ end
 
 function nobu_shot:OnSpellStart()
     local hCaster = self:GetCaster()
-    local aoe = 32
+    local aoe = 50
     local position = self:GetCursorPosition()
     local origin = hCaster:GetAttachmentOrigin(3) 
     hCaster:EmitSound("nobu_shoot")
@@ -85,7 +85,7 @@ function nobu_shot:OnProjectileHit(target, location )
 		else 
 			gun_spawn = gun_spawn + hCaster:GetRightVector() * random1 + random3
         end
-        local aoe = 32
+        local aoe = 50
         
         hCaster:FindAbilityByName("nobu_guns"):DOWShoot({
             Speed = 10000,

@@ -24,7 +24,7 @@ function nobu_3000:OnSpellStart()
     end
     for i=1,5 do 
         local gun_spawn = self.caster:GetAbsOrigin() + self.caster:GetForwardVector() *RandomInt(-200,200)
-        local random1 = RandomInt(0, 250) -- position of gun spawn
+        local random1 = RandomInt(0, 200) -- position of gun spawn
 		local random2 = RandomInt(0,1) -- whether weapon will spawn on left or right side of hero
 		local random3 = RandomInt(25,200)*Vector(0,0,1) 
 		 
@@ -51,12 +51,13 @@ function nobu_3000:GetCustomCastErrorLocation(vLocation)
     return "Can not be used while shooting"
 end
 
+ 
 function nobu_3000:OnChannelThink(fInterval)
     self.ChannelTime = self.ChannelTime + fInterval
-    if(self.ChannelTime >= 0.05) then
+    if(self.ChannelTime >= 0.04) then
  
         local gun_spawn = self.caster:GetAbsOrigin() + self.caster:GetForwardVector()*RandomInt(-200,200)
-        local random1 = RandomInt(0, 240) -- position of gun spawn
+        local random1 = RandomInt(0, 200) -- position of gun spawn
 		local random2 = RandomInt(0,1) -- whether weapon will spawn on left or right side of hero
 		local random3 = RandomInt(25,200)*Vector(0,0,1) --  
 		
@@ -73,7 +74,7 @@ function nobu_3000:OnChannelThink(fInterval)
     self.caster:FaceTowards(self.target)
     return true
 end
-
+ 
 
 function nobu_3000:OnChannelFinish(bInterrupted)
     local vCasterOrigin = self.caster:GetAbsOrigin()
@@ -82,7 +83,7 @@ function nobu_3000:OnChannelFinish(bInterrupted)
     ParticleManager:DestroyParticle( self.particle_kappa, false)
     ParticleManager:ReleaseParticleIndex( self.particle_kappa)
 	StartAnimation( self.caster, {duration=1.0, activity=ACT_DOTA_CAST_ABILITY_4_END, rate=1.0})
-    local aoe = 32
+    local aoe = 50
     local position = self:GetCursorPosition()
     self.caster:StopSound("nobu_ulti_cast")
     EmitGlobalSound("nobu_ulti_end") 
@@ -95,7 +96,7 @@ function nobu_3000:OnChannelFinish(bInterrupted)
             Speed = 10000,
             Facing = facing,
             AoE = aoe,
-            Range = 1000,
+            Range = 1300,
         })
         Timers:CreateTimer(0.1, function()
             self.caster:SetAbsOrigin(GetGroundPosition(self.caster:GetAbsOrigin(),self.caster))
@@ -103,7 +104,7 @@ function nobu_3000:OnChannelFinish(bInterrupted)
         end)
         
         for i = 1, #self.dummies do
-            Timers:CreateTimer(0.033 * i, function()
+            Timers:CreateTimer(0.0165 * i, function()
                 local facing =  self.dummies[i]:GetForwardVector()
                 facing.z = 0
                 if(self.caster.is3000Acquired) then
@@ -117,7 +118,7 @@ function nobu_3000:OnChannelFinish(bInterrupted)
                 Speed = 10000,
                 Facing =  facing,
                 AoE = aoe,
-                Range = 1000,
+                Range = 1300,
             })
             ParticleManager:DestroyParticle( self.dummies[i].GunFx, false)
 		    ParticleManager:ReleaseParticleIndex(self.dummies[i].GunFx)
@@ -177,7 +178,7 @@ function nobu_3000:Shoot(keys)
             iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
             iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
             iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-            flExpireTime = GameRules:GetGameTime() + 0.1,
+            flExpireTime = GameRules:GetGameTime() + 0.13,
             
         }
     else
@@ -195,7 +196,7 @@ function nobu_3000:Shoot(keys)
             iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
             iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
             iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-            flExpireTime = GameRules:GetGameTime() + 0.33,
+            flExpireTime = GameRules:GetGameTime() + 0.13,
              
         }
     end
@@ -233,7 +234,7 @@ function nobu_3000:OnProjectileHit_ExtraData(target, location, data)
 		else 
 			gun_spawn = gun_spawn + hCaster:GetRightVector() * random1 + random3
         end
-        local aoe = 32
+        local aoe = 50
         
         hCaster:FindAbilityByName("nobu_guns"):DOWShoot({
             Speed = 10000,

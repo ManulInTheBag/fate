@@ -41,7 +41,8 @@ end
 function modifier_nobu_divinity_mark:OnTakeDamage(args)
     local parent =self:GetParent()
     local caster = self:GetCaster()
-    if(  args.attacker == caster )then
+    if(  args.attacker == caster  and args.damage_category == 0 )then
+        if(args.inflictor:GetName() ~= "nobu_guns" and args.inflictor:GetName() ~= "nobu_shot" and args.inflictor:GetName() ~= "nobu_3000" and args.inflictor:GetName() ~= "nobu_double_shots" ) then return end
         self.stacks = self.stacks + 1
         ParticleManager:DestroyParticle(self.fx, true)
         ParticleManager:ReleaseParticleIndex(self.fx)

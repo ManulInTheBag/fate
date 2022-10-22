@@ -10,7 +10,8 @@ function nobu_dash:OnSpellStart()
 		self:StartCooldown(0.5)
 	end
 	local ability = self
-
+	caster:RemoveModifierByName("modifier_nobu_strategy_attribute_cooldown")
+	caster.IsStrategyReady = true
 	local speed = 1200
 	local point  = self:GetCursorPosition()+caster:GetForwardVector()
 	local direction      = (point - caster:GetAbsOrigin()):Normalized()

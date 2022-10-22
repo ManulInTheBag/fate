@@ -245,12 +245,12 @@
 					{
 						_class = "AnimFile"
 						name = "nobu_anime_slash"
-						activity_name = ""
+						activity_name = "ACT_DOTA_DISABLED"
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
 						fade_out_time = 0.2
-						looping = false
+						looping = true
 						delta = false
 						worldSpace = false
 						hidden = false
@@ -259,8 +259,8 @@
 						animgraph_additive = false
 						source_filename = "models/nobu/nobunaga.fbx"
 						import_bone_scales = false
-						start_frame = 339
-						end_frame = 357
+						start_frame = 345
+						end_frame = 345
 						framerate = -1.0
 						reverse = false
 					},
@@ -960,7 +960,7 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -11.957176, -34.49279, -9.48439 ]
+								hitbox_mins = [ -11.957176, -42.229492, -23.033386 ]
 								hitbox_maxs = [ 1.204308, 5.384161, 2.290405 ]
 							},
 							{
@@ -1080,8 +1080,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -3.202332, -8.942003, -22.018005 ]
-								hitbox_maxs = [ 27.113071, 8.277136, 3.808472 ]
+								hitbox_mins = [ -3.202332, -8.942003, -49.621059 ]
+								hitbox_maxs = [ 44.612656, 8.277136, 3.808472 ]
 							},
 							{
 								_class = "Hitbox"
@@ -1211,7 +1211,7 @@
 								translation_only = false
 								group_id = 0
 								hitbox_mins = [ -37.63097, -31.554871, -86.252861 ]
-								hitbox_maxs = [ 38.966503, 29.136337, 60.824844 ]
+								hitbox_maxs = [ 38.966503, 50.541557, 60.824844 ]
 							},
 							{
 								_class = "Hitbox"

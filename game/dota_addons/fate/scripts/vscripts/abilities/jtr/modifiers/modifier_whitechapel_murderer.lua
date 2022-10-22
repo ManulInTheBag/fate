@@ -40,6 +40,7 @@ if IsServer() then
 			self.OriginalVision = self.modifier.base_range_day
 		end
 
+			--[[ these modifiers were killed by shiki 
 		LoopOverPlayers(function(player, playerID, playerHero)
         	if playerHero:GetTeamNumber() ~= self:GetParent():GetTeamNumber() and playerHero:IsAlive() then
         		playerHero:AddNewModifier(self:GetParent(), self:GetAbility(), "modifier_whitechapel_murderer_enemy", { Duration = self:GetAbility():GetSpecialValueFor("duration") })
@@ -47,7 +48,7 @@ if IsServer() then
         		playerHero:AddNewModifier(self:GetParent(), self:GetAbility(), "modifier_whitechapel_murderer_ally", { Duration = self:GetAbility():GetSpecialValueFor("duration") })
         	end
      	end)
-
+			]]
 		--self:GetParent():SetDayTimeVisionRange(600)
 		--self:GetParent():SetNightTimeVisionRange(600)
 
@@ -82,7 +83,7 @@ if IsServer() then
 	    ParticleManager:SetParticleControl(self.Particle, 4, self.ParticleDummy:GetAbsOrigin())
 
 	    local targets = _G.AllNpcTable
-
+	--[[ these modifiers were killed by shiki too
 	    LoopOverPlayers(function(player, playerID, playerHero)
         	if playerHero:GetTeamNumber() ~= self:GetParent():GetTeamNumber() and playerHero:IsAlive() then
         		playerHero:AddNewModifier(self:GetParent(), self:GetAbility(), "modifier_whitechapel_murderer_enemy", { Duration = self:GetAbility():GetSpecialValueFor("duration") - self.time_remaining })
@@ -90,7 +91,7 @@ if IsServer() then
         		playerHero:AddNewModifier(self:GetParent(), self:GetAbility(), "modifier_whitechapel_murderer_ally", { Duration = self:GetAbility():GetSpecialValueFor("duration") - self.time_remaining })
         	end
      	end)
-
+			]]
 		--local targets = FindUnitsInRadius(self:GetParent():GetTeam(), self:GetParent():GetAbsOrigin(), nil, 999999, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_INVULNERABLE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 		--[[for i,j in pairs(targets) do
 			if not j:IsNull() then

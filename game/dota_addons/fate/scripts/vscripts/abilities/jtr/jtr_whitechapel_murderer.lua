@@ -1,8 +1,8 @@
 jtr_whitechapel_murderer = class({})
 
 LinkLuaModifier("modifier_whitechapel_murderer", "abilities/jtr/modifiers/modifier_whitechapel_murderer", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_whitechapel_murderer_ally", "abilities/jtr/modifiers/modifier_whitechapel_murderer_ally", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_whitechapel_murderer_enemy", "abilities/jtr/modifiers/modifier_whitechapel_murderer_enemy", LUA_MODIFIER_MOTION_NONE)
+--LinkLuaModifier("modifier_whitechapel_murderer_ally", "abilities/jtr/modifiers/modifier_whitechapel_murderer_ally", LUA_MODIFIER_MOTION_NONE)
+--LinkLuaModifier("modifier_whitechapel_murderer_enemy", "abilities/jtr/modifiers/modifier_whitechapel_murderer_enemy", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_whitechapel_cooldown", "abilities/jtr/modifiers/modifier_whitechapel_cooldown", LUA_MODIFIER_MOTION_NONE)
 
 function jtr_whitechapel_murderer:CastFilterResult()

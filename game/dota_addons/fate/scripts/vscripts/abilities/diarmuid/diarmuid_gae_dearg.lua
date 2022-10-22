@@ -51,8 +51,16 @@ function diarmuid_gae_dearg:OnAbilityPhaseStart()
 	--caster:EmitSound("ZL.Dearg_Cast")
 
 	self.SoundQueue = math.random(1,3)
-
-	caster:EmitSound("Diarmuid_GaeDearg_Alt" .. self.SoundQueue .. "_1")
+	LoopOverPlayers(function(player, playerID, playerHero)
+        --print("looping through " .. playerHero:GetName())
+	        if playerHero.gachi == true then
+	            -- apply legion horn vsnd on their client
+				CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="diarmuid_gaedearg_alt_" .. self.SoundQueue .. "_1"})
+				end
+	        	
+	    
+   		end)
+		   caster:EmitSound("Diarmuid_GaeDearg_Alt" .. self.SoundQueue .. "_1")
 
 	local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_chaos_knight/chaos_knight_reality_rift.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 	ParticleManager:SetParticleControl(particle, 1, caster:GetAbsOrigin()) 
@@ -121,7 +129,16 @@ function diarmuid_gae_dearg:OnSpellStart()
 	DoDamage(caster, target, damage, DAMAGE_TYPE_PURE, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, ability, false)	
 
 	--EmitGlobalSound("ZL.Gae_Dearg")
-	caster:EmitSound("Diarmuid_GaeDearg_Alt" .. self.SoundQueue .. "_2")
+	LoopOverPlayers(function(player, playerID, playerHero)
+        --print("looping through " .. playerHero:GetName())
+	        if playerHero.gachi == true then
+	            -- apply legion horn vsnd on their client
+				CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="diarmuid_gaedearg_alt_" .. self.SoundQueue .. "_2"})
+	        end
+	        
+	      
+   		end)
+		   caster:EmitSound("Diarmuid_GaeDearg_Alt" .. self.SoundQueue .. "_2")
 
 	target:EmitSound("Hero_Lion.Impale")
 	StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_CAST_ABILITY_3_END, rate=2})

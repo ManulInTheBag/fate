@@ -1,1054 +1,625 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc31:version{165d48dd-8adc-4f1d-abf7-4992e04ad577} -->
 {
-	m_meshList = 
+	rootNode = 
 	{
-		m_meshList = 
+		_class = "RootNode"
+		children = 
 		[
 			{
-				m_meshName = "mordred_unanim"
-				m_meshFile = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/mordred/mordred_unanim.fbx"
-				m_materialSearchPath = ""
-				m_bSkinParentedObjects = true
-				m_bLegacySkinParentedTransforms = false
-				m_bExpensiveTangents = false
-				m_bHighPrecisionTexCoords = false
-				m_bPerVertexCurvature = false
-				m_bBentNormals = false
-				m_bIgnoreCloth = false
-				m_bGetSkinningFromLod0 = false
-				m_bPreferHighDensityTrianglesInUvDensityCalculation = false
-				m_pMorphInfo = null
-			},
-		]
-	}
-	m_clothProxyMeshList = 
-	{
-		_class = "CVClothProxyMeshList"
-		m_flClothEnableThreshold = 0.05
-		m_bCreateStaticBone = false
-		m_nMaxBonesPerVertex = 4
-		m_bRemoveUnusedBonesEnabled = false
-		m_bDriveMeshesWithBacksolvedJointsOnly = true
-		m_flMatchProxiesToMeshes = 1.0
-		m_flFallbackEnvelope = 1.0
-		m_nReservedInt = 0
-		m_bSoftSkinAnimation = false
-		m_bReservedBool2 = false
-		m_bReservedBool3 = false
-		m_bReservedBool4 = false
-		m_clothProxyMeshList = [  ]
-	}
-	m_physicsMeshList = 
-	{
-		m_meshList = [  ]
-	}
-	m_pModelInfo = null
-	m_pBoneFlagList = 
-	{
-		m_pObject = null
-	}
-	m_pHitBoxSetLists = 
-	[
-		{
-			m_pObject = 
-			{
-				m_HitBoxSets = 
+				_class = "MaterialGroupList"
+				children = 
 				[
 					{
-						m_name = "default"
-						m_HitBoxes = 
+						_class = "DefaultMaterialGroup"
+						remaps = 
 						[
 							{
-								m_name = "bone_new3"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_new3"
-								m_vMinBounds = [ -6.333867, -3.800039, -9.133915 ]
-								m_vMaxBounds = [ 6.333867, 6.009511, 4.398083 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								from = ".vmat"
+								to = "materials/updated_by_seva_and_hudozhestvenniy_film_spizdili/mordred/heromordred1.vmat"
 							},
 							{
-								m_name = "bone_new2"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_new2"
-								m_vMinBounds = [ -3.436913, -3.902817, -0.402481 ]
-								m_vMaxBounds = [ 3.436924, 3.4843, 2.99913 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								from = ""
+								to = "materials/updated_by_seva_and_hudozhestvenniy_film_spizdili/mordred/heromordred1.vmat"
+							},
+						]
+						use_global_default = false
+						global_default_material = ""
+					},
+				]
+			},
+			{
+				_class = "AttachmentList"
+				children = 
+				[
+					{
+						_class = "Attachment"
+						name = "ATTACH_HITLOC"
+						parent_bone = "bone_new4"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "ATTACH_ATTACK1"
+						parent_bone = "bone_weapon"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+				]
+			},
+			{
+				_class = "HitboxSetList"
+				children = 
+				[
+					{
+						_class = "HitboxSet"
+						name = "default"
+						children = 
+						[
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_new3"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.333867, -3.800039, -9.133915 ]
+								hitbox_maxs = [ 6.333867, 6.009511, 4.398083 ]
 							},
 							{
-								m_name = "bone_new4"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_new4"
-								m_vMinBounds = [ -4.868447, -4.129893, -0.097801 ]
-								m_vMaxBounds = [ 4.868463, 5.083992, 8.525982 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bone_new2"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.436913, -3.902817, -0.402481 ]
+								hitbox_maxs = [ 3.436924, 3.4843, 2.99913 ]
 							},
 							{
-								m_name = "bone_new20"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_new20"
-								m_vMinBounds = [ -2.858009, -2.51034, -3.354218 ]
-								m_vMaxBounds = [ 0.082259, 2.529246, 0.975388 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bone_new4"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.868447, -4.129893, -0.097801 ]
+								hitbox_maxs = [ 4.868463, 5.083992, 8.525982 ]
 							},
 							{
-								m_name = "bone_new21"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_new21"
-								m_vMinBounds = [ -0.0824, -3.291671, -2.64867 ]
-								m_vMaxBounds = [ 2.291597, 2.285652, 0.975388 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bone_new20"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.858009, -2.51034, -3.354218 ]
+								hitbox_maxs = [ 0.082259, 2.529246, 0.975388 ]
 							},
 							{
-								m_name = "bone_new12"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_new12"
-								m_vMinBounds = [ -8.340364, -5.36494, -7.631729 ]
-								m_vMaxBounds = [ 3.14309, 10.188597, 10.274487 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bone_new21"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.0824, -3.291671, -2.64867 ]
+								hitbox_maxs = [ 2.291597, 2.285652, 0.975388 ]
 							},
 							{
-								m_name = "bone_new13"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_new13"
-								m_vMinBounds = [ -3.255433, -5.364958, -7.80373 ]
-								m_vMaxBounds = [ 8.227989, 10.188585, 10.102516 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bone_new12"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -8.340364, -5.36494, -7.631729 ]
+								hitbox_maxs = [ 3.14309, 10.188597, 10.274487 ]
 							},
 							{
-								m_name = "bone_new7"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_new7"
-								m_vMinBounds = [ -3.296958, -0.000001, -0.000004 ]
-								m_vMaxBounds = [ 3.29696, 0.674467, 0.620316 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bone_new13"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.255433, -5.364958, -7.80373 ]
+								hitbox_maxs = [ 8.227989, 10.188585, 10.102516 ]
 							},
 							{
-								m_name = "bone_new22"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_new22"
-								m_vMinBounds = [ -6.144979, -2.52703, -5.624798 ]
-								m_vMaxBounds = [ 1.063141, 2.576813, 2.186852 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bone_new7"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.296958, -0.000001, -0.000004 ]
+								hitbox_maxs = [ 3.29696, 0.674467, 0.620316 ]
 							},
 							{
-								m_name = "bone_new23"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_new23"
-								m_vMinBounds = [ -0.912501, -3.196941, -5.546322 ]
-								m_vMaxBounds = [ 6.295598, 1.906902, 2.265343 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bone_new22"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.144979, -2.52703, -5.624798 ]
+								hitbox_maxs = [ 1.063141, 2.576813, 2.186852 ]
 							},
 							{
-								m_name = "bone_new8"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_new8"
-								m_vMinBounds = [ -3.303972, -0.000001, 0.0 ]
-								m_vMaxBounds = [ 3.303973, 0.28893, 0.39856 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bone_new23"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.912501, -3.196941, -5.546322 ]
+								hitbox_maxs = [ 6.295598, 1.906902, 2.265343 ]
 							},
 							{
-								m_name = "bone_new24"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_new24"
-								m_vMinBounds = [ -3.489473, -2.112269, -3.063389 ]
-								m_vMaxBounds = [ 0.452625, 2.02498, 0.485424 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bone_new8"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.303972, -0.000001, 0.0 ]
+								hitbox_maxs = [ 3.303973, 0.28893, 0.39856 ]
 							},
 							{
-								m_name = "bone_new25"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_new25"
-								m_vMinBounds = [ -0.792862, -2.424511, -2.651367 ]
-								m_vMaxBounds = [ 3.499264, 2.236633, 0.942417 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bone_new24"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.489473, -2.112269, -3.063389 ]
+								hitbox_maxs = [ 0.452625, 2.02498, 0.485424 ]
 							},
 							{
-								m_name = "bone_new14"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_new14"
-								m_vMinBounds = [ -3.602512, -3.428811, -17.488422 ]
-								m_vMaxBounds = [ 2.684651, 4.235635, 1.462292 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bone_new25"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.792862, -2.424511, -2.651367 ]
+								hitbox_maxs = [ 3.499264, 2.236633, 0.942417 ]
 							},
 							{
-								m_name = "bone_new15"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_new15"
-								m_vMinBounds = [ -2.630331, -3.209648, -17.528662 ]
-								m_vMaxBounds = [ 3.656819, 4.454799, 1.422047 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bone_new14"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.602512, -3.428811, -17.488422 ]
+								hitbox_maxs = [ 2.684651, 4.235635, 1.462292 ]
 							},
 							{
-								m_name = "bone_new37"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_new37"
-								m_vMinBounds = [ -7.265471, -1.341215, -6.418663 ]
-								m_vMaxBounds = [ 7.265471, 3.544052, 0.158901 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bone_new15"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.630331, -3.209648, -17.528662 ]
+								hitbox_maxs = [ 3.656819, 4.454799, 1.422047 ]
 							},
 							{
-								m_name = "bone_new9"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_new9"
-								m_vMinBounds = [ -3.20384, -0.177611, 0.000004 ]
-								m_vMaxBounds = [ 3.203841, -0.000001, 0.176792 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bone_new37"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.265471, -1.341215, -6.418663 ]
+								hitbox_maxs = [ 7.265471, 3.544052, 0.158901 ]
 							},
 							{
-								m_name = "bone_new29"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_new29"
-								m_vMinBounds = [ -0.87104, -1.85762, -1.590908 ]
-								m_vMaxBounds = [ 0.572557, 1.698906, 0.458813 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bone_new9"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.20384, -0.177611, 0.000004 ]
+								hitbox_maxs = [ 3.203841, -0.000001, 0.176792 ]
 							},
 							{
-								m_name = "bone_new27"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_new27"
-								m_vMinBounds = [ -0.985037, -2.041752, -1.379314 ]
-								m_vMaxBounds = [ 1.216524, 1.543789, 0.453327 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bone_new29"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.87104, -1.85762, -1.590908 ]
+								hitbox_maxs = [ 0.572557, 1.698906, 0.458813 ]
 							},
 							{
-								m_name = "bone_new16"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_new16"
-								m_vMinBounds = [ -3.259716, -4.065516, -17.533298 ]
-								m_vMaxBounds = [ 2.109044, 4.246153, 1.255068 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bone_new27"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.985037, -2.041752, -1.379314 ]
+								hitbox_maxs = [ 1.216524, 1.543789, 0.453327 ]
 							},
 							{
-								m_name = "bone_new17"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_new17"
-								m_vMinBounds = [ -2.109042, -4.065525, -17.533297 ]
-								m_vMaxBounds = [ 3.259718, 4.246145, 1.255064 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bone_new16"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.259716, -4.065516, -17.533298 ]
+								hitbox_maxs = [ 2.109044, 4.246153, 1.255068 ]
 							},
 							{
-								m_name = "bone_new38"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_new38"
-								m_vMinBounds = [ -8.282631, -4.519397, -5.688862 ]
-								m_vMaxBounds = [ 8.282635, 0.585738, 1.598354 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bone_new17"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.109042, -4.065525, -17.533297 ]
+								hitbox_maxs = [ 3.259718, 4.246145, 1.255064 ]
 							},
 							{
-								m_name = "bone_new10"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_new10"
-								m_vMinBounds = [ -2.996019, -0.263746, -0.045008 ]
-								m_vMaxBounds = [ 2.996019, -0.000001, 0.0 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bone_new38"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -8.282631, -4.519397, -5.688862 ]
+								hitbox_maxs = [ 8.282635, 0.585738, 1.598354 ]
 							},
 							{
-								m_name = "bone_new31"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_new31"
-								m_vMinBounds = [ -1.864164, -1.657937, -2.063828 ]
-								m_vMaxBounds = [ -0.289648, -0.359933, -0.294376 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bone_new10"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.996019, -0.263746, -0.045008 ]
+								hitbox_maxs = [ 2.996019, -0.000001, 0.0 ]
 							},
 							{
-								m_name = "bone_new30"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_new30"
-								m_vMinBounds = [ -1.455206, -1.721421, -1.299488 ]
-								m_vMaxBounds = [ 0.590811, 1.60851, 0.446571 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bone_new31"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.864164, -1.657937, -2.063828 ]
+								hitbox_maxs = [ -0.289648, -0.359933, -0.294376 ]
 							},
 							{
-								m_name = "bone_new28"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_new28"
-								m_vMinBounds = [ -0.261583, -1.479077, -1.748768 ]
-								m_vMaxBounds = [ 1.353886, 0.114651, 0.066708 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bone_new30"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.455206, -1.721421, -1.299488 ]
+								hitbox_maxs = [ 0.590811, 1.60851, 0.446571 ]
 							},
 							{
-								m_name = "bone_new26"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_new26"
-								m_vMinBounds = [ -0.785744, -1.73138, -1.300262 ]
-								m_vMaxBounds = [ 1.54524, 1.685196, 0.491241 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bone_new28"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.261583, -1.479077, -1.748768 ]
+								hitbox_maxs = [ 1.353886, 0.114651, 0.066708 ]
 							},
 							{
-								m_name = "bone_newk0"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_newk0"
-								m_vMinBounds = [ -23.319494, -9.185827, -4.10001 ]
-								m_vMaxBounds = [ 23.337883, 16.176916, 13.476646 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bone_new26"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.785744, -1.73138, -1.300262 ]
+								hitbox_maxs = [ 1.54524, 1.685196, 0.491241 ]
 							},
 							{
-								m_name = "bone_new5"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_new5"
-								m_vMinBounds = [ -21.324228, -13.176951, -26.31007 ]
-								m_vMaxBounds = [ 6.461968, 18.125744, 0.70665 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bone_newk0"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -23.319494, -9.185827, -4.10001 ]
+								hitbox_maxs = [ 23.337883, 16.176916, 13.476646 ]
 							},
 							{
-								m_name = "bone_new6"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_new6"
-								m_vMinBounds = [ -6.798137, -13.205639, -26.310064 ]
-								m_vMaxBounds = [ 22.433462, 18.165186, 0.70665 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bone_new5"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -21.324228, -13.176951, -26.31007 ]
+								hitbox_maxs = [ 6.461968, 18.125744, 0.70665 ]
 							},
 							{
-								m_name = "bone_new18"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_new18"
-								m_vMinBounds = [ -2.861738, -10.209743, -4.697427 ]
-								m_vMaxBounds = [ 2.015979, 2.769265, 2.376793 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bone_new6"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.798137, -13.205639, -26.310064 ]
+								hitbox_maxs = [ 22.433462, 18.165186, 0.70665 ]
 							},
 							{
-								m_name = "bone_new19"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_new19"
-								m_vMinBounds = [ -1.867841, -10.432204, -4.748121 ]
-								m_vMaxBounds = [ 3.009864, 2.546804, 2.326099 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bone_new18"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.861738, -10.209743, -4.697427 ]
+								hitbox_maxs = [ 2.015979, 2.769265, 2.376793 ]
 							},
 							{
-								m_name = "bone_new39"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_new39"
-								m_vMinBounds = [ -8.282633, -4.676132, -5.59013 ]
-								m_vMaxBounds = [ 8.282633, 0.429003, 1.697128 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bone_new19"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.867841, -10.432204, -4.748121 ]
+								hitbox_maxs = [ 3.009864, 2.546804, 2.326099 ]
 							},
 							{
-								m_name = "bone_new11"
-								m_sSurfaceProperty = ""
-								m_nGroupId = 0
-								m_sBoneName = "bone_new11"
-								m_vMinBounds = [ -2.807152, -0.069318, -5.080805 ]
-								m_vMaxBounds = [ 2.80715, 0.000001, 0.0 ]
-								m_flShapeRadius = 0.0
-								m_nShapeType = "VHITBOX_SHAPE_BOX"
-								m_bTranslationOnly = false
-								m_cRenderColor = [ 0, 0, 0, 0 ]
+								_class = "Hitbox"
+								parent_bone = "bone_new39"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -8.282633, -4.676132, -5.59013 ]
+								hitbox_maxs = [ 8.282633, 0.429003, 1.697128 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_new11"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.807152, -0.069318, -5.080805 ]
+								hitbox_maxs = [ 2.80715, 0.000001, 0.0 ]
 							},
 						]
 					},
 				]
-				m_AutoCreateSetName = ""
-			}
-		},
-	]
-	m_pAttachmentLists = 
-	[
-		{
-			m_pObject = 
+			},
 			{
-				m_name = ""
-				m_attachments = 
+				_class = "RenderMeshList"
+				children = 
 				[
 					{
-						m_name = "ATTACH_HITLOC"
-						m_influences = 
-						[
-							{
-								m_influenceName = "bone_new4"
-								m_vTranslationOffset = [ 0.0, 0.0, 0.0 ]
-								m_vRotationOffset = [ 0.0, 0.0, 0.0 ]
-								m_flWeight = 1.0
-								m_bRoot = false
-							},
-						]
-					},
-					{
-						m_name = "ATTACH_ATTACK1"
-						m_influences = 
-						[
-							{
-								m_influenceName = "bone_weapon"
-								m_vTranslationOffset = [ 0.0, 0.0, 0.0 ]
-								m_vRotationOffset = [ 0.0, 0.0, 0.0 ]
-								m_flWeight = 1.0
-								m_bRoot = false
-							},
-						]
+						_class = "RenderMeshFile"
+						name = "mordred_unanim"
+						filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/mordred/mordred_unanim.fbx"
+						import_scale = 1.0
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = [  ]
+						}
 					},
 				]
-			}
-		},
-	]
-	m_pAnimGroup = 
-	{
-		m_pObject = 
-		{
-			m_Name = ""
-			m_pBoneFlagList = 
+			},
 			{
-				m_pObject = null
-			}
-			m_pSeqGroup = 
-			{
-				m_pObject = null
-			}
-			m_pAnimGroups = [  ]
-			m_Vanim = 
-			[
-				{
-					m_Animationname = "mordred_idle"
-					m_Filepath = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/mordred/mordred.fbx"
-					m_nStartframe = 10
-					m_nEndframe = 69
-					m_flFps = 30.0
-					m_Loop = 
+				_class = "AnimationList"
+				children = 
+				[
 					{
-						m_bLoop = true
-						m_bSmoothLoop = false
-						m_nSmoothLoopStart = 0
-						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
-						{
-							_class = "CVAnimCmdStartLoop"
-							m_bEnabled = false
-							m_nLoopRestart = 0
-						}
-					}
-					m_bHidden = false
-					m_bDisable = false
-					m_Activities = 
-					[
-						{
-							m_Name = "ACT_DOTA_IDLE"
-							m_nWeight = 1
-						},
-					]
-					m_AnimationEvents = [  ]
-					m_MotionFrames = [  ]
-					m_pIkRules = [  ]
-					m_pAlignAnimation = null
-					m_adjustAnimation = 
+						_class = "AnimFile"
+						name = "mordred_idle"
+						activity_name = "ACT_DOTA_IDLE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/mordred/mordred.fbx"
+						import_bone_scales = false
+						start_frame = 10
+						end_frame = 69
+						framerate = 30.0
+						reverse = false
+					},
 					{
-						m_translation = [ 0.0, 0.0, 0.0 ]
-						m_rotation = [ 0.0, 0.0, 0.0 ]
-					}
-					m_Keywords = [  ]
-					m_sequenceParams = 
+						_class = "AnimFile"
+						name = "mordred_run"
+						activity_name = "ACT_DOTA_RUN"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/mordred/mordred.fbx"
+						import_bone_scales = false
+						start_frame = 78
+						end_frame = 97
+						framerate = 30.0
+						reverse = false
+					},
 					{
-						m_flFadeInTime = 0.2
-						m_flFadeOutTime = 0.2
-					}
-					m_folderName = ""
-					m_MotionFramesRootBone = ""
-				},
-				{
-					m_Animationname = "mordred_run"
-					m_Filepath = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/mordred/mordred.fbx"
-					m_nStartframe = 78
-					m_nEndframe = 97
-					m_flFps = 30.0
-					m_Loop = 
+						_class = "AnimFile"
+						name = "mordred_hard_hit"
+						activity_name = "ACT_DOTA_ATTACK2"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/mordred/mordred.fbx"
+						import_bone_scales = false
+						start_frame = 165
+						end_frame = 205
+						framerate = 30.0
+						reverse = false
+					},
 					{
-						m_bLoop = true
-						m_bSmoothLoop = false
-						m_nSmoothLoopStart = 0
-						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
-						{
-							_class = "CVAnimCmdStartLoop"
-							m_bEnabled = false
-							m_nLoopRestart = 0
-						}
-					}
-					m_bHidden = false
-					m_bDisable = false
-					m_Activities = 
-					[
-						{
-							m_Name = "ACT_DOTA_RUN"
-							m_nWeight = 1
-						},
-					]
-					m_AnimationEvents = [  ]
-					m_MotionFrames = [  ]
-					m_pIkRules = [  ]
-					m_pAlignAnimation = null
-					m_adjustAnimation = 
+						_class = "AnimFile"
+						name = "mordred_rush_slash"
+						activity_name = "ACT_DOTA_CAST_ABILITY_4_END"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/mordred/mordred.fbx"
+						import_bone_scales = false
+						start_frame = 235
+						end_frame = 275
+						framerate = 30.0
+						reverse = false
+					},
 					{
-						m_translation = [ 0.0, 0.0, 0.0 ]
-						m_rotation = [ 0.0, 0.0, 0.0 ]
-					}
-					m_Keywords = [  ]
-					m_sequenceParams = 
+						_class = "AnimFile"
+						name = "mordred_gawain_like_hit"
+						activity_name = "ACT_DOTA_ATTACK"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/mordred/mordred.fbx"
+						import_bone_scales = false
+						start_frame = 300
+						end_frame = 340
+						framerate = 30.0
+						reverse = false
+					},
 					{
-						m_flFadeInTime = 0.2
-						m_flFadeOutTime = 0.2
-					}
-					m_folderName = ""
-					m_MotionFramesRootBone = ""
-				},
-				{
-					m_Animationname = "mordred_hard_hit"
-					m_Filepath = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/mordred/mordred.fbx"
-					m_nStartframe = 165
-					m_nEndframe = 205
-					m_flFps = 30.0
-					m_Loop = 
+						_class = "AnimFile"
+						name = "mordred_clarent_charge"
+						activity_name = "ACT_DOTA_CAST_ABILITY_3"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/mordred/mordred.fbx"
+						import_bone_scales = false
+						start_frame = 575
+						end_frame = 590
+						framerate = 30.0
+						reverse = false
+					},
 					{
-						m_bLoop = false
-						m_bSmoothLoop = false
-						m_nSmoothLoopStart = 0
-						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
-						{
-							_class = "CVAnimCmdStartLoop"
-							m_bEnabled = false
-							m_nLoopRestart = 0
-						}
-					}
-					m_bHidden = false
-					m_bDisable = false
-					m_Activities = 
-					[
-						{
-							m_Name = "ACT_DOTA_ATTACK2"
-							m_nWeight = 1
-						},
-					]
-					m_AnimationEvents = [  ]
-					m_MotionFrames = [  ]
-					m_pIkRules = [  ]
-					m_pAlignAnimation = null
-					m_adjustAnimation = 
+						_class = "AnimFile"
+						name = "mordred_detonate"
+						activity_name = "ACT_DOTA_CAST_ABILITY_1"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/mordred/mordred.fbx"
+						import_bone_scales = false
+						start_frame = 127
+						end_frame = 165
+						framerate = 60.0
+						reverse = false
+					},
 					{
-						m_translation = [ 0.0, 0.0, 0.0 ]
-						m_rotation = [ 0.0, 0.0, 0.0 ]
-					}
-					m_Keywords = [  ]
-					m_sequenceParams = 
+						_class = "AnimFile"
+						name = "mordred_clarent_release"
+						activity_name = "ACT_DOTA_CAST_ABILITY_3_END"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/mordred/mordred.fbx"
+						import_bone_scales = false
+						start_frame = 635
+						end_frame = 689
+						framerate = 30.0
+						reverse = false
+					},
 					{
-						m_flFadeInTime = 0.2
-						m_flFadeOutTime = 0.2
-					}
-					m_folderName = ""
-					m_MotionFramesRootBone = ""
-				},
-				{
-					m_Animationname = "mordred_rush_slash"
-					m_Filepath = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/mordred/mordred.fbx"
-					m_nStartframe = 235
-					m_nEndframe = 275
-					m_flFps = 30.0
-					m_Loop = 
+						_class = "AnimFile"
+						name = "mordred_death"
+						activity_name = "ACT_DOTA_DIE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/mordred/mordred.fbx"
+						import_bone_scales = false
+						start_frame = 370
+						end_frame = 419
+						framerate = 30.0
+						reverse = false
+					},
 					{
-						m_bLoop = false
-						m_bSmoothLoop = false
-						m_nSmoothLoopStart = 0
-						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
-						{
-							_class = "CVAnimCmdStartLoop"
-							m_bEnabled = false
-							m_nLoopRestart = 0
-						}
-					}
-					m_bHidden = false
-					m_bDisable = false
-					m_Activities = 
-					[
-						{
-							m_Name = "ACT_DOTA_CAST_ABILITY_4_END"
-							m_nWeight = 1
-						},
-					]
-					m_AnimationEvents = [  ]
-					m_MotionFrames = [  ]
-					m_pIkRules = [  ]
-					m_pAlignAnimation = null
-					m_adjustAnimation = 
-					{
-						m_translation = [ 0.0, 0.0, 0.0 ]
-						m_rotation = [ 0.0, 0.0, 0.0 ]
-					}
-					m_Keywords = [  ]
-					m_sequenceParams = 
-					{
-						m_flFadeInTime = 0.2
-						m_flFadeOutTime = 0.2
-					}
-					m_folderName = ""
-					m_MotionFramesRootBone = ""
-				},
-				{
-					m_Animationname = "mordred_gawain_like_hit"
-					m_Filepath = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/mordred/mordred.fbx"
-					m_nStartframe = 300
-					m_nEndframe = 340
-					m_flFps = 30.0
-					m_Loop = 
-					{
-						m_bLoop = false
-						m_bSmoothLoop = false
-						m_nSmoothLoopStart = 0
-						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
-						{
-							_class = "CVAnimCmdStartLoop"
-							m_bEnabled = false
-							m_nLoopRestart = 0
-						}
-					}
-					m_bHidden = false
-					m_bDisable = false
-					m_Activities = 
-					[
-						{
-							m_Name = "ACT_DOTA_ATTACK"
-							m_nWeight = 1
-						},
-					]
-					m_AnimationEvents = [  ]
-					m_MotionFrames = [  ]
-					m_pIkRules = [  ]
-					m_pAlignAnimation = null
-					m_adjustAnimation = 
-					{
-						m_translation = [ 0.0, 0.0, 0.0 ]
-						m_rotation = [ 0.0, 0.0, 0.0 ]
-					}
-					m_Keywords = [  ]
-					m_sequenceParams = 
-					{
-						m_flFadeInTime = 0.2
-						m_flFadeOutTime = 0.2
-					}
-					m_folderName = ""
-					m_MotionFramesRootBone = ""
-				},
-				{
-					m_Animationname = "mordred_clarent_charge"
-					m_Filepath = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/mordred/mordred.fbx"
-					m_nStartframe = 575
-					m_nEndframe = 590
-					m_flFps = 30.0
-					m_Loop = 
-					{
-						m_bLoop = false
-						m_bSmoothLoop = false
-						m_nSmoothLoopStart = 0
-						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
-						{
-							_class = "CVAnimCmdStartLoop"
-							m_bEnabled = false
-							m_nLoopRestart = 0
-						}
-					}
-					m_bHidden = false
-					m_bDisable = false
-					m_Activities = 
-					[
-						{
-							m_Name = "ACT_DOTA_CAST_ABILITY_3"
-							m_nWeight = 1
-						},
-					]
-					m_AnimationEvents = [  ]
-					m_MotionFrames = [  ]
-					m_pIkRules = [  ]
-					m_pAlignAnimation = null
-					m_adjustAnimation = 
-					{
-						m_translation = [ 0.0, 0.0, 0.0 ]
-						m_rotation = [ 0.0, 0.0, 0.0 ]
-					}
-					m_Keywords = [  ]
-					m_sequenceParams = 
-					{
-						m_flFadeInTime = 0.2
-						m_flFadeOutTime = 0.2
-					}
-					m_folderName = ""
-					m_MotionFramesRootBone = ""
-				},
-				{
-					m_Animationname = "mordred_detonate"
-					m_Filepath = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/mordred/mordred.fbx"
-					m_nStartframe = 127
-					m_nEndframe = 165
-					m_flFps = 60.0
-					m_Loop = 
-					{
-						m_bLoop = false
-						m_bSmoothLoop = false
-						m_nSmoothLoopStart = 0
-						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
-						{
-							_class = "CVAnimCmdStartLoop"
-							m_bEnabled = false
-							m_nLoopRestart = 0
-						}
-					}
-					m_bHidden = false
-					m_bDisable = false
-					m_Activities = 
-					[
-						{
-							m_Name = "ACT_DOTA_CAST_ABILITY_1"
-							m_nWeight = 1
-						},
-					]
-					m_AnimationEvents = [  ]
-					m_MotionFrames = [  ]
-					m_pIkRules = [  ]
-					m_pAlignAnimation = null
-					m_adjustAnimation = 
-					{
-						m_translation = [ 0.0, 0.0, 0.0 ]
-						m_rotation = [ 0.0, 0.0, 0.0 ]
-					}
-					m_Keywords = [  ]
-					m_sequenceParams = 
-					{
-						m_flFadeInTime = 0.2
-						m_flFadeOutTime = 0.2
-					}
-					m_folderName = ""
-					m_MotionFramesRootBone = ""
-				},
-				{
-					m_Animationname = "mordred_clarent_release"
-					m_Filepath = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/mordred/mordred.fbx"
-					m_nStartframe = 635
-					m_nEndframe = 689
-					m_flFps = 30.0
-					m_Loop = 
-					{
-						m_bLoop = false
-						m_bSmoothLoop = false
-						m_nSmoothLoopStart = 0
-						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
-						{
-							_class = "CVAnimCmdStartLoop"
-							m_bEnabled = false
-							m_nLoopRestart = 0
-						}
-					}
-					m_bHidden = false
-					m_bDisable = false
-					m_Activities = 
-					[
-						{
-							m_Name = "ACT_DOTA_CAST_ABILITY_3_END"
-							m_nWeight = 1
-						},
-					]
-					m_AnimationEvents = [  ]
-					m_MotionFrames = [  ]
-					m_pIkRules = [  ]
-					m_pAlignAnimation = null
-					m_adjustAnimation = 
-					{
-						m_translation = [ 0.0, 0.0, 0.0 ]
-						m_rotation = [ 0.0, 0.0, 0.0 ]
-					}
-					m_Keywords = [  ]
-					m_sequenceParams = 
-					{
-						m_flFadeInTime = 0.2
-						m_flFadeOutTime = 0.2
-					}
-					m_folderName = ""
-					m_MotionFramesRootBone = ""
-				},
-				{
-					m_Animationname = "mordred_death"
-					m_Filepath = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/mordred/mordred.fbx"
-					m_nStartframe = 370
-					m_nEndframe = 419
-					m_flFps = 30.0
-					m_Loop = 
-					{
-						m_bLoop = false
-						m_bSmoothLoop = false
-						m_nSmoothLoopStart = 0
-						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
-						{
-							_class = "CVAnimCmdStartLoop"
-							m_bEnabled = false
-							m_nLoopRestart = 0
-						}
-					}
-					m_bHidden = false
-					m_bDisable = false
-					m_Activities = 
-					[
-						{
-							m_Name = "ACT_DOTA_DIE"
-							m_nWeight = 1
-						},
-					]
-					m_AnimationEvents = [  ]
-					m_MotionFrames = [  ]
-					m_pIkRules = [  ]
-					m_pAlignAnimation = null
-					m_adjustAnimation = 
-					{
-						m_translation = [ 0.0, 0.0, 0.0 ]
-						m_rotation = [ 0.0, 0.0, 0.0 ]
-					}
-					m_Keywords = [  ]
-					m_sequenceParams = 
-					{
-						m_flFadeInTime = 0.2
-						m_flFadeOutTime = 0.2
-					}
-					m_folderName = ""
-					m_MotionFramesRootBone = ""
-				},
-				{
-					m_Animationname = "mordred_hit"
-					m_Filepath = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/mordred/mordred.fbx"
-					m_nStartframe = 505
-					m_nEndframe = 544
-					m_flFps = 120.0
-					m_Loop = 
-					{
-						m_bLoop = false
-						m_bSmoothLoop = false
-						m_nSmoothLoopStart = 0
-						m_nSmoothLoopEnd = 0
-						m_StartLoop = 
-						{
-							_class = "CVAnimCmdStartLoop"
-							m_bEnabled = false
-							m_nLoopRestart = 0
-						}
-					}
-					m_bHidden = false
-					m_bDisable = false
-					m_Activities = 
-					[
-						{
-							m_Name = "ACT_DOTA_CAST_ABILITY_2"
-							m_nWeight = 1
-						},
-					]
-					m_AnimationEvents = [  ]
-					m_MotionFrames = [  ]
-					m_pIkRules = [  ]
-					m_pAlignAnimation = null
-					m_adjustAnimation = 
-					{
-						m_translation = [ 0.0, 0.0, 0.0 ]
-						m_rotation = [ 0.0, 0.0, 0.0 ]
-					}
-					m_Keywords = [  ]
-					m_sequenceParams = 
-					{
-						m_flFadeInTime = 0.2
-						m_flFadeOutTime = 0.2
-					}
-					m_folderName = ""
-					m_MotionFramesRootBone = ""
-				},
-			]
-			m_sScripts = [  ]
-			m_folderNames = [  ]
-			m_sCompileScripts = [  ]
-			m_pActivityWhiteList = 
-			{
-				m_pObject = null
-			}
-		}
-	}
-	m_pMaterialGroupList = 
-	{
-		m_pObject = null
-	}
-	m_pMeshGroupList = 
-	{
-		m_pObject = null
-	}
-	m_pLodGroupList = 
-	{
-		m_pObject = null
-	}
-	m_pPropBreakableList = 
-	{
-		m_pObject = null
-	}
-	m_pPropDataList = 
-	{
-		m_pObject = null
-	}
-	m_pConstraintLists = [  ]
-	m_collision = ""
-	m_softbody = ""
-	m_sMDLFilename = ""
-	m_sOffsetHitboxSets = [  ]
-	m_vHitboxSetOffset = [ 0.0, 0.0, 0.0 ]
-	m_scriptFiles = [  ]
-	m_pMaterialRemapList = 
-	{
-		m_vMaterialRemapList = 
-		[
-			{
-				m_sSearchMaterial = ".vmat"
-				m_sReplaceMaterial = "materials/updated_by_seva_and_hudozhestvenniy_film_spizdili/mordred/heromordred1.vmat"
+						_class = "AnimFile"
+						name = "mordred_hit"
+						activity_name = "ACT_DOTA_CAST_ABILITY_2"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/mordred/mordred.fbx"
+						import_bone_scales = false
+						start_frame = 505
+						end_frame = 544
+						framerate = 120.0
+						reverse = false
+					},
+				]
+				default_root_bone_name = ""
 			},
 		]
+		model_archetype = ""
+		primary_associated_entity = ""
+		anim_graph_name = ""
+		importer_notes = """
+Imported from VMDL
+"""
 	}
-	m_flFbxScale = 1.0
-	m_flQCScale = 1.0
-	m_vOrigin = [ 0.0, 0.0, 0.0 ]
-	m_bEmbedAnimsInAnimGroup = false
-	m_pPsfList = null
-	m_keyValueText = ""
-	m_bStaticProp = false
-	m_bEnableClothProcessing = true
-	m_flClothEnableThreshold = 0.05
-	m_nMaxClothVertsPerMesh = 2048
-	m_bBuildClothBoneHierarchy = false
-	m_nNavType = "AUTH_NAV_MESH"
-	m_bMakeUniqueVMeshes = false
-	m_bMakeImplicitBindPoseSequence = false
-	m_bAdjustSkeletonFromBoneFlags = false
-	m_bHiddenAssetFlag = false
-	m_pAnimGroups = [  ]
 }

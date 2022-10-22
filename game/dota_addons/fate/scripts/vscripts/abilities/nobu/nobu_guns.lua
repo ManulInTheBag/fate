@@ -88,12 +88,11 @@ function nobu_guns:DOWShoot(keys, position)
         local velocity = dummy:GetForwardVector()
         dummy:EmitSound("nobu_shoot")
         velocity.z = 0
-		ParticleManager:DestroyParticle(GunFx, true)
-		ParticleManager:ReleaseParticleIndex(GunFx)
+	
         local projectileTable = {
             EffectName = "particles/nobu/nobu_bullet.vpcf" ,
             Ability = self,
-            vSpawnOrigin = position + self.Dummy:GetForwardVector()*80,
+            vSpawnOrigin = position + dummy:GetForwardVector()*80,
             vVelocity =velocity * keys.Speed,
             fDistance = keys.Range,
             fStartRadius = keys.AoE,
@@ -108,6 +107,8 @@ function nobu_guns:DOWShoot(keys, position)
             
         }
         ProjectileManager:CreateLinearProjectile(projectileTable)
+        ParticleManager:DestroyParticle(GunFx, false)
+		ParticleManager:ReleaseParticleIndex(GunFx)
         dummy:RemoveSelf() 
 	end)
 

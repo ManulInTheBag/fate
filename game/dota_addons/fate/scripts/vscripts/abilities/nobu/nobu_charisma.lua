@@ -20,7 +20,7 @@ function modifier_nobu_charisma_aura:DeclareFunctions()
 end
 function modifier_nobu_charisma_aura:OnTakeDamage(args)
     local caster = self:GetCaster()
-    if(  args.attacker == caster and caster.StrategyAcquired )then
+    if(  args.attacker == caster and caster.StrategyAcquired and (caster:GetAbsOrigin() - args.unit:GetAbsOrigin()):Length2D() < 1200 )then
 		Timers:RemoveTimer("nobu_strategy")
 		if(caster.IsStrategyReady) then
 			caster:AddNewModifier(caster, self, "modifier_nobu_strategy_attribute", {duration = 4} )

@@ -21,9 +21,9 @@ function diarmuid_minds_eye:OnSpellStart()
 
     LoopOverPlayers(function(player, playerID, playerHero)
 			        --print("looping through " .. playerHero:GetName())
-			        if playerHero.voice == true and playerHero == self:GetCaster() then
+			        if playerHero.gachi == true and playerHero == self:GetCaster() then
 			            -- apply legion horn vsnd on their client
-			            CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="poisk_pidorasov"})
+			            CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="diar_eye"})
 			            --caster:EmitSound("Hero_LegionCommander.PressTheAttack")
 			        end
     			end)

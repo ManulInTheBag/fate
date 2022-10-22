@@ -6913,7 +6913,7 @@
         "DOTA_Tooltip_ability_nobu_shot"					"Shoot"
         "DOTA_Tooltip_ability_nobu_shot_Description"	 	"Nobunaga shoots her gun in the direction. If she hit enemy, he will take physical damage and will be slowed."
         "DOTA_Tooltip_ability_nobu_shot_damage_mod"				"Rifle damage modifier:"
-        "DOTA_Tooltip_ability_nobu_shot_slow_power"				"Slow power:"
+        "DOTA_Tooltip_ability_nobu_shot_slow_power"				"%Slow power:"
         "DOTA_Tooltip_ability_nobu_shot_duration"				"Slow duration:"
         "DOTA_Tooltip_ability_nobu_shot_Lore"					""
  
@@ -6972,11 +6972,11 @@
         "DOTA_Tooltip_ability_nobu_charisma_Lore"								""
 
         "DOTA_Tooltip_ability_nobu_dow_passive"						"Destroyer of worlds"
-        "DOTA_Tooltip_ability_nobu_dow_passive_Description"			"IEach time nobunaga hits enemy with her rifle abilities, she will summon an additional rifle, which will shoot in closest enemy. Can only occur once in a seconds, damage is equal to base guns damage."
+        "DOTA_Tooltip_ability_nobu_dow_passive_Description"			"Each time nobunaga hits enemy with her rifle abilities, she will summon an additional rifle, which will shoot in closest enemy. Can only occur once in a seconds, damage is equal to base guns damage."
         "DOTA_Tooltip_ability_nobu_dow_passive_Lore"								""
 
          "DOTA_Tooltip_ability_nobu_leader_of_innovation"						"Leader of innovation"
-        "DOTA_Tooltip_ability_nobu_leader_of_innovation_Description"			"Increases all allies around armor and movement speed"
+        "DOTA_Tooltip_ability_nobu_leader_of_innovation_Description"			"Upon cast, Oda Nobunaga will receive an aura for 10 seconds. Each time a Nobunaga deals damage, all of her allies gain a 50% ms buff for 1 seconds on a 1 second cooldown. Each time an ally of Nobunaga deals damage, she heals herself for 80 + STR health with a cooldown of a 1 second."
         "DOTA_Tooltip_ability_nobu_leader_of_innovation_aura_radius"						"Aura radius:"
         "DOTA_Tooltip_ability_nobu_leader_of_innovation_ms_bonus"								"%MS bonus:"
         "DOTA_Tooltip_ability_nobu_leader_of_innovation_health_base"								"Base heal:"
@@ -6993,7 +6993,7 @@
 
 
         "DOTA_Tooltip_ability_nobu_3000"						"Three line formation"
-        "DOTA_Tooltip_ability_nobu_3000_Description"			"Nobunaga starts gathering rifles for her noble phantasm. every 0.5 seconds a new rifle appear. When released, all rifles starts shooting with a 30 shots per second speed"
+        "DOTA_Tooltip_ability_nobu_3000_Description"			"Nobunaga starts gathering rifles for her noble phantasm. every 0.04 seconds a new rifle appear. When released, all rifles starts shooting with a 60 shots per second speed"
         "DOTA_Tooltip_ability_nobu_3000_damage_mod"							"Rifle damage mod:"
         "DOTA_Tooltip_ability_nobu_3000_channel_time"						"Maximum channel time:"
         "DOTA_Tooltip_ability_nobu_3000_Lore"								""
@@ -7011,7 +7011,7 @@
  
 
         "DOTA_Tooltip_ability_nobu_strategy_attribute"				"Attribute: Strategy"
-        "DOTA_Tooltip_ability_nobu_strategy_attribute_Description"	"If Oda Nobunaga didn't dealt damage to any enemies for 10 seconds, next time when she deals damage to any enemy she will receive a bonus to movement speed and damage for a duration."
+        "DOTA_Tooltip_ability_nobu_strategy_attribute_Description"	"If Oda Nobunaga didn't dealt damage to any enemies for 10 seconds, next time when she deals damage to any enemy she will receive a bonus to movement speed and damage for a duration. Using Dash ability removes cooldown from this attribute."
         "DOTA_Tooltip_ability_nobu_strategy_attribute_cooldown_time				"Cooldown:"
         "DOTA_Tooltip_ability_nobu_strategy_attribute_bonus_ms"			"%MS bonus:"
         "DOTA_Tooltip_ability_nobu_strategy_attribute_bonus_attack"			"ATK bonus:"

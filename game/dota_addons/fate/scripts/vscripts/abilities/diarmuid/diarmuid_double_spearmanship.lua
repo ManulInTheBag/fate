@@ -35,9 +35,28 @@ function diarmuid_double_spearmanship:OnSpellStart()
 		masterCombo:StartCooldown(masterCombo:GetCooldown(1))
 
 		caster:EmitSound("Diarmuid_Combo_" .. math.random(1,2))
+
+		LoopOverPlayers(function(player, playerID, playerHero)
+			--print("looping through " .. playerHero:GetName())
+				if playerHero.gachi == true then
+					-- apply legion horn vsnd on their client
+					CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="diar_combo_" .. math.random(1,3)})
+					--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+			 
+				end
+			   end)
+	
 		
 	else
 		local attack_speed = 0
+		LoopOverPlayers(function(player, playerID, playerHero)
+			--print("looping through " .. playerHero:GetName())
+			if playerHero.gachi == true and playerHero == self:GetCaster() then
+				-- apply legion horn vsnd on their client
+				CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="diar_w"})
+				--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+			end
+		end)
 		if caster:HasModifier("modifier_doublespear_attribute") then
 			attack_speed = self:GetSpecialValueFor("attribute_attack_speed")
 		end

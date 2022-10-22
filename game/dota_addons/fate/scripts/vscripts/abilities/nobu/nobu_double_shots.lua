@@ -30,9 +30,10 @@ function nobu_double_shots:OnSpellStart()
 	local target = self:GetCursorPosition()
 	self.target_enemy = nil
 	local origin_e = nil
-	local direction_e = nil
+	local direction_e = hCaster:GetForwardVector()
+   
 	self.targetted = false
-    local aoe = 32
+    local aoe = 50
 
 	if self:GetCursorTarget() then
 		self.targetted = true
@@ -45,10 +46,15 @@ function nobu_double_shots:OnSpellStart()
     Timers:CreateTimer("nobu_shoots", {
 	endTime = 0 ,
 	callback = function()
-    if (not hCaster:IsAlive()) or (self.targetted and self.target_enemy == nil) or counter >= duration*30 then return end
-	local origin = hCaster:GetAbsOrigin()
-    
     counter = counter + 1 
+    if (not hCaster:IsAlive()) or  hCaster:IsStunned() then return  0.033 end
+    if( counter >= duration*30) then return end
+	local origin = hCaster:GetAbsOrigin()
+    if(self.target_enemy == hCaster)  then
+
+        self.targetted = false
+        self.target_enemy = nil
+    end    
     if( self.targetted) then 
         if(   not  hCaster:CanEntityBeSeenByMyTeam(self.target_enemy)   ) then
             self.targetted = false
@@ -58,11 +64,11 @@ function nobu_double_shots:OnSpellStart()
         else
             origin_e = self.target_enemy:GetAbsOrigin()
             direction_e = (Vector(origin_e.x, origin_e.y, 0) - Vector(origin.x, origin.y, 0)):Normalized()
-            local position = origin_e
+         
         end
     else
         direction_e = (Vector(target.x, target.y, 0) - Vector(origin.x, origin.y, 0)):Normalized()
-        local position =target
+      
     end
     hCaster:SetForwardVector(direction_e)
     if counter % 10 ~=  0 then return  0.033 end
@@ -72,8 +78,8 @@ function nobu_double_shots:OnSpellStart()
     if counter%20 == 10 then
         hCaster:EmitSound("nobu_shoot_1")
         self:Shoot({
-            Origin = origin + facing * 120 + Vector(0,0,100)+ vRightVect * 20,
-            Speed = 5000,
+            Origin = origin + facing * 40 + Vector(0,0,100)+ vRightVect * 20,
+            Speed = 10000,
             Facing = facing,
             AoE = aoe,
             Range = 1000,
@@ -81,8 +87,8 @@ function nobu_double_shots:OnSpellStart()
     else
         hCaster:EmitSound("nobu_shoot_2")
         self:Shoot({
-            Origin =  origin + facing * 120 + Vector(0,0,100) + vRightVect * -20,
-            Speed = 5000,
+            Origin =  origin + facing * 40 + Vector(0,0,100) + vRightVect * -20,
+            Speed = 10000,
             Facing = facing,
             AoE = aoe,
             Range = 1000,
@@ -144,7 +150,7 @@ function nobu_double_shots:OnProjectileHit(target, location )
 		else 
 			gun_spawn = gun_spawn + hCaster:GetRightVector() * random1 + random3
         end
-        local aoe = 32
+        local aoe = 50
         
         hCaster:FindAbilityByName("nobu_guns"):DOWShoot({
             Speed = 10000,
@@ -186,9 +192,11 @@ end
 
 
 function modifier_nobu_turnlock:OnOrder(args)
+    if args.unit ~= self:GetParent() then return end
 	if(args.order_type == DOTA_UNIT_ORDER_ATTACK_MOVE or args.order_type == DOTA_UNIT_ORDER_ATTACK_TARGET ) then
+       
 		self:GetAbility().target_enemy = args.target
-		self:GetAbility(). targetted = true
+		self:GetAbility().targetted = true
     end	
 end
  

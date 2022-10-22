@@ -13,6 +13,16 @@ function diarmuid_love_spot:OnSpellStart()
 		OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION ,
 		Position = nil
 	}
+	LoopOverPlayers(function(player, playerID, playerHero)
+		--print("looping through " .. playerHero:GetName())
+			if playerHero.gachi == true then
+				-- apply legion horn vsnd on their client
+				CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="diar_love_spot"})
+				--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+		 
+			end
+		   end)
+		 
 	--caster:AddNewModifier(caster, self, "modifier_love_spot", { Duration = self:GetSpecialValueFor("duration"),	Radius = self:GetSpecialValueFor("radius") })
 	--self:CheckCombo()
 	target:AddNewModifier(caster, self, "modifier_love_spot_charmed", { Duration = self:GetSpecialValueFor("duration") })
