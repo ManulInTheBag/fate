@@ -11,14 +11,14 @@ function arcueid_you:OnSpellStart()
 	StartAnimation(caster, {duration=1.7, activity=ACT_DOTA_CAST_ABILITY_6, rate=1.0})
 end
 
-function arcueid_you:OnAbilityPhaseStart()
+--[[function arcueid_you:OnAbilityPhaseStart()
     self:GetCaster():EmitSound("arcueid_ult_1")
     return true
 end
 
 function arcueid_you:OnAbilityPhaseInterrupted()
     self:GetCaster():StopSound("arcueid_ult_1")
-end
+end]]
 
 modifier_arcueid_you = class({})
 

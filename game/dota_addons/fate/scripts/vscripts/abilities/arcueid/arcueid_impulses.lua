@@ -84,7 +84,7 @@ function modifier_arcueid_impulses:DeclareFunctions()
 end
 
 function modifier_arcueid_impulses:GetModifierAttackSpeedBonus_Constant()
-	return ((self:GetParent():GetModifierStackCount("modifier_arcueid_impulses", self:GetParent()) > 0) and (self:GetAbility():GetSpecialValueFor("attack_speed") + (self:GetCaster():HasModifier("modifier_arcueid_world") and self:GetCaster():GetAgility()*self:GetAbility():GetSpecialValueFor("agility_multiplier") or 0)) or 0)
+	return (((self:GetParent():GetModifierStackCount("modifier_arcueid_impulses", self:GetParent()) > 0) or (self:GetParent():HasModifier("modifier_arcueid_recklesness") and (self:GetAbility():GetAutoCastState() == true) and (self:GetParent():GetMana() > self:GetAbility():GetSpecialValueFor("mana_per_hit")))) and (self:GetAbility():GetSpecialValueFor("attack_speed") + (self:GetCaster():HasModifier("modifier_arcueid_world") and self:GetCaster():GetAgility()*self:GetAbility():GetSpecialValueFor("agility_multiplier") or 0)) or 0)
 end
 
 function modifier_arcueid_impulses:OnCreated()
@@ -104,40 +104,47 @@ function modifier_arcueid_impulses:OnAttackLanded(args)
 		damage = damage + caster:GetStrength()*self.ability:GetSpecialValueFor("strength_multiplier")
 	end
 	if IsServer() then
+		local worked = false
 		if self:GetStackCount() > 0 then
-			if self.parent.RecklesnessAcquired and (self:GetAbility():GetAutoCastState() == true) then
-				if self.parent:GetMana() >= self.ability:GetSpecialValueFor("mana_per_hit") then
-					caster:SpendMana(self.ability:GetSpecialValueFor("mana_per_hit"), self.ability)
-					local qCD = caster:FindAbilityByName("arcueid_what"):GetCooldownTimeRemaining()
-					caster:FindAbilityByName("arcueid_what"):EndCooldown()
-					if qCD > 0 then
-						caster:FindAbilityByName("arcueid_what"):StartCooldown(qCD - 1)
-					end
+			self:SetStackCount(self:GetStackCount() - 1)
+			worked = true
+		end
+		if (not worked) and self.parent.RecklesnessAcquired and (self.ability:GetAutoCastState() == true) then
+			if self.parent:GetMana() >= self.ability:GetSpecialValueFor("mana_per_hit") then
+				caster:SpendMana(self.ability:GetSpecialValueFor("mana_per_hit"), self.ability)
+				worked = true
+			end
+		end
+		if worked then
+			if self.parent.RecklesnessAcquired then 
+				local qCD = caster:FindAbilityByName("arcueid_what"):GetCooldownTimeRemaining()
+				caster:FindAbilityByName("arcueid_what"):EndCooldown()
+				if qCD > 0 then
+					caster:FindAbilityByName("arcueid_what"):StartCooldown(qCD - 1)
+				end
 
-					local wCD = caster:FindAbilityByName("arcueid_shut_up"):GetCooldownTimeRemaining()
-					caster:FindAbilityByName("arcueid_shut_up"):EndCooldown()
-					if wCD > 0 then
-						caster:FindAbilityByName("arcueid_shut_up"):StartCooldown(wCD - 1)
-					end
+				local wCD = caster:FindAbilityByName("arcueid_shut_up"):GetCooldownTimeRemaining()
+				caster:FindAbilityByName("arcueid_shut_up"):EndCooldown()
+				if wCD > 0 then
+					caster:FindAbilityByName("arcueid_shut_up"):StartCooldown(wCD - 1)
+				end
 
-					local eCD = caster:FindAbilityByName("arcueid_ready"):GetCooldownTimeRemaining()
-					caster:FindAbilityByName("arcueid_ready"):EndCooldown()
-					if eCD > 0 then
-						caster:FindAbilityByName("arcueid_ready"):StartCooldown(eCD - 1)
-					end
+				local eCD = caster:FindAbilityByName("arcueid_ready"):GetCooldownTimeRemaining()
+				caster:FindAbilityByName("arcueid_ready"):EndCooldown()
+				if eCD > 0 then
+					caster:FindAbilityByName("arcueid_ready"):StartCooldown(eCD - 1)
+				end
 
-					local rCD = caster:FindAbilityByName("arcueid_you"):GetCooldownTimeRemaining()
-					caster:FindAbilityByName("arcueid_you"):EndCooldown()
-					if rCD > 0 then
-						caster:FindAbilityByName("arcueid_you"):StartCooldown(rCD - 1)
-					end
+				local rCD = caster:FindAbilityByName("arcueid_you"):GetCooldownTimeRemaining()
+				caster:FindAbilityByName("arcueid_you"):EndCooldown()
+				if rCD > 0 then
+					caster:FindAbilityByName("arcueid_you"):StartCooldown(rCD - 1)
 				end
 			end
-			self:SetStackCount(self:GetStackCount() - 1)
 			DoDamage(self.parent, args.target, self:GetAbility():GetSpecialValueFor("damage"), DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
 		end
-		self:StartIntervalThink(10)
 	end
+	self:StartIntervalThink(10)
 end
 
 function modifier_arcueid_impulses:OnIntervalThink()
