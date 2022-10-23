@@ -4,7 +4,7 @@ LinkLuaModifier("modifier_nobu_atk_sound","abilities/nobu/nobu_guns", LUA_MODIFI
 
 function nobu_guns:GetGunsDamage()
     if(self:GetCaster().UnifyingAcquired) then
-        return self:GetSpecialValueFor("base_dmg") + self:GetCaster():GetAttackDamage()* self:GetSpecialValueFor("dmg_per_atk")*1.5
+        return self:GetSpecialValueFor("base_dmg") + self:GetCaster():GetAttackDamage()* (self:GetSpecialValueFor("dmg_per_atk") + 0.75)
     else
         return self:GetSpecialValueFor("base_dmg") + self:GetCaster():GetAttackDamage()* self:GetSpecialValueFor("dmg_per_atk")
     end
@@ -86,7 +86,7 @@ function nobu_guns:DOWShoot(keys, position)
 	Timers:CreateTimer(0.4, function()
         dummy:SetForwardVector((  target:GetAbsOrigin()- position ):Normalized())
         local velocity = dummy:GetForwardVector()
-        dummy:EmitSound("nobu_shoot")
+        dummy:EmitSound("nobu_shoot_1")
         velocity.z = 0
 	
         local projectileTable = {
@@ -128,5 +128,6 @@ function nobu_guns:OnProjectileHit(target, location )
     end
     DoDamage(hCaster, target, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
     target:EmitSound("nobu_shot_impact_"..math.random(1,2))
+    return true
 end
   

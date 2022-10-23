@@ -6911,7 +6911,7 @@
          
 
         "DOTA_Tooltip_ability_nobu_shot"					"Shoot"
-        "DOTA_Tooltip_ability_nobu_shot_Description"	 	"Nobunaga shoots her gun in the direction. If she hit enemy, he will take physical damage and will be slowed."
+        "DOTA_Tooltip_ability_nobu_shot_Description"	 	"Nobunaga shoots her gun in the direction. If she hit enemy, he will take physical damage and will be slowed. If Nobu is shooting with targeted shots, rifle will appear near her and shoot closest enemy instead."
         "DOTA_Tooltip_ability_nobu_shot_damage_mod"				"Rifle damage modifier:"
         "DOTA_Tooltip_ability_nobu_shot_slow_power"				"%Slow power:"
         "DOTA_Tooltip_ability_nobu_shot_duration"				"Slow duration:"
@@ -6924,7 +6924,7 @@
         "DOTA_Tooltip_ability_nobu_dash_Lore"				""
 
         "DOTA_Tooltip_ability_nobu_double_shots"				"Targeted shots"
-        "DOTA_Tooltip_ability_nobu_double_shots_Description"		"Nobunaga start a series of shoots in the target direction or into target enemy, locking her rotation to always look on her target.\nSending an attack order will change target to enemy attacked.\nNobunaga cannot use other rifle abilities while shooting, can move freely, but moving backwards will have its speed greatly decreased.\nAfter 0.5 seconds after casting this ability, it can be canceled by repeated use."
+        "DOTA_Tooltip_ability_nobu_double_shots_Description"		"Nobunaga start a series of shoots in the target direction or into target enemy, locking her rotation to always look on her target.\nSending an attack order will change target to enemy attacked.\nNobunaga cannot use three line formation while shooting, can move freely, but moving backwards will have its speed greatly decreased.\nAfter 0.5 seconds after casting this ability, it can be canceled by repeated use."
         "DOTA_Tooltip_ability_nobu_double_shots_damage_mod"		"Rifle damage modifier:"
         "DOTA_Tooltip_ability_nobu_double_shots_duration"		"Duration:"
         "DOTA_Tooltip_ability_nobu_double_shots_sps"			"Shots per second:"

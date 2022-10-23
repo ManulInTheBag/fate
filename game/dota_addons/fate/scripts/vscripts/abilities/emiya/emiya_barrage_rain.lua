@@ -29,7 +29,11 @@ function emiya_barrage_rain:OnSpellStart()
 	local ability = self
 	local targetPoint = self:GetCursorPosition()
 	local radius = self:GetAOERadius() * 0.9
-	local damage = self:GetSpecialValueFor("damage")
+	local damage = self:GetSpecialValueFor("damage") 
+	if(caster:HasModifier("modifier_projection_attribute")) then
+	
+		damage = damage + caster:GetAttackDamage()*0.5
+	end
 	local forwardVec = ( targetPoint - caster:GetAbsOrigin() ):Normalized()
 	local duration = 0
 
@@ -70,7 +74,7 @@ function emiya_barrage_rain:OnSpellStart()
 						--[[if v:HasModifier("modifier_sword_barrage_confine") then
 							DoDamage(caster, v, damage * 1.4, DAMAGE_TYPE_PHYSICAL, 0, self, false)
 						else]]
-							DoDamage(caster, v, damage , DAMAGE_TYPE_PHYSICAL, 0, self, false)
+							DoDamage(caster, v, damage , DAMAGE_TYPE_MAGICAL, 0, self, false)
 						--end
 					end
 					
