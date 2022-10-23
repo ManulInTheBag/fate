@@ -19,7 +19,7 @@ function OnSeal1Start(keys)
 	local ply = caster:GetPlayerOwner()
 	local hero = ply:GetAssignedHero()
 
-	if caster:GetHealth() == 1 then
+	if caster:GetHealth() <= 2 then
 		caster:SetMana(caster:GetMana()+3) 
 		keys.ability:EndCooldown() 
 		SendErrorMessage(caster:GetPlayerOwnerID(), "#Master_Not_Enough_Health")
