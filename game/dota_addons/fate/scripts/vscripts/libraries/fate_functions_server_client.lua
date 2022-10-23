@@ -367,6 +367,17 @@ if IsServer() then
         end
     end
 
+    CDOTA_BaseNPC.AttackStartedCentralized = function(self, hKeys)
+        if IsNotNull(self) then
+            local hModifiers = self:FindAllModifiers()
+            for _, hModifier in pairs(hModifiers) do
+                if IsNotNull(hModifier) and type(hModifier.OnAttackStart) == "function" and not hModifier:HasFunction(MODIFIER_EVENT_ON_ATTACK_START) then
+                    hModifier:OnAttackStart(hKeys)
+                end
+            end
+        end
+    end
+
 end
 
 LinkLuaModifier("modifier_fate_mechanic_parent_new", "libraries/fate_functions_server_client", LUA_MODIFIER_MOTION_NONE)
@@ -389,7 +400,7 @@ function modifier_fate_mechanic_parent_new:CheckState()
 end
 function modifier_fate_mechanic_parent_new:DeclareFunctions()
     local hFunc =   {
-                        --MODIFIER_EVENT_ON_ATTACK_START,
+                        MODIFIER_EVENT_ON_ATTACK_START,
                         --MODIFIER_EVENT_ON_ATTACK_RECORD,
 
                         MODIFIER_EVENT_ON_DAMAGE_CALCULATED, --FOR LIFESTEAL
@@ -398,21 +409,24 @@ function modifier_fate_mechanic_parent_new:DeclareFunctions()
                     }
     return hFunc
 end
---[[function modifier_fate_mechanic_parent_new:OnAttackStart(keys)
+function modifier_fate_mechanic_parent_new:OnAttackStart(keys)
     if IsServer() then
         local hAttacker = keys.attacker
         local hTarget   = keys.target
         if IsNotNull(hAttacker) 
             and IsNotNull(hTarget) then
-            local iIndex    = tostring(hAttacker:entindex()..hTarget:entindex())
+
+            hAttacker:AttackStartedCentralized(keys)
+            hTarget:AttackStartedCentralized(keys)
+            --[[local iIndex    = tostring(hAttacker:entindex()..hTarget:entindex())
             local fAccuracy = hAttacker:GetAccuracy(keys)
             if fAccuracy > 0 
                 and RollPseudoRandom(fAccuracy, hAttacker) then
                 self.ACCURACY_RECORDS[iIndex] = hAttacker:AddNewModifier(hAttacker, self.ability, "modifier_anime_mechanic_accuracy", {})
-            end
+            end]]
         end
     end
-end]]
+end
 --[[function modifier_fate_mechanic_parent_new:OnAttackRecord(keys)
     if IsServer() then
         local hAttacker = keys.attacker

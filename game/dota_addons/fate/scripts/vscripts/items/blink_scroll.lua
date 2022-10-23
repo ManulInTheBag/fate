@@ -17,7 +17,8 @@ local locks = {
     --"modifier_whitechapel_murderer_enemy",
     "modifier_jeanne_health_lock",
     "modifier_nero_tres_new",
-    "modifier_nero_performance"
+    "modifier_nero_performance",
+    "modifier_arcueid_melty",
 }
 
 function item_blink_scroll:OnSpellStart()

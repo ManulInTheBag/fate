@@ -33,6 +33,36 @@
 			}
 		}
 	}
+	
+	"models/updated_by_seva_and_hudozhestvenniy_film_spizdili/arcueid/arcueid.vmdl"
+	{
+		"PortraitLightPosition"		"8.34 -51.72 127.79"
+		"PortraitLightAngles"		"12.96 83.92 0.00"
+		"PortraitLightFOV"		"51"
+		"PortraitLightDistance"		"85"
+		"PortraitLightColor"		"255 0 0"
+		"PortraitShadowColor"		"93 93 93"
+		"PortraitShadowScale"		"4.025000"
+		"PortraitAmbientColor"		"255 0 0"
+		"PortraitAmbientScale"		"5.000000"
+		"PortraitSpecularColor"		"255 0 0"
+		"PortraitParticle"		"particles/units/heroes/hero_juggernaut/juggernaut_portrait.vpcf"
+		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/portraitbackground_moon.vmat"
+		"PortraitLightScale"		"4.100000"
+		"PortraitGroundShadowScale"		"1.500000"
+		"PortraitAmbientDirection"		"-3.070 17.250 4.660"
+		"PortraitAnimationActivity"		"ACT_DOTA_DISABLED"
+		"cameras"
+		{
+			"default"
+			{
+				"PortraitPosition"		"170.90 -65.63 95"
+				"PortraitAngles"		"350.41 160.17 0"
+				"PortraitFOV"		"15"
+			}
+		}
+	}
+
 	"models/muramasa/muramasa.vmdl"
 	{
 		"PortraitLightPosition"		"8.34 -51.72 127.79"

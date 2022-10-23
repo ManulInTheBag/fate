@@ -211,6 +211,7 @@ locks = {
     "modifier_binding_chains",
     "modifier_nero_tres_new",
     "modifier_nero_performance",
+    "modifier_arcueid_melty",
     --"modifier_whitechapel_murderer",
     --"modifier_whitechapel_murderer_ally",
     --"modifier_whitechapel_murderer_enemy",
@@ -316,7 +317,8 @@ cleansable = {
     "modifier_agni_burn",
     "modifier_muramasa_flame",
     "muramasa_eye_of_karma",
-    "modifier_ryougi_knife_fan_slow"
+    "modifier_ryougi_knife_fan_slow",
+    "modifier_arcueid_shut_up_slow"
 }
 
 slowmodifier = {
@@ -359,7 +361,8 @@ slowmodifier = {
     "modifier_morgan_slow",
     "modifier_muramasa_tsumukari_hit_slow",
     "modifier_ryougi_knife_fan_slow",
-    "modifier_nobu_slow"
+    "modifier_nobu_slow",
+    "modifier_arcueid_shut_up_slow",
 }
 
 donotlevel = {
@@ -527,6 +530,8 @@ CannotReset = {
     "nobu_divinity_mark",
     "nobu_dash",
     "nobu_leader_of_innovation",
+    "arcueid_melty",
+    "arcueid_impulses"
 }
 
 femaleservant = {
@@ -546,7 +551,8 @@ femaleservant = {
     "npc_dota_hero_abaddon",
     "npc_dota_hero_ursa",
     "npc_dota_hero_gyrocopter",
-    "npc_dota_hero_razor"
+    "npc_dota_hero_razor",
+    "npc_dota_hero_tiny"
 }
 
 tCannotDetect = {
@@ -630,7 +636,8 @@ tKnightClass = {
     "npc_dota_hero_dark_willow",
     "npc_dota_hero_terrorblade",
     "npc_dota_hero_gyrocopter",
-    "npc_dota_hero_magnataur"
+    "npc_dota_hero_magnataur",
+    "npc_dota_hero_tiny"
     
 }
 
@@ -2250,7 +2257,8 @@ local heroNames = {
     ["npc_dota_hero_terrorblade"] = "Saito Hajime",
     ["npc_dota_hero_puck"] = "Merlin",
     ["npc_dota_hero_magnataur"] = "Muramasa",
-    ["npc_dota_hero_gyrocopter"] = "Oda Nobunaga"
+    ["npc_dota_hero_gyrocopter"] = "Oda Nobunaga",
+    ["npc_dota_hero_tiny"] = "Arcueid"
     
 }
 
@@ -2306,7 +2314,8 @@ local heroCombos = {
     ["npc_dota_hero_terrorblade"] = "saito_undefeatable_style",
     ["npc_dota_hero_puck"] = "merlin_garden_of_avalon",
     ["npc_dota_hero_magnataur"] = "muramasa_tsumukari_combo",
-    ["npc_dota_hero_gyrocopter"] = "nobu_combo"
+    ["npc_dota_hero_gyrocopter"] = "nobu_combo",
+    ["npc_dota_hero_tiny"] = "arcueid_melty"
     
 }
 
