@@ -8,6 +8,7 @@ if not Attributes then
 	LinkLuaModifier("modifier_attributes_ms", "modifiers/modifier_attributes_ms", LUA_MODIFIER_MOTION_NONE)
     LinkLuaModifier("modifier_attributes_hp_regen_adjustment", "modifiers/modifier_attributes_hp_regen_adjustment", LUA_MODIFIER_MOTION_NONE)
     LinkLuaModifier("modifier_attributes_mp_regen_adjustment", "modifiers/modifier_attributes_mp_regen_adjustment", LUA_MODIFIER_MOTION_NONE)
+    LinkLuaModifier("modifier_attributes_armor", "modifiers/modifier_attributes_armor", LUA_MODIFIER_MOTION_NONE)
 end
 
 function Attributes:Init()
@@ -92,9 +93,9 @@ function Attributes:ModifyBonuses(hero)
     --hero:AddNewModifier(hero,nil,"modifier_attributes_hp_regen_adjustment",{})
 	hero:AddNewModifier(hero,nil,"modifier_attributes_mp_regen",{})
     --hero:AddNewModifier(hero,nil,"modifier_attributes_mp_regen_adjustment",{})
-	hero:AddNewModifier(hero,nil,"modifier_attributes_as",{})
+	--hero:AddNewModifier(hero,nil,"modifier_attributes_as",{})
 	hero:AddNewModifier(hero,nil,"modifier_attributes_ms",{})
-
+    hero:AddNewModifier(hero,nil,"modifier_attributes_armor",{})
     hero.base_mana_regen = hero:GetBaseManaRegen()
 
     Timers:CreateTimer(function()
@@ -117,9 +118,9 @@ function Attributes:ModifyBonuses(hero)
         local intellect = hero:GetIntellect()
 
         -- Base Armor Bonus
-        local armor = hero.BaseArmor + agility * Attributes.armor_adjustment + hero.ARMORgained * Attributes.additional_armor_adjustment + hero.ExtraARMORgained
-        hero:SetPhysicalArmorBaseValue(armor)
-        
+        --local armor = hero.BaseArmor + agility * Attributes.armor_adjustment + hero.ARMORgained * Attributes.additional_armor_adjustment + hero.ExtraARMORgained
+        --hero:SetPhysicalArmorBaseValue(armor)
+        hero:SetModifierStackCount("modifier_attributes_armor", hero,  hero.ARMORgained )
         -- Update the stored values for next timer cycle
         hero.strength = strength
         hero.agility = agility

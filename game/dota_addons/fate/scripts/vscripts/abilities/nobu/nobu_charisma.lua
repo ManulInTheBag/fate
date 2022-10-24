@@ -37,8 +37,9 @@ function modifier_nobu_charisma_aura:OnTakeDamage(args)
     
 end
 
-function modifier_nobu_charisma_aura:OnRespawn()
+function modifier_nobu_charisma_aura:OnRespawn(args)
  local caster = self:GetCaster()
+ if(caster ~= args.unit) then return end
  caster.ISDOW = false
  caster.isCharisma = false
  local ind5abilityname = caster:GetAbilityByIndex(4):GetName()

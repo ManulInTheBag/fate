@@ -20,11 +20,11 @@ function nobu_3000:OnSpellStart()
         Timers:RemoveTimer("nobu_shoots")
         self.caster :RemoveModifierByName("modifier_nobu_turnlock")
         self.caster:StopAnimation()
-        StartAnimation(  self.caster, {duration= 1 , activity=self:GetCastAnimation(), rate= 1})
+        StartAnimation(  self.caster, {duration= 1 , activity=ACT_DOTA_CAST_ABILITY_4, rate= 1})
     end
     for i=1,5 do 
         local gun_spawn = self.caster:GetAbsOrigin() + self.caster:GetForwardVector() *RandomInt(-200,200)
-        local random1 = RandomInt(0, 200) -- position of gun spawn
+        local random1 = RandomInt(0, 300) -- position of gun spawn
 		local random2 = RandomInt(0,1) -- whether weapon will spawn on left or right side of hero
 		local random3 = RandomInt(25,200)*Vector(0,0,1) 
 		 
@@ -54,10 +54,10 @@ end
  
 function nobu_3000:OnChannelThink(fInterval)
     self.ChannelTime = self.ChannelTime + fInterval
-    if(self.ChannelTime >= 0.04) then
+    if(self.ChannelTime >= 0.03) then
  
         local gun_spawn = self.caster:GetAbsOrigin() + self.caster:GetForwardVector()*RandomInt(-200,200)
-        local random1 = RandomInt(0, 200) -- position of gun spawn
+        local random1 = RandomInt(0, 300) -- position of gun spawn
 		local random2 = RandomInt(0,1) -- whether weapon will spawn on left or right side of hero
 		local random3 = RandomInt(25,200)*Vector(0,0,1) --  
 		
@@ -68,7 +68,8 @@ function nobu_3000:OnChannelThink(fInterval)
 			gun_spawn = gun_spawn + self.rightvec * random1 + random3
         end
         self:CreateGun(gun_spawn)
-        self.ChannelTime = self.ChannelTime - 0.1
+        self.ChannelTime = self.ChannelTime - 0.03
+       
     end
     self.caster:SetAbsOrigin(self.caster:GetAbsOrigin() + Vector(0,0,2))
     self.caster:FaceTowards(self.target)

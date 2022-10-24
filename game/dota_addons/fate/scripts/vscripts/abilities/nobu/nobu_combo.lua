@@ -189,7 +189,7 @@ function modifier_nobu_combo_self:OnIntervalThink()
         StopGlobalSound("nobu_combo_cast") 
         self:Destroy() return
      end
-    if(self.caster.target_enemy:GetAbsOrigin()- self.caster:GetAbsOrigin()):Length2D() < 250 then
+    if(self.caster.target_enemy:GetAbsOrigin()- self.caster:GetAbsOrigin()):Length2D() < 250 and not self.caster:HasModifier("modifier_merlin_self_pause") then
         self:GetAbility():AttackEnemy()
         self:Destroy()
     end

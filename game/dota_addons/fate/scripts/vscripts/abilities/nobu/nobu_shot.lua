@@ -80,7 +80,7 @@ function nobu_shot:Shoot(keys)
         iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
         iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
         iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-        flExpireTime = GameRules:GetGameTime() + 0.33,
+        flExpireTime = GameRules:GetGameTime() + 0.1,
         
     }
     ProjectileManager:CreateLinearProjectile(projectileTable)
@@ -160,7 +160,7 @@ function nobu_shot:EShot(keys, position)
  
 
 	Timers:CreateTimer(0.4, function()
-        dummy:SetForwardVector((  targets[1]:GetAbsOrigin() - position ):Normalized())
+        dummy:SetForwardVector((  self.target - position ):Normalized())
         local velocity = dummy:GetForwardVector()
         dummy:EmitSound("nobu_shoot_1")
         velocity.z = 0

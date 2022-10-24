@@ -1021,7 +1021,7 @@ function CheckItemCombination(hero)
                     if currentItem2 ~= nil then
                         local currentItemName2 = currentItem2:GetName()
                         -- match found, combine item 1 and item 2
-                        if currentItemName1 == currentItemName2 then
+                        if currentItemName1 == currentItemName2 and currentItemName1 ~= "item_a_plus_recipe" then
                             bIsMatchingFound = true
                             if not currentItem:IsNull() then currentItem:RemoveSelf() end
                             if not currentItem2:IsNull() then currentItem2:RemoveSelf() end
@@ -1066,7 +1066,7 @@ function CheckItemCombinationInStash(hero)
                     if currentItem2 then
                         local currentItemName2 = currentItem2:GetName()
                         -- match found, combine item 1 and item 2
-                        if currentItemName1 == currentItemName2 then                            
+                        if currentItemName1 == currentItemName2 and currentItemName1 ~= "item_a_plus_recipe" then                 
                             bIsMatchingFound = true
                             --print("Match with")
                             --print(currentItemIndex2 ,currentItemName2)

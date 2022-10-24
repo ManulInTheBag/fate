@@ -682,7 +682,7 @@ function OnArmorGain(keys)
 		end
 	end 
 	hero.ServStat:addArmor()
-	hero:SetPhysicalArmorBaseValue(hero:GetPhysicalArmorBaseValue()+1.75) --actually this line is useless, appears to be dependent on scripts/npc/attributes.txt but I am too lazy to understand why
+ 	--hero:SetPhysicalArmorBaseValue( 100) --actually this line is useless, appears to be dependent on scripts/npc/attributes.txt but I am too lazy to understand why
 	hero:CalculateStatBonus(true)
 	-- Set master 1's mana 
 	local master1 = hero.MasterUnit

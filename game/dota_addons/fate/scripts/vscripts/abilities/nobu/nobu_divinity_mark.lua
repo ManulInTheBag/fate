@@ -79,15 +79,13 @@ function modifier_nobu_divinity_mark_activated:RemoveOnDeath()return true end
 function modifier_nobu_divinity_mark_activated:IsDebuff() 	return true end
 
 function modifier_nobu_divinity_mark_activated:DeclareFunctions()
-    return {  MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS    }
+    return {  MODIFIER_PROPERTY_PHYSICAL_ARMOR_BASE_PERCENTAGE     }
 end
 
 
  
-function modifier_nobu_divinity_mark_activated:GetModifierPhysicalArmorBonus()
-   
-	    return  -1*self:GetParent():GetPhysicalArmorBaseValue()
- 
+function modifier_nobu_divinity_mark_activated:GetModifierPhysicalArmorBase_Percentage ()
+   	    return  0
 end
  
  
