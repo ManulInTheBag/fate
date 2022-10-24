@@ -80,35 +80,37 @@ function modifier_arcueid_ready:OnIntervalThink()
 			ParticleManager:SetParticleControl( groundFx, 0, Vector(0, -180, 0))
 			ParticleManager:SetParticleControl( groundFx, 5, target:GetAbsOrigin() + Vector(0, 0, 60))
 
-			local casterfacing = caster:GetForwardVector()
-			local pushTarget = Physics:Unit(target)
-			local casterOrigin = caster:GetAbsOrigin()
-			local initialUnitOrigin = target:GetAbsOrigin()
-			target:PreventDI()
-			target:SetPhysicsFriction(0)
-			target:SetPhysicsVelocity(casterfacing:Normalized() * 2500)
-			target:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
-		    target:OnPhysicsFrame(function(unit) 
-				local unitOrigin = unit:GetAbsOrigin()
-				local diff = unitOrigin - initialUnitOrigin
-				local n_diff = diff:Normalized()
-				unit:SetPhysicsVelocity(unit:GetPhysicsVelocity():Length() * n_diff) 
-				if diff:Length() > (ability:GetSpecialValueFor("range")) then
+			if not IsKnockbackImmune(target) then
+				local casterfacing = caster:GetForwardVector()
+				local pushTarget = Physics:Unit(target)
+				local casterOrigin = caster:GetAbsOrigin()
+				local initialUnitOrigin = target:GetAbsOrigin()
+				target:PreventDI()
+				target:SetPhysicsFriction(0)
+				target:SetPhysicsVelocity(casterfacing:Normalized() * 2500)
+				target:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
+			    target:OnPhysicsFrame(function(unit) 
+					local unitOrigin = unit:GetAbsOrigin()
+					local diff = unitOrigin - initialUnitOrigin
+					local n_diff = diff:Normalized()
+					unit:SetPhysicsVelocity(unit:GetPhysicsVelocity():Length() * n_diff) 
+					if diff:Length() > (ability:GetSpecialValueFor("range")) then
+						unit:PreventDI(false)
+						unit:SetPhysicsVelocity(Vector(0,0,0))
+						unit:OnPhysicsFrame(nil)
+						FindClearSpaceForUnit(unit, unit:GetAbsOrigin(), true)
+					end
+				end)
+
+				target:OnPreBounce(function(unit, normal) -- stop the pushback when unit hits wall
+					unit:SetBounceMultiplier(0)
 					unit:PreventDI(false)
 					unit:SetPhysicsVelocity(Vector(0,0,0))
-					unit:OnPhysicsFrame(nil)
-					FindClearSpaceForUnit(unit, unit:GetAbsOrigin(), true)
-				end
-			end)
-
-			target:OnPreBounce(function(unit, normal) -- stop the pushback when unit hits wall
-				unit:SetBounceMultiplier(0)
-				unit:PreventDI(false)
-				unit:SetPhysicsVelocity(Vector(0,0,0))
-				giveUnitDataDrivenModifier(caster, target, "stunned", ability:GetSpecialValueFor("stun_duration"))
-				target:EmitSound("Hero_EarthShaker.Fissure")
-				DoDamage(caster, target, self.collide_damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
-			end)
+					giveUnitDataDrivenModifier(caster, target, "stunned", ability:GetSpecialValueFor("stun_duration"))
+					target:EmitSound("Hero_EarthShaker.Fissure")
+					DoDamage(caster, target, self.collide_damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+				end)
+			end
 		end
 	end
 end

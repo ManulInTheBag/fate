@@ -70,7 +70,9 @@ function nero_gladiusanus_buffed:OnSpellStart()
             enemy:AddNewModifier(caster, enemy, "modifier_nero_gladiusanus_new", {duration = self:GetSpecialValueFor("root_duration")})
             enemy:AddNewModifier(caster, enemy, "modifier_stunned", {duration = self:GetSpecialValueFor("stun_duration")})
 
-            ApplyAirborneOnly(enemy, 2000, self:GetSpecialValueFor("root_duration"))
+            if not IsKnockbackImmune(enemy) then
+                ApplyAirborneOnly(enemy, 2000, self:GetSpecialValueFor("root_duration"))
+            end
             --print(enemy:GetPhysicsVelocity()[3])
             Timers:CreateTimer(self:GetSpecialValueFor("root_duration"), function()
                 enemy:SetAbsOrigin(GetGroundPosition(enemy:GetAbsOrigin(),enemy))

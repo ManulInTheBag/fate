@@ -117,34 +117,36 @@ function modifier_arcueid_you:OnIntervalThink()
 
 		            target:AddNewModifier(caster, self.ability, "modifier_knockback", knockback)]]
 
-		            local casterfacing = (target:GetAbsOrigin() - caster:GetAbsOrigin()):Normalized()
-					local pushTarget = Physics:Unit(target)
-					local casterOrigin = caster:GetAbsOrigin()
-					local initialUnitOrigin = target:GetAbsOrigin()
-					target:PreventDI()
-					target:SetPhysicsFriction(0)
-					target:SetPhysicsVelocity(casterfacing:Normalized() * self.speed*2)
-					target:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
-				    target:OnPhysicsFrame(function(unit) 
-						local unitOrigin = unit:GetAbsOrigin()
-						local diff = unitOrigin - initialUnitOrigin
-						local n_diff = diff:Normalized()
-						unit:SetPhysicsVelocity(unit:GetPhysicsVelocity():Length() * n_diff) 
-						if diff:Length() > self.speed*FrameTime()*10 then
+		            if not IsKnockbackImmune(target) then
+			            local casterfacing = (target:GetAbsOrigin() - caster:GetAbsOrigin()):Normalized()
+						local pushTarget = Physics:Unit(target)
+						local casterOrigin = caster:GetAbsOrigin()
+						local initialUnitOrigin = target:GetAbsOrigin()
+						target:PreventDI()
+						target:SetPhysicsFriction(0)
+						target:SetPhysicsVelocity(casterfacing:Normalized() * self.speed*2)
+						target:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
+					    target:OnPhysicsFrame(function(unit) 
+							local unitOrigin = unit:GetAbsOrigin()
+							local diff = unitOrigin - initialUnitOrigin
+							local n_diff = diff:Normalized()
+							unit:SetPhysicsVelocity(unit:GetPhysicsVelocity():Length() * n_diff) 
+							if diff:Length() > self.speed*FrameTime()*10 then
+								unit:PreventDI(false)
+								unit:SetPhysicsVelocity(Vector(0,0,0))
+								unit:OnPhysicsFrame(nil)
+								FindClearSpaceForUnit(unit, unit:GetAbsOrigin(), true)
+							end
+						end)	
+						target:OnPreBounce(function(unit, normal) -- stop the pushback when unit hits wall
+							unit:SetBounceMultiplier(0)
 							unit:PreventDI(false)
 							unit:SetPhysicsVelocity(Vector(0,0,0))
-							unit:OnPhysicsFrame(nil)
-							FindClearSpaceForUnit(unit, unit:GetAbsOrigin(), true)
-						end
-					end)	
-					target:OnPreBounce(function(unit, normal) -- stop the pushback when unit hits wall
-						unit:SetBounceMultiplier(0)
-						unit:PreventDI(false)
-						unit:SetPhysicsVelocity(Vector(0,0,0))
-						giveUnitDataDrivenModifier(caster, target, "stunned", self.ability:GetSpecialValueFor("collide_stun_duration"))
-						target:EmitSound("Hero_EarthShaker.Fissure")
-						DoDamage(caster, target, collide_damage, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)	
-					end)
+							giveUnitDataDrivenModifier(caster, target, "stunned", self.ability:GetSpecialValueFor("collide_stun_duration"))
+							target:EmitSound("Hero_EarthShaker.Fissure")
+							DoDamage(caster, target, collide_damage, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)	
+						end)
+					end
 
 					caster:FindAbilityByName("arcueid_impulses"):Pepeg()
 
@@ -181,7 +183,8 @@ function modifier_arcueid_you:OnIntervalThink()
 			for _, target in pairs(enemies) do
 				--local origin_diff = target:GetAbsOrigin() - caster:GetAbsOrigin()
 				--local origin_diff_norm = origin_diff:Normalized()
-				local casterfacing = (target:GetAbsOrigin() - caster:GetAbsOrigin()):Normalized()
+				if not IsKnockbackImmune(target) then
+					local casterfacing = (target:GetAbsOrigin() - caster:GetAbsOrigin()):Normalized()
 					local pushTarget = Physics:Unit(target)
 					local casterOrigin = caster:GetAbsOrigin()
 					local initialUnitOrigin = target:GetAbsOrigin()
@@ -209,6 +212,7 @@ function modifier_arcueid_you:OnIntervalThink()
 						target:EmitSound("Hero_EarthShaker.Fissure")
 						DoDamage(caster, target, collide_damage, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)	
 					end)
+				end
 				--if caster:GetForwardVector():Dot(origin_diff_norm) > 0 then
 					DoDamage(caster, target, self.ability:GetSpecialValueFor("damage_last"), DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
 					target:AddNewModifier(caster, self.ability, "modifier_stunned", {duration = self.ability:GetSpecialValueFor("stun_duration")})
@@ -232,5 +236,5 @@ function modifier_arcueid_you:DeclareFunctions()
 end
 
 function modifier_arcueid_you:GetModifierTurnRate_Percentage()
-	return -450
+	return -80
 end

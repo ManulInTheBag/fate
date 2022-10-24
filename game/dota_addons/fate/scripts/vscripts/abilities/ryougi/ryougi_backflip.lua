@@ -3,12 +3,21 @@ LinkLuaModifier("modifier_ryougi_backflip_2", "abilities/ryougi/ryougi_backflip"
 
 ryougi_backflip = class({})
 
+function ryougi_backflip:OnAbilityPhaseStart()
+    StartAnimation(self:GetCaster(), {duration=1.20, activity=ACT_DOTA_CAST_ABILITY_4, rate=1})
+    return true
+end
+
+function ryougi_backflip:OnAbilityPhaseInterrupted()
+    EndAnimation(self:GetCaster())
+end
+
 function ryougi_backflip:OnSpellStart()
 	local caster = self:GetCaster()
-	caster:AddNewModifier(caster, self, "modifier_ryougi_backflip_2", {duration = 0.11})
-	StartAnimation(caster, {duration=1.20, activity=ACT_DOTA_CAST_ABILITY_4, rate=1})
-	Timers:CreateTimer(0.1, function()
-		if caster:IsStunned() then return end
+	--caster:AddNewModifier(caster, self, "modifier_ryougi_backflip_2", {duration = 0.11})
+	--StartAnimation(caster, {duration=1.20, activity=ACT_DOTA_CAST_ABILITY_4, rate=1})
+	Timers:CreateTimer(0.0, function()
+		--if caster:IsStunned() then return end
 
 		ProjectileManager:ProjectileDodge(caster)
 		--local target = self:GetCursorPosition()

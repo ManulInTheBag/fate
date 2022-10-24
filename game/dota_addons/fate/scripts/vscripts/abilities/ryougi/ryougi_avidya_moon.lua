@@ -18,10 +18,20 @@ function ryougi_avidya_moon:OnUpgrade()
     end
 end
 
+function ryougi_avidya_moon:OnAbilityPhaseStart()
+    StartAnimation(self:GetCaster(), {duration=0.815, activity=ACT_DOTA_CAST_ABILITY_2, rate=2})
+    return true
+end
+
+function ryougi_avidya_moon:OnAbilityPhaseInterrupted()
+    EndAnimation(self:GetCaster())
+end
+
+
 function ryougi_avidya_moon:OnSpellStart()
 	local caster = self:GetCaster()
-	caster:AddNewModifier(caster, self, "modifier_ryougi_avidya_moon_2", {duration = 0.11})
-	StartAnimation(caster, {duration=0.815, activity=ACT_DOTA_CAST_ABILITY_2, rate=2})
+	--caster:AddNewModifier(caster, self, "modifier_ryougi_avidya_moon_2", {duration = 0.11})
+	--StartAnimation(caster, {duration=0.815, activity=ACT_DOTA_CAST_ABILITY_2, rate=2})
 
 	local eyes = caster:FindAbilityByName("ryougi_mystic_eyes")
 
@@ -43,7 +53,7 @@ function ryougi_avidya_moon:OnSpellStart()
 		target = origin_e
 	end
 
-	Timers:CreateTimer(0.1, function()
+	Timers:CreateTimer(0.0, function()
 		if caster:IsStunned() then return end
 
 		local direction = (Vector(target.x, target.y, 0) - Vector(origin.x, origin.y, 0)):Normalized()

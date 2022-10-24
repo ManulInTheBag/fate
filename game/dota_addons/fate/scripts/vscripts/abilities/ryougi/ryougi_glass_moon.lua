@@ -98,7 +98,7 @@ function ryougi_glass_moon:OnSpellStart()
 				targetted = false
 			end]]
 
-			Timers:CreateTimer(0.1, function()
+			Timers:CreateTimer(0.0, function()
 				if not caster:IsAlive() then return end
 				if counter == 0 and targetted then
 					diff = (caster:GetAbsOrigin() - target_enemy:GetAbsOrigin()):Length2D()
@@ -197,7 +197,7 @@ function ryougi_glass_moon:OnSpellStart()
 				targetted = false
 			end]]
 
-			Timers:CreateTimer(0.2, function()
+			Timers:CreateTimer(0.0, function()
 				if not caster:IsAlive() then return end
 				caster:AddNewModifier(caster, self, "modifier_ryougi_glass_moon", {duration = 0.3})
 

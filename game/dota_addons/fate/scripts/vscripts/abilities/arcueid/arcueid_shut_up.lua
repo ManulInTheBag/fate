@@ -37,34 +37,36 @@ function arcueid_shut_up:OnSpellStart()
 			target:AddNewModifier(caster, self, "modifier_stunned", {duration = 0.1})
 		end
 
-		local casterfacing = caster:GetForwardVector()
-		local pushTarget = Physics:Unit(target)
-		local casterOrigin = caster:GetAbsOrigin()
-		local initialUnitOrigin = target:GetAbsOrigin()
-		target:PreventDI()
-		target:SetPhysicsFriction(0)
-		target:SetPhysicsVelocity(casterfacing:Normalized() * self:GetSpecialValueFor("speed"))
-		target:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
-	    target:OnPhysicsFrame(function(unit) 
-			local unitOrigin = unit:GetAbsOrigin()
-			local diff = unitOrigin - initialUnitOrigin
-			local n_diff = diff:Normalized()
-			unit:SetPhysicsVelocity(unit:GetPhysicsVelocity():Length() * n_diff) 
-			if diff:Length() > pushback_range then
+		if not IsKnockbackImmune(target) then
+			local casterfacing = caster:GetForwardVector()
+			local pushTarget = Physics:Unit(target)
+			local casterOrigin = caster:GetAbsOrigin()
+			local initialUnitOrigin = target:GetAbsOrigin()
+			target:PreventDI()
+			target:SetPhysicsFriction(0)
+			target:SetPhysicsVelocity(casterfacing:Normalized() * self:GetSpecialValueFor("speed"))
+			target:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
+		    target:OnPhysicsFrame(function(unit) 
+				local unitOrigin = unit:GetAbsOrigin()
+				local diff = unitOrigin - initialUnitOrigin
+				local n_diff = diff:Normalized()
+				unit:SetPhysicsVelocity(unit:GetPhysicsVelocity():Length() * n_diff) 
+				if diff:Length() > pushback_range then
+					unit:PreventDI(false)
+					unit:SetPhysicsVelocity(Vector(0,0,0))
+					unit:OnPhysicsFrame(nil)
+					FindClearSpaceForUnit(unit, unit:GetAbsOrigin(), true)
+				end
+			end)	
+			target:OnPreBounce(function(unit, normal) -- stop the pushback when unit hits wall
+				unit:SetBounceMultiplier(0)
 				unit:PreventDI(false)
 				unit:SetPhysicsVelocity(Vector(0,0,0))
-				unit:OnPhysicsFrame(nil)
-				FindClearSpaceForUnit(unit, unit:GetAbsOrigin(), true)
-			end
-		end)	
-		target:OnPreBounce(function(unit, normal) -- stop the pushback when unit hits wall
-			unit:SetBounceMultiplier(0)
-			unit:PreventDI(false)
-			unit:SetPhysicsVelocity(Vector(0,0,0))
-			giveUnitDataDrivenModifier(caster, target, "stunned", self:GetSpecialValueFor("stun_duration"))
-			target:EmitSound("Hero_EarthShaker.Fissure")
-			DoDamage(caster, target, collide_damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)	
-		end)
+				giveUnitDataDrivenModifier(caster, target, "stunned", self:GetSpecialValueFor("stun_duration"))
+				target:EmitSound("Hero_EarthShaker.Fissure")
+				DoDamage(caster, target, collide_damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)	
+			end)
+		end
 
 		target:EmitSound("Hero_EarthShaker.Fissure")
 		--[[local groundFx = ParticleManager:CreateParticle( "particles/units/heroes/hero_earthshaker/earthshaker_echoslam_start_fallback_mid.vpcf", PATTACH_ABSORIGIN, target )
