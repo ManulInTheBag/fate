@@ -150,7 +150,7 @@ function ryougi_kimono:Kimono1()
     if caster and IsValidEntity(caster) and enemies and #enemies>0 then
 	    for _, enemy in pairs(enemies) do
 	    	if not self.AffectedTargets[enemy:entindex()] then
-	    		print("pepeg")
+	    		--print("pepeg")
 		    	self.AffectedTargets[enemy:entindex()] = true
 		    	enemy:AddNewModifier(caster, self, "modifier_rooted", { Duration = self:GetSpecialValueFor("first_stun_duration") })
 		        DoDamage(caster, enemy, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)

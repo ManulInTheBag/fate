@@ -236,5 +236,5 @@ function modifier_arcueid_you:DeclareFunctions()
 end
 
 function modifier_arcueid_you:GetModifierTurnRate_Percentage()
-	return -80
+	return -50
 end
