@@ -52,7 +52,7 @@ if IsServer() then
       end)
       for k,v in pairs(targets_splash) do
         if v ~= target and v:IsRealHero() then
-          parent:ApplyHeal(damage_splash*lifesteal,parent)
+          --parent:ApplyHeal(damage_splash*lifesteal,parent)
           DoDamage(parent, v, damage_splash, DAMAGE_TYPE_PHYSICAL, 0, ability, false)
           parent:AddBleedStack(v,true)
         end
