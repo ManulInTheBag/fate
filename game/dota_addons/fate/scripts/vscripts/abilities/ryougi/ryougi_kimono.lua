@@ -114,25 +114,14 @@ function ryougi_kimono:Kimono1()
     local width = self:GetSpecialValueFor("width")
     local hit_count = 3
 
+    self.AffectedTargets = {}
+
     local direction = (point-origin)
     local dist = math.min( max_dist, direction:Length2D() )
     direction.z = 0
     direction = direction:Normalized()
 
     local target = GetGroundPosition( origin + direction*dist, nil )
-
-    FindClearSpaceForUnit( caster, target, true )
-
-    local effect_cast = ParticleManager:CreateParticle( "particles/ryougi/ryougi_step_red.vpcf", PATTACH_WORLDORIGIN, self:GetCaster() )
-  	ParticleManager:SetParticleControl( effect_cast, 0, origin )
-    ParticleManager:SetParticleControl( effect_cast, 1, target)
-    ParticleManager:SetParticleControl( effect_cast, 2, target )
-    Timers:CreateTimer(1.0, function()
-        ParticleManager:DestroyParticle(effect_cast, true)
-        ParticleManager:ReleaseParticleIndex( effect_cast )
-    end)
-
-    self.AffectedTargets = {}
 
 	local enemies = FindUnitsInLine(
 								        caster:GetTeamNumber(),
@@ -147,11 +136,14 @@ function ryougi_kimono:Kimono1()
 
     EmitSoundOn("jtr_slash", caster)
 
+    local valid_enemy = nil
+
     if caster and IsValidEntity(caster) and enemies and #enemies>0 then
 	    for _, enemy in pairs(enemies) do
 	    	if not self.AffectedTargets[enemy:entindex()] then
 	    		--print("pepeg")
 		    	self.AffectedTargets[enemy:entindex()] = true
+		    	valid_enemy = enemy
 		    	enemy:AddNewModifier(caster, self, "modifier_rooted", { Duration = self:GetSpecialValueFor("first_stun_duration") })
 		        DoDamage(caster, enemy, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
 		        EmitSoundOn("ryougi_hit", enemy)
@@ -159,6 +151,21 @@ function ryougi_kimono:Kimono1()
 		    end
 	    end
 	end
+
+    if valid_enemy then
+    	target = GetGroundPosition(valid_enemy:GetAbsOrigin() + 150*direction, nil)
+    end
+
+    FindClearSpaceForUnit( caster, target, true )
+
+    local effect_cast = ParticleManager:CreateParticle( "particles/ryougi/ryougi_step_red.vpcf", PATTACH_WORLDORIGIN, self:GetCaster() )
+  	ParticleManager:SetParticleControl( effect_cast, 0, origin )
+    ParticleManager:SetParticleControl( effect_cast, 1, target)
+    ParticleManager:SetParticleControl( effect_cast, 2, target )
+    Timers:CreateTimer(1.0, function()
+        ParticleManager:DestroyParticle(effect_cast, true)
+        ParticleManager:ReleaseParticleIndex( effect_cast )
+    end)
 
 	local enemies2 = FindUnitsInRadius(  caster:GetTeamNumber(),
                                         caster:GetAbsOrigin(),
