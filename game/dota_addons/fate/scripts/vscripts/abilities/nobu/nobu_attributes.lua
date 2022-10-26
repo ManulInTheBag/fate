@@ -81,4 +81,21 @@ function nobu_unifying_attribute:OnSpellStart()
 	master:SetMana(master:GetMana() - self:GetManaCost(self:GetLevel()))
 end
 
+
+
+
+nobu_independent_action = class({})
+
+function nobu_independent_action:OnSpellStart()
+	local caster = self:GetCaster()
+	local ply = caster:GetPlayerOwner()
+	local hero = caster:GetPlayerOwner():GetAssignedHero()
+
+	hero.NobuActionAcquired = true
+ 
+	local master = hero.MasterUnit
+	master:SetMana(master:GetMana() - self:GetManaCost(self:GetLevel()))
+end
+
+ 
  

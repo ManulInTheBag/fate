@@ -83,7 +83,7 @@ function nobu_3000:OnChannelFinish(bInterrupted)
     self.caster:AddNewModifier(self.caster, self, "modifier_merlin_self_pause", {Duration = 0.3}) 
     ParticleManager:DestroyParticle( self.particle_kappa, false)
     ParticleManager:ReleaseParticleIndex( self.particle_kappa)
-	StartAnimation( self.caster, {duration=1.0, activity=ACT_DOTA_CAST_ABILITY_4_END, rate=1.0})
+	StartAnimation( self.caster, {duration=0.5, activity=ACT_DOTA_CAST_ABILITY_4_END, rate=1.0})
     local aoe = 50
     local position = self:GetCursorPosition()
     self.caster:StopSound("nobu_ulti_cast")

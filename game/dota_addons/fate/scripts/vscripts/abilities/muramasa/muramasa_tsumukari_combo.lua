@@ -178,7 +178,8 @@ Timers:CreateTimer(4, function()
 for i = 1, 10 do
     if(self.casted == false ) then return end
     local point = start_point + i *start_vec * 250
-    local explosionFx = ParticleManager:CreateParticle("particles/muramasa/muramasa_tsumukari_fire_combo.vpcf", PATTACH_CUSTOMORIGIN, nil)
+    local explosionFx = ParticleManager:CreateParticle("particles/muramasa/muramasa_tsumukari_fire_combo.vpcf", PATTACH_WORLDORIGIN, nil)
+    ParticleManager:SetParticleShouldCheckFoW(explosionFx, false)
     ParticleManager:SetParticleControl(explosionFx, 0, point)
     Timers:CreateTimer(2.8, function() 
         ParticleManager:DestroyParticle(explosionFx, true)
@@ -233,7 +234,8 @@ Timers:CreateTimer(1.7, function()
         local projectile = ProjectileManager:CreateLinearProjectile(tsumukariProjectile)
         --ParticleManager:DestroyParticle(caster:FindAbilityByName("muramasa_tsumukari").swordfx, true)
         --ParticleManager:ReleaseParticleIndex(caster:FindAbilityByName("muramasa_tsumukari").swordfx)
-        local CrackFx = ParticleManager:CreateParticle("particles/muramasa/muramasa_tsumukari_ground_combo.vpcf", PATTACH_CUSTOMORIGIN, nil)
+        local CrackFx = ParticleManager:CreateParticle("particles/muramasa/muramasa_tsumukari_ground_combo.vpcf", PATTACH_WORLDORIGIN, nil)
+        ParticleManager:SetParticleShouldCheckFoW(CrackFx, false)
         ParticleManager:SetParticleControl(CrackFx, 0, caster:GetAbsOrigin() + caster:GetForwardVector() * 100)
         ParticleManager:SetParticleControl(CrackFx, 1, caster:GetAbsOrigin() + caster:GetForwardVector() * 2500 )
         

@@ -190,17 +190,31 @@ function modifier_nobu_turnlock:GetModifierMoveSpeedBonus_Percentage()
 	return   self.movementslowed
 end
 
-
 function modifier_nobu_turnlock:OnOrder(args)
     if args.unit ~= self:GetParent() then return end
-	if(args.order_type == DOTA_UNIT_ORDER_ATTACK_MOVE or args.order_type == DOTA_UNIT_ORDER_ATTACK_TARGET ) then
+ 
+	if( args.order_type == DOTA_UNIT_ORDER_ATTACK_TARGET ) then
        
 		self:GetAbility().target_enemy = args.target
 		self:GetAbility().targetted = true
-    end	
+    else 
+        if (args.order_type == DOTA_UNIT_ORDER_ATTACK_MOVE) then
+         if(args.target ~= nil) then
+            self:GetAbility().target_enemy = args.target
+            self:GetAbility().targetted = true
+             
+         else
+          
+            local targets = FindUnitsInRadius( self:GetCaster():GetTeamNumber(),  self:GetCaster():GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
+             if( targets[1] ~= nil and  self:GetCaster():CanEntityBeSeenByMyTeam(targets[1]) ) then
+                self:GetAbility().target_enemy = targets[1]
+                self:GetAbility().targetted = true
+             end    
+         end
+        end
+    end
 end
  
-
 
 function modifier_nobu_turnlock:IsHidden() return false end
 function modifier_nobu_turnlock:RemoveOnDeath() return true end

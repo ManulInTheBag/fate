@@ -16,7 +16,6 @@ end
 function nobu_shot:OnSpellStart()
     local hCaster = self:GetCaster()
     local aoe = 50
- 
     local origin = hCaster:GetAttachmentOrigin(3) 
 
     
@@ -98,7 +97,24 @@ function nobu_shot:OnProjectileHit(target, location )
     end
     DoDamage(hCaster, target, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
     target:EmitSound("nobu_shot_impact_"..math.random(1,2))
-    target:AddNewModifier(hCaster, self, "modifier_nobu_slow", {Duration = self:GetSpecialValueFor("duration")})    
+    target:AddNewModifier(hCaster, self, "modifier_nobu_slow", {Duration = self:GetSpecialValueFor("duration")})  
+    if( hCaster:FindModifierByName("modifier_nobu_dash_dmg") ) then
+        DoDamage(hCaster, target, hCaster:FindAbilityByName("nobu_dash"):GetSpecialValueFor("attr_damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
+        hCaster:RemoveModifierByName("modifier_nobu_dash_dmg")
+    end
+    if( hCaster.NobuActionAcquired and not  hCaster:FindModifierByName("modifier_nobu_turnlock")) then
+        local knockback = { should_stun = true,
+        knockback_duration = 0.1,
+        duration = 0.1,
+        knockback_distance = 80,
+        knockback_height = 0,
+        center_x = hCaster:GetAbsOrigin().x,
+        center_y = hCaster:GetAbsOrigin().y,
+        center_z = hCaster:GetAbsOrigin().z }
+
+        target:AddNewModifier(hCaster, self, "modifier_knockback", knockback)
+        
+    end
     if(hCaster.ISDOW) then
         local gun_spawn = hCaster:GetAbsOrigin()
         local random1 = RandomInt(25, 150) -- position of gun spawn

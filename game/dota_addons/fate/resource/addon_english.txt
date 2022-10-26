@@ -234,6 +234,12 @@
 
 		"DOTA_Tooltip_modifier_nobu_slow"									"Slowed"
 		"DOTA_Tooltip_modifier_nobu_slow_Description"				""
+
+		"DOTA_Tooltip_modifier_nobu_dash_dmg"									"Dash buff"
+		"DOTA_Tooltip_modifier_nobu_dash_dmg_Description"				"Next shoot will deal additional damage."
+
+		"DOTA_Tooltip_modifier_nobu_strategy_attribute_cooldown"									"Strategy cooldown"
+		"DOTA_Tooltip_modifier_nobu_strategy_attribute_cooldown_Description"				""
 		
 		"DOTA_Tooltip_modifier_white_queen_slow"						"White Queen's Enigma Slow"
 		"DOTA_Tooltip_modifier_white_queen_slow_Description"			"Slowed"
@@ -6819,14 +6825,15 @@
         "DOTA_Tooltip_ability_saito_formlessness_lock_duration"				"Lock duration:"
         "DOTA_Tooltip_ability_saito_formlessness_Lore"						"They didn't even realize they were killed"
   
+        	//Saito becomes serious, gaining armor, magic resistance and delayed damage just like with Freely Drawn Blade. Every %spellblock_cd% seconds he can block a targeted spell. \n
 
 		"DOTA_Tooltip_ability_saito_undefeatable_style"						"Combo: Undefeatable style"
-        "DOTA_Tooltip_ability_saito_undefeatable_style_Description"			"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: F-F in 2 seconds</font>\nSaito becomes serious, gaining armor, magic resistance and delayed damage just like with Freely Drawn Blade. Every %spellblock_cd% seconds he can block a targeted spell. \nHis technique also benefits from concentration, Saito's QWE abilities castpoints are replaced with cast delays and cannot be interrupted.Also he restores mana every time he deals damage with an ability and his QWE abilities have only 3 seconds cooldown for a duration\nFor a  duration  this ability changes to One by one\nOne by one: Saito attacks all enemies around him, pushing them away, stunning for a short duration."
-        "DOTA_Tooltip_ability_saito_undefeatable_style_armor"			"Bonus armor:"
-        "DOTA_Tooltip_ability_saito_undefeatable_style_magic_res"		"%Bonus magic resist:"
+        "DOTA_Tooltip_ability_saito_undefeatable_style_Description"			"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: F-F in 2 seconds</font>\nSaito drops his defence gaining an unstoppable offensive power, Saito's QWE abilities castpoints are replaced with cast delays and cannot be interrupted.Also he restores mana and health every time he deals damage with an ability and his QWE abilities have only 3 seconds cooldown for a duration\nFor a  duration  this ability changes to One by one\nOne by one: Saito attacks all enemies around him, pushing them away, stunning for a short duration."
+        //"DOTA_Tooltip_ability_saito_undefeatable_style_armor"			"Bonus armor:"
+        //"DOTA_Tooltip_ability_saito_undefeatable_style_magic_res"		"%Bonus magic resist:"
 		"DOTA_Tooltip_ability_saito_undefeatable_style_mana_refund"		"Mana gained:"
 		"DOTA_Tooltip_ability_saito_undefeatable_style_duration"		"Duration:"
-		"DOTA_Tooltip_ability_saito_undefeatable_style_resist"		    "%Damage delayed:"
+		//"DOTA_Tooltip_ability_saito_undefeatable_style_resist"		    "%Damage delayed:"
 		"DOTA_Tooltip_ability_saito_undefeatable_style_Lore"			"I look so serious? ...Eh? I wasn't even trying."
 
 		"DOTA_Tooltip_ability_saito_undefeatable_style_active"		"One by one"
@@ -7021,6 +7028,7 @@
 
         "DOTA_Tooltip_ability_nobu_dash"					"Dash"
         "DOTA_Tooltip_ability_nobu_dash_Description"	 	"Nobunaga immediately dashes in the target direction. Each charge is replenished over time, refreshing ability will restore one charge."
+        "DOTA_Tooltip_ability_nobu_dash_attr_damage"			"Attribute damage:"
         "DOTA_Tooltip_ability_nobu_dash_Lore"				""
 
         "DOTA_Tooltip_ability_nobu_double_shots"				"Targeted shots"
@@ -7052,7 +7060,7 @@
         "DOTA_Tooltip_ability_nobu_dogab_Lore" ""
 
         "DOTA_Tooltip_ability_nobu_fool_of_owari"				"Spirit altering: Fool of Owari"
-        "DOTA_Tooltip_ability_nobu_fool_of_owari_Description"	"Grants oda nobunaga Charisma aura in 1000 range, increasing all allies armor by 12 and movement speed  and 10%%.\n With Demon King Expanding attribute this choice will grant both Fool of Owari and King of innovation bonuses."
+        "DOTA_Tooltip_ability_nobu_fool_of_owari_Description"	"Grants oda nobunaga Charisma aura in 1000 range, increasing all allies armor by 12 and movement speed by 10%%.\n With Demon King Expanding attribute this choice will grant both Fool of Owari and King of innovation bonuses."
         "DOTA_Tooltip_ability_nobu_fool_of_owari_Lore" ""
 
         "DOTA_Tooltip_ability_nobu_king_of_innovation"				"Spirit altering: King of innovation"
@@ -7122,16 +7130,19 @@
  
 
         "DOTA_Tooltip_ability_nobu_3000_attribute"				"Attribute: 3000 worlds"
-        "DOTA_Tooltip_ability_nobu_3000_attribute_Description"	"Oda nobunaga's three line formation ability projectiles change to lasers, which pierce enemies and deal portion of their damage as pure."
+        "DOTA_Tooltip_ability_nobu_3000_attribute_Description"	"Oda nobunaga's three line formation ability projectiles change to lasers, which pierce enemies and deal portion of their damage as pure. After end of dash, two rifles will appear near nobu, if there is an enemy in 500 range, shooting him with a little knockback."
         "DOTA_Tooltip_ability_nobu_3000_attribute_pure_percentage"						"%Pure dmg:"
+        "DOTA_Tooltip_ability_nobu_3000_dmg_mod"						"Dash rifles dmg modifier:"
       
- 
-
         "DOTA_Tooltip_ability_nobu_unifying_attribute"				"Attribute: Unifying the Nation by Force"
         "DOTA_Tooltip_ability_nobu_unifying_attribute_Description"	"Increases Oda Nobunaga's rifle damage based on ATK. Oda nobunaga's rifle abilities deal additional damage to divine servants."
         "DOTA_Tooltip_ability_nobu_unifying_attribute_additional_atkmod" 	"Additional atk rifle scaling:"
-         "DOTA_Tooltip_ability_nobu_unifying_attribute_divine_damage_mod" 	"Divine damage modifier:"
+        "DOTA_Tooltip_ability_nobu_unifying_attribute_divine_damage_mod" 	"Divine damage modifier:"
  
+        "DOTA_Tooltip_ability_nobu_independent_action"				"Attribute: Independent action"
+        "DOTA_Tooltip_ability_nobu_independent_action_Description"	"Shoot(Q) will now microstun and knockback enemy, if it was used without targeted shots(E) activated. Using Dash will now icrease next Shoot damage by a flat magical value."
+        "DOTA_Tooltip_ability_nobu_independent_microstun_duration" 	"Mictostun duration:"
+        
  
         
 

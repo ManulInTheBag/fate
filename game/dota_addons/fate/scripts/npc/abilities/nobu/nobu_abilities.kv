@@ -136,6 +136,7 @@
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"2"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
 		"AbilityTextureName"			"custom/nobu/nobu_dash"
@@ -161,8 +162,11 @@
 				"var_type"					"FIELD_FLOAT"
 				"charge_time"				"30 26 22 18 14"
 			}
-			
-			
+			"03"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"attr_damage"				"100 130 160 190 220"
+			}
 			 
 			
 		}
@@ -669,7 +673,7 @@
 		"AbilityTextureName"			"custom/nobu/nobu_expanding_attribute"
 		"AbilityCooldown"				"9999"
 
-		"AbilityManaCost"				"20"
+		"AbilityManaCost"				"14"
 
 		 
 		"AbilitySpecial"
@@ -689,7 +693,7 @@
 		"AbilityTextureName"			"custom/nobu/nobu_3000_attribute"
 		"AbilityCooldown"				"9999"
 
-		"AbilityManaCost"				"10"
+		"AbilityManaCost"				"18"
 
 		 
 		"AbilitySpecial"
@@ -699,6 +703,11 @@
 			{
 				"var_type"			"FIELD_FLOAT"
 				"pure_percentage"				"15"
+			} 
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"dmg_mod"				"0.5"
 			} 
 			 
 			 
@@ -716,7 +725,7 @@
 		"AbilityTextureName"			"custom/nobu/nobu_unifying_attribute"
 		"AbilityCooldown"				"9999"
 
-		"AbilityManaCost"				"17"
+		"AbilityManaCost"				"19"
 
 		 
 		"AbilitySpecial"
@@ -733,6 +742,33 @@
 			} 
 		}		
 	}
+
+	"nobu_independent_action"
+	{
+		 
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/nobu/nobu_attributes"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/nobu/nobu_independent_action"
+		"AbilityCooldown"				"9999"
+
+		"AbilityManaCost"				"12"
+
+		 
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"microstun_duration"				"0.1"
+			}
+			 
+		}		
+	}
+ 
  
 
 

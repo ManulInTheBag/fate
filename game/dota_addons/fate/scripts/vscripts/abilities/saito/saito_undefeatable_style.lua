@@ -54,7 +54,7 @@ function saito_undefeatable_style:OnSpellStart()
     caster:RemoveModifierByName( "modifier_saito_fdb_vision")
     caster:AddNewModifier(caster, ability, "modifier_saito_combo",{duration = self:GetSpecialValueFor("duration") })
     caster:AddNewModifier(caster, ability, "modifier_saito_combo_cd",{duration = ability:GetCooldown(1) })
-    caster:AddNewModifier(caster, ability, "modifier_saito_combo_spellblock", { duration = self:GetSpecialValueFor("duration")} )
+    --caster:AddNewModifier(caster, ability, "modifier_saito_combo_spellblock", { duration = self:GetSpecialValueFor("duration")} )
   
 end
 
@@ -105,14 +105,15 @@ function modifier_saito_combo:OnIntervalThink()
    
 
 end
-
+ 
 function modifier_saito_combo:OnTakeDamage(args)
     local caster =self:GetParent()
     local ability = self:GetAbility()
-    --if(  args.attacker ~= caster) then return end
+    if(  args.attacker ~= caster) then return end
+ 
+   --[[
     local counter = 4
     local dmgmod = 1
-   
     local resist = self:GetAbility():GetSpecialValueFor("resist") 
     if(  args.attacker ~= caster and args.inflictor ~= ability)then
             self.damageStored = self.damageStored + args.damage 
@@ -120,10 +121,9 @@ function modifier_saito_combo:OnTakeDamage(args)
  
     
     end
+    ]]
     if(args.damage_category == 0 and args.inflictor ~= self:GetAbility() and args.unit:GetTeam() ~= caster:GetTeam())  then
         local ability = self:GetParent():FindAbilityByName("saito_undefeatable_style")
-      
-        print(caster:GetMana()+ability:GetSpecialValueFor("mana_refund")) 
         caster:SetMana(caster:GetMana()+ability:GetSpecialValueFor("mana_refund"))
         if(caster.UndefeatableSwordsmanAcquired)then
             caster:SetHealth(caster:GetHealth()+ability:GetSpecialValueFor("health_refund"))
@@ -142,7 +142,7 @@ function modifier_saito_combo:OnCreated()
         --self:StartIntervalThink(self:GetAbility():GetSpecialValueFor("spellblock_cd"))
         self.damageStored = 0
         self.attacker = nil
-        self:StartIntervalThink(0.5)
+        --self:StartIntervalThink(0.5)
     end
 
 end

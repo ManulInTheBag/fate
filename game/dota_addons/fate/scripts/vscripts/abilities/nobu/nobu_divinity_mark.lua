@@ -42,15 +42,25 @@ function modifier_nobu_divinity_mark:OnTakeDamage(args)
     local parent =self:GetParent()
     local caster = self:GetCaster()
     if(  args.attacker == caster  and args.damage_category == 0 )then
-        if(args.inflictor:GetName() ~= "nobu_guns" and args.inflictor:GetName() ~= "nobu_shot" and args.inflictor:GetName() ~= "nobu_3000" and args.inflictor:GetName() ~= "nobu_double_shots" ) then return end
-        self.stacks = self.stacks + 1
-        ParticleManager:DestroyParticle(self.fx, true)
+        if(args.inflictor:GetName() ~= "nobu_guns" and args.inflictor:GetName() ~= "nobu_shot" and args.inflictor:GetName() ~= "nobu_3000" and args.inflictor:GetName() ~= "nobu_double_shots" 
+        and args.inflictor:GetName() ~= "nobu_combo" and args.inflictor:GetName() ~= "nobu_dash" ) then return end
+        if( args.inflictor:GetName() == "nobu_shot" and args.damage_type == DAMAGE_TYPE_MAGICAL) then
+            return
+         end
+         if( args.inflictor:GetName() == "nobu_3000" and args.damage_type == DAMAGE_TYPE_PURE) then
+            return
+         end
+        
+            self.stacks = self.stacks + 1
+     
+      
+        ParticleManager:DestroyParticle(self.fx, true) 
         ParticleManager:ReleaseParticleIndex(self.fx)
         self.fx = ParticleManager:CreateParticle("particles/nobu/nobu_divinity_mark.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetParent())
         ParticleManager:SetParticleControl(self.fx , 1, Vector(self.stacks,0,0) ) 
 
     end
-    if(self.stacks == 10) then
+    if(self.stacks == 12) then
         parent:AddNewModifier(caster, self:GetAbility(), "modifier_nobu_divinity_mark_activated", {duration = self:GetAbility():GetSpecialValueFor("activated_duration")} )
         parent:EmitSound("nobu_divinity_mark_activated")
         self:Destroy()

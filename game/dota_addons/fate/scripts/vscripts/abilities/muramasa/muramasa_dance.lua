@@ -9,11 +9,18 @@ function muramasa_dance:OnUpgrade()
    
 end
 
+function muramasa_dance:GetCastRange()
+   if(self:GetCaster().targetqenemy ~= nil and self:GetCaster().targetqenemy:IsAlive()) then
+     return 2000
+   else
+      return 250
+   end
+ end
  
 
 function muramasa_dance:OnSpellStart()
  local caster = self:GetCaster()
- if(caster.targetqenemy ~= nil) then
+ if(caster.targetqenemy ~= nil and caster.targetqenemy:IsAlive()) then
    FindClearSpaceForUnit(caster,caster.targetqenemy:GetAbsOrigin() + caster.targetqenemy:GetForwardVector() * -100,false)
    local vector =  (-caster:GetAbsOrigin()+caster.targetqenemy:GetAbsOrigin()):Normalized()
    vector.z = 0
