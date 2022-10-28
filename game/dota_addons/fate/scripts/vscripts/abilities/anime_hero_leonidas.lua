@@ -1333,7 +1333,7 @@ function modifier_leonidas_berserk:OnIntervalThink()
         end
         --=================================--
         HardCleanse(self.hParent) --NOTE: Fate Mech
-        self.hParent:Purge(false, true, false, true, true)
+        --self.hParent:Purge(false, true, false, true, true) --NOTE: Removed because fate pepegas
         --=================================--
         local nRadius = self.nRadius + 100
         local nCastPFX =    ParticleManager:CreateParticle("particles/heroes/anime_hero_leonidas/leonidas_berserk_pulse.vpcf", PATTACH_CENTER_FOLLOW, self.hParent)
