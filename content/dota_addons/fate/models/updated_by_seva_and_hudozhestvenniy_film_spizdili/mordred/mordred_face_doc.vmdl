@@ -1,0 +1,693 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc31:version{165d48dd-8adc-4f1d-abf7-4992e04ad577} -->
+{
+	rootNode = 
+	{
+		_class = "RootNode"
+		children = 
+		[
+			{
+				_class = "MaterialGroupList"
+				children = 
+				[
+					{
+						_class = "DefaultMaterialGroup"
+						remaps = 
+						[
+							{
+								from = ""
+								to = "materials/updated_by_seva_and_hudozhestvenniy_film_spizdili/mordred/heromordred1.vmat"
+							},
+						]
+						use_global_default = false
+						global_default_material = ""
+					},
+				]
+			},
+			{
+				_class = "AttachmentList"
+				children = 
+				[
+					{
+						_class = "Attachment"
+						name = "ATTACH_HITLOC"
+						parent_bone = "bone_new4"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "ATTACH_ATTACK1"
+						parent_bone = "bone_new36"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+				]
+			},
+			{
+				_class = "HitboxSetList"
+				children = 
+				[
+					{
+						_class = "HitboxSet"
+						name = "default"
+						children = 
+						[
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_new3"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.333867, -3.800039, -9.133915 ]
+								hitbox_maxs = [ 6.333867, 6.009511, 4.398083 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_new2"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.436913, -3.902817, -0.402481 ]
+								hitbox_maxs = [ 3.436924, 3.4843, 2.99913 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_new4"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -19.498825, -10.031485, -44.061478 ]
+								hitbox_maxs = [ 19.990524, 21.206879, 22.192799 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_new20"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.858009, -2.51034, -3.354218 ]
+								hitbox_maxs = [ 0.082259, 2.529246, 0.975388 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_new21"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.0824, -3.29167, -2.64867 ]
+								hitbox_maxs = [ 2.291597, 2.285653, 0.975388 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_new12"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -8.340364, -5.36494, -7.631729 ]
+								hitbox_maxs = [ 3.14309, 4.636853, 4.514797 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_new13"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.255433, -5.364956, -7.80373 ]
+								hitbox_maxs = [ 8.227989, 4.636838, 4.342827 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_newk0"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -13.104837, -5.699934, -0.275284 ]
+								hitbox_maxs = [ 13.104935, 14.799876, 13.746773 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_new7"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.296958, -0.000001, -0.000004 ]
+								hitbox_maxs = [ 3.29696, 0.674467, 0.620316 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_new22"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.144979, -2.52703, -5.624798 ]
+								hitbox_maxs = [ 1.063141, 2.576813, 2.186852 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_new23"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.912501, -3.196939, -5.546322 ]
+								hitbox_maxs = [ 6.295598, 1.906903, 2.265343 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_new32"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.800325, -1.335645, -1.851013 ]
+								hitbox_maxs = [ 1.798848, 2.771408, 1.326706 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_new8"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.303972, -0.000001, 0.0 ]
+								hitbox_maxs = [ 3.303973, 0.28893, 0.39856 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_new24"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.489471, -2.112269, -3.063389 ]
+								hitbox_maxs = [ 0.452627, 2.02498, 0.485424 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_new25"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.792862, -2.42451, -2.651367 ]
+								hitbox_maxs = [ 3.499264, 2.236634, 0.942417 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_new33"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.046706, -2.035967, -2.505447 ]
+								hitbox_maxs = [ 2.04675, 2.36302, 0.626091 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_new14"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.602512, -3.428811, -17.488422 ]
+								hitbox_maxs = [ 2.684651, 4.235635, 1.462292 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_new15"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.630331, -3.209647, -17.528662 ]
+								hitbox_maxs = [ 3.656819, 4.4548, 1.422047 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_new37"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.265471, -1.341215, -6.418663 ]
+								hitbox_maxs = [ 7.265471, 3.544052, 0.158901 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_new9"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.20384, -0.177611, 0.000004 ]
+								hitbox_maxs = [ 3.203841, -0.000001, 0.176792 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_new29"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.871038, -1.857618, -1.590908 ]
+								hitbox_maxs = [ 0.572559, 1.698908, 0.458813 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_new27"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.985037, -2.04175, -1.379314 ]
+								hitbox_maxs = [ 1.216524, 1.543791, 0.453327 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_new34"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.026055, -1.894218, -0.557384 ]
+								hitbox_maxs = [ 2.026104, 1.78623, 1.088169 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_new40"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.015038, -0.909056, -1.340721 ]
+								hitbox_maxs = [ 0.015038, 0.983007, -0.80426 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_new42"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.089001, -0.946027, -1.007889 ]
+								hitbox_maxs = [ -0.058928, 0.946036, -0.471428 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_new16"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.259716, -4.065516, -17.533298 ]
+								hitbox_maxs = [ 2.109044, 4.246153, 1.255068 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_new17"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.109042, -4.065524, -17.533297 ]
+								hitbox_maxs = [ 3.259718, 4.246147, 1.255064 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_new38"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -8.282631, -4.519397, -5.688862 ]
+								hitbox_maxs = [ 8.282635, 0.585738, 1.598354 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_new10"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.996019, -0.263746, -0.045008 ]
+								hitbox_maxs = [ 2.996019, -0.000001, 0.0 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_new31"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.864159, -1.657937, -2.063828 ]
+								hitbox_maxs = [ -0.289642, -0.359933, -0.294376 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_new30"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.455204, -1.721418, -1.299488 ]
+								hitbox_maxs = [ 0.590813, 1.608513, 0.446571 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_new28"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.261583, -1.479075, -1.748768 ]
+								hitbox_maxs = [ 1.353886, 0.114653, 0.066708 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_new26"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.785744, -1.731379, -1.300262 ]
+								hitbox_maxs = [ 1.54524, 1.685198, 0.491241 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_new35"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.238628, -2.280668, -4.638004 ]
+								hitbox_maxs = [ 2.23866, 1.555914, 0.978374 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_new41"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.139905, -0.94796, -1.500629 ]
+								hitbox_maxs = [ 0.204419, 0.947944, 1.163109 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_new43"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.056481, -0.947948, -1.574787 ]
+								hitbox_maxs = [ 1.287831, 0.947956, 1.088959 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_new5"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -30.527586, -15.399856, -26.31007 ]
+								hitbox_maxs = [ 9.250904, 21.1835, 0.70665 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_new6"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -8.208794, -15.836843, -26.310064 ]
+								hitbox_maxs = [ 27.088568, 21.784573, 0.70665 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_new18"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.861738, -10.209743, -4.697423 ]
+								hitbox_maxs = [ 2.015979, 2.769265, 2.376797 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_new19"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.867841, -10.432201, -4.748121 ]
+								hitbox_maxs = [ 3.009864, 2.546807, 2.326099 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_new39"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -8.282633, -4.676132, -5.59013 ]
+								hitbox_maxs = [ 8.282633, 0.429003, 1.697128 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_new11"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.807152, -0.069318, -5.080805 ]
+								hitbox_maxs = [ 2.80715, 0.000001, 0.0 ]
+							},
+						]
+					},
+				]
+			},
+			{
+				_class = "RenderMeshList"
+				children = 
+				[
+					{
+						_class = "RenderMeshFile"
+						name = "mordred_unanim_face"
+						filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/mordred/mordred_unanim_face.fbx"
+						import_scale = 1.0
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = [  ]
+						}
+					},
+				]
+			},
+			{
+				_class = "AnimationList"
+				children = 
+				[
+					{
+						_class = "AnimFile"
+						name = "mordred_idle"
+						activity_name = "ACT_DOTA_IDLE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/mordred/mordred.fbx"
+						import_bone_scales = false
+						start_frame = 10
+						end_frame = 69
+						framerate = 30.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "mordred_run"
+						activity_name = "ACT_DOTA_RUN"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/mordred/mordred.fbx"
+						import_bone_scales = false
+						start_frame = 78
+						end_frame = 97
+						framerate = 30.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "mordred_hard_hit"
+						activity_name = "ACT_DOTA_ATTACK2"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/mordred/mordred.fbx"
+						import_bone_scales = false
+						start_frame = 165
+						end_frame = 205
+						framerate = 30.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "mordred_rush_slash"
+						activity_name = "ACT_DOTA_CAST_ABILITY_4_END"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/mordred/mordred.fbx"
+						import_bone_scales = false
+						start_frame = 235
+						end_frame = 275
+						framerate = 30.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "mordred_gawain_like_hit"
+						activity_name = "ACT_DOTA_ATTACK"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/mordred/mordred.fbx"
+						import_bone_scales = false
+						start_frame = 300
+						end_frame = 340
+						framerate = 30.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "mordred_clarent_charge"
+						activity_name = "ACT_DOTA_CAST_ABILITY_3"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/mordred/mordred.fbx"
+						import_bone_scales = false
+						start_frame = 575
+						end_frame = 590
+						framerate = 30.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "mordred_detonate"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/mordred/mordred.fbx"
+						import_bone_scales = false
+						start_frame = 127
+						end_frame = 165
+						framerate = 30.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "mordred_clarent_release"
+						activity_name = "ACT_DOTA_CAST_ABILITY_3_END"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/mordred/mordred.fbx"
+						import_bone_scales = false
+						start_frame = 635
+						end_frame = 689
+						framerate = 50.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "mordred_death"
+						activity_name = "ACT_DOTA_DIE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/mordred/mordred.fbx"
+						import_bone_scales = false
+						start_frame = 370
+						end_frame = 419
+						framerate = 30.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "mordred_hit"
+						activity_name = "ACT_DOTA_CAST_ABILITY_2"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/mordred/mordred.fbx"
+						import_bone_scales = false
+						start_frame = 505
+						end_frame = 544
+						framerate = 120.0
+						reverse = false
+					},
+				]
+				default_root_bone_name = ""
+			},
+		]
+		model_archetype = ""
+		primary_associated_entity = ""
+		anim_graph_name = ""
+		importer_notes = """
+Imported from VMDL
+"""
+	}
+}

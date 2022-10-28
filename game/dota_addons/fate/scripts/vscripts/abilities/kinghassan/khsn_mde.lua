@@ -6,7 +6,7 @@ khsn_mde = class({})
 function khsn_mde:GetIntrinsicModifierName() return "modifier_khsn_mde" end
 function khsn_mde:OnSpellStart()
 	local caster = self:GetCaster()
-	print(caster:GetDisplayAttackSpeed())
+
 	if caster.BattleContinuationAcquired then
 		caster:AddNewModifier(caster, self, "modifier_khsn_bk_improved", {})
 	end

@@ -3300,13 +3300,18 @@ function FateGameMode:InitGameMode()
     --GameRules:SetHeroSelectionTime(0)
     GameRules:SetPreGameTime(10)
     GameRules:SetShowcaseTime(0)
-    GameRules:SetStrategyTime(0)
+    GameRules:SetStrategyTime(IsInToolsMode() and 3 or 0)
     GameRules:SetUseCustomHeroXPValues(true)
     GameRules:SetUseBaseGoldBountyOnHeroes(false)
     GameRules:SetCustomGameSetupTimeout(20)
     GameRules:SetFirstBloodActive(false)
     GameRules:SetCustomGameEndDelay(30)
     GameRules:SetCustomVictoryMessageDuration(30)
+    GameRules:SetCustomGameSetupAutoLaunchDelay(IsInToolsMode() and 3 or 30)
+
+    if IsInToolsMode() then
+        SendToServerConsole( "dota_easybuy 1" )
+    end
 
     hGameModeEntity:SetControlFateMechanic( true )
     hGameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_AGILITY_ARMOR, 0.2)

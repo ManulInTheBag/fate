@@ -24,11 +24,12 @@ function modifier_khsn_bc_pepega:GetModifierTotal_ConstantBlock(keys)
         and ( ( self.hParent.BattleContinuationAcquired and not self.hParent:HasModifier("modifier_khsn_bc_cooldown") ) or Convars:GetBool("dota_ability_debug") ) then
         local fHealth = keys.target:GetHealth() - keys.damage
         if fHealth < 10 then
-            keys.target:ModifyHealth(fHealth, self.hAbility, false, DOTA_DAMAGE_FLAG_NONE)
+            --keys.target:ModifyHealth(fHealth, self.hAbility, false, DOTA_DAMAGE_FLAG_NONE)
 
             local fHeal = keys.target:GetMaxHealth() * 0.25
 
-            keys.target:Heal(fHeal, self.hAbility)
+            --keys.target:Heal(fHeal, self.hAbility)
+            keys.target:ModifyHealth(fHeal, self.hAbility, false, DOTA_DAMAGE_FLAG_NONE)
             
             SendOverheadEventMessage(nil, OVERHEAD_ALERT_BLOCKED, keys.target, keys.damage, nil)
             SendOverheadEventMessage(nil, OVERHEAD_ALERT_HEAL, keys.target, fHeal, nil)

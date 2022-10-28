@@ -1,0 +1,1119 @@
+"DOTAAbilities"
+{
+	//=================================================================================================================
+	// Leonidas : Sparta Kick
+	//=================================================================================================================
+	"leonidas_kick"
+	{
+		"BaseClass"								"ability_lua"
+
+		"ScriptFile"							"abilities/anime_hero_leonidas"
+		"AbilityTextureName" 					"anime_hero_leonidas/leonidas_kick"
+
+		"AbilityType"							"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		
+		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"					"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		//"AbilityUnitTargetFlags"				"DOTA_UNIT_TARGET_FLAG_NONE"
+
+		"AbilityUnitDamageType"					"DAMAGE_TYPE_MAGICAL"
+
+		"SpellImmunityType"						"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"					"SPELL_DISPELLABLE_YES"
+
+		"AbilityCastPoint"						"0.3"
+		//"AbilityChannelTime"						"0.0"
+		"AbilityCooldown"						"10"
+		"AbilityManaCost"						"100"
+		"AbilityCastRange"					  	"200"
+
+		//"HasScepterUpgrade"					  	"1"
+
+		"MaxLevel"								"5"
+		"RequiredLevel"							"1"
+		"LevelsBetweenUpgrades"					"1"
+
+		"AbilityCastAnimation"					"ACT_DOTA_CAST_ABILITY_1"
+		//"AbilityChannelAnimation"					"ACT_DOTA_CHANNEL_ABILITY_1"
+		
+		//"AbilitySharedCooldown"					"tome"
+		
+		//"OnCastbar"								"0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"push_distance"					"300 400 500 600 700"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"push_duration"					"0.5"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"slow_duration"					"1.2 1.5 1.8 2.1 2.4"
+			}
+			"04"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"slow_pct"						"-70"
+			}
+			"05"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"base_damage"					"200 250 300 350 400"
+			}
+			"06"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"bounce_damage"					"300"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Leonidas : Sparta Catch
+	//=================================================================================================================
+	"leonidas_catch"
+	{
+		"BaseClass"								"ability_lua"
+
+		"ScriptFile"							"abilities/anime_hero_leonidas"
+		"AbilityTextureName" 					"anime_hero_leonidas/leonidas_catch"
+
+		"AbilityType"							"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		
+		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"					"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		//"AbilityUnitTargetFlags"				"DOTA_UNIT_TARGET_FLAG_NONE"
+
+		"AbilityUnitDamageType"					"DAMAGE_TYPE_MAGICAL"
+
+		"SpellImmunityType"						"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"					"SPELL_DISPELLABLE_YES"
+
+		"AbilityCastPoint"						"0.2"
+		//"AbilityChannelTime"						"0.0"
+		"AbilityCooldown"						"20"
+		"AbilityManaCost"						"200"
+		//"AbilityCastRange"					  	"300"
+
+		//"HasScepterUpgrade"					  	"1"
+
+		"MaxLevel"								"5"
+		"RequiredLevel"							"1"
+		"LevelsBetweenUpgrades"					"1"
+
+		"AbilityCastAnimation"					"ACT_DOTA_CAST_ABILITY_2"
+		//"AbilityChannelAnimation"					"ACT_DOTA_CHANNEL_ABILITY_1"
+		
+		//"AbilitySharedCooldown"					"tome"
+		
+		//"OnCastbar"								"0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"radius"						"250"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"base_damage"					"300 400 500 600 700"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"fly_height"					"300"
+			}
+			"04"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"fly_duration"					"0.6"
+			}
+			"05"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"slow_duration"					"0.3 0.4 0.5 0.6 0.7"
+			}
+			"06"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"slow_pct"						"-70"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Leonidas : Pride
+	//=================================================================================================================
+	"leonidas_pride"
+	{
+		"BaseClass"								"ability_lua"
+
+		"ScriptFile"							"abilities/anime_hero_leonidas"
+		"AbilityTextureName" 					"anime_hero_leonidas/leonidas_pride"
+
+		"AbilityType"							"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		
+		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"					"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		//"AbilityUnitTargetFlags"				"DOTA_UNIT_TARGET_FLAG_NONE"
+
+		"AbilityUnitDamageType"					"DAMAGE_TYPE_MAGICAL"
+
+		"SpellImmunityType"						"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"					"SPELL_DISPELLABLE_YES"
+
+		"AbilityCastPoint"						"0.3"
+		//"AbilityChannelTime"						"0.0"
+		"AbilityCooldown"						"30"
+		"AbilityManaCost"						"400"
+		"AbilityCastRange"					  	"1600 1900 2200 2500 2800"
+
+		//"HasScepterUpgrade"					  	"1"
+
+		"MaxLevel"								"5"
+		"RequiredLevel"							"1"
+		"LevelsBetweenUpgrades"					"2"
+
+		"AbilityCastAnimation"					"ACT_DOTA_CAST_ABILITY_3"
+		//"AbilityChannelAnimation"					"ACT_DOTA_CHANNEL_ABILITY_1"
+		
+		//"AbilitySharedCooldown"					"tome"
+		
+		//"OnCastbar"								"0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"radius"						"300"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"vision_radius"					"150"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"speed"							"3000"
+			}
+			"04"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"damage"						"300 450 600 750 900"
+			}
+			"05"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"stun_duration"					"0.3"
+			}
+			"06"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"cast_range"					"1600 1900 2200 2500 2800"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Leonidas : Pride Release
+	//=================================================================================================================
+	"leonidas_pride_release"
+	{
+		"BaseClass"								"ability_lua"
+
+		"ScriptFile"							"abilities/anime_hero_leonidas"
+		"AbilityTextureName" 					"anime_hero_leonidas/leonidas_pride_attribute"
+
+		"AbilityType"							"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		
+		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"					"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		//"AbilityUnitTargetFlags"				"DOTA_UNIT_TARGET_FLAG_NONE"
+
+		//"AbilityUnitDamageType"				"DAMAGE_TYPE_MAGICAL"
+
+		"SpellImmunityType"						"SPELL_IMMUNITY_ALLIES_YES"
+		"SpellDispellableType"					"SPELL_DISPELLABLE_NO"
+
+		//"AbilityCastPoint"					"0.2"
+		//"AbilityChannelTime"					"0.0"
+		//"AbilityCooldown"						"10"
+		//"AbilityManaCost"						"200"
+		//"AbilityCastRange"					"600"
+
+		//"HasScepterUpgrade"					"1"
+
+		"MaxLevel"								"1"
+		"RequiredLevel"							"1"
+		"LevelsBetweenUpgrades"					"1"
+
+		"AbilityCastAnimation"					"ACT_DOTA_CAST_ABILITY_3_END"
+		//"AbilityChannelAnimation"				"ACT_DOTA_CHANNEL_ABILITY_1"
+		
+		//"AbilitySharedCooldown"				"tome"
+		
+		//"OnCastbar"							"0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"release_cast_time"				"0.3"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Leonidas : Berserk
+	//=================================================================================================================
+	"leonidas_berserk"
+	{
+		"BaseClass"								"ability_lua"
+
+		"ScriptFile"							"abilities/anime_hero_leonidas"
+		"AbilityTextureName" 					"anime_hero_leonidas/leonidas_berserk"
+
+		"AbilityType"							"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_SILENCE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		
+		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"					"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		//"AbilityUnitTargetFlags"				"DOTA_UNIT_TARGET_FLAG_NONE"
+
+		"AbilityUnitDamageType"					"DAMAGE_TYPE_MAGICAL"
+
+		"SpellImmunityType"						"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"					"SPELL_DISPELLABLE_NO"
+
+		//"AbilityCastPoint"						"0.3"
+		//"AbilityChannelTime"						"0.0"
+		"AbilityCooldown"						"30"
+		"AbilityManaCost"						"600"
+		//"AbilityCastRange"					  	"600"
+
+		//"HasScepterUpgrade"					  	"1"
+
+		"MaxLevel"								"1"
+		"RequiredLevel"							"1"
+		"LevelsBetweenUpgrades"					"1"
+
+		"AbilityCastAnimation"					"ACT_DOTA_CHANNEL_END_ABILITY_6"
+		//"AbilityChannelAnimation"					"ACT_DOTA_CHANNEL_ABILITY_1"
+		
+		//"AbilitySharedCooldown"					"tome"
+		
+		//"OnCastbar"								"0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"radius"						"300"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"duration"						"9"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"purge_tick"					"1.0"
+			}
+			"04"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"purge_times"					"3"
+			}
+			"05"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"purge_damage"					"300"
+			}
+			"06"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"purge_damage_missing_hp_pct"	"30"
+			}
+			"07"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"max_as_per_missing_hp"			"300"
+			}
+			"08"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"reduce_int_pct"				"-30"
+			}
+			"09"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"crit_chance"					"30"
+			}
+			"10"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"crit_damage_base"				"130"
+			}
+			"11"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"crit_damage_str"				"30"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Leonidas : Battle Continue
+	//=================================================================================================================
+	"leonidas_bc"
+	{
+		"BaseClass"								"ability_lua"
+
+		"ScriptFile"							"abilities/anime_hero_leonidas"
+		"AbilityTextureName" 					"anime_hero_leonidas/leonidas_bc1"
+
+		"AbilityType"							"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		
+		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"					"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		//"AbilityUnitTargetFlags"				"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+
+		//"AbilityUnitDamageType"					"DAMAGE_TYPE_MAGICAL"
+
+		"SpellImmunityType"						"SPELL_IMMUNITY_ALLIES_YES"
+		"SpellDispellableType"					"SPELL_DISPELLABLE_NO"
+
+		//"AbilityCastPoint"						"0.3"
+		//"AbilityChannelTime"						"0.0"
+		"AbilityCooldown"						"90"
+		//"AbilityManaCost"						"800"
+		//"AbilityCastRange"					  	"600"
+
+		//"HasScepterUpgrade"					  	"1"
+
+		"MaxLevel"								"2"
+		"RequiredLevel"							"1"
+		"LevelsBetweenUpgrades"					"2"
+
+		"AbilityCastAnimation"					"ACT_DOTA_CAST_ABILITY_6"
+		//"AbilityChannelAnimation"					"ACT_DOTA_CHANNEL_ABILITY_1"
+		
+		//"AbilitySharedCooldown"					"tome"
+		
+		//"OnCastbar"								"0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"radius"						"0 900"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"hp_require_pct"				"30"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"enomotia_shield_duration"		"0 9.0"
+			}
+			"04"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"enomotia_shield_block"			"0 300"
+			}
+			"05"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"duration"						"3.0"
+			}
+			"06"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"disable_heal"					"1"
+			}
+			"07"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"post_regen_hp_duration"		"0 3.0"
+			}
+			"08"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"post_regen_hp_pct"				"0 30"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Leonidas : Enomotia
+	//=================================================================================================================
+	"leonidas_enomotia"
+	{
+		"BaseClass"								"ability_lua"
+
+		"ScriptFile"							"abilities/anime_hero_leonidas"
+		"AbilityTextureName" 					"anime_hero_leonidas/leonidas_enomotia"
+
+		"AbilityType"							"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		
+		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_BOTH"
+		"AbilityUnitTargetType"					"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"				"DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
+
+		"AbilityUnitDamageType"					"DAMAGE_TYPE_MAGICAL"
+
+		"SpellImmunityType"						"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"					"SPELL_DISPELLABLE_YES"
+
+		"AbilityCastPoint"						"0.3"
+		//"AbilityChannelTime"						"0.0"
+		"AbilityCooldown"						"60"
+		"AbilityManaCost"						"800"
+		//"AbilityCastRange"					  	"600"
+
+		//"HasScepterUpgrade"					  	"1"
+
+		"MaxLevel"								"5"
+		"RequiredLevel"							"1"
+		"LevelsBetweenUpgrades"					"2"
+
+		"AbilityCastAnimation"					"ACT_DOTA_CAST_ABILITY_5"
+		//"AbilityChannelAnimation"					"ACT_DOTA_CHANNEL_ABILITY_1"
+		
+		//"AbilitySharedCooldown"					"tome"
+		
+		//"OnCastbar"								"0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"radius"						"600"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"push_radius"					"0.5"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"push_duration"					"0.3"
+			}
+			"04"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"push_slow_duration"			"1.4 1.8 2.2 2.6 3.0"
+			}
+			"05"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"push_slow_pct"					"-100"
+			}
+			"06"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"shield_duration"				"9.0"
+			}
+			"07"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"shield_damage"					"30 40 50 60 70"
+			}
+			"08"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"shield_count"					"30"
+			}
+			"09"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"shield_rows"					"5"
+			}
+			"10"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"base_block_per_shield"			"10 20 30 40 50"
+			}
+			"11"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"bonus_block_per_pushed"		"3 5 7 9 11"
+			}
+			"12"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"pfx_anim_start_time"			"0.3"
+			}
+			"13"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"pfx_anim_loop_time"			"0.8"
+			}
+			"14"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"pfx_anim_release_time"			"0.4"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Leonidas : Enomotia Combo
+	//=================================================================================================================
+	"leonidas_enomotia_combo"
+	{
+		"BaseClass"								"ability_lua"
+
+		"ScriptFile"							"abilities/anime_hero_leonidas"
+		"AbilityTextureName" 					"anime_hero_leonidas/leonidas_enomotia_combo"
+
+		"AbilityType"							"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		
+		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_BOTH"
+		"AbilityUnitTargetType"					"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"				"DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
+
+		"AbilityUnitDamageType"					"DAMAGE_TYPE_MAGICAL"
+
+		"SpellImmunityType"						"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"					"SPELL_DISPELLABLE_YES"
+
+		"AbilityCastPoint"						"1.0"
+		//"AbilityChannelTime"						"0.0"
+		"AbilityCooldown"						"300"
+		"AbilityManaCost"						"800"
+		//"AbilityCastRange"					  	"600"
+
+		//"HasScepterUpgrade"					  	"1"
+
+		"MaxLevel"								"1"
+		"RequiredLevel"							"1"
+		"LevelsBetweenUpgrades"					"1"
+
+		"AbilityCastAnimation"					"ACT_DOTA_CAST_ABILITY_5"
+		//"AbilityChannelAnimation"					"ACT_DOTA_CHANNEL_ABILITY_1"
+		
+		//"AbilitySharedCooldown"					"tome"
+		
+		//"OnCastbar"								"0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"radius"						"1300"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"push_radius"					"0.5"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"push_duration"					"0.3"
+			}
+			"04"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"push_slow_duration"			"3.0"
+			}
+			"05"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"push_slow_pct"					"-100"
+			}
+			"06"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"shield_duration"				"9.0"
+			}
+			"07"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"shield_damage"					"10"
+			}
+			"08"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"shield_count"					"300"
+			}
+			"09"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"shield_rows"					"8"
+			}
+			"10"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"base_block_per_shield"			"30"
+			}
+			"11"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"bonus_block_per_pushed"		"10"
+			}
+			"12"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"pfx_anim_start_time"			"1.0"
+			}
+			"13"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"pfx_anim_loop_time"			"1.6"
+			}
+			"14"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"pfx_anim_release_time"			"0.4"
+			}
+
+			//DEFENCE STANCE PROPERTIES WITH COUNTER ATTACK
+
+			"15"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"defence_duration"	    		"9.0"
+			}
+			"16"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"defence_sphere_spawn_distance"	"-1.0"
+			}
+			"17"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"defence_bonus_block_per_shield"		 "30"
+			}
+			"18"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"defence_bonus_block_per_shield"		 "30"
+			}
+			"19"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"defence_bonus_block_per_shield"		 "30"
+			}
+
+			//ACTIVATION SETTINGS
+
+			"20"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"steps_duration"		 		"2.0"
+			}
+			"21"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"combo_duration"				"6.0"
+			}
+			"22"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"combo_steps"		 			"2"
+			}
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+	//=================================================================================================================
+	// Leonidas : Attribute 1
+	//=================================================================================================================
+	"leonidas_math_attribute"
+	{
+		"BaseClass"								"ability_lua"
+
+		"ScriptFile"							"abilities/anime_hero_leonidas"
+		"AbilityTextureName" 					"anime_hero_leonidas/leonidas_math_attribute"
+
+		"AbilityType"							"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		
+		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		//"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		//"AbilityUnitTargetFlags"				"DOTA_UNIT_TARGET_FLAG_NONE"
+
+		//"AbilityUnitDamageType"				"DAMAGE_TYPE_MAGICAL"
+
+		//"SpellImmunityType"						"SPELL_IMMUNITY_ALLIES_YES"
+		//"SpellDispellableType"					"SPELL_DISPELLABLE_YES"
+
+		//"AbilityCastPoint"					"0.3"
+		//"AbilityChannelTime"					"0.0"
+		"AbilityCooldown"						"9999"
+		"AbilityManaCost"						"17"
+		//"AbilityCastRange"					"600"
+
+		//"HasScepterUpgrade"					"1"
+
+		"MaxLevel"								"1"
+		"RequiredLevel"							"1"
+		"LevelsBetweenUpgrades"					"1"
+
+		//"AbilityCastAnimation"				"ACT_DOTA_CAST_ABILITY_6"
+		//"AbilityChannelAnimation"				"ACT_DOTA_CHANNEL_ABILITY_1"
+		
+		//"AbilitySharedCooldown"				"tome"
+		
+		//"OnCastbar"							"0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"int_to_str_pct"				"30"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"kick_push_distance_pct_scale_per_int"  "1.0"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"catch_cdr_pct_scale_per_int" 			"0.5"
+			}
+			"04"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"pride_range_pct_scale_per_int" 		"0.5"
+			}
+			"05"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"enomotia_radius_pct_scale_per_int" 	"0.5"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Leonidas : Attribute 2
+	//=================================================================================================================
+	"leonidas_army_attribute"
+	{
+		"BaseClass"								"ability_lua"
+
+		"ScriptFile"							"abilities/anime_hero_leonidas"
+		"AbilityTextureName" 					"anime_hero_leonidas/leonidas_army_attribute"
+
+		"AbilityType"							"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		
+		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		//"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		//"AbilityUnitTargetFlags"				"DOTA_UNIT_TARGET_FLAG_NONE"
+
+		//"AbilityUnitDamageType"				"DAMAGE_TYPE_MAGICAL"
+
+		//"SpellImmunityType"						"SPELL_IMMUNITY_ALLIES_YES"
+		//"SpellDispellableType"					"SPELL_DISPELLABLE_YES"
+
+		//"AbilityCastPoint"					"0.3"
+		//"AbilityChannelTime"					"0.0"
+		"AbilityCooldown"						"9999"
+		"AbilityManaCost"						"12"
+		//"AbilityCastRange"					"600"
+
+		//"HasScepterUpgrade"					"1"
+
+		"MaxLevel"								"1"
+		"RequiredLevel"							"1"
+		"LevelsBetweenUpgrades"					"1"
+
+		//"AbilityCastAnimation"				"ACT_DOTA_CAST_ABILITY_6"
+		//"AbilityChannelAnimation"				"ACT_DOTA_CHANNEL_ABILITY_1"
+		
+		//"AbilitySharedCooldown"				"tome"
+		
+		//"OnCastbar"							"0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"bonus_armor_from_base_pct"		"30"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"enomotia_damage_block_from_armor_pct"  "30"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"enomotia_nullify_armor_on_shield"  	  "1"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Leonidas : Attribute 3
+	//=================================================================================================================
+	"leonidas_pride_attribute"
+	{
+		"BaseClass"								"ability_lua"
+
+		"ScriptFile"							"abilities/anime_hero_leonidas"
+		"AbilityTextureName" 					"anime_hero_leonidas/leonidas_pride_attribute"
+
+		"AbilityType"							"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		
+		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		//"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		//"AbilityUnitTargetFlags"				"DOTA_UNIT_TARGET_FLAG_NONE"
+
+		//"AbilityUnitDamageType"				"DAMAGE_TYPE_MAGICAL"
+
+		//"SpellImmunityType"						"SPELL_IMMUNITY_ALLIES_YES"
+		//"SpellDispellableType"					"SPELL_DISPELLABLE_YES"
+
+		//"AbilityCastPoint"					"0.3"
+		//"AbilityChannelTime"					"0.0"
+		"AbilityCooldown"						"9999"
+		"AbilityManaCost"						"13"
+		//"AbilityCastRange"					"600"
+
+		//"HasScepterUpgrade"					"1"
+
+		"MaxLevel"								"1"
+		"RequiredLevel"							"1"
+		"LevelsBetweenUpgrades"					"1"
+
+		//"AbilityCastAnimation"				"ACT_DOTA_CAST_ABILITY_6"
+		//"AbilityChannelAnimation"				"ACT_DOTA_CHANNEL_ABILITY_1"
+		
+		//"AbilitySharedCooldown"				"tome"
+		
+		//"OnCastbar"							"0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"scale_per_hero"				"3"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"counter_duration"				"2.5"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"counter_resist"				"30"
+			}
+			"04"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"bonus_damage"					"300"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Leonidas : Attribute 4
+	//=================================================================================================================
+	"leonidas_mad_attribute"
+	{
+		"BaseClass"								"ability_lua"
+
+		"ScriptFile"							"abilities/anime_hero_leonidas"
+		"AbilityTextureName" 					"anime_hero_leonidas/leonidas_mad_attribute"
+
+		"AbilityType"							"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		
+		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		//"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		//"AbilityUnitTargetFlags"				"DOTA_UNIT_TARGET_FLAG_NONE"
+
+		//"AbilityUnitDamageType"				"DAMAGE_TYPE_MAGICAL"
+
+		//"SpellImmunityType"						"SPELL_IMMUNITY_ALLIES_YES"
+		//"SpellDispellableType"					"SPELL_DISPELLABLE_YES"
+
+		//"AbilityCastPoint"					"0.3"
+		//"AbilityChannelTime"					"0.0"
+		"AbilityCooldown"						"9999"
+		"AbilityManaCost"						"14"
+		//"AbilityCastRange"					"600"
+
+		//"HasScepterUpgrade"					"1"
+
+		"MaxLevel"								"1"
+		"RequiredLevel"							"1"
+		"LevelsBetweenUpgrades"					"1"
+
+		//"AbilityCastAnimation"				"ACT_DOTA_CAST_ABILITY_6"
+		//"AbilityChannelAnimation"				"ACT_DOTA_CHANNEL_ABILITY_1"
+		
+		//"AbilitySharedCooldown"				"tome"
+		
+		//"OnCastbar"							"0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"radius"						"300"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"duration"						"9"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"purge_tick"					"1.0"
+			}
+			"04"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"purge_times"					"3"
+			}
+			"05"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"purge_damage"					"300"
+			}
+			"06"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"purge_damage_missing_hp_pct"	"30"
+			}
+			"07"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"max_as_per_missing_hp"			"300"
+			}
+			"08"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"reduce_int_pct"				"30"
+			}
+			"09"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"crit_chance"					"30"
+			}
+			"10"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"crit_damage_base"				"130"
+			}
+			"11"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"crit_damage_str"				"30"
+			}
+		}
+	}
+	//=================================================================================================================
+	// Leonidas : Attribute 5
+	//=================================================================================================================
+	"leonidas_bc_attribute"
+	{
+		"BaseClass"								"ability_lua"
+
+		"ScriptFile"							"abilities/anime_hero_leonidas"
+		"AbilityTextureName" 					"anime_hero_leonidas/leonidas_bc_attribute"
+
+		"AbilityType"							"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		
+		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		//"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		//"AbilityUnitTargetFlags"				"DOTA_UNIT_TARGET_FLAG_NONE"
+
+		//"AbilityUnitDamageType"				"DAMAGE_TYPE_MAGICAL"
+
+		//"SpellImmunityType"						"SPELL_IMMUNITY_ALLIES_YES"
+		//"SpellDispellableType"					"SPELL_DISPELLABLE_YES"
+
+		//"AbilityCastPoint"					"0.3"
+		//"AbilityChannelTime"					"0.0"
+		"AbilityCooldown"						"9999"
+		"AbilityManaCost"						"12"
+		//"AbilityCastRange"					"600"
+
+		//"HasScepterUpgrade"					"1"
+
+		"MaxLevel"								"1"
+		"RequiredLevel"							"1"
+		"LevelsBetweenUpgrades"					"1"
+
+		//"AbilityCastAnimation"				"ACT_DOTA_CAST_ABILITY_6"
+		//"AbilityChannelAnimation"				"ACT_DOTA_CHANNEL_ABILITY_1"
+		
+		//"AbilitySharedCooldown"				"tome"
+		
+		//"OnCastbar"							"0"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"radius"						"900"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"hp_require_pct"				"30"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"enomotia_shield_duration"		"9.0"
+			}
+			"04"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"enomotia_shield_block"			"300"
+			}
+			"05"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"post_regen_hp_duration"		"3.0"
+			}
+			"06"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"post_regen_hp_pct"				"30"
+			}
+		}
+	}
+}

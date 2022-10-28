@@ -318,7 +318,8 @@ cleansable = {
     "modifier_muramasa_flame",
     "muramasa_eye_of_karma",
     "modifier_ryougi_knife_fan_slow",
-    "modifier_arcueid_shut_up_slow"
+    "modifier_arcueid_shut_up_slow",
+    "modifier_leonidas_enomotia_slow",
 }
 
 slowmodifier = {
@@ -363,6 +364,7 @@ slowmodifier = {
     "modifier_ryougi_knife_fan_slow",
     "modifier_nobu_slow",
     "modifier_arcueid_shut_up_slow",
+    "modifier_leonidas_enomotia_slow",
 }
 
 donotlevel = {
@@ -407,7 +409,9 @@ donotlevel = {
     "jeanne_witch",
     "medusa_monstrous_strength",
     "khsn_raze2",
-    "khsn_raze3"
+    "khsn_raze3",
+
+    "leonidas_berserk",
 }
 
 CannotReset = {
@@ -526,12 +530,17 @@ CannotReset = {
     "muramasa_eye_of_karma",
     "ryougi_backflip",
     "ryougi_collapse",
+
     "nobu_combo",
     "nobu_divinity_mark",
     "nobu_dash",
     "nobu_leader_of_innovation",
     "arcueid_melty",
-    "arcueid_impulses"
+    "arcueid_impulses",
+    
+    "leonidas_berserk",
+    "leonidas_bc",
+    "leonidas_enomotia_combo",
 }
 
 femaleservant = {
@@ -637,8 +646,8 @@ tKnightClass = {
     "npc_dota_hero_terrorblade",
     "npc_dota_hero_gyrocopter",
     "npc_dota_hero_magnataur",
-    "npc_dota_hero_tiny"
-    
+    "npc_dota_hero_tiny",
+    "npc_dota_hero_venomancer",
 }
 
 tHorsemanClass = {
@@ -2258,8 +2267,8 @@ local heroNames = {
     ["npc_dota_hero_puck"] = "Merlin",
     ["npc_dota_hero_magnataur"] = "Muramasa",
     ["npc_dota_hero_gyrocopter"] = "Oda Nobunaga",
-    ["npc_dota_hero_tiny"] = "Arcueid"
-    
+    ["npc_dota_hero_tiny"] = "Arcueid",
+    ["npc_dota_hero_venomancer"] = "Leonidas I",
 }
 
 
@@ -2315,8 +2324,8 @@ local heroCombos = {
     ["npc_dota_hero_puck"] = "merlin_garden_of_avalon",
     ["npc_dota_hero_magnataur"] = "muramasa_tsumukari_combo",
     ["npc_dota_hero_gyrocopter"] = "nobu_combo",
-    ["npc_dota_hero_tiny"] = "arcueid_melty"
-    
+    ["npc_dota_hero_tiny"] = "arcueid_melty",
+    ["npc_dota_hero_venomancer"] = "leonidas_enomotia_combo",
 }
 
 function GetHeroCombo(hero)

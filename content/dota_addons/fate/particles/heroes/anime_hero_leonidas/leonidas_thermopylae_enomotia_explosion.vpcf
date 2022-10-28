@@ -1,0 +1,87 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf45:version{73c3d623-a141-4df2-b548-41dd786e6300} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_nBehaviorVersion = 12
+	m_nMaxParticles = 0
+	m_controlPointConfigurations = 
+	[
+		{
+			m_name = "preview"
+			m_drivers = 
+			[
+				{
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+			]
+		},
+	]
+	m_Children = 
+	[
+		{
+			m_ChildRef = resource:"particles/heroes/anime_hero_leonidas/leonidas_thermopylae_enomotia_explosion_projected.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/heroes/anime_hero_leonidas/leonidas_thermopylae_enomotia_explosion_scorch.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/heroes/anime_hero_leonidas/leonidas_thermopylae_enomotia_explosion_flash_shrink.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/heroes/anime_hero_leonidas/leonidas_thermopylae_enomotia_explosion_icon_dark.vpcf"
+			m_bDisableChild = true
+		},
+		{
+			m_ChildRef = resource:"particles/heroes/anime_hero_leonidas/leonidas_thermopylae_enomotia_explosion_icon_ring.vpcf"
+			m_bDisableChild = true
+		},
+		{
+			m_ChildRef = resource:"particles/heroes/anime_hero_leonidas/leonidas_thermopylae_enomotia_explosion_icon_rays.vpcf"
+			m_bDisableChild = true
+		},
+		{
+			m_ChildRef = resource:"particles/heroes/anime_hero_leonidas/leonidas_thermopylae_enomotia_explosion_icon.vpcf"
+			m_bDisableChild = true
+		},
+		{
+			m_ChildRef = resource:"particles/heroes/anime_hero_leonidas/leonidas_thermopylae_enomotia_explosion_ring.vpcf"
+			m_bDisableChild = true
+		},
+		{
+			m_ChildRef = resource:"particles/heroes/anime_hero_leonidas/leonidas_thermopylae_enomotia_explosion_smoke.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/heroes/anime_hero_leonidas/leonidas_thermopylae_enomotia_explosion_ring_b.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/heroes/anime_hero_leonidas/leonidas_thermopylae_enomotia_explosion_ring_glow.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/heroes/anime_hero_leonidas/leonidas_thermopylae_enomotia_explosion_flame_ring.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/heroes/anime_hero_leonidas/leonidas_thermopylae_enomotia_explosion_flame_ring_b.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/heroes/anime_hero_leonidas/leonidas_thermopylae_enomotia_explosion_rays.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/heroes/anime_hero_leonidas/leonidas_thermopylae_enomotia_explosion_sparks_lrg.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/heroes/anime_hero_leonidas/leonidas_thermopylae_enomotia_explosion_sparks_sml.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/heroes/anime_hero_leonidas/leonidas_thermopylae_enomotia_explosion_embers.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/heroes/anime_hero_leonidas/leonidas_thermopylae_enomotia_explosion_embers_b.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/heroes/anime_hero_leonidas/leonidas_thermopylae_enomotia_explosion_light.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/heroes/anime_hero_leonidas/leonidas_thermopylae_enomotia_explosion_flare.vpcf"
+		},
+	]
+}
