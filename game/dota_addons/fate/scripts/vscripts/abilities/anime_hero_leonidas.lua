@@ -127,7 +127,7 @@ LinkLuaModifier("modifier_leonidas_attributes", "abilities/anime_hero_leonidas",
 
 modifier_leonidas_attributes = modifier_leonidas_attributes or class({})
 
-function modifier_leonidas_attributes:IsHidden()                                                                       return false end
+function modifier_leonidas_attributes:IsHidden()                                                                       return true end
 function modifier_leonidas_attributes:IsDebuff()                                                                       return false end
 function modifier_leonidas_attributes:IsPurgable()                                                                     return false end
 function modifier_leonidas_attributes:IsPurgeException()                                                               return false end
@@ -138,6 +138,7 @@ function modifier_leonidas_attributes:DeclareFunctions()
     local tFunc =   {
                         MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
                         MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
+                        MODIFIER_PROPERTY_MAGICAL_RESISTANCE_DIRECT_MODIFICATION,
                         MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE
                     }
     return tFunc
@@ -154,6 +155,13 @@ function modifier_leonidas_attributes:GetModifierPhysicalArmorBonus(keys)
         and IsNotNull(self.hAbility)
         and self.hAbility:GetAbilityName() == "leonidas_army_attribute" then
         return GetAttributeValue(self.hParent, "leonidas_army_attribute", "bonus_armor_from_base_pct", -1, 0, false) * self.hParent:GetPhysicalArmorBaseValue() * 0.01
+    end
+end
+function modifier_leonidas_attributes:GetModifierMagicalResistanceDirectModification(keys)
+    if IsNotNull(self.hParent)
+        and IsNotNull(self.hAbility)
+        and self.hAbility:GetAbilityName() == "leonidas_army_attribute" then
+        return GetAttributeValue(self.hParent, "leonidas_army_attribute", "bonus_magic_resistance_pct", -1, 0, false)
     end
 end
 -- function modifier_leonidas_attributes:GetModifierBaseDamageOutgoing_Percentage(keys)
@@ -348,9 +356,9 @@ end
 local CheckComboIsReadyIncrement = function(hUnit, iPreviousStackShouldBe)
     local iPreviousStackShouldBe = iPreviousStackShouldBe or 0
     if IsNotNull(hUnit)
-        and hUnit:GetStrength() >= 30
-        and hUnit:GetAgility() >= 30
-        and hUnit:GetIntellect() >= 30 then
+        and hUnit:GetStrength() >= 29.1
+        and hUnit:GetAgility() >= 29.1
+        and hUnit:GetIntellect() >= 29.1 then
         local iStacksNow = hUnit:GetModifierStackCount("modifier_leonidas_enomotia_combo_indicator", hUnit)
         if iStacksNow == iPreviousStackShouldBe then
             return hUnit:SetModifierStackCount("modifier_leonidas_enomotia_combo_indicator", hUnit, iStacksNow + 1)
@@ -367,7 +375,7 @@ LinkLuaModifier("modifier_leonidas_enomotia_combo_indicator", "abilities/anime_h
 modifier_leonidas_enomotia_combo_indicator = modifier_leonidas_enomotia_combo_indicator or class({})
 
 function modifier_leonidas_enomotia_combo_indicator:IsHidden()                                                                  return self:GetDuration() <= -1 end
-function modifier_leonidas_enomotia_combo_indicator:IsDebuff()                                                                  return false end
+function modifier_leonidas_enomotia_combo_indicator:IsDebuff()                                                                  return true end
 function modifier_leonidas_enomotia_combo_indicator:IsPurgable()                                                                return false end
 function modifier_leonidas_enomotia_combo_indicator:IsPurgeException()                                                          return false end
 function modifier_leonidas_enomotia_combo_indicator:RemoveOnDeath()                                                             return false end
@@ -383,7 +391,7 @@ function modifier_leonidas_enomotia_combo_indicator:OnStackCountChanged(iOldStac
             and hAbilityForSwap_0:IsTrained() 
             and hAbilityForSwap_0:IsCooldownReady()
             and IsNotNull(hAbilityForSwap_1)
-            and hAbilityForSwap_1:IsTrained() 
+            and hAbilityForSwap_1:IsTrained()
             and hAbilityForSwap_1:IsCooldownReady() 
             and hAbilityForSwap_1:IsHidden() ) then
             self.bPreventStacksOverloop = true
@@ -482,19 +490,21 @@ function modifier_leonidas_enomotia_combo_indicator:OnIntervalThink()
             --print("SETING DURATION -1", fSelfRemaining, fDuration, self.bLocalComboReleased)
             bSetMasterComboTime = true
         elseif ( ( fSelfRemaining <= 0 and fCooldownRemaining > 0 ) or ( self.bLocalComboReleased ) ) then
+            --========================================-- --NOTE: Setup ultimate(swapped) cooldown because it's exist in fate...
+            local hSwappedAbility = self.hParent:FindAbilityByName(self.sAbilityForSwap_0)
+            if IsNotNull(hSwappedAbility)
+                and hSwappedAbility:IsTrained()
+                and hSwappedAbility:IsCooldownReady()
+                and self.bLocalComboReleased then
+                hSwappedAbility:UseResources(false, false, true)
+            end
+
             self.bLocalComboReleased = false
 
             self:SetDuration(fCooldownRemaining, true)
             
             --print("SETING DURATION TO DURATION 11", fCooldownRemaining, self.bLocalComboReleased)
             bSetMasterComboTime = true
-            --========================================-- --NOTE: Setup ultimate(swapped) cooldown because it's exist in fate...
-            local hSwappedAbility = self.hParent:FindAbilityByName(self.sAbilityForSwap_0)
-            if IsNotNull(hSwappedAbility)
-                and hSwappedAbility:IsTrained()
-                and hSwappedAbility:IsCooldownReady() then
-                hSwappedAbility:UseResources(false, false, true)
-            end
         end
         --========================================--
         if bSetMasterComboTime then --LOCAL STORAGE SO WILL BE NOTHING IN NEXT FRAME BUT FOR CLEAR SURE
@@ -1072,8 +1082,7 @@ function modifier_leonidas_pride_counter:CheckState()
 end
 function modifier_leonidas_pride_counter:DeclareFunctions()
     local tFunc =   {
-                        MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
-                        MODIFIER_PROPERTY_DISABLE_TURNING
+                        MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE
                     }
     return tFunc
 end
@@ -1084,9 +1093,6 @@ function modifier_leonidas_pride_counter:GetModifierIncomingDamage_Percentage(ke
         self:SetStackCount(self.nBonusDamage)
         return -self.nCounterResist
     end
-end
-function modifier_leonidas_pride_counter:GetModifierDisableTurning(keys)
-    return 1
 end
 function modifier_leonidas_pride_counter:OnCreated(tTable)
     self.hCaster  = self:GetCaster()
@@ -1105,39 +1111,51 @@ function modifier_leonidas_pride_counter:OnCreated(tTable)
 
         local nReleaseStart = self:GetDuration()
 
-        self.hParent:FaceTowards(self.vPoint)
-        self.hParent:SetForwardVector(GetDirection(self.vPoint, self.hParent))
-
         EndAnimation(self.hParent)
         StartAnimation(self.hParent, {duration = nReleaseStart, activity = ACT_DOTA_CHANNEL_ABILITY_7, rate = 1.0})
 
-        --self:StartIntervalThink(nReleaseStart)
+        --self.nThinkInterval = 0.01
+        --self:StartIntervalThink(self.nThinkInterval)
     end
+end
+function modifier_leonidas_pride_counter:OnRefresh(tTable)
+    --self:OnCreated(tTable)
 end
 function modifier_leonidas_pride_counter:OnIntervalThink()
     if IsServer() then
-
-        self:StartIntervalThink(-1)
+        --maybe will add my angle rotator idk..
+        self.hParent:SetForwardVector(GetDirection(self.vPoint, self.hParent))
     end
 end
 function modifier_leonidas_pride_counter:OnDestroy()
     if IsServer()
-        and IsNotNull(self.hParent)
-        and self.hParent:IsAlive() then
+        and IsNotNull(self.hParent) then
         --self:OnIntervalThink()
         self.hParent:SwapAbilities("leonidas_pride", "leonidas_pride_release", true, false)
 
-        local hAbility     = self.hAbility
-        local vPoint       = self.vPoint
-        local hTarget      = self.hTarget
-        local nBonusDamage = self.nBonusDamage
+        if not self.hParent:HasModifier("modifier_leonidas_enomotia_ignore_motion_controll") then
+            local hAbility     = self.hAbility
+            local vPoint       = self.vPoint
+            local hTarget      = self.hTarget
+            local nBonusDamage = self.nBonusDamage
 
-        EndAnimation(self.hParent)
-        StartAnimation(self.hParent, {duration = 0.3, activity = ACT_DOTA_CAST_ABILITY_3_END, rate = 1.0})
+            giveUnitDataDrivenModifier(self.hParent, self.hParent, "pause_sealenabled", 0.3)
 
-        Timers:CreateTimer(0.3, function() --MB WILL ADD ALIVE CHECK LATER THERE
-            hAbility:ReleaseSpear(vPoint, hTarget, nBonusDamage, true)
-        end)
+            EndAnimation(self.hParent)
+            StartAnimation(self.hParent, {duration = 0.3, activity = ACT_DOTA_CAST_ABILITY_3_END, rate = 1.0})
+
+            local vTowardTo = self.vPoint
+            if IsNotNull(self.hTarget) then
+                vTowardTo = self.hTarget:GetAbsOrigin()
+            end
+
+            self.hParent:FaceTowards(vTowardTo)
+            self.hParent:SetForwardVector(GetDirection(vTowardTo, self.hParent))
+
+            Timers:CreateTimer(0.3, function() --MB WILL ADD ALIVE CHECK LATER THERE
+                hAbility:ReleaseSpear(vPoint, hTarget, nBonusDamage, true)
+            end)
+        end
     end
 end
 ---------------------------------------------------------------------------------------------------------------------
@@ -1154,6 +1172,8 @@ function leonidas_pride_release:OnAbilityPhaseInterrupted()
 end
 function leonidas_pride_release:OnSpellStart()
     local hCaster = self:GetCaster()
+    local hTarget = self:GetCursorTarget()
+    local vPoint  = self:GetCursorPosition() + hCaster:GetForwardVector()
 
     hCaster:RemoveModifierByNameAndCaster("modifier_leonidas_pride_counter", hCaster)
 end
@@ -1213,6 +1233,9 @@ function leonidas_berserk:OnSpellStart()
 
     EmitSoundOn("Leonidas.Berserk.Cast.1", hCaster)
     --EmitGlobalSound("Leonidas.MultiAttack.Sound")
+
+    local nHpCostPct = hCaster:GetMaxHealth() * self:GetSpecialValueFor("hp_cost_pct") * 0.01
+    hCaster:ModifyHealth(hCaster:GetHealth() - nHpCostPct, self, false, DOTA_DAMAGE_FLAG_NONE)
 end
 
 ---------------------------------------------------------------------------------------------------------------------
@@ -1356,7 +1379,7 @@ function modifier_leonidas_berserk:OnIntervalThink()
         EmitSoundOn("Leonidas.Berserk.Cast.2", self.hParent)
         --local hComboModifier = self.hParent:FindModifierByNameAndCaster("modifier_leonidas_enomotia_shield", self.hCaster)
         --if not ( IsNotNull(hComboModifier) and hComboModifier.bIsComboShield ) then
-        if not self.hParent:HasModifier("pause_sealenabled") then
+        if not self.hParent:HasModifier("modifier_leonidas_enomotia_ignore_motion_controll") then
             StartAnimation(self.hParent, {duration = 0.5, activity = self.hAbility:GetCastAnimation(), rate = 2.0})
         end
     end
@@ -1504,15 +1527,43 @@ function modifier_leonidas_bc_immortal:RemoveOnDeath()                          
 function modifier_leonidas_bc_immortal:GetPriority()                                                                    return MODIFIER_PRIORITY_ULTRA end
 function modifier_leonidas_bc_immortal:DeclareFunctions()
     local tFunc =   {
-                        MODIFIER_PROPERTY_MIN_HEALTH,
+                        MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL,
+                        MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_MAGICAL,
+                        MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE,
                         MODIFIER_PROPERTY_DISABLE_HEALING
                     }
     return tFunc
 end
-function modifier_leonidas_bc_immortal:GetMinHealth(keys)
-    return self.nHealthLoc
+function modifier_leonidas_bc_immortal:GetAbsoluteNoDamagePhysical(keys) --TODO: CHANGE TO RECORD EXCEPT SELF.B-VALUE
+    if IsServer()
+        and keys.damage_type ~= DAMAGE_TYPE_NONE then
+        self.__iNullifyDamageType = self:GetTotalDamageNullify(keys)
+        if bit.band(DAMAGE_TYPE_PHYSICAL, self.__iNullifyDamageType) ~= 0 then
+            return 1
+        end
+    end
+end
+function modifier_leonidas_bc_immortal:GetAbsoluteNoDamageMagical(keys)
+    if IsServer() then
+        if bit.band(DAMAGE_TYPE_MAGICAL, self.__iNullifyDamageType) ~= 0 then
+            return 1
+        end
+    end
+end
+function modifier_leonidas_bc_immortal:GetAbsoluteNoDamagePure(keys)
+    if IsServer() then
+        if bit.band(DAMAGE_TYPE_PURE, self.__iNullifyDamageType) ~= 0 then
+            return 1
+        end
+    end
+end
+function modifier_leonidas_bc_immortal:GetTotalDamageNullify(keys)
+    if IsServer() then
+        return DAMAGE_TYPE_ALL
+    end
 end
 function modifier_leonidas_bc_immortal:GetDisableHealing(keys)
+    --print("kekekeke", Time(), IsServer())
     return self.nDisableHeal
 end
 function modifier_leonidas_bc_immortal:OnCreated(tTable)
@@ -1684,7 +1735,10 @@ function leonidas_enomotia:OnSpellStart()
     local nPFX_AnimReleaseTime = self:GetSpecialValueFor("pfx_anim_release_time")
     local nPFX_AnimeFullTime   = nPFX_AnimStartTime + nPFX_AnimLoopTime + nPFX_AnimReleaseTime
     --print(nPFX_AnimeFullTime)
+
     giveUnitDataDrivenModifier(hCaster, hCaster, "pause_sealenabled", nPFX_AnimeFullTime)
+
+    hCaster:AddNewModifier(hCaster, self, "modifier_leonidas_enomotia_ignore_motion_controll", {duration = nPFX_AnimeFullTime})
 
     StartAnimation(hCaster, {duration = nPFX_AnimStartTime + nPFX_AnimLoopTime, activity = ACT_DOTA_CHANNEL_ABILITY_6, rate = 1.0})
     --=================================--
@@ -1719,6 +1773,23 @@ function leonidas_enomotia:OnSpellStart()
             end)
         else
             self:StopShields_PFX(_nShieldsPFX, true)
+        end
+    end)
+    --=================================-- --NOTE: ROFLAN EBALO FIX FOR SHIELD
+    Timers:CreateTimer(0.1, function()
+        if hCaster:HasModifier("modifier_leonidas_enomotia_ignore_motion_controll")
+            and type(_nShieldsPFX) == "number" then
+            local vForward = hCaster:GetForwardVector()
+            local vRight   = hCaster:GetRightVector()
+            local vUp      = hCaster:GetUpVector()
+
+            local vCasterLoc = hCaster:GetAbsOrigin()
+            local vCasterGnd = GetGroundPosition(vCasterLoc, hCaster)
+
+            ParticleManager:SetParticleControl(_nShieldsPFX, 0, hCaster:GetAttachmentOrigin(hCaster:ScriptLookupAttachment("ATTACH_HITLOC")))
+            ParticleManager:SetParticleControl(_nShieldsPFX, 1, (vCasterGnd + vForward * -100) + Vector(0, 0, 270))
+            ParticleManager:SetParticleControl(_nShieldsPFX, 2, (vCasterGnd + vForward * -100) + Vector(0, 0, 270))
+            return 0.1
         end
     end)
 end
@@ -2207,7 +2278,8 @@ function leonidas_enomotia_combo:OnSpellStart()
         local nDefenceSphereSpawnDistance = self:GetSpecialValueFor("defence_sphere_spawn_distance") * nRadius
         local vDefenceSphereSpawnPosition = vCasterGnd + vForward * nDefenceSphereSpawnDistance
 
-        local nDefenceAuraModifierThinker = CreateModifierThinker(hCaster, self, "modifier_leonidas_enomotia_combo", {duration = nPFX_AnimStartTime + nPFX_AnimLoopTime + nPFX_AnimReleaseTime, _nShieldsPFX = _nShieldsPFX}, vDefenceSphereSpawnPosition, hCaster:GetTeamNumber(), false)
+        local nDefenceAuraModifierThinker = hCaster:AddNewModifier(hCaster, self, "modifier_leonidas_enomotia_combo", {duration = nPFX_AnimStartTime + nPFX_AnimLoopTime + nPFX_AnimReleaseTime, _nShieldsPFX = _nShieldsPFX})
+        --CreateModifierThinker(hCaster, self, "modifier_leonidas_enomotia_combo", {duration = nPFX_AnimStartTime + nPFX_AnimLoopTime + nPFX_AnimReleaseTime, _nShieldsPFX = _nShieldsPFX}, vDefenceSphereSpawnPosition, hCaster:GetTeamNumber(), false)
         --=================================--
         local hPrideAbility = hCaster:FindAbilityByName("leonidas_pride")
         --=================================--
@@ -2245,6 +2317,26 @@ function leonidas_enomotia_combo:OnSpellStart()
             end
         end)
         --=================================--
+
+
+        --=================================-- --NOTE: ROFLAN EBALO FIX FOR SHIELD
+        Timers:CreateTimer(0.2, function()
+            if hCaster:HasModifier("modifier_leonidas_enomotia_ignore_motion_controll")
+                and type(_nShieldsPFX) == "number" then
+                local vForward = hCaster:GetForwardVector()
+                local vRight   = hCaster:GetRightVector()
+                local vUp      = hCaster:GetUpVector()
+        
+                local vCasterLoc = hCaster:GetAbsOrigin()
+                local vCasterGnd = GetGroundPosition(vCasterLoc, hCaster)
+
+                ParticleManager:SetParticleControl(_nShieldsPFX, 0, hCaster:GetAttachmentOrigin(hCaster:ScriptLookupAttachment("ATTACH_HITLOC")))
+                ParticleManager:SetParticleControl(_nShieldsPFX, 1, (vCasterGnd + vForward * 100) + Vector(0, 0, 440))
+                ParticleManager:SetParticleControl(_nShieldsPFX, 2, (vCasterGnd + vForward * 100) + Vector(0, 0, 170))
+                return 0.1
+            end
+        end)
+
     else --(1/nPFX_AnimLoopTime)
         --EmitSoundOn("Leonidas.Enomotia.Combo.Cast.2", hCaster)
         EmitGlobalSound("Leonidas.Enomotia.Combo.Cast.2")
@@ -2279,7 +2371,28 @@ function leonidas_enomotia_combo:OnSpellStart()
                 self:StopShields_PFX(_nShieldsPFX, true)
             end
         end)
+
+
+            --=================================-- --NOTE: ROFLAN EBALO FIX FOR SHIELD
+            Timers:CreateTimer(0.2, function()
+                if hCaster:HasModifier("modifier_leonidas_enomotia_ignore_motion_controll")
+                    and type(_nShieldsPFX) == "number" then
+                    local vForward = hCaster:GetForwardVector()
+                    local vRight   = hCaster:GetRightVector()
+                    local vUp      = hCaster:GetUpVector()
+            
+                    local vCasterLoc = hCaster:GetAbsOrigin()
+                    local vCasterGnd = GetGroundPosition(vCasterLoc, hCaster)
+
+                    ParticleManager:SetParticleControl(_nShieldsPFX, 0, hCaster:GetAttachmentOrigin(hCaster:ScriptLookupAttachment("ATTACH_HITLOC")))
+                    ParticleManager:SetParticleControl(_nShieldsPFX, 1, (vCasterGnd + vForward * -100) + Vector(0, 0, 440))
+                    ParticleManager:SetParticleControl(_nShieldsPFX, 2, (vCasterGnd + vForward * -100) + Vector(0, 0, 270))
+                    return 0.1
+                end
+            end)
     end
+    --=================================--
+    hCaster:AddNewModifier(hCaster, self, "modifier_leonidas_enomotia_ignore_motion_controll", {duration = nPFX_AnimStartTime + nPFX_AnimLoopTime + nPFX_AnimReleaseTime})
     --=================================--
     giveUnitDataDrivenModifier(hCaster, hCaster, "pause_sealenabled", nPFX_AnimStartTime + nPFX_AnimLoopTime + nPFX_AnimReleaseTime)
     --=================================--
@@ -2456,10 +2569,10 @@ function modifier_leonidas_enomotia_combo:IsHidden()                            
 function modifier_leonidas_enomotia_combo:IsDebuff()                                      return false end
 function modifier_leonidas_enomotia_combo:IsPurgable()                                    return false end
 function modifier_leonidas_enomotia_combo:IsPurgeException()                              return false end
-function modifier_leonidas_enomotia_combo:RemoveOnDeath()                                 return false end
+function modifier_leonidas_enomotia_combo:RemoveOnDeath()                                 return true end
 function modifier_leonidas_enomotia_combo:IsAura()                                        return true end
 function modifier_leonidas_enomotia_combo:IsAuraActiveOnDeath()                           return false end
-function modifier_leonidas_enomotia_combo:IsPermanent()                                   return true end
+function modifier_leonidas_enomotia_combo:IsPermanent()                                   return false end
 function modifier_leonidas_enomotia_combo:GetAuraEntityReject(hEntity)
     if IsServer() then
         return hEntity == self.hCaster--PlayerResource:GetSelectedHeroEntity(self.hParent:GetMainControllingPlayer())
@@ -2499,12 +2612,10 @@ function modifier_leonidas_enomotia_combo:OnCreated(tTable)
         self.nABILITY_TARGET_TYPE  = self.hAbility:GetAbilityTargetType()
         self.nABILITY_TARGET_FLAGS = self.hAbility:GetAbilityTargetFlags()
 
-        local vCasterGnd = GetGroundPosition(self.hParent:GetAbsOrigin(), self.hParent)
-
         if not self.nSphere_PFX then
-            self.nSphere_PFX = ParticleManager:CreateParticle("particles/heroes/anime_hero_leonidas/leonidas_thermopylae_enomotia_sphere.vpcf", PATTACH_WORLDORIGIN, nil)
+            self.nSphere_PFX = ParticleManager:CreateParticle("particles/heroes/anime_hero_leonidas/leonidas_thermopylae_enomotia_sphere.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.hParent)
                                ParticleManager:SetParticleShouldCheckFoW(self.nSphere_PFX, false)
-                               ParticleManager:SetParticleControl(self.nSphere_PFX, 0, vCasterGnd)
+                               --ParticleManager:SetParticleControl(self.nSphere_PFX, 0, vCasterGnd)
                                ParticleManager:SetParticleControl(self.nSphere_PFX, 1, Vector(self.nRadius, self.nRadius, self.nRadius))
 
             self:AddParticle(self.nSphere_PFX, false, false, -1, false, false)
@@ -2512,20 +2623,24 @@ function modifier_leonidas_enomotia_combo:OnCreated(tTable)
 
         self._nShieldsPFX = tTable._nShieldsPFX --NOTE: Idk using -1 will be fine or not so just not using
 
-        self.hAbility:CreateVisibilityNode(vCasterGnd, self.nRadius, self:GetDuration())
-
-        self:StartIntervalThink(FrameTime())
+        self.nThinkInterval = 0.03
+        self:StartIntervalThink(self.nThinkInterval)
     end
 end
 function modifier_leonidas_enomotia_combo:OnRefresh(tTable)
     self:OnCreated(tTable)
 end
 function modifier_leonidas_enomotia_combo:OnIntervalThink()
-    if IsServer()
-        and not ( IsNotNull(self.hCaster) and self.hCaster:IsAlive() ) then
-        EndAnimation(self.hCaster)
-        self.hAbility:StopShields_PFX(self._nShieldsPFX, true)
-        self:Destroy()
+    if IsServer() then
+        local vCasterGnd = GetGroundPosition(self.hParent:GetAbsOrigin(), self.hParent)
+
+        self.hAbility:CreateVisibilityNode(vCasterGnd, self.nRadius, self.nThinkInterval)
+
+        if IsNotNull(self.hCaster) and not self.hCaster:IsAlive() then
+            EndAnimation(self.hCaster)
+            self.hAbility:StopShields_PFX(self._nShieldsPFX, true)
+            self:Destroy()
+        end
     end
 end
 ---------------------------------------------------------------------------------------------------------------------
@@ -2603,3 +2718,49 @@ function modifier_leonidas_enomotia_combo_translator:OnRefresh(tTable)
 end
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+---------------------------------------------------------------------------------------------------------------------
+LinkLuaModifier("modifier_leonidas_enomotia_ignore_motion_controll", "abilities/anime_hero_leonidas", LUA_MODIFIER_MOTION_NONE)
+
+modifier_leonidas_enomotia_ignore_motion_controll = modifier_leonidas_enomotia_ignore_motion_controll or class({})
+
+
+function modifier_leonidas_enomotia_ignore_motion_controll:IsHidden()                                                           return true end
+function modifier_leonidas_enomotia_ignore_motion_controll:IsDebuff()                                                           return false end
+function modifier_leonidas_enomotia_ignore_motion_controll:IsPurgable()                                                         return false end
+function modifier_leonidas_enomotia_ignore_motion_controll:IsPurgeException()                                                   return false end
+function modifier_leonidas_enomotia_ignore_motion_controll:RemoveOnDeath()                                                      return true end
+function modifier_leonidas_enomotia_ignore_motion_controll:CheckState()
+    local tState =  {    
+                        [MODIFIER_STATE_CANNOT_BE_MOTION_CONTROLLED] = true,
+                    }
+    return tState
+end
+function modifier_leonidas_enomotia_ignore_motion_controll:OnCreated(tTable)
+    self.hCaster  = self:GetCaster()
+    self.hParent  = self:GetParent()
+    self.hAbility = self:GetAbility()
+end
+function modifier_leonidas_enomotia_ignore_motion_controll:OnRefresh(tTable)
+    self:OnCreated(tTable)
+end

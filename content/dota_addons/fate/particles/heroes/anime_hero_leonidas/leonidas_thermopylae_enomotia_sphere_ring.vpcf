@@ -153,6 +153,9 @@
 			m_flEndTime_min = 99999.0
 			m_flEndTime_max = 99999.0
 		},
+		{
+			_class = "C_OP_PositionLock"
+		},
 	]
 	m_Renderers = 
 	[

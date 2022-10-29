@@ -137,6 +137,9 @@
 			m_flEndTime = 99999999.0
 			m_nField = 4
 		},
+		{
+			_class = "C_OP_PositionLock"
+		},
 	]
 	m_Renderers = 
 	[

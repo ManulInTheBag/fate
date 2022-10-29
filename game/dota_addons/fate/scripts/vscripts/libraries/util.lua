@@ -598,7 +598,8 @@ tItemComboTable = {
 }
 
 tModifierKBImmune = {
-    "modifier_avalon"
+    "modifier_avalon",
+    "modifier_leonidas_enomotia_ignore_motion_controll"
 }
 
 tManalessHero = {

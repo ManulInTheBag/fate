@@ -475,7 +475,6 @@
 		{
 			_class = "C_OP_BasicMovement"
 			m_fDrag = 0.25
-			m_nOpEndCapState = "PARTICLE_ENDCAP_ENDCAP_ON"
 		},
 		{
 			_class = "C_OP_MaxVelocity"
@@ -506,6 +505,14 @@
 			m_bEaseInAndOut = true
 			m_flBias = 0.95
 			m_nOpEndCapState = "PARTICLE_ENDCAP_ENDCAP_ON"
+		},
+		{
+			_class = "C_OP_PositionLock"
+		},
+		{
+			_class = "C_OP_PositionLock"
+			m_nControlPointNumber = 2
+			m_bDisableOperator = true
 		},
 	]
 	m_ForceGenerators = 
@@ -566,6 +573,7 @@
 			}
 			m_fFalloffPower = 0.0
 			m_nControlPointNumber = 2
+			m_nOpEndCapState = "PARTICLE_ENDCAP_ENDCAP_ON"
 		},
 	]
 	m_Renderers = 

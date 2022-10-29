@@ -7338,8 +7338,9 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
 		"DOTA_Tooltip_ability_leonidas_army_attribute"											"Attribute: Struggle of Three Hundred"
 		"DOTA_Tooltip_ability_leonidas_army_attribute_Description"								"Thermopylae Enomotia now scales from armor values. But Shield nullify all armor when active. Passivly, Grant bonus armor based on basic armor."
 		"DOTA_Tooltip_ability_leonidas_army_attribute_bonus_armor_from_base_pct"				"%BONUS ARMOR BY BASE ARMOR:"
-		"DOTA_Tooltip_ability_leonidas_army_attribute_enomotia_damage_block_from_armor_pct"		"[R] BONUS BLOCK PER ARMOR:"
-		"DOTA_Tooltip_ability_leonidas_army_attribute_enomotia_nullify_armor_on_shield"			"[R] NULLIFY SELF ARMOR:"
+		"DOTA_Tooltip_ability_leonidas_army_attribute_enomotia_damage_block_from_armor_pct"		"%[R][COMBO] BONUS BLOCK PER ARMOR:"
+		"DOTA_Tooltip_ability_leonidas_army_attribute_enomotia_nullify_armor_on_shield"			"[R][COMBO] NULLIFY SELF ARMOR:"
+		"DOTA_Tooltip_ability_leonidas_army_attribute_bonus_magic_resistance_pct"				"%BONUS MAGIC RESISTANCE:"
 
 		"DOTA_Tooltip_ability_leonidas_pride_attribute"											"Attribute: Rear Guard's Pride"
 		"DOTA_Tooltip_ability_leonidas_pride_attribute_Description"								"Skill that displays more power the more disadvantageous the situation. Increase Leonidas Skills damage by %scale_per_hero%%% per each alive enemy and dead ally. \n [E] Skill now casts immediately and becomes in defensive stance for %counter_duration%, blocking and return by bonus to spear %counter_resist%%% damage, point or target records when cast begins. Can be fast released. \n Grant bonus damage to [E] == %bonus_damage%."
@@ -7357,6 +7358,7 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
 		"DOTA_Tooltip_ability_leonidas_mad_attribute_crit_chance"								"%SKILL/ATTACK CRIT CHANCE:"
 		"DOTA_Tooltip_ability_leonidas_mad_attribute_crit_damage_base"							"%SKILL/ATTACK CRIT DAMAGE BASE:"
 		"DOTA_Tooltip_ability_leonidas_mad_attribute_crit_damage_str"							"%STR TO SKILL/ATTACK CRIT DAMAGE BONUS:"
+		"DOTA_Tooltip_ability_leonidas_mad_attribute_hp_cost_pct"								"%HEALTHCOST:"
 
 		"DOTA_Tooltip_ability_leonidas_bc_attribute"											"Attribute: Human World Is Immortal"
 		"DOTA_Tooltip_ability_leonidas_bc_attribute_Description"								"Upgrade Battle Continuation, grant [LAST RESORT] effect, when dying applies to near allies Enomotia Shield with constant value, also when Battle Continuation ends, grant after battle regeneration for some time."
@@ -7413,6 +7415,7 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
 		"DOTA_Tooltip_ability_leonidas_berserk_crit_chance"										"%SKILL/ATTACK CRIT CHANCE:"
 		"DOTA_Tooltip_ability_leonidas_berserk_crit_damage_base"								"%SKILL/ATTACK CRIT DAMAGE BASE:"
 		"DOTA_Tooltip_ability_leonidas_berserk_crit_damage_str"									"%STR TO SKILL/ATTACK CRIT DAMAGE BONUS:"
+		"DOTA_Tooltip_ability_leonidas_berserk_hp_cost_pct"										"%HEALTHCOST:"
 
 		"leonidas_berserk_custom_cast_error"													"CAN'T CAST : REVOKED!"
 
@@ -7420,7 +7423,7 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
 		"DOTA_Tooltip_modifier_leonidas_berserk_Description"									"Mad Enhancemented"
 
 		"DOTA_Tooltip_ability_leonidas_bc"														"Battle Continuation"
-		"DOTA_Tooltip_ability_leonidas_bc_Description"											"Doesn't know when to give up. Makes it possible to fight even with deadly injuries and can remain alive so long as one does not receive a decisive fatal wound. \n[CAN'T DIE FROM ANY SOURCE FOR NOW]"
+		"DOTA_Tooltip_ability_leonidas_bc_Description"											"Doesn't know when to give up. Makes it possible to fight even with deadly injuries and can remain alive so long as one does not receive a decisive fatal wound. \n[CAN BE EXECUTED]"
 		"DOTA_Tooltip_ability_leonidas_bc_radius"												"LAST RESORT RADIUS:"
 		"DOTA_Tooltip_ability_leonidas_bc_hp_require_pct"										"%HEALTH THRESHOLD ACTIVATION:"
 		"DOTA_Tooltip_ability_leonidas_bc_enomotia_shield_duration"								"LAST RESORT SHIELD DURATION:"
@@ -7462,7 +7465,7 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
 		"DOTA_Tooltip_modifier_leonidas_enomotia_slow_Description"								"Slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%. This Modifier universal and applies many effects based on leonidas properties."
 
 		"DOTA_Tooltip_ability_leonidas_enomotia_combo"											"COMBO: Thermopylae Enomotia Counterattack"
-		"DOTA_Tooltip_ability_leonidas_enomotia_combo_Description"								"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: E-W-R in %steps_duration%*%combo_steps% seconds</font>\n Releasing Noble Phantasm is [DEFENCE] state, any ally in radius behind Leonidas will transfer all original damage to him, if leonidas will be alive when enomotia ends, he releasing spear to each enemy which attacked ally or him, spear based on [E] ability and picks all values from it + additional damage == (lost shields / attackers count)  \n[BERSERKED] Releaseing Strong Version of normal Thermopylae Enomotia. \n[DEFENCE] If shields is gone and Leonidas dead, defence enomotia is gone without effect."
+		"DOTA_Tooltip_ability_leonidas_enomotia_combo_Description"								"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: E-W-R in %steps_duration%*%combo_steps% seconds</font>\n Releasing Noble Phantasm is [DEFENCE] state, any ally in radius behind Leonidas will transfer all original damage to him, if leonidas will be alive when enomotia ends, he releasing spear to each enemy which attacked ally or him, spear based on [E] ability and picks all values from it + additional damage == (lost shields / attackers count). Also Grant Vision (not true sight) to radius which defends.  \n[BERSERKED] Releaseing Strong Version of normal Thermopylae Enomotia. \n[DEFENCE] If shields is gone and Leonidas dead, defence enomotia is gone without effect."
 		"DOTA_Tooltip_ability_leonidas_enomotia_combo_radius"									"RADIUS:"
 		"DOTA_Tooltip_ability_leonidas_enomotia_combo_push_radius"								"[BERSERKED] PUSH RADIUS:"
 		"DOTA_Tooltip_ability_leonidas_enomotia_combo_push_duration"							"[BERSERKED] PUSH TIME:"
