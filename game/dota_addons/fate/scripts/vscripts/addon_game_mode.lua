@@ -2117,9 +2117,9 @@ function FateGameMode:OnHeroInGame(hero)
         hero.MasterUnit2:SetMana(hero.MasterUnit2:GetMaxMana())
 
         if hero:GetName() ~= "npc_dota_hero_juggernaut" then
-            hero:SetBaseStrength(30)
-            hero:SetBaseAgility(30)
-            hero:SetBaseIntellect(30)
+            --hero:SetBaseStrength(30)
+            --hero:SetBaseAgility(30)
+            --hero:SetBaseIntellect(30)
         else
             hero:SetBaseStrength(30)
             hero:SetBaseAgility(30)

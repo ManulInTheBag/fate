@@ -591,7 +591,7 @@ function leonidas_kick:OnSpellStart()
 
     local nBaseDamage, bBaseCritical     = GetPrideAndBerserkedScaledDamage(hCaster, self:GetSpecialValueFor("base_damage"))
     local nBounceDamage, bBounceCritical = GetPrideAndBerserkedScaledDamage(hCaster, self:GetSpecialValueFor("bounce_damage"))
-
+    print(bBaseCritical, bBounceCritical)
     local bCasterBerserked = hCaster:HasModifier("modifier_leonidas_berserk")
 
     local nLocked  = 1
@@ -734,7 +734,7 @@ function leonidas_catch:OnSpellStart()
     local nStunned = bCasterBerserked and 1 or 0
 
     local tKnockBackTable = {
-                                should_stun        = 0,
+                                should_stun        = 1,
                                 knockback_duration = nFlyDuration,
                                 duration           = nFlyDuration,
                                 knockback_distance = 0,
@@ -941,7 +941,7 @@ function leonidas_pride:ReleaseSpear(vPoint, hTarget, nBonusDamage, bCanDodge)
                                         --bSuppressTargetCheck = false,
                                         --bReplaceExisting     = false,
                                         --bIgnoreObstructions  = true,
-                                        bDodgeable = bCanDodge,
+                                        bDodgeable = true,
                                         
                                         bDrawsOnMinimap   = true,
                                         bVisibleToEnemies = true,
@@ -1074,7 +1074,6 @@ function modifier_leonidas_pride_counter:RemoveOnDeath()                        
 function modifier_leonidas_pride_counter:GetPriority()                                                                    return MODIFIER_PRIORITY_HIGH end
 function modifier_leonidas_pride_counter:CheckState()
     local tState =  {
-                        [MODIFIER_STATE_ROOTED]   = true,
                         [MODIFIER_STATE_DISARMED] = true,
                         [MODIFIER_STATE_MUTED]    = true
                     }
@@ -1254,6 +1253,8 @@ function modifier_leonidas_berserk:DeclareFunctions()
                         MODIFIER_PROPERTY_PREATTACK_CRITICALSTRIKE,
                         MODIFIER_PROPERTY_PROCATTACK_FEEDBACK,
                         MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
+                        MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
+                        MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE,
                         MODIFIER_PROPERTY_STATS_INTELLECT_BONUS
                     }
     return tFunc
@@ -1281,6 +1282,12 @@ end
 function modifier_leonidas_berserk:GetModifierAttackSpeedBonus_Constant(keys)
     return ( 100 - self.hParent:GetHealthPercent() ) * self.nMaxASPerMissingHP
 end
+function modifier_leonidas_berserk:GetModifierMoveSpeedBonus_Percentage(keys)
+    return ( 100 - self.hParent:GetHealthPercent() ) * self.nMaxMSPerMissingHP
+end
+function modifier_leonidas_berserk:GetModifierBaseDamageOutgoing_Percentage(keys)
+    return ( 100 - self.hParent:GetHealthPercent() ) * self.nMaxDamagePerMissingHP
+end
 function modifier_leonidas_berserk:GetModifierBonusStats_Intellect(keys)
     return self.nReduceIntPct
 end
@@ -1301,6 +1308,8 @@ function modifier_leonidas_berserk:OnCreated(tTable)
     self.nMissingHPDamage = self.hAbility:GetSpecialValueFor("purge_damage_missing_hp_pct") * 0.01
 
     self.nMaxASPerMissingHP = self.hAbility:GetSpecialValueFor("max_as_per_missing_hp") * 0.01
+    self.nMaxMSPerMissingHP = self.hAbility:GetSpecialValueFor("max_ms_per_missing_hp") * 0.01
+    self.nMaxDamagePerMissingHP = self.hAbility:GetSpecialValueFor("max_damage_per_missing_hp") * 0.01
 
     self.nReduceIntPct = 0 --NOTE: Fixing recall if recall sometime will be
     self.nReduceIntPct = self.hAbility:GetSpecialValueFor("reduce_int_pct") * self.hParent:GetIntellect() * 0.01  --NOTE: Doesn't call in int basicaly or will be crash
@@ -1537,7 +1546,7 @@ end
 function modifier_leonidas_bc_immortal:GetAbsoluteNoDamagePhysical(keys) --TODO: CHANGE TO RECORD EXCEPT SELF.B-VALUE
     if IsServer()
         and keys.damage_type ~= DAMAGE_TYPE_NONE then
-        self.__iNullifyDamageType = self:GetTotalDamageNullify(keys)
+        self.__iNullifyDamageType = self:GetTotalDamageNullify(keys) or DAMAGE_TYPE_NONE
         if bit.band(DAMAGE_TYPE_PHYSICAL, self.__iNullifyDamageType) ~= 0 then
             return 1
         end
@@ -1877,6 +1886,8 @@ function leonidas_enomotia:ReleaseEnomotia(hCaster, nPFX_AnimReleaseTime, nPushR
 
                         EmitSoundOn("Leonidas.Enomotia.Impact.1", hEntity)
                     end
+                    --=================================--
+                    nPushedUnits = nPushedUnits + 1
                 end
                 --=================================--
                 if not IsKnockbackImmune(hEntity) then
@@ -1917,8 +1928,6 @@ function leonidas_enomotia:ReleaseEnomotia(hCaster, nPFX_AnimReleaseTime, nPushR
                         FindClearSpaceForUnit(hUnit, hUnit:GetAbsOrigin(), true)
                     end)
                 end
-                --=================================--
-                nPushedUnits = nPushedUnits + 1
             end
             --=================================--
             if nTeamNumberEntity ~= nTeamNumber then
@@ -1933,12 +1942,13 @@ function leonidas_enomotia:ReleaseEnomotia(hCaster, nPFX_AnimReleaseTime, nPushR
         end
     end
     --=================================--
-    local nPreviousStacks = hCaster:GetModifierStackCount("modifier_leonidas_enomotia_shield", hCaster)
+    local nPreviousStacks = hCaster:GetModifierStackCount("modifier_leonidas_enomotia_shield", hCaster) * 0.5
     --=================================--
     hCaster:RemoveModifierByNameAndCaster("modifier_leonidas_enomotia_shield", hCaster)
     --=================================--
     nBaseBlockPerShield = nBaseBlockPerShield + ( GetAttributeValue(hCaster, "leonidas_army_attribute", "enomotia_damage_block_from_armor_pct", -1, 0, false) * hCaster:GetPhysicalArmorValue(false) * 0.01 )
     --=================================--
+    --print(nPushedUnits * nBonusBlockPerPushed)
     local nDamageBlock = nShieldCount * ( nBaseBlockPerShield + ( nPushedUnits * nBonusBlockPerPushed ) )
     --=================================--
     hCaster:AddNewModifier(hCaster, self, "modifier_leonidas_enomotia_shield", {duration = nShieldDuration, nDamageBlock = nPreviousStacks + nDamageBlock})
@@ -1966,7 +1976,8 @@ end
 function modifier_leonidas_enomotia_shield:DeclareFunctions()
     local hFunc =   { 
                         MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK,
-                        MODIFIER_PROPERTY_IGNORE_PHYSICAL_ARMOR
+                        --MODIFIER_PROPERTY_IGNORE_PHYSICAL_ARMOR
+                        MODIFIER_PROPERTY_PHYSICAL_ARMOR_BASE_PERCENTAGE
                     }
     return hFunc
 end
@@ -1993,6 +2004,9 @@ function modifier_leonidas_enomotia_shield:GetModifierTotal_ConstantBlock(keys)
 end
 function modifier_leonidas_enomotia_shield:GetModifierIgnorePhysicalArmor(keys)
     return self.nIgnoreArmor
+end
+function modifier_leonidas_enomotia_shield:GetModifierPhysicalArmorBase_Percentage(keys)
+    return 100 - ( self.nIgnoreArmor * 100 )
 end
 function modifier_leonidas_enomotia_shield:OnCreated(tTable)
     self.hCaster  = self:GetCaster()
@@ -2263,7 +2277,7 @@ function leonidas_enomotia_combo:OnSpellStart()
         --=================================--
         --=================================--
         --=================================--
-        local nPreviousStacks = hCaster:GetModifierStackCount("modifier_leonidas_enomotia_shield", hCaster)
+        local nPreviousStacks = hCaster:GetModifierStackCount("modifier_leonidas_enomotia_shield", hCaster) * 0.5
         --=================================--
         hCaster:RemoveModifierByNameAndCaster("modifier_leonidas_enomotia_shield", hCaster)
         --=================================--
@@ -2271,7 +2285,7 @@ function leonidas_enomotia_combo:OnSpellStart()
         --=================================--
         local nDamageBlock = nShieldCount * ( nBaseBlockPerShield + nDefenceBonusBlockPerShield )
         --=================================--
-        local hEnomotiaComboShield = hCaster:AddNewModifier(hCaster, self, "modifier_leonidas_enomotia_shield", {duration = nPFX_AnimStartTime + nPFX_AnimLoopTime + nPFX_AnimReleaseTime, nDamageBlock = nDamageBlock, nIsComboShield = 1})
+        local hEnomotiaComboShield = hCaster:AddNewModifier(hCaster, self, "modifier_leonidas_enomotia_shield", {duration = nPFX_AnimStartTime + nPFX_AnimLoopTime + nPFX_AnimReleaseTime, nDamageBlock = nPreviousStacks + nDamageBlock, nIsComboShield = 1})
         --=================================--
         --=================================--
         --=================================--
@@ -2483,6 +2497,9 @@ function leonidas_enomotia_combo:ReleaseEnomotia(hCaster, nPFX_AnimReleaseTime, 
                     end
 
                     EmitSoundOn("Leonidas.Enomotia.Impact.1", hEntity)
+
+                    --=================================--
+                    nPushedUnits = nPushedUnits + 1
                 end
                 --=================================--
                 if not IsKnockbackImmune(hEntity) then
@@ -2523,8 +2540,6 @@ function leonidas_enomotia_combo:ReleaseEnomotia(hCaster, nPFX_AnimReleaseTime, 
                         FindClearSpaceForUnit(hUnit, hUnit:GetAbsOrigin(), true)
                     end)
                 end
-                --=================================--
-                nPushedUnits = nPushedUnits + 1
             end
             --=================================--
             if nTeamNumberEntity ~= nTeamNumber then
@@ -2547,7 +2562,7 @@ function leonidas_enomotia_combo:ReleaseEnomotia(hCaster, nPFX_AnimReleaseTime, 
         end
     end
     --=================================--
-    local nPreviousStacks = hCaster:GetModifierStackCount("modifier_leonidas_enomotia_shield", hCaster)
+    local nPreviousStacks = hCaster:GetModifierStackCount("modifier_leonidas_enomotia_shield", hCaster) * 0.5
     --=================================--
     hCaster:RemoveModifierByNameAndCaster("modifier_leonidas_enomotia_shield", hCaster)
     --=================================--
@@ -2555,7 +2570,7 @@ function leonidas_enomotia_combo:ReleaseEnomotia(hCaster, nPFX_AnimReleaseTime, 
     --=================================--
     local nDamageBlock = nShieldCount * ( nBaseBlockPerShield + ( nPushedUnits * nBonusBlockPerPushed ) )
     --=================================--
-    hCaster:AddNewModifier(hCaster, self, "modifier_leonidas_enomotia_shield", {duration = nShieldDuration, nDamageBlock = nDamageBlock})
+    hCaster:AddNewModifier(hCaster, self, "modifier_leonidas_enomotia_shield", {duration = nShieldDuration, nDamageBlock = nPreviousStacks + nDamageBlock})
 end
 
 
@@ -2635,12 +2650,12 @@ function modifier_leonidas_enomotia_combo:OnIntervalThink()
         local vCasterGnd = GetGroundPosition(self.hParent:GetAbsOrigin(), self.hParent)
 
         self.hAbility:CreateVisibilityNode(vCasterGnd, self.nRadius, self.nThinkInterval)
-
-        if IsNotNull(self.hCaster) and not self.hCaster:IsAlive() then
-            EndAnimation(self.hCaster)
-            self.hAbility:StopShields_PFX(self._nShieldsPFX, true)
-            self:Destroy()
-        end
+    end
+end
+function modifier_leonidas_enomotia_combo:OnDestroy()
+    if IsServer() then
+        EndAnimation(self.hCaster)
+        self.hAbility:StopShields_PFX(self._nShieldsPFX, true)
     end
 end
 ---------------------------------------------------------------------------------------------------------------------
@@ -2654,6 +2669,7 @@ function modifier_leonidas_enomotia_combo_translator:IsPurgable()               
 function modifier_leonidas_enomotia_combo_translator:IsPurgeException()                                     return false end
 function modifier_leonidas_enomotia_combo_translator:RemoveOnDeath()                                        return true end
 function modifier_leonidas_enomotia_combo_translator:GetAttributes()                                        return MODIFIER_ATTRIBUTE_AURA_PRIORITY + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE end
+function modifier_leonidas_enomotia_combo_translator:GetPriority()                                          return MODIFIER_PRIORITY_ULTRA end
 function modifier_leonidas_enomotia_combo_translator:DeclareFunctions()
     local tFunc =   {   
                         MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL,
@@ -2665,7 +2681,7 @@ end
 function modifier_leonidas_enomotia_combo_translator:GetAbsoluteNoDamagePhysical(keys) --TODO: CHANGE TO RECORD EXCEPT SELF.B-VALUE
     if IsServer()
         and keys.damage_type ~= DAMAGE_TYPE_NONE then
-        self.__iNullifyDamageType = self:GetTotalDamageNullify(keys)
+        self.__iNullifyDamageType = self:GetTotalDamageNullify(keys) or DAMAGE_TYPE_NONE
         if bit.band(DAMAGE_TYPE_PHYSICAL, self.__iNullifyDamageType) ~= 0 then
             return 1
         end
@@ -2702,9 +2718,8 @@ function modifier_leonidas_enomotia_combo_translator:GetTotalDamageNullify(keys)
 
         -- ApplyDamage(hDamageTable)
         --=================================--
-        DoDamage(keys.attacker, self.hCaster, keys.damage, keys.damage_type, keys.damage_flags, keys.inflictor or self.hAbility, false)
+        DoDamage(keys.attacker, self.hCaster, keys.original_damage, keys.damage_type, keys.damage_flags, keys.inflictor or self.hAbility, false)
         --=================================--
-
         return DAMAGE_TYPE_ALL
     end
 end
