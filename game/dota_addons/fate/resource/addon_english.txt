@@ -6284,7 +6284,7 @@
 		"DOTA_Tooltip_ability_ryougi_ying_yang_Note0"		"Can be used while stunned."
 
 		"DOTA_Tooltip_ability_ryougi_mystic_eyes"			"Mystic Eyes of Death Perception"
-		"DOTA_Tooltip_ability_ryougi_mystic_eyes_Description"	"<font color='#58ACFA'>Passive:</font> each knife slash or thrown knife deals additional physical damage equal to Shiki's attack damage.\n<font color='#58ACFA'>Active:</font> Shiki activates her Mystic Eyes for %duration% seconds. While they are active, each different move except for Double Belfry - Kick cuts one line. Shiki can't continue to cut lines of one enemy with similar moves.\nWhen line is cut, Shiki restores %mana_restore% mana and enemy recieves %immediate_damage%%  of it's maximum health as pure damage and recieves 1 stack of debuff for %line_duration% seconds.\nWhile this debuff persists, it softloks target's health for %health_percent%%  of it's maximum health per stack. If it's higher than that, it's health will slowly decay.\nWhen debuff reaches 4, 8, or 12 stacks, enemy will be locked for %stun_duration% seconds.\nWhen debuff reaches 10 stacks, it will be prolonged until the end of the round."
+		"DOTA_Tooltip_ability_ryougi_mystic_eyes_Description"	"<font color='#58ACFA'>Passive:</font> each knife slash or thrown knife deals additional physical damage equal to 2x Shiki's attack damage.\n<font color='#58ACFA'>Active:</font> Shiki activates her Mystic Eyes for %duration% seconds. While they are active, each different move except for Double Belfry - Kick cuts one line. Shiki can't continue to cut lines of one enemy with similar moves.\nWhen line is cut, Shiki restores %mana_restore% mana and enemy recieves %immediate_damage%%  of it's maximum health as pure damage and recieves 1 stack of debuff for %line_duration% seconds.\nWhile this debuff persists, it softloks target's health for %health_percent%%  of it's maximum health per stack. If it's higher than that, it's health will slowly decay.\nWhen debuff reaches 4, 8, or 12 stacks, enemy will be locked for %stun_duration% seconds.\nWhen debuff reaches 10 stacks, target dies instantly."
 		"DOTA_Tooltip_ability_ryougi_mystic_eyes_Note0"			"Health decay is not considered damage."
 		"DOTA_Tooltip_ability_ryougi_mystic_eyes_bonus_vision"	"Attribute bonus vision radius:"
 		"DOTA_Tooltip_ability_ryougi_mystic_eyes_true_sight_range"			"Attribute true sight range:"
@@ -6303,7 +6303,7 @@
 		"DOTA_Tooltip_ability_ryougi_pure_knowledge_attribute_Description"		"Activating Mystic Eyes of Death Perception grants Shiki true sight in small range and additional vision radius."
 
 		"DOTA_Tooltip_ability_ryougi_kiyohime_passing_attribute"		"Attribute: Kiyohime Passing"
-		"DOTA_Tooltip_ability_ryougi_kiyohime_passing_attribute_Description"	"Using Double Belfry - Row of Beads E-E-E or E-E-R reduces it's cooldown to 2 seconds.\nUsing Culled Long-Sleeved Kimono E-E reduces it's cooldown to 4 seconds."
+		"DOTA_Tooltip_ability_ryougi_kiyohime_passing_attribute_Description"	"Double Belfry - Row of Beads now allows E-E-E-R or E-E-R-E casts.\nUsing Culled Long-Sleeved Kimono E-E reduces it's cooldown to 2 seconds."
 
 		"DOTA_Tooltip_ability_ryougi_black_moon_attribute"		"Attribute: Black Moon Kite"
 		"DOTA_Tooltip_ability_ryougi_black_moon_attribute_Description"		"Hidden Daggers recieve additional effects: slow (ying) and silence (yang).\nAvidya Moon and Glass Moon can be unit-targetted and if Shiki is close enought to the target at the start of the leap, she will follow them whenever they go."

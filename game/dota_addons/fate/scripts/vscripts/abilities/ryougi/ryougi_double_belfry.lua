@@ -242,12 +242,14 @@ function ryougi_double_belfry:Belfry3()
         end
     end
 
-    caster:RemoveModifierByName("modifier_ryougi_double_belfry_tracker")
+    if not caster.KiyohimePassingAcquired then
+    	caster:RemoveModifierByName("modifier_ryougi_double_belfry_tracker")
+    end
 	
-	if caster.KiyohimePassingAcquired then
+	--[[if caster.KiyohimePassingAcquired then
 		self:EndCooldown()
 		self:StartCooldown(2)
-	end
+	end]]
 end
 
 ryougi_double_belfry_mech = class({})
@@ -435,12 +437,14 @@ function ryougi_double_belfry_mech:Belfry3()
         end
     end
 
-    caster:RemoveModifierByName("modifier_ryougi_double_belfry_tracker")
+    if not caster.KiyohimePassingAcquired then
+    	caster:RemoveModifierByName("modifier_ryougi_double_belfry_tracker")
+    end
 
-    if caster.KiyohimePassingAcquired then
+    --[[if caster.KiyohimePassingAcquired then
 		belfryabil:EndCooldown()
 		belfryabil:StartCooldown(2)
-	end
+	end]]
 end
 
 
@@ -464,7 +468,8 @@ function modifier_ryougi_double_belfry_tracker:OnDestroy()
 		end
 
 		local ability = self:GetAbility()
-		ability:StartCooldown(ability:GetCooldown(ability:GetLevel()))
+		ability:EndCooldown()
+		ability:StartCooldown(ability:GetCooldown(ability:GetLevel() - 1) - ability:GetSpecialValueFor("window_duration"))
 	end
 end
 

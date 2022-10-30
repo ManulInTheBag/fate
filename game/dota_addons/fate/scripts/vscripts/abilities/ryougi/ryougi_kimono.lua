@@ -234,7 +234,7 @@ function ryougi_kimono:Kimono2()
 
 	if caster.KiyohimePassingAcquired then
 		self:EndCooldown()
-		self:StartCooldown(4)
+		self:StartCooldown(2)
 	end
 end
 

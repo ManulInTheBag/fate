@@ -48,7 +48,7 @@ function ryougi_mystic_eyes:CutLine(enemy, line_name, is_fan)
 	end
 	if not enemy:IsAlive() then return end
 
-	DoDamage(caster, enemy, caster:GetAverageTrueAttackDamage(caster)*multiplier*1, DAMAGE_TYPE_PHYSICAL, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self, false)
+	DoDamage(caster, enemy, caster:GetAverageTrueAttackDamage(caster)*multiplier*2, DAMAGE_TYPE_PHYSICAL, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self, false)
 
 	if caster.DemiseAcquired then
 		DoDamage(caster, enemy, (self:GetSpecialValueFor("demise_damage") + caster:GetAgility()*self:GetSpecialValueFor("agi_mult"))*multiplier, DAMAGE_TYPE_PURE, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self, false)
@@ -73,6 +73,7 @@ function ryougi_mystic_eyes:CutLine(enemy, line_name, is_fan)
 			modifier.lines[line_name] = true
 			if modifier:GetStackCount() == 9 then
 				enemy:AddNewModifier(caster, self, "modifier_ryougi_lines", {duration = 120})
+				enemy:Kill(self, caster)
 			else
 				enemy:AddNewModifier(caster, self, "modifier_ryougi_lines", {duration = self:GetSpecialValueFor("line_duration")})
 			end
