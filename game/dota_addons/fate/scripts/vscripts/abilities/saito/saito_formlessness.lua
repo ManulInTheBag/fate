@@ -484,10 +484,11 @@ modifier_saito_formlessness_tracker = class({})
 
 
 function modifier_saito_formlessness_tracker:OnDestroy()
-	if(self:GetAbility().isRefreshed ~= 1) then
-		self:GetParent():FindAbilityByName("saito_formlessness"):StartCooldown(self:GetParent():FindAbilityByName("saito_formlessness"):GetCooldown(1))
+	if IsServer() then
+		if(self:GetAbility().isRefreshed ~= 1) then
+			self:GetParent():FindAbilityByName("saito_formlessness"):StartCooldown(self:GetParent():FindAbilityByName("saito_formlessness"):GetCooldown(1))
+		end
 	end
-	 
 
 end
 function modifier_saito_formlessness_tracker:GetTexture()

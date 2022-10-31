@@ -26,7 +26,7 @@ function saito_quickslash:GetCastPoint()
 		stack_count = Caster:GetModifierStackCount("modifier_saito_fdb_repeated", Caster) 
 	end
 	if(Caster:HasModifier("modifier_saito_fdb_lastQ")) then
-		return 0.6
+		return 0.4
 	end
 	if stack_count <=0 then
 		return 0
@@ -217,8 +217,14 @@ function saito_quickslash:OnProjectileHit_ExtraData(hTarget, vLocation, table)
 	if(caster.MasteryAcquired) then
 		caster:AddNewModifier(caster, self, "modifier_saito_quickslash_bonus",{duration = 2})
 	end
+
+	if caster:HasModifier("modifier_saito_combo") then
+		local nFastFixDamageRoflan = math.max(caster:GetModifierStackCount("modifier_saito_fdb_repeated",caster), 1)
+		damage = damage / nFastFixDamageRoflan
+	end
+
 	--hTarget:EmitSound("Hero_Sniper.AssassinateDamage")
-	DoDamage(caster, hTarget, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+	DoDamage(caster, hTarget, damage, caster:HasModifier("modifier_saito_combo") and DAMAGE_TYPE_ALL or DAMAGE_TYPE_MAGICAL, 0, self, false)
 	giveUnitDataDrivenModifier(caster,hTarget, "rooted", 0.2)
 	--local slashes = ParticleManager:CreateParticle("particles/saito/saito_slash_enemy.vpcf", PATTACH_CUSTOMORIGIN, nil)
 	--ParticleManager:SetParticleControl(slashes, 0, hTarget:GetAbsOrigin())

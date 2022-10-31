@@ -357,9 +357,11 @@ function modifier_saito_fdb_vision:OnTakeDamage(args)
 end
 
 function modifier_saito_fdb_vision:OnRefresh()
-    ParticleManager:DestroyParticle(self.particleid, false)
-	ParticleManager:ReleaseParticleIndex(self.particleid)
-    self.particleid = self:GetAbility().fx
+    if type(self.particleid) == "number" then
+        ParticleManager:DestroyParticle(self.particleid, false)
+    	ParticleManager:ReleaseParticleIndex(self.particleid)
+        self.particleid = self:GetAbility().fx
+    end
     end
     
     --function modifier_saito_fdb_vision:OnIntervalThink()

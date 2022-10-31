@@ -12,7 +12,7 @@ function saito_clap:GetCastPoint()
  
 	if(Caster:HasModifier("modifier_saito_fdb_lastW")) then
 		
-		return 0.8
+		return 0.45
 
 	end
 	if(Caster:HasModifier("modifier_saito_fdb_repeated")) then
@@ -112,7 +112,7 @@ modifier_jopa:SpendStack()
 
     local targets = FindUnitsInRadius(caster:GetTeam(), point, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
     for k,v in pairs(targets) do            
-        DoDamage(caster, v, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+        DoDamage(caster, v, damage, caster:HasModifier("modifier_saito_combo") and DAMAGE_TYPE_ALL or DAMAGE_TYPE_MAGICAL, 0, ability, false)
         v:AddNewModifier(caster, self, "modifier_stunned", {Duration = stun_duration})    
 		if(caster.MasteryAcquired) then 
 			v:AddNewModifier(caster, self, "modifier_saito_slow", {Duration = slow_duration})     
@@ -131,30 +131,33 @@ function saito_clap:CastImmediate()
     caster.currentused = caster.currentused+1
 	local additional_delay = (caster.currentused-1)/8
 
-	Timers:CreateTimer(0.1 + additional_delay, function()
-		if( not caster:IsAlive()) then return end
-		StartAnimation(caster, {duration=0.4, activity=ACT_DOTA_CAST_ABILITY_2, rate=1.5})	
+
+
 		local ability = self
 		local radius = self:GetSpecialValueFor("radius")
 		if(caster.ShinsengumiAcquired and modifier_jopa:GetStackCount() == 0) then
 			radius = radius*2
-	 
 		end
 		local damage = self:GetSpecialValueFor("damage")+ caster:GetAttackDamage()*self:GetSpecialValueFor("atk_scale")
 		if(caster.FreestyleAcquired) then
 			damage = damage + caster:GetAttackDamage()*self:GetSpecialValueFor("atk_scale")
+			--print(caster:GetAttackDamage(), caster:GetAverageTrueAttackDamage(caster), "PEPEG")
 		end
 		local stun_duration = self:GetSpecialValueFor("stun_duration")
 		local slow_duration = self:GetSpecialValueFor("slow_duration")
-		if(IsServer )then
-			if(caster:HasModifier("modifier_saito_fdb_lastW")) then
-				damage = damage/2
-				slow_duration = slow_duration/2
-				stun_duration = stun_duration/2
-			end
+		
+		if(caster:HasModifier("modifier_saito_fdb_lastW")) then
+			local nFastFixDamageRoflan = math.max(caster:GetModifierStackCount("modifier_saito_fdb_repeated",caster), 1)
+			damage = damage/nFastFixDamageRoflan
+			slow_duration = slow_duration/nFastFixDamageRoflan
+			stun_duration = stun_duration/nFastFixDamageRoflan
 		end
-	
-	
+
+	Timers:CreateTimer(0.1 + additional_delay, function()
+		if( not caster:IsAlive()) then return end
+		StartAnimation(caster, {duration=0.4, activity=ACT_DOTA_CAST_ABILITY_2, rate=1.5})	
+
+
 		LoopOverPlayers(function(player, playerID, playerHero)
 			--print("looping through " .. playerHero:GetName())
 			if playerHero.gachi == true then
@@ -184,7 +187,7 @@ function saito_clap:CastImmediate()
 	
 		local targets = FindUnitsInRadius(caster:GetTeam(), point, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
 		for k,v in pairs(targets) do            
-			DoDamage(caster, v, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+			DoDamage(caster, v, damage, caster:HasModifier("modifier_saito_combo") and DAMAGE_TYPE_ALL or DAMAGE_TYPE_MAGICAL, 0, ability, false)
 			v:AddNewModifier(caster, self, "modifier_stunned", {Duration = stun_duration})    
 			if(caster.MasteryAcquired) then 
 				v:AddNewModifier(caster, self, "modifier_saito_slow", {Duration = slow_duration})     

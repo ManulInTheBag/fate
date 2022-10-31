@@ -205,7 +205,7 @@ end
 
 --GetDisadvantageousSituationScale
 local GetPrideAndBerserkedScaledDamage = function(hUnit, nDamage)
-    local nDamage, bIsCritical = ( nDamage or 0 ), false
+    local nDamage, nCriticalDamage = ( nDamage or 0 ), 0
     if IsNotNull(hUnit) then
         --========================================--
         local nAlliesDead   = 0
@@ -229,7 +229,9 @@ local GetPrideAndBerserkedScaledDamage = function(hUnit, nDamage)
             end)
         end
         --========================================--
-        local nPrideScaleValue = 1 + ( ( nAlliesDead + nEnemiesAlive ) * ( GetAttributeValue(hUnit, "leonidas_pride_attribute", "scale_per_hero", -1, 0, false) ) * 0.01 )
+        local nMaxUnitsOnMap = 13
+        local nPrideScaleValue = GetAttributeValue(hUnit, "leonidas_pride_attribute", "scale_per_hero_max", -1, 0, false)
+              nPrideScaleValue = 1 + ( GetLerped(0, nPrideScaleValue, ( nAlliesDead + nEnemiesAlive ) / nMaxUnitsOnMap) * 0.01 )
         --print("PRIDE SCALE MULTIPLIER: ", nPrideScaleValue)
         --========================================--
         nDamage = nDamage * nPrideScaleValue
@@ -242,16 +244,17 @@ local GetPrideAndBerserkedScaledDamage = function(hUnit, nDamage)
             local nCritDamageStr  = hMadAttribute:GetSpecialValueFor("crit_damage_str") * 0.01
             --========================================--
             if RollPseudoRandom(nCritChance, hUnit) then
-                local nCritScale = ( nCritDamageBase + ( nCritDamageStr * hUnit:GetStrength() ) ) * 0.01
+                local nCritScale = ( ( nCritDamageBase + ( nCritDamageStr * hUnit:GetStrength() ) ) * 0.01 ) - 1.0
                 --print("CRIT SCALE MULTIPLIER: ", nCritScale)
-                nDamage = nDamage * nCritScale
-                bIsCritical = true
-
+                --nDamage = nDamage * nCritScale
+                nCriticalDamage = nDamage * nCritScale
+                --print(nCritScale)
                 --SendOverheadEventMessage(nil, OVERHEAD_ALERT_DEADLY_BLOW, hTarget, keys.original_damage * fCriticalDamage * 0.01, nil)
             end
         end
     end
-    return ( nDamage or 0 ), bIsCritical
+    --print(nDamage, nCriticalDamage)
+    return nDamage, nCriticalDamage
 end
 
 
@@ -589,9 +592,9 @@ function leonidas_kick:OnSpellStart()
     local nSlowDuration = self:GetSpecialValueFor("slow_duration")
     local nSlowPct      = self:GetSpecialValueFor("slow_pct")
 
-    local nBaseDamage, bBaseCritical     = GetPrideAndBerserkedScaledDamage(hCaster, self:GetSpecialValueFor("base_damage"))
-    local nBounceDamage, bBounceCritical = GetPrideAndBerserkedScaledDamage(hCaster, self:GetSpecialValueFor("bounce_damage"))
-    print(bBaseCritical, bBounceCritical)
+    local nBaseDamage, nBaseCriticalDamage     = GetPrideAndBerserkedScaledDamage(hCaster, self:GetSpecialValueFor("base_damage"))
+    local nBounceDamage, nBounceCriticalDamage = GetPrideAndBerserkedScaledDamage(hCaster, self:GetSpecialValueFor("bounce_damage"))
+    --print(nBaseCriticalDamage, nBounceCriticalDamage)
     local bCasterBerserked = hCaster:HasModifier("modifier_leonidas_berserk")
 
     local nLocked  = 1
@@ -661,14 +664,16 @@ function leonidas_kick:OnSpellStart()
             --=================================--
             DoDamage(hCaster, hUnit, nBounceDamage, nDamageType, DOTA_DAMAGE_FLAG_NONE, self, false)
             --=================================--
-            if bBounceCritical then
-                SendOverheadEventMessage(nil, OVERHEAD_ALERT_DEADLY_BLOW, hUnit, nBounceDamage, nil)
+            if nBounceCriticalDamage > 0 then
+                DoDamage(hCaster, hUnit, nBounceCriticalDamage, DAMAGE_TYPE_PHYSICAL, DOTA_DAMAGE_FLAG_NONE, self, false)
+                SendOverheadEventMessage(nil, OVERHEAD_ALERT_DEADLY_BLOW, hUnit, nBounceCriticalDamage, nil)
             end
         end)
         --=================================--
         DoDamage(hCaster, hTarget, nBaseDamage, nDamageType, DOTA_DAMAGE_FLAG_NONE, self, false)
         --=================================--
-        if bBaseCritical then
+        if nBaseCriticalDamage > 0 then
+            DoDamage(hCaster, hTarget, nBaseDamage, DAMAGE_TYPE_PHYSICAL, DOTA_DAMAGE_FLAG_NONE, self, false)
             SendOverheadEventMessage(nil, OVERHEAD_ALERT_DEADLY_BLOW, hTarget, nBaseDamage, nil)
         end
     end
@@ -698,14 +703,19 @@ leonidas_catch = leonidas_catch or class({})
 function leonidas_catch:IsStealable()                                         return true end
 function leonidas_catch:IsHiddenWhenStolen()                                  return false end
 function leonidas_catch:GetAOERadius()
-    return self:GetSpecialValueFor("radius")
-end
-function leonidas_catch:GetCooldown(nLevel)
     local hCaster = self:GetCaster()
-    local nCooldown = self.BaseClass.GetCooldown(self, nLevel)
-          nCooldown = ( nCooldown - ( nCooldown * GetAttributeValue(hCaster, "leonidas_math_attribute", "catch_cdr_pct_scale_per_int", -1, 0, false) * hCaster:GetIntellect() * 0.01 ) )
-    return nCooldown
+    local nScale  = 1
+    if type(hCaster.GetIntellect) == "function" then
+        nScale = nScale + ( GetAttributeValue(hCaster, "leonidas_math_attribute", "catch_radius_pct_scale_per_int", -1, 0, false) * hCaster:GetIntellect() * 0.01 )
+    end
+    return self:GetSpecialValueFor("radius") * nScale
 end
+-- function leonidas_catch:GetCooldown(nLevel)
+--     local hCaster = self:GetCaster()
+--     local nCooldown = self.BaseClass.GetCooldown(self, nLevel)
+--           nCooldown = ( nCooldown - ( nCooldown * GetAttributeValue(hCaster, "leonidas_math_attribute", "catch_cdr_pct_scale_per_int", -1, 0, false) * hCaster:GetIntellect() * 0.01 ) )
+--     return nCooldown
+-- end
 function leonidas_catch:OnAbilityPhaseStart()
     local hCaster = self:GetCaster()
     return true
@@ -718,7 +728,7 @@ function leonidas_catch:OnSpellStart()
     local nRadius = self:GetAOERadius() + ( hCaster:BoundingRadius2D() * 2 ) --NOTE: This requires for equality when RBMing target for catching if distance equality visible.
 
     local nDamageType = self:GetAbilityDamageType()
-    local nBaseDamage, bBaseCritical = GetPrideAndBerserkedScaledDamage(hCaster, self:GetSpecialValueFor("base_damage"))
+    local nBaseDamage, nBaseCriticalDamage = GetPrideAndBerserkedScaledDamage(hCaster, self:GetSpecialValueFor("base_damage"))
 
     local nFlyHeight    = self:GetSpecialValueFor("fly_height")
     local nFlyDuration  = self:GetSpecialValueFor("fly_duration")
@@ -799,8 +809,9 @@ function leonidas_catch:OnSpellStart()
             --=================================--
             DoDamage(hCaster, hEntity, nBaseDamage, nDamageType, DOTA_DAMAGE_FLAG_NONE, self, false)
             --=================================--
-            if bBaseCritical then
-                SendOverheadEventMessage(nil, OVERHEAD_ALERT_DEADLY_BLOW, hEntity, nBaseDamage, nil)
+            if nBaseCriticalDamage > 0 then
+                DoDamage(hCaster, hEntity, nBaseCriticalDamage, DAMAGE_TYPE_PHYSICAL, DOTA_DAMAGE_FLAG_NONE, self, false)
+                SendOverheadEventMessage(nil, OVERHEAD_ALERT_DEADLY_BLOW, hEntity, nBaseCriticalDamage, nil)
             end
             --=================================--
             if not bCasterBerserked then
@@ -842,14 +853,14 @@ leonidas_pride = leonidas_pride or class({})
 
 function leonidas_pride:IsStealable()                                         return true end
 function leonidas_pride:IsHiddenWhenStolen()                                  return false end
-function leonidas_pride:GetCastRange(vLocation, hTarget)
-    local hCaster = self:GetCaster()
-    local nScale  = 1
-    if type(hCaster.GetIntellect) == "function" then
-        nScale = nScale + ( GetAttributeValue(hCaster, "leonidas_math_attribute", "pride_range_pct_scale_per_int", -1, 0, false) * hCaster:GetIntellect() * 0.01 )
-    end
-    return self.BaseClass.GetCastRange(self, vLocation, hTarget) * nScale
-end
+-- function leonidas_pride:GetCastRange(vLocation, hTarget)
+--     local hCaster = self:GetCaster()
+--     local nScale  = 1
+--     if type(hCaster.GetIntellect) == "function" then
+--         nScale = nScale + ( GetAttributeValue(hCaster, "leonidas_math_attribute", "pride_range_pct_scale_per_int", -1, 0, false) * hCaster:GetIntellect() * 0.01 )
+--     end
+--     return self.BaseClass.GetCastRange(self, vLocation, hTarget) * nScale
+-- end
 function leonidas_pride:GetBehavior()
     local hCaster = self:GetCaster()
     local nBonus  = DOTA_ABILITY_BEHAVIOR_NONE
@@ -865,7 +876,12 @@ function leonidas_pride:GetBehavior()
     return bit.bor(self.BaseClass.GetBehavior(self), nBonus + nBonus2)
 end
 function leonidas_pride:GetAOERadius()
-    return self:GetSpecialValueFor("radius")
+    local hCaster = self:GetCaster()
+    local nScale  = 1
+    if type(hCaster.GetIntellect) == "function" then
+        nScale = nScale + ( GetAttributeValue(hCaster, "leonidas_math_attribute", "pride_radius_pct_scale_per_int", -1, 0, false) * hCaster:GetIntellect() * 0.01 )
+    end
+    return self:GetSpecialValueFor("radius") * nScale
 end
 function leonidas_pride:OnAbilityPhaseStart()
     local hCaster  = self:GetCaster()
@@ -1023,7 +1039,7 @@ function leonidas_pride:OnProjectileHit_ExtraData(hTarget, vLocation, tExtraData
 
         local hCaster = self:GetCaster()
 
-        local nDamage, bCritical = GetPrideAndBerserkedScaledDamage(hCaster, tExtraData.nDamage)
+        local nDamage, nCriticalDamage = GetPrideAndBerserkedScaledDamage(hCaster, tExtraData.nDamage)
 
         local hEntities = FindUnitsInRadius(
                                                 hCaster:GetTeamNumber(),
@@ -1043,8 +1059,9 @@ function leonidas_pride:OnProjectileHit_ExtraData(hTarget, vLocation, tExtraData
                 --=================================--
                 DoDamage(hCaster, hEntity, nDamage, self:GetAbilityDamageType(), DOTA_DAMAGE_FLAG_NONE, self, false)
                 --=================================--
-                if bCritical then
-                    SendOverheadEventMessage(nil, OVERHEAD_ALERT_DEADLY_BLOW, hEntity, nDamage, nil)
+                if nCriticalDamage > 0 then
+                    DoDamage(hCaster, hEntity, nCriticalDamage, DAMAGE_TYPE_PHYSICAL, DOTA_DAMAGE_FLAG_NONE, self, false)
+                    SendOverheadEventMessage(nil, OVERHEAD_ALERT_DEADLY_BLOW, hEntity, nCriticalDamage, nil)
                 end
             end
         end
@@ -1276,7 +1293,7 @@ function modifier_leonidas_berserk:GetModifierProcAttack_Feedback(keys) --NOTE: 
         local nSwingPFX = ParticleManager:CreateParticle("particles/heroes/anime_hero_leonidas/leonidas_berserk_crit_swing.vpcf", PATTACH_CENTER_FOLLOW, self.hParent)
                           ParticleManager:ReleaseParticleIndex(nSwingPFX)
 
-        EmitSoundOn("Hero_Juggernaut.BladeDance", self.hParent)
+        EmitSoundOn("Leonidas.Berserk.Crit.Universal", self.hParent)
     end
 end
 function modifier_leonidas_berserk:GetModifierAttackSpeedBonus_Constant(keys)
@@ -1352,14 +1369,15 @@ function modifier_leonidas_berserk:OnIntervalThink()
         --=================================--
         for _, hEntity in pairs(hEntities) do
             if IsNotNull(hEntity) then
-                local nCalculatedDamage = self.nPurgeDamage + ( ( self.hParent:GetHealthDeficit() * self.nMissingHPDamage ) / self.nPurgeTimes )
-                local nCalculatedDamage, bIsCritical = GetPrideAndBerserkedScaledDamage(self.hParent, nCalculatedDamage)
+                local nCalculatedDamage = self.nPurgeDamage + ( ( self.hParent:GetHealthDeficit() * self.nMissingHPDamage ) )
+                local nCalculatedDamage, nCriticalDamage = GetPrideAndBerserkedScaledDamage(self.hParent, nCalculatedDamage)
                 --=================================--
                 --print(nCalculatedDamage)
                 DoDamage(self.hCaster, hEntity, nCalculatedDamage, self.nDamageType, DOTA_DAMAGE_FLAG_NONE, self.hAbility, false)
                 --=================================--
-                if bIsCritical then
-                    SendOverheadEventMessage(nil, OVERHEAD_ALERT_DEADLY_BLOW, hEntity, nCalculatedDamage, nil)
+                if nCriticalDamage > 0 then
+                    DoDamage(self.hCaster, hEntity, nCriticalDamage, DAMAGE_TYPE_PHYSICAL, DOTA_DAMAGE_FLAG_NONE, self, false)
+                    SendOverheadEventMessage(nil, OVERHEAD_ALERT_DEADLY_BLOW, hEntity, nCriticalDamage, nil)
                 end
             end
         end
@@ -1808,8 +1826,8 @@ function leonidas_enomotia:ReleaseEnomotia(hCaster, nPFX_AnimReleaseTime, nPushR
 
     local nTeamNumber = hCaster:GetTeamNumber()
 
-    local nBaseDamage, bBaseCritical = GetPrideAndBerserkedScaledDamage(hCaster, nShieldCount * nShieldDamage)
-
+    local nBaseDamage, nBaseCriticalDamage = GetPrideAndBerserkedScaledDamage(hCaster, nShieldCount * nShieldDamage)
+    --print(nBaseDamage, nBaseCriticalDamage)
     local nPushedUnits = 0
 
     local bCasterBerserked = hCaster:HasModifier("modifier_leonidas_berserk")
@@ -1935,16 +1953,17 @@ function leonidas_enomotia:ReleaseEnomotia(hCaster, nPFX_AnimReleaseTime, nPushR
                 --=================================--
                 DoDamage(hCaster, hEntity, nBaseDamage, nDamageType, DOTA_DAMAGE_FLAG_NONE, self, false)
                 --=================================--
-                if bBaseCritical then
-                    SendOverheadEventMessage(nil, OVERHEAD_ALERT_DEADLY_BLOW, hEntity, nBaseDamage, nil)
+                if nBaseCriticalDamage > 0 then
+                    DoDamage(hCaster, hEntity, nBaseCriticalDamage, DAMAGE_TYPE_PHYSICAL, DOTA_DAMAGE_FLAG_NONE, self, false)
+                    SendOverheadEventMessage(nil, OVERHEAD_ALERT_DEADLY_BLOW, hEntity, nBaseCriticalDamage, nil)
                 end
             end
         end
     end
     --=================================--
-    local nPreviousStacks = hCaster:GetModifierStackCount("modifier_leonidas_enomotia_shield", hCaster) * 0.5
+    local nPreviousStacks = 0--hCaster:GetModifierStackCount("modifier_leonidas_enomotia_shield", hCaster)
     --=================================--
-    hCaster:RemoveModifierByNameAndCaster("modifier_leonidas_enomotia_shield", hCaster)
+    --hCaster:RemoveModifierByNameAndCaster("modifier_leonidas_enomotia_shield", hCaster)
     --=================================--
     nBaseBlockPerShield = nBaseBlockPerShield + ( GetAttributeValue(hCaster, "leonidas_army_attribute", "enomotia_damage_block_from_armor_pct", -1, 0, false) * hCaster:GetPhysicalArmorValue(false) * 0.01 )
     --=================================--
@@ -1970,6 +1989,7 @@ function modifier_leonidas_enomotia_shield:IsDebuff()                           
 function modifier_leonidas_enomotia_shield:IsPurgable()                                                                     return false end
 function modifier_leonidas_enomotia_shield:IsPurgeException()                                                               return false end
 function modifier_leonidas_enomotia_shield:RemoveOnDeath()                                                                  return true end
+function modifier_leonidas_enomotia_shield:GetAttributes()                                                                  return MODIFIER_ATTRIBUTE_MULTIPLE end
 function modifier_leonidas_enomotia_shield:GetTexture()
     return "anime_hero_leonidas/leonidas_enomotia_shield"
 end
@@ -2189,13 +2209,15 @@ function leonidas_enomotia_combo:GetIntrinsicModifierName()
     return "modifier_leonidas_enomotia_combo_indicator"
 end
 function leonidas_enomotia_combo:GetAOERadius()
-    local hCaster = self:GetCaster()
-    local nScale  = 1
-    if type(hCaster.GetIntellect) == "function" then
-        nScale = nScale + ( GetAttributeValue(hCaster, "leonidas_math_attribute", "enomotia_radius_pct_scale_per_int", -1, 0, false) * hCaster:GetIntellect() * 0.01 )
-    end
-    return self:GetSpecialValueFor("radius") * nScale
+    return self:GetSpecialValueFor("radius")
 end
+--     local hCaster = self:GetCaster()
+--     local nScale  = 1
+--     if type(hCaster.GetIntellect) == "function" then
+--         nScale = nScale + ( GetAttributeValue(hCaster, "leonidas_math_attribute", "enomotia_radius_pct_scale_per_int", -1, 0, false) * hCaster:GetIntellect() * 0.01 )
+--     end
+--     return self:GetSpecialValueFor("radius") * nScale
+-- end
 function leonidas_enomotia_combo:OnAbilityPhaseStart()
     EmitSoundOn("Leonidas.Enomotia.Combo.Cast.1", self:GetCaster())
     return true
@@ -2277,9 +2299,9 @@ function leonidas_enomotia_combo:OnSpellStart()
         --=================================--
         --=================================--
         --=================================--
-        local nPreviousStacks = hCaster:GetModifierStackCount("modifier_leonidas_enomotia_shield", hCaster) * 0.5
+        local nPreviousStacks = 0--hCaster:GetModifierStackCount("modifier_leonidas_enomotia_shield", hCaster)
         --=================================--
-        hCaster:RemoveModifierByNameAndCaster("modifier_leonidas_enomotia_shield", hCaster)
+        --hCaster:RemoveModifierByNameAndCaster("modifier_leonidas_enomotia_shield", hCaster)
         --=================================--
         nBaseBlockPerShield = nBaseBlockPerShield + ( GetAttributeValue(hCaster, "leonidas_army_attribute", "enomotia_damage_block_from_armor_pct", -1, 0, false) * hCaster:GetPhysicalArmorValue(false) * 0.01 )
         --=================================--
@@ -2301,33 +2323,33 @@ function leonidas_enomotia_combo:OnSpellStart()
             if IsNotNull(nDefenceAuraModifierThinker) then --NOTE: Stop functions in modifier so if not exist modifier we does nothing
                 self:StopShields_PFX(_nShieldsPFX, false)
                 --=================================--
-                Timers:CreateTimer(nPFX_AnimLoopTime * 0.5, function()
-                    if IsNotNull(nDefenceAuraModifierThinker) then --NOTE: Again checks 1
-                        EndAnimation(hCaster)
-                        StartAnimation(hCaster, {duration = nPFX_AnimReleaseTime, activity = ACT_DOTA_CAST_ABILITY_3_END, rate = 0.3/(nPFX_AnimReleaseTime)})
-                        --=================================--
-                        if IsNotNull(hEnomotiaComboShield) then --NOTE: Maybe in future will add anti expire hmhmhm... TODO: Make when all shields is gone same releasing, so again rework anything but only in anime... now i'm tired
-                            local tComboStoreEnemies  = hEnomotiaComboShield:GetStoreEnemies() or {}
-                            local nTotalDamageBlocked = nDamageBlock - hEnomotiaComboShield:GetStackCount()
-                            Timers:CreateTimer(nPFX_AnimReleaseTime * 0.5, function()
-                                --if IsNotNull(nDefenceAuraModifierThinker) then --NOTE: Again checks 2
-                                --end
-                                --print("RELEASING SPEARS TO TARGETS??? ", nTotalDamageBlocked, TableLength(tComboStoreEnemies))
+                -- Timers:CreateTimer(nPFX_AnimLoopTime * 0.5, function()
+                --     if IsNotNull(nDefenceAuraModifierThinker) then --NOTE: Again checks 1
+                --         EndAnimation(hCaster)
+                --         StartAnimation(hCaster, {duration = nPFX_AnimReleaseTime, activity = ACT_DOTA_CAST_ABILITY_3_END, rate = 0.3/(nPFX_AnimReleaseTime)})
+                --         --=================================--
+                --         if IsNotNull(hEnomotiaComboShield) then --NOTE: Maybe in future will add anti expire hmhmhm... TODO: Make when all shields is gone same releasing, so again rework anything but only in anime... now i'm tired
+                --             local tComboStoreEnemies  = hEnomotiaComboShield:GetStoreEnemies() or {}
+                --             local nTotalDamageBlocked = nDamageBlock - hEnomotiaComboShield:GetStackCount()
+                --             Timers:CreateTimer(nPFX_AnimReleaseTime * 0.5, function()
+                --                 --if IsNotNull(nDefenceAuraModifierThinker) then --NOTE: Again checks 2
+                --                 --end
+                --                 --print("RELEASING SPEARS TO TARGETS??? ", nTotalDamageBlocked, TableLength(tComboStoreEnemies))
 
-                                ScreenShake(vCasterGnd, 7, 3, 2, 300 * 5, 0, true)
+                --                 ScreenShake(vCasterGnd, 7, 3, 2, 300 * 5, 0, true)
 
-                                if IsNotNull(hPrideAbility) then
-                                    local nBonusDamageToAll = ( nTotalDamageBlocked / math.max(TableLength(tComboStoreEnemies), 1) )
-                                    for _, hEnemy in pairs(tComboStoreEnemies) do
-                                        if IsNotNull(hEnemy) then --MB ADD CHECK FOR ALIVE BUT NOT WANT KEK
-                                            hPrideAbility:ReleaseSpear(hEnemy:GetAbsOrigin(), hEnemy, nBonusDamageToAll, false)
-                                        end
-                                    end
-                                end
-                            end)
-                        end
-                    end
-                end)
+                --                 if IsNotNull(hPrideAbility) then
+                --                     local nBonusDamageToAll = ( nTotalDamageBlocked / math.max(TableLength(tComboStoreEnemies), 1) )
+                --                     for _, hEnemy in pairs(tComboStoreEnemies) do
+                --                         if IsNotNull(hEnemy) then --MB ADD CHECK FOR ALIVE BUT NOT WANT KEK
+                --                             hPrideAbility:ReleaseSpear(hEnemy:GetAbsOrigin(), hEnemy, nBonusDamageToAll, false)
+                --                         end
+                --                     end
+                --                 end
+                --             end)
+                --         end
+                --     end
+                -- end)
             end
         end)
         --=================================--
@@ -2419,7 +2441,7 @@ function leonidas_enomotia_combo:ReleaseEnomotia(hCaster, nPFX_AnimReleaseTime, 
 
     local nTeamNumber = hCaster:GetTeamNumber()
 
-    local nBaseDamage, bBaseCritical = GetPrideAndBerserkedScaledDamage(hCaster, nShieldCount * nShieldDamage)
+    local nBaseDamage, nBaseCriticalDamage = GetPrideAndBerserkedScaledDamage(hCaster, nShieldCount * nShieldDamage)
 
     local nPushedUnits = 0
 
@@ -2555,16 +2577,17 @@ function leonidas_enomotia_combo:ReleaseEnomotia(hCaster, nPFX_AnimReleaseTime, 
                 --=================================--
                 DoDamage(hCaster, hEntity, nBaseDamage, nDamageType, DOTA_DAMAGE_FLAG_NONE, self, false)
                 --=================================--
-                if bBaseCritical then
-                    SendOverheadEventMessage(nil, OVERHEAD_ALERT_DEADLY_BLOW, hEntity, nBaseDamage, nil)
+                if nBaseCriticalDamage > 0 then
+                    DoDamage(hCaster, hEntity, nBaseCriticalDamage, DAMAGE_TYPE_PHYSICAL, DOTA_DAMAGE_FLAG_NONE, self, false)
+                    SendOverheadEventMessage(nil, OVERHEAD_ALERT_DEADLY_BLOW, hEntity, nBaseCriticalDamage, nil)
                 end
             end
         end
     end
     --=================================--
-    local nPreviousStacks = hCaster:GetModifierStackCount("modifier_leonidas_enomotia_shield", hCaster) * 0.5
+    local nPreviousStacks = 0--hCaster:GetModifierStackCount("modifier_leonidas_enomotia_shield", hCaster)
     --=================================--
-    hCaster:RemoveModifierByNameAndCaster("modifier_leonidas_enomotia_shield", hCaster)
+    --hCaster:RemoveModifierByNameAndCaster("modifier_leonidas_enomotia_shield", hCaster)
     --=================================--
     nBaseBlockPerShield = nBaseBlockPerShield + ( GetAttributeValue(hCaster, "leonidas_army_attribute", "enomotia_damage_block_from_armor_pct", -1, 0, false) * hCaster:GetPhysicalArmorValue(false) * 0.01 )
     --=================================--
@@ -2610,7 +2633,8 @@ function modifier_leonidas_enomotia_combo:GetModifierAura()
 end
 function modifier_leonidas_enomotia_combo:CheckState()
     local tState =  {
-                        [MODIFIER_STATE_NO_UNIT_COLLISION] = true
+                        [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
+                        [MODIFIER_STATE_PROVIDES_VISION]   = true
                     }
     return tState
 end

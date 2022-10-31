@@ -7331,9 +7331,9 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
 		"DOTA_Tooltip_ability_leonidas_math_attribute_Description"								"Math is great. I feel so accomplished when my calculations are correct. \n Calculate strategy options and increase abilities values from intellect. \n[VALUE SCALES BY % TO BASE VALUE PER EACH INT POINT]"
 		"DOTA_Tooltip_ability_leonidas_math_attribute_int_to_str_pct"							"%INT TO STRENGTH:"
 		"DOTA_Tooltip_ability_leonidas_math_attribute_kick_push_distance_pct_scale_per_int"		"%INT SCALE TO [Q] PUSH DISTANCE:"
-		"DOTA_Tooltip_ability_leonidas_math_attribute_catch_cdr_pct_scale_per_int"				"%INT CDR SCALE TO [W]:"
-		"DOTA_Tooltip_ability_leonidas_math_attribute_pride_range_pct_scale_per_int"			"%INT CAST RANGE SCALE TO [E]:"
-		"DOTA_Tooltip_ability_leonidas_math_attribute_enomotia_radius_pct_scale_per_int"		"%INT SCALE TO [R][COMBO] RADIUSES:"
+		"DOTA_Tooltip_ability_leonidas_math_attribute_catch_radius_pct_scale_per_int"			"%INT RADIUS SCALE TO [W]:"
+		"DOTA_Tooltip_ability_leonidas_math_attribute_pride_radius_pct_scale_per_int"			"%INT AOE RADIUS [E]:"
+		"DOTA_Tooltip_ability_leonidas_math_attribute_enomotia_radius_pct_scale_per_int"		"%INT SCALE TO [R] RADIUS:"
 
 		"DOTA_Tooltip_ability_leonidas_army_attribute"											"Attribute: Struggle of Three Hundred"
 		"DOTA_Tooltip_ability_leonidas_army_attribute_Description"								"Thermopylae Enomotia now scales from armor values. But Shield nullify all armor when active. Passivly, Grant bonus armor based on basic armor."
@@ -7343,7 +7343,7 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
 		"DOTA_Tooltip_ability_leonidas_army_attribute_bonus_magic_resistance_pct"				"%BONUS MAGIC RESISTANCE:"
 
 		"DOTA_Tooltip_ability_leonidas_pride_attribute"											"Attribute: Rear Guard's Pride"
-		"DOTA_Tooltip_ability_leonidas_pride_attribute_Description"								"Skill that displays more power the more disadvantageous the situation. Increase Leonidas Skills damage by %scale_per_hero%%% per each alive enemy and dead ally. \n [E] Skill now casts immediately and becomes in defensive stance for %counter_duration%, blocking and return by bonus to spear %counter_resist%%% damage, point or target records when cast begins. Can be fast released. \n Grant bonus damage to [E] == %bonus_damage%."
+		"DOTA_Tooltip_ability_leonidas_pride_attribute_Description"								"Skill that displays more power the more disadvantageous the situation. Increase Leonidas Skills damage by %scale_per_hero_max%%% maximum (caped) per each alive enemy and dead ally (aka if dead all allies and alive all enemies will be 30%). \n [E] Skill now casts immediately and becomes in defensive stance for %counter_duration%, blocking and return by bonus to spear %counter_resist%%% damage, point or target records when cast begins. Can be fast released. \n Grant bonus damage to [E] == %bonus_damage%."
 
 		"DOTA_Tooltip_ability_leonidas_mad_attribute"											"Attribute: Dual Class"
 		"DOTA_Tooltip_ability_leonidas_mad_attribute_Description"								"[USABLE IN STUN AND SILENCE]\n[CAN;T BE USED UNDER REVOKE] \n Leonidas becomes enraged, all skills and normal attacks can critical strike, with intervals dispel all negative effects and does damage to near enemies counted times. Recieve attack speed as much as he lost hp"

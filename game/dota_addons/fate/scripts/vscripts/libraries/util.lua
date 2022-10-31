@@ -1457,6 +1457,10 @@ function SendMountStatus(hero)
 end
 
 function DoDamage(source, target , dmg, dmg_type, dmg_flag, abil, isLoop)
+    if bit.band(dmg_type or DAMAGE_TYPE_NONE, DAMAGE_TYPE_ALL) == DAMAGE_TYPE_ALL then
+        --print("DOINT COMPOSITE DAMAGE INSTEAD")
+        return DoCompositeDamage(source, target, dmg, DAMAGE_TYPE_NONE, dmg_flag, abil, isLoop) --NONE NEED FOR PREVENT OVERLOOP
+    end
    -- if target == nil then return end
 
    --because fuck it, i DO NOT want to see valve change something again and break every single function in the game by removing any checkers they have in c++, 7.31 experience

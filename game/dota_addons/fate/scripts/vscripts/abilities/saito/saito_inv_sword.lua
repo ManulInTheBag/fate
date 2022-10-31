@@ -17,7 +17,7 @@ function saito_inv_sword:GetCastPoint()
 		stack_count = Caster:GetModifierStackCount("modifier_saito_fdb_repeated", Caster)  
 	end
 	if(Caster:HasModifier("modifier_saito_fdb_lastE")) then
-		return 0.7 
+		return 0.5 
 	end
     if stack_count <=0 then
 		return 0
@@ -105,7 +105,7 @@ for _,enemy in pairs(enemies) do
  
         --DoDamage(caster, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
         enemy:AddNewModifier(caster, self, "modifier_saito_invsword_damage_delayed", {Duration = 0.5, Damage = damage})     
-        DoDamage(caster, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+        DoDamage(caster, enemy, damage, caster:HasModifier("modifier_saito_combo") and DAMAGE_TYPE_ALL or DAMAGE_TYPE_MAGICAL, 0, self, false)
 
         if(caster.MasteryAcquired) then 
             enemy:AddNewModifier(caster, self, "modifier_saito_magres_down", {Duration = 2})     
@@ -136,7 +136,7 @@ if(caster.ShinsengumiAcquired and  modifier_jopa:GetStackCount() == 0) then
  
         --DoDamage(caster, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
         enemy:AddNewModifier(caster, self, "modifier_saito_invsword_damage_delayed", {Duration = 0.5, Damage = damage* modifier_jopa:GetMaxStackCount()/5})    
-        DoDamage(caster, enemy, damage * modifier_jopa:GetMaxStackCount()/5, DAMAGE_TYPE_MAGICAL, 0, self, false)
+        DoDamage(caster, enemy, damage * modifier_jopa:GetMaxStackCount()/5, caster:HasModifier("modifier_saito_combo") and DAMAGE_TYPE_ALL or DAMAGE_TYPE_MAGICAL, 0, self, false)
  
         if(caster.MasteryAcquired) then 
             enemy:AddNewModifier(caster, self, "modifier_saito_magres_down", {Duration = 2})     
@@ -158,9 +158,6 @@ function saito_inv_sword:CastImmediate()
     caster.currentused = caster.currentused+1
 	local additional_delay = (caster.currentused-1)/8
 
-    Timers:CreateTimer(0.1 + additional_delay, function()
-        StartAnimation(caster, {duration=0.4, activity=ACT_DOTA_CAST_ABILITY_3, rate=1})	
-        if( not caster:IsAlive()) then return end
         local ability = self
         local damage = self:GetSpecialValueFor("damage")+ caster:GetAttackDamage()*self:GetSpecialValueFor("atk_scale")
         
@@ -168,13 +165,18 @@ function saito_inv_sword:CastImmediate()
             damage = damage + caster:GetAttackDamage()*self:GetSpecialValueFor("atk_scale")
         end
       
-        if(IsServer )then
-            if(caster:HasModifier("modifier_saito_fdb_lastE")) then
-                damage = damage/2
-                 
-            end
+        if(caster:HasModifier("modifier_saito_fdb_lastE")) then
+            local nFastFixDamageRoflan = math.max(caster:GetModifierStackCount("modifier_saito_fdb_repeated",caster), 1)
+            damage = damage/nFastFixDamageRoflan
         end
-     
+
+        local radius = self:GetSpecialValueFor("radius")
+        local width = 120
+
+    Timers:CreateTimer(0.1 + additional_delay, function()
+        StartAnimation(caster, {duration=0.4, activity=ACT_DOTA_CAST_ABILITY_3, rate=1})	
+        if( not caster:IsAlive()) then return end
+
         local sword_fx = ParticleManager:CreateParticle("particles/saito/saito_inv_sword_new.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
         ParticleManager:SetParticleControlEnt(sword_fx, 4, caster, PATTACH_POINT_FOLLOW, "slash", Vector(0,0,0), true)
         LoopOverPlayers(function(player, playerID, playerHero)
@@ -182,8 +184,7 @@ function saito_inv_sword:CastImmediate()
                 CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="saito_shing"})
             end
         end)
-        local radius = self:GetSpecialValueFor("radius")
-        local width = 120
+
       
         caster:AddNewModifier(caster, caster, "modifier_saito_fdb_lastE",{duration = 15})
         caster:RemoveModifierByName("modifier_saito_fdb_lastQ")
@@ -207,7 +208,7 @@ function saito_inv_sword:CastImmediate()
      
             --DoDamage(caster, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
             enemy:AddNewModifier(caster, self, "modifier_saito_invsword_damage_delayed", {Duration = 0.5, Damage = damage})     
-            DoDamage(caster, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+            DoDamage(caster, enemy, damage, caster:HasModifier("modifier_saito_combo") and DAMAGE_TYPE_ALL or DAMAGE_TYPE_MAGICAL, 0, self, false)
             if(caster.MasteryAcquired) then 
                 enemy:AddNewModifier(caster, self, "modifier_saito_magres_down", {Duration = 2})     
             end
@@ -237,7 +238,7 @@ function saito_inv_sword:CastImmediate()
      
             --DoDamage(caster, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
             enemy:AddNewModifier(caster, self, "modifier_saito_invsword_damage_delayed", {Duration = 0.5, Damage = damage})     
-            DoDamage(caster, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+            DoDamage(caster, enemy, damage, caster:HasModifier("modifier_saito_combo") and DAMAGE_TYPE_ALL or DAMAGE_TYPE_MAGICAL, 0, self, false)
             if(caster.MasteryAcquired) then 
                 enemy:AddNewModifier(caster, self, "modifier_saito_magres_down", {Duration = 2})     
             end
@@ -301,7 +302,7 @@ end
 
 function modifier_saito_invsword_damage_delayed:OnDestroy()
     if not IsServer() then return end
-    DoDamage(self:GetCaster(), self:GetParent(), self.damage * 0.3, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
+    DoDamage(self:GetCaster(), self:GetParent(), self.damage * 0.3, self:GetCaster():HasModifier("modifier_saito_combo") and DAMAGE_TYPE_ALL or DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
     self.explosion = ParticleManager:CreateParticle( "particles/saito/saito_inv_sword_explosion_real.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
     ParticleManager:SetParticleControl(self.explosion, 0, self:GetParent():GetAbsOrigin() + Vector(0,0,100))
     Timers:CreateTimer(0.3, function()
