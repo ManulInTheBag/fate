@@ -118,14 +118,11 @@ function modifier_nobu_strategy_attribute:IsHidden() return false end
 function modifier_nobu_strategy_attribute:IsDebuff() return false end
 function modifier_nobu_strategy_attribute:DeclareFunctions()
 	return {	MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
-	MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,   }
+  }
 end
 
 function modifier_nobu_strategy_attribute:GetModifierMoveSpeedBonus_Percentage()
 	return  20  
-end
-function modifier_nobu_strategy_attribute:GetModifierPreAttack_BonusDamage()
-	return 50
 end
  
 

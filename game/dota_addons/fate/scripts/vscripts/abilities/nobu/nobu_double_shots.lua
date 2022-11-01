@@ -138,6 +138,10 @@ function nobu_double_shots:OnProjectileHit(target, location )
     if IsDivineServant(target) and hCaster.UnifyingAcquired then 
         damage= damage*1.2
     end
+    
+    if( hCaster:FindModifierByName("modifier_nobu_dash_dmg") ) then
+        DoDamage(hCaster, target, hCaster:FindAbilityByName("nobu_dash"):GetSpecialValueFor("attr_damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
+    end
     if(hCaster.ISDOW) then
         local gun_spawn = hCaster:GetAbsOrigin()
         local random1 = RandomInt(25, 150) -- position of gun spawn

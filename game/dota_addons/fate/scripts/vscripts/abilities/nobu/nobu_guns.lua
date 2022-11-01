@@ -3,10 +3,12 @@ LinkLuaModifier("modifier_nobu_atk_sound","abilities/nobu/nobu_guns", LUA_MODIFI
 
 
 function nobu_guns:GetGunsDamage()
-    if(self:GetCaster().UnifyingAcquired) then
-        return self:GetSpecialValueFor("base_dmg") + self:GetCaster():GetAttackDamage()* (self:GetSpecialValueFor("dmg_per_atk") + 0.75)
+    local caster = self:GetCaster()
+    if(caster.UnifyingAcquired) then
+        return self:GetSpecialValueFor("base_dmg") +caster:GetLevel()*  self:GetSpecialValueFor("dmg_per_lvl") 
+        +caster:GetIntellect() * self:GetSpecialValueFor("dmg_per_int") + (caster:HasModifier("modifier_nobu_strategy_attribute") and 70 or 0)
     else
-        return self:GetSpecialValueFor("base_dmg") + self:GetCaster():GetAttackDamage()* self:GetSpecialValueFor("dmg_per_atk")
+        return self:GetSpecialValueFor("base_dmg") +caster:GetLevel()* self:GetSpecialValueFor("dmg_per_lvl")  + (caster:HasModifier("modifier_nobu_strategy_attribute") and 70 or 0)
     end
 end
 function nobu_guns:GetIntrinsicModifierName()
@@ -127,6 +129,9 @@ function nobu_guns:OnProjectileHit(target, location )
         damage= damage*1.2
     end
     DoDamage(hCaster, target, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+    if( hCaster:FindModifierByName("modifier_nobu_dash_dmg") ) then
+        DoDamage(hCaster, target, hCaster:FindAbilityByName("nobu_dash"):GetSpecialValueFor("attr_damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
+    end
     target:EmitSound("nobu_shot_impact_"..math.random(1,2))
     return true
 end

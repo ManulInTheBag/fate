@@ -14,6 +14,12 @@ local ubwTargetLoc = nil
 local ubwCasterPos = nil
 local ubwdummies = nil
 local ubwCenter = Vector(5926, -4837, 222)
+if( IsServer()) then 
+    if(IsFFA()) then
+        ubwCenter = Vector(5578.463867, -4475.173828, 159.689697)
+    end
+end
+
 local aotkCenter = Vector(288,-4504, 261)
 
 function emiya_unlimited_bladeworks:GetBuffDuration()

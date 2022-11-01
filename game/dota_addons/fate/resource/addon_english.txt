@@ -23,6 +23,15 @@
 		"arena_game_mode_type_ffa" "HOKKAIDO MOUNTAIN TRAINING"
 		"arena_game_mode_type_trio_rumble_3v3v3v3" "CIRCUS IS STARTING"
 
+		"DOTA_Custom1"	"Saberface enjoyer"
+		"DOTA_Custom2"	"Sakuraface fan"
+		"DOTA_Custom3"	"Loli hater"
+		"DOTA_Custom4"	"Democraty destroyer"
+		"DOTA_Custom5"	"Teterew fanboy"
+		"DOTA_Custom6"	"Zlodemon's dinner"
+		"DOTA_Custom7"	"Old man wannabe"
+		"DOTA_Custom8"	"Seva lover"
+
 		"chat_placeholder_send_message" "Chat is unavailable during picks"
 
 		"hero_selection_phase_0" "Loading..."
@@ -7009,9 +7018,9 @@
 		"npc_dota_hero_gyrocopter_hype"					""
 		"npc_dota_hero_gyrocopter_bio"						""
         "DOTA_Tooltip_ability_nobu_guns"							"Demon guns"
-        "DOTA_Tooltip_ability_nobu_guns_Description"			"All of Nobunaga's damaging abilities are utilizing her muskets. Each musket damage is scaled based on Nobunaga's atk"
+        "DOTA_Tooltip_ability_nobu_guns_Description"			"All of Nobunaga's damaging abilities are utilizing her muskets. Each musket damage is scaled based on Nobunaga's level"
         "DOTA_Tooltip_ability_nobu_guns_base_dmg"					"Base dmg:"
-        "DOTA_Tooltip_ability_nobu_guns_dmg_per_atk"					"Atk modifier:"
+        "DOTA_Tooltip_ability_nobu_guns_dmg_per_lvl"					"Dmg per level:"
         
         "DOTA_Tooltip_ability_nobu_guns_Lore"						"Guns will never be of value on the battlefield. That was what everybody thought at the time. Then I just need to gather a whole bunch of them and fire away right?"
          
@@ -7055,7 +7064,7 @@
         "DOTA_Tooltip_ability_nobu_dow_Lore" ""
 
         "DOTA_Tooltip_ability_nobu_dogab"				"Spirit altering: Destroyer of Gods and Buddhas"
-        "DOTA_Tooltip_ability_nobu_dogab_Description"	"Nobunaga gains an active ability called  Divinity mark.\nDivinity mark:\n Nobunaga marks target enemy for 10 seconds. Each time she deals damage to it, it gains a stackable effect. When this effect reaches 10 stacks, enemy will be marked divine and its armor will be reduced by its base value. Non-refreshable. 40 seconds cooldown.\n With Demon King Expanding attribute this choice will grant both Destroyer of Gods and Buddhas and Fool of Owari bonuses."
+        "DOTA_Tooltip_ability_nobu_dogab_Description"	"Nobunaga gains an active ability called  Divinity mark.\nDivinity mark:\n Nobunaga marks target enemy for 10 seconds. Each time she deals damage to it, it gains a stackable effect. When this effect reaches 12 stacks, enemy will be marked divine and its armor will be reduced by its base value. Non-refreshable. 40 seconds cooldown.\n With Demon King Expanding attribute this choice will grant both Destroyer of Gods and Buddhas and Fool of Owari bonuses."
         "DOTA_Tooltip_ability_nobu_dogab_Lore" ""
 
         "DOTA_Tooltip_ability_nobu_fool_of_owari"				"Spirit altering: Fool of Owari"
@@ -7083,7 +7092,7 @@
         "DOTA_Tooltip_ability_nobu_dow_passive_Lore"								""
 
          "DOTA_Tooltip_ability_nobu_leader_of_innovation"						"Leader of innovation"
-        "DOTA_Tooltip_ability_nobu_leader_of_innovation_Description"			"Upon cast, Oda Nobunaga will receive an aura for 10 seconds. Each time a Nobunaga deals damage, all of her allies gain a 50% ms buff for 1 seconds on a 1 second cooldown. Each time an ally of Nobunaga deals damage, she heals herself for 80 + STR health with a cooldown of a 1 second."
+        "DOTA_Tooltip_ability_nobu_leader_of_innovation_Description"			"Upon cast, Oda Nobunaga will receive an aura for 10 seconds. Each time a Nobunaga deals damage, all of her allies gain a 50% ms buff for 1 seconds and heal them for 80 + caster STR. Each time an ally of Nobunaga deals damage, she heals herself for 80 + STR health with a cooldown of a 1 second."
         "DOTA_Tooltip_ability_nobu_leader_of_innovation_aura_radius"						"Aura radius:"
         "DOTA_Tooltip_ability_nobu_leader_of_innovation_ms_bonus"								"%MS bonus:"
         "DOTA_Tooltip_ability_nobu_leader_of_innovation_health_base"								"Base heal:"
@@ -7092,7 +7101,7 @@
         "DOTA_Tooltip_ability_nobu_leader_of_innovation_Lore"								""
 
            "DOTA_Tooltip_ability_nobu_divinity_mark"						"Divinity mark"
-        "DOTA_Tooltip_ability_nobu_divinity_mark_Description"			"Nobunaga marks target enemy for 10 seconds. Each time she deals damage to it, it gains a stackable effect. When this effect reaches 10 stacks, enemy will be marked divine and its armor will be reduced by its base value."
+        "DOTA_Tooltip_ability_nobu_divinity_mark_Description"			"Nobunaga marks target enemy for 10 seconds. Each time she deals damage to it, it gains a stackable effect. When this effect reaches 12 stacks, enemy will be marked divine and its armor will be reduced by its base value."
         "DOTA_Tooltip_ability_nobu_divinity_mark_cast_range"						"Cast range:"
         "DOTA_Tooltip_ability_nobu_divinity_mark_duration"								"Duration:"
         "DOTA_Tooltip_ability_nobu_divinity_mark_activated_duration"							"Activated duration:"
@@ -7118,10 +7127,10 @@
  
 
         "DOTA_Tooltip_ability_nobu_strategy_attribute"				"Attribute: Strategy"
-        "DOTA_Tooltip_ability_nobu_strategy_attribute_Description"	"If Oda Nobunaga didn't dealt damage to any enemies for 10 seconds, next time when she deals damage to any enemy she will receive a bonus to movement speed and damage for a duration. Using Dash ability removes cooldown from this attribute."
+        "DOTA_Tooltip_ability_nobu_strategy_attribute_Description"	"If Oda Nobunaga didn't dealt damage to any enemies for 10 seconds, next time when she deals damage to any enemy she will receive a bonus to movement speed and rifle damage for a duration. Using Dash ability removes cooldown from this attribute."
         "DOTA_Tooltip_ability_nobu_strategy_attribute_cooldown_time				"Cooldown:"
         "DOTA_Tooltip_ability_nobu_strategy_attribute_bonus_ms"			"%MS bonus:"
-        "DOTA_Tooltip_ability_nobu_strategy_attribute_bonus_attack"			"ATK bonus:"
+        "DOTA_Tooltip_ability_nobu_strategy_attribute_bonus_attack"			"Rifle damage bonus:"
      	"DOTA_Tooltip_ability_nobu_strategy_attribute_duration"			"Duration:"
 
         "DOTA_Tooltip_ability_nobu_expanding_attribute"				"Attribute: Demon king expanding"
@@ -7129,17 +7138,17 @@
  
 
         "DOTA_Tooltip_ability_nobu_3000_attribute"				"Attribute: 3000 worlds"
-        "DOTA_Tooltip_ability_nobu_3000_attribute_Description"	"Oda nobunaga's three line formation ability projectiles change to lasers, which pierce enemies and deal portion of their damage as pure. After end of dash, two rifles will appear near nobu, if there is an enemy in 500 range, shooting him with a little knockback."
+        "DOTA_Tooltip_ability_nobu_3000_attribute_Description"	"Oda nobunaga's three line formation ability projectiles change to lasers, which pierce enemies.Combo and ultimate deal portion of their damage as pure. After end of dash, two rifles will appear near nobu, if there is an enemy in 500 range, shooting him with a little knockback."
         "DOTA_Tooltip_ability_nobu_3000_attribute_pure_percentage"						"%Pure dmg:"
         "DOTA_Tooltip_ability_nobu_3000_dmg_mod"						"Dash rifles dmg modifier:"
       
         "DOTA_Tooltip_ability_nobu_unifying_attribute"				"Attribute: Unifying the Nation by Force"
-        "DOTA_Tooltip_ability_nobu_unifying_attribute_Description"	"Increases Oda Nobunaga's rifle damage based on ATK. Oda nobunaga's rifle abilities deal additional damage to divine servants."
-        "DOTA_Tooltip_ability_nobu_unifying_attribute_additional_atkmod" 	"Additional atk rifle scaling:"
+        "DOTA_Tooltip_ability_nobu_unifying_attribute_Description"	"Increases Oda Nobunaga's rifle damage based on INT. Oda nobunaga's rifle abilities deal additional damage to divine servants."
+        "DOTA_Tooltip_ability_nobu_unifying_attribute_int_scaling" 	"Additional atk rifle scaling:"
         "DOTA_Tooltip_ability_nobu_unifying_attribute_divine_damage_mod" 	"Divine damage modifier:"
  
         "DOTA_Tooltip_ability_nobu_independent_action"				"Attribute: Independent action"
-        "DOTA_Tooltip_ability_nobu_independent_action_Description"	"Shoot(Q) will now microstun and knockback enemy, if it was used without targeted shots(E) activated. Using Dash will now icrease next Shoot damage by a flat magical value."
+        "DOTA_Tooltip_ability_nobu_independent_action_Description"	"Shoot(Q) will now microstun and knockback enemy, if it was used without targeted shots(E) activated. Using Dash will now icrease next guns damage by a flat magical value for 2 seconds."
         "DOTA_Tooltip_ability_nobu_independent_microstun_duration" 	"Mictostun duration:"
         
  

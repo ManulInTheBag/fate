@@ -585,8 +585,8 @@ function FateGameMode:OnGameInProgress()
             self:InitializeRound() -- Start the game after forcing a pick for every player
             BLESSING_PERIOD = 600
         elseif _G.GameMap == "fate_ffa" then
-            BLESSING_PERIOD = 300
-            SHARD_DROP_PERIOD = 180
+            BLESSING_PERIOD = 200
+            SHARD_DROP_PERIOD = 120
             CENTER_POSITION = FFA_CENTER
             CreateUITimer("Next Holy Grail's Shard", SHARD_DROP_PERIOD, "shard_drop_timer")
             _G.CurrentGameState = "FATE_ROUND_ONGOING"
@@ -2136,6 +2136,8 @@ function FateGameMode:OnHeroInGame(hero)
         if _G.GameMap == "fate_ffa" or _G.GameMap == "fate_trio_rumble_3v3v3v3" then
             hero:HeroLevelUp(false)
             hero:HeroLevelUp(false)
+            VICTORY_CONDITION = 30
+            victoryConditionData.victoryCondition = VICTORY_CONDITION
         end
         CustomGameEventManager:Send_ServerToAllClients( "victory_condition_set", victoryConditionData ) -- Display victory condition for player
         --SendKVToFatepedia(player) -- send KV to fatepedia
@@ -2313,16 +2315,12 @@ end
 
 function AddRandomShard(hero)
     local shardDropTable = {
-        "master_shard_of_avarice",
         "master_shard_of_anti_magic",
         "master_shard_of_replenishment",
-        "master_shard_of_prosperity"
     }
     local shardRealNameTable = {
-        "Shard of Avarice",
         "Shard of Anti-Magic",
         "Shard of Replenishment",
-        "Shard of Prosperity"
     }
     if not hero.ShardAmount then
         hero.ShardAmount = 1
@@ -3086,6 +3084,7 @@ function FateGameMode:OnEntityKilled( keys )
         if _G.GameMap == "fate_trio_rumble_3v3v3v3" or _G.GameMap == "fate_ffa" then
             --print(PlayerResource:GetTeamKills(killerEntity:GetTeam()))
             --print(VICTORY_CONDITION)
+            VICTORY_CONDITION = 30
             if PlayerResource:GetTeamKills(killerEntity:GetTeam()) >= VICTORY_CONDITION then
                 GameRules:SetSafeToLeave( true )
                 GameRules:SetGameWinner( killerEntity:GetTeam() )

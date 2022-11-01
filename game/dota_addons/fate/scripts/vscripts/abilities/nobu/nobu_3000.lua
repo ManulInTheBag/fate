@@ -20,7 +20,7 @@ function nobu_3000:OnSpellStart()
         Timers:RemoveTimer("nobu_shoots")
         self.caster :RemoveModifierByName("modifier_nobu_turnlock")
         self.caster:StopAnimation()
-        StartAnimation(  self.caster, {duration= 1 , activity=ACT_DOTA_CAST_ABILITY_4, rate= 1})
+        --StartAnimation(  self.caster, {duration= 1 , activity=ACT_DOTA_CAST_ABILITY_4, rate= 1})
     end
     for i=1,5 do 
         local gun_spawn = self.caster:GetAbsOrigin() + self.caster:GetForwardVector() *RandomInt(-200,200)
@@ -222,7 +222,9 @@ function nobu_3000:OnProjectileHit_ExtraData(target, location, data)
         DoDamage(hCaster, target, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
         target:EmitSound("nobu_shot_impact_"..math.random(1,2))
     end
- 
+    if( hCaster:FindModifierByName("modifier_nobu_dash_dmg") ) then
+        DoDamage(hCaster, target, hCaster:FindAbilityByName("nobu_dash"):GetSpecialValueFor("attr_damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
+    end
     if(hCaster.ISDOW) then
         local gun_spawn = hCaster:GetAbsOrigin()
         local random1 = RandomInt(25, 150) -- position of gun spawn

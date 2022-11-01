@@ -1757,6 +1757,15 @@ function IsTeamWiped(hero)
     return true
 end
 
+function IsFFA() 
+    if _G.GameMap == "fate_ffa" then
+        return true
+    else
+        return false
+    end
+
+end
+
 function ApplyPurge(target)
     for k,v in pairs(softdispellable) do
         if v == "modifier_courage_stackable_buff" then

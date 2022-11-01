@@ -26,7 +26,7 @@ function nobu_combo:OnSpellStart()
     hCaster:AddNewModifier(hCaster, self, "modifier_merlin_self_pause", {Duration = 1.5}) 
     hCaster.target_enemy = self:GetCursorTarget()
     self.target_enemy = self:GetCursorTarget()
-    StartAnimation(hCaster, {duration=1.5 , activity=ACT_DOTA_CAST_ABILITY_6, rate= 0.5})
+    StartAnimation(hCaster, {duration=1.5 , activity=ACT_DOTA_CAST_CHAOS_METEOR_ORB, rate= 0.5})
     self.particle_kappa = ParticleManager:CreateParticle("particles/nobu/nobu_combo_smoke_red.vpcf", PATTACH_ABSORIGIN_FOLLOW, hCaster)
      hCaster.target_enemy:AddNewModifier(hCaster, self, "modifier_nobu_combo_mark", {duration = self:GetSpecialValueFor("run_duration")} )
      EmitGlobalSound("nobu_combo_cast") 
@@ -169,7 +169,19 @@ function nobu_combo:OnProjectileHit(target, location )
     end
     local hCaster = self:GetCaster()
     local damage = hCaster:FindAbilityByName("nobu_guns"):GetGunsDamage() * self:GetSpecialValueFor("dmg_mod")
-    DoDamage(hCaster, target, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+    if IsDivineServant(target) and hCaster.UnifyingAcquired then 
+        damage= damage*1.2
+    end
+    target:EmitSound("nobu_shot_impact_"..math.random(1,2))
+     if hCaster.is3000Acquired then
+        DoDamage(hCaster, target, damage*0.85, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+        DoDamage(hCaster, target, damage*0.15, DAMAGE_TYPE_PURE, 0, self, false)
+    else
+        DoDamage(hCaster, target, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+    end
+    if( hCaster:FindModifierByName("modifier_nobu_dash_dmg") ) then
+        DoDamage(hCaster, target, hCaster:FindAbilityByName("nobu_dash"):GetSpecialValueFor("attr_damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
+    end
     return true 
 end
 

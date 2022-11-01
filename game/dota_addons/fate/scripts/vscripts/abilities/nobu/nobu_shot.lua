@@ -49,7 +49,7 @@ function nobu_shot:OnSpellStart()
                 Origin = origin,
                 Speed = 10000,
                 Facing = facing,
-                AoE = aoe,
+                AoE = aoe*2,
                 Range = 1000,
             } )
         
@@ -66,7 +66,7 @@ end
 
 function nobu_shot:Shoot(keys)
     local projectileTable = {
-        EffectName = "particles/nobu/nobu_bullet.vpcf" ,
+        EffectName = "particles/nobu/nobu_bullet_q.vpcf" ,
         Ability = self,
         vSpawnOrigin = keys.Origin,
         vVelocity = keys.Facing * keys.Speed,
@@ -100,7 +100,6 @@ function nobu_shot:OnProjectileHit(target, location )
     target:AddNewModifier(hCaster, self, "modifier_nobu_slow", {Duration = self:GetSpecialValueFor("duration")})  
     if( hCaster:FindModifierByName("modifier_nobu_dash_dmg") ) then
         DoDamage(hCaster, target, hCaster:FindAbilityByName("nobu_dash"):GetSpecialValueFor("attr_damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
-        hCaster:RemoveModifierByName("modifier_nobu_dash_dmg")
     end
     if( hCaster.NobuActionAcquired and not  hCaster:FindModifierByName("modifier_nobu_turnlock")) then
         local knockback = { should_stun = true,
@@ -135,7 +134,7 @@ function nobu_shot:OnProjectileHit(target, location )
             Range = 1000,
         },  gun_spawn )
     end
-    return true 
+    return false 
 end
 
 
@@ -149,7 +148,7 @@ function nobu_shot:EShot(keys, position)
     self.target = nil
      if( targets[1] ~= nil) then
         self.target  = targets[1]:GetAbsOrigin()
-        
+        self.target_enemy = targets[1]
      end    
 
      
@@ -158,10 +157,10 @@ function nobu_shot:EShot(keys, position)
 	self.Dummy:SetAbsOrigin(position)
 
     if(self.target == nil) then 
-        self.target = self.caster:GetForwardVector()*1000
+        self.target = self.caster:GetForwardVector()*1000 + self.caster:GetAbsOrigin()
         self.Dummy:SetForwardVector( self.caster:GetForwardVector())
     else
-        self.Dummy:SetForwardVector((  self.target- position ):Normalized())
+        self.Dummy:SetForwardVector((  self.target - position ):Normalized())
     end
  
 
@@ -176,7 +175,8 @@ function nobu_shot:EShot(keys, position)
  
 
 	Timers:CreateTimer(0.4, function()
-        dummy:SetForwardVector((  self.target - position ):Normalized())
+         
+        dummy:SetForwardVector((    self.target_enemy:GetAbsOrigin() - position ):Normalized())
         local velocity = dummy:GetForwardVector()
         dummy:EmitSound("nobu_shoot_1")
         velocity.z = 0
