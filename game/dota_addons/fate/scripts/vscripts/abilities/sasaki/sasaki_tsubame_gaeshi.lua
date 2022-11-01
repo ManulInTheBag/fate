@@ -49,8 +49,13 @@ function sasaki_tsubame_gaeshi:OnAbilityPhaseStart()
 end
 
 function sasaki_tsubame_gaeshi:OnSpellStart()
-	local caster = self:GetCaster()
 	local target = self:GetCursorTarget()
+	self:TsubameGaeshi(target)
+end
+
+function sasaki_tsubame_gaeshi:TsubameGaeshi(target)
+	local caster = self:GetCaster()
+	--local target = self:GetCursorTarget()
 	local enhanced = false
 	local delay = 0.5
 	local delay_per_slash = 0.2

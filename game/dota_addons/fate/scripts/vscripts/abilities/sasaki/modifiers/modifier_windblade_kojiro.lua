@@ -40,7 +40,7 @@ if IsServer() then
 			skip_target = false
 			if target_search[i]:HasModifier("modifier_windblade_hit_marker") or target_search[i]:HasModifier("modifier_wind_protection_passive") then
 				local stacks = target_search[i]:GetModifierStackCount("modifier_windblade_hit_marker", caster)
-				if stacks >= 6 or target_search[i]:HasModifier("modifier_wind_protection_passive") then 
+				if stacks >= 2 or target_search[i]:HasModifier("modifier_wind_protection_passive") then 
 					skip_target = true 
 				end			
 			end
@@ -51,7 +51,7 @@ if IsServer() then
 				FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)				
 
 				caster:PerformAttack(target_search[i], true, true, true, true, false, false, false)
-				DoDamage(caster, target_search[i], damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+				DoDamage(caster, target_search[i], damage, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
 				self.RemainingHits = self.RemainingHits - 1
 
 				if caster:HasModifier("modifier_sasaki_kappa") then

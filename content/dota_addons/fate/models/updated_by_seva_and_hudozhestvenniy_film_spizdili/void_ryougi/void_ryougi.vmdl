@@ -1,0 +1,154 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc31:version{165d48dd-8adc-4f1d-abf7-4992e04ad577} -->
+{
+	rootNode = 
+	{
+		_class = "RootNode"
+		children = 
+		[
+			{
+				_class = "RenderMeshList"
+				children = 
+				[
+					{
+						_class = "RenderMeshFile"
+						name = "1"
+						filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/void_ryougi/void_ryougi.fbx"
+						import_scale = 1.0
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = 
+							[
+								"Object008",
+							]
+						}
+					},
+				]
+			},
+			{
+				_class = "MaterialGroupList"
+				children = 
+				[
+					{
+						_class = "DefaultMaterialGroup"
+						remaps = 
+						[
+							{
+								from = "imported material 02.vmat"
+								to = "materials/updated_by_seva_and_hudozhestvenniy_film_spizdili/void_ryougi/void_ryougi_1.vmat"
+							},
+							{
+								from = "imported material 03.vmat"
+								to = "materials/updated_by_seva_and_hudozhestvenniy_film_spizdili/void_ryougi/void_ryougi_2.vmat"
+							},
+							{
+								from = "imported material 04.vmat"
+								to = "materials/updated_by_seva_and_hudozhestvenniy_film_spizdili/void_ryougi/void_ryougi_3.vmat"
+							},
+						]
+						use_global_default = false
+						global_default_material = ""
+					},
+				]
+			},
+			{
+				_class = "AnimationList"
+				children = 
+				[
+					{
+						_class = "AnimFile"
+						name = "void_ryougi"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/void_ryougi/void_ryougi.fbx"
+						import_bone_scales = false
+						start_frame = 365
+						end_frame = 392
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "void_ryougi1"
+						activity_name = "ACT_DOTA_CAST_ABILITY_1"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/void_ryougi/void_ryougi.fbx"
+						import_bone_scales = false
+						start_frame = 462
+						end_frame = 516
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "void_ryougi_copy"
+						activity_name = "ACT_DOTA_IDLE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/void_ryougi/void_ryougi.fbx"
+						import_bone_scales = false
+						start_frame = 370
+						end_frame = 381
+						framerate = 5.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "void_ryougi1_copy"
+						activity_name = "ACT_DOTA_CAST_ABILITY_2"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/void_ryougi/void_ryougi.fbx"
+						import_bone_scales = false
+						start_frame = 480
+						end_frame = 516
+						framerate = -1.0
+						reverse = false
+					},
+				]
+				default_root_bone_name = ""
+			},
+		]
+		model_archetype = ""
+		primary_associated_entity = ""
+		anim_graph_name = ""
+	}
+}

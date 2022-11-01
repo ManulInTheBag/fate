@@ -3060,7 +3060,7 @@
 		//"DOTA_Tooltip_Ability_sasaki_heart_of_harmony_Note2"		"For 0.5 seconds after counterattack, Assassin cleanses any negative effects on himself and benefits from damage reduction."
 
 		"DOTA_Tooltip_Ability_sasaki_windblade"						"Windblade"
-		"DOTA_Tooltip_ability_sasaki_windblade_Description"			"Kojiro swirls his blade to create slicing wind around him, pushing all enemies away from him, and then proceed to attack each of them randomly up to 6 slashes each enemy."
+		"DOTA_Tooltip_ability_sasaki_windblade_Description"			"Kojiro swirls his blade to create slicing wind around him, pushing all enemies away from him, and then proceed to attack each of them randomly up to 2 slashes each enemy."
 		//\n\n<font color='#79C7F0'>Focus</font>:Increase the number of slashes (does not increase maximum number of slashes) and causes them to stun the enemy on each attack. Kojiro becomes invulnerable and disjoints all projectile while slashing.\n\nKojiro is <font color='#FF5555'>Exhausted</font> when this ability is used.
 		"DOTA_Tooltip_ability_sasaki_windblade_Lore"				"A swing from the wanderer's blade brings forward a squall."
 		"DOTA_Tooltip_ability_sasaki_windblade_radius"				"Radius:"
@@ -3092,12 +3092,11 @@
 		"DOTA_Tooltip_Ability_sasaki_quickdraw_exhausted_duration"	"Exhausted Duration:"
 
 		"DOTA_Tooltip_Ability_false_assassin_tsubame_mai"				"Combo: The Swallow Dance"
-		"DOTA_Tooltip_ability_false_assassin_tsubame_mai_Description"	"<font color='#58ACFA'>Combo Requirement : 30 AGI and STR</font>\n<font color='#58ACFA'>Combo Sequence : Q-W in 2 seconds</font>\nKojiro prepares for his ultimate technique, which activates on next base attack or upon executing counter. Upon activation, Kojiro teleports to the rear of attacker, <font color='#FF3399'>knocking it into air</font>, then starts attacking it and nearby enemies with increased attackspeed for next 5 seconds."
+		"DOTA_Tooltip_ability_false_assassin_tsubame_mai_Description"	"<font color='#58ACFA'>Combo Requirement : 30 AGI and STR</font>\n<font color='#58ACFA'>Combo Sequence : Q-W in 2 seconds</font>\nKojiro prepares for his ultimate technique, which activates on next base attack or upon executing counter. Upon activation, Kojiro teleports to the rear of attacker, <font color='#FF3399'>knocking it into air</font>, then performs 5 slashes and Tsubame Gaeshi to the target."
 		"DOTA_Tooltip_ability_false_assassin_tsubame_mai_Lore"			"The swordplay ultimatum unravels."
 		"DOTA_Tooltip_ability_false_assassin_tsubame_mai_duration"		"COUNTER DURATION:"
 		"DOTA_Tooltip_ability_false_assassin_tsubame_mai_threshold"		"COUNTER THRESHOLD:"
 		"DOTA_Tooltip_Ability_false_assassin_tsubame_mai_slash_amount"	"SLASH AMOUNT:"
-		"DOTA_Tooltip_ability_false_assassin_tsubame_mai_slash_damage_percentage"	"%SLASH DAMAGE:"
 
 		"DOTA_Tooltip_Ability_false_assassin_attribute_ganryu"					"Attribute: Ganryu"
 		"DOTA_Tooltip_ability_false_assassin_attribute_ganryu_Description"		"Reduces Tsubame Gaeshi's cast point by %slash_reduc% seconds. Each slash from Tsubame Gaeshi gains increased damage based on Kojiro's attack. Kojiro becomes invulnerable and untargetable while performing Tsubame Gaeshi. Using Quickdraw refreshes the cooldown of Tsubame Gaeshi.\nIf Kojiro is <font color='#79C7F0'>Focused</font>, Tsubame Gaeshi will pierce invulnerability and Avalon."
@@ -6284,7 +6283,7 @@
 		"DOTA_Tooltip_ability_ryougi_ying_yang_Note0"		"Can be used while stunned."
 
 		"DOTA_Tooltip_ability_ryougi_mystic_eyes"			"Mystic Eyes of Death Perception"
-		"DOTA_Tooltip_ability_ryougi_mystic_eyes_Description"	"<font color='#58ACFA'>Passive:</font> each knife slash or thrown knife deals additional physical damage equal to 2x Shiki's attack damage.\n<font color='#58ACFA'>Active:</font> Shiki activates her Mystic Eyes for %duration% seconds. While they are active, each different move except for Double Belfry - Kick cuts one line. Shiki can't continue to cut lines of one enemy with similar moves.\nWhen line is cut, Shiki restores %mana_restore% mana and enemy recieves %immediate_damage%%  of it's maximum health as pure damage and recieves 1 stack of debuff for %line_duration% seconds.\nWhile this debuff persists, it softloks target's health for %health_percent%%  of it's maximum health per stack. If it's higher than that, it's health will slowly decay.\nWhen debuff reaches 4, 8, or 12 stacks, enemy will be locked for %stun_duration% seconds.\nWhen debuff reaches 10 stacks, target dies instantly."
+		"DOTA_Tooltip_ability_ryougi_mystic_eyes_Description"	"<font color='#58ACFA'>Passive:</font> each knife slash or thrown knife deals additional physical damage equal to 2x Shiki's attack damage.\n<font color='#58ACFA'>Active:</font> Shiki activates her Mystic Eyes for %duration% seconds. While they are active, each different move except for Double Belfry - Kick cuts one line. Shiki can't continue to cut lines of one enemy with similar moves.\nWhen line is cut, Shiki restores %mana_restore% mana and enemy recieves %immediate_damage%%  of it's maximum health as pure damage and recieves 1 stack of debuff for %line_duration% seconds.\nWhile this debuff persists, it softloks target's health for %health_percent%%  of it's maximum health per stack. If it's higher than that, it's health will slowly decay.\nWhen debuff reaches 4, 8, or 12 stacks, enemy will be locked for %stun_duration% seconds.\nWhen debuff reaches 10 stacks, target dies. Horribly."
 		"DOTA_Tooltip_ability_ryougi_mystic_eyes_Note0"			"Health decay is not considered damage."
 		"DOTA_Tooltip_ability_ryougi_mystic_eyes_bonus_vision"	"Attribute bonus vision radius:"
 		"DOTA_Tooltip_ability_ryougi_mystic_eyes_true_sight_range"			"Attribute true sight range:"

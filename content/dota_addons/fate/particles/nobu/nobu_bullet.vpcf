@@ -300,5 +300,8 @@
 			m_ChildRef = resource:"particles/units/heroes/hero_sniper/sniper_assassinate_barrel_smoke.vpcf"
 			m_bDisableChild = true
 		},
+		{
+			m_ChildRef = resource:"particles/nobu/nobu_trail_attempt.vpcf"
+		},
 	]
 }

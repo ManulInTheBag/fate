@@ -3,6 +3,7 @@ LinkLuaModifier("modifier_ryougi_mystic_eyes_vision", "abilities/ryougi/ryougi_m
 LinkLuaModifier("modifier_ryougi_combo_window", "abilities/ryougi/ryougi_mystic_eyes", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_ryougi_lines", "abilities/ryougi/ryougi_mystic_eyes", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_vision_provider", "abilities/general/modifiers/modifier_vision_provider", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_ryougi_ik", "abilities/ryougi/ryougi_mystic_eyes", LUA_MODIFIER_MOTION_NONE)
 
 ryougi_mystic_eyes = class({})
 
@@ -72,18 +73,90 @@ function ryougi_mystic_eyes:CutLine(enemy, line_name, is_fan)
 		if not modifier.lines[line_name] then
 			modifier.lines[line_name] = true
 			if modifier:GetStackCount() == 9 then
-				enemy:AddNewModifier(caster, self, "modifier_ryougi_lines", {duration = 120})
-				enemy:Kill(self, caster)
+				--enemy:AddNewModifier(caster, self, "modifier_ryougi_lines", {duration = 120})
+				self:LastArc(enemy)
 			else
 				enemy:AddNewModifier(caster, self, "modifier_ryougi_lines", {duration = self:GetSpecialValueFor("line_duration")})
+				modifier:SetStackCount(modifier:GetStackCount() + 1)
 			end
-			modifier:SetStackCount(modifier:GetStackCount() + 1)
+			--modifier:SetStackCount(modifier:GetStackCount() + 1)
 			if modifier:GetStackCount()%4 == 0 then
 				giveUnitDataDrivenModifier(caster, enemy, "locked", self:GetSpecialValueFor("stun_duration"))
 				--enemy:AddNewModifier(caster, self, "modifier_stunned", {duration = self:GetSpecialValueFor("stun_duration")})
 			end
 		end
 	end
+end
+
+function ryougi_mystic_eyes:LastArc(enemy)
+	local caster = self:GetCaster()
+
+	local player_id = enemy:GetPlayerOwnerID()
+	local player = PlayerResource:GetPlayer(player_id)
+
+	CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="ryougi_wind_start"})
+
+	Timers:CreateTimer(1.5, function()
+		CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="ryougi_ik_start"})
+	end)
+
+	local hParticle3 = ParticleManager:CreateParticleForPlayer("particles/ryougi/ryougi_afterimages_2.vpcf",  PATTACH_ABSORIGIN, enemy, player)
+	ParticleManager:SetParticleControl(hParticle3, 0, GetGroundPosition(enemy:GetAbsOrigin() + enemy:GetForwardVector()*300, enemy))
+	ParticleManager:SetParticleShouldCheckFoW(hParticle3, false)
+
+	enemy:AddNewModifier(caster, self, "modifier_ryougi_ik", {duration = 10})
+
+	local hParticle4 = ParticleManager:CreateParticleForPlayer("particles/ryougi/ryougi_flash.vpcf",  PATTACH_ABSORIGIN, enemy, player)
+	ParticleManager:SetParticleControl(hParticle4, 0, enemy:GetAbsOrigin())
+	ParticleManager:SetParticleShouldCheckFoW(hParticle4, false)
+
+	Timers:CreateTimer(0.6, function()
+		ParticleManager:DestroyParticle(hParticle4, false)
+		ParticleManager:ReleaseParticleIndex(hParticle4)
+	end)
+
+	Timers:CreateTimer(3.0, function()
+		CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="ryougi_chimes"})
+	end)
+
+	Timers:CreateTimer(5.1, function()
+		ParticleManager:DestroyParticle(hParticle3, true)
+		ParticleManager:ReleaseParticleIndex(hParticle3)
+
+		local hParticle = ParticleManager:CreateParticleForPlayer("particles/ryougi/ryougi_afterimages.vpcf",  PATTACH_ABSORIGIN, enemy, player)
+		ParticleManager:SetParticleControl(hParticle, 0, GetGroundPosition(enemy:GetAbsOrigin() + enemy:GetForwardVector()*200, enemy))
+		ParticleManager:SetParticleShouldCheckFoW(hParticle, false)
+		ParticleManager:DestroyParticle(hParticle, false)
+		ParticleManager:ReleaseParticleIndex(hParticle)
+		CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="ryougi_slash"})
+
+		Timers:CreateTimer(0.2, function()
+			local hParticle2 = ParticleManager:CreateParticleForPlayer("particles/ryougi/ryougi_flash.vpcf",  PATTACH_ABSORIGIN, enemy, player)
+			ParticleManager:SetParticleControl(hParticle2, 0, enemy:GetAbsOrigin())
+			ParticleManager:SetParticleShouldCheckFoW(hParticle2, false)
+			Timers:CreateTimer(0.6, function()
+				ParticleManager:DestroyParticle(hParticle2, false)
+				ParticleManager:ReleaseParticleIndex(hParticle2)
+				hParticle = ParticleManager:CreateParticleForPlayer("particles/ryougi/ryougi_afterimages_3.vpcf",  PATTACH_ABSORIGIN, enemy, player)
+				ParticleManager:SetParticleControl(hParticle, 0, GetGroundPosition(enemy:GetAbsOrigin() - enemy:GetForwardVector()*300, enemy))
+				ParticleManager:SetParticleShouldCheckFoW(hParticle, false)
+				Timers:CreateTimer(0.9, function()
+					ParticleManager:DestroyParticle(hParticle, false)
+					ParticleManager:ReleaseParticleIndex(hParticle)
+				end)
+			end)
+			Timers:CreateTimer(0.9, function()
+				CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="ryougi_ik_end"})
+				CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="ryougi_wind_end"})
+			end)
+		end)
+		--[[Timers:CreateTimer(1.3, function()
+			enemy:Kill(self, caster)
+		end)]]
+		Timers:CreateTimer(1.8, function()
+			enemy:Kill(self, caster)
+		end)
+	end)
 end
 
 modifier_ryougi_combo_window = class({})
@@ -225,4 +298,18 @@ function modifier_ryougi_lines:OnIntervalThink()
 			self.parent:SetHealth(math.max(hp - FrameTime()*0.1*max_hp*line_count*health_percent/100, active_hp))
 		end
 	end
+end
+
+modifier_ryougi_ik = class({})
+
+function modifier_ryougi_ik:IsHidden() return true end
+
+function modifier_ryougi_ik:CheckState()
+	return { [MODIFIER_STATE_INVULNERABLE] = true,
+			 [MODIFIER_STATE_NO_HEALTH_BAR]	= true,
+			 [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
+			 [MODIFIER_STATE_NOT_ON_MINIMAP] = true,
+			 [MODIFIER_STATE_UNSELECTABLE] = true,
+			 [MODIFIER_STATE_STUNNED] = true,
+			 [MODIFIER_STATE_COMMAND_RESTRICTED] = true}
 end

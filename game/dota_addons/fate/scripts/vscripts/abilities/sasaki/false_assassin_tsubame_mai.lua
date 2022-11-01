@@ -44,7 +44,7 @@ function modifier_tsubame_mai:OnTakeDamage(args)
 	-- if caster is alive and damage is above threshold, do something
 	if caster:GetHealth() ~= 0 and (caster:GetAbsOrigin()-attacker:GetAbsOrigin()):Length2D() < 3000 and not attacker:IsInvulnerable() and caster:GetTeam() ~= attacker:GetTeam() then
 		caster:AddNewModifier(caster, self:GetAbility(), "modifier_tsubame_mai_omnislash", {duration = 5})
-		caster:FindModifierByName("modifier_tsubame_mai_omnislash"):Omnislash(attacker)
+		caster:FindModifierByName("modifier_tsubame_mai_omnislash"):TsubameMai(attacker)
 	end
 end
 
@@ -52,12 +52,81 @@ function modifier_tsubame_mai:OnAttackLanded(args)
 	if args.attacker ~= self:GetParent() then return end
 	self.parent = self:GetParent()
 	self.parent:AddNewModifier(caster, self:GetAbility(), "modifier_tsubame_mai_omnislash", {duration = 5})
-	self.parent:FindModifierByName("modifier_tsubame_mai_omnislash"):Omnislash(args.target)
+	self.parent:FindModifierByName("modifier_tsubame_mai_omnislash"):TsubameMai(args.target)
 end
 
 modifier_tsubame_mai_omnislash = class({})
 
 function modifier_tsubame_mai_omnislash:IsHidden() return true end
+
+function modifier_tsubame_mai_omnislash:TsubameMai(initialtarget)
+	local caster = self:GetParent()
+	local target = initialtarget
+	local ability = self:GetAbility()
+
+	local dummy = CreateUnitByName("godhand_res_locator", caster:GetAbsOrigin(), false, caster, caster, caster:GetTeamNumber())
+	dummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1) 
+	dummy:AddNewModifier(caster, nil, "modifier_phased", {duration=4})
+	dummy:AddNewModifier(caster, nil, "modifier_kill", {duration=4})
+
+	--[[local tgabil = caster:FindAbilityByName("sasaki_tsubame_gaeshi")
+	keys.Damage = tgabil:GetLevelSpecialValueFor("damage", tgabil:GetLevel()-1)
+	keys.LastDamage = tgabil:GetLevelSpecialValueFor("lasthit_damage", tgabil:GetLevel()-1)
+	keys.StunDuration = tgabil:GetLevelSpecialValueFor("stun_duration", tgabil:GetLevel()-1)
+	keys.GCD = 0]]
+
+	local diff = (target:GetAbsOrigin() - caster:GetAbsOrigin() ):Normalized() 
+	caster:SetAbsOrigin(target:GetAbsOrigin() - diff*100)
+	caster:AddNewModifier(caster, caster, "modifier_camera_follow", {duration = 1.0}) 
+	ApplyAirborne(caster, target, 2.0)
+	giveUnitDataDrivenModifier(caster, caster, "jump_pause", 2.8)
+	caster:RemoveModifierByName("modifier_tsubame_mai")
+	EmitGlobalSound("FA.Owarida")
+	EmitGlobalSound("FA.Quickdraw")
+	CreateSlashFx(caster, target:GetAbsOrigin()+Vector(300, 300, 0), target:GetAbsOrigin()+Vector(-300,-300,0))
+
+	local tsubame = caster:FindAbilityByName("sasaki_tsubame_gaeshi")
+	--tsubame:EndCooldown()
+
+	local slashCounter = 0
+	Timers:CreateTimer(0.4, function()
+		if slashCounter == 0 then caster:SetModel("models/development/invisiblebox.vmdl") end
+		if slashCounter == 5 or not caster:IsAlive() then caster:SetModel("models/assassin/asn.vmdl") return end
+		caster:PerformAttack( target, true, true, true, true, false, false, false )
+		CreateSlashFx(caster, target:GetAbsOrigin()+RandomVector(400), target:GetAbsOrigin()+RandomVector(400))
+		caster:SetAbsOrigin(target:GetAbsOrigin()+RandomVector(400))
+		EmitGlobalSound("FA.Quickdraw") 
+
+		slashCounter = slashCounter + 1
+		return 0.2-slashCounter*0.03
+	end)
+
+	Timers:CreateTimer(1.0, function()
+		if caster:IsAlive() and target:IsAlive() then
+			caster:SetAbsOrigin(Vector(caster:GetAbsOrigin().x,caster:GetAbsOrigin().y,target:GetAbsOrigin().z))
+			--ability:ApplyDataDrivenModifier(caster, caster, "modifier_tsubame_mai_tg_cast_anim", {})
+			StartAnimation(caster, {duration=0.4, activity=ACT_DOTA_CAST_ABILITY_1, rate=1})
+			EmitGlobalSound("FA.TGReady")
+			
+			--ExecuteOrderFromTable({
+			--	UnitIndex = caster:entindex(),
+				--TargetIndex = target:entindex(),
+				--AbilityIndex = 5,
+			--	OrderType = DOTA_UNIT_ORDER_STOP,
+			--	Queue = false
+			--})
+			caster:SetForwardVector((target:GetAbsOrigin() - caster:GetAbsOrigin()):Normalized())
+		else
+			caster:RemoveModifierByName("jump_pause")
+		end
+	end)
+
+	Timers:CreateTimer(1.4, function()
+		if caster:IsAlive() and target:IsAlive() then
+			tsubame:TsubameGaeshi(target)
+		end
+	end)
+end
 
 function modifier_tsubame_mai_omnislash:Omnislash(initialtarget)
 	self.parent = self:GetParent()
