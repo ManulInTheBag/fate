@@ -1092,7 +1092,6 @@ function modifier_leonidas_pride_counter:GetPriority()                          
 function modifier_leonidas_pride_counter:CheckState()
     local tState =  {
                         [MODIFIER_STATE_DISARMED] = true,
-                        [MODIFIER_STATE_MUTED]    = true
                     }
     return tState
 end
@@ -1249,9 +1248,6 @@ function leonidas_berserk:OnSpellStart()
 
     EmitSoundOn("Leonidas.Berserk.Cast.1", hCaster)
     --EmitGlobalSound("Leonidas.MultiAttack.Sound")
-
-    local nHpCostPct = hCaster:GetMaxHealth() * self:GetSpecialValueFor("hp_cost_pct") * 0.01
-    hCaster:ModifyHealth(hCaster:GetHealth() - nHpCostPct, self, false, DOTA_DAMAGE_FLAG_NONE)
 end
 
 ---------------------------------------------------------------------------------------------------------------------
@@ -1381,6 +1377,9 @@ function modifier_leonidas_berserk:OnIntervalThink()
                 end
             end
         end
+        --=================================--
+        local nHpCostPct = ( self.hParent:GetMaxHealth() * self.hAbility:GetSpecialValueFor("hp_cost_pct") * 0.01 ) / math.max(self.nPurgeTimes, 1)
+        self.hParent:ModifyHealth(self.hParent:GetHealth() - nHpCostPct, self.hAbility, false, DOTA_DAMAGE_FLAG_NONE)
         --=================================--
         HardCleanse(self.hParent) --NOTE: Fate Mech
         --self.hParent:Purge(false, true, false, true, true) --NOTE: Removed because fate pepegas
@@ -1628,10 +1627,10 @@ function modifier_leonidas_bc_immortal:OnDestroy()
     if IsServer() then
         StopSoundOn(self.sSoundForEmit, self.hParent)
     end
-    if IsServer()
-        and self.hAbility:GetLevel() > 1 then
+    --if IsServer()
+        --and self.hAbility:GetLevel() > 1 then
         self.hParent:AddNewModifier(self.hCaster, self.hAbility, "modifier_leonidas_bc_heal", {duration = self.nPostRegenHPDuration, nRegenPct = self.nPostRegenHPPct})
-    end
+    --end
 end
 
 
@@ -1976,7 +1975,18 @@ end
 
 
 
+--[[
+                local hServerStat = hTarget.ServStat
+                if type(hServerStat) == "table" then
+                    hTarget.ServStat:takeActualDamage(fDamage)
+                    hTarget.ServStat:takeDamageBeforeReduction(fOriginalDamage)
+                    if attackerHero then
+                        attackerHero.ServStat:doActualDamage(fDamage)
+                        attackerHero.ServStat:doDamageBeforeReduction(fOriginalDamage)
+                    end
+                end
 
+]]
 
 
 ---------------------------------------------------------------------------------------------------------------------
@@ -2003,6 +2013,24 @@ function modifier_leonidas_enomotia_shield:DeclareFunctions()
 end
 function modifier_leonidas_enomotia_shield:GetModifierTotal_ConstantBlock(keys)
     if IsServer() then
+        local hModifiers = self.hParent:FindAllModifiersByName(self:GetName()) --NOT CONFIRMED BUT HOPE WORKS
+        if hModifiers[1] ~= self then
+            return
+        end
+
+        local hServerStat = self.hParent.ServStat
+        if type(hServerStat) == "table" then
+            hServerStat:takeActualDamage(keys.damage)
+            hServerStat:takeDamageBeforeReduction(keys.original_damage)
+            if IsNotNull(keys.attacker) then
+                local hAttackerStat = keys.attacker.ServStat
+                if type(hAttackerStat) == "table" then
+                    hAttackerStat:doActualDamage(keys.damage)
+                    hAttackerStat:doDamageBeforeReduction(keys.original_damage)
+                end
+            end
+        end
+
         if self.hParent:HasModifier("modifier_leonidas_bc_immortal") then --NOTE: BASICALY NOT NEED BUT WANNA PREVENT SHOWING DAMAGE VALUES
             return math.ceil(keys.damage) + 1
         end
@@ -2094,19 +2122,11 @@ function modifier_leonidas_enomotia_slow:GetAttributes()                        
 function modifier_leonidas_enomotia_slow:DeclareFunctions()
     local tFunc =   {
                         MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
-                        MODIFIER_PROPERTY_TOOLTIP,
-                        MODIFIER_PROPERTY_TOOLTIP2
                     }
     return tFunc
 end
 function modifier_leonidas_enomotia_slow:GetModifierMoveSpeedBonus_Percentage(keys)
     return self:GetStackCount()
-end
-function modifier_leonidas_enomotia_slow:OnTooltip(keys)
-    return "WTF"
-end
-function modifier_leonidas_enomotia_slow:OnTooltip2(keys)
-    return "WTF2"
 end
 function modifier_leonidas_enomotia_slow:OnCreated(tTable)
     self.hCaster  = self:GetCaster()
@@ -2294,8 +2314,8 @@ function leonidas_enomotia_combo:OnSpellStart()
                                 ParticleManager:SetParticleControl(_nShieldsPFX, 0, hCaster:GetAttachmentOrigin(hCaster:ScriptLookupAttachment("ATTACH_HITLOC")))
                                 ParticleManager:SetParticleControl(_nShieldsPFX, 1, vPFX_SpawnOrigin)
                                 ParticleManager:SetParticleControl(_nShieldsPFX, 2, vPFX_MoveToOrigin)
-                                ParticleManager:SetParticleControl(_nShieldsPFX, 3, Vector(nPFX_AnimLoopTime, ( nShowShields / nShieldRows ), nShieldRows))
-                                ParticleManager:SetParticleControl(_nShieldsPFX, 4, Vector(vPFX_MoveSpeed, nRadius, ( nShowShields * 0.1 ) / nPFX_AnimStartTime ))
+                                ParticleManager:SetParticleControl(_nShieldsPFX, 3, Vector(nPFX_AnimStartTime + nPFX_AnimLoopTime, ( nShowShields / nShieldRows ), nShieldRows))
+                                ParticleManager:SetParticleControl(_nShieldsPFX, 4, Vector(vPFX_MoveSpeed, nRadius, ( nShowShields * nPFX_AnimStartTime * 0.1 ) ))
         --=================================--
         --=================================--
         --=================================--
@@ -2375,6 +2395,17 @@ function leonidas_enomotia_combo:OnSpellStart()
 
     else --(1/nPFX_AnimLoopTime)
         --EmitSoundOn("Leonidas.Enomotia.Combo.Cast.2", hCaster)
+
+        local hBerserkModifier = hCaster:FindModifierByName("modifier_leonidas_berserk") --BONUS SUGGESTION BY ENG PLAYER
+        if IsNotNull(hBerserkModifier) then
+            local nBonusBerserkDuration =   nPFX_AnimStartTime +
+                                            nPFX_AnimLoopTime +
+                                            nPFX_AnimReleaseTime +
+                                            nShieldDuration
+
+            hBerserkModifier:SetDuration(nBonusBerserkDuration, true)
+        end
+
         EmitGlobalSound("Leonidas.Enomotia.Combo.Cast.2")
         --=================================--
         local nShowShields = nShieldCount - 12
@@ -2385,8 +2416,8 @@ function leonidas_enomotia_combo:OnSpellStart()
                                 ParticleManager:SetParticleControl(_nShieldsPFX, 0, hCaster:GetAttachmentOrigin(hCaster:ScriptLookupAttachment("ATTACH_HITLOC")))
                                 ParticleManager:SetParticleControl(_nShieldsPFX, 1, vPFX_SpawnOrigin)
                                 ParticleManager:SetParticleControl(_nShieldsPFX, 2, vPFX_MoveToOrigin)
-                                ParticleManager:SetParticleControl(_nShieldsPFX, 3, Vector(nPFX_AnimLoopTime, ( nShowShields / nShieldRows ), nShieldRows))
-                                ParticleManager:SetParticleControl(_nShieldsPFX, 4, Vector(vPFX_MoveSpeed, nRadius, ( nShowShields * 0.1 ) / nPFX_AnimStartTime ))
+                                ParticleManager:SetParticleControl(_nShieldsPFX, 3, Vector(nPFX_AnimStartTime + nPFX_AnimLoopTime, ( nShowShields / nShieldRows ), nShieldRows))
+                                ParticleManager:SetParticleControl(_nShieldsPFX, 4, Vector(vPFX_MoveSpeed, nRadius, ( nShowShields * nPFX_AnimStartTime * 0.1 ) ))
         --=================================--
         Timers:CreateTimer(nPFX_AnimStartTime, function()
             if IsNotNull(hCaster)
@@ -2662,6 +2693,8 @@ function modifier_leonidas_enomotia_combo:OnCreated(tTable)
 
         self._nShieldsPFX = tTable._nShieldsPFX --NOTE: Idk using -1 will be fine or not so just not using
 
+        self.vRememberLocFixNeronaAndEtc = self.hParent:GetAbsOrigin()
+
         self.nThinkInterval = 0.03
         self:StartIntervalThink(self.nThinkInterval)
     end
@@ -2674,6 +2707,11 @@ function modifier_leonidas_enomotia_combo:OnIntervalThink()
         local vCasterGnd = GetGroundPosition(self.hParent:GetAbsOrigin(), self.hParent)
 
         self.hAbility:CreateVisibilityNode(vCasterGnd, self.nRadius, self.nThinkInterval)
+
+        local nDistanceFix = GetDistance(self.vRememberLocFixNeronaAndEtc, vCasterGnd)
+        if nDistanceFix > 0 and nDistanceFix < 1500 then
+            self.hParent:SetAbsOrigin(self.vRememberLocFixNeronaAndEtc)
+        end
     end
 end
 function modifier_leonidas_enomotia_combo:OnDestroy()

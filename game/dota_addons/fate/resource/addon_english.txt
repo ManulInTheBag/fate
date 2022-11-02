@@ -2,7 +2,120 @@
 {
 	"Language"		"English"
 	"Tokens"
-	{		
+	{
+
+		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		////////////ANIME HERO TEST LOCALIZE//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		//"AHD_" //Suffix requred for safe translate
+		"Refresh_Msg"								"Hero Refreshed"
+		"LevelUp_Msg"								"Hero Levelled Up"
+		"MaxLevel_Msg"								"Hero Maxed Out"
+		"FreeSpellsOn_Msg"							"Free Spells: On"
+		"FreeSpellsOff_Msg"							"Free Spells: Off"
+		"InvulnerabilityOn_Msg"						"Invulnerability: On"
+		"InvulnerabilityOff_Msg"					"Invulnerability: Off"
+		"SpawnAlly_Msg"								"Ally Spawned"
+		"MaxAllies_Msg"								"Can't spawn more allies"
+		"SpawnEnemy_Msg"							"Enemy Spawned"		
+		"MaxEnemies_Msg"							"Can't spawn more enemies"
+		"LevelUpEnemy_Msg"							"Enemies Levelled Up"
+		"MaxLevelEnemy_Msg"							"Maxed Enemy Levels"
+		"SpawnDummyTarget_Msg"						"Dummy Target Spawned"
+		"RemoveSpawnedUnits_Msg"					"Removed Spawned Units"
+		"LaneCreepsOn_Msg"							"Lane Creeps: On"
+		"LaneCreepsOff_Msg"							"Lane Creeps: Off"		
+
+		"DemoOptions_MinimizeButton"				"Demo Options"
+		"DemoOptions_UnMinimizeButton"				"  >&#xD;&#xD;&#xD;&#xD;  >"
+		"HeroDemo_ButtonCategory"					"Hero Demo"
+		"Hero_ButtonCategory"						"Hero"
+		"Spawn_ButtonCategory"						"Spawn"
+		"Misc_ButtonCategory"						"Customize"
+		"Playback_ButtonCategory"					""
+		"Global_ButtonCategory"						"Global Settings"
+		"Map_ButtonCategory"						"Map"
+
+		"SpawnCreeps_Button"						"Creep Waves"
+		"SpawnCreepsOn_Msg"							"Creep Waves: On"
+		"SpawnCreepsOff_Msg"						"Creep Waves: Off"
+		"SpawnSingleCreepWave_Button"				"+"
+		"SpawnSingleCreepWave_Tooltip"				"Spawn Single Creep Wave"
+
+		"TowersEnabled_Button"						"Towers"
+		"TowersEnabledOn_Msg"						"Towers: On"
+		"TowersEnabledOff_Msg"						"Towers: Off"
+
+		"Refresh_Button"							"Refresh"
+		"LevelUp_Button"							"Level Up"
+		"MaxLevel_Button"							"Level to Max"
+		"UltraMaxLevel_Button"						"+"
+		"UltraMaxLevel_Tooltip"						"Level to 30 with Talents, Scepter, and Shard"
+		"FreeSpells_Button"							"Free Spells"
+		"CombatLog_Button"							"Combat Log"
+		"Invulnerability_Button"					"Invulnerability"
+		"Reset_Button"								"Reset"
+		"InvulnOn_Button"							"Invuln On"
+		"InvulnOff_Button"							"Invuln Off"
+
+		"SelectHero_Button"							"Choose Enemy Hero"
+		"LevelUpEnemy_Button"						"Level Up Enemy"
+		"MaxLevelEnemy_Button"						"Level Enemy To Max"
+
+		"AHD_SpawnToTeam_2"							"TO TEAM: 1"
+		"AHD_SpawnToTeam_3"							"TO TEAM: 2"
+		"AHD_SpawnToTeam_6"							"TO TEAM: 3"
+		"AHD_SpawnToTeam_7"							"TO TEAM: 4"
+		"AHD_SpawnToTeam_8"							"TO TEAM: 5"
+		"AHD_SpawnToTeam_9"							"TO TEAM: 6"
+		"AHD_SpawnToTeam_10"						"TO TEAM: 7"
+		"AHD_SpawnToTeam_11"						"TO TEAM: 8"
+		"AHD_SpawnToTeam_12"						"TO TEAM: 9"
+		"AHD_SpawnToTeam_13"						"TO TEAM: 10"
+
+		"SelectAllyHero_Button"						"Choose Allied Hero"
+		"LevelUpAlly_Button"						"Level Up Allies"
+		"MaxLevelAlly_Button"						"Level Allies To Max"
+
+		"DummyTarget_Button"						"+ Dummy Target"
+		"RemoveSpawns_Button"						"Remove"
+		"SelectCosmetics_Button"					"Change Loadout"
+		"ChangeHero_Button"							"Change Hero"
+		"PauseDemo_Button"							"Pause"
+		"QuitDemo_Button"							"Quit"
+
+		"Runes_ButtonCategory"						"RUNES"
+		"RuneSpawn_DoubleDamage_Button"				"Double Damage"
+		"RuneSpawn_Haste_Button"					"Haste"
+		"RuneSpawn_Illusion_Button"					"Illusion"
+		"RuneSpawn_Invisibility_Button"				"Invisibility"
+		"RuneSpawn_Regeneration_Button"				"Regeneration"
+		"RuneSpawn_Arcane_Button"					"Arcane"
+
+		"NewSpawn_ButtonCategory"					"UNITS"
+		"SpawnUnits_ButtonCategory"					"SPAWN"
+		"EditUnits_ButtonCategory"					"EDIT SELECTED UNITS"
+
+		"LevelUpSelectedHeroes_Button"				"LVL UP"
+		"MaxLevelUpSelectedHeroes_Button"			"LVL MAX"
+		"ScepterSelectedHeroes_Button"				"SCEPTER"
+		"ShardSelectedHeroes_Button"				"SHARD"
+
+		"ChooseHero_Button"							"Spawning Hero"
+		"SpawnEnemyHero_Button"						"ENEMY"
+		"SpawnAllyHero_Button"						"ALLY"
+
+		"CombatLog_Button"							"Combat Log"
+		"AutoSkill_Button"							"Auto Skill"
+		"Reset_Button"								"Reset"
+		"NewHero_Button"							"New Hero"
+
+		"SpawnDummyTargeT_Tooltip"					"Spawn Dummy Target"
+		"Invulnerable_Tooltip"						"Toggle Invulnerability for selected heroes"
+		"ToggleShard_Tooltip"						"Toggle Shard for selected heroes"
+		"ToggleScepter_Tooltip"						"Toggle Scepter for selected heroes"
+		//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+		
 		"addon_game_name"						"Fate/Balance"
 
 		"npc_dota_hero_target_dummy"	"Target Dummy Lonk"
@@ -7354,7 +7467,7 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
 		"DOTA_Tooltip_ability_leonidas_pride_attribute_Description"								"Skill that displays more power the more disadvantageous the situation. Increase Leonidas Skills damage by %scale_per_hero_max%%% maximum (caped) per each alive enemy and dead ally (aka if dead all allies and alive all enemies will be 30%). \n [E] Skill now casts immediately and becomes in defensive stance for %counter_duration%, blocking and return by bonus to spear %counter_resist%%% damage, point or target records when cast begins. Can be fast released. \n Grant bonus damage to [E] == %bonus_damage%."
 
 		"DOTA_Tooltip_ability_leonidas_mad_attribute"											"Attribute: Dual Class"
-		"DOTA_Tooltip_ability_leonidas_mad_attribute_Description"								"[USABLE IN STUN AND SILENCE]\n[CAN;T BE USED UNDER REVOKE] \n Leonidas becomes enraged, all skills and normal attacks can critical strike, with intervals dispel all negative effects and does damage to near enemies counted times. Recieve attack speed as much as he lost hp"
+		"DOTA_Tooltip_ability_leonidas_mad_attribute_Description"								"[USABLE IN STUN AND SILENCE]\n[CAN;T BE USED UNDER REVOKE] \n Leonidas becomes enraged, all skills and normal attacks can critical strike, with intervals dispel all negative effects and does damage to near enemies counted times. Recieve attack speed as much as he lost hp. Spend health active all 3 seconds not instant 30% just 10% per each tick"
 		"DOTA_Tooltip_ability_leonidas_mad_attribute_radius"									"PURGE RADIUS:"
 		"DOTA_Tooltip_ability_leonidas_mad_attribute_duration"									"DURATION:"
 		"DOTA_Tooltip_ability_leonidas_mad_attribute_purge_tick"								"PURGE INTERVAL:"
@@ -7413,7 +7526,7 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
 		"DOTA_Tooltip_ability_leonidas_pride_release_Description"								"Releasing resisted and boosted spear"
 
 		"DOTA_Tooltip_ability_leonidas_berserk"													"Berserk"
-		"DOTA_Tooltip_ability_leonidas_berserk_Description"										"[USABLE IN STUN AND SILENCE]\n[CAN;T BE USED UNDER REVOKE] \n Leonidas becomes enraged, all skills and normal attacks can critical strike, with intervals dispel all negative effects and does damage to near enemies counted times. Recieve attack speed as much as he lost hp"
+		"DOTA_Tooltip_ability_leonidas_berserk_Description"										"[USABLE IN STUN AND SILENCE]\n[CAN;T BE USED UNDER REVOKE] \n Leonidas becomes enraged, all skills and normal attacks can critical strike, with intervals dispel all negative effects and does damage to near enemies counted times. Recieve attack speed as much as he lost hp. Spend health active all 3 seconds not instant 30% just 10% per each tick"
 		"DOTA_Tooltip_ability_leonidas_berserk_radius"											"PURGE RADIUS:"
 		"DOTA_Tooltip_ability_leonidas_berserk_duration"										"DURATION:"
 		"DOTA_Tooltip_ability_leonidas_berserk_purge_tick"										"PURGE INTERVAL:"
@@ -7477,7 +7590,7 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
 		"DOTA_Tooltip_modifier_leonidas_enomotia_slow_Description"								"Slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%. This Modifier universal and applies many effects based on leonidas properties."
 
 		"DOTA_Tooltip_ability_leonidas_enomotia_combo"											"COMBO: Thermopylae Enomotia Counterattack"
-		"DOTA_Tooltip_ability_leonidas_enomotia_combo_Description"								"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: E-W-R in %steps_duration%*%combo_steps% seconds</font>\n Releasing Noble Phantasm is [DEFENCE] state, any ally in radius behind Leonidas will transfer all original damage to him, if leonidas will be alive when enomotia ends, he releasing spear to each enemy which attacked ally or him, spear based on [E] ability and picks all values from it + additional damage == (lost shields / attackers count). Also Grant Vision (not true sight) to radius which defends.  \n[BERSERKED] Releaseing Strong Version of normal Thermopylae Enomotia. \n[DEFENCE] If shields is gone and Leonidas dead, defence enomotia is gone without effect."
+		"DOTA_Tooltip_ability_leonidas_enomotia_combo_Description"								"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: E-W-R in %steps_duration%*%combo_steps% seconds</font>\n Releasing Noble Phantasm is [DEFENCE] state, any ally in radius around Leonidas will transfer all original damage to him and spend shields first, after his health, combo not ends when shields is gone. Also Grant Vision (not true sight) to radius which defends.  \n[BERSERKED] Releaseing Strong Version of normal Thermopylae Enomotia. Recieve Bonus Berserk duration for full time of releasing and shields duration after release, total time not increases, just setups to new if u already in berserk when cast begins. \n[DEFENCE] If shields is gone and Leonidas dead, defence enomotia is gone without effect."
 		"DOTA_Tooltip_ability_leonidas_enomotia_combo_radius"									"RADIUS:"
 		"DOTA_Tooltip_ability_leonidas_enomotia_combo_push_radius"								"[BERSERKED] PUSH RADIUS:"
 		"DOTA_Tooltip_ability_leonidas_enomotia_combo_push_duration"							"[BERSERKED] PUSH TIME:"

@@ -480,17 +480,21 @@ function modifier_fate_mechanic_parent_new:OnTakeDamage(keys)
             hTarget:TakeDamageCentralized(keys)
             if hTarget:IsHero() then
                 if not hAttacker:IsHero() then --Account neutral attackers
-                    if IsValidEntity(hAttacker:GetPlayerOwner()) then
-                        attackerHero = hAttacker:GetPlayerOwner():GetAssignedHero()
-                    end
+                    attackerHero = PlayerResource:GetSelectedHeroEntity(hAttacker:GetMainControllingPlayer())
                 else
                     attackerHero = hAttacker
                 end
-                hTarget.ServStat:takeActualDamage(fDamage)
-                hTarget.ServStat:takeDamageBeforeReduction(fOriginalDamage)
-                if attackerHero then
-                    attackerHero.ServStat:doActualDamage(fDamage)
-                    attackerHero.ServStat:doDamageBeforeReduction(fOriginalDamage)
+                local hServerStat = hTarget.ServStat
+                if type(hServerStat) == "table" then
+                    hServerStat:takeActualDamage(fDamage)
+                    hServerStat:takeDamageBeforeReduction(fOriginalDamage)
+                    if IsNotNull(attackerHero) then
+                        local hAttackerStat = attackerHero.ServStat
+                        if type(hAttackerStat) == "table" then
+                            hAttackerStat:doActualDamage(fDamage)
+                            hAttackerStat:doDamageBeforeReduction(fOriginalDamage)
+                        end
+                    end
                 end
             end
         end
