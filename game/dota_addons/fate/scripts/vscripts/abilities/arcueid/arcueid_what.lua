@@ -50,7 +50,7 @@ function modifier_arcueid_what:OnIntervalThink()
 		self.tick = self.tick + 1
 		if (self.tick == 1) then
 			DoDamage(caster, self.parent, self.damage , DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
-			caster:FindAbilityByName("arcueid_impulses"):Pepeg()
+			caster:FindAbilityByName("arcueid_impulses"):Pepeg(self.parent)
 		end
 	end
 end
@@ -59,7 +59,7 @@ function modifier_arcueid_what:OnAttackStart(args)
 	if IsServer() then
 		if args.target ~= self:GetParent() then return end
 
-		if not self:GetCaster().MysticEyesAcquired then return end
+		if not self:GetCaster().MonstrousStrengthAcquired then return end
 
 		args.attacker:AddNewModifier(self.caster, self.ability, "modifier_arcueid_what_buff", {duration = 1.5})
 	end
@@ -69,7 +69,7 @@ function modifier_arcueid_what:OnAttackLanded(args)
 	if IsServer() then
 		if args.target ~= self:GetParent() then return end
 
-		if not self:GetCaster().MysticEyesAcquired then return end
+		if not self:GetCaster().MonstrousStrengthAcquired then return end
 
 		self:IncrementStackCount()
 		DoDamage(args.attacker, self.parent, self:GetStackCount()*self:GetAbility():GetSpecialValueFor("attribute_damage"), DAMAGE_TYPE_MAGICAL, 0, self.ability, false)

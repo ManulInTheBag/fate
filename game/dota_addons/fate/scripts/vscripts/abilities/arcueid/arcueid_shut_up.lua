@@ -30,7 +30,7 @@ function arcueid_shut_up:OnSpellStart()
 
 	for _, target in pairs(enemies) do
 		DoDamage(caster, target, damage , DAMAGE_TYPE_MAGICAL, 0, self, false)
-		caster:FindAbilityByName("arcueid_impulses"):Pepeg()
+		caster:FindAbilityByName("arcueid_impulses"):Pepeg(target)
 		target:AddNewModifier(caster, self, "modifier_arcueid_shut_up_slow", {Duration = self:GetSpecialValueFor("slow_duration")})
 
 		if caster.RecklesnessAcquired then

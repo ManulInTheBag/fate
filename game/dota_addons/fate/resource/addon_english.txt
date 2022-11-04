@@ -6456,6 +6456,9 @@
 		"DOTA_Tooltip_modifier_arcueid_melty_cd"				"Combo: Melty Blood"
 		"DOTA_Tooltip_modifier_arcueid_melty_cd_Description"	"Is on cooldown."
 
+		"DOTA_Tooltip_modifier_arcueid_eyes"			"Mystic Eyes of Enchantment"
+		"DOTA_Tooltip_modifier_arcueid_eyes_Description"	"Occasionaly ordering every unit around to attack her."
+
 		"DOTA_Tooltip_ability_arcueid_what"						"Remains Recycle"
 		"DOTA_Tooltip_ability_arcueid_what_Description"			"Arcueid deals damage to the target and wounds it deeply, slowing it and allowing her and her teammates to heal by dealing damage to it."
 		"DOTA_Tooltip_ability_arcueid_what_damage"				"Damage:"
@@ -6487,9 +6490,15 @@
 		"DOTA_Tooltip_ability_arcueid_regen_regen_percent"		"%Damage taken restored:"
 		"DOTA_Tooltip_ability_arcueid_regen_duration"			"Restoration duration"
 
+		"DOTA_Tooltip_ability_arcueid_eyes"	"Mystic Eyes of Enchantment"
+		"DOTA_Tooltip_ability_arcueid_eyes_Description"	"For a duration, each enemy in radius will be forced to attack Arcueid every 0.25 seconds."
+		"DOTA_Tooltip_ability_arcueid_eyes_duration"	"Duration:"
+		"DOTA_Tooltip_ability_arcueid_eyes_radius"	"Radius:"
+
 		"DOTA_Tooltip_ability_arcueid_impulses"					"Vampiric Impulses"
-		"DOTA_Tooltip_ability_arcueid_impulses_Description"		"<font color='#58ACFA'>Passive:</font> Each hit with an ability gives Arcueid one stack of Vampiric Impulse. While stacks persist, Arcueid has increased attack speed and spend 1 stack with each autoattack, dealing additional magic on-hit damage. If not replenished, they will expire in %duration% seconds.\n<font color='#58ACFA'>Active:</font> Pings the location of nearest detectable enemy."
+		"DOTA_Tooltip_ability_arcueid_impulses_Description"		"<font color='#58ACFA'>Passive:</font> Each hit with an ability gives Arcueid one stack of Vampiric Impulse. While stacks persist, Arcueid takes more damage, but has increased attack speed and spends 1 stack with each autoattack, dealing additional magic on-hit damage. If not replenished, they will expire in %duration% seconds.\n<font color='#58ACFA'>Active:</font> Pings the location of nearest detectable enemy."
 		"DOTA_Tooltip_ability_arcueid_impulses_Damage"			"Damage:"
+		"DOTA_Tooltip_ability_arcueid_impulses_amp_percent"		"%Additional damage taken per stack:"
 		"DOTA_Tooltip_ability_arcueid_impulses_attack_speed"	"Attack speed:"
 		"DOTA_Tooltip_ability_arcueid_impulses_max_stacks"		"Maximum stacks:"
 		"DOTA_Tooltip_ability_arcueid_impulses_mana_per_hit"	"Attribute mana per hit:"
@@ -6497,7 +6506,7 @@
 		"DOTA_Tooltip_ability_arcueid_impulses_agility_multiplier"		"Attribute attack speed agility multiplier:"
 
 		"DOTA_Tooltip_ability_arcueid_you"						"You're in the way!"
-		"DOTA_Tooltip_ability_arcueid_you_Description"			"Arcueid starts rampaging forward, striking everyone in 350 radius around her 4 times, knocking them back and stunning them. Fifth hit deals more damage and has 450 radius.\nIf target collides with a wall, it will take additional damage and be stunned for longer."
+		"DOTA_Tooltip_ability_arcueid_you_Description"			"Arcueid starts rampaging forward, striking everyone in 350 radius around her 4 times, stunning them and dealing damage. Fifth hit deals more damage, has 450 radius and knocks enemies back.\nIf target collides with a wall, it will take additional damage and be stunned for longer.\n\n<font color='#58ACFA'>Autocast</font>: first hits also have knockback effect."
 		"DOTA_Tooltip_ability_arcueid_you_damage"			"Strike damage:"
 		"DOTA_Tooltip_ability_arcueid_you_damage_last"		"Last hit damage:"
 		"DOTA_Tooltip_ability_arcueid_you_collide_damage"	"Collide damage:"
@@ -6516,19 +6525,21 @@
 		"DOTA_Tooltip_ability_arcueid_melty_duration"			"Duration:"
 
 		"DOTA_Tooltip_ability_arcueid_mystic_eyes_attribute"	"Attribute: Mystic Eyes of Enchantment"
-		"DOTA_Tooltip_ability_arcueid_mystic_eyes_attribute_Description"	"Autoattacks to target under the debuff of Remains Recycle add a stackable debuff, which deals 10 damage per stack when they are attacked.\nAttacking Remains Recycle target gives attacker additional 150 attack speed for 1.5 seconds."
+		"DOTA_Tooltip_ability_arcueid_mystic_eyes_attribute_Description"	"Enables <font color='#58ACFA'>Mystic Eyes of Enchantment</font>.\n\n <font color='#58ACFA'>Mystic Eyes of Enchantment:</font> for a duration, each enemy in radius will be forced to attack Arcueid every 0.25 seconds."
+		"DOTA_Tooltip_ability_arcueid_mystic_eyes_attribute_duration"	"Duration:"
+		"DOTA_Tooltip_ability_arcueid_mystic_eyes_attribute_radius"	"Radius:"
 
 		"DOTA_Tooltip_ability_arcueid_monstrous_strength_attribute"	"Attribute: Monstrous Strength"
-		"DOTA_Tooltip_ability_arcueid_monstrous_strength_attribute_Description"	"Each collide deals additional damage based on Arcueid's strength.\nShut Up and Fly! gains additional knockback distance based on Arcueid's strength."
+		"DOTA_Tooltip_ability_arcueid_monstrous_strength_attribute_Description"	"Each collide deals additional damage based on Arcueid's strength.\nShut Up and Fly! gains additional knockback distance based on Arcueid's strength.\nAutoattacks to target under the debuff of Remains Recycle add a stackable debuff, which deals 10 damage per stack when they are attacked.\nAttacking Remains Recycle target gives attacker additional 150 attack speed for 1.5 seconds"
 
 		"DOTA_Tooltip_ability_arcueid_regen_attribute"	"Attribute: Improve Regeneration"
 		"DOTA_Tooltip_ability_arcueid_regen_attribute_Description"	"Improves Body Reconstruction."
 
 		"DOTA_Tooltip_ability_arcueid_recklesness_attribute"	"Attribute: Recklesness"
-		"DOTA_Tooltip_ability_arcueid_recklesness_attribute_Description"	"Shut Up and Fly! and Ready, Go! microstun on each impact.\nVampiric Impulses can be set on autocast, which will enable Arcueid to utilize Vampiric Impulses bonuses without stacks by paying 100 mana per attack.\nVampiric Impulses autoattacks reduce CD of her base skills by 1 second per autoattack."
+		"DOTA_Tooltip_ability_arcueid_recklesness_attribute_Description"	"Shut Up and Fly! and Ready, Go! microstun on each impact.\nEach time Arcueid gains Vampiric Impulses stack from an enemy, she will immediately attack that enemy. Attack itself will deal no damage, but will use Vampiric Impulses and other on-hit effects."
 
 		"DOTA_Tooltip_ability_arcueid_world_attribute"	"Attribute: World Backup"
-		"DOTA_Tooltip_ability_arcueid_world_attribute_Description"	"Upgrades Vampiric Impulses.\nVampiric Impulses gain additional damage per strength and additional attack speed per agility."
+		"DOTA_Tooltip_ability_arcueid_world_attribute_Description"	"Upgrades Vampiric Impulses.\nVampiric Impulses gain additional damage per strength and additional attack speed per agility.\n\nVampiric Impulses can be set on autocast, which will enable Arcueid to utilize Vampiric Impulses bonuses without stacks by paying 75 mana per attack.\nVampiric Impulses autoattacks reduce CD of her base skills by 1 second per autoattack."
 
 		//====================================
 		//      Karna

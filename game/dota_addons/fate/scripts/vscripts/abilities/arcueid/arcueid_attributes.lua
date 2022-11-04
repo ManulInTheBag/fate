@@ -10,6 +10,10 @@ function arcueid_mystic_eyes_attribute:OnSpellStart()
 
 	hero.MysticEyesAcquired = true
 
+	if hero:GetAbilityByIndex(3):GetName() ~= "arcueid_eyes" then 
+		hero:SwapAbilities("arcueid_eyes", "arcueid_regen", true, false)
+	end
+
 	-- Set master 1's mana 
 	local master = hero.MasterUnit
 	master:SetMana(master:GetMana() - self:GetManaCost(self:GetLevel()))

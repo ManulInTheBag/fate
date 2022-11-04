@@ -41,10 +41,12 @@ end
 function modifier_arcueid_ready:OnIntervalThink()
 	if IsServer() then
 		local caster = self.caster
-		caster:SetAbsOrigin(self.enemy:GetAbsOrigin() - caster:GetForwardVector()*50)
 		self.tick = self.tick + 1
 		local target = self.enemy
 		local ability = self.ability
+		if target:IsAlive() then
+			caster:SetAbsOrigin(self.enemy:GetAbsOrigin() - caster:GetForwardVector()*50)
+		end
 		if (self.tick == 3) or (self.tick == 11) or (self.tick == 18) then
 			if self.tick == 3 then
 				if self.rand == 1 then
@@ -68,7 +70,7 @@ function modifier_arcueid_ready:OnIntervalThink()
 				end
 			end
 			DoDamage(caster, self.enemy, self.damage , DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
-			caster:FindAbilityByName("arcueid_impulses"):Pepeg()
+			caster:FindAbilityByName("arcueid_impulses"):Pepeg(target)
 
 			if caster.RecklesnessAcquired then
 				target:AddNewModifier(caster, self, "modifier_stunned", {duration = 0.1})

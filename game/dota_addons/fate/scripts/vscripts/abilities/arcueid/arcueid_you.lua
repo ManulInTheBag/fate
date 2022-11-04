@@ -117,7 +117,7 @@ function modifier_arcueid_you:OnIntervalThink()
 
 		            target:AddNewModifier(caster, self.ability, "modifier_knockback", knockback)]]
 
-		            if not IsKnockbackImmune(target) then
+		            if not IsKnockbackImmune(target) and (self:GetAbility():GetAutoCastState() == true) then
 			            local casterfacing = (target:GetAbsOrigin() - caster:GetAbsOrigin()):Normalized()
 						local pushTarget = Physics:Unit(target)
 						local casterOrigin = caster:GetAbsOrigin()
@@ -148,7 +148,7 @@ function modifier_arcueid_you:OnIntervalThink()
 						end)
 					end
 
-					caster:FindAbilityByName("arcueid_impulses"):Pepeg()
+					caster:FindAbilityByName("arcueid_impulses"):Pepeg(target)
 
 		            for i = 0,2 do
 		            	Timers:CreateTimer(FrameTime()*i*2, function()
@@ -216,7 +216,7 @@ function modifier_arcueid_you:OnIntervalThink()
 				--if caster:GetForwardVector():Dot(origin_diff_norm) > 0 then
 					DoDamage(caster, target, self.ability:GetSpecialValueFor("damage_last"), DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
 					target:AddNewModifier(caster, self.ability, "modifier_stunned", {duration = self.ability:GetSpecialValueFor("stun_duration")})
-					caster:FindAbilityByName("arcueid_impulses"):Pepeg()
+					caster:FindAbilityByName("arcueid_impulses"):Pepeg(target)
 				--end
 			end
 		end

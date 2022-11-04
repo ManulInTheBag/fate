@@ -8,7 +8,7 @@ function arcueid_impulses:GetIntrinsicModifierName()
 end
 
 function arcueid_impulses:GetBehavior()
-	if self:GetCaster():HasModifier("modifier_arcueid_recklesness") then
+	if self:GetCaster():HasModifier("modifier_arcueid_world") then
 		return DOTA_ABILITY_BEHAVIOR_NO_TARGET + DOTA_ABILITY_BEHAVIOR_AUTOCAST + DOTA_ABILITY_BEHAVIOR_IMMEDIATE
 	end
 	return DOTA_ABILITY_BEHAVIOR_NO_TARGET + DOTA_ABILITY_BEHAVIOR_IMMEDIATE
@@ -53,7 +53,7 @@ function arcueid_impulses:OnSpellStart()
     end
 end
 
-function arcueid_impulses:Pepeg()
+function arcueid_impulses:Pepeg(target)
 	local caster = self:GetCaster()
 	local modifier = caster:FindModifierByName("modifier_arcueid_impulses")
 
@@ -65,6 +65,10 @@ function arcueid_impulses:Pepeg()
 		modifier:SetStackCount(1)
 	end
 	modifier:StartIntervalThink(10)
+
+	if caster.RecklesnessAcquired then
+		caster:PerformAttack( target, true, true, true, true, false, true, false )
+	end
 end
 	
 
@@ -80,11 +84,16 @@ function modifier_arcueid_impulses:GetAttributes()
 end
 
 function modifier_arcueid_impulses:DeclareFunctions()
-	return {MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT}
+	return {MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
+			MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE}
+end
+
+function modifier_arcueid_impulses:GetModifierIncomingDamage_Percentage()
+	return ((self:GetParent():GetModifierStackCount("modifier_arcueid_impulses", self:GetParent()) > 0) and self:GetAbility():GetSpecialValueFor("amp_percent")*(self:GetParent():GetModifierStackCount("modifier_arcueid_impulses", self:GetParent()) or 0))
 end
 
 function modifier_arcueid_impulses:GetModifierAttackSpeedBonus_Constant()
-	return (((self:GetParent():GetModifierStackCount("modifier_arcueid_impulses", self:GetParent()) > 0) or (self:GetParent():HasModifier("modifier_arcueid_recklesness") and (self:GetAbility():GetAutoCastState() == true) and (self:GetParent():GetMana() > self:GetAbility():GetSpecialValueFor("mana_per_hit")))) and (self:GetAbility():GetSpecialValueFor("attack_speed") + (self:GetCaster():HasModifier("modifier_arcueid_world") and self:GetCaster():GetAgility()*self:GetAbility():GetSpecialValueFor("agility_multiplier") or 0)) or 0)
+	return (((self:GetParent():GetModifierStackCount("modifier_arcueid_impulses", self:GetParent()) > 0) or (self:GetParent():HasModifier("modifier_arcueid_world") and (self:GetAbility():GetAutoCastState() == true) and (self:GetParent():GetMana() > self:GetAbility():GetSpecialValueFor("mana_per_hit")))) and (self:GetAbility():GetSpecialValueFor("attack_speed") + (self:GetCaster():HasModifier("modifier_arcueid_world") and self:GetCaster():GetAgility()*self:GetAbility():GetSpecialValueFor("agility_multiplier") or 0)) or 0)
 end
 
 function modifier_arcueid_impulses:OnCreated()
@@ -116,7 +125,7 @@ function modifier_arcueid_impulses:OnAttackLanded(args)
 			end
 		end
 		if worked then
-			if self.parent.RecklesnessAcquired then 
+			if self.parent.WorldBackupAcquired then 
 				local qCD = caster:FindAbilityByName("arcueid_what"):GetCooldownTimeRemaining()
 				caster:FindAbilityByName("arcueid_what"):EndCooldown()
 				if qCD > 0 then
