@@ -7460,7 +7460,7 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
 		"DOTA_Tooltip_modifier_leonidas_attributes_Description"									"Just for showing u, allies and enemies what u have picked and prediction bugs"
 
 		"DOTA_Tooltip_ability_leonidas_math_attribute"											"Attribute: Math Is Great"
-		"DOTA_Tooltip_ability_leonidas_math_attribute_Description"								"Math is great. I feel so accomplished when my calculations are correct. \n Calculate strategy options and increase abilities values from intellect. \n[VALUE SCALES BY % TO BASE VALUE PER EACH INT POINT]"
+		"DOTA_Tooltip_ability_leonidas_math_attribute_Description"								"Math is great. I feel so accomplished when my calculations are correct. \n\n Calculate strategy options and increase abilities values from intellect. \n\n[VALUE SCALES BY % TO BASE VALUE PER EACH INT POINT]"
 		"DOTA_Tooltip_ability_leonidas_math_attribute_int_to_str_pct"							"%INT TO STRENGTH:"
 		"DOTA_Tooltip_ability_leonidas_math_attribute_kick_push_distance_pct_scale_per_int"		"%INT SCALE TO [Q] PUSH DISTANCE:"
 		"DOTA_Tooltip_ability_leonidas_math_attribute_catch_radius_pct_scale_per_int"			"%INT RADIUS SCALE TO [W]:"
@@ -7475,10 +7475,10 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
 		"DOTA_Tooltip_ability_leonidas_army_attribute_bonus_magic_resistance_pct"				"%BONUS MAGIC RESISTANCE:"
 
 		"DOTA_Tooltip_ability_leonidas_pride_attribute"											"Attribute: Rear Guard's Pride"
-		"DOTA_Tooltip_ability_leonidas_pride_attribute_Description"								"Skill that displays more power the more disadvantageous the situation. Increase Leonidas Skills damage by %scale_per_hero_max%%% maximum (caped) per each alive enemy and dead ally (aka if dead all allies and alive all enemies will be 30%). \n [E] Skill now casts immediately and becomes in defensive stance for %counter_duration%, blocking and return by bonus to spear %counter_resist%%% damage, point or target records when cast begins. Can be fast released. \n Grant bonus damage to [E] == %bonus_damage%."
+		"DOTA_Tooltip_ability_leonidas_pride_attribute_Description"								"Skill that displays more power the more disadvantageous the situation. Increase Leonidas Skills damage by %scale_per_hero_max%%% maximum (caped) per each alive enemy and dead ally (aka if dead all allies and alive all enemies will be 30%). \n\n [E] Skill now casts immediately and becomes in defensive stance for %counter_duration%, blocking and return by bonus to spear %counter_resist%%% damage (caped by your max health at moment of countering), point or target records when cast begins. Can be fast released. \n\n Grant bonus damage to [E] == %bonus_damage%."
 
 		"DOTA_Tooltip_ability_leonidas_mad_attribute"											"Attribute: Dual Class"
-		"DOTA_Tooltip_ability_leonidas_mad_attribute_Description"								"[USABLE IN STUN AND SILENCE]\n[CAN;T BE USED UNDER REVOKE] \n Leonidas becomes enraged, all skills and normal attacks can critical strike, with intervals dispel all negative effects and does damage to near enemies counted times. Recieve attack speed as much as he lost hp. Spend health active all 3 seconds not instant 30% just 10% per each tick"
+		"DOTA_Tooltip_ability_leonidas_mad_attribute_Description"								"[USABLE IN STUN AND SILENCE]\n\n[CAN;T BE USED UNDER REVOKE] \n\n Leonidas becomes enraged, all skills and normal attacks can critical strike, with intervals dispel all negative effects and does damage to near enemies counted times. Recieve attack speed as much as he lost hp. Spend health active all 3 seconds not instant 30% just 10% per each tick"
 		"DOTA_Tooltip_ability_leonidas_mad_attribute_radius"									"PURGE RADIUS:"
 		"DOTA_Tooltip_ability_leonidas_mad_attribute_duration"									"DURATION:"
 		"DOTA_Tooltip_ability_leonidas_mad_attribute_purge_tick"								"PURGE INTERVAL:"
@@ -7510,7 +7510,7 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
 		//"DOTA_Tooltip_modifier_artoria_calibur_slow_Description"								"Slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 
 		"DOTA_Tooltip_ability_leonidas_kick"													"This Is Sparta"
-		"DOTA_Tooltip_ability_leonidas_kick_Description"										"Knocking selected target, if target pushed to wall applies slow, lock effect and does bonus damage. \n[BERSERKED] Applies stun effect while pushed, stun effect on wall hit."
+		"DOTA_Tooltip_ability_leonidas_kick_Description"										"Knocking selected target, if target pushed to wall applies slow, lock effect and does bonus damage. \n\n[BERSERKED] Applies stun effect while pushed, stun effect on wall hit."
 		"DOTA_Tooltip_ability_leonidas_kick_push_distance"										"PUSH DISTANCE:"
 		"DOTA_Tooltip_ability_leonidas_kick_push_duration"										"PUSH TIME:"
 		"DOTA_Tooltip_ability_leonidas_kick_slow_duration"										"BOUNCE EFFECT DURATION:"
@@ -7519,7 +7519,7 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
 		"DOTA_Tooltip_ability_leonidas_kick_bounce_damage"										"BOUNCE DAMAGE:"
 
 		"DOTA_Tooltip_ability_leonidas_catch"													"Impale Toss"
-		"DOTA_Tooltip_ability_leonidas_catch_Description"										"Catch near enemy and throws on self backward, applies slow, lock effect immediately. \n[BERSERKED] Adds stun effect, and can throw all units in radius."
+		"DOTA_Tooltip_ability_leonidas_catch_Description"										"Catch near enemy and throws on self backward, applies slow, lock effect immediately. \n\n[BERSERKED] Adds stun effect, and can throw all units in radius."
 		"DOTA_Tooltip_ability_leonidas_catch_radius"											"RADIUS:"
 		"DOTA_Tooltip_ability_leonidas_catch_base_damage"										"DAMAGE:"
 		"DOTA_Tooltip_ability_leonidas_catch_fly_height"										"FLY HEIGHT:"
@@ -7528,7 +7528,7 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
 		"DOTA_Tooltip_ability_leonidas_catch_slow_pct"											"%EFFECT SLOW:"
 
 		"DOTA_Tooltip_ability_leonidas_pride"													"Spear Throw"
-		"DOTA_Tooltip_ability_leonidas_pride_Description"										"Launch spear to selected point, does %damage% damage and stunning all enemies in %radius% units for %stun_duration%, while flying grant %vision_radius% radius vision. \nCast Range %cast_range%. \n[BERSERKED] Can be used on target and tracking it, if target spellblocked will fly to target last location"
+		"DOTA_Tooltip_ability_leonidas_pride_Description"										"Launch spear to selected point, does %damage% damage and stunning all enemies in %radius% units for %stun_duration%, while flying grant %vision_radius% radius vision. \n\nCast Range %cast_range%. \n\n[BERSERKED] Doesn't crit, place ward from your inventory automaticaly spend it at moment of cast. Doubling Stun duration."
 
 		"DOTA_Tooltip_modifier_leonidas_pride_counter_Description"								"Rear Guard's Pride: Counter"
 		"DOTA_Tooltip_modifier_leonidas_pride_counter_Description"								"Countering damage, will release soon"
@@ -7537,7 +7537,7 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
 		"DOTA_Tooltip_ability_leonidas_pride_release_Description"								"Releasing resisted and boosted spear"
 
 		"DOTA_Tooltip_ability_leonidas_berserk"													"Berserk"
-		"DOTA_Tooltip_ability_leonidas_berserk_Description"										"[USABLE IN STUN AND SILENCE]\n[CAN;T BE USED UNDER REVOKE] \n Leonidas becomes enraged, all skills and normal attacks can critical strike, with intervals dispel all negative effects and does damage to near enemies counted times. Recieve attack speed as much as he lost hp. Spend health active all 3 seconds not instant 30% just 10% per each tick"
+		"DOTA_Tooltip_ability_leonidas_berserk_Description"										"[USABLE IN STUN AND SILENCE]\n\n[CAN;T BE USED UNDER REVOKE] \n\n Leonidas becomes enraged, all skills and normal attacks can critical strike, with intervals dispel all negative effects and does damage to near enemies counted times. Recieve attack speed as much as he lost hp. Spend health active all 3 seconds not instant 30% just 10% per each tick"
 		"DOTA_Tooltip_ability_leonidas_berserk_radius"											"PURGE RADIUS:"
 		"DOTA_Tooltip_ability_leonidas_berserk_duration"										"DURATION:"
 		"DOTA_Tooltip_ability_leonidas_berserk_purge_tick"										"PURGE INTERVAL:"
@@ -7559,7 +7559,7 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
 		"DOTA_Tooltip_modifier_leonidas_berserk_Description"									"Mad Enhancemented"
 
 		"DOTA_Tooltip_ability_leonidas_bc"														"Battle Continuation"
-		"DOTA_Tooltip_ability_leonidas_bc_Description"											"Doesn't know when to give up. Makes it possible to fight even with deadly injuries and can remain alive so long as one does not receive a decisive fatal wound. \n[CAN BE EXECUTED]"
+		"DOTA_Tooltip_ability_leonidas_bc_Description"											"Doesn't know when to give up. Makes it possible to fight even with deadly injuries and can remain alive so long as one does not receive a decisive fatal wound. \n\n[CAN BE EXECUTED]"
 		"DOTA_Tooltip_ability_leonidas_bc_radius"												"LAST RESORT RADIUS:"
 		"DOTA_Tooltip_ability_leonidas_bc_hp_require_pct"										"%HEALTH THRESHOLD ACTIVATION:"
 		"DOTA_Tooltip_ability_leonidas_bc_enomotia_shield_duration"								"LAST RESORT SHIELD DURATION:"
@@ -7578,7 +7578,7 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
 		"DOTA_Tooltip_modifier_leonidas_bc_heal_Description"									"Regenarate health"
 
 		"DOTA_Tooltip_ability_leonidas_enomotia"												"Thermopylae Enomotia"
-		"DOTA_Tooltip_ability_leonidas_enomotia_Description"									"Releasing Nobble Phantasm in %pfx_anim_start_time%+%pfx_anim_loop_time% seconds, all allies and enemies in near radius will be pushed away and grant bonus block per shield. Applies disarm, lock, slow. \n[BERSERKED] Adds stun effect. \n[DAMAGE AS NEGATIVE EFFECTS APPLIES ONLY ON ENEMIES]"
+		"DOTA_Tooltip_ability_leonidas_enomotia_Description"									"Releasing Nobble Phantasm in %pfx_anim_start_time%+%pfx_anim_loop_time% seconds, all allies and enemies in near radius will be pushed away and grant bonus block per shield. Applies disarm, lock, slow. \n\n[BERSERKED] Adds stun effect. \n\n[DAMAGE AS NEGATIVE EFFECTS APPLIES ONLY ON ENEMIES]"
 		"DOTA_Tooltip_ability_leonidas_enomotia_radius"											"RADIUS:"
 		"DOTA_Tooltip_ability_leonidas_enomotia_push_radius"									"PUSH RADIUS:"
 		"DOTA_Tooltip_ability_leonidas_enomotia_push_duration"									"PUSH TIME:"
@@ -7601,7 +7601,9 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
 		"DOTA_Tooltip_modifier_leonidas_enomotia_slow_Description"								"Slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%. This Modifier universal and applies many effects based on leonidas properties."
 
 		"DOTA_Tooltip_ability_leonidas_enomotia_combo"											"COMBO: Thermopylae Enomotia Counterattack"
-		"DOTA_Tooltip_ability_leonidas_enomotia_combo_Description"								"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: E-W-R in %steps_duration%*%combo_steps% seconds</font>\n Releasing Noble Phantasm is [DEFENCE] state, any ally in radius around Leonidas will transfer all original damage to him and spend shields first, after his health, combo not ends when shields is gone. Also Grant Vision (not true sight) to radius which defends.  \n[BERSERKED] Releaseing Strong Version of normal Thermopylae Enomotia. Recieve Bonus Berserk duration for full time of releasing and shields duration after release, total time not increases, just setups to new if u already in berserk when cast begins. \n[DEFENCE] If shields is gone and Leonidas dead, defence enomotia is gone without effect."
+		"DOTA_Tooltip_ability_leonidas_enomotia_combo_Description"								"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: E-W-R in %steps_duration%*%combo_steps% seconds</font>"
+		"DOTA_Tooltip_ability_leonidas_enomotia_combo_Note0"									"[DEFENCE] \n\n Releasing Noble Phantasm is [DEFENCE] state, any ally in radius around Leonidas will transfer all original damage to him and spend shields first, after his health, combo not ends when shields is gone. Also Grant Vision (not true sight) to radius which defends. If shields is gone and Leonidas dead, defence enomotia is gone without effect."
+		"DOTA_Tooltip_ability_leonidas_enomotia_combo_Note1"									"[BERSERKED] \n\n Releaseing Strong Version of normal Thermopylae Enomotia. Recieve Bonus Berserk duration for full time of releasing and shields duration after release, total time not increases, just setups to new if u already in berserk when cast begins."
 		"DOTA_Tooltip_ability_leonidas_enomotia_combo_radius"									"RADIUS:"
 		"DOTA_Tooltip_ability_leonidas_enomotia_combo_push_radius"								"[BERSERKED] PUSH RADIUS:"
 		"DOTA_Tooltip_ability_leonidas_enomotia_combo_push_duration"							"[BERSERKED] PUSH TIME:"

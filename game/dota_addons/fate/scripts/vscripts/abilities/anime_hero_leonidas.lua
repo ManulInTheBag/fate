@@ -866,9 +866,9 @@ function leonidas_pride:GetBehavior()
     local nBonus  = DOTA_ABILITY_BEHAVIOR_NONE
     local nBonus2 = DOTA_ABILITY_BEHAVIOR_NONE
     if IsNotNull(hCaster) then
-        nBonus = hCaster:HasModifier("modifier_leonidas_berserk")
-                 and DOTA_ABILITY_BEHAVIOR_UNIT_TARGET
-                 or nBonus
+        -- nBonus = hCaster:HasModifier("modifier_leonidas_berserk")
+        --          and DOTA_ABILITY_BEHAVIOR_UNIT_TARGET
+        --          or nBonus
         nBonus2 = GetAttributeValue(hCaster, "leonidas_pride_attribute", "counter_resist", -1, 0, false) > 0
                   and DOTA_ABILITY_BEHAVIOR_IMMEDIATE
                   or nBonus2
@@ -897,7 +897,7 @@ function leonidas_pride:OnSpellStart()
     local nCounterDuration = GetAttributeValue(hCaster, "leonidas_pride_attribute", "counter_duration", -1, 0, false)
     --if IsNotNull(hPrideAttribute) then
     if nCounterDuration > 0 then
-        EmitSoundOn("Leonidas.Pride.Cast.2", hCaster)
+        EmitGlobalSound("Leonidas.Pride.Cast.2")
 
         hCaster:AddNewModifier(hCaster, self, "modifier_leonidas_pride_counter", {duration = nCounterDuration, nCounterResist = GetAttributeValue(hCaster, "leonidas_pride_attribute", "counter_resist", -1, 0, false)})
     else
@@ -935,8 +935,25 @@ function leonidas_pride:ReleaseSpear(vPoint, hTarget, nBonusDamage, bCanDodge)
         EmitGlobalSound("Leonidas.Pride.Cast.1")
         EmitGlobalSound("Leonidas.Pride.Cast.3")
     else
-        EmitSoundOn("Leonidas.Pride.Cast.1", hCaster)
-        EmitSoundOn("Leonidas.Pride.Cast.3", hCaster)
+        EmitGlobalSound("Leonidas.Pride.Cast.1")
+        EmitGlobalSound("Leonidas.Pride.Cast.3")
+    end
+
+    local nPlaceWardPogChamp = nil
+
+    local bCasterBerserked = hCaster:HasModifier("modifier_leonidas_berserk")
+    if bCasterBerserked then
+        nStunDuration = nStunDuration * 2
+        nPlaceWardPogChamp = hCaster:FindItemInInventory("item_ward_familiar")
+        if not IsNotNull(nPlaceWardPogChamp) then
+            nPlaceWardPogChamp = hCaster:FindItemInInventory("item_sentry_familiar")
+        end
+        if IsNotNull(nPlaceWardPogChamp) then
+            if nPlaceWardPogChamp:GetCurrentCharges() <= 1 then
+                hCaster:TakeItem(nPlaceWardPogChamp)
+            end
+            nPlaceWardPogChamp = nPlaceWardPogChamp:entindex()
+        end
     end
 
     if bLockOnTarget then
@@ -969,7 +986,8 @@ function leonidas_pride:ReleaseSpear(vPoint, hTarget, nBonusDamage, bCanDodge)
                                         ExtraData = {
                                                         nDamage       = nDamage + nBonusDamage,
                                                         nRadius       = nRadius,
-                                                        nStunDuration = nStunDuration
+                                                        nStunDuration = nStunDuration,
+                                                        nPlaceWardPogChamp = nPlaceWardPogChamp
                                                     }
                                     }
 
@@ -1018,7 +1036,8 @@ function leonidas_pride:ReleaseSpear(vPoint, hTarget, nBonusDamage, bCanDodge)
                                                                 nSpearParticle = nSpearParticle,
                                                                 nDamage        = nDamage + nBonusDamage,
                                                                 nRadius        = nRadius,
-                                                                nStunDuration  = nStunDuration
+                                                                nStunDuration  = nStunDuration,
+                                                                nPlaceWardPogChamp = nPlaceWardPogChamp
                                                                 --fDestroyTime     = ( GetDistance(GetGroundPosition(vPoint, nil), vCasterBase, true) / fSpeed ) - ( fDistance / fSpeed )
                                                             }
                                     }
@@ -1038,6 +1057,16 @@ function leonidas_pride:OnProjectileHit_ExtraData(hTarget, vLocation, tExtraData
         end
 
         local hCaster = self:GetCaster()
+
+        if type(tExtraData.nPlaceWardPogChamp) == "number" then
+            local hWard = EntIndexToHScript(tExtraData.nPlaceWardPogChamp)
+            if IsNotNull(hWard) then
+                local vOldPos = hCaster:GetCursorPosition()
+                hCaster:SetCursorPosition(vLocation)
+                hWard:OnSpellStart()
+                hCaster:SetCursorPosition(vOldPos)
+            end
+        end
 
         local nDamage, nCriticalDamage = GetPrideAndBerserkedScaledDamage(hCaster, tExtraData.nDamage)
 
@@ -1060,8 +1089,8 @@ function leonidas_pride:OnProjectileHit_ExtraData(hTarget, vLocation, tExtraData
                 DoDamage(hCaster, hEntity, nDamage, self:GetAbilityDamageType(), DOTA_DAMAGE_FLAG_NONE, self, false)
                 --=================================--
                 if nCriticalDamage > 0 then
-                    DoDamage(hCaster, hEntity, nCriticalDamage, DAMAGE_TYPE_PHYSICAL, DOTA_DAMAGE_FLAG_NONE, self, false)
-                    SendOverheadEventMessage(nil, OVERHEAD_ALERT_DEADLY_BLOW, hEntity, nCriticalDamage, nil)
+                    --DoDamage(hCaster, hEntity, nCriticalDamage, DAMAGE_TYPE_PHYSICAL, DOTA_DAMAGE_FLAG_NONE, self, false)
+                    --SendOverheadEventMessage(nil, OVERHEAD_ALERT_DEADLY_BLOW, hEntity, nCriticalDamage, nil)
                 end
             end
         end
@@ -1105,6 +1134,7 @@ function modifier_leonidas_pride_counter:GetModifierIncomingDamage_Percentage(ke
     if IsServer() then
         --print(keys.damage, keys.original_damage)
         self.nBonusDamage = math.ceil(self.nBonusDamage + ( keys.original_damage * self.nCounterResist * 0.01 ))
+        self.nBonusDamage = GetClamped(self.nBonusDamage, 0, self.hParent:GetMaxHealth())
         self:SetStackCount(self.nBonusDamage)
         return -self.nCounterResist
     end
@@ -1561,6 +1591,7 @@ function modifier_leonidas_bc_immortal:DeclareFunctions()
     return tFunc
 end
 function modifier_leonidas_bc_immortal:GetAbsoluteNoDamagePhysical(keys) --TODO: CHANGE TO RECORD EXCEPT SELF.B-VALUE
+    --print(keys.damage_type, "GetAbsoluteNoDamagePhysical")
     if IsServer()
         and keys.damage_type ~= DAMAGE_TYPE_NONE then
         self.__iNullifyDamageType = self:GetTotalDamageNullify(keys) or DAMAGE_TYPE_NONE
@@ -1570,6 +1601,7 @@ function modifier_leonidas_bc_immortal:GetAbsoluteNoDamagePhysical(keys) --TODO:
     end
 end
 function modifier_leonidas_bc_immortal:GetAbsoluteNoDamageMagical(keys)
+    --print(keys.damage_type, "GetAbsoluteNoDamageMagical")
     if IsServer() then
         if bit.band(DAMAGE_TYPE_MAGICAL, self.__iNullifyDamageType) ~= 0 then
             return 1
@@ -1577,6 +1609,7 @@ function modifier_leonidas_bc_immortal:GetAbsoluteNoDamageMagical(keys)
     end
 end
 function modifier_leonidas_bc_immortal:GetAbsoluteNoDamagePure(keys)
+    --print(keys.damage_type, "GetAbsoluteNoDamagePure")
     if IsServer() then
         if bit.band(DAMAGE_TYPE_PURE, self.__iNullifyDamageType) ~= 0 then
             return 1
@@ -1627,10 +1660,10 @@ function modifier_leonidas_bc_immortal:OnDestroy()
     if IsServer() then
         StopSoundOn(self.sSoundForEmit, self.hParent)
     end
-    --if IsServer()
+    if IsServer() then
         --and self.hAbility:GetLevel() > 1 then
         self.hParent:AddNewModifier(self.hCaster, self.hAbility, "modifier_leonidas_bc_heal", {duration = self.nPostRegenHPDuration, nRegenPct = self.nPostRegenHPPct})
-    --end
+    end
 end
 
 
@@ -2314,7 +2347,7 @@ function leonidas_enomotia_combo:OnSpellStart()
                                 ParticleManager:SetParticleControl(_nShieldsPFX, 0, hCaster:GetAttachmentOrigin(hCaster:ScriptLookupAttachment("ATTACH_HITLOC")))
                                 ParticleManager:SetParticleControl(_nShieldsPFX, 1, vPFX_SpawnOrigin)
                                 ParticleManager:SetParticleControl(_nShieldsPFX, 2, vPFX_MoveToOrigin)
-                                ParticleManager:SetParticleControl(_nShieldsPFX, 3, Vector(nPFX_AnimStartTime + nPFX_AnimLoopTime, ( nShowShields / nShieldRows ), nShieldRows))
+                                ParticleManager:SetParticleControl(_nShieldsPFX, 3, Vector(nPFX_AnimLoopTime, ( nShowShields / nShieldRows ), nShieldRows))
                                 ParticleManager:SetParticleControl(_nShieldsPFX, 4, Vector(vPFX_MoveSpeed, nRadius, ( nShowShields * nPFX_AnimStartTime * 0.1 ) ))
         --=================================--
         --=================================--
@@ -2416,7 +2449,7 @@ function leonidas_enomotia_combo:OnSpellStart()
                                 ParticleManager:SetParticleControl(_nShieldsPFX, 0, hCaster:GetAttachmentOrigin(hCaster:ScriptLookupAttachment("ATTACH_HITLOC")))
                                 ParticleManager:SetParticleControl(_nShieldsPFX, 1, vPFX_SpawnOrigin)
                                 ParticleManager:SetParticleControl(_nShieldsPFX, 2, vPFX_MoveToOrigin)
-                                ParticleManager:SetParticleControl(_nShieldsPFX, 3, Vector(nPFX_AnimStartTime + nPFX_AnimLoopTime, ( nShowShields / nShieldRows ), nShieldRows))
+                                ParticleManager:SetParticleControl(_nShieldsPFX, 3, Vector(nPFX_AnimLoopTime, ( nShowShields / nShieldRows ), nShieldRows))
                                 ParticleManager:SetParticleControl(_nShieldsPFX, 4, Vector(vPFX_MoveSpeed, nRadius, ( nShowShields * nPFX_AnimStartTime * 0.1 ) ))
         --=================================--
         Timers:CreateTimer(nPFX_AnimStartTime, function()
@@ -2555,44 +2588,44 @@ function leonidas_enomotia_combo:ReleaseEnomotia(hCaster, nPFX_AnimReleaseTime, 
                     nPushedUnits = nPushedUnits + 1
                 end
                 --=================================--
-                if not IsKnockbackImmune(hEntity) then
-                    local sTimerNameUnique = self:GetAbilityName()..DoUniqueString(tostring(hEntity:entindex())) --.."_"
-                    --=================================--
-                    local hPhysicsThingReturn = Physics:Unit(hEntity)
+                -- if not IsKnockbackImmune(hEntity) then
+                --     local sTimerNameUnique = self:GetAbilityName()..DoUniqueString(tostring(hEntity:entindex())) --.."_"
+                --     --=================================--
+                --     local hPhysicsThingReturn = Physics:Unit(hEntity)
 
-                    hEntity:PreventDI(true)
-                    hEntity:SetPhysicsFriction(0)
-                    hEntity:SetPhysicsVelocity(GetDirection(hEntity, vCasterGnd) * (tKnockBackTable.knockback_distance / tKnockBackTable.duration))
-                    hEntity:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
-                    hEntity:SetGroundBehavior(PHYSICS_GROUND_LOCK)
-                    hEntity:FollowNavMesh(true)
-                    --=================================--
-                    Timers:CreateTimer(sTimerNameUnique,
-                    {
-                        endTime  = tKnockBackTable.knockback_duration,
-                        callback = function()
-                            hEntity:OnPreBounce(nil)
-                            hEntity:SetBounceMultiplier(0)
-                            hEntity:PreventDI(false)
-                            hEntity:SetPhysicsVelocity(Vector(0,0,0))
-                            hEntity:OnPhysicsFrame(nil)
-                            hEntity:SetGroundBehavior(PHYSICS_GROUND_NOTHING)
-                            FindClearSpaceForUnit(hEntity, hEntity:GetAbsOrigin(), true)
-                        end
-                    })
-                    --=================================--
-                    hEntity:OnPreBounce(function(hUnit, vNormal)
-                        Timers:RemoveTimer(sTimerNameUnique)
+                --     hEntity:PreventDI(true)
+                --     hEntity:SetPhysicsFriction(0)
+                --     hEntity:SetPhysicsVelocity(GetDirection(hEntity, vCasterGnd) * (tKnockBackTable.knockback_distance / tKnockBackTable.duration))
+                --     hEntity:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
+                --     hEntity:SetGroundBehavior(PHYSICS_GROUND_LOCK)
+                --     hEntity:FollowNavMesh(true)
+                --     --=================================--
+                --     Timers:CreateTimer(sTimerNameUnique,
+                --     {
+                --         endTime  = tKnockBackTable.knockback_duration,
+                --         callback = function()
+                --             hEntity:OnPreBounce(nil)
+                --             hEntity:SetBounceMultiplier(0)
+                --             hEntity:PreventDI(false)
+                --             hEntity:SetPhysicsVelocity(Vector(0,0,0))
+                --             hEntity:OnPhysicsFrame(nil)
+                --             hEntity:SetGroundBehavior(PHYSICS_GROUND_NOTHING)
+                --             FindClearSpaceForUnit(hEntity, hEntity:GetAbsOrigin(), true)
+                --         end
+                --     })
+                --     --=================================--
+                --     hEntity:OnPreBounce(function(hUnit, vNormal)
+                --         Timers:RemoveTimer(sTimerNameUnique)
 
-                        hUnit:OnPreBounce(nil)
-                        hUnit:SetBounceMultiplier(0)
-                        hUnit:PreventDI(false)
-                        hUnit:SetPhysicsVelocity(Vector(0,0,0))
-                        hUnit:OnPhysicsFrame(nil)
-                        hUnit:SetGroundBehavior(PHYSICS_GROUND_NOTHING)
-                        FindClearSpaceForUnit(hUnit, hUnit:GetAbsOrigin(), true)
-                    end)
-                end
+                --         hUnit:OnPreBounce(nil)
+                --         hUnit:SetBounceMultiplier(0)
+                --         hUnit:PreventDI(false)
+                --         hUnit:SetPhysicsVelocity(Vector(0,0,0))
+                --         hUnit:OnPhysicsFrame(nil)
+                --         hUnit:SetGroundBehavior(PHYSICS_GROUND_NOTHING)
+                --         FindClearSpaceForUnit(hUnit, hUnit:GetAbsOrigin(), true)
+                --     end)
+                -- end
             end
             --=================================--
             if nTeamNumberEntity ~= nTeamNumber then
