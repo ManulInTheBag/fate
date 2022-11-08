@@ -4,13 +4,14 @@ LinkLuaModifier("modifier_courage_self_buff", "abilities/heracles/modifiers/modi
 LinkLuaModifier("modifier_courage_enemy_debuff", "abilities/heracles/modifiers/modifier_courage_enemy_debuff", LUA_MODIFIER_MOTION_NONE)
 
 function heracles_courage:GetAOERadius()
-	return self:GetSpecialValueFor("radius")
+	return self:GetSpecialValueFor("radius")+(self:GetCaster().IsDivinityImproved and self:GetCaster():GetStrength()*3 or 0)
 end
 
 function heracles_courage:OnSpellStart()
 	local caster = self:GetCaster()
 	local ability = self
 	local radius = self:GetAOERadius()
+	print (radius)
 	local lazy_counter = 0
 	if(caster.MEacquired == true) then
 		local cd = caster:FindAbilityByName("heracles_nine_lives"):GetCooldownTimeRemaining()

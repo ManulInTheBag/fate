@@ -2880,27 +2880,28 @@
 		"npc_dota_hero_doom_bringer_hype"	""
 		"npc_dota_hero_doom_bringer_bio"	""
 		
-		"DOTA_Tooltip_Ability_berserker_5th_divinity"	"Divinity"
-		"DOTA_Tooltip_ability_berserker_5th_divinity_Description"	"Reduces incoming physical damage.\n\nUpgradable by Improve Divinity."
-		"DOTA_Tooltip_ability_berserker_5th_divinity_Lore"	"The aptitude of Divine Spirit daunts whoever foolish enough to challenge the demigod's might."
-		"DOTA_Tooltip_ability_berserker_5th_divinity_damage_reduction"	"DAMAGE REDUCTION:"
-		
+		"DOTA_Tooltip_Ability_pepeg_divinity"	"Divinity"
+		"DOTA_Tooltip_ability_pepeg_divinity_Description"	"Reduces incoming physical damage.\n\nUpgradable by Improve Divinity and Reincarnation."
+		"DOTA_Tooltip_ability_pepeg_divinity_Lore"	"The aptitude of Divine Spirit daunts whoever foolish enough to challenge the demigod's might."
+		"DOTA_Tooltip_ability_pepeg_divinity_physical_block"	"Phys damage block:"
+		"DOTA_Tooltip_ability_pepeg_divinity_bonus_armor"		"Bonus armor:"
+		"DOTA_Tooltip_ability_pepeg_divinity_duration"			"Duration:"
+		"DOTA_Tooltip_ability_pepeg_divinity_regen_percent"		"Regeneration percentage:"
+
 		"DOTA_Tooltip_Ability_berserker_5th_fissure_strike"				"Fissure Strike"
-		"DOTA_Tooltip_ability_berserker_5th_fissure_strike_Description"	"Heracles strikes ground with such force, creating a crack that deals damage to enemies in line, <font color='#FF3399'>knocks back</font> and <font color='#FF3399'>slows</font> them. If enemies collide with a structure from the knockback, an additional damage and stun are applied.\n<font color='#FF0000'>Berserked:</font> REQUIRES LEVEL 5 TO WORK.\nReduces cooldown. Heracles prepares 0.8 seconds to execute a 3-step-combo, slashing, uppercutting and smashing enemies in front of him, dealing 1, 2 and 3x of his attack damage. Uppercut and smash stun the impacted enemies for 0.5 and 0.7 seconds. Smash launches the fissure. If enemy is in 300 radius from Berserker when the fissure hits, it will take 50% of Berserker's attack damage as physical damage and will be stunned for 0.5 seconds."
+		"DOTA_Tooltip_ability_berserker_5th_fissure_strike_Description"	"Heracles strikes ground with such force, creating a crack that deals damage to enemies in line, <font color='#FF3399'>pulling  towards him</font> and <font color='#FF3399'>slowing</font> them. If enemies collide with a structure from the knockback, an additional damage and stun are applied.
 		"DOTA_Tooltip_ability_berserker_5th_fissure_strike_Lore"	""
 		"DOTA_Tooltip_ability_berserker_5th_fissure_strike_range"	"RANGE:"
 		"DOTA_Tooltip_ability_berserker_5th_fissure_strike_damage"	"DAMAGE:"
 		"DOTA_Tooltip_ability_berserker_5th_fissure_strike_slow_amount"	"%SLOW AMOUNT:"
 		"DOTA_Tooltip_ability_berserker_5th_fissure_strike_duration"	"SLOW DURATION:"
 		"DOTA_Tooltip_ability_berserker_5th_fissure_strike_collide_damage"	"COLLIDE DAMAGE:"
-		"DOTA_Tooltip_ability_berserker_5th_fissure_strike_knockback"	"KNOCKBACK DISTANCE:"
-		"DOTA_Tooltip_ability_berserker_5th_fissure_strike_reduced_cd"	"BERSERKED COOLDOWN:"
+		"DOTA_Tooltip_ability_berserker_5th_fissure_strike_knockback"	"PULL DISTANCE:"
 		"DOTA_Tooltip_ability_berserker_5th_fissure_strike_collide_duration"	"Stun duration:"
 		
 		"DOTA_Tooltip_Ability_heracles_courage"					"Courage"
-		"DOTA_Tooltip_ability_heracles_courage_Description"		"Heracles lets out terrifying howl, causing all enemies nearby to have reduced attack. Heracles gains bonus strength, damage, attackspeed and movespeed per each enemy hero affected, but increases Berserker's incoming damage for each enemy hero affected. Heracles will gain at least 1 Courage stack even if he affects no enemies with Courage.\n<font color='#FF0000'>Berserked:</font> All enemies affected will also be <font color='#FF3399'>disarmed</font> for 2 seconds."
+		"DOTA_Tooltip_ability_heracles_courage_Description"		"Heracles lets out terrifying howl, causing all enemies nearby to have reduced attack. Heracles gains bonus strength, damage, attackspeed and movespeed per each enemy hero affected. Heracles will gain at least 1 Courage stack even if he affects no enemies with Courage.\n<font color='#FF0000'>Berserked:</font> All enemies affected will also be <font color='#FF3399'>disarmed</font> for 2 seconds."
 		"DOTA_Tooltip_ability_heracles_courage_Lore"				"With the roar begins the onslaught of fallen warrior."
-		"DOTA_Tooltip_ability_heracles_courage_self_damage_inc"	"%Incoming damage per enemy:"
 		"DOTA_Tooltip_ability_heracles_courage_damage_reduction"	"%Enemy damage reduction:"		
 		"DOTA_Tooltip_ability_heracles_courage_self_str_inc"				"Bonus strength per enemy:"
 		"DOTA_Tooltip_ability_heracles_courage_bonus_damage"		"Bonus damage per enemy:"
@@ -2911,15 +2912,17 @@
 		//"DOTA_Tooltip_ability_heracles_courage_Note0"				"Courage buff cannot be dispelled."
 
 		"DOTA_Tooltip_Ability_heracles_berserk"					"Berserk"
-		"DOTA_Tooltip_ability_heracles_berserk_Description"		"Heracles runs into prerogative rage his health cannot be changed. During duration, Heracles does not take harm from any damage unless it is fatal. \nApplies <font color='#FF0000'>Berserked</font> status to the other abilities."
+		"DOTA_Tooltip_ability_heracles_berserk_Description"		"Heracles runs into prerogative rage his health cannot be changed. During duration, Heracles does not take harm from any damage unless it is fatal. \nApplies <font color='#FF0000'>Berserked</font> status to the other abilities. \n While berserk is active Heracles gain bonus damage, attack and movement speed depending on how low his health percentage was on cast. The following bonuses are capped at 20%."
 		"DOTA_Tooltip_ability_heracles_berserk_Lore"				"Pain is trivial matter to the raging juggernaut in the heat of battle."
-		//"DOTA_Tooltip_ability_heracles_berserk_bns_att_spd"			"Bonus Attack Speed: "
+		"DOTA_Tooltip_ability_heracles_berserk_bns_att_spd"			"Bonus Attack Speed: "
 		"DOTA_Tooltip_ability_heracles_berserk_health_constant"		"%MINIMUM HEALTH LOCK:"
 		//"DOTA_Tooltip_ability_heracles_berserk_max_damage"			"MAXIMUM DAMAGE:"
 		"DOTA_Tooltip_ability_heracles_berserk_duration"			"DURATION:"
+		"DOTA_Tooltip_ability_heracles_berserk_bonus_damage"		"%Bonus damage:"
+		"DOTA_Tooltip_ability_heracles_berserk_bonus_movement"		"%Bonus movement:"
 
 		"DOTA_Tooltip_Ability_pepeg_jump"					"Berserk's Toss"
-		"DOTA_Tooltip_ability_pepeg_jump_Description"		"Heracles tosses the nearest unit towards the target point, dealing magic damage and percent of the max health of thrown target as a pure damage and <font color='#FF3399'>slowing and muting</font> all enemies in radius around the arrival point. If target is enemy, it suffers a huge magic damage and doubled portion of it's max health as pure damage and is <font color='#FF3399'>slowed</font> more than other enemies while muted for the same duration. \n<font color='#FF0000'>Berserked:</font> Increases cast range. Instead of throwing someone, Berserk leaps towards the target point himself, dealing significant magic damage and portion of his max health as pure damage and <font color='#FF3399'>slowing</font> and muting all enemies as if they were thrown themselves."
+		"DOTA_Tooltip_ability_pepeg_jump_Description"		"Heracles tosses the nearest unit towards the target point, dealing magic damage and percent of the max health of thrown target as a pure damage and <font color='#FF3399'>slowing and muting</font> all enemies in radius around the arrival point. If target is enemy, it suffers a huge magic damage and doubled portion of it's max health as pure damage and is <font color='#FF3399'>slowed</font> more than other enemies while muted for the same duration. \n<font color='#FF0000'>Berserked:</font> Increases cast range. Instead of throwing someone, Berserk leaps towards the target point himself, dealing significant magic damage and portion of his max health as pure damage and <font color='#FF3399'>slowing</font> and muting all enemies as if they were thrown themselves. \n Berserker's strength additionally amplifies this ability (2x strength as range, 1x strength as damage when throws, 1.25x strength as damage when leaps)"
 		"DOTA_Tooltip_ability_pepeg_jump_Lore"				"Cu Chulain dislikes this."
 		"DOTA_Tooltip_ability_pepeg_jump_radius"			"Radius:"
 		"DOTA_Tooltip_ability_pepeg_jump_range"			"Range:"
@@ -2962,7 +2965,7 @@
 		"DOTA_Tooltip_ability_berserker_5th_nine_lives_Note0"	"Berserker is stunned and revoked from Master until she finishes casting."
 
 		"DOTA_Tooltip_Ability_berserker_5th_madmans_roar"	"Combo: Madman's Roar"
-		"DOTA_Tooltip_ability_berserker_5th_madmans_roar_Description"	"<font color='#58ACFA'>Combo Requirement : 40 Strength and Agility</font>\n<font color='#58ACFA'>Combo Sequence : Q-W-D in 4 seconds</font>\nBerserker lets out a deafening howl, putting all players in coma where screen is altered. All enemies in 3000 range suffer damage and crowd control, differing based on the distance from Berserker and on Berserker's strength. \nStrong <font color='#FF3399'>slow</font>, <font color='#FF3399'>revoke</font>, dimensional lock, and high damage + 2x Berserker's strength as damage in 350 range.\nStrong <font color='#FF3399'>slow</font>, dimensional lock and medium damage + 1.5x Berserker's strength as damage in 1000 range.\nWeaker <font color='#FF3399'>slow</font>, dimensional lock and moderate damage + 1x Berserker's strength as damage in 3000 range.\nOnly weak <font color='#FF3399'>slow</font> across all the map."
+		"DOTA_Tooltip_ability_berserker_5th_madmans_roar_Description"	"<font color='#58ACFA'>Combo Requirement : 40 Strength and Agility</font>\n<font color='#58ACFA'>Combo Sequence : Q-W-D in 4 seconds</font>\nBerserker lets out a deafening howl, putting all players in coma where screen is altered. All enemies in 3000 range suffer damage and crowd control, differing based on the distance from Berserker and on Berserker's strength. \nStrong <font color='#FF3399'>slow</font>, <font color='#FF3399'>revoke</font>, stun, dimensional lock and high damage + 2x Berserker's strength as damage in 350 range.\nStrong <font color='#FF3399'>slow</font>, dimensional lock and medium damage + 1.5x Berserker's strength as damage in 1000 range.\nWeaker <font color='#FF3399'>slow</font>, dimensional lock and moderate damage + 1x Berserker's strength as damage in 3000 range.\nOnly weak <font color='#FF3399'>slow</font> across all the map."
 		"DOTA_Tooltip_ability_berserker_5th_madmans_roar_Lore"	"Berserker's shout engraves the terror deep into the very core of enemies, even manipulating the visual neural system temporarily."
 		"DOTA_Tooltip_ability_berserker_5th_madmans_roar_damage"	"HIGH DAMAGE:"
 		"DOTA_Tooltip_ability_berserker_5th_madmans_roar_lock_duration_1"	"Lock duration:"
@@ -2972,21 +2975,21 @@
 		"DOTA_Tooltip_ability_berserker_5th_madmans_roar_damage3"	"MODERATE DAMAGE:"
 		"DOTA_Tooltip_ability_berserker_5th_madmans_roar_lock_duration_3"	"Lock duration:"
 		"DOTA_Tooltip_ability_berserker_5th_madmans_roar_slow"	"%STRONG SLOW:"		
-		"DOTA_Tooltip_ability_berserker_5th_madmans_roar_moderate_slow"	"%WEAK SLOW:"			
+		"DOTA_Tooltip_ability_berserker_5th_madmans_roar_moderate_slow"	"%WEAK SLOW:"		
 
 		"DOTA_Tooltip_Ability_berserker_5th_attribute_improve_divinity"					"Attribute: Improve Divinity"
-		"DOTA_Tooltip_ability_berserker_5th_attribute_improve_divinity_Description"		"Grants bonus armor to Berserker and allows him to block more flat damage from physical damage.\n Fissure Strike: all values are increased based on Berserker's strength (multipliers: 1 for range, 0.5 for knockback range, 0.25 for base damage, 0.1 for collide damage).\nNine Lives: small strikes also deal 10%% of Berserker's damage as physical damage, final strike deals 200%% of Berserker's damage as physical damage."
+		"DOTA_Tooltip_ability_berserker_5th_attribute_improve_divinity_Description"		"Grants bonus armor to Berserker and allows him to block more flat damage from physical attacks. Radius of courage increased by x3 of Heracles' strength."
 		"DOTA_Tooltip_Ability_berserker_5th_attribute_improve_divinity_bonus_armor"		"BONUS ARMOR:"	
-		"DOTA_Tooltip_Ability_berserker_5th_attribute_improve_divinity_bonus_mr"		"%BONUS MAGIC RESISTANCE:"
+		//"DOTA_Tooltip_Ability_berserker_5th_attribute_improve_divinity_bonus_mr"		"%BONUS MAGIC RESISTANCE:"
 		"DOTA_Tooltip_Ability_berserker_5th_attribute_improve_divinity_damage_block"	"DAMAGE BLOCK:"
 
 		"DOTA_Tooltip_Ability_berserker_5th_attribute_berserk"						"Attribute: Eternal Rage"
-		"DOTA_Tooltip_ability_berserker_5th_attribute_berserk_Description"			"Grants Heracles a chance to deal bonus damage on base attack (proc cooldown 1.5 seconds).\nCourage gains additional base stats (25 strength, 10%% movespeed, 25 damage, 25 attackspeed). \n For the duration of Berserk every second deal magical damage in a small radius to all nearby enemies, damage is equal to 20% of all damage taken between each tick of damage"
+		"DOTA_Tooltip_ability_berserker_5th_attribute_berserk_Description"			"Berserker's attacks deal additional 50% of his attack damage in 300 radius around target slowing all affected enemies.\nCourage gains additional base stats (25 strength, 10%% movespeed, 25 damage, 25 attackspeed). \n For the duration of Berserk every second deal magical damage in a small radius to all nearby enemies, damage is equal to 20% of all damage taken between each tick of damage \n Fissure Strike: all values are increased based on Berserker's strength (multipliers: 1 for range, 0.5 for pull range, 0.25 for base damage, 0.1 for collide damage)"
 		"DOTA_Tooltip_Ability_berserker_5th_attribute_berserk_Note0"				"Bash has 1.5 seconds cooldown."	
 		"DOTA_Tooltip_Ability_berserker_5th_attribute_berserk_Note1"				"Berserk's periodic damage is equivalent to the amount of mana replenished from damage taken for 1 second."
-		"DOTA_Tooltip_Ability_berserker_5th_attribute_berserk_bash_chance"			"%COURAGE BASH CHANCE:"
-		"DOTA_Tooltip_Ability_berserker_5th_attribute_berserk_bash_duration"		"COURAGE BASH DURATION:"
-		"DOTA_Tooltip_Ability_berserker_5th_attribute_berserk_bash_damage"			"%COURAGE BASH DAMAGE:"
+		//"DOTA_Tooltip_Ability_berserker_5th_attribute_berserk_bash_chance"			"%COURAGE BASH CHANCE:"
+		"DOTA_Tooltip_Ability_berserker_5th_attribute_berserk_bash_duration"		"SLOW DURATION:"
+		"DOTA_Tooltip_Ability_berserker_5th_attribute_berserk_bash_damage"			"%DAMAGE:"
 		//"DOTA_Tooltip_Ability_berserker_5th_attribute_berserk_nine_cdr"				"NINE LIVES COOLDOWN REDUCTION:"
 		//"DOTA_Tooltip_Ability_berserker_5th_attribute_berserk_mana_convert_ratio"	"BERSERK MANA CONVERSION RATIO:"
 
@@ -2998,17 +3001,19 @@
 		"DOTA_Tooltip_Ability_berserker_5th_attribute_god_hand_duration"				"DURATION:"
 		"DOTA_Tooltip_Ability_berserker_5th_attribute_god_hand_health_for_life"				"DAMAGE FOR 1 STACK:"
 
-		"DOTA_Tooltip_Ability_berserker_5th_attribute_reincarnation"					"Attribute: Inhuman Strength"
-		"DOTA_Tooltip_ability_berserker_5th_attribute_reincarnation_Description"		"Grants additional range and damage to Berserk's toss in proportion to his strength (2x strength as range, 1x strength as damage when throws, 1.25x strength as damage when leaps)."	
-		//"DOTA_Tooltip_Ability_berserker_5th_attribute_reincarnation_Note0"				"Damage is compared with threshold after mitigation."
-		//"DOTA_Tooltip_Ability_berserker_5th_attribute_reincarnation_threshold"			"DAMAGE THRESHOLD:"	
+		"DOTA_Tooltip_Ability_berserker_5th_attribute_reincarnation"					"Attribute: Reincarnation"
+		"DOTA_Tooltip_ability_berserker_5th_attribute_reincarnation_Description"		"Heracles regenerates a portion of the damage dealt to him."	
+		//"DOTA_Tooltip_Ability_berserker_5th_attribute_reincarnation_Note0"			"Damage is compared with threshold after mitigation."
+		//"DOTA_Tooltip_Ability_berserker_5th_attribute_reincarnation_threshold"		"DAMAGE THRESHOLD:"	
 		//"DOTA_Tooltip_Ability_berserker_5th_attribute_reincarnation_health_regen"		"HEALTH REGEN PER STACK:"
+		"DOTA_Tooltip_ability_berserker_5th_attribute_reincarnation_duration"			"Duration:"
+		"DOTA_Tooltip_ability_berserker_5th_attribute_reincarnation_regen_percent"		"Regeneration percentage:"
 
 		"DOTA_Tooltip_ability_pepeg_combo_final_gachi"	"Combo: Pepeg Police"
 		"DOTA_Tooltip_ability_pepeg_combo_final_gachi_Description"	"<font color='#58ACFA'>Combo Requirement : 80 Intellect. </font>\n<font color='#58ACFA'>Combo Sequence : Q-Q in 4 seconds</font>\nBerserker uses his true Gachi Power to teach target right ways of fisting."	
 
 		"DOTA_Tooltip_Ability_heracles_mad_enhancement_attribute"					"Attribute: Mad Enhancement"
-		"DOTA_Tooltip_ability_heracles_mad_enhancement_attribute_Description"		"Berserk gives Heracles up to 154 additional attack speed, 100%% additional movespeed and 100%% additional base damage based on how much health he's lost.\nSuffering more than 500 damage in one impact will reduce Berserk's cooldown by 2 seconds. Effect cooldown: 2 seconds. \n Increase duration of the berserk by 1 second.\nUsing courage lowers nine lives cooldown by 5 seconds."	
+		"DOTA_Tooltip_ability_heracles_mad_enhancement_attribute_Description"		"Suffering more than 500 damage in one impact will reduce Berserk's cooldown by 2 seconds. Effect cooldown: 2 seconds. \n Increase duration of the berserk by 1 second.\nUsing courage lowers nine lives cooldown by 5 seconds. \nNine Lives: small strikes also deal 10%% of Berserker's damage as physical damage, final strike deals 200%% of Berserker's damage as physical damage."	
 		//"DOTA_Tooltip_Ability_heracles_mad_enhancement_attribute_Note0"				"Slow Immunity is only while Berserk is active."
 		//=================================================================================================================
 		//	Sakura Saber
@@ -6456,9 +6461,6 @@
 		"DOTA_Tooltip_modifier_arcueid_melty_cd"				"Combo: Melty Blood"
 		"DOTA_Tooltip_modifier_arcueid_melty_cd_Description"	"Is on cooldown."
 
-		"DOTA_Tooltip_modifier_arcueid_eyes"			"Mystic Eyes of Enchantment"
-		"DOTA_Tooltip_modifier_arcueid_eyes_Description"	"Occasionaly ordering every unit around to attack her."
-
 		"DOTA_Tooltip_ability_arcueid_what"						"Remains Recycle"
 		"DOTA_Tooltip_ability_arcueid_what_Description"			"Arcueid deals damage to the target and wounds it deeply, slowing it and allowing her and her teammates to heal by dealing damage to it."
 		"DOTA_Tooltip_ability_arcueid_what_damage"				"Damage:"
@@ -6490,15 +6492,9 @@
 		"DOTA_Tooltip_ability_arcueid_regen_regen_percent"		"%Damage taken restored:"
 		"DOTA_Tooltip_ability_arcueid_regen_duration"			"Restoration duration"
 
-		"DOTA_Tooltip_ability_arcueid_eyes"	"Mystic Eyes of Enchantment"
-		"DOTA_Tooltip_ability_arcueid_eyes_Description"	"For a duration, each enemy in radius will be forced to attack Arcueid every 0.25 seconds."
-		"DOTA_Tooltip_ability_arcueid_eyes_duration"	"Duration:"
-		"DOTA_Tooltip_ability_arcueid_eyes_radius"	"Radius:"
-
 		"DOTA_Tooltip_ability_arcueid_impulses"					"Vampiric Impulses"
-		"DOTA_Tooltip_ability_arcueid_impulses_Description"		"<font color='#58ACFA'>Passive:</font> Each hit with an ability gives Arcueid one stack of Vampiric Impulse. While stacks persist, Arcueid takes more damage, but has increased attack speed and spends 1 stack with each autoattack, dealing additional magic on-hit damage. If not replenished, they will expire in %duration% seconds.\n<font color='#58ACFA'>Active:</font> Pings the location of nearest detectable enemy."
+		"DOTA_Tooltip_ability_arcueid_impulses_Description"		"<font color='#58ACFA'>Passive:</font> Each hit with an ability gives Arcueid one stack of Vampiric Impulse. While stacks persist, Arcueid has increased attack speed and spend 1 stack with each autoattack, dealing additional magic on-hit damage. If not replenished, they will expire in %duration% seconds.\n<font color='#58ACFA'>Active:</font> Pings the location of nearest detectable enemy."
 		"DOTA_Tooltip_ability_arcueid_impulses_Damage"			"Damage:"
-		"DOTA_Tooltip_ability_arcueid_impulses_amp_percent"		"%Additional damage taken per stack:"
 		"DOTA_Tooltip_ability_arcueid_impulses_attack_speed"	"Attack speed:"
 		"DOTA_Tooltip_ability_arcueid_impulses_max_stacks"		"Maximum stacks:"
 		"DOTA_Tooltip_ability_arcueid_impulses_mana_per_hit"	"Attribute mana per hit:"
@@ -6506,7 +6502,7 @@
 		"DOTA_Tooltip_ability_arcueid_impulses_agility_multiplier"		"Attribute attack speed agility multiplier:"
 
 		"DOTA_Tooltip_ability_arcueid_you"						"You're in the way!"
-		"DOTA_Tooltip_ability_arcueid_you_Description"			"Arcueid starts rampaging forward, striking everyone in 350 radius around her 4 times, stunning them and dealing damage. Fifth hit deals more damage, has 450 radius and knocks enemies back.\nIf target collides with a wall, it will take additional damage and be stunned for longer.\n\n<font color='#58ACFA'>Autocast</font>: first hits also have knockback effect."
+		"DOTA_Tooltip_ability_arcueid_you_Description"			"Arcueid starts rampaging forward, striking everyone in 350 radius around her 4 times, knocking them back and stunning them. Fifth hit deals more damage and has 450 radius.\nIf target collides with a wall, it will take additional damage and be stunned for longer."
 		"DOTA_Tooltip_ability_arcueid_you_damage"			"Strike damage:"
 		"DOTA_Tooltip_ability_arcueid_you_damage_last"		"Last hit damage:"
 		"DOTA_Tooltip_ability_arcueid_you_collide_damage"	"Collide damage:"
@@ -6525,21 +6521,19 @@
 		"DOTA_Tooltip_ability_arcueid_melty_duration"			"Duration:"
 
 		"DOTA_Tooltip_ability_arcueid_mystic_eyes_attribute"	"Attribute: Mystic Eyes of Enchantment"
-		"DOTA_Tooltip_ability_arcueid_mystic_eyes_attribute_Description"	"Enables <font color='#58ACFA'>Mystic Eyes of Enchantment</font>.\n\n <font color='#58ACFA'>Mystic Eyes of Enchantment:</font> for a duration, each enemy in radius will be forced to attack Arcueid every 0.25 seconds."
-		"DOTA_Tooltip_ability_arcueid_mystic_eyes_attribute_duration"	"Duration:"
-		"DOTA_Tooltip_ability_arcueid_mystic_eyes_attribute_radius"	"Radius:"
+		"DOTA_Tooltip_ability_arcueid_mystic_eyes_attribute_Description"	"Autoattacks to target under the debuff of Remains Recycle add a stackable debuff, which deals 10 damage per stack when they are attacked.\nAttacking Remains Recycle target gives attacker additional 150 attack speed for 1.5 seconds."
 
 		"DOTA_Tooltip_ability_arcueid_monstrous_strength_attribute"	"Attribute: Monstrous Strength"
-		"DOTA_Tooltip_ability_arcueid_monstrous_strength_attribute_Description"	"Each collide deals additional damage based on Arcueid's strength.\nShut Up and Fly! gains additional knockback distance based on Arcueid's strength.\nAutoattacks to target under the debuff of Remains Recycle add a stackable debuff, which deals 10 damage per stack when they are attacked.\nAttacking Remains Recycle target gives attacker additional 150 attack speed for 1.5 seconds"
+		"DOTA_Tooltip_ability_arcueid_monstrous_strength_attribute_Description"	"Each collide deals additional damage based on Arcueid's strength.\nShut Up and Fly! gains additional knockback distance based on Arcueid's strength."
 
 		"DOTA_Tooltip_ability_arcueid_regen_attribute"	"Attribute: Improve Regeneration"
 		"DOTA_Tooltip_ability_arcueid_regen_attribute_Description"	"Improves Body Reconstruction."
 
 		"DOTA_Tooltip_ability_arcueid_recklesness_attribute"	"Attribute: Recklesness"
-		"DOTA_Tooltip_ability_arcueid_recklesness_attribute_Description"	"Shut Up and Fly! and Ready, Go! microstun on each impact.\nEach time Arcueid gains Vampiric Impulses stack from an enemy, she will immediately attack that enemy. Attack itself will deal no damage, but will use Vampiric Impulses and other on-hit effects."
+		"DOTA_Tooltip_ability_arcueid_recklesness_attribute_Description"	"Shut Up and Fly! and Ready, Go! microstun on each impact.\nVampiric Impulses can be set on autocast, which will enable Arcueid to utilize Vampiric Impulses bonuses without stacks by paying 100 mana per attack.\nVampiric Impulses autoattacks reduce CD of her base skills by 1 second per autoattack."
 
 		"DOTA_Tooltip_ability_arcueid_world_attribute"	"Attribute: World Backup"
-		"DOTA_Tooltip_ability_arcueid_world_attribute_Description"	"Upgrades Vampiric Impulses.\nVampiric Impulses gain additional damage per strength and additional attack speed per agility.\n\nVampiric Impulses can be set on autocast, which will enable Arcueid to utilize Vampiric Impulses bonuses without stacks by paying 75 mana per attack.\nVampiric Impulses autoattacks reduce CD of her base skills by 1 second per autoattack."
+		"DOTA_Tooltip_ability_arcueid_world_attribute_Description"	"Upgrades Vampiric Impulses.\nVampiric Impulses gain additional damage per strength and additional attack speed per agility."
 
 		//====================================
 		//      Karna
@@ -7460,7 +7454,7 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
 		"DOTA_Tooltip_modifier_leonidas_attributes_Description"									"Just for showing u, allies and enemies what u have picked and prediction bugs"
 
 		"DOTA_Tooltip_ability_leonidas_math_attribute"											"Attribute: Math Is Great"
-		"DOTA_Tooltip_ability_leonidas_math_attribute_Description"								"Math is great. I feel so accomplished when my calculations are correct. \n\n Calculate strategy options and increase abilities values from intellect. \n\n[VALUE SCALES BY % TO BASE VALUE PER EACH INT POINT]"
+		"DOTA_Tooltip_ability_leonidas_math_attribute_Description"								"Math is great. I feel so accomplished when my calculations are correct. \n Calculate strategy options and increase abilities values from intellect. \n[VALUE SCALES BY % TO BASE VALUE PER EACH INT POINT]"
 		"DOTA_Tooltip_ability_leonidas_math_attribute_int_to_str_pct"							"%INT TO STRENGTH:"
 		"DOTA_Tooltip_ability_leonidas_math_attribute_kick_push_distance_pct_scale_per_int"		"%INT SCALE TO [Q] PUSH DISTANCE:"
 		"DOTA_Tooltip_ability_leonidas_math_attribute_catch_radius_pct_scale_per_int"			"%INT RADIUS SCALE TO [W]:"
@@ -7475,10 +7469,10 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
 		"DOTA_Tooltip_ability_leonidas_army_attribute_bonus_magic_resistance_pct"				"%BONUS MAGIC RESISTANCE:"
 
 		"DOTA_Tooltip_ability_leonidas_pride_attribute"											"Attribute: Rear Guard's Pride"
-		"DOTA_Tooltip_ability_leonidas_pride_attribute_Description"								"Skill that displays more power the more disadvantageous the situation. Increase Leonidas Skills damage by %scale_per_hero_max%%% maximum (caped) per each alive enemy and dead ally (aka if dead all allies and alive all enemies will be 30%). \n\n [E] Skill now casts immediately and becomes in defensive stance for %counter_duration%, blocking and return by bonus to spear %counter_resist%%% damage (caped by your max health at moment of countering), point or target records when cast begins. Can be fast released. \n\n Grant bonus damage to [E] == %bonus_damage%."
+		"DOTA_Tooltip_ability_leonidas_pride_attribute_Description"								"Skill that displays more power the more disadvantageous the situation. Increase Leonidas Skills damage by %scale_per_hero_max%%% maximum (caped) per each alive enemy and dead ally (aka if dead all allies and alive all enemies will be 30%). \n [E] Skill now casts immediately and becomes in defensive stance for %counter_duration%, blocking and return by bonus to spear %counter_resist%%% damage, point or target records when cast begins. Can be fast released. \n Grant bonus damage to [E] == %bonus_damage%."
 
 		"DOTA_Tooltip_ability_leonidas_mad_attribute"											"Attribute: Dual Class"
-		"DOTA_Tooltip_ability_leonidas_mad_attribute_Description"								"[USABLE IN STUN AND SILENCE]\n\n[CAN;T BE USED UNDER REVOKE] \n\n Leonidas becomes enraged, all skills and normal attacks can critical strike, with intervals dispel all negative effects and does damage to near enemies counted times. Recieve attack speed as much as he lost hp. Spend health active all 3 seconds not instant 30% just 10% per each tick"
+		"DOTA_Tooltip_ability_leonidas_mad_attribute_Description"								"[USABLE IN STUN AND SILENCE]\n[CAN;T BE USED UNDER REVOKE] \n Leonidas becomes enraged, all skills and normal attacks can critical strike, with intervals dispel all negative effects and does damage to near enemies counted times. Recieve attack speed as much as he lost hp. Spend health active all 3 seconds not instant 30% just 10% per each tick"
 		"DOTA_Tooltip_ability_leonidas_mad_attribute_radius"									"PURGE RADIUS:"
 		"DOTA_Tooltip_ability_leonidas_mad_attribute_duration"									"DURATION:"
 		"DOTA_Tooltip_ability_leonidas_mad_attribute_purge_tick"								"PURGE INTERVAL:"
@@ -7510,7 +7504,7 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
 		//"DOTA_Tooltip_modifier_artoria_calibur_slow_Description"								"Slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 
 		"DOTA_Tooltip_ability_leonidas_kick"													"This Is Sparta"
-		"DOTA_Tooltip_ability_leonidas_kick_Description"										"Knocking selected target, if target pushed to wall applies slow, lock effect and does bonus damage. \n\n[BERSERKED] Applies stun effect while pushed, stun effect on wall hit."
+		"DOTA_Tooltip_ability_leonidas_kick_Description"										"Knocking selected target, if target pushed to wall applies slow, lock effect and does bonus damage. \n[BERSERKED] Applies stun effect while pushed, stun effect on wall hit."
 		"DOTA_Tooltip_ability_leonidas_kick_push_distance"										"PUSH DISTANCE:"
 		"DOTA_Tooltip_ability_leonidas_kick_push_duration"										"PUSH TIME:"
 		"DOTA_Tooltip_ability_leonidas_kick_slow_duration"										"BOUNCE EFFECT DURATION:"
@@ -7519,7 +7513,7 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
 		"DOTA_Tooltip_ability_leonidas_kick_bounce_damage"										"BOUNCE DAMAGE:"
 
 		"DOTA_Tooltip_ability_leonidas_catch"													"Impale Toss"
-		"DOTA_Tooltip_ability_leonidas_catch_Description"										"Catch near enemy and throws on self backward, applies slow, lock effect immediately. \n\n[BERSERKED] Adds stun effect, and can throw all units in radius."
+		"DOTA_Tooltip_ability_leonidas_catch_Description"										"Catch near enemy and throws on self backward, applies slow, lock effect immediately. \n[BERSERKED] Adds stun effect, and can throw all units in radius."
 		"DOTA_Tooltip_ability_leonidas_catch_radius"											"RADIUS:"
 		"DOTA_Tooltip_ability_leonidas_catch_base_damage"										"DAMAGE:"
 		"DOTA_Tooltip_ability_leonidas_catch_fly_height"										"FLY HEIGHT:"
@@ -7528,7 +7522,7 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
 		"DOTA_Tooltip_ability_leonidas_catch_slow_pct"											"%EFFECT SLOW:"
 
 		"DOTA_Tooltip_ability_leonidas_pride"													"Spear Throw"
-		"DOTA_Tooltip_ability_leonidas_pride_Description"										"Launch spear to selected point, does %damage% damage and stunning all enemies in %radius% units for %stun_duration%, while flying grant %vision_radius% radius vision. \n\nCast Range %cast_range%. \n\n[BERSERKED] Doesn't crit, place ward from your inventory automaticaly spend it at moment of cast. Doubling Stun duration."
+		"DOTA_Tooltip_ability_leonidas_pride_Description"										"Launch spear to selected point, does %damage% damage and stunning all enemies in %radius% units for %stun_duration%, while flying grant %vision_radius% radius vision. \nCast Range %cast_range%. \n[BERSERKED] Can be used on target and tracking it, if target spellblocked will fly to target last location"
 
 		"DOTA_Tooltip_modifier_leonidas_pride_counter_Description"								"Rear Guard's Pride: Counter"
 		"DOTA_Tooltip_modifier_leonidas_pride_counter_Description"								"Countering damage, will release soon"
@@ -7537,7 +7531,7 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
 		"DOTA_Tooltip_ability_leonidas_pride_release_Description"								"Releasing resisted and boosted spear"
 
 		"DOTA_Tooltip_ability_leonidas_berserk"													"Berserk"
-		"DOTA_Tooltip_ability_leonidas_berserk_Description"										"[USABLE IN STUN AND SILENCE]\n\n[CAN;T BE USED UNDER REVOKE] \n\n Leonidas becomes enraged, all skills and normal attacks can critical strike, with intervals dispel all negative effects and does damage to near enemies counted times. Recieve attack speed as much as he lost hp. Spend health active all 3 seconds not instant 30% just 10% per each tick"
+		"DOTA_Tooltip_ability_leonidas_berserk_Description"										"[USABLE IN STUN AND SILENCE]\n[CAN;T BE USED UNDER REVOKE] \n Leonidas becomes enraged, all skills and normal attacks can critical strike, with intervals dispel all negative effects and does damage to near enemies counted times. Recieve attack speed as much as he lost hp. Spend health active all 3 seconds not instant 30% just 10% per each tick"
 		"DOTA_Tooltip_ability_leonidas_berserk_radius"											"PURGE RADIUS:"
 		"DOTA_Tooltip_ability_leonidas_berserk_duration"										"DURATION:"
 		"DOTA_Tooltip_ability_leonidas_berserk_purge_tick"										"PURGE INTERVAL:"
@@ -7559,7 +7553,7 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
 		"DOTA_Tooltip_modifier_leonidas_berserk_Description"									"Mad Enhancemented"
 
 		"DOTA_Tooltip_ability_leonidas_bc"														"Battle Continuation"
-		"DOTA_Tooltip_ability_leonidas_bc_Description"											"Doesn't know when to give up. Makes it possible to fight even with deadly injuries and can remain alive so long as one does not receive a decisive fatal wound. \n\n[CAN BE EXECUTED]"
+		"DOTA_Tooltip_ability_leonidas_bc_Description"											"Doesn't know when to give up. Makes it possible to fight even with deadly injuries and can remain alive so long as one does not receive a decisive fatal wound. \n[CAN BE EXECUTED]"
 		"DOTA_Tooltip_ability_leonidas_bc_radius"												"LAST RESORT RADIUS:"
 		"DOTA_Tooltip_ability_leonidas_bc_hp_require_pct"										"%HEALTH THRESHOLD ACTIVATION:"
 		"DOTA_Tooltip_ability_leonidas_bc_enomotia_shield_duration"								"LAST RESORT SHIELD DURATION:"
@@ -7578,7 +7572,7 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
 		"DOTA_Tooltip_modifier_leonidas_bc_heal_Description"									"Regenarate health"
 
 		"DOTA_Tooltip_ability_leonidas_enomotia"												"Thermopylae Enomotia"
-		"DOTA_Tooltip_ability_leonidas_enomotia_Description"									"Releasing Nobble Phantasm in %pfx_anim_start_time%+%pfx_anim_loop_time% seconds, all allies and enemies in near radius will be pushed away and grant bonus block per shield. Applies disarm, lock, slow. \n\n[BERSERKED] Adds stun effect. \n\n[DAMAGE AS NEGATIVE EFFECTS APPLIES ONLY ON ENEMIES]"
+		"DOTA_Tooltip_ability_leonidas_enomotia_Description"									"Releasing Nobble Phantasm in %pfx_anim_start_time%+%pfx_anim_loop_time% seconds, all allies and enemies in near radius will be pushed away and grant bonus block per shield. Applies disarm, lock, slow. \n[BERSERKED] Adds stun effect. \n[DAMAGE AS NEGATIVE EFFECTS APPLIES ONLY ON ENEMIES]"
 		"DOTA_Tooltip_ability_leonidas_enomotia_radius"											"RADIUS:"
 		"DOTA_Tooltip_ability_leonidas_enomotia_push_radius"									"PUSH RADIUS:"
 		"DOTA_Tooltip_ability_leonidas_enomotia_push_duration"									"PUSH TIME:"
@@ -7601,9 +7595,7 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
 		"DOTA_Tooltip_modifier_leonidas_enomotia_slow_Description"								"Slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%. This Modifier universal and applies many effects based on leonidas properties."
 
 		"DOTA_Tooltip_ability_leonidas_enomotia_combo"											"COMBO: Thermopylae Enomotia Counterattack"
-		"DOTA_Tooltip_ability_leonidas_enomotia_combo_Description"								"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: E-W-R in %steps_duration%*%combo_steps% seconds</font>"
-		"DOTA_Tooltip_ability_leonidas_enomotia_combo_Note0"									"[DEFENCE] \n\n Releasing Noble Phantasm is [DEFENCE] state, any ally in radius around Leonidas will transfer all original damage to him and spend shields first, after his health, combo not ends when shields is gone. Also Grant Vision (not true sight) to radius which defends. If shields is gone and Leonidas dead, defence enomotia is gone without effect."
-		"DOTA_Tooltip_ability_leonidas_enomotia_combo_Note1"									"[BERSERKED] \n\n Releaseing Strong Version of normal Thermopylae Enomotia. Recieve Bonus Berserk duration for full time of releasing and shields duration after release, total time not increases, just setups to new if u already in berserk when cast begins."
+		"DOTA_Tooltip_ability_leonidas_enomotia_combo_Description"								"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: E-W-R in %steps_duration%*%combo_steps% seconds</font>\n Releasing Noble Phantasm is [DEFENCE] state, any ally in radius around Leonidas will transfer all original damage to him and spend shields first, after his health, combo not ends when shields is gone. Also Grant Vision (not true sight) to radius which defends.  \n[BERSERKED] Releaseing Strong Version of normal Thermopylae Enomotia. Recieve Bonus Berserk duration for full time of releasing and shields duration after release, total time not increases, just setups to new if u already in berserk when cast begins. \n[DEFENCE] If shields is gone and Leonidas dead, defence enomotia is gone without effect."
 		"DOTA_Tooltip_ability_leonidas_enomotia_combo_radius"									"RADIUS:"
 		"DOTA_Tooltip_ability_leonidas_enomotia_combo_push_radius"								"[BERSERKED] PUSH RADIUS:"
 		"DOTA_Tooltip_ability_leonidas_enomotia_combo_push_duration"							"[BERSERKED] PUSH TIME:"

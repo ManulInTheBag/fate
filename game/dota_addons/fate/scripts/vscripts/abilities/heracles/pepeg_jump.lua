@@ -11,6 +11,7 @@ function pepeg_jump:OnSpellStart()
 	   caster:AddNewModifier(caster, self, "modifier_pepeg_jump", {Berserked = true})
     else
         local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 300, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_HERO, 0, FIND_CLOSEST, false)
+        print (targets[2])
         if targets[2] then
             targets[2]:AddNewModifier(caster, self, "modifier_pepeg_jump", {Berserked = false})
         else
@@ -31,18 +32,35 @@ end
 function pepeg_jump:GetCastRange()
     local caster = self:GetCaster()
     if caster:HasModifier("modifier_heracles_berserk") then
-        return (self:GetSpecialValueFor("berserked_range") + caster:GetStrength()*(caster.IsInhumanStrengthAcquired and 2 or 0))
+        return self:GetSpecialValueFor("berserked_range") + caster:GetStrength()*2
     end
-    return (self:GetSpecialValueFor("range") + caster:GetStrength()*(caster.IsInhumanStrengthAcquired and 2 or 0))
+    return self:GetSpecialValueFor("range") + caster:GetStrength()*2
 end
 
 function pepeg_jump:GetAOERadius()
     return self:GetSpecialValueFor("radius")
 end
 
+function pepeg_jump:CastFilterResultTarget()
+    local caster = self:GetCaster()
+    local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 300, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_HERO, 0, FIND_CLOSEST, false)
+    if IsServer() and targets[2] == nil then
+        return UF_FAIL_CUSTOM
+    else
+        return UF_SUCESS
+    end
+end
+
+function pepeg_jump:GetCustomCastErrorTarget()
+    return "Can only be activated in Derange"
+end
+
 function pepeg_jump:CastFilterResultLocation(hLocation)
     local caster = self:GetCaster()
-    if IsServer() and not IsInSameRealm(caster:GetAbsOrigin(), hLocation) then
+    local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 300, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_HERO, 0, FIND_CLOSEST, false)
+    if IsServer() and not IsInSameRealm(caster:GetAbsOrigin(), hLocation) then 
+        return UF_FAIL_OUT_OF_WORLD
+    elseif targets[2] == nil and not caster:HasModifier("modifier_heracles_berserk") then
         return UF_FAIL_CUSTOM
     else
         return UF_SUCESS
@@ -50,10 +68,7 @@ function pepeg_jump:CastFilterResultLocation(hLocation)
 end
 
 function pepeg_jump:GetCustomCastErrorLocation(hLocation)
-	if self:GetCaster():GetAbsOrigin().y < -2000 then
-		return "#Inside_Reality_Marble"
-	end
-    return "#Wrong_Target_Location"
+    return "No targets?"
 end
 
 modifier_pepeg_jump = class({})
@@ -222,10 +237,10 @@ function modifier_pepeg_jump:PlayEffects()
                                             false)
 
         if self.parent == self.caster then
-            self.damage = self:GetAbility():GetSpecialValueFor("pepeg_damage") + (self.caster.IsInhumanStrengthAcquired and 1.25 or 0)*self.caster:GetStrength()
+            self.damage = self:GetAbility():GetSpecialValueFor("pepeg_damage") + 1.25 * self.caster:GetStrength()
             self.percent_damage = self.parent:GetMaxHealth()*self.ability:GetSpecialValueFor("health_percent")/50
         else
-            self.damage = self:GetAbility():GetSpecialValueFor("damage") + (self.caster.IsInhumanStrengthAcquired and 1 or 0)*self.caster:GetStrength()
+            self.damage = self:GetAbility():GetSpecialValueFor("damage") + 1 * self.caster:GetStrength()
             self.percent_damage = self.parent:GetMaxHealth()*self.ability:GetSpecialValueFor("health_percent")/100
         end
 

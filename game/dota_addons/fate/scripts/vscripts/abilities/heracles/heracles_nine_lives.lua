@@ -90,7 +90,7 @@ function heracles_nine_lives:NineLivesHits()
 
 	local casterInitOrigin = caster:GetAbsOrigin() 
 
-	caster:AddNewModifier(caster, self, "modifier_heracles_nine_lives", { Duration = 2.5,
+	caster:AddNewModifier(caster, self, "modifier_heracles_nine_lives", { Duration = 4,
 																 SmallDamage = self:GetSpecialValueFor("damage")+bonus_damage,
 																 LargeDamage = self:GetSpecialValueFor("damage_lasthit")+bonus_damage,
 																 SmallRadius = self:GetSpecialValueFor("radius"),

@@ -105,6 +105,7 @@ function berserker_5th_madmans_roar:OnSpellStart()
 			end
 			giveUnitDataDrivenModifier(caster, v, "rb_sealdisabled", 3.0)
 			giveUnitDataDrivenModifier(caster, v, "locked", self:GetSpecialValueFor("lock_duration_1"))
+			v:AddNewModifier(caster, self, "modifier_stunned", {Duration = self:GetSpecialValueFor("stun_duration")})
 		elseif dist > 500 and dist <= 1000 then
 			finaldmg = Damage2
 			if not IsImmuneToSlow(v) then 

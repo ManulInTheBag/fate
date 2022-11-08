@@ -537,6 +537,7 @@ CannotReset = {
     "nobu_leader_of_innovation",
     "arcueid_melty",
     "arcueid_impulses",
+    "arcueid_eyes",
     
     "leonidas_berserk",
     "leonidas_bc",

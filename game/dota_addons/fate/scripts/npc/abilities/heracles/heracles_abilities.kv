@@ -104,9 +104,10 @@
 	//=================================================================================================================
 	// Berserker : Divinity
 	//=================================================================================================================
-	"berserker_5th_divinity"
+	"pepeg_divinity"
 	{
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/heracles/pepeg_divinity"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"			"custom/berserker_5th_divinity"
 		"MaxLevel"						"2"
@@ -118,17 +119,22 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_reduction"			"30 60"
+				"physical_block"			"30 60"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_mr"				"0" //why 16.7? because 0.1+(1-0.1)*0.167 = 0.2504.... yeah.
+				"var_type"				"FIELD_INTEGER"
+				"bonus_armor"				"0 15"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"				"5 15"
+				"duration"					"4"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"regen_percent"				"20"
 			}
 		}
 		
@@ -356,7 +362,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"stun_duration"			"3.0"
+				"stun_duration"			"1.0"
 			}
 		}
 	}
@@ -390,7 +396,7 @@
 				{
 					"Random"
 					{
-						"Chance"		"35"
+						"Chance"		"100"
 						"OnSuccess"
 						{
 							"RunScript"
@@ -407,7 +413,7 @@
 				"IsDebuff"			"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-100"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-50"
 				}
 			}
 		}
@@ -599,6 +605,17 @@
 			"particle"			"particles/custom/berserker/reincarnation/regen_buff.vpcf"
 		}
 
+		"03"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"duration"				"4"
+		}
+		"04"
+		{
+			"var_type"				"FIELD_INTEGER"
+			"regen_percent"			"20"
+		}
+
 		
 		"OnSpellStart"
 		{
@@ -659,7 +676,7 @@
 		
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"9999"
-		"AbilityManaCost"				"20"
+		"AbilityManaCost"				"10"
 
 		"precache"
 		{
@@ -707,7 +724,7 @@
 		
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"9999"
-		"AbilityManaCost"				"12"
+		"AbilityManaCost"				"16"
 
 		"precache"
 		{
@@ -723,7 +740,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"bash_duration"		"0.5"
+				"bash_duration"		"1"
 			}
 			"03"
 			{
@@ -815,7 +832,7 @@
 		
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"9999"
-		"AbilityManaCost"				"8"
+		"AbilityManaCost"				"10"
 
 		"precache"
 		{
@@ -874,7 +891,7 @@
 		
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"9999"
-		"AbilityManaCost"				"15"
+		"AbilityManaCost"				"12"
 
 		"precache"
 		{

@@ -124,10 +124,12 @@ end
 
 
 
-function modifier_muramasa_tsumukari:OnRespawn()
-self:SetStackCount(0)
-
+function modifier_muramasa_tsumukari:OnRespawn(args)
+local caster = self:GetCaster()
+    if(caster ~= args.unit) then return end
+    self:SetStackCount(0)
 end
+
 function modifier_muramasa_tsumukari:GetModifierMagicalResistanceBonus()
     local caster = self:GetCaster()
 	return  self:GetAbility():GetSpecialValueFor("attribute_mr")  * (caster.AppreciationOfSwordsAcquired and 1 or 0) 

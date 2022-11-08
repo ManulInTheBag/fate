@@ -7,7 +7,7 @@ function modifier_heracles_nine_lives:OnCreated(args)
 		self.LargeDamage = args.LargeDamage
 		self.SmallRadius = args.SmallRadius
 		self.LargeRadius = args.LargeRadius
-		self:StartIntervalThink(0.2)
+		self:StartIntervalThink(0.3)
 
 		if math.random(1,100) > 10 then
 			self:GetParent():EmitSound("Heracles_NineLives_" .. math.random(1,3))
@@ -15,7 +15,7 @@ function modifier_heracles_nine_lives:OnCreated(args)
 			self:GetParent():EmitSound("Heracles_Combo_Easter_1")
 		end
 
-		StartAnimation(self:GetParent(), {duration = 1.9, activity=ACT_DOTA_OVERRIDE_ABILITY_4, rate = 1.8})
+		StartAnimation(self:GetParent(), {duration = 2.4, activity=ACT_DOTA_OVERRIDE_ABILITY_4, rate = 1.2})
 	end
 end
 
@@ -30,7 +30,7 @@ function modifier_heracles_nine_lives:OnIntervalThink()
 
 		for k,v in pairs(targets) do
 			DoDamage(caster, v, self.SmallDamage, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
-			if caster.IsDivinityImproved then
+			if caster.MEacquired then
 				DoDamage(caster, v, self:GetAbility():GetSpecialValueFor("damage_phys")*self:GetParent():GetAverageTrueAttackDamage(self:GetParent())/100, DAMAGE_TYPE_PHYSICAL, 0, self:GetAbility(), false)
 			end
 			v:AddNewModifier(caster, v, "modifier_stunned", { Duration = 0.5 })
@@ -50,7 +50,7 @@ function modifier_heracles_nine_lives:OnIntervalThink()
 		for k,v in pairs(lasthitTargets) do
 			if v:GetName() ~= "npc_dota_ward_base" then
 				DoDamage(caster, v, self.LargeDamage, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
-				if caster.IsDivinityImproved then
+				if caster.MEacquired then
 					DoDamage(caster, v, self:GetAbility():GetSpecialValueFor("last_damage_phys")*self:GetParent():GetAverageTrueAttackDamage(self:GetParent())/100, DAMAGE_TYPE_PHYSICAL, 0, self:GetAbility(), false)
 				end
 				

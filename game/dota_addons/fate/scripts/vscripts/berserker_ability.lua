@@ -2,7 +2,7 @@
 
 function OnFissureStart(keys)
 	local caster = keys.caster
-	local frontward = caster:GetForwardVector()
+	local frontward = (keys.ability:GetCursorPosition() - caster:GetAbsOrigin()):Normalized()
 	local fiss = 
 	{
 		Ability = keys.ability,
@@ -24,7 +24,7 @@ function OnFissureStart(keys)
 	}
 	caster.FissureOrigin  = caster:GetAbsOrigin()
 	caster.FissureTarget = keys.target_points[1]
-	if caster:HasModifier("modifier_heracles_berserk") and (keys.ability:GetLevel()>4) then
+	if caster:HasModifier("modifier_heracles_berserk") and (keys.ability:GetLevel()>69) then
 		StartAnimation(caster, {duration=1.8, activity=ACT_DOTA_OVERRIDE_ABILITY_1, rate=1.7})
 		giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 1.4)
 		Timers:CreateTimer(0.8, function()
@@ -101,7 +101,7 @@ function OnFissureStart(keys)
 		        EffectName = "particles/custom/berserker/fissure_strike/shockwave.vpcf",
 		        iMoveSpeed = keys.Speed,
 		        vSpawnOrigin = caster:GetAbsOrigin(),
-		        fDistance = keys.Range + caster:GetStrength()*(caster.IsDivinityImproved and 1 or 0),
+		        fDistance = keys.Range + caster:GetStrength()*(caster.IsEternalRageAcquired and 1 or 0),
 		        fStartRadius = keys.Width,
 		        fEndRadius = keys.Width,
 		        Source = caster,
@@ -157,13 +157,14 @@ end
 function OnFissureHit(keys)
 	local caster = keys.caster
 	local target = keys.target
-	local courageAbility = caster:FindAbilityByName("berserker_5th_courage") 
+	local courageAbility = caster:FindAbilityByName("berserker_5th_courage")
+	local casterOrirgin = caster:GetAbsOrigin()
 	--[[if caster:HasModifier("modifier_courage_damage_stack_indicator") then
 		keys.Damage = keys.Damage + courageAbility:GetLevelSpecialValueFor("bonus_damage", courageAbility:GetLevel()-1)/2
 		DeductCourageDamageStack(caster)
 	end]]
 
-	DoDamage(keys.caster, keys.target, keys.Damage + caster:GetStrength()*(caster.IsDivinityImproved and 0.25 or 0), DAMAGE_TYPE_MAGICAL, 0, keys.ability, false)
+	DoDamage(keys.caster, keys.target, keys.Damage + caster:GetStrength()*(caster.IsEternalRageAcquired and 0.25 or 0), DAMAGE_TYPE_MAGICAL, 0, keys.ability, false)
 	if not IsImmuneToSlow(target) then keys.ability:ApplyDataDrivenModifier(caster, target, "modifier_fissure_strike_slow", {}) end
 
 	if caster:HasModifier("modifier_heracles_berserk") and ((target:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D() <= 300) then
@@ -178,16 +179,23 @@ function OnFissureHit(keys)
 	    target:SetPhysicsFriction(0)
 		local vectorC = (caster.FissureTarget - caster.FissureOrigin) + Vector(0,0,100) --knockback in direction as fissure
 		-- get the direction where target will be pushed back to
-		target:SetPhysicsVelocity(vectorC:Normalized() * 1500)
+		target:SetPhysicsVelocity(vectorC:Normalized() * -1500)
 	    target:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
 		local initialUnitOrigin = keys.target:GetAbsOrigin()
+		local initialCasterOrigin = keys.caster:GetAbsOrigin()
 		
 		target:OnPhysicsFrame(function(unit) -- pushback distance check
 			local unitOrigin = unit:GetAbsOrigin()
 			local diff = unitOrigin - initialUnitOrigin
 			local n_diff = diff:Normalized()
+			if (casterOrirgin - unitOrigin):Length2D() < 100 then
+				unit:PreventDI(false)
+				unit:SetPhysicsVelocity(Vector(0,0,0))
+				unit:OnPhysicsFrame(nil)
+				FindClearSpaceForUnit(unit, unit:GetAbsOrigin(), true)
+			end
 			unit:SetPhysicsVelocity(unit:GetPhysicsVelocity():Length() * n_diff) -- track the movement of target being pushed back
-			if diff:Length() > (caster:FindAbilityByName("berserker_5th_fissure_strike"):GetSpecialValueFor("knockback") + caster:GetStrength()*(caster.IsDivinityImproved and 0.5 or 0)) then -- if pushback distance is over 400, stop it
+			if diff:Length() > (caster:FindAbilityByName("berserker_5th_fissure_strike"):GetSpecialValueFor("knockback") + caster:GetStrength()*(caster.IsEternalRageAcquired and 0.5 or 0)) then -- if pushback distance is over 400, stop it
 				unit:PreventDI(false)
 				unit:SetPhysicsVelocity(Vector(0,0,0))
 				unit:OnPhysicsFrame(nil)
@@ -200,7 +208,7 @@ function OnFissureHit(keys)
 			unit:PreventDI(false)
 			unit:SetPhysicsVelocity(Vector(0,0,0))
 			target:AddNewModifier(caster, target, "modifier_stunned", { Duration = caster:FindAbilityByName("berserker_5th_fissure_strike"):GetSpecialValueFor("collide_duration") })
-			DoDamage(caster, target, keys.CollideDamage + caster:GetStrength()*(caster.IsDivinityImproved and 0.1 or 0), DAMAGE_TYPE_MAGICAL, 0, keys.ability, false)
+			DoDamage(caster, target, keys.CollideDamage + caster:GetStrength()*(caster.IsEternalRageAcquired and 0.1 or 0), DAMAGE_TYPE_MAGICAL, 0, keys.ability, false)
 			--giveUnitDataDrivenModifier(caster, target, "stunned",  caster:FindAbilityByName("berserker_5th_fissure_strike"):GetSpecialValueFor("collide_duration"))
 		end)
 	end
@@ -485,6 +493,24 @@ function OnBerserkDamageTaken(keys)
 	end
 end
 
+LinkLuaModifier("modifier_berserker_clap_slow","berserker_ability", LUA_MODIFIER_MOTION_NONE)
+
+modifier_berserker_clap_slow = class({})
+
+function modifier_berserker_clap_slow:DeclareFunctions()
+	local funcs = {MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE}
+
+	return funcs
+end
+
+function modifier_berserker_clap_slow:GetModifierMoveSpeedBonus_Percentage()
+	return -50
+end
+
+function modifier_berserker_clap_slow:IsHidden()
+	return false 
+end
+
 -- Eternal Rage passive
 function OnBerserkProc(keys)
 	local caster = keys.caster
@@ -494,11 +520,11 @@ function OnBerserkProc(keys)
 		local targets = FindUnitsInRadius(caster:GetTeam(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
 		for k,v in pairs(targets) do
 	        DoDamage(caster, v, caster:GetAverageTrueAttackDamage(caster)/2, DAMAGE_TYPE_PHYSICAL, 0, keys.ability, false)
-	        --v:AddNewModifier(caster, v, "modifier_eternal_rage_slow", {Duration = 0.5})
+	        v:AddNewModifier(caster, keys.ability, "modifier_berserker_clap_slow", {Duration = 1})
 		end
 		caster.IsRageBashOnCooldown = true
 		target:EmitSound("Hero_Centaur.HoofStomp")
-		Timers:CreateTimer(1.5, function()
+		Timers:CreateTimer(0, function()
 			caster.IsRageBashOnCooldown = false
 		end)
 
@@ -939,7 +965,7 @@ function OnImproveDivinityAcquired(keys)
 	local ply = caster:GetPlayerOwner()
 	local hero = caster:GetPlayerOwner():GetAssignedHero()
 	hero.IsDivinityImproved = true
-	hero:FindAbilityByName("berserker_5th_divinity"):SetLevel(2)
+	hero:FindAbilityByName("pepeg_divinity"):SetLevel(2)
 	-- Set master 1's mana 
 	local master = hero.MasterUnit
 	master:SetMana(master:GetMana() - keys.ability:GetManaCost(keys.ability:GetLevel()))
@@ -982,8 +1008,7 @@ function OnReincarnationAcquired(keys)
 	local caster = keys.caster
 	local ply = caster:GetPlayerOwner()
 	local hero = caster:GetPlayerOwner():GetAssignedHero()
-	hero.IsInhumanStrengthAcquired = true
-	print("pepe")
+	hero.IsReincarnationAcquired = true
 	--hero:FindAbilityByName("berserker_5th_reincarnation"):SetLevel(1)
 	--hero.ReincarnationDamageTaken = 0
 	--UpdateGodhandProgress(hero)
