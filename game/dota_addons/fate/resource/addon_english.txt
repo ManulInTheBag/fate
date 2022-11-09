@@ -7454,8 +7454,9 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
 		"DOTA_Tooltip_modifier_leonidas_attributes_Description"									"Just for showing u, allies and enemies what u have picked and prediction bugs"
 
 		"DOTA_Tooltip_ability_leonidas_math_attribute"											"Attribute: Math Is Great"
-		"DOTA_Tooltip_ability_leonidas_math_attribute_Description"								"Math is great. I feel so accomplished when my calculations are correct. \n Calculate strategy options and increase abilities values from intellect. \n[VALUE SCALES BY % TO BASE VALUE PER EACH INT POINT]"
-		"DOTA_Tooltip_ability_leonidas_math_attribute_int_to_str_pct"							"%INT TO STRENGTH:"
+		"DOTA_Tooltip_ability_leonidas_math_attribute_Description"								"Math is great. I feel so accomplished when my calculations are correct. \n\n Calculate strategy options and increase abilities values from intellect. \n\n[VALUE SCALES BY % TO BASE VALUE PER EACH INT POINT]"
+		//"DOTA_Tooltip_ability_leonidas_math_attribute_int_to_str_pct"							"%INT TO STRENGTH:"
+		"DOTA_Tooltip_ability_leonidas_math_attribute_bonus_int"								"BONUS INTELLECT:"
 		"DOTA_Tooltip_ability_leonidas_math_attribute_kick_push_distance_pct_scale_per_int"		"%INT SCALE TO [Q] PUSH DISTANCE:"
 		"DOTA_Tooltip_ability_leonidas_math_attribute_catch_radius_pct_scale_per_int"			"%INT RADIUS SCALE TO [W]:"
 		"DOTA_Tooltip_ability_leonidas_math_attribute_pride_radius_pct_scale_per_int"			"%INT AOE RADIUS [E]:"
@@ -7504,7 +7505,7 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
 		//"DOTA_Tooltip_modifier_artoria_calibur_slow_Description"								"Slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 
 		"DOTA_Tooltip_ability_leonidas_kick"													"This Is Sparta"
-		"DOTA_Tooltip_ability_leonidas_kick_Description"										"Knocking selected target, if target pushed to wall applies slow, lock effect and does bonus damage. \n[BERSERKED] Applies stun effect while pushed, stun effect on wall hit."
+		"DOTA_Tooltip_ability_leonidas_kick_Description"										"Knocking selected target, if target pushed to wall applies slow, lock effect and does bonus damage. \n\n[BERSERKED] Applies stun effect while pushed, stun effect on wall hit. Rebouncing Full Time"
 		"DOTA_Tooltip_ability_leonidas_kick_push_distance"										"PUSH DISTANCE:"
 		"DOTA_Tooltip_ability_leonidas_kick_push_duration"										"PUSH TIME:"
 		"DOTA_Tooltip_ability_leonidas_kick_slow_duration"										"BOUNCE EFFECT DURATION:"
@@ -7522,16 +7523,18 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
 		"DOTA_Tooltip_ability_leonidas_catch_slow_pct"											"%EFFECT SLOW:"
 
 		"DOTA_Tooltip_ability_leonidas_pride"													"Spear Throw"
-		"DOTA_Tooltip_ability_leonidas_pride_Description"										"Launch spear to selected point, does %damage% damage and stunning all enemies in %radius% units for %stun_duration%, while flying grant %vision_radius% radius vision. \nCast Range %cast_range%. \n[BERSERKED] Can be used on target and tracking it, if target spellblocked will fly to target last location"
+		"DOTA_Tooltip_ability_leonidas_pride_Description"										"Launch spear to selected point, does %damage% damage and stunning all enemies in %radius% units for %stun_duration%, while flying grant %vision_radius% radius vision. \n\nCast Range %cast_range%. \n\n[BERSERKED] Reduce cooldown to %berserk_cooldown% seconds. Doubling Stun duration."
+		"DOTA_Tooltip_ability_leonidas_pride_Note0"												"Damage reduced as much out of distance to u, minimum 300"
 
-		"DOTA_Tooltip_modifier_leonidas_pride_counter_Description"								"Rear Guard's Pride: Counter"
+		"DOTA_Tooltip_modifier_leonidas_pride_counter"											"Rear Guard's Pride: Counter"
 		"DOTA_Tooltip_modifier_leonidas_pride_counter_Description"								"Countering damage, will release soon"
 
 		"DOTA_Tooltip_ability_leonidas_pride_release"											"Rear Guard's Pride: Release"
 		"DOTA_Tooltip_ability_leonidas_pride_release_Description"								"Releasing resisted and boosted spear"
 
 		"DOTA_Tooltip_ability_leonidas_berserk"													"Berserk"
-		"DOTA_Tooltip_ability_leonidas_berserk_Description"										"[USABLE IN STUN AND SILENCE]\n[CAN;T BE USED UNDER REVOKE] \n Leonidas becomes enraged, all skills and normal attacks can critical strike, with intervals dispel all negative effects and does damage to near enemies counted times. Recieve attack speed as much as he lost hp. Spend health active all 3 seconds not instant 30% just 10% per each tick"
+		"DOTA_Tooltip_ability_leonidas_berserk_Description"										"[USABLE IN STUN AND SILENCE]\n\n[CAN;T BE USED UNDER REVOKE] \n\n Leonidas becomes enraged, all skills and normal attacks can critical strike, with intervals dispel all negative effects and does damage to near enemies counted times. Recieve attack speed as much as he lost hp. Spend health active all 3 seconds not instant 30% just 10% per each tick"
+		"DOTA_Tooltip_ability_leonidas_berserk_Note0"											"Critical damage part on abilities does damage overtime 3 seconds splited by 10 ticks, damage type equal skill damage type"
 		"DOTA_Tooltip_ability_leonidas_berserk_radius"											"PURGE RADIUS:"
 		"DOTA_Tooltip_ability_leonidas_berserk_duration"										"DURATION:"
 		"DOTA_Tooltip_ability_leonidas_berserk_purge_tick"										"PURGE INTERVAL:"
@@ -7551,6 +7554,9 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
 
 		"DOTA_Tooltip_modifier_leonidas_berserk"												"Berserked"
 		"DOTA_Tooltip_modifier_leonidas_berserk_Description"									"Mad Enhancemented"
+
+		"DOTA_Tooltip_modifier_leonidas_berserk_damage_overtime"								"Critical Part Of Leonidas Berserk damage"
+		"DOTA_Tooltip_modifier_leonidas_berserk_damage_overtime_Description"					"Take damage overtime"
 
 		"DOTA_Tooltip_ability_leonidas_bc"														"Battle Continuation"
 		"DOTA_Tooltip_ability_leonidas_bc_Description"											"Doesn't know when to give up. Makes it possible to fight even with deadly injuries and can remain alive so long as one does not receive a decisive fatal wound. \n[CAN BE EXECUTED]"
