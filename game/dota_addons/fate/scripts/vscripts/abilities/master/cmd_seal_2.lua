@@ -63,7 +63,7 @@ function cmd_seal_2:OnSpellStart()
 	master2:SetMana(caster:GetMana())
 	-- pay health cost
 	caster:SetHealth(caster:GetHealth() - 1) 
-
+	master2:SetHealth(caster:GetHealth())
 	ResetAbilities(hero)
 	ResetItems(hero)
 	IncrementCharges(hero)

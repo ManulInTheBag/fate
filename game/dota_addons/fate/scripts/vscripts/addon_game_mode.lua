@@ -589,8 +589,8 @@ function FateGameMode:OnGameInProgress()
             self:InitializeRound() -- Start the game after forcing a pick for every player
             BLESSING_PERIOD = 600
         elseif _G.GameMap == "fate_ffa" then
-            BLESSING_PERIOD = 200
-            SHARD_DROP_PERIOD = 120
+            BLESSING_PERIOD = 250
+            SHARD_DROP_PERIOD = 300
             CENTER_POSITION = FFA_CENTER
             CreateUITimer("Next Holy Grail's Shard", SHARD_DROP_PERIOD, "shard_drop_timer")
             _G.CurrentGameState = "FATE_ROUND_ONGOING"
@@ -643,7 +643,7 @@ function FateGameMode:OnGameInProgress()
                 callback = function()
                 CreateUITimer("Next Holy Grail's Shard", SHARD_DROP_PERIOD, "shard_drop_timer")
                 --Notifications:TopToAll("#Fate_Timer_10minute", 5, nil, {color="rgb(255,255,255)", ["font-size"]="25px"})
-                for i=1, 2 do
+                for i=1, 1 do
                     local itemVector = CENTER_POSITION + Vector(RandomInt(-1300,1300), RandomFloat(-1300, 1300), 0)
                     CreateShardDrop(itemVector)
                 end
@@ -2154,18 +2154,32 @@ function FateGameMode:OnHeroInGame(hero)
             --Attachments:AttachProp(hero, "attach_sword", "models/astolfo/astolfo_sword.vmdl")
         end
         hero:ModifyGold(3000, false, 0)
-
+        local player = hero:GetPlayerOwner()
+        CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "player_selected_hero", playerData)
+        CustomGameEventManager:Send_ServerToAllClients("player_register_master_unit", playerData)
         self:InitialiseMissingPanoramaData(hero:GetPlayerOwner())
+        self:InitialiseMissingPanoramaData(hero:GetPlayerOwner(),hero,hero.MasterUnit2)
+        player:SetMusicStatus(5, 1)
+        StopSoundEvent("DOTAMusic.Laning_02", hero)
+        StopSoundEvent("DOTAMusic.Laning_01", hero)
+        StopSoundEvent("DOTAMusic.Laning_03", hero)
     end)
 
-    CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "player_selected_hero", playerData)
-    CustomGameEventManager:Send_ServerToAllClients("player_register_master_unit", playerData)
+    Timers:CreateTimer(12.0, function()
+        local player = hero:GetPlayerOwner()
+        player:SetMusicStatus(5, 1)
+        StopSoundEvent("DOTAMusic.Laning_02", hero)
+        StopSoundEvent("DOTAMusic.Laning_01", hero)
+        StopSoundEvent("DOTAMusic.Laning_03", hero)
+
+    end)
+
+  
 
     -- Set music off
     SendToServerConsole("dota_music_battle_enable 0")
     SendToConsole("dota_music_battle_enable 0")  
-    local player = PlayerResource:GetPlayer(hero:GetPlayerID())
-    player:SetMusicStatus(DOTA_MUSIC_STATUS_NONE, 100000)
+ 
 end
 
 function FateGameMode:PlayTeamPickSound(hero)
@@ -2763,7 +2777,8 @@ function FateGameMode:OnPlayerLevelUp(keys)
     if level == 24 then
         Notifications:Top(player, {text= "<font color='#58ACFA'>" .. FindName(hero:GetName()) .. "</font> has ascended to max level! Your Master's max health has been increased by 2.", duration=8, style={color="rgb(255,140,0)", ["font-size"]="35px"}, continue=true})
         Notifications:Top(player, {text= "Exalted by your ascension, Holy Grail's Blessing from now on will award 3 more mana.", duration=8, style={color="rgb(255,140,0)", ["font-size"]="35px"}, continue=true})
-
+        hero.MasterUnit:SetMana(hero.MasterUnit:GetMana() + 10)
+        hero.MasterUnit2:SetMana(hero.MasterUnit2:GetMana() + 10)
         hero.MasterUnit:SetMaxHealth(hero.MasterUnit:GetMaxHealth()+2)
         hero.MasterUnit2:SetMaxHealth(hero.MasterUnit:GetMaxHealth())
     end
@@ -2967,17 +2982,20 @@ function FateGameMode:OnEntityKilled( keys )
             --SendChatToPanorama("OEC10")            
 
             -- check if unit can receive a shard
-            if killedUnit.DeathCount == 7 then
-                if killedUnit.ShardAmount == nil then
-                    killedUnit.ShardAmount = 1
-                    killedUnit.DeathCount = 0
-                else
-                    killedUnit.ShardAmount = killedUnit.ShardAmount + 1
-                    killedUnit.DeathCount = 0
+            if(_G.GameMap == "fate_ffa" ) then
+                if killedUnit.DeathCount == 7 then
+                    if killedUnit.ShardAmount == nil then
+                        killedUnit.ShardAmount = 1
+                        killedUnit.DeathCount = 0
+                    else
+                        killedUnit.ShardAmount = killedUnit.ShardAmount + 1
+                        killedUnit.DeathCount = 0
+                    end
+                    local statTable = CreateTemporaryStatTable(killedUnit)
+                    CustomGameEventManager:Send_ServerToPlayer( killedUnit:GetPlayerOwner(), "servant_stats_updated", statTable ) -- Send the current stat info to JS
                 end
-                local statTable = CreateTemporaryStatTable(killedUnit)
-                CustomGameEventManager:Send_ServerToPlayer( killedUnit:GetPlayerOwner(), "servant_stats_updated", statTable ) -- Send the current stat info to JS
             end
+             
             --SendChatToPanorama("OEC11")
             -- Distribute XP to allies
             local alliedHeroes = FindUnitsInRadius(killerEntity:GetTeamNumber(), killedUnit:GetAbsOrigin(), nil, 4000, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_CLOSEST, false)
@@ -3311,7 +3329,9 @@ function FateGameMode:InitGameMode()
     GameRules:SetCustomGameEndDelay(30)
     GameRules:SetCustomVictoryMessageDuration(30)
     GameRules:SetCustomGameSetupAutoLaunchDelay(IsInToolsMode() and 3 or 30)
-
+    GameRules:SetCustomGameAllowBattleMusic( false )
+    GameRules:SetCustomGameAllowHeroPickMusic( false )
+    GameRules:SetCustomGameAllowMusicAtGameStart( false )
     if IsInToolsMode() then
         SendToServerConsole( "dota_easybuy 1" )
     end
@@ -3747,6 +3767,9 @@ function FateGameMode:InitializeRound()
             --local xpBonus = 100 + 
 
             hero:AddExperience(self.nCurrentRound * 50, false, false)
+            if(hero.AvariceCount ~= nil) then
+                hero:AddExperience(self.nCurrentRound * 50*hero.AvariceCount, false, false)
+            end
         end
         --SendChatToPanorama("IRL6"..plyID)
     end)
@@ -4033,6 +4056,36 @@ function FateGameMode:FinishRound(IsTimeOut, winner)
         statCollection:submitRound(false)
     end
 
+    if( _G.GameMap ~= "fate_ffa") then
+        LoopOverPlayers(function(player, playerID, playerHero)
+            if(winnerEventData.winnerTeam == 0 and (self.nRadiantScore == 7 or self.nRadiantScore == 14)) then 
+                 if playerHero:GetTeamNumber() == DOTA_TEAM_BADGUYS then
+                    if playerHero.ShardAmount == nil then
+                        playerHero.ShardAmount = 1
+                    else
+                        playerHero.ShardAmount = playerHero.ShardAmount + 1
+                    end
+                    local statTable = CreateTemporaryStatTable(playerHero)
+                    CustomGameEventManager:Send_ServerToPlayer( playerHero:GetPlayerOwner(), "servant_stats_updated", statTable ) -- Send the current stat info to JS
+                end
+
+            elseif winnerEventData.winnerTeam == 1 and (self.nDireScore == 7 or self.nDireScore == 14) then
+                if playerHero:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+                    if playerHero.ShardAmount == nil then
+                        playerHero.ShardAmount = 1
+                    else
+                        playerHero.ShardAmount = playerHero.ShardAmount + 1
+                    end
+                    local statTable = CreateTemporaryStatTable(playerHero)
+                    CustomGameEventManager:Send_ServerToPlayer( playerHero:GetPlayerOwner(), "servant_stats_updated", statTable ) -- Send the current stat info to JS
+                end
+
+            end
+        
+             
+        end)    
+    end
+
     --SendChatToPanorama("FR4")
 
     if self.nRadiantScore == VICTORY_CONDITION or self.nDireScore == VICTORY_CONDITION then
@@ -4275,6 +4328,7 @@ function FateGameMode:CaptureGameMode()
         mode:SetStashPurchasingDisabled ( false )
         mode:SetAnnouncerDisabled( true )
         mode:SetLoseGoldOnDeath( false )
+   
         mode:SetExecuteOrderFilter( Dynamic_Wrap( FateGameMode, "ExecuteOrderFilter" ), FateGameMode )
         --mode:SetItemAddedToInventoryFilter(Dynamic_Wrap(FateGameMode, "ItemAddedFilter"), FateGameMode) (screw 7.23 x2)
         mode:SetModifyGoldFilter(Dynamic_Wrap(FateGameMode, "ModifyGoldFilter"), FateGameMode)
