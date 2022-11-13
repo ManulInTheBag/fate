@@ -2159,20 +2159,23 @@ function FateGameMode:OnHeroInGame(hero)
         CustomGameEventManager:Send_ServerToAllClients("player_register_master_unit", playerData)
         self:InitialiseMissingPanoramaData(hero:GetPlayerOwner())
         self:InitialiseMissingPanoramaData(hero:GetPlayerOwner(),hero,hero.MasterUnit2)
-        player:SetMusicStatus(5, 1)
+        --[[player:SetMusicStatus(5, 1)
         StopSoundEvent("DOTAMusic.Laning_02", hero)
         StopSoundEvent("DOTAMusic.Laning_01", hero)
-        StopSoundEvent("DOTAMusic.Laning_03", hero)
+        StopSoundEvent("DOTAMusic.Laning_03", hero)]]
     end)
 
-    Timers:CreateTimer(12.0, function()
+    --[[CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "player_selected_hero", playerData)
+    CustomGameEventManager:Send_ServerToAllClients("player_register_master_unit", playerData)]]
+
+    --[[Timers:CreateTimer(12.0, function()
         local player = hero:GetPlayerOwner()
         player:SetMusicStatus(5, 1)
         StopSoundEvent("DOTAMusic.Laning_02", hero)
         StopSoundEvent("DOTAMusic.Laning_01", hero)
         StopSoundEvent("DOTAMusic.Laning_03", hero)
 
-    end)
+    end)]]
 
   
 
