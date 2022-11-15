@@ -3745,7 +3745,7 @@ function FateGameMode:InitializeRound()
         --SendChatToPanorama("IRL4"..plyID)
 
         if hero.ProsperityCount ~= nil then
-            hero.MasterUnit:SetMana(hero.MasterUnit:GetMana() + 1 * hero.ProsperityCount)
+            hero.MasterUnit:SetMana(hero.MasterUnit:GetMana() + 2 * hero.ProsperityCount)
             hero.MasterUnit2:SetMana(hero.MasterUnit:GetMana())
             --print("granted more mana")
         end
@@ -3771,7 +3771,7 @@ function FateGameMode:InitializeRound()
 
             hero:AddExperience(self.nCurrentRound * 50, false, false)
             if(hero.AvariceCount ~= nil) then
-                hero:AddExperience(self.nCurrentRound * 50*hero.AvariceCount, false, false)
+                hero:AddExperience(self.nCurrentRound * 50 * hero.AvariceCount, false, false)
             end
         end
         --SendChatToPanorama("IRL6"..plyID)
@@ -4061,7 +4061,7 @@ function FateGameMode:FinishRound(IsTimeOut, winner)
 
     if( _G.GameMap ~= "fate_ffa") then
         LoopOverPlayers(function(player, playerID, playerHero)
-            if(winnerEventData.winnerTeam == 0 and (self.nRadiantScore == 7 or self.nRadiantScore == 14)) then 
+            if(winnerEventData.winnerTeam == 0 and (self.nRadiantScore == 5 or self.nRadiantScore == 10 or self.nRadiantScore == 15)) then 
                  if playerHero:GetTeamNumber() == DOTA_TEAM_BADGUYS then
                     if playerHero.ShardAmount == nil then
                         playerHero.ShardAmount = 1
@@ -4072,7 +4072,7 @@ function FateGameMode:FinishRound(IsTimeOut, winner)
                     CustomGameEventManager:Send_ServerToPlayer( playerHero:GetPlayerOwner(), "servant_stats_updated", statTable ) -- Send the current stat info to JS
                 end
 
-            elseif winnerEventData.winnerTeam == 1 and (self.nDireScore == 7 or self.nDireScore == 14) then
+            elseif winnerEventData.winnerTeam == 1 and (self.nDireScore == 5 or self.nDireScore == 10 or self.nDireScore == 15) then
                 if playerHero:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
                     if playerHero.ShardAmount == nil then
                         playerHero.ShardAmount = 1

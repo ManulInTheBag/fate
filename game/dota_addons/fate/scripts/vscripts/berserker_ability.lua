@@ -524,7 +524,7 @@ function OnBerserkProc(keys)
 		end
 		caster.IsRageBashOnCooldown = true
 		target:EmitSound("Hero_Centaur.HoofStomp")
-		Timers:CreateTimer(0, function()
+		Timers:CreateTimer(1.0, function()
 			caster.IsRageBashOnCooldown = false
 		end)
 

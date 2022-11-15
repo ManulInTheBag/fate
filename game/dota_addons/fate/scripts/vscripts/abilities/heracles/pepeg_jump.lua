@@ -29,7 +29,7 @@ function pepeg_jump:GetAbilityTextureName()
     end
 end
 
-function pepeg_jump:GetCastRange()
+function pepeg_jump:GetCastRange(vLocation, hTarget)
     local caster = self:GetCaster()
     if caster:HasModifier("modifier_heracles_berserk") then
         return self:GetSpecialValueFor("berserked_range") + caster:GetStrength()*2
@@ -41,13 +41,15 @@ function pepeg_jump:GetAOERadius()
     return self:GetSpecialValueFor("radius")
 end
 
-function pepeg_jump:CastFilterResultTarget()
+function pepeg_jump:CastFilterResultTarget(hTarget)
     local caster = self:GetCaster()
-    local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 300, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_HERO, 0, FIND_CLOSEST, false)
-    if IsServer() and targets[2] == nil then
-        return UF_FAIL_CUSTOM
-    else
-        return UF_SUCESS
+    if IsServer() then
+        local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 300, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_HERO, 0, FIND_CLOSEST, false)
+        if targets[2] == nil then
+            return UF_FAIL_CUSTOM
+        else
+            return UF_SUCESS
+        end
     end
 end
 
@@ -57,14 +59,17 @@ end
 
 function pepeg_jump:CastFilterResultLocation(hLocation)
     local caster = self:GetCaster()
-    local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 300, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_HERO, 0, FIND_CLOSEST, false)
-    if IsServer() and not IsInSameRealm(caster:GetAbsOrigin(), hLocation) then 
-        return UF_FAIL_OUT_OF_WORLD
-    elseif targets[2] == nil and not caster:HasModifier("modifier_heracles_berserk") then
-        return UF_FAIL_CUSTOM
-    else
-        return UF_SUCESS
+    if IsServer() then
+        local targets = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 300, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_HERO, 0, FIND_CLOSEST, false)
+        if IsServer() and not IsInSameRealm(caster:GetAbsOrigin(), hLocation) then 
+            return UF_FAIL_OUT_OF_WORLD
+        elseif targets[2] == nil and not caster:HasModifier("modifier_heracles_berserk") then
+            return UF_FAIL_CUSTOM
+        else
+            return UF_SUCESS
+        end
     end
+    return UF_SUCESS
 end
 
 function pepeg_jump:GetCustomCastErrorLocation(hLocation)
@@ -118,7 +123,7 @@ function modifier_pepeg_jump:OnCreated(args)
         self.fly_duration = self.ability:GetSpecialValueFor("fly_duration")
 
         self.jump_start_pos = self.parent:GetOrigin()
-        self.jump_distance = math.min(self.ability:GetCastRange(),(self.point - self.jump_start_pos):Length2D())
+        self.jump_distance = math.min(self.ability:GetCastRange(self.point, nil),(self.point - self.jump_start_pos):Length2D())
         self.jump_direction = (self.point - self.jump_start_pos):Normalized()
 
         -- load data
@@ -243,7 +248,7 @@ function modifier_pepeg_jump:PlayEffects()
             self.damage = self:GetAbility():GetSpecialValueFor("damage") + 1 * self.caster:GetStrength()
             self.percent_damage = self.parent:GetMaxHealth()*self.ability:GetSpecialValueFor("health_percent")/100
         end
-
+        
         for _,enemy in ipairs(enemies) do
             if enemy ~= self.parent then 
                 --[[local knockback = { should_stun = 1,
@@ -272,10 +277,11 @@ function modifier_pepeg_jump:PlayEffects()
             end
         end
         if (self.parent:GetTeamNumber() ~= self.caster:GetTeamNumber()) then
-            self.self_damage = self:GetAbility():GetSpecialValueFor("target_damage") + (self.caster.IsInhumanStrengthAcquired and 1 or 0)*self.caster:GetStrength()
-            self.self_percent_damage = self.parent:GetMaxHealth()*self.ability:GetSpecialValueFor("health_percent")/50
-            DoDamage(self.caster, self.parent, self.self_damage, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
-            DoDamage(self.caster, self.parent, self.self_percent_damage, DAMAGE_TYPE_PURE, 0, self:GetAbility(), false)
+            --print(self.damage, self.caster:GetStrength(), "SIKKKA")
+            --self.damage = self:GetAbility():GetSpecialValueFor("target_damage") + 1 * self.caster:GetStrength()
+            --self.percent_damage = self.parent:GetMaxHealth()*self.ability:GetSpecialValueFor("health_percent")/50
+            DoDamage(self.caster, self.parent, self.damage, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
+            DoDamage(self.caster, self.parent, self.percent_damage, DAMAGE_TYPE_PURE, 0, self:GetAbility(), false)
             CustomNetTables:SetTableValue("sync","pepe_slow" .. self.parent:GetName(), { slow = -1*self:GetAbility():GetSpecialValueFor("target_slow") })
             self.parent:AddNewModifier(self.caster, self, "modifier_pepe_slow", {duration = 2})
             self.parent:AddNewModifier(self.caster, self, "modifier_pepe_mute", {duration = self:GetAbility():GetSpecialValueFor("mute_duration")})
