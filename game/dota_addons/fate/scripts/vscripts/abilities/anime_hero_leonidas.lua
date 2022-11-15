@@ -594,7 +594,7 @@ function leonidas_kick:OnSpellStart()
 
     local vDirection = GetDirection(hTarget, hCaster)
 
-    local nScaleFactor = ( 1 + ( GetAttributeValue(hCaster, "leonidas_math_attribute", "kick_push_distance_pct_scale_per_int", -1, 0, false) * hCaster:GetIntellect() * 0.01 ) )
+    local nScaleFactor = ( 1 + ( GetAttributeValue(hCaster, "leonidas_math_attribute", "kick_push_distance_pct_scale_per_int", -1, 0, false) * hCaster:GetStrength() * 0.01 ) )
 
     local nDistance = self:GetSpecialValueFor("push_distance") * nScaleFactor
     local nDuration = math.max(self:GetSpecialValueFor("push_duration"), FrameTime())
@@ -610,7 +610,7 @@ function leonidas_kick:OnSpellStart()
     local nLocked  = 1
     local nStunned = bCasterBerserked and 0 or 0
 
-    local hKickModifier = hTarget:AddNewModifier(hCaster, self, "modifier_leonidas_enomotia_slow", {duration = nDuration * ( nScaleFactor * 2 ), nSlow = 0, nLocked = 0, nStunned = nStunned})
+    local hKickModifier = hTarget:AddNewModifier(hCaster, self, "modifier_leonidas_enomotia_slow", {duration = nDuration * ( nScaleFactor * 2 ), nSlow = 0, nLocked = 0, nDisarmed = nLocked, nVision = 1})
     if IsNotNull(hKickModifier)
         and not hKickModifier.nImpactPFX then
         hKickModifier.nImpactPFX =  ParticleManager:CreateParticle("particles/heroes/anime_hero_leonidas/leonidas_sparta_kick_trail.vpcf", PATTACH_CENTER_FOLLOW, hTarget)
@@ -623,6 +623,7 @@ function leonidas_kick:OnSpellStart()
     EmitSoundOn("Leonidas.Kick.Impact.1", hTarget)
 
     if not IsKnockbackImmune(hTarget) then
+        EmitSoundOn("Leonidas.Kick.Impact.3", hTarget)
         local sTimerNameUnique = self:GetAbilityName()..DoUniqueString(tostring(hTarget:entindex())) --.."_"
         --=================================--
         hTarget:InterruptMotionControllers(false)
@@ -795,7 +796,7 @@ function leonidas_catch:OnSpellStart()
             hEntity:InterruptMotionControllers(false)
 
             --print(nFlyDuration + nSlowDuration)
-            hEntity:AddNewModifier(hCaster, self, "modifier_leonidas_enomotia_slow", {duration = nFlyDuration + nSlowDuration, nSlow = nSlowPct, nStunned = nStunned, nLocked = nLocked})
+            hEntity:AddNewModifier(hCaster, self, "modifier_leonidas_enomotia_slow", {duration = nFlyDuration + nSlowDuration, nSlow = nSlowPct, nStunned = nStunned, nLocked = nStunned, nDisarmed = nLocked})
 
             local hKnockMod = hEntity:AddNewModifier(hCaster, self, "modifier_knockback", tKnockBackTable)
             if IsNotNull(hKnockMod)
@@ -2287,11 +2288,15 @@ function modifier_leonidas_enomotia_slow:GetAttributes()                        
 function modifier_leonidas_enomotia_slow:DeclareFunctions()
     local tFunc =   {
                         MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
+                        MODIFIER_PROPERTY_PROVIDES_FOW_POSITION
                     }
     return tFunc
 end
 function modifier_leonidas_enomotia_slow:GetModifierMoveSpeedBonus_Percentage(keys)
     return self:GetStackCount()
+end
+function modifier_leonidas_enomotia_slow:GetModifierProvidesFOWVision(keys)
+    return self.nVision
 end
 function modifier_leonidas_enomotia_slow:OnCreated(tTable)
     self.hCaster  = self:GetCaster()
@@ -2329,6 +2334,10 @@ function modifier_leonidas_enomotia_slow:OnCreated(tTable)
 
         if ( tTable.nMuted or 0 ) > 0 then
             self.hParent:AddNewModifier(self.hCaster, self.hAbility, "modifier_muted", {duration = self.nDuration})
+        end
+
+        if ( tTable.nVision or 0 ) > 0 then
+            self.nVision = tTable.nVision
         end
     end
 end
@@ -2762,7 +2771,7 @@ function leonidas_enomotia_combo:ReleaseEnomotia(hCaster, nPFX_AnimReleaseTime, 
                 -- end
             end
             --=================================--
-            if true then --nTeamNumberEntity ~= nTeamNumber then
+            if nTeamNumberEntity ~= nTeamNumber then
                 EmitSoundOn("Leonidas.Enomotia.Impact.2", hEntity)
                 --=================================--
                 local vEntityLoc = GetGroundPosition(hEntity:GetAbsOrigin(), hEntity)
