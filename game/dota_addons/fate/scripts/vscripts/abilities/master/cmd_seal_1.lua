@@ -56,7 +56,7 @@ function cmd_seal_1:OnSpellStart()
 	caster:AddNewModifier(caster, self, "modifier_command_seal_1", { Duration = 20 })
  	
  	self:EndCooldown()
- 	self:StartCooldown( 60 - ( (hero.ProsperityCount or 3) * 15 ) )
+ 	self:StartCooldown( 60 - ( (hero.ProsperityCount or 0) * 15 ) )
 
 	caster.IsFirstSeal = true
 	
