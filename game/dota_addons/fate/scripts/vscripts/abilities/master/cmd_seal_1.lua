@@ -44,7 +44,7 @@ function cmd_seal_1:OnSpellStart()
 	local master2 = hero.MasterUnit2
 	master2:SetMana(caster:GetMana())
 	-- Set master's health
-	caster:SetHealth(caster:GetHealth() - 2) 
+	caster:SetHealth(caster:GetHealth() - 2)
 
 	-- Particle
 	hero:EmitSound("Misc.CmdSeal")
@@ -54,10 +54,12 @@ function cmd_seal_1:OnSpellStart()
 
 	hero:AddNewModifier(caster, self, "modifier_command_seal_1", { Duration = 20 })
 	caster:AddNewModifier(caster, self, "modifier_command_seal_1", { Duration = 20 })
- 
-	caster.IsFirstSeal = true
+ 	
+ 	self:EndCooldown()
+ 	self:StartCooldown( 60 - ( (hero.ProsperityCount or 3) * 15 ) )
 
-	caster:FindAbilityByName("cmd_seal_1"):StartCooldown(60)
+	caster.IsFirstSeal = true
+	
 	Timers:CreateTimer({
 		endTime = 20.0,
 		callback = function()

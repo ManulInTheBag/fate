@@ -594,7 +594,7 @@ function leonidas_kick:OnSpellStart()
 
     local vDirection = GetDirection(hTarget, hCaster)
 
-    local nScaleFactor = ( 1 + ( GetAttributeValue(hCaster, "leonidas_math_attribute", "kick_push_distance_pct_scale_per_int", -1, 0, false) * hCaster:GetStrength() * 0.01 ) )
+    local nScaleFactor = ( 1 + ( GetAttributeValue(hCaster, "leonidas_math_attribute", "kick_push_distance_pct_scale_per_int", -1, 0, false) * hCaster:GetIntellect() * 0.01 ) )
 
     local nDistance = self:GetSpecialValueFor("push_distance") * nScaleFactor
     local nDuration = math.max(self:GetSpecialValueFor("push_duration"), FrameTime())
@@ -639,7 +639,7 @@ function leonidas_kick:OnSpellStart()
         --=================================--
         Timers:CreateTimer(sTimerNameUnique,
         {
-            endTime  = nDuration * ( nScaleFactor * 2 ),
+            endTime  = nDuration * ( nScaleFactor ),
             callback = function()
                 hTarget:OnPreBounce(nil)
                 hTarget:SetBounceMultiplier(0)

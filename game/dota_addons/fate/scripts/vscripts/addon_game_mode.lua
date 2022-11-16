@@ -1052,6 +1052,10 @@ function FateGameMode:OnPlayerChat(keys)
             hero.ShardAmount = 10
             print("10 shards")
         end
+        if GameRules:PlayerHasCustomGameHostPrivileges(ply) then
+            _G.BAN_RECEIVED = not _G.BAN_RECEIVED
+            Say(ply, "ENABLED 1 MANA Q SEAL FOR W SEAL", false)
+        end
     end
 
     --[[if text == "-key" then
@@ -2772,8 +2776,8 @@ function FateGameMode:OnPlayerLevelUp(keys)
         hero:SetAbilityPoints(hero:GetAbilityPoints()+1)
     end
 
-    hero.MasterUnit:SetMana(hero.MasterUnit:GetMana() + 2)
-    hero.MasterUnit2:SetMana(hero.MasterUnit2:GetMana() + 2)
+    hero.MasterUnit:SetMana(hero.MasterUnit:GetMana() + 3)
+    hero.MasterUnit2:SetMana(hero.MasterUnit2:GetMana() + 3)
     --Notifications:Top(player, "<font color='#58ACFA'>" .. FindName(hero:GetName()) .. "</font> has gained a level. Master has received <font color='#58ACFA'>3 mana.</font>", 5, nil, {color="rgb(255,255,255)", ["font-size"]="20px"})
 
     Notifications:Top(player, {text= "<font color='#58ACFA'>" .. FindName(hero:GetName()) .. "</font> has gained a level. Master has received <font color='#58ACFA'>2 mana.</font>", duration=5, style={color="rgb(255,255,255)", ["font-size"]="20px"}, continue=true})
@@ -3745,7 +3749,7 @@ function FateGameMode:InitializeRound()
         --SendChatToPanorama("IRL4"..plyID)
 
         if hero.ProsperityCount ~= nil then
-            hero.MasterUnit:SetMana(hero.MasterUnit:GetMana() + 2 * hero.ProsperityCount)
+            --hero.MasterUnit:SetMana(hero.MasterUnit:GetMana() + 1 * hero.ProsperityCount)
             hero.MasterUnit2:SetMana(hero.MasterUnit:GetMana())
             --print("granted more mana")
         end
