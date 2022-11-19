@@ -26,7 +26,14 @@ function gilgamesh_enkidu:OnSpellStart()
 		ExecuteOrderFromTable(self.stopOrder_self)  return
 		 end
 	caster:EmitSound("Gilgamesh_Enkidu_2")
-
+	LoopOverPlayers(function(player, playerID, playerHero)
+		--print("looping through " .. playerHero:GetName())
+		if playerHero.zlodemon == true then
+			-- apply legion horn vsnd on their client
+			CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="zlodemon_gil_f"})
+			--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+		end
+	end)
 	local stopOrder = {
  		UnitIndex = target:entindex(), 
  		OrderType = DOTA_UNIT_ORDER_STOP

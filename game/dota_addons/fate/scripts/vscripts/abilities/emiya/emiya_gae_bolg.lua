@@ -40,7 +40,14 @@ function emiya_gae_bolg:OnSpellStart()
 	local ply = caster:GetPlayerOwner()
 	local ascendCount = 0
 	local descendCount = 0
-	
+	LoopOverPlayers(function(player, playerID, playerHero)
+		--print("looping through " .. playerHero:GetName())
+		if playerHero.zlodemon == true    then
+			-- apply legion horn vsnd on their client
+			CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="zlodemon_emiya_gb"})
+			--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+		end
+	end)
 	--EmitGlobalSound("archer_attack_03")
 	giveUnitDataDrivenModifier(caster, caster, "jump_pause", 0.8)
 	Timers:CreateTimer(0.8, function()

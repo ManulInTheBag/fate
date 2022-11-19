@@ -48,13 +48,19 @@ function emiya_unlimited_bladeworks:GrantUBWChantBuff()
     LoopOverPlayers(function(player, playerID, playerHero)
         --print("looping through " .. playerHero:GetName())
         if playerHero == caster then
+            if playerHero.zlodemon == true then
+                
+            CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="zlodemon_emiya_r_".. self:GetUBWCastCount()})
+             else
             -- apply legion horn vsnd on their client
             CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="emiya_ubw".. self:GetUBWCastCount()})
             --caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+            end
         end
     end) 
 
     caster:EmitSound("emiya_ubw".. self:GetUBWCastCount())
+    
 end
 
 function emiya_unlimited_bladeworks:ReduceAbilityCooldowns()
@@ -117,6 +123,15 @@ function emiya_unlimited_bladeworks:StartUBW()
     caster:AddNewModifier(caster, self, "modifier_unlimited_bladeworks", { Duration = castDelay })
 
     --giveUnitDataDrivenModifier(caster, caster, "jump_pause", castDelay)
+    LoopOverPlayers(function(player, playerID, playerHero)
+        --print("looping through " .. playerHero:GetName())
+        if playerHero == caster then
+            if playerHero.zlodemon == true then
+                
+            CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="zlodemon_emiya_r_7"})
+            end
+        end
+    end) 
 
     EmitGlobalSound("emiya_ubw7")
     StartAnimation(caster, {duration=2, activity=ACT_DOTA_CAST_ABILITY_4, rate=1.5})

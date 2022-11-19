@@ -103,7 +103,14 @@ function emiya_barrage_rain:OnSpellStart()
 	end)
 
 	--caster:EmitSound("Archer.UBWAmbient")
-
+	LoopOverPlayers(function(player, playerID, playerHero)
+		--print("looping through " .. playerHero:GetName())
+		if playerHero.zlodemon == true   then
+			-- apply legion horn vsnd on their client
+			CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="zlodemon_emiya_barrage"})
+			--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+		end
+	end)
 	if math.random(1,2) == 1 then
 		caster:EmitSound("Archer.Bladeoff")
 	else

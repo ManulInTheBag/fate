@@ -15,7 +15,14 @@ function khsn_azrael:OnSpellStart()
 	local target = self:GetCursorTarget()
 
 	if IsSpellBlocked(target) then return end
-
+	LoopOverPlayers(function(player, playerID, playerHero)
+		--print("looping through " .. playerHero:GetName())
+		if playerHero.zlodemon == true     then
+			-- apply legion horn vsnd on their client
+			CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="zlodemon_kh_r" })
+			--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+		end
+	end)
 	--giveUnitDataDrivenModifier(caster, caster, "jump_pause_nosilence", 9999)
 	caster:AddNewModifier(caster, self, "modifier_azrael_stun", {duration = 1.37})
 	--caster:AddNewModifier(caster, self, "modifier_azrael_move", {duration = 1.63+3.25})

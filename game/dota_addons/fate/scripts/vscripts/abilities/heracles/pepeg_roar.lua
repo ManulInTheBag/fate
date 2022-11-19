@@ -39,7 +39,14 @@ function berserker_5th_madmans_roar:OnSpellStart()
 	caster:AddNewModifier(caster, self, "modifier_madmans_roar_cooldown", {duration = ability:GetCooldown(1)})
 	
 	caster:RemoveModifierByName("modifier_heracles_combo_window")
-
+	LoopOverPlayers(function(player, playerID, playerHero)
+        --print("looping through " .. playerHero:GetName())
+        if playerHero.zlodemon == true then
+            -- apply legion horn vsnd on their client
+            CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="zlodemon_herc_combo"})
+            --caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+        end
+    end)
 	--remove berserk and set health to max
 	--[[if caster:HasModifier("modifier_berserk_self_buff") then
 		caster:RemoveModifierByName("modifier_berserk_self_buff")

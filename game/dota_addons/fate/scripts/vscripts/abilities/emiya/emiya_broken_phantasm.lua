@@ -59,7 +59,14 @@ function emiya_broken_phantasm:OnChannelFinish(bInterrupted)
     self:StartCooldown(self:GetCooldown(self:GetLevel()))
     hCaster:SpendMana(self:GetManaCost(-1), self)
     hCaster:EmitSound("Emiya_Caladbolg_" .. math.random(1,2))
-
+	LoopOverPlayers(function(player, playerID, playerHero)
+		--print("looping through " .. playerHero:GetName())
+		if playerHero.zlodemon == true  and playerHero:GetTeamNumber() == hCaster:GetTeamNumber() then
+			-- apply legion horn vsnd on their client
+			CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="zlodemon_emiya_w_".. math.random(1,2)})
+			--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+		end
+	end)
     hCaster:RemoveModifierByName("modifier_ubw_chant_count")
 
     local enemy = PickRandomEnemy(hCaster)

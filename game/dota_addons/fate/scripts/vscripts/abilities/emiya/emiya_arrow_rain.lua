@@ -19,7 +19,14 @@ function emiya_arrow_rain:OnSpellStart()
 	masterCombo:StartCooldown(self:GetCooldown(1))
 
 	caster:EmitSound("Archer.Combo") 
-	
+	LoopOverPlayers(function(player, playerID, playerHero)
+		--print("looping through " .. playerHero:GetName())
+		if playerHero.zlodemon == true   then
+			-- apply legion horn vsnd on their client
+			CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="zlodemon_emiya_combo"})
+			--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+		end
+	end)
 	local broken_phantasm = caster:FindAbilityByName("emiya_broken_phantasm")
 
 	local info = {

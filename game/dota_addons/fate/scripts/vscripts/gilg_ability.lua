@@ -342,6 +342,7 @@ function OnEnumaStart(keys)
 	local targetPoint = keys.target_points[1]
 	local frontward = caster:GetForwardVector()
 	giveUnitDataDrivenModifier(keys.caster, keys.caster, "pause_sealdisabled", 5.0)
+	
 	ability:ApplyDataDrivenModifier(caster, caster, "enuma_elish_anim", {})
 	-- Create casting particle
 	local chargeFxIndex = ParticleManager:CreateParticle( "particles/custom/gilgamesh/gilgamesh_enuma_elish_charge_wave.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster )
@@ -439,6 +440,14 @@ function OnMaxEnumaStart(keys)
 	local frontward = caster:GetForwardVector()
 	giveUnitDataDrivenModifier(keys.caster, keys.caster, "pause_sealdisabled", 6.0)
 	giveUnitDataDrivenModifier(caster, caster, "jump_pause", 4.5)
+	LoopOverPlayers(function(player, playerID, playerHero)
+		--print("looping through " .. playerHero:GetName())
+		if playerHero.zlodemon == true then
+			-- apply legion horn vsnd on their client
+			CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="zlodemon_gil_combo"})
+			--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+		end
+	end)
 	--ability:ApplyDataDrivenModifier(caster, caster, "max_enuma_elish_anim", {})
 
 	StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_OVERRIDE_ABILITY_4, rate=1.5})

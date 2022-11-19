@@ -31,10 +31,25 @@ function khsn_combo:StartCombo(hui)
     caster:AddNewModifier(caster, self, "modifier_azrael_particle", {duration = 6.26 + 2.210})
     --caster:AddNewModifier(caster, self, "modifier_azrael_move", {duration = 1.63+3.25})
     EmitGlobalSound("azrael_start")
-
+    LoopOverPlayers(function(player, playerID, playerHero)
+        --print("looping through " .. playerHero:GetName())
+        if playerHero.zlodemon == true   then
+            -- apply legion horn vsnd on their client
+            CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="zlodemon_kh_combo_1" })
+            --caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+        end
+    end)
    Timers:CreateTimer(1.63, function()
         if target and not target:IsNull() and target:IsAlive() then
             EmitGlobalSound("azrael_middle")
+            LoopOverPlayers(function(player, playerID, playerHero)
+                --print("looping through " .. playerHero:GetName())
+                if playerHero.zlodemon == true   then
+                    -- apply legion horn vsnd on their client
+                    CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="zlodemon_kh_combo_2" })
+                    --caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+                end
+            end)
         else
             caster:RemoveModifierByName("jump_pause")
             caster:RemoveModifierByName("modifier_azrael_particle")
@@ -45,6 +60,14 @@ function khsn_combo:StartCombo(hui)
         if target and not target:IsNull() and target:IsAlive() then
             target:AddNewModifier(caster, self, "modifier_azrael_stun", {duration = 2.75})
             EmitGlobalSound("azrael_end")
+            LoopOverPlayers(function(player, playerID, playerHero)
+                --print("looping through " .. playerHero:GetName())
+                if playerHero.zlodemon == true   then
+                    -- apply legion horn vsnd on their client
+                    CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="zlodemon_kh_combo_3" })
+                    --caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+                end
+            end)
         else
             caster:RemoveModifierByName("jump_pause")
             caster:RemoveModifierByName("modifier_azrael_particle")
@@ -81,6 +104,14 @@ function khsn_combo:StartCombo(hui)
             FindClearSpaceForUnit(caster, targetpos, true)
             caster:FaceTowards(target:GetAbsOrigin())
             EmitGlobalSound("azrael_finish")
+            LoopOverPlayers(function(player, playerID, playerHero)
+                --print("looping through " .. playerHero:GetName())
+                if playerHero.zlodemon == true   then
+                    -- apply legion horn vsnd on their client
+                    CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="zlodemon_kh_combo_4" })
+                    --caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+                end
+            end)
             StartAnimation(caster, {duration=2.21, activity=ACT_DOTA_CAST_ABILITY_4_END, rate=1.0})
             local light_index = ParticleManager:CreateParticle("particles/kinghassan/khsn_domus_ray.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
             ParticleManager:SetParticleControl( light_index, 0, target:GetAbsOrigin())

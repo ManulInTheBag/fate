@@ -10,7 +10,14 @@ function emiya_clairvoyance:OnSpellStart()
 	local caster = self:GetCaster()
 	local radius = self:GetSpecialValueFor("radius")
 	local targetLoc = self:GetCursorPosition()
-
+	LoopOverPlayers(function(player, playerID, playerHero)
+		--print("looping through " .. playerHero:GetName())
+		if playerHero.zlodemon == true  and playerHero:GetTeamNumber() == caster:GetTeamNumber() then
+			-- apply legion horn vsnd on their client
+			CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="zlodemon_emiya_f"})
+			--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+		end
+	end)
 	if caster:HasModifier("modifier_hrunting_attribute") then
 		--caster:SwapAbilities("emiya_clairvoyance", "emiya_hrunting", false, true) 
 		caster:AddNewModifier(caster, self, "modifier_hrunting_window", { Duration = self:GetSpecialValueFor("duration") })

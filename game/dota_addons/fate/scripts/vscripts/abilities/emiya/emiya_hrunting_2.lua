@@ -46,7 +46,14 @@ function emiya_hrunting_2:OnSpellStart()
     local hPlayer = hCaster:GetPlayerOwner()
     local hTarget = self.hTarget
     self.ChannelTime = 0
-
+	LoopOverPlayers(function(player, playerID, playerHero)
+		--print("looping through " .. playerHero:GetName())
+		if playerHero.zlodemon == true  and playerHero:GetTeamNumber() == hCaster:GetTeamNumber()  then
+			-- apply legion horn vsnd on their client
+			CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="zlodemon_emiya_hrunt"})
+			--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+		end
+	end)
     self:EndCooldown()
     hCaster:GiveMana(self:GetManaCost(-1))
 

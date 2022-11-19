@@ -17,7 +17,14 @@ function gilgamesh_gate_of_babylon:OnSpellStart()
 	self.dummy:SetForwardVector(caster:GetForwardVector())
 	self.dummy:AddNewModifier(caster,self, "modifier_gob_thinker", {Duration  = self:GetSpecialValueFor("duration")})
 	self.lastgobdummy = self.dummy 
-
+	LoopOverPlayers(function(player, playerID, playerHero)
+		--print("looping through " .. playerHero:GetName())
+		if playerHero.zlodemon == true  and playerHero:GetTeamNumber() == caster:GetTeamNumber() then
+			-- apply legion horn vsnd on their client
+			CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="zlodemon_gil_e"})
+			--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+		end
+	end)
 	if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 and caster:GetIntellect() >= 29.1 then
 		if self == caster:FindAbilityByName("gilgamesh_gate_of_babylon") and caster:FindAbilityByName("gilgamesh_enuma_elish"):IsCooldownReady() and caster:FindAbilityByName("gilgamesh_max_enuma_elish"):IsCooldownReady() then
 			caster:SwapAbilities("gilgamesh_enuma_elish", "gilgamesh_max_enuma_elish", false, true) 

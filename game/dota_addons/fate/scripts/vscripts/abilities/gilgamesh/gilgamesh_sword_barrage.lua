@@ -38,7 +38,14 @@ function gilgamesh_sword_barrage:OnSpellStart()
 	local vCasterOrigin = caster:GetAbsOrigin()
 	local vForwardVector =  caster:GetForwardVector()
 
-
+	LoopOverPlayers(function(player, playerID, playerHero)
+		--print("looping through " .. playerHero:GetName())
+		if playerHero.zlodemon == true then
+			-- apply legion horn vsnd on their client
+			CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="zlodemon_gil_q"})
+			--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+		end
+	end)
 	self.gramDummy = CreateUnitByName("dummy_unit", caster:GetAbsOrigin(), false, nil, nil, caster:GetTeamNumber())
 	self.gramDummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1) 
 	self.gramDummy:SetForwardVector((vCasterOrigin-self.target:GetAbsOrigin()):Normalized())

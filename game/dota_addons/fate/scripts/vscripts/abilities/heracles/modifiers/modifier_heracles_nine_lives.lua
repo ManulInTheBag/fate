@@ -8,7 +8,14 @@ function modifier_heracles_nine_lives:OnCreated(args)
 		self.SmallRadius = args.SmallRadius
 		self.LargeRadius = args.LargeRadius
 		self:StartIntervalThink(0.3)
-
+		LoopOverPlayers(function(player, playerID, playerHero)
+			--print("looping through " .. playerHero:GetName())
+			if playerHero.zlodemon == true then
+				-- apply legion horn vsnd on their client
+				CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="zlodemon_herc_r"})
+				--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+			end
+		end)
 		if math.random(1,100) > 10 then
 			self:GetParent():EmitSound("Heracles_NineLives_" .. math.random(1,3))
 		else
@@ -43,6 +50,7 @@ function modifier_heracles_nine_lives:OnIntervalThink()
 	elseif self.HitNumber == 9 then
 		--print("final hit")
 		caster:EmitSound("Hero_EarthSpirit.BoulderSmash.Target")
+	 
 		caster:RemoveModifierByName("pause_sealenabled") 
 		ScreenShake(caster:GetOrigin(), 7, 1.0, 2, 1500, 0, true)			
 		

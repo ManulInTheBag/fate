@@ -24,7 +24,14 @@ function khsn_stab:OnSpellStart()
 		if not IsFacingUnit(enemy, caster, 90) then
 			damage = damage*self:GetSpecialValueFor("backstab_multiplier")
 			EmitSoundOnLocationWithCaster(enemy:GetAbsOrigin(), "Hero_SkeletonKing.Hellfire_BlastImpact", caster)
-
+			LoopOverPlayers(function(player, playerID, playerHero)
+				--print("looping through " .. playerHero:GetName())
+				if playerHero.zlodemon == true   then
+					-- apply legion horn vsnd on their client
+					CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="zlodemon_kh_e_backstab" })
+					--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+				end
+			end)
 			enemy:AddNewModifier(caster, self, "modifier_khsn_silence", {duration = self:GetSpecialValueFor("silence_duration")})
 
 			local burn_fx = ParticleManager:CreateParticle("particles/kinghassan/khsn_shadowraze.vpcf", PATTACH_ABSORIGIN, enemy)
@@ -39,6 +46,15 @@ function khsn_stab:OnSpellStart()
 			--end
 
 			--enemy:AddNewModifier(caster, self, "modifier_khsn_flame1", {duration = self:GetSpecialValueFor("duration")})
+		else
+			LoopOverPlayers(function(player, playerID, playerHero)
+				--print("looping through " .. playerHero:GetName())
+				if playerHero.zlodemon == true  then
+					-- apply legion horn vsnd on their client
+					CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="zlodemon_kh_e" })
+					--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+				end
+			end)
 		end
 		giveUnitDataDrivenModifier(caster, enemy, "locked", self:GetSpecialValueFor("lock_duration"))
 		

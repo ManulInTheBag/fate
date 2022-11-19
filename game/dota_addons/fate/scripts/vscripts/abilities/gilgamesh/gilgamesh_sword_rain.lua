@@ -42,7 +42,14 @@ function gilgamesh_sword_rain:OnSpellStart()
 	Timers:CreateTimer(3, function()
 		dummy:RemoveSelf()
 	end)
- 
+	LoopOverPlayers(function(player, playerID, playerHero)
+		--print("looping through " .. playerHero:GetName())
+		if playerHero.zlodemon == true  and playerHero:GetTeamNumber() == caster:GetTeamNumber() then
+			-- apply legion horn vsnd on their client
+			CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="zlodemon_gil_w"})
+			--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+		end
+	end)
  
 	local damage_per_tick = self:GetSpecialValueFor("damage")
 

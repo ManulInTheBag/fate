@@ -39,7 +39,7 @@ function OnFissureStart(keys)
                                         false)
 
 			caster:EmitSound("Heracles_Roar_" .. math.random(1,6))
-
+			
 		    for _,enemy in pairs(enemies) do
 		        local caster_angle = caster:GetAnglesAsVector().y
 		        local origin_difference = caster:GetAbsOrigin() - enemy:GetAbsOrigin()
@@ -131,6 +131,14 @@ function OnFissureStart(keys)
 		keys.ability:StartCooldown(keys.ability:GetSpecialValueFor("reduced_cd"))
 	else
 		caster:EmitSound("Heracles_Roar_" .. math.random(1,6))
+		LoopOverPlayers(function(player, playerID, playerHero)
+			--print("looping through " .. playerHero:GetName())
+			if playerHero.zlodemon == true then
+				-- apply legion horn vsnd on their client
+				CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="zlodemon_herc_q"})
+				--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+			end
+		end)
 		projectile = ProjectileManager:CreateLinearProjectile(fiss)
 	end
 	BerCheckCombo(caster, keys.ability)
@@ -829,6 +837,14 @@ function OnGodHandDeath(keys)
 			caster.bIsGHReady = false
 			Timers:CreateTimer(11.0, function() caster.bIsGHReady = true end)
 			EmitGlobalSound("Berserker.Roar") 
+			LoopOverPlayers(function(player, playerID, playerHero)
+				--print("looping through " .. playerHero:GetName())
+				if playerHero.zlodemon == true then
+					-- apply legion horn vsnd on their client
+					CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="zlodemon_herc_revive"})
+					--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+				end
+			end)
 			local particle = ParticleManager:CreateParticle("particles/items_fx/aegis_respawn.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 			caster.GodHandStock = caster.GodHandStock - 1
 			GameRules:SendCustomMessage("<font color='#FF0000'>----------!!!!!</font> Remaining God Hand stock : " .. caster.GodHandStock , 0, 0)

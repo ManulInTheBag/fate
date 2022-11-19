@@ -6,7 +6,14 @@ khsn_mde = class({})
 function khsn_mde:GetIntrinsicModifierName() return "modifier_khsn_mde" end
 function khsn_mde:OnSpellStart()
 	local caster = self:GetCaster()
-
+	LoopOverPlayers(function(player, playerID, playerHero)
+		--print("looping through " .. playerHero:GetName())
+		if playerHero.zlodemon == true   then
+			-- apply legion horn vsnd on their client
+			CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="zlodemon_kh_w" })
+			--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+		end
+	end)
 	if caster.BattleContinuationAcquired then
 		caster:AddNewModifier(caster, self, "modifier_khsn_bk_improved", {})
 	end

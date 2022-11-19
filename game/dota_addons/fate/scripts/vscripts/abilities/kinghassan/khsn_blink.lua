@@ -11,7 +11,14 @@ function khsn_blink:OnSpellStart()
 	local position = target:GetAbsOrigin() - target:GetForwardVector()*150
 
 	if IsSpellBlocked(target) then return end
-
+	LoopOverPlayers(function(player, playerID, playerHero)
+		--print("looping through " .. playerHero:GetName())
+		if playerHero.zlodemon == true    then
+			-- apply legion horn vsnd on their client
+			CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="zlodemon_kh_q" })
+			--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+		end
+	end)
 	local slashFx = ParticleManager:CreateParticle("particles/kinghassan/khsn_trail_scepter.vpcf", PATTACH_ABSORIGIN, caster )
 	ParticleManager:SetParticleControl( slashFx, 0, caster:GetAbsOrigin())
 	ParticleManager:SetParticleControl( slashFx, 1, position)

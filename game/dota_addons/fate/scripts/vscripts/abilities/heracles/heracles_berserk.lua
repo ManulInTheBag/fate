@@ -28,6 +28,14 @@ function heracles_berserk:OnSpellStart()
         end
     end)
 
+	LoopOverPlayers(function(player, playerID, playerHero)
+        --print("looping through " .. playerHero:GetName())
+        if playerHero.zlodemon == true then
+            -- apply legion horn vsnd on their client
+            CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="zlodemon_herc_berserk"})
+            --caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+        end
+    end)
 	--[[local casterHealth = caster:GetHealth()
 	if casterHealth - hplock > 0 then
 		local berserkDamage = math.min((casterHealth - hplock), self:GetSpecialValueFor("max_damage"))  

@@ -11,7 +11,14 @@ function emiya_barrage_confine:OnSpellStart()
 	local ply = caster:GetPlayerOwner()
 	local duration = self:GetSpecialValueFor("trap_duration")
 	local damage = self:GetSpecialValueFor("damage")
-
+	LoopOverPlayers(function(player, playerID, playerHero)
+		--print("looping through " .. playerHero:GetName())
+		if playerHero.zlodemon == true   then
+			-- apply legion horn vsnd on their client
+			CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="zlodemon_emiya_coffine"})
+			--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+		end
+	end)
 	Timers:CreateTimer(delay-0.2, function() --this is for playing the particle
 		EmitGlobalSound("FA.Quickdraw")
 		for i=1,8 do

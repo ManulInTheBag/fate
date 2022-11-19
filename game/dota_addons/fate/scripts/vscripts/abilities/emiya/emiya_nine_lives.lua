@@ -44,7 +44,14 @@ function emiya_nine_lives:OnSpellStart()
 	caster:AddNewModifier(caster, nil, "modifier_phased", {duration = 1.1})
 	giveUnitDataDrivenModifier(caster, caster, "dragged", 1.1)
 	giveUnitDataDrivenModifier(caster, caster, "revoked", 1.1)
-
+	LoopOverPlayers(function(player, playerID, playerHero)
+		--print("looping through " .. playerHero:GetName())
+		if playerHero.zlodemon == true    then
+			-- apply legion horn vsnd on their client
+			CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="zlodemon_emiya_nine"})
+			--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+		end
+	end)
 	local particle = ParticleManager:CreateParticle("particles/custom/false_assassin/tsubame_gaeshi/slashes.vpcf", PATTACH_ABSORIGIN, caster)
 	ParticleManager:SetParticleControl(particle, 0, target:GetAbsOrigin()) 
 

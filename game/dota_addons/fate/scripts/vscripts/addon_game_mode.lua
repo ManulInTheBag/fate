@@ -309,7 +309,7 @@ function Precache( context )
     PrecacheResource("soundfile", "soundevents/sounds_test.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/soundevents_conquest.vsndevts", context )
     PrecacheResource("soundfile", "soundevents/a_negri.vsndevts", context )
-
+    PrecacheResource("soundfile", "soundevents/zlodemon_true.vsndevts", context )
     PrecacheResource("soundfile", "soundevents/pepeg_razgovor.vsndevts", context)
 
     PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_silencer.vsndevts", context)
@@ -1076,9 +1076,20 @@ function FateGameMode:OnPlayerChat(keys)
         --print("kappa")
     end
 
+    if text == "-zlodemon_true" then
+        playerHero = ply:GetAssignedHero()
+        playerHero.zlodemon = true
+        --print("kappa")
+    end
+
     if text == "-gachi_false" then
         playerHero = ply:GetAssignedHero()
         playerHero.gachi = false
+    end
+    
+    if text == "-zlodemon_false" then
+        playerHero = ply:GetAssignedHero()
+        playerHero.zlodemon = false
     end
 
     if text == "-music_true" then
@@ -3768,7 +3779,7 @@ function FateGameMode:InitializeRound()
                 --end
             end
             if hero.AvariceCount ~= nil then
-                hero:ModifyGold(4000*hero.AvariceCount, false, 0)
+                hero:ModifyGold(2500*hero.AvariceCount, false, 0)
             end
 
             --local xpBonus = 100 + 

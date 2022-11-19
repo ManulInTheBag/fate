@@ -73,7 +73,14 @@ function gilgamesh_enuma_elish:AfterOnSpellSt()
   local caster = self:GetCaster()
   self:VFX1_Red_Aura(caster)
   ParticleManager:SetParticleControl(self.PI1, 1, Vector(300,1,1))
-
+  LoopOverPlayers(function(player, playerID, playerHero)
+		--print("looping through " .. playerHero:GetName())
+		if playerHero.zlodemon == true  and playerHero:GetTeamNumber() == caster:GetTeamNumber() then
+			-- apply legion horn vsnd on their client
+			CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="zlodemon_gil_r"})
+			--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+		end
+	end)
   EmitSoundOnLocationForAllies(caster:GetAbsOrigin(), "gilgamesh_enuma_" .. math.random(2,5), caster)
   StartAnimation(self:GetCaster(), {duration=0.5, activity=ACT_DOTA_OVERRIDE_ABILITY_4, rate=1.5})
   Timers:CreateTimer(0.5, function()

@@ -24,7 +24,14 @@ function emiya_kanshou_byakuya:OnSpellStart()
 	if sound < 5 then
 		caster:EmitSound("emiya_kanshou_byakuya_" .. math.random(1,2))
 	end
-
+	LoopOverPlayers(function(player, playerID, playerHero)
+		--print("looping through " .. playerHero:GetName())
+		if playerHero.zlodemon == true    then
+			-- apply legion horn vsnd on their client
+			CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="zlodemon_emiya_q"})
+			--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+		end
+	end)
 	-- Defaults the crossing point to 600 range in front of where Emiya is facing
 	if (math.abs(target_destination.x - origin.x) < 500) and (math.abs(target_destination.y - origin.y) < 500) then
 		--target_destination = caster:GetForwardVector() * 900 + origin

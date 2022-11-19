@@ -20,6 +20,14 @@ function emiya_rho_aias:OnSpellStart()
 	else
 		caster:EmitSound("Emiya_Rho_Aias_Alt")
 	end
+	LoopOverPlayers(function(player, playerID, playerHero)
+		--print("looping through " .. playerHero:GetName())
+		if playerHero.zlodemon == true    then
+			-- apply legion horn vsnd on their client
+			CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="zlodemon_emiya_d"})
+			--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+		end
+	end)
 	caster:EmitSound("Hero_EmberSpirit.FlameGuard.Cast")
 
 	target:AddNewModifier(caster, self, "modifier_rho_aias", { Duration = self:GetSpecialValueFor("duration") })
