@@ -319,7 +319,6 @@ cleansable = {
     "muramasa_eye_of_karma",
     "modifier_ryougi_knife_fan_slow",
     "modifier_arcueid_shut_up_slow",
-    "modifier_leonidas_enomotia_slow",
 }
 
 slowmodifier = {
@@ -364,7 +363,6 @@ slowmodifier = {
     "modifier_ryougi_knife_fan_slow",
     "modifier_nobu_slow",
     "modifier_arcueid_shut_up_slow",
-    "modifier_leonidas_enomotia_slow",
 }
 
 donotlevel = {
@@ -410,8 +408,6 @@ donotlevel = {
     "medusa_monstrous_strength",
     "khsn_raze2",
     "khsn_raze3",
-
-    "leonidas_berserk",
 }
 
 CannotReset = {
@@ -538,10 +534,6 @@ CannotReset = {
     "arcueid_melty",
     "arcueid_impulses",
     "arcueid_eyes",
-    
-    "leonidas_berserk",
-    "leonidas_bc",
-    "leonidas_enomotia_combo",
 }
 
 femaleservant = {
@@ -600,7 +592,6 @@ tItemComboTable = {
 
 tModifierKBImmune = {
     "modifier_avalon",
-    "modifier_leonidas_enomotia_ignore_motion_controll"
 }
 
 tManalessHero = {
@@ -2283,7 +2274,6 @@ local heroNames = {
     ["npc_dota_hero_magnataur"] = "Muramasa",
     ["npc_dota_hero_gyrocopter"] = "Oda Nobunaga",
     ["npc_dota_hero_tiny"] = "Arcueid",
-    ["npc_dota_hero_venomancer"] = "Leonidas I",
 }
 
 
@@ -2340,7 +2330,6 @@ local heroCombos = {
     ["npc_dota_hero_magnataur"] = "muramasa_tsumukari_combo",
     ["npc_dota_hero_gyrocopter"] = "nobu_combo",
     ["npc_dota_hero_tiny"] = "arcueid_melty",
-    ["npc_dota_hero_venomancer"] = "leonidas_enomotia_combo",
 }
 
 function GetHeroCombo(hero)
