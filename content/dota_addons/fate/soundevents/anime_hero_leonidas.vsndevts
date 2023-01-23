@@ -1,0 +1,1222 @@
+"Leonidas.Kick.Cast.1"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/vo/anime_hero_leonidas/leonidas_attack_03.vsnd"
+						}
+					}
+				"volume"            {   "value"     "1.00000"  }
+                "pitch_rand_min"    {   "value"     "-0.05000"  }
+                "pitch_rand_max"    {   "value"     "0.050000"  }
+                "pitch"             {   "value"     "1.000000"  }
+                "soundlevel"        {   "value"     "100.00000" }
+                "distance_max"      {   "value"     "1600.000"  }
+                "event_type"        {   "value"     "1.000000"  }
+				}
+			}
+		}
+	}
+}
+
+
+"Leonidas.Kick.Impact.1"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/weapons/hero/spirit_breaker/greater_bash.vsnd"//"sounds/weapons/hero/earth_spirit/boulder_smash_target.vsnd"//"sounds/weapons/hero/mars/spear_target.vsnd"
+						}
+					}
+				"volume"            {   "value"     "1.00000"  }
+                "pitch_rand_min"    {   "value"     "-0.05000"  }
+                "pitch_rand_max"    {   "value"     "0.050000"  }
+                "pitch"             {   "value"     "1.000000"  }
+                "soundlevel"        {   "value"     "100.00000" }
+                "distance_max"      {   "value"     "1600.000"  }
+                "event_type"        {   "value"     "1.000000"  }
+				}
+			}
+		}
+	}
+}
+
+"Leonidas.Kick.Impact.2"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/weapons/hero/mars/spear_impale.vsnd"
+						}
+					}
+				"volume"            {   "value"     "1.00000"  }
+                "pitch_rand_min"    {   "value"     "-0.05000"  }
+                "pitch_rand_max"    {   "value"     "0.050000"  }
+                "pitch"             {   "value"     "1.000000"  }
+                "soundlevel"        {   "value"     "100.00000" }
+                "distance_max"      {   "value"     "1600.000"  }
+                "event_type"        {   "value"     "1.000000"  }
+				}
+			}
+		}
+	}
+}
+
+"Leonidas.Kick.Impact.3"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/heroes/anime_hero_leonidas/leonidas_kick_impact_3.vsnd"
+						}
+					}
+				"volume"            {   "value"     "1.00000"  }
+                "pitch_rand_min"    {   "value"     "-0.05000"  }
+                "pitch_rand_max"    {   "value"     "0.050000"  }
+                "pitch"             {   "value"     "1.000000"  }
+                "soundlevel"        {   "value"     "100.00000" }
+                "distance_max"      {   "value"     "1600.000"  }
+                "event_type"        {   "value"     "1.000000"  }
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"Leonidas.Catch.Cast.1"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/weapons/hero/magnataur/horn_toss_cast.vsnd"
+						}
+					}
+				"volume"            {   "value"     "1.00000"  }
+                "pitch_rand_min"    {   "value"     "-0.05000"  }
+                "pitch_rand_max"    {   "value"     "0.050000"  }
+                "pitch"             {   "value"     "1.000000"  }
+                "soundlevel"        {   "value"     "100.00000" }
+                "distance_max"      {   "value"     "1600.000"  }
+                "event_type"        {   "value"     "1.000000"  }
+				}
+			}
+		}
+	}
+}
+
+"Leonidas.Catch.Cast.2"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/vo/anime_hero_leonidas/leonidas_attack_02.vsnd"
+						}
+					}
+				"volume"            {   "value"     "1.00000"  }
+                "pitch_rand_min"    {   "value"     "-0.05000"  }
+                "pitch_rand_max"    {   "value"     "0.050000"  }
+                "pitch"             {   "value"     "1.000000"  }
+                "soundlevel"        {   "value"     "100.00000" }
+                "distance_max"      {   "value"     "1600.000"  }
+                "event_type"        {   "value"     "1.000000"  }
+				}
+			}
+		}
+	}
+}
+
+
+"Leonidas.Catch.Impact.1"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/weapons/hero/mars/attack03.vsnd"
+						}
+					}
+				"volume"            {   "value"     "1.00000"  }
+                "pitch_rand_min"    {   "value"     "-0.05000"  }
+                "pitch_rand_max"    {   "value"     "0.050000"  }
+                "pitch"             {   "value"     "1.000000"  }
+                "soundlevel"        {   "value"     "100.00000" }
+                "distance_max"      {   "value"     "1600.000"  }
+                "event_type"        {   "value"     "1.000000"  }
+				}
+			}
+		}
+	}
+}
+
+"Leonidas.Catch.Impact.2"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/weapons/hero/spirit_breaker/greater_bash.vsnd"
+						}
+					}
+				"volume"            {   "value"     "1.00000"  }
+                "pitch_rand_min"    {   "value"     "-0.05000"  }
+                "pitch_rand_max"    {   "value"     "0.050000"  }
+                "pitch"             {   "value"     "1.000000"  }
+                "soundlevel"        {   "value"     "100.00000" }
+                "distance_max"      {   "value"     "1600.000"  }
+                "event_type"        {   "value"     "1.000000"  }
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+//sounds/weapons/hero/dawnbreaker/elated_stun.vsnd
+//sounds/weapons/hero/dawnbreaker/elated_impact_layer.vsnd
+//sounds/weapons/hero/dawnbreaker/elated_impact.vsnd
+
+"Leonidas.Pride.Cast.1"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/weapons/hero/mars/spear_cast.vsnd"
+						}
+					}
+				"volume"            {   "value"     "2.00000"  }
+                "pitch_rand_min"    {   "value"     "-0.05000"  }
+                "pitch_rand_max"    {   "value"     "0.050000"  }
+                "pitch"             {   "value"     "1.000000"  }
+                "soundlevel"        {   "value"     "100.00000" }
+                "distance_max"      {   "value"     "1600.000"  }
+                "event_type"        {   "value"     "1.000000"  }
+				}
+			}
+		}
+	}
+}
+
+"Leonidas.Pride.Cast.2"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/vo/anime_hero_leonidas/leonidas_cast_02.vsnd"
+							"value1"		"sounds/vo/anime_hero_leonidas/leonidas_cast_01.vsnd"
+						}
+					}
+				"volume"            {   "value"     "2.00000"  }
+                "pitch_rand_min"    {   "value"     "-0.05000"  }
+                "pitch_rand_max"    {   "value"     "0.050000"  }
+                "pitch"             {   "value"     "1.000000"  }
+                "soundlevel"        {   "value"     "100.00000" }
+                "distance_max"      {   "value"     "1600.000"  }
+                "event_type"        {   "value"     "1.000000"  }
+				}
+			}
+		}
+	}
+}
+
+"Leonidas.Pride.Cast.3"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/vo/anime_hero_leonidas/leonidas_attack_04.vsnd"
+						}
+					}
+				"volume"            {   "value"     "2.00000"  }
+                "pitch_rand_min"    {   "value"     "-0.05000"  }
+                "pitch_rand_max"    {   "value"     "0.050000"  }
+                "pitch"             {   "value"     "1.000000"  }
+                "soundlevel"        {   "value"     "100.00000" }
+                "distance_max"      {   "value"     "1600.000"  }
+                "event_type"        {   "value"     "1.000000"  }
+				}
+			}
+		}
+	}
+}
+
+"Leonidas.Pride.Impact.1"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/weapons/hero/dawnbreaker/elated_impact_layer.vsnd"
+						}
+					}
+				"volume"            {   "value"     "1.00000"  }
+                "pitch_rand_min"    {   "value"     "-0.05000"  }
+                "pitch_rand_max"    {   "value"     "0.050000"  }
+                "pitch"             {   "value"     "1.000000"  }
+                "soundlevel"        {   "value"     "100.00000" }
+                "distance_max"      {   "value"     "1600.000"  }
+                "event_type"        {   "value"     "1.000000"  }
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+"Leonidas.Berserk.Cast.1"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/weapons/hero/juggernaut/arc_power.vsnd"
+						}
+					}
+				"volume"            {   "value"     "1.00000"  }
+                "pitch_rand_min"    {   "value"     "-0.05000"  }
+                "pitch_rand_max"    {   "value"     "0.050000"  }
+                "pitch"             {   "value"     "1.000000"  }
+                "soundlevel"        {   "value"     "100.00000" }
+                "distance_max"      {   "value"     "1600.000"  }
+                "event_type"        {   "value"     "1.000000"  }
+				}
+			}
+		}
+	}
+}
+
+"Leonidas.Berserk.Cast.2"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/weapons/hero/dawnbreaker/fire_wreath_layer.vsnd"
+						}
+					}
+				"volume"            {   "value"     "1.00000"  }
+                "pitch_rand_min"    {   "value"     "-0.05000"  }
+                "pitch_rand_max"    {   "value"     "0.050000"  }
+                "pitch"             {   "value"     "1.000000"  }
+                "soundlevel"        {   "value"     "100.00000" }
+                "distance_max"      {   "value"     "1600.000"  }
+                "event_type"        {   "value"     "1.000000"  }
+				}
+			}
+		}
+	}
+}
+
+"Leonidas.Berserk.Crit.Universal"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/weapons/hero/phantom_assassin/coup_de_grace.vsnd"
+							"value1"		"sounds/weapons/hero/skeleton_king/critical_strike_ti8.vsnd"
+							"value2"		"sounds/weapons/hero/brewmaster/brawl_crit.vsnd"
+							"value3"		"sounds/weapons/hero/juggernaut/sword_swing_special.vsnd"
+						}
+					}
+				"volume"            {   "value"     "1.00000"  }
+                "pitch_rand_min"    {   "value"     "-0.05000"  }
+                "pitch_rand_max"    {   "value"     "0.050000"  }
+                "pitch"             {   "value"     "1.000000"  }
+                "soundlevel"        {   "value"     "100.00000" }
+                "distance_max"      {   "value"     "1600.000"  }
+                "event_type"        {   "value"     "1.000000"  }
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+"Leonidas.BC.Cast.1"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/vo/anime_hero_leonidas/leonidas_pain_01.vsnd"
+						}
+					}
+				"volume"            {   "value"     "1.00000"  }
+                "pitch_rand_min"    {   "value"     "-0.05000"  }
+                "pitch_rand_max"    {   "value"     "0.050000"  }
+                "pitch"             {   "value"     "1.000000"  }
+                "soundlevel"        {   "value"     "100.00000" }
+                "distance_max"      {   "value"     "1600.000"  }
+                "event_type"        {   "value"     "1.000000"  }
+				}
+			}
+		}
+	}
+}
+
+"Leonidas.BC.Cast.211"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/weapons/hero/dawnbreaker/fire_wreath_cast.vsnd"
+						}
+					}
+				"volume"            {   "value"     "1.00000"  }
+                "pitch_rand_min"    {   "value"     "-0.05000"  }
+                "pitch_rand_max"    {   "value"     "0.050000"  }
+                "pitch"             {   "value"     "1.000000"  }
+                "soundlevel"        {   "value"     "100.00000" }
+                "distance_max"      {   "value"     "1600.000"  }
+                "event_type"        {   "value"     "1.000000"  }
+				}
+			}
+		}
+	}
+}
+
+"Leonidas.BC.Loop.1"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/weapons/hero/dazzle/shallow_grave.vsnd"
+						}
+					}
+				"volume"            {   "value"     "1.00000"  }
+                "pitch_rand_min"    {   "value"     "-0.05000"  }
+                "pitch_rand_max"    {   "value"     "0.050000"  }
+                "pitch"             {   "value"     "1.000000"  }
+                "soundlevel"        {   "value"     "100.00000" }
+                "distance_max"      {   "value"     "1600.000"  }
+                "event_type"        {   "value"     "1.000000"  }
+				}
+			}
+		}
+	}
+}
+
+"Leonidas.BC.Loop.2"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/weapons/hero/huskar/inner_vitality.vsnd"
+						}
+					}
+				"volume"            {   "value"     "1.00000"  }
+                "pitch_rand_min"    {   "value"     "-0.05000"  }
+                "pitch_rand_max"    {   "value"     "0.050000"  }
+                "pitch"             {   "value"     "1.000000"  }
+                "soundlevel"        {   "value"     "100.00000" }
+                "distance_max"      {   "value"     "1600.000"  }
+                "event_type"        {   "value"     "1.000000"  }
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"Leonidas.Enomotia.Cast.1"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/heroes/anime_hero_leonidas/leonidas_enomotia_cast_1.vsnd"
+						}
+					}
+				"volume"            {   "value"     "2.00000"  }
+                "pitch_rand_min"    {   "value"     "-0.05000"  }
+                "pitch_rand_max"    {   "value"     "0.050000"  }
+                "pitch"             {   "value"     "1.000000"  }
+                "soundlevel"        {   "value"     "100.00000" }
+                "distance_max"      {   "value"     "1600.000"  }
+                "event_type"        {   "value"     "1.000000"  }
+				}
+			}
+		}
+	}
+}
+
+"Leonidas.Enomotia.Cast.2"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/heroes/anime_hero_leonidas/leonidas_enomotia_cast_2.vsnd"
+						}
+					}
+				"volume"            {   "value"     "2.00000"  }
+                "pitch_rand_min"    {   "value"     "-0.05000"  }
+                "pitch_rand_max"    {   "value"     "0.050000"  }
+                "pitch"             {   "value"     "1.000000"  }
+                "soundlevel"        {   "value"     "100.00000" }
+                "distance_max"      {   "value"     "1600.000"  }
+                "event_type"        {   "value"     "1.000000"  }
+				}
+			}
+		}
+	}
+}
+
+"Leonidas.Enomotia.Cast.Shield"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/heroes/anime_hero_leonidas/leonidas_enomotia_cast_shield.vsnd"
+						}
+					}
+				"volume"            {   "value"     "1.00000"  }
+                "pitch_rand_min"    {   "value"     "-0.05000"  }
+                "pitch_rand_max"    {   "value"     "0.050000"  }
+                "pitch"             {   "value"     "1.000000"  }
+                "soundlevel"        {   "value"     "100.00000" }
+                "distance_max"      {   "value"     "1600.000"  }
+                "event_type"        {   "value"     "1.000000"  }
+				}
+			}
+		}
+	}
+}
+
+"Leonidas.Enomotia.Cast.Shields"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/heroes/anime_hero_leonidas/leonidas_enomotia_cast_shields.vsnd"
+						}
+					}
+				"volume"            {   "value"     "1.00000"  }
+                "pitch_rand_min"    {   "value"     "-0.05000"  }
+                "pitch_rand_max"    {   "value"     "0.050000"  }
+                "pitch"             {   "value"     "1.000000"  }
+                "soundlevel"        {   "value"     "100.00000" }
+                "distance_max"      {   "value"     "1600.000"  }
+                "event_type"        {   "value"     "1.000000"  }
+				}
+			}
+		}
+	}
+}
+
+
+"Leonidas.Enomotia.Release.1"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/weapons/hero/huskar/inner_fire.vsnd"
+						}
+					}
+				"volume"            {   "value"     "1.00000"  }
+                "pitch_rand_min"    {   "value"     "-0.05000"  }
+                "pitch_rand_max"    {   "value"     "0.050000"  }
+                "pitch"             {   "value"     "1.000000"  }
+                "soundlevel"        {   "value"     "100.00000" }
+                "distance_max"      {   "value"     "1600.000"  }
+                "event_type"        {   "value"     "1.000000"  }
+				}
+			}
+		}
+	}
+}
+
+"Leonidas.Enomotia.Release.2"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/weapons/hero/zuus/lightning_bolt.vsnd"
+						}
+					}
+				"volume"            {   "value"     "1.00000"  }
+                "pitch_rand_min"    {   "value"     "-0.05000"  }
+                "pitch_rand_max"    {   "value"     "0.050000"  }
+                "pitch"             {   "value"     "1.000000"  }
+                "soundlevel"        {   "value"     "100.00000" }
+                "distance_max"      {   "value"     "1600.000"  }
+                "event_type"        {   "value"     "1.000000"  }
+				}
+			}
+		}
+	}
+}
+
+"Leonidas.Enomotia.Impact.1"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/weapons/hero/earth_spirit/boulder_smash_silence.vsnd"
+						}
+					}
+				"volume"            {   "value"     "1.00000"  }
+                "pitch_rand_min"    {   "value"     "-0.05000"  }
+                "pitch_rand_max"    {   "value"     "0.050000"  }
+                "pitch"             {   "value"     "1.000000"  }
+                "soundlevel"        {   "value"     "100.00000" }
+                "distance_max"      {   "value"     "1600.000"  }
+                "event_type"        {   "value"     "1.000000"  }
+				}
+			}
+		}
+	}
+}
+
+"Leonidas.Enomotia.Impact.2"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/weapons/hero/dawnbreaker/elated_impact.vsnd"
+						}
+					}
+				"volume"            {   "value"     "1.00000"  }
+                "pitch_rand_min"    {   "value"     "-0.05000"  }
+                "pitch_rand_max"    {   "value"     "0.050000"  }
+                "pitch"             {   "value"     "1.000000"  }
+                "soundlevel"        {   "value"     "100.00000" }
+                "distance_max"      {   "value"     "1600.000"  }
+                "event_type"        {   "value"     "1.000000"  }
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"Leonidas.Enomotia.Combo.Cast.1"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/heroes/anime_hero_leonidas/leonidas_enomotia_combo_cast_1.vsnd"
+						}
+					}
+				"volume"            {   "value"     "2.00000"  }
+                "pitch_rand_min"    {   "value"     "-0.05000"  }
+                "pitch_rand_max"    {   "value"     "0.050000"  }
+                "pitch"             {   "value"     "1.000000"  }
+                "soundlevel"        {   "value"     "100.00000" }
+                "distance_max"      {   "value"     "1600.000"  }
+                "event_type"        {   "value"     "1.000000"  }
+				}
+			}
+		}
+	}
+}
+
+"Leonidas.Enomotia.Combo.Cast.2"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/heroes/anime_hero_leonidas/leonidas_enomotia_combo_cast_2.vsnd"
+						}
+					}
+				"volume"            {   "value"     "2.00000"  }
+                "pitch_rand_min"    {   "value"     "-0.05000"  }
+                "pitch_rand_max"    {   "value"     "0.050000"  }
+                "pitch"             {   "value"     "1.000000"  }
+                "soundlevel"        {   "value"     "100.00000" }
+                "distance_max"      {   "value"     "1600.000"  }
+                "event_type"        {   "value"     "1.000000"  }
+				}
+			}
+		}
+	}
+}
+
+"Leonidas.Enomotia.Combo.Cast.3"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/heroes/anime_hero_leonidas/leonidas_enomotia_combo_cast_3.vsnd"
+						}
+					}
+				"volume"            {   "value"     "2.00000"  }
+                "pitch_rand_min"    {   "value"     "-0.05000"  }
+                "pitch_rand_max"    {   "value"     "0.050000"  }
+                "pitch"             {   "value"     "1.000000"  }
+                "soundlevel"        {   "value"     "100.00000" }
+                "distance_max"      {   "value"     "1600.000"  }
+                "event_type"        {   "value"     "1.000000"  }
+				}
+			}
+		}
+	}
+}
+
+"Leonidas.Enomotia.Combo.Cast.4"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/heroes/anime_hero_leonidas/leonidas_enomotia_combo_cast_4.vsnd"
+						}
+					}
+				"volume"            {   "value"     "2.00000"  }
+                "pitch_rand_min"    {   "value"     "-0.05000"  }
+                "pitch_rand_max"    {   "value"     "0.050000"  }
+                "pitch"             {   "value"     "1.000000"  }
+                "soundlevel"        {   "value"     "100.00000" }
+                "distance_max"      {   "value"     "1600.000"  }
+                "event_type"        {   "value"     "1.000000"  }
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"Anime_Hero_Leonidas.PreAttack"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/weapons/hero/shared/large_blade/whoosh01.vsnd"
+						}
+					}
+				"volume"            {   "value"     "1.00000"  }
+                "pitch_rand_min"    {   "value"     "-0.05000"  }
+                "pitch_rand_max"    {   "value"     "0.050000"  }
+                "pitch"             {   "value"     "1.000000"  }
+                "soundlevel"        {   "value"     "100.00000" }
+                "distance_max"      {   "value"     "1600.000"  }
+                "event_type"        {   "value"     "1.000000"  }
+				}
+			}
+		}
+	}
+}
+
+"Anime_Hero_Leonidas.Attack"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/weapons/hero/mars/attack01.vsnd"
+							"value1"		"sounds/weapons/hero/mars/attack02.vsnd"
+							"value2"		"sounds/weapons/hero/mars/attack03.vsnd"
+						}
+					}
+				"volume"            {   "value"     "1.00000"  }
+                "pitch_rand_min"    {   "value"     "-0.05000"  }
+                "pitch_rand_max"    {   "value"     "0.050000"  }
+                "pitch"             {   "value"     "1.000000"  }
+                "soundlevel"        {   "value"     "100.00000" }
+                "distance_max"      {   "value"     "1600.000"  }
+                "event_type"        {   "value"     "1.000000"  }
+				}
+			}
+		}
+	}
+}
+
+
+
+
+
+
+
+
+"Leonidas.MultiAttack.Sound"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/vo/anime_hero_leonidas/leonidas_attack_01.vsnd"
+							"value1"		"sounds/vo/anime_hero_leonidas/leonidas_attack_02.vsnd"
+							"value2"		"sounds/vo/anime_hero_leonidas/leonidas_attack_03.vsnd"
+							"value3"		"sounds/vo/anime_hero_leonidas/leonidas_attack_04.vsnd"
+							"value4"		"sounds/vo/anime_hero_leonidas/leonidas_attack_05.vsnd"
+							"value5"		"sounds/vo/anime_hero_leonidas/leonidas_attack_06.vsnd"
+							"value6"		"sounds/vo/anime_hero_leonidas/leonidas_attack_07.vsnd"
+							"value7"		"sounds/vo/anime_hero_leonidas/leonidas_cast_01.vsnd"
+						}
+					}
+				"volume"            {   "value"     "1.00000"  }
+                "pitch_rand_min"    {   "value"     "-0.05000"  }
+                "pitch_rand_max"    {   "value"     "0.050000"  }
+                "pitch"             {   "value"     "1.000000"  }
+                "soundlevel"        {   "value"     "100.00000" }
+                "distance_max"      {   "value"     "1600.000"  }
+                "event_type"        {   "value"     "1.000000"  }
+				}
+			}
+		}
+	}
+}

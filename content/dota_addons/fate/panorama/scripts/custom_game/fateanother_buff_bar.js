@@ -93,6 +93,7 @@ var buffCooldown = {
     modifier_a_scroll_sated: 30,
     modifier_galatine_combo_cd: 150,
     modifier_whitechapel_cooldown: 180,
+    modifier_leonidas_enomotia_combo_indicator: 240,
 };
 
 var buffProgress = {
