@@ -60,7 +60,7 @@ function modifier_nobu_divinity_mark:OnTakeDamage(args)
         ParticleManager:SetParticleControl(self.fx , 1, Vector(self.stacks,0,0) ) 
 
     end
-    if(self.stacks == 12) then
+    if(self.stacks == 9) then
         parent:AddNewModifier(caster, self:GetAbility(), "modifier_nobu_divinity_mark_activated", {duration = self:GetAbility():GetSpecialValueFor("activated_duration")} )
         parent:EmitSound("nobu_divinity_mark_activated")
         self:Destroy()

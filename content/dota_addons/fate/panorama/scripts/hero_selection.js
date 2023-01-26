@@ -150,84 +150,76 @@ function SelectionPanelEndListener(){
 }
 
 function UpdateHeroesSelected(tableName, changesObject, deletionsObject) {
-	_.each(changesObject, function(teamPlayers, teamNumber) {
-		if ($('#team_selection_panels_team' + teamNumber) == null) {
-			var isRight = teamNumber % 2 !== 0;
-			var TeamSelectionPanel = $.CreatePanel('Panel', $(isRight ? '#RightTeams' : '#LeftTeams'), 'team_selection_panels_team' + teamNumber);
-			TeamSelectionPanel.BLoadLayoutSnippet('TeamBar');
-			var color = GameUI.CustomUIConfig().team_colors[teamNumber];
-			TeamSelectionPanel.style.backgroundColor = 'gradient(linear, 100% 100%, 0% 100%, from(transparent), color-stop(0.15, ' + color + '4D), to(transparent))';
-		}
-		var TeamSelectionPanel = $('#team_selection_panels_team' + teamNumber).FindChildTraverse('TeamBarPlayers');
-		_.each(teamPlayers, function(playerData, playerIdInTeam) {
-			var PlayerPanel = Snippet_PlayerPanel(Number(playerIdInTeam), TeamSelectionPanel);
+	var index;
+	$.Msg(changesObject);
+	for (index = 1; index <= 10; ++index) {
+		UHSSub(tableName, changesObject, deletionsObject, index)
+	};
+	UpdateSelectionButton();
+}
 
-			var isLocalPlayer = Number(playerIdInTeam) === Game.GetLocalPlayerID();
-			var isLocalTeam = Number(teamNumber) === Players.GetTeam(Game.GetLocalPlayerID());
+function UHSSub(tableName, changesObject, deletionsObject, index){
+	var teamPlayers = changesObject[index];
+	if (teamPlayers != null) {
+	var index2;
+	$.Msg("teamPlayers")
+	$.Msg(teamPlayers);
+	var teamNumber = index;
+	if ($('#team_selection_panels_team' + teamNumber) == null) {
+		var isRight = teamNumber % 2 !== 0;
+		var TeamSelectionPanel = $.CreatePanel('Panel', $(isRight ? '#RightTeams' : '#LeftTeams'), 'team_selection_panels_team' + teamNumber);
+		TeamSelectionPanel.BLoadLayoutSnippet('TeamBar');
+		var color = GameUI.CustomUIConfig().team_colors[teamNumber];
+		//TeamSelectionPanel.style.backgroundColor = 'gradient(linear, 100% 100%, 0% 100%, from(transparent), color-stop(0.15, ' + color + '4D), to(transparent))';
+	}
+	var TeamSelectionPanel = $('#team_selection_panels_team' + teamNumber).FindChildTraverse('TeamBarPlayers');
+	
+		for (index2 = 0; index2 <= 13; ++index2) {
+			UHSSub2(tableName, changesObject, deletionsObject, teamPlayers, teamNumber, TeamSelectionPanel, index2);
+		};
+	};
+}
 
-			if (isLocalPlayer) {
-				LocalPlayerStatus = playerData;
-				$.GetContextPanel().SetHasClass('LocalPlayerLocked', playerData.status === 'locked');
-				if (!$.GetContextPanel().BHasClass('LocalPlayerPicked') && playerData.status === 'picked') {
-					OnLocalPlayerPicked();
-				} else if ($.GetContextPanel().BHasClass('LocalPlayerPicked') && playerData.status !== 'picked') {
-					ToggleHeroPreviewHeroList(false);
-				}
-				$.GetContextPanel().SetHasClass('LocalPlayerPicked', playerData.status === 'picked');
+function UHSSub2(tableName, changesObject, deletionsObject, teamPlayers, teamNumber, TeamSelectionPanel, index2){
+	var playerData = teamPlayers[index2];
+	$.Msg("playerData" + index2);
+	$.Msg(playerData);
+	if (playerData != null) {
+		var playerIdInTeam = index2;
+		var PlayerPanel = Snippet_PlayerPanel(Number(playerIdInTeam), TeamSelectionPanel);
+
+		var isLocalPlayer = Number(playerIdInTeam) === Game.GetLocalPlayerID();
+		var isLocalTeam = Number(teamNumber) === Players.GetTeam(Game.GetLocalPlayerID());
+
+		if (isLocalPlayer) {
+			LocalPlayerStatus = playerData;
+			$.GetContextPanel().SetHasClass('LocalPlayerLocked', playerData.status === 'locked');
+			$.Msg("OLPP should trigger")
+			if (!$.GetContextPanel().BHasClass('LocalPlayerPicked') && playerData.status === 'picked') {
+				OnLocalPlayerPicked();
+			} else if ($.GetContextPanel().BHasClass('LocalPlayerPicked') && playerData.status !== 'picked') {
+				ToggleHeroPreviewHeroList(false);
 			}
+			$.GetContextPanel().SetHasClass('LocalPlayerPicked', playerData.status === 'picked');
+		}
 
-			PlayerPanel.SetHasClass('HeroPickHovered', playerData.status === 'hover');
-			PlayerPanel.SetHasClass('HeroPickLocked', playerData.status === 'locked');
-			if (playerData.status === 'hover' || playerData.status === 'locked') {
-				if (isLocalTeam) {
-					PlayerPanel.FindChildTraverse('HeroImage').SetImage("s2r://panorama/images/custom_game/portrait/" + playerData.hero + "_png.vtex");
-					PlayerPanel.SetDialogVariable('dota_hero_name', $.Localize('#' + playerData.hero));
-				}
-			} else if (playerData.status === 'picked') {
+		PlayerPanel.SetHasClass('HeroPickHovered', playerData.status === 'hover');
+		PlayerPanel.SetHasClass('HeroPickLocked', playerData.status === 'locked');
+		if (playerData.status === 'hover' || playerData.status === 'locked') {
+			if (isLocalTeam) {
 				PlayerPanel.FindChildTraverse('HeroImage').SetImage("s2r://panorama/images/custom_game/portrait/" + playerData.hero + "_png.vtex");
 				PlayerPanel.SetDialogVariable('dota_hero_name', $.Localize('#' + playerData.hero));
 			}
-			var heroPanel = $('#HeroListPanel_element_' + playerData.hero);
-			if (heroPanel) {
-				heroPanel.SetHasClass('AlreadyPicked', IsHeroPicked(playerData.hero));
-				heroPanel.SetHasClass('Locked', IsHeroLocked(playerData.hero));
-			}
-			//if (isLocalTeam) {
-			//	if (playerData.SpawnBoxes != null) {
-			//		if (PlayerSpawnBoxes[playerIdInTeam] == null)
-			//			PlayerSpawnBoxes[playerIdInTeam] = [];
-			//		var PlayerSPBoxesTable = PlayerSpawnBoxes[playerIdInTeam];
-			//		var checkedPanels = [];
-			//		for (var index in playerData.SpawnBoxes) {
-			//			var SPBoxInfoGroup = playerData.SpawnBoxes[index];
-			//			var SPBoxID = 'MinimapSpawnBoxPlayerIcon_' + SPBoxInfoGroup + '_' + playerIdInTeam;
-			//			var SpawnBoxUnitPanel = $('#' + SPBoxID);
-			//			var RootPanel = $MinimapSpawnBoxes().FindChildTraverse('MinimapSpawnBox_' + SPBoxInfoGroup);
-			//			if (SpawnBoxUnitPanel == null) {
-			//				SpawnBoxUnitPanel = $.CreatePanel('Image', RootPanel, SPBoxID);
-			//				SpawnBoxUnitPanel.AddClass('SpawnBoxUnitPanel');
-			//			}
-			//			SpawnBoxUnitPanel.SetImage(TransformTextureToPath(playerData.hero, 'icon'));
-			//			SpawnBoxUnitPanel.SetHasClass('hero_selection_hover', playerData.status === 'hover');
-			//			checkedPanels.push(SpawnBoxUnitPanel);
-			//			if (!_.includes(PlayerSPBoxesTable, SpawnBoxUnitPanel))
-			//				PlayerSPBoxesTable.push(SpawnBoxUnitPanel);
-			//		}
-			//		for (var index in PlayerSPBoxesTable) {
-			//			var panel = PlayerSPBoxesTable[index];
-			//			if (!_.includes(checkedPanels, panel)) {
-			//				try {
-			//					panel.DeleteAsync(0);
-			//				} catch (e) {} finally {
-			//					PlayerSPBoxesTable.splice(index, 1);
-			//				}
-			//			}
-			//		}
-			//	}
-			//}
-		});
-	});
-	UpdateSelectionButton();
+		} else if (playerData.status === 'picked') {
+			PlayerPanel.FindChildTraverse('HeroImage').SetImage("s2r://panorama/images/custom_game/portrait/" + playerData.hero + "_png.vtex");
+			PlayerPanel.SetDialogVariable('dota_hero_name', $.Localize('#' + playerData.hero));
+		}
+		var heroPanel = $('#HeroListPanel_element_' + playerData.hero);
+		if (heroPanel) {
+			heroPanel.SetHasClass('AlreadyPicked', IsHeroPicked(playerData.hero));
+			heroPanel.SetHasClass('Locked', IsHeroLocked(playerData.hero));
+		}
+	}
 }
 
 //function $MinimapSpawnBoxes() {
@@ -241,11 +233,15 @@ function UpdateHeroesSelected(tableName, changesObject, deletionsObject) {
 function OnLocalPlayerPicked() {
 	var heroName = LocalPlayerStatus.hero;
 	var localHeroData = HeroesData[heroName];
+	$.Msg("OLPP1")
 	$('#HeroPreviewName').text = $.Localize('#' + heroName).toUpperCase();
+	$.Msg("OLPP2")
 	var bio = $.Localize('#' + heroName + '_bio');
 	$('#HeroPreviewLore').text = bio !== heroName + '_bio' ? bio : '';
+	$.Msg("OLPP3")
 	var hype = $.Localize('#' + heroName + '_hype');
 	$('#HeroPreviewOverview').text = hype !== heroName + '_hype' ? hype : '';
+	$.Msg("OLPP4")
 
 	var model = localHeroData.model
 	$.Msg("pepeg")
@@ -266,31 +262,6 @@ function OnLocalPlayerPicked() {
 	FillAbilitiesUI($('#HeroPreviewAbilities'), localHeroData.abilities, 'HeroPreviewAbility');
 	FillAbilitiesUI($('#HeroPreviewAttributesAndCombo'), localHeroData.attributesandcombo, 'HeroPreviewAbility');
 	FillAttributeUI($('#HeroPreviewAttributes'), localHeroData.attributes);
-
-	var GlobalLoadoutItems = FindDotaHudElement('GlobalLoadoutItems');
-	if (GlobalLoadoutItems) {
-		GlobalLoadoutItems.SetParent($('#GlobalLoadoutContainer'));
-		//Custom styles
-		_.each(GlobalLoadoutItems.FindChildrenWithClassTraverse('HasItemsForSlot'), function(child) {
-			child.SetParent(GlobalLoadoutItems);
-			child.style.width = '180px';
-			//child.DeleteAsync(0)
-		});
-		_.each(GlobalLoadoutItems.FindChildrenWithClassTraverse('GlobalLoadoutSlotCategory'), function(child) {
-			child.visible = false;
-		});
-		if (GlobalLoadoutItems.FindChildrenWithClassTraverse('HasItemsForSlot').length === 0 && !GlobalLoadoutItems.FindChildTraverse('GlobalLoadoutItemsArenaMessage')) {
-			var label = $.CreatePanel('Label', GlobalLoadoutItems, 'GlobalLoadoutItemsArenaMessage');
-			label.text = $.Localize('#' + 'hero_selection_loadout_items_first_game');
-			label.style.fontSize = '22px';
-			label.style.align = 'center center';
-			label.style.textAlign = 'center';
-		}
-		//These wearables are useless, hide them
-		try{ GlobalLoadoutItems.FindChildrenWithClassTraverse('ItemSlot_terrain')[0].GetParent().GetParent().visible = false; } catch(e) {}
-		try{ GlobalLoadoutItems.FindChildrenWithClassTraverse('ItemSlot_heroic_statue')[0].GetParent().GetParent().visible = false; } catch(e) {}
-		try{ GlobalLoadoutItems.FindChildrenWithClassTraverse('ItemSlot_loading_screen')[0].GetParent().GetParent().visible = false; } catch(e) {}
-	}
 	ToggleHeroPreviewHeroList(true);
 	$.GetContextPanel().RemoveClass('CanRepick');
 }
@@ -330,12 +301,13 @@ function UpdateMainTable(tableName, changesObject, deletionsObject) {
 	var newState = changesObject.HeroSelectionState;
 	if (changesObject.HeroTabs != null) {
 		if (HeroesPanels.length === 0 && HeroesData) {
-			_.each(changesObject.HeroTabs, function(tabContent, tabKey) {
-				var TabHeroesPanel = $.CreatePanel('Panel', $('#HeroListPanel'), 'HeroListPanel_tabPanels_' + tabKey);
-				TabHeroesPanel.BLoadLayoutSnippet('HeroesPanel');
-				FillHeroesTable(tabContent, TabHeroesPanel);
-				TabHeroesPanel.visible = false;
-			});
+			var index;
+			$.Msg("UMT problems");
+			$.Msg(Object.keys(changesObject.HeroTabs[1]).length);
+			var TabHeroesPanel = $.CreatePanel('Panel', $('#HeroListPanel'), 'HeroListPanel_tabPanels_' + 1);
+			TabHeroesPanel.BLoadLayoutSnippet('HeroesPanel');
+			FillHeroesTable(changesObject.HeroTabs[1], TabHeroesPanel);
+			TabHeroesPanel.visible = false;
 			ListenToBanningPhase();
 			SelectHeroTab(1);
 		}
@@ -372,9 +344,11 @@ function SetCurrentPhase(newState) {
 }
 
 function ShowHeroPreviewTab(tabID) {
-	_.each($('#TabContents').Children(), function(child) {
+	var index;
+	for (index = 1; index <= Object.keys($('#TabContents').Children()).length; ++index) {
+		var child = $('#TabContents').Children()[index];
 		child.SetHasClass('TabVisible', child.id === tabID);
-	});
+	};
 }
 
 (function() {

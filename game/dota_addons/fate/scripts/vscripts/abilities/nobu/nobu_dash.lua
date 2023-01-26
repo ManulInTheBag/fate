@@ -109,7 +109,7 @@ function nobu_dash:Shot(keys, position)
     self.caster = self:GetCaster()
     local vCasterOrigin = self.caster:GetAbsOrigin()
     vCasterOrigin.z = 0
-    local targets = FindUnitsInRadius( self.caster:GetTeam(),  self.caster:GetOrigin(), nil, 500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_CLOSEST, false)
+    local targets = FindUnitsInRadius( self.caster:GetTeam(),  self.caster:GetOrigin(), nil, 800, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_CLOSEST, false)
     self.target = nil
      if( targets[1] ~= nil) then
         self.target  = targets[1]:GetAbsOrigin()
@@ -122,8 +122,8 @@ function nobu_dash:Shot(keys, position)
 	self.Dummy:SetForwardVector((  self.target- position ):Normalized())
 
  	local GunFx = ParticleManager:CreateParticle( "particles/nobu/gun.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.Dummy )
-    ParticleManager:SetParticleControl(GunFx, 1, Vector(40,0,0) ) 
-	ParticleManager:SetParticleControl(GunFx, 3, position ) 
+	 ParticleManager:SetParticleControl(GunFx, 3, position ) 
+     ParticleManager:SetParticleControl(GunFx, 4, self.target- position ) 
     self.Dummy.GunFx = GunFx
     local dummy = self.Dummy
  	Timers:CreateTimer(0.4, function()
@@ -171,6 +171,9 @@ function nobu_dash:OnProjectileHit(target, location )
         damage= damage*1.2
     end
     DoDamage(hCaster, target, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+	if( hCaster:FindModifierByName("modifier_nobu_dash_dmg") ) then
+        DoDamage(hCaster, target, hCaster:FindAbilityByName("nobu_dash"):GetSpecialValueFor("attr_damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
+    end
     target:EmitSound("nobu_shot_impact_"..math.random(1,2))
         local knockback = { should_stun = false,
         knockback_duration = 0.05,

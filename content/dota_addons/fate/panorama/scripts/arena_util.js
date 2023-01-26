@@ -14,9 +14,11 @@ var console = {
 	},
 	error: function() {
 		var args = Array.prototype.slice.call(arguments);
-		_.each(args, function(arg) {
+		var index;
+		for (index = 1; index <= Object.keys(args).length; ++index) {
+			var arg = args[index];
 			console.log(arg instanceof Error ? arg.stack : new Error(arg).stack);
-		});
+		};
 	}
 };
 
@@ -61,7 +63,9 @@ Players.GetStatsData = function(playerId) {
 };
 
 Players.GetHeroSelectionPlayerInfo = function(playerId) {
-	return Players.IsValidPlayerID(playerId) ? PlayerTables.GetTableValue('hero_selection', Players.GetTeam(playerId))[playerId] : {};
+	if (PlayerTables.GetAllTableValues('hero_selection') != null) {
+		return Players.IsValidPlayerID(playerId) ? PlayerTables.GetTableValue('hero_selection', Players.GetTeam(playerId))[playerId] : {};
+	}
 };
 
 function GetDataFromServer(path, params, resolve, reject) {
@@ -214,9 +218,11 @@ function DynamicSubscribePTListener(table, callback, OnConnectedCallback) {
 function DynamicSubscribeNTListener(table, callback, OnConnectedCallback) {
 	var tableData = CustomNetTables.GetAllTableValues(table);
 	if (tableData != null) {
-		_.each(tableData, function(ent) {
+		var index;
+		for (index = 1; index <= Object.keys(tableData).length; ++index) {
+			var ent = tableData[index];
 			callback(table, ent.key, ent.value);
-		});
+		};
 	}
 	var ptid = CustomNetTables.SubscribeNetTableListener(table, callback);
 	if (OnConnectedCallback != null) {
@@ -305,7 +311,9 @@ function FormatGold(value) {
 
 function SortPanelChildren(panel, sortFunc, compareFunc) {
 	var tlc = panel.Children().sort(sortFunc);
-	_.each(tlc, function(child) {
+	var index;
+	for (index = 1; index <= Object.keys(tlc).length; ++index) {
+		var child = tlc[index];
 		for (var k in tlc) {
 			var child2 = tlc[k];
 			if (child !== child2 && compareFunc(child, child2)) {
@@ -313,7 +321,7 @@ function SortPanelChildren(panel, sortFunc, compareFunc) {
 				break;
 			}
 		}
-	});
+	};
 };
 
 function GetTeamInfo(team) {

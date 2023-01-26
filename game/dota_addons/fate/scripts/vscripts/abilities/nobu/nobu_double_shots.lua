@@ -33,7 +33,7 @@ function nobu_double_shots:OnSpellStart()
 	local direction_e = hCaster:GetForwardVector()
    
 	self.targetted = false
-    local aoe = 50
+    local aoe = 70
 
 	if self:GetCursorTarget() then
 		self.targetted = true
@@ -42,9 +42,12 @@ function nobu_double_shots:OnSpellStart()
 	 
 	end
     local counter = 0
-    StartAnimation(hCaster, {duration= duration , activity=ACT_DOTA_CAST_ABILITY_3_END, rate= 3})
+ 
+        StartAnimation(hCaster, {duration= duration , activity=ACT_DOTA_CAST_ABILITY_3_END, rate= 3})
+     
+  
     Timers:CreateTimer("nobu_shoots", {
-	endTime = 0 ,
+	endTime = 0.0,
 	callback = function()
     counter = counter + 1 
     if (not hCaster:IsAlive()) or  hCaster:IsStunned() then return  0.033 end
@@ -77,8 +80,9 @@ function nobu_double_shots:OnSpellStart()
     facing.z = 0
     if counter%20 == 10 then
         hCaster:EmitSound("nobu_shoot_1")
+         
         self:Shoot({
-            Origin = origin + facing * 40 + Vector(0,0,100)+ vRightVect * 20,
+            Origin = origin + facing * 80 + Vector(0,0,100)+ vRightVect * 20,
             Speed = 10000,
             Facing = facing,
             AoE = aoe,
@@ -86,8 +90,9 @@ function nobu_double_shots:OnSpellStart()
         })
     else
         hCaster:EmitSound("nobu_shoot_2")
+         
         self:Shoot({
-            Origin =  origin + facing * 40 + Vector(0,0,100) + vRightVect * -20,
+            Origin =  origin + facing * 80 + Vector(0,0,100) + vRightVect * -20,
             Speed = 10000,
             Facing = facing,
             AoE = aoe,

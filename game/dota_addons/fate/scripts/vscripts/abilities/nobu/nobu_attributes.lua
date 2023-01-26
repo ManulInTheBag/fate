@@ -92,7 +92,13 @@ function nobu_independent_action:OnSpellStart()
 	local hero = caster:GetPlayerOwner():GetAssignedHero()
 
 	hero.NobuActionAcquired = true
- 
+	if hero:GetLevel() < 8 then
+		hero:FindAbilityByName("nobu_guns"):SetLevel(2)
+	elseif hero:GetLevel() >= 8 and hero:GetLevel() < 16 then
+		hero:FindAbilityByName("nobu_guns"):SetLevel(3)
+	elseif hero:GetLevel() >= 16 then
+		hero:FindAbilityByName("nobu_guns"):SetLevel(4)
+	end
 	local master = hero.MasterUnit
 	master:SetMana(master:GetMana() - self:GetManaCost(self:GetLevel()))
 end

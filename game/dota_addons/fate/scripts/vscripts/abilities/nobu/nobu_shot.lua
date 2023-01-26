@@ -167,9 +167,9 @@ function nobu_shot:EShot(keys, position)
     --self.Dummy:SetForwardVector(vCasterOrigin - self.Dummy:GetAbsOrigin())
 
 	local GunFx = ParticleManager:CreateParticle( "particles/nobu/gun.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.Dummy )
-    ParticleManager:SetParticleControl(GunFx, 1, Vector(40,0,0) ) 
+  
 	ParticleManager:SetParticleControl(GunFx, 3, position ) 
- 
+    ParticleManager:SetParticleControl(GunFx, 4,   self.target- vCasterOrigin  ) 
     self.Dummy.GunFx = GunFx
     local dummy = self.Dummy
  

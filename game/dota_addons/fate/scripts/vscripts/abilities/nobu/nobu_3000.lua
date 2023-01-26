@@ -10,18 +10,33 @@ function nobu_3000:OnSpellStart()
 	self.ChannelTime = 0
     self.caster = self:GetCaster()
     self.particle_kappa = ParticleManager:CreateParticle("particles/nobu/3000-charge.vpcf", PATTACH_ABSORIGIN_FOLLOW,  self.caster)
-    self.dummies = {}
+   
     self.rightvec = self.caster:GetRightVector()
-    self.leftvec = -1*self.caster:GetRightVector()
+    self.leftvec = self.caster:GetLeftVector()
     self.target = self:GetCursorPosition()
     self.caster:EmitSound("nobu_ulti_cast")
- 
+    if(self.dummies == nil) then
+        self.dummies = {}
+    end
     if    self.caster :HasModifier("modifier_nobu_turnlock") then
         Timers:RemoveTimer("nobu_shoots")
         self.caster :RemoveModifierByName("modifier_nobu_turnlock")
         self.caster:StopAnimation()
         --StartAnimation(  self.caster, {duration= 1 , activity=ACT_DOTA_CAST_ABILITY_4, rate= 1})
     end
+    if( self.dummies ~= {}) then
+        for i = 1, #self.dummies do
+            if(self.dummies[i] ~= nil) then
+             ParticleManager:DestroyParticle( self.dummies[i].GunFx, true)
+		     ParticleManager:ReleaseParticleIndex(self.dummies[i].GunFx)
+            
+             self.dummies[i]:RemoveSelf()
+             self.dummies[i] = nil
+            end 
+        end
+        self.dummies = {}
+    end
+    
     for i=1,5 do 
         local gun_spawn = self.caster:GetAbsOrigin() + self.caster:GetForwardVector() *RandomInt(-200,200)
         local random1 = RandomInt(0, 300) -- position of gun spawn
@@ -73,6 +88,7 @@ function nobu_3000:OnChannelThink(fInterval)
     end
     self.caster:SetAbsOrigin(self.caster:GetAbsOrigin() + Vector(0,0,2))
     self.caster:FaceTowards(self.target)
+
     return true
 end
  
@@ -105,7 +121,9 @@ function nobu_3000:OnChannelFinish(bInterrupted)
         end)
         
         for i = 1, #self.dummies do
+            if(self.dummies[i] == nil ) then return end
             Timers:CreateTimer(0.0165 * i, function()
+                if(self.dummies[i] == nil ) then return end
                 local facing =  self.dummies[i]:GetForwardVector()
                 facing.z = 0
                 if(self.caster.is3000Acquired) then
@@ -113,7 +131,7 @@ function nobu_3000:OnChannelFinish(bInterrupted)
                 else
                     self.dummies[i]:EmitSound("nobu_shoot_multiple_"..math.random(1,2))
                 end
-           
+               
             self:Shoot({
                 Origin = self.dummies[i]:GetAbsOrigin()+vCasterFW*80,
                 Speed = 10000,
@@ -123,10 +141,10 @@ function nobu_3000:OnChannelFinish(bInterrupted)
             })
             ParticleManager:DestroyParticle( self.dummies[i].GunFx, false)
 		    ParticleManager:ReleaseParticleIndex(self.dummies[i].GunFx)
-           
+            
             self.dummies[i]:RemoveSelf()
-       
-        end)
+            self.dummies[i] = nil
+            end)
     
         end
     end)
@@ -137,13 +155,17 @@ function nobu_3000:OnChannelFinish(bInterrupted)
 end
 function nobu_3000:CreateGun(position)
 	local vCasterOrigin = self.caster:GetAbsOrigin()
-	 
-	self.Dummy = CreateUnitByName("dummy_unit", self.caster:GetAbsOrigin(), false, nil, nil, self.caster:GetTeamNumber())
-	self.Dummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1) 
+	 --print(vCasterOrigin)
+	self.Dummy = CreateUnitByName("dummy_unit", position, false, nil, nil, self.caster:GetTeamNumber())
+	 self.Dummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1) 
 	self.Dummy:SetAbsOrigin(position)
  
     vCasterOrigin.z = 0
-	 self.Dummy:SetForwardVector((  self.target- vCasterOrigin ):Normalized())
+    local fwtarget =  self.target- vCasterOrigin 
+    
+	 self.Dummy:SetForwardVector((fwtarget ):Normalized())
+     --print((  self.target- vCasterOrigin ):Normalized())
+     
     --self.Dummy:SetForwardVector(vCasterOrigin - self.Dummy:GetAbsOrigin())
     local GunFx
     if(self.caster.is3000Acquired) then
@@ -151,9 +173,9 @@ function nobu_3000:CreateGun(position)
     else
         GunFx = ParticleManager:CreateParticle( "particles/nobu/gun.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.Dummy )
     end
-    ParticleManager:SetParticleControl(GunFx, 1, Vector(40,0,0) ) 
-	ParticleManager:SetParticleControl(GunFx, 3, position ) 
- 
+    
+	 ParticleManager:SetParticleControl(GunFx, 3, position ) 
+     ParticleManager:SetParticleControl(GunFx, 4, fwtarget ) 
     self.Dummy.GunFx = GunFx
     table.insert(self.dummies, self.Dummy)
 	Timers:CreateTimer(3.2, function()
@@ -165,6 +187,7 @@ end
 function nobu_3000:Shoot(keys)
     local projectileTable = {}
     if(self.caster.is3000Acquired) then
+        --[[
           projectileTable = {
             EffectName = "particles/nobu/nobu_lasers.vpcf" ,
             Ability = self,
@@ -182,6 +205,60 @@ function nobu_3000:Shoot(keys)
             flExpireTime = GameRules:GetGameTime() + 0.13,
             
         }
+        ]]
+        local targets = FindUnitsInLine(  self.caster:GetTeamNumber(),
+                                             keys.Origin,
+                                             keys.Origin+keys.Speed*0.13*keys.Facing ,
+                                       		 nil,
+                                       		 keys.AoE,
+                                      		 DOTA_UNIT_TARGET_TEAM_ENEMY,
+                                       		 DOTA_UNIT_TARGET_ALL,
+                                     		 DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
+                                    	    )
+         local fx = ParticleManager:CreateParticle("particles/nobu/nobu_lasers_nonproj.vpcf", PATTACH_CUSTOMORIGIN, nil)
+		ParticleManager:SetParticleControl(fx, 1,   keys.Origin+keys.Speed*0.13*keys.Facing)       
+        ParticleManager:SetParticleControl(fx, 9,  keys.Origin)           
+        for k,v in pairs(targets) do            
+          
+            local damage = self.caster:FindAbilityByName("nobu_guns"):GetGunsDamage() * self:GetSpecialValueFor("damage_mod")
+            if IsDivineServant(v) and self.caster.UnifyingAcquired then 
+                damage= damage*1.2
+            end
+                DoDamage(self.caster, v, damage*0.85, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+                DoDamage(self.caster, v, damage*0.15, DAMAGE_TYPE_PURE, 0, self, false)
+           
+            if( self.caster:FindModifierByName("modifier_nobu_dash_dmg") ) then
+                DoDamage(self.caster, v, self.caster:FindAbilityByName("nobu_dash"):GetSpecialValueFor("attr_damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
+            end
+            if(self.caster.ISDOW) then
+                local gun_spawn = self.caster:GetAbsOrigin()
+                local random1 = RandomInt(25, 150) -- position of gun spawn
+                local random2 = RandomInt(0,1) -- whether weapon will spawn on left or right side of hero
+                local random3 = RandomInt(80,200)*Vector(0,0,1) 
+                
+        
+                if random2 == 0 then 
+                    gun_spawn = gun_spawn +  self.caster:GetRightVector() * -1 * random1 + random3
+                else 
+                    gun_spawn = gun_spawn + self.caster:GetRightVector() * random1 + random3
+                end
+                local aoe = 50
+                
+                self.caster:FindAbilityByName("nobu_guns"):DOWShoot({
+                    Speed = 10000,
+                    AoE = aoe,
+                    Range = 1000,
+                },  gun_spawn )
+            end
+            if(self.caster.is3000Acquired) then  
+                return false
+            else
+                return true
+            end
+              
+            
+        end 
+                  
     else
           projectileTable = {
             EffectName = "particles/nobu/nobu_bullet.vpcf" ,

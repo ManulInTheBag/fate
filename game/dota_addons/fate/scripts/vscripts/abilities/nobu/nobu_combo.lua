@@ -115,13 +115,12 @@ end
 
 function nobu_combo:CreateGun(position)
    
-	local vCasterOrigin = self.caster:GetAbsOrigin()
-	 
+ 
 	self.Dummy = CreateUnitByName("dummy_unit", self.caster:GetAbsOrigin(), false, nil, nil, self.caster:GetTeamNumber())
 	self.Dummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1) 
 	self.Dummy:SetAbsOrigin(position)
  
-    vCasterOrigin.z = 0
+ 
 	 self.Dummy:SetForwardVector((  self.target- position ):Normalized())
     --self.Dummy:SetForwardVector(vCasterOrigin - self.Dummy:GetAbsOrigin())
     local GunFx
@@ -130,9 +129,9 @@ function nobu_combo:CreateGun(position)
     else
         GunFx = ParticleManager:CreateParticle( "particles/nobu/gun.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.Dummy )
     end
-    ParticleManager:SetParticleControl(GunFx, 1, Vector(40,0,0) ) 
-	ParticleManager:SetParticleControl(GunFx, 3, position ) 
  
+	ParticleManager:SetParticleControl(GunFx, 3, position ) 
+    ParticleManager:SetParticleControl(GunFx, 4,   self.target- position  ) 
     self.Dummy.GunFx = GunFx
     table.insert(self.dummies, self.Dummy)
 	Timers:CreateTimer(3.2, function()
@@ -243,6 +242,7 @@ function modifier_nobu_combo_self:CheckState()
                         
                         [MODIFIER_STATE_COMMAND_RESTRICTED] = true,
                         [MODIFIER_STATE_DISARMED] = true,
+                        [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
                     }
     return state
 end

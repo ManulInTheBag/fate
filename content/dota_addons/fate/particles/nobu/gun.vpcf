@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf45:version{73c3d623-a141-4df2-b548-41dd786e6300} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf51:version{6d03d500-2498-454e-b833-f654e870bb3d} -->
 {
 	_class = "CParticleSystemDefinition"
 	m_nBehaviorVersion = 12
@@ -15,7 +15,7 @@
 	[
 		{
 			_class = "C_OP_SetControlPointOrientation"
-			m_nCP = 3
+			m_nCP = 4
 			m_vecRotation = [ 0.0, 0.0, 90.0 ]
 			m_vecRotationB = [ 0.0, 0.0, 90.0 ]
 		},
@@ -85,9 +85,13 @@
 	m_Initializers = 
 	[
 		{
-			_class = "C_INIT_CreateWithinSphere"
-			m_nControlPointNumber = 3
+			_class = "C_INIT_CreateWithinSphereTransform"
 			m_bLocalCoords = true
+			m_TransformInput = 
+			{
+				m_nType = "PT_TYPE_CONTROL_POINT"
+				m_nControlPoint = 3
+			}
 		},
 		{
 			_class = "C_INIT_InitFloat"
@@ -153,18 +157,27 @@
 		},
 		{
 			_class = "C_OP_PositionLock"
-			m_nControlPointNumber = 3
 			m_bDisableOperator = true
+			m_TransformInput = 
+			{
+				m_nType = "PT_TYPE_CONTROL_POINT"
+				m_nControlPoint = 3
+			}
 		},
 		{
 			_class = "C_OP_NormalLock"
 			m_nControlPointNumber = 3
+			m_bDisableOperator = true
 		},
 		{
-			_class = "C_OP_RemapCPOrientationToYaw"
-			m_nCP = 3
+			_class = "C_OP_RemapTransformOrientationToYaw"
 			m_nFieldOutput = 4
 			m_flRotOffset = 180.0
+			m_TransformInput = 
+			{
+				m_nType = "PT_TYPE_CONTROL_POINT"
+				m_nControlPoint = 4
+			}
 		},
 		{
 			_class = "C_OP_EndCapTimedDecay"

@@ -7,15 +7,18 @@
 	{
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/nobu/nobu_guns"
-		"MaxLevel"						"1"
+		"MaxLevel"						"4"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"25"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING"
 		"AbilityTextureName"			"custom/nobu/nobu_guns"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastPoint"				"0"
-		"AbilityCastRange"				"0"
- 		"AbilityCooldown"				"0"
-		"AbilityManaCost"				"0"
+		"AbilityCastRange"				"700"
+ 		"AbilityCooldown"				"30 30 25 20"
+		"AbilityManaCost"				"200"
 		"AbilitySpecial"
 		{
 			 
@@ -35,7 +38,11 @@
 				"var_type"				"FIELD_FLOAT"
 				"dmg_per_int"				"2"
 			}  
-			
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"amount"				"0 3 5 7"
+			}  
 		}
 	}
 	//=================================================================================================================
@@ -760,7 +767,7 @@
 		"AbilityTextureName"			"custom/nobu/nobu_independent_action"
 		"AbilityCooldown"				"9999"
 
-		"AbilityManaCost"				"12"
+		"AbilityManaCost"				"18"
 
 		 
 		"AbilitySpecial"
@@ -770,7 +777,11 @@
 				"var_type"			"FIELD_FLOAT"
 				"microstun_duration"				"0.1"
 			}
-			 
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"guns_amount"				"3 5 7"
+			}
 		}		
 	}
  

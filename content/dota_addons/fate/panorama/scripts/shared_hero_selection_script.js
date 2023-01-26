@@ -89,47 +89,54 @@ function SearchHero() {
 }
 
 function FillHeroesTable(heroList, panel, big) {
-	_.each(heroList, function(heroName) {
+	for (index = 1; index <= Object.keys(heroList).length; ++index) {
+		var heroName = heroList[index];
 		var heroData = HeroesData[heroName];
-		var StatPanel = panel.FindChildTraverse('HeroesByAttributes_' + heroData.attributes.attribute_primary);
 
-		var HeroCard = $.CreatePanel('Panel', StatPanel, 'HeroListPanel_element_' + heroName);
-		HeroCard.BLoadLayoutSnippet('HeroCard');
-		HeroCard.FindChildTraverse('HeroImage').SetImage(TransformTextureToPath(heroName, 'portrait'));
-		if (heroData.isChanged) {
-			HeroCard.FindChildTraverse('HeroChangedBurstRoot').BCreateChildren('<DOTAScenePanel map="scenes/hud/levelupburst" hittest="false" />');
-			HeroCard.AddClass('IsChanged');
-		}
-		if (heroData.linkedColorGroup) {
-			HeroCard.AddClass('HasLinkedColorGroup');
-			HeroCard.FindChildTraverse('LinkedHeroesGroupRow').style.backgroundColor = heroData.linkedColorGroup;
-		}
-		var SelectHeroAction = (function() {
-			if (SelectedHeroPanel !== HeroCard) {
-				SelectedHeroName = heroName;
-				if (SelectedHeroPanel != null) {
-					SelectedHeroPanel.RemoveClass('HeroPanelSelected');
-				}
-				HeroCard.AddClass('HeroPanelSelected');
-				SelectedHeroPanel = HeroCard;
-				ChooseHeroPanelHero();
+		FHTSub(heroName, heroData, panel, big);
+	};
+}
+
+function FHTSub(heroName, heroData, panel, big){
+	$.Msg(heroName);
+	var StatPanel = panel.FindChildTraverse('HeroesByAttributes_' + heroData.attributes.attribute_primary);
+
+	var HeroCard = $.CreatePanel('Panel', StatPanel, 'HeroListPanel_element_' + heroName);
+	HeroCard.BLoadLayoutSnippet('HeroCard');
+	HeroCard.FindChildTraverse('HeroImage').SetImage(TransformTextureToPath(heroName, 'portrait'));
+	if (heroData.isChanged) {
+		HeroCard.FindChildTraverse('HeroChangedBurstRoot').BCreateChildren('<DOTAScenePanel map="scenes/hud/levelupburst" hittest="false" />');
+		HeroCard.AddClass('IsChanged');
+	}
+	if (heroData.linkedColorGroup) {
+		HeroCard.AddClass('HasLinkedColorGroup');
+		HeroCard.FindChildTraverse('LinkedHeroesGroupRow').style.backgroundColor = heroData.linkedColorGroup;
+	}
+	var SelectHeroAction = (function() {
+		if (SelectedHeroPanel !== HeroCard) {
+			SelectedHeroName = heroName;
+			if (SelectedHeroPanel != null) {
+				SelectedHeroPanel.RemoveClass('HeroPanelSelected');
 			}
-		});
-		var HitTarget = HeroCard.FindChildTraverse('HitTarget');
-		HitTarget.SetPanelEvent('onactivate', SelectHeroAction);
-		HitTarget.SetPanelEvent('oninputsubmit', SelectHeroAction);
-		HitTarget.SetPanelEvent('onmouseover', function() {
-			//if (IsDotaHeroName(heroName)) HeroCard.FindChildTraverse('HeroMovie').heroname = heroName;
-			HeroCard.AddClass('Expanded');
-		});
-		HitTarget.SetPanelEvent('onmouseout', function() {
-			//if (IsDotaHeroName(heroName)) HeroCard.FindChildTraverse('HeroMovie').heroname = null;
-			HeroCard.RemoveClass('Expanded');
-		});
-		HeroCard.FindChildTraverse('HeroName').text = $.Localize('#' + heroName);
-		HeroCard.SelectHeroAction = SelectHeroAction;
-		HeroesPanels.push(HeroCard);
+			HeroCard.AddClass('HeroPanelSelected');
+			SelectedHeroPanel = HeroCard;
+			ChooseHeroPanelHero();
+		}
 	});
+	var HitTarget = HeroCard.FindChildTraverse('HitTarget');
+	HitTarget.SetPanelEvent('onactivate', SelectHeroAction);
+	HitTarget.SetPanelEvent('oninputsubmit', SelectHeroAction);
+	HitTarget.SetPanelEvent('onmouseover', function() {
+		//if (IsDotaHeroName(heroName)) HeroCard.FindChildTraverse('HeroMovie').heroname = heroName;
+		HeroCard.AddClass('Expanded');
+	});
+	HitTarget.SetPanelEvent('onmouseout', function() {
+		//if (IsDotaHeroName(heroName)) HeroCard.FindChildTraverse('HeroMovie').heroname = null;
+		HeroCard.RemoveClass('Expanded');
+	});
+	HeroCard.FindChildTraverse('HeroName').text = $.Localize('#' + heroName);
+	HeroCard.SelectHeroAction = SelectHeroAction;
+	HeroesPanels.push(HeroCard);
 }
 
 function SelectFirstHeroPanel() {
@@ -157,9 +164,11 @@ function ChooseHeroUpdatePanels() {
 	context.SetHasClass('HoveredHeroHasLinked', selectedHeroData.linked_heroes != null);
 	if (selectedHeroData.linked_heroes != null) {
 		var linked = [];
-		_.each(selectedHeroData.linked_heroes, function(hero) {
+		var index;
+		for (index = 1; index <= Object.keys(selectedHeroData.linked_heroes).length; ++index) {
+			var hero = selectedHeroData.linked_heroes[index];
 			linked.push($.Localize('#' + hero));
-		});
+		};
 		$('#SelectedHeroLinkedHero').text = linked.join(', ');
 	}
 	$('#SelectedHeroAbilitiesPanelInner').RemoveAndDeleteChildren();
@@ -174,16 +183,22 @@ function ChooseHeroUpdatePanels() {
 }
 
 function FillAbilitiesUI(rootPanel, abilities, className) {
-	_.each(abilities, function(abilityName) {
-		var abilityPanel = $.CreatePanel('DOTAAbilityImage', rootPanel, '');
-		abilityPanel.AddClass(className);
-		abilityPanel.abilityname = abilityName;
-		abilityPanel.SetPanelEvent('onmouseover', function() {
-			$.DispatchEvent('DOTAShowAbilityTooltip', abilityPanel, abilityName);
-		});
-		abilityPanel.SetPanelEvent('onmouseout', function() {
-			$.DispatchEvent('DOTAHideAbilityTooltip', abilityPanel);
-		});
+	var index;
+	for (index = 1; index <= Object.keys(abilities).length; ++index) {
+		FAUISub(rootPanel, abilities, className, index);
+	};
+}
+
+function FAUISub(rootPanel, abilities, className, index){
+	var abilityName = abilities[index]
+	var abilityPanel = $.CreatePanel('DOTAAbilityImage', rootPanel, '');
+	abilityPanel.AddClass(className);
+	abilityPanel.abilityname = abilityName;
+	abilityPanel.SetPanelEvent('onmouseover', function() {
+		$.DispatchEvent('DOTAShowAbilityTooltip', abilityPanel, abilityName);
+	});
+	abilityPanel.SetPanelEvent('onmouseout', function() {
+		$.DispatchEvent('DOTAHideAbilityTooltip', abilityPanel);
 	});
 }
 
