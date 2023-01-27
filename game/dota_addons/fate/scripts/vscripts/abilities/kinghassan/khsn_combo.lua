@@ -1,5 +1,6 @@
 LinkLuaModifier("modifier_death_door_pepeg", "abilities/kinghassan/khsn_azrael", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_khsn_combo", "abilities/kinghassan/khsn_combo", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_khsn_combo_damage", "abilities/kinghassan/khsn_combo", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_azrael_stun", "abilities/kinghassan/khsn_azrael", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_azrael_particle", "abilities/kinghassan/khsn_azrael", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_azrael_combo_cd", "abilities/kinghassan/khsn_combo", LUA_MODIFIER_MOTION_NONE)
@@ -31,6 +32,7 @@ function khsn_combo:StartCombo(hui)
     caster:AddNewModifier(caster, self, "modifier_azrael_particle", {duration = 6.26 + 2.210})
     --caster:AddNewModifier(caster, self, "modifier_azrael_move", {duration = 1.63+3.25})
     EmitGlobalSound("azrael_start")
+    target:AddNewModifier(caster, self, "modifier_khsn_combo_damage", {duration = 7.63})
     LoopOverPlayers(function(player, playerID, playerHero)
         --print("looping through " .. playerHero:GetName())
         if playerHero.zlodemon == true   then
@@ -39,7 +41,9 @@ function khsn_combo:StartCombo(hui)
             --caster:EmitSound("Hero_LegionCommander.PressTheAttack")
         end
     end)
-   Timers:CreateTimer(1.63, function()
+
+
+    Timers:CreateTimer(1.63, function()
         if target and not target:IsNull() and target:IsAlive() then
             EmitGlobalSound("azrael_middle")
             LoopOverPlayers(function(player, playerID, playerHero)
@@ -128,7 +132,7 @@ function khsn_combo:StartCombo(hui)
                             modifier_damage = modifier_death2.recieved_damage*multiplier
                         end
                     end
-                    DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, flag, self, false)
+                    --DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, flag, self, false)
                     DoDamage(caster, target, modifier_damage, caster.AzraelAcquired and DAMAGE_TYPE_PURE or DAMAGE_TYPE_MAGICAL, flag, self, false)
                     caster:RemoveModifierByName("jump_pause")
                     --caster:SetAbsOrigin(position)
@@ -177,6 +181,28 @@ function khsn_combo:StartCombo(hui)
             caster:RemoveModifierByName("modifier_azrael_particle")
         end
     end)
+end
+
+modifier_khsn_combo_damage = class({})
+
+function modifier_khsn_combo_damage:IsDebuff() return true end
+function modifier_khsn_combo_damage:RemoveOnDeath() return true end
+
+function modifier_khsn_combo_damage:OnCreated()
+    self.ability = self:GetAbility()
+    self.caster = self:GetCaster()
+    self.parent = self:GetParent()
+
+    self.dps = (self:GetAbility():GetSpecialValueFor("damage") + (self.caster.AzraelAcquired and 500 or 0))/(7.63*4)
+    self:StartIntervalThink(0.25)
+
+    DoDamage(self.caster, self.parent, self.dps, DAMAGE_TYPE_MAGICAL, DOTA_DAMAGE_FLAG_NONE, self.ability, false)
+end
+
+function modifier_khsn_combo_damage:OnIntervalThink()
+    if IsServer() then
+        DoDamage(self.caster, self.parent, self.dps, DAMAGE_TYPE_MAGICAL, DOTA_DAMAGE_FLAG_NONE, self.ability, false)
+    end
 end
 
 modifier_khsn_combo = class({})

@@ -610,6 +610,12 @@ function leonidas_kick:OnSpellStart()
     local nLocked  = 1
     local nStunned = bCasterBerserked and 0 or 0
 
+    local stun_duration = self:GetSpecialValueFor("stun_duration")
+    if(bCasterBerserked) then
+        stun_duration = stun_duration*2
+        nSlowDuration = nSlowDuration * 1.5
+    end
+
     local hKickModifier = hTarget:AddNewModifier(hCaster, self, "modifier_leonidas_enomotia_slow", {duration = nDuration * ( nScaleFactor * 2 ), nSlow = 0, nLocked = 0, nDisarmed = nLocked, nVision = 1})
     if IsNotNull(hKickModifier)
         and not hKickModifier.nImpactPFX then
@@ -652,7 +658,7 @@ function leonidas_kick:OnSpellStart()
         })
         --=================================--
         hTarget:OnPreBounce(function(hUnit, vNormal)
-            if not bCasterBerserked then
+            --if not bCasterBerserked then
                 Timers:RemoveTimer(sTimerNameUnique)
 
                 if IsNotNull(hKickModifier) then
@@ -666,10 +672,10 @@ function leonidas_kick:OnSpellStart()
                 hUnit:OnPhysicsFrame(nil)
                 hUnit:SetGroundBehavior(PHYSICS_GROUND_NOTHING)
                 FindClearSpaceForUnit(hUnit, hUnit:GetAbsOrigin(), true)
-            end
+            --end
 
             hUnit:AddNewModifier(hCaster, self, "modifier_leonidas_enomotia_slow", {duration = nSlowDuration, nSlow = nSlowPct, nStunned = nStunned, nLocked = nLocked})
-
+            giveUnitDataDrivenModifier(hCaster,hTarget , "stunned", stun_duration)
             local nImpactPFX =  ParticleManager:CreateParticle("particles/heroes/anime_hero_leonidas/leonidas_sparta_kick_impact.vpcf", PATTACH_CENTER_FOLLOW, hUnit)
                                 ParticleManager:ReleaseParticleIndex(nImpactPFX)
 
@@ -902,9 +908,9 @@ end
 function leonidas_pride:GetAOERadius()
     local hCaster = self:GetCaster()
     local nScale  = 1
-    if type(hCaster.GetIntellect) == "function" then
-        nScale = nScale + ( GetAttributeValue(hCaster, "leonidas_math_attribute", "pride_radius_pct_scale_per_int", -1, 0, false) * hCaster:GetIntellect() * 0.01 )
-    end
+   -- if type(hCaster.GetIntellect) == "function" then  -- YOu DONT WANNA DO THIS WITHOUT COMBO SHIELDS
+     --   nScale = nScale + ( GetAttributeValue(hCaster, "leonidas_math_attribute", "pride_radius_pct_scale_per_int", -1, 0, false) * hCaster:GetIntellect() * 0.01 )
+   -- end
     return self:GetSpecialValueFor("radius") * nScale
 end
 function leonidas_pride:OnAbilityPhaseStart()
@@ -916,20 +922,14 @@ end
 function leonidas_pride:OnSpellStart()
     local hCaster = self:GetCaster()
     local hTarget = self:GetCursorTarget()
-    local vPoint  = self:GetCursorPosition() + hCaster:GetForwardVector()
+    --local vPoint  = self:GetCursorPosition() + hCaster:GetForwardVector()
+    local nCounterDuration =  self:GetSpecialValueFor("counter_duration")
+    EmitGlobalSound("Leonidas.Pride.Cast.2")
+    hCaster:AddNewModifier(hCaster, self, "modifier_leonidas_pride_counter", {duration = nCounterDuration, nCounterResist = self:GetSpecialValueFor("counter_resist")})
     --=================================--
-    local nCounterDuration = GetAttributeValue(hCaster, "leonidas_pride_attribute", "counter_duration", -1, 0, false)
+    --local nCounterDuration = GetAttributeValue(hCaster, "leonidas_pride_attribute", "counter_duration", -1, 0, false)
     --if IsNotNull(hPrideAttribute) then
-    if nCounterDuration > 0 then
-        EmitGlobalSound("Leonidas.Pride.Cast.2")
-
-        hCaster:AddNewModifier(hCaster, self, "modifier_leonidas_pride_counter", {duration = nCounterDuration, nCounterResist = GetAttributeValue(hCaster, "leonidas_pride_attribute", "counter_resist", -1, 0, false)})
-    else
-        --=================================--
-        self:ReleaseSpear(vPoint, hTarget, 0, true)
-        --=================================--
-    end
-    --=================================--
+     --=================================--
     --ScreenShake(hCaster:GetAbsOrigin(), 7, 3, 2, 300 * 5, 0, true)
     --=================================--
     CheckComboIsReadyIncrement(hCaster, 0)
@@ -938,7 +938,7 @@ function leonidas_pride:ReleaseSpear(vPoint, hTarget, nBonusDamage, bCanDodge)
     local hCaster = self:GetCaster()
 
     --=================================--
-    local nCastRange = self:GetEffectiveCastRange(vPoint, hTarget)
+    local nCastRange = self:GetSpecialValueFor("cast_range")
     if GetDistance(vPoint, hCaster) > nCastRange then
         vPoint = hCaster:GetAbsOrigin() + GetDirection(vPoint, hCaster) * nCastRange
     end
@@ -950,7 +950,7 @@ function leonidas_pride:ReleaseSpear(vPoint, hTarget, nBonusDamage, bCanDodge)
     local vDirection = GetDirection(vPoint, hCaster)
     local nDistance  = GetDistance(vPoint, hCaster)
 
-    local nRadius       = self:GetAOERadius()
+    local nRadius       = self:GetSpecialValueFor("spear_radius")+ GetAttributeValue(hCaster, "leonidas_pride_attribute", "bonus_damage", -1, 0, false)
     local nVisionRadius = self:GetSpecialValueFor("vision_radius")
     
     local nSpeed        = self:GetSpecialValueFor("speed")
@@ -1071,8 +1071,18 @@ function leonidas_pride:ReleaseSpear(vPoint, hTarget, nBonusDamage, bCanDodge)
                                                                 --fDestroyTime     = ( GetDistance(GetGroundPosition(vPoint, nil), vCasterBase, true) / fSpeed ) - ( fDistance / fSpeed )
                                                             }
                                     }
-
-        local nSpearProjectile = ProjectileManager:CreateLinearProjectile(tSpearProjectile)
+  local vTowardTo = vPoint
+  if IsNotNull(hTarget) then
+       vTowardTo = hTarget:GetAbsOrigin()
+  end
+  hCaster:FaceTowards(vTowardTo)
+  hCaster:SetForwardVector(GetDirection(vTowardTo, hCaster))
+  StartAnimation(hCaster, {duration = 0.3, activity = ACT_DOTA_CAST_ABILITY_3_END, rate = 1.0})
+                                    Timers:CreateTimer(0.3, function()
+                                        local nSpearProjectile = ProjectileManager:CreateLinearProjectile(tSpearProjectile)
+                                    
+                                    end)
+        
     end
     -- local nGroundedSpearPFX = ParticleManager:CreateParticle("particles/heroes/anime_hero_leonidas/leonidas_pride_spear_grounded.vpcf", PATTACH_WORLDORIGIN, nil)
     --                           ParticleManager:SetParticleShouldCheckFoW( nGroundedSpearPFX, false )
@@ -1097,19 +1107,19 @@ function leonidas_pride:OnProjectileHit_ExtraData(hTarget, vLocation, tExtraData
         --         hCaster:SetCursorPosition(vOldPos)
         --     end
         -- end
-        local nLerpedCalc   = GetDistance(hCaster, vLocation) / self:GetEffectiveCastRange(vLocation, hTarget)
-        local nLerpedDamage = GetLerped(tExtraData.nDamage, 300, nLerpedCalc)
+        --local nLerpedCalc   = GetDistance(hCaster, vLocation) / self:GetEffectiveCastRange(vLocation, hTarget)
+        --local nLerpedDamage = GetLerped(tExtraData.nDamage, 300, nLerpedCalc)
         --print(nLerpedDamage)
-        local nDamage, nCriticalDamage = GetPrideAndBerserkedScaledDamage(hCaster, nLerpedDamage)
+        local nDamage, nCriticalDamage = GetPrideAndBerserkedScaledDamage(hCaster, tExtraData.nDamage)
 
         local hEntities = FindUnitsInRadius(
                                                 hCaster:GetTeamNumber(),
                                                 vLocation,
                                                 nil,
                                                 tExtraData.nRadius,
-                                                self:GetAbilityTargetTeam(),
-                                                self:GetAbilityTargetType(),
-                                                self:GetAbilityTargetFlags(),
+                                                DOTA_UNIT_TARGET_TEAM_ENEMY,
+                                                DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+                                                DOTA_UNIT_TARGET_FLAG_NONE,
                                                 FIND_ANY_ORDER,
                                                 false
                                             )
@@ -1148,8 +1158,16 @@ modifier_leonidas_pride_counter = modifier_leonidas_pride_counter or class({})
 function modifier_leonidas_pride_counter:IsHidden()                                                                       return false end
 function modifier_leonidas_pride_counter:IsDebuff()                                                                       return false end
 function modifier_leonidas_pride_counter:IsPurgable()                                                                     return false end
-function modifier_leonidas_pride_counter:IsPurgeException()                                                               return false end
+function modifier_leonidas_pride_counter:IsPurgeException()                                                               return true end
 function modifier_leonidas_pride_counter:RemoveOnDeath()                                                                  return true end
+function modifier_leonidas_pride_counter:IsAura()                                        return true end
+function modifier_leonidas_pride_counter:IsPermanent()                                        return false end
+function modifier_leonidas_pride_counter:IsAuraActiveOnDeath()                           return false end
+function modifier_leonidas_pride_counter:GetAuraEntityReject(hEntity)
+    if IsServer() then
+        return hEntity == self.hCaster--PlayerResource:GetSelectedHeroEntity(self.hParent:GetMainControllingPlayer())
+    end
+end
 function modifier_leonidas_pride_counter:GetPriority()                                                                    return MODIFIER_PRIORITY_HIGH end
 function modifier_leonidas_pride_counter:CheckState()
     local tState =  {
@@ -1163,11 +1181,32 @@ function modifier_leonidas_pride_counter:DeclareFunctions()
                     }
     return tFunc
 end
+function modifier_leonidas_pride_counter:GetAuraRadius()
+    return self.nRadius
+end
+function modifier_leonidas_pride_counter:GetAuraSearchTeam()
+    return self.nABILITY_TARGET_TEAM
+end
+function modifier_leonidas_pride_counter:GetAuraSearchType()
+    return self.nABILITY_TARGET_TYPE
+end
+function modifier_leonidas_pride_counter:GetAuraSearchFlags()
+    return self.nABILITY_TARGET_FLAGS
+end
+function modifier_leonidas_pride_counter:GetModifierAura()
+    return "modifier_leonidas_enomotia_combo_translator"
+end
 function modifier_leonidas_pride_counter:GetModifierIncomingDamage_Percentage(keys)
     if IsServer() then
         --print(keys.damage, keys.original_damage)
+        local bCasterBerserked = self.hCaster:HasModifier("modifier_leonidas_berserk")
         self.nBonusDamage = math.ceil(self.nBonusDamage + ( keys.original_damage * self.nCounterResist * 0.01 ))
-        self.nBonusDamage = GetClamped(self.nBonusDamage, 0, self.hParent:GetMaxHealth())
+        if(bCasterBerserked) then
+            self.nBonusDamage = GetClamped(self.nBonusDamage, 0, self.hParent:GetMaxHealth()*1.5)
+        else
+            self.nBonusDamage = GetClamped(self.nBonusDamage, 0, self.hParent:GetMaxHealth()*0.75)
+        end
+        
         self:SetStackCount(self.nBonusDamage)
         return -self.nCounterResist
     end
@@ -1176,7 +1215,9 @@ function modifier_leonidas_pride_counter:OnCreated(tTable)
     self.hCaster  = self:GetCaster()
     self.hParent  = self:GetParent()
     self.hAbility = self:GetAbility()
+    self.nRadius = self.hAbility:GetAOERadius()
 
+   
     if IsServer() then
         self.nCounterResist = tTable.nCounterResist or 0
 
@@ -1185,13 +1226,30 @@ function modifier_leonidas_pride_counter:OnCreated(tTable)
 
         self.nBonusDamage = self.nBonusDamage or 0
 
+
         self.hParent:SwapAbilities("leonidas_pride", "leonidas_pride_release", false, true)
 
         local nReleaseStart = self:GetDuration()
 
         EndAnimation(self.hParent)
-        StartAnimation(self.hParent, {duration = nReleaseStart, activity = ACT_DOTA_CHANNEL_ABILITY_7, rate = 1.0})
+        --StartAnimation(self.hParent, {duration = nReleaseStart, activity = ACT_DOTA_CHANNEL_ABILITY_7, rate = 1.0})
+        self.nCASTER_TEAM          = self.hCaster:GetTeamNumber()
+        self.nABILITY_TARGET_TEAM  = bit.bxor(self.hAbility:GetAbilityTargetTeam(), DOTA_UNIT_TARGET_TEAM_ENEMY)
+        self.nABILITY_TARGET_TYPE  = self.hAbility:GetAbilityTargetType()
+        self.nABILITY_TARGET_FLAGS = self.hAbility:GetAbilityTargetFlags()
 
+        if not self.nSphere_PFX then
+            self.nSphere_PFX = ParticleManager:CreateParticle("particles/heroes/anime_hero_leonidas/leonidas_thermopylae_enomotia_sphere.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.hParent)
+                               ParticleManager:SetParticleShouldCheckFoW(self.nSphere_PFX, false)
+                               --ParticleManager:SetParticleControl(self.nSphere_PFX, 0, vCasterGnd)
+                               ParticleManager:SetParticleControl(self.nSphere_PFX, 1, Vector(self.nRadius, self.nRadius, self.nRadius))
+
+            self:AddParticle(self.nSphere_PFX, false, false, -1, false, false)
+        end
+
+        self._nShieldsPFX = tTable._nShieldsPFX --NOTE: Idk using -1 will be fine or not so just not using
+
+        self.vRememberLocFixNeronaAndEtc = self.hParent:GetAbsOrigin()
         --self.nThinkInterval = 0.01
         --self:StartIntervalThink(self.nThinkInterval)
     end
@@ -1210,32 +1268,40 @@ function modifier_leonidas_pride_counter:OnDestroy()
         and IsNotNull(self.hParent) then
         --self:OnIntervalThink()
         self.hParent:SwapAbilities("leonidas_pride", "leonidas_pride_release", true, false)
-
+        self:StopShields_PFX(self._nShieldsPFX, true)
         if not self.hParent:HasModifier("modifier_leonidas_enomotia_ignore_motion_controll") then
             local hAbility     = self.hAbility
             local vPoint       = self.vPoint
             local hTarget      = self.hTarget
             local nBonusDamage = self.nBonusDamage
 
-            giveUnitDataDrivenModifier(self.hParent, self.hParent, "pause_sealenabled", 0.3)
+            --giveUnitDataDrivenModifier(self.hParent, self.hParent, "pause_sealenabled", 0.3)
 
-            EndAnimation(self.hParent)
-            StartAnimation(self.hParent, {duration = 0.3, activity = ACT_DOTA_CAST_ABILITY_3_END, rate = 1.0})
+            --EndAnimation(self.hParent)
+            
 
             local vTowardTo = self.vPoint
             if IsNotNull(self.hTarget) then
                 vTowardTo = self.hTarget:GetAbsOrigin()
             end
 
-            self.hParent:FaceTowards(vTowardTo)
-            self.hParent:SetForwardVector(GetDirection(vTowardTo, self.hParent))
-
-            Timers:CreateTimer(0.3, function() --MB WILL ADD ALIVE CHECK LATER THERE
-                hAbility:ReleaseSpear(vPoint, hTarget, nBonusDamage, true)
-            end)
+           -- self.hParent:FaceTowards(vTowardTo)
+           -- self.hParent:SetForwardVector(GetDirection(vTowardTo, self.hParent))
+            --StartAnimation(self.hParent, {duration = 0.3, activity = ACT_DOTA_CAST_ABILITY_3_END, rate = 1.0})
+            --Timers:CreateTimer(0.3, function() --MB WILL ADD ALIVE CHECK LATER THERE
+            --    hAbility:ReleaseSpear(vPoint, hTarget, nBonusDamage, true)
+            --end)
         end
     end
 end
+function modifier_leonidas_pride_counter:StopShields_PFX(nParticleIndex, bNow)
+    if type(nParticleIndex) == "number" then
+        ParticleManager:DestroyParticle(nParticleIndex, bNow)
+        ParticleManager:ReleaseParticleIndex(nParticleIndex)
+    end
+end
+---------------------------------------------------------------------------------------------------------------------
+ 
 ---------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------
 leonidas_pride_release = leonidas_pride_release or class({})
@@ -1252,7 +1318,10 @@ function leonidas_pride_release:OnSpellStart()
     local hCaster = self:GetCaster()
     local hTarget = self:GetCursorTarget()
     local vPoint  = self:GetCursorPosition() + hCaster:GetForwardVector()
-
+    local nBonusDamage = hCaster:GetModifierStackCount("modifier_leonidas_pride_counter", hCaster)
+    -- local pride_attribute = GetAttributeValue(hCaster, "leonidas_pride_attribute", "", -1, 0, true)
+    local hAbility = hCaster:FindAbilityByName("leonidas_pride")
+    hAbility:ReleaseSpear(vPoint, hTarget, nBonusDamage, true)
     hCaster:RemoveModifierByNameAndCaster("modifier_leonidas_pride_counter", hCaster)
 end
 
@@ -1998,7 +2067,7 @@ function leonidas_enomotia:ReleaseEnomotia(hCaster, nPFX_AnimReleaseTime, nPushR
 
     local nDisarmed = 1
     local nLocked   = 1
-    local nStunned  = bCasterBerserked and 0 or 0
+    local nStunned  = bCasterBerserked and 1 or 0
 
     EndAnimation(hCaster)
     StartAnimation(hCaster, {duration = nPFX_AnimReleaseTime, activity = ACT_DOTA_CHANNEL_END_ABILITY_6, rate = 2.0})
@@ -2465,6 +2534,7 @@ function leonidas_enomotia_combo:OnSpellStart()
     --=================================--
     --EmitSoundOn("Leonidas.Enomotia.Cast.Shields", hCaster)
     EmitGlobalSound("Leonidas.Enomotia.Cast.Shields")
+    hCaster:RemoveModifierByNameAndCaster("modifier_leonidas_pride_counter", hCaster)
     --=================================--
     if not bCasterBerserked then
         EmitGlobalSound("Leonidas.Enomotia.Combo.Cast.2")
@@ -2656,7 +2726,7 @@ function leonidas_enomotia_combo:ReleaseEnomotia(hCaster, nPFX_AnimReleaseTime, 
 
     local nDisarmed = 1
     local nLocked   = 1
-    local nStunned  = bCasterBerserked and 0 or 0
+    local nStunned  = bCasterBerserked and 1 or 0
 
     EndAnimation(hCaster)
     StartAnimation(hCaster, {duration = nPFX_AnimReleaseTime, activity = ACT_DOTA_CHANNEL_END_ABILITY_6, rate = 2.0})
@@ -2681,7 +2751,7 @@ function leonidas_enomotia_combo:ReleaseEnomotia(hCaster, nPFX_AnimReleaseTime, 
                             ParticleManager:ReleaseParticleIndex(nExplode_PFX)
         
     local tKnockBackTable = {
-                                should_stun         = 0,
+                                should_stun         = 1,
                                 knockback_duration  = 1,
                                 duration            = 1,
                                 knockback_distance  = 1,

@@ -99,12 +99,17 @@ function khsn_azrael:OnSpellStart()
 																							damage = damage})]]
 						target:Execute(self, caster, { bExecution = true })
 					end
-					--[[if not target:IsAlive() and caster.AzraelAcquired then
+					if not target:IsAlive() and caster.AzraelAcquired then
 						self:EndCooldown()
-					end]]
+						caster:GiveMana(800)
+					end
 				else
 					caster:RemoveModifierByName("jump_pause_nosilence")
 					caster:RemoveModifierByName("modifier_azrael_particle")
+					if caster.AzraelAcquired then
+						self:EndCooldown()
+						caster:GiveMana(800)
+					end
 				end
 			end)
 		else

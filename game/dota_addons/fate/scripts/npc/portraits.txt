@@ -33,6 +33,70 @@
 			}
 		}
 	}
+
+	"models/updated_by_seva_and_hudozhestvenniy_film_spizdili/ryougi/ryougi.vmdl"
+	{
+		"PortraitLightPosition"		"8.34 -51.72 127.79"
+		"PortraitLightAngles"		"12.96 130.92 0.00"
+		"PortraitLightFOV"		"67"
+		"PortraitLightDistance"		"153"
+		"PortraitLightColor"		"254 238 234"
+		"PortraitShadowColor"		"74 79 104"
+		"PortraitShadowScale"		"5.000000"
+		"PortraitAmbientColor"		"126 157 248"
+		"PortraitAmbientScale"		"5.000000"
+		"PortraitSpecularColor"		"251 74 84"
+		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/portraitbackground_coolinterior.vmat"
+		"PortraitBackgroundColor1"		".1 .1 1"
+		"PortraitBackgroundColor2"		".1 .5 .6"
+		"PortraitBackgroundColor3"		"1 1 .8"
+		"PortraitBackgroundColor4"		"1 1 1"
+		"PortraitLightScale"		"1.450000"
+		"PortraitGroundShadowScale"		"1.500000"
+		"PortraitAmbientDirection"		"9.930 35.110 -34.480"
+		"PortraitAnimationActivity"		"ACT_DOTA_IDLE"
+		"cameras"
+		{
+			"default"
+			{
+				"PortraitPosition"		"401.25 230.63 20.35"
+				"PortraitAngles"		"338.37 209.62 0.00"
+				"PortraitFOV"		"10"
+			}
+		}
+	}
+
+	"models/updated_by_seva_and_hudozhestvenniy_film_spizdili/jeanne_alter/jeanne_alter.vmdl"
+	{
+		"PortraitLightPosition"		"77.29 -68.51 304.23"
+		"PortraitLightAngles"		"41.19 112.90 0.00"
+		"PortraitLightFOV"		"65"
+		"PortraitLightDistance"		"218"
+		"PortraitLightColor"		"254 142 0"
+		"PortraitShadowColor"		"173 173 173"
+		"PortraitShadowScale"		"0.000000"
+		"PortraitAmbientColor"		"123 74 74"
+		"PortraitAmbientScale"		"5.000000"
+		"PortraitSpecularColor"		"251 74 84"
+		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/portraitbackground_gradient_btm.vmat"
+		"PortraitBackgroundColor1"		"1 .2 .1"
+		"PortraitBackgroundColor2"		"1 .2 .1"
+		"PortraitBackgroundColor3"		"1 .1 .2"
+		"PortraitBackgroundColor4"		"1 .1 .2"
+		"PortraitLightScale"		"4.950000"
+		"PortraitGroundShadowScale"		"1.500000"
+		"PortraitAmbientDirection"		"122.720 51.760 -16.720"
+		"PortraitAnimationActivity"		"ACT_DOTA_IDLE"
+		"cameras"
+		{
+			"default"
+			{
+				"PortraitPosition"		"88.75 -41.51 125.67"
+				"PortraitAngles"		"346.26 147.12 0.00"
+				"PortraitFOV"		"45"
+			}
+		}
+	}
 	
 	"models/updated_by_seva_and_hudozhestvenniy_film_spizdili/arcueid/arcueid.vmdl"
 	{

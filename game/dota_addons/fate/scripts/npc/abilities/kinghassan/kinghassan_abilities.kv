@@ -8,10 +8,11 @@
 		// General		//------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/kinghassan/khsn_blink"
-		"MaxLevel"						"5"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"						"1"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL" 
 		"AbilityTextureName"			"custom/kinghassan/khsn_blink"
@@ -21,7 +22,7 @@
 		
 		
 		"AbilityCastPoint"				"0.2"
-		"AbilityCooldown"				"14 13 12 11 10"
+		"AbilityCooldown"				"15"
 		"AbilityManaCost"				"100"
 
 		"AbilitySpecial"
@@ -29,7 +30,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"2 2.5 3 3.5 4"
+				"duration"				"3"
 			}
 			"02"
 			{
@@ -39,17 +40,131 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"dmg_bonus"				"60 75 90 105 120"
+				"pepeg_dmg_bonus"				"60 75 90 105 120"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"range"					"500 550 600 650 700"
+				"range"					"300"
 			}
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"turn_rate"				"90 92 94 96 98"
+				"turn_rate"				"98"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"width"					"200"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"300"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"silence_duration"		"1"
+			}
+			"09"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"lock_duration"			"2"
+			}
+		}
+	}
+
+	//=======================================
+	// Assassin - Death's Approach
+	//=======================================
+
+	"khsn_ambush"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/kinghassan/khsn_ambush"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+	    "AbilityTextureName"			"custom/kinghassan/flamesofgehenna"
+	    "AbilityCastAnimation"      	"ACT_DOTA_CAST_ABILITY_1"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"13 12 11 10 9"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100"		
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"fade_delay"			"0.2"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"6"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"ms_bonus"				"10 15 20 25 30"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"range"					"500"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attr_as"				"150"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attr_duration"			"5"
+			}
+		}
+	}
+
+	//=======================================
+	// Assassin - Death's Arrival
+	//=======================================
+
+	"khsn_ambush_blink"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/kinghassan/khsn_ambush"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+	    "AbilityTextureName"			"custom/kinghassan/deatharrival"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityCastPoint"				"0.2"
+        "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_3"
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+        "AbilityCastRange"              "0"
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"		
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"range"			"500"
 			}
 		}
 	}
@@ -87,7 +202,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"damage_percent"	"5"
+				"damage_percent"	"7.5"
 			}
 			"03"
 			{
@@ -112,7 +227,7 @@
 			"07"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"attr_dps"			"20 40 60 80 100"
+				"dps"				"40 55 70 85 100"
 			}
 			"08"
 			{
@@ -122,7 +237,7 @@
 			"09"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"bonus_armor"		"15 20 25 30 35"
+				"bonus_armor"		"10 15 20 25 30"
 			}
 		}
 	}
@@ -428,6 +543,67 @@
 	}
 
 	//=======================================
+	// Assassin - Mortuary Slash
+	//=======================================
+
+	"khsn_slash"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/kinghassan/khsn_slash"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+	    "AbilityTextureName"			"custom/kinghassan/eveningbell"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityCastPoint"				"0.2"
+	    "AbilityCastAnimation"      	"ACT_DOTA_IDLE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"30 26 22 18 14"
+        "AbilityCastRange"              "800"
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"400"		
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"09"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"cast_delay"		"0.5"
+			}
+			"01"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"damage"		"500 650 800 950 1100"
+			}			
+			"02"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"stun"			"0.6"
+			}
+			"03"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"length"		"800"
+			}			
+			"04"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"width"			"310"
+			}			
+			"05"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"speed"			"8000"
+			}			
+		}
+	}
+
+	//=======================================
 	// Assassin - Eternal Flame (active)
 	//=======================================
 
@@ -552,9 +728,9 @@
 		"AbilityCastAnimation" 			"ACT_DOTA_IDLE"
 		"AnimationPlaybackRate" 		"1.0"
 		
-		"AbilityCastRange"				"300"
-		"AbilityCastRangeBuffer"		"150"
-		"AbilityCastPoint"				"0.6"
+		"AbilityCastRange"				"500"
+		"AbilityCastRangeBuffer"		"300"
+		"AbilityCastPoint"				"0.2"
 		"AbilityManaCost"				"800"
 
 		// Time		
@@ -629,7 +805,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"5000"
+				"damage"				"2000"
 			}
 			"02"
 			{
@@ -672,12 +848,17 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"crit_chance"			"12"
+				"bonus_as"				"150"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"crit_percent"			"320"
+				"as_duration"			"5"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_range"			"300"
 			}
 		}		
 	}
@@ -809,24 +990,49 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"duration"				"8"
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"3"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage_per_second"		"8"
+				"attr_as"				"40 60 80 100 120"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"cooldown"			"10"
+				"pepeg_dmg_bonus"				"60 75 90 105 120"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"manacost"			"400"
+				"range"					"300"
 			}
-		}		
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"turn_rate"				"98"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"width"					"200"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"300"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"silence_duration"		"1"
+			}
+			"09"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"lock_duration"			"2"
+			}
+		}
 	}
 }

@@ -87,7 +87,7 @@ function khsn_flame_attribute:OnSpellStart()
 
 	hero.FlameAcquired = true
 
-	hero:SwapAbilities("fate_empty1", "khsn_flame_active", false, true)
+	hero:SwapAbilities("fate_empty1", "khsn_blink", false, true)
 
 	-- Set master 1's mana 
 	local master = hero.MasterUnit

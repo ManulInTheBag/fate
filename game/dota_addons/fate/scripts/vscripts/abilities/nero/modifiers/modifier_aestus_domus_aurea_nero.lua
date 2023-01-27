@@ -52,9 +52,6 @@ if IsServer() then
 																							 Duration = self:GetRemainingTime()})
 			end
 		end
-	end
-
-	function modifier_aestus_domus_aurea_nero:OnIntervalThink()	
 		local parent = self:GetParent()
 		local theatreCenter = Vector(self.TheatreCenterX, self.TheatreCenterY, self.TheatreCenterZ)
 
@@ -70,7 +67,6 @@ if IsServer() then
 			FindClearSpaceForUnit(parent, parent:GetAbsOrigin(), true)
 		end
 	end
-
 
 	function modifier_aestus_domus_aurea_nero:OnDestroy()	
 		local ability = self:GetAbility()
@@ -92,7 +88,7 @@ end
 
 
 function modifier_aestus_domus_aurea_nero:DeclareFunctions()
-	return { MODIFIER_EVENT_ON_UNIT_MOVED,
+	return { --MODIFIER_EVENT_ON_UNIT_MOVED,
 			 MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
 			 MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
 			 MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,

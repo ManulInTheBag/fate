@@ -21,7 +21,7 @@ function modifier_aestus_domus_aurea_neutral:OnRefresh(args)
 end
 
 function modifier_aestus_domus_aurea_neutral:DeclareFunctions()
-	return { MODIFIER_EVENT_ON_UNIT_MOVED }
+	return --{ MODIFIER_EVENT_ON_UNIT_MOVED }
 	--,
 	--		 MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
 	--		 MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,

@@ -1,0 +1,2202 @@
+"DOTAAbilities"
+{		
+	//=================================================================================================================
+	// KH : Dreadful Slash (W)
+	//=================================================================================================================
+	"kinghassan_dreadful_slash"
+	{
+	    "BaseClass"						    "ability_datadriven"
+	    "AbilityBehavior"				   	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	    "AbilityTextureName"			 	"custom/kinghassan/slash"
+	    "AbilityCastAnimation"      		"ACT_DOTA_CAST_ABILITY_4"
+	    "AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY" 
+		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"				"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastRange"					"500"
+		"AbilityCastPoint"					"0.1"
+	    "AbilityCooldown"				   	"18"
+	    "AbilityManaCost"				   	"200"
+		"MaxLevel"							"5"
+		"RequiredLevel"						"1"
+		"LevelsBetweenUpgrades"				"1"
+
+	    "precache"
+	    {
+	      	"particle"					"particles/custom/kinghassan/ka_spin.vpcf"
+	      	"soundfile"					"soundevents/game_sounds_heroes/game_sounds_axe.vsndevts"
+	    }
+
+	    "AbilitySpecial"
+	    {
+		    "01"
+		    {
+		        "var_type"				  	"FIELD_INTEGER"
+		        "radius"					"500"
+		    }
+		    "04"
+		    {
+		        "var_type"				  	"FIELD_INTEGER"
+		        "damage"					"350 400 450 500 550"
+		    }	
+		    "02"
+	      	{
+	        	"var_type"        			"FIELD_FLOAT"
+	        	"block"    					"300 350 400 450 500"
+	      	} 
+	      	"01"
+		    {
+		        "var_type"				  	"FIELD_FLOAT"
+		        "stun"						"0.5"
+		    }  	        
+	    }
+
+	    "OnSpellStart"
+	    {
+    		"RunScript"
+		    {
+		    	"ScriptFile"	"abilities/king_hassan/king_hassan_abilities"
+		    	"Function"		"OnSlashStart"
+		    }
+		}
+
+
+	    "Modifiers"
+	    {
+			"modifier_kinghassan_dread_slash"
+			{
+				"Duration"			"0.2"
+				"IsBuff"			"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK"	"%block"
+				}		
+			}
+		}	
+	}
+	//=================================================================================================================
+	// KH : Dreadful Slash (W)
+	//=================================================================================================================
+	"kinghassan_dreadful_slash_upgrade"
+	{
+	    "BaseClass"						    "ability_datadriven"
+	    "AbilityBehavior"				   	"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	    "AbilityTextureName"			 	"custom/kinghassan/slash"
+	    "AbilityCastAnimation"      		"ACT_DOTA_CAST_ABILITY_4"
+	    "AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY" 
+		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"				"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastRange"					"500"
+		"AbilityCastPoint"					"0.1"
+	    "AbilityCooldown"				   	"18"
+	    "AbilityManaCost"				   	"200"
+		"MaxLevel"							"5"
+		"RequiredLevel"						"1"
+		"LevelsBetweenUpgrades"				"1"
+
+	    "precache"
+	    {
+	      	"particle"					"particles/custom/kinghassan/ka_spin.vpcf"
+	    }
+
+	    "AbilitySpecial"
+	    {
+		    "01"
+		    {
+		        "var_type"				  	"FIELD_INTEGER"
+		        "radius"					"500"
+		    }
+		    "04"
+		    {
+		        "var_type"				  	"FIELD_INTEGER"
+		        "damage"					"500 550 600 650 700"
+		    }	
+		    "02"
+	      	{
+	        	"var_type"        			"FIELD_FLOAT"
+	        	"block"    					"400 450 500 550 600"
+	      	} 
+	      	"01"
+		    {
+		        "var_type"				  	"FIELD_FLOAT"
+		        "stun"						"0.5"
+		    }  	        
+	    }
+
+	    "OnSpellStart"
+	    {
+    		"RunScript"
+		    {
+		    	"ScriptFile"	"abilities/king_hassan/king_hassan_abilities"
+		    	"Function"		"OnSlashStart"
+		    }
+		}
+
+
+	    "Modifiers"
+	    {
+			"modifier_kinghassan_dread_slash"
+			{
+				"Duration"			"0.2"
+				"IsBuff"			"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK"	"%block"
+				}		
+			}
+		}	
+	}
+	//=================================================================================================================
+	// KH : EveningBell (E)
+	//=================================================================================================================
+	"kinghassan_evening_bell"
+	{
+	    "BaseClass"						    "ability_datadriven"
+	    "AbilityBehavior"				   	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+	    "AbilityTextureName"			 	"custom/kinghassan/eveningbell"
+	    "AbilityCastAnimation"      		"ACT_DOTA_CAST_ABILITY_4"
+	    "AbilityCooldown"				   	"20"
+	    "AbilityManaCost"				   	"400"
+		"MaxLevel"							"5"
+		"RequiredLevel"						"1"
+		"LevelsBetweenUpgrades"				"2"
+
+	    "precache"
+	    {
+	      	"particle"					"particles/econ/items/nightstalker/nightstalker_black_nihility/nightstalker_black_nihility_void_swarm.vpcf"
+	    }
+
+	    "AbilitySpecial"
+	    {
+		    "01"
+		    {
+		        "var_type"				  	"FIELD_INTEGER"
+		        "duration"					"7 8 9 10 11"
+		    }
+		    "02"
+	      	{
+	        	"var_type"        			"FIELD_FLOAT"
+	        	"bonus_mr"    				"8 10 12 14 16"
+	      	}
+		    //"03"
+		    //{
+		    //    "var_type"				  	"FIELD_INTEGER"
+		    //    "bonus_spd"					"20 25 30 35 40"
+		    //}		    
+		    "04"
+		    {
+		        "var_type"				  	"FIELD_INTEGER"
+		        "bonus_arm"					"8 10 12 14 16"
+		    }	    
+	    }
+
+	    "OnSpellStart"
+	    {
+    		"RunScript"
+		    {
+		    	"ScriptFile"	"abilities/king_hassan/king_hassan_abilities"
+		    	"Function"		"OnEveningStart"
+		    }
+		}
+
+
+	    "Modifiers"
+	    {
+			"modifier_kinghassan_eveningbell"
+			{
+				"Duration"			"%duration"
+				"IsBuff"			"1"
+				"EffectName"		"particles/econ/items/nightstalker/nightstalker_black_nihility/nightstalker_black_nihility_void_swarm.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%bonus_arm"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%bonus_mr"
+					//"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%bonus_spd"
+				}		
+			}
+
+			"modifier_combo_window"
+			{	
+				"IsHidden"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/king_hassan/king_hassan_abilities"
+						"Function"		"OnComboWindow"
+					}
+				}			
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"abilities/king_hassan/king_hassan_abilities"
+						"Function"		 	"OnComboWindowBroken"
+					}
+				}				
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"abilities/king_hassan/king_hassan_abilities"
+						"Function"		 	"OnComboWindowDeath"
+					}
+				}
+			}
+		}	
+	}
+
+	//=================================================================================================================
+	// KH : EveningBell - Upgrade (Q) (Abyss SA)
+	//=================================================================================================================
+	"kinghassan_evening_bell_upgrade"
+	{
+	    "BaseClass"						    "ability_datadriven"
+	    "AbilityBehavior"				   	"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+	    "AbilityTextureName"			 	"custom/kinghassan/eveningbell"
+	    "AbilityCastAnimation"      		"ACT_DOTA_CAST_ABILITY_4"
+	    "AbilityCooldown"				   	"20"
+	    "AbilityManaCost"				   	"400"
+		"MaxLevel"							"5"
+		"RequiredLevel"						"1"
+		"LevelsBetweenUpgrades"				"2"
+
+	    "precache"
+	    {
+	      	"particle"			"particles/econ/items/nightstalker/nightstalker_black_nihility/nightstalker_black_nihility_void_swarm.vpcf"
+	    	"particle"			"particles/custom/berserker/god_hand/stomp.vpcf"
+	    	"particle"			"particles/custom/vlad/vlad_bc_cast.vpcf"
+	    }
+
+	    "AbilitySpecial"
+	    {
+		    "01"
+		    {
+		        "var_type"				  	"FIELD_INTEGER"
+		        "duration"					"10 11 12 13 14"
+		    }
+		    "02"
+	      	{
+	        	"var_type"        			"FIELD_FLOAT"
+	        	"bonus_mr"    				"18 20 22 24 26"
+	      	}
+		    //"03"
+		    //{
+		    //    "var_type"				  	"FIELD_INTEGER"
+		    //    "bonus_spd"					"20 25 30 35 40"
+		    //}		    
+		    "04"
+		    {
+		        "var_type"				  	"FIELD_INTEGER"
+		        "bonus_arm"					"18 20 22 24 26"
+		    }	   
+		    "06"
+		    {
+		        "var_type"				  	"FIELD_INTEGER"
+		        "revive_health"				"30"
+		    }
+		    "02"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"revive_time"		"2"
+			}
+			"02"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"revive_damage"		"70"
+			}	
+			"02"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"revive_radius"		"300"
+			}
+			"02"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"revive_cooldown"	"70"
+			}	
+	    }
+
+	    "OnSpellStart"
+	    {
+    		"RunScript"
+		    {
+		    	"ScriptFile"	"abilities/king_hassan/king_hassan_abilities"
+		    	"Function"		"OnEveningStart"
+		    }
+		}
+
+
+	    "Modifiers"
+	    {
+			"modifier_kinghassan_eveningbell"
+			{
+				"Duration"			"%duration"
+				"IsBuff"			"1"
+				"EffectName"		"particles/econ/items/nightstalker/nightstalker_black_nihility/nightstalker_black_nihility_void_swarm.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%bonus_arm"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%bonus_mr"
+					//"MODIFIER_PROPERTY_MOVESPEED_BONUS_CONSTANT" "%bonus_spd"
+				}		
+				"OnTakeDamage"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/king_hassan/king_hassan_abilities"
+						"Function"		"EveningOnTakeDamage"
+					}
+				}
+			}
+
+			"modifier_combo_window"
+			{	
+				"IsHidden"				"1"
+				"Attributes"			"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/king_hassan/king_hassan_abilities"
+						"Function"		"OnComboWindow"
+					}
+				}			
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"abilities/king_hassan/king_hassan_abilities"
+						"Function"		 	"OnComboWindowBroken"
+					}
+				}				
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"abilities/king_hassan/king_hassan_abilities"
+						"Function"		 	"OnComboWindowDeath"
+					}
+				}
+			}
+			"modifier_kinghassan_revive"
+			{
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"TextureName"			"custom/kinghassan/abyssofdeath"
+				"Duration"			"%revive_time"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/king_hassan/king_hassan_abilities"
+						"Function"		"OnReviveBurst"
+					}
+				}
+			}
+			"modifier_kinghassan_revive_cooldown"
+			{
+				"TextureName"			"custom/kinghassan/abyssofdeath"
+				"IsDebuff"				"1"
+				"Duration"				"%revive_cooldown"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+			}
+		}	
+	}
+	//=================================================================================================================
+	// King Hassan : Death Approaching (Q)
+	//=================================================================================================================
+	"kinghassan_death_approaching"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+	    "AbilityTextureName"			"custom/kinghassan/deathapproaching"
+	    "AbilityCastAnimation"      	"ACT_DOTA_CAST_ABILITY_1"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"13 12 11 10 9"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100"		
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"fade_delay"			"0.2"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"6"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"bonus_spd"				"10 15 20 25 30"
+			}
+			"01"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"range"			"500"
+			}
+		}
+
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_bounty_hunter/bounty_hunter_windwalk.vpcf"
+		}
+
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+			    "EffectName"	"Hero_BountyHunter.WindWalk"
+			    "Target" "CASTER"
+			}
+			"FireEffect"
+			{
+				"Target"			"CASTER"
+				"EffectName"		"particles/units/heroes/hero_bounty_hunter/bounty_hunter_windwalk.vpcf"
+				"EffectAttachType"	"attach_origin"
+			}
+			"RunScript"
+			{
+				"ScriptFile"		"abilities/king_hassan/king_hassan_abilities"
+				"Function"			"OnKHAmbushStart"
+			}
+
+		}
+
+		"Modifiers"
+		{
+			"modifier_ambush_think"
+			{
+				"IsDebuff"				"0"
+				"Passive"				"0"
+				"IsHidden"				"1"
+				"Duration"				"%duration" //Reduced from duration+1 to duration, I assume +1 is to account for travel time of dagger when one breaks ambush at the end of duration. No longer necessary.
+				"Attributes"			"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/king_hassan/king_hassan_abilities"
+						"Function"		"OnAmbushWindow"
+					}
+				}
+				"OnAttackStart"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"abilities/king_hassan/king_hassan_abilities"
+						"Function"			"OnAmbushDeath"
+					}					
+				}				
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"abilities/king_hassan/king_hassan_abilities"
+						"Function"			"OnAmbushDeath"
+					}								
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"abilities/king_hassan/king_hassan_abilities"
+						"Function"			"OnAmbushBroken"
+					}
+				}				
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"abilities/king_hassan/king_hassan_abilities"
+						"Function"			"OnAmbushDeath"
+					}
+				}
+			}
+
+			"modifier_ambush"
+			{
+				"IsDebuff"				"0"
+				"Passive"				"0"
+				"IsHidden"				"0"
+				"Duration"				"%duration"
+				"Attributes"			"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"EffectName"			"particles/units/heroes/hero_pugna/pugna_decrepify.vpcf"	
+				"EffectAttachType"		"follow_overhead"
+				"States"
+			    {
+				    "MODIFIER_STATE_INVISIBLE" "MODIFIER_STATE_VALUE_ENABLED"
+				    "MODIFIER_STATE_NO_UNIT_COLLISION" "MODIFIER_STATE_VALUE_ENABLED"
+			    }
+			    "Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%bonus_spd"
+				}
+			    "OnCreated"
+			    {
+				    "FireEffect"
+				    {
+					     "EffectName"  		"particles/units/heroes/hero_bounty_hunter/bounty_hunter_windwalk_smoke.vpcf"
+					     "EffectAttachType" "follow_origin"
+					     "Target" 			"CASTER"
+				    }
+			    }
+			}
+		}
+	}
+	//=================================================================================================================
+	// King Hassan : Death Approaching (W) (Presence Concealment SA)
+	//=================================================================================================================
+	"kinghassan_death_approaching_upgrade"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+	    "AbilityTextureName"			"custom/kinghassan/deathapproaching"
+	    "AbilityCastAnimation"      	"ACT_DOTA_CAST_ABILITY_1"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"13 12 11 10 9"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100"		
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"fade_delay"			"0.2"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"6"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"bonus_spd"				"30 35 40 45 50"
+			}
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"range"					"1000"
+			}
+			//"01"
+			//{
+			//	"var_type"		"FIELD_FLOAT"
+			//	"stun"			"0.2"
+			//}
+			//"01"
+			///{
+			//	"var_type"		"FIELD_INTEGER"
+			//	"damage"		"200"
+			//}
+		}
+
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_bounty_hunter/bounty_hunter_windwalk.vpcf"
+		}
+
+		"OnSpellStart"
+		{
+			"FireSound"
+			{
+			    "EffectName"	"Hero_BountyHunter.WindWalk"
+			    "Target" "CASTER"
+			}
+			"FireEffect"
+			{
+				"Target"			"CASTER"
+				"EffectName"		"particles/units/heroes/hero_bounty_hunter/bounty_hunter_windwalk.vpcf"
+				"EffectAttachType"	"attach_origin"
+			}
+			"RunScript"
+			{
+				"ScriptFile"		"abilities/king_hassan/king_hassan_abilities"
+				"Function"			"OnKHAmbushStart"
+			}
+
+		}
+
+		"Modifiers"
+		{
+			"modifier_ambush_think"
+			{
+				"IsDebuff"				"0"
+				"Passive"				"0"
+				"IsHidden"				"1"
+				"Duration"				"%duration" //Reduced from duration+1 to duration, I assume +1 is to account for travel time of dagger when one breaks ambush at the end of duration. No longer necessary.
+				"Attributes"			"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"OnCreated"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/king_hassan/king_hassan_abilities"
+						"Function"		"OnAmbushWindow"
+					}
+				}
+				"OnAttackStart"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"abilities/king_hassan/king_hassan_abilities"
+						"Function"			"OnAmbushDeath"
+					}					
+				}				
+				"OnAbilityExecuted"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"abilities/king_hassan/king_hassan_abilities"
+						"Function"			"OnAmbushDeath"
+					}								
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"abilities/king_hassan/king_hassan_abilities"
+						"Function"			"OnAmbushBroken"
+					}
+				}				
+				"OnDeath"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"abilities/king_hassan/king_hassan_abilities"
+						"Function"			"OnAmbushDeath"
+					}
+				}
+			}
+
+			"modifier_ambush"
+			{
+				"IsDebuff"				"0"
+				"Passive"				"0"
+				"IsHidden"				"0"
+				"Duration"				"%duration"
+				"Attributes"			"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"EffectName"			"particles/units/heroes/hero_pugna/pugna_decrepify.vpcf"	
+				"EffectAttachType"		"follow_overhead"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"%bonus_spd"
+				}
+				"States"
+			    {
+				    "MODIFIER_STATE_INVISIBLE" "MODIFIER_STATE_VALUE_ENABLED"
+				    "MODIFIER_STATE_NO_UNIT_COLLISION" "MODIFIER_STATE_VALUE_ENABLED"
+			    }
+			    "OnCreated"
+			    {
+				    "FireEffect"
+				    {
+					     "EffectName"  		"particles/units/heroes/hero_bounty_hunter/bounty_hunter_windwalk_smoke.vpcf"
+					     "EffectAttachType" "follow_origin"
+					     "Target" 			"CASTER"
+				    }
+			    }
+			}
+		}
+	}
+	//=================================================================================================================
+	// King Hassan : Beheader (F)
+	//=================================================================================================================
+	"kinghassan_beheader"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/king_hassan/king_hassan_abilities"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY" 
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+	    "AbilityCastAnimation"      	"ACT_DOTA_CAST_ABILITY_3"
+	    "AbilityTextureName"			"custom/kinghassan/beheader"
+		"AbilityCastAnimation" 			"ACT_DOTA_ATTACK" // Change the animation from "ACT_DOTA_CAST_ABILITY_1" to match the timing of the ability
+		"AnimationPlaybackRate" 		"1.2"
+		//"AbilityCastRange"				"300"
+		//"AbilityCastRangeBuffer"		"75"
+		"AbilityCastPoint"				"0.2"
+		"AbilityCooldown"				"30"
+		"AbilityManaCost"				"200"
+
+		"precache"
+		{
+			"particle"				"particles/units/heroes/hero_undying/undying_soul_rip_damage_impact_secondary.vpcf"
+			"particle"				"particles/units/heroes/hero_axe/axe_culling_blade_kill.vpcf"
+		}
+		
+		// Ability Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"600"
+			}
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"range"				"300"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"stun"			    "0.6"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage_per_stack"	"40"
+			}
+		}
+	}
+	//=================================================================================================================
+	// King Hassan : Beheader (W) (Boundary SA)
+	//=================================================================================================================
+	"kinghassan_beheader_upgrade"
+	{
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY" 
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+	    "AbilityCastAnimation"      	"ACT_DOTA_CAST_ABILITY_3"
+	    "AbilityTextureName"			"custom/kinghassan/beheader"
+		"AbilityCastAnimation" 			"ACT_DOTA_ATTACK" // Change the animation from "ACT_DOTA_CAST_ABILITY_1" to match the timing of the ability
+		"AnimationPlaybackRate" 		"1.2"
+
+		"precache"
+		{
+			"particle"				"particles/units/heroes/hero_undying/undying_soul_rip_damage_impact_secondary.vpcf"
+			"particle"				"particles/units/heroes/hero_axe/axe_culling_blade_kill.vpcf"
+		}
+		
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"300"
+		"AbilityCastRangeBuffer"		"75"
+		"AbilityCastPoint"				"0.2"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"18"
+
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"200"
+		
+		// Ability Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"250 300 350 400 450"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"stun"			    "0.6"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage_per_stack"	"25"
+			}
+		}
+		
+		// Data driven
+		//-------------------------------------------------------------------------------------------------------------
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"		"abilities/king_hassan/king_hassan_abilities"
+				"Function"			"OnKHBeheaderHit"
+			}
+		}
+	}
+	//=================================================================================================================
+	// King Hassan : Flames of Gehenna (D)
+	//=================================================================================================================
+	"kinghassan_flames_of_gehenna"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	    "AbilityTextureName"			"custom/kinghassan/flamesofgehenna"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"						"1"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
+		"AbilityCooldown"				"25"
+		"AbilityManaCost"				"200"
+		"AbilityCastRange"				"340"
+		"AbilityCastPoint"				"0.2"
+		
+
+		"precache"
+		{
+			"particle"	"particles/custom/kinghassan/kh_black_flames.vpcf"
+			"particle"  "particles/units/heroes/hero_dragon_knight/dragon_knight_elder_dragon_attack_black_energy_fleks.vpcf"
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"delay"					"0.2"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"duration"				"4"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"340"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"heal"					"125"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"150"
+			}			
+		}
+		
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"abilities/king_hassan/king_hassan_abilities"
+				"Function"		"OnFlamesStart"
+			}
+		}
+
+		"Modifiers"
+		{ 
+			"modifier_flame_gehena_aura"
+			{ 
+				"Passive"				"0"
+				"IsHidden"				"0"
+				"IsDebuff"				"0"
+				"Duration"				"%duration" 
+				"Aura"					"modifier_kinghassan_flames_of_gehenna"
+				"Aura_Radius"			"%radius"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+				"Attributes"			"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"			"CASTER"
+						"EffectName"		"particles/custom/kinghassan/kh_black_flames.vpcf"
+						"EffectAttachType"	"follow_customorigin"
+						"ControlPointEntities"
+						{
+							"CASTER"		"attach_origin"
+						}
+					}
+				}
+				"ThinkInterval"  		"0.2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/king_hassan/king_hassan_abilities"
+						"Function"		"OnFlamesHeal"
+					}
+				}
+			} 
+			"modifier_kinghassan_flames_of_gehenna"
+			{
+				"IsHidden"				"0"
+				"IsDebuff"				"1"
+				"EffectName"			"particles/units/heroes/hero_dragon_knight/dragon_knight_elder_dragon_attack_black_energy_fleks.vpcf"
+				"EffectAttachType"		"follow_origin"	
+				"ThinkInterval"  		"0.2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/king_hassan/king_hassan_abilities"
+						"Function"		"OnFlamesThink"
+					}
+				}
+			}
+			"modifier_kinghassan_flame_cooldown"
+			{
+				"IsDebuff"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+			}
+		}
+	}
+	//=================================================================================================================
+	// King Hassan : Flames of Gehenna (D)
+	//=================================================================================================================
+	"kinghassan_flames_of_gehenna_upgrade"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	    "AbilityTextureName"			"custom/kinghassan/flamesofgehenna"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"						"1"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
+		"AbilityCooldown"				"25"
+		"AbilityCastRange"				"340"
+		"AbilityManaCost"				"200"
+		"AbilityCastPoint"				"0.2"
+		
+
+		"precache"
+		{
+			"particle"	"particles/custom/kinghassan/kh_black_flames.vpcf"
+			"particle"					"particles/units/heroes/hero_dragon_knight/dragon_knight_elder_dragon_attack_black_energy_fleks.vpcf"
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"delay"					"0.2"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"duration"				"6"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"340"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"heal"					"125"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_heal_str"		"2"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"150"
+			}	
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_dps_str"			"2"
+			}		
+		}
+		
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"abilities/king_hassan/king_hassan_abilities"
+				"Function"		"OnFlamesStart"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_flame_gehena_aura"
+			{ 
+				"Passive"				"0"
+				"IsHidden"				"0"
+				"IsDebuff"				"0"
+				"Duration"				"%duration"
+				"Aura"					"modifier_kinghassan_flames_of_gehenna"
+				"Aura_Radius"			"%radius"
+				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+				"Aura_Types"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+				"Attributes"			"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"			"CASTER"
+						"EffectName"		"particles/custom/kinghassan/kh_black_flames.vpcf"
+						"EffectAttachType"	"follow_customorigin"
+						"ControlPointEntities"
+						{
+							"CASTER"		"attach_origin"
+						}
+					}
+				}
+				"ThinkInterval"  		"0.2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/king_hassan/king_hassan_abilities"
+						"Function"		"OnFlamesHeal"
+					}
+				}
+			} 
+			"modifier_kinghassan_flames_of_gehenna"
+			{
+				"IsHidden"				"0"
+				"IsDebuff"				"1"
+				"EffectName"			"particles/units/heroes/hero_dragon_knight/dragon_knight_elder_dragon_attack_black_energy_fleks.vpcf"
+				"EffectAttachType"		"follow_origin"	
+				"ThinkInterval"  		"0.2"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/king_hassan/king_hassan_abilities"
+						"Function"		"OnFlamesThink"
+					}
+				}
+			}
+			"modifier_kinghassan_flame_cooldown"
+			{
+				"IsDebuff"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+			}
+		}
+	}
+	//=================================================================================================================
+	// King Hassan - Stack
+	//=================================================================================================================
+	"kinghassan_stack"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+	    "AbilityTextureName"			"custom/kinghassan/angelofdeath"
+		"MaxLevel"						"1"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"bonus_agi"			"1"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_kinghassan_stack"
+			{
+				"TextureName"		"custom/kinghassan/attheboundary"	
+				"Passive"			"1"
+				"IsHidden"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE | MODIFIER_ATTRIBUTE_PERMANENT"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_STATS_AGILITY_BONUS" "%bonus_agi"
+				}
+
+				"OnKill"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/king_hassan/king_hassan_abilities"
+						"Function"		"OnHassanKill"
+					}
+				}
+			}
+		}
+	}
+	//=================================================================================================================
+	// King Hassan - Innate : Angel Of Death
+	//=================================================================================================================
+	"kinghassan_angel_of_death"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	    "AbilityTextureName"			"custom/kinghassan/angelofdeath"
+		"MaxLevel"						"1"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"health_regen"			"15"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_kinghassan_passive"
+			{
+				"Passive"			"1"
+				"IsHidden"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"%health_regen"
+				}
+
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// King Hassan - Innate : Angel Of Death (Boundary SA)
+	//=================================================================================================================
+	"kinghassan_angel_of_death_upgrade"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	    "AbilityTextureName"			"custom/kinghassan/angelofdeath"
+		"MaxLevel"						"1"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"health_regen"			"30"
+			}				
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"bonus_arm"			"5"
+			}				
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"bonus_mr"			"5"
+			}								
+		}
+
+		"Modifiers"
+		{
+			"modifier_kinghassan_passive"
+			{
+				"Passive"			"1"
+				"IsHidden"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT"	"%health_regen"
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%bonus_arm"
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS"	"%bonus_mr"
+					//"MODIFIER_PROPERTY_HEALTH_BONUS"	"%bonus_health"
+				}
+			}
+		}
+	}
+	//=================================================================================================================
+	// King Hassan : Protection of Faith
+	//=================================================================================================================
+	"kinghassan_faith"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	    "AbilityTextureName"			"custom/kinghassan/faith"
+		"MaxLevel"						"1"
+		"AbilityCooldown"				"40"
+
+		"precache"
+		{
+			"particle"  "particles/items_fx/black_king_bar_avatar.vpcf"
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"dmg_proc"			"50"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"duration"			"3.0"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_kinghassan_faith_passive"
+			{
+				"Passive"			"1"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+			}
+			"modifier_kinghassan_faith"
+			{
+				"Passive"			"0"
+				"IsHidden"			"0"
+				"IsDebuff"			"0"
+				"Duration"			"%duration"
+				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"States"
+				{
+					"MODIFIER_STATE_MAGIC_IMMUNE"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"OnCreated"
+	    		{
+					"AttachEffect"
+					{
+						"Target"			"CASTER"
+						"EffectName"		"particles/items_fx/black_king_bar_avatar.vpcf"
+						"EffectAttachType"	"follow_origin"
+					}
+	    		}
+			}
+			"modifier_kinghassan_faith_cooldown"
+			{
+				"IsDebuff"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"		"abilities/king_hassan/king_hassan_abilities"
+						"Function"			"OnFaithReady"
+					}
+				}
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// King Hassan : Azrael - The Angel That Announces Death
+	//=================================================================================================================
+	"kinghassan_combo"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY" 
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+	    "AbilityTextureName"			"custom/kinghassan/combo"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"MaxLevel"						"1"
+		"AbilityCastPoint"				"0.6"
+	    "AbilityCastAnimation"      	"ACT_DOTA_CAST_ATTACK2"
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"200"
+        "AbilityCastRange"              "900"
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"600"		
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+			
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"cast"				"8"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"dmg_block"			"-50"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"vision_debuff"		"100"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"regen_debuff"		"-100"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"slow"				"-50"
+			}
+			
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"def_red"			"-50"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"dps"				"500"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"damage"			"2000"
+			}			
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"bonus_hb"			"2"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"		"abilities/king_hassan/king_hassan_abilities"
+				"Function"			"OnComboCast"
+			}
+
+		}
+
+	    "Modifiers"
+	    {
+			"modifier_kinghassan_combo_cast"
+			{
+				"IsHidden"					"1"
+				"Duration"					"9"
+				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"	
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "%dmg_block"
+				}
+
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_COMMAND_RESTRICTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}	
+			}
+
+			"modifier_kinghassan_death_announce"
+			{
+				"Duration"				"9"
+				"IsDebuff"				"1"
+				"EffectName"		"particles/kinghassan/combo/comboaura.vpcf"
+				"EffectAttachType"	"follow_overhead"
+				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PROVIDES_FOW_POSITION" "1"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "%regen_debuff"
+				}
+
+				"ThinkInterval"  		"0.25"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/king_hassan/king_hassan_abilities"
+						"Function"		"OnComboDebuffThink"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/king_hassan/king_hassan_abilities"
+						"Function"		"OnComboTargetDeath"
+					}
+				}
+			}
+			"modifier_kinghassan_combo_fear"
+			{
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%slow"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%slow" 
+				    "MODIFIER_PROPERTY_FIXED_DAY_VISION"			"%vision_debuff"
+				    "MODIFIER_PROPERTY_FIXED_NIGHT_VISION"			"%vision_debuff"
+				}
+			}
+			"modifier_kinghassan_combo_dread"
+			{
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%def_red"
+				    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%def_red" 
+				}
+			}
+			"modifier_kinghassan_combo_revive_lock"
+			{
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+			}
+			"modifier_kinghassan_combo_cooldown"
+			{
+				"IsDebuff"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+			}
+	    }
+	}
+	//=================================================================================================================
+	// King Hassan : Azrael - The Angel That Announces Death (Upgrade)
+	//=================================================================================================================
+	"kinghassan_combo_upgrade"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY" 
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+	    "AbilityTextureName"			"custom/kinghassan/combo"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"MaxLevel"						"1"
+		"AbilityCastPoint"				"0.6"
+	    "AbilityCastAnimation"      	"ACT_DOTA_CAST_ATTACK2"
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"200"
+        "AbilityCastRange"              "900"
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"600"		
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+			
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"cast"				"8"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"dmg_block"			"-50"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"vision_debuff"		"100"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"regen_debuff"		"-100"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"slow"				"-50"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"def_red"			"-50"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"dps"				"500"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"damage"			"2000"
+			}			
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"bonus_hb"			"2"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"		"abilities/king_hassan/king_hassan_abilities"
+				"Function"			"OnComboCast"
+			}
+
+		}
+
+	    "Modifiers"
+	    {
+			"modifier_kinghassan_combo_cast"
+			{
+				"IsHidden"					"1"
+				"Duration"					"9"
+				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"	
+
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE" "%dmg_block"
+				}
+
+				"States"
+				{
+					"MODIFIER_STATE_STUNNED"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_COMMAND_RESTRICTED"		"MODIFIER_STATE_VALUE_ENABLED"
+				}	
+			}
+
+			"modifier_kinghassan_death_announce"
+			{
+				"Duration"				"9"
+				"IsDebuff"				"1"
+				"EffectName"		"particles/kinghassan/combo/comboaura.vpcf"
+				"EffectAttachType"	"follow_overhead"
+				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PROVIDES_FOW_POSITION" "1"
+					"MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT" "%regen_debuff"
+				}
+
+				"ThinkInterval"  		"0.25"
+				"OnIntervalThink"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/king_hassan/king_hassan_abilities"
+						"Function"		"OnComboDebuffThink"
+					}
+				}
+				"OnDestroy"
+				{
+					"RunScript"
+					{
+						"ScriptFile"	"abilities/king_hassan/king_hassan_abilities"
+						"Function"		"OnComboTargetDeath"
+					}
+				}
+			}
+			"modifier_kinghassan_combo_fear"
+			{
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT" "%slow"
+				    "MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE" "%slow" 
+				    "MODIFIER_PROPERTY_FIXED_DAY_VISION"			"%vision_debuff"
+				    "MODIFIER_PROPERTY_FIXED_NIGHT_VISION"			"%vision_debuff"
+				}
+			}
+			"modifier_kinghassan_combo_dread"
+			{
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS" "%def_red"
+				    "MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS" "%def_red" 
+				}
+			}
+			"modifier_kinghassan_combo_revive_lock"
+			{
+				"IsHidden"			"0"
+				"IsDebuff"			"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+			}
+			"modifier_kinghassan_combo_cooldown"
+			{
+				"IsDebuff"				"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+			}
+	    }
+	}
+
+	//=================================================================================================================
+	// King Hassan : Azrael - The angel of death
+	//=================================================================================================================
+	"kinghassan_azrael"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+	    "AbilityTextureName"			"custom/kinghassan/azrael"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityCastPoint"				"0.2"
+	    "AbilityCastAnimation"      	"ACT_DOTA_CAST_ATTACK"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"42"
+        "AbilityCastRange"              "1000"
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"800"		
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"09"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"cast_delay"		"1.1"
+			}
+			"01"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"damage"		"650 875 1100 1325 1550"
+			}			
+			"02"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"stun"			"0.6"
+			}
+			"03"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"length"		"1000"
+			}			
+			"04"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"width"			"310"
+			}			
+			"05"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"speed"			"8000"
+			}			
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"		"abilities/king_hassan/king_hassan_abilities"
+				"Function"			"OnAzraelCast"
+			}
+
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"			"0"
+			"RunScript"
+			{
+			 	"ScriptFile"	"abilities/king_hassan/king_hassan_abilities"
+			 	"Function"		"OnAzraelHit"
+			}	
+		}
+
+	    "Modifiers"
+	    {
+			"modifier_azrael_cast"
+			{
+				"IsHidden"					"1"
+				"Duration"					"2"
+				"EffectName"		"particles/econ/items/elder_titan/elder_titan_2021/elder_titan_2021_earth_splitter_ground_crack_noise.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"			"TARGET"
+						"EffectName"		"particles/units/heroes/hero_nevermore/nevermore_shadowraze_end_smoke.vpcf"
+						"EffectAttachType"	"start_at_customorigin"
+						"ControlPointEntities"
+						{
+							"TARGET"		"attach_weapon"
+						}
+					}
+				}		
+			}
+	    }
+	}
+	//=================================================================================================================
+	// King Hassan : Azrael - The angel of death (Old Man SA)
+	//=================================================================================================================
+	"kinghassan_azrael_upgrade"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+	    "AbilityTextureName"			"custom/kinghassan/azrael"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityCastPoint"				"0.2"
+	    "AbilityCastAnimation"      	"ACT_DOTA_CAST_ATTACK"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"42"
+        "AbilityCastRange"              "1000"
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"800"		
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"09"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"cast_delay"		"1.1"
+			}
+			"01"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"damage"		"750 975 1200 1425 1650"
+			}	
+			"03"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"bonus_agi"		"5"
+			}			
+			"02"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"stun"			"0.6"
+			}
+			"03"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"length"		"1000"
+			}			
+			"04"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"width"			"310"
+			}			
+			"05"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"speed"			"8000"
+			}		
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"		"abilities/king_hassan/king_hassan_abilities"
+				"Function"			"OnAzraelCast"
+			}
+
+		}
+		"OnProjectileHitUnit"
+		{
+			"DeleteOnHit"			"0"
+			"RunScript"
+			{
+			 	"ScriptFile"	"abilities/king_hassan/king_hassan_abilities"
+			 	"Function"		"OnAzraelHit"
+			}	
+		}
+
+	    "Modifiers"
+	    {
+			"modifier_azrael_cast"
+			{
+				"IsHidden"					"1"
+				"Duration"					"2"
+				"EffectName"		"particles/econ/items/elder_titan/elder_titan_2021/elder_titan_2021_earth_splitter_ground_crack_noise.vpcf"
+				"EffectAttachType"	"follow_origin"
+				"Attributes"		"MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+				"OnCreated"
+				{
+					"AttachEffect"
+					{
+						"Target"			"TARGET"
+						"EffectName"		"particles/units/heroes/hero_nevermore/nevermore_shadowraze_end_smoke.vpcf"
+						"EffectAttachType"	"start_at_customorigin"
+						"ControlPointEntities"
+						{
+							"TARGET"		"attach_weapon"
+						}
+					}
+				}		
+			}
+	    }
+	}
+	//=================================================================================================================
+	// King Hassan : Death Arrival
+	//=================================================================================================================
+	"kinghassan_death_arrival"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+	    "AbilityTextureName"			"custom/kinghassan/deatharrival"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityCastPoint"				"0.2"
+        "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_3"
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+        "AbilityCastRange"              "0"
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"		
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"range"			"500"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"		"abilities/king_hassan/king_hassan_abilities"
+				"Function"			"OnKHArrival"
+			}
+
+		}
+	}
+	//=================================================================================================================
+	// King Hassan : Death Arrival (Presence Concealment SA)
+	//=================================================================================================================
+	"kinghassan_death_arrival_upgrade"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+	    "AbilityTextureName"			"custom/kinghassan/deatharrival"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityCastPoint"				"0.2"
+        "AbilityCastAnimation"          "ACT_DOTA_CAST_ABILITY_3"
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+        "AbilityCastRange"              "0"
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"		
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"range"			"1000"
+			}
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"		"abilities/king_hassan/king_hassan_abilities"
+				"Function"			"OnKHArrival"
+			}
+
+		}
+	}
+	//=================================================================================================================
+	// KH : Old man of the mountain
+	//=================================================================================================================
+	"kinghassan_attribute_oldman"
+	{
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+	    "AbilityTextureName"			"custom/kinghassan/oldman"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"15"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"bonus_damage"		"100"
+			}				
+			"02"
+			{
+				"var_type"		"FIELD_FLOAT"
+				"bonus_agi"			"5"
+			}		
+			"03"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"bonus_dread_dmg"		"150"
+			}
+			"03"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"bonus_dread_block"		"100"
+			}	
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"abilities/king_hassan/king_hassan_abilities"
+				"Function"		"OnOldManOfTheMountainAcquired"
+			}
+		}
+	}	
+	//=======================================
+	// King Hassan Attribute : Presence Concealment
+	//=======================================
+	"kinghassan_attribute_presence"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+	    "AbilityTextureName"			"custom/kinghassan/presenceconcealment"
+	    "AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"9"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"range"			"1000"
+			}		
+			"02"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"movespeed_bonus"		"20"
+			}	
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"abilities/king_hassan/king_hassan_abilities"
+				"Function"		"OnPresenceAcquired"
+			}
+		}
+	}	
+	//=======================================
+	// King Hassan Attribute : At The Boundary
+	//=======================================
+	"kinghassan_attribute_boundary"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+	    "AbilityTextureName"			"custom/kinghassan/attheboundary"
+	    "AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"14"
+		
+		"AbilitySpecial"
+		{
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"beheader_damage"			"600"
+			}		
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"beheader_damage_stack"		"40"
+			}	
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"beheader_range"			"300"
+			}	
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"beheader_stun"			    "0.6"
+			}	
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"beheader_mana"				"200"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"beheader_cooldown"			"30"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"bonus_agi_kill"			"1"
+			}	
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"combo_hb_stack"			"2"
+			}	
+		}
+
+		
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"abilities/king_hassan/king_hassan_abilities"
+				"Function"		"OnBoundaryAcquired"
+			}
+		}
+	}
+	//=======================================
+	// King Hassan Attribute : Abyss Of Death
+	//=======================================
+	"kinghassan_attribute_abyss"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+	    "AbilityTextureName"			"custom/kinghassan/abyssofdeath"
+	    "AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"17"
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"bonus_duration"		"3"
+			}			
+			"02"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"revive_health"		"30"
+			}	
+			"02"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"revive_time"		"2"
+			}
+			"02"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"revive_damage"		"70"
+			}	
+			"02"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"revive_radius"		"300"
+			}
+			"02"
+			{
+				"var_type"		"FIELD_INTEGER"
+				"revive_cooldown"	"70"
+			}	
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"abilities/king_hassan/king_hassan_abilities"
+				"Function"		"OnAbyssAcquired"
+			}
+		}
+	}
+	//=======================================
+	// King Hassan Attribute : Natural Body
+	//=======================================
+	"kinghassan_attribute_body"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+	    "AbilityTextureName"			"custom/kinghassan/faith"
+	    "AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"11"
+		
+		"AbilitySpecial"
+		{ 
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"bonus_duration"	"2"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"bonus_heal_str"	"2"
+			}	
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"bonus_dps_str"		"2"
+			}		
+		}
+
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"abilities/king_hassan/king_hassan_abilities"
+				"Function"		"OnBodyAcquired"
+			}
+		}
+	}
+}

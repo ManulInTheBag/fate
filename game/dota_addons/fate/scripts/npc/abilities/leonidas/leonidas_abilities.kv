@@ -24,7 +24,7 @@
 
 		"AbilityCastPoint"						"0.2"
 		//"AbilityChannelTime"						"0.0"
-		"AbilityCooldown"						"14 12 10 8 6"
+		"AbilityCooldown"						"14 13 12 11 10"
 		"AbilityManaCost"						"100"
 		"AbilityCastRange"					  	"200"
 
@@ -66,9 +66,14 @@
 			"05"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"base_damage"					"200 300 400 500 600"
+				"base_damage"					"300 350 400 450 500"
 			}
 			"06"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"stun_duration"					"0.4 0.5 0.6 0.7 0.8"
+			}
+			"07"
 			{
 				"var_type"						"FIELD_FLOAT"
 				"bounce_damage"					"300"
@@ -99,7 +104,7 @@
 
 		"AbilityCastPoint"						"0.2"
 		//"AbilityChannelTime"						"0.0"
-		"AbilityCooldown"						"14 12 10 8 6"
+		"AbilityCooldown"						"14 13 12 11 10"
 		"AbilityManaCost"						"200"
 		//"AbilityCastRange"					  	"300"
 
@@ -126,7 +131,7 @@
 			"02"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"base_damage"					"200 300 400 500 600"
+				"base_damage"					"300 350 400 450 500"
 			}
 			"03"
 			{
@@ -158,25 +163,25 @@
 		"BaseClass"								"ability_lua"
 
 		"ScriptFile"							"abilities/anime_hero_leonidas"
-		"AbilityTextureName" 					"anime_hero_leonidas/leonidas_pride"
+		"AbilityTextureName" 					"anime_hero_leonidas/leonidas_pride_attribute"
 
 		"AbilityType"							"DOTA_ABILITY_TYPE_BASIC"
-		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
 		
-		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"					"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		//"AbilityUnitTargetFlags"				"DOTA_UNIT_TARGET_FLAG_NONE"
+		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_BOTH"
+		"AbilityUnitTargetType"					"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitTargetFlags"				"DOTA_UNIT_TARGET_FLAG_NOT_MAGIC_IMMUNE_ALLIES"
 
 		"AbilityUnitDamageType"					"DAMAGE_TYPE_MAGICAL"
 
 		"SpellImmunityType"						"SPELL_IMMUNITY_ENEMIES_NO"
 		"SpellDispellableType"					"SPELL_DISPELLABLE_YES"
 
-		"AbilityCastPoint"						"0.3"
+		"AbilityCastPoint"						"0.6"
 		//"AbilityChannelTime"						"0.0"
-		"AbilityCooldown"						"20"
+		"AbilityCooldown"						"35 33 31 29 27 "
 		"AbilityManaCost"						"400"
-		"AbilityCastRange"					  	"1200"
+		"AbilityCastRange"					  	"700"
 
 		//"HasScepterUpgrade"					  	"1"
 
@@ -184,7 +189,7 @@
 		"RequiredLevel"							"1"
 		"LevelsBetweenUpgrades"					"2"
 
-		"AbilityCastAnimation"					"ACT_DOTA_CAST_ABILITY_3"
+		"AbilityCastAnimation"					"ACT_DOTA_CHANNEL_ABILITY_7"
 		//"AbilityChannelAnimation"					"ACT_DOTA_CHANNEL_ABILITY_1"
 		
 		//"AbilitySharedCooldown"					"tome"
@@ -196,7 +201,7 @@
 			"01"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"radius"						"300"
+				"radius"						"700"
 			}
 			"02"
 			{
@@ -206,27 +211,43 @@
 			"03"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"speed"							"3000"
+				"counter_duration"				"7"
 			}
 			"04"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"damage"						"500 600 700 800 900"
+				"counter_resist"				"20 25 30 35 40"
 			}
 			"05"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"stun_duration"					"0.5"
+				"speed"							"3000"
 			}
+
 			"06"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"cast_range"					"1200"
+				"damage"						"200 250 300 350 400"
 			}
 			"07"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"berserk_cooldown"				"10"
+				"stun_duration"					"0.2"
+			}
+			"08"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"cast_range"					"1500"
+			}
+			"09"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"berserk_cooldown"				"20"
+			}
+			"10"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"spear_radius"				"300"
 			}
 		}
 	}
@@ -238,10 +259,10 @@
 		"BaseClass"								"ability_lua"
 
 		"ScriptFile"							"abilities/anime_hero_leonidas"
-		"AbilityTextureName" 					"anime_hero_leonidas/leonidas_pride_attribute"
+		"AbilityTextureName" 					"anime_hero_leonidas/leonidas_pride"
 
 		"AbilityType"							"DOTA_ABILITY_TYPE_BASIC"
-		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN"//"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN"//"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		
 		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"					"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -252,11 +273,11 @@
 		"SpellImmunityType"						"SPELL_IMMUNITY_ALLIES_YES"
 		"SpellDispellableType"					"SPELL_DISPELLABLE_NO"
 
-		//"AbilityCastPoint"					"0.2"
+	//"AbilityCastPoint"					"0.2"
 		//"AbilityChannelTime"					"0.0"
 		//"AbilityCooldown"						"10"
 		//"AbilityManaCost"						"200"
-		"AbilityCastRange"						"2800"
+		"AbilityCastRange"						"1500"
 
 		//"HasScepterUpgrade"					"1"
 
@@ -264,7 +285,7 @@
 		"RequiredLevel"							"1"
 		"LevelsBetweenUpgrades"					"1"
 
-		"AbilityCastAnimation"					"ACT_DOTA_CAST_ABILITY_3_END"
+		//"AbilityCastAnimation"					"ACT_DOTA_CAST_ABILITY_3_END"
 		//"AbilityChannelAnimation"				"ACT_DOTA_CHANNEL_ABILITY_1"
 		
 		//"AbilitySharedCooldown"				"tome"
@@ -309,7 +330,7 @@
 
 		//"AbilityCastPoint"						"0.3"
 		//"AbilityChannelTime"						"0.0"
-		"AbilityCooldown"						"30"
+		"AbilityCooldown"						"45"
 		"AbilityManaCost"						"0"
 		//"AbilityCastRange"					  	"600"
 
@@ -341,7 +362,7 @@
 			"03"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"purge_tick"					"0.5"
+				"purge_tick"					"1"
 			}
 			"04"
 			{
@@ -351,7 +372,7 @@
 			"05"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"purge_damage"					"300"
+				"purge_damage"					"100"
 			}
 			"06"
 			{
@@ -676,7 +697,7 @@
 			"07"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"shield_damage"					"15"
+				"shield_damage"					"9"
 			}
 			"08"
 			{
@@ -957,18 +978,9 @@
 			"02"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"counter_duration"				"2.5"
+				"bonus_damage"					"150"
 			}
-			"03"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"counter_resist"				"30"
-			}
-			"04"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"bonus_damage"					"300"
-			}
+			
 		}
 	}
 	//=================================================================================================================
@@ -1037,7 +1049,7 @@
 			"05"
 			{
 				"var_type"						"FIELD_FLOAT"
-				"purge_damage"					"300"
+				"purge_damage"					"100"
 			}
 			"06"
 			{

@@ -6,7 +6,7 @@ LinkLuaModifier("modifier_vision_provider", "abilities/general/modifiers/modifie
 
 function modifier_murderer_mist_invis:DeclareFunctions()
 	return { --MODIFIER_EVENT_ON_ATTACK_LANDED,
-	MODIFIER_EVENT_ON_ABILITY_USED,
+	--MODIFIER_EVENT_ON_ABILITY_USED,
 	MODIFIER_PROPERTY_STATS_AGILITY_BONUS  }
 end
 
@@ -81,7 +81,7 @@ if IsServer() then
 		return self.State
 	end
 
-	function modifier_murderer_mist_invis:OnAttackLanded(args)
+	--[[function modifier_murderer_mist_invis:OnAttackLanded(args)
 		if args.attacker ~= self:GetParent() then return end
 
 		args.attacker:AddNewModifier(args.attacker, self:GetAbility(),"modifier_murderer_mist_invis_cd", {Duration = 1})
@@ -110,7 +110,7 @@ if IsServer() then
 		--	end
 		--	args.target:EmitSound("jtr_backstab")
 		-- end
-	end
+	end]]
 end
 
 function modifier_murderer_mist_invis:IsHidden()

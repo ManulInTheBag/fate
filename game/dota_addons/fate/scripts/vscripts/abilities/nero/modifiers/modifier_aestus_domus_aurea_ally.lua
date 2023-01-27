@@ -51,7 +51,7 @@ if IsServer() then
 end
 
 function modifier_aestus_domus_aurea_ally:DeclareFunctions()
-	return { MODIFIER_EVENT_ON_UNIT_MOVED }
+	return --{ MODIFIER_EVENT_ON_UNIT_MOVED }
 	--,
 	--		 MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
 	--		 MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,

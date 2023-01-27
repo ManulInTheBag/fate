@@ -104,23 +104,24 @@ modifier_khsn_mde_active = modifier_khsn_mde_active or class({})
 end]]
 
 function modifier_khsn_mde_active:OnCreated()
-	self.parent = self:GetParent()
-	if self.parent.PresenceAcquired then
-		self:StartIntervalThink(1)
+	if IsServer() then
+		self.parent = self:GetParent()
+		
+		self:StartIntervalThink(0.25)
 		self:OnIntervalThink()
+
+		self.fRegenHP = self:GetAbility():GetSpecialValueFor("hp_regen")
+		self.fArmor   = self:GetAbility():GetSpecialValueFor("bonus_armor")
+
+		--[[if self.parent:HasModifier("modifier_khsn_bk_improved") then
+			self.fRegenHP = self.fRegenHP + 40
+			self.fArmor   = self.fArmor + 25
+		end]]
+
+		--[[if self.parent:GetAbilityByIndex(1):GetName() ~= "khsn_mde_end" then
+			self.parent:SwapAbilities("khsn_mde", "khsn_mde_end", false, true)
+		end]]
 	end
-
-	self.fRegenHP = self:GetAbility():GetSpecialValueFor("hp_regen")
-	self.fArmor   = self:GetAbility():GetSpecialValueFor("bonus_armor")
-
-	if self.parent:HasModifier("modifier_khsn_bk_improved") then
-		self.fRegenHP = self.fRegenHP + 40
-		self.fArmor   = self.fArmor + 25
-	end
-
-	--[[if self.parent:GetAbilityByIndex(1):GetName() ~= "khsn_mde_end" then
-		self.parent:SwapAbilities("khsn_mde", "khsn_mde_end", false, true)
-	end]]
 end
 function modifier_khsn_mde_active:OnRefresh(tTable)
 	self:OnCreated(tTable)
@@ -132,18 +133,21 @@ function modifier_khsn_mde_active:OnDestroy()
 end
 
 function modifier_khsn_mde_active:OnIntervalThink()
-	local enemies2 = FindUnitsInRadius(  self.parent:GetTeamNumber(),
-                                            self.parent:GetAbsOrigin(), 
-                                            nil, 
-                                            self:GetAbility():GetSpecialValueFor("attr_radius"), 
-                                            DOTA_UNIT_TARGET_TEAM_ENEMY, 
-                                            DOTA_UNIT_TARGET_ALL, 
-                                            0, 
-                                            FIND_ANY_ORDER, 
-                                            false)
-	for _,enemy in ipairs(enemies2) do
-		DoDamage(self.parent, enemy, self:GetAbility():GetSpecialValueFor("attr_dps"), DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
-    end
+	if IsServer() then
+		local enemies2 = FindUnitsInRadius(  self.parent:GetTeamNumber(),
+	                                            self.parent:GetAbsOrigin(), 
+	                                            nil, 
+	                                            self:GetAbility():GetSpecialValueFor("attr_radius"), 
+	                                            DOTA_UNIT_TARGET_TEAM_ENEMY, 
+	                                            DOTA_UNIT_TARGET_HERO, 
+	                                            0, 
+	                                            FIND_ANY_ORDER, 
+	                                            false)
+		for _,enemy in ipairs(enemies2) do
+			DoDamage(self.parent, enemy, self:GetAbility():GetSpecialValueFor("dps")/4, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
+			self.parent:Heal(self:GetAbility():GetSpecialValueFor("dps")/4, self.parent)
+	    end
+	end
 end
 
 function modifier_khsn_mde_active:IsHidden() return false end
@@ -152,7 +156,6 @@ function modifier_khsn_mde_active:DeclareFunctions()
 	return {
 		MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
 		--MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL,
-		MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
 		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
 		--MODIFIER_PROPERTY_OVERRIDE_ANIMATION
 	}
@@ -161,10 +164,6 @@ end
 --[[function modifier_khsn_mde_active:GetOverrideAnimation()
     return ACT_DOTA_CAST_ABILITY_2
 end]]
-
-function modifier_khsn_mde_active:GetModifierConstantHealthRegen()
-	return self.fRegenHP
-end
 
 function modifier_khsn_mde_active:GetModifierPhysicalArmorBonus()
 	return self.fArmor
