@@ -144,7 +144,7 @@ function modifier_khsn_mde_active:OnIntervalThink()
 	                                            FIND_ANY_ORDER, 
 	                                            false)
 		for _,enemy in ipairs(enemies2) do
-			DoDamage(self.parent, enemy, self:GetAbility():GetSpecialValueFor("dps")/4, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
+			DoDamage(self.parent, enemy, self:GetAbility():GetSpecialValueFor("dps")/4, self.parent.PresenceAcquired and DAMAGE_TYPE_PURE or DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
 			self.parent:Heal(self:GetAbility():GetSpecialValueFor("dps")/4, self.parent)
 	    end
 	end

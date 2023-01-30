@@ -412,6 +412,7 @@ donotlevel = {
     "khsn_raze3",
 
     "leonidas_berserk",
+    "altera_adaptive",
 }
 
 CannotReset = {
@@ -542,6 +543,11 @@ CannotReset = {
     "leonidas_berserk",
     "leonidas_bc",
     "leonidas_enomotia_combo",
+
+    "altera_adaptive",
+    "altera_form",
+    "altera_teardrop",
+    "khsn_blink",
 }
 
 femaleservant = {
@@ -562,7 +568,8 @@ femaleservant = {
     "npc_dota_hero_ursa",
     "npc_dota_hero_gyrocopter",
     "npc_dota_hero_razor",
-    "npc_dota_hero_tiny"
+    "npc_dota_hero_tiny",
+    "npc_dota_hero_faceless_void"
 }
 
 tCannotDetect = {
@@ -628,7 +635,8 @@ tDivineHeroes = {
     "npc_dota_hero_skywrath_mage",
     "npc_dota_hero_chen",
     "npc_dota_hero_enchantress",
-    "npc_dota_hero_beastmaster"
+    "npc_dota_hero_beastmaster",
+    "npc_dota_hero_faceless_void"
 }
 
 tKnightClass = {
@@ -650,6 +658,7 @@ tKnightClass = {
     "npc_dota_hero_magnataur",
     "npc_dota_hero_tiny",
     "npc_dota_hero_venomancer",
+    "npc_dota_hero_faceless_void",
 }
 
 tHorsemanClass = {
@@ -2284,6 +2293,7 @@ local heroNames = {
     ["npc_dota_hero_gyrocopter"] = "Oda Nobunaga",
     ["npc_dota_hero_tiny"] = "Arcueid",
     ["npc_dota_hero_venomancer"] = "Leonidas I",
+    ["npc_dota_hero_faceless_void"] = "Altera",
 }
 
 
@@ -2341,6 +2351,7 @@ local heroCombos = {
     ["npc_dota_hero_gyrocopter"] = "nobu_combo",
     ["npc_dota_hero_tiny"] = "arcueid_melty",
     ["npc_dota_hero_venomancer"] = "leonidas_enomotia_combo",
+    ["npc_dota_hero_faceless_void"] = "altera_teardrop",
 }
 
 function GetHeroCombo(hero)
@@ -2547,6 +2558,18 @@ end
 function UpdateAbilityLayout(hHero, tAbilities)
     local tAbilities = tAbilities or hHero.AbilityLayout
     for i = 1, hHero:GetAbilityCount() do
+        if hHero:GetAbilityByIndex(i - 1) == nil then
+        elseif i > #tAbilities then
+            hHero:GetAbilityByIndex(i - 1):SetHidden(true)
+        elseif hHero:GetAbilityByIndex(i - 1):GetAbilityName() ~= tAbilities[i] then
+            hHero:SwapAbilities(hHero:GetAbilityByIndex(i - 1):GetAbilityName(), tAbilities[i], true, true)
+        end
+    end
+end
+
+function UpdateAbilityLayoutNoUlt(hHero, tAbilities)
+    local tAbilities = tAbilities or hHero.AbilityLayout
+    for i = 1, 5 do
         if hHero:GetAbilityByIndex(i - 1) == nil then
         elseif i > #tAbilities then
             hHero:GetAbilityByIndex(i - 1):SetHidden(true)

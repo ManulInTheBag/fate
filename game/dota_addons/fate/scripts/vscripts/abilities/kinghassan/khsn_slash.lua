@@ -102,10 +102,6 @@ function khsn_slash:OnProjectileHit_ExtraData(hTarget, vLocation, table)
 		DoDamage(caster, target, bonus_agi , DAMAGE_TYPE_PURE, 0, ability, false) 			
 	end]]
 
-	if caster.PresenceAcquired and (target:GetHealth()/target:GetMaxHealth()) >= 0.9 then
-		damage = damage*1.3
-	end
-
 	DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
 	target:AddNewModifier(caster, ability, "modifier_stunned", {duration = stun_duration})
 end

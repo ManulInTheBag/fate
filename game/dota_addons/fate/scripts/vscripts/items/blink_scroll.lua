@@ -19,6 +19,7 @@ local locks = {
     "modifier_nero_tres_new",
     "modifier_nero_performance",
     "modifier_arcueid_melty",
+    "modifier_altera_dash",
 }
 
 function item_blink_scroll:OnSpellStart()

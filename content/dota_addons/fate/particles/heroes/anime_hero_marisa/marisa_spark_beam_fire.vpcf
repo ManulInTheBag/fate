@@ -1,0 +1,226 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vrfunknown:version{73c3d623-a141-4df2-b548-41dd786e6300} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_bShouldHitboxesFallbackToRenderBounds = false
+	m_nMaxParticles = 32
+	m_flConstantRadius = 1.000000
+	m_ConstantColor = 
+	[
+		255,
+		254,
+		252,
+		255,
+	]
+	m_Renderers = 
+	[
+		
+		{
+			_class = "C_OP_RenderRopes"
+			m_flOverbrightFactor = 8.000000
+			m_flAddSelfAmount = 2.000000
+			m_bSaturateColorPreAlphaBlend = false
+			m_flRadiusScale = 0.500000
+			m_flTextureVWorldSize = 999.999939
+			m_flTextureVScrollRate = -699.999939
+			m_nMaxTesselation = 5
+			m_nMinTesselation = 3
+			m_vecTexturesInput = 
+			[
+				
+				{
+					m_hTexture = resource:"materials/particle/particle_glow_rainbow.vtex"
+				},
+			]
+			m_nOutputBlendMode = "PARTICLE_OUTPUT_BLEND_MODE_ADD"
+		},
+	]
+	m_Operators = 
+	[
+		
+		{
+			_class = "C_OP_BasicMovement"
+			m_fDrag = 0.050000
+		},
+		
+		{
+			_class = "C_OP_Decay"
+			m_nOpEndCapState = "PARTICLE_ENDCAP_ENDCAP_ON"
+		},
+		
+		{
+			_class = "C_OP_RampScalarLinearSimple"
+			m_nOpEndCapState = "PARTICLE_ENDCAP_ENDCAP_ON"
+			m_nField = 16
+			m_Rate = -5.000000
+			m_flEndTime = 1000000000.000000
+		},
+		
+		{
+			_class = "C_OP_OscillateScalar"
+			m_nField = 3
+			m_RateMin = 50.000000
+			m_RateMax = 100.000000
+			m_FrequencyMin = 0.500000
+			m_flEndTime_min = 9999999.000000
+			m_flEndTime_max = 9999999.000000
+		},
+		
+		{
+			_class = "C_OP_MaintainSequentialPath"
+			m_flNumToAssign = 10.000000
+			m_PathParams = 
+			{
+				m_nEndControlPointNumber = 3
+			}
+		},
+		
+		{
+			_class = "C_OP_OscillateScalar"
+			m_nField = 16
+			m_RateMin = 1.000000
+			m_RateMax = 4.000000
+			m_FrequencyMax = 2.000000
+			m_flEndTime_min = 9999999.000000
+			m_flEndTime_max = 9999999.000000
+		},
+		
+		{
+			_class = "C_OP_DistanceToCP"
+			m_flInputMin = 50.000000
+			m_flInputMax = 200.000000
+			m_nFieldOutput = 7
+		},
+		
+		{
+			_class = "C_OP_DistanceToCP"
+			m_flInputMin = 50.000000
+			m_flInputMax = 100.000000
+			m_nStartCP = 1
+			m_nSetMethod = "PARTICLE_SET_SCALE_CURRENT_VALUE"
+		},
+		
+		{
+			_class = "C_OP_RemapVisibilityScalar"
+			m_flInputMax = 0.001000
+			m_nFieldOutput = 16
+			m_flRadiusScale = 0.010000
+		},
+	]
+	m_Initializers = 
+	[
+		
+		{
+			_class = "C_INIT_InitFloat"
+			m_InputValue = 
+			{
+				m_nType = "PF_TYPE_RANDOM_UNIFORM"
+				m_flRandomMin = 100.000000
+				m_flRandomMax = 200.000000
+				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+			}
+		},
+		
+		{
+			_class = "C_INIT_InitFloat"
+			m_InputValue = 
+			{
+				m_nType = "PF_TYPE_RANDOM_UNIFORM"
+				m_flRandomMin = 5.000000
+				m_flRandomMax = 20.000000
+				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+				m_bHasRandomSignFlip = true
+			}
+			m_nOutputField = 5
+		},
+		
+		{
+			_class = "C_INIT_RandomColor"
+			m_ColorMax = 
+			[
+				201,
+				114,
+				255,
+				255,
+			]
+			m_ColorMin = 
+			[
+				255,
+				143,
+				78,
+				255,
+			]
+		},
+		
+		{
+			_class = "C_INIT_InitFloat"
+			m_InputValue = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 1.000000
+			}
+			m_nOutputField = 1
+		},
+		
+		{
+			_class = "C_INIT_CreateSequentialPath"
+			m_flNumToAssign = 10.000000
+			m_PathParams = 
+			{
+				m_nEndControlPointNumber = 3
+			}
+		},
+		
+		{
+			_class = "C_INIT_RandomYawFlip"
+		},
+		
+		{
+			_class = "C_INIT_RemapParticleCountToScalar"
+			m_flOutputMin = 2.000000
+			m_flOutputMax = 0.750000
+			m_bDisableOperator = true
+			m_nSetMethod = "PARTICLE_SET_SCALE_INITIAL_VALUE"
+		},
+	]
+	m_Emitters = 
+	[
+		
+		{
+			_class = "C_OP_InstantaneousEmitter"
+			m_nParticlesToEmit = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 20.000000
+			}
+		},
+	]
+	m_nBehaviorVersion = 4
+	m_nFirstMultipleOverride_BackwardCompat = 5
+	m_controlPointConfigurations = 
+	[
+		
+		{
+			m_name = "preview"
+			m_drivers = 
+			[
+				
+				{
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+				
+				{
+					m_iControlPoint = 1
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+				
+				{
+					m_iControlPoint = 3
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+			]
+		},
+	]
+}
