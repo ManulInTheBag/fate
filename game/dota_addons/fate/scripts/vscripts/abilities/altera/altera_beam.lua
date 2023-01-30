@@ -162,7 +162,7 @@ function modifier_altera_beam:Impact(target, mult)
         else
         	local damage = self.damage
             if self.form == "agi" then
-            	damage = damage*(2 - target:GetHealth()/target:GetMaxHealth())
+            	damage = damage*(1 + (1 - target:GetHealth()/target:GetMaxHealth())*0.75)
 			end
             if self.form == "str" then
                	target:AddNewModifier(self.caster, self.ability, "modifier_altera_beam_slow", {Duration = self.ability:GetSpecialValueFor("str_slow_duration")})
@@ -171,8 +171,8 @@ function modifier_altera_beam:Impact(target, mult)
 				end
 			end
 			if self.form == "agi" and self.parent.ErosionAcquired then
-				DoDamage(self.caster, target, damage/2*mult, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
-				DoDamage(self.caster, target, damage/2*mult, DAMAGE_TYPE_PURE, 0, self.ability, false)
+				DoDamage(self.caster, target, damage*3/4*mult, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
+				DoDamage(self.caster, target, damage/4*mult, DAMAGE_TYPE_PURE, 0, self.ability, false)
 			else
 				DoDamage(self.caster, target, damage*mult, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
 			end

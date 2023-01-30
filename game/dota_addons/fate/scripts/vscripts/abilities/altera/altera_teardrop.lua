@@ -9,7 +9,7 @@ altera_teardrop = class({})
 function altera_teardrop:OnSpellStart()
 	local caster = self:GetCaster()
 
-	caster:AddNewModifier(caster, self, "modifier_altera_teardrop_cooldown", {duration = self:GetCooldown(1)})
+	caster:AddNewModifier(caster, self, "modifier_altera_teardrop_cooldown", {duration = self:GetCooldown(1)/2})
 
 	local masterCombo = caster.MasterUnit2:FindAbilityByName(self:GetAbilityName())
     masterCombo:EndCooldown()
@@ -76,6 +76,13 @@ end
 function altera_teardrop_release:OnSpellStart()
 	local caster = self:GetCaster()
 	local target = self:GetCursorPosition()
+
+	local abil = caster:FindAbilityByName("altera_teardrop")
+	caster:AddNewModifier(caster, self, "modifier_altera_teardrop_cooldown", {duration = abil:GetCooldown(1)})
+
+	local masterCombo = caster.MasterUnit2:FindAbilityByName(abil:GetAbilityName())
+    masterCombo:EndCooldown()
+    masterCombo:StartCooldown(abil:GetCooldown(1))
 
 	local impact_damage = self:GetSpecialValueFor("impact_damage")
 	local beam_damage = self:GetSpecialValueFor("beam_damage")
@@ -185,7 +192,7 @@ end
 modifier_altera_teardrop_cooldown = class({})
 
 function modifier_altera_teardrop_cooldown:GetTexture()
-	return "custom/jeanne_alter/jeanne_combo2"
+	return "custom/altera/altera_teardrop"
 end
 
 function modifier_altera_teardrop_cooldown:IsHidden()
