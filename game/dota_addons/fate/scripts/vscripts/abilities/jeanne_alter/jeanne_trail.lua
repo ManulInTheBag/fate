@@ -315,7 +315,7 @@ end
 modifier_jeanne_trail_debuff = class({})
 
 function modifier_jeanne_trail_debuff:CheckState()
-    return { [MODIFIER_STATE_SILENCED] = true,
+    return { [MODIFIER_STATE_SILENCED] = false,
              [MODIFIER_STATE_ROOTED] = true }
 end
 
