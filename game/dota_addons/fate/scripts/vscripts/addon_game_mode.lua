@@ -1861,7 +1861,7 @@ function FateGameMode:OnGameRulesStateChange(keys)
     end
     if newState == DOTA_GAMERULES_STATE_WAIT_FOR_PLAYERS_TO_LOAD then
         self.bSeenWaitForPlayers = true
-    elseif newState == DOTA_GAMERULES_STATE_INIT then 
+    elseif newState == DOTA_GAMERULES_STATE_INIT then
     elseif newState == DOTA_GAMERULES_STATE_HERO_SELECTION then
     --SendToConsole("r_farz 5000")
     --Convars:SetInt("r_farz", 3300)
@@ -2198,7 +2198,6 @@ function FateGameMode:OnHeroInGame(hero)
     -- Set music off
     SendToServerConsole("dota_music_battle_enable 0")
     SendToConsole("dota_music_battle_enable 0")  
- 
 end
 
 function FateGameMode:PlayTeamPickSound(hero)
@@ -2796,10 +2795,10 @@ function FateGameMode:OnPlayerLevelUp(keys)
     if level == 24 then
         Notifications:Top(player, {text= "<font color='#58ACFA'>" .. FindName(hero:GetName()) .. "</font> has ascended to max level! Your Master's max health has been increased by 2.", duration=8, style={color="rgb(255,140,0)", ["font-size"]="35px"}, continue=true})
         Notifications:Top(player, {text= "Exalted by your ascension, Holy Grail's Blessing from now on will award 3 more mana.", duration=8, style={color="rgb(255,140,0)", ["font-size"]="35px"}, continue=true})
-        hero.MasterUnit:SetMana(hero.MasterUnit:GetMana() + 10)
-        hero.MasterUnit2:SetMana(hero.MasterUnit2:GetMana() + 10)
+        hero.MasterUnit:SetMana(hero.MasterUnit:GetMana() + 3)
+        hero.MasterUnit2:SetMana(hero.MasterUnit2:GetMana() + 3)
         hero.MasterUnit:SetMaxHealth(hero.MasterUnit:GetMaxHealth()+2)
-        hero.MasterUnit2:SetMaxHealth(hero.MasterUnit:GetMaxHealth())
+        hero.MasterUnit2:SetMaxHealth(hero.MasterUnit:GetMaxHealth() + 2)
     end
     MinimapEvent( hero:GetTeamNumber(), hero, hero.MasterUnit:GetAbsOrigin().x, hero.MasterUnit2:GetAbsOrigin().y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 2 )
 end
@@ -3766,6 +3765,10 @@ function FateGameMode:InitializeRound()
             --print("granted more mana")
         end
 
+        if hero.Level24Acquired then
+            hero.MasterUnit:SetMana(hero.MasterUnit:GetMana() + 2)
+        end
+
         --SendChatToPanorama("IRL5"..plyID)
 
         -- Grant gold
@@ -3787,7 +3790,7 @@ function FateGameMode:InitializeRound()
 
             hero:AddExperience(self.nCurrentRound * 50, false, false)
             if(hero.AvariceCount ~= nil) then
-                hero:AddExperience(self.nCurrentRound * 50 * hero.AvariceCount, false, false)
+                --hero:AddExperience(self.nCurrentRound * 50 * hero.AvariceCount, false, false)
             end
         end
         --SendChatToPanorama("IRL6"..plyID)

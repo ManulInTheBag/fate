@@ -8,6 +8,23 @@ function cu_chulain_rune_of_disengage:GetManaCost(iLevel)
 	end
 end
 
+function cu_chulain_rune_of_disengage:CastFilterResult()
+    local hCaster = self:GetCaster()
+    vLocation = true
+
+    if vLocation
+        and hCaster and not hCaster:IsNull() then
+        if not (IsServer() and IsLocked(hCaster)) then
+            return UF_SUCCESS
+        end
+    end
+    return UF_FAIL_CUSTOM
+end
+
+function cu_chulain_rune_of_disengage:GetCustomCastError()
+    return "#Wrong_Target_Location"
+end
+
 function cu_chulain_rune_of_disengage:GetCooldown(iLevel)
 	local cooldown = self:GetSpecialValueFor("cooldown")
 

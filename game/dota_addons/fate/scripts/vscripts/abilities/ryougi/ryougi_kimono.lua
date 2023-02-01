@@ -93,6 +93,17 @@ function ryougi_kimono:OnSpellStart()
 	end
 end
 
+function ryougi_kimono:GetBehavior()
+	local caster = self:GetCaster()
+
+	if self:CheckSequence() == 2 then
+		return DOTA_ABILITY_BEHAVIOR_NO_TARGET + DOTA_ABILITY_BEHAVIOR_HIDDEN
+	else
+		return DOTA_ABILITY_BEHAVIOR_POINT + DOTA_ABILITY_BEHAVIOR_HIDDEN + DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES
+	end
+	return DOTA_ABILITY_BEHAVIOR_POINT + DOTA_ABILITY_BEHAVIOR_HIDDEN
+end
+
 function ryougi_kimono:Kimono1()
 	local caster = self:GetCaster()
 	local origin = caster:GetAbsOrigin()

@@ -199,7 +199,6 @@ d_seal_locked = {
 }
 
 locks = {
-    --"modifier_purge",
     "modifier_sex_scroll_root",
     "locked",
     "dragged",
@@ -208,15 +207,18 @@ locks = {
     "modifier_aestus_domus_aurea_ally",
     "modifier_aestus_domus_aurea_nero",
     "modifier_rho_aias",
-    "modifier_binding_chains",
-    "modifier_nero_tres_new",
-    "modifier_nero_performance",
-    "modifier_arcueid_melty",
+    "modifier_story_for_someones_sake",
+    "jump_pause_nosilence",
+    "modifier_gordius_wheel_data",
     --"modifier_whitechapel_murderer",
     --"modifier_whitechapel_murderer_ally",
     --"modifier_whitechapel_murderer_enemy",
+    "modifier_jeanne_health_lock",
+    "modifier_nero_tres_new",
+    "modifier_nero_performance",
+    "modifier_arcueid_melty",
+    "modifier_altera_dash",
 }
-
 
 goesthruB = {
     "saber_avalon",
@@ -1424,6 +1426,9 @@ end
 -- loc 2 = vector
 function IsInSameRealm(loc1, loc2)
     -- above -2000 normal map
+    loc1 = loc1 or Vector(0, 0, 0)
+    loc2 = loc2 or Vector(0, 0, 0)
+
     if loc1.y > -2000 and loc2.y > -2000 then
       -- both are in normal map
       return true

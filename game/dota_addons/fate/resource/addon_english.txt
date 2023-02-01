@@ -2698,7 +2698,7 @@
 		"DOTA_Tooltip_Ability_medusa_gorgon_attribute_speed"		"Speed:"
 
 		"DOTA_Tooltip_Ability_medusa_riding_attribute"		"Attribute: Riding"
-		"DOTA_Tooltip_Ability_medusa_riding_attribute_Description"		"Increases Bellerophon's damage by %bonus_belle_damage% plus %belle_damage% per point of agility.\nIncreases Bellerophon 2's by %bonus_belle2_damage% plus %belle_2_damage% per point of agility. \nAlso increases Bellerophon's range by %attribute_range%"
+		"DOTA_Tooltip_Ability_medusa_riding_attribute_Description"		"Increases Bellerophon's damage by %bonus_belle_damage% plus %belle_damage% per point of strength.\nIncreases Bellerophon 2's by %bonus_belle2_damage% plus %belle_2_damage% per point of strength. \nAlso increases Bellerophon's range by %attribute_range%"
 
 		//=================================================================================================================
 		//	Archer(5th)
@@ -3093,13 +3093,12 @@
 		"DOTA_Tooltip_Ability_okita_weak_constitution_summer_Description"	"If you see this, Okita is successfully cured from tuberculosis!\nI wonder if she can do something mad because of her happiness though..."
 
 		"DOTA_Tooltip_Ability_okita_jet"	"Summer Madness: Jet Sandan-Zuki"
-		"DOTA_Tooltip_Ability_okita_jet_Description"	"Okita uses an overhelmingly mad Noble Phantasm, that she invented during her summer vacation.\nOkita starts charging her jetpack. If she charged the ability for at least 1 second, after releasing it she will fly towards the targetted location. Maximum flight distance depends on how long did she charge her jetpack. All targets she hits on her way will suffer huge damage in 3 impacts dealt as magical damage after a brief delay.\nEach damage impact breaks Intervention effect afterwards, making it useless to try to escape it somehow.\nKiku Ichimongii attribute buffs this damage.\nOkita is revealed to her enemies for the flight duration and for 3 seconds after it ends.\nCooldown: 90 seconds.\n<font color='#58ACFA'>Good luck, commander.</font>"
+		"DOTA_Tooltip_Ability_okita_jet_Description"	"Okita uses an overhelmingly mad Noble Phantasm, that she invented during her summer vacation.\nOkita starts charging her jetpack. If she charged the ability for at least 1 second, after releasing it she will fly towards the targetted location. Maximum flight distance depends on how long did she charge her jetpack. All targets she hits on her way will suffer huge damage in 3 impacts dealt as pure damage after a brief delay. Damage is equal to Sandanzuki damage.\nKiku Ichimongii attribute buffs this damage.\nOkita is revealed to her enemies for the flight duration and for 3 seconds after it ends.\nCooldown: 90 seconds.\n<font color='#58ACFA'>Good luck, commander.</font>"
 		"DOTA_Tooltip_Ability_okita_jet_dist_min"	"Min distance:"
 		"DOTA_Tooltip_Ability_okita_jet_dist_max"	"Max distance:"
 		"DOTA_Tooltip_Ability_okita_jet_speed"	"Speed:"
 		"DOTA_Tooltip_Ability_okita_jet_max_channel_time"	"Maximum channel time:"
 		"DOTA_Tooltip_Ability_okita_jet_radius"	"Hit radius:"
-		"DOTA_Tooltip_Ability_okita_jet_base_damage"	"Damage per hit:"
 
 		"DOTA_Tooltip_Ability_okita_jet_charge1"	"First Dash"
 		"DOTA_Tooltip_Ability_okita_jet_charge1_Description" 	"Performs first dash."
@@ -3139,16 +3138,15 @@
 		"DOTA_Tooltip_Ability_okita_attribute_mind_eye_Description"	"Due to her past and her instinct Okita can predict some attacks and block 1 targetted spell for a short duration."
 		
 		"DOTA_Tooltip_Ability_okita_attribute_kiku_ichimonji"	"Kiku-Ichimonjii"
-		"DOTA_Tooltip_Ability_okita_attribute_kiku_ichimonji_Description"	"Grants Okita bonus damage for Lightless, Three-Stage Thrust and Jet Sandan-Zuki (1.5 additional impact damage per agi point) and for Zekken (6 bonus beam damage per agi)."
+		"DOTA_Tooltip_Ability_okita_attribute_kiku_ichimonji_Description"	"Grants Okita bonus damage for Lightless, Three-Stage Thrust and Jet Sandan-Zuki (0.75 additional impact damage per agi point) and for Zekken (6 bonus beam damage per agi)."
 
 		"DOTA_Tooltip_Ability_okita_attribute_summer_madness"	"Summer Madness"
-		"DOTA_Tooltip_Ability_okita_attribute_summer_madness_Description"	"Cures Okita from her illness, disabling her Weak Constitution passive.\nEnables second combo: Jet Sandan-Zuki.\n<font color='#58ACFA'>Jet Sandan-Zuki:</font>\nOkita uses an overhelmingly mad Noble Phantasm, that she invented during her summer vacation.\nOkita starts charging her jetpack. If she charged the ability for at least 1 second, after releasing it she will fly towards the targetted location. Maximum flight distance depends on how long did she charge her jetpack. All targets she hits on her way will suffer huge damage in 3 impacts dealt as magical damage after a brief delay.\nEach damage impact breaks Intervention effect afterwards, making it useless to try to escape it somehow.\nKiku Ichimongii attribute buffs this damage.\nOkita is revealed to her enemies for the flight duration and for 3 seconds after it ends.\nCooldown: 90 seconds.\n<font color='#58ACFA'>Good luck, commander.</font>"
+		"DOTA_Tooltip_Ability_okita_attribute_summer_madness_Description"	"Cures Okita from her illness, disabling her Weak Constitution passive.\nEnables second combo: Jet Sandan-Zuki.\n<font color='#58ACFA'>Jet Sandan-Zuki:</font>\nOkita uses an overhelmingly mad Noble Phantasm, that she invented during her summer vacation.\nOkita starts charging her jetpack. If she charged the ability for at least 1 second, after releasing it she will fly towards the targetted location. Maximum flight distance depends on how long did she charge her jetpack. All targets she hits on her way will suffer huge damage in 3 impacts dealt as pure damage after a brief delay. Damage is equal to Sandanzuki damage.\nKiku Ichimongii attribute buffs this damage.\nOkita is revealed to her enemies for the flight duration and for 3 seconds after it ends.\nCooldown: 90 seconds.\n<font color='#58ACFA'>Good luck, commander.</font>"
 		"DOTA_Tooltip_Ability_okita_attribute_summer_madness_dist_min"	"Min distance:"
 		"DOTA_Tooltip_Ability_okita_attribute_summer_madness_dist_max"	"Max distance:"
 		"DOTA_Tooltip_Ability_okita_attribute_summer_madness_speed"	"Speed:"
 		"DOTA_Tooltip_Ability_okita_attribute_summer_madness_max_channel_time"	"Maximum channel time:"
 		"DOTA_Tooltip_Ability_okita_attribute_summer_madness_radius"		"Hit radius:"
-		"DOTA_Tooltip_Ability_okita_attribute_summer_madness_base_damage"	"Each hit damage:"
 
 		"DOTA_Tooltip_Ability_okita_kenjitsu"	"Master of Tennen Rishin-Ryū Kenjitsu"
 		"DOTA_Tooltip_Ability_okita_kenjitsu_Description"	"Okita has mastered her Tennen Rishin-ryū perfectly. \nIncreases maximum Tennen Rishin-ryū stack count to 20. \nWhile Tennen Rishin-ryū is active, Shukuchi will grant you 100% critical strikes for duration."
@@ -4760,7 +4758,7 @@
 		"DOTA_Tooltip_Ability_khsn_flame_attribute_turn_rate"	"%Turn rate slow:"
 
 		"DOTA_Tooltip_Ability_khsn_azrael_attribute"	"Attribute - Valley of the Shadow of Death"
-		"DOTA_Tooltip_Ability_khsn_azrael_attribute_Description"	"Azrael and Combo - The Angel That Announces Death, Azrael gain bonus damage and bonus Death's Door damage multiplier.\nIf Azrael or it's combo version drops target's health under 22%%, the target will be killed instantly.\nIf target is killed by Azrael or dies before it goes off, it is refreshed and mana is restored.\nDeath's Door damage part deals pure damage instead of magic.\nDeath's Door slows it's target by additional 10%."
+		"DOTA_Tooltip_Ability_khsn_azrael_attribute_Description"	"Azrael and Combo - The Angel That Announces Death, Azrael gain bonus damage and bonus Death's Door damage multiplier.\nIf Azrael or it's combo version drops target's health under 22%%, the target will be killed instantly.\nDeath's Door damage part deals pure damage instead of magic.\nDeath's Door slows it's target by additional 10%."
 		"DOTA_Tooltip_Ability_khsn_azrael_attribute_dmg"	"Azrael bonus damage:"
 		"DOTA_Tooltip_Ability_khsn_azrael_attribute_dmg_percent"	"Azrael bonus multiplier:"
 		"DOTA_Tooltip_Ability_khsn_azrael_attribute_combo_dmg"	"Combo bonus damage:"
@@ -5779,7 +5777,7 @@
 		"DOTA_Tooltip_Ability_altera_form_close_Description"       "Close the spellbook."
 
 		"DOTA_Tooltip_Ability_altera_beam"       "Photon Ray"
-		"DOTA_Tooltip_Ability_altera_beam_Description"       "Altera unleashes the power of Photon Ray, activating it as a laser beam and dealing %damage% magical damage over %duration% seconds.\n<font color='#FFA500'>Focal Effect</font>: Photon Ray is 1.5 times more effective at it's end.\n<font color='#FF0000'>Strength</font> stance: slows enemies by %str_slow%%  for %str_slow_duration% seconds.\n<font color='#00FF00'>Agility</font> stance: deals up to 100%% more damage based on enemies' missing health.\n<font color='#0000FF'>Intellect</font> stance: increases range by %int_bonus_distance%. heals allies struck by Photon Ray for the half of the damage value.\nUpgrades with Civilization Erosion attribute:\n<font color='#FF0000'>Strength</font> stance: deals %str_damage_mult% damage per point and locks enemies for %str_lock_duration% seconds.\n<font color='#00FF00'>Agility</font> stance: deals %agi_damage_mult% damage per point. Half of the damage is dealt as pure damage.\n<font color='#0000FF'>Intellect</font> stance: deals %int_damage_mult% damage per point. Reduces cooldowns of allies' active abilities by maximum %int_cdr% seconds."
+		"DOTA_Tooltip_Ability_altera_beam_Description"       "Altera unleashes the power of Photon Ray, activating it as a laser beam and dealing %damage% magical damage over %duration% seconds.\n<font color='#FFA500'>Focal Effect</font>: Photon Ray is 1.5 times more effective at it's end.\n<font color='#FF0000'>Strength</font> stance: slows enemies by %str_slow%%  for %str_slow_duration% seconds.\n<font color='#00FF00'>Agility</font> stance: deals up to 75%% more damage based on enemies' missing health.\n<font color='#0000FF'>Intellect</font> stance: increases range by %int_bonus_distance%. heals allies struck by Photon Ray for the half of the damage value.\nUpgrades with Civilization Erosion attribute:\n<font color='#FF0000'>Strength</font> stance: deals %str_damage_mult% damage per point and locks enemies for %str_lock_duration% seconds.\n<font color='#00FF00'>Agility</font> stance: deals %agi_damage_mult% damage per point. 25%% of the damage is dealt as pure damage.\n<font color='#0000FF'>Intellect</font> stance: deals %int_damage_mult% damage per point. Reduces cooldowns of allies' active abilities by maximum %int_cdr% seconds."
 
 		"DOTA_Tooltip_Ability_altera_teardrop"       "Combo - Teardrop Photon Ray"
 		"DOTA_Tooltip_Ability_altera_teardrop_Description"       "<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : Q-R in 4 seconds, then R in 10 seconds</font>\nAltera invokes an orbital strike towards the target location.\nFirst use: activates the combo. For the next 10 seconds Combo - Teardrop Photon Ray: Release can be used to choose the strike target.\nSecond use: After a 1 second delay, system starts aiming at the target location. Aim marker is visible for everyone. After 2.5 seconds of aim, laser beam strikes, dealing enormous magical damage."
@@ -6755,7 +6753,7 @@
 		"DOTA_Tooltip_ability_ryougi_pure_knowledge_attribute_Description"		"Activating Mystic Eyes of Death Perception grants Shiki true sight in small range and additional vision radius."
 
 		"DOTA_Tooltip_ability_ryougi_kiyohime_passing_attribute"		"Attribute: Kiyohime Passing"
-		"DOTA_Tooltip_ability_ryougi_kiyohime_passing_attribute_Description"	"Double Belfry - Row of Beads now allows E-E-E-R or E-E-R-E casts.\nUsing Culled Long-Sleeved Kimono E-E reduces it's cooldown to 2 seconds."
+		"DOTA_Tooltip_ability_ryougi_kiyohime_passing_attribute_Description"	"Double Belfry - Row of Beads now allows E-E-E-R or E-E-R-E casts.\nUsing Culled Long-Sleeved Kimono E-E reduces it's cooldown to 2 seconds.\nKnife Fan hard cleanses Ryougi on use (not usable while stunned though)."
 
 		"DOTA_Tooltip_ability_ryougi_black_moon_attribute"		"Attribute: Black Moon Kite"
 		"DOTA_Tooltip_ability_ryougi_black_moon_attribute_Description"		"Hidden Daggers recieve additional effects: slow (ying) and silence (yang).\nAvidya Moon and Glass Moon can be unit-targetted and if Shiki is close enought to the target at the start of the leap, she will follow them whenever they go."
@@ -6837,7 +6835,7 @@
 		"DOTA_Tooltip_ability_arcueid_impulses_agility_multiplier"		"Attribute attack speed agility multiplier:"
 
 		"DOTA_Tooltip_ability_arcueid_you"						"You're in the way!"
-		"DOTA_Tooltip_ability_arcueid_you_Description"			"Arcueid starts rampaging forward, striking everyone in 350 radius around her 4 times, stunning them and dealing damage. Fifth hit deals more damage, has 450 radius and knocks enemies back.\nIf target collides with a wall, it will take additional damage and be stunned for longer.\n\n<font color='#58ACFA'>Autocast</font>: first hits also have knockback effect."
+		"DOTA_Tooltip_ability_arcueid_you_Description"			"Arcueid starts rampaging forward, striking everyone in 350 radius around her 4 times. Fifth hit deals more damage, has 450 radius and knocks enemies back.\nIf target collides with a wall, it will take additional damage and be stunned for longer.\n\n<font color='#58ACFA'>Autocast</font>: first hits also have knockback effect."
 		"DOTA_Tooltip_ability_arcueid_you_damage"			"Strike damage:"
 		"DOTA_Tooltip_ability_arcueid_you_damage_last"		"Last hit damage:"
 		"DOTA_Tooltip_ability_arcueid_you_collide_damage"	"Collide damage:"

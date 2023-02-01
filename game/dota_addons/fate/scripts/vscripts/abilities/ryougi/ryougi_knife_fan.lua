@@ -21,6 +21,10 @@ function ryougi_knife_fan:OnSpellStart()
     local init_angle = QAngle(0, caster:GetLocalAngles().y, 0)
     caster:SetAbsAngles(0, init_angle.y, 0)
 
+    if caster.KiyohimePassingAcquired then
+      HardCleanse(caster)
+    end
+
     for i = 0, 5 do
       local curr_angle = QAngle(0, calc_angle.y + 20 - i*10, 0)
       caster:SetAbsAngles(0, curr_angle.y, 0)

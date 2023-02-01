@@ -182,7 +182,7 @@ function RegisterAllMasterUnits(data) {
 (function()
 {
    // $("#FateConfigBoard").visible = false;
-    $("#FateConfigBGMList").SetSelected(1);
+    //$("#FateConfigBGMList").SetSelected(1);
     //GameEvents.Subscribe( "player_chat", PlayerChat);
     GameEvents.Subscribe( "player_bgm_on", TurnBGMOn);
     GameEvents.Subscribe( "player_bgm_off", TurnBGMOff);

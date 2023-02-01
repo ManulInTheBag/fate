@@ -2,53 +2,30 @@ LinkLuaModifier("modifier_shukuchi_as", "abilities/okita/modifiers/modifier_shuk
 LinkLuaModifier("modifier_shukuchi_crit", "abilities/okita/modifiers/modifier_shukuchi_as", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_okita_window", "abilities/okita/okita_shukuchi", LUA_MODIFIER_MOTION_NONE)
 
-locks = {
-    --"modifier_purge",
-    "modifier_sex_scroll_root",
-    "locked",
-    "dragged",
-    "jump_pause_postlock",
-    "modifier_aestus_domus_aurea_enemy",
-    "modifier_aestus_domus_aurea_ally",
-    "modifier_aestus_domus_aurea_nero",
-    "modifier_rho_aias",
-    "modifier_binding_chains",
-    "modifier_arcueid_melty",
-    --"modifier_whitechapel_murderer",
-    --"modifier_whitechapel_murderer_ally",
-    --"modifier_whitechapel_murderer_enemy",
-}
-
-
 okita_shukuchi = class({})
 
-function okita_shukuchi:IsLocked(target)
-    for i=1, #locks do
-        if target:HasModifier(locks[i]) then return true end
+function okita_shukuchi:CastFilterResultLocation(vLocation)
+    local hCaster = self:GetCaster()
+
+    if vLocation
+        and hCaster and not hCaster:IsNull() then
+        if not (IsServer() and IsLocked(hCaster)) and not ( IsServer() and not IsInSameRealm(hCaster:GetAbsOrigin(), vLocation) ) then
+            return UF_SUCCESS
+        end
     end
-    return false
+    return UF_FAIL_CUSTOM
 end
 
-function okita_shukuchi:CastFilterResultLocation(hLocation)
-    local caster = self:GetCaster()
-    if caster:HasModifier("modifier_okita_sandanzuki_charge") or caster:HasModifier("modifier_okita_sandanzuki_pepeg") then
-    	return UF_SUCESS--UF_FAIL_CUSTOM
-    elseif IsServer() and not IsInSameRealm(caster:GetAbsOrigin(), hLocation) then
-    	return UF_FAIL_CUSTOM
-    --[[elseif self:IsLocked(caster) or caster:HasModifier("jump_pause_nosilence") or caster:HasModifier("modifier_story_for_someones_sake") then
-        return UF_FAIL_CUSTOM]] --smth causes bugs here
-    else
-    	return UF_SUCCESS
-    end
-end
+function okita_shukuchi:GetCustomCastErrorLocation(vLocation)
+    local hCaster = self:GetCaster()
 
-function okita_shukuchi:GetCustomCastErrorLocation(hLocation)
-	local caster = self:GetCaster()
-    if caster:HasModifier("modifier_okita_sandanzuki_charge") or caster:HasModifier("modifier_okita_sandanzuki_pepeg") then
-    	return "#Sandanzuki_Active_Error"
-    elseif not IsInSameRealm(caster:GetAbsOrigin(), hLocation) then
-    	return "#Wrong_Target_Location"
+    if vLocation
+        and hCaster and not hCaster:IsNull() then
+        if IsServer() and IsInSameRealm(hCaster:GetAbsOrigin(), vLocation) then
+            return "#Is_Locked"
+        end
     end
+    return "#Wrong_Target_Location"
 end
 
 function okita_shukuchi:OnSpellStart()
@@ -69,7 +46,7 @@ function okita_shukuchi:OnSpellStart()
 		local particle1 = ParticleManager:CreateParticle("particles/okita/okita_shukuchi.vpcf", PATTACH_ABSORIGIN, caster)
 		ParticleManager:SetParticleControl(particle1, 0, caster:GetAbsOrigin())
 
-		if not self:IsLocked(caster) then
+		if true then
 			FindClearSpaceForUnit(caster, target, true)
 		end
 

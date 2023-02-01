@@ -5,9 +5,9 @@ ryougi_avidya_moon = class({})
 
 function ryougi_avidya_moon:GetBehavior()
     if self:GetCaster():HasModifier("modifier_ryougi_black_moon") then
-        return DOTA_ABILITY_BEHAVIOR_POINT + DOTA_ABILITY_BEHAVIOR_AOE + DOTA_ABILITY_BEHAVIOR_UNIT_TARGET
+        return DOTA_ABILITY_BEHAVIOR_AOE + DOTA_ABILITY_BEHAVIOR_UNIT_TARGET
     end
-    return DOTA_ABILITY_BEHAVIOR_POINT
+    return DOTA_ABILITY_BEHAVIOR_UNIT_TARGET
 end
 
 function ryougi_avidya_moon:OnUpgrade()

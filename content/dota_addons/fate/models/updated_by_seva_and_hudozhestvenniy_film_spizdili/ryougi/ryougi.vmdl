@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc31:version{165d48dd-8adc-4f1d-abf7-4992e04ad577} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc32:version{c5dcef98-b629-46ab-88e3-a17c005c935e} -->
 {
 	rootNode = 
 	{
@@ -247,7 +247,7 @@
 								_class = "AnimForceBonePosition"
 								bone = "bone_new0"
 								translation = [ 0.0, 0.0, 124.0 ]
-								rotation_xyz = [ -12.0, 0.0, 90.0 ]
+								rotation = [ 0.0, 90.0, -12.0 ]
 							},
 						]
 						activity_name = ""
@@ -277,7 +277,7 @@
 							{
 								_class = "AnimEvent"
 								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 13
+								event_frame = 5
 								event_keys = 
 								{
 									bodygroup = "knife"
@@ -292,6 +292,86 @@
 								{
 									bodygroup = "knife"
 									value = 0
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_BODYGROUP_SET_VALUE"
+								event_frame = 6
+								event_keys = 
+								{
+									bodygroup = "knife"
+									value = 1
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_BODYGROUP_SET_VALUE"
+								event_frame = 7
+								event_keys = 
+								{
+									bodygroup = "knife"
+									value = 1
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_BODYGROUP_SET_VALUE"
+								event_frame = 8
+								event_keys = 
+								{
+									bodygroup = "knife"
+									value = 1
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_BODYGROUP_SET_VALUE"
+								event_frame = 9
+								event_keys = 
+								{
+									bodygroup = "knife"
+									value = 1
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_BODYGROUP_SET_VALUE"
+								event_frame = 10
+								event_keys = 
+								{
+									bodygroup = "knife"
+									value = 1
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_BODYGROUP_SET_VALUE"
+								event_frame = 11
+								event_keys = 
+								{
+									bodygroup = "knife"
+									value = 1
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_BODYGROUP_SET_VALUE"
+								event_frame = 12
+								event_keys = 
+								{
+									bodygroup = "knife"
+									value = 1
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_BODYGROUP_SET_VALUE"
+								event_frame = 13
+								event_keys = 
+								{
+									bodygroup = "knife"
+									value = 1
 								}
 							},
 							{
@@ -444,86 +524,6 @@
 									value = 1
 								}
 							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 29
-								event_keys = 
-								{
-									bodygroup = "knife"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 30
-								event_keys = 
-								{
-									bodygroup = "knife"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 31
-								event_keys = 
-								{
-									bodygroup = "knife"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 32
-								event_keys = 
-								{
-									bodygroup = "knife"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 33
-								event_keys = 
-								{
-									bodygroup = "knife"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 34
-								event_keys = 
-								{
-									bodygroup = "knife"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 35
-								event_keys = 
-								{
-									bodygroup = "knife"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 36
-								event_keys = 
-								{
-									bodygroup = "knife"
-									value = 1
-								}
-							},
 						]
 						activity_name = "ACT_DOTA_CAST_ABILITY_2_ES_ROLL"
 						activity_weight = 1
@@ -539,7 +539,7 @@
 						animgraph_additive = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/ryougi/ryougi.fbx"
 						import_bone_scales = false
-						start_frame = 640
+						start_frame = 648
 						end_frame = 676
 						framerate = -1.0
 						reverse = false

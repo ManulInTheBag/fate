@@ -18,6 +18,30 @@ end
 
 khsn_ambush_blink = class({})
 
+function khsn_ambush_blink:CastFilterResultLocation(vLocation)
+    local hCaster = self:GetCaster()
+
+    if vLocation
+        and hCaster and not hCaster:IsNull() then
+        if not (IsServer() and IsLocked(hCaster)) and not ( IsServer() and not IsInSameRealm(hCaster:GetAbsOrigin(), vLocation) ) then
+            return UF_SUCCESS
+        end
+    end
+    return UF_FAIL_CUSTOM
+end
+
+function khsn_ambush_blink:GetCustomCastErrorLocation(vLocation)
+    local hCaster = self:GetCaster()
+
+    if vLocation
+        and hCaster and not hCaster:IsNull() then
+        if IsServer() and IsInSameRealm(hCaster:GetAbsOrigin(), vLocation) then
+            return "#Is_Locked"
+        end
+    end
+    return "#Wrong_Target_Location"
+end
+
 function khsn_ambush_blink:OnSpellStart()
 	local hCaster = self:GetCaster()
     local ability = self

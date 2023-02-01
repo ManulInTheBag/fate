@@ -4,6 +4,13 @@ LinkLuaModifier("modifier_pepe_mute", "abilities/heracles/pepeg_jump", LUA_MODIF
 
 pepeg_jump = class({})
 
+function pepeg_jump:GetBehavior()
+    if self:GetCaster():HasModifier("modifier_heracles_berserk") then
+        return (DOTA_ABILITY_BEHAVIOR_POINT + DOTA_ABILITY_BEHAVIOR_AOE + DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES)
+    end
+    return (DOTA_ABILITY_BEHAVIOR_POINT + DOTA_ABILITY_BEHAVIOR_AOE)
+end
+
 function pepeg_jump:OnSpellStart()
 	local caster = self:GetCaster()
 

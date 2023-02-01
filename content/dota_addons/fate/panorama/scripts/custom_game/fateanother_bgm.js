@@ -1,4 +1,13 @@
 var g_GameConfig = FindCustomUIRoot($.GetContextPanel());
+//g_GameConfig.curBGMentindex = 0;
+g_GameConfig.curBGMIndex = 1;
+g_GameConfig.nextBGMIndex = 1;
+g_GameConfig.BGMSchedule = 0;
+g_GameConfig.duration = [187,327,219,142,183,143,233,212,247,241,280,224,288,187,318,270,344,255,375,292,184,202,142,162,215];
+//g_GameConfig.duration = [5,5,5,5,5,5,5,5];
+g_GameConfig.bRepeat = false;
+g_GameConfig.bIsBGMOn = true;
+g_GameConfig.bIsAutoChange = false;
 
 function OnRepeatToggle()
 {
@@ -40,7 +49,7 @@ function PlayBGM()
     //$.Msg("Scheduled destroying")
     $.Schedule(0.033, function(){g_GameConfig.bIsAutoChange = false;})
 
-    if (dropPanel) {dropPanel.SetSelected(g_GameConfig.nextBGMIndex)};
+    if (dropPanel) {dropPanel.SetSelected(g_GameConfig.nextBGMIndex)} else ($.Msg("gabenpidor"));
     g_GameConfig.curBGMentindex = Game.EmitSound(BGMname);
 
     g_GameConfig.BGMSchedule = $.Schedule(BGMduration, function(){
@@ -64,3 +73,22 @@ function StopBGM()
         $.CancelScheduled(g_GameConfig.BGMSchedule, {});
     }
 }
+
+function OnIntro(index)
+{
+    g_GameConfig.nextBGMIndex = index;
+    $.Msg(index)
+    //$.Msg("Next BGM Index: " + selection.id);
+    if (g_GameConfig.BGMSchedule != 0) {
+        $.CancelScheduled(g_GameConfig.BGMSchedule, {});
+    };
+    PlayBGM();
+    $.Msg('Game start: change BGM ' + g_GameConfig.nextBGMIndex);
+}
+
+(function() {
+    $.Msg("data accept ready")
+    GameEvents.Subscribe( "bgm_intro", OnIntro );
+    var index = 1;
+    OnIntro(index)
+})();

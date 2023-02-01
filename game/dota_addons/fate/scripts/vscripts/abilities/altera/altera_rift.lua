@@ -226,7 +226,7 @@ function modifier_altera_rift_displace:OnCreated(table)
     --EmitSoundOn("nero_dash", self.parent)
 
     if IsServer() then
-        self.speed          = 100
+        self.speed          = 40
 
         self.direction      = (self.origin - self.parent:GetAbsOrigin()):Normalized()
         self.direction.z    = 0

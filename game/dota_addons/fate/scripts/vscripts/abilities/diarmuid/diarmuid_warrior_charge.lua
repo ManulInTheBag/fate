@@ -43,7 +43,7 @@ function diarmuid_warrior_charge:CastFilterResultTarget(hTarget)
 	local filter = UnitFilter(hTarget, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, caster:GetTeamNumber())
 
 	if(filter == UF_SUCCESS) then
-		if hTarget:GetName() == "npc_dota_ward_base" then 
+		if hTarget:GetName() == "npc_dota_ward_base" or (IsServer() and IsLocked(caster)) then 
 			return UF_FAIL_CUSTOM 
 		else
 			return UF_SUCCESS

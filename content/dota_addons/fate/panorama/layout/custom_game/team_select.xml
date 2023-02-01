@@ -8,7 +8,6 @@
 	<scripts>
 		<include src="s2r://panorama/scripts/custom_game/fateanother_util.vjs" /> 
 		<include src="s2r://panorama/scripts/custom_game/team_select.vjs" />
-		<include src="s2r://panorama/scripts/custom_game/fateanother_bgm.vjs" />
 	</scripts>
 	<Panel hittest="false" class="TeamSelect">
 		<Panel hittest="false" id="TeamSelectContainer" selectionpos="auto">

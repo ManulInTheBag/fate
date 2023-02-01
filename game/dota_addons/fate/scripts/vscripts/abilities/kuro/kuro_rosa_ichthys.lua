@@ -37,7 +37,7 @@ function kuro_rosa_ichthys:CastFilterResultTarget(hTarget)
 	if(filter == UF_SUCCESS) then
 		if hTarget:GetName() == "npc_dota_ward_base" then 
 			return UF_FAIL_CUSTOM 		
-		elseif not self:GetCaster():HasModifier("modifier_projection_active") and not self:GetCaster():HasModifier("modifier_kuro_projection_overpower") then
+		elseif (IsServer() and IsLocked(caster)) or not self:GetCaster():HasModifier("modifier_projection_active") and not self:GetCaster():HasModifier("modifier_kuro_projection_overpower") then
 			return UF_FAIL_CUSTOM
 		else
 			return UF_SUCCESS

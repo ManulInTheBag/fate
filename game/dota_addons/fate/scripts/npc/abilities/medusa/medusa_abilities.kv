@@ -344,12 +344,12 @@
 			"07"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"bleed_damage"		"20"
+				"bleed_damage"		"40"
 			}
 			"08"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"bleed_absorb"		"10"
+				"bleed_absorb"		"20"
 			}
 		}
 		
@@ -897,7 +897,7 @@
 	"medusa_nail_hook"
 	{
 		"BaseClass"             		"ability_lua"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 
@@ -937,7 +937,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"200 240 280 320 360"
+				"damage"				"200 250 300 350 400"
 			}
 			"04"
 			{
@@ -947,7 +947,7 @@
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"reduced_cooldown"		"3 2.5 2 1.5 1"
+				"reduced_cooldown"		"1"
 			}
 		}
 	}
@@ -1103,16 +1103,16 @@
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/medusa/medusa_gorgon_rush"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
 		"AbilityTextureName"			"custom/medusa/medusa_gorgon_rush"
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_7"
-		"AnimationPlaybackRate" 		"1.0"
+		"AnimationPlaybackRate" 		"2.0"
 		"MaxLevel"						"1"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"25"
 		"AbilityManaCost"				"200"
 		"AbilityCooldown"				"15"
-		"AbilityCastPoint"				"1.0"
+		"AbilityCastPoint"				"0.5"
 		//"AbilityChannelTime"            "3.0"
 		
 		"AbilitySpecial"
@@ -1208,7 +1208,7 @@
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"2"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
@@ -1249,7 +1249,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"800 975 1150 1325 1500"
+				"damage"			"700 850 1000 1150 1300"
 			}
 			"03"
 			{
@@ -1300,7 +1300,7 @@
 		"MaxLevel"						"1"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
@@ -1347,7 +1347,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"radius"			"400"
+				"radius"			"500"
 			}
 			"04"
 			{
@@ -1471,12 +1471,12 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"bleed_damage"		"20"
+				"bleed_damage"		"40"
 			}
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"bleed_absorb"		"10"
+				"bleed_absorb"		"20"
 			}
 		}		
 	}

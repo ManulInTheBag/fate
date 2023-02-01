@@ -181,7 +181,7 @@
 	{
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/okita/okita_tennen"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityTextureName"			"custom/okita/okita_tennen"
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_5"
 		"AnimationPlaybackRate" 		"1.0"
@@ -285,6 +285,8 @@
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/okita/okita_jce"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELED"
 		"AbilityTextureName"			"custom/okita/okita_seigan"
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_6"
@@ -330,6 +332,8 @@
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/okita/okita_sandanzuki"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
 		//"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
@@ -340,7 +344,7 @@
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"2"
 
-		"AbilityCastPoint"                          "0.9"
+		"AbilityCastPoint"                          "0.4"
         "AbilityManaCost"                           "800"
         "AbilityCooldown"                           "45 42 39 36 33"
 
@@ -359,7 +363,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_damage"			"400 460 520 580 640"
+				"base_damage"			"250 320 390 460 530"
 			}
 			"04"
 			{
@@ -373,7 +377,7 @@
 	{
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/okita/okita_sandanzuki"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
@@ -407,7 +411,7 @@
 	{
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/okita/okita_sandanzuki"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
@@ -441,7 +445,7 @@
 	{
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/okita/okita_sandanzuki"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
@@ -475,7 +479,7 @@
 	{
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/okita/okita_sandanzuki"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
@@ -505,7 +509,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"base_damage"			"400 460 520 580 640"
+				"base_damage"			"250 320 390 460 530"
 			}
 			"04"
 			{
@@ -515,7 +519,7 @@
 			"05"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"kiku_agi_ratio"		"1.5"
+				"kiku_agi_ratio"		"0.75"
 			}
 		}
 	}
@@ -1107,7 +1111,7 @@
     {
         "BaseClass"                                 "ability_lua"
         "ScriptFile"                                "abilities/okita/okita_jet"
-        "AbilityBehavior"                           "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELED | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+        "AbilityBehavior"                           "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELED | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
         "AbilityTextureName"                        "custom/okita/okita_jet"
 
         "MaxLevel"                                  "1"
@@ -1116,7 +1120,7 @@
 
         "AbilityUnitTargetTeam"                     "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitTargetType"                     "DOTA_UNIT_TARGET_ALL"
-        "AbilityUnitDamageType"                     "DAMAGE_TYPE_MAGICAL"
+        "AbilityUnitDamageType"                     "DAMAGE_TYPE_PURE"
         "AbilityCastAnimation"                      "ACT_DOTA_CAST_ABILITY_2"
 
 		"AbilityCastRange"							"4000"
@@ -1124,7 +1128,7 @@
         "AbilityCastPoint"                          "0.1"
         "AbilityManaCost"                           "600"
         "AbilityCooldown"                           "90"
-        "AbilityChannelTime"                        "3"
+        "AbilityChannelTime"                        "2"
 
         "AbilitySpecial"
         {
@@ -1136,7 +1140,7 @@
         	"02"
         	{
         		"var_type"		"FIELD_FLOAT"
-        		"max_channel_time"	"3"
+        		"max_channel_time"	"2"
         	}
         	"03"
         	{

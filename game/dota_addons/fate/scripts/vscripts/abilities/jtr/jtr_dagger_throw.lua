@@ -4,6 +4,30 @@ LinkLuaModifier("modifier_jtr_dagger_mark", "abilities/jtr/modifiers/modifier_jt
 LinkLuaModifier("modifier_jtr_dagger_slow", "abilities/jtr/modifiers/modifier_jtr_dagger_slow", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_dagger_throw_crit", "abilities/jtr/modifiers/modifier_dagger_throw_crit", LUA_MODIFIER_MOTION_NONE)
 
+function jtr_dagger_throw:CastFilterResultLocation(vLocation)
+    local hCaster = self:GetCaster()
+
+    if vLocation
+        and hCaster and not hCaster:IsNull() then
+        if not (IsServer() and IsLocked(hCaster)) and not ( IsServer() and not IsInSameRealm(hCaster:GetAbsOrigin(), vLocation) ) then
+            return UF_SUCCESS
+        end
+    end
+    return UF_FAIL_CUSTOM
+end
+
+function jtr_dagger_throw:GetCustomCastErrorLocation(vLocation)
+    local hCaster = self:GetCaster()
+
+    if vLocation
+        and hCaster and not hCaster:IsNull() then
+        if IsServer() and IsInSameRealm(hCaster:GetAbsOrigin(), vLocation) then
+            return "#Is_Locked"
+        end
+    end
+    return "#Wrong_Target_Location"
+end
+
 function jtr_dagger_throw:OnSpellStart()
     local caster = self:GetCaster()
     local point = self:GetCursorPosition()

@@ -4,6 +4,18 @@ LinkLuaModifier("modifier_khsn_blink_checker", "abilities/kinghassan/khsn_blink"
 
 khsn_blink = class({})
 
+function khsn_blink:CastFilterResultTarget(vLocation)
+    local hCaster = self:GetCaster()
+
+    if true
+        and hCaster and not hCaster:IsNull() then
+        if not (IsServer() and IsLocked(hCaster)) then
+            return UF_SUCCESS
+        end
+    end
+    return UF_FAIL_CUSTOM
+end
+
 function khsn_blink:OnSpellStart()
 	local caster = self:GetCaster()
 	local target = self:GetCursorTarget()

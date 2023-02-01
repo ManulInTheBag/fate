@@ -197,7 +197,7 @@ function okita_sandanzuki_release:OnSpellStart()
             bHasFrontalCone = true,
             bReplaceExisting = true,
             iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-            iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+            iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
             iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
             fExpireTime = GameRules:GetGameTime() + 2.0,
             bDeleteOnHit = true,
@@ -229,17 +229,17 @@ function okita_sandanzuki_release:OnProjectileHit_ExtraData(hTarget, vLocation, 
     end)
     Timers:CreateTimer(0.8, function()
         EmitGlobalSound("Okita.Sandanzuki")
-        DoDamage(caster, hTarget, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+        DoDamage(caster, hTarget, damage, DAMAGE_TYPE_PURE, 0, self, false)
         --hTarget:RemoveModifierByName("modifier_master_intervention")
         hTarget:EmitSound("Tsubame_Slash_" .. math.random(1,3))
     end)
     Timers:CreateTimer(0.9, function()
-        DoDamage(caster, hTarget, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+        DoDamage(caster, hTarget, damage, DAMAGE_TYPE_PURE, 0, self, false)
         --hTarget:RemoveModifierByName("modifier_master_intervention")
         hTarget:EmitSound("Tsubame_Slash_" .. math.random(1,3))
     end)
     Timers:CreateTimer(1.0, function()
-        DoDamage(caster, hTarget, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+        DoDamage(caster, hTarget, damage, DAMAGE_TYPE_PURE, 0, self, false)
         --hTarget:RemoveModifierByName("modifier_master_intervention")
         hTarget:EmitSound("Tsubame_Focus")
        

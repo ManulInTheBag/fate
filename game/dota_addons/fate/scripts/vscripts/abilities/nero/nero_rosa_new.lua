@@ -52,7 +52,7 @@ function nero_rosa_new:CastFilterResultTarget(hTarget)
 	local filter = UnitFilter(hTarget, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, self:GetCaster():GetTeamNumber())
 
 	if(filter == UF_SUCCESS) then
-		if hTarget:GetName() == "npc_dota_ward_base" then 
+		if hTarget:GetName() == "npc_dota_ward_base" or (IsServer() and IsLocked(self:GetCaster())) then 
 			return UF_FAIL_CUSTOM 
 		--elseif self:GetCaster():HasModifier("modifier_aestus_domus_aurea_nero") and not hTarget:HasModifier("modifier_aestus_domus_aurea_enemy") then
 		--	return UF_FAIL_CUSTOM 
@@ -68,7 +68,7 @@ function nero_rosa_new:GetCustomCastErrorTarget(hTarget)
 	--if self:GetCaster():HasModifier("modifier_aestus_domus_aurea_nero") and not hTarget:HasModifier("modifier_aestus_domus_aurea_enemy") then
 	--	return "Outside Theatre"
 	--else
-	return "#Invalid_Target"
+	return "#Invalid_Target_or_Locked"
 	--end    
 end
 
