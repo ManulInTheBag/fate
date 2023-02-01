@@ -1082,13 +1082,13 @@
 
 	    "ItemCost"     "800"
 	    "ItemKillable" "1" 
-	    "ItemSellable" "1"
-	    "ItemPurchasable" "1"
+	    "ItemSellable" "0"
+	    "ItemPurchasable" "0"
 	    "ItemDroppable" "1"
 	    "ItemShareability" "ITEM_FULLY_SHAREABLE_STACKING"
 
 
-	    "SideShop"     "1" 
+	    "SideShop"     "0" 
 	    "SecretShop"   "0"
 
 	    "ItemInitialCharges" "1"
@@ -1528,7 +1528,7 @@
 	    "Model"        			"models/props_gameplay/tpscroll01.vmdl" 
 	    "Effect"       			"particles/generic_gameplay/dropped_item.vpcf"
 
-	    "ItemCost"    			"1400"
+	    "ItemCost"    			"1000"
 	    "ItemKillable" 			"1" 
 	    "ItemSellable" 			"1"
 	    "ItemPurchasable" 		"1"

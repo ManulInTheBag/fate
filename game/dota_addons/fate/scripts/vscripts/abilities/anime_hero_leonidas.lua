@@ -1194,7 +1194,7 @@ function modifier_leonidas_pride_counter:GetAuraSearchFlags()
     return self.nABILITY_TARGET_FLAGS
 end
 function modifier_leonidas_pride_counter:GetModifierAura()
-    return "modifier_leonidas_enomotia_combo_translator"
+    return "modifier_leonidas_pride_translator"
 end
 function modifier_leonidas_pride_counter:GetModifierIncomingDamage_Percentage(keys)
     if IsServer() then
@@ -1325,6 +1325,86 @@ function leonidas_pride_release:OnSpellStart()
     hCaster:RemoveModifierByNameAndCaster("modifier_leonidas_pride_counter", hCaster)
 end
 
+
+LinkLuaModifier("modifier_leonidas_pride_translator", "abilities/anime_hero_leonidas", LUA_MODIFIER_MOTION_NONE)
+
+modifier_leonidas_pride_translator = modifier_leonidas_pride_translator or class({})
+
+function modifier_leonidas_pride_translator:IsHidden()                                             return false end
+function modifier_leonidas_pride_translator:IsDebuff()                                             return false end
+function modifier_leonidas_pride_translator:IsPurgable()                                           return false end
+function modifier_leonidas_pride_translator:IsPurgeException()                                     return false end
+function modifier_leonidas_pride_translator:RemoveOnDeath()                                        return true end
+function modifier_leonidas_pride_translator:GetAttributes()                                        return MODIFIER_ATTRIBUTE_AURA_PRIORITY + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE end
+function modifier_leonidas_pride_translator:GetPriority()                                          return MODIFIER_PRIORITY_ULTRA end
+function modifier_leonidas_pride_translator:DeclareFunctions()
+    local tFunc =   {   
+                        MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL,
+                        MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_MAGICAL,
+                        MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE
+                    }
+    return tFunc
+end
+function modifier_leonidas_pride_translator:GetAbsoluteNoDamagePhysical(keys) --TODO: CHANGE TO RECORD EXCEPT SELF.B-VALUE
+    if IsServer()
+        and keys.damage_type ~= DAMAGE_TYPE_NONE then
+        self.__iNullifyDamageType = self:GetTotalDamageNullify(keys) or DAMAGE_TYPE_NONE
+        if bit.band(DAMAGE_TYPE_PHYSICAL, self.__iNullifyDamageType) ~= 0 then
+            return 1
+        end
+    end
+end
+function modifier_leonidas_pride_translator:GetAbsoluteNoDamageMagical(keys)
+    if IsServer() then
+        if bit.band(DAMAGE_TYPE_MAGICAL, self.__iNullifyDamageType) ~= 0 then
+            return 1
+        end
+    end
+end
+function modifier_leonidas_pride_translator:GetAbsoluteNoDamagePure(keys)
+    if IsServer() then
+        if bit.band(DAMAGE_TYPE_PURE, self.__iNullifyDamageType) ~= 0 then
+            return 1
+        end
+    end
+end
+function modifier_leonidas_pride_translator:GetTotalDamageNullify(keys)
+    if IsServer()
+        and IsNotNull(self.hCaster)
+        and self.hCaster:IsAlive()
+        and keys.original_damage > 0 then --IDK WHY BUT WHEN CLEAVE HITS DAMAGE IS 0
+
+        -- local hDamageTable =    {
+        --                             victim       = self.hCaster,
+        --                             attacker     = keys.attacker,
+        --                             damage       = keys.damage,
+        --                             damage_type  = keys.damage_type,
+        --                             ability      = keys.inflictor or self.hAbility,
+        --                             damage_flags = keys.damage_flags
+        --                         }
+
+        -- ApplyDamage(hDamageTable)
+        --=================================--
+        DoDamage(keys.attacker, self.hCaster, keys.original_damage*self.percent , keys.damage_type, keys.damage_flags, keys.inflictor or self.hAbility, false)
+        local truedmg = CalculateDamagePostReduction(keys.damage_type, keys.original_damage*(1-self.percent), self.hParent )     
+
+        if( (self.hParent:GetHealth() - truedmg )< 1) then
+            hParent:Kill(keys.inflictor or self.hAbility, keys.attacker)
+        else
+            self.hParent:SetHealth(self.hParent:GetHealth()- truedmg)
+        end
+        return DAMAGE_TYPE_ALL
+    end
+end
+function modifier_leonidas_pride_translator:OnCreated(tTable)
+    self.hCaster  = self:GetCaster()
+    self.hParent  = self:GetParent()
+    self.hAbility = self:GetAbility()
+    self.percent = self.hAbility:GetSpecialValueFor("counter_resist")/100
+end
+function modifier_leonidas_pride_translator:OnRefresh(tTable)
+    self:OnCreated(tTable)
+end
 
 
 
@@ -3028,6 +3108,7 @@ function modifier_leonidas_enomotia_combo_translator:GetTotalDamageNullify(keys)
         -- ApplyDamage(hDamageTable)
         --=================================--
         DoDamage(keys.attacker, self.hCaster, keys.original_damage, keys.damage_type, keys.damage_flags, keys.inflictor or self.hAbility, false)
+
         --=================================--
         return DAMAGE_TYPE_ALL
     end
@@ -3036,6 +3117,7 @@ function modifier_leonidas_enomotia_combo_translator:OnCreated(tTable)
     self.hCaster  = self:GetCaster()
     self.hParent  = self:GetParent()
     self.hAbility = self:GetAbility()
+    
 end
 function modifier_leonidas_enomotia_combo_translator:OnRefresh(tTable)
     self:OnCreated(tTable)

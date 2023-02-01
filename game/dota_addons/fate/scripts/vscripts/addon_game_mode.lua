@@ -2798,7 +2798,7 @@ function FateGameMode:OnPlayerLevelUp(keys)
         hero.MasterUnit:SetMana(hero.MasterUnit:GetMana() + 3)
         hero.MasterUnit2:SetMana(hero.MasterUnit2:GetMana() + 3)
         hero.MasterUnit:SetMaxHealth(hero.MasterUnit:GetMaxHealth()+2)
-        hero.MasterUnit2:SetMaxHealth(hero.MasterUnit:GetMaxHealth() + 2)
+        hero.MasterUnit2:SetMaxHealth(hero.MasterUnit2:GetMaxHealth() + 2)
     end
     MinimapEvent( hero:GetTeamNumber(), hero, hero.MasterUnit:GetAbsOrigin().x, hero.MasterUnit2:GetAbsOrigin().y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 2 )
 end
@@ -4078,7 +4078,25 @@ function FateGameMode:FinishRound(IsTimeOut, winner)
         statCollection:submitRound(false)
     end
 
-    if( _G.GameMap ~= "fate_ffa") then
+--[[
+    
+        if(winnerEventData.winnerTeam == 0 and (self.nRadiantScore == 5 or self.nRadiantScore == 10 or self.nRadiantScore == 15)) then 
+        local grailmsg = {
+                    message = "#Fate_Black_Grail_Alert",
+                    duration = 5.0
+                        }
+                FireGameEvent("show_center_message", grailmsg)
+            end
+            if winnerEventData.winnerTeam == 1 and (self.nDireScore == 5 or self.nDireScore == 10 or self.nDireScore == 15) then
+        local grailmsg = {
+                    message = "#Fate_Red_Grail_Alert",
+                    duration = 5.0
+                        }
+                FireGameEvent("show_center_message",grailmsg)
+            end
+            ]]
+
+            if( _G.GameMap ~= "fate_ffa") then
         LoopOverPlayers(function(player, playerID, playerHero)
             if(winnerEventData.winnerTeam == 0 and (self.nRadiantScore == 5 or self.nRadiantScore == 10 or self.nRadiantScore == 15)) then 
                  if playerHero:GetTeamNumber() == DOTA_TEAM_BADGUYS then
@@ -4089,10 +4107,11 @@ function FateGameMode:FinishRound(IsTimeOut, winner)
                     end
                     local statTable = CreateTemporaryStatTable(playerHero)
                     CustomGameEventManager:Send_ServerToPlayer( playerHero:GetPlayerOwner(), "servant_stats_updated", statTable ) -- Send the current stat info to JS
+                    Notifications:Top(player, {text= "<font color='#58ACFA'></font> Your team had lost 5 rounds, you are rewarded with a shard of Holy Grail.", duration=8, style={color="rgb(255,140,0)", ["font-size"]="45px"}, continue=true})
                 end
-
             elseif winnerEventData.winnerTeam == 1 and (self.nDireScore == 5 or self.nDireScore == 10 or self.nDireScore == 15) then
                 if playerHero:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
+
                     if playerHero.ShardAmount == nil then
                         playerHero.ShardAmount = 1
                     else
@@ -4100,6 +4119,7 @@ function FateGameMode:FinishRound(IsTimeOut, winner)
                     end
                     local statTable = CreateTemporaryStatTable(playerHero)
                     CustomGameEventManager:Send_ServerToPlayer( playerHero:GetPlayerOwner(), "servant_stats_updated", statTable ) -- Send the current stat info to JS
+                    Notifications:Top(player, {text= "<font color='#58ACFA'></font> Your team had lost 5 rounds, you are rewarded with a shard of Holy Grail.", duration=8, style={color="rgb(255,140,0)", ["font-size"]="45px"}, continue=true})
                 end
 
             end

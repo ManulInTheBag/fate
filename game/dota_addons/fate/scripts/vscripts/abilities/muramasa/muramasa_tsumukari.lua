@@ -116,6 +116,7 @@ function modifier_muramasa_tsumukari:DeclareFunctions()
 	return {
         MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
 		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
+        MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE, 
         MODIFIER_EVENT_ON_RESPAWN
  
  
@@ -141,6 +142,12 @@ end
 function modifier_muramasa_tsumukari:GetModifierPhysicalArmorBonus()
     local caster = self:GetCaster()
     return  self:GetAbility():GetSpecialValueFor("attribute_armor")  * (caster.AppreciationOfSwordsAcquired and 1 or 0) 
+    *(caster:HasModifier("modifier_muramasa_tsumukari_buff") and 12 or self:GetStackCount() )
+end
+
+function modifier_muramasa_tsumukari:GetModifierMoveSpeedBonus_Percentage()
+    local caster = self:GetCaster()
+    return  self:GetAbility():GetSpecialValueFor("attribute_ms")  * (caster.AppreciationOfSwordsAcquired and 1 or 0) 
     *(caster:HasModifier("modifier_muramasa_tsumukari_buff") and 12 or self:GetStackCount() )
 end
 

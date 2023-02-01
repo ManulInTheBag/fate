@@ -213,7 +213,7 @@ locks = {
     --"modifier_whitechapel_murderer",
     --"modifier_whitechapel_murderer_ally",
     --"modifier_whitechapel_murderer_enemy",
-    "modifier_jeanne_health_lock",
+    --"modifier_jeanne_health_lock",
     "modifier_nero_tres_new",
     "modifier_nero_performance",
     "modifier_arcueid_melty",
@@ -1733,11 +1733,11 @@ function DoDamage(source, target , dmg, dmg_type, dmg_flag, abil, isLoop)
                 else
                     if target.linkTable[i] ~= nil then
                         local curhealth = hLinkTarget:GetHealth() 
-                        local damage = CalculateDamagePostReduction(DAMAGE_TYPE_MAGICAL, damageToAllies, hLinkTarget)
-                        if curhealth >= damage then
-                            --DoDamage(source, hLinkTarget, damageToAllies,  DAMAGE_TYPE_MAGICAL, 0, abil, true)
+                        --local damage = CalculateDamagePostReduction(DAMAGE_TYPE_MAGICAL, damageToAllies, hLinkTarget)
+                        if curhealth >= damageToAllies then
+                            DoDamage(source, hLinkTarget, damageToAllies,  DAMAGE_TYPE_MAGICAL, 128, abil, true)
                             --DoDamage(target, hLinkTarget, damageToAllies,  DAMAGE_TYPE_MAGICAL, 128, abil, true)
-                            hLinkTarget:SetHealth(curhealth - damage)
+                            --hLinkTarget:SetHealth(curhealth - damage)
                         else
                             hLinkTarget:SetHealth(1)
                             hLinkTarget:RemoveModifierByName("modifier_share_damage")

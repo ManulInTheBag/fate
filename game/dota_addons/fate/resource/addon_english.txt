@@ -1489,7 +1489,7 @@
 		"DOTA_Tooltip_modifier_medusa_bellerophon_cd_Description"                        "Is on cooldown."
 
 		"DOTA_Tooltip_modifier_medusa_breaker_not_facing"                                "Breaker Gorgon"
-		"DOTA_Tooltip_modifier_medusa_breaker_not_facing_Description"                     "You have not seen Gorgon's eyes, but you still feel weak."
+		"DOTA_Tooltip_modifier_medusa_breaker_not_facing_Description"                     "y seen Gorgon's eyes, but you still feel weak."
 
 		"DOTA_Tooltip_modifier_medusa_breaker_facing_stack"                              "Breaker Gorgon"
 		"DOTA_Tooltip_modifier_medusa_breaker_facing_stack_Description"                  "You have seen Gorgon's eyes. You feel weak."
@@ -6552,11 +6552,11 @@
 		"DOTA_Tooltip_ability_leonidas_catch_slow_pct"											"%EFFECT SLOW:"
 
 		"DOTA_Tooltip_ability_leonidas_pride"													"Defensive stance"
-		"DOTA_Tooltip_ability_leonidas_pride_Description"										"Leonidas enters defensive stance, reducing damage taken, while translating all the damage ally heroes in radius receive to him.Leonidas is disarmed while in this stance. At any moment this spell can be canceled with Release.\n Release: Leonidas throws his spear at targeted location after a 0.3 seconds. All enemies hit will receive damage based on damage Leonidas received in his defensive stance capped at 75% of his max HP and will be stunned for a short duration.\n[BERSERKED] HP based cap of spear is increased to 150%."
+		"DOTA_Tooltip_ability_leonidas_pride_Description"										"Leonidas enters defensive stance, reducing damage taken, while translating portion of damage ally heroes in radius receive to him.Leonidas is disarmed while in this stance. At any moment this spell can be canceled with Release.\n Release: Leonidas throws his spear at targeted location after a 0.3 seconds. All enemies hit will receive damage based on damage Leonidas received in his defensive stance capped at 75% of his max HP and will be stunned for a short duration.\n[BERSERKED] HP based cap of spear is increased to 150%."
 		"DOTA_Tooltip_ability_leonidas_pride_Note0"												""
 		"DOTA_Tooltip_ability_leonidas_pride_radius"										"RADIUS:"
 		"DOTA_Tooltip_ability_leonidas_pride_counter_duration"								"DURATION:"
-		"DOTA_Tooltip_ability_leonidas_pride_counter_resist"								"%DAMAGE RESIST:"
+		"DOTA_Tooltip_ability_leonidas_pride_counter_resist"								"%DAMAGE RESIST AND TRANSLATION:"
 		"DOTA_Tooltip_ability_leonidas_pride_damage"										"SPEAR BASE DMG:"
 		"DOTA_Tooltip_ability_leonidas_pride_stun_duration"									"SPEAR STUN DURATION:"
 		"DOTA_Tooltip_ability_leonidas_pride_cast_range"									"SPEAR CASTRANGE:"
@@ -7735,10 +7735,10 @@
         //
 
         "DOTA_Tooltip_ability_muramasa_appreciation_of_swords_attribute"				"Attribute: Appreciation of swords"
-        "DOTA_Tooltip_ability_muramasa_appreciation_of_swords_attribute_Description"	"Increases muramasa's armor and magic resistance per stack of Tsumukari Muramasa chant. If Muramasa is under its buff, he gains maximum stacks bonuses multiplied by 1.5"
+        "DOTA_Tooltip_ability_muramasa_appreciation_of_swords_attribute_Description"	"Increases muramasa's armor, magic resistance and movement speed per stack of Tsumukari Muramasa chant. If Muramasa is under its buff, he gains maximum stacks bonuses multiplied by 1.5"
         "DOTA_Tooltip_ability_muramasa_appreciation_of_swords_attribute_mr_bonus"				"%Magic resistance per stack:"
         "DOTA_Tooltip_ability_muramasa_appreciation_of_swords_attribute_armor_bonus"			"Armor per stack:"
-    
+    	"DOTA_Tooltip_ability_muramasa_appreciation_of_swords_attribute_ms_bonus"				"%MS per stack:"
 
         "DOTA_Tooltip_ability_muramasa_sword_trial_attribute"				"Attribute: Sword trial"
         "DOTA_Tooltip_ability_muramasa_sword_trial_attribute_Description"	"After chanting Tsumukari Muramasa, Muramasa gains a buff, which increases his attackspeed to 0.5 seconds per attack for 1 attack and will reduce Tsumukari cooldown to 1 second with this attack. Also increases Tsumukari Muramasa release damage based on Muramasa's strenght."
@@ -7825,11 +7825,11 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
 		"DOTA_Tooltip_ability_master_shard_of_holy_grail_Lore"	"A shard of the legendary artifact that is known to descend upon the soul in its most dire situation. Despite being a makeshift, a trivial wish of mere human may not be asking too much...\n"
 
 		"DOTA_Tooltip_Ability_master_shard_of_avarice"				"Shard of Avarice"
-		"DOTA_Tooltip_ability_master_shard_of_avarice_Description"	"Grants 4000 bonus gold at the beginning of round. Increases experience gained at round start by its value."
+		"DOTA_Tooltip_ability_master_shard_of_avarice_Description"	"Grants 2500 bonus gold at the beginning of round."
 		"DOTA_Tooltip_Ability_master_shard_of_avarice_Lore"			"A shard of the legendary artifact that is known to descend upon the soul in its most dire situation. Despite being a makeshift, a trivial wish of mere human may not be asking too much...\n"
 
 		"DOTA_Tooltip_Ability_master_shard_of_anti_magic"				"Shard of Anti-Magic"
-		"DOTA_Tooltip_ability_master_shard_of_anti_magic_Description"	"Grants 3 Shard of Anti-Magic to your Servant, a powerful artifact that renders the owner immune to magic for 8.5 seconds."
+		"DOTA_Tooltip_ability_master_shard_of_anti_magic_Description"	"Grants 3 Shard of Anti-Magic to your Servant, a powerful artifact that renders the owner immune to magic for 5 seconds."
 		"DOTA_Tooltip_Ability_master_shard_of_anti_magic_Lore"			"A shard of the legendary artifact that is known to descend upon the soul in its most dire situation. Despite being a makeshift, a trivial wish of mere human may not be asking too much...\n"
 
 		"DOTA_Tooltip_Ability_master_shard_of_replenishment"				"Shard of Replenishment"
@@ -7837,7 +7837,7 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
 		"DOTA_Tooltip_Ability_master_shard_of_replenishment_Lore"		"A shard of the legendary artifact that is known to descend upon the soul in its most dire situation. Despite being a makeshift, a trivial wish of mere human may not be asking too much...\n"
 
 		"DOTA_Tooltip_Ability_master_shard_of_prosperity"				"Shard of Prosperity"
-		"DOTA_Tooltip_ability_master_shard_of_prosperity_Description"	"Grants 3 health for master and grants 1 Master Mana at the beginning of round. Using Q seal refunds 1 master mana."
+		"DOTA_Tooltip_ability_master_shard_of_prosperity_Description"	"Grants 3 health for master and grants 1 Master Mana at the beginning of round. Using Q seal refunds 1 master mana. Reduces Q seal cd by 15 seconds."
 		"DOTA_Tooltip_Ability_master_shard_of_prosperity_Lore"			"A shard of the legendary artifact that is known to descend upon the soul in its most dire situation. Despite being a makeshift, a trivial wish of mere human may not be asking too much...\n"
 
 		"DOTA_Tooltip_Ability_cmd_seal_1"				"1st Command Seal"
@@ -8793,7 +8793,8 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
 		"Fate_Timer_Shard_Drop_Alert"	"<font color='#58ACFA'>Shard of Holy Grail </font> inbound! It will drop onto random location within center area."
 		"Fate_Timer_10minute"	"The Holy Grail's blessing <font color='#58ACFA'>restore all Master to full health and grant 15 mana to them.</font>"
 		"Fate_Timer_10minute_quest"	"Time Remaining until Next Holy Grail's Blessing"
-
+		"Fate_Red_Grail_Alert" "Red faction members has acquired 1 shard of a holy grail"
+		"Fate_Black_Grail_Alert" "Black faction members has acquired 1 shard of a holy grail"
 		"Fate_Round_Winner_1"	"The Red Faction has won the round!"
 		"Fate_Round_Winner_2"	"The Black Faction has won the round!"
 		"Fate_Round_Draw"	"This round is a draw."
@@ -8830,7 +8831,7 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
 		"Revoked_Error"						"Revoked From Master"
 		"Master_Not_Enough_Health"			"Not Enough Health (Wait for Health Reset from Holy Grail's Blessing)"
 		"Cannot_Get_Over_50_Stats"			"Cannot Acquire Over 50 Stat"
-		"Cannot_Acquire_Shard"				"Have Not Died 7 Times Yet"
+		"Cannot_Acquire_Shard"				"Have Not lost 5 rounds yet"
 		"Presence_Detected"					"Enemy Servant's presence has been detected"
 		"Cannot_Recover_Mana"				"Cannot Recover Mana"
 		"Cannot_Acquire_Intelligence"		"Cannot acquire Intelligence"
