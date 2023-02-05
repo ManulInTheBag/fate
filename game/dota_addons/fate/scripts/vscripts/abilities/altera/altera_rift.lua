@@ -226,11 +226,11 @@ function modifier_altera_rift_displace:OnCreated(table)
     --EmitSoundOn("nero_dash", self.parent)
 
     if IsServer() then
-        self.speed          = 40
+        self.speed          = 0
 
         self.direction      = (self.origin - self.parent:GetAbsOrigin()):Normalized()
         self.direction.z    = 0
-        self:StartIntervalThink(FrameTime())
+        --self:StartIntervalThink(FrameTime())
         
         --[[if self:ApplyHorizontalMotionController() == false then 
             self:Destroy()

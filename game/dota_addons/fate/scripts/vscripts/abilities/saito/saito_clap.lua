@@ -113,7 +113,7 @@ modifier_jopa:SpendStack()
     local targets = FindUnitsInRadius(caster:GetTeam(), point, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
     for k,v in pairs(targets) do            
         DoDamage(caster, v, damage, caster:HasModifier("modifier_saito_combo") and DAMAGE_TYPE_ALL or DAMAGE_TYPE_MAGICAL, 0, ability, false)
-        v:AddNewModifier(caster, self, "modifier_stunned", {Duration = stun_duration})    
+        v:AddNewModifier(caster, self, "modifier_rooted", {Duration = stun_duration})    
 		if(caster.MasteryAcquired) then 
 			v:AddNewModifier(caster, self, "modifier_saito_slow", {Duration = slow_duration})     
 		end

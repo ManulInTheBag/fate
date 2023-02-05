@@ -154,7 +154,7 @@ function modifier_arcueid_you:OnIntervalThink()
 		            	Timers:CreateTimer(FrameTime()*i*2, function()
 		            		DoDamage(caster, target, self.damage/3, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
 		            		if (i == 0) or (not target:HasModifier("modifier_master_intervention")) then
-		            			--target:AddNewModifier(caster, self.ability, "modifier_stunned", {duration = 0.25})
+		            			target:AddNewModifier(caster, self.ability, "modifier_stunned", {duration = 0.25})
 		            		end
 		            		EmitSoundOn("arcueid_hit", target)
 	                	end)

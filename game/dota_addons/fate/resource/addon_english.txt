@@ -3058,7 +3058,7 @@
 		"DOTA_Tooltip_Ability_okita_seigan_Lore" "It's over."
 
 		"DOTA_Tooltip_Ability_okita_sandanzuki"		"Mumyou Sandan-Zuki"
-		"DOTA_Tooltip_Ability_okita_sandanzuki_Description"	"Okita prepares her ultimative technique - Lightless, Three-Stage Thrust. Performing it includes 3 steps, the final step is combined with slash. Okita has 6 seconds to complete it. After completing them, the one and only target will suffer huge damage dealt 3 times as magical  after a delay. \nEach damage impact breaks Intervention effect afterwards, making it useless to try to escape it somehow."
+		"DOTA_Tooltip_Ability_okita_sandanzuki_Description"	"Okita prepares her ultimative technique - Lightless, Three-Stage Thrust. Performing it includes 3 steps, the final step is combined with slash. Okita has 6 seconds to complete it. After completing them, the one and only target will suffer huge damage dealt 3 times as pure after a delay."
 		"DOTA_Tooltip_Ability_okita_sandanzuki_distance"	"Step distance:"
 		"DOTA_Tooltip_Ability_okita_sandanzuki_base_damage"	"Impact damage:"
 		"DOTA_Tooltip_Ability_okita_sandanzuki_delay_duration"	"Delay duration:"
@@ -3093,12 +3093,13 @@
 		"DOTA_Tooltip_Ability_okita_weak_constitution_summer_Description"	"If you see this, Okita is successfully cured from tuberculosis!\nI wonder if she can do something mad because of her happiness though..."
 
 		"DOTA_Tooltip_Ability_okita_jet"	"Summer Madness: Jet Sandan-Zuki"
-		"DOTA_Tooltip_Ability_okita_jet_Description"	"Okita uses an overhelmingly mad Noble Phantasm, that she invented during her summer vacation.\nOkita starts charging her jetpack. If she charged the ability for at least 1 second, after releasing it she will fly towards the targetted location. Maximum flight distance depends on how long did she charge her jetpack. All targets she hits on her way will suffer huge damage in 3 impacts dealt as pure damage after a brief delay. Damage is equal to Sandanzuki damage.\nKiku Ichimongii attribute buffs this damage.\nOkita is revealed to her enemies for the flight duration and for 3 seconds after it ends.\nCooldown: 90 seconds.\n<font color='#58ACFA'>Good luck, commander.</font>"
+		"DOTA_Tooltip_Ability_okita_jet_Description"	"Okita uses an overhelmingly mad Noble Phantasm, that she invented during her summer vacation.\nOkita starts charging her jetpack. If she charged the ability for at least 1 second, after releasing it she will fly towards the targetted location. Maximum flight distance depends on how long did she charge her jetpack. All targets she hits on her way will suffer huge damage in 3 impacts dealt as magical damage after a brief delay. Damage is based on her level.\nKiku Ichimongii attribute buffs this damage.\nOkita is revealed to her enemies for the flight duration and for 3 seconds after it ends.\nCooldown: 90 seconds.\n<font color='#58ACFA'>Good luck, commander.</font>"
 		"DOTA_Tooltip_Ability_okita_jet_dist_min"	"Min distance:"
 		"DOTA_Tooltip_Ability_okita_jet_dist_max"	"Max distance:"
 		"DOTA_Tooltip_Ability_okita_jet_speed"	"Speed:"
 		"DOTA_Tooltip_Ability_okita_jet_max_channel_time"	"Maximum channel time:"
 		"DOTA_Tooltip_Ability_okita_jet_radius"	"Hit radius:"
+		"DOTA_Tooltip_Ability_okita_jet_dmg_level"	"dmg per level"
 
 		"DOTA_Tooltip_Ability_okita_jet_charge1"	"First Dash"
 		"DOTA_Tooltip_Ability_okita_jet_charge1_Description" 	"Performs first dash."
@@ -5750,7 +5751,7 @@
 		"DOTA_Tooltip_Ability_altera_dash_Description"       "Altera prepares for %channel_time% seconds and dashes forward for %distance% range, dealing %damage% magical damage to all enemies on her way.\n<font color='#FF0000'>Strength</font> stance: launches enemies in the air for %str_airborne_duration% seconds.\n<font color='#00FF00'>Agility</font> stance: dashes instantly.\n<font color='#0000FF'>Intellect</font> stance: gains %int_bonus_distance% bonus range.\nUpgrades with Crest of the Star attribute: stances scale with their primary attribute.\n<font color='#FF0000'>Strength</font> stance deals %str_damage_mult% damage per point.\n<font color='#00FF00'>Agility</font> stance deals %agi_damage_mult% damage per point.\n<font color='#0000FF'>Intellect</font> stance deals %int_damage_mult% damage per point."
 
 		"DOTA_Tooltip_Ability_altera_rift"       "Local Space Distortion"
-		"DOTA_Tooltip_Ability_altera_rift_Description"       "Altera slams her sword on the ground in front of her and creates a local space-time curvature, pulling enemies in %damage_radius% range, dealing %damage% magical damage and leaving an area with one of the following stance effects.\n<font color='#FF0000'>Strength</font> stance: initial pull impact also stuns for the duration of the pull. Enemies are slowly dragged to the center of the field and are slowed by %str_slow%% . Altera gains %str_magres_bonus%%  magical resistance, %str_armor_bonus% armor and %str_regen_bonus% health regen in the area.\n<font color='#00FF00'>Agility</font> stance: in this area Altera gains phased effect (can walk through other units), constant %agi_ms% movement speed, %agi_as_bonus% additional attack speed and deals %agi_onhit_damage% additional magical damage with her attacks.\n<font color='#0000FF'>Intellect</font> stance: in this area Altera and her teammates gain %int_ms_bonus%%  additional movement speed and %int_magres_bonus%%  additional magical resistance.\nUpgrades with Dimensional Refraction Variant attribute: damage scales with stances' primary attribute.\n<font color='#FF0000'>Strength</font> stance deals %str_damage_mult% damage per point.\n<font color='#00FF00'>Agility</font> stance deals %agi_damage_mult% damage per point.\n<font color='#0000FF'>Intellect</font> stance deals %int_damage_mult% damage per point."
+		"DOTA_Tooltip_Ability_altera_rift_Description"       "Altera slams her sword on the ground in front of her and creates a local space-time curvature, pulling enemies in %damage_radius% range, dealing %damage% magical damage and leaving an area with one of the following stance effects.\n<font color='#FF0000'>Strength</font> stance: initial pull impact also stuns for the duration of the pull. Enemies are slowed by %str_slow%% . Altera gains %str_magres_bonus%%  magical resistance, %str_armor_bonus% armor and %str_regen_bonus% health regen in the area.\n<font color='#00FF00'>Agility</font> stance: in this area Altera gains phased effect (can walk through other units), constant %agi_ms% movement speed, %agi_as_bonus% additional attack speed and deals %agi_onhit_damage% additional magical damage with her attacks.\n<font color='#0000FF'>Intellect</font> stance: in this area Altera and her teammates gain %int_ms_bonus%%  additional movement speed and %int_magres_bonus%%  additional magical resistance.\nUpgrades with Dimensional Refraction Variant attribute: damage scales with stances' primary attribute.\n<font color='#FF0000'>Strength</font> stance deals %str_damage_mult% damage per point.\n<font color='#00FF00'>Agility</font> stance deals %agi_damage_mult% damage per point.\n<font color='#0000FF'>Intellect</font> stance deals %int_damage_mult% damage per point."
 
 		"DOTA_Tooltip_Ability_altera_adaptive"       "Adaptive Burst"
 		"DOTA_Tooltip_Ability_altera_adaptive_Description"       "Altera jumps, becoming untargetable (but not invulnerable) for %duration% seconds and automatically opening her Destroyer of Civilizations spellbook. In this state Altera can change her stance once while techincally still being in battle.\nDeals %damage% + %damage_mult% x Altera's primary attribute in %radius% radius on jump start and on landing."
@@ -7232,11 +7233,11 @@
          
 
         "DOTA_Tooltip_ability_saito_clap"					"Ground slam"
-        "DOTA_Tooltip_ability_saito_clap_Description"	 	"Saito slams the ground, dealing damage which scale with atk in radius around himself and stunning all enemies hit.\n
+        "DOTA_Tooltip_ability_saito_clap_Description"	 	"Saito slams the ground, dealing damage which scale with atk in radius around himself and rooting all enemies hit.\n
         This ability stun duration and damage will be halfed  if used 2 or more times in a row. "
         "DOTA_Tooltip_ability_saito_clap_damage"			"Damage:"
         "DOTA_Tooltip_ability_saito_clap_radius"			"Radius:"
-        "DOTA_Tooltip_ability_saito_clap_stun_duration"		"Stun duration:"
+        "DOTA_Tooltip_ability_saito_clap_stun_duration"		"Root duration:"
         "DOTA_Tooltip_ability_saito_clap_atk_scale"				"Damage scale from atk:"
         "DOTA_Tooltip_ability_saito_clap_Lore"			"Sometimes there is no need in sword"
  
@@ -7831,7 +7832,7 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
 		"DOTA_Tooltip_Ability_master_shard_of_replenishment_Lore"		"A shard of the legendary artifact that is known to descend upon the soul in its most dire situation. Despite being a makeshift, a trivial wish of mere human may not be asking too much...\n"
 
 		"DOTA_Tooltip_Ability_master_shard_of_prosperity"				"Shard of Prosperity"
-		"DOTA_Tooltip_ability_master_shard_of_prosperity_Description"	"Grants 3 health for master and grants 1 Master Mana at the beginning of round. Using Q seal refunds 1 master mana. Reduces Q seal cd by 15 seconds."
+		"DOTA_Tooltip_ability_master_shard_of_prosperity_Description"	"Grants 3 health for master upon acquisition and for each subsequent grail blessing. Using Q seal refunds 1 master mana. Reduces Q seal cooldown by 15 seconds."
 		"DOTA_Tooltip_Ability_master_shard_of_prosperity_Lore"			"A shard of the legendary artifact that is known to descend upon the soul in its most dire situation. Despite being a makeshift, a trivial wish of mere human may not be asking too much...\n"
 
 		"DOTA_Tooltip_Ability_cmd_seal_1"				"1st Command Seal"
