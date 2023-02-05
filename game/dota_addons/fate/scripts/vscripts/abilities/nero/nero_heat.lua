@@ -19,6 +19,7 @@ end
 function nero_heat:OnSpellStart()
 	local caster = self:GetCaster()
 	StartAnimation(caster, {duration = 2.0, activity = ACT_DOTA_CAST_ABILITY_1_END, rate = 1})
+	caster:RemoveModifierByName("modifier_laus_saint_ready_checker")
 	--if not caster:HasModifier("modifier_aestus_domus_aurea_nero") then return end
 	if caster:FindModifierByName("modifier_nero_heat").rank >= 4 then
 		caster.UpgradeBase = true
@@ -26,7 +27,6 @@ function nero_heat:OnSpellStart()
 	if caster:FindModifierByName("modifier_nero_heat").rank == 7 then
 		caster.UpgradeLSK = true
 	end
-	caster:RemoveModifierByName("modifier_laus_saint_ready_checker")
 	Timers:CreateTimer(FrameTime(), function()
 		caster:AddNewModifier(caster, self, "modifier_laus_saint_ready_checker", {duration = 4})
 	end)

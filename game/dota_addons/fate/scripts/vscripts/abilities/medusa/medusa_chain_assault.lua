@@ -5,7 +5,7 @@ LinkLuaModifier("modifier_medusa_chain_movement","abilities/medusa/medusa_chain_
 LinkLuaModifier("modifier_medusa_new_combo_window", "abilities/medusa/medusa_nail_hook", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_medusa_bleed","abilities/medusa/medusa_nail_hook", LUA_MODIFIER_MOTION_NONE)
 
-function medusa_chain_assault:GetCastRange()
+function medusa_chain_assault:GetAOERadius()
 	return self:GetSpecialValueFor("range")
 end
 
@@ -58,7 +58,7 @@ function medusa_chain_assault:OnSpellStart()
 	--caster:SetForwardVector(direction)
 	--StartAnimation(caster, {duration=1.26, activity=ACT_DOTA_CAST_ABILITY_1, rate=2})
 
-	local vKillswitch = Vector(((self:GetCastRange() / hook_speed) * 2) + 10, 0, 0)
+	local vKillswitch = Vector(((self:GetAOERadius() / hook_speed) * 2) + 10, 0, 0)
 
 	local hook_particle1 = ParticleManager:CreateParticle("particles/medusa/medusa_hook_chain.vpcf", PATTACH_CUSTOMORIGIN, caster)
 	--ParticleManager:SetParticleAlwaysSimulate(hook_particle1)
@@ -97,7 +97,7 @@ function medusa_chain_assault:OnSpellStart()
 		Ability = self,
 		EffectName = nil,
 		vSpawnOrigin = caster_loc,
-		fDistance = self:GetCastRange(),
+		fDistance = self:GetAOERadius(),
 		fStartRadius = hook_width,
 		fEndRadius = hook_width,
 		Source = self:GetCaster(),
@@ -106,7 +106,7 @@ function medusa_chain_assault:OnSpellStart()
 		iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
 		iUnitTargetFlags = nil,
 		iUnitTargetType = DOTA_UNIT_TARGET_HERO,
-		fExpireTime = GameRules:GetGameTime() + (self:GetCastRange() / hook_speed),
+		fExpireTime = GameRules:GetGameTime() + (self:GetAOERadius() / hook_speed),
 		vVelocity = (target_position - self:GetCaster():GetAbsOrigin()):Normalized() * hook_speed * Vector(1, 1, 0),
 		bProvidesVision = false,
 		bDeleteOnHit = true,
@@ -119,7 +119,7 @@ function medusa_chain_assault:OnSpellStart()
 			direction_x = direction.x,
 			direction_y = direction.y,
 			direction_z = direction.z,
-			pepetimer = self:GetCastRange()/hook_speed,
+			pepetimer = self:GetAOERadius()/hook_speed,
 			pepetime = GameRules:GetGameTime(),
 			firstHit = false,
 			chTargetind = chTarget:entindex()
@@ -127,7 +127,7 @@ function medusa_chain_assault:OnSpellStart()
 	}
 
 	Timers:CreateTimer("medusa_chain_particle", {
-					endTime = self:GetCastRange() / hook_speed + FrameTime(),
+					endTime = self:GetAOERadius() / hook_speed + FrameTime(),
 					callback = function()
 					self.launched = false
 					ParticleManager:DestroyParticle(hook_particle1, false)

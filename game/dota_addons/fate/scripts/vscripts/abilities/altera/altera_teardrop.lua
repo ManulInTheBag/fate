@@ -13,7 +13,7 @@ function altera_teardrop:OnSpellStart()
 
 	local masterCombo = caster.MasterUnit2:FindAbilityByName(self:GetAbilityName())
     masterCombo:EndCooldown()
-    masterCombo:StartCooldown(self:GetCooldown(1))
+    masterCombo:StartCooldown(self:GetCooldown(1)/2)
 
 	local attach = caster:GetAttachmentOrigin(caster:ScriptLookupAttachment("attach_laser"))
 

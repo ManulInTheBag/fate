@@ -1,0 +1,1575 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc32:version{c5dcef98-b629-46ab-88e3-a17c005c935e} -->
+{
+	rootNode = 
+	{
+		_class = "RootNode"
+		children = 
+		[
+			{
+				_class = "MaterialGroupList"
+				children = 
+				[
+					{
+						_class = "DefaultMaterialGroup"
+						remaps = 
+						[
+							{
+								from = "imported material 02.vmat"
+								to = "materials/updated_by_seva_and_hudozhestvenniy_film_spizdili/edmon/edmon_5.vmat"
+							},
+							{
+								from = "imported material 03.vmat"
+								to = "materials/updated_by_seva_and_hudozhestvenniy_film_spizdili/edmon/edmon_2.vmat"
+							},
+							{
+								from = "imported material 04.vmat"
+								to = "materials/updated_by_seva_and_hudozhestvenniy_film_spizdili/edmon/edmon_3.vmat"
+							},
+							{
+								from = "imported material 05.vmat"
+								to = "materials/updated_by_seva_and_hudozhestvenniy_film_spizdili/edmon/edmon_4.vmat"
+							},
+							{
+								from = "imported material 06.vmat"
+								to = "materials/updated_by_seva_and_hudozhestvenniy_film_spizdili/edmon/edmon_1.vmat"
+							},
+						]
+						use_global_default = false
+						global_default_material = ""
+					},
+				]
+			},
+			{
+				_class = "RenderMeshList"
+				children = 
+				[
+					{
+						_class = "RenderMeshFile"
+						filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/edmon/edmon.fbx"
+						import_scale = 1.0
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = [  ]
+						}
+					},
+				]
+			},
+			{
+				_class = "AnimationList"
+				children = 
+				[
+					{
+						_class = "AnimFile"
+						name = "run"
+						activity_name = "ACT_DOTA_RUN"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/edmon/edmon.fbx"
+						import_bone_scales = false
+						start_frame = 542
+						end_frame = 565
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "idle"
+						activity_name = "ACT_DOTA_IDLE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/edmon/edmon.fbx"
+						import_bone_scales = false
+						start_frame = 7
+						end_frame = 81
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "idle_active"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/edmon/edmon.fbx"
+						import_bone_scales = false
+						start_frame = 84
+						end_frame = 130
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "attack"
+						children = 
+						[
+							{
+								_class = "ActivityModifier"
+								activity_name = "melee2"
+								activity_weight = 1
+							},
+							{
+								_class = "AnimEvent"
+								disabled = true
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 0
+								event_keys = 
+								{
+									name = resource:"particles/edmon/edmon_attack_trail.vpcf"
+									detach_from_owner = false
+									always_run = false
+									stop_on_seq_change = true
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = "ATTACH_ATTACK1"
+									attachment_type = "point_follow"
+									attachment_point_cp1 = "ATTACH_ATTACK1"
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 0
+								event_keys = 
+								{
+									name = resource:"particles/edmon/edmon_attack_trail.vpcf"
+									detach_from_owner = false
+									always_run = false
+									stop_on_seq_change = true
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = "ATTACH_ATTACK2"
+									attachment_type = "point_follow"
+									attachment_point_cp1 = "ATTACH_ATTACK2"
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_STOP_PARTICLE_EFFECT"
+								event_frame = 16
+								event_keys = 
+								{
+									name = resource:"particles/edmon/edmon_attack_trail.vpcf"
+									stop_instantly = false
+									play_endcap = false
+								}
+							},
+						]
+						activity_name = "ACT_DOTA_ATTACK"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/edmon/edmon.fbx"
+						import_bone_scales = false
+						start_frame = 131
+						end_frame = 164
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "attack2"
+						children = 
+						[
+							{
+								_class = "ActivityModifier"
+								activity_name = "melee1"
+								activity_weight = 1
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 0
+								event_keys = 
+								{
+									name = resource:"particles/edmon/edmon_attack_trail.vpcf"
+									detach_from_owner = false
+									always_run = false
+									stop_on_seq_change = true
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = "ATTACH_ATTACK1"
+									attachment_type = "point_follow"
+									attachment_point_cp1 = "ATTACH_ATTACK1"
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+							{
+								_class = "AnimEvent"
+								disabled = true
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 0
+								event_keys = 
+								{
+									name = resource:"particles/edmon/edmon_attack_trail.vpcf"
+									detach_from_owner = false
+									always_run = false
+									stop_on_seq_change = true
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = "ATTACH_ATTACK2"
+									attachment_type = "point_follow"
+									attachment_point_cp1 = "ATTACH_ATTACK2"
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_STOP_PARTICLE_EFFECT"
+								event_frame = 17
+								event_keys = 
+								{
+									name = resource:"particles/edmon/edmon_attack_trail.vpcf"
+									stop_instantly = false
+									play_endcap = false
+								}
+							},
+						]
+						activity_name = "ACT_DOTA_ATTACK"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/edmon/edmon.fbx"
+						import_bone_scales = false
+						start_frame = 166
+						end_frame = 200
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "beam_upper"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/edmon/edmon.fbx"
+						import_bone_scales = false
+						start_frame = 201
+						end_frame = 232
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "beam_lower"
+						activity_name = "ACT_DOTA_CAST_ABILITY_1"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/edmon/edmon.fbx"
+						import_bone_scales = false
+						start_frame = 298
+						end_frame = 331
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "something"
+						activity_name = "ACT_DOTA_IDLE_RARE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/edmon/edmon.fbx"
+						import_bone_scales = false
+						start_frame = 335
+						end_frame = 370
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "dash"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/edmon/edmon.fbx"
+						import_bone_scales = false
+						start_frame = 372
+						end_frame = 421
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "enfer"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/edmon/edmon.fbx"
+						import_bone_scales = false
+						start_frame = 445
+						end_frame = 462
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "ground"
+						activity_name = "ACT_DOTA_CAST_ABILITY_3"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/edmon/edmon.fbx"
+						import_bone_scales = false
+						start_frame = 465
+						end_frame = 476
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "counter"
+						activity_name = "ACT_DOTA_CAST_ABILITY_2"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/edmon/edmon.fbx"
+						import_bone_scales = false
+						start_frame = 480
+						end_frame = 539
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "death"
+						activity_name = "ACT_DOTA_DIE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/edmon/edmon.fbx"
+						import_bone_scales = false
+						start_frame = 568
+						end_frame = 612
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "copy1"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/edmon/edmon.fbx"
+						import_bone_scales = false
+						start_frame = 616
+						end_frame = 616
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "copy2"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/edmon/edmon.fbx"
+						import_bone_scales = false
+						start_frame = 648
+						end_frame = 648
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "copy3"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/edmon/edmon.fbx"
+						import_bone_scales = false
+						start_frame = 680
+						end_frame = 680
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "edmon"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/edmon/edmon.fbx"
+						import_bone_scales = false
+						start_frame = 713
+						end_frame = 713
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "beam"
+						children = 
+						[
+							{
+								_class = "ActivityModifier"
+								activity_name = "range1"
+								activity_weight = 1
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 0
+								event_keys = 
+								{
+									name = resource:"particles/edmon/edmon_attack_trail.vpcf"
+									detach_from_owner = false
+									always_run = false
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = "ATTACH_ATTACK1"
+									attachment_type = "point_follow"
+									attachment_point_cp1 = "ATTACH_ATTACK1"
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+							{
+								_class = "AnimEvent"
+								disabled = true
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 0
+								event_keys = 
+								{
+									name = resource:"particles/edmon/edmon_attack_trail.vpcf"
+									detach_from_owner = false
+									always_run = false
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = "ATTACH_ATTACK2"
+									attachment_type = "point_follow"
+									attachment_point_cp1 = "ATTACH_ATTACK2"
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_STOP_PARTICLE_EFFECT"
+								event_frame = 20
+								event_keys = 
+								{
+									name = resource:"particles/edmon/edmon_attack_trail.vpcf"
+									stop_instantly = false
+									play_endcap = false
+								}
+							},
+						]
+						activity_name = "ACT_DOTA_ATTACK"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/edmon/edmon.fbx"
+						import_bone_scales = false
+						start_frame = 234
+						end_frame = 264
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "beam2"
+						children = 
+						[
+							{
+								_class = "ActivityModifier"
+								activity_name = "range2"
+								activity_weight = 1
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 0
+								event_keys = 
+								{
+									name = resource:"particles/edmon/edmon_attack_trail.vpcf"
+									detach_from_owner = false
+									always_run = false
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = "ATTACH_ATTACK2"
+									attachment_type = "point_follow"
+									attachment_point_cp1 = "ATTACH_ATTACK2"
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_STOP_PARTICLE_EFFECT"
+								event_frame = 21
+								event_keys = 
+								{
+									name = resource:"particles/edmon/edmon_attack_trail.vpcf"
+									stop_instantly = false
+									play_endcap = false
+								}
+							},
+						]
+						activity_name = "ACT_DOTA_ATTACK"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/edmon/edmon.fbx"
+						import_bone_scales = false
+						start_frame = 266
+						end_frame = 297
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "beam_copy"
+						children = 
+						[
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 0
+								event_keys = 
+								{
+									name = resource:"particles/edmon/edmon_attack_trail.vpcf"
+									detach_from_owner = false
+									always_run = false
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = "ATTACH_ATTACK1"
+									attachment_type = "point_follow"
+									attachment_point_cp1 = "ATTACH_ATTACK1"
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+							{
+								_class = "AnimEvent"
+								disabled = true
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 0
+								event_keys = 
+								{
+									name = resource:"particles/edmon/edmon_attack_trail.vpcf"
+									detach_from_owner = false
+									always_run = false
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = "ATTACH_ATTACK2"
+									attachment_type = "point_follow"
+									attachment_point_cp1 = "ATTACH_ATTACK2"
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_STOP_PARTICLE_EFFECT"
+								event_frame = 20
+								event_keys = 
+								{
+									name = resource:"particles/edmon/edmon_attack_trail.vpcf"
+									stop_instantly = false
+									play_endcap = false
+								}
+							},
+						]
+						activity_name = "ACT_DOTA_RAZE_1"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/edmon/edmon.fbx"
+						import_bone_scales = false
+						start_frame = 234
+						end_frame = 264
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "beam2_copy"
+						children = 
+						[
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 0
+								event_keys = 
+								{
+									name = resource:"particles/edmon/edmon_attack_trail.vpcf"
+									detach_from_owner = false
+									always_run = false
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = "ATTACH_ATTACK2"
+									attachment_type = "point_follow"
+									attachment_point_cp1 = "ATTACH_ATTACK2"
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_STOP_PARTICLE_EFFECT"
+								event_frame = 21
+								event_keys = 
+								{
+									name = resource:"particles/edmon/edmon_attack_trail.vpcf"
+									stop_instantly = false
+									play_endcap = false
+								}
+							},
+						]
+						activity_name = "ACT_DOTA_RAZE_2"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/edmon/edmon.fbx"
+						import_bone_scales = false
+						start_frame = 266
+						end_frame = 297
+						framerate = -1.0
+						reverse = false
+					},
+				]
+				default_root_bone_name = ""
+			},
+			{
+				_class = "AttachmentList"
+				children = 
+				[
+					{
+						_class = "Attachment"
+						name = "ATTACH_ATTACK"
+						parent_bone = "bone63"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "ATTACH_ATTACK1"
+						parent_bone = "bone42"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "ATTACH_HITLOC"
+						parent_bone = "bone33"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "ATTACH_ATTACK2"
+						parent_bone = "bone63"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+				]
+			},
+			{
+				_class = "HitboxSetList"
+				children = 
+				[
+					{
+						_class = "HitboxSet"
+						name = "default"
+						children = 
+						[
+							{
+								_class = "Hitbox"
+								name = "bone21"
+								parent_bone = "bone21"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.511766, -8.052655, -32.855419 ]
+								hitbox_maxs = [ 6.358572, 7.497233, 0.504082 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone22"
+								parent_bone = "bone22"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.209249, -5.66068, -42.447075 ]
+								hitbox_maxs = [ 6.120199, 11.452673, 0.542072 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone23"
+								parent_bone = "bone23"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.756598, -11.76169, -8.782178 ]
+								hitbox_maxs = [ 5.153551, 7.308086, 1.450135 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone26"
+								parent_bone = "bone26"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.684218, -8.052657, -32.855419 ]
+								hitbox_maxs = [ 6.186122, 7.497231, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone27"
+								parent_bone = "bone27"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.676979, -5.644701, -42.441879 ]
+								hitbox_maxs = [ 4.652472, 11.468651, 0.547264 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone28"
+								parent_bone = "bone28"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.205832, -11.730614, -8.770406 ]
+								hitbox_maxs = [ 5.704317, 7.339164, 1.461907 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone31"
+								parent_bone = "bone31"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -68.739502, -35.325775, -96.66703 ]
+								hitbox_maxs = [ 57.734894, 48.767979, 84.637138 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone32"
+								parent_bone = "bone32"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -11.495232, -8.589359, -0.5 ]
+								hitbox_maxs = [ 11.570465, 10.850088, 11.646996 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone33"
+								parent_bone = "bone33"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -19.101631, -12.210088, -0.583992 ]
+								hitbox_maxs = [ 18.512901, 12.351545, 27.718132 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone34"
+								parent_bone = "bone34"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.104232, -5.386385, -0.5 ]
+								hitbox_maxs = [ 4.104228, 4.998686, 7.725052 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone35"
+								parent_bone = "bone35"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -39.226173, -44.416229, -126.932602 ]
+								hitbox_maxs = [ 42.974468, 39.137867, 48.921677 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone38"
+								parent_bone = "bone38"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.5, -8.13153, -12.449944 ]
+								hitbox_maxs = [ 7.376013, 7.491089, 1.055038 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone39"
+								parent_bone = "bone39"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.67877, -7.051496, -14.49102 ]
+								hitbox_maxs = [ 21.120323, 6.329263, 5.42897 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone40"
+								parent_bone = "bone40"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.355043, -4.443938, -14.353081 ]
+								hitbox_maxs = [ 22.689552, 5.022201, 3.454918 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone41"
+								parent_bone = "bone41"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.244663, -2.730141, -5.283127 ]
+								hitbox_maxs = [ 8.692738, 3.139772, 2.238869 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone42"
+								parent_bone = "bone42"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.888607, -3.737062, -4.407562 ]
+								hitbox_maxs = [ 8.834793, 4.316401, 1.580833 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone43"
+								parent_bone = "bone43"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.5, -0.787175, -1.64653 ]
+								hitbox_maxs = [ 2.508003, 0.939605, 0.638771 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone44"
+								parent_bone = "bone44"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.5, -0.704705, -1.354538 ]
+								hitbox_maxs = [ 2.193527, 0.716666, 0.541359 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone46"
+								parent_bone = "bone46"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.500072, -0.964376, -2.039818 ]
+								hitbox_maxs = [ 2.956017, 0.797854, 0.630783 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone47"
+								parent_bone = "bone47"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.5, -0.737474, -1.362869 ]
+								hitbox_maxs = [ 2.41777, 0.733226, 0.584229 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone49"
+								parent_bone = "bone49"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.933601, -0.817882, -2.056137 ]
+								hitbox_maxs = [ 2.527897, 0.844447, 0.739761 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone50"
+								parent_bone = "bone50"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.5, -0.683573, -1.648956 ]
+								hitbox_maxs = [ 2.420349, 0.735637, 0.685936 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone52"
+								parent_bone = "bone52"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.713234, -0.622646, -1.174225 ]
+								hitbox_maxs = [ 1.649265, 1.016404, 0.671768 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone53"
+								parent_bone = "bone53"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.5, -0.636648, -1.744698 ]
+								hitbox_maxs = [ 2.060562, 0.704474, 0.541 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone55"
+								parent_bone = "bone55"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.5, -1.558407, -2.937843 ]
+								hitbox_maxs = [ 3.873013, 0.879286, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone56"
+								parent_bone = "bone56"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.279243, -1.762733, -2.159973 ]
+								hitbox_maxs = [ 2.385361, 0.698448, 0.974724 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone59"
+								parent_bone = "bone59"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.316643, -8.131541, -12.449944 ]
+								hitbox_maxs = [ 0.5, 7.491027, 1.055038 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone60"
+								parent_bone = "bone60"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -21.120228, -7.051489, -14.49102 ]
+								hitbox_maxs = [ 0.678768, 6.329259, 5.42897 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone61"
+								parent_bone = "bone61"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -22.68956, -4.443953, -14.353081 ]
+								hitbox_maxs = [ 1.355042, 5.022186, 3.454918 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone62"
+								parent_bone = "bone62"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -8.692745, -2.73015, -5.283127 ]
+								hitbox_maxs = [ 1.244652, 3.139763, 2.238869 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone63"
+								parent_bone = "bone63"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -8.834785, -3.069305, -4.407562 ]
+								hitbox_maxs = [ 0.888611, 4.316381, 1.580833 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone64"
+								parent_bone = "bone64"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.508102, -0.787196, -1.64653 ]
+								hitbox_maxs = [ 0.5, 0.939584, 0.638771 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone65"
+								parent_bone = "bone65"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.193634, -0.704734, -1.354538 ]
+								hitbox_maxs = [ 0.5, 0.716637, 0.541359 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone67"
+								parent_bone = "bone67"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.980213, -0.895518, -2.013824 ]
+								hitbox_maxs = [ 0.5, 0.866712, 0.656776 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone68"
+								parent_bone = "bone68"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.417656, -0.7375, -1.362869 ]
+								hitbox_maxs = [ 0.5, 0.733199, 0.584221 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone70"
+								parent_bone = "bone70"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.523598, -0.754496, -2.033142 ]
+								hitbox_maxs = [ 0.938, 0.907833, 0.762756 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone71"
+								parent_bone = "bone71"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.420242, -0.683591, -1.648956 ]
+								hitbox_maxs = [ 0.5, 0.735619, 0.685936 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone73"
+								parent_bone = "bone73"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.744068, -0.792041, -1.143219 ]
+								hitbox_maxs = [ 0.618435, 0.84701, 0.702774 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone74"
+								parent_bone = "bone74"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.060669, -0.636674, -1.744698 ]
+								hitbox_maxs = [ 0.5, 0.70445, 0.541 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone76"
+								parent_bone = "bone76"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.873116, -1.558423, -2.937851 ]
+								hitbox_maxs = [ 0.5, 0.5, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone77"
+								parent_bone = "bone77"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.385372, -1.762752, -2.159973 ]
+								hitbox_maxs = [ 1.279228, 0.698429, 0.853722 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone81"
+								parent_bone = "bone81"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.090446, -5.15287, -24.288391 ]
+								hitbox_maxs = [ 14.763385, 0.5, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone82"
+								parent_bone = "bone82"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.902158, -1.197112, -23.795128 ]
+								hitbox_maxs = [ 13.927209, 3.546947, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone83"
+								parent_bone = "bone83"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.611362, -0.920736, -28.708263 ]
+								hitbox_maxs = [ 15.300289, 5.031887, 0.515236 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone85"
+								parent_bone = "bone85"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -14.4128, -5.152889, -24.287651 ]
+								hitbox_maxs = [ 3.091511, 0.5, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone86"
+								parent_bone = "bone86"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -13.576868, -1.197116, -23.795227 ]
+								hitbox_maxs = [ 5.902916, 3.546943, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone87"
+								parent_bone = "bone87"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -14.950686, -0.920739, -28.707767 ]
+								hitbox_maxs = [ 6.611495, 5.031883, 0.579689 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone89"
+								parent_bone = "bone89"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.991703, -0.5, -27.016304 ]
+								hitbox_maxs = [ 5.453888, 4.347106, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone90"
+								parent_bone = "bone90"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.640974, -0.803254, -23.929817 ]
+								hitbox_maxs = [ 7.940954, 5.749439, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone91"
+								parent_bone = "bone91"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -57.064621, -62.327629, -60.909393 ]
+								hitbox_maxs = [ 57.466339, 25.544281, 83.032272 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone93"
+								parent_bone = "bone93"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.252887, -0.59525, -8.336281 ]
+								hitbox_maxs = [ 2.543419, 8.031908, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone94"
+								parent_bone = "bone94"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.423921, -8.909108, -20.954826 ]
+								hitbox_maxs = [ 4.349873, 8.627158, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone95"
+								parent_bone = "bone95"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.568352, -9.117912, -23.583031 ]
+								hitbox_maxs = [ 2.494226, 11.845779, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone96"
+								parent_bone = "bone96"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.416866, -10.434496, -28.379475 ]
+								hitbox_maxs = [ 5.196926, 14.975368, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone98"
+								parent_bone = "bone98"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.944588, -0.595255, -8.229561 ]
+								hitbox_maxs = [ 2.851897, 8.031903, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone99"
+								parent_bone = "bone99"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.187376, -8.909113, -20.953278 ]
+								hitbox_maxs = [ 5.586675, 8.627153, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone100"
+								parent_bone = "bone100"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.494795, -9.117918, -23.582886 ]
+								hitbox_maxs = [ 4.567833, 11.845774, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone101"
+								parent_bone = "bone101"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.195789, -10.434501, -28.378887 ]
+								hitbox_maxs = [ 3.418013, 14.975362, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone105"
+								parent_bone = "bone105"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.623672, -5.365803, -5.675385 ]
+								hitbox_maxs = [ 5.276285, 0.5, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone107"
+								parent_bone = "bone107"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.5, -3.158298, -3.374115 ]
+								hitbox_maxs = [ 7.885942, 8.360354, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone109"
+								parent_bone = "bone109"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.276306, -5.365808, -5.675385 ]
+								hitbox_maxs = [ 2.623803, 0.5, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone111"
+								parent_bone = "bone111"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.885992, -3.001502, -3.374237 ]
+								hitbox_maxs = [ 0.5, 8.718144, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone113"
+								parent_bone = "bone113"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -18.714672, -2.802344, -8.258995 ]
+								hitbox_maxs = [ 18.335056, 1.63434, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone115"
+								parent_bone = "bone115"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.185576, -1.977518, -26.618141 ]
+								hitbox_maxs = [ 9.830667, 3.463085, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone116"
+								parent_bone = "bone116"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -8.305221, -3.511982, -23.827827 ]
+								hitbox_maxs = [ 8.238202, 7.257611, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone117"
+								parent_bone = "bone117"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -8.863129, -4.649877, -28.728119 ]
+								hitbox_maxs = [ 8.704979, 9.369402, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone119"
+								parent_bone = "bone119"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -9.668697, -1.977523, -26.618141 ]
+								hitbox_maxs = [ 5.347726, 3.463082, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone120"
+								parent_bone = "bone120"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -8.238485, -3.511988, -23.827827 ]
+								hitbox_maxs = [ 8.305159, 7.257607, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone121"
+								parent_bone = "bone121"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -8.705015, -4.649881, -28.728119 ]
+								hitbox_maxs = [ 8.8633, 9.369398, 0.5 ]
+							},
+						]
+					},
+				]
+			},
+		]
+		model_archetype = ""
+		primary_associated_entity = ""
+		anim_graph_name = ""
+	}
+}

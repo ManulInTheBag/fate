@@ -118,6 +118,7 @@ function modifier_tsubame_mai_omnislash:TsubameMai(initialtarget)
 			caster:SetForwardVector((target:GetAbsOrigin() - caster:GetAbsOrigin()):Normalized())
 		else
 			caster:RemoveModifierByName("jump_pause")
+			FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), false)
 		end
 	end)
 

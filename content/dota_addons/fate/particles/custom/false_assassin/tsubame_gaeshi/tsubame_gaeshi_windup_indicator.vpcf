@@ -1,0 +1,94 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf51:version{6d03d500-2498-454e-b833-f654e870bb3d} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_bShouldHitboxesFallbackToRenderBounds = false
+	m_nMaxParticles = 0
+	m_flCullRadius = 80.0
+	m_nBehaviorVersion = 12
+	m_controlPointConfigurations = 
+	[
+		{
+			m_name = "preview"
+			m_drivers = 
+			[
+				{
+					m_iControlPoint = 1
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 2
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 3
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+			]
+		},
+	]
+	m_PreEmissionOperators = 
+	[
+		{
+			_class = "C_OP_StopAfterCPDuration"
+			m_flDuration = 
+			{
+				m_nType = "PF_TYPE_CONTROL_POINT_COMPONENT"
+				m_nControlPoint = 2
+				m_nVectorComponent = 0
+				m_nMapType = "PF_MAP_TYPE_MULT"
+				m_flMultFactor = 1.0
+			}
+		},
+		{
+			_class = "C_OP_SetSingleControlPointPosition"
+			m_nCP1 = 0
+			m_vecCP1Pos = [ 0.0, 0.0, 10.0 ]
+			m_nHeadLocation = 3
+		},
+	]
+	m_Children = 
+	[
+		{
+			m_ChildRef = resource:"particles/custom/false_assassin/tsubame_gaeshi/tsubame_gaeshi_windup_indicator_b.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/false_assassin/tsubame_gaeshi/tsubame_gaeshi_windup_indicator_c.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/false_assassin/tsubame_gaeshi/tsubame_gaeshi_windup_indicator_d.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/false_assassin/tsubame_gaeshi/tsubame_gaeshi_windup_indicator_e.vpcf"
+		},
+		{
+			m_bEndCap = true
+			m_ChildRef = resource:"particles/custom/false_assassin/tsubame_gaeshi/tsubame_gaeshi_windup_indicator_f.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/false_assassin/tsubame_gaeshi/tsubame_gaeshi_windup_indicator_smoke.vpcf"
+		},
+		{
+			m_bEndCap = true
+			m_ChildRef = resource:"particles/custom/false_assassin/tsubame_gaeshi/tsubame_gaeshi_windup_indicator_g.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/false_assassin/tsubame_gaeshi/tsubame_gaeshi_windup_indicator_i.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/false_assassin/tsubame_gaeshi/tsubame_gaeshi_windup_indicator_shockwave.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/false_assassin/tsubame_gaeshi/tsubame_gaeshi_windup_indicator_flare.vpcf"
+		},
+		{
+			m_bEndCap = true
+			m_ChildRef = resource:"particles/custom/false_assassin/tsubame_gaeshi/tsubame_gaeshi_windup_indicator_j.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/false_assassin/tsubame_gaeshi/tsubame_gaeshi_windup_indicator_field_lines.vpcf"
+		},
+	]
+}

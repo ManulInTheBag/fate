@@ -38,7 +38,7 @@ function modifier_altera_whip:DeclareFunctions()
     return func
 end
 function modifier_altera_whip:GetModifierAttackSpeedBonus_Constant()
-    return (self:GetParent():HasModifier("modifier_altera_form_agi") and (self:GetAbility():GetSpecialValueFor("agi_as") + (self:GetParent():HasModifier("modifier_altera_crest") and self:GetAbility():GetSpecialValueFor("agi_as_mult")*self:GetParent():GetAgility() or 0)) or 0)
+    return (true and (self:GetAbility():GetSpecialValueFor("agi_as") + (self:GetParent():HasModifier("modifier_altera_crest") and self:GetAbility():GetSpecialValueFor("agi_as_mult")*self:GetParent():GetAgility() or 0)) or 0)
 end
 function modifier_altera_whip:GetModifierModelChange()
   return "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/altera/altera_whip.vmdl"

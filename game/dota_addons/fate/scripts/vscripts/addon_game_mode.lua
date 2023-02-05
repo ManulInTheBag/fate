@@ -331,6 +331,7 @@ function Precache( context )
     PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_ogre_magi.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_life_stealer.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_phantom_assassin.vsndevts", context)
+    PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_treant.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/game_sounds_items.vsndevts", context)
 
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_abaddon.vsndevts", context )
@@ -3595,6 +3596,16 @@ function FateGameMode:ExecuteOrderFilter(hFilterTable)
           hUnit = type(hUnit) == "number" 
                   and EntIndexToHScript(hUnit) 
                   or nil
+
+    if iOrder == 4 then
+        if IsNotNull(hUnit) then
+            if (hUnit:GetTeamNumber() == hTarget:GetTeamNumber()) then
+                if hTarget:HasModifier("modifier_altera_whip_int_ally") and not (hUnit:HasModifier("modifier_altera_whip")) then
+                    return false
+                end
+            end
+        end
+    end
 
     if IsNotNull(hUnit) then
         if IsNotNull(AnimeVectorTargeting) then

@@ -17,9 +17,16 @@ function nero_rosa_new:GetCastRange(vLocation, hTarget)
 	end
 end
 
+function nero_rosa_new:GetManaCost()
+    if self:GetCaster():HasModifier("modifier_aestus_domus_aurea_nero") then
+        return 0
+    end
+    return 200
+end
+
 function nero_rosa_new:CastFilterResultLocation(hLocation)
     local caster = self:GetCaster()
-   	if IsServer() and not IsInSameRealm(caster:GetAbsOrigin(), hLocation) then
+   	if (IsServer() and not IsInSameRealm(caster:GetAbsOrigin(), hLocation)) then
     	return UF_FAIL_CUSTOM
     else
     	return UF_SUCCESS

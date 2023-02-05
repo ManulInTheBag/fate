@@ -1,6 +1,7 @@
 LinkLuaModifier("modifier_nero_spectaculi_initium", "abilities/nero/nero_spectaculi_initium", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_nero_spectaculi_delay", "abilities/nero/nero_spectaculi_initium", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_nero_spectaculi_initium_window", "abilities/nero/nero_spectaculi_initium", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_nero_spectaculi_shield", "abilities/nero/nero_spectaculi_initium", LUA_MODIFIER_MOTION_NONE)
 
 
 nero_spectaculi_initium = class({})
@@ -9,9 +10,9 @@ function nero_spectaculi_initium:GetBehavior()
 	local caster = self:GetCaster()
 
 	if caster:HasModifier("modifier_nero_performance") then
-		return DOTA_ABILITY_BEHAVIOR_POINT
+		return DOTA_ABILITY_BEHAVIOR_POINT + DOTA_ABILITY_BEHAVIOR_AUTOCAST
 	end
-	return DOTA_ABILITY_BEHAVIOR_NO_TARGET
+	return DOTA_ABILITY_BEHAVIOR_NO_TARGET + DOTA_ABILITY_BEHAVIOR_AUTOCAST
 end
 
 function nero_spectaculi_initium:GetCastAnimation()
@@ -31,10 +32,17 @@ function nero_spectaculi_initium:OnUpgrade()
     hCaster:FindAbilityByName("nero_spectaculi_buffed"):SetLevel(self:GetLevel())
 end
 
+function nero_spectaculi_initium:GetManaCost()
+    if self:GetCaster():HasModifier("modifier_aestus_domus_aurea_nero") then
+        return 0
+    end
+    return 200
+end
+
 function nero_spectaculi_initium:OnSpellStart()
 	local caster = self:GetCaster()
 	if caster:HasModifier("modifier_nero_performance") then
-		caster:RemoveModifierByName("modifier_nero_spectaculi_initium")
+		--caster:RemoveModifierByName("modifier_nero_spectaculi_initium")
 		local point = self:GetCursorPosition()
 		local ori = caster:GetAbsOrigin()
 		local cast_range = self:GetSpecialValueFor("cast_range")
@@ -126,7 +134,103 @@ function nero_spectaculi_initium:OnSpellStart()
 		caster:AddNewModifier(caster, self, "modifier_nero_spectaculi_initium", {duration = self:GetSpecialValueFor("delay") + FrameTime()})
 
 		caster:FindAbilityByName("nero_heat"):StartPerformance(2000, 4000/1.5)
+
+		self:ShieldCharge(self:GetSpecialValueFor("shield_amount"))
 	end
+end
+
+function nero_spectaculi_initium:ShieldCharge(amount, duration)
+	local caster = self:GetCaster()
+	local ability = self
+	local ply = caster:GetPlayerOwner()
+	local ShieldAmount = amount
+
+	caster:AddNewModifier(caster, self, "modifier_nero_spectaculi_shield", {duration = self:GetSpecialValueFor("shield_duration")})
+	
+	if caster.argosShieldAmount == nil then 
+		caster.argosShieldAmount = ShieldAmount
+	else
+		caster.argosShieldAmount = caster.argosShieldAmount + ShieldAmount
+	end
+	
+	-- Create particle
+	if caster.argosDurabilityParticleIndex == nil then
+		local prev_amount = 0.0
+		Timers:CreateTimer( function()
+				-- Check if shield still valid
+				if caster.argosShieldAmount > 0 and caster:HasModifier( "modifier_nero_spectaculi_shield" ) then
+					-- Check if it should update
+					if prev_amount ~= caster.argosShieldAmount then
+						-- Change particle
+						local digit = 0
+						if caster.argosShieldAmount > 999 then
+							digit = 4
+						elseif caster.argosShieldAmount > 99 then
+							digit = 3
+						elseif caster.argosShieldAmount > 9 then
+							digit = 2
+						else
+							digit = 1
+						end
+						if caster.argosDurabilityParticleIndex ~= nil then
+							-- Destroy previous
+							ParticleManager:DestroyParticle( caster.argosDurabilityParticleIndex, true )
+							ParticleManager:ReleaseParticleIndex( caster.argosDurabilityParticleIndex )
+						end
+						-- Create new one
+						caster.argosDurabilityParticleIndex = ParticleManager:CreateParticle( "particles/custom/caster/caster_argos_durability.vpcf", PATTACH_CUSTOMORIGIN, caster )
+						ParticleManager:SetParticleControlEnt( caster.argosDurabilityParticleIndex, 0, caster, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", caster:GetAbsOrigin(), true )
+						ParticleManager:SetParticleControl( caster.argosDurabilityParticleIndex, 1, Vector( 0, math.floor( caster.argosShieldAmount ), 0 ) )
+						ParticleManager:SetParticleControl( caster.argosDurabilityParticleIndex, 2, Vector( 1, digit, 0 ) )
+						ParticleManager:SetParticleControl( caster.argosDurabilityParticleIndex, 3, Vector( 100, 100, 255 ) )
+						
+						prev_amount = caster.argosShieldAmount	
+					end
+					
+					return 0.1
+				else
+					if caster.argosDurabilityParticleIndex ~= nil then
+						ParticleManager:DestroyParticle( caster.argosDurabilityParticleIndex, true )
+						ParticleManager:ReleaseParticleIndex( caster.argosDurabilityParticleIndex )
+						caster.argosDurabilityParticleIndex = nil
+					end
+					return nil
+				end
+			end
+		)
+	end
+end
+
+modifier_nero_spectaculi_shield = class({})
+
+function modifier_nero_spectaculi_shield:DeclareFunctions()
+	return { --MODIFIER_EVENT_ON_TAKEDAMAGE,
+			 }
+end
+
+function modifier_nero_spectaculi_shield:OnTakeDamage(args)
+	if args.unit ~= self:GetParent() then return end
+	local caster = self:GetParent() 
+	local currentHealth = caster:GetHealth() 
+
+	caster.argosShieldAmount = caster.argosShieldAmount - args.damage
+	if caster.argosShieldAmount <= 0 then
+		if currentHealth + caster.argosShieldAmount <= 0 then
+			print("lethal")
+		else
+			print("argos broken, but not lethal")
+			caster:RemoveModifierByName("modifier_mordred_shield")
+			caster:SetHealth(currentHealth + args.damage + caster.argosShieldAmount)
+			caster.argosShieldAmount = 0
+		end
+	else
+		print("argos not broken, remaining shield : " .. caster.argosShieldAmount)
+		caster:SetHealth(currentHealth + args.damage)
+	end
+end
+
+function modifier_nero_spectaculi_shield:OnDestroy()
+	self:GetParent().argosShieldAmount = 0
 end
 
 modifier_nero_spectaculi_initium_window = class({})
@@ -233,8 +337,9 @@ function modifier_nero_spectaculi_initium:OnIntervalThink()
 	                                center_x = point.x,
 	                                center_y = point.y,
 	                                center_z = point.z }
-
-	    			enemy:AddNewModifier(caster, self.ability, "modifier_knockback", knockback)
+	                if self:GetAbility():GetAutoCastState() == true then
+	    				enemy:AddNewModifier(caster, self.ability, "modifier_knockback", knockback)
+	    			end
                 end
             end
         end

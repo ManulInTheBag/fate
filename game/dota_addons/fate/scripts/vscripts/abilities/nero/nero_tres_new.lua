@@ -3,6 +3,13 @@ LinkLuaModifier("modifier_nero_tres_window", "abilities/nero/nero_tres_new", LUA
 
 nero_tres_new = class({})
 
+function nero_tres_new:GetBehavior()
+    if self:GetCaster():HasModifier("modifier_nero_performance") then
+        return DOTA_ABILITY_BEHAVIOR_NO_TARGET
+    end
+    return DOTA_ABILITY_BEHAVIOR_POINT + DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES
+end
+
 function nero_tres_new:GetAOERadius()
     return self:GetSpecialValueFor("distance")
 end
@@ -11,6 +18,13 @@ function nero_tres_new:OnUpgrade()
     local hCaster = self:GetCaster()
     
     hCaster:FindAbilityByName("nero_tres_buffed"):SetLevel(self:GetLevel())
+end
+
+function nero_tres_new:GetManaCost()
+    if self:GetCaster():HasModifier("modifier_aestus_domus_aurea_nero") then
+        return 0
+    end
+    return 200
 end
 
 function nero_tres_new:OnSpellStart()

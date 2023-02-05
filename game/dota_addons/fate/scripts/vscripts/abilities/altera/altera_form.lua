@@ -44,6 +44,8 @@ function altera_form_open:OpenSezame()
 	local hCaster = self:GetCaster()
     
     UpdateAbilityLayout(hCaster, tForms)
+
+    hCaster.CurrentAbilLayout = "forms"
 end
 
 function altera_form_open:GetIntrinsicModifierName()
@@ -56,6 +58,8 @@ function altera_form_close:OnSpellStart()
     local hCaster = self:GetCaster()
     UpdateAbilityLayout(hCaster, tStandardAbilities)
 
+    hCaster.CurrentAbilLayout = "standard"
+
     hCaster:FindAbilityByName("altera_form_open"):EndCooldown()
 end
 
@@ -65,10 +69,13 @@ function altera_form_close:OnSpellCalled(forced)
     local abil = hCaster:FindAbilityByName("altera_form_open")
 
     abil:EndCooldown()
-    UpdateAbilityLayout(hCaster, tStandardAbilities)
     if forced then
     	abil:StartCooldown(abil:GetCooldown(0))
     end
+
+    if hCaster.CurrentAbilLayout == "standard" then return end
+    UpdateAbilityLayout(hCaster, tStandardAbilities)
+    hCaster.CurrentAbilLayout = "standard"
 end
 
 --------
@@ -129,6 +136,8 @@ function modifier_altera_form_pepeg:OnCreated()
 
 	self.parent:AddNewModifier(self.parent, self.parent:FindAbilityByName("altera_form_int"), "modifier_altera_form_int", {})
 	self.parent:SetPrimaryAttribute(DOTA_ATTRIBUTE_INTELLECT)
+
+	self.parent.CurrentAbilLayout = "standard"
 end
 
 function modifier_altera_form_pepeg:OnTakeDamage(args)

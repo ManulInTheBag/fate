@@ -20,6 +20,13 @@ function nero_gladiusanus_new:GetCastAnimation()
     return ACT_DOTA_CAST_ABILITY_2
 end
 
+function nero_gladiusanus_new:GetManaCost()
+    if self:GetCaster():HasModifier("modifier_aestus_domus_aurea_nero") then
+        return 0
+    end
+    return 200
+end
+
 function nero_gladiusanus_new:OnSpellStart()
 	local caster = self:GetCaster()
 	local ability = self

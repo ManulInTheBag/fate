@@ -3,7 +3,7 @@ var g_GameConfig = FindCustomUIRoot($.GetContextPanel());
 g_GameConfig.curBGMIndex = 1;
 g_GameConfig.nextBGMIndex = 1;
 g_GameConfig.BGMSchedule = 0;
-g_GameConfig.duration = [187,327,219,142,183,143,233,212,247,241,280,224,288,187,318,270,344,255,375,292,184,202,142,162,215];
+g_GameConfig.duration = [187,327,219,142,183,143,233,212,247,241,280,224,288,187,318,270,344,255,375,292,184,202,142,162,215,140];
 //g_GameConfig.duration = [5,5,5,5,5,5,5,5];
 g_GameConfig.bRepeat = false;
 g_GameConfig.bIsBGMOn = true;
@@ -56,7 +56,7 @@ function PlayBGM()
         //$.Msg("Schedule worked, destroying current BGM" + g_GameConfig.curBGMIndex.toString())
         if (g_GameConfig.bIsBGMOn === true){
             if (!g_GameConfig.bRepeat) {
-                g_GameConfig.nextBGMIndex = Math.floor((Math.random() * 25) + 1);
+                g_GameConfig.nextBGMIndex = Math.floor((Math.random() * 26) + 1);
             }
             PlayBGM();
         }
