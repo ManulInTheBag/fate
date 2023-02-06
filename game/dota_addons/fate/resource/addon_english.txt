@@ -6547,7 +6547,7 @@
 		"DOTA_Tooltip_ability_leonidas_catch_slow_pct"											"%EFFECT SLOW:"
 
 		"DOTA_Tooltip_ability_leonidas_pride"													"Defensive stance"
-		"DOTA_Tooltip_ability_leonidas_pride_Description"										"Leonidas enters defensive stance, reducing damage taken, while translating portion of damage ally heroes in radius receive to him.Leonidas is disarmed while in this stance. At any moment this spell can be canceled with Release.\n Release: Leonidas throws his spear at targeted location after a 0.3 seconds. All enemies hit will receive damage based on damage Leonidas received in his defensive stance capped at 75% of his max HP and will be stunned for a short duration.\n[BERSERKED] HP based cap of spear is increased to 150%."
+		"DOTA_Tooltip_ability_leonidas_pride_Description"										"Leonidas enters defensive stance, reducing damage taken, while translating portion of damage ally heroes in radius receive to him.Leonidas is disarmed while in this stance. At any moment this spell can be canceled with Release.\n Release: Leonidas throws his spear at targeted location after a 0.3 seconds. All enemies hit will receive damage based on damage Leonidas received in his defensive stance capped at 50% of his max HP and will be stunned for a short duration.\n[BERSERKED] HP based cap of spear is increased to 75%."
 		"DOTA_Tooltip_ability_leonidas_pride_Note0"												""
 		"DOTA_Tooltip_ability_leonidas_pride_radius"										"RADIUS:"
 		"DOTA_Tooltip_ability_leonidas_pride_counter_duration"								"DURATION:"
