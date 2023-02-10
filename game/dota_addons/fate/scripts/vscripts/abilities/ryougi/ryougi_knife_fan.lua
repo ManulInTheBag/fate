@@ -13,6 +13,10 @@ end
 function ryougi_knife_fan:OnSpellStart()
 	  local caster = self:GetCaster()
 	  local range = self:GetSpecialValueFor("range")
+    local tpoint = self:GetCursorPosition()
+    local dir = tpoint - caster:GetAbsOrigin()
+    dir.z = 0
+    caster:SetForwardVector(dir:Normalized())
 
     local calc_angle = caster:GetLocalAngles()
 

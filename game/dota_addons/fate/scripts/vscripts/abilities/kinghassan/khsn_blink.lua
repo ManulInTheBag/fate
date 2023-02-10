@@ -7,7 +7,7 @@ khsn_blink = class({})
 function khsn_blink:CastFilterResultTarget(vLocation)
     local hCaster = self:GetCaster()
 
-    if true
+    if vLocation:GetTeamNumber() ~= hCaster:GetTeamNumber()
         and hCaster and not hCaster:IsNull() then
         if not (IsServer() and IsLocked(hCaster)) then
             return UF_SUCCESS

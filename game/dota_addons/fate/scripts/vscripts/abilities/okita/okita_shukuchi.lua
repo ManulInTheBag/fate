@@ -62,7 +62,7 @@ function okita_shukuchi:OnSpellStart()
 		--print(GetGroundPosition(caster:GetAbsOrigin(), caster))
 		
 		if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 and caster:GetIntellect() >= 29.1 and caster:HasModifier("modifier_tennen_active") then
-			if (caster:GetAbilityByIndex(5):GetName()=="okita_sandanzuki") and caster:FindAbilityByName("okita_sandanzuki"):IsCooldownReady() and not caster:HasModifier("modifier_okita_zekken_cd") then
+			if (caster:GetAbilityByIndex(5):GetName()=="okita_sandanzuki") and caster:FindAbilityByName("okita_sandanzuki"):IsCooldownReady() and caster:FindAbilityByName("okita_zekken"):IsCooldownReady() then
 				if not caster:HasModifier("modifier_okita_window") then
 					caster:SwapAbilities("okita_zekken", "okita_sandanzuki", true, false)
 					caster:AddNewModifier(caster, self, "modifier_okita_window", {duration = 4})

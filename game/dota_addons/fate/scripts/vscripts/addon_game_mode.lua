@@ -88,7 +88,7 @@ MAX_LEVEL = 24 -- What level should we let heroes get to?
 USE_CUSTOM_XP_VALUES = true -- Should we use custom XP values to level up heroes, or the default Dota numbers?
 DISABLE_ANNOUNCER = true               -- Should we disable the announcer from working in the game?
 LOSE_GOLD_ON_DEATH = false               -- Should we have players lose the normal amount of dota gold on death?
-VICTORY_CONDITION = 16 -- Round required for win
+VICTORY_CONDITION = 12 -- Round required for win
 
 
 
@@ -111,7 +111,7 @@ SPAWN_POSITION_T4_TRIO = Vector(-888,1748,512)
 TRIO_RUMBLE_CENTER = Vector(2436,4132,1000)
 FFA_CENTER = Vector(368,3868,1000)
 mode = nil
-FATE_VERSION = "v1.3"
+FATE_VERSION = "v13.37"
 roundQuest = nil
 IsGameStarted = false
 
@@ -151,7 +151,7 @@ local winnerEventData = {
     direScore = 0
 }
 local victoryConditionData = {
-    victoryCondition = 16
+    victoryCondition = 12
 }
 
 Options:Preload()
@@ -362,6 +362,7 @@ function Precache( context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_sven.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_templar_assassin.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_tidehunter.vsndevts", context )
+    PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_treant.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_dark_willow.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_ursa.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_vengefulspirit.vsndevts", context )
@@ -466,8 +467,8 @@ This function is called once and only once after all players have loaded into th
     ]]
 function FateGameMode:OnAllPlayersLoaded()
    -- print("[BAREBONES] All Players have loaded into the game")
-    --GameRules:SendCustomMessage("Fate/Alternate " .. FATE_VERSION .. " by Dun1007", 0, 0)
-    --GameRules:SendCustomMessage("Game is currently in alpha phase of development and you may run into major issues that I hope to address ASAP. Please wait patiently for the official release.", 0, 0)
+    GameRules:SendCustomMessage("Fate/Balance " .. FATE_VERSION .. " by Balance Department", 0, 0)
+    GameRules:SendCustomMessage("Game is currently and forever in beta, so you may run into minor and major issues that nobody cares about. You've been warned.", 0, 0)
     --GameRules:SendCustomMessage("#Fate_Choose_Hero_Alert_60", 0, 0)
     --FireGameEvent('cgm_timer_display', { timerMsg = "Hero Select", timerSeconds = 61, timerEnd = true, timerPosition = 100})
 
@@ -607,7 +608,9 @@ function FateGameMode:OnGameInProgress()
         GameRules:GetGameModeEntity():SetThink( "OnGameTimerThink", self, 1 )
         IsPickPhase = false
         IsGameStarted = true
-        --GameRules:SendCustomMessage("#Fate_Game_Begin", 0, 0)
+        GameRules:SendCustomMessage("Fate/Balance " .. FATE_VERSION .. " by Balance Department", 0, 0)
+        GameRules:SendCustomMessage("Game is currently and forever in beta, so you may run into minor and major issues that nobody cares about. You've been warned.", 0, 0)
+        GameRules:SendCustomMessage("#Fate_Game_Begin", 0, 0)
         CreateUITimer("Next Holy Grail's Blessing", FIRST_BLESSING_PERIOD, "ten_min_timer")
 
         Timers:CreateTimer('round_10min_bonus', {
@@ -2910,7 +2913,7 @@ function FateGameMode:OnEntityKilled( keys )
                     exp_bounty = exp_bounty * (level_difference * 0.03 + 1)
                 end
 
-                alliedHeroes[i]:AddExperience(exp_bounty, false, false)
+                alliedHeroes[i]:AddExperience(exp_bounty/2, false, false)
             end
         end
 
@@ -3037,7 +3040,7 @@ function FateGameMode:OnEntityKilled( keys )
                         --print("Bounty multiplier after: " .. exp_bounty)
                     end
 
-                    alliedHeroes[i]:AddExperience(exp_bounty, false, false)
+                    alliedHeroes[i]:AddExperience(exp_bounty/2, false, false)
                 end
             end
             --SendChatToPanorama("OEC13")
@@ -3727,7 +3730,7 @@ function FateGameMode:InitializeRound()
     CreateUITimer("Pre-Round", PRE_ROUND_DURATION, "pregame_timer")
     --FireGameEvent('cgm_timer_display', { timerMsg = "Pre-Round", timerSeconds = 16, timerEnd = true, timerPosition = 0})
     --DisplayTip()
-    --GameRules:SendCustomMessage("Round "..self.nCurrentRound.." will begin in " .. PRE_ROUND_DURATION .. " seconds.", 0, 0)
+    GameRules:SendCustomMessage("Round "..self.nCurrentRound.." will begin in " .. PRE_ROUND_DURATION .. " seconds.", 0, 0)
     --Say(nil, string.format("Round %d will begin in " .. PRE_ROUND_DURATION .. " seconds.", self.nCurrentRound), false) -- Valve please
 
     local msg = {
@@ -3799,7 +3802,7 @@ function FateGameMode:InitializeRound()
 
             --local xpBonus = 100 + 
 
-            hero:AddExperience(self.nCurrentRound * 50, false, false)
+            hero:AddExperience(self.nCurrentRound * 100, false, false)
             if(hero.AvariceCount ~= nil) then
                 --hero:AddExperience(self.nCurrentRound * 50 * hero.AvariceCount, false, false)
             end
@@ -4049,19 +4052,19 @@ function FateGameMode:FinishRound(IsTimeOut, winner)
 
     -- decide the winner
     if winner == 0 then
-        --GameRules:SendCustomMessage("#Fate_Round_Winner_1", 0, 0)
+        GameRules:SendCustomMessage("#Fate_Round_Winner_1", 0, 0)
         self.nRadiantScore = self.nRadiantScore + 1
         winnerEventData.winnerTeam = 0
         GameRules.Winner = 2
         statCollection:submitRound(false)
     elseif winner == 1 then
-        --GameRules:SendCustomMessage("#Fate_Round_Winner_2", 0, 0)
+        GameRules:SendCustomMessage("#Fate_Round_Winner_2", 0, 0)
         self.nDireScore = self.nDireScore + 1
         winnerEventData.winnerTeam = 1
         GameRules.Winner = 3
         statCollection:submitRound(false)
     elseif winner == 2 then
-        --GameRules:SendCustomMessage("#Fate_Round_Draw", 0, 0)
+        GameRules:SendCustomMessage("#Fate_Round_Draw", 0, 0)
         winnerEventData.winnerTeam = 2
         --[[if _G.ClownActive == true then
             EmitAnnouncerSound("fiddle_draw_"..math.random(1,4))
@@ -4076,13 +4079,13 @@ function FateGameMode:FinishRound(IsTimeOut, winner)
                 end
             end)
     elseif winner == 3 then
-        --GameRules:SendCustomMessage("#Fate_Round_Winner_1_By_Default", 0, 0)
+        GameRules:SendCustomMessage("#Fate_Round_Winner_1_By_Default", 0, 0)
         self.nRadiantScore = self.nRadiantScore + 1
         winnerEventData.winnerTeam = 0
         GameRules.Winner = 2
         statCollection:submitRound(false)
     elseif winner == 4 then
-        --GameRules:SendCustomMessage("#Fate_Round_Winner_2_By_Default", 0, 0)
+        GameRules:SendCustomMessage("#Fate_Round_Winner_2_By_Default", 0, 0)
         self.nDireScore = self.nDireScore + 1
         winnerEventData.winnerTeam = 1
         GameRules.Winner = 3
@@ -4188,7 +4191,7 @@ function FateGameMode:FinishRound(IsTimeOut, winner)
     winnerEventData.direScore = self.nDireScore
     CustomNetTables:SetTableValue("score", "CurrentScore", { nRadiantScore = self.nRadiantScore, nDireScore = self.nDireScore })
     CustomGameEventManager:Send_ServerToAllClients( "winner_decided", winnerEventData ) -- Send the winner to Javascript
-    --GameRules:SendCustomMessage("#Fate_Round_Gold_Note", 0, 0)
+    GameRules:SendCustomMessage("#Fate_Round_Gold_Note", 0, 0)
     self:LoopOverPlayers(function(player, playerID, playerHero)
         local pHero = playerHero
         -- radiant = 2(equivalent to 0)
@@ -4226,7 +4229,7 @@ function FateGameMode:FinishRound(IsTimeOut, winner)
             end
             hero.ServStat:printconsole()
         end)
-        --GameRules:SendCustomMessage("Red Faction Victory!",0,0)
+        GameRules:SendCustomMessage("Red Faction Victory!",0,0)
         my_http_post()
         GameRules:SetSafeToLeave( true )
         GameRules:SetGameWinner( DOTA_TEAM_GOODGUYS )
@@ -4241,7 +4244,7 @@ function FateGameMode:FinishRound(IsTimeOut, winner)
             end
             hero.ServStat:printconsole()
         end)
-        --GameRules:SendCustomMessage("Black Faction Victory!",0,0)
+        GameRules:SendCustomMessage("Black Faction Victory!",0,0)
         my_http_post()
         GameRules:SetSafeToLeave( true )
         GameRules:SetGameWinner( DOTA_TEAM_BADGUYS )

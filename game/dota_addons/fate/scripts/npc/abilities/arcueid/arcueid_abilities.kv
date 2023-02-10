@@ -21,7 +21,7 @@
 		"AnimationPlaybackRate" 		"2.0"
 		"AbilityCastPoint"				"0.2"
 		"AbilityCooldown"				"8"
-		"AbilityCastRange"				"450"
+		"AbilityCastRange"				"550"
 		"AbilityManaCost"				"100"
 		
 		"AbilitySpecial"
@@ -44,7 +44,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"slow_percent"			"40 47.5 55 62.5 70"
+				"slow_percent"			"50 57.5 65 72.5 80"
 			}
 			"05"
 			{
@@ -70,7 +70,7 @@
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY" 
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
@@ -81,13 +81,14 @@
 		"AbilityCastPoint"				"0.2"
 		"AbilityCooldown"				"14 12 10 8 6"
 		"AbilityManaCost"				"200"
+		"AbilityCastRange"				"300"
 		
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"range"					"300 400 500 600 700"
+				"range"					"500 600 700 800 900"
 			}
 			"02"
 			{
@@ -97,7 +98,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"200 250 300 350 400"
+				"damage"				"200 275 350 425 500"
 			}
 			"04"
 			{
@@ -117,7 +118,7 @@
 			"07"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"collide_damage"		"100 125 150 175 200"
+				"collide_damage"		"100 150 200 250 300"
 			}
 			"08"
 			{
@@ -303,7 +304,7 @@
 			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"mana_per_hit"			"75"
+				"mana_per_hit"			"40"
 			}
 			"07"
 			{
@@ -403,14 +404,15 @@
 		"AbilityTextureName"			"custom/arcueid/arcueid_melty_2"
 		"ScriptFile"					"abilities/arcueid/arcueid_melty.lua"
 
-		"AbilityCastRange"				"400"
+		"AbilityCastRange"				"500"
+		"AbilityCastBuffer"				"500"
 		"AOERadius"						"%radius"
 		"AbilityCastAnimation" 			"ACT_DOTA_RAZE_2"
 		"AnimationPlaybackRate" 		"1.0"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.4"
+		"AbilityCastPoint"				"0.3"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------

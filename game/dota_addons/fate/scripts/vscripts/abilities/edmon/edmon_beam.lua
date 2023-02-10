@@ -3,6 +3,26 @@ LinkLuaModifier("modifier_edmon_beam", "abilities/edmon/edmon_beam", LUA_MODIFIE
 
 edmon_beam = class({})
 
+function edmon_beam:OnAbilityPhaseStart()
+	local seq = self:CheckSequence() + 1
+	local caster = self:GetCaster()
+	local modifier = caster:FindModifierByName("modifier_edmon_beam_stacks")
+	self.sound = 1
+	if modifier then
+		if modifier:GetStackCount() == 6 then
+			self.sound = 2
+		end
+	end
+	self:GetCaster():EmitSound("edmon_q"..self.sound..seq)
+	return true
+end
+
+function edmon_beam:OnAbilityPhaseInterrupted()
+	for i = 1,3 do
+		self:GetCaster():StopSound("edmon_q"..self.sound..i)
+	end
+end
+
 function edmon_beam:GetAOERadius()
 	return self:GetSpecialValueFor("range")
 end
@@ -168,6 +188,12 @@ function edmon_beam:OnSpellStart()
 					    								)
 
 						for _, enemy in pairs(enemies) do
+							if caster.FlamesAcquired then
+								local modifier = caster:AddNewModifier(caster, caster:FindAbilityByName("edmon_mythologie"), "modifier_edmon_melee_stacks", {duration = 5})
+								if modifier:GetStackCount() < 6 then
+									modifier:IncrementStackCount()
+								end
+							end
 							DoDamage(caster, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
 
 							--self:PlayEffects2(enemy)
@@ -186,10 +212,10 @@ function edmon_beam:MiniDarkBeam(part1, part9, isAA, isMelee, isBeams, seq)
 	local damage = self:GetSpecialValueFor("damage")
 
 	if isAA then
-		damage = damage/2
+		damage = damage/3
 	end
 	if isBeams then
-		damage = damage/2
+		damage = damage/4
 	end
 
 	if not isMelee then
@@ -213,6 +239,14 @@ function edmon_beam:MiniDarkBeam(part1, part9, isAA, isMelee, isBeams, seq)
 	    								)
 
 		for _, enemy in pairs(enemies) do
+			if not isBeams then
+				if caster.FlamesAcquired then
+					local modifier = caster:AddNewModifier(caster, caster:FindAbilityByName("edmon_mythologie"), "modifier_edmon_melee_stacks", {duration = 5})
+					if modifier:GetStackCount() < 6 then
+						modifier:IncrementStackCount()
+					end
+				end
+			end
 			DoDamage(caster, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
 
 			--self:PlayEffects2(enemy)

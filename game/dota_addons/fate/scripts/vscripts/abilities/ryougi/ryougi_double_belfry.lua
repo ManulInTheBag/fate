@@ -7,6 +7,8 @@ function ryougi_double_belfry:GetCastPoint()
 		return 0.10
 	elseif self:CheckSequence() == 3 then
 		return 0.20
+	elseif self:CheckSequence() == 4 then
+		return 0.20
 	else
 		return 0.225
 	end
@@ -67,6 +69,8 @@ function ryougi_double_belfry:GetCastAnimation()
 	elseif self:CheckSequence() == 3 then
 		--print("3")
 		return ACT_DOTA_CAST_ABILITY_3_END
+	elseif self:CheckSequence() == 4 then
+		return ACT_DOTA_CAST_ABILITY_4_END
 	else
 		--print("1")
 		return ACT_DOTA_CAST_ABILITY_1
@@ -77,6 +81,8 @@ function ryougi_double_belfry:GetPlaybackRateOverride()
     if self:CheckSequence() == 2 then
 		return 2.0
 	elseif self:CheckSequence() == 3 then
+		return 1.0
+	elseif self:CheckSequence() == 4 then
 		return 1.0
 	else
 		return 2.0
@@ -89,6 +95,8 @@ function ryougi_double_belfry:GetAbilityTextureName()
 		return "custom/ryougi/ryougi_double_belfry_3"
 	elseif self:CheckSequence() == 2 then
 		return "custom/ryougi/ryougi_double_belfry_2"
+	elseif self:CheckSequence() == 4 then
+		return "custom/ryougi/ryougi_belfry_mech"
 	else
 		return "custom/ryougi/ryougi_double_belfry"
 	end
@@ -114,6 +122,8 @@ function ryougi_double_belfry:OnSpellStart()
 		self:Belfry3()
 	elseif self:CheckSequence() == 2 then
 		self:Belfry2()
+	elseif self:CheckSequence() == 4 then
+		caster:FindAbilityByName("ryougi_double_belfry_mech"):Belfry3()
 	else
 		self:Belfry1()
 	end
@@ -244,6 +254,11 @@ function ryougi_double_belfry:Belfry3()
 
     if not caster.KiyohimePassingAcquired then
     	caster:RemoveModifierByName("modifier_ryougi_double_belfry_tracker")
+    else
+    	self:SequenceSkill()
+    	self:EndCooldown()
+    	local ability = caster:FindAbilityByName("ryougi_double_belfry_mech")
+    	ability:StartCooldown(ability:GetCooldown(ability:GetLevel() - 1) - ability:GetSpecialValueFor("window_duration"))
     end
 	
 	--[[if caster.KiyohimePassingAcquired then
@@ -257,7 +272,7 @@ ryougi_double_belfry_mech = class({})
 function ryougi_double_belfry_mech:GetCastPoint()
 	if self:CheckSequence() == 2 then
 		return 0.0
-	elseif self:CheckSequence() == 3 then
+	elseif (self:CheckSequence() == 3) or (self:CheckSequence() == 4) then
 		return 0.20
 	else
 		return 0.45
@@ -268,7 +283,7 @@ function ryougi_double_belfry_mech:GetCastAnimation()
 	if self:CheckSequence() == 2 then
 		--print("2")
 		return ACT_DOTA_CAST_ABILITY_1_END
-	elseif self:CheckSequence() == 3 then
+	elseif (self:CheckSequence() == 3) or (self:CheckSequence() == 4) then
 		--print("3")
 		return ACT_DOTA_CAST_ABILITY_4_END
 	else
@@ -278,7 +293,7 @@ function ryougi_double_belfry_mech:GetCastAnimation()
 end
 
 function ryougi_double_belfry_mech:GetAbilityTextureName()
-	if self:CheckSequence() == 3 then
+	if (self:CheckSequence() == 3) or (self:CheckSequence() == 4) then
 		return "custom/ryougi/ryougi_belfry_mech"
 	elseif self:CheckSequence() == 2 then
 		return "custom/ryougi/ryougi_kick"
@@ -302,7 +317,7 @@ end
 function ryougi_double_belfry_mech:OnSpellStart()
 	local caster = self:GetCaster()
 
-	if self:CheckSequence() == 3 then
+	if (self:CheckSequence() == 3) or (self:CheckSequence() == 4) then
 		self:Belfry3()
 	elseif self:CheckSequence() == 2 then
 		self:Belfry2()

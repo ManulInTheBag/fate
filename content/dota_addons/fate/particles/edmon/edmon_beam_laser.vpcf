@@ -493,9 +493,6 @@
 			m_ChildRef = resource:"particles/edmon/edmon_beam_laser_c.vpcf"
 		},
 		{
-			m_ChildRef = resource:"particles/edmon/edmon_beam_laser_d.vpcf"
-		},
-		{
 			m_ChildRef = resource:"particles/edmon/edmon_beam_laser_e.vpcf"
 			m_bDisableChild = true
 		},
@@ -506,9 +503,6 @@
 			m_ChildRef = resource:"particles/edmon/edmon_beam_laser_g.vpcf"
 		},
 		{
-			m_ChildRef = resource:"particles/edmon/edmon_beam_laser_h.vpcf"
-		},
-		{
 			m_ChildRef = resource:"particles/edmon/edmon_beam_laser_d1.vpcf"
 		},
 		{
@@ -517,6 +511,12 @@
 		},
 		{
 			m_ChildRef = resource:"particles/edmon/edmon_linear_edge_b.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/edmon/edmon_beam_laser_d.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/edmon/edmon_beam_laser_h.vpcf"
 		},
 	]
 }

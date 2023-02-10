@@ -3117,10 +3117,10 @@
 		"DOTA_Tooltip_Ability_okita_jet_release_distance"	"Dash distance:"
 
 		"DOTA_Tooltip_Ability_okita_zekken"	"Zekken Mukyuu Sandan"
-		"DOTA_Tooltip_Ability_okita_zekken_Description"	"<font color='#58ACFA'>Combo Requirement : 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence : W-Q-R in 4 seconds</font>\nOkita goes berserk, using her most powerful but kinda devilish technique - Zekken Mukyuu Sandan. Attacks all enemies around the selected target's location (including target itself), using all her attack modifiers, afterwards fires a dark energy beam at the target, that completely destroys her enemies and deals massive magic damage. \She will always fire a beam from cast location and beam will always have the same range, be aware of that."
+		"DOTA_Tooltip_Ability_okita_zekken_Description"	"<font color='#58ACFA'>Combo Requirement : 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence : W-Q-R in 4 seconds</font>\nOkita goes berserk, using her most powerful but kinda devilish technique - Zekken Mukyuu Sandan. Attacks all enemies around the selected target's location (including target itself), afterwards fires a dark energy beam at the target, that completely destroys her enemies and deals massive magic damage.\nFollows the target for the first second, then stops at the location it was at that moment."
 		"DOTA_Tooltip_Ability_okita_zekken_duration"	"Attack phase duration:"
 		"DOTA_Tooltip_Ability_okita_zekken_interval"	"Attack interval:"
-		//"DOTA_Tooltip_Ability_okita_zekken_damage"	"Base attack damage:"
+		"DOTA_Tooltip_Ability_okita_zekken_damage"	"Damage per attack:"
 		"DOTA_Tooltip_Ability_okita_zekken_radius"	"Attack radius:"
 		"DOTA_Tooltip_Ability_okita_zekken_beam_distance"	"Beam range:"
 		"DOTA_Tooltip_Ability_okita_zekken_beam_radius"	"Beam radius:"
@@ -3150,7 +3150,7 @@
 		"DOTA_Tooltip_Ability_okita_attribute_summer_madness_radius"		"Hit radius:"
 
 		"DOTA_Tooltip_Ability_okita_kenjitsu"	"Master of Tennen Rishin-Ryū Kenjitsu"
-		"DOTA_Tooltip_Ability_okita_kenjitsu_Description"	"Okita has mastered her Tennen Rishin-ryū perfectly. \nIncreases maximum Tennen Rishin-ryū stack count to 20. \nWhile Tennen Rishin-ryū is active, Shukuchi will grant you 100% critical strikes for duration."
+		"DOTA_Tooltip_Ability_okita_kenjitsu_Description"	"Okita has mastered her Tennen Rishin-ryū perfectly. \nIncreases maximum Tennen Rishin-ryū stack count to 20. \nWhile Tennen Rishin-ryū is active, Shukuchi will grant you 100% critical strikes for duration.\n33%% of Zekken Mukyuu Sandan attack damage becomes pure."
 		
 		//=================================================================================================================
 		//	False Assassin(5th)
@@ -6547,7 +6547,7 @@
 		"DOTA_Tooltip_ability_leonidas_catch_slow_pct"											"%EFFECT SLOW:"
 
 		"DOTA_Tooltip_ability_leonidas_pride"													"Defensive stance"
-		"DOTA_Tooltip_ability_leonidas_pride_Description"										"Leonidas enters defensive stance, reducing damage taken, while translating portion of damage ally heroes in radius receive to him.Leonidas is disarmed while in this stance. At any moment this spell can be canceled with Release.\n Release: Leonidas throws his spear at targeted location after a 0.3 seconds. All enemies hit will receive damage based on damage Leonidas received in his defensive stance capped at 75% of his max HP and will be stunned for a short duration.\n[BERSERKED] HP based cap of spear is increased to 150%."
+		"DOTA_Tooltip_ability_leonidas_pride_Description"										"Leonidas enters defensive stance, reducing damage taken, while translating portion of damage ally heroes in radius receive to him.Leonidas is disarmed while in this stance. At any moment this spell can be canceled with Release.\n Release: Leonidas throws his spear at targeted location after a 0.3 seconds. All enemies hit will receive damage based on damage Leonidas received in his defensive stance capped at 50% of his max HP and will be stunned for a short duration.\n[BERSERKED] HP based cap of spear is increased to 75%."
 		"DOTA_Tooltip_ability_leonidas_pride_Note0"												""
 		"DOTA_Tooltip_ability_leonidas_pride_radius"										"RADIUS:"
 		"DOTA_Tooltip_ability_leonidas_pride_counter_duration"								"DURATION:"
@@ -6729,7 +6729,7 @@
 		"DOTA_Tooltip_ability_ryougi_ying_yang_Note0"		"Can be used while stunned."
 
 		"DOTA_Tooltip_ability_ryougi_mystic_eyes"			"Mystic Eyes of Death Perception"
-		"DOTA_Tooltip_ability_ryougi_mystic_eyes_Description"	"<font color='#58ACFA'>Passive:</font> each knife slash or thrown knife deals additional physical damage equal to 2x Shiki's attack damage.\n<font color='#58ACFA'>Active:</font> Shiki activates her Mystic Eyes for %duration% seconds. While they are active, each different move except for Double Belfry - Kick cuts one line. Shiki can't continue to cut lines of one enemy with similar moves.\nWhen line is cut, Shiki restores %mana_restore% mana and enemy recieves %immediate_damage%%  of it's maximum health as pure damage and recieves 1 stack of debuff for %line_duration% seconds.\nWhile this debuff persists, it softloks target's health for %health_percent%%  of it's maximum health per stack. If it's higher than that, it's health will slowly decay.\nWhen debuff reaches 4, 8, or 12 stacks, enemy will be locked for %stun_duration% seconds.\nWhen debuff reaches 10 stacks, target dies. Horribly."
+		"DOTA_Tooltip_ability_ryougi_mystic_eyes_Description"	"<font color='#58ACFA'>Passive:</font> each knife slash or thrown knife deals additional physical damage equal to %dmg_mult%x Shiki's attack damage.\n<font color='#58ACFA'>Active:</font> Shiki activates her Mystic Eyes for %duration% seconds. While they are active, each different move except for Double Belfry - Kick cuts one line. Shiki can't continue to cut lines of one enemy with similar moves.\nWhen line is cut, Shiki restores %mana_restore% mana, enemy recieves %immediate_damage%%  of it's maximum health as pure damage and recieves 1 stack of debuff for %line_duration% seconds.\nWhile this debuff persists, it softloks target's health for %health_percent%%  of it's maximum health per stack. If it's higher than that, it's health will slowly decay.\nWhen debuff reaches 4, 8, or 12 stacks, enemy will be locked for %stun_duration% seconds.\nWhen debuff reaches 10 stacks, target dies. Horribly."
 		"DOTA_Tooltip_ability_ryougi_mystic_eyes_Note0"			"Health decay is not considered damage."
 		"DOTA_Tooltip_ability_ryougi_mystic_eyes_bonus_vision"	"Attribute bonus vision radius:"
 		"DOTA_Tooltip_ability_ryougi_mystic_eyes_true_sight_range"			"Attribute true sight range:"
@@ -6749,6 +6749,7 @@
 
 		"DOTA_Tooltip_ability_ryougi_kiyohime_passing_attribute"		"Attribute: Kiyohime Passing"
 		"DOTA_Tooltip_ability_ryougi_kiyohime_passing_attribute_Description"	"Double Belfry - Row of Beads now allows E-E-E-R or E-E-R-E casts.\nUsing Culled Long-Sleeved Kimono E-E reduces it's cooldown to 2 seconds.\nKnife Fan hard cleanses Ryougi on use (not usable while stunned though)."
+		"DOTA_Tooltip_ability_ryougi_kiyohime_passing_attribute_Note0"		"Inputting E-E-E-E will result in automatic E-E-E-R cast."
 
 		"DOTA_Tooltip_ability_ryougi_black_moon_attribute"		"Attribute: Black Moon Kite"
 		"DOTA_Tooltip_ability_ryougi_black_moon_attribute_Description"		"Hidden Daggers recieve additional effects: slow (ying) and silence (yang).\nAvidya Moon and Glass Moon can be unit-targetted and if Shiki is close enought to the target at the start of the leap, she will follow them whenever they go."
@@ -6863,7 +6864,66 @@
 		"DOTA_Tooltip_ability_arcueid_recklesness_attribute_Description"	"Shut Up and Fly! and Ready, Go! microstun on each impact.\nEach time Arcueid gains Vampiric Impulses stack from an enemy, she will immediately attack that enemy. Attack itself will deal no damage, but will use Vampiric Impulses and other on-hit effects."
 
 		"DOTA_Tooltip_ability_arcueid_world_attribute"	"Attribute: World Backup"
-		"DOTA_Tooltip_ability_arcueid_world_attribute_Description"	"Upgrades Vampiric Impulses.\nVampiric Impulses gain additional damage per strength and additional attack speed per agility.\n\nVampiric Impulses can be set on autocast, which will enable Arcueid to utilize Vampiric Impulses bonuses without stacks by paying 75 mana per attack.\nVampiric Impulses autoattacks reduce CD of her base skills by 1 second per autoattack."
+		"DOTA_Tooltip_ability_arcueid_world_attribute_Description"	"Upgrades Vampiric Impulses.\nVampiric Impulses gain additional damage per strength and additional attack speed per agility.\n\nVampiric Impulses can be set on autocast, which will enable Arcueid to utilize Vampiric Impulses bonuses without stacks by paying 40 mana per attack.\nVampiric Impulses autoattacks reduce CD of her base skills by 1 second per autoattack."
+
+		//====================================
+		//      Arcueid Brunestud
+        //====================================
+
+		"npc_dota_hero_treant"						"Edmon Dantes"
+
+		"npc_dota_hero_treant_hype"					""
+		"npc_dota_hero_treant_bio"					""
+
+		"DOTA_Tooltip_modifier_arcueid_shut_up_slow"			"Shut Up And Fly!"
+		"DOTA_Tooltip_modifier_arcueid_shut_up_slow_Description"	"Slowed"
+
+		"DOTA_Tooltip_ability_edmon_mythologie"					"Monte Cristo Mythologie"
+		"DOTA_Tooltip_ability_edmon_mythologie_Description"		"Edmon utilizes black flames to attack his enemies. Deals additional magical damage on attacks that depends on Dark Beam damage.\nWhen attacking units further than 250 from him, he utilizes weakened versions of Dark Beams and has 1.2 BAT.\nWhen attacking enemies near him, he has 0.9 BAT."
+
+		"DOTA_Tooltip_ability_edmon_beam"						"Dark Beam"
+		"DOTA_Tooltip_ability_edmon_beam_Description"			"Can be used up to 3 times in a row.\n1'st and 2'nd cast: fires a Dark Beam, which deals %damage% damage in a straight line.\n3'rd cast: after a little delay, fires a slightly more powerful Dark Beam, which deals %last_damage% damage."
+		"DOTA_Tooltip_ability_edmon_beam_range"					"Range:"
+		"DOTA_Tooltip_ability_edmon_beam_last_range"			"Last beam range:"
+
+		"DOTA_Tooltip_ability_edmon_counter"					"Vengeful Conflagration"
+		"DOTA_Tooltip_ability_edmon_counter_Description"		"For the next %duration% seconds, upon taking %threshold% or more damage in one instance Dantes will teleport to the attacker, becoming invulnerable and uncontrollable and dealing magical damage to the attacker. After a short delay, Dantes will will deal the same damage to him %slash_count% more times."
+		"DOTA_Tooltip_ability_edmon_counter_damage"				"Damage per hit:"
+		"DOTA_Tooltip_ability_edmon_counter_max_range"			"Maximum trigger range:"
+
+		"DOTA_Tooltip_ability_edmon_ground_beams"				"Revenge is Mine"
+		"DOTA_Tooltip_ability_edmon_ground_beams_Description"	"Dantes touches the ground, causing it to burst dark and light beams in a small area around him.\nDeals two instances of damage and stuns on each impact."
+		"DOTA_Tooltip_ability_edmon_ground_beams_damage"		"Damage per impact:"
+		"DOTA_Tooltip_ability_edmon_ground_beams_radius"		"Radius:"
+		"DOTA_Tooltip_ability_edmon_ground_beams_stun_duration"	"Stun duration:"
+
+		"DOTA_Tooltip_ability_edmon_dash"						"Afterglow"
+		"DOTA_Tooltip_ability_edmon_dash_Description"			"Dashes to the target enemy. If enemy blinks or somehow changes position too quickly, he will instead dash to the point where it was."
+		"DOTA_Tooltip_ability_edmon_dash_range"					"Range:"
+		"DOTA_Tooltip_ability_edmon_dash_speed"					"Speed:"
+
+		"DOTA_Tooltip_ability_edmon_ult"						"My Vengeance Never Dies"
+		"DOTA_Tooltip_ability_edmon_ult_Description"			"Dantes disappears for %duration% second and attacks the selected location 5 times, dealing %damage% magical damage to all enemies in radius with each attack."
+		"DOTA_Tooltip_ability_edmon_ult_radius"					"Radius:"
+		"DOTA_Tooltip_ability_edmon_ult_range"					"Range:"
+
+		"DOTA_Tooltip_ability_edmon_enfer"						"Combo: Enfer Chateau d'If"
+		"DOTA_Tooltip_ability_edmon_enfer_Description"			"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: W-D in 2 seconds</font>\n\nDantes prepares for 1.2 seconds and starts flying forward. Direction can be changed while flying. First enemy on his way will be considered the target.\nAfter target is acquired, Edmon slashes everything and everyone around it 18 times for %hit_damage% magical damage, then, after 0.5 delay, locks everyone inside the radius and starts burning everything down, dealing %burn_damage% magical damage in 2.4 seconds and %last_damage% magical damage at the end."
+		"DOTA_Tooltip_ability_edmon_enfer_range"				"Flight range:"
+		"DOTA_Tooltip_ability_edmon_enfer_radius"				"Radius:"
+
+		"DOTA_Tooltip_ability_edmon_flames_attribute"			"Attribute: Flames of Love and Hate"
+		"DOTA_Tooltip_ability_edmon_flames_attribute_Description"	"Dark Beams not created by Flames of Hate stack Flames of Love. Melee attacks not buffed by Flames of Love stack Flames of Hate. Both stack up to 6.\nFlames of Love: melee attacks use stacks to be nearly instant.\nFlames of Hate: during the delay, third Dark Beam creates two mini-Dark Beams, which deal 1/4 of Dark Beam damage each, per stack."
+
+		"DOTA_Tooltip_ability_edmon_vengeance_attribute"		"Attribute: Avenger"
+		"DOTA_Tooltip_ability_edmon_vengeance_attribute_Description"	"Enemies dealing damage to Dantes are marked for %duration% seconds. Marked enemies take %damage%%  more damage from Dantes. Dantes heals himself for %lifesteal%%  of damage dealt when dealing damage to them."
+
+		"DOTA_Tooltip_ability_edmon_escape_attribute"			"Attribute: Le Concept d'Evasion"
+		"DOTA_Tooltip_ability_edmon_escape_attribute_Description"			"Allows Dantes to use Afterglow and My Vengeance Never Dies when rooted and locked.\nIncreased My Vengeance Never Dies castrange by 300."
+
+		"DOTA_Tooltip_ability_edmon_hellfire_attribute"			"Attribute: Furious Hellfire"
+		"DOTA_Tooltip_ability_edmon_hellfire_attribute_Description"		"My Vengeance Never Dies deals 100 additional damage per hit.\nEnfer Chateau d'If deals 25 additional damage per hit, 1000 more damage with burn and 1500 more damage with last impact."
+
 
 		//====================================
 		//      Karna

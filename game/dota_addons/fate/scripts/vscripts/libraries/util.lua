@@ -527,6 +527,7 @@ CannotReset = {
     "merlin_garden_of_avalon",
     "arturia_alter_mana_discharge",
     "okita_mind_eye",
+    "okita_zekken",
     "muramasa_tsumukari_combo",
     "nero_aestus_domus_aurea",
     "gilgamesh_enkidu",
@@ -550,6 +551,9 @@ CannotReset = {
     "altera_form",
     "altera_teardrop",
     "khsn_blink",
+
+    "edmon_enfer",
+    "edmon_dash",
 }
 
 femaleservant = {
@@ -2299,6 +2303,7 @@ local heroNames = {
     ["npc_dota_hero_tiny"] = "Arcueid",
     ["npc_dota_hero_venomancer"] = "Leonidas I",
     ["npc_dota_hero_faceless_void"] = "Altera",
+    ["npc_dota_hero_treant"] = "Edmon Dantes",
 }
 
 
@@ -2357,6 +2362,7 @@ local heroCombos = {
     ["npc_dota_hero_tiny"] = "arcueid_melty",
     ["npc_dota_hero_venomancer"] = "leonidas_enomotia_combo",
     ["npc_dota_hero_faceless_void"] = "altera_teardrop",
+    ["npc_dota_hero_treant"] = "edmon_enfer",
 }
 
 function GetHeroCombo(hero)

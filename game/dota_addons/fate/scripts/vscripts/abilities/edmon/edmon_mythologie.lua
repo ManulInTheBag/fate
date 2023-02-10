@@ -1,6 +1,7 @@
 LinkLuaModifier("modifier_edmon_mythologie", "abilities/edmon/edmon_mythologie", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_edmon_beam_stacks", "abilities/edmon/edmon_mythologie", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_edmon_melee_stacks", "abilities/edmon/edmon_mythologie", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_edmon_mark", "abilities/edmon/edmon_mythologie", LUA_MODIFIER_MOTION_NONE)
 
 
 edmon_mythologie = class({})
@@ -62,10 +63,10 @@ function modifier_edmon_mythologie:GetModifierBaseAttackTimeConstant()
 			return 0.9
 		end
 		if self.form == "range" then
-			return 1.1
+			return 1.2
 		end
 	end
-	return 1.1
+	return 1.2
 end
 function modifier_edmon_mythologie:GetActivityTranslationModifiers()
 	return (self.form..self.seq)
@@ -109,11 +110,6 @@ function modifier_edmon_mythologie:OnAttackLanded(args)
 		local part1 = self.parent:GetAttachmentOrigin(self.parent:ScriptLookupAttachment("attach_attack"..self.seq)) + self.parent:GetForwardVector()*range + Vector(0, 0, height)
 		local part9 = self.parent:GetAttachmentOrigin(self.parent:ScriptLookupAttachment("attach_attack"..self.seq)) + self.parent:GetForwardVector()*25
 
-		local modifier = self.parent:AddNewModifier(self.parent, self.ability, "modifier_edmon_melee_stacks", {duration = 5})
-		if modifier:GetStackCount() < 6 then
-			modifier:IncrementStackCount()
-		end
-
 		self.beam_abil:MiniDarkBeam(part1, part9, true, false, false, self.seq)
 	else
 		local modifier = self.parent:FindModifierByName("modifier_edmon_melee_stacks")
@@ -126,21 +122,64 @@ function modifier_edmon_mythologie:OnAttackLanded(args)
 				self.parent:RemoveModifierByName("modifier_edmon_melee_stacks")
 			end
 		else
-			local modifier2 = self.parent:AddNewModifier(self.parent, self.ability, "modifier_edmon_beam_stacks", {duration = 5})
-			if modifier2:GetStackCount() < 6 then
-				modifier2:IncrementStackCount()
+			if self.parent.FlamesAcquired then
+				local modifier2 = self.parent:AddNewModifier(self.parent, self.ability, "modifier_edmon_beam_stacks", {duration = 5})
+				if modifier2:GetStackCount() < 6 then
+					modifier2:IncrementStackCount()
+				end
 			end
 		end
 		self.beam_abil:MiniDarkBeam(args.target, isfast, true, true, false, self.seq)
 	end
 end
+function modifier_edmon_mythologie:OnTakeDamage(args)
+	if not self.parent.VengeanceAcquired then return end
+	if args.unit ~= self.parent then return end
+
+	args.attacker:AddNewModifier(self.parent, self.ability, "modifier_edmon_mark", {duration = self.parent.MasterUnit2:FindAbilityByName("edmon_vengeance_attribute"):GetSpecialValueFor("duration")})
+end
+
+modifier_edmon_mark = class({})
+
+function modifier_edmon_mark:IsDebuff() return true end
+function modifier_edmon_mark:IsHidden() return false end
+function modifier_edmon_mark:DeclareFunctions()
+	return { MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE}
+end
+function modifier_edmon_mark:OnTakeDamage(args)
+	if not args.attacker == self:GetCaster() then return end
+
+	args.attacker:Heal(args.damage*self:GetCaster().MasterUnit2:FindAbilityByName("edmon_vengeance_attribute"):GetSpecialValueFor("lifesteal")/100, self:GetAbility())
+	local effect_cast = ParticleManager:CreateParticle( "particles/generic_gameplay/generic_lifesteal_blue.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster() )
+	ParticleManager:ReleaseParticleIndex( effect_cast )
+end
+function modifier_edmon_mark:GetModifierIncomingDamage_Percentage(keys)
+	if keys.attacker == self:GetCaster() then
+		return self:GetCaster().MasterUnit2:FindAbilityByName("edmon_vengeance_attribute"):GetSpecialValueFor("damage")
+	else
+		return 0
+	end
+end
+
+function modifier_edmon_mark:GetTexture()
+	return "custom/edmon/vengeance"
+end
+
 
 modifier_edmon_melee_stacks = class({})
 
 function modifier_edmon_melee_stacks:IsDebuff() return false end
 function modifier_edmon_melee_stacks:IsHidden() return false end
 
+function modifier_edmon_melee_stacks:GetTexture()
+	return "custom/edmon/love"
+end
+
 modifier_edmon_beam_stacks = class({})
 
 function modifier_edmon_beam_stacks:IsDebuff() return false end
 function modifier_edmon_beam_stacks:IsHidden() return false end
+
+function modifier_edmon_beam_stacks:GetTexture()
+	return "custom/edmon/hate"
+end

@@ -175,9 +175,11 @@
 		},
 		{
 			m_ChildRef = resource:"particles/edmon/edmon_beam_c.vpcf"
+			m_bDisableChild = true
 		},
 		{
 			m_ChildRef = resource:"particles/edmon/edmon_beam_start.vpcf"
+			m_bDisableChild = true
 		},
 	]
 }

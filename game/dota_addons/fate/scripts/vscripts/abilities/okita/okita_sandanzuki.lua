@@ -356,6 +356,7 @@ function modifier_okita_sandanzuki_release:UpdateHorizontalMotion(me, dt)
 
             self.parent:SetOrigin(next_pos)
             self.parent:FaceTowards(self.point)
+            self.parent:SetForwardVector(self.direction)
 
             --self:PlayEffects()
 
@@ -495,6 +496,7 @@ function modifier_okita_sandanzuki_dash:UpdateHorizontalMotion(me, dt)
 
             self.parent:SetOrigin(next_pos)
             self.parent:FaceTowards(self.point)
+            self.parent:SetForwardVector(self.direction)
 
             self:PlayEffects()
 

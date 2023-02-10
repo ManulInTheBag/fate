@@ -27,8 +27,6 @@ function ryougi_glass_moon:OnSpellStart()
 	caster:AddNewModifier(caster, self, "modifier_ryougi_glass_moon_2", {duration = 0.21})
 	StartAnimation(caster, {duration=0.315, activity=ACT_DOTA_CAST_ABILITY_1, rate=2})
 	Timers:CreateTimer(0.0, function()
-		if caster:IsStunned() then return end
-
 		caster:EmitSound("ryougi_moon_1")
 
 		local target = self:GetCursorPosition()
@@ -88,7 +86,7 @@ function ryougi_glass_moon:OnSpellStart()
 			caster:SetPhysicsVelocity(Vector(0,0,0))
 			FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
 
-			if caster:IsStunned() then return end
+			--if caster:IsStunned() then return end
 
 			StartAnimation(caster, {duration=0.815, activity=ACT_DOTA_CAST_ABILITY_2, rate=2})
 
@@ -189,7 +187,7 @@ function ryougi_glass_moon:OnSpellStart()
 		        ParticleManager:ReleaseParticleIndex( effect_cast )
 		    end)
 
-			if caster:IsStunned() then return end
+			--if caster:IsStunned() then return end
 
 			StartAnimation(caster, {duration=0.815, activity=ACT_DOTA_CAST_ABILITY_2, rate=2})
 
@@ -294,7 +292,7 @@ function modifier_ryougi_glass_moon_2:CheckState()
 			 [MODIFIER_STATE_SILENCED] = true,
 			 [MODIFIER_STATE_MUTED] = true,
 			 [MODIFIER_STATE_ROOTED] = true,
-			 [MODIFIER_STATE_COMMAND_RESTRICTED] = true }
+			 [MODIFIER_STATE_COMMAND_RESTRICTED] = false }
 end
 
 function modifier_ryougi_glass_moon_2:IsHidden() return true end

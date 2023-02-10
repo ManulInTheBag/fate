@@ -354,7 +354,7 @@
 					{
 						_class = "AnimFile"
 						name = "dash"
-						activity_name = ""
+						activity_name = "ACT_DOTA_CAST_ABILITY_4"
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -369,14 +369,14 @@
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/edmon/edmon.fbx"
 						import_bone_scales = false
 						start_frame = 372
-						end_frame = 421
+						end_frame = 384
 						framerate = -1.0
 						reverse = false
 					},
 					{
 						_class = "AnimFile"
 						name = "enfer"
-						activity_name = ""
+						activity_name = "ACT_DOTA_ATTACK_EVENT"
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -816,6 +816,176 @@
 						import_bone_scales = false
 						start_frame = 266
 						end_frame = 297
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "dash_copy"
+						children = 
+						[
+							{
+								_class = "AnimOffset"
+								translation = [ -100.0, 0.0, 0.0 ]
+								rotation_xyz = [ 0.0, 0.0, 0.0 ]
+							},
+						]
+						activity_name = "ACT_DOTA_CAST_ABILITY_4_END"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/edmon/edmon.fbx"
+						import_bone_scales = false
+						start_frame = 390
+						end_frame = 421
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "beam_copy1"
+						children = 
+						[
+							{
+								_class = "ActivityModifier"
+								activity_name = "range1"
+								activity_weight = 1
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 0
+								event_keys = 
+								{
+									name = resource:"particles/edmon/edmon_attack_trail.vpcf"
+									detach_from_owner = false
+									always_run = false
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = "ATTACH_ATTACK1"
+									attachment_type = "point_follow"
+									attachment_point_cp1 = "ATTACH_ATTACK1"
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+							{
+								_class = "AnimEvent"
+								disabled = true
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 0
+								event_keys = 
+								{
+									name = resource:"particles/edmon/edmon_attack_trail.vpcf"
+									detach_from_owner = false
+									always_run = false
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = "ATTACH_ATTACK2"
+									attachment_type = "point_follow"
+									attachment_point_cp1 = "ATTACH_ATTACK2"
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_STOP_PARTICLE_EFFECT"
+								event_frame = 20
+								event_keys = 
+								{
+									name = resource:"particles/edmon/edmon_attack_trail.vpcf"
+									stop_instantly = false
+									play_endcap = false
+								}
+							},
+						]
+						activity_name = "ACT_DOTA_CAST_ABILITY_6"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/edmon/edmon.fbx"
+						import_bone_scales = false
+						start_frame = 248
+						end_frame = 248
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "beam2_copy1"
+						children = 
+						[
+							{
+								_class = "ActivityModifier"
+								activity_name = "range2"
+								activity_weight = 1
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 0
+								event_keys = 
+								{
+									name = resource:"particles/edmon/edmon_attack_trail.vpcf"
+									detach_from_owner = false
+									always_run = false
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = "ATTACH_ATTACK2"
+									attachment_type = "point_follow"
+									attachment_point_cp1 = "ATTACH_ATTACK2"
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_STOP_PARTICLE_EFFECT"
+								event_frame = 21
+								event_keys = 
+								{
+									name = resource:"particles/edmon/edmon_attack_trail.vpcf"
+									stop_instantly = false
+									play_endcap = false
+								}
+							},
+						]
+						activity_name = "ACT_DOTA_CAST_ABILITY_2_END"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/edmon/edmon.fbx"
+						import_bone_scales = false
+						start_frame = 281
+						end_frame = 281
 						framerate = -1.0
 						reverse = false
 					},

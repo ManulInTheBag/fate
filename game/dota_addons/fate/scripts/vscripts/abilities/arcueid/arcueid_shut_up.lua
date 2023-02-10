@@ -8,6 +8,7 @@ function arcueid_shut_up:OnSpellStart()
 	local damage = self:GetSpecialValueFor("damage")
 	local collide_damage = self:GetSpecialValueFor("collide_damage")
 	local pushback_range = self:GetSpecialValueFor("range")
+	local target = self:GetCursorTarget()
 
 	if caster.MonstrousStrengthAcquired then
 		collide_damage = collide_damage + caster:GetStrength()*self:GetSpecialValueFor("collide_mult")
@@ -17,7 +18,7 @@ function arcueid_shut_up:OnSpellStart()
 	caster:EmitSound("arcueid_swing")
 	caster:EmitSound("arcueid_shut_"..math.random(1,4))
 
-	local enemies = FindUnitsInLine(
+	--[[local enemies = FindUnitsInLine(
 								        caster:GetTeamNumber(),
 								        caster:GetAbsOrigin(),
 								        caster:GetAbsOrigin() + caster:GetForwardVector()*200,
@@ -26,9 +27,9 @@ function arcueid_shut_up:OnSpellStart()
 										DOTA_UNIT_TARGET_TEAM_ENEMY,
 										DOTA_UNIT_TARGET_ALL,
 										DOTA_UNIT_TARGET_FLAG_NONE
-    								)
+    								)]]
 
-	for _, target in pairs(enemies) do
+	--for _, target in pairs(enemies) do
 		DoDamage(caster, target, damage , DAMAGE_TYPE_MAGICAL, 0, self, false)
 		caster:FindAbilityByName("arcueid_impulses"):Pepeg(target)
 		target:AddNewModifier(caster, self, "modifier_arcueid_shut_up_slow", {Duration = self:GetSpecialValueFor("slow_duration")})
@@ -36,6 +37,28 @@ function arcueid_shut_up:OnSpellStart()
 		if caster.RecklesnessAcquired then
 			target:AddNewModifier(caster, self, "modifier_stunned", {duration = 0.1})
 		end
+
+		local qdProjectile = 
+		{
+			Ability = ability,
+	        EffectName = nil,
+	        iMoveSpeed = self:GetSpecialValueFor("speed"),
+	        vSpawnOrigin = caster:GetOrigin(),
+	        fDistance = pushback_range,
+	        fStartRadius = 150,
+	        fEndRadius = 150,
+	        Source = caster,
+	        bHasFrontalCone = true,
+	        bReplaceExisting = true,
+	        iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+	        iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
+	        iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+	        fExpireTime = GameRules:GetGameTime() + 2.0,
+			bDeleteOnHit = false,
+			vVelocity = caster:GetForwardVector() * self:GetSpecialValueFor("speed")
+		}
+
+		local projectile = ProjectileManager:CreateLinearProjectile(qdProjectile)
 
 		if not IsKnockbackImmune(target) then
 			local casterfacing = caster:GetForwardVector()
@@ -64,7 +87,8 @@ function arcueid_shut_up:OnSpellStart()
 				unit:SetPhysicsVelocity(Vector(0,0,0))
 				giveUnitDataDrivenModifier(caster, target, "stunned", self:GetSpecialValueFor("stun_duration"))
 				target:EmitSound("Hero_EarthShaker.Fissure")
-				DoDamage(caster, target, collide_damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)	
+				DoDamage(caster, target, collide_damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+				ProjectileManager:DestroyLinearProjectile(projectile)
 			end)
 		end
 
@@ -74,7 +98,21 @@ function arcueid_shut_up:OnSpellStart()
 		local groundFx = ParticleManager:CreateParticle( "particles/arcueid/arcueid_blast.vpcf", PATTACH_ABSORIGIN, caster )
 		ParticleManager:SetParticleControl( groundFx, 0, Vector(0, -180, 0))
 		ParticleManager:SetParticleControl( groundFx, 5, target:GetAbsOrigin() + Vector(0, 0, 60))
-	end
+	--end
+end
+
+function arcueid_shut_up:OnProjectileHit_ExtraData(hTarget, vLocation, table)
+	if hTarget == nil then return end
+
+	local caster = self:GetCaster()
+	local target = hTarget
+	local damage = self:GetSpecialValueFor("damage")
+	local duration = self:GetSpecialValueFor("duration")
+
+	--giveUnitDataDrivenModifier(caster, hTarget, "rooted", duration)
+	DoDamage(caster, target, damage , DAMAGE_TYPE_MAGICAL, 0, self, false)
+	caster:FindAbilityByName("arcueid_impulses"):Pepeg(target)
+	target:AddNewModifier(caster, self, "modifier_arcueid_shut_up_slow", {Duration = self:GetSpecialValueFor("slow_duration")})
 end
 
 modifier_arcueid_shut_up_slow = class({})

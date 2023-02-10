@@ -60,6 +60,9 @@ function okita_zekken:OnSpellStart()
     --ParticleManager:SetParticleControl( p, 2, point)
     Timers:CreateTimer(function()
         if count < duration and caster and caster:IsAlive() then
+            if count <= 1 then
+                origin = target:GetAbsOrigin()
+            end
             local angle = RandomInt(0, 360)
             local startLoc = GetRotationPoint(origin,RandomInt(300, 600),angle)
             local endLoc = GetRotationPoint(origin,RandomInt(300, 600),angle + RandomInt(120, 240))
@@ -71,8 +74,13 @@ function okita_zekken:OnSpellStart()
             --ParticleManager:SetParticleControl( p, 2, endLoc + Vector(0,0,50))
             local unitGroup = FindUnitsInRadius(caster:GetTeam(), origin, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
             for i = 1, #unitGroup do
-				--DoDamage(caster, unitGroup[i], damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
-                caster:PerformAttack( unitGroup[i], true, true, true, true, false, false, true )
+                if caster.IsTennenAcquired then
+                    DoDamage(caster, unitGroup[i], damage/3, DAMAGE_TYPE_PURE, 0, self, false)
+                    DoDamage(caster, unitGroup[i], damage*2/3, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+                else
+				    DoDamage(caster, unitGroup[i], damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+                end
+                --caster:PerformAttack( unitGroup[i], true, true, true, true, false, false, true )
 			end
             FindClearSpaceForUnit(caster,endLoc,true)
             for k,v in pairs(unitGroup) do
@@ -85,7 +93,7 @@ function okita_zekken:OnSpellStart()
             count = count + interval
             return interval
         elseif caster and caster:IsAlive() then
-            FindClearSpaceForUnit(caster,init_origin,true)
+            FindClearSpaceForUnit(caster,origin,true)
             EmitGlobalSound("Okita.Zekken")
             Timers:CreateTimer(1.0, function()
             	if caster and caster:IsAlive() then

@@ -16,7 +16,7 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY" 
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityTextureName"			"custom/arcueid/arcueid_shut_up_2"
+		"AbilityTextureName"			"custom/edmon/1"
 		"AbilityCastAnimation" 			"ACT_DOTA_RAZE_1"
 		"AnimationPlaybackRate" 		"2.0"
 		"AbilityCastPoint"				"0.215"
@@ -61,7 +61,9 @@
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/edmon/edmon_counter"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"AbilityTextureName"			"custom/false_assassin_heart_of_harmony"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY" 
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityTextureName"			"custom/edmon/counter"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastAnimation" 			"ACT_DOTA_ITEM_PICKUP"
 		"AnimationPlaybackRate" 		"1.0"
@@ -82,11 +84,11 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"15"
+		"AbilityCooldown"				"18 16 14 12 10"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"0"
+		"AbilityManaCost"				"200"
 		
 		"AbilitySpecial"
 		{
@@ -98,17 +100,22 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"threshold"				"300 250 200 150 100"
+				"threshold"				"50"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"slash_count"			"3 3 4 4 5"
+				"slash_count"			"3"
 			}
 			"04"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"damage"				"100 125 150 175 200"
+				"damage"				"100 130 160 190 220"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"max_range"				"1500"
 			}
 		}
 	}
@@ -124,10 +131,12 @@
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"2"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityTextureName"			"custom/arcueid/arcueid_you"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY" 
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityTextureName"			"custom/edmon/ground"
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3"
 		"AnimationPlaybackRate" 		"1"
 		"AbilityCastPoint"				"0.2"
@@ -139,42 +148,52 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"30 35 40 45 50"
+				"damage"				"250 300 350 400 450"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"0.8"
-			}
-			"03"
-			{
 				"var_type"				"FIELD_INTEGER"
-				"speed"					"550"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_last"			"250 340 430 520 610"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"collide_damage"		"50 75 100 125 150"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"collide_mult" 			"1.3"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"collide_stun_duration" "1.5"
+				"radius"				"450"
 			}
 			"08"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"stun_duration" 		"1.0"
+				"stun_duration" 		"0.2"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Edmon Dantes: Afterglow
+	//=================================================================================================================
+	"edmon_dash"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/edmon/edmon_dash"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"25"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY" 
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityTextureName"			"custom/edmon/afterglow"
+		"AbilityCooldown"				"10"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_4"
+		"AnimationPlaybackRate" 		"1.5"
+		"AbilityCastPoint"				"0.3"
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"range"					"1500"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"speed"					"2500"
 			}
 		}
 	}
@@ -187,11 +206,11 @@
 		// General		//------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/edmon/edmon_mythologie"
-		"MaxLevel"						"2"
+		"MaxLevel"						"1"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"25"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"			"custom/arcueid/arcueid_regen_2"
+		"AbilityTextureName"			"custom/edmon/mythologie"
 		
 		"AbilitySpecial"
 		{
@@ -209,176 +228,64 @@
 	}
 
 	//=================================================================================================================
-	// Arcueid: Mystic Eyes
+	// Edmon Dantes: My Vengeance Never Dies
 	//=================================================================================================================
-	"arcueid_eyes"
+	"edmon_ult"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/arcueid/arcueid_eyes"
-		"MaxLevel"						"1"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"25"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"AbilityTextureName"			"custom/arcueid/arcueid_eyes"
-		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
-		"AnimationPlaybackRate" 		"1.0"
-		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"40"
-		"AbilityManaCost"				"100"
-		"AbilityCastRange"				"500"
-		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"2.5"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"500"
-			}
-		}
-	}
-
-	//=================================================================================================================
-	// Arcueid: Vampiric Impulses
-	//=================================================================================================================
-	"arcueid_impulses"
-	{
-		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/arcueid/arcueid_impulses"
-		"MaxLevel"						"2"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"25"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"AbilityTextureName"			"custom/arcueid/arcueid_impulses"
-		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
-		"AnimationPlaybackRate" 		"1.0"
-		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"15"
-		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"50 70"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"attack_speed"			"100 150"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"10"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"strength_multiplier"	"0.4"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"agility_multiplier"	"1.5"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"mana_per_hit"			"75"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"max_stacks"			"5"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"amp_percent"			"2.0"
-			}
-		}
-	}
-
-	//=================================================================================================================
-	// Arcueid: You're in the way!
-	//=================================================================================================================
-	"arcueid_you"
-	{
-		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/arcueid/arcueid_you"
+		"ScriptFile"					"abilities/edmon/edmon_ult"
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"2"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityTextureName"			"custom/arcueid/arcueid_you"
-		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
-		"AnimationPlaybackRate" 		"1"
-		"AbilityCastPoint"				"0.2"
+		"AbilityTextureName"			"custom/edmon/ult"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_4"
+		"AnimationPlaybackRate" 		"2.0"
+		"AbilityCastPoint"				"0.3"
 		"AbilityCooldown"				"40"
 		"AbilityManaCost"				"800"
+		"AbilityCastRange"				"800"
 		
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"160 190 220 250 280"
+				"damage"				"140 180 220 260 300"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"0.8"
+				"duration"				"1.0"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"speed"					"550"
+				"radius"				"300"
 			}
 			"04"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_last"			"250 340 430 520 610"
+				"var_type"				"FIELD_FLOAT"
+				"interval" 				"0.2"
 			}
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"collide_damage"		"50 75 100 125 150"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"collide_mult" 			"1.3"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"collide_stun_duration" "1.5"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"stun_duration" 		"1.0"
+				"range"					"700"
 			}
 		}
 	}
 
 	//=================================================================================================================
-	// Arcueid: Melty Blood
+	// Edmon: Enfer Chateau d'If
 	//=================================================================================================================
-	"arcueid_melty"
+	"edmon_enfer"
 	{
 		"BaseClass"             		"ability_lua"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
@@ -388,17 +295,15 @@
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
 
-		"AbilityTextureName"			"custom/arcueid/arcueid_melty_2"
-		"ScriptFile"					"abilities/arcueid/arcueid_melty.lua"
+		"AbilityTextureName"			"custom/edmon/enfer"
+		"ScriptFile"					"abilities/edmon/edmon_enfer"
 
-		"AbilityCastRange"				"400"
-		"AOERadius"						"%radius"
-		"AbilityCastAnimation" 			"ACT_DOTA_RAZE_2"
-		"AnimationPlaybackRate" 		"1.0"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
+		"AnimationPlaybackRate" 		"1.5"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.4"
+		"AbilityCastPoint"				"1.2"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -406,7 +311,7 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"800"
+		"AbilityManaCost"				"400"
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
@@ -420,55 +325,45 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius"				"1300"
+				"range"					"2500"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"1000"
+				"radius"				"700"
 			}
 			"04"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"1.5"
+				"var_type"				"FIELD_INTEGER"
+				"hit_damage"			"80"
 			}
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"chain_damage"			"50"
+				"burn_damage"			"2500"
 			}
 			"06"
 			{
-				"var_type"				"FIELD_FLOAT"
-				"collide_stun_duration"	"1.5"
-			}
-			"07"
-			{
 				"var_type"				"FIELD_INTEGER"
-				"target_damage"			"1000"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"enemy_damage"			"500"
+				"last_damage"			"2000"
 			}
 		}
 	}
 	
 	//=================================================================================================================
-	// Arcueid: Attributes
+	// Edmon Dantes: Attributes
 	//=================================================================================================================
-	"arcueid_mystic_eyes_attribute"
+	"edmon_vengeance_attribute"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/arcueid/arcueid_attributes"
+		"ScriptFile"					"abilities/edmon/edmon_attributes"
 		"MaxLevel"						"1"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityTextureName"			"custom/arcueid/arcueid_eyes"
+		"AbilityTextureName"			"custom/edmon/vengeance"
 		"AbilityCooldown"				"9999"
 
 		"AbilityManaCost"				"10"
@@ -480,27 +375,32 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"duration"				"2.5"
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"8"
 			}
 			"02"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"500"
+				"var_type"				"FIELD_FLOAT"
+				"lifesteal"				"50"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"damage"				"10"
 			}
 		}		
 	}
-	"arcueid_monstrous_strength_attribute"
+	"edmon_flames_attribute"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/arcueid/arcueid_attributes"
+		"ScriptFile"					"abilities/edmon/edmon_attributes"
 		"MaxLevel"						"1"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityTextureName"			"custom/arcueid/arcueid_monstrous"
+		"AbilityTextureName"			"custom/edmon/flames"
 		"AbilityCooldown"				"9999"
 
 		"AbilityManaCost"				"11"
@@ -513,36 +413,26 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"disarm_duration"	"0.5"
+				"stacks"			"6"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"duration"			"8"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"health_percent"	"2"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"as_bonus"			"150"
+				"duration"			"5"
 			}
 		}
 	}
-	"arcueid_regen_attribute"
+	"edmon_escape_attribute"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/arcueid/arcueid_attributes"
+		"ScriptFile"					"abilities/edmon/edmon_attributes"
 		"MaxLevel"						"1"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityTextureName"			"custom/arcueid/arcueid_improve_regen"
+		"AbilityTextureName"			"custom/edmon/3"
 		"AbilityCooldown"				"9999"
 
 		"AbilityManaCost"				"11"
@@ -574,17 +464,17 @@
 			}
 		}		
 	}
-	"arcueid_recklesness_attribute"
+	"edmon_hellfire_attribute"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/arcueid/arcueid_attributes"
+		"ScriptFile"					"abilities/edmon/edmon_attributes"
 		"MaxLevel"						"1"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityTextureName"			"custom/arcueid/arcueid_recklesness"
+		"AbilityTextureName"			"custom/edmon/hellfire"
 		"AbilityCooldown"				"9999"
 
 		"AbilityManaCost"				"14"
@@ -604,53 +494,6 @@
 				"var_type"				"FIELD_FLOAT"
 				"mult"					"0.6"
 			}	
-		}		
-	}
-	"arcueid_world_attribute"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/arcueid/arcueid_attributes"
-		"MaxLevel"						"1"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityTextureName"			"custom/arcueid/arcueid_world"
-		"AbilityCooldown"				"9999"
-
-		"AbilityManaCost"				"13"
-
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"belle_damage"		"2"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"belle_2_damage"	"10"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_belle_damage"	"100"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_belle2_damage"	"450"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"attribute_range"	"100"
-			}
 		}		
 	}
 }

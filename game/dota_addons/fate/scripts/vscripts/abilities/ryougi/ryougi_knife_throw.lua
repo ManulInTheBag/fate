@@ -11,6 +11,10 @@ end
 
 function ryougi_knife_throw:OnSpellStart()
 	local caster = self:GetCaster()
+  local tpoint = self:GetCursorPosition()
+  local dir = tpoint - caster:GetAbsOrigin()
+  dir.z = 0
+  caster:SetForwardVector(dir:Normalized())
 	local target = caster:GetForwardVector()
 	local range = self:GetSpecialValueFor("range")
 
