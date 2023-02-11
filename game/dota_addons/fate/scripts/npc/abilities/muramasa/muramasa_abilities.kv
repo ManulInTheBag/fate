@@ -10,7 +10,7 @@
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
@@ -62,7 +62,7 @@
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT|DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET|DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
@@ -296,7 +296,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"damage"				"300 425 550 675 800"
+				"damage"				"300 400 500 600 700"
 			}
 			"02"
 			{
@@ -363,7 +363,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-					"damage"				"300 425 550 675 800"
+					"damage"				"300 400 500 600 700"
 			}
 			"02"
 			{
@@ -671,12 +671,12 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"damage_first"				"400 450 500 550 600"
+				"damage_first"				"300"
 			}
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"damage_impact"				"400 450 500 550 600"
+				"damage_impact"				"700 900 1100 1300 1500"
 			}
 			"06"
 			{
@@ -686,7 +686,7 @@
 			"07"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"str_scale"				"1.5"
+				"str_scale"				"6"
 			}
 		}
 	}
@@ -824,7 +824,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"str_scale"			"1.5"
+				"str_scale"			"6"
 			}
 			 
 		}		
@@ -893,7 +893,7 @@
 		"AbilityTextureName"			"custom/muramasa/muramasa_flame_attribute"
 		"AbilityCooldown"				"9999"
 
-		"AbilityManaCost"				"14"
+		"AbilityManaCost"				"9"
 
 		 
 		"AbilitySpecial"

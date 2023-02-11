@@ -81,7 +81,19 @@ function modifier_tsubame_mai_omnislash:TsubameMai(initialtarget)
 	ApplyAirborne(caster, target, 2.0)
 	giveUnitDataDrivenModifier(caster, caster, "jump_pause", 2.8)
 	caster:RemoveModifierByName("modifier_tsubame_mai")
-	EmitGlobalSound("FA.Owarida")
+	--EmitGlobalSound("FA.Owarida")
+	LoopOverPlayers(function(player, playerID, playerHero)
+		--print("looping through " .. playerHero:GetName())
+		if playerHero.zlodemon == true then
+			-- apply legion horn vsnd on their client
+			CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="moskes_owarida"})
+
+			--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+		else
+			CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="FA.Owarida"})
+		end
+
+	end)
 	EmitGlobalSound("FA.Quickdraw")
 	CreateSlashFx(caster, target:GetAbsOrigin()+Vector(300, 300, 0), target:GetAbsOrigin()+Vector(-300,-300,0))
 
@@ -106,7 +118,19 @@ function modifier_tsubame_mai_omnislash:TsubameMai(initialtarget)
 			caster:SetAbsOrigin(Vector(caster:GetAbsOrigin().x,caster:GetAbsOrigin().y,target:GetAbsOrigin().z))
 			--ability:ApplyDataDrivenModifier(caster, caster, "modifier_tsubame_mai_tg_cast_anim", {})
 			StartAnimation(caster, {duration=0.4, activity=ACT_DOTA_CAST_ABILITY_1, rate=1})
-			EmitGlobalSound("FA.TGReady")
+			--EmitGlobalSound("FA.TGReady")
+			LoopOverPlayers(function(player, playerID, playerHero)
+				--print("looping through " .. playerHero:GetName())
+				if playerHero.zlodemon == true then
+					-- apply legion horn vsnd on their client
+					CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="moskes_hiken_ready"})
+		
+					--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+				else
+					CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="FA.TGReady"})
+				end
+		
+			end)
 			
 			--ExecuteOrderFromTable({
 			--	UnitIndex = caster:entindex(),

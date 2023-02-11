@@ -37,8 +37,19 @@ function sasaki_tsubame_gaeshi:OnAbilityPhaseStart()
 	local target = self:GetCursorTarget()
 
 	caster:RemoveModifierByName("modifier_heart_of_harmony")
-	EmitGlobalSound("FA.TGReady")
+	--EmitGlobalSound("FA.TGReady")
+	LoopOverPlayers(function(player, playerID, playerHero)
+		--print("looping through " .. playerHero:GetName())
+		if playerHero.zlodemon == true then
+			-- apply legion horn vsnd on their client
+			CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="moskes_hiken_ready"})
 
+			--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+		else
+			CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="FA.TGReady"})
+		end
+
+	end)
 	local diff = target:GetAbsOrigin() - caster:GetAbsOrigin()
 	local firstImpactIndex = ParticleManager:CreateParticle( "particles/custom/false_assassin/tsubame_gaeshi/tsubame_gaeshi_windup_indicator_flare.vpcf", PATTACH_CUSTOMORIGIN, nil )
     ParticleManager:SetParticleControl(firstImpactIndex, 0, caster:GetAbsOrigin() + diff/2)
@@ -91,6 +102,17 @@ function sasaki_tsubame_gaeshi:TsubameGaeshi(target)
 
 	--caster:SetMana(0)
 	EmitGlobalSound("FA.TG")
+	LoopOverPlayers(function(player, playerID, playerHero)
+		--print("looping through " .. playerHero:GetName())
+		if playerHero.zlodemon == true then
+			-- apply legion horn vsnd on their client
+			CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="moskes_hiken_tg"})
+			--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+		else
+			CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="FA.TG"})
+		end
+
+	end)
 	EmitGlobalSound("FA.CHOP")
 	StartAnimation(caster, {duration=delay + delay_per_slash * 2, activity= ACT_DOTA_CAST_ABILITY_4 , rate=2.5})
 

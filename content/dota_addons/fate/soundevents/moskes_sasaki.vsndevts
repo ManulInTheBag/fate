@@ -1,0 +1,256 @@
+"moskes_block1"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/moskes_sasaki/block.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "8.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"moskes_block2"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/moskes_sasaki/block2.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "8.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"moskes_flex"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/moskes_sasaki/flex.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "5.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"moskes_gatekeeper"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/moskes_sasaki/gatekeeper.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "6.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"moskes_hiken_ready"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/moskes_sasaki/hiken_ready.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "5.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"moskes_hiken_tg"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/moskes_sasaki/hiken_tg.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "5.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"moskes_owarida"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/moskes_sasaki/owarida.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "11.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"moskes_quickdraw_01"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/moskes_sasaki/quickdraw_01.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "5.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}

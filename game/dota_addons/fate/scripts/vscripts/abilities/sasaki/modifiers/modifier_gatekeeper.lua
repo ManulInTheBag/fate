@@ -99,6 +99,16 @@ function modifier_gatekeeper:RemoveParticlesAndDummy()
 
 		if math.abs((caster:GetAbsOrigin() - self.Anchor):Length2D()) > self.LeashDistance then
 			caster:EmitSound("Sasaki_Gatekeeper_1")
+			LoopOverPlayers(function(player, playerID, playerHero)
+				--print("looping through " .. playerHero:GetName())
+				if playerHero.zlodemon == true then
+					-- apply legion horn vsnd on their client
+					CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="moskes_gatekeeper"})
+		
+					--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+				end
+		
+			end)
 		end
 	end
 end

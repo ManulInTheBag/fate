@@ -124,7 +124,7 @@ function muramasa_rush:OnProjectileHit_ExtraData(hTarget, vLocation, table)
     hTarget:EmitSound("Hero_Sniper.AssassinateDamage")
     DoDamage(caster, hTarget, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
     hTarget:AddNewModifier(caster, self , "modifier_muramasa_rush_burn",{duration = duration })
-    caster:PerformAttack( hTarget, true, true, true, true, false, false, false )
+    --caster:PerformAttack( hTarget, true, true, true, true, false, false, false )
 end
  
 modifier_muramasa_rush_burn = class({})

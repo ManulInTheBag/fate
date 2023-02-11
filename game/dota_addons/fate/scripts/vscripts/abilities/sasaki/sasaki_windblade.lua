@@ -30,6 +30,14 @@ function sasaki_windblade:OnSpellStart()
 	--	end
 	--else
 		caster:EmitSound("Sasaki_Windblade_1")
+		LoopOverPlayers(function(player, playerID, playerHero)
+			--print("looping through " .. playerHero:GetName())
+			if playerHero.zlodemon == true then
+				-- apply legion horn vsnd on their client
+				CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="moskes_flex"})
+				--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+			end
+		end)
 	--end
 
 	caster:RemoveModifierByName("modifier_heart_of_harmony")

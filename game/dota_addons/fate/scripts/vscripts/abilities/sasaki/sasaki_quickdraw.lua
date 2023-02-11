@@ -39,6 +39,15 @@ function sasaki_quickdraw:OnSpellStart()
 		if caster.IsGanryuAcquired then
 			caster:FindAbilityByName("sasaki_tsubame_gaeshi"):EndCooldown()
 		end
+
+		LoopOverPlayers(function(player, playerID, playerHero)
+			--print("looping through " .. playerHero:GetName())
+			if playerHero.zlodemon == true then
+				-- apply legion horn vsnd on their client
+				CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="moskes_quickdraw_01"})
+				--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+			end
+		end)
 	--end	
 
 	--caster:AddNewModifier(caster, self, "modifier_exhausted", { Duration = self:GetSpecialValueFor("exhausted_duration") })

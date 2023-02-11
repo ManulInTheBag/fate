@@ -139,7 +139,7 @@ function muramasa_rush_upgraded:OnProjectileHit_ExtraData(hTarget, vLocation, ta
     hTarget:AddNewModifier(caster, self , "modifier_muramasa_rush_burn",{duration = duration })
     giveUnitDataDrivenModifier(caster, hTarget, "rooted", duration/2)
     caster:PerformAttack( hTarget, true, true, true, true, false, false, false )
-    caster:PerformAttack( hTarget, true, true, true, true, false, false, false )
+    --caster:PerformAttack( hTarget, true, true, true, true, false, false, false )
 end
  
  

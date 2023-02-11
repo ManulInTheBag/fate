@@ -7671,7 +7671,7 @@
 		"npc_dota_hero_magnataur_bio"						""
 
         "DOTA_Tooltip_ability_muramasa_dance"							"Sword dance"
-        "DOTA_Tooltip_ability_muramasa_dance_Description"			"Muramasa starts a ferocious series of attacks in the target direction, attacking all enemies in his reach 5 times. Series consists of 4 slash attacks and one aoe attack at the end each dealing a 100% of muramasa atk, a part of his on-hit magic attack and base magic damage.\n This ability can be stopped by reusing it. If muramasa receive a stun debuff, ability will be stopped.\nWhen this ability is upgraded, Muramasa will cleanse all of his debuffs, disjoint projectiles before each hit and will apply a stackable debuff with each hit, which increase enemies damage taken."      
+        "DOTA_Tooltip_ability_muramasa_dance_Description"			"Muramasa starts a ferocious series of attacks around himself, attacking all enemies in his reach 5 times. Series consists of 4 slash attacks and one ground attack at the end each dealing a 100% of muramasa atk, a part of his on-hit magic attack and base magic damage.\n  If muramasa receive a stun debuff, ability will be stopped.\nWhen this ability is upgraded, Muramasa will cleanse all of his debuffs, disjoint projectiles before each hit and will apply a stackable debuff with each hit, which increase enemies damage taken."      
         "DOTA_Tooltip_ability_muramasa_dance_duration"					"Duration:"
         "DOTA_Tooltip_ability_muramasa_dance_dmg_mod"					"%Magic on-hit damage:"
         "DOTA_Tooltip_ability_muramasa_dance_dmg_amp"					"%Damage taken increase per stack:"
@@ -7681,7 +7681,7 @@
          
 
         "DOTA_Tooltip_ability_muramasa_dance_upgraded"							"Sword dance upgraded"
-        "DOTA_Tooltip_ability_muramasa_dance_upgraded_Description"			"Muramasa starts a ferocious series of attacks in the target direction, attacking all enemies in his reach 5 times. Series consists of 4 slash attacks and one aoe attack at the end each dealing a 100% of muramasa atk, a part of his on-hit magic attack and base magic damage.\n This ability can be stopped by reusing it.\nMuramasa will cleanse all of his debuffs, disjoint projectiles before each hit and will apply a stackable debuff with each hit, which increase enemies damage taken."      
+        "DOTA_Tooltip_ability_muramasa_dance_upgraded_Description"			"Muramasa starts a ferocious series of attacks around himself, attacking all enemies in his reach 5 times. Series consists of 4 slash attacks and one ground attack at the end each dealing a 100% of muramasa atk, a part of his on-hit magic attack and base magic damage.\n This ability can be stopped by reusing it.\nMuramasa will cleanse all of his debuffs, disjoint projectiles before each hit and will apply a stackable debuff with each hit, which increase enemies damage taken."      
         "DOTA_Tooltip_ability_muramasa_dance_upgraded_duration"					"Duration:"
         "DOTA_Tooltip_ability_muramasa_dance_upgraded_dmg_mod"					"%Magic on-hit damage:"
         "DOTA_Tooltip_ability_muramasa_dance_upgraded_dmg_amp"					"%Damage taken increase per stack:"
@@ -7718,7 +7718,7 @@
 	 	
 
         "DOTA_Tooltip_ability_muramasa_rush"					"Rush"
-        "DOTA_Tooltip_ability_muramasa_rush_Description"	 	"Muramasa rushes to point selected. If muramasa hit someone with rush, he will deal damage, attack and apply a burn debuff, ticking every 0.5 seconds.\nWhen upgraded, Muramasa will attack twice, all enemies hit will be rooted for 1 second, and Muramasa will be invincible while flying."
+        "DOTA_Tooltip_ability_muramasa_rush_Description"	 	"Muramasa rushes to point selected. If muramasa hit someone with rush, he will deal damage and apply a burn debuff, ticking every 0.5 seconds.\nWhen upgraded, Muramasa will attack targets he hit with rush, all enemies hit will be rooted for 1 second, and Muramasa will be invincible while flying."
         "DOTA_Tooltip_ability_muramasa_rush_damage"					"Damage:"
         "DOTA_Tooltip_ability_muramasa_rush_duration"				"Burn duration:"
         "DOTA_Tooltip_ability_muramasa_rush_range"					"Max range:"
@@ -7762,7 +7762,7 @@
 
 
         "DOTA_Tooltip_ability_muramasa_tsumukari"				"Tsumukari Muramasa chant"
-        "DOTA_Tooltip_ability_muramasa_tsumukari_Description"		"Muramasa chants a line of his noble phantasm. Upon reaching 8 stack, he will receive a powerfull buff for his attacks, increasing his attackspeed to 2 attacks per second, increasing magic attack aoe and applying a modifier to his attacks magic damage. While this buff persists, muramasa can use this ability again to release a powerful swing, cracking earth in the direction of cast and pulling all enemies hit. After a delay crack explodes, dealing damage."
+        "DOTA_Tooltip_ability_muramasa_tsumukari_Description"		"Muramasa chants a line of his noble phantasm. Upon reaching 8 stack, he will receive a powerfull buff for his attacks, increasing his attackspeed to 2 attacks per second, increasing magic attack aoe and applying a modifier to his attacks magic damage. While this buff persists, muramasa can use this ability again to release a powerful swing, cracking earth in the direction of cast and pulling all enemies hit. After a delay crack explodes, dealing damage.\n Upgrades with attribute Sword Trial. "
         "DOTA_Tooltip_ability_muramasa_tsumukari_buff_duration"				"Buff duration:"
         "DOTA_Tooltip_ability_muramasa_tsumukari_atk_dmg_amplify"				"Atk modifier:"
         "DOTA_Tooltip_ability_muramasa_tsumukari_Lore"				"There is only one way a weapon mighty enough to sever fate may be born."

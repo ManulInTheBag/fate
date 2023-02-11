@@ -49,6 +49,7 @@ local damage_impact = self:GetSpecialValueFor("damage_impact")
 if caster.SwordTrialAcquired then 
     damage_impact = damage_impact + self:GetSpecialValueFor("str_scale")*caster:GetStrength()
 end
+local point = Vector(0,0,0)
 local tsumukariProjectile = 
     {
         Ability = self,
@@ -72,22 +73,30 @@ local tsumukariProjectile =
 
 Timers:CreateTimer(1, function()  
     EmitGlobalSound("muramasa_explosion") 
-for i = 1, 10 do
-    local point = pull_center + i *start_vec * 120
-    local explosionFx = ParticleManager:CreateParticle("particles/muramasa/muramasa_tsumukari_fire.vpcf", PATTACH_CUSTOMORIGIN, nil)
-    ParticleManager:SetParticleControl(explosionFx, 0, point)
-    Timers:CreateTimer(2, function() 
-        ParticleManager:DestroyParticle(explosionFx, true)
-        ParticleManager:ReleaseParticleIndex(explosionFx)
-    end)
-      local targets = FindUnitsInRadius(caster:GetTeam(), point, nil, radius*1.5, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
-        for k,v in pairs(targets) do       
-            DoDamage(caster, v, damage_impact , DAMAGE_TYPE_MAGICAL, 0, self, false)
-        end
+    for i = 1, 10 do
+        point = pull_center + i *start_vec * 120
+        local explosionFx = ParticleManager:CreateParticle("particles/muramasa/muramasa_tsumukari_fire.vpcf", PATTACH_CUSTOMORIGIN, nil)
+        ParticleManager:SetParticleControl(explosionFx, 0, point)
+        Timers:CreateTimer(2, function() 
+            ParticleManager:DestroyParticle(explosionFx, true)
+            ParticleManager:ReleaseParticleIndex(explosionFx)
+        end)
    end
+   local targets = FindUnitsInLine(
+								        caster:GetTeamNumber(),
+								        pull_center,
+								        point,
+								        nil,
+								        radius*1.5,
+										DOTA_UNIT_TARGET_TEAM_ENEMY,
+										DOTA_UNIT_TARGET_ALL,
+										0
+    								)
+    for k,v in pairs(targets) do       
+     DoDamage(caster, v, damage_impact , DAMAGE_TYPE_MAGICAL, 0, self, false)
+    end        
 end)
-        
-    
+
 
     caster:AddNewModifier(caster, self, "modifier_merlin_self_pause", {Duration = 0.40}) 
 Timers:CreateTimer(0.2, function() 
@@ -110,11 +119,17 @@ function muramasa_tsumukari_release:OnProjectileHit_ExtraData(hTarget, vLocation
     if caster.SwordTrialAcquired then 
         damage_first = damage_first + self:GetSpecialValueFor("str_scale")*caster:GetStrength()
     end
+
+    local knockback = self.knockback
+
  
         if( not hTarget:HasModifier("modifier_muramasa_tsumukari_hit_slow")) then 
              hTarget:EmitSound("Hero_Sniper.AssassinateDamage")
              DoDamage(caster, hTarget, damage_first, DAMAGE_TYPE_MAGICAL, 0, self, false)
-             hTarget:AddNewModifier(caster, self, "modifier_knockback", self.knockback)   
+             if((hTarget:GetAbsOrigin() - caster:GetAbsOrigin() ):Length2D() < 300) then
+                knockback.knockback_distance = -10
+             end
+             hTarget:AddNewModifier(caster, self, "modifier_knockback", knockback)   
              hTarget:AddNewModifier(caster, self, "modifier_muramasa_tsumukari_hit_slow", {duration = 1})   
         end
    

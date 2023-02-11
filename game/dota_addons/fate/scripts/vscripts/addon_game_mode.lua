@@ -310,6 +310,7 @@ function Precache( context )
     PrecacheResource("soundfile", "soundevents/soundevents_conquest.vsndevts", context )
     PrecacheResource("soundfile", "soundevents/a_negri.vsndevts", context )
     PrecacheResource("soundfile", "soundevents/zlodemon_true.vsndevts", context )
+    PrecacheResource("soundfile", "soundevents/moskes_sasaki.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/pepeg_razgovor.vsndevts", context)
 
     PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_silencer.vsndevts", context)

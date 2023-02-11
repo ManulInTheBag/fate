@@ -97,6 +97,16 @@ function modifier_heart_of_harmony:OnTakeDamage(args)
 
             --if caster:GetMana() > self.ManaThreshold then
                 target:EmitSound("Sasaki_Counter_Success_" .. math.random(1,2))
+                LoopOverPlayers(function(player, playerID, playerHero)
+                    --print("looping through " .. playerHero:GetName())
+                    if playerHero.zlodemon == true then
+                        -- apply legion horn vsnd on their client
+                        CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="moskes_block".. math.random(1,2)})
+            
+                        --caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+                    end
+            
+                end)
                 target:AddNewModifier(caster, target, "modifier_stunned", {Duration = self.StunDuration})
             --else
               --  caster:EmitSound("Sasaki_Counter_Fail_" .. math.random(1,2))
@@ -123,6 +133,7 @@ function modifier_heart_of_harmony:OnTakeDamage(args)
             end)
             
             EmitGlobalSound("FA.Quickdraw")
+
             self:Destroy()
         end
     end

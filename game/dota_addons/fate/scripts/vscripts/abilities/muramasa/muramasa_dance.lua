@@ -75,7 +75,7 @@ end
    return 0.1
 end)
  caster:StopAnimation()
- local particle1 = ParticleManager:CreateParticle("particles/muramasa/muramasa_sword_dance_first_hit_true.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+ local particle1 = ParticleManager:CreateParticle("particles/muramasa/muramasa_q_slash_new_2.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
  ParticleManager:SetParticleControl(     particle1 , 0,  caster:GetAbsOrigin()  )  
   
  Timers:CreateTimer( 0.5, function()
@@ -99,7 +99,7 @@ end)
       caster:StopAnimation()
       StartAnimation(caster, {duration=attack_time, activity=ACT_DOTA_RAZE_2, rate=2.0})
     --StartAnimation(caster, {duration=attack_time, activity=ACT_DOTA_ALCHEMIST_CHEMICAL_RAGE_END, rate=2.0})
-    local particle2 = ParticleManager:CreateParticle("particles/muramasa/muramasa_sword_dance_first_hit.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+    local particle2 = ParticleManager:CreateParticle("particles/muramasa/muramasa_q_slash_new.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
     ParticleManager:SetParticleControl(     particle2 , 0,  caster:GetAbsOrigin()  )  
     Timers:CreateTimer( 0.2, function()
       --local particle2 = ParticleManager:CreateParticle("particles/muramasa/muramasa_sword_dance_pierce.vpcf", PATTACH_CUSTOMORIGIN, nil)
@@ -128,14 +128,14 @@ end)
  
     --StartAnimation(caster, {duration=attack_time, activity=ACT_DOTA_RAZE_2, rate=2.0})
     StartAnimation(caster, {duration=attack_time, activity=ACT_DOTA_ALCHEMIST_CHEMICAL_RAGE_START, rate=2.0})
-    local particle3 = ParticleManager:CreateParticle("particles/muramasa/muramasa_sword_dance_first_hit_true.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+    local particle3 = ParticleManager:CreateParticle("particles/muramasa/muramasa_q_slash_new_2.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
     ParticleManager:SetParticleControl(     particle3 , 0,  caster:GetAbsOrigin()  ) 
     Timers:CreateTimer( 0.2, function()
       --self:DanceAttack_Pierce()
       self:DanceAttack()
       self.attacks_completed = 3
   end)
-  Timers:CreateTimer( 0.2, function()
+  Timers:CreateTimer( 0.5, function()
     if(particle3 ~= nil) then
        ParticleManager:DestroyParticle(  particle3, true)
        ParticleManager:ReleaseParticleIndex(  particle3)
@@ -155,7 +155,7 @@ end})
  
       StartAnimation(caster, {duration=attack_time, activity=ACT_DOTA_RAZE_2, rate=2.0})
     --StartAnimation(caster, {duration=attack_time, activity=ACT_DOTA_ALCHEMIST_CONCOCTION, rate=2.0})
-    local particle4 = ParticleManager:CreateParticle("particles/muramasa/muramasa_sword_dance_first_hit.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+    local particle4 = ParticleManager:CreateParticle("particles/muramasa/muramasa_q_slash_new.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
     ParticleManager:SetParticleControl(     particle4 , 0,  caster:GetAbsOrigin()  ) 
     Timers:CreateTimer( 0.2, function()
       --local particle4 = ParticleManager:CreateParticle("particles/muramasa/muramasa_sword_dance_pierce.vpcf", PATTACH_CUSTOMORIGIN, nil)
@@ -185,7 +185,7 @@ end})
  
     StartAnimation(caster, {duration=attack_time, activity=ACT_DOTA_RAZE_3, rate=2.0})
     Timers:CreateTimer( 0.22, function()
-     local particle5 = ParticleManager:CreateParticle("particles/muramasa/muramasa_sword_dance_last_hit.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+     local particle5 = ParticleManager:CreateParticle("particles/muramasa/muramasa_sword_dance_last_hit_new.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
      ParticleManager:SetParticleControl(     particle5 , 3,  caster:GetAbsOrigin()+ 50 * caster:GetForwardVector()  )  
      --self.sound = "muramasa_dance_attack_"..math.random(1,4)
      --caster:EmitSound(self.sound)
@@ -235,12 +235,12 @@ function muramasa_dance:DanceAttack()
                     false)
 
  for _,enemy in pairs(enemies) do
-   local origin_diff = enemy:GetAbsOrigin() - caster:GetAbsOrigin()
-   local origin_diff_norm = origin_diff:Normalized()
-   if caster:GetForwardVector():Dot(origin_diff_norm) > 0 then
+ --  local origin_diff = enemy:GetAbsOrigin() - caster:GetAbsOrigin()
+  -- local origin_diff_norm = origin_diff:Normalized()
+   --if caster:GetForwardVector():Dot(origin_diff_norm) > 0 then
      caster:PerformAttack( enemy, true, true, true, true, false, false, false )
      DoDamage(caster, enemy, damage_base, DAMAGE_TYPE_MAGICAL, 0, self, false)
-   end
+   --end
  end
 
 end
