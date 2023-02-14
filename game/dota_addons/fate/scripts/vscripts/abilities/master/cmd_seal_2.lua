@@ -56,6 +56,13 @@ function cmd_seal_2:OnSpellStart()
 		return
 	end
 
+	if hero:GetName() == "npc_dota_hero_night_stalker" then
+	self:EndCooldown() 
+	caster:SetMana(caster:GetMana() + self:GetManaCost(1))
+				SendErrorMessage(caster:GetPlayerOwnerID(), "#NANAYA_INCIDENT")
+				return
+	end
+
 	hero.ServStat:useWSeal()
 	-- pay mana cost
 	

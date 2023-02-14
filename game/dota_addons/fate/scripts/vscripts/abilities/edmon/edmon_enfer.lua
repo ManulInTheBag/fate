@@ -153,7 +153,7 @@ function modifier_edmon_enfer:BOOM(target)
             --local p = CreateParticle("particles/heroes/juggernaut/phantom_sword_dance_a.vpcf",PATTACH_ABSORIGIN,caster,2)
             --ParticleManager:SetParticleControl( p, 0, startLoc)
             --ParticleManager:SetParticleControl( p, 2, endLoc + Vector(0,0,50))
-            local unitGroup = FindUnitsInRadius(caster:GetTeam(), origin, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
+            local unitGroup = FindUnitsInRadius(caster:GetTeam(), origin, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false)
             for i = 1, #unitGroup do
 				DoDamage(caster, unitGroup[i], damage, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
                 --caster:PerformAttack( unitGroup[i], true, true, true, true, false, false, true )

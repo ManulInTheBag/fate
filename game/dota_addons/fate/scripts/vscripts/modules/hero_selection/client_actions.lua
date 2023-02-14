@@ -3,7 +3,7 @@ function HeroSelection:OnHeroSelectHero(data)
 	local playerId = data.PlayerID
 	if PlayerResource:IsPlayerAbandoned(playerId) then return end
 
-	if HeroSelection:GetState() == HERO_SELECTION_PHASE_BANNING and not PLAYER_DATA[playerId].HeroSelectionBanned and NPC_HEROES_CUSTOM[hero] and NPC_HEROES_CUSTOM[hero].Enabled ~= 0 then
+	if HeroSelection:GetState() == HERO_SELECTION_PHASE_BANNING and not PLAYER_DATA[playerId].HeroSelectionBanned and HeroSelection:IsHeroPickAvaliable(hero) then
 		HeroSelection:NominateHeroForBan(playerId, data.hero)
 	elseif HeroSelection:GetState() >= HERO_SELECTION_PHASE_HERO_PICK and HeroSelection:IsHeroPickAvaliable(hero) then
 		local linked = GetKeyValue(hero, "LinkedHero")

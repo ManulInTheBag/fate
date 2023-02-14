@@ -1,0 +1,30 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/blkscrnd.css" />
+	</styles>
+	
+
+
+<scripts>
+<include src="file://{resources}/scripts/custom_game/custom_combo.js" />
+	</scripts>
+      
+     <Panel class="Blackscreen" >
+		<Panel id="blackscrn" >
+			<Image src="file://{images}/custom_game/black_screen/black_screen_fordota.png" />
+		</Panel>
+<Panel id="ClassContainer" >
+</Panel>
+             <Panel id="Comboactv" >
+			 <Movie id="gaysex" src="" controls="false" repeat="true" hittest="false" hittestchildren="false" autoplay="onload"/>
+			 </Panel>
+			 <Panel id="backgr" >
+			 </Panel>
+			 <Panel id="firt" >
+			 </Panel>
+			 <Panel id="secnd" >
+</Panel>
+</Panel>
+</root>
+
+

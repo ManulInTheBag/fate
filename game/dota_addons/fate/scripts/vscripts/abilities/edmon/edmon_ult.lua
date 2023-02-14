@@ -44,7 +44,7 @@ function edmon_ult:OnSpellStart()
 	local count = 0
 	local radius = self:GetSpecialValueFor("radius")
 	local origin = self:GetCursorPosition()
-	local damage = self:GetSpecialValueFor("damage") + (caster.HellfireAcquired and 100 or 0)
+	local damage = self:GetSpecialValueFor("damage") + (caster.HellfireAcquired and 60 or 0)
 
 	caster:AddNewModifier(caster, self, "modifier_edmon_ult", {duration = duration})
 
@@ -61,7 +61,7 @@ function edmon_ult:OnSpellStart()
             --local p = CreateParticle("particles/heroes/juggernaut/phantom_sword_dance_a.vpcf",PATTACH_ABSORIGIN,caster,2)
             --ParticleManager:SetParticleControl( p, 0, startLoc)
             --ParticleManager:SetParticleControl( p, 2, endLoc + Vector(0,0,50))
-            local unitGroup = FindUnitsInRadius(caster:GetTeam(), origin, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
+            local unitGroup = FindUnitsInRadius(caster:GetTeam(), origin, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false)
             for i = 1, #unitGroup do
 				DoDamage(caster, unitGroup[i], damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
                 --caster:PerformAttack( unitGroup[i], true, true, true, true, false, false, true )

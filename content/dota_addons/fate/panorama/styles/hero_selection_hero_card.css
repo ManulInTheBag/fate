@@ -10,12 +10,12 @@
 @define expandedScale: 1.0; /* When a card is expanded it should be at 1.0 scale so that text works correctly */
 @define defaultScale: 0.485; /* The scale of a card when it's not expanded */
 @define defaultScaleX: 0.32; /* We scale the x slightly smaller than the Y so that the card is a little less wide when not expanded */
-@define imageWidth: 71px;
-@define imageHeight: 94px;
+@define imageWidth: 85.2px;
+@define imageHeight: 112.8px;
 
 @define imageScale: 2.06; /* = expandedScale / defaultScale */
-@define cardWidth: 213px;
-@define cardHeight: 282px;
+@define cardWidth: 255.6px;
+@define cardHeight: 338.4px;
 @define imageDefaultScaleX: 3.0; /* = ( 1.0 - ( defaultScaleX / defaultScale ) ) * imageScale */
 @define hitSizePercent: 66.67%; /* = 1.0 / ( defaultScale + ( expandedScale - defaultScale ) * 2.0 ) */
 

@@ -6879,7 +6879,7 @@
 		"DOTA_Tooltip_modifier_arcueid_shut_up_slow_Description"	"Slowed"
 
 		"DOTA_Tooltip_ability_edmon_mythologie"					"Monte Cristo Mythologie"
-		"DOTA_Tooltip_ability_edmon_mythologie_Description"		"Edmon utilizes black flames to attack his enemies. Deals additional magical damage on attacks that depends on Dark Beam damage.\nWhen attacking units further than 250 from him, he utilizes weakened versions of Dark Beams and has 1.2 BAT.\nWhen attacking enemies near him, he has 0.9 BAT."
+		"DOTA_Tooltip_ability_edmon_mythologie_Description"		"Edmon utilizes black flames to attack his enemies. Deals additional magical damage on attacks that depends on Dark Beam damage.\nWhen attacking units further than 250 from him, he utilizes weakened versions of Dark Beams and has 1.1 BAT.\nWhen attacking enemies near him, he has 0.8 BAT."
 
 		"DOTA_Tooltip_ability_edmon_beam"						"Dark Beam"
 		"DOTA_Tooltip_ability_edmon_beam_Description"			"Can be used up to 3 times in a row.\n1'st and 2'nd cast: fires a Dark Beam, which deals %damage% damage in a straight line.\n3'rd cast: after a little delay, fires a slightly more powerful Dark Beam, which deals %last_damage% damage."
@@ -6922,7 +6922,7 @@
 		"DOTA_Tooltip_ability_edmon_escape_attribute_Description"			"Allows Dantes to use Afterglow and My Vengeance Never Dies when rooted and locked.\nIncreased My Vengeance Never Dies castrange by 300."
 
 		"DOTA_Tooltip_ability_edmon_hellfire_attribute"			"Attribute: Furious Hellfire"
-		"DOTA_Tooltip_ability_edmon_hellfire_attribute_Description"		"My Vengeance Never Dies deals 100 additional damage per hit.\nEnfer Chateau d'If deals 25 additional damage per hit, 1000 more damage with burn and 1500 more damage with last impact."
+		"DOTA_Tooltip_ability_edmon_hellfire_attribute_Description"		"My Vengeance Never Dies deals 60 additional damage per hit.\nEnfer Chateau d'If deals 25 additional damage per hit, 1000 more damage with burn and 1500 more damage with last impact."
 
 
 		//====================================
@@ -7828,11 +7828,86 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
 
 
 
+  //====================================
+        //  Nanaya
+        //====================================
+        "npc_dota_hero_night_stalker"                                           "Nanaya Shiki"
+
+        "npc_dota_hero_night_stalker_hype"						""
+		"npc_dota_hero_night_stalker_bio"						""
+
+		"DOTA_Tooltip_nanaya_blood_modifier"					"Blood"
+		"DOTA_Tooltip_nanaya_combo_cd"							"Combo: Kyokushi - Nanaya!"
+		"DOTA_Tooltip_nanaya_combo_cd_Description"							"Is on cooldown."
+
+        "DOTA_Tooltip_ability_nanaya_q_strike"                                                  "Nightmare"
+        "DOTA_Tooltip_ability_nanaya_q_strike_Description"                      "Nanaya quickly dashes to the target enemy through any obstacles, dealing damage and stunning it with 1 second on arrival." 
+        "DOTA_Tooltip_ability_nanaya_q_strike_dmg"                                      "Dmg:"
+        "DOTA_Tooltip_ability_nanaya_q_strike_Lore"                                             ""
+
+        "DOTA_Tooltip_ability_nanaya_q2jump"                                                    "Sensou Rikuto"
+        "DOTA_Tooltip_ability_nanaya_q2jump_Description"                        "Nanaya quickly dashes in the target direction, catching first enemy on his way. If Nanaya catched enemy, he will kick him 2 times, dealing damage, stunning and pushing him on each hit, finishing with a stronger kick with 2x damage, increased knockback and 1 second stun." 
+        "DOTA_Tooltip_ability_nanaya_q2jump_dmg"                                        "Dmg:"
+        "DOTA_Tooltip_ability_nanaya_q2jump_Lore"                                               ""
+         
+
+        "DOTA_Tooltip_ability_jump_ahead_nanaya"                                        "Spider dance"
+        "DOTA_Tooltip_ability_jump_ahead_nanaya_Description"            "Nanaya jumps back, swapping Nightmare ability with Sensou Rikuto.\n 10+  <font color='#002BFF'>Nanaya blood</font><font color='#002BFF'> stacks, he will throw a knife in the target direction. If the knife hits enemy, it will deal damage, Nanaya will teleport to the enemy and perform an attack."
+        "DOTA_Tooltip_ability_jump_ahead_nanaya_blink_ahead"                            "Blink distance:"
+        "DOTA_Tooltip_ability_jump_ahead_nanaya_dmg_knife"                              "Knife damage:"
+        "DOTA_Tooltip_ability_jump_ahead_nanaya_dmg_hit"                                "Hit damage:"
+        "DOTA_Tooltip_ability_jump_ahead_nanaya_Lore"                                   ""
+ 
+         
+
+        "DOTA_Tooltip_ability_nanaya_e_jump"                                    "Sensa・YaPidoras"
+        "DOTA_Tooltip_ability_nanaya_e_jump_Description"                "Nanaya quickly dashes to the target point, swapping Sensou Rikuto ability with Nightmare.\nUpgradeable with attribute IM FUCKING FBT CHARACTER."
+        "DOTA_Tooltip_ability_nanaya_e_jump_range"                              "Range:"
+        "DOTA_Tooltip_ability_nanaya_e_jump_Lore"                               ""
+
+
+        "DOTA_Tooltip_ability_nanaya_blood"                             "Nanaya Blood"
+        "DOTA_Tooltip_ability_nanaya_blood_Description"         "Each time Nanaya deals damage to enemy, he will gain a <font color='#002BFF'>Nanaya blood</font><font color='#002BFF'> stack.\nStacks are capped and each increases Nanaya AGI.\nStacks will be reset if Nanaya doesnt deal damage to enemies for 4 seconds.\nUpgradeable with Old Memories attribute. To enter Nanaya Instinct mode hit enemy with Seven Night Shiki knife, or Sensa・Yotsutsuji at 16+ stack\n<font color='#58ACFA'>Nanaya Instinct</font>\ - Nanaya is fucking sonic now, reduces your cooldown by 30%, after any skill cast you can blink away with right click"
+        "DOTA_Tooltip_ability_nanaya_blood_stack_max"                           "Maximum stacks:"
+        "DOTA_Tooltip_ability_nanaya_blood_bonus_agility"                       "Bonus AGI:"
+        "DOTA_Tooltip_ability_nanaya_blood_Lore"                                ""
+
+        "DOTA_Tooltip_ability_nanaya_dashf"                             "Shadow step"
+        "DOTA_Tooltip_ability_nanaya_dashf_Description"         "Nanaya quickly dashes in the target direction, dealing damage to all enemies on his way.\nAllows usage of Shadow return for 0.5 seconds."
+        "DOTA_Tooltip_ability_nanaya_dashf_range"                       "Range:"
+        "DOTA_Tooltip_ability_nanaya_dashf_Lore"                        ""
+
+
+        "DOTA_Tooltip_ability_nanaya_dashf_return"                              "Shadow return"
+        "DOTA_Tooltip_ability_nanaya_dashf_return_Description"          "Immediately teleports Nanaya back to the position where he started his Shadow step dash."
+        "DOTA_Tooltip_ability_nanaya_dashf_return_Lore"                         ""
 
 
 
+        "DOTA_Tooltip_ability_nanaya_jump_slashes"                              "Sensa・Meigokushamon"
+        "DOTA_Tooltip_ability_nanaya_jump_slashes_Description"  "Nanaya slowly jumps back, preparing for an attack and after a short duration jumps in the target direction, becoming invulnerable, hitting first enemy on his way, dealing damage and stunning him."
+        "DOTA_Tooltip_ability_nanaya_jump_slashes_dmg"  "Dmg:"
+        "DOTA_Tooltip_ability_nanaya_jump_slashes_Lore"                                         ""
 
-
+        "DOTA_Tooltip_ability_nanaya_knife"                             "Seven Nights Shiki"
+        "DOTA_Tooltip_ability_nanaya_knife_Description" "Nanaya throws a knife in the target direction, dealing damage, stunning for 1 second on hit and teleporting Nanaya close to the enemy. Nanaya will jump back shortly after.\nIf <font color='#002BFF'>Nanaya blood</font><font color='#002BFF'> stack count are > 15 and you have Black and Shadow attribute, Nanaya clones will attack the enemy, pushing him back and stunning on each hit."
+        "DOTA_Tooltip_ability_nanaya_knife_dmg" "Dmg:"
+        "DOTA_Tooltip_ability_nanaya_knife_Lore"                                                ""
+        "DOTA_Tooltip_ability_nanaya_combo"                     "Combo: Kyokushi・Nanaya"
+        "DOTA_Tooltip_ability_nanaya_combo_description"                     "<font color='#58ACFA'>Combo Requirement: 30 agi and str </font>\n<font color='#58ACFA'>Combo Sequence: W-W in 2 seconds</font>\n Reflect enemy damage, then throws his knife at the opponent while teleporting behind their back and twisting their neck whist the knife hits. Minimal damage to reflect - 100"
+        "DOTA_Tooltip_ability_nanaya_slashes" "Sensa・Yotsutsuji"
+       "DOTA_Tooltip_ability_nanaya_slashes_description" "Nanaya lunges forward and does a series of slashes, can be interrupted by stun. <font color='#58ACFA'>10+ nanaya stack, changes to 3 hit from you, if you in Nanaya Instinct mode, 3 clones from back will help you"
+       "DOTA_Tooltip_ability_nanaya_slashes_slash" "Slash count:"
+       "DOTA_Tooltip_ability_nanaya_r_attribute"  "Black and White shadow"
+       "DOTA_Tooltip_ability_nanaya_r_attribute_description"  "On 30 nanaya blood stack hitting your enemy with Seven Nights Shiki knife will deal x20 from your agi as pure damage, remove Nanaya Instinct and set stack to 0"
+       "DOTA_Tooltip_ability_nanaya_e_attribute"  "IM FUCKING FBT CHARACTER"
+       "DOTA_Tooltip_ability_nanaya_e_attribute_description"  "Using your E will gain you invisibility for 0.4 sec, also now W refreshes this skill"
+       "DOTA_Tooltip_ability_nanaya_r2_attribute"  "Balls check"
+       "DOTA_Tooltip_ability_nanaya_r2_attribute_description"  "A fucking permostan"
+       "DOTA_Tooltip_ability_nanaya_d_attribute" "Nanaya incident 12.02.2023"
+       "DOTA_Tooltip_ability_nanaya_d_attribute_description" "Gives you most useful skill, just take it"
+       "DOTA_Tooltip_ability_nanaya_blood_attribute" "Old Memories"
+       "DOTA_Tooltip_ability_nanaya_blood_attribute_description" "Upgrades passive, unlock Nanaya Instinct mode"
 
 
 
@@ -8273,6 +8348,7 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
         "Fate_LoadTip6"     "You can change camera distance in the options."
         "Fate_LoadTip7"     "Master mana may be spent on either command seals or upgrading your servant."
         "Fate_LoadTip8"     "Press the icon next to your abilities to open the servant upgrade options."
+        "Fate_LoadTip9"     "WiFi is ok if you're close to the router."
 
 
         //====================================

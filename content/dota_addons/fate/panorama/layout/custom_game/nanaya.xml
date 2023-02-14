@@ -1,0 +1,30 @@
+<root>
+	<styles>
+		<include src="file://{resources}/styles/custom_game/blkscrnd.css" />
+		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
+	</styles>
+	
+
+
+<scripts>
+<include src="s2r://panorama/scripts/custom_game/combo.js" />
+	</scripts>
+      
+     <Panel class="Blackscreen" hittest="false">
+	 <Movie id="gaysex" src="file://{images}/custom_game/nanaya/nanaya_final.webm" controls="false" repeat="false" hittest="false" hittestchildren="false" autoplay="false"/>	
+	 <Panel id="Background" hittest="false">
+		
+	
+			 <Panel id="backgr" > 
+			 </Panel>
+			 <Panel id="firt" >
+			 </Panel>
+			 <Panel id="secnd" >
+			 </Panel>
+			 <Panel id="Comboactv" > 
+			 </Panel>
+</Panel>
+</Panel>
+</root>
+
+

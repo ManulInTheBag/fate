@@ -308,6 +308,7 @@ function Precache( context )
     PrecacheResource("soundfile", "soundevents/hero_oda_nobunaga.vsndevts", context )
     PrecacheResource("soundfile", "soundevents/sounds_test.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/soundevents_conquest.vsndevts", context )
+    PrecacheResource("soundfile", "soundevents/hero_nanaya.vsndevts", context )
     PrecacheResource("soundfile", "soundevents/a_negri.vsndevts", context )
     PrecacheResource("soundfile", "soundevents/zlodemon_true.vsndevts", context )
     PrecacheResource("soundfile", "soundevents/moskes_sasaki.vsndevts", context)
@@ -355,6 +356,7 @@ function Precache( context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_phantom_lancer.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_queenofpain.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_razor.vsndevts", context )
+        PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_night_stalker.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_riki.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_shadowshaman.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_skeleton_king.vsndevts", context )
@@ -862,6 +864,20 @@ function FateGameMode:OnPlayerChat(keys)
     if text == "-coords" then
         print(hero:GetAbsOrigin())
     end
+
+     local emotion_list = {1, 2, 3, 4}
+        --local test2 = tonumber(keys.text)
+
+
+      for i=1, 4 do
+    if text == string.format("#%s", emotion_list[i]) then
+    
+        local emotion = ParticleManager:CreateParticle(string.format("particles/FBT_incident_%s.vpcf", emotion_list[i]), PATTACH_ABSORIGIN_FOLLOW, hero)
+            ParticleManager:SetParticleControl(emotion, 0, hero:GetAbsOrigin())
+           print ("succes")
+
+    end
+end
 
     if text == "-inven" then
         if Convars:GetBool("sv_cheats") then

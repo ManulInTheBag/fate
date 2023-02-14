@@ -99,7 +99,7 @@ function FillHeroesTable(heroList, panel, big) {
 
 function FHTSub(heroName, heroData, panel, big){
 	$.Msg(heroName);
-	var StatPanel = panel.FindChildTraverse('HeroesByAttributes_' + heroData.attributes.attribute_primary);
+	var StatPanel = panel.FindChildTraverse('HeroesByAttributes_' + 0);
 
 	var HeroCard = $.CreatePanel('Panel', StatPanel, 'HeroListPanel_element_' + heroName);
 	HeroCard.BLoadLayoutSnippet('HeroCard');
@@ -179,7 +179,7 @@ function ChooseHeroUpdatePanels() {
 			$.Localize('#' + 'hero_selection_disabled_reason_disabled_in_ranked') : '';
 	FillAbilitiesUI($('#SelectedHeroAbilitiesPanelInner'), selectedHeroData.abilities, 'SelectedHeroAbility');
 	FillAbilitiesUI($('#SelectedHeroAttributesAndComboPanelInner'), selectedHeroData.attributesandcombo, 'SelectedHeroAbility');
-	FillAttributeUI($('#HeroListControlsGroup3'), selectedHeroData.attributes);
+	//FillAttributeUI($('#HeroListControlsGroup3'), selectedHeroData.attributes);
 }
 
 function FillAbilitiesUI(rootPanel, abilities, className) {
@@ -236,6 +236,7 @@ function ClearSearch() {
 
 function ListenToBanningPhase() {
 	DynamicSubscribePTListener('hero_selection_banning_phase', function(tableName, changesObject, deletionsObject) {
+		$.Msg("zuzup3")
 		for (var hero in changesObject) {
 			var heroPanel = $('#HeroListPanel_element_' + hero);
 			if (Number(changesObject[hero]) === Game.GetLocalPlayerID()) {

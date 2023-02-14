@@ -212,7 +212,7 @@ function edmon_beam:MiniDarkBeam(part1, part9, isAA, isMelee, isBeams, seq)
 	local damage = self:GetSpecialValueFor("damage")
 
 	if isAA then
-		damage = damage/3
+		damage = damage/1.5
 	end
 	if isBeams then
 		damage = damage/4

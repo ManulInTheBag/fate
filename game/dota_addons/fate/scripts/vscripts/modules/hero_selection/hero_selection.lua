@@ -183,7 +183,7 @@ end
 function HeroSelection:StartStateHeroPick()
 	--Banning
 	local notBanned = {}
-	for hero in pairs(PlayerTables:GetAllTableValuesForReadOnly("hero_selection_banning_phase")) do
+	--[[for hero in pairs(PlayerTables:GetAllTableValuesForReadOnly("hero_selection_banning_phase")) do
 		if not table.includes(notBanned, hero) then
 			table.insert(notBanned, hero)
 		end
@@ -191,7 +191,7 @@ function HeroSelection:StartStateHeroPick()
 	local iterCount = math.ceil(#notBanned * Options:GetValue("BanningPhaseBannedPercentage") * 0.01)
 	for i = 1, iterCount do
 		table.remove(notBanned, RandomInt(1, #notBanned))
-	end
+	end]]
 	PlayerTables:DeleteTableKeys("hero_selection_banning_phase", notBanned)
 	local banned = PlayerTables:GetAllTableValuesForReadOnly("hero_selection_banning_phase")
 	local bannedCount = table.count(banned)

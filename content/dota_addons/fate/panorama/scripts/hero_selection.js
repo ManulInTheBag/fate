@@ -243,26 +243,26 @@ function OnLocalPlayerPicked() {
 	$('#HeroPreviewOverview').text = hype !== heroName + '_hype' ? hype : '';
 	$.Msg("OLPP4")
 
-	var model = localHeroData.model
-	$.Msg("pepeg")
-	$.Msg(heroName)
-	$.Msg(model)
-	var heroImageXML = '<DOTAScenePanel particleonly="false" ' +
-		(localHeroData.useCustomScene
-			? 'map="scenes/heroes" camera="' + heroName + '" />'
-			: 'allowrotation="true" unit="' + model + '" />');
-	var ScenePanel = $('#HeroPreviewScene');
-	ScenePanel.RemoveAndDeleteChildren();
-	//ScenePanel.BCreateChildren(heroImageXML);
-	$.CreatePanelWithProperties("DOTAScenePanel", ScenePanel, "scene", {particleonly:"false", allowrotation:"true", unit: model});
+	//var model = localHeroData.model
+	//$.Msg("pepeg")
+	//$.Msg(heroName)
+	//$.Msg(model)
+	//var heroImageXML = '<DOTAScenePanel particleonly="false" ' +
+	//	(localHeroData.useCustomScene
+	//		? 'map="scenes/heroes" camera="' + heroName + '" />'
+	//		: 'allowrotation="true" unit="' + model + '" />');
+	//var ScenePanel = $('#HeroPreviewScene');
+	//ScenePanel.RemoveAndDeleteChildren();
+	////ScenePanel.BCreateChildren(heroImageXML);
+	//$.CreatePanelWithProperties("DOTAScenePanel", ScenePanel, "scene", {particleonly:"false", allowrotation:"true", unit: model});
 
-	$('#HeroPreviewAbilities').RemoveAndDeleteChildren();
-	$('#SelectedHeroAttributesAndComboPanelInner').RemoveAndDeleteChildren();
-	$('#HeroPreviewAttributesAndCombo').RemoveAndDeleteChildren();
-	FillAbilitiesUI($('#HeroPreviewAbilities'), localHeroData.abilities, 'HeroPreviewAbility');
-	FillAbilitiesUI($('#HeroPreviewAttributesAndCombo'), localHeroData.attributesandcombo, 'HeroPreviewAbility');
-	FillAttributeUI($('#HeroPreviewAttributes'), localHeroData.attributes);
-	ToggleHeroPreviewHeroList(true);
+	//$('#HeroPreviewAbilities').RemoveAndDeleteChildren();
+	//$('#SelectedHeroAttributesAndComboPanelInner').RemoveAndDeleteChildren();
+	//$('#HeroPreviewAttributesAndCombo').RemoveAndDeleteChildren();
+	//FillAbilitiesUI($('#HeroPreviewAbilities'), localHeroData.abilities, 'HeroPreviewAbility');
+	//FillAbilitiesUI($('#HeroPreviewAttributesAndCombo'), localHeroData.attributesandcombo, 'HeroPreviewAbility');
+	//FillAttributeUI($('#HeroPreviewAttributes'), localHeroData.attributes);
+	//ToggleHeroPreviewHeroList(true);
 	$.GetContextPanel().RemoveClass('CanRepick');
 }
 
@@ -392,7 +392,7 @@ function ShowHeroPreviewTab(tabID) {
 		//$.Schedule(1, function() {
 		//});
 
-		$('#HeroSelectionCustomBackground').SetImage("s2r://panorama/images/custom_game/loading_screen/" + Math.floor(Math.random()*33 + 1) + "_png.vtex")
+		$('#HeroSelectionCustomBackground').SetImage("s2r://panorama/images/custom_game/loading_screen/pickscreen_png.vtex")
 
 		var bglist = Players.GetStatsData(localPlayerId).Backgrounds;
 		if (bglist) $('#HeroSelectionCustomBackground').SetImage(bglist[Math.floor(Math.random() * bglist.length)]);

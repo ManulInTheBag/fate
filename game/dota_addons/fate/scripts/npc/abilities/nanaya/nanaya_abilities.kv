@@ -1,0 +1,388 @@
+ "DOTAAbilities"
+{
+ 
+ "jump_ahead_nanaya"
+	 {
+	 "BaseClass"						"ability_lua"
+	  "ScriptFile"					"abilities/nanaya/nanaya_w_e_knife"
+	  "MaxLevel"						"5"
+	  "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_POINT"
+	  "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+	  "AbilityTextureName"			"custom/nanaya/nanaya_w"
+	  "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+	  "AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+	  "AbilityUnitTargetFlags"				"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE"
+	  "AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
+	  "AbilityCastPoint"				"0"
+	  "AbilityCooldown"				"14 12 10 8 8"
+	  
+	  	
+		"AbilitySpecial"
+		{
+			"01"
+			{
+			"var_type" "FIELD_INTEGER"
+			"blink_ahead" "400 500 550 600 600"
+			}
+            "02"
+			{
+			"var_type" "FIELD_INTEGER"
+			"dmg_knife" "350 400 450 500 550"
+			}
+			"03"
+			{
+			"var_type" "FIELD_INTEGER"
+			"dmg_hit" "300 400 450 500 550"
+			}
+			}
+			}
+			
+			
+			"nanaya_knife"
+	 {
+	 "BaseClass"						"ability_lua"
+	  "ScriptFile"					"abilities/nanaya/nanaya_w_e_knife"
+	  "MaxLevel"						"5"
+	  "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_POINT" 
+	  "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	  "AbilityTextureName"			"custom/nanaya/nanaya-e"
+	  "AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+	  "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+	  "AbilityUnitTargetFlags"				"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE"
+	  "AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3"
+          "AbilityCastPoint"				"0.4"
+	  "AbilityCooldown"				"20 16 14 12 10"
+	  
+	  	
+		"AbilitySpecial"
+		{
+			"01"
+			{
+			"var_type" "FIELD_INTEGER"
+			"dmg" "400 500 600 650 700"
+			}
+			}
+			}
+			
+			
+						"nanaya_slashes"
+	 {
+	 "BaseClass"						"ability_lua"
+	  "ScriptFile"					"abilities/nanaya/nanaya_d"
+	  "MaxLevel"						"1"
+	   "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	   "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY" 
+	   "AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+	  "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+	  "AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3"
+	  "AbilityCastPoint" "0.1"
+		"AnimationPlaybackRate" 		"1"
+	  "AbilityCooldown"				"14"
+	  "AbilityCastRange"				"500"
+	  	
+		"AbilitySpecial"
+		{
+			"01"
+			{
+			"var_type" "FIELD_INTEGER"
+			"distance" "650"
+			}
+
+			"02"
+			{
+			"var_type" "FIELD_INTEGER"
+			"clone_dmg" "200"
+			}
+			"03"
+			{
+			"var_type" "FIELD_INTEGER"
+			"dmg" "75"
+			}
+            "04"
+			{
+			"var_type" "FIELD_INTEGER"
+			"slash" "7"
+			}
+			}
+			}
+			
+							"nanaya_combo"
+	 {
+	 "BaseClass"						"ability_lua"
+	  "ScriptFile"					"abilities/nanaya/nanaya_combo"
+	  "MaxLevel"						"1"
+	  "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	  "AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+	  "AbilityTextureName"			"custom/nanaya/nanaya_combo"
+	  "AbilityCastAnimation" 			"ACT_DOTA_ITEM_PICKUP"
+		"AnimationPlaybackRate" 		"1.0"
+	  "AbilityCooldown"				"180"
+	  
+	  	
+		"AbilitySpecial"
+		{
+			"01"
+			{
+			"var_type" "FIELD_INTEGER"
+			"damage" "1000"
+			}
+			}
+			}
+			
+								"nanaya_jump_slashes"
+	 {
+	 "BaseClass"						"ability_lua"
+	  "ScriptFile"					"abilities/nanaya/nanaya_r"
+	  "MaxLevel"						"1"
+	  	"RequiredLevel"					"18"
+	   "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"  
+	   "AbilityTextureName"			"custom/nanaya/BTNQY-F"
+	   "AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+	  "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	  "AbilityCastAnimation" 			"ACT_SCRIPT_CUSTOM_4"
+	  "AbilityCastPoint" "0.2"
+		"AnimationPlaybackRate" 		"0.7"
+	  "AbilityCooldown"				"14"
+	  
+	  	
+		"AbilitySpecial"
+		{
+			"01"
+			{
+			"var_type" "FIELD_INTEGER"
+			"dmg" "1500"
+			}
+			}
+			}
+			
+										"nanaya_q_strike"
+	 {
+	 "BaseClass"						"ability_lua"
+	  "ScriptFile"					"abilities/nanaya/nanaya_q"
+	  "MaxLevel"						"5"
+	   "AbilityBehavior"  "DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+	   "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	   "AbilityTextureName"			"custom/nanaya/nanaya-q"
+	  "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+	  "AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+	  "AbilityCastAnimation" 			"ACT_DOTA_ITEM_PICKUP"
+	  "AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_15"
+	  "AbilityCastPoint" "0.15"
+		"AnimationPlaybackRate" 		"1.6"
+	  "AbilityCooldown"				"12 10 8 6 4"
+	   "AbilityCastRange"				"550 600 650 700 700"
+	  
+	  	
+		"AbilitySpecial"
+		{
+			"01"
+			{
+			"var_type" "FIELD_INTEGER"
+			"dmg" "400 500 600 650 650"
+			}
+			}
+			}
+			
+			
+		
+	"nanaya_blood"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/nanaya/nanaya_blood"
+		"MaxLevel"						"2"
+		"RequiredLevel"					"1"
+		"AbilityTextureName"			"custom/nanaya/nanaya_eyes"
+		"LevelsBetweenUpgrades"			"31"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+
+		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"stack_max"			"15 30"
+			}
+			
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"bonus_agility"			"1 2"
+			}
+			
+		}
+	}
+
+					"nanaya_dashf"
+	 {
+	 "BaseClass"						"ability_lua"
+	  "ScriptFile"					"abilities/nanaya/nanaya"
+	  "MaxLevel"						"1"
+   "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_POINT"
+	   "AbilityTextureName"			"custom/nanaya/nanaya-f"
+	   "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	   	"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+	  "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+	  "AbilityCastAnimation" 			"ACT_SCRIPT_CUSTOM_27"
+	  "AbilityCastPoint" "0.3"
+		"AnimationPlaybackRate" 		"1.4"
+	  "AbilityCooldown"				"12"
+	  "AbilityCastRange"				"9999"
+	  	
+		"AbilitySpecial"
+		{
+			"01"
+			{
+			"var_type" "FIELD_INTEGER"
+			"range" "800"
+			}
+			"02"
+			{
+			"var_type" "FIELD_INTEGER"
+			"dmg" "450"
+			}
+			}
+
+			}
+
+							"nanaya_q2jump"
+	 {
+	 "BaseClass"						"ability_lua"
+	  "ScriptFile"					"abilities/nanaya/nanaya_q2jump"
+	  "MaxLevel"						"4"
+	   "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	     "AbilityTextureName"			"custom/nanaya/BTNQY-R"
+	   "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	   "AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+	  "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+	  "AbilityCastAnimation" 			"ACT_SCRIPT_CUSTOM_2"
+	  "AbilityCastPoint" "0.1"
+		"AnimationPlaybackRate" 		"1.1"
+	  "AbilityCooldown"				"14 12 10 8 6"
+	  "AbilityCastRange"				"9999"
+	  	
+		"AbilitySpecial"
+		{
+			"01"
+			{
+			"var_type" "FIELD_INTEGER"
+			"dmg" "75 100 120 140 160"
+			}
+
+
+			}
+			}
+
+										"nanaya_e_jump"
+	 {
+	 "BaseClass"						"ability_lua"
+	  "ScriptFile"					"abilities/nanaya/nanaya_e_jump"
+	  "MaxLevel"						"5"
+	   "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_POINT"
+	   "AbilityTextureName"			"custom/nanaya/nanaya-Q1"
+	  "AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_15"
+	  "AbilityCastPoint" "0.1"
+		"AnimationPlaybackRate" 		"1.1"
+	  "AbilityCooldown"				"20 14 12 10 7"
+	  "AbilityCastRange"				"9999"
+	  	
+		"AbilitySpecial"
+		{
+			"01"
+			{
+			"var_type" "FIELD_INTEGER"
+			"range" "800"
+			}
+			}
+			}
+			
+							"nanaya_dashf_return"
+	 {
+	 "BaseClass"						"ability_lua"
+	  "ScriptFile"					"abilities/nanaya/nanaya"
+	  "MaxLevel"						"1"
+	  "AbilityTextureName"			"custom/nanaya/nanaya-f"
+	   "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	  "AbilityUnitTargetType"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+	  "AbilityCastAnimation" 			"ACT_DOTA_ITEM_PICKUP"
+	  "AbilityCastPoint" "0.1"
+	  "AbilityCooldown"				"1"
+	  	
+		}
+		
+		"nanaya_blood_attribute"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/nanaya/nanaya_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/nanaya/nanaya_eyes_upgrade"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"12"
+		}
+		
+			"nanaya_d_attribute"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/nanaya/nanaya_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/nanaya/nanaya-D"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"10"
+		}
+
+			"nanaya_r_attribute"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/nanaya/nanaya_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/nanaya/nanaya-balls"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"12"
+		}
+		
+			"nanaya_r2_attribute"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/nanaya/nanaya_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/nanaya/nanaya_white_shadow"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"14"
+		}
+
+				"nanaya_e_attribute"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/nanaya/nanaya_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/nanaya/nanaya-Q2"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"10"
+
+		}
+		}

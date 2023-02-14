@@ -18,6 +18,7 @@ softdispellable = {
     "modifier_rule_breaker",
     "modifier_c_rule_breaker",
     "modifier_heart_of_harmony",
+    "modifier_edmon_counter",
     "modifier_l_rule_breaker",
     "modifier_double_edge",
     "modifier_double_spearsmanship",
@@ -64,6 +65,7 @@ strongdispellable = {
     "modifier_rule_breaker",
     "modifier_c_rule_breaker",
     "modifier_heart_of_harmony",
+    "modifier_edmon_counter",
     "modifier_l_rule_breaker",
     "modifier_double_edge",
     "modifier_murderous_instinct",
@@ -128,6 +130,7 @@ deargdispellable = {
     "modifier_rule_breaker",
     "modifier_c_rule_breaker",
     "modifier_heart_of_harmony",
+    "modifier_edmon_counter",
     "modifier_l_rule_breaker",
     "modifier_double_edge",
     "modifier_murderous_instinct",
@@ -583,7 +586,8 @@ tCannotDetect = {
     "npc_dota_hero_bounty_hunter",
     "npc_dota_hero_bloodseeker",
     "npc_dota_hero_riki",
-    "npc_dota_hero_skeleton_king"
+    "npc_dota_hero_skeleton_king",
+    "npc_dota_hero_night_stalker"
 }
 
 tDangerousBuffs = {
@@ -684,7 +688,8 @@ tHorsemanClass = {
     "npc_dota_hero_phantom_assassin",
     "npc_dota_hero_riki",
     "npc_dota_hero_skeleton_king",
-    "npc_dota_hero_puck"
+    "npc_dota_hero_puck",
+    "npc_dota_hero_night_stalker"
 }
 
 tipTable = { "<font color='#58ACFA'>Tip : C Scroll</font> is everyone's bread-and-butter item that you should be carrying at all times. Use it to guarantee your skill combo, or help your teammate by interrupting enemy.",
@@ -2304,6 +2309,7 @@ local heroNames = {
     ["npc_dota_hero_venomancer"] = "Leonidas I",
     ["npc_dota_hero_faceless_void"] = "Altera",
     ["npc_dota_hero_treant"] = "Edmon Dantes",
+    ["npc_dota_hero_night_stalker"] = "Shiki Nanaya",
 }
 
 

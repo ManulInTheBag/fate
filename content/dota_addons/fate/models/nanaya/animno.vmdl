@@ -1,0 +1,2998 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc32:version{c5dcef98-b629-46ab-88e3-a17c005c935e} -->
+{
+	rootNode = 
+	{
+		_class = "RootNode"
+		children = 
+		[
+			{
+				_class = "MaterialGroupList"
+				children = 
+				[
+					{
+						_class = "DefaultMaterialGroup"
+						remaps = 
+						[
+							{
+								from = "qiyeoutput2.vmat"
+								to = "materials/nanaya/nanayamat.vmat"
+							},
+							{
+								from = "qiyeoutput1.vmat"
+								to = "materials/nanaya/nanayamat.vmat"
+							},
+						]
+						use_global_default = false
+						global_default_material = ""
+					},
+				]
+			},
+			{
+				_class = "AttachmentList"
+				children = 
+				[
+					{
+						_class = "Attachment"
+						name = "attach_head"
+						parent_bone = "bone64"
+						relative_origin = [ -45.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_attack1"
+						parent_bone = "bone46"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_hitloc"
+						parent_bone = "bone22"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_hand"
+						parent_bone = "bone26"
+						relative_origin = [ 0.990906, 0.55397, 1.353851 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_leg"
+						parent_bone = "bone11"
+						relative_origin = [ 0.0, -100.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_leg1"
+						parent_bone = "bone06"
+						relative_origin = [ 10.2647, 0.0, -153.559998 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_knife"
+						parent_bone = "bone51"
+						relative_origin = [ 0.0, -40.0, -5.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_right_eye"
+						parent_bone = "bone65"
+						relative_origin = [ -6.492222, -9.193619, 8.13147 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_left_eye"
+						parent_bone = "bone65"
+						relative_origin = [ 4.734512, -9.551155, 8.565292 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+				]
+			},
+			{
+				_class = "HitboxSetList"
+				children = 
+				[
+					{
+						_class = "HitboxSet"
+						name = "default"
+						children = 
+						[
+							{
+								_class = "Hitbox"
+								parent_bone = "bone12"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -20.710274, -24.425434, -10.000687 ]
+								hitbox_maxs = [ 20.642719, 6.493759, 18.740402 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone13"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -102.105515, -100.392014, -151.691879 ]
+								hitbox_maxs = [ 89.574059, 81.980347, 145.423264 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone22"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -81.298981, -94.179512, -205.251404 ]
+								hitbox_maxs = [ 102.83239, 77.801781, 111.469971 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone43"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -15.050066, -9.829193, -4.012436 ]
+								hitbox_maxs = [ -8.240166, 9.600834, 4.029663 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone23"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ 8.070171, -9.8292, -4.012436 ]
+								hitbox_maxs = [ 14.880068, 9.600827, 4.029465 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone44"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -38.975754, -8.846386, -9.381439 ]
+								hitbox_maxs = [ -1.583061, 8.512232, 7.483856 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone24"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ 1.413067, -8.846392, -10.337143 ]
+								hitbox_maxs = [ 38.805756, 8.512228, 7.483658 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone45"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -33.330372, -5.771066, -6.08963 ]
+								hitbox_maxs = [ -0.330372, 5.818583, 5.489868 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone25"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ 0.160378, -5.771076, -6.08963 ]
+								hitbox_maxs = [ 33.160469, 5.818571, 5.489868 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone46"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -15.686151, -6.184409, -5.273651 ]
+								hitbox_maxs = [ 0.050438, 6.006211, 3.273956 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone26"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.424934, -6.18444, -5.273651 ]
+								hitbox_maxs = [ 15.311652, 6.006187, 3.273956 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone07"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -10.417404, -12.725576, -68.441177 ]
+								hitbox_maxs = [ 9.883154, 13.475189, 1.36554 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone02"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -10.623234, -12.725597, -69.231339 ]
+								hitbox_maxs = [ 9.677332, 13.475191, 0.575378 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone61"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.601777, -0.799741, -2.670105 ]
+								hitbox_maxs = [ -0.069581, 2.206358, 1.278687 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone58"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.304872, -1.391621, -3.047729 ]
+								hitbox_maxs = [ 0.171226, 1.88468, 1.206573 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone55"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.638108, -1.695596, -1.853043 ]
+								hitbox_maxs = [ -0.268311, 1.364994, 1.500061 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone52"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.8415, -2.04534, -1.670044 ]
+								hitbox_maxs = [ -0.7865, 1.25255, 1.463654 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone49"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.234604, -2.940084, -3.080246 ]
+								hitbox_maxs = [ 0.272392, 1.022265, 2.029846 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone40"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.304933, -0.79976, -2.670105 ]
+								hitbox_maxs = [ 4.227263, 2.206339, 1.278687 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone37"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.545724, -1.391643, -3.047729 ]
+								hitbox_maxs = [ 4.930373, 1.884658, 1.206573 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone34"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.106087, -1.695616, -1.853043 ]
+								hitbox_maxs = [ 5.26361, 1.364974, 1.500061 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone31"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ 0.412086, -2.045372, -1.670044 ]
+								hitbox_maxs = [ 5.467086, 1.252508, 1.463654 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone28"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.646805, -2.940112, -3.080246 ]
+								hitbox_maxs = [ 5.859985, 1.022248, 2.029846 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone08"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -28.161579, -36.113453, -68.401894 ]
+								hitbox_maxs = [ 20.224224, 28.458609, 94.513977 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone03"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -48.199539, -25.436867, -94.749298 ]
+								hitbox_maxs = [ 50.997066, 46.321892, 70.876785 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone64"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.924405, -6.799381, -2.546616 ]
+								hitbox_maxs = [ 5.921763, 5.943828, 5.767593 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone62"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.230676, -0.961737, -1.889343 ]
+								hitbox_maxs = [ -0.017282, 1.770063, 1.339554 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone59"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.656457, -1.374432, -2.102875 ]
+								hitbox_maxs = [ 0.10414, 1.514267, 1.303619 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone56"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.279374, -1.416409, -1.442734 ]
+								hitbox_maxs = [ -0.115975, 1.28481, 1.247864 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone53"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.165078, -1.64634, -1.402191 ]
+								hitbox_maxs = [ -0.156579, 1.195299, 1.270813 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone50"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.303955, -2.597509, -2.779037 ]
+								hitbox_maxs = [ 0.901245, 1.324201, 1.349655 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone41"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.357141, -0.961761, -1.889343 ]
+								hitbox_maxs = [ 2.856261, 1.770039, 1.339554 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone38"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.478555, -1.374454, -2.102875 ]
+								hitbox_maxs = [ 3.281944, 1.514247, 1.303619 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone35"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.258423, -1.41645, -1.442734 ]
+								hitbox_maxs = [ 3.904975, 1.28479, 1.247864 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone32"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.217835, -1.646372, -1.402191 ]
+								hitbox_maxs = [ 3.790565, 1.195278, 1.270813 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone29"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.275757, -2.597537, -2.779037 ]
+								hitbox_maxs = [ 3.929542, 1.324182, 1.349655 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone20"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -17.24217, -17.564997, -11.930115 ]
+								hitbox_maxs = [ 5.347124, 8.336023, -0.03302 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone16"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -18.262297, -0.455456, -12.069794 ]
+								hitbox_maxs = [ 18.262297, 6.290333, 0.354309 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone14"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.386002, -17.414644, -12.512756 ]
+								hitbox_maxs = [ 17.203297, 8.486361, -0.615662 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone09"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.258826, -17.436699, -20.580072 ]
+								hitbox_maxs = [ 7.859382, 6.445799, 0.096798 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone04"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.323118, -17.436613, -20.607523 ]
+								hitbox_maxs = [ 7.79504, 6.445873, 0.069347 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone65"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -78.177444, -91.547638, -206.075836 ]
+								hitbox_maxs = [ 148.702148, 120.153412, 105.75943 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone63"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.209207, -0.837498, -1.168549 ]
+								hitbox_maxs = [ 0.035292, 1.732302, 1.179947 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone60"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.457086, -1.306311, -1.384399 ]
+								hitbox_maxs = [ 0.736114, 1.36039, 1.342896 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone57"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.903535, -1.233264, -1.181885 ]
+								hitbox_maxs = [ -0.042336, 1.157006, 1.397415 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone54"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.599251, -1.419823, -1.140396 ]
+								hitbox_maxs = [ -0.176255, 0.978117, 1.639801 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone51"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.697235, -2.843884, -2.266342 ]
+								hitbox_maxs = [ 0.909866, 1.126095, 0.934769 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone48"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.281054, -13.196564, -0.751602 ]
+								hitbox_maxs = [ 5.118042, 51.264687, 1.375595 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone42"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.409806, -0.837519, -1.168549 ]
+								hitbox_maxs = [ 2.834792, 1.732281, 1.179947 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone39"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.11062, -1.306331, -1.384399 ]
+								hitbox_maxs = [ 3.08248, 1.360368, 1.342896 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone36"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.332162, -1.233284, -1.181885 ]
+								hitbox_maxs = [ 3.529136, 1.156986, 1.397415 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone33"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.198349, -1.419854, -1.140396 ]
+								hitbox_maxs = [ 3.224754, 0.978076, 1.639801 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone30"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.284363, -2.843904, -2.266342 ]
+								hitbox_maxs = [ 2.322738, 1.126076, 0.934769 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone21"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -19.36109, -19.058006, -14.868988 ]
+								hitbox_maxs = [ 5.555403, 9.324112, -0.070084 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone18"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -20.201996, -1.292005, -15.220245 ]
+								hitbox_maxs = [ 20.201897, 5.971606, 0.516357 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone15"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.588406, -19.395773, -14.79538 ]
+								hitbox_maxs = [ 19.328091, 8.98633, 0.003525 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone11"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.952892, -14.142941, -5.179969 ]
+								hitbox_maxs = [ 7.249716, 5.05069, 3.898352 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone06"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.177104, -14.05468, -5.334332 ]
+								hitbox_maxs = [ 7.025645, 5.138958, 3.743969 ]
+							},
+						]
+					},
+				]
+			},
+			{
+				_class = "RenderMeshList"
+				children = 
+				[
+					{
+						_class = "RenderMeshFile"
+						name = "animno"
+						filename = "models/nanaya/animno.fbx"
+						import_scale = 1.0
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = [  ]
+						}
+					},
+				]
+			},
+			{
+				_class = "AnimationList"
+				children = 
+				[
+					{
+						_class = "AnimFile"
+						name = "anim_attack2"
+						note = "Type note..."
+						activity_name = "ACT_DOTA_ATTACK2"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 145
+						end_frame = 183
+						framerate = 30.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "anim_reznya"
+						activity_name = "ACT_DOTA_CAST_ABILITY_4"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 850
+						end_frame = 885
+						framerate = 24.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "animrun"
+						note = "Type note..."
+						activity_name = "ACT_DOTA_RUN"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 198
+						end_frame = 223
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "anim_punch2"
+						activity_name = "ACT_SCRIPT_CUSTOM_2"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.1
+						fade_out_time = 0.3
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 1229
+						end_frame = 1244
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "anim_punch1"
+						activity_name = "ACT_DOTA_CAST_ABILITY_9"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.1
+						fade_out_time = 0.3
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 1229
+						end_frame = 1244
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "anim_reznya2"
+						activity_name = "ACT_DOTA_CAST_ABILITY_5"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 390
+						end_frame = 418
+						framerate = 24.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "anim_knife_low"
+						children = 
+						[
+							{
+								_class = "AnimOffset"
+								translation = [ 0.0, -25.0, 0.0 ]
+								rotation_xyz = [ 0.0, 0.0, 0.0 ]
+							},
+						]
+						activity_name = "ACT_SCRIPT_CUSTOM_5"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 583
+						end_frame = 583
+						framerate = 24.0
+						reverse = false
+						anim_hold_list = 
+						[
+							{
+								frame = 583
+								frame_count = 50
+							},
+						]
+					},
+					{
+						_class = "AnimFile"
+						name = "anim_jump_knife"
+						activity_name = "ACT_SCRIPT_CUSTOM_6"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 531
+						end_frame = 531
+						framerate = 24.0
+						reverse = false
+						anim_hold_list = 
+						[
+							{
+								frame = 531
+								frame_count = 50
+							},
+						]
+					},
+					{
+						_class = "AnimFile"
+						name = "anim_stand"
+						activity_name = "ACT_DOTA_IDLE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 11
+						end_frame = 73
+						framerate = 30.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "anim_jump_ahead"
+						disabled = true
+						activity_name = "ACT_DOTA_CAST_ABILITY_7"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 906
+						end_frame = 955
+						framerate = 30.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "animfi"
+						children = 
+						[
+							{
+								_class = "AnimBlendLayer"
+								disabled = true
+								anim_name = "animfi1"
+								spline = true
+								xfade = true
+								no_blend = false
+								local_space = false
+								start_frame = 66
+								peak_frame = 66
+								tail_frame = 96
+								end_frame = 96
+							},
+						]
+						disabled = true
+						activity_name = "ACT_DOTA_CAST_ABILITY_6"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 956
+						end_frame = 1023
+						framerate = -1.0
+						reverse = false
+						anim_hold_list = 
+						[
+							{
+								frame = 1021
+								frame_count = 5
+							},
+							{
+								frame = 1023
+								frame_count = 10
+							},
+						]
+					},
+					{
+						_class = "AnimFile"
+						name = "anim_attack3"
+						activity_name = "ACT_DOTA_CAST_ABILITY_1"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 440
+						end_frame = 440
+						framerate = 24.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "2"
+						activity_name = "ACT_DOTA_CAST_ABILITY_2"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 583
+						end_frame = 604
+						framerate = 24.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "2_copy"
+						children = 
+						[
+							{
+								_class = "AnimOffset"
+								translation = [ 0.0, 0.0, 0.0 ]
+								rotation_xyz = [ 0.0, 0.0, 0.0 ]
+							},
+						]
+						activity_name = "ACT_SCRIPT_CUSTOM_0"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 496
+						end_frame = 511
+						framerate = 5.0
+						reverse = false
+						anim_hold_list = 
+						[
+							{
+								frame = 499
+								frame_count = 40
+							},
+						]
+					},
+					{
+						_class = "AnimFile"
+						name = "future_anim"
+						disabled = true
+						activity_name = "ACT_SCRIPT_CUSTOM_4"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 490
+						end_frame = 490
+						framerate = 24.0
+						reverse = false
+						anim_hold_list = 
+						[
+							{
+								frame = 490
+								frame_count = 50
+							},
+						]
+					},
+					{
+						_class = "AnimFile"
+						name = "anim_combo"
+						activity_name = "ACT_DOTA_CAST_ABILITY_3"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 625
+						end_frame = 656
+						framerate = 24.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "anim_clone"
+						children = 
+						[
+							{
+								_class = "AnimOffset"
+								translation = [ -50.0, 0.0, 0.0 ]
+								rotation_xyz = [ 0.0, 0.0, 0.0 ]
+							},
+						]
+						activity_name = "ACT_SCRIPT_CUSTOM_1"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 666
+						end_frame = 675
+						framerate = 12.0
+						reverse = false
+						anim_hold_list = 
+						[
+							{
+								frame = 666
+								frame_count = 5
+							},
+						]
+					},
+					{
+						_class = "AnimFile"
+						name = "anim_attack1"
+						activity_name = "ACT_DOTA_ATTACK"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.0
+						fade_out_time = 0.0
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 93
+						end_frame = 140
+						framerate = 24.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "anim_jump_knife1"
+						children = 
+						[
+							{
+								_class = "AnimOffset"
+								disabled = true
+								translation = [ 100.0, 0.0, 0.0 ]
+								rotation_xyz = [ 0.0, 0.0, 180.0 ]
+							},
+						]
+						activity_name = "ACT_SCRIPT_CUSTOM_7"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.0
+						fade_out_time = 0.0
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 499
+						end_frame = 529
+						framerate = 24.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "anim_combo1"
+						disabled = true
+						activity_name = "ACT_SCRIPT_CUSTOM_1"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.0
+						fade_out_time = 0.0
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 627
+						end_frame = 656
+						framerate = 24.0
+						reverse = true
+					},
+					{
+						_class = "AnimFile"
+						name = "animfi1"
+						activity_name = "ACT_DOTA_CAST_ABILITY_1_END"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 956
+						end_frame = 1022
+						framerate = -1.0
+						reverse = true
+					},
+					{
+						_class = "AnimFile"
+						name = "animfi2"
+						disabled = true
+						activity_name = "ACT_DOTA_CAST_ABILITY_6"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.31
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 956
+						end_frame = 1022
+						framerate = -1.0
+						reverse = false
+						anim_hold_list = 
+						[
+							{
+								frame = 1021
+								frame_count = 3
+							},
+						]
+					},
+					{
+						_class = "AnimFile"
+						name = "anim_reznya3"
+						children = 
+						[
+							{
+								_class = "AnimSmoothLoop"
+								frames_from_start = 1
+								frames_from_end = 0
+							},
+						]
+						disabled = true
+						activity_name = "ACT_DOTA_CAST_ABILITY_5"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 406
+						end_frame = 418
+						framerate = 30.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "animfi3"
+						children = 
+						[
+							{
+								_class = "AnimBlendLayer"
+								disabled = true
+								anim_name = "animfi1"
+								spline = true
+								xfade = true
+								no_blend = false
+								local_space = false
+								start_frame = 66
+								peak_frame = 66
+								tail_frame = 96
+								end_frame = 96
+							},
+						]
+						activity_name = "ACT_DOTA_CAST_ABILITY_61"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 996
+						end_frame = 1023
+						framerate = -1.0
+						reverse = false
+						anim_hold_list = 
+						[
+							{
+								frame = 1021
+								frame_count = 5
+							},
+							{
+								frame = 1023
+								frame_count = 14
+							},
+						]
+					},
+					{
+						_class = "AnimFile"
+						name = "animfi4"
+						children = 
+						[
+							{
+								_class = "AnimBlendLayer"
+								disabled = true
+								anim_name = "animfi1"
+								spline = true
+								xfade = true
+								no_blend = false
+								local_space = false
+								start_frame = 66
+								peak_frame = 66
+								tail_frame = 96
+								end_frame = 96
+							},
+						]
+						activity_name = "ACT_SCRIPT_CUSTOM_42"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 970
+						end_frame = 995
+						framerate = -1.0
+						reverse = false
+						anim_hold_list = 
+						[
+							{
+								frame = 970
+								frame_count = 5
+							},
+						]
+					},
+					{
+						_class = "AnimFile"
+						name = "animfi5"
+						children = 
+						[
+							{
+								_class = "AnimBlendLayer"
+								disabled = true
+								anim_name = "animfi1"
+								spline = true
+								xfade = true
+								no_blend = false
+								local_space = false
+								start_frame = 66
+								peak_frame = 66
+								tail_frame = 96
+								end_frame = 96
+							},
+						]
+						disabled = true
+						activity_name = "ACT_DOTA_CAST_ABILITY_6"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.1
+						fade_out_time = 0.1
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 996
+						end_frame = 1022
+						framerate = -1.0
+						reverse = false
+						anim_hold_list = 
+						[
+							{
+								frame = 1021
+								frame_count = 5
+							},
+							{
+								frame = 1022
+								frame_count = 4
+							},
+						]
+					},
+					{
+						_class = "AnimFile"
+						name = "animfi6"
+						activity_name = "ACT_SCRIPT_CUSTOM_10"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 1023
+						end_frame = 1047
+						framerate = 24.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "anim_jump_knife2"
+						children = 
+						[
+							{
+								_class = "AnimOffset"
+								translation = [ 0.0, 0.0, 0.0 ]
+								rotation_xyz = [ 0.0, 0.0, 180.0 ]
+							},
+						]
+						disabled = true
+						activity_name = "ACT_SCRIPT_CUSTOM_8"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 499
+						end_frame = 514
+						framerate = 4.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "3"
+						children = 
+						[
+							{
+								_class = "AnimOffset"
+								disabled = true
+								translation = [ 0.0, 0.0, 0.0 ]
+								rotation_xyz = [ 0.0, 0.0, 180.0 ]
+							},
+						]
+						activity_name = "ACT_SCRIPT_CUSTOM_8"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 583
+						end_frame = 604
+						framerate = 4.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "4"
+						children = 
+						[
+							{
+								_class = "AnimOffset"
+								translation = [ 0.0, 0.0, 0.0 ]
+								rotation_xyz = [ 0.0, 0.0, 180.0 ]
+							},
+						]
+						disabled = true
+						activity_name = "ACT_SCRIPT_CUSTOM_8"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 583
+						end_frame = 590
+						framerate = 3.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "anim_clone1"
+						children = 
+						[
+							{
+								_class = "AnimOffset"
+								translation = [ -50.0, 0.0, 0.0 ]
+								rotation_xyz = [ 0.0, 0.0, 0.0 ]
+							},
+						]
+						disabled = true
+						activity_name = "ACT_SCRIPT_CUSTOM_1"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.0
+						fade_out_time = 0.0
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 665
+						end_frame = 680
+						framerate = 24.0
+						reverse = true
+					},
+					{
+						_class = "AnimFile"
+						name = "anim_attack4"
+						activity_name = "ACT_DOTA_ATTACK"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 93
+						end_frame = 140
+						framerate = 12.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "anim_combo2"
+						disabled = true
+						activity_name = "ACT_DOTA_CAST_ABILITY_3"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.0
+						fade_out_time = 0.0
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 627
+						end_frame = 656
+						framerate = 24.0
+						reverse = true
+					},
+					{
+						_class = "AnimFile"
+						name = "future_anim1"
+						children = 
+						[
+							{
+								_class = "AnimOffset"
+								translation = [ 0.0, 0.0, 0.0 ]
+								rotation_xyz = [ 0.0, 0.0, 0.0 ]
+							},
+							{
+								_class = "AnimBlendLayer"
+								disabled = true
+								anim_name = "anim_combo"
+								spline = false
+								xfade = false
+								no_blend = false
+								local_space = false
+								start_frame = 1
+								peak_frame = 24
+								tail_frame = -1
+								end_frame = -1
+							},
+							{
+								_class = "AnimBlendLayer"
+								anim_name = "anim_combo"
+								spline = false
+								xfade = false
+								no_blend = false
+								local_space = false
+								start_frame = 14
+								peak_frame = 17
+								tail_frame = 16
+								end_frame = -1
+							},
+							{
+								_class = "AnimBlendLayer"
+								disabled = true
+								anim_name = "6"
+								spline = false
+								xfade = false
+								no_blend = false
+								local_space = false
+								start_frame = 21
+								peak_frame = 1
+								tail_frame = 44
+								end_frame = -1
+							},
+							{
+								_class = "AnimBlendLayer"
+								anim_name = "8"
+								spline = false
+								xfade = false
+								no_blend = false
+								local_space = false
+								start_frame = 44
+								peak_frame = 1
+								tail_frame = 60
+								end_frame = -1
+							},
+							{
+								_class = "AnimBlendLayer"
+								disabled = true
+								anim_name = "anim_jump_knife4"
+								spline = false
+								xfade = false
+								no_blend = false
+								local_space = false
+								start_frame = 62
+								peak_frame = 1
+								tail_frame = 82
+								end_frame = -1
+							},
+							{
+								_class = "AnimBlendLayer"
+								anim_name = "anim_attack9"
+								spline = false
+								xfade = false
+								no_blend = false
+								local_space = false
+								start_frame = 21
+								peak_frame = 1
+								tail_frame = 44
+								end_frame = -1
+							},
+							{
+								_class = "AnimBlendLayer"
+								anim_name = "anim_jump_knife4"
+								spline = false
+								xfade = false
+								no_blend = false
+								local_space = false
+								start_frame = 60
+								peak_frame = 1
+								tail_frame = 95
+								end_frame = -1
+							},
+						]
+						activity_name = "ACT_SCRIPT_CUSTOM_16"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 479
+						end_frame = 570
+						framerate = 24.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "anim_combo3"
+						children = 
+						[
+							{
+								_class = "AnimOffset"
+								translation = [ 150.0, 0.0, 0.0 ]
+								rotation_xyz = [ 0.0, 0.0, 0.0 ]
+							},
+						]
+						activity_name = "ACT_SCRIPT_CUSTOM_19"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 690
+						end_frame = 709
+						framerate = 24.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "anim_combo4"
+						children = 
+						[
+							{
+								_class = "AnimOffset"
+								disabled = true
+								translation = [ 300.0, 0.0, 0.0 ]
+								rotation_xyz = [ 0.0, 0.0, 0.0 ]
+							},
+						]
+						activity_name = "ACT_SCRIPT_CUSTOM_20"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 720
+						end_frame = 750
+						framerate = 24.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "anim_combo5"
+						children = 
+						[
+							{
+								_class = "AnimOffset"
+								disabled = true
+								translation = [ 300.0, 0.0, 200.0 ]
+								rotation_xyz = [ 0.0, 0.0, 0.0 ]
+							},
+							{
+								_class = "AnimBlendLayer"
+								disabled = true
+								anim_name = "anim_clone"
+								spline = false
+								xfade = false
+								no_blend = false
+								local_space = false
+								start_frame = 19
+								peak_frame = 2
+								tail_frame = 20
+								end_frame = 14
+							},
+						]
+						activity_name = "ACT_SCRIPT_CUSTOM_20"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 765
+						end_frame = 784
+						framerate = 24.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "animfi7"
+						children = 
+						[
+							{
+								_class = "AnimBlendLayer"
+								disabled = true
+								anim_name = "animfi1"
+								spline = true
+								xfade = true
+								no_blend = false
+								local_space = false
+								start_frame = 66
+								peak_frame = 66
+								tail_frame = 96
+								end_frame = 96
+							},
+						]
+						activity_name = "ACT_SCRIPT_CUSTOM_40"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 975
+						end_frame = 1022
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "animfi8"
+						children = 
+						[
+							{
+								_class = "AnimBlendLayer"
+								disabled = true
+								anim_name = "animfi1"
+								spline = true
+								xfade = true
+								no_blend = false
+								local_space = false
+								start_frame = 66
+								peak_frame = 66
+								tail_frame = 96
+								end_frame = 96
+							},
+							{
+								_class = "AnimOffset"
+								disabled = true
+								translation = [ 275.0, 0.0, 0.0 ]
+								rotation_xyz = [ 0.0, 0.0, 0.0 ]
+							},
+						]
+						activity_name = "ACT_SCRIPT_CUSTOM_18"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.1
+						fade_out_time = 0.1
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 985
+						end_frame = 1022
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "5"
+						children = 
+						[
+							{
+								_class = "AnimOffset"
+								disabled = true
+								translation = [ 275.0, 0.0, 200.0 ]
+								rotation_xyz = [ 0.0, 0.0, 0.0 ]
+							},
+						]
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 593
+						end_frame = 603
+						framerate = 24.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "anim_combo6"
+						children = 
+						[
+							{
+								_class = "AnimOffset"
+								translation = [ 300.0, 0.0, 200.0 ]
+								rotation_xyz = [ 0.0, 0.0, 0.0 ]
+							},
+							{
+								_class = "AnimBlendLayer"
+								disabled = true
+								anim_name = "2"
+								spline = false
+								xfade = false
+								no_blend = false
+								local_space = false
+								start_frame = 19
+								peak_frame = 2
+								tail_frame = 28
+								end_frame = -1
+							},
+						]
+						disabled = true
+						activity_name = "ACT_SCRIPT_CUSTOM_20"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 765
+						end_frame = 800
+						framerate = 24.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "animfi9"
+						children = 
+						[
+							{
+								_class = "AnimBlendLayer"
+								disabled = true
+								anim_name = "animfi1"
+								spline = true
+								xfade = true
+								no_blend = false
+								local_space = false
+								start_frame = 66
+								peak_frame = 66
+								tail_frame = 96
+								end_frame = 96
+							},
+						]
+						disabled = true
+						activity_name = "ACT_SCRIPT_CUSTOM_4"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 970
+						end_frame = 1022
+						framerate = 20.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "animfi10"
+						children = 
+						[
+							{
+								_class = "AnimBlendLayer"
+								disabled = true
+								anim_name = "animfi1"
+								spline = true
+								xfade = true
+								no_blend = false
+								local_space = false
+								start_frame = 66
+								peak_frame = 66
+								tail_frame = 96
+								end_frame = 96
+							},
+						]
+						activity_name = "ACT_SCRIPT_CUSTOM_4"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 906
+						end_frame = 955
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "animfi11"
+						activity_name = "ACT_DOTA_CAST_ABILITY_6"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 979
+						end_frame = 1022
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "anim_jump_knife3"
+						children = 
+						[
+							{
+								_class = "AnimOffset"
+								disabled = true
+								translation = [ 100.0, 0.0, 0.0 ]
+								rotation_xyz = [ 0.0, 0.0, 180.0 ]
+							},
+						]
+						activity_name = "ACT_SCRIPT_CUSTOM_21"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.0
+						fade_out_time = 0.0
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 516
+						end_frame = 531
+						framerate = 24.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "2_copy1"
+						children = 
+						[
+							{
+								_class = "AnimOffset"
+								translation = [ 0.0, 0.0, 0.0 ]
+								rotation_xyz = [ 0.0, 0.0, 0.0 ]
+							},
+						]
+						activity_name = "ACT_SCRIPT_CUSTOM_11"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 499
+						end_frame = 495
+						framerate = 5.0
+						reverse = false
+						anim_hold_list = 
+						[
+							{
+								frame = 499
+								frame_count = 40
+							},
+						]
+					},
+					{
+						_class = "AnimFile"
+						name = "anim_attack5"
+						activity_name = "ACT_SCRIPT_CUSTOM_27"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 437
+						end_frame = 463
+						framerate = 24.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "6"
+						children = 
+						[
+							{
+								_class = "AnimOffset"
+								translation = [ 10.0, 0.0, 0.0 ]
+								rotation_xyz = [ 0.0, 0.0, 90.0 ]
+							},
+						]
+						activity_name = "ACT_DOTA_CAST_ABILITY_224"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 583
+						end_frame = 583
+						framerate = 24.0
+						reverse = false
+						anim_hold_list = 
+						[
+							{
+								frame = 583
+								frame_count = 60
+							},
+						]
+					},
+					{
+						_class = "AnimFile"
+						name = "7"
+						children = 
+						[
+							{
+								_class = "AnimOffset"
+								disabled = true
+								translation = [ -400.0, 0.0, 0.0 ]
+								rotation_xyz = [ 0.0, 45.0, 0.0 ]
+							},
+							{
+								_class = "AnimOffset"
+								translation = [ -250.0, 0.0, -100.0 ]
+								rotation_xyz = [ 0.0, 25.0, 0.0 ]
+							},
+						]
+						activity_name = "ACT_DOTA_CAST_ABILITY_25"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 1.0
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 586
+						end_frame = 586
+						framerate = 24.0
+						reverse = false
+						anim_hold_list = 
+						[
+							{
+								frame = 586
+								frame_count = 60
+							},
+						]
+					},
+					{
+						_class = "AnimFile"
+						name = "future_anim2"
+						children = 
+						[
+							{
+								_class = "AnimOffset"
+								translation = [ 0.0, 0.0, 0.0 ]
+								rotation_xyz = [ 0.0, 0.0, 0.0 ]
+							},
+							{
+								_class = "AnimBlendLayer"
+								disabled = true
+								anim_name = "anim_combo"
+								spline = false
+								xfade = false
+								no_blend = false
+								local_space = false
+								start_frame = 1
+								peak_frame = 24
+								tail_frame = -1
+								end_frame = -1
+							},
+							{
+								_class = "AnimBlendLayer"
+								anim_name = "anim_combo"
+								spline = false
+								xfade = false
+								no_blend = false
+								local_space = false
+								start_frame = 14
+								peak_frame = 17
+								tail_frame = 34
+								end_frame = -1
+							},
+							{
+								_class = "AnimBlendLayer"
+								anim_name = "6"
+								spline = false
+								xfade = false
+								no_blend = false
+								local_space = false
+								start_frame = 34
+								peak_frame = 1
+								tail_frame = 44
+								end_frame = -1
+							},
+							{
+								_class = "AnimBlendLayer"
+								anim_name = "7"
+								spline = false
+								xfade = false
+								no_blend = false
+								local_space = false
+								start_frame = 44
+								peak_frame = 1
+								tail_frame = 62
+								end_frame = -1
+							},
+						]
+						disabled = true
+						activity_name = "ACT_SCRIPT_CUSTOM_12"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 479
+						end_frame = 540
+						framerate = 24.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "anim_jump_knife4"
+						children = 
+						[
+							{
+								_class = "AnimOffset"
+								disabled = true
+								translation = [ 0.0, 0.0, 0.0 ]
+								rotation_xyz = [ 0.0, 0.0, 180.0 ]
+							},
+						]
+						activity_name = "ACT_SCRIPT_CUSTOM_28"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 10.0
+						fade_out_time = 0.0
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 516
+						end_frame = 531
+						framerate = 24.0
+						reverse = false
+						anim_hold_list = 
+						[
+							{
+								frame = 530
+								frame_count = 150
+							},
+						]
+					},
+					{
+						_class = "AnimFile"
+						name = "animfi12"
+						children = 
+						[
+							{
+								_class = "AnimBlendLayer"
+								disabled = true
+								anim_name = "animfi1"
+								spline = true
+								xfade = true
+								no_blend = false
+								local_space = false
+								start_frame = 66
+								peak_frame = 66
+								tail_frame = 96
+								end_frame = 96
+							},
+							{
+								_class = "AnimOffset"
+								translation = [ 0.0, 0.0, 15.0 ]
+								rotation_xyz = [ 0.0, 0.0, 0.0 ]
+							},
+						]
+						activity_name = "ACT_SCRIPT_CUSTOM_19"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.1
+						fade_out_time = 0.1
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 985
+						end_frame = 985
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "anim_attack6"
+						children = 
+						[
+							{
+								_class = "AnimSmoothLoop"
+								disabled = true
+								frames_from_start = 0
+								frames_from_end = 0
+							},
+						]
+						activity_name = "ACT_SCRIPT_CUSTOM_14"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 449
+						end_frame = 460
+						framerate = 24.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "anim_attack7"
+						activity_name = "ACT_SCRIPT_CUSTOM_15"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 449
+						end_frame = 449
+						framerate = 24.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "anim_attack8"
+						children = 
+						[
+							{
+								_class = "AnimSmoothLoop"
+								disabled = true
+								frames_from_start = 3
+								frames_from_end = 1
+							},
+						]
+						activity_name = "ACT_DOTA_CAST_ABILITY_15"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 437
+						end_frame = 449
+						framerate = 24.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "anim_attack9"
+						children = 
+						[
+							{
+								_class = "AnimSmoothLoop"
+								disabled = true
+								frames_from_start = 3
+								frames_from_end = 1
+							},
+						]
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 499
+						end_frame = 499
+						framerate = 5.0
+						reverse = false
+						anim_hold_list = 
+						[
+							{
+								frame = 499
+								frame_count = 40
+							},
+						]
+					},
+					{
+						_class = "AnimFile"
+						name = "8"
+						children = 
+						[
+							{
+								_class = "AnimOffset"
+								disabled = true
+								translation = [ -400.0, 0.0, 0.0 ]
+								rotation_xyz = [ 0.0, 45.0, 0.0 ]
+							},
+							{
+								_class = "AnimForceBonePosition"
+								disabled = true
+								bone = "bone09"
+								translation = [ -14.2325, -14.0476, 19.7038 ]
+								rotation = [ -0.0, 90.0, -0.000005 ]
+							},
+							{
+								_class = "AnimAlign"
+								disabled = true
+								align_tx = true
+								align_ty = true
+								align_tz = true
+								align_rx = true
+								align_ry = true
+								align_rz = true
+								align_frame_type = "Number"
+								frame = 0
+								align_to_anim = "anim_attack9"
+								align_to_frame_type = "Number"
+								align_to_frame = 0
+								bone = "bone06"
+							},
+							{
+								_class = "AnimOffset"
+								translation = [ -35.0, -300.0, 50.0 ]
+								rotation_xyz = [ 0.0, 35.0, 75.0 ]
+							},
+						]
+						activity_name = "ACT_DOTA_CAST_ABILITY_25"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 586
+						end_frame = 586
+						framerate = 24.0
+						reverse = false
+						anim_hold_list = 
+						[
+							{
+								frame = 586
+								frame_count = 60
+							},
+						]
+					},
+					{
+						_class = "AnimFile"
+						name = "COMBO_EBAL_V_ROT1"
+						children = 
+						[
+							{
+								_class = "AnimOffset"
+								disabled = true
+								translation = [ 0.0, 0.0, 0.0 ]
+								rotation_xyz = [ 0.0, 0.0, 0.0 ]
+							},
+							{
+								_class = "AnimBlendLayer"
+								anim_name = "anim_combo"
+								spline = false
+								xfade = false
+								no_blend = false
+								local_space = false
+								start_frame = 25
+								peak_frame = 12
+								tail_frame = 70
+								end_frame = -1
+							},
+							{
+								_class = "AnimBlendLayer"
+								anim_name = "anim_attack2"
+								spline = true
+								xfade = false
+								no_blend = false
+								local_space = false
+								start_frame = 14
+								peak_frame = -1
+								tail_frame = 30
+								end_frame = -1
+							},
+							{
+								_class = "AnimBlendLayer"
+								disabled = true
+								anim_name = "6"
+								spline = false
+								xfade = false
+								no_blend = false
+								local_space = false
+								start_frame = 21
+								peak_frame = 1
+								tail_frame = 44
+								end_frame = -1
+							},
+							{
+								_class = "AnimBlendLayer"
+								disabled = true
+								anim_name = "8"
+								spline = false
+								xfade = false
+								no_blend = false
+								local_space = false
+								start_frame = 44
+								peak_frame = 1
+								tail_frame = 60
+								end_frame = -1
+							},
+							{
+								_class = "AnimBlendLayer"
+								disabled = true
+								anim_name = "anim_jump_knife4"
+								spline = false
+								xfade = false
+								no_blend = false
+								local_space = false
+								start_frame = 62
+								peak_frame = 1
+								tail_frame = 82
+								end_frame = -1
+							},
+							{
+								_class = "AnimBlendLayer"
+								disabled = true
+								anim_name = "anim_attack9"
+								spline = false
+								xfade = false
+								no_blend = false
+								local_space = false
+								start_frame = 21
+								peak_frame = 1
+								tail_frame = 44
+								end_frame = -1
+							},
+							{
+								_class = "AnimBlendLayer"
+								disabled = true
+								anim_name = "anim_jump_knife4"
+								spline = false
+								xfade = false
+								no_blend = false
+								local_space = false
+								start_frame = 60
+								peak_frame = 1
+								tail_frame = 95
+								end_frame = -1
+							},
+						]
+						activity_name = "ACT_SCRIPT_CUSTOM_12"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 93
+						end_frame = 200
+						framerate = 24.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "9"
+						children = 
+						[
+							{
+								_class = "AnimOffset"
+								disabled = true
+								translation = [ -400.0, 0.0, 0.0 ]
+								rotation_xyz = [ 0.0, 45.0, 0.0 ]
+							},
+							{
+								_class = "AnimForceBonePosition"
+								disabled = true
+								bone = "bone09"
+								translation = [ -14.2325, -14.0476, 19.7038 ]
+								rotation = [ -0.0, 90.0, -0.000005 ]
+							},
+							{
+								_class = "AnimAlign"
+								disabled = true
+								align_tx = true
+								align_ty = true
+								align_tz = true
+								align_rx = true
+								align_ry = true
+								align_rz = true
+								align_frame_type = "Number"
+								frame = 0
+								align_to_anim = "anim_attack9"
+								align_to_frame_type = "Number"
+								align_to_frame = 0
+								bone = "bone06"
+							},
+							{
+								_class = "AnimOffset"
+								disabled = true
+								translation = [ -35.0, -300.0, 50.0 ]
+								rotation_xyz = [ 0.0, 35.0, 75.0 ]
+							},
+						]
+						activity_name = "ACT_DOTA_CAST_ABILITY_25"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 105
+						end_frame = 115
+						framerate = 12.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "anim_reznya1"
+						disabled = true
+						activity_name = "ACT_SCRIPT_CUSTOM_210"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.0
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 850
+						end_frame = 885
+						framerate = 24.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "anim_reznya4"
+						disabled = true
+						activity_name = "ACT_DOTA_CAST_ABILITY_21"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.1
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 850
+						end_frame = 885
+						framerate = 24.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "anim_reznya5"
+						disabled = true
+						activity_name = "ACT_DOTA_CAST_ABILITY_4"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 364
+						end_frame = 371
+						framerate = 24.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "anim_punch3"
+						disabled = true
+						activity_name = "ACT_DOTA_CAST_ABILITY_9"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.1
+						fade_out_time = 0.3
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 1229
+						end_frame = 1244
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "anim_death"
+						children = 
+						[
+							{
+								_class = "AnimOffset"
+								disabled = true
+								translation = [ -400.0, 0.0, 0.0 ]
+								rotation_xyz = [ 0.0, 45.0, 0.0 ]
+							},
+							{
+								_class = "AnimForceBonePosition"
+								disabled = true
+								bone = "bone09"
+								translation = [ -14.2325, -14.0476, 19.7038 ]
+								rotation = [ -0.0, 90.0, -0.000005 ]
+							},
+							{
+								_class = "AnimAlign"
+								disabled = true
+								align_tx = true
+								align_ty = true
+								align_tz = true
+								align_rx = true
+								align_ry = true
+								align_rz = true
+								align_frame_type = "Number"
+								frame = 0
+								align_to_anim = "anim_attack9"
+								align_to_frame_type = "Number"
+								align_to_frame = 0
+								bone = "bone06"
+							},
+							{
+								_class = "AnimOffset"
+								disabled = true
+								translation = [ -35.0, -300.0, 50.0 ]
+								rotation_xyz = [ 0.0, 35.0, 75.0 ]
+							},
+						]
+						activity_name = "ACT_DOTA_DIE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 240
+						end_frame = 275
+						framerate = 24.0
+						reverse = false
+					},
+				]
+				default_root_bone_name = ""
+			},
+			{
+				_class = "BodyGroupList"
+				children = 
+				[
+					{
+						_class = "BodyGroup"
+						name = "1"
+						children = 
+						[
+							{
+								_class = "BodyGroupChoice"
+								meshes = 
+								[
+									"animno",
+								]
+							},
+							{
+								_class = "BodyGroupChoice"
+								meshes = [  ]
+							},
+						]
+						hidden_in_tools = true
+					},
+				]
+				disabled = true
+			},
+		]
+		model_archetype = ""
+		primary_associated_entity = ""
+		anim_graph_name = ""
+		importer_notes = """
+Imported from VMDL
+"""
+	}
+}

@@ -1,4 +1,3 @@
-<!-- xml reconstructed by ValveResourceFormat: https://vrf.steamdb.info/ -->
 <root>
 	<script><![CDATA[
 		GameUI.CustomUIConfig().multiteam_top_scoreboard =
@@ -161,7 +160,10 @@
 		var hud = $.GetContextPanel().GetParent().GetParent();
 		GameUI.CustomUIConfig().hud = hud;
 	]]></script>
+
+	
 	<scripts>
+		<!--                                                                            -->
 		<include src="s2r://panorama/scripts/custom_game/fateanother_shop.vjs_c" />
 		<include src="s2r://panorama/scripts/libraries/lodash.min.vjs_c" />
 		<include src="s2r://panorama/scripts/libraries/playertables_base.vjs_c" />
@@ -169,24 +171,33 @@
 		<include src="s2r://panorama/scripts/options.vjs_c" />
 		<include src="s2r://panorama/scripts/hotkey_tracker.vjs_c" />
 		<include src="s2r://panorama/scripts/custom_ui_manifest.vjs_c" />
+
 	</scripts>
+	
 	<Panel>
+	    <!--                                                                                                                                 -->
 		<CustomUIElement type="Hud" layoutfile="s2r://panorama/layout/custom_game/hud_base.vxml_c" />
 		<CustomUIElement type="Hud" layoutfile="s2r://panorama/layout/custom_game/fateanother_masterbar.vxml_c" />
 		<CustomUIElement type="Hud" layoutfile="s2r://panorama/layout/custom_game/fateanother_customization.vxml_c" />
 		<CustomUIElement type="Hud" layoutfile="s2r://panorama/layout/custom_game/fateanother_timer_layout.vxml_c" />
 		<CustomUIElement type="Hud" layoutfile="s2r://panorama/layout/custom_game/fateanother_portrait.vxml_c" />
 		<CustomUIElement type="Hud" layoutfile="s2r://panorama/layout/custom_game/pepega.vxml_c" />
+		<CustomUIElement type="Hud" layoutfile="s2r://panorama/layout/custom_game/nanaya.vxml_c" />
+		<!--                                                                                                             -->
 		<CustomUIElement type="Hud" layoutfile="s2r://panorama/layout/custom_game/fateanother_buff_bar.vxml_c" />
 		<CustomUIElement type="Hud" layoutfile="s2r://panorama/layout/custom_game/fateanother_combatevent.vxml_c" />
+		<!--                                                                                                             -->
 		<CustomUIElement type="Hud" layoutfile="s2r://panorama/layout/custom_game/statcollection.vxml_c" />
 		<CustomUIElement type="GameSetup" layoutfile="s2r://panorama/layout/custom_game/team_select.vxml_c" />
 		<CustomUIElement type="FlyoutScoreboard" layoutfile="s2r://panorama/layout/custom_game/multiteam_flyout_scoreboard.vxml_c" />
 		<CustomUIElement type="HudTopBar" layoutfile="s2r://panorama/layout/custom_game/multiteam_top_scoreboard.vxml_c" />
 		<CustomUIElement type="EndScreen" layoutfile="s2r://panorama/layout/custom_game/multiteam_end_screen.vxml_c" />
+		<!--                                                                                                 -->
+		<!--                                                                                                                  -->
 		<CustomUIElement type="HeroSelection" layoutfile="s2r://panorama/layout/custom_game/multiteam_hero_select_overlay.vxml_c" />
 		<CustomUIElement type="Hud" layoutfile="s2r://panorama/layout/custom_game/hero_selection.vxml_c" />
-		<CustomUIElement type="Hud" layoutfile="s2r://panorama/layout/custom_game/fateanother_hero_selection.vxml_c" />
+        	<CustomUIElement type="Hud" layoutfile="s2r://panorama/layout/custom_game/fateanother_hero_selection.vxml_c" />
 		<CustomUIElement type="Hud" layoutfile="s2r://panorama/layout/custom_game/fateanother_options.vxml_c" />
 	</Panel>
 </root>
+
