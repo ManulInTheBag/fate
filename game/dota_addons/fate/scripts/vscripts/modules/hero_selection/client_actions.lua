@@ -47,6 +47,7 @@ function HeroSelection:OnHeroSelectHero(data)
 			end
 		end
 		if HeroSelection:UpdateStatusForPlayer(playerId, newStatus, hero, true) and newStatus == "picked" then
+			Timers:RemoveTimerWithCallbackTest("hero_selection_pepega")
 			PrecacheUnitByNameAsync(GetKeyValue(hero, "base_hero") or hero, function() end, playerId)
 			--Gold:ModifyGold(playerId, CUSTOM_STARTING_GOLD)
 			HeroSelection:CheckEndHeroSelection()
@@ -56,9 +57,9 @@ end
 
 function HeroSelection:OnHeroHover(data)
 	if PlayerResource:IsPlayerAbandoned(data.PlayerID) then return end
-	if HeroSelection:GetState() >= HERO_SELECTION_PHASE_HERO_PICK then
+	--if HeroSelection:GetState() >= HERO_SELECTION_PHASE_HERO_PICK then
 		HeroSelection:UpdateStatusForPlayer(data.PlayerID, "hover", tostring(data.hero), true)
-	end
+	--end
 end
 
 function HeroSelection:OnHeroRandomHero(data)

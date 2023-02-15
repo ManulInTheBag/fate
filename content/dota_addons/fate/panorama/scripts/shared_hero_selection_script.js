@@ -129,6 +129,7 @@ function FHTSub(heroName, heroData, panel, big){
 	HitTarget.SetPanelEvent('onmouseover', function() {
 		//if (IsDotaHeroName(heroName)) HeroCard.FindChildTraverse('HeroMovie').heroname = heroName;
 		HeroCard.AddClass('Expanded');
+		Game.EmitSound('melty_hover');
 	});
 	HitTarget.SetPanelEvent('onmouseout', function() {
 		//if (IsDotaHeroName(heroName)) HeroCard.FindChildTraverse('HeroMovie').heroname = null;

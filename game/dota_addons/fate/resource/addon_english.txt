@@ -135,6 +135,8 @@
 		"arena_game_mode_type_fate_7vs7_beta" "WELCOME TO THE BRIDGE"
 		"arena_game_mode_type_ffa" "HOKKAIDO MOUNTAIN TRAINING"
 		"arena_game_mode_type_trio_rumble_3v3v3v3" "CIRCUS IS STARTING"
+		"arena_game_mode_type_common" "WELCOME TO THE BRIDGE"
+		"arena_game_mode_type_draft" "WELCOME TO THE BRIDGE"
 
 		"DOTA_Custom1"	"Saberface enjoyer"
 		"DOTA_Custom2"	"Sakuraface fan"
@@ -145,7 +147,7 @@
 		"DOTA_Custom7"	"Old man wannabe"
 		"DOTA_Custom8"	"Seva lover"
 
-		"chat_placeholder_send_message" "Chat is unavailable during picks"
+		"chat_placeholder_send_message" "send a message"
 
 		"hero_selection_phase_0" "Loading..."
 		"hero_selection_phase_1" "Hero Banning"
@@ -6875,8 +6877,17 @@
 		"npc_dota_hero_treant_hype"					""
 		"npc_dota_hero_treant_bio"					""
 
-		"DOTA_Tooltip_modifier_arcueid_shut_up_slow"			"Shut Up And Fly!"
-		"DOTA_Tooltip_modifier_arcueid_shut_up_slow_Description"	"Slowed"
+		"DOTA_Tooltip_modifier_edmon_beam_stacks"			"Flames of Hate"
+		"DOTA_Tooltip_modifier_edmon_melee_stacks"			"Flames of Love"
+
+		"DOTA_Tooltip_modifier_edmon_enfer_cooldown"		"Combo: Enfer Chateau d'If"
+		"DOTA_Tooltip_modifier_edmon_enfer_cooldown_Description"		"Is on cooldown."
+
+		"DOTA_Tooltip_modifier_edmon_counter"		"Vengeful Conflagration"
+		"DOTA_Tooltip_modifier_edmon_counter_Description"		""
+
+		"DOTA_Tooltip_modifier_edmon_mark"			"Vengeance Mark"
+		"DOTA_Tooltip_modifier_edmon_mark_Description"		"Dantes deals additional damage and lifesteals from all types of damage against this character"
 
 		"DOTA_Tooltip_ability_edmon_mythologie"					"Monte Cristo Mythologie"
 		"DOTA_Tooltip_ability_edmon_mythologie_Description"		"Edmon utilizes black flames to attack his enemies. Deals additional magical damage on attacks that depends on Dark Beam damage.\nWhen attacking units further than 250 from him, he utilizes weakened versions of Dark Beams and has 1.1 BAT.\nWhen attacking enemies near him, he has 0.8 BAT."

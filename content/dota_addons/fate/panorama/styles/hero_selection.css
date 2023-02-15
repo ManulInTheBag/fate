@@ -20,6 +20,11 @@ background-color: #1c262f; }
 width: 100%;
 height: 100%; }
 
+#HeroSelectionDraftImage {
+width: 700px;
+height: 100px;
+horizontal-align: center; }
+
 #SelectedHeroPanel {
 width: 20%;
 height: 100%;
@@ -88,7 +93,7 @@ width: 100%;
 height: 100%; }
 
 #GameModeInfoPanel {
-width: 200px;
+width: 500px;
 margin: 0 12px;
 flow-children: down;
 horizontal-align: center; }
@@ -342,7 +347,7 @@ horizontal-align: right;
 align: center center; }
 
 #ChatAndMapPanel {
-width: 20%;
+width: 15%;
 height: 960px;
 horizontal-align: right;
 align: right bottom;

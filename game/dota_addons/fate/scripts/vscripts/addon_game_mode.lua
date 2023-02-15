@@ -229,7 +229,9 @@ gameMaps = {
     "fate_elim_7v7",
     "anime_fate_7vs7_beta",
     "fate_ffa",
-    "fate_trio_rumble_3v3v3v3"
+    "fate_trio_rumble_3v3v3v3",
+    "7vs7_common",
+    "7vs7_draft"
 }
 
 
@@ -483,7 +485,7 @@ function FateGameMode:OnAllPlayersLoaded()
     local maxval = voteResultTable[1]
     local maxkey = 1
     local votePool = nil
-    if _G.GameMap == "fate_elim_6v6" or _G.GameMap == "fate_elim_7v7" or _G.GameMap == "fate_elim_7v7_test"  or _G.GameMap =="anime_fate_7vs7_beta" then
+    if _G.GameMap == "fate_elim_6v6" or _G.GameMap == "fate_elim_7v7" or _G.GameMap == "fate_elim_7v7_test"  or _G.GameMap =="anime_fate_7vs7_beta" or _G.GameMap =="7vs7_common" or _G.GameMap =="7vs7_draft" then
         votePool = voteResults_DM
         maxkey = voteResults_DM[1]
     elseif _G.GameMap == "fate_trio_rumble_3v3v3v3" then
@@ -503,7 +505,7 @@ function FateGameMode:OnAllPlayersLoaded()
     
     
     local particleDummyOrigin
-    if _G.GameMap == "fate_elim_6v6" or _G.GameMap == "fate_elim_7v7" or _G.GameMap == "fate_elim_7v7_test"  or _G.GameMap =="anime_fate_7vs7_beta" then
+    if _G.GameMap == "fate_elim_6v6" or _G.GameMap == "fate_elim_7v7" or _G.GameMap == "fate_elim_7v7_test"  or _G.GameMap =="anime_fate_7vs7_beta" or _G.GameMap =="7vs7_common" or _G.GameMap =="7vs7_draft" then
         particleDummyOrigin = Vector(-7900,-8000, 200)--Vector(6250,-7200, 200)
     elseif _G.GameMap == "fate_trio_rumble_3v3v3v3" or "fate_ffa" then
         particleDummyOrigin = Vector(6250,-7200, 200)
@@ -590,7 +592,7 @@ function FateGameMode:OnGameInProgress()
        -- Set a think function for timer
         local CENTER_POSITION = Vector(0,0,0)
         local SHARD_DROP_PERIOD = 0
-        if _G.GameMap == "fate_elim_6v6" or _G.GameMap == "fate_elim_7v7" or _G.GameMap == "fate_elim_7v7_test" or _G.GameMap =="anime_fate_7vs7_beta" then
+        if _G.GameMap == "fate_elim_6v6" or _G.GameMap == "fate_elim_7v7" or _G.GameMap == "fate_elim_7v7_test" or _G.GameMap =="anime_fate_7vs7_beta" or _G.GameMap =="7vs7_common" or _G.GameMap =="7vs7_draft" then
             self.nCurrentRound = 1
             self:InitializeRound() -- Start the game after forcing a pick for every player
             BLESSING_PERIOD = 600
@@ -669,7 +671,7 @@ function FateGameMode:OnGameInProgress()
     if _G.GameMap == "fate_ffa" then
         dummyLevel = 1
         dummyLoc = FFA_CENTER
-    elseif _G.GameMap == "fate_elim_6v6" or _G.GameMap == "fate_elim_7v7" or _G.GameMap == "fate_elim_7v7_test" or _G.GameMap =="anime_fate_7vs7_beta" then
+    elseif _G.GameMap == "fate_elim_6v6" or _G.GameMap == "fate_elim_7v7" or _G.GameMap == "fate_elim_7v7_test" or _G.GameMap =="anime_fate_7vs7_beta" or _G.GameMap =="7vs7_common" or _G.GameMap =="7vs7_draft" then
         bIsDummyNeeded = false
     elseif _G.GameMap == "fate_trio_rumble_3v3v3v3" then
         dummyLevel = 2
@@ -2021,7 +2023,7 @@ function FateGameMode:OnHeroInGame(hero)
             end
         end
         --print("Respawn location registered : " .. hero.RespawnPos.x .. " BY " .. hero:GetName() )
-            if _G.GameMap == "fate_elim_6v6" or _G.GameMap == "fate_elim_7v7" or _G.GameMap == "fate_elim_7v7_test" or _G.GameMap =="anime_fate_7vs7_beta" then
+            if _G.GameMap == "fate_elim_6v6" or _G.GameMap == "fate_elim_7v7" or _G.GameMap == "fate_elim_7v7_test" or _G.GameMap =="anime_fate_7vs7_beta" or _G.GameMap =="7vs7_common" or _G.GameMap =="7vs7_draft" then
             local index
             if team == 2 then
                 index = team2HeroesSpawned
@@ -2138,7 +2140,7 @@ function FateGameMode:OnHeroInGame(hero)
     hero.name = heroName
     --GameRules:SendCustomMessage("Servant <font color='#58ACFA'>" .. heroName .. "</font> has been summoned.", 0, 0)
 
-    if _G.GameMap == "fate_elim_6v6" or _G.GameMap == "fate_elim_7v7" or _G.GameMap == "fate_elim_7v7_test" or _G.GameMap =="anime_fate_7vs7_beta" then
+    if _G.GameMap == "fate_elim_6v6" or _G.GameMap == "fate_elim_7v7" or _G.GameMap == "fate_elim_7v7_test" or _G.GameMap =="anime_fate_7vs7_beta" or _G.GameMap =="7vs7_common" or _G.GameMap =="7vs7_draft" then
         if self.nCurrentRound == 0 and _G.CurrentGameState == "FATE_PRE_GAME" then
             giveUnitDataDrivenModifier(hero, hero, "round_pause", 20)
         else
@@ -3150,7 +3152,7 @@ function FateGameMode:OnEntityKilled( keys )
                 GameRules:SetSafeToLeave( true )
                 GameRules:SetGameWinner( killerEntity:GetTeam() )
             end
-        elseif _G.GameMap == "fate_elim_6v6" or _G.GameMap == "fate_elim_7v7" or _G.GameMap == "fate_elim_7v7_test" or _G.GameMap =="anime_fate_7vs7_beta" then
+        elseif _G.GameMap == "fate_elim_6v6" or _G.GameMap == "fate_elim_7v7" or _G.GameMap == "fate_elim_7v7_test" or _G.GameMap =="anime_fate_7vs7_beta" or _G.GameMap =="7vs7_common" or _G.GameMap =="7vs7_draft" then
             if killedUnit:GetTeam() == DOTA_TEAM_GOODGUYS and killedUnit:IsRealHero() then
                 self.nRadiantDead = self.nRadiantDead + 1
             else
@@ -3323,7 +3325,7 @@ function FateGameMode:InitGameMode()
         GameRules:SetGoldPerTick(0)
         GameRules:SetStartingGold(0)    
 
-    elseif _G.GameMap == "fate_elim_7v7" or _G.GameMap == "fate_elim_7v7_test" or _G.GameMap == "anime_fate_7vs7_beta" then
+    elseif _G.GameMap == "fate_elim_7v7" or _G.GameMap == "fate_elim_7v7_test" or _G.GameMap == "anime_fate_7vs7_beta" or _G.GameMap =="7vs7_common" or _G.GameMap =="7vs7_draft" then
         GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_GOODGUYS, 7)
         GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_BADGUYS, 7)
         GameRules:SetHeroRespawnEnabled(false)
@@ -4410,7 +4412,7 @@ function FateGameMode:CaptureGameMode()
         mode:SetTopBarTeamValuesOverride ( USE_CUSTOM_TOP_BAR_VALUES )
         self:OnFirstPlayerLoaded()
 
-        if _G.GameMap == "fate_elim_6v6" or _G.GameMap == "fate_elim_7v7" or _G.GameMap == "fate_elim_7v7_test" or _G.GameMap =="anime_fate_7vs7_beta" then
+        if _G.GameMap == "fate_elim_6v6" or _G.GameMap == "fate_elim_7v7" or _G.GameMap == "fate_elim_7v7_test" or _G.GameMap =="anime_fate_7vs7_beta" or _G.GameMap =="7vs7_common" or _G.GameMap =="7vs7_draft" then
             mode:SetTopBarTeamValuesOverride ( USE_CUSTOM_TOP_BAR_VALUES )
         end
     end

@@ -226,6 +226,45 @@ function Timers:RemoveTimer(name)
   Timers.timers[name] = nil
 end
 
+function Timers:RemoveTimerWithCallbackTest(name)
+  local v = Timers.timers[name]
+  Timers.timers[name] = nil
+  if not v then return end
+
+  local status, nextCall
+      if v.context then
+        status, nextCall = xpcall(function() return v.callback(v.context, v) end, function (msg)
+                                    return msg..'\n'..debug.traceback()..'\n'
+                                  end)
+      else
+        status, nextCall = xpcall(function() return v.callback(v) end, function (msg)
+                                    return msg..'\n'..debug.traceback()..'\n'
+                                  end)
+      end
+
+      -- Make sure it worked
+      if status then
+        -- Check if it needs to loop
+        if nextCall then
+          -- Change its end time
+
+          if bOldStyle then
+            v.endTime = v.endTime + nextCall - now
+          else
+            v.endTime = v.endTime + nextCall
+          end
+
+          Timers.timers[k] = v
+        end
+
+        -- Update timer data
+        --self:UpdateTimerData()
+      else
+        -- Nope, handle the error
+        Timers:HandleEventError('Timer', k, nextCall)
+      end
+end
+
 function Timers:RemoveTimers(killAll)
   local timers = {}
 

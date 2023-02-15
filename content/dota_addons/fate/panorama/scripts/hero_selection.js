@@ -5,7 +5,7 @@ var SelectedHeroPanel,
 	SelectionTimerEndTime = 0,
 	HideEvent,
 	DOTA_ACTIVE_GAMEMODE,
-	//CustomChatLinesPanel,
+	CustomChatLinesPanel,
 	//MinimapPTIDs = [],
 	HeroesPanels = [],
 	tabsData = {},
@@ -41,6 +41,7 @@ function ChooseHeroPanelHero() {
 			GameEvents.SendCustomGameEventToServer('hero_selection_player_hover', {
 				hero: SelectedHeroName
 			});
+			//Game.EmitSound('melty_lock');
 		}
 	}
 }
@@ -327,6 +328,7 @@ function UpdateMainTable(tableName, changesObject, deletionsObject) {
 	if (changesObject.HeroSelectionTeam != null) {
 		if (changesObject.HeroSelectionTeam != 0){
 			HeroSelectionTeam = changesObject.HeroSelectionTeam;
+			$('#HeroSelectionDraftImage').SetImage("s2r://panorama/images/custom_game/hero_selection/pick_" + HeroSelectionTeam + "_png.vtex")
 			var isLocalTeam = HeroSelectionTeam === Players.GetTeam(Game.GetLocalPlayerID());
 			if (isLocalTeam == true) {
 				HasBanPoint = true;
@@ -351,7 +353,7 @@ function UpdateDraft(tableName, changesObject, deletionsObject) {
 
 function UpdateSelectionButtonDraft() {
 	var selectedHeroData = HeroesData[SelectedHeroName];
-	$.GetContextPanel().SetHasClass('RandomingEnabled', !IsLocalHeroPicked() && !IsLocalHeroLocked() && HeroSelectionState > HERO_SELECTION_PHASE_BANNING);
+	$.GetContextPanel().SetHasClass('RandomingEnabled', false);
 
 	var isLocalTeam = HeroSelectionTeam === Players.GetTeam(Game.GetLocalPlayerID());
 
@@ -374,7 +376,7 @@ function UpdateSelectionButtonDraft() {
 
 	canPick = canPick && isLocalTeam;
 	canPick = canPick && HasBanPoint;
-	
+
 	context.SetHasClass('LocalHeroLockButton', mode === 'lock');
 	context.SetHasClass('LocalHeroUnlockButton', mode === 'unlock');
 	context.SetHasClass('LocalHeroBanButton', mode === 'ban');
@@ -428,7 +430,7 @@ function ShowHeroPreviewTab(tabID) {
 		//$.GetContextPanel().SetHasClass('ShowMMR', Options.IsEquals('EnableRatingAffection'));
 		var gamemode = Options.GetMapInfo().gamemode;
 		//$.Msg(gamemode)
-		if (gamemode === 'elim_7v7') {
+		if (gamemode === 'draft') {
 			IsDraftMode = true;
 		}
 		

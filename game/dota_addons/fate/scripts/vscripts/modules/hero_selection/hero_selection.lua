@@ -38,6 +38,7 @@ if not HeroSelection then
 	HeroSelection.CurrentNumber = 1
 	HeroSelection.BanNumber = 4
 	HeroSelection.PickedThisRound = false
+	HeroSelection.PlayerCount = 14
 end
 
 ModuleRequire(..., "util")
@@ -51,7 +52,7 @@ Events:Register("activate", function ()
 		HERO_SELECTION_PICK_TIME = 3
 		HERO_SELECTION_BANNING_TIME = 0
 	end
-	if _G.GameMap == "fate_elim_7v7" then
+	if _G.GameMap == "7vs7_draft" then
 		HERO_SELECTION_PICK_TIME = 30
 		HERO_SELECTION_BANNING_TIME = 15
 		HERO_SELECTION_DRAFT_MODE = true
@@ -199,6 +200,7 @@ end
 
 function HeroSelection:HeroSelectionStart()
 	GameRules:GetGameModeEntity():SetAnnouncerDisabled(true)
+	--HeroSelection.PlayerCount = PlayerResource:GetPlayerCountForTeam(2) + PlayerResource:GetPlayerCountForTeam(3)
 	--if Options:GetValue("BanningPhaseBannedPercentage") > 0 then
 		--EmitAnnouncerSound("announcer_ann_custom_mode_05")
 	if not HERO_SELECTION_DRAFT_MODE then
@@ -229,7 +231,7 @@ function HeroSelection:StartStateBanDraft()
 
 	HeroSelection:SetCurrentNumber(HeroSelection:GetCurrentNumber() - 1)
 	if HeroSelection:GetCurrentNumber() == 0 then
-		HeroSelection:SetCurrentNumber(2)
+		HeroSelection:SetCurrentNumber(1)
 		if HeroSelection.CurrentTeam == 2 then
 			HeroSelection.CurrentTeam = 3
 		else
@@ -238,14 +240,20 @@ function HeroSelection:StartStateBanDraft()
 	end
 
 	if HeroSelection:GetBanNumber() == 0 then
-		Timers:CreateTimer(HERO_SELECTION_BANNING_TIME, function()
-			HeroSelection:SetBanNumber(14)
-			HeroSelection:StartStateHeroPickDraft()
-		end)
+		Timers:CreateTimer("hero_selection_pepega", {
+			endTime = HERO_SELECTION_BANNING_TIME,
+			callback = function()
+				HeroSelection:SetBanNumber(HeroSelection.PlayerCount)
+				HeroSelection:StartStateHeroPickDraft()
+			return end
+		})
 	else
-		Timers:CreateTimer(HERO_SELECTION_BANNING_TIME, function()
-			HeroSelection:StartStateBanDraft()
-		end)
+		Timers:CreateTimer("hero_selection_pepega", {
+			endTime = HERO_SELECTION_BANNING_TIME,
+			callback = function()
+				HeroSelection:StartStateBanDraft()
+			return end
+		})
 	end
 end
 
@@ -282,41 +290,47 @@ function HeroSelection:StartStateHeroPickDraft()
 	HeroSelection:SetTimerDuration(HERO_SELECTION_PICK_TIME)
 
 	if HeroSelection:GetBanNumber() == 0 then
-		Timers:CreateTimer(HERO_SELECTION_PICK_TIME, function()
-			if not HeroSelection.PickedThisRound then
-				for i = 0, 13 do
-					if PlayerResource:GetPlayer(i) then
-						if (PlayerResource:GetPlayer(i):GetTeamNumber() == team) and (HeroSelection:GetPlayerStatus(i)["status"] ~= "picked") then
-							counter = counter + 1
-							teamtable[counter] = i
+		Timers:CreateTimer("hero_selection_pepega", {
+			endTime = HERO_SELECTION_PICK_TIME,
+			callback = function()
+				if not HeroSelection.PickedThisRound then
+					for i = 0, 13 do
+						if PlayerResource:GetPlayer(i) then
+							if (PlayerResource:GetPlayer(i):GetTeamNumber() == team) and (HeroSelection:GetPlayerStatus(i)["status"] ~= "picked") then
+								counter = counter + 1
+								teamtable[counter] = i
+							end
 						end
 					end
+					if counter > 0 then
+						HeroSelection:PreformPlayerRandom(teamtable[math.random(1, counter)])
+					end
 				end
-				if counter > 0 then
-					HeroSelection:PreformPlayerRandom(teamtable[math.random(1, counter)])
-				end
-			end
-			HeroSelection.PickedThisRound = false
-			HeroSelection:StartStateStrategy()
-		end)
+				HeroSelection.PickedThisRound = false
+				HeroSelection:StartStateStrategy()
+			return end
+		})
 	else
-		Timers:CreateTimer(HERO_SELECTION_PICK_TIME, function()
-			if not HeroSelection.PickedThisRound then
-				for i = 0, 13 do
-					if PlayerResource:GetPlayer(i) then
-						if PlayerResource:GetPlayer(i):GetTeamNumber() == team and (HeroSelection:GetPlayerStatus(i)["status"] ~= "picked") then
-							counter = counter + 1
-							teamtable[counter] = i
+		Timers:CreateTimer("hero_selection_pepega", {
+			endTime = HERO_SELECTION_PICK_TIME,
+			callback = function()
+				if not HeroSelection.PickedThisRound then
+					for i = 0, 13 do
+						if PlayerResource:GetPlayer(i) then
+							if PlayerResource:GetPlayer(i):GetTeamNumber() == team and (HeroSelection:GetPlayerStatus(i)["status"] ~= "picked") then
+								counter = counter + 1
+								teamtable[counter] = i
+							end
 						end
 					end
+					if counter > 0 then
+						HeroSelection:PreformPlayerRandom(teamtable[math.random(1, counter)])
+					end
 				end
-				if counter > 0 then
-					HeroSelection:PreformPlayerRandom(teamtable[math.random(1, counter)])
-				end
-			end
-			HeroSelection.PickedThisRound = false
-			HeroSelection:StartStateHeroPickDraft()
-		end)
+				HeroSelection.PickedThisRound = false
+				HeroSelection:StartStateHeroPickDraft()
+			return end
+		})
 	end
 end
 

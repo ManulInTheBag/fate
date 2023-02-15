@@ -329,6 +329,7 @@ function HeroSelection:NominateHeroForBan(playerId, hero)
 
 		PLAYER_DATA[playerId].HeroSelectionBanned = true
 		PlayerTables:SetTableValue("hero_selection_banning_phase", hero, playerId)
+		Timers:RemoveTimerWithCallbackTest("hero_selection_pepega")
 	end
 end
 
