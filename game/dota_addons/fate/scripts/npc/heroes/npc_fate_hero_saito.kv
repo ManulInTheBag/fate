@@ -1,0 +1,122 @@
+"DOTAHeroes"
+{
+	//=======================================================================================================
+	//	Saber - Saitō Hajime
+	//=======================================================================================================
+	"npc_dota_hero_saito"
+	{
+		"override_hero"					"npc_dota_hero_terrorblade"
+
+		//"Model"						"models/heroes/saito/saito.vmdl"
+		"Model"							"models/heroes/saito2/saito_mdoc.vmdl"
+		"ModelScale"					"1.0"
+
+		//"HeroID"						"118"
+
+		"DisableWearables"				"1"
+		"DrawParticlesWhileHidden"		"1"
+
+		//---------------------------------------------------------------------------------------------------
+		//	Abilities
+		//---------------------------------------------------------------------------------------------------
+
+		"AbilityLayout"					"6"
+
+		"Ability1"						"saito_flashblade"
+		"Ability2"						"saito_steelwing"
+		"Ability3"						"saito_shadowslash"
+		"Ability4"						"saito_mind_eye"
+		"Ability5"						"saito_fds"
+		"Ability6"						"saito_formless_invis"
+		"Ability7"						"saito_formless_slash"
+		"Ability8"						"saito_step"
+		"Ability9"						"saito_storm"
+		"Ability10"						"saito_vortex"
+		"Ability11"						"saito_style"
+		"Ability12"						"presence_detection_passive"
+		"Ability13"						"attribute_bonus_custom"
+
+		"Combo"							"saito_style"
+
+		"AttributeNumber"				"5"
+
+		"Attribute1"					"saito_attribute_freedom"
+		"Attribute2"					"saito_attribute_sword"
+		"Attribute3"					"saito_attribute_memoir"
+		"Attribute4"					"saito_attribute_freestyle"
+		"Attribute5"					"saito_attribute_kunishige"
+
+		//---------------------------------------------------------------------------------------------------
+		//	Roles
+		//---------------------------------------------------------------------------------------------------
+
+		"ManaCost"						"20"
+		"NP"							"3"
+		"Difficult"						"5"
+		"SType"							"burst,control,support"
+		"Trait"							"shinsengumi"
+
+		//---------------------------------------------------------------------------------------------------
+		//	Stats
+		//---------------------------------------------------------------------------------------------------
+		"HealthBarOffset"				"200" 
+		"StatusHealth"					"1350"
+		"StatusHealthRegen"				"5.0"
+		"StatusMana"					"1000"
+		"StatusManaRegen"				"5.0"
+
+		//---------------------------------------------------------------------------------------------------
+		//	Defense
+		//---------------------------------------------------------------------------------------------------
+
+		"ArmorPhysical"					"0"
+		"MagicalResistance"				"15"
+
+		//---------------------------------------------------------------------------------------------------
+		//	Attack
+		//---------------------------------------------------------------------------------------------------
+
+		"AttackCapabilities"			"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"				"52"
+		"AttackDamageMax"				"58"
+		"AttackAnimationPoint"			"0.500000"
+		"AttackRate"					"1.0"
+		"AttackAcquisitionRange"		"600"
+		"AttackRange"					"150"
+
+		//---------------------------------------------------------------------------------------------------
+		//	Attributes
+		//---------------------------------------------------------------------------------------------------
+
+		"AttributePrimary"				"DOTA_ATTRIBUTE_AGILITY"
+		"AttributeBaseStrength"			"0"
+		"AttributeStrengthGain"			"2.2"
+		"AttributeBaseAgility"			"0"
+		"AttributeAgilityGain"			"2.6"
+		"AttributeBaseIntelligence"		"0"
+		"AttributeIntelligenceGain"		"1.2"
+
+		//---------------------------------------------------------------------------------------------------
+		//	Mobility
+		//---------------------------------------------------------------------------------------------------
+
+		"MovementSpeed"					"340"
+		"MovementTurnRate"				"0.8"
+
+		//---------------------------------------------------------------------------------------------------
+		//	Vision
+		//---------------------------------------------------------------------------------------------------
+
+		"VisionDaytimeRange"			"1000"
+		"VisionNighttimeRange"			"1000"
+
+		//---------------------------------------------------------------------------------------------------
+		//	Automatic files pre-caching, to avoid bugs when files are not pre-cached in Lua custom files.
+		//---------------------------------------------------------------------------------------------------
+
+		"SoundSet"						"Hero_Saito"
+		"GameSoundsFile"				"soundevents/heroes/saito.vsndevts"
+		"VoiceFile"						"soundevents/voscripts/game_sounds_vo_terrorblade.vsndevts"
+		"particle_folder"				"particles/heroes/saito"
+	}
+}

@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc30:version{66cd490f-437b-4d7d-b009-7907d45422e2} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc32:version{c5dcef98-b629-46ab-88e3-a17c005c935e} -->
 {
 	rootNode = 
 	{
@@ -1007,7 +1007,9 @@
 						hidden = false
 						anim_markup_ordered = false
 						disable_compression = false
+						animgraph_additive = false
 						source_filename = "models/lancelot/arondight_overload.fbx"
+						import_bone_scales = false
 						start_frame = 0
 						end_frame = 168
 						framerate = 40.0
@@ -1027,7 +1029,9 @@
 						hidden = false
 						anim_markup_ordered = false
 						disable_compression = false
+						animgraph_additive = false
 						source_filename = "models/lancelot/arondight_powerup.fbx"
+						import_bone_scales = false
 						start_frame = 0
 						end_frame = 152
 						framerate = 110.0
@@ -1061,7 +1065,9 @@
 						hidden = false
 						anim_markup_ordered = false
 						disable_compression = false
+						animgraph_additive = false
 						source_filename = "models/lancelot/attack2.fbx"
+						import_bone_scales = false
 						start_frame = 0
 						end_frame = 120
 						framerate = 70.0
@@ -1095,7 +1101,9 @@
 						hidden = false
 						anim_markup_ordered = false
 						disable_compression = false
+						animgraph_additive = false
 						source_filename = "models/lancelot/attack3.fbx"
+						import_bone_scales = false
 						start_frame = 0
 						end_frame = 95
 						framerate = 70.0
@@ -1129,7 +1137,9 @@
 						hidden = false
 						anim_markup_ordered = false
 						disable_compression = false
+						animgraph_additive = false
 						source_filename = "models/lancelot/attack4.fbx"
+						import_bone_scales = false
 						start_frame = 0
 						end_frame = 123
 						framerate = 123.0
@@ -1163,7 +1173,9 @@
 						hidden = false
 						anim_markup_ordered = false
 						disable_compression = false
+						animgraph_additive = false
 						source_filename = "models/lancelot/death.fbx"
+						import_bone_scales = false
 						start_frame = 0
 						end_frame = 119
 						framerate = 40.0
@@ -1183,7 +1195,9 @@
 						hidden = false
 						anim_markup_ordered = false
 						disable_compression = false
+						animgraph_additive = false
 						source_filename = "models/lancelot/gaebolg_strike.fbx"
+						import_bone_scales = false
 						start_frame = 0
 						end_frame = 127
 						framerate = 25.0
@@ -1203,7 +1217,9 @@
 						hidden = false
 						anim_markup_ordered = false
 						disable_compression = false
+						animgraph_additive = false
 						source_filename = "models/lancelot/gaebolg1.fbx"
+						import_bone_scales = false
 						start_frame = 0
 						end_frame = 79
 						framerate = 25.0
@@ -1223,7 +1239,9 @@
 						hidden = false
 						anim_markup_ordered = false
 						disable_compression = false
+						animgraph_additive = false
 						source_filename = "models/lancelot/gaebolg2.fbx"
+						import_bone_scales = false
 						start_frame = 0
 						end_frame = 39
 						framerate = 100.0
@@ -1243,7 +1261,9 @@
 						hidden = false
 						anim_markup_ordered = false
 						disable_compression = false
+						animgraph_additive = false
 						source_filename = "models/lancelot/idle.fbx"
+						import_bone_scales = false
 						start_frame = 0
 						end_frame = 479
 						framerate = 40.0
@@ -1263,7 +1283,9 @@
 						hidden = false
 						anim_markup_ordered = false
 						disable_compression = false
+						animgraph_additive = false
 						source_filename = "models/lancelot/minigun1.fbx"
+						import_bone_scales = false
 						start_frame = 0
 						end_frame = 90
 						framerate = 96.0
@@ -1283,7 +1305,9 @@
 						hidden = false
 						anim_markup_ordered = false
 						disable_compression = false
+						animgraph_additive = false
 						source_filename = "models/lancelot/minigun2.fbx"
+						import_bone_scales = false
 						start_frame = 0
 						end_frame = 179
 						framerate = 179.0
@@ -1303,7 +1327,9 @@
 						hidden = false
 						anim_markup_ordered = false
 						disable_compression = false
+						animgraph_additive = false
 						source_filename = "models/lancelot/minigun3.fbx"
+						import_bone_scales = false
 						start_frame = 0
 						end_frame = 59
 						framerate = 59.0
@@ -1323,7 +1349,9 @@
 						hidden = false
 						anim_markup_ordered = false
 						disable_compression = false
+						animgraph_additive = false
 						source_filename = "models/lancelot/ninelives1.fbx"
+						import_bone_scales = false
 						start_frame = 0
 						end_frame = 163
 						framerate = 163.0
@@ -1343,7 +1371,9 @@
 						hidden = false
 						anim_markup_ordered = false
 						disable_compression = false
+						animgraph_additive = false
 						source_filename = "models/lancelot/ninelives2.fbx"
+						import_bone_scales = false
 						start_frame = 0
 						end_frame = 100
 						framerate = 20.0
@@ -1363,7 +1393,9 @@
 						hidden = false
 						anim_markup_ordered = false
 						disable_compression = false
+						animgraph_additive = false
 						source_filename = "models/lancelot/ninelivesdash.fbx"
+						import_bone_scales = false
 						start_frame = 0
 						end_frame = 59
 						framerate = 59.0
@@ -1383,7 +1415,9 @@
 						hidden = false
 						anim_markup_ordered = false
 						disable_compression = false
+						animgraph_additive = false
 						source_filename = "models/lancelot/parry1.fbx"
+						import_bone_scales = false
 						start_frame = 0
 						end_frame = 59
 						framerate = 25.0
@@ -1403,7 +1437,9 @@
 						hidden = false
 						anim_markup_ordered = false
 						disable_compression = false
+						animgraph_additive = false
 						source_filename = "models/lancelot/parry2.fbx"
+						import_bone_scales = false
 						start_frame = 0
 						end_frame = 92
 						framerate = 25.0
@@ -1423,7 +1459,9 @@
 						hidden = false
 						anim_markup_ordered = false
 						disable_compression = false
+						animgraph_additive = false
 						source_filename = "models/lancelot/rosa1.fbx"
+						import_bone_scales = false
 						start_frame = 0
 						end_frame = 50
 						framerate = 50.0
@@ -1443,7 +1481,9 @@
 						hidden = false
 						anim_markup_ordered = false
 						disable_compression = false
+						animgraph_additive = false
 						source_filename = "models/lancelot/rulebreaker1.fbx"
+						import_bone_scales = false
 						start_frame = 0
 						end_frame = 34
 						framerate = 14.0
@@ -1477,7 +1517,9 @@
 						hidden = false
 						anim_markup_ordered = false
 						disable_compression = false
+						animgraph_additive = false
 						source_filename = "models/lancelot/run.fbx"
+						import_bone_scales = false
 						start_frame = 0
 						end_frame = 39
 						framerate = 50.0
@@ -1511,7 +1553,9 @@
 						hidden = false
 						anim_markup_ordered = false
 						disable_compression = false
+						animgraph_additive = false
 						source_filename = "models/lancelot/attack1.fbx"
+						import_bone_scales = false
 						start_frame = 0
 						end_frame = 80
 						framerate = 50.0
@@ -1531,7 +1575,9 @@
 						hidden = false
 						anim_markup_ordered = false
 						disable_compression = false
+						animgraph_additive = false
 						source_filename = "models/lancelot/arondight_powerup.fbx"
+						import_bone_scales = false
 						start_frame = 0
 						end_frame = 152
 						framerate = 152.0

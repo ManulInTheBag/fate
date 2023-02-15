@@ -1,0 +1,45 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf51:version{6d03d500-2498-454e-b833-f654e870bb3d} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_nBehaviorVersion = 12
+	m_nMaxParticles = 0
+	m_controlPointConfigurations = 
+	[
+		{
+			m_name = "preview"
+			m_drivers = 
+			[
+				{
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+			]
+			m_previewState = 
+			{
+				m_previewModel = "models/heroes/spirit_breaker/spirit_breaker.vmdl"
+				m_nModSpecificData = 106
+				m_sequenceName = "idle"
+				m_hitboxSetName = "default"
+			}
+		},
+	]
+	m_Children = 
+	[
+		{
+			m_ChildRef = resource:"particles/heroes/saito/saito_mind_eye_silence_distortion.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/heroes/saito/saito_mind_eye_silence_aura.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/heroes/saito/saito_mind_eye_silence_pattern.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/heroes/saito/saito_mind_eye_silence_body_distort.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/heroes/saito/saito_mind_eye_silence_body.vpcf"
+		},
+	]
+	m_nViewModelEffect = "INHERITABLE_BOOL_INHERIT"
+}

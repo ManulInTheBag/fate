@@ -315,7 +315,8 @@ function Precache( context )
     PrecacheResource("soundfile", "soundevents/zlodemon_true.vsndevts", context )
     PrecacheResource("soundfile", "soundevents/moskes_sasaki.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/pepeg_razgovor.vsndevts", context)
-
+    PrecacheResource("soundfile", "soundevents/heroes/saito.vsndevts", context)
+    
     PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_silencer.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_enigma.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_bane.vsndevts", context)
@@ -336,6 +337,7 @@ function Precache( context )
     PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_life_stealer.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_phantom_assassin.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_treant.vsndevts", context)
+    
     PrecacheResource("soundfile", "soundevents/game_sounds_items.vsndevts", context)
 
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_abaddon.vsndevts", context )

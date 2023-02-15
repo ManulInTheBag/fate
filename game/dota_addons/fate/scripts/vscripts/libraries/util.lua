@@ -1640,11 +1640,9 @@ function DoDamage(source, target , dmg, dmg_type, dmg_flag, abil, isLoop)
 
     --SAITO DAMAGE REDUCTION
     if(target:GetName() == "npc_dota_hero_terrorblade" and dmg < 2500) then
-        if(  target:HasModifier("modifier_saito_fdb_vision")) then
-            dmg = dmg*(1- target:FindAbilityByName("saito_hajime_fdb"):GetSpecialValueFor("resist")/100) 
-        elseif( target:HasModifier("modifier_saito_combo")) then
-            dmg = dmg*(1- target:FindAbilityByName("saito_undefeatable_style"):GetSpecialValueFor("resist")/100) 
-         end
+        if(  target:HasModifier("modifier_saito_mind_eye_active")) then
+            dmg = dmg*(1- target:FindAbilityByName("saito_mind_eye"):GetSpecialValueFor("resist")/100) 
+        end
     end
 
     -- Check if target has Avalon up
