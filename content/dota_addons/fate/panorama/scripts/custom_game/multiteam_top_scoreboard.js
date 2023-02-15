@@ -93,7 +93,7 @@ function UpdateCamera(tableName, changesObject, deletionsObject) {
 
 	UpdateScoreboard();
 
-	if (Game.GetMapInfo().map_display_name == "fate_elim_6v6" || Game.GetMapInfo().map_display_name == "fate_elim_7v7" || Game.GetMapInfo().map_display_name == "anime_fate_7vs7_beta") { 
+	if (Game.GetMapInfo().map_display_name == "fate_elim_6v6" || Game.GetMapInfo().map_display_name == "fate_elim_7v7" || Game.GetMapInfo().map_display_name == "anime_fate_7vs7_beta" || Game.GetMapInfo().map_display_name == "7vs7_common" || Game.GetMapInfo().map_display_name == "7vs7_draft") { 
 		GameEvents.Subscribe( "winner_decided", UpdateRoundScore );
 	}
 })();

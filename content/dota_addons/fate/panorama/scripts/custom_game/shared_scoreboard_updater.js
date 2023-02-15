@@ -335,7 +335,7 @@ function _ScoreboardUpdater_UpdateTeamPanel( scoreboardConfig, containerPanel, t
 	}
 
 	if (Game.GetMapInfo().map_display_name == "fate_elim_6v6" || Game.GetMapInfo().map_display_name == "fate_elim_7v7"
-	|| Game.GetMapInfo().map_display_name == "anime_fate_7vs7_beta") {
+	|| Game.GetMapInfo().map_display_name == "anime_fate_7vs7_beta" || Game.GetMapInfo().map_display_name == "7vs7_common" || Game.GetMapInfo().map_display_name == "7vs7_draft") {
 		if (teamId == 2)
 		{
 			_ScoreboardUpdater_SetTextSafe( teamPanel, "TeamScore", g_RadiantScore );
@@ -407,7 +407,7 @@ function compareFunc( a, b ) // GameUI.CustomUIConfig().sort_teams_compare_func;
 	var scoreA;
 	var scoreB;
 	if (Game.GetMapInfo().map_display_name == "fate_elim_6v6" || Game.GetMapInfo().map_display_name == "fate_elim_7v7"
-	|| Game.GetMapInfo().map_display_name == "anime_fate_7vs7_beta") {
+	|| Game.GetMapInfo().map_display_name == "anime_fate_7vs7_beta" || Game.GetMapInfo().map_display_name == "7vs7_common" || Game.GetMapInfo().map_display_name == "7vs7_draft") {
 		scoreA = a.team_id == 2 ? g_RadiantScore : g_DireScore;
 		scoreB = b.team_id == 2 ? g_RadiantScore : g_DireScore;
 	} else {
