@@ -287,6 +287,11 @@ function HeroSelection:UpdateStatusForPlayer(playerId, status, hero, bForNotPick
 			tableData[playerId].status = status
 		end
 		PlayerTables:SetTableValue("hero_selection", PlayerResource:GetTeam(playerId), tableData)
+		if status == "picked" then
+			HeroSelection.PickedThisRound = true
+			PlayerTables:SetTableValue("hero_selection_draft", "TeamPicked", 0)
+			PlayerTables:SetTableValue("hero_selection_draft", "TeamPicked", PlayerResource:GetPlayer(playerId):GetTeamNumber())
+		end
 		return true
 	end
 	return false

@@ -19,6 +19,10 @@ HERO_SELECTION_PHASE_HERO_PICK = 2
 HERO_SELECTION_PHASE_STRATEGY = 3
 HERO_SELECTION_PHASE_END = 4
 
+HERO_SELECTION_DRAFT_MODE = false
+HERO_SELECTION_NUMBER = 1
+HERO_SELECTION_TEAM_NUMBER = 2
+
 FORCE_PICKED_HERO = "npc_dota_hero_target_dummy"
 
 if not HeroSelection then
@@ -30,6 +34,10 @@ if not HeroSelection then
 	}
 	HeroSelection.CurrentState = HERO_SELECTION_PHASE_NOT_STARTED
 	HeroSelection.GameStartTimers = {}
+	HeroSelection.CurrentTeam = 2
+	HeroSelection.CurrentNumber = 1
+	HeroSelection.BanNumber = 4
+	HeroSelection.PickedThisRound = false
 end
 
 ModuleRequire(..., "util")
@@ -41,11 +49,17 @@ ModuleLinkLuaModifier(..., "modifier_hero_selection_transformation")
 Events:Register("activate", function ()
 	if IsInToolsMode() then
 		HERO_SELECTION_PICK_TIME = 3
+		HERO_SELECTION_BANNING_TIME = 0
+	end
+	if _G.GameMap == "fate_elim_7v7" then
+		HERO_SELECTION_PICK_TIME = 30
+		HERO_SELECTION_BANNING_TIME = 15
+		HERO_SELECTION_DRAFT_MODE = true
 	end
 	GameRules:SetHeroSelectionTime(-1)
 	local preTime = HERO_SELECTION_PICK_TIME + HERO_SELECTION_STRATEGY_TIME + 3-- + Options:GetValue("PreGameTime")
-	if Options:GetValue("BanningPhaseBannedPercentage") > 0 then
-		preTime = preTime + HERO_SELECTION_BANNING_TIME
+	if HERO_SELECTION_DRAFT_MODE then
+		preTime = preTime + HERO_SELECTION_BANNING_TIME*4 + HERO_SELECTION_PICK_TIME*13
 	end
 	GameRules:SetPreGameTime(preTime)
 	GameRules:GetGameModeEntity():SetCustomGameForceHero(FORCE_PICKED_HERO)
@@ -137,6 +151,7 @@ function HeroSelection:PrepareTables()
 	end
 	PlayerTables:CreateTable("hero_selection_heroes_data", heroesData, AllPlayersInterval)
 	PlayerTables:CreateTable("hero_selection_available_heroes", data, AllPlayersInterval)
+	PlayerTables:CreateTable("hero_selection_draft", data, AllPlayersInterval)
 end
 
 function HeroSelection:SetTimerDuration(duration)
@@ -155,7 +170,7 @@ end
 function HeroSelection:CreateTimer(...)
 	local t = Timers:CreateTimer(...)
 	table.insert(HeroSelection.GameStartTimers, t)
-	PrintTable(HeroSelection.GameStartTimers)
+	--PrintTable(HeroSelection.GameStartTimers)
 	return t
 end
 
@@ -166,18 +181,143 @@ function HeroSelection:DismissTimers()
 	HeroSelection.GameStartTimers = {}
 end
 
+function HeroSelection:GetCurrentNumber()
+	return HeroSelection.CurrentNumber
+end
+
+function HeroSelection:SetCurrentNumber(value)
+	HeroSelection.CurrentNumber = value
+end
+
+function HeroSelection:GetBanNumber()
+	return HeroSelection.BanNumber
+end
+
+function HeroSelection:SetBanNumber(value)
+	HeroSelection.BanNumber = value
+end
+
 function HeroSelection:HeroSelectionStart()
 	GameRules:GetGameModeEntity():SetAnnouncerDisabled(true)
 	--if Options:GetValue("BanningPhaseBannedPercentage") > 0 then
 		--EmitAnnouncerSound("announcer_ann_custom_mode_05")
+	if not HERO_SELECTION_DRAFT_MODE then
 		HeroSelection:SetState(HERO_SELECTION_PHASE_BANNING)
 		HeroSelection:SetTimerDuration(HERO_SELECTION_BANNING_TIME)
 		HeroSelection:CreateTimer(HERO_SELECTION_BANNING_TIME, function()
 			HeroSelection:StartStateHeroPick()
 		end)
+	else
+		HeroSelection:StartStateBanDraft()
+	end
 	--else
 	--	HeroSelection:StartStateHeroPick()
 	--end
+end
+
+function HeroSelection:StartStateBanDraft()
+	PlayerTables:SetTableValue("hero_selection_available_heroes", "HeroSelectionTeam", 0)
+	PlayerTables:SetTableValue("hero_selection_available_heroes", "HeroSelectionTeam", HeroSelection.CurrentTeam)
+
+	HeroSelection:DismissTimers()
+	HeroSelection:SetState(HERO_SELECTION_PHASE_BANNING)
+	HeroSelection:SetTimerDuration(HERO_SELECTION_BANNING_TIME)
+
+	if HeroSelection:GetState() == HERO_SELECTION_PHASE_BANNING then
+		HeroSelection:SetBanNumber(HeroSelection:GetBanNumber() - 1)
+	end
+
+	HeroSelection:SetCurrentNumber(HeroSelection:GetCurrentNumber() - 1)
+	if HeroSelection:GetCurrentNumber() == 0 then
+		HeroSelection:SetCurrentNumber(2)
+		if HeroSelection.CurrentTeam == 2 then
+			HeroSelection.CurrentTeam = 3
+		else
+			HeroSelection.CurrentTeam = 2
+		end
+	end
+
+	if HeroSelection:GetBanNumber() == 0 then
+		Timers:CreateTimer(HERO_SELECTION_BANNING_TIME, function()
+			HeroSelection:SetBanNumber(14)
+			HeroSelection:StartStateHeroPickDraft()
+		end)
+	else
+		Timers:CreateTimer(HERO_SELECTION_BANNING_TIME, function()
+			HeroSelection:StartStateBanDraft()
+		end)
+	end
+end
+
+function HeroSelection:StartStateHeroPickDraft()
+	PlayerTables:SetTableValue("hero_selection_available_heroes", "HeroSelectionTeam", 0)
+	PlayerTables:SetTableValue("hero_selection_available_heroes", "HeroSelectionTeam", HeroSelection.CurrentTeam)
+
+	HeroSelection:SetBanNumber(HeroSelection:GetBanNumber() - 1)
+
+	HeroSelection:SetCurrentNumber(HeroSelection:GetCurrentNumber() - 1)
+	local team = HeroSelection.CurrentTeam
+	local teamtable = {}
+	local counter = 0
+	if HeroSelection:GetCurrentNumber() == 0 then
+		HeroSelection:SetCurrentNumber(2)
+		if HeroSelection.CurrentTeam == 2 then
+			HeroSelection.CurrentTeam = 3
+		else
+			HeroSelection.CurrentTeam = 2
+		end
+	end
+
+
+	local notBanned = {}
+	PlayerTables:DeleteTableKeys("hero_selection_banning_phase", notBanned)
+	local banned = PlayerTables:GetAllTableValuesForReadOnly("hero_selection_banning_phase")
+	local bannedCount = table.count(banned)
+	HeroSelection:DismissTimers()
+	local pick_data = PlayerTables:GetAllTableValuesForReadOnly("hero_selection_available_heroes")
+	local pepe_data = PlayerTables:GetAllTableValuesForReadOnly("hero_selection_heroes_data")
+	--PrintTable(pepe_data)
+	
+	HeroSelection:SetState(HERO_SELECTION_PHASE_HERO_PICK)
+	HeroSelection:SetTimerDuration(HERO_SELECTION_PICK_TIME)
+
+	if HeroSelection:GetBanNumber() == 0 then
+		Timers:CreateTimer(HERO_SELECTION_PICK_TIME, function()
+			if not HeroSelection.PickedThisRound then
+				for i = 0, 13 do
+					if PlayerResource:GetPlayer(i) then
+						if (PlayerResource:GetPlayer(i):GetTeamNumber() == team) and (HeroSelection:GetPlayerStatus(i)["status"] ~= "picked") then
+							counter = counter + 1
+							teamtable[counter] = i
+						end
+					end
+				end
+				if counter > 0 then
+					HeroSelection:PreformPlayerRandom(teamtable[math.random(1, counter)])
+				end
+			end
+			HeroSelection.PickedThisRound = false
+			HeroSelection:StartStateStrategy()
+		end)
+	else
+		Timers:CreateTimer(HERO_SELECTION_PICK_TIME, function()
+			if not HeroSelection.PickedThisRound then
+				for i = 0, 13 do
+					if PlayerResource:GetPlayer(i) then
+						if PlayerResource:GetPlayer(i):GetTeamNumber() == team and (HeroSelection:GetPlayerStatus(i)["status"] ~= "picked") then
+							counter = counter + 1
+							teamtable[counter] = i
+						end
+					end
+				end
+				if counter > 0 then
+					HeroSelection:PreformPlayerRandom(teamtable[math.random(1, counter)])
+				end
+			end
+			HeroSelection.PickedThisRound = false
+			HeroSelection:StartStateHeroPickDraft()
+		end)
+	end
 end
 
 function HeroSelection:StartStateHeroPick()
@@ -214,7 +354,7 @@ function HeroSelection:StartStateHeroPick()
 	--print(AllPlayersInterval)
 	local pick_data = PlayerTables:GetAllTableValuesForReadOnly("hero_selection_available_heroes")
 	local pepe_data = PlayerTables:GetAllTableValuesForReadOnly("hero_selection_heroes_data")
-	PrintTable(pepe_data)
+	--PrintTable(pepe_data)
 	--PlayerTables:CreateTable("hero_selection_heroes_data", pepe_data, AllPlayersInterval)
 	--PlayerTables:CreateTable("hero_selection_available_heroes", pick_data, AllPlayersInterval)
 	--PrintTable(pick_data)
@@ -233,6 +373,7 @@ end
 
 function HeroSelection:StartStateStrategy()
 	HeroSelection:DismissTimers()
+	CustomGameEventManager:Send_ServerToAllClients( "bgm_intro", {bgm=0} )
 	--HeroSelection:PreformRandomForNotPickedUnits()
 	local toPrecache = {}
 	for team,_v in pairs(PlayerTables:GetAllTableValues("hero_selection")) do
@@ -281,9 +422,9 @@ function HeroSelection:StartStateInGame(toPrecache)
 				--print("pepega2")
 				--Actually enter in-game state
 				HeroSelection:SetState(HERO_SELECTION_PHASE_END)
-				PrintTable(PlayerTables:GetAllTableValues("hero_selection"))
+				--PrintTable(PlayerTables:GetAllTableValues("hero_selection"))
 				for team,_v in pairs(PlayerTables:GetAllTableValues("hero_selection")) do
-					PrintTable(PlayerTables:GetAllTableValues("hero_selection"))
+					--PrintTable(PlayerTables:GetAllTableValues("hero_selection"))
 					--print("pepega3")
 					for plyId,v in pairs(_v) do
 						--print(v.hero)

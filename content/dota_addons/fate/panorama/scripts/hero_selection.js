@@ -13,7 +13,9 @@ var SelectedHeroPanel,
 	HeroSelectionState = -1,
 	PlayerPanels = [],
 	InitializationStates = {},
-	HasBanPoint = true;
+	HasBanPoint = true,
+	HeroSelectionTeam = 2,
+	IsDraftMode = false;
 
 function HeroSelectionEnd(bImmidate) {
 	$.GetContextPanel().style.opacity = 0;
@@ -51,7 +53,7 @@ function SelectHero() {
 				hero: SelectedHeroName
 			});
 		}
-		Game.EmitSound('ui.pick_play');
+		//Game.EmitSound('melty_pick');
 	}
 }
 
@@ -65,29 +67,32 @@ function RandomHero() {
 }
 
 function UpdateSelectionButton() {
-	var selectedHeroData = HeroesData[SelectedHeroName];
-	$.GetContextPanel().SetHasClass('RandomingEnabled', !IsLocalHeroPicked() && !IsLocalHeroLocked() && HeroSelectionState > HERO_SELECTION_PHASE_BANNING);
+	if (IsDraftMode == true){
+		UpdateSelectionButtonDraft();
+	} else	{
+		var selectedHeroData = HeroesData[SelectedHeroName];
+		$.GetContextPanel().SetHasClass('RandomingEnabled', !IsLocalHeroPicked() && !IsLocalHeroLocked() && HeroSelectionState > HERO_SELECTION_PHASE_BANNING);
 
-	var canPick = !IsLocalHeroPicked() &&
-		!IsHeroPicked(SelectedHeroName) &&
-		!IsHeroBanned(SelectedHeroName) &&
-		!IsHeroUnreleased(SelectedHeroName) &&
-		!IsHeroDisabledInRanked(SelectedHeroName) &&
-		(!IsLocalHeroLocked() || SelectedHeroName === LocalPlayerStatus.hero);
+		var canPick = !IsLocalHeroPicked() &&
+			!IsHeroPicked(SelectedHeroName) &&
+			!IsHeroBanned(SelectedHeroName) &&
+			!IsHeroUnreleased(SelectedHeroName) &&
+			!IsHeroDisabledInRanked(SelectedHeroName) &&
+			(!IsLocalHeroLocked() || SelectedHeroName === LocalPlayerStatus.hero);
 
-	var context = $.GetContextPanel();
-	var mode = 'pick';
-	if (HeroSelectionState === HERO_SELECTION_PHASE_BANNING) {
-		mode = 'ban';
-		canPick = canPick && HasBanPoint;
-	} else if (selectedHeroData && selectedHeroData.linked_heroes) {
-		mode = IsLocalHeroLocked() && selectedHeroData.heroKey === LocalPlayerStatus.hero ? 'unlock' : 'lock';
+		var context = $.GetContextPanel();
+		var mode = 'pick';
+		if (HeroSelectionState === HERO_SELECTION_PHASE_BANNING) {
+			mode = 'ban';
+		} else if (selectedHeroData && selectedHeroData.linked_heroes) {
+			mode = IsLocalHeroLocked() && selectedHeroData.heroKey === LocalPlayerStatus.hero ? 'unlock' : 'lock';
+		}
+		context.SetHasClass('LocalHeroLockButton', mode === 'lock');
+		context.SetHasClass('LocalHeroUnlockButton', mode === 'unlock');
+		context.SetHasClass('LocalHeroBanButton', mode === 'ban');
+
+		$('#SelectedHeroSelectButton').enabled = canPick;
 	}
-	context.SetHasClass('LocalHeroLockButton', mode === 'lock');
-	context.SetHasClass('LocalHeroUnlockButton', mode === 'unlock');
-	context.SetHasClass('LocalHeroBanButton', mode === 'ban');
-
-	$('#SelectedHeroSelectButton').enabled = canPick;
 }
 
 function UpdateTimer() {
@@ -151,7 +156,7 @@ function SelectionPanelEndListener(){
 
 function UpdateHeroesSelected(tableName, changesObject, deletionsObject) {
 	var index;
-	$.Msg(changesObject);
+	//$.Msg(changesObject);
 	for (index = 1; index <= 10; ++index) {
 		UHSSub(tableName, changesObject, deletionsObject, index)
 	};
@@ -162,8 +167,8 @@ function UHSSub(tableName, changesObject, deletionsObject, index){
 	var teamPlayers = changesObject[index];
 	if (teamPlayers != null) {
 	var index2;
-	$.Msg("teamPlayers")
-	$.Msg(teamPlayers);
+	//$.Msg("teamPlayers")
+	//$.Msg(teamPlayers);
 	var teamNumber = index;
 	if ($('#team_selection_panels_team' + teamNumber) == null) {
 		var isRight = teamNumber % 2 !== 0;
@@ -182,8 +187,8 @@ function UHSSub(tableName, changesObject, deletionsObject, index){
 
 function UHSSub2(tableName, changesObject, deletionsObject, teamPlayers, teamNumber, TeamSelectionPanel, index2){
 	var playerData = teamPlayers[index2];
-	$.Msg("playerData" + index2);
-	$.Msg(playerData);
+	//$.Msg("playerData" + index2);
+	//$.Msg(playerData);
 	if (playerData != null) {
 		var playerIdInTeam = index2;
 		var PlayerPanel = Snippet_PlayerPanel(Number(playerIdInTeam), TeamSelectionPanel);
@@ -194,7 +199,7 @@ function UHSSub2(tableName, changesObject, deletionsObject, teamPlayers, teamNum
 		if (isLocalPlayer) {
 			LocalPlayerStatus = playerData;
 			$.GetContextPanel().SetHasClass('LocalPlayerLocked', playerData.status === 'locked');
-			$.Msg("OLPP should trigger")
+			//$.Msg("OLPP should trigger")
 			if (!$.GetContextPanel().BHasClass('LocalPlayerPicked') && playerData.status === 'picked') {
 				OnLocalPlayerPicked();
 			} else if ($.GetContextPanel().BHasClass('LocalPlayerPicked') && playerData.status !== 'picked') {
@@ -233,15 +238,16 @@ function UHSSub2(tableName, changesObject, deletionsObject, teamPlayers, teamNum
 function OnLocalPlayerPicked() {
 	var heroName = LocalPlayerStatus.hero;
 	var localHeroData = HeroesData[heroName];
-	$.Msg("OLPP1")
+	Game.EmitSound('melty_pick');
+	//$.Msg("OLPP1")
 	$('#HeroPreviewName').text = $.Localize('#' + heroName).toUpperCase();
-	$.Msg("OLPP2")
+	//$.Msg("OLPP2")
 	var bio = $.Localize('#' + heroName + '_bio');
 	$('#HeroPreviewLore').text = bio !== heroName + '_bio' ? bio : '';
-	$.Msg("OLPP3")
+	//$.Msg("OLPP3")
 	var hype = $.Localize('#' + heroName + '_hype');
 	$('#HeroPreviewOverview').text = hype !== heroName + '_hype' ? hype : '';
-	$.Msg("OLPP4")
+	//$.Msg("OLPP4")
 
 	//var model = localHeroData.model
 	//$.Msg("pepeg")
@@ -302,8 +308,8 @@ function UpdateMainTable(tableName, changesObject, deletionsObject) {
 	if (changesObject.HeroTabs != null) {
 		if (HeroesPanels.length === 0 && HeroesData) {
 			var index;
-			$.Msg("UMT problems");
-			$.Msg(Object.keys(changesObject.HeroTabs[1]).length);
+			//$.Msg("UMT problems");
+			//$.Msg(Object.keys(changesObject.HeroTabs[1]).length);
 			var TabHeroesPanel = $.CreatePanel('Panel', $('#HeroListPanel'), 'HeroListPanel_tabPanels_' + 1);
 			TabHeroesPanel.BLoadLayoutSnippet('HeroesPanel');
 			FillHeroesTable(changesObject.HeroTabs[1], TabHeroesPanel);
@@ -318,6 +324,62 @@ function UpdateMainTable(tableName, changesObject, deletionsObject) {
 	if (changesObject.TimerEndTime != null) {
 		SelectionTimerEndTime = changesObject.TimerEndTime;
 	}
+	if (changesObject.HeroSelectionTeam != null) {
+		if (changesObject.HeroSelectionTeam != 0){
+			HeroSelectionTeam = changesObject.HeroSelectionTeam;
+			var isLocalTeam = HeroSelectionTeam === Players.GetTeam(Game.GetLocalPlayerID());
+			if (isLocalTeam == true) {
+				HasBanPoint = true;
+			}
+			UpdateSelectionButton();
+		}
+	}
+}
+
+function UpdateDraft(tableName, changesObject, deletionsObject) {
+	var newState = changesObject.HeroSelectionState;
+	if (changesObject.TeamPicked != null) {
+		if (changesObject.TeamPicked != 0){
+			var isLocalTeam = changesObject.TeamPicked === Players.GetTeam(Game.GetLocalPlayerID());
+			if (isLocalTeam == true) {
+				HasBanPoint = false;
+			}
+			UpdateSelectionButton();
+		}
+	}
+}
+
+function UpdateSelectionButtonDraft() {
+	var selectedHeroData = HeroesData[SelectedHeroName];
+	$.GetContextPanel().SetHasClass('RandomingEnabled', !IsLocalHeroPicked() && !IsLocalHeroLocked() && HeroSelectionState > HERO_SELECTION_PHASE_BANNING);
+
+	var isLocalTeam = HeroSelectionTeam === Players.GetTeam(Game.GetLocalPlayerID());
+
+	var canPick = !IsLocalHeroPicked() &&
+		!IsHeroPicked(SelectedHeroName) &&
+		!IsHeroBanned(SelectedHeroName) &&
+		!IsHeroUnreleased(SelectedHeroName) &&
+		!IsHeroDisabledInRanked(SelectedHeroName) &&
+		(!IsLocalHeroLocked() || SelectedHeroName === LocalPlayerStatus.hero);
+
+	var context = $.GetContextPanel();
+	var mode = 'pick';
+	if (HeroSelectionState === HERO_SELECTION_PHASE_BANNING) {
+		mode = 'ban';
+		//$.Msg("USBDDebug")
+		//$.Msg(isLocalTeam);
+	} else if (selectedHeroData && selectedHeroData.linked_heroes) {
+		mode = IsLocalHeroLocked() && selectedHeroData.heroKey === LocalPlayerStatus.hero ? 'unlock' : 'lock';
+	}
+
+	canPick = canPick && isLocalTeam;
+	canPick = canPick && HasBanPoint;
+	
+	context.SetHasClass('LocalHeroLockButton', mode === 'lock');
+	context.SetHasClass('LocalHeroUnlockButton', mode === 'unlock');
+	context.SetHasClass('LocalHeroBanButton', mode === 'ban');
+
+	$('#SelectedHeroSelectButton').enabled = canPick;
 }
 
 function SetCurrentPhase(newState) {
@@ -362,11 +424,14 @@ function ShowHeroPreviewTab(tabID) {
 		//	MinimapPTIDs.push(ptid);
 		//});
 		DynamicSubscribePTListener('hero_selection_available_heroes', UpdateMainTable);
+		DynamicSubscribePTListener('hero_selection_draft', UpdateDraft);
 		//$.GetContextPanel().SetHasClass('ShowMMR', Options.IsEquals('EnableRatingAffection'));
 		var gamemode = Options.GetMapInfo().gamemode;
 		//$.Msg(gamemode)
-		if (gamemode === 'custom_abilities') gamemode =
-			Options.IsEquals('EnableAbilityShop') ? 'ability_shop' : Options.IsEquals('EnableRandomAbilities') ? 'random_omg' : '';
+		if (gamemode === 'elim_7v7') {
+			IsDraftMode = true;
+		}
+		
 		$('#GameModeInfoGamemodeLabel').text = $.Localize('#' + 'arena_game_mode_type_' + gamemode);
 
 		if ($.GetContextPanel().PTID_hero_selection) PlayerTables.UnsubscribeNetTableListener($.GetContextPanel().PTID_hero_selection);

@@ -3,11 +3,12 @@ var g_GameConfig = FindCustomUIRoot($.GetContextPanel());
 g_GameConfig.curBGMIndex = 1;
 g_GameConfig.nextBGMIndex = 1;
 g_GameConfig.BGMSchedule = 0;
-g_GameConfig.duration = [187,327,219,142,183,143,233,212,247,241,280,224,288,187,318,270,344,255,375,292,184,202,142,162,215,140,126,249,133,185];
+g_GameConfig.duration = [481,187,327,219,142,183,143,233,212,247,241,280,224,288,187,318,270,344,255,375,292,184,202,142,162,215,140,126,249,133,185];
 //g_GameConfig.duration = [5,5,5,5,5,5,5,5];
 g_GameConfig.bRepeat = false;
 g_GameConfig.bIsBGMOn = true;
 g_GameConfig.bIsAutoChange = false;
+g_GameConfig.InitialIndex = 0;
 
 function OnRepeatToggle()
 {
@@ -40,7 +41,7 @@ function PlayBGM()
     g_GameConfig.curBGMIndex = g_GameConfig.nextBGMIndex;
 
     var BGMname = "BGM." + g_GameConfig.curBGMIndex.toString();
-    var BGMduration = g_GameConfig.duration[g_GameConfig.curBGMIndex-1]+2;
+    var BGMduration = g_GameConfig.duration[g_GameConfig.curBGMIndex]+2;
     var dropPanel = $("#FateConfigBGMList");
     $.Msg("Playing " + BGMname + " for " + BGMduration.toString() + " seconds");
 
@@ -56,7 +57,7 @@ function PlayBGM()
         //$.Msg("Schedule worked, destroying current BGM" + g_GameConfig.curBGMIndex.toString())
         if (g_GameConfig.bIsBGMOn === true){
             if (!g_GameConfig.bRepeat) {
-                g_GameConfig.nextBGMIndex = Math.floor((Math.random() * 26) + 1);
+                g_GameConfig.nextBGMIndex = Math.floor((Math.random() * 30) + 1);
             }
             PlayBGM();
         }
@@ -76,19 +77,31 @@ function StopBGM()
 
 function OnIntro(index)
 {
-    g_GameConfig.nextBGMIndex = index;
-    $.Msg(index)
+    var index2 = Math.floor((Math.random() * 30) + 1);
+    g_GameConfig.nextBGMIndex = index2;
+    //$.Msg("Next BGM Index: " + selection.id);
+    if (g_GameConfig.BGMSchedule != 0) {
+        $.CancelScheduled(g_GameConfig.BGMSchedule, {});
+    };
+    Game.EmitSound("melty_game_start");
+    if (g_GameConfig.curBGMentindex != 0) {
+        Game.StopSound(g_GameConfig.curBGMentindex);
+    }
+    $.Schedule(9.0, function(){
+        PlayBGM();
+    })
+    $.Msg('Game start: change BGM ' + g_GameConfig.nextBGMIndex);
+}
+
+(function() {
+    GameEvents.Subscribe( "bgm_intro", OnIntro );
+
+    var index2 = 0;
+    g_GameConfig.nextBGMIndex = index2;
     //$.Msg("Next BGM Index: " + selection.id);
     if (g_GameConfig.BGMSchedule != 0) {
         $.CancelScheduled(g_GameConfig.BGMSchedule, {});
     };
     PlayBGM();
     $.Msg('Game start: change BGM ' + g_GameConfig.nextBGMIndex);
-}
-
-(function() {
-    $.Msg("data accept ready")
-    GameEvents.Subscribe( "bgm_intro", OnIntro );
-    var index = 1;
-    OnIntro(index)
 })();

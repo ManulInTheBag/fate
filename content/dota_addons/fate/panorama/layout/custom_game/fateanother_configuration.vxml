@@ -25,7 +25,8 @@
 				<Label text="Background Music" hittest="false" />
 				<ToggleButton id="FateConfigBGMToggle" checked="false" class="FateConfigOpenText" text="#FA_Config_BGM_Repeat" onactivate="OnRepeatToggle()" />
 				<DropDown id="FateConfigBGMList" oninputsubmit="OnDropDownChanged()">
-					<Label text="#BGM1" id="1" checked="true" />
+					<Label text="#BGM0" id="0" checked="true" />
+					<Label text="#BGM1" id="1" />
 					<Label text="#BGM2" id="2" />
 					<Label text="#BGM3" id="3" />
 					<Label text="#BGM4" id="4" />

@@ -236,15 +236,15 @@ function ClearSearch() {
 
 function ListenToBanningPhase() {
 	DynamicSubscribePTListener('hero_selection_banning_phase', function(tableName, changesObject, deletionsObject) {
-		$.Msg("zuzup3")
 		for (var hero in changesObject) {
 			var heroPanel = $('#HeroListPanel_element_' + hero);
-			if (Number(changesObject[hero]) === Game.GetLocalPlayerID()) {
+			if (Number(changesObject[hero]) === Players.GetTeam(Game.GetLocalPlayerID())) {
 				HasBanPoint = false;
 				if (UpdateSelectionButton) UpdateSelectionButton();
 			}
 			if (heroPanel) heroPanel.AddClass('Banned');
 			BannedHeroes.push(hero);
+			Game.EmitSound('melty_ban');
 		}
 		for (var hero in deletionsObject) {
 			var heroPanel = $('#HeroListPanel_element_' + hero);
