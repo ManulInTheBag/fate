@@ -31,7 +31,7 @@ function jeanne_trail:OnSpellStart()
     if caster.OblivionCorrectionAcquired and caster:FindAbilityByName("jeanne_trail_reactivate"):IsCooldownReady() then
         caster:SwapAbilities("jeanne_trail", "jeanne_trail_reactivate", false, true)
         Timers:CreateTimer(1, function()
-            if caster:GetAbilityByIndex(0):GetName() == "jeanne_trail_reactivate" then
+            if caster:GetAbilityByIndex(1):GetName() == "jeanne_trail_reactivate" then
                 caster:SwapAbilities("jeanne_trail", "jeanne_trail_reactivate", true, false)
             end
         end)

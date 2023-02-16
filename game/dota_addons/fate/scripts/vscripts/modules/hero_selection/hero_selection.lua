@@ -230,20 +230,20 @@ function HeroSelection:StartStateBanDraft()
 	end
 
 	HeroSelection:SetCurrentNumber(HeroSelection:GetCurrentNumber() - 1)
-	if HeroSelection:GetCurrentNumber() == 0 then
-		HeroSelection:SetCurrentNumber(1)
-		if HeroSelection.CurrentTeam == 2 then
-			HeroSelection.CurrentTeam = 3
-		else
-			HeroSelection.CurrentTeam = 2
-		end
-	end
 
 	if HeroSelection:GetBanNumber() == 0 then
 		Timers:CreateTimer("hero_selection_pepega", {
 			endTime = HERO_SELECTION_BANNING_TIME,
 			callback = function()
 				HeroSelection:SetBanNumber(HeroSelection.PlayerCount)
+				if HeroSelection:GetCurrentNumber() == 0 then
+					HeroSelection:SetCurrentNumber(1)
+					if HeroSelection.CurrentTeam == 2 then
+						HeroSelection.CurrentTeam = 3
+					else
+						HeroSelection.CurrentTeam = 2
+					end
+				end
 				HeroSelection:StartStateHeroPickDraft()
 			return end
 		})
@@ -251,6 +251,14 @@ function HeroSelection:StartStateBanDraft()
 		Timers:CreateTimer("hero_selection_pepega", {
 			endTime = HERO_SELECTION_BANNING_TIME,
 			callback = function()
+				if HeroSelection:GetCurrentNumber() == 0 then
+					HeroSelection:SetCurrentNumber(1)
+					if HeroSelection.CurrentTeam == 2 then
+						HeroSelection.CurrentTeam = 3
+					else
+						HeroSelection.CurrentTeam = 2
+					end
+				end
 				HeroSelection:StartStateBanDraft()
 			return end
 		})
@@ -267,14 +275,6 @@ function HeroSelection:StartStateHeroPickDraft()
 	local team = HeroSelection.CurrentTeam
 	local teamtable = {}
 	local counter = 0
-	if HeroSelection:GetCurrentNumber() == 0 then
-		HeroSelection:SetCurrentNumber(2)
-		if HeroSelection.CurrentTeam == 2 then
-			HeroSelection.CurrentTeam = 3
-		else
-			HeroSelection.CurrentTeam = 2
-		end
-	end
 
 
 	local notBanned = {}
@@ -307,6 +307,14 @@ function HeroSelection:StartStateHeroPickDraft()
 					end
 				end
 				HeroSelection.PickedThisRound = false
+				if HeroSelection:GetCurrentNumber() == 0 then
+					HeroSelection:SetCurrentNumber(2)
+					if HeroSelection.CurrentTeam == 2 then
+						HeroSelection.CurrentTeam = 3
+					else
+						HeroSelection.CurrentTeam = 2
+					end
+				end
 				HeroSelection:StartStateStrategy()
 			return end
 		})
@@ -328,6 +336,14 @@ function HeroSelection:StartStateHeroPickDraft()
 					end
 				end
 				HeroSelection.PickedThisRound = false
+				if HeroSelection:GetCurrentNumber() == 0 then
+					HeroSelection:SetCurrentNumber(2)
+					if HeroSelection.CurrentTeam == 2 then
+						HeroSelection.CurrentTeam = 3
+					else
+						HeroSelection.CurrentTeam = 2
+					end
+				end
 				HeroSelection:StartStateHeroPickDraft()
 			return end
 		})

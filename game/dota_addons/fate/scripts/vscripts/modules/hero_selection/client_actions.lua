@@ -5,6 +5,8 @@ function HeroSelection:OnHeroSelectHero(data)
 
 	local team = PlayerResource:GetPlayer(playerId):GetTeamNumber()
 
+	if (team ~= HeroSelection.CurrentTeam) and (_G.GameMap == "7vs7_draft") then return end
+
 	if HeroSelection:GetState() == HERO_SELECTION_PHASE_BANNING and HeroSelection:IsHeroPickAvaliable(hero) then
 		HeroSelection:NominateHeroForBan(team, data.hero)
 	elseif HeroSelection:GetState() >= HERO_SELECTION_PHASE_HERO_PICK and HeroSelection:IsHeroPickAvaliable(hero) then
