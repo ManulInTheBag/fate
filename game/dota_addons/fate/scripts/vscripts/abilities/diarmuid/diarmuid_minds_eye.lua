@@ -32,8 +32,7 @@ function diarmuid_minds_eye:OnSpellStart()
 																		 MagicResist = self:GetSpecialValueFor("magic_res"),
 																		 Evasion = self:GetSpecialValueFor("evasion")})
 end
---[[
+
 function diarmuid_minds_eye:GetIntrinsicModifierName()
 	return "modifier_minds_eye_aura"
 end
-]]

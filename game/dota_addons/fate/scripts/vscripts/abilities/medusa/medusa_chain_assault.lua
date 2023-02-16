@@ -506,7 +506,7 @@ function modifier_medusa_chain_movement:PlayEffects()
 			local knockback = { should_stun = false,
 	                                knockback_duration = 0.05,
 	                                duration = 0.05,
-	                                knockback_distance = 50 or 0,
+	                                knockback_distance = 75 or 0,
 	                                knockback_height = 30,
 	                                center_x = kborigin.x,
 	                                center_y = kborigin.y,

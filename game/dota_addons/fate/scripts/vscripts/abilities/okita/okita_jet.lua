@@ -34,6 +34,7 @@ function okita_jet:OnSpellStart()
 	local caster = self:GetCaster()
 	EmitGlobalSound("okita_jet_cast_new")
 	self.channelTime = 0
+	caster:RemoveModifierByName("modifier_okita_sandanzuki_charge")
 	--local kappapride = "at_vinta"..math.random(1,2)
 	LoopOverPlayers(function(player, playerID, playerHero)
         --print("looping through " .. playerHero:GetName())

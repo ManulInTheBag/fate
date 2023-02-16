@@ -89,7 +89,7 @@ function OnGalatineStart(keys)
 	local diff = caster:GetForwardVector()
 	local timeElapsed = 0
 	local flyingDist = 0
-	local orbVelocity = 60
+	local orbVelocity = 90
 	local fireTrailDuration = 3
 	local damage = keys.Damage
 	local InFirstLoop = true
@@ -123,7 +123,7 @@ function OnGalatineStart(keys)
 	end
 
 	-- Checks if Gawain is still alive as well as whether or not it overshot where the player intended it to flew.. or it flew for too long
-	Timers:CreateTimer(2.0, function()
+	Timers:CreateTimer(1.5, function()
 		if caster:IsAlive() and timeElapsed < 1.5 and caster.IsGalatineActive and flyingDist < dist then
 			-- Need to initialize the variables and put in Gawain's detonate Galatine ability
 			if InFirstLoop then
