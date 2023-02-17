@@ -3095,13 +3095,14 @@
 		"DOTA_Tooltip_Ability_okita_weak_constitution_summer_Description"	"If you see this, Okita is successfully cured from tuberculosis!\nI wonder if she can do something mad because of her happiness though..."
 
 		"DOTA_Tooltip_Ability_okita_jet"	"Summer Madness: Jet Sandan-Zuki"
-		"DOTA_Tooltip_Ability_okita_jet_Description"	"Okita uses an overhelmingly mad Noble Phantasm, that she invented during her summer vacation.\nOkita starts charging her jetpack. If she charged the ability for at least 1 second, after releasing it she will fly towards the targetted location. Maximum flight distance depends on how long did she charge her jetpack. All targets she hits on her way will suffer huge damage in 3 impacts dealt as magical damage after a brief delay. Damage is based on her level.\nKiku Ichimongii attribute buffs this damage.\nOkita is revealed to her enemies for the flight duration and for 3 seconds after it ends.\nCooldown: 90 seconds.\n<font color='#58ACFA'>Good luck, commander.</font>"
+		"DOTA_Tooltip_Ability_okita_jet_Description"	"Okita uses an overhelmingly mad Noble Phantasm, that she invented during her summer vacation.\nOkita starts charging her jetpack. If she charged the ability for at least 1 second, after releasing it she will fly towards the targetted location. Maximum flight distance depends on how long did she charge her jetpack. All targets she hits on her way will suffer huge damage in 3 impacts dealt as magical damage after a brief delay. Damage is increased with Okita's level.\nKiku Ichimongii attribute buffs this damage.\nOkita is revealed to her enemies for the flight duration and for 3 seconds after it ends.\n Using this ability will stop Mumyou Sandan-Zuki if it is active during Jet's activation. \nCooldown: 90 seconds.\n<font color='#58ACFA'>Good luck, commander.</font>"
 		"DOTA_Tooltip_Ability_okita_jet_dist_min"	"Min distance:"
 		"DOTA_Tooltip_Ability_okita_jet_dist_max"	"Max distance:"
 		"DOTA_Tooltip_Ability_okita_jet_speed"	"Speed:"
 		"DOTA_Tooltip_Ability_okita_jet_max_channel_time"	"Maximum channel time:"
 		"DOTA_Tooltip_Ability_okita_jet_radius"	"Hit radius:"
-		"DOTA_Tooltip_Ability_okita_jet_dmg_level"	"dmg per level"
+		"DOTA_Tooltip_Ability_okita_jet_radius"	"Base damage:"
+		"DOTA_Tooltip_Ability_okita_jet_dmg_level"	"Damage per level"
 
 		"DOTA_Tooltip_Ability_okita_jet_charge1"	"First Dash"
 		"DOTA_Tooltip_Ability_okita_jet_charge1_Description" 	"Performs first dash."
@@ -4118,7 +4119,7 @@
         "DOTA_Tooltip_ability_diarmuid_love_spot_Lore"  			"Diarmuid gives the term 'devilish look' a whole new meaning."
 
         "DOTA_Tooltip_Ability_diarmuid_minds_eye"					"Mind's Eye"
-        "DOTA_Tooltip_ability_diarmuid_minds_eye_Description"		"Active: For a very short duration, gain increased evasion and blocks the next targetted spell. Reveals all nearby enemies within a large area of effect."     
+        "DOTA_Tooltip_ability_diarmuid_minds_eye_Description"		"Active: For a very short duration, gain increased evasion and blocks the next targetted spell. Reveals all nearby enemies within a large area of effect. \n Passive: Grants vision of nearby enemies within smaller radius."     
         "DOTA_Tooltip_Ability_diarmuid_minds_eye_evasion"			"Active Evasion:"
         "DOTA_Tooltip_Ability_diarmuid_minds_eye_duration"			"Active Duration:"
 
@@ -4174,7 +4175,7 @@
         "DOTA_Tooltip_Ability_diarmuid_attribute_love_spot_range"			"Bonus range:"
  
         "DOTA_Tooltip_Ability_diarmuid_attribute_minds_eye"					"Attribute: Mind's Eye"
-        "DOTA_Tooltip_ability_diarmuid_attribute_minds_eye_Description"		"When activated, Diarmuid gains evasion for a short duration and blocks first targeted spell. Activating Mind's Eye also reveals all enemies within a large area of effect."
+        "DOTA_Tooltip_ability_diarmuid_attribute_minds_eye_Description"		"When activated, Diarmuid gains evasion for a short duration and blocks first targeted spell. Activating Mind's Eye also reveals all enemies within a large area of effect. \n Passive: Grants vision of nearby enemies within smaller radius."
         "DOTA_Tooltip_Ability_diarmuid_attribute_minds_eye_duration"		"Vision Duration:"
         "DOTA_Tooltip_Ability_diarmuid_attribute_minds_eye_radius"			"Vision Radius:"
         "DOTA_Tooltip_Ability_diarmuid_attribute_minds_eye_active_duration"	"Active Duration:"
