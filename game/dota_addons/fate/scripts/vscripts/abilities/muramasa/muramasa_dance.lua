@@ -29,7 +29,18 @@ function muramasa_dance:OnSpellStart()
  end
  caster:FindAbilityByName("muramasa_dance_upgraded"):StartCooldown(caster:FindAbilityByName("muramasa_dance_upgraded"):GetCooldown(caster:FindAbilityByName("muramasa_dance_upgraded"):GetLevel()))
  caster.lastdance = true
- caster:SwapAbilities("muramasa_dance", "muramasa_dance_stop",false , true)
+ Timers:CreateTimer(0.3, function()
+   if(caster:GetAbilityByIndex(0):GetName() =="muramasa_dance") then
+      caster:SwapAbilities("muramasa_dance", "muramasa_dance_stop", false, true)
+   end
+ end)
+ 
+ Timers:CreateTimer(1.5, function()
+   if(caster:GetAbilityByIndex(0):GetName() =="muramasa_dance_stop") then
+      caster:SwapAbilities("muramasa_dance", "muramasa_dance_stop", true, false)
+   end
+
+ end)
 if( caster:GetAbilityByIndex(1):GetName() ~="muramasa_throw") then
    caster:SwapAbilities("muramasa_throw", "muramasa_throw_upgraded", true, false)
 end
@@ -43,12 +54,7 @@ end
  self.attacks_completed = 0
  local counter = 0
 
- Timers:CreateTimer(1.55, function()
-   if(caster:GetAbilityByIndex(0):GetName() =="muramasa_dance_stop") then
-      caster:SwapAbilities("muramasa_dance", "muramasa_dance_stop", true, false)
-   end
-
- end)
+ 
  Timers:CreateTimer(0, function()
    if(counter == 15  ) then return end
       if(caster:IsStunned() == true) then

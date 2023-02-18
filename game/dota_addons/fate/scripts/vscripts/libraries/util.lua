@@ -271,7 +271,8 @@ cleansable = {
     "modifier_medusa_breaker_facing",
     "modifier_medusa_breaker_facing_stack",
     "modifier_medusa_breaker_not_facing",
-    "modifier_saito_slow",
+    "modifier_saito_steelwing_mss",
+   -- "modifier_saito_slow",
     "modifier_morgan_slow",
     "modifier_muramasa_tsumukari_hit_slow",
     "modifier_nobu_slow",
@@ -325,6 +326,7 @@ cleansable = {
     "modifier_ryougi_knife_fan_slow",
     "modifier_arcueid_shut_up_slow",
     "modifier_leonidas_enomotia_slow",
+    "modifier_saito_shadowslash_mrr",
 }
 
 slowmodifier = {
@@ -520,21 +522,30 @@ CannotReset = {
     "medusa_breaker",
     "medusa_monstrous_strength",
     "nero_heat",
-    "saito_undefeatable_style",
-    "saito_undefeatable_style_active",
+
+    "saito_style",
+ 
+
     "gilles_prelati_spellbook",
     "emiya_rho_aias",
     "atalanta_crossing_arcadia",
+    "nero_aestus_domus_aurea",
+    "gilgamesh_enkidu",
+    "arturia_alter_mana_discharge",
+
     "merlin_avalon",
     "merlin_hero_creation",
     "merlin_garden_of_avalon",
-    "arturia_alter_mana_discharge",
+
+ 
     "okita_mind_eye",
     "okita_zekken",
+
     "muramasa_tsumukari_combo",
-    "nero_aestus_domus_aurea",
-    "gilgamesh_enkidu",
     "muramasa_eye_of_karma",
+
+ 
+    
     "ryougi_backflip",
     "ryougi_collapse",
 
@@ -617,6 +628,7 @@ tItemComboTable = {
 
 tModifierKBImmune = {
     "modifier_avalon",
+    "modifier_merlin_avalon_self",
     "modifier_leonidas_enomotia_ignore_motion_controll"
 }
 
@@ -1225,12 +1237,14 @@ function IsSpellBlocked(target)
         ParticleManager:CreateParticle("particles/items_fx/immunity_sphere.vpcf", PATTACH_ABSORIGIN, target)
         target:RemoveModifierByName("modifier_saito_mind_eye")
         return true
-    elseif target:HasModifier("modifier_saito_combo_spellblock") then
-        local ability = target:FindModifierByName("modifier_saito_combo_spellblock"):GetAbility()
-        ability:OnFateSpellBlocked()
+    elseif target:HasModifier("modifier_saito_mind_eye_linken") then
         EmitSoundWithCooldown("DOTA_Item.LinkensSphere.Activate", target, 1)
-        ParticleManager:CreateParticle("particles/items_fx/immunity_sphere.vpcf", PATTACH_ABSORIGIN, target)
-        target:RemoveModifierByName("modifier_saito_combo_spellblock")
+        ParticleManager:CreateParticle("particles/heroes/saito/saito_mind_eye_linken_release.vpcff", PATTACH_ABSORIGIN, target)
+        target:RemoveModifierByName("modifier_saito_mind_eye_linken")
+        return true
+    elseif target:HasModifier("modifier_saito_style_active") then
+        EmitSoundWithCooldown("DOTA_Item.LinkensSphere.Activate", target, 1)
+        ParticleManager:CreateParticle("particles/heroes/saito/saito_mind_eye_linken_release.vpcf", PATTACH_ABSORIGIN, target)
         return true
     else
         return false
@@ -1722,6 +1736,7 @@ function DoDamage(source, target , dmg, dmg_type, dmg_flag, abil, isLoop)
         if target:HasModifier("modifier_share_damage")
           and not isLoop
           and not (abil:GetName() == "avenger_verg_avesta" and source:GetTeam() == target:GetTeam())
+          and not target:HasModifier("modifier_leonidas_pride_counter")
          --Queens glass game attribute fix
           and not (target:HasModifier("modifier_queens_glass_game_check_link") and not target:HasModifier("modifier_qgg_oracle")) 
           and target.linkTable ~= nil

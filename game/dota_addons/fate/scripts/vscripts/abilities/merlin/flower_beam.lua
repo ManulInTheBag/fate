@@ -73,10 +73,10 @@ function flower_beam:OnSpellStart()
 	 end)
 	 illusion[1]:SetForwardVector(caster:GetForwardVector())
 	 StartAnimation( illusion[1], {duration=1, activity=ACT_DOTA_CAST_ABILITY_1, rate=1})
-	 
+	 local start_location = illusion[1]:GetAttachmentOrigin(2) 
 	Timers:CreateTimer(0.1, function() 
 		if( not caster:IsAlive()) then return end
-		local start_location = illusion[1]:GetAttachmentOrigin(2) 
+		
 		if(beam_counter == beam_counter_starting) then
 			 beam_particle = ParticleManager:CreateParticle("particles/merlin/merlin_beam.vpcf", PATTACH_CUSTOMORIGIN, nil)
 			ParticleManager:SetParticleControl( beam_particle, 1, start_location) 
@@ -135,7 +135,9 @@ end
 
 
 function modifier_merlin_self_slow:OnDestroy() 
-	self:GetParent():ForceKill(false)
+	if(IsServer) then
+		self:GetParent():ForceKill(false)
+	end
 end
 
  

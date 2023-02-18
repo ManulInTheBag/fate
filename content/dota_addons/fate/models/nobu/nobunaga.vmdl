@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc31:version{165d48dd-8adc-4f1d-abf7-4992e04ad577} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc32:version{c5dcef98-b629-46ab-88e3-a17c005c935e} -->
 {
 	rootNode = 
 	{
@@ -142,19 +142,19 @@
 								_class = "AnimForceBonePosition"
 								bone = "Box64"
 								translation = [ 35.0, -48.0, 120.0 ]
-								rotation_xyz = [ 70.0, 55.0, 155.0 ]
+								rotation = [ 55.0, 155.0, 70.0 ]
 							},
 							{
 								_class = "AnimForceBonePosition"
 								bone = "Box11"
 								translation = [ -15.0, 34.0, 162.0 ]
-								rotation_xyz = [ 45.0, 210.0, -30.0 ]
+								rotation = [ 210.0, -30.0, 45.0 ]
 							},
 							{
 								_class = "AnimForceBonePosition"
 								bone = "Box65"
 								translation = [ -4.0, 10.0, 130.0 ]
-								rotation_xyz = [ 45.0, 0.0, -45.0 ]
+								rotation = [ 0.0, -45.0, 45.0 ]
 							},
 						]
 						activity_name = "ACT_DOTA_IDLE"
@@ -362,99 +362,6 @@
 					{
 						_class = "AnimFile"
 						name = "nobu_preapare_to_double"
-						children = 
-						[
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 0
-								event_keys = 
-								{
-									bodygroup = "one_gun"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 2
-								event_keys = 
-								{
-									bodygroup = "one_gun"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 3
-								event_keys = 
-								{
-									bodygroup = "one_gun"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 4
-								event_keys = 
-								{
-									bodygroup = "one_gun"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 5
-								event_keys = 
-								{
-									bodygroup = "one_gun"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 6
-								event_keys = 
-								{
-									bodygroup = "one_gun"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 7
-								event_keys = 
-								{
-									bodygroup = "one_gun"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 8
-								event_keys = 
-								{
-									bodygroup = "one_gun"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 1
-								event_keys = 
-								{
-									bodygroup = "one_gun"
-									value = 1
-								}
-							},
-						]
 						activity_name = "ACT_DOTA_CAST_ABILITY_3"
 						activity_weight = 1
 						weight_list_name = ""
@@ -477,299 +384,6 @@
 					{
 						_class = "AnimFile"
 						name = "nobu_shooting"
-						children = 
-						[
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 1
-								event_keys = 
-								{
-									bodygroup = "one_gun"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 2
-								event_keys = 
-								{
-									bodygroup = "one_gun"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 3
-								event_keys = 
-								{
-									bodygroup = "one_gun"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 4
-								event_keys = 
-								{
-									bodygroup = "one_gun"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 5
-								event_keys = 
-								{
-									bodygroup = "one_gun"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 6
-								event_keys = 
-								{
-									bodygroup = "one_gun"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 7
-								event_keys = 
-								{
-									bodygroup = "one_gun"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 8
-								event_keys = 
-								{
-									bodygroup = "one_gun"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 9
-								event_keys = 
-								{
-									bodygroup = "one_gun"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 10
-								event_keys = 
-								{
-									bodygroup = "one_gun"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 11
-								event_keys = 
-								{
-									bodygroup = "one_gun"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 12
-								event_keys = 
-								{
-									bodygroup = "one_gun"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 13
-								event_keys = 
-								{
-									bodygroup = "one_gun"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 14
-								event_keys = 
-								{
-									bodygroup = "one_gun"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 15
-								event_keys = 
-								{
-									bodygroup = "one_gun"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 16
-								event_keys = 
-								{
-									bodygroup = "one_gun"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 17
-								event_keys = 
-								{
-									bodygroup = "one_gun"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 18
-								event_keys = 
-								{
-									bodygroup = "one_gun"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 19
-								event_keys = 
-								{
-									bodygroup = "one_gun"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 20
-								event_keys = 
-								{
-									bodygroup = "one_gun"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 21
-								event_keys = 
-								{
-									bodygroup = "one_gun"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 22
-								event_keys = 
-								{
-									bodygroup = "one_gun"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 23
-								event_keys = 
-								{
-									bodygroup = "one_gun"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 24
-								event_keys = 
-								{
-									bodygroup = "one_gun"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 25
-								event_keys = 
-								{
-									bodygroup = "one_gun"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 26
-								event_keys = 
-								{
-									bodygroup = "one_gun"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 27
-								event_keys = 
-								{
-									bodygroup = "one_gun"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 28
-								event_keys = 
-								{
-									bodygroup = "one_gun"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 0
-								event_keys = 
-								{
-									bodygroup = "one_gun"
-									value = 1
-								}
-							},
-						]
 						activity_name = "ACT_DOTA_CAST_ABILITY_3_END"
 						activity_weight = 1
 						weight_list_name = ""
@@ -960,7 +574,7 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -11.957176, -42.229492, -23.033386 ]
+								hitbox_mins = [ -11.957176, -58.208782, -23.033386 ]
 								hitbox_maxs = [ 1.204308, 5.384161, 2.290405 ]
 							},
 							{
@@ -1070,8 +684,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -6.120621, -19.611664, -26.472519 ]
-								hitbox_maxs = [ 31.482372, 19.842934, 4.266479 ]
+								hitbox_mins = [ -6.120621, -19.611664, -32.300705 ]
+								hitbox_maxs = [ 45.728123, 19.842934, 4.266479 ]
 							},
 							{
 								_class = "Hitbox"
@@ -1080,8 +694,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -3.202332, -8.942003, -49.621059 ]
-								hitbox_maxs = [ 44.612656, 8.277136, 3.808472 ]
+								hitbox_mins = [ -6.909855, -13.3666, -49.621059 ]
+								hitbox_maxs = [ 52.715015, 8.277136, 7.293732 ]
 							},
 							{
 								_class = "Hitbox"
@@ -1500,7 +1114,7 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -22.524086, -11.15605, -22.387428 ]
+								hitbox_mins = [ -22.524086, -19.901485, -22.387428 ]
 								hitbox_maxs = [ 22.5961, 14.013157, 1.334869 ]
 							},
 							{
@@ -1530,8 +1144,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -11.813206, -12.420267, -56.89893 ]
-								hitbox_maxs = [ 17.923035, 18.549133, 1.360168 ]
+								hitbox_mins = [ -11.813206, -14.793825, -63.408535 ]
+								hitbox_maxs = [ 22.565636, 18.549133, 1.360168 ]
 							},
 							{
 								_class = "Hitbox"
@@ -1541,7 +1155,7 @@
 								translation_only = false
 								group_id = 0
 								hitbox_mins = [ -12.944839, -12.217367, -59.673653 ]
-								hitbox_maxs = [ 16.807266, 17.74493, 0.969475 ]
+								hitbox_maxs = [ 21.538784, 17.74493, 0.969475 ]
 							},
 							{
 								_class = "Hitbox"
@@ -1560,8 +1174,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -17.778339, -12.308861, -56.960346 ]
-								hitbox_maxs = [ 11.957848, 18.66074, 1.298859 ]
+								hitbox_mins = [ -24.167889, -14.475414, -76.63459 ]
+								hitbox_maxs = [ 17.897484, 18.66074, 1.298859 ]
 							},
 							{
 								_class = "Hitbox"
@@ -1570,8 +1184,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -16.596088, -12.478039, -59.635113 ]
-								hitbox_maxs = [ 13.157005, 17.484257, 1.008057 ]
+								hitbox_mins = [ -21.474007, -15.476936, -76.185814 ]
+								hitbox_maxs = [ 20.621248, 17.484257, 1.008057 ]
 							},
 							{
 								_class = "Hitbox"

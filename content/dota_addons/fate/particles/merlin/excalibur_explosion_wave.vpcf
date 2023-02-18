@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf45:version{73c3d623-a141-4df2-b548-41dd786e6300} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf51:version{6d03d500-2498-454e-b833-f654e870bb3d} -->
 {
 	_class = "CParticleSystemDefinition"
 	m_bShouldHitboxesFallbackToRenderBounds = false
@@ -101,7 +101,6 @@
 			_class = "C_INIT_RingWave"
 			m_bEvenDistribution = true
 			m_flParticlesPerOrbit = 31.5
-			m_nControlPointNumber = 5
 			m_flInitialRadius = 
 			{
 				m_nType = "PF_TYPE_LITERAL"
@@ -776,6 +775,10 @@
 				m_vRandomMin = [ 0.0, 0.0, 0.0 ]
 				m_vRandomMax = [ 0.0, 0.0, 0.0 ]
 			}
+			m_TransformInput = 
+			{
+				m_nType = "PT_TYPE_CONTROL_POINT"
+			}
 		},
 	]
 	m_Operators = 
@@ -872,7 +875,7 @@
 			m_vecTexturesInput = 
 			[
 				{
-					m_hTexture = resource:"materials/particle/beam_crack_04.vtex"
+					m_hTexture = resource:"materials/particle/beam_fleks.vtex"
 				},
 			]
 			m_nOutputBlendMode = "PARTICLE_OUTPUT_BLEND_MODE_ADD"
@@ -890,10 +893,16 @@
 			m_vecTexturesInput = 
 			[
 				{
-					m_hTexture = resource:"materials/particle/beam_generic_6.vtex"
+					m_hTexture = resource:"materials/particle/beam_generic_2.vtex"
 				},
 			]
 			m_nOutputBlendMode = "PARTICLE_OUTPUT_BLEND_MODE_ADD"
+		},
+	]
+	m_Children = 
+	[
+		{
+			m_ChildRef = resource:"particles/merlin/merlin_pull_2.vpcf"
 		},
 	]
 }

@@ -7560,7 +7560,7 @@
 		"npc_dota_hero_puck_bio"						""
 
         "DOTA_Tooltip_ability_flower_beam"							"Flower beam"
-        "DOTA_Tooltip_ability_flower_beam_Description"			"Vector target. Merlin creates an image of him shooting a laser, which travels along the selected vector, dealing damage to all enemies on its path, which scales with the enemy max health. Beam applies a slow effect on each hit"
+        "DOTA_Tooltip_ability_flower_beam_Description"			"Vector target. Merlin creates an image of him shooting a laser, which travels along the selected vector, dealing damage to all enemies on its path, which scales with the enemy max health.\nBeam applies a slow effect on each hit"
         
         "DOTA_Tooltip_ability_flower_beam_range"					"Range:"
         "DOTA_Tooltip_ability_flower_beam_damage"					"Damage per tick:"
@@ -7581,7 +7581,7 @@
 	 
 
         "DOTA_Tooltip_ability_merlin_illusion"					"Illusion"
-        "DOTA_Tooltip_ability_merlin_illusion_Description"	 	"Merlin sends an illusion on enemies in the radius, sending them to sleep. Sleep duration decreases with amount of enemies hit. Enemy will awake if total damage he received under this effect will be greater than threshold."
+        "DOTA_Tooltip_ability_merlin_illusion_Description"	 	"Merlin sends an illusion on enemies in the radius, sending them to sleep.\nSleep duration decreases with amount of enemies hit.\nEnemy will awake if total damage he received under this effect will be greater than threshold.\nIf same enemy gets caught in sleep more than once in 5 seconds, sleep duration will be minimazed for that enemy."
         "DOTA_Tooltip_ability_merlin_illusion_basic_duration"			"Sleep base duration:"
         "DOTA_Tooltip_ability_merlin_illusion_min_duration"				"Sleep minimum duration:"
         "DOTA_Tooltip_ability_merlin_illusion_damage_to_awake"			"Damage to awake:"
@@ -7613,7 +7613,7 @@
  
 
         "DOTA_Tooltip_ability_merlin_hero_creation"						"Hero creation"
-        "DOTA_Tooltip_ability_merlin_hero_creation_Description"			"Merlin buffs one of his allies or himself, granting his target greatly increase in his main attribute and movement speed. Buff amount increases even further for each ally around the new created Hero."
+        "DOTA_Tooltip_ability_merlin_hero_creation_Description"			"Merlin buffs one of his allies or himself, granting his target greatly increase in his main attribute, movement speed and 10% spell lifesteal. \nMS and stat buff amount increases even further for each ally around the new created Hero."
         "DOTA_Tooltip_ability_merlin_hero_creation_base_stat_bonus"						"Base stat bonus:"
         "DOTA_Tooltip_ability_merlin_hero_creation_ms_base"								"%Base ms:"
         "DOTA_Tooltip_ability_merlin_hero_creation_duration"							"Duration:"
@@ -7634,7 +7634,7 @@
   
 
 		"DOTA_Tooltip_ability_merlin_garden_of_avalon"						"Combo: Garden of Avalon"
-        "DOTA_Tooltip_ability_merlin_garden_of_avalon_Description"			"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: D-E in 1 second</font>\nMerlin materialises the Garden of Avalon into this world after a chant. While chanting Merlin is silenced and muted. When the chant is finished, merlin will get a 70% resistance to any harm, while all his allies gain huge health and mana regeneration and all debuff cleanse every 0.1 seconds. When the garden is fully materialised, Merlin can stop it by using an ability in the Avalon slot"
+        "DOTA_Tooltip_ability_merlin_garden_of_avalon_Description"			"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: D-E in 1 second</font>\nMerlin materialises the Garden of Avalon into this world after a chant. While chanting Merlin is silenced and muted.\n When the chant is finished, merlin will get a 70% resistance to any harm, while all his allies gain huge health and mana regeneration and all debuff cleanse every 0.1 seconds.\nWhen the garden is fully materialised, Merlin can stop it by using an ability in the Avalon slot. Merlin is immune to knockback while casting."
         "DOTA_Tooltip_abilitymerlin_garden_of_avalon_radius"					"Radius:"
         "DOTA_Tooltip_ability_merlin_garden_of_avalon_duration_visible"			"Garden duration:"
 		"DOTA_Tooltip_ability_merlin_garden_of_avalon_health_regen_bonus"		"%Health regeneration:"
@@ -7649,7 +7649,7 @@
  
 
         "DOTA_Tooltip_ability_merlin_independent_manifestation_attribute"				"Attribute: Independent manifestation"
-        "DOTA_Tooltip_ability_merlin_independent_manifestation_attribute_Description"	"Upgrades Avalon increasing its range, duration and decreasing cooldown. If Avalon release was casted close to an enemy, merlin will strike him with his staff on appearance, dealing damage and dimensionally locking him."
+        "DOTA_Tooltip_ability_merlin_independent_manifestation_attribute_Description"	"Upgrades Avalon increasing its range, duration and decreasing cooldown.\nIf Avalon release was casted close to an enemy, merlin will strike him with his staff on appearance, dealing damage and dimensionally locking him."
         "DOTA_Tooltip_ability_merlin_independent_manifestation_attribute_duration"				"lock duration:"
         "DOTA_Tooltip_ability_merlin_independent_manifestation_attribute_att_search_radius"		"Search radius:"
         "DOTA_Tooltip_ability_merlin_independent_manifestation_attribute_att_damage"			"Damage:"
@@ -7660,7 +7660,7 @@
  
 
         "DOTA_Tooltip_ability_merlin_hero_creation_attribute"				"Attribute: Hero creation"
-        "DOTA_Tooltip_ability_merlin_hero_creation_attribute_Description"	"Unlocks hero creation \nHero creation:Merlin buffs one of his allies or himself, granting his target greatly increase in his main attribute and movement speed. Buff amount increases even further for each ally around the new created Hero."
+        "DOTA_Tooltip_ability_merlin_hero_creation_attribute_Description"	"Unlocks hero creation \nHero creation:Merlin buffs one of his allies or himself, granting his target greatly increase in his main attribute, movement speed and 10% spell lifesteal.\nMS and stat buff amount increases even further for each ally around the new created Hero."
         "DOTA_Tooltip_ability_merlin_hero_creation_attribute_base_stat_bonus."						"Base stat bonus:"
         "DOTA_Tooltip_ability_merlin_hero_creation_attribute_ms_base"								"%Base ms:"
         "DOTA_Tooltip_ability_merlin_hero_creation_attribute_duration"							"Duration:"
@@ -7674,7 +7674,7 @@
  
 
         "DOTA_Tooltip_ability_merlin_king_assistant_attribute"				"Attribute: King's assistant"
-        "DOTA_Tooltip_ability_merlin_king_assistant_attribute_Description"	"Increases Excalibur on-hit damage based on INT, each time Merlin uses an ability he gains a stackable refreshing attack speed buff, capped at 6. Also increase Excalibur damage based on Merlin INT "
+        "DOTA_Tooltip_ability_merlin_king_assistant_attribute_Description"	"Increases Excalibur on-hit damage based on INT, each time Merlin uses an ability he gains a stackable refreshing attack speed buff, capped at 6.\nIncrease Excalibur damage based on Merlin INT "
         "DOTA_Tooltip_ability_merlin_king_assistant_attribute_att_attackspeed_per_stack" 		"Attack speed per stack:"
         "DOTA_Tooltip_ability_merlin_king_assistant_attribute_att_duration" 					"Attackspeed duration:"
  		"DOTA_Tooltip_ability_merlin_king_assistant_attribute_dmg_per_int" 						"Dmg per int:"

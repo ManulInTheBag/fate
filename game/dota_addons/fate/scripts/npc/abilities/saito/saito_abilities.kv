@@ -21,7 +21,7 @@
 		"SpellImmunityType"							"SPELL_IMMUNITY_ENEMIES_NO"
 		"SpellDispellableType"						"SPELL_DISPELLABLE_YES"		//This line is only for visuals on the HUD. In Lua for this by default it uses IsPurgable(), and IsPurgeException() for with strong dispels.
 
-		"AbilityCastPoint"							"0.25"
+		"AbilityCastPoint"							"0.20"
 		"AbilityCooldown"							"15"		//The cooldown that will start for each ability is different, so you can change it here, and this ability will have a cooldown with that number, along with the cooldown of F ability.
 		"AbilityManaCost"							"100"
 		//"AbilityCastRange"						""		//Cast Range should be 0 as this is a global ability, the range is capped in Lua basically.
@@ -90,7 +90,7 @@
 		"AbilityValues"
 		{
 			"radius"								"350"
-			"stun_duration"							"0.25"
+			"stun_duration"							"0.3"
 			"damage"								"120 140 160 180 200"
 			"repeat_halver_count_need"				"2"
 			"combo_cooldown"						"3"
@@ -138,7 +138,7 @@
 			"pull_radius"							"360"
 			"pull_damage"							"150 180 210 240 270"
 			"burst_radius"							"240"
-			"burst_stun_duration"					"0"
+			"burst_stun_duration"					"0.15"
 			"burst_delay"							"0.5"
 			"burst_damage_pct"						"30"
 			"repeat_halver_count_need"				"2"
@@ -234,8 +234,8 @@
 			"check_interval"						"1.7"		//Core number values.
 			"check_decreaser"						"0.05"		//Core number values.
 			"locker_time_combo"						"0.1"
-			"locker_time"							"0.1"		//Core number values.
-			"locker_increaser"						"0.05"		//Core number values.
+			//"locker_time"							"0.1"		//Core number values.
+			//"locker_increaser"						"0.05"		//Core number values.
 			"active_duration"						"6 6.5 7 7.5 8"
 			"active_mp_gain"						"80 90 100 110 120"
 			"active_hp_gain"						"0"
@@ -587,7 +587,7 @@
 		"AbilityUnitTargetTeam"						"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 
 		"AbilityCooldown"							"9999"
-		"AbilityManaCost"							"15"
+		"AbilityManaCost"							"14"
 
 		"MaxLevel"									"1"
 		"RequiredLevel"								"1"
@@ -621,7 +621,7 @@
 		"AbilityUnitTargetTeam"						"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 
 		"AbilityCooldown"							"9999"
-		"AbilityManaCost"							"16"
+		"AbilityManaCost"							"12"
 
 		"MaxLevel"									"1"
 		"RequiredLevel"								"1"

@@ -28,15 +28,19 @@ function muramasa_dance_upgraded:OnSpellStart()
   caster.targetqenemy = nil
 end
  caster:FindAbilityByName("muramasa_dance"):StartCooldown(caster:FindAbilityByName("muramasa_dance"):GetCooldown(caster:FindAbilityByName("muramasa_dance"):GetLevel()))
- caster:SwapAbilities("muramasa_dance_upgraded", "muramasa_dance_stop",false , true)
  if( caster:GetAbilityByIndex(1):GetName() ~="muramasa_throw") then
   caster:SwapAbilities("muramasa_throw", "muramasa_throw_upgraded", true, false)
 end
 if( caster:GetAbilityByIndex(2):GetName() ~="muramasa_rush") then
   caster:SwapAbilities("muramasa_rush", "muramasa_rush_upgraded", true, false)
 end
+Timers:CreateTimer(0.3, function()
+  if(caster:GetAbilityByIndex(0):GetName() =="muramasa_dance_upgraded") then
+     caster:SwapAbilities("muramasa_dance_upgraded", "muramasa_dance_stop", false, true)
+  end
 
-Timers:CreateTimer(1.55, function()
+end)
+Timers:CreateTimer(1.5, function()
   if(caster:GetAbilityByIndex(0):GetName() =="muramasa_dance_stop") then
      caster:SwapAbilities("muramasa_dance", "muramasa_dance_stop", true, false)
   end

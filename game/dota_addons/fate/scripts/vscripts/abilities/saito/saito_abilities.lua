@@ -561,12 +561,12 @@ function modifier_saito_style_active:OnTakeDamage(keys)
         end
     end
 end
--- function modifier_saito_style_active:GetAbsorbSpell(keys) --It's just the default linken for D2. --Uncomment if want to use, commented because who knows maybe somewhere F/A 2 checks it out...
---     if IsServer() then
---         --Here write anything when linken procs.
---         return 1
---     end
--- end
+ --function modifier_saito_style_active:GetAbsorbSpell(keys) --It's just the default linken for D2. --Uncomment if want to use, commented because who knows maybe somewhere F/A 2 checks it out...
+  --  if IsServer() then
+        --Here write anything when linken procs.
+    --    return 1
+   -- end
+--end
 function modifier_saito_style_active:OnCreated(tTable)
     self.hCaster  = self:GetCaster()
     self.hParent  = self:GetParent()
@@ -882,7 +882,8 @@ function modifier_saito_flashblade_motion:OnCreated(tTable)
         end
 
         self.sEmitSound = "Saito.Flashblade.Cast"
-        EmitSoundOn(self.sEmitSound, self.hParent)
+        self.hParent:EmitSound(self.sEmitSound)
+      
     end
 end
 function modifier_saito_flashblade_motion:OnRefresh(tTable)
@@ -1180,7 +1181,7 @@ function saito_steelwing:DoClapEffect(hCaster)
                         ParticleManager:SetParticleControl(nClapPFX, 1, Vector(self:GetAOERadius(), 0, 0))
                         ParticleManager:ReleaseParticleIndex(nClapPFX)
 
-    EmitSoundOnLocationWithCaster(hCaster:GetAbsOrigin(), "Saito.Steelwing.Cast", hCaster)
+    hCaster:EmitSound("Saito.Steelwing.Cast")
 end
 
 ---------------------------------------------------------------------------------------------------------------------
@@ -1389,8 +1390,9 @@ function saito_shadowslash:DoPullEffect(hCaster, nRadius)
                         --ParticleManager:DestroyParticle(nPullPFX, false)
                         ParticleManager:ReleaseParticleIndex(nPullPFX)
 
-    EmitSoundOnLocationWithCaster(hCaster:GetAbsOrigin(), "Saito.Shadowslash.Cast", hCaster)
-    EmitSoundOn("Saito.Formless.Slash.Cast", hCaster)
+
+    hCaster:EmitSound("Saito.Formless.Slash.Cast")
+    hCaster:EmitSound("Saito.Shadowslash.Cast")
 end
 function saito_shadowslash:PullTargetEffect(hTarget, vOldLoc)
     local sPullPFX = "particles/heroes/saito/saito_shadowslash_pull.vpcf"
@@ -1710,7 +1712,7 @@ function modifier_saito_mind_eye_active:CastPFX(hTarget)
     --                                                             )
     --                     ParticleManager:ReleaseParticleIndex(nCastPFX)
 
-    EmitSoundOn("Saito.MindEye.Cast", hTarget)
+    hTarget:EmitSound("Saito.MindEye.Cast")
 end
 function modifier_saito_mind_eye_active:GetEffectName()
     return "particles/heroes/saito/saito_mind_eye_buff.vpcf"
@@ -1901,8 +1903,9 @@ function saito_fds:OnSpellStart()
                                                                 )
                         ParticleManager:ReleaseParticleIndex(nCastPFX)
 
-    EmitSoundOn("Saito.FDS.Cast", hCaster)
-    EmitSoundOn("Saito.FDS.Cast.Voice", hCaster)
+
+    hCaster:EmitSound("Saito.FDS.Cast")
+    hCaster:EmitSound("Saito.FDS.Cast.Voice")
 end
 ---------------------------------------------------------------------------------------------------------------------
 LinkLuaModifier("modifier_saito_fds_cast_controller", "abilities/saito/saito_abilities", LUA_MODIFIER_MOTION_NONE)
@@ -2542,7 +2545,7 @@ end
 -- end
 function saito_formless_slash:GetCastPoint()
     local hCaster = self:GetCaster()
-    return self.BaseClass.GetCastPoint(self) + ( hCaster:GetModifierStackCount("modifier_saito_formless_slash_counter", hCaster) * 0.1 )
+    return self.BaseClass.GetCastPoint(self) + ( hCaster:GetModifierStackCount("modifier_saito_formless_slash_counter", hCaster) == 3 and 0.3 or 0 )
 end
 function saito_formless_slash:OnAbilityPhaseStart()
     local hCaster = self:GetCaster()
@@ -2793,8 +2796,9 @@ function saito_step:OnSpellStart()
                             --ParticleManager:DestroyParticle(nBlinkEND_PFX, false)
                             ParticleManager:ReleaseParticleIndex(nBlinkEND_PFX)
 
-    EmitSoundOnLocationWithCaster(vCasterLoc, "Saito.Step.Cast", hCaster)
+    hCaster:EmitSound("Saito.Step.Cast")
     EmitSoundOnLocationWithCaster(vPoint, "Saito.Step.Impact", hCaster)
+    
 
     hCaster:StartGestureWithPlaybackRate(ACT_DOTA_CAST_ABILITY_1_END, 1.0)
 end
@@ -3203,9 +3207,9 @@ function modifier_saito_vortex_slashing:PlayEffects(hCaster, nRadius)
                         ParticleManager:SetParticleControlForward(nImpactPFX, 3, hCaster:GetForwardVector())
                         --ParticleManager:DestroyParticle(nImpactPFX, false)
                         ParticleManager:ReleaseParticleIndex(nImpactPFX)
-
-    EmitSoundOnLocationWithCaster(hCaster:GetAbsOrigin(), "Saito.Shadowslash.Cast", hCaster)
-    EmitSoundOn("Saito.Formless.Slash.Cast", hCaster)
+    hCaster:EmitSound("Saito.Shadowslash.Cast")
+    hCaster:EmitSound("Saito.Formless.Slash.Cast")
+    
 
     hCaster:StartGesture(ACT_DOTA_CAST_ABILITY_3) -- Just for now... its kek but for tests
 end

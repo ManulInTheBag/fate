@@ -92,7 +92,13 @@ function modifier_merlin_hero_creation:GetModifierMoveSpeedBonus_Percentage()
 	return self.msbonus
 end
 
-
+function modifier_merlin_hero_creation:OnTakeDamage(args)
+	if args.attacker ~= self:GetParent() then return end
+	if(  args.unit:GetTeam() == self:GetParent():GetTeam()) then return end
+	if args.damage_type == 2 then
+		self:GetParent():Heal(args.damage*0.1, self:GetParent())
+	end
+end
  
 
 function modifier_merlin_hero_creation:GetTexture()

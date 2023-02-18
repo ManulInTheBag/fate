@@ -14,6 +14,7 @@ function merlin_excalibur:OnSpellStart()
     local caster = self:GetCaster()
 	local target = self:GetCursorTarget()
 	local ability = self
+    caster:StartGesture(ACT_DOTA_AMBUSH)
     caster:EmitSound("merlin_excalibur")
     local counter = self:GetSpecialValueFor("damage_ticks") +1
     local damage = self:GetSpecialValueFor("damage_min") +(caster.KingAssistantAcquired and caster:GetIntellect()*self:GetSpecialValueFor("dmg_per_int") or 0)
@@ -49,14 +50,14 @@ function merlin_excalibur:OnSpellStart()
      
         local start_location = caster:GetAttachmentOrigin(3) 
         self.excalibur_glow = ParticleManager:CreateParticle("particles/merlin/excalibur_glow.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
-        self.excalibur_beam= ParticleManager:CreateParticle("particles/merlin/excalibur_explosion_wave.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+        self.excalibur_beam= ParticleManager:CreateParticle("particles/merlin/excalibur_explosion_wave.vpcf", PATTACH_CUSTOMORIGIN, nil)
         self.excalibur_rings= ParticleManager:CreateParticle("particles/merlin/excalibur_rings.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
         --self.excalibur_beam = ParticleManager:CreateParticle("particles/merlin/excalibur_path.vpcf", PATTACH_CUSTOMORIGIN, nil)
        
         ParticleManager:SetParticleControl(self.excalibur_glow, 0, start_location     ) 
         ParticleManager:SetParticleControl(self.excalibur_glow, 1, start_location ) 
         ParticleManager:SetParticleControl(self.excalibur_glow, 2, start_location+Vector(0,0,-80)) 
-        ParticleManager:SetParticleControl(self.excalibur_beam, 5, pull_center) 
+        ParticleManager:SetParticleControl(self.excalibur_beam, 0, pull_center) 
         ParticleManager:SetParticleControl(self.excalibur_rings,5, caster:GetAbsOrigin()) 
         --ParticleManager:SetParticleControl(self.excalibur_beam, 0, caster:GetAbsOrigin()+caster:GetForwardVector() *130) 
         --ParticleManager:SetParticleControl(self.excalibur_beam, 1, caster:GetAbsOrigin()+caster:GetForwardVector() *range) 
@@ -98,8 +99,8 @@ function merlin_excalibur:OnSpellStart()
             end
            --ParticleManager:DestroyParticle(self.excalibur_beam, true)
             --ParticleManager:ReleaseParticleIndex(self.excalibur_beam)
-            self.excalibur_beam= ParticleManager:CreateParticle("particles/merlin/excalibur_explosion_wave.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
-            ParticleManager:SetParticleControl(self.excalibur_beam, 5, pull_center) 
+            self.excalibur_beam= ParticleManager:CreateParticle("particles/merlin/excalibur_explosion_wave.vpcf", PATTACH_CUSTOMORIGIN, nil)
+            ParticleManager:SetParticleControl(self.excalibur_beam, 0, pull_center) 
             --ParticleManager:SetParticleControl(self.excalibur_beam, 0, caster:GetAbsOrigin()+caster:GetForwardVector() *130) 
             --ParticleManager:SetParticleControl(self.excalibur_beam, 1, caster:GetAbsOrigin()+caster:GetForwardVector() *range) 
            
@@ -107,10 +108,10 @@ function merlin_excalibur:OnSpellStart()
             for k,v in pairs(targets) do            
                 if not v:IsMagicImmune() then
                     DoDamage(caster, v, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
-                    if((v:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D() > 200) then
+                    if((v:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D() > 200 and not IsKnockbackImmune(v))  then
                         v:AddNewModifier(caster, self, "modifier_knockback", self.knockback)   
                     end
-                    v:AddNewModifier(caster, ability, "modifier_stunned", {duration = 0.2})
+                    v:AddNewModifier(caster, ability, "modifier_stunned", {duration = 0.1})
 
                    -- v:AddNewModifier(caster, ability, "modifier_merlin_movement",{duration = 0.11 })
               end

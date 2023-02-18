@@ -2808,9 +2808,9 @@ function FateGameMode:OnPlayerLevelUp(keys)
     local level = keys.level
     hero.ServStat:getLvl(hero)
     --fuck 7.0
-    if level == 17 or level == 19 or level == 21 or level == 22 or level == 23 or level == 24 then
-        hero:SetAbilityPoints(hero:GetAbilityPoints()+1)
-    end
+    --if level == 17 or level == 19 or level == 21 or level == 22 or level == 23 or level == 24 then
+    --    hero:SetAbilityPoints(hero:GetAbilityPoints()+1)
+    --end
 
     hero.MasterUnit:SetMana(hero.MasterUnit:GetMana() + 3)
     hero.MasterUnit2:SetMana(hero.MasterUnit2:GetMana() + 3)

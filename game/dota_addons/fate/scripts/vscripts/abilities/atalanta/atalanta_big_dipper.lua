@@ -18,7 +18,9 @@ function atalanta_big_dipper:GetCustomCastErrorLocation(location)
     return "#Not_enough_arrows"
 end
 function atalanta_big_dipper:OnSpellStart()
-
+    local caster = self:GetCaster()
+    self:EndCooldown()
+    caster:GiveMana(self:GetManaCost(-1))
 end
 function atalanta_big_dipper:OnChannelFinish(bInterrupted)
     if bInterrupted then
@@ -36,7 +38,8 @@ function atalanta_big_dipper:OnChannelFinish(bInterrupted)
         local speed = self:GetSpecialValueFor("speed")
 
         caster:UseArrow(3)
-
+        self:StartCooldown(self:GetCooldown(self:GetLevel()))
+        caster:SpendMana(self:GetManaCost(-1), self)
         LoopOverPlayers(function(player, playerID, playerHero)
             --print("looping through " .. playerHero:GetName())
             if playerHero.gachi == true then

@@ -44,17 +44,15 @@ function merlin_illusion:OnSpellStart()
     Timers:CreateTimer(0.85, function() 
         caster:EmitSound("merlin_illusion")
         local targets = FindUnitsInRadius(caster:GetTeam(), target, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-        local targets1 = FindUnitsInRadius(caster:GetTeam(), target, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-        for k,v in pairs(targets) do
-            seva_spasibo = seva_spasibo + 1
-        end
-        duration = duration - seva_spasibo*duration_reduction
+     
+        duration = duration - (#targets-1)*duration_reduction
+        if(duration < 0) then duration = 0 end
         if(duration < min_duration) then 
             duration = min_duration
         end
         self.explosionFx = ParticleManager:CreateParticle("particles/merlin/merlin_illusion_explosion.vpcf", PATTACH_CUSTOMORIGIN, nil)
         ParticleManager:SetParticleControl(self.explosionFx, 0, target     ) 
-        for k,v in pairs(targets1) do
+        for k,v in pairs(targets) do
             if(v:HasModifier( "modifier_merlin_illusion_overslept")) then
                v:AddNewModifier(caster, self, "modifier_merlin_illusion", { Duration =  min_duration})
             else

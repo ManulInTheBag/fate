@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc31:version{165d48dd-8adc-4f1d-abf7-4992e04ad577} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc32:version{c5dcef98-b629-46ab-88e3-a17c005c935e} -->
 {
 	rootNode = 
 	{
@@ -819,6 +819,15 @@
 						weight = 1.0
 						ignore_rotation = false
 					},
+					{
+						_class = "Attachment"
+						name = "ATTACH_HITLOC"
+						parent_bone = "bone_new101"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
 				]
 			},
 			{
@@ -847,8 +856,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -5.218513, -5.854578, -13.064812 ]
-								hitbox_maxs = [ 10.195685, 6.503682, 1.068687 ]
+								hitbox_mins = [ -10.832485, -10.145992, -23.240135 ]
+								hitbox_maxs = [ 13.610609, 6.503682, 1.068687 ]
 							},
 							{
 								_class = "Hitbox"
@@ -887,8 +896,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -10.394116, -5.854578, -15.349888 ]
-								hitbox_maxs = [ 5.478283, 13.83427, 2.004509 ]
+								hitbox_mins = [ -10.394116, -5.854578, -34.907356 ]
+								hitbox_maxs = [ 7.620415, 13.83427, 11.870113 ]
 							},
 							{
 								_class = "Hitbox"
@@ -1007,8 +1016,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -2.297895, -5.080127, -16.650078 ]
-								hitbox_maxs = [ 11.594044, 4.232322, 1.709953 ]
+								hitbox_mins = [ -4.164864, -5.080127, -16.650078 ]
+								hitbox_maxs = [ 11.594044, 11.359446, 9.575951 ]
 							},
 							{
 								_class = "Hitbox"
@@ -1017,8 +1026,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -2.054451, -4.616247, -8.703827 ]
-								hitbox_maxs = [ 3.942505, 4.155723, 1.175812 ]
+								hitbox_mins = [ -7.616486, -9.28215, -14.906563 ]
+								hitbox_maxs = [ 5.737816, 7.029243, 6.193764 ]
 							},
 							{
 								_class = "Hitbox"

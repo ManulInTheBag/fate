@@ -1,8 +1,16 @@
 nobu_double_shots = class({})
 LinkLuaModifier("modifier_nobu_turnlock", "abilities/nobu/nobu_double_shots", LUA_MODIFIER_MOTION_NONE)
 
-
+function nobu_double_shots:OnAbilityPhaseStart()
+    local caster = self:GetCaster()
+    caster:SetBodygroup(0,1)
+end
  
+function nobu_double_shots:OnAbilityPhaseInterrupted()
+	local caster = self:GetCaster()
+	caster:SetBodygroup(0,0)
+end
+
 
 function nobu_double_shots:OnSpellStart()
     local hCaster = self:GetCaster()
@@ -11,7 +19,6 @@ function nobu_double_shots:OnSpellStart()
     Timers:RemoveTimer("nobu_stop")
     Timers:RemoveTimer("nobu_stop_2")
      hCaster:AddNewModifier(hCaster, self, "modifier_nobu_turnlock", {duration = duration} )
-      
     Timers:CreateTimer("nobu_stop", {
 		endTime = 0.5,
 		callback = function()
@@ -51,7 +58,10 @@ function nobu_double_shots:OnSpellStart()
 	callback = function()
     counter = counter + 1 
     if (not hCaster:IsAlive()) or  hCaster:IsStunned() then return  0.033 end
-    if( counter >= duration*30) then return end
+    if( counter >= duration*30) then
+        hCaster:SetBodygroup(0,0)
+         return 
+    end
 	local origin = hCaster:GetAbsOrigin()
     if(self.target_enemy == hCaster)  then
 

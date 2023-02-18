@@ -898,7 +898,7 @@ function OnAmaterasuStart(keys)
 			allies[i]:AddNewModifier(caster, ability, "modifier_amaterasu_heal", { duration = 1.033 })
 
 			if allies[i] ~= caster then 
-				for j=0, 5 do 
+				for j=0, 2 do 
 					local ability = allies[i]:GetAbilityByIndex(j)
 					if ability ~= nil then
 						rCooldown = ability:GetCooldownTimeRemaining()
@@ -908,6 +908,12 @@ function OnAmaterasuStart(keys)
 						break
 					end
 				end
+				local ability = allies[i]:GetAbilityByIndex(5)
+					if ability ~= nil then
+						rCooldown = ability:GetCooldownTimeRemaining()
+						ability:EndCooldown()
+						ability:StartCooldown(rCooldown - 20)
+					end
 			end
 		end
 	end
