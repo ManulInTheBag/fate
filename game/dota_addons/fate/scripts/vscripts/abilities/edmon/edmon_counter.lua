@@ -10,7 +10,7 @@ function edmon_counter:OnSpellStart()
 
 	if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 and caster:GetIntellect() >= 29.1 and caster:FindAbilityByName("edmon_enfer"):IsCooldownReady() and caster:GetAbilityByIndex(3):GetName() == "edmon_dash" then
 		caster:SwapAbilities("edmon_dash", "edmon_enfer", false, true)
-		Timers:CreateTimer(2, function()
+		Timers:CreateTimer(3, function()
 			caster:SwapAbilities("edmon_dash", "edmon_enfer", true, false)
 		end)
 	end

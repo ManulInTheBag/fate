@@ -778,8 +778,9 @@ end
 -- end
 function saito_flashblade:OnSpellStart()
     local hCaster = self:GetCaster()
-
-    hCaster:AddNewModifier(hCaster, self, "modifier_saito_flashblade_motion", {duration = 10}) --Duration is basically unnecessary but adding 10 seconds if something breaks it ends after 10 seconds.
+    local nDuration = (self:GetAOERadius()/self:GetSpecialValueFor("speed")) + 0.1
+    --hCaster:AddNewModifier(hCaster, self, "modifier_saito_flashblade_motion", {duration = 10}) --Duration is basically unnecessary but adding 10 seconds if something breaks it ends after 10 seconds.
+    hCaster:AddNewModifier(hCaster, self, "modifier_saito_flashblade_motion", {duration = nDuration}) 
 
     local nTurnRateDuration = GetAttributeValue(hCaster, "saito_attribute_freedom", "q_turn_rate_duration", -1, 0)
     if nTurnRateDuration > 0 then

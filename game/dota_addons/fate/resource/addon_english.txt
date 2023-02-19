@@ -5129,9 +5129,30 @@
 		"npc_dota_hero_omniknight_hype"	""
 		"npc_dota_hero_omniknight_bio"	""
 
-		"DOTA_Tooltip_Ability_gawain_saint"        			"Numeral of the Saint"
-        "DOTA_Tooltip_ability_gawain_saint_Description"   	"Grant Gawain bonus 9 to all attributes, 9%% additional magic resistance and 9 additional health regeneration per second. "
+		"DOTA_Tooltip_Ability_gawain_artificial_sun"        			"Artificial Sun"
+        "DOTA_Tooltip_ability_gawain_artificial_sun_Description"   	"Some of Gawain abilities create Artificial sun when used.\nArtificial sun will provide vision around itself, increase surrounding allies magic resistance and regeneration and reduce enemies magic resistance.\nEach sun persists for 15 seconds.\n If same ability creates a sun when it already had one present, the older one will dissapear."
+        "DOTA_Tooltip_ability_gawain_artificial_sun_area_of_effect"			"Sun AOE of effect:"
+        "DOTA_Tooltip_ability_gawain_artificial_sun_mr"			"%Magic resistance:"
+        "DOTA_Tooltip_ability_gawain_artificial_sun_regen"			"HP regen:"
 
+
+        "DOTA_Tooltip_ability_gawain_attribute_meltdown"	"Attribute: Divine Meltdown"
+        "DOTA_Tooltip_ability_gawain_attribute_meltdown_Description"	"Upgrades Artificial Sun to level 2 and adds a new ability: Divine Meltdown.\nCauses all Artifical Suns on the map to emit scorching heat for 5 seconds, inflicting magic damage to enemies within 1000 radius based on their current health and slowing them by 30%%.\nDamage starts at 6%% per 0.25 second and diminishes down to 3%% per 0.25 second over time.\nAll Artificial Suns will dissapear after Meltdown end.\nWhen Meltdown is in process, Suns will not provide any bonuses to Gawain's team, but magic resistance reduction debuff radius will increase to 1000."
+        "DOTA_Tooltip_ability_gawain_attribute_meltdown_mr"			"%New magic resistance:"
+        "DOTA_Tooltip_ability_gawain_attribute_meltdown_regen"			"New HP regen:"
+
+        "DOTA_Tooltip_ability_gawain_meltdown"	"Divine Meltdown"
+        "DOTA_Tooltip_ability_gawain_meltdown_Description"	"Causes all Artifical Suns on the map to emit scorching heat for 5 seconds, inflicting magic damage to enemies within 1000 radius based on their current health and slowing them by 30%%.\nDamage starts at 6%% per 0.25 second and diminishes down to 3%% per 0.25 second over time.\nAll Artificial Suns will dissapear after Meltdown end.\nWhen Meltdown is in process, Suns will not provide any bonuses to Gawain's team, but magic resistance reduction debuff radius will increase to 1000."
+
+        "DOTA_Tooltip_modifier_artificial_sun"										"Artificial Sun"
+		"DOTA_Tooltip_modifier_artificial_sun_Description"							"Regeneration and magic resistance increased"
+
+		 "DOTA_Tooltip_modifier_artificial_sun_enemy"										"Artificial Sun"
+		"DOTA_Tooltip_modifier_artificial_sun_enemy_Description"							"Magic resistance reduced."
+
+	 	"DOTA_Tooltip_modifier_meltdown_mark"										"Meltdown"
+		"DOTA_Tooltip_modifier_meltdown_mark_Description"							"You are burned with Divine flame."
+			
         "DOTA_Tooltip_Ability_gawain_blessing_of_fairy"        				"Blessing of the Fairy"
         "DOTA_Tooltip_ability_gawain_blessing_of_fairy_Description"   		"Instantly restores health to Gawain upon taking fatal damage as well as granting additional health regeneration when the effect triggers."
         "DOTA_Tooltip_ability_gawain_blessing_of_fairy_Note0"				"Applies a strong dispel when triggered."
@@ -5181,13 +5202,14 @@
         "DOTA_Tooltip_ability_gawain_excalibur_galatine_duration"		"FIRE DURATION:"
 
         "DOTA_Tooltip_ability_gawain_excalibur_galatine_combo"				"Combo: Galatine Supernova"
-        "DOTA_Tooltip_ability_gawain_excalibur_galatine_combo_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : W Q - R in 5 seconds</font>\nGathers the power of a supernova and explodes it, dealing huge damage in radius (the further your enemy stands, the less damage it takes), burning all the enemies in radius up and stunning them for 0.3 seconds. After the explosion gains 99 in all attributes for 12 seconds."
+        "DOTA_Tooltip_ability_gawain_excalibur_galatine_combo_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : W Q - R in 5 seconds</font>\nGathers the power of a supernova and explodes it, dealing huge damage in radius (the further your enemy stands, the less damage it takes), burning all the enemies in radius up and stunning them for 0.3 seconds. After the explosion gains 99 in all attributes for 12 seconds.\nEach Artificial Sun in explosion radius will explode in 700 radius, dealing damage and dissapearing.\nAll enemies hit receive a debuff for 3-6 seconds (based on distance from Gawain), which will grant vision on them and reduce their armor and magic resistance by 30-50%% and 5 - 15%%."
         "DOTA_Tooltip_ability_gawain_excalibur_galatine_combo_Lore"		"The sister sword of Excalibur contains psuedo-Sun within its hilt, purging the evil with solar flame."
         "DOTA_Tooltip_ability_gawain_excalibur_galatine_combo_cast_delay"		"CAST DELAY:"
         "DOTA_Tooltip_ability_gawain_excalibur_galatine_combo_damage"			"DAMAGE:"
         "DOTA_Tooltip_ability_gawain_excalibur_galatine_combo_radius"			"EXPLOSION RADIUS:"
         "DOTA_Tooltip_ability_gawain_excalibur_galatine_combo_dot_damage"		"FIRE DAMAGE:"
         "DOTA_Tooltip_ability_gawain_excalibur_galatine_combo_duration"			"FIRE DURATION:"
+        "DOTA_Tooltip_ability_gawain_excalibur_galatine_combo_sun_damage"		"Sun explosion damage:"
 	"DOTA_Tooltip_ability_gawain_excalibur_galatine_combo_Note0"	"Type -music_true in chat to hear a song after casting this ability."
 
         "DOTA_Tooltip_ability_gawain_excalibur_galatine_detonate"				"Detonate"
@@ -5216,9 +5238,9 @@
 		//"DOTA_Tooltip_ability_gawain_attribute_res_sov_fire_trail_duration"	"Bonus Fire Trail Duration:"
 
         "DOTA_Tooltip_Ability_gawain_attribute_belt"					"Attribute: Belt of Bertilak"
-		"DOTA_Tooltip_ability_gawain_attribute_belt_Description"		"Galatine Supernova becomes even stronger by applying on all the enemies hit debuff, that reduces their armor, magic resistance, and reveals them. Debuff duration and value are calculated from how far the enemy stand from you, when combo was finished. Maximum value in armor reduction - 50%%, minimum - 20%%, maximum value in mr reduction - 20%, minimum - 5%, maximum duration is 10 seconds, minimum duration is 4 seconds."
-		//"DOTA_Tooltip_ability_gawain_attribute_belt_cooldown_reduce"	"Cooldown Reduced per hit:"
-		//"DOTA_Tooltip_ability_gawain_attribute_belt_min_cooldown"		"Minimum Cooldown:"
+		"DOTA_Tooltip_ability_gawain_attribute_belt_Description"		"After Sun of Galatine activation, Gawain will set up a delayed explosive burst on the ground around himself. After a delay it will explode, dealing half of Sun Of Galatine damage and ministunning enemies."
+		 "DOTA_Tooltip_ability_gawain_attribute_belt_explosion_aoe"		"Explosion aoe:"
+		 "DOTA_Tooltip_ability_gawain_attribute_belt_explosion_delay"		"Explosion delay:"
 		//"DOTA_Tooltip_ability_gawain_attribute_belt_blade_aoe"			"Blade of the Devoted AOE:"
 
 		"DOTA_Tooltip_Ability_gawain_attribute_kots"					"Attribute: Knight of the Sun"
@@ -6920,7 +6942,7 @@
 		"DOTA_Tooltip_ability_edmon_ult_range"					"Range:"
 
 		"DOTA_Tooltip_ability_edmon_enfer"						"Combo: Enfer Chateau d'If"
-		"DOTA_Tooltip_ability_edmon_enfer_Description"			"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: W-D in 2 seconds</font>\n\nDantes prepares for 1.2 seconds and starts flying forward. Direction can be changed while flying. First enemy on his way will be considered the target.\nAfter target is acquired, Edmon slashes everything and everyone around it 18 times for %hit_damage% magical damage, then, after 0.5 delay, locks everyone inside the radius and starts burning everything down, dealing %burn_damage% magical damage in 2.4 seconds and %last_damage% magical damage at the end."
+		"DOTA_Tooltip_ability_edmon_enfer_Description"			"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: W-D in 3 seconds</font>\n\nDantes prepares for 1.2 seconds and starts flying forward. Direction can be changed while flying. First enemy on his way will be considered the target.\nAfter target is acquired, Edmon slashes everything and everyone around it 18 times for %hit_damage% magical damage, then, after 0.5 delay, locks and roots everyone inside the radius and starts burning everything down, dealing %burn_damage% magical damage in 2.4 seconds and %last_damage% magical damage at the end."
 		"DOTA_Tooltip_ability_edmon_enfer_range"				"Flight range:"
 		"DOTA_Tooltip_ability_edmon_enfer_radius"				"Radius:"
 
@@ -7480,7 +7502,7 @@
 
 //Undefeatable Style
 "DOTA_Tooltip_ability_saito_style"															"Combo: Undefeatable Style"
-"DOTA_Tooltip_ability_saito_style_Description"												"Combo Requirements: Have 25 or more in all stats.\nCombo Sequence: F - D -> F on the activation step.\nFor the duration of this ability, blocks most targeted spells and doubles the health and mana gain of Freely Drawn Sword.\nThe cast points of Flashblade, Steelwing and Shadowslash are replaced with a little cooldown and  cannot be interrupted, also reduces their cooldown for duration."
+"DOTA_Tooltip_ability_saito_style_Description"												"Combo Requirements: Have 30 or more in all stats.\nCombo Sequence: F - D -> F on the activation step.\nFor the duration of this ability, blocks most targeted spells and doubles the health and mana gain of Freely Drawn Sword.\nThe cast points of Flashblade, Steelwing and Shadowslash are replaced with a little cooldown and  cannot be interrupted, also reduces their cooldown for duration."
 "DOTA_Tooltip_ability_saito_style_Lore"														"Without form, my sword is intangible. As it flows, it embodies all possibilities. That is why my sword has no equal!"
 "DOTA_Tooltip_ability_saito_style_duration"													"DURATION:"
 //"DOTA_Tooltip_ability_saito_style_fds_hp_mp_scale"										""

@@ -103,7 +103,7 @@ if IsServer() then
 		if args.attacker ~= self:GetParent() return end
 
 		if args.target:GetName() == "avenger_remain" then
-			DoDamage(args.attacker, args.target, 9999, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
+			DoDamage(args.attacker, args.target, 200, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
 		end
 	end
 end

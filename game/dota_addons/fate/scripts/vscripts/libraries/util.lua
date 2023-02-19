@@ -568,6 +568,8 @@ CannotReset = {
 
     "edmon_enfer",
     "edmon_dash",
+
+    "gawain_meltdown",
 }
 
 femaleservant = {

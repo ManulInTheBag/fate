@@ -43,7 +43,7 @@ function modifier_sun_of_galatine_self:RemoveOnDeath()
 end
 
 function modifier_sun_of_galatine_self:GetTexture()
-    return "custom/gawain_suns_embrace"
+    return "custom/gawain_galatine_combo"
 end
 
 -----------------------------------------------------------------------------------

@@ -359,6 +359,7 @@ if IsServer() then
 		for i = 1, #targets do
 			if self.ThinkCount == 0 then
 				giveUnitDataDrivenModifier(caster, targets[i], "locked", 2.4)
+				giveUnitDataDrivenModifier(caster, targets[i], "rooted", 2.4)
 			end
 			damage = self.Damage
 

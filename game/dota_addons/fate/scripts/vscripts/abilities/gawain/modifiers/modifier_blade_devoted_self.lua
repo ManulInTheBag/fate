@@ -60,7 +60,8 @@ if IsServer() then
 			target:EmitSound("Hero_Invoker.ColdSnap")
 			caster:EmitSound("Gawain_Attack" .. soundQueue)
 			DoDamage(caster, target, self.Damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
-
+			local sunAbility = caster:FindAbilityByName("gawain_artificial_sun")
+			sunAbility:GenerateArtificialSun(caster, target:GetAbsOrigin(), true, ability:GetName())
 			self.Damage = self.SubDamage
 			self.StunDuration = 0.01
 			self.FirstHit = false

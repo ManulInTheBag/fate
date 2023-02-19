@@ -9,11 +9,12 @@ if IsServer() then
 	  	self.AttackSpeed = args.AttackSpeed
 	  	self.StackDamage = args.StackDamage
 	  	self.Radius = args.Radius
-
+		local caster = self:GetCaster()
 	  	self.AttackCount = 0
 	  	self.TriggerCount = 1
 	  	
 	  	self:StartIntervalThink(0.2)
+
 	end
 
 	function modifier_gawain_heat:OnRefresh(args)
@@ -51,9 +52,15 @@ if IsServer() then
 		if modifier then
 			stacks = modifier:GetStackCount()
 		end
+	 
+
+
 
 		damage = damage + (damage * stacks)
 		DoDamage(caster, target, damage, DAMAGE_TYPE_PHYSICAL, 0, self:GetAbility(), false)
+
+		
+		
 
 		self.AttackCount = self.AttackCount + 1
 
@@ -112,7 +119,7 @@ function modifier_gawain_heat:GetAttributes()
 end
 
 function modifier_gawain_heat:GetEffectName()
-	return "particles/units/heroes/hero_ember_spirit/ember_spirit_flameguard.vpcf"
+	 return "particles/gawain/gawain_heat.vpcf"
 end
 
 function modifier_gawain_heat:GetEffectAttachType()

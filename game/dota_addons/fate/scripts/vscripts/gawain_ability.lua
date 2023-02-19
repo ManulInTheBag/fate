@@ -97,8 +97,8 @@ function OnGalatineStart(keys)
 
 	-- Stops Gawain from doing anything else essentially and play the Galatine animation
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_excalibur_galatine_vfx", {})	
-	giveUnitDataDrivenModifier(caster, caster, "pause_sealdisabled", 2.1)
-	keys.ability:ApplyDataDrivenModifier(caster, caster, "modifier_excalibur_galatine_anim",{})
+	giveUnitDataDrivenModifier(caster, caster, "pause_sealdisabled", 2.0)
+	StartAnimation(caster, {duration=2.0, activity=ACT_DOTA_CAST_ABILITY_4, rate=1.3})
 	-- Need the dank voice. 
 	EmitGlobalSound("Gawain_Galatine_1")
 
@@ -123,8 +123,8 @@ function OnGalatineStart(keys)
 	end
 
 	-- Checks if Gawain is still alive as well as whether or not it overshot where the player intended it to flew.. or it flew for too long
-	Timers:CreateTimer(1.5, function()
-		if caster:IsAlive() and timeElapsed < 1.5 and caster.IsGalatineActive and flyingDist < dist then
+	Timers:CreateTimer(1.4, function()
+		if caster:IsAlive() and timeElapsed < 1.4 and caster.IsGalatineActive and flyingDist < dist then
 			-- Need to initialize the variables and put in Gawain's detonate Galatine ability
 			if InFirstLoop then
 				casterLoc = caster:GetAbsOrigin()
@@ -173,8 +173,10 @@ function OnGalatineStart(keys)
 			ParticleManager:SetParticleControl( explodeFx2, 0, galatineDummy:GetAbsOrigin())
 
 			galatineDummy:EmitSound("Ability.LightStrikeArray")
-
+			local sunAbility = caster:FindAbilityByName("gawain_artificial_sun")
+			sunAbility:GenerateArtificialSun(caster, galatineDummy:GetAbsOrigin(), false, "gawain_excalibur_galatine")
 			galatineDummy:ForceKill(true) 
+		
 			ParticleManager:DestroyParticle( flameFx1, false )
 			ParticleManager:ReleaseParticleIndex( flameFx1 )
 			ParticleManager:DestroyParticle( castFx1, false )
@@ -378,8 +380,8 @@ function OnMeltdownStart(keys)
 		if v:GetUnitName() == "gawain_artificial_sun" then
 			keys.ability:ApplyDataDrivenModifier(caster, v, "modifier_divine_meltdown", {})
 
-			v:EmitSound("Hero_DoomBringer.ScorchedEarthAura")
-			v:EmitSound("Hero_Warlock.RainOfChaos_buildup" )
+			 v:EmitSound("Hero_DoomBringer.ScorchedEarthAura")
+			--v:EmitSound("Hero_Warlock.RainOfChaos_buildup" )
 			v.metldownFx = ParticleManager:CreateParticle("particles/custom/gawain/gawain_meltdown.vpcf", PATTACH_ABSORIGIN_FOLLOW, v )
 			ParticleManager:SetParticleControl( v.metldownFx, 0, v:GetAbsOrigin())
 			Timers:CreateTimer(5.0, function()

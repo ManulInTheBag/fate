@@ -16,14 +16,17 @@ function gawain_excalibur_galatine_combo:OnSpellStart()
     local bonus_damage = 0
     local damage = self:GetSpecialValueFor("damage") - 1500
     local fireTrailDuration = self:GetSpecialValueFor("duration")
-
     local masterCombo = caster.MasterUnit2:FindAbilityByName(ability:GetAbilityName())
     masterCombo:EndCooldown()
     masterCombo:StartCooldown(ability:GetCooldown(1))
     caster:AddNewModifier(caster, self, "modifier_galatine_combo_cd", {duration = ability:GetCooldown(1)})
-    
+
+    local abilityW = caster:GetAbilityByIndex(1)
+    ParticleManager:DestroyParticle( abilityW.bladefx, false )
+    ParticleManager:ReleaseParticleIndex( abilityW.bladefx )
+    Timers:RemoveTimer("devoted_fx")
     giveUnitDataDrivenModifier(caster, caster, "pause_sealdisabled", 3.5)
-    StartAnimation(caster, {duration=3.5, activity=ACT_DOTA_CAST_ABILITY_2, rate=0.1})
+    StartAnimation(caster, {duration=3.5, activity=ACT_DOTA_CAST_ABILITY_5, rate=1.25})
     --ability:ApplyDataDrivenModifier(caster, caster, "modifier_excalibur_galatine_vfx", {})  
     --ability:ApplyDataDrivenModifier(caster, caster, "modifier_excalibur_galatine_anim",{})
     EmitGlobalSound("gawain_galatine_combo_cast_1")
@@ -44,8 +47,13 @@ function gawain_excalibur_galatine_combo:OnSpellStart()
     ParticleManager:SetParticleControl(particle, 0, caster:GetAbsOrigin())
     ParticleManager:SetParticleControl(particle, 1, Vector(1000, 1000, 1000))
 
-    local flameFx1 = ParticleManager:CreateParticle("particles/custom/gawain/gawain_excalibur_galatine_orb.vpcf", PATTACH_ABSORIGIN, caster )
-    ParticleManager:SetParticleControl( flameFx1, 0, caster:GetAbsOrigin() + Vector(0,0,1000))
+    local flameFx1
+
+    Timers:CreateTimer( 1.5, function()
+        flameFx1 = ParticleManager:CreateParticle("particles/custom/gawain/gawain_excalibur_galatine_orb.vpcf", PATTACH_ABSORIGIN, caster )
+        ParticleManager:SetParticleControl( flameFx1, 0, caster:GetAbsOrigin() + Vector(0,0,1000))
+    end)
+
 
     Timers:CreateTimer( 3.0, function()
         ParticleManager:DestroyParticle( particle, false )
@@ -56,8 +64,8 @@ function gawain_excalibur_galatine_combo:OnSpellStart()
     ParticleManager:SetParticleControl( castFx2, 0, caster:GetAbsOrigin())
 
     if caster.IsSoVAcquired then
-        damage = damage + 1500
-        local bonus_damage = 500
+        damage = damage + 1000
+        local bonus_damage = 333
         fireTrailDuration = fireTrailDuration + 3
     end
 
@@ -74,10 +82,28 @@ function gawain_excalibur_galatine_combo:OnSpellStart()
                     DoDamage(caster, v, finaldmg, DAMAGE_TYPE_MAGICAL, 0, ability, false)
                     v:AddNewModifier(caster, self, "modifier_stunned", {Duration = 0.3})
                     v:AddNewModifier(caster, self, "modifier_excalibur_galatine_burn", {duration = fireTrailDurationK})
-                    if caster.IsBeltAcquired then
-                        v:AddNewModifier(caster, self, "modifier_excalibur_galatine_pizdets", {duration = 6*((radius-dist)/radius) + 4, armor_debuff = 30*((radius-dist)/radius)+20, magic_debuff = 15*((radius-dist)/radius)+5})
-                    end     
+                    v:AddNewModifier(caster, self, "modifier_excalibur_galatine_pizdets", {duration = 3*((radius-dist)/radius) + 3, armor_debuff = 30*((radius-dist)/radius)+20, magic_debuff = 10*((radius-dist)/radius)+5})
+                        
                 end 
+
+
+                ------------Artificial sun explosion
+
+                local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false) 
+                for k,v in pairs(targets) do
+                    if v:GetUnitName() == "gawain_artificial_sun" then
+                        v:EmitSound("Hero_Warlock.RainOfChaos_buildup" )
+                        local targets = FindUnitsInRadius( caster:GetTeam(), v:GetAbsOrigin(), nil, 700, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
+                        for k,v in pairs(targets) do
+                                DoDamage(caster, v, 1000, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+                        end
+                        local pfx = ParticleManager:CreateParticle("particles/gawain/gawain_sun_explosion_combo.vpcf", PATTACH_ABSORIGIN_FOLLOW, v)
+                        v:RemoveSelf()
+                    end
+                end
+
+
+                --------
                 caster:EmitSound("Hero_Phoenix.SuperNova.Explode")
                 local splashFx = ParticleManager:CreateParticle("particles/custom/screen_yellow_splash_gawain.vpcf", PATTACH_EYES_FOLLOW, caster)
                 local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_phoenix/phoenix_supernova_reborn.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster())

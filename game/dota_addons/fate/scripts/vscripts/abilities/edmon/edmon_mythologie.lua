@@ -147,7 +147,7 @@ function modifier_edmon_mark:DeclareFunctions()
 	return { MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE}
 end
 function modifier_edmon_mark:OnTakeDamage(args)
-	if not args.attacker == self:GetCaster() then return end
+	if not (args.attacker == self:GetCaster()) then return end
 
 	args.attacker:Heal(args.damage*self:GetCaster().MasterUnit2:FindAbilityByName("edmon_vengeance_attribute"):GetSpecialValueFor("lifesteal")/100, self:GetAbility())
 	local effect_cast = ParticleManager:CreateParticle( "particles/generic_gameplay/generic_lifesteal_blue.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetCaster() )

@@ -9,6 +9,15 @@ end
 function gawain_blade_of_the_devoted:OnSpellStart()
 	local caster = self:GetCaster()
 	local ability = self
+	if (self.bladefx) then	
+		ParticleManager:DestroyParticle( self.bladefx, false )
+		ParticleManager:ReleaseParticleIndex( self.bladefx )
+		Timers:RemoveTimer("devoted_fx")
+	 
+	end
+	self.bladefx = ParticleManager:CreateParticle("particles/gawain/gawain_blade.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster )
+    ParticleManager:SetParticleControlEnt(self.bladefx, 0, caster, PATTACH_POINT_FOLLOW, "attach_hand", caster:GetAbsOrigin(), false )
+	ParticleManager:SetParticleControlEnt(self.bladefx, 1, caster, PATTACH_POINT_FOLLOW, "attach_trail", caster:GetAbsOrigin(), false )
 
 	caster:EmitSound("Hero_EmberSpirit.FireRemnant.Cast")
 	local lightFx1 = ParticleManager:CreateParticle("particles/units/heroes/hero_invoker/invoker_sun_strike_beam.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster )
@@ -24,4 +33,12 @@ function gawain_blade_of_the_devoted:OnSpellStart()
 																		 Damage = self:GetSpecialValueFor("damage"),
 																		 SubDamage = self:GetSpecialValueFor("sub_damage")
 	})	
+ 
+	Timers:CreateTimer("devoted_fx", {
+		endTime =  self:GetSpecialValueFor("duration"),
+		callback = function()
+			ParticleManager:DestroyParticle( self.bladefx, false )
+			ParticleManager:ReleaseParticleIndex( self.bladefx )
+	return end
+	})
 end
