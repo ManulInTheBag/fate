@@ -69,7 +69,7 @@ end
 function modifier_artoria_crit:IsHidden() return true end
 
 function modifier_artoria_crit:GetModifierPreAttack_CriticalStrike()
-	return 250
+	return 200
 end
 
 function modifier_artoria_crit:OnAttackLanded(args)

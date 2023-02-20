@@ -132,7 +132,9 @@ end
 function modifier_merlin_illusion:OnTakeDamage(args)
     local ability = self:GetAbility()
     local damage = args.damage
-    self.damage_total = self.damage_total + damage
+    if args.inflictor ~= ability then
+        self.damage_total = self.damage_total + damage
+    end
     
     if(self.damage_total >= self:GetAbility():GetSpecialValueFor("damage_to_awake")) then
         self:Destroy()

@@ -13,7 +13,7 @@ function artoria_invisible_air:OnSpellStart()
     local player = caster:GetPlayerOwner()
 	
 	self.vStartPosition = self:GetCaster():GetOrigin()
-	self.vProjectileLocation = vStartPosition
+	self.vProjectileLocation = self.vStartPosition
 	
 	local vDirection = self:GetCursorPosition() - self.vStartPosition
 	vDirection.z = 0.0
@@ -115,7 +115,7 @@ function artoria_invisible_air:OnProjectileHit_ExtraData(target, vLocation, tDat
 	if IsSpellBlocked(target) -- Linken's
 		or target:IsMagicImmune() -- Magic immunity
 		or target:HasModifier("modifier_wind_protection_passive") 
-		or (target:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D() > 1500
+		or (target:GetAbsOrigin() - self.vProjectileLocation):Length2D() > (self:GetSpecialValueFor("range") + 100)
 	then
 		return
 	end
@@ -194,7 +194,7 @@ function modifier_artoria_upstream:OnAttackLanded(args)
 	local caster = self:GetParent()
 	local target = args.target
 	local ability = self:GetAbility()
-	local damage = caster:GetAttackDamage() * 1.3 + 150
+	local damage = caster:GetAverageTrueAttackDamage(caster) * 0.3 + 75
 	DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
 	ApplyAirborne(caster, target, 1.25)
 	local sound = RandomInt(1,2)

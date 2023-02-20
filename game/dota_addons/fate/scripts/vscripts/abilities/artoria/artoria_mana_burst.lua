@@ -67,8 +67,8 @@ function modifier_artoria_damage:DeclareFunctions()
 			MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT}
 end
 function modifier_artoria_damage:GetModifierPreAttack_BonusDamage()
-	return (50 + self:GetCaster():GetMaxMana()*self:GetAbility():GetSpecialValueFor("mana_multiplier"))
+	return (30 + self:GetCaster():GetMaxMana()*self:GetAbility():GetSpecialValueFor("mana_multiplier"))
 end
 function modifier_artoria_damage:GetModifierAttackSpeedBonus_Constant()
-	return 75
+	return 40
 end
