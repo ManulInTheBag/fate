@@ -17,6 +17,8 @@ function merlin_illusion:OnSpellStart()
     local seva_spasibo = 0
     local min_duration = self:GetSpecialValueFor("min_duration")
 
+    local damage = self:GetSpecialValueFor("damage")
+
     caster:FindAbilityByName("merlin_charisma"):AttStack() 
     if(caster.RapidChantingAcquired) then
 		local cd1 = caster:GetAbilityByIndex(0):GetCooldownTimeRemaining()
@@ -54,9 +56,9 @@ function merlin_illusion:OnSpellStart()
         ParticleManager:SetParticleControl(self.explosionFx, 0, target     ) 
         for k,v in pairs(targets) do
             if(v:HasModifier( "modifier_merlin_illusion_overslept")) then
-               v:AddNewModifier(caster, self, "modifier_merlin_illusion", { Duration =  min_duration})
+               v:AddNewModifier(caster, self, "modifier_merlin_illusion", { Duration =  min_duration, damage = damage})
             else
-               v:AddNewModifier(caster, self, "modifier_merlin_illusion", { Duration =  duration})
+               v:AddNewModifier(caster, self, "modifier_merlin_illusion", { Duration =  duration, damage = damage})
             end
             v:AddNewModifier(caster, self, "modifier_merlin_illusion_overslept", { Duration =  5})
             
@@ -94,9 +96,20 @@ function modifier_merlin_illusion:GetModifierDisableTurning()
 end
  
 
-function modifier_merlin_illusion:OnCreated()
+function modifier_merlin_illusion:OnCreated(args)
     self.damage_total = 0
     self.sleepfx = ParticleManager:CreateParticle("particles/generic_gameplay/generic_sleep.vpcf", PATTACH_OVERHEAD_FOLLOW , self:GetParent()) 
+    self.parent = self:GetParent()
+    self.caster = self:GetCaster()
+    self.abililty = self:GetAbility()
+    self.damage = args.damage
+    self:StartIntervalThink(0.25)
+ 
+end
+
+function modifier_merlin_illusion:OnIntervalThink()
+    DoDamage(self.caster, self.parent, self.damage , DAMAGE_TYPE_PURE, 0,  self.abililty, false)
+
  
 end
  

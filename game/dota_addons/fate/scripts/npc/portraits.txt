@@ -62,6 +62,36 @@
 		}
 	}
 
+		"models/nanaya/animno.vmdl"
+	{
+		"PortraitLightPosition"		"112.73 -41.13 174.53"
+		"PortraitLightAngles"		"42.54 149.30 0.00"
+		"PortraitLightFOV"		"90"
+		"PortraitLightDistance"		"133"
+		"PortraitLightColor"		"255 255 255"
+		"PortraitShadowColor"		"69 84 56"
+		"PortraitShadowScale"		"5.000000"
+		"PortraitAmbientColor"		"192 0 56"
+		"PortraitAmbientScale"		"5.000000"
+		"PortraitSpecularColor"		"251 74 84"
+		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/nanaya_fon.vmat"
+		"PortraitLightScale"		"1.950000"
+		"PortraitGroundShadowScale"		"1.500000"
+		"PortraitAmbientDirection"		"-31.670 34.840 37.060"
+		"PortraitAnimationActivity"		"ACT_DOTA_IDLE"
+		"cameras"
+		{
+			"default"
+			{
+				
+				"PortraitPosition"		"500 -125 160"
+				"PortraitAngles"		"355.89 166.83 0.00"
+				"PortraitFOV"		"16"
+			}
+		}
+	}
+
+
 	"models/updated_by_seva_and_hudozhestvenniy_film_spizdili/ryougi/ryougi.vmdl"
 	{
 		"PortraitLightPosition"		"8.34 -51.72 127.79"
@@ -106,7 +136,7 @@
 		"PortraitAmbientColor"		"126 157 248"
 		"PortraitAmbientScale"		"5.000000"
 		"PortraitSpecularColor"		"251 74 84"
-		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/portraitbackground_coolinterior.vmat"
+		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/dantes_fon.vmat"
 		"PortraitBackgroundColor1"		".1 .1 1"
 		"PortraitBackgroundColor2"		".1 .5 .6"
 		"PortraitBackgroundColor3"		"1 1 .8"
@@ -360,7 +390,7 @@
 		"PortraitAmbientColor"		"241 165 97"
 		"PortraitAmbientScale"		"5.000000"
 		"PortraitSpecularColor"		"251 74 84"
-		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/portraitbackground_gradient_btm.vmat"
+		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/avalon_fon.vmat"
 		"PortraitBackgroundColor1"		"1 .6 1"
 		"PortraitBackgroundColor2"		"1 0.7 1"
 		"PortraitBackgroundColor3"		"1 0.8 1"
@@ -932,16 +962,12 @@
 		"PortraitLightFOV"		"51"
 		"PortraitLightDistance"		"100"
 		"PortraitLightColor"		"254 210 218"
-		"PortraitShadowColor"		"93 93 93"
-		"PortraitShadowScale"		"4.025000"
+ 
 		"PortraitAmbientColor"		"241 165 97"
 		"PortraitAmbientScale"		"5.000000"
 		"PortraitSpecularColor"		"251 74 84"
-		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/portraitbackground_coolinterior.vmat"
-		"PortraitBackgroundColor1"		".9 .1 0"
-		"PortraitBackgroundColor2"		".9 .3 0"
-		"PortraitBackgroundColor3"		".9 .5 1"
-		"PortraitBackgroundColor4"		".9 .3 0"
+		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/vlad_fon.vmat"
+ 
 		"PortraitLightScale"		"4.100000"
 		"PortraitGroundShadowScale"		"1.500000"
 		"PortraitAmbientDirection"		"-3.070 17.250 4.660"
@@ -950,7 +976,7 @@
 		{
 			"default"
 			{
-				"PortraitPosition"		"231.25 130.63 10.35"
+				"PortraitPosition"		"231.25 133.63 10.35"
 				"PortraitAngles"		"338.37 209.12 0.00"
 				"PortraitFOV"		"10"
 			}

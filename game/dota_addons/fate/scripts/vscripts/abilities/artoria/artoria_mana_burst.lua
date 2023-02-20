@@ -17,7 +17,7 @@ function artoria_mana_burst:OnSpellStart()
 	local damage = self:GetSpecialValueFor("damage")
 	
 	if caster:HasModifier("modifier_artoria_mana_burst_attribute") then
-		damage = damage + 250
+		damage = damage + 150
 		caster:FindAbilityByName("artoria_invisible_air"):EndCooldown()
 		caster:AddNewModifier(caster, self, "modifier_artoria_damage", {duration = 3})
 	end

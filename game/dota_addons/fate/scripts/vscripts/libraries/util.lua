@@ -632,7 +632,7 @@ tItemComboTable = {
 }
 
 tModifierKBImmune = {
-    "modifier_avalon",
+    "modifier_artoria_avalon",
     "modifier_merlin_avalon_self",
     "modifier_leonidas_enomotia_ignore_motion_controll"
 }
@@ -1204,10 +1204,10 @@ function CreateSlashFx(source, backpoint, frontpoint)
 end
 
 function IsSpellBlocked(target)
-    if target:HasModifier("modifier_instinct_active") then  --This abililty is blocked by the active/targeted Linken's effect.
+    if target:HasModifier("modifier_artoria_improved_instinct") then  --This abililty is blocked by the active/targeted Linken's effect.
         EmitSoundWithCooldown("DOTA_Item.LinkensSphere.Activate", target, 1)
         ParticleManager:CreateParticle("particles/items_fx/immunity_sphere.vpcf", PATTACH_ABSORIGIN, target)
-        target:RemoveModifierByName("modifier_instinct_active")
+        target:RemoveModifierByName("modifier_artoria_improved_instinct")
         return true
     elseif target:HasModifier("modifier_okita_mind_eye_active") then
         EmitSoundWithCooldown("DOTA_Item.LinkensSphere.Activate", target, 1)

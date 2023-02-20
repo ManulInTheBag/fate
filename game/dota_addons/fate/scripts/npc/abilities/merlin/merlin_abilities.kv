@@ -164,6 +164,7 @@
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"2"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT| DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
 		"AbilityTextureName"			"custom/merlin/merlin_illusion"
@@ -179,12 +180,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"basic_duration"				"1.4 1.6 1.8 2 2.2"
+				"basic_duration"				"1.25 1.5 1.75 2 2.25"
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"min_duration"				"0.7 0.8 0.9 1 1.1"
+				"min_duration"				"0.75 0.87 1 1.12 1.25"
 			}
 			"03"
 			{
@@ -201,7 +202,11 @@
 				"var_type"			"FIELD_FLOAT"
 				"duration_red_per_unit"				"0.2"
 			}
-			
+			"06"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"damage"				"75"
+			}
 			 
 			
 		}

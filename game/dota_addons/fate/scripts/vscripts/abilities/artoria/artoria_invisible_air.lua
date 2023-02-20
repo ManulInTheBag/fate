@@ -115,6 +115,7 @@ function artoria_invisible_air:OnProjectileHit_ExtraData(target, vLocation, tDat
 	if IsSpellBlocked(target) -- Linken's
 		or target:IsMagicImmune() -- Magic immunity
 		or target:HasModifier("modifier_wind_protection_passive") 
+		or (target:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D() > 1500
 	then
 		return
 	end
@@ -128,7 +129,7 @@ function artoria_invisible_air:OnProjectileHit_ExtraData(target, vLocation, tDat
 		local bTargetPulled = false
 		if target ~= nil then
 
-			target:AddNewModifier( caster, self, "modifier_stunned", {Duration = 1} )
+			--target:AddNewModifier( caster, self, "modifier_stunned", {Duration = 1} )
 			
 			if target:GetTeamNumber() ~= self:GetCaster():GetTeamNumber() then
 				--ScreenShake(target:GetOrigin(), 5, 1.0, 2, 3000, 0, true)
@@ -149,7 +150,7 @@ function artoria_invisible_air:OnProjectileHit_ExtraData(target, vLocation, tDat
 				end
 			end
 			
-			if not target:HasModifier("modifier_wind_protection_passive") then
+			if not target:HasModifier("modifier_wind_protection_passive") and not IsKnockbackImmune(target) then
 				local caster_position = self.vStartPosition
 				local target_position = target:GetAbsOrigin()
 				

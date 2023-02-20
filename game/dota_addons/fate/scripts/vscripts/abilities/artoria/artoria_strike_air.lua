@@ -84,6 +84,8 @@ function artoria_strike_air:OnProjectileHit_ExtraData(target, vLocation, tData)
 	vectorA = Vector(0,0,0)
 	
 	DoDamage(caster, target, damage , DAMAGE_TYPE_MAGICAL, 0, self, false)
+
+	if  IsKnockbackImmune(target) then return end
 	giveUnitDataDrivenModifier(caster, target, "pause_sealenabled", 0.5)
 	
 	local pushTarget = Physics:Unit(target)

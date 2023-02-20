@@ -7710,11 +7710,12 @@
 	 
 
         "DOTA_Tooltip_ability_merlin_illusion"					"Illusion"
-        "DOTA_Tooltip_ability_merlin_illusion_Description"	 	"Merlin sends an illusion on enemies in the radius, sending them to sleep.\nSleep duration decreases with amount of enemies hit.\nEnemy will awake if total damage he received under this effect will be greater than threshold.\nIf same enemy gets caught in sleep more than once in 5 seconds, sleep duration will be minimazed for that enemy."
+        "DOTA_Tooltip_ability_merlin_illusion_Description"	 	"Merlin sends an illusion on enemies in the radius, sending them to sleep.\nSleep duration decreases with amount of enemies hit.\nEnemy will awake if total damage he received under this effect will be greater than threshold.\nEach 0.25 seconds enemy will take pure damage while sleeping.\nIf same enemy gets caught in sleep more than once in 5 seconds, sleep duration will be minimazed for that enemy."
         "DOTA_Tooltip_ability_merlin_illusion_basic_duration"			"Sleep base duration:"
         "DOTA_Tooltip_ability_merlin_illusion_min_duration"				"Sleep minimum duration:"
         "DOTA_Tooltip_ability_merlin_illusion_damage_to_awake"			"Damage to awake:"
         "DOTA_Tooltip_ability_merlin_illusion_duration_red_per_unit"	"Duration reduction per unit:"
+        "DOTA_Tooltip_ability_merlin_illusion_damage"					"Damage per tick:"
         "DOTA_Tooltip_ability_merlin_illusion_Lore"				"Illusions may be used with a lot of different purposes. But the most effective is to show someone their paradise. Almost no one could see through beautiful illusion of reality they wished and struggled to see, especially when inhuman caster is the one who made it."
 
         "DOTA_Tooltip_ability_merlin_avalon"				"Avalon"
