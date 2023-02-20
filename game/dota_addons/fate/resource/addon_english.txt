@@ -2059,6 +2059,19 @@
 		"npc_dota_hero_legion_commander"						"Arturia Pendragon"
 		"npc_dota_hero_legion_commander_hype"	""
 		"npc_dota_hero_legion_commander_bio"	""
+
+		"DOTA_Tooltip_modifier_artoria_ultimate_excalibur_cooldown"	"Combo: Sword of Promised Victory"
+		"DOTA_Tooltip_modifier_artoria_ultimate_excalibur_cooldown_Description"	"Is on cooldown."
+
+		"DOTA_Tooltip_modifier_artoria_instinct"	"Instinct"
+		"DOTA_Tooltip_modifier_artoria_improved_instinct"	"Instinct"
+		"DOTA_Tooltip_modifier_artoria_improved_instinct_Description"	"Gives magical resistance and blocks next targetted spell."
+
+		"DOTA_Tooltip_modifier_artoria_avalon"	"Avalon"
+		"DOTA_Tooltip_modifier_artoria_avalon_Description"	"Immune to all types of damage and can't be executed."
+
+		"DOTA_Tooltip_modifier_artoria_avalon_heal"	"Avalon"
+		"DOTA_Tooltip_modifier_artoria_avalon_heal_Description"	"Rapidly restores health."
 		
 		"DOTA_Tooltip_Ability_saber_charisma"					"Charisma"
 		"DOTA_Tooltip_ability_saber_charisma_Description"		"Saber's innate charisma boosts the morale of nearby allies, granting additional move speed and attack speed to them."
@@ -2163,6 +2176,100 @@
 		"DOTA_Tooltip_Ability_saber_attribute_strike_air_upstream_ad_ratio"			"ATTACK DAMAGE RATIO:"
 		"DOTA_Tooltip_Ability_saber_attribute_strike_air_upstream_knockup_duration"			"KNOCKUP DURATION:"
 		"DOTA_Tooltip_Ability_saber_attribute_strike_air_upstream_Note0"			"Passive proc has 4 second built-in cooldown, but proc by Invisible Air or Avalon does not."
+
+		"DOTA_Tooltip_Ability_artoria_invisible_air"				"Invisible Air"
+		"DOTA_Tooltip_ability_artoria_invisible_air_Description"	"When cast, Saber sends a gust that <font color='#FF3399'>pulls</font> the enemy to her location while inflicting <font color='#05CAFF'>magical damage</font> to them."
+		"DOTA_Tooltip_ability_artoria_invisible_air_damage"	"DAMAGE:"
+		"DOTA_Tooltip_ability_artoria_invisible_air_range"	"CAST RANGE:"
+		
+		"DOTA_Tooltip_Ability_artoria_mana_burst"					"Caliburn"
+		"DOTA_Tooltip_ability_artoria_mana_burst_description"		"Strikes enemy with Caliburn, dealing damage and slowing it. Nearby enemies also take a portion of damage."
+		"DOTA_Tooltip_ability_artoria_mana_burst_Lore"		""
+		"DOTA_Tooltip_ability_artoria_mana_burst_damage"		"DAMAGE:"
+		"DOTA_Tooltip_ability_artoria_mana_burst_radius"	"AOE RADIUS:"
+		"DOTA_Tooltip_ability_artoria_mana_burst_slow_amount"	"%SLOW AMOUNT:"
+		"DOTA_Tooltip_ability_artoria_mana_burst_duration"		"SLOW DURATION:"
+		
+		"DOTA_Tooltip_Ability_artoria_avalon"				"Avalon"
+		"DOTA_Tooltip_ability_artoria_avalon_description"		"Saber extends her ultimate sheath Avalon, rendering her immune to any harm. During the duration, upon taking damage over 300, Saber will instantly rush towards the source of damage and strike back."
+		"DOTA_Tooltip_ability_artoria_avalon_Lore"		"The Everdistant Utopia embraces its owner." 
+		"DOTA_Tooltip_ability_artoria_avalon_Note0"		"The single instance of <font color='#FF5100'>damage</font> must exceed 300 after mitigation through Armor/Magic Resistance to trigger counter(i.e S Scroll will not proc it)."
+		"DOTA_Tooltip_ability_artoria_avalon_Note1"		"The source of <font color='#FF5100'>damage</font> must be within 3000 range to trigger counter."
+		"DOTA_Tooltip_ability_artoria_avalon_Note2"		"Counter strike deals <font color='#FF5100'>damage</font> in 200 radius, has 3 second cooldown and will not trigger while Saber is in forced channeling."
+		"DOTA_Tooltip_ability_artoria_avalon_Note3"		"Avalon cannot proc during Excalibur or Max Excalibur cast."
+		"DOTA_Tooltip_ability_artoria_avalon_duration"	"DURATION:"
+		"DOTA_Tooltip_ability_artoria_avalon_damage_threshold"		"DAMAGE THRESHOLD:"
+		"DOTA_Tooltip_ability_artoria_avalon_range"		"COUNTER ATTACK RANGE:"
+		"DOTA_Tooltip_ability_artoria_avalon_damage"		"COUNTER DAMAGE:"
+		"DOTA_Tooltip_ability_artoria_avalon_stun_duration"		"STUN DURATION:"
+		
+		"DOTA_Tooltip_Ability_artoria_charisma"					"Charisma"
+		"DOTA_Tooltip_ability_artoria_charisma_Description"		"Saber's innate charisma boosts the morale of nearby allies, granting additional <font color='#FF3399'>move speed</font> to them."
+		"DOTA_Tooltip_ability_artoria_charisma_radius"	"RADIUS:"
+		"DOTA_Tooltip_ability_artoria_charisma_speed_modifier"	"%MOVEMENT SPEED INCREASE:"
+		
+		"DOTA_Tooltip_Ability_artoria_instinct"					"Instinct"
+		"DOTA_Tooltip_ability_artoria_instinct_Description"		"Saber's gifted instinct allows her a chance to <font color='#FF3399'>evade</font> basic attacks. \n\nUpgradable with attribute Improve Instinct"
+		"DOTA_Tooltip_ability_artoria_instinct_evasion_rate"		"%CHANCE: "
+
+		"DOTA_Tooltip_Ability_artoria_improved_instinct"						"Instinct"
+		"DOTA_Tooltip_ability_artoria_improved_instinct_Description"			"Saber's gifted instinct allows her a chance to <font color='#FF3399'>evade</font> basic attacks, and inflict critical damage on her attacks.\n\nUpon activation, Saber concentrates on her precognition, gaining additional magical resistance and gaining one-time spellblock."
+		"DOTA_Tooltip_ability_artoria_improved_instinct_duration"			"LINKEN DURATION:"
+		"DOTA_Tooltip_ability_artoria_improved_instinct_magic_res"			"%ACTIVATABLE MAGIC RESISTANCE:"
+		"DOTA_Tooltip_ability_artoria_improved_instinct_double_strike_chance"	"%CRITICAL STRIKE CHANCE:"
+		
+		"DOTA_Tooltip_Ability_artoria_excalibur"				"Excalibur"
+		"DOTA_Tooltip_ability_artoria_excalibur_description"	"Saber supercharges Excalibur with her prana and swings it to unleash a wave of light, dealing damage to every enemy in the path of light. Damage is dealt in 10 ticks, each applying a 60% slow and dimensional lock for 1 second  \n\nUpgradable with attribute Improve Excalibur"
+		"DOTA_Tooltip_ability_artoria_excalibur_Lore"	"The lone King's ideal shines the brightest in the starry night." 
+		"DOTA_Tooltip_ability_artoria_excalibur_cast_delay"		"CAST DELAY:"
+		"DOTA_Tooltip_ability_artoria_excalibur_range"		"RANGE:"
+		"DOTA_Tooltip_ability_artoria_excalibur_damage"		"DAMAGE:"
+		"DOTA_Tooltip_ability_artoria_excalibur_Note0"		"Saber is stunned Master until she finishes casting."
+
+		"DOTA_Tooltip_Ability_artoria_ultimate_excalibur"				"Combo: The Sword of Promised Victory"
+		"DOTA_Tooltip_ability_artoria_ultimate_excalibur_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : E-R in 3 seconds</font>\nSaber unleashes the true radiance of Excalibur forward, engulfing everything in the path in ardent light to deal significant damage. Locks and slows every enemy hit.\n\nUpgradable with attribute Improve Excalibur"
+		"DOTA_Tooltip_ability_artoria_ultimate_excalibur_Lore"	"The lone King's ideal shines the brightest in the starry night." 
+		"DOTA_Tooltip_ability_artoria_ultimate_excalibur_cast_time"	"CAST DELAY:"
+		"DOTA_Tooltip_ability_artoria_ultimate_excalibur_pause_time"	"TOTAL DELAY:"
+		"DOTA_Tooltip_ability_artoria_ultimate_excalibur_length"		"RANGE:"
+		"DOTA_Tooltip_ability_artoria_ultimate_excalibur_damage"	"TOTAL DAMAGE:"
+		"DOTA_Tooltip_ability_artoria_ultimate_excalibur_Note0"	"Saber is stunned until she finishes casting."
+		
+		"DOTA_Tooltip_Ability_artoria_strike_air"				"Strike Air"
+		"DOTA_Tooltip_ability_artoria_strike_air_description"	"Saber unleashes a destructive gale from her sword, dealing magical damage and pushing back all enemies in the path.\n\nEnemies knocked into a wall are <font color='#FF3399'>stunned</font> and take additional magical damage."
+		"DOTA_Tooltip_ability_artoria_strike_air_Lore"		"The air so condensed that it twists the look of sword. What if what packs it is released?"
+		"DOTA_Tooltip_ability_artoria_strike_air_length"		"RANGE:"
+		"DOTA_Tooltip_ability_artoria_strike_air_cast_time"		"CAST TIME:"
+		"DOTA_Tooltip_ability_artoria_strike_air_damage"	" DAMAGE:"
+		"DOTA_Tooltip_ability_artoria_strike_air_wall_bonus_damage"	"WALL BONUS DAMAGE:"
+		"DOTA_Tooltip_ability_artoria_strike_air_wall_stun"			"WALL STUN DURATION:"
+	
+		"DOTA_Tooltip_Ability_artoria_improve_excalibur_attribute"						"Attribute: Improve Excalibur"
+		"DOTA_Tooltip_ability_artoria_improve_excalibur_attribute_Description"			"Increases The Sword of Promised Victory's damage. Increases Excalibur damage based on Saber's mana."
+		"DOTA_Tooltip_ability_artoria_improve_excalibur_attribute_manaScaling"	"%MANA TO EXCALIBUR TOTAL DAMAGE:"
+		"DOTA_Tooltip_ability_artoria_improve_excalibur_attribute_max_excal_bonus_damage"	"COMBO EXCALIBUR BONUS DAMAGE:"
+
+		"DOTA_Tooltip_Ability_artoria_improve_instinct_attribute"							"Attribute: Improve Instinct"
+		"DOTA_Tooltip_ability_artoria_improve_instinct_attribute_Description"				"Strengthens Saber's Instinct.\n\n<font color='#58ACFA'>Instinct : </font>Saber's gifted instinct allows her a chance to <font color='#FF3399'>evade</font> basic attacks, and inflict critical damage on her attacks.\n\nUpon activation, Saber concentrates on her precognition, gaining additional magical resistance and gaining one-time spellblock."
+		"DOTA_Tooltip_ability_artoria_improve_instinct_attribute_duration"			"LINKEN DURATION:"
+		"DOTA_Tooltip_ability_artoria_improve_instinct_attribute_magic_res"			"%ACTIVATABLE MAGIC RESISTANCE:"
+		"DOTA_Tooltip_ability_artoria_improve_instinct_attribute_double_strike_chance"	"%CRITICAL STRIKE CHANCE:"
+		"DOTA_Tooltip_ability_artoria_improve_instinct_attribute_crit"	"%CRITICAL DAMAGE:"
+
+		"DOTA_Tooltip_Ability_artoria_mana_burst_attribute"						"Attribute: Mana Burst"
+		"DOTA_Tooltip_ability_artoria_mana_burst_attribute_Description"			"Increases Caliburn's damage.\nUsing Caliburn refreshes Invisible Air and gives additional %base_damage% + %damage_scale% of Artoria's max mana pool attack damage and %base_as% attack speed for 3 seconds."
+		"DOTA_Tooltip_ability_artoria_mana_burst_attribute_mana_burst_bonus_damage"	"CALIBURN BONUS DAMAGE:"
+
+		"DOTA_Tooltip_Ability_artoria_avalon_attribute"				"Attribute: The Everdistant Utopia"
+		"DOTA_Tooltip_Ability_artoria_avalon_attribute_Description"	"Upgrades Avalon.\nWhile Avalon persists, Arturia gains massive bonus health regeneration."
+		"DOTA_Tooltip_Ability_artoria_avalon_attribute_regen" "HEALTH REGENERATION: "
+
+		"DOTA_Tooltip_Ability_artoria_strike_air_attribute"				"Attribute: Proficiency of the Wind King"
+		"DOTA_Tooltip_ability_artoria_strike_air_attribute_Description"	"Invisible Air and Strike Air deal bonus damage.\nSuccesfully hitting target with Invisible Air enables Upstream.\nUpstream: Saber's next attack will deal additional magical damage and send target into the air."
+		"DOTA_Tooltip_Ability_artoria_strike_air_attribute_invisible_damage"	"Invisible Air bonus damage:"
+		"DOTA_Tooltip_Ability_artoria_strike_air_attribute_strike_damage"		"Strike Air bonus damage:"
+		"DOTA_Tooltip_Ability_artoria_strike_air_attribute_upstream_damage"		"Upstream base damage:"
+		"DOTA_Tooltip_Ability_artoria_strike_air_attribute_upstream_scale"		"Upstream attack scale:"
 		//=================================================================================================================
 		//	Lancer
 		//=================================================================================================================
@@ -5177,7 +5284,7 @@
         "DOTA_Tooltip_ability_gawain_heat_radius"			"Area of Effect:"
 
 		"DOTA_Tooltip_ability_gawain_blade_of_the_devoted"					"Blade of the Devoted"
-        "DOTA_Tooltip_ability_gawain_blade_of_the_devoted_Description"		"Gawain enchants his blade. On his next attack, it deals massive bonus damage and stuns the target for a duration. Subsequent attacks will ministun his target. Gawain has increased movement speed and damage while this effect persist."
+        "DOTA_Tooltip_ability_gawain_blade_of_the_devoted_Description"		"Gawain enchants his blade. On his next attack, it deals massive bonus damage, stuns the target for a duration and creates an Artificial Sun above target's head. Subsequent attacks will ministun his target. Gawain has increased movement speed and damage while this effect persist."
         "DOTA_Tooltip_ability_gawain_blade_of_the_devoted_Lore"				""
         "DOTA_Tooltip_ability_gawain_blade_of_the_devoted_damage"			"Damage:"
         "DOTA_Tooltip_ability_gawain_blade_of_the_devoted_sub_damage"		"Bonus Damage:"
@@ -5186,14 +5293,14 @@
         "DOTA_Tooltip_ability_gawain_blade_of_the_devoted_duration"			"Duration:"
 
         "DOTA_Tooltip_ability_gawain_sun_of_galatine"					"Sun of Galatine"
-        "DOTA_Tooltip_ability_gawain_sun_of_galatine_Description"		"Gawain channels the power of the sun to create a massive explosion, dealing damage to all nearby enemies and stuns them."
+        "DOTA_Tooltip_ability_gawain_sun_of_galatine_Description"		"Gawain channels the power of the sun to create a massive explosion, dealing damage to all nearby enemies and stuns them.\nCreates an Artificial Sun above Gawain when used."
         "DOTA_Tooltip_ability_gawain_sun_of_galatine_Lore"				""
         "DOTA_Tooltip_ability_gawain_sun_of_galatine_damage"			"Damage:"
         "DOTA_Tooltip_ability_gawain_sun_of_galatine_area_of_effect"	"Area of Effect:"
         "DOTA_Tooltip_ability_gawain_sun_of_galatine_stun_duration"		"Stun duration:"
 
         "DOTA_Tooltip_ability_gawain_excalibur_galatine"				"Excalibur Galatine"
-        "DOTA_Tooltip_ability_gawain_excalibur_galatine_Description"	"Gawain gathers the power of the sun on his blade and launches it as an orb of energy. While the orb travels, it leaves behind a trail of fire, dealing damage every second on enemies standing on it. When the orb detonates, deals massive amount of magical damage.\nGawain may detonate ball at his will during its flight by activating this ability again."
+        "DOTA_Tooltip_ability_gawain_excalibur_galatine_Description"	"Gawain gathers the power of the sun on his blade and launches it as an orb of energy. While the orb travels, it leaves behind a trail of fire, dealing damage every second on enemies standing on it. When the orb detonates, it deals massive amount of magical damage and creates an Artificial Sun.\nGawain may detonate ball at his will during its flight by activating this ability again."
         "DOTA_Tooltip_ability_gawain_excalibur_galatine_Lore"		"The sister sword of Excalibur contains psuedo-Sun within its hilt, purging the evil with solar flame."
         "DOTA_Tooltip_ability_gawain_excalibur_galatine_cast_delay"		"CAST DELAY:"
         "DOTA_Tooltip_ability_gawain_excalibur_galatine_damage"			"DAMAGE:"

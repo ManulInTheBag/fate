@@ -1,0 +1,74 @@
+"DOTAAbilities"
+{
+	//=======================================★★★★★
+	// Artoria: Avalon - The Everdistant Utopia (E)
+	//=======================================★★★★★
+	"artoria_avalon"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/artoria/artoria_avalon"
+		"MaxLevel"						"2"
+		"RequiredLevel"					"25"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityTextureName"			"custom/saber_avalon"
+		
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		
+		// Ability Stats		//------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.6"
+		"AbilityCooldown"				"60.0 40.0"
+		"AbilityManaCost"				"0"
+		
+		// Precache		//------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"					"particles/custom/saber_avalon_floor.vpcf"
+			"particle"					"particles/custom/saber_avalon_impact.vpcf"
+			"particle"					"particles/custom/saber_avalon_explosion.vpcf"
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_omniknight.vsndevts"
+			"particle"					"particles/custom/artoria/avalon_buff.vpcf"
+		}
+		
+		// Ability Special		//------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"duration"				"6.0 8.0"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"range"					"3000"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_threshold"		"300"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"stun_duration"			"2.5"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"400 1200"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"hp_regen"				"500"
+			}
+		}
+	}
+}

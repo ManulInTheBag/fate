@@ -31,7 +31,8 @@ function modifier_gawain_sun_passive:OnCreated(args)
 end
 
  
-function modifier_gawain_sun_passive:OnDestroy(args) 
+function modifier_gawain_sun_passive:OnDestroy(args)
+    print("iamzuzup")
     ParticleManager:DestroyParticle(  self.sunFx, false )
     ParticleManager:ReleaseParticleIndex(  self.sunFx)
 end

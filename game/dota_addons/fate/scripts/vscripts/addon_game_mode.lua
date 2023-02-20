@@ -2816,7 +2816,7 @@ function FateGameMode:OnPlayerLevelUp(keys)
     hero.MasterUnit2:SetMana(hero.MasterUnit2:GetMana() + 3)
     --Notifications:Top(player, "<font color='#58ACFA'>" .. FindName(hero:GetName()) .. "</font> has gained a level. Master has received <font color='#58ACFA'>3 mana.</font>", 5, nil, {color="rgb(255,255,255)", ["font-size"]="20px"})
 
-    Notifications:Top(player, {text= "<font color='#58ACFA'>" .. FindName(hero:GetName()) .. "</font> has gained a level. Master has received <font color='#58ACFA'>2 mana.</font>", duration=5, style={color="rgb(255,255,255)", ["font-size"]="20px"}, continue=true})
+    Notifications:Top(player, {text= "<font color='#58ACFA'>" .. FindName(hero:GetName()) .. "</font> has gained a level. Master has received <font color='#58ACFA'>3 mana.</font>", duration=5, style={color="rgb(255,255,255)", ["font-size"]="20px"}, continue=true})
     if level == 24 then
         Notifications:Top(player, {text= "<font color='#58ACFA'>" .. FindName(hero:GetName()) .. "</font> has ascended to max level! Your Master's max health has been increased by 2.", duration=8, style={color="rgb(255,140,0)", ["font-size"]="35px"}, continue=true})
         Notifications:Top(player, {text= "Exalted by your ascension, Holy Grail's Blessing from now on will award 3 more mana.", duration=8, style={color="rgb(255,140,0)", ["font-size"]="35px"}, continue=true})
@@ -2824,6 +2824,7 @@ function FateGameMode:OnPlayerLevelUp(keys)
         hero.MasterUnit2:SetMana(hero.MasterUnit2:GetMana() + 3)
         hero.MasterUnit:SetMaxHealth(hero.MasterUnit:GetMaxHealth()+2)
         hero.MasterUnit2:SetMaxHealth(hero.MasterUnit2:GetMaxHealth() + 2)
+        hero.Level24Acquired = true
     end
     MinimapEvent( hero:GetTeamNumber(), hero, hero.MasterUnit:GetAbsOrigin().x, hero.MasterUnit2:GetAbsOrigin().y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 2 )
 end

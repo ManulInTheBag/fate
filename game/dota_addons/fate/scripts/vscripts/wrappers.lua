@@ -35,6 +35,7 @@ function Wrappers.WrapUnit(hUnit)
 		local tModifiers = hUnit:FindAllModifiers()
 
 		if hUnit:GetName() == "npc_dota_hero_skeleton_king" and hUnit.BattleContinuationAcquired then return end
+		if hUnit:HasModifier("modifier_artoria_avalon") then return end
 	
 		for k, v in pairs(tModifiers) do
 			if v.OnKill then

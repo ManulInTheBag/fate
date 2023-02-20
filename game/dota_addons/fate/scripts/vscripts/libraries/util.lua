@@ -570,6 +570,9 @@ CannotReset = {
     "edmon_dash",
 
     "gawain_meltdown",
+    "artoria_avalon",
+    "artoria_ultimate_excalibur",
+    "artoria_improved_instinct",
 }
 
 femaleservant = {

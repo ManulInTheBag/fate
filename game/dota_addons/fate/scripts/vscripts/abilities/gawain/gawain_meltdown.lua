@@ -57,6 +57,7 @@ end
 
 
 function modifier_meltdown:OnIntervalThink()
+	if not IsServer() then return end
     self.counter = self.counter - 1
 	local targets = FindUnitsInRadius(  self.team, self.sun:GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
 	for k,v in pairs(targets) do

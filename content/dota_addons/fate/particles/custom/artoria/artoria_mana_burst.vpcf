@@ -1,0 +1,89 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf51:version{6d03d500-2498-454e-b833-f654e870bb3d} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_bShouldHitboxesFallbackToRenderBounds = false
+	m_nMaxParticles = 1
+	m_nBehaviorVersion = 12
+	m_controlPointConfigurations = 
+	[
+		{
+			m_name = "preview"
+			m_drivers = 
+			[
+				{
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 1
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_vecOffset = [ 1.0, 1.0, 1.0 ]
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 60
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_vecOffset = [ 8.0, 229.0, 96.0 ]
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 61
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+			]
+		},
+	]
+	m_PreEmissionOperators = 
+	[
+		{
+			_class = "C_OP_HSVShiftToCP"
+			m_DefaultHSVColor = [ 226, 158, 0 ]
+		},
+	]
+	m_Children = 
+	[
+		{
+			m_ChildRef = resource:"particles/custom/artoria/artoria_mana_burst_f.vpcf"
+			m_bDisableChild = true
+		},
+		{
+			m_ChildRef = resource:"particles/custom/artoria/artoria_mana_burst_b.vpcf"
+			m_bDisableChild = true
+		},
+		{
+			m_ChildRef = resource:"particles/custom/artoria/artoria_mana_burst_i.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/artoria/artoria_mana_burst_c.vpcf"
+			m_bDisableChild = true
+		},
+		{
+			m_ChildRef = resource:"particles/custom/artoria/artoria_mana_burst_l.vpcf"
+			m_bDisableChild = true
+		},
+		{
+			m_ChildRef = resource:"particles/custom/artoria/artoria_mana_burst_e.vpcf"
+			m_bDisableChild = true
+		},
+		{
+			m_ChildRef = resource:"particles/custom/artoria/artoria_mana_burst_h.vpcf"
+			m_bDisableChild = true
+		},
+		{
+			m_ChildRef = resource:"particles/custom/artoria/artoria_mana_burst_d.vpcf"
+			m_bDisableChild = true
+		},
+		{
+			m_ChildRef = resource:"particles/custom/artoria/artoria_mana_burst_g.vpcf"
+			m_bDisableChild = true
+		},
+		{
+			m_ChildRef = resource:"particles/custom/artoria/artoria_mana_burst_a.vpcf"
+			m_bDisableChild = true
+		},
+		{
+			m_ChildRef = resource:"particles/custom/artoria/artoria_mana_burs_j.vpcf"
+		},
+	]
+}

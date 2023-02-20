@@ -1,0 +1,69 @@
+"DOTAAbilities"
+{
+	//=======================================★★★★★
+	// Artoria: Final Slash (F -> E -> R)
+	//=======================================★★★★★
+	"artoria_final_slash"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/artoria/artoria_final_slash"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastAnimation" 			"ACT_DOTA_IDLE"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityTextureName"			"custom/artoria/artoria_final_slash"
+		
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
+		// Ability Stats		//------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"200"
+		"AbilityCastRangeBuffer"		"50"
+		"AbilityCastPoint"				"0"
+		"AbilityCooldown"				"12.0"
+		"AbilityManaCost"				"0"
+		
+		// Precache		//------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"				"particles/units/heroes/hero_skywrath_mage/skywrath_mage_concussive_shot_impact.vpcf"
+			"particle"				"particles/units/heroes/hero_magnataur/magnataur_shockwave.vpcf"
+			"particle"				"particles/units/heroes/hero_skywrath_mage/skywrath_mage_arcane_bolt_birds.vpcf"
+			"particle"				"particles/custom/artoria/artoria_mana_burst.vpcf"
+			"particle"				"particles/custom/artoria/artoria_mana_burst_slash.vpcf"
+			"particle"				"particles/custom/artoria/artoria_mana_burst_slash.vpcf"
+			"particle"				"particles/custom/saber/caliburn/explosion.vpcf"
+			"particle"				"particles/custom/artoria/artoria_final_slash_flash.vpcf"
+		}
+		
+		// Ability Special		//------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"3000"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"duration"			"2"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"cast_delay"			"1.05"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"damage_delay"			"0.40"
+			}
+		}
+	}
+}
