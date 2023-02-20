@@ -138,7 +138,7 @@ function artoria_invisible_air:OnProjectileHit_ExtraData(target, vLocation, tDat
 				caster = self:GetCaster()
 				
 				if caster:HasModifier("modifier_artoria_strike_air_attribute") then
-					damage = damage + 150
+					damage = damage + 75
 					caster:AddNewModifier( caster, self, "modifier_artoria_upstream", {Duration = 5} )
 				end
 				
