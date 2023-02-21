@@ -160,7 +160,7 @@ Timers:CreateTimer(0.1, function ()
 
 if IsServer() then
 if slash > 0 and target:HasModifier("nanaya_slashes_modifier1") then
-	if (caster:GetOrigin() - target:GetAbsOrigin()):Length2D() > 450 then
+	if (caster:GetOrigin() - target:GetAbsOrigin()):Length2D() > 750 then
 			target:RemoveModifierByName("nanaya_slashes_modifier1")
 		return nil
 	end
@@ -279,15 +279,15 @@ ParticleManager:SetParticleControl(knife, 4, target:GetAbsOrigin())
 			target:EmitSound("nanaya.slash")
 			target:AddNewModifier(caster, self, "modifier_knockback", knockback)
 			--ParticleManager:CreateParticle("particles/nanaya_e1.vpcf", PATTACH_ABSORIGIN, target)
-			--DoDamage(caster, target, 250, DAMAGE_TYPE_PHYSICAL, 0, self, false)
-			ApplyDamage({
+			DoDamage(caster, target, dmg, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+			--[[ApplyDamage({
                     victim = target,
                     attacker = caster,
                     damage = dmg,
                     damage_type = DAMAGE_TYPE_PHYSICAL,
                     damage_flags = 0,
                     ability = self
-                })
+                })]]
 			ScreenShake(target:GetOrigin(), 10, 1.0, 0.1, 2000, 0, true)
 					--ParticleManager:SetParticleControl(test_hit, 1, units:GetAbsOrigin() + units:GetForwardVector() * 180)
 					end)
@@ -407,15 +407,15 @@ end
 			
 			target:EmitSound("nanaya.slash")
 			target:AddNewModifier(caster, self, "modifier_knockback", knockback)
-			--DoDamage(caster, target, 250, DAMAGE_TYPE_PHYSICAL, 0, self, false)
-			ApplyDamage({
+			DoDamage(caster, target, dmg, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+			--[[ApplyDamage({
                     victim = target,
                     attacker = caster,
                     damage = dmg,
                     damage_type = DAMAGE_TYPE_PHYSICAL,
                     damage_flags = 0,
                     ability = self
-                })
+                })]]
 			ScreenShake(target:GetOrigin(), 10, 1.0, 0.1, 2000, 0, true)
 					--ParticleManager:SetParticleControl(test_hit, 1, units:GetAbsOrigin() + units:GetForwardVector() * 180)
 			end)

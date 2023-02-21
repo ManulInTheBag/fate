@@ -312,6 +312,7 @@ local point = self:GetCursorPosition()
    -- else
 local casterabs = caster:GetAbsOrigin()
 local direction = (point - caster:GetAbsOrigin()):Normalized()
+caster:SetForwardVector(Vector(direction.x, direction.y, 0))
 caster:EmitSound("nanaya.jumpforward")
 local jump = ParticleManager:CreateParticle("particles/blink.vpcf", PATTACH_CUSTOMORIGIN, caster)
 	

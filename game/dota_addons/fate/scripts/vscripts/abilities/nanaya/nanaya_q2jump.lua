@@ -78,15 +78,15 @@ function nanaya_q2jump:OnProjectileHitHandle(hTarget, vLocation, iProjectileHand
 	Timers:CreateTimer(0, function()	
 		if hit > 0 then
 			hit = hit-1
-			--DoDamage(caster, hTarget, 200, DAMAGE_TYPE_PHYSICAL, 0, self, false)
-			ApplyDamage({
+			DoDamage(caster, hTarget, dmg, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+			--[[ApplyDamage({
                     victim = hTarget,
                     attacker = caster,
                     damage = dmg,
                     damage_type = DAMAGE_TYPE_PHYSICAL,
                     damage_flags = 0,
                     ability = self
-                })
+                })]]
 
 
    ParticleManager:CreateParticle("particles/nanaya_work_22.vpcf", PATTACH_ABSORIGIN, hTarget)
@@ -131,13 +131,14 @@ local knockback4 = { should_stun = true,
 		
 			Timers:CreateTimer(0.75, function()	
 				hTarget:RemoveModifierByName("modifier_knockback")
-				local knockback3 = { should_stun = true,
+				local vec = (caster:GetAbsOrigin() - hTarget:GetAbsOrigin()):Normalized()
+				local knockback3 = { should_stun = false,
 				knockback_duration = 0.05,
 				duration = 0.05,
 				knockback_distance = 500,
 				knockback_height = 150,
-				center_x = caster:GetAbsOrigin().x - caster:GetForwardVector().x * 800,
-				center_y = caster:GetAbsOrigin().y - caster:GetForwardVector().y * 800,
+				center_x = caster:GetAbsOrigin().x + vec.x * 800,
+				center_y = caster:GetAbsOrigin().y + vec.y * 800,
 			center_z = 4000 }	
                 hTarget:AddNewModifier(caster, self, "modifier_knockback", knockback3)	
                 caster:EmitSound("nanaya.jumphit")
