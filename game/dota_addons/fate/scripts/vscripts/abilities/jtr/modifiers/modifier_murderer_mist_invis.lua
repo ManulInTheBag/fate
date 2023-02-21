@@ -16,7 +16,7 @@ end
 
 if IsServer() then 
 	function modifier_murderer_mist_invis:OnCreated(args)
-		self.initpos = self:GetParent():GetAbsOrigin()
+		self.initpos = self:GetAbility():GetCursorPosition()--self:GetParent():GetAbsOrigin()
 		self.State = {}
 		self.SlowPct = args.SlowPct
 		self.OnHitDamage = args.BaseAgiDmg + (args.AgiDmg * self:GetParent():GetAgility() / 100)
@@ -49,6 +49,7 @@ if IsServer() then
 		local kappa1 = true
 		ParticleManager:SetParticleControl(self.ring_fx, 2, self:GetParent():GetAbsOrigin())
 		for i,j in pairs(targets) do
+			print(targets[i]:GetName())
 			kappa = false
 		end
 		if (self:GetParent():GetAbsOrigin()-self.initpos):Length2D() > self:GetAbility():GetSpecialValueFor("radius") then
@@ -60,6 +61,7 @@ if IsServer() then
 					   	   --[MODIFIER_STATE_TRUESIGHT_IMMUNE] = true
 					   	   }
 			self.hidden = false
+			ParticleManager:SetParticleControl(self.ring_fx, 3, Vector(self.radius, 0, 0))
 		else
 			if self.hidden == false then
 				LoopOverPlayers(function(player, playerID, playerHero)
@@ -73,6 +75,7 @@ if IsServer() then
     		end
 			self.State = {}
 			self.hidden = true
+			ParticleManager:SetParticleControl(self.ring_fx, 3, Vector(self.radius, 0, 0))
 			--print("pidor")
 		end
 	end
@@ -129,7 +132,7 @@ function modifier_murderer_mist_invis:GetTexture()
 	return "custom/jtr/murderer_mist"
 end
 
-function modifier_murderer_mist_invis:GetAuraSearchTeam()
+--[[function modifier_murderer_mist_invis:GetAuraSearchTeam()
     return DOTA_UNIT_TARGET_TEAM_ENEMY
 end
 
@@ -143,7 +146,7 @@ end
 
 function modifier_murderer_mist_invis:GetModifierAura()
 	return "modifier_vision_provider"
-end
+end]]
 
 function modifier_murderer_mist_invis:RemoveOnDeath()
 	return true
@@ -153,6 +156,6 @@ function modifier_murderer_mist_invis:IsDebuff()
 	return false 
 end
 
-function modifier_murderer_mist_invis:IsAura()
+--[[function modifier_murderer_mist_invis:IsAura()
 	return true 
-end
+end]]

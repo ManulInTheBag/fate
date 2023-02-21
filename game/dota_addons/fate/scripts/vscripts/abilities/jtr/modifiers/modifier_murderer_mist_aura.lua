@@ -37,8 +37,6 @@ if IsServer() then
 		self.parent = self:GetParent()
 		local range = 0
 		local targets = FindUnitsInRadius(caster:GetTeam(), self:GetParent():GetAbsOrigin(), nil, 3200, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_INVULNERABLE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
-		local targets1 = FindUnitsInRadius(caster:GetTeam(), self:GetParent():GetAbsOrigin(), nil, self.AuraRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_INVULNERABLE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
-		local targets2 = FindUnitsInRadius(caster:GetTeam(), self:GetParent():GetAbsOrigin(), nil, self.AuraRadius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_INVULNERABLE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 		for i,j in pairs(targets) do
 			--if j:IsAlive() then
 				if (j:GetUnitName() == "ward_familiar") or (j:GetUnitName() == "sentry_familiar") then
@@ -46,15 +44,8 @@ if IsServer() then
 				end
 			--end
 		end
-		--[[for i,j in pairs(targets1) do
-			if IsFemaleServant(j) then
-				j:AddNewModifier(caster, self:GetAbility(), "modifier_vision_provider", {duration = 0.2})
-			end
-		end]]
-		for i, j in pairs(targets2) do
-			if j == caster then
-				j:AddNewModifier(caster, self:GetAbility(), "modifier_murderer_mist_in", {duration = 0.2})
-			end
+		if (self:GetParent():GetAbsOrigin() - caster:GetAbsOrigin()):Length2D() <= self.AuraRadius then
+			caster:AddNewModifier(caster, self:GetAbility(), "modifier_murderer_mist_in", {duration = 0.2})
 		end
 	end
 end

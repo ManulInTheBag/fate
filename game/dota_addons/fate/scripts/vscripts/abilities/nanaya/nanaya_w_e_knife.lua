@@ -70,7 +70,7 @@ function jump_ahead_nanaya:OnProjectileHitHandle(hTarget, vLocation, iProjectile
 		local dmg2 = self:GetSpecialValueFor("dmg_hit") + math.floor(self:GetCaster():GetAgility()*2)
 		--DoDamage(caster, hTarget, 500, DAMAGE_TYPE_PHYSICAL, 0, self, false)
 			DoDamage(caster, hTarget, dmg, DAMAGE_TYPE_PHYSICAL, 0, self, false)
-			            hTarget:AddNewModifier(caster, self, "modifier_stunned", { Duration = 1 })
+			            --hTarget:AddNewModifier(caster, self, "modifier_stunned", { Duration = 1 })
 
 		caster:SetOrigin(target+caster:GetForwardVector()*180)
 		
@@ -269,6 +269,8 @@ function nanaya_knife:OnProjectileHitHandle(hTarget, vLocation, iProjectileHandl
 	if hTarget == nil then return true 
 		else
 
+		ProjectileManager:ProjectileDodge(caster)
+
 		local player = caster:GetPlayerOwner()
 		local player2 = hTarget:GetPlayerOwner()
 		local target = hTarget:GetAbsOrigin()
@@ -277,7 +279,7 @@ function nanaya_knife:OnProjectileHitHandle(hTarget, vLocation, iProjectileHandl
 
 				DoDamage(caster, hTarget, dmg/2, DAMAGE_TYPE_PHYSICAL, 0, self, false)
 				DoDamage(caster, hTarget, dmg/2, DAMAGE_TYPE_PHYSICAL, 0, self, false)
-        			            hTarget:AddNewModifier(caster, self, "modifier_stunned", { Duration = 1 })
+        			            --hTarget:AddNewModifier(caster, self, "modifier_stunned", { Duration = 1 })
 		local culling_kill_particle = ParticleManager:CreateParticle("particles/nanaya_work_2_great.vpcf", PATTACH_ABSORIGIN, hTarget)
 		ScreenShake(hTarget:GetOrigin(), 22, 1.0, 0.4, 1000, 0, true)
 		
@@ -349,6 +351,8 @@ end
 function modifier_nanaya_animation_knife:CheckState()
 	local state =   { 
                         [MODIFIER_STATE_COMMAND_RESTRICTED] = true,
+                        [MODIFIER_STATE_INVULNERABLE] = true,
+                        [MODIFIER_STATE_NO_HEALTH_BAR] = true,
                         --[MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true,
                         [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
                         [MODIFIER_STATE_ROOTED] = true,
@@ -482,7 +486,7 @@ local test = string.format("nanaya.clonetp%s", numberhit)
 																			
 units:EmitSound(test)
  
-	local knockback = { should_stun = true,
+	local knockback = { should_stun = false,
 	                                knockback_duration = 0.1,
 	                                duration = 0.1,
 	                                knockback_distance = 250,
@@ -556,7 +560,7 @@ ScreenShake(units:GetOrigin(), 10, 1.0, 0.2, 2000, 0, true)
 --DoDamage(caster, units, 500, DAMAGE_TYPE_PHYSICAL, 0, self, false)
 DoDamage(caster, units, 700, DAMAGE_TYPE_PHYSICAL, 0, self, false)
 
-local knockback = { should_stun = true,
+local knockback = { should_stun = false,
 	                                knockback_duration = 2,
 	                                duration = 2,
 	                                knockback_distance = 800,
@@ -565,7 +569,7 @@ local knockback = { should_stun = true,
 								    center_x = knockback_push.x,
 									center_y = knockback_push.y,
 	                                center_z = center_unit_z }
-	                                units:AddNewModifier(caster, self, "modifier_stunned", { Duration = 4 })
+	                                --units:AddNewModifier(caster, self, "modifier_stunned", { Duration = 4 })
 									ParticleManager:CreateParticle("particles/nanaya_jump_back.vpcf", PATTACH_ABSORIGIN, units)
 									units:AddNewModifier(caster, self, "modifier_knockback", knockback)
 									Timers:CreateTimer(0.2, function()

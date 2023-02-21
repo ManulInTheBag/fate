@@ -5,6 +5,7 @@ nanaya_e_jump = class({})
 
 function nanaya_e_jump:OnSpellStart()
 	local caster = self:GetCaster()
+	ProjectileManager:ProjectileDodge(caster)
 	local check = caster:GetAnglesAsVector():Normalized()
 	local check2 = caster:GetForwardVector()
 	local targetpoint = self:GetCursorPosition()

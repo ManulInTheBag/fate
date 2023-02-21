@@ -64,8 +64,8 @@ local direction = (point - caster:GetAbsOrigin()):Normalized()
 		})]]
 		
 		local knockback = { should_stun = false,
-	                                knockback_duration = 0.75,
-	                                duration = 0.75,
+	                                knockback_duration = 0.35,
+	                                duration = 0.35,
 	                                knockback_distance = 250,
 	                                knockback_height = 90,
 	                                center_x = caster:GetAbsOrigin().x + caster:GetForwardVector().x * 350,
@@ -73,7 +73,7 @@ local direction = (point - caster:GetAbsOrigin()):Normalized()
 	                                center_z = caster:GetAbsOrigin().z }
 									caster:AddNewModifier(caster, self, "modifier_knockback", knockback)
 									
-									Timers:CreateTimer(0.8, function()
+									Timers:CreateTimer(0.4, function()
 										local nanaya_clone_jump = ParticleManager:CreateParticle("particles/blink_z1.vpcf", PATTACH_CUSTOMORIGIN, self.parent)
 				ParticleManager:SetParticleControl(nanaya_clone_jump, 1, GetGroundPosition(caster:GetAbsOrigin(), nil))
 									caster:AddNewModifier(caster, self, "nanaya_jump_slashes_modifier", {})
@@ -83,7 +83,7 @@ local direction = (point - caster:GetAbsOrigin()):Normalized()
             EffectName = nil,
             iMoveSpeed = 700,
             vSpawnOrigin = caster:GetOrigin(),
-            fDistance =  700,
+            fDistance =  1400,
             fStartRadius = 150,
             fEndRadius = 150,
             Source = caster,
@@ -94,11 +94,11 @@ local direction = (point - caster:GetAbsOrigin()):Normalized()
             iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
             fExpireTime = GameRules:GetGameTime() + 2.0,
             bDeleteOnHit = true,
-            vVelocity = direction * 400, 
+            vVelocity = direction * 800, 
 			ExtraData = { nil }
         }
 		local projectile = ProjectileManager:CreateLinearProjectile(qdProjectile)
-									caster:StartGestureWithPlaybackRate(ACT_DOTA_CAST_ABILITY_6, 0.72)
+									caster:StartGestureWithPlaybackRate(ACT_DOTA_CAST_ABILITY_6, 1.44)
 									end)
 		--[[caster:OnPreBounce(function(unit, normal) -- stop the pushback when unit hits wall
         Timers:RemoveTimer("nanaya_zange1")
@@ -131,7 +131,7 @@ local slash = 7
 if hTarget == nil or self.kappa == true then return end
 self.kappa = true
 hTarget:EmitSound("nanaya.finalhit")
-hTarget:AddNewModifier(caster, self, "modifier_stunned", { Duration = 2 })
+--hTarget:AddNewModifier(caster, self, "modifier_stunned", { Duration = 2 })
 local caster = self:GetCaster()
 --local modifier = caster:FindModifierByName("nanaya_blood_modifier")
 local dmg = self:GetSpecialValueFor("dmg")
@@ -276,13 +276,13 @@ self.point_1 = self.parent:GetAbsOrigin() + self.parent:GetForwardVector()*1200
 self.point = GetGroundPosition(self.point_1, self.parent) 
 self.height = GetGroundHeight(self.point, self.parent)
 --self.point = GetGroundPosition(self.point1, self.parent)
-self.distances = 400
+self.distances = 800
 self.back = 400
 self.direction = (self.point - self.parent:GetAbsOrigin()):Normalized()
 --self.direction = self.point:Normalized()
 --print (self.point)
 self.nanayaframechange = 0
-speed = 400 * FrameTime()
+speed = 800 * FrameTime()
 self.checking = self.back/speed 
 --self.vector = Vector(0, 0, 0.1)
 --self.vector = Vector(0, 0, self.parent:GetAbsOrigin().z/self.checking)

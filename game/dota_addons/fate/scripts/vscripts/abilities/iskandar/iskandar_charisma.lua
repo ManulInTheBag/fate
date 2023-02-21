@@ -61,6 +61,10 @@ function modifier_iskandar_charisma_aura:GetAuraSearchType()
     return DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_CREEP
 end
 
+function modifier_iskandar_charisma_aura:GetAuraSearchFlags()
+	return DOTA_UNIT_TARGET_FLAG_INVULNERABLE
+end
+
 function modifier_iskandar_charisma_aura:GetAuraRadius()
 	return self:GetAbility():GetSpecialValueFor("radius")
 end

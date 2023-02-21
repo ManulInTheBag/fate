@@ -32,7 +32,7 @@ if IsServer() then
 		self.parent:SetNightTimeVisionRange(self.range_night)
 	end
 
-	function modifier_murderer_mist:OnRefresh(args)
+	--[[function modifier_murderer_mist:OnRefresh(args)
 		self.parent = self:GetParent()
 		if not self.parent:HasModifier("modifier_whitechapel_murderer_ally") or self.parent:HasModifier("modifier_whitechapel_murderer_enemy") then
 			self.range_day = math.min(0, self.base_range_day)
@@ -41,7 +41,7 @@ if IsServer() then
 			self.parent:SetDayTimeVisionRange(self.range_day)
 			self.parent:SetNightTimeVisionRange(self.range_night)
 		end
-	end
+	end]]
 
 	function modifier_murderer_mist:OnDestroy()
 		if not self.parent:HasModifier("modifier_whitechapel_murderer_ally") or self.parent:HasModifier("modifier_whitechapel_murderer_enemy") then

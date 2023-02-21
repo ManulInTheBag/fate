@@ -6,6 +6,7 @@ nanaya_q2jump = class ({})
 
 function nanaya_q2jump:OnSpellStart()
 	local caster = self:GetCaster()
+	ProjectileManager:ProjectileDodge(caster)
 	self.kappa = false
 	caster:EmitSound("nanaya.kerikedaknormal")
 	local check = caster:GetAnglesAsVector():Normalized()
@@ -105,7 +106,7 @@ local knockback4 = { should_stun = true,
 			center_z = 4000}	
     hTarget:AddNewModifier(caster, self, "modifier_knockback", knockback4)	
 
-	local knockback1 = { should_stun = true,
+	local knockback1 = { should_stun = false,
 				knockback_duration = 1,
 				duration = 1,
 				knockback_distance = 250,
@@ -114,7 +115,7 @@ local knockback4 = { should_stun = true,
 				center_y = caster:GetAbsOrigin().y - caster:GetForwardVector().y * 800,
 			center_z = caster:GetAbsOrigin().z }	
 
-			local knockback2 = { should_stun = true,
+			local knockback2 = { should_stun = false,
 				knockback_duration = 1,
 				duration = 1,
 				knockback_distance = 250,
@@ -144,7 +145,7 @@ local knockback4 = { should_stun = true,
                 	hTarget:EmitSound("nanaya.hit")
                  ScreenShake(hTarget:GetOrigin(), 10, 1.0, 0.4, 2000, 0, true)
 		   --DoDamage(caster, hTarget, 700, DAMAGE_TYPE_PHYSICAL, 0, self, false)
-		   hTarget:AddNewModifier(caster, self, "modifier_stunned", { Duration = 1 })
+		   --hTarget:AddNewModifier(caster, self, "modifier_stunned", { Duration = 1 })
 		   DoDamage(caster, hTarget, dmg*2, DAMAGE_TYPE_PHYSICAL, 0, self, false)
 
 --ParticleManager:SetParticleControl(combo_nanaya, 0, targetabs + targetforwardvector*250)	

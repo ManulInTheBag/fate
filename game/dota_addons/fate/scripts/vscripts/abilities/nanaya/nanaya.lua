@@ -306,6 +306,7 @@ nanaya_dashf = class ({})
 
 function nanaya_dashf:OnSpellStart()
 local caster = self:GetCaster()
+ProjectileManager:ProjectileDodge(caster)
 local point = self:GetCursorPosition()
        -- self.return1 = nil
    -- else
@@ -380,7 +381,7 @@ if hTarget == nil then return end
 local dmg = self:GetSpecialValueFor("dmg") + math.floor(self:GetCaster():GetAgility()*2)
 
 hTarget:EmitSound("nanaya.slash")
-hTarget:AddNewModifier(caster, self, "modifier_stunned", { Duration = 0.5 })
+--hTarget:AddNewModifier(caster, self, "modifier_stunned", { Duration = 0.5 })
 ParticleManager:CreateParticle("particles/nanaya_work_22.vpcf", PATTACH_ABSORIGIN, hTarget)
 print (hTarget)
 DoDamage(caster, hTarget, dmg, DAMAGE_TYPE_PHYSICAL, 0, self, false)

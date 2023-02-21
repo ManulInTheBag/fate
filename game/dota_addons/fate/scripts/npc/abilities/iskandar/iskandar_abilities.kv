@@ -581,7 +581,7 @@
 			"06"
 			{
 				"var_type"		"FIELD_INTEGER"
-				"archer_bonus_damage"		"36 72 108 144 180"
+				"archer_bonus_damage"		"18 36 54 72 90"
 			}
 			"07"
 			{
@@ -601,7 +601,7 @@
 			"10"
 			{
 				"var_type"		"FIELD_INTEGER"
-				"infantry_bonus_damage"		"32 64 96 128 160"	
+				"infantry_bonus_damage"		"16 32 48 64 80"	
 			}
 			"11"
 			{
@@ -611,7 +611,7 @@
 			"12"
 			{
 				"var_type"		"FIELD_INTEGER"
-				"cavalry_bonus_damage"		"24 48 72 96 120 "	
+				"cavalry_bonus_damage"		"12 24 36 48 60"	
 			}
 			"13"
 			{
@@ -621,7 +621,7 @@
 			"14"
 			{
 				"var_type"		"FIELD_INTEGER"
-				"hepha_bonus_damage"		"20 40 60 80 100"	
+				"hepha_bonus_damage"		"10 20 30 40 50"	
 			}
 			"15"
 			{
@@ -631,7 +631,7 @@
 			"16"
 			{
 				"var_type"		"FIELD_INTEGER"
-				"mage_bonus_damage"		"12 18 24 30 36"	
+				"mage_bonus_damage"		"6 12 18 24 30"	
 			}
 			"17"
 			{
@@ -721,6 +721,11 @@
 			"modifier_army_of_the_king_infantry_bonus_stat"
 			{
 				"Duration"			"15.0"
+				"States"
+				{
+					"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"%infantry_bonus_damage"
@@ -748,6 +753,11 @@
 			"modifier_army_of_the_king_maharaja_bonus_stat"
 			{
 				"Duration"			"15.0"
+				"States"
+				{
+					"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"%maharaja_bonus_damage"
@@ -775,6 +785,11 @@
 			"modifier_army_of_the_king_archer_bonus_stat"
 			{
 				"Duration"			"15.0"
+				"States"
+				{
+					"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"%archer_bonus_damage"
@@ -802,6 +817,11 @@
 			"modifier_army_of_the_king_cavalry_bonus_stat"
 			{
 				"Duration"			"15.0"
+				"States"
+				{
+					"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"%cavalry_bonus_damage"
@@ -829,6 +849,11 @@
 			"modifier_army_of_the_king_hepha_bonus_stat"
 			{
 				"Duration"			"15.0"
+				"States"
+				{
+					"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"%hepha_bonus_damage"
@@ -856,6 +881,11 @@
 			"modifier_army_of_the_king_mage_bonus_stat"
 			{
 				"Duration"			"15.0"
+				"States"
+				{
+					"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"%mage_bonus_damage"
@@ -883,6 +913,11 @@
 			"modifier_army_of_the_king_waver_bonus_stat"
 			{
 				"Duration"			"15.0"
+				"States"
+				{
+					"MODIFIER_STATE_INVULNERABLE"		"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_NO_HEALTH_BAR"		"MODIFIER_STATE_VALUE_ENABLED"
+				}
 				"Properties"
 				{
 					"MODIFIER_PROPERTY_BASEATTACK_BONUSDAMAGE"	"%waver_bonus_damage"
@@ -940,6 +975,7 @@
 				"Aura_Radius"			"3000"
 				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 				"Aura_Types"			"DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
 			}
 			
 			"modifier_maharaja_passive_buff"
@@ -1135,6 +1171,7 @@
 				"Aura_Radius"			"3000"
 				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 				"Aura_Types"			"DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
 			}
 			
 			"modifier_hephaestion_passive_buff"
@@ -1177,6 +1214,7 @@
 				"Aura_Radius"			"3000"
 				"Aura_Teams"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 				"Aura_Types"			"DOTA_UNIT_TARGET_BASIC"
+				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
 			}
 			
 			"modifier_waver_passive_buff"
@@ -1323,6 +1361,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityTextureName"			"keeper_of_the_light_illuminate"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BASIC"
 		"AbilityCastPoint"				"0.1"
 		"AbilityCooldown"				"15"
@@ -1432,6 +1471,7 @@
 				"Aura"          	"modifier_waver_big_bad_voodoo_invulnerability"
 				"Aura_Radius"   	"3000"
 				"Aura_Teams"    	"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+				"Aura_Flags"			"DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
 				"Aura_Types"    	"DOTA_UNIT_TARGET_BASIC"
 				"Aura_ApplyToCaster" "0"
 				"Duration"			"%duration"

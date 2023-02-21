@@ -70,7 +70,7 @@ function jtr_dagger_throw:OnSpellStart()
     Timers:CreateTimer(0, function()
     	if caster and IsValidEntity(caster) and enemies and #enemies>0 then
 		    for _, enemy in pairs(enemies) do
-		    	if enemy:HasModifier("modifier_murderer_mist_in") and IsFemaleServant(enemy) then
+		    	if caster:HasModifier("modifier_murderer_mist_in") and IsFemaleServant(enemy) then
     				damage_type = DAMAGE_TYPE_PURE
   				end
 		        DoDamage(caster, enemy, damage, damage_type, 0, self, false)
