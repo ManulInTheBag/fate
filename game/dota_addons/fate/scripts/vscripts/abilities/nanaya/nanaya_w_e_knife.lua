@@ -24,7 +24,7 @@ end
 
 print (sAbil)
 	if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 then 
-		if not caster:HasModifier("nanaya_combo_cd") then
+		if caster:FindAbilityByName("nanaya_combo"):IsCooldownReady() then
 				caster:SwapAbilities("nanaya_combo", "jump_ahead_nanaya", true, false)
 				Timers:CreateTimer(2, function()
 					caster:SwapAbilities("nanaya_combo", "jump_ahead_nanaya", false, true)
@@ -66,10 +66,10 @@ function jump_ahead_nanaya:OnProjectileHitHandle(hTarget, vLocation, iProjectile
 		caster:RemoveModifierByName("jump_ahead_nanaya_modifier")
 		local target = hTarget:GetAbsOrigin()
 		local target_2 = hTarget:entindex()
-		local dmg = self:GetSpecialValueFor("dmg_knife") + math.floor(self:GetCaster():GetAgility()*2)
-		local dmg2 = self:GetSpecialValueFor("dmg_hit") + math.floor(self:GetCaster():GetAgility()*2)
+		local dmg = self:GetSpecialValueFor("dmg_knife") + math.floor(self:GetCaster():GetAgility()*1.25)
+		local dmg2 = self:GetSpecialValueFor("dmg_hit") + math.floor(self:GetCaster():GetAgility()*1.25)
 		--DoDamage(caster, hTarget, 500, DAMAGE_TYPE_PHYSICAL, 0, self, false)
-			DoDamage(caster, hTarget, dmg, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+			DoDamage(caster, hTarget, dmg, DAMAGE_TYPE_MAGICAL, 0, self, false)
 			            --hTarget:AddNewModifier(caster, self, "modifier_stunned", { Duration = 1 })
 
 		caster:SetOrigin(target+caster:GetForwardVector()*180)
@@ -111,7 +111,7 @@ function jump_ahead_nanaya:OnProjectileHitHandle(hTarget, vLocation, iProjectile
 			center_z = caster:GetAbsOrigin().z }								
 			caster:EmitSound("nanaya.slash")
 			--DoDamage(caster, hTarget, 500, DAMAGE_TYPE_PHYSICAL, 0, self, false)
-				DoDamage(caster, hTarget, dmg2, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+				DoDamage(caster, hTarget, dmg2, DAMAGE_TYPE_MAGICAL, 0, self, false)
 			local culling_kill_particle = ParticleManager:CreateParticle("particles/custom/lancer/lancer_culling_blade_kill.vpcf", PATTACH_CUSTOMORIGIN, hTarget)
 			ParticleManager:SetParticleControlEnt(culling_kill_particle, 0, hTarget, PATTACH_POINT_FOLLOW, "attach_hitloc", hTarget:GetAbsOrigin(), true)
 			ParticleManager:SetParticleControlEnt(culling_kill_particle, 1, hTarget, PATTACH_POINT_FOLLOW, "attach_hitloc", hTarget:GetAbsOrigin(), true)
@@ -275,10 +275,10 @@ function nanaya_knife:OnProjectileHitHandle(hTarget, vLocation, iProjectileHandl
 		local player2 = hTarget:GetPlayerOwner()
 		local target = hTarget:GetAbsOrigin()
 		local target_2 = hTarget:entindex()
-		local dmg = self:GetSpecialValueFor("dmg") + math.floor(self:GetCaster():GetAgility()*2)
+		local dmg = self:GetSpecialValueFor("dmg") + math.floor(self:GetCaster():GetAgility()*1.25)
 
-				DoDamage(caster, hTarget, dmg/2, DAMAGE_TYPE_PHYSICAL, 0, self, false)
-				DoDamage(caster, hTarget, dmg/2, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+				DoDamage(caster, hTarget, dmg/2, DAMAGE_TYPE_MAGICAL, 0, self, false)
+				DoDamage(caster, hTarget, dmg/2, DAMAGE_TYPE_MAGICAL, 0, self, false)
         			            --hTarget:AddNewModifier(caster, self, "modifier_stunned", { Duration = 1 })
 		local culling_kill_particle = ParticleManager:CreateParticle("particles/nanaya_work_2_great.vpcf", PATTACH_ABSORIGIN, hTarget)
 		ScreenShake(hTarget:GetOrigin(), 22, 1.0, 0.4, 1000, 0, true)
@@ -459,7 +459,7 @@ function nanaya_clones:Clones(caster, units, secondtime)
 local table = {12, 13, 21, 23, 24}	
 local knockback_push = 0
 local knockback_push1 = caster:GetForwardVector()
-local dmg = 350 + math.floor(caster:GetAgility()*2)
+local dmg = 200 + math.floor(caster:GetAgility()*1.25)
 --units:EmitSound("nanaya.combo2")
 
 										local numberhit = 0
@@ -517,7 +517,7 @@ units:EmitSound(test)
 		units:EmitSound("nanaya.slash")
 	    units:AddNewModifier(caster, self, "modifier_knockback", knockback)
 		ParticleManager:CreateParticle("particles/nanaya_e1.vpcf", PATTACH_ABSORIGIN, units)
-		DoDamage(caster, units, dmg, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+		DoDamage(caster, units, dmg, DAMAGE_TYPE_MAGICAL, 0, caster:FindAbilityByName("nanaya_knife"), false)
 		--DoDamage(caster, units, 250, DAMAGE_TYPE_PHYSICAL, 0, self, false)
 		ScreenShake(units:GetOrigin(), 10, 1.0, 0.1, 2000, 0, true)
 				
@@ -558,7 +558,7 @@ ParticleManager:CreateParticle("particles/nanaya_work_2.vpcf", PATTACH_ABSORIGIN
 units:EmitSound("nanaya.hitleg")
 ScreenShake(units:GetOrigin(), 10, 1.0, 0.2, 2000, 0, true)
 --DoDamage(caster, units, 500, DAMAGE_TYPE_PHYSICAL, 0, self, false)
-DoDamage(caster, units, 700, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+DoDamage(caster, units, 350, DAMAGE_TYPE_MAGICAL, 0, caster:FindAbilityByName("nanaya_knife"), false)
 
 local knockback = { should_stun = false,
 	                                knockback_duration = 2,
@@ -600,7 +600,7 @@ local sex = FindUnitsInLine(caster:GetTeam(), check1, check2, nil, 90, DOTA_UNIT
   for k,v in pairs(sex) do
 print (sex)
 --DoDamage(caster, v, 1000, DAMAGE_TYPE_PHYSICAL, 0, self, false)
-DoDamage(caster, v, 1200, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+DoDamage(caster, v, 800, DAMAGE_TYPE_MAGICAL, 0, caster:FindAbilityByName("nanaya_knife"), false)
 ParticleManager:CreateParticle("particles/nanaya_work_2.vpcf", PATTACH_ABSORIGIN, v)
 v:EmitSound("nanaya.finalhit")
 print ("1")

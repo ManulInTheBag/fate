@@ -69,7 +69,7 @@ function nanaya_q2jump:OnProjectileHitHandle(hTarget, vLocation, iProjectileHand
 		ParticleManager:CreateParticle("particles/nanaya_work_22.vpcf", PATTACH_ABSORIGIN, hTarget)
 		   ScreenShake(hTarget:GetOrigin(), 10, 1.0, 0.7, 2000, 0, true)
 		  -- DoDamage(caster, hTarget, 400, DAMAGE_TYPE_PHYSICAL, 0, self, false)
-		  	  DoDamage(caster, hTarget, dmg, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+		  	  DoDamage(caster, hTarget, dmg, DAMAGE_TYPE_MAGICAL, 0, self, false)
 
 	caster:RemoveModifierByName("modifier_q2jump")
 	caster:Stop()
@@ -78,7 +78,7 @@ function nanaya_q2jump:OnProjectileHitHandle(hTarget, vLocation, iProjectileHand
 	Timers:CreateTimer(0, function()	
 		if hit > 0 then
 			hit = hit-1
-			DoDamage(caster, hTarget, dmg, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+			DoDamage(caster, hTarget, dmg, DAMAGE_TYPE_MAGICAL, 0, self, false)
 			--[[ApplyDamage({
                     victim = hTarget,
                     attacker = caster,
@@ -147,7 +147,7 @@ local knockback4 = { should_stun = true,
                  ScreenShake(hTarget:GetOrigin(), 10, 1.0, 0.4, 2000, 0, true)
 		   --DoDamage(caster, hTarget, 700, DAMAGE_TYPE_PHYSICAL, 0, self, false)
 		   --hTarget:AddNewModifier(caster, self, "modifier_stunned", { Duration = 1 })
-		   DoDamage(caster, hTarget, dmg*2, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+		   DoDamage(caster, hTarget, dmg*2, DAMAGE_TYPE_MAGICAL, 0, self, false)
 
 --ParticleManager:SetParticleControl(combo_nanaya, 0, targetabs + targetforwardvector*250)	
 --ParticleManager:SetParticleControlEnt(part, 5, self.parent, PATTACH_POINT_FOLLOW, "attach_leg1", self.parent:GetAbsOrigin(), true)

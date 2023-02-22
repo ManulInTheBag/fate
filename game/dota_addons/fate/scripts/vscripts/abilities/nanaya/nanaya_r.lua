@@ -155,7 +155,7 @@ end)]]
 caster:EmitSound("nanaya.trigger")
 local ability = self
 --DoDamage(caster, hTarget, 400, DAMAGE_TYPE_MAGICAL, 0, self, false)
-	DoDamage(caster, hTarget, dmg, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+	DoDamage(caster, hTarget, dmg, DAMAGE_TYPE_MAGICAL, 0, self, false)
 
 caster:FadeGesture(ACT_DOTA_CAST_ABILITY_6)
 caster:StartGestureWithPlaybackRate(ACT_SCRIPT_CUSTOM_10, 1.4)

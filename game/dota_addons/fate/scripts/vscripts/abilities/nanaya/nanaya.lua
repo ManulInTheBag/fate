@@ -385,7 +385,7 @@ hTarget:EmitSound("nanaya.slash")
 --hTarget:AddNewModifier(caster, self, "modifier_stunned", { Duration = 0.5 })
 ParticleManager:CreateParticle("particles/nanaya_work_22.vpcf", PATTACH_ABSORIGIN, hTarget)
 print (hTarget)
-DoDamage(caster, hTarget, dmg, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+DoDamage(caster, hTarget, dmg, DAMAGE_TYPE_MAGICAL, 0, self, false)
 --DoDamage(caster, hTarget, 400, DAMAGE_TYPE_MAGICAL, 0, self, false)
 
 end

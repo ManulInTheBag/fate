@@ -18,7 +18,7 @@ function modifier_gordius_wheel_temp_bandaid:GetModifierTurnRate_Percentage()
 	return -350
 end
 
-function modifier_gordius_wheel_temp_bandaid:CheckState()
+--[[function modifier_gordius_wheel_temp_bandaid:CheckState()
 	return { [MODIFIER_STATE_ROOTED] = false,
 			 [MODIFIER_STATE_STUNNED] = false }
-end
+end]]

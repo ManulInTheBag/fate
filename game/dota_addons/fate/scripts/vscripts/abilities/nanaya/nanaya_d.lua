@@ -169,7 +169,7 @@ if slash > 0 and target:HasModifier("nanaya_slashes_modifier1") then
 									--DoDamage(caster, target, 150, DAMAGE_TYPE_PHYSICAL, 0, self, false)
 										ParticleManager:CreateParticle("particles/nanaya_work_22.vpcf", PATTACH_ABSORIGIN, target)
 										target:AddNewModifier(caster, self, "modifier_stunned", { Duration = 0.3 })
-									DoDamage(caster, target, dmg, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+									DoDamage(caster, target, dmg, DAMAGE_TYPE_MAGICAL, 0, self, false)
 
 									slash = slash - 1
 else
@@ -279,7 +279,7 @@ ParticleManager:SetParticleControl(knife, 4, target:GetAbsOrigin())
 			target:EmitSound("nanaya.slash")
 			target:AddNewModifier(caster, self, "modifier_knockback", knockback)
 			--ParticleManager:CreateParticle("particles/nanaya_e1.vpcf", PATTACH_ABSORIGIN, target)
-			DoDamage(caster, target, dmg, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+			DoDamage(caster, target, dmg, DAMAGE_TYPE_MAGICAL, 0, caster:FindAbilityByName("nanaya_slashes"), false)
 			--[[ApplyDamage({
                     victim = target,
                     attacker = caster,
@@ -407,7 +407,7 @@ end
 			
 			target:EmitSound("nanaya.slash")
 			target:AddNewModifier(caster, self, "modifier_knockback", knockback)
-			DoDamage(caster, target, dmg, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+			DoDamage(caster, target, dmg, DAMAGE_TYPE_MAGICAL, 0, caster:FindAbilityByName("nanaya_slashes"), false)
 			--[[ApplyDamage({
                     victim = target,
                     attacker = caster,
