@@ -169,6 +169,10 @@ function modifier_queens_glass_game_aura:GetAuraSearchType()
     return DOTA_UNIT_TARGET_HERO
 end
 
+function modifier_queens_glass_game_aura:GetAuraSearchFlags()
+    return DOTA_UNIT_TARGET_FLAG_INVULNERABLE
+end
+
 function modifier_queens_glass_game_aura:GetAuraRadius()
 	return self:GetAbility():GetSpecialValueFor("radius")
 end

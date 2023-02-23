@@ -13,6 +13,7 @@ function artoria_mana_burst:OnSpellStart()
 	if target:IsMagicImmune() then
 		return
 	end
+	if IsSpellBlocked(target) then return end
 	
 	local damage = self:GetSpecialValueFor("damage")
 	
