@@ -60,13 +60,13 @@ function modifier_edmon_mythologie:GetModifierBaseAttackTimeConstant()
 			if self:GetParent():HasModifier("modifier_edmon_melee_stacks") then
 				return 0.9
 			end
-			return 0.8
+			return 1.2
 		end
 		if self.form == "range" then
-			return 1.1
+			return 1.4
 		end
 	end
-	return 1.1
+	return 1.4
 end
 function modifier_edmon_mythologie:GetActivityTranslationModifiers()
 	return (self.form..self.seq)

@@ -212,7 +212,7 @@ function nanaya_clones1:ComboD(caster, target, dmg)
 	local knockback_push1 = caster:GetForwardVector()
 	local numslash = 0
 	local somerandom = {ACT_SCRIPT_CUSTOM_1, ACT_DOTA_CAST_ABILITY_3, ACT_SCRIPT_CUSTOM_1}
-	local dmg = dmg + math.floor(caster:GetAgility()*2)
+	local dmg = dmg + math.floor(caster:GetAgility()*1)
 	--caster:StartGestureWithPlaybackRate(ACT_DOTA_CAST_ABILITY_3, 2)
 	--caster:StartGestureWithPlaybackRate(ACT_DOTA_CAST_ABILITY_1, 0.2)
 	--caster:StartGestureWithPlaybackRate(ACT_DOTA_CAST_ABILITY_3, 0.8)

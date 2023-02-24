@@ -48,7 +48,7 @@ function modifier_artoria_avalon:OnTakeDamage(args)
 	if caster.IsAvalonPenetrated then return end
 	caster:SetHealth(currentHealth + args.damage)
 	
-	if caster:IsAlive() and damage_taken >= self.damage_threshold and not caster:HasModifier("modifier_artoria_ultimate_excalibur") and not caster:HasModifier("modifier_artoria_avalon_cooldown") and caster:GetTeam() ~= attacker:GetTeam() and (caster_position - attacker_position):Length2D() < self.range then
+	if caster:IsAlive() and damage_taken >= self.damage_threshold and not caster:HasModifier("modifier_artoria_ultimate_excalibur") and not caster:HasModifier("pause_sealdisabled") and not caster:HasModifier("modifier_artoria_avalon_cooldown") and caster:GetTeam() ~= attacker:GetTeam() and (caster_position - attacker_position):Length2D() < self.range then
 		local casterDash = Physics:Unit(caster)
 		local distance = attacker_position - caster_position
 		caster:SetPhysicsFriction(0)

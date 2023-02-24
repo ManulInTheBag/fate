@@ -43,7 +43,8 @@ function edmon_ult:OnSpellStart()
 	local interval = self:GetSpecialValueFor("interval")
 	local count = 0
 	local radius = self:GetSpecialValueFor("radius")
-	local origin = self:GetCursorPosition()
+    local target = self:GetCursorTarget()
+	local origin = target:GetAbsOrigin()
 	local damage = self:GetSpecialValueFor("damage") + (caster.HellfireAcquired and 60 or 0)
 
 	caster:AddNewModifier(caster, self, "modifier_edmon_ult", {duration = duration})
@@ -52,6 +53,9 @@ function edmon_ult:OnSpellStart()
 
 	Timers:CreateTimer(function()
         if count < duration and caster and caster:IsAlive() then
+            if target then
+                origin = target:GetAbsOrigin()
+            end
             local angle = RandomInt(0, 360)
             local startLoc = GetRotationPoint(origin,RandomInt(radius, radius),angle)
             local endLoc = GetRotationPoint(origin,RandomInt(radius, radius),angle + RandomInt(120, 240))
@@ -91,12 +95,12 @@ function modifier_edmon_ult:GetPriority() return MODIFIER_PRIORITY_HIGH end
 function modifier_edmon_ult:GetMotionPriority() return DOTA_MOTION_CONTROLLER_PRIORITY_HIGH end
 function modifier_edmon_ult:CheckState()
     local state =   { 
-                        [MODIFIER_STATE_COMMAND_RESTRICTED] = true,
+                        --[MODIFIER_STATE_COMMAND_RESTRICTED] = true,
                         [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
-                        [MODIFIER_STATE_ROOTED] = true,
-                        [MODIFIER_STATE_DISARMED] = true,
-                        [MODIFIER_STATE_SILENCED] = true,
-                        [MODIFIER_STATE_MUTED] = true,
+                        --[MODIFIER_STATE_ROOTED] = true,
+                        [MODIFIER_STATE_STUNNED] = true,
+                        --[MODIFIER_STATE_SILENCED] = true,
+                        --[MODIFIER_STATE_MUTED] = true,
                         [MODIFIER_STATE_UNTARGETABLE] = true,
                         [MODIFIER_STATE_NO_HEALTH_BAR] = true,
                         [MODIFIER_STATE_INVULNERABLE] = true,

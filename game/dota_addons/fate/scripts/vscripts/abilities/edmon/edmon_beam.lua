@@ -106,7 +106,7 @@ function edmon_beam:OnSpellStart()
 		elseif seq == 2 then
 			compens = 80
 		end
-		local part1 = caster:GetAttachmentOrigin(caster:ScriptLookupAttachment("attach_attack"..seq)) + caster:GetForwardVector()*(range - compens) + Vector(0, 0, height)
+		local part1 = caster:GetAbsOrigin() + caster:GetForwardVector()*range + Vector(0, 0, height)
 		local part9 = caster:GetAttachmentOrigin(caster:ScriptLookupAttachment("attach_attack"..seq)) + caster:GetForwardVector()*25
 
 		self:EndCooldown()
@@ -212,7 +212,7 @@ function edmon_beam:MiniDarkBeam(part1, part9, isAA, isMelee, isBeams, seq)
 	local damage = self:GetSpecialValueFor("damage")
 
 	if isAA then
-		damage = damage/1.5
+		damage = damage/3
 	end
 	if isBeams then
 		damage = damage/4
@@ -276,7 +276,9 @@ function edmon_beam:MiniDarkBeam(part1, part9, isAA, isMelee, isBeams, seq)
 		else
 			EmitSoundOn("edmon_common_melee", caster)
 		end
-		DoDamage(caster, part1, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+		if not part1:IsMagicImmune() then
+			DoDamage(caster, part1, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+		end
 		local firstImpactIndex = ParticleManager:CreateParticle( "particles/edmon/edmon_hit_indicator.vpcf", PATTACH_CUSTOMORIGIN, nil )
 		ParticleManager:SetParticleControlEnt(firstImpactIndex,	3, part1, PATTACH_POINT, "attach_hitloc", part1:GetOrigin(), true)
 	    ParticleManager:SetParticleControl(firstImpactIndex, 1, Vector(0,0,0))
