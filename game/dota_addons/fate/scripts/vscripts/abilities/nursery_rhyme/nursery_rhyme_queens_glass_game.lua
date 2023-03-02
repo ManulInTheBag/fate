@@ -38,7 +38,7 @@ function nursery_rhyme_queens_glass_game:OnSpellStart()
 	EmitGlobalSound("NR.Chronosphere")
 	EmitGlobalSound("NR.GlassGame.Begin")
 
-	if hCaster:GetStrength() >= 29.1 and hCaster:GetAgility() >= 29.1 and hCaster:GetIntellect() >= 29.1 then
+	--[[if hCaster:GetStrength() >= 29.1 and hCaster:GetAgility() >= 29.1 and hCaster:GetIntellect() >= 29.1 then
 		if hCaster:FindAbilityByName("nursery_rhyme_story_for_somebodys_sake"):IsCooldownReady() 
 			and hCaster:GetAbilityByIndex(4):GetName() == "nursery_rhyme_nameless_forest"
 			and not hCaster:HasModifier("modifier_alice_tea_party_cd") 
@@ -51,7 +51,7 @@ function nursery_rhyme_queens_glass_game:OnSpellStart()
 				end
 			})
 		end
-	end
+	end]]
 	if hCaster:GetStrength() >= 29.1 and hCaster:GetAgility() >= 29.1 and hCaster:GetIntellect() >= 29.1 then
 		if hCaster:FindAbilityByName("alice_tea_party"):IsCooldownReady() and not hCaster:HasModifier("modifier_story_for_someones_sake_cooldown") and hCaster:GetAbilityByIndex(3):GetName() == "nursery_rhyme_shapeshift" then
 			hCaster:SwapAbilities("nursery_rhyme_shapeshift", "alice_tea_party", false, true)

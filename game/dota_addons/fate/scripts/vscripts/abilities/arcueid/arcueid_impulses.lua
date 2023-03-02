@@ -18,7 +18,7 @@ function arcueid_impulses:OnSpellStart()
 	local caster = self:GetCaster()
 
 	EmitGlobalSound("arcueid_combo_start")
-	if caster:GetStrength() >= 44.1 and caster:GetAgility() >= 44.1 and caster:GetIntellect() >= 44.1 then
+	if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 and caster:GetIntellect() >= 29.1 then
 	    if caster:FindAbilityByName("arcueid_melty"):IsCooldownReady() and caster:IsAlive() then	    		
 	    	caster:AddNewModifier(caster, self, "modifier_arcueid_combo_window", {duration = 3})
 		end

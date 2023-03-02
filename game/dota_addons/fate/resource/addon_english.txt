@@ -2113,7 +2113,7 @@
 		"DOTA_Tooltip_ability_saber_excalibur_Note0"		"Saber is stunned and revoked from Master until she finishes casting."
 
 		"DOTA_Tooltip_Ability_saber_max_excalibur"				"Combo: The Sword of Promised Victory"
-		"DOTA_Tooltip_ability_saber_max_excalibur_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : E-R in 3 seconds</font>\nSaber unleashes the true radiance of Excalibur forward, engulfing everything in the path in ardent light to deal significant damage.\n\nUpgradable with attribute Improve Excalibur"
+		"DOTA_Tooltip_ability_saber_max_excalibur_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : F-R in 3 seconds</font>\nSaber unleashes the true radiance of Excalibur forward, engulfing everything in the path in ardent light to deal significant damage over multiple instances.\n\nUpgradable with attribute Improve Excalibur"
 		"DOTA_Tooltip_ability_saber_max_excalibur_Lore"	"The lone King's ideal shines the brightest in the starry night." 
 		"DOTA_Tooltip_ability_saber_max_excalibur_cast_time"	"CAST DELAY:"
 		"DOTA_Tooltip_ability_saber_max_excalibur_length"		"RANGE:"
@@ -2227,7 +2227,7 @@
 		"DOTA_Tooltip_ability_artoria_excalibur_Note0"		"Saber is stunned Master until she finishes casting."
 
 		"DOTA_Tooltip_Ability_artoria_ultimate_excalibur"				"Combo: The Sword of Promised Victory"
-		"DOTA_Tooltip_ability_artoria_ultimate_excalibur_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : E-R in 3 seconds</font>\nSaber unleashes the true radiance of Excalibur forward, engulfing everything in the path in ardent light to deal significant damage. Locks and slows every enemy hit.\n\nUpgradable with attribute Improve Excalibur"
+		"DOTA_Tooltip_ability_artoria_ultimate_excalibur_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : F-R in 3 seconds</font>\nSaber unleashes the true radiance of Excalibur forward, engulfing everything in the path in ardent light to deal significant damage. Locks and slows every enemy hit.\n\nUpgradable with attribute Improve Excalibur"
 		"DOTA_Tooltip_ability_artoria_ultimate_excalibur_Lore"	"The lone King's ideal shines the brightest in the starry night." 
 		"DOTA_Tooltip_ability_artoria_ultimate_excalibur_cast_time"	"CAST DELAY:"
 		"DOTA_Tooltip_ability_artoria_ultimate_excalibur_pause_time"	"TOTAL DELAY:"
@@ -3790,13 +3790,13 @@
 		"DOTA_Tooltip_ability_caster_5th_silence_radius"	"RADIUS:"
 
 		"DOTA_Tooltip_Ability_caster_5th_divine_words"	"High-Speed Divine Words"
-		"DOTA_Tooltip_ability_caster_5th_divine_words_Description"	"Caster conjures a succession of spells to strike targeted area, dealing damage over 3 instances."
+		"DOTA_Tooltip_ability_caster_5th_divine_words_Description"	"Caster conjures a succession of spells to strike targeted area, dealing damage over 3 instances. \nSpawns additional beam for each 40 intellegence."
 		"DOTA_Tooltip_ability_caster_5th_divine_words_Lore"	"Reality warps and elements materialize by Caster's incantation, without a need for Magic Circuits."
 		"DOTA_Tooltip_ability_caster_5th_divine_words_damage"	"INSTANCE DAMAGE:"
 		"DOTA_Tooltip_ability_caster_5th_divine_words_radius"	"RADIUS:"
 
 		"DOTA_Tooltip_Ability_caster_5th_sacrifice"	"Sacrifice"
-		"DOTA_Tooltip_ability_caster_5th_sacrifice_Description"	"CHANNELING : Channels a forbidden magic, granting nearby allies temporary immortality. While channeling and for 1 second afterward, Caster takes twice as much damage."
+		"DOTA_Tooltip_ability_caster_5th_sacrifice_Description"	"CHANNELING : Channels a forbidden magic, granting nearby allies temporary invulnerability. While channeling and for 1 second afterward, Caster takes twice as much damage."
 		"DOTA_Tooltip_ability_caster_5th_sacrifice_Lore"	"Even immortality is within reach for the ancient magus."
 		"DOTA_Tooltip_ability_caster_5th_sacrifice_radius"	"RADIUS:"
 		"DOTA_Tooltip_ability_caster_5th_sacrifice_duration"	"DURATION:"
@@ -3992,7 +3992,7 @@
         "DOTA_Tooltip_ability_lancelot_gae_dearg_Note1"		"Gae Dearg is considered a strong dispel, and will remove shield effects as well(i.e B Scroll, Archer's Rho Aias)"		
 
         "DOTA_Tooltip_Ability_lancelot_arondite"        			"Arondight"
-        "DOTA_Tooltip_ability_lancelot_arondite_Description"    	"Lancelot unveils his true weapon, Arondight. Greatly increases his parameters (agility is half of the amount), recovering some health, rendering Lancelot immune to negative effects (hardcleanses himself every 0.5 seconds), as well as causing his attacks to create a cone of fire, dealing magical damage to all enemies hit if he has the mana. \nLancelot MAY use Knight of Honor and Submachine Guns while this ability is active, not lore, we know."
+        "DOTA_Tooltip_ability_lancelot_arondite_Description"    	"Lancelot unveils his true weapon, Arondight. Greatly increases his parameters (agility is half of the amount), recovering some health, rendering Lancelot immune to negative effects (hardcleanses himself every 0.5 seconds), as well as causing his attacks to create a cone of fire, dealing magical damage to all enemies hit if he has the mana."
         "DOTA_Tooltip_ability_lancelot_arondite_Lore"   			"The unfading light of the lake, blackened by the madness and resentment of Lancelot."
         "DOTA_Tooltip_ability_lancelot_arondite_activate_heal" 		"Health Regained:"
         //"DOTA_Tooltip_ability_lancelot_arondite_radius" 			"RADIUS :"
@@ -4025,8 +4025,8 @@
 		"DOTA_Tooltip_Ability_lancelot_attribute_improve_koh_arsenal_Note0" "Arsenal Contents:\nE Lvl 1 - Caliburn\nE Lvl 2 - Snatch Strike\nE Lvl 3 - Windblade\nE Lvl 4 - The Spear of Striking Death Flight\nE Lvl 5 - Gae Daerg"
 
 		"DOTA_Tooltip_Ability_lancelot_attribute_kotl"         				"Attribute: Knight of the Lake"
-        "DOTA_Tooltip_Ability_lancelot_attribute_kotl_Description"			"Doubles the parameters granted by Arondight and grants Lancelot magic immunity for a short duration when Arondight is activated. Applies a strong dispel when Arondight is activated."
-        "DOTA_Tooltip_Ability_lancelot_attribute_kotl_magic_immune_dur"		"Magic Immune Duration:"
+        "DOTA_Tooltip_Ability_lancelot_attribute_kotl_Description"			"Tripples the parameters granted by Arondight. Applies a strong dispel when Arondight is activated."
+
         "DOTA_Tooltip_Ability_lancelot_attribute_kotl_Lore"					"The wielder of Arondight is said to be the perfect knight, unrivaled out of those who set at the Round Table of Camelot."
         //"DOTA_Tooltip_Ability_lancelot_attribute_kotl_crit_rate"         "%CRITICAL RATE:"
         //"DOTA_Tooltip_Ability_lancelot_attribute_kotl_crit_damage"         "%CRITICAL DAMAGE:"
@@ -4717,7 +4717,7 @@
 		"DOTA_Tooltip_Ability_atalanta_skia_fly_duration"	"Fly duration:"
 
 		"DOTA_Tooltip_Ability_atalanta_evolution_attribute"	"Attribute: Self-Evolution"
-		"DOTA_Tooltip_Ability_atalanta_evolution_attribute_Description"	"Atalanta heals herself with her attacks by 15% of magical damage she dealt.\nCrossing Arcadia and Tauropolos Skia Thermocrasia stun all enemies in radius for 1 second."
+		"DOTA_Tooltip_Ability_atalanta_evolution_attribute_Description"	"Atalanta heals herself with her attacks by 15% of magical damage she dealt.\nCrossing Arcadia and Tauropolos Skia Thermocrasia stun all enemies in radius for 0.5 seconds."
 		"DOTA_Tooltip_Ability_atalanta_evolution_attribute_radius"	"Crossing Arcadia stun radius:"
 
 		"DOTA_Tooltip_Ability_atalanta_tornado_attribute"	"Attribute: Tornado Beast"
@@ -5059,14 +5059,12 @@
         "DOTA_Tooltip_ability_nero_tres_new_Description" 	"Nero dashes forward, dealing magical damage to enemies on her way. She cannot blink, but in other aspects she has full control during the dash.\n<font color='#FFFF00'>Performance</font>: Nero strikes every enemy near her multiple times, dealing magic damage."
         "DOTA_Tooltip_ability_nero_tres_new_Lore"			"Nero's scarlet long sword is optimized for thrashing a horde of enemies."
         "DOTA_Tooltip_ability_nero_tres_new_damage"			"Damage:"
-        "DOTA_Tooltip_ability_nero_tres_new_damage_per_stack" "Damage per rank:"
         "DOTA_Tooltip_ability_nero_tres_new_damage_scale"	"%Attribute attack damage to damage conversion:"
         "DOTA_Tooltip_ability_nero_tres_new_radius"			"Radius:"
         "DOTA_Tooltip_ability_nero_tres_new_distance"		"Distance:"
         "DOTA_Tooltip_ability_nero_tres_new_speed"			"Speed:"
         "DOTA_Tooltip_ability_nero_tres_new_slash_count"	"Performance slash count:"
         "DOTA_Tooltip_ability_nero_tres_new_slash_damage"	"Performance slash damage:"
-        "DOTA_Tooltip_ability_nero_tres_new_slash_damage_per_stack"	"Performance slash damage per rank:"
         "DOTA_Tooltip_ability_nero_tres_new_slash_damage_scale"	"%Attribute attack damage to slash damage conversion:"
         "DOTA_Tooltip_Ability_nero_tres_new_Note0"     "Casting this ability before it ends refreshes the duration of slashes."
 
@@ -5091,7 +5089,6 @@
         "DOTA_Tooltip_ability_nero_gladiusanus_new_Description" 	"Nero strikes enemies at front of her so powerful, that she launches them in the air, microstunning, rooting and locking them and jumps herself, entering the <font color='#FFFF00'>performance</font> state.\n<font color='#FFFF00'>Performance</font>: Nero lands a devastating blow, throwing her opponents on the ground and stunning them.\n<font color='#FFFF00'>Performance</font> version of this abilities ends <font color='#FFFF00'>Performance</font> immediately."
         "DOTA_Tooltip_ability_nero_gladiusanus_new_Lore"			"The soul-shattering blow of Aestus Estus makes the sound even the Muses would bow before."
         "DOTA_Tooltip_ability_nero_gladiusanus_new_damage"			"Damage:"
-        "DOTA_Tooltip_ability_nero_gladiusanus_new_damage_per_stack"			"Damage per rank:"
         "DOTA_Tooltip_ability_nero_gladiusanus_new_damage_scale"			"%Attribute attack damage to damage conversion:"
         "DOTA_Tooltip_ability_nero_gladiusanus_new_root_duration"			"Airborne duration:"
         "DOTA_Tooltip_ability_nero_gladiusanus_new_stun_duration"			"Performance stun duration:"
@@ -5118,13 +5115,11 @@
         "DOTA_Tooltip_ability_nero_rosa_new_Description" 	"Nero rushes through the target and attacks it for an amount of magical damage. Enemies behind the target takes half as much damage as well.\nWhen she dashes to an enemy that is airborne (only several abilities count as airborne, such as Vlad's Fortress of Impalement), she enters <font color='#FFFF00'>performance</font> state for the remaining airborne duration.\n<font color='#FFFF00'>Performance</font>: Nero dashes to the nearest target in radius (prioritizing heroes) and then flies with it to the chosen location, slashing the target several times while flying forward with it.\nWhile inside Aestus Domus Aurea, she can target any point inside it and will choose from all enemies inside Aestus Domus Aurea."
         "DOTA_Tooltip_ability_nero_rosa_new_Lore"			"The flower falls upon the victor of Arena, leaving the defeated behind."
         "DOTA_Tooltip_ability_nero_rosa_new_damage"			"Damage:"
-        "DOTA_Tooltip_ability_nero_rosa_new_damage_per_stack"	"Damage per rank:"
         "DOTA_Tooltip_ability_nero_rosa_new_damage_scale"		"%Attribute attack damage to damage conversion:"
         "DOTA_Tooltip_ability_nero_rosa_new_range"			"Range:"
         "DOTA_Tooltip_ability_nero_rosa_new_window_duration"	"Performance slash count:"
         "DOTA_Tooltip_ability_nero_rosa_new_damage_per_hit"		"Performance slash damage:"
         "DOTA_Tooltip_ability_nero_rosa_new_motion_distance"			"Performance distance:"
-        "DOTA_Tooltip_ability_nero_rosa_new_damage_per_hit_per_stack"			"Performance slash damage per rank:"
         "DOTA_Tooltip_ability_nero_rosa_new_damage_per_hit_scale"			"%Attribute attack damage to slash damage scale:"
 
         "DOTA_Tooltip_Ability_nero_spectaculi_initium"     		"Spectaculi Initium"
@@ -5484,7 +5479,7 @@
         "DOTA_Tooltip_Ability_tamamo_subterranean_grasp_Note0"			"Grants vision of the area for delay + duration." 
  
         "DOTA_Tooltip_Ability_tamamo_mantra"     "Mantra"
-        "DOTA_Tooltip_ability_tamamo_mantra_Description" "Surrounds target with several mana-infused orbs. Whenever target receives damage, one orb is destroyed and the damage taken is reduced if target is an ally, or increased if it is an enemy.\n<font color='#ffa500'>Fire</font>: each orb deals damage around the target.\n<font color='#42aaff'>Ice</font>: each orb heals allies around the target.\n<font color='#50c878'>Wind</font>: each orb burns mana from enemies around the target.\n<font color='#7442c8'>Void</font>: each orb puts abilities of all nearby enemies on cooldown for a short duration."
+        "DOTA_Tooltip_ability_tamamo_mantra_Description" "Surrounds target with several mana-infused orbs. Whenever target receives damage, one orb is destroyed and the damage taken is reduced if target is an ally, or increased if it is an enemy.\n<font color='#ffa500'>Fire</font>: each orb deals damage around the target.\n<font color='#42aaff'>Ice</font>: each orb heals allies around the target.\n<font color='#50c878'>Wind</font>: each orb burns mana from enemies around the target.\n<font color='#7442c8'>Void</font>: each orb deals damage in area scaling with enemies missing health."
         "DOTA_Tooltip_ability_tamamo_mantra_Lore"      "The orb of harmony conjures thick layer of mana, which resonates with external source of magic or shuts it down at Caster's will."
         "DOTA_Tooltip_Ability_tamamo_mantra_cast_delay"     "CAST DELAY:"
         "DOTA_Tooltip_Ability_tamamo_mantra_damage_modifier"     "DAMAGE MODIFICATION ON ALLY:"
@@ -5496,7 +5491,7 @@
         "DOTA_Tooltip_Ability_tamamo_mantra_fire_damage"  "<font color='#ffa500'>Fire</font> damage:"
         "DOTA_Tooltip_Ability_tamamo_mantra_ice_damage"  "<font color='#42aaff'>Ice</font> heal:"
         "DOTA_Tooltip_Ability_tamamo_mantra_wind_mana"  "<font color='#50c878'>Wind</font> mana:"
-        "DOTA_Tooltip_Ability_tamamo_mantra_void_cooldowns"  "<font color='#7442c8'>Void</font> cooldowns:"
+        "DOTA_Tooltip_Ability_tamamo_mantra_void_damage"  "<font color='#7442c8'>Void</font> damage:"
         "DOTA_Tooltip_Ability_tamamo_mantra_Note0"     "Mantra orbs block the damage after mitigation."
         "DOTA_Tooltip_Ability_tamamo_mantra_Note1"     "When cast on enemy, the damage proc has 0.3 second cooldown."
 
@@ -6001,7 +5996,7 @@
 	"DOTA_Tooltip_Ability_jeanne_lagron_return_percentage"       "%Damage block:"
 
 	"DOTA_Tooltip_Ability_jeanne_lagron_combo"      "Combo: Roar, My Fury"
-        "DOTA_Tooltip_Ability_jeanne_lagron_combo_Description"      "<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : F-Q-R in 4 seconds</font>\nJeanne Alter kindles the flames and transforms the grudges from herself and the surroundings into magical energy, transforming part of the damage dealt to her teammates and herself into her power during the next 4.5 seconds.\nAfter that, she releases all stored hatred, burning down to ashes everything in a chosen area and slowing every enemy inside."
+        "DOTA_Tooltip_Ability_jeanne_lagron_combo_Description"      "<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : F-W-R in 4 seconds</font>\nJeanne Alter kindles the flames and transforms the grudges from herself and the surroundings into magical energy, transforming part of the damage dealt to her teammates and herself into her power during the next 4.5 seconds.\nAfter that, she releases all stored hatred, burning down to ashes everything in a chosen area and slowing every enemy inside."
 	"DOTA_Tooltip_Ability_jeanne_lagron_combo_damage"      "Base damage:"
 	"DOTA_Tooltip_Ability_jeanne_lagron_combo_max_damage"      "Max damage:"
 	"DOTA_Tooltip_Ability_jeanne_lagron_combo_return_percentage"      "%Damage block:"
@@ -6059,7 +6054,7 @@
         "DOTA_Tooltip_Ability_astolfo_trap_of_argalia"        		"Trap of Argalia"
         "DOTA_Tooltip_Ability_astolfo_trap_of_argalia_Description"	"Astolfo strikes enemies in a line, dealing damage, locking all enemies hit for a short duration."
         "DOTA_Tooltip_Ability_astolfo_trap_of_argalia_damage"		"Damage:"
-        "DOTA_Tooltip_Ability_astolfo_trap_of_argalia_duration"		"Root and Lock duration:"
+        "DOTA_Tooltip_Ability_astolfo_trap_of_argalia_duration"		"Lock duration:"
         "DOTA_Tooltip_Ability_astolfo_trap_of_argalia_Lore"			"Only little is known about how clumsy, seemingly unreliable paladin reigned as the king of cavalry tournament."
 
         "DOTA_Tooltip_Ability_astolfo_down_with_a_touch"        "Down with a Touch!"
@@ -6123,10 +6118,10 @@
         "DOTA_Tooltip_Ability_astolfo_attribute_independent_action_mana_regen_boosted"	"%CONDITIONAL BONUS MANA REGEN:"
  
         "DOTA_Tooltip_Ability_astolfo_attribute_sanity"						"Attribute: Evaporation of Sanity"
-        "DOTA_Tooltip_Ability_astolfo_attribute_sanity_Description"			"Astolfo recovers his mental stability, being able to utilize full potential of his arsenal of Noble Phantasms. Hippogriff: Vanish <font color='#FF3399'>stuns</font> target on exit. Astolfo becomes invulnerable and untargetable when he uses Hippogriff: Vanish. If the target is hit by Hippogriff: Vanish, Astolfo reappears beside his target. Enables usage of Casa di Logistilla - magic-protection type Phantasm."
+        "DOTA_Tooltip_Ability_astolfo_attribute_sanity_Description"			"Hippogriff: Vanish <font color='#FF3399'>stuns</font> target on exit. Astolfo becomes invulnerable and untargetable when he uses Hippogriff: Vanish. If the target is hit by Hippogriff: Vanish, Astolfo reappears beside his target. \nEnables usage of Casa di Logistilla - magic-protection type Phantasm. \nTrap of argalia Astolfo performs an attack against all enemies hit by the ability applying all on-hit effects."
 
         "DOTA_Tooltip_Ability_astolfo_deafening_blast_attribute"					"Attribute: Deafening Blast"
-        "DOTA_Tooltip_Ability_astolfo_deafening_blast_attribute_Description"		"La Black Luna's blast and push away all enemies within %area_of_effect% range on activation, as well as disjointing all disjointable projectiles, muting and slowing all enemies for 99% for 1 second. Each La Black Luna tick deals 250 more damage. Enemies pushed away this way are dealt %damage% pure damage. If Astolfo finishes casting without being interrupted, he will release an additional wave in 900 radius, that will deal 1000 pure damage, mute and slow all enemies for 99% for 2 seconds."
+        "DOTA_Tooltip_Ability_astolfo_deafening_blast_attribute_Description"		"La Black Luna's blast and push away all enemies within %area_of_effect% range on activation, as well as disjointing all disjointable projectiles, muting and slowing all enemies for 99% for 1 second.\nEach La Black Luna tick deals 75 more damage. Enemies pushed away this way are dealt 300 magical damage. \nIf Astolfo finishes casting without being interrupted, he will release an additional wave in 900 radius, that will deal 600 magical damage, mute and slow all enemies for 99% for 2 seconds."
 
         //====================================
         //      Caster(Extra) - Nursery Rhyme
@@ -6234,8 +6229,7 @@
         "DOTA_Tooltip_Ability_nursery_rhyme_attribute_reminiscence_pct_mana_regen"		"MANA REGEN PERCENTAGE:"
 
         "DOTA_Tooltip_Ability_nursery_rhyme_attribute_improve_queens_glass_game"				"Attribute: Improve Queen's Glass Game"
-        "DOTA_Tooltip_Ability_nursery_rhyme_attribute_improve_queens_glass_game_Description"	"Causes Queen's Glass Game to always refresh cooldown instead of reverting the duration, as well as refreshing cooldown of items in Nursery Rhyme's inventory. \nCombo: Perpetual Engine - Maiden Empire's cooldown reduced by %cdr% seconds."
-        "DOTA_Tooltip_Ability_nursery_rhyme_attribute_improve_queens_glass_game_cdr"			"COMBO COOLDOWN REDUCTION:"
+        "DOTA_Tooltip_Ability_nursery_rhyme_attribute_improve_queens_glass_game_Description"	"Causes Queen's Glass Game to always refresh cooldown instead of reverting the duration, as well as refreshing cooldown of items in Nursery Rhyme's inventory."
 
         //====================================
         //      Archer of Red - Atalanta
@@ -6611,7 +6605,7 @@
 		"DOTA_Tooltip_ability_leonidas_math_attribute"											"Attribute: Math Is Great"
 		"DOTA_Tooltip_ability_leonidas_math_attribute_Description"								"Math is great. I feel so accomplished when my calculations are correct. \n\n Calculate strategy options and increase abilities values from intellect. \n\n[VALUE SCALES BY % TO BASE VALUE PER EACH INT POINT]"
 		//"DOTA_Tooltip_ability_leonidas_math_attribute_int_to_str_pct"							"%INT TO STRENGTH:"
-		"DOTA_Tooltip_ability_leonidas_math_attribute_bonus_int"								"BONUS INTELLECT:"
+		//"DOTA_Tooltip_ability_leonidas_math_attribute_bonus_int"								"BONUS INTELLECT:"
 		"DOTA_Tooltip_ability_leonidas_math_attribute_kick_push_distance_pct_scale_per_int"		"%INT SCALE TO [Q] PUSH DISTANCE:"
 		"DOTA_Tooltip_ability_leonidas_math_attribute_catch_radius_pct_scale_per_int"			"%INT RADIUS SCALE TO [W]:"
 		//"DOTA_Tooltip_ability_leonidas_math_attribute_pride_radius_pct_scale_per_int"			"%INT AOE RADIUS [E]:"
@@ -6932,7 +6926,6 @@
 		"DOTA_Tooltip_ability_arcueid_shut_up_stun_duration"	"Collide stun duration:"
 		"DOTA_Tooltip_ability_arcueid_shut_up_range"			"Knockback range:"
 		"DOTA_Tooltip_ability_arcueid_shut_up_collide_mult"		"Attribute collide strength damage multiplier:"
-		"DOTA_Tooltip_ability_arcueid_shut_up_range_mult"		"Attribute collide strength range multiplier:"
 
 		"DOTA_Tooltip_ability_arcueid_ready"					"Ready, Go!"
 		"DOTA_Tooltip_ability_arcueid_ready_Description"		"Arcueid speeds up and slams the target 3 times, pushing it back with each hit.\nIf target collides with a wall, it will take additional damage and be stunned."
@@ -6987,7 +6980,7 @@
 		"DOTA_Tooltip_ability_arcueid_mystic_eyes_attribute_radius"	"Radius:"
 
 		"DOTA_Tooltip_ability_arcueid_monstrous_strength_attribute"	"Attribute: Monstrous Strength"
-		"DOTA_Tooltip_ability_arcueid_monstrous_strength_attribute_Description"	"Each collide deals additional damage based on Arcueid's strength.\nShut Up and Fly! gains additional knockback distance based on Arcueid's strength.\nAutoattacks to target under the debuff of Remains Recycle add a stackable debuff, which deals 10 damage per stack when they are attacked.\nAttacking Remains Recycle target gives attacker additional 150 attack speed for 1.5 seconds"
+		"DOTA_Tooltip_ability_arcueid_monstrous_strength_attribute_Description"	"Each collide deals additional damage based on Arcueid's strength.\nAutoattacks to target under the debuff of Remains Recycle add a stackable debuff, which deals 10 damage per stack when they are attacked.\nAttacking Remains Recycle target gives attacker additional 150 attack speed for 1.5 seconds"
 
 		"DOTA_Tooltip_ability_arcueid_regen_attribute"	"Attribute: Improve Regeneration"
 		"DOTA_Tooltip_ability_arcueid_regen_attribute_Description"	"Improves Body Reconstruction."
@@ -7020,7 +7013,7 @@
 		"DOTA_Tooltip_modifier_edmon_mark_Description"		"Dantes deals additional damage and lifesteals from all types of damage against this character"
 
 		"DOTA_Tooltip_ability_edmon_mythologie"					"Monte Cristo Mythologie"
-		"DOTA_Tooltip_ability_edmon_mythologie_Description"		"Edmon utilizes black flames to attack his enemies. Deals additional magical damage on attacks that depends on Dark Beam damage.\nWhen attacking units further than 250 from him, he utilizes weakened versions of Dark Beams and has 1.1 BAT.\nWhen attacking enemies near him, he has 0.8 BAT."
+		"DOTA_Tooltip_ability_edmon_mythologie_Description"		"Edmon utilizes black flames to attack his enemies. Deals additional magical damage on attacks that depends on Dark Beam damage.\nWhen attacking units further than 250 from him, he utilizes weakened versions of Dark Beams and has 1.4 BAT.\nWhen attacking enemies near him, he has 1.1 BAT."
 
 		"DOTA_Tooltip_ability_edmon_beam"						"Dark Beam"
 		"DOTA_Tooltip_ability_edmon_beam_Description"			"Can be used up to 3 times in a row.\n1'st and 2'nd cast: fires a Dark Beam, which deals %damage% damage in a straight line.\n3'rd cast: after a little delay, fires a slightly more powerful Dark Beam, which deals %last_damage% damage."

@@ -12,7 +12,7 @@ function arcueid_shut_up:OnSpellStart()
 
 	if caster.MonstrousStrengthAcquired then
 		collide_damage = collide_damage + caster:GetStrength()*self:GetSpecialValueFor("collide_mult")
-		pushback_range = pushback_range + caster:GetStrength()*self:GetSpecialValueFor("range_mult")
+		--pushback_range = pushback_range + caster:GetStrength()*self:GetSpecialValueFor("range_mult")
 	end
 
 	caster:EmitSound("arcueid_swing")
@@ -58,7 +58,7 @@ function arcueid_shut_up:OnSpellStart()
 			vVelocity = caster:GetForwardVector() * self:GetSpecialValueFor("speed")
 		}
 
-		local projectile = ProjectileManager:CreateLinearProjectile(qdProjectile)
+		--local projectile = ProjectileManager:CreateLinearProjectile(qdProjectile)
 
 		if not IsKnockbackImmune(target) then
 			local casterfacing = caster:GetForwardVector()

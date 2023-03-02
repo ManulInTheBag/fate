@@ -218,7 +218,7 @@ end
 modifier_nero_tres_enemy = class({})
 
 function modifier_nero_tres_enemy:IsHidden() return false end
-function modifier_nero_tres_enemy:IsDebuff() return false end
+function modifier_nero_tres_enemy:IsDebuff() return true end
 function modifier_nero_tres_enemy:IsPurgable() return false end
 function modifier_nero_tres_enemy:IsPurgeException() return false end
 function modifier_nero_tres_enemy:RemoveOnDeath() return true end

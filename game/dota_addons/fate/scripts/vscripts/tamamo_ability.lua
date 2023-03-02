@@ -743,8 +743,12 @@ function OnMantraTakeDamage(keys)
     			ParticleManager:DestroyParticle(warpFx, false)
     			ParticleManager:ReleaseParticleIndex(warpFx)
     		end)
-
     		local tEnemies = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, ability:GetSpecialValueFor("ally_radius"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
+			for i = 1, #tEnemies do
+				DoDamage(caster, tEnemies[i], 1000, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+			end
+
+    		--[[local tEnemies = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, ability:GetSpecialValueFor("ally_radius"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
 			for i = 1, #tEnemies do
 				for j=0, 5 do 
 					local pepe_ability = tEnemies[i]:GetAbilityByIndex(j)
@@ -756,7 +760,7 @@ function OnMantraTakeDamage(keys)
 						break
 					end
 				end
-			end
+			end]]--
     	end
 	else
 		if target.IsMantraProcOnCooldown then 
@@ -826,6 +830,14 @@ function OnMantraTakeDamage(keys)
 
     		local tEnemies = FindUnitsInRadius(caster:GetTeam(), target:GetAbsOrigin(), nil, ability:GetSpecialValueFor("enemy_radius"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
 			for i = 1, #tEnemies do
+				local fdamage = ability:GetSpecialValueFor("void_damage")
+				local diff = (tEnemies[i]:GetMaxHealth() - tEnemies[i]:GetHealth())/tEnemies[i]:GetMaxHealth()/2
+				DoDamage(caster, tEnemies[i], fdamage*(diff + 1), DAMAGE_TYPE_MAGICAL, 0, ability, false)
+				print (fdamage*(diff + 1))
+			end
+
+    		--[[local tEnemies = FindUnitsInRadius(caster:GetTeam(), target:GetAbsOrigin(), nil, ability:GetSpecialValueFor("enemy_radius"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
+			for i = 1, #tEnemies do
 				for j=0, 5 do 
 					local pepe_ability = tEnemies[i]:GetAbilityByIndex(j)
 					if pepe_ability ~= nil then
@@ -836,7 +848,7 @@ function OnMantraTakeDamage(keys)
 						break
 					end
 				end
-			end
+			end]]--
     	end
 	end
 

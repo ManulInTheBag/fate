@@ -596,7 +596,7 @@ function leonidas_kick:OnSpellStart()
 
     local nScaleFactor = ( 1 + ( GetAttributeValue(hCaster, "leonidas_math_attribute", "kick_push_distance_pct_scale_per_int", -1, 0, false) * hCaster:GetIntellect() * 0.01 ) )
 
-    local nDistance = self:GetSpecialValueFor("push_distance") * nScaleFactor
+    local nDistance = self:GetSpecialValueFor("push_distance") * 1--nScaleFactor
     local nDuration = math.max(self:GetSpecialValueFor("push_duration"), FrameTime())
     --print(nDistance)
     local nSlowDuration = self:GetSpecialValueFor("slow_duration")

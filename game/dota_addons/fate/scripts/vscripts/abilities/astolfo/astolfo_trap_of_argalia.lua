@@ -71,6 +71,6 @@ function astolfo_trap_of_argalia:OnProjectileHit_ExtraData(hTarget, vLocation, t
 	DoDamage(caster, hTarget, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
 
 	if caster.bIsSanityAcquired then
-		DoDamage(caster, hTarget, caster:GetAverageTrueAttackDamage(caster)*2.5, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+		caster:PerformAttack( hTarget, true, true, true, true, false, false, false )
 	end
 end

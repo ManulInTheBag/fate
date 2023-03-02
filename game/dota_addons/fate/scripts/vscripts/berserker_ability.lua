@@ -572,7 +572,7 @@ function OnNineStart(keys)
 	caster:SetPhysicsFriction(0)
 	caster:SetPhysicsVelocity(caster:GetForwardVector()*distance)
 	--caster:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
-	giveUnitDataDrivenModifier(caster, caster, "pause_sealdisabled", 4.0)
+	giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 4.0)
 	caster:EmitSound("Hero_OgreMagi.Ignite.Cast")
 	--ability:ApplyDataDrivenModifier(caster, caster, "modifier_dash_anim", {})
 	if casterName == "npc_dota_hero_doom_bringer" then

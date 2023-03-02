@@ -26,10 +26,9 @@ function artoria_avalon:OnSpellStart()
 	EmitGlobalSound("Saber.Avalon")
 	EmitGlobalSound("Saber.Avalon_Shout")
 	
-	self:CheckCombo()
 end
 
-function artoria_avalon:CheckCombo()
+--[[function artoria_avalon:CheckCombo()
 	local caster = self:GetCaster()
 
 	if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 and caster:GetIntellect() >= 29.1 then
@@ -38,4 +37,4 @@ function artoria_avalon:CheckCombo()
 			caster:AddNewModifier(caster, self, "modifier_artoria_ultimate_excalibur_window", { Duration = 4 })
 		end
 	end
-end
+end]]--

@@ -259,7 +259,7 @@ function OnHornStart(keys)
     	local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
 	    for k,v in pairs(targets) do
 	    	if v:GetName() ~= "npc_dota_ward_base" then
-		    	DoDamage(caster, v, 400, DAMAGE_TYPE_PURE, 0, ability, false)
+		    	DoDamage(caster, v, 300, DAMAGE_TYPE_PURE, 0, ability, false)
 		    	if not IsKnockbackImmune(v) then
 					giveUnitDataDrivenModifier(caster, v, "drag_pause", 0.5)
 					keys.ability:ApplyDataDrivenModifier(caster,v, "modifier_astolfo_mute1", {})
@@ -318,7 +318,7 @@ function OnHornThink(keys)
 
 	if caster.IsDeafeningBlastAcquired then
     	ProjectileManager:ProjectileDodge(caster)
-    	damage = damage + 250
+    	damage = damage + 75
     	caster.rape_count = caster.rape_count + 1
     end
 
@@ -357,7 +357,7 @@ function OnHornInterrupted(keys)
 		for k,v in pairs(rapeTargets) do
 			ability:ApplyDataDrivenModifier(caster, v, "modifier_la_black_luna_slow2", {})
 			keys.ability:ApplyDataDrivenModifier(caster,v, "modifier_astolfo_mute2", {})
-			DoDamage(caster, v, 1000, DAMAGE_TYPE_PURE, 0, ability, false)
+			DoDamage(caster, v, 600, DAMAGE_TYPE_PURE, 0, ability, false)
 			local shockwaveIndex = ParticleManager:CreateParticle("particles/custom/astolfo/la_black_luna/la_black_luna_shockwave.vpcf", PATTACH_CUSTOMORIGIN, nil)
    			ParticleManager:SetParticleControl( shockwaveIndex, 0, caster:GetAbsOrigin())
     		ParticleManager:SetParticleControl( shockwaveIndex, 1, Vector(500,0,0))
