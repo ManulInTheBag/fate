@@ -328,6 +328,9 @@ cleansable = {
     "modifier_leonidas_enomotia_slow",
     "modifier_saito_shadowslash_mrr",
     "modifier_love_spot_charmed",
+    "modifier_nero_tres_enemy",
+    "modifier_arcueid_what",
+    "modifier_artoria_mana_burst_slow",
 }
 
 slowmodifier = {

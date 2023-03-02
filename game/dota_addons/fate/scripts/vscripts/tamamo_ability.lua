@@ -745,7 +745,9 @@ function OnMantraTakeDamage(keys)
     		end)
     		local tEnemies = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, ability:GetSpecialValueFor("ally_radius"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
 			for i = 1, #tEnemies do
-				DoDamage(caster, tEnemies[i], 1000, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+				fDamage = ability:GetSpecialValueFor("void_damage")
+				local diff = (tEnemies[i]:GetMaxHealth() - tEnemies[i]:GetHealth())/tEnemies[i]:GetMaxHealth()/2
+				DoDamage(caster, tEnemies[i], fDamage*(diff + 1), DAMAGE_TYPE_MAGICAL, 0, ability, false)
 			end
 
     		--[[local tEnemies = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, ability:GetSpecialValueFor("ally_radius"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
@@ -833,7 +835,6 @@ function OnMantraTakeDamage(keys)
 				local fdamage = ability:GetSpecialValueFor("void_damage")
 				local diff = (tEnemies[i]:GetMaxHealth() - tEnemies[i]:GetHealth())/tEnemies[i]:GetMaxHealth()/2
 				DoDamage(caster, tEnemies[i], fdamage*(diff + 1), DAMAGE_TYPE_MAGICAL, 0, ability, false)
-				print (fdamage*(diff + 1))
 			end
 
     		--[[local tEnemies = FindUnitsInRadius(caster:GetTeam(), target:GetAbsOrigin(), nil, ability:GetSpecialValueFor("enemy_radius"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
