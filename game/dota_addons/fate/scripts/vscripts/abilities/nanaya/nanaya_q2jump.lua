@@ -23,7 +23,7 @@ function nanaya_q2jump:OnSpellStart()
 			vSpawnOrigin      = caster:GetAbsOrigin() + Vector(0, 0, 0),
 			
 			iUnitTargetTeam   = self:GetAbilityTargetTeam(),
-			iUnitTargetType   = self:GetAbilityTargetType(),
+			iUnitTargetType   = DOTA_UNIT_TARGET_HERO,
 			iUnitTargetFlags  = self:GetAbilityTargetFlags(),
 			
 			EffectName        = nil,
@@ -104,7 +104,7 @@ local knockback4 = { should_stun = true,
 				center_x = caster:GetAbsOrigin().x - caster:GetForwardVector().x * 800,
 				center_y = caster:GetAbsOrigin().y - caster:GetForwardVector().y * 800,
 			center_z = 4000}	
-	if not IsKnockbackImmune(hTarget) then
+	if false then
     	hTarget:AddNewModifier(caster, self, "modifier_knockback", knockback4)	
 	end
 

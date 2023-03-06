@@ -89,9 +89,10 @@ print (point2)
 				center_x = caster:GetAbsOrigin().x - caster:GetForwardVector().x * point2,
 				center_y = caster:GetAbsOrigin().y - caster:GetForwardVector().y * point2,
 			center_z = 0}	
-    caster:AddNewModifier(caster, self, "modifier_knockback", knockback4)	
+    --caster:AddNewModifier(caster, self, "modifier_knockback", knockback4)	
+	caster:SetForwardVector(-caster:GetAbsOrigin() + target:GetAbsOrigin())
 			--blink_target = (caster:GetAbsOrigin()) + (((blink_target - caster:GetAbsOrigin()):Normalized()) * 225)
-		--FindClearSpaceForUnit(caster, blink_target , true) 
+		FindClearSpaceForUnit(caster, blink_target , true) 
 		end
 	 
 		caster:EmitSound("nanaya.zange")
@@ -151,7 +152,7 @@ Timers:CreateTimer(0.05, function ()
 				center_x = caster:GetAbsOrigin().x - caster:GetForwardVector().x * 1000,
 				center_y = caster:GetAbsOrigin().y - caster:GetForwardVector().y * 1000,
 			center_z = 0}	
-										caster:AddNewModifier(caster, self, "modifier_knockback", knockback1)	
+										 
 
 target:AddNewModifier(caster, self, "nanaya_slashes_modifier1", {duration = 0.6, target = target_script, vector = caster:entindex(), part = particle})
 end)
@@ -276,7 +277,7 @@ ParticleManager:SetParticleControl(knife, 4, target:GetAbsOrigin())
 			end
 		
 			target:EmitSound("nanaya.slash")
-			if not IsKnockbackImmune(target) then
+			if false then
 				target:AddNewModifier(caster, self, "modifier_knockback", knockback)
 			end
 			--ParticleManager:CreateParticle("particles/nanaya_e1.vpcf", PATTACH_ABSORIGIN, target)
@@ -406,7 +407,7 @@ end
 			ParticleManager:SetParticleControl(test_hit, 0, target:GetAbsOrigin())
 			end
 			target:EmitSound("nanaya.slash")
-			if not IsKnockbackImmune(target) then
+			if false then
 				target:AddNewModifier(caster, self, "modifier_knockback", knockback)
 			end
 			DoDamage(caster, target, dmg, DAMAGE_TYPE_MAGICAL, 0, caster:FindAbilityByName("nanaya_slashes"), false)
@@ -449,20 +450,7 @@ self.particle = args.part
 self:StartIntervalThink(0.05)
 --self.target = EntIndexToHScript(args.target)
 print (self.target)
-self.sin1 = Physics:Unit(self.target)
-self.target:SetPhysicsFriction(0)
-    self.target:SetPhysicsVelocity(self.truecaster:GetForwardVector() * 1000)
-    self.target:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
-      self.target:SetGroundBehavior (PHYSICS_GROUND_LOCK)
-	  
-	  self.target:OnPreBounce(function(unit, normal) -- stop the pushback when unit hits wall
-	  	self.truecaster:RemoveModifierByName("modifier_knockback")
-        unit:OnPreBounce(nil)
-        unit:SetBounceMultiplier(0)
-        unit:PreventDI(false)
-        unit:SetPhysicsVelocity(Vector(0,0,0))
-        unit:SetGroundBehavior (PHYSICS_GROUND_NOTHING)
-		end)
+ 
 		end
 	end
 		
@@ -474,11 +462,7 @@ end
 		
 function nanaya_slashes_modifier1:OnDestroy()
 	if IsServer() then 
-        self.target:OnPreBounce(nil)
-      self.target:SetBounceMultiplier(0)
-        self.target:PreventDI(false)
-        self.target:SetPhysicsVelocity(Vector(0,0,0))
-        self.target:SetGroundBehavior (PHYSICS_GROUND_NOTHING)
+       
         self.truecaster:RemoveModifierByName("modifier_knockback")
 		--self.truecaster:OnPreBounce(nil)
        -- self.truecaster:SetBounceMultiplier(0)

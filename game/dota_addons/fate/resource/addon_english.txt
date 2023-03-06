@@ -7004,10 +7004,10 @@
 		"DOTA_Tooltip_ability_arcueid_world_attribute_Description"	"Upgrades Vampiric Impulses.\nVampiric Impulses gain additional damage per strength and additional attack speed per agility.\n\nVampiric Impulses can be set on autocast, which will enable Arcueid to utilize Vampiric Impulses bonuses without stacks by paying 40 mana per attack.\nVampiric Impulses autoattacks reduce CD of her base skills by 1 second per autoattack."
 
 		//====================================
-		//      Arcueid Brunestud
+		//      Edmond Dantes
         //====================================
 
-		"npc_dota_hero_treant"						"Edmon Dantes"
+		"npc_dota_hero_treant"						"Edmond Dantes"
 
 		"npc_dota_hero_treant_hype"					""
 		"npc_dota_hero_treant_bio"					""
@@ -7025,17 +7025,20 @@
 		"DOTA_Tooltip_modifier_edmon_mark_Description"		"Dantes deals additional damage and lifesteals from all types of damage against this character"
 
 		"DOTA_Tooltip_ability_edmon_mythologie"					"Monte Cristo Mythologie"
-		"DOTA_Tooltip_ability_edmon_mythologie_Description"		"Edmon utilizes black flames to attack his enemies. Deals additional magical damage on attacks that depends on Dark Beam damage.\nWhen attacking units further than 250 from him, he utilizes weakened versions of Dark Beams and has 1.4 BAT.\nWhen attacking enemies near him, he has 1.1 BAT."
+		"DOTA_Tooltip_ability_edmon_mythologie_Description"		"Edmond utilizes black flames to attack his enemies. Deals additional magical damage on attacks that based on Dark Beam damage.\nWhen attacking units further than 250 from him, he utilizes weakened versions of Dark Beams and has 1.4 BAT.\nWhen attacking enemies near him, he has 1.1 BAT."
+		"DOTA_Tooltip_ability_edmon_mythologie_beam_dmg_mod"								"Beam damage mod:"
 
 		"DOTA_Tooltip_ability_edmon_beam"						"Dark Beam"
-		"DOTA_Tooltip_ability_edmon_beam_Description"			"Can be used up to 3 times in a row.\n1'st and 2'nd cast: fires a Dark Beam, which deals %damage% damage in a straight line.\n3'rd cast: after a little delay, fires a slightly more powerful Dark Beam, which deals %last_damage% damage."
-		"DOTA_Tooltip_ability_edmon_beam_range"					"Range:"
-		"DOTA_Tooltip_ability_edmon_beam_last_range"			"Last beam range:"
+		"DOTA_Tooltip_ability_edmon_beam_Description"			"Can be used up to 3 times in a row.\n1'st and 2'nd cast: fires a Dark Beam, which deals %damage% damage in a straight line.\n3'rd cast: after a little delay, fires a more powerful Dark Beam, which deals %last_damage% times beam damage.\nBeams damage increases with Edmond level."
+		"DOTA_Tooltip_ability_edmon_beam_range"								"Range:"
+		"DOTA_Tooltip_ability_edmon_beam_damage_per_level"					"Damage per level:"
+		"DOTA_Tooltip_ability_edmon_beam_last_range"						"Last beam range:"
 
 		"DOTA_Tooltip_ability_edmon_counter"					"Vengeful Conflagration"
-		"DOTA_Tooltip_ability_edmon_counter_Description"		"For the next %duration% seconds, upon taking %threshold% or more damage in one instance Dantes will teleport to the attacker, becoming invulnerable and uncontrollable and dealing magical damage to the attacker. After a short delay, Dantes will will deal the same damage to him %slash_count% more times."
+		"DOTA_Tooltip_ability_edmon_counter_Description"		"For the next %duration% seconds, upon taking %threshold% or more damage in one instance Dantes will teleport to the attacker, heal half of the damage that activated ability, becoming untargettable and uncontrollable and dealing magical damage to the attacker. After a short delay, Dantes will will deal the same damage to him %slash_count% more times.\nAfter performing last strike Edmond will silence his target."
 		"DOTA_Tooltip_ability_edmon_counter_damage"				"Damage per hit:"
 		"DOTA_Tooltip_ability_edmon_counter_max_range"			"Maximum trigger range:"
+		"DOTA_Tooltip_ability_edmon_counter_silence_duration"	"Silence duration:"
 
 		"DOTA_Tooltip_ability_edmon_ground_beams"				"Revenge is Mine"
 		"DOTA_Tooltip_ability_edmon_ground_beams_Description"	"Dantes touches the ground, causing it to burst dark and light beams in a small area around him.\nDeals two instances of damage and stuns on each impact."
@@ -7054,7 +7057,7 @@
 		"DOTA_Tooltip_ability_edmon_ult_range"					"Range:"
 
 		"DOTA_Tooltip_ability_edmon_enfer"						"Combo: Enfer Chateau d'If"
-		"DOTA_Tooltip_ability_edmon_enfer_Description"			"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: W-D in 3 seconds</font>\n\nDantes prepares for 1.2 seconds and starts flying forward. Direction can be changed while flying. First enemy on his way will be considered the target.\nAfter target is acquired, Edmon slashes everything and everyone around it 18 times for %hit_damage% magical damage, then, after 0.5 delay, locks and roots everyone inside the radius and starts burning everything down, dealing %burn_damage% magical damage in 2.4 seconds and %last_damage% magical damage at the end."
+		"DOTA_Tooltip_ability_edmon_enfer_Description"			"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: W-D in 3 seconds</font>\n\nDantes prepares for 1.2 seconds and starts flying forward. Direction can be changed while flying. First enemy on his way will be considered the target.\nAfter target is acquired, Edmond slashes everything and everyone around it 18 times for %hit_damage% magical damage, then, after 0.5 delay, locks and roots everyone inside the radius and starts burning everything down, dealing %burn_damage% magical damage in 2.4 seconds and %last_damage% magical damage at the end."
 		"DOTA_Tooltip_ability_edmon_enfer_range"				"Flight range:"
 		"DOTA_Tooltip_ability_edmon_enfer_radius"				"Radius:"
 
@@ -7068,8 +7071,8 @@
 		"DOTA_Tooltip_ability_edmon_escape_attribute_Description"			"Allows Dantes to use Afterglow and My Vengeance Never Dies when rooted and locked.\nIncreased My Vengeance Never Dies castrange by 300."
 
 		"DOTA_Tooltip_ability_edmon_hellfire_attribute"			"Attribute: Furious Hellfire"
-		"DOTA_Tooltip_ability_edmon_hellfire_attribute_Description"		"My Vengeance Never Dies deals 60 additional damage per hit.\nEnfer Chateau d'If deals 25 additional damage per hit, 1000 more damage with burn and 1500 more damage with last impact."
-
+		"DOTA_Tooltip_ability_edmon_hellfire_attribute_Description"		"My Vengeance Never Dies deals additional damage per hit based on Dantes agility.\nEnfer Chateau d'If deals 25 additional damage per hit, 1000 more damage with burn and 1500 more damage with last impact."
+		"DOTA_Tooltip_ability_edmon_hellfire_attribute_agi_scaling"				"Agi scaling:"
 
 		//====================================
 		//      Karna
@@ -8196,7 +8199,8 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
         "DOTA_Tooltip_ability_nanaya_jump_slashes_Lore"                                         ""
 
         "DOTA_Tooltip_ability_nanaya_knife"                             "Seven Nights Shiki"
-        "DOTA_Tooltip_ability_nanaya_knife_Description" "Nanaya throws a knife in the target direction, dealing damage based on Nanaya AGI in two instances on hit and teleporting Nanaya close to the enemy. Nanaya will jump back shortly after.\nOn 15+ <font color='#002BFF'>Nanaya blood</font> stacks and if you have Black and Shadow attribute, Nanaya clones will attack the enemy. 4 clones will attack pushing enemy back, 5th will knock enemy up, stunning it, Last clone will attack with delay, dealing more damage."
+        "DOTA_Tooltip_ability_nanaya_knife_Description" "Nanaya throws a knife in the target direction, dealing damage based on Nanaya AGI in two instances on hit and teleporting Nanaya close to the enemy. Nanaya will jump back shortly after.\nOn 15+ <font color='#002BFF'>Nanaya blood</font> stacks and if you have Black and Shadow attribute, Nanaya clones will attack the enemy. 4 clones will just attack, 5th will knock enemy up, stunning it, Last clone will attack with delay, dealing more damage."
+
         "DOTA_Tooltip_ability_nanaya_knife_dmg" 							"Total dmg:"
         "DOTA_Tooltip_ability_nanaya_knife_agi_modifier" 					"Total agility modifier:"
         "DOTA_Tooltip_ability_nanaya_knife_clone_dmg" 						"Clone dmg:"
@@ -8213,7 +8217,7 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
 		"DOTA_Tooltip_ability_nanaya_combo_pct_damage"                     "%HP damage"
 
        "DOTA_Tooltip_ability_nanaya_slashes" "Sensa・Yotsutsuji"
-       "DOTA_Tooltip_ability_nanaya_slashes_description" "Nanaya lunges forward and does a series of slashes, that deal damage based on Nanaya AGI, push target away and could be interrupted by stun.\nOn 10+ <font color='#002BFF'>Nanaya blood</font><font color='#002BFF'> </font></font> stacks changes to a series of 3 hits from Nanaya, if you in <font color='#58ACFA'>Nanaya Instinct</font> mode, 3 clones will help you, hitting from the back."
+       "DOTA_Tooltip_ability_nanaya_slashes_description" "Nanaya lunges forward and does a series of slashes, that deal damage based on Nanaya AGI, attacks could be interrupted by stun.\nOn 10+ <font color='#002BFF'>Nanaya blood</font><font color='#002BFF'> </font></font> stacks changes to a series of 3 hits from Nanaya, if you in <font color='#58ACFA'>Nanaya Instinct</font> mode, 3 clones will help you, hitting from the back."
        "DOTA_Tooltip_ability_nanaya_slashes_slash" 			"Slash count:"
  	   "DOTA_Tooltip_ability_nanaya_slashes_distance" 		"Travel distance:"
 	   "DOTA_Tooltip_ability_nanaya_slashes_dmg" 	    	"Damage per slash:"
@@ -8221,7 +8225,7 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
 	   "DOTA_Tooltip_ability_nanaya_slashes_clone_dmg" 	    "Clone and hit damage:"
 
        "DOTA_Tooltip_ability_nanaya_r_attribute"  "Black and White shadow"
-       "DOTA_Tooltip_ability_nanaya_r_attribute_description"  "Upgrades Seven Nights Shiki ability.\nOn 15+ <font color='#002BFF'>Nanaya blood</font> stacks and if you have Black and Shadow attribute, Nanaya clones will attack the enemy. 4 clones will attack pushing enemy back, 5th will knock enemy up, stunning it, Last clone will attack with delay, dealing more damage.\nOn 30 <font color='#002BFF'>Nanaya blood</font> nanaya blood stacks hitting your enemy with Seven Nights Shiki knife will deal damed based on your agi as pure damage and set <font color='#002BFF'>Nanaya blood</font> stacks on 0, ending <font color='#58ACFA'>Nanaya Instinct</font> mode."
+       "DOTA_Tooltip_ability_nanaya_r_attribute_description"  "Upgrades Seven Nights Shiki ability.\nOn 14+ <font color='#002BFF'>Nanaya blood</font> stacks and if you have Black and Shadow attribute, Nanaya clones will attack the enemy. 4 clones will just attack, 5th will knock enemy up, stunning it, Last clone will attack with delay, dealing more damage.\nOn 30 <font color='#002BFF'>Nanaya blood</font> nanaya blood stacks hitting your enemy with Seven Nights Shiki knife will deal damed based on your agi as pure damage and set <font color='#002BFF'>Nanaya blood</font> stacks on 0, ending <font color='#58ACFA'>Nanaya Instinct</font> mode."
         "DOTA_Tooltip_ability_nanaya_r_attribute_clone_dmg" 						"15 stacks Clone dmg:"
         "DOTA_Tooltip_ability_nanaya_r_attribute_clone_dmg_agi" 					"15 stacks Clone dmg per agi:"
         "DOTA_Tooltip_ability_nanaya_r_attribute_5th_clone_dmg" 					"15 stacks 5th clone dmg:"
@@ -8238,7 +8242,7 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
 
 
        "DOTA_Tooltip_ability_nanaya_d_attribute" "Nanaya incident 12.02.2023"
-       "DOTA_Tooltip_ability_nanaya_d_attribute_description" "Unlocks Sensa・Yotsutsuji ability.\nSensa・Yotsutsuji:  Nanaya lunges forward and does a series of slashes, that deal damage, push target away and could be interrupted by stun.\nOn 10+ <font color='#002BFF'>Nanaya blood</font><font color='#002BFF'> </font></font> stacks changes to a series of 3 hits from Nanaya, if you in <font color='#58ACFA'>Nanaya Instinct</font> mode, 3 clones will help you, hitting from the back."
+       "DOTA_Tooltip_ability_nanaya_d_attribute_description" "Unlocks Sensa・Yotsutsuji ability.\nSensa・Yotsutsuji:  Nanaya lunges forward and does a series of slashes, that deal damage based on Nanaya AGI, attacks could be interrupted by stun.\nOn 10+ <font color='#002BFF'>Nanaya blood</font><font color='#002BFF'> </font></font> stacks changes to a series of 3 hits from Nanaya, if you in <font color='#58ACFA'>Nanaya Instinct</font> mode, 3 clones will help you, hitting from the back."
        "DOTA_Tooltip_ability_nanaya_d_attribute_slash" 		"Slash count:"
  	   "DOTA_Tooltip_ability_nanaya_d_attribute_distance" 	"Travel distance:"
 	   "DOTA_Tooltip_ability_nanaya_d_attribute_dmg" 	    "Damage per slash:"
@@ -8246,7 +8250,7 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
 
 
        "DOTA_Tooltip_ability_nanaya_blood_attribute" "Old Memories"
-       "DOTA_Tooltip_ability_nanaya_blood_attribute_description" "Upgrades passive, unlock Nanaya Instinct mode.\nNanaya can enter instinct mode by hitting enemy with Seven Night Shiki knife, or Sensa・Yotsutsuji at 15+ stack\n<font color='#58ACFA'>Nanaya Instinct</font> - Nanaya is moving on a constant movement speed, reduces all cooldowns and can blink after using any ability by sending a move order."
+       "DOTA_Tooltip_ability_nanaya_blood_attribute_description" "Upgrades passive, unlock Nanaya Instinct mode.\nNanaya can enter instinct mode by hitting enemy with Seven Night Shiki knife, or Sensa・Yotsutsuji at 14+ stack\n<font color='#58ACFA'>Nanaya Instinct</font> - Nanaya is moving on a constant movement speed, reduces all cooldowns and can blink after using any ability by sending a move order."
         "DOTA_Tooltip_ability_nanaya_blood_attribute_stack_max"                           "Maximum stacks:"
         "DOTA_Tooltip_ability_nanaya_blood_attribute_bonus_agility"                       "Bonus AGI:"
         "DOTA_Tooltip_ability_nanaya_blood_attribute_cd_reduction_pct"                    "%Cooldown reduction:"

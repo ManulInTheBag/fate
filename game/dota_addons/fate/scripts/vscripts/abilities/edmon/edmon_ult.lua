@@ -43,19 +43,19 @@ function edmon_ult:OnSpellStart()
 	local interval = self:GetSpecialValueFor("interval")
 	local count = 0
 	local radius = self:GetSpecialValueFor("radius")
-    local target = self:GetCursorTarget()
-	local origin = target:GetAbsOrigin()
-	local damage = self:GetSpecialValueFor("damage") + (caster.HellfireAcquired and 60 or 0)
-    if IsSpellBlocked(target) then return end
+    --local target = self:GetCursorTarget()
+	local origin = self:GetCursorPosition()
+	local damage = self:GetSpecialValueFor("damage") + (caster.HellfireAcquired and caster:GetAgility() * self:GetSpecialValueFor("agi_scaling") or 0)
+    --if IsSpellBlocked(target) then return end
 	caster:AddNewModifier(caster, self, "modifier_edmon_ult", {duration = duration})
 
 	EmitGlobalSound("edmon_r"..math.random(1,2))
 
 	Timers:CreateTimer(function()
         if count < duration and caster and caster:IsAlive() then
-            if target then
-                origin = target:GetAbsOrigin()
-            end
+            --if target then
+            --    origin = target:GetAbsOrigin()
+            --end
             local angle = RandomInt(0, 360)
             local startLoc = GetRotationPoint(origin,RandomInt(radius, radius),angle)
             local endLoc = GetRotationPoint(origin,RandomInt(radius, radius),angle + RandomInt(120, 240))
@@ -70,7 +70,7 @@ function edmon_ult:OnSpellStart()
 				DoDamage(caster, unitGroup[i], damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
                 --caster:PerformAttack( unitGroup[i], true, true, true, true, false, false, true )
 			end
-            FindClearSpaceForUnit(caster,endLoc,true)
+            --FindClearSpaceForUnit(caster,endLoc,true)
             for k,v in pairs(unitGroup) do
                 --CauseDamage(caster,unitGroup,damage,damageType,ability3)
                 --caster:PerformAttack(v,true,true,true,false,false,false,true)
@@ -81,7 +81,7 @@ function edmon_ult:OnSpellStart()
             count = count + interval
             return interval
         end
-        FindClearSpaceForUnit(caster,origin,true)
+        --FindClearSpaceForUnit(caster,origin,true)
     end)
 end
 

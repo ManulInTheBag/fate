@@ -2335,7 +2335,7 @@ local heroNames = {
     ["npc_dota_hero_tiny"] = "Arcueid",
     ["npc_dota_hero_venomancer"] = "Leonidas I",
     ["npc_dota_hero_faceless_void"] = "Altera",
-    ["npc_dota_hero_treant"] = "Edmon Dantes",
+    ["npc_dota_hero_treant"] = "Edmond Dantes",
     ["npc_dota_hero_night_stalker"] = "Shiki Nanaya",
 }
 

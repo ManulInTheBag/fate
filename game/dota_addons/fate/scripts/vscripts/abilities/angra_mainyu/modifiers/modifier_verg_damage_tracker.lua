@@ -31,7 +31,7 @@ if IsServer() then
 			progress:StartIntervalThink(0.05)
 		end
 
-		if attacker:IsHero() then
+		if attacker:IsHero()  then
 			attacker:AddNewModifier(caster, self:GetAbility(), "modifier_verg_marker", { Duration = marker_duration })			
 		end		
 	end

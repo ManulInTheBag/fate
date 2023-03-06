@@ -27,6 +27,10 @@ function edmon_beam:GetAOERadius()
 	return self:GetSpecialValueFor("range")
 end
 
+function edmon_beam:GetManaCost()
+	return self:CheckSequence() == 0 and 100 or 0 
+end
+
 function edmon_beam:GetBehavior()
 	if (self:CheckSequence() ~= 2) then
 		return DOTA_ABILITY_BEHAVIOR_POINT
@@ -166,7 +170,7 @@ function edmon_beam:OnSpellStart()
 							part1.z = part9.z
 						end
 
-						local damage = self:GetSpecialValueFor("last_damage")
+						local damage = self:GetSpecialValueFor("last_damage")*self:GetSpecialValueFor("damage") + 2*caster:GetLevel()*self:GetSpecialValueFor("damage_per_level")
 						EmitSoundOn("edmon_short_beam", caster)
 
 						local particle = ParticleManager:CreateParticle("particles/edmon/edmon_beam_laser_big.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
@@ -209,10 +213,10 @@ end
 
 function edmon_beam:MiniDarkBeam(part1, part9, isAA, isMelee, isBeams, seq)
 	local caster = self:GetCaster()
-	local damage = self:GetSpecialValueFor("damage")
+	local damage = self:GetSpecialValueFor("damage") + caster:GetLevel()*self:GetSpecialValueFor("damage_per_level")
 
 	if isAA then
-		damage = damage/3
+		damage = damage*0.5
 	end
 	if isBeams then
 		damage = damage/4

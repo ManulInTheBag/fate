@@ -248,7 +248,7 @@ function nanaya_knife:OnSpellStart()
 		vSpawnOrigin      = caster:GetAbsOrigin() + caster:GetForwardVector()*90,
 		
 		iUnitTargetTeam   = self:GetAbilityTargetTeam(),
-		iUnitTargetType   = self:GetAbilityTargetType(),
+		iUnitTargetType   = DOTA_UNIT_TARGET_HERO,
 		iUnitTargetFlags  = self:GetAbilityTargetFlags(),
 		
 		EffectName        = "particles/heroes/anime_hero_sniper/sniper_knife_projectile.vpcf",
@@ -438,7 +438,7 @@ function modifier_nanaya_animation_knife:OnDestroy()
 			Timers:CreateTimer(0.3, function() 
 				local nanaya_clone_jump = ParticleManager:CreateParticle("particles/blink_z1.vpcf", PATTACH_CUSTOMORIGIN, self.parent)
 				ParticleManager:SetParticleControl(nanaya_clone_jump, 1, GetGroundPosition(self.parent:GetAbsOrigin(), nil))
-				if self.parent:HasModifier("nanaya_blood_modifier_animemode") and self.parent.rnanaya then 
+				if self.parent:FindModifierByName("nanaya_blood_modifier"):GetStackCount() > 14 and self.parent.rnanaya then 
 					local nanaya_clone = ParticleManager:CreateParticle("particles/nanaya_image_clone.vpcf", PATTACH_CUSTOMORIGIN, self.parent)
 					
 					ParticleManager:SetParticleControl(nanaya_clone, 0, GetGroundPosition(self.parent:GetAbsOrigin(), nil)) --0.35
@@ -521,7 +521,7 @@ units:EmitSound(test)
 		true
 	)]]
 		units:EmitSound("nanaya.slash")
-		if not IsKnockbackImmune(units) then
+		if false then
 	    	units:AddNewModifier(caster, self, "modifier_knockback", knockback)
 		end
 		ParticleManager:CreateParticle("particles/nanaya_e1.vpcf", PATTACH_ABSORIGIN, units)
@@ -605,7 +605,7 @@ ParticleManager:SetParticleControl(hit, 5, check2)
 ParticleManager:SetParticleShouldCheckFoW(hit, false)
 --units:StopSound("nanaya.combo2")
 --local sex FindUnitsInLine(caster:GetTeam(), check1, check2, nil, 90, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_INVULNERABLE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES)
-local sex = FindUnitsInLine(caster:GetTeam(), check1, check2, nil, 90, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0)
+local sex = FindUnitsInLine(caster:GetTeam(), check1, check2, nil, 90, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0)
 --local sex = FindUnitsInRadius(caster:GetTeam(), check2, nil, 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_INVULNERABLE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
   for k,v in pairs(sex) do
 print (sex)

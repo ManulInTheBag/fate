@@ -65,11 +65,12 @@ function modifier_edmon_counter:OnTakeDamage(args)
     if IsServer() then 
         local caster = self:GetParent()
         local target = args.attacker
-
         if args.unit ~= self:GetParent() then return end
 
         local ability = self:GetAbility()
         local damageTaken = args.original_damage
+        caster:Heal(args.original_damage*0.5, ability)
+
         local threshold = self.Threshold
         local slashcount = self.SlashCount
 
@@ -123,6 +124,9 @@ function modifier_edmon_counter:OnTakeDamage(args)
 				EmitGlobalSound("FA.Quickdraw") 
 
 				slashCounter = slashCounter + 1
+                if(slashCounter == ability:GetSpecialValueFor("slash_count")) then
+                    giveUnitDataDrivenModifier(caster, target, "silenced", ability:GetSpecialValueFor("silence_duration"))
+                end
 				return 0.15
 			end)
 

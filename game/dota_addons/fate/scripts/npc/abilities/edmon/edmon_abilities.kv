@@ -20,7 +20,7 @@
 		"AbilityCastAnimation" 			"ACT_DOTA_RAZE_1"
 		"AnimationPlaybackRate" 		"2.0"
 		"AbilityCastPoint"				"0.215"
-		"AbilityCooldown"				"10 9 8 7 6"
+		"AbilityCooldown"				"5 4.5 4 3.5 3"
 		"AbilityManaCost"				"100"
 		
 		"AbilitySpecial"
@@ -33,7 +33,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"75 90 105 120 135"
+				"damage"				"100"
 			}
 			"03"
 			{
@@ -43,9 +43,14 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"last_damage"			"150 180 210 240 270"
+				"last_damage"			"2"
 			}
 			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_per_level"		"5"
+			}
+			"06"
 			{
 				"var_type"				"FIELD_INTEGER"
 				"window_duration"		"2"
@@ -116,6 +121,11 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"max_range"				"1500"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"silence_duration"				"1 1.2 1.4 1.6 1.8"
 			}
 		}
 	}
@@ -212,18 +222,9 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"			"custom/edmon/mythologie"
 		
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"regen_percent"			"30 40"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"3 4"
-			}
+			"beam_dmg_mod"								"0.5" //note: not used in script, just for description
 		}
 	}
 
@@ -238,7 +239,7 @@
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"2"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY" 
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
@@ -247,7 +248,7 @@
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_4"
 		"AnimationPlaybackRate" 		"0.8"
 		"AbilityCastPoint"				"0.6"
-		"AbilityCooldown"				"32 30 28 26 24"
+		"AbilityCooldown"				"40 38 36 34 32"
 		"AbilityManaCost"				"800"
 		"AbilityCastRange"				"800"
 		"AbilityCastRangeBuffer"		"600"
@@ -257,7 +258,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"200 235 270 305 340"
+				"damage"				"180 210 240 270 300"
 			}
 			"02"
 			{
@@ -267,7 +268,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius"				"225"
+				"radius"				"350"
 			}
 			"04"
 			{
@@ -278,6 +279,11 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"range"					"700"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"agi_scaling"					"1"
 			}
 		}
 	}
@@ -490,7 +496,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"40"
+				"agi_scaling"				"1"
 			}
 			"02"
 			{

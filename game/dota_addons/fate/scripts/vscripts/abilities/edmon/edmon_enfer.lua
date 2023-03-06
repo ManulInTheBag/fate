@@ -322,7 +322,7 @@ function modifier_edmon_enfer:Rush(me, dt)
     --self.parent:SetForwardVector(direction:Normalized())
 
     local pepeg = false
-    local unitGroup = FindUnitsInRadius(self.parent:GetTeam(), target, nil, 175, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
+    local unitGroup = FindUnitsInRadius(self.parent:GetTeam(), target, nil, 175, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
     for i = 1, #unitGroup do
     	if not pepeg then
     		pepeg = true

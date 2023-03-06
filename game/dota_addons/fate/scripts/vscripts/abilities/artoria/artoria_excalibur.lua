@@ -38,9 +38,9 @@ function artoria_excalibur:OnSpellStart()
 	Timers:CreateTimer(delay, function() 
 		if caster:IsAlive() then
 			EmitGlobalSound("Saber_Kalibar")
-			ParticleManager:DestroyParticle( chargeFxIndex, false )
-			ParticleManager:ReleaseParticleIndex( chargeFxIndex )
 		end
+		ParticleManager:DestroyParticle( chargeFxIndex, false )
+		ParticleManager:ReleaseParticleIndex( chargeFxIndex )
 	end)
 	
 	local enemy = PickRandomEnemy(caster)

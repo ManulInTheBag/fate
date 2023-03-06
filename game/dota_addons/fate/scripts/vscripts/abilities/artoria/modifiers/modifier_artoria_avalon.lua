@@ -112,7 +112,7 @@ function modifier_artoria_avalon:GetAttributes()
 end
 
 function modifier_artoria_avalon:GetEffectName()
-	return "particles/custom/artoria/avalon_buff.vpcf"
+	return "particles/custom/saber_avalon_floor.vpcf"
 end
 
 function modifier_artoria_avalon:GetEffectAttachType()
