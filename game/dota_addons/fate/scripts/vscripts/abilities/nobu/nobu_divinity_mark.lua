@@ -5,6 +5,7 @@ LinkLuaModifier("modifier_nobu_divinity_mark_activated", "abilities/nobu/nobu_di
 function nobu_divinity_mark:OnSpellStart()
     local hCaster = self:GetCaster()
     local hTarget = self:GetCursorTarget()
+    if IsSpellBlocked(hTarget) then  return end
     hTarget:EmitSound("nobu_divinity_mark_cast")
     hTarget:AddNewModifier(hCaster, self, "modifier_nobu_divinity_mark", {duration = self:GetSpecialValueFor("duration")} )
 end

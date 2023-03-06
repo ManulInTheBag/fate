@@ -42,6 +42,7 @@ function atalanta_phoebus_catastrophe_snipe:OnSpellStart()
     local caster = self:GetCaster()
     local ability = self
     local target = self:GetCursorTarget()
+    if IsSpellBlocked(target) then return end
     local position = target:GetOrigin()
     local origin = caster:GetOrigin()
     local arrows = self:GetSpecialValueFor("arrows")

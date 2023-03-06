@@ -102,8 +102,9 @@ function modifier_edmon_counter:OnTakeDamage(args)
 			--caster:SetModel("models/development/invisiblebox.vmdl")
 
 			self:CreateSlashFxEdmon(caster, position, caster:GetAbsOrigin())
-			DoDamage(caster, target, ability:GetSpecialValueFor("damage"), DAMAGE_TYPE_MAGICAL, 0, ability, false)
-
+            if not target:IsMagicImmune() then
+			    DoDamage(caster, target, ability:GetSpecialValueFor("damage"), DAMAGE_TYPE_MAGICAL, 0, ability, false)
+            end
 			FindClearSpaceForUnit(caster, position, true)
 
 			StartAnimation(caster, {duration = 0.3, activity = ACT_DOTA_CAST_ABILITY_4, rate = 1.0})
@@ -113,7 +114,9 @@ function modifier_edmon_counter:OnTakeDamage(args)
 				if slashCounter == 0 then caster:AddEffects(EF_NODRAW) end
 				if slashCounter >= ability:GetSpecialValueFor("slash_count") or not caster:IsAlive() or not target:IsAlive() then caster:RemoveEffects(EF_NODRAW) return end
 				--caster:PerformAttack( target, true, true, true, true, false, false, false )
-				DoDamage(caster, target, ability:GetSpecialValueFor("damage"), DAMAGE_TYPE_MAGICAL, 0, ability, false)
+                if not target:IsMagicImmune() then
+				    DoDamage(caster, target, ability:GetSpecialValueFor("damage"), DAMAGE_TYPE_MAGICAL, 0, ability, false)
+                end
 				local vec = RandomVector(300)
 				self:CreateSlashFxEdmon(caster, target:GetAbsOrigin() + vec, target:GetAbsOrigin() - vec)
 				caster:SetAbsOrigin(target:GetAbsOrigin() + vec)

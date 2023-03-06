@@ -102,7 +102,7 @@ Timers:CreateTimer(1.5, function()
     Timers:CreateTimer(0.3, function()  
         local attackFx = ParticleManager:CreateParticle("particles/muramasa/muramasa_tsumukari_slash_combo.vpcf", PATTACH_ABSORIGIN_FOLLOW  , caster)
         ParticleManager:SetParticleControl(attackFx, 0, caster:GetAbsOrigin())   
-        ParticleManager:SetParticleControlEnt(attackFx, 0, caster, PATTACH_POINT_FOLLOW, "body1", Vector(0,0,0), true)
+        --ParticleManager:SetParticleControlEnt(attackFx, 0, caster, PATTACH_POINT_FOLLOW, "body1", Vector(0,0,0), true)
         local targets = FindUnitsInLine(  caster:GetTeamNumber(),
         caster:GetAbsOrigin(),
         caster:GetAbsOrigin()+slash_range*caster:GetForwardVector(),

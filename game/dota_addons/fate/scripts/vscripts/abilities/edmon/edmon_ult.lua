@@ -46,7 +46,7 @@ function edmon_ult:OnSpellStart()
     local target = self:GetCursorTarget()
 	local origin = target:GetAbsOrigin()
 	local damage = self:GetSpecialValueFor("damage") + (caster.HellfireAcquired and 60 or 0)
-
+    if IsSpellBlocked(target) then return end
 	caster:AddNewModifier(caster, self, "modifier_edmon_ult", {duration = duration})
 
 	EmitGlobalSound("edmon_r"..math.random(1,2))

@@ -74,8 +74,12 @@ function khsn_azrael:OnSpellStart()
 						caster:RemoveModifierByName("modifier_azrael_particle")
 						return
 					end]]
-					DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, flag, self, false)
-					DoDamage(caster, target, modifier_damage, caster.AzraelAcquired and DAMAGE_TYPE_PURE or DAMAGE_TYPE_MAGICAL, flag, self, false)
+					if not target:IsMagicImmune() then
+						DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, flag, self, false)
+					end
+					if not target:IsMagicImmune() or  caster.AzraelAcquired then
+						DoDamage(caster, target, modifier_damage, caster.AzraelAcquired and DAMAGE_TYPE_PURE or DAMAGE_TYPE_MAGICAL, flag, self, false)
+					end
 					target:RemoveModifierByName("modifier_death_door")
 					caster:RemoveModifierByName("jump_pause_nosilence")
 					EmitGlobalSound("azrael_bell")

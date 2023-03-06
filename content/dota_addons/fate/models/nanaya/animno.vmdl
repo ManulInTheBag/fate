@@ -1587,6 +1587,7 @@
 					{
 						_class = "AnimFile"
 						name = "anim_attack4"
+						disabled = true
 						activity_name = "ACT_DOTA_ATTACK"
 						activity_weight = 1
 						weight_list_name = ""

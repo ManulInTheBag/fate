@@ -49,6 +49,7 @@ function nanaya_slashes:OnSpellStart()
 
 
 local target = self:GetCursorTarget()
+if IsSpellBlocked(target) then return end
 local caster = self:GetCaster()
 local target_2 = target:entindex()
 
@@ -155,7 +156,7 @@ Timers:CreateTimer(0.05, function ()
 target:AddNewModifier(caster, self, "nanaya_slashes_modifier1", {duration = 0.6, target = target_script, vector = caster:entindex(), part = particle})
 end)
 
-local dmg = self:GetSpecialValueFor("dmg") + math.floor(self:GetCaster():GetAgility())
+local dmg = self:GetSpecialValueFor("dmg") + math.floor(self:GetCaster():GetAgility() * self:GetSpecialValueFor("agi_modifier"))
 Timers:CreateTimer(0.1, function () 
 
 if IsServer() then
@@ -170,6 +171,7 @@ if slash > 0 and target:HasModifier("nanaya_slashes_modifier1") then
 										ParticleManager:CreateParticle("particles/nanaya_work_22.vpcf", PATTACH_ABSORIGIN, target)
 										target:AddNewModifier(caster, self, "modifier_stunned", { Duration = 0.3 })
 									DoDamage(caster, target, dmg, DAMAGE_TYPE_MAGICAL, 0, self, false)
+
 
 									slash = slash - 1
 else
@@ -190,7 +192,7 @@ end)
 
 else
 --caster:AddNewModifier(caster, self, "modifier_nanaya_animation_knife", {duration = 0.35, enemy_health = target:GetHealthPercent()-5, target = target_2, d = true})
-local dmg = self:GetSpecialValueFor("clone_dmg")
+local dmg = self:GetSpecialValueFor("clone_dmg") + math.floor(caster:GetAgility()*self:GetSpecialValueFor("clone_dmg_agi"))  
 	--target:EmitSound("nanaya.knifehit")
 
 nanaya_clones1:ComboD(caster, target, dmg)
@@ -212,13 +214,11 @@ function nanaya_clones1:ComboD(caster, target, dmg)
 	local knockback_push1 = caster:GetForwardVector()
 	local numslash = 0
 	local somerandom = {ACT_SCRIPT_CUSTOM_1, ACT_DOTA_CAST_ABILITY_3, ACT_SCRIPT_CUSTOM_1}
-	local dmg = dmg + math.floor(caster:GetAgility()*1)
 	--caster:StartGestureWithPlaybackRate(ACT_DOTA_CAST_ABILITY_3, 2)
 	--caster:StartGestureWithPlaybackRate(ACT_DOTA_CAST_ABILITY_1, 0.2)
 	--caster:StartGestureWithPlaybackRate(ACT_DOTA_CAST_ABILITY_3, 0.8)
 	Timers:CreateTimer(0.05, function()
 	--caster:StartGestureWithPlaybackRate(ACT_DOTA_CAST_ABILITY_3, 0.8)
-	print (caster:GetRenderAlpha())
 	Timers:CreateTimer(0.1, function()
 	--caster:AddEffects(32)
 	--caster:SetBodygroup(1, 0)
@@ -230,7 +230,6 @@ function nanaya_clones1:ComboD(caster, target, dmg)
 	if numslash < 3 then
 	numslash = numslash+1
 					--caster:StartGestureWithPlaybackRate(somerandom[numslash], 4-numslash)
-	print (somerandom[numslash])
 	
 	local nanaya_clone2 = ParticleManager:CreateParticle("particles/nanaya_image_clone1.vpcf", PATTACH_CUSTOMORIGIN, caster)
 	local knife = ParticleManager:CreateParticle("particles/maybedashvpcffinal1.vpcf", PATTACH_CUSTOMORIGIN, caster)
@@ -277,7 +276,9 @@ ParticleManager:SetParticleControl(knife, 4, target:GetAbsOrigin())
 			end
 		
 			target:EmitSound("nanaya.slash")
-			target:AddNewModifier(caster, self, "modifier_knockback", knockback)
+			if not IsKnockbackImmune(target) then
+				target:AddNewModifier(caster, self, "modifier_knockback", knockback)
+			end
 			--ParticleManager:CreateParticle("particles/nanaya_e1.vpcf", PATTACH_ABSORIGIN, target)
 			DoDamage(caster, target, dmg, DAMAGE_TYPE_MAGICAL, 0, caster:FindAbilityByName("nanaya_slashes"), false)
 			--[[ApplyDamage({
@@ -404,9 +405,10 @@ end
 			ParticleManager:SetParticleControl(test_hit, 1, target:GetAbsOrigin() - knockback_push1 * 120)
 			ParticleManager:SetParticleControl(test_hit, 0, target:GetAbsOrigin())
 			end
-			
 			target:EmitSound("nanaya.slash")
-			target:AddNewModifier(caster, self, "modifier_knockback", knockback)
+			if not IsKnockbackImmune(target) then
+				target:AddNewModifier(caster, self, "modifier_knockback", knockback)
+			end
 			DoDamage(caster, target, dmg, DAMAGE_TYPE_MAGICAL, 0, caster:FindAbilityByName("nanaya_slashes"), false)
 			--[[ApplyDamage({
                     victim = target,

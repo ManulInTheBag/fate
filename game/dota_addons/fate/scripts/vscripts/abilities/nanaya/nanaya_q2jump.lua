@@ -64,7 +64,7 @@ function nanaya_q2jump:OnProjectileHitHandle(hTarget, vLocation, iProjectileHand
 	if hTarget == nil or self.kappa == true then return true 
 	else
 		self.kappa = true
-		local dmg = self:GetSpecialValueFor("dmg") + math.floor(self:GetCaster():GetAgility()*3/4)
+		local dmg = self:GetSpecialValueFor("dmg") + math.floor(self:GetCaster():GetAgility()*self:GetSpecialValueFor("agi_modifier"))
 		hTarget:EmitSound("nanaya.hitleg")
 		ParticleManager:CreateParticle("particles/nanaya_work_22.vpcf", PATTACH_ABSORIGIN, hTarget)
 		   ScreenShake(hTarget:GetOrigin(), 10, 1.0, 0.7, 2000, 0, true)
@@ -104,7 +104,9 @@ local knockback4 = { should_stun = true,
 				center_x = caster:GetAbsOrigin().x - caster:GetForwardVector().x * 800,
 				center_y = caster:GetAbsOrigin().y - caster:GetForwardVector().y * 800,
 			center_z = 4000}	
-    hTarget:AddNewModifier(caster, self, "modifier_knockback", knockback4)	
+	if not IsKnockbackImmune(hTarget) then
+    	hTarget:AddNewModifier(caster, self, "modifier_knockback", knockback4)	
+	end
 
 	local knockback1 = { should_stun = false,
 				knockback_duration = 1,
@@ -122,11 +124,13 @@ local knockback4 = { should_stun = true,
 				knockback_height = 200,
 				center_x = caster:GetAbsOrigin().x - caster:GetForwardVector().x * 800,
 				center_y = caster:GetAbsOrigin().y - caster:GetForwardVector().y * 800,
-			center_z = caster:GetAbsOrigin().z }	
+				center_z = caster:GetAbsOrigin().z }	
 				Timers:CreateTimer(0.01, function()
-					hTarget:RemoveModifierByName("modifier_knockback")
-			hTarget:AddNewModifier(caster, self, "modifier_knockback", knockback1)	
-			caster:AddNewModifier(caster, self, "modifier_knockback", knockback2)
+				hTarget:RemoveModifierByName("modifier_knockback")
+				if not IsKnockbackImmune(hTarget) then
+					hTarget:AddNewModifier(caster, self, "modifier_knockback", knockback1)	
+					caster:AddNewModifier(caster, self, "modifier_knockback", knockback2)
+				end
 		end)
 		
 			Timers:CreateTimer(0.75, function()	
@@ -139,8 +143,10 @@ local knockback4 = { should_stun = true,
 				knockback_height = 150,
 				center_x = caster:GetAbsOrigin().x + vec.x * 800,
 				center_y = caster:GetAbsOrigin().y + vec.y * 800,
-			center_z = 4000 }	
-                hTarget:AddNewModifier(caster, self, "modifier_knockback", knockback3)	
+				center_z = 4000 }	
+				if not IsKnockbackImmune(hTarget) then
+                	hTarget:AddNewModifier(caster, self, "modifier_knockback", knockback3)	
+				end
                 caster:EmitSound("nanaya.jumphit")
                 Timers:CreateTimer(0.05, function()	
                 	hTarget:EmitSound("nanaya.hit")
@@ -171,7 +177,9 @@ modifier_q2jump = class ({})
 
 function modifier_q2jump:GetPriority() return MODIFIER_PRIORITY_HIGH end
 function modifier_q2jump:GetMotionPriority() return DOTA_MOTION_CONTROLLER_PRIORITY_HIGH end
-
+function modifier_q2jump:IsHidden()
+	return true
+end
 function modifier_q2jump:CheckState()
     local state =   { 
 		[MODIFIER_STATE_COMMAND_RESTRICTED] = true,

@@ -331,6 +331,9 @@ cleansable = {
     "modifier_nero_tres_enemy",
     "modifier_arcueid_what",
     "modifier_artoria_mana_burst_slow",
+    "modifier_nobu_divinity_mark",
+   "modifier_nobu_divinity_mark_activated",
+
 }
 
 slowmodifier = {
@@ -577,6 +580,8 @@ CannotReset = {
     "artoria_avalon",
     "artoria_ultimate_excalibur",
     "artoria_improved_instinct",
+
+    "nanaya_combo",
 }
 
 femaleservant = {
@@ -2391,6 +2396,8 @@ local heroCombos = {
     ["npc_dota_hero_venomancer"] = "leonidas_enomotia_combo",
     ["npc_dota_hero_faceless_void"] = "altera_teardrop",
     ["npc_dota_hero_treant"] = "edmon_enfer",
+    ["npc_dota_hero_night_stalker"] = "nanaya_combo",
+    
 }
 
 function GetHeroCombo(hero)

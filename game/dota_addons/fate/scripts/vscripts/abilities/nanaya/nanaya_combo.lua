@@ -9,6 +9,9 @@ function nanaya_combo:OnSpellStart()
 local caster = self:GetCaster()
 caster:AddNewModifier(caster, self, "nanaya_combo_attack", { duration = 0.5})		
 caster:AddNewModifier(caster, self, "nanaya_combo_cd", { duration = self:GetCooldown(1)})		
+local masterCombo = caster.MasterUnit2:FindAbilityByName(self:GetAbilityName())
+masterCombo:EndCooldown()
+masterCombo:StartCooldown(self:GetCooldown(1))
 end					
 
 

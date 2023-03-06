@@ -90,7 +90,7 @@
 		"AbilityValues"
 		{
 			"radius"								"350"
-			"stun_duration"							"0.3"
+			"stun_duration"							"0.4"
 			"damage"								"120 150 180 210 240"
 			"repeat_halver_count_need"				"2"
 			"combo_cooldown"						"3"
@@ -138,8 +138,8 @@
 			"pull_radius"							"360"
 			"pull_damage"							"150 180 210 240 270"
 			"burst_radius"							"240"
-			"burst_stun_duration"					"0.15"
-			"burst_delay"							"0.5"
+			"burst_stun_duration"					"0.25"
+			"burst_delay"							"0.4"
 			"burst_damage_pct"						"30"
 			"repeat_halver_count_need"				"2"
 			"combo_cooldown"						"3"
@@ -301,11 +301,10 @@
 
 		"AbilityUnitTargetTeam"						"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"						"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-		"AbilityUnitTargetFlags"					"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 
 		"AbilityUnitDamageType"						"DAMAGE_TYPE_MAGICAL"
 
-		"SpellImmunityType"							"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellImmunityType"							"SPELL_IMMUNITY_ENEMIES_NO"
 		"SpellDispellableType"						"SPELL_DISPELLABLE_YES"		//This line is only for visuals on the HUD. In Lua for this by default it uses IsPurgable(), and IsPurgeException() for with strong dispels.
 
 		"AbilityCastPoint"							"0.3"
@@ -330,7 +329,7 @@
 			"slash_instances"						"2"
 			"lock_duration"							"0.5"
 			"last_lock_duration"					"1.5"
-			"slash_damage"							"100 120 140 160 180"
+			"slash_damage"							"80 100 120 140 160"
 			"last_damage"							"600 675 750 825 900"
 		}
 	}
@@ -470,13 +469,13 @@
 			"pull_radius"							"460"
 			"slash_radius"							"360"
 			"slash_last_radius"						"410"
-			"slash_stun_duration"					"0.25"
+			"slash_stun_duration"					"0.35"
 			"knockback_distance"					"310"
 			"knockback_duration"					"0.75"
 			"slashes_count"							"5"
 			"slashes_interval"						"0.3"		//Optimum time.
-			"slash_damage"							"50 65 80 95 110"
-			"slash_last_damage"						"200 250 300 350 400"
+			"slash_damage"							"70 85 100 115 130"
+			"slash_last_damage"						"250 300 350 400 450"
 			"pull_speed"							"180"
 		}
 	}
@@ -621,7 +620,7 @@
 		"AbilityUnitTargetTeam"						"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 
 		"AbilityCooldown"							"9999"
-		"AbilityManaCost"							"12"
+		"AbilityManaCost"							"9"
 
 		"MaxLevel"									"1"
 		"RequiredLevel"								"1"
@@ -657,7 +656,7 @@
 		"AbilityUnitTargetTeam"						"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
 
 		"AbilityCooldown"							"9999"
-		"AbilityManaCost"							"13"
+		"AbilityManaCost"							"12"
 
 		"MaxLevel"									"1"
 		"RequiredLevel"								"1"

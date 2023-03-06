@@ -14,6 +14,9 @@ function nanaya_jump_revoke:CheckState()
 	}
 	return state
 end
+function nanaya_jump_revoke:IsHidden()
+     return true
+end
 
 
 nanaya_jump_slashes = class ({})
@@ -248,7 +251,9 @@ end
 
 nanaya_jump_slashes_modifier = class ({})
 function nanaya_jump_slashes_modifier:GetMotionPriority() return DOTA_MOTION_CONTROLLER_PRIORITY_HIGH end
-
+function nanaya_jump_slashes_modifier:IsHidden()
+	return true
+end
 function nanaya_jump_slashes_modifier:CheckState()
     local state =   { 
                         [MODIFIER_STATE_COMMAND_RESTRICTED] = true,

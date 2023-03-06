@@ -78,8 +78,9 @@ if IsServer() then
 		if (fDistance > 0) and (fDistance < 2000) then
 			fDamage = fDamage + (fDistance * self.DistanceDamage / 100)
 		end
-
-		DoDamage(hCaster, self:GetParent(), fDamage, DAMAGE_TYPE_MAGICAL, 0, hAbility, false)
+		if not self:GetParent():IsMagicImmune() then
+			DoDamage(hCaster, self:GetParent(), fDamage, DAMAGE_TYPE_MAGICAL, 0, hAbility, false)
+		end
 		self.vLocation = self:GetParent():GetAbsOrigin()
 	end
 end

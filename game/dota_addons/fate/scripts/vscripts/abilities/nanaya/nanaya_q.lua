@@ -27,6 +27,7 @@ function nanaya_q_strike:OnSpellStart()
 	local check = caster:GetAnglesAsVector():Normalized()
 	local check2 = caster:GetForwardVector()
 	local targetpoint = self:GetCursorTarget()
+	if IsSpellBlocked(targetpoint) then return end
 	caster:AddNewModifier(caster, self, "modifier_q_nanaya", {duration = 2})
 	local jump = ParticleManager:CreateParticle("particles/blink.vpcf", PATTACH_CUSTOMORIGIN, caster)
 	
@@ -149,7 +150,7 @@ end]]
 
 function modifier_q_nanaya:hit()
 	--DoDamage(self.parent, self.target, 250, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
-	self.dmg = self.ability:GetSpecialValueFor("dmg") + math.floor(self:GetCaster():GetAgility()*2)
+	self.dmg = self.ability:GetSpecialValueFor("dmg") + math.floor(self:GetCaster():GetAgility()*self.ability:GetSpecialValueFor("agi_modifier"))
 							DoDamage(self.parent, self.target, self.dmg/2, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
 							DoDamage(self.parent, self.target, self.dmg/2, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
 						 --self.target:AddNewModifier(caster, self, "modifier_stunned", { Duration = 1 })

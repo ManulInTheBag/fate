@@ -71,7 +71,7 @@ end
 				end
 				self.nanaya = ParticleManager:CreateParticle("particles/nanaya_blood2.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
 				Timers:CreateTimer("nanaya", {
-					endTime = 6, 
+					endTime = self:GetAbility():GetSpecialValueFor("stacks_duration"), 
 					callback = function()
 						self:SetStackCount(0)
 						if self.parent:HasModifier("nanaya_blood_modifier_animemode") then self.parent:RemoveModifierByName("nanaya_blood_modifier_animemode") end
@@ -164,6 +164,10 @@ end
 
 function nanaya_blood_modifier_animemode:GetModifierMoveSpeed_Absolute()
     return 600
+end
+
+function nanaya_blood_modifier_animemode:GetTexture()
+    return "custom/nanaya/nanaya_eyes_upgrade"
 end
 
 function nanaya_blood_modifier_animemode:OnRemoved()

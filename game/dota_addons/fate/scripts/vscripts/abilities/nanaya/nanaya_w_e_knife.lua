@@ -66,8 +66,8 @@ function jump_ahead_nanaya:OnProjectileHitHandle(hTarget, vLocation, iProjectile
 		caster:RemoveModifierByName("jump_ahead_nanaya_modifier")
 		local target = hTarget:GetAbsOrigin()
 		local target_2 = hTarget:entindex()
-		local dmg = self:GetSpecialValueFor("dmg_knife") + math.floor(self:GetCaster():GetAgility()*1.25)
-		local dmg2 = self:GetSpecialValueFor("dmg_hit") + math.floor(self:GetCaster():GetAgility()*1.25)
+		local dmg = self:GetSpecialValueFor("dmg_knife") + math.floor(self:GetCaster():GetAgility()*self:GetSpecialValueFor("agi_modifier"))
+		local dmg2 = self:GetSpecialValueFor("dmg_hit") + math.floor(self:GetCaster():GetAgility()*self:GetSpecialValueFor("agi_modifier"))
 		--DoDamage(caster, hTarget, 500, DAMAGE_TYPE_PHYSICAL, 0, self, false)
 			DoDamage(caster, hTarget, dmg, DAMAGE_TYPE_MAGICAL, 0, self, false)
 			            --hTarget:AddNewModifier(caster, self, "modifier_stunned", { Duration = 1 })
@@ -139,7 +139,9 @@ end
 jump_ahead_nanaya_modifier = class({})
 function jump_ahead_nanaya_modifier:GetPriority() return MODIFIER_PRIORITY_HIGH end
 function jump_ahead_nanaya_modifier:GetMotionPriority() return DOTA_MOTION_CONTROLLER_PRIORITY_HIGH end
-
+function jump_ahead_nanaya_modifier:IsHidden()
+	return true
+end
 function jump_ahead_nanaya_modifier:CheckState()
     local state =   { 
 		[MODIFIER_STATE_COMMAND_RESTRICTED] = true,
@@ -275,7 +277,7 @@ function nanaya_knife:OnProjectileHitHandle(hTarget, vLocation, iProjectileHandl
 		local player2 = hTarget:GetPlayerOwner()
 		local target = hTarget:GetAbsOrigin()
 		local target_2 = hTarget:entindex()
-		local dmg = self:GetSpecialValueFor("dmg") + math.floor(self:GetCaster():GetAgility()*1.25)
+		local dmg = self:GetSpecialValueFor("dmg") + math.floor(self:GetCaster():GetAgility()*self:GetSpecialValueFor("agi_modifier"))
 
 				DoDamage(caster, hTarget, dmg/2, DAMAGE_TYPE_MAGICAL, 0, self, false)
 				DoDamage(caster, hTarget, dmg/2, DAMAGE_TYPE_MAGICAL, 0, self, false)
@@ -301,6 +303,10 @@ function nanaya_knife:OnProjectileHitHandle(hTarget, vLocation, iProjectileHandl
 end
 
 modifier_nanaya_animation_knife = class({})
+
+function modifier_nanaya_animation_knife:IsHidden()
+	return true
+end
 function modifier_nanaya_animation_knife:OnCreated(args)
 	if IsServer() then 
 		self.parent = self:GetParent()
@@ -457,9 +463,10 @@ nanaya_clones = class ({})
 
 function nanaya_clones:Clones(caster, units, secondtime)
 local table = {12, 13, 21, 23, 24}	
+local abil = caster:FindAbilityByName("nanaya_knife")
 local knockback_push = 0
 local knockback_push1 = caster:GetForwardVector()
-local dmg = 200 + math.floor(caster:GetAgility()*1.25)
+local dmg = abil:GetSpecialValueFor("clone_dmg") + math.floor(caster:GetAgility()*abil:GetSpecialValueFor("clone_dmg_agi") )
 --units:EmitSound("nanaya.combo2")
 
 										local numberhit = 0
@@ -472,7 +479,6 @@ local dmg = 200 + math.floor(caster:GetAgility()*1.25)
 									
 										end
 										
-										print (knockback_push)
 										numberhit = numberhit + 1
 										local nanaya_clone = ParticleManager:CreateParticle("particles/nanaya_image_clone.vpcf", PATTACH_CUSTOMORIGIN, caster)
 										cloneanim = cloneanim + 1
@@ -515,7 +521,9 @@ units:EmitSound(test)
 		true
 	)]]
 		units:EmitSound("nanaya.slash")
-	    units:AddNewModifier(caster, self, "modifier_knockback", knockback)
+		if not IsKnockbackImmune(units) then
+	    	units:AddNewModifier(caster, self, "modifier_knockback", knockback)
+		end
 		ParticleManager:CreateParticle("particles/nanaya_e1.vpcf", PATTACH_ABSORIGIN, units)
 		DoDamage(caster, units, dmg, DAMAGE_TYPE_MAGICAL, 0, caster:FindAbilityByName("nanaya_knife"), false)
 		--DoDamage(caster, units, 250, DAMAGE_TYPE_PHYSICAL, 0, self, false)
@@ -536,7 +544,7 @@ end
 
 function nanaya_clones:Final_clones(caster, units, knockback_push1)
 
-
+local abil = caster:FindAbilityByName("nanaya_knife")
 --local check1 = GetGroundPosition(units:GetAbsOrigin() + units:GetForwardVector() * 450, nil) + Vector(0, 0, 300) --ПОНИЖЕНИЕ СТАРТОВОЙ
 --local check2 = GetGroundPosition(units:GetAbsOrigin() + units:GetForwardVector() * 1500, nil) - Vector(0, 0, 250) --ПОВЫШЕНИЕ КОНЕЧНОЙ
 
@@ -558,7 +566,7 @@ ParticleManager:CreateParticle("particles/nanaya_work_2.vpcf", PATTACH_ABSORIGIN
 units:EmitSound("nanaya.hitleg")
 ScreenShake(units:GetOrigin(), 10, 1.0, 0.2, 2000, 0, true)
 --DoDamage(caster, units, 500, DAMAGE_TYPE_PHYSICAL, 0, self, false)
-DoDamage(caster, units, 350, DAMAGE_TYPE_MAGICAL, 0, caster:FindAbilityByName("nanaya_knife"), false)
+DoDamage(caster, units, abil:GetSpecialValueFor("5th_clone_dmg")+ math.floor(caster:GetAgility()*abil:GetSpecialValueFor("clone_dmg_agi") ), DAMAGE_TYPE_MAGICAL, 0, abil, false)
 
 local knockback = { should_stun = false,
 	                                knockback_duration = 2,
@@ -571,7 +579,9 @@ local knockback = { should_stun = false,
 	                                center_z = center_unit_z }
 	                                units:AddNewModifier(caster, self, "modifier_stunned", { Duration = 1.5 })
 									ParticleManager:CreateParticle("particles/nanaya_jump_back.vpcf", PATTACH_ABSORIGIN, units)
-									units:AddNewModifier(caster, self, "modifier_knockback", knockback)
+									if not IsKnockbackImmune(units) then
+										units:AddNewModifier(caster, self, "modifier_knockback", knockback)
+									end
 									Timers:CreateTimer(0.2, function()
 									local nanaya_clone2 = ParticleManager:CreateParticle("particles/nanaya_image_clone_back.vpcf", PATTACH_CUSTOMORIGIN, caster)
 								
@@ -600,7 +610,7 @@ local sex = FindUnitsInLine(caster:GetTeam(), check1, check2, nil, 90, DOTA_UNIT
   for k,v in pairs(sex) do
 print (sex)
 --DoDamage(caster, v, 1000, DAMAGE_TYPE_PHYSICAL, 0, self, false)
-DoDamage(caster, v, 800, DAMAGE_TYPE_MAGICAL, 0, caster:FindAbilityByName("nanaya_knife"), false)
+DoDamage(caster, v, abil:GetSpecialValueFor("6th_clone_dmg")+ math.floor(caster:GetAgility()*abil:GetSpecialValueFor("clone_dmg_agi") ), DAMAGE_TYPE_MAGICAL, 0, abil, false)
 ParticleManager:CreateParticle("particles/nanaya_work_2.vpcf", PATTACH_ABSORIGIN, v)
 v:EmitSound("nanaya.finalhit")
 print ("1")

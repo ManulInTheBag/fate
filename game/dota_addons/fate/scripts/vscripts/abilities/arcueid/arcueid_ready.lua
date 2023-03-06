@@ -5,7 +5,8 @@ arcueid_ready = class({})
 function arcueid_ready:OnSpellStart()
 	local caster = self:GetCaster()
 	local ability = self
-	
+	local enemy = self:GetCursorTarget()
+	if IsSpellBlocked(enemy) then return end
 	caster:AddNewModifier(caster, self, "modifier_arcueid_ready", {duration = 0.76})
 	StartAnimation(caster, {duration=0.76, activity=ACT_DOTA_CAST_ABILITY_5, rate=1.0})
 end

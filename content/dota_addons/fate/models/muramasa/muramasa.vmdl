@@ -749,6 +749,104 @@
 							},
 						]
 					},
+					{
+						_class = "AnimFile"
+						name = "muramasa_attackUltimate_1"
+						children = 
+						[
+							{
+								_class = "ActivityModifier"
+								activity_name = "ultimate"
+								activity_weight = 1
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 0
+								event_keys = 
+								{
+									name = resource:"particles/muramasa/muramasa_attack_slash_1.vpcf"
+									detach_from_owner = false
+									always_run = false
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = null
+									attachment_type = "point_follow"
+									attachment_point_cp1 = null
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+						]
+						activity_name = "ACT_DOTA_ATTACK2"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/muramasa/muramasa.fbx"
+						import_bone_scales = false
+						start_frame = 389
+						end_frame = 428
+						framerate = 15.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "muramasa_attackUltimate_2"
+						children = 
+						[
+							{
+								_class = "ActivityModifier"
+								activity_name = "ultimate"
+								activity_weight = 1
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 5
+								event_keys = 
+								{
+									name = resource:"particles/muramasa/muramasa_attack_slash_2.vpcf"
+									detach_from_owner = false
+									always_run = false
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = null
+									attachment_type = "point_follow"
+									attachment_point_cp1 = null
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+						]
+						activity_name = "ACT_DOTA_ATTACK"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/muramasa/muramasa.fbx"
+						import_bone_scales = false
+						start_frame = 333
+						end_frame = 368
+						framerate = 20.0
+						reverse = false
+					},
 				]
 				default_root_bone_name = ""
 			},
@@ -778,7 +876,7 @@
 						_class = "Attachment"
 						name = "sword_base"
 						parent_bone = "bone_new1"
-						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_origin = [ 13.200144, 0.130264, -0.534657 ]
 						relative_angles = [ 0.0, 0.0, 0.0 ]
 						weight = 1.0
 						ignore_rotation = false
@@ -787,7 +885,7 @@
 						_class = "Attachment"
 						name = "sword_end"
 						parent_bone = "bone_new1"
-						relative_origin = [ 110.0, 0.0, 0.0 ]
+						relative_origin = [ 108.66671, -1.195445, -0.335052 ]
 						relative_angles = [ 0.0, 0.0, 0.0 ]
 						weight = 1.0
 						ignore_rotation = false

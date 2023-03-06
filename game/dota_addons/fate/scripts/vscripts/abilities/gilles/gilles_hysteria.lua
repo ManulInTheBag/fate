@@ -37,7 +37,7 @@ end
 function gilles_hysteria:OnSpellStart()
 	local hCaster = self:GetCaster()
 	local hTarget = self:GetCursorTarget()
-	
+	if IsSpellBlocked(hTarget) then return end
 	--EmitSoundOnLocationWithCaster(vTargetLocation, "Hero_Nevermore.Shadowraze", hCaster)
 
 	hTarget:AddNewModifier(hCaster, self, "modifier_gilles_hysteria", { AttackSpeed = self:GetSpecialValueFor("attack_speed"),
@@ -73,9 +73,11 @@ if IsServer() then
 		local hCaster = self:GetCaster()
 		local hAbility = self:GetAbility()
 		local fDamage = (self:GetParent():GetMaxHealth() * self.Damage / 100)
-
-		DoDamage(hCaster, self:GetParent(), fDamage, DAMAGE_TYPE_MAGICAL, 0, hAbility, false)
-		self:GetParent():AddNewModifier(hCaster, hAbility, "modifier_stunned", {Duration = hAbility:GetSpecialValueFor("stun_duration") })
+		if not self:GetParent():IsMagicImmune() then
+			DoDamage(hCaster, self:GetParent(), fDamage, DAMAGE_TYPE_MAGICAL, 0, hAbility, false)
+			self:GetParent():AddNewModifier(hCaster, hAbility, "modifier_stunned", {Duration = hAbility:GetSpecialValueFor("stun_duration") })
+		end
+		
 
 		ParticleManager:DestroyParticle(self.Particle, true)
 		ParticleManager:ReleaseParticleIndex(self.Particle)

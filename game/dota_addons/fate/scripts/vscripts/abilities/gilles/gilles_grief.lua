@@ -36,7 +36,7 @@ end
 function gilles_grief:OnSpellStart()
 	local hCaster = self:GetCaster()
 	local hTarget = self:GetCursorTarget()
-	
+	if IsSpellBlocked(hTarget) then return end
 	EmitSoundOnLocationWithCaster(hTarget:GetAbsOrigin(), "Gilles_Grief_Cast", hCaster)
 
 	hTarget:AddNewModifier(hCaster, self, "modifier_gilles_grief", { Damage = self:GetSpecialValueFor("damage"),
@@ -72,13 +72,15 @@ if IsServer() then
 			local tTargets = FindUnitsInRadius(hCaster:GetTeam(), self:GetParent():GetAbsOrigin(), nil, hAbility:GetAOERadius(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		
 			for _,v in pairs(tTargets) do
-				DoDamage(hCaster, v, fExplosionDamage, DAMAGE_TYPE_MAGICAL, 0, hAbility, false)
+				if not v:IsMagicImmune() then
+					DoDamage(hCaster, v, fExplosionDamage, DAMAGE_TYPE_MAGICAL, 0, hAbility, false)
+				end
 			end
 			self:GetParent():AddNewModifier(hCaster, hAbility, "modifier_stunned", {Duration = hAbility:GetSpecialValueFor("stun_duration") })
 		end
-
-		DoDamage(hCaster, self:GetParent(), fDamage, DAMAGE_TYPE_MAGICAL, 0, hAbility, false)
-
+		if not self:GetParent():IsMagicImmune() then
+			DoDamage(hCaster, self:GetParent(), fDamage, DAMAGE_TYPE_MAGICAL, 0, hAbility, false)
+		end
 		local particleIndex = ParticleManager:CreateParticle("particles/units/heroes/hero_sandking/sandking_caustic_finale_explode.vpcf", PATTACH_CUSTOMORIGIN, self:GetParent())
 	 	ParticleManager:SetParticleControl(particleIndex, 0, self:GetParent():GetAbsOrigin()) 
 

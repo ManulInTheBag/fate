@@ -30,6 +30,7 @@ function nobu_double_shots:OnSpellStart()
                 if hCaster:GetAbilityByIndex(2):GetName() == "nobu_double_shots_stop" then
                     hCaster:SwapAbilities("nobu_double_shots", "nobu_double_shots_stop", true, false)    
                 end 
+                hCaster:SetBodygroup(0,0)
             end})
 
         end
@@ -52,14 +53,20 @@ function nobu_double_shots:OnSpellStart()
  
         StartAnimation(hCaster, {duration= duration , activity=ACT_DOTA_CAST_ABILITY_3_END, rate= 3})
      
-  
+    self.stopped = false
     Timers:CreateTimer("nobu_shoots", {
 	endTime = 0.0,
 	callback = function()
     counter = counter + 1 
-    if (not hCaster:IsAlive()) or  hCaster:IsStunned() then return  0.033 end
+    if (not hCaster:IsAlive()) or  hCaster:IsStunned() or hCaster:HasModifier("modifier_merlin_illusion") then EndAnimation(hCaster) hCaster:SetBodygroup(0,0) self.stopped = true return  0.033 end
+    if(self.stopped == true) then
+        StartAnimation(hCaster, {duration= duration - counter *0.033 , activity=ACT_DOTA_CAST_ABILITY_3_END, rate= 3})
+        hCaster:SetBodygroup(0,1)
+        self.stopped = false
+    end
     if( counter >= duration*30) then
         hCaster:SetBodygroup(0,0)
+        EndAnimation(hCaster)
          return 
     end
 	local origin = hCaster:GetAbsOrigin()

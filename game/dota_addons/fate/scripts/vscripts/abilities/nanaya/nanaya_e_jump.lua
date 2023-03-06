@@ -25,9 +25,6 @@ end
 		caster:AddNewModifier(caster, self, "nanaya_e_jump_invisibility", {duration = 0.4})
 	end
 
-	
-	print (check)
-	print (check2)
 end
 
 function nanaya_e_jump:GetCastPoint()
@@ -119,10 +116,15 @@ function modifier_nanaya_e_jump:OnDestroy()
 	end
 end
 
-	nanaya_e_jump_invisibility = class({})
 
-	if IsServer() then 
-	function nanaya_e_jump_invisibility:OnCreated(args)
+function modifier_nanaya_e_jump:IsHidden()
+	return true
+end
+
+nanaya_e_jump_invisibility = class({})
+
+if IsServer() then 
+function nanaya_e_jump_invisibility:OnCreated(args)
 		self.State = {[MODIFIER_STATE_INVISIBLE] = true}
 		 
 

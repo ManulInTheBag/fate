@@ -379,7 +379,7 @@ end
 function nanaya_dashf:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
 local caster = self:GetCaster()
 if hTarget == nil then return end
-local dmg = self:GetSpecialValueFor("dmg") + math.floor(self:GetCaster():GetAgility()*2)
+local dmg = self:GetSpecialValueFor("dmg") + math.floor(self:GetCaster():GetAgility()*self:GetSpecialValueFor("agi_modifier") )
 
 hTarget:EmitSound("nanaya.slash")
 --hTarget:AddNewModifier(caster, self, "modifier_stunned", { Duration = 0.5 })

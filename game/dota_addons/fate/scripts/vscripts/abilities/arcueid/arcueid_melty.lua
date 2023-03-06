@@ -37,6 +37,7 @@ function arcueid_melty:OnSpellStart()
     EmitGlobalSound("arcueid_combo_end")
 
 	local target = self:GetCursorTarget()
+	if IsSpellBlocked(target) then return end
 	target:AddNewModifier(caster, self, "modifier_arcueid_melty", {duration = self:GetSpecialValueFor("duration")})
 end
 

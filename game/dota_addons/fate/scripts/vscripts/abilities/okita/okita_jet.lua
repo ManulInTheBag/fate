@@ -238,18 +238,24 @@ function modifier_jet_kappa:OnIntervalThink()
 	       			ParticleManager:SetParticleControl(particle, 0, enemy[i]:GetAbsOrigin())
 	    		end)
 	    		Timers:CreateTimer(0.8, function()
-	       			DoDamage(self.parent, enemy[i], damage, DAMAGE_TYPE_MAGICAL, 0, self.parent:FindAbilityByName("okita_jet"), false)
+					if not enemy[i]:IsMagicImmune() then
+	       				DoDamage(self.parent, enemy[i], damage, DAMAGE_TYPE_MAGICAL, 0, self.parent:FindAbilityByName("okita_jet"), false)
+					end
 	       			--enemy[i]:RemoveModifierByName("modifier_master_intervention")
 	       			enemy[i]:EmitSound("okita_jet_impact")
 	       			enemy[i]:EmitSound("Tsubame_Slash_" .. math.random(1,3))
 	    		end)
 	    		Timers:CreateTimer(1.0, function()
-	       			DoDamage(self.parent, enemy[i], damage, DAMAGE_TYPE_MAGICAL, 0, self.parent:FindAbilityByName("okita_jet"), false)
+					if not enemy[i]:IsMagicImmune() then
+						DoDamage(self.parent, enemy[i], damage, DAMAGE_TYPE_MAGICAL, 0, self.parent:FindAbilityByName("okita_jet"), false)
+				 	end
 	       			--enemy[i]:RemoveModifierByName("modifier_master_intervention")
 	       			enemy[i]:EmitSound("Tsubame_Slash_" .. math.random(1,3))
 	    		end)
 	    		Timers:CreateTimer(1.2, function()
-	       			DoDamage(self.parent, enemy[i], damage, DAMAGE_TYPE_MAGICAL, 0, self.parent:FindAbilityByName("okita_jet"), false)
+					if not enemy[i]:IsMagicImmune() then
+						DoDamage(self.parent, enemy[i], damage, DAMAGE_TYPE_MAGICAL, 0, self.parent:FindAbilityByName("okita_jet"), false)
+				 	end
 	       			--enemy[i]:RemoveModifierByName("modifier_master_intervention")
 	       			enemy[i]:EmitSound("Tsubame_Focus")
 	    		end)

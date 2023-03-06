@@ -22,19 +22,23 @@ end
 
 function nobu_combo:OnSpellStart()
     local hCaster = self:GetCaster()
+    hCaster.target_enemy = self:GetCursorTarget()
+    hCaster:AddNewModifier(hCaster, self, "modifier_nobu_combo_cd", {duration = self:GetCooldown(1)})
+    local masterCombo = hCaster.MasterUnit2:FindAbilityByName(self:GetAbilityName())
+    masterCombo:EndCooldown()
+    masterCombo:StartCooldown(self:GetCooldown(1))
+    if IsSpellBlocked(hCaster.target_enemy) then  return end
     hCaster:AddNewModifier(hCaster, self, "modifier_nobu_combo_self", {duration = self:GetSpecialValueFor("run_duration") + 1.5} )
     hCaster:AddNewModifier(hCaster, self, "modifier_merlin_self_pause", {Duration = 1.5}) 
-    hCaster.target_enemy = self:GetCursorTarget()
+    
+    
     self.target_enemy = self:GetCursorTarget()
     StartAnimation(hCaster, {duration=1.5 , activity=ACT_DOTA_CAST_CHAOS_METEOR_ORB, rate= 0.5})
     self.particle_kappa = ParticleManager:CreateParticle("particles/nobu/nobu_combo_smoke_red.vpcf", PATTACH_ABSORIGIN_FOLLOW, hCaster)
      hCaster.target_enemy:AddNewModifier(hCaster, self, "modifier_nobu_combo_mark", {duration = self:GetSpecialValueFor("run_duration")} )
      EmitGlobalSound("nobu_combo_cast") 
      self.caster = hCaster
-     hCaster:AddNewModifier(hCaster, self, "modifier_nobu_combo_cd", {duration = self:GetCooldown(1)})
-     local masterCombo = hCaster.MasterUnit2:FindAbilityByName(self:GetAbilityName())
-    masterCombo:EndCooldown()
-    masterCombo:StartCooldown(self:GetCooldown(1))
+
 end
 
 function nobu_combo:AttackEnemy()

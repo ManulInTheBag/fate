@@ -9,7 +9,7 @@ function arcueid_shut_up:OnSpellStart()
 	local collide_damage = self:GetSpecialValueFor("collide_damage")
 	local pushback_range = self:GetSpecialValueFor("range")
 	local target = self:GetCursorTarget()
-
+	if IsSpellBlocked(target) then return end
 	if caster.MonstrousStrengthAcquired then
 		collide_damage = collide_damage + caster:GetStrength()*self:GetSpecialValueFor("collide_mult")
 		--pushback_range = pushback_range + caster:GetStrength()*self:GetSpecialValueFor("range_mult")

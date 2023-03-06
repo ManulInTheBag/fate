@@ -249,6 +249,15 @@
 		"DOTA_Tooltip_modifier_saito_mind_eye"					"Countering"
 		"DOTA_Tooltip_modifier_saito_mind_eye_Description"		"Damage reduced, spellblock active."
 
+		"DOTA_Tooltip_nanaya_blood_modifier_animemode"					"Nanaya instinct"
+		"DOTA_Tooltip_nanaya_blood_modifier_animemode_Description"		"Const ms, blink after ability use, new abilities."
+
+		"DOTA_Tooltip_nanaya_e_jump_invisibility"					"Invisible"
+		"DOTA_Tooltip_nanaya_e_jump_invisibility_Description"		""
+
+		"DOTA_Tooltip_nanaya_jump_revoke"					"Revoked"
+		"DOTA_Tooltip_nanaya_jump_revoke_Description"		""
+
 		"DOTA_Tooltip_modifier_saito_mind_eye_buff"					"Succesful counter"
 		"DOTA_Tooltip_modifier_saito_mind_eye_buff_Description"		"Increased evasion and magic resistance."
 
@@ -351,7 +360,7 @@
 		"DOTA_Tooltip_modifier_nobu_turnlock_Description"				"Nobu is slowed if going backwards."
 
 		"DOTA_Tooltip_modifier_nobu_divinity_mark"									"Divinity mark"
-		"DOTA_Tooltip_modifier_nobu_divinity_mark_Description"				"If Nobu shoots you 10 times, you will receive a debuff."
+		"DOTA_Tooltip_modifier_nobu_divinity_mark_Description"				"If Nobu shoots you 9 times, you will receive a debuff."
 
 		"DOTA_Tooltip_modifier_nobu_divinity_mark_activated"									"Divinity mark active"
 		"DOTA_Tooltip_modifier_nobu_divinity_mark_activated_Description"				"You are divine and have armor reduced."
@@ -559,6 +568,9 @@
 
 		"DOTA_Tooltip_modifier_gilles_hysteria"					"Hysteria"
 		"DOTA_Tooltip_modifier_gilles_hysteria_Description"		"Increased attack speed. Takes pure damage and stunned at the end of duration."
+
+		"DOTA_Tooltip_modifier_gilles_fear"						"Fear"
+		"DOTA_Tooltip_modifier_gilles_fear_Description"		    "Gilles spells deal additional damage to you."
 
 		"DOTA_Tooltip_modifier_gilles_grief"					"Grief"
 		"DOTA_Tooltip_modifier_gilles_grief_Description"		"Explodes and takes pure damage at the end of duration."
@@ -4343,7 +4355,7 @@
         "DOTA_Tooltip_ability_gilles_summon_jellyfish_Lore"  		"The nightmare corpse-city of R'lyeh…was built in measureless eons behind history by the vast, loathsome shapes that seeped down from the dark stars. There lay great Cthulhu and his hordes, hidden in green slimy vaults"
 
  		"DOTA_Tooltip_Ability_gilles_rlyeh_text_open"				"R'lyeh's Text"
-        "DOTA_Tooltip_ability_gilles_rlyeh_text_open_Description"	"Opens up the spellbook of Prelati, enabling the usage of the following dark magics: \n<font color='#58ACFA'>Torment</font>\n<font color='#58ACFA'>Smother</font>\n<font color='#58ACFA'>Hysteria</font>\n<font color='#58ACFA'>Grief</font>\n<font color='#58ACFA'>Misery</font>"
+        "DOTA_Tooltip_ability_gilles_rlyeh_text_open_Description"	"Opens up the spellbook of Prelati, enabling the usage of the following dark magics: \n<font color='#58ACFA'>Torment</font>\n<font color='#58ACFA'>Smother</font>\n<font color='#58ACFA'>Hysteria</font>\n<font color='#58ACFA'>Grief</font>\n<font color='#58ACFA'>Misery</font>\nEach ability applies a fear debuff on enemy, which will increase damage from other R'lyeh's Text abilities by 10%."
         "DOTA_Tooltip_ability_gilles_rlyeh_text_open_Lore"			"Within its pages are various forbidden ways to please an evil god."
         "DOTA_Tooltip_Ability_gilles_rlyeh_text_open_Note0"			"Each ability has their own independent cooldown and cost %mana_cost%% mana to use."
 
@@ -4364,21 +4376,21 @@
         "DOTA_Tooltip_ability_gilles_smother_Lore"  				"One should never make any sound, no matter the horror that lies in their eyes."
 
         "DOTA_Tooltip_Ability_gilles_hysteria"     					"Hysteria"
-        "DOTA_Tooltip_ability_gilles_hysteria_Description" 			"Render the target in a frenzied state for %duration% seconds, greatly increasing its attack speed. When this effect ends, the target takes an amount of pure damage equal to a portion of its current health and is stunned for %stun_duration% seconds."        
-        "DOTA_Tooltip_ability_gilles_hysteria_attack_speed"  		"%Attack Speed Bonus:"
-        "DOTA_Tooltip_ability_gilles_hysteria_damage"  				"%Damage based on Current Health:"
+        "DOTA_Tooltip_ability_gilles_hysteria_Description" 			"Render the target in a frenzied state for %duration% seconds,  decreasing its attack speed. When this effect ends, the target takes an amount of magical damage equal to a portion of its maximum health and is stunned for %stun_duration% seconds."        
+        "DOTA_Tooltip_ability_gilles_hysteria_attack_speed"  		"%Attack Speed penalty:"
+        "DOTA_Tooltip_ability_gilles_hysteria_damage"  				"%Damage based on Max Health:"
         "DOTA_Tooltip_ability_gilles_hysteria_Lore"  				"Confronted by their greatest fear, one can only put up a futile resistance in desperation."
         "DOTA_Tooltip_ability_gilles_hysteria_Note0"  				"Cannot be used on a target already affected by Hysteria."
 
         "DOTA_Tooltip_Ability_gilles_grief"     					"Grief"
-        "DOTA_Tooltip_ability_gilles_grief_Description" 			"Turn on an ally and curse them. After a short duration, the target takes an amount of pure damage from Gilles and becomes stunned for %stun_duration% seconds. The curse of grief then explodes and deal magical damage equal to the target's missing health to all enemies nearby %radius% of the target."        
+        "DOTA_Tooltip_ability_gilles_grief_Description" 			"Curse an enemy. After a short duration, the target takes an amount of magical damage from Gilles and becomes stunned for %stun_duration% seconds. The curse of grief then explodes and deal magical damage equal to the target's missing health to all enemies nearby %radius% of the target (including main target)."        
         "DOTA_Tooltip_ability_gilles_grief_damage"					"Damage:"
         "DOTA_Tooltip_ability_gilles_grief_duration"  				"Explosion delay:"
         "DOTA_Tooltip_ability_gilles_grief_Lore"  					"Confronted by their greatest fear, one can only put up a futile resistance in desperation."
-        "DOTA_Tooltip_ability_gilles_grief_Note0"  					"Using this ability on the same target refreshes its delay duration."
+        "DOTA_Tooltip_ability_gilles_grief_Note0"  					"Aoe damage will not be increased by damage taken from this ability."
 
         "DOTA_Tooltip_Ability_gilles_misery"     					"Misery"
-        "DOTA_Tooltip_ability_gilles_misery_Description" 			"Inflict a curse of misery on all enemies within %radius% area of target location. Whenever an enemy cursed this way takes damage, they become mini stunned. Every new instance of mini stun last longer than the previous."
+        "DOTA_Tooltip_ability_gilles_misery_Description" 			"Inflict a curse of misery on all enemies within %radius% area of target location. Whenever an enemy cursed this way takes damage, they become mini stunned."
         "DOTA_Tooltip_ability_gilles_misery_duration"  				"Duration:"
         "DOTA_Tooltip_ability_gilles_misery_Lore"  					"A suffering from the outer god's torment is merely the prelude to another."
  	
@@ -7894,7 +7906,7 @@
         "DOTA_Tooltip_ability_nobu_leader_of_innovation_Lore"								""
 
            "DOTA_Tooltip_ability_nobu_divinity_mark"						"Divinity mark"
-        "DOTA_Tooltip_ability_nobu_divinity_mark_Description"			"Nobunaga marks target enemy for 10 seconds. Each time she deals damage to it, it gains a stackable effect. When this effect reaches 12 stacks, enemy will be marked divine and its armor will be reduced by its base value."
+        "DOTA_Tooltip_ability_nobu_divinity_mark_Description"			"Nobunaga marks target enemy for 10 seconds. Each time she deals damage to it, it gains a stackable effect. When this effect reaches 9 stacks, enemy will be marked divine and its armor will be reduced by its base value."
         "DOTA_Tooltip_ability_nobu_divinity_mark_cast_range"						"Cast range:"
         "DOTA_Tooltip_ability_nobu_divinity_mark_duration"								"Duration:"
         "DOTA_Tooltip_ability_nobu_divinity_mark_activated_duration"							"Activated duration:"
@@ -8113,7 +8125,7 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
 
 
 
-  //====================================
+  		//====================================
         //  Nanaya
         //====================================
         "npc_dota_hero_night_stalker"                                           "Nanaya Shiki"
@@ -8123,24 +8135,27 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
 
 		"DOTA_Tooltip_nanaya_blood_modifier"					"Blood"
 		"DOTA_Tooltip_nanaya_combo_cd"							"Combo: Kyokushi - Nanaya!"
-		"DOTA_Tooltip_nanaya_combo_cd_Description"							"Is on cooldown."
+		"DOTA_Tooltip_nanaya_combo_cd_Description"							"Combo is on cooldown."
 
         "DOTA_Tooltip_ability_nanaya_q_strike"                                                  "Nightmare"
-        "DOTA_Tooltip_ability_nanaya_q_strike_Description"                      "Nanaya quickly dashes to the target enemy through any obstacles, dealing damage and stunning it with 1 second on arrival." 
-        "DOTA_Tooltip_ability_nanaya_q_strike_dmg"                                      "Dmg:"
+        "DOTA_Tooltip_ability_nanaya_q_strike_Description"                      "Nanaya quickly dashes to the target enemy through any obstacles, dealing damage based on Nanaya agi in two instances on arrival." 
+        "DOTA_Tooltip_ability_nanaya_q_strike_dmg"                                      "Total dmg:"
+        "DOTA_Tooltip_ability_nanaya_q_strike_agi_modifier"                                        "Total agility modifier:"
         "DOTA_Tooltip_ability_nanaya_q_strike_Lore"                                             ""
 
         "DOTA_Tooltip_ability_nanaya_q2jump"                                                    "Sensou Rikuto"
-        "DOTA_Tooltip_ability_nanaya_q2jump_Description"                        "Nanaya quickly dashes in the target direction, catching first enemy on his way. If Nanaya catched enemy, he will kick him 2 times, dealing damage, stunning and pushing him on each hit, finishing with a stronger kick with 2x damage, increased knockback and 1 second stun." 
+        "DOTA_Tooltip_ability_nanaya_q2jump_Description"                        "Nanaya quickly dashes in the target direction, catching first enemy on his way.\nIf Nanaya catched enemy, he will kick him 2 times, dealing damage based on Nanaya agi and pushing it away, and then performs a stronger kick with 2x damage and increased knockback.\nEnemy hit cannot move while Nanaya is performing his kicks." 
         "DOTA_Tooltip_ability_nanaya_q2jump_dmg"                                        "Dmg:"
+        "DOTA_Tooltip_ability_nanaya_q2jump_agi_modifier"                                        "Agility modifier:"
         "DOTA_Tooltip_ability_nanaya_q2jump_Lore"                                               ""
          
-
+        <font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>
         "DOTA_Tooltip_ability_jump_ahead_nanaya"                                        "Spider dance"
-        "DOTA_Tooltip_ability_jump_ahead_nanaya_Description"            "Nanaya jumps back, swapping Nightmare ability with Sensou Rikuto.\n 10+  <font color='#002BFF'>Nanaya blood</font><font color='#002BFF'> stacks, he will throw a knife in the target direction. If the knife hits enemy, it will deal damage, Nanaya will teleport to the enemy and perform an attack."
+        "DOTA_Tooltip_ability_jump_ahead_nanaya_Description"            "Nanaya jumps back, swapping Nightmare ability with Sensou Rikuto.\nOn 10+  <font color='#002BFF'>Nanaya blood<font color='#002BFF'></font></font> stacks, Nanaya will throw a knife in the target direction. If the knife hits enemy, it will deal damage based on Nanaya AGI and teleport Nanaya to the enemy to perform an attack, dealing damage based on AGI."
         "DOTA_Tooltip_ability_jump_ahead_nanaya_blink_ahead"                            "Blink distance:"
         "DOTA_Tooltip_ability_jump_ahead_nanaya_dmg_knife"                              "Knife damage:"
-        "DOTA_Tooltip_ability_jump_ahead_nanaya_dmg_hit"                                "Hit damage:"
+        "DOTA_Tooltip_ability_jump_ahead_nanaya_dmg_hit"                                "Attack damage:"
+        "DOTA_Tooltip_ability_jump_ahead_nanaya_agi_modifier"                           "Agility modifier:"
         "DOTA_Tooltip_ability_jump_ahead_nanaya_Lore"                                   ""
  
          
@@ -8152,14 +8167,20 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
 
 
         "DOTA_Tooltip_ability_nanaya_blood"                             "Nanaya Blood"
-        "DOTA_Tooltip_ability_nanaya_blood_Description"         "Each time Nanaya deals damage to enemy, he will gain a <font color='#002BFF'>Nanaya blood</font><font color='#002BFF'> stack.\nStacks are capped and each increases Nanaya AGI.\nStacks will be reset if Nanaya doesnt deal damage to enemies for 4 seconds.\nUpgradeable with Old Memories attribute. To enter Nanaya Instinct mode hit enemy with Seven Night Shiki knife, or Sensa・Yotsutsuji at 16+ stack\n<font color='#58ACFA'>Nanaya Instinct</font>\ - Nanaya is fucking sonic now, reduces your cooldown by 30%, after any skill cast you can blink away with right click"
+        "DOTA_Tooltip_ability_nanaya_blood_Description"         "Each time Nanaya deals damage to enemy, he will gain a <font color='#002BFF'>Nanaya blood</font><font color='#002BFF'> stack.\nStacks are capped and each increases Nanaya AGI.\nStacks will be reset if Nanaya doesnt deal damage to enemies for %stacks_duration% seconds.\nUpgradeable with Old Memories attribute./n Nanaya can enter instinct mode by hitting enemy with Seven Night Shiki knife, or Sensa・Yotsutsuji at 15+ stack\n<font color='#58ACFA'>Nanaya Instinct</font> - Nanaya is moving on a constant movement speed, reduces all cooldowns and can blink after using any ability by sending a move order."
         "DOTA_Tooltip_ability_nanaya_blood_stack_max"                           "Maximum stacks:"
         "DOTA_Tooltip_ability_nanaya_blood_bonus_agility"                       "Bonus AGI:"
+        "DOTA_Tooltip_ability_nanaya_blood_stacks_duration"                     "Stacks duration:"
+        "DOTA_Tooltip_ability_nanaya_blood_cd_reduction_pct"                    "%Cooldown reduction:"
+        "DOTA_Tooltip_ability_nanaya_blood_ms"                      			"Movement speed:"
+        "DOTA_Tooltip_ability_nanaya_blood_blink_distance"                     	"Blink distance:"
         "DOTA_Tooltip_ability_nanaya_blood_Lore"                                ""
 
         "DOTA_Tooltip_ability_nanaya_dashf"                             "Shadow step"
-        "DOTA_Tooltip_ability_nanaya_dashf_Description"         "Nanaya quickly dashes in the target direction, dealing damage to all enemies on his way.\nAllows usage of Shadow return for 0.5 seconds."
+        "DOTA_Tooltip_ability_nanaya_dashf_Description"         "Nanaya quickly dashes in the target direction, dealing damage based on Nanaya AGI to all enemies on his way.\nAllows usage of Shadow return for 0.5 seconds.\nIf Nanaya is in <font color='#58ACFA'>Nanaya Instinct</font> mode, that ability will swap with Sensa・Meigokushamon.\nSensa・Meigokushamon: Nanaya slowly jumps back, preparing for an attack and after a short duration jumps in the target direction, becoming invulnerable, hitting first enemy on his way, dealing a lot of damage."
         "DOTA_Tooltip_ability_nanaya_dashf_range"                       "Range:"
+        "DOTA_Tooltip_ability_nanaya_dashf_dmg"                         "Damage:"
+        "DOTA_Tooltip_ability_nanaya_dashf_agi_modifier"                "Agility modifier:"
         "DOTA_Tooltip_ability_nanaya_dashf_Lore"                        ""
 
 
@@ -8170,29 +8191,67 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
 
 
         "DOTA_Tooltip_ability_nanaya_jump_slashes"                              "Sensa・Meigokushamon"
-        "DOTA_Tooltip_ability_nanaya_jump_slashes_Description"  "Nanaya slowly jumps back, preparing for an attack and after a short duration jumps in the target direction, becoming invulnerable, hitting first enemy on his way, dealing damage and stunning him."
+        "DOTA_Tooltip_ability_nanaya_jump_slashes_Description"  "Nanaya slowly jumps back, preparing for an attack and after a short duration jumps in the target direction, becoming invulnerable, hitting first enemy on his way, dealing a lot of damage."
         "DOTA_Tooltip_ability_nanaya_jump_slashes_dmg"  "Dmg:"
         "DOTA_Tooltip_ability_nanaya_jump_slashes_Lore"                                         ""
 
         "DOTA_Tooltip_ability_nanaya_knife"                             "Seven Nights Shiki"
-        "DOTA_Tooltip_ability_nanaya_knife_Description" "Nanaya throws a knife in the target direction, dealing damage, stunning for 1 second on hit and teleporting Nanaya close to the enemy. Nanaya will jump back shortly after.\nIf <font color='#002BFF'>Nanaya blood</font><font color='#002BFF'> stack count are > 15 and you have Black and Shadow attribute, Nanaya clones will attack the enemy, pushing him back and stunning on each hit."
-        "DOTA_Tooltip_ability_nanaya_knife_dmg" "Dmg:"
+        "DOTA_Tooltip_ability_nanaya_knife_Description" "Nanaya throws a knife in the target direction, dealing damage based on Nanaya AGI in two instances on hit and teleporting Nanaya close to the enemy. Nanaya will jump back shortly after.\nOn 15+ <font color='#002BFF'>Nanaya blood</font> stacks and if you have Black and Shadow attribute, Nanaya clones will attack the enemy. 4 clones will attack pushing enemy back, 5th will knock enemy up, stunning it, Last clone will attack with delay, dealing more damage."
+        "DOTA_Tooltip_ability_nanaya_knife_dmg" 							"Total dmg:"
+        "DOTA_Tooltip_ability_nanaya_knife_agi_modifier" 					"Total agility modifier:"
+        "DOTA_Tooltip_ability_nanaya_knife_clone_dmg" 						"Clone dmg:"
+        "DOTA_Tooltip_ability_nanaya_knife_clone_dmg_agi" 					"Clone dmg per agi:"
+        "DOTA_Tooltip_ability_nanaya_knife_5th_clone_dmg" 					"5th clone dmg:"
+        "DOTA_Tooltip_ability_nanaya_knife_6th_clone_dmg" 					"6th clone dmg:"
         "DOTA_Tooltip_ability_nanaya_knife_Lore"                                                ""
+
+
         "DOTA_Tooltip_ability_nanaya_combo"                     "Combo: Kyokushi・Nanaya"
-        "DOTA_Tooltip_ability_nanaya_combo_description"                     "<font color='#58ACFA'>Combo Requirement: 30 agi and str </font>\n<font color='#58ACFA'>Combo Sequence: W-W in 2 seconds</font>\n Reflect enemy damage, then throws his knife at the opponent while teleporting behind their back and twisting their neck whist the knife hits. Minimal damage to reflect - 100"
-        "DOTA_Tooltip_ability_nanaya_slashes" "Sensa・Yotsutsuji"
-       "DOTA_Tooltip_ability_nanaya_slashes_description" "Nanaya lunges forward and does a series of slashes, can be interrupted by stun. <font color='#58ACFA'>10+ nanaya stack, changes to 3 hit from you, if you in Nanaya Instinct mode, 3 clones from back will help you"
-       "DOTA_Tooltip_ability_nanaya_slashes_slash" "Slash count:"
+        "DOTA_Tooltip_ability_nanaya_combo_description"                     "<font color='#58ACFA'>Combo Requirement: 30 agi and str </font>\n<font color='#58ACFA'>Combo Sequence: W-W in 2 seconds</font>\nNanaya prepares to reflect enemy attack for a short time. If he receive damage over the threshold, he throws his knife at the opponent while teleporting behind their back and twists their neck whist the knife hits, dealing damage based on enemy max HP."
+		"DOTA_Tooltip_ability_nanaya_combo_threshold"                     "Counter threshold"
+		"DOTA_Tooltip_ability_nanaya_combo_counter_duration"                     "Counter duration"
+		"DOTA_Tooltip_ability_nanaya_combo_pct_damage"                     "%HP damage"
+
+       "DOTA_Tooltip_ability_nanaya_slashes" "Sensa・Yotsutsuji"
+       "DOTA_Tooltip_ability_nanaya_slashes_description" "Nanaya lunges forward and does a series of slashes, that deal damage based on Nanaya AGI, push target away and could be interrupted by stun.\nOn 10+ <font color='#002BFF'>Nanaya blood</font><font color='#002BFF'> </font></font> stacks changes to a series of 3 hits from Nanaya, if you in <font color='#58ACFA'>Nanaya Instinct</font> mode, 3 clones will help you, hitting from the back."
+       "DOTA_Tooltip_ability_nanaya_slashes_slash" 			"Slash count:"
+ 	   "DOTA_Tooltip_ability_nanaya_slashes_distance" 		"Travel distance:"
+	   "DOTA_Tooltip_ability_nanaya_slashes_dmg" 	    	"Damage per slash:"
+	   "DOTA_Tooltip_ability_nanaya_slashes_agi_modifier" 	"Agility modifier:"
+	   "DOTA_Tooltip_ability_nanaya_slashes_clone_dmg" 	    "Clone and hit damage:"
+
        "DOTA_Tooltip_ability_nanaya_r_attribute"  "Black and White shadow"
-       "DOTA_Tooltip_ability_nanaya_r_attribute_description"  "On 30 nanaya blood stack hitting your enemy with Seven Nights Shiki knife will deal x20 from your agi as pure damage, remove Nanaya Instinct and set stack to 0"
+       "DOTA_Tooltip_ability_nanaya_r_attribute_description"  "Upgrades Seven Nights Shiki ability.\nOn 15+ <font color='#002BFF'>Nanaya blood</font> stacks and if you have Black and Shadow attribute, Nanaya clones will attack the enemy. 4 clones will attack pushing enemy back, 5th will knock enemy up, stunning it, Last clone will attack with delay, dealing more damage.\nOn 30 <font color='#002BFF'>Nanaya blood</font> nanaya blood stacks hitting your enemy with Seven Nights Shiki knife will deal damed based on your agi as pure damage and set <font color='#002BFF'>Nanaya blood</font> stacks on 0, ending <font color='#58ACFA'>Nanaya Instinct</font> mode."
+        "DOTA_Tooltip_ability_nanaya_r_attribute_clone_dmg" 						"15 stacks Clone dmg:"
+        "DOTA_Tooltip_ability_nanaya_r_attribute_clone_dmg_agi" 					"15 stacks Clone dmg per agi:"
+        "DOTA_Tooltip_ability_nanaya_r_attribute_5th_clone_dmg" 					"15 stacks 5th clone dmg:"
+        "DOTA_Tooltip_ability_nanaya_r_attribute_6th_clone_dmg" 					"15 stacks 6th clone dmg:"
+		"DOTA_Tooltip_ability_nanaya_r_attribute_30_stacks_agi" 					"30 stacks agi multiplier:"
+
        "DOTA_Tooltip_ability_nanaya_e_attribute"  "IM FUCKING FBT CHARACTER"
-       "DOTA_Tooltip_ability_nanaya_e_attribute_description"  "Using your E will gain you invisibility for 0.4 sec, also now W refreshes this skill"
+       "DOTA_Tooltip_ability_nanaya_e_attribute_description"  "Using Sensa・YaPidoras(E) will give Nanaya invisibility for 0.4 sec, using Spider dance(W) will now refresh cooldown of Sensa・YaPidoras(E)."
+
+
        "DOTA_Tooltip_ability_nanaya_r2_attribute"  "Balls check"
        "DOTA_Tooltip_ability_nanaya_r2_attribute_description"  "A fucking permostan"
+
+
+
        "DOTA_Tooltip_ability_nanaya_d_attribute" "Nanaya incident 12.02.2023"
-       "DOTA_Tooltip_ability_nanaya_d_attribute_description" "Gives you most useful skill, just take it"
+       "DOTA_Tooltip_ability_nanaya_d_attribute_description" "Unlocks Sensa・Yotsutsuji ability.\nSensa・Yotsutsuji:  Nanaya lunges forward and does a series of slashes, that deal damage, push target away and could be interrupted by stun.\nOn 10+ <font color='#002BFF'>Nanaya blood</font><font color='#002BFF'> </font></font> stacks changes to a series of 3 hits from Nanaya, if you in <font color='#58ACFA'>Nanaya Instinct</font> mode, 3 clones will help you, hitting from the back."
+       "DOTA_Tooltip_ability_nanaya_d_attribute_slash" 		"Slash count:"
+ 	   "DOTA_Tooltip_ability_nanaya_d_attribute_distance" 	"Travel distance:"
+	   "DOTA_Tooltip_ability_nanaya_d_attribute_dmg" 	    "Damage per slash:"
+	   "DOTA_Tooltip_ability_nanaya_d_attribute_clone_dmg" 	    "Clone and hit damage:"
+
+
        "DOTA_Tooltip_ability_nanaya_blood_attribute" "Old Memories"
-       "DOTA_Tooltip_ability_nanaya_blood_attribute_description" "Upgrades passive, unlock Nanaya Instinct mode"
+       "DOTA_Tooltip_ability_nanaya_blood_attribute_description" "Upgrades passive, unlock Nanaya Instinct mode.\nNanaya can enter instinct mode by hitting enemy with Seven Night Shiki knife, or Sensa・Yotsutsuji at 15+ stack\n<font color='#58ACFA'>Nanaya Instinct</font> - Nanaya is moving on a constant movement speed, reduces all cooldowns and can blink after using any ability by sending a move order."
+        "DOTA_Tooltip_ability_nanaya_blood_attribute_stack_max"                           "Maximum stacks:"
+        "DOTA_Tooltip_ability_nanaya_blood_attribute_bonus_agility"                       "Bonus AGI:"
+        "DOTA_Tooltip_ability_nanaya_blood_attribute_cd_reduction_pct"                    "%Cooldown reduction:"
+        "DOTA_Tooltip_ability_nanaya_blood_attribute_ms"                      			  "Movement speed:"
+        "DOTA_Tooltip_ability_nanaya_blood_attribute_blink_distance"                      "Blink distance:"
 
 
 

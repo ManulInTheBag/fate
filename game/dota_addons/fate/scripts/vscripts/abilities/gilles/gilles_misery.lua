@@ -33,7 +33,7 @@ function gilles_misery:OnSpellStart()
 end
 
 function modifier_gilles_misery:DeclareFunctions()
-	return { --MODIFIER_EVENT_ON_TAKEDAMAGE
+	return { MODIFIER_EVENT_ON_TAKEDAMAGE
 	 }
 end
 
@@ -56,7 +56,6 @@ if IsServer() then
 
 	function modifier_gilles_misery:OnTakeDamage(args)
 		if args.unit ~= self:GetParent() then return end
-
 		local hCaster = self:GetCaster()
 		local hAbility = self:GetAbility()
 		self:GetParent():AddNewModifier(hCaster, hAbility, "modifier_stunned", { Duration = 0.033 * self:GetStackCount()})

@@ -84,6 +84,9 @@ local selfstacks = caster:GetModifierStackCount("modifier_muramasa_tsumukari", c
         self.swordfx = ParticleManager:CreateParticle("particles/muramasa/sword_glow.vpcf", PATTACH_ABSORIGIN_FOLLOW  , caster )
         ParticleManager:SetParticleControlEnt(self.swordfx, 1, caster, PATTACH_POINT_FOLLOW, "sword_base", Vector(0,0,0), true)
         ParticleManager:SetParticleControlEnt(self.swordfx, 2, caster, PATTACH_POINT_FOLLOW, "sword_end", Vector(0,0,0), true)
+        self.swordfx2 = ParticleManager:CreateParticle("particles/muramasa/muramasa_blade.vpcf", PATTACH_ABSORIGIN_FOLLOW  , caster )
+        ParticleManager:SetParticleControlEnt(self.swordfx2, 1, caster, PATTACH_POINT_FOLLOW, "sword_base", Vector(0,0,0), true)
+        ParticleManager:SetParticleControlEnt(self.swordfx2, 0, caster, PATTACH_POINT_FOLLOW, "sword_end", Vector(0,0,0), true)
         caster:SwapAbilities("muramasa_tsumukari", "muramasa_tsumukari_release", false, true)
          Timers:CreateTimer("muramasa_sword_particle", {
              endTime = self:GetSpecialValueFor("buff_duration"),
@@ -92,7 +95,10 @@ local selfstacks = caster:GetModifierStackCount("modifier_muramasa_tsumukari", c
              if(self.swordfx ~= nil ) then
                     ParticleManager:DestroyParticle(self.swordfx, true)
                      ParticleManager:ReleaseParticleIndex(self.swordfx)
+                     ParticleManager:DestroyParticle(self.swordfx2, true)
+                     ParticleManager:ReleaseParticleIndex(self.swordfx2)
                      self.swordfx = nil
+                     self.swordfx2 = nil
              end
              if(caster:GetAbilityByIndex(5):GetName() == "muramasa_tsumukari_release") then
                 caster:SwapAbilities("muramasa_tsumukari", "muramasa_tsumukari_release", true, false)
@@ -117,7 +123,8 @@ function modifier_muramasa_tsumukari:DeclareFunctions()
         MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
 		MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
         MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE, 
-        MODIFIER_EVENT_ON_RESPAWN
+        MODIFIER_EVENT_ON_RESPAWN,
+        
  
  
 	}
@@ -168,6 +175,9 @@ function modifier_muramasa_tsumukari_buff:OnDestroy()
         ParticleManager:DestroyParticle(self:GetAbility().swordfx, true)
         ParticleManager:ReleaseParticleIndex(self:GetAbility().swordfx)
         self:GetAbility().swordfx = nil
+        ParticleManager:DestroyParticle(self:GetAbility().swordfx2, true)
+        ParticleManager:ReleaseParticleIndex(self:GetAbility().swordfx2)
+        self:GetAbility().swordfx2 = nil
     end
     if(caster:GetAbilityByIndex(5):GetName() == "muramasa_tsumukari_release") then
          caster:SwapAbilities("muramasa_tsumukari", "muramasa_tsumukari_release", true, false)
@@ -181,7 +191,18 @@ return "custom/muramasa/muramasa_tsumukari_end"
 
 end
 
+function modifier_muramasa_tsumukari_buff:DeclareFunctions()
+	return {
+        MODIFIER_PROPERTY_TRANSLATE_ACTIVITY_MODIFIERS
  
+ 
+	}
+end
+
+function modifier_muramasa_tsumukari_buff:GetActivityTranslationModifiers(keys)
+    return "ultimate"
+end
+
 
 modifier_muramasa_sword_trial_buff = class({})
 function modifier_muramasa_sword_trial_buff:IsHidden()    return false end

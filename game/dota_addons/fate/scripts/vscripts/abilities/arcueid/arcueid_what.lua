@@ -7,7 +7,7 @@ function arcueid_what:OnSpellStart()
 	local caster = self:GetCaster()
 	local ability = self
 	local enemy = self:GetCursorTarget()
-
+	if IsSpellBlocked(enemy) then return end
 	local sound_cast = "Hero_LifeStealer.OpenWounds.Cast"
 	local sound_target = "Hero_LifeStealer.OpenWounds"
 	EmitSoundOn( sound_cast, caster )

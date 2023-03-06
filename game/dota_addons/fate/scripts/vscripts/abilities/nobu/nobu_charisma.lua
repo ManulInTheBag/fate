@@ -42,6 +42,7 @@ function modifier_nobu_charisma_aura:OnRespawn(args)
  if(caster ~= args.unit) then return end
  caster.ISDOW = false
  caster.isCharisma = false
+ caster:SetBodygroup(0,0) 
  local ind5abilityname = caster:GetAbilityByIndex(4):GetName()
  caster:GetAbilityByIndex(1):RefreshCharges()
  if(ind5abilityname ~= "nobu_demon_king_close" and ind5abilityname ~= "nobu_demon_king_open" ) then 

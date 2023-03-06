@@ -151,9 +151,10 @@ function nero_gladiusanus_new:OnSpellStart()
 
                 if not enemy:IsMagicImmune() then
                     DoDamage(caster, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+                    enemy:AddNewModifier(caster, enemy, "modifier_stunned", {duration = self:GetSpecialValueFor("stun_duration")})
                 end
 
-                enemy:AddNewModifier(caster, enemy, "modifier_stunned", {duration = self:GetSpecialValueFor("stun_duration")})
+                
                 enemy:RemoveModifierByName("modifier_nero_gladiusanus_new")
                 enemy:SetAbsOrigin(GetGroundPosition(enemy:GetAbsOrigin(),enemy))
 

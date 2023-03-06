@@ -84,8 +84,9 @@ if IsServer() then
 		local hCaster = self:GetCaster()
 		local hAbility = self:GetAbility()
 		local fDamage = self.Damage
-
-		DoDamage(hCaster, self:GetParent(), fDamage, DAMAGE_TYPE_MAGICAL, 0, hAbility, false)
+		if not self:GetParent():IsMagicImmune() then
+			DoDamage(hCaster, self:GetParent(), fDamage, DAMAGE_TYPE_MAGICAL, 0, hAbility, false)
+		end
 	end
 
 	function modifier_gilles_smother:OnAbilityFullyCast(args)
@@ -98,7 +99,9 @@ if IsServer() then
 		local tTargets = FindUnitsInRadius(hCaster:GetTeam(), self:GetParent():GetAbsOrigin(), nil, hAbility:GetAOERadius(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		
 		for _,v in pairs(tTargets) do
-			DoDamage(hCaster, v, self.ExplosionDamage, DAMAGE_TYPE_MAGICAL, 0, hAbility, false)
+			if not v:IsMagicImmune() then
+				DoDamage(hCaster, v, self.ExplosionDamage, DAMAGE_TYPE_MAGICAL, 0, hAbility, false)
+			end
 		end
 
 		self:GetParent():AddNewModifier(hCaster, hAbility, "modifier_stunned", { Duration = hAbility:GetSpecialValueFor("stun_duration") })
