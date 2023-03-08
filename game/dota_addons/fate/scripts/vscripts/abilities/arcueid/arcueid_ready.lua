@@ -70,12 +70,14 @@ function modifier_arcueid_ready:OnIntervalThink()
 					caster:EmitSound("arcueid_ready_6")
 				end
 			end
-			DoDamage(caster, self.enemy, self.damage , DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
-			caster:FindAbilityByName("arcueid_impulses"):Pepeg(target)
+			if not target:IsMagicImmune() then
+				DoDamage(caster, self.enemy, self.damage , DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
+				caster:FindAbilityByName("arcueid_impulses"):Pepeg(target)
 
 			if caster.RecklesnessAcquired then
 				target:AddNewModifier(caster, self, "modifier_stunned", {duration = 0.1})
 			end
+		end
 
 			target:EmitSound("Hero_EarthShaker.Fissure")
 
@@ -109,9 +111,11 @@ function modifier_arcueid_ready:OnIntervalThink()
 					unit:SetBounceMultiplier(0)
 					unit:PreventDI(false)
 					unit:SetPhysicsVelocity(Vector(0,0,0))
-					giveUnitDataDrivenModifier(caster, target, "stunned", ability:GetSpecialValueFor("stun_duration"))
-					target:EmitSound("Hero_EarthShaker.Fissure")
-					DoDamage(caster, target, self.collide_damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+					if not target:IsMagicImmune() then
+						giveUnitDataDrivenModifier(caster, target, "stunned", ability:GetSpecialValueFor("stun_duration"))
+						target:EmitSound("Hero_EarthShaker.Fissure")
+						DoDamage(caster, target, self.collide_damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+					end
 				end)
 			end
 		end

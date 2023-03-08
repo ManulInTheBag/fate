@@ -671,8 +671,9 @@ function OnNineLanded(caster, ability)
 	Timers:CreateTimer(function()
 		if caster:IsAlive() then -- only perform actions while caster stays alive
 			local particle = ParticleManager:CreateParticle("particles/custom/berserker/nine_lives/hit.vpcf", PATTACH_ABSORIGIN, caster)
-			ParticleManager:SetParticleControlForward(particle, 0, caster:GetForwardVector() * -1)
 			ParticleManager:SetParticleControl(particle, 1, Vector(0,0,(nineCounter % 2) * 180))
+			ParticleManager:SetParticleControl(particle, 2, Vector(1,1,radius))
+			ParticleManager:SetParticleControl(particle, 3, Vector(radius / 350,1,1))
 			if caster:GetName() == "npc_dota_hero_sven" then 
 				if math.random(0,1) == 0 then 
 					StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_CAST_ABILITY_2_ES_ROLL, rate=2.5})
@@ -684,10 +685,10 @@ function OnNineLanded(caster, ability)
 			end
 			caster:EmitSound("Hero_EarthSpirit.StoneRemnant.Impact") 
 
-			if nineCounter == 8 then -- if it is last strike
+			if nineCounter == 9 then -- if it is last strike
 
 				caster:EmitSound("Hero_EarthSpirit.BoulderSmash.Target")
-				caster:RemoveModifierByName("pause_sealdisabled") 
+				caster:RemoveModifierByName("pause_sealenabled") 
 				ScreenShake(caster:GetOrigin(), 7, 1.0, 2, 1500, 0, true)
 				-- do damage to targets
 				local damage = lasthitdmg 
@@ -738,7 +739,9 @@ function OnNineLanded(caster, ability)
 
 				ParticleManager:SetParticleControl(particle, 2, Vector(1,1,lasthitradius))
 				ParticleManager:SetParticleControl(particle, 3, Vector(lasthitradius / 350,1,1))
-				ParticleManager:CreateParticle("particles/custom/berserker/nine_lives/last_hit.vpcf", PATTACH_ABSORIGIN, caster)
+				ParticleManager:ReleaseParticleIndex(particle)
+				local lastparticle = ParticleManager:CreateParticle("particles/custom/berserker/nine_lives/last_hit.vpcf", PATTACH_ABSORIGIN, caster)
+				ParticleManager:ReleaseParticleIndex(lastparticle)
 
 				-- DebugDrawCircle(caster:GetAbsOrigin(), Vector(255,0,0), 0.5, lasthitradius, true, 0.5)
 			else
@@ -773,6 +776,8 @@ function OnNineLanded(caster, ability)
 				ParticleManager:SetParticleControl(particle, 2, Vector(1,1,radius))
 				ParticleManager:SetParticleControl(particle, 3, Vector(radius / 350,1,1))
 				-- DebugDrawCircle(caster:GetAbsOrigin(), Vector(255,0,0), 0.5, radius, true, 0.5)
+				ParticleManager:ReleaseParticleIndex(particle)
+
 
 				nineCounter = nineCounter + 1
 				return returnDelay

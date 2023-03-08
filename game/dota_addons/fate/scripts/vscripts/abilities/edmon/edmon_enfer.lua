@@ -137,13 +137,14 @@ function modifier_edmon_enfer:BOOM(target)
 	--EmitGlobalSound("edmon_enfer_zuzup")
 
 	caster:AddNewModifier(caster, self, "modifier_edmon_ult", {duration = duration + 3.2})
-
+	giveUnitDataDrivenModifier(caster, target, "locked", 1.5)
+	
 	Timers:CreateTimer(function()
         if count < duration and caster and caster:IsAlive() then
         	if interval > 0.075 then
             	interval = interval/2
             end
-        	origin = target:GetAbsOrigin()
+
             local angle = RandomInt(0, 360)
             local startLoc = GetRotationPoint(origin,RandomInt(radius, radius),angle)
             local endLoc = GetRotationPoint(origin,RandomInt(radius, radius),angle + RandomInt(120, 240))

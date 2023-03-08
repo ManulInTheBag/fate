@@ -448,7 +448,7 @@ function HeroSelection:StartStateInGame(toPrecache)
 					return 0.1
 				end
 			end
-			PauseGame(not canEnd)
+			--PauseGame(not canEnd)
 			if canEnd then
 				--print("pepega2")
 				--Actually enter in-game state

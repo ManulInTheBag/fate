@@ -2592,8 +2592,8 @@ function saito_formless_slash:OnSpellStart()
     local nLockDuration     = self:GetSpecialValueFor("lock_duration")
     local nLastLockDuration = self:GetSpecialValueFor("last_lock_duration")
 
-    local nSlashDamage = self:GetSpecialValueFor("slash_damage") + hCaster:GetAverageTrueAttackDamage(hTarget) * 0.01 * GetAttributeValue(hCaster, "saito_attribute_kunishige", "fls_dmg_per_atk", -1, 0)
-    local nLastDamage  = self:GetSpecialValueFor("last_damage") + hCaster:GetAverageTrueAttackDamage(hTarget) * 0.01 * GetAttributeValue(hCaster, "saito_attribute_kunishige", "fls_last_dmg_per_atk", -1, 0)
+    local nSlashDamage = self:GetSpecialValueFor("slash_damage") +  GetAttributeValue(hCaster, "saito_attribute_kunishige", "fls_dmg_per_atk", self:GetLevel(), 0)
+    local nLastDamage  = self:GetSpecialValueFor("last_damage") + GetAttributeValue(hCaster, "saito_attribute_kunishige", "fls_last_dmg_per_atk", self:GetLevel(), 0)
 
     local nRevokedScale = GetAttributeValue(hCaster, "saito_attribute_kunishige", "fls_revoked_scale", -1, 1)
     if not hTarget:IsHero() or bIsRevoked(hTarget) then
@@ -2610,16 +2610,16 @@ function saito_formless_slash:OnSpellStart()
 
     if nStacksNew == 0 then
         hCaster:RemoveModifierByNameAndCaster("modifier_saito_formless_invis", hCaster) --Invis breaks early.
-        giveUnitDataDrivenModifier(hCaster, hTarget, "locked", nLastLockDuration)
+        giveUnitDataDrivenModifier(hCaster, hTarget, "rooted", nLastLockDuration)
         if nAttrLastStunDuration > 0 then
-            giveUnitDataDrivenModifier(hCaster, hTarget, "rooted", nAttrLastStunDuration)
+            giveUnitDataDrivenModifier(hCaster, hTarget, "locked", nAttrLastStunDuration)
         end
         DoDamage(hCaster, hTarget, nLastDamage, nDamageType, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, self, false)
         self:DoLastSlashEffect(hTarget)
     else
-        giveUnitDataDrivenModifier(hCaster, hTarget, "locked", nLockDuration)
+        giveUnitDataDrivenModifier(hCaster, hTarget, "rooted", nLockDuration)
         if nAttrStunDuration > 0 then
-            giveUnitDataDrivenModifier(hCaster, hTarget, "rooted", nAttrStunDuration)
+            giveUnitDataDrivenModifier(hCaster, hTarget, "locked", nAttrStunDuration)
         end
         for i = 1, nSlashInstances do
             DoDamage(hCaster, hTarget, nSlashDamage, nDamageType, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION, self, false)

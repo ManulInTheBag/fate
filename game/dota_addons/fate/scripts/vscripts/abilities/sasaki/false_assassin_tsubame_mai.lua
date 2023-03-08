@@ -42,7 +42,7 @@ function modifier_tsubame_mai:OnTakeDamage(args)
 	local damageTaken = args.damage
 
 	-- if caster is alive and damage is above threshold, do something
-	if caster:GetHealth() ~= 0 and (caster:GetAbsOrigin()-attacker:GetAbsOrigin()):Length2D() < 3000 and not attacker:IsInvulnerable() and caster:GetTeam() ~= attacker:GetTeam() then
+	if caster:GetHealth() ~= 0 and (caster:GetAbsOrigin()-attacker:GetAbsOrigin()):Length2D() < 3000 and not attacker:IsInvulnerable() and caster:GetTeam() ~= attacker:GetTeam() and attacker:IsConsideredHero() then
 		caster:AddNewModifier(caster, self:GetAbility(), "modifier_tsubame_mai_omnislash", {duration = 5})
 		caster:FindModifierByName("modifier_tsubame_mai_omnislash"):TsubameMai(attacker)
 	end
@@ -50,6 +50,7 @@ end
 
 function modifier_tsubame_mai:OnAttackLanded(args)
 	if args.attacker ~= self:GetParent() then return end
+	if not args.target:IsConsideredHero() then return end
 	self.parent = self:GetParent()
 	self.parent:AddNewModifier(caster, self:GetAbility(), "modifier_tsubame_mai_omnislash", {duration = 5})
 	self.parent:FindModifierByName("modifier_tsubame_mai_omnislash"):TsubameMai(args.target)

@@ -7557,7 +7557,7 @@
 
 //Formlessness
 "DOTA_Tooltip_ability_saito_formless_slash"													"Formlessness"
-"DOTA_Tooltip_ability_saito_formless_slash_Description"										"Saitō unleashes a special move cutting inverse and diagonally.\nAllows Saitō to cast this ability up to %max_slashes% times.\nThe first slashes are a double slash, dealing damage and dimensionally locking the target for %lock_duration% seconds.\nLast slash deals more damage and dimensionally locks the target for a longer duration.\n Using the last slash will end the duration of Formless early.\nUpgradeable with Attribute: Swords of Freedom and Kijinmaru Kunishige."
+"DOTA_Tooltip_ability_saito_formless_slash_Description"										"Saitō unleashes a special move cutting inverse and diagonally.\nAllows Saitō to cast this ability up to %max_slashes% times.\nThe first slashes are a double slash, dealing damage and rooting the target for %lock_duration% seconds.\nLast slash deals more damage and dimensionally locks the target for a longer duration.\n Using the last slash will end the duration of Formless early.\nUpgradeable with Attribute: Swords of Freedom and Kijinmaru Kunishige."
 "DOTA_Tooltip_ability_saito_formless_slash_Lore"											"No matter what kind of melee weapon the target uses, be it spear, sword, or anything else, Saitō always makes the first move from any distance, ignoring the target’s reach."
 //"DOTA_Tooltip_ability_saito_formless_slash_max_slashes"									""
 //"DOTA_Tooltip_ability_saito_formless_slash_slash_instances"								""
@@ -7635,7 +7635,7 @@
 
 //Swords of Freedom
 "DOTA_Tooltip_ability_saito_attribute_freedom"												"Attribute: Swords of Freedom"
-"DOTA_Tooltip_ability_saito_attribute_freedom_Description"									"Flashblade disjoints all projectiles upon cast and increases the base turn rate to %q_turn_rate% for %q_turn_rate_duration% seconds. Causes the afterimage created from this ability to launch enemies hit by it upwards for %q_knock_up_duration% seconds.\nSteelwing applies a movement speed slow to enemies hit by %w_ms_slow%%% for %w_ms_slow_duration% seconds.\nShadowslash lowers magic resistance of enemies hit by %e_mr_reduction%%% for %e_mr_reduction_duration% seconds.\nFormlessness’s double slashes now also roots the target for %fls_stun_duration% seconds with each attack. Last slash roots the target for %fls_last_stun_duration% seconds."
+"DOTA_Tooltip_ability_saito_attribute_freedom_Description"									"Flashblade disjoints all projectiles upon cast and increases the base turn rate to %q_turn_rate% for %q_turn_rate_duration% seconds. Causes the afterimage created from this ability to launch enemies hit by it upwards for %q_knock_up_duration% seconds.\nSteelwing applies a movement speed slow to enemies hit by %w_ms_slow%%% for %w_ms_slow_duration% seconds.\nShadowslash lowers magic resistance of enemies hit by %e_mr_reduction%%% for %e_mr_reduction_duration% seconds.\nFormlessness’s double slashes now also dimensionally locks the target for %fls_stun_duration% seconds with each attack. Last slash roots the target for %fls_last_stun_duration% seconds."
 "DOTA_Tooltip_ability_saito_attribute_freedom_Lore"											"Saitō’s style does not follow a specific discipline, and is unrestrained and free-spirited."
 //"DOTA_Tooltip_ability_saito_attribute_freedom_q_turn_rate_duration"						""
 //"DOTA_Tooltip_ability_saito_attribute_freedom_q_turn_rate"								""
@@ -7679,14 +7679,14 @@
 
 //Kijinmaru Kunishige
 "DOTA_Tooltip_ability_saito_attribute_kunishige"											"Attribute: Kijinmaru Kunishige"
-"DOTA_Tooltip_ability_saito_attribute_kunishige_Description"								"Reduces Formless fade delay by %fli_fade_delay% seconds, also gives %fli_evasion%%% evasion for the duration.\nFormlessness gains bonus damage based on Saitō’s attack damage and deals %fls_revoked_scale%x damage to revoked enemies and non-hero units, also increases its cast range by %fls_cast_range%."
+"DOTA_Tooltip_ability_saito_attribute_kunishige_Description"								"Reduces Formless fade delay by %fli_fade_delay% seconds, also gives %fli_evasion%%% evasion for the duration.\nFormlessness gains bonus damage based on Formlessnes' level and deals %fls_revoked_scale%x damage to revoked enemies and non-hero units, also increases its cast range by %fls_cast_range%."
 "DOTA_Tooltip_ability_saito_attribute_kunishige_Lore"										"The beloved sword of the Shinsengumi’s Third Unit Captain."
 //"DOTA_Tooltip_ability_saito_attribute_kunishige_fli_fade_delay"							""
 //"DOTA_Tooltip_ability_saito_attribute_kunishige_fli_evasion"								""
 //"DOTA_Tooltip_ability_saito_attribute_kunishige_fls_cast_range"							""
 //"DOTA_Tooltip_ability_saito_attribute_kunishige_fls_revoked_scale"						""
-"DOTA_Tooltip_ability_saito_attribute_kunishige_fls_dmg_per_atk"							"%SLASH BONUS DMG PER ATK:"
-"DOTA_Tooltip_ability_saito_attribute_kunishige_fls_last_dmg_per_atk"						"%LAST SLASH BONUS DMG PER ATK:"
+"DOTA_Tooltip_ability_saito_attribute_kunishige_fls_dmg_per_atk"							"Bonus damage per slash:"
+"DOTA_Tooltip_ability_saito_attribute_kunishige_fls_last_dmg_per_atk"						"Last slash bonus damage:"
 	
    		//====================================
 		//   Merlin 
