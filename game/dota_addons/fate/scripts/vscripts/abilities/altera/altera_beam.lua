@@ -90,11 +90,11 @@ function modifier_altera_beam:OnCreated()
         end
 
         self.duration = self.ability:GetSpecialValueFor("duration")
-        self.damage = ( self.damage / self.duration ) * FrameTime()
+        self.damage = ( self.damage / self.duration ) * 0.1--FrameTime()
         self.heal = self.damage/2
 
         self.cdr = self.ability:GetSpecialValueFor("int_cdr")
-        self.cdr = (self.cdr/self.duration) * FrameTime()
+        self.cdr = (self.cdr/self.duration) * 0.1--FrameTime()
 
         self.particle =    ParticleManager:CreateParticle(self.particlename, PATTACH_WORLDORIGIN, self.caster)
                             ParticleManager:SetParticleShouldCheckFoW(self.particle, false)
@@ -113,7 +113,7 @@ function modifier_altera_beam:OnCreated()
         self.sound = "altera_beam_loop"
 
         EmitSoundOn(self.sound, self.caster)
-        self:StartIntervalThink(FrameTime())
+        self:StartIntervalThink(0.1)--FrameTime())
     end
 end
 function modifier_altera_beam:OnIntervalThink()

@@ -685,7 +685,7 @@ function OnNineLanded(caster, ability)
 			end
 			caster:EmitSound("Hero_EarthSpirit.StoneRemnant.Impact") 
 
-			if nineCounter == 9 then -- if it is last strike
+			if nineCounter == 8 then -- if it is last strike
 
 				caster:EmitSound("Hero_EarthSpirit.BoulderSmash.Target")
 				caster:RemoveModifierByName("pause_sealenabled") 

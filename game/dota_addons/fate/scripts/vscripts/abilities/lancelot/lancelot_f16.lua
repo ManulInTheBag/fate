@@ -1,7 +1,7 @@
 LinkLuaModifier("modifier_f16_barrage", "abilities/lancelot/lancelot_f16", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_f16_cd", "abilities/lancelot/modifiers/modifier_f16_cd", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_forward_cmd_disable", "abilities/lancelot/lancelot_f16", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_f16_forward", "abilities/lancelot/lancelot_f16", LUA_MODIFIER_MOTION_HORIZONTAL)
+LinkLuaModifier("modifier_f16_forward", "abilities/lancelot/lancelot_f16", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_f16_mana", "abilities/lancelot/lancelot_f16", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_f16_owner", "abilities/lancelot/lancelot_f16", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_vision_provider", "abilities/general/modifiers/modifier_vision_provider", LUA_MODIFIER_MOTION_NONE)
@@ -9,6 +9,12 @@ LinkLuaModifier("modifier_f16_timer", "abilities/lancelot/lancelot_f16", LUA_MOD
 
 modifier_f16_owner = class({})
 
+function modifier_f16_owner:DeclareFunctions()
+    --return {MODIFIER_PROPERTY_VISUAL_Z_DELTA}
+end
+function modifier_f16_owner:GetVisualZDelta()
+    return 700
+end
 function modifier_f16_owner:OnDestroy()
     self.parent = self:GetParent()
     FindClearSpaceForUnit(self.parent, self.parent:GetAbsOrigin(), true)
@@ -390,24 +396,60 @@ end
 
 modifier_f16_forward = class({})
 
+--!!----------------------------------------------------------------------------------------------------------------------------------------------------------
+function modifier_f16_forward:SetDirectionByAngles(hUnit, vDirection) --Explained why I am using that in the first ability modifier.
+    vDirection = VectorToAngles(vDirection)
+    return hUnit:SetAbsAngles(vDirection[1], vDirection[2], vDirection[3])
+end
+
+function modifier_f16_forward:DeclareFunctions()
+    return {MODIFIER_PROPERTY_VISUAL_Z_DELTA}
+end
+function modifier_f16_forward:CheckState()
+    return {[MODIFIER_STATE_ROOTED] = true}
+end
 function modifier_f16_forward:IsHidden() return true end
 
 function modifier_f16_forward:RemoveOnDeath() return true end
 
 function modifier_f16_forward:OnCreated()
-	self:StartIntervalThink(FrameTime())
+    if IsServer() then
+        self.nInterval = 0.01
+    	self:StartIntervalThink(self.nInterval)
+    end
 end
 
 function modifier_f16_forward:OnIntervalThink()
-	self.parent = self:GetParent()
-	if self.parent:IsAlive() then
-		local speed = FrameTime()*1000
-		self.parent:SetOrigin(Vector(self.parent:GetAbsOrigin().x, self.parent:GetAbsOrigin().y, 600) + self.parent:GetForwardVector()*speed)
-		giveUnitDataDrivenModifier(self.parent:GetOwner(), self.parent:GetOwner(), "jump_pause", FrameTime()*2)
-        self.parent:GetOwner():AddNewModifier(self.parent, self, "modifier_f16_owner", {duration = FrameTime()*2})
-		self.parent:GetOwner():SetOrigin(Vector(self.parent:GetAbsOrigin().x, self.parent:GetAbsOrigin().y, 5000) + self.parent:GetForwardVector()*speed)
-		self.parent:GetOwner():SetForwardVector(self.parent:GetForwardVector())
+    self.hF16  = self:GetParent()
+    self.hLanc = self.hF16:GetOwnerEntity()
+
+	if self.hF16:IsAlive() and self.hLanc:IsAlive() then
+        giveUnitDataDrivenModifier(self.hLanc, self.hLanc, "jump_pause", self:GetRemainingTime())
+        self.hLanc:AddNewModifier(self.hLanc, self:GetAbility(), "modifier_f16_owner", {duration = self:GetRemainingTime()})
+
+        local vDirection = self.hF16:GetForwardVector()
+		local nSpeed     = self.nInterval * 1000
+
+        local vLoc = GetGroundPosition(self.hF16:GetAbsOrigin(), self.hF16)
+        local vNewLoc = vLoc + vDirection * nSpeed
+
+        self:SetDirectionByAngles(self.hF16, vDirection)
+        self:SetDirectionByAngles(self.hLanc, vDirection)
+
+        if true then --GridNav:IsTraversable(vNewLoc) and not GridNav:IsBlocked(vNewLoc) then
+            --self.hF16:SetAbsOrigin(vNewLoc)
+            
+            self.hLanc:SetAbsOrigin(vNewLoc + Vector(0, 0, 700))-- NOTE: Cause microrofls
+
+            FindClearSpaceForUnit(self.hF16, vNewLoc, false)
+            --FindClearSpaceForUnit(self.hLanc, vNewLoc, false)
+        else
+
+        end
 	end
+end
+function modifier_f16_forward:GetVisualZDelta(keys)
+    return 600
 end
 
 lancelot_f16_mana = class({})

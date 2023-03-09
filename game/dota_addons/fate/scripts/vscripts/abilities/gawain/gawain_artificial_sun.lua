@@ -20,7 +20,7 @@ function gawain_artificial_sun:GenerateArtificialSun(caster, location, isLockedO
 	local ply = caster:GetPlayerOwner()
 	local IsSunActive = true
 	local radius = self:GetSpecialValueFor("area_of_effect")
-	local artSun = CreateUnitByName("gawain_artificial_sun", location + Vector(0,0,100), true, nil, nil, caster:GetTeamNumber())
+	local artSun = CreateUnitByName("gawain_artificial_sun", location, true, nil, nil, caster:GetTeamNumber())
  
     ----To prevent suns from same abilities exist at same time. Could have written it better but lazy AF
     if(ability == "gawain_sun_of_galatine") then
@@ -53,11 +53,13 @@ function gawain_artificial_sun:GenerateArtificialSun(caster, location, isLockedO
 	artSun:SetNightTimeVisionRange(radius)
 	artSun:AddNewModifier(caster, self, "modifier_kill", {duration = 15})
     Timers:CreateTimer(15, function()
-        artSun:RemoveSelf()
+        if IsNotNull(artSun) then
+            artSun:RemoveSelf()
+        end
     end)
     artSun:AddNewModifier(caster, self, "modifier_artificial_sun_aura", {duration = 15})
     artSun:AddNewModifier(caster, self, "modifier_artificial_sun_aura_enemy", {duration = 15})
-	artSun:SetAbsOrigin(artSun:GetAbsOrigin() + Vector(0,0, 500))
+	artSun:SetAbsOrigin(artSun:GetAbsOrigin() + Vector(0,0, 0))
 
     if caster.IsDawnAcquired then
 		artSun:AddNewModifier(caster, caster, "modifier_item_ward_true_sight", {true_sight_range = 333}) 
@@ -112,6 +114,12 @@ function modifier_artificial_sun_aura:GetAttributes()
     return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
 
+function modifier_artificial_sun_aura:CheckState()
+    if IsServer() then
+        local vLoc = GetGroundPosition(self:GetParent():GetAbsOrigin(), self:GetParent()) + Vector(0,0,500)
+        self:GetParent():SetAbsOrigin(vLoc)
+    end
+end
 
 modifier_artificial_sun = class({})
 

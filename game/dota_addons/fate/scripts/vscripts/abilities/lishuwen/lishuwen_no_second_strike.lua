@@ -101,12 +101,14 @@ function lishuwen_no_second_strike:OnSpellStart()
 
 	EmitGlobalSound("Lishuwen.NoSecondStrike")
     local groundFx1 = ParticleManager:CreateParticle( "particles/units/heroes/hero_earthshaker/earthshaker_echoslam_start_fallback_mid.vpcf", PATTACH_ABSORIGIN, target )
+    ParticleManager:SetParticleControl( groundFx1, 0, target:GetAbsOrigin())
     ParticleManager:SetParticleControl( groundFx1, 1, target:GetAbsOrigin())
     local groundFx2 = ParticleManager:CreateParticle( "particles/units/heroes/hero_earthshaker/earthshaker_echoslam_start_fallback_mid.vpcf", PATTACH_ABSORIGIN, target )
+    ParticleManager:SetParticleControl( groundFx2, 0, target:GetAbsOrigin())
     ParticleManager:SetParticleControl( groundFx2, 1, target:GetAbsOrigin())
     ParticleManager:SetParticleControlOrientation(groundFx1, 0, RandomVector(3), Vector(0,1,0), Vector(1,0,0))
     ParticleManager:SetParticleControlOrientation(groundFx2, 0, RandomVector(3), Vector(0,1,0), Vector(1,0,0))
-    local firstStrikeFx = ParticleManager:CreateParticle("particles/custom/lishuwen/lishuwen_no_second_strike_hit.vpcf", PATTACH_CUSTOMORIGIN, target)
+    local firstStrikeFx = ParticleManager:CreateParticle("particles/custom/lishuwen/lishuwen_no_second_strike_hit.vpcf", PATTACH_ABSORIGIN, target)
 	ParticleManager:SetParticleControl( firstStrikeFx, 0, target:GetAbsOrigin())
 end
 

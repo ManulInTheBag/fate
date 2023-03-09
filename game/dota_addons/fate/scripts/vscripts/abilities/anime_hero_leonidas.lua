@@ -3024,6 +3024,8 @@ function modifier_leonidas_enomotia_combo:OnCreated(tTable)
 
         self.nThinkInterval = 0.03
         self:StartIntervalThink(self.nThinkInterval)
+
+        EmitGlobalSound("Leonidas.Enomotia.Combo.Cast.4")
     end
 end
 function modifier_leonidas_enomotia_combo:OnRefresh(tTable)
@@ -3045,6 +3047,8 @@ function modifier_leonidas_enomotia_combo:OnDestroy()
     if IsServer() then
         EndAnimation(self.hCaster)
         self.hAbility:StopShields_PFX(self._nShieldsPFX, true)
+
+        StopGlobalSound("Leonidas.Enomotia.Combo.Cast.4")
     end
 end
 ---------------------------------------------------------------------------------------------------------------------

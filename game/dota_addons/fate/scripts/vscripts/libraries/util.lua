@@ -1771,13 +1771,16 @@ function DoDamage(source, target , dmg, dmg_type, dmg_flag, abil, isLoop)
                         local curhealth = hLinkTarget:GetHealth() 
                         --local damage = CalculateDamagePostReduction(DAMAGE_TYPE_MAGICAL, damageToAllies, hLinkTarget)
                         if curhealth >= damageToAllies then
-                            DoDamage(source, hLinkTarget, damageToAllies,  DAMAGE_TYPE_MAGICAL, 128, abil, true)
+                            DoDamage(source, hLinkTarget, damageToAllies,  DAMAGE_TYPE_MAGICAL, DOTA_DAMAGE_FLAG_NO_DIRECTOR_EVENT + DOTA_DAMAGE_FLAG_NON_LETHAL, abil, true)
                             --DoDamage(target, hLinkTarget, damageToAllies,  DAMAGE_TYPE_MAGICAL, 128, abil, true)
                             --hLinkTarget:SetHealth(curhealth - damage)
                         else
-                            hLinkTarget:SetHealth(1)
-                            hLinkTarget:RemoveModifierByName("modifier_share_damage")
-                            RemoveHeroFromLinkTables(hLinkTarget)
+                            if hLinkTarget:IsAlive() then
+                                hLinkTarget:SetHealth(1)
+                            end
+                                hLinkTarget:RemoveModifierByName("modifier_share_damage")
+                                RemoveHeroFromLinkTables(hLinkTarget)
+                            
                         end
                     end 
                 end

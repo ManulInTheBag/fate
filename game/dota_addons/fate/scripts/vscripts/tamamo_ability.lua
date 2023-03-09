@@ -765,7 +765,7 @@ function OnMantraTakeDamage(keys)
 			end]]--
     	end
 	else
-		if target.IsMantraProcOnCooldown then 
+		if target.IsMantraProcOnCooldown or target:IsMagicImmune() then
 			return
 		else
 			--print(attacker:GetName() .. " attacked " .. target:GetName())
@@ -910,24 +910,24 @@ function OnAmaterasuStart(keys)
 		for i = 1, #allies do
 			allies[i]:AddNewModifier(caster, ability, "modifier_amaterasu_heal", { duration = 1.033 })
 
-			if allies[i] ~= caster then 
-				for j=0, 2 do 
-					local ability = allies[i]:GetAbilityByIndex(j)
-					if ability ~= nil then
-						rCooldown = ability:GetCooldownTimeRemaining()
-						ability:EndCooldown()
-						ability:StartCooldown(rCooldown - 20)
-					else 
-						break
-					end
-				end
-				local ability = allies[i]:GetAbilityByIndex(5)
-					if ability ~= nil then
-						rCooldown = ability:GetCooldownTimeRemaining()
-						ability:EndCooldown()
-						ability:StartCooldown(rCooldown - 20)
-					end
-			end
+			-- if allies[i] ~= caster then 
+			-- 	for j=0, 2 do 
+			-- 		local ability = allies[i]:GetAbilityByIndex(j)
+			-- 		if ability ~= nil then
+			-- 			rCooldown = ability:GetCooldownTimeRemaining()
+			-- 			ability:EndCooldown()
+			-- 			ability:StartCooldown(rCooldown - 20)
+			-- 		else 
+			-- 			break
+			-- 		end
+			-- 	end
+			-- 	local ability = allies[i]:GetAbilityByIndex(5)
+			-- 		if ability ~= nil then
+			-- 			rCooldown = ability:GetCooldownTimeRemaining()
+			-- 			ability:EndCooldown()
+			-- 			ability:StartCooldown(rCooldown - 20)
+			-- 		end
+			-- end
 		end
 	end
 

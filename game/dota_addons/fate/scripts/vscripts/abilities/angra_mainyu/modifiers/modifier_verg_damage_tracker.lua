@@ -11,7 +11,9 @@ end
 if IsServer() then 
 	function modifier_verg_damage_tracker:OnTakeDamage(args)
 		if args.unit ~= self:GetParent() then return end
-
+		if bit.band(args.damage_flags or DOTA_DAMAGE_FLAG_NONE, DOTA_DAMAGE_FLAG_NO_DIRECTOR_EVENT) ~= 0 then return end
+		if args.attacker:HasModifier('modifier_altera_whip') then return end
+		
 		local reset_delay = self:GetAbility():GetSpecialValueFor("reset_delay")
 		local marker_duration = self:GetAbility():GetSpecialValueFor("marker_duration")
 		local caster = self:GetParent()

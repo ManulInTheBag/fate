@@ -23,7 +23,6 @@ if IsServer() then
 		self.AgilityBonus = args.AgilityBonus
 		self.IntelligenceBonus = args.IntelligenceBonus
 		self.BonusDamage = args.BonusDamage
-		print(self:GetParent())		
 
 		CustomNetTables:SetTableValue("sync","arondite_stats", { str_bonus = self.StrengthBonus,
 																 agi_bonus = self.AgilityBonus,
@@ -31,20 +30,35 @@ if IsServer() then
 																 bonus_damage = self.BonusDamage })
 
 		self.SwordParticle = ParticleManager:CreateParticle("particles/custom/lancelot/lancelot_arondite.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, self:GetParent())
-	    ParticleManager:SetParticleControlEnt(self.SwordParticle, 0, self:GetParent(), PATTACH_CUSTOMORIGIN_FOLLOW, "attach_sword", self:GetParent():GetOrigin(), true)
+	    ParticleManager:SetParticleControlEnt(self.SwordParticle, 0, self:GetParent(), PATTACH_CUSTOMORIGIN_FOLLOW, "attach_arondight", self:GetParent():GetOrigin(), true)
 	
 	    if args.KotlAttribute then
 	    	self.state = { [MODIFIER_STATE_MAGIC_IMMUNE] = true }
 	    	self:GetParent():RemoveModifierByName("modifier_zabaniya_curse")
 	    	HardCleanse(self:GetParent())
 	    	self:StartIntervalThink(0.5)
+
+	    	self.nRagePFX = ParticleManager:CreateParticle("particles/units/heroes/hero_life_stealer/life_stealer_rage.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
+	    					for i = 0, 2 do
+		    					ParticleManager:SetParticleControlEnt(
+	                                                                self.nRagePFX,
+	                                                                i,
+	                                                                self:GetParent(),
+	                                                                PATTACH_POINT_FOLLOW,
+	                                                                "attach_hitloc",
+	                                                                Vector(0,0,0), -- unknown
+	                                                                false -- unknown, true
+	                                                                )
+	    					end
 	    	Timers:CreateTimer(2, function()
+	    		self:RemoveBKBPfx()
 	    		self.state={}
-	    		end)
+	    	end)
 	    end
 	end
 
 	function modifier_arondite:OnRefresh(args)
+		self:RemoveBKBPfx()
 		self:RemoveParticles()
 		self:OnCreated(args)
 	end
@@ -53,9 +67,18 @@ if IsServer() then
 		self:RemoveParticles()
 	end
 
+	function modifier_arondite:RemoveBKBPfx()
+		if type(self.nRagePFX) == "number" then
+			ParticleManager:DestroyParticle( self.nRagePFX, false )
+			ParticleManager:ReleaseParticleIndex( self.nRagePFX )
+			self.nRagePFX = nil
+		end
+	end
+
 	function modifier_arondite:RemoveParticles()
 		ParticleManager:DestroyParticle( self.SwordParticle, false )
 		ParticleManager:ReleaseParticleIndex( self.SwordParticle )
+		self.SwordParticle = nil
 	end
 
 	function modifier_arondite:OnAttackLanded(args)

@@ -52,6 +52,13 @@ function lancelot_arondite:OnSpellStart()
     															KotlAttribute = caster:HasModifier("modifier_kotl_attribute") })
 
     caster:Heal(self:GetSpecialValueFor("activate_heal"), caster)
+
+    -- Timers:CreateTimer(0, function()
+    -- 	if caster:HasModifier("modifier_arondite") then
+    -- 	print(caster:IsMagicImmune())
+    -- 	return 0.1
+    -- end
+    -- end)
 end
 
 function lancelot_arondite:CreateFireProjectile()

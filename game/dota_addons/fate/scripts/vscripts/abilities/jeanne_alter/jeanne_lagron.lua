@@ -118,12 +118,15 @@ function jeanne_lagron:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
     
     local targets = FindUnitsInRadius(hCaster:GetTeam(), vLocation, nil, fRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
     for k,v in pairs(targets) do
-        DoDamage(hCaster, v, fTargetDamage, DAMAGE_TYPE_MAGICAL, 0, self, false)
-        v:AddNewModifier(hCaster, v, "modifier_stunned", {Duration = fStun})
-        ApplyAirborneOnly(v, 3000, 0.2, 1500)
-        Timers:CreateTimer(0.2, function()
-            v:SetAbsOrigin(GetGroundPosition(v:GetAbsOrigin(),v))
-        end)
+        if IsNotNull(v) then
+            v:AddNewModifier(hCaster, v, "modifier_stunned", {Duration = fStun})
+            DoDamage(hCaster, v, fTargetDamage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+            
+            ApplyAirborneOnly(v, 3000, 0.2, 1500)
+            Timers:CreateTimer(0.2, function()
+                v:SetAbsOrigin(GetGroundPosition(v:GetAbsOrigin(),v))
+            end)
+        end
     end
 end
 
