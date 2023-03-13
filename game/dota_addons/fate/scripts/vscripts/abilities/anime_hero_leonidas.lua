@@ -3111,7 +3111,9 @@ function modifier_leonidas_enomotia_combo_translator:GetTotalDamageNullify(keys)
 
         -- ApplyDamage(hDamageTable)
         --=================================--
-        DoDamage(keys.attacker, self.hCaster, keys.original_damage, keys.damage_type, keys.damage_flags, keys.inflictor or self.hAbility, false)
+        if bit.band(keys.damage_flags or DOTA_DAMAGE_FLAG_NONE, DOTA_DAMAGE_FLAG_NO_DIRECTOR_EVENT) == 0 then
+            DoDamage(keys.attacker, self.hCaster, keys.original_damage, keys.damage_type, keys.damage_flags, keys.inflictor or self.hAbility, false)
+        end
 
         --=================================--
         return DAMAGE_TYPE_ALL

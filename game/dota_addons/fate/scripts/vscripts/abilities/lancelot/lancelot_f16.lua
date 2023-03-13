@@ -15,9 +15,21 @@ end
 function modifier_f16_owner:GetVisualZDelta()
     return 700
 end
+function modifier_f16_owner:OnCreated()
+    self.parent = self:GetParent()
+    self.parent:AddEffects(EF_NODRAW)
+end
 function modifier_f16_owner:OnDestroy()
     self.parent = self:GetParent()
+    self.parent:RemoveEffects(EF_NODRAW)
     FindClearSpaceForUnit(self.parent, self.parent:GetAbsOrigin(), true)
+end
+function modifier_f16_owner:CheckState()
+    return { [MODIFIER_STATE_INVULNERABLE] = true,
+             [MODIFIER_STATE_NO_HEALTH_BAR] = true,
+             [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
+             [MODIFIER_STATE_NOT_ON_MINIMAP] = true,
+             [MODIFIER_STATE_UNSELECTABLE] = true }
 end
  
 
