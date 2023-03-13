@@ -2610,7 +2610,7 @@ function leonidas_enomotia_combo:OnSpellStart()
     --=================================--
     local nPFX_AnimationSequence = ACT_DOTA_CHANNEL_ABILITY_6
     --=================================--
-    local bCasterBerserked = hCaster:HasModifier("modifier_leonidas_berserk")
+    local bCasterBerserked = false--hCaster:HasModifier("modifier_leonidas_berserk")
     --=================================--
     --EmitSoundOn("Leonidas.Enomotia.Cast.Shields", hCaster)
     EmitGlobalSound("Leonidas.Enomotia.Cast.Shields")

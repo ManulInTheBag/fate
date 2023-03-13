@@ -8,7 +8,7 @@
 	{
 		// General
 		//
-		"BaseClass"					"npc_dota_creature"	// Class of entity of link to.
+		"BaseClass"					"npc_dota_base_additive"	// Class of entity of link to.
 		"Model"						"models/development/invisiblebox.vmdl"	// Model.
 		"SoundSet"					"Creep_Good_Range"					// Name of sound set.
 		"Level"						"0"
@@ -97,7 +97,7 @@
 	{
 		// General
 		//----------------------------------------------------------------
-		"BaseClass"					"npc_dota_creature"	// Class of entity of link to.
+		"BaseClass"					"npc_dota_base_additive"	// Class of entity of link to.
 		"Model"						"models/development/invisiblebox.vmdl"	// Model.
 		"SoundSet"					"Creep_Good_Range"					// Name of sound set.
 		"Level"						"0"
@@ -275,7 +275,7 @@
 	"altera_dummy"
 	{
 		"Model"				"models/altera/altera.vmdl"
-		"BaseClass"			"npc_dota_creature"
+		"BaseClass"			"npc_dota_base_additive"
 		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"	
 		"Ability1"					"true_assassin_combo_zab"			// Ability 1
 		"Ability2"					"dummy_visible_unit_passive_no_fly"			// Ability 2
@@ -310,7 +310,7 @@
 	"okita_dummy"
 	{
 		"Model"				"models/okita/okita.vmdl"
-		"BaseClass"			"npc_dota_creature"
+		"BaseClass"			"npc_dota_base_additive"
 		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"	
 		"Ability1"					"true_assassin_combo_zab"			// Ability 1
 		"Ability2"					"dummy_visible_unit_passive_no_fly"			// Ability 2
@@ -345,7 +345,7 @@
 	"ta_combo_dummy"
 	{
 		"Model"				"models/true_assassin/ta.vmdl"
-		"BaseClass"			"npc_dota_creature"
+		"BaseClass"			"npc_dota_base_additive"
 		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"	
 		"Ability1"					"true_assassin_combo_zab"			// Ability 1
 		"Ability2"					"dummy_unit_passive"			// Ability 2
@@ -380,7 +380,7 @@
 	"ta_combo_dummy_2"
 	{
 		"Model"				"models/femalehassan/femalehassan.vmdl"
-		"BaseClass"			"npc_dota_creature"
+		"BaseClass"			"npc_dota_base_additive"
 		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"	
 		"Ability1"					"true_assassin_combo_zab"			// Ability 1
 		"Ability2"					"dummy_unit_passive"			// Ability 2
@@ -415,7 +415,7 @@
 	"ta_combo_dummy_3"
 	{
 		"Model"				"models/konomama_hassan/konomama_hassan.vmdl"
-		"BaseClass"			"npc_dota_creature"
+		"BaseClass"			"npc_dota_base_additive"
 		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"	
 		"Ability1"					"true_assassin_combo_zab"			// Ability 1
 		"Ability2"					"dummy_unit_passive"			// Ability 2
@@ -450,7 +450,7 @@
 	"f16_dummy"
 	{
 		"Model"				"models/lancelot/lancelot_f16.vmdl"
-		"BaseClass"			"npc_dota_creature"
+		"BaseClass"			"npc_dota_base_additive"
 		"ModelScale"			"70.0"
 		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"	
 
@@ -859,7 +859,7 @@
 
 	"caster_5th_territory"
 	{
-		"BaseClass"				 "npc_dota_creature"
+		"BaseClass"				 "npc_dota_base_additive"
 		"Model"					"models/props_structures/tower_good.vmdl"
 		"ModelScale"			"2.0"
 		"MinimapIcon"				"minimap_racks90"
@@ -904,7 +904,7 @@
 
 	"caster_5th_territory_improved"
 	{
-		"BaseClass"				 "npc_dota_creature"
+		"BaseClass"				 "npc_dota_base_additive"
 		"Model"					"models/props_structures/tower_good.vmdl"
 		"ModelScale"			"2.0"
 		"MinimapIcon"				"minimap_racks90"
@@ -950,7 +950,7 @@
 	"caster_5th_skeleton_warrior"
 	{
 		"Model"				"models/creeps/neutral_creeps/n_creep_troll_skeleton/n_creep_skeleton_melee.vmdl"
-		"BaseClass"			"npc_dota_creature"
+		"BaseClass"			"npc_dota_base_additive"
 		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"	
 		"SoundSet"					"Creep_Good_Melee"
 
@@ -989,7 +989,7 @@
 	{
 		"Model"				"models/heroes/clinkz/clinkz.vmdl"
 		"ModelScale"		"0.80"
-		"BaseClass"			"npc_dota_creature"
+		"BaseClass"			"npc_dota_base_additive"
 		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"	
 		"SoundSet"					"Creep_Good_Range"
 
@@ -1031,7 +1031,7 @@
 	{
 		"Model"				"models/creeps/neutral_creeps/n_creep_black_dragon/n_creep_black_dragon.vmdl"
 		"ModelScale"		"2.0"
-		"BaseClass"			"npc_dota_creature"
+		"BaseClass"			"npc_dota_base_additive"
 		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"	
 		"ConsideredHero"			"1"
 		"HasInventory"				"0"
@@ -1084,7 +1084,7 @@
 	{
 		"Model"				"models/avenger/trueform/trueform.vmdl"
 		"ModelScale"				"0.7"
-		"BaseClass"			"npc_dota_creature"
+		"BaseClass"			"npc_dota_base_additive"
 		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"	
 
 		"Ability1"					"avenger_remain_passive"			// Ability 1
@@ -1124,7 +1124,7 @@
 	{
 		// General
 		//----------------------------------------------------------------
-		"BaseClass"					"npc_dota_creature"
+		"BaseClass"					"npc_dota_base_additive"
 		"Model"						"models/jeanne/jeanne.vmdl"
 		"ModelScale"				"3.0"
 		"Level"						"1"
@@ -1181,7 +1181,7 @@
 	{
 		// General
 		//----------------------------------------------------------------
-		"BaseClass"					"npc_dota_creature"
+		"BaseClass"					"npc_dota_base_additive"
 		"Model"						"models/assassin/asn.vmdl"
 		"ModelScale"				"1.0"
 		"Level"						"1"
@@ -1247,7 +1247,7 @@
 	{
 		// General
 		//----------------------------------------------------------------
-		"BaseClass"					"npc_dota_creature"
+		"BaseClass"					"npc_dota_base_additive"
 		"Model"						"models/assassin/asn.vmdl"
 		"ModelScale"				"1.0"
 		"Level"						"1"
@@ -1312,7 +1312,7 @@
 	{
 		// General
 		//----------------------------------------------------------------
-		"BaseClass"					"npc_dota_creature"
+		"BaseClass"					"npc_dota_base_additive"
 		"Model"						"models/assassin/asn.vmdl"
 		"ModelScale"				"1.0"
 		"Level"						"1"
@@ -1372,7 +1372,7 @@
 	{
 		// General
 		//----------------------------------------------------------------
-		"BaseClass"					"npc_dota_broodmother_spiderling"
+		"BaseClass"					"npc_dota_base_additive"
 		"Model"						"models/heroes/dragon_knight/dragon_knight.vmdl"
 		"ModelScale"				"1.0"
 		"Level"						"1"
@@ -1438,34 +1438,34 @@
 		
 		// Creature Data
 		//----------------------------------------------------------------
-		"Creature"
-		{
-			"DisableClumpingBehavior"	"1"
-			"AttachWearables"
-			{
-				"Wearable1"		{	"ItemDef"		"63"		}
-				"Wearable2"		{	"ItemDef"		"64"		}
-				"Wearable3" 	{	"ItemDef"		"65"		}
-				"Wearable4"		{	"ItemDef"		"66"		}
-				"Wearable5"		{	"ItemDef"		"67"		}
-				"Wearable6"		{	"ItemDef"		"68"		}
-			}
-			//{
-			//	"Wearable1"		{	"ItemDef"		"6789"		} //"Shield of Ascension"
-			//	"Wearable2"		{	"ItemDef"		"6791"		} //"Pauldrons of Ascension"
-			//	"Wearable3" 	{	"ItemDef"		"6790"		} //"Gauntlets of Ascension"
-			//	"Wearable4"		{	"ItemDef"		"6788"		} //"Drapes of Ascension"
-			//	"Wearable5"		{	"ItemDef"		"6787"		} //"Sword of Ascension"
-			//	"Wearable6"		{	"ItemDef"		"6792"		} //"Helm of Ascension"
-			//}
-		}
+		// "Creature"
+		// {
+		// 	"DisableClumpingBehavior"	"1"
+		// 	"AttachWearables"
+		// 	{
+		// 		"Wearable1"		{	"ItemDef"		"63"		}
+		// 		"Wearable2"		{	"ItemDef"		"64"		}
+		// 		"Wearable3" 	{	"ItemDef"		"65"		}
+		// 		"Wearable4"		{	"ItemDef"		"66"		}
+		// 		"Wearable5"		{	"ItemDef"		"67"		}
+		// 		"Wearable6"		{	"ItemDef"		"68"		}
+		// 	}
+		// 	//{
+		// 	//	"Wearable1"		{	"ItemDef"		"6789"		} //"Shield of Ascension"
+		// 	//	"Wearable2"		{	"ItemDef"		"6791"		} //"Pauldrons of Ascension"
+		// 	//	"Wearable3" 	{	"ItemDef"		"6790"		} //"Gauntlets of Ascension"
+		// 	//	"Wearable4"		{	"ItemDef"		"6788"		} //"Drapes of Ascension"
+		// 	//	"Wearable5"		{	"ItemDef"		"6787"		} //"Sword of Ascension"
+		// 	//	"Wearable6"		{	"ItemDef"		"6792"		} //"Helm of Ascension"
+		// 	//}
+		// }
 	}
 
 	"iskander_archer"
 	{
 		// General
 		//----------------------------------------------------------------
-		"BaseClass"					"npc_dota_creature"
+		"BaseClass"					"npc_dota_base_additive"
 		"Model"						"models/heroes/windrunner/windrunner.vmdl"
 		"ModelScale"				"1.0"
 		"Level"						"1"
@@ -1551,7 +1551,7 @@
 	{
 		// General
 		//----------------------------------------------------------------
-		"BaseClass"					"npc_dota_creature"
+		"BaseClass"					"npc_dota_base_additive"
 		"Model"						"models/heroes/chen/chen.vmdl"
 		"ModelScale"				"1.0"
 		"Level"						"1"
@@ -1639,7 +1639,7 @@
 	{
 		// General
 		//----------------------------------------------------------------
-		"BaseClass"					"npc_dota_creature"
+		"BaseClass"					"npc_dota_base_additive"
 		"Model"						"models/heroes/chaos_knight/chaos_knight.vmdl"
 		"ModelScale"				"0.7"
 		"Level"						"1"
@@ -1722,7 +1722,7 @@
 	{
 		// General
 		//----------------------------------------------------------------
-		"BaseClass"					"npc_dota_creature"
+		"BaseClass"					"npc_dota_base_additive"
 		"Model"						"models/heroes/chaos_knight/chaos_knight.vmdl"
 		"ModelScale"				"1.0"
 		"Level"						"1"
@@ -1806,7 +1806,7 @@
 	{
 		// General
 		//----------------------------------------------------------------
-		"BaseClass"					"npc_dota_creature"
+		"BaseClass"					"npc_dota_base_additive"
 		"Model"						"models/heroes/silencer/silencer.vmdl"
 		"ModelScale"				"0.8"
 		"Level"						"3"
@@ -1896,7 +1896,7 @@
 	{
 		// General
 		//----------------------------------------------------------------
-		"BaseClass"					"npc_dota_creature"
+		"BaseClass"					"npc_dota_base_additive"
 		"Model"						"models/iskander/waver.vmdl"
 		"ModelScale"				"1.1"
 		"Level"						"1"
@@ -1971,7 +1971,7 @@
 	"gille_corpse"
 	{
 		"Model"				"models/props_structures/skeleton001.vmdl"
-		"BaseClass"			"npc_dota_creature"
+		"BaseClass"			"npc_dota_base_additive"
 		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"	
 
 		"Ability1"					""			// Ability 1
@@ -2009,7 +2009,7 @@
 	"nero_banner"
 	{
 		"Model"				"models/particle/legion_duel_banner.vmdl"
-		"BaseClass"			"npc_dota_creature"
+		"BaseClass"			"npc_dota_base_additive"
 		"ModelScale"			"1.0"
 		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"	
 
@@ -2047,7 +2047,7 @@
 	"jeanne_banner"
 	{
 		"Model"				"models/props_teams/banner_tintable.vmdl"
-		"BaseClass"			"npc_dota_creature"
+		"BaseClass"			"npc_dota_base_additive"
 		"ModelScale"			"1.0"
 		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"	
 
@@ -2085,7 +2085,7 @@
 	"gawain_galatine_dummy"
 	{
 		"Model"				"models/development/invisiblebox.vmdl"
-		"BaseClass"			"npc_dota_creature"
+		"BaseClass"			"npc_dota_base_additive"
 		"ModelScale"			"1.0"
 		"BoundsHullName"	"DOTA_HULL_SIZE_HUGE"	
 
@@ -2122,7 +2122,7 @@
 	"gawain_galatine_dummy"
 	{
 		"Model"				"models/development/invisiblebox.vmdl"
-		"BaseClass"			"npc_dota_creature"
+		"BaseClass"			"npc_dota_base_additive"
 		"ModelScale"			"1.0"
 		"BoundsHullName"	"DOTA_HULL_SIZE_HUGE"	
 
@@ -2160,7 +2160,7 @@
 	"gawain_artificial_sun"
 	{
 		"Model"				"models/development/invisiblebox.vmdl"
-		"BaseClass"			"npc_dota_creature"
+		"BaseClass"			"npc_dota_base_additive"
 		"ModelScale"			"100.0"
 		"BoundsHullName"	"DOTA_HULL_SIZE_HUGE"	
 
@@ -2196,7 +2196,7 @@
 	"tamamo_templedoor_dummy"
 	{
 		"Model"				"models/misc/templedoor.vmdl"
-		"BaseClass"			"npc_dota_creature"
+		"BaseClass"			"npc_dota_base_additive"
 		"ModelScale"			"1.0"
 		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"	
 
@@ -2919,7 +2919,7 @@
 	{
 		// General
 		//----------------------------------------------------------------
-		"BaseClass"					"npc_dota_creature"
+		"BaseClass"					"npc_dota_base_additive"
 		"Model"						"models/particle/earthshaker_fissure_rocks_v1.vmdl"
 		"ModelScale"				"1.2"
 		"Level"						"0"
@@ -2993,7 +2993,7 @@
 	{
 		// General
 		//----------------------------------------------------------------
-		"BaseClass"					"npc_dota_creature"
+		"BaseClass"					"npc_dota_base_additive"
 		"Model"						"models/items/wraith_king/kings_spite_weapon/kings_spite_weapon.vmdl"
 		"ModelScale"				"1.2"
 		"Level"						"0"
@@ -3064,7 +3064,7 @@
 	{
 		// General
 		//
-		"BaseClass"					"npc_dota_creature"	// Class of entity of link to.
+		"BaseClass"					"npc_dota_base_additive"	// Class of entity of link to.
 		"Model"						"models/rhyme/stol.vmdl"	// Model.
 		"ModelScale"				"0.3"
 		"SoundSet"					"Creep_Good_Range"					// Name of sound set.

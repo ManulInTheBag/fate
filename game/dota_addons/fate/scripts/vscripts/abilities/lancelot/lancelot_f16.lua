@@ -17,11 +17,11 @@ function modifier_f16_owner:GetVisualZDelta()
 end
 function modifier_f16_owner:OnCreated()
     self.parent = self:GetParent()
-    self.parent:AddEffects(EF_NODRAW)
+    self.parent:AddNoDraw()
 end
 function modifier_f16_owner:OnDestroy()
     self.parent = self:GetParent()
-    self.parent:RemoveEffects(EF_NODRAW)
+    self.parent:RemoveNoDraw()
     FindClearSpaceForUnit(self.parent, self.parent:GetAbsOrigin(), true)
 end
 function modifier_f16_owner:CheckState()
@@ -428,12 +428,13 @@ function modifier_f16_forward:OnCreated()
     if IsServer() then
         self.nInterval = 0.01
     	self:StartIntervalThink(self.nInterval)
+        self:OnIntervalThink()
     end
 end
 
 function modifier_f16_forward:OnIntervalThink()
     self.hF16  = self:GetParent()
-    self.hLanc = self.hF16:GetOwnerEntity()
+    self.hLanc = PlayerResource:GetSelectedHeroEntity(self.hF16:GetMainControllingPlayer())
 
 	if self.hF16:IsAlive() and self.hLanc:IsAlive() then
         giveUnitDataDrivenModifier(self.hLanc, self.hLanc, "jump_pause", self:GetRemainingTime())
@@ -451,7 +452,7 @@ function modifier_f16_forward:OnIntervalThink()
         if true then --GridNav:IsTraversable(vNewLoc) and not GridNav:IsBlocked(vNewLoc) then
             --self.hF16:SetAbsOrigin(vNewLoc)
             
-            self.hLanc:SetAbsOrigin(vNewLoc + Vector(0, 0, 700))-- NOTE: Cause microrofls
+            self.hLanc:SetAbsOrigin(vNewLoc)-- NOTE: Cause microrofls
 
             FindClearSpaceForUnit(self.hF16, vNewLoc, false)
             --FindClearSpaceForUnit(self.hLanc, vNewLoc, false)

@@ -60,7 +60,7 @@ end
 	function nanaya_blood_modifier:OnTakeDamage(keys)
 		if IsServer() then
 			if keys.attacker == self.parent and keys.unit and keys.unit:GetTeamNumber() ~= self.parent:GetTeamNumber() and not keys.unit:IsBuilding() 
-				and bit.band(keys.damage_flag or DOTA_DAMAGE_FLAG_NONE, DOTA_DAMAGE_FLAG_NO_DIRECTOR_EVENT) == 0 then
+				and bit.band(keys.damage_flags or DOTA_DAMAGE_FLAG_NONE, DOTA_DAMAGE_FLAG_NO_DIRECTOR_EVENT) == 0 then
 				local stacks = self:GetStackCount()
 				if self.nanaya ~= nil then 
 				ParticleManager:DestroyParticle(self.nanaya, true)

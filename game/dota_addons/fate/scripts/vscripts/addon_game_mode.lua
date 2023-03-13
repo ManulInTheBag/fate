@@ -452,6 +452,12 @@ function Precache( context )
     --VectorTarget:Precache( context )
 
     print("precache complete")
+
+    local tUnitsList = LoadKeyValues("scripts/npc/npc_units_custom.txt")
+    for sKeyName, sUnitName in pairs(tUnitsList) do
+        --print(sKeyName, sUnitName, "pogchamp")
+        PrecacheUnitByNameSync(sKeyName, context)
+    end
 end
 
 function FateGameMode:PostLoadPrecache()
