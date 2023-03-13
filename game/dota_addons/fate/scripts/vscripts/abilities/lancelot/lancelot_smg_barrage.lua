@@ -81,32 +81,34 @@ function lancelot_smg_barrage:OnSpellStart()
     local difference = end_radius - start_radius
     
     -- Loop creating particles
-    while current_distance < range do
-        -- Create particle
-        local particleIndex = ParticleManager:CreateParticle( "particles/custom/lancelot/lancelot_smg.vpcf", PATTACH_CUSTOMORIGIN, caster )
-        ParticleManager:SetParticleControl( particleIndex, 0, current_point )
-        ParticleManager:SetParticleControl( particleIndex, 1, Vector(current_radius, 0, 0 ) )
+    -- while current_distance < range do
+    --     -- Create particle
+    --     local particleIndex = ParticleManager:CreateParticle( "particles/custom/lancelot/lancelot_smg.vpcf", PATTACH_CUSTOMORIGIN, caster )
+    --     ParticleManager:SetParticleControl( particleIndex, 0, current_point )
+    --     ParticleManager:SetParticleControl( particleIndex, 1, Vector(current_radius, 0, 0 ) )
         
-        Timers:CreateTimer( 1.0, function()
-            ParticleManager:DestroyParticle( particleIndex, false )
-            ParticleManager:ReleaseParticleIndex( particleIndex )
-            return nil
-        end)
+    --     Timers:CreateTimer( 1.0, function()
+    --         ParticleManager:DestroyParticle( particleIndex, false )
+    --         ParticleManager:ReleaseParticleIndex( particleIndex )
+    --         return nil
+    --     end)
         
-        -- Update current point
-        current_point = current_point + current_radius * forwardVec
-        current_distance = current_distance + current_radius
-        current_radius = start_radius + current_distance / range * difference
-    end
+    --     -- Update current point
+    --     current_point = current_point + current_radius * forwardVec
+    --     current_distance = current_distance + current_radius
+    --     current_radius = start_radius + current_distance / range * difference
+    -- end
     
     -- Create particle
-    local particleIndex = ParticleManager:CreateParticle( "particles/custom/lancelot/lancelot_smg.vpcf", PATTACH_CUSTOMORIGIN, caster )
-    ParticleManager:SetParticleControl( particleIndex, 0, end_point )
-    ParticleManager:SetParticleControl( particleIndex, 1, Vector( end_radius, 0, 0 ) )
-        
+    local nBarragePFX = ParticleManager:CreateParticle( "particles/custom/lancelot/lancelot_smg_new.vpcf", PATTACH_WORLDORIGIN, nil )
+                        ParticleManager:SetParticleShouldCheckFoW(nBarragePFX, false)
+                        ParticleManager:SetParticleControl( nBarragePFX, 0, current_point )
+                        ParticleManager:SetParticleControl( nBarragePFX, 1, end_point )
+                        ParticleManager:SetParticleControl( nBarragePFX, 2, Vector(end_radius * 0.5, 0, 0) )
+
     Timers:CreateTimer( 1.0, function()
-        ParticleManager:DestroyParticle( particleIndex, true )
-        ParticleManager:ReleaseParticleIndex( particleIndex )
+        ParticleManager:DestroyParticle( nBarragePFX, false )
+        ParticleManager:ReleaseParticleIndex( nBarragePFX )
         return nil
     end)
 
