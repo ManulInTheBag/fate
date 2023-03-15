@@ -134,11 +134,11 @@ function OnSeal2Start(keys)
 		return 
 	end
 
-if hero:GetName() == "npc_dota_hero_night_stalker" then
-	keys.ability:EndCooldown() 
-				SendErrorMessage(caster:GetPlayerOwnerID(), "#NANAYA_INCIDENT")
-				return
-	end
+-- if hero:GetName() == "npc_dota_hero_night_stalker" then
+-- 	keys.ability:EndCooldown() 
+-- 				SendErrorMessage(caster:GetPlayerOwnerID(), "#NANAYA_INCIDENT")
+-- 				return
+-- 	end
 
 	if caster:GetMana() <= 1 then
 		if caster.IsFirstSeal and caster:GetMana() == 1 then
@@ -162,7 +162,10 @@ if hero:GetName() == "npc_dota_hero_night_stalker" then
 	-- pay health cost
 	caster:SetHealth(caster:GetHealth()-1) 
 
-	ResetAbilities(hero)
+	if hero:GetName() ~= "npc_dota_hero_night_stalker" then
+		ResetAbilities(hero)
+	end
+	
 	ResetItems(hero)
 	IncrementCharges(hero)
  

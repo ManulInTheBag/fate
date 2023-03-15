@@ -90,7 +90,8 @@ print (point2)
 				center_y = caster:GetAbsOrigin().y - caster:GetForwardVector().y * point2,
 			center_z = 0}	
     --caster:AddNewModifier(caster, self, "modifier_knockback", knockback4)	
-	caster:SetForwardVector(-caster:GetAbsOrigin() + target:GetAbsOrigin())
+	--caster:SetForwardVector(-caster:GetAbsOrigin() + target:GetAbsOrigin()) --NOTE: Ебать ты леха кринжуешь
+	caster:SetForwardVector(GetDirection(blink_target, caster))
 			--blink_target = (caster:GetAbsOrigin()) + (((blink_target - caster:GetAbsOrigin()):Normalized()) * 225)
 		FindClearSpaceForUnit(caster, blink_target , true) 
 		end

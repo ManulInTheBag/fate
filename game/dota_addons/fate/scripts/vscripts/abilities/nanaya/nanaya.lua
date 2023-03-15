@@ -311,8 +311,8 @@ local point = self:GetCursorPosition()
        -- self.return1 = nil
    -- else
 local casterabs = caster:GetAbsOrigin()
-local direction = (point - caster:GetAbsOrigin()):Normalized()
-caster:SetForwardVector(Vector(direction.x, direction.y, 0))
+local direction = GetDirection(point, caster) --(point - caster:GetAbsOrigin()):Normalized()
+caster:SetForwardVector(direction)
 caster:EmitSound("nanaya.jumpforward")
 local jump = ParticleManager:CreateParticle("particles/blink.vpcf", PATTACH_CUSTOMORIGIN, caster)
 	
@@ -352,7 +352,7 @@ ParticleManager:SetParticleControl(jump2, 4, caster:GetAbsOrigin())
             iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
             fExpireTime = GameRules:GetGameTime() + 0.4,
             bDeleteOnHit = false,
-            vVelocity = Vector(direction.x, direction.y, 0) * 9000, 
+            vVelocity = direction * 9000, 
         }
 		local projectile = ProjectileManager:CreateLinearProjectile(qdProjectile)
 									

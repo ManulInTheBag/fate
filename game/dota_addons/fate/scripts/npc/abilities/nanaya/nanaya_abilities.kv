@@ -6,7 +6,7 @@
 	 "BaseClass"						"ability_lua"
 	  "ScriptFile"					"abilities/nanaya/nanaya_w_e_knife"
 	  "MaxLevel"						"5"
-	  "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_POINT"
+	  "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
 	  "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 	  "AbilityTextureName"			"custom/nanaya/nanaya_w"
 	  "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
@@ -14,8 +14,8 @@
 	  "AbilityUnitTargetFlags"				"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE"
 	  "AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
 	  "AbilityCastPoint"				"0"
-	  "AbilityCooldown"				"16 14 12 10 8"
-	  
+	  "AbilityCooldown"				"16 15 14 13 12"
+	  "AbilityManaCost"				"200"
 
 		"AbilityValues"
 		{
@@ -41,8 +41,8 @@
 	  "AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3"
 	  "AnimationPlaybackRate" 		"4"
       "AbilityCastPoint"				"0.1"
-	  "AbilityCooldown"				"18 16 14 12 10"
-	  
+	  "AbilityCooldown"				"12"
+	  "AbilityManaCost"				"200"
 	  	
 		"AbilityValues"
 		{
@@ -68,7 +68,7 @@
 	 "AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3"
 	 "AbilityCastPoint" "0.1"
 	 "AnimationPlaybackRate" 		"1"
-	 "AbilityCooldown"				"14"
+	 "AbilityCooldown"				"12"
 	 "AbilityCastRange"				"500"
 	  	
 		"AbilitySpecial"
@@ -141,7 +141,7 @@
 	 "AbilityCastAnimation" 			"ACT_SCRIPT_CUSTOM_4"
 	 "AbilityCastPoint" "0.2"
 	 "AnimationPlaybackRate" 		"0.7"
-	 "AbilityCooldown"				"14"
+	 "AbilityCooldown"				"12"
 	  
 	  	
 		"AbilityValues"
@@ -166,9 +166,9 @@
 	  "AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_15"
 	  "AbilityCastPoint" "0.075"
 	  "AnimationPlaybackRate" 		"3.2"
-	  "AbilityCooldown"				"12 10 8 6 4"
+	  "AbilityCooldown"				"6"
 	  "AbilityCastRange"				"550 600 650 700 750"
-	  
+	  "AbilityManaCost"				"100"
 
 		"AbilityValues"
 		{
@@ -208,7 +208,7 @@
 	  "BaseClass"						"ability_lua"
 	  "ScriptFile"					"abilities/nanaya/nanaya"
 	  "MaxLevel"						"1"
-   	  "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_POINT"
+   	  "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
 	  "AbilityTextureName"			"custom/nanaya/nanaya-f"
 	  "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
 	  "AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
@@ -218,7 +218,7 @@
 	  "AnimationPlaybackRate" 		"4.2"
 	  "AbilityCooldown"				"12"
 	  "AbilityCastRange"				"9999"
-	  	
+	  "AbilityManaCost"				"200"
 
 		"AbilityValues"
 		{
@@ -234,7 +234,7 @@
 	 "BaseClass"						"ability_lua"
 	 "ScriptFile"					"abilities/nanaya/nanaya_q2jump"
 	 "MaxLevel"						"5"
-	 "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	 "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
 	 "AbilityTextureName"			"custom/nanaya/BTNQY-R"
 	 "AbilityUnitTargetTeam" "DOTA_UNIT_TARGET_TEAM_ENEMY"
 	 "AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
@@ -242,9 +242,10 @@
 	 "AbilityCastAnimation" 			"ACT_SCRIPT_CUSTOM_2"
 	 "AbilityCastPoint" "0.1"
 	 "AnimationPlaybackRate" 		"1.1"
-	 "AbilityCooldown"				"14 12 10 8 6"
+	 "AbilityCooldown"				"12"
 	 "AbilityCastRange"				"9999"
-	  	
+	 "AbilityManaCost"				"100"
+
 		"AbilityValues"
 		{
 			"dmg"								"50 70 90 110 130"
@@ -257,14 +258,15 @@
 	  "BaseClass"						"ability_lua"
 	  "ScriptFile"					"abilities/nanaya/nanaya_e_jump"
 	  "MaxLevel"						"5"
-	  "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_POINT"
+	  "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
 	  "AbilityTextureName"			"custom/nanaya/nanaya-Q1"
 	  "AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_15"
 	  "AbilityCastPoint" "0.1"
 	  "AnimationPlaybackRate" 		"1.1"
-	  "AbilityCooldown"				"16 14 12 10 8"
+	  "AbilityCooldown"				"16 15 14 13 12"
 	  "AbilityCastRange"				"9999"
-	  	
+	  "AbilityManaCost"				"200"
+
 		"AbilitySpecial"
 		{
 			"01"
@@ -281,7 +283,7 @@
 	  "ScriptFile"					"abilities/nanaya/nanaya"
 	  "MaxLevel"						"1"
 	  "AbilityTextureName"			"custom/nanaya/nanaya-f"
-	   "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+	   "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
 	  "AbilityUnitTargetType"			"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 	  "AbilityCastAnimation" 			"ACT_DOTA_ITEM_PICKUP"
 	  "AbilityCastPoint" "0.0"

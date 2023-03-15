@@ -180,16 +180,18 @@ function OnBloodfortStart(keys)
 	}
 
 	Timers:RemoveTimer("medusa_bloodfort")
-	if ability.sphereFxIndex then
+	if type(ability.sphereFxIndex) == "number" then
 		ParticleManager:DestroyParticle( ability.sphereFxIndex, false )
 		ParticleManager:ReleaseParticleIndex( ability.sphereFxIndex )
 	end
 
 	Timers:CreateTimer("medusa_bloodfort", {
 		callback = function()
-		if bloodfortCount >= duration then
-			ParticleManager:DestroyParticle( ability.sphereFxIndex, false )
-			ParticleManager:ReleaseParticleIndex( ability.sphereFxIndex )
+		if bloodfortCount >= duration or not caster:IsAlive() then
+			if type(ability.sphereFxIndex) == "number" then
+				ParticleManager:DestroyParticle( ability.sphereFxIndex, false )
+				ParticleManager:ReleaseParticleIndex( ability.sphereFxIndex )
+			end
 			return
 		end
 		

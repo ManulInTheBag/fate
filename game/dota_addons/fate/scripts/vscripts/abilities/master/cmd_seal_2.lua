@@ -56,12 +56,12 @@ function cmd_seal_2:OnSpellStart()
 		return
 	end
 
-	if hero:GetName() == "npc_dota_hero_night_stalker" then
-	self:EndCooldown() 
-	caster:SetMana(caster:GetMana() + self:GetManaCost(1))
-				SendErrorMessage(caster:GetPlayerOwnerID(), "#NANAYA_INCIDENT")
-				return
-	end
+	-- if hero:GetName() == "npc_dota_hero_night_stalker" then
+	-- self:EndCooldown() 
+	-- caster:SetMana(caster:GetMana() + self:GetManaCost(1))
+	-- 			SendErrorMessage(caster:GetPlayerOwnerID(), "#NANAYA_INCIDENT")
+	-- 			return
+	-- end
 
 	hero.ServStat:useWSeal()
 	-- pay mana cost
@@ -71,7 +71,10 @@ function cmd_seal_2:OnSpellStart()
 	-- pay health cost
 	caster:SetHealth(caster:GetHealth() - 1) 
 	master2:SetHealth(caster:GetHealth())
-	ResetAbilities(hero)
+
+	if hero:GetName() ~= "npc_dota_hero_night_stalker" then
+		ResetAbilities(hero)
+	end
 	ResetItems(hero)
 	IncrementCharges(hero)
 
