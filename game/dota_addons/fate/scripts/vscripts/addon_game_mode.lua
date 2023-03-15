@@ -1914,7 +1914,9 @@ end
 function FateGameMode:OnNPCSpawned(keys)
    -- print("[BAREBONES] NPC Spawned")
     local hero = EntIndexToHScript(keys.entindex)
-    if hero:GetName() == "npc_dota_base_additive" then return end
+    if hero:GetName() == "npc_dota_base_additive" then
+        LevelAllAbility(hero)
+    end
     Wrappers.WrapUnit(hero)
     table.insert(_G.AllNpcTable, hero)
 

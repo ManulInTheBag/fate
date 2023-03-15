@@ -26,7 +26,7 @@ function sasaki_tsubame_gaeshi:GetCastPoint()
 	local caster = self:GetCaster()
 
 	if caster:HasModifier("modifier_ganryu_attribute") then
-		return 0.60
+		return 0.80
 	else
 		return 0.80
 	end
@@ -95,6 +95,7 @@ function sasaki_tsubame_gaeshi:TsubameGaeshi(target)
 		--if not enhanced then
 			split_damage = split_damage + caster:GetAverageTrueAttackDamage(caster)*0.3
 			final_damage = final_damage + caster:GetAverageTrueAttackDamage(caster)*0.5
+			giveUnitDataDrivenModifier(caster, caster, "jump_pause", 0.5)
 		--else
 		--	combined_damage = combined_damage + caster:GetAverageTrueAttackDamage(caster)
 		--end

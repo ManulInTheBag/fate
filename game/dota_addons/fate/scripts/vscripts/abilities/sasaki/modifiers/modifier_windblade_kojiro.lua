@@ -28,7 +28,7 @@ if IsServer() then
 
 	function modifier_windblade_kojiro:OnIntervalThink()
 		local caster = self:GetParent()
-		local target_search = FindUnitsInRadius(caster:GetTeam(), self.WindbladeOrigin, nil, self.Radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_ANY_ORDER, false)
+		local target_search = FindUnitsInRadius(caster:GetTeam(), self.WindbladeOrigin, nil, self.Radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_FARTHEST, false)
 		local damage = self:GetAbility():GetSpecialValueFor("base_damage")
 		local continue_possible = true
 		local current_location = caster:GetAbsOrigin()
@@ -40,23 +40,24 @@ if IsServer() then
 			skip_target = false
 			if target_search[i]:HasModifier("modifier_windblade_hit_marker") or target_search[i]:HasModifier("modifier_wind_protection_passive") then
 				local stacks = target_search[i]:GetModifierStackCount("modifier_windblade_hit_marker", caster)
-				if stacks >= 2 or target_search[i]:HasModifier("modifier_wind_protection_passive") then 
+				if stacks >= 1 or target_search[i]:HasModifier("modifier_wind_protection_passive") then 
 					skip_target = true 
 				end			
 			end
 
 			if not skip_target then
-				local diff = target_search[i]:GetAbsOrigin() - caster:GetAbsOrigin()
+				local diff = target_search[i]:GetAbsOrigin() - self.WindbladeOrigin
 				caster:SetAbsOrigin(target_search[i]:GetAbsOrigin() - diff:Normalized() * 100)
 				FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)				
 
-				caster:PerformAttack(target_search[i], true, true, true, true, false, false, false)
+				--caster:PerformAttack(target_search[i], true, true, true, true, false, false, false)
 				DoDamage(caster, target_search[i], damage, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
+				target_search[i]:EmitSound("Tsubame_Slash_" .. math.random(1,3))
 				self.RemainingHits = self.RemainingHits - 1
 
-				if caster:HasModifier("modifier_sasaki_kappa") then
-					target_search[i]:AddNewModifier(caster, self:GetAbility(), "modifier_stunned", { Duration = self.StunDuration })
-				end
+				--if caster:HasModifier("modifier_sasaki_kappa") then
+				target_search[i]:AddNewModifier(caster, self:GetAbility(), "modifier_stunned", { Duration = self.StunDuration })
+				--end
 
 				CreateSlashFx(caster, current_location, target_search[i]:GetAbsOrigin() + RandomVector(200))
 				target_search[i]:AddNewModifier(caster, self:GetAbility(), "modifier_windblade_hit_marker", { Duration = 0.433 })

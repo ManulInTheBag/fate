@@ -475,7 +475,7 @@ end
 
 modifier_f16_mana = class({})
 
-function modifier_f16_mana:IsHidden() return true end
+function modifier_f16_mana:IsHidden() return false end
 
 function modifier_f16_mana:DeclareFunctions()
     return {MODIFIER_PROPERTY_EXTRA_HEALTH_BONUS}

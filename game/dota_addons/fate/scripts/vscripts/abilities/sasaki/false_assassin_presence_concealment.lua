@@ -5,5 +5,5 @@ LinkLuaModifier("modifier_sasaki_kappa", "abilities/sasaki/modifiers/modifier_sa
 
 function false_assassin_presence_concealment:OnSpellStart()
 	local caster = self:GetCaster()	
-	caster:AddNewModifier(caster, self, "modifier_sasaki_kappa", { Duration = self:GetSpecialValueFor("duration")})
+	caster:AddNewModifier(caster, self, "modifier_sasaki_kappa", {})
 end

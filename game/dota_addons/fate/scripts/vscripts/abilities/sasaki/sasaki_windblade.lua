@@ -58,9 +58,9 @@ function sasaki_windblade:OnSpellStart()
 			    ParticleManager:SetParticleControl(slashIndex, 2, Vector(0.2,0,0))
 
 			    if not IsKnockbackImmune(v) then
-			    	if caster:HasModifier("modifier_sasaki_kappa") then
+			    	--if caster:HasModifier("modifier_sasaki_kappa") then
 			    		giveUnitDataDrivenModifier(caster, v, "drag_pause", 0.5)
-			    	end
+			    	--end
 					local pushback = Physics:Unit(v)
 					v:PreventDI()
 					v:SetPhysicsFriction(0)

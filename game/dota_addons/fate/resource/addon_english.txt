@@ -3308,7 +3308,7 @@
 		//"DOTA_Tooltip_Ability_sasaki_heart_of_harmony_Note2"		"For 0.5 seconds after counterattack, Assassin cleanses any negative effects on himself and benefits from damage reduction."
 
 		"DOTA_Tooltip_Ability_sasaki_windblade"						"Windblade"
-		"DOTA_Tooltip_ability_sasaki_windblade_Description"			"Kojiro swirls his blade to create slicing wind around him, pushing all enemies away from him, and then proceed to attack each of them randomly up to 2 slashes each enemy."
+		"DOTA_Tooltip_ability_sasaki_windblade_Description"			"Kojiro swirls his blade to create slicing wind around him, pushing all enemies away from him, and then proceed to attack each of them, dealing magical damage."
 		//\n\n<font color='#79C7F0'>Focus</font>:Increase the number of slashes (does not increase maximum number of slashes) and causes them to stun the enemy on each attack. Kojiro becomes invulnerable and disjoints all projectile while slashing.\n\nKojiro is <font color='#FF5555'>Exhausted</font> when this ability is used.
 		"DOTA_Tooltip_ability_sasaki_windblade_Lore"				"A swing from the wanderer's blade brings forward a squall."
 		"DOTA_Tooltip_ability_sasaki_windblade_radius"				"Radius:"
@@ -3347,7 +3347,7 @@
 		"DOTA_Tooltip_Ability_false_assassin_tsubame_mai_slash_amount"	"SLASH AMOUNT:"
 
 		"DOTA_Tooltip_Ability_false_assassin_attribute_ganryu"					"Attribute: Ganryu"
-		"DOTA_Tooltip_ability_false_assassin_attribute_ganryu_Description"		"Reduces Tsubame Gaeshi's cast point by %slash_reduc% seconds. Each slash from Tsubame Gaeshi gains increased damage based on Kojiro's attack. Kojiro becomes invulnerable and untargetable while performing Tsubame Gaeshi. Using Quickdraw refreshes the cooldown of Tsubame Gaeshi.\nIf Kojiro is <font color='#79C7F0'>Focused</font>, Tsubame Gaeshi will pierce invulnerability and Avalon."
+		"DOTA_Tooltip_ability_false_assassin_attribute_ganryu_Description"		"Each slash from Tsubame Gaeshi gains increased damage based on Kojiro's attack. Kojiro becomes invulnerable and untargetable while performing Tsubame Gaeshi. Using Quickdraw refreshes the cooldown of Tsubame Gaeshi.\nIf Kojiro is <font color='#79C7F0'>Focused</font>, Tsubame Gaeshi will pierce invulnerability and Avalon."
 		"DOTA_Tooltip_ability_false_assassin_attribute_ganryu_minor_slash_dmg"	"%First Two Slash Bonus:"
 		"DOTA_Tooltip_ability_false_assassin_attribute_ganryu_final_slash_dmg"	"%Final Slash Bonus:"
 		"DOTA_Tooltip_ability_false_assassin_attribute_ganryu_Note0"			"Untargettability follows the same rules as Jump effects such as Gae Bolg and Bellerophon."
@@ -3367,7 +3367,7 @@
 		"DOTA_Tooltip_Ability_false_assassin_attribute_quickdraw_exhausted_duration"	"Exhausted Duration:"
 
 		"DOTA_Tooltip_Ability_false_assassin_attribute_vitrification"				"Attribute: Vitrification"
-		"DOTA_Tooltip_ability_false_assassin_attribute_vitrification_Description"	"Enables Perfect Swordsman for Kojiro.\n<font color='#58ACFA'>Perfect Swordsman : </font>Kojiro melds into nature with peace of mind for next 1.5 seconds. While this effect persists, Windblade stuns it's targets."
+		"DOTA_Tooltip_ability_false_assassin_attribute_vitrification_Description"	"Enables Presence Concealment for Kojiro.\n<font color='#58ACFA'>Presence Concealment : </font>Kojiro melds into nature with peace of mind for next 1.5 seconds to enter the state of pure harmony. While in this state, he is invisible and reduces cooldown of all his abilities by 2 seconds for each second.\nInvisibility breaks immediately after taking damage, attacking or using an ability or an item or with 1 second delay after moving."
 
 		"DOTA_Tooltip_Ability_false_assassin_attribute_improve_minds_eye"					"Attribute: Improve Mind's Eye"
 		"DOTA_Tooltip_ability_false_assassin_attribute_improve_minds_eye_Description"		"Increases the Agility ratio of bonus pure damage on attack. Kojiro regains when attacking enemies and double the amount while Gatekeeper is active. Does not gain mana while Kojiro is <font color='#FF5555'>Exhausted</font>."
@@ -3375,8 +3375,8 @@
 		"DOTA_Tooltip_Ability_false_assassin_attribute_improve_minds_eye_agi_ratio_revoked"	"Agi Ratio Against Revoked Enemy:"
 		"DOTA_Tooltip_Ability_false_assassin_attribute_improve_minds_eye_attack_mana"		"Mana gain on attack:"
 
-		"DOTA_Tooltip_Ability_false_assassin_presence_concealment"				"Perfect Swordsman"
-		"DOTA_Tooltip_ability_false_assassin_presence_concealment_Description"	"Kojiro melds into nature with peace of mind for next 1.5 seconds. While this effect persists, Windblade stuns it's targets."
+		"DOTA_Tooltip_Ability_false_assassin_presence_concealment"				"Presence Concealment"
+		"DOTA_Tooltip_ability_false_assassin_presence_concealment_Description"	"Kojiro melds into nature with peace of mind for next 1.5 seconds to enter the state of pure harmony. While in this state, he is invisible and reduces cooldown of his basic abilities by 2 seconds each second.\nInvisibility breaks immediately after taking damage, attacking or using an ability or an item or with 1 second delay after moving."
 		"DOTA_Tooltip_ability_false_assassin_presence_concealment_Lore"	""
 
 
