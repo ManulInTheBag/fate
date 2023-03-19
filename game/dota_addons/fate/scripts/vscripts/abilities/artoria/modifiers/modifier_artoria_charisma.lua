@@ -37,7 +37,7 @@ function modifier_artoria_charisma:GetAuraSearchTeam()
 end
 
 function modifier_artoria_charisma:GetAuraSearchType()
-	return DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC
+	return DOTA_UNIT_TARGET_ALL
 end
 
 function modifier_artoria_charisma:GetAuraSearchFlags()

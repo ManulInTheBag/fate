@@ -246,7 +246,7 @@ function ryougi_double_belfry:Belfry3()
 		if caster:GetForwardVector():Dot(origin_diff_norm) > 0 then
 		    DoDamage(caster, enemy, self:GetSpecialValueFor("third_damage"), DAMAGE_TYPE_PHYSICAL, 0, self, false)
 		    --enemy:AddNewModifier(caster, self, "modifier_muted", {duration = self:GetSpecialValueFor("third_mute_duration")})
-		    giveUnitDataDrivenModifier(caster, enemy, "muted", self:GetSpecialValueFor("third_mute_duration"))
+		    --giveUnitDataDrivenModifier(caster, enemy, "muted", self:GetSpecialValueFor("third_mute_duration"))
 		    EmitSoundOn("ryougi_hit", enemy)
 		    eyes:CutLine(enemy, "belfry_3")
         end

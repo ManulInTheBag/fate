@@ -113,7 +113,7 @@ function imba_pudge_meat_hook:OnSpellStart()
 		bReplaceExisting = false,
 		iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_BOTH,
 		iUnitTargetFlags = nil,
-		iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+		iUnitTargetType = DOTA_UNIT_TARGET_ALL,
 		fExpireTime = GameRules:GetGameTime() + (self:GetCastRange() / hook_speed),
 		vVelocity = (target_position - self:GetCaster():GetAbsOrigin()):Normalized() * hook_speed * Vector(1, 1, 0),
 		bProvidesVision = false,

@@ -3312,7 +3312,7 @@
 		//\n\n<font color='#79C7F0'>Focus</font>:Increase the number of slashes (does not increase maximum number of slashes) and causes them to stun the enemy on each attack. Kojiro becomes invulnerable and disjoints all projectile while slashing.\n\nKojiro is <font color='#FF5555'>Exhausted</font> when this ability is used.
 		"DOTA_Tooltip_ability_sasaki_windblade_Lore"				"A swing from the wanderer's blade brings forward a squall."
 		"DOTA_Tooltip_ability_sasaki_windblade_radius"				"Radius:"
-		"DOTA_Tooltip_ability_sasaki_windblade_base_slashes"		"Number of Slash:"
+		"DOTA_Tooltip_ability_sasaki_windblade_base_slashes"		"Max enemies:"
 		//"DOTA_Tooltip_ability_sasaki_windblade_empowered_slashes"	"Focus Bonus Slashes:"
 		//"DOTA_Tooltip_ability_sasaki_windblade_stun_duration"		"Focus Stun Duration:"
 		//"DOTA_Tooltip_ability_sasaki_windblade_exhausted_duration"	"Exhausted Duration:"
@@ -3347,7 +3347,7 @@
 		"DOTA_Tooltip_Ability_false_assassin_tsubame_mai_slash_amount"	"SLASH AMOUNT:"
 
 		"DOTA_Tooltip_Ability_false_assassin_attribute_ganryu"					"Attribute: Ganryu"
-		"DOTA_Tooltip_ability_false_assassin_attribute_ganryu_Description"		"Each slash from Tsubame Gaeshi gains increased damage based on Kojiro's attack. Kojiro becomes invulnerable and untargetable while performing Tsubame Gaeshi. Using Quickdraw refreshes the cooldown of Tsubame Gaeshi.\nIf Kojiro is <font color='#79C7F0'>Focused</font>, Tsubame Gaeshi will pierce invulnerability and Avalon."
+		"DOTA_Tooltip_ability_false_assassin_attribute_ganryu_Description"		"Reduces Tsubame Gaeshi castpoint by 0.1.\nEach slash from Tsubame Gaeshi gains increased damage based on Kojiro's attack. Kojiro becomes invulnerable and untargetable while performing Tsubame Gaeshi. Using Quickdraw refreshes the cooldown of Tsubame Gaeshi.\nIf Kojiro is <font color='#79C7F0'>Focused</font>, Tsubame Gaeshi will pierce invulnerability and Avalon."
 		"DOTA_Tooltip_ability_false_assassin_attribute_ganryu_minor_slash_dmg"	"%First Two Slash Bonus:"
 		"DOTA_Tooltip_ability_false_assassin_attribute_ganryu_final_slash_dmg"	"%Final Slash Bonus:"
 		"DOTA_Tooltip_ability_false_assassin_attribute_ganryu_Note0"			"Untargettability follows the same rules as Jump effects such as Gae Bolg and Bellerophon."
@@ -3367,7 +3367,7 @@
 		"DOTA_Tooltip_Ability_false_assassin_attribute_quickdraw_exhausted_duration"	"Exhausted Duration:"
 
 		"DOTA_Tooltip_Ability_false_assassin_attribute_vitrification"				"Attribute: Vitrification"
-		"DOTA_Tooltip_ability_false_assassin_attribute_vitrification_Description"	"Enables Presence Concealment for Kojiro.\n<font color='#58ACFA'>Presence Concealment : </font>Kojiro melds into nature with peace of mind for next 1.5 seconds to enter the state of pure harmony. While in this state, he is invisible and reduces cooldown of all his abilities by 2 seconds for each second.\nInvisibility breaks immediately after taking damage, attacking or using an ability or an item or with 1 second delay after moving."
+		"DOTA_Tooltip_ability_false_assassin_attribute_vitrification_Description"	"Enables Presence Concealment for Kojiro.\n<font color='#58ACFA'>Presence Concealment : </font>Kojiro melds into nature with peace of mind for next 1.5 seconds to enter the state of pure harmony. While in this state, he is invisible and reduces cooldown of all his abilities by 1 second for each second.\nInvisibility breaks immediately after taking damage, attacking or using an ability or an item or with 1 second delay after moving."
 
 		"DOTA_Tooltip_Ability_false_assassin_attribute_improve_minds_eye"					"Attribute: Improve Mind's Eye"
 		"DOTA_Tooltip_ability_false_assassin_attribute_improve_minds_eye_Description"		"Increases the Agility ratio of bonus pure damage on attack. Kojiro regains when attacking enemies and double the amount while Gatekeeper is active. Does not gain mana while Kojiro is <font color='#FF5555'>Exhausted</font>."
@@ -3376,7 +3376,7 @@
 		"DOTA_Tooltip_Ability_false_assassin_attribute_improve_minds_eye_attack_mana"		"Mana gain on attack:"
 
 		"DOTA_Tooltip_Ability_false_assassin_presence_concealment"				"Presence Concealment"
-		"DOTA_Tooltip_ability_false_assassin_presence_concealment_Description"	"Kojiro melds into nature with peace of mind for next 1.5 seconds to enter the state of pure harmony. While in this state, he is invisible and reduces cooldown of his basic abilities by 2 seconds each second.\nInvisibility breaks immediately after taking damage, attacking or using an ability or an item or with 1 second delay after moving."
+		"DOTA_Tooltip_ability_false_assassin_presence_concealment_Description"	"Kojiro melds into nature with peace of mind for next 1.5 seconds to enter the state of pure harmony. While in this state, he is invisible and reduces cooldown of his basic abilities by 1 second each second.\nInvisibility breaks immediately after taking damage, attacking or using an ability or an item or with 1 second delay after moving."
 		"DOTA_Tooltip_ability_false_assassin_presence_concealment_Lore"	""
 
 
@@ -6850,7 +6850,7 @@
 		"DOTA_Tooltip_ability_ryougi_glass_moon_damage"		"Damage:"
 
 		"DOTA_Tooltip_ability_ryougi_double_belfry"				"Double Belfry - Row of Beads"
-		"DOTA_Tooltip_ability_ryougi_double_belfry_Description"	"Series of slashes with %radius% range and %window_duration% second window.\n<font color='#58ACFA'>1st (E):</font> Shiki slashes enemies in front of her, dealing %first_damage% physical damage.\n<font color='#58ACFA'>Kick (E-R):</font> Shiki slides forward for %kick_range%. Deals %kick_damage% physical damage in front of her and stuns enemies for %kick_stun% seconds. Ends the sequence.\n<font color='#58ACFA'>2nd (E-E):</font> Shiki quickly slashes enemies in front of her, dealing %second_damage% physical damage.\n<font color='#58ACFA'>3rd (E-E-E):</font> Shiki performs a slash which targets weak points, dealing %third_damage% physical damage and muting enemies for %third_mute_duration% seconds. Ends the sequence.\n<font color='#58ACFA'>4th (E-E-R):</font> Shiki performs a powerful slash, dealing %fourth_damage% physical damage in front of her, pushing enemies back and stunning them for %fourth_stun_duration%."
+		"DOTA_Tooltip_ability_ryougi_double_belfry_Description"	"Series of slashes with %radius% range and %window_duration% second window.\n<font color='#58ACFA'>1st (E):</font> Shiki slashes enemies in front of her, dealing %first_damage% physical damage.\n<font color='#58ACFA'>Kick (E-R):</font> Shiki slides forward for %kick_range%. Deals %kick_damage% physical damage in front of her and stuns enemies for %kick_stun% seconds. Ends the sequence.\n<font color='#58ACFA'>2nd (E-E):</font> Shiki quickly slashes enemies in front of her, dealing %second_damage% physical damage.\n<font color='#58ACFA'>3rd (E-E-E):</font> Shiki performs a slash which targets weak points, dealing %third_damage% physical damage. Ends the sequence.\n<font color='#58ACFA'>4th (E-E-R):</font> Shiki performs a powerful slash, dealing %fourth_damage% physical damage in front of her, pushing enemies back and stunning them for %fourth_stun_duration%."
 
 		"DOTA_Tooltip_ability_ryougi_double_belfry_mech"		"Double Belfry - Row of Beads"
 		"DOTA_Tooltip_ability_ryougi_double_belfry_mech_description"	"Why are we still here? Just to suffer?"
@@ -6867,7 +6867,7 @@
 		"DOTA_Tooltip_ability_ryougi_ying_yang_Note0"		"Can be used while stunned."
 
 		"DOTA_Tooltip_ability_ryougi_mystic_eyes"			"Mystic Eyes of Death Perception"
-		"DOTA_Tooltip_ability_ryougi_mystic_eyes_Description"	"<font color='#58ACFA'>Passive:</font> each knife slash or thrown knife deals additional physical damage equal to %dmg_mult%x Shiki's attack damage.\n<font color='#58ACFA'>Active:</font> Shiki activates her Mystic Eyes for %duration% seconds. While they are active, each different move except for Double Belfry - Kick cuts one line. Shiki can't continue to cut lines of one enemy with similar moves.\nWhen line is cut, Shiki restores %mana_restore% mana, enemy recieves %immediate_damage%%  of it's maximum health as pure damage and recieves 1 stack of debuff for %line_duration% seconds.\nWhile this debuff persists, it softloks target's health for %health_percent%%  of it's maximum health per stack. If it's higher than that, it's health will slowly decay.\nWhen debuff reaches 4, 8, or 12 stacks, enemy will be locked for %stun_duration% seconds.\nWhen debuff reaches 10 stacks, target dies. Horribly."
+		"DOTA_Tooltip_ability_ryougi_mystic_eyes_Description"	"<font color='#58ACFA'>Passive:</font> each knife slash or thrown knife deals additional physical damage equal to %dmg_mult%x Shiki's attack damage.\n<font color='#58ACFA'>Active:</font> Shiki activates her Mystic Eyes for %duration% seconds. While they are active, each different move except for Double Belfry - Kick cuts one line. Shiki can't continue to cut lines of one enemy with similar moves.\nWhen line is cut, Shiki restores %mana_restore% mana, enemy recieves %immediate_damage%%  of it's maximum health as 50/50 pure and magical damage and recieves 1 stack of debuff for %line_duration% seconds.\nWhile this debuff persists, it softloks target's health for %health_percent%%  of it's maximum health per stack. If it's higher than that, it's health will slowly decay.\nWhen debuff reaches 4, 8, or 12 stacks, enemy will be locked for %stun_duration% seconds.\nWhen debuff reaches 10 stacks, target dies. Horribly."
 		"DOTA_Tooltip_ability_ryougi_mystic_eyes_Note0"			"Health decay is not considered damage."
 		"DOTA_Tooltip_ability_ryougi_mystic_eyes_bonus_vision"	"Attribute bonus vision radius:"
 		"DOTA_Tooltip_ability_ryougi_mystic_eyes_true_sight_range"			"Attribute true sight range:"
@@ -6877,7 +6877,7 @@
 		"DOTA_Tooltip_ability_ryougi_collapse_range"		"Range:"
 
 		"DOTA_Tooltip_ability_ryougi_demise_attribute"		"Attribute: Mystic Eyes of Death Perception - Seven Scenic Demise"
-		"DOTA_Tooltip_ability_ryougi_demise_attribute_Description"		"Using Mystic Eyes of Death Perception taught Shiki a bit about weak points. Each time she deals damage with her knife, she also deals %damage% + %mult% of Shiki's agility pure damage."
+		"DOTA_Tooltip_ability_ryougi_demise_attribute_Description"		"Using Mystic Eyes of Death Perception taught Shiki a bit about weak points. Each time she deals damage with her knife, she also deals %damage% + %mult% of Shiki's agility magical damage."
 
 		"DOTA_Tooltip_ability_ryougi_selfless_knowledge_attribute"		"Attribute: Selfless Knowledge - Empty Heart, Possess Truth"
 		"DOTA_Tooltip_ability_ryougi_selfless_knowledge_attribute_Description"		"Changes Shiki's class to assassin.\nWhenever Shiki activates Mystic Eyes of Death Perception, she reveals all enemies with lines cut for 3 seconds."
@@ -8307,7 +8307,7 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
 		"DOTA_Tooltip_Ability_master_shard_of_avarice_Lore"			"A shard of the legendary artifact that is known to descend upon the soul in its most dire situation. Despite being a makeshift, a trivial wish of mere human may not be asking too much...\n"
 
 		"DOTA_Tooltip_Ability_master_shard_of_anti_magic"				"Shard of Anti-Magic"
-		"DOTA_Tooltip_ability_master_shard_of_anti_magic_Description"	"Grants 3 Shard of Anti-Magic to your Servant, a powerful artifact that renders the owner immune to magic for 5 seconds."
+		"DOTA_Tooltip_ability_master_shard_of_anti_magic_Description"	"Grants 3 Shard of Anti-Magic to your Servant, a powerful artifact that renders the owner immune to magic for 5 seconds and gives them 80%% magical resistance."
 		"DOTA_Tooltip_Ability_master_shard_of_anti_magic_Lore"			"A shard of the legendary artifact that is known to descend upon the soul in its most dire situation. Despite being a makeshift, a trivial wish of mere human may not be asking too much...\n"
 
 		"DOTA_Tooltip_Ability_master_shard_of_replenishment"				"Shard of Replenishment"

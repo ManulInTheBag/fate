@@ -20,7 +20,7 @@ function arturia_invisible_air:OnSpellStart()
         bReplaceExisting = true,
         iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
         iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
-        iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+        iUnitTargetType = DOTA_UNIT_TARGET_ALL,
         fExpireTime = GameRules:GetGameTime() + 1.0,
 		bDeleteOnHit = true,
 		vVelocity = hCaster:GetForwardVector() * 1575

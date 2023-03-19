@@ -656,7 +656,7 @@ function OnSubSkewerStart(keys)
         bReplaceExisting = false,
         iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
         iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
-        iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+        iUnitTargetType = DOTA_UNIT_TARGET_ALL,
         fExpireTime = GameRules:GetGameTime() + 2.0,
 		bDeleteOnHit = false,
 		vVelocity = caster:GetForwardVector() * 3000

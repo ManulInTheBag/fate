@@ -52,6 +52,10 @@ if IsServer() then
 
 				--caster:PerformAttack(target_search[i], true, true, true, true, false, false, false)
 				DoDamage(caster, target_search[i], damage, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
+				local mai = caster:FindModifierByName("modifier_tsubame_mai")
+				if mai then
+					mai:MaiBuffer(target_search[i])
+				end
 				target_search[i]:EmitSound("Tsubame_Slash_" .. math.random(1,3))
 				self.RemainingHits = self.RemainingHits - 1
 

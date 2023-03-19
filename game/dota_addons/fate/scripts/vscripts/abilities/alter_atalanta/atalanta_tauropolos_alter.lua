@@ -113,7 +113,7 @@ function modifier_tauropolos_alter:OnIntervalThink()
                                         nil, 
                                         self.max_dist, 
                                         DOTA_UNIT_TARGET_TEAM_ENEMY, 
-                                        DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, 
+                                        DOTA_UNIT_TARGET_ALL, 
                                         DOTA_UNIT_TARGET_FLAG_NONE, 
                                         0, 
                                         false)

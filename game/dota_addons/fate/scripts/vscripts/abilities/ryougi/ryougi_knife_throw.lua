@@ -33,7 +33,7 @@ function ryougi_knife_throw:OnSpellStart()
     bReplaceExisting = false,
     iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
     iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
-    iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+    iUnitTargetType = DOTA_UNIT_TARGET_ALL,
     --bProvidesVision = true,
     bDeleteOnHit = true,
     --iVisionRadius = 500,

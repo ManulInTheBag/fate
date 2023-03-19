@@ -157,7 +157,7 @@ function modifier_sasaki_kappa_cd:OnIntervalThink()
 
 		if not ability:IsCooldownReady() then
 			ability:EndCooldown()
-			ability:StartCooldown(cooldown - 2)
+			ability:StartCooldown(cooldown - 1)
 		end
 	end
 end

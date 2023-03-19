@@ -35,6 +35,12 @@ function ryougi_mystic_eyes:OnSpellStart()
 	end
 end
 
+function ryougi_mystic_eyes:OnOwnerDied()
+	LoopOverHeroes(function(hero)
+    	hero:RemoveModifierByName("modifier_ryougi_lines")
+    end)
+end
+
 function ryougi_mystic_eyes:CutLine(enemy, line_name, is_fan)
 	local caster = self:GetCaster()
 
@@ -52,12 +58,13 @@ function ryougi_mystic_eyes:CutLine(enemy, line_name, is_fan)
 	DoDamage(caster, enemy, caster:GetAverageTrueAttackDamage(caster)*multiplier*self:GetSpecialValueFor("dmg_mult"), DAMAGE_TYPE_PHYSICAL, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self, false)
 
 	if caster.DemiseAcquired then
-		DoDamage(caster, enemy, (self:GetSpecialValueFor("demise_damage") + caster:GetAgility()*self:GetSpecialValueFor("agi_mult"))*multiplier, DAMAGE_TYPE_PURE, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self, false)
+		DoDamage(caster, enemy, (self:GetSpecialValueFor("demise_damage") + caster:GetAgility()*self:GetSpecialValueFor("agi_mult"))*multiplier, DAMAGE_TYPE_MAGICAL, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self, false)
 	end
 
 	if not enemy:IsHero() then
 		if caster:HasModifier("modifier_ryougi_mystic_eyes_active") then
-			DoDamage(caster, enemy, enemy:GetMaxHealth()*0.1*multiplier, DAMAGE_TYPE_PURE, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self, false)
+			DoDamage(caster, enemy, enemy:GetMaxHealth()*0.1*multiplier/2, DAMAGE_TYPE_MAGICAL, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self, false)
+			DoDamage(caster, enemy, enemy:GetMaxHealth()*0.1*multiplier/2, DAMAGE_TYPE_PURE, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self, false)
 		end
 		return
 	end
@@ -223,7 +230,8 @@ function modifier_ryougi_lines:OnCreated()
 
 		local damage = self.ability:GetSpecialValueFor("immediate_damage")*self.parent:GetMaxHealth()/100
 
-		DoDamage(self.caster, self.parent, damage, DAMAGE_TYPE_PURE, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self.ability, false)
+		DoDamage(self.caster, self.parent, damage/2, DAMAGE_TYPE_MAGICAL, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self.ability, false)
+		DoDamage(self.caster, self.parent, damage/2, DAMAGE_TYPE_PURE, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self.ability, false)
 
 		local effect_cast = ParticleManager:CreateParticle( "particles/ryougi/ryougi_crit_impact.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent )
 		ParticleManager:SetParticleControlEnt(
@@ -250,7 +258,8 @@ function modifier_ryougi_lines:OnRefresh()
 	if IsServer() then
 		local damage = self.ability:GetSpecialValueFor("immediate_damage")*self.parent:GetMaxHealth()/100
 
-		DoDamage(self.caster, self.parent, damage, DAMAGE_TYPE_PURE, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self.ability, false)
+		DoDamage(self.caster, self.parent, damage/2, DAMAGE_TYPE_MAGICAL, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self.ability, false)
+		DoDamage(self.caster, self.parent, damage/2, DAMAGE_TYPE_PURE, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self.ability, false)
 
 		local effect_cast = ParticleManager:CreateParticle( "particles/ryougi/ryougi_crit_impact.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent )
 		ParticleManager:SetParticleControlEnt(

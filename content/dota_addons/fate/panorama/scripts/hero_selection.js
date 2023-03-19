@@ -61,7 +61,7 @@ function SelectHero() {
 function RandomHero() {
 	if (!IsLocalHeroLockedOrPicked()) {
 		var localPlayerId = Game.GetLocalPlayerID();
-		if (Players.IsValidPlayerID(localPlayerId) && !Players.IsSpectator(localPlayerId)) {
+		if (Players.IsValidPlayerID(localPlayerId) && !Players.IsSpectator(localPlayerId) && !IsDraftMode) {
 			GameEvents.SendCustomGameEventToServer('hero_selection_player_random', {});
 		}
 	}

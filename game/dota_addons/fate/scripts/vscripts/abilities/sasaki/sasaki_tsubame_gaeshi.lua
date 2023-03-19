@@ -26,7 +26,7 @@ function sasaki_tsubame_gaeshi:GetCastPoint()
 	local caster = self:GetCaster()
 
 	if caster:HasModifier("modifier_ganryu_attribute") then
-		return 0.80
+		return 0.70
 	else
 		return 0.80
 	end
