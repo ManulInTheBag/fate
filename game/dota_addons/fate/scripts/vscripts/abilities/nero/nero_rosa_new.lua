@@ -320,13 +320,13 @@ function modifier_nero_rosa_motion_enemy:IsPurgeException() return false end
 function modifier_nero_rosa_motion_enemy:RemoveOnDeath() return true end
 function modifier_nero_rosa_motion_enemy:CheckState()
     local state =   { 
-                        [MODIFIER_STATE_COMMAND_RESTRICTED] = true,
+                        --[MODIFIER_STATE_COMMAND_RESTRICTED] = true,
                         [MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true,
                         [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
                         [MODIFIER_STATE_ROOTED] = true,
-                        [MODIFIER_STATE_DISARMED] = true,
-                        [MODIFIER_STATE_SILENCED] = true,
-                        [MODIFIER_STATE_MUTED] = true,
+                        --[MODIFIER_STATE_DISARMED] = true,
+                        --[MODIFIER_STATE_SILENCED] = true,
+                        --[MODIFIER_STATE_MUTED] = true,
                     }
     return state
 end

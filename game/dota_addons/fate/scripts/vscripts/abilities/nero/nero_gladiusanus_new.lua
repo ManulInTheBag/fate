@@ -92,9 +92,9 @@ function nero_gladiusanus_new:OnSpellStart()
                 end
 
                 --enemy:AddNewModifier(caster, enemy, "modifier_rooted", {duration = self:GetSpecialValueFor("root_duration")})
-                giveUnitDataDrivenModifier(caster, enemy, "locked", self:GetSpecialValueFor("root_duration"))
+                --giveUnitDataDrivenModifier(caster, enemy, "locked", self:GetSpecialValueFor("root_duration"))
                 enemy:AddNewModifier(caster, enemy, "modifier_nero_gladiusanus_new", {duration = self:GetSpecialValueFor("root_duration")})
-                enemy:AddNewModifier(caster, enemy, "modifier_stunned", {duration = 0.1})
+                --enemy:AddNewModifier(caster, enemy, "modifier_stunned", {duration = 0.1})
 
                 if not IsKnockbackImmune(enemy) then
                     ApplyAirborneOnly(enemy, 2000, self:GetSpecialValueFor("root_duration"))

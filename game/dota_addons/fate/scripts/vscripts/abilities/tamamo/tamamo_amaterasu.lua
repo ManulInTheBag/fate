@@ -250,7 +250,7 @@ function modifier_amaterasu_enemy:OnAbilityExecuted(args)
         local caster = self:GetCaster()
         local damage = amaterasu:GetSpecialValueFor("damage_per_cast")
         if caster.IsTerritoryAcquired then
-        	damage = damage + caster:GetIntellect()
+        	damage = damage + caster:GetIntellect()/2
         	hero:AddNewModifier(caster, amaterasu, "modifier_amaterasu_enemy_slow", {duration = 0.75})
         	caster:ApplyHeal(amaterasu:GetSpecialValueFor("heal_per_cast")/3, amaterasu)
         	caster:GiveMana(amaterasu:GetSpecialValueFor("mana_per_cast")/3)

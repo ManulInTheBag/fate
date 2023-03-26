@@ -222,7 +222,16 @@ function tamamo_soul_stream:FireCharmProc(hTarget, vLocation, is_ss)
 	local hCharmDebuff = "modifier_tamamo_fire_debuff"
 	local hCharmAbility = hCaster:FindAbilityByName("tamamo_fiery_heaven")
 
-	local tEnemies = FindUnitsInRadius(hCaster:GetTeam(), vLocation, nil, fExplodeRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
+	local tEnemies = FindUnitsInRadius(hCaster:GetTeam(), vLocation, nil, fExplodeRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	local fDamage = hCharmAbility:GetSpecialValueFor("damage") + hCharmAbility:GetSpecialValueFor("int_ratio")*hCaster:GetIntellect()
+
+	if is_ss then
+		fDamage = fDamage/6
+	end
+	if not hTarget:IsMagicImmune() then
+		DoDamage(hCaster, hTarget, fDamage*2, DAMAGE_TYPE_MAGICAL, 0, hCharmAbility, false)
+	end
+
 	for i = 1, #tEnemies do
 		if hCharmDebuff ~= nil and hCharmAbility ~= nil then
 			tEnemies[i]:AddNewModifier(hCaster, hCharmAbility, hCharmDebuff, { Duration = hCharmAbility:GetSpecialValueFor("duration"), is_ss = is_ss })
