@@ -360,7 +360,7 @@ function Precache( context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_phantom_lancer.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_queenofpain.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_razor.vsndevts", context )
-        PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_night_stalker.vsndevts", context )
+    PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_night_stalker.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_riki.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_shadowshaman.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_skeleton_king.vsndevts", context )
@@ -374,6 +374,7 @@ function Precache( context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_ursa.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_vengefulspirit.vsndevts", context )
     PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_windrunner.vsndevts", context )
+    PrecacheResource( "soundfile", "soundevents/voscripts/game_sounds_vo_pugna.vsndevts", context )
 
     -- Items
     PrecacheItemByNameSync("item_apply_modifiers", context)
@@ -2740,7 +2741,7 @@ function FateGameMode:OnAbilityUsed(keys)
     -- Check whether ability is an item active or not
     if not string.match(abilityname,"item") then
         -- Check if hero is affected by Amaterasu
-        if hero:HasModifier("modifier_amaterasu_ally") and not (hero:GetName() == "npc_dota_hero_juggernaut" or hero:GetName() == "npc_dota_hero_shadow_shaman") then
+        --[[if hero:HasModifier("modifier_amaterasu_ally") and not (hero:GetName() == "npc_dota_hero_juggernaut" or hero:GetName() == "npc_dota_hero_shadow_shaman") then
             for i=1, #spellBooks do
                 if abilityname == spellBooks[i] then return end
             end
@@ -2749,7 +2750,7 @@ function FateGameMode:OnAbilityUsed(keys)
             hero:EmitSound("DOTA_Item.ArcaneBoots.Activate")
             local particle = ParticleManager:CreateParticle("particles/items_fx/arcane_boots.vpcf", PATTACH_ABSORIGIN_FOLLOW, hero)
             ParticleManager:SetParticleControl(particle, 0, hero:GetAbsOrigin())
-        end
+        end]]
 
         -- Check if a hero with Martial Arts is nearby
         if hero:HasModifier("modifier_martial_arts_aura_enemy") then

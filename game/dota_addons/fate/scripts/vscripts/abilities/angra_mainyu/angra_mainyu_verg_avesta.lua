@@ -3,9 +3,14 @@ angra_mainyu_verg_avesta = class({})
 LinkLuaModifier("modifier_verg_damage_tracker", "abilities/angra_mainyu/modifiers/modifier_verg_damage_tracker", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_verg_damage_tracker_progress", "abilities/angra_mainyu/modifiers/modifier_verg_damage_tracker", LUA_MODIFIER_MOTION_NONE)
 
+function angra_mainyu_verg_avesta:GetAOERadius()
+	return 1200
+end
+
 function angra_mainyu_verg_avesta:OnSpellStart()
 	local caster = self:GetCaster()
 	local ability = self
+	local radius = self:GetAOERadius()
 
 	EmitGlobalSound("Avenger.Berg")
 	EmitGlobalSound("Avenger.BergShout")
@@ -33,8 +38,8 @@ function angra_mainyu_verg_avesta:OnSpellStart()
 
 		LoopOverPlayers(function(player, playerID, playerHero)
 	        if playerHero:IsAlive() and playerHero:HasModifier("modifier_verg_marker") and not playerHero:IsMagicImmune() then
-				if playerHero:GetTeamNumber() ~= caster:GetTeamNumber() then
-					DoDamage(caster, playerHero, damage, DAMAGE_TYPE_MAGICAL, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self, true) 
+				if playerHero:GetTeamNumber() ~= caster:GetTeamNumber() and GetDistance(playerHero, caster) <= radius then
+					DoDamage(caster, playerHero, damage, DAMAGE_TYPE_MAGICAL, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self, true)
 					--EmitGlobalSound("body_reported")
 	        	 
 				end

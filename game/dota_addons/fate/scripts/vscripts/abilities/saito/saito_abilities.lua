@@ -1579,7 +1579,7 @@ function modifier_saito_mind_eye_active:OnIntervalThink()
     local resist = self:GetAbility():GetSpecialValueFor("resist") 
     local counter = 4
     
-    if(self.damage_stored == 0 or self.attacker == nil) then return end
+    --[[if(self.damage_stored == 0 or self.attacker == nil) then return end
     local  damagepertick =   self.damageStored/4
     damagepertick = damagepertick/(100-resist)*resist
     local attacker = self.attacker
@@ -1601,12 +1601,12 @@ function modifier_saito_mind_eye_active:OnIntervalThink()
         end
         return 0.25
     
-    end)
+    end)]]
    
 
 end
 
-function modifier_saito_mind_eye_active:OnTakeDamage(args)
+--[[function modifier_saito_mind_eye_active:OnTakeDamage(args)
     local caster =self:GetParent()
     local ability = self:GetAbility()
     local resist = self:GetAbility():GetSpecialValueFor("resist") 
@@ -1618,7 +1618,7 @@ function modifier_saito_mind_eye_active:OnTakeDamage(args)
             self.attacker = args.attacker
      end
 
-end
+end]]
 
 
  

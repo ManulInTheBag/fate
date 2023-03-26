@@ -378,6 +378,17 @@ if IsServer() then
         end
     end
 
+    CDOTA_BaseNPC.AbilityExecutedCentralized = function(self, hKeys)
+        if IsNotNull(self) then
+            local hModifiers = self:FindAllModifiers()
+            for _, hModifier in pairs(hModifiers) do
+                if IsNotNull(hModifier) and type(hModifier.OnAbilityExecuted) == "function" and not hModifier:HasFunction(MODIFIER_EVENT_ON_ABILITY_EXECUTED) then
+                    hModifier:OnAbilityExecuted(hKeys)
+                end
+            end
+        end
+    end
+
 end
 
 LinkLuaModifier("modifier_fate_mechanic_parent_new", "libraries/fate_functions_server_client", LUA_MODIFIER_MOTION_NONE)
@@ -402,12 +413,28 @@ function modifier_fate_mechanic_parent_new:DeclareFunctions()
     local hFunc =   {
                         MODIFIER_EVENT_ON_ATTACK_START,
                         --MODIFIER_EVENT_ON_ATTACK_RECORD,
+                        MODIFIER_EVENT_ON_ABILITY_EXECUTED,
 
                         MODIFIER_EVENT_ON_DAMAGE_CALCULATED, --FOR LIFESTEAL
                         MODIFIER_EVENT_ON_TAKEDAMAGE, --FOR ALL
                         MODIFIER_EVENT_ON_ATTACK_LANDED
                     }
     return hFunc
+end
+function modifier_fate_mechanic_parent_new:OnAbilityExecuted(keys)
+    if IsServer() then
+        local hCaster = keys.ability:GetCaster()
+        if IsNotNull(hCaster) then
+
+            hCaster:AbilityExecutedCentralized(keys)
+            --[[local iIndex    = tostring(hAttacker:entindex()..hTarget:entindex())
+            local fAccuracy = hAttacker:GetAccuracy(keys)
+            if fAccuracy > 0 
+                and RollPseudoRandom(fAccuracy, hAttacker) then
+                self.ACCURACY_RECORDS[iIndex] = hAttacker:AddNewModifier(hAttacker, self.ability, "modifier_anime_mechanic_accuracy", {})
+            end]]
+        end
+    end
 end
 function modifier_fate_mechanic_parent_new:OnAttackStart(keys)
     if IsServer() then

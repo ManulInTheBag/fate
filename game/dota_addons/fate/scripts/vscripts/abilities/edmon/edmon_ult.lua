@@ -3,7 +3,7 @@ LinkLuaModifier("modifier_edmon_ult", "abilities/edmon/edmon_ult", LUA_MODIFIER_
 edmon_ult = class({})
 
 function edmon_ult:GetAOERadius()
-	return 300
+	return 500
 end
 
 function edmon_ult:GetCastRange()
