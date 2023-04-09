@@ -3272,7 +3272,7 @@
 		"DOTA_Tooltip_Ability_okita_attribute_summer_madness_radius"		"Hit radius:"
 
 		"DOTA_Tooltip_Ability_okita_kenjitsu"	"Master of Tennen Rishin-Ryū Kenjitsu"
-		"DOTA_Tooltip_Ability_okita_kenjitsu_Description"	"Okita has mastered her Tennen Rishin-ryū perfectly. \nIncreases maximum Tennen Rishin-ryū stack count to 20. \nWhile Tennen Rishin-ryū is active, Shukuchi will grant you 100% critical strikes for duration.\n33%% of Zekken Mukyuu Sandan attack damage becomes pure."
+		"DOTA_Tooltip_Ability_okita_kenjitsu_Description"	"Okita has mastered her Tennen Rishin-ryū perfectly. \nIncreases maximum Tennen Rishin-ryū stack count to 20. \nWhile Tennen Rishin-ryū is active, Shukuchi will grant you 100% critical strikes for duration."
 		
 		//=================================================================================================================
 		//	False Assassin(5th)
@@ -3340,14 +3340,14 @@
 		"DOTA_Tooltip_Ability_sasaki_quickdraw_exhausted_duration"	"Exhausted Duration:"
 
 		"DOTA_Tooltip_Ability_false_assassin_tsubame_mai"				"Combo: The Swallow Dance"
-		"DOTA_Tooltip_ability_false_assassin_tsubame_mai_Description"	"<font color='#58ACFA'>Combo Requirement : 30 AGI and STR</font>\n<font color='#58ACFA'>Combo Sequence : Q-W in 2 seconds</font>\nKojiro prepares for his ultimate technique, which activates on next base attack or upon executing counter. Upon activation, Kojiro teleports to the rear of attacker, <font color='#FF3399'>knocking it into air</font>, then performs 5 slashes and Tsubame Gaeshi to the target."
+		"DOTA_Tooltip_ability_false_assassin_tsubame_mai_Description"	"<font color='#58ACFA'>Combo Requirement : 30 AGI and STR</font>\n<font color='#58ACFA'>Combo Sequence : Q-W in 2 seconds</font>\nKojiro prepares for his ultimate technique, which activates on next base attack or upon executing counter. Upon activation, Kojiro teleports to the rear of attacker, <font color='#FF3399'>knocking it into air</font>, then performs 5 slashes and Tsubame Gaeshi to the target. \nExecuting this ability will start the cooldown of Tsubame Gaeshi."
 		"DOTA_Tooltip_ability_false_assassin_tsubame_mai_Lore"			"The swordplay ultimatum unravels."
 		"DOTA_Tooltip_ability_false_assassin_tsubame_mai_duration"		"COUNTER DURATION:"
 		"DOTA_Tooltip_ability_false_assassin_tsubame_mai_threshold"		"COUNTER THRESHOLD:"
 		"DOTA_Tooltip_Ability_false_assassin_tsubame_mai_slash_amount"	"SLASH AMOUNT:"
 
 		"DOTA_Tooltip_Ability_false_assassin_attribute_ganryu"					"Attribute: Ganryu"
-		"DOTA_Tooltip_ability_false_assassin_attribute_ganryu_Description"		"Reduces Tsubame Gaeshi castpoint by 0.1.\nEach slash from Tsubame Gaeshi gains increased damage based on Kojiro's attack. Kojiro becomes invulnerable and untargetable while performing Tsubame Gaeshi. Using Quickdraw refreshes the cooldown of Tsubame Gaeshi.\nIf Kojiro is <font color='#79C7F0'>Focused</font>, Tsubame Gaeshi will pierce invulnerability and Avalon."
+		"DOTA_Tooltip_ability_false_assassin_attribute_ganryu_Description"		"Increases Tsubame Gaeshi castpoint by 0.2.\nEach slash from Tsubame Gaeshi gains increased damage based on Kojiro's attack. Kojiro becomes invulnerable and untargetable while performing Tsubame Gaeshi. Using Quickdraw refreshes the cooldown of Tsubame Gaeshi.\nIf Kojiro is <font color='#79C7F0'>Focused</font>, Tsubame Gaeshi will pierce invulnerability and Avalon."
 		"DOTA_Tooltip_ability_false_assassin_attribute_ganryu_minor_slash_dmg"	"%First Two Slash Bonus:"
 		"DOTA_Tooltip_ability_false_assassin_attribute_ganryu_final_slash_dmg"	"%Final Slash Bonus:"
 		"DOTA_Tooltip_ability_false_assassin_attribute_ganryu_Note0"			"Untargettability follows the same rules as Jump effects such as Gae Bolg and Bellerophon."
@@ -3359,7 +3359,7 @@
 		"DOTA_Tooltip_Ability_false_assassin_attribute_eye_of_serenity_vision_cd"			"COOLDOWN ON SAME SERVANT:"
 
 		"DOTA_Tooltip_Ability_false_assassin_attribute_quickdraw"						"Attribute: Quickdraw"
-		"DOTA_Tooltip_ability_false_assassin_attribute_quickdraw_Description"			"Enables Quickdraw for 5 seconds after using Gate Keeper.\n<font color='#58ACFA'>Quickdraw : </font>Kojiro rushes toward the targetted location and cuts down all enemies in his path, dealing magical damage. Damage is increased by Kojiro's physical attack damage. All enemies struck are also slashed by Kojiro a number of times"
+		"DOTA_Tooltip_ability_false_assassin_attribute_quickdraw_Description"			"Enables Quickdraw for the duration of Gatekeeper.\n<font color='#58ACFA'>Quickdraw : </font>Kojiro rushes toward the targetted location and cuts down all enemies in his path, dealing magical damage. Damage is increased by Kojiro's physical attack damage. All enemies struck are also slashed by Kojiro a number of times"
 		"DOTA_Tooltip_Ability_false_assassin_attribute_quickdraw_base_damage"			"Base Damage:"		
 		"DOTA_Tooltip_Ability_false_assassin_attribute_quickdraw_atk_ratio"				"%Attack Ratio:"
 		"DOTA_Tooltip_Ability_false_assassin_attribute_quickdraw_focus_attacks"			"Bonus Attacks:"
@@ -4147,7 +4147,7 @@
         "DOTA_Tooltip_ability_avenger_true_form_duration"   "DURATION:"
 
         "DOTA_Tooltip_Ability_angra_mainyu_verg_avesta"					"Verg Avesta"
-        "DOTA_Tooltip_ability_angra_mainyu_verg_avesta_Description"		"Passive: Angra Mainyu stores his resentment, recording the amount of damage he had taken recently.\nActive: Angra Mainyu unleases a curse of retribution, dealing damage equal to the total damage he had taken recently to all enemies whom had damaged him recently. Damage taken can be tracked on his Verg Avesta buff.\n\nUpgradable by attribute Demon Incarnate."
+        "DOTA_Tooltip_ability_angra_mainyu_verg_avesta_Description"		"Passive: Angra Mainyu stores his resentment, recording the amount of damage he had taken recently.\nActive: Angra Mainyu unleases a curse of retribution, dealing damage equal to the total damage he had taken recently to all enemies within a certain radius around himself. Damage taken can be tracked on his Verg Avesta buff.\n\nUpgradable by attribute Demon Incarnate."
         "DOTA_Tooltip_ability_angra_mainyu_verg_avesta_Lore"			"The killer of mankind assumes the simplest rule of the world - Retribution."
  		"DOTA_Tooltip_ability_angra_mainyu_verg_avesta_multiplier"		"%Damage Amplification:"
  		"DOTA_Tooltip_ability_angra_mainyu_verg_avesta_reset_delay" 	"Duration until reset:"

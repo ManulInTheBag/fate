@@ -124,7 +124,7 @@ function OnMurder(keys)
 	local target = keys.unit
 	local ability = keys.ability
 	local manareg = 0
-	if target:GetName() == "npc_dota_creature" then 
+	if target:GetUnitName() == "avenger_remain" then 
 		--print("Avenger killed a unit")
 		manareg = caster:GetMaxMana() * keys.ManaRegen / 100
 	elseif target:IsHero() then

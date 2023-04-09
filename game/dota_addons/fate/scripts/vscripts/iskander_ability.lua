@@ -73,7 +73,7 @@ function OnPhalanxStart(keys)
 	local caster = keys.caster
 	local duration = keys.Duration
 	if caster.IsBeyondTimeAcquired == true then
-		duration = duration + 6
+		duration = duration + 3
 	end
 	--if caster.AOTKSoldierCount == nil then caster.AOTKSoldierCount = 0 end --initialize soldier count if its not made yet
 	local aotkAbility = caster:FindAbilityByName("iskander_army_of_the_king")

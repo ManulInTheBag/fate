@@ -4,7 +4,7 @@ LinkLuaModifier("modifier_verg_damage_tracker", "abilities/angra_mainyu/modifier
 LinkLuaModifier("modifier_verg_damage_tracker_progress", "abilities/angra_mainyu/modifiers/modifier_verg_damage_tracker", LUA_MODIFIER_MOTION_NONE)
 
 function angra_mainyu_verg_avesta:GetAOERadius()
-	return 1200
+	return 1500
 end
 
 function angra_mainyu_verg_avesta:OnSpellStart()
@@ -31,7 +31,7 @@ function angra_mainyu_verg_avesta:OnSpellStart()
 		local multiplier = self:GetSpecialValueFor("multiplier")
 
 		if caster.IsDIAcquired and caster:HasModifier("modifier_true_form") then
-			multiplier = multiplier + 25
+			multiplier = multiplier + self:GetSpecialValueFor("return_bonus")
 		end
 
 		damage = damage * (multiplier / 100)

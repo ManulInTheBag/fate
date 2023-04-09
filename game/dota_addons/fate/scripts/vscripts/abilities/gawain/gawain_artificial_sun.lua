@@ -79,7 +79,7 @@ function modifier_artificial_sun_aura:GetAuraSearchTeam()
 end
 
 function modifier_artificial_sun_aura:GetAuraSearchType()
-    return DOTA_UNIT_TARGET_ALL
+    return DOTA_UNIT_TARGET_HEROES
 end
 
 function modifier_artificial_sun_aura:GetAuraSearchFlags()
