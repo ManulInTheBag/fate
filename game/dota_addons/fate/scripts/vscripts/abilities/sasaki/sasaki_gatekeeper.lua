@@ -26,7 +26,7 @@ function sasaki_gatekeeper:OnSpellStart()
 
 	if caster.IsQuickdrawAcquired and not caster:HasModifier("modifier_quickdraw_cooldown") then 
 		caster:SwapAbilities("sasaki_gatekeeper", "sasaki_quickdraw", false, true) 
-		Timers:CreateTimer(5, function()
+		Timers:CreateTimer(self:GetSpecialValueFor("duration"), function()
 			    if (caster:GetAbilityByIndex(0):GetName()~="sasaki_gatekeeper") then
 			        caster:SwapAbilities("sasaki_gatekeeper", "sasaki_quickdraw", true, false) 
 		    	end

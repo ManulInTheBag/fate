@@ -537,7 +537,12 @@ function OnAOTKCastStart(keys)
 		caster:GiveMana(800)
 		keys.ability:EndCooldown() 
 		return 
-	end 
+	end
+	LoopOverPlayers(function(player, playerID, playerHero)
+       	if playerHero.gachi == true then
+           	CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound = "one_piece_is_real"})
+       	end
+    end)
 	caster.AOTKSoldiers = {}
 	if caster.AOTKSoldierCount == nil then caster.AOTKSoldierCount = 0 end --initialize soldier count if its not made yet
 	keys.ability:ApplyDataDrivenModifier(keys.caster, keys.caster, "modifier_army_of_the_king_freeze",{})
@@ -1185,7 +1190,7 @@ function OnBrillianceStart(keys)
 	local hero = caster:GetPlayerOwner():GetAssignedHero()
 	keys.ability:ApplyDataDrivenModifier(caster, caster, "modifier_waver_big_bad_voodoo", {})
 	--keys.ability:ApplyDataDrivenModifier(caster, caster, "modifier_waver_big_bad_voodoo_channeling", {}) --leaving this line here though commented in case it is actually needed
-	keys.ability:ApplyDataDrivenModifier(caster, caster, "modifier_waver_silence_aura", {})
+	keys.ability:ApplyDataDrivenModifier(caster, caster, "modifier_waver_silence_aura", {duration = 0.09})
 
 	EmitGlobalSound("Waver_NP_" .. math.random(1,2))
 	if hero:HasModifier("modifier_annihilate_caster") then

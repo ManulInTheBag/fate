@@ -520,6 +520,12 @@ function OnEndlessStart(keys)
 	local resetCounter = 0
 	local initHealth = caster:GetHealth()
 
+	LoopOverPlayers(function(player, playerID, playerHero)
+       	if playerHero.gachi == true then
+           	CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound = "ballin_sped_up"})
+       	end
+    end)
+
 	-- Set master's combo cooldown
 	local masterCombo = caster.MasterUnit2:FindAbilityByName(keys.ability:GetAbilityName())
 	masterCombo:EndCooldown()

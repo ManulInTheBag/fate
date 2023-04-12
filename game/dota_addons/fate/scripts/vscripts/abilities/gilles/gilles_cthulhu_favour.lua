@@ -35,12 +35,12 @@ function gilles_cthulhu_favour:OnSpellStart()
 
  	if self:GetCaster():HasModifier("modifier_sunken_city_attribute") then
 	 	EmitSoundOnLocationWithCaster(hCaster:GetAbsOrigin(), "Gilles_Cthulhu_Root", self:GetCaster())
-	 	local tEnemies = FindUnitsInRadius(self:GetCaster():GetTeam(), vTargetLocation, nil, 200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	 	local tEnemies = FindUnitsInRadius(self:GetCaster():GetTeam(), vTargetLocation, nil, self:GetSpecialValueFor("radius"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		
 		for _,v in pairs(tEnemies) do
 			if not v:IsMagicImmune() then
-				giveUnitDataDrivenModifier(self:GetCaster(), v, "rooted", 4)
-				giveUnitDataDrivenModifier(self:GetCaster(), v, "locked", 4)
+				giveUnitDataDrivenModifier(self:GetCaster(), v, "rooted", 2)
+				giveUnitDataDrivenModifier(self:GetCaster(), v, "locked", 2)
 			end
 		end
 	 end

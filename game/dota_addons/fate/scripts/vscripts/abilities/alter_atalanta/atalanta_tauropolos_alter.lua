@@ -46,6 +46,7 @@ function modifier_tauropolos_alter:OnCreated()
     if IsServer() then
         self.radius = self:GetAbility():GetAOERadius()
         self.caster = self:GetCaster()
+        self.parent = self:GetParent()
         self.frametime = 1
         self.frametime_mana = 0
         self.interval = 0.15
@@ -107,7 +108,7 @@ function modifier_tauropolos_alter:OnIntervalThink()
             end)
         end
 
-		Timers:CreateTimer(0.5, function()
+		Timers:CreateTimer(0, function()
 			local units = FindUnitsInRadius(self.caster:GetTeam(),
                                         self.target_loc, 
                                         nil, 
@@ -120,12 +121,12 @@ function modifier_tauropolos_alter:OnIntervalThink()
 
 		    for _,unit in pairs(units) do
                 if not unit:HasModifier("modifier_protection_from_arrows_active") then
-    		     	DoDamage(self.caster, unit, self.damage + (self.caster.CursedMoonAcquired and 100 or 0), DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
-    		      	for i = 1,self:GetAbility():GetSpecialValueFor("curse_stacks") do
+    		     	DoDamage(self.caster, unit, self.damage + (self.caster.CursedMoonAcquired and 60 or 0), DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
+    		      	for i = 1,(self:GetAbility():GetSpecialValueFor("curse_stacks") + (self.caster.CursedMoonAcquired and 5 or 0)) do
     		           	self.caster:FindAbilityByName("atalanta_curse"):Curse(unit)
-                        if self.caster.CursedMoonAcquired then
+                        --[[if self.caster.CursedMoonAcquired then
                             self.caster:FindAbilityByName("atalanta_curse"):Curse(unit)
-                        end
+                        end]]
     		 	    end
                 end
 		    end

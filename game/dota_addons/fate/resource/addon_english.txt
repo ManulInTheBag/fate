@@ -459,7 +459,7 @@
 		"DOTA_Tooltip_modifier_roar_slow_Description"	"Movement speed and attack speed slowed"
 
 		"DOTA_Tooltip_modifier_atalanta_curse"	"Cursed"
-		"DOTA_Tooltip_modifier_atalanta_curse_Description"	"You take 0.5%% (0.6%% with Blood Moon attribute) more damage from each source, twice more if source is Alter Atalanta."
+		"DOTA_Tooltip_modifier_atalanta_curse_Description"	"You take 0.3%% more damage from each source, twice more if source is Alter Atalanta."
 
 		"DOTA_Tooltip_modifier_atalanta_ora"	"Attack of the Beast"
 		"DOTA_Tooltip_modifier_atalanta_ora_Description"	"Cat is angry. Run."
@@ -468,7 +468,7 @@
 		"DOTA_Tooltip_modifier_atalanta_skia_cd_Description"	"Cat is sleeping."
 
 		"DOTA_Tooltip_modifier_khsn_presence"		"Death's Presence"
-		"DOTA_Tooltip_modifier_khsn_presence_Description"	"You feel the presence of Death itself. You deal 25%% less damage."
+		"DOTA_Tooltip_modifier_khsn_presence_Description"	"You feel the presence of Death itself. You deal 10%% less damage."
 
 		"DOTA_Tooltip_modifier_khsn_bc_active"		"Battle Continuation"
 		"DOTA_Tooltip_modifier_khsn_bc_active_Description"	"Can he even die?"
@@ -477,7 +477,7 @@
 		"DOTA_Tooltip_pedigree_off_Description"	"Improves basic abilities"		
 
 		"DOTA_Tooltip_modifier_mordred_mb_silence"	"Silence"
-		"DOTA_Tooltip_modifier_mordred_mb_silence_Description"	"Ты в муте, клоун."
+		"DOTA_Tooltip_modifier_mordred_mb_silence_Description"	"You are muted, clown."
 		
 		"DOTA_Tooltip_modifier_arondite_overload_cooldown"				"Combo: Arondite Overload Cooldown"
 		"DOTA_Tooltip_modifier_arondite_overload_cooldown_Description"	""
@@ -4430,7 +4430,7 @@
         "DOTA_Tooltip_ability_gilles_demonic_horde_attribute_Lore"			"The fresh terror brought to you, right from the days of Tiffauges."
  
         "DOTA_Tooltip_Ability_gilles_sunken_city_attribute"				"Attribute: Sunken City of R'lyeh"
-        "DOTA_Tooltip_Ability_gilles_sunken_city_attribute_Description"	"Upon the cast of Cthulhu's Favour, all enemies within the area becomes rooted for 4 seconds. After 3 seconds, all enemies within the circle are stunned for %stun_dur% seconds and dealt %end_damage% magic damage. Cthulhu's Favour gains 200 bonus cast range."
+        "DOTA_Tooltip_Ability_gilles_sunken_city_attribute_Description"	"Upon the cast of Cthulhu's Favour, all enemies within the radius become rooted and dimensionally locked for 2 seconds. After 3 seconds, all enemies within the circle are stunned for %stun_dur% seconds and dealt %end_damage% magic damage. Cthulhu's Favour gains 200 bonus cast range."
         "DOTA_Tooltip_ability_gilles_sunken_city_attribute_Lore"		""
  
         "DOTA_Tooltip_Ability_gilles_abyssal_connection_attribute"				"Attribute: Abyssal Connection"
@@ -4708,7 +4708,7 @@
 		"DOTA_Tooltip_Ability_atalanta_jump_curse_stacks"	"Curse stack count:"
 
 		"DOTA_Tooltip_Ability_atalanta_curse"	"Curse of the Calydonian Boar"
-		"DOTA_Tooltip_Ability_atalanta_curse_Description"	"Passive: By attacking or by using abilities Atalanta curses her enemies for 20 seconds. Each stack of curse increases damage dealt to the target by 0.5%%, twice more if Atalanta is the source of the damage. Curse stacks are applied after all other actions ability or attack induces.\nActive: after 5 seconds of chanting all curse stacks on the enemies will explode, dealing magic damage. Explosion damage is not amplified by Curse damage amplify.\nAtalanta remains active while chanting."
+		"DOTA_Tooltip_Ability_atalanta_curse_Description"	"Passive: By attacking or by using abilities Atalanta curses her enemies for 20 seconds. Each stack of curse increases damage dealt to the target by 0.3%%, twice more if Atalanta is the source of the damage. Curse stacks are applied after all other actions ability or attack induces.\nActive: after 5 seconds of chanting all curse stacks on the enemies will explode, dealing magic damage. Explosion damage is not amplified by Curse damage amplify.\nAtalanta remains active while chanting."
 		"DOTA_Tooltip_Ability_atalanta_curse_duration"	"Curse duration:"
 		"DOTA_Tooltip_Ability_atalanta_curse_amplify_per_stack"	"%%Damage amplify per stack:"
 		"DOTA_Tooltip_Ability_atalanta_curse_detonate_damage"	"Active damage per stack:"
@@ -4733,13 +4733,13 @@
 		"DOTA_Tooltip_Ability_atalanta_evolution_attribute_radius"	"Crossing Arcadia stun radius:"
 
 		"DOTA_Tooltip_Ability_atalanta_tornado_attribute"	"Attribute: Tornado Beast"
-		"DOTA_Tooltip_Ability_atalanta_tornado_attribute_Description"	"Atalanta's attacks pull their targets by 40 + (target Curse stacks)/2 towards Atalanta. Attack of the Beast works same.\nCrossing Arcadia pulls all enemies in bigger radius towards Atalanta and applies 5 more stacks.\nTauropolos Skia Thermocrasia pulls all enemies in radius towards Atalanta.\nRoar pulls its targets by the bonus distance equal to the Curse stacks on them and applies 5 more stacks."
+		"DOTA_Tooltip_Ability_atalanta_tornado_attribute_Description"	"Crossing Arcadia pulls all enemies in bigger radius towards Atalanta and applies 5 more stacks.\nTauropolos Skia Thermocrasia pulls all enemies in radius towards Atalanta.\nRoar pulls its targets by the bonus distance equal to the Curse stacks on them and applies 8 more stacks."
 		"DOTA_Tooltip_Ability_atalanta_tornado_attribute_arcadia_pull"	"Crossing Arcadia pull and pull radius:"
 		//"DOTA_Tooltip_Ability_atalanta_tornado_attribute_pull_pull"	"Hunter's Curse pull:"
 		"DOTA_Tooltip_Ability_atalanta_tornado_attribute_skia_pull"	"Combo pull:"
 
 		"DOTA_Tooltip_Ability_atalanta_vision_attribute"	"Attribute: Beastly Enchancement"
-		"DOTA_Tooltip_Ability_atalanta_vision_attribute_Description"	"If Atalanta is alive, position each enemy with 10 or more Curse stacks will be revealed for Atalanta and her team automatically.\nCurse explosion will deal additional 5 damage per stack."
+		"DOTA_Tooltip_Ability_atalanta_vision_attribute_Description"	"If Atalanta is alive, position of each enemy with 10 or more Curse stacks will be revealed for Atalanta and her team automatically.\nCurse explosion will deal additional 5 damage per stack."
 		
 		"DOTA_Tooltip_Ability_atalanta_moon_attribute"	"Attribute: Cursed Moon"
 		"DOTA_Tooltip_Ability_atalanta_moon_attribute_Description"	"Roar deals bonus damage and applies bonus Curse stack per each unit in its radius.\nTauropolos - Arrow Rain applies 10 more Curse stacks per impact and deals 100 additional damage per impact."

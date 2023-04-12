@@ -135,7 +135,7 @@ function modifier_atalanta_curse_passive:OnAttackLanded(args)
 		self:GetParent():Heal(args.target:FindModifierByName("modifier_atalanta_curse"):GetStackCount() + 10, self:GetParent())
 	end
 
-	if self:GetParent().TornadoAcquired then
+	--[[if self:GetParent().TornadoAcquired then
 		args.target:RemoveModifierByName("modifier_knockback")
 		local knockback_pepega = (40 + (args.target:HasModifier("modifier_atalanta_curse") and args.target:FindModifierByName("modifier_atalanta_curse"):GetStackCount() or 0)/2)
 		 local knockback = { should_stun = false,
@@ -148,7 +148,7 @@ function modifier_atalanta_curse_passive:OnAttackLanded(args)
                         center_z = args.attacker:GetAbsOrigin().z }
 
 		args.target:AddNewModifier(caster, self, "modifier_knockback", knockback)
-	end
+	end]]
 
 	self:GetAbility():Curse(args.target)
 end

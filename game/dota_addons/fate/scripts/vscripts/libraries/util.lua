@@ -332,7 +332,8 @@ cleansable = {
     "modifier_arcueid_what",
     "modifier_artoria_mana_burst_slow",
     "modifier_nobu_divinity_mark",
-   "modifier_nobu_divinity_mark_activated",
+    "modifier_nobu_divinity_mark_activated",
+    "iskander_brilliance_of_the_king",
 
 }
 

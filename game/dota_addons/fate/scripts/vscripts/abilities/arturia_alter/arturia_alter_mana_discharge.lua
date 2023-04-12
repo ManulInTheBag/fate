@@ -18,7 +18,7 @@ function arturia_alter_mana_discharge:OnSpellStart()
         		if playerHero.gachi == true then
             		CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound = "a_negri"})
        			end
-    	end)
+    		end)
 	end
 
 end

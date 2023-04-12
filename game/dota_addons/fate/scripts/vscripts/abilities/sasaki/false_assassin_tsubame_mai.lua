@@ -11,6 +11,7 @@ function false_assassin_tsubame_mai:OnSpellStart()
 		ability:EndCooldown()
 		return
 	end
+	caster:FindAbilityByName("sasaki_tsubame_gaeshi"):StartCooldown(caster:FindAbilityByName("sasaki_tsubame_gaeshi"):GetCooldown(-1))
 	--ability:ApplyDataDrivenModifier(caster, caster, "modifier_tsubame_mai", {})
 	caster:AddNewModifier(caster, self, "modifier_tsubame_mai", {duration = 3})
 	-- Set master's combo cooldown
