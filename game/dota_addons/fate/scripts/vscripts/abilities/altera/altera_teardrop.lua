@@ -15,6 +15,9 @@ function altera_teardrop:OnSpellStart()
     masterCombo:EndCooldown()
     masterCombo:StartCooldown(self:GetCooldown(1)/2)
 
+	self:EndCooldown()
+    self:StartCooldown(self:GetCooldown(1)/2)
+
 	local attach = caster:GetAttachmentOrigin(caster:ScriptLookupAttachment("attach_laser"))
 
 	caster:AddNewModifier(caster, self, "modifier_altera_teardrop_anim", {duration = 0.5})
@@ -82,10 +85,12 @@ function altera_teardrop_release:OnSpellStart()
 
 	local masterCombo = caster.MasterUnit2:FindAbilityByName(abil:GetAbilityName())
     masterCombo:EndCooldown()
-    masterCombo:StartCooldown(abil:GetCooldown(1))
+    masterCombo:StartCooldown(abil:GetCooldown(-1))
     local ultability = caster:FindAbilityByName("altera_beam")
     ultability:EndCooldown()
     ultability:StartCooldown(ultability:GetCooldown(-1))
+	self:EndCooldown()
+    self:StartCooldown(self:GetCooldown(-1))
 
 	local impact_damage = self:GetSpecialValueFor("impact_damage")
 	local beam_damage = self:GetSpecialValueFor("beam_damage")

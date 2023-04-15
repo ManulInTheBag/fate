@@ -76,6 +76,7 @@ function nanaya_q2jump:OnProjectileHitHandle(hTarget, vLocation, iProjectileHand
 	caster:SetOrigin(hTarget:GetOrigin() - caster:GetForwardVector()*100)
 	caster:StartGestureWithPlaybackRate(ACT_DOTA_CAST_ABILITY_4, 1)
 	Timers:CreateTimer(0, function()	
+		if ( not caster:IsAlive()  or caster:IsStunned()) then return end
 		if hit > 0 then
 			hit = hit-1
 			DoDamage(caster, hTarget, dmg, DAMAGE_TYPE_MAGICAL, 0, self, false)
@@ -96,6 +97,7 @@ function nanaya_q2jump:OnProjectileHitHandle(hTarget, vLocation, iProjectileHand
     else
     return end	
 end)
+if ( not caster:IsAlive()  or caster:IsStunned()) then return end
 local knockback4 = { should_stun = true,
 				knockback_duration = 0.05,
 				duration = 0.05,
@@ -128,12 +130,16 @@ local knockback4 = { should_stun = true,
 				Timers:CreateTimer(0.01, function()
 				hTarget:RemoveModifierByName("modifier_knockback")
 				if not IsKnockbackImmune(hTarget) then
+					if ( not caster:IsAlive()  or caster:IsStunned()) then return end
 					hTarget:AddNewModifier(caster, self, "modifier_knockback", knockback1)	
 					caster:AddNewModifier(caster, self, "modifier_knockback", knockback2)
 				end
 		end)
 		
 			Timers:CreateTimer(0.75, function()	
+				if ( not caster:IsAlive()  or caster:IsStunned()) then return end
+
+					
 				hTarget:RemoveModifierByName("modifier_knockback")
 				local vec = (caster:GetAbsOrigin() - hTarget:GetAbsOrigin()):Normalized()
 				local knockback3 = { should_stun = false,
@@ -144,29 +150,29 @@ local knockback4 = { should_stun = true,
 				center_x = caster:GetAbsOrigin().x + vec.x * 800,
 				center_y = caster:GetAbsOrigin().y + vec.y * 800,
 				center_z = 4000 }	
-				if not IsKnockbackImmune(hTarget) then
+				if not IsKnockbackImmune(hTarget)  then
                 	hTarget:AddNewModifier(caster, self, "modifier_knockback", knockback3)	
 				end
                 caster:EmitSound("nanaya.jumphit")
                 Timers:CreateTimer(0.05, function()	
                 	hTarget:EmitSound("nanaya.hit")
-                 ScreenShake(hTarget:GetOrigin(), 10, 1.0, 0.4, 2000, 0, true)
-		   --DoDamage(caster, hTarget, 700, DAMAGE_TYPE_PHYSICAL, 0, self, false)
-		   --hTarget:AddNewModifier(caster, self, "modifier_stunned", { Duration = 1 })
-		   DoDamage(caster, hTarget, dmg*2, DAMAGE_TYPE_MAGICAL, 0, self, false)
+                	ScreenShake(hTarget:GetOrigin(), 10, 1.0, 0.4, 2000, 0, true)
+		    		--DoDamage(caster, hTarget, 700, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+		   			--hTarget:AddNewModifier(caster, self, "modifier_stunned", { Duration = 1 })
+		  			DoDamage(caster, hTarget, dmg*2, DAMAGE_TYPE_MAGICAL, 0, self, false)
 
---ParticleManager:SetParticleControl(combo_nanaya, 0, targetabs + targetforwardvector*250)	
---ParticleManager:SetParticleControlEnt(part, 5, self.parent, PATTACH_POINT_FOLLOW, "attach_leg1", self.parent:GetAbsOrigin(), true)
-local part = ParticleManager:CreateParticle("particles/test_part6.vpcf", PATTACH_CUSTOMORIGIN, caster)
-			--ParticleManager:SetParticleControlEnt(part, 3, caster, PATTACH_POINT, "attach_leg", caster:GetAbsOrigin(), true)
-			ParticleManager:SetParticleControl(part, 3, caster:GetAbsOrigin() + Vector(0, 0, 0))
-			local part2 = ParticleManager:CreateParticle("particles/hit2.vpcf", PATTACH_CUSTOMORIGIN, caster)
-			--ParticleManager:SetParticleControl(part2, 0, caster:GetAbsOrigin() + Vector(0, 0, 500))
-			ParticleManager:SetParticleControlEnt(part2, 0, caster, PATTACH_POINT, "attach_knife", caster:GetAbsOrigin(), true)
-		  local part1 = ParticleManager:CreateParticle("particles/nanaya_jump_back.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, hTarget)
-		  ParticleManager:SetParticleControl(part1, 0, GetGroundPosition(hTarget:GetAbsOrigin(), nil))
-		   ParticleManager:SetParticleControl(part, 5, GetGroundPosition(hTarget:GetAbsOrigin(), nil))
-            end)
+					--ParticleManager:SetParticleControl(combo_nanaya, 0, targetabs + targetforwardvector*250)	
+					--ParticleManager:SetParticleControlEnt(part, 5, self.parent, PATTACH_POINT_FOLLOW, "attach_leg1", self.parent:GetAbsOrigin(), true)
+					local part = ParticleManager:CreateParticle("particles/test_part6.vpcf", PATTACH_CUSTOMORIGIN, caster)
+					--ParticleManager:SetParticleControlEnt(part, 3, caster, PATTACH_POINT, "attach_leg", caster:GetAbsOrigin(), true)
+					ParticleManager:SetParticleControl(part, 3, caster:GetAbsOrigin() + Vector(0, 0, 0))
+					local part2 = ParticleManager:CreateParticle("particles/hit2.vpcf", PATTACH_CUSTOMORIGIN, caster)
+					--ParticleManager:SetParticleControl(part2, 0, caster:GetAbsOrigin() + Vector(0, 0, 500))
+					ParticleManager:SetParticleControlEnt(part2, 0, caster, PATTACH_POINT, "attach_knife", caster:GetAbsOrigin(), true)
+		  			local part1 = ParticleManager:CreateParticle("particles/nanaya_jump_back.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, hTarget)
+		 			ParticleManager:SetParticleControl(part1, 0, GetGroundPosition(hTarget:GetAbsOrigin(), nil))
+		   			ParticleManager:SetParticleControl(part, 5, GetGroundPosition(hTarget:GetAbsOrigin(), nil))
+            	end)
             end)
 
 end

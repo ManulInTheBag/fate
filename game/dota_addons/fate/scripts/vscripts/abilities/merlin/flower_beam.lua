@@ -3,7 +3,7 @@ LinkLuaModifier("modifier_merlin_slow","abilities/merlin/flower_beam", LUA_MODIF
 flower_beam = class({})
 
 function flower_beam:GetAnimeVectorTargetingRange()
-    return 240
+    return 360
 end
 function flower_beam:GetAnimeVectorTargetingStartRadius()
     return 150

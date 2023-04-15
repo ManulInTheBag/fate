@@ -207,7 +207,9 @@ function modifier_merlin_avalon_self:OnDestroy()
 		ParticleManager:DestroyParticle(self:GetAbility().particle, true)
 		ParticleManager:ReleaseParticleIndex(self:GetAbility().particle)
 		self:GetCaster():RemoveModifierByName("modifier_merlin_garden_of_avalon_aura")
-		self:GetCaster():SwapAbilities("merlin_avalon", "merlin_avalon_garden_stop", true, false)
+		if(self:GetCaster():GetAbilityByIndex(3):GetName() == "merlin_avalon_garden_stop" ) then
+			self:GetCaster():SwapAbilities("merlin_avalon", "merlin_avalon_garden_stop", true, false)
+		end
 	end
 end
 

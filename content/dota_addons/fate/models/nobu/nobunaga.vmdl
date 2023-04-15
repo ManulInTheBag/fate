@@ -140,21 +140,50 @@
 						[
 							{
 								_class = "AnimForceBonePosition"
+								disabled = true
 								bone = "Box64"
 								translation = [ 35.0, -48.0, 120.0 ]
 								rotation = [ 55.0, 155.0, 70.0 ]
 							},
 							{
 								_class = "AnimForceBonePosition"
+								disabled = true
 								bone = "Box11"
 								translation = [ -15.0, 34.0, 162.0 ]
 								rotation = [ 210.0, -30.0, 45.0 ]
 							},
 							{
 								_class = "AnimForceBonePosition"
+								disabled = true
 								bone = "Box65"
 								translation = [ -4.0, 10.0, 130.0 ]
 								rotation = [ 0.0, -45.0, 45.0 ]
+							},
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = true
+								extract_rz = false
+								linear = false
+								quadratic = false
+								root_bone_name = ""
+								motion_type = "Uniform"
+							},
+							{
+								_class = "DiscardMotion"
+								discard_tx = true
+								discard_ty = true
+								discard_tz = true
+								discard_rx = true
+								discard_ry = true
+								discard_rz = true
+								bone_names = 
+								[
+									"Box11",
+									"Box65",
+									"Box64",
+								]
 							},
 						]
 						activity_name = "ACT_DOTA_IDLE"
@@ -333,6 +362,20 @@
 					{
 						_class = "AnimFile"
 						name = "nobu_shoot"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								root_bone_name = ""
+								motion_type = "Uniform"
+							},
+						]
 						activity_name = "ACT_DOTA_CAST_ABILITY_1"
 						activity_weight = 1
 						weight_list_name = ""
@@ -428,6 +471,20 @@
 					{
 						_class = "AnimFile"
 						name = "shoot_from_air"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								root_bone_name = ""
+								motion_type = "Uniform"
+							},
+						]
 						activity_name = "ACT_DOTA_CAST_ABILITY_4_END"
 						activity_weight = 1
 						weight_list_name = ""

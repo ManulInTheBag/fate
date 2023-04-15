@@ -26,6 +26,7 @@ end)
 
 local marble_fx = ParticleManager:CreateParticle("particles/muramasa/muramasa_combo_swords_base.vpcf", PATTACH_ABSORIGIN_FOLLOW  , caster)
 ParticleManager:SetParticleControl(marble_fx, 0, caster:GetAbsOrigin()) 
+
 Timers:CreateTimer(1, function() 
     ParticleManager:DestroyParticle(marble_fx, true)
     ParticleManager:ReleaseParticleIndex(marble_fx)

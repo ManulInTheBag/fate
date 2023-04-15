@@ -22,7 +22,7 @@ function modifier_perfect_agony_penalty:OnAttackLanded(args)
 
 			local dirkAbility = caster:FindAbilityByName("true_assassin_dirk")
 			local fPoisonDamage = dirkAbility:GetSpecialValueFor("poison_dot")
-
+				
 			target:RemoveModifierByName("modifier_weakening_venom") 
 			target:AddNewModifier(caster, dirkAbility, "modifier_weakening_venom", { duration = 12 })
 			target:SetModifierStackCount("modifier_weakening_venom", dirkAbility, stacks + 1)

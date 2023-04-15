@@ -96,7 +96,8 @@ function arcueid_melty:ChainHunt(source_enemy)
 				self.source_enemy:GetOrigin(), -- unknown
 				true -- unknown, true
 			)
-			ParticleManager:SetParticleControlForward( effect_cast, 1, (caster:GetOrigin()-self.source_enemy:GetOrigin()):Normalized() )
+			ParticleManager:SetParticleControlTransformForward(effect_cast, 1, Vector(0,0,0), (caster:GetOrigin()-self.source_enemy:GetOrigin()):Normalized())
+			--ParticleManager:SetParticleControlForward( effect_cast, 1, (caster:GetOrigin()-self.source_enemy:GetOrigin()):Normalized() )
 			ParticleManager:ReleaseParticleIndex( effect_cast )
 		end)
 	end
@@ -220,7 +221,8 @@ function arcueid_melty:OnProjectileHit_ExtraData(hTarget, vLocation, hTable)
 					enemy:GetOrigin(), -- unknown
 					true -- unknown, true
 				)
-				ParticleManager:SetParticleControlForward( effect_cast, 1, (self.source_enemy:GetOrigin()-enemy:GetOrigin()):Normalized() )
+				--ParticleManager:SetParticleControlForward( effect_cast, 1, (self.source_enemy:GetOrigin()-enemy:GetOrigin()):Normalized() )
+				ParticleManager:yySetParticleControlTransformForward(effect_cast, 1, Vector(0,0,0), (self.source_enemy:GetOrigin()-enemy:GetOrigin()):Normalized())
 				ParticleManager:ReleaseParticleIndex( effect_cast )
 			end
 		end

@@ -583,6 +583,7 @@ CannotReset = {
     "artoria_improved_instinct",
 
     "nanaya_combo",
+    "true_assassin_protection_from_wind",
 }
 
 femaleservant = {

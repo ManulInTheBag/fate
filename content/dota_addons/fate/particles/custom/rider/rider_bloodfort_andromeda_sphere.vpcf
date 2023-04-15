@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf51:version{6d03d500-2498-454e-b833-f654e870bb3d} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf54:version{326b1595-45e8-4004-aa5a-3e08655ff51f} -->
 {
 	_class = "CParticleSystemDefinition"
 	m_BoundingBoxMin = [ -512.0, -512.0, -32.0 ]
@@ -74,10 +74,6 @@
 		},
 		{
 			_class = "C_INIT_CreateWithinSphereTransform"
-			m_TransformInput = 
-			{
-				m_nType = "PT_TYPE_CONTROL_POINT"
-			}
 		},
 		{
 			_class = "C_INIT_RandomColor"

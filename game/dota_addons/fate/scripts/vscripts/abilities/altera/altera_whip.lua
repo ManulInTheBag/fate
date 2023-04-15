@@ -12,7 +12,7 @@ function altera_whip:OnSpellStart()
 	caster:AddNewModifier(caster, self, "modifier_altera_whip", {duration = self:GetSpecialValueFor("duration")})
 
     if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 and caster:GetIntellect() >= 29.1 then
-	    if caster:FindAbilityByName("altera_teardrop"):IsCooldownReady() and caster:IsAlive() and not (caster:GetAbilityByIndex(5):GetName() == "altera_teardrop") then	    		
+	    if caster:FindAbilityByName("altera_teardrop"):IsCooldownReady() and caster:FindAbilityByName("altera_beam"):IsCooldownReady() and caster:IsAlive() and not (caster:GetAbilityByIndex(5):GetName() == "altera_teardrop") then	    		
 	    	caster:SwapAbilities("altera_teardrop", "altera_beam", true, false)
 	    	Timers:CreateTimer(4, function()
 	    		if caster:GetAbilityByIndex(5):GetName() == "altera_teardrop" then
@@ -49,7 +49,7 @@ end
 function modifier_altera_whip:OnAttackAllied(args)
 	if args.attacker ~= self.parent then return end
 	if self.form ~= "int" then return end
-
+	--[[
 	args.target:AddNewModifier(self.parent, self.ability, "modifier_altera_whip_int_ally", {duration = 1})
 	Timers:CreateTimer(FrameTime(), function()
 		if not (args.target:IsAlive() and args.attacker:IsAlive()) then return end
@@ -65,7 +65,9 @@ function modifier_altera_whip:OnAttackAllied(args)
 		Timers:CreateTimer(FrameTime(), function()
 			args.target:RemoveModifierByName("modifier_altera_whip_int_ally")
 		end)
+		
 	end)
+	]]
 end
 function modifier_altera_whip:OnAttackLanded(args)
     if args.attacker ~= self.parent then return end
@@ -99,9 +101,17 @@ function modifier_altera_whip:OnAttackLanded(args)
 		end
 		if self.team ~= args.target:GetTeamNumber() then
 	    	DoDamage(args.attacker, args.target, damage, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
-	    else
-	    	args.target:AddNewModifier(self.parent, self.ability, "modifier_altera_whip_int_ally", {duration = FrameTime()})
-	    	args.target:Heal(self.ability:GetSpecialValueFor("int_heal"), self.ability)
+			local targets = FindUnitsInRadius(self.parent:GetTeam(), args.target:GetAbsOrigin(), nil, self.ability:GetSpecialValueFor("heal_aoe"), 
+												DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
+		for i = 1, #targets do
+			targets[i]:Heal(heal, self.ability)
+			
+		end
+		local pulse = ParticleManager:CreateParticle( "particles/altera/altera_heal.vpcf", PATTACH_CUSTOMORIGIN, nil )
+		ParticleManager:SetParticleControl( pulse, 1, args.target:GetAbsOrigin())
+	    --else
+	    	--args.target:AddNewModifier(self.parent, self.ability, "modifier_altera_whip_int_ally", {duration = FrameTime()})
+	    	--args.target:Heal(self.ability:GetSpecialValueFor("int_heal"), self.ability)
 	    end
 	end
 	if self.parent.EndlessAcquired then

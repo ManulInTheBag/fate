@@ -10,16 +10,16 @@ end
 
 function modifier_dirk_poison:OnCreated(table)
 	if IsServer() then
-		self.PoisonDamage = table.PoisonDamage * 0.5
-		self.PoisonSlow	= table.PoisonSlow
+		--self.PoisonDamage = table.PoisonDamage * 0.5
+		--self.PoisonSlow	= table.PoisonSlow
 
-		local target = self:GetParent()
+		--local target = self:GetParent()
 		--[[if not IsImmuneToSlow(target) then
 			target:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_dirk_poison_slow", { PoisonSlow = self.PoisonSlow,
 																									  Duration = self:GetDuration() })
 		end]]
 
-		self:StartIntervalThink(0.5)
+		--self:StartIntervalThink(0.5)
 	end
 end
 
@@ -46,6 +46,11 @@ end
 function modifier_dirk_poison:IsDebuff()
 	return true 
 end
+
+function modifier_dirk_poison:IsHidden()
+	return true 
+end
+
 
 function modifier_dirk_poison:RemoveOnDeath()
 	return true 

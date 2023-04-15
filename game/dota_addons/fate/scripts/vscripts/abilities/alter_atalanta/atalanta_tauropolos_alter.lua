@@ -35,7 +35,7 @@ end
 function atalanta_tauropolos_alter:OnSpellStart()
 	local caster = self:GetCaster()
 
-	caster:AddNewModifier(caster, self, "modifier_tauropolos_alter", {duration = self:GetSpecialValueFor("duration")})
+	caster:AddNewModifier(caster, self, "modifier_tauropolos_alter", {duration = self:GetSpecialValueFor("duration")+0.31})
 end
 
 modifier_tauropolos_alter = class({})
@@ -56,7 +56,7 @@ function modifier_tauropolos_alter:OnCreated()
         self.explosion_radius = self:GetAbility():GetSpecialValueFor("explosion_radius")
         self.target_loc = self:GetParent():GetAbsOrigin()
         self.quadrant = 1  -- Quadrants 1: NW, 2: NE, 3: SE, 4: SW
-
+        self.ability = self:GetAbility()
         self:StartIntervalThink(0.5)
     end
 end
@@ -64,6 +64,7 @@ function modifier_tauropolos_alter:OnIntervalThink()
     if IsServer() then
         if not self:GetCaster() or not self:GetCaster():IsAlive() then
             self:Destroy()
+
         end
 
         local firestorm_fx = ParticleManager:CreateParticle("particles/atalanta/abyssal_underlord_firestorm_wave.vpcf", PATTACH_CUSTOMORIGIN, nil)
@@ -108,7 +109,7 @@ function modifier_tauropolos_alter:OnIntervalThink()
             end)
         end
 
-		Timers:CreateTimer(0, function()
+		Timers:CreateTimer(0.3, function()
 			local units = FindUnitsInRadius(self.caster:GetTeam(),
                                         self.target_loc, 
                                         nil, 
@@ -121,7 +122,7 @@ function modifier_tauropolos_alter:OnIntervalThink()
 
 		    for _,unit in pairs(units) do
                 if not unit:HasModifier("modifier_protection_from_arrows_active") then
-    		     	DoDamage(self.caster, unit, self.damage + (self.caster.CursedMoonAcquired and 60 or 0), DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
+    		     	DoDamage(self.caster, unit, self.damage + (self.caster.CursedMoonAcquired and 60 or 0), DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
     		      	for i = 1,(self:GetAbility():GetSpecialValueFor("curse_stacks") + (self.caster.CursedMoonAcquired and 5 or 0)) do
     		           	self.caster:FindAbilityByName("atalanta_curse"):Curse(unit)
                         --[[if self.caster.CursedMoonAcquired then

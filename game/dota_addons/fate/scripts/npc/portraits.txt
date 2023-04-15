@@ -34,6 +34,126 @@
 		}
 	}
 
+	"models/sanya/sanya.vmdl"
+	{
+		"PortraitLightPosition"		"202.70 -23.15 308.17"
+		"PortraitLightAngles"		"54.79 171.70 0.00"
+		"PortraitLightFOV"		"69"
+		"PortraitLightDistance"		"377"
+		"PortraitLightColor"		"254 248 242"
+		"PortraitShadowColor"		"74 74 74"
+		"PortraitShadowScale"		"5.000000"
+		"PortraitAmbientColor"		"79 108 108"
+		"PortraitAmbientScale"		"5.000000"
+		"PortraitSpecularColor"		"251 74 84"
+		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/portraitbackground_gradient_top.vmat"
+		"PortraitBackgroundColor1"		"1 1 1"
+		"PortraitBackgroundColor2"		"1 1 1"
+		"PortraitBackgroundColor3"		"1 1 1"
+		"PortraitBackgroundColor4"		"1 1 1"
+		"PortraitLightScale"		"4.500000"
+		"PortraitGroundShadowScale"		"1.500000"
+		"PortraitAmbientDirection"		"-79.070 -84.150 -25.320"
+		"PortraitAnimationActivity"		"ACT_DOTA_IDLE"
+		"cameras"
+		{
+			"default"
+			{
+				"PortraitPosition"		"195.90 -49.63 260.55"
+				"PortraitAngles"		"352.41 167.17 0.00"
+				"PortraitFOV"		"11.5"
+			}
+		}
+	}
+
+	"models/sanya/sanya_telega.vmdl"
+	{
+		"PortraitLightPosition"		"202.70 -23.15 308.17"
+		"PortraitLightAngles"		"54.79 171.70 0.00"
+		"PortraitLightFOV"		"69"
+		"PortraitLightDistance"		"377"
+		"PortraitLightColor"		"254 248 242"
+		"PortraitShadowColor"		"74 74 74"
+		"PortraitShadowScale"		"5.000000"
+		"PortraitAmbientColor"		"79 108 108"
+		"PortraitAmbientScale"		"5.000000"
+		"PortraitSpecularColor"		"251 74 84"
+		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/portraitbackground_gradient_top.vmat"
+		"PortraitBackgroundColor1"		"1 1 1"
+		"PortraitBackgroundColor2"		"1 1 1"
+		"PortraitBackgroundColor3"		"1 1 1"
+		"PortraitBackgroundColor4"		"1 1 1"
+		"PortraitLightScale"		"4.500000"
+		"PortraitGroundShadowScale"		"1.500000"
+		"PortraitAmbientDirection"		"-79.070 -84.150 -25.320"
+		"PortraitAnimationActivity"		"ACT_DOTA_IDLE"
+		"cameras"
+		{
+			"default"
+			{
+				"PortraitPosition"		"195.90 -120.63 405.55"
+				"PortraitAngles"		"358.41 167.17 0.00"
+				"PortraitFOV"		"11.5"
+			}
+		}
+	}
+
+	"models/updated_by_seva_and_hudozhestvenniy_film_spizdili/altera/altera.vmdl"
+	{
+		"PortraitLightPosition"		"112.73 -41.13 174.53"
+		"PortraitLightAngles"		"42.54 149.30 0.00"
+		"PortraitLightFOV"		"90"
+		"PortraitLightDistance"		"133"
+		"PortraitLightColor"		"185 216 254"
+		"PortraitShadowColor"		"69 84 56"
+		"PortraitShadowScale"		"5.000000"
+		"PortraitAmbientColor"		"192 0 56"
+		"PortraitAmbientScale"		"5.000000"
+		"PortraitSpecularColor"		"251 74 84"
+		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/portraitbackground_moon.vmat"
+		"PortraitLightScale"		"1.950000"
+		"PortraitGroundShadowScale"		"1.500000"
+		"PortraitAmbientDirection"		"-31.670 34.840 37.060"
+		"PortraitAnimationActivity"		"ACT_DOTA_IDLE"
+		"cameras"
+		{
+			"default"
+			{
+				"PortraitPosition"		"195.90 -49.63 115.55"
+				"PortraitAngles"		"352.41 167.17 0.00"
+				"PortraitFOV"		"11.5"
+			}
+		}
+	}
+	
+	"models/updated_by_seva_and_hudozhestvenniy_film_spizdili/altera/altera_whip.vmdl"
+	{
+		"PortraitLightPosition"		"112.73 -41.13 174.53"
+		"PortraitLightAngles"		"42.54 149.30 0.00"
+		"PortraitLightFOV"		"90"
+		"PortraitLightDistance"		"133"
+		"PortraitLightColor"		"185 216 254"
+		"PortraitShadowColor"		"69 84 56"
+		"PortraitShadowScale"		"5.000000"
+		"PortraitAmbientColor"		"192 0 56"
+		"PortraitAmbientScale"		"5.000000"
+		"PortraitSpecularColor"		"251 74 84"
+		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/portraitbackground_moon.vmat"
+		"PortraitLightScale"		"1.950000"
+		"PortraitGroundShadowScale"		"1.500000"
+		"PortraitAmbientDirection"		"-31.670 34.840 37.060"
+		"PortraitAnimationActivity"		"ACT_DOTA_IDLE"
+		"cameras"
+		{
+			"default"
+			{
+				"PortraitPosition"		"195.90 -49.63 115.55"
+				"PortraitAngles"		"352.41 167.17 0.00"
+				"PortraitFOV"		"11.5"
+			}
+		}
+	}
+
 	"models/artoria/artoria.vmdl"
 	{
 		"PortraitLightPosition"		"112.73 -41.13 174.53"
@@ -1183,11 +1303,7 @@
 		"PortraitAmbientColor"		"241 165 97"
 		"PortraitAmbientScale"		"5.000000"
 		"PortraitSpecularColor"		"251 74 84"
-		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/portraitbackground_gradient_btm.vmat"
-		"PortraitBackgroundColor1"		".8 .5 0.5"
-		"PortraitBackgroundColor2"		".6 .4 0.4"
-		"PortraitBackgroundColor3"		".7 .61 1"
-		"PortraitBackgroundColor4"		"1 .6 .2"
+		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/nero_fon.vmat"
 		"PortraitLightScale"		"1.100000"
 		"PortraitGroundShadowScale"		"1.500000"
 		"PortraitAmbientDirection"		"-3.070 17.250 4.660"
@@ -1196,8 +1312,8 @@
 		{
 			"default"
 			{
-				"PortraitPosition"		"210.90 -75.63 65"
-				"PortraitAngles"		"350.41 160.17 0"
+				"PortraitPosition"		"180.90 -65.63 100"
+				"PortraitAngles"		"360.41 160.17 0"
 				"PortraitFOV"		"15"
 			}
 		}

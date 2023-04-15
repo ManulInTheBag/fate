@@ -1,8 +1,8 @@
-LinkLuaModifier("modifier_battle_horn_pct_armor_reduction","abilities/iskander/modifier_battle_horn_pct_armor_reduction", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_phalanx_soldier_wall","abilities/iskander/modifier_phalanx_soldier_wall", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_battle_horn_pct_armor_reduction","abilities/iskandar/modifier_battle_horn_pct_armor_reduction", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_aestus_domus_aurea_enemy", "abilities/nero/modifiers/modifier_aestus_domus_aurea_enemy", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_aestus_domus_aurea_ally", "abilities/nero/modifiers/modifier_aestus_domus_aurea_ally", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_aestus_domus_aurea_nero", "abilities/nero/modifiers/modifier_aestus_domus_aurea_nero", LUA_MODIFIER_MOTION_NONE)
+
 
 function OnIskanderCharismaStart(keys)
 	local caster = keys.caster
@@ -36,10 +36,11 @@ function StartCharismaTimer(keys)
 	    return 0.25
 	end})
 end
+
+
 function OnForwardStart(keys)
 	local caster = keys.caster
 	local ply = caster:GetPlayerOwner() 
-	
 	local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_legion_commander/legion_commander_press_sphere.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 	ParticleManager:SetParticleControl(particle, 1, caster:GetAbsOrigin() )
 	Timers:CreateTimer( 2.0, function()
@@ -60,7 +61,10 @@ function OnForwardStart(keys)
 
 	for k,v in pairs(targets) do
 		RemoveSlowEffect(v)
-		keys.ability:ApplyDataDrivenModifier(caster,v, "modifier_forward", {})
+		keys.ability:ApplyDataDrivenModifier(caster,v, "modifier_forward", {})		
+		if(v:GetUnitName() == "iskander_infantry") and caster.IsBeyondTimeAcquired then
+			v:AddNewModifier(caster,keys.ability, "modifier_iskandar_infantry_rush", {duration = 0.5})
+		end
 		if v ~= caster and v:IsHero() then
 			v:EmitSound("Hero_LegionCommander.Overwhelming.Location")
 		elseif v == caster then
@@ -68,6 +72,7 @@ function OnForwardStart(keys)
 		end
     end
 end
+
 
 function OnPhalanxStart(keys)
 	local caster = keys.caster
@@ -83,17 +88,18 @@ function OnPhalanxStart(keys)
 
 	local leftvec = Vector(-forwardVec.y, forwardVec.x, 0)
 	local rightvec = Vector(forwardVec.y, -forwardVec.x, 0)
-
+	local caster_vector = caster:GetForwardVector()
 	-- Spawn soldiers from target point to left end
 	for i=0,3 do
 		Timers:CreateTimer(i*0.1, function()
 			local soldier = CreateUnitByName("iskander_infantry", targetPoint + leftvec * 75 * i, true, nil, nil, caster:GetTeamNumber())
 			soldier:SetOwner(caster)
+			soldier:SetForwardVector(caster_vector)
 			soldier:AddNewModifier(caster, nil, "modifier_kill", {duration = duration})
 			--caster.AOTKSoldierCount = caster.AOTKSoldierCount + 1
-			if not caster.IsBeyondTimeAcquired then
-				soldier:AddNewModifier(caster, keys.ability, "modifier_phalanx_soldier_wall", {duration = keys.ability:GetSpecialValueFor("duration")})
-			end
+			--if not caster.IsBeyondTimeAcquired then
+				soldier:AddNewModifier(caster, keys.ability, "modifier_phalanx_soldier_wall", {duration = 10})
+			--end
 			aotkAbility:ApplyDataDrivenModifier(keys.caster, soldier, "modifier_army_of_the_king_infantry_bonus_stat",{})
 			PhalanxPull(caster, soldier, targetPoint, keys.Damage, keys.ability) -- do pullback
 
@@ -117,11 +123,12 @@ function OnPhalanxStart(keys)
 		Timers:CreateTimer(i*0.1, function()
 			local soldier = CreateUnitByName("iskander_infantry", targetPoint + rightvec * 75 * i, true, nil, nil, caster:GetTeamNumber())
 			soldier:SetOwner(caster)
+			soldier:SetForwardVector(caster_vector)
 			soldier:AddNewModifier(caster, nil, "modifier_kill", {duration = duration})
 			--caster.AOTKSoldierCount = caster.AOTKSoldierCount + 1
-			if not caster.IsBeyondTimeAcquired then
-				soldier:AddNewModifier(caster, keys.ability, "modifier_phalanx_soldier_wall", {duration = keys.ability:GetSpecialValueFor("duration")})
-			end
+			--if not caster.IsBeyondTimeAcquired then
+				soldier:AddNewModifier(caster, keys.ability, "modifier_phalanx_soldier_wall", {duration = 10})
+			--end
 			aotkAbility:ApplyDataDrivenModifier(caster, soldier, "modifier_army_of_the_king_infantry_bonus_stat",{})
 			PhalanxPull(caster, soldier, targetPoint, keys.Damage, keys.ability) -- do pullback
 
@@ -238,10 +245,10 @@ function OnChariotStart(keys)
 	caster:AddNewModifier(caster, nil, "modifier_gordius_wheel_temp_bandaid", {Duration = keys.Duration + 1})
 	caster:AddNewModifier(caster, keys.ability, "modifier_iskandar_chariot_fixed_ms", { Duration = keys.Duration })
 	--caster:AddNewModifier(caster, nil, "modifier_bloodseeker_thirst_speed", { duration = keys.Duration+1})
-	caster.OriginalModel = "models/iskander/iskander_chariot.vmdl"
-	caster:SetModel("models/iskander/iskander_chariot.vmdl")
-    caster:SetOriginalModel("models/iskander/iskander_chariot.vmdl")
-    caster:SetModelScale(1.0)
+	caster.OriginalModel = "models/sanya/sanya_telega.vmdl"
+	caster:SetModel("models/sanya/sanya_telega.vmdl")
+    caster:SetOriginalModel("models/sanya/sanya_telega.vmdl")
+    caster:SetModelScale(0.6)
     caster:EmitSound("Hero_Magnataur.Skewer.Cast")
     caster:EmitSound("Hero_Zuus.GodsWrath")
     caster:EmitSound("Iskander_Wheel_" .. soundQueue)
@@ -383,11 +390,12 @@ function OnChariotEnd(keys)
 		caster:SwapAbilities(caster:GetAbilityByIndex(2):GetName(), "iskander_gordius_wheel", false, true) 
 	end
 
-	caster.OriginalModel = "models/iskander/iskander.vmdl"
-    caster:SetModel("models/iskander/iskander.vmdl")
-    caster:SetOriginalModel("models/iskander/iskander.vmdl")
-    caster:SetModelScale(1.0)
-    caster.IsRiding = false
+	caster.OriginalModel = "models/sanya/sanya.vmdl"
+    caster:SetModel("models/sanya/sanya.vmdl")
+    caster:SetOriginalModel("models/sanya/sanya.vmdl")
+    caster:SetModelScale(0.8)
+
+	   caster.IsRiding = false
     caster:RemoveModifierByName("modifier_gordius_wheel_data")
     caster:RemoveModifierByName("modifier_gordius_wheel_speed_boost")
     caster:RemoveModifierByName("modifier_ms_cap")
@@ -401,13 +409,13 @@ function OnChariotChargeStart(keys)
 
 	if soundQueue == 4 then
 		caster:EmitSound("Iskander.Charge")
-		keys.ChargeDamage = keys.ChargeDamage*1.5
+		--keys.ChargeDamage = keys.ChargeDamage*1.5
 	elseif soundQueue == 2 then
 		EmitGlobalSound("Iskander_Cart_Charge_2")
-		keys.ChargeDamage = keys.ChargeDamage * 1.25
+		--keys.ChargeDamage = keys.ChargeDamage * 1.25
 	else
 		caster:EmitSound("Iskander_Cart_Charge_" .. soundQueue)
-		keys.ChargeDamage = keys.ChargeDamage*0.75
+		--keys.ChargeDamage = keys.ChargeDamage*0.75
 	end
 	giveUnitDataDrivenModifier(caster, caster, "pause_sealdisabled", 1.5)
 	local currentMS = caster:GetMoveSpeedModifier(caster:GetBaseMoveSpeed(), false)
@@ -568,6 +576,7 @@ function OnAOTKCastStart(keys)
 	Timers:CreateTimer(function()
 		if infantrySpawnCounter == soldierCount then return end
 		local soldier = CreateUnitByName("iskander_infantry", firstRowPos + Vector(0,infantrySpawnCounter*100,0), true, nil, nil, caster:GetTeamNumber())
+		soldier:SetForwardVector(Vector(-1,0,0))
 		--soldier:AddNewModifier(caster, nil, "modifier_phased", {})
 		soldier:SetOwner(caster)
 		soldier.IsAOTKSoldier = true

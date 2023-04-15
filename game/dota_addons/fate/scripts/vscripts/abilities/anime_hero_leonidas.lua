@@ -2084,13 +2084,17 @@ function leonidas_enomotia:OnSpellStart()
     --=================================--
     local _nShieldsPFX =    ParticleManager:CreateParticle("particles/heroes/anime_hero_leonidas/leonidas_thermopylae_enomotia_shields.vpcf", PATTACH_WORLDORIGIN, nil)
                             ParticleManager:SetParticleShouldCheckFoW(_nShieldsPFX, false)
-                            ParticleManager:SetParticleControlOrientationFLU(_nShieldsPFX, 0, vForward, -vRight, vUp)
-                            ParticleManager:SetParticleControlOrientationFLU(_nShieldsPFX, 1, vForward, -vRight, vUp)
-                            ParticleManager:SetParticleControl(_nShieldsPFX, 0, hCaster:GetAttachmentOrigin(hCaster:ScriptLookupAttachment("ATTACH_HITLOC")))
-                            ParticleManager:SetParticleControl(_nShieldsPFX, 1, (vCasterGnd + vForward * -100) + Vector(0, 0, 270))
+                            --ParticleManager:SetParticleControlOrientationFLU(_nShieldsPFX, 0, vForward, -vRight, vUp)
+                            --ParticleManager:SetParticleControlOrientationFLU(_nShieldsPFX, 1, vForward, -vRight, vUp)
+                            --ParticleManager:SetParticleControl(_nShieldsPFX, 0, hCaster:GetAttachmentOrigin(hCaster:ScriptLookupAttachment("ATTACH_HITLOC")))
+                            ParticleManager:SetParticleControlTransformForward(_nShieldsPFX, 0, hCaster:GetAttachmentOrigin(hCaster:ScriptLookupAttachment("ATTACH_HITLOC")), vForward)
+                            --ParticleManager:SetParticleControl(_nShieldsPFX, 1, (vCasterGnd + vForward * -100) + Vector(0, 0, 270))
+                            ParticleManager:SetParticleControlTransformForward(_nShieldsPFX, 1, (vCasterGnd + vForward * -100) + Vector(0, 0, 270),vForward )
                             ParticleManager:SetParticleControl(_nShieldsPFX, 2, (vCasterGnd + vForward * -100) + Vector(0, 0, 270))
                             ParticleManager:SetParticleControl(_nShieldsPFX, 3, Vector(nPFX_AnimLoopTime, ( nShieldCount / nShieldRows ), nShieldRows))
                             ParticleManager:SetParticleControl(_nShieldsPFX, 4, Vector(nRadius, nRadius, ( nShieldCount * 0.1 ) / nPFX_AnimStartTime ))
+
+
     --=================================--
     EmitSoundOn("Leonidas.Enomotia.Cast.Shield", hCaster)
     EmitSoundOn("Leonidas.Enomotia.Cast.Shields", hCaster)
@@ -2126,8 +2130,8 @@ function leonidas_enomotia:OnSpellStart()
             local vCasterLoc = hCaster:GetAbsOrigin()
             local vCasterGnd = GetGroundPosition(vCasterLoc, hCaster)
 
-            ParticleManager:SetParticleControl(_nShieldsPFX, 0, hCaster:GetAttachmentOrigin(hCaster:ScriptLookupAttachment("ATTACH_HITLOC")))
-            ParticleManager:SetParticleControl(_nShieldsPFX, 1, (vCasterGnd + vForward * -100) + Vector(0, 0, 270))
+            ParticleManager:SetParticleControlTransformForward(_nShieldsPFX, 0, hCaster:GetAttachmentOrigin(hCaster:ScriptLookupAttachment("ATTACH_HITLOC")),vForward)
+            ParticleManager:SetParticleControlTransformForward(_nShieldsPFX, 1, (vCasterGnd + vForward * -100) + Vector(0, 0, 270),vForward)
             ParticleManager:SetParticleControl(_nShieldsPFX, 2, (vCasterGnd + vForward * -100) + Vector(0, 0, 270))
             return 0.1
         end
@@ -2633,10 +2637,10 @@ function leonidas_enomotia_combo:OnSpellStart()
         local nShowShields = nShieldCount - 12 - 112
         local _nShieldsPFX =    ParticleManager:CreateParticle("particles/heroes/anime_hero_leonidas/leonidas_thermopylae_enomotia_shields.vpcf", PATTACH_WORLDORIGIN, nil)
                                 ParticleManager:SetParticleShouldCheckFoW(_nShieldsPFX, false)
-                                ParticleManager:SetParticleControlOrientationFLU(_nShieldsPFX, 0, vForward, -vRight, vUp)
-                                ParticleManager:SetParticleControlOrientationFLU(_nShieldsPFX, 1, vForward, -vRight, vUp)
-                                ParticleManager:SetParticleControl(_nShieldsPFX, 0, hCaster:GetAttachmentOrigin(hCaster:ScriptLookupAttachment("ATTACH_HITLOC")))
-                                ParticleManager:SetParticleControl(_nShieldsPFX, 1, vPFX_SpawnOrigin)
+                               -- ParticleManager:SetParticleControlOrientationFLU(_nShieldsPFX, 0, vForward, -vRight, vUp)
+                               -- ParticleManager:SetParticleControlOrientationFLU(_nShieldsPFX, 1, vForward, -vRight, vUp)
+                                ParticleManager:SetParticleControlTransformForward(_nShieldsPFX, 0, hCaster:GetAttachmentOrigin(hCaster:ScriptLookupAttachment("ATTACH_HITLOC")),vForward)
+                                ParticleManager:SetParticleControlTransformForward(_nShieldsPFX, 1, vPFX_SpawnOrigin,vForward)
                                 ParticleManager:SetParticleControl(_nShieldsPFX, 2, vPFX_MoveToOrigin)
                                 ParticleManager:SetParticleControl(_nShieldsPFX, 3, Vector(1.0 + nPFX_AnimLoopTime, ( nShowShields / nShieldRows ), nShieldRows))
                                 ParticleManager:SetParticleControl(_nShieldsPFX, 4, Vector(vPFX_MoveSpeed, nRadius, ( nShowShields * nPFX_AnimStartTime * 0.1 ) ))
@@ -2710,8 +2714,8 @@ function leonidas_enomotia_combo:OnSpellStart()
                 local vCasterLoc = hCaster:GetAbsOrigin()
                 local vCasterGnd = GetGroundPosition(vCasterLoc, hCaster)
 
-                ParticleManager:SetParticleControl(_nShieldsPFX, 0, hCaster:GetAttachmentOrigin(hCaster:ScriptLookupAttachment("ATTACH_HITLOC")))
-                ParticleManager:SetParticleControl(_nShieldsPFX, 1, (vCasterGnd + vForward * 100) + Vector(0, 0, 440))
+                ParticleManager:SetParticleControlTransformForward(_nShieldsPFX, 0, hCaster:GetAttachmentOrigin(hCaster:ScriptLookupAttachment("ATTACH_HITLOC")),vForward)
+                ParticleManager:SetParticleControlTransformForward(_nShieldsPFX, 1, (vCasterGnd + vForward * 100) + Vector(0, 0, 440),vForward)
                 ParticleManager:SetParticleControl(_nShieldsPFX, 2, (vCasterGnd + vForward * 100) + Vector(0, 0, 170))
                 return 0.1
             end

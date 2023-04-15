@@ -83,8 +83,8 @@ function medusa_breaker:OnSpellStart()
 	ParticleManager:SetParticleControlEnt(eye_particle2, 1, caster, PATTACH_POINT_FOLLOW, "attach_lefteye", Vector(0,0,0), true)
 
 	local effect_cast = ParticleManager:CreateParticle( "particles/medusa/medusa_breaker_cone.vpcf", PATTACH_WORLDORIGIN, caster )
-	ParticleManager:SetParticleControl( effect_cast, 0, caster_loc )
-	ParticleManager:SetParticleControlForward( effect_cast, 0, caster_dir )
+	ParticleManager:SetParticleControlTransformForward( effect_cast, 0, caster_loc,caster_dir )
+	--ParticleManager:SetParticleControlForward( effect_cast, 0, caster_dir )
 	ParticleManager:ReleaseParticleIndex( effect_cast )
 
 	Timers:CreateTimer(0.3, function()

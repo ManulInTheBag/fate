@@ -522,6 +522,14 @@ function saito_style:OnSpellStart()
 
     EmitGlobalSound("Saito.Style.Cast.Voice")
     EmitGlobalSound("Saito.Style.Cast")
+    LoopOverPlayers(function(player, playerID, playerHero)
+        --print("looping through " .. playerHero:GetName())
+        if playerHero.zlodemon == true then
+            -- apply legion horn vsnd on their client
+            CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="moskes_saito_combo"})
+            --caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+        end
+    end)
 end
 ---------------------------------------------------------------------------------------------------------------------
 LinkLuaModifier("modifier_saito_style_active", "abilities/saito/saito_abilities", LUA_MODIFIER_MOTION_NONE)
@@ -884,6 +892,15 @@ function modifier_saito_flashblade_motion:OnCreated(tTable)
 
         self.sEmitSound = "Saito.Flashblade.Cast"
         self.hParent:EmitSound(self.sEmitSound)
+
+        LoopOverPlayers(function(player, playerID, playerHero)
+			--print("looping through " .. playerHero:GetName())
+			if playerHero.zlodemon == true and playerHero == self:GetCaster() then
+				-- apply legion horn vsnd on their client
+				CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="moskes_saito_q"})
+				--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+			end
+		end)
       
     end
 end
@@ -1183,6 +1200,14 @@ function saito_steelwing:DoClapEffect(hCaster)
                         ParticleManager:ReleaseParticleIndex(nClapPFX)
 
     hCaster:EmitSound("Saito.Steelwing.Cast")
+    LoopOverPlayers(function(player, playerID, playerHero)
+        --print("looping through " .. playerHero:GetName())
+        if playerHero.zlodemon == true and playerHero == self:GetCaster() then
+            -- apply legion horn vsnd on their client
+            CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="moskes_saito_w"})
+            --caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+        end
+    end)
 end
 
 ---------------------------------------------------------------------------------------------------------------------
@@ -1394,6 +1419,14 @@ function saito_shadowslash:DoPullEffect(hCaster, nRadius)
 
     hCaster:EmitSound("Saito.Formless.Slash.Cast")
     hCaster:EmitSound("Saito.Shadowslash.Cast")
+    LoopOverPlayers(function(player, playerID, playerHero)
+        --print("looping through " .. playerHero:GetName())
+        if playerHero.zlodemon == true and playerHero == self:GetCaster() then
+            -- apply legion horn vsnd on their client
+            CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="moskes_saito_e"})
+            --caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+        end
+    end)
 end
 function saito_shadowslash:PullTargetEffect(hTarget, vOldLoc)
     local sPullPFX = "particles/heroes/saito/saito_shadowslash_pull.vpcf"
@@ -1714,6 +1747,14 @@ function modifier_saito_mind_eye_active:CastPFX(hTarget)
     --                     ParticleManager:ReleaseParticleIndex(nCastPFX)
 
     hTarget:EmitSound("Saito.MindEye.Cast")
+    LoopOverPlayers(function(player, playerID, playerHero)
+        --print("looping through " .. playerHero:GetName())
+        if playerHero.zlodemon == true and playerHero == self:GetCaster() then
+            -- apply legion horn vsnd on their client
+            CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="moskes_saito_d"})
+            --caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+        end
+    end)
 end
 function modifier_saito_mind_eye_active:GetEffectName()
     return "particles/heroes/saito/saito_mind_eye_buff.vpcf"
@@ -1906,6 +1947,14 @@ function saito_fds:OnSpellStart()
 
 
     hCaster:EmitSound("Saito.FDS.Cast")
+    LoopOverPlayers(function(player, playerID, playerHero)
+        --print("looping through " .. playerHero:GetName())
+        if playerHero.zlodemon == true and playerHero == self:GetCaster() then
+            -- apply legion horn vsnd on their client
+            CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="moskes_saito_f"})
+            --caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+        end
+    end)
     hCaster:EmitSound("Saito.FDS.Cast.Voice")
 end
 ---------------------------------------------------------------------------------------------------------------------
@@ -2391,6 +2440,14 @@ function saito_formless_invis:OnSpellStart()
     hCaster:AddNewModifier(hCaster, self, "modifier_saito_formless_invis", {duration = nDuration})
 
     EmitSoundOn("Saito.Formless.Invis.Cast.Voice", hCaster)
+    LoopOverPlayers(function(player, playerID, playerHero)
+        --print("looping through " .. playerHero:GetName())
+        if playerHero.zlodemon == true and playerHero == self:GetCaster() then
+            -- apply legion horn vsnd on their client
+            CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="moskes_saito_r"})
+            --caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+        end
+    end)
 end
 ---------------------------------------------------------------------------------------------------------------------
 LinkLuaModifier("modifier_saito_formless_invis", "abilities/saito/saito_abilities", LUA_MODIFIER_MOTION_NONE)
@@ -2464,6 +2521,14 @@ function modifier_saito_formless_invis:StartInvis()
                             ParticleManager:ReleaseParticleIndex(nShadowPFX)
 
         EmitSoundOn("Saito.Formless.Invis.Cast", self.hParent)
+        LoopOverPlayers(function(player, playerID, playerHero)
+			--print("looping through " .. playerHero:GetName())
+			if playerHero.zlodemon == true and playerHero == self:GetCaster() then
+				-- apply legion horn vsnd on their client
+				CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="moskes_saito_r"})
+				--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+			end
+		end)
     end
 end   
 function modifier_saito_formless_invis:OnIntervalThink()
@@ -2554,11 +2619,27 @@ function saito_formless_slash:OnAbilityPhaseStart()
     local nMaxSlashes = self:GetSpecialValueFor("max_slashes")
 
     local nStacks = ( hCaster:GetModifierStackCount("modifier_saito_formless_slash_counter", hCaster) + 1 ) % nMaxSlashes
-
+    LoopOverPlayers(function(player, playerID, playerHero)
+        --print("looping through " .. playerHero:GetName())
+        if playerHero.zlodemon == true  then
+            -- apply legion horn vsnd on their client
+            CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="moskes_saito_rslash"})
+            --caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+        end
+    end)
     if nStacks == 0 then
         EmitSoundOn("Saito.Formless.Slash.Last.Voice", hCaster)
+        LoopOverPlayers(function(player, playerID, playerHero)
+			--print("looping through " .. playerHero:GetName())
+			if playerHero.zlodemon == true  then
+				-- apply legion horn vsnd on their client
+				CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="moskes_saito_rlast"})
+				--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+			end
+		end)
     elseif nStacks == 1 then
         EmitSoundOn("Saito.Formless.Slash.Cast.Voice", hCaster)
+      
     end
 end
 function saito_formless_slash:OnAbilityPhaseInterrupted()
@@ -2668,7 +2749,8 @@ end
 function saito_formless_slash:DoLastSlashEffect(hTarget)
     local sSlashPFX = "particles/heroes/saito/saito_formless_slash_last.vpcf"
     local nSlashPFX =   ParticleManager:CreateParticle(sSlashPFX, PATTACH_ABSORIGIN_FOLLOW, hTarget)
-                        ParticleManager:SetParticleControlForward(nSlashPFX, 1, -self:GetCaster():GetForwardVector())
+                       -- ParticleManager:SetParticleControlForward(nSlashPFX, 1, -self:GetCaster():GetForwardVector())
+                        ParticleManager:SetParticleControlTransformForward(nSlashPFX, 1, hTarget:GetAbsOrigin(), -self:GetCaster():GetForwardVector())
                         ParticleManager:SetParticleControlEnt(
                                                                 nSlashPFX,
                                                                 0,
@@ -2678,7 +2760,8 @@ function saito_formless_slash:DoLastSlashEffect(hTarget)
                                                                 Vector(0,0,0), -- unknown
                                                                 false -- unknown, true
                                                             )
-                        ParticleManager:SetParticleControl(nSlashPFX, 1, hTarget:GetAbsOrigin())
+                             
+                       -- ParticleManager:SetParticleControl(nSlashPFX, 1, hTarget:GetAbsOrigin())
                         --ParticleManager:SetParticleControl(nSlashPFX, 10, GetDirection(hTarget, self:GetCaster()))
                         ParticleManager:ReleaseParticleIndex(nSlashPFX)
 
@@ -2798,6 +2881,14 @@ function saito_step:OnSpellStart()
                             ParticleManager:ReleaseParticleIndex(nBlinkEND_PFX)
 
     hCaster:EmitSound("Saito.Step.Cast")
+    LoopOverPlayers(function(player, playerID, playerHero)
+        --print("looping through " .. playerHero:GetName())
+        if playerHero.zlodemon == true and playerHero == self:GetCaster() then
+            -- apply legion horn vsnd on their client
+            CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="moskes_saito_qup"})
+            --caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+        end
+    end)
     EmitSoundOnLocationWithCaster(vPoint, "Saito.Step.Impact", hCaster)
     
 
@@ -2909,6 +3000,14 @@ function modifier_saito_storm_motion:OnCreated(tTable)
 
         EmitSoundOn("Saito.Formless.Slash.Cast", self.hParent)
         EmitSoundOn("Saito.Storm.Cast", self.hParent)
+        LoopOverPlayers(function(player, playerID, playerHero)
+			--print("looping through " .. playerHero:GetName())
+			if playerHero.zlodemon == true  then
+				-- apply legion horn vsnd on their client
+				CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="moskes_saito_wup"})
+				--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+			end
+		end)
     end
 end
 function modifier_saito_storm_motion:OnRefresh(tTable)
@@ -3040,6 +3139,15 @@ function saito_vortex:OnSpellStart()
     local hCaster = self:GetCaster()
 
     hCaster:AddNewModifier(hCaster, self, "modifier_saito_vortex_slashing", {duration = 3}) --3 Seconds just to prevent any mistakes.
+
+    LoopOverPlayers(function(player, playerID, playerHero)
+        --print("looping through " .. playerHero:GetName())
+        if playerHero.zlodemon == true  then
+            -- apply legion horn vsnd on their client
+            CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="moskes_saito_eup"})
+            --caster:EmitSound("Hero_LegionCommander.PressTheAttack")
+        end
+    end)
 end
 
 --particles/econ/items/juggernaut/jugg_ti8_sword/juggernaut_blade_fury_abyssal_sparks_golden.vpcf
