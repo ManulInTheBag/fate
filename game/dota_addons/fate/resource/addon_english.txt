@@ -5965,7 +5965,7 @@
 	"DOTA_Tooltip_Ability_jeanne_trail_reactivate_Description"		"Jeanne uses her inextinguishable wrath to hex every area affected by the Trails of Torment second time, dealing damage and disabling enemies in those areas with the initial effect of Trails of Torment."
 	
 	"DOTA_Tooltip_Ability_jeanne_curse"       "Curse of the Dragon Witch"
-	"DOTA_Tooltip_Ability_jeanne_curse_Description"       "Jeanne curses the target enemy, stealing it's move speed, attack speed and health. Steals additional health based on how much damage target takes during the curse."
+	"DOTA_Tooltip_Ability_jeanne_curse_Description"       "Jeanne curses the target enemy, stealing it's move speed, attack speed and health."
 	"DOTA_Tooltip_Ability_jeanne_curse_Note0"		"Stealing health here means dealing magic damage and healing Jeanne for the amount of damage she would've done without any resistances."
 	"DOTA_Tooltip_Ability_jeanne_curse_duration"       "Duration:"
 	"DOTA_Tooltip_Ability_jeanne_curse_damage_per_second"       "Damage per second:"
@@ -8210,7 +8210,7 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
 
 
         "DOTA_Tooltip_ability_nanaya_combo"                     "Combo: Kyokushi・Nanaya"
-        "DOTA_Tooltip_ability_nanaya_combo_description"                     "<font color='#58ACFA'>Combo Requirement: 30 agi and str </font>\n<font color='#58ACFA'>Combo Sequence: W-W in 2 seconds</font>\nNanaya prepares to reflect enemy attack for a short time. If he receive damage over the threshold, he throws his knife at the opponent while teleporting behind their back and twists their neck whist the knife hits, dealing damage based on enemy max HP."
+        "DOTA_Tooltip_ability_nanaya_combo_description"                     "<font color='#58ACFA'>Combo Requirement: 30 all stats </font>\n<font color='#58ACFA'>Combo Sequence: W-W in 2 seconds</font>\nNanaya prepares to reflect enemy attack for a short time. If he receive damage over the threshold, he throws his knife at the opponent while teleporting behind their back and twists their neck whist the knife hits, dealing damage based on enemy max HP."
 		"DOTA_Tooltip_ability_nanaya_combo_threshold"                     "Counter threshold"
 		"DOTA_Tooltip_ability_nanaya_combo_counter_duration"                     "Counter duration"
 		"DOTA_Tooltip_ability_nanaya_combo_pct_damage"                     "%HP damage"

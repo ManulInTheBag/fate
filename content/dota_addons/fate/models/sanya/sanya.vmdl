@@ -104,7 +104,7 @@
 						weight_list_name = ""
 						fade_in_time = 0.2
 						fade_out_time = 0.2
-						looping = false
+						looping = true
 						delta = false
 						worldSpace = false
 						hidden = false
@@ -159,7 +159,7 @@
 						import_bone_scales = false
 						start_frame = 141
 						end_frame = 157
-						framerate = -1.0
+						framerate = 17.0
 						reverse = false
 					},
 					{
@@ -181,7 +181,7 @@
 						import_bone_scales = false
 						start_frame = 177
 						end_frame = 195
-						framerate = -1.0
+						framerate = 20.0
 						reverse = false
 					},
 					{

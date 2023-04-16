@@ -86,6 +86,10 @@ function modifier_battle_horn_movespeed_buff:IsHidden()
 	return true 
 end
 
+function modifier_battle_horn_movespeed_buff:GetEffectName()
+    return "particles/units/heroes/hero_dark_seer/dark_seer_surge.vpcf"
+end
+
 
 
 
@@ -106,3 +110,8 @@ end
 function modifier_battle_horn_movespeed_debuff:IsHidden()
 	return true 
 end
+
+function modifier_battle_horn_movespeed_debuff:GetEffectName()
+    return "particles/custom/rider/rider_breaker_gorgon_debuff.vpcf"
+end
+

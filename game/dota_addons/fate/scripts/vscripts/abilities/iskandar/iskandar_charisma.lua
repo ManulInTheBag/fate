@@ -10,6 +10,10 @@ function iskandar_charisma:GetIntrinsicModifierName()
 	return "modifier_iskandar_charisma_aura"
 end
 
+
+
+
+
 -- Vision provider buff
 function modifier_iskandar_charisma:DeclareFunctions()
 	return { MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE,
@@ -50,6 +54,33 @@ end
 
 function modifier_iskandar_charisma:GetTexture()
 	return "custom/iskander_charisma"
+end
+
+
+function modifier_iskandar_charisma_aura:OnCreated()
+	self.sound = "Tsubame_Slash_"..math.random(1,3)
+end
+
+function modifier_iskandar_charisma_aura:OnAttackLanded(args)
+	if args.attacker ~= self:GetParent() then return end
+	self.sound = "Tsubame_Slash_"..math.random(1,3)
+
+end
+
+function modifier_iskandar_charisma_aura:GetAttributes() 
+    return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE + MODIFIER_ATTRIBUTE_PERMANENT
+end
+
+function modifier_iskandar_charisma_aura:DeclareFunctions()
+	local func = {
+					MODIFIER_PROPERTY_TRANSLATE_ATTACK_SOUND,
+
+				}
+	return func
+end
+
+function modifier_iskandar_charisma_aura:GetAttackSound()
+	return self.sound
 end
 
 -- Aura

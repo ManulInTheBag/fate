@@ -23,7 +23,7 @@ sAbil1:EndCooldown()
 end
 
 print (sAbil)
-	if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 then 
+	if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 and caster:GetIntellect() >= 29.1 then 
 		if caster:FindAbilityByName("nanaya_combo"):IsCooldownReady() then
 				caster:SwapAbilities("nanaya_combo", "jump_ahead_nanaya", true, false)
 				Timers:CreateTimer(2, function()

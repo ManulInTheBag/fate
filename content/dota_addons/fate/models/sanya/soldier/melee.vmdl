@@ -166,6 +166,28 @@
 						framerate = -1.0
 						reverse = false
 					},
+					{
+						_class = "AnimFile"
+						name = "rush_pose"
+						activity_name = "ACT_DOTA_CAST_ABILITY_1"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/sanya/soldier/alex_soldier_melee.fbx"
+						import_bone_scales = false
+						start_frame = 78
+						end_frame = 78
+						framerate = 16.0
+						reverse = false
+					},
 				]
 				default_root_bone_name = ""
 			},

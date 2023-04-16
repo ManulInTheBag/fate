@@ -3812,6 +3812,7 @@ function FateGameMode:InitializeRound()
 
         if hero.Level24Acquired then
             hero.MasterUnit:SetMana(hero.MasterUnit:GetMana() + 2)
+            hero.MasterUnit2:SetMana(hero.MasterUnit2:GetMana() + 2)
         end
 
         --SendChatToPanorama("IRL5"..plyID)

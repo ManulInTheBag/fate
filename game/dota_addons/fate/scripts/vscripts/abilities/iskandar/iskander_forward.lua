@@ -38,6 +38,7 @@ function iskander_forward:OnSpellStart()
 		v:AddNewModifier(caster,ability, "modifier_iskandar_forward", {duration = self:GetSpecialValueFor("duration")})
 		if(v:GetUnitName() == "iskander_infantry") and caster.IsBeyondTimeAcquired then
 			v:AddNewModifier(caster,ability, "modifier_iskandar_infantry_rush", {duration = 0.5})
+			StartAnimation(v, {duration=0.5, activity=ACT_DOTA_CAST_ABILITY_1, rate=1})
 			self:CreateInfantryProjectile(v)
 		end
 		if v ~= caster and v:IsHero() then

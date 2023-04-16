@@ -114,9 +114,7 @@ function modifier_gordius_wheel:OnCreated(args)
 	self.mr = 5				--ability:GetSpecialValueFor("bonus_mr") IT WILL BREAK IF YOU Change to LINK IDK WHY
 	self.armor = 5			--ability:GetSpecialValueFor("bonus_armor")
 	if(IsServer() ) then
-		CustomNetTables:SetTableValue("sync","gordius_wheel", {movespeed = self.Movespeed})
-		CustomNetTables:SetTableValue("sync","gordius_wheel", {mres = self.mr})
-		CustomNetTables:SetTableValue("sync","gordius_wheel", {armor = self.armor})
+		CustomNetTables:SetTableValue("sync","gordius_wheel", {movespeed = self.Movespeed, mres = self.mr, armor = self.armor})
 	end
 	local ability = self:GetAbility()
 	local caster = self:GetParent()
@@ -140,9 +138,9 @@ function modifier_gordius_wheel:OnCreated(args)
 	Timers:CreateTimer(1.0, function() 
 		if caster.IsRiding and counter < 10 then 
 			self.Movespeed = ability:GetSpecialValueFor("movespeed_per_second")* counter
-			CustomNetTables:SetTableValue("sync","gordius_wheel", { movespeed = self.Movespeed })
-			CustomNetTables:SetTableValue("sync","gordius_wheel", {mr = self.mr})
-			CustomNetTables:SetTableValue("sync","gordius_wheel", {armor = self.armor})
+			if(IsServer() ) then
+				CustomNetTables:SetTableValue("sync","gordius_wheel", {movespeed = self.Movespeed, mres = self.mr, armor = self.armor})
+			end
 			local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
 		 	for k,v in pairs(targets) do
 				local distDiff = 250 -- max damage at 100, min damage at 350

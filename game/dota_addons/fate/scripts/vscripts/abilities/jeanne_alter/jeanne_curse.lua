@@ -45,7 +45,7 @@ function modifier_jeanne_curse_active:OnCreated()
 		self.caster = self.ability:GetCaster()
 		self.parent = self:GetParent()
 		self.damage = self.ability:GetSpecialValueFor("damage_per_second")
-		self.duration_remaining = self.ability:GetSpecialValueFor("duration")
+		--self.duration_remaining = self.ability:GetSpecialValueFor("duration")
 		local modifier = self.caster:FindModifierByName("modifier_jeanne_curse_buff")
 
 		modifier:IncrementStackCount()
@@ -57,7 +57,7 @@ end
 
 function modifier_jeanne_curse_active:OnRefresh()
 	if IsServer() then
-		self.duration_remaining = self.ability:GetSpecialValueFor("duration")
+		--self.duration_remaining = self.ability:GetSpecialValueFor("duration")
 	end
 end
 
@@ -72,7 +72,7 @@ end
 function modifier_jeanne_curse_active:OnIntervalThink()
 	if IsServer() then
 		--self.caster:Heal(self.damage/4, self.ability)
-		self.duration_remaining = self.duration_remaining - 0.25
+		--self.duration_remaining = self.duration_remaining - 0.25
 		--print(self.duration_remaining)
 		DoDamage(self.caster, self.parent, self.damage/4, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
 	end
@@ -88,7 +88,7 @@ function modifier_jeanne_curse_active:DeclareFunctions()
 		--MODIFIER_EVENT_ON_TAKEDAMAGE
 	}
 end
-
+--[[
 function modifier_jeanne_curse_active:OnTakeDamage(args)
     if IsServer() then
         if args.unit ~= self:GetParent() then return end
@@ -96,7 +96,7 @@ function modifier_jeanne_curse_active:OnTakeDamage(args)
         self.damage = self.damage + args.damage*self.ability:GetSpecialValueFor("damage_percent")/100
     end
 end
-
+]]
 function modifier_jeanne_curse_active:GetModifierMoveSpeedBonus_Percentage()
 	return -1*self:GetAbility():GetSpecialValueFor("slow")
 end
@@ -172,7 +172,7 @@ function modifier_jeanne_curse_weak:DeclareFunctions()
 		--MODIFIER_EVENT_ON_TAKEDAMAGE
 	}
 end
-
+--[[
 function modifier_jeanne_curse_weak:OnTakeDamage(args)
     if IsServer() then
         if args.unit ~= self:GetParent() then return end
@@ -180,7 +180,7 @@ function modifier_jeanne_curse_weak:OnTakeDamage(args)
         self.damage = self.damage + args.damage*self.ability:GetSpecialValueFor("damage_percent")/100
     end
 end
-
+]]
 function modifier_jeanne_curse_weak:GetModifierMoveSpeedBonus_Percentage()
 	return -1*self:GetAbility():GetSpecialValueFor("slow")/2
 end
