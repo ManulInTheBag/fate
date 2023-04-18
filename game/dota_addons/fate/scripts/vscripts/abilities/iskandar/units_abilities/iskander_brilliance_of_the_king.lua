@@ -30,9 +30,7 @@ function iskander_brilliance_of_the_king:OnSpellStart()
 
 	end)
 	EmitGlobalSound("Waver_NP_" .. math.random(1,2))
-	if hero:HasModifier("modifier_annihilate_caster") then
-		for k,v in pairs(targets) do
-			giveUnitDataDrivenModifier(caster, v, "rooted",2)
-		end
+	for k,v in pairs(targets) do
+		giveUnitDataDrivenModifier(caster, v, "rooted",2)
 	end
 end

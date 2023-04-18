@@ -54,7 +54,7 @@
 					{
 						_class = "RenderMeshFile"
 						name = "sanya"
-						filename = "models/sanya/iskandar.fbx"
+						filename = "models/sanya/sanya_telega.fbx"
 						import_scale = 1.0
 						import_filter = 
 						{
@@ -86,7 +86,7 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
-						source_filename = "models/sanya/iskandar.fbx"
+						source_filename = "models/sanya/sanya_telega.fbx"
 						import_bone_scales = false
 						start_frame = 362
 						end_frame = 375
@@ -108,11 +108,11 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
-						source_filename = "models/sanya/iskandar.fbx"
+						source_filename = "models/sanya/sanya_telega.fbx"
 						import_bone_scales = false
 						start_frame = 362
 						end_frame = 375
-						framerate = -1.0
+						framerate = 1.0
 						reverse = false
 					},
 				]
@@ -610,6 +610,15 @@
 						name = "attach_hitloc"
 						parent_bone = "bone_chest"
 						relative_origin = [ -1.958412, -18.439606, -2.72348 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_wheel"
+						parent_bone = "bone_chest"
+						relative_origin = [ 174.576645, -38.455353, -277.624512 ]
 						relative_angles = [ 0.0, 0.0, 0.0 ]
 						weight = 1.0
 						ignore_rotation = false

@@ -4,14 +4,59 @@ LinkLuaModifier("modifier_inside_marble", "abilities/general/modifiers/modifier_
 LinkLuaModifier("modifier_iskander_units_bonus_dmg", "abilities/iskandar/iskander_ionioi", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_iskander_units_bonus_dmg_clickable", "abilities/iskandar/iskander_ionioi", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_army_of_the_king_death_checker", "abilities/iskandar/iskander_ionioi", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_sanya_combo_cd", "abilities/iskandar/iskander_ionioi", LUA_MODIFIER_MOTION_NONE)
+
+modifier_sanya_combo_cd = class({})
+
+function modifier_sanya_combo_cd:IsHidden()
+    return false 
+end
+
+function modifier_sanya_combo_cd:RemoveOnDeath()
+    return false
+end
+
+function modifier_sanya_combo_cd:IsDebuff()
+    return true 
+end
+
+function modifier_sanya_combo_cd:GetAttributes()
+    return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
+end
+
+
 aotkTargets = nil
 aotkCenter = Vector(288,-4564, 261)
 ubwCenter = Vector(5926, -4837, 222)
 aotkCasterPos = nil
 
+function iskander_ionioi:CastFilterResult()
+	if self:GetCaster():HasModifier("modifier_gordius_wheel") then
+		return UF_FAIL_CUSTOM
+	else
+		return UF_SUCCESS
+	end
+end
+
+function iskander_ionioi:GetCustomCastError()
+	return "Cant use while riding"
+end
+
 function iskander_ionioi:OnSpellStart()
-	-- initialize stuffs
 	local caster = self:GetCaster()
+	local hero = caster:GetPlayerOwner():GetAssignedHero()
+	-- Set master's combo cooldown
+	local masterCombo = caster.MasterUnit2:FindAbilityByName(self:GetAbilityName())
+	masterCombo:EndCooldown()
+	masterCombo:StartCooldown(self:GetCooldown(1))
+	caster:AddNewModifier(caster, self, "modifier_sanya_combo_cd", {duration =  self:GetCooldown(-1)})
+    local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetOrigin(), nil, 800, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
+    for q,w in pairs(targets) do
+        giveUnitDataDrivenModifier(caster, w, "rooted", 2.5)
+        giveUnitDataDrivenModifier(caster, w, "locked", 2.5)
+    end
+
+
 	StartAnimation(caster, {duration=2, activity=ACT_DOTA_CAST_ABILITY_3, rate=0.8})
 	if caster:GetAbsOrigin().y < -3100 then
 		FireGameEvent( 'custom_error_show', { player_ID = caster:GetPlayerOwnerID(), _error = "Already Within Reality Marble" } )
@@ -41,7 +86,7 @@ function iskander_ionioi:OnSpellStart()
 	--CreateGlobalParticle("particles/custom/iskandar/iskandar_aotk.vpcf", caster:GetAbsOrigin(), 0)
 	CreateGlobalParticle("particles/custom/iskandar/iskandar_aotk.vpcf", {[0] = caster:GetAbsOrigin()}, 2)
 
-	local firstRowPos = aotkCenter + Vector(300, -600,0) 
+	local firstRowPos = aotkCenter + Vector(300, 0,0) 
 	local maharajaPos = aotkCenter + Vector(600, 0,0)
 
 	local infantrySpawnCounter = 0
@@ -52,7 +97,7 @@ function iskander_ionioi:OnSpellStart()
 
 	Timers:CreateTimer(function()
 		if infantrySpawnCounter == soldierCount then return end
-		local soldier = CreateUnitByName("iskander_infantry", firstRowPos + Vector(0,infantrySpawnCounter*100,0), true, nil, nil, caster:GetTeamNumber())
+		local soldier = CreateUnitByName("iskander_infantry", firstRowPos + Vector(0, math.pow(-1,(infantrySpawnCounter+1))* infantrySpawnCounter*100,0), true, nil, nil, caster:GetTeamNumber())
 		soldier:SetForwardVector(Vector(-1,0,0))
 		--soldier:AddNewModifier(caster, nil, "modifier_phased", {})
 		soldier:SetOwner(caster)
@@ -107,21 +152,13 @@ function iskander_ionioi:OnSpellStart()
 		    caster.AOTKLocator:AddNewModifier(caster, caster, "modifier_kill", {duration = 16.5})
 		    caster.AOTKLocator:SetAbsOrigin(caster:GetAbsOrigin())
 			self:OnAOTKStart()
-			caster:AddNewModifier(caster, self, "modifier_army_of_the_king_death_checker", {duration = 16})
+			
 		end
 	end
 	})
 
-	if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 and caster:GetIntellect() >= 29.1 then
-			caster.armyUsed = true
-			caster.armyTime = GameRules:GetGameTime()
-			Timers:CreateTimer({
-				endTime = 5,
-				callback = function()
-				armyUsed = false
-			end
-			})
-	end
+	
+	
 end
 
 --[[what the actual fuck am I witnessing here? Like, just why?!!!!!!!!!!!
@@ -141,6 +178,7 @@ function iskander_ionioi:OnAOTKStart()
 	local caster = self:GetCaster()
 	local ply = caster:GetPlayerOwner()
 	local ability = self
+	local ability = self
 	local radius = self:GetSpecialValueFor("radius") 
 	caster.IsAOTKActive = true
 	caster:EmitSound("Ability.SandKing_SandStorm.loop")
@@ -150,9 +188,11 @@ function iskander_ionioi:OnAOTKStart()
 	local aotkAbilityHandle = self
 
 	-- Swap abilities
-	caster:SwapAbilities("iskander_army_of_the_king", "fate_empty3", false, true)
-	caster:SwapAbilities("fate_empty1", "iskander_summon_hephaestion", false, true)
-	caster:SwapAbilities("iskandar_gordius_wheel", "iskandar_arrow_bombard", false, true)
+	if(caster:GetAbilityByIndex(4):GetName() == "fate_empty1") then
+		caster:SwapAbilities("iskander_ionioi", "fate_empty1", true, false)
+	 end
+	caster:SwapAbilities("iskander_ionioi", "iskander_summon_hephaestion", false, true)
+	--caster:SwapAbilities("iskandar_gordius_wheel", "iskandar_arrow_bombard", false, true)
 	if caster.IsBeyondTimeAcquired then
 		caster:SwapAbilities("iskandar_charisma", "iskander_summon_waver", false, true) 
 	else 
@@ -206,6 +246,7 @@ function iskander_ionioi:OnAOTKStart()
 	local maharaja = CreateUnitByName("iskander_maharaja", maharajaPos, true, nil, nil, caster:GetTeamNumber())
 	maharaja:SetControllableByPlayer(caster:GetPlayerID(), true)
 	maharaja:SetOwner(caster)
+	maharaja:SetForwardVector(Vector(-1,0,0))
 	maharaja:FindAbilityByName("iskander_battle_horn"):SetLevel(aotkAbilityHandle:GetLevel())
 	table.insert(caster.AOTKSoldiers, maharaja)
 	caster.AOTKSoldierCount = caster.AOTKSoldierCount + 1
@@ -268,6 +309,15 @@ function iskander_ionioi:OnAOTKStart()
 			end
 		end
     end
+	
+
+	caster:AddNewModifier(caster, self, "modifier_army_of_the_king_death_checker", {duration = 16})
+	EmitGlobalSound("Iskander.Annihilate")
+	Timers:CreateTimer(1.5, function()
+		EmitGlobalSound("Iskander.Aye")
+	end)
+	EmitGlobalSound("Hero_LegionCommander.PressTheAttack")
+	StartAnimation(caster, {duration=2, activity=ACT_DOTA_CAST_ABILITY_1, rate=0.5})
 
 end
 
@@ -285,9 +335,8 @@ function iskander_ionioi:EndAOTK(caster)
 	print("AOTK ended")
 	-- Revert abilities
 
-	caster:SwapAbilities("iskandar_gordius_wheel", "iskandar_arrow_bombard", true, false)
-	caster:SwapAbilities("iskander_army_of_the_king", "fate_empty3", true, false)
-	caster:SwapAbilities("fate_empty1", "iskander_summon_hephaestion", true, false) 
+	caster:SwapAbilities("fate_empty1", "iskander_summon_hephaestion", true, false)
+	--caster:SwapAbilities("iskandar_gordius_wheel", "iskandar_arrow_bombard", false, true)
 	caster:SwapAbilities("iskandar_charisma", caster:GetAbilityByIndex(3):GetName(), true, false) 
 	CreateUITimer("Army of the King", 0, "aotk_timer")
 	caster.IsAOTKActive = false

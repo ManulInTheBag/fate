@@ -111,8 +111,8 @@ end
 
 function modifier_gordius_wheel:OnCreated(args)
 	self.Movespeed = 1
-	self.mr = 5				--ability:GetSpecialValueFor("bonus_mr") IT WILL BREAK IF YOU Change to LINK IDK WHY
-	self.armor = 5			--ability:GetSpecialValueFor("bonus_armor")
+	self.mr = 10				--ability:GetSpecialValueFor("bonus_mr") IT WILL BREAK IF YOU Change to LINK IDK WHY
+	self.armor = 10			--ability:GetSpecialValueFor("bonus_armor")
 	if(IsServer() ) then
 		CustomNetTables:SetTableValue("sync","gordius_wheel", {movespeed = self.Movespeed, mres = self.mr, armor = self.armor})
 	end

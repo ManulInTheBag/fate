@@ -1,0 +1,475 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc32:version{c5dcef98-b629-46ab-88e3-a17c005c935e} -->
+{
+	rootNode = 
+	{
+		_class = "RootNode"
+		children = 
+		[
+			{
+				_class = "MaterialGroupList"
+				children = 
+				[
+					{
+						_class = "DefaultMaterialGroup"
+						remaps = 
+						[
+							{
+								from = "model001_material001.vmat"
+								to = "models/sanya/soldier/commander.vmat"
+							},
+							{
+								from = "tt_checker_512x512_uv_grid.vmat"
+								to = "models/sanya/sword.vmat"
+							},
+						]
+						use_global_default = false
+						global_default_material = ""
+					},
+				]
+			},
+			{
+				_class = "RenderMeshList"
+				children = 
+				[
+					{
+						_class = "RenderMeshFile"
+						name = "soldier"
+						filename = "models/sanya/soldier/commander.fbx"
+						import_scale = 1.0
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = 
+							[
+								"Mesh_019",
+								"Mesh_025",
+								"Mesh_013",
+								"Mesh_022",
+							]
+						}
+					},
+				]
+			},
+			{
+				_class = "AnimationList"
+				children = 
+				[
+					{
+						_class = "AnimFile"
+						name = "idle"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								root_bone_name = ""
+								motion_type = "Single"
+							},
+						]
+						activity_name = "ACT_DOTA_IDLE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/sanya/soldier/commander.fbx"
+						import_bone_scales = false
+						start_frame = 4
+						end_frame = 44
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "walk"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								root_bone_name = ""
+								motion_type = "Single"
+							},
+						]
+						activity_name = "ACT_DOTA_RUN"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/sanya/soldier/commander.fbx"
+						import_bone_scales = false
+						start_frame = 54
+						end_frame = 70
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "attack"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								root_bone_name = ""
+								motion_type = "Single"
+							},
+						]
+						activity_name = "ACT_DOTA_ATTACK"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/sanya/soldier/commander.fbx"
+						import_bone_scales = false
+						start_frame = 74
+						end_frame = 84
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "commander3"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								root_bone_name = ""
+								motion_type = "Single"
+							},
+						]
+						activity_name = "ACT_DOTA_DIE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/sanya/soldier/commander.fbx"
+						import_bone_scales = false
+						start_frame = 94
+						end_frame = 116
+						framerate = -1.0
+						reverse = false
+					},
+				]
+				default_root_bone_name = ""
+			},
+			{
+				_class = "HitboxSetList"
+				children = 
+				[
+					{
+						_class = "HitboxSet"
+						name = "default"
+						children = 
+						[
+							{
+								_class = "Hitbox"
+								name = "spine_01_x"
+								parent_bone = "spine_01_x"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -66.530983, -103.650772, -59.430397 ]
+								hitbox_maxs = [ 79.350906, 115.970558, 75.133507 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "spine_02_x"
+								parent_bone = "spine_02_x"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -21.587345, -18.10907, -6.363976 ]
+								hitbox_maxs = [ 21.587337, 26.815155, 19.955296 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "spine_03_x"
+								parent_bone = "spine_03_x"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -18.449316, -10.168762, -7.965389 ]
+								hitbox_maxs = [ 18.449312, 25.937607, 10.170143 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "neck_x"
+								parent_bone = "neck_x"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -15.151688, -17.006073, -28.463596 ]
+								hitbox_maxs = [ 15.106506, 44.132385, 41.384438 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "shoulder_l"
+								parent_bone = "shoulder_l"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -39.341591, -19.0704, -69.358032 ]
+								hitbox_maxs = [ 12.408812, 51.35146, 15.667999 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "arm_stretch_l"
+								parent_bone = "arm_stretch_l"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.471593, -0.5, -8.619522 ]
+								hitbox_maxs = [ 7.992148, 39.477531, 7.472458 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "forearm_stretch_l"
+								parent_bone = "forearm_stretch_l"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.259726, -4.66555, -6.700867 ]
+								hitbox_maxs = [ 7.718101, 41.283154, 4.626129 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "hand_l"
+								parent_bone = "hand_l"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -42.94035, -42.054115, -9.513687 ]
+								hitbox_maxs = [ 38.357098, 27.264168, 14.664776 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "c_index1_l"
+								parent_bone = "c_index1_l"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.43726, -8.68961, -7.642212 ]
+								hitbox_maxs = [ 8.658068, 8.718185, 2.318893 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "c_thumb1_l"
+								parent_bone = "c_thumb1_l"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.491714, -4.815071, -4.696739 ]
+								hitbox_maxs = [ 2.688873, 10.753983, 2.882298 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "c_thumb2_l"
+								parent_bone = "c_thumb2_l"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.584305, -1.599907, -11.764347 ]
+								hitbox_maxs = [ 1.46254, 7.149246, 1.524033 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "shoulder_r"
+								parent_bone = "shoulder_r"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -23.545124, -19.070396, -83.974129 ]
+								hitbox_maxs = [ 23.37969, 57.272774, 15.667999 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "arm_stretch_r"
+								parent_bone = "arm_stretch_r"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.992158, -0.5, -8.619537 ]
+								hitbox_maxs = [ 5.471583, 39.042629, 7.472412 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "forearm_stretch_r"
+								parent_bone = "forearm_stretch_r"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.718115, -4.665533, -6.04248 ]
+								hitbox_maxs = [ 4.155626, 32.101891, 4.626099 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "hand_r"
+								parent_bone = "hand_r"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.597405, -1.069738, -5.036011 ]
+								hitbox_maxs = [ 5.908269, 14.554253, 2.506363 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "c_index1_r"
+								parent_bone = "c_index1_r"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.034532, -4.615746, -7.554871 ]
+								hitbox_maxs = [ 5.43719, 8.10853, 2.285812 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "c_index2_r"
+								parent_bone = "c_index2_r"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.664103, -3.092407, -3.882244 ]
+								hitbox_maxs = [ 5.313782, 7.495316, 1.762688 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "c_thumb1_r"
+								parent_bone = "c_thumb1_r"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.688843, -4.815018, -4.696697 ]
+								hitbox_maxs = [ 6.131088, 5.837975, 2.882317 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "c_thumb2_r"
+								parent_bone = "c_thumb2_r"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.832382, -1.453659, -1.927975 ]
+								hitbox_maxs = [ 3.540985, 5.930908, 1.649551 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "thigh_stretch_l"
+								parent_bone = "thigh_stretch_l"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -20.875732, -0.5, -32.952133 ]
+								hitbox_maxs = [ 18.179077, 52.542084, 13.134973 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "leg_stretch_l"
+								parent_bone = "leg_stretch_l"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -11.432514, -11.695976, -7.522184 ]
+								hitbox_maxs = [ 4.722527, 46.574448, 6.427992 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "foot_l"
+								parent_bone = "foot_l"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.046262, -5.890295, -15.628939 ]
+								hitbox_maxs = [ 5.101722, 28.990355, 3.747486 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "thigh_stretch_r"
+								parent_bone = "thigh_stretch_r"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -18.17907, -0.5, -32.952129 ]
+								hitbox_maxs = [ 20.875732, 52.542095, 13.134974 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "leg_stretch_r"
+								parent_bone = "leg_stretch_r"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.722537, -11.695942, -7.522198 ]
+								hitbox_maxs = [ 11.432498, 46.574432, 6.427972 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "foot_r"
+								parent_bone = "foot_r"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.101739, -5.890262, -15.628977 ]
+								hitbox_maxs = [ 7.046235, 28.623714, 3.747437 ]
+							},
+						]
+					},
+				]
+			},
+		]
+		model_archetype = ""
+		primary_associated_entity = ""
+		anim_graph_name = ""
+		importer_notes = """
+Imported from VMDL
+"""
+	}
+}

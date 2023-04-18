@@ -26,19 +26,5 @@ function iskander_summon_hephaestion:OnSpellStart()
 	table.insert(caster.AOTKSoldiers, hepha)
 	hepha:AddNewModifier(caster, self, "modifier_iskander_units_bonus_dmg_clickable", {duration = 16, dmg = aotkAbilityHandle:GetSpecialValueFor("hepha_bonus_damage")})
 
-	if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 and caster:GetIntellect() >= 29.1 then
- 		if caster:FindAbilityByName("iskander_annihilate"):IsCooldownReady() and caster:FindAbilityByName("iskander_forward"):IsCooldownReady() then
-			if caster.armyUsed == true then 
-				caster:SwapAbilities("iskander_forward", "iskander_annihilate", false, true)
-				local newTime =  GameRules:GetGameTime()
-				Timers:CreateTimer({
-					endTime = 5 - (newTime - caster.armyTime),
-					callback = function()
-					caster:SwapAbilities("iskander_forward", "iskander_annihilate", true, false)
-					armyUsed = false
-				end
-				})
-			end
-		end
-	end
+	
 end

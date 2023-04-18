@@ -1,0 +1,47 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf51:version{6d03d500-2498-454e-b833-f654e870bb3d} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_bShouldHitboxesFallbackToRenderBounds = false
+	m_nMaxParticles = 32
+	m_nBehaviorVersion = 12
+	m_controlPointConfigurations = 
+	[
+		{
+			m_name = "preview"
+			m_drivers = 
+			[
+				{
+					m_iControlPoint = 1
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 3
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+			]
+		},
+	]
+	m_Children = 
+	[
+		{
+			m_ChildRef = resource:"particles/emiya/caladbolg_explosion_base.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/emiya/caladbolg_explosion_shockwave.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/emiya/caladbolg_explosion_flarevpcf.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/emiya/caladbolg_explosion_flare_2.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/emiya/caladbolg_explosion_smoke.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/emiya/caladbolg_explosion_glow.vpcf"
+		},
+	]
+}

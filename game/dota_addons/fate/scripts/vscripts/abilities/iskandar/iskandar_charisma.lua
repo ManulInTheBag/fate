@@ -17,9 +17,15 @@ end
 -- Vision provider buff
 function modifier_iskandar_charisma:DeclareFunctions()
 	return { MODIFIER_PROPERTY_DAMAGEOUTGOING_PERCENTAGE,
-			 MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE }
+			 MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
+			MODIFIER_PROPERTY_TRANSLATE_ACTIVITY_MODIFIERS }
 end
 
+
+
+function modifier_iskandar_charisma:GetActivityTranslationModifiers()
+	return self:GetParent():GetIdealSpeed() > 450 and "run_fast" or "run_slow"
+end
 function modifier_iskandar_charisma:GetModifierMoveSpeedBonus_Percentage()	
 	if self:GetParent() ~= self:GetCaster() then 
 		return self:GetAbility():GetSpecialValueFor("bonus_ms")

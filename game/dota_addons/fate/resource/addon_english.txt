@@ -506,6 +506,26 @@
 		"DOTA_Tooltip_modifier_iskandar_charisma"						"Charisma"
 		"DOTA_Tooltip_modifier_iskandar_charisma_Description"			"Bonus movement speed and damage"
 
+		"DOTA_Tooltip_modifier_iskander_maharaja_passive"				"Infantry captain"
+		"DOTA_Tooltip_modifier_iskander_maharaja_passive_Description"	"Bonus damage"
+
+		"DOTA_Tooltip_modifier_iskander_waver_passive"						"Mage captain"
+		"DOTA_Tooltip_modifier_iskander_waver_passive_Description"			"Bonus MR"
+
+
+		"DOTA_Tooltip_modifier_iskander_hephaestion_passive"				"Cavalry captain"
+		"DOTA_Tooltip_modifier_iskander_hephaestion_passive_Description"	"Bonus ms"
+
+
+ 
+ 
+		"DOTA_Tooltip_modifier_iskandar_forward"						"Forward"
+		"DOTA_Tooltip_modifier_iskandar_forward_Description"			"Bonus ms and atk dmg"
+
+		"DOTA_Tooltip_modifier_sanya_combo_cd"							"Combo cd"
+		"DOTA_Tooltip_modifier_sanya_combo_cd_Description"			"AOTK is on cd"
+
+
 		"DOTA_Tooltip_modifier_jeanne_divine_symbol"					"Divine Symbol"
 		"DOTA_Tooltip_modifier_jeanne_divine_symbol_Description"		"Deals pure damage on attack"
 
@@ -4531,11 +4551,11 @@
 
 		"iskander_infantry"			"Dragon Knight-kun"
 		"iskander_archer"			"Windrunner-chan"
-		"iskander_maharaja"			"Floating Chen-sama"
+		"iskander_maharaja"			"Mithrenes"
 		"iskander_cavalry"			"Chaos Knight-san"
 		"iskander_hephaestion"		"Aniki"
 		"iskander_mage"				"Silencer Onii-san"
-		"iskander_waver"			"FP Provider"
+		"iskander_waver"			"Waver"
 
         "DOTA_Tooltip_Ability_iskander_charisma"     "Charisma"
         "DOTA_Tooltip_ability_iskander_charisma_Description" "Rider's presence on the battlefield raises morale of nearby allies, giving them 20%% bonus movement speed when they are facing Rider.\n Improved by attribute Improve Charisma"
@@ -4562,6 +4582,15 @@
         "DOTA_Tooltip_ability_iskander_phalanx_width"	"PHALANX WIDTH:"
         "DOTA_Tooltip_ability_iskander_phalanx_duration"	"PHALANX DURATION:"
 
+
+
+        "DOTA_Tooltip_Ability_iskander_archers"				"Summon archers"
+        "DOTA_Tooltip_ability_iskander_archers_Description" "Rider Summons a linear formation of archers behind his back. After a short delay archers will attack with a series of shots, dealing damage and rooting in aoe. Shots have a random distribution in radius around point cast."
+        "DOTA_Tooltip_ability_iskander_archers_damage"				"DAMAGE:"
+		"DOTA_Tooltip_ability_iskander_archers_rduration"			"ROOT DURATION:"
+        "DOTA_Tooltip_ability_iskander_archers_summon_ammount"		"SOLDIERS COUNT:"
+        "DOTA_Tooltip_ability_iskander_archers_aoe"					"AOE:"
+
         "DOTA_Tooltip_Ability_iskandar_gordius_wheel"     "Gordius Wheel"
         "DOTA_Tooltip_ability_iskandar_gordius_wheel_Description" "Rider rides on battle chariot, gaining bonus armor and magic resistance. All enemies nearby suffer damage based on how close they are to Rider every second, based on Rider's speed. Every second Rider speed increases without a limit.\nWhile Gordius Wheel persists, Army of the King cannot be cast.\n Improved by attributes Thundergod's Wrath and Via Exupgnatio"
         "DOTA_Tooltip_ability_iskandar_gordius_wheel_Lore"	"When getting in Rider's path of domination, one should be prepared for the mighty stomp of divine bulls."
@@ -4586,14 +4615,13 @@
         "DOTA_Tooltip_ability_iskander_drift_Note0"	"Via Expugnatio's cooldown can be reset."         
 
         "DOTA_Tooltip_Ability_iskander_ionioi"     "Army of the King"
-        "DOTA_Tooltip_ability_iskander_ionioi_Description" "The light swirls around Rider to form a boundary. After 2 seconds, all heroes and units inside boundary are teleported to embodiment of Rider's inner world. Inside, Rider reigns as the king of cavalry and can summon legendary heroes of history.\nEach level icreases the strength of Rider's legion. At least certain number of soldiers must be alive in order to sustain Army of the King.\nWhile Army of the King persists, Gordius Wheel cannot be cast.\n Improved by attribute Bond Beyond Time"
+        "DOTA_Tooltip_ability_iskander_ionioi_Description" "<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : Q-F in 5 seconds</font>\nThe light swirls around Rider to form a boundary. On cast rider roots and locks all units in 800 radius around him. After 2 seconds, all heroes and units inside boundary are teleported to embodiment of Rider's inner world. Inside, Rider reigns as the king of cavalry and can summon legendary heroes of history.\nWhile Army of the King persists, Gordius Wheel cannot be cast.\n Improved by attribute Bond Beyond Time."
         "DOTA_Tooltip_ability_iskander_ionioi_Lore"	"Many spirits. One dream."
         "DOTA_Tooltip_ability_iskander_ionioi_cast_delay"		"CAST DELAY:"
         "DOTA_Tooltip_ability_iskander_ionioi_radius"		"RADIUS:"
         "DOTA_Tooltip_ability_iskander_ionioi_duration"	"DURATION:"
-        "DOTA_Tooltip_ability_iskander_ionioi_Note0"	"The health and damage of units increases with ability level."
-		"DOTA_Tooltip_ability_iskander_army_of_the_king_Note1"		"Rider is stunned and revoked from master while casting."
-		"DOTA_Tooltip_ability_iskander_army_of_the_king_Note2"		"In case Army of the King is overlapping with another Reality Marble, the battlefield takes place in the first Marble cast. When that Marble is broken, both Marbles cease to sustain."
+		"DOTA_Tooltip_ability_iskander_army_of_the_king_Note0"		"Rider is stunned and revoked from master while casting."
+		"DOTA_Tooltip_ability_iskander_army_of_the_king_Note1"		"In case Army of the King is overlapping with another Reality Marble, the battlefield takes place in the first Marble cast. When that Marble is broken, both Marbles cease to sustain."
 
 		"DOTA_Tooltip_Ability_iskandar_arrow_bombard"				"Arrow Bombard"
 		"DOTA_Tooltip_ability_iskandar_arrow_bombard_Description"	"Iskandar commands his legion of archers to bombard an %radius% radius area with arrows instantly, dealing physical damage and rooting enemies caught for %root_dur% seconds."
@@ -4625,12 +4653,12 @@
         "DOTA_Tooltip_ability_iskander_waver_passive_Description" "Soldiers inside Army of the King gain increased magic resistance while Waver is present on the battlefield."
 
         "DOTA_Tooltip_Ability_iskander_battle_horn"     "Battle Horn"
-        "DOTA_Tooltip_ability_iskander_battle_horn_Description" "Maharaja blasts a blaring horn, ordering all infantry units under his command to relocate to target location at maximum speed for 1 second. All enemy units within Army of the King are terrified, suffering reduced armor for duration."
+        "DOTA_Tooltip_ability_iskander_battle_horn_Description" "Maharaja blasts a blaring horn, ordering all infantry units under his command to relocate to target location at maximum speed for 1 second. All enemy units within Army of the King are terrified, suffering reduced armor and movement speed for duration."
         "DOTA_Tooltip_ability_iskander_battle_horn_pct_armor_reduction"        "%ARMOR REDUCTION:"
         "DOTA_Tooltip_ability_iskander_battle_horn_duration"       			   "DURATION:"
 
         "DOTA_Tooltip_Ability_iskander_brilliance_of_the_king"          "Briliance of the King"
-        "DOTA_Tooltip_ability_iskander_brilliance_of_the_king_Description"       "Waver channels the light that resembles of King's might, rendering all soldiers invulnerable for duration. All enemies inside Army of the King are silenced instead."
+        "DOTA_Tooltip_ability_iskander_brilliance_of_the_king_Description"       "Waver channels the light that resembles of King's might. All enemies inside Army of the King are silenced and rooted."
         "DOTA_Tooltip_ability_iskander_brilliance_of_the_king_duration"		"DURATION:"
  
  		"DOTA_Tooltip_Ability_iskander_annihilate"				"Combo: Annihilate!"

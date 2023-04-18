@@ -92,6 +92,40 @@
 		
 	}
 
+	//====================================
+	// Iskander - Archers bombard
+	//====================================
+	"iskander_archers"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/iskandar/iskander_archers"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT|DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/iskandar/arrow_bombard"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
+		"AnimationPlaybackRate" 		"1.0"
+		"AOERadius"						"375" /// aoe + 225 (randomness)
+		"AbilityCastRange"				"1500"
+		"AbilityCastPoint"				"0.2"
+		"AbilityCooldown"				"30 28 26 24 22"
+		"AbilityManaCost"				"400"
+		"AbilityValues"
+		{
+			"damage"										"200 250 300 350 400"
+			"summon_ammount"								"6" // affects damage
+			"duration"										"2" 
+			"shots_per_unit"								"2" ///pfx only
+			"aoe"											"150"
+			"rduration"										"0.6 0.8 1 1.2 1.4" //root duration
+		}
+		
+	}
+
 	//========================================
 	// Iskander - Gordius Wheel
 	//========================================
@@ -107,20 +141,20 @@
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_4"
 		"AbilityCooldown"				"34"
 		"AbilityCastPoint"				"0.01"
-		"AbilityManaCost"				"400"
+		"AbilityManaCost"				"800"
 
 
 		"AbilityValues"
 		{
 			"cast_delay"								"1"
 			"duration"									"10"
-			"bonus_armor"								"5"// mr and armor must be set in code or it will not be seen in game so check  modifier_gordius_wheel  
-			"bonus_mr"								    "5"//
+			"bonus_armor"								"10"// mr and armor must be set in code or it will not be seen in game so check  modifier_gordius_wheel  
+			"bonus_mr"								    "10" 
 			"movespeed_per_second"						"9"
-			"radius"								    "350"
-			"radius_max"								"100"
-			"max_damage"								"400 450 500 550 600"
-			"min_damage"								"100 150 200 250 300"
+			"radius"								    "400"
+			"radius_max"								"125"
+			"max_damage"								"500 550 600 650 700"
+			"min_damage"								"150 200 250 300 350"
 			"sa_slow_duration"							"0.2"
 		}
 
@@ -163,14 +197,14 @@
 	{
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/iskandar/iskander_ionioi"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE|DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityTextureName"			"custom/iskander_army_of_the_king"
-		"MaxLevel"						"5"
+		"MaxLevel"						"1"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"2"
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3"
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityCooldown"				"56"
+		"AbilityCooldown"				"160"
 		"AbilityManaCost"				"800"
 		
 		"AbilityValues"
@@ -179,13 +213,13 @@
 			"radius"														"1150"
 			"duration"														"16"
 			"sustain_limit"								    				"2"  //not used since soldiers are invul lol
-			"archer_bonus_damage"								    		"15 22 30 37 45"
-			"maharaja_bonus_damage"								    		"100"
-			"infantry_bonus_damage"								    		"20 28 36 44 52"
-			"cavalry_bonus_damage"								    		"30 45 60 75 90"
-			"hepha_bonus_damage"								    		"120"
-			"mage_bonus_damage"								    			"15 25 35 45 55"
-			"waver_bonus_damage"								    		"80"
+			"archer_bonus_damage"								    		"70"
+			"maharaja_bonus_damage"								    		"125"
+			"infantry_bonus_damage"								    		"80"
+			"cavalry_bonus_damage"								    		"90"
+			"hepha_bonus_damage"								    		"150"
+			"mage_bonus_damage"								    			"65"
+			"waver_bonus_damage"								    		"100"
 		}
 		
 	}
@@ -208,7 +242,7 @@
 		"AbilityTextureName"			"custom/iskandar/arrow_bombard"
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
 		"AnimationPlaybackRate" 		"1.0"
-		"AbilityCastRange"						"1200"
+		"AbilityCastRange"						"1400"
 		"AbilityCastPoint"						"0.1"
 		"AbilityCooldown"						"4"
 		"AbilityManaCost"						"100"
@@ -365,7 +399,7 @@
 		"AnimationPlaybackRate" 		"1.5"
 		"AOERadius"						"%radius"
 		"AbilityCastPoint"				"0.1"
-		"AbilityCooldown"				"16"
+		"AbilityCooldown"				"5"
 
 		"AbilityValues"
 		{
@@ -490,7 +524,7 @@
 			"RunScript"
 			{
 				"ScriptFile"		"iskander_ability"
-				"Function"			"OnAnnihilateStart"
+				"Function"			"OnAnnihilateStart"	
 				"ArrowDamage"		"%damage"
 				"ArrowAoE"			"%aoe"
 			}

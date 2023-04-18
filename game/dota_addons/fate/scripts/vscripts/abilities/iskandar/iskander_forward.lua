@@ -25,7 +25,24 @@ function iskander_forward:OnSpellStart()
 	if caster.IsCharismaImproved then
 		radius = radius*2
 	end
-
+	if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 and caster:GetIntellect() >= 29.1 then
+		if caster:FindAbilityByName("iskander_ionioi"):IsCooldownReady()  then
+			if(caster:GetAbilityByIndex(4):GetName() == "fate_empty1" and not caster.IsAOTKActive) then
+				caster:SwapAbilities("iskander_ionioi", "fate_empty1", true, false)
+			 end
+			   local newTime =  GameRules:GetGameTime()
+			   Timers:CreateTimer({
+				   endTime = 5,
+				   callback = function()
+					if(caster:GetAbilityByIndex(4):GetName() == "iskander_ionioi") then
+				   		caster:SwapAbilities("iskander_ionioi", "fate_empty1", false, true)
+					end
+				   
+			   end
+			   })
+		 
+	   end
+   end
 	--print(caster:GetForwardVector())
 	
 	local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, radius

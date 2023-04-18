@@ -142,6 +142,28 @@
 						framerate = 30.0
 						reverse = false
 					},
+					{
+						_class = "AnimFile"
+						name = "attack1"
+						activity_name = "ACT_DOTA_CAST_ABILITY_1"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.5
+						fade_out_time = 1.0
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/sanya/soldier/alex_soldier_range.fbx"
+						import_bone_scales = false
+						start_frame = 10
+						end_frame = 20
+						framerate = 10.0
+						reverse = false
+					},
 				]
 				default_root_bone_name = ""
 			},

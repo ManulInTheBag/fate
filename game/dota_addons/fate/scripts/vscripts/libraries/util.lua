@@ -583,7 +583,10 @@ CannotReset = {
     "artoria_improved_instinct",
 
     "nanaya_combo",
+
+    "iskander_ionioi",
     "true_assassin_protection_from_wind",
+
 }
 
 femaleservant = {
@@ -2373,7 +2376,7 @@ local heroCombos = {
     ["npc_dota_hero_sven"] = "lancelot_nuke",
     ["npc_dota_hero_vengefulspirit"] = "avenger_endless_loop",
     ["npc_dota_hero_huskar"] = "diarmuid_rampant_warrior",
-    ["npc_dota_hero_chen"] = "iskander_annihilate",
+    ["npc_dota_hero_chen"] = "iskander_ionioi",
     ["npc_dota_hero_shadow_shaman"] = "gille_larret_de_mort",
     ["npc_dota_hero_lina"] = "nero_laus_saint_claudius_new",
     ["npc_dota_hero_omniknight"] = "gawain_supernova",

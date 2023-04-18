@@ -1,0 +1,21 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf51:version{6d03d500-2498-454e-b833-f654e870bb3d} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_nBehaviorVersion = 12
+	m_Children = 
+	[
+		{
+			m_ChildRef = resource:"particles/emiya/emiya_overedge_slash_3_b.vpcf"
+			m_flDelay = 0.05
+		},
+		{
+			m_ChildRef = resource:"particles/emiya/emiya_overedge_slash_3_a.vpcf"
+		},
+	]
+	m_controlPointConfigurations = 
+	[
+		{
+			m_name = "preview"
+		},
+	]
+}
