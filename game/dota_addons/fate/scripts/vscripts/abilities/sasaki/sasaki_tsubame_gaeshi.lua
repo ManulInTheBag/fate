@@ -68,7 +68,7 @@ function sasaki_tsubame_gaeshi:TsubameGaeshi(target)
 	local caster = self:GetCaster()
 	--local target = self:GetCursorTarget()
 	local enhanced = false
-	local delay = 0.2
+	local delay = 0.5
 	local delay_per_slash = 0.2
 	local split_damage = self:GetSpecialValueFor("damage_split")
 	local final_damage = self:GetSpecialValueFor("damage_final")

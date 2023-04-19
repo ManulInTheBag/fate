@@ -202,7 +202,7 @@ function modifier_gordius_wheel:OnDestroy()
 		caster:SetModel("models/sanya/sanya.vmdl")
 		caster:SetOriginalModel("models/sanya/sanya.vmdl")
 		caster:SetModelScale(0.8)
-		if caster:GetAbilityByIndex(2):GetName() == "iskander_drift" then
+		if caster:GetAbilityByIndex(5):GetName() == "iskander_drift" then
 			caster:SwapAbilities("iskander_drift", "iskandar_gordius_wheel", false, true) 
 		end
 	end

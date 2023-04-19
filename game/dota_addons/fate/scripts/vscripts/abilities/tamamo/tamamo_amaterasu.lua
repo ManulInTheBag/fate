@@ -242,6 +242,7 @@ end
 function modifier_amaterasu_enemy:OnAbilityExecuted(args)
 	local abilityname = args.ability:GetName()
 	local hero = self:GetParent()
+	if hero.AmaterasuProcCd then return end
 	if not string.match(abilityname,"item") then
         for i=1, #spellBooks do
             if abilityname == spellBooks[i] then return end
@@ -261,6 +262,10 @@ function modifier_amaterasu_enemy:OnAbilityExecuted(args)
         local particle = ParticleManager:CreateParticle("particles/tamamo/tamamo_amaterasu_enemy.vpcf", PATTACH_ABSORIGIN_FOLLOW, hero)
         ParticleManager:SetParticleControlEnt(particle,	0, caster,	PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetOrigin(), true)
         ParticleManager:SetParticleControlEnt(particle,	1, hero,	PATTACH_POINT_FOLLOW, "attach_origin", hero:GetOrigin(), true)
+        hero.AmaterasuProcCd = true
+        Timers:CreateTimer(1, function()
+        	hero.AmaterasuProcCd = false
+    	end)
     end
 end
 

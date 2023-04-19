@@ -71,9 +71,14 @@ if IsServer() then
 				self.TriggerCount = self.TriggerCount + 1
 				self.AttackCount = 0
 				caster:AddNewModifier(caster, self:GetAbility(), "modifier_kots_trigger", { Duration = 3.0 })
+				if target.GawainBashCd == true then return end
 				if not target:IsMagicImmune() and not target:HasModifier("modifier_master_intervention") then
-	        		target:AddNewModifier(caster, target, "modifier_stunned", {Duration = 1})
-	        	end
+	        	target:AddNewModifier(caster, target, "modifier_stunned", {Duration = 1})
+	        	target.GawainBashCd = true
+	        	Timers:CreateTimer(3, function()
+	        		target.GawainBashCd = false
+	        	end)
+	      end
 				caster:EmitSound("Gawain_Trigger" .. math.random(1,2))
 			end
 		end

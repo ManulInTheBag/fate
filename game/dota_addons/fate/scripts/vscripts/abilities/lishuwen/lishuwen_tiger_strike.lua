@@ -136,6 +136,7 @@ function lishuwen_tiger_strike:TigerStrike1()
 
 	self:SequenceSkill()
 	self:EndCooldown()
+	self:StartCooldown(0.1)
 
 	-- Don't do anything if the spell is blocked
 	if IsSpellBlocked(target) then return end
@@ -199,6 +200,7 @@ function lishuwen_tiger_strike:TigerStrike2()
 
 	self:SequenceSkill()
 	self:EndCooldown()
+	self:StartCooldown(0.1)
 
 	if IsSpellBlocked(target) then return end
 	

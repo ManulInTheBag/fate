@@ -36,12 +36,26 @@ function atalanta_tauropolos_alter:OnSpellStart()
 	local caster = self:GetCaster()
 
 	caster:AddNewModifier(caster, self, "modifier_tauropolos_alter", {duration = self:GetSpecialValueFor("duration")+0.31})
+    print (duration)
 end
 
 modifier_tauropolos_alter = class({})
-function modifier_tauropolos_alter:IsHidden() return true end
+function modifier_tauropolos_alter:IsHidden() return false end
 function modifier_tauropolos_alter:IsDebuff() return false end
 function modifier_tauropolos_alter:RemoveOnDeath() return true end
+function modifier_tauropolos_alter:DeclareFunctions()
+    return {
+                MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
+                MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS
+            }
+end
+function modifier_tauropolos_alter:GetModifierPhysicalArmorBonus()
+    return self:GetAbility():GetSpecialValueFor("armor_bonus")
+end
+
+function modifier_tauropolos_alter:GetModifierMagicalResistanceBonus()
+    return self:GetAbility():GetSpecialValueFor("mr_bonus")
+end
 function modifier_tauropolos_alter:OnCreated()
     if IsServer() then
         self.radius = self:GetAbility():GetAOERadius()

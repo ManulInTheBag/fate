@@ -593,7 +593,7 @@
 		"DOTA_Tooltip_modifier_gilles_fear_Description"		    "Gilles spells deal additional damage to you."
 
 		"DOTA_Tooltip_modifier_gilles_grief"					"Grief"
-		"DOTA_Tooltip_modifier_gilles_grief_Description"		"Explodes and takes pure damage at the end of duration."
+		"DOTA_Tooltip_modifier_gilles_grief_Description"		"Explodes and takes magical damage at the end of duration."
 
 		"DOTA_Tooltip_modifier_gilles_misery"					"Misery"
 		"DOTA_Tooltip_modifier_gilles_misery_Description"		"Stunned when taking damage"
@@ -4403,7 +4403,7 @@
         "DOTA_Tooltip_ability_gilles_hysteria_Note0"  				"Cannot be used on a target already affected by Hysteria."
 
         "DOTA_Tooltip_Ability_gilles_grief"     					"Grief"
-        "DOTA_Tooltip_ability_gilles_grief_Description" 			"Curse an enemy. After a short duration, the target takes an amount of magical damage from Gilles and becomes stunned for %stun_duration% seconds. The curse of grief then explodes and deal magical damage equal to the target's missing health to all enemies nearby %radius% of the target (including main target)."        
+        "DOTA_Tooltip_ability_gilles_grief_Description" 			"Curse an enemy. After a short duration, the target takes magical damage which increases in proportion to the target's missing health and becomes stunned for %stun_duration% seconds."        
         "DOTA_Tooltip_ability_gilles_grief_damage"					"Damage:"
         "DOTA_Tooltip_ability_gilles_grief_duration"  				"Explosion delay:"
         "DOTA_Tooltip_ability_gilles_grief_Lore"  					"Confronted by their greatest fear, one can only put up a futile resistance in desperation."
@@ -4423,6 +4423,8 @@
         "DOTA_Tooltip_ability_gilles_cthulhu_favour_spawn_damage"	"Spawn damage:"
         "DOTA_Tooltip_ability_gilles_cthulhu_favour_duration"		"Portal duration:"
         "DOTA_Tooltip_ability_gilles_cthulhu_favour_Lore"  			"Cthulu extends its reach through this tiny portal."
+        "DOTA_Tooltip_ability_gilles_cthulhu_favour_root_duration"					"SA Root duration:"
+        "DOTA_Tooltip_ability_gilles_cthulhu_favour_lock_duration"					"SA Lock duration:"
 
         "DOTA_Tooltip_Ability_gilles_eye_for_art_passive"				"Eye for Art"
         "DOTA_Tooltip_ability_gilles_eye_for_art_passive_Description"	"Whenever an enemy within %radius% area of Gilles uses an ability, Gilles would gain vision over them for %duration% seconds."
@@ -4450,7 +4452,7 @@
         "DOTA_Tooltip_ability_gilles_demonic_horde_attribute_Lore"			"The fresh terror brought to you, right from the days of Tiffauges."
  
         "DOTA_Tooltip_Ability_gilles_sunken_city_attribute"				"Attribute: Sunken City of R'lyeh"
-        "DOTA_Tooltip_Ability_gilles_sunken_city_attribute_Description"	"Upon the cast of Cthulhu's Favour, all enemies within the radius become rooted and dimensionally locked for 2 seconds. After 3 seconds, all enemies within the circle are stunned for %stun_dur% seconds and dealt %end_damage% magic damage. Cthulhu's Favour gains 200 bonus cast range."
+        "DOTA_Tooltip_Ability_gilles_sunken_city_attribute_Description"	"Upon the cast of Cthulhu's Favour, all enemies within the radius become rooted and dimensionally locked for 1-2 seconds. After 3 seconds, all enemies within the circle are stunned for %stun_dur% seconds and dealt %end_damage% magic damage. Cthulhu's Favour gains 200 bonus cast range."
         "DOTA_Tooltip_ability_gilles_sunken_city_attribute_Lore"		""
  
         "DOTA_Tooltip_Ability_gilles_abyssal_connection_attribute"				"Attribute: Abyssal Connection"
@@ -4741,12 +4743,14 @@
 		"DOTA_Tooltip_Ability_atalanta_curse_detonate_damage"	"Active damage per stack:"
 
 		"DOTA_Tooltip_Ability_atalanta_tauropolos_alter" "Tauropolos - Arrow Rain"
-		"DOTA_Tooltip_Ability_atalanta_tauropolos_alter_Description"	"Atalanta causes rain of arrows to attack her current location. Each arrow deals damage and curses enemies in a small radius.\nOnly one instance of Tauropolos - Arrow Rain can exist at time and it can't be re-casted while previous still exists.\nStops if Atalanta dies."
-		"DOTA_Tooltip_Ability_atalanta_tauropolos_alter_duration"	"Duration:"
-		"DOTA_Tooltip_Ability_atalanta_tauropolos_alter_damage"	"Damage per arrow:"
-		"DOTA_Tooltip_Ability_atalanta_tauropolos_alter_max_dist"	"Radius:"
-		"DOTA_Tooltip_Ability_atalanta_tauropolos_alter_explosion_radius"	"Arrow damage radius:"
-		"DOTA_Tooltip_Ability_atalanta_tauropolos_alter_curse_stacks"	"Curse stack count per arrow:"
+		"DOTA_Tooltip_Ability_atalanta_tauropolos_alter_Description"	"Atalanta causes rain of arrows to attack her current location. While arrows fall Atalanta gains increased armor and magic resistance deals damage to enemies cursing them in the process.\nOnly one instance of Tauropolos - Arrow Rain can exist at time and it can't be re-casted while previous still exists.\nStops if Atalanta dies."
+		"DOTA_Tooltip_Ability_atalanta_tauropolos_alter_duration"					"Duration:"
+		"DOTA_Tooltip_Ability_atalanta_tauropolos_alter_damage"						"Damage per arrow:"
+		"DOTA_Tooltip_Ability_atalanta_tauropolos_alter_max_dist"					"Radius:"
+		"DOTA_Tooltip_Ability_atalanta_tauropolos_alter_explosion_radius"			"Arrow damage radius:"
+		"DOTA_Tooltip_Ability_atalanta_tauropolos_alter_curse_stacks"				"Curse stack count per arrow:"
+		"DOTA_Tooltip_Ability_atalanta_tauropolos_alter_armor_bonus"				"Bonus armor"
+		"DOTA_Tooltip_Ability_atalanta_tauropolos_alter_mr_bonus"					"Bonus magic resistance"
 
 		"DOTA_Tooltip_Ability_atalanta_skia"	"Combo - Tauropolos Skia Thermokrasia"
 		"DOTA_Tooltip_Ability_atalanta_skia_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : D -> E in 4 seconds.</font>\nAtalanta absorbs Tauropolos into her own body, launching herself to the target location as a ballistic missile. Opponents damaged by this Noble Phantasm will be cursed powerfully."
@@ -4766,7 +4770,7 @@
 		"DOTA_Tooltip_Ability_atalanta_tornado_attribute_skia_pull"	"Combo pull:"
 
 		"DOTA_Tooltip_Ability_atalanta_vision_attribute"	"Attribute: Beastly Enchancement"
-		"DOTA_Tooltip_Ability_atalanta_vision_attribute_Description"	"If Atalanta is alive, position of each enemy with 10 or more Curse stacks will be revealed for Atalanta and her team automatically.\nCurse explosion will deal additional 5 damage per stack."
+		"DOTA_Tooltip_Ability_atalanta_vision_attribute_Description"	"If Atalanta is alive, position of each enemy with 100 or more Curse stacks will be revealed for Atalanta and her team automatically.\nCurse explosion will deal additional 5 damage per stack."
 		
 		"DOTA_Tooltip_Ability_atalanta_moon_attribute"	"Attribute: Cursed Moon"
 		"DOTA_Tooltip_Ability_atalanta_moon_attribute_Description"	"Roar deals bonus damage and applies bonus Curse stack per each unit in its radius.\nTauropolos - Arrow Rain applies 10 more Curse stacks per impact and deals 100 additional damage per impact."
@@ -5385,7 +5389,7 @@
 		//"DOTA_Tooltip_ability_gawain_attribute_belt_blade_aoe"			"Blade of the Devoted AOE:"
 
 		"DOTA_Tooltip_Ability_gawain_attribute_kots"					"Attribute: Knight of the Sun"
-		"DOTA_Tooltip_ability_gawain_attribute_kots_Description"		"While Heat is active, after attacking the same enemy for a number of times, Gawain stuns the target and gains massive amount of attack speed for a number of attacks."
+		"DOTA_Tooltip_ability_gawain_attribute_kots_Description"		"While Heat is active, after attacking the same enemy for a number of times, Gawain stuns the target and gains massive amount of attack speed for a number of attacks (This effect have 3 second cd for each target individually)."
 		"DOTA_Tooltip_ability_gawain_attribute_kots_attack_trigger"		"Number of Hits Required:"
 		"DOTA_Tooltip_ability_gawain_attribute_kots_num_attacks"		"Number of Attacks:"
 		"DOTA_Tooltip_ability_gawain_attribute_kots_bonus_aspd"			"%Attack Speed Bonus:"
@@ -5538,7 +5542,7 @@
         "DOTA_Tooltip_Ability_tamamo_fates_call_Description"     "Teleports tethered hero to targeted location after delay. The delay is increased based on how far target is from Caster. If Caster is stunned during delay, the teleport is canceled."
         
         "DOTA_Tooltip_Ability_tamamo_amaterasu"     				"Eightfold Blessing of Amaterasu"
-        "DOTA_Tooltip_ability_tamamo_amaterasu_Description" 		"Tamamo creates a %radius% area mythical zone around her. Allies in the zone are blessed with bonus mana regen, movespeed, and attack speed. Any spellcast by Tamamo and her allies would recover their health by %heal_per_cast% and mana by %mana_per_cast%.\nIf enemy casts a spell inside the area, it will take %damage_per_cast% magical damage.\nAbility will end if Tamamo leaves the area."
+        "DOTA_Tooltip_ability_tamamo_amaterasu_Description" 		"Tamamo creates a %radius% area mythical zone around her. Allies in the zone are blessed with bonus mana regen, movespeed, and attack speed. Any spellcast by Tamamo and her allies would recover their health by %heal_per_cast% and mana by %mana_per_cast%.\nIf enemy casts a spell inside the area, it will take %damage_per_cast% magical damage (this effect have 1 second cd).\nAbility will end if Tamamo leaves the area."
         "DOTA_Tooltip_Ability_tamamo_amaterasu_Lore"     			"The celestial mirror reveals itself in the sky, bestowing the primordial mana among the justs."
         "DOTA_Tooltip_Ability_tamamo_amaterasu_cast_point"     		"CAST POINT:"
         "DOTA_Tooltip_Ability_tamamo_amaterasu_heal_pct"     		"MAX CONSTANT HEAL:"
@@ -5637,7 +5641,7 @@
         "DOTA_Tooltip_Ability_lishuwen_martial_arts_silence_duration"	"SILENCE DURATION:"
 
         "DOTA_Tooltip_Ability_lishuwen_berserk"						"Berserk"
-        "DOTA_Tooltip_Ability_lishuwen_berserk_Description"			"Li Shuwen becomes enraged, removing all negative effects and Crowd Controls on himself and becoming immune to them for a short duration. This ability can be cast only when Li Shuwen is not revoked from Master.\nDuring this effect, Fierce Tiger Strikes damage changed to physical and can critical strike. Li Shuwen may not use No Second Strike during this effect."
+        "DOTA_Tooltip_Ability_lishuwen_berserk_Description"			"Li Shuwen becomes enraged, removing all negative effects and Crowd Controls on himself and becoming immune to them for a short duration. This ability can be cast only when Li Shuwen is not revoked from Master.\nDuring this effect, Fierce Tiger Strikes have increased attack damage scaling. Li Shuwen may not use No Second Strike during this effect."
         "DOTA_Tooltip_Ability_lishuwen_berserk_duration"			"DURATION:"
         "DOTA_Tooltip_Ability_lishuwen_berserk_cc_immune_duration"	"IMMUNITY DURATION:"
         "DOTA_Tooltip_Ability_lishuwen_berserk_critical_chance"		"%CRITICAL CHANCE:"
@@ -5716,7 +5720,7 @@
         "DOTA_Tooltip_Ability_lishuwen_attribute_circulatory_shock_stun_duration"		"Stun Duration: "
 
         "DOTA_Tooltip_Ability_lishuwen_attribute_improve_martial_arts"					"Attribute: Improve Martial Arts"
-        "DOTA_Tooltip_Ability_lishuwen_attribute_improve_martial_arts_Description"		"Cosmic Orbit and Presence Concealment has increased charges and deals more damage. While under Presence Concealment, No Second Strike's has increased cooldown recovery speed. Li Shuwen's attacks burns mana."
+        "DOTA_Tooltip_Ability_lishuwen_attribute_improve_martial_arts_Description"		"Cosmic Orbit and Presence Concealment has increased charges and deals more damage. Fierce tiger strike also attakc target once applying all on-hit effects. While under Presence Concealment, No Second Strike's has increased cooldown recovery speed. Li Shuwen's attacks burns mana."
 
         "DOTA_Tooltip_Ability_lishuwen_attribute_improve_martial_arts_bonus_attack"		"NUMBER OF ATTACKS:"
         "DOTA_Tooltip_Ability_lishuwen_attribute_improve_martial_arts_bonus_damage"		"%BONUS DAMAGE:"
@@ -5725,7 +5729,7 @@
         //"DOTA_Tooltip_Ability_lishuwen_attribute_improve_martial_arts_damage_percentage"	"%ADDITIONAL DAMAGE ON BASE ATTACK:"
 
         "DOTA_Tooltip_Ability_lishuwen_attribute_dual_class"				"Attribute: Dual Class"
-        "DOTA_Tooltip_Ability_lishuwen_attribute_dual_class_Description"	"Grants Li Shuwen %bonus_health% points of health per point of agility and %bonus_damage% points of damage per point of strength, while Berserked, and Enables Berserk.\n<font color='#58ACFA'>Berserk:</font> Li Shuwen becomes enraged, removing all negative effects and Crowd Controls on himself and becoming immune to them for a short duration. This ability can be cast only when Li Shuwen is not revoked from Master.\nDuring this effect, Fierce Tiger Strikes damage changed to physical and can critical strike. Li Shuwen may not use No Second Strike during this effect."
+        "DOTA_Tooltip_Ability_lishuwen_attribute_dual_class_Description"	"Enables Berserk.\n<font color='#58ACFA'>Berserk:</font> Li Shuwen becomes enraged, removing all negative effects and Crowd Controls on himself and becoming immune to them for a short duration. This ability can be cast only when Li Shuwen is not revoked from Master.\nDuring this effect, Fierce Tiger Strikes damage changed to physical and can critical strike. Li Shuwen may not use No Second Strike during this effect."
 
         "DOTA_Tooltip_Ability_lishuwen_attribute_dual_class_duration"				"DURATION:"
         "DOTA_Tooltip_Ability_lishuwen_attribute_dual_class_cc_immune_duration"		"IMMUNITY DURATION:"
@@ -5736,7 +5740,7 @@
         "DOTA_Tooltip_Ability_lishuwen_attribute_dual_class_Note1"					"Purge only upon activation. CC applied after is ignored for its duration."
 
         "DOTA_Tooltip_Ability_lishuwen_attribute_furious_chain"					"Attribute: Furious Chain"
-        "DOTA_Tooltip_Ability_lishuwen_attribute_furious_chain_Description"		"Using Fierce Tiger Strikes on the same target deals bonus damage, while using on different target deals reduced damage. Li Shuwen gains massive health and mana regeneration for a short duration after using Fierce Tiger Strike. Completing Fierce Tiger Strike greatly reduces its cooldown."
+        "DOTA_Tooltip_Ability_lishuwen_attribute_furious_chain_Description"		"Using Fierce Tiger Strikes on the same target deals 25% more damage, while using on different target deals half of initial damage. Li Shuwen gains massive health and mana regeneration for a short duration after using Fierce Tiger Strike. Completing Fierce Tiger Strike greatly reduces its cooldown."
         "DOTA_Tooltip_Ability_lishuwen_attribute_furious_bonus_damage"			"%BONUS DAMAGE:"
         "DOTA_Tooltip_Ability_lishuwen_attribute_furious_penalty_damage"		"%DAMAGE PENALTY:"
         "DOTA_Tooltip_Ability_lishuwen_attribute_furious_health_regen"			"BONUS HEALTH REGEN:"
@@ -7373,17 +7377,17 @@
 	"DOTA_Tooltip_ability_jtr_dagger_throw_blood_rage_ms"		"%\n<font color='#FF0000'>Bloody Thirst</font> bonus movespeed:"
 
         "DOTA_Tooltip_ability_jtr_surgery"					"We are... Jack the Ripper"
-        "DOTA_Tooltip_ability_jtr_surgery_Description"		"Jack teleports to the target enemy and starts attacking it and every enemy in radius around it furiously. Each attack deals fixed magic damage.\n<font color='#FF0000'>Bloody Thirst</font> female detection radius is based on the level of this ability."
+        "DOTA_Tooltip_ability_jtr_surgery_Description"		"Jack teleports to the target enemy and starts attacking it and every enemy in radius around it furiously. Each attack deals fixed magic damage.\n<font color='#FF0000'>Bloody Thirst</font> grants Jack additional agility based on level of of this ability."
         "DOTA_Tooltip_ability_jtr_surgery_slashes"			"Attack number:"
         "DOTA_Tooltip_ability_jtr_surgery_base_damage"		"Additional damage:"
         "DOTA_Tooltip_ability_jtr_surgery_attack_radius"	"Attack radius:"
-	"DOTA_Tooltip_ability_jtr_surgery_blood_rage_vision"	"\n<font color='#FF0000'>Bloody Thirst</font> detection radius:"
+	"DOTA_Tooltip_ability_jtr_surgery_blood_rage_agility"	"\n<font color='#FF0000'>Bloody Thirst</font> Bonus agility:"
 	"DOTA_Tooltip_ability_jtr_surgery_attack_Note0"		"Jack is untargetable, but is still vulnerable to AOE-abilities."
 
         "DOTA_Tooltip_ability_jtr_information_erase"					"Information Erasure"
         "DOTA_Tooltip_ability_jtr_information_erase_Description"		"Removes various buffs from the target enemy and forces their abilities to go on cooldown."
         "DOTA_Tooltip_ability_jtr_information_erase_cast_range"			"Cast Range:"
-        "DOTA_Tooltip_ability_jtr_information_erase_cooldown_forced"	"Cooldown Forced:"
+        "DOTA_Tooltip_ability_jtr_information_erase_cooldown_forced"	"Silence duration:"
 
         "DOTA_Tooltip_ability_jtr_mental_pollution_passive"					"Mental Pollution"
         "DOTA_Tooltip_ability_jtr_mental_pollution_passive_Description"		"Blocks targetted abilities. Taking damage reduces the remaining cooldown."
@@ -7391,10 +7395,10 @@
         "DOTA_Tooltip_ability_jtr_mental_pollution_passive_cooldown"		"Cooldown:"
 
         "DOTA_Tooltip_ability_jtr_murderer_mist"				"Murderer of the Misty Night"
-        "DOTA_Tooltip_ability_jtr_murderer_mist_Description"	"Jack releases a cloud of mist, recreating the streets of London, slowing all enemies in radius and gaining invisible state while being inside the mist and not in radius 350 from the enemy. Jack can't be detected by Eye for an Art (Gilles de Rais) and Mind's Eye (Diarmuid). Also grants bonus agility.\nDisables ward vision (but not truesight) in 3200 radius.\n<font color='#FF0000'>Bloody Thirst</font> grants Jack additional agility based on level of Murderer of the Misty Night."
+        "DOTA_Tooltip_ability_jtr_murderer_mist_Description"	"Jack releases a cloud of mist, recreating the streets of London, slowing all enemies in radius and gaining invisible state while being inside the mist and not in radius 350 from the enemy. Jack can't be detected by Eye for an Art (Gilles de Rais) and Mind's Eye (Diarmuid). Also grants bonus agility.\nDisables ward vision (but not truesight) in 3200 radius.\n<font color='#FF0000'>Bloody Thirst</font> female detection radius is based on the level of this ability."
         "DOTA_Tooltip_ability_jtr_murderer_mist_radius"			"Area of Effect:"
         "DOTA_Tooltip_ability_jtr_murderer_mist_slow_pct"		"%Slow:"
-	"DOTA_Tooltip_ability_jtr_murderer_mist_bonus_agi"		"Bonus agility:"
+	"DOTA_Tooltip_ability_jtr_murderer_mist_blood_rage_vision"		"Vision radius:"
         "DOTA_Tooltip_ability_jtr_murderer_mist_duration"		"Duration:"
 	"DOTA_Tooltip_ability_jtr_murderer_mist_blood_rage_agility"	"\n<font color='#FF0000'>Bloody Thirst</font> bonus agility:"
 
@@ -7434,15 +7438,15 @@
         "DOTA_Tooltip_ability_jtr_holy_mother_attribute_stack_duration"		"Duration:"
 
         "DOTA_Tooltip_ability_jtr_mental_pollution_attribute"				"Attribute: Mental Pollution"
-        "DOTA_Tooltip_ability_jtr_mental_pollution_attribute_Description"	"Improves <font color='#FF0000'>Bloody Thirst</font> and enables Jack to enter this mode manually for a short duration."
+        "DOTA_Tooltip_ability_jtr_mental_pollution_attribute_Description"	"Improves <font color='#FF0000'>Bloody Thirst</font> and enables Jack to enter this mode manually for a short duration. \nEach attack from We are (W) deals JTR's AGI/8 as magical damage."
 
         "DOTA_Tooltip_ability_jtr_surgical_procedure_attribute"					"Attribute: Surgical Procedure"
         "DOTA_Tooltip_ability_jtr_surgical_procedure_attribute_Description"		"Attacking enemies also stitches Jack's wounds, healing her as well as all nearby allies by %base_healing% + %agi_bonus% per point of agility. The amount of health that can be recovered is capped at %healing_cap%% of Jack's maximum health.\nWhenever Jack kills the enemy, she replenishes 50%% of her mana and health pools."
 
         "DOTA_Tooltip_ability_jtr_information_erase_attribute"					"Attribute: Information Erasure"
-        "DOTA_Tooltip_ability_jtr_information_erase_attribute_Description"		"Enables Jack to force target's abilities to go on cooldown.\nReduces reveal radius for the Murderer of the Misty Night to 300."
+        "DOTA_Tooltip_ability_jtr_information_erase_attribute_Description"		"Enables Jack to apply silence on the target.\nReduces reveal radius for the Murderer of the Misty Night to 300."
         "DOTA_Tooltip_ability_jtr_information_erase_attribute_cast_range"		"Cast Range:"
-        "DOTA_Tooltip_ability_jtr_information_erase_attribute_cooldown_forced"	"Cooldown Forced:"
+        "DOTA_Tooltip_ability_jtr_information_erase_attribute_cooldown_forced"	"Silence duration:"
         "DOTA_Tooltip_ability_jtr_information_erase_attribute_cooldown"			"Cooldown:"
 
         "DOTA_Tooltip_ability_jtr_efficient_killer_attribute"					"Attribute: Efficient Killer"

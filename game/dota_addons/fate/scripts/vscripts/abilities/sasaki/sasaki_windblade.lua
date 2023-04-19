@@ -87,6 +87,8 @@ function sasaki_windblade:OnSpellStart()
 		return nil
 	end)
 
+	caster:AddNewModifier(caster, caster, "modifier_stunned", {Duration = 0.1})
+
 	--[[for i=1, #targets do
 		if targets[i]:IsAlive() and targets[i]:GetName() ~= "npc_dota_ward_base" then
 			--local diff = (caster:GetAbsOrigin() - targets[i]:GetAbsOrigin()):Normalized()

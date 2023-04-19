@@ -330,8 +330,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -66.833519, -94.01857, -139.763794 ]
-								hitbox_maxs = [ 66.833473, 75.116989, 133.676804 ]
+								hitbox_mins = [ -128.266586, -126.595238, -139.763794 ]
+								hitbox_maxs = [ 160.996185, 118.468231, 133.676804 ]
 							},
 							{
 								_class = "Hitbox"
@@ -350,8 +350,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -11.896618, -37.274368, -59.257324 ]
-								hitbox_maxs = [ 50.013718, 17.59375, 15.167511 ]
+								hitbox_mins = [ -11.896618, -37.274368, -111.221603 ]
+								hitbox_maxs = [ 48.123405, 17.59375, 15.167511 ]
 							},
 							{
 								_class = "Hitbox"

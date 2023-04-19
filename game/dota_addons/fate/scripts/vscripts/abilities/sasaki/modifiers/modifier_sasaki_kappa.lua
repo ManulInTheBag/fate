@@ -25,8 +25,8 @@ end
 function modifier_sasaki_kappa:OnCreated(keys)
 	if IsServer() then
 		local caster = self:GetParent()
-
-		caster:AddNewModifier(caster, self:GetAbility(), "modifier_sasaki_kappa_cd", {})
+		caster:Stop()
+		caster:AddNewModifier(caster, self:GetAbility(), "modifier_sasaki_kappa_cd", {duration = 120})
 		
 		self.Break = false
 		self.BreakDelay = 1
@@ -40,7 +40,7 @@ end
 function modifier_sasaki_kappa:DeclareFunctions()
 	local funcs = {	MODIFIER_EVENT_ON_ATTACK_START,
 					MODIFIER_EVENT_ON_ABILITY_FULLY_CAST,
-					MODIFIER_EVENT_ON_UNIT_MOVED }
+					MODIFIER_EVENT_ON_UNIT_MOVED}
 	return funcs
 end
 

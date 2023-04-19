@@ -20,12 +20,12 @@ function modifier_jtr_surgery:GetOverrideAnimation()
     return ACT_DOTA_RUN
 end
 function modifier_jtr_surgery:GetModifierBaseAttack_BonusDamage()
-    return -300
+    return -500
 end
 function modifier_jtr_surgery:IsMotionController() return true end
 function modifier_jtr_surgery:OnCreated(args)
     if IsServer() then
-        self.radius = 300
+        self.radius = 50
         self.parent = self:GetParent()
         self.time_elapsed = 0.2
         self.kappa = 1
@@ -35,7 +35,7 @@ function modifier_jtr_surgery:OnCreated(args)
         self.target = self:GetAbility():GetCursorTarget()
         --print(self.bonus_slashes)
         --print(self.radius)
-        self.slashes = self:GetAbility():GetSpecialValueFor("slashes")
+        self.slashes = self:GetAbility():GetSpecialValueFor("slashes") - 1 --It just works
 
         if self.parent:HasModifier("modifier_jtr_bloody_thirst_active") then
             self.swing_fx = ParticleManager:CreateParticle("particles/jtr/jtr_slashes_b.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, self:GetParent())
@@ -120,9 +120,12 @@ function modifier_jtr_surgery:OnIntervalThink()
                                         ability = self:GetAbility() }
 
                 ApplyDamage(damage_table)]]
-                DoDamage(self:GetParent(), enemy, self:GetAbility():GetSpecialValueFor("base_damage"), DAMAGE_TYPE_MAGICAL, DOTA_DAMAGE_FLAG_NONE, self:GetAbility(), false)
+
+                local damage = self:GetAbility():GetSpecialValueFor("base_damage") + (self.parent.MentalPollutionAcquired and self.parent:GetAgility()/8 or 0)
+
+                DoDamage(self:GetParent(), enemy, damage, DAMAGE_TYPE_MAGICAL, DOTA_DAMAGE_FLAG_NONE, self:GetAbility(), false)
             
-                self:GetParent():PerformAttack(enemy, true, true, true, true, false, false, false)
+                self:GetParent():PerformAttack(enemy, true, true, true, true, false, false, true)
 
                 --EmitSoundOn("Kirito.Sao.Slashhit", enemy)
             end

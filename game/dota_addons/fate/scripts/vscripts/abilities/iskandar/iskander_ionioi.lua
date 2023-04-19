@@ -5,6 +5,7 @@ LinkLuaModifier("modifier_iskander_units_bonus_dmg", "abilities/iskandar/iskande
 LinkLuaModifier("modifier_iskander_units_bonus_dmg_clickable", "abilities/iskandar/iskander_ionioi", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_army_of_the_king_death_checker", "abilities/iskandar/iskander_ionioi", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_sanya_combo_cd", "abilities/iskandar/iskander_ionioi", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_ubw_chronosphere", "abilities/emiya/emiya_unlimited_bladeworks", LUA_MODIFIER_MOTION_NONE)
 
 modifier_sanya_combo_cd = class({})
 
@@ -52,6 +53,7 @@ function iskander_ionioi:OnSpellStart()
 	caster:AddNewModifier(caster, self, "modifier_sanya_combo_cd", {duration =  self:GetCooldown(-1)})
     local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetOrigin(), nil, 800, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
     for q,w in pairs(targets) do
+    	giveUnitDataDrivenModifier(caster, w, "pause_sealdisabled", 2.5) 
         giveUnitDataDrivenModifier(caster, w, "rooted", 2.5)
         giveUnitDataDrivenModifier(caster, w, "locked", 2.5)
     end

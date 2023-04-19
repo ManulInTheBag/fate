@@ -26,7 +26,8 @@ function jtr_information_erase:OnSpellStart()
 	local rCooldown = 0
 	
 	if not IsSpellBlocked(target) then
-		for i=0, 5 do 
+		target:AddNewModifier(caster, self, "modifier_silence", {duration = 5})
+		--[[ for i=0, 5 do 
 			local ability = target:GetAbilityByIndex(i)
 			if ability ~= nil then
 				rCooldown = ability:GetCooldownTimeRemaining()
@@ -35,8 +36,7 @@ function jtr_information_erase:OnSpellStart()
 			else 
 				break
 			end
-		end
-
+		end]]
 		--ApplyStrongDispel(target)
 		--target:RemoveModifierByName("modifier_a_scroll")
 		--target:RemoveModifierByName("modifier_heart_of_harmony")

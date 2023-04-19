@@ -591,8 +591,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -41.137749, -22.232166, -33.82634 ]
-								hitbox_maxs = [ 30.295113, 41.753819, 34.552383 ]
+								hitbox_mins = [ -41.137749, -54.184589, -33.82634 ]
+								hitbox_maxs = [ 30.295113, 41.753819, 78.248535 ]
 							},
 							{
 								_class = "Hitbox"
@@ -631,8 +631,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -11.957176, -58.208782, -23.033386 ]
-								hitbox_maxs = [ 1.204308, 5.384161, 2.290405 ]
+								hitbox_mins = [ -24.950794, -145.163803, -33.595467 ]
+								hitbox_maxs = [ 17.109016, 5.384161, 2.290405 ]
 							},
 							{
 								_class = "Hitbox"
@@ -751,8 +751,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -6.909855, -13.3666, -49.621059 ]
-								hitbox_maxs = [ 52.715015, 8.277136, 7.293732 ]
+								hitbox_mins = [ -6.909855, -91.834473, -49.621059 ]
+								hitbox_maxs = [ 86.613892, 18.852104, 7.293732 ]
 							},
 							{
 								_class = "Hitbox"
@@ -882,7 +882,7 @@
 								translation_only = false
 								group_id = 0
 								hitbox_mins = [ -37.63097, -31.554871, -86.252861 ]
-								hitbox_maxs = [ 38.966503, 50.541557, 60.824844 ]
+								hitbox_maxs = [ 38.966503, 50.541557, 86.432953 ]
 							},
 							{
 								_class = "Hitbox"
@@ -901,8 +901,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -44.616745, -10.582136, -98.874207 ]
-								hitbox_maxs = [ 44.176346, 13.310966, 1.228149 ]
+								hitbox_mins = [ -83.041321, -10.582136, -98.02417 ]
+								hitbox_maxs = [ 70.141792, 59.820396, 1.228149 ]
 							},
 							{
 								_class = "Hitbox"
@@ -1211,8 +1211,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -12.944839, -12.217367, -59.673653 ]
-								hitbox_maxs = [ 21.538784, 17.74493, 0.969475 ]
+								hitbox_mins = [ -12.944839, -45.77383, -59.673653 ]
+								hitbox_maxs = [ 44.899345, 36.800995, 0.969475 ]
 							},
 							{
 								_class = "Hitbox"
@@ -1241,8 +1241,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -21.474007, -15.476936, -76.185814 ]
-								hitbox_maxs = [ 20.621248, 17.484257, 1.008057 ]
+								hitbox_mins = [ -43.536427, -48.819458, -76.185814 ]
+								hitbox_maxs = [ 20.621248, 56.234924, 1.008057 ]
 							},
 							{
 								_class = "Hitbox"

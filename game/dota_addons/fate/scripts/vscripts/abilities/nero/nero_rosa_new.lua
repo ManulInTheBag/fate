@@ -521,7 +521,7 @@ function modifier_nero_rosa_new:CheckState()
                         --[MODIFIER_STATE_NO_UNIT_COLLISION] = true,
                         [MODIFIER_STATE_ROOTED] = true,
                         --[MODIFIER_STATE_DISARMED] = true,
-                        --[MODIFIER_STATE_SILENCED] = true,
+                        [MODIFIER_STATE_SILENCED] = true,
                         --[MODIFIER_STATE_MUTED] = true,
                     }
     return state

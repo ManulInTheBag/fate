@@ -79,7 +79,7 @@ function modifier_atalanta_curse:GetModifierProvidesFOWVision()
 end
 
 function modifier_atalanta_curse:CanBeDetected(hHero)
-    if not (self:GetCaster().VisionAcquired and self:GetCaster():IsAlive() and self:GetStackCount() >= 10) or self:GetParent():HasModifier("modifier_murderer_mist_in") then
+    if not (self:GetCaster().VisionAcquired and self:GetCaster():IsAlive() and self:GetStackCount() >= 100) or self:GetParent():HasModifier("modifier_murderer_mist_in") then
         return 0
     end
     

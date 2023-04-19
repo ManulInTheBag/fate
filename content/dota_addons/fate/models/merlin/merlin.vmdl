@@ -439,8 +439,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -22.943426, -16.264261, -3.188416 ]
-								hitbox_maxs = [ 25.107588, 13.536013, 26.320099 ]
+								hitbox_mins = [ -22.943426, -25.161835, -3.188416 ]
+								hitbox_maxs = [ 29.794991, 24.997009, 36.987167 ]
 							},
 							{
 								_class = "Hitbox"
@@ -469,8 +469,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -21.740158, -61.681557, -72.255432 ]
-								hitbox_maxs = [ 23.394745, 11.864168, 39.733627 ]
+								hitbox_mins = [ -45.112614, -91.191589, -90.599022 ]
+								hitbox_maxs = [ 63.04921, 28.092644, 55.145576 ]
 							},
 							{
 								_class = "Hitbox"
@@ -889,8 +889,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -19.796032, -18.402267, -40.678841 ]
-								hitbox_maxs = [ 17.743065, 22.130238, 50.605358 ]
+								hitbox_mins = [ -19.796032, -37.362144, -51.942406 ]
+								hitbox_maxs = [ 19.689817, 22.130238, 50.605358 ]
 							},
 							{
 								_class = "Hitbox"
@@ -909,8 +909,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -11.319901, -17.302671, -42.312729 ]
-								hitbox_maxs = [ 25.601507, 23.229834, 59.259502 ]
+								hitbox_mins = [ -11.319901, -17.302671, -54.709057 ]
+								hitbox_maxs = [ 34.058662, 23.229834, 59.259502 ]
 							},
 							{
 								_class = "Hitbox"

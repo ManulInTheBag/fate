@@ -33,22 +33,23 @@ function gilles_cthulhu_favour:OnSpellStart()
 	local particleIndex = ParticleManager:CreateParticle("particles/custom/gilles/cthulhu_favour_cast.vpcf", PATTACH_CUSTOMORIGIN, hCaster)
  	ParticleManager:SetParticleControl(particleIndex, 0, vTargetLocation) 
 
- 	if self:GetCaster():HasModifier("modifier_sunken_city_attribute") then
-	 	EmitSoundOnLocationWithCaster(hCaster:GetAbsOrigin(), "Gilles_Cthulhu_Root", self:GetCaster())
-	 	local tEnemies = FindUnitsInRadius(self:GetCaster():GetTeam(), vTargetLocation, nil, self:GetSpecialValueFor("radius"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-		
-		for _,v in pairs(tEnemies) do
-			if not v:IsMagicImmune() then
-				giveUnitDataDrivenModifier(self:GetCaster(), v, "rooted", 2)
-				giveUnitDataDrivenModifier(self:GetCaster(), v, "locked", 2)
-			end
-		end
-	 end
 
 	Timers:CreateTimer(1.0, function()
 		local thinker = CreateModifierThinker(hCaster, self, "modifier_cthulhu_favour_thinker", tModifierArgs, vTargetLocation, hCaster:GetTeamNumber(), false)
 		ParticleManager:DestroyParticle(particleIndex, false)
 		ParticleManager:ReleaseParticleIndex(particleIndex)
+
+		if self:GetCaster():HasModifier("modifier_sunken_city_attribute") then
+	 		EmitSoundOnLocationWithCaster(hCaster:GetAbsOrigin(), "Gilles_Cthulhu_Root", self:GetCaster())
+	 		local tEnemies = FindUnitsInRadius(self:GetCaster():GetTeam(), vTargetLocation, nil, self:GetSpecialValueFor("radius"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+		
+			for _,v in pairs(tEnemies) do
+				if not v:IsMagicImmune() then
+					giveUnitDataDrivenModifier(self:GetCaster(), v, "rooted", self:GetSpecialValueFor("root_duration"))
+					giveUnitDataDrivenModifier(self:GetCaster(), v, "locked", self:GetSpecialValueFor("lock_duration"))
+				end
+			end
+	 	end
 		
 		return
 	end)
