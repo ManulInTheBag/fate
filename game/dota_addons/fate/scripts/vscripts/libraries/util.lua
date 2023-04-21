@@ -1544,7 +1544,7 @@ function DoDamage(source, target , dmg, dmg_type, dmg_flag, abil, isLoop)
 
     local IsAbsorbed = false
     local IsBScrollIgnored = false
-    local MR = target:GetMagicalArmorValue() 
+    --local MR = target:GetMagicalArmorValue() 
     dmg_flag = bit.bor(dmg_flag, DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION)
 
     if target:GetName() == "npc_dota_ward_base" then return end
@@ -1686,7 +1686,7 @@ function DoDamage(source, target , dmg, dmg_type, dmg_flag, abil, isLoop)
         if target:HasModifier("modifier_l_rule_breaker") or target:HasModifier ("modifier_c_rule_breaker") and (dmg_type == DAMAGE_TYPE_PURE or dmg_type == DAMAGE_TYPE_PHYSICAL) then
             incomingDmg = incomingDmg * 0
         elseif dmg_type == DAMAGE_TYPE_MAGICAL then
-            incomingDmg = incomingDmg * (1-MR)
+            incomingDmg = incomingDmg * 1--(1-MR)
         elseif dmg_type == DAMAGE_TYPE_PHYSICAL then
             reduction = GetPhysicalDamageReduction(target:GetPhysicalArmorValue(false))
             incomingDmg = incomingDmg * (1-reduction) 

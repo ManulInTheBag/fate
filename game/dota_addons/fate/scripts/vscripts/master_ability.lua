@@ -396,9 +396,11 @@ function AddMasterAbility(master, name)
 end
 
 function LoopThroughAttr(hero, attrTable)
+	hero:RemoveAbility("twin_gate_portal_warp")
     for i=1, #attrTable do
         --print("Added " .. attrTable[i])
         hero:AddAbility(attrTable[i])
+        print(hero:GetAbilityByIndex(i-1):GetName())
     end
     if #attrTable == 5 then
     	hero:AddAbility("fate_empty1")

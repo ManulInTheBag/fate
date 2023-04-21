@@ -439,8 +439,8 @@ function modifier_f16_forward:OnIntervalThink()
     self.hLanc = PlayerResource:GetSelectedHeroEntity(self.hF16:GetMainControllingPlayer())
 
 	if self.hF16:IsAlive() and self.hLanc:IsAlive() then
-        giveUnitDataDrivenModifier(self.hLanc, self.hLanc, "jump_pause", self:GetRemainingTime())
-        self.hLanc:AddNewModifier(self.hLanc, self:GetAbility(), "modifier_f16_owner", {duration = self:GetRemainingTime()})
+        giveUnitDataDrivenModifier(self.hLanc, self.hLanc, "jump_pause", 0.02)
+        self.hLanc:AddNewModifier(self.hLanc, self:GetAbility(), "modifier_f16_owner", {duration = 0.02})
 
         local vDirection = self.hF16:GetForwardVector()
 		local nSpeed     = self.nInterval * 1000

@@ -23,7 +23,7 @@ function GetHUDRootUI(){
 // create an ability button
 function CreateAbilityPanel(panel, unit, abilityIndex, bIsAttribute)
 {
-	var ability = Entities.GetAbility(unit, abilityIndex); 
+	var ability = Entities.GetAbility(unit, abilityIndex);
 	var abilityPanel = $.CreatePanel("Panel", panel, "");
 	abilityPanel.BLoadLayout("file://{resources}/layout/custom_game/fateanother_ability.xml", false, false );
 	abilityPanel.SetAbility(ability, unit, Game.IsInAbilityLearnMode(), bIsAttribute);

@@ -20,8 +20,8 @@ function CameraDistanceSlider(bFirstInition)
 {
     const hCameraDistanceSlider = $("#CameraDistanceSlider");
     
-    const fMin = 1600;
-    const fMax = 1900;
+    const fMin = 1.5;
+    const fMax = 2.5;
 
     if ( bFirstInition )
     {
