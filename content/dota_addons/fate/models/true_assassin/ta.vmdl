@@ -1,0 +1,392 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc32:version{c5dcef98-b629-46ab-88e3-a17c005c935e} -->
+{
+	rootNode = 
+	{
+		_class = "RootNode"
+		children = 
+		[
+			{
+				_class = "MaterialGroupList"
+				children = 
+				[
+					{
+						_class = "DefaultMaterialGroup"
+						remaps = 
+						[
+							{
+								from = "fatejinass1.vmat"
+								to = "materials/true_assassin/ta_texture.vmat"
+							},
+							{
+								from = "fatejinass2.vmat"
+								to = "materials/true_assassin/ta_texture.vmat"
+							},
+							{
+								from = "fatejinass4.vmat"
+								to = "materials/true_assassin/ta_texture.vmat"
+							},
+							{
+								from = "fatejinass3.vmat"
+								to = "materials/true_assassin/ta_texture.vmat"
+							},
+						]
+						use_global_default = false
+						global_default_material = ""
+					},
+				]
+			},
+			{
+				_class = "AttachmentList"
+				children = 
+				[
+					{
+						_class = "Attachment"
+						name = "attach_hitloc"
+						parent_bone = "bone_chest"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+				]
+			},
+			{
+				_class = "HitboxSetList"
+				children = 
+				[
+					{
+						_class = "HitboxSet"
+						name = "default"
+						children = 
+						[
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_chest"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -80.0, -80.0, -80.0 ]
+								hitbox_maxs = [ 80.0, 80.0, 80.0 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_pelvis"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -15.17278, -9.843397, -1.736755 ]
+								hitbox_maxs = [ 15.172812, 9.868212, 17.885597 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_arm1_r"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -27.503511, -12.84885, -40.799042 ]
+								hitbox_maxs = [ 5.849897, 12.730371, 5.806808 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_arm1_l"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.8499, -9.232149, -40.799042 ]
+								hitbox_maxs = [ 14.819096, 8.155388, 5.806808 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_leg1_r"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -16.196714, -23.888697, -45.156719 ]
+								hitbox_maxs = [ 7.812749, 13.896795, 2.369179 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_leg1_l"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.812742, -27.433767, -45.156719 ]
+								hitbox_maxs = [ 16.271856, 17.166723, 2.369179 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_arm2_r"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -22.383032, -10.526552, 17.36026 ]
+								hitbox_maxs = [ -3.478369, 12.470171, 41.951584 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_arm2_l"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.502502, -7.108969, -32.639336 ]
+								hitbox_maxs = [ 6.437792, 6.199317, -8.048012 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_leg2_r"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.392897, -6.65318, -28.69788 ]
+								hitbox_maxs = [ 6.089479, 4.506698, -7.700519 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_leg2_l"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.08942, -6.653183, -28.69788 ]
+								hitbox_maxs = [ 7.392996, 4.506695, -7.700519 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_hand_r"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -16.949532, -5.545944, 49.034676 ]
+								hitbox_maxs = [ -8.138634, 5.335064, 50.868759 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_hand_l"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.269194, -5.611409, -16.490303 ]
+								hitbox_maxs = [ 3.668503, 2.988401, 0.868782 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_head"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.4028, -12.033241, -145.289673 ]
+								hitbox_maxs = [ 7.364876, 7.605953, 21.12001 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_foot_r"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.887997, -18.277473, -9.403534 ]
+								hitbox_maxs = [ 4.562469, 7.139837, -0.179348 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_foot_l"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.562501, -18.277477, -9.403534 ]
+								hitbox_maxs = [ 6.887995, 7.139835, -0.179348 ]
+							},
+						]
+					},
+				]
+			},
+			{
+				_class = "RenderMeshList"
+				children = 
+				[
+					{
+						_class = "RenderMeshFile"
+						name = "ta"
+						filename = "models/true_assassin/ta.fbx"
+						import_scale = 1.0
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = [  ]
+						}
+					},
+				]
+			},
+			{
+				_class = "AnimationList"
+				children = 
+				[
+					{
+						_class = "Folder"
+						name = "ta"
+						children = 
+						[
+							{
+								_class = "AnimFile"
+								name = "ta_anim_idle"
+								activity_name = "ACT_DOTA_IDLE"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = true
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/true_assassin/ta_anim.FBX"
+								import_bone_scales = false
+								start_frame = 5
+								end_frame = 115
+								framerate = 30.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "ta_anim_move"
+								activity_name = "ACT_DOTA_RUN"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = true
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/true_assassin/ta_anim.FBX"
+								import_bone_scales = false
+								start_frame = 813
+								end_frame = 843
+								framerate = 30.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "ta_anim_death"
+								activity_name = "ACT_DOTA_DIE"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/true_assassin/ta_anim.FBX"
+								import_bone_scales = false
+								start_frame = 646
+								end_frame = 770
+								framerate = 30.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "ta_anim_attack"
+								activity_name = "ACT_DOTA_ATTACK"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/true_assassin/ta_anim.FBX"
+								import_bone_scales = false
+								start_frame = 860
+								end_frame = 890
+								framerate = 30.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "ta_anim_attack_two"
+								activity_name = "ACT_DOTA_CAST_ABILITY_4"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/true_assassin/ta_anim.FBX"
+								import_bone_scales = false
+								start_frame = 615
+								end_frame = 645
+								framerate = 30.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "ta_anim_snatch"
+								activity_name = "ACT_DOTA_CAST_ABILITY_3"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/true_assassin/ta_anim.FBX"
+								import_bone_scales = false
+								start_frame = 1085
+								end_frame = 1110
+								framerate = 30.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "ta_anim_cast"
+								activity_name = "ACT_DOTA_CAST_ABILITY_6"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/true_assassin/ta_anim.FBX"
+								import_bone_scales = false
+								start_frame = 1115
+								end_frame = 1165
+								framerate = 30.0
+								reverse = false
+							},
+						]
+					},
+				]
+				default_root_bone_name = ""
+			},
+		]
+		model_archetype = ""
+		primary_associated_entity = ""
+		anim_graph_name = ""
+		importer_notes = "Imported from VMDL"
+	}
+}

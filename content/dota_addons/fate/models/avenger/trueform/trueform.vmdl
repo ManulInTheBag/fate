@@ -1,0 +1,513 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc32:version{c5dcef98-b629-46ab-88e3-a17c005c935e} -->
+{
+	rootNode = 
+	{
+		_class = "RootNode"
+		children = 
+		[
+			{
+				_class = "MaterialGroupList"
+				children = 
+				[
+					{
+						_class = "DefaultMaterialGroup"
+						remaps = 
+						[
+							{
+								from = "fateavenger1.vmat"
+								to = "materials/dev/primary_black.vmat"
+							},
+							{
+								from = "fateavenger2.vmat"
+								to = "materials/models/development/invisibletexture.vmat"
+							},
+							{
+								from = "fateavenger3.vmat"
+								to = "materials/models/development/invisibletexture.vmat"
+							},
+							{
+								from = "fateavenger4.vmat"
+								to = "materials/models/development/invisibletexture.vmat"
+							},
+							{
+								from = "fateavenger5.vmat"
+								to = "materials/avenger/avenger2.vmat"
+							},
+							{
+								from = "fateavenger6.vmat"
+								to = "materials/avenger/avenger2.vmat"
+							},
+						]
+						use_global_default = false
+						global_default_material = ""
+					},
+				]
+			},
+			{
+				_class = "AttachmentList"
+				children = 
+				[
+					{
+						_class = "Attachment"
+						name = "attach_hitloc"
+						parent_bone = "Bone_Chest"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+				]
+			},
+			{
+				_class = "HitboxSetList"
+				children = 
+				[
+					{
+						_class = "HitboxSet"
+						name = "default"
+						children = 
+						[
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone_Chest"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -50.0, -50.0, -50.0 ]
+								hitbox_maxs = [ 50.0, 50.0, 50.0 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone_Pelvis"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -16.690102, -10.723912, -1.743507 ]
+								hitbox_maxs = [ 16.690048, 10.95888, 17.880127 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone_Arm1_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -16.166815, -9.807047, -30.802071 ]
+								hitbox_maxs = [ 4.798185, 9.319237, 5.799698 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone_Arm1_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.798273, -9.807051, -30.802071 ]
+								hitbox_maxs = [ 16.1672, 9.319235, 5.799698 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone_Leg1_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -11.932613, -11.507757, -57.15884 ]
+								hitbox_maxs = [ 7.847776, 8.66416, 2.362381 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone_Leg1_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.847866, -11.507826, -57.15884 ]
+								hitbox_maxs = [ 11.932592, 8.664091, 2.362381 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone_Arm2_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -8.539831, -8.877857, -20.642273 ]
+								hitbox_maxs = [ 3.445518, 6.996273, 1.94902 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone_Arm2_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.445135, -8.87714, -20.642273 ]
+								hitbox_maxs = [ 8.585421, 6.996265, 1.94902 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone_Leg2_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -8.458096, -6.911389, -48.698166 ]
+								hitbox_maxs = [ 4.889471, 4.799948, -19.702635 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone_Leg2_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.889469, -6.911392, -48.698166 ]
+								hitbox_maxs = [ 8.458132, 4.799945, -19.702635 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone_Hand_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -12.79134, -13.970234, -31.396164 ]
+								hitbox_maxs = [ 6.290255, 12.015284, 12.866188 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone_Hand_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.237799, -13.873596, -32.904091 ]
+								hitbox_maxs = [ 10.855072, 11.9408, 12.866188 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone_Head"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -9.978615, -24.927576, -7.085632 ]
+								hitbox_maxs = [ 11.890038, 9.219477, 22.341919 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone_Foot_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -8.741262, -23.33923, -9.403611 ]
+								hitbox_maxs = [ 3.854252, 7.919415, -2.179274 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone_Foot_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.854351, -23.339233, -9.403611 ]
+								hitbox_maxs = [ 8.741196, 7.919411, -2.179274 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone_Chest"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -16.171215, -13.533489, -6.501114 ]
+								hitbox_maxs = [ 16.17038, 12.098194, 43.148285 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone_Pelvis"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -16.690102, -10.723912, -1.743507 ]
+								hitbox_maxs = [ 16.690048, 10.95888, 17.880127 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone_Arm1_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -16.166815, -9.807047, -30.802071 ]
+								hitbox_maxs = [ 4.798185, 9.319237, 5.799698 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone_Arm1_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.798273, -9.807051, -30.802071 ]
+								hitbox_maxs = [ 16.1672, 9.319235, 5.799698 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone_Leg1_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -11.932613, -11.507757, -57.15884 ]
+								hitbox_maxs = [ 7.847776, 8.66416, 2.362381 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone_Leg1_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.847866, -11.507826, -57.15884 ]
+								hitbox_maxs = [ 11.932592, 8.664091, 2.362381 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone_Arm2_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -8.539831, -8.877857, -20.642273 ]
+								hitbox_maxs = [ 3.445518, 6.996273, 1.94902 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone_Arm2_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.445135, -8.87714, -20.642273 ]
+								hitbox_maxs = [ 8.585421, 6.996265, 1.94902 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone_Leg2_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -8.458096, -6.911389, -48.698166 ]
+								hitbox_maxs = [ 4.889471, 4.799948, -19.702635 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone_Leg2_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.889469, -6.911392, -48.698166 ]
+								hitbox_maxs = [ 8.458132, 4.799945, -19.702635 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone_Hand_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -12.79134, -13.970234, -31.396164 ]
+								hitbox_maxs = [ 6.290255, 12.015284, 12.866188 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone_Hand_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.237799, -13.873596, -32.904091 ]
+								hitbox_maxs = [ 10.855072, 11.9408, 12.866188 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone_Head"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -9.978615, -24.927576, -7.085632 ]
+								hitbox_maxs = [ 11.890038, 9.219477, 22.341919 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone_Foot_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -8.741262, -23.33923, -9.403611 ]
+								hitbox_maxs = [ 3.854252, 7.919415, -2.179274 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone_Foot_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.854351, -23.339233, -9.403611 ]
+								hitbox_maxs = [ 8.741196, 7.919411, -2.179274 ]
+							},
+						]
+					},
+				]
+			},
+			{
+				_class = "RenderMeshList"
+				children = 
+				[
+					{
+						_class = "RenderMeshFile"
+						name = "trueform"
+						filename = "models/avenger/trueform/trueform.fbx"
+						import_scale = 1.0
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = [  ]
+						}
+					},
+				]
+			},
+			{
+				_class = "AnimationList"
+				children = 
+				[
+					{
+						_class = "Folder"
+						name = "trueform"
+						children = 
+						[
+							{
+								_class = "AnimFile"
+								name = "trueform_cast_one"
+								activity_name = "ACT_DOTA_CAST_ABILITY_6"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/avenger/avenger_anim.FBX"
+								import_bone_scales = false
+								start_frame = 660
+								end_frame = 706
+								framerate = 30.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "trueform_run"
+								activity_name = "ACT_DOTA_RUN"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = true
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/avenger/avenger_anim.FBX"
+								import_bone_scales = false
+								start_frame = 737
+								end_frame = 790
+								framerate = 50.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "trueform_death"
+								activity_name = "ACT_DOTA_DIE"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/avenger/avenger_anim.FBX"
+								import_bone_scales = false
+								start_frame = 0
+								end_frame = 132
+								framerate = 75.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "trueform_idle"
+								activity_name = "ACT_DOTA_IDLE"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/avenger/avenger_anim.FBX"
+								import_bone_scales = false
+								start_frame = 434
+								end_frame = 435
+								framerate = 30.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "trueform_attack_one"
+								activity_name = "ACT_DOTA_ATTACK"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/avenger/avenger_anim.FBX"
+								import_bone_scales = false
+								start_frame = 434
+								end_frame = 475
+								framerate = 40.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "trueform_attack_two"
+								activity_name = "ACT_DOTA_ATTACK2"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/avenger/avenger_anim.FBX"
+								import_bone_scales = false
+								start_frame = 476
+								end_frame = 541
+								framerate = 75.0
+								reverse = false
+							},
+						]
+					},
+				]
+				default_root_bone_name = ""
+			},
+		]
+		model_archetype = ""
+		primary_associated_entity = ""
+		anim_graph_name = ""
+		importer_notes = "Imported from VMDL"
+	}
+}

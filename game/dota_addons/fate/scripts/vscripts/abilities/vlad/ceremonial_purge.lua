@@ -25,8 +25,8 @@ end
 function vlad_ceremonial_purge:VFX1_Slash(caster)
 	local PI1 = FxCreator("particles/custom/vlad/vlad_cp_spin.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster, 2, nil)
 	ParticleManager:SetParticleControlEnt(PI1, 1, caster, PATTACH_POINT_FOLLOW	, "attach_lance_max", caster:GetAbsOrigin(),false)
-	ParticleManager:SetParticleControlEnt(PI1, 3, caster, PATTACH_POINT_FOLLOW	, "attach_lance_max-1", caster:GetAbsOrigin(),false)
-	ParticleManager:SetParticleControlEnt(PI1, 8, caster, PATTACH_POINT_FOLLOW	, "attach_lance_tip-1", caster:GetAbsOrigin(),false)
+	ParticleManager:SetParticleControlEnt(PI1, 3, caster, PATTACH_POINT_FOLLOW	, "attach_lance_max_1", caster:GetAbsOrigin(),false)
+	ParticleManager:SetParticleControlEnt(PI1, 8, caster, PATTACH_POINT_FOLLOW	, "attach_lance_tip_1", caster:GetAbsOrigin(),false)
 
 	Timers:CreateTimer(4, function()
 	 	FxDestroyer(PI1, false)

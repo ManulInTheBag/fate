@@ -1,0 +1,491 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc32:version{c5dcef98-b629-46ab-88e3-a17c005c935e} -->
+{
+	rootNode = 
+	{
+		_class = "RootNode"
+		children = 
+		[
+			{
+				_class = "MaterialGroupList"
+				children = 
+				[
+					{
+						_class = "DefaultMaterialGroup"
+						remaps = 
+						[
+							{
+								from = "model1.vmat"
+								to = "materials/lancer/lancer_texture.vmat"
+							},
+							{
+								from = "model2.vmat"
+								to = "materials/lancer/lancer_texture.vmat"
+							},
+						]
+						use_global_default = false
+						global_default_material = ""
+					},
+				]
+			},
+			{
+				_class = "AttachmentList"
+				children = 
+				[
+					{
+						_class = "Attachment"
+						name = "attach_hitloc"
+						parent_bone = "bone94"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_weapon"
+						parent_bone = "bone88"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+				]
+			},
+			{
+				_class = "HitboxSetList"
+				children = 
+				[
+					{
+						_class = "HitboxSet"
+						name = "default"
+						children = 
+						[
+							{
+								_class = "Hitbox"
+								parent_bone = "bone92"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -18.790352, -11.168339, -10.465866 ]
+								hitbox_maxs = [ 18.79747, 11.798981, 20.703728 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone94"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -80.0, -80.0, -80.0 ]
+								hitbox_maxs = [ 80.0, 80.0, 80.0 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone90"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -14.163921, -10.940966, -6.799149 ]
+								hitbox_maxs = [ 8.481234, 11.167582, 11.116562 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone97"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -27.025818, -6.482661, -6.514893 ]
+								hitbox_maxs = [ -3.01786, 6.680928, 6.121567 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone95"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -10.313353, -12.484386, 0.507538 ]
+								hitbox_maxs = [ 10.313353, 11.678173, 27.005966 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone99"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -8.724642, -11.014574, -6.817032 ]
+								hitbox_maxs = [ 13.92042, 11.093975, 11.098679 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone87"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -29.736919, -4.26307, -5.077042 ]
+								hitbox_maxs = [ -1.617031, 6.511939, 5.553009 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone82"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.306539, 1.348395, -13.223129 ]
+								hitbox_maxs = [ 1.827359, 8.9592, -2.233963 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone96"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.166342, -7.479279, -6.043976 ]
+								hitbox_maxs = [ 25.694902, 5.684313, 4.662384 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone100"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.948949, -10.532865, -50.206688 ]
+								hitbox_maxs = [ 9.380648, 10.718295, -2.62674 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone93"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -9.409163, -10.532864, -50.13665 ]
+								hitbox_maxs = [ 7.920435, 10.718296, -2.556702 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone85"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -17.032883, -5.50372, -7.105942 ]
+								hitbox_maxs = [ -2.375923, 5.57797, 3.898712 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone81"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.267997, 0.952658, -12.390594 ]
+								hitbox_maxs = [ 1.966049, 6.062387, -5.032806 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone98"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.15337, -4.085527, -5.684433 ]
+								hitbox_maxs = [ 29.270851, 6.689483, 4.945618 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone86"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.280952, -5.095486, -45.769958 ]
+								hitbox_maxs = [ 7.902626, 10.00189, -0.585632 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone89"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.840813, -5.071851, -45.787766 ]
+								hitbox_maxs = [ 7.342758, 10.025525, -0.603439 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone88"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -124.830185, -2.465492, -2.997078 ]
+								hitbox_maxs = [ 116.434494, 2.465523, 3.049889 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone80"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.2411, 1.49435, -14.15036 ]
+								hitbox_maxs = [ 0.778152, 5.364149, -6.265167 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone91"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ 2.375824, -5.503741, -7.105911 ]
+								hitbox_maxs = [ 17.032898, 5.577949, 3.898743 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone83"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.754639, -26.743649, -12.691769 ]
+								hitbox_maxs = [ 7.14357, 6.808528, 1.970587 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone84"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.143572, -26.743645, -12.691772 ]
+								hitbox_maxs = [ 5.754639, 6.808529, 1.970583 ]
+							},
+						]
+					},
+				]
+			},
+			{
+				_class = "RenderMeshList"
+				children = 
+				[
+					{
+						_class = "RenderMeshFile"
+						name = "lancer2"
+						filename = "models/lancer/lancer2.fbx"
+						import_scale = 1.0
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = [  ]
+						}
+					},
+				]
+			},
+			{
+				_class = "AnimationList"
+				children = 
+				[
+					{
+						_class = "Folder"
+						name = "lancer2"
+						children = 
+						[
+							{
+								_class = "AnimFile"
+								name = "lancer2_walk"
+								activity_name = "ACT_DOTA_RUN"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = true
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/lancer/lancer2_anim.FBX"
+								import_bone_scales = false
+								start_frame = 312
+								end_frame = 333
+								framerate = 32.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_idle"
+								activity_name = "ACT_DOTA_IDLE"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = true
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/lancer/lancer2_anim.FBX"
+								import_bone_scales = false
+								start_frame = 32
+								end_frame = 63
+								framerate = 30.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_attack_poke"
+								activity_name = "ACT_DOTA_ATTACK"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/lancer/lancer2_anim.FBX"
+								import_bone_scales = false
+								start_frame = 156
+								end_frame = 179
+								framerate = 30.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_attack_thrash"
+								activity_name = "ACT_DOTA_ATTACK2"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/lancer/lancer2_anim.FBX"
+								import_bone_scales = false
+								start_frame = 188
+								end_frame = 213
+								framerate = 30.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_cast"
+								activity_name = "ACT_DOTA_CAST_ABILITY_1"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/lancer/lancer2_anim.FBX"
+								import_bone_scales = false
+								start_frame = 282
+								end_frame = 304
+								framerate = 30.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_gae_bolg_cast"
+								activity_name = "ACT_DOTA_CAST_ABILITY_3"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/lancer/lancer2_anim.FBX"
+								import_bone_scales = false
+								start_frame = 156
+								end_frame = 165
+								framerate = 10.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_gae_bolg_poke"
+								activity_name = "ACT_DOTA_CAST_ABILITY_3_END"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/lancer/lancer2_anim.FBX"
+								import_bone_scales = false
+								start_frame = 212
+								end_frame = 232
+								framerate = 30.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_jump"
+								activity_name = "ACT_DOTA_CAST_ABILITY_4"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/lancer/lancer2_anim.FBX"
+								import_bone_scales = false
+								start_frame = 250
+								end_frame = 272
+								framerate = 30.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_death"
+								activity_name = "ACT_DOTA_DIE"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/lancer/lancer2_anim.FBX"
+								import_bone_scales = false
+								start_frame = 344
+								end_frame = 368
+								framerate = 30.0
+								reverse = false
+							},
+						]
+					},
+				]
+				default_root_bone_name = ""
+			},
+		]
+		model_archetype = ""
+		primary_associated_entity = ""
+		anim_graph_name = ""
+		importer_notes = "Imported from VMDL"
+	}
+}

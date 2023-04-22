@@ -1,0 +1,554 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc32:version{c5dcef98-b629-46ab-88e3-a17c005c935e} -->
+{
+	rootNode = 
+	{
+		_class = "RootNode"
+		children = 
+		[
+			{
+				_class = "MaterialGroupList"
+				children = 
+				[
+					{
+						_class = "DefaultMaterialGroup"
+						remaps = [  ]
+						use_global_default = true
+						global_default_material = "materials/vlad/vlad.vmat"
+					},
+				]
+			},
+			{
+				_class = "AttachmentList"
+				children = 
+				[
+					{
+						_class = "Attachment"
+						name = "attach_lance_max"
+						parent_bone = "Bone008"
+						relative_origin = [ 25.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_lance_max_1"
+						parent_bone = "Bone007"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_lance_max_2"
+						parent_bone = "Bone006"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_lance_tip"
+						parent_bone = "Bone005"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_hitloc"
+						parent_bone = "Bone03"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_origin"
+						parent_bone = "m3bone_root"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_main_hand"
+						parent_bone = "Bone10"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_off_hand"
+						parent_bone = "bone_new0"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_lance_tip_1"
+						parent_bone = "Bone004"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_lance_tip_2"
+						parent_bone = "Bone003"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_head"
+						parent_bone = "bone_null"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_lance_start"
+						parent_bone = "Bone003"
+						relative_origin = [ -60.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+				]
+			},
+			{
+				_class = "HitboxSetList"
+				children = 
+				[
+					{
+						_class = "HitboxSet"
+						name = "default"
+						children = 
+						[
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone01"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -18.676979, -11.837914, -14.028435 ]
+								hitbox_maxs = [ 18.397552, 12.187851, 6.924118 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone03"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -13.359205, -11.084192, -17.378006 ]
+								hitbox_maxs = [ 12.780863, 18.541584, 17.935059 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_null"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -9.194702, -8.517891, -5.478287 ]
+								hitbox_maxs = [ 8.915287, 8.036583, 13.362869 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bonea65"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.93832, -7.709985, -25.383793 ]
+								hitbox_maxs = [ 11.862522, 10.155437, 2.758392 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone05"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -12.181747, -7.730762, -24.648182 ]
+								hitbox_maxs = [ 5.61911, 10.134659, 3.494003 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone08"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -13.651964, -9.011281, -10.479134 ]
+								hitbox_maxs = [ 2.865976, 6.536851, 8.345695 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone19"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -10.303232, -4.959884, -10.723709 ]
+								hitbox_maxs = [ 10.023817, 7.059926, -1.22052 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone58"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.016764, -13.495211, -12.93264 ]
+								hitbox_maxs = [ 18.55065, 9.945803, 7.627502 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "BoneA66"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.703577, -8.243267, -31.033344 ]
+								hitbox_maxs = [ 26.583889, 20.621866, 1.254662 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone06"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -26.717859, -8.573954, -31.40313 ]
+								hitbox_maxs = [ 4.569601, 20.291178, 0.884876 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone09"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -13.940916, -7.381501, -12.805283 ]
+								hitbox_maxs = [ 0.549919, 9.275506, 2.840042 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone20"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -11.402407, 0.707795, -5.284836 ]
+								hitbox_maxs = [ 11.122988, 4.404934, -2.748466 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone42"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.980211, -7.402758, -9.33905 ]
+								hitbox_maxs = [ 7.262287, 7.373903, 5.746834 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "BoneA67"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.039048, -19.660654, -12.839747 ]
+								hitbox_maxs = [ 6.606174, 10.069349, -1.525949 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone63"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.977304, -19.660994, -12.83995 ]
+								hitbox_maxs = [ 3.667932, 8.971582, -1.526152 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone10"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -13.053421, -144.068619, -10.598717 ]
+								hitbox_maxs = [ 1.322922, 61.833511, 4.460724 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone26"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.775705, -1.196928, -7.434715 ]
+								hitbox_maxs = [ 7.496292, 4.005135, 1.599152 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "bone_new0"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.496002, -6.191977, -12.001656 ]
+								hitbox_maxs = [ 12.400356, 4.665403, 4.095932 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "dunbox"
+								parent_bone = "Bone01"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -60.0, -60.0, -60.0 ]
+								hitbox_maxs = [ 60.0, 60.0, 60.0 ]
+							},
+						]
+					},
+				]
+			},
+			{
+				_class = "RenderMeshList"
+				children = 
+				[
+					{
+						_class = "RenderMeshFile"
+						name = "vlad"
+						filename = "models/vlad/vlad.fbx"
+						import_scale = 1.0
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = [  ]
+						}
+					},
+				]
+			},
+			{
+				_class = "AnimationList"
+				children = 
+				[
+					{
+						_class = "Folder"
+						name = "vlad"
+						children = 
+						[
+							{
+								_class = "AnimFile"
+								name = "vlad_idle"
+								activity_name = "ACT_DOTA_IDLE"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = true
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/vlad/vlada.fbx"
+								import_bone_scales = false
+								start_frame = 30
+								end_frame = 105
+								framerate = 30.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "vlad_run"
+								activity_name = "ACT_DOTA_RUN"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = true
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/vlad/vlada.fbx"
+								import_bone_scales = false
+								start_frame = 441
+								end_frame = 472
+								framerate = 30.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "vlad_die"
+								activity_name = "ACT_DOTA_DIE"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/vlad/vlada.fbx"
+								import_bone_scales = false
+								start_frame = 372
+								end_frame = 400
+								framerate = 30.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "vlad_attack"
+								activity_name = "ACT_DOTA_ATTACK"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/vlad/vlada.fbx"
+								import_bone_scales = false
+								start_frame = 156
+								end_frame = 185
+								framerate = 30.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "vlad_attack2"
+								activity_name = "ACT_DOTA_ATTACK2"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/vlad/vlada.fbx"
+								import_bone_scales = false
+								start_frame = 185
+								end_frame = 213
+								framerate = 30.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "vlad_spell1"
+								activity_name = "ACT_DOTA_CAST_ABILITY_1"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/vlad/vlada.fbx"
+								import_bone_scales = false
+								start_frame = 212
+								end_frame = 243
+								framerate = 30.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "vlad_spell2"
+								activity_name = "ACT_DOTA_CAST_ABILITY_2"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/vlad/vlada.fbx"
+								import_bone_scales = false
+								start_frame = 284
+								end_frame = 325
+								framerate = 30.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "vlad_spell3"
+								activity_name = "ACT_DOTA_CAST_ABILITY_3"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/vlad/vlada.fbx"
+								import_bone_scales = false
+								start_frame = 325
+								end_frame = 372
+								framerate = 30.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "vlad_spell4"
+								activity_name = "ACT_DOTA_CAST_ABILITY_4"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/vlad/vlada.fbx"
+								import_bone_scales = false
+								start_frame = 243
+								end_frame = 285
+								framerate = 30.0
+								reverse = false
+							},
+						]
+					},
+				]
+				default_root_bone_name = ""
+			},
+		]
+		model_archetype = ""
+		primary_associated_entity = ""
+		anim_graph_name = ""
+		importer_notes = "Imported from VMDL\n==Warnings==\nChanged incompatible attachment name 'attach_lance_max-1' to 'attach_lance_max_1'\nChanged incompatible attachment name 'attach_lance_max-2' to 'attach_lance_max_2'\nChanged incompatible attachment name 'attach_lance_tip-1' to 'attach_lance_tip_1'\nChanged incompatible attachment name 'attach_lance_tip-2' to 'attach_lance_tip_2'\n"
+	}
+}

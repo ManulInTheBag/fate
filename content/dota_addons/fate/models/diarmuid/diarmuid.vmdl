@@ -1,0 +1,535 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc32:version{c5dcef98-b629-46ab-88e3-a17c005c935e} -->
+{
+	rootNode = 
+	{
+		_class = "RootNode"
+		children = 
+		[
+			{
+				_class = "MaterialGroupList"
+				children = 
+				[
+					{
+						_class = "DefaultMaterialGroup"
+						remaps = 
+						[
+							{
+								from = "model1.vmat"
+								to = "materials/diarmuid/diarmuid.vmat"
+							},
+							{
+								from = "model2.vmat"
+								to = "materials/diarmuid/diarmuid.vmat"
+							},
+						]
+						use_global_default = false
+						global_default_material = ""
+					},
+				]
+			},
+			{
+				_class = "AttachmentList"
+				children = 
+				[
+					{
+						_class = "Attachment"
+						name = "attach_origin"
+						parent_bone = "m3bone_root"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_hitloc"
+						parent_bone = "Bone_Chest2"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_weapon1"
+						parent_bone = "Bone_Weapon_R"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_weapon2"
+						parent_bone = "Bone_Weapon_L"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+				]
+			},
+			{
+				_class = "HitboxSetList"
+				children = 
+				[
+					{
+						_class = "HitboxSet"
+						name = "default"
+						children = 
+						[
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone_Root"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -13.672813, -9.600599, -7.309364 ]
+								hitbox_maxs = [ 14.015644, 9.629358, 16.291817 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone_Chest"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -50.0, -50.0, -50.0 ]
+								hitbox_maxs = [ 50.0, 50.0, 50.0 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone_Chest2"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -19.367676, -11.883984, -0.83667 ]
+								hitbox_maxs = [ 17.696274, 7.52406, 17.831932 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone_Arm1_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -18.678612, -5.656622, -4.787735 ]
+								hitbox_maxs = [ 0.22418, 4.826197, 6.000053 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone_Arm1_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.657097, -7.92113, -6.47625 ]
+								hitbox_maxs = [ 19.622396, 6.74633, 7.95134 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone_Arm2_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -25.045044, -3.917558, -3.499893 ]
+								hitbox_maxs = [ 0.555927, 5.151588, 4.236626 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone_Arm2_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.452271, -4.695287, -4.395233 ]
+								hitbox_maxs = [ 32.257904, 5.192307, 5.048714 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone_Leg1_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.101724, -6.562848, -38.486938 ]
+								hitbox_maxs = [ 9.001021, 10.479888, 0.467369 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone_Leg1_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -9.00297, -6.496584, -43.583641 ]
+								hitbox_maxs = [ 7.099771, 10.479891, 0.31591 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone_Hand_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -10.327419, -4.629121, -4.805305 ]
+								hitbox_maxs = [ -0.432678, 5.07443, 3.763451 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone_Hand_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ 1.040588, -4.99345, -5.407837 ]
+								hitbox_maxs = [ 11.004986, 3.672267, 2.687019 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone_Leg2_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.388306, -4.897408, -37.958946 ]
+								hitbox_maxs = [ 5.235521, 7.081183, 0.081894 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone_Leg2_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.235531, -4.897409, -37.958958 ]
+								hitbox_maxs = [ 4.388306, 7.081186, 0.081882 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone_Head"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -8.161705, -10.000595, -0.823853 ]
+								hitbox_maxs = [ 8.161697, 10.336105, 22.807632 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone_Weapon_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.380657, -2.513294, -85.258636 ]
+								hitbox_maxs = [ 3.381859, 3.72118, 100.836334 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone_Shoulder_Pad"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.995172, -8.360302, -7.535973 ]
+								hitbox_maxs = [ 14.150767, 8.599403, 6.61853 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone_Weapon_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.38072, -3.380173, -40.236195 ]
+								hitbox_maxs = [ 3.3818, 2.854321, 95.184189 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone_Foot_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.623294, -21.531693, -10.475021 ]
+								hitbox_maxs = [ 4.924632, 6.550922, 1.105934 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Bone_Foot_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.924641, -21.531687, -10.475021 ]
+								hitbox_maxs = [ 3.623293, 6.550926, 1.105934 ]
+							},
+						]
+					},
+				]
+			},
+			{
+				_class = "RenderMeshList"
+				children = 
+				[
+					{
+						_class = "RenderMeshFile"
+						name = "diarmuid"
+						filename = "models/diarmuid/diarmuid.fbx"
+						import_scale = 1.0
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = [  ]
+						}
+					},
+				]
+			},
+			{
+				_class = "AnimationList"
+				children = 
+				[
+					{
+						_class = "Folder"
+						name = "diarmuid"
+						children = 
+						[
+							{
+								_class = "AnimFile"
+								name = "diarmuid_idle"
+								activity_name = ""
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = true
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/diarmuid/diarmuid_anim.FBX"
+								import_bone_scales = false
+								start_frame = 565
+								end_frame = 622
+								framerate = 30.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "diarmuid_double"
+								activity_name = "ACT_DOTA_CAST_ABILITY_6"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/diarmuid/diarmuid_anim.FBX"
+								import_bone_scales = false
+								start_frame = 98
+								end_frame = 110
+								framerate = 30.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "diarmuid_move"
+								activity_name = "ACT_DOTA_RUN"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = true
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/diarmuid/diarmuid_anim.FBX"
+								import_bone_scales = false
+								start_frame = 187
+								end_frame = 209
+								framerate = 40.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "diarmuid_dearg"
+								activity_name = "ACT_DOTA_CAST_ABILITY_1"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/diarmuid/diarmuid_anim.FBX"
+								import_bone_scales = false
+								start_frame = 797
+								end_frame = 830
+								framerate = 30.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "diarmuid_death"
+								activity_name = "ACT_DOTA_DIE"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/diarmuid/diarmuid_anim.FBX"
+								import_bone_scales = false
+								start_frame = 220
+								end_frame = 246
+								framerate = 30.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "diarmuid_dearg_cast"
+								activity_name = "ACT_DOTA_CAST_ABILITY_5"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/diarmuid/diarmuid_anim.FBX"
+								import_bone_scales = false
+								start_frame = 405
+								end_frame = 415
+								framerate = 30.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "diarmuid_attack_one"
+								activity_name = "ACT_DOTA_ATTACK"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/diarmuid/diarmuid_anim.FBX"
+								import_bone_scales = false
+								start_frame = 453
+								end_frame = 474
+								framerate = 30.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "diarmuid_attack_two"
+								activity_name = "ACT_DOTA_ATTACK2"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/diarmuid/diarmuid_anim.FBX"
+								import_bone_scales = false
+								start_frame = 500
+								end_frame = 523
+								framerate = 30.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "diarmuid_attack_three"
+								activity_name = "ACT_DOTA_ATTACK_EVENT"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/diarmuid/diarmuid_anim.FBX"
+								import_bone_scales = false
+								start_frame = 532
+								end_frame = 555
+								framerate = 30.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "diarmuid_idle_two"
+								activity_name = "ACT_DOTA_IDLE"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = true
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/diarmuid/diarmuid_anim.FBX"
+								import_bone_scales = false
+								start_frame = 30
+								end_frame = 75
+								framerate = 30.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "diarmuid_dearg2"
+								activity_name = "ACT_DOTA_CAST_ABILITY_4"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/diarmuid/diarmuid_anim.FBX"
+								import_bone_scales = false
+								start_frame = 415
+								end_frame = 438
+								framerate = 30.0
+								reverse = false
+							},
+						]
+					},
+				]
+				default_root_bone_name = ""
+			},
+		]
+		model_archetype = ""
+		primary_associated_entity = ""
+		anim_graph_name = ""
+		importer_notes = "Imported from VMDL\n==Warnings==\nChanged incompatible hitbox parent bone name 'Bone Root' to 'Bone_Root'\nChanged incompatible hitbox parent bone name 'Bone Chest' to 'Bone_Chest'\nChanged incompatible hitbox parent bone name 'Bone Chest2' to 'Bone_Chest2'\nChanged incompatible hitbox parent bone name 'Bone_Arm1 R' to 'Bone_Arm1_R'\nChanged incompatible hitbox parent bone name 'Bone_Arm1 L' to 'Bone_Arm1_L'\nChanged incompatible hitbox parent bone name 'Bone_Arm2 R' to 'Bone_Arm2_R'\nChanged incompatible hitbox parent bone name 'Bone_Arm2 L' to 'Bone_Arm2_L'\nChanged incompatible hitbox parent bone name 'Bone_Leg1 L' to 'Bone_Leg1_L'\nChanged incompatible hitbox parent bone name 'Bone_Leg1 R' to 'Bone_Leg1_R'\nChanged incompatible hitbox parent bone name 'Bone_Hand R' to 'Bone_Hand_R'\nChanged incompatible hitbox parent bone name 'Bone_Hand L' to 'Bone_Hand_L'\nChanged incompatible hitbox parent bone name 'Bone_Leg2 L' to 'Bone_Leg2_L'\nChanged incompatible hitbox parent bone name 'Bone_Leg2 R' to 'Bone_Leg2_R'\nChanged incompatible hitbox parent bone name 'Bone Head' to 'Bone_Head'\nChanged incompatible hitbox parent bone name 'Bone_Weapon R' to 'Bone_Weapon_R'\nChanged incompatible hitbox parent bone name 'Bone_Shoulder Pad' to 'Bone_Shoulder_Pad'\nChanged incompatible hitbox parent bone name 'Bone_Weapon L' to 'Bone_Weapon_L'\nChanged incompatible hitbox parent bone name 'Bone_Foot L' to 'Bone_Foot_L'\nChanged incompatible hitbox parent bone name 'Bone_Foot R' to 'Bone_Foot_R'\nChanged incompatible bone name 'Bone Chest2' to 'Bone_Chest2'\nChanged incompatible bone name 'Bone_Weapon R' to 'Bone_Weapon_R'\nChanged incompatible bone name 'Bone_Weapon L' to 'Bone_Weapon_L'\n"
+	}
+}
