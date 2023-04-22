@@ -6,6 +6,9 @@ function jump_ahead_nanaya:OnSpellStart()
 	local caster = self:GetCaster()
 	caster:AddNewModifier(caster, self, "jump_ahead_nanaya_modifier", {})
 	local justpoint = self:GetCursorPosition()
+	if justpoint == caster:GetAbsOrigin() then
+		justpoint = caster:GetAbsOrigin() + caster:GetForwardVector()
+	end
 	local hTarget = (justpoint - caster:GetAbsOrigin()):Normalized()
 	local speed = 3000
 	caster:EmitSound("nanaya.jump")
@@ -167,6 +170,9 @@ function jump_ahead_nanaya_modifier:OnCreated(args)
 	if self.check == nil then 
 		self.ability = self:GetAbility()
 		self.point = self.ability:GetCursorPosition()
+		if self.parent:GetAbsOrigin() == self.point then
+			self.point = self.parent:GetAbsOrigin() + self.parent:GetForwardVector()
+		end
 		self.distances = self.ability:GetSpecialValueFor("blink_ahead")
 		self.direction = (self.point - self.parent:GetAbsOrigin()):Normalized()
 		else
@@ -229,6 +235,9 @@ nanaya_knife = class({})
 function nanaya_knife:OnSpellStart()
 	local caster = self:GetCaster()
 	local point = self:GetCursorPosition()
+	if point == caster:GetAbsOrigin() then
+		point = caster:GetAbsOrigin() + caster:GetForwardVector()
+	end
 	local hTarget = (point - caster:GetAbsOrigin()):Normalized()
 	local speed = 3000
 	local nanaya_knife = ParticleManager:CreateParticle("particles/nanaya_knifethrow.vpcf", PATTACH_CUSTOMORIGIN, caster)

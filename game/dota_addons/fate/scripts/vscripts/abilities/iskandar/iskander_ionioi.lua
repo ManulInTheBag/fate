@@ -268,6 +268,10 @@ function iskander_ionioi:OnAOTKStart()
 				aotkTargets[i]:RemoveModifierByName("modifier_aestus_domus_aurea_enemy")
 				aotkTargets[i]:RemoveModifierByName("modifier_aestus_domus_aurea_ally")
 				aotkTargets[i]:RemoveModifierByName("modifier_aestus_domus_aurea_nero")
+
+				if aotkTargets[i]:GetTeamNumber() ~= caster:GetTeamNumber() then
+					aotkTargets[i]:AddNewModifier(caster, self, "modifier_silence", {duration = 2})
+				end
 				
 				if aotkTargets[i]:GetName() == "npc_dota_hero_bounty_hunter" or aotkTargets[i]:GetName() == "npc_dota_hero_riki" then
 	                aotkTargets[i]:AddNewModifier(caster, ability, "modifier_inside_marble", { Duration = 16 })

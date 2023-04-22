@@ -12,6 +12,9 @@ function nanaya_q2jump:OnSpellStart()
 	local check = caster:GetAnglesAsVector():Normalized()
 	local check2 = caster:GetForwardVector()
 	local targetpoint = self:GetCursorPosition()
+	if targetpoint == caster:GetAbsOrigin() then
+		targetpoint = caster:GetAbsOrigin() + caster:GetForwardVector()
+	end
 	caster:AddNewModifier(caster, self, "modifier_q2jump", {duration = 2})
 	local jump = ParticleManager:CreateParticle("particles/blink.vpcf", PATTACH_CUSTOMORIGIN, caster)
 	local hTarget = (targetpoint - caster:GetAbsOrigin()):Normalized()
@@ -212,6 +215,9 @@ ParticleManager:SetParticleControlEnt(self.hit, 5, self.parent, PATTACH_POINT_FO
 	if self.check == nil then 
 		self.ability = self:GetAbility()
 		self.point = self.ability:GetCursorPosition()
+		if self.point == self.parent:GetAbsOrigin() then
+			self.point = self.parent:GetAbsOrigin() + self.parent:GetForwardVector()
+		end
 		self.distances = 1000
 		self.direction = (self.point - self.parent:GetAbsOrigin()):Normalized()
 		else

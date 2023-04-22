@@ -9,6 +9,9 @@ function nanaya_e_jump:OnSpellStart()
 	local check = caster:GetAnglesAsVector():Normalized()
 	local check2 = caster:GetForwardVector()
 	local targetpoint = self:GetCursorPosition()
+	if targetpoint == caster:GetAbsOrigin() then
+		targetpoint = caster:GetAbsOrigin() + caster:GetForwardVector()
+	end
 	caster:AddNewModifier(caster, self, "modifier_nanaya_e_jump", {duration = 2})
 	local jump = ParticleManager:CreateParticle("particles/blink.vpcf", PATTACH_CUSTOMORIGIN, caster)
 	local sAbil = caster:GetAbilityByIndex(0):GetAbilityName()
@@ -65,6 +68,9 @@ function modifier_nanaya_e_jump:OnCreated()
 	self.parent = self:GetParent()
 		self.ability = self:GetAbility()
 		self.point = self.ability:GetCursorPosition()
+		if self.point == self:GetParent():GetAbsOrigin() then
+			self.point = self:GetParent():GetAbsOrigin() + self:GetParent():GetForwardVector()
+		end
 		--self.distances = self.ability:GetSpecialValueFor("range")
 
 		self.distances = 800

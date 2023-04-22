@@ -27,6 +27,10 @@ end
 function flower_beam:OnSpellStart()
     local caster = self:GetCaster()
 	local target = self:GetCursorPosition()
+	local pepelength = (caster:GetAbsOrigin() - target):Length2D()
+	if pepelength > self:GetCastRange(target, caster) then
+		target = GetGroundPosition(caster:GetAbsOrigin() - (caster:GetAbsOrigin() - target):Normalized()*self:GetCastRange(target, caster), caster)
+	end
 	local ability = self
 	local direction = self:GetAnimeVectorTargetingMainDirection()
 	caster:EmitSound("merlin_beam_1")
@@ -94,7 +98,7 @@ function flower_beam:OnSpellStart()
 		ParticleManager:SetParticleControl( beam_particle, 0, point) 
 		local flower_particle = ParticleManager:CreateParticle("particles/merlin/merlin_beam_flowers.vpcf", PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControl(flower_particle, 0, point) 
-		point = point + direction *move_per_tick
+		point = GetGroundPosition(point + direction *move_per_tick, caster)
 		return tick_time
 	end)
 

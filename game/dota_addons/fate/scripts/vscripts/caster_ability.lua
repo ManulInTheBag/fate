@@ -284,7 +284,7 @@ function OnManaDrainStart(keys)
 				keys.ability:EndChannel(false)
 				return 
 			end
-			caster:ReduceMana(keys.ManaPerSec/4) 
+			caster:Script_ReduceMana(keys.ManaPerSec/4, ability) 
 			target:GiveMana(keys.ManaPerSec/4) 
 			return 0.25
 		end)
@@ -297,7 +297,7 @@ function OnManaDrainStart(keys)
 				keys.ability:EndChannel(false)
 				return 
 			end
-			target:ReduceMana(keys.ManaPerSec/4) 
+			target:Script_ReduceMana(keys.ManaPerSec/4, ability) 
 			caster:GiveMana(keys.ManaPerSec/4) 
 			return 0.25
 		end)

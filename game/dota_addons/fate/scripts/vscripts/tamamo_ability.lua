@@ -732,7 +732,7 @@ function OnMantraTakeDamage(keys)
 
     		local tEnemies = FindUnitsInRadius(caster:GetTeam(), target:GetAbsOrigin(), nil, ability:GetSpecialValueFor("ally_radius"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
 			for i = 1, #tEnemies do
-				tEnemies[i]:ReduceMana(ability:GetSpecialValueFor("wind_mana"))
+				tEnemies[i]:Script_ReduceMana(ability:GetSpecialValueFor("wind_mana"), ability)
 			end
     	elseif charm_type == "void" then
     		local warpFx = ParticleManager:CreateParticle('particles/tamamo/tamamo_mantra_void_warp.vpcf', PATTACH_CUSTOMORIGIN, target) 
@@ -818,7 +818,7 @@ function OnMantraTakeDamage(keys)
     		end)
     		local tEnemies = FindUnitsInRadius(caster:GetTeam(), target:GetAbsOrigin(), nil, ability:GetSpecialValueFor("enemy_radius"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
 			for i = 1, #tEnemies do
-				tEnemies[i]:ReduceMana(ability:GetSpecialValueFor("wind_mana"))
+				tEnemies[i]:Script_ReduceMana(ability:GetSpecialValueFor("wind_mana"), ability)
 			end
     	elseif charm_type == "void" then
     		local warpFx = ParticleManager:CreateParticle('particles/tamamo/tamamo_mantra_void_warp.vpcf', PATTACH_CUSTOMORIGIN, target) 

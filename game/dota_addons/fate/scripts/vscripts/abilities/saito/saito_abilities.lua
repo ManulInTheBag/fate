@@ -451,7 +451,7 @@ function modifier_saito_style_combo_indicator:OnIntervalThink()
                 and hSwappedAbility:IsTrained()
                 and hSwappedAbility:IsCooldownReady()
                 and self.bLocalComboReleased then
-                hSwappedAbility:UseResources(false, false, true)
+                hSwappedAbility:UseResources(false, false, false, true)
             end
 
             self.bLocalComboReleased = false
@@ -2117,7 +2117,7 @@ function modifier_saito_fds_cast_controller:BreakCombo() --Just created this fun
             local hAbility = self.hParent:FindAbilityByName(sAbilityName)
             if IsNotNull(hAbility) then --There we put on cooldown each ability differently because they can have different cooldown, if you use sharing from KV then there will be the last shared cooldown or ability that you put on the cd for the first.
                 --Here can be added a function that checks ability on cooldown or not, then if combo is breaking other abilities if they have different cooldown will not be affected and can be cast when cooldown ends for them...
-                hAbility:UseResources(false, false, true) --Put in cooldown, the difference between <> StartCooldown is that UseResources counts -WTF mode and requires less operation.
+                hAbility:UseResources(false, false, false, true) --Put in cooldown, the difference between <> StartCooldown is that UseResources counts -WTF mode and requires less operation.
                 --======--
                 -- How to include cooldown with all modifications: if you want more manual, you need:
                 -- hAbility:EndCooldown() --This is necessary because sometimes the cooldown cannot start if the ability is still on cooldown.

@@ -117,7 +117,7 @@ function true_assassin_zabaniya:OnProjectileHit_ExtraData(hTarget, vLocation, ta
 		damage = damage + damage*10/self:GetSpecialValueFor("zabaniya_penalty")
 	end	
 	
-	hTarget:ReduceMana(mana_damage)
+	hTarget:Script_ReduceMana(mana_damage, self)
 	if hTarget:GetMana()*100/hTarget:GetMaxMana()<=5 then
 		DoDamage(caster, hTarget, damage, damage_type, 0, self, false)
 		DoDamage(caster, hTarget, mana_damage*self:GetSpecialValueFor("mana_multiplier")/100, DAMAGE_TYPE_MAGICAL, 0, self, false)

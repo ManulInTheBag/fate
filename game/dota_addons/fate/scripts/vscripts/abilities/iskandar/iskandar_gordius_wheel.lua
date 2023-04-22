@@ -110,14 +110,15 @@ end
 
 
 function modifier_gordius_wheel:OnCreated(args)
-	self.Movespeed = 1
+	local ability = self:GetAbility()
+	local caster = self:GetParent()
+
+	self.Movespeed = ability:GetSpecialValueFor("base_movespeed")
 	self.mr = 10				--ability:GetSpecialValueFor("bonus_mr") IT WILL BREAK IF YOU Change to LINK IDK WHY
 	self.armor = 10			--ability:GetSpecialValueFor("bonus_armor")
 	if(IsServer() ) then
 		CustomNetTables:SetTableValue("sync","gordius_wheel", {movespeed = self.Movespeed, mres = self.mr, armor = self.armor})
 	end
-	local ability = self:GetAbility()
-	local caster = self:GetParent()
 	caster.OriginalModel = "models/sanya/sanya.vmdl"
 	caster.IsRiding = true
 	local counter = 0
@@ -137,7 +138,7 @@ function modifier_gordius_wheel:OnCreated(args)
 
 	Timers:CreateTimer(1.0, function() 
 		if caster.IsRiding and counter < 10 then 
-			self.Movespeed = ability:GetSpecialValueFor("movespeed_per_second")* counter
+			self.Movespeed = self.Movespeed + ability:GetSpecialValueFor("movespeed_per_second")
 			if(IsServer() ) then
 				CustomNetTables:SetTableValue("sync","gordius_wheel", {movespeed = self.Movespeed, mres = self.mr, armor = self.armor})
 			end

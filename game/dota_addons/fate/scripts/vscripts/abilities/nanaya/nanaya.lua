@@ -308,6 +308,9 @@ function nanaya_dashf:OnSpellStart()
 local caster = self:GetCaster()
 ProjectileManager:ProjectileDodge(caster)
 local point = self:GetCursorPosition()
+if point == caster:GetAbsOrigin() then
+	point = caster:GetAbsOrigin() + caster:GetForwardVector()
+end
        -- self.return1 = nil
    -- else
 local casterabs = caster:GetAbsOrigin()
