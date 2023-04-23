@@ -204,7 +204,7 @@
 						import_bone_scales = false
 						start_frame = 215
 						end_frame = 232
-						framerate = -1.0
+						framerate = 45.0
 						reverse = false
 					},
 					{
@@ -253,36 +253,6 @@
 					},
 					{
 						_class = "AnimFile"
-						name = "spell4"
-						children = 
-						[
-							{
-								_class = "ActivityModifier"
-								activity_name = "run_slow"
-								activity_weight = 1
-							},
-						]
-						activity_name = "ACT_DOTA_RUN"
-						activity_weight = 1
-						weight_list_name = ""
-						fade_in_time = 0.2
-						fade_out_time = 0.2
-						looping = true
-						delta = false
-						worldSpace = false
-						hidden = false
-						anim_markup_ordered = false
-						disable_compression = false
-						animgraph_additive = false
-						source_filename = "models/sanya/iskandar.fbx"
-						import_bone_scales = false
-						start_frame = 384
-						end_frame = 414
-						framerate = -1.0
-						reverse = false
-					},
-					{
-						_class = "AnimFile"
 						name = "run"
 						children = 
 						[
@@ -311,6 +281,67 @@
 						framerate = -1.0
 						reverse = false
 					},
+					{
+						_class = "AnimFile"
+						name = "spell5"
+						children = 
+						[
+							{
+								_class = "ActivityModifier"
+								activity_name = "run_slow"
+								activity_weight = 1
+							},
+						]
+						disabled = true
+						activity_name = "ACT_DOTA_RUN"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/sanya/iskandar.fbx"
+						import_bone_scales = false
+						start_frame = 384
+						end_frame = 414
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "spell6"
+						children = 
+						[
+							{
+								_class = "ActivityModifier"
+								activity_name = "run_slow"
+								activity_weight = 1
+							},
+						]
+						activity_name = "ACT_DOTA_RUN"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/sanya/iskandar.fbx"
+						import_bone_scales = false
+						start_frame = 445
+						end_frame = 480
+						framerate = -1.0
+						reverse = false
+					},
 				]
 				default_root_bone_name = ""
 			},
@@ -330,8 +361,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -128.266586, -126.595238, -139.763794 ]
-								hitbox_maxs = [ 160.996185, 118.468231, 133.676804 ]
+								hitbox_mins = [ -124.233025, -126.595238, -139.763794 ]
+								hitbox_maxs = [ 152.650314, 112.395172, 133.676804 ]
 							},
 							{
 								_class = "Hitbox"
@@ -631,8 +662,6 @@
 		model_archetype = ""
 		primary_associated_entity = ""
 		anim_graph_name = ""
-		importer_notes = """
-Imported from VMDL
-"""
+		importer_notes = "Imported from VMDL"
 	}
 }

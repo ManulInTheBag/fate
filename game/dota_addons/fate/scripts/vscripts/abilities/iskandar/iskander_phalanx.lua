@@ -1,6 +1,14 @@
 iskander_phalanx = class({})
 LinkLuaModifier("modifier_iskander_units_bonus_dmg", "abilities/iskandar/iskander_ionioi", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_phalanx_soldier_wall","abilities/iskandar/iskander_phalanx", LUA_MODIFIER_MOTION_NONE)
+
+
+function iskander_phalanx:GetCastPoint()
+	return self:GetCaster().IsRiding and 0 or 0.3
+end
+
+
+
 function iskander_phalanx:OnSpellStart()
 	local caster = self:GetCaster()
 	local duration = self:GetSpecialValueFor("duration")

@@ -1145,7 +1145,7 @@ function OnHammerStart(keys)
 			endTime = 0.0,
 			callback = function()
 			if counter > 3 then return end
-			local targets = FindUnitsInRadius(cavalryTable[i]:GetTeam(), cavalryTable[i]:GetAbsOrigin(), nil, 100, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
+			local targets = FindUnitsInRadius(cavalryTable[i]:GetTeam(), cavalryTable[i]:GetAbsOrigin(), nil, 150, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
 	        for k,v in pairs(targets) do
 				if v.HammerChargeHit ~= true then 
 					v.HammerChargeHit = true
@@ -1170,7 +1170,7 @@ function OnHammerStart(keys)
 		cavalryTable[i]:SetPhysicsVelocity((hero:GetAbsOrigin() - cavalryTable[i]:GetAbsOrigin()):Normalized() * 1500)
 		cavalryTable[i]:SetNavCollisionType(PHYSICS_NAV_NOTHING)
 		cavalryTable[i]:FollowNavMesh(false)
-
+		StartAnimation(cavalryTable[i], {duration = 1, activity=ACT_DOTA_CAST_ABILITY_1, rate=1})
 		cavalryTable[i]:OnPhysicsFrame(function(unit)
 			local diff = hero:GetAbsOrigin() - cavalryTable[i]:GetAbsOrigin()
 			local dir = diff:Normalized()

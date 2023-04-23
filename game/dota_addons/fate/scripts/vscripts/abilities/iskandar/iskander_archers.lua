@@ -2,6 +2,11 @@ iskander_archers = class({})
 LinkLuaModifier("modifier_iskander_units_bonus_dmg", "abilities/iskandar/iskander_ionioi", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_archers_soldier_script","abilities/iskandar/iskander_archers", LUA_MODIFIER_MOTION_NONE)
 
+
+function iskander_archers:GetCastPoint()
+	return self:GetCaster().IsRiding and 0 or 0.2
+end
+
 function iskander_archers:OnSpellStart()
 	local caster = self:GetCaster()
 	local duration = self:GetSpecialValueFor("duration")
@@ -76,25 +81,25 @@ function iskander_archers:ShootArrow(unit, point)
 	local dmg = self:GetSpecialValueFor("damage")
 	local sArrowParticle = "particles/iskander/sanya_arrows.vpcf" 
 	local counter = 0 
-	StartAnimation(unit, {duration = 0.33, activity=ACT_DOTA_CAST_ABILITY_1, rate=3})
-	Timers:CreateTimer(0.4, function()
+	StartAnimation(unit, {duration = 0.25, activity=ACT_DOTA_CAST_ABILITY_1, rate=4})
+	Timers:CreateTimer(0.25, function()
 		if counter == count then return end  
-		StartAnimation(unit, {duration = 0.33, activity=ACT_DOTA_CAST_ABILITY_1, rate=3})
+		StartAnimation(unit, {duration = 0.25, activity=ACT_DOTA_CAST_ABILITY_1, rate=4})
 		local nArrowParticle =  ParticleManager:CreateParticle(sArrowParticle, PATTACH_WORLDORIGIN, nil)
 		--ParticleManager:SetParticleShouldCheckFoW(nArrowParticle, false)
 		ParticleManager:SetParticleAlwaysSimulate(nArrowParticle)
 		ParticleManager:SetParticleControl(nArrowParticle, 0, unitPoint)
 		ParticleManager:SetParticleControl(nArrowParticle, 1, GetGroundPosition(point2, nil))
 		ParticleManager:SetParticleControl(nArrowParticle, 2, Vector(nSpeed, 0, 0))
-		Timers:CreateTimer(0.75,function()
+		Timers:CreateTimer(0.55,function()
 			ParticleManager:DestroyParticle(nArrowParticle, true)
 			ParticleManager:ReleaseParticleIndex(nArrowParticle)
 		end)
 		counter = counter + 1
-		return 0.4
+		return 0.25
 	end)
 	
-	Timers:CreateTimer(1.5,function()
+	Timers:CreateTimer(1.0, function()
 		ParticleManager:DestroyParticle(point_particle, true)
 		ParticleManager:ReleaseParticleIndex(point_particle)
 		local iParticleIndex = ParticleManager:CreateParticle("particles/custom/iskandar/arrow_volley.vpcf", PATTACH_CUSTOMORIGIN, nil) 
@@ -141,7 +146,7 @@ function modifier_archers_soldier_script:OnCreated(args)
 	if(not IsServer()) then return end
 	self.parent = self:GetParent() 
 	local target = Vector(args.pointx, args.pointy, args.pointz)
-	Timers:CreateTimer(0.5, function()
+	Timers:CreateTimer(0.2, function()
 		self:GetAbility():ShootArrow(self.parent, target)
 	end)
 end

@@ -114,7 +114,7 @@ function modifier_gordius_wheel:OnCreated(args)
 	local caster = self:GetParent()
 
 	self.Movespeed = ability:GetSpecialValueFor("base_movespeed")
-	self.mr = 10				--ability:GetSpecialValueFor("bonus_mr") IT WILL BREAK IF YOU Change to LINK IDK WHY
+	self.mr = 30				--ability:GetSpecialValueFor("bonus_mr") IT WILL BREAK IF YOU Change to LINK IDK WHY
 	self.armor = 10			--ability:GetSpecialValueFor("bonus_armor")
 	if(IsServer() ) then
 		CustomNetTables:SetTableValue("sync","gordius_wheel", {movespeed = self.Movespeed, mres = self.mr, armor = self.armor})
@@ -153,15 +153,15 @@ function modifier_gordius_wheel:OnCreated(args)
 			 	end
 			 	DoDamage(caster, v, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
 				if(v:IsHero()) then
-					caster.BonusChargeDamage =  caster.BonusChargeDamage + 50
+					caster.BonusChargeDamage =  caster.BonusChargeDamage + 75
 				end
 		 	end
 		 	
 
 		 	if caster.IsThundergodAcquired then
-			 	local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 150, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
+			 	local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 250, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
 			 	for k,v in pairs(targets) do
-					DoDamage(caster, v, 150, DAMAGE_TYPE_PHYSICAL, 0, ability, false)
+					DoDamage(caster, v, 150, DAMAGE_TYPE_MAGICAL, 0, ability, false)
 			 	end	  
 			 	local thunderTargets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 400, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
 			 	local thunderTarget = thunderTargets[math.random(#thunderTargets)]
@@ -202,7 +202,7 @@ function modifier_gordius_wheel:OnDestroy()
 	if(IsServer()) then
 		caster:SetModel("models/sanya/sanya.vmdl")
 		caster:SetOriginalModel("models/sanya/sanya.vmdl")
-		caster:SetModelScale(0.8)
+		caster:SetModelScale(1)
 		if caster:GetAbilityByIndex(5):GetName() == "iskander_drift" then
 			caster:SwapAbilities("iskander_drift", "iskandar_gordius_wheel", false, true) 
 		end

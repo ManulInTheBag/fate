@@ -1638,7 +1638,7 @@
 		// General
 		//----------------------------------------------------------------
 		"BaseClass"					"npc_dota_base_additive"
-		"Model"						"models/heroes/chaos_knight/chaos_knight.vmdl"
+		"Model"						"models/sanya/soldier/cavalry.vmdl"
 		"ModelScale"				"0.7"
 		"Level"						"1"
 		"HealthBarOffset"			"180"
@@ -1661,7 +1661,7 @@
 		"AttackRate"				"1.4"
 		"AttackAnimationPoint"		"0.66"
 		"AttackAcquisitionRange"	"500"
-		"AttackRange"				"100"
+		"AttackRange"				"200"
 		
 		// Bounty
 		//----------------------------------------------------------------
@@ -1721,7 +1721,7 @@
 		// General
 		//----------------------------------------------------------------
 		"BaseClass"					"npc_dota_base_additive"
-		"Model"						"models/heroes/chaos_knight/chaos_knight.vmdl"
+		"Model"						"models/sanya/soldier/cavalry.vmdl"
 		"ModelScale"				"1.0"
 		"Level"						"1"
 		"HealthBarOffset"			"300"
@@ -1745,7 +1745,7 @@
 		"AttackRate"				"1.4"
 		"AttackAnimationPoint"		"0.66"
 		"AttackAcquisitionRange"	"2000"
-		"AttackRange"				"100"
+		"AttackRange"				"200"
 		
 		// Bounty
 		//----------------------------------------------------------------

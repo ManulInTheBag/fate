@@ -15,17 +15,18 @@ function iskander_drift:OnSpellStart()
 	giveUnitDataDrivenModifier(caster, caster, "pause_sealdisabled", 1.5)
 	local currentMS = caster:GetMoveSpeedModifier(caster:GetBaseMoveSpeed(), false)
 	if currentMS > 1200 then
-		caster:EmitSound("Iskander.Charge")
+		EmitGlobalSound("Iskander.Charge")
 	else
-		caster:EmitSound("Iskander_Cart_Charge_" .. soundQueue)
+		EmitGlobalSound("Iskander_Cart_Charge_" .. soundQueue)
 	end
 	local unit = Physics:Unit(caster)
 	caster:SetPhysicsFriction(0)
 	local dashtime = 1
-	local dashticktime = 1 * currentMS/750
-	caster:SetPhysicsVelocity(caster:GetForwardVector() * self:GetSpecialValueFor("range") * currentMS/750)
+	local speed =   self:GetSpecialValueFor("range") * (0.5 + (currentMS/1500))
+	caster:SetPhysicsVelocity(caster:GetForwardVector() * speed)
 	caster:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
 	local damage = self:GetSpecialValueFor("damage")
+	local base_damage = self:GetSpecialValueFor("base_dmg")
 	Timers:CreateTimer("chariot_dash_damage", {
 		endTime = 0.0,
 		callback = function()
@@ -45,12 +46,12 @@ function iskander_drift:OnSpellStart()
 					v.ChariotChargeHit = false
 				end)
 
-           		DoDamage(caster, v, (damage * currentMS / 100) + bonus_charge_damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+           		DoDamage(caster, v, (base_damage + damage *currentMS/100) + bonus_charge_damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
            		v:AddNewModifier(caster, v, "modifier_stunned", {duration = 0.75})
            		v:EmitSound("Iskandar_Chariot_hit")
            	end
         end
-		return dashticktime/10
+		return 0.1
 	end})
 
 	Timers:CreateTimer("chariot_dash", {

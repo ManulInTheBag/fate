@@ -1,0 +1,561 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc32:version{c5dcef98-b629-46ab-88e3-a17c005c935e} -->
+{
+	rootNode = 
+	{
+		_class = "RootNode"
+		children = 
+		[
+			{
+				_class = "MaterialGroupList"
+				children = 
+				[
+					{
+						_class = "DefaultMaterialGroup"
+						remaps = 
+						[
+							{
+								from = "model001_material001.vmat"
+								to = "models/sanya/soldier/soldier_mat.vmat"
+							},
+							{
+								from = ""
+								to = "models/sanya/kon.vmat"
+							},
+						]
+						use_global_default = false
+						global_default_material = ""
+					},
+				]
+			},
+			{
+				_class = "RenderMeshList"
+				children = 
+				[
+					{
+						_class = "RenderMeshFile"
+						name = "soldier"
+						filename = "models/sanya/soldier/alex_soldier_on_horse.fbx"
+						import_scale = 1.0
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = 
+							[
+								"Mesh_019",
+								"Mesh_025",
+								"Mesh_013",
+								"Mesh_022",
+							]
+						}
+					},
+				]
+			},
+			{
+				_class = "AnimationList"
+				children = 
+				[
+					{
+						_class = "AnimFile"
+						name = "idle"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								root_bone_name = ""
+								motion_type = "Uniform"
+							},
+						]
+						activity_name = "ACT_DOTA_IDLE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/sanya/soldier/alex_soldier_on_horse.fbx"
+						import_bone_scales = false
+						start_frame = 144
+						end_frame = 164
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "walk"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								root_bone_name = ""
+								motion_type = "Uniform"
+							},
+						]
+						activity_name = "ACT_DOTA_RUN"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/sanya/soldier/alex_soldier_on_horse.fbx"
+						import_bone_scales = false
+						start_frame = 29
+						end_frame = 49
+						framerate = 5.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "attack"
+						activity_name = "ACT_DOTA_ATTACK"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/sanya/soldier/alex_soldier_on_horse.fbx"
+						import_bone_scales = false
+						start_frame = 54
+						end_frame = 78
+						framerate = 20.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "die"
+						activity_name = "ACT_DOTA_DIE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/sanya/soldier/alex_soldier_on_horse.fbx"
+						import_bone_scales = false
+						start_frame = 84
+						end_frame = 139
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "rush"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								root_bone_name = ""
+								motion_type = "Uniform"
+							},
+						]
+						activity_name = "ACT_DOTA_CAST_ABILITY_1"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/sanya/soldier/alex_soldier_on_horse.fbx"
+						import_bone_scales = false
+						start_frame = 4
+						end_frame = 24
+						framerate = -1.0
+						reverse = false
+					},
+				]
+				default_root_bone_name = ""
+			},
+			{
+				_class = "HitboxSetList"
+				children = 
+				[
+					{
+						_class = "HitboxSet"
+						name = "default"
+						children = 
+						[
+							{
+								_class = "Hitbox"
+								name = "Bucephal_leg_rear_2_L"
+								parent_bone = "Bucephal_leg_rear_2_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -18.040615, -37.108772, -53.897705 ]
+								hitbox_maxs = [ 19.218975, 84.284645, 22.307463 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bucephal_leg_rear_2_R"
+								parent_bone = "Bucephal_leg_rear_2_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -19.21899, -37.108696, -53.897682 ]
+								hitbox_maxs = [ 18.040585, 84.284683, 22.307434 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bucephal_tail_1"
+								parent_bone = "Bucephal_tail_1"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -38.95314, -28.300884, -30.039276 ]
+								hitbox_maxs = [ 39.651093, 108.354446, 21.175858 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bucephal_tail_2"
+								parent_bone = "Bucephal_tail_2"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -16.28639, -40.060398, -23.715164 ]
+								hitbox_maxs = [ 16.286402, 119.765411, 21.28302 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bucephal_tail_3"
+								parent_bone = "Bucephal_tail_3"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -16.286339, -75.328232, -23.542389 ]
+								hitbox_maxs = [ 16.28635, 111.314423, 21.398788 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bucephal_spine_2"
+								parent_bone = "Bucephal_spine_2"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -60.184963, -51.790249, -45.403885 ]
+								hitbox_maxs = [ 51.087658, 119.26239, 121.294876 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bucephal_spine_3"
+								parent_bone = "Bucephal_spine_3"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -120.474663, -272.677094, -57.946243 ]
+								hitbox_maxs = [ 109.034073, 234.662567, 121.2565 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bucephal_spine_4"
+								parent_bone = "Bucephal_spine_4"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -54.191448, -69.209854, -67.13298 ]
+								hitbox_maxs = [ 54.191463, 111.022919, 121.198654 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bucephal_leg_front_1_L"
+								parent_bone = "Bucephal_leg_front_1_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -50.68774, -45.03273, -52.730637 ]
+								hitbox_maxs = [ 15.382114, 98.492905, 51.119652 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bucephal_leg_front_2_L"
+								parent_bone = "Bucephal_leg_front_2_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -18.684797, -35.805473, -28.760338 ]
+								hitbox_maxs = [ 16.190275, 71.679253, 23.556007 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bucephal_neck_1"
+								parent_bone = "Bucephal_neck_1"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -54.191177, -52.489075, -88.094391 ]
+								hitbox_maxs = [ 54.191216, 93.444031, 81.68396 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bucephal_neck_2"
+								parent_bone = "Bucephal_neck_2"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -37.447166, -52.640717, -44.682838 ]
+								hitbox_maxs = [ 38.665108, 86.323975, 56.909508 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bucephal_head"
+								parent_bone = "Bucephal_head"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -36.600788, -50.270653, -37.522675 ]
+								hitbox_maxs = [ 36.600735, 88.184425, 82.322556 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bucephal_leg_front_1_R"
+								parent_bone = "Bucephal_leg_front_1_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -15.382141, -41.859608, -46.207184 ]
+								hitbox_maxs = [ 68.775703, 98.492935, 50.957214 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bucephal_leg_front_2_R"
+								parent_bone = "Bucephal_leg_front_2_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -16.190256, -41.418861, -28.760307 ]
+								hitbox_maxs = [ 18.684797, 71.967972, 23.556038 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Soldier_spine_2"
+								parent_bone = "Soldier_spine_2"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -39.000771, -35.183838, -19.957687 ]
+								hitbox_maxs = [ 39.000771, 56.502365, 18.72205 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Soldier_spine_3"
+								parent_bone = "Soldier_spine_3"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -50.087601, -34.731224, -17.24469 ]
+								hitbox_maxs = [ 55.960274, 35.201889, 18.662945 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Soldier_spine_4"
+								parent_bone = "Soldier_spine_4"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -101.634689, -41.362579, -104.985062 ]
+								hitbox_maxs = [ 99.630623, 31.907288, 91.689941 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Soldier_arm_1_L"
+								parent_bone = "Soldier_arm_1_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -9.987076, -9.392357, -11.618729 ]
+								hitbox_maxs = [ 12.404282, 38.711399, 11.478947 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Soldier_arm_2_L"
+								parent_bone = "Soldier_arm_2_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.75502, -15.212394, -5.358705 ]
+								hitbox_maxs = [ 6.081833, 44.665024, 8.232865 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Soldier_hand_L"
+								parent_bone = "Soldier_hand_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.592316, -0.5, -5.315475 ]
+								hitbox_maxs = [ 8.974655, 18.371998, 9.487341 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Soldier_finger_big_1_L"
+								parent_bone = "Soldier_finger_big_1_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.282227, -5.85482, -2.196136 ]
+								hitbox_maxs = [ 2.510757, 9.486595, 2.528076 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Soldier_finger_index_1_L"
+								parent_bone = "Soldier_finger_index_1_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.639183, -2.819077, -5.568535 ]
+								hitbox_maxs = [ 3.805481, 8.411789, 5.589275 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Soldier_neck"
+								parent_bone = "Soldier_neck"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -16.402327, -6.60318, -13.898415 ]
+								hitbox_maxs = [ 16.402349, 32.092926, 13.176796 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Soldier_arm_1_R"
+								parent_bone = "Soldier_arm_1_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -8.834137, -9.392387, -10.481432 ]
+								hitbox_maxs = [ 9.987061, 82.289474, 14.197117 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Soldier_arm_2_R"
+								parent_bone = "Soldier_arm_2_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -8.989029, -15.63022, -5.874921 ]
+								hitbox_maxs = [ 6.75502, 49.862282, 9.809504 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Soldier_hand_R"
+								parent_bone = "Soldier_hand_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.370361, -0.5, -5.315474 ]
+								hitbox_maxs = [ 2.592316, 16.848614, 10.204737 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Soldier_finger_big_1_R"
+								parent_bone = "Soldier_finger_big_1_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.37738, -0.5, -1.425865 ]
+								hitbox_maxs = [ 1.554489, 7.709908, 2.06757 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Soldier_finger_index_1_R"
+								parent_bone = "Soldier_finger_index_1_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.645859, -0.559036, -5.568537 ]
+								hitbox_maxs = [ 1.639153, 6.22345, 5.589275 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Soldier_leg_2_L"
+								parent_bone = "Soldier_leg_2_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.547238, -13.45429, -11.601624 ]
+								hitbox_maxs = [ 7.90712, 61.689079, 7.459095 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Soldier_foot_1_L"
+								parent_bone = "Soldier_foot_1_L"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.976171, -6.935829, -15.855694 ]
+								hitbox_maxs = [ 6.283352, 30.968605, 5.174957 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Soldier_leg_2_R"
+								parent_bone = "Soldier_leg_2_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.907084, -8.294922, -11.601599 ]
+								hitbox_maxs = [ 7.54727, 61.689064, 7.459104 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Soldier_foot_1_R"
+								parent_bone = "Soldier_foot_1_R"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.283312, -6.935798, -15.855705 ]
+								hitbox_maxs = [ 6.976192, 30.968582, 5.174926 ]
+							},
+						]
+					},
+				]
+			},
+		]
+		model_archetype = ""
+		primary_associated_entity = ""
+		anim_graph_name = ""
+		importer_notes = "Imported from VMDL"
+	}
+}

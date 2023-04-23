@@ -194,7 +194,7 @@ function iskander_ionioi:OnAOTKStart()
 		caster:SwapAbilities("iskander_ionioi", "fate_empty1", true, false)
 	 end
 	caster:SwapAbilities("iskander_ionioi", "iskander_summon_hephaestion", false, true)
-	--caster:SwapAbilities("iskandar_gordius_wheel", "iskandar_arrow_bombard", false, true)
+	caster:SwapAbilities("iskandar_gordius_wheel", "iskandar_buc", false, true)
 	if caster.IsBeyondTimeAcquired then
 		caster:SwapAbilities("iskandar_charisma", "iskander_summon_waver", false, true) 
 	else 
@@ -341,6 +341,9 @@ function iskander_ionioi:EndAOTK(caster)
 	print("AOTK ended")
 	-- Revert abilities
 
+	if(caster:GetAbilityByIndex(5):GetName() == "iskandar_buc") then
+		caster:SwapAbilities("iskandar_gordius_wheel", "iskandar_buc", true, false)
+	 end
 	caster:SwapAbilities("fate_empty1", "iskander_summon_hephaestion", true, false)
 	--caster:SwapAbilities("iskandar_gordius_wheel", "iskandar_arrow_bombard", false, true)
 	caster:SwapAbilities("iskandar_charisma", caster:GetAbilityByIndex(3):GetName(), true, false) 

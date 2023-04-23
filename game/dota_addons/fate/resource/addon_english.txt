@@ -4551,12 +4551,12 @@
 		"npc_dota_hero_chen_hype"	""
 		"npc_dota_hero_chen_bio"	""
 
-		"iskander_infantry"			"Dragon Knight-kun"
-		"iskander_archer"			"Windrunner-chan"
+		"iskander_infantry"			"Infantry"
+		"iskander_archer"			"Archer"
 		"iskander_maharaja"			"Mithrenes"
-		"iskander_cavalry"			"Chaos Knight-san"
+		"iskander_cavalry"			"Cavalry"
 		"iskander_hephaestion"		"Aniki"
-		"iskander_mage"				"Silencer Onii-san"
+		"iskander_mage"				"Mage"
 		"iskander_waver"			"Waver"
 
         "DOTA_Tooltip_Ability_iskander_charisma"     "Charisma"
@@ -4594,7 +4594,7 @@
         "DOTA_Tooltip_ability_iskander_archers_aoe"					"AOE:"
 
         "DOTA_Tooltip_Ability_iskandar_gordius_wheel"     "Gordius Wheel"
-        "DOTA_Tooltip_ability_iskandar_gordius_wheel_Description" "Rider rides on battle chariot, gaining bonus armor and magic resistance. All enemies nearby suffer damage based on how close they are to Rider every second, based on Rider's speed. Every second Rider speed increases without a limit.\nWhile Gordius Wheel persists, Army of the King cannot be cast.\n Improved by attributes Thundergod's Wrath and Via Exupgnatio"
+        "DOTA_Tooltip_ability_iskandar_gordius_wheel_Description" "Rider rides on battle chariot, gaining bonus armor and magic resistance. All enemies nearby suffer damage based on how close they are to Rider every second, based on Rider's speed. Every second Rider speed increases without a limit.\nWhile Gordius Wheel persists, Army of the King cannot be cast.\n Improved by attributes Thundergod's Wrath and Via Expugnatio"
         "DOTA_Tooltip_ability_iskandar_gordius_wheel_Lore"	"When getting in Rider's path of domination, one should be prepared for the mighty stomp of divine bulls."
         "DOTA_Tooltip_ability_iskandar_gordius_wheel_cast_delay"     "CAST DELAY:"   
         "DOTA_Tooltip_ability_iskandar_gordius_wheel_duration"     "DURATION:"
@@ -4606,7 +4606,7 @@
         "DOTA_Tooltip_ability_iskandar_gordius_wheel_radius_max"     		 "MAX DAMAGE RADIUS:"
         "DOTA_Tooltip_ability_iskandar_gordius_wheel_max_damage"     "MAX DAMAGE PER SECOND:"
         "DOTA_Tooltip_ability_iskandar_gordius_wheel_min_damage"     "MIN DAMAGE PER SECOND:"
-        "DOTA_Tooltip_ability_iskandar_gordius_wheel_Note0"		"Rider's movement speed may exceed 522 hard cap during duration."
+        "DOTA_Tooltip_ability_iskandar_gordius_wheel_Note0"		"Rider's movement speed may exceed hard cap during duration."
 
 
 
@@ -4615,6 +4615,7 @@
         "DOTA_Tooltip_ability_iskander_drift_Lore"	"Alalalalalal---------!"
         "DOTA_Tooltip_ability_iskander_drift_damage"	"%MS TO CHARGE DAMAGE:"
         "DOTA_Tooltip_ability_iskander_drift_trail_damage"	"%TRAIL DAMAGE PER SECOND:"     
+        "DOTA_Tooltip_ability_iskander_drift_trail_base_damage"	"BASE DAMAGE:"     
         "DOTA_Tooltip_ability_iskander_drift_Note0"	"Via Expugnatio's cooldown can be reset."         
 
         "DOTA_Tooltip_Ability_iskander_ionioi"     "Army of the King"
@@ -4663,6 +4664,18 @@
         "DOTA_Tooltip_Ability_iskander_brilliance_of_the_king"          "Briliance of the King"
         "DOTA_Tooltip_ability_iskander_brilliance_of_the_king_Description"       "Waver channels the light that resembles of King's might. All enemies inside Army of the King are silenced and rooted."
         "DOTA_Tooltip_ability_iskander_brilliance_of_the_king_duration"		"DURATION:"
+
+        "DOTA_Tooltip_Ability_iskandar_buc"          "Summon Bucephalus"
+        "DOTA_Tooltip_ability_iskandar_buc_Description"       "Iskander summons his horse, Bucephalus, gaining a movement speed buff becoming unslowable, attacking all enemies around him every 0.5 seconds and allowing to use Bucephalus jump."
+        "DOTA_Tooltip_ability_iskandar_buc_duration"		"DURATION:"
+        "DOTA_Tooltip_ability_iskandar_buc_damage"			"DAMAGE:"
+        "DOTA_Tooltip_ability_iskandar_buc_radius"			"RADIUS:"
+
+        "DOTA_Tooltip_Ability_iskander_jump"          "Bucephalus jump"
+        "DOTA_Tooltip_ability_iskander_jump_Description"       "Iskander jumps with Bucephalus, becoming invulnerable for 0.75 seconds or until he hits a wall. On landing he deals damage and stuns all enemies in radius and ends Bucephalus."
+        "DOTA_Tooltip_ability_iskander_jump_duration"		"STUN DURATION:"
+        "DOTA_Tooltip_ability_iskander_jump_radius"			"RADIUS:"
+        "DOTA_Tooltip_ability_iskander_jump_damage"			"DAMAGE:"
  
  		"DOTA_Tooltip_Ability_iskander_annihilate"				"Combo: Annihilate!"
 		"DOTA_Tooltip_ability_iskander_annihilate_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : R-F-Q in 5 seconds</font>\nRider issues the order for total assault, rendering them invulnerable. After a 1 second delay All enemy Servants inside Army of the King are <font color='#FF3399'>muted</font>. A flurry of arrows are fired onto the battlefield. Legendary heroes have enhanced abilities while current instance of Army of the King lasts.\nBattle Horn : Also <font color='#FF3399'>slows</font> enemies by 30%.\nHammer and Anvil : Cooldown reduced to 3 seconds.\nBrilliance of the King : Also <font color='#FF3399'>roots</font> enemies in place."
@@ -4677,17 +4690,17 @@
         "DOTA_Tooltip_Ability_iskander_attribute_improve_charisma_bonus_damage"		"%ATTACK DAMAGE:"
 
         "DOTA_Tooltip_Ability_iskander_attribute_thundergods_wrath"          "Attribute: Thundergod's Wrath"
-        "DOTA_Tooltip_ability_iskander_attribute_thundergods_wrath_Description"       "Gordius Wheel inflicts bonus physical damage to enemies within smaller radius, and strikes random nearby enemy with thunder.\nThunder inflicts percentage of target's current health as magic damage, while briefly <font color='#FF3399'>slowing</font> them down."
+        "DOTA_Tooltip_ability_iskander_attribute_thundergods_wrath_Description"       "Gordius Wheel inflicts bonus magical damage to enemies within smaller radius, and strikes random nearby enemy with thunder.\nThunder inflicts percentage of target's current health as magic damage, while <font color='#FF3399'>slowing</font> them down for 99% for 0.2 seconds."
         "DOTA_Tooltip_Ability_iskander_attribute_thundergods_wrath_damage"          "STOMP DAMAGE:"
         "DOTA_Tooltip_Ability_iskander_attribute_thundergods_wrath_radius"          "STOMP RADIUS:"
         "DOTA_Tooltip_Ability_iskander_attribute_thundergods_wrath_thunder_damage"  "%THUNDER DAMAGE:"
         "DOTA_Tooltip_Ability_iskander_attribute_thundergods_wrath_thunder_radius"  "THUNDER RADIUS:"
  
          "DOTA_Tooltip_Ability_iskander_attribute_via_expugnatio"					"Attribute: Via Expugnatio"
-        "DOTA_Tooltip_ability_iskander_attribute_via_expugnatio_Description"		"Enables Iskandar to use Via Expugnatio when Gordius Wheel is active.\n<font color='#58ACFA'>Via Expugnatio : </font>Rider kicks bulls into overdrive, charging towards target location and leaving a trail of thunder behind. Enemies tread atop are stunned for 1.5 seconds. Upon finishing the charge, Gordius Wheel disappears and Rider is paused for 1 second.\nBoth charge and trail deal damage based on Rider's total movement speed at activation. Charge damage increases the longer Gordius Wheel stays active."
+        "DOTA_Tooltip_ability_iskander_attribute_via_expugnatio_Description"		"Enables Iskandar to use Via Expugnatio when Gordius Wheel is active.\n<font color='#58ACFA'>Via Expugnatio : </font>Rider kicks bulls into overdrive, charging towards target location and leaving a trail of thunder behind. Enemies tread atop are stunned for 0.75 seconds. Upon finishing the charge, Gordius Wheel disappears and Rider is paused for 0.75 second.\nBoth charge and trail deal damage based on Rider's total movement speed at activation. Charge damage increases each time Gordius Wheel dealt damage to enemy hero."
  
         "DOTA_Tooltip_Ability_iskander_attribute_bond_beyond_time"          		"Attribute: Bond Beyond Time"
-        "DOTA_Tooltip_ability_iskander_attribute_bond_beyond_time_Description"		"Increases the number of soldiers and archers within Army of the King by 4 and grants them bonus max health equal to %health_bonus%% of Iskandar's maximum health.\nIn Army of the King, Iskandar may summon Waver Belvet and his apprentice mages. Waver passively increases the magic resistance of nearby allies and can cast Briliance of the King.\n<font color='#58ACFA'>Briliance of the King : </font>Waver channels the light that resembles of King's might, rendering all soldiers invulnerable for duration. All enemies inside Army of the King are silenced. \n Using forward(Q) will make infantry rush forward, dealing 100 damage on hit."    
+        "DOTA_Tooltip_ability_iskander_attribute_bond_beyond_time_Description"		"Using forward(Q) will make infantry rush forward, dealing 100 damage on hit and stunning for 0.6 seconds.\nIncreases the number of soldiers and archers within Army of the King by 4.\nIn Army of the King, Iskandar may summon Waver Belvet and his apprentice mages. Waver passively increases the magic resistance of nearby allies and can cast Briliance of the King.\n<font color='#58ACFA'>Briliance of the King : </font>Waver channels the light that resembles of King's might, rendering all soldiers invulnerable for duration. All enemies inside Army of the King are silenced."    
         "DOTA_Tooltip_Ability_iskander_attribute_bond_beyond_time_health_bonus"          "%HEALTH PERCENTAGE:"
 		
 

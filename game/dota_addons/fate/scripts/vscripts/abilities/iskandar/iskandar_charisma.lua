@@ -24,7 +24,7 @@ end
 
 
 function modifier_iskandar_charisma:GetActivityTranslationModifiers()
-	return self:GetParent():GetIdealSpeed() > 450 and "run_fast" or "run_slow"
+	return self:GetParent():GetIdealSpeed() > 400 and "run_fast" or "run_slow"
 end
 function modifier_iskandar_charisma:GetModifierMoveSpeedBonus_Percentage()	
 	if self:GetParent() ~= self:GetCaster() then 

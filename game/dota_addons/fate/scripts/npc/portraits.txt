@@ -34,6 +34,39 @@
 		}
 	}
 
+	"models/sanya/sanya_buc.vmdl"
+	{
+		"PortraitLightPosition"		"202.70 -23.15 308.17"
+		"PortraitLightAngles"		"54.79 171.70 0.00"
+		"PortraitLightFOV"		"69"
+		"PortraitLightDistance"		"377"
+		"PortraitLightColor"		"254 248 242"
+		"PortraitShadowColor"		"74 74 74"
+		"PortraitShadowScale"		"5.000000"
+		"PortraitAmbientColor"		"79 108 108"
+		"PortraitAmbientScale"		"5.000000"
+		"PortraitSpecularColor"		"251 74 84"
+		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/portraitbackground_gradient_top.vmat"
+		"PortraitBackgroundColor1"		".1 .1 1"
+		"PortraitBackgroundColor2"		".1 .5 .6"
+		"PortraitBackgroundColor3"		"1 1 .8"
+		"PortraitBackgroundColor4"		"1 1 1"
+		"PortraitLightScale"		"4.500000"
+		"PortraitGroundShadowScale"		"1.500000"
+		"PortraitAmbientDirection"		"-79.070 -84.150 -25.320"
+		"PortraitAnimationActivity"		"ACT_DOTA_IDLE"
+		"cameras"
+		{
+			"default"
+			{
+				"PortraitPosition"		"195.90 -120.63 405.55"
+				"PortraitAngles"		"358.41 167.17 0.00"
+				"PortraitFOV"		"11.5"
+			}
+		}
+	}
+
+
 	"models/sanya/sanya.vmdl"
 	{
 		"PortraitLightPosition"		"202.70 -23.15 308.17"
@@ -47,9 +80,9 @@
 		"PortraitAmbientScale"		"5.000000"
 		"PortraitSpecularColor"		"251 74 84"
 		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/portraitbackground_gradient_top.vmat"
-		"PortraitBackgroundColor1"		"1 1 1"
-		"PortraitBackgroundColor2"		"1 1 1"
-		"PortraitBackgroundColor3"		"1 1 1"
+		"PortraitBackgroundColor1"		".1 .1 1"
+		"PortraitBackgroundColor2"		".1 .5 .6"
+		"PortraitBackgroundColor3"		"1 1 .8"
 		"PortraitBackgroundColor4"		"1 1 1"
 		"PortraitLightScale"		"4.500000"
 		"PortraitGroundShadowScale"		"1.500000"
@@ -59,9 +92,9 @@
 		{
 			"default"
 			{
-				"PortraitPosition"		"195.90 -49.63 260.55"
-				"PortraitAngles"		"352.41 167.17 0.00"
-				"PortraitFOV"		"11.5"
+				"PortraitPosition"		"150.17 -40.29 200"
+				"PortraitAngles"		"350.89 166.83 0.00"
+				"PortraitFOV"		"16"
 			}
 		}
 	}
@@ -79,9 +112,9 @@
 		"PortraitAmbientScale"		"5.000000"
 		"PortraitSpecularColor"		"251 74 84"
 		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/portraitbackground_gradient_top.vmat"
-		"PortraitBackgroundColor1"		"1 1 1"
-		"PortraitBackgroundColor2"		"1 1 1"
-		"PortraitBackgroundColor3"		"1 1 1"
+		"PortraitBackgroundColor1"		".1 .1 1"
+		"PortraitBackgroundColor2"		".1 .5 .6"
+		"PortraitBackgroundColor3"		"1 1 .8"
 		"PortraitBackgroundColor4"		"1 1 1"
 		"PortraitLightScale"		"4.500000"
 		"PortraitGroundShadowScale"		"1.500000"

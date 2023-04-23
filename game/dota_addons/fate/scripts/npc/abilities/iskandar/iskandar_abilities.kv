@@ -79,8 +79,8 @@
 		"AbilityTextureName"			"custom/iskander_phalanx"
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
 		"AnimationPlaybackRate" 		"1.0"
-		"AbilityCastRange"				"900"
-		"AbilityCastPoint"				"0.3"
+		"AbilityCastRange"				"1000"
+		"AbilityCastPoint"				"0.3" // set in code
 		"AbilityCooldown"				"22 21 20 19 18"
 		"AbilityManaCost"				"200"
 		"AbilityValues"
@@ -110,13 +110,13 @@
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
 		"AnimationPlaybackRate" 		"1.0"
 		"AOERadius"						"375" /// aoe + 225 (randomness)
-		"AbilityCastRange"				"1500"
-		"AbilityCastPoint"				"0.2"
+		"AbilityCastRange"				"1700"
+		"AbilityCastPoint"				"0.2" // set in code
 		"AbilityCooldown"				"30 28 26 24 22"
 		"AbilityManaCost"				"400"
 		"AbilityValues"
 		{
-			"damage"										"200 250 300 350 400"
+			"damage"										"130 170 210 250 290"
 			"summon_ammount"								"6" // affects damage
 			"duration"										"2" 
 			"shots_per_unit"								"2" ///pfx only
@@ -149,7 +149,7 @@
 			"cast_delay"								"1"
 			"duration"									"10"
 			"bonus_armor"								"10"// mr and armor must be set in code or it will not be seen in game so check  modifier_gordius_wheel  
-			"bonus_mr"								    "10" 
+			"bonus_mr"								    "30" 
 			"movespeed_per_second"						"6"
 			"base_movespeed"							"30"
 			"radius"								    "400"
@@ -184,10 +184,11 @@
 		"AbilityManaCost"				"200"
 		"AbilityValues"
 		{
-			"damage"											"100" // its dmg per 100 MS so if set to 100, you will deal your MS dmg + 50 per second of wheels 
+			"damage"											"50" // its dmg per 100 MS so if set to 100, you will deal your MS dmg + 50 per second of wheels 
 			"trail_damage"										"20"
 			"range"												"1500"
 			"trail_duration"								    "3"
+			"base_dmg"								   			"400"
 		}
 	}
 
@@ -224,6 +225,69 @@
 		}
 		
 	}
+
+	//========================================
+	// Iskander - Bucephalus
+	//========================================
+	"iskandar_buc"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/iskandar/iskandar_buc"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET|DOTA_ABILITY_BEHAVIOR_IMMEDIATE|DOTA_ABILITY_BEHAVIOR_HIDDEN"//|DOTA_ABILITY_BEHAVIOR_HIDDEN
+		"AbilityTextureName"			"custom/sanya/sanya_buc"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_4"
+		"AbilityCooldown"				"10"
+		"AbilityCastPoint"				"0.01"
+		"AbilityManaCost"				"400"
+
+		"precache"
+		{
+			"particle"				"particles/iskander/sanya_slash_1.vpcf"
+			"particle"				"particles/iskander/sanya_slash_2.vpcf"
+		}
+
+
+		"AbilityValues"
+		{
+			"duration"									"8"
+			"radius"								    "300"
+			"damage"									"200"
+
+		}
+
+	}
+
+	//========================================
+	// Iskander - Bucephalus jump
+	//========================================
+	"iskander_jump"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/iskandar/iskander_jump"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET|DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"			"custom/sanya/sanya_jump"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
+		"AbilityCooldown"				"10"
+		"AbilityCastPoint"				"0.01"
+		"AbilityManaCost"				"0"
+
+
+		"AbilityValues"
+		{
+			"duration"									"1.25"
+			"radius"								    "500"
+			"damage"									"700"
+			"speed"										"1200"
+		}
+
+	}
+
 
 	//=====================================
 	// Iskandar Arrow Bombard
@@ -639,7 +703,7 @@
 			"02"
 			{
 				"var_type"		"FIELD_FLOAT"
-				"radius"		"150"
+				"radius"		"250"
 			}
 			"03"
 			{
@@ -678,7 +742,7 @@
 		
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"9999"
-		"AbilityManaCost"				"9"
+		"AbilityManaCost"				"12"
 
 		"precache"
 		{
