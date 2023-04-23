@@ -507,7 +507,7 @@ function modifier_leonidas_enomotia_combo_indicator:OnIntervalThink()
                 and hSwappedAbility:IsTrained()
                 and hSwappedAbility:IsCooldownReady()
                 and self.bLocalComboReleased then
-                hSwappedAbility:UseResources(false, false, true)
+                hSwappedAbility:UseResources(false, false, false, true)
             end
 
             self.bLocalComboReleased = false

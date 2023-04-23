@@ -43,7 +43,7 @@ function modifier_khsn_bc_pepega:GetModifierTotal_ConstantBlock(keys)
             if not Convars:GetBool("dota_ability_debug") then
                 keys.target:AddNewModifier(self.hCaster, self.hAbility, "modifier_khsn_bc_cooldown", {duration = self.hAbility:GetEffectiveCooldown(-1)})
             
-                self.hAbility:UseResources(false, false, true)
+                self.hAbility:UseResources(false, false, false, true)
             end
 
             LoopOverPlayers(
