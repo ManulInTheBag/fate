@@ -98,11 +98,13 @@ function altera_teardrop_release:OnSpellStart()
 	caster:RemoveModifierByName("modifier_altera_combo_window")
 
 	Timers:CreateTimer(1.0, function()
+		SpawnVisionDummy(caster, target, self:GetAOERadius() + 200, 4.5, false)
+	end)
+
+	Timers:CreateTimer(2.0, function()
 		local marker = ParticleManager:CreateParticle( "particles/altera/altera_teardrop_marker.vpcf", PATTACH_CUSTOMORIGIN, nil )
 		ParticleManager:SetParticleControl( marker, 0, target)
 		ParticleManager:SetParticleControl( marker, 1, target)
-
-		SpawnVisionDummy(caster, target, self:GetAOERadius() + 200, 4.5, false)
 	end)
 
 	EmitGlobalSound("altera_teardrop_2")

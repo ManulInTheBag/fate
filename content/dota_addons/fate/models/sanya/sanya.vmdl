@@ -292,7 +292,6 @@
 								activity_weight = 1
 							},
 						]
-						disabled = true
 						activity_name = "ACT_DOTA_RUN"
 						activity_weight = 1
 						weight_list_name = ""
@@ -323,6 +322,7 @@
 								activity_weight = 1
 							},
 						]
+						disabled = true
 						activity_name = "ACT_DOTA_RUN"
 						activity_weight = 1
 						weight_list_name = ""

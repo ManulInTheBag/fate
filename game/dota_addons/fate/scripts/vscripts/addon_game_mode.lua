@@ -3610,7 +3610,7 @@ function FateGameMode:TakeDamageFilter(filterTable)
     end
     if not attacker.bIsDmgPopupDisabled then
         if damageType == 1 or damageType == 2 or damageType == 4 then
-            if not math.floor(damage) == 0 then
+            if not (math.floor(damage) == 0) then
                 PopupDamage(victim, math.floor(damage), Vector(255,255,255), damageType)
             end
         end

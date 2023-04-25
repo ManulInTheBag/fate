@@ -79,13 +79,13 @@ function modifier_altera_beam:OnCreated()
         
         if self.parent.ErosionAcquired then
         	if self.form == "str" then
-        		self.damage = self.damage + self.ability:GetSpecialValueFor("str_damage_mult")*self.parent:GetStrength()
+        		self.damage = self.damage + self.ability:GetSpecialValueFor("atr_damage_mult")*self.parent:GetStrength()
         	end
         	if self.form == "agi" then
-        		self.damage = self.damage + self.ability:GetSpecialValueFor("agi_damage_mult")*self.parent:GetAgility()
+        		self.damage = self.damage + self.ability:GetSpecialValueFor("atr_damage_mult")*self.parent:GetAgility()
         	end
         	if self.form == "int" then
-        		self.damage = self.damage + self.ability:GetSpecialValueFor("int_damage_mult")*self.parent:GetIntellect()
+        		self.damage = self.damage + self.ability:GetSpecialValueFor("atr_damage_mult")*self.parent:GetIntellect()
         	end
         end
 
@@ -140,7 +140,7 @@ function modifier_altera_beam:OnIntervalThink()
     	if not AttackedTargets[hEnemy:entindex()] then
     		self:Impact(hEnemy, 1)
     	end
-        self:Impact(hEnemy, 0.5)
+        --self:Impact(hEnemy, 0.5)
     end
 end
 

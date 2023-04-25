@@ -16,18 +16,29 @@ function altera_rift:OnAbilityPhaseInterrupted()
 	self:GetCaster():StopSound("altera_mars_effect")
 end
 
+function altera_rift:GetAOERadius()
+	return self:GetSpecialValueFor("damage_radius")
+end
+
 function altera_rift:OnSpellStart()
 	--delay 0.9
 	local caster = self:GetCaster()
+	local target = self:GetCursorPosition()
 
 	caster:AddNewModifier(caster, self, "modifier_altera_rift_anim", {duration = 0.6})
 
 	Timers:CreateTimer(0.6, function()
 		if self.AuraDummy ~= nil and not self.AuraDummy:IsNull() then 
-			self.AuraDummy:RemoveSelf()
+			self.AuraDummy:RemoveModifierByName("modifier_altera_rift")
+			local pepe = self.AuraDummy
+			Timers:CreateTimer(1, function()
+				if pepe then
+					pepe:RemoveSelf()
+				end
+			end)
 		end
 
-		self.AuraDummy = CreateUnitByName("sight_dummy_unit", caster:GetAbsOrigin() + caster:GetForwardVector()*500, false, nil, nil, caster:GetTeamNumber())
+		self.AuraDummy = CreateUnitByName("sight_dummy_unit", target, false, nil, nil, caster:GetTeamNumber())
 		self.AuraDummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
 		self.AuraDummy:SetDayTimeVisionRange(0)
 		self.AuraDummy:SetNightTimeVisionRange(0)
@@ -35,63 +46,8 @@ function altera_rift:OnSpellStart()
 		self.AuraDummy:AddNewModifier(caster, self, "modifier_altera_rift", { Duration = self:GetSpecialValueFor("duration"), --aura for aura modifiers
 																				 AuraRadius = self:GetSpecialValueFor("radius")})
 
-		self.AuraDummy:AddNewModifier(caster, self, "modifier_kill", { Duration = self:GetSpecialValueFor("duration") })
-
-		local particlename = "particles/tamamo/tamamo_mantra_void_warp.vpcf"
-
-		local shouldstun = false
-
-		local damage = self:GetSpecialValueFor("damage")
-
-		if caster:HasModifier("modifier_altera_form_str") then
-		   	particlename = "particles/altera/altera_rift_red_warp.vpcf"
-		   	shouldstun = true
-		   	if caster.RefractionAcquired then
-		   		damage = damage + self:GetSpecialValueFor("str_damage_mult")*caster:GetStrength()
-		   	end
-		end
-		if caster:HasModifier("modifier_altera_form_agi") then
-		   	particlename = "particles/altera/altera_rift_green_warp.vpcf"
-		   	if caster.RefractionAcquired then
-		   		damage = damage + self:GetSpecialValueFor("agi_damage_mult")*caster:GetAgility()
-		   	end
-		end
-		if caster:HasModifier("modifier_altera_form_int") then
-		   	particlename = "particles/altera/altera_rift_blue_warp.vpcf"
-		   	if caster.RefractionAcquired then
-		   		damage = damage + self:GetSpecialValueFor("int_damage_mult")*caster:GetIntellect()
-		   	end
-		end
-
-		local warpFx = ParticleManager:CreateParticle(particlename, PATTACH_ABSORIGIN, self.AuraDummy) 
-	    ParticleManager:SetParticleControl(warpFx, 0, self.AuraDummy:GetAbsOrigin())
-	    ParticleManager:SetParticleControl(warpFx, 1, Vector(self:GetSpecialValueFor("damage_radius")/10, 0, 0))
-
-	    Timers:CreateTimer(1, function()
-	    	ParticleManager:DestroyParticle(warpFx, false)
-	    	ParticleManager:ReleaseParticleIndex(warpFx)
-	    end)
-
-		local enemies = FindUnitsInRadius(caster:GetTeam(), self.AuraDummy:GetAbsOrigin(), nil, self:GetSpecialValueFor("damage_radius"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false)
-
-	    for _, enemy in pairs(enemies) do
-	        if enemy and not enemy:IsNull() and IsValidEntity(enemy) then
-				DoDamage(caster, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
-
-				local knockback = { should_stun = shouldstun,
-		            knockback_duration = 0.5,
-		            duration = 0.5,
-		            knockback_distance = -300,
-		            knockback_height = 50,
-		            center_x = self.AuraDummy:GetAbsOrigin().x,
-		            center_y = self.AuraDummy:GetAbsOrigin().y,
-		            center_z = self.AuraDummy:GetAbsOrigin().z }
-
-		        enemy:RemoveModifierByName("modifier_knockback")
-
-		        enemy:AddNewModifier(caster, self, "modifier_knockback", knockback)
-	        end
-	    end
+		local pepe2 = self.AuraDummy
+		self.AuraDummy:AddNewModifier(caster, self, "modifier_kill", { Duration = self:GetSpecialValueFor("duration") + 1 })
 	end)
 end
 
@@ -144,10 +100,66 @@ if IsServer() then
 		self.particle2 = ParticleManager:CreateParticle(self.particlename2, PATTACH_WORLDORIGIN, self.caster)
 		ParticleManager:SetParticleControl(self.particle2, 0, self.origin)
 
-		self:StartIntervalThink(FrameTime())
+		self.counter = 0
+		self:StartIntervalThink(0.1)
 
 		EmitSoundOnLocationWithCaster(self.origin, "chrono_ti11", self.caster )
 		EmitSoundOnLocationWithCaster(self.origin, "Hero_Leshrac.Split_Earth", self.caster)
+
+		self:Explode(1)
+	end
+
+	function modifier_altera_rift:Explode(mult)
+		local particlename = "particles/tamamo/tamamo_mantra_void_warp.vpcf"
+
+		local shouldstun = false
+		local radius = self.ability:GetSpecialValueFor("damage_radius")
+
+		local damage = self.ability:GetSpecialValueFor("damage")
+		if self.caster.RefractionAcquired then
+			damage = damage + self.ability:GetSpecialValueFor("atr_damage_mult")*(self.caster:GetStrength() + self.caster:GetAgility() + self.caster:GetIntellect())
+		end
+		damage = damage*mult
+		if self.form == "str" then
+		   	particlename = "particles/altera/altera_rift_red_warp.vpcf"
+		   	shouldstun = true
+		end
+		if self.form == "agi" then
+		   	particlename = "particles/altera/altera_rift_green_warp.vpcf"
+		end
+		if self.form == "int" then
+		   	particlename = "particles/altera/altera_rift_blue_warp.vpcf"
+		end
+
+		local warpFx = ParticleManager:CreateParticle(particlename, PATTACH_ABSORIGIN, self.parent) 
+	    ParticleManager:SetParticleControl(warpFx, 0, self.origin)
+	    ParticleManager:SetParticleControl(warpFx, 1, Vector(radius/10, 0, 0))
+
+	    Timers:CreateTimer(1, function()
+	    	ParticleManager:DestroyParticle(warpFx, false)
+	    	ParticleManager:ReleaseParticleIndex(warpFx)
+	    end)
+
+		local enemies = FindUnitsInRadius(self.caster:GetTeam(), self.origin, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false)
+
+	    for _, enemy in pairs(enemies) do
+	        if enemy and not enemy:IsNull() and IsValidEntity(enemy) then
+				DoDamage(self.caster, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
+
+				local knockback = { should_stun = shouldstun,
+		            knockback_duration = 0.5,
+		            duration = 0.5,
+		            knockback_distance = -300,
+		            knockback_height = 50,
+		            center_x = self.origin.x,
+		            center_y = self.origin.y,
+		            center_z = self.origin.z }
+
+		        enemy:RemoveModifierByName("modifier_knockback")
+
+		        enemy:AddNewModifier(caster, self.ability, "modifier_knockback", knockback)
+	        end
+	    end
 	end
 
 	function modifier_altera_rift:OnIntervalThink()
@@ -157,6 +169,15 @@ if IsServer() then
 			team = DOTA_UNIT_TARGET_TEAM_BOTH
 		end
 
+		local dmgproc = false
+		self.counter = self.counter + 0.1
+		if self.counter >= 0.5 then
+			self.counter = 0
+			dmgproc = true
+		end
+
+		local damage = self.ability:GetSpecialValueFor("damage_per_second")*0.5
+
 		local enemies = FindUnitsInRadius(self.caster:GetTeam(), self.origin, nil, self.aura_radius, team, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
 
 	    for _, enemy in pairs(enemies) do
@@ -164,17 +185,11 @@ if IsServer() then
                 --enemy:Heal(self.damage, self.ability)
                 enemy:AddNewModifier(self.caster, self.ability, "modifier_altera_rift_int_buff", {duration = self.ability:GetSpecialValueFor("lingering_duration")})
             else
-            	--[[local damage = self.damage
-            	if self.form == "agi" then
-            		damage = damage*(2 - hEnemy:GetHealth()/hEnemy:GetMaxHealth())
-				end
-                DoDamage(self.caster, hEnemy, damage, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
-                if self.form == "str" then
-                	hEnemy:AddNewModifier(self.caster, self.ability, "modifier_altera_beam_slow", {Duration = self.ability:GetSpecialValueFor("str_slow_duration")})
-					giveUnitDataDrivenModifier(self.caster, hEnemy, "locked", self.ability:GetSpecialValueFor("str_lock_duration"))
-				end]]
+            	if dmgproc then
+                	DoDamage(self.caster, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
+                end
 				if self.form == "str" then
-					enemy:AddNewModifier(self.caster, self.ability, "modifier_altera_rift_displace", {duration = FrameTime()*2})
+					--enemy:AddNewModifier(self.caster, self.ability, "modifier_altera_rift_displace", {duration = FrameTime()*2})
 				end
             end
 	    end
@@ -195,6 +210,9 @@ if IsServer() then
 		ParticleManager:ReleaseParticleIndex(self.particle)
 		ParticleManager:DestroyParticle(self.particle2, false)
 		ParticleManager:ReleaseParticleIndex(self.particle2)
+		if self.caster.RefractionAcquired then
+			self:Explode(1/2)
+		end
 	end
 end
 

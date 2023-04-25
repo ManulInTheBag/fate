@@ -98,5 +98,6 @@ function modifier_altera_adaptive:CheckState()
 			 [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
 			 [MODIFIER_STATE_NOT_ON_MINIMAP] = true,
 			 [MODIFIER_STATE_UNSELECTABLE] = true,
+			 [MODIFIER_STATE_INVULNERABLE] = true,
 			 [MODIFIER_STATE_STUNNED] = true}
 end

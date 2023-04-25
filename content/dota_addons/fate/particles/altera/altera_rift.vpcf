@@ -1,10 +1,10 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf51:version{6d03d500-2498-454e-b833-f654e870bb3d} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf55:version{407e3350-0afa-43e9-9afe-d317d3f56886} -->
 {
 	_class = "CParticleSystemDefinition"
 	m_bShouldHitboxesFallbackToRenderBounds = false
 	m_nMaxParticles = 1
-	m_BoundingBoxMin = [ -510.0, -510.0, -10.0 ]
-	m_BoundingBoxMax = [ 510.0, 510.0, 10.0 ]
+	m_BoundingBoxMin = [ -1100.0, -1100.0, -10.0 ]
+	m_BoundingBoxMax = [ 1100.0, 1100.0, 10.0 ]
 	m_nFallbackMaxCount = 2
 	m_flConstantRadius = 35.0
 	m_ConstantColor = [ 217, 216, 249, 255 ]
@@ -86,10 +86,6 @@
 	[
 		{
 			_class = "C_INIT_CreateWithinSphereTransform"
-			m_TransformInput = 
-			{
-				m_nType = "PT_TYPE_CONTROL_POINT"
-			}
 		},
 		{
 			_class = "C_INIT_InitFloat"

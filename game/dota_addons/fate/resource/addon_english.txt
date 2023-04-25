@@ -5900,11 +5900,11 @@
 		"DOTA_Tooltip_modifier_altera_combo_window"	"Combo - Teardrop Photon Ray"
 		"DOTA_Tooltip_modifier_altera_combo_window_Description"	"PRESS THE BUTTON"
 
-		"DOTA_Tooltip_modifier_altera_whip"	"Energy Sword"
-		"DOTA_Tooltip_modifier_altera_whip_Description"	"Deals magical damage on attacks."
+		"DOTA_Tooltip_modifier_altera_whip"	"Energy Whip"
+		"DOTA_Tooltip_modifier_altera_whip_Description"	"Slowed."
 
-		"DOTA_Tooltip_modifier_altera_whip_stacks"	"Energy Sword"
-		"DOTA_Tooltip_modifier_altera_whip_stacks_Description"	"Gains bonus stats."
+		"DOTA_Tooltip_modifier_altera_whip_stats"	"Energy Whip"
+		"DOTA_Tooltip_modifier_altera_whip_stats_Description"	"Gains bonus stats."
 
 		"DOTA_Tooltip_modifier_altera_form_str"	"Stance: <font color='#FF0000'>Strength</font>"
 		"DOTA_Tooltip_modifier_altera_form_str_Description"	""
@@ -5912,7 +5912,7 @@
 		"DOTA_Tooltip_modifier_altera_form_agi"	"Stance: <font color='#00FF00'>Agility</font>"
 		"DOTA_Tooltip_modifier_altera_form_agi_Description"	""
 
-		"DOTA_Tooltip_modifier_altera_form_int"	"Stance: <font color='#0000FF'>Intellect</font>"
+		"DOTA_Tooltip_modifier_altera_form_int"	"Stance: <font color='#1E90FF'>Intellect</font>"
 		"DOTA_Tooltip_modifier_altera_form_int_Description"	""
 
 		"DOTA_Tooltip_modifier_altera_rift_str_buff"	"Rift: <font color='#FF0000'>Strength</font>"
@@ -5921,27 +5921,23 @@
 		"DOTA_Tooltip_modifier_altera_rift_agi_buff"	"Rift: <font color='#00FF00'>Agility</font>"
 		"DOTA_Tooltip_modifier_altera_rift_agi_buff_Description"	"Additional attack speed, magical damage from attacks and constant movespeed."
 
-		"DOTA_Tooltip_modifier_altera_rift_int_buff"	"Rift: <font color='#0000FF'>Intllect</font>"
+		"DOTA_Tooltip_modifier_altera_rift_int_buff"	"Rift: <font color='#1E90FF'>Intellect</font>"
 		"DOTA_Tooltip_modifier_altera_rift_int_buff_Description"	"Additional magical resistance and movespeed."
 
-		"DOTA_Tooltip_Ability_altera_whip"       "Energy Sword"
-		"DOTA_Tooltip_Ability_altera_whip_Description"       "Altera charges Photon Ray with energy, gaining %attack_range_bonus% additional attack range, %agi_as% attack speed and changing properties of her sword.\n<font color='#FF0000'>Strength</font> stance: attacks deal %str_damage% magical damage and heal Altera for %str_heal%.\n<font color='#00FF00'>Agility</font> stance: attacks deal %agi_damage% magical damage.\n<font color='#0000FF'>Intellect</font> stance: attacks deal %int_damage% magical damage. On each attack Altera will heal all allies in %heal_aoe% radius from enemy.\nUpgrades with Crest of the Star attribute: stances scale with their primary attribute.\n<font color='#FF0000'>Strength</font> stance gains %str_damage_mult% damage and %str_heal_mult% heal per point.\n<font color='#00FF00'>Agility</font> stance gains %agi_damage_mult% damage and %agi_as_mult% attackspeed per point.\n<font color='#0000FF'>Intellect</font> stance gains %int_damage_mult% damage and %int_heal_mult% heal per point."
-		"DOTA_Tooltip_Ability_altera_whip_duration"       "Duration:"
-		"DOTA_Tooltip_Ability_altera_whip_duration_per_atk"       "Endless War additional duration per attack:"
-		"DOTA_Tooltip_Ability_altera_whip_max_bonus_duration"       "Endless War maximal bonus duration:"
-		"DOTA_Tooltip_Ability_altera_whip_stat_per_stack"       "Endless War attribute per stack:"
+		"DOTA_Tooltip_Ability_altera_whip"       "Energy Whip"
+		"DOTA_Tooltip_Ability_altera_whip_Description"       "Altera utilizes whip-like properties of Photon Ray to perform a swing with %range% range in front of her. This ability can be used up to 2 times in a row before going on cooldown.\n<font color='#FF0000'>Strength</font> stance: deals %str_damage% damage and <font color='#FFFAFA'>heals</font> Altera for %str_heal% per each enemy hero hit.\n<font color='#00FF00'>Agility</font> stance: deals %agi_damage% damage and <font color='#FF3399'>silences</font> enemies for %agi_silence_duration% seconds.\n<font color='#1E90FF'>Intellect</font> stance: deals %int_damage% damage and <font color='#9400D3'>locks</font> enemies hit for %int_lock_duration% seconds.\nUpgrades with <font color='#58ACFA'>Crest of the Star</font> attribute: reduces cooldown to %attribute_cooldown% seconds.\nUpgrades with <font color='#58ACFA'>Energy Discharge</font> attribute: gains %stat_per_stack% main attribute per enemy hero hit for %attribute_stat_duration% and <font color='#9400D3'>slows</font> targets by %attribute_slow%%  for %attribute_slow_duration% seconds."
 
 		"DOTA_Tooltip_Ability_altera_dash"       "Photon Rush"
-		"DOTA_Tooltip_Ability_altera_dash_Description"       "Altera prepares for %channel_time% seconds and dashes forward for %distance% range, dealing %damage% magical damage to all enemies on her way.\n<font color='#FF0000'>Strength</font> stance: launches enemies in the air for %str_airborne_duration% seconds.\n<font color='#00FF00'>Agility</font> stance: dashes instantly.\n<font color='#0000FF'>Intellect</font> stance: gains %int_bonus_distance% bonus range.\nUpgrades with Crest of the Star attribute: stances scale with their primary attribute.\n<font color='#FF0000'>Strength</font> stance deals %str_damage_mult% damage per point.\n<font color='#00FF00'>Agility</font> stance deals %agi_damage_mult% damage per point.\n<font color='#0000FF'>Intellect</font> stance deals %int_damage_mult% damage per point."
+		"DOTA_Tooltip_Ability_altera_dash_Description"       "Altera prepares for %channel_time% seconds and dashes forward for %distance% range, dealing %damage% magical damage to all enemies on her way.\n<font color='#FF0000'>Strength</font> stance: launches enemies in the air for %str_airborne_duration% seconds.\n<font color='#00FF00'>Agility</font> stance: dashes instantly.\n<font color='#1E90FF'>Intellect</font> stance: gains %int_bonus_distance% bonus range.\nUpgrades with <font color='#58ACFA'>Crest of the Star</font> attribute: deals bonus %atr_damage_mult% damage per current stance primary attribute point and prolongs dash for additional %distance% units per enemy hero hit."
 
 		"DOTA_Tooltip_Ability_altera_rift"       "Local Space Distortion"
-		"DOTA_Tooltip_Ability_altera_rift_Description"       "Altera slams her sword on the ground in front of her and creates a local space-time curvature, pulling enemies in %damage_radius% range, dealing %damage% magical damage and leaving an area with one of the following stance effects.\n<font color='#FF0000'>Strength</font> stance: initial pull impact also stuns for the duration of the pull. Enemies are slowed by %str_slow%% . Altera gains %str_magres_bonus%%  magical resistance, %str_armor_bonus% armor and %str_regen_bonus% health regen in the area.\n<font color='#00FF00'>Agility</font> stance: in this area Altera gains phased effect (can walk through other units), constant %agi_ms% movement speed, %agi_as_bonus% additional attack speed and deals %agi_onhit_damage% additional magical damage with her attacks.\n<font color='#0000FF'>Intellect</font> stance: in this area Altera and her teammates gain %int_ms_bonus%%  additional movement speed and %int_magres_bonus%%  additional magical resistance.\nUpgrades with Dimensional Refraction Variant attribute: damage scales with stances' primary attribute.\n<font color='#FF0000'>Strength</font> stance deals %str_damage_mult% damage per point.\n<font color='#00FF00'>Agility</font> stance deals %agi_damage_mult% damage per point.\n<font color='#0000FF'>Intellect</font> stance deals %int_damage_mult% damage per point."
+		"DOTA_Tooltip_Ability_altera_rift_Description"       "Altera slams her sword on the ground in front of her and creates a local space-time curvature, pulling enemies in %damage_radius% range, dealing %damage% magical damage and leaving a %radius% radius area for %duration% seconds, which deals %damage_per_second% damage per second and provides one of the following stance effects.\n<font color='#FF0000'>Strength</font> stance: initial pull impact also stuns for the duration of the pull. Enemies are slowed by %str_slow%% . Altera gains %str_magres_bonus%%  magical resistance, %str_armor_bonus% armor and %str_regen_bonus% health regen in the area.\n<font color='#00FF00'>Agility</font> stance: in this area Altera gains phased effect (can walk through other units), constant %agi_ms% movement speed, %agi_as_bonus% additional attack speed and deals %agi_onhit_damage% additional magical damage with her attacks.\n<font color='#1E90FF'>Intellect</font> stance: in this area Altera and her teammates gain %int_ms_bonus%%  additional movement speed and %int_magres_bonus%%  additional magical resistance.\nUpgrades with <font color='#58ACFA'>Dimensional Refraction Variant</font> attribute: deals bonus %atr_damage_mult% damage per each attribute point. Whenever the field collapses, whether it was caused by casting new instance of this ability or by duration expire, it will also pull enemies and deal half of the initial damage."
 
 		"DOTA_Tooltip_Ability_altera_adaptive"       "Adaptive Burst"
-		"DOTA_Tooltip_Ability_altera_adaptive_Description"       "Altera jumps, becoming untargetable (but not invulnerable) for %duration% seconds and automatically opening her Destroyer of Civilizations spellbook. In this state Altera can change her stance once while techincally still being in battle.\nDeals %damage% + %damage_mult% x Altera's primary attribute in %radius% radius on jump start and on landing."
+		"DOTA_Tooltip_Ability_altera_adaptive_Description"       "Altera jumps, becoming invulnerable for %duration% seconds and automatically opening her Destroyer of Civilizations spellbook. In this state Altera can change her stance once while techincally still being in battle.\nDeals %damage% + %damage_mult% x Altera's primary attribute in %radius% radius on jump start and on landing."
 
 		"DOTA_Tooltip_Ability_altera_form_open"      "Destroyer of Civilizations"
-		"DOTA_Tooltip_Ability_altera_form_open_Description"       "Altera can swap stances when she is out of combat (did not deal or take damage for the last 15 seconds). Stances give %attribute_bonus% points of the corresponding attribute, change Altera's base attribute and provide different bonuses to the abilities.\nAltera starts the game in <font color='#0000FF'>Intellect</font> stance."
+		"DOTA_Tooltip_Ability_altera_form_open_Description"       "Allows Altera to swap stances. Stances give %attribute_bonus% points of the corresponding attribute, change Altera's base attribute and provide different bonuses to her abilities.\nAltera automatically starts the game in <font color='#1E90FF'>Intellect</font> stance."
 
 		"DOTA_Tooltip_Ability_altera_form_str"       "Stance: <font color='#FF0000'>Strength</font>"
 		"DOTA_Tooltip_Ability_altera_form_str_Description"       "Changes main attribute and stance to <font color='#FF0000'>Strength</font>."
@@ -5949,14 +5945,14 @@
 		"DOTA_Tooltip_Ability_altera_form_agi"       "Stance: <font color='#00FF00'>Agility</font>"
 		"DOTA_Tooltip_Ability_altera_form_agi_Description"       "Changes main attribute and stance to <font color='#00FF00'>Agility</font>."
 
-		"DOTA_Tooltip_Ability_altera_form_int"       "Stance: <font color='#0000FF'>Intellect</font>"
-		"DOTA_Tooltip_Ability_altera_form_int_Description"       "Changes main attribute and stance to <font color='#0000FF'>Intellect</font>."
+		"DOTA_Tooltip_Ability_altera_form_int"       "Stance: <font color='#1E90FF'>Intellect</font>"
+		"DOTA_Tooltip_Ability_altera_form_int_Description"       "Changes main attribute and stance to <font color='#1E90FF'>Intellect</font>."
 
 		"DOTA_Tooltip_Ability_altera_form_close"       "Destroyer of Civilizations"
 		"DOTA_Tooltip_Ability_altera_form_close_Description"       "Close the spellbook."
 
 		"DOTA_Tooltip_Ability_altera_beam"       "Photon Ray"
-		"DOTA_Tooltip_Ability_altera_beam_Description"       "Altera unleashes the power of Photon Ray, activating it as a laser beam and dealing %damage% magical damage over %duration% seconds.\n<font color='#FFA500'>Focal Effect</font>: Photon Ray is 1.5 times more effective at it's end.\n<font color='#FF0000'>Strength</font> stance: slows enemies by %str_slow%%  for %str_slow_duration% seconds.\n<font color='#00FF00'>Agility</font> stance: deals up to 75%% more damage based on enemies' missing health.\n<font color='#0000FF'>Intellect</font> stance: increases range by %int_bonus_distance%. heals allies struck by Photon Ray for the half of the damage value.\nUpgrades with Civilization Erosion attribute:\n<font color='#FF0000'>Strength</font> stance: deals %str_damage_mult% damage per point and locks enemies for %str_lock_duration% seconds.\n<font color='#00FF00'>Agility</font> stance: deals %agi_damage_mult% damage per point. 25%% of the damage is dealt as pure damage.\n<font color='#0000FF'>Intellect</font> stance: deals %int_damage_mult% damage per point. Reduces cooldowns of allies' active abilities by maximum %int_cdr% seconds."
+		"DOTA_Tooltip_Ability_altera_beam_Description"       "Altera unleashes the power of Photon Ray, activating it as a laser beam and dealing %damage% magical damage over %duration% seconds.\n<font color='#FF0000'>Strength</font> stance: <font color='#9400D3'>slows</font> enemies by %str_slow%%  for %str_slow_duration% seconds.\n<font color='#00FF00'>Agility</font> stance: deals up to 75%% more damage based on enemies' missing health.\n<font color='#1E90FF'>Intellect</font> stance: increases range by %int_bonus_distance%. <font color='#FFFAFA'>Heals</font> allies struck by Photon Ray for the half of the damage value.\nUpgrades with <font color='#58ACFA'>Civilization Erosion</font> attribute: deals additional %atr_damage_mult% damage per current stance primary attribute point. \n<font color='#FF0000'>Strength</font> stance: <font color='#9400D3'>locks</font> enemies for %str_lock_duration% seconds.\n<font color='#00FF00'>Agility</font> stance: deals %agi_damage_mult% damage per point. 25%% of the damage is dealt as <font color='#D1A951'>pure</font> damage.\n<font color='#1E90FF'>Intellect</font> stance: deals %int_damage_mult% damage per point. <font color='#FFFAFA'>Reduces cooldowns</font> of allies' active abilities by maximum %int_cdr% seconds."
 
 		"DOTA_Tooltip_Ability_altera_teardrop"       "Combo - Teardrop Photon Ray"
 		"DOTA_Tooltip_Ability_altera_teardrop_Description"       "<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : Q-R in 4 seconds, then R in 10 seconds</font>\nAltera invokes an orbital strike towards the target location.\nFirst use: activates the combo. For the next 10 seconds Combo - Teardrop Photon Ray: Release can be used to choose the strike target.\nSecond use: After a 1 second delay, system starts aiming at the target location. Aim marker is visible for everyone. After 2.5 seconds of aim, laser beam strikes, dealing enormous magical damage."
@@ -5970,19 +5966,19 @@
 		"DOTA_Tooltip_Ability_altera_teardrop_release_Description"       "Do it."
 
 		"DOTA_Tooltip_Ability_altera_crest_attribute"       "Attribute - Crest of the Star"
-		"DOTA_Tooltip_Ability_altera_crest_attribute_Description"       "Energy Sword and Photon Rush gain scale bonuses from current primary attribute."
+		"DOTA_Tooltip_Ability_altera_crest_attribute_Description"       "Reduces <font color='#58ACFA'>Energy Whip</font> cooldown.\n<font color='#58ACFA'>Photon Rush</font> gains additional damage and can be prolonged by damaging enemy heroes."
 
 		"DOTA_Tooltip_Ability_altera_refraction_attribute"       "Attribute - Dimensional Refraction Variant"
-		"DOTA_Tooltip_Ability_altera_refraction_attribute_Description"       "Local Space Distortion deals additional damage based on primary attribute."
+		"DOTA_Tooltip_Ability_altera_refraction_attribute_Description"       "<font color='#58ACFA'>Local Space Distortion</font> deals additional damage based on total attribute amount. Whenever it ends, replays the initial effect of <font color='#58ACFA'>Local Space Distortion</font>."
 
 		"DOTA_Tooltip_Ability_altera_erosion_attribute"       "Attribute - Civilization Erosion"
-		"DOTA_Tooltip_Ability_altera_erosion_attribute_Description"       "Photon Ray gains additional effects and deals additional damage based on current stance and primary attribute value."
+		"DOTA_Tooltip_Ability_altera_erosion_attribute_Description"       "<font color='#58ACFA'>Photon Ray</font> gains additional effects and deals additional damage based on current stance and primary attribute value."
 
 		"DOTA_Tooltip_Ability_altera_adaptive_attribute"       "Attribute - Adaptive Burst"
-		"DOTA_Tooltip_Ability_altera_adaptive_attribute_Description"       "Unlocks Adaptive Burst."
+		"DOTA_Tooltip_Ability_altera_adaptive_attribute_Description"       "Unlocks <font color='#58ACFA'>Adaptive Burst</font>."
 
-		"DOTA_Tooltip_Ability_altera_endless_attribute"       "Attribute - Endless War."
-		"DOTA_Tooltip_Ability_altera_endless_attribute_Description"       "Attacking while under effect of Energy Sword prolongs it's duration and gives Altera a stackable bonus to current primary attribute.\nRe-using Energy Sword will reset the stack count."
+		"DOTA_Tooltip_Ability_altera_endless_attribute"       "Attribute - Energy Discharge"
+		"DOTA_Tooltip_Ability_altera_endless_attribute_Description"       "<font color='#58ACFA'>Energy Whip</font> slows enemies and gives Altera additional stats per each enemy hero hit for a duration."
 
 	  //====================================
         //      Jeanne d'Arc Alter (Lonkus gaming)

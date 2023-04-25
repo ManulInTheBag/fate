@@ -70,7 +70,7 @@ function altera_form_close:OnSpellCalled(forced)
 
     abil:EndCooldown()
     if forced then
-    	abil:StartCooldown(abil:GetCooldown(0))
+    	--abil:StartCooldown(abil:GetCooldown(0))
     end
 
     if hCaster.CurrentAbilLayout == "standard" then return end
@@ -92,7 +92,7 @@ function altera_form_str:OnSpellStart()
 	caster:FindAbilityByName("altera_form_close"):OnSpellCalled(false)
 
 	caster:AddNewModifier(caster, self, "modifier_altera_form_str", {})
-	caster:SetPrimaryAttribute(DOTA_ATTRIBUTE_STRENGTH)
+	--caster:SetPrimaryAttribute(DOTA_ATTRIBUTE_STRENGTH)
 end
 
 altera_form_agi = class({})
@@ -107,7 +107,7 @@ function altera_form_agi:OnSpellStart()
 	caster:FindAbilityByName("altera_form_close"):OnSpellCalled(false)
 		
 	caster:AddNewModifier(caster, self, "modifier_altera_form_agi", {})
-	caster:SetPrimaryAttribute(DOTA_ATTRIBUTE_AGILITY)
+	--caster:SetPrimaryAttribute(DOTA_ATTRIBUTE_AGILITY)
 end
 
 altera_form_int = class({})
@@ -122,7 +122,7 @@ function altera_form_int:OnSpellStart()
 	caster:FindAbilityByName("altera_form_close"):OnSpellCalled(false)
 		
 	caster:AddNewModifier(caster, self, "modifier_altera_form_int", {})
-	caster:SetPrimaryAttribute(DOTA_ATTRIBUTE_INTELLECT)
+	--caster:SetPrimaryAttribute(DOTA_ATTRIBUTE_INTELLECT)
 end
 
 -------
@@ -135,17 +135,17 @@ function modifier_altera_form_pepeg:OnCreated()
 	self.close_ability = self.parent:FindAbilityByName("altera_form_close")
 
 	self.parent:AddNewModifier(self.parent, self.parent:FindAbilityByName("altera_form_int"), "modifier_altera_form_int", {})
-	self.parent:SetPrimaryAttribute(DOTA_ATTRIBUTE_INTELLECT)
+	--self.parent:SetPrimaryAttribute(DOTA_ATTRIBUTE_INTELLECT)
 
 	self.parent.CurrentAbilLayout = "standard"
 end
 
-function modifier_altera_form_pepeg:OnTakeDamage(args)
+--[[function modifier_altera_form_pepeg:OnTakeDamage(args)
 	if (args.unit ~= self.parent) and (args.attacker ~= self.parent) then return end
 	if self.parent:HasModifier("modifier_altera_adaptive") then return end
 
 	self.close_ability:OnSpellCalled(true)
-end
+end]]
 
 function modifier_altera_form_pepeg:IsHidden()
 	return true 
@@ -197,6 +197,10 @@ function modifier_altera_form_str:IsDebuff()
 	return false 
 end
 
+function modifier_altera_form_str:GetEffectName()
+    return "particles/altera/altera_buff_red.vpcf"
+end
+
 function modifier_altera_form_str:GetAttributes()
 	return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
@@ -235,6 +239,10 @@ function modifier_altera_form_agi:IsDebuff()
 	return false 
 end
 
+function modifier_altera_form_agi:GetEffectName()
+    return "particles/altera/altera_buff_green.vpcf"
+end
+
 function modifier_altera_form_agi:GetAttributes()
 	return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
@@ -271,6 +279,10 @@ end
 
 function modifier_altera_form_int:IsDebuff()
 	return false 
+end
+
+function modifier_altera_form_int:GetEffectName()
+    return "particles/altera/altera_buff_blue.vpcf"
 end
 
 function modifier_altera_form_int:GetAttributes()

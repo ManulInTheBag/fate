@@ -659,7 +659,7 @@
 					{
 						_class = "AnimFile"
 						name = "whip_horiz"
-						activity_name = ""
+						activity_name = "ACT_DOTA_CAST_ABILITY_1"
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -681,7 +681,7 @@
 					{
 						_class = "AnimFile"
 						name = "whip_horiz_2"
-						activity_name = ""
+						activity_name = "ACT_DOTA_CAST_ABILITY_1_END"
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -747,7 +747,7 @@
 					{
 						_class = "AnimFile"
 						name = "charge"
-						activity_name = "ACT_DOTA_CAST_ABILITY_1"
+						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2

@@ -75,21 +75,21 @@ function modifier_altera_dash:OnCreated(table)
     	self.form = "str"
     	self.particlename = "particles/altera/altera_dash_blast_red.vpcf"
     	if self.parent.CrestAcquired then
-    		self.damage = self.damage + self.ability:GetSpecialValueFor("str_damage_mult")*self.parent:GetStrength()
+    		self.damage = self.damage + self.ability:GetSpecialValueFor("atr_damage_mult")*self.parent:GetStrength()
     	end
     end
     if self.caster:HasModifier("modifier_altera_form_agi") then
        	self.form = "agi"
        	self.particlename = "particles/altera/altera_dash_blast_green.vpcf"
        	if self.parent.CrestAcquired then
-    		self.damage = self.damage + self.ability:GetSpecialValueFor("agi_damage_mult")*self.parent:GetAgility()
+    		self.damage = self.damage + self.ability:GetSpecialValueFor("atr_damage_mult")*self.parent:GetAgility()
     	end
     end
     if self.caster:HasModifier("modifier_altera_form_int") then
        	self.form = "int"
        	self.particlename = "particles/altera/altera_dash_blast_blue.vpcf"
        	if self.parent.CrestAcquired then
-    		self.damage = self.damage + self.ability:GetSpecialValueFor("int_damage_mult")*self.parent:GetIntellect()
+    		self.damage = self.damage + self.ability:GetSpecialValueFor("atr_damage_mult")*self.parent:GetIntellect()
     	end
     end
 
@@ -183,13 +183,15 @@ function modifier_altera_dash:PlayEffects()
 
     for _, enemy in pairs(enemies) do
         if enemy and not enemy:IsNull() and IsValidEntity(enemy) and enemy ~= self.parent and not self.AttackedTargets[enemy:entindex()] then
-            self.AttackedTargets[enemy:entindex()] = true
-
             if not enemy:IsMagicImmune() then
+                self.AttackedTargets[enemy:entindex()] = true
 				DoDamage(self.parent, enemy, self.damage, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
 				if self.form == "str" then
 					ApplyAirborne(self.parent, enemy, self.ability:GetSpecialValueFor("str_airborne_duration"))
 				end
+                if self.parent.CrestAcquired and enemy:IsConsideredHero() then
+                    self.distance = self.distance + self.ability:GetSpecialValueFor("distance")
+                end
 			end
         end
     end

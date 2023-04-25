@@ -1,17 +1,60 @@
 LinkLuaModifier("modifier_altera_whip", "abilities/altera/altera_whip", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_altera_whip_agi", "abilities/altera/altera_whip", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_altera_whip_int", "abilities/altera/altera_whip", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_altera_whip_int_ally", "abilities/altera/altera_whip", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_altera_whip_stats", "abilities/altera/altera_whip", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_altera_whip_tracker", "abilities/altera/altera_whip", LUA_MODIFIER_MOTION_NONE)
 
 altera_whip = class({})
+
+function altera_whip:GetIntrinsicModifierName()
+	return "modifier_altera_whip_stats"
+end
+
+function altera_whip:GetCastAnimation()
+	if self:GetCaster():HasModifier("modifier_altera_whip_tracker") then
+		self.anim = true
+		return ACT_DOTA_CAST_ABILITY_1_END
+	end
+	self.anim = false
+	return ACT_DOTA_CAST_ABILITY_1
+end
+
+function altera_whip:GetCooldown()
+	if self:GetCaster().CrestAcquired then
+		return self:GetSpecialValueFor("attribute_cooldown")
+	end
+	return self:GetSpecialValueFor("cooldown")
+end
 
 function altera_whip:OnSpellStart()
 	local caster = self:GetCaster()
 
-	caster:AddNewModifier(caster, self, "modifier_altera_whip", {duration = self:GetSpecialValueFor("duration")})
+	if not self.anim then
+		caster:AddNewModifier(caster, self, "modifier_altera_whip_tracker", {duration = 2})
+		self:Whip1()
+	else
+		caster:RemoveModifierByName("modifier_altera_whip_tracker")
+		self:Whip2()
+	end
 
-    if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 and caster:GetIntellect() >= 29.1 then
+	local form = "int"
+
+	if caster:HasModifier("modifier_altera_form_str") then
+    	form = "str"
+    end
+    if caster:HasModifier("modifier_altera_form_agi") then
+    	form = "agi"
+    end
+    if caster:HasModifier("modifier_altera_form_int") then
+       	form = "int"
+    end
+
+	--caster:AddNewModifier(caster, self, "modifier_altera_whip", {duration = self:GetSpecialValueFor("duration")})
+
+	local stk = caster:FindModifierByName("modifier_altera_whip_stats"):GetStackCount()
+	local str = caster:GetStrength() - stk*self:GetSpecialValueFor("stat_per_stack")*(form == "str" and 1 or 1/2)
+	local agi = caster:GetAgility() - stk*self:GetSpecialValueFor("stat_per_stack")*(form == "agi" and 1 or 1/2)
+	local int = caster:GetIntellect() - stk*self:GetSpecialValueFor("stat_per_stack")*(form == "int" and 1 or 1/2) 
+
+    if str >= 29.1 and agi >= 29.1 and int >= 29.1 then
 	    if caster:FindAbilityByName("altera_teardrop"):IsCooldownReady() and caster:FindAbilityByName("altera_beam"):IsCooldownReady() and caster:IsAlive() and not (caster:GetAbilityByIndex(5):GetName() == "altera_teardrop") then	    		
 	    	caster:SwapAbilities("altera_teardrop", "altera_beam", true, false)
 	    	Timers:CreateTimer(4, function()
@@ -23,6 +66,149 @@ function altera_whip:OnSpellStart()
 	end
 end
 
+function altera_whip:Whip1()
+	local caster = self:GetCaster()
+	local form = "int"
+	local part = "blue"
+
+	if caster:HasModifier("modifier_altera_form_str") then
+    	form = "str"
+    	part = "red"
+    end
+    if caster:HasModifier("modifier_altera_form_agi") then
+    	form = "agi"
+    	part = "green"
+    end
+    if caster:HasModifier("modifier_altera_form_int") then
+       	form = "int"
+       	part = "blue"
+    end
+
+	local forw = Vector(0, 0, VectorToAngles(caster:GetForwardVector())[2])
+
+	local slash_fx = ParticleManager:CreateParticle("particles/altera/altera_blade_fury_"..part..".vpcf", PATTACH_ABSORIGIN, caster)
+	ParticleManager:SetParticleControl(slash_fx, 0, caster:GetAbsOrigin())
+	ParticleManager:SetParticleControl(slash_fx, 5, Vector(600, 1, 1))
+	ParticleManager:SetParticleControl(slash_fx, 10, forw + Vector(0, 0, -80))
+
+	local enemies = FindUnitsInRadius(  caster:GetTeamNumber(),
+                                        caster:GetAbsOrigin(),
+                                        nil,
+                                        600,
+                                        DOTA_UNIT_TARGET_TEAM_ENEMY,
+                                        DOTA_UNIT_TARGET_ALL,
+                                        DOTA_UNIT_TARGET_FLAG_NONE,
+                                        FIND_ANY_ORDER,
+                                        false)
+
+	local forw_ori = caster:GetAbsOrigin() + caster:GetForwardVector()*600
+	forw_ori = RotatePosition(caster:GetAbsOrigin(), QAngle(0, 30, 0), forw_ori)
+	local forw = (forw_ori - caster:GetAbsOrigin()):Normalized()
+	for _,enemy in pairs(enemies) do
+		local origin_diff = enemy:GetAbsOrigin() - caster:GetAbsOrigin()
+		local origin_diff_norm = origin_diff:Normalized()
+		if forw:Dot(origin_diff_norm) > 0 then
+			self:WhipImpact(enemy, form)
+		end
+	end
+end
+
+function altera_whip:Whip2()
+	local caster = self:GetCaster()
+	local form = "int"
+	local part = "blue"
+
+	if caster:HasModifier("modifier_altera_form_str") then
+    	form = "str"
+    	part = "red"
+    end
+    if caster:HasModifier("modifier_altera_form_agi") then
+    	form = "agi"
+    	part = "green"
+    end
+    if caster:HasModifier("modifier_altera_form_int") then
+       	form = "int"
+       	part = "blue"
+    end
+
+	local forw = Vector(0, 0, VectorToAngles(caster:GetForwardVector())[2])
+
+	local slash_fx = ParticleManager:CreateParticle("particles/altera/altera_blade_fury_"..part..".vpcf", PATTACH_ABSORIGIN, caster)
+	ParticleManager:SetParticleControl(slash_fx, 0, caster:GetAbsOrigin())
+	ParticleManager:SetParticleControl(slash_fx, 5, Vector(600, 1, 1))
+	ParticleManager:SetParticleControl(slash_fx, 10, forw + Vector(180, 0, 80))
+
+	local enemies = FindUnitsInRadius(  caster:GetTeamNumber(),
+                                        caster:GetAbsOrigin(),
+                                        nil,
+                                        600,
+                                        DOTA_UNIT_TARGET_TEAM_ENEMY,
+                                        DOTA_UNIT_TARGET_ALL,
+                                        DOTA_UNIT_TARGET_FLAG_NONE,
+                                        FIND_ANY_ORDER,
+                                        false)
+
+	local forw_ori = caster:GetAbsOrigin() + caster:GetForwardVector()*600
+	forw_ori = RotatePosition(caster:GetAbsOrigin(), QAngle(0, -30, 0), forw_ori)
+	local forw = (forw_ori - caster:GetAbsOrigin()):Normalized()
+	for _,enemy in pairs(enemies) do
+		local origin_diff = enemy:GetAbsOrigin() - caster:GetAbsOrigin()
+		local origin_diff_norm = origin_diff:Normalized()
+		if forw:Dot(origin_diff_norm) > 0 then
+			self:WhipImpact(enemy, form)
+		end
+	end
+end
+
+function altera_whip:WhipImpact(enemy, form)
+	local caster = self:GetCaster()
+
+	local damage = self:GetSpecialValueFor(form.."_damage")
+	DoDamage(caster, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+	if caster.EndlessAcquired then
+		local slow_duration = self:GetSpecialValueFor("attribute_slow_duration")
+		if enemy:IsConsideredHero() then
+			local stack_duration = self:GetSpecialValueFor("attribute_stat_duration")
+			local stat_modifier = caster:FindModifierByName("modifier_altera_whip_stats")
+			stat_modifier:IncrementStackCount()
+			Timers:CreateTimer(stack_duration, function()
+				stat_modifier:DecrementStackCount()
+			end)
+		end
+		enemy:AddNewModifier(caster, self, "modifier_altera_whip", {duration = slow_duration})
+	end
+	if form == "str" then
+		local healing = self:GetSpecialValueFor("str_heal")
+		if enemy:IsConsideredHero() then
+			caster:Heal(healing, self)
+		end
+	elseif form == "agi" then
+		enemy:AddNewModifier(caster, self, "modifier_silence", {duration = self:GetSpecialValueFor("agi_silence_duration")})
+	else
+		giveUnitDataDrivenModifier(caster, enemy, "locked", self:GetSpecialValueFor("int_lock_duration"))
+	end
+end
+
+--
+
+modifier_altera_whip_tracker = class({})
+
+function modifier_altera_whip_tracker:IsHidden() return true end
+
+function modifier_altera_whip_tracker:OnCreated()
+	if IsServer() then
+		self:GetAbility():EndCooldown()
+	end
+end 
+
+function modifier_altera_whip_tracker:OnDestroy()
+	if IsServer() then
+		self:GetAbility():UseResources(false, false, false, true)
+	end
+end
+
+--
+
 modifier_altera_whip = class({})
 function modifier_altera_whip:IsHidden() return false end
 function modifier_altera_whip:IsDebuff() return false end
@@ -31,191 +217,14 @@ function modifier_altera_whip:IsPurgeException() return false end
 function modifier_altera_whip:RemoveOnDeath() return true end
 
 function modifier_altera_whip:DeclareFunctions()
-    local func = {  MODIFIER_EVENT_ON_ATTACK_ALLIED,
-                MODIFIER_PROPERTY_ATTACK_RANGE_BONUS,
-            	MODIFIER_PROPERTY_MODEL_CHANGE,
-            	MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT}
+    local func = { MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE}
     return func
 end
-function modifier_altera_whip:GetModifierAttackSpeedBonus_Constant()
-    return (true and (self:GetAbility():GetSpecialValueFor("agi_as") + (self:GetParent():HasModifier("modifier_altera_crest") and self:GetAbility():GetSpecialValueFor("agi_as_mult")*self:GetParent():GetAgility() or 0)) or 0)
-end
-function modifier_altera_whip:GetModifierModelChange()
-  return "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/altera/altera_whip.vmdl"
-end
-function modifier_altera_whip:GetModifierAttackRangeBonus()
-    return self:GetAbility():GetSpecialValueFor("attack_range_bonus")
-end
-function modifier_altera_whip:OnAttackAllied(args)
-	if args.attacker ~= self.parent then return end
-	if self.form ~= "int" then return end
-	--[[
-	args.target:AddNewModifier(self.parent, self.ability, "modifier_altera_whip_int_ally", {duration = 1})
-	Timers:CreateTimer(FrameTime(), function()
-		if not (args.target:IsAlive() and args.attacker:IsAlive()) then return end
-		local forcemove = {
-			UnitIndex = nil,
-			OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET ,
-			TargetIndex = nil
-		}
-		forcemove.UnitIndex = self.parent:entindex()
-		forcemove.TargetIndex = args.target:entindex()
-		self.parent:Stop()
-		ExecuteOrderFromTable(forcemove)
-		Timers:CreateTimer(FrameTime(), function()
-			args.target:RemoveModifierByName("modifier_altera_whip_int_ally")
-		end)
-		
-	end)
-	]]
-end
-function modifier_altera_whip:OnAttackLanded(args)
-    if args.attacker ~= self.parent then return end
-
-    local damage = 0
-    local heal = 0
-
-	if self.form == "str" then
-		damage = self.ability:GetSpecialValueFor("str_damage")
-		heal = self.ability:GetSpecialValueFor("str_heal")
-		if self.parent.CrestAcquired then
-			damage = damage + self.ability:GetSpecialValueFor("str_damage_mult")*self.parent:GetStrength()
-			heal = heal + self.ability:GetSpecialValueFor("str_heal_mult")*self.parent:GetStrength()
-		end
-		DoDamage(args.attacker, args.target, damage, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
-		self.parent:Heal(self.ability:GetSpecialValueFor("str_heal"), self.ability)
-	end
-	if self.form == "agi" then
-		damage = self.ability:GetSpecialValueFor("agi_damage")
-		if self.parent.CrestAcquired then
-			damage = damage + self.ability:GetSpecialValueFor("agi_damage_mult")*self.parent:GetAgility()
-		end
-		DoDamage(args.attacker, args.target, damage, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
-	end
-	if self.form == "int" then
-		damage = self.ability:GetSpecialValueFor("int_damage")
-		heal = self.ability:GetSpecialValueFor("int_heal")
-		if self.parent.CrestAcquired then
-			damage = damage + self.ability:GetSpecialValueFor("int_damage_mult")*self.parent:GetIntellect()
-			heal = heal + self.ability:GetSpecialValueFor("int_heal_mult")*self.parent:GetIntellect()
-		end
-		if self.team ~= args.target:GetTeamNumber() then
-	    	DoDamage(args.attacker, args.target, damage, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
-			local targets = FindUnitsInRadius(self.parent:GetTeam(), args.target:GetAbsOrigin(), nil, self.ability:GetSpecialValueFor("heal_aoe"), 
-												DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
-		for i = 1, #targets do
-			targets[i]:Heal(heal, self.ability)
-			
-		end
-		local pulse = ParticleManager:CreateParticle( "particles/altera/altera_heal.vpcf", PATTACH_CUSTOMORIGIN, nil )
-		ParticleManager:SetParticleControl( pulse, 1, args.target:GetAbsOrigin())
-	    --else
-	    	--args.target:AddNewModifier(self.parent, self.ability, "modifier_altera_whip_int_ally", {duration = FrameTime()})
-	    	--args.target:Heal(self.ability:GetSpecialValueFor("int_heal"), self.ability)
-	    end
-	end
-	if self.parent.EndlessAcquired then
-		if self.add_duration < self.max_duration then
-			self.add_duration = self.add_duration + self.duration_per_atk
-			self.curr_duration = self.curr_duration + self.duration_per_atk
-			local curr_duration = self.curr_duration
-			local add_duration = self.add_duration
-			local modifier = self.parent:AddNewModifier(self.parent, self.ability, "modifier_altera_whip", {duration = self.curr_duration, DoNotRemove = 1})
-			modifier.curr_duration = curr_duration
-			modifier.add_duration = add_duration
-		end
-		local stat_modifier = self.parent:AddNewModifier(self.parent, self.ability, "modifier_altera_whip_stats", {duration = self.curr_duration})
-		stat_modifier:IncrementStackCount()
-	end
-end
---[[function modifier_altera_whip:GetModifierAttackSpeedBonus_Constant()
-    return self:GetAbility():GetSpecialValueFor("as_bonus")
-end]]
-
-function modifier_altera_whip:OnCreated(args)
-    if IsServer() then
-        self.caster = self:GetCaster()
-        self.parent = self:GetParent()
-        self.ability = self:GetAbility()
-        self.team = self.parent:GetTeamNumber()
-        self.form = "neutral"
-        self.duration_per_atk = self.ability:GetSpecialValueFor("duration_per_atk")
-        self.curr_duration = self.ability:GetSpecialValueFor("duration")
-        self.max_duration = self.curr_duration + self.ability:GetSpecialValueFor("max_bonus_duration")
-        self.add_duration = self.ability:GetSpecialValueFor("duration")
-
-        if not args.DoNotRemove then
-        	self.parent:RemoveModifierByName("modifier_altera_whip_stats")
-        	self.timer_sound = 0
-        	EmitSoundOn("jtr_bloody_thirst_start", self.parent)
-        end
-
-        if self.parent:HasModifier("modifier_altera_form_str") then
-        	self.form = "str"
-        end
-        if self.parent:HasModifier("modifier_altera_form_agi") then
-        	self.form = "agi"
-        end
-        if self.parent:HasModifier("modifier_altera_form_int") then
-        	self.form = "int"
-        end
-        self:StartIntervalThink(FrameTime())
-    end
+function modifier_altera_whip:GetModifierMoveSpeedBonus_Percentage()
+    return -1*self:GetAbility():GetSpecialValueFor("attribute_slow")
 end
 
-function modifier_altera_whip:OnRefresh(args)
-	self:OnCreated(args)
-end
-
-function modifier_altera_whip:OnDestroy()
-	StopSoundOn("jtr_bloody_thirst_middle", self:GetParent())
-	EmitSoundOn("jtr_bloody_thirst_end", self:GetParent())
-end
-
-function modifier_altera_whip:OnIntervalThink()
-	if IsServer() then
-		self.curr_duration = self.curr_duration - FrameTime()
-		self.timer_sound = self.timer_sound + FrameTime()
-		if self.timer_sound >= 1.7 then
-			self.timer_sound = 0
-			EmitSoundOn("jtr_bloody_thirst_middle", self.parent)
-		end
-	end
-end
-
-function modifier_altera_whip:GetEffectName()
-	if self:GetParent():HasModifier("modifier_altera_form_str") then
-        return "particles/altera/altera_buff_red.vpcf"
-    end
-    if self:GetParent():HasModifier("modifier_altera_form_agi") then
-        return "particles/altera/altera_buff_green.vpcf"
-    end
-    if self:GetParent():HasModifier("modifier_altera_form_int") then
-        return "particles/altera/altera_buff_blue.vpcf"
-    end
-    return "particles/altera/altera_buff_blue.vpcf"
-end
-
-modifier_altera_whip_int_ally = class({})
-
-function modifier_altera_whip_int_ally:IsHidden() return true end
-
-function modifier_altera_whip_int_ally:CheckState()
-    local state =   { 
-                        [MODIFIER_STATE_SPECIALLY_DENIABLE] = true,
-                    }
-    return state
-end
-
-function modifier_altera_whip_int_ally:OnTakeDamage(args)
-	if args.unit ~= self:GetParent() then return end
-
-	if args.damage_type ~= 1 then return end
-
-	args.unit:SetHealth(args.unit:GetHealth() + args.damage)
-end
-
-
+--
 
 modifier_altera_whip_stats = class({})
 function modifier_altera_whip_stats:IsHidden() return false end
@@ -231,13 +240,13 @@ function modifier_altera_whip_stats:DeclareFunctions()
 end
 
 function modifier_altera_whip_stats:GetModifierBonusStats_Strength()
-	return (self:GetParent():HasModifier("modifier_altera_form_str") and self:GetAbility():GetSpecialValueFor("stat_per_stack")*self:GetParent():GetModifierStackCount("modifier_altera_whip_stats", self:GetParent()) or 0)
+	return self:GetAbility():GetSpecialValueFor("stat_per_stack")*self:GetParent():GetModifierStackCount("modifier_altera_whip_stats", self:GetParent())*(self:GetParent():HasModifier("modifier_altera_form_str") and 1 or 0.5)
 end
 
 function modifier_altera_whip_stats:GetModifierBonusStats_Agility()
-	return (self:GetParent():HasModifier("modifier_altera_form_agi") and self:GetAbility():GetSpecialValueFor("stat_per_stack")*self:GetParent():GetModifierStackCount("modifier_altera_whip_stats", self:GetParent()) or 0)
+	return self:GetAbility():GetSpecialValueFor("stat_per_stack")*self:GetParent():GetModifierStackCount("modifier_altera_whip_stats", self:GetParent())*(self:GetParent():HasModifier("modifier_altera_form_agi") and 1 or 0.5)
 end
 
 function modifier_altera_whip_stats:GetModifierBonusStats_Intellect()
-	return (self:GetParent():HasModifier("modifier_altera_form_int") and self:GetAbility():GetSpecialValueFor("stat_per_stack")*self:GetParent():GetModifierStackCount("modifier_altera_whip_stats", self:GetParent()) or 0)
+	return self:GetAbility():GetSpecialValueFor("stat_per_stack")*self:GetParent():GetModifierStackCount("modifier_altera_whip_stats", self:GetParent())*(self:GetParent():HasModifier("modifier_altera_form_int") and 1 or 0.5)
 end
