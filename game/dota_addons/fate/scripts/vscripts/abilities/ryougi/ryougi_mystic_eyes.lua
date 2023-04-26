@@ -98,8 +98,15 @@ end
 function ryougi_mystic_eyes:LastArc(enemy)
 	local caster = self:GetCaster()
 
-	local player_id = enemy:GetPlayerOwnerID()
+	enemy:Kill(self, caster)
+	EmitSoundOn("Hero_PhantomAssassin.CoupDeGrace", enemy)
+
+	--part temporary removed because bugging
+
+	--[[local player_id = enemy:GetPlayerOwnerID()
 	local player = PlayerResource:GetPlayer(player_id)
+
+	enemy:AddEffects(EF_NODRAW)
 
 	CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="ryougi_wind_start"})
 
@@ -157,13 +164,11 @@ function ryougi_mystic_eyes:LastArc(enemy)
 				CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="ryougi_wind_end"})
 			end)
 		end)
-		--[[Timers:CreateTimer(1.3, function()
-			enemy:Kill(self, caster)
-		end)]]
 		Timers:CreateTimer(1.8, function()
+			enemy:RemoveEffects(EF_NODRAW)
 			enemy:Kill(self, caster)
 		end)
-	end)
+	end)]]
 end
 
 modifier_ryougi_combo_window = class({})

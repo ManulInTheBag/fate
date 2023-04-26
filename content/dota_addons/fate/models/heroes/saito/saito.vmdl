@@ -1,0 +1,3773 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	m_meshList = 
+	{
+		m_meshList = 
+		[
+			{
+				m_meshName = "saito"
+				m_meshFile = "models/heroes/saito/saito.dmx"
+				m_materialSearchPath = ""
+				m_bSkinParentedObjects = true
+				m_bLegacySkinParentedTransforms = false
+				m_bExpensiveTangents = false
+				m_bHighPrecisionTexCoords = false
+				m_bPerVertexCurvature = false
+				m_bBentNormals = false
+				m_bIgnoreCloth = false
+				m_bGetSkinningFromLod0 = false
+				m_bPreferHighDensityTrianglesInUvDensityCalculation = false
+				m_pMorphInfo = null
+			},
+		]
+	}
+	m_clothProxyMeshList = 
+	{
+		_class = "CVClothProxyMeshList"
+		m_flClothEnableThreshold = 0.05
+		m_bCreateStaticBone = false
+		m_nMaxBonesPerVertex = 4
+		m_bRemoveUnusedBonesEnabled = false
+		m_bDriveMeshesWithBacksolvedJointsOnly = true
+		m_flMatchProxiesToMeshes = 1.0
+		m_flFallbackEnvelope = 1.0
+		m_nReservedInt = 0
+		m_bSoftSkinAnimation = false
+		m_bReservedBool2 = false
+		m_bReservedBool3 = false
+		m_bReservedBool4 = false
+		m_clothProxyMeshList = [  ]
+	}
+	m_physicsMeshList = 
+	{
+		m_meshList = [  ]
+	}
+	m_pModelInfo = null
+	m_pBoneFlagList = 
+	{
+		m_pObject = null
+	}
+	m_pHitBoxSetLists = 
+	[
+		{
+			m_pObject = 
+			{
+				m_HitBoxSets = 
+				[
+					{
+						m_name = "default"
+						m_HitBoxes = 
+						[
+							{
+								m_name = "上半身"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "上半身"
+								m_vMinBounds = [ -23.494785, -9.817207, -19.504204 ]
+								m_vMaxBounds = [ 23.494778, 25.847183, 21.533081 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "上半身2"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "上半身2"
+								m_vMinBounds = [ -22.287111, -13.293869, -21.53754 ]
+								m_vMaxBounds = [ 21.481371, 35.141922, 18.259716 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "肩.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "肩.L"
+								m_vMinBounds = [ -10.766197, 2.544441, -4.117264 ]
+								m_vMaxBounds = [ 10.507509, 20.521339, 6.750092 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "肩.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "肩.R"
+								m_vMinBounds = [ -10.705902, 2.246861, -6.922562 ]
+								m_vMaxBounds = [ 10.543579, 20.527927, 3.303604 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "腕捩.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "腕捩.L"
+								m_vMinBounds = [ -1.965334, 18.059166, -3.237236 ]
+								m_vMaxBounds = [ 2.322691, 18.346252, -2.356606 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "腕捩.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "腕捩.R"
+								m_vMinBounds = [ -1.969068, 17.464066, 2.318245 ]
+								m_vMaxBounds = [ 2.318386, 17.747841, 3.204269 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "下半身"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "下半身"
+								m_vMinBounds = [ -23.494781, -8.214615, -21.511021 ]
+								m_vMaxBounds = [ 23.494781, 31.185822, 20.252796 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "ひじ.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "ひじ.L"
+								m_vMinBounds = [ -4.080018, 7.864822, -3.503197 ]
+								m_vMaxBounds = [ 2.54418, 13.026833, 4.35495 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "ひじ.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "ひじ.R"
+								m_vMinBounds = [ -4.080088, 7.864754, -4.353546 ]
+								m_vMaxBounds = [ 2.544609, 13.026871, 3.504173 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_0_0"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_0_0"
+								m_vMinBounds = [ -9.237713, 0.689888, 0.02227 ]
+								m_vMaxBounds = [ 0.041367, 11.216904, 9.156555 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_0_1"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_0_1"
+								m_vMinBounds = [ -0.811981, 0.683144, -9.560362 ]
+								m_vMaxBounds = [ 5.794731, 12.386467, 11.724131 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_0_2"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_0_2"
+								m_vMinBounds = [ -2.612476, 3.434631, -13.820957 ]
+								m_vMaxBounds = [ 9.680103, 15.231796, 9.925575 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_0_3"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_0_3"
+								m_vMinBounds = [ -9.825722, 4.069351, -10.594231 ]
+								m_vMaxBounds = [ 14.291492, 6.261307, 1.674919 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_0_4"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_0_4"
+								m_vMinBounds = [ -14.465366, 1.946228, -6.696495 ]
+								m_vMaxBounds = [ 14.609348, 4.116219, -1.545212 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_0_5"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_0_5"
+								m_vMinBounds = [ -14.609371, 1.946228, -6.696503 ]
+								m_vMaxBounds = [ 14.46534, 4.116219, -1.545227 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_0_6"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_0_6"
+								m_vMinBounds = [ -14.291512, 4.069321, -10.594215 ]
+								m_vMaxBounds = [ 9.825708, 6.261284, 1.674927 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_0_7"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_0_7"
+								m_vMinBounds = [ -9.680111, 3.434616, -13.820955 ]
+								m_vMaxBounds = [ 2.612476, 15.231773, 9.925575 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_0_8"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_0_8"
+								m_vMinBounds = [ -5.794739, 0.683136, -9.560362 ]
+								m_vMaxBounds = [ 0.811974, 12.386467, 11.724134 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_0_9"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_0_9"
+								m_vMinBounds = [ -0.041378, 0.689888, 0.022278 ]
+								m_vMaxBounds = [ 9.2377, 11.216904, 9.156555 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "手捩.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "手捩.L"
+								m_vMinBounds = [ -3.732351, 7.711464, -3.098656 ]
+								m_vMaxBounds = [ 3.308086, 14.67823, 2.232109 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "手捩.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "手捩.R"
+								m_vMinBounds = [ -3.731787, 7.711494, -2.229843 ]
+								m_vMaxBounds = [ 3.309247, 14.678268, 3.10154 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "足.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "足.L"
+								m_vMinBounds = [ -9.663179, -5.082809, -9.541224 ]
+								m_vMaxBounds = [ 7.626292, 60.943382, 10.633954 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "足.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "足.R"
+								m_vMinBounds = [ -7.626302, -5.082817, -9.541225 ]
+								m_vMaxBounds = [ 9.081518, 60.943375, 10.633949 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_1_0"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_1_0"
+								m_vMinBounds = [ -10.172775, -2.053337, -0.155907 ]
+								m_vMaxBounds = [ 0.417496, 10.417946, 12.431034 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_1_1"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_1_1"
+								m_vMinBounds = [ 0.188915, -2.436935, -12.870687 ]
+								m_vMaxBounds = [ 8.429733, 9.759003, 13.517984 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_1_2"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_1_2"
+								m_vMinBounds = [ -1.969498, 0.211273, -15.36858 ]
+								m_vMaxBounds = [ 11.160652, 12.483635, 11.435589 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_1_3"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_1_3"
+								m_vMinBounds = [ -13.200951, 1.307945, -13.444347 ]
+								m_vMaxBounds = [ 16.584335, 11.317619, 2.50161 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_1_4"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_1_4"
+								m_vMinBounds = [ -16.646122, -1.235123, -8.015419 ]
+								m_vMaxBounds = [ 20.490391, 11.301407, -1.096642 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_1_5"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_1_5"
+								m_vMinBounds = [ -20.490414, -1.235115, -8.015411 ]
+								m_vMaxBounds = [ 16.646091, 11.301422, -1.096619 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_1_6"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_1_6"
+								m_vMinBounds = [ -16.584354, 1.307945, -13.444347 ]
+								m_vMaxBounds = [ 13.200937, 11.317619, 2.501602 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_1_7"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_1_7"
+								m_vMinBounds = [ -11.16066, 0.211258, -15.368572 ]
+								m_vMaxBounds = [ 1.969494, 12.48362, 11.435596 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_1_8"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_1_8"
+								m_vMinBounds = [ -8.429726, -2.436951, -12.870684 ]
+								m_vMaxBounds = [ -0.188911, 9.758995, 13.517988 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_1_9"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_1_9"
+								m_vMinBounds = [ -0.417507, -2.053352, -0.155899 ]
+								m_vMaxBounds = [ 10.17276, 10.417938, 12.43103 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "手首.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "手首.L"
+								m_vMinBounds = [ -4.080557, -3.93335, -3.554253 ]
+								m_vMaxBounds = [ 5.076433, 12.236755, 2.529053 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "手首.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "手首.R"
+								m_vMinBounds = [ -4.081515, -3.933388, -2.534103 ]
+								m_vMaxBounds = [ 5.080507, 12.236877, 3.557175 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "ひざ.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "ひざ.L"
+								m_vMinBounds = [ -6.519367, -21.620644, -9.651913 ]
+								m_vMaxBounds = [ 6.59516, 53.193718, 9.947834 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "ひざ.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "ひざ.R"
+								m_vMinBounds = [ -6.595165, -21.620659, -9.651802 ]
+								m_vMaxBounds = [ 6.519358, 52.646652, 9.947834 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_2_0"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_2_0"
+								m_vMinBounds = [ -10.640678, 4.052811, -0.249657 ]
+								m_vMaxBounds = [ 0.600731, 8.258118, 14.0667 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_2_1"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_2_1"
+								m_vMinBounds = [ 0.686821, -5.56015, -14.526518 ]
+								m_vMaxBounds = [ 9.907906, 6.925575, 17.114725 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_2_2"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_2_2"
+								m_vMinBounds = [ -1.539417, -3.013634, -18.457375 ]
+								m_vMaxBounds = [ 14.122543, 9.734581, 14.458439 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_2_3"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_2_3"
+								m_vMinBounds = [ -14.88826, 0.421249, -14.868549 ]
+								m_vMaxBounds = [ 21.168831, 9.544067, 3.47036 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_2_4"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_2_4"
+								m_vMinBounds = [ -18.826664, -4.483765, -9.33213 ]
+								m_vMaxBounds = [ 23.428951, 9.18541, -0.886047 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_2_5"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_2_5"
+								m_vMinBounds = [ -23.42897, -4.483765, -9.332108 ]
+								m_vMaxBounds = [ 18.826637, 9.185387, -0.886032 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_2_6"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_2_6"
+								m_vMinBounds = [ -21.168854, 0.421219, -14.868553 ]
+								m_vMaxBounds = [ 14.888253, 9.544044, 3.470345 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_2_7"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_2_7"
+								m_vMinBounds = [ -14.122543, -3.013657, -18.457363 ]
+								m_vMaxBounds = [ 1.539425, 9.734566, 14.458454 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_2_8"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_2_8"
+								m_vMinBounds = [ -9.907906, -5.560165, -14.526516 ]
+								m_vMaxBounds = [ -0.686821, 6.925568, 17.114731 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_2_9"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_2_9"
+								m_vMinBounds = [ -0.600735, 4.052795, -0.249657 ]
+								m_vMaxBounds = [ 10.640675, 8.258118, 14.066696 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "首"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "首"
+								m_vMinBounds = [ -8.651264, -3.186295, -7.130177 ]
+								m_vMaxBounds = [ 8.400091, 9.722824, 5.805479 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "親指０.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "親指０.L"
+								m_vMinBounds = [ -1.911416, 1.536446, -1.887104 ]
+								m_vMaxBounds = [ 0.980643, 4.950836, 1.019089 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "中指１.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "中指１.L"
+								m_vMinBounds = [ -1.099904, 0.062881, -1.809303 ]
+								m_vMaxBounds = [ 0.941455, 3.91832, 0.914749 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "小指１.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "小指１.L"
+								m_vMinBounds = [ -0.622573, -0.397827, -0.773903 ]
+								m_vMaxBounds = [ 0.751347, 2.492294, 0.80909 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "人指１.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "人指１.L"
+								m_vMinBounds = [ -1.011898, 0.456764, -1.378807 ]
+								m_vMaxBounds = [ 0.919629, 3.620323, 0.652939 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "薬指１.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "薬指１.L"
+								m_vMinBounds = [ -0.89357, -0.810349, -1.433708 ]
+								m_vMaxBounds = [ 0.809498, 3.092529, 0.921143 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "親指０.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "親指０.R"
+								m_vMinBounds = [ -1.911419, 1.536476, -1.019096 ]
+								m_vMaxBounds = [ 0.980633, 4.950874, 1.887093 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "中指１.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "中指１.R"
+								m_vMinBounds = [ -1.099387, 0.077858, -0.916824 ]
+								m_vMaxBounds = [ 0.940595, 3.933289, 1.807571 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "小指１.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "小指１.R"
+								m_vMinBounds = [ -0.622286, -0.382469, -0.811165 ]
+								m_vMaxBounds = [ 0.751559, 2.507637, 0.773369 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "人指１.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "人指１.R"
+								m_vMinBounds = [ -1.011816, 0.471687, -0.656548 ]
+								m_vMaxBounds = [ 0.919468, 3.635246, 1.375511 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "薬指１.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "薬指１.R"
+								m_vMinBounds = [ -0.892504, -0.795235, -0.923538 ]
+								m_vMaxBounds = [ 0.809861, 3.107651, 1.43013 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袴_0_0.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袴_0_0.L"
+								m_vMinBounds = [ -7.874567, 2.778458, -0.437405 ]
+								m_vMaxBounds = [ 7.821133, 3.541378, 5.265059 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袴_0_1.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袴_0_1.L"
+								m_vMinBounds = [ -6.496737, 2.707016, -2.836401 ]
+								m_vMaxBounds = [ -0.147417, 3.273613, 9.046968 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袴_0_2.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袴_0_2.L"
+								m_vMinBounds = [ -5.562681, 2.473892, -12.318314 ]
+								m_vMaxBounds = [ -0.55766, 3.550194, 14.16016 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袴_0_3.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袴_0_3.L"
+								m_vMinBounds = [ -7.638883, 2.900959, -13.657022 ]
+								m_vMaxBounds = [ 5.586533, 4.142555, 8.086885 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袴_0_4.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袴_0_4.L"
+								m_vMinBounds = [ -13.832026, 3.446651, -2.884438 ]
+								m_vMaxBounds = [ 10.798601, 4.395771, 5.655684 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袴_0_5.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袴_0_5.L"
+								m_vMinBounds = [ -5.922698, 2.658489, -14.598751 ]
+								m_vMaxBounds = [ 10.559064, 4.633778, 10.364302 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袴_0_6.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袴_0_6.L"
+								m_vMinBounds = [ -0.603682, 3.663456, -13.570148 ]
+								m_vMaxBounds = [ 5.665446, 3.800953, 14.861909 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袴_0_7.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袴_0_7.L"
+								m_vMinBounds = [ -2.997646, 2.959591, -6.146519 ]
+								m_vMaxBounds = [ 10.5974, 4.186474, 6.865461 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袴_0_0.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袴_0_0.R"
+								m_vMinBounds = [ -12.484039, 3.743969, -3.648403 ]
+								m_vMaxBounds = [ 11.00724, 5.20401, 4.885847 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袴_0_1.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袴_0_1.R"
+								m_vMinBounds = [ -6.861367, 3.123756, -5.675938 ]
+								m_vMaxBounds = [ 1.910402, 5.417973, 13.639332 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袴_0_2.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袴_0_2.R"
+								m_vMinBounds = [ -3.154548, 4.852303, -10.035309 ]
+								m_vMaxBounds = [ -0.113336, 4.959415, 11.842442 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袴_0_3.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袴_0_3.R"
+								m_vMinBounds = [ -6.932772, -0.146431, -13.482355 ]
+								m_vMaxBounds = [ 4.049407, 5.890465, 8.392748 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袴_0_4.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袴_0_4.R"
+								m_vMinBounds = [ -15.461784, -0.089199, -2.76442 ]
+								m_vMaxBounds = [ 9.168858, 5.762413, 5.714878 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袴_0_5.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袴_0_5.R"
+								m_vMinBounds = [ -6.392481, 3.518234, -14.29866 ]
+								m_vMaxBounds = [ 12.811787, 5.381844, 10.959372 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袴_0_6.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袴_0_6.R"
+								m_vMinBounds = [ 1.224593, 3.860649, -8.484024 ]
+								m_vMaxBounds = [ 6.405203, 4.470325, 10.895885 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袴_0_7.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袴_0_7.R"
+								m_vMinBounds = [ -0.667029, 3.923302, -8.290318 ]
+								m_vMaxBounds = [ 10.723756, 4.807087, 5.95531 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_3_0"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_3_0"
+								m_vMinBounds = [ -11.110739, 1.313385, -0.357426 ]
+								m_vMaxBounds = [ 0.778938, 6.103905, 15.692451 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_3_1"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_3_1"
+								m_vMinBounds = [ 1.179764, -0.030884, -16.193233 ]
+								m_vMaxBounds = [ 11.378815, 11.450951, 18.905659 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_3_2"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_3_2"
+								m_vMinBounds = [ -1.186893, 2.199486, -20.0109 ]
+								m_vMaxBounds = [ 15.596794, 15.803162, 15.961126 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_3_3"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_3_3"
+								m_vMinBounds = [ -16.579224, 3.729073, -16.299675 ]
+								m_vMaxBounds = [ 23.449867, 6.815506, 4.059189 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_3_4"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_3_4"
+								m_vMinBounds = [ -23.191435, 0.610764, -11.982697 ]
+								m_vMaxBounds = [ 26.364454, 7.05809, -0.696625 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_3_5"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_3_5"
+								m_vMinBounds = [ -26.364471, 0.610779, -11.982674 ]
+								m_vMaxBounds = [ 23.191406, 7.058098, -0.696602 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_3_6"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_3_6"
+								m_vMinBounds = [ -23.449886, 3.729065, -16.299679 ]
+								m_vMaxBounds = [ 16.579212, 6.815506, 4.059181 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_3_7"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_3_7"
+								m_vMinBounds = [ -15.596786, 2.199478, -20.010887 ]
+								m_vMaxBounds = [ 1.186909, 15.803162, 15.96114 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_3_8"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_3_8"
+								m_vMinBounds = [ -11.378807, -0.030922, -16.193233 ]
+								m_vMaxBounds = [ -1.179752, 11.45092, 18.905659 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_3_9"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_3_9"
+								m_vMinBounds = [ -0.77895, 1.313385, -0.357422 ]
+								m_vMaxBounds = [ 11.110727, 6.103905, 15.692459 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "頭"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "頭"
+								m_vMinBounds = [ -16.665861, -7.23436, -13.954186 ]
+								m_vMaxBounds = [ 16.436659, 19.562393, 13.693852 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "親指１.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "親指１.L"
+								m_vMinBounds = [ -1.755936, -0.107483, -1.403427 ]
+								m_vMaxBounds = [ 1.371971, 5.153099, 0.721756 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "中指２.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "中指２.L"
+								m_vMinBounds = [ -0.884539, -0.171684, -0.83371 ]
+								m_vMaxBounds = [ 0.58342, 3.635406, 0.579102 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "小指２.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "小指２.L"
+								m_vMinBounds = [ -0.426351, -0.003738, -0.639793 ]
+								m_vMaxBounds = [ 0.642563, 2.247551, 0.544258 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "人指２.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "人指２.L"
+								m_vMinBounds = [ -0.745059, -0.079437, -0.950516 ]
+								m_vMaxBounds = [ 0.717856, 3.062836, 0.659874 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "薬指２.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "薬指２.L"
+								m_vMinBounds = [ -0.719262, -0.056335, -0.78373 ]
+								m_vMaxBounds = [ 0.630226, 3.019554, 0.666176 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "sheath2"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "sheath2"
+								m_vMinBounds = [ -3.997336, -89.073837, -1.967079 ]
+								m_vMaxBounds = [ 2.883219, 15.418388, 3.116791 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "腕+.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "腕+.L"
+								m_vMinBounds = [ -11.149384, 3.110275, -9.753441 ]
+								m_vMaxBounds = [ 7.170425, 11.044891, 8.06105 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "親指１.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "親指１.R"
+								m_vMinBounds = [ -1.759521, -0.106598, -0.721786 ]
+								m_vMaxBounds = [ 1.370384, 5.154404, 1.403484 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "中指２.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "中指２.R"
+								m_vMinBounds = [ -0.885222, -0.156784, -0.581802 ]
+								m_vMaxBounds = [ 0.582576, 3.650337, 0.831017 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "小指２.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "小指２.R"
+								m_vMinBounds = [ -0.426863, 0.011528, -0.545921 ]
+								m_vMaxBounds = [ 0.641638, 2.262802, 0.637726 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "人指２.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "人指２.R"
+								m_vMinBounds = [ -0.745773, -0.064285, -0.662445 ]
+								m_vMaxBounds = [ 0.717632, 3.077995, 0.948059 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "薬指２.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "薬指２.R"
+								m_vMinBounds = [ -0.720318, -0.041443, -0.669479 ]
+								m_vMaxBounds = [ 0.628903, 3.034462, 0.780357 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "腕+.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "腕+.R"
+								m_vMinBounds = [ -7.17794, 1.625168, -9.826401 ]
+								m_vMaxBounds = [ 11.183777, 9.552116, 8.010727 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織紐_0_1"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織紐_0_1"
+								m_vMinBounds = [ -8.209262, 1.661591, -1.451904 ]
+								m_vMaxBounds = [ 8.209241, 26.390335, 0.84108 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袴_1_0.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袴_1_0.L"
+								m_vMinBounds = [ -7.211485, 1.96014, -0.709858 ]
+								m_vMaxBounds = [ 9.374004, 2.763512, 5.294325 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袴_1_1.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袴_1_1.L"
+								m_vMinBounds = [ -6.631738, 1.909485, -2.945951 ]
+								m_vMaxBounds = [ 0.111858, 2.563046, 9.685545 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袴_1_2.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袴_1_2.L"
+								m_vMinBounds = [ -5.857603, 1.634537, -13.37571 ]
+								m_vMaxBounds = [ -0.221043, 2.814812, 14.59408 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袴_1_3.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袴_1_3.L"
+								m_vMinBounds = [ -7.807234, 2.060677, -14.953211 ]
+								m_vMaxBounds = [ 6.557905, 3.437149, 8.346407 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袴_1_4.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袴_1_4.L"
+								m_vMinBounds = [ -13.09543, 2.553478, -3.253839 ]
+								m_vMaxBounds = [ 12.963671, 3.606998, 6.234634 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袴_1_5.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袴_1_5.L"
+								m_vMinBounds = [ -6.198388, 1.668068, -15.582239 ]
+								m_vMaxBounds = [ 5.728797, 3.634918, 9.373823 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袴_1_6.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袴_1_6.L"
+								m_vMinBounds = [ -0.879277, 2.736389, -14.119951 ]
+								m_vMaxBounds = [ 6.100456, 2.87825, 15.337446 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袴_1_7.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袴_1_7.L"
+								m_vMinBounds = [ -3.035055, 1.944981, -6.919945 ]
+								m_vMaxBounds = [ 11.529698, 3.374104, 8.23768 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "足D.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "足D.L"
+								m_vMinBounds = [ -10.869452, -57.815002, -24.518528 ]
+								m_vMaxBounds = [ 20.752439, 0.37542, 24.258465 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袴_1_0.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袴_1_0.R"
+								m_vMinBounds = [ -14.036943, 2.505432, -3.495621 ]
+								m_vMaxBounds = [ 11.209986, 4.126385, 5.978001 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袴_1_1.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袴_1_1.R"
+								m_vMinBounds = [ -7.527113, 1.803719, -5.304811 ]
+								m_vMaxBounds = [ 1.745333, 4.218102, 15.0201 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袴_1_2.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袴_1_2.R"
+								m_vMinBounds = [ -3.484437, 3.626495, -9.845806 ]
+								m_vMaxBounds = [ 0.162262, 3.734886, 12.317978 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袴_1_3.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袴_1_3.R"
+								m_vMinBounds = [ -7.601762, 2.072857, -14.488152 ]
+								m_vMaxBounds = [ 4.325366, 4.686588, 8.081503 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袴_1_4.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袴_1_4.R"
+								m_vMinBounds = [ -13.890779, 3.139915, -3.764723 ]
+								m_vMaxBounds = [ 8.432307, 4.685341, 5.65617 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袴_1_5.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袴_1_5.R"
+								m_vMinBounds = [ -4.467522, 2.346588, -14.180658 ]
+								m_vMaxBounds = [ 13.361258, 4.390881, 11.431227 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袴_1_6.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袴_1_6.R"
+								m_vMinBounds = [ 1.09058, 2.739529, -9.142179 ]
+								m_vMaxBounds = [ 6.916408, 3.435863, 11.288534 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袴_1_7.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袴_1_7.R"
+								m_vMinBounds = [ -3.407237, 2.411522, -8.256521 ]
+								m_vMaxBounds = [ 11.298722, 3.812187, 15.652784 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "足D.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "足D.R"
+								m_vMinBounds = [ -20.752447, -57.815002, -24.518528 ]
+								m_vMaxBounds = [ 10.869442, 0.03186, 24.258465 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_4_0"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_4_0"
+								m_vMinBounds = [ -11.970993, -1.466194, -0.450802 ]
+								m_vMaxBounds = [ 0.984665, 10.304344, 18.882614 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_4_1"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_4_1"
+								m_vMinBounds = [ 1.582615, -3.250717, -17.858479 ]
+								m_vMaxBounds = [ 13.600563, 10.01926, 20.662457 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_4_2"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_4_2"
+								m_vMinBounds = [ -0.516613, -1.122925, -23.126286 ]
+								m_vMaxBounds = [ 17.045086, 12.767479, 17.431873 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_4_3"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_4_3"
+								m_vMinBounds = [ -19.907345, 0.614548, -19.14077 ]
+								m_vMaxBounds = [ 25.692669, 11.890434, 4.618423 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_4_4"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_4_4"
+								m_vMinBounds = [ -25.352753, -2.749428, -13.3144 ]
+								m_vMaxBounds = [ 29.261578, 11.406998, -0.535454 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_4_5"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_4_5"
+								m_vMinBounds = [ -29.261593, -2.749428, -13.314377 ]
+								m_vMaxBounds = [ 25.352726, 11.406998, -0.535431 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_4_6"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_4_6"
+								m_vMinBounds = [ -25.692703, 0.614532, -19.140778 ]
+								m_vMaxBounds = [ 19.907333, 11.890411, 4.618401 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_4_7"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_4_7"
+								m_vMinBounds = [ -17.045095, -1.122932, -23.126278 ]
+								m_vMaxBounds = [ 0.516609, 12.767502, 17.431877 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_4_8"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_4_8"
+								m_vMinBounds = [ -13.600544, -3.250763, -17.858475 ]
+								m_vMaxBounds = [ -1.582584, 10.019218, 20.662464 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_4_9"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_4_9"
+								m_vMinBounds = [ -0.984665, -1.466202, -0.450802 ]
+								m_vMaxBounds = [ 11.970993, 10.304337, 18.882614 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "目.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "目.L"
+								m_vMinBounds = [ -0.883827, 4.625722, -0.508392 ]
+								m_vMaxBounds = [ 0.483902, 4.807372, 0.858856 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "目.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "目.R"
+								m_vMinBounds = [ -0.483894, 4.625725, -0.508362 ]
+								m_vMaxBounds = [ 0.883812, 4.807374, 0.858902 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "前髪1.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "前髪1.R"
+								m_vMinBounds = [ -1.46955, -1.146469, -1.570235 ]
+								m_vMaxBounds = [ 1.24899, 4.673019, 0.925256 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "横髪.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "横髪.L"
+								m_vMinBounds = [ -3.79842, -2.957962, -5.640468 ]
+								m_vMaxBounds = [ 2.609776, 10.751114, 5.003418 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "横髪.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "横髪.R"
+								m_vMinBounds = [ -3.147903, -2.964493, -5.647016 ]
+								m_vMaxBounds = [ 3.260293, 10.744583, 4.996867 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "後髪1.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "後髪1.R"
+								m_vMinBounds = [ -5.852634, -1.190048, -3.646718 ]
+								m_vMaxBounds = [ 4.485626, 11.585114, 5.031999 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "後髪2.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "後髪2.R"
+								m_vMinBounds = [ -7.830879, -3.013824, -4.163636 ]
+								m_vMaxBounds = [ 1.184536, 10.202515, 3.803721 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "後髪3.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "後髪3.R"
+								m_vMinBounds = [ -8.248154, -2.407043, -4.141354 ]
+								m_vMaxBounds = [ 4.871496, 10.700287, 6.563713 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "後髪4.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "後髪4.R"
+								m_vMinBounds = [ -4.038623, -3.306961, -2.350631 ]
+								m_vMaxBounds = [ 3.807448, 8.208038, 3.608773 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "後髪1.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "後髪1.L"
+								m_vMinBounds = [ -5.023756, -1.183685, -3.640325 ]
+								m_vMaxBounds = [ 5.314505, 11.591476, 5.038391 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "後髪2.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "後髪2.L"
+								m_vMinBounds = [ -1.722669, -3.007462, -4.157242 ]
+								m_vMaxBounds = [ 7.292751, 10.208878, 3.810116 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "後髪3.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "後髪3.L"
+								m_vMinBounds = [ -5.40963, -2.400665, -4.134961 ]
+								m_vMaxBounds = [ 7.710021, 10.706665, 6.570106 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "前髪2.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "前髪2.L"
+								m_vMinBounds = [ -2.457574, 0.089264, -5.151881 ]
+								m_vMaxBounds = [ 3.331784, 8.146805, 0.566434 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "前髪2.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "前髪2.R"
+								m_vMinBounds = [ -3.331801, 0.327957, -4.99547 ]
+								m_vMaxBounds = [ 2.304636, 8.146805, 0.3669 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "前髪1.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "前髪1.L"
+								m_vMinBounds = [ -1.383508, -1.357056, -1.256256 ]
+								m_vMaxBounds = [ 1.220033, 4.747055, 1.27441 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "親指２.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "親指２.L"
+								m_vMinBounds = [ -0.774216, 0.64608, -0.769168 ]
+								m_vMaxBounds = [ 0.999161, 4.058746, 0.759635 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "中指３.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "中指３.L"
+								m_vMinBounds = [ -0.575109, -0.014694, -0.458817 ]
+								m_vMaxBounds = [ 0.742636, 2.528023, 0.683754 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "小指３.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "小指３.L"
+								m_vMinBounds = [ -0.584643, -0.144119, -0.398705 ]
+								m_vMaxBounds = [ 0.391735, 1.991257, 0.560936 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "人指３.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "人指３.L"
+								m_vMinBounds = [ -0.605221, -0.055946, -0.491615 ]
+								m_vMaxBounds = [ 0.715606, 2.71386, 0.792412 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "薬指３.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "薬指３.L"
+								m_vMinBounds = [ -0.636874, -0.249123, -0.549515 ]
+								m_vMaxBounds = [ 0.669109, 2.837418, 0.619392 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "sword2"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "sword2"
+								m_vMinBounds = [ -11.936324, -109.427567, -5.680954 ]
+								m_vMaxBounds = [ 3.711122, 16.653236, 3.985466 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "手捩1.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "手捩1.L"
+								m_vMinBounds = [ -2.477591, -6.996078, -4.091025 ]
+								m_vMaxBounds = [ 5.337474, 2.793716, 2.528267 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "手捩2.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "手捩2.L"
+								m_vMinBounds = [ -0.640533, -3.364395, -3.843988 ]
+								m_vMaxBounds = [ 5.41999, -0.433456, 1.896022 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "手捩3.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "手捩3.L"
+								m_vMinBounds = [ -4.901963, 0.413956, -4.016292 ]
+								m_vMaxBounds = [ 0.793726, 3.198181, 1.723719 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袖0_2.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袖0_2.L"
+								m_vMinBounds = [ -3.683868, -5.350449, -1.926559 ]
+								m_vMaxBounds = [ 10.080002, 8.865158, 9.071602 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袖0_3.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袖0_3.L"
+								m_vMinBounds = [ -0.586838, -5.790516, -6.942402 ]
+								m_vMaxBounds = [ 12.240173, 8.19112, 3.479893 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袖0_4.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袖0_4.L"
+								m_vMinBounds = [ -3.974915, -6.075191, -2.062805 ]
+								m_vMaxBounds = [ 10.354965, 8.133514, 10.238663 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袖0_5.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袖0_5.L"
+								m_vMinBounds = [ -0.38591, -6.410454, -1.924278 ]
+								m_vMaxBounds = [ 10.77932, 6.203281, 3.700443 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袖0_6.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袖0_6.L"
+								m_vMinBounds = [ -0.72728, -7.028503, -1.634464 ]
+								m_vMaxBounds = [ 11.02243, 5.094765, 3.726078 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袖1_2.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袖1_2.L"
+								m_vMinBounds = [ -13.355148, -5.350445, -5.746529 ]
+								m_vMaxBounds = [ 13.737915, 8.865181, 9.988731 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袖1_3.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袖1_3.L"
+								m_vMinBounds = [ -11.450165, -5.790516, -10.479446 ]
+								m_vMaxBounds = [ 18.14238, 8.191124, 6.211777 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袖1_4.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袖1_4.L"
+								m_vMinBounds = [ -14.344231, -6.1021, -6.243462 ]
+								m_vMaxBounds = [ 16.834938, 8.093342, 11.437805 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袖1_5.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袖1_5.L"
+								m_vMinBounds = [ -11.414696, -6.410667, -6.570633 ]
+								m_vMaxBounds = [ 15.764503, 6.203606, 6.84437 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袖1_6.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袖1_6.L"
+								m_vMinBounds = [ -12.066582, -7.028538, -6.088226 ]
+								m_vMaxBounds = [ 16.674988, 5.094734, 7.621323 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袖2_2.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袖2_2.L"
+								m_vMinBounds = [ -15.024689, -3.538624, -3.74548 ]
+								m_vMaxBounds = [ 0.80677, 5.933064, 4.996403 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袖2_3.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袖2_3.L"
+								m_vMinBounds = [ -12.525459, -4.191917, -9.485085 ]
+								m_vMaxBounds = [ 4.297577, 5.438446, 0.64724 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袖2_4.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袖2_4.L"
+								m_vMinBounds = [ -16.077545, -4.482635, -5.664619 ]
+								m_vMaxBounds = [ 0.500771, 4.831718, 4.800301 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袖2_5.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袖2_5.L"
+								m_vMinBounds = [ -12.262283, -4.55468, -6.56921 ]
+								m_vMaxBounds = [ 0.300499, 3.329121, -0.753063 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袖2_6.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袖2_6.L"
+								m_vMinBounds = [ -13.414505, -4.782471, -6.115116 ]
+								m_vMaxBounds = [ -0.562401, 2.415844, 0.033142 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "腕捩3.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "腕捩3.L"
+								m_vMinBounds = [ -11.853397, -2.229446, -8.71521 ]
+								m_vMaxBounds = [ -7.529773, 14.843796, 6.102835 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袖0_0.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袖0_0.L"
+								m_vMinBounds = [ 0.056702, -5.491882, -2.587013 ]
+								m_vMaxBounds = [ 8.141998, 8.751747, 4.368183 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袖0_1.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袖0_1.L"
+								m_vMinBounds = [ -0.306732, -5.288048, -6.43425 ]
+								m_vMaxBounds = [ 10.990326, 8.806496, 4.00296 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袖1_0.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袖1_0.L"
+								m_vMinBounds = [ -8.714828, -5.491867, -7.098171 ]
+								m_vMaxBounds = [ 10.570206, 8.751747, 2.725044 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袖1_1.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袖1_1.L"
+								m_vMinBounds = [ -9.204193, -5.287987, -9.924351 ]
+								m_vMaxBounds = [ 15.432915, 8.806549, 5.254614 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袖2_0.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袖2_0.L"
+								m_vMinBounds = [ -9.755798, -2.097904, -4.869751 ]
+								m_vMaxBounds = [ 1.201843, 4.913555, -1.632523 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袖2_1.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袖2_1.L"
+								m_vMinBounds = [ -9.597672, -3.34787, -8.457722 ]
+								m_vMaxBounds = [ 3.968193, 5.886768, 0.864132 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "親指２.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "親指２.R"
+								m_vMinBounds = [ -0.779022, 0.660583, -0.761425 ]
+								m_vMaxBounds = [ 0.99437, 4.073265, 0.76738 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "中指３.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "中指３.R"
+								m_vMinBounds = [ -0.574009, 0.00058, -0.681915 ]
+								m_vMaxBounds = [ 0.743735, 2.543304, 0.460663 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "小指３.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "小指３.R"
+								m_vMinBounds = [ -0.583277, -0.128845, -0.559509 ]
+								m_vMaxBounds = [ 0.3931, 2.006546, 0.400116 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "人指３.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "人指３.R"
+								m_vMinBounds = [ -0.604837, -0.040817, -0.789505 ]
+								m_vMaxBounds = [ 0.715987, 2.728981, 0.494522 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "薬指３.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "薬指３.R"
+								m_vMinBounds = [ -0.635955, -0.234032, -0.616531 ]
+								m_vMaxBounds = [ 0.670028, 2.852501, 0.552368 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "sword1"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "sword1"
+								m_vMinBounds = [ -4.370388, -14.667534, -4.192024 ]
+								m_vMaxBounds = [ 4.033108, 112.16172, 4.1073 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "手捩1.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "手捩1.R"
+								m_vMinBounds = [ -5.33686, -6.996979, -4.091249 ]
+								m_vMaxBounds = [ 2.480973, 2.792435, 2.528411 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "手捩2.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "手捩2.R"
+								m_vMinBounds = [ -5.419333, -3.365616, -3.841972 ]
+								m_vMaxBounds = [ 0.641073, -0.435028, 1.898616 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "手捩3.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "手捩3.R"
+								m_vMinBounds = [ -0.792942, 0.41008, -4.017179 ]
+								m_vMaxBounds = [ 4.903713, 3.196365, 1.72341 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袖0_2.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袖0_2.R"
+								m_vMinBounds = [ -10.106476, -5.346325, -1.825298 ]
+								m_vMaxBounds = [ 3.702042, 8.897289, 9.131046 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袖0_3.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袖0_3.R"
+								m_vMinBounds = [ -12.17868, -5.781857, -6.855 ]
+								m_vMaxBounds = [ 0.642105, 8.179928, 3.609829 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袖0_4.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袖0_4.R"
+								m_vMinBounds = [ -10.315811, -6.066132, -1.964821 ]
+								m_vMaxBounds = [ 3.992081, 8.122375, 10.337933 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袖0_5.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袖0_5.R"
+								m_vMinBounds = [ -10.737511, -6.40181, -1.831566 ]
+								m_vMaxBounds = [ 0.450211, 6.213314, 3.754086 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袖0_6.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袖0_6.R"
+								m_vMinBounds = [ -10.984406, -7.017197, -1.539211 ]
+								m_vMaxBounds = [ 0.789307, 5.106394, 3.765839 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袖1_2.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袖1_2.R"
+								m_vMinBounds = [ -13.677757, -5.346424, -5.63142 ]
+								m_vMaxBounds = [ 13.415207, 8.897167, 10.10078 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袖1_3.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袖1_3.R"
+								m_vMinBounds = [ -18.092285, -5.781952, -10.343899 ]
+								m_vMaxBounds = [ 11.50531, 8.179825, 6.345612 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袖1_4.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袖1_4.R"
+								m_vMinBounds = [ -16.79982, -6.093246, -6.105858 ]
+								m_vMaxBounds = [ 14.390205, 8.082054, 11.513008 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袖1_5.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袖1_5.R"
+								m_vMinBounds = [ -15.735146, -6.402138, -6.438795 ]
+								m_vMaxBounds = [ 11.496353, 6.213524, 6.844292 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袖1_6.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袖1_6.R"
+								m_vMinBounds = [ -16.657661, -7.017281, -5.95031 ]
+								m_vMaxBounds = [ 12.147232, 5.106339, 7.628719 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袖2_2.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袖2_2.R"
+								m_vMinBounds = [ -0.762238, -3.543495, -3.230415 ]
+								m_vMaxBounds = [ 15.237373, 5.964722, 5.17979 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袖2_3.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袖2_3.R"
+								m_vMinBounds = [ -4.221764, -4.190243, -9.372753 ]
+								m_vMaxBounds = [ 12.593323, 5.415928, 0.855339 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袖2_4.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袖2_4.R"
+								m_vMinBounds = [ -0.441299, -4.478832, -5.523743 ]
+								m_vMaxBounds = [ 16.125992, 4.807541, 4.865147 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袖2_5.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袖2_5.R"
+								m_vMinBounds = [ -0.238403, -4.549103, -6.437918 ]
+								m_vMaxBounds = [ 12.341827, 3.334873, -0.69416 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袖2_6.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袖2_6.R"
+								m_vMinBounds = [ 0.613609, -4.767372, -5.96888 ]
+								m_vMaxBounds = [ 13.49511, 2.43108, 0.116657 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "腕捩3.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "腕捩3.R"
+								m_vMinBounds = [ 7.790188, -1.967316, -8.674702 ]
+								m_vMaxBounds = [ 12.211285, 15.098541, 6.108809 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袖0_0.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袖0_0.R"
+								m_vMinBounds = [ -8.16835, -5.446064, -2.470539 ]
+								m_vMaxBounds = [ 0.004135, 8.787766, 4.381069 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袖0_1.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袖0_1.R"
+								m_vMinBounds = [ -10.908539, -5.262306, -6.357788 ]
+								m_vMaxBounds = [ 0.373764, 8.852184, 3.934711 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袖1_0.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袖1_0.R"
+								m_vMinBounds = [ -10.600372, -5.445984, -6.87978 ]
+								m_vMaxBounds = [ 8.819168, 8.787842, 2.650772 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袖1_1.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袖1_1.R"
+								m_vMinBounds = [ -15.332779, -5.262253, -9.723766 ]
+								m_vMaxBounds = [ 9.363052, 8.852253, 5.27537 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袖2_0.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袖2_0.R"
+								m_vMinBounds = [ -1.174606, -2.075405, -4.68293 ]
+								m_vMaxBounds = [ 9.804092, 4.941204, -1.597557 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袖2_1.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袖2_1.R"
+								m_vMinBounds = [ -3.89389, -3.302845, -7.877834 ]
+								m_vMaxBounds = [ 9.863129, 5.937496, 0.922211 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織紐_1_1"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織紐_1_1"
+								m_vMinBounds = [ -4.624956, 0.14032, -1.355583 ]
+								m_vMaxBounds = [ 4.624935, 13.430664, 0.492615 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "鉢巻.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "鉢巻.L"
+								m_vMinBounds = [ -1.837698, 3.111008, -0.143013 ]
+								m_vMaxBounds = [ 1.327862, 17.187897, 0.729721 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "鉢巻.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "鉢巻.R"
+								m_vMinBounds = [ -1.327881, 3.111023, -0.143021 ]
+								m_vMaxBounds = [ 1.837677, 17.18792, 0.729713 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "足首.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "足首.L"
+								m_vMinBounds = [ -5.846836, -2.510262, -6.586829 ]
+								m_vMaxBounds = [ 5.671177, 28.900776, 12.209176 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袴_2_0.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袴_2_0.L"
+								m_vMinBounds = [ -6.386954, 4.105522, -1.292778 ]
+								m_vMaxBounds = [ 12.112582, 11.299082, 5.280567 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袴_2_1.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袴_2_1.L"
+								m_vMinBounds = [ -12.805658, 4.072401, -5.762527 ]
+								m_vMaxBounds = [ 0.571759, 11.198341, 10.786489 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袴_2_2.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袴_2_2.L"
+								m_vMinBounds = [ -6.381648, 3.747007, -15.287439 ]
+								m_vMaxBounds = [ 0.376369, 11.411201, 15.384983 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袴_2_3.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袴_2_3.L"
+								m_vMinBounds = [ -8.111267, 4.171726, -17.264076 ]
+								m_vMaxBounds = [ 8.273094, 12.085991, 8.865559 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袴_2_4.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袴_2_4.L"
+								m_vMinBounds = [ -12.179244, 4.602131, -3.920147 ]
+								m_vMaxBounds = [ 15.656133, 12.10951, 7.358564 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袴_2_5.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袴_2_5.L"
+								m_vMinBounds = [ -6.67986, 3.60037, -17.365782 ]
+								m_vMaxBounds = [ 6.907687, 11.961821, 9.661156 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袴_2_6.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袴_2_6.L"
+								m_vMinBounds = [ -1.36064, 4.739922, -15.104038 ]
+								m_vMaxBounds = [ 6.867648, 11.144625, 16.201982 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袴_2_7.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袴_2_7.L"
+								m_vMinBounds = [ -3.392648, 3.842613, -8.386383 ]
+								m_vMaxBounds = [ 12.689023, 11.856071, 10.686644 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "ひざD.L"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "ひざD.L"
+								m_vMinBounds = [ -10.504684, -5.87841, -28.085888 ]
+								m_vMaxBounds = [ 21.117207, 22.749893, 20.691105 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "足首.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "足首.R"
+								m_vMinBounds = [ -5.67117, -2.51026, -6.586835 ]
+								m_vMaxBounds = [ 5.846842, 28.90078, 12.209169 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袴_2_0.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袴_2_0.R"
+								m_vMinBounds = [ -16.775589, 4.19965, -3.363918 ]
+								m_vMaxBounds = [ 6.933113, 12.367378, 7.857117 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袴_2_1.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袴_2_1.R"
+								m_vMinBounds = [ -8.700437, 3.396822, -4.871315 ]
+								m_vMaxBounds = [ 1.53972, 12.243542, 17.508278 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袴_2_2.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袴_2_2.R"
+								m_vMinBounds = [ -4.065989, 5.331831, -9.593901 ]
+								m_vMaxBounds = [ 0.648335, 11.69943, 13.182508 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袴_2_3.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袴_2_3.R"
+								m_vMinBounds = [ -8.78077, 3.713886, -16.293293 ]
+								m_vMaxBounds = [ 4.811658, 12.711271, 7.723835 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袴_2_4.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袴_2_4.R"
+								m_vMinBounds = [ -16.582499, 4.843563, -5.543953 ]
+								m_vMaxBounds = [ 7.516174, 12.918653, 5.654842 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袴_2_5.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袴_2_5.R"
+								m_vMinBounds = [ -5.178138, 4.116169, -16.658436 ]
+								m_vMaxBounds = [ 14.338401, 12.759567, 12.365156 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袴_2_6.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袴_2_6.R"
+								m_vMinBounds = [ 0.85005, 4.575108, -10.328339 ]
+								m_vMaxBounds = [ 7.82233, 11.73526, 12.00659 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "袴_2_7.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "袴_2_7.R"
+								m_vMinBounds = [ -4.356077, 4.323065, -8.262932 ]
+								m_vMaxBounds = [ 12.304699, 12.172232, 17.542015 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "ひざD.R"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "ひざD.R"
+								m_vMinBounds = [ -21.117208, -5.878403, -27.316605 ]
+								m_vMaxBounds = [ 10.504679, 22.749901, 20.691109 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_5_0"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_5_0"
+								m_vMinBounds = [ -12.404228, 0.299538, -0.502605 ]
+								m_vMaxBounds = [ 1.478426, 11.792206, 20.59663 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_5_1"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_5_1"
+								m_vMinBounds = [ 1.80254, -6.664886, -21.29837 ]
+								m_vMaxBounds = [ 16.190395, 8.374687, 24.175774 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_5_2"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_5_2"
+								m_vMinBounds = [ -0.273514, -4.638588, -24.832458 ]
+								m_vMaxBounds = [ 19.959969, 10.454544, 20.368507 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_5_3"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_5_3"
+								m_vMinBounds = [ -21.702579, -0.167168, -20.69173 ]
+								m_vMaxBounds = [ 30.239426, 10.11092, 5.724808 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_5_4"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_5_4"
+								m_vMinBounds = [ -29.66217, -6.312267, -16.078316 ]
+								m_vMaxBounds = [ 35.151581, 11.838821, -0.266304 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_5_5"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_5_5"
+								m_vMinBounds = [ -35.1516, -6.312279, -16.078293 ]
+								m_vMaxBounds = [ 29.662144, 11.83881, -0.266289 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_5_6"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_5_6"
+								m_vMinBounds = [ -30.239468, -0.167191, -20.691742 ]
+								m_vMaxBounds = [ 21.702553, 10.110901, 5.724785 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_5_7"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_5_7"
+								m_vMinBounds = [ -19.959978, -4.638611, -24.832447 ]
+								m_vMaxBounds = [ 0.273518, 10.454529, 20.368519 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_5_8"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_5_8"
+								m_vMinBounds = [ -16.190376, -6.66494, -21.298372 ]
+								m_vMaxBounds = [ -1.802513, 8.374634, 24.175779 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "羽織裾_5_9"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "羽織裾_5_9"
+								m_vMinBounds = [ -1.47843, 0.299522, -0.502598 ]
+								m_vMaxBounds = [ 12.404221, 11.792191, 20.596634 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "国重鞘"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "国重鞘"
+								m_vMinBounds = [ -27.907635, -34.29808, -26.403164 ]
+								m_vMaxBounds = [ 21.437061, 45.15612, 34.213554 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "兼元鞘"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "兼元鞘"
+								m_vMinBounds = [ -19.108555, -30.814743, -17.70612 ]
+								m_vMaxBounds = [ 15.568379, 40.049706, 19.904682 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "国重刀"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "国重刀"
+								m_vMinBounds = [ -6.1576, -84.260666, -62.626328 ]
+								m_vMaxBounds = [ 51.70314, 11.401367, 6.913254 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "兼元刀"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "兼元刀"
+								m_vMinBounds = [ -5.261116, -77.951889, -38.402412 ]
+								m_vMaxBounds = [ 36.875927, 10.79628, 3.83931 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+							{
+								m_name = "国重下げ緒"
+								m_sSurfaceProperty = ""
+								m_nGroupId = 0
+								m_sBoneName = "国重下げ緒"
+								m_vMinBounds = [ -0.889355, -0.72554, -0.618806 ]
+								m_vMaxBounds = [ 0.925637, 10.98555, 0.822606 ]
+								m_flShapeRadius = 0.0
+								m_nShapeType = "VHITBOX_SHAPE_BOX"
+								m_bTranslationOnly = false
+								m_cRenderColor = [ 0, 0, 0, 0 ]
+							},
+						]
+					},
+				]
+				m_AutoCreateSetName = ""
+			}
+		},
+	]
+	m_pAttachmentLists = 
+	[
+		{
+			m_pObject = 
+			{
+				m_name = ""
+				m_attachments = 
+				[
+					{
+						m_name = "attach_hitloc"
+						m_influences = 
+						[
+							{
+								m_influenceName = "上半身"
+								m_vTranslationOffset = [ 0.070352, -1.183258, 2.40287 ]
+								m_vRotationOffset = [ -0.000002, -0.000009, 0.000009 ]
+								m_flWeight = 1.0
+								m_bRoot = false
+							},
+						]
+					},
+					{
+						m_name = "attach_attack1"
+						m_influences = 
+						[
+							{
+								m_influenceName = "sword1"
+								m_vTranslationOffset = [ 0.0, 0.0, 0.0 ]
+								m_vRotationOffset = [ 0.0, 0.0, 0.0 ]
+								m_flWeight = 1.0
+								m_bRoot = false
+							},
+						]
+					},
+					{
+						m_name = "attach_attack2"
+						m_influences = 
+						[
+							{
+								m_influenceName = "sword1"
+								m_vTranslationOffset = [ 0.0, 0.0, 0.0 ]
+								m_vRotationOffset = [ 0.0, 0.0, 0.0 ]
+								m_flWeight = 1.0
+								m_bRoot = false
+							},
+						]
+					},
+				]
+			}
+		},
+	]
+	m_pAnimGroup = 
+	{
+		m_pObject = 
+		{
+			m_Name = ""
+			m_pBoneFlagList = 
+			{
+				m_pObject = null
+			}
+			m_pSeqGroup = 
+			{
+				m_pObject = null
+			}
+			m_pAnimGroups = [  ]
+			m_Vanim = 
+			[
+				{
+					m_Animationname = "W - Volcano 2"
+					m_Filepath = "models/heroes/saito/anims/w - volcano 2.dmx"
+					m_nStartframe = 0
+					m_nEndframe = 40
+					m_flFps = 75.0
+					m_Loop = 
+					{
+						m_bLoop = false
+						m_bSmoothLoop = false
+						m_nSmoothLoopStart = 0
+						m_nSmoothLoopEnd = 0
+						m_StartLoop = 
+						{
+							_class = "CVAnimCmdStartLoop"
+							m_bEnabled = false
+							m_nLoopRestart = 0
+						}
+					}
+					m_bHidden = false
+					m_bDisable = false
+					m_Activities = 
+					[
+						{
+							m_Name = "ACT_DOTA_CAST_ABILITY_2"
+							m_nWeight = 1
+						},
+					]
+					m_AnimationEvents = [  ]
+					m_MotionFrames = [  ]
+					m_pIkRules = [  ]
+					m_pAlignAnimation = null
+					m_adjustAnimation = 
+					{
+						m_translation = [ 0.0, 0.0, 0.0 ]
+						m_rotation = [ 0.0, 0.0, 0.0 ]
+					}
+					m_Keywords = [  ]
+					m_sequenceParams = 
+					{
+						m_flFadeInTime = 0.2
+						m_flFadeOutTime = 0.2
+					}
+					m_folderName = ""
+					m_MotionFramesRootBone = ""
+				},
+				{
+					m_Animationname = "Attack 2"
+					m_Filepath = "models/heroes/saito/anims/attack 2.dmx"
+					m_nStartframe = 0
+					m_nEndframe = 30
+					m_flFps = 24.0
+					m_Loop = 
+					{
+						m_bLoop = false
+						m_bSmoothLoop = false
+						m_nSmoothLoopStart = 0
+						m_nSmoothLoopEnd = 0
+						m_StartLoop = 
+						{
+							_class = "CVAnimCmdStartLoop"
+							m_bEnabled = false
+							m_nLoopRestart = 0
+						}
+					}
+					m_bHidden = false
+					m_bDisable = false
+					m_Activities = 
+					[
+						{
+							m_Name = "ACT_DOTA_ATTACK"
+							m_nWeight = 1
+						},
+					]
+					m_AnimationEvents = [  ]
+					m_MotionFrames = 
+					[
+						{
+							m_nFrame = 0
+							m_bExtractTX = true
+							m_bExtractTY = true
+							m_bExtractTZ = false
+							m_bExtractRX = false
+							m_bExtractRY = false
+							m_bExtractRZ = false
+							m_bDiscardTX = false
+							m_bDiscardTY = false
+							m_bDiscardTZ = false
+							m_bDiscardRX = false
+							m_bDiscardRY = false
+							m_bDiscardRZ = false
+						},
+					]
+					m_pIkRules = [  ]
+					m_pAlignAnimation = null
+					m_adjustAnimation = 
+					{
+						m_translation = [ 0.0, 0.0, 0.0 ]
+						m_rotation = [ 0.0, 0.0, 0.0 ]
+					}
+					m_Keywords = [  ]
+					m_sequenceParams = 
+					{
+						m_flFadeInTime = 0.2
+						m_flFadeOutTime = 0.2
+					}
+					m_folderName = ""
+					m_MotionFramesRootBone = ""
+				},
+				{
+					m_Animationname = "Attack 3"
+					m_Filepath = "models/heroes/saito/anims/Attack 3.dmx"
+					m_nStartframe = 0
+					m_nEndframe = 30
+					m_flFps = 24.0
+					m_Loop = 
+					{
+						m_bLoop = false
+						m_bSmoothLoop = false
+						m_nSmoothLoopStart = 0
+						m_nSmoothLoopEnd = 0
+						m_StartLoop = 
+						{
+							_class = "CVAnimCmdStartLoop"
+							m_bEnabled = false
+							m_nLoopRestart = 0
+						}
+					}
+					m_bHidden = false
+					m_bDisable = false
+					m_Activities = 
+					[
+						{
+							m_Name = "ACT_DOTA_ATTACK2"
+							m_nWeight = 1
+						},
+					]
+					m_AnimationEvents = [  ]
+					m_MotionFrames = 
+					[
+						{
+							m_nFrame = 0
+							m_bExtractTX = true
+							m_bExtractTY = true
+							m_bExtractTZ = false
+							m_bExtractRX = false
+							m_bExtractRY = false
+							m_bExtractRZ = false
+							m_bDiscardTX = false
+							m_bDiscardTY = false
+							m_bDiscardTZ = false
+							m_bDiscardRX = false
+							m_bDiscardRY = false
+							m_bDiscardRZ = false
+						},
+					]
+					m_pIkRules = [  ]
+					m_pAlignAnimation = null
+					m_adjustAnimation = 
+					{
+						m_translation = [ 0.0, 0.0, 0.0 ]
+						m_rotation = [ 0.0, 0.0, 0.0 ]
+					}
+					m_Keywords = [  ]
+					m_sequenceParams = 
+					{
+						m_flFadeInTime = 0.2
+						m_flFadeOutTime = 0.2
+					}
+					m_folderName = ""
+					m_MotionFramesRootBone = ""
+				},
+				{
+					m_Animationname = "Idle"
+					m_Filepath = "models/heroes/saito/anims/idle.dmx"
+					m_nStartframe = 0
+					m_nEndframe = 40
+					m_flFps = 24.0
+					m_Loop = 
+					{
+						m_bLoop = true
+						m_bSmoothLoop = false
+						m_nSmoothLoopStart = 0
+						m_nSmoothLoopEnd = 0
+						m_StartLoop = 
+						{
+							_class = "CVAnimCmdStartLoop"
+							m_bEnabled = false
+							m_nLoopRestart = 0
+						}
+					}
+					m_bHidden = false
+					m_bDisable = false
+					m_Activities = 
+					[
+						{
+							m_Name = "ACT_DOTA_IDLE"
+							m_nWeight = 1
+						},
+					]
+					m_AnimationEvents = [  ]
+					m_MotionFrames = [  ]
+					m_pIkRules = [  ]
+					m_pAlignAnimation = null
+					m_adjustAnimation = 
+					{
+						m_translation = [ 0.0, 0.0, 0.0 ]
+						m_rotation = [ 0.0, 0.0, 0.0 ]
+					}
+					m_Keywords = [  ]
+					m_sequenceParams = 
+					{
+						m_flFadeInTime = 0.2
+						m_flFadeOutTime = 0.2
+					}
+					m_folderName = ""
+					m_MotionFramesRootBone = ""
+				},
+				{
+					m_Animationname = "Rapid Slash Charge Loop 2"
+					m_Filepath = "models/heroes/saito/anims/rapid slash charge loop 2.dmx"
+					m_nStartframe = 0
+					m_nEndframe = 45
+					m_flFps = 24.0
+					m_Loop = 
+					{
+						m_bLoop = true
+						m_bSmoothLoop = false
+						m_nSmoothLoopStart = 0
+						m_nSmoothLoopEnd = 0
+						m_StartLoop = 
+						{
+							_class = "CVAnimCmdStartLoop"
+							m_bEnabled = false
+							m_nLoopRestart = 0
+						}
+					}
+					m_bHidden = false
+					m_bDisable = false
+					m_Activities = 
+					[
+						{
+							m_Name = "ACT_DOTA_OVERRIDE_ABILITY_1"
+							m_nWeight = 1
+						},
+					]
+					m_AnimationEvents = 
+					[
+						{
+							m_Event = ""
+							m_nFrame = 0
+							m_DataString = ""
+						},
+					]
+					m_MotionFrames = [  ]
+					m_pIkRules = [  ]
+					m_pAlignAnimation = null
+					m_adjustAnimation = 
+					{
+						m_translation = [ 0.0, 0.0, 0.0 ]
+						m_rotation = [ 0.0, 0.0, 0.0 ]
+					}
+					m_Keywords = [  ]
+					m_sequenceParams = 
+					{
+						m_flFadeInTime = 0.2
+						m_flFadeOutTime = 0.2
+					}
+					m_folderName = ""
+					m_MotionFramesRootBone = ""
+				},
+				{
+					m_Animationname = "Rapid Slash Charge Loop"
+					m_Filepath = "models/heroes/saito/anims/rapid slash charge loop.dmx"
+					m_nStartframe = 0
+					m_nEndframe = 45
+					m_flFps = 24.0
+					m_Loop = 
+					{
+						m_bLoop = true
+						m_bSmoothLoop = false
+						m_nSmoothLoopStart = 0
+						m_nSmoothLoopEnd = 0
+						m_StartLoop = 
+						{
+							_class = "CVAnimCmdStartLoop"
+							m_bEnabled = false
+							m_nLoopRestart = 0
+						}
+					}
+					m_bHidden = false
+					m_bDisable = false
+					m_Activities = [  ]
+					m_AnimationEvents = [  ]
+					m_MotionFrames = [  ]
+					m_pIkRules = [  ]
+					m_pAlignAnimation = null
+					m_adjustAnimation = 
+					{
+						m_translation = [ 0.0, 0.0, 0.0 ]
+						m_rotation = [ 0.0, 0.0, 0.0 ]
+					}
+					m_Keywords = [  ]
+					m_sequenceParams = 
+					{
+						m_flFadeInTime = 0.2
+						m_flFadeOutTime = 0.2
+					}
+					m_folderName = ""
+					m_MotionFramesRootBone = ""
+				},
+				{
+					m_Animationname = "Rapid Slash End"
+					m_Filepath = "models/heroes/saito/anims/rapid slash end.dmx"
+					m_nStartframe = 0
+					m_nEndframe = 14
+					m_flFps = 24.0
+					m_Loop = 
+					{
+						m_bLoop = false
+						m_bSmoothLoop = false
+						m_nSmoothLoopStart = 0
+						m_nSmoothLoopEnd = 0
+						m_StartLoop = 
+						{
+							_class = "CVAnimCmdStartLoop"
+							m_bEnabled = false
+							m_nLoopRestart = 0
+						}
+					}
+					m_bHidden = false
+					m_bDisable = false
+					m_Activities = 
+					[
+						{
+							m_Name = "ACT_DOTA_CAST_ABILITY_1_END"
+							m_nWeight = 1
+						},
+					]
+					m_AnimationEvents = [  ]
+					m_MotionFrames = [  ]
+					m_pIkRules = [  ]
+					m_pAlignAnimation = null
+					m_adjustAnimation = 
+					{
+						m_translation = [ 0.0, 0.0, 0.0 ]
+						m_rotation = [ 0.0, 0.0, 0.0 ]
+					}
+					m_Keywords = [  ]
+					m_sequenceParams = 
+					{
+						m_flFadeInTime = 0.2
+						m_flFadeOutTime = 0.2
+					}
+					m_folderName = ""
+					m_MotionFramesRootBone = ""
+				},
+				{
+					m_Animationname = "Run"
+					m_Filepath = "models/heroes/saito/anims/run.dmx"
+					m_nStartframe = 0
+					m_nEndframe = 39
+					m_flFps = 24.0
+					m_Loop = 
+					{
+						m_bLoop = true
+						m_bSmoothLoop = false
+						m_nSmoothLoopStart = 0
+						m_nSmoothLoopEnd = 0
+						m_StartLoop = 
+						{
+							_class = "CVAnimCmdStartLoop"
+							m_bEnabled = false
+							m_nLoopRestart = 0
+						}
+					}
+					m_bHidden = false
+					m_bDisable = false
+					m_Activities = 
+					[
+						{
+							m_Name = "ACT_DOTA_RUN"
+							m_nWeight = 1
+						},
+					]
+					m_AnimationEvents = [  ]
+					m_MotionFrames = 
+					[
+						{
+							m_nFrame = 0
+							m_bExtractTX = true
+							m_bExtractTY = true
+							m_bExtractTZ = false
+							m_bExtractRX = false
+							m_bExtractRY = false
+							m_bExtractRZ = false
+							m_bDiscardTX = false
+							m_bDiscardTY = false
+							m_bDiscardTZ = false
+							m_bDiscardRX = false
+							m_bDiscardRY = false
+							m_bDiscardRZ = false
+						},
+					]
+					m_pIkRules = [  ]
+					m_pAlignAnimation = null
+					m_adjustAnimation = 
+					{
+						m_translation = [ 0.0, 0.0, 0.0 ]
+						m_rotation = [ 0.0, 0.0, 0.0 ]
+					}
+					m_Keywords = [  ]
+					m_sequenceParams = 
+					{
+						m_flFadeInTime = 0.2
+						m_flFadeOutTime = 0.2
+					}
+					m_folderName = ""
+					m_MotionFramesRootBone = ""
+				},
+				{
+					m_Animationname = "Sheath"
+					m_Filepath = "models/heroes/saito/anims/sheath.dmx"
+					m_nStartframe = 0
+					m_nEndframe = 5
+					m_flFps = 10.0
+					m_Loop = 
+					{
+						m_bLoop = false
+						m_bSmoothLoop = false
+						m_nSmoothLoopStart = 0
+						m_nSmoothLoopEnd = 0
+						m_StartLoop = 
+						{
+							_class = "CVAnimCmdStartLoop"
+							m_bEnabled = false
+							m_nLoopRestart = 0
+						}
+					}
+					m_bHidden = false
+					m_bDisable = false
+					m_Activities = 
+					[
+						{
+							m_Name = "ACT_DOTA_OVERRIDE_ABILITY_3"
+							m_nWeight = 1
+						},
+					]
+					m_AnimationEvents = [  ]
+					m_MotionFrames = [  ]
+					m_pIkRules = [  ]
+					m_pAlignAnimation = null
+					m_adjustAnimation = 
+					{
+						m_translation = [ 0.0, 0.0, 0.0 ]
+						m_rotation = [ 0.0, 0.0, 0.0 ]
+					}
+					m_Keywords = [  ]
+					m_sequenceParams = 
+					{
+						m_flFadeInTime = 0.2
+						m_flFadeOutTime = 0.2
+					}
+					m_folderName = ""
+					m_MotionFramesRootBone = ""
+				},
+				{
+					m_Animationname = "Stun"
+					m_Filepath = "models/heroes/saito/anims/stun.dmx"
+					m_nStartframe = 0
+					m_nEndframe = 20
+					m_flFps = 15.0
+					m_Loop = 
+					{
+						m_bLoop = true
+						m_bSmoothLoop = false
+						m_nSmoothLoopStart = 0
+						m_nSmoothLoopEnd = 0
+						m_StartLoop = 
+						{
+							_class = "CVAnimCmdStartLoop"
+							m_bEnabled = false
+							m_nLoopRestart = 0
+						}
+					}
+					m_bHidden = false
+					m_bDisable = false
+					m_Activities = 
+					[
+						{
+							m_Name = "ACT_DOTA_DISABLED"
+							m_nWeight = 1
+						},
+					]
+					m_AnimationEvents = [  ]
+					m_MotionFrames = [  ]
+					m_pIkRules = [  ]
+					m_pAlignAnimation = null
+					m_adjustAnimation = 
+					{
+						m_translation = [ 0.0, 0.0, 0.0 ]
+						m_rotation = [ 0.0, 0.0, 0.0 ]
+					}
+					m_Keywords = [  ]
+					m_sequenceParams = 
+					{
+						m_flFadeInTime = 0.2
+						m_flFadeOutTime = 0.2
+					}
+					m_folderName = ""
+					m_MotionFramesRootBone = ""
+				},
+				{
+					m_Animationname = "Thrust"
+					m_Filepath = "models/heroes/saito/anims/thrust.dmx"
+					m_nStartframe = 0
+					m_nEndframe = 30
+					m_flFps = 24.0
+					m_Loop = 
+					{
+						m_bLoop = false
+						m_bSmoothLoop = false
+						m_nSmoothLoopStart = 0
+						m_nSmoothLoopEnd = 0
+						m_StartLoop = 
+						{
+							_class = "CVAnimCmdStartLoop"
+							m_bEnabled = false
+							m_nLoopRestart = 0
+						}
+					}
+					m_bHidden = false
+					m_bDisable = false
+					m_Activities = 
+					[
+						{
+							m_Name = "ACT_DOTA_CAST_ABILITY_2_END"
+							m_nWeight = 1
+						},
+					]
+					m_AnimationEvents = [  ]
+					m_MotionFrames = [  ]
+					m_pIkRules = [  ]
+					m_pAlignAnimation = null
+					m_adjustAnimation = 
+					{
+						m_translation = [ 0.0, 0.0, 0.0 ]
+						m_rotation = [ 0.0, 0.0, 0.0 ]
+					}
+					m_Keywords = [  ]
+					m_sequenceParams = 
+					{
+						m_flFadeInTime = 0.2
+						m_flFadeOutTime = 0.2
+					}
+					m_folderName = ""
+					m_MotionFramesRootBone = ""
+				},
+				{
+					m_Animationname = "W - Volcano"
+					m_Filepath = "models/heroes/saito/anims/w - volcano.dmx"
+					m_nStartframe = 0
+					m_nEndframe = 25
+					m_flFps = 24.0
+					m_Loop = 
+					{
+						m_bLoop = false
+						m_bSmoothLoop = false
+						m_nSmoothLoopStart = 0
+						m_nSmoothLoopEnd = 0
+						m_StartLoop = 
+						{
+							_class = "CVAnimCmdStartLoop"
+							m_bEnabled = false
+							m_nLoopRestart = 0
+						}
+					}
+					m_bHidden = false
+					m_bDisable = false
+					m_Activities = [  ]
+					m_AnimationEvents = [  ]
+					m_MotionFrames = [  ]
+					m_pIkRules = [  ]
+					m_pAlignAnimation = null
+					m_adjustAnimation = 
+					{
+						m_translation = [ 0.0, 0.0, 0.0 ]
+						m_rotation = [ 0.0, 0.0, 0.0 ]
+					}
+					m_Keywords = [  ]
+					m_sequenceParams = 
+					{
+						m_flFadeInTime = 0.2
+						m_flFadeOutTime = 0.2
+					}
+					m_folderName = ""
+					m_MotionFramesRootBone = ""
+				},
+			]
+			m_sScripts = [  ]
+			m_folderNames = [  ]
+			m_sCompileScripts = [  ]
+			m_pActivityWhiteList = 
+			{
+				m_pObject = null
+			}
+		}
+	}
+	m_pMaterialGroupList = 
+	{
+		m_pObject = 
+		{
+			m_materialGroups = 
+			[
+				{
+					m_name = "default"
+					m_materialList = 
+					[
+						"saito_sword.vmat",
+						"saito_kawatate.vmat",
+						"saito_kinzoku.vmat",
+						"saito_kinzoku_gold.vmat",
+						"saito_nuno.vmat",
+						"saito_huku3.vmat",
+						"saito_hair.vmat",
+						"saito_white.vmat",
+						"saito_eye.vmat",
+						"saito_body.vmat",
+						"saito_skin.vmat",
+						"saito_mouth.vmat",
+						"saito_hilt_black.vmat",
+					]
+				},
+			]
+		}
+	}
+	m_pMeshGroupList = 
+	{
+		m_pObject = null
+	}
+	m_pLodGroupList = 
+	{
+		m_pObject = null
+	}
+	m_pPropBreakableList = 
+	{
+		m_pObject = null
+	}
+	m_pPropDataList = 
+	{
+		m_pObject = null
+	}
+	m_pConstraintLists = [  ]
+	m_collision = ""
+	m_softbody = ""
+	m_sMDLFilename = ""
+	m_sOffsetHitboxSets = [  ]
+	m_vHitboxSetOffset = [ 0.0, 0.0, 0.0 ]
+	m_scriptFiles = [  ]
+	m_pMaterialRemapList = 
+	{
+		m_vMaterialRemapList = 
+		[
+			{
+				m_sSearchMaterial = "saito_body.vmat"
+				m_sReplaceMaterial = "materials/models/heroes/saito/saito_body.vmat"
+			},
+			{
+				m_sSearchMaterial = "saito_eye.vmat"
+				m_sReplaceMaterial = "materials/models/heroes/saito/saito_eye.vmat"
+			},
+			{
+				m_sSearchMaterial = "saito_hair.vmat"
+				m_sReplaceMaterial = "materials/models/heroes/saito/saito_hair.vmat"
+			},
+			{
+				m_sSearchMaterial = "saito_hilt_black.vmat"
+				m_sReplaceMaterial = "materials/models/heroes/saito/saito_kawatate2.vmat"
+			},
+			{
+				m_sSearchMaterial = "saito_huku3.vmat"
+				m_sReplaceMaterial = "materials/models/heroes/saito/saito_huku03.vmat"
+			},
+			{
+				m_sSearchMaterial = "saito_kawatate.vmat"
+				m_sReplaceMaterial = "materials/models/heroes/saito/saito_kawatate_brown.vmat"
+			},
+			{
+				m_sSearchMaterial = "saito_kinzoku.vmat"
+				m_sReplaceMaterial = "materials/models/heroes/saito/saito_kinzoku.vmat"
+			},
+			{
+				m_sSearchMaterial = "saito_kinzoku_gold.vmat"
+				m_sReplaceMaterial = "materials/models/heroes/saito/saito_kinzoku_gold.vmat"
+			},
+			{
+				m_sSearchMaterial = "saito_mouth.vmat"
+				m_sReplaceMaterial = "materials/models/heroes/saito/saito_tongue.vmat"
+			},
+			{
+				m_sSearchMaterial = "saito_nuno.vmat"
+				m_sReplaceMaterial = "materials/models/heroes/saito/saito_nuno.vmat"
+			},
+			{
+				m_sSearchMaterial = "saito_skin.vmat"
+				m_sReplaceMaterial = "materials/models/heroes/saito/saito_skin.vmat"
+			},
+			{
+				m_sSearchMaterial = "saito_sword.vmat"
+				m_sReplaceMaterial = "materials/models/heroes/saito/saito_sonota.vmat"
+			},
+			{
+				m_sSearchMaterial = "saito_white.vmat"
+				m_sReplaceMaterial = "materials/models/heroes/saito/saito_white.vmat"
+			},
+		]
+	}
+	m_flFbxScale = 1.0
+	m_flQCScale = 1.0
+	m_vOrigin = [ 0.0, 0.0, 0.0 ]
+	m_bEmbedAnimsInAnimGroup = false
+	m_pPsfList = null
+	m_keyValueText = ""
+	m_bStaticProp = false
+	m_bEnableClothProcessing = true
+	m_flClothEnableThreshold = 0.05
+	m_nMaxClothVertsPerMesh = 2048
+	m_bBuildClothBoneHierarchy = false
+	m_nNavType = "AUTH_NAV_MESH"
+	m_bMakeUniqueVMeshes = false
+	m_bMakeImplicitBindPoseSequence = false
+	m_bAdjustSkeletonFromBoneFlags = false
+	m_bHiddenAssetFlag = false
+	m_pAnimGroups = [  ]
+}

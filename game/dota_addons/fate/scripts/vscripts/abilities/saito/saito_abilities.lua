@@ -222,6 +222,7 @@ if IsServer() then
         local nPlayerID = tEventTable.playerid
         local sText     = tEventTable.text
         local hHero     = PlayerResource:GetSelectedHeroEntity(nPlayerID)
+        if not (hHero:GetName() == "npc_dota_hero_terrorblade") then return end
         if IsNotNull(hHero) then
             if sText == "-saito1" then
                 hHero:RemoveModifierByName("modifier_saito_model_swap")
