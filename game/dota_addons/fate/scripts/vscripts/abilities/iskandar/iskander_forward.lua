@@ -48,7 +48,8 @@ function iskander_forward:OnSpellStart()
 	local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, radius
         , DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
 
-	local soundQueue = math.random(1,5)
+	local soundQueue = math.random(1,4)
+	if soundQueue == 3 then soundQueue = 5 end -- i was lazy, but needed to remove 3rd sound. 
 
 	for k,v in pairs(targets) do
 		RemoveSlowEffect(v)

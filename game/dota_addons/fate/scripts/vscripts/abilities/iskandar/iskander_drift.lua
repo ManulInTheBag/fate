@@ -26,7 +26,8 @@ function iskander_drift:OnSpellStart()
 	caster:SetPhysicsVelocity(caster:GetForwardVector() * speed)
 	caster:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
 	local damage = self:GetSpecialValueFor("damage")
-	local base_damage = self:GetSpecialValueFor("base_dmg")
+	local base_damage = self:GetSpecialValueFor("base_damage")
+	local stun_duration = self:GetSpecialValueFor("stun_duration")
 	Timers:CreateTimer("chariot_dash_damage", {
 		endTime = 0.0,
 		callback = function()
@@ -47,7 +48,7 @@ function iskander_drift:OnSpellStart()
 				end)
 
            		DoDamage(caster, v, (base_damage + damage *currentMS/100) + bonus_charge_damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
-           		v:AddNewModifier(caster, v, "modifier_stunned", {duration = 0.75})
+           		v:AddNewModifier(caster, v, "modifier_stunned", {duration = stun_duration})
            		v:EmitSound("Iskandar_Chariot_hit")
            	end
         end
@@ -71,7 +72,7 @@ function iskander_drift:OnSpellStart()
 		if(IsServer()) then
 			caster:SetModel("models/sanya/sanya.vmdl")
 			caster:SetOriginalModel("models/sanya/sanya.vmdl")
-			caster:SetModelScale(0.8)
+			caster:SetModelScale(1)
 		end
 	return end
 	})
@@ -92,7 +93,7 @@ function iskander_drift:OnSpellStart()
 		if(IsServer()) then
 			caster:SetModel("models/sanya/sanya.vmdl")
 			caster:SetOriginalModel("models/sanya/sanya.vmdl")
-			caster:SetModelScale(0.8)
+			caster:SetModelScale(1)
 		end
 	end)
 end

@@ -80,6 +80,7 @@ end
 
 
 function iskander_phalanx:PhalanxPull(caster, soldier, targetPoint, damage, ability)
+	local pull_duration = self:GetSpecialValueFor("pull_duration")
 	local targets = FindUnitsInRadius(caster:GetTeam(), soldier:GetAbsOrigin(), nil, 150
 	        , DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 	for k,v in pairs(targets) do
@@ -99,18 +100,18 @@ function iskander_phalanx:PhalanxPull(caster, soldier, targetPoint, damage, abil
 				v:FollowNavMesh(false)
 
 				Timers:CreateTimer({
-					endTime = 0.25,
+					endTime = pull_duration/2,
 					callback = function()
 					v:SetPhysicsVelocity(Vector(pullVector.x, pullVector.y, -500))
 				end
 				})
 
-			  	Timers:CreateTimer(0.5, function()
+			  	Timers:CreateTimer(pull_duration, function()
 					v:PreventDI(false)
 					v:SetPhysicsVelocity(Vector(0,0,0))
 					v:OnPhysicsFrame(nil)
 				end)
-				giveUnitDataDrivenModifier(caster, v, "drag_pause", 0.5)
+				giveUnitDataDrivenModifier(caster, v, "drag_pause", pull_duration)
 				local forwardVec = v:GetForwardVector()
 				v:SetForwardVector(Vector(forwardVec.x*-1, forwardVec.y, forwardVec.z))
 			end

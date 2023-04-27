@@ -253,6 +253,14 @@ function iskander_ionioi:OnAOTKStart()
 	table.insert(caster.AOTKSoldiers, maharaja)
 	caster.AOTKSoldierCount = caster.AOTKSoldierCount + 1
 	maharaja:AddNewModifier(caster, self, "modifier_iskander_units_bonus_dmg_clickable", {duration = 16.5, dmg = self:GetSpecialValueFor("maharaja_bonus_damage")})
+	
+	caster:AddNewModifier(caster, self, "modifier_army_of_the_king_death_checker", {duration = 16})
+	EmitGlobalSound("Iskander.Annihilate")
+	Timers:CreateTimer(1.5, function()
+		EmitGlobalSound("Iskander.Aye")
+	end)
+	EmitGlobalSound("Hero_LegionCommander.PressTheAttack")
+	StartAnimation(caster, {duration=2, activity=ACT_DOTA_CAST_ABILITY_1, rate=0.5})
 	if not caster.IsAOTKDominant then return end -- If Archer's UBW is already active, do not teleport units
 
 
@@ -317,24 +325,17 @@ function iskander_ionioi:OnAOTKStart()
     end
 	
 
-	caster:AddNewModifier(caster, self, "modifier_army_of_the_king_death_checker", {duration = 16})
-	EmitGlobalSound("Iskander.Annihilate")
-	Timers:CreateTimer(1.5, function()
-		EmitGlobalSound("Iskander.Aye")
-	end)
-	EmitGlobalSound("Hero_LegionCommander.PressTheAttack")
-	StartAnimation(caster, {duration=2, activity=ACT_DOTA_CAST_ABILITY_1, rate=0.5})
 
 end
 
-if(IsServer()) then
-function iskander_ionioi:OnAOTKDeath()
-	local caster = self:GetCaster()
-	Timers:CreateTimer(0.066, function()
-		self:EndAOTK(caster)
-	end)
-end
-end
+	function iskander_ionioi:OnAOTKDeath()
+		local caster = self:GetCaster()
+		Timers:CreateTimer(0.066, function()
+			print("aotk death")
+			self:EndAOTK(caster)
+		end)
+	end
+
 
 function iskander_ionioi:EndAOTK(caster)
 	if caster.IsAOTKActive == false then return end

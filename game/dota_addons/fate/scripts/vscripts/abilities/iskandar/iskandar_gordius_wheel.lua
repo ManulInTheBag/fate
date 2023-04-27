@@ -133,7 +133,6 @@ function modifier_gordius_wheel:OnCreated(args)
 		caster:SetModel("models/sanya/sanya_telega.vmdl")
 		caster:SetOriginalModel("models/sanya/sanya_telega.vmdl")
 		caster:SetModelScale(0.6)
-
 	
 
 	Timers:CreateTimer(1.0, function() 

@@ -69,7 +69,7 @@ end
 function iskander_archers:ShootArrow(unit, point)
 	local aoe = self:GetSpecialValueFor("aoe")
 	local caster = self:GetCaster()
-	local point = point + RandomVector(RandomInt(0, 225) )
+	local point = point + RandomVector(RandomInt(0, self:GetSpecialValueFor("distribution_radius")) )
 	local point2 = unit:GetAbsOrigin()  +( point - unit:GetAbsOrigin())/2 
 	local nSpeed = 3000	
 	local unitPoint = unit:GetAttachmentOrigin(2)
