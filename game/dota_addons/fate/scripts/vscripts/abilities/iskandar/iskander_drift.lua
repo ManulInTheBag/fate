@@ -66,7 +66,6 @@ function iskander_drift:OnSpellStart()
 		caster:RemoveModifierByName("modifier_gordius_wheel")
 		caster.IsRiding = false
 		caster:RemoveModifierByName("pause_sealenabled")
-		caster:RemoveModifierByName("locked")
 		giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 0.75)
 		FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
 		if(IsServer()) then

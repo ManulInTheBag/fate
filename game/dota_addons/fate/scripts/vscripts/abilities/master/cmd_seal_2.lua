@@ -71,7 +71,10 @@ function cmd_seal_2:OnSpellStart()
 	-- pay health cost
 	caster:SetHealth(caster:GetHealth() - 1) 
 	master2:SetHealth(caster:GetHealth())
-
+	if(hero:GetName() == "npc_dota_hero_terrorblade") then
+		hero:FindModifierByName("modifier_saito_fds_cast_controller"):BreakCombo()
+		 
+	end
 	if hero:GetName() ~= "npc_dota_hero_night_stalker" then
 		ResetAbilities(hero)
 	end
@@ -94,13 +97,7 @@ function cmd_seal_2:OnSpellStart()
 		end
 	end
  
-	--[[if(hero:GetName() == "npc_dota_hero_terrorblade") then
-		hero:FindModifierByName("modifier_saito_fdb"):SetStackCount(hero:FindModifierByName("modifier_saito_fdb"):GetMaxStackCount())
-		if(hero:HasModifier("modifier_saito_formlessness_tracker")) then
-			hero:FindAbilityByName("saito_formlessness").isRefreshed = 1
-		end
-		 
-	end]]
+
 
 	-- Set cooldown
 	if not caster:HasModifier("modifier_command_seal_1") then

@@ -11,7 +11,7 @@ local locks = {
     "modifier_rho_aias",
     "modifier_story_for_someones_sake",
     "jump_pause_nosilence",
-    "modifier_gordius_wheel_data",
+    "modifier_gordius_wheel",
     --"modifier_whitechapel_murderer",
     --"modifier_whitechapel_murderer_ally",
     --"modifier_whitechapel_murderer_enemy",

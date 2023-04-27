@@ -4593,7 +4593,7 @@
         "DOTA_Tooltip_ability_iskander_archers_distribution_radius"			"DISTRIBUTION RADIUS:"
 
         "DOTA_Tooltip_Ability_iskandar_gordius_wheel"     "Gordius Wheel"
-        "DOTA_Tooltip_ability_iskandar_gordius_wheel_Description" "Cast point: <font color='#7FFF00'>0.01</font>\nIskandar rides on battle chariot, gaining bonus <font color='#FFFAFA'>armor</font>, <font color='#FFFAFA'>magic resistance</font> and <font color='#FFFAFA'>movement speed</font>, every second dealing <font color='#58ACFA'>damage</font> in radius, based on distance to enemy.\nEvery second Iskandar <font color='#FFFAFA'>movement speed</font> increases without a limit.\nWhile Gordius Wheel persists, <font color='#58ACFA'>Forward!</font>, <font color='#58ACFA'>Phalanx</font> and <font color='#58ACFA'>Summon archers</font> all have <font color='#7FFF00'>0</font> cast point and <font color='#58ACFA'>Army of the King</font> cannot be cast.\n<font color='#F1C40F'>Upgradable by attributes Thundergod's Wrath and Via Expugnatio.</font>"
+        "DOTA_Tooltip_ability_iskandar_gordius_wheel_Description" "Cast point: <font color='#7FFF00'>0.01</font>\nIskandar rides on battle chariot, gaining bonus <font color='#FFFAFA'>armor</font>, <font color='#FFFAFA'>magic resistance</font> and <font color='#FFFAFA'>movement speed</font>\nEvery second Iskandar <font color='#FFFAFA'>movement speed</font> increases without a limit and he deals <font color='#58ACFA'>damage</font> in radius, based on distance to enemy.\nWhile Gordius Wheel persists, <font color='#58ACFA'>Forward!</font>, <font color='#58ACFA'>Phalanx</font> and <font color='#58ACFA'>Summon archers</font> all have <font color='#7FFF00'>0</font> cast point and <font color='#58ACFA'>Army of the King</font> cannot be cast.\nIskandar is <font color='#9400D3'>locked</font> while riding.\n<font color='#F1C40F'>Upgradable by attributes Thundergod's Wrath and Via Expugnatio.</font>"
         "DOTA_Tooltip_ability_iskandar_gordius_wheel_Lore"	"When getting in Rider's path of domination, one should be prepared for the mighty stomp of divine bulls."
         "DOTA_Tooltip_ability_iskandar_gordius_wheel_cast_delay"    			 "CAST DELAY:"   
         "DOTA_Tooltip_ability_iskandar_gordius_wheel_duration"     				 "DURATION:"
@@ -4605,8 +4605,8 @@
         "DOTA_Tooltip_ability_iskandar_gordius_wheel_radius_max"     			 "MAX DAMAGE RADIUS:"
         "DOTA_Tooltip_ability_iskandar_gordius_wheel_max_damage"     			 "MAX DAMAGE PER SECOND:"
         "DOTA_Tooltip_ability_iskandar_gordius_wheel_min_damage"     			 "MIN DAMAGE PER SECOND:"
-        "DOTA_Tooltip_ability_iskandar_gordius_wheel_Note0"		"Rider's movement speed may exceed hard cap during duration and he cannot be slowed."
-
+        "DOTA_Tooltip_ability_iskandar_gordius_wheel_Note0"		"Iskandar cannot be slowed while riding, but can be rooted or stunned."
+		"DOTA_Tooltip_ability_iskandar_gordius_wheel_Note1"		"Iskandar he will still be dealing damage in radius even when cannot move."
 
 
         "DOTA_Tooltip_Ability_iskander_drift"     "Via Expugnatio"
@@ -4644,15 +4644,15 @@
         "DOTA_Tooltip_ability_iskander_hammer_and_anvil_damage"        "PASS-THROUGH DAMAGE:"  
 
         "DOTA_Tooltip_Ability_iskander_hephaestion_passive"     "Cavalry Captain"
-        "DOTA_Tooltip_ability_iskander_hephaestion_passive_Description" "All soldiers inside Army of the King gain increased <font color='#FFFAFA'>movement speed</font> while <font color='#58ACFA'>Hephaestion</font> is present on the battlefield."
+        "DOTA_Tooltip_ability_iskander_hephaestion_passive_Description" "<font color='#FFFAFA'>Aura</font>\nAll allies inside Army of the King gain increased <font color='#FFFAFA'>movement speed</font> while <font color='#58ACFA'>Hephaestion</font> is present on the battlefield."
         "DOTA_Tooltip_ability_iskander_hephaestion_passive_bonus_mspd"        "%MOVESPEED BOOST:"  
 
         "DOTA_Tooltip_Ability_iskander_maharaja_passive"     "Infantry Captain"
-        "DOTA_Tooltip_ability_iskander_maharaja_passive_Description" "All allies gain bonus <font color='#FFFAFA'>attack damage</font> while <font color='#58ACFA'>Mithrenes</font> is present on the battlefield."
+        "DOTA_Tooltip_ability_iskander_maharaja_passive_Description" "<font color='#FFFAFA'>Aura</font>\nAll allies gain bonus <font color='#FFFAFA'>attack damage</font> while <font color='#58ACFA'>Mithrenes</font> is present on the battlefield."
         "DOTA_Tooltip_ability_iskander_maharaja_passive_bonus_damage"        "%DAMAGE BOOST:"  
 
         "DOTA_Tooltip_Ability_iskander_waver_passive"     "Mage Captain"
-        "DOTA_Tooltip_ability_iskander_waver_passive_Description" "Soldiers inside Army of the King gain increased <font color='#FFFAFA'>magic resistance</font> while  <font color='#58ACFA'>Waver</font> is present on the battlefield."
+        "DOTA_Tooltip_ability_iskander_waver_passive_Description" "<font color='#FFFAFA'>Aura</font>\All allies inside Army of the King gain increased <font color='#FFFAFA'>magic resistance</font> while  <font color='#58ACFA'>Waver</font> is present on the battlefield."
 
         "DOTA_Tooltip_Ability_iskander_battle_horn"     "Battle Horn"
         "DOTA_Tooltip_ability_iskander_battle_horn_Description" "Cast point: <font color='#7FFF00'>0.1</font>\n<font color='#58ACFA'>Mithrenes</font> orders all AOTK units under his command to <font color='#FFFAFA'>relocate</font> to target location at <font color='#FFFAFA'>maximum speed</font> for 1 second.\nAll enemy units within Army of the King are suffering <font color='#9400D3'>reduced armor and movement speed</font> for duration."

@@ -41,10 +41,10 @@ softdispellable = {
     "modifier_selfmod_agility",
     "modifier_replenishment_heal",
     "modifier_jeanne_trail_debuff",
+    "modifier_master_intervention",
+    "modifier_merlin_excalibur_attack",
     "modifier_saito_mind_eye_buff",
     "modifier_saito_quickslash_bonus",
-    "modifier_master_intervention",
-    "modifier_merlin_excalibur_attack"
 }
 
 strongdispellable = {
@@ -87,8 +87,6 @@ strongdispellable = {
     "modifier_argos_armor",
     "modifier_ambush_invis",
     "modifier_jeanne_trail_debuff",
-    "modifier_saito_mind_eye_buff",
-    "modifier_saito_quickslash_bonus",
     --"modifier_true_assassin_selfmod",
     "modifier_selfmod_agility",
     "modifier_merlin_excalibur_attack",
@@ -103,12 +101,12 @@ strongdispellable = {
     "tamamo_mantra",
     "modifier_lishuwen_cosmic_orbit_momentary_resistance",
     "modifier_cursed_lance_bp",
-    "modifier_saito_fdb_vision",
-    "modifier_saito_formlessness_invis",
     "modifier_merlin_hero_creation",
     "modifier_replenishment_heal",
     --"modifier_heracles_berserk",
-    "modifier_master_intervention" 
+    "modifier_master_intervention",
+    "modifier_saito_mind_eye_buff",
+    "modifier_saito_quickslash_bonus", 
  
 }
 
@@ -152,8 +150,6 @@ deargdispellable = {
     "modifier_argos_armor",
     "modifier_jeanne_trail_debuff",
     "modifier_ambush_invis",
-    "modifier_saito_mind_eye_buff",
-    "modifier_saito_quickslash_bonus",
     --"modifier_true_assassin_selfmod",
     "modifier_selfmod_agility", 
     "modifier_merlin_excalibur_attack",
@@ -170,11 +166,11 @@ deargdispellable = {
     "modifier_lishuwen_cosmic_orbit_momentary_resistance",
     "modifier_cursed_lance_bp",
     "modifier_replenishment_heal",
-    "modifier_saito_fdb_vision",
-    "modifier_saito_formlessness_invis",
     "modifier_merlin_hero_creation",
     --"modifier_heracles_berserk",
     "modifier_master_intervention",
+    "modifier_saito_mind_eye_buff",
+    "modifier_saito_quickslash_bonus",
   
 }
 
@@ -212,7 +208,6 @@ locks = {
     "modifier_rho_aias",
     "modifier_story_for_someones_sake",
     "jump_pause_nosilence",
-    "modifier_gordius_wheel_data",
     --"modifier_whitechapel_murderer",
     --"modifier_whitechapel_murderer_ally",
     --"modifier_whitechapel_murderer_enemy",
@@ -220,7 +215,9 @@ locks = {
     "modifier_nero_tres_new",
     "modifier_nero_performance",
     "modifier_arcueid_melty",
+    "modifier_gordius_wheel",
     "modifier_altera_dash",
+    
 }
 
 goesthruB = {
@@ -271,12 +268,10 @@ cleansable = {
     "modifier_medusa_breaker_facing",
     "modifier_medusa_breaker_facing_stack",
     "modifier_medusa_breaker_not_facing",
-    --"modifier_saito_slow",
-    "modifier_saito_steelwing_mss",
-    "modifier_saito_blast_turn_and_slow",
     "modifier_morgan_slow",
     "modifier_muramasa_tsumukari_hit_slow",
     "modifier_nobu_slow",
+    "modifier_gordius_wheel_thunder_slow",
     -- Other CCs
     "modifier_stunned",
     "modifier_rule_breaker",
@@ -305,8 +300,6 @@ cleansable = {
     "modifier_jeanne_curse_active",
     "modifier_jeanne_trail_debuff",
     "modifier_khsn_silence",
-    --"modifier_saito_magres_down",
-    "modifier_saito_shadowslash_mrr",
     "modifier_merlin_orb_silence",
     "modifier_merlin_illusion",
     "modifier_pepe_mute",
@@ -329,7 +322,6 @@ cleansable = {
     "modifier_ryougi_knife_fan_slow",
     "modifier_arcueid_shut_up_slow",
     "modifier_leonidas_enomotia_slow",
-    "modifier_saito_fds_active_sdr",
     "modifier_love_spot_charmed",
     "modifier_nero_tres_enemy",
     "modifier_arcueid_what",
@@ -337,6 +329,9 @@ cleansable = {
     "modifier_nobu_divinity_mark",
     "modifier_nobu_divinity_mark_activated",
     "iskander_brilliance_of_the_king",
+    "modifier_saito_steelwing_mss",
+    "modifier_saito_shadowslash_mrr",
+    "modifier_saito_fds_active_sdr"
 
 }
 
@@ -376,13 +371,14 @@ slowmodifier = {
     "modifier_death_door",
     "modifier_khsn_blink_slow",
     "modifier_roar_slow",
-    "modifier_saito_slow",
     "modifier_morgan_slow",
     "modifier_muramasa_tsumukari_hit_slow",
     "modifier_ryougi_knife_fan_slow",
     "modifier_nobu_slow",
     "modifier_arcueid_shut_up_slow",
     "modifier_leonidas_enomotia_slow",
+    "modifier_saito_steelwing_mss",
+    "modifier_gordius_wheel_thunder_slow"
 }
 
 donotlevel = {
@@ -534,7 +530,6 @@ CannotReset = {
     "medusa_monstrous_strength",
     "nero_heat",
 
-    "saito_style",
 
     "gilles_prelati_spellbook",
     "emiya_rho_aias",
@@ -588,6 +583,10 @@ CannotReset = {
 
     "iskander_ionioi",
     "true_assassin_protection_from_wind",
+
+
+    "saito_style",
+    "saito_blast",
 
 }
 
@@ -1251,22 +1250,18 @@ function IsSpellBlocked(target)
         ParticleManager:CreateParticle("particles/items_fx/immunity_sphere.vpcf", PATTACH_ABSORIGIN, target)
         target:RemoveModifierByName("modifier_jtr_mental_pollution_shield")
         return true
-    elseif target:HasModifier("modifier_saito_mind_eye") then
-        local ability = target:FindModifierByName("modifier_saito_mind_eye"):GetAbility()
-        ability:OnFateSpellBlocked()
-        EmitSoundWithCooldown("DOTA_Item.LinkensSphere.Activate", target, 1)
-        ParticleManager:CreateParticle("particles/items_fx/immunity_sphere.vpcf", PATTACH_ABSORIGIN, target)
-        target:RemoveModifierByName("modifier_saito_mind_eye")
-        return true
     elseif target:HasModifier("modifier_saito_mind_eye_linken") then
         EmitSoundWithCooldown("DOTA_Item.LinkensSphere.Activate", target, 1)
-        ParticleManager:CreateParticle("particles/heroes/saito/saito_mind_eye_linken_release.vpcff", PATTACH_ABSORIGIN, target)
+        ParticleManager:CreateParticle("particles/heroes/saito/saito_mind_eye_linken_release.vpcf", PATTACH_ABSORIGIN, target)
         target:RemoveModifierByName("modifier_saito_mind_eye_linken")
         return true
     elseif target:HasModifier("modifier_saito_style_active") then
-        EmitSoundWithCooldown("DOTA_Item.LinkensSphere.Activate", target, 1)
-        ParticleManager:CreateParticle("particles/heroes/saito/saito_mind_eye_linken_release.vpcf", PATTACH_ABSORIGIN, target)
-        return true
+        local hLinkModifier = target:FindModifierByName("modifier_saito_style_active")
+        if IsNotNull(hLinkModifier) and hLinkModifier:BlockSpellCheck() then
+            EmitSoundWithCooldown("DOTA_Item.LinkensSphere.Activate", target, 1)
+            ParticleManager:CreateParticle("particles/heroes/saito/saito_mind_eye_linken_release.vpcf", PATTACH_ABSORIGIN, target)
+            return true
+        end
     else
         return false
     end

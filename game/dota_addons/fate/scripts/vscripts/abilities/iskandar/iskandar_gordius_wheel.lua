@@ -17,9 +17,9 @@ end
 function iskandar_gordius_wheel:OnSpellStart()
 	local caster = self:GetCaster()
 
-	caster:AddNewModifier(caster, self, "modifier_gordius_wheel", {duration = self:GetSpecialValueFor("duration") + 1 })-- + 1 coz 1 second  
+	caster:AddNewModifier(caster, self, "modifier_gordius_wheel", {duration = self:GetSpecialValueFor("duration") + 1 })-- + 1 coz 1 second  pause
 	giveUnitDataDrivenModifier(caster, caster, "pause_sealdisabled", 1.0)
-	giveUnitDataDrivenModifier(caster, caster, "locked", self:GetSpecialValueFor("duration") + 1)
+	
 	caster:EmitSound("Hero_Magnataur.Skewer.Cast")
     	caster:EmitSound("Hero_Zuus.GodsWrath")
     	caster:EmitSound("Iskander_Wheel_" .. math.random(1,3))
