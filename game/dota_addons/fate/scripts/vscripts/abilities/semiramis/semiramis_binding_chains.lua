@@ -7,7 +7,7 @@ function semiramis_binding_chains:OnSpellStart()
 	local target = self:GetCursorTarget()
 	local bind_duration = self:GetSpecialValueFor("duration")
 
-	local magic_res = target:Script_GetMagicalArmorValue(false, false)
+	local magic_res = target:Script_GetMagicalArmorValue(false, nil)
 
 	bind_duration = bind_duration * (1 - magic_res)
 	
