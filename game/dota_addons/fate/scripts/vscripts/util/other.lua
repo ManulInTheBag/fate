@@ -536,7 +536,7 @@ function GetPreMitigationDamage(value, victim, attacker, damagetype)
 		local damage = value / (1 - reduction)
 		return damage,reduction
 	elseif damagetype == DAMAGE_TYPE_MAGICAL then
-		local reduction = victim:GetMagicalArmorValue()*0.01
+		local reduction = victim:Script_GetMagicalArmorValue(false, false)*0.01
 		local damage = value / (1 - reduction)
 
 		return damage,reduction
