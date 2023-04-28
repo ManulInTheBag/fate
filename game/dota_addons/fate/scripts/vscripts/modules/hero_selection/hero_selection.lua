@@ -113,8 +113,30 @@ function HeroSelection:PrepareTables()
 				baseData.Combo and baseData.Combo or "fate_empty10"
 			}
 
+			heroData.linked_attributes = {}
+			heroData.linked_attributes_row = {}
+			if heroData.attributesandcombo then
+				for i=1,6 do
+					local attrdata = GetAbilityKeyValuesByName(heroData.attributesandcombo[i])
+					if attrdata then
+						local linked = attrdata.LinkedAbilities
+						if linked then
+							heroData.linked_attributes[i] = string.split(linked, " ")
+							local row = attrdata.LinkedAbilitiesRow
+							if row then
+								heroData.linked_attributes_row[i] = row
+							else
+								heroData.linked_attributes_row[i] = 1
+							end
+						end
+					end
+				end
+			end
+
 			if not Options:IsEquals("MainHeroList", "NoAbilities") then
 				heroData.abilities = {}--HeroSelection:ParseAbilitiesFromTable(heroTable)
+				heroData.linked_abilities = {}
+				heroData.linked_abilities_row = {}
 				for i = 1,6 do
 					local abil = "Ability"..i
 					heroData.abilities[i] = baseData[abil]
@@ -124,8 +146,22 @@ function HeroSelection:PrepareTables()
 				heroData.DisabledInRanked = heroTable.DisabledInRanked == 1
 				heroData.Unreleased = heroTable.Unreleased == 1
 
-				if heroTable.LinkedHero then
-					heroData.linked_heroes = string.split(heroTable.LinkedHero, " | ")
+				if heroData.abilities then
+					for i = 1, #heroData.abilities do
+						local abilityData = GetAbilityKeyValuesByName(heroData.abilities[i])
+						if abilityData then
+							local linked = abilityData.LinkedAbilities
+							if linked then
+								heroData.linked_abilities[i] = string.split(linked, " ")
+								local row = abilityData.LinkedAbilitiesRow
+								if row then
+									heroData.linked_abilities_row[i] = row
+								else
+									heroData.linked_abilities_row[i] = 1
+								end
+							end
+						end
+					end
 				end
 			end
 			heroesData[baseData.override_hero] = heroData

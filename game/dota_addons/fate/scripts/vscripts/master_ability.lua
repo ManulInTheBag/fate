@@ -899,6 +899,13 @@ function OnProsperityAcquired(keys)
 	local master = hero.MasterUnit 
 	local master2 = hero.MasterUnit2
 
+	if master.ProsperityCount == nil then 
+		master.ProsperityCount = 1
+	else
+		master.ProsperityCount = master.ProsperityCount + 1
+	end
+
+
 	--[[for i=1,4 do
 		local level = hero:GetLevel()
 		if level ~= 24 then

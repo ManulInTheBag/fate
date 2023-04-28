@@ -103,7 +103,7 @@ function FHTSub(heroName, heroData, panel, big){
 
 	var HeroCard = $.CreatePanel('Panel', StatPanel, 'HeroListPanel_element_' + heroName);
 	HeroCard.BLoadLayoutSnippet('HeroCard');
-	HeroCard.FindChildTraverse('HeroImage').SetImage(TransformTextureToPath(heroName, 'portrait'));
+	HeroCard.FindChildTraverse('HeroImage').SetImage("s2r://panorama/images/custom_game/selection/" + heroName + "_png.vtex");
 	if (heroData.isChanged) {
 		HeroCard.FindChildTraverse('HeroChangedBurstRoot').BCreateChildren('<DOTAScenePanel map="scenes/hud/levelupburst" hittest="false" />');
 		HeroCard.AddClass('IsChanged');

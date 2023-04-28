@@ -1,0 +1,26 @@
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
+		<include src="s2r://panorama/styles/custom_game/fateanother_fatepedia.vcss_c" />
+	</styles>
+	<scripts>
+		<include src="s2r://panorama/scripts/custom_game/fateanother_fatepedia.vjs_c" />
+	</scripts>
+	<Panel class="FatepediaRoot" hittest="false">
+		<Panel id="FatepediaBoard" hittest="true">
+			<Panel id="FatepediaHeroesPanel" hittest="false" />
+			<Panel id="FatepediaHeroInfoPanel" hittest="false">
+				<Panel id="FatepediaHeroIntroPanel" hittest="false">
+					<Panel id="FatepediaHeroIntroImage" hittest="false" />
+					<Label id="FatepediaHeroName" hittest="false" />
+				</Panel>
+				<!--<Label id="InnateText" class="FatepediaSkillContextText" contentheight="200px" text="Innates" hittest="true" /> -->
+				<Label id="QWERText" class="FatepediaSkillContextText" text="Abilities" hittest="true" />
+				<Label id="AttrText" class="FatepediaSkillContextText" text="Attributes and combo" hittest="false" />
+				<Panel id="FatepediaHeroSkillPanel" hittest="false" />
+				<Panel id="FatepediaHeroAttrPanel" hittest="false" />
+				<!--<Label html="true" class="FatepediaSkillContextText" id="WikiLink" text="&lt;a href=&quot;http://www.example.com&quot;&gt;here&lt;a&gt;" /> -->
+			</Panel>
+		</Panel>
+	</Panel>
+</root>

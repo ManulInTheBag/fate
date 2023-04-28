@@ -32,8 +32,8 @@ function cmd_seal_1:OnSpellStart()
 		return
 	end
 	if(hero.ProsperityCount) then
-		caster:SetMana(caster:GetMana()+hero.ProsperityCount) 
-	 end
+		--caster:SetMana(caster:GetMana()+hero.ProsperityCount) 
+	end
 	if hero:GetName() == "npc_dota_hero_doom_bringer" and RandomInt(1, 100) <= 35 then
 		EmitGlobalSound("Shiro_Onegai")
 	end

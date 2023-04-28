@@ -1,0 +1,10 @@
+<root>
+	<styles>
+		<include src="s2r://panorama/styles/dotastyles.vcss_c" />
+		<include src="s2r://panorama/styles/custom_game/fateanother_fatepedia.vcss_c" />
+	</styles>
+	<scripts>
+		<include src="s2r://panorama/scripts/custom_game/fateanother_fatepedia_ability.vjs_c" />
+	</scripts>
+	<Button class="FatepediaHeroButton" hittest="true" onactivate="OnHeroButtonPressed()" onmouseover="OnHeroButtonShowTooltip()" onmouseout="OnHeroButtonHideTooltip()" />
+</root>

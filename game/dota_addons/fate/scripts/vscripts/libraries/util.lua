@@ -1388,7 +1388,7 @@ function CalculateDamagePreReduction(eDamageType, fDamage, hUnit)
 	end
 	
 	if eDamageType == DAMAGE_TYPE_MAGICAL then
-		local fMagicRes = hUnit:GetMagicalArmorValue()
+		local fMagicRes = hUnit:Script_GetMagicalArmorValue()
 		return fDamage * (1 + fMagicRes)
 	end
 	
@@ -1403,7 +1403,7 @@ function CalculateDamagePostReduction(eDamageType, fDamage, hUnit)
 	end
 	
 	if eDamageType == DAMAGE_TYPE_MAGICAL then
-		local fMagicRes = hUnit:GetMagicalArmorValue()
+		local fMagicRes = hUnit:Script_GetMagicalArmorValue()
 		return fDamage * (1 - fMagicRes)
 	end
 	
@@ -1626,7 +1626,7 @@ function DoDamage(source, target , dmg, dmg_type, dmg_flag, abil, isLoop)
         elseif dmg_type == DAMAGE_TYPE_PHYSICAL then
             reduction = GetPhysicalDamageReduction(target:GetPhysicalArmorValue(false))
         elseif dmg_type == DAMAGE_TYPE_MAGICAL then
-            reduction = target:GetMagicalArmorValue() 
+            reduction = target:Script_GetMagicalArmorValue() 
         end 
         local originalDamage = dmg - target.rhoShieldAmount * 1/(1-reduction)
         target.rhoShieldAmount = target.rhoShieldAmount - dmg * (1-reduction)
@@ -1652,7 +1652,7 @@ function DoDamage(source, target , dmg, dmg_type, dmg_flag, abil, isLoop)
         if dmg_type == DAMAGE_TYPE_PHYSICAL then
             reduction = GetPhysicalDamageReduction(target:GetPhysicalArmorValue(false))
         elseif dmg_type == DAMAGE_TYPE_MAGICAL then
-            reduction = target:GetMagicalArmorValue()
+            reduction = target:Script_GetMagicalArmorValue()
         end
         local originalDamage = dmg - modifier.CL_SHIELDLEFT * 1/(1-reduction)
         modifier.CL_SHIELDLEFT = modifier.CL_SHIELDLEFT - dmg * (1-reduction)
@@ -1708,7 +1708,7 @@ function DoDamage(source, target , dmg, dmg_type, dmg_flag, abil, isLoop)
         if dmg_type == DAMAGE_TYPE_PHYSICAL then
             reduction = GetPhysicalDamageReduction(target:GetPhysicalArmorValue(false))
         elseif dmg_type == DAMAGE_TYPE_MAGICAL then
-            reduction = target:GetMagicalArmorValue() 
+            reduction = target:Script_GetMagicalArmorValue() 
         end 
         local originalDamage = dmg - target.argosShieldAmount * 1/(1-reduction)
         target.argosShieldAmount = target.argosShieldAmount - dmg * (1-reduction)

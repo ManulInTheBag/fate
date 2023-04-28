@@ -20,18 +20,17 @@ function CameraDistanceSlider(bFirstInition)
 {
     const hCameraDistanceSlider = $("#CameraDistanceSlider");
     
-    const fMin = 1.5;
-    const fMax = 2.5;
+    const fMin = 0;
+    const fMax = 1;
 
     if ( bFirstInition )
     {
-        hCameraDistanceSlider.value = 1
+        hCameraDistanceSlider.value = 1900
     }
 
     const fDistance = AnimeLerp(hCameraDistanceSlider.value, fMin, fMax);
 
     GameUI.SetCameraDistance(fDistance);
-
     if (hCameraDistanceSlider.BHasHoverStyle() || bFirstInition)
     {
         $.Schedule(1/30, CameraDistanceSlider);

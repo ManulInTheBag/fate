@@ -189,7 +189,7 @@ function CreateErrorMessage(msg){
 	//GameEvents.Subscribe( "dota_player_update_query_unit", UpdateAbilityList );
 	//GameEvents.Subscribe( "dota_ability_changed", UpdateAbilityList );
 	//GameEvents.Subscribe( "dota_hero_ability_points_changed", UpdateAbilityList );
-	GameUI.SetCameraDistance(1600);
+	GameUI.SetCameraDistance(1900);
 	GameEvents.Subscribe( "player_selected_hero", UpdateAttributeList);
 	GameEvents.Subscribe( "servant_stats_updated", UpdateStatPanel );
 	GameEvents.Subscribe( "error_message_fired", CreateErrorMessage)
