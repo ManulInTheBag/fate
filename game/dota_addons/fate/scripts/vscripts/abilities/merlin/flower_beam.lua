@@ -59,7 +59,7 @@ function flower_beam:OnSpellStart()
 	caster:FindAbilityByName("merlin_charisma"):AttStack() 
 	local radius = self:GetSpecialValueFor("beam_radius")
 	local point = target
-	local beam_counter = self:GetSpecialValueFor("damage_ticks")
+	local beam_counter = self:GetSpecialValueFor("ticks")
 	local beam_counter_starting = beam_counter
 	local damage = self:GetSpecialValueFor("damage")+(caster.RapidChantingAcquired and caster:GetIntellect()*self:GetSpecialValueFor("att_dmg_per_int") or 0)
 	local move_per_tick = self:GetSpecialValueFor("beam_movement")
@@ -67,7 +67,8 @@ function flower_beam:OnSpellStart()
 	local tick_time = movement_time/beam_counter_starting
 	local illusion  = CreateIllusions(caster,caster,nil,1,0,false,false)
 	local beam_particle
-	 illusion[1]:AddNewModifier(caster, self, "modifier_merlin_self_slow", {duration = 0 +movement_time }) 
+	 illusion[1]:AddNewModifier(caster, self, "modifier_merlin_self_slow", {duration = movement_time-0.2 })
+	 
 	 Timers:CreateTimer( 0 +movement_time, function()
  
 			ParticleManager:DestroyParticle( beam_particle, true)
@@ -81,6 +82,7 @@ function flower_beam:OnSpellStart()
 	Timers:CreateTimer(0.1, function() 
 		if( not caster:IsAlive()) then return end
 		local start_location = illusion[1]:GetAttachmentOrigin(2) 
+		illusion[1]:SetForwardVector((target - illusion[1]:GetAbsOrigin()):Normalized()) 
 		if(beam_counter == beam_counter_starting) then
 			 beam_particle = ParticleManager:CreateParticle("particles/merlin/merlin_beam.vpcf", PATTACH_CUSTOMORIGIN, nil)
 			ParticleManager:SetParticleControl( beam_particle, 1, start_location) 
@@ -91,7 +93,7 @@ function flower_beam:OnSpellStart()
 		local targets = FindUnitsInRadius(caster:GetTeam(), point, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
 		for k,v in pairs(targets) do       
       
-			DoDamage(caster, v, damage +v:GetMaxHealth()*self:GetSpecialValueFor("maxhpdmgpercent")/100 , DAMAGE_TYPE_MAGICAL, 0, ability, false)
+			DoDamage(caster, v, damage +v:GetMaxHealth()*self:GetSpecialValueFor("damage_per_hp")/100 , DAMAGE_TYPE_MAGICAL, 0, ability, false)
 			v:AddNewModifier(caster, self, "modifier_merlin_slow", {Duration = 0.2})   
 		end
 		ParticleManager:SetParticleControl( beam_particle, 1, start_location) 

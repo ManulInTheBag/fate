@@ -1,7 +1,7 @@
 "DOTAAbilities"
 {
 	 
-//=================================================================================================================
+	//=================================================================================================================
 	// Merlin - Flower beam (Q)
 	//=================================================================================================================
 	"flower_beam"
@@ -13,74 +13,29 @@
 		"LevelsBetweenUpgrades"			"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE| DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO|DOTA_UNIT_TARGET_CREEP"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityTextureName"			"custom/merlin/merlin_flower_beam"
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3"
 		"AnimationPlaybackRate" 		"1.0"
 		"AOERadius"						"%range"
 		"AbilityCastPoint"				"0.01"
-		"AbilityCastRange"				"1000"
+		"AbilityCastRange"				"1200"
  		"AbilityCooldown"				"5 4.5 4 3.5 3"
 		"AbilityManaCost"				"100"
-		"AbilitySpecial"
+
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"damage"				"60 70 80 90 100"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"speed"				"1200"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"range"				"1000"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"beam_range"				"400" //not used
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"damage_ticks"				"8"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"beam_radius"				"170"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"beam_movement"				"36"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"movement_time"				"1.0"
-			}
-			"09"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"maxhpdmgpercent"				"1.5 1.75 2 2.25 2.5"
-			}
-			"10"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"att_dmg_per_int"				"0.3"
-			}
-			"11"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"slow_power"				"40"
-			}
-			 
+			"damage"											"60 75 90 105 120"
+			"speed"												"1200" 
+			"range"												"1200" 
+			"ticks"												"8"
+			"beam_radius"										"180"   
+			"beam_movement"										"36" 					
+			"movement_time"										"1" 	
+			"damage_per_hp"										"1.5 1.75 2 2.25 2.5"				 	
+			"att_dmg_per_int"									"0.3"				 	//SA-value for damage, applied for EACH tick				
+			"slow_power"										"40"				 	
 		}
 	}
 	 
@@ -166,50 +121,27 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT| DOTA_ABILITY_BEHAVIOR_AOE"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO|DOTA_UNIT_TARGET_CREEP"
 		"AbilityTextureName"			"custom/merlin/merlin_illusion"
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_4"
 		"AnimationPlaybackRate" 		"1.0"
-		"AOERadius"						"%radius"
+		"AOERadius"						"400"
 		"AbilityCastPoint"				"0.2"
 		"AbilityCastRange"				"1000"
  		"AbilityCooldown"				"30 28 26 24 22"
 		"AbilityManaCost"				"400"
-		"AbilitySpecial"
+
+
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"basic_duration"				"1.25 1.5 1.75 2 2.25"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"min_duration"				"0.75 0.87 1 1.12 1.25"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"damage_to_awake"				"300 400 500 600 700"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"radius"				"400"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"duration_red_per_unit"				"0.2"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"damage"				"75"
-			}
-			 
-			
+			"basic_duration"					"1.25 1.5 1.75 2 2.25"
+			"min_duration"						"0.75 0.87 1 1.12 1.25" 	
+			"damage_to_awake"					"300 400 500 600 700"		
+			"radius"							"400"
+			"duration_red_per_unit"				"0.2"
+			"damage"							"75"
 		}
+		
 	}
 	//=================================================================================================================
 	// Merlin - Avalon (D)
@@ -224,7 +156,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO|DOTA_UNIT_TARGET_CREEP"
 		"AbilityTextureName"			"custom/merlin/merlin_avalon"
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_6"
 		"AnimationPlaybackRate" 		"1.0"
@@ -236,21 +168,12 @@
 
 		"LinkedAbilities"				"merlin_avalon_release"
 
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			 
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"range"				"400 600"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"duration"				"1 1.5"
-			} 
-			
+			"range"										"400 600"
+			"duration"									"1 1.5" 			
 		}
+		
 	}
 
 	//=================================================================================================================
@@ -275,36 +198,18 @@
 		"AbilityCastRange"				"400 600"
  		"AbilityCooldown"				"30"
 		"AbilityManaCost"				"0"
-		"AbilitySpecial"
+
+
+		"AbilityValues"
 		{
-			 
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"range"				"400 600"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"duration"				"2" 		//blink lock duration
-			} 
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"att_attack_range"				"200"
-			} 
-		    "04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"att_search_radius"				"250"
-			} 
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"att_damage"				"600"
-			} 
-			
+			"range"										"400 600"
+			"duration"									"2" 			//SA-value for blink lock duration
+			"att_attack_range"							"200"			//SA-value 
+			"att_search_radius"							"250"			//SA-value 
+			"att_damage"								"600"			//SA-value 
 		}
+
+	
 	}
 	//=================================================================================================================
 	// Merlin - Charisma (F)
@@ -323,40 +228,15 @@
 		"AbilityCastRange"				"0"
  		"AbilityCooldown"				"0"
 		"AbilityManaCost"				"0"
-		"AbilitySpecial"
+
+		"AbilityValues"
 		{
-			 
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"health_bonus"				"100 150"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"health_regen_bonus"				"0.5 1"
-			} 
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"mana_regen_bonus"				"0 10"
-			} 
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"aura_radius"				"800"
-			} 
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"att_attackspeed_per_stack"				"20"
-			} 
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"att_duration"				"8"
-			} 
-			
+			"health_bonus"							"100 150"
+			"health_regen_bonus"					"0.5 1"
+			"mana_regen_bonus"						"0 10"
+			"aura_radius"							"800"
+			"att_attackspeed_per_stack"				"20"     //SA-value for attackspeed per ability casted
+			"att_duration"							"8" //SA-value for attackspeed per ability casted			
 		}
 	}
 
@@ -381,35 +261,15 @@
 		"AbilityCastRange"				"1200"
  		"AbilityCooldown"				"30"
 		"AbilityManaCost"				"100"
-		"AbilitySpecial"
+
+		"AbilityValues"
 		{
-			 
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"base_stat_bonus"				"30"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"duration"				"12"
-			} 
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"radius"				"1500"
-			} 
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"stat_increase_per_teammate"				"5"
-			} 
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ms_base"				"15"
-			} 
-			
+			"base_stat_bonus"										"30"
+			"ms_base"												"15" 	
+			"duration"												"12" 					
+			"radius"												"1500" 
+			"stat_increase_per_teammate"							"5"   					//Stat AND ms increase per teammate in  radius 
+				
 		}
 	}
 	 
@@ -423,67 +283,34 @@
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"2"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
 		"AbilityTextureName"			"custom/merlin/merlin_excalibur"
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_6"
 		"AnimationPlaybackRate" 		"1.0"
-		"AOERadius"						"%range"
+		"AOERadius"						"1200"
 		"AbilityCastPoint"				"0.5"
-		"AbilityCastRange"				"440"
+		"AbilityCastRange"				"1200"
  		"AbilityCooldown"				"40 38 36 34 32"
 		"AbilityManaCost"				"800"
-		"AbilitySpecial"
+
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"damage_min"		"150 190 230 270 310"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"damage_increase"	"16 19 22 25 28"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"range"				"1000"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"width"				"440"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"damage_ticks"				"5"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"on_hit_dmg"		"150 190 230 270 310"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"att_dmg_per_int"	"1.5"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"buff_duration"				"8"
-			}
-			"09"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"dmg_per_int"				"0.6"
-			}
+			"damage"											"90 110 130 150 170"
+			"range"												"1200" 
+			"width"												"300" 
+			"ticks"										"12"
+			"on_hit_damage"										"150 190 230 270 310"   //root duration
+			"att_dmg_per_int"									"1.5" 					//SA- value for Autoattack buff
+			"buff_duration"										"8" 					
+			"dmg_per_int"										"0.3"				 	//SA-value for damage
+			"distance_min"										"250"				 	//knockback
 			
 		}
+		
+
 	}
 	//=================================================================================================================
 	// Merlin - Combo - Garden of avalon (D - E)
@@ -509,41 +336,16 @@
 
 		"LinkedAbilities"				"merlin_avalon_garden_stop"
 
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"radius"				"1600"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"duration"				"6"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"health_regen_bonus"				"10"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"mana_regen_bonus"				"20"
-			}
-			 	"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"duration_visible"				"10"
-			}
-			 	"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"health_regen_bonus_const"				"450"
-			} 
-			 
-			
+			"radius"												"1600"
+			"duration"												"6" 					//for script only
+			"health_regen_bonus"									"10" 
+			"mana_regen_bonus"										"20"
+			"duration_visible"										"10"   					//for descriptions. Calculations made in script 
+			"health_regen_bonus_const"								"450" 					
 		}
+		
 	}
 
 	//=================================================================================================================
@@ -567,12 +369,7 @@
 		"AbilityCastPoint"				"0.0"
  		"AbilityCooldown"				"0"
 		"AbilityManaCost"				"0"
-		"AbilitySpecial"
-		{
-			 
-			 
-			
-		}
+
 	}
 
 
@@ -590,31 +387,14 @@
 
 		"AbilityManaCost"				"10"
 
-		 
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"duration"				"2" 		//blink lock duration
-			} 
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"att_attack_range"				"200"
-			} 
-		    "03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"att_search_radius"				"250"
-			} 
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"att_damage"				"600"
-			} 
-			 
-		}		
+			"duration"						"2" 		//blink lock duration
+			"att_attack_range"				"200"		///This should  ACTUALLY  be aoe (FindUnitsInLine)
+			"att_search_radius"				"250"
+			"att_damage"					"600"
+		}
+	
 	}
 	"merlin_dreamlike_charisma_attribute"
 	{
@@ -631,15 +411,12 @@
 		"AbilityManaCost"				"10"
 
 		 
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"q_turnrate"			"500"
-			}
-			 
-		}		
+			"health_bonus"							"150"
+			"health_regen_bonus"					"1"
+			"mana_regen_bonus"						"10"
+		}
 	}
 	"merlin_hero_creation_attribute"
 	{
@@ -656,35 +433,14 @@
 		"AbilityManaCost"				"10"
 
 		 
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"base_stat_bonus"				"30"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"duration"				"12"
-			} 
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"radius"				"1500"
-			} 
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"stat_increase_per_teammate"				"5"
-			} 
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"ms_base"				"15"
-			} 
-			 
-		}		
+			"base_stat_bonus"										"30"
+			"duration"												"12" 					
+			"radius"												"1500" 
+			"stat_increase_per_teammate"							"5"   					//Stat AND ms increase per teammate in  radius 
+			"ms_base"												"15" 					
+		}
 	}
 	"merlin_rapid_chanting_attribute"
 	{
@@ -700,16 +456,12 @@
 
 		"AbilityManaCost"				"17"
 
-		 
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"att_dmg_per_int"				"0.3"
-			}
-			 
-		}		
+			"att_dmg_per_int"										"0.3"
+			
+		}
+	
 	}
 	"merlin_king_assistant_attribute"
 	{

@@ -51,6 +51,20 @@
 					{
 						_class = "AnimFile"
 						name = "Merlin_idle"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								root_bone_name = ""
+								motion_type = "Uniform"
+							},
+						]
 						activity_name = "ACT_DOTA_IDLE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -73,6 +87,20 @@
 					{
 						_class = "AnimFile"
 						name = "Merlin_atk1"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								root_bone_name = ""
+								motion_type = "Uniform"
+							},
+						]
 						activity_name = "ACT_DOTA_ATTACK"
 						activity_weight = 1
 						weight_list_name = ""
@@ -161,6 +189,20 @@
 					{
 						_class = "AnimFile"
 						name = "Merlin_staff_pierce"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								root_bone_name = ""
+								motion_type = "Uniform"
+							},
+						]
 						activity_name = "ACT_DOTA_RAZE_1"
 						activity_weight = 1
 						weight_list_name = ""
@@ -212,6 +254,20 @@
 					{
 						_class = "AnimFile"
 						name = "Merlin_staff_shoot"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								root_bone_name = ""
+								motion_type = "Uniform"
+							},
+						]
 						activity_name = "ACT_DOTA_CAST_ABILITY_2"
 						activity_weight = 1
 						weight_list_name = ""
@@ -234,6 +290,91 @@
 					{
 						_class = "AnimFile"
 						name = "Merlin_sword_ground"
+						children = 
+						[
+							{
+								_class = "AnimEvent"
+								name = "create_sword_glow"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 50
+								event_keys = 
+								{
+									name = resource:"particles/merlin/excalibur_glow.vpcf"
+									detach_from_owner = false
+									always_run = true
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = "sword_glow_attach"
+									attachment_type = "point_follow"
+									attachment_point_cp1 = "sword_glow_attach1"
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_STOP_PARTICLE_EFFECT"
+								event_frame = 114
+								event_keys = 
+								{
+									name = resource:"particles/merlin/excalibur_glow.vpcf"
+									stop_instantly = true
+									play_endcap = false
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_HIDE_PARTICLE_EFFECT"
+								event_frame = 114
+								event_keys = 
+								{
+									name = resource:"particles/merlin/excalibur_glow.vpcf"
+									stop_on_seq_change = false
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_HIDE_PARTICLE_EFFECT"
+								event_frame = 114
+								event_keys = 
+								{
+									name = resource:"particles/merlin/excalibur_explosion_wave.vpcf"
+									stop_on_seq_change = false
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_STOP_PARTICLE_EFFECT"
+								event_frame = 114
+								event_keys = 
+								{
+									name = resource:"particles/merlin/excalibur_explosion_wave.vpcf"
+									stop_instantly = true
+									play_endcap = false
+								}
+							},
+							{
+								_class = "AnimEvent"
+								name = "create_ground_hit"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 32
+								event_keys = 
+								{
+									name = resource:"particles/merlin/excalibur_explosion_wave.vpcf"
+									detach_from_owner = false
+									always_run = true
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = "sword_glow_attach1"
+									attachment_type = "point_follow"
+									attachment_point_cp1 = ""
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+						]
 						activity_name = "ACT_DOTA_CAST_ABILITY_6"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1026,14 +1167,21 @@
 						weight = 1.0
 						ignore_rotation = false
 					},
+					{
+						_class = "Attachment"
+						name = "sword_glow_attach1"
+						parent_bone = "bone_new7"
+						relative_origin = [ -28.202934, 80.586998, 10.30512 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
 				]
 			},
 		]
 		model_archetype = ""
 		primary_associated_entity = ""
 		anim_graph_name = ""
-		importer_notes = """
-Imported from VMDL
-"""
+		importer_notes = "Imported from VMDL"
 	}
 }

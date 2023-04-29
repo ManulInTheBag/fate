@@ -7788,18 +7788,18 @@
 		"npc_dota_hero_puck_bio"						""
 
         "DOTA_Tooltip_ability_flower_beam"							"Flower beam"
-        "DOTA_Tooltip_ability_flower_beam_Description"			"Vector target. Merlin creates an image of him shooting a laser, which travels along the selected vector, dealing damage to all enemies on its path, which scales with the enemy max health.\nBeam applies a slow effect on each hit"
+        "DOTA_Tooltip_ability_flower_beam_Description"			"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0   </font> |    <font color='#FFFAFA'>   Vector target.</font>\nMerlin creates an <font color='#FFFAFA'>illusion</font> of him shooting a beam, which travels along the selected vector, dealing <font color='#58ACFA'>damage</font> to all enemies, which scales with the <font color='#FFFAFA'>enemy max health</font>.\nBeam applies a <font color='#9400D3'>slow</font> effect on each hit"
         
-        "DOTA_Tooltip_ability_flower_beam_range"					"Range:"
+        "DOTA_Tooltip_ability_flower_beam_range"					"Cast range:"
         "DOTA_Tooltip_ability_flower_beam_damage"					"Damage per tick:"
-        "DOTA_Tooltip_ability_flower_beam_maxhpdmgpercent"			"%Max HP damage per tick:"
-        "DOTA_Tooltip_ability_flower_beam_damage_ticks"				"Amount of damage ticks:"
-        "DOTA_Tooltip_ability_flower_beam_slow_power"				"Slow power"
+        "DOTA_Tooltip_ability_flower_beam_damage_per_hp"			"%Max HP damage per tick:"
+        "DOTA_Tooltip_ability_flower_beam_ticks"				"Amount of damage ticks:"
+        "DOTA_Tooltip_ability_flower_beam_slow_power"				"%Slow power:"
         "DOTA_Tooltip_ability_flower_beam_Lore"						"Shooting beams is nothing hard to a magus of my Level, but if i add a small portion of Avalon's energy, it will become much deadlier. You'd better not breathe in the scent of these flowers."
          
 
         "DOTA_Tooltip_ability_merlin_orbs"					"Tracking orbs"
-        "DOTA_Tooltip_ability_merlin_orbs_Description"	 	"Merlin sends 3 magical orbs to a targeted enemy. They will follow him for a short time and if they touch him, they will explode, dealing aoe damage, microstunning and silencing all enemies hit."
+        "DOTA_Tooltip_ability_merlin_orbs_Description"	 	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0       </font><font color='#FFFAFA'>|  Delay</font>:<font color='#7FFF00'> 0.4</font>\nMerlin sends <font color='#FFFAFA'>3</font> magical orbs to a targeted enemy.\nOrbs will <font color='#FFFAFA'>follow</font> him for a short time.\nOn touch orbs will <font color='#FFFAFA'>explode in aoe</font>, dealing <font color='#58ACFA'>damage</font>, <font color='#FF3399'> microstunning</font> and <font color='#FF3399'>silencing</font> all enemies hit."
         "DOTA_Tooltip_ability_merlin_orbs_damage"				"Damage:"
         "DOTA_Tooltip_ability_merlin_orbs_radius"				"Explosion radius:"
         "DOTA_Tooltip_ability_merlin_orbs_silence_duration"		"Silence duration:"
@@ -7809,7 +7809,7 @@
 	 
 
         "DOTA_Tooltip_ability_merlin_illusion"					"Illusion"
-        "DOTA_Tooltip_ability_merlin_illusion_Description"	 	"Merlin sends an illusion on enemies in the radius, sending them to sleep.\nSleep duration decreases with amount of enemies hit.\nEnemy will awake if total damage he received under this effect will be greater than threshold.\nEach 0.25 seconds enemy will take pure damage while sleeping.\nIf same enemy gets caught in sleep more than once in 5 seconds, sleep duration will be minimazed for that enemy."
+        "DOTA_Tooltip_ability_merlin_illusion_Description"	 	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.2</font>\nMerlin creates an illusion in <font color='#FFFAFA'>radius</font>, sending enemies to <font color='#FF3399'>sleep</font> after a delay.\n<font color='#FF3399'>Sleep</font> duration <font color='#FFFAFA'>decreases</font> with amount of enemies affected.\nEnemy will <font color='#FFFAFA'>awake</font> if  <font color='#FFFAFA'>total damage</font> he received under <font color='#FF3399'>sleep</font> effect will be greater than threshold.\nEach <font color='#FFFAFA'>0.25</font> seconds enemy will take <font color='#D1A951'>pure</font> damage while <font color='#FF3399'>sleeping</font>.\nIf same enemy gets caught in sleep more than once in <font color='#FFFAFA'>5</font> seconds, sleep duration will be <font color='#FFFAFA'>minimazed</font> for that enemy."
         "DOTA_Tooltip_ability_merlin_illusion_basic_duration"			"Sleep base duration:"
         "DOTA_Tooltip_ability_merlin_illusion_min_duration"				"Sleep minimum duration:"
         "DOTA_Tooltip_ability_merlin_illusion_damage_to_awake"			"Damage to awake:"
@@ -7818,8 +7818,8 @@
         "DOTA_Tooltip_ability_merlin_illusion_Lore"				"Illusions may be used with a lot of different purposes. But the most effective is to show someone their paradise. Almost no one could see through beautiful illusion of reality they wished and struggled to see, especially when inhuman caster is the one who made it."
 
         "DOTA_Tooltip_ability_merlin_avalon"				"Avalon"
-        "DOTA_Tooltip_ability_merlin_avalon_Description"		"Merlin quickly returns to Avalon, dissapearing  for a short duration. He can use this ability again to reappear immediately at the point in radius around dissapearance place"
-        "DOTA_Tooltip_ability_merlin_avalon_range"			"Reappearance range:"
+        "DOTA_Tooltip_ability_merlin_avalon_Description"		"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.1</font>\nMerlin quickly returns to Avalon, <font color='#FFFAFA'>dissapearing</font>  for a short duration.\nMerlin is <font color='#FFFAFA'>invulnerable</font> while <font color='#FFFAFA'>dissapeared</font>.\nUsing ability again Merlin can <font color='#FFFAFA'>reappear</font> immediately at the target point in <font color='#FFFAFA'>radius</font> around dissapearance place."
+        "DOTA_Tooltip_ability_merlin_avalon_range"			"Reappearance radius:"
         "DOTA_Tooltip_ability_merlin_avalon_duration"		"Duration:"
         "DOTA_Tooltip_ability_merlin_avalon_Lore"			"The land of Avalon is not a paradise. It's deadly for ordinary humans, so it will be better to be used as a weapon."
         "DOTA_Tooltip_ability_merlin_avalon_Note0"					"Merlin is not completely outside of the map. He will still be killed by effects, which bypass invulnerability and will be transfered to reality marble if will be casted close to his dissapearance place."	
@@ -7832,7 +7832,7 @@
 
 
         "DOTA_Tooltip_ability_merlin_charisma"				"Charisma"
-        "DOTA_Tooltip_ability_merlin_charisma_Description"	"Merlin is so attractive naturally that he increases health and regeneration of all allies around him."
+        "DOTA_Tooltip_ability_merlin_charisma_Description"	"<font color='#FFFAFA'>Aura</font>\nMerlin increases <font color='#7CFC00'>health</font> and <font color='#7CFC00'>regeneration</font> of all allies around him."
         "DOTA_Tooltip_ability_merlin_charisma_health_bonus"				"Health bonus:"
         "DOTA_Tooltip_ability_merlin_charisma_health_regen_bonus"		"%Health regeneration bonus:"
         "DOTA_Tooltip_ability_merlin_charisma_mana_regen_bonus"			"Mana regeneration bonus:"
@@ -7842,28 +7842,28 @@
  
 
         "DOTA_Tooltip_ability_merlin_hero_creation"						"Hero creation"
-        "DOTA_Tooltip_ability_merlin_hero_creation_Description"			"Merlin buffs one of his allies or himself, granting his target greatly increase in his main attribute, movement speed and 10% spell lifesteal. \nMS and stat buff amount increases even further for each ally around the new created Hero."
+        "DOTA_Tooltip_ability_merlin_hero_creation_Description"			"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0</font>\nMerlin buffs his ally or himself, granting target increased <font color='#FFFAFA'>main attribute</font>,<font color='#FFFAFA'> movement speed</font> and <font color='#FFFAFA'>10%</font> <font color='#7CFC00'>spell lifesteal</font>.\n<font color='#FFFAFA'> movement speed</font> and <font color='#FFFAFA'>main attribute</font> buff amount increases for each ally around <font color='#58ACFA'>Hero</font>."
         "DOTA_Tooltip_ability_merlin_hero_creation_base_stat_bonus"						"Base stat bonus:"
         "DOTA_Tooltip_ability_merlin_hero_creation_ms_base"								"%Base ms:"
         "DOTA_Tooltip_ability_merlin_hero_creation_duration"							"Duration:"
         "DOTA_Tooltip_ability_merlin_hero_creation_radius"								"Ally search radius:"
-        "DOTA_Tooltip_ability_merlin_hero_creation_stat_increase_per_teammate"			"Stat increase per each teammate:"
+        "DOTA_Tooltip_ability_merlin_hero_creation_stat_increase_per_teammate"			"Buff increase per each teammate:"
         "DOTA_Tooltip_ability_merlin_hero_creation_Lore"								"Being a hero is not only a bonus, it also comes with a responsibility"
 
 
         "DOTA_Tooltip_ability_merlin_excalibur"						"Excalibur"
-        "DOTA_Tooltip_ability_merlin_excalibur_Description"			"Merlin strikes the ground with Excalibur, releasing a lot of mana to deal damage to all enemies around him.\nDamage is increasing while ability is in use. All enemies hit would be pulled towards Merlin.\nMerlin gains a magic damage on his attacks effect for a short time  after the usage of Excalibur"
-        "DOTA_Tooltip_ability_merlin_excalibur_damage_min"							"Damage:"
-        "DOTA_Tooltip_ability_merlin_excalibur_damage_increase"						"Damage increase per tick:"
+        "DOTA_Tooltip_ability_merlin_excalibur_Description"			"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.5</font>\nMerlin strikes the ground with <font color='#58ACFA'>Excalibur</font>, dealing <font color='#58ACFA'>damage</font> to all enemies in line over <font color='#FFFAFA'>1.1</font> seconds.\nAll enemies hit are <font color='#FF3399'>pulled</font> towards Merlin and <font color='#FF3399'>stunned</font>.\nMerlin gains an effect which will deal <font color='#58ACFA'>damage</font> on <font color='#FFFAFA'>basic attacks</font> after usage of <font color='#58ACFA'>Excalibur</font>."
+        "DOTA_Tooltip_ability_merlin_excalibur_damage"							"Damage:"
         "DOTA_Tooltip_ability_merlin_excalibur_range"								"Range:"
-        "DOTA_Tooltip_ability_merlin_excalibur_damage_ticks"						"Damage ticks:"
-   		"DOTA_Tooltip_ability_merlin_excalibur_on_hit_dmg"							"On-hit damage:"
+        "DOTA_Tooltip_ability_merlin_excalibur_width"								"Width:"
+        "DOTA_Tooltip_ability_merlin_excalibur_ticks"						"Damage ticks:"
+   		"DOTA_Tooltip_ability_merlin_excalibur_on_hit_damage"							"On-hit damage:"
    		"DOTA_Tooltip_ability_merlin_excalibur_buff_duration"						"Buff duration:"
         "DOTA_Tooltip_ability_merlin_excalibur_Lore"								""
   
 
 		"DOTA_Tooltip_ability_merlin_garden_of_avalon"						"Combo: Garden of Avalon"
-        "DOTA_Tooltip_ability_merlin_garden_of_avalon_Description"			"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: D-E in 1 second</font>\nMerlin materialises the Garden of Avalon into this world after a chant. While chanting Merlin is silenced and muted.\n When the chant is finished, merlin will get a 70% resistance to any harm, while all his allies gain huge health and mana regeneration and all debuff cleanse every 0.1 seconds.\nWhen the garden is fully materialised, Merlin can stop it by using an ability in the Avalon slot. Merlin is immune to knockback while casting."
+        "DOTA_Tooltip_ability_merlin_garden_of_avalon_Description"			"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: D-E in 1 second\n</font><font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0</font>\n\nMerlin starts <font color='#58ACFA'>Garden of Avalon</font> chant, lasting <font color='#FFFAFA'>4</font> seconds.\nWhile chanting Merlin is <font color='#FF3399'>silenced</font>.\nWhen the chant is finished, merlin will get a <font color='#FFFAFA'>70% damage resistance</font>, while all his allies gain huge <font color='#7CFC00'>health</font> and <font color='#58ACFA'>mana</font> <font color='#7CFC00'>regeneration</font>\nEach<font color='#FFFAFA'> 0.3</font> seconds all allies affected are <font color='#FFFAFA'>cleaned</font>.\nWhen the garden is fully materialised, Merlin can <font color='#FFFAFA'>stop</font> it by using an ability in the <font color='#58ACFA'>Avalon</font> slot. Merlin is <font color='#FFFAFA'>immune to knockback</font> while casting."
         "DOTA_Tooltip_abilitymerlin_garden_of_avalon_radius"					"Radius:"
         "DOTA_Tooltip_ability_merlin_garden_of_avalon_duration_visible"			"Garden duration:"
 		"DOTA_Tooltip_ability_merlin_garden_of_avalon_health_regen_bonus"		"%Health regeneration:"
@@ -7878,18 +7878,20 @@
  
 
         "DOTA_Tooltip_ability_merlin_independent_manifestation_attribute"				"Attribute: Independent manifestation"
-        "DOTA_Tooltip_ability_merlin_independent_manifestation_attribute_Description"	"Upgrades Avalon increasing its range, duration and decreasing cooldown.\nIf Avalon release was casted close to an enemy, merlin will strike him with his staff on appearance, dealing damage and dimensionally locking him."
+        "DOTA_Tooltip_ability_merlin_independent_manifestation_attribute_Description"	"Upgrades <font color='#58ACFA'>Avalon</font>, increasing its <font color='#FFFAFA'>range</font>, <font color='#FFFAFA'>duration</font> and decreasing <font color='#FFFAFA'>cooldown</font>.\nIf Avalon release was casted close to an enemy, merlin will strike him with his staff on appearance, dealing <font color='#58ACFA'>damage</font> and <font color='#9400D3'>dimensionally locking</font> him."
         "DOTA_Tooltip_ability_merlin_independent_manifestation_attribute_duration"				"lock duration:"
         "DOTA_Tooltip_ability_merlin_independent_manifestation_attribute_att_search_radius"		"Search radius:"
         "DOTA_Tooltip_ability_merlin_independent_manifestation_attribute_att_damage"			"Damage:"
     
 
         "DOTA_Tooltip_ability_merlin_dreamlike_charisma_attribute"				"Attribute: Dreamlike charisma"
-        "DOTA_Tooltip_ability_merlin_dreamlike_charisma_attribute_Description"	"Upgrades charisma, increasing all its values and granting it mana regeneration bonus."
- 
+        "DOTA_Tooltip_ability_merlin_dreamlike_charisma_attribute_Description"	"Upgrades <font color='#58ACFA'>Charisma</font>, increasing all its values and granting it <font color='#58ACFA'>mana regeneration</font> bonus."	
+ 		"DOTA_Tooltip_ability_merlin_dreamlike_charisma_attribute_health_bonus"					"New max health:"			
+ 		"DOTA_Tooltip_ability_merlin_dreamlike_charisma_attribute_health_regen_bonus"			"%New health regeneration:"
+ 		"DOTA_Tooltip_ability_merlin_dreamlike_charisma_attribute_mana_regen_bonus"				"Mana regeneration:"
 
         "DOTA_Tooltip_ability_merlin_hero_creation_attribute"				"Attribute: Hero creation"
-        "DOTA_Tooltip_ability_merlin_hero_creation_attribute_Description"	"Unlocks hero creation \nHero creation:Merlin buffs one of his allies or himself, granting his target greatly increase in his main attribute, movement speed and 10% spell lifesteal.\nMS and stat buff amount increases even further for each ally around the new created Hero."
+        "DOTA_Tooltip_ability_merlin_hero_creation_attribute_Description"	"Unlocks <font color='#58ACFA'>Hero creation</font> \n<font color='#58ACFA'>Hero creation</font>:Merlin buffs his ally or himself, granting target increased <font color='#FFFAFA'>main attribute</font>,<font color='#FFFAFA'> movement speed</font> and <font color='#FFFAFA'>10%</font> <font color='#7CFC00'>spell lifesteal</font>.\n<font color='#FFFAFA'> movement speed</font> and <font color='#FFFAFA'>main attribute</font> buff amount increases for each ally around <font color='#58ACFA'>Hero</font>."
         "DOTA_Tooltip_ability_merlin_hero_creation_attribute_base_stat_bonus."						"Base stat bonus:"
         "DOTA_Tooltip_ability_merlin_hero_creation_attribute_ms_base"								"%Base ms:"
         "DOTA_Tooltip_ability_merlin_hero_creation_attribute_duration"							"Duration:"
@@ -7898,15 +7900,15 @@
  
 
         "DOTA_Tooltip_ability_merlin_rapid_chanting_attribute"				"Attribute: Rapid chanting"
-        "DOTA_Tooltip_ability_merlin_rapid_chanting_attribute_Description"	"Increases Flower beam damage based on INT, and reduces cooldown of all  other Merlin basic abilities by 1 second when he uses any of them."
-        "DOTA_Tooltip_ability_merlin_rapid_chanting_attribute_att_dmg_per_int" 	"Int damage per tick:"
+        "DOTA_Tooltip_ability_merlin_rapid_chanting_attribute_Description"	"Increases <font color='#58ACFA'>Flower beam</font> damage based on <font color='#1E90FF'>INT</font>\nAllows Merlin to reduce <font color='#FFFAFA'>cooldown</font> of all his <font color='#FFFAFA'>basic</font> Abilities by <font color='#FFFAFA'>1</font> second when he uses any of them."
+        "DOTA_Tooltip_ability_merlin_rapid_chanting_attribute_att_dmg_per_int" 	"INT damage per tick:"
  
 
         "DOTA_Tooltip_ability_merlin_king_assistant_attribute"				"Attribute: King's assistant"
-        "DOTA_Tooltip_ability_merlin_king_assistant_attribute_Description"	"Increases Excalibur on-hit damage based on INT, each time Merlin uses an ability he gains a stackable refreshing attack speed buff, capped at 6.\nIncrease Excalibur damage based on Merlin INT "
+        "DOTA_Tooltip_ability_merlin_king_assistant_attribute_Description"	"Increases <font color='#58ACFA'>Excalibur</font> on-hit  <font color='#58ACFA'>damage</font> based on <font color='#1E90FF'>INT</font>\nEach time Merlin uses an ability he gains a stackable refreshing <font color='#FFFAFA'>attack speed</font> buff, capped at <font color='#FFFAFA'>6</font>.\nIncreases <font color='#58ACFA'>Excalibur</font> damage based on Merlin <font color='#1E90FF'>INT</font>"
         "DOTA_Tooltip_ability_merlin_king_assistant_attribute_att_attackspeed_per_stack" 		"Attack speed per stack:"
-        "DOTA_Tooltip_ability_merlin_king_assistant_attribute_att_duration" 					"Attackspeed duration:"
- 		"DOTA_Tooltip_ability_merlin_king_assistant_attribute_dmg_per_int" 						"Dmg per int:"
+        "DOTA_Tooltip_ability_merlin_king_assistant_attribute_att_duration" 					"Attack speed duration:"
+ 		"DOTA_Tooltip_ability_merlin_king_assistant_attribute_dmg_per_int" 						"Dmg per INT:"
         
 
         //====================================

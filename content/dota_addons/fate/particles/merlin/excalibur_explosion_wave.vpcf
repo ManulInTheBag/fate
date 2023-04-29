@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf51:version{6d03d500-2498-454e-b833-f654e870bb3d} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf56:version{f07dae67-740b-4789-a729-6ddffc9f855e} -->
 {
 	_class = "CParticleSystemDefinition"
 	m_bShouldHitboxesFallbackToRenderBounds = false
@@ -253,6 +253,10 @@
 					m_vDomainMins = [ 0.0, 0.0 ]
 					m_vDomainMaxs = [ 0.0, 0.0 ]
 				}
+			}
+			m_TransformInput = 
+			{
+				m_bUseOrientation = false
 			}
 		},
 		{
@@ -774,10 +778,6 @@
 				}
 				m_vRandomMin = [ 0.0, 0.0, 0.0 ]
 				m_vRandomMax = [ 0.0, 0.0, 0.0 ]
-			}
-			m_TransformInput = 
-			{
-				m_nType = "PT_TYPE_CONTROL_POINT"
 			}
 		},
 	]
