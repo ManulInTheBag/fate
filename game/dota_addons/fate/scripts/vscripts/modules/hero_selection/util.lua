@@ -65,6 +65,10 @@ function HeroSelection:ExtractHeroStats(heroTable)
 		movespeed = heroTable.MovementSpeed,
 		attackrate = heroTable.AttackRate,
 		armor = heroTable.ArmorPhysical,
+		mr = heroTable.MagicalResistance,
+		base_health = heroTable.StatusHealth,
+		base_mana = heroTable.StatusMana,
+		attack_range = heroTable.AttackRange,
 		--team = heroTable.Team
 	}
 	--PrintTable(attributes)

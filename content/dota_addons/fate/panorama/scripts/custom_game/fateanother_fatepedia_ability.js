@@ -138,16 +138,14 @@ function OnHeroButtonPressed() {
     portraitPanel.style["background-image"] = directory +  name + ".png');"; // portrait
 	//namePanel.text = "#npc_dota_hero_legion_commander";
  
-    // regular abilities
+    // herodata
     var heroesdata = PlayerTables.GetTableValue("hero_selection_heroes_data", name);
-    var heroabil = heroesdata["abilities"];
-    var heroatrandcombo = heroesdata["attributesandcombo"]
-    var herolinked = heroesdata["linked_abilities"]
-    var herolinkedrow = heroesdata["linked_abilities_row"]
-    var herolinkedatr = heroesdata["linked_attributes"]
-    var herolinkedatrrow = heroesdata["linked_attributes_row"]
 
     //regular abilities
+    var heroabil = heroesdata["abilities"];
+    var herolinked = heroesdata["linked_abilities"]
+    var herolinkedrow = heroesdata["linked_abilities_row"]
+
     var abillength = Object.keys(heroabil).length
     var subSkillPanel = CreateSubSkillPanel(skillPanel, 0, 0, abillength, false)
     for (i=0; i<abillength; i++) {
@@ -161,6 +159,13 @@ function OnHeroButtonPressed() {
     		}
     	}
     }
+
+    //attributes and combo
+
+    var heroatrandcombo = heroesdata["attributesandcombo"]
+    var herolinkedatr = heroesdata["linked_attributes"]
+    var herolinkedatrrow = heroesdata["linked_attributes_row"]
+
     var atrlength = Object.keys(heroatrandcombo).length
     var subAtrPanel = CreateSubSkillPanel(attrPanel, 0, 0, atrlength, true)
     for (i=0; i<atrlength; i++) {
@@ -175,6 +180,9 @@ function OnHeroButtonPressed() {
 	    	}
 	    }
     }
+
+    var herostats = heroesdata["attributes"]
+    $.Msg(herostats)
     //CreateContextAbilityPanel(skillPanel, comboes[curIndex]);
     // attributes 
 	//linkPanel.text = '<a href="http://www.w3schools.com/html/">Visit our HTML tutorial</a>';
