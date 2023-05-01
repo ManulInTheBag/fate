@@ -59,7 +59,9 @@ else
              DoDamage(caster, v, self:GetSpecialValueFor("base_dmg") + caster:GetBaseAgility()*self:GetSpecialValueFor("dmg_per_agi"), DAMAGE_TYPE_MAGICAL, 0, self  , false)
         end 
     end
-    caster:SwapAbilities("muramasa_dance", "muramasa_dance_upgraded", false, true)
+    if caster:GetAbilityByIndex(0):GetName() ~="muramasa_dance_upgraded" and not caster:HasModifier("modifier_muramasa_dance_controller") then
+        caster:SwapAbilities("muramasa_dance", "muramasa_dance_upgraded", false, true)
+     end
     caster:SwapAbilities("muramasa_throw", "muramasa_throw_upgraded", false, true)
     caster:SwapAbilities("muramasa_rush", "muramasa_rush_upgraded", false, true)
     end

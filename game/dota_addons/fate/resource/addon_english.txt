@@ -343,6 +343,9 @@
 		"DOTA_Tooltip_modifier_muramasa_combo_cd"									"Tsumukari Muramasa - Karma cd"
 		"DOTA_Tooltip_modifier_muramasa_combo_cd_Description"				"combo is on cooldown"
 
+		"DOTA_Tooltip_modifier_muramasa_dance_controller"									"Sword dance"
+		"DOTA_Tooltip_modifier_muramasa_dance_controller_Description"							"Amount of attacks performed"
+
 		"DOTA_Tooltip_modifier_eye_of_karma"									"Eye of karma"
 		"DOTA_Tooltip_modifier_eye_of_karma_Description"				"less than half hp"
 
@@ -4568,14 +4571,14 @@
         "DOTA_Tooltip_Ability_iskandar_charisma_bonus_damage"	"%BONUS DAMAGE:"
 
         "DOTA_Tooltip_Ability_iskander_forward"					"Forward!"
-        "DOTA_Tooltip_ability_iskander_forward_Description" 	"Cast point: <font color='#7FFF00'>0.3</font>\nIskandar <font color='#FFFAFA'>removes slow debuffs</font> on  his allies within radius and grants them <font color='#FFFAFA'>movement speed</font> and <font color='#FFFAFA'>attack damage</font> buff for a duration.\n<font color='#F1C40F'>Upgradable by attribute Improve Charisma.</font>"
+        "DOTA_Tooltip_ability_iskander_forward_Description" 	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.3</font>\nIskandar <font color='#FFFAFA'>removes slow debuffs</font> on  his allies within radius and grants them <font color='#FFFAFA'>movement speed</font> and <font color='#FFFAFA'>attack damage</font> buff for a duration.\n<font color='#F1C40F'>Upgradable by attribute Improve Charisma.</font>"
         "DOTA_Tooltip_ability_iskander_forward_bonus_damage"	"%DAMAGE:"
         "DOTA_Tooltip_ability_iskander_forward_duration"		"DURATION:"
         "DOTA_Tooltip_ability_iskander_forward_movespeed"		"%MOVEMENT SPEED:"
         "DOTA_Tooltip_ability_iskander_forward_Lore"			"DAVAI!"
 
         "DOTA_Tooltip_Ability_iskander_phalanx"				"Phalanx"
-        "DOTA_Tooltip_ability_iskander_phalanx_Description" "Cast point: <font color='#7FFF00'>0.3</font>\nIskandar summons a linear formation of army at target location, briefly <font color='#FF3399'>pulling all enemies in vertical line</font> from target location and <font color='#58ACFA'>damaging</font> them.\n<font color='#F1C40F'>Upgradable by attribute Bond Beyond Time.</font>"
+        "DOTA_Tooltip_ability_iskander_phalanx_Description" "<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.3</font>\nIskandar summons a linear formation of army at target location, briefly <font color='#FF3399'>pulling all enemies in vertical line</font> from target location and <font color='#58ACFA'>damaging</font> them.\n<font color='#F1C40F'>Upgradable by attribute Bond Beyond Time.</font>"
         "DOTA_Tooltip_ability_iskander_phalanx_Lore"			"The fabled rock-solid formation of Greek infantry materializes upon this world once again."
         "DOTA_Tooltip_ability_iskander_phalanx_pull_duration"	"PULL DURATION:"
         "DOTA_Tooltip_ability_iskander_phalanx_damage"			"DAMAGE:"
@@ -4585,7 +4588,7 @@
 
 
         "DOTA_Tooltip_Ability_iskander_archers"				"Summon archers"
-        "DOTA_Tooltip_ability_iskander_archers_Description" "Cast point: <font color='#7FFF00'>0.3</font>\nIskandar Summons a linear formation of archers behind his back. <font color='#FFFAFA'>After a delay</font> archers will attack with a series of shots, each covering a small area, <font color='#58ACFA'>damaging</font> and <font color='#9400D3'>rooting</font> enemies hit.\nShots have <font color='#FFFAFA'>random distribution</font> in radius around point cast."
+        "DOTA_Tooltip_ability_iskander_archers_Description" "<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.3</font>\nIskandar Summons a linear formation of archers behind his back. <font color='#FFFAFA'>After a delay</font> archers will attack with a series of shots, each covering a small area, <font color='#58ACFA'>damaging</font> and <font color='#9400D3'>rooting</font> enemies hit.\nShots have <font color='#FFFAFA'>random distribution</font> in radius around point cast."
         "DOTA_Tooltip_ability_iskander_archers_damage"						"DAMAGE:"
 		"DOTA_Tooltip_ability_iskander_archers_rduration"					"ROOT DURATION:"
         "DOTA_Tooltip_ability_iskander_archers_summon_ammount"				"SOLDIERS COUNT:"
@@ -4593,7 +4596,7 @@
         "DOTA_Tooltip_ability_iskander_archers_distribution_radius"			"DISTRIBUTION RADIUS:"
 
         "DOTA_Tooltip_Ability_iskandar_gordius_wheel"     "Gordius Wheel"
-        "DOTA_Tooltip_ability_iskandar_gordius_wheel_Description" "Cast point: <font color='#7FFF00'>0.01</font>\nIskandar rides on battle chariot, gaining bonus <font color='#FFFAFA'>armor</font>, <font color='#FFFAFA'>magic resistance</font> and <font color='#FFFAFA'>movement speed</font>\nEvery second Iskandar <font color='#FFFAFA'>movement speed</font> increases without a limit and he deals <font color='#58ACFA'>damage</font> in radius, based on distance to enemy.\nWhile Gordius Wheel persists, <font color='#58ACFA'>Forward!</font>, <font color='#58ACFA'>Phalanx</font> and <font color='#58ACFA'>Summon archers</font> all have <font color='#7FFF00'>0</font> cast point and <font color='#58ACFA'>Army of the King</font> cannot be cast.\nIskandar is <font color='#9400D3'>locked</font> while riding.\n<font color='#F1C40F'>Upgradable by attributes Thundergod's Wrath and Via Expugnatio.</font>"
+        "DOTA_Tooltip_ability_iskandar_gordius_wheel_Description" "<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.01</font>\nIskandar rides on battle chariot, gaining bonus <font color='#FFFAFA'>armor</font>, <font color='#FFFAFA'>magic resistance</font> and <font color='#FFFAFA'>movement speed</font>\nEvery second Iskandar <font color='#FFFAFA'>movement speed</font> increases without a limit and he deals <font color='#58ACFA'>damage</font> in radius, based on distance to enemy.\nWhile Gordius Wheel persists, <font color='#58ACFA'>Forward!</font>, <font color='#58ACFA'>Phalanx</font> and <font color='#58ACFA'>Summon archers</font> all have <font color='#7FFF00'>0</font> <font color='#FFFAFA'>Cast point</font> and <font color='#58ACFA'>Army of the King</font> cannot be cast.\nIskandar is <font color='#9400D3'>locked</font> while riding.\n<font color='#F1C40F'>Upgradable by attributes Thundergod's Wrath and Via Expugnatio.</font>"
         "DOTA_Tooltip_ability_iskandar_gordius_wheel_Lore"	"When getting in Rider's path of domination, one should be prepared for the mighty stomp of divine bulls."
         "DOTA_Tooltip_ability_iskandar_gordius_wheel_cast_delay"    			 "CAST DELAY:"   
         "DOTA_Tooltip_ability_iskandar_gordius_wheel_duration"     				 "DURATION:"
@@ -4610,7 +4613,7 @@
 
 
         "DOTA_Tooltip_Ability_iskander_drift"     "Via Expugnatio"
-        "DOTA_Tooltip_ability_iskander_drift_Description" "Cast point: <font color='#7FFF00'>0.15</font>\nRider charges in target direction on <font color='#58ACFA'>Gordius Wheel</font>, leaving a trail of thunder behind.\nCharge <font color='#FFFAFA'>speed</font> and <font color='#FFFAFA'>range</font> are based on Rider's <font color='#FFFAFA'>movement speed</font> on the moment of cast.\nEnemies tread atop are <font color='#FF3399'>stunned</font> and take <font color='#58ACFA'>damage</font> based on Iskandar <font color='#FFFAFA'>movement speed</font> and on amount of times Iskandar hit enemy <font color='#FFFAFA'>hero</font> with <font color='#58ACFA'>Gordius Wheel</font>.\nUpon finishing the charge, <font color='#58ACFA'>Gordius Wheel</font> disappears and Rider is <font color='#FF3399'>stunned</font> for <font color='#FFFAFA'>0.75</font> second."
+        "DOTA_Tooltip_ability_iskander_drift_Description" "<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.15</font>\nRider charges in target direction on <font color='#58ACFA'>Gordius Wheel</font>, leaving a trail of thunder behind.\nCharge <font color='#FFFAFA'>speed</font> and <font color='#FFFAFA'>range</font> are based on Rider's <font color='#FFFAFA'>movement speed</font> on the moment of cast.\nEnemies tread atop are <font color='#FF3399'>stunned</font> and take <font color='#58ACFA'>damage</font> based on Iskandar <font color='#FFFAFA'>movement speed</font> and on amount of times Iskandar hit enemy <font color='#FFFAFA'>hero</font> with <font color='#58ACFA'>Gordius Wheel</font>.\nUpon finishing the charge, <font color='#58ACFA'>Gordius Wheel</font> disappears and Rider is <font color='#FF3399'>stunned</font> for <font color='#FFFAFA'>0.75</font> second."
         "DOTA_Tooltip_ability_iskander_drift_Lore"	"Alalalalalal---------!"
         "DOTA_Tooltip_ability_iskander_drift_damage"					"%MS TO CHARGE DAMAGE:"
         "DOTA_Tooltip_ability_iskander_drift_trail_damage"				"%TRAIL DAMAGE PER SECOND:"     
@@ -4621,7 +4624,7 @@
         "DOTA_Tooltip_ability_iskander_drift_Note0"	"Via Expugnatio's cooldown can be reset."         
 
         "DOTA_Tooltip_Ability_iskander_ionioi"     "Army of the King"
-        "DOTA_Tooltip_ability_iskander_ionioi_Description" "<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : Q-F in 5 seconds</font>\nCast point: <font color='#7FFF00'>0</font>\nIskandar teleports all units in radius to his <font color='#FFFAFA'>reality marble</font> after a delay.\nWhen casted, everyone in <font color='#FFFAFA'>800</font> radius are <font color='#FF3399'>stunned</font> and <font color='#FF3399'>revoked</font>.\nInside reality marble Iskandar gets new abilities: <font color='#58ACFA'>Summon Hephaestion</font> and <font color='#58ACFA'>Summon Bucephalus</font> and can control army <font color='#FFFAFA'>commander</font> units.\nWhen AOTK starts, all enemies inside are <font color='#FF3399'>silenced</font> for <font color='#FFFAFA'>2</font> seconds.\n<font color='#F1C40F'>Upgradable by attribute Bond Beyond Time.</font>"
+        "DOTA_Tooltip_ability_iskander_ionioi_Description" "<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : Q-F in 5 seconds</font>\n<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0</font>\nIskandar teleports all units in radius to his <font color='#FFFAFA'>reality marble</font> after a delay.\nWhen casted, everyone in <font color='#FFFAFA'>800</font> radius are <font color='#FF3399'>stunned</font> and <font color='#FF3399'>revoked</font>.\nInside reality marble Iskandar gets new abilities: <font color='#58ACFA'>Summon Hephaestion</font> and <font color='#58ACFA'>Summon Bucephalus</font> and can control army <font color='#FFFAFA'>commander</font> units.\nWhen AOTK starts, all enemies inside are <font color='#FF3399'>silenced</font> for <font color='#FFFAFA'>2</font> seconds.\n<font color='#F1C40F'>Upgradable by attribute Bond Beyond Time.</font>"
         "DOTA_Tooltip_ability_iskander_ionioi_Lore"					"Many spirits. One dream."
         "DOTA_Tooltip_ability_iskander_ionioi_cast_delay"			"CAST DELAY:"
         "DOTA_Tooltip_ability_iskander_ionioi_radius"				"RADIUS:"
@@ -4631,15 +4634,15 @@
 
 
         "DOTA_Tooltip_Ability_iskander_summon_hephaestion"     "Summon Hephaestion"
-        "DOTA_Tooltip_ability_iskander_summon_hephaestion_Description" "Cast point: <font color='#7FFF00'>0.1</font>\nIskandar calls <font color='#58ACFA'>Hephaestion</font> and his cavalry troops upon battlefield.\n<font color='#58ACFA'>Hephaestion</font> passively increases the <font color='#FFFAFA'>movement speed</font> of nearby allies and can use <font color='#58ACFA'>Hammer and Anvil</font>.\n<font color='#58ACFA'>Hammer and Anvil</font>: <font color='#58ACFA'>Hephaestion</font> and all cavalry units teleport to the left end of Army of the King and charge towards Iskander.\nEnemies in the path take <font color='#58ACFA'>damage</font> and are <font color='#FF3399'>stunned</font> for 1 second.\n<font color='#FFFAFA'>Damage from multiple cavalry units stack, but damage is reduced to 50%% after initial hit.</font>"
+        "DOTA_Tooltip_ability_iskander_summon_hephaestion_Description" "<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.1</font>\nIskandar calls <font color='#58ACFA'>Hephaestion</font> and his cavalry troops upon battlefield.\n<font color='#58ACFA'>Hephaestion</font> passively increases the <font color='#FFFAFA'>movement speed</font> of nearby allies and can use <font color='#58ACFA'>Hammer and Anvil</font>.\n<font color='#58ACFA'>Hammer and Anvil</font>: <font color='#58ACFA'>Hephaestion</font> and all cavalry units teleport to the left end of Army of the King and charge towards Iskander.\nEnemies in the path take <font color='#58ACFA'>damage</font> and are <font color='#FF3399'>stunned</font> for 1 second.\n<font color='#FFFAFA'>Damage from multiple cavalry units stack, but damage is reduced to 50%% after initial hit.</font>"
         "DOTA_Tooltip_ability_iskander_summon_hephaestion_Lore"        ""  
 
         "DOTA_Tooltip_Ability_iskander_summon_waver"     "Summon Waver Velvet"
-        "DOTA_Tooltip_ability_iskander_summon_waver_Description" "Cast point: <font color='#7FFF00'>0.1\nIskandar calls <font color='#58ACFA'>Waver Velvet</font> and his apprentice mages upon battlefield. <font color='#58ACFA'>Waver</font> passively increases the <font color='#FFFAFA'>magic resistance</font> of nearby allies and can cast <font color='#58ACFA'>Briliance of the King</font>.\n<font color='#58ACFA'>Briliance of the King</font>: <font color='#58ACFA'>Waver</font> casts the light that resembles of King's might. All enemies inside Army of the King are <font color='#FF3399'>silenced</font> and <font color='#9400D3'>rooted</font> for a duration."
+        "DOTA_Tooltip_ability_iskander_summon_waver_Description" "<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.1\nIskandar calls <font color='#58ACFA'>Waver Velvet</font> and his apprentice mages upon battlefield. <font color='#58ACFA'>Waver</font> passively increases the <font color='#FFFAFA'>magic resistance</font> of nearby allies and can cast <font color='#58ACFA'>Briliance of the King</font>.\n<font color='#58ACFA'>Briliance of the King</font>: <font color='#58ACFA'>Waver</font> casts the light that resembles of King's might. All enemies inside Army of the King are <font color='#FF3399'>silenced</font> and <font color='#9400D3'>rooted</font> for a duration."
         "DOTA_Tooltip_ability_iskander_summon_waver_Lore"        ""   
 
         "DOTA_Tooltip_Ability_iskander_hammer_and_anvil"     "Hammer and Anvil"
-        "DOTA_Tooltip_ability_iskander_hammer_and_anvil_Description" "Cast point: <font color='#7FFF00'>0.1</font>\n<font color='#58ACFA'>Hephaestion</font> and all cavalry units teleport to the left end of Army of the King and charge towards Iskander.\nEnemies in the path take <font color='#58ACFA'>damage</font> and are <font color='#FF3399'>stunned</font> for 1 second.\n<font color='#FFFAFA'>Damage from multiple cavalry units stack, but damage is reduced to 50%% after initial hit.</font>"
+        "DOTA_Tooltip_ability_iskander_hammer_and_anvil_Description" "<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.1</font>\n<font color='#58ACFA'>Hephaestion</font> and all cavalry units teleport to the left end of Army of the King and charge towards Iskander.\nEnemies in the path take <font color='#58ACFA'>damage</font> and are <font color='#FF3399'>stunned</font> for 1 second.\n<font color='#FFFAFA'>Damage from multiple cavalry units stack, but damage is reduced to 50%% after initial hit.</font>"
         "DOTA_Tooltip_ability_iskander_hammer_and_anvil_Lore"        ""  
         "DOTA_Tooltip_ability_iskander_hammer_and_anvil_damage"        "PASS-THROUGH DAMAGE:"  
 
@@ -4655,7 +4658,7 @@
         "DOTA_Tooltip_ability_iskander_waver_passive_Description" "<font color='#FFFAFA'>Aura</font>\All allies inside Army of the King gain increased <font color='#FFFAFA'>magic resistance</font> while  <font color='#58ACFA'>Waver</font> is present on the battlefield."
 
         "DOTA_Tooltip_Ability_iskander_battle_horn"     "Battle Horn"
-        "DOTA_Tooltip_ability_iskander_battle_horn_Description" "Cast point: <font color='#7FFF00'>0.1</font>\n<font color='#58ACFA'>Mithrenes</font> orders all AOTK units under his command to <font color='#FFFAFA'>relocate</font> to target location at <font color='#FFFAFA'>maximum speed</font> for 1 second.\nAll enemy units within Army of the King are suffering <font color='#9400D3'>reduced armor and movement speed</font> for duration."
+        "DOTA_Tooltip_ability_iskander_battle_horn_Description" "<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.1</font>\n<font color='#58ACFA'>Mithrenes</font> orders all AOTK units under his command to <font color='#FFFAFA'>relocate</font> to target location at <font color='#FFFAFA'>maximum speed</font> for 1 second.\nAll enemy units within Army of the King are suffering <font color='#9400D3'>reduced armor and movement speed</font> for duration."
         "DOTA_Tooltip_ability_iskander_battle_horn_pct_armor_reduction"         "%ARMOR REDUCTION:"
         "DOTA_Tooltip_ability_iskander_battle_horn_ms_reduction"        		"%MS REDUCTION:"
         "DOTA_Tooltip_ability_iskander_battle_horn_duration"       			    "DURATION:"
@@ -4663,17 +4666,17 @@
         
 
         "DOTA_Tooltip_Ability_iskander_brilliance_of_the_king"          "Briliance of the King"
-        "DOTA_Tooltip_ability_iskander_brilliance_of_the_king_Description"       "Cast point: <font color='#7FFF00'>0.5</font>\nWaver casts the light that resembles of King's might. All enemies inside Army of the King are <font color='#FF3399'>silenced</font> and <font color='#9400D3'>rooted</font> for a duration."
+        "DOTA_Tooltip_ability_iskander_brilliance_of_the_king_Description"       "<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.5</font>\nWaver casts the light that resembles of King's might. All enemies inside Army of the King are <font color='#FF3399'>silenced</font> and <font color='#9400D3'>rooted</font> for a duration."
         "DOTA_Tooltip_ability_iskander_brilliance_of_the_king_duration"		"DURATION:"
 
         "DOTA_Tooltip_Ability_iskandar_buc"          "Summon Bucephalus"
-        "DOTA_Tooltip_ability_iskandar_buc_Description"       "Cast point: <font color='#7FFF00'>0</font>\nIskander rides his horse, <font color='#58ACFA'>Bucephalus</font>, gaining a <font color='#FFFAFA'>movement speed</font> buff, becoming <font color='#FFFAFA'>unslowable</font>, <font color='#FFFAFA'>attacking</font> all enemies around him every 0.5 seconds and allowing to use <font color='#58ACFA'>Bucephalus jump</font>."
+        "DOTA_Tooltip_ability_iskandar_buc_Description"       "<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0</font>\nIskander rides his horse, <font color='#58ACFA'>Bucephalus</font>, gaining a <font color='#FFFAFA'>movement speed</font> buff, becoming <font color='#FFFAFA'>unslowable</font>, <font color='#FFFAFA'>attacking</font> all enemies around him every 0.5 seconds and allowing to use <font color='#58ACFA'>Bucephalus jump</font>."
         "DOTA_Tooltip_ability_iskandar_buc_duration"		"DURATION:"
         "DOTA_Tooltip_ability_iskandar_buc_damage"			"DAMAGE:"
         "DOTA_Tooltip_ability_iskandar_buc_radius"			"RADIUS:"
 
         "DOTA_Tooltip_Ability_iskander_jump"          "Bucephalus jump"
-        "DOTA_Tooltip_ability_iskander_jump_Description"       "Cast point: <font color='#7FFF00'>0.01</font>\nIskander jumps with  <font color='#58ACFA'>Bucephalus</font>, becoming <font color='#FFFAFA'>invulnerable</font> for <font color='#FFFAFA'>0.75</font> second or until he hits a wall. On landing he deals <font color='#58ACFA'>damage</font> and <font color='#FF3399'>stuns</font>  all enemies in radius ending <font color='#58ACFA'>Bucephalus</font>."
+        "DOTA_Tooltip_ability_iskander_jump_Description"       "<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.01</font>\nIskander jumps with  <font color='#58ACFA'>Bucephalus</font>, becoming <font color='#FFFAFA'>invulnerable</font> for <font color='#FFFAFA'>0.75</font> second or until he hits a wall. On landing he deals <font color='#58ACFA'>damage</font> and <font color='#FF3399'>stuns</font>  all enemies in radius ending <font color='#58ACFA'>Bucephalus</font>."
         "DOTA_Tooltip_ability_iskander_jump_duration"		"STUN DURATION:"
         "DOTA_Tooltip_ability_iskander_jump_radius"			"RADIUS:"
         "DOTA_Tooltip_ability_iskander_jump_damage"			"DAMAGE:"
@@ -7809,7 +7812,7 @@
 	 
 
         "DOTA_Tooltip_ability_merlin_illusion"					"Illusion"
-        "DOTA_Tooltip_ability_merlin_illusion_Description"	 	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.2</font>\nMerlin creates an illusion in <font color='#FFFAFA'>radius</font>, sending enemies to <font color='#FF3399'>sleep</font> after a delay.\n<font color='#FF3399'>Sleep</font> duration <font color='#FFFAFA'>decreases</font> with amount of enemies affected.\nEnemy will <font color='#FFFAFA'>awake</font> if  <font color='#FFFAFA'>total damage</font> he received under <font color='#FF3399'>sleep</font> effect will be greater than threshold.\nEach <font color='#FFFAFA'>0.25</font> seconds enemy will take <font color='#D1A951'>pure</font> damage while <font color='#FF3399'>sleeping</font>.\nIf same enemy gets caught in sleep more than once in <font color='#FFFAFA'>5</font> seconds, sleep duration will be <font color='#FFFAFA'>minimazed</font> for that enemy."
+        "DOTA_Tooltip_ability_merlin_illusion_Description"	 	"<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>0.2       </font><font color='#FFFAFA'>|  Delay</font>:<font color='#7FFF00'> 0.85</font>\nMerlin creates an illusion in <font color='#FFFAFA'>radius</font>, sending enemies to <font color='#FF3399'>sleep</font> after a <font color='#FFFAFA'>delay</font>.\n<font color='#FF3399'>Sleep</font> duration <font color='#FFFAFA'>decreases</font> with amount of enemies affected.\nEnemy will <font color='#FFFAFA'>awake</font> if  <font color='#FFFAFA'>total damage</font> he received under <font color='#FF3399'>sleep</font> effect will be greater than threshold.\nEach <font color='#FFFAFA'>0.25</font> seconds enemy will take <font color='#D1A951'>pure</font> damage while <font color='#FF3399'>sleeping</font>.\nIf same enemy gets caught in sleep more than once in <font color='#FFFAFA'>5</font> seconds, sleep duration will be <font color='#FFFAFA'>minimazed</font> for that enemy."
         "DOTA_Tooltip_ability_merlin_illusion_basic_duration"			"Sleep base duration:"
         "DOTA_Tooltip_ability_merlin_illusion_min_duration"				"Sleep minimum duration:"
         "DOTA_Tooltip_ability_merlin_illusion_damage_to_awake"			"Damage to awake:"
@@ -7860,6 +7863,7 @@
    		"DOTA_Tooltip_ability_merlin_excalibur_on_hit_damage"							"On-hit damage:"
    		"DOTA_Tooltip_ability_merlin_excalibur_buff_duration"						"Buff duration:"
         "DOTA_Tooltip_ability_merlin_excalibur_Lore"								""
+         "DOTA_Tooltip_ability_merlin_excalibur_Note0"					"Enemies will not be pulled if distance between them and merlin is less than 350"	
   
 
 		"DOTA_Tooltip_ability_merlin_garden_of_avalon"						"Combo: Garden of Avalon"
@@ -8064,31 +8068,31 @@
 		"npc_dota_hero_magnataur_bio"						""
 
         "DOTA_Tooltip_ability_muramasa_dance"							"Sword dance"
-        "DOTA_Tooltip_ability_muramasa_dance_Description"			"Muramasa starts a ferocious series of attacks around himself, attacking all enemies in his reach 5 times. Series consists of 4 slash attacks and one ground attack at the end each dealing a 100% of muramasa atk, a part of his on-hit magic attack and base magic damage.\n  If muramasa receive a stun debuff, ability will be stopped.\nWhen this ability is upgraded, Muramasa will cleanse all of his debuffs, disjoint projectiles before each hit and will apply a stackable debuff with each hit, which increase enemies damage taken."      
-        "DOTA_Tooltip_ability_muramasa_dance_duration"					"Duration:"
+        "DOTA_Tooltip_ability_muramasa_dance_Description"				"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.15</font>\nMuramasa performs attack on all units in radius, dealing bonus <font color='#58ACFA'>magical</font> damage.\n<font color='#FFFAFA'>Can be recasted up to 4 times in 5 seconds.</font>.\nLast attack has a slightly increased radius.\nWhen <font color='#58ACFA'>upgraded</font>, this ability also applies a stacking <font color='#9400D3'>debuff</font> to enemies hit, <font color='#9400D3'>increasing damage taken</font> and <font color='#FFFAFA'>cleanses</font> Muramasa on each attack."      
+        "DOTA_Tooltip_ability_muramasa_dance_duration"					"Recast duration:"
         "DOTA_Tooltip_ability_muramasa_dance_dmg_mod"					"%Magic on-hit damage:"
         "DOTA_Tooltip_ability_muramasa_dance_dmg_amp"					"%Damage taken increase per stack:"
         "DOTA_Tooltip_ability_muramasa_dance_dmg_amp_duration"			"Debuff duration:"
         "DOTA_Tooltip_ability_muramasa_dance_base_dmg"					"Base dmg:"
         "DOTA_Tooltip_ability_muramasa_dance_Lore"						"You can't create a sword withoud deep undestandind of how it will cut"
-         
+        "DOTA_Tooltip_ability_muramasa_dance_Note0"						"Ability cannot be upgraded mid-cast."
 
         "DOTA_Tooltip_ability_muramasa_dance_upgraded"							"Sword dance upgraded"
-        "DOTA_Tooltip_ability_muramasa_dance_upgraded_Description"			"Muramasa starts a ferocious series of attacks around himself, attacking all enemies in his reach 5 times. Series consists of 4 slash attacks and one ground attack at the end each dealing a 100% of muramasa atk, a part of his on-hit magic attack and base magic damage.\n This ability can be stopped by reusing it.\nMuramasa will cleanse all of his debuffs, disjoint projectiles before each hit and will apply a stackable debuff with each hit, which increase enemies damage taken."      
-        "DOTA_Tooltip_ability_muramasa_dance_upgraded_duration"					"Duration:"
+        "DOTA_Tooltip_ability_muramasa_dance_upgraded_Description"			"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.15</font>\nMuramasa performs attack on all units in radius, dealing bonus <font color='#58ACFA'>magical</font> damage.\n<font color='#FFFAFA'>Can be recasted up to 4 times in 5 seconds.</font>.\nLast attack has a slightly increased radius.\nAttacks apply a stacking <font color='#9400D3'>debuff</font> to enemies hit, <font color='#9400D3'>increasing enemies damage taken</font>.\nMuramasa <font color='#FFFAFA'>cleanses</font> himself on each attack."      
+        "DOTA_Tooltip_ability_muramasa_dance_upgraded_duration"					"Recast duration:"
         "DOTA_Tooltip_ability_muramasa_dance_upgraded_dmg_mod"					"%Magic on-hit damage:"
         "DOTA_Tooltip_ability_muramasa_dance_upgraded_dmg_amp"					"%Damage taken increase per stack:"
         "DOTA_Tooltip_ability_muramasa_dance_upgraded_dmg_amp_duration"			"Debuff duration:"
         "DOTA_Tooltip_ability_muramasa_dance_upgraded_base_dmg"					"Base dmg:"
         "DOTA_Tooltip_ability_muramasa_dance_upgraded_Lore"			"You can't create a sword withoud deep undestandind of how it will cut"
-
+		"DOTA_Tooltip_ability_muramasa_dance_upgraded_Note0"						"Ability cannot be upgraded mid-cast."
         "DOTA_Tooltip_ability_muramasa_dance_stop"							"Stop sword dance"
         "DOTA_Tooltip_ability_muramasa_dance_stop_Description"			    "Stop the ability."      
 
 
 
         "DOTA_Tooltip_ability_muramasa_throw"					"Throw"
-        "DOTA_Tooltip_ability_muramasa_throw_Description"	 	"Unit-vector target.\nMuramasa grabs an enemy and throws him in the targeted direction. Enemy is stunned while grabbed and thrown. If enemy collides with a wall or another enemy, he and all enemies around will  take damage and be stunned. If enemy dispells stun debuff while he is grabbed, muramasa will not throw him and ability will end.\n When this ability is upgraded, it will throw enemy further, faster and it will push all enemies hit with main target."
+        "DOTA_Tooltip_ability_muramasa_throw_Description"	 	"Muramasa grabs an enemy and throws him in the targeted direction. Enemy is stunned while grabbed and thrown. If enemy collides with a wall or another enemy, he and all enemies around will  take damage and be stunned. If enemy dispells stun debuff while he is grabbed, muramasa will not throw him and ability will end.\n When this ability is upgraded, it will throw enemy further, faster and it will push all enemies hit with main target."
         "DOTA_Tooltip_ability_muramasa_throw_damage"				"Damage:"
         "DOTA_Tooltip_ability_muramasa_throw_duration"				"Stun duration:"
         "DOTA_Tooltip_ability_muramasa_throw_range"				"Grab range:"
@@ -8100,7 +8104,7 @@
  
 
         "DOTA_Tooltip_ability_muramasa_throw_upgraded"					"Throw upgraded"
-        "DOTA_Tooltip_ability_muramasa_throw_upgraded_Description"	 	"Unit-vector target.\nMuramasa grabs an enemy and throws him in the targeted direction. Enemy is stunned while grabbed and thrown. If enemy collides with a wall, he and all enemies around will  take damage and be stunned. If enemy dispells stun debuff while he is grabbed, muramasa will not throw him and ability will end.\nIt will push all enemies hit with main target."
+        "DOTA_Tooltip_ability_muramasa_throw_upgraded_Description"	 	"Muramasa grabs an enemy and throws him in the targeted direction. Enemy is stunned while grabbed and thrown. If enemy collides with a wall, he and all enemies around will  take damage and be stunned. If enemy dispells stun debuff while he is grabbed, muramasa will not throw him and ability will end.\nIt will push all enemies hit with main target."
         "DOTA_Tooltip_ability_muramasa_throw_upgraded_damage"				"Damage:"
         "DOTA_Tooltip_ability_muramasa_throw_upgraded_duration"			"Stun duration:"
         "DOTA_Tooltip_ability_muramasa_throw_upgraded_range"				"Grab range:"

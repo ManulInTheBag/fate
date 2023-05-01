@@ -69,7 +69,7 @@ function merlin_excalibur:OnSpellStart()
         self.knockback = { should_stun = false,
                                 knockback_duration = 0.05,
                                 duration = 0.05,
-                                knockback_distance = -80,
+                                knockback_distance = -60,
                                 knockback_height =  0,
                                 center_x = pull_center.x,
                                 center_y = pull_center.y,
@@ -84,7 +84,8 @@ function merlin_excalibur:OnSpellStart()
             for k,v in pairs(targets) do            
                 if not v:IsMagicImmune() then
                     DoDamage(caster, v, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
-                    if((v:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D() > 250 and not IsKnockbackImmune(v))  then
+                    if((v:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D() > 350 and not IsKnockbackImmune(v))  then
+                        v:RemoveModifierByName("modifier_knockback")
                         v:AddNewModifier(caster, self, "modifier_knockback", self.knockback)   
                     end
                     v:AddNewModifier(caster, ability, "modifier_stunned", {duration = 0.06})

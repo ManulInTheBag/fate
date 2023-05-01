@@ -19,7 +19,7 @@ function muramasa_rush_upgraded:OnSpellStart()
     caster:FindAbilityByName("muramasa_rush"):StartCooldown(caster:FindAbilityByName("muramasa_rush"):GetCooldown(caster:FindAbilityByName("muramasa_rush"):GetLevel()))
 
     
-    if( caster:GetAbilityByIndex(0):GetName() ~="muramasa_dance") then
+    if( caster:GetAbilityByIndex(0):GetName() ~="muramasa_dance") and not caster:HasModifier("modifier_muramasa_dance_controller") then
         caster:SwapAbilities("muramasa_dance", "muramasa_dance_upgraded", true, false)
     end
     if( caster:GetAbilityByIndex(1):GetName() ~="muramasa_throw") then

@@ -209,8 +209,13 @@ function OnIRStart(keys, fromFlag)
 	end
 	--pawnAttachedVisionDummy(caster, target, radius, duration, true)
 
-	if caster.IsDivineSymbolAcquired then
+	if caster.IsDivineSymbolAcquired and not target.IsCleansedByJeanne then
 		HardCleanse(target)
+		target.IsCleansedByJeanne = true
+		Timers:CreateTimer(3,function()
+			target.IsCleansedByJeanne = false
+		
+		end)
 	end
 
 	if caster ~= target or not caster:HasModifier("modifier_saint_buff") then

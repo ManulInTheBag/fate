@@ -25,6 +25,8 @@ function nursery_rhyme_queens_glass_game:OnSpellStart()
 	hCaster.GlassGameAura:AddNewModifier(hCaster, self, "modifier_queens_glass_game_aura", tParams)
 	hCaster.GlassGameAura:AddNewModifier(hCaster, self, "modifier_kill", tParams)
 
+
+
 	local hAbility1 = hCaster:GetAbilityByIndex(0)
 	local hAbility2 = hCaster:GetAbilityByIndex(1)
 	local hAbility3 = hCaster:GetAbilityByIndex(2)
@@ -126,6 +128,11 @@ if IsServer() then
 		self.iParticleIndex2 = ParticleManager:CreateParticle( "particles/custom/nursery_rhyme/queens_glass_game/queens_glass_game_bookswirl.vpcf", PATTACH_CUSTOMORIGIN, hParent);
 		ParticleManager:SetParticleControl(self.iParticleIndex2, 1, hParent:GetOrigin())
 		ParticleManager:SetParticleControl(self.iParticleIndex2, 3, Vector(1,1,1))
+
+		self.AuraBorderFx = ParticleManager:CreateParticleForTeam("particles/custom/jtr/murderer_mist_rope.vpcf", PATTACH_ABSORIGIN_FOLLOW, hParent, hParent:GetTeamNumber())
+		ParticleManager:SetParticleControl(self.AuraBorderFx, 0, Vector(fAOE,0,0))	
+		ParticleManager:SetParticleControl(self.AuraBorderFx, 1, Vector(fAOE,0,0))
+		ParticleManager:SetParticleShouldCheckFoW(self.AuraBorderFx, false)
 	end
 
 	function modifier_queens_glass_game_aura:OnDestroy()
@@ -133,6 +140,8 @@ if IsServer() then
 		ParticleManager:ReleaseParticleIndex(self.iParticleIndex1)
 		ParticleManager:DestroyParticle(self.iParticleIndex2, false)
 		ParticleManager:ReleaseParticleIndex(self.iParticleIndex2)
+		ParticleManager:DestroyParticle(self.AuraBorderFx, false)
+		ParticleManager:ReleaseParticleIndex(self.AuraBorderFx)
 	end
 
 	function modifier_queens_glass_game:OnCreated(args)

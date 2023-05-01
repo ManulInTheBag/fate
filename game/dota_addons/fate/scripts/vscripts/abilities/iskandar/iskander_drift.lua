@@ -12,7 +12,7 @@ function iskander_drift:OnSpellStart()
 		caster:SetModelScale(0.6)
 	end
 
-	giveUnitDataDrivenModifier(caster, caster, "pause_sealdisabled", 1.5)
+	--giveUnitDataDrivenModifier(caster, caster, "pause_sealdisabled", 1.5)
 	local currentMS = caster:GetMoveSpeedModifier(caster:GetBaseMoveSpeed(), false)
 	if currentMS > 1200 then
 		EmitGlobalSound("Iskander.Charge")
