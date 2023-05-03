@@ -227,12 +227,16 @@ if IsServer() then
         end
         if IsNotNull(hHero) then
             if sText == "-saito1" then
-                hHero:RemoveModifierByName("modifier_saito_model_swap")
-                Say(hHero, "Hajime-chan changed to the COAT version.", false)
+                --if GameRules:GetGameTime() <= 240 then
+                    hHero:RemoveModifierByName("modifier_saito_model_swap")
+                --end
+                --Say(hHero, "Hajime-chan changed to the COAT version.", false)
             end
             if sText == "-saito2" then
-                hHero:AddNewModifier(hHero, nil, "modifier_saito_model_swap", {})
-                Say(hHero, "Hajime-chan changed to the HAORI version.", false)
+                if GameRules:GetGameTime() <= 240 then
+                    hHero:AddNewModifier(hHero, nil, "modifier_saito_model_swap", {})
+                end
+                --Say(hHero, "Hajime-chan changed to the HAORI version.", false)
             end
         end
     end, nil)
@@ -1662,11 +1666,11 @@ function modifier_saito_mind_eye_active:OnCreated(tTable)
             self.hParent:AddNewModifier(self.hCaster, self.hAbility, "modifier_saito_mind_eye_shell", {duration = nShellDuration})
             self.hParent:AddNewModifier(self.hCaster, self.hAbility, "modifier_saito_mind_eye_linken", {duration = nShellDuration})
 
-            if self.hParent:GetUnitName() == "npc_dota_hero_dark_willow" and RollPseudoRandomPercentage(nChance, 2, self.hParent) then --If the target is Okita then add her agility bonus and reset abilities.
+            if self.hParent:GetUnitName() == "npc_dota_hero_dark_willow" then --If the target is Okita then add her agility bonus and reset abilities.
                 --if self.hParent:GetUnitName() == "npc_dota_hero_dark_willow" and RollPercentage(nChance) then --Rolls a number from 1 to 100 and returns true if the roll is less than or equal to the number specified.
-                ResetAbilities(self.hParent) --FATE mechanic, described in F/A 2 code... needs as other functions because it is FATE...
+                --ResetAbilities(self.hParent) --FATE mechanic, described in F/A 2 code... needs as other functions because it is FATE...
 
-                self.hParent:AddNewModifier(self.hCaster, self.hAbility, "modifier_saito_mind_eye_agility", {})
+                self.hParent:AddNewModifier(self.hCaster, self.hAbility, "modifier_saito_mind_eye_agility", {duration = self.hAbility:GetSpecialValueFor("duration")})
             end
         end
 
