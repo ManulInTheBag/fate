@@ -7704,7 +7704,7 @@
 
 		//One By One
 		"DOTA_Tooltip_ability_saito_blast"															"One By One"
-		"DOTA_Tooltip_ability_saito_blast_Description"												"Saitō releases powerful %radial_count% wind blades in all directions around him, dealing %damage% damage to any enemy units that collide with that.\nThe impact of the wind blades is enough to knock those enemy unit back for %knockback_duration% seconds, then dimensionally lock and slow down their movement speed and turn rate for %turn_and_slow_duration% seconds.\nThe movement speed slowing and turn rate reduction starts at %turn_and_slow_max_value%%% and decreases over time until %turn_and_slow_min_value%%%.\nAn enemy unit can only take one damage per cast."
+		"DOTA_Tooltip_ability_saito_blast_Description"												"Saitō releases powerful %radial_count% wind blades in all directions around him, dealing %damage% damage to any enemy units that collide with that.\nThe impact of the wind blades is enough to knock those enemy unit back and dimensionally lock them for %knockback_duration% seconds, then slow down their movement speed and turn rate for %turn_and_slow_duration% seconds.\nThe movement speed slowing and turn rate reduction starts at %turn_and_slow_max_value%%% and decreases over time until %turn_and_slow_min_value%%%.\nAn enemy unit can only take one damage per cast."
 		"DOTA_Tooltip_ability_saito_blast_Lore"														"Saitō always acts flippant, but when the moment calls for it, he shows his serious, razor-sharp side."
 		"DOTA_Tooltip_ability_saito_blast_abilitycastpoint"											"CAST POINT:"
 		"DOTA_Tooltip_ability_saito_blast_distance"													"DISTANCE:"

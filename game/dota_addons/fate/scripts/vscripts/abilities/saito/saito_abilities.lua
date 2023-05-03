@@ -3309,7 +3309,7 @@ function saito_blast:OnProjectileHit_ExtraData(hTarget, vLocation, tExtraData)
         --=================================--
         hTarget:AddNewModifier(hCaster, self, "modifier_saito_blast_turn_and_slow", {duration = tExtraData.nSDRDuration})
         --=================================--
-        giveUnitDataDrivenModifier(hCaster, hTarget, "locked", tExtraData.nSDRDuration)
+        giveUnitDataDrivenModifier(hCaster, hTarget, "locked", tExtraData.nKnockDur)
         --=================================--
         EmitSoundOn("Saito.Blast.Impact", hTarget)
     end
