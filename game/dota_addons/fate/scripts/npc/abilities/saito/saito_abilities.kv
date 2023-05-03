@@ -274,7 +274,7 @@
 
 		"AbilityCastAnimation"						"ACT_DOTA_CAST_ABILITY_1"
 
-		"LinkedAbilities"							"saito_formless_slash"
+		"LinkedAbilities"							"saito_formless_slash"		//Only for Fatepedia.
 
 		//"AbilitySpecial"		//This is old style KV, GabeN now uses a new variable which I will use here, just change it later if you want to use the old one.
 		//{
@@ -304,13 +304,13 @@
 		"AbilityUnitTargetTeam"						"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"						"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 		"AbilityUnitTargetFlags"					"DOTA_UNIT_TARGET_FLAG_NONE"
-		
+
 		"AbilityUnitDamageType"						"DAMAGE_TYPE_MAGICAL"
 
 		"SpellImmunityType"							"SPELL_IMMUNITY_ENEMIES_NO"
 		"SpellDispellableType"						"SPELL_DISPELLABLE_YES"		//This line is only for visuals on the HUD. In Lua for this by default it uses IsPurgable(), and IsPurgeException() for with strong dispels.
 
-		"AbilityCastPoint"							"0.4"
+		"AbilityCastPoint"							"0.15"
 		"AbilityCooldown"							"0"
 		"AbilityManaCost"							"50"
 		"AbilityCastRange"							"550 600 650 700 750"
@@ -505,7 +505,7 @@
 		"SpellDispellableType"						"SPELL_DISPELLABLE_NO"		//This line is only for visuals on the HUD. In Lua for this by default it uses IsPurgable(), and IsPurgeException() for with strong dispels.
 
 		"AbilityCastPoint"							"0.3"
-		"AbilityCooldown"							"200"
+		"AbilityCooldown"							"120"
 		"AbilityManaCost"							"600"
 		//"AbilityCastRange"						""		//Cast Range should be 0 as this ability does not require a target to be cast.
 
@@ -515,7 +515,7 @@
 
 		"AbilityCastAnimation"						"ACT_DOTA_CAST_ABILITY_1"
 
-		"LinkedAbilities"							"saito_blast"
+		"LinkedAbilities"							"saito_blast"		//Only for Fatepedia.
 
 		//"AbilitySpecial"		//This is old style KV, GabeN now uses a new variable which I will use here, just change it later if you want to use the old one.
 		//{
@@ -524,7 +524,7 @@
 
 		"AbilityValues"
 		{
-			"duration"								"10"
+			"duration"								"11"
 			"damage_chance"							"22"
 			"hp_damage"								"16"
 			"fds_hp_mp_scale"						"2"
@@ -532,7 +532,7 @@
 			"activation_duration"					"3"
 			"activation_steps"						"2"
 			"blast_duration"						"4"
-			"max_linken_procs"						"10"
+			"max_linken_procs"						"11"
 		}
 	}
 	//=======================================================================================================
@@ -650,7 +650,7 @@
 		"RequiredLevel"								"1"
 		"LevelsBetweenUpgrades"						"1"
 
-		"LinkedAbilities"							"saito_step saito_storm saito_vortex"
+		"LinkedAbilities"							"saito_step saito_storm saito_vortex"		//Only for Fatepedia.
 
 		//"AbilitySpecial"		//This is old style KV, GabeN now uses a new variable which I will use here, just change it later if you want to use the old one.
 		//{
@@ -696,7 +696,7 @@
 			"me_hp_bonus"							"100"
 			"me_shell_duration"						"1.2"
 			"me_shell_block"						"60"
-			"me_okita_chance"						"1"
+			"me_okita_chance"						"1.5"
 			"me_okita_agility"						"15"
 		}
 	}
@@ -769,7 +769,7 @@
 		"AbilityValues"
 		{
 			"fli_fade_delay"						"0.75"
-			"fli_evasion"							"20"
+			"fli_evasion"							"35"
 			"fls_cast_range"						"150"
 			"fls_revoked_scale"						"2"
 			"fls_dmg_per_atk"						"25"

@@ -222,15 +222,17 @@ if IsServer() then
         local nPlayerID = tEventTable.playerid
         local sText     = tEventTable.text
         local hHero     = PlayerResource:GetSelectedHeroEntity(nPlayerID)
-        if not (hHero:GetName() == "npc_dota_hero_terrorblade") then return end
+        if not (hHero:GetName() == "npc_dota_hero_terrorblade") then
+            return
+        end
         if IsNotNull(hHero) then
             if sText == "-saito1" then
                 hHero:RemoveModifierByName("modifier_saito_model_swap")
-                Say(hHero, "Hajime-chan's model was changed to the COAT version.", false)
+                Say(hHero, "Hajime-chan changed to the COAT version.", false)
             end
             if sText == "-saito2" then
                 hHero:AddNewModifier(hHero, nil, "modifier_saito_model_swap", {})
-                Say(hHero, "Hajime-chan's model was changed to the HAORI version.", false)
+                Say(hHero, "Hajime-chan changed to the HAORI version.", false)
             end
         end
     end, nil)
@@ -3306,6 +3308,8 @@ function saito_blast:OnProjectileHit_ExtraData(hTarget, vLocation, tExtraData)
         DoDamage(hCaster, hTarget, tExtraData.damage, tExtraData.nDamageType, DOTA_DAMAGE_FLAG_NONE, self, false)
         --=================================--
         hTarget:AddNewModifier(hCaster, self, "modifier_saito_blast_turn_and_slow", {duration = tExtraData.nSDRDuration})
+        --=================================--
+        giveUnitDataDrivenModifier(hCaster, hTarget, "locked", tExtraData.nSDRDuration)
         --=================================--
         EmitSoundOn("Saito.Blast.Impact", hTarget)
     end

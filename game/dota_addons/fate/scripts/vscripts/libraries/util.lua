@@ -43,8 +43,8 @@ softdispellable = {
     "modifier_jeanne_trail_debuff",
     "modifier_master_intervention",
     "modifier_merlin_excalibur_attack",
-    "modifier_saito_mind_eye_buff",
-    "modifier_saito_quickslash_bonus",
+    --"modifier_saito_mind_eye_buff",
+    --"modifier_saito_quickslash_bonus",
 }
 
 strongdispellable = {
@@ -105,9 +105,8 @@ strongdispellable = {
     "modifier_replenishment_heal",
     --"modifier_heracles_berserk",
     "modifier_master_intervention",
-    "modifier_saito_mind_eye_buff",
-    "modifier_saito_quickslash_bonus", 
- 
+    --"modifier_saito_mind_eye_buff",
+    --"modifier_saito_quickslash_bonus",
 }
 
 deargdispellable = {
@@ -154,7 +153,6 @@ deargdispellable = {
     "modifier_selfmod_agility", 
     "modifier_merlin_excalibur_attack",
 
-
     -- Strong Dispelable
     "modifier_b_scroll",
     "modifier_argos_shield",
@@ -169,9 +167,8 @@ deargdispellable = {
     "modifier_merlin_hero_creation",
     --"modifier_heracles_berserk",
     "modifier_master_intervention",
-    "modifier_saito_mind_eye_buff",
-    "modifier_saito_quickslash_bonus",
-  
+    --"modifier_saito_mind_eye_buff",
+    --"modifier_saito_quickslash_bonus",
 }
 
 revokes = {
@@ -186,7 +183,7 @@ revokes = {
     --"modifier_command_seal_4",
     "round_pause",
     "modifier_nss_shock",
-    "modifier_tres_fontaine_nero"
+    "modifier_tres_fontaine_nero",
 }
 
 --this revokes will not give you to use D seal. If you want to make it unusable in revoke just change the intervention table to check to 'revokes'
@@ -194,7 +191,7 @@ d_seal_locked = {
     "jump_pause",
     "pause_sealdisabled",
     "round_pause",
-    "modifier_tres_fontaine_nero" --idk wtf this is lols
+    "modifier_tres_fontaine_nero", --idk wtf this is lols
 }
 
 locks = {
@@ -217,7 +214,6 @@ locks = {
     "modifier_arcueid_melty",
     "modifier_gordius_wheel",
     "modifier_altera_dash",
-    
 }
 
 goesthruB = {
@@ -229,7 +225,7 @@ goesthruB = {
     "avenger_verg_avesta",
     "cu_chulain_gae_bolg",
     "cu_chulain_gae_bolg_combo",
-    "lancelot_gae_bolg"
+    "lancelot_gae_bolg",
 }
 
 cleansable = {
@@ -331,8 +327,8 @@ cleansable = {
     "iskander_brilliance_of_the_king",
     "modifier_saito_steelwing_mss",
     "modifier_saito_shadowslash_mrr",
-    "modifier_saito_fds_active_sdr"
-
+    "modifier_saito_fds_active_sdr",
+    "modifier_saito_blast_turn_and_slow",
 }
 
 slowmodifier = {
@@ -378,7 +374,8 @@ slowmodifier = {
     "modifier_arcueid_shut_up_slow",
     "modifier_leonidas_enomotia_slow",
     "modifier_saito_steelwing_mss",
-    "modifier_gordius_wheel_thunder_slow"
+    "modifier_saito_blast_turn_and_slow",
+    "modifier_gordius_wheel_thunder_slow",
 }
 
 donotlevel = {
@@ -584,10 +581,11 @@ CannotReset = {
     "iskander_ionioi",
     "true_assassin_protection_from_wind",
 
-
+    "saito_step",
+    "saito_storm",
+    "saito_vortex",
     "saito_style",
     "saito_blast",
-
 }
 
 femaleservant = {
@@ -609,7 +607,7 @@ femaleservant = {
     "npc_dota_hero_gyrocopter",
     "npc_dota_hero_razor",
     "npc_dota_hero_tiny",
-    "npc_dota_hero_faceless_void"
+    "npc_dota_hero_faceless_void",
 }
 
 tCannotDetect = {
@@ -618,13 +616,13 @@ tCannotDetect = {
     "npc_dota_hero_bloodseeker",
     "npc_dota_hero_riki",
     "npc_dota_hero_skeleton_king",
-    "npc_dota_hero_night_stalker"
+    "npc_dota_hero_night_stalker",
 }
 
 tDangerousBuffs = {
     "modifier_gae_buidhe",
     "modifier_zabaniya_curse",
-    "modifier_gae_buidhe"
+    "modifier_gae_buidhe",
 }
 
 itemComp = {
@@ -634,7 +632,7 @@ itemComp = {
     {"item_s_scroll", "item_s_scroll", "item_ex_scroll"},
     {"item_mana_essence", "item_mana_essence", "item_condensed_mana_essence"},
     {"item_mana_essence", "item_recipe_healing_scroll", "item_healing_scroll"},
-    {"item_a_scroll", "item_recipe_a_plus_scroll", "item_a_plus_scroll"}
+    {"item_a_scroll", "item_recipe_a_plus_scroll", "item_a_plus_scroll"},
 }
 
 tItemComboTable = {
@@ -643,18 +641,18 @@ tItemComboTable = {
     item_a_scroll = "item_s_scroll",
     item_s_scroll = "item_ex_scroll",
     item_mana_essence = "item_condensed_mana_essence",
-    item_a_plus_recipe = "item_a_plus_scroll"
+    item_a_plus_recipe = "item_a_plus_scroll",
 }
 
 tModifierKBImmune = {
     "modifier_artoria_avalon",
     "modifier_merlin_avalon_self",
-    "modifier_leonidas_enomotia_ignore_motion_controll"
+    "modifier_leonidas_enomotia_ignore_motion_controll",
 }
 
 tManalessHero = {
     "npc_dota_hero_juggernaut",
-    "npc_dota_hero_shadow_shaman"
+    "npc_dota_hero_shadow_shaman",
 }
 
 tRemoveTheseModifiers = {
@@ -667,7 +665,7 @@ tRemoveTheseModifiers = {
     "modifier_gae_dearg",
     "modifier_atalanta_curse",
     "modifier_muramasa_tsumukari_buff",
-    "modifier_ryougi_lines"
+    "modifier_ryougi_lines",
 }
 
 tDivineHeroes = {
@@ -678,7 +676,7 @@ tDivineHeroes = {
     "npc_dota_hero_chen",
     "npc_dota_hero_enchantress",
     "npc_dota_hero_beastmaster",
-    "npc_dota_hero_faceless_void"
+    "npc_dota_hero_faceless_void",
 }
 
 tKnightClass = {
@@ -721,7 +719,7 @@ tHorsemanClass = {
     "npc_dota_hero_riki",
     "npc_dota_hero_skeleton_king",
     "npc_dota_hero_puck",
-    "npc_dota_hero_night_stalker"
+    "npc_dota_hero_night_stalker",
 }
 
 tipTable = { "<font color='#58ACFA'>Tip : C Scroll</font> is everyone's bread-and-butter item that you should be carrying at all times. Use it to guarantee your skill combo, or help your teammate by interrupting enemy.",

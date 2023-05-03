@@ -7479,7 +7479,7 @@
 
 		//Hero
 		"npc_dota_hero_terrorblade"																	"Saitō Hajime"
-		"npc_dota_hero_terrorblade_summon"															"Servant <font color='#0075B5'>Saitō Hajime</font> has been summoned."
+		"npc_dota_hero_terrorblade_summon"															"Servant Saitō Hajime has been summoned."
 		"npc_dota_hero_terrorblade_enable_combo"													"Enable Combo: Undefeatable Style"
 
 		//Special Modifiers for Counting Some Keys.
@@ -7493,7 +7493,7 @@
 		///ABILITIES///
 
 		//Flashblade
-		"DOTA_Tooltip_ability_saito_flashblade"														"<font color='#0075B5'>Flashblade</font>"
+		"DOTA_Tooltip_ability_saito_flashblade"														"Flashblade"
 		"DOTA_Tooltip_ability_saito_flashblade_Description"											"Saitō lunges forward at the target point, creating afterimages every %image_creation_dist% units moved. Afterimage deals damage to nearby enemies, and roots them for %image_root_duration% seconds.\nLinked in level with <font color='#0075B5'>Steelwing</font> and <font color='#0075B5'>Shadowslash</font>.\nThis ability's distance and damage will decrease gradually if used %repeat_halver_count_need% or more times in a row.\n\n<font color='#87C9AC'>Upgradeable with Attribute: Swords of Freedom and Invincible Sword</font>."
 		"DOTA_Tooltip_ability_saito_flashblade_Lore"												"Staggering blow that sets the air aflame."
 		"DOTA_Tooltip_ability_saito_flashblade_AbilityCastPoint"									"CAST POINT:"
@@ -7511,7 +7511,7 @@
 		"DOTA_Tooltip_modifier_saito_flashblade_turn_rate_Description"								"Base turn rate increased to %dMODIFIER_PROPERTY_TURN_RATE_OVERRIDE%."
 
 		//Steelwing
-		"DOTA_Tooltip_ability_saito_steelwing"														"<font color='#0075B5'>Steelwing</font>"
+		"DOTA_Tooltip_ability_saito_steelwing"														"Steelwing"
 		"DOTA_Tooltip_ability_saito_steelwing_Description"											"Saitō slams his blade into the ground, knocking back all nearby enemies to a fixed distance, dealing damage and stunning them.\nLinked in level with <font color='#0075B5'>Flashblade</font> and <font color='#0075B5'>Shadowslash</font>.\nThis ability's damage and stun duration will decrease gradually if used %repeat_halver_count_need% or more times in a row.\n\n<font color='#87C9AC'>Upgradeable with Attribute: Swords of Freedom and Invincible Sword</font>."
 		"DOTA_Tooltip_ability_saito_steelwing_Lore"													"Slamming hard-edged wings of a bird taking flight."
 		"DOTA_Tooltip_ability_saito_steelwing_AbilityCastPoint"										"CAST POINT:"
@@ -7525,7 +7525,7 @@
 		"DOTA_Tooltip_modifier_saito_steelwing_mss_Description"										"Movement speed slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
 
 		//Shadowslash
-		"DOTA_Tooltip_ability_saito_shadowslash"													"<font color='#0075B5'>Shadowslash</font>"
+		"DOTA_Tooltip_ability_saito_shadowslash"													"Shadowslash"
 		"DOTA_Tooltip_ability_saito_shadowslash_Description"										"Saitō slashes all enemies around him and pulls the enemies towards him, dealing damage. After a short delay, a burst of secondary damage is applied to the targets, mini-stunning and dealing %burst_damage_pct%%% of this ability's damage to all enemies within a %burst_radius% units around the hit targets.\nLinked in level with <font color='#0075B5'>Flashblade</font> and <font color='#0075B5'>Steelwing</font>.\nThis ability's initial damage and pull radius will decrease gradually if used %repeat_halver_count_need% or more times in a row.\n\n<font color='#87C9AC'>Upgradable with Attribute: Swords of Freedom and Invincible Sword</font>."
 		"DOTA_Tooltip_ability_saito_shadowslash_Lore"												"Light-speed assault invisible to the naked eye."
 		"DOTA_Tooltip_ability_saito_shadowslash_AbilityCastPoint"									"CAST POINT:"
@@ -7542,7 +7542,7 @@
 		"DOTA_Tooltip_modifier_saito_shadowslash_mrr_Description"									"Magic resistance reduced by %dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%."
 
 		//Mind's Eye (True)
-		"DOTA_Tooltip_ability_saito_mind_eye"														"<font color='#0075B5'>Mind's Eye (True)</font>"
+		"DOTA_Tooltip_ability_saito_mind_eye"														"Mind's Eye (True)"
 		"DOTA_Tooltip_ability_saito_mind_eye_Description"											"Imbues Saitō and an allied hero with a negative debuff aura around them, causing one nearby enemy to be rooted and dimensionally locked every %root_lock_cooldown% seconds when they cast a spell. Additionally, grants both of them bonus max health and increased health regen. Provides %ally_scale%%% bonus to allied heroes except Okita Souji.\nSaitō can self-cast <font color='#0075B5'>Mind’s Eye (True)</font> to buff himself and the nearest allied hero within %AbilityCastRange% range.\n\n<font color='#87C9AC'>Upgradable with Attribute: Memoir</font>."
 		"DOTA_Tooltip_ability_saito_mind_eye_Lore"													"Even the fiercely loyal Hijikata says that Saitō’s loyalty to the Shinsengumi is second-to-none and knows that he would never betray the Shinsengumi in any capacity."
 		"DOTA_Tooltip_ability_saito_mind_eye_AbilityCastPoint"										"CAST POINT:"
@@ -7573,7 +7573,7 @@
 		"DOTA_Tooltip_modifier_saito_mind_eye_agility_Description"									"Gaining bonus %dMODIFIER_PROPERTY_STATS_AGILITY_BONUS% agility permanently from Hajime-chan."
 
 		//Freely Drawn Sword
-		"DOTA_Tooltip_ability_saito_fds"															"<font color='#0075B5'>Freely Drawn Sword</font>"
+		"DOTA_Tooltip_ability_saito_fds"															"Freely Drawn Sword"
 		"DOTA_Tooltip_ability_saito_fds_Description"												"<font color='#00AB9E'>PASSIVE</font>: <font color='#0075B5'>Flashblade</font>, <font color='#0075B5'>Steelwing</font> and <font color='#0075B5'>Shadowslash</font> share cooldowns, able to be cast up to %max_casts% times.\nAll of these abilities must be used simultaneously at certain time intervals, and if you fail to match the time intervals, they will go on cooldown.\nThe time interval starts at %check_interval% seconds and decreases by %check_decreaser% seconds with each concurrent use of these abilities.\n<font color='#00AB9E'>ACTIVE</font>: When activated, whenever Saitō deals damage to an enemy with an ability, he applies a stacking debuff to the enemies he hits, causing them to deal less damage, stacking additively and instantly restoring mana for each enemy hero hit.\n\n<font color='#87C9AC'>Upgradeable with Attribute: Freestyle</font>."
 		"DOTA_Tooltip_ability_saito_fds_Lore"														"A sword drawing technique that can freely change forms when the user unsheathes his blade in each hand."
 		"DOTA_Tooltip_ability_saito_fds_AbilityCastPoint"											"CAST POINT:"
@@ -7603,7 +7603,7 @@
 		"DOTA_Tooltip_modifier_saito_fds_active_sdr_Description"									"Reducing damage dealt by %dMODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE%%%."
 
 		//Formless
-		"DOTA_Tooltip_ability_saito_formless_invis"													"<font color='#0075B5'>Formless</font>"
+		"DOTA_Tooltip_ability_saito_formless_invis"													"Formless"
 		"DOTA_Tooltip_ability_saito_formless_invis_Description"										"Turns Saitō invisible and grants bonus movement speed. If Saitō is revealed, invisibility will restore after the fade delay as long as <font color='#0075B5'>Formless</font>’s duration has not expired.\nUpon cast, this ability is replaced by <font color='#0075B5'>Formlessness</font>, while under the effects of <font color='#0075B5'>Formless</font>.\n\n<font color='#87C9AC'>Upgradeable with Attribute: Kijinmaru Kunishige</font>."
 		"DOTA_Tooltip_ability_saito_formless_invis_Lore"											"Saitō approaches the target in a unique way, different than rushing in with pure speed, and his moves distort the target’s perception of time and distance."
 		"DOTA_Tooltip_ability_saito_formless_invis_AbilityCastPoint"								"CAST POINT:"
@@ -7615,7 +7615,7 @@
 		"DOTA_Tooltip_modifier_saito_formless_invis_Description"									"Invisible. Attacking temporarily removes invisibility. Movement speed increased by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
 
 		//Formlessness
-		"DOTA_Tooltip_ability_saito_formless_slash"													"<font color='#0075B5'>Formlessness</font>"
+		"DOTA_Tooltip_ability_saito_formless_slash"													"Formlessness"
 		"DOTA_Tooltip_ability_saito_formless_slash_Description"										"Saitō unleashes a special move cutting inverse and diagonally. Allows Saitō to cast this ability up to %max_slashes% times. The first slashes are a double slash, dealing damage and dimensionally locking the target for %lock_duration% seconds. Last slash deals more damage and dimensionally locks the target for a longer duration.\n Using the last slash will end the duration of <font color='#0075B5'>Formless</font> early.\n\n<font color='#87C9AC'>Upgradeable with Attribute: Swords of Freedom and Kijinmaru Kunishige</font>."
 		"DOTA_Tooltip_ability_saito_formless_slash_Lore"											"No matter what kind of melee weapon the target uses, be it spear, sword, or anything else, Saitō always makes the first move from any distance, ignoring the target’s reach."
 		"DOTA_Tooltip_ability_saito_formless_slash_AbilityCastPoint"								"CAST POINT:"
@@ -7633,8 +7633,8 @@
 		//Tetra-Step
 		"saito_step_locked_error"																	"Ability Not Castable While Locked"
 
-		"DOTA_Tooltip_ability_saito_step"															"<font color='#F9AF1F'>Tetra-Step</font>"
-		"DOTA_Tooltip_ability_saito_step_Description"												"Teleports to the target location, dealing damage and stunning enemies within %radius% AoE for %stun_duration% seconds.\nLinked in level with <font color='#0075B5'>Freely Drawn Sword</font>.\nDisabled during <font color='#7E539C'>Combo: Undefeatable Style</font>."
+		"DOTA_Tooltip_ability_saito_step"															"Tetra-Step"
+		"DOTA_Tooltip_ability_saito_step_Description"												"Teleports to the target location, dealing damage and stunning enemies within %radius% AoE for %stun_duration% seconds.\nLinked in level with <font color='#0075B5'>Freely Drawn Sword</font>.\nDisabled during <font color='#F59D9B'>Combo: Undefeatable Style</font>."
 		"DOTA_Tooltip_ability_saito_step_Lore"														"To be formless is to be unmoving."
 		"DOTA_Tooltip_ability_saito_step_Note0"														"Cannot be used while locked."
 		"DOTA_Tooltip_ability_saito_step_abilitycastpoint"											"CAST POINT:"
@@ -7645,8 +7645,8 @@
 		//"DOTA_Tooltip_ability_saito_step_stun_duration"											""
 
 		//Shieldbreaker
-		"DOTA_Tooltip_ability_saito_storm"															"<font color='#F9AF1F'>Shieldbreaker</font>"
-		"DOTA_Tooltip_ability_saito_storm_Description"												"Saitō thrusts his blade forward at the target enemy, creating a beam that travels %pierce_range% range and stuns the primary target for %stun_duration% seconds.\nLinked in level with <font color='#0075B5'>Freely Drawn Sword</font>.\nDisabled during <font color='#7E539C'>Combo: Undefeatable Style</font>."
+		"DOTA_Tooltip_ability_saito_storm"															"Shieldbreaker"
+		"DOTA_Tooltip_ability_saito_storm_Description"												"Saitō thrusts his blade forward at the target enemy, creating a beam that travels %pierce_range% range and stuns the primary target for %stun_duration% seconds.\nLinked in level with <font color='#0075B5'>Freely Drawn Sword</font>.\nDisabled during <font color='#F59D9B'>Combo: Undefeatable Style</font>."
 		"DOTA_Tooltip_ability_saito_storm_Lore"														"A special thrust variant of the Shinsengumi’s Hirazuki method."
 		"DOTA_Tooltip_ability_saito_storm_abilitycastpoint"											"CAST POINT:"
 		//"DOTA_Tooltip_ability_saito_storm_duration"												""
@@ -7657,8 +7657,8 @@
 		//"DOTA_Tooltip_ability_saito_storm_pierce_width"											""
 
 		//Blade Vortex
-		"DOTA_Tooltip_ability_saito_vortex"															"<font color='#F9AF1F'>Blade Vortex</font>"
-		"DOTA_Tooltip_ability_saito_vortex_Description"												"Saitō slashes the area around him with his blade %slashes_count% times, each slash damaging nearby enemies, pulling them towards him and mini-stunning them repeatedly. The last slash has a larger radius, dealing more damage and knocking back the enemies, slashing them away. Saitō is revoked for the duration.\nLinked in level with <font color='#0075B5'>Freely Drawn Sword</font>.\nDisabled during <font color='#7E539C'>Combo: Undefeatable Style</font>."
+		"DOTA_Tooltip_ability_saito_vortex"															"Blade Vortex"
+		"DOTA_Tooltip_ability_saito_vortex_Description"												"Saitō slashes the area around him with his blade %slashes_count% times, each slash damaging nearby enemies, pulling them towards him and mini-stunning them repeatedly. The last slash has a larger radius, dealing more damage and knocking back the enemies, slashing them away. Saitō is revoked for the duration.\nLinked in level with <font color='#0075B5'>Freely Drawn Sword</font>.\nDisabled during <font color='#F59D9B'>Combo: Undefeatable Style</font>."
 		"DOTA_Tooltip_ability_saito_vortex_Lore"													"Wha~at, this way is just more interesting to me."
 		"DOTA_Tooltip_ability_saito_vortex_AbilityCastPoint"										"CAST POINT:"
 		"DOTA_Tooltip_ability_saito_vortex_pull_radius"												"PULL RADIUS:"
@@ -7682,8 +7682,8 @@
 		///COMBO///
 
 		//Undefeatable Style
-		"DOTA_Tooltip_ability_saito_style"															"<font color='#7E539C'>Combo: Undefeatable Style</font>"
-		"DOTA_Tooltip_ability_saito_style_Description"												"<font color='#7E539C'>Combo Requirements: 30 or more in all stats.</font>\n<font color='#7E539C'>Combo Sequence: F - D -> F on activation step.</font>\nSaitō channels both mind and spirit through the blades to inflict pain on the enemy's very core, granting a chance to deal bonus damage on any damage dealt by Saitō’s attacks or abilities.\nFor the duration of this ability, blocks most targeted spells %max_linken_procs% times and doubles the health and mana gain of <font color='#0075B5'>Freely Drawn Sword</font>.\nThe cast points of <font color='#0075B5'>Flashblade</font>, <font color='#0075B5'>Steelwing</font> and <font color='#0075B5'>Shadowslash</font> are replaced with immediate delay and cannot be interrupted, also reducing their cooldown for duration.\nUpon cast, enables <font color='#F9AF1F'>One By One</font> for %blast_duration% seconds."
+		"DOTA_Tooltip_ability_saito_style"															"Combo: Undefeatable Style"
+		"DOTA_Tooltip_ability_saito_style_Description"												"<font color='#F59D9B'>Combo Requirements: 30 or more in all stats.</font>\n<font color='#F59D9B'>Combo Sequence: F - D -> F on activation step.</font>\nSaitō channels both mind and spirit through the blades to inflict pain on the enemy's very core, granting a chance to deal bonus damage on any damage dealt by Saitō’s attacks or abilities.\nFor the duration of this ability, blocks most targeted spells %max_linken_procs% times and doubles the health and mana gain of <font color='#0075B5'>Freely Drawn Sword</font>.\nThe cast points of <font color='#0075B5'>Flashblade</font>, <font color='#0075B5'>Steelwing</font> and <font color='#0075B5'>Shadowslash</font> are replaced with immediate delay and cannot be interrupted, also reducing their cooldown for duration.\nUpon cast, enables <font color='#F9AF1F'>One By One</font> for %blast_duration% seconds."
 		"DOTA_Tooltip_ability_saito_style_Lore"														"Without form, my sword is intangible. As it flows, it embodies all possibilities. That is why my sword has no equal!"
 		"DOTA_Tooltip_ability_saito_style_AbilityCastPoint"											"CAST POINT:"
 		"DOTA_Tooltip_ability_saito_style_duration"													"DURATION:"
@@ -7703,8 +7703,8 @@
 		"DOTA_Tooltip_modifier_saito_style_active_Description"										"Aku Soku Zan."
 
 		//One By One
-		"DOTA_Tooltip_ability_saito_blast"															"<font color='#F9AF1F'>One By One</font>"
-		"DOTA_Tooltip_ability_saito_blast_Description"												"Saitō releases powerful %radial_count% wind blades in all directions around him, dealing %damage% damage to any enemy units that collide with that.\nThe impact of the wind blades is enough to knock those enemy unit back for %knockback_duration% seconds, then slow down their movement speed and turn rate for %turn_and_slow_duration% seconds.\nThe movement speed slowing and turn rate reduction starts at %turn_and_slow_max_value%%% and decreases over time until %turn_and_slow_min_value%%%.\nAn enemy unit can only take one damage per cast."
+		"DOTA_Tooltip_ability_saito_blast"															"One By One"
+		"DOTA_Tooltip_ability_saito_blast_Description"												"Saitō releases powerful %radial_count% wind blades in all directions around him, dealing %damage% damage to any enemy units that collide with that.\nThe impact of the wind blades is enough to knock those enemy unit back for %knockback_duration% seconds, then dimensionally lock and slow down their movement speed and turn rate for %turn_and_slow_duration% seconds.\nThe movement speed slowing and turn rate reduction starts at %turn_and_slow_max_value%%% and decreases over time until %turn_and_slow_min_value%%%.\nAn enemy unit can only take one damage per cast."
 		"DOTA_Tooltip_ability_saito_blast_Lore"														"Saitō always acts flippant, but when the moment calls for it, he shows his serious, razor-sharp side."
 		"DOTA_Tooltip_ability_saito_blast_abilitycastpoint"											"CAST POINT:"
 		"DOTA_Tooltip_ability_saito_blast_distance"													"DISTANCE:"
@@ -7728,7 +7728,7 @@
 		"DOTA_Tooltip_modifier_saito_attributes_Description"										"Displayed after the SA is taken."
 
 		//Swords of Freedom
-		"DOTA_Tooltip_ability_saito_attribute_freedom"												"<font color='#9BB531'>Attribute: Swords of Freedom</font>"
+		"DOTA_Tooltip_ability_saito_attribute_freedom"												"Attribute: Swords of Freedom"
 		"DOTA_Tooltip_ability_saito_attribute_freedom_Description"									"<font color='#0075B5'>Flashblade</font>: disjoints projectiles upon cast and increases the base turn rate to %q_turn_rate% for %q_turn_rate_duration% seconds. Causes the afterimage created from this ability to launch enemies hit by it upwards for %q_knock_up_duration% seconds.\n<font color='#0075B5'>Steelwing</font>: applies a movement speed slow to enemies hit by %w_ms_slow%%% for %w_ms_slow_duration% seconds.\n<font color='#0075B5'>Shadowslash</font>: lowers magic resistance of enemies hit by %e_mr_reduction%%% for %e_mr_reduction_duration% seconds.\n<font color='#0075B5'>Formlessness</font>: double slashes now also root the target for %fls_root_duration% seconds with each attack. Last slash roots the target for %fls_last_root_duration% seconds."
 		"DOTA_Tooltip_ability_saito_attribute_freedom_Lore"											"Saitō’s style does not follow a specific discipline, and is unrestrained and free-spirited."
 		//"DOTA_Tooltip_ability_saito_attribute_freedom_q_turn_rate_duration"						""
@@ -7743,14 +7743,14 @@
 		//"DOTA_Tooltip_ability_saito_attribute_freedom_fls_last_root_duration"						""
 
 		//Invincible Sword
-		"DOTA_Tooltip_ability_saito_attribute_sword"												"<font color='#9BB531'>Attribute: Invincible Sword</font>"
+		"DOTA_Tooltip_ability_saito_attribute_sword"												"Attribute: Invincible Sword"
 		"DOTA_Tooltip_ability_saito_attribute_sword_Description"									"Initiating combination with sequence: Q -> W, gives Saitō a new set of abilities to use that replaces the last use of <font color='#0075B5'>Flashblade</font>, <font color='#0075B5'>Steelwing</font>, and <font color='#0075B5'>Shadowslash</font> in the interval, enabling <font color='#F9AF1F'>Tetra-Step</font>, <font color='#F9AF1F'>Shieldbreaker</font> and <font color='#F9AF1F'>Blade Vortex</font> for a short duration.\n<font color='#F9AF1F'>Tetra-Step</font>: teleports to the target location, dealing damage and stunning enemies.\n<font color='#F9AF1F'>Shieldbreaker</font>: thrusts blade forward at the target enemy, creating a beam that travels a certain range and stuns the primary target.\n<font color='#F9AF1F'>Blade Vortex</font>: slashes the surrounding area with the sword several times, each slash damaging nearby enemies, pulling them towards and mini-stunning them repeatedly.\n<font color='#0075B5'>Flashblade</font>, <font color='#0075B5'>Steelwing</font> and <font color='#0075B5'>Shadowslash</font>: gain bonus damage based on Saitō’s level."
 		"DOTA_Tooltip_ability_saito_attribute_sword_Lore"											"This phrase describes Saitō’s extraordinary swordsmanship, said to be one of the finest in the Shinsengumi."
 		"DOTA_Tooltip_ability_saito_attribute_sword_qwe_hero_level_damage"							"BONUS DAMAGE PER LEVEL:"
 		"DOTA_Tooltip_ability_saito_attribute_sword_fds_swap_set_duration"							"ENABLE DURATION:"
 
 		//Memoir
-		"DOTA_Tooltip_ability_saito_attribute_memoir"												"<font color='#9BB531'>Attribute: Memoir</font>"
+		"DOTA_Tooltip_ability_saito_attribute_memoir"												"Attribute: Memoir"
 		"DOTA_Tooltip_ability_saito_attribute_memoir_Description"									"<font color='#0075B5'>Mind’s Eye (True)</font>: applies powerful dispel to Saitō and the target ally and gives both of them <font color='#FFDC60'>Cicada Shell</font> for %me_shell_duration% seconds. Increases max health bonus by %me_hp_bonus%.\n<font color='#FFDC60'>Cicada Shell</font>: provides %me_shell_block%%% damage resistance and blocks most targeted spells once every %me_shell_duration% seconds.\nEnables Special Effect: <font color='#FFDC60'>Snarksengumi</font>.\n<font color='#FFDC60'>Snarksengumi</font>: When used on Okita Souji, <font color='#0075B5'>Mind’s Eye (True)</font> has a %me_okita_chance%%% chance to refresh all of her refreshable abilities and permanently increase her agility by %me_okita_agility%."
 		"DOTA_Tooltip_ability_saito_attribute_memoir_Lore"											"The lone Shinsengumi who fought through the turbulent age of the Bakumatsu and survived. No one knows about his true thoughts."
 		//"DOTA_Tooltip_ability_saito_attribute_memoir_me_hp_bonus"									""
@@ -7760,7 +7760,7 @@
 		//"DOTA_Tooltip_ability_saito_attribute_memoir_me_okita_agility"							""
 
 		//Freestyle
-		"DOTA_Tooltip_ability_saito_attribute_freestyle"											"<font color='#9BB531'>Attribute: Freestyle</font>"
+		"DOTA_Tooltip_ability_saito_attribute_freestyle"											"Attribute: Freestyle"
 		"DOTA_Tooltip_ability_saito_attribute_freestyle_Description"								"<font color='#0075B5'>Freely Drawn Sword</font>: grants an aura that reduces the enemies magical damage when active, reduction is stronger at close range. Increases active duration by %fds_active_duration% seconds and passive time interval by %fds_check_interval% seconds, dealing spell damage to enemies with abilities also instantly restores health for each enemy hit."
 		"DOTA_Tooltip_ability_saito_attribute_freestyle_Lore"										"Freestyle swordsmanship with no pattern, a unique fighting technique that is extremely difficult to predict."
 		//"DOTA_Tooltip_ability_saito_attribute_freestyle_fds_active_duration"						""
@@ -7772,7 +7772,7 @@
 		"DOTA_Tooltip_ability_saito_attribute_freestyle_fds_active_aura_max_reduction"				"%MAX DAMAGE REDUCTION:"
 
 		//Kijinmaru Kunishige
-		"DOTA_Tooltip_ability_saito_attribute_kunishige"											"<font color='#9BB531'>Attribute: Kijinmaru Kunishige</font>"
+		"DOTA_Tooltip_ability_saito_attribute_kunishige"											"Attribute: Kijinmaru Kunishige"
 		"DOTA_Tooltip_ability_saito_attribute_kunishige_Description"								"<font color='#0075B5'>Formless</font>: reduces fade delay by %fli_fade_delay% seconds, giving %fli_evasion%%% evasion bonus.\n<font color='#0075B5'>Formlessness</font>: slash and last slash gain bonus damage based on Saitō's attack damage and deals %fls_revoked_scale%x damage to revoked enemies and non-hero units, also increasing its cast range by %fls_cast_range%."
 		"DOTA_Tooltip_ability_saito_attribute_kunishige_Lore"										"The beloved sword of the Shinsengumi’s Third Unit Captain."
 		//"DOTA_Tooltip_ability_saito_attribute_kunishige_fli_fade_delay"							""
