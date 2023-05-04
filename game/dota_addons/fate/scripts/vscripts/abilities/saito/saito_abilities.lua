@@ -1661,7 +1661,7 @@ function modifier_saito_mind_eye_active:OnCreated(tTable)
 
         if bHasAttribute then
             local nShellDuration = GetAttributeValue(self.hCaster, "saito_attribute_memoir", "me_shell_duration", -1, 0)
-            local nChance        = GetAttributeValue(self.hCaster, "saito_attribute_memoir", "me_okita_chance", -1, 0)
+            --local nChance        = GetAttributeValue(self.hCaster, "saito_attribute_memoir", "me_okita_chance", -1, 0)
 
             self.hParent:AddNewModifier(self.hCaster, self.hAbility, "modifier_saito_mind_eye_shell", {duration = nShellDuration})
             self.hParent:AddNewModifier(self.hCaster, self.hAbility, "modifier_saito_mind_eye_linken", {duration = nShellDuration})
@@ -3296,8 +3296,8 @@ function saito_blast:OnSpellStart()
         vStartPoint = RotatePosition(vCasterLoc, QAngle(0, fAngles, 0), vStartPoint)
     end
 
-    EmitSoundOn("Saito.Blast.Cast.Voice", hCaster)
-    EmitSoundOn("Saito.Blast.Cast", hCaster)
+    EmitGlobalSound("Saito.Blast.Cast.Voice")
+    EmitGlobalSound("Saito.Blast.Cast")
 
     hCaster:RemoveModifierByNameAndCaster("modifier_saito_blast_swap", hCaster) --Swapping back after emitting sound.
 end
@@ -3315,7 +3315,7 @@ function saito_blast:OnProjectileHit_ExtraData(hTarget, vLocation, tExtraData)
         --=================================--
         giveUnitDataDrivenModifier(hCaster, hTarget, "locked", tExtraData.nKnockDur)
         --=================================--
-        EmitSoundOn("Saito.Blast.Impact", hTarget)
+        EmitGlobalSound("Saito.Blast.Impact")
     end
 end
 ---------------------------------------------------------------------------------------------------------------------
