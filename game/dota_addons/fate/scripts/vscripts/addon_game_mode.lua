@@ -3635,16 +3635,6 @@ function FateGameMode:ExecuteOrderFilter(hFilterTable)
                   and EntIndexToHScript(hUnit) 
                   or nil
 
-    if iOrder == 4 then
-        if IsNotNull(hUnit) then
-            if (hUnit:GetTeamNumber() == hTarget:GetTeamNumber()) then
-                if hTarget:HasModifier("modifier_altera_whip_int_ally") and not (hUnit:HasModifier("modifier_altera_whip")) then
-                    return false
-                end
-            end
-        end
-    end
-
     if IsNotNull(hUnit) then
         if IsNotNull(AnimeVectorTargeting) then
             AnimeVectorTargeting:UpdateAnimeVectorTargetingAbility(hAbility, hUnit, hTarget, vPosition, iOrder)
@@ -3696,8 +3686,8 @@ function FateGameMode:ExecuteOrderFilterPepeg(filterTable)
 
     -- attack command
     -- What do we do when handling the move between inventory and stash?
-    if orderType == 11 then
-    end
+    --[[if orderType == 11 then
+    end]]
 
     if orderType == DOTA_UNIT_ORDER_RADAR then
         return false
@@ -3720,7 +3710,7 @@ function FateGameMode:ExecuteOrderFilterPepeg(filterTable)
         return false
 
     -- What do we do when item is bought?
-    elseif orderType == 16 then        
+    --elseif orderType == 16 then        
     -- What do we do when we sell items?
     elseif orderType == 17 then
         EmitSoundOnClient("General.Sell", caster:GetPlayerOwner())
@@ -4069,7 +4059,7 @@ function FateGameMode:FinishRound(IsTimeOut, winner)
         if not v:IsNull() and IsValidEntity(v) and not v:IsRealHero() then
             for i=1, #DoNotKillAtTheEndOfRound do
                 if not v:IsNull() and IsValidEntity(v) and v:GetUnitName() ~= DoNotKillAtTheEndOfRound[i] and v:GetAbsOrigin().y > -7000 then
-                    v:ForceKill(true)
+                    v:Kill(v:GetAbilityByIndex(0), v)
                 end
             end
         end
@@ -4078,7 +4068,7 @@ function FateGameMode:FinishRound(IsTimeOut, winner)
         if not v:IsNull() and IsValidEntity(v) and not v:IsRealHero() then
             for i=1, #DoNotKillAtTheEndOfRound do
                 if not v:IsNull() and IsValidEntity(v) and v:GetUnitName() ~= DoNotKillAtTheEndOfRound[i] and v:GetAbsOrigin().y > -7000 then
-                    v:ForceKill(true)
+                    v:Kill(v:GetAbilityByIndex(0), v)
                 end
             end
         end
@@ -4300,7 +4290,7 @@ function FateGameMode:FinishRound(IsTimeOut, winner)
                     for i=1, #DoNotKillAtTheEndOfRound do
                         --print(v:GetUnitName())
                         if not v:IsNull() and IsValidEntity(v) and v:GetUnitName() ~= DoNotKillAtTheEndOfRound[i] and v:GetAbsOrigin().y > -7000 then
-                            v:ForceKill(true)
+                            v:Kill(v:GetAbilityByIndex(0), v)
                         end
                     end
                 end
@@ -4311,7 +4301,7 @@ function FateGameMode:FinishRound(IsTimeOut, winner)
                     for i=1, #DoNotKillAtTheEndOfRound do
                         --print(v:GetUnitName())
                         if not v:IsNull() and IsValidEntity(v) and v:GetUnitName() ~= DoNotKillAtTheEndOfRound[i] and v:GetAbsOrigin().y > -7000 then
-                            v:ForceKill(true)
+                            v:Kill(v:GetAbilityByIndex(0), v)
                         end
                     end
                 end

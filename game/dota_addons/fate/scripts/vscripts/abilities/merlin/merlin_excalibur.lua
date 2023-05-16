@@ -88,10 +88,10 @@ function merlin_excalibur:OnSpellStart()
                         v:RemoveModifierByName("modifier_knockback")
                         v:AddNewModifier(caster, self, "modifier_knockback", self.knockback)   
                     end
-                    v:AddNewModifier(caster, ability, "modifier_stunned", {duration = 0.06})
+                    --v:AddNewModifier(caster, ability, "modifier_stunned", {duration = 0.06})
               end
             end 
-            return 0.05
+            return 0.075
         end)
     end)
  

@@ -1,0 +1,73 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf57:version{4f75132e-4f5d-493c-958e-3bb4328089ba} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_bShouldHitboxesFallbackToRenderBounds = false
+	m_nMaxParticles = 1
+	m_nBehaviorVersion = 12
+	m_controlPointConfigurations = 
+	[
+		{
+			m_name = "preview"
+			m_drivers = 
+			[
+				{
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 1
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_vecOffset = [ 1.0, 1.0, 1.0 ]
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 3
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+			]
+		},
+	]
+	m_Children = 
+	[
+		{
+			m_ChildRef = resource:"particles/custom/jeanne/jeanne_crimson_saint_burst_f.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/jeanne/jeanne_crimson_saint_burst_j.vpcf"
+			m_bDisableChild = true
+		},
+		{
+			m_ChildRef = resource:"particles/custom/jeanne/jeanne_crimson_saint_burst_e.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/jeanne/jeanne_crimson_saint_burst_i.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/jeanne/jeanne_crimson_saint_burst_c.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/jeanne/jeanne_crimson_saint_burst_k.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/jeanne/jeanne_crimson_saint_burst_l.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/jeanne/jeanne_crimson_saint_burst_h.vpcf"
+			m_bDisableChild = true
+		},
+		{
+			m_ChildRef = resource:"particles/custom/jeanne/jeanne_crimson_saint_burst_a.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/jeanne/jeanne_crimson_saint_burst_d.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/jeanne/jeanne_crimson_saint_burst_g.vpcf"
+			m_bDisableChild = true
+		},
+		{
+			m_ChildRef = resource:"particles/custom/jeanne/jeanne_crimson_saint_burst_b.vpcf"
+		},
+	]
+}

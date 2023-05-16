@@ -209,6 +209,19 @@ function OnIRStart(keys, fromFlag)
 	end
 	--pawnAttachedVisionDummy(caster, target, radius, duration, true)
 
+	local effect_target = ParticleManager:CreateParticle( "particles/jeanne/jeanne_purge_new.vpcf", PATTACH_ABSORIGIN_FOLLOW, target )
+	ParticleManager:SetParticleControlEnt(
+		effect_target,
+		1,
+		target,
+		PATTACH_ABSORIGIN_FOLLOW,
+		"attach_hitloc",
+		Vector(0, 0, 0), -- unknown
+		true -- unknown, true
+	)
+	ParticleManager:SetParticleControl(effect_target, 3, Vector(radius,0,0))
+	ParticleManager:ReleaseParticleIndex( effect_target )
+
 	if caster.IsDivineSymbolAcquired and not target.IsCleansedByJeanne then
 		HardCleanse(target)
 		target.IsCleansedByJeanne = true
@@ -221,14 +234,14 @@ function OnIRStart(keys, fromFlag)
 	if caster ~= target or not caster:HasModifier("modifier_saint_buff") then
 		target:EmitSound("Hero_Dazzle.Shadow_Wave")
 	end
-	local jeanne_charisma_particle = ParticleManager:CreateParticle("particles/custom/ruler/charisma/buff.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
+	--[[local jeanne_charisma_particle = ParticleManager:CreateParticle("particles/custom/ruler/charisma/buff.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
 
 	ParticleManager:SetParticleControl(jeanne_charisma_particle, 1, Vector(radius,0,0))
 	-- DebugDrawCircle(caster:GetAbsOrigin(), Vector(255,0,0), 0.5, radius, true, 0.5)
 	Timers:CreateTimer(duration, function()
 		ParticleManager:DestroyParticle(jeanne_charisma_particle, false)
 		ParticleManager:ReleaseParticleIndex(jeanne_charisma_particle )
-	end)
+	end)]]
     if (fromFlag ~= true) and (caster == target) then
 	    caster:AddNewModifier(caster, ability, "modifier_charisma_used", { Duration = 3 })
 	end
@@ -338,10 +351,12 @@ function OnPurgeStart(keys)
 	    end
 
 	    EmitSoundOnLocationWithCaster(targetPoint, "Hero_Chen.TestOfFaith.Target", caster)		
-		local purgeFx = ParticleManager:CreateParticle("particles/custom/ruler/purge_the_unjust/ruler_purge_the_unjust_a.vpcf", PATTACH_CUSTOMORIGIN, nil)
+		--[[local purgeFx = ParticleManager:CreateParticle("particles/custom/ruler/purge_the_unjust/ruler_purge_the_unjust_a.vpcf", PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControl( purgeFx, 0, targetPoint)
 		ParticleManager:SetParticleControl( purgeFx, 1, targetPoint)
-		ParticleManager:SetParticleControl( purgeFx, 2, targetPoint)
+		ParticleManager:SetParticleControl( purgeFx, 2, targetPoint)]]
+		local fireFx = ParticleManager:CreateParticle("particles/custom/jeanne/jeanne_purge_reborn.vpcf", PATTACH_CUSTOMORIGIN, nil)
+		ParticleManager:SetParticleControl( fireFx, 0, targetPoint)
 	end)
 
 	CheckJeanneCombo(caster)
@@ -423,11 +438,14 @@ function OnGodResolutionStart(keys)
 	local soundQueue = math.random(9,12)
 
 	caster:EmitSound("Jeanne_Skill_" .. soundQueue)
-	giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", duration)
+	--giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", duration)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_gods_resolution_active_buff", {duration = duration})
 	Timers:CreateTimer(0.1, function()
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_gods_resolution_anim", {})
 	end)
+
+	local resolutionFx = ParticleManager:CreateParticle("particles/custom/jeanne/jeanne_god_resolution_reborn.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+   	ParticleManager:SetParticleControl( resolutionFx, 0, caster:GetAbsOrigin())
 
 	Timers:CreateTimer(function()
 		if not caster:IsAlive() then return end
@@ -452,8 +470,8 @@ function OnGodResolutionStart(keys)
 	        end
 	    end
 
-		local purgeFx = ParticleManager:CreateParticle("particles/custom/ruler/gods_resolution/gods_resolution_active_circle.vpcf", PATTACH_CUSTOMORIGIN, nil)
-		ParticleManager:SetParticleControl( purgeFx, 0, caster:GetAbsOrigin())
+		--[[local purgeFx = ParticleManager:CreateParticle("particles/custom/ruler/gods_resolution/gods_resolution_active_circle.vpcf", PATTACH_CUSTOMORIGIN, nil)
+		ParticleManager:SetParticleControl( purgeFx, 0, caster:GetAbsOrigin())]]
 
 		--[[if caster.IsDivineSymbolAcquired then 
 			local vPillarLoc = caster:GetAbsOrigin() + RandomVector(radius * 0.75)

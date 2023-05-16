@@ -586,6 +586,8 @@ CannotReset = {
     "saito_vortex",
     "saito_style",
     "saito_blast",
+    "jeanne_crimson_saint",
+    "jeanne_crimson_saint_la_pucelle",
 }
 
 femaleservant = {
@@ -1600,19 +1602,6 @@ function DoDamage(source, target , dmg, dmg_type, dmg_flag, abil, isLoop)
                 dmg = 0
                 IsAbsorbed = true
             end
-        end
-
-        if IsBScrollIgnored == false and target:HasModifier("modifier_magic_resistance_ex_progress") then 
-            local originalDamage = dmg - target.JeanneShieldAmount --* 1/(1-MR)
-            target.JeanneShieldAmount = target.JeanneShieldAmount - dmg --* (1-MR)
-            if target.JeanneShieldAmount <= 0 then
-                dmg = originalDamage
-                --target:RemoveModifierByName("modifier_b_scroll")
-            else 
-                dmg = 0
-                IsAbsorbed = true
-            end
-            target.JeanneShieldAmount = math.max(target.JeanneShieldAmount, 0)
         end
     end
 
