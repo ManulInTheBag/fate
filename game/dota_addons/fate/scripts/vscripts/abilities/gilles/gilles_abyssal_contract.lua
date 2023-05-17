@@ -96,7 +96,12 @@ function gilles_abyssal_contract:OnSpellStart()
 			hSquidLordz:SetHealth(fSquidLordzHealth)
 			hSquidLordz:SetBaseDamageMax(fSquidLordzdamage) 
 			hSquidLordz:SetBaseDamageMin(fSquidLordzdamage) 
-			hSquidLordz:AddNewModifier(hCaster, self, "modifier_kill", { duration = 90.0 })
+			Timers:CreateTimer(90, function()
+				if hSquidLordz then
+					hSquidLordz:Kill(hSquidLordz:GetAbilityByIndex(0), hSquidLordz)
+				end
+			end)
+			hSquidLordz:AddNewModifier(hCaster, self, "modifier_kill", { duration = 91.0 })
 			hSquidLordz:AddNewModifier(hCaster, self, "modifier_squidlord_death_checker", { Duration = 90 })
 			hCaster:AddNewModifier(hCaster, self, "modifier_squidlord_alive", { Duration = 90})
 

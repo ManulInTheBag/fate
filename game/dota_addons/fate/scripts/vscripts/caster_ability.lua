@@ -178,7 +178,7 @@ function OnTerritoryDeath(keys)
 	for k,v in pairs(summons) do
 		print("Found unit " .. v:GetUnitName())
 		if v:GetUnitName() == "caster_5th_skeleton_warrior" or v:GetUnitName() == "caster_5th_skeleton_archer" or v:GetUnitName() == "caster_5th_ancient_dragon" then
-			v:ForceKill(true) 
+			v:Kill(v:GetAbilityByIndex(0), v) 
 		end
 	end
 end
@@ -405,7 +405,7 @@ function OnSummonDragon(keys)
 	for k,v in pairs(dragFind) do
 		print(v:GetClassname())
 		if v:GetUnitName() == "caster_5th_ancient_dragon" then
-			v:ForceKill(true)
+			v:Kill(v:GetAbilityByIndex(0), v)
 		end
 	end
 
@@ -416,7 +416,12 @@ function OnSummonDragon(keys)
 	LevelAllAbility(drag)
 	FindClearSpaceForUnit(drag, drag:GetAbsOrigin(), true)
 	drag:AddItem(CreateItem("item_caster_5th_mount" , nil, nil))
-	drag:AddNewModifier(caster, nil, "modifier_kill", {duration = 60})
+	Timers:CreateTimer(60, function()
+		if drag then
+			drag:Kill(drag:GetAbilityByIndex(0), drag)
+		end
+	end)
+	drag:AddNewModifier(caster, nil, "modifier_kill", {duration = 61})
 
 	drag:SetMaxHealth(keys.Health)
 	drag:SetHealth(keys.Health)

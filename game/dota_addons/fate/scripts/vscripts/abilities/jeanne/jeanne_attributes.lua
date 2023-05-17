@@ -67,8 +67,6 @@ function jeanne_attribute_punishment:OnSpellStart()
 
 	hero.IsPunishmentAcquired = true
 
-	hero:SwapAbilities("jeanne_saint", "jeanne_identity_discernment", false, true)
-
 	-- Set master 1's mana 
 	local master = hero.MasterUnit
 	master:SetMana(master:GetMana() - self:GetManaCost(self:GetLevel()))
@@ -85,8 +83,6 @@ function jeanne_attribute_divine_symbol:OnSpellStart()
 	end
 
 	hero.IsDivineSymbolAcquired = true
-
-	hero:SwapAbilities("jeanne_saint", "jeanne_identity_discernment", false, true)
 
 	-- Set master 1's mana 
 	local master = hero.MasterUnit
