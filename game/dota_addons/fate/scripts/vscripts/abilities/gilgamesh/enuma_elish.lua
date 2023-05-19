@@ -2,13 +2,18 @@ gilgamesh_enuma_elish = class({})
 gilgamesh_enuma_elish_activate = class({})
 
 LinkLuaModifier("modifier_enuma_elish_bandaid", "abilities/gilg/modifiers/modifier_enuma_elish_bandaid", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_enuma_model", "abilities/gilg/modifiers/modifier_enuma_elish_bandaid", LUA_MODIFIER_MOTION_NONE)
+ 
 
 if not IsServer() then
   return
 end
-
 Wrappers.ChargedBeam(gilgamesh_enuma_elish,gilgamesh_enuma_elish_activate)
+function gilgamesh_enuma_elish_activate:OnSpellStart()
+	local caster = self:GetCaster()
+  EndAnimation(caster)
+  StartAnimation(caster, {duration=1.0, activity=ACT_DOTA_ALCHEMIST_CHEMICAL_RAGE_END, rate=1.0})
+end
+
 
 --[[------------this function is not needed, merely for testing and adjusting numbers
 function gilgamesh_enuma_elish:GetTestPrints()
@@ -82,16 +87,9 @@ function gilgamesh_enuma_elish:AfterOnSpellSt()
 		end
 	end)
   EmitSoundOnLocationForAllies(caster:GetAbsOrigin(), "gilgamesh_enuma_" .. math.random(2,5), caster)
-  StartAnimation(self:GetCaster(), {duration=0.5, activity=ACT_DOTA_OVERRIDE_ABILITY_4, rate=1.5})
-  Timers:CreateTimer(0.5, function()
-    if caster and caster:IsAlive() and caster.IsKappaChanneling then
-      caster:AddNewModifier(caster, self, "modifier_enuma_model", {})
-    end
-  end)
-  --caster:EmitSound("Hero_Dark_Seer.Wall_of_Replica_lp")
-  Timers:CreateTimer(0.5 + FrameTime()*2, function()
-    StartAnimation(self:GetCaster(), {duration=10, activity=ACT_DOTA_CAST_ABILITY_6, rate=0.23})
-  end)
+  StartAnimation(self:GetCaster(), {duration=5.15, activity=ACT_DOTA_CAST_ABILITY_6, rate=1.1  })
+  
+ 
 end
 
 function gilgamesh_enuma_elish:AfterThinkChargeIncr()
@@ -101,7 +99,7 @@ function gilgamesh_enuma_elish:AfterThinkChargeIncr()
   if self.channel_charge == 14 then
     caster:EmitSound("Hero_Weaver.CrimsonPique.Layer")
   elseif self.channel_charge == 15 then   
-    FreezeAnimation(self:GetCaster())
+    --FreezeAnimation(self:GetCaster())
   elseif self.channel_charge == 29 then   
     self:VFX2_Sparkles(caster)
   end
@@ -125,10 +123,6 @@ end
 function gilgamesh_enuma_elish:AfterChannelFin_Success()
   local caster = self:GetCaster()
   local pause = self:GetSpecialValueFor("endcast_pause")
-  EndAnimation(caster)
-  Timers:CreateTimer(FrameTime()*2, function()
-    StartAnimation(self:GetCaster(), {duration=pause, activity=ACT_DOTA_CAST_ABILITY_5, rate=1})
-  end)
   giveUnitDataDrivenModifier(caster, caster, "pause_sealdisabled", pause)  
   caster:StopSound("Hero_Dark_Seer.Wall_of_Replica_lp")
   EmitGlobalSound("gilgamesh_enuma_elish") 
@@ -140,16 +134,14 @@ function gilgamesh_enuma_elish:AfterChannelFin_Success()
   Timers:CreateTimer(0.8,function()
     self:DestroyAllVFX()
   end)
-  Timers:CreateTimer(pause, function()
-    if caster and caster:IsAlive() then
-      caster:RemoveModifierByName("modifier_enuma_model")
-    end
-  end)
+  EndAnimation(caster)
+  StartAnimation(caster, {duration=1.0, activity=ACT_DOTA_ALCHEMIST_CHEMICAL_RAGE_END, rate=1.0})
+   
 end
 
 function gilgamesh_enuma_elish:AfterChannelFin_Fail()
   local caster = self:GetCaster()
-  caster:RemoveModifierByName("modifier_enuma_model")
+ 
   EndAnimation(caster)
   caster:StopSound("Hero_Dark_Seer.Wall_of_Replica_lp")
   self:DestroyAllVFX()

@@ -45,6 +45,8 @@ end
 
 function iskander_ionioi:OnSpellStart()
 	local caster = self:GetCaster()
+	caster.WaverSummoned = false
+	caster.CavalrySummoned = false
 	local hero = caster:GetPlayerOwner():GetAssignedHero()
 	-- Set master's combo cooldown
 	local masterCombo = caster.MasterUnit2:FindAbilityByName(self:GetAbilityName())

@@ -7,14 +7,18 @@ function iskander_summon_waver:OnSpellStart()
 	local targetPoint = self:GetCursorPosition()
 	caster:EmitSound("Hero_Silencer.Curse.Cast")
 	local aotkAbilityHandle = caster:FindAbilityByName("iskander_ionioi")
-	for i=0,5 do
-		local soldier = CreateUnitByName("iskander_mage", targetPoint + Vector(200, -200 + i*100), true, nil, nil, caster:GetTeamNumber())
-		--soldier:AddNewModifier(caster, nil, "modifier_phased", {})
-		soldier:SetOwner(caster)
-		table.insert(caster.AOTKSoldiers, soldier)
-		--caster.AOTKSoldierCount = caster.AOTKSoldierCount + 1
-		soldier:AddNewModifier(caster, self, "modifier_iskander_units_bonus_dmg", {duration = 16, dmg = aotkAbilityHandle:GetSpecialValueFor("mage_bonus_damage")})
+	if not caster.WaverSummoned then
+		for i=0,5 do
+		
+			local soldier = CreateUnitByName("iskander_mage", targetPoint + Vector(200, -200 + i*100), true, nil, nil, caster:GetTeamNumber())
+			--soldier:AddNewModifier(caster, nil, "modifier_phased", {})
+			soldier:SetOwner(caster)
+			table.insert(caster.AOTKSoldiers, soldier)
+			--caster.AOTKSoldierCount = caster.AOTKSoldierCount + 1
+			soldier:AddNewModifier(caster, self, "modifier_iskander_units_bonus_dmg", {duration = 16, dmg = aotkAbilityHandle:GetSpecialValueFor("mage_bonus_damage")})
+		end
 	end
+	caster.WaverSummoned = true
 	local waver = CreateUnitByName("iskander_waver", targetPoint, true, nil, nil, caster:GetTeamNumber())
 	waver:SetControllableByPlayer(caster:GetPlayerID(), true)
 	waver:SetOwner(caster)

@@ -2069,8 +2069,8 @@ function FateGameMode:OnHeroInGame(hero)
         hero:AddNewModifier(hero, hero:FindAbilityByName("nursery_rhyme_queens_glass_game"), "modifier_rhyme_flying_book", {})
     end
 
-    if hero:GetName() == "npc_dota_hero_terrorblade" then
-         
+    if hero:GetName() == "npc_dota_hero_skywrath_mage" then
+        self.gilEntIndex = hero:GetEntityIndex()
     end
 
     if hero:GetName() == "npc_dota_hero_gyrocopter" then
@@ -3620,6 +3620,12 @@ function FateGameMode:TakeDamageFilter(filterTable)
     return true
 end
 
+function FateGameMode:ExecuteProjectileFilter(hFilterTable)
+    if not IsServer() then return end
+    if(hFilterTable.is_attack == 1 and hFilterTable.entindex_source_const == self.gilEntIndex ) then return false end 
+    return true
+end
+
 function FateGameMode:ExecuteOrderFilter(hFilterTable)
     local hAbility     = EntIndexToHScript(hFilterTable.entindex_ability)
     local iSequenceNum = hFilterTable.sequence_number_const
@@ -4412,6 +4418,7 @@ function FateGameMode:CaptureGameMode()
         mode:SetLoseGoldOnDeath( false )
    
         mode:SetExecuteOrderFilter( Dynamic_Wrap( FateGameMode, "ExecuteOrderFilter" ), FateGameMode )
+        mode:SetTrackingProjectileFilter( Dynamic_Wrap( FateGameMode, "ExecuteProjectileFilter" ), FateGameMode )
         --mode:SetItemAddedToInventoryFilter(Dynamic_Wrap(FateGameMode, "ItemAddedFilter"), FateGameMode) (screw 7.23 x2)
         mode:SetModifyGoldFilter(Dynamic_Wrap(FateGameMode, "ModifyGoldFilter"), FateGameMode)
         mode:SetDamageFilter(Dynamic_Wrap(FateGameMode, "TakeDamageFilter"), FateGameMode)

@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf45:version{73c3d623-a141-4df2-b548-41dd786e6300} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf57:version{4f75132e-4f5d-493c-958e-3bb4328089ba} -->
 {
 	_class = "CParticleSystemDefinition"
 	m_bShouldHitboxesFallbackToRenderBounds = false
@@ -20,6 +20,9 @@
 			_class = "C_OP_SetSingleControlPointPosition"
 			m_vecCP1Pos = [ 150.0, 0.0, 0.0 ]
 			m_bDisableOperator = true
+			m_transformInput = 
+			{
+			}
 		},
 	]
 	m_Emitters = 
@@ -191,6 +194,10 @@
 					m_vDomainMins = [ 0.0, 0.0 ]
 					m_vDomainMaxs = [ 0.0, 0.0 ]
 				}
+			}
+			m_TransformInput = 
+			{
+				m_bUseOrientation = false
 			}
 		},
 		{

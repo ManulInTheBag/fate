@@ -52,10 +52,12 @@ function gilgamesh_sword_barrage:OnSpellStart()
 	local vLeftVector = self.gramDummy:GetLeftVector()
 	self.gramDummy:RemoveSelf()
 	local vOrigin
-
+	self.vOriginTable = {}
+	
 
 	vOrigin = vCasterOrigin + vForwardVector*-50 + vLeftVector * 120 + Vector(0,0,150)
-	self:CreateGOB(vOrigin)
+	table.insert(self.vOriginTable, vOrigin)
+	--self:CreateGOB(vOrigin)
 	local info1 = {
 		Target = self.target,
 		Source = self.gramDummy,
@@ -66,7 +68,7 @@ function gilgamesh_sword_barrage:OnSpellStart()
 		iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
         iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
         iUnitTargetType = DOTA_UNIT_TARGET_ALL,
-		EffectName = "particles/gilgamesh/gob_weapon_barrage.vpcf",
+		EffectName = "particles/gilgamesh/gil_target_gob_projectile.vpcf",
 		iMoveSpeed = 2500,
 		fExpireTime = GameRules:GetGameTime() + 0.5,
 		bDeleteOnHit = true,
@@ -80,13 +82,14 @@ function gilgamesh_sword_barrage:OnSpellStart()
 
 
 	vOrigin = vCasterOrigin + vForwardVector*-50 + vLeftVector * -120 + Vector(0,0,150)
-	self:CreateGOB(vOrigin)
+	table.insert(self.vOriginTable, vOrigin)
+	--self:CreateGOB(vOrigin)
   local info2 = {
 	  Target = self.target,
 	  Source = self.gramDummy,
 	  vSourceLoc = vOrigin + vForwardVector * -60, 
 	  Ability = self,
-	  EffectName = "particles/gilgamesh/gob_weapon_barrage.vpcf",
+	  EffectName = "particles/gilgamesh/gil_target_gob_projectile.vpcf",
 	  iMoveSpeed = 2500,
 	  bHasFrontalCone = false,
 	  bReplaceExisting = false,
@@ -97,8 +100,11 @@ function gilgamesh_sword_barrage:OnSpellStart()
 	  bDeleteOnHit = true,
  
   }	
-	vOrigin = vCasterOrigin + vForwardVector*-50  + Vector(0,0,350)
-	self:CreateGOB(vOrigin)
+  
+  vOrigin = vCasterOrigin + vForwardVector*-50 + vLeftVector * 200 + Vector(0,0,350)
+	
+	table.insert(self.vOriginTable, vOrigin)
+	--self:CreateGOB(vOrigin)
   local info3 = {
 	  Target = self.target,
 	  Source = self.gramDummy,
@@ -109,15 +115,16 @@ function gilgamesh_sword_barrage:OnSpellStart()
 	  iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
 	  iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
 	  iUnitTargetType = DOTA_UNIT_TARGET_ALL,
-	  EffectName = "particles/gilgamesh/gob_weapon_barrage.vpcf",
+	  EffectName = "particles/gilgamesh/gil_target_gob_projectile.vpcf",
 	  iMoveSpeed = 2500,
 	  fExpireTime = GameRules:GetGameTime() + 0.5,
 	  bDeleteOnHit = true,
  
   }	
-
-	vOrigin = vCasterOrigin + vForwardVector*-50 + vLeftVector * -120 + Vector(0,0,550)
-	self:CreateGOB(vOrigin)
+  vOrigin = vCasterOrigin + vForwardVector*-50  + Vector(0,0,350)
+	
+	table.insert(self.vOriginTable, vOrigin)
+	--self:CreateGOB(vOrigin)
   local info4 = {
 	  Target = self.target,
 	  Source = self.gramDummy,
@@ -128,15 +135,16 @@ function gilgamesh_sword_barrage:OnSpellStart()
 	  iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
 	  iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
 	  iUnitTargetType = DOTA_UNIT_TARGET_ALL,
-	  EffectName = "particles/gilgamesh/gob_weapon_barrage.vpcf",
+	  EffectName = "particles/gilgamesh/gil_target_gob_projectile.vpcf",
 	  iMoveSpeed = 2500,
 	  fExpireTime = GameRules:GetGameTime() + 0.5,
 	  bDeleteOnHit = true,
  
   }	
 
-	vOrigin = vCasterOrigin + vForwardVector*-50 + vLeftVector * 120 + Vector(0,0,550)
-	self:CreateGOB(vOrigin)
+  vOrigin = vCasterOrigin + vForwardVector*-50 + vLeftVector * -200 + Vector(0,0,350)
+	table.insert(self.vOriginTable, vOrigin)
+	--self:CreateGOB(vOrigin)
 	local info5 = {
 		Target = self.target,
 		Source = self.gramDummy,
@@ -147,7 +155,7 @@ function gilgamesh_sword_barrage:OnSpellStart()
         iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
         iUnitTargetType = DOTA_UNIT_TARGET_ALL,
         bReplaceExisting = false,
-		EffectName = "particles/gilgamesh/gob_weapon_barrage.vpcf",
+		EffectName = "particles/gilgamesh/gil_target_gob_projectile.vpcf",
 		iMoveSpeed = 2500,
 		fExpireTime = GameRules:GetGameTime() + 0.5,
 		bDeleteOnHit = true,
@@ -155,14 +163,20 @@ function gilgamesh_sword_barrage:OnSpellStart()
 	}	
 
 
-	local counter = 1
+	local counter1 = 1
+	local counter2 = 1
 	local info  = {info1, info2, info3,info4,info5}
- 
-	Timers:CreateTimer(0.1,function()
-	if counter == 6 then return end
-
-	ProjectileManager:CreateTrackingProjectile(info[counter]) 
-	counter = counter + 1
+	Timers:CreateTimer(0.0,function()
+		if counter1 == 6 then return end
+		self:CreateGOB(self.vOriginTable[counter1])	
+		counter1 = counter1 + 1
+		return 0.1
+	end)
+	Timers:CreateTimer(0.2,function()
+	if counter2 == 6 then return end
+	ProjectileManager:CreateTrackingProjectile(info[counter2]) 
+	counter2 = counter2 + 1
+	caster:EmitSound("Hero_SkywrathMage.ConcussiveShot.Cast")
 	return 0.1
 	end)
  
@@ -170,7 +184,7 @@ function gilgamesh_sword_barrage:OnSpellStart()
 	 
  
 
-	caster:EmitSound("Hero_SkywrathMage.ConcussiveShot.Cast")
+	
 
 	 
 end
@@ -200,6 +214,7 @@ function gilgamesh_sword_barrage:OnProjectileHit_ExtraData(hTarget, vLocation, t
 
 	end
 	local particle = ParticleManager:CreateParticle("particles/gilgamesh/gob_hit.vpcf", PATTACH_ABSORIGIN, hTarget)
+	ParticleManager:SetParticleControlEnt(particle,0,hTarget,PATTACH_POINT,"attach_hitloc", Vector(0,0,0),true)
 	Timers:CreateTimer(0.3,function()
 		ParticleManager:DestroyParticle(particle, true)
 		ParticleManager:ReleaseParticleIndex(particle)

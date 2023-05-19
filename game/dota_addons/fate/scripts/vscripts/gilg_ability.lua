@@ -429,7 +429,7 @@ function OnEnumaHit(keys)
 	DoDamage(keys.caster, keys.target, keys.Damage, DAMAGE_TYPE_MAGICAL, 0, keys.ability, false)
 end
 
-LinkLuaModifier("modifier_enuma_model", "abilities/gilg/modifiers/modifier_enuma_elish_bandaid", LUA_MODIFIER_MOTION_NONE)
+ 
 
 function OnMaxEnumaStart(keys)
 	local caster = keys.caster
@@ -438,7 +438,7 @@ function OnMaxEnumaStart(keys)
 	caster:FindAbilityByName("gilgamesh_enuma_elish"):StartCooldown(47)
 	local targetPoint = keys.target_points[1]
 	local frontward = caster:GetForwardVector()
-	giveUnitDataDrivenModifier(keys.caster, keys.caster, "pause_sealdisabled", 6.0)
+	giveUnitDataDrivenModifier(keys.caster, keys.caster, "pause_sealdisabled", 5.0)
 	giveUnitDataDrivenModifier(caster, caster, "jump_pause", 4.5)
 	LoopOverPlayers(function(player, playerID, playerHero)
 		--print("looping through " .. playerHero:GetName())
@@ -450,14 +450,9 @@ function OnMaxEnumaStart(keys)
 	end)
 	--ability:ApplyDataDrivenModifier(caster, caster, "max_enuma_elish_anim", {})
 
-	StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_OVERRIDE_ABILITY_4, rate=1.5})
-  	Timers:CreateTimer(0.5, function()
-    	caster:AddNewModifier(caster, self, "modifier_enuma_model", {})
- 	end)
-  	Timers:CreateTimer(0.5 + FrameTime()*2, function()
-    	StartAnimation(caster, {duration=5.5, activity=ACT_DOTA_CAST_ABILITY_6, rate=0.05})
-  	end)
-
+	StartAnimation(caster, {duration=5, activity=ACT_DOTA_BELLYACHE_END, rate=1})
+ 
+ 
 	EmitGlobalSound("Gilgamesh_Enuma_1")
 	--caster:EmitSound("Gilgamesh_Enuma_1") 
 	
@@ -502,15 +497,7 @@ function OnMaxEnumaStart(keys)
 	Timers:CreateTimer(3.75, function() 
 		if caster:IsAlive() then
 			EmitGlobalSound("gilgamesh_enuma_elish")
-			EndAnimation(caster)
-  			Timers:CreateTimer(FrameTime()*3, function()
-   				StartAnimation(caster, {duration=1, activity=ACT_DOTA_CAST_ABILITY_5, rate=1})
-  			end)
-  			Timers:CreateTimer(1, function()
-    			if caster and caster:IsAlive() then
-      				caster:RemoveModifierByName("modifier_enuma_model")
-    			end
-  			end)
+  			 
 		end
 		return
 	end)

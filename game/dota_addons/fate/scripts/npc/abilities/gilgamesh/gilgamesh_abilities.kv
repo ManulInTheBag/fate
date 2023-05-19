@@ -47,6 +47,44 @@
 	}		
 
 	//=====================================
+	// Gilgamesh : Attack passive
+	//=====================================
+	"gilgamesh_attack_passive"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/gilgamesh/gilgamesh_attack_passive"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_HIDDEN|DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/gilgamesh/gilgamesh_sword_barrage"
+		
+		
+		 
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"cast_delay"			"0.3"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"cast_range"			"850"
+			}
+
+		}
+		
+		 
+	}
+
+	//=====================================
 	// Gilgamesh : Sword barrage
 	//=====================================
 	"gilgamesh_sword_barrage"
@@ -69,7 +107,7 @@
 		"AbilityCastRangeBuffer"		"150"
 		"AbilityCooldown"				"6"
 		"AbilityManaCost"				"100"
-		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_3"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
 		"AnimationPlaybackRate" 		"0.9"
 
 		
@@ -291,7 +329,7 @@
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/gilg/enuma_elish"
+		"ScriptFile"					"abilities/gilgamesh/enuma_elish"
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"2"
@@ -427,7 +465,7 @@
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/gilg/enuma_elish"
+		"ScriptFile"					"abilities/gilgamesh/enuma_elish"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityTextureName"			"custom/gilgamesh_enuma_elish"

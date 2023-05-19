@@ -34,6 +34,109 @@
 		}
 	}
 
+	"models/jeanne_modeldoc/jeanne.vmdl"
+	{
+		"PortraitLightPosition"		"112.73 -41.13 174.53"
+		"PortraitLightAngles"		"42.54 149.30 0.00"
+		"PortraitLightFOV"		"90"
+		"PortraitLightDistance"		"133"
+		"PortraitLightColor"		"185 216 254"
+		"PortraitShadowColor"		"69 84 56"
+		"PortraitShadowScale"		"5.000000"
+		"PortraitAmbientColor"		"192 0 56"
+		"PortraitAmbientScale"		"5.000000"
+		"PortraitSpecularColor"		"251 74 84"
+		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/portraitbackground_moon.vmat"
+		"PortraitLightScale"		"1.950000"
+		"PortraitGroundShadowScale"		"1.500000"
+		"PortraitAmbientDirection"		"-31.670 34.840 37.060"
+		"PortraitAnimationActivity"		"ACT_DOTA_CAPTURE"
+		"cameras"
+		{
+			"default"
+			{
+				"PortraitPosition"		"200.90 -52.63 105.55"
+				"PortraitAngles"		"352.41 167.17 0.00"
+				"PortraitFOV"		"17"
+			}
+		}
+	}
+	"models/gilgamesh/gilgamesh.vmdl"
+	{
+		"PortraitLightPosition"		"-33.05 37.77 177.26"
+		"PortraitLightAngles"		"37.44 317.51 0.00"
+		"PortraitLightFOV"		"63"
+		"PortraitLightDistance"		"108"
+		"PortraitLightColor"		"191 218 254"
+		"PortraitShadowColor"		"74 63 89"
+		"PortraitShadowScale"		"5.000000"
+		"PortraitAmbientColor"		"120 111 111"
+		"PortraitAmbientScale"		"5.000000"
+		"PortraitSpecularColor"		"251 74 84"
+		"PortraitSpecularDirection"		"0.000000 0.000000 -1.000000"
+		"PortraitSpecularPower"		"16.000000"
+		"PortraitBackgroundColor1"		"1 1 .9"
+		"PortraitBackgroundColor2"		"1 .9 .9"
+		"PortraitBackgroundColor3"		"1 .9 .9"
+		"PortraitBackgroundColor4"		"1 .8 .8"
+		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/portraitbackground_moon.vmat"
+		"PortraitAnimationActivity"		"ACT_DOTA_IDLE"
+		"PortraitAnimationCycle"		"0.000000"
+		"PortraitAnimationRate"		"1.000000"
+		"PortraitHideHero"		"0"
+		"PortraitLightScale"		"3.250000"
+		"PortraitGroundShadowScale"		"1.500000"
+		"PortraitAmbientDirection"		"5.550 -20.080 -2.630"
+		"cameras"
+		{
+			"default"
+			{
+				"PortraitPosition"		"450.07 20 150.18"
+				"PortraitAngles"		"1.85 183.19 0.00"
+				"PortraitFOV"		"8"
+			}
+		}
+	}
+	
+	
+	
+	"models/gilgamesh/gilgamesh_police.vmdl"
+	{
+		"PortraitLightPosition"		"-33.05 37.77 177.26"
+		"PortraitLightAngles"		"37.44 317.51 0.00"
+		"PortraitLightFOV"		"63"
+		"PortraitLightDistance"		"108"
+		"PortraitLightColor"		"191 218 254"
+		"PortraitShadowColor"		"74 63 89"
+		"PortraitShadowScale"		"5.000000"
+		"PortraitAmbientColor"		"120 111 111"
+		"PortraitAmbientScale"		"5.000000"
+		"PortraitSpecularColor"		"251 74 84"
+		"PortraitSpecularDirection"		"0.000000 0.000000 -1.000000"
+		"PortraitSpecularPower"		"16.000000"
+		"PortraitBackgroundColor1"		"1 1 .9"
+		"PortraitBackgroundColor2"		"1 .9 .9"
+		"PortraitBackgroundColor3"		"1 .9 .9"
+		"PortraitBackgroundColor4"		"1 .8 .8"
+		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/portraitbackground_moon.vmat"
+		"PortraitAnimationActivity"		"ACT_DOTA_IDLE"
+		"PortraitAnimationCycle"		"0.000000"
+		"PortraitAnimationRate"		"1.000000"
+		"PortraitHideHero"		"0"
+		"PortraitLightScale"		"3.250000"
+		"PortraitGroundShadowScale"		"1.500000"
+		"PortraitAmbientDirection"		"5.550 -20.080 -2.630"
+		"cameras"
+		{
+			"default"
+			{
+				"PortraitPosition"		"450.07 17 150.18"
+				"PortraitAngles"		"1.85 183.19 0.00"
+				"PortraitFOV"		"8"
+			}
+		}
+	}
+
 	"models/sanya/sanya_buc.vmdl"
 	{
 		"PortraitLightPosition"		"202.70 -23.15 308.17"
@@ -1258,35 +1361,7 @@
 			}
 		}
 	}
-
-	"models/jeanne/jeanne.vmdl"
-	{
-		"PortraitLightPosition"		"75.79 -21.18 200.33"
-		"PortraitLightAngles"		"130.94 332.64 0.00"
-		"PortraitLightFOV"		"40"
-		"PortraitLightDistance"		"156"
-		"PortraitLightColor"		"89 89 89"
-		"PortraitShadowColor"		"144 131 131"
-		"PortraitShadowScale"		"0.200000"
-		"PortraitAmbientColor"		"254 167 169"
-		"PortraitAmbientScale"		"2.500000"
-		"PortraitSpecularColor"		"251 74 84"
-		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/portraitbackground_light.vmat"
-		"PortraitLightScale"		"1.000000"
-		"PortraitGroundShadowScale"		"1.500000"
-		"PortraitAmbientDirection"		"-32.640 201.860 -1.930"
-		"PortraitAnimationActivity"		"ACT_DOTA_IDLE_SLEEPING"
-		"cameras"
-		{
-			"default"
-			{
-				"PortraitPosition"		"195.90 -45.63 80.55"
-				"PortraitAngles"		"352.41 167.17 0.00"
-				"PortraitFOV"		"12"
-			}
-		}
-	}
-
+ 
 	"models/gawain/gawain.vmdl"
 	{
 		"PortraitLightPosition"		"93.67 -34.45 200.88"
@@ -1820,38 +1895,7 @@
 			}
 		}
 	}
-
-	"models/gilgamesh/gilgamesh.vmdl"
-	{
-		"PortraitLightPosition"		"85.00 9.68 296.06"
-		"PortraitLightAngles"		"62.94 185.36 0.00"
-		"PortraitLightFOV"		"75"
-		"PortraitLightDistance"		"249"
-		"PortraitLightColor"		"243 243 243"
-		"PortraitShadowColor"		"0 0 0"
-		"PortraitShadowScale"		"5.000000"
-		"PortraitAmbientColor"		"131 0 25"
-		"PortraitAmbientScale"		"2.500000"
-		"PortraitSpecularColor"		"251 74 84"
-		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/portraitbackground_desert.vmat"
-		"PortraitBackgroundColor1"		"0 0 0"
-		"PortraitBackgroundColor2"		"0 0 0"
-		"PortraitBackgroundColor3"		".8 .2 .1"
-		"PortraitBackgroundColor4"		"0 0 0"
-		"PortraitLightScale"		"1.000000"
-		"PortraitGroundShadowScale"		"1.500000"
-		"PortraitAmbientDirection"		"-75.850 -49.880 27.200"
-		"PortraitAnimationActivity"		"ACT_DOTA_IDLE"
-		"cameras"
-		{
-			"default"
-			{
-				"PortraitPosition"		"126.07 -14.40 175.18"
-				"PortraitAngles"		"1.85 172.19 0.00"
-				"PortraitFOV"		"33"
-			}
-		}
-	}
+ 
 
 	"models/avenger/avenger.vmdl"
 	{
