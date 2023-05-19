@@ -103,6 +103,7 @@ function diarmuid_warrior_charge:OnSpellStart()
 	--target:AddNewModifier(caster, v, "modifier_stunned", {Duration = 0.75})
 
 	target:AddNewModifier(caster, v, "modifier_rooted", {Duration = duration})
+	giveUnitDataDrivenModifier(caster, target, "locked", duration)
 	caster:PerformAttack(target, true, true, true, true, false, false, false)
 
 	if caster:HasModifier("modifier_doublespear_active") or caster:HasModifier("modifier_rampant_warrior") then 

@@ -138,6 +138,7 @@ function modifier_edmon_enfer:BOOM(target)
 
 	caster:AddNewModifier(caster, self, "modifier_edmon_ult", {duration = duration + 3.2})
 	giveUnitDataDrivenModifier(caster, target, "locked", 1.5)
+	giveUnitDataDrivenModifier(caster, target, "rooted", 1.5)
 	
 	Timers:CreateTimer(function()
         if count < duration and caster and caster:IsAlive() then

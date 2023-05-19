@@ -18,7 +18,7 @@ function heracles_courage:OnSpellStart()
 		local cd = caster:FindAbilityByName("heracles_nine_lives"):GetCooldownTimeRemaining()
 		caster:FindAbilityByName("heracles_nine_lives"):EndCooldown()
 		if(cd > 0 ) then
-			caster:FindAbilityByName("heracles_nine_lives"):StartCooldown(cd -5)
+			caster:FindAbilityByName("heracles_nine_lives"):StartCooldown(cd -15)
 		end
 	end
 	-- Apply stackable speed buff

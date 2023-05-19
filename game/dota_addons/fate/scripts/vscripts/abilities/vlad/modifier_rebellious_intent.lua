@@ -98,7 +98,7 @@ if IsServer() then
       local ability = self:GetAbility()
       local drain_per_sec = ability:GetSpecialValueFor("drain_per_sec")
       local drain_interval = ability:GetSpecialValueFor("drain_interval")
-      local new_hp = parent:GetHealth() - (drain_per_sec * parent:GetMaxHealth() * drain_interval)
+      local new_hp = parent:GetHealth() - (drain_per_sec * parent:GetHealth() * drain_interval)
 
     	if new_hp < 1 then
     		new_hp = 1
