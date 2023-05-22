@@ -498,7 +498,6 @@ function modifier_fate_mechanic_parent_new:OnTakeDamage(keys)
         local attackerHero = nil
         --print(fDamage)
         --print(fOriginalDamage)
-
         if IsNotNull(hAttacker) 
             and IsNotNull(hTarget)
             and fDamage > 0 then

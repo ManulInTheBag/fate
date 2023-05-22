@@ -152,8 +152,8 @@ function modifier_emiya_dash:OnCreated(table)
     EmitSoundOn("nero_dash", self.parent)
 
     if IsServer() then
-        self.speed          = 900
-        self.distance       = 300
+        self.speed          = 1500
+        self.distance       = 500
         self.point          = self.ability:GetCursorPosition() + RandomVector(1)
         self.direction      = self.parent:GetForwardVector():Normalized()
         self.direction.z    = 0

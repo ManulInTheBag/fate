@@ -148,10 +148,8 @@ function emiya_unlimited_bladeworks:StartUBW()
             end
         end
     end) 
-    local swapAbil = caster:FindAbilityByName("emiya_weapon_swap")
-    swapAbil:SwapWeapons(3)
-    caster:SetBodygroup(0,1)
-    self:CheckCombo()
+
+   
     EmitGlobalSound("emiya_ubw7")
     StartAnimation(caster, {duration=2, activity=ACT_DOTA_ARCTIC_BURN_END, rate=0.5})
     
@@ -206,7 +204,10 @@ function emiya_unlimited_bladeworks:EnterUBW()
     local caster = self:GetCaster()
     local ability = self
     local radius = self:GetSpecialValueFor("radius")
-
+    local swapAbil = caster:FindAbilityByName("emiya_weapon_swap")
+    swapAbil:SwapWeapons(3)
+    caster:SetBodygroup(0,1)
+    self:CheckCombo()
     local ubwdummyLoc1 = ubwCenter
  
 
@@ -282,7 +283,7 @@ function emiya_unlimited_bladeworks:EnterUBW()
     ubwCasterPos = caster:GetAbsOrigin()
     
     --breakpoint
-    -- record location of units and move them into UBW(center location : 6000, -4000, 200)
+    -- record location of units and move them into UBW 
     for i=1, #ubwTargets do
         if IsValidEntity(ubwTargets[i]) then
             if ubwTargets[i]:GetName() ~= "npc_dota_ward_base" then

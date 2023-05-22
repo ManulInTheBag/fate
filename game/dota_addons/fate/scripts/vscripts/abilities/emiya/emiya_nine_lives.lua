@@ -16,6 +16,14 @@ function emiya_nine_lives:OnAbilityPhaseStart()
     ParticleManager:SetParticleControlEnt(self.swordfx_right, 0, caster, PATTACH_POINT_FOLLOW, "sword_right", Vector(0,0,0), true)
     ParticleManager:SetParticleControlEnt(self.swordfx_right, 1, caster, PATTACH_POINT_FOLLOW, "sword_right_end_overedge", Vector(0,0,0), true)
 	caster:SetBodygroup(0,3)
+	Timers:CreateTimer(4, function()  
+		if self.swordfx_left ~= nil and self.swordfx_right ~= nil then
+			ParticleManager:DestroyParticle( self.swordfx_left, true)
+			ParticleManager:ReleaseParticleIndex( self.swordfx_left)
+			ParticleManager:DestroyParticle( self.swordfx_right, true)
+			ParticleManager:ReleaseParticleIndex( self.swordfx_right)
+		end
+	end)
  
 
   
@@ -27,10 +35,12 @@ function emiya_nine_lives:OnAbilityPhaseInterrupted()
 	local caster = self:GetCaster()
     EndAnimation(caster)
 	caster:SetBodygroup(0,1)
-    ParticleManager:DestroyParticle( self.swordfx_left, true)
-    ParticleManager:ReleaseParticleIndex( self.swordfx_left)
-    ParticleManager:DestroyParticle( self.swordfx_right, true)
-    ParticleManager:ReleaseParticleIndex( self.swordfx_right)
+	if self.swordfx_left ~= nil and self.swordfx_right ~= nil then
+		ParticleManager:DestroyParticle( self.swordfx_left, true)
+		ParticleManager:ReleaseParticleIndex( self.swordfx_left)
+		ParticleManager:DestroyParticle( self.swordfx_right, true)
+		ParticleManager:ReleaseParticleIndex( self.swordfx_right)
+	end
 end
 
  
@@ -120,7 +130,7 @@ function modifier_emiya_nine_lives:OnIntervalThink()
 
 		for k,v in pairs(targets) do
 			DoDamage(caster, v, self.SmallDamage, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
-			if hCaster.IsProjectionAcquired then 	giveUnitDataDrivenModifier(caster, v, "rooted", 0.3) end
+			if caster.IsProjectionAcquired then 	giveUnitDataDrivenModifier(caster, v, "rooted", 0.3) end
 			v:EmitSound("Hero_Juggernaut.OmniSlash.Damage")	
 		end
 
@@ -135,7 +145,7 @@ function modifier_emiya_nine_lives:OnIntervalThink()
 		for k,v in pairs(lasthitTargets) do
 			if v:GetName() ~= "npc_dota_ward_base" then
 				DoDamage(caster, v, self.LargeDamage, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
-				if hCaster.IsProjectionAcquired then 	giveUnitDataDrivenModifier(caster, v, "rooted", 0.3) end
+				if caster.IsProjectionAcquired then 	giveUnitDataDrivenModifier(caster, v, "rooted", 0.3) end
 				v:EmitSound("Hero_Juggernaut.OmniSlash.Damage")	
 				v:AddNewModifier(caster, self:GetAbility(), "modifier_stunned", { Duration = 1 })
 				--giveUnitDataDrivenModifier(caster, v, "stunned", 1.5)			

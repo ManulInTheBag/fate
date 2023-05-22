@@ -10,6 +10,7 @@ locks = {
     "modifier_aestus_domus_aurea_ally",
     "modifier_aestus_domus_aurea_nero",
     "modifier_rho_aias",
+    "modifier_rho_aias_emiya",
     "modifier_binding_chains",
     --"modifier_whitechapel_murderer",
     --"modifier_whitechapel_murderer_ally",

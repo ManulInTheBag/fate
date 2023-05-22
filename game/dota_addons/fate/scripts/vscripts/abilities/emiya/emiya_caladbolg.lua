@@ -39,7 +39,9 @@ function emiya_caladbolg:StartCharging()
 	self.charge = ParticleManager:CreateParticle("particles/emiya/emiya_caladbolg_charge.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, caster)
 	ParticleManager:SetParticleControl(self.charge, 0, caster:GetAbsOrigin())
 	Timers:CreateTimer(0.5, function()
-		caster:SwapAbilities("emiya_caladbolg", "emiya_caladbolg_release", false, true)
+		if(caster:GetAbilityByIndex(2):GetName() == "emiya_caladbolg") and caster:HasModifier("modifier_emiya_caladbolg") then
+			caster:SwapAbilities("emiya_caladbolg", "emiya_caladbolg_release", false, true)
+		end
 	
 	end)
 end
@@ -185,6 +187,8 @@ function modifier_emiya_caladbolg:OnDestroy()
 	if IsServer() then
 		self.ability:ReleaseArrow(self.ability.frames)
 		self.ability.frames = 0
-		self:GetParent():SwapAbilities("emiya_caladbolg", "emiya_caladbolg_release", true, false)
+		if( self.caster:GetAbilityByIndex(2):GetName() == "emiya_caladbolg_release") then
+			self.caster:SwapAbilities("emiya_caladbolg", "emiya_caladbolg_release", true, false)
+		end
 	end
 end

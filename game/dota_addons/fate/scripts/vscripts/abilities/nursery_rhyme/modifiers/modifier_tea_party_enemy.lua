@@ -37,9 +37,9 @@ function modifier_tea_party_enemy:ReaperScythe()
 	local target = self:GetParent()
 	local damage = (self:GetAbility():GetCaster():GetIntellect() - target:GetIntellect())*self:GetAbility():GetSpecialValueFor("damage_per_int")
 	DoDamage(self:GetAbility():GetCaster(), target, damage, DAMAGE_TYPE_PURE, 0, self:GetAbility(), false)
-	giveUnitDataDrivenModifier(self:GetCaster(), target, "revoked", self:GetRemainingTime())
-	giveUnitDataDrivenModifier(self:GetCaster(), target, "silenced", self:GetRemainingTime())
-	target:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_tea_party_model", { Duration = self:GetRemainingTime()})
+	giveUnitDataDrivenModifier(self:GetCaster(), target, "revoked", 2)
+	giveUnitDataDrivenModifier(self:GetCaster(), target, "silenced", 2)
+	target:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_tea_party_model", { Duration = 2})
 end
 
 function modifier_tea_party_enemy:DeclareFunctions()

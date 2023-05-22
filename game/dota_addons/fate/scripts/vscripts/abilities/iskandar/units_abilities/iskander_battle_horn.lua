@@ -26,7 +26,7 @@ function iskander_battle_horn:OnSpellStart()
 	local targets = FindUnitsInRadius(caster:GetTeam(), marbleCenter, nil, 3000
             , DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	for k,v in pairs(targets) do
-		v:AddNewModifier(caster, self, "modifier_battle_horn_pct_armor_reduction", {duration = self:GetSpecialValueFor("duration")})
+		v:AddNewModifier(caster, self, "modifier_battle_horn_pct_armor_reduction", {duration = 4})
 		v:AddNewModifier(caster, self, "modifier_battle_horn_movespeed_debuff", { duration = 4 })
     end
 		

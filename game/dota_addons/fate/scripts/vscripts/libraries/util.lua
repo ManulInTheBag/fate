@@ -203,6 +203,7 @@ locks = {
     --"modifier_aestus_domus_aurea_ally",
     --"modifier_aestus_domus_aurea_nero",
     "modifier_rho_aias",
+    "modifier_rho_aias_emiya",
     "modifier_story_for_someones_sake",
     "jump_pause_nosilence",
     --"modifier_whitechapel_murderer",
@@ -668,6 +669,7 @@ tRemoveTheseModifiers = {
     "modifier_atalanta_curse",
     "modifier_muramasa_tsumukari_buff",
     "modifier_ryougi_lines",
+    "modifier_ubw_chant_count",
 }
 
 tDivineHeroes = {
@@ -1605,32 +1607,7 @@ function DoDamage(source, target , dmg, dmg_type, dmg_flag, abil, isLoop)
         end
     end
 
-    -- check if target has Rho Aias shield 
-    if not IsAbsorbed and target:HasModifier("modifier_rho_aias") then
-        local reduction = 0
-        if target:HasModifier("modifier_l_rule_breaker") or target:HasModifier ("modifier_c_rule_breaker") and (dmg_type == DAMAGE_TYPE_PURE or dmg_type == DAMAGE_TYPE_PHYSICAL) then
-            reduction = 1
-        elseif dmg_type == DAMAGE_TYPE_PHYSICAL then
-            reduction = GetPhysicalDamageReduction(target:GetPhysicalArmorValue(false))
-        elseif dmg_type == DAMAGE_TYPE_MAGICAL then
-            reduction = target:Script_GetMagicalArmorValue(false, nil)
-        end 
-        local originalDamage = dmg - target.rhoShieldAmount * 1/(1-reduction)
-        target.rhoShieldAmount = target.rhoShieldAmount - dmg * (1-reduction)
-
-        -- if damage is beyond the shield's block amount, update remaining damage
-        if target.rhoShieldAmount <= 0 then
-            --print("Rho Aias has been broken through by " .. -target.rhoShieldAmount)
-            dmg = originalDamage
-            target:RemoveModifierByName("modifier_rho_aias")
-            target.argosShieldAmount = 0
-        -- if shield has enough durability, set a flag that the damage is fully absorbed
-        else 
-            --print("Rho Aias absorbed full damage")
-            dmg = 0
-            IsAbsorbed = true
-        end
-    end
+  
   
     -- check if target has Cursed Lance
     if not IsAbsorbed and (target:HasModifier("modifier_cursed_lance") or target:HasModifier("modifier_cursed_lance_bp")) then

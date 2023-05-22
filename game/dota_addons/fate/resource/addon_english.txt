@@ -2865,13 +2865,13 @@
 		"DOTA_Tooltip_ability_emiya_kanshou_byakuya_damage"			"Damage per blade:"
 
 		"DOTA_Tooltip_Ability_emiya_double_slash"				"Double slash"
-		"DOTA_Tooltip_Ability_emiya_double_slash_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.25</font>\nEmiya <font color='#FFFAFA'>dashes</font> in target direction.\nAfter dash, he start slashing enemies <font color='#FFFAFA'>in front of him</font> to deal <font color='#58ACFA'>damage</font>.\nWhile slashing, Emiya can <font color='#FFFAFA'>control</font> his movement, but he is moving at <font color='#FFFAFA'>constant</font> speed."
+		"DOTA_Tooltip_Ability_emiya_double_slash_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.25</font>\nEmiya <font color='#FFFAFA'>dashes</font> in target direction.\nAfter dash, he start slashing enemies <font color='#FFFAFA'>in front of him</font> <font color='#FFFAFA'>4</font> times to deal <font color='#58ACFA'>damage</font>.\nWhile slashing, Emiya can <font color='#FFFAFA'>control</font> his movement, but he is moving at <font color='#FFFAFA'>constant</font> speed."
 		"DOTA_Tooltip_Ability_emiya_double_slash_Lore"			""
 		"DOTA_Tooltip_Ability_emiya_double_slash_damage"			"Damage per slash:"
  
 
 		"DOTA_Tooltip_Ability_emiya_crane_wings"				"Crane Wings"
-		"DOTA_Tooltip_ability_emiya_crane_wings_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.2</font>\nEmiya kicks target enemy, <font color='#FF3399'>pushing</font> him back and <font color='#FF3399'>stunning</font>. Soon after, Emiya will dash forward, slashing enemies <font color='#FFFAFA'>in front of him</font>.\nIf enemy, hits a wall during <font color='#FF3399'>push</font>, he will be <font color='#FF3399'>stunned</font> additionally.\nDash from this ability is <font color='#FFFAFA'>controllable</font>."
+		"DOTA_Tooltip_ability_emiya_crane_wings_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.2</font>\nEmiya kicks target enemy, <font color='#FF3399'>pushing</font> him back and <font color='#FF3399'>stunning</font>. Soon after, Emiya will dash forward, slashing enemies <font color='#FFFAFA'>in front of him </font><font color='#FFFAFA'>4</font> times.\nIf enemy, hits a wall during <font color='#FF3399'>push</font>, he will be <font color='#FF3399'>stunned</font> additionally.\nDash from this ability is <font color='#FFFAFA'>controllable</font>."
 		"DOTA_Tooltip_ability_emiya_crane_wings_Lore"			"The two of us cannot hold heavens together."
 		"DOTA_Tooltip_ability_emiya_crane_wings_damage"			"Damage per slash:"
 		"DOTA_Tooltip_ability_emiya_crane_wings_distance"			"Push distance:"
@@ -2883,7 +2883,7 @@
 		"DOTA_Tooltip_Ability_emiya_overedge_circle_damage"			"Damage per slash:"
 
 		"DOTA_Tooltip_Ability_emiya_rho_aias"					"Rho Aias"
-		"DOTA_Tooltip_ability_emiya_rho_aias_Description"		"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.2</font>\nEmiya projects a <font color='#FFFAFA'>constant</font> on friendly target that absorbs certain amount of damage.\nTarget is <font color='#FF3399'>rooted</font> until shield is expired.\n<font color='#FFFAFA'>The target can cancel the shield early by right clicking it on status bar.</font>"
+		"DOTA_Tooltip_ability_emiya_rho_aias_Description"		"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.2</font>\nEmiya projects a <font color='#FFFAFA'>shield</font> on friendly target that absorbs certain amount of damage.\nTarget is <font color='#FF3399'>rooted</font> until shield is expired.\n<font color='#FFFAFA'>The target can cancel the shield early by right clicking it on status bar.</font>"
 		"DOTA_Tooltip_ability_emiya_rho_aias_Lore"				"The Seven Rings from Age of Gods boast conceptual superiority over any thrown weapon."
 		"DOTA_Tooltip_ability_emiya_rho_aias_Note0"				"The shield takes magic resistance into account when taking magic damage."
 		"DOTA_Tooltip_ability_emiya_rho_aias_shield_amount"		"Shield Amount:"
@@ -7102,7 +7102,7 @@
 		"DOTA_Tooltip_ability_edmon_flames_attribute_Description"	"Dark Beams not created by Flames of Hate stack Flames of Love. Melee attacks not buffed by Flames of Love stack Flames of Hate. Both stack up to 6.\nFlames of Love: melee attacks use stacks to be nearly instant.\nFlames of Hate: during the delay, third Dark Beam creates two mini-Dark Beams, which deal 1/4 of Dark Beam damage each, per stack."
 
 		"DOTA_Tooltip_ability_edmon_vengeance_attribute"		"Attribute: Avenger"
-		"DOTA_Tooltip_ability_edmon_vengeance_attribute_Description"	"Enemies dealing damage to Dantes are marked for %duration% seconds. Marked enemies take %damage%%  more damage from Dantes. Dantes heals himself for %lifesteal%%  of damage dealt when dealing damage to them."
+		"DOTA_Tooltip_ability_edmon_vengeance_attribute_Description"	"Enemies dealing damage to Dantes are marked for %duration% seconds.\nMarked enemies take %damage%%  more damage from Dantes. Dantes heals himself for %lifesteal%%  of damage dealt when dealing damage to them.\nVengeful conflagration: reduces amount of damage received by Dantes during counter-attack by 50%%."
 
 		"DOTA_Tooltip_ability_edmon_escape_attribute"			"Attribute: Le Concept d'Evasion"
 		"DOTA_Tooltip_ability_edmon_escape_attribute_Description"			"Allows Dantes to use Afterglow and My Vengeance Never Dies when rooted and locked.\nIncreased My Vengeance Never Dies castrange by 300."

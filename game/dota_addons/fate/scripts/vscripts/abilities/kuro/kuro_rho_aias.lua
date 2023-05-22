@@ -52,12 +52,11 @@ function kuro_rho_aias:OnSpellStart()
 
 	local close_ability = self:GetCaster():FindAbilityByName("kuro_spellbook_close")
 	close_ability:OnSpellCalled(self)
-	
+	local block =   self:GetSpecialValueFor("shield_amount")
 	rhoTarget = target 
-	target.rhoShieldAmount = self:GetSpecialValueFor("shield_amount")
 	if hCaster:HasModifier("modifier_projection_active") then
 		if hCaster:HasModifier("modifier_kuro_projection") then
-			target.rhoShieldAmount = target.rhoShieldAmount + self:GetSpecialValueFor("projection_bonus")
+			block = block + self:GetSpecialValueFor("projection_bonus")
 		end
 		if hCaster:HasModifier("modifier_projection_active") and not hCaster:HasModifier("modifier_kuro_projection_overpower") then
 			if hCaster:FindModifierByName("modifier_projection_active"):GetStackCount()>1 then		
@@ -77,5 +76,5 @@ function kuro_rho_aias:OnSpellStart()
 	end]]
 	caster:EmitSound("Hero_EmberSpirit.FlameGuard.Cast")
 
-	target:AddNewModifier(caster, self, "modifier_rho_aias", { Duration = self:GetSpecialValueFor("duration") })
+	target:AddNewModifier(caster, self, "modifier_rho_aias", { duration = self:GetSpecialValueFor("duration"), block = block })
 end

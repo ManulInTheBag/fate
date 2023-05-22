@@ -9,6 +9,7 @@ local locks = {
     --"modifier_aestus_domus_aurea_ally",
     --"modifier_aestus_domus_aurea_nero",
     "modifier_rho_aias",
+    "modifier_rho_aias_emiya",
     "modifier_story_for_someones_sake",
     "jump_pause_nosilence",
     "modifier_gordius_wheel",
