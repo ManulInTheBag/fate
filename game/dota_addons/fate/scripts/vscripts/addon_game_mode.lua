@@ -338,6 +338,7 @@ function Precache( context )
     PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_life_stealer.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_phantom_assassin.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_treant.vsndevts", context)
+    PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_drowranger.vsndevts", context)
     
     PrecacheResource("soundfile", "soundevents/game_sounds_items.vsndevts", context)
 
@@ -2072,7 +2073,9 @@ function FateGameMode:OnHeroInGame(hero)
     if hero:GetName() == "npc_dota_hero_skywrath_mage" then
         self.gilEntIndex = hero:GetEntityIndex()
     end
-
+    if hero:GetName() == "npc_dota_hero_ember_spirit" then
+        self.emiyaEntIndex = hero:GetEntityIndex()
+    end
     if hero:GetName() == "npc_dota_hero_gyrocopter" then
          hero.ISDOW = false
          hero.isCharisma = false
@@ -3621,8 +3624,9 @@ function FateGameMode:TakeDamageFilter(filterTable)
 end
 
 function FateGameMode:ExecuteProjectileFilter(hFilterTable)
-    if not IsServer() then return end
-    if(hFilterTable.is_attack == 1 and hFilterTable.entindex_source_const == self.gilEntIndex ) then return false end 
+    if not IsServer() then return end 
+    if(hFilterTable.is_attack == 1 and hFilterTable.entindex_source_const == self.gilEntIndex ) then return false end
+    if (hFilterTable.entindex_source_const == self.emiyaEntIndex and  EntIndexToHScript(self.emiyaEntIndex):HasModifier("modifier_unlimited_bladeworks") and hFilterTable.is_attack == 1 )  then return false end
     return true
 end
 
@@ -4024,6 +4028,8 @@ function FateGameMode:FinishRound(IsTimeOut, winner)
             playerHero:FindAbilityByName("medusa_monstrous_strength"):EndCooldown()
         elseif playerHero:GetName() == "npc_dota_hero_riki" then
             playerHero:RemoveModifierByName("modifier_holy_mother_buff")
+        elseif playerHero:GetName() == "npc_dota_hero_mirana" then
+            playerHero:RemoveModifierByName("modifier_jeanne_crimson_saint")
         end
 
         if playerHero:FindAbilityByName("khsn_flame_active") then

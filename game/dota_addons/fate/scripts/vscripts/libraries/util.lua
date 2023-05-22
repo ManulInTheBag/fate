@@ -394,7 +394,7 @@ donotlevel = {
     "avenger_overdrive",
     "berserker_5th_reincarnation",    
     "cu_chulain_protection_from_arrows",  
-    "emiya_rho_aias",  
+    --"emiya_rho_aias",  
     "gawain_saint",
     "gawain_blessing_of_fairy",
     "diarmuid_minds_eye",

@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf54:version{326b1595-45e8-4004-aa5a-3e08655ff51f} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf57:version{4f75132e-4f5d-493c-958e-3bb4328089ba} -->
 {
 	_class = "CParticleSystemDefinition"
 	m_bShouldHitboxesFallbackToRenderBounds = false
@@ -9,7 +9,6 @@
 	[
 		{
 			m_name = "preview"
-			m_drivers = [  ]
 		},
 	]
 	m_PreEmissionOperators = 
@@ -209,7 +208,11 @@
 		{
 			_class = "C_INIT_CreateAlongPath"
 			m_fMaxDistance = 30.0
-			m_bDisableOperator = true
+			m_PathParams = 
+			{
+				m_nStartControlPointNumber = 1
+				m_nEndControlPointNumber = 2
+			}
 		},
 		{
 			_class = "C_INIT_RandomColor"
@@ -461,6 +464,7 @@
 				m_nVectorAttribute = 6
 				m_vVectorAttributeScale = [ 1.0, 1.0, 1.0 ]
 				m_nControlPoint = 0
+				m_nDeltaControlPoint = 0
 				m_vCPValueScale = [ 1.0, 1.0, 1.0 ]
 				m_vCPRelativePosition = [ 0.0, 0.0, 0.0 ]
 				m_vCPRelativeDir = [ 1.0, 0.0, 0.0 ]
@@ -496,6 +500,7 @@
 					m_flNoiseTurbulenceMix = 0.5
 					m_flNoiseImgPreviewScale = 1.0
 					m_bNoiseImgPreviewLive = true
+					m_bUseBoundsCenter = false
 					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
 					m_flMultFactor = 1.0
 					m_flInput0 = 0.0
@@ -548,6 +553,7 @@
 					m_flNoiseTurbulenceMix = 0.5
 					m_flNoiseImgPreviewScale = 1.0
 					m_bNoiseImgPreviewLive = true
+					m_bUseBoundsCenter = false
 					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
 					m_flMultFactor = 1.0
 					m_flInput0 = 0.0
@@ -600,6 +606,7 @@
 					m_flNoiseTurbulenceMix = 0.5
 					m_flNoiseImgPreviewScale = 1.0
 					m_bNoiseImgPreviewLive = true
+					m_bUseBoundsCenter = false
 					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
 					m_flMultFactor = 1.0
 					m_flInput0 = 0.0
@@ -652,6 +659,7 @@
 					m_flNoiseTurbulenceMix = 0.5
 					m_flNoiseImgPreviewScale = 1.0
 					m_bNoiseImgPreviewLive = true
+					m_bUseBoundsCenter = false
 					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
 					m_flMultFactor = 1.0
 					m_flInput0 = 0.0
@@ -716,6 +724,15 @@
 				m_nEndControlPointNumber = 2
 				m_nStartControlPointNumber = 1
 			}
+			m_bDisableOperator = true
+		},
+	]
+	m_ForceGenerators = 
+	[
+		{
+			_class = "C_OP_RandomForce"
+			m_MinForce = [ -1000.0, -1000.0, -1000.0 ]
+			m_MaxForce = [ 1000.0, 1000.0, 1000.0 ]
 		},
 	]
 	m_Renderers = 

@@ -21,7 +21,7 @@ function modifier_unlimited_bladeworks_autoblade:OnIntervalThink()
         local swordOrigin = caster:GetAbsOrigin() + Vector(0,0,500) + RandomVector(1000)
         local swordVector = (weaponTargets[targetIndex]:GetAbsOrigin() - swordOrigin):Normalized()
 
-        local swordFxIndex = ParticleManager:CreateParticle( "particles/custom/archer/archer_sword_barrage_model.vpcf", PATTACH_CUSTOMORIGIN, caster )
+        local swordFxIndex = ParticleManager:CreateParticle( "particles/emiya/emiya_rain_sword.vpcf", PATTACH_CUSTOMORIGIN, caster )
         ParticleManager:SetParticleControl( swordFxIndex, 0, swordOrigin )
         ParticleManager:SetParticleControl( swordFxIndex, 1, swordVector * 5000 )
         

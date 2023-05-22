@@ -12,7 +12,7 @@ local chainTargetsTable = nil
 local ubwTargets = nil
 local ubwTargetLoc = nil
 local ubwCasterPos = nil
-local ubwdummies = nil
+ 
 local ubwCenter = Vector(5926, -4837, 222)
 if( IsServer()) then 
     if(IsFFA()) then
@@ -63,6 +63,22 @@ function emiya_unlimited_bladeworks:GrantUBWChantBuff()
     
 end
 
+function emiya_unlimited_bladeworks:OnProjectileHit_ExtraData(hTarget, vLocation, tExtraData) -- autoattack in ubw
+	local target = EntIndexToHScript(tExtraData.targetIndex)
+	if target == nil then return end
+	local hCaster = self:GetCaster()
+	hCaster:PerformAttack(target, true, true, true, false, false, false, false)
+
+
+	
+    local slash_pfx =   ParticleManager:CreateParticle("particles/emiya/emiya_swords_hit.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
+    ParticleManager:SetParticleControlEnt(slash_pfx, 0, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
+    ParticleManager:ReleaseParticleIndex(slash_pfx)
+
+ 
+	
+end
+
 function emiya_unlimited_bladeworks:ReduceAbilityCooldowns()
     local caster = self:GetCaster()
     local pepeCd = caster:GetAbilityByIndex(0):GetCooldownTimeRemaining()
@@ -104,7 +120,7 @@ function emiya_unlimited_bladeworks:StartUBW()
     local casterLocation = caster:GetAbsOrigin()
     local castDelay = 2
     local radius = self:GetSpecialValueFor("radius")
-    
+
     local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetOrigin(), nil, radius - 550, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
     for q,w in pairs(targets) do
         --giveUnitDataDrivenModifier(caster, w, "pause_sealdisabled", castDelay)
@@ -120,7 +136,7 @@ function emiya_unlimited_bladeworks:StartUBW()
     end
 
     giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", castDelay)
-    caster:AddNewModifier(caster, self, "modifier_unlimited_bladeworks", { Duration = castDelay })
+    caster:AddNewModifier(caster, self, "modifier_unlimited_bladeworks", { duration = castDelay })
 
     --giveUnitDataDrivenModifier(caster, caster, "jump_pause", castDelay)
     LoopOverPlayers(function(player, playerID, playerHero)
@@ -132,9 +148,12 @@ function emiya_unlimited_bladeworks:StartUBW()
             end
         end
     end) 
-
+    local swapAbil = caster:FindAbilityByName("emiya_weapon_swap")
+    swapAbil:SwapWeapons(3)
+    caster:SetBodygroup(0,1)
+    self:CheckCombo()
     EmitGlobalSound("emiya_ubw7")
-    StartAnimation(caster, {duration=2, activity=ACT_DOTA_CAST_ABILITY_4, rate=1.5})
+    StartAnimation(caster, {duration=2, activity=ACT_DOTA_ARCTIC_BURN_END, rate=0.5})
     
     Timers:CreateTimer({
         endTime = castDelay,
@@ -183,23 +202,20 @@ end
 
 function emiya_unlimited_bladeworks:EnterUBW()
     CreateUITimer("Unlimited Blade Works", 15, "ubw_timer")
-    
+ 
     local caster = self:GetCaster()
     local ability = self
     local radius = self:GetSpecialValueFor("radius")
 
-    local ubwdummyLoc1 = ubwCenter + Vector(600,-600, 1000)
-    local ubwdummyLoc2 = ubwCenter + Vector(600,600, 1000)
-    local ubwdummyLoc3 = ubwCenter + Vector(-600,600, 1000)
-    local ubwdummyLoc4 = ubwCenter + Vector(-600,-600, 1000)
+    local ubwdummyLoc1 = ubwCenter
+ 
 
     caster:RemoveModifierByName("modifier_ubw_chant_count")
     caster:RemoveModifierByName("modifier_hrunting_window")
     caster:RemoveModifierByName("modifier_aestus_domus_aurea_ally")
     caster:RemoveModifierByName("modifier_aestus_domus_aurea_enemy")
 
-    -- swap Archer's skillset with UBW ones
-    self:SwitchAbilities(true)
+
 
     -- Find eligible UBW targets
     ubwTargets = FindUnitsInRadius(caster:GetTeam(), caster:GetOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
@@ -222,10 +238,8 @@ function emiya_unlimited_bladeworks:EnterUBW()
     end
 
     if caster:GetAbsOrigin().x < 3000 and caster:GetAbsOrigin().y < -2000 then
-        ubwdummyLoc1 = aotkCenter + Vector(600,-600, 1000)
-        ubwdummyLoc2 = aotkCenter + Vector(600,600, 1000)
-        ubwdummyLoc3 = aotkCenter + Vector(-600,600, 1000)
-        ubwdummyLoc4 = aotkCenter + Vector(-600,-600, 1000)
+        ubwdummyLoc1 = aotkCenter 
+ 
         caster.IsUBWDominant = false
     end
     caster.IsUBWActive = true
@@ -240,22 +254,20 @@ function emiya_unlimited_bladeworks:EnterUBW()
 
     -- Add sword shooting dummies
     local ubwdummy1 = CreateUnitByName("dummy_unit", ubwdummyLoc1, false, nil, nil, caster:GetTeamNumber())
-    local ubwdummy2 = CreateUnitByName("dummy_unit", ubwdummyLoc2, false, nil, nil, caster:GetTeamNumber())
-    local ubwdummy3 = CreateUnitByName("dummy_unit", ubwdummyLoc3, false, nil, nil, caster:GetTeamNumber())
-    local ubwdummy4 = CreateUnitByName("dummy_unit", ubwdummyLoc4, false, nil, nil, caster:GetTeamNumber())
-    ubwdummies = {ubwdummy1, ubwdummy2, ubwdummy3, ubwdummy4}
+ 
+ 
     
     ubwdummy1:SetAbsOrigin(ubwdummyLoc1)
-    ubwdummy2:SetAbsOrigin(ubwdummyLoc2)
-    ubwdummy3:SetAbsOrigin(ubwdummyLoc3)
-    ubwdummy4:SetAbsOrigin(ubwdummyLoc4)    
+ 
     
-    for i=1, #ubwdummies do
-        ubwdummies[i]:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
-        ubwdummies[i]:SetDayTimeVisionRange(1000)
-        ubwdummies[i]:SetNightTimeVisionRange(1000)
-        ubwdummies[i]:AddNewModifier(caster, caster, "modifier_item_ward_true_sight", {true_sight_range = 1000})
-    end
+ 
+    ubwdummy1:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
+    ubwdummy1:SetDayTimeVisionRange(1500)
+    ubwdummy1:SetNightTimeVisionRange(1500)
+    ubwdummy1:AddNewModifier(caster, caster, "modifier_item_ward_true_sight", {true_sight_range = 1500})
+    Timers:CreateTimer( 15, function()
+		ubwdummy1:RemoveSelf()
+	end)
 
     -- Automated weapon shots
     if caster:HasModifier("modifier_projection_attribute") then
@@ -299,9 +311,10 @@ function emiya_unlimited_bladeworks:EnterUBW()
 end
 
 function emiya_unlimited_bladeworks:EndUBW()   
-    self:SwitchAbilities(false)
     local caster = self:GetCaster()
-
+    local swapAbil = caster:FindAbilityByName("emiya_weapon_swap")
+    swapAbil:SwapWeapons(1)
+    caster:SetBodygroup(0,0)
     CreateUITimer("Unlimited Blade Works", 0, "ubw_timer")
     caster:RemoveModifierByName("modifier_unlimited_bladeworks_autoblade")
     --caster.IsUBWActive = false
@@ -309,11 +322,7 @@ function emiya_unlimited_bladeworks:EndUBW()
         caster.UBWLocator:RemoveSelf()
     end
 
-    for i=1, #ubwdummies do
-        if not ubwdummies[i]:IsNull() and IsValidEntity(ubwdummies[i]) then 
-            ubwdummies[i]:RemoveSelf()
-        end
-    end
+     
 
     local units = FindUnitsInRadius(caster:GetTeam(), ubwCenter, nil, 1300, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
      
@@ -436,41 +445,13 @@ function emiya_unlimited_bladeworks:EndUBW()
     Timers:RemoveTimer("ubw_timer")
 end
 
-function emiya_unlimited_bladeworks:SwitchAbilities(isUbw)
-    local caster = self:GetCaster()
-    local tStandardAbilities = {
-        "emiya_kanshou_byakuya",
-        "emiya_broken_phantasm",
-        "emiya_crane_wings",
-        "emiya_rho_aias",
-        "emiya_clairvoyance",
-        "emiya_unlimited_bladeworks",
-        "attribute_bonus_custom"
-    }
-
-    local tUBWAbilities = {
-        "emiya_barrage_moonwalk",
-        "emiya_barrage_confine",
-        "emiya_gae_bolg",
-        "emiya_rho_aias",
-        "emiya_barrage_rain",
-        "emiya_nine_lives",
-        "attribute_bonus_custom"
-    }
-
-    if isUbw then
-        UpdateAbilityLayout(caster, tUBWAbilities)
-        self:CheckCombo()
-    else
-        UpdateAbilityLayout(caster, tStandardAbilities)
-    end
-end
+ 
 
 function emiya_unlimited_bladeworks:OnOwnerDied()
     if self:GetCaster().IsUBWActive then 
         self:EndUBW()
     end 
-    self:SwitchAbilities(false)
+
 end
 
 function emiya_unlimited_bladeworks:CheckCombo()
@@ -480,7 +461,7 @@ function emiya_unlimited_bladeworks:CheckCombo()
         and caster:FindAbilityByName("emiya_arrow_rain"):IsCooldownReady() then 
         
         caster:SwapAbilities("emiya_nine_lives", "emiya_arrow_rain", false, true) 
-        caster:AddNewModifier(caster, self, "modifier_arrow_rain_window", { Duration = 1.5})
+        caster:AddNewModifier(caster, self, "modifier_arrow_rain_window", { Duration = 3.5})
     end
 end
 
@@ -489,7 +470,7 @@ function emiya_unlimited_bladeworks:OnUpgrade()
     local ability = self
     
     caster:FindAbilityByName("emiya_barrage_moonwalk"):SetLevel(self:GetLevel())    
-    caster:FindAbilityByName("emiya_barrage_confine"):SetLevel(self:GetLevel())
+    caster:FindAbilityByName("emiya_big_swords"):SetLevel(self:GetLevel())
     caster:FindAbilityByName("emiya_gae_bolg"):SetLevel(self:GetLevel())
     caster:FindAbilityByName("emiya_barrage_rain"):SetLevel(self:GetLevel())
     caster:FindAbilityByName("emiya_nine_lives"):SetLevel(self:GetLevel())

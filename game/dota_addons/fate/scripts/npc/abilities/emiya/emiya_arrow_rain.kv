@@ -14,19 +14,9 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityTextureName"			"custom/archer_5th_arrow_rain"
-		
-		"precache"
-		{
-			"particle"			"particles/units/heroes/hero_sven/sven_storm_bolt_projectile_explosion.vpcf"
-			"particle"			"particles/units/heroes/hero_clinkz/clinkz_searing_arrow.vpcf"
-			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_drowranger.vsndevts"
-			"particle"			"particles/units/heroes/hero_gyrocopter/gyro_guided_missile_explosion.vpcf"
-			"particle"			"particles/custom/archer/archer_arrow_rain_model.vpcf"
-			"particle"			"particles/custom/archer/archer_sword_barrage_impact_circle.vpcf"
-			"particle"			"particles/custom/screen_brown_splash.vpcf"
-		}
-		
-		"AbilityCastPoint"				"0.1"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_5"
+		"AnimationPlaybackRate" 		"1.0"
+		"AbilityCastPoint"				"0.2"
 		"AbilityCooldown"				"180"
 		"AbilityManaCost"				"400"
 		
@@ -51,6 +41,26 @@
 			{
 				"var_type"				"FIELD_INTEGER"
 				"bp_shot_damage"		"66"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"target_damage"		"500"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"splash_damage"		"250"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"		"300"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"stun_duration"		"0.5"
 			}
 		}		
 	}

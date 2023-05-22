@@ -16,15 +16,15 @@ function emiya_barrage_moonwalk:OnSpellStart()
 	local archer = Physics:Unit(caster)
 
 	ProjectileManager:ProjectileDodge(caster)
-
+   
 	caster:PreventDI()
 	caster:SetPhysicsFriction(0)
-	caster:SetPhysicsVelocity(-forwardVec * retreatDist * 4/2 + Vector(0,0,750))
-	caster:SetPhysicsAcceleration(Vector(0,0,-2000))
+	caster:SetPhysicsVelocity(-forwardVec * retreatDist * 2.5)
+	--caster:SetPhysicsAcceleration(Vector(0,0,-2000))
 	caster:SetNavCollisionType(PHYSICS_NAV_NOTHING)
 	caster:FollowNavMesh(false)
 
-  	Timers:CreateTimer(0.5, function()
+  	Timers:CreateTimer(0.375, function()
 		caster:PreventDI(false)
 		caster:SetPhysicsVelocity(Vector(0,0,0))
 		caster:OnPhysicsFrame(nil)
@@ -35,20 +35,20 @@ function emiya_barrage_moonwalk:OnSpellStart()
 
 	caster:EmitSound("Archer.NineFinish")
 
-	StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_ATTACK, rate=1.0})
+	StartAnimation(caster, {duration=0.375, activity=ACT_DOTA_CAST_ALACRITY, rate=1.5})
 	rotateCounter = 1
 
 	if caster:HasModifier("modifier_projection_attribute") then
 		damage = damage + caster:GetAgility()/2
 	end
-	
+	--[[
 	Timers:CreateTimer(function()
 		if rotateCounter == 9 then return end
 		caster:SetForwardVector(RotatePosition(Vector(0,0,0), QAngle(0,45*rotateCounter,0), forwardVec))
 		rotateCounter = rotateCounter + 1
 		return 0.03
 	end)
-
+	]]
 	Timers:CreateTimer(function()
 		if counter > 6 then return end
 		local targetPoint = casterPos + forwardVec * interval * counter

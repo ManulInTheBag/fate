@@ -27,12 +27,11 @@ function emiya_arrow_rain:OnSpellStart()
 			--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
 		end
 	end)
-	local broken_phantasm = caster:FindAbilityByName("emiya_broken_phantasm")
 
 	local info = {
 		Target = nil,
 		Source = caster, 
-		Ability = broken_phantasm,
+		Ability = self,
 		EffectName = "particles/units/heroes/hero_clinkz/clinkz_searing_arrow.vpcf",
 		vSpawnOrigin = caster:GetAbsOrigin(),
 		iMoveSpeed = 3000
@@ -48,7 +47,7 @@ function emiya_arrow_rain:OnSpellStart()
 	Timers:CreateTimer('rain_ascend', {
 		endTime = 0,
 		callback = function()
-	   	if ascendCount == 20 then return end
+	   	if ascendCount == 20 then   return end
 		caster:SetAbsOrigin(Vector(caster:GetAbsOrigin().x,caster:GetAbsOrigin().y,caster:GetAbsOrigin().z+40))
 		ascendCount = ascendCount + 1;
 		return 0.01
@@ -130,7 +129,7 @@ function emiya_arrow_rain:OnSpellStart()
 	Timers:CreateTimer('rain_descend', {
 		endTime = 3.8,
 		callback = function()
-	   	if descendCount == 20 then return end
+	   	if descendCount == 20 then FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true) return end
 		caster:SetAbsOrigin(Vector(caster:GetAbsOrigin().x,caster:GetAbsOrigin().y,caster:GetAbsOrigin().z-40))
 		descendCount = descendCount + 1;
 		return 0.01
@@ -142,11 +141,10 @@ function emiya_arrow_rain:OnProjectileHit_ExtraData(hTarget, vLocation, table)
 	print("its triggering from rain 4head")
 	if IsSpellBlocked(hTarget) then return end -- Linken effect checker
 	local caster = self:GetCaster()
-	local ability = caster:FindAbilityByName("emiya_broken_phantasm")
-	local targetdmg = ability:GetLevelSpecialValueFor("target_damage") 
-	local splashdmg = ability:GetLevelSpecialValueFor("splash_damage") 
-	local radius = ability:GetLevelSpecialValueFor("radius")
-	local stunDuration = ability:GetLevelSpecialValueFor("stun_duration")
+	local targetdmg = self:GetSpecialValueFor("target_damage") 
+	local splashdmg = self:GetSpecialValueFor("splash_damage") 
+	local radius = self:GetSpecialValueFor("radius")
+	local stunDuration = self:GetSpecialValueFor("stun_duration")
 
 	if not hTarget:HasModifier("modifier_lancer_protection_from_arrows_active") then
 		DoDamage(caster, hTarget, targetdmg , DAMAGE_TYPE_MAGICAL, 0, self, false)
@@ -164,5 +162,5 @@ function emiya_arrow_rain:OnProjectileHit_ExtraData(hTarget, vLocation, table)
 		ParticleManager:ReleaseParticleIndex( ArrowExplosionFx )
 		return nil
 	end)
-	hTarget:AddNewModifier(caster, hTarget, "modifier_stunned", {Duration = stunDuration})
+	hTarget:AddNewModifier(caster, hTarget, "modifier_stunned", {duration = stunDuration})
 end

@@ -64,7 +64,7 @@ function emiya_attribute_shroud_of_martin:OnSpellStart()
 			return 1
 		end
 	end)
-
+	hero.IsShroudOfMartinAcquired = true
 	-- Set master 1's mana 
 	local master = hero.MasterUnit
 	master:SetMana(master:GetMana() - self:GetManaCost(self:GetLevel()))
@@ -82,7 +82,7 @@ function emiya_attribute_projection:OnSpellStart()
 			return 1
 		end
 	end)
-
+	hero.IsProjectionAcquired = true
 	-- Set master 1's mana 
 	local master = hero.MasterUnit
 	master:SetMana(master:GetMana() - self:GetManaCost(self:GetLevel()))
@@ -100,7 +100,7 @@ function emiya_attribute_overedge:OnSpellStart()
 			return 1
 		end
 	end)	
-
+	hero.IsOveredgeAcquired = true
 	-- Set master 1's mana 
 	local master = hero.MasterUnit
 	master:SetMana(master:GetMana() - self:GetManaCost(self:GetLevel()))

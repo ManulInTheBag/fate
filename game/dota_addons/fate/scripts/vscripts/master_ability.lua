@@ -659,6 +659,8 @@ function OnDamageGain(keys)
 		primaryStat = hero:GetAgility()
 	elseif attr == 2 then
 		primaryStat = hero:GetIntellect()
+	elseif attr == 3 then
+		primaryStat = (hero:GetStrength() + hero:GetAgility() + hero:GetIntellect())*0.7
 	end
 
 	hero:SetBaseDamageMax(hero:GetBaseDamageMax() - math.floor(primaryStat) + 3)

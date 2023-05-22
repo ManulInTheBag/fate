@@ -48,6 +48,8 @@ function emiya_gae_bolg:OnSpellStart()
 			--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
 		end
 	end)
+	EndAnimation(caster)
+	StartAnimation(caster, {duration=1, activity=ACT_DOTA_CAST_DEAFENING_BLAST, rate=1})
 	--EmitGlobalSound("archer_attack_03")
 	giveUnitDataDrivenModifier(caster, caster, "jump_pause", 0.8)
 	Timers:CreateTimer(0.8, function()
@@ -62,7 +64,7 @@ function emiya_gae_bolg:OnSpellStart()
 		endTime = 0.45,
 		callback = function()		
 
-		local projectileOrigin = caster:GetAbsOrigin() + Vector(0,0,300)
+		local projectileOrigin = caster:GetAbsOrigin() + Vector(0,0,100)
 		local projectile = CreateUnitByName("dummy_unit", projectileOrigin, false, nil, nil, caster:GetTeamNumber())
 		projectile:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
 		projectile:SetAbsOrigin(projectileOrigin)
@@ -83,7 +85,7 @@ function emiya_gae_bolg:OnSpellStart()
 		endTime = 0,
 		callback = function()
 	   	if ascendCount == 15 then 
-	   		StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_CAST_ABILITY_4, rate=4})
+	   		--StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_CAST_ABILITY_4, rate=4})
 		   	return 
 		end
 		caster:SetAbsOrigin(Vector(caster:GetAbsOrigin().x,caster:GetAbsOrigin().y,caster:GetAbsOrigin().z+50))
@@ -95,7 +97,7 @@ function emiya_gae_bolg:OnSpellStart()
 	Timers:CreateTimer("gb_descend", {
 	    endTime = 0.3,
 	    callback = function()
-	    	if descendCount == 15 then return end
+	    	if descendCount == 15 then                 FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true) return end
 			caster:SetAbsOrigin(Vector(caster:GetAbsOrigin().x,caster:GetAbsOrigin().y,caster:GetAbsOrigin().z-50))
 			descendCount = descendCount + 1;
 	      	return 0.033

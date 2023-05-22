@@ -30,10 +30,7 @@ function emiya_barrage_rain:OnSpellStart()
 	local targetPoint = self:GetCursorPosition()
 	local radius = self:GetAOERadius() * 0.9
 	local damage = self:GetSpecialValueFor("damage") 
-	if(caster:HasModifier("modifier_projection_attribute")) then
-	
-		damage = damage + caster:GetAttackDamage()*0.5
-	end
+ 
 	local forwardVec = ( targetPoint - caster:GetAbsOrigin() ):Normalized()
 	local duration = 0
 
@@ -58,7 +55,7 @@ function emiya_barrage_rain:OnSpellStart()
 				local newForwardVec = ( target_location - spawn_location ):Normalized()
 				target_location = target_location + 100 * newForwardVec
 				
-				local swordFxIndex = ParticleManager:CreateParticle( "particles/custom/archer/archer_sword_barrage_model.vpcf", PATTACH_CUSTOMORIGIN, caster )
+				local swordFxIndex = ParticleManager:CreateParticle( "particles/emiya/emiya_rain_sword.vpcf", PATTACH_CUSTOMORIGIN, caster )
 				ParticleManager:SetParticleControl( swordFxIndex, 0, spawn_location )
 				ParticleManager:SetParticleControl( swordFxIndex, 1, newForwardVec * speed )
 				

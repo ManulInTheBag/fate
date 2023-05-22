@@ -1,150 +1,176 @@
 emiya_nine_lives = class({})
 
-LinkLuaModifier("modifier_projection_attribute", "abilities/emiya/modifiers/modifier_projection_attribute", LUA_MODIFIER_MOTION_NONE)
-function emiya_nine_lives:CastFilterResultTarget(hTarget)
+LinkLuaModifier("modifier_emiya_nine_lives", "abilities/emiya/emiya_nine_lives", LUA_MODIFIER_MOTION_NONE)
+
+function emiya_nine_lives:GetAOERadius()
+	return self:GetSpecialValueFor("radius")
+end
+
+function emiya_nine_lives:OnAbilityPhaseStart()
 	local caster = self:GetCaster()
-	local filter = UnitFilter(hTarget, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, caster:GetTeamNumber())
+	StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_RAZE_3, rate=0.2})
+    self.swordfx_left = ParticleManager:CreateParticle("particles/emiya/emiya_left_sword_glow.vpcf", PATTACH_ABSORIGIN_FOLLOW  , caster )
+    ParticleManager:SetParticleControlEnt(self.swordfx_left, 0, caster, PATTACH_POINT_FOLLOW, "sword_left", Vector(0,0,0), true)
+    ParticleManager:SetParticleControlEnt(self.swordfx_left, 1, caster, PATTACH_POINT_FOLLOW, "sword_left_end_overedge", Vector(0,0,0), true)
+    self.swordfx_right = ParticleManager:CreateParticle("particles/emiya/emiya_right_sword_glow.vpcf", PATTACH_ABSORIGIN_FOLLOW  , caster )
+    ParticleManager:SetParticleControlEnt(self.swordfx_right, 0, caster, PATTACH_POINT_FOLLOW, "sword_right", Vector(0,0,0), true)
+    ParticleManager:SetParticleControlEnt(self.swordfx_right, 1, caster, PATTACH_POINT_FOLLOW, "sword_right_end_overedge", Vector(0,0,0), true)
+	caster:SetBodygroup(0,3)
+ 
 
-	if(filter == UF_SUCCESS) then
-		if hTarget:GetName() == "npc_dota_ward_base" then 
-			return UF_FAIL_CUSTOM 		
-		else
-			return UF_SUCCESS
-		end
-	else
-		return filter
-	end
+  
+ 
+return
 end
 
-function emiya_nine_lives:GetCustomCastErrorTarget()
-    return "#Invalid_Target"
+function emiya_nine_lives:OnAbilityPhaseInterrupted()
+	local caster = self:GetCaster()
+    EndAnimation(caster)
+	caster:SetBodygroup(0,1)
+    ParticleManager:DestroyParticle( self.swordfx_left, true)
+    ParticleManager:ReleaseParticleIndex( self.swordfx_left)
+    ParticleManager:DestroyParticle( self.swordfx_right, true)
+    ParticleManager:ReleaseParticleIndex( self.swordfx_right)
 end
+
+ 
 
 function emiya_nine_lives:OnSpellStart()
 	local caster = self:GetCaster()
-	local hCaster = self:GetCaster()
-	local target = self:GetCursorTarget()
-	if IsSpellBlocked(target) then return end
-	local enhanced = false
-	local delay = 0.2
-	local delay_per_slash = 0.1
-	local split_damage = self:GetSpecialValueFor("damage")
-	local final_damage = self:GetSpecialValueFor("damage_lasthit")
-	self.HitNumber = 0
+	local casterName = caster:GetName()
+	local targetPoint = self:GetCursorPosition()
+	local ability = self
+	local berserker = Physics:Unit(caster)
+	local origin = caster:GetAbsOrigin()
+	local distance = (targetPoint - origin):Length2D()*2
+	local forward = (targetPoint - origin):Normalized() * distance
+	local time = 0.5
 
-	if caster:HasModifier("modifier_projection_attribute") then
-		split_damage = split_damage + caster:GetStrength()
-		final_damage = final_damage + caster:GetStrength()
-	end
 
-	--caster:SetMana(0)
+	caster:SetPhysicsFriction(0)
+	caster:SetPhysicsVelocity(caster:GetForwardVector()*distance)
+	giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 2.1) --change to sealdisabled to return revoke here, if you want
+	caster:EmitSound("Hero_OgreMagi.Ignite.Cast")
 	caster:EmitSound("Archer.NineLives")
-	StartAnimation(caster, {duration=delay + delay_per_slash * 2, activity= ACT_DOTA_CAST_ABILITY_4 , rate=2.5})
+	StartAnimation(caster, {duration=1, activity=ACT_DOTA_RAZE_3, rate=2.0})
 
-	caster:AddNewModifier(caster, nil, "modifier_phased", {duration = 1.1})
-	giveUnitDataDrivenModifier(caster, caster, "dragged", 1.1)
-	giveUnitDataDrivenModifier(caster, caster, "revoked", 1.1)
-	LoopOverPlayers(function(player, playerID, playerHero)
-		--print("looping through " .. playerHero:GetName())
-		if playerHero.zlodemon == true    then
-			-- apply legion horn vsnd on their client
-			CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="zlodemon_emiya_nine"})
-			--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
-		end
+	caster.NineTimer = Timers:CreateTimer(time, function()
+		self:StartNineLives()
 	end)
-	local particle = ParticleManager:CreateParticle("particles/custom/false_assassin/tsubame_gaeshi/slashes.vpcf", PATTACH_ABSORIGIN, caster)
-	ParticleManager:SetParticleControl(particle, 0, target:GetAbsOrigin()) 
 
-	for i = 1,8 do
-		Timers:CreateTimer(delay, function()  
-			if caster:IsAlive() and target:IsAlive() then			
---				if caster.IsGanryuAcquired then
---					giveUnitDataDrivenModifier(caster, caster, "jump_pause", 0.5)	
---				end	
-
-				--if enhanced then
-				--	self:PerformSlash(caster, target, 1, 3)
-				--else
-					self:PerformSlash(caster, target, split_damage, 2)
-					if self.HitNumber % 2 == 0 then
-						StartAnimation(caster, { duration=0.1, activity=ACT_DOTA_ATTACK, rate=5})
-					else
-						StartAnimation(caster, { duration=0.1, activity=ACT_DOTA_ATTACK2, rate=5})
-					end
-					self.HitNumber = self.HitNumber + 1
-				--end
-			else
-				ParticleManager:DestroyParticle(particle, true)
-			end
-		return end)
-
-		delay = delay + delay_per_slash
-	end
-
-	Timers:CreateTimer(delay, function()  
-		if caster:IsAlive() and target:IsAlive() then
-			--if enhanced then				
-			--	self:PerformSlashk(caster, target, combined_damage, 1)
-			--	target:AddNewModifier(caster, self, "modifier_stunned", { Duration = 1.5 })
-			--else
-				self:PerformSlash(caster, target, final_damage, 3)
-			--end
-		else
-			ParticleManager:DestroyParticle(particle, true)
-		end
-
-		target:RemoveModifierByName("modifier_ganryu_armor_shred")
-		return 
-	end)
 end
 
-function emiya_nine_lives:PerformSlash(caster, target, damage, soundQueue)
-	local diff = (target:GetAbsOrigin() - caster:GetAbsOrigin() ):Normalized() 
-	local distance = (caster:GetAbsOrigin() - target:GetAbsOrigin()):Length2D()
-	if distance > 400 then
-		caster:RemoveModifierByName("dragged")
-		caster:RemoveModifierByName("revoked")
-		caster:RemoveModifierByName("modifier_phased")
-		return
-	end
-	caster:SetAbsOrigin(target:GetAbsOrigin() - diff * 100) 
+function emiya_nine_lives:StartNineLives()
+	local caster = self:GetCaster()
+	local time = 0
+	Timers:CreateTimer(time, function()
+		caster:OnPreBounce(nil)
+		caster:OnPhysicsFrame(nil)
+		caster:SetBounceMultiplier(0)
+		caster:PreventDI(false)
+		caster:SetPhysicsVelocity(Vector(0,0,0))
+		FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
+		Timers:RemoveTimer(caster.NineTimer)
+		caster.NineTimer = nil
+	end)
 
-	FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
-	local slashIndex = ParticleManager:CreateParticle( "particles/custom/false_assassin/tsubame_gaeshi/tsubame_gaeshi_windup_indicator_flare.vpcf", PATTACH_CUSTOMORIGIN, nil )
-	ParticleManager:SetParticleControl(slashIndex, 0, target:GetAbsOrigin())
-	ParticleManager:SetParticleControl(slashIndex, 1, Vector(500,0,150))
-	ParticleManager:SetParticleControl(slashIndex, 2, Vector(0.2,0,0))
-
-	local flag = DOTA_DAMAGE_FLAG_NONE
-
-	if soundQueue == 1 then 
-		target:EmitSound("Tsubame_Focus")
-		target:RemoveModifierByName("modifier_master_intervention")
-	elseif soundQueue == 2 then
-		caster:EmitSound("Hero_EarthSpirit.StoneRemnant.Impact")
-		--target:RemoveModifierByName("modifier_master_intervention")
-		--target:EmitSound("Tsubame_Slash_" .. math.random(1,3))
-	else
-		--target:EmitSound("Hero_Juggernaut.PreAttack")
-		caster:EmitSound("Hero_EarthSpirit.BoulderSmash.Target")
-		if not IsKnockbackImmune(target) then
-			local pushback = Physics:Unit(target)
-			target:PreventDI()
-			target:SetPhysicsFriction(0)
-			target:SetPhysicsVelocity((target:GetAbsOrigin() - caster:GetAbsOrigin()):Normalized() * 300)
-			target:SetNavCollisionType(PHYSICS_NAV_NOTHING)
-			target:FollowNavMesh(false)
-			Timers:CreateTimer(0.5, function()  
-				target:PreventDI(false)
-				target:SetPhysicsVelocity(Vector(0,0,0))
-				target:OnPhysicsFrame(nil)
-				FindClearSpaceForUnit(target, target:GetAbsOrigin(), true)
-			end)
-			target:AddNewModifier(caster, target, "modifier_stunned", {Duration = 1.0})
-		end   
+	if caster:IsAlive() then
+		self:NineLivesHits()
+		return 
 	end
 
-	if not flag == DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY then return end
+	return
+end
 
-	DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, flag, self, false)
+function emiya_nine_lives:NineLivesHits()
+	local caster = self:GetCaster()
+	local bonus_damage = 0--caster:GetIntellect()
+
+	local casterInitOrigin = caster:GetAbsOrigin() 
+
+	caster:AddNewModifier(caster, self, "modifier_emiya_nine_lives", { Duration = 3,
+																 SmallDamage = self:GetSpecialValueFor("damage")+ (caster.IsProjectionAcquired and caster:GetStrength()*0.5 or 0),
+																 LargeDamage = self:GetSpecialValueFor("damage_lasthit")+ (caster.IsProjectionAcquired and caster:GetStrength()*1.5 or 0),
+																 SmallRadius = self:GetSpecialValueFor("radius"),
+																 LargeRadius = self:GetSpecialValueFor("radius_lasthit")})
+end
+
+
+modifier_emiya_nine_lives = class({})
+
+function modifier_emiya_nine_lives:OnCreated(args)
+	if IsServer() then
+		self.HitNumber = 1
+		self.SmallDamage = args.SmallDamage
+		self.LargeDamage = args.LargeDamage
+		self.SmallRadius = args.SmallRadius
+		self.LargeRadius = args.LargeRadius
+		self:StartIntervalThink(0.2)
+		StartAnimation(self:GetParent(), {duration = 1.8, activity=ACT_DOTA_WHIRLING_AXES_RANGED, rate = 5})
+	end
+end
+
+function modifier_emiya_nine_lives:OnIntervalThink()
+	local caster = self:GetParent()
+
+
+	if self.HitNumber < 9 then
+	
+		local targets = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), caster, self.SmallRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, 1, false)
+
+		for k,v in pairs(targets) do
+			DoDamage(caster, v, self.SmallDamage, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
+			if hCaster.IsProjectionAcquired then 	giveUnitDataDrivenModifier(caster, v, "rooted", 0.3) end
+			v:EmitSound("Hero_Juggernaut.OmniSlash.Damage")	
+		end
+
+ 
+		self.HitNumber = self.HitNumber + 1
+	elseif self.HitNumber == 9 then
+ 
+		 
+		ScreenShake(caster:GetOrigin(), 7, 1.0, 2, 1500, 0, true)			
+		
+		local lasthitTargets = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), caster, self.LargeRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, 1, false)
+		for k,v in pairs(lasthitTargets) do
+			if v:GetName() ~= "npc_dota_ward_base" then
+				DoDamage(caster, v, self.LargeDamage, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
+				if hCaster.IsProjectionAcquired then 	giveUnitDataDrivenModifier(caster, v, "rooted", 0.3) end
+				v:EmitSound("Hero_Juggernaut.OmniSlash.Damage")	
+				v:AddNewModifier(caster, self:GetAbility(), "modifier_stunned", { Duration = 1 })
+				--giveUnitDataDrivenModifier(caster, v, "stunned", 1.5)			
+
+				if not IsKnockbackImmune(v) then
+					local pushback = Physics:Unit(v)
+					v:PreventDI()
+					v:SetPhysicsFriction(0)
+					v:SetPhysicsVelocity((v:GetAbsOrigin() - caster:GetAbsOrigin()):Normalized() * 300)
+					v:SetNavCollisionType(PHYSICS_NAV_NOTHING)
+					v:FollowNavMesh(false)
+					Timers:CreateTimer(0.5, function()  
+						v:PreventDI(false)
+						v:SetPhysicsVelocity(Vector(0,0,0))
+						v:OnPhysicsFrame(nil)
+						FindClearSpaceForUnit(v, v:GetAbsOrigin(), true)
+					end)
+				end
+			end
+		end
+		if(caster.IsUBWActive ) then
+			caster:SetBodygroup(0,1)
+		end
+		ParticleManager:DestroyParticle( self:GetAbility().swordfx_left, true)
+		ParticleManager:ReleaseParticleIndex(  self:GetAbility().swordfx_left)
+		ParticleManager:DestroyParticle(  self:GetAbility().swordfx_right, true)
+		ParticleManager:ReleaseParticleIndex(   self:GetAbility().swordfx_right)
+ 		self:Destroy()
+	end
+end
+
+function modifier_emiya_nine_lives:IsHidden()
+	return true
+end
+
+function modifier_emiya_nine_lives:RemoveOnDeath()
+	return true
 end

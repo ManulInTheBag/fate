@@ -12,25 +12,18 @@
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"2"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityTextureName"			"custom/archer_5th_nine_lives"
 		"AbilityCastAnimation" 			"ACT_DOTA_ITEM_PICKUP"		
 		
-		"precache"
-		{
-			"particle"					"particles/custom/berserker/nine_lives/hit.vpcf"
-			"particle"					"particles/custom/berserker/nine_lives/last_hit.vpcf"
-			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_earth_spirit.vsndevts"
-			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_ogre_magi.vsndevts"
-		}
-		
+ 
 		
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"250"
+		"AbilityCastRange"				"700"
 		"AbilityCastPoint"				"0.3"
 
 		// Time		
@@ -52,7 +45,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"70 90 110 130 150"
+				"damage"				"60 70 80 90 100"
 			}
 			"03"
 			{
