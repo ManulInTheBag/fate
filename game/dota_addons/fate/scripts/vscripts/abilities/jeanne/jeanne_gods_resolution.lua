@@ -37,17 +37,19 @@ function modifier_jeanne_gods_resolution_active_buff:DeclareFunctions()
 	return { MODIFIER_PROPERTY_DISABLE_TURNING,
 			MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
 			MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
+			MODIFIER_PROPERTY_IGNORE_CAST_ANGLE,
 			MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
 			MODIFIER_PROPERTY_OVERRIDE_ANIMATION_RATE }
 end
 
 function modifier_jeanne_gods_resolution_active_buff:CheckState()
 	local state = {[MODIFIER_STATE_SILENCED] = true,
-			[MODIFIER_STATE_MUTED] = true}
+			--[MODIFIER_STATE_MUTED] = true
+		}
 
 	if self:GetCaster().IsPunishmentAcquired then
 		state = {[MODIFIER_STATE_SILENCED] = true,
-						[MODIFIER_STATE_MUTED] = true,
+						--[MODIFIER_STATE_MUTED] = true,
 						[MODIFIER_STATE_UNSLOWABLE] = true,
 						[MODIFIER_STATE_NO_UNIT_COLLISION] = true}
 	end
@@ -55,6 +57,10 @@ function modifier_jeanne_gods_resolution_active_buff:CheckState()
 end
 
 function modifier_jeanne_gods_resolution_active_buff:GetModifierDisableTurning()
+	return 1
+end
+
+function modifier_jeanne_gods_resolution_active_buff:GetModifierIgnoreCastAngle()
 	return 1
 end
 

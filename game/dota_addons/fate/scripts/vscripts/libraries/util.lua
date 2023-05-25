@@ -1352,13 +1352,13 @@ end
 function HardCleanse(target)
     for i=1, #cleansable do
         if target:HasModifier(cleansable[i]) then
-            target:RemoveModifierByName(cleansable[i])
+            target:RemoveAllModifiersOfName(cleansable[i])
         end
     end
 
     for i=1, #slowmodifier do
         if target:HasModifier(slowmodifier[i]) then
-            target:RemoveModifierByName(slowmodifier[i])
+            target:RemoveAllModifiersOfName(slowmodifier[i])
         end
     end
 end

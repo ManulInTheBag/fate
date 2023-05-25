@@ -122,21 +122,31 @@ function modifier_edmon_mythologie:OnAttackLanded(args)
 				self.parent:RemoveModifierByName("modifier_edmon_melee_stacks")
 			end
 		else
-			if self.parent.FlamesAcquired then
+			--[[if self.parent.FlamesAcquired then
+				local modifier2 = self.parent:AddNewModifier(self.parent, self.ability, "modifier_edmon_beam_stacks", {duration = 5})
+				if modifier2:GetStackCount() < 6 then
+					modifier2:IncrementStackCount()
+				end
+			end]]
+		end
+		self.beam_abil:MiniDarkBeam(args.target, isfast, true, true, false, self.seq)
+	end
+end
+function modifier_edmon_mythologie:OnTakeDamage(args)
+	if args.unit == self.parent then
+		if self.parent.VengeanceAcquired then
+			args.attacker:AddNewModifier(self.parent, self.ability, "modifier_edmon_mark", {duration = self.parent.MasterUnit2:FindAbilityByName("edmon_vengeance_attribute"):GetSpecialValueFor("duration")})
+		end
+	else
+		if self.parent.FlamesAcquired then
+			if (not args.inflictor) or (args.inflictor and args.inflictor:GetName() ~= "edmon_beam") then
 				local modifier2 = self.parent:AddNewModifier(self.parent, self.ability, "modifier_edmon_beam_stacks", {duration = 5})
 				if modifier2:GetStackCount() < 6 then
 					modifier2:IncrementStackCount()
 				end
 			end
 		end
-		self.beam_abil:MiniDarkBeam(args.target, isfast, true, true, false, self.seq)
 	end
-end
-function modifier_edmon_mythologie:OnTakeDamage(args)
-	if not self.parent.VengeanceAcquired then return end
-	if args.unit ~= self.parent then return end
-
-	args.attacker:AddNewModifier(self.parent, self.ability, "modifier_edmon_mark", {duration = self.parent.MasterUnit2:FindAbilityByName("edmon_vengeance_attribute"):GetSpecialValueFor("duration")})
 end
 
 modifier_edmon_mark = class({})

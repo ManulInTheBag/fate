@@ -7101,7 +7101,7 @@
 		"DOTA_Tooltip_ability_edmon_enfer_radius"				"Radius:"
 
 		"DOTA_Tooltip_ability_edmon_flames_attribute"			"Attribute: Flames of Love and Hate"
-		"DOTA_Tooltip_ability_edmon_flames_attribute_Description"	"Dark Beams not created by Flames of Hate stack Flames of Love. Melee attacks not buffed by Flames of Love stack Flames of Hate. Both stack up to 6.\nFlames of Love: melee attacks use stacks to be nearly instant.\nFlames of Hate: during the delay, third Dark Beam creates two mini-Dark Beams, which deal 1/4 of Dark Beam damage each, per stack."
+		"DOTA_Tooltip_ability_edmon_flames_attribute_Description"	"Dark Beams not created by Flames of Hate stack Flames of Love. Each other damage impact from Dantes stacks Flames of Hate. Both stack up to 6.\nFlames of Love: melee attacks use stacks to be nearly instant.\nFlames of Hate: during the delay, third Dark Beam creates two mini-Dark Beams, which deal 1/4 of Dark Beam damage each, per stack."
 
 		"DOTA_Tooltip_ability_edmon_vengeance_attribute"		"Attribute: Avenger"
 		"DOTA_Tooltip_ability_edmon_vengeance_attribute_Description"	"Enemies dealing damage to Dantes are marked for %duration% seconds.\nMarked enemies take %damage%%  more damage from Dantes. Dantes heals himself for %lifesteal%%  of damage dealt when dealing damage to them.\nVengeful conflagration: reduces amount of damage received by Dantes during counter-attack by 50%%."
@@ -8401,11 +8401,11 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
 		"DOTA_Tooltip_Ability_master_shard_of_replenishment_Lore"		"A shard of the legendary artifact that is known to descend upon the soul in its most dire situation. Despite being a makeshift, a trivial wish of mere human may not be asking too much...\n"
 
 		"DOTA_Tooltip_Ability_master_shard_of_prosperity"				"Shard of Prosperity"
-		"DOTA_Tooltip_ability_master_shard_of_prosperity_Description"	"Grants 3 health for master upon acquisition and for each subsequent grail blessing. Makes W seal cost 1 master mana under Q seal effect. Reduces Q seal cooldown by 15 seconds."
+		"DOTA_Tooltip_ability_master_shard_of_prosperity_Description"	"Grants 3 health and 3 mana for master upon acquisition. Reduces Q seal cooldown by 15 seconds per shard."
 		"DOTA_Tooltip_Ability_master_shard_of_prosperity_Lore"			"A shard of the legendary artifact that is known to descend upon the soul in its most dire situation. Despite being a makeshift, a trivial wish of mere human may not be asking too much...\n"
 
 		"DOTA_Tooltip_Ability_cmd_seal_1"				"1st Command Seal"
-		"DOTA_Tooltip_ability_cmd_seal_1_Description"		"<font color='#58ACFA'>Master Mana Required : 3</font>\n<font color='#FF0000'>Master Health Required : 2</font>\nFor 20 seconds, Master can cast Command Seal without cooldown limitation."
+		"DOTA_Tooltip_ability_cmd_seal_1_Description"		"<font color='#58ACFA'>Master Mana Required : 2</font>\n<font color='#FF0000'>Master Health Required : 2</font>\nFor 20 seconds, Master can cast Command Seal without cooldown limitation."
 
 		"DOTA_Tooltip_Ability_cmd_seal_2"				"2nd Command Seal"
 		"DOTA_Tooltip_ability_cmd_seal_2_Description"		"<font color='#58ACFA'>Master Mana Required : 2</font>\n<font color='#FF0000'>Master Health Required : 1</font>\nResets all cooldowns of Servant's abilities and items."

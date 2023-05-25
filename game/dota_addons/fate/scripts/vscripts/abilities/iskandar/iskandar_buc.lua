@@ -75,6 +75,7 @@ end
 
 function modifier_iskandar_buc:CheckState()
     local state = { [MODIFIER_STATE_UNSLOWABLE ] = true,
+    	[MODIFIER_STATE_NO_UNIT_COLLISION] = true
                 }
     return state
 end

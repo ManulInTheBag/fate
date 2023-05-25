@@ -55,9 +55,11 @@ function iskander_ionioi:OnSpellStart()
 	caster:AddNewModifier(caster, self, "modifier_sanya_combo_cd", {duration =  self:GetCooldown(-1)})
     local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetOrigin(), nil, 800, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
     for q,w in pairs(targets) do
-    	giveUnitDataDrivenModifier(caster, w, "pause_sealdisabled", 2.5) 
-        giveUnitDataDrivenModifier(caster, w, "rooted", 2.5)
-        giveUnitDataDrivenModifier(caster, w, "locked", 2.5)
+    	if (w:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D() < 500 then
+	    	giveUnitDataDrivenModifier(caster, w, "pause_sealdisabled", 2.5)
+	    end
+	    giveUnitDataDrivenModifier(caster, w, "rooted", 2.5)
+	    giveUnitDataDrivenModifier(caster, w, "locked", 2.5)
     end
 
 

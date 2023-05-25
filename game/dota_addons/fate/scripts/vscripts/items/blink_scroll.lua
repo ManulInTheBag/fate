@@ -21,6 +21,7 @@ local locks = {
     "modifier_nero_performance",
     "modifier_arcueid_melty",
     "modifier_altera_dash",
+    "modifier_jeanne_gods_resolution_active_buff",
 }
 
 function item_blink_scroll:OnSpellStart()

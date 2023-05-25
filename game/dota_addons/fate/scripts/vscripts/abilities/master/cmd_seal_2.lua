@@ -18,12 +18,8 @@ end
 
 function cmd_seal_2:GetManaCost(iLevel)
 	local caster = self:GetCaster()
-	if IsServer() and caster.ProsperityCount then
-		if caster:HasModifier("modifier_command_seal_1") then
-			return 1
-		else
-			return 2
-		end
+	if caster:HasModifier("modifier_command_seal_1") then
+		return 1
 	end
 	return 2
 end

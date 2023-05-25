@@ -2972,7 +2972,7 @@ function FateGameMode:OnEntityKilled( keys )
                     if atker:GetTeam() == assister:GetTeam() and assister ~= killerEntity then
                         table.insert(assistTable, assister)
                         assister.ServStat:onAssist()
-                        assister:ModifyGold(300 , false, 0)
+                        assister:ModifyGold(400 , false, 0)
                         local goldPopupFx = ParticleManager:CreateParticleForPlayer("particles/custom/system/gold_popup.vpcf", PATTACH_CUSTOMORIGIN, nil, assister:GetPlayerOwner())
                         ParticleManager:SetParticleControl( goldPopupFx, 0, killedUnit:GetAbsOrigin())
                         ParticleManager:SetParticleControl( goldPopupFx, 1, Vector(10,300,0))
@@ -3829,7 +3829,7 @@ function FateGameMode:InitializeRound()
                 --[[if hero.AvariceCount ~= nil then
                     hero:ModifyGold(3000 + hero.AvariceCount * 1500, false, 0)
                 else]]
-                    hero:ModifyGold(3000, false, 0)
+                    hero:ModifyGold(4000, false, 0)
                 --end
             end
             if hero.AvariceCount ~= nil then

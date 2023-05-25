@@ -76,8 +76,9 @@ function jeanne_crimson_saint_la_pucelle:OnSpellStart()
 				--[[if caster:HasModifier("modifier_jeanne_attribute_holy_light") then
 					ApplyStrongDispel(enemy)
 				end]]
-				
-				DoDamage(caster, enemy, damage, DAMAGE_TYPE_PURE, 0, self, false)
+
+				local enemy_damage = (1 - 0.5*(caster:GetAbsOrigin() - enemy:GetAbsOrigin()):Length2D()/radius)*damage
+				DoDamage(caster, enemy, enemy_damage, DAMAGE_TYPE_PURE, 0, self, false)
 				enemy:AddNewModifier(caster, self, "modifier_stunned", { Duration = stun_duration })
 
 				local rope_fx = ParticleManager:CreateParticle("particles/jeanne/jeanne_la_pucelle_rope.vpcf", PATTACH_POINT_FOLLOW, caster)

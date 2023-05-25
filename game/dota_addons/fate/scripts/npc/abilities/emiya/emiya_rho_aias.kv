@@ -1,0 +1,47 @@
+"DOTAAbilities"
+{
+	//=======================================
+	// Archer : Rho Aias
+	//=======================================
+	"emiya_rho_aias"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/emiya/emiya_rho_aias"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"25"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/archer_5th_rho_aias"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3"
+		"AnimationPlaybackRate" 		"1.0"
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCastRange"				"400"
+		"AbilityCooldown"				"24"
+		"AbilityManaCost"				"400"
+
+		"precache"
+		{
+			"particle"					"particles/custom/archer/archer_rhoaias_shield.vpcf"
+			"particle"					"particles/units/heroes/hero_templar_assassin/templar_assassin_refract_hit_sphere.vpcf"
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_ember_spirit.vsndevts"
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"shield_amount"			"2000"
+			}			
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"duration"				"4"
+			}
+		}	
+	}
+}

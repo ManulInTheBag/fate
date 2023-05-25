@@ -923,10 +923,12 @@ function OnProsperityAcquired(keys)
 	--[[
 	master:SetMana(master:GetMana()+20)
 	master2:SetMana(master:GetMana())]]
-	master:SetMaxHealth(master:GetMaxHealth() + 3) 
+	master:SetMaxHealth(master:GetMaxHealth() + 3)
 	master:SetHealth(master:GetHealth() + 3)
+	master:SetMana(master:GetMana() + 3)
 	master2:SetMaxHealth(master:GetMaxHealth()) 
 	master2:SetHealth(master:GetHealth())
+	master2:SetMana(master:GetMana())
     local statTable = CreateTemporaryStatTable(hero)
     CustomGameEventManager:Send_ServerToPlayer( hero:GetPlayerOwner(), "servant_stats_updated", statTable ) -- Send the current stat info to JS
 end

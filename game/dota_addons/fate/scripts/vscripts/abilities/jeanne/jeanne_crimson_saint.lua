@@ -23,6 +23,11 @@ function jeanne_crimson_saint:OnSpellStart()
 	EmitGlobalSound("jeanne_combo_1")
 	caster:AddNewModifier( self:GetCaster(), self, "modifier_jeanne_crimson_saint_cooldown", {duration = self:GetCooldown(1)})
 
+	local enemyuser= PickRandomEnemy(caster)
+	if enemyuser then
+    	caster:AddNewModifier(enemyuser, nil, "modifier_vision_provider", { Duration = 3 })
+    end
+
 	local particle = ParticleManager:CreateParticle("particles/custom/ruler/la_pucelle/ruler_la_pucelle.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster )
 	ParticleManager:SetParticleControlEnt( particle, 0, caster, PATTACH_POINT_FOLLOW, "attach_origin", caster:GetAbsOrigin(), true )
 	ParticleManager:SetParticleControl( particle, 1, caster:GetAbsOrigin() )
