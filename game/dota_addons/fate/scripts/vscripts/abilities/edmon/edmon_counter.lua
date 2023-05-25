@@ -75,7 +75,7 @@ function modifier_edmon_counter:OnTakeDamage(args)
 
         local ability = self:GetAbility()
         local damageTaken = args.original_damage
-        --caster:Heal(args.original_damage*0.5, ability)
+        caster:Heal(args.original_damage*0.5, ability)
 
         local threshold = self.Threshold
         local slashcount = self.SlashCount

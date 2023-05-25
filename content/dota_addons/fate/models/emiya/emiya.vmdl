@@ -313,7 +313,7 @@
 								{
 									name = resource:"particles/emiya/emiya_sword_spawn.vpcf"
 									detach_from_owner = true
-									always_run = false
+									always_run = true
 									stop_on_seq_change = false
 									stop_immediately = false
 									use_layer_sequence = false
@@ -332,7 +332,7 @@
 								{
 									name = resource:"particles/emiya/emiya_sword_spawn.vpcf"
 									detach_from_owner = true
-									always_run = false
+									always_run = true
 									stop_on_seq_change = false
 									stop_immediately = false
 									use_layer_sequence = false
@@ -441,7 +441,7 @@
 								{
 									name = resource:"particles/emiya/emiya_overedge_slash_1.vpcf"
 									detach_from_owner = false
-									always_run = false
+									always_run = true
 									stop_on_seq_change = false
 									stop_immediately = false
 									use_layer_sequence = false
@@ -460,7 +460,7 @@
 								{
 									name = resource:"particles/emiya/emiya_overedge_slash_2.vpcf"
 									detach_from_owner = false
-									always_run = false
+									always_run = true
 									stop_on_seq_change = false
 									stop_immediately = false
 									use_layer_sequence = false
@@ -479,7 +479,7 @@
 								{
 									name = resource:"particles/emiya/emiya_overedge_slash_3.vpcf"
 									detach_from_owner = false
-									always_run = false
+									always_run = true
 									stop_on_seq_change = false
 									stop_immediately = false
 									use_layer_sequence = false
@@ -543,7 +543,7 @@
 								{
 									name = resource:"particles/emiya/emiya_slash_1.vpcf"
 									detach_from_owner = false
-									always_run = false
+									always_run = true
 									stop_on_seq_change = false
 									stop_immediately = false
 									use_layer_sequence = false
@@ -562,7 +562,7 @@
 								{
 									name = resource:"particles/emiya/emiya_slash_2.vpcf"
 									detach_from_owner = false
-									always_run = false
+									always_run = true
 									stop_on_seq_change = false
 									stop_immediately = false
 									use_layer_sequence = false
@@ -581,7 +581,7 @@
 								{
 									name = resource:"particles/emiya/emiya_slash_3.vpcf"
 									detach_from_owner = false
-									always_run = false
+									always_run = true
 									stop_on_seq_change = false
 									stop_immediately = false
 									use_layer_sequence = false
@@ -738,7 +738,7 @@
 								{
 									name = resource:"particles/emiya/emiya_circle_attack_base.vpcf"
 									detach_from_owner = false
-									always_run = false
+									always_run = true
 									stop_on_seq_change = false
 									stop_immediately = false
 									use_layer_sequence = false
@@ -757,7 +757,7 @@
 								{
 									name = resource:"particles/emiya/emiya_circle_attack_base_2.vpcf"
 									detach_from_owner = false
-									always_run = false
+									always_run = true
 									stop_on_seq_change = false
 									stop_immediately = false
 									use_layer_sequence = false
@@ -776,7 +776,7 @@
 								{
 									name = resource:"particles/emiya/emiya_circle_attack_base_3.vpcf"
 									detach_from_owner = false
-									always_run = false
+									always_run = true
 									stop_on_seq_change = false
 									stop_immediately = false
 									use_layer_sequence = false
@@ -842,7 +842,7 @@
 								{
 									name = resource:"particles/emiya/crane_wings_black.vpcf"
 									detach_from_owner = false
-									always_run = false
+									always_run = true
 									stop_on_seq_change = false
 									stop_immediately = false
 									use_layer_sequence = false
@@ -861,7 +861,7 @@
 								{
 									name = resource:"particles/emiya/crane_wings_white.vpcf"
 									detach_from_owner = false
-									always_run = false
+									always_run = true
 									stop_on_seq_change = false
 									stop_immediately = false
 									use_layer_sequence = false
@@ -880,7 +880,7 @@
 								{
 									name = resource:"particles/emiya/crane_wings_white_2.vpcf"
 									detach_from_owner = false
-									always_run = false
+									always_run = true
 									stop_on_seq_change = false
 									stop_immediately = false
 									use_layer_sequence = false
@@ -899,7 +899,7 @@
 								{
 									name = resource:"particles/emiya/crane_wings_black_2.vpcf"
 									detach_from_owner = false
-									always_run = false
+									always_run = true
 									stop_on_seq_change = false
 									stop_immediately = false
 									use_layer_sequence = false
@@ -943,7 +943,7 @@
 								{
 									name = resource:"particles/emiya/swords_spawn.vpcf"
 									detach_from_owner = false
-									always_run = false
+									always_run = true
 									stop_on_seq_change = true
 									stop_immediately = true
 									use_layer_sequence = false
@@ -962,7 +962,7 @@
 								{
 									name = resource:"particles/emiya/swords_spawn.vpcf"
 									detach_from_owner = false
-									always_run = false
+									always_run = true
 									stop_on_seq_change = true
 									stop_immediately = true
 									use_layer_sequence = false
@@ -981,7 +981,7 @@
 								{
 									name = resource:"particles/emiya/emiya_bow_spawn.vpcf"
 									detach_from_owner = false
-									always_run = false
+									always_run = true
 									stop_on_seq_change = false
 									stop_immediately = true
 									use_layer_sequence = false
@@ -1410,7 +1410,7 @@
 								{
 									name = resource:"particles/emiya/emiya_sword_spawn.vpcf"
 									detach_from_owner = false
-									always_run = false
+									always_run = true
 									stop_on_seq_change = false
 									stop_immediately = false
 									use_layer_sequence = false
@@ -1429,7 +1429,7 @@
 								{
 									name = resource:"particles/emiya/emiya_sword_spawn.vpcf"
 									detach_from_owner = false
-									always_run = false
+									always_run = true
 									stop_on_seq_change = false
 									stop_immediately = true
 									use_layer_sequence = false
@@ -1448,7 +1448,7 @@
 								{
 									name = resource:"particles/emiya/swords_dissapear.vpcf"
 									detach_from_owner = true
-									always_run = false
+									always_run = true
 									stop_on_seq_change = false
 									stop_immediately = false
 									use_layer_sequence = false
@@ -1866,7 +1866,7 @@
 								{
 									name = resource:"particles/emiya/arrow_spawn.vpcf"
 									detach_from_owner = true
-									always_run = false
+									always_run = true
 									stop_on_seq_change = false
 									stop_immediately = false
 									use_layer_sequence = false
@@ -1921,7 +1921,7 @@
 								{
 									name = resource:"particles/emiya/emiya_circle_attack_base.vpcf"
 									detach_from_owner = false
-									always_run = false
+									always_run = true
 									stop_on_seq_change = true
 									stop_immediately = true
 									use_layer_sequence = false
@@ -1940,7 +1940,7 @@
 								{
 									name = resource:"particles/emiya/emiya_circle_attack_base_2.vpcf"
 									detach_from_owner = false
-									always_run = false
+									always_run = true
 									stop_on_seq_change = true
 									stop_immediately = true
 									use_layer_sequence = false
@@ -2004,7 +2004,7 @@
 								{
 									name = resource:"particles/emiya/emiya_circle_attack_base_2.vpcf"
 									detach_from_owner = false
-									always_run = false
+									always_run = true
 									stop_on_seq_change = true
 									stop_immediately = true
 									use_layer_sequence = false
@@ -2023,7 +2023,7 @@
 								{
 									name = resource:"particles/emiya/emiya_circle_attack_base.vpcf"
 									detach_from_owner = false
-									always_run = false
+									always_run = true
 									stop_on_seq_change = true
 									stop_immediately = true
 									use_layer_sequence = false
@@ -2354,8 +2354,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -8.90687, -10.209579, -15.961823 ]
-								hitbox_maxs = [ 10.274681, 14.535596, 8.752659 ]
+								hitbox_mins = [ -17.713989, -26.351793, -15.961823 ]
+								hitbox_maxs = [ 15.975185, 14.535596, 8.752659 ]
 							},
 							{
 								_class = "Hitbox"
@@ -2384,8 +2384,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -11.350813, -2.864668, -2.49527 ]
-								hitbox_maxs = [ 0.5, 2.563243, 2.642311 ]
+								hitbox_mins = [ -34.624458, -14.475872, -2.49527 ]
+								hitbox_maxs = [ 0.5, 13.926128, 9.439604 ]
 							},
 							{
 								_class = "Hitbox"
@@ -2634,8 +2634,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -6.37351, -6.90689, -0.5 ]
-								hitbox_maxs = [ 6.281676, 4.614666, 14.228943 ]
+								hitbox_mins = [ -9.620764, -17.670971, -9.574947 ]
+								hitbox_maxs = [ 13.314049, 13.158722, 20.356365 ]
 							},
 							{
 								_class = "Hitbox"
@@ -2694,8 +2694,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -3.517589, -2.857996, -17.695553 ]
-								hitbox_maxs = [ 3.091951, 3.277842, 0.5 ]
+								hitbox_mins = [ -3.517589, -17.178623, -27.063429 ]
+								hitbox_maxs = [ 14.706299, 10.645838, 0.5 ]
 							},
 							{
 								_class = "Hitbox"
@@ -2784,8 +2784,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -6.003007, -2.783548, -17.066442 ]
-								hitbox_maxs = [ 5.93084, 2.223241, 2.687153 ]
+								hitbox_mins = [ -16.497272, -2.783548, -26.593409 ]
+								hitbox_maxs = [ 15.59617, 14.700474, 2.687153 ]
 							},
 							{
 								_class = "Hitbox"
@@ -2794,8 +2794,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -4.434451, -4.734601, -20.388477 ]
-								hitbox_maxs = [ 4.194552, 5.170745, 0.5 ]
+								hitbox_mins = [ -9.307144, -8.609993, -20.388477 ]
+								hitbox_maxs = [ 8.644113, 11.938397, 8.153042 ]
 							},
 							{
 								_class = "Hitbox"
@@ -2814,8 +2814,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -4.016231, -2.982677, -20.387676 ]
-								hitbox_maxs = [ 5.274739, 4.699625, 0.5 ]
+								hitbox_mins = [ -14.644497, -7.290913, -20.387676 ]
+								hitbox_maxs = [ 14.766359, 9.59182, 0.5 ]
 							},
 							{
 								_class = "Hitbox"
