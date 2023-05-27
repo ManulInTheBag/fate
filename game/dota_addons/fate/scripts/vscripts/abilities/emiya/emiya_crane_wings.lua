@@ -197,7 +197,9 @@ function emiya_overedge_modifier:OnDestroy()
     ParticleManager:DestroyParticle( self.swordfx_right, true)
     ParticleManager:ReleaseParticleIndex( self.swordfx_right)
     if(caster.overedgeFastFix ~= 1) then
-        caster:SetBodygroup(0,0)
+        if IsServer() then
+            caster:SetBodygroup(0,0)
+        end
     else
         caster.overedgeFastFix = 0
     end

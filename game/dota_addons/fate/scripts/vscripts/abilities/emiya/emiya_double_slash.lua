@@ -15,6 +15,10 @@ end
 
 function emiya_double_slash:OnSpellStart()
 	local caster = self:GetCaster()
+    local vPoint = self:GetCursorPosition()
+	local vCasterPos = caster:GetAbsOrigin()
+	local vCastDirection =    (vPoint -vCasterPos):Normalized()
+    caster:SetForwardVector(vCastDirection)
 	caster:AddNewModifier(caster, self, "modifier_emiya_dash", {duration = 0.33})
     local radius = 300
     if(caster:HasModifier("emiya_overedge_modifier")) then

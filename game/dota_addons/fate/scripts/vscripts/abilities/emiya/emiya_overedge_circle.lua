@@ -18,7 +18,10 @@ end
 
 function emiya_overedge_circle:OnSpellStart()
 	local caster = self:GetCaster()
-
+    local vPoint = self:GetCursorPosition()
+	local vCasterPos = caster:GetAbsOrigin()
+	local vCastDirection =    (vPoint -vCasterPos):Normalized()
+    caster:SetForwardVector(vCastDirection)
 	
     radius = 400
     local damage = self:GetSpecialValueFor("damage")
@@ -61,6 +64,7 @@ end
 function modifier_emiya_self_control_circles:GetModifierMoveSpeed_Absolute() return 200 end
 
 function modifier_emiya_self_control_circles:OnCreated(table)
+    if not IsServer() then return end
     self.caster = self:GetCaster()
     self.ability = self:GetAbility()
     self.counter = 0
