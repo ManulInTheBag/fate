@@ -75,11 +75,11 @@ modifier_artificial_sun_aura = class({})
  
 
 function modifier_artificial_sun_aura:GetAuraSearchTeam()
-    return DOTA_UNIT_TARGET_TEAM_FRIENDLY  
+    return DOTA_UNIT_TARGET_TEAM_FRIENDLY   
 end
 
 function modifier_artificial_sun_aura:GetAuraSearchType()
-    return DOTA_UNIT_TARGET_HEROES
+    return DOTA_UNIT_TARGET_HERO
 end
 
 function modifier_artificial_sun_aura:GetAuraSearchFlags()
@@ -87,7 +87,7 @@ function modifier_artificial_sun_aura:GetAuraSearchFlags()
 end
 
 function modifier_artificial_sun_aura:GetAuraRadius()
-	return self:GetAbility():GetSpecialValueFor("area_of_effect")
+	return 600
 end
 
 function modifier_artificial_sun_aura:GetModifierAura()
@@ -129,21 +129,18 @@ function modifier_artificial_sun:IsDebuff() return false end
 function modifier_artificial_sun:RemoveOnDeath() return true end
 function modifier_artificial_sun:DeclareFunctions()
 	return { 
-        MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS ,
+        MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
         MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
       }
 end
-
  
 function modifier_artificial_sun:GetModifierConstantHealthRegen()
-	return self:GetAbility():GetSpecialValueFor("regen");  
+	return self:GetAbility():GetSpecialValueFor("regen")  
 end
 
 function modifier_artificial_sun:GetModifierMagicalResistanceBonus()
-	return self:GetAbility():GetSpecialValueFor("mr");  
+	return self:GetAbility():GetSpecialValueFor("mr")  
 end
-
- 
 
 function modifier_artificial_sun:GetTexture()
     return "custom/gawain_suns_embrace"
@@ -166,7 +163,7 @@ function modifier_artificial_sun_aura_enemy:GetAuraSearchFlags()
 end
 
 function modifier_artificial_sun_aura_enemy:GetAuraRadius()
-	return self:GetParent():HasModifier("modifier_meltdown") and 1000 or  self:GetAbility():GetSpecialValueFor("area_of_effect")
+	return self:GetParent():HasModifier("modifier_meltdown") and 1000 or  600
 end
 
 function modifier_artificial_sun_aura_enemy:GetModifierAura()
@@ -210,7 +207,7 @@ end
  
 
 function modifier_artificial_sun_enemy:GetModifierMagicalResistanceBonus()
-	return -1*self:GetAbility():GetSpecialValueFor("mr");  
+	return -1*self:GetAbility():GetSpecialValueFor("mr")  
 end
 
  
@@ -236,10 +233,8 @@ end
  
 function modifier_sun_remover:OnRespawn(args) 
     local caster = self:GetCaster() 
-    print("im inside") 
     if(caster ~= args.unit) then return end
     local ability = self:GetAbility()
-    print(ability) 
     if not( not ability.Ult_sun or ability.Ult_sun:IsNull()) then
         ability.Ult_sun:RemoveSelf() 
     end

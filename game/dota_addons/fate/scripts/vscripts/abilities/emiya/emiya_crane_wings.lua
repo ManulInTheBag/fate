@@ -49,7 +49,9 @@ function emiya_crane_wings:OnSpellStart()
     Timers:CreateTimer("emiya_crane_wings_sword_dissapear", {
 		endTime = 0.15,
 		callback = function()
-		caster:SetBodygroup(0,1)
+        if caster.IsOveredgeAcquired then   
+		    caster:SetBodygroup(0,1)
+        end
 	end})
     Timers:CreateTimer("emiya_crane_wings_sword_reappear_overedge", {
 		endTime = 0.4,
@@ -57,7 +59,7 @@ function emiya_crane_wings:OnSpellStart()
         if caster.IsOveredgeAcquired then    
             caster:AddNewModifier(caster, self, "emiya_overedge_modifier", {duration = 10})  
         else
-            caster:SetBodygroup(0,0)
+            caster:AddNewModifier(caster, self, "emiya_overedge_modifier", {duration = 1}) 
         end
 	end})
     local enemypos = self.htarget:GetAbsOrigin()
@@ -133,8 +135,12 @@ function emiya_crane_wings:OnSpellStart()
 
         caster:SetAbsOrigin(caster:GetAbsOrigin() + caster:GetForwardVector()*70)
         caster:AddNewModifier(caster, self, "modifier_emiya_dash_crane", {duration = 0.3})
-        StartAnimation(caster, {duration= 0.3 , activity=ACT_DOTA_RAZE_3, rate= 1})
-    
+        
+        if caster.IsOveredgeAcquired then    
+            StartAnimation(caster, {duration= 0.3 , activity=ACT_DOTA_RAZE_3, rate= 1})
+        else
+            StartAnimation(caster, {duration= 0.3 , activity=ACT_DOTA_LIFESTEALER_RAGE, rate= 1})
+        end
     
     end)
    

@@ -61,7 +61,7 @@ function modifier_jeanne_saint_aura:PlayEffects()
 		local heal = self.ability:GetSpecialValueFor("heal")
 		local duration = self.ability:GetSpecialValueFor("regen_duration")
 
-		local targets = FindUnitsInRadius(self.caster:GetTeam(), self.caster:GetAbsOrigin(), nil, self.radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
+		local targets = FindUnitsInRadius(self.caster:GetTeam(), self.caster:GetAbsOrigin(), nil, self.radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
 		for k,v in pairs(targets) do				
 		    v:Heal(heal, self.ability)
 		    v:AddNewModifier(self.caster, self.ability, "modifier_jeanne_saint", {duration = duration})

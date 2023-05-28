@@ -408,6 +408,44 @@
 								activity_name = "1"
 								activity_weight = 1
 							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 24
+								event_keys = 
+								{
+									name = resource:"particles/emiya/emiya_sword_spawn_krane_white.vpcf"
+									detach_from_owner = false
+									always_run = true
+									stop_on_seq_change = false
+									stop_immediately = true
+									use_layer_sequence = false
+									tags = null
+									attachment_point = "sword_right"
+									attachment_type = "point_follow"
+									attachment_point_cp1 = "sword_right_end_overedge_dash"
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 24
+								event_keys = 
+								{
+									name = resource:"particles/emiya/emiya_sword_spawn_krane_black.vpcf"
+									detach_from_owner = false
+									always_run = true
+									stop_on_seq_change = false
+									stop_immediately = true
+									use_layer_sequence = false
+									tags = null
+									attachment_point = "sword_left"
+									attachment_type = "point_follow"
+									attachment_point_cp1 = "sword_left_end_overedge_dash"
+									attachment_type_cp1 = "point_follow"
+								}
+							},
 						]
 						activity_name = "ACT_DOTA_CAST_ABILITY_2"
 						activity_weight = 1
@@ -722,7 +760,7 @@
 						import_bone_scales = false
 						start_frame = 539
 						end_frame = 547
-						framerate = 30.0
+						framerate = 7.0
 						reverse = false
 					},
 					{
@@ -1915,6 +1953,7 @@
 						[
 							{
 								_class = "AnimEvent"
+								disabled = true
 								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
 								event_frame = 3
 								event_keys = 
@@ -1934,6 +1973,7 @@
 							},
 							{
 								_class = "AnimEvent"
+								disabled = true
 								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
 								event_frame = 7
 								event_keys = 
@@ -1988,7 +2028,7 @@
 						import_bone_scales = false
 						start_frame = 574
 						end_frame = 590
-						framerate = 16.0
+						framerate = 106.0
 						reverse = false
 					},
 					{
@@ -2035,6 +2075,7 @@
 								}
 							},
 						]
+						disabled = true
 						activity_name = "ACT_DOTA_RAZE_2"
 						activity_weight = 1
 						weight_list_name = ""
@@ -2122,6 +2163,28 @@
 						start_frame = 239
 						end_frame = 274
 						framerate = 35.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "dashing_no_overedge"
+						activity_name = "ACT_DOTA_LIFESTEALER_RAGE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.0
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/emiya/archer5.fbx"
+						import_bone_scales = false
+						start_frame = 539
+						end_frame = 547
+						framerate = 30.0
 						reverse = false
 					},
 				]
@@ -2303,7 +2366,7 @@
 						_class = "Attachment"
 						name = "sword_left_end_overedge"
 						parent_bone = "bone08"
-						relative_origin = [ 6.679613, -64.069939, 3.001366 ]
+						relative_origin = [ 6.934196, -64.99588, 3.309448 ]
 						relative_angles = [ 0.0, 0.0, 0.0 ]
 						weight = 1.0
 						ignore_rotation = false
@@ -2312,7 +2375,7 @@
 						_class = "Attachment"
 						name = "sword_right_end_overedge"
 						parent_bone = "bone27"
-						relative_origin = [ -5.63036, -65.292221, 4.487413 ]
+						relative_origin = [ -5.061817, -64.376488, 4.944027 ]
 						relative_angles = [ 0.0, 0.0, 0.0 ]
 						weight = 1.0
 						ignore_rotation = false
@@ -2322,6 +2385,24 @@
 						name = "attach_attack2"
 						parent_bone = "bone22"
 						relative_origin = [ 14.601089, -6.443333, 23.093342 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "sword_left_end_overedge_dash"
+						parent_bone = "bone08"
+						relative_origin = [ 24.172428, -61.557327, -8.337009 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "sword_right_end_overedge_dash"
+						parent_bone = "bone27"
+						relative_origin = [ -24.469442, -59.555008, -3.401489 ]
 						relative_angles = [ 0.0, 0.0, 0.0 ]
 						weight = 1.0
 						ignore_rotation = false

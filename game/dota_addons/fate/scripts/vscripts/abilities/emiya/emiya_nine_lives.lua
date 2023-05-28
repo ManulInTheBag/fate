@@ -59,10 +59,10 @@ function emiya_nine_lives:OnSpellStart()
 
 	caster:SetPhysicsFriction(0)
 	caster:SetPhysicsVelocity(caster:GetForwardVector()*distance)
-	giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 2.1) --change to sealdisabled to return revoke here, if you want
+	giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 1.9) --change to sealdisabled to return revoke here, if you want
 	caster:EmitSound("Hero_OgreMagi.Ignite.Cast")
 	caster:EmitSound("Archer.NineLives")
-	StartAnimation(caster, {duration=1, activity=ACT_DOTA_RAZE_3, rate=2.0})
+	StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_RAZE_3, rate=2.0})
 
 	caster.NineTimer = Timers:CreateTimer(time, function()
 		self:StartNineLives()
@@ -98,7 +98,7 @@ function emiya_nine_lives:NineLivesHits()
 
 	local casterInitOrigin = caster:GetAbsOrigin() 
 
-	caster:AddNewModifier(caster, self, "modifier_emiya_nine_lives", { Duration = 3,
+	caster:AddNewModifier(caster, self, "modifier_emiya_nine_lives", { Duration = 1.4,
 																 SmallDamage = self:GetSpecialValueFor("damage")+ (caster.IsProjectionAcquired and caster:GetStrength()*0.5 or 0),
 																 LargeDamage = self:GetSpecialValueFor("damage_lasthit")+ (caster.IsProjectionAcquired and caster:GetStrength()*1.5 or 0),
 																 SmallRadius = self:GetSpecialValueFor("radius"),
@@ -115,15 +115,19 @@ function modifier_emiya_nine_lives:OnCreated(args)
 		self.LargeDamage = args.LargeDamage
 		self.SmallRadius = args.SmallRadius
 		self.LargeRadius = args.LargeRadius
-		self:StartIntervalThink(0.2)
-		StartAnimation(self:GetParent(), {duration = 1.8, activity=ACT_DOTA_WHIRLING_AXES_RANGED, rate = 5})
+		self:StartIntervalThink(0.15)
+		StartAnimation(self:GetParent(), {duration = 1.2, activity=ACT_DOTA_WHIRLING_AXES_RANGED, rate = 1})
 	end
 end
 
 function modifier_emiya_nine_lives:OnIntervalThink()
 	local caster = self:GetParent()
-
-
+	local particle = ParticleManager:CreateParticle("particles/emiya/emiya_circle_attack_base.vpcf", PATTACH_ABSORIGIN, caster)
+	ParticleManager:ReleaseParticleIndex(particle)
+	Timers:CreateTimer(0.1, function()
+		local particle2 = ParticleManager:CreateParticle("particles/emiya/emiya_circle_attack_base_2.vpcf", PATTACH_ABSORIGIN, caster)
+		ParticleManager:ReleaseParticleIndex(particle2)
+	end)
 	if self.HitNumber < 9 then
 	
 		local targets = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), caster, self.SmallRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, 1, false)
@@ -174,6 +178,7 @@ function modifier_emiya_nine_lives:OnIntervalThink()
 		ParticleManager:ReleaseParticleIndex(  self:GetAbility().swordfx_left)
 		ParticleManager:DestroyParticle(  self:GetAbility().swordfx_right, true)
 		ParticleManager:ReleaseParticleIndex(   self:GetAbility().swordfx_right)
+		EndAnimation(caster)
  		self:Destroy()
 	end
 end

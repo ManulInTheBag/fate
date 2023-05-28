@@ -82,6 +82,7 @@ function modifier_archer_change_rain:CheckState()
     return state
 end
 function modifier_archer_change_rain:OnCreated(hTable)
+	if not IsServer() then return end
 	self.hCaster = self:GetCaster()
 	self.ability = self:GetAbility()
 	self.radius = hTable.radius
@@ -94,12 +95,15 @@ function modifier_archer_change_rain:OnCreated(hTable)
 	ParticleManager:SetParticleControl(self.point_particle, 3,  Vector(-self.vCastDirection.x*500,-self.vCastDirection.y * 500,1000) ) --offset
 	ParticleManager:SetParticleControl(self.point_particle, 4,  Vector(-self.vCastDirection.x*500,-self.vCastDirection.y * 500,1500)) --offset
 	ParticleManager:SetParticleControl(self.point_particle, 6,  Vector(-self.vCastDirection.x*40,-self.vCastDirection.y * 40,0)) --offset ground
+	self:GetParent():SetDayTimeVisionRange(400)
+	self:GetParent():SetNightTimeVisionRange(400)
     self:StartIntervalThink(0.1)
 end
 function modifier_archer_change_rain:OnRefresh(hTable)
     self:OnCreated(hTable)
 end
 function modifier_archer_change_rain:OnDestroy()
+	if not IsServer() then return end
 	ParticleManager:DestroyParticle(self.point_particle,false)
 	ParticleManager:ReleaseParticleIndex(self.point_particle)
 end

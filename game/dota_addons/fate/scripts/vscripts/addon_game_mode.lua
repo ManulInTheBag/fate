@@ -3107,11 +3107,11 @@ function FateGameMode:OnEntityKilled( keys )
                         if atker:GetTeam() == assister:GetTeam() and assister ~= killerEntity then
                             table.insert(assistTable, assister)
                             assister.ServStat:onAssist()
-                            assister:ModifyGold(300 , false, 0)
+                            assister:ModifyGold(400 , false, 0)
                             local goldPopupFx = ParticleManager:CreateParticleForPlayer("particles/custom/system/gold_popup.vpcf", PATTACH_CUSTOMORIGIN, nil, assister:GetPlayerOwner())
                             --local goldPopupFx = ParticleManager:CreateParticleForTeam("particles/custom/system/gold_popup.vpcf", PATTACH_CUSTOMORIGIN, nil, killerEntity:GetTeamNumber())
                             ParticleManager:SetParticleControl( goldPopupFx, 0, killedUnit:GetAbsOrigin())
-                            ParticleManager:SetParticleControl( goldPopupFx, 1, Vector(10,300,0))
+                            ParticleManager:SetParticleControl( goldPopupFx, 1, Vector(10,400,0))
                             ParticleManager:SetParticleControl( goldPopupFx, 2, Vector(3,#tostring(bounty)+1, 0))
                             ParticleManager:SetParticleControl( goldPopupFx, 3, Vector(255, 200, 33))
                         end
@@ -3131,7 +3131,7 @@ function FateGameMode:OnEntityKilled( keys )
             end
 
             -- Display gold message
-            local assistString = "plus <font color='#FFFF66'>" .. #assistTable * 300 .. "</font> gold split between contributors!"
+            local assistString = "plus <font color='#FFFF66'>" .. #assistTable * 400 .. "</font> gold split between contributors!"
             --GameRules:SendCustomMessage("<font color='#FF5050'>" .. killerEntity.name .. "</font> has slain <font color='#FF5050'>" .. killedUnit.name .. "</font> for <font color='#FFFF66'>" .. bounty .. "</font> gold, " .. assistString, 0, 0)
             -- Convert to entindex before sending kill event to panorama
             for i=1, #assistTable do
