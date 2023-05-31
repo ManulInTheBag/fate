@@ -2463,6 +2463,9 @@ function FateGameMode:InitialiseMissingPanoramaData(ply)
     RecreateUITimer(ply, "shard_drop_event", "Next Holy Grail's Shard", "shard_drop_timer")
     RecreateUITimer(ply, "beginround", "Pre-Round", "pregame_timer")
     RecreateUITimer(ply, "round_timer", "Round " .. self.nCurrentRound, "round_timer" .. self.nCurrentRound)
+
+    PlayerTables:ReInitTable("hero_selection_available_heroes")
+    PlayerTables:ReInitTable("hero_selection_heroes_data")
 end
 
 function RecreateUITimer(playerID, timerName, message, description)

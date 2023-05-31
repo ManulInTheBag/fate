@@ -17,16 +17,16 @@ function ryougi_mystic_eyes:OnSpellStart()
 		caster:AddNewModifier(caster, self, "modifier_ryougi_mystic_eyes_vision", {duration = self:GetSpecialValueFor("duration")})
 	end
 
-	if caster.SelflessKnowledgeAcquired then
+	--[[if caster.SelflessKnowledgeAcquired then
 		local enemies = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 99999, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 		for i = 1, #enemies do
 			if enemies[i]:HasModifier("modifier_ryougi_lines") then
 				enemies[i]:AddNewModifier(caster, self, "modifier_vision_provider", {duration = 3})
 			end
 		end
-	end
+	end]]
 	
-	caster:AddNewModifier(caster, self, "modifier_ryougi_mystic_eyes_active", {duration = self:GetSpecialValueFor("duration")})
+	--caster:AddNewModifier(caster, self, "modifier_ryougi_mystic_eyes_active", {duration = self:GetSpecialValueFor("duration")})
 
 	if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 and caster:GetIntellect() >= 29.1 then
 	    if caster:FindAbilityByName("ryougi_collapse"):IsCooldownReady() and caster:IsAlive() then	    		
@@ -58,39 +58,45 @@ function ryougi_mystic_eyes:CutLine(enemy, line_name, is_fan)
 	DoDamage(caster, enemy, caster:GetAverageTrueAttackDamage(caster)*multiplier*self:GetSpecialValueFor("dmg_mult"), DAMAGE_TYPE_PHYSICAL, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self, false)
 
 	if caster.DemiseAcquired then
-		DoDamage(caster, enemy, (self:GetSpecialValueFor("demise_damage") + caster:GetAgility()*self:GetSpecialValueFor("agi_mult"))*multiplier, DAMAGE_TYPE_MAGICAL, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self, false)
+		DoDamage(caster, enemy, (self:GetSpecialValueFor("demise_damage") + caster:GetAgility()*self:GetSpecialValueFor("agi_mult"))*multiplier, DAMAGE_TYPE_PURE, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self, false)
 	end
 
-	if not enemy:IsHero() then
-		if caster:HasModifier("modifier_ryougi_mystic_eyes_active") then
-			DoDamage(caster, enemy, enemy:GetMaxHealth()*0.1*multiplier/2, DAMAGE_TYPE_MAGICAL, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self, false)
-			DoDamage(caster, enemy, enemy:GetMaxHealth()*0.1*multiplier/2, DAMAGE_TYPE_PURE, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self, false)
-		end
-		return
+	local damage = self:GetSpecialValueFor("immediate_damage")*enemy:GetHealth()/100
+
+	DoDamage(caster, enemy, damage*multiplier, DAMAGE_TYPE_PURE, DOTA_DAMAGE_FLAG_NONE, self, false)
+	--DoDamage(self.caster, self.parent, damage/2, DAMAGE_TYPE_PURE, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self.ability, false)
+
+	local effect_cast = ParticleManager:CreateParticle( "particles/ryougi/ryougi_crit_impact.vpcf", PATTACH_ABSORIGIN_FOLLOW, enemy )
+	ParticleManager:SetParticleControlEnt(
+		effect_cast,
+		0,
+		enemy,
+		PATTACH_POINT_FOLLOW,
+		"attach_hitloc",
+		enemy:GetOrigin(), -- unknown
+		true -- unknown, true
+	)
+	ParticleManager:SetParticleControlForward( effect_cast, 1, (caster:GetOrigin()-enemy:GetOrigin()):Normalized() )
+	ParticleManager:ReleaseParticleIndex( effect_cast )
+
+	if caster.KiyohimePassingAcquired then
+		caster:GiveMana(self:GetSpecialValueFor("mana_restore"))
 	end
 
-	if not caster:HasModifier("modifier_ryougi_mystic_eyes_active") then return end
+	EmitSoundOn("Hero_PhantomAssassin.CoupDeGrace", enemy)
+
+	--if not caster:HasModifier("modifier_ryougi_mystic_eyes_active") then return end
 
 	if not enemy:HasModifier("modifier_ryougi_lines") then
 		local modifier = enemy:AddNewModifier(caster, self, "modifier_ryougi_lines", {duration = self:GetSpecialValueFor("line_duration")})
 		modifier.lines[line_name] = true
 		modifier:SetStackCount(1)
 	else
+		enemy:AddNewModifier(caster, self, "modifier_ryougi_lines", {duration = self:GetSpecialValueFor("line_duration")})
 		local modifier = enemy:FindModifierByName("modifier_ryougi_lines")
 		if not modifier.lines[line_name] then
 			modifier.lines[line_name] = true
-			if modifier:GetStackCount() == 9 then
-				--enemy:AddNewModifier(caster, self, "modifier_ryougi_lines", {duration = 120})
-				self:LastArc(enemy)
-			else
-				enemy:AddNewModifier(caster, self, "modifier_ryougi_lines", {duration = self:GetSpecialValueFor("line_duration")})
-				modifier:SetStackCount(modifier:GetStackCount() + 1)
-			end
-			--modifier:SetStackCount(modifier:GetStackCount() + 1)
-			if modifier:GetStackCount()%4 == 0 then
-				giveUnitDataDrivenModifier(caster, enemy, "locked", self:GetSpecialValueFor("stun_duration"))
-				--enemy:AddNewModifier(caster, self, "modifier_stunned", {duration = self:GetSpecialValueFor("stun_duration")})
-			end
+			modifier:SetStackCount(modifier:GetStackCount() + 1)
 		end
 	end
 end
@@ -178,7 +184,7 @@ function modifier_ryougi_combo_window:IsDebuff() return false end
 function modifier_ryougi_combo_window:OnCreated()
 	if IsServer() then
 		local caster = self:GetParent()
-		if caster:GetAbilityByIndex(5):GetName() == "ryougi_mystic_eyes" then	    		
+		if caster:GetAbilityByIndex(4):GetName() == "ryougi_mystic_eyes" then	    		
 			caster:SwapAbilities("ryougi_collapse", "ryougi_mystic_eyes", true, false)	
 		end
 	end
@@ -186,7 +192,7 @@ end
 function modifier_ryougi_combo_window:OnDestroy()
 	if IsServer() then
 		local caster = self:GetParent()
-		if caster:GetAbilityByIndex(5):GetName() == "ryougi_collapse" then
+		if caster:GetAbilityByIndex(4):GetName() == "ryougi_collapse" then
 			caster:SwapAbilities("ryougi_collapse", "ryougi_mystic_eyes", false, true)
 		end
 	end
@@ -219,6 +225,22 @@ modifier_ryougi_lines = class({})
 function modifier_ryougi_lines:IsHidden() return false end
 function modifier_ryougi_lines:IsDebuff() return true end
 
+function modifier_ryougi_lines:DeclareFunctions()
+	return { MODIFIER_PROPERTY_PROVIDES_FOW_POSITION}
+end
+
+function modifier_ryougi_lines:GetModifierProvidesFOWVision()
+	return self:CanBeDetected()
+end
+
+function modifier_ryougi_lines:CanBeDetected(hHero)
+    if not (self:GetCaster().SelflessKnowledgeAcquired and self:GetCaster():IsAlive() and self:GetStackCount() >= 4) or self:GetParent():HasModifier("modifier_murderer_mist_in") then
+        return 0
+    end
+    
+    return 1
+end
+
 function modifier_ryougi_lines:OnCreated()
 	if IsServer() then
 		self.parent = self:GetParent()
@@ -233,7 +255,7 @@ function modifier_ryougi_lines:OnCreated()
 			ParticleManager:ReleaseParticleIndex(hParticle2)
 		end)
 
-		local damage = self.ability:GetSpecialValueFor("immediate_damage")*self.parent:GetMaxHealth()/100
+		--[[local damage = self.ability:GetSpecialValueFor("immediate_damage")*self.parent:GetMaxHealth()/100
 
 		DoDamage(self.caster, self.parent, damage/2, DAMAGE_TYPE_MAGICAL, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self.ability, false)
 		DoDamage(self.caster, self.parent, damage/2, DAMAGE_TYPE_PURE, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self.ability, false)
@@ -253,15 +275,15 @@ function modifier_ryougi_lines:OnCreated()
 
 		self.caster:GiveMana(self.ability:GetSpecialValueFor("mana_restore"))
 
-		EmitSoundOn("Hero_PhantomAssassin.CoupDeGrace", self.parent)
+		EmitSoundOn("Hero_PhantomAssassin.CoupDeGrace", self.parent)]]
 
-		self:StartIntervalThink(FrameTime())
+		--self:StartIntervalThink(FrameTime())
 	end
 end
 
 function modifier_ryougi_lines:OnRefresh()
 	if IsServer() then
-		local damage = self.ability:GetSpecialValueFor("immediate_damage")*self.parent:GetMaxHealth()/100
+		--[[local damage = self.ability:GetSpecialValueFor("immediate_damage")*self.parent:GetMaxHealth()/100
 
 		DoDamage(self.caster, self.parent, damage/2, DAMAGE_TYPE_MAGICAL, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self.ability, false)
 		DoDamage(self.caster, self.parent, damage/2, DAMAGE_TYPE_PURE, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self.ability, false)
@@ -281,7 +303,7 @@ function modifier_ryougi_lines:OnRefresh()
 
 		self.caster:GiveMana(self.ability:GetSpecialValueFor("mana_restore"))
 
-		EmitSoundOn("Hero_PhantomAssassin.CoupDeGrace", self.parent)
+		EmitSoundOn("Hero_PhantomAssassin.CoupDeGrace", self.parent)]]
 	end
 end
 

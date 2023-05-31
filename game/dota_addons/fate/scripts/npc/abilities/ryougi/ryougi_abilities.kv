@@ -10,42 +10,69 @@
 		"ScriptFile"					"abilities/ryougi/ryougi_knife_throw"
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityTextureName"			"custom/ryougi/ryougi_knife_throw"
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3"
 		"AnimationPlaybackRate" 		"2.0"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"12 11 10 9 8"
-		"AbilityManaCost"				"100"
-		"AOERadius"						"2000"
+		"AbilityCooldown"				"25"
+		"AbilityManaCost"				"200"
+		"AOERadius"						"1500"
+
+		"LinkedAbilities"				"ryougi_knife_recast"
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"range"					"2000"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"speed"					"3500"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"100 150 200 250 300"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"attribute_silence_duration"	"0.4 0.6 0.8 1.0 1.2"
-			}
+		"AbilityValues"
+		{	
+			"cast_point"			"0.0"
+			"cast_point_2"			"0.5"
+			"range"					"1500"
+			"speed"					"3500"
+			"damage"				"200 250 300 350 400"
+			"attribute_slow_duration"	"1 1.3 1.6 1.9 2.2"
+			"attribute_slow_percent" "100"
+			"damage_first"			"200 250 300 350 400"
+			"damage_second"			"400 500 700 700 800"
+			"damage_per_line"		"5"
+			"mark_duration"			"5"
+		}
+	}
+
+	//=================================================================================================================
+	// Shiki Ryougi: Bamboo Fence Melody
+	//=================================================================================================================
+	"ryougi_knife_recast"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ryougi/ryougi_knife_recast"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY" 
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2_ES_ROLL_END"
+		"AnimationPlaybackRate" 		"1.0"
+		"AbilityCastPoint"				"0.5"
+		"AbilityTextureName"			"custom/ryougi/ryougi_kimono_2"
+		"AbilityCooldown"				"0"
+		"AbilityManaCost"				"200"
+		
+		"AbilityValues"
+		{	
+			"cast_point"			"0.5"
+			"radius"				"250"
+			"damage_first"			"200 250 300 350 400"
+			"damage_second"			"400 500 700 700 800"
+			"range"					"2000"
+			"damage_per_line"		"5"
 		}
 	}
 
@@ -61,46 +88,24 @@
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
-		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		//"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY" 
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityTextureName"			"custom/ryougi/ryougi_knife_fan"
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2_ES_ROLL"
 		"AnimationPlaybackRate" 		"1.3"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"12 11 10 9 8"
+		"AbilityCooldown"				"13 11 9 7 5"
 		"AbilityManaCost"				"100"
-
-		"LinkedAbilities"				"ryougi_knife_throw"
 		
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"range"					"800"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"speed"					"5000"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"50 70 90 110 130"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"attribute_slow_duration"	"1.0 1.3 1.6 1.9 2.2"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"attribute_slow_percent" "100"
-			}
+			"cast_point"			"0.0"
+			"range"					"900"
+			"speed"					"5000"
+			"damage"				"30 40 50 60 70"
+			"attribute_silence_duration"	"0.4 0.5 0.6 0.7 0.8"
 		}
 	}
 
@@ -157,33 +162,20 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityTextureName"			"custom/ryougi/ryougi_glass_moon"
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
 		"AnimationPlaybackRate" 		"2.0"
-		"AbilityCastPoint"				"0.0"
+		"AbilityCastPoint"				"0.05"
 		"AbilityCooldown"				"20 18 16 14 12"
 		"AbilityManaCost"				"200"
-
-		"LinkedAbilities"				"ryougi_avidya_moon"
 		
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"range"					"300"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"dash_range"			"800"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"200 250 300 350 400"
-			}
+			"cast_point"			"0.05"
+			"range"					"300"
+			"dash_range"			"500 550 600 650 700"
+			"damage"				"200 250 300 350 400"
 		}
 	}
 
@@ -202,7 +194,7 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityTextureName"			"custom/ryougi/ryougi_double_belfry"
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
 		"AnimationPlaybackRate" 		"1.0"
@@ -210,65 +202,16 @@
 		"AbilityCooldown"				"30 26 22 18 14"
 		"AbilityManaCost"				"200"
 
-		"LinkedAbilities"				"ryougi_kimono"
-		
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"400"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"window_duration"		"2"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"first_damage"			"125 150 175 200 225"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"second_damage"			"100 125 150 175 200"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"third_damage"			"200 250 300 350 400"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"third_mute_duration"	"0.6 0.8 1.0 1.2 1.4"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"kick_damage"			"300 400 500 600 700"
-			}
-			"08"
-			{	
-				"var_type"				"FIELD_INTEGER"
-				"kick_range"			"300"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"fourth_damage"			"300 350 400 450 500"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"fourth_stun_duration"	"0.3 0.45 0.6 0.75 0.9"
-			}
-			"11"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"kick_stun"				"1.5"
-			}
+			"cast_point"			"0.225"
+			"cast_point_2"			"0.10"
+			"cast_point_3"			"0.20"
+			"radius"				"500"
+			"window_duration"		"3"
+			"first_damage"			"130 160 190 220 250"
+			"second_damage"			"160 200 240 280 320"
+			"third_damage"			"250 310 370 430 490"
 		}
 	}
 
@@ -411,21 +354,18 @@
 		"MaxLevel"						"1"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"AbilityTextureName"			"custom/ryougi/ryougi_backflip"
 		"AbilityCastAnimation" 			"ACT_DOTA_IDLE"
 		"AnimationPlaybackRate" 		"1.0"
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"12"
-		"AbilityManaCost"				"100"
+		"AbilityManaCost"				"0"
 		
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"range"					"700"
-			}
+			"cast_point"			"0.0"
+			"range"					"700"
 		}
 	}
 
@@ -473,9 +413,9 @@
 		// General		//------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/ryougi/ryougi_mystic_eyes"
-		"MaxLevel"						"5"
+		"MaxLevel"						"1"
 		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"2"
+		"LevelsBetweenUpgrades"			"25"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"AbilityTextureName"			"custom/ryougi/ryougi_mystic_eyes_2"
@@ -484,67 +424,24 @@
 		// Cast
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"10"
-		"AbilityManaCost"				"400"
+		"AbilityManaCost"				"0"
 		
 		// Ability Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"immediate_damage"			"8.0 8.25 8.5 8.75 9.0"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"health_percent"			"10"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"demise_damage"				"40"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"duration"					"20"		//vazhno - NA MAX LVL DURATION == CD, i eto ne obsuzhdayetsya
-			}
-			"06"
-			{				
-				"var_type"					"FIELD_INTEGER"
-				"line_duration"				"20"
-			}
-			"07"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"agi_mult"					"0.7"
-			}
-			"08"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_vision"				"200 400 600 800 1000"
-			}
-			"09"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"true_sight_range"			"400"
-			}
-			"10"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"mana_restore"				"80 110 140 170 200"
-			}
-			"11"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"stun_duration"				"0.4 0.7 1.0 1.3 1.6"
-			}
-			"12"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"dmg_mult"					"1.0 1.05 1.10 1.15 1.20"
-			}
+		"AbilityValues"
+		{	
+			"cast_point"				"0.0"
+			"immediate_damage"			"3.0"
+			"health_percent"			"2.5"
+			"demise_damage"				"25"
+			"duration"					"3"
+			"line_duration"				"15"
+			"agi_mult"					"0.5"
+			"bonus_vision"				"1000"
+			"true_sight_range"			"700"
+			"mana_restore"				"50"
+			"stun_duration"				"0.4 0.7 1.0 1.3 1.6"
+			"dmg_mult"					"1.0 1.05 1.10 1.15 1.20"
 		}		
 	}
 
@@ -563,41 +460,23 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY" 
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2_ES_ROLL_END"
 		"AnimationPlaybackRate" 		"1.0"
 		"AbilityCastPoint"				"0.2"
 		"AbilityTextureName"			"custom/ryougi/ryougi_collapse"
-		"AbilityCooldown"				"70"
+		"AbilityCooldown"				"110"
 		"AbilityManaCost"				"400"
 		
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"250"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"line_count"			"3"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"1900"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"range"					"1000"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"width"					"100"
-			}
+			"cast_point"			"0.2"
+			"radius"				"250"
+			"line_count"			"3"
+			"damage"				"1200"
+			"range"					"1000"
+			"width"					"100"
+			"damage_per_line"		"5"
 		}
 	}
 	
@@ -733,12 +612,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"40"
+				"damage"				"25"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"mult"					"0.7"
+				"mult"					"0.5"
 			}	
 		}		
 	}

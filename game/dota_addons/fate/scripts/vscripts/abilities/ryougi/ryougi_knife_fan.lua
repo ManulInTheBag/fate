@@ -1,14 +1,12 @@
-LinkLuaModifier("modifier_ryougi_knife_fan_slow", "abilities/ryougi/ryougi_knife_fan", LUA_MODIFIER_MOTION_NONE)
-
 ryougi_knife_fan = class({})
 
-function ryougi_knife_fan:OnUpgrade()
+--[[function ryougi_knife_fan:OnUpgrade()
     local hCaster = self:GetCaster()
     
     if hCaster:FindAbilityByName("ryougi_knife_throw"):GetLevel() ~= self:GetLevel() then
       hCaster:FindAbilityByName("ryougi_knife_throw"):SetLevel(self:GetLevel())
     end
-end
+end]]
 
 function ryougi_knife_fan:OnSpellStart()
 	  local caster = self:GetCaster()
@@ -20,7 +18,7 @@ function ryougi_knife_fan:OnSpellStart()
 
     local calc_angle = caster:GetLocalAngles()
 
-    EmitSoundOn("ryougi_knife_"..math.random(3,4), caster)
+    EmitSoundOn("ryougi_knife_"..math.random(1,4), caster)
 
     local init_angle = QAngle(0, caster:GetLocalAngles().y, 0)
     caster:SetAbsAngles(0, init_angle.y, 0)
@@ -70,9 +68,9 @@ function ryougi_knife_fan:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
   	local hCaster = self:GetCaster()
     local eyes = hCaster:FindAbilityByName("ryougi_mystic_eyes")
   	
-  	DoDamage(hCaster, hTarget, self:GetSpecialValueFor("damage"), DAMAGE_TYPE_PHYSICAL, 0, self, false)
+  	DoDamage(hCaster, hTarget, self:GetSpecialValueFor("damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
     if hCaster.BlackMoonAcquired then
-      hTarget:AddNewModifier(hCaster, self, "modifier_ryougi_knife_fan_slow", {duration = self:GetSpecialValueFor("attribute_slow_duration")})
+      giveUnitDataDrivenModifier(hCaster, hTarget, "silenced", self:GetSpecialValueFor("attribute_silence_duration"))
     end
     --giveUnitDataDrivenModifier(hCaster, hTarget, "locked", self:GetSpecialValueFor("attribute_slow_duration"))
     EmitSoundOn("ryougi_hit", hTarget)
@@ -85,16 +83,4 @@ function ryougi_knife_fan:OnProjectileThink(location)
     local duration = 0.5
 
     AddFOWViewer(caster:GetTeamNumber(), location, radius, duration, false)
-end
-
-modifier_ryougi_knife_fan_slow = class({})
-
-function modifier_ryougi_knife_fan_slow:IsHidden() return false end
-function modifier_ryougi_knife_fan_slow:IsDebuff() return true end
-function modifier_ryougi_knife_fan_slow:RemoveOnDeath() return true end
-function modifier_ryougi_knife_fan_slow:DeclareFunctions()
-  return {  MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE  }
-end
-function modifier_ryougi_knife_fan_slow:GetModifierMoveSpeedBonus_Percentage()
-  return -1*self:GetAbility():GetSpecialValueFor("attribute_slow_percent")
 end

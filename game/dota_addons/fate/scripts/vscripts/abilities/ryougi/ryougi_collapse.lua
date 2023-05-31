@@ -6,6 +6,7 @@ function ryougi_collapse:OnSpellStart()
 	local caster = self:GetCaster()
 	local origin = caster:GetAbsOrigin()
 	local damage = self:GetSpecialValueFor("damage")
+	local damage_per_line = self:GetSpecialValueFor("damage_per_line")
 	local line_count = self:GetSpecialValueFor("line_count")
 	local point = self:GetCursorPosition()
 	local eyes = caster:FindAbilityByName("ryougi_mystic_eyes")
@@ -125,6 +126,12 @@ function ryougi_collapse:OnSpellStart()
 		return
 	end
 
+	local stacks = combo_enemy:FindModifierByName("modifier_ryougi_lines") and combo_enemy:FindModifierByName("modifier_ryougi_lines"):GetStackCount() or 0
+	stacks = stacks + line_count
+	local execute = damage_per_line*stacks
+
+	combo_enemy:RemoveModifierByName("modifier_ryougi_lines")
+
 	target = combo_enemy:GetAbsOrigin() + direction*150
 
 	FindClearSpaceForUnit( caster, target, true)
@@ -211,7 +218,7 @@ function ryougi_collapse:OnSpellStart()
 		Timers:CreateTimer(0.5, function()
 			for i = 1, line_count do
 				Timers:CreateTimer(i*FrameTime()*2, function()
-					DoDamage(caster, combo_enemy, damage/line_count, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+					DoDamage(caster, combo_enemy, damage/line_count, DAMAGE_TYPE_PURE, 0, self, false)
 					local fxIndex = ParticleManager:CreateParticle( "particles/econ/items/juggernaut/jugg_arcana/juggernaut_arcana_v2_omni_slash_tgt_serrakura.vpcf", PATTACH_ABSORIGIN, caster)
 					local random_vector = RandomVector(200)
 					random_vector.z = 0
@@ -220,6 +227,10 @@ function ryougi_collapse:OnSpellStart()
 					--CreateSlashFx(caster, combo_enemy:GetAbsOrigin()+RandomVector(200), combo_enemy:GetAbsOrigin()+RandomVector(200))
 					eyes:CutLine(combo_enemy, "collapse_"..i)
 					EmitSoundOn("ryougi_hit", combo_enemy)
+					combo_enemy:RemoveModifierByName("modifier_ryougi_lines")
+					if combo_enemy:GetHealthPercent() < execute and not (combo_enemy:IsMagicImmune() or combo_enemy:HasModifier("modifier_avalon")) then
+						combo_enemy:Execute(self, caster, { bExecution = true })
+					end
 				end)
 			end
 		end)

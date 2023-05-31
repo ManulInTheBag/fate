@@ -159,7 +159,7 @@ function ryougi_double_belfry:Belfry1()
 		local origin_diff = enemy:GetAbsOrigin() - caster:GetAbsOrigin()
 		local origin_diff_norm = origin_diff:Normalized()
 		if caster:GetForwardVector():Dot(origin_diff_norm) > 0 then
-		    DoDamage(caster, enemy, self:GetSpecialValueFor("first_damage"), DAMAGE_TYPE_PHYSICAL, 0, self, false)
+		    DoDamage(caster, enemy, self:GetSpecialValueFor("first_damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
 		    EmitSoundOn("ryougi_hit", enemy)
 		    eyes:CutLine(enemy, "belfry_1")
         end
@@ -202,7 +202,7 @@ function ryougi_double_belfry:Belfry2()
 		local origin_diff = enemy:GetAbsOrigin() - caster:GetAbsOrigin()
 		local origin_diff_norm = origin_diff:Normalized()
 		if caster:GetForwardVector():Dot(origin_diff_norm) > 0 then
-		    DoDamage(caster, enemy, self:GetSpecialValueFor("second_damage"), DAMAGE_TYPE_PHYSICAL, 0, self, false)
+		    DoDamage(caster, enemy, self:GetSpecialValueFor("second_damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
 		    EmitSoundOn("ryougi_hit", enemy)
 		    eyes:CutLine(enemy, "belfry_2")
         end
@@ -244,7 +244,7 @@ function ryougi_double_belfry:Belfry3()
 		local origin_diff = enemy:GetAbsOrigin() - caster:GetAbsOrigin()
 		local origin_diff_norm = origin_diff:Normalized()
 		if caster:GetForwardVector():Dot(origin_diff_norm) > 0 then
-		    DoDamage(caster, enemy, self:GetSpecialValueFor("third_damage"), DAMAGE_TYPE_PHYSICAL, 0, self, false)
+		    DoDamage(caster, enemy, self:GetSpecialValueFor("third_damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
 		    --enemy:AddNewModifier(caster, self, "modifier_muted", {duration = self:GetSpecialValueFor("third_mute_duration")})
 		    --giveUnitDataDrivenModifier(caster, enemy, "muted", self:GetSpecialValueFor("third_mute_duration"))
 		    EmitSoundOn("ryougi_hit", enemy)
@@ -252,19 +252,13 @@ function ryougi_double_belfry:Belfry3()
         end
     end
 
-    if not caster.KiyohimePassingAcquired then
-    	caster:RemoveModifierByName("modifier_ryougi_double_belfry_tracker")
-    else
-    	self:SequenceSkill()
-    	self:EndCooldown()
-    	local ability = caster:FindAbilityByName("ryougi_double_belfry_mech")
-    	ability:StartCooldown(ability:GetCooldown(ability:GetLevel() - 1) - ability:GetSpecialValueFor("window_duration"))
-    end
-	
-	--[[if caster.KiyohimePassingAcquired then
+    caster:RemoveModifierByName("modifier_ryougi_double_belfry_tracker")
+
+	if caster.KiyohimePassingAcquired then
 		self:EndCooldown()
 		self:StartCooldown(2)
-	end]]
+		--caster:GiveMana(450)
+	end
 end
 
 ryougi_double_belfry_mech = class({})
@@ -467,20 +461,12 @@ modifier_ryougi_double_belfry_tracker = class({})
 
 function modifier_ryougi_double_belfry_tracker:OnCreated()
 	if IsServer() then
-		local caster = self:GetCaster()
-		caster:RemoveModifierByName("modifier_ryougi_combo_window")
-		if caster:GetAbilityByIndex(5):GetName() == "ryougi_mystic_eyes" then
-			caster:SwapAbilities("ryougi_mystic_eyes", "ryougi_double_belfry_mech", false, true)
-		end
 	end
 end 
 
 function modifier_ryougi_double_belfry_tracker:OnDestroy()
 	if IsServer() then
 		local caster = self:GetCaster()
-		if caster:GetAbilityByIndex(5):GetName() == "ryougi_double_belfry_mech" then
-			caster:SwapAbilities("ryougi_mystic_eyes", "ryougi_double_belfry_mech", true, false)
-		end
 
 		local ability = self:GetAbility()
 		ability:EndCooldown()

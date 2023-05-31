@@ -11,7 +11,6 @@ function false_assassin_tsubame_mai:OnSpellStart()
 		ability:EndCooldown()
 		return
 	end
-	caster:FindAbilityByName("sasaki_tsubame_gaeshi"):StartCooldown(caster:FindAbilityByName("sasaki_tsubame_gaeshi"):GetCooldown(-1))
 	--ability:ApplyDataDrivenModifier(caster, caster, "modifier_tsubame_mai", {})
 	caster:AddNewModifier(caster, self, "modifier_tsubame_mai", {duration = 3})
 	-- Set master's combo cooldown
@@ -74,6 +73,8 @@ function modifier_tsubame_mai_omnislash:TsubameMai(initialtarget)
 	local target = initialtarget
 	local ability = self:GetAbility()
 
+	caster:FindAbilityByName("sasaki_tsubame_gaeshi"):StartCooldown(caster:FindAbilityByName("sasaki_tsubame_gaeshi"):GetCooldown(-1))
+
 	local dummy = CreateUnitByName("godhand_res_locator", caster:GetAbsOrigin(), false, caster, caster, caster:GetTeamNumber())
 	dummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1) 
 	dummy:AddNewModifier(caster, nil, "modifier_phased", {duration=4})
@@ -89,7 +90,7 @@ function modifier_tsubame_mai_omnislash:TsubameMai(initialtarget)
 	caster:SetAbsOrigin(target:GetAbsOrigin() - diff*100)
 	caster:AddNewModifier(caster, caster, "modifier_camera_follow", {duration = 1.0}) 
 	ApplyAirborne(caster, target, 2.0)
-	giveUnitDataDrivenModifier(caster, caster, "jump_pause", 2.8)
+	giveUnitDataDrivenModifier(caster, caster, "jump_pause", 2.3)
 	caster:RemoveModifierByName("modifier_tsubame_mai")
 	--EmitGlobalSound("FA.Owarida")
 	LoopOverPlayers(function(player, playerID, playerHero)

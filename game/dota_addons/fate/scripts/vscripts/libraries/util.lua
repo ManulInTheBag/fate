@@ -1653,7 +1653,7 @@ function DoDamage(source, target , dmg, dmg_type, dmg_flag, abil, isLoop)
             incomingDmg = incomingDmg * (1-reduction) 
         end
 
-        if abil:GetAbilityName() == "sasaki_tsubame_gaeshi" and dmg_flag == (DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY + DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION)then
+        if abil:GetAbilityName() == "sasaki_tsubame_gaeshi" and dmg_flag == (DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY + DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION) then
             target.IsAvalonPenetrated = true
             target.IsAvalonProc = false
         else

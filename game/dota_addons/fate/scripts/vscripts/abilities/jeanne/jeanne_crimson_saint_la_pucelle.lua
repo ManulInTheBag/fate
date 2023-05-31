@@ -78,7 +78,7 @@ function jeanne_crimson_saint_la_pucelle:OnSpellStart()
 				end]]
 
 				local enemy_damage = (1 - 0.5*(caster:GetAbsOrigin() - enemy:GetAbsOrigin()):Length2D()/radius)*damage
-				DoDamage(caster, enemy, enemy_damage, DAMAGE_TYPE_PURE, 0, self, false)
+				DoDamage(caster, enemy, enemy_damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
 				enemy:AddNewModifier(caster, self, "modifier_stunned", { Duration = stun_duration })
 
 				local rope_fx = ParticleManager:CreateParticle("particles/jeanne/jeanne_la_pucelle_rope.vpcf", PATTACH_POINT_FOLLOW, caster)

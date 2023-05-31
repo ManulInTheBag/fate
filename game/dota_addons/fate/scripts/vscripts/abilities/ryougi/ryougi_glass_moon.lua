@@ -4,45 +4,22 @@ LinkLuaModifier("modifier_ryougi_glass_moon_2", "abilities/ryougi/ryougi_glass_m
 ryougi_glass_moon = class({})
 
 function ryougi_glass_moon:GetBehavior()
-    if self:GetCaster():HasModifier("modifier_ryougi_black_moon") then
-        return DOTA_ABILITY_BEHAVIOR_POINT + DOTA_ABILITY_BEHAVIOR_AOE + DOTA_ABILITY_BEHAVIOR_UNIT_TARGET + DOTA_ABILITY_BEHAVIOR_HIDDEN + DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES
-    end
     return DOTA_ABILITY_BEHAVIOR_POINT + DOTA_ABILITY_BEHAVIOR_HIDDEN + DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES
-end
-
-function ryougi_glass_moon:OnUpgrade()
-    local hCaster = self:GetCaster()
-    
-    if hCaster:FindAbilityByName("ryougi_avidya_moon"):GetLevel() ~= self:GetLevel() then
-    	hCaster:FindAbilityByName("ryougi_avidya_moon"):SetLevel(self:GetLevel())
-    end
 end
 
 function ryougi_glass_moon:OnSpellStart()
 	local caster = self:GetCaster()
 	local eyes = caster:FindAbilityByName("ryougi_mystic_eyes")
+	local target = self:GetCursorPosition()
 	if (self:GetCursorPosition() - caster:GetAbsOrigin()):Length2D() > 0 then
 		caster:SetForwardVector((self:GetCursorPosition() - caster:GetAbsOrigin()):Normalized())
 	end
-	caster:AddNewModifier(caster, self, "modifier_ryougi_glass_moon_2", {duration = 0.21})
+	caster:AddNewModifier(caster, self, "modifier_ryougi_glass_moon", {duration = 0.21})
 	StartAnimation(caster, {duration=0.315, activity=ACT_DOTA_CAST_ABILITY_1, rate=2})
 	Timers:CreateTimer(0.0, function()
 		caster:EmitSound("ryougi_moon_1")
-
-		local target = self:GetCursorPosition()
-		local target_enemy = nil
-		local origin_e = nil
-		local direction_e = nil
-		local targetted = false
 		local origin = caster:GetAbsOrigin()
 		local true_dist = (Vector(target.x, target.y, 0) - Vector(origin.x, origin.y, 0)):Length2D()
-		if self:GetCursorTarget() then
-			targetted = true
-			target_enemy = self:GetCursorTarget()
-			origin_e = target_enemy:GetAbsOrigin()
-			direction_e = (Vector(origin_e.x, origin_e.y, 0) - Vector(origin.x, origin.y, 0)):Normalized()
-			true_dist = (Vector(origin_e.x, origin_e.y, 0) - Vector(origin.x, origin.y, 0)):Length2D()
-		end
 		local direction = (Vector(target.x, target.y, 0) - Vector(origin.x, origin.y, 0)):Normalized()
 		if true_dist > self:GetSpecialValueFor("dash_range") then
 			true_dist = self:GetSpecialValueFor("dash_range")
@@ -54,18 +31,14 @@ function ryougi_glass_moon:OnSpellStart()
 		end
 		local counter = 0
 
-		caster:AddNewModifier(caster, self, "modifier_ryougi_glass_moon_2", {duration = 0.215})
+		caster:AddNewModifier(caster, self, "modifier_ryougi_glass_moon", {duration = 0.215})
 
 		local speed = self:GetSpecialValueFor("dash_range")/0.115
 
 		local sin = Physics:Unit(caster)
 		caster:SetPhysicsFriction(0)
 		caster:SetPhysicsVelocity(direction*speed)
-		caster:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
-
-		if targetted and ((origin - origin_e):Length2D() > (range+200)/2 + self:GetSpecialValueFor("dash_range")) then
-			targetted = false
-		end
+		caster:SetNavCollisionType(PHYSICS_NAV_NONE)
 
 		Timers:CreateTimer("ryougi_dash", {
 			endTime = true_dist/speed,
@@ -88,19 +61,16 @@ function ryougi_glass_moon:OnSpellStart()
 
 			--if caster:IsStunned() then return end
 
-			StartAnimation(caster, {duration=0.815, activity=ACT_DOTA_CAST_ABILITY_2, rate=2})
+			EndAnimation(caster)
+			Timers:CreateTimer(FrameTime(), function()
+				StartAnimation(caster, {duration=0.815, activity=ACT_DOTA_CAST_ABILITY_2, rate=2})
+			end)
 
 			local diff = 0
 
-			--[[if targetted and ((origin - origin_e):Length2D() > range/2) then
-				targetted = false
-			end]]
-
 			Timers:CreateTimer(0.0, function()
 				if not caster:IsAlive() then return end
-				if counter == 0 and targetted then
-					diff = (caster:GetAbsOrigin() - target_enemy:GetAbsOrigin()):Length2D()
-				end
+
 				diff = math.min(diff, range/2)
 
 				caster:AddNewModifier(caster, self, "modifier_ryougi_glass_moon", {duration = 0.3})
@@ -116,14 +86,10 @@ function ryougi_glass_moon:OnSpellStart()
 
 					counter = counter + 1
 
-					if targetted then
-						caster:SetForwardVector(direction_e)
-						caster:SetAbsOrigin(target_enemy:GetAbsOrigin() + direction_e*(-diff + 0.033*range/0.3*counter))
-					else
-						local origin_t = caster:GetAbsOrigin()
-						caster:SetForwardVector(direction)
-						caster:SetAbsOrigin(GetGroundPosition(origin_t + direction*range/0.3*0.033, caster))
-					end
+					
+					local origin_t = caster:GetAbsOrigin()
+					caster:SetForwardVector(direction)
+					caster:SetAbsOrigin(GetGroundPosition(origin_t + direction*range/0.3*0.033, caster))
 
 					if counter == 6 then
 						local enemies = FindUnitsInLine(
@@ -144,7 +110,7 @@ function ryougi_glass_moon:OnSpellStart()
 					    Timers:CreateTimer(0, function()
 					    	if caster and IsValidEntity(caster) and enemies and #enemies>0 then
 							    for _, enemy in pairs(enemies) do
-							        DoDamage(caster, enemy, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+							        DoDamage(caster, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
 							        EmitSoundOn("ryougi_hit", enemy)
 							        eyes:CutLine(enemy, "glass_moon")
 
@@ -189,11 +155,11 @@ function ryougi_glass_moon:OnSpellStart()
 
 			--if caster:IsStunned() then return end
 
-			StartAnimation(caster, {duration=0.815, activity=ACT_DOTA_CAST_ABILITY_2, rate=2})
+			EndAnimation(caster)
+			Timers:CreateTimer(FrameTime(), function()
+				StartAnimation(caster, {duration=0.815, activity=ACT_DOTA_CAST_ABILITY_2, rate=2})
+			end)
 
-			--[[if targetted and ((origin - origin_e):Length2D() > range/2) then
-				targetted = false
-			end]]
 
 			Timers:CreateTimer(0.0, function()
 				if not caster:IsAlive() then return end
@@ -202,9 +168,6 @@ function ryougi_glass_moon:OnSpellStart()
 				local diff = 0
 
 				Timers:CreateTimer(0, function()
-					if counter == 0 and targetted then
-						diff = (caster:GetAbsOrigin() - target_enemy:GetAbsOrigin()):Length2D()
-					end
 					diff = math.min(diff, range/2)
 					if not caster:IsAlive() then
 						return
@@ -216,14 +179,9 @@ function ryougi_glass_moon:OnSpellStart()
 
 					counter = counter + 1
 
-					if targetted then
-						caster:SetForwardVector(direction_e)
-						caster:SetAbsOrigin(target_enemy:GetAbsOrigin() + direction_e*(-diff + 0.033*range/0.3*counter))
-					else
-						local origin_t = caster:GetAbsOrigin()
-						caster:SetForwardVector(direction)
-						caster:SetAbsOrigin(GetGroundPosition(origin_t + direction*range/0.3*0.033, caster))
-					end
+					local origin_t = caster:GetAbsOrigin()
+					caster:SetForwardVector(direction)
+					caster:SetAbsOrigin(GetGroundPosition(origin_t + direction*range/0.3*0.033, caster))
 
 					if counter == 6 then
 						local enemies = FindUnitsInLine(
@@ -244,7 +202,7 @@ function ryougi_glass_moon:OnSpellStart()
 					    Timers:CreateTimer(0, function()
 					    	if caster and IsValidEntity(caster) and enemies and #enemies>0 then
 							    for _, enemy in pairs(enemies) do
-							        DoDamage(caster, enemy, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+							        DoDamage(caster, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
 							        EmitSoundOn("ryougi_hit", enemy)
 							        eyes:CutLine(enemy, "glass_moon")
 
@@ -278,7 +236,7 @@ function modifier_ryougi_glass_moon:CheckState()
 			 [MODIFIER_STATE_NO_HEALTH_BAR]	= true,
 			 [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
 			 [MODIFIER_STATE_NOT_ON_MINIMAP] = true,
-			 --[MODIFIER_STATE_UNSELECTABLE] = true,
+			 [MODIFIER_STATE_UNSELECTABLE] = true,
 			 [MODIFIER_STATE_STUNNED] = true}
 end
 

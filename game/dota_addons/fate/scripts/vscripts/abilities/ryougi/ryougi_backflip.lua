@@ -4,7 +4,7 @@ LinkLuaModifier("modifier_ryougi_backflip_2", "abilities/ryougi/ryougi_backflip"
 ryougi_backflip = class({})
 
 function ryougi_backflip:OnAbilityPhaseStart()
-    StartAnimation(self:GetCaster(), {duration=1.20, activity=ACT_DOTA_CAST_ABILITY_4, rate=1})
+    StartAnimation(self:GetCaster(), {duration=1.20, activity=ACT_DOTA_CAST_ABILITY_4, rate=2})
     return true
 end
 
@@ -14,23 +14,26 @@ end
 
 function ryougi_backflip:OnSpellStart()
 	local caster = self:GetCaster()
+	local target = self:GetCursorPosition()
+	StartAnimation(self:GetCaster(), {duration=1.20, activity=ACT_DOTA_CAST_ABILITY_4, rate=1.5})
 	--caster:AddNewModifier(caster, self, "modifier_ryougi_backflip_2", {duration = 0.11})
 	--StartAnimation(caster, {duration=1.20, activity=ACT_DOTA_CAST_ABILITY_4, rate=1})
 	Timers:CreateTimer(0.0, function()
 		--if caster:IsStunned() then return end
 
 		ProjectileManager:ProjectileDodge(caster)
-		--local target = self:GetCursorPosition()
 
 		local origin = caster:GetAbsOrigin()
-		local direction = -1*caster:GetForwardVector()
+		local direction = (caster:GetAbsOrigin() - target):Normalized()
+		direction.z = 0
+		caster:SetForwardVector(-direction)
 		local range = self:GetSpecialValueFor("range")
 
 		--[[if (Vector(target.x, target.y, 0) == Vector(origin.x, origin.y, 0)) then
 			direction = caster:GetForwardVector()
 		end]]
 
-		caster:AddNewModifier(caster, self, "modifier_ryougi_backflip", {duration = 0.7})
+		caster:AddNewModifier(caster, self, "modifier_ryougi_backflip", {duration = 0.5})
 		Timers:CreateTimer(0, function()
 			if not caster:IsAlive() then
 				return
@@ -42,7 +45,7 @@ function ryougi_backflip:OnSpellStart()
 
 			local origin_t = caster:GetAbsOrigin()
 			--caster:SetForwardVector(direction)
-			caster:SetAbsOrigin(GetGroundPosition(origin_t + direction*range/0.7*0.033, caster))
+			caster:SetAbsOrigin(GetGroundPosition(origin_t + direction*range/0.5*0.033, caster))
 			return 0.033
 		end)
 	end)

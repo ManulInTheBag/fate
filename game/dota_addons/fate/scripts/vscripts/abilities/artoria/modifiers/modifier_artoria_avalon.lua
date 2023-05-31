@@ -45,7 +45,7 @@ function modifier_artoria_avalon:OnTakeDamage(args)
 	
 	caster:RemoveModifierByName("modifier_share_damage")
 	
-	if caster.IsAvalonPenetrated then return end
+	if args.inflictor and (args.inflictor:GetAbilityName() == "sasaki_tsubame_gaeshi") and bit.band(args.damage_flags, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY) then return end
 	caster:SetHealth(currentHealth + args.damage)
 	
 	if caster:IsAlive() and damage_taken >= self.damage_threshold and not caster:HasModifier("modifier_artoria_ultimate_excalibur") and not caster:HasModifier("pause_sealdisabled") and not caster:HasModifier("modifier_artoria_avalon_cooldown") and caster:GetTeam() ~= attacker:GetTeam() and (caster_position - attacker_position):Length2D() < self.range then

@@ -259,6 +259,44 @@ function PlayerTables:SetPlayerSubscriptions(tableName, pids)
 	end
 end
 
+function PlayerTables:ReInitTable(tableName)
+	if not self.tables[tableName] then
+		print("[playertables.lua] Warning: Table '" .. tableName .. "' does not exist.")
+		return
+	end
+
+	pids = pids or {}
+
+	if pids == true then
+		pids = {}
+		for i=0,DOTA_MAX_TEAM_PLAYERS-1 do
+			pids[#pids+1] = i
+		end
+	end
+
+	local table = self.tables[tableName]
+	local oldPids = self.subscriptions[tableName]
+	self.subscriptions[tableName] = {}
+
+	for k,v in pairs(pids) do
+		local pid = k
+		if type(v) == "number" then
+			pid = v
+		end
+		if pid >= 0 and pid < DOTA_MAX_TEAM_PLAYERS then
+			if PlayerResource and PlayerResource:GetPlayer(pid) then
+				self.subscriptions[tableName][pid] = true
+				local player = PlayerResource:GetPlayer(pid)
+				if player and oldPids[pid] == nil then  
+					CustomGameEventManager:Send_ServerToPlayer(player, "pt_fu", {name=tableName, table=table} )
+				end
+			end
+		else
+			print("[playertables.lua] Warning: Pid value '" .. pid .. "' is not an integer between [0," .. DOTA_MAX_TEAM_PLAYERS .. "].  Ignoring.")
+		end
+	end
+end
+
 function PlayerTables:AddPlayerSubscription(tableName, pid)
 	if not self.tables[tableName] then
 		print("[playertables.lua] Warning: Table '" .. tableName .. "' does not exist.")

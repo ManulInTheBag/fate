@@ -5806,6 +5806,33 @@
 	"npc_dota_hero_mirana_hype"		""
 	"npc_dota_hero_mirana_bio"		""
 
+		"DOTA_Tooltip_modifier_jeanne_gods_resolution_active_buff"	"God's Resolution"
+		"DOTA_Tooltip_modifier_jeanne_gods_resolution_active_buff_Description"	"Gains magic resistance and deals damage around herself"
+
+		"DOTA_Tooltip_modifier_jeanne_gods_resolution_slow"			"God's Resolution"
+		"DOTA_Tooltip_modifier_jeanne_gods_resolution_slow_Description"			"Slowed"
+
+		"DOTA_Tooltip_modifier_jeanne_mrex"	"Magic Resistance: EX"
+		"DOTA_Tooltip_modifier_jeanne_mrex_Description"	"Gains anti-magic barrier"
+
+		"DOTA_Tooltip_modifier_jeanne_saint_aura"	"Saint"
+		"DOTA_Tooltip_modifier_jeanne_saint_aura_Description"	"Heals all teammates around Jeanne"
+
+		"DOTA_Tooltip_modifier_jeanne_saint"	"Saint"
+		"DOTA_Tooltip_modifier_jeanne_saint_Description"	"Gains health regeneration"
+
+		"DOTA_Tooltip_modifier_jeanne_luminosite_eternelle"	"Luminosite Eternelle"
+		"DOTA_Tooltip_modifier_jeanne_luminosite_eternelle_Description"	"Heals teammates and slows enemies around Jeanne"
+
+		"DOTA_Tooltip_modifier_jeanne_luminosite_eternelle_barrier"	"Luminosite Eternelle barrier"
+		"DOTA_Tooltip_modifier_jeanne_luminosite_eternelle_barrier_Description"	"Provides crowd control immunity until broken"
+
+		"DOTA_Tooltip_modifier_jeanne_crimson_saint_cooldown"	"Combo: La Pucelle - The Crimson Holy Maiden"
+		"DOTA_Tooltip_modifier_jeanne_crimson_saint_cooldown_Description"	"Is on cooldown."
+
+		"DOTA_Tooltip_modifier_jeanne_crimson_saint"	"La Pucelle - The Crimson Holy Maiden"
+		"DOTA_Tooltip_modifier_jeanne_crimson_saint_Description"	"Can't heal. Slowly loses health. Deals additional magical damage with attacks and passively deals damage to enemies around her."
+
         "DOTA_Tooltip_Ability_jeanne_magic_resistance_ex"	"Magic Resistance: EX"
         "DOTA_Tooltip_Ability_jeanne_magic_resistance_ex_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>%cast_point%</font>\nJeanne gains %barrier_per_cast% <font color='#58ACFA'>magical barrier</font>.\nCan be stacked up to %barrier_cap%."
         "DOTA_Tooltip_Ability_jeanne_magic_resistance_ex_Lore"		"The determined spirit is impenetrable shield on its own."
@@ -5846,10 +5873,11 @@
         "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_Lore"				""
 
         "DOTA_Tooltip_Ability_jeanne_crimson_saint"				"Combo: La Pucelle - The Crimson Holy Maiden"
-        "DOTA_Tooltip_Ability_jeanne_crimson_saint_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats.</font>\n<font color='#58ACFA'>Combo Sequence : Q self > R in 1 second</font>\n<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>%cast_point%</font>\nJeanne starts a prayer to release her ultimate Noble Phantasm. After a %delay_duration%-second delay she erupts with holy flames, dealing %damage% <font color='#05CAFF'>magical damage</font> to enemies in %radius% radius around her.\nAfter that Jeanne starts to slowly burn herself up, <font color='#FFFAFA'>disabling any healing</font> upon herself and losing %self_damage%%  of her maximum health each second, but dealing %burn_damage% <font color='#05CAFF'>magical damage</font> in %burn_radius% radius each second and burning enemies for %attack_damage%%  of their maximum health as <font color='#05CAFF'>magical damage</font> on her attacks.\nAfter 4 seconds, Jeanne will be able to recast the ability to burn herself with her enemies, <font color='#FFFAFA'>killing herself</font> and dealing %recast_damage% + %recast_hp_damage%%  of her remaining health as <font color='#D1A951'>pure damage</font> to all enemies in %recast_radius% radius."
+        "DOTA_Tooltip_Ability_jeanne_crimson_saint_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats.</font>\n<font color='#58ACFA'>Combo Sequence : Q self > R in 1 second</font>\n<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>%cast_point%</font>\nJeanne starts a prayer to release her ultimate Noble Phantasm. After a %delay_duration%-second delay she erupts with holy flames, dealing %damage% <font color='#05CAFF'>magical damage</font> to enemies in %radius% radius around her.\nAfter that Jeanne starts to slowly burn herself up, <font color='#FFFAFA'>disabling any healing</font> upon herself and losing %self_damage%%  of her maximum health each second, but dealing %burn_damage% <font color='#05CAFF'>magical damage</font> in %burn_radius% radius each second and burning enemies for %attack_damage%%  of their maximum health as <font color='#05CAFF'>magical damage</font> on her attacks.\nAfter 4 seconds, Jeanne will be able to recast the ability to burn herself with her enemies, <font color='#FFFAFA'>killing herself</font> and dealing up to %recast_damage% + %recast_hp_damage%%  of her remaining health as <font color='#05CAFF'>magical damage</font> to all enemies in %recast_radius% radius, depending on how far are they from Jeanne."
+        "DOTA_Tooltip_Ability_jeanne_crimson_saint_Note0"		"Maximum damage reduction from distance is 50%%."
 		
 		"DOTA_Tooltip_Ability_jeanne_crimson_saint_la_pucelle"				"Combo: La Pucelle - Final Act"
-        "DOTA_Tooltip_Ability_jeanne_crimson_saint_la_pucelle_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>%cast_point%</font>\nAfter a short prayer, Jeanne burns herself with her enemies, <font color='#FFFAFA'>killing herself</font> and dealing %damage% + %hp_damage%%  of her remaining health as <font color='#D1A951'>pure damage</font> to all enemies in %radius% radius."
+        "DOTA_Tooltip_Ability_jeanne_crimson_saint_la_pucelle_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>%cast_point%</font>\nAfter a short prayer, Jeanne burns herself with her enemies, <font color='#FFFAFA'>killing herself</font> and dealing up to %recast_damage% + %recast_hp_damage%%  of her remaining health as <font color='#05CAFF'>magical damage</font> to all enemies in %recast_radius% radius, depending on how far are they from Jeanne."
 
 		"DOTA_Tooltip_Ability_jeanne_flag"		"Luminosite Eternelle"
         "DOTA_Tooltip_Ability_jeanne_flag_Description"	"Ruler plants her flag into the ground, creating a sacred zone for next 5 seconds that absorbs all damage for allied heroes and cleanses all cleansable debuffs with each tick. Damage accumulated within the flag requires Jeanne to spend mana to keep the flag untorn. If Jeanne runs out of mana, the barrier will disappear.\nJeanne herself needs to be fully concentrated on her Noble Phantasm, so she can't act without dropping the barrier.\nJeanne is invulnerable during the effect."
@@ -6868,8 +6896,8 @@
 		"npc_dota_hero_phantom_assassin_hype"		""
 		"npc_dota_hero_phantom_assassin_bio"		""
 
-		"DOTA_Tooltip_modifier_ryougi_knife_fan_slow"				"Hidden Dagger (ying)"
-		"DOTA_Tooltip_modifier_ryougi_knife_fan_slow_Description"	"Slowed"
+		"DOTA_Tooltip_modifier_ryougi_knife_throw_slow"				"Hidden Dagger (yang)"
+		"DOTA_Tooltip_modifier_ryougi_knife_throw_slow_Description"	"Slowed"
 
 		"DOTA_Tooltip_modifier_ryougi_lines"						"Mystic Eyes of Death Perception"
 		"DOTA_Tooltip_modifier_ryougi_lines_Description"			"You are not alive. Partially."
@@ -6880,17 +6908,24 @@
 		"DOTA_Tooltip_modifier_ryougi_collapse_cd"					"Combo: Mystic Eyes of Death Perception - Five Scenic Collapse"
 		"DOTA_Tooltip_modifier_ryougi_collapse_cd_Description"		"Is on cooldown."
 
+		"DOTA_Tooltip_modifier_ryougi_knife_target"						"Marked"
+		"DOTA_Tooltip_modifier_ryougi_knife_target_Description"			"Is valid target for Bamboo Fence Melody"
+
 		"DOTA_Tooltip_ability_ryougi_knife_throw"					"Hidden Dagger (yang)"
-		"DOTA_Tooltip_ability_ryougi_knife_throw_Description"		"Shiki throws 1 dagger forward. It deals %damage% physical damage to the first enemy."
+		"DOTA_Tooltip_ability_ryougi_knife_throw_Description"		"<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%cast_point%</font>\nShiki throws 1 dagger forward. It deals <font color='#58ACFA'>%damage%</font> magical damage to the first enemy.\n<font color='#FFFAFA'>Marks</font> the enemy hit for %mark_duration% seconds, allowing to cast <font color='#ff9900'>Bamboo Fence Melody</font> while the mark persists.\n<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%cast_point_2%</font>\n Dashes to the target hit with <font color='#ff9900'>Hidden Dagger (yang)</font>, dealing <font color='#D1A951'>%damage_first%</font> pure damage.\nAfter a small delay, dashes through the target again, microstunning it, dealing <font color='#D1A951'>%damage_second%</font> pure damage.\nIf enemy health drops below %damage_per_line%%  multiplied by their line count, they will be <font color='#FF3399'>executed</font>."
 		"DOTA_Tooltip_ability_ryougi_knife_throw_range"				"Range:"
 		"DOTA_Tooltip_ability_ryougi_knife_throw_speed"				"Speed:"
-		"DOTA_Tooltip_ability_ryougi_knife_throw_attribute_silence_duration"	"Attribute silence duration:"
+		"DOTA_Tooltip_ability_ryougi_knife_throw_attribute_slow_duration"	"Attribute slow duration:"
+
+		"DOTA_Tooltip_ability_ryougi_knife_recast"					"Bamboo Fence Melody"
+		"DOTA_Tooltip_ability_ryougi_knife_recast_description"		"<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%cast_point%</font>\nDashes to the target hit with <font color='#ff9900'>Hidden Dagger (yang)</font>, dealing <font color='#D1A951'>%damage_first%</font> pure damage.\nAfter a small delay, dashes through the target again, microstunning it, dealing <font color='#D1A951'>%damage_second%</font> pure damage.\nIf enemy health drops below %damage_per_line%%  multiplied by their line count, they will be <font color='#FF3399'>executed</font>."
+
 
 		"DOTA_Tooltip_ability_ryougi_knife_fan"						"Hidden Dagger (ying)"
-		"DOTA_Tooltip_ability_ryougi_knife_fan_Description"		"Shiki throws 6 daggers forward. They deal %damage% physical damage each."
+		"DOTA_Tooltip_ability_ryougi_knife_fan_Description"		"<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%cast_point%</font>\nShiki throws 6 daggers forward. They deal <font color='#58ACFA'>%damage%</font> magical damage each."
 		"DOTA_Tooltip_ability_ryougi_knife_fan_range"				"Range:"
 		"DOTA_Tooltip_ability_ryougi_knife_fan_speed"				"Speed:"
-		"DOTA_Tooltip_ability_ryougi_knife_fan_attribute_slow_duration"	"Attribute slow duration:"
+		"DOTA_Tooltip_ability_ryougi_knife_fan_attribute_silence_duration"	"Attribute silence duration:"
 
 		"DOTA_Tooltip_ability_ryougi_avidya_moon"				"Avidya Moon"
 		"DOTA_Tooltip_ability_ryougi_avidya_moon_Description"	"Shiki flips into the air, while flying forward, and deals physical damage in front of herself."
@@ -6899,14 +6934,13 @@
 		"DOTA_Tooltip_ability_ryougi_avidya_moon_damage"		"Damage:"
 
 		"DOTA_Tooltip_ability_ryougi_glass_moon"				"Glass Moon"
-		"DOTA_Tooltip_ability_ryougi_glass_moon_Description"	"Shiki dashes forward, flips into the air and deals physical damage behind herself."
-		"DOTA_Tooltip_ability_ryougi_glass_moon_Note0"			"If Shiki is stunned by the end of dash, the ability won't go off. And yeah, hitboxes are awkward. Good luck understanding, how they work."
+		"DOTA_Tooltip_ability_ryougi_glass_moon_Description"	"<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%cast_point%</font>\nShiki <font color='#FFFAFA'>dashes</font> forward, flips into the air and deals <font color='#58ACFA'>magical</font> damage behind herself."
 		"DOTA_Tooltip_ability_ryougi_glass_moon_range"			"Range:"
 		"DOTA_Tooltip_ability_ryougi_glass_moon_dash_range"			"Dash range:"
 		"DOTA_Tooltip_ability_ryougi_glass_moon_damage"		"Damage:"
 
 		"DOTA_Tooltip_ability_ryougi_double_belfry"				"Double Belfry - Row of Beads"
-		"DOTA_Tooltip_ability_ryougi_double_belfry_Description"	"Series of slashes with %radius% range and %window_duration% second window.\n<font color='#58ACFA'>1st (E):</font> Shiki slashes enemies in front of her, dealing %first_damage% physical damage.\n<font color='#58ACFA'>Kick (E-R):</font> Shiki slides forward for %kick_range%. Deals %kick_damage% physical damage in front of her and stuns enemies for %kick_stun% seconds. Ends the sequence.\n<font color='#58ACFA'>2nd (E-E):</font> Shiki quickly slashes enemies in front of her, dealing %second_damage% physical damage.\n<font color='#58ACFA'>3rd (E-E-E):</font> Shiki performs a slash which targets weak points, dealing %third_damage% physical damage. Ends the sequence.\n<font color='#58ACFA'>4th (E-E-R):</font> Shiki performs a powerful slash, dealing %fourth_damage% physical damage in front of her, pushing enemies back and stunning them for %fourth_stun_duration%."
+		"DOTA_Tooltip_ability_ryougi_double_belfry_Description"	"<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%cast_point%</font>, <font color='#7FFF00'>%cast_point_2%</font>, <font color='#7FFF00'>%cast_point_3%</font>\nSeries of slashes with %radius% range and %window_duration% second window.\n<font color='#58ACFA'>1st:</font> Shiki slashes enemies in front of her, dealing <font color='#58ACFA'>%first_damage%</font> magical damage.\n<font color='#58ACFA'>2nd:</font> Shiki quickly slashes enemies in front of her, dealing <font color='#58ACFA'>%second_damage%</font> magical damage.\n<font color='#58ACFA'>3rd:</font> Shiki performs a slash, dealing <font color='#58ACFA'>%third_damage%</font> magical damage. Ends the sequence."
 
 		"DOTA_Tooltip_ability_ryougi_double_belfry_mech"		"Double Belfry - Row of Beads"
 		"DOTA_Tooltip_ability_ryougi_double_belfry_mech_description"	"Why are we still here? Just to suffer?"
@@ -6915,7 +6949,7 @@
 		"DOTA_Tooltip_ability_ryougi_kimono_Description"	"Series of 2 strikes with %window_duration% second window.\n<font color='#58ACFA'>1st (E):</font> Shiki dashes forward for %range% and slashes everything in front of her, dealing %first_damage% physical damage. If she slashes through an enemy, it gets stunned for %first_stun_duration% seconds.\n<font color='#58ACFA'>2nd (E-E):</font> Shiki performs a powerful backward stab, dealing %second_damage% physical damage to the first enemy behind her and locking it for %second_stun_duration% seconds."
 
 		"DOTA_Tooltip_ability_ryougi_backflip"				"Stumbling Cat"
-		"DOTA_Tooltip_ability_ryougi_backflip_Description"	"Shiki flips backwards, becoming invulnerable for 0.7 seconds and disjointing projectiles."
+		"DOTA_Tooltip_ability_ryougi_backflip_Description"	"<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%cast_point%</font>\nShiki flips backwards, becoming <font color='#FFFAFA'>invulnerable</font> for 0.5 seconds and <font color='#FFFAFA'>disjointing projectiles</font>."
 		"DOTA_Tooltip_ability_ryougi_backflip_range"		"Flip range:"
 
 		"DOTA_Tooltip_ability_ryougi_ying_yang"				"Ying Yang - Paradox Spiral"
@@ -6923,30 +6957,29 @@
 		"DOTA_Tooltip_ability_ryougi_ying_yang_Note0"		"Can be used while stunned."
 
 		"DOTA_Tooltip_ability_ryougi_mystic_eyes"			"Mystic Eyes of Death Perception"
-		"DOTA_Tooltip_ability_ryougi_mystic_eyes_Description"	"<font color='#58ACFA'>Passive:</font> each knife slash or thrown knife deals additional physical damage equal to %dmg_mult%x Shiki's attack damage.\n<font color='#58ACFA'>Active:</font> Shiki activates her Mystic Eyes for %duration% seconds. While they are active, each different move except for Double Belfry - Kick cuts one line. Shiki can't continue to cut lines of one enemy with similar moves.\nWhen line is cut, Shiki restores %mana_restore% mana, enemy recieves %immediate_damage%%  of it's maximum health as 50/50 pure and magical damage and recieves 1 stack of debuff for %line_duration% seconds.\nWhile this debuff persists, it softloks target's health for %health_percent%%  of it's maximum health per stack. If it's higher than that, it's health will slowly decay.\nWhen debuff reaches 4, 8, or 12 stacks, enemy will be locked for %stun_duration% seconds.\nWhen debuff reaches 10 stacks, target dies. Horribly."
-		"DOTA_Tooltip_ability_ryougi_mystic_eyes_Note0"			"Health decay is not considered damage."
-		"DOTA_Tooltip_ability_ryougi_mystic_eyes_bonus_vision"	"Attribute bonus vision radius:"
+		"DOTA_Tooltip_ability_ryougi_mystic_eyes_Description"	"<font color='#FFFAFA'>Passive</font> | <font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%cast_point%</font>\n Each individual ability impact <font color='#FFFAFA'>cuts one line</font>. Shiki can't continue to cut lines of one enemy with similar moves, but <font color='#FFFAFA'>will still deal additional damage</font>.\nWhen line is cut, enemy recieves <font color='#D1A951'>%immediate_damage%% </font>  of it's current health as pure and recieves 1 stack of <font color='#FF0000'>Mystic Eyes</font> for %line_duration% seconds.\nWhile this <font color='#FF0000'>debuff</font> persists, it softloks target's health for %health_percent%%  of it's maximum health per stack. If it's higher than that, it's health will slowly decay."
+		"DOTA_Tooltip_ability_ryougi_mystic_eyes_bonus_vision"				"Attribute bonus vision radius:"
 		"DOTA_Tooltip_ability_ryougi_mystic_eyes_true_sight_range"			"Attribute true sight range:"
+		"DOTA_Tooltip_ability_ryougi_mystic_eyes_duration"					"Attribute duration:"
 
 		"DOTA_Tooltip_ability_ryougi_collapse"				"Combo: Mystic Eyes of Death Perception - Five Scenic Collapse"
-		"DOTA_Tooltip_ability_ryougi_collapse_Description"	"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: R-R in 4 seconds</font>\n\nShiki dashes forward. If she dashes through an enemy hero, she will dash through him two more times, becoming invulnerable, and then slash him %line_count% times, cutting %line_count% lines and dealing %damage% total physical damage."
+		"DOTA_Tooltip_ability_ryougi_collapse_Description"	"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: F-F in 4 seconds</font>\n<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%cast_point%</font>\nShiki dashes forward. If she dashes through an enemy hero, she will dash through him two more times, becoming <font color='#FFFAFA'>invulnerable</font>, and then slash him %line_count% times, cutting %line_count% lines and dealing <font color='#D1A951'>%damage%</font> total pure damage.\nIf enemy health drops below %damage_per_line%%  multiplied by their line count, they will be <font color='#FF3399'>executed</font>."
 		"DOTA_Tooltip_ability_ryougi_collapse_range"		"Range:"
 
 		"DOTA_Tooltip_ability_ryougi_demise_attribute"		"Attribute: Mystic Eyes of Death Perception - Seven Scenic Demise"
-		"DOTA_Tooltip_ability_ryougi_demise_attribute_Description"		"Using Mystic Eyes of Death Perception taught Shiki a bit about weak points. Each time she deals damage with her knife, she also deals %damage% + %mult% of Shiki's agility magical damage."
+		"DOTA_Tooltip_ability_ryougi_demise_attribute_Description"		"Using Mystic Eyes of Death Perception taught Shiki a bit about weak points. Each time she deals damage with her knife, she also deals <font color='#D1A951'>%damage% + %mult%</font> of Shiki's <font color='#00FF00'>agility</font> <font color='#D1A951'>pure</font> damage."
 
 		"DOTA_Tooltip_ability_ryougi_selfless_knowledge_attribute"		"Attribute: Selfless Knowledge - Empty Heart, Possess Truth"
-		"DOTA_Tooltip_ability_ryougi_selfless_knowledge_attribute_Description"		"Changes Shiki's class to assassin.\nWhenever Shiki activates Mystic Eyes of Death Perception, she reveals all enemies with lines cut for 3 seconds."
+		"DOTA_Tooltip_ability_ryougi_selfless_knowledge_attribute_Description"		"Changes Shiki's class to assassin.\nEnemies under 4 or more lines cut are visible to Shiki."
 
 		"DOTA_Tooltip_ability_ryougi_pure_knowledge_attribute"		"Attribute: Pure Knowledge - Empty Boundaries"
-		"DOTA_Tooltip_ability_ryougi_pure_knowledge_attribute_Description"		"Activating Mystic Eyes of Death Perception grants Shiki true sight in small range and additional vision radius."
+		"DOTA_Tooltip_ability_ryougi_pure_knowledge_attribute_Description"		"Activating Mystic Eyes of Death Perception grants Shiki true sight in small range and additional vision radius for 3 seconds."
 
 		"DOTA_Tooltip_ability_ryougi_kiyohime_passing_attribute"		"Attribute: Kiyohime Passing"
-		"DOTA_Tooltip_ability_ryougi_kiyohime_passing_attribute_Description"	"Double Belfry - Row of Beads now allows E-E-E-R or E-E-R-E casts.\nUsing Culled Long-Sleeved Kimono E-E reduces it's cooldown to 2 seconds.\nKnife Fan hard cleanses Ryougi on use (not usable while stunned though)."
-		"DOTA_Tooltip_ability_ryougi_kiyohime_passing_attribute_Note0"		"Inputting E-E-E-E will result in automatic E-E-E-R cast."
+		"DOTA_Tooltip_ability_ryougi_kiyohime_passing_attribute_Description"	"Finishing Double Belfry - Row of Beads reduces it's cooldown to 2 seconds.\nKnife Fan hard cleanses Ryougi on use (not usable while stunned though).\nMystic Eyes of Death Perception restore 50 mana when line is cut."
 
 		"DOTA_Tooltip_ability_ryougi_black_moon_attribute"		"Attribute: Black Moon Kite"
-		"DOTA_Tooltip_ability_ryougi_black_moon_attribute_Description"		"Hidden Daggers recieve additional effects: slow (ying) and silence (yang).\nAvidya Moon and Glass Moon can be unit-targetted and if Shiki is close enought to the target at the start of the leap, she will follow them whenever they go."
+		"DOTA_Tooltip_ability_ryougi_black_moon_attribute_Description"		"Hidden Daggers recieve additional effects: <font color='#9400D3'>slow</font> (yang) and <font color='#FF3399'>silence</font> (ying)."
 
 		//====================================
 		//      Arcueid Brunestud
