@@ -417,14 +417,15 @@ function ShowHeroPreviewTab(tabID) {
 
 (function() {
 	$.GetContextPanel().RemoveClass('LocalPlayerPicked');
-	var isRussian = $.Language() === 'russian' || $.Language() === 'ukrainian';
-	//$('#AdsBanner').SetHasClass('Russian', isRussian);
 	$('#HeroListPanel').RemoveAndDeleteChildren();
 	var localPlayerId = Game.GetLocalPlayerID();
 	if (Players.IsValidPlayerID(localPlayerId) && !Players.IsSpectator(localPlayerId)) {
 		//_DynamicMinimapSubscribe($('#MinimapDynamicIcons'), function(ptid) {
 		//	MinimapPTIDs.push(ptid);
 		//});
+		$.Schedule(0.01, function() {
+			SelectionPanelEndListener();
+		});
 		DynamicSubscribePTListener('hero_selection_available_heroes', UpdateMainTable);
 		DynamicSubscribePTListener('hero_selection_draft', UpdateDraft);
 		//$.GetContextPanel().SetHasClass('ShowMMR', Options.IsEquals('EnableRatingAffection'));
@@ -452,9 +453,6 @@ function ShowHeroPreviewTab(tabID) {
 		//		Snippet_PlayerPanel(+playerId).SetDialogVariable('player_mmr', changesObject[playerId].Rating || 'TBD');
 		//	}
 		//});
-		$.Schedule(0.01, function() {
-			SelectionPanelEndListener();
-		});
 		UpdateTimer();
 		//$.Schedule(1, function() {
 		//});

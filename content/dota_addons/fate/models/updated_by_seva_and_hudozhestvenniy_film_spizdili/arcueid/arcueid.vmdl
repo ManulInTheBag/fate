@@ -1756,14 +1756,6 @@
 					{
 						_class = "AnimFile"
 						name = "arcueid11"
-						children = 
-						[
-							{
-								_class = "AnimSmoothLoop"
-								frames_from_start = 10
-								frames_from_end = 4
-							},
-						]
 						activity_name = "ACT_DOTA_RUN"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1776,10 +1768,10 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
-						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/arcueid/arcueid.fbx"
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/arcueid/arc_anim_fix.fbx"
 						import_bone_scales = false
-						start_frame = 869
-						end_frame = 893
+						start_frame = 608
+						end_frame = 632
 						framerate = -1.0
 						reverse = false
 					},

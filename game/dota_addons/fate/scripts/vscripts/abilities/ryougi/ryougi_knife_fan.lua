@@ -65,11 +65,14 @@ function ryougi_knife_fan:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
 	  if hTarget == nil then
        return
     end
+    if (hTarget:GetName() == "npc_dota_ward_base") then
+      return
+    end
   	local hCaster = self:GetCaster()
     local eyes = hCaster:FindAbilityByName("ryougi_mystic_eyes")
   	
   	DoDamage(hCaster, hTarget, self:GetSpecialValueFor("damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
-    if hCaster.BlackMoonAcquired then
+    if hCaster.BlackMoonAcquired and not (hTarget:IsMagicImmune()) then
       giveUnitDataDrivenModifier(hCaster, hTarget, "silenced", self:GetSpecialValueFor("attribute_silence_duration"))
     end
     --giveUnitDataDrivenModifier(hCaster, hTarget, "locked", self:GetSpecialValueFor("attribute_slow_duration"))

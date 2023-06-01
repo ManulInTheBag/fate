@@ -256,7 +256,7 @@ function ryougi_double_belfry:Belfry3()
 
 	if caster.KiyohimePassingAcquired then
 		self:EndCooldown()
-		self:StartCooldown(2)
+		self:StartCooldown(8)
 		--caster:GiveMana(450)
 	end
 end

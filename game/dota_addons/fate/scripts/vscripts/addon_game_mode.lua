@@ -3587,6 +3587,8 @@ function FateGameMode:TakeDamageFilter(filterTable)
         return
     end
 
+    if damage == 0 then return end
+
     local attacker = EntIndexToHScript(filterTable.entindex_attacker_const)
     local inflictor = nil
     if filterTable.entindex_inflictor_const then
@@ -3618,9 +3620,7 @@ function FateGameMode:TakeDamageFilter(filterTable)
     end
     if not attacker.bIsDmgPopupDisabled then
         if damageType == 1 or damageType == 2 or damageType == 4 then
-            if not (math.floor(damage) == 0) then
-                PopupDamage(victim, math.floor(damage), Vector(255,255,255), damageType)
-            end
+            PopupDamage(victim, math.floor(damage), Vector(255,255,255), damageType)
         end
     end
     return true

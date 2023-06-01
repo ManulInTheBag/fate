@@ -17,7 +17,9 @@ function ryougi_knife_throw:OnSpellStart()
   	local tpoint = self:GetCursorPosition()
   	local dir = tpoint - caster:GetAbsOrigin()
   	dir.z = 0
-  	caster:SetForwardVector(dir:Normalized())
+  	if not(tpoint == caster:GetAbsOrigin()) then
+  		caster:SetForwardVector(dir:Normalized())
+  	end
 	local target = caster:GetForwardVector()
 	local range = self:GetSpecialValueFor("range")
 
@@ -39,7 +41,7 @@ function ryougi_knife_throw:OnSpellStart()
 	    iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
 	    iUnitTargetType = DOTA_UNIT_TARGET_ALL,
 	    --bProvidesVision = true,
-	    bDeleteOnHit = true,
+	    bDeleteOnHit = false,
 	    --iVisionRadius = 500,
 	    --bFlyingVision = true,
 	    --iVisionTeamNumber = caster:GetTeamNumber(),
@@ -51,6 +53,9 @@ end
 
 function ryougi_knife_throw:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
 	if hTarget == nil or self.hitenemy  then --ты можешь подумать что я насрал и если инстом кинуть два ножа можно словить баг, но ты его и так ловил, удаляя ласт нож если хитнул любой из них так что похуй
+  		return
+  	end
+  	if (hTarget:GetName() == "npc_dota_ward_base") then
   		return
   	end
   	local hCaster = self:GetCaster()

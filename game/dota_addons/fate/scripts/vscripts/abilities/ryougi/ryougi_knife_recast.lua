@@ -8,6 +8,23 @@ function ryougi_knife_recast:OnUpgrade()
     end
 end
 
+function ryougi_knife_recast:CastFilterResult()
+	local caster = self:GetCaster()
+	if IsServer() then
+		local target = caster.CurrentKnifeTarget
+		local dist = (caster:GetAbsOrigin() - target:GetAbsOrigin()):Length2D()
+
+		if dist > self:GetSpecialValueFor("range") then 
+			return UF_FAIL_CUSTOM 
+		end
+	end
+	return UF_SUCCESS
+end
+
+function ryougi_knife_recast:GetCustomCastError()
+    return "#Target_out_of_range"
+end
+
 function ryougi_knife_recast:OnSpellStart()
 	local caster = self:GetCaster()
 	local origin = caster:GetAbsOrigin()
@@ -44,7 +61,7 @@ function ryougi_knife_recast:OnSpellStart()
         ParticleManager:ReleaseParticleIndex( effect_cast )
     end)
 
-    giveUnitDataDrivenModifier(caster, caster, "jump_pause", 0.8)
+    giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 0.5)
 	StartAnimation(caster, {duration=0.69, activity=ACT_DOTA_RAZE_1, rate=1})
 
 	eyes:CutLine(combo_enemy, "knife_recast_1")
@@ -66,7 +83,7 @@ function ryougi_knife_recast:OnSpellStart()
 		ParticleManager:ReleaseParticleIndex(particle0)
 	end)
 
-	Timers:CreateTimer(0.7, function()
+	Timers:CreateTimer(0.4, function()
 		StartAnimation(caster, {duration=1.0, activity=ACT_DOTA_RAZE_2, rate=2})
 
 		Timers:CreateTimer(0.1, function()

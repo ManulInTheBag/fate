@@ -14,6 +14,10 @@ function nobu_3000:OnSpellStart()
     self.rightvec = self.caster:GetRightVector()
     self.leftvec = self.caster:GetLeftVector()
     self.target = self:GetCursorPosition()
+    if self.target == self.caster:GetAbsOrigin() then
+        self.target = self.caster:GetAbsOrigin() + self.caster:GetForwardVector()*100
+    end
+    self.target.z = 0
     self.caster:EmitSound("nobu_ulti_cast")
     if(self.dummies == nil) then
         self.dummies = {}

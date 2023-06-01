@@ -7,6 +7,14 @@ function modifier_protection_of_faith_proc:CheckState()
 	return state
 end
 
+function modifier_protection_of_faith_proc:DeclareFunctions()
+	return {MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS}
+end
+
+function modifier_protection_of_faith_proc:GetModifierMagicalResistanceBonus()
+	return 80
+end
+
 function modifier_protection_of_faith_proc:GetAttributes()
   return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end

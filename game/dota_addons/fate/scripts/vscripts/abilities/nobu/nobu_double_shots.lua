@@ -84,11 +84,15 @@ function nobu_double_shots:OnSpellStart()
         else
             origin_e = self.target_enemy:GetAbsOrigin()
             direction_e = (Vector(origin_e.x, origin_e.y, 0) - Vector(origin.x, origin.y, 0)):Normalized()
-         
+            if Vector(origin_e.x, origin_e.y, 0) == Vector(origin.x, origin.y, 0) then
+                direction_e = hCaster:GetForwardVector()
+            end
         end
     else
         direction_e = (Vector(target.x, target.y, 0) - Vector(origin.x, origin.y, 0)):Normalized()
-      
+        if Vector(target.x, target.y, 0) == Vector(origin.x, origin.y, 0) then
+            direction_e = hCaster:GetForwardVector()
+        end
     end
     hCaster:SetForwardVector(direction_e)
     if counter % 10 ~=  0 then return  0.033 end
