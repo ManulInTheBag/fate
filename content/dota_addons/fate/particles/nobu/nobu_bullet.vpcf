@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf45:version{73c3d623-a141-4df2-b548-41dd786e6300} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf57:version{4f75132e-4f5d-493c-958e-3bb4328089ba} -->
 {
 	_class = "CParticleSystemDefinition"
 	m_bShouldHitboxesFallbackToRenderBounds = false
@@ -140,7 +140,7 @@
 			}
 		},
 		{
-			_class = "C_INIT_CreateWithinSphere"
+			_class = "C_INIT_CreateWithinSphereTransform"
 		},
 		{
 			_class = "C_INIT_InitFloat"
@@ -200,7 +200,15 @@
 		},
 		{
 			_class = "C_INIT_VelocityFromCP"
-			m_nControlPoint = 1
+			m_velocityInput = 
+			{
+				m_nType = "PVEC_TYPE_CP_VALUE"
+				m_nControlPoint = 1
+			}
+			m_transformInput = 
+			{
+				m_nType = "PT_TYPE_INVALID"
+			}
 		},
 	]
 	m_Operators = 
@@ -288,6 +296,9 @@
 					m_vDomainMins = [ 0.0, 0.0 ]
 					m_vDomainMaxs = [ 0.0, 0.0 ]
 				}
+			}
+			m_modelInput = 
+			{
 			}
 		},
 	]

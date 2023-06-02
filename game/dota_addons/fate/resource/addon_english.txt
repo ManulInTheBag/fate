@@ -3394,7 +3394,7 @@
 		"DOTA_Tooltip_Ability_false_assassin_tsubame_mai_slash_amount"	"SLASH AMOUNT:"
 
 		"DOTA_Tooltip_Ability_false_assassin_attribute_ganryu"					"Attribute: Ganryu"
-		"DOTA_Tooltip_ability_false_assassin_attribute_ganryu_Description"		"Increases Tsubame Gaeshi castpoint by 0.2.\nEach slash from Tsubame Gaeshi gains increased damage based on Kojiro's attack. Kojiro becomes invulnerable and untargetable while performing Tsubame Gaeshi. Using Quickdraw refreshes the cooldown of Tsubame Gaeshi.\nIf Kojiro is <font color='#79C7F0'>Focused</font>, Tsubame Gaeshi will pierce invulnerability and Avalon."
+		"DOTA_Tooltip_ability_false_assassin_attribute_ganryu_Description"		"Each slash from Tsubame Gaeshi gains increased damage based on Kojiro's attack. Kojiro becomes invulnerable and untargetable while performing Tsubame Gaeshi. Using Quickdraw refreshes the cooldown of Tsubame Gaeshi.\nIf Kojiro is <font color='#79C7F0'>Focused</font>, Tsubame Gaeshi will pierce invulnerability and Avalon."
 		"DOTA_Tooltip_ability_false_assassin_attribute_ganryu_minor_slash_dmg"	"%First Two Slash Bonus:"
 		"DOTA_Tooltip_ability_false_assassin_attribute_ganryu_final_slash_dmg"	"%Final Slash Bonus:"
 		"DOTA_Tooltip_ability_false_assassin_attribute_ganryu_Note0"			"Untargettability follows the same rules as Jump effects such as Gae Bolg and Bellerophon."
@@ -6084,7 +6084,7 @@
 	"DOTA_Tooltip_Ability_jeanne_mana_health"       "%Missing health for stack:"
 
 	"DOTA_Tooltip_Ability_jeanne_lagron"       "La Grondement Du Haine"
-	"DOTA_Tooltip_Ability_jeanne_lagron_Description"       "Jeanne takes a defencive stance, reducing all incoming damage for a while. After that spears strike the target point, stunning all enemies in a small area and dealing all the damage she blocked as magic damage."
+	"DOTA_Tooltip_Ability_jeanne_lagron_Description"       "Jeanne takes a defencive stance, reducing all incoming damage for a while. After that spears strike the target point, stunning all enemies in a small area and dealing %stored_damage_perc%%  damage she blocked as magic damage."
 	"DOTA_Tooltip_Ability_jeanne_lagron_base_damage"       "Base damage:"
 	"DOTA_Tooltip_Ability_jeanne_lagron_block_duration"       "Block duration:"
 	"DOTA_Tooltip_Ability_jeanne_lagron_stun_duration"       "Stun duration:"
@@ -7906,7 +7906,7 @@
   
 
 		"DOTA_Tooltip_ability_merlin_garden_of_avalon"						"Combo: Garden of Avalon"
-        "DOTA_Tooltip_ability_merlin_garden_of_avalon_Description"			"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: D-E in 1 second\n</font><font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0</font>\n\nMerlin starts <font color='#58ACFA'>Garden of Avalon</font> chant, lasting <font color='#FFFAFA'>4</font> seconds.\nWhile chanting Merlin is <font color='#FF3399'>silenced</font>.\nWhen the chant is finished, merlin will get a <font color='#FFFAFA'>70% damage resistance</font>, while all his allies gain huge <font color='#7CFC00'>health</font> and <font color='#58ACFA'>mana</font> <font color='#7CFC00'>regeneration</font>\nEach<font color='#FFFAFA'> 0.3</font> seconds all allies affected are <font color='#FFFAFA'>cleaned</font>.\nWhen the garden is fully materialised, Merlin can <font color='#FFFAFA'>stop</font> it by using an ability in the <font color='#58ACFA'>Avalon</font> slot. Merlin is <font color='#FFFAFA'>immune to knockback</font> while casting."
+        "DOTA_Tooltip_ability_merlin_garden_of_avalon_Description"			"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: D-E in 2 seconds\n</font><font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0</font>\n\nMerlin starts <font color='#58ACFA'>Garden of Avalon</font> chant, lasting <font color='#FFFAFA'>4</font> seconds.\nWhile chanting Merlin is <font color='#FF3399'>silenced</font>.\nWhen the chant is finished, merlin will get a <font color='#FFFAFA'>70% damage resistance</font>, while all his allies gain huge <font color='#7CFC00'>health</font> and <font color='#58ACFA'>mana</font> <font color='#7CFC00'>regeneration</font>\nEach<font color='#FFFAFA'> 0.3</font> seconds all allies affected are <font color='#FFFAFA'>cleaned</font>.\nWhen the garden is fully materialised, Merlin can <font color='#FFFAFA'>stop</font> it by using an ability in the <font color='#58ACFA'>Avalon</font> slot. Merlin is <font color='#FFFAFA'>immune to knockback</font> while casting."
         "DOTA_Tooltip_abilitymerlin_garden_of_avalon_radius"					"Radius:"
         "DOTA_Tooltip_ability_merlin_garden_of_avalon_duration_visible"			"Garden duration:"
 		"DOTA_Tooltip_ability_merlin_garden_of_avalon_health_regen_bonus"		"%Health regeneration:"
@@ -8092,7 +8092,7 @@
         "DOTA_Tooltip_ability_nobu_unifying_attribute_divine_damage_mod" 	"Divine damage modifier:"
  
         "DOTA_Tooltip_ability_nobu_independent_action"				"Attribute: Independent action"
-        "DOTA_Tooltip_ability_nobu_independent_action_Description"	"Allows Demon guns ability to be used, its level will be increased with nobu level (1/8/16).\n Shoot(Q) will now microstun and knockback enemy, if it was used without targeted shots(E) activated.\nUsing Dash will now icrease next guns damage by a flat magical value for 2 seconds."
+        "DOTA_Tooltip_ability_nobu_independent_action_Description"	"Allows Demon guns ability to be used, its level will be increased with nobu level (1/8/16).\n Shoot(Q) will now microstun and knockback enemy, if it was used without targeted shots(E) activated.\nUsing Dash will now icrease next guns damage by a flat magical value for 2 seconds.\nThree Line Formation gains additional 200 range"
         "DOTA_Tooltip_ability_nobu_independent_microstun_duration" 	"Mictostun duration:"
         
  

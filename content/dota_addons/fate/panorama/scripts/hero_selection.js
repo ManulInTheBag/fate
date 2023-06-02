@@ -415,17 +415,8 @@ function ShowHeroPreviewTab(tabID) {
 	};
 }
 
-(function() {
-	$.GetContextPanel().RemoveClass('LocalPlayerPicked');
-	$('#HeroListPanel').RemoveAndDeleteChildren();
-	var localPlayerId = Game.GetLocalPlayerID();
-	if (Players.IsValidPlayerID(localPlayerId) && !Players.IsSpectator(localPlayerId)) {
-		//_DynamicMinimapSubscribe($('#MinimapDynamicIcons'), function(ptid) {
-		//	MinimapPTIDs.push(ptid);
-		//});
-		$.Schedule(0.01, function() {
-			SelectionPanelEndListener();
-		});
+function InitHeroSelectionScreen() {
+	if (PlayerTables.IsConnected()) {
 		DynamicSubscribePTListener('hero_selection_available_heroes', UpdateMainTable);
 		DynamicSubscribePTListener('hero_selection_draft', UpdateDraft);
 		//$.GetContextPanel().SetHasClass('ShowMMR', Options.IsEquals('EnableRatingAffection'));
@@ -434,7 +425,7 @@ function ShowHeroPreviewTab(tabID) {
 		if (gamemode === 'draft') {
 			IsDraftMode = true;
 		}
-		
+			
 		$('#GameModeInfoGamemodeLabel').text = $.Localize('#' + 'arena_game_mode_type_' + gamemode);
 
 		if ($.GetContextPanel().PTID_hero_selection) PlayerTables.UnsubscribeNetTableListener($.GetContextPanel().PTID_hero_selection);
@@ -442,25 +433,38 @@ function ShowHeroPreviewTab(tabID) {
 			$.GetContextPanel().PTID_hero_selection = ptid;
 		});
 
-		//DynamicSubscribePTListener('stats_team_rating', function(tableName, changesObject, deletionsObject) {
-		//	for (var teamNumber in changesObject) {
-		//		$('#team_selection_panels_team' + teamNumber).SetDialogVariable('team_rating', changesObject[teamNumber]);
-		//	}
-		//});
+			//DynamicSubscribePTListener('stats_team_rating', function(tableName, changesObject, deletionsObject) {
+			//	for (var teamNumber in changesObject) {
+			//		$('#team_selection_panels_team' + teamNumber).SetDialogVariable('team_rating', changesObject[teamNumber]);
+			//	}
+			//});
 
-		//DynamicSubscribePTListener('stats_client', function(tableName, changesObject, deletionsObject) {
-		//	for (var playerId in changesObject) {
-		//		Snippet_PlayerPanel(+playerId).SetDialogVariable('player_mmr', changesObject[playerId].Rating || 'TBD');
-		//	}
-		//});
+			//DynamicSubscribePTListener('stats_client', function(tableName, changesObject, deletionsObject) {
+			//	for (var playerId in changesObject) {
+			//		Snippet_PlayerPanel(+playerId).SetDialogVariable('player_mmr', changesObject[playerId].Rating || 'TBD');
+			//	}
+			//});
 		UpdateTimer();
-		//$.Schedule(1, function() {
-		//});
+			//$.Schedule(1, function() {
+			//});
+	} else {
+		$.Schedule(0.01, function()	{
+			InitHeroSelectionScreen()
+		});
+	}
 
-		$('#HeroSelectionCustomBackground').SetImage("s2r://panorama/images/custom_game/loading_screen/pickscreen_png.vtex")
+	$('#HeroSelectionCustomBackground').SetImage("s2r://panorama/images/custom_game/loading_screen/pickscreen_png.vtex")
+}
 
-		var bglist = Players.GetStatsData(localPlayerId).Backgrounds;
-		if (bglist) $('#HeroSelectionCustomBackground').SetImage(bglist[Math.floor(Math.random() * bglist.length)]);
+(function() {
+	$.GetContextPanel().RemoveClass('LocalPlayerPicked');
+	$('#HeroListPanel').RemoveAndDeleteChildren();
+	var localPlayerId = Game.GetLocalPlayerID();
+	if (Players.IsValidPlayerID(localPlayerId) && !Players.IsSpectator(localPlayerId)) {
+		$.Schedule(0.01, function() {
+			SelectionPanelEndListener();
+		});
+		InitHeroSelectionScreen()
 	} else {
 		HeroSelectionEnd(true);
 	}

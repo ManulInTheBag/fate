@@ -46,7 +46,7 @@ end
 
 function jeanne_lagron:LaunchLagronProjectile(checker, point, stored_damage)
 
-    local tExtraData = { damage = stored_damage + self:GetSpecialValueFor("base_damage") }
+    local tExtraData = { damage = stored_damage*self:GetSpecialValueFor("stored_damage_perc")/100 + self:GetSpecialValueFor("base_damage") }
 
     local caster = self:GetCaster()
 

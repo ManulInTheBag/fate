@@ -26,9 +26,9 @@ function sasaki_tsubame_gaeshi:GetCastPoint()
 	local caster = self:GetCaster()
 
 	if caster:HasModifier("modifier_ganryu_attribute") then
-		return 0.8
+		return 0.7
 	else
-		return 0.6
+		return 0.7
 	end
 end
 
@@ -68,7 +68,7 @@ function sasaki_tsubame_gaeshi:TsubameGaeshi(target)
 	local caster = self:GetCaster()
 	--local target = self:GetCursorTarget()
 	local enhanced = false
-	local delay = 0.5
+	local delay = 0.4
 	local delay_per_slash = 0.2
 	local split_damage = self:GetSpecialValueFor("damage_split")
 	local final_damage = self:GetSpecialValueFor("damage_final")
@@ -90,19 +90,18 @@ function sasaki_tsubame_gaeshi:TsubameGaeshi(target)
 	caster:AddNewModifier(caster, self, "modifier_exhausted", { Duration = self:GetSpecialValueFor("exhausted_duration") })
 
 	if caster.IsGanryuAcquired then			
-		delay = 0.2
+		--delay = 0.2
 
 		--if not enhanced then
 			split_damage = split_damage + caster:GetAverageTrueAttackDamage(caster)*0.35
-			final_damage = final_damage + caster:GetAverageTrueAttackDamage(caster)*0.7
-			giveUnitDataDrivenModifier(caster, caster, "jump_pause", 0.5)
+			final_damage = final_damage + caster:GetAverageTrueAttackDamage(caster)*0.5
+			giveUnitDataDrivenModifier(caster, caster, "pause_sealdisabled", 0.4)
 		--else
 		--	combined_damage = combined_damage + caster:GetAverageTrueAttackDamage(caster)
 		--end
 	end
 
 	--caster:SetMana(0)
-	EmitGlobalSound("FA.TG")
 	LoopOverPlayers(function(player, playerID, playerHero)
 		--print("looping through " .. playerHero:GetName())
 		if playerHero.zlodemon == true then
@@ -110,19 +109,24 @@ function sasaki_tsubame_gaeshi:TsubameGaeshi(target)
 			CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="moskes_hiken_tg"})
 			--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
 		else
-			CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="FA.TG"})
+			--CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="FA.TG"})
 		end
 
 	end)
-	EmitGlobalSound("FA.CHOP")
-	StartAnimation(caster, {duration=delay + delay_per_slash * 2, activity= ACT_DOTA_CAST_ABILITY_4 , rate=2.5})
 
 	caster:AddNewModifier(caster, nil, "modifier_phased", {duration = 1.0})
 	giveUnitDataDrivenModifier(caster, caster, "dragged", 1.0)
 	giveUnitDataDrivenModifier(caster, caster, "revoked", 1.0)
 
-	local particle = ParticleManager:CreateParticle("particles/custom/false_assassin/tsubame_gaeshi/slashes.vpcf", PATTACH_ABSORIGIN, caster)
-	ParticleManager:SetParticleControl(particle, 0, target:GetAbsOrigin()) 
+	local particle = 0
+
+	Timers:CreateTimer(0.2, function()
+		EmitGlobalSound("FA.TG")
+		EmitGlobalSound("FA.CHOP")
+		StartAnimation(caster, {duration=0.2 + delay_per_slash * 2, activity= ACT_DOTA_CAST_ABILITY_4 , rate=2.5})
+		particle = ParticleManager:CreateParticle("particles/custom/false_assassin/tsubame_gaeshi/slashes.vpcf", PATTACH_ABSORIGIN, caster)
+		ParticleManager:SetParticleControl(particle, 0, target:GetAbsOrigin())
+	end)
 
 	Timers:CreateTimer(delay, function()  
 		if caster:IsAlive() and target:IsAlive() then			

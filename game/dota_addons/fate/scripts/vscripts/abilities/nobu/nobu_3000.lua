@@ -1,10 +1,12 @@
 nobu_3000 = class({})
 LinkLuaModifier("modifier_merlin_self_pause","abilities/merlin/merlin_orbs", LUA_MODIFIER_MOTION_NONE)
 
-
-
- 
-
+function nobu_3000:GetCastRange()
+    if self:GetCaster():HasModifier("modifier_nobu_ia_attribute") then
+        return (self:GetSpecialValueFor("range") + self:GetSpecialValueFor("attribute_additional_range"))
+    end
+    return self:GetSpecialValueFor("range")
+end
 
 function nobu_3000:OnSpellStart()
 	self.ChannelTime = 0
@@ -100,6 +102,10 @@ end
 function nobu_3000:OnChannelFinish(bInterrupted)
     local vCasterOrigin = self.caster:GetAbsOrigin()
     local vCasterFW = self.caster:GetForwardVector()
+    local range = self:GetSpecialValueFor("range")
+    if self.caster.NobuActionAcquired then
+        range = range + self:GetSpecialValueFor("attribute_additional_range")
+    end
     self.caster:AddNewModifier(self.caster, self, "modifier_merlin_self_pause", {Duration = 0.3}) 
     ParticleManager:DestroyParticle( self.particle_kappa, false)
     ParticleManager:ReleaseParticleIndex( self.particle_kappa)
@@ -117,7 +123,7 @@ function nobu_3000:OnChannelFinish(bInterrupted)
             Speed = 10000,
             Facing = facing,
             AoE = aoe,
-            Range = 1300,
+            Range = range,
         })
         Timers:CreateTimer(0.1, function()
             self.caster:SetAbsOrigin(GetGroundPosition(self.caster:GetAbsOrigin(),self.caster))
@@ -141,7 +147,7 @@ function nobu_3000:OnChannelFinish(bInterrupted)
                 Speed = 10000,
                 Facing =  facing,
                 AoE = aoe,
-                Range = 1300,
+                Range = range,
             })
             ParticleManager:DestroyParticle( self.dummies[i].GunFx, false)
 		    ParticleManager:ReleaseParticleIndex(self.dummies[i].GunFx)
@@ -212,7 +218,7 @@ function nobu_3000:Shoot(keys)
         ]]
         local targets = FindUnitsInLine(  self.caster:GetTeamNumber(),
                                              keys.Origin,
-                                             keys.Origin+keys.Speed*0.13*keys.Facing ,
+                                             keys.Origin+keys.Range*keys.Facing ,
                                        		 nil,
                                        		 keys.AoE,
                                       		 DOTA_UNIT_TARGET_TEAM_ENEMY,
@@ -220,7 +226,7 @@ function nobu_3000:Shoot(keys)
                                      		 DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
                                     	    )
          local fx = ParticleManager:CreateParticle("particles/nobu/nobu_lasers_nonproj.vpcf", PATTACH_CUSTOMORIGIN, nil)
-		ParticleManager:SetParticleControl(fx, 1,   keys.Origin+keys.Speed*0.13*keys.Facing)       
+		ParticleManager:SetParticleControl(fx, 1,   keys.Origin+keys.Range*keys.Facing)       
         ParticleManager:SetParticleControl(fx, 9,  keys.Origin)           
         for k,v in pairs(targets) do            
           

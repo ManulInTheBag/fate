@@ -82,7 +82,7 @@ function nobu_unifying_attribute:OnSpellStart()
 end
 
 
-
+LinkLuaModifier("modifier_nobu_ia_attribute", "abilities/nobu/nobu_attributes", LUA_MODIFIER_MOTION_NONE)
 
 nobu_independent_action = class({})
 
@@ -100,8 +100,31 @@ function nobu_independent_action:OnSpellStart()
 		hero:FindAbilityByName("nobu_guns"):SetLevel(4)
 	end
 	local master = hero.MasterUnit
+	Timers:CreateTimer(function()
+		if hero:IsAlive() then 
+			hero:AddNewModifier(hero, self, "modifier_nobu_ia_attribute", {})
+			return nil
+		else
+			return 1
+		end
+	end)
 	master:SetMana(master:GetMana() - self:GetManaCost(self:GetLevel()))
 end
 
- 
- 
+modifier_nobu_ia_attribute = class({})
+
+function modifier_nobu_ia_attribute:IsHidden()
+	return true
+end
+
+function modifier_nobu_ia_attribute:IsPermanent()
+	return true
+end
+
+function modifier_nobu_ia_attribute:RemoveOnDeath()
+	return false
+end
+
+function modifier_nobu_ia_attribute:GetAttributes()
+  return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
+end

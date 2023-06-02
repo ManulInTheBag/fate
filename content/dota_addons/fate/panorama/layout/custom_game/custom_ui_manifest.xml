@@ -71,17 +71,9 @@
         var strategyUI = UIRoot.FindChildTraverse("MainContents").FindChildTraverse("ScreenContainer").FindChildTraverse("StrategyScreen").FindChildTraverse("RightContainer");
         strategyUI.style.visibility = "collapse";
 
-        // role filter
-        var roleFilterUI = UIRoot.FindChildTraverse("MainContents").FindChildTraverse("ScreenContainer").FindChildTraverse("HeroPickScreen").FindChildTraverse("HeroPickScreenContents").FindChildTraverse("HeroPickLeftColumn").FindChildTraverse("HeroFilters").FindChildTraverse("MainFilters");
-        roleFilterUI.style.visibility = "collapse";
-
         // DOTA minimap
         var minimapUI = UIRoot.FindChildTraverse("PreGame").FindChildTraverse("BottomPanelsContainer").FindChildTraverse("PreMinimapContainer");
         minimapUI.style.visibility = "collapse";
-
-        // Team Composition
-        var teamCompUI = UIRoot.FindChildTraverse("PreGame").FindChildTraverse("BottomPanelsContainer").FindChildTraverse("BottomPanels").FindChildTraverse("GridTeamComp");
-        teamCompUI.style.visibility = "collapse";
 
         // Current Active Quest
         var activeQuestUI = UIRoot.FindChildTraverse("PreGame").FindChildTraverse("BottomPanelsContainer").FindChildTraverse("BottomPanels").FindChildTraverse("BattlePassContainer");
@@ -104,6 +96,10 @@
         var backpackUI = UIRoot.FindChildTraverse("HUDElements").FindChildTraverse("lower_hud").FindChildTraverse("center_with_stats").FindChildTraverse("center_block").FindChildTraverse("inventory").FindChildTraverse("inventory_items").FindChildTraverse("InventoryContainer").FindChildTraverse("inventory_backpack_list");
         backpackUI.style.visibility = "collapse";
 
+        // tpscroll
+        var tpscrollUI = UIRoot.FindChildTraverse("HUDElements").FindChildTraverse("lower_hud").FindChildTraverse("center_with_stats").FindChildTraverse("center_block").FindChildTraverse("inventory_composition_layer_container").FindChildTraverse("inventory_tpscroll_container");
+        tpscrollUI.style.visibility = "collapse";
+
         // Glyph, Scan
         var glyphScanUI = UIRoot.FindChildTraverse("HUDElements").FindChildTraverse("lower_hud").FindChildTraverse("GlyphScanContainer");
 		//glyphScanUI.style.visibility = "collapse";
@@ -112,9 +108,21 @@
         var commonItemSearchUI = UIRoot.FindChildTraverse("HUDElements").FindChildTraverse("shop").FindChildTraverse("Main").FindChildTraverse("HeightLimiter").FindChildTraverse("SearchContainer");
         commonItemSearchUI.style.visibility = "collapse";
 
+        // Pinned items
+        var pinnedItemsUI = UIRoot.FindChildTraverse("HUDElements").FindChildTraverse("shop").FindChildTraverse("Main").FindChildTraverse("ItemCombinesAndBasicItemsContainer").FindChildTraverse("CommonItems");
+        pinnedItemsUI.style.visibility = "collapse";
+
+        // Guide
+        var guideUI = UIRoot.FindChildTraverse("HUDElements").FindChildTraverse("shop").FindChildTraverse("GuideFlyout");
+       	guideUI.style.height = "800px";
+
+        // Neutrals container
+        var neutralItemsUI = UIRoot.FindChildTraverse("HUDElements").FindChildTraverse("shop").FindChildTraverse("Main").FindChildTraverse("HeightLimiter").FindChildTraverse("GridMainShop").FindChildTraverse("GridShopHeaders").FindChildTraverse("GridMainTabs").FindChildTraverse("GridNeutralsTab");
+        neutralItemsUI.style.visibility = "collapse";
+
         // Combat events(kill etc)
         var combatEventUI = UIRoot.FindChildTraverse("HUDElements").FindChildTraverse("combat_events");
-        combatEventUI.style.visibility = "collapse";
+        //combatEventUI.style.visibility = "collapse";
 
         // Quickbuy
         var quickbuyUI = UIRoot.FindChildTraverse("HUDElements").FindChildTraverse("lower_hud").FindChildTraverse("shop_launcher_block").FindChildTraverse("quickbuy").FindChildTraverse("QuickBuyRows");

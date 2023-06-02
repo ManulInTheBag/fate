@@ -24,7 +24,7 @@ function merlin_avalon:OnSpellStart()
     		caster:SwapAbilities("merlin_garden_of_avalon", "merlin_illusion", true, false)
 
     		Timers:CreateTimer('merlin_trigger_window',{
-		        endTime = 1,
+		        endTime = 2,
 		        callback = function()
 		        if caster:GetAbilityByIndex(2):GetName() ~= "merlin_illusion"  then
 					caster:SwapAbilities("merlin_garden_of_avalon", "merlin_illusion", false, true)

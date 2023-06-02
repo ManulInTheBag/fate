@@ -500,7 +500,7 @@ function HeroSelection:StartStateInGame(toPrecache)
 						if tostring(v.status) == "picked" and not PlayerResource:IsPlayerAbandoned(plyId) then
 							HeroSelection:SelectHero(plyId, tostring(v.hero), nil, nil, true)
 						end
-						if not (tostring(v.status) == "picked") then
+						if not (tostring(v.status) == "picked") or (PlayerResource:IsPlayerAbandoned()) then
 							Timers:CreateTimer(0.1, function()
 								local pepe = PlayerTables:GetTableValue("hero_selection", team)[plyId]
 								if tostring(pepe.status) == "picked" and not PlayerResource:IsPlayerAbandoned(plyId) then

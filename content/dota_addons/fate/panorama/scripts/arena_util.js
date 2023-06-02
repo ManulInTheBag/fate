@@ -208,7 +208,7 @@ function DynamicSubscribePTListener(table, callback, OnConnectedCallback) {
 			OnConnectedCallback(ptid);
 		}
 	} else {
-		//$.Msg("Update " + table + " / PT not connected, repeat")
+		$.Msg("Update " + table + " / PT not connected, repeat")
 		$.Schedule(0.1, function() {
 			DynamicSubscribePTListener(table, callback, OnConnectedCallback);
 		});

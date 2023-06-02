@@ -200,7 +200,7 @@ function okita_sandanzuki_release:OnSpellStart()
             iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
             iUnitTargetType = DOTA_UNIT_TARGET_ALL,
             fExpireTime = GameRules:GetGameTime() + 2.0,
-            bDeleteOnHit = true,
+            bDeleteOnHit = false,
             vVelocity = direction * self:GetSpecialValueFor("speed")
         }
 
@@ -209,6 +209,10 @@ end
 
 function okita_sandanzuki_release:OnProjectileHit_ExtraData(hTarget, vLocation, table)
     if hTarget == nil or self.kappa == true then return end
+
+    if (hTarget:GetName() == "npc_dota_ward_base") then
+        return
+    end
 
     local caster = self:GetCaster()
     local ability = self
@@ -250,7 +254,6 @@ function okita_sandanzuki_release:OnProjectileHit_ExtraData(hTarget, vLocation, 
         ParticleManager:DestroyParticle(slashIndex, true)
         ParticleManager:ReleaseParticleIndex(slashIndex)
         end)
-
 end
 
 modifier_okita_sandanzuki_release = class({})

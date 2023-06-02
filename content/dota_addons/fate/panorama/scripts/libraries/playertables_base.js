@@ -8,6 +8,7 @@ var PT = {
 };
 //TODO: Check if it fixed reconnect bugs
 var UTPromisedCalls = [];
+var UTPromisedCallsTest = [];
 var connected = false;
 
 $.Msg("[playertables_base.js] Loaded");
@@ -161,12 +162,15 @@ function TableFullUpdate(msg) {
 				$.Msg("PlayerTables.TableFullUpdate callback error for '", msg.name, " -- ", newTable, "': ", err.stack);
 			};*/
 	}
+
 	var tableIndex = Object.keys(PT.tables).length;
 	if (msg.inputlength != null && tableIndex >= msg.inputlength && !connected) {
 		connected = true;
-		_.each(UTPromisedCalls, function(v) {
-			v();
-		});
+		for (index = 1; index <= Object.keys(UTPromisedCalls).length; ++index) {
+		//_.each(UTPromisedCalls, function(v) {
+			UTPromisedCalls[i]();
+		//});
+		}
 	}
 };
 
@@ -175,6 +179,7 @@ function UpdateTable(msg) {
 	//msg.changes = UnprocessTable(msg.changes);
 	if (!PlayerTables.IsConnected()) {
 		UTPromisedCalls.push(function() {
+			$.Msg("UTPromisedCalls worked, that means something tried to update before PT was connected " + msg)
 			UpdateTable(msg);
 		});
 		return;

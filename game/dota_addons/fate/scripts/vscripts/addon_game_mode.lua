@@ -1784,6 +1784,117 @@ function OnPlayerCastSeal(iSource, args)
     end
 end
 
+function OnPlayerCastSeal(iSource, args)
+    local iPlayer = args.PlayerID
+    local hUnit = EntIndexToHScript(args.iUnit)
+    local hAbility = EntIndexToHScript(args.iAbility)
+
+    if iPlayer == hUnit:GetPlayerOwnerID() then
+        if hUnit.HeroUnit and not hUnit.HeroUnit:IsAlive() then
+            SendErrorMessage(iPlayer, "Hero is dead")
+        end
+
+        if hAbility:GetName() == "cmd_seal_4" then
+            if IsManaLess(hUnit.HeroUnit) --[[hUnit.HeroUnit:GetName() == "npc_dota_hero_juggernaut" or hUnit.HeroUnit:GetName() == "npc_dota_hero_shadow_shaman"]] then
+                SendErrorMessage(iPlayer, "Cannot use Command Seal 4")
+            end
+        end
+
+        if hUnit:GetMana() < hAbility:GetManaCost(1) then
+            SendErrorMessage(iPlayer, "Not enough mana")
+        elseif hUnit:GetHealth() <= 1 then
+            SendErrorMessage(iPlayer, "Not enough master health")
+        else
+            --For some reason this thing ignores the cast filter SeemsGood
+            hUnit:CastAbilityNoTarget(hAbility, iPlayer)
+        end
+    end
+end
+
+function OnPlayerCastSeal1(index, keys) 
+    local playerID = EntIndexToHScript(keys.player)
+    local hero = PlayerResource:GetPlayer(keys.player):GetAssignedHero()
+    local master = hero.MasterUnit
+    local hAbility = master:GetAbilityByIndex(0)
+
+    if master:GetMana() < hAbility:GetManaCost(1) then
+    elseif master:GetHealth() <= 1 then
+    else
+        --For some reason this thing ignores the cast filter SeemsGood
+        master:CastAbilityNoTarget(hAbility, master:GetPlayerOwnerID())
+    end
+end
+
+function OnPlayerCastSeal2(index, keys) 
+    local playerID = EntIndexToHScript(keys.player)
+    local hero = PlayerResource:GetPlayer(keys.player):GetAssignedHero()
+    local master = hero.MasterUnit
+    local hAbility = master:GetAbilityByIndex(1)
+
+    if master:GetMana() < hAbility:GetManaCost(1) then
+    elseif master:GetHealth() <= 1 then
+    else
+        --For some reason this thing ignores the cast filter SeemsGood
+        master:CastAbilityNoTarget(hAbility, master:GetPlayerOwnerID())
+    end
+end
+
+function OnPlayerCastSeal3(index, keys) 
+    local playerID = EntIndexToHScript(keys.player)
+    local hero = PlayerResource:GetPlayer(keys.player):GetAssignedHero()
+    local master = hero.MasterUnit
+    local hAbility = master:GetAbilityByIndex(2)
+
+    if master:GetMana() < hAbility:GetManaCost(1) then
+    elseif master:GetHealth() <= 1 then
+    else
+        --For some reason this thing ignores the cast filter SeemsGood
+        master:CastAbilityNoTarget(hAbility, master:GetPlayerOwnerID())
+    end
+end
+
+function OnPlayerCastSeal4(index, keys) 
+    local playerID = EntIndexToHScript(keys.player)
+    local hero = PlayerResource:GetPlayer(keys.player):GetAssignedHero()
+    local master = hero.MasterUnit
+    local hAbility = master:GetAbilityByIndex(5)
+
+    if master:GetMana() < hAbility:GetManaCost(1) then
+    elseif master:GetHealth() <= 1 then
+    else
+        --For some reason this thing ignores the cast filter SeemsGood
+        master:CastAbilityNoTarget(hAbility, master:GetPlayerOwnerID())
+    end
+end
+
+function OnPlayerCastSeal5(index, keys) 
+    local playerID = EntIndexToHScript(keys.player)
+    local hero = PlayerResource:GetPlayer(keys.player):GetAssignedHero()
+    local master = hero.MasterUnit
+    local hAbility = master:GetAbilityByIndex(3)
+
+    if master:GetMana() < hAbility:GetManaCost(1) then
+    elseif master:GetHealth() <= 1 then
+    else
+        --For some reason this thing ignores the cast filter SeemsGood
+        master:CastAbilityNoTarget(hAbility, master:GetPlayerOwnerID())
+    end
+end
+
+function OnPlayerCastSeal6(index, keys) 
+    local playerID = EntIndexToHScript(keys.player)
+    local hero = PlayerResource:GetPlayer(keys.player):GetAssignedHero()
+    local master = hero.MasterUnit
+    local hAbility = master:GetAbilityByIndex(4)
+
+    if master:GetMana() < hAbility:GetManaCost(1) then
+    elseif master:GetHealth() <= 1 then
+    else
+        --For some reason this thing ignores the cast filter SeemsGood
+        master:CastAbilityNoTarget(hAbility, master:GetPlayerOwnerID())
+    end
+end
+
 function DistributeGold(hero, cutoff)
     -- get gold amount of teammates
     -- exclude from table if more than stated amount
@@ -2466,6 +2577,7 @@ function FateGameMode:InitialiseMissingPanoramaData(ply)
 
     PlayerTables:ReInitTable("hero_selection_available_heroes")
     PlayerTables:ReInitTable("hero_selection_heroes_data")
+    PlayerTables:ReInitTable("hero_selection")
 end
 
 function RecreateUITimer(playerID, timerName, message, description)
@@ -3460,6 +3572,12 @@ function FateGameMode:InitGameMode()
     CustomGameEventManager:RegisterListener( "player_alt_click", OnPlayerAltClick )
     CustomGameEventManager:RegisterListener("player_remove_buff", OnPlayerRemoveBuff )
     CustomGameEventManager:RegisterListener("player_cast_seal", OnPlayerCastSeal )
+    CustomGameEventManager:RegisterListener("player_seal_1", OnPlayerCastSeal1 )
+    CustomGameEventManager:RegisterListener("player_seal_2", OnPlayerCastSeal2 )
+    CustomGameEventManager:RegisterListener("player_seal_3", OnPlayerCastSeal3 )
+    CustomGameEventManager:RegisterListener("player_seal_4", OnPlayerCastSeal4 )
+    CustomGameEventManager:RegisterListener("player_seal_5", OnPlayerCastSeal5 )
+    CustomGameEventManager:RegisterListener("player_seal_6", OnPlayerCastSeal6 )
     -- LUA modifiers
     LinkLuaModifier("modifier_ms_cap", "modifiers/modifier_ms_cap", LUA_MODIFIER_MOTION_NONE)
 
