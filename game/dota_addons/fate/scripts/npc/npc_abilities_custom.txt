@@ -355,20 +355,20 @@
 					"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
 				}
 		  	}
-			"modifier_combo_checker"
-			{
-				"Passive"		"1"
-				"IsHidden"		"1"
-				"ThinkInterval"				"0.3"
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-					 	"ScriptFile"	"master_ability"
-					 	"Function"		"OnComboCheck"
-					}
-				}
-			}
+			//"modifier_combo_checker"
+			//{
+			//	"Passive"		"1"
+			//	"IsHidden"		"1"
+			//	"ThinkInterval"				"0.3"
+			//	"OnIntervalThink"
+			//	{
+			//		"RunScript"
+			//		{
+			//		 	"ScriptFile"	"master_ability"
+			//		 	"Function"		"OnComboCheck"
+			//		}
+			//	}
+			//}
 			"combo_unavailable"
 			{
 				"IsDebuff"		"1"

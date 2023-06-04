@@ -82,6 +82,7 @@ function ryougi_knife_throw:OnProjectileThink(location)
     local duration = 0.5
 
     AddFOWViewer(caster:GetTeamNumber(), location, radius, duration, false)
+    AddFOWViewer(caster:GetOpposingTeamNumber(), location, 40, 0.4, false)
 end
 
 modifier_ryougi_knife_target = class({})

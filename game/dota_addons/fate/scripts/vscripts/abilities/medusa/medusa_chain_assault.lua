@@ -197,24 +197,39 @@ function medusa_chain_assault:OnProjectileHit_ExtraData(hTarget, vLocation, hTab
         	Timers:RemoveTimer("medusa_chain_particle")
         	if GridNav:IsNearbyTree( hTarget:GetAbsOrigin(), 120, false) then
         		if IsNotNull(hTarget) then
-					hTarget:AddNewModifier(hCaster, self, "modifier_stunned", {duration = self:GetSpecialValueFor("collide_stun_duration")})
+					if hTarget:IsAlive() then
+						hTarget:AddNewModifier(hCaster, self, "modifier_stunned", {duration = self:GetSpecialValueFor("collide_stun_duration")})
+					end
 
-					local target_position = hTarget:GetAbsOrigin()
-					local range = (target_position - hCaster:GetAbsOrigin()):Length2D()
-					local direction = (target_position - hCaster:GetAbsOrigin()):Normalized()
-					target_position = hTarget:GetAbsOrigin() - direction*130
+					if hCaster:IsAlive() then
+						local target_position = hTarget:GetAbsOrigin()
+						local range = (target_position - hCaster:GetAbsOrigin()):Length2D()
+						local direction = (target_position - hCaster:GetAbsOrigin()):Normalized()
+						target_position = hTarget:GetAbsOrigin() - direction*130
 
-
-					local modifier = hCaster:AddNewModifier(hCaster, self, "modifier_medusa_chain_movement", {	target_position_x = target_position.x, 
-																							target_position_y = target_position.y,
-																							target_position_z = target_position.z,
-																							particle1 = hTable.pfx_index1,
-																							particle2 = hTable.pfx_index2,
-																							range = range,
-																							fly_speed = fly_speed,
-																							damage = fDamage
-																							})
-					modifier.primary_enemy = hTarget
+						local modifier = hCaster:AddNewModifier(hCaster, self, "modifier_medusa_chain_movement", {	target_position_x = target_position.x, 
+																									target_position_y = target_position.y,
+																									target_position_z = target_position.z,
+																									particle1 = hTable.pfx_index1,
+																									particle2 = hTable.pfx_index2,
+																									range = range,
+																									fly_speed = fly_speed,
+																									damage = fDamage
+																									})
+						modifier.primary_enemy = hTarget
+					else
+						self.launched = false
+						ParticleManager:DestroyParticle(hTable.pfx_index1, false)
+						ParticleManager:ReleaseParticleIndex(hTable.pfx_index1)
+						ParticleManager:DestroyParticle(hTable.pfx_index2, false)
+						ParticleManager:ReleaseParticleIndex(hTable.pfx_index2)
+					end
+				else
+					self.launched = false
+					ParticleManager:DestroyParticle(hTable.pfx_index1, false)
+					ParticleManager:ReleaseParticleIndex(hTable.pfx_index1)
+					ParticleManager:DestroyParticle(hTable.pfx_index2, false)
+					ParticleManager:ReleaseParticleIndex(hTable.pfx_index2)
 				end
 			else
 	        	local chTarget = CreateUnitByName("hrunt_illusion", hTarget:GetAbsOrigin(), true, nil, nil, hCaster:GetTeamNumber())
@@ -269,24 +284,34 @@ function medusa_chain_assault:OnProjectileHit_ExtraData(hTarget, vLocation, hTab
 					unit:PreventDI(false)
 					unit:SetPhysicsVelocity(Vector(0,0,0))
 					FindClearSpaceForUnit(unit, unit:GetAbsOrigin(), true)
-					if IsNotNull(hTarget) and hTarget:IsAlive() then
-						hTarget:AddNewModifier(hCaster, self, "modifier_stunned", {duration = self:GetSpecialValueFor("collide_stun_duration")})
+					if IsNotNull(hTarget) then
+						if hTarget:IsAlive() then
+							hTarget:AddNewModifier(hCaster, self, "modifier_stunned", {duration = self:GetSpecialValueFor("collide_stun_duration")})
+						end
 
-						local target_position = hTarget:GetAbsOrigin()
-						local range = (target_position - hCaster:GetAbsOrigin()):Length2D()
-						local direction = (target_position - hCaster:GetAbsOrigin()):Normalized()
-						target_position = hTarget:GetAbsOrigin() - direction*130
+						if hCaster:IsAlive() then
+							local target_position = hTarget:GetAbsOrigin()
+							local range = (target_position - hCaster:GetAbsOrigin()):Length2D()
+							local direction = (target_position - hCaster:GetAbsOrigin()):Normalized()
+							target_position = hTarget:GetAbsOrigin() - direction*130
 
-						local modifier = hCaster:AddNewModifier(hCaster, self, "modifier_medusa_chain_movement", {	target_position_x = target_position.x, 
-																								target_position_y = target_position.y,
-																								target_position_z = target_position.z,
-																								particle1 = hTable.pfx_index1,
-																								particle2 = hTable.pfx_index2,
-																								range = range,
-																								fly_speed = fly_speed,
-																								damage = fDamage
-																								})
-						modifier.primary_enemy = hTarget
+							local modifier = hCaster:AddNewModifier(hCaster, self, "modifier_medusa_chain_movement", {	target_position_x = target_position.x, 
+																									target_position_y = target_position.y,
+																									target_position_z = target_position.z,
+																									particle1 = hTable.pfx_index1,
+																									particle2 = hTable.pfx_index2,
+																									range = range,
+																									fly_speed = fly_speed,
+																									damage = fDamage
+																									})
+							modifier.primary_enemy = hTarget
+						else
+							self.launched = false
+							ParticleManager:DestroyParticle(hTable.pfx_index1, false)
+							ParticleManager:ReleaseParticleIndex(hTable.pfx_index1)
+							ParticleManager:DestroyParticle(hTable.pfx_index2, false)
+							ParticleManager:ReleaseParticleIndex(hTable.pfx_index2)
+						end
 					else
 						self.launched = false
 						ParticleManager:DestroyParticle(hTable.pfx_index1, false)
@@ -350,24 +375,38 @@ function modifier_medusa_chain_movement_enemy:OnIntervalThink()
 				self.chTarget:PreventDI(false)
 				self.chTarget:SetPhysicsVelocity(Vector(0,0,0))
 				FindClearSpaceForUnit(self.chTarget, self.chTarget:GetAbsOrigin(), true)
-				if IsNotNull(self.parent) and self:GetCaster():IsAlive() then
+				if IsNotNull(self.parent) then
 					self.parent:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_stunned", {duration = self:GetAbility():GetSpecialValueFor("collide_stun_duration")})
-					local target_position = self.parent:GetAbsOrigin()
-					local range = (target_position - self:GetCaster():GetAbsOrigin()):Length2D()
-					local direction = (target_position - self:GetCaster():GetAbsOrigin()):Normalized()
-					target_position = self.parent:GetAbsOrigin() - direction*130
+					if self:GetCaster():IsAlive() then
+						local target_position = self.parent:GetAbsOrigin()
+						local range = (target_position - self:GetCaster():GetAbsOrigin()):Length2D()
+						local direction = (target_position - self:GetCaster():GetAbsOrigin()):Normalized()
+						target_position = self.parent:GetAbsOrigin() - direction*130
 
-					local modifier = self:GetCaster():AddNewModifier(self:GetCaster(), self.ability, "modifier_medusa_chain_movement", {	target_position_x = target_position.x, 
-																							target_position_y = target_position.y,
-																							target_position_z = target_position.z,
-																							particle1 = self.particle1,
-																							particle2 = self.particle2,
-																							range = range,
-																							fly_speed = self.ability:GetSpecialValueFor("fly_speed"),
-																							damage = self.ability:GetSpecialValueFor("damage")
-																							})
-					modifier.primary_enemy = self.parent
-				end
+						local modifier = self:GetCaster():AddNewModifier(self:GetCaster(), self.ability, "modifier_medusa_chain_movement", {	target_position_x = target_position.x, 
+																								target_position_y = target_position.y,
+																								target_position_z = target_position.z,
+																								particle1 = self.particle1,
+																								particle2 = self.particle2,
+																								range = range,
+																								fly_speed = self.ability:GetSpecialValueFor("fly_speed"),
+																								damage = self.ability:GetSpecialValueFor("damage")
+																								})
+						modifier.primary_enemy = self.parent
+					else
+						self.ability.launched = false
+				    	ParticleManager:DestroyParticle(self.particle1, false)
+				    	ParticleManager:ReleaseParticleIndex(self.particle1)
+				    	ParticleManager:DestroyParticle(self.particle2, false)
+				    	ParticleManager:ReleaseParticleIndex(self.particle2)
+				    end
+				else
+					self.ability.launched = false
+			    	ParticleManager:DestroyParticle(self.particle1, false)
+			    	ParticleManager:ReleaseParticleIndex(self.particle1)
+			    	ParticleManager:DestroyParticle(self.particle2, false)
+			    	ParticleManager:ReleaseParticleIndex(self.particle2)
+			    end
 				self:Destroy()
 			end
 		end

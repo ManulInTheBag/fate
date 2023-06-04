@@ -43,7 +43,7 @@ function PlayBGM()
     var BGMname = "BGM." + g_GameConfig.curBGMIndex.toString();
     var BGMduration = g_GameConfig.duration[g_GameConfig.curBGMIndex]+2;
     var dropPanel = $("#FateConfigBGMList");
-    $.Msg("Playing " + BGMname + " for " + BGMduration.toString() + " seconds");
+    //$.Msg("Playing " + BGMname + " for " + BGMduration.toString() + " seconds");
 
     // Set a flag so that OnDropDownChange() does not run due to SetSelected()
     g_GameConfig.bIsAutoChange = true;
@@ -90,7 +90,7 @@ function OnIntro(index)
     $.Schedule(9.0, function(){
         PlayBGM();
     })
-    $.Msg('Game start: change BGM ' + g_GameConfig.nextBGMIndex);
+    //$.Msg('Game start: change BGM ' + g_GameConfig.nextBGMIndex);
 }
 
 (function() {
@@ -103,5 +103,5 @@ function OnIntro(index)
         $.CancelScheduled(g_GameConfig.BGMSchedule, {});
     };
     PlayBGM();
-    $.Msg('Game start: change BGM ' + g_GameConfig.nextBGMIndex);
+    //$.Msg('Game start: change BGM ' + g_GameConfig.nextBGMIndex);
 })();

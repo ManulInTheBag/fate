@@ -182,7 +182,7 @@ function OnHeroButtonPressed() {
     }
 
     var herostats = heroesdata["attributes"]
-    $.Msg(herostats)
+    //$.Msg(herostats)
     //CreateContextAbilityPanel(skillPanel, comboes[curIndex]);
     // attributes 
 	//linkPanel.text = '<a href="http://www.w3schools.com/html/">Visit our HTML tutorial</a>';

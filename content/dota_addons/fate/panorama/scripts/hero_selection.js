@@ -415,7 +415,14 @@ function ShowHeroPreviewTab(tabID) {
 	};
 }
 
+function OnDebugPrint(msg)
+{
+	$.Msg(msg.message)
+}
+
 (function() {
+	GameEvents.Subscribe( "server_debug_print", OnDebugPrint );
+
 	$.GetContextPanel().RemoveClass('LocalPlayerPicked');
 	$('#HeroListPanel').RemoveAndDeleteChildren();
 	var localPlayerId = Game.GetLocalPlayerID();

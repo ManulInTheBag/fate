@@ -61,7 +61,7 @@ function ryougi_knife_recast:OnSpellStart()
         ParticleManager:ReleaseParticleIndex( effect_cast )
     end)
 
-    giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 0.5)
+    giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 0.6)
 	StartAnimation(caster, {duration=0.69, activity=ACT_DOTA_RAZE_1, rate=1})
 
 	eyes:CutLine(combo_enemy, "knife_recast_1")
@@ -83,7 +83,7 @@ function ryougi_knife_recast:OnSpellStart()
 		ParticleManager:ReleaseParticleIndex(particle0)
 	end)
 
-	Timers:CreateTimer(0.4, function()
+	Timers:CreateTimer(0.5, function()
 		StartAnimation(caster, {duration=1.0, activity=ACT_DOTA_RAZE_2, rate=2})
 
 		Timers:CreateTimer(0.1, function()
@@ -106,7 +106,7 @@ function ryougi_knife_recast:OnSpellStart()
 			ParticleManager:SetParticleControl( fxIndex, 0, combo_enemy:GetAbsOrigin()+random_vector + Vector(0, 0, 300))
 			ParticleManager:SetParticleControl( fxIndex, 1, combo_enemy:GetAbsOrigin()-random_vector)
 			EmitSoundOn("jtr_slash", caster)
-			combo_enemy:AddNewModifier(caster, self, "modifier_stunned", { Duration = 0.2 })
+			--combo_enemy:AddNewModifier(caster, self, "modifier_stunned", { Duration = 0.2 })
 			EmitSoundOn("ryougi_hit", combo_enemy)
 
 			if combo_enemy:GetHealthPercent() < execute and not (combo_enemy:IsMagicImmune() or combo_enemy:HasModifier("modifier_avalon")) then

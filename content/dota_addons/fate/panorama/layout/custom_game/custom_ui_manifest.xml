@@ -110,7 +110,7 @@
 
         // Pinned items
         var pinnedItemsUI = UIRoot.FindChildTraverse("HUDElements").FindChildTraverse("shop").FindChildTraverse("Main").FindChildTraverse("ItemCombinesAndBasicItemsContainer").FindChildTraverse("CommonItems");
-        pinnedItemsUI.style.visibility = "collapse";
+        //pinnedItemsUI.style.visibility = "collapse";
 
         // Guide
         var guideUI = UIRoot.FindChildTraverse("HUDElements").FindChildTraverse("shop").FindChildTraverse("GuideFlyout");

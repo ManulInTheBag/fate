@@ -150,7 +150,7 @@ end
 end]]
 
 function modifier_jtr_bloody_thirst_active:GetModifierBonusStats_Agility()
-	return self:GetParent():FindAbilityByName("modifier_jtr_surgery"):GetSpecialValueFor("blood_rage_agility")
+	return self:GetParent():FindAbilityByName("jtr_surgery"):GetSpecialValueFor("blood_rage_agility")
 end
 
 function modifier_jtr_bloody_thirst_active:GetModifierMoveSpeedBonus_Percentage()

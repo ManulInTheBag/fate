@@ -2574,10 +2574,6 @@ function FateGameMode:InitialiseMissingPanoramaData(ply)
     RecreateUITimer(ply, "shard_drop_event", "Next Holy Grail's Shard", "shard_drop_timer")
     RecreateUITimer(ply, "beginround", "Pre-Round", "pregame_timer")
     RecreateUITimer(ply, "round_timer", "Round " .. self.nCurrentRound, "round_timer" .. self.nCurrentRound)
-
-    PlayerTables:ReInitTable("hero_selection_available_heroes")
-    PlayerTables:ReInitTable("hero_selection_heroes_data")
-    PlayerTables:ReInitTable("hero_selection")
 end
 
 function RecreateUITimer(playerID, timerName, message, description)
@@ -2716,9 +2712,13 @@ function FateGameMode:OnItemPurchased( keys )
         end
     end
 
-    CheckItemCombination(hero)
-    CheckItemCombinationInStash(hero)
-    SaveStashState(hero)
+    if (not ply.AutoTransferItemEnabled) or (not hero:IsAlive()) then
+        CheckItemCombination(hero)
+        CheckItemCombinationInStash(hero)
+        SaveStashState(hero)
+    else
+        AutoTransferItem(hero, itemName)
+    end
 
     if PlayerResource:GetGold(plyID) < 200 and hero.bIsAutoGoldRequestOn then
         Notifications:RightToTeamGold(hero:GetTeam(), "<font color='#FF5050'>" .. FindName(hero:GetName()) .. "</font> at <font color='#FFD700'>" .. hero:GetGold() .. "g</font> is requesting gold. Type <font color='#58ACFA'>-" .. plyID .. " (goldamount)</font> to send gold!", 7, nil, {color="rgb(255,255,255)", ["font-size"]="20px"}, true)
@@ -3418,6 +3418,13 @@ function OnConfig4Checked(index, keys)
     if keys.bOption == 1 then hero.bIsAlertSoundDisabled = true else hero.bIsAlertSoundDisabled = false end
 end
 
+function OnConfig9Checked(index, keys)
+    local playerID = EntIndexToHScript(keys.player)
+    local ply = PlayerResource:GetPlayer(keys.player)
+    local hero = PlayerResource:GetPlayer(keys.player):GetAssignedHero()
+    if keys.bOption == 1 then ply.AutoTransferItemEnabled = true else ply.AutoTransferItemEnabled = false end
+end
+
 function OnHeroClicked(Index, keys)
     local playerID = EntIndexToHScript(keys.player)
     local hero = PlayerResource:GetPlayer(keys.player):GetAssignedHero()
@@ -3568,6 +3575,7 @@ function FateGameMode:InitGameMode()
     CustomGameEventManager:RegisterListener( "config_option_1_checked", OnConfig1Checked )
     CustomGameEventManager:RegisterListener( "config_option_2_checked", OnConfig2Checked )
     CustomGameEventManager:RegisterListener( "config_option_4_checked", OnConfig4Checked )
+    CustomGameEventManager:RegisterListener( "config_option_9_checked", OnConfig9Checked )
     -- CustomGameEventManager:RegisterListener( "player_chat_panorama", OnPlayerChat )
     CustomGameEventManager:RegisterListener( "player_alt_click", OnPlayerAltClick )
     CustomGameEventManager:RegisterListener("player_remove_buff", OnPlayerRemoveBuff )

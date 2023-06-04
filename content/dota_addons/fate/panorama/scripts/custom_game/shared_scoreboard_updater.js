@@ -624,6 +624,8 @@ Entities.HasModifier = function(entIndex, modifierName){
 function GetComboStatus(heroEntIndex) {
 	var config = GameUI.CustomUIConfig();
 	var entIndex = config.masterUnits && config.masterUnits[heroEntIndex];
+	//for now, until we get this system to work properly
+	return -1;
 	if (!entIndex) {
 		return -1
 	}

@@ -959,12 +959,14 @@ function OnPresenceDetectionThink(keys)
 	end
 
 	-- If enemy has not moved out of range since last presence detection, flag them as false
-	for i=1,#oldEnemyTable do
-		for j=1, #newEnemyTable do
-			if oldEnemyTable[i] == newEnemyTable[j] then 
-				--print(" " .. newEnemyTable[j]:GetName() .. " has not been out of range since last presence detection")
-				newEnemyTable[j].IsPresenceDetected = false
-				break
+	if oldEnemyTable then
+		for i=1,#oldEnemyTable do
+			for j=1, #newEnemyTable do
+				if oldEnemyTable[i] == newEnemyTable[j] then 
+					--print(" " .. newEnemyTable[j]:GetName() .. " has not been out of range since last presence detection")
+					newEnemyTable[j].IsPresenceDetected = false
+					break
+				end
 			end
 		end
 	end

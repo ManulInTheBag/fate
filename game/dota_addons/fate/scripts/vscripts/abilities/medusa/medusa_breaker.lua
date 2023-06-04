@@ -55,25 +55,25 @@ function medusa_breaker:OnSpellStart()
 						caster:AddNewModifier(caster, self, "modifier_medusa_breaker_window", {duration = self:GetSpecialValueFor("window_duration")})
 					end
 					enemy:AddNewModifier(caster, self, "modifier_medusa_breaker_facing", {duration = self:GetSpecialValueFor("stun_duration")})
-					if caster:GetAbilityByIndex(4):GetName() == "medusa_monstrous_strength" and caster.GorgonRushAcquired then
-						caster:SwapAbilities("medusa_monstrous_strength", "medusa_gorgon_rush", false, true)
-						Timers:CreateTimer("medusa_rush_window", {
-							endTime = 2,
-							callback = function()
-							caster:SwapAbilities("medusa_monstrous_strength", "medusa_gorgon_rush", true, false)
-						return end
-						})
-					elseif caster:GetAbilityByIndex(4):GetName() == "medusa_gorgon_rush" and caster.GorgonRushAcquired then
-						Timers:RemoveTimer("medusa_rush_window")
-						Timers:CreateTimer("medusa_rush_window", {
-							endTime = 2,
-							callback = function()
-							caster:SwapAbilities("medusa_monstrous_strength", "medusa_gorgon_rush", true, false)
-						return end
-						})
-					end
 				end
 			end
+		end
+		if caster:GetAbilityByIndex(4):GetName() == "medusa_monstrous_strength" and caster.GorgonRushAcquired then
+			caster:SwapAbilities("medusa_monstrous_strength", "medusa_gorgon_rush", false, true)
+			Timers:CreateTimer("medusa_rush_window", {
+				endTime = 2,
+				callback = function()
+				caster:SwapAbilities("medusa_monstrous_strength", "medusa_gorgon_rush", true, false)
+				return end
+			})
+		elseif caster:GetAbilityByIndex(4):GetName() == "medusa_gorgon_rush" and caster.GorgonRushAcquired then
+			Timers:RemoveTimer("medusa_rush_window")
+			Timers:CreateTimer("medusa_rush_window", {
+				endTime = 2,
+				callback = function()
+				caster:SwapAbilities("medusa_monstrous_strength", "medusa_gorgon_rush", true, false)
+				return end
+			})
 		end
 	end
 

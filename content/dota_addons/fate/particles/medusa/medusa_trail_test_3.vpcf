@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf36:version{d15c9157-10e0-47bc-9333-1ac81da07b8d} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf57:version{4f75132e-4f5d-493c-958e-3bb4328089ba} -->
 {
 	_class = "CParticleSystemDefinition"
 	m_bShouldHitboxesFallbackToRenderBounds = false
@@ -39,23 +39,44 @@
 	m_Initializers = 
 	[
 		{
-			_class = "C_INIT_RandomLifeTime"
-			m_fLifetimeMin = 0.5
-			m_fLifetimeMax = 0.75
+			_class = "C_INIT_InitFloat"
+			m_InputValue = 
+			{
+				m_nType = "PF_TYPE_RANDOM_UNIFORM"
+				m_flRandomMin = 0.5
+				m_flRandomMax = 0.75
+				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+			}
+			m_nOutputField = 1
 		},
 		{
-			_class = "C_INIT_RandomRadius"
-			m_flRadiusMin = 50.0
-			m_flRadiusMax = 250.0
+			_class = "C_INIT_InitFloat"
+			m_InputValue = 
+			{
+				m_nType = "PF_TYPE_RANDOM_UNIFORM"
+				m_flRandomMin = 50.0
+				m_flRandomMax = 250.0
+				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+			}
 		},
 		{
-			_class = "C_INIT_RandomAlpha"
-			m_nAlphaMin = 200
+			_class = "C_INIT_InitFloat"
+			m_InputValue = 
+			{
+				m_nType = "PF_TYPE_RANDOM_UNIFORM"
+				m_flRandomMin = 0.784314
+				m_flRandomMax = 1.0
+				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+			}
+			m_nOutputField = 7
 		},
 		{
-			_class = "C_INIT_CreateWithinSphere"
-			m_nControlPointNumber = 1
+			_class = "C_INIT_CreateWithinSphereTransform"
 			m_fRadiusMax = 25.0
+			m_TransformInput = 
+			{
+				m_nControlPoint = 1
+			}
 		},
 		{
 			_class = "C_INIT_RandomSequence"
@@ -67,12 +88,28 @@
 			m_ColorMin = [ 118, 163, 255, 255 ]
 		},
 		{
-			_class = "C_INIT_RandomRotation"
+			_class = "C_INIT_InitFloat"
+			m_InputValue = 
+			{
+				m_nType = "PF_TYPE_RANDOM_UNIFORM"
+				m_flRandomMin = 0.0
+				m_flRandomMax = 360.0
+				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+				m_bHasRandomSignFlip = true
+			}
+			m_nOutputField = 4
 		},
 		{
-			_class = "C_INIT_RandomRotationSpeed"
-			m_flDegreesMin = 15.0
-			m_flDegreesMax = 45.0
+			_class = "C_INIT_InitFloat"
+			m_InputValue = 
+			{
+				m_nType = "PF_TYPE_RANDOM_UNIFORM"
+				m_flRandomMin = 15.0
+				m_flRandomMax = 45.0
+				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+				m_bHasRandomSignFlip = true
+			}
+			m_nOutputField = 5
 		},
 		{
 			_class = "C_INIT_RandomYawFlip"

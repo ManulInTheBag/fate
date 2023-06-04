@@ -67,7 +67,7 @@ function flower_beam:OnSpellStart()
 	local tick_time = movement_time/beam_counter_starting
 	local illusion  = CreateIllusions(caster,caster,nil,1,0,false,false)
 	local beam_particle
-	 illusion[1]:AddNewModifier(caster, self, "modifier_merlin_self_slow", {duration = movement_time-0.2 })
+	 illusion[1]:AddNewModifier(caster, self, "modifier_merlin_self_slow", {})
 	 
 	 Timers:CreateTimer( 0 +movement_time, function()
  
@@ -78,7 +78,7 @@ function flower_beam:OnSpellStart()
 	 end)
 	 illusion[1]:SetForwardVector(caster:GetForwardVector())
 	 StartAnimation( illusion[1], {duration=1, activity=ACT_DOTA_CAST_ABILITY_1, rate=1})
-	 
+	
 	Timers:CreateTimer(0.1, function() 
 		if( not caster:IsAlive()) then return end
 		local start_location = illusion[1]:GetAttachmentOrigin(2) 
@@ -87,7 +87,11 @@ function flower_beam:OnSpellStart()
 			 beam_particle = ParticleManager:CreateParticle("particles/merlin/merlin_beam.vpcf", PATTACH_CUSTOMORIGIN, nil)
 			ParticleManager:SetParticleControl( beam_particle, 1, start_location) 
 		end
-		if(beam_counter == 0 ) then 	ParticleManager:DestroyParticle( beam_particle, true)  return end
+		if(beam_counter == 0 ) then 
+			ParticleManager:DestroyParticle( beam_particle, true)
+			illusion[1]:RemoveModifierByName("modifier_merlin_self_slow")
+			return
+		end
 		beam_counter = beam_counter - 1
 
 		local targets = FindUnitsInRadius(caster:GetTeam(), point, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
@@ -118,8 +122,8 @@ end
 function modifier_merlin_self_slow:GetModifierDisableTurning() 
 	return 1
 end
-function modifier_merlin_self_slow:GetModifierMagicalResistanceBonus()
-    return 100
+function modifier_merlin_self_slow:GetModifierIncomingDamage_Percentage()
+    return 0
 end
 
 function modifier_merlin_self_slow:CheckState()
@@ -141,7 +145,7 @@ end
 
 
 function modifier_merlin_self_slow:OnDestroy() 
-	if(IsServer) then
+	if IsServer() then
 		self:GetParent():ForceKill(false)
 	end
 end

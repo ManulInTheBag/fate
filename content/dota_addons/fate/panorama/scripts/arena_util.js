@@ -201,14 +201,14 @@ function DynamicSubscribePTListener(table, callback, OnConnectedCallback) {
 		if (tableData != null)	{
 			callback(table, tableData, {});
 		} else {
-			$.Msg("DSPTL null value" + table)
+			//$.Msg("DSPTL null value" + table)
 		}
 		var ptid = PlayerTables.SubscribeNetTableListener(table, callback);
 		if (OnConnectedCallback != null) {
 			OnConnectedCallback(ptid);
 		}
 	} else {
-		$.Msg("Update " + table + " / PT not connected, repeat")
+		//$.Msg("Update " + table + " / PT not connected, repeat")
 		$.Schedule(0.1, function() {
 			DynamicSubscribePTListener(table, callback, OnConnectedCallback);
 		});

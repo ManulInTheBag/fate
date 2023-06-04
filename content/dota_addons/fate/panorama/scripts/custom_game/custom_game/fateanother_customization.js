@@ -65,7 +65,7 @@ function RemoveChilds(panel)
 
 function UpdateAttributeList(data)
 {
-	$.Msg("updating attribute list")
+	//$.Msg("updating attribute list")
 	var attributePanel = $("#CustomizationAttributeLayout");
 	var statPanel = $("#CustomizationStatLayout");
 	var cooldownPanel = $("#CustomizationCooldownLayout");
@@ -176,7 +176,7 @@ function ShardHideTooltip()
 }
 function PrintToClient(data)
 {
-	$.Msg(data.text);
+	//$.Msg(data.text);
 }
 
 function CreateErrorMessage(msg){

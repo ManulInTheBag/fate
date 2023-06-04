@@ -157,6 +157,42 @@ function TransferItem(keys)
 
 end
 
+function AutoTransferItem(hero, itemname)
+	local transferitem = nil
+	local space_item = nil
+	for i = 0,5 do 
+		local stash_item = hero:GetItemInSlot(i + 9)
+		if stash_item ~= nil and stash_item:GetName() == itemname and stash_item:GetPurchaseTime() == GameRules:GetGameTime() then 
+			transferitem = stash_item
+			break
+		end
+	end
+
+	for j = 0,5 do
+		if hero:GetItemInSlot(j) == nil then 
+			space_item = true 
+			break
+		end
+	end
+
+	if transferitem ~= nil and space_item ~= nil then
+		local itemName = transferitem:GetName()
+		local charges = transferitem:GetCurrentCharges()
+		local newItem = CreateItem(itemName, nil, nil)
+		newItem:SetCurrentCharges(charges)
+		transferitem:RemoveSelf()
+		--Timers:CreateTimer( 0.033, function()
+
+		hero:AddItem(newItem)
+		CheckItemCombination(hero)
+		
+	end
+
+	CheckItemCombinationInStash(hero)
+	SaveStashState(hero)
+
+end
+
 function RefundItem(caster, item)
 	local charges = item:GetCurrentCharges()
 	if charges == 0 then

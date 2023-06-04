@@ -138,7 +138,8 @@ function emiya_arrow_rain:OnSpellStart()
 end
 
 function emiya_arrow_rain:OnProjectileHit_ExtraData(hTarget, vLocation, table)
-	print("its triggering from rain 4head")
+	--print("its triggering from rain 4head")
+	if hTarget == nil then return end
 	if IsSpellBlocked(hTarget) then return end -- Linken effect checker
 	local caster = self:GetCaster()
 	local targetdmg = self:GetSpecialValueFor("target_damage") 

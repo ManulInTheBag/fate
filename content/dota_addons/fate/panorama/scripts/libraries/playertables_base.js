@@ -165,6 +165,8 @@ function TableFullUpdate(msg) {
 
 	var tableIndex = Object.keys(PT.tables).length;
 	if (msg.inputlength != null && tableIndex >= msg.inputlength && !connected) {
+		//$.Msg("UTPromisedCalls called" + Object.keys(UTPromisedCalls).length)
+		//$.Msg("UT2")
 		connected = true;
 		for (index = 1; index <= Object.keys(UTPromisedCalls).length; ++index) {
 		//_.each(UTPromisedCalls, function(v) {
@@ -179,14 +181,14 @@ function UpdateTable(msg) {
 	//msg.changes = UnprocessTable(msg.changes);
 	if (!PlayerTables.IsConnected()) {
 		UTPromisedCalls.push(function() {
-			$.Msg("UTPromisedCalls worked, that means something tried to update before PT was connected " + msg)
+			//$.Msg("UTPromisedCalls worked, that means something tried to update before PT was connected " + msg.name);
 			UpdateTable(msg);
 		});
 		return;
 	}
 	var table = PT.tables[msg.name];
 	if (!table) {
-		$.Msg("PlayerTables.UpdateTable invoked on nonexistent playertable.");
+		$.Msg("PlayerTables.UpdateTable invoked on nonexistent playertable." + msg.name);
 		return;
 	}
 

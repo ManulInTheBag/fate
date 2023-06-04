@@ -61,19 +61,20 @@ function modifier_derange:IsHidden() return false end
 function modifier_derange:IsDebuff() return false end
 function modifier_derange:RemoveOnDeath() return true end
 function modifier_derange:OnCreated()
-	self.parent = self:GetParent()
-	self.ability = self:GetAbility()
-	self.mana = self:GetParent():GetMaxMana()
-	self.abilitycd = self.parent:GetAbilityByIndex(0):GetCooldown(self.parent:GetAbilityByIndex(0):GetLevel()-1)
-	self.cringe = 0
-	self.counter = self.parent:FindModifierByNameAndCaster("modifier_catalyst", self.parent)
 	if IsServer() then
+		self.parent = self:GetParent()
+		self.ability = self:GetAbility()
+		self.mana = self:GetParent():GetMaxMana()
+		self.abilitycd = self.parent:GetAbilityByIndex(0):GetCooldown(self.parent:GetAbilityByIndex(0):GetLevel()-1)
+		self.cringe = 0
+		self.counter = self.parent:FindModifierByNameAndCaster("modifier_catalyst", self.parent)
 		self:StartIntervalThink(0.25)
 	end
 end
 
 
 function modifier_derange:OnIntervalThink()
+	if not IsServer() then return end
 
 	if self.ability:GetToggleState() == true then
 
@@ -154,10 +155,12 @@ end
 function modifier_catalyst:IsDebuff() return false end
 function modifier_catalyst:RemoveOnDeath() return true end
 function modifier_catalyst:OnCreated()
-	self.parent = self:GetParent()
-	self.ability = self:GetAbility()
-	local counter = self.parent:FindModifierByNameAndCaster("modifier_catalyst", self.parent)
-	counter:SetStackCount(0)
+	if IsServer() then
+		self.parent = self:GetParent()
+		self.ability = self:GetAbility()
+		local counter = self.parent:FindModifierByNameAndCaster("modifier_catalyst", self.parent)
+		counter:SetStackCount(0)
+	end
 end
 
 function modifier_catalyst:DeclareFunctions()
@@ -169,8 +172,10 @@ function modifier_catalyst:GetTexture()
 end
 
 function modifier_catalyst:OnDeath(keys)
-    local counter = self.parent:FindModifierByNameAndCaster("modifier_catalyst", self.parent) 
-       if keys.unit == self:GetParent() then 
-    	counter:SetStackCount(0)
+	if IsServer() then
+	    local counter = self.parent:FindModifierByNameAndCaster("modifier_catalyst", self.parent) 
+	       if keys.unit == self:GetParent() then 
+	    	counter:SetStackCount(0)
+		end
 	end
 end

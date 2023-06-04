@@ -104,6 +104,15 @@ function OnConfig7Toggle(){
     panel.ToggleClass("Hidden");
 }
 
+function OnConfig9Toggle()
+{
+    g_GameConfig.bIsConfig9On = !g_GameConfig.bIsConfig9On;
+    var localPlayerId = Game.GetLocalPlayerID();
+    if (Players.IsValidPlayerID(localPlayerId) && !Players.IsSpectator(localPlayerId)) {
+        GameEvents.SendCustomGameEventToServer("config_option_9_checked", {player: Players.GetLocalPlayer(), bOption: g_GameConfig.bIsConfig9On})
+    }
+}
+
 function Nill() 
 {
 }
@@ -363,18 +372,18 @@ function PlayerChat(event)
     var txt = event.text;
     var id = event.playerid;
     var playerID = Players.GetLocalPlayer();
-    $.Msg(txt);
+    //$.Msg(txt);
     if (playerID == id)
     {
         if (txt == "-bgmoff" && g_GameConfig.bIsBGMOn) {
             StopBGM();
             g_GameConfig.bIsBGMOn = false;
-            $.Msg("BGM off by " + playerID)
+            //$.Msg("BGM off by " + playerID)
         }
         if (txt == "-bgmon" && !g_GameConfig.bIsBGMOn) {
             PlayBGM();
             g_GameConfig.bIsBGMOn = true;
-            $.Msg("BGM on by " + playerID)
+            //$.Msg("BGM on by " + playerID)
         }
     }
     //GameEvents.SendCustomGameEventToServer("player_chat_panorama", {pID: playerID, text: txt})
@@ -417,7 +426,7 @@ function RegisterTransport(data)
 function UpdateMountStatus(data)
 {
     bIsMounted = data.bIsMounted;
-    $.Msg(bIsMounted);
+    //$.Msg(bIsMounted);
 }
 
 function RegisterMasterUnit(data) {

@@ -1,7 +1,7 @@
 function OnHeroKilled(data)
 {
-	$.Msg("[FATE] fate_hero_killed");
-	$.Msg(data, "\n------");
+	//$.Msg("[FATE] fate_hero_killed");
+	//$.Msg(data, "\n------");
 	var killer = data.killer
 	var victim = data.victim
 
@@ -76,8 +76,8 @@ function OnHeroKilled(data)
 
 function OnGoldSent(data)
 {
-	$.Msg("[FATE] fate_gold_sent");
-	$.Msg(data, "\n------");
+	//$.Msg("[FATE] fate_gold_sent");
+	//$.Msg(data, "\n------");
 	var goldAmt = data.goldAmt
 	var sender = data.sender
 	var recipent = data.recipent

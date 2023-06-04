@@ -323,6 +323,34 @@ end]]
 --thx eyeoflie
 if IsServer() then
 
+    RegisteredTracebacks = {}
+
+    --if not IsInToolsMode() then
+        debug.old_traceback = debug.old_traceback or debug.traceback
+        debug.traceback = function(...)
+            local stack = debug.old_traceback(...)
+            local table_to_send = string.split(stack, "\n")
+            if RegisteredTracebacks[stack] then
+                return stack
+            end
+            RegisteredTracebacks[stack] = true
+
+            for player_id = 0, 23 do
+                if PlayerResource:IsValidPlayerID(player_id) then
+                    local player = PlayerResource:GetPlayer(player_id)
+                    if player then
+                        CustomGameEventManager:Send_ServerToPlayer(player, "server_debug_print", { message = "debug_print_called" })
+                        for i = 1, #table_to_send do
+                            CustomGameEventManager:Send_ServerToPlayer(player, "server_debug_print", { message = table_to_send[i] })
+                        end
+                    end
+                end
+            end
+
+            return stack
+        end
+    --end
+
 	local RegistredCustomEventsListeners = RegistredCustomEventsListeners or {}
     for _, lID in pairs(RegistredCustomEventsListeners) do
         CustomGameEventManager:UnregisterListener(lID)

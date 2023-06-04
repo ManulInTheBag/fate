@@ -124,6 +124,7 @@ function modifier_calydonian_hunt_aura:OnCreated()
 end
 
 function modifier_calydonian_hunt_aura:OnIntervalThink()
+    if not IsServer() then return end
     local caster = self:GetParent()
     local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetOrigin(), nil, self:GetAbility():GetSpecialValueFor("passive_radius"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_INVULNERABLE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
     for _,v in pairs(targets) do

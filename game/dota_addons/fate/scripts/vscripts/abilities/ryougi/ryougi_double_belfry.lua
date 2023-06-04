@@ -14,7 +14,7 @@ function ryougi_double_belfry:GetCastPoint()
 	end
 end
 
-function ryougi_double_belfry:OnUpgrade()
+--[[function ryougi_double_belfry:OnUpgrade()
     local hCaster = self:GetCaster()
     
     if hCaster:FindAbilityByName("ryougi_kimono"):GetLevel() ~= self:GetLevel() then
@@ -23,7 +23,7 @@ function ryougi_double_belfry:OnUpgrade()
     if hCaster:FindAbilityByName("ryougi_double_belfry_mech"):GetLevel() ~= self:GetLevel() then
     	hCaster:FindAbilityByName("ryougi_double_belfry_mech"):SetLevel(self:GetLevel())
     end
-end
+end]]
 
 function ryougi_double_belfry:CheckSequence()
 	local caster = self:GetCaster()

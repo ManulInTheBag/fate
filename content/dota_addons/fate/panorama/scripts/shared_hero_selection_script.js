@@ -98,7 +98,7 @@ function FillHeroesTable(heroList, panel, big) {
 }
 
 function FHTSub(heroName, heroData, panel, big){
-	$.Msg(heroName);
+	//$.Msg(heroName);
 	var StatPanel = panel.FindChildTraverse('HeroesByAttributes_' + 0);
 
 	var HeroCard = $.CreatePanel('Panel', StatPanel, 'HeroListPanel_element_' + heroName);

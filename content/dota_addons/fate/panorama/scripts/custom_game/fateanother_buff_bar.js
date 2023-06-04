@@ -174,7 +174,7 @@ AltClickBuffs.prototype.OnRightClick = function(index, isDebuff){
         return;
     }
 
-    $.Msg("pepega gaming")
+    //$.Msg("pepega gaming")
 
     var name = Buffs.GetName(unit, buff);
     for (var key in buffCanBeRemoved){
