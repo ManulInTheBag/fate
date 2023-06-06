@@ -61,7 +61,21 @@ function tamamo_soul_stream:OnAbilityPhaseInterrupted()
     EndAnimation(self:GetCaster())
 end
 
+function tamamo_soul_stream:GetUID()
+	if not self.UniqueProjectileID then
+		self.UniqueProjectileID = 0
+	end
+	self.UniqueProjectileID = self.UniqueProjectileID + 1
+	return self.UniqueProjectileID
+end
+
 function tamamo_soul_stream:OnSpellStart()
+	if not self.ActiveProjectilePosition then
+		self.ActiveProjectilePosition = {}
+	end
+	if not self.ActiveProjectileIDs then
+		self.ActiveProjectileIDs = {}
+	end
 	local hCaster = self:GetCaster()
 	local hTargetLoc = self:GetCursorPosition()
 	if (hTargetLoc - hCaster:GetAbsOrigin()):Length2D() > self:GetSpecialValueFor("range") then
@@ -140,6 +154,10 @@ function tamamo_soul_stream:OnSpellStart()
 			    	attach = DOTA_PROJECTILE_ATTACHMENT_ATTACK_2
 			    end
 
+			    local proj_id = self:GetUID()
+			    tExtraData["proj_id"] = proj_id
+			    self.ActiveProjectilePosition[proj_id] = hCaster:GetAbsOrigin()
+
 			    local projectile = {
 			    	Target = hDummy,
 					Source = hCaster,
@@ -157,9 +175,12 @@ function tamamo_soul_stream:OnSpellStart()
 					bProvidesVision = false,
 					ExtraData = tExtraData
 			    }
-			    ProjectileManager:CreateTrackingProjectile(projectile)
+			    local proj_true_id = ProjectileManager:CreateTrackingProjectile(projectile)
+			    self.ActiveProjectileIDs[proj_id] = proj_true_id
 
 			    Timers:CreateTimer(6, function()
+			    	self.ActiveProjectilePosition[proj_id] = nil
+			    	self.ActiveProjectileIDs[proj_id] = nil
 			        if hDummy then hDummy:RemoveSelf() end
 			    end)
 	    	end)
@@ -167,7 +188,26 @@ function tamamo_soul_stream:OnSpellStart()
 	end)
 end
 
+function tamamo_soul_stream:OnProjectileThink_ExtraData(vLocation, tData)
+	local proj_id = tData["proj_id"]
+	if not self.ActiveProjectilePosition[proj_id] then return end
+	local prevLocation = self.ActiveProjectilePosition[proj_id]
+	local curLocation = vLocation
+	self.ActiveProjectilePosition[proj_id] = vLocation
+
+	local caster = self:GetCaster()
+
+	local enemies = FindUnitsInLine(caster:GetTeamNumber(), prevLocation, curLocation, nil, 65, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE)
+	for _, enemy in pairs(enemies) do
+	    self:OnProjectileHit_ExtraData(enemy, enemy:GetAbsOrigin(), tData)
+	    self.ActiveProjectilePosition[proj_id] = nil
+	    --ProjectileManager:DestroyTrackingProjectile(self.ActiveProjectileIDs[proj_id])
+	    break
+	end
+end
+
 function tamamo_soul_stream:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
+	if not self.ActiveProjectilePosition[tData["proj_id"]] then return end
 	local hCaster = self:GetCaster()
 	local fExplodeRadius = self:GetSpecialValueFor("explode_radius")
 	local fDamage = self:GetSpecialValueFor("damage")
@@ -176,7 +216,7 @@ function tamamo_soul_stream:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
 	local hCharmDebuff = tData["sDebuffName"]
 	local hCharmAbility = hCaster:FindAbilityByName(tData["sCharmAbility"])
 
-	local fManaBurn = 25 + hCaster:GetIntellect() * 0.2
+	local fManaBurn = 20 + hCaster:GetIntellect() * 0.2
 
 	if hCaster.IsSpiritTheftAcquired then
 		fDamage = fDamage + fManaBurn
@@ -202,15 +242,27 @@ function tamamo_soul_stream:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
 			tEnemies[i]:AddNewModifier(hCaster, hCharmAbility, hCharmDebuff, { Duration = hCharmAbility:GetSpecialValueFor("duration"), is_ss = true })
 		end]]
 
-		if hCaster.IsSpiritTheftAcquired then
+		--[[if hCaster.IsSpiritTheftAcquired then
 			tEnemies[i]:SetMana(tEnemies[i]:GetMana() - fManaBurn)			
-		end
+		end]]
 
 		DoDamage(hCaster, tEnemies[i], fDamage, DAMAGE_TYPE_MAGICAL, 0, self, false)
 	end
 
-	if #tEnemies > 1 and hCaster.IsSpiritTheftAcquired then
-		hCaster:GiveMana(fManaBurn)
+	local cdr = 0.5
+
+	if #tEnemies >= 1 and hCaster.IsSpiritTheftAcquired then
+		--hCaster:GiveMana(fManaBurn)
+		for j=1, 5 do 
+			local pepe_ability = hCaster:GetAbilityByIndex(j)
+			if (j ~= 3) and (j ~= 4) and (pepe_ability ~= nil) then
+				rCooldown = pepe_ability:GetCooldownTimeRemaining()
+				pepe_ability:EndCooldown()
+				if (rCooldown - cdr) > 0 then
+					pepe_ability:StartCooldown(rCooldown - cdr)
+				end
+			end
+		end
 	end
 end
 
@@ -457,36 +509,58 @@ end
 -- Fire Charm Debuff
 if IsServer() then
 	function modifier_tamamo_fire_debuff:OnCreated(args)
-		local hCaster = self:GetCaster()
-		local hTarget = self:GetParent()
-		self.is_ss = false
+		self.caster = self:GetCaster()
+		self.target = self:GetParent()
+		self.ability = self:GetAbility()
+		self.damage = self:GetAbility():GetSpecialValueFor("damage") + self:GetAbility():GetSpecialValueFor("int_ratio")*self.caster:GetIntellect()
+		self.damage_mult = 0
+
+		local damage_mult_addition = 1
+
 		if args.is_ss == 1 then
-			self.is_ss = true
+			damage_mult_addition = damage_mult_addition/6
 		end
 
-		local fDamage = self:GetAbility():GetSpecialValueFor("damage") + self:GetAbility():GetSpecialValueFor("int_ratio")*hCaster:GetIntellect()
-		if self.is_ss then
-			fDamage = fDamage/6
-		end
-		if not hTarget:IsMagicImmune() then
-			DoDamage(hCaster, hTarget, fDamage * 0.5, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
+		self.damage_mult = self.damage_mult + damage_mult_addition
+
+		self:SetStackCount(math.ceil(self.damage*self.damage_mult))
+
+		Timers:CreateTimer(self.ability:GetSpecialValueFor("duration"), function()
+			if self.target and self.target:IsAlive() and (self.target:FindModifierByName("modifier_tamamo_fire_debuff") == self) then
+				self.damage_mult = self.damage_mult - damage_mult_addition
+				self:SetStackCount(math.ceil(self.damage*self.damage_mult))
+			end
+		end)
+
+		if not self.target:IsMagicImmune() then
+			DoDamage(self.caster, self.target, self.damage * 0.25 * self.damage_mult, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
 		end
 
-		self:StartIntervalThink(0.5)
+		self:StartIntervalThink(0.25)
 	end
 
 	function modifier_tamamo_fire_debuff:OnRefresh(args)
+		local damage_mult_addition = 1
+
+		if args.is_ss == 1 then
+			damage_mult_addition = damage_mult_addition/6
+		end
+
+		self.damage_mult = self.damage_mult + damage_mult_addition
+
+		self:SetStackCount(math.ceil(self.damage*self.damage_mult))
+
+		Timers:CreateTimer(self.ability:GetSpecialValueFor("duration"), function()
+			if self.target and self.target:IsAlive() and (self.target:FindModifierByName("modifier_tamamo_fire_debuff") == self) then
+				self.damage_mult = self.damage_mult - damage_mult_addition
+				self:SetStackCount(math.ceil(self.damage*self.damage_mult))
+			end
+		end)
 	end
 
 	function modifier_tamamo_fire_debuff:OnIntervalThink()
-		local hCaster = self:GetCaster()
-		local hTarget = self:GetParent()
-		local fDamage = self:GetAbility():GetSpecialValueFor("damage") + self:GetAbility():GetSpecialValueFor("int_ratio")*hCaster:GetIntellect()
-		if self.is_ss then
-			fDamage = fDamage/6
-		end
-		if not hTarget:IsMagicImmune() then
-			DoDamage(hCaster, hTarget, fDamage * 0.5, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
+		if not self.target:IsMagicImmune() then
+			DoDamage(self.caster, self.target, self.damage * 0.25 * self.damage_mult, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
 		end
 	end
 end
@@ -497,10 +571,6 @@ end
 
 function modifier_tamamo_fire_debuff:GetTexture()
 	return "custom/tamamo_fiery_heaven"
-end 
-
-function modifier_tamamo_fire_debuff:GetAttributes()
-	return MODIFIER_ATTRIBUTE_MULTIPLE
 end
 
 --Ice Charm Debuff

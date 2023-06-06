@@ -1,6 +1,7 @@
 tamamo_castration_fist = class({})
 
 LinkLuaModifier("modifier_polygamist_cooldown", "abilities/tamamo/modifiers/modifier_polygamist_cooldown", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_tamamo_polygamist_damage_reduction", "abilities/tamamo/tamamo_castration_fist", LUA_MODIFIER_MOTION_NONE)
 
 local femaleservant = {
     "npc_dota_hero_legion_commander",
@@ -51,6 +52,7 @@ function tamamo_castration_fist:OnSpellStart()
 	caster:AddNewModifier(caster, self, "modifier_polygamist_cooldown", { Duration = self:GetCooldown(1) })
 	caster:EmitSound("tamamo_castration_fist_1")
 	giveUnitDataDrivenModifier(caster, caster, "dragged", 1.25)
+	caster:AddNewModifier(caster, self, "modifier_tamamo_polygamist_damage_reduction", {duration = 1.25})
 
 	if not IsFemaleServant(target) then
 		damage = damage * (100 + self:GetSpecialValueFor("male_bonus"))/100
@@ -173,4 +175,16 @@ function tamamo_castration_fist:OnHeroLevelUp()
 			self:SetLevel(3)
 		end
 	end
+end
+
+modifier_tamamo_polygamist_damage_reduction = class({})
+
+function modifier_tamamo_polygamist_damage_reduction:IsHidden() return true end
+
+function modifier_tamamo_polygamist_damage_reduction:DeclareFunctions()
+	return { MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE }
+end
+
+function modifier_tamamo_polygamist_damage_reduction:GetModifierIncomingDamage_Percentage()
+	return self:GetAbility():GetSpecialValueFor("damage_reduc")
 end

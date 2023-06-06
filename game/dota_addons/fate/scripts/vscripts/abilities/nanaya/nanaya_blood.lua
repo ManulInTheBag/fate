@@ -141,27 +141,27 @@ function nanaya_blood_modifier_animemode:OnCreated()
 	self.parent = self:GetParent()
 	CustomGameEventManager:Send_ServerToPlayer(self.parent:GetPlayerOwner(), "emit_horn_sound", {sound="nanaya_pizza"})
     if IsServer() then
-	local sAbil = self.parent:GetAbilityByIndex(4):GetAbilityName()
-	print (sAbil)
-	 if sAbil == "nanaya_dashf" then
-		self.parent:SwapAbilities("nanaya_jump_slashes", "nanaya_dashf", true, false)
-	else
-		if sAbil == "nanaya_dashf_return" then
-			self.parent:SwapAbilities("nanaya_jump_slashes", "nanaya_dashf_return", true, false)
-end
-end
-end
-	local sAbil1 = self.parent:GetAbilityByIndex(3)
-        if sAbil1:GetAbilityName() == "nanaya_slashes" then
-sAbil1:EndCooldown()
-end
-	self.nanaya_right_eye = ParticleManager:CreateParticle("particles/nanaya_eyes.vpcf", PATTACH_CUSTOMORIGIN, self.parent)
-ParticleManager:SetParticleControlEnt(self.nanaya_right_eye, 0, self.parent, PATTACH_POINT_FOLLOW, "attach_right_eye", self.parent:GetAbsOrigin(), true)
+		local sAbil = self.parent:GetAbilityByIndex(4):GetAbilityName()
+		print (sAbil)
+	 	if sAbil == "nanaya_dashf" then
+			self.parent:SwapAbilities("nanaya_jump_slashes", "nanaya_dashf", true, false)
+		else
+			if sAbil == "nanaya_dashf_return" then
+				self.parent:SwapAbilities("nanaya_jump_slashes", "nanaya_dashf_return", true, false)
+			end
+		end
 
-    self.nanaya_left_eye = ParticleManager:CreateParticle("particles/nanaya_eyes.vpcf", PATTACH_CUSTOMORIGIN, caster)
-	ParticleManager:SetParticleControlEnt(self.nanaya_left_eye, 0, self.parent, PATTACH_POINT_FOLLOW, "attach_left_eye", self.parent:GetAbsOrigin(), true)
-	--print (self.nanaya_right_eye)
-	
+		local sAbil1 = self.parent:GetAbilityByIndex(3)
+	    if sAbil1:GetAbilityName() == "nanaya_slashes" then
+			sAbil1:EndCooldown()
+		end
+		self.nanaya_right_eye = ParticleManager:CreateParticle("particles/nanaya_eyes.vpcf", PATTACH_CUSTOMORIGIN, self.parent)
+		ParticleManager:SetParticleControlEnt(self.nanaya_right_eye, 0, self.parent, PATTACH_POINT_FOLLOW, "attach_right_eye", self.parent:GetAbsOrigin(), true)
+
+	    self.nanaya_left_eye = ParticleManager:CreateParticle("particles/nanaya_eyes.vpcf", PATTACH_CUSTOMORIGIN, caster)
+		ParticleManager:SetParticleControlEnt(self.nanaya_left_eye, 0, self.parent, PATTACH_POINT_FOLLOW, "attach_left_eye", self.parent:GetAbsOrigin(), true)
+		--print (self.nanaya_right_eye)
+	end
 end
 
 function nanaya_blood_modifier_animemode:GetModifierMoveSpeed_Absolute()
@@ -173,6 +173,7 @@ function nanaya_blood_modifier_animemode:GetTexture()
 end
 
 function nanaya_blood_modifier_animemode:OnRemoved()
+	if not IsServer() then return end
 	--print (self.nanaya_right_eye)
 	ParticleManager:DestroyParticle(self.nanaya_left_eye, false)
 	ParticleManager:ReleaseParticleIndex(self.nanaya_left_eye)

@@ -95,6 +95,7 @@ function modifier_atalanta_curse:GetModifierIncomingDamage_Percentage(keys)
 end
 
 function modifier_atalanta_curse:OnDestroy()
+	if not IsServer() then return end
 	DoDamage(self:GetCaster(), self:GetParent(), (self:GetAbility():GetSpecialValueFor("detonate_damage") + (self:GetCaster().VisionAcquired and 5 or 0))*self:GetStackCount(), DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
     local particle_kill = "particles/units/heroes/hero_shadow_demon/shadow_demon_shadow_poison_kill.vpcf"
 	local particle_kill_fx = ParticleManager:CreateParticle(particle_kill, PATTACH_ABSORIGIN, self:GetParent())        

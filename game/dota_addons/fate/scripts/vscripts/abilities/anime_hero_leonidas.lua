@@ -1335,7 +1335,7 @@ function modifier_leonidas_pride_translator:IsDebuff()                          
 function modifier_leonidas_pride_translator:IsPurgable()                                           return false end
 function modifier_leonidas_pride_translator:IsPurgeException()                                     return false end
 function modifier_leonidas_pride_translator:RemoveOnDeath()                                        return true end
-function modifier_leonidas_pride_translator:GetAttributes()                                        return MODIFIER_ATTRIBUTE_AURA_PRIORITY + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE end
+function modifier_leonidas_pride_translator:GetAttributes()                                        return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE end
 function modifier_leonidas_pride_translator:GetPriority()                                          return MODIFIER_PRIORITY_ULTRA end
 function modifier_leonidas_pride_translator:DeclareFunctions()
     local tFunc =   {   
@@ -1389,7 +1389,7 @@ function modifier_leonidas_pride_translator:GetTotalDamageNullify(keys)
         local truedmg = CalculateDamagePostReduction(keys.damage_type, keys.original_damage*(1-self.percent), self.hParent )     
 
         if( (self.hParent:GetHealth() - truedmg )< 1) then
-            hParent:Kill(keys.inflictor or self.hAbility, keys.attacker)
+            self.hParent:Kill(keys.inflictor or self.hAbility, keys.attacker)
         else
             self.hParent:SetHealth(self.hParent:GetHealth()- truedmg)
         end
@@ -3065,7 +3065,7 @@ function modifier_leonidas_enomotia_combo_translator:IsDebuff()                 
 function modifier_leonidas_enomotia_combo_translator:IsPurgable()                                           return false end
 function modifier_leonidas_enomotia_combo_translator:IsPurgeException()                                     return false end
 function modifier_leonidas_enomotia_combo_translator:RemoveOnDeath()                                        return true end
-function modifier_leonidas_enomotia_combo_translator:GetAttributes()                                        return MODIFIER_ATTRIBUTE_AURA_PRIORITY + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE end
+function modifier_leonidas_enomotia_combo_translator:GetAttributes()                                        return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE end
 function modifier_leonidas_enomotia_combo_translator:GetPriority()                                          return MODIFIER_PRIORITY_ULTRA end
 function modifier_leonidas_enomotia_combo_translator:DeclareFunctions()
     local tFunc =   {   

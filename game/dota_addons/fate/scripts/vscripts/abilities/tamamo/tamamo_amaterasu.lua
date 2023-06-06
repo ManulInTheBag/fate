@@ -61,6 +61,10 @@ function tamamo_amaterasu:OnSpellStart()
 		for i = 1, #allies do
 			allies[i]:AddNewModifier(caster, ability, "modifier_amaterasu_heal", { duration = 1.033 })
 		end
+		local enemies = FindUnitsInRadius(caster:GetTeam(), caster.AmaterasuCastLoc, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
+		for i = 1, #enemies do
+			enemies[i]:AddNewModifier(caster, ability, "modifier_amaterasu_enemy_slow", { duration = 1.5 })
+		end
 	end
 
 	-- Particle
@@ -252,7 +256,7 @@ function modifier_amaterasu_enemy:OnAbilityExecuted(args)
         local damage = amaterasu:GetSpecialValueFor("damage_per_cast")
         if caster.IsTerritoryAcquired then
         	damage = damage + caster:GetIntellect()/2
-        	hero:AddNewModifier(caster, amaterasu, "modifier_amaterasu_enemy_slow", {duration = 0.75})
+        	--hero:AddNewModifier(caster, amaterasu, "modifier_amaterasu_enemy_slow", {duration = 0.75})
         	caster:ApplyHeal(amaterasu:GetSpecialValueFor("heal_per_cast")/3, amaterasu)
         	caster:GiveMana(amaterasu:GetSpecialValueFor("mana_per_cast")/3)
         end

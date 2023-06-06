@@ -11,18 +11,23 @@
 				[
 					{
 						_class = "RenderMeshFile"
-						filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/arcueid/arcueid.fbx"
+						filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/arcueid/arc_anim_fix.fbx"
 						import_scale = 1.0
 						import_filter = 
 						{
 							exclude_by_default = false
-							exception_list = [  ]
+							exception_list = 
+							[
+								"Object013",
+								"Object014",
+								"Object001",
+							]
 						}
 					},
 					{
 						_class = "RenderMeshFile"
 						name = "no_claws"
-						filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/arcueid/arcueid.fbx"
+						filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/arcueid/arc_anim_fix.fbx"
 						import_scale = 1.0
 						import_filter = 
 						{
@@ -31,6 +36,7 @@
 							[
 								"Object014",
 								"Object013",
+								"Object001",
 							]
 						}
 					},
@@ -63,24 +69,16 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
-						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/arcueid/arcueid.fbx"
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/arcueid/arc_anim_fix.fbx"
 						import_bone_scales = false
 						start_frame = 10
-						end_frame = 66
+						end_frame = 65
 						framerate = -1.0
 						reverse = false
 					},
 					{
 						_class = "AnimFile"
 						name = "idle_2"
-						children = 
-						[
-							{
-								_class = "AnimSmoothLoop"
-								frames_from_start = 10
-								frames_from_end = 10
-							},
-						]
 						activity_name = "ACT_DOTA_IDLE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -93,129 +91,16 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
-						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/arcueid/arcueid.fbx"
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/arcueid/arc_anim_fix.fbx"
 						import_bone_scales = false
-						start_frame = 111
-						end_frame = 145
+						start_frame = 86
+						end_frame = 131
 						framerate = -1.0
 						reverse = false
 					},
 					{
 						_class = "AnimFile"
 						name = "arcueid"
-						children = 
-						[
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 3
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 0
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 4
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 5
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 6
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 7
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 8
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 9
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 10
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 11
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 12
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 13
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 0
-								}
-							},
-						]
 						activity_name = "ACT_DOTA_CAST_ABILITY_1"
 						activity_weight = 1
 						weight_list_name = ""
@@ -228,139 +113,16 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
-						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/arcueid/arcueid.fbx"
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/arcueid/arc_anim_fix.fbx"
 						import_bone_scales = false
-						start_frame = 171
-						end_frame = 201
+						start_frame = 132
+						end_frame = 168
 						framerate = -1.0
 						reverse = false
 					},
 					{
 						_class = "AnimFile"
 						name = "arcueid1"
-						children = 
-						[
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 4
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 5
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 6
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 7
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 8
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 9
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 10
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 11
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 12
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 13
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 3
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 0
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 14
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 0
-								}
-							},
-						]
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -373,119 +135,16 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
-						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/arcueid/arcueid.fbx"
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/arcueid/arc_anim_fix.fbx"
 						import_bone_scales = false
-						start_frame = 228
-						end_frame = 257
+						start_frame = 169
+						end_frame = 205
 						framerate = -1.0
 						reverse = false
 					},
 					{
 						_class = "AnimFile"
 						name = "arcueid2"
-						children = 
-						[
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 3
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 0
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 4
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 5
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 6
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 7
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 8
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 9
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 10
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 11
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 12
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 0
-								}
-							},
-						]
 						activity_name = "ACT_DOTA_ATTACK2"
 						activity_weight = 1
 						weight_list_name = ""
@@ -498,10 +157,10 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
-						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/arcueid/arcueid.fbx"
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/arcueid/arc_anim_fix.fbx"
 						import_bone_scales = false
-						start_frame = 283
-						end_frame = 310
+						start_frame = 206
+						end_frame = 239
 						framerate = -1.0
 						reverse = false
 					},
@@ -520,369 +179,16 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
-						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/arcueid/arcueid.fbx"
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/arcueid/arc_anim_fix.fbx"
 						import_bone_scales = false
-						start_frame = 337
-						end_frame = 378
+						start_frame = 240
+						end_frame = 288
 						framerate = -1.0
 						reverse = false
 					},
 					{
 						_class = "AnimFile"
 						name = "arcueid4"
-						children = 
-						[
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 0
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 0
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 1
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 2
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 3
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 4
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 5
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 6
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 7
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 8
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 9
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 10
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 11
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 12
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 13
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 14
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 15
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 16
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 17
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 18
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 19
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 20
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 21
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 22
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 23
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 24
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 25
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 26
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 27
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 28
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 29
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 30
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 31
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 32
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 33
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 34
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 0
-								}
-							},
-						]
 						activity_name = "ACT_DOTA_CAST_ABILITY_5"
 						activity_weight = 1
 						weight_list_name = ""
@@ -895,10 +201,10 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
-						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/arcueid/arcueid.fbx"
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/arcueid/arc_anim_fix.fbx"
 						import_bone_scales = false
-						start_frame = 398
-						end_frame = 432
+						start_frame = 289
+						end_frame = 343
 						framerate = 45.0
 						reverse = false
 					},
@@ -907,506 +213,6 @@
 						name = "arcueid5"
 						children = 
 						[
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 3
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 0
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 4
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 5
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 6
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 7
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 8
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 9
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 10
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 11
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 12
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 0
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 13
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 14
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 15
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 16
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 17
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 18
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 19
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 20
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 21
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 0
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 22
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 23
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 24
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 25
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 26
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 27
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 28
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 29
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 30
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 0
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 31
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 32
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 33
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 34
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 35
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 36
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 37
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 38
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 39
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 40
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 41
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 0
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 42
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 0
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 43
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 0
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 44
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 45
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 46
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 47
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 48
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 49
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 50
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 51
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 52
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 0
-								}
-							},
 							{
 								_class = "AnimOffset"
 								translation = [ -50.0, 0.0, 0.0 ]
@@ -1425,10 +231,10 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
-						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/arcueid/arcueid.fbx"
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/arcueid/arc_anim_fix.fbx"
 						import_bone_scales = false
-						start_frame = 478
-						end_frame = 548
+						start_frame = 344
+						end_frame = 420
 						framerate = -1.0
 						reverse = false
 					},
@@ -1447,10 +253,10 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
-						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/arcueid/arcueid.fbx"
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/arcueid/arc_anim_fix.fbx"
 						import_bone_scales = false
-						start_frame = 568
-						end_frame = 596
+						start_frame = 421
+						end_frame = 449
 						framerate = -1.0
 						reverse = false
 					},
@@ -1469,219 +275,16 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
-						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/arcueid/arcueid.fbx"
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/arcueid/arc_anim_fix.fbx"
 						import_bone_scales = false
-						start_frame = 664
-						end_frame = 693
+						start_frame = 475
+						end_frame = 508
 						framerate = -1.0
 						reverse = false
 					},
 					{
 						_class = "AnimFile"
 						name = "arcueid8"
-						children = 
-						[
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 0
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 1
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 2
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 3
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 4
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 5
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 6
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 7
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 8
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 0
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 12
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 0
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 13
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 14
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 15
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 16
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 17
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 18
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 19
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 20
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 21
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 22
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 0
-								}
-							},
-						]
 						activity_name = "ACT_DOTA_CAST_ABILITY_2_END"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1694,10 +297,10 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
-						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/arcueid/arcueid.fbx"
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/arcueid/arc_anim_fix.fbx"
 						import_bone_scales = false
-						start_frame = 723
-						end_frame = 758
+						start_frame = 509
+						end_frame = 554
 						framerate = -1.0
 						reverse = false
 					},
@@ -1716,10 +319,10 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
-						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/arcueid/arcueid.fbx"
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/arcueid/arc_anim_fix.fbx"
 						import_bone_scales = false
-						start_frame = 779
-						end_frame = 799
+						start_frame = 555
+						end_frame = 576
 						framerate = -1.0
 						reverse = false
 					},
@@ -1746,10 +349,10 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
-						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/arcueid/arcueid.fbx"
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/arcueid/arc_anim_fix.fbx"
 						import_bone_scales = false
-						start_frame = 819
-						end_frame = 843
+						start_frame = 577
+						end_frame = 601
 						framerate = -1.0
 						reverse = false
 					},
@@ -1778,109 +381,6 @@
 					{
 						_class = "AnimFile"
 						name = "arcueid3_copy"
-						children = 
-						[
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 3
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 2
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 0
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 4
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 5
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 6
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 7
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 8
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 9
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 10
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 11
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 0
-								}
-							},
-						]
 						activity_name = "ACT_DOTA_ATTACK"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1893,119 +393,16 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
-						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/arcueid/arcueid.fbx"
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/arcueid/arc_anim_fix.fbx"
 						import_bone_scales = false
-						start_frame = 349
-						end_frame = 376
+						start_frame = 240
+						end_frame = 288
 						framerate = -1.0
 						reverse = false
 					},
 					{
 						_class = "AnimFile"
 						name = "arcueid8_copy"
-						children = 
-						[
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 9
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 0
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 10
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 11
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 12
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 13
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 14
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 15
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 16
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 17
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 1
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
-								event_frame = 18
-								event_keys = 
-								{
-									bodygroup = "zuzup"
-									value = 0
-								}
-							},
-						]
 						activity_name = "ACT_DOTA_CAST_ABILITY_2"
 						activity_weight = 1
 						weight_list_name = ""
@@ -2018,10 +415,10 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
-						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/arcueid/arcueid.fbx"
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/arcueid/arc_anim_fix.fbx"
 						import_bone_scales = false
-						start_frame = 713
-						end_frame = 732
+						start_frame = 509
+						end_frame = 554
 						framerate = -1.0
 						reverse = false
 					},

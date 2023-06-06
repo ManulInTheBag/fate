@@ -44,21 +44,16 @@ end
 function ryougi_mystic_eyes:CutLine(enemy, line_name, is_fan)
 	local caster = self:GetCaster()
 
+	if not enemy:IsAlive() then return end
+
 	local multiplier = 1
 	if is_fan then
 		multiplier = 1/6
 	end
-		 
-	if(line_name:find("^collapse")) then
-		--print("collapse_line")
-		multiplier = 1/5
-	end
-	if not enemy:IsAlive() then return end
-
-	DoDamage(caster, enemy, caster:GetAverageTrueAttackDamage(caster)*multiplier*self:GetSpecialValueFor("dmg_mult"), DAMAGE_TYPE_PHYSICAL, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self, false)
 
 	if caster.DemiseAcquired then
 		DoDamage(caster, enemy, (self:GetSpecialValueFor("demise_damage") + caster:GetAgility()*self:GetSpecialValueFor("agi_mult"))*multiplier, DAMAGE_TYPE_PURE, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self, false)
+		if not enemy:IsAlive() then return end
 	end
 
 	local damage = self:GetSpecialValueFor("immediate_damage")*enemy:GetHealth()/100
@@ -84,6 +79,8 @@ function ryougi_mystic_eyes:CutLine(enemy, line_name, is_fan)
 	end
 
 	EmitSoundOn("Hero_PhantomAssassin.CoupDeGrace", enemy)
+
+	if not enemy:IsAlive() then return end
 
 	--if not caster:HasModifier("modifier_ryougi_mystic_eyes_active") then return end
 

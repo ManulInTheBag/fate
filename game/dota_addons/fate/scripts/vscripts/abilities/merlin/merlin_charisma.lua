@@ -65,6 +65,7 @@ function modifier_merlin_charisma_aura:IsDebuff()
 end
 
 function modifier_merlin_charisma_aura:IsAura()
+	if self:GetParent():IsIllusion() then return false end
 	return true 
 end
 

@@ -86,7 +86,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"15"
+				"damage"				"30"
 			}
 			"05"
 			{
@@ -165,7 +165,7 @@
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"50"
+				"damage"				"100"
 			}
 			"04"
 			{
@@ -263,7 +263,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"50"
+				"damage"				"100"
 			}
 			"03"
 			{
@@ -372,7 +372,7 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"50"
+				"damage"				"100"
 			}
 			"02"
 			{
@@ -582,7 +582,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"1200"
 		"AbilityCastPoint"				"0.2"
-		"AbilityCooldown"				"14 12 10 8 6"
+		"AbilityCooldown"				"14 12.5 11 9.5 8"
 		"AbilityManaCost"				"200"
 		"AOERadius"						"%radius"
 		
@@ -608,9 +608,14 @@
 			"04"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"radius"			"125"
+				"radius"			"150"
 			}
 			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"fire_heal_reduction"	"-45"
+			}
+			"06"
 			{
 				"var_type"			"FIELD_FLOAT"
 				"void_mr_reduction"	"-20"
@@ -678,7 +683,7 @@
 			"04"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"duration"			"7.0"
+				"duration"			"8.0"
 			}
 			"05"
 			{
@@ -703,7 +708,7 @@
 			"09"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"wind_mana"			"40 50 60 70 80"
+				"wind_mana"			"30 37.5 45 52.5 60"
 			}
 			"10"
 			{
@@ -1064,7 +1069,7 @@
 
 		// Ability stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1000"
+		"AbilityCastRange"				"1275"
 		"AbilityCastRangeBuffer"		"0"
 		"AbilityCastPoint"				"0.4"
 		"AbilityCooldown"				"49 46 43 40 37"
@@ -1093,7 +1098,7 @@
 			"02"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"radius"			"1350"
+				"radius"			"1275"
 			}	
 			"03"
 			{
@@ -1351,12 +1356,12 @@
 			"01"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"int_ratio"			"0.1"	
+				"int_ratio"			"0.2"	
 			}
 			"02"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"mana_drain"		"10"
+				"mana_drain"		"20"
 			}
 		}
 		
@@ -1504,6 +1509,11 @@
 			{
 				"var_type"			"FIELD_FLOAT"
 				"male_bonus"		"10%"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"damage_reduc"		"50"
 			}
 		}
 		

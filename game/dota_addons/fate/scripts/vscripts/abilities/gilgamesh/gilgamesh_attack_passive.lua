@@ -72,6 +72,7 @@ function gilgamesh_attack_passive:OnProjectileHit_ExtraData(hTarget, vLocation, 
 	local target = EntIndexToHScript(tExtraData.targetIndex)
 	if target == nil then return end
 	local hCaster = self:GetCaster()
+	if target:GetClassname() == "dota_item_drop" then UTIL_RemoveImmediate(target) return end
 	hCaster:PerformAttack(target, true, true, true, false, false, false, false)
 
 

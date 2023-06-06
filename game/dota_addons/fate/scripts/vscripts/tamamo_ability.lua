@@ -564,12 +564,12 @@ function OnMantraStart(keys)
 		if IsSpellBlocked(keys.target) then return end -- Linken effect checker
 	end
 	
-	if target:HasModifier("modifier_mantra_ally") or target:HasModifier("modifier_mantra_enemy") then
+	--[[if target:HasModifier("modifier_mantra_ally") or target:HasModifier("modifier_mantra_enemy") then
 		FireGameEvent( 'custom_error_show', { player_ID = caster:GetPlayerOwnerID(), _error = "Target Already Affected By Mantra" } )
 		keys.ability:EndCooldown()
 		caster:SetMana(caster:GetMana()+keys.ability:GetManaCost(1))
 		return	
-	end
+	end]]
 	caster.MantraTarget = target
 	caster.MantraLocation = caster:GetAbsOrigin()
 	target.IsMantraProcOnCooldown = false 
@@ -580,7 +580,7 @@ function OnMantraStart(keys)
 			ability:ApplyDataDrivenModifier(caster, target, "modifier_mantra_mr_buff", {})
 		end
 	else
-		if IsSpellBlocked(keys.target) then return end
+		--if IsSpellBlocked(keys.target) then return end
 		modifierName = "modifier_mantra_enemy"
 		if caster.IsSeveredFateAcquired then
 			ability:ApplyDataDrivenModifier(caster, target, "modifier_mantra_mr_debuff", {})
@@ -607,6 +607,8 @@ function OnMantraStart(keys)
     target:EmitSound("Tamamo.Mantra")
 
 	-- Set stack amount1
+	target:RemoveModifierByName("modifier_mantra_ally")
+	target:RemoveModifierByName("modifier_mantra_enemy")
 	local pepega = ability:ApplyDataDrivenModifier(caster, target, modifierName, {})
 	if caster:HasModifier("modifier_fiery_heaven_indicator") then
 		pepega.ability = "fire"
@@ -618,6 +620,7 @@ function OnMantraStart(keys)
 		pepega.ability = "void"
 	end
 	target:SetModifierStackCount(modifierName, ability, orbAmount)
+	target:RemoveAllModifiersOfName("modifier_mantra_vfx")
 	for i=1, orbAmount do ability:ApplyDataDrivenModifier(caster, target, "modifier_mantra_vfx", {}) end
 end
 
@@ -860,13 +863,16 @@ function OnMantraTakeDamage(keys)
 	-- Set stack amount
 	currentStack = target:GetModifierStackCount(modifierName, ability)
 	--print("current mantra stack :" .. currentStack)
-	target:RemoveModifierByName(modifierName)
-	target:RemoveModifierByName("modifier_mantra_vfx")
+	--target:RemoveModifierByName(modifierName)
+	--target:RemoveModifierByName("modifier_mantra_vfx")
 
-	if currentStack ~= 1 then
-		local pepega1 = ability:ApplyDataDrivenModifier(caster, target, modifierName, {})
-		pepega1.ability = charm_type
+	if currentStack == 1 then
+		target:RemoveModifierByName(modifierName)
+		target:RemoveAllModifiersOfName("modifier_mantra_vfx")
+		--target:RemoveModifierByName("modifier_mantra_vfx")
+	else
 		target:SetModifierStackCount(modifierName, ability, currentStack-1)
+		target:RemoveModifierByName("modifier_mantra_vfx")
 		--for i=1, currentStack-1 do ability:ApplyDataDrivenModifier(caster, target, "modifier_mantra_vfx", {}) end
 	end
 end

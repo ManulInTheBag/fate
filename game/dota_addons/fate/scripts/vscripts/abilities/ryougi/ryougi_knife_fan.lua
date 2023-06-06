@@ -71,10 +71,10 @@ function ryougi_knife_fan:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
   	local hCaster = self:GetCaster()
     local eyes = hCaster:FindAbilityByName("ryougi_mystic_eyes")
   	
-  	DoDamage(hCaster, hTarget, self:GetSpecialValueFor("damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
     if hCaster.BlackMoonAcquired and not (hTarget:IsMagicImmune()) then
       giveUnitDataDrivenModifier(hCaster, hTarget, "silenced", self:GetSpecialValueFor("attribute_silence_duration"))
     end
+    DoDamage(hCaster, hTarget, self:GetSpecialValueFor("damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
     --giveUnitDataDrivenModifier(hCaster, hTarget, "locked", self:GetSpecialValueFor("attribute_slow_duration"))
     EmitSoundOn("ryougi_hit", hTarget)
     eyes:CutLine(hTarget, "knife_fan", true)

@@ -12,23 +12,23 @@ end
 
 function nanaya_slashes:GetCastPoint()
 	local caster = self:GetCaster()
-if caster:FindModifierByName("nanaya_blood_modifier"):GetStackCount() < 10 then 
-	return 0.1
-end
+	if caster:GetModifierStackCount("nanaya_blood_modifier", caster) < 10 then
+		return 0.1
+	end
 end
 
 function nanaya_slashes:GetPlaybackRateOverride()
 	local caster = self:GetCaster()
-if caster:FindModifierByName("nanaya_blood_modifier"):GetStackCount() < 10 then 
-	return 3
-end
+	if caster:GetModifierStackCount("nanaya_blood_modifier", caster) < 10 then
+		return 3
+	end
 end
 
 function nanaya_slashes:GetCastAnimation()
 	local caster = self:GetCaster()
-if caster:FindModifierByName("nanaya_blood_modifier"):GetStackCount() < 10 then 
-	return ACT_DOTA_CAST_ABILITY_5
-end
+	if caster:GetModifierStackCount("nanaya_blood_modifier", caster) < 10 then
+		return ACT_DOTA_CAST_ABILITY_5
+	end
 end
 
 function nanaya_slashes:GetCastRange()  
@@ -209,7 +209,7 @@ function nanaya_clones1:ComboD(caster, target, dmg)
 	caster:AddNewModifier(caster, self, "nanaya_jump_revoke", {duration = 1.2})
 	local table = {12, 13, 21}
 	--local table = {13, 12, 13, 23, 24}	
-		if not caster:HasModifier("nanaya_blood_modifier_animemode") and caster:FindModifierByName("nanaya_blood_modifier"):GetStackCount() > 15
+		if not caster:HasModifier("nanaya_blood_modifier_animemode") and caster:FindModifierByName("nanaya_blood_modifier"):GetStackCount() >= 14
  then 
 		caster:AddNewModifier(caster, self, "nanaya_blood_modifier_animemode", {})
 	end

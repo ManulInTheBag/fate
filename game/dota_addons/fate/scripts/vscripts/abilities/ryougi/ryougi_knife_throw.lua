@@ -61,13 +61,13 @@ function ryougi_knife_throw:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
   	local hCaster = self:GetCaster()
   	local eyes = hCaster:FindAbilityByName("ryougi_mystic_eyes")
   	
-  	DoDamage(hCaster, hTarget, self:GetSpecialValueFor("damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
   	hTarget:AddNewModifier(hCaster, self, "modifier_ryougi_knife_target", {duration = self:GetSpecialValueFor("mark_duration")})
   	if hCaster.BlackMoonAcquired then
       hTarget:AddNewModifier(hCaster, self, "modifier_ryougi_knife_throw_slow", {duration = self:GetSpecialValueFor("attribute_slow_duration")})
     end
+    eyes:CutLine(hTarget, "knife_throw")
+    DoDamage(hCaster, hTarget, self:GetSpecialValueFor("damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
   	EmitSoundOn("ryougi_hit", hTarget)
-  	eyes:CutLine(hTarget, "knife_throw")
   	--hTarget:EmitSound("Atalanta.RImpact")
    	--EmitGlobalSound("Atalanta.RImpact2")
     self.hitenemy = true

@@ -1,4 +1,4 @@
-LinkLuaModifier("modifier_battle_horn_pct_armor_reduction","abilities/iskandar/modifier_battle_horn_pct_armor_reduction", LUA_MODIFIER_MOTION_NONE)
+--LinkLuaModifier("modifier_battle_horn_pct_armor_reduction","abilities/iskandar/modifier_battle_horn_pct_armor_reduction", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_aestus_domus_aurea_enemy", "abilities/nero/modifiers/modifier_aestus_domus_aurea_enemy", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_aestus_domus_aurea_ally", "abilities/nero/modifiers/modifier_aestus_domus_aurea_ally", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_aestus_domus_aurea_nero", "abilities/nero/modifiers/modifier_aestus_domus_aurea_nero", LUA_MODIFIER_MOTION_NONE)

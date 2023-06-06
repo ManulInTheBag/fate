@@ -176,7 +176,7 @@ ManulInTheBag, 09.06.2022]]
 function iskander_ionioi:OnUpgrade()
 	local caster = self:GetCaster()
 	local ability = self
-	caster:FindAbilityByName("iskandar_arrow_bombard"):SetLevel(ability:GetLevel())
+	--caster:FindAbilityByName("iskandar_arrow_bombard"):SetLevel(ability:GetLevel())
 	--caster:FindAbilityByName("iskander_summon_hephaestion"):SetLevel(ability:GetLevel())
 end
 
@@ -333,6 +333,7 @@ function iskander_ionioi:OnAOTKStart()
 end
 
 	function iskander_ionioi:OnAOTKDeath()
+		if not IsServer() then return end
 		local caster = self:GetCaster()
 		Timers:CreateTimer(0.066, function()
 			print("aotk death")

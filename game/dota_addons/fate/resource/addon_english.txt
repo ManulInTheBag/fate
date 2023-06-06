@@ -4194,7 +4194,7 @@
         "DOTA_Tooltip_ability_avenger_true_form_duration"   "DURATION:"
 
         "DOTA_Tooltip_Ability_angra_mainyu_verg_avesta"					"Verg Avesta"
-        "DOTA_Tooltip_ability_angra_mainyu_verg_avesta_Description"		"Passive: Angra Mainyu stores his resentment, recording the amount of damage he had taken recently.\nActive: Angra Mainyu unleases a curse of retribution, dealing damage equal to the total damage he had taken recently to all enemies within a certain radius around himself. Damage taken can be tracked on his Verg Avesta buff.\n\nUpgradable by attribute Demon Incarnate."
+        "DOTA_Tooltip_ability_angra_mainyu_verg_avesta_Description"		"Passive: Angra Mainyu stores his resentment, recording the amount of damage he had taken recently.\nActive: Angra Mainyu unleashes a curse of retribution on all marked enemies within %radius% radius around himself. After a %delay% second delay, all enemies affected will take massive magical damage equal to the total damage he had taken recently.\nDamage taken can be tracked on his Verg Avesta buff.\n\nUpgradable by attribute Demon Incarnate."
         "DOTA_Tooltip_ability_angra_mainyu_verg_avesta_Lore"			"The killer of mankind assumes the simplest rule of the world - Retribution."
  		"DOTA_Tooltip_ability_angra_mainyu_verg_avesta_multiplier"		"%Damage Amplification:"
  		"DOTA_Tooltip_ability_angra_mainyu_verg_avesta_reset_delay" 	"Duration until reset:"
@@ -5519,7 +5519,7 @@
         "DOTA_Tooltip_ability_tamamo_armed_up_Lore"			"The nature is bound within papercraft of mythical spellcaster."
  
         "DOTA_Tooltip_Ability_tamamo_fiery_heaven"				"<font color='#ffa500'>Fiery Heaven</font>"
-        "DOTA_Tooltip_ability_tamamo_fiery_heaven_Description"	"<font color='#58ACFA'>Soul Stream</font>: applies burn effect on enemies affected, dealing damage over time.\n<font color='#58ACFA'>Subterranean Grasp</font>: also disables healing.\n<font color='#58ACFA'>Mantra</font>: when Mantra charge is triggered, deals damage to the nearby enemies."
+        "DOTA_Tooltip_ability_tamamo_fiery_heaven_Description"	"<font color='#58ACFA'>Soul Stream</font>: applies burn effect on enemies affected, dealing damage over time.\n<font color='#58ACFA'>Subterranean Grasp</font>: also reduces healing.\n<font color='#58ACFA'>Mantra</font>: when Mantra charge is triggered, deals damage to the nearby enemies."
         "DOTA_Tooltip_Ability_tamamo_fiery_heaven_damage"     	"Soulstream charm DPS:"
         "DOTA_Tooltip_Ability_tamamo_fiery_heaven_int_ratio"    "Soulstream charm int to damage ratio:"
         "DOTA_Tooltip_Ability_tamamo_fiery_heaven_duration"     "Soulstream charm duration:"
@@ -5544,7 +5544,7 @@
         "DOTA_Tooltip_Ability_tamamo_void_heaven_int_ratio"   "Void bubble int to damage ratio:"
 
         "DOTA_Tooltip_Ability_tamamo_soul_stream"				"Soulstream"
-        "DOTA_Tooltip_ability_tamamo_soul_stream_Description"	"Tamamo materializes %spirit_count% spirits and orders them to rush towards target location. Upon arriving, each spirit explodes, dealing damage to enemies within %explode_radius% radius and <font color='#ffa500'>applying</font> <font color='#42aaff'>current</font> <font color='#50c878'>charm</font> <font color='#7442c8'>effects</font> with charm damage divided by spirit count.\nEach usage of Soulstream grants stackable <font color='#FF3399'>Trickery</font> buff.\n<font color='#FF3399'>Trickery</font>: allows Tamamo to proc charm effects with her autoattacks and increases Tamamo's movement speed by %mvsp_per_stack%%% and attack speed by %aspd_per_stack%%% for %buff_dur% seconds. Stacks up to %max_stack% times."
+        "DOTA_Tooltip_ability_tamamo_soul_stream_Description"	"Tamamo materializes %spirit_count% spirits and orders them to rush towards target location. Upon arriving or colliding with an enemy, each spirit explodes, dealing damage to enemies within %explode_radius% radius and <font color='#ffa500'>applying</font> <font color='#42aaff'>current</font> <font color='#50c878'>charm</font> <font color='#7442c8'>effects</font> with charm damage divided by spirit count.\nEach usage of Soulstream grants stackable <font color='#FF3399'>Trickery</font> buff.\n<font color='#FF3399'>Trickery</font>: allows Tamamo to proc charm effects with her autoattacks and increases Tamamo's movement speed by %mvsp_per_stack%%% and attack speed by %aspd_per_stack%%% for %buff_dur% seconds. Stacks up to %max_stack% times."
         "DOTA_Tooltip_Ability_tamamo_soul_stream_damage"		"Damage:"
         "DOTA_Tooltip_Ability_tamamo_soul_stream_range"			"Range:"
         "DOTA_Tooltip_Ability_tamamo_soul_stream_radius"		"Area radius:"
@@ -5561,7 +5561,7 @@
         "DOTA_Tooltip_Ability_tamamo_soulstream_Note1"		"Deals 175%% additional damage to Gigantic Horror."
  
         "DOTA_Tooltip_Ability_tamamo_subterranean_grasp"				"Subterranean Grasp"
-        "DOTA_Tooltip_ability_tamamo_subterranean_grasp_Description"	"Tamamo commands an earthbound spirit to <font color='#FF3399'>root</font> targets in place after a short delay.\n<font color='#ffa500'>Fire</font>: also disables healing.\n<font color='#42aaff'>Ice</font>: also <font color='#FF3399'>locks</font>.\n<font color='#50c878'>Wind</font>: also <font color='#FF3399'>silences</font>.\n<font color='#7442c8'>Void</font>: also reduces magic resistance by %void_mr_reduction%%%."
+        "DOTA_Tooltip_ability_tamamo_subterranean_grasp_Description"	"Tamamo commands an earthbound spirit to <font color='#FF3399'>root</font> targets in place after a short delay.\n<font color='#ffa500'>Fire</font>: also reduces healing by %fire_heal_reduction%% .\n<font color='#42aaff'>Ice</font>: also <font color='#FF3399'>locks</font>.\n<font color='#50c878'>Wind</font>: also <font color='#FF3399'>silences</font>.\n<font color='#7442c8'>Void</font>: also reduces magic resistance by %void_mr_reduction%%%."
         "DOTA_Tooltip_Ability_tamamo_subterranean_grasp_Lore"			"The malicious spirit and lost traveler are two favorite ingredients of folklore." 
         "DOTA_Tooltip_Ability_tamamo_subterranean_grasp_delay"     		"Root delay:"
         "DOTA_Tooltip_Ability_tamamo_subterranean_grasp_duration"		"Root duration:"
@@ -5599,7 +5599,7 @@
         "DOTA_Tooltip_Ability_tamamo_amaterasu_duration"     		"DURATION:"
 
         "DOTA_Tooltip_Ability_tamamo_castration_fist"					"Polygamist Castration Fist"
-        "DOTA_Tooltip_Ability_tamamo_castration_fist_Description"		"Tamamo lunges towards the target enemy and kicks him or her three times, dealing magic damage and stunning the target. She ends with a kick that sends the target flying backwards. The final kick does more damage than the first two. If the target is a male servant, damage is increased."
+        "DOTA_Tooltip_Ability_tamamo_castration_fist_Description"		"Tamamo lunges towards the target enemy and kicks him or her three times, dealing magic damage and stunning the target. She ends with a kick that sends the target flying backwards. The final kick does more damage than the first two. If the target is a male servant, damage is increased.\nTamamo takes %damage_reduc%%  less damage while performing those kicks."
         "DOTA_Tooltip_Ability_tamamo_castration_fist_range"				"Cast Range:"
         "DOTA_Tooltip_Ability_tamamo_castration_fist_damage"			"First two kick damage:"
         "DOTA_Tooltip_Ability_tamamo_castration_fist_final_damage"		"Final kick damage:"
@@ -5626,12 +5626,12 @@
         "DOTA_Tooltip_ability_tamamo_polygamist_castration_fist_2_Description"    "Activate Combo:Polygamist Castration Kick with half damage and lunge delay, even when <font color='#FF3399'>stunned</font> or <font color='#FF3399'>revoked</font> from Master."
 
         "DOTA_Tooltip_Ability_tamamo_attribute_spirit_theft"         "Attribute: Spirit Theft"
-        "DOTA_Tooltip_ability_tamamo_attribute_spirit_theft_Description"       "Soulstream deal additional magic damage. It also burns mana equal to the damage value granted by this ability.  \nAdditionally, if Tamamo is under effect of Eightfold Blessing of Amaterasu, Subterranean Grasp <font color='#FF3399'>revokes</font> target from Master for duration."  
+        "DOTA_Tooltip_ability_tamamo_attribute_spirit_theft_Description"       "Soulstream charms deal additional magic damage and reduce all basic ability cooldowns by 0.5 seconds (excluding itself). Each charm can trigger this effect only once.\nAdditionally, if Tamamo is under effect of Eightfold Blessing of Amaterasu, Subterranean Grasp <font color='#FF3399'>revokes</font> target from Master for duration."  
         "DOTA_Tooltip_Ability_tamamo_attribute_spirit_theft_int_ratio"         "Bonus damage INT ratio:"
         "DOTA_Tooltip_Ability_tamamo_attribute_spirit_theft_mana_drain"        "Bonus damage:"
  
         "DOTA_Tooltip_Ability_tamamo_attribute_tamamo_escape"         			"Attribute: Polygamist Castration Fist"
-        "DOTA_Tooltip_Ability_tamamo_attribute_tamamo_escape_Description"       "Enables the usage of Polygamist Castration Fist. \nPolygamist Castration Fist: Tamamo lunges towards the target enemy and kicks him or her three times, dealing magic damage and stunning the target. She ends with a kick that sends the target flying backwards. The final kick does more damage than the first two. If the target is a male servant, damage is increased."
+        "DOTA_Tooltip_Ability_tamamo_attribute_tamamo_escape_Description"       "Enables the usage of Polygamist Castration Fist. \nPolygamist Castration Fist: Tamamo lunges towards the target enemy and kicks him or her three times, dealing magic damage and stunning the target. She ends with a kick that sends the target flying backwards. The final kick does more damage than the first two. If the target is a male servant, damage is increased.\nTamamo takes %damage_reduc%%  less damage while performing those kicks."
         "DOTA_Tooltip_Ability_tamamo_attribute_tamamo_escape_range"         	"Cast Range:"
         "DOTA_Tooltip_Ability_tamamo_attribute_tamamo_escape_damage"         	"First two kick damage:"
         "DOTA_Tooltip_Ability_tamamo_attribute_tamamo_escape_final_damage"      "Final kick damage:"
@@ -5660,7 +5660,7 @@
 
 
         "DOTA_Tooltip_Ability_tamamo_attribute_territory"					"Attribute: Territory Creation"
-        "DOTA_Tooltip_Ability_tamamo_attribute_territory_Description"		"Enhances Eightfold Blessing of Amaterasu by causing it to instantly heal allies.\nEnemies will take additional damage per cast equal to Tamamo's intellect/2 and will be slowed for 0.75 seconds after each cast. Additionaly, each enemy cast gives 1/3 of Amaterasu ability cast effect to Tamamo."
+        "DOTA_Tooltip_Ability_tamamo_attribute_territory_Description"		"Enhances Eightfold Blessing of Amaterasu by causing it to instantly heal allies and slow enemies by 70% for 1.5 seconds on cast.\nEnemies will take additional damage per cast equal to Tamamo's intellect/2. Additionaly, each enemy cast gives 1/3 of Amaterasu ability cast effect to Tamamo."
 
 
         //====================================
@@ -8451,7 +8451,7 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
 		"DOTA_Tooltip_Ability_master_shard_of_replenishment_Lore"		"A shard of the legendary artifact that is known to descend upon the soul in its most dire situation. Despite being a makeshift, a trivial wish of mere human may not be asking too much...\n"
 
 		"DOTA_Tooltip_Ability_master_shard_of_prosperity"				"Shard of Prosperity"
-		"DOTA_Tooltip_ability_master_shard_of_prosperity_Description"	"Grants 3 health and 3 mana for master upon acquisition. Reduces Q seal cooldown by 15 seconds per shard."
+		"DOTA_Tooltip_ability_master_shard_of_prosperity_Description"	"Grants 4 health and 3 mana for master upon acquisition. Reduces Q seal cooldown by 15 seconds per shard."
 		"DOTA_Tooltip_Ability_master_shard_of_prosperity_Lore"			"A shard of the legendary artifact that is known to descend upon the soul in its most dire situation. Despite being a makeshift, a trivial wish of mere human may not be asking too much...\n"
 
 		"DOTA_Tooltip_Ability_cmd_seal_1"				"1st Command Seal"

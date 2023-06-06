@@ -4,15 +4,18 @@ LinkLuaModifier("modifier_verg_damage_tracker", "abilities/angra_mainyu/modifier
 LinkLuaModifier("modifier_verg_damage_tracker_progress", "abilities/angra_mainyu/modifiers/modifier_verg_damage_tracker", LUA_MODIFIER_MOTION_NONE)
 
 function angra_mainyu_verg_avesta:GetAOERadius()
-	return 1500
+	return self:GetSpecialValueFor("radius")
 end
 
 function angra_mainyu_verg_avesta:OnSpellStart()
 	local caster = self:GetCaster()
 	local ability = self
 	local radius = self:GetAOERadius()
+	local delay = self:GetSpecialValueFor("delay")
 
-	EmitGlobalSound("Avenger.Berg")
+	Timers:CreateTimer(delay, function()
+		EmitGlobalSound("Avenger.Berg")
+	end)
 	EmitGlobalSound("Avenger.BergShout")
 
 	local modifier = caster:FindModifierByName("modifier_verg_damage_tracker")
@@ -20,7 +23,7 @@ function angra_mainyu_verg_avesta:OnSpellStart()
 	local verg_particle = ParticleManager:CreateParticle("particles/custom/avenger/avenger_verg_avesta.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, caster)
 	ParticleManager:SetParticleControl(verg_particle, 0, caster:GetAbsOrigin())
 
-	Timers:CreateTimer(1, function()
+	Timers:CreateTimer(delay, function()
 		ParticleManager:DestroyParticle( verg_particle, false )
 		ParticleManager:ReleaseParticleIndex( verg_particle )
 		return nil
@@ -39,15 +42,26 @@ function angra_mainyu_verg_avesta:OnSpellStart()
 		LoopOverPlayers(function(player, playerID, playerHero)
 	        if playerHero:IsAlive() and playerHero:HasModifier("modifier_verg_marker") and not playerHero:IsMagicImmune() then
 				if playerHero:GetTeamNumber() ~= caster:GetTeamNumber() and GetDistance(playerHero, caster) <= radius then
-					DoDamage(caster, playerHero, damage, DAMAGE_TYPE_MAGICAL, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self, true)
-					--EmitGlobalSound("body_reported")
-	        	 
-				end
-	        	playerHero:RemoveModifierByName("modifier_verg_marker")
+					playerHero:RemoveModifierByName("modifier_verg_marker")
+					local verg_particle_hero = ParticleManager:CreateParticle("particles/custom/avenger/avenger_verg_avesta.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, playerHero)
+					ParticleManager:SetParticleControl(verg_particle_hero, 0, playerHero:GetAbsOrigin())
 
-	        	playerHero:EmitSound("Hero_WitchDoctor.Maledict_Tick")
-		        local particle = ParticleManager:CreateParticle("particles/econ/items/sniper/sniper_charlie/sniper_assassinate_impact_blood_charlie.vpcf", PATTACH_CUSTOMORIGIN, nil)
-		        ParticleManager:SetParticleControl(particle, 1, playerHero:GetAbsOrigin())
+					Timers:CreateTimer(delay, function()
+						ParticleManager:DestroyParticle( verg_particle_hero, false )
+						ParticleManager:ReleaseParticleIndex( verg_particle_hero )
+						return nil
+					end)
+					Timers:CreateTimer(delay, function()
+						if playerHero and playerHero:IsAlive() then
+							DoDamage(caster, playerHero, damage, DAMAGE_TYPE_MAGICAL, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self, true)
+							--EmitGlobalSound("body_reported")
+
+				        	playerHero:EmitSound("Hero_WitchDoctor.Maledict_Tick")
+					        local particle = ParticleManager:CreateParticle("particles/econ/items/sniper/sniper_charlie/sniper_assassinate_impact_blood_charlie.vpcf", PATTACH_CUSTOMORIGIN, nil)
+					        ParticleManager:SetParticleControl(particle, 1, playerHero:GetAbsOrigin())
+					    end
+	        	 	end)
+				end
 	        end
 	    end)
 

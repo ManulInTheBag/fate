@@ -86,24 +86,15 @@ function modifier_subterranean_grasp_fire:RemoveOnDeath()
 	return true
 end
 
-if IsServer() then
-	function modifier_subterranean_grasp_fire:OnCreated(args)	
-		self.LockedHealth = self:GetParent():GetHealth()
-		self:StartIntervalThink(0.033)			
-	end
+function modifier_subterranean_grasp_fire:DeclareFunctions()
+	return {MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
+			MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE}
+end
 
-	function modifier_subterranean_grasp_fire:OnRefresh(args)
-		self:OnCreated(args)		
-	end
+function modifier_subterranean_grasp_fire:GetModifierHealAmplify_PercentageTarget()
+	return self:GetAbility():GetSpecialValueFor("heal_reduction")
+end
 
-	function modifier_subterranean_grasp_fire:OnIntervalThink()		
-		local target = self:GetParent()
-		local current_health = target:GetHealth()
-
-		if current_health > self.LockedHealth then
-			target:SetHealth(self.LockedHealth)
-		else
-			self.LockedHealth = current_health
-		end
-	end
+function modifier_subterranean_grasp_fire:GetModifierHPRegenAmplify_Percentage()
+	return self:GetAbility():GetSpecialValueFor("heal_reduction")
 end

@@ -690,7 +690,7 @@ function FateGameMode:OnGameInProgress()
         dummyLoc = TRIO_RUMBLE_CENTER
     end
 
-    Timers:CreateTimer(0.1, function()
+    --[[Timers:CreateTimer(0.1, function()
         self:LoopOverPlayers(function(player, playerID, playerHero)
             local hero = playerHero
             if hero:GetAbsOrigin().y<=-6100 and hero:IsAlive() and not hero:HasModifier("modifier_enkidu_hold") and not hero:HasModifier("jump_pause") then
@@ -698,7 +698,7 @@ function FateGameMode:OnGameInProgress()
             end
         end)
         return 0.2
-    end)    
+    end)]]    
 
     if bIsDummyNeeded then
         local xpGranter = CreateUnitByName("dummy_unit", Vector(0, 0, 1000), true, nil, nil, DOTA_TEAM_NEUTRALS)
@@ -3834,7 +3834,7 @@ function FateGameMode:ExecuteOrderFilterPepeg(filterTable)
     if orderType == 19 then
         local currentItemIndex, itemName = nil
         local charges = -1
-        for i=0, 15 do
+        for i=0, 16 do
             if ability == caster:GetItemInSlot(i) then
                 currentItemIndex = i
                 itemName = ability:GetName()

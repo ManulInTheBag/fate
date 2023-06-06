@@ -67,7 +67,7 @@ function flower_beam:OnSpellStart()
 	local tick_time = movement_time/beam_counter_starting
 	local illusion  = CreateIllusions(caster,caster,nil,1,0,false,false)
 	local beam_particle
-	 illusion[1]:AddNewModifier(caster, self, "modifier_merlin_self_slow", {})
+	 illusion[1]:AddNewModifier(caster, self, "modifier_merlin_self_slow", {duration = movement_time + 1})
 	 
 	 Timers:CreateTimer( 0 +movement_time, function()
  

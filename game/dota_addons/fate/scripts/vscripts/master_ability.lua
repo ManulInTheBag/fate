@@ -240,7 +240,8 @@ function OnSeal3Start(keys)
 
 	local particle = ParticleManager:CreateParticle("particles/items2_fx/urn_of_shadows_heal_c.vpcf", PATTACH_ABSORIGIN_FOLLOW, hero)
 	ParticleManager:SetParticleControl(particle, 0, hero:GetAbsOrigin())
-	hero:ApplyHeal(hero:GetMaxHealth(), hero)
+	--hero:ApplyHeal(hero:GetMaxHealth(), hero)
+	hero:Heal(hero:GetMaxHealth() - hero:GetHealth(), keys.ability)
 
 	if caster.IsFirstSeal == true then
 		keys.ability:EndCooldown()
@@ -923,8 +924,8 @@ function OnProsperityAcquired(keys)
 	--[[
 	master:SetMana(master:GetMana()+20)
 	master2:SetMana(master:GetMana())]]
-	master:SetMaxHealth(master:GetMaxHealth() + 3)
-	master:SetHealth(master:GetHealth() + 3)
+	master:SetMaxHealth(master:GetMaxHealth() + 4)
+	master:SetHealth(master:GetHealth() + 4)
 	master:SetMana(master:GetMana() + 3)
 	master2:SetMaxHealth(master:GetMaxHealth()) 
 	master2:SetHealth(master:GetHealth())

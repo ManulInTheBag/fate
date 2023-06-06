@@ -472,6 +472,7 @@ function modifier_fate_mechanic_parent_new:OnAttackStart(keys)
             and IsNotNull(hTarget) then
 
             hAttacker:AttackStartedCentralized(keys)
+            if hTarget:GetClassname() == "dota_item_drop" then return end
             hTarget:AttackStartedCentralized(keys)
             --[[local iIndex    = tostring(hAttacker:entindex()..hTarget:entindex())
             local fAccuracy = hAttacker:GetAccuracy(keys)

@@ -146,6 +146,7 @@ function modifier_iskandar_infantry_rush:OnCreated(args)
 	self.ability = self:GetAbility()
 	local caster = self:GetCaster()
 	local parent = self:GetParent()
+	if not IsServer() then return end
 
 	
 	local sin = Physics:Unit(parent)
