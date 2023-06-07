@@ -243,9 +243,9 @@ function modifier_f16_barrage:OnIntervalThink()
         vVelocity = self.parent:GetForwardVector() * 2000
     }
    
-    ProjectileManager:CreateLinearProjectile(smg)
+    --ProjectileManager:CreateLinearProjectile(smg)
 
-    self.parent:EmitSound("Heckler_Koch_MP5_Unsuppressed")
+    --self.parent:EmitSound("Heckler_Koch_MP5_Unsuppressed")
 
     local current_point = self.parent:GetAbsOrigin()
     local currentForwardVec = self.parent:GetForwardVector()
@@ -275,7 +275,7 @@ function modifier_f16_barrage:OnIntervalThink()
     -- end
     
     -- Create particle
-    local nBarragePFX = ParticleManager:CreateParticle( "particles/custom/lancelot/lancelot_smg_new.vpcf", PATTACH_WORLDORIGIN, nil )
+    --[[local nBarragePFX = ParticleManager:CreateParticle( "particles/custom/lancelot/lancelot_smg_new.vpcf", PATTACH_WORLDORIGIN, nil )
                         ParticleManager:SetParticleShouldCheckFoW(nBarragePFX, false)
                         ParticleManager:SetParticleControl( nBarragePFX, 0, current_point )
                         ParticleManager:SetParticleControl( nBarragePFX, 1, end_point )
@@ -285,7 +285,7 @@ function modifier_f16_barrage:OnIntervalThink()
         ParticleManager:DestroyParticle( nBarragePFX, false )
         ParticleManager:ReleaseParticleIndex( nBarragePFX )
         return nil
-    end)
+    end)]]
 end
 
 lancelot_f16_nuke = class({})
