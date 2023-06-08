@@ -589,6 +589,8 @@ CannotReset = {
     "saito_blast",
     "jeanne_crimson_saint",
     "jeanne_crimson_saint_la_pucelle",
+    "iskander_summon_hephaestion",
+    "iskander_summon_waver",
 }
 
 femaleservant = {

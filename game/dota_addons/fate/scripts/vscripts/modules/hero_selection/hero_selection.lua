@@ -53,8 +53,8 @@ Events:Register("activate", function ()
 		HERO_SELECTION_BANNING_TIME = 0
 	end
 	if _G.GameMap == "7vs7_draft" then
-		HERO_SELECTION_PICK_TIME = 30
-		HERO_SELECTION_BANNING_TIME = 15
+		HERO_SELECTION_PICK_TIME = 45
+		HERO_SELECTION_BANNING_TIME = 30
 		HERO_SELECTION_DRAFT_MODE = true
 	end
 	GameRules:SetHeroSelectionTime(-1)
