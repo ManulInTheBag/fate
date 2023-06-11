@@ -166,6 +166,7 @@ end
   for _,enemy in pairs(enemies) do
        caster:PerformAttack( enemy, true, true, true, true, false, false, false )
        DoDamage(caster, enemy, damage_base, DAMAGE_TYPE_MAGICAL, 0, self, false)
+       enemy:AddNewModifier(caster, self, "modifier_stunned", {Duration = 0.1})
   end
 
  end)

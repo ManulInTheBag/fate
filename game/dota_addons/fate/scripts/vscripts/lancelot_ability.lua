@@ -430,6 +430,7 @@ function OnFairyDmgTaken(keys)
     local caster = keys.caster
     if caster:GetHealth() < 500 and caster:IsAlive() and caster.IsFairyReady then 
         caster:EmitSound("DOTA_Item.BlackKingBar.Activate")
+        EmitZlodemonTrueSoundEveryone("moskes_lanc_bkb")
         keys.ability:ApplyDataDrivenModifier(caster, caster, "modifier_fairy_magic_immunity", {})
         keys.ability:ApplyDataDrivenModifier(caster, caster, "modifier_blessing_of_fairy_cooldown", {duration = keys.ability:GetCooldown(keys.ability:GetLevel())})
         caster.IsFairyReady = false

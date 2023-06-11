@@ -24,6 +24,7 @@ function muramasa_dance_upgraded:GetCastRange()
 
 function muramasa_dance_upgraded:OnSpellStart()
  local caster = self:GetCaster()
+ HardCleanse(caster)
  if(caster.targetqenemy ~= nil and caster.targetqenemy:IsAlive()) then
    FindClearSpaceForUnit(caster,caster.targetqenemy:GetAbsOrigin() + caster.targetqenemy:GetForwardVector() * -100,false)
    local vector =  (-caster:GetAbsOrigin()+caster.targetqenemy:GetAbsOrigin()):Normalized()
@@ -167,6 +168,7 @@ end
   for _,enemy in pairs(enemies) do
        caster:PerformAttack( enemy, true, true, true, true, false, false, false )
        enemy:AddNewModifier(caster,self, "modifier_muramasa_dance_debuff", {duration = self:GetSpecialValueFor("dmg_amp_duration")})
+       enemy:AddNewModifier(caster, self, "modifier_stunned", {Duration = 0.1})
        DoDamage(caster, enemy, damage_base, DAMAGE_TYPE_MAGICAL, 0, self, false)
   end
 

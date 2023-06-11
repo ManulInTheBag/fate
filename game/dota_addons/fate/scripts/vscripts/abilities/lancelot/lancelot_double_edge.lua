@@ -6,7 +6,7 @@ LinkLuaModifier("modifier_double_edge", "abilities/lancelot/modifiers/modifier_d
 
 function lancelot_double_edge:OnSpellStart()
 	local caster = self:GetCaster()
-
+	EmitZlodemonTrueSound("moskes_lanc_w",caster)
 	caster:EmitSound("Hero_Sven.WarCry")
 
 	caster:AddNewModifier(caster, self, "modifier_double_edge", { Duration = self:GetSpecialValueFor("duration"),

@@ -123,7 +123,7 @@ function lishuwen_tiger_strike:TigerStrike1()
 	local ability = self
 	local DamageType = DAMAGE_TYPE_MAGICAL
 	local damage = self:GetSpecialValueFor("damage_1")
-
+	EmitZlodemonTrueSoundEveryone("moskes_li_e1")
 	local trailFx = ParticleManager:CreateParticle( "particles/units/heroes/hero_ember_spirit/ember_spirit_sleightoffist_trail.vpcf", PATTACH_CUSTOMORIGIN, target )
 	ParticleManager:SetParticleControl( trailFx, 1, caster:GetAbsOrigin() )
 	
@@ -193,7 +193,7 @@ function lishuwen_tiger_strike:TigerStrike2()
 	local target = self:GetCursorTarget()
 	local ability = self
 	local damage = self:GetSpecialValueFor("damage_2")
-
+	EmitZlodemonTrueSoundEveryone("moskes_li_e2")
 	caster:SetAbsOrigin(target:GetAbsOrigin()-(caster:GetAbsOrigin() - target:GetAbsOrigin()):Normalized()*130)
 	FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
 	--caster:SetForwardVector(target:GetAbsOrigin())
@@ -281,7 +281,7 @@ function lishuwen_tiger_strike:TigerStrike3()
 	local caster = self:GetCaster()
 	local target = self:GetCursorTarget()
 	local ability = self
-
+	EmitZlodemonTrueSoundEveryone("moskes_li_e3")
 	if IsSpellBlocked(target) then return end
 
 	print(self.health_lost)

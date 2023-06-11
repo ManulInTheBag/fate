@@ -248,7 +248,9 @@ function OnVortigernStart(keys)
 	
 	giveUnitDataDrivenModifier(keys.caster, keys.caster, "pause_sealdisabled", 0.70) -- Beam interval * 9 + 0.44
 	EmitGlobalSound("Saber_Alter.Vortigern")
-
+	if keys.caster:GetName() == "npc_dota_hero_sven" then
+		EmitZlodemonTrueSoundEveryone("moskes_lanc_vort")
+	end
 	local vortigernBeam =
 	{
 		Ability = keys.ability,

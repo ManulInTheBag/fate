@@ -19,6 +19,9 @@ function emiya_double_slash:OnSpellStart()
 	local vCasterPos = caster:GetAbsOrigin()
 	local vCastDirection =    (vPoint -vCasterPos):Normalized()
     caster:SetForwardVector(vCastDirection)
+    Timers:CreateTimer(FrameTime(), function() 
+        caster:SetForwardVector(vCastDirection)
+    end)
 	caster:AddNewModifier(caster, self, "modifier_emiya_dash", {duration = 0.33})
     local radius = 300
     if(caster:HasModifier("emiya_overedge_modifier")) then
@@ -182,6 +185,7 @@ function modifier_emiya_dash:UpdateHorizontalMotion(me, dt)
             local next_pos = parent_pos + self.direction * units_per_dt
             local distance_will = self.distance - units_per_dt
             self.parent:SetOrigin(GetGroundPosition(next_pos, self.parent))
+            self.parent:SetForwardVector(self.direction )
             self.distance = self.distance - units_per_dt
         else
             self:Destroy()

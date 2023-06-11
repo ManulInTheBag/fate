@@ -2241,6 +2241,22 @@ function CheckDummyCollide(unit)
 	return false
 end
 
+function EmitZlodemonTrueSoundEveryone(sSoundName)
+    LoopOverPlayers(function(player, playerID, playerHero)
+        if playerHero.zlodemon == true  then
+            CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound=sSoundName})
+        end
+    end)
+end
+
+function EmitZlodemonTrueSound(sSoundName, caster)
+    LoopOverPlayers(function(player, playerID, playerHero)
+        if playerHero.zlodemon == true and playerHero == caster then
+            CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound=sSoundName})
+        end
+    end)
+end
+
 local substitutions = {
     -- colours
     ["_gray_"] = "",

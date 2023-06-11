@@ -11,7 +11,7 @@ function lishuwen_cosmic_orbit:OnSpellStart()
 	local caster = self:GetCaster()
 	local ability = self	
 
-
+	EmitZlodemonTrueSound("moskes_li_w",caster)
 	ProjectileManager:ProjectileDodge(caster)
 	--if not self:CheckCombo() then
 	caster:EmitSound("Hero_Sven.WarCry")

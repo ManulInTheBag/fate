@@ -573,7 +573,7 @@ function TGPlaySound(keys)
 	elseif caster:GetName() == "npc_dota_hero_sven" then
 		EmitGlobalSound("Lancelot.Growl" )
 	end
-
+	EmitZlodemonTrueSoundEveryone("moskes_lanc_tg_precast")
 	local diff = target:GetAbsOrigin() - caster:GetAbsOrigin()
 	local firstImpactIndex = ParticleManager:CreateParticle( "particles/custom/false_assassin/tsubame_gaeshi/tsubame_gaeshi_windup_indicator_flare.vpcf", PATTACH_CUSTOMORIGIN, nil )
     ParticleManager:SetParticleControl(firstImpactIndex, 0, caster:GetAbsOrigin() + diff/2)
@@ -592,7 +592,7 @@ function OnTGStart(keys)
 	local casterName = caster:GetName()
 	local target = keys.target
 	local ability = keys.ability
-
+	EmitZlodemonTrueSoundEveryone("moskes_lanc_tg")
 	if IsSpellBlocked(keys.target) then return end -- Linken effect checker
 	EmitGlobalSound("FA.Chop")
 

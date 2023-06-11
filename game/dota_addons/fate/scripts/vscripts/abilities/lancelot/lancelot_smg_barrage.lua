@@ -67,7 +67,7 @@ function lancelot_smg_barrage:OnSpellStart()
     }
    
     ProjectileManager:CreateLinearProjectile(smg)
-
+    EmitZlodemonTrueSound("moskes_lanc_q",caster)
     caster:EmitSound("Heckler_Koch_MP5_Unsuppressed")
     caster:AddNewModifier(caster, self, "modifier_barrage_upkeep", { Duration = 2})    
     

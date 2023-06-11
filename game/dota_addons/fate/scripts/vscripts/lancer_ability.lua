@@ -299,7 +299,9 @@ function GBAttachEffect(keys)
 	elseif keys.ability == caster:FindAbilityByName("lancelot_gae_bolg") then 
 		caster:EmitSound("Lancelot.Growl_Local" )
 	end
-
+	if keys.caster:GetName() == "npc_dota_hero_sven" then
+		EmitZlodemonTrueSoundEveryone("moskes_lanc_gae")
+	end
 end
 
 

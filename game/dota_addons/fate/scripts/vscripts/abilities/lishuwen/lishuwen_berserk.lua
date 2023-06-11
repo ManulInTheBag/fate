@@ -24,6 +24,7 @@ function lishuwen_berserk:OnSpellStart()
     HardCleanse(caster)
     caster:EmitSound("Hero_Sven.WarCry")
     caster:EmitSound("bers_act")
+    EmitZlodemonTrueSound("moskes_li_bers",caster)
     local dispel = ParticleManager:CreateParticle( "particles/units/heroes/hero_abaddon/abaddon_death_coil_explosion.vpcf", PATTACH_ABSORIGIN, caster )
     ParticleManager:SetParticleControl( dispel, 1, caster:GetAbsOrigin())
     -- Destroy particle after delay

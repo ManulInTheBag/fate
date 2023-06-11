@@ -552,6 +552,7 @@ function OnNineCast(keys)
 	if casterName == "npc_dota_hero_doom_bringer" then
 		StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_CAST_ABILITY_5, rate=0.2})
 	elseif casterName == "npc_dota_hero_sven" then
+		
 		StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_CAST_ABILITY_2_ES_ROLL_START, rate=0.2})
 	elseif casterName == "npc_dota_hero_ember_spirit" then
 		StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_RUN, rate=0.2})
@@ -619,7 +620,7 @@ function OnNineStart(keys)
 		caster:EmitSound("Archer.NineLives")
 	end
 
-
+	
 	--[[Timers:CreateTimer(function()
 		if travelCounter == 33 then OnNineLanded(caster, keys.ability) return end
 		caster:SetAbsOrigin(caster:GetAbsOrigin() + forward) 
@@ -665,6 +666,9 @@ function OnNineLanded(caster, ability)
 				lasthitdmg = lasthitdmg * 1.1
 			end
 		end
+	end
+	if caster:GetName() == "npc_dota_hero_sven" then
+		EmitZlodemonTrueSoundEveryone("moskes_lanc_nine")
 	end
 
 	-- main timer

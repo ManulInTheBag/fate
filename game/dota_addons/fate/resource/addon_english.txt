@@ -2880,7 +2880,7 @@
 		"DOTA_Tooltip_ability_emiya_kanshou_byakuya_damage"			"Damage per blade:"
 
 		"DOTA_Tooltip_Ability_emiya_double_slash"				"Double slash"
-		"DOTA_Tooltip_Ability_emiya_double_slash_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.1</font>\nEmiya <font color='#FFFAFA'>dashes</font> in target direction.\nAfter dash, he start slashing enemies <font color='#FFFAFA'>in front of him</font> <font color='#FFFAFA'>4</font> times to deal <font color='#58ACFA'>damage</font>.\nWhile slashing, Emiya can <font color='#FFFAFA'>control</font> his movement, but he is moving at <font color='#FFFAFA'>constant</font> speed."
+		"DOTA_Tooltip_Ability_emiya_double_slash_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.01</font>\nEmiya <font color='#FFFAFA'>dashes</font> in target direction.\nAfter dash, he start slashing enemies <font color='#FFFAFA'>in front of him</font> <font color='#FFFAFA'>4</font> times to deal <font color='#58ACFA'>damage</font>.\nWhile slashing, Emiya can <font color='#FFFAFA'>control</font> his movement, but he is moving at <font color='#FFFAFA'>constant</font> speed."
 		"DOTA_Tooltip_Ability_emiya_double_slash_Lore"			""
 		"DOTA_Tooltip_Ability_emiya_double_slash_damage"			"Damage per slash:"
  
@@ -2893,7 +2893,7 @@
 		"DOTA_Tooltip_ability_emiya_crane_wings_stun_duration"		"Stun duration:"
 
 		"DOTA_Tooltip_Ability_emiya_overedge_circle"				"Fast slashes"
-		"DOTA_Tooltip_Ability_emiya_overedge_circle_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.1</font>\nEmiya <font color='#FFFAFA'>dashes</font> in target direction.\nAfter dash, he slashes enemies around him <font color='#FFFAFA'>3</font> times to deal <font color='#58ACFA'>damage</font>.\nWhile slashing, Emiya can <font color='#FFFAFA'>control</font> his movement, but he is moving at <font color='#FFFAFA'>constant</font> speed."
+		"DOTA_Tooltip_Ability_emiya_overedge_circle_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.01</font>\nEmiya <font color='#FFFAFA'>dashes</font> in target direction.\nAfter dash, he slashes enemies around him <font color='#FFFAFA'>3</font> times to deal <font color='#58ACFA'>damage</font>.\nWhile slashing, Emiya can <font color='#FFFAFA'>control</font> his movement, but he is moving at <font color='#FFFAFA'>constant</font> speed."
 		"DOTA_Tooltip_Ability_emiya_overedge_circle_Lore"			""
 		"DOTA_Tooltip_Ability_emiya_overedge_circle_damage"			"Damage per slash:"
 
@@ -2929,7 +2929,7 @@
 		"DOTA_Tooltip_Ability_emiya_change_radius"			"Rain radius:"
 
 		"DOTA_Tooltip_Ability_emiya_caladbolg"				"Caladbolg II"
-		"DOTA_Tooltip_Ability_emiya_caladbolg_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.2</font><font color='#FFFAFA'>|  Charge</font>:<font color='#7FFF00'> 3</font> \nEmiya channels <font color='#58ACFA'>Caladbolg II</font>, preparing to shoot.\nWhile preparing, <font color='#58ACFA'>Caladbolg II</font> <font color='#58ACFA'>damage</font> and <font color='#FFFAFA'>range</font> increase, while Emiya can turn to aim it.\nEmiya can release it early by recasting ability.\n After releasing, arrow will travel in current target vector and will explode on hit, dealing <font color='#58ACFA'>damage</font> and <font color='#FF3399'>stunning</font>.\nIf Emiya is <font color='#FF3399'>stunned</font> while chargind, it will shoot immediately."
+		"DOTA_Tooltip_Ability_emiya_caladbolg_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.2</font><font color='#FFFAFA'>|  Charge</font>:<font color='#7FFF00'> 3</font> \nEmiya channels <font color='#58ACFA'>Caladbolg II</font>, preparing to shoot.\nWhile preparing, <font color='#58ACFA'>Caladbolg II</font> <font color='#58ACFA'>damage</font> and <font color='#FFFAFA'>range</font> increase, while Emiya can turn to aim it.\nEmiya can release it early by recasting ability.\n After releasing, arrow will travel in current target vector and will explode on hit, dealing <font color='#58ACFA'>damage</font> and <font color='#FF3399'>stunning</font>.\nIf Emiya is <font color='#FF3399'>stunned</font> while chargind, it will shoot immediately.\nEmiya is <font color='#FFFAFA'>revealed</font> for enemies for <font color='#FFFAFA'>1</font> second after cast"
 		"DOTA_Tooltip_Ability_emiya_caladbolg_Lore"			""
 		"DOTA_Tooltip_Ability_emiya_caladbolg_damage"			"Max damage:"
 		"DOTA_Tooltip_Ability_emiya_caladbolg_range"			"Max range:"
@@ -2985,7 +2985,7 @@
 		"DOTA_Tooltip_ability_emiya_gae_bolg_range"					"Range:"
 
 		"DOTA_Tooltip_Ability_emiya_nine_lives"					"Nine Lives"
-		"DOTA_Tooltip_ability_emiya_nine_lives_Description"		"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.3</font>\nEmiya mimics Heracles's ultimate technique, dashing to targeted point and striking around 9 times, dealing <font color='#58ACFA'>damage</font> and <font color='#9400D3'>rooting</font>.\nThe last strike deals more <font color='#58ACFA'>damage</font>, briefly <font color='#FF3399'>stuns</font> and knocks enemy back."	
+		"DOTA_Tooltip_ability_emiya_nine_lives_Description"		"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.3</font>\nEmiya mimics Heracles's ultimate technique, dashing to targeted point and striking around 9 times, dealing <font color='#58ACFA'>damage</font>, <font color='#9400D3'>rooting</font> and <font color='#9400D3'>dimensionally locking</font> enemies hit.\nThe last strike deals more <font color='#58ACFA'>damage</font>, briefly <font color='#FF3399'>stuns</font> and knocks enemy back."	
 		"DOTA_Tooltip_ability_emiya_nine_lives_Lore"			"Projection realizes not just the weapon but its original owner's experience and strength."
 		"DOTA_Tooltip_ability_emiya_nine_lives_Note0"			"Emiya is stunned while performing slashes."
 		"DOTA_Tooltip_ability_emiya_nine_lives_radius"			"Radius:"
@@ -3028,7 +3028,7 @@
 		//"DOTA_Tooltip_ability_emiya_attribute_overedge_Note1"			"The blades can be disjointed."
 
 		"DOTA_Tooltip_Ability_emiya_attribute_projection"				"Attribute: Improve Projection"
-		"DOTA_Tooltip_ability_emiya_attribute_projection_Description"	"Upgrades <font color='#58ACFA'>Unlimited blade works</font> .\n<font color='#58ACFA'>Unlimited Blade Works:</font> Swords passively fly and attacks enemies, dealing  <font color='#A72E28'>55 damage</font> each.\n<font color='#58ACFA'>Sword Barrage - Retreat:</font> <font color='#9400D3'>roots</font> target hit for 1.5 seconds and gains bonus damage equal to 100%% of Emiya's <font color='#00FF00'>Agility</font>.\n<font color='#58ACFA'>Projection: Big swords:</font> Apply a <font color='#9400D3'>dimensional lock</font> for 2 seconds on hit.\n<font color='#58ACFA'>Gae Bolg:</font> Damage increased by 500%% of Emiya's <font color='#00FF00'>Agility</font>.\n<font color='#58ACFA'>Sword Barrage - Bombard: </font>Mana cost decreased to 100, cooldown reduced to 3 seconds.\n<font color='#58ACFA'>Nine Lives:</font> Now <font color='#9400D3'>locks</font> on each hit, <font color='#58ACFA'>damage</font> on every hit increased by 50%% of Emiya's <font color='#FF0000'>strength</font> and last hit damage is increased by 150%% of Emiya's <font color='#FF0000'>strength</font>."	
+		"DOTA_Tooltip_ability_emiya_attribute_projection_Description"	"Upgrades <font color='#58ACFA'>Unlimited blade works</font> .\n<font color='#58ACFA'>Unlimited Blade Works:</font> Swords passively fly and attacks enemies, dealing  <font color='#A72E28'>55 damage</font> each.\n<font color='#58ACFA'>Sword Barrage - Retreat:</font> <font color='#9400D3'>roots</font> target hit for 1.5 seconds and gains bonus damage equal to 100%% of Emiya's <font color='#00FF00'>Agility</font>.\n<font color='#58ACFA'>Projection: Big swords:</font> Apply a <font color='#9400D3'>dimensional lock</font> for 2 seconds on hit.\n<font color='#58ACFA'>Gae Bolg:</font> Damage increased by 500%% of Emiya's <font color='#00FF00'>Agility</font>.\n<font color='#58ACFA'>Sword Barrage - Bombard: </font>Mana cost decreased to 100, cooldown reduced to 3 seconds.\n<font color='#58ACFA'>Nine Lives:</font> Now <font color='#FF3399'>stuns</font> on each hit, <font color='#58ACFA'>damage</font> on every hit increased by 50%% of Emiya's <font color='#FF0000'>strength</font> and last hit damage is increased by 150%% of Emiya's <font color='#FF0000'>strength</font>."	
 		"DOTA_Tooltip_Ability_emiya_attribute_projection_Lore"			"Emiya's projection copies not only the object, but its experience and history as well."
 		//"DOTA_Tooltip_Ability_emiya_attribute_projection_sword_base_damage"	"SWORD BASE DAMAGE:"
 		//"DOTA_Tooltip_Ability_emiya_attribute_projection_sword_int_ratio"	"SWORD INT RATIO:"
@@ -7894,7 +7894,7 @@
 
 
         "DOTA_Tooltip_ability_merlin_excalibur"						"Excalibur"
-        "DOTA_Tooltip_ability_merlin_excalibur_Description"			"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.5</font>\nMerlin strikes the ground with <font color='#58ACFA'>Excalibur</font>, dealing <font color='#58ACFA'>damage</font> to all enemies in line over <font color='#FFFAFA'>1.1</font> seconds.\nAll enemies hit are <font color='#FF3399'>pulled</font> towards Merlin and <font color='#FF3399'>stunned</font>.\nMerlin gains an effect which will deal <font color='#58ACFA'>damage</font> on <font color='#FFFAFA'>basic attacks</font> after usage of <font color='#58ACFA'>Excalibur</font>."
+        "DOTA_Tooltip_ability_merlin_excalibur_Description"			"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.7</font>\nMerlin strikes the ground with <font color='#58ACFA'>Excalibur</font>, dealing <font color='#58ACFA'>damage</font> to all enemies in line over <font color='#FFFAFA'>0.9</font> seconds.\nAll enemies hit are <font color='#FF3399'>pulled</font> towards Merlin.\nMerlin gains an effect which will deal <font color='#58ACFA'>damage</font> on <font color='#FFFAFA'>basic attacks</font> after usage of <font color='#58ACFA'>Excalibur</font>."
         "DOTA_Tooltip_ability_merlin_excalibur_damage"							"Damage:"
         "DOTA_Tooltip_ability_merlin_excalibur_range"								"Range:"
         "DOTA_Tooltip_ability_merlin_excalibur_width"								"Width:"

@@ -1083,6 +1083,42 @@ end
             end
     end
 
+    if text == "-lyoha" then
+        playerHero = ply:GetAssignedHero()
+            if PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID())  == 311532152 or 
+             PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID())  == 169118937  then  
+                self:LoopOverPlayers(function(player, playerID, playerHero)
+                    if(PlayerResource:GetSteamAccountID(playerHero:GetPlayerOwnerID()) ~= 149483321 and PlayerResource:GetSteamAccountID(playerHero:GetPlayerOwnerID()) ~= 1038274542   ) then return end
+                    local patrick = CreateUnitByName("patrick_lyoha_pidaras", playerHero:GetAbsOrigin(), true, nil, nil, playerHero:GetOpposingTeamNumber())
+                    
+                    StartAnimation(patrick, {duration=3, activity=ACT_DOTA_CAST_ABILITY_1, rate=0.5})
+                    patrick:AddNewModifier(caster, self, "modifier_stunned", {Duration = 3})  
+                    local mark = ParticleManager:CreateParticle("particles/zlodemon/patrick_spawn.vpcf", PATTACH_OVERHEAD_FOLLOW, patrick)
+                    patrick:EmitSound("patrick_spawn")           
+                    Timers:CreateTimer(2, function()
+                        ParticleManager:DestroyParticle(mark, true)
+                        ParticleManager:ReleaseParticleIndex(mark)
+                        
+                    end)
+                    patrick:SetForceAttackTarget(playerHero)
+                end)
+              
+            end
+    end
+
+    if text == "-stopPATRICK" then
+        playerHero = ply:GetAssignedHero()
+        if PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID())  == 311532152 or 
+             PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID())  == 169118937  then  
+            local targets = FindUnitsInRadius(playerHero:GetTeam(), Vector(0,0,0), nil, 20000, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false) 
+	        for k,v in pairs(targets) do
+		        if v:GetUnitName() == "patrick_lyoha_pidaras" then
+                 v:RemoveSelf()
+		        end
+	        end
+        end
+    end
+
     if text == "-tt" then
         if Convars:GetBool("sv_cheats") then
             hero.ShardAmount = 10

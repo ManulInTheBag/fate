@@ -3148,6 +3148,98 @@
 		//----------------------------------------------------------------
 		"AttackDesire"				"1.5"		// How much bots want to attack them vs other non-hero things
 	}
+	"patrick_lyoha_pidaras"
+	{
+		// General
+		//----------------------------------------------------------------
+		"BaseClass"					"npc_dota_base_additive"
+		"Model"						"models/zlodemon/patrick.vmdl"
+		"ModelScale"				"1.5"
+		"Level"						"1"
+		"HealthBarOffset"			"140"
+		
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					""	 
+		"Ability2"					""	 
+		
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"88"
+		"MagicalResistance"			"55"
+		
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"			"250"
+		"AttackDamageMax"			"250"
+		"AttackRate"				"1.0"
+		"AttackAnimationPoint"		"0.5"
+		"AttackAcquisitionRange"	"2000"
+		"AttackRange"				"250"
+		
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyXP"					"5"
+		"BountyGoldMin"				"25"
+		"BountyGoldMax"				"25"
+		
+		// Bounds
+		//----------------------------------------------------------------
+		"BoundsHullName"			"DOTA_HULL_SIZE_SMALL"
+		"RingRadius"				"50"
+		"CollisionSize"				"64"
+		"FormationRank"				"0"
+		
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"600"
+		"MovementTurnRate"			"0.5"
+		
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"8400"
+		"StatusHealthRegen"			"1200"
+		"StatusMana"				"0"
+		"StatusManaRegen"			"0"
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"250"
+		"VisionNighttimeRange"		"250"
+		
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_NEUTRALS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationShipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
+		// Creature Data
+		//----------------------------------------------------------------
+		// "Creature"
+		// {
+		// 	"DisableClumpingBehavior"	"1"
+		// 	"AttachWearables"
+		// 	{
+		// 		"Wearable1"		{	"ItemDef"		"63"		}
+		// 		"Wearable2"		{	"ItemDef"		"64"		}
+		// 		"Wearable3" 	{	"ItemDef"		"65"		}
+		// 		"Wearable4"		{	"ItemDef"		"66"		}
+		// 		"Wearable5"		{	"ItemDef"		"67"		}
+		// 		"Wearable6"		{	"ItemDef"		"68"		}
+		// 	}
+		// 	//{
+		// 	//	"Wearable1"		{	"ItemDef"		"6789"		} //"Shield of Ascension"
+		// 	//	"Wearable2"		{	"ItemDef"		"6791"		} //"Pauldrons of Ascension"
+		// 	//	"Wearable3" 	{	"ItemDef"		"6790"		} //"Gauntlets of Ascension"
+		// 	//	"Wearable4"		{	"ItemDef"		"6788"		} //"Drapes of Ascension"
+		// 	//	"Wearable5"		{	"ItemDef"		"6787"		} //"Sword of Ascension"
+		// 	//	"Wearable6"		{	"ItemDef"		"6792"		} //"Helm of Ascension"
+		// 	//}
+		// }
+	}
 	"npc_precache_everything"
 	{
 		"BaseClass"					"npc_dota_creep"

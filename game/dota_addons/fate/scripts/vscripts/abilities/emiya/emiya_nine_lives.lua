@@ -135,7 +135,8 @@ function modifier_emiya_nine_lives:OnIntervalThink()
 		for k,v in pairs(targets) do
 			DoDamage(caster, v, self.SmallDamage, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
 			giveUnitDataDrivenModifier(caster, v, "rooted", 0.3)
-			if caster.IsProjectionAcquired then 	giveUnitDataDrivenModifier(caster, v, "locked", 0.3) end
+			giveUnitDataDrivenModifier(caster, v, "locked", 0.3)
+			if caster.IsProjectionAcquired then 	giveUnitDataDrivenModifier(caster, v, "stunned", 0.3) end
 			v:EmitSound("Hero_Juggernaut.OmniSlash.Damage")	
 		end
 

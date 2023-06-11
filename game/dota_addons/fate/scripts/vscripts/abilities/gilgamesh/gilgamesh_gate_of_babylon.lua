@@ -27,11 +27,16 @@ function gilgamesh_gate_of_babylon:OnSpellStart()
 	end)
 	if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 and caster:GetIntellect() >= 29.1 then
 		if self == caster:FindAbilityByName("gilgamesh_gate_of_babylon") and caster:FindAbilityByName("gilgamesh_enuma_elish"):IsCooldownReady() and caster:FindAbilityByName("gilgamesh_max_enuma_elish"):IsCooldownReady() then
-			caster:SwapAbilities("gilgamesh_enuma_elish", "gilgamesh_max_enuma_elish", false, true) 
+			if caster:GetAbilityByIndex(5):GetName() ~= "gilgamesh_max_enuma_elish"  then
+				caster:SwapAbilities("gilgamesh_enuma_elish", "gilgamesh_max_enuma_elish", false, true) 
+			end
 			Timers:CreateTimer({
 				endTime = 5,
 				callback = function()
-				caster:SwapAbilities("gilgamesh_enuma_elish", "gilgamesh_max_enuma_elish", true, false) 
+					if caster:GetAbilityByIndex(5):GetName() ~= "gilgamesh_enuma_elish"  then
+						caster:SwapAbilities("gilgamesh_enuma_elish", "gilgamesh_max_enuma_elish", true, false) 
+					end
+				
 			end
 			})			
 		end

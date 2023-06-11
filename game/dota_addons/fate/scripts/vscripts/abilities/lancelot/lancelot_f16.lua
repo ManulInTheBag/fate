@@ -102,7 +102,7 @@ lancelot_f16_barrage = class({})
 function lancelot_f16_barrage:OnSpellStart()
 	local caster = self:GetCaster()
 	local vDirection = caster:GetForwardVector()
-
+    EmitZlodemonTrueSoundEveryone("moskes_lanc_rocket")
 	caster:EmitSound("Hero_Gyrocopter.CallDown.Fire")
 	local torpedo_projectile1 = {	Ability 		  = self,
 									EffectName		  = "particles/lancelot/rocket.vpcf",
@@ -293,7 +293,7 @@ lancelot_f16_nuke = class({})
 function lancelot_f16_nuke:OnSpellStart()
 	local caster = self:GetCaster()
 	local targetPoint = self:GetCursorPosition()
-
+    EmitZlodemonTrueSoundEveryone("moskes_lanc_bomb")
     if (targetPoint - caster:GetAbsOrigin()):Length2D() > 700 then
         targetPoint = (targetPoint - caster:GetAbsOrigin()):Normalized()*700 + caster:GetAbsOrigin()
     end

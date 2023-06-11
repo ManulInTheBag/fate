@@ -1209,6 +1209,7 @@ function OnRBStart(keys)
 		end
 	else
 		keys.ability:ApplyDataDrivenModifier(caster, target, "modifier_l_rule_breaker", {}) 
+		EmitZlodemonTrueSoundEveryone("moskes_lanc_rb")
 	end
 	--EmitGlobalSound("Caster.RuleBreaker") 
 	

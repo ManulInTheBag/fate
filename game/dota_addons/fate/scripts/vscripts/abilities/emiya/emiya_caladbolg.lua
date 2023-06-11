@@ -52,6 +52,11 @@ end
 function emiya_caladbolg:ReleaseArrow(frames)
 	local caster = self:GetCaster()
 	EndAnimation(caster)
+	local enemy = PickRandomEnemy(caster)
+
+    if enemy then
+        caster:AddNewModifier(enemy, nil, "modifier_vision_provider", { Duration = 1 })
+    end
 	caster:EmitSound("Ability.Powershot.Alt")
 	caster:RemoveModifierByNameAndCaster("modifier_emiya_caladbolg", caster)
     local casterFX = ParticleManager:CreateParticle("particles/emiya/caladbolg_init.vpcf", PATTACH_ABSORIGIN, caster)
@@ -84,7 +89,7 @@ function emiya_caladbolg:ReleaseArrow(frames)
 	self.iProjectile = ProjectileManager:CreateLinearProjectile(tProjectile)
 	--self:StartCooldown(self:GetLevel())	  	
 end
-
+ 
 function emiya_caladbolg:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
   	local hCaster = self:GetCaster()
 	if(hTarget ~= nil) then
@@ -124,7 +129,8 @@ function emiya_caladbolg:OnProjectileThink(location)
     local radius = 100
     local duration = 0.5
 
-    AddFOWViewer(caster:GetTeamNumber(), location, radius, duration, false)
+	AddFOWViewer(2, location, 40, 0.4, false)
+    AddFOWViewer(3, location, 40, 0.4, false)
 end
 
 LinkLuaModifier("modifier_emiya_caladbolg", "abilities/emiya/emiya_caladbolg", LUA_MODIFIER_MOTION_NONE)

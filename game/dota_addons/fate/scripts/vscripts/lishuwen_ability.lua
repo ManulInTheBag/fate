@@ -692,8 +692,10 @@ function OnDragonStrike3Start(keys)
 
 	if caster:HasModifier("modifier_berserk") then
 		EmitGlobalSound("RYOOH")
+		EmitZlodemonTrueSoundEveryone("moskes_li_combo_bers")
 	else
 		EmitGlobalSound("Lishuwen_Combo_3_" .. soundQueue)
+		EmitZlodemonTrueSoundEveryone("moskes_li_combo".. math.random(1,2))
 	end
 	LoopOverPlayers(function(player, playerID, playerHero)
     	--print("looping through " .. playerHero:GetName())

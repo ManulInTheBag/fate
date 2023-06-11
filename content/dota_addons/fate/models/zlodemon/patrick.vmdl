@@ -1,0 +1,372 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc32:version{c5dcef98-b629-46ab-88e3-a17c005c935e} -->
+{
+	rootNode = 
+	{
+		_class = "RootNode"
+		children = 
+		[
+			{
+				_class = "RenderMeshList"
+				children = 
+				[
+					{
+						_class = "RenderMeshFile"
+						name = "patrick"
+						filename = "models/zlodemon/patrick.fbx"
+						import_scale = 1.0
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = 
+							[
+								"Object003",
+							]
+						}
+					},
+				]
+			},
+			{
+				_class = "MaterialGroupList"
+				children = 
+				[
+					{
+						_class = "DefaultMaterialGroup"
+						remaps = 
+						[
+							{
+								from = "imported material 01.vmat"
+								to = "models/zlodemon/patrickmat.vmat"
+							},
+							{
+								from = "imported material 02.vmat"
+								to = "imported material 02.vmat"
+							},
+						]
+						use_global_default = false
+						global_default_material = ""
+					},
+				]
+			},
+			{
+				_class = "AnimationList"
+				children = 
+				[
+					{
+						_class = "AnimFile"
+						name = "stand"
+						activity_name = "ACT_DOTA_IDLE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/zlodemon/patrick.fbx"
+						import_bone_scales = false
+						start_frame = 11
+						end_frame = 38
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "patrick1"
+						activity_name = "ACT_DOTA_IDLE_RARE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/zlodemon/patrick.fbx"
+						import_bone_scales = false
+						start_frame = 156
+						end_frame = 208
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "patrick2"
+						activity_name = "ACT_DOTA_ATTACK"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/zlodemon/patrick.fbx"
+						import_bone_scales = false
+						start_frame = 335
+						end_frame = 365
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "patrick3"
+						activity_name = "ACT_DOTA_CAST_ABILITY_1"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/zlodemon/patrick.fbx"
+						import_bone_scales = false
+						start_frame = 491
+						end_frame = 541
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "patrick4"
+						activity_name = "ACT_DOTA_DIE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/zlodemon/patrick.fbx"
+						import_bone_scales = false
+						start_frame = 561
+						end_frame = 621
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "patrick5"
+						activity_name = "ACT_DOTA_RUN"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/zlodemon/patrick.fbx"
+						import_bone_scales = false
+						start_frame = 4281
+						end_frame = 4311
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "patrick6"
+						activity_name = "ACT_DOTA_ATTACK2"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/zlodemon/patrick.fbx"
+						import_bone_scales = false
+						start_frame = 335
+						end_frame = 365
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "patrick7"
+						activity_name = "ACT_DOTA_DISABLED"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/zlodemon/patrick.fbx"
+						import_bone_scales = false
+						start_frame = 491
+						end_frame = 541
+						framerate = -1.0
+						reverse = false
+					},
+				]
+				default_root_bone_name = ""
+			},
+			{
+				_class = "HitboxSetList"
+				children = 
+				[
+					{
+						_class = "HitboxSet"
+						name = "default"
+						children = 
+						[
+							{
+								_class = "Hitbox"
+								name = "bone_leg1_l"
+								parent_bone = "bone_leg1_l"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -11.826299, -17.69449, -29.719982 ]
+								hitbox_maxs = [ 15.883889, 19.433172, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_leg2_l"
+								parent_bone = "bone_leg2_l"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -9.839878, -11.215757, -21.488213 ]
+								hitbox_maxs = [ 13.491028, 15.003637, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_leg1_r"
+								parent_bone = "bone_leg1_r"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -14.069998, -17.69449, -29.719984 ]
+								hitbox_maxs = [ 13.640154, 19.433172, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_leg2_r"
+								parent_bone = "bone_leg2_r"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -12.689425, -11.215757, -21.27121 ]
+								hitbox_maxs = [ 10.641518, 15.003637, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "object21"
+								parent_bone = "object21"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -40.829029, -18.785358, -94.723885 ]
+								hitbox_maxs = [ 28.73851, 35.740002, 33.421921 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "object24"
+								parent_bone = "object24"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -72.054031, -52.03957, -64.729759 ]
+								hitbox_maxs = [ 74.230949, 53.028648, 64.576111 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "object18"
+								parent_bone = "object18"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -24.613853, -21.331387, -13.759789 ]
+								hitbox_maxs = [ 24.613903, 2.949213, 0.830719 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_arm1_r"
+								parent_bone = "bone_arm1_r"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -18.927645, -12.063828, -30.847481 ]
+								hitbox_maxs = [ 5.943554, 10.135075, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_arm2_r"
+								parent_bone = "bone_arm2_r"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -12.056396, -11.855738, -32.090443 ]
+								hitbox_maxs = [ 8.020906, 8.568686, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_arm1_l"
+								parent_bone = "bone_arm1_l"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.118698, -12.063828, -31.216583 ]
+								hitbox_maxs = [ 19.14621, 9.979102, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_arm2_l"
+								parent_bone = "bone_arm2_l"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -8.237242, -13.15535, -30.514778 ]
+								hitbox_maxs = [ 11.713509, 8.610443, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_hand_l"
+								parent_bone = "bone_hand_l"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.461393, -18.255383, -21.751926 ]
+								hitbox_maxs = [ 8.183987, 2.417854, 0.5 ]
+							},
+						]
+					},
+				]
+			},
+		]
+		model_archetype = ""
+		primary_associated_entity = ""
+		anim_graph_name = ""
+		importer_notes = "Imported from VMDL"
+	}
+}

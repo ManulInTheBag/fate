@@ -46,7 +46,7 @@ function lishuwen_no_second_strike:OnAbilityPhaseStart()
 	local caster = self:GetCaster()
     local target = self:GetCursorTarget()
     local delay = self:GetSpecialValueFor("cast_delay")
-
+	EmitZlodemonTrueSoundEveryone("moskes_li_r")
    	caster:EmitSound("Lishuwen_NP1")
 
     local windupFx = ParticleManager:CreateParticle( "particles/custom/lishuwen/lishuwen_no_second_strike_windup.vpcf", PATTACH_ABSORIGIN, caster )

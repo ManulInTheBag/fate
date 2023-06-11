@@ -10,7 +10,7 @@ end
 function lishuwen_presence_concealment:OnSpellStart()
 	local caster = self:GetCaster()
 	local ability = self
-
+	EmitZlodemonTrueSound("moskes_li_q",caster)
 	ProjectileManager:ProjectileDodge(caster)
 
 	local stopOrder = {
