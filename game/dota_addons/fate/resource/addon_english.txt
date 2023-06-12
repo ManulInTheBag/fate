@@ -2282,7 +2282,8 @@
 		"DOTA_Tooltip_ability_artoria_ultimate_excalibur_cast_time"	"CAST DELAY:"
 		"DOTA_Tooltip_ability_artoria_ultimate_excalibur_pause_time"	"TOTAL DELAY:"
 		"DOTA_Tooltip_ability_artoria_ultimate_excalibur_length"		"RANGE:"
-		"DOTA_Tooltip_ability_artoria_ultimate_excalibur_damage"	"TOTAL DAMAGE:"
+		"DOTA_Tooltip_ability_artoria_ultimate_excalibur_initial_damage"	"FIRST HIT DAMAGE:"
+		"DOTA_Tooltip_ability_artoria_ultimate_excalibur_damage"	"BEAM DAMAGE:"
 		"DOTA_Tooltip_ability_artoria_ultimate_excalibur_Note0"	"Saber is stunned until she finishes casting."
 		
 		"DOTA_Tooltip_Ability_artoria_strike_air"				"Strike Air"
@@ -3208,8 +3209,10 @@
 		"DOTA_Tooltip_Ability_okita_tennen_Lore"	"Tennen Rishin-ryū is commonly known as the style practiced by several core members of the Shinsengumi."
 
 		"DOTA_Tooltip_Ability_okita_jce"		"Hira-Seigan"
-		"DOTA_Tooltip_Ability_okita_jce_Description"	"Okita makes a step outside of our dimension, using Reduced Ground technique, becoming immune to all harms for a moment. After a brief delay, she will slice the space-time itself, dealing  magical  damage to everyone in the area."
-		"DOTA_Tooltip_Ability_okita_jce_base_damage"	"Base damage:"
+		"DOTA_Tooltip_Ability_okita_jce_Description"	"Okita makes a step outside of our dimension, using Reduced Ground technique, becoming immune to all harms for a moment and attacking all enemies in radius a few times. After a brief delay, she will slice the space-time itself, dealing magical damage to everyone in the area."
+		"DOTA_Tooltip_Ability_okita_jce_base_damage"	"Final damage:"
+		"DOTA_Tooltip_Ability_okita_jce_hit_damage"	"Damage per hit:"
+		"DOTA_Tooltip_Ability_okita_jce_hit_count"	"Hit count:"
 		"DOTA_Tooltip_Ability_okita_jce_attack_damage"	"%Attack damage:"
 		"DOTA_Tooltip_Ability_okita_jce_multiplier"	"Max multiplier:"
 		"DOTA_Tooltip_Ability_okita_jce_radius"	"Radius:"

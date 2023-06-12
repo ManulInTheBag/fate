@@ -34,6 +34,12 @@ function okita_jce:OnSpellStart()
 	self.origin = caster:GetAbsOrigin()
 	self.channelTime = 0
 
+	local hit_count = self:GetSpecialValueFor("hit_count")
+	local duration = self:GetSpecialValueFor("duration")
+	local hit_damage = self:GetSpecialValueFor("hit_damage")
+	local radius = self:GetSpecialValueFor("radius")
+	local interval = duration/hit_count
+
 	caster:AddNewModifier(caster, self, "modifier_jce_active", {})
 	giveUnitDataDrivenModifier(caster, caster, "jump_pause", self:GetSpecialValueFor("duration"))
 	caster:AddEffects(EF_NODRAW)
@@ -53,7 +59,30 @@ function okita_jce:OnSpellStart()
             --caster:EmitSound("Hero_LegionCommander.PressTheAttack")
         end
     end)
-    Timers:CreateTimer(self:GetSpecialValueFor("duration"), function()
+    for i = 0, (hit_count - 1) do
+    	Timers:CreateTimer(interval*i, function()
+    		for j=1,5 do
+				local angle = RandomInt(0, 360)
+				local random1 = RandomInt(200, radius-1)
+				local random2 = RandomInt(0, radius-1)
+			    local startLoc = GetRotationPoint(self.origin,random1,angle)
+			    local endLoc = GetRotationPoint(self.origin,random2,angle + RandomInt(120, 240))
+			    local fxIndex = ParticleManager:CreateParticle( "particles/okita/okita_jce_slash.vpcf", PATTACH_ABSORIGIN, caster)
+			    ParticleManager:SetParticleControl( fxIndex, 0, startLoc + Vector(0,0,radius*math.abs(math.sqrt(1 - (random1/radius)^2))))
+			    ParticleManager:SetParticleControl( fxIndex, 1, endLoc + Vector(0,0,radius*math.abs(math.sqrt(1 - (random2/radius)^2))))
+			    caster:EmitSound("Tsubame_Slash_" .. math.random(1,3))
+		    end
+		    local unitGroup = FindUnitsInRadius(caster:GetTeam(), self.origin, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
+			for j = 1, #unitGroup do
+				--DoDamage(caster, unitGroup[i], damage/3, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+				--DoDamage(caster, unitGroup[i], damage/3, DAMAGE_TYPE_PURE, 0, self, false)
+				if not unitGroup[j]:IsMagicImmune() then
+					DoDamage(caster, unitGroup[j], hit_damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+				end
+			end
+    	end)
+	end
+    Timers:CreateTimer(duration, function()
     	self:JudgementCutEnd()
     end)
 end

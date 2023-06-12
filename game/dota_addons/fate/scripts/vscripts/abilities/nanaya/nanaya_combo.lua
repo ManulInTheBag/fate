@@ -7,7 +7,7 @@ nanaya_combo = class ({})
 
 function nanaya_combo:OnSpellStart()
 local caster = self:GetCaster()
-caster:AddNewModifier(caster, self, "nanaya_combo_attack", { duration = 0.5})		
+caster:AddNewModifier(caster, self, "nanaya_combo_attack", { duration = self:GetSpecialValueFor("counter_duration")})		
 caster:AddNewModifier(caster, self, "nanaya_combo_cd", { duration = self:GetCooldown(1)})		
 local masterCombo = caster.MasterUnit2:FindAbilityByName(self:GetAbilityName())
 masterCombo:EndCooldown()
@@ -394,7 +394,7 @@ function nanaya_combo_attack:OnTakeDamage(args)
         local target = args.attacker
 		if args.unit ~= self:GetParent() then return end
 		local damageTaken = args.original_damage
-		if damageTaken >= 100 and caster:GetHealth() ~= 0 and self:FilterUnits(caster, target) then
+		if damageTaken >= 50 and caster:GetHealth() ~= 0 and self:FilterUnits(caster, target) then
 		nanaya_combo:Alternate(caster, target, self:GetAbility())
 		--nanaya_combo:Secret(caster, target, self:GetAbility())
 		print ("check")

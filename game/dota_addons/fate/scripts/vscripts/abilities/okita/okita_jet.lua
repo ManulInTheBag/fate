@@ -224,7 +224,7 @@ function modifier_jet_kappa:OnIntervalThink()
 		self:HorizontalMotion(self.parent, FrameTime())
 		--self:VerticalMotion(self.parent, FrameTime())
 		local enemy = FindUnitsInRadius(self.parent:GetTeam(), self.parent:GetAbsOrigin(), nil, self.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_CLOSEST, false)
-		local damage = (self.parent.IsKikuIchimonjiAcquired and self.parent:GetAgility()*0.75 or 0) + self:GetCaster():GetLevel()*15 + self:GetAbility():GetSpecialValueFor("base_damage")
+		local damage = (self.parent.IsKikuIchimonjiAcquired and self.parent:GetAgility()*0.75 or 0) + self:GetCaster():GetLevel()*10 + self:GetAbility():GetSpecialValueFor("base_damage")
 		for i = 1,#enemy do
 			if not enemy[i]:HasModifier("modifier_jet_checker") then
 				--DoDamage(self.parent, enemy[i], self.speed*0.4, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)

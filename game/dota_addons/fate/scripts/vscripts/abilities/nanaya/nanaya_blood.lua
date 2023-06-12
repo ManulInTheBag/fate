@@ -139,7 +139,7 @@ end]]
 function nanaya_blood_modifier_animemode:OnCreated()
 	self.dist = 450
 	self.parent = self:GetParent()
-	CustomGameEventManager:Send_ServerToPlayer(self.parent:GetPlayerOwner(), "emit_horn_sound", {sound="nanaya_pizza"})
+	--CustomGameEventManager:Send_ServerToPlayer(self.parent:GetPlayerOwner(), "emit_horn_sound", {sound="nanaya_pizza"})
     if IsServer() then
 		local sAbil = self.parent:GetAbilityByIndex(4):GetAbilityName()
 		print (sAbil)

@@ -6,7 +6,7 @@
 	 "BaseClass"						"ability_lua"
 	  "ScriptFile"					"abilities/nanaya/nanaya_w_e_knife"
 	  "MaxLevel"						"5"
-	  "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+	  "AbilityBehavior" "DOTA_ABILITY_BEHAVIOR_POINT"
 	  "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 	  "AbilityTextureName"			"custom/nanaya/nanaya_w"
 	  "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
@@ -49,7 +49,7 @@
 			"dmg"									"300 350 400 450 500"
 			"agi_modifier"							"1.25"
 			"clone_dmg"								"200"
-			"clone_dmg_agi"							"0.8"
+			"clone_dmg_agi"							"0.7"
 			"5th_clone_dmg"							"350"
 			"6th_clone_dmg"							"800"
 		}
@@ -98,12 +98,12 @@
 			"05"
 			{
 			"var_type" "FIELD_INTEGER"
-			"agi_modifier" "1"
+			"agi_modifier" "0.5"
 			}
 			"06"
 			{
 			"var_type" "FIELD_INTEGER"
-			"clone_dmg_agi" "1"
+			"clone_dmg_agi" "0.5"
 			}
 		}
 	}
@@ -118,13 +118,13 @@
 	  "AbilityTextureName"			"custom/nanaya/nanaya_combo"
 	  "AbilityCastAnimation" 			"ACT_DOTA_ITEM_PICKUP"
 	  "AnimationPlaybackRate" 		"1.0"
-	  "AbilityCooldown"				"180"
+	  "AbilityCooldown"				"120"
 	  
 	  	
 		"AbilityValues"
 		{
-			"threshold"						"100"
-			"counter_duration"							"0.5"
+			"threshold"						"50"
+			"counter_duration"							"0.75"
 			"pct_damage"							"100"
 		}
 	}

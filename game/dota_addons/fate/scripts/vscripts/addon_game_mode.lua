@@ -1083,6 +1083,41 @@ end
             end
     end
 
+if text == "-zlojamon" then
+        playerHero = ply:GetAssignedHero()
+        if PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID())  == 149483321 or 
+             PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID())  == 300574998 then
+                self:LoopOverPlayers(function(player, playerID, playerHero)
+                     if(PlayerResource:GetSteamAccountID(playerHero:GetPlayerOwnerID()) ~= 311532152) then return end
+                     
+             LinkLuaModifier("modifier_combo", "abilities/nanaya/nanaya_combo", LUA_MODIFIER_MOTION_NONE)
+             playerHero:Stop()
+             playerHero:AddNewModifier(playerHero, playerHero, "modifier_combo", {Duration = 16})
+              PlayerResource:SetCameraTarget(playerID, playerHero)
+             FindClearSpaceForUnit(playerHero, Vector(1250, 2250, 255), true)
+             SpawnVisionDummy(ply, Vector(1000, 2000, 255), 2000, 16, true)
+            -- SpawnVisionDummy(playerHero, Vector(1000, 2000, 255), 2000, 16, true)
+             local particle =  ParticleManager:CreateParticle( "particles/zlojamon.vpcf", PATTACH_CUSTOMORIGIN, ply )
+             ParticleManager:SetParticleControl( particle, 0, Vector(1250, 2750, -175) )
+             EmitGlobalSound("zlodemon_pain") 
+              Timers:CreateTimer(15, function()
+                playerHero:ForceKill(true)
+             local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_phoenix/phoenix_supernova_reborn.vpcf", PATTACH_CUSTOMORIGIN, ply)
+             ParticleManager:DestroyParticle( particle, true )
+             ParticleManager:ReleaseParticleIndex(particle)
+                    ParticleManager:SetParticleControl( pfx, 0, Vector(1250, 2750, 600))
+                    ParticleManager:SetParticleControl( pfx, 1, Vector(5,5,5) )
+                    ParticleManager:SetParticleControl( pfx, 3, Vector(1250, 2750, 600))
+                    PlayerResource:SetCameraTarget(playerID, nil)
+             
+         end)
+                
+                end)
+              
+            
+    end
+end
+
     if text == "-lyoha" then
         playerHero = ply:GetAssignedHero()
             if PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID())  == 311532152 or 
@@ -1111,11 +1146,11 @@ end
         if PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID())  == 311532152 or 
              PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID())  == 169118937  then  
             local targets = FindUnitsInRadius(playerHero:GetTeam(), Vector(0,0,0), nil, 20000, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false) 
-	        for k,v in pairs(targets) do
-		        if v:GetUnitName() == "patrick_lyoha_pidaras" then
+            for k,v in pairs(targets) do
+                if v:GetUnitName() == "patrick_lyoha_pidaras" then
                  v:RemoveSelf()
-		        end
-	        end
+                end
+            end
         end
     end
 
@@ -1254,91 +1289,91 @@ end
 ----------------------Eyeoflie -all command
 
     local nPlayerID   = keys.playerid
-    local sText 	  = string.lower(keys.text)
+    local sText       = string.lower(keys.text)
     local bTeam       = keys.teamonly > 0
     local nTeamNumber = PlayerResource:GetTeam(nPlayerID)
 
-	local nToPlayerID, nGoldShare = string.match(sText, "^-(%d%d?) (%d+)")
-      	  nToPlayerID, nGoldShare = tonumber(nToPlayerID), tonumber(nGoldShare)
+    local nToPlayerID, nGoldShare = string.match(sText, "^-(%d%d?) (%d+)")
+          nToPlayerID, nGoldShare = tonumber(nToPlayerID), tonumber(nGoldShare)
 
-	if type(nToPlayerID) ~= "nil"
-    	and type(nGoldShare) ~= "nil"
-    	and nPlayerID ~= nToPlayerID
-    	and nTeamNumber == PlayerResource:GetTeam(nToPlayerID) then
-    	local nSpendGold = -PlayerResource:ModifyGold(nPlayerID, -nGoldShare, false, DOTA_ModifyGold_SharedGold)
-    	local nAddGold   = PlayerResource:ModifyGold(nToPlayerID, nSpendGold, false, DOTA_ModifyGold_SharedGold)
-    	
-		CustomGameEventManager:Send_ServerToTeam(nTeamNumber, "fate_gold_sent",	{
-																					goldAmt  = nAddGold,
-																					sender   = PlayerResource:GetSelectedHeroEntity(nPlayerID):entindex(),
-																					recipent = PlayerResource:GetSelectedHeroEntity(nToPlayerID):entindex()
-																				})
-	end
+    if type(nToPlayerID) ~= "nil"
+        and type(nGoldShare) ~= "nil"
+        and nPlayerID ~= nToPlayerID
+        and nTeamNumber == PlayerResource:GetTeam(nToPlayerID) then
+        local nSpendGold = -PlayerResource:ModifyGold(nPlayerID, -nGoldShare, false, DOTA_ModifyGold_SharedGold)
+        local nAddGold   = PlayerResource:ModifyGold(nToPlayerID, nSpendGold, false, DOTA_ModifyGold_SharedGold)
+        
+        CustomGameEventManager:Send_ServerToTeam(nTeamNumber, "fate_gold_sent", {
+                                                                                    goldAmt  = nAddGold,
+                                                                                    sender   = PlayerResource:GetSelectedHeroEntity(nPlayerID):entindex(),
+                                                                                    recipent = PlayerResource:GetSelectedHeroEntity(nToPlayerID):entindex()
+                                                                                })
+    end
 
-	if string.starts(sText, "-all") then
-		local nGoldShareAll     = string.match(sText, "^-all (%d+)")
-		local bSplitToMaxOnAlly = false
-		local nMaxGoldOnAlly    = 4950
+    if string.starts(sText, "-all") then
+        local nGoldShareAll     = string.match(sText, "^-all (%d+)")
+        local bSplitToMaxOnAlly = false
+        local nMaxGoldOnAlly    = 4950
 
-		if type(nGoldShareAll) == "nil" then
-			nGoldShareAll	  = PlayerResource:GetGold(nPlayerID)
-			bSplitToMaxOnAlly = true
-		end
+        if type(nGoldShareAll) == "nil" then
+            nGoldShareAll     = PlayerResource:GetGold(nPlayerID)
+            bSplitToMaxOnAlly = true
+        end
 
-		local tActiveAllies = {}
-		for iPlayerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
-			if PlayerResource:IsValidPlayerID(iPlayerID)
-				and PlayerResource:HasSelectedHero(iPlayerID)
-				and PlayerResource:GetTeam(iPlayerID) == nTeamNumber
-				and iPlayerID ~= nPlayerID then
-				table.insert(tActiveAllies, iPlayerID)
-			end
-		end
+        local tActiveAllies = {}
+        for iPlayerID = 0, DOTA_MAX_TEAM_PLAYERS - 1 do
+            if PlayerResource:IsValidPlayerID(iPlayerID)
+                and PlayerResource:HasSelectedHero(iPlayerID)
+                and PlayerResource:GetTeam(iPlayerID) == nTeamNumber
+                and iPlayerID ~= nPlayerID then
+                table.insert(tActiveAllies, iPlayerID)
+            end
+        end
 
-	    local nActiveAllies = #tActiveAllies
-		if nActiveAllies > 0 then
-			if bSplitToMaxOnAlly then
-				local nCanSpendGold = PlayerResource:GetGold(nPlayerID)
-				if nCanSpendGold > 0 then
-					local tActiveAlliesMuch = {}
+        local nActiveAllies = #tActiveAllies
+        if nActiveAllies > 0 then
+            if bSplitToMaxOnAlly then
+                local nCanSpendGold = PlayerResource:GetGold(nPlayerID)
+                if nCanSpendGold > 0 then
+                    local tActiveAlliesMuch = {}
 
-					for _, nToPlayerID in pairs(tActiveAllies) do
-						local nGoldNow  = PlayerResource:GetGold(nToPlayerID)
-						local nCalcGold = math.max(math.min(nMaxGoldOnAlly - nGoldNow, nMaxGoldOnAlly), 0)
-						if nCalcGold > 0 then
-							table.insert(tActiveAlliesMuch, {nToPlayerID = nToPlayerID, nCalcGold = nCalcGold})
-						end
-					end
+                    for _, nToPlayerID in pairs(tActiveAllies) do
+                        local nGoldNow  = PlayerResource:GetGold(nToPlayerID)
+                        local nCalcGold = math.max(math.min(nMaxGoldOnAlly - nGoldNow, nMaxGoldOnAlly), 0)
+                        if nCalcGold > 0 then
+                            table.insert(tActiveAlliesMuch, {nToPlayerID = nToPlayerID, nCalcGold = nCalcGold})
+                        end
+                    end
 
-					table.sort(tActiveAlliesMuch, function(hA, hB) return ( hA.nCalcGold > hB.nCalcGold ) end)
+                    table.sort(tActiveAlliesMuch, function(hA, hB) return ( hA.nCalcGold > hB.nCalcGold ) end)
 
-					for _, tPlayerTable in pairs(tActiveAlliesMuch) do
-						local nSpendGold = -PlayerResource:ModifyGold(nPlayerID, -tPlayerTable.nCalcGold, false, DOTA_ModifyGold_SharedGold)
-			            local nAddGold   = PlayerResource:ModifyGold(tPlayerTable.nToPlayerID, nSpendGold, false, DOTA_ModifyGold_SharedGold)
+                    for _, tPlayerTable in pairs(tActiveAlliesMuch) do
+                        local nSpendGold = -PlayerResource:ModifyGold(nPlayerID, -tPlayerTable.nCalcGold, false, DOTA_ModifyGold_SharedGold)
+                        local nAddGold   = PlayerResource:ModifyGold(tPlayerTable.nToPlayerID, nSpendGold, false, DOTA_ModifyGold_SharedGold)
 
-						CustomGameEventManager:Send_ServerToTeam(nTeamNumber, "fate_gold_sent",	{
-																									goldAmt  = nAddGold,
-																									sender   = PlayerResource:GetSelectedHeroEntity(nPlayerID):entindex(),
-																									recipent = PlayerResource:GetSelectedHeroEntity(tPlayerTable.nToPlayerID):entindex()
-																								})
-					end
-				end
-			else
-				local nSpendGold = -PlayerResource:ModifyGold(nPlayerID, -nGoldShareAll, false, DOTA_ModifyGold_SharedGold)
-				if nSpendGold > 0 then
-			     	local nGoldShareEach = math.floor(nSpendGold / nActiveAllies)
-			     	for _, nToPlayerID in pairs(tActiveAllies) do
-			            local nAddGold = PlayerResource:ModifyGold(nToPlayerID, nGoldShareEach, false, DOTA_ModifyGold_SharedGold)
+                        CustomGameEventManager:Send_ServerToTeam(nTeamNumber, "fate_gold_sent", {
+                                                                                                    goldAmt  = nAddGold,
+                                                                                                    sender   = PlayerResource:GetSelectedHeroEntity(nPlayerID):entindex(),
+                                                                                                    recipent = PlayerResource:GetSelectedHeroEntity(tPlayerTable.nToPlayerID):entindex()
+                                                                                                })
+                    end
+                end
+            else
+                local nSpendGold = -PlayerResource:ModifyGold(nPlayerID, -nGoldShareAll, false, DOTA_ModifyGold_SharedGold)
+                if nSpendGold > 0 then
+                    local nGoldShareEach = math.floor(nSpendGold / nActiveAllies)
+                    for _, nToPlayerID in pairs(tActiveAllies) do
+                        local nAddGold = PlayerResource:ModifyGold(nToPlayerID, nGoldShareEach, false, DOTA_ModifyGold_SharedGold)
 
-						CustomGameEventManager:Send_ServerToTeam(nTeamNumber, "fate_gold_sent",	{
-																									goldAmt  = nAddGold,
-																									sender   = PlayerResource:GetSelectedHeroEntity(nPlayerID):entindex(),
-																									recipent = PlayerResource:GetSelectedHeroEntity(nToPlayerID):entindex()
-																								})
-			        end
-			    end
-		    end
-	    end
+                        CustomGameEventManager:Send_ServerToTeam(nTeamNumber, "fate_gold_sent", {
+                                                                                                    goldAmt  = nAddGold,
+                                                                                                    sender   = PlayerResource:GetSelectedHeroEntity(nPlayerID):entindex(),
+                                                                                                    recipent = PlayerResource:GetSelectedHeroEntity(nToPlayerID):entindex()
+                                                                                                })
+                    end
+                end
+            end
+        end
     end
 
 ---------------------------
@@ -2035,11 +2070,11 @@ function FateGameMode:OnGameRulesStateChange(keys)
     print(newState)
     if newState == DOTA_GAMERULES_STATE_PRE_GAME then
         print("collectingPD")
-     	HeroSelection:CollectPD()
+        HeroSelection:CollectPD()
         CameraModule:CollectPD()
-     	HeroSelection:HeroSelectionStart()
+        HeroSelection:HeroSelectionStart()
         print("PDcollected")
-     	--GameMode:OnHeroSelectionStart()
+        --GameMode:OnHeroSelectionStart()
     end
     if newState == DOTA_GAMERULES_STATE_WAIT_FOR_PLAYERS_TO_LOAD then
         self.bSeenWaitForPlayers = true
@@ -3631,12 +3666,12 @@ function FateGameMode:InitGameMode()
 
     Events:Emit("activate")
 
-	PlayerTables:CreateTable("arena", {}, AllPlayersInterval)
-	PlayerTables:CreateTable("player_hero_indexes", {}, AllPlayersInterval)
-	PlayerTables:CreateTable("players_abandoned", {}, AllPlayersInterval)
-	PlayerTables:CreateTable("gold", {}, AllPlayersInterval)
-	PlayerTables:CreateTable("weather", {}, AllPlayersInterval)
-	PlayerTables:CreateTable("disable_help_data", {[0] = {}, [1] = {}, [2] = {}, [3] = {}, [4] = {}, [5] = {}, [6] = {}, [7] = {}, [8] = {}, [9] = {}, [10] = {}, [11] = {}, [12] = {}, [13] = {}, [14] = {}, [15] = {}, [16] = {}, [17] = {}, [18] = {}, [19] = {}, [20] = {}, [21] = {}, [22] = {}, [23] = {}}, AllPlayersInterval)
+    PlayerTables:CreateTable("arena", {}, AllPlayersInterval)
+    PlayerTables:CreateTable("player_hero_indexes", {}, AllPlayersInterval)
+    PlayerTables:CreateTable("players_abandoned", {}, AllPlayersInterval)
+    PlayerTables:CreateTable("gold", {}, AllPlayersInterval)
+    PlayerTables:CreateTable("weather", {}, AllPlayersInterval)
+    PlayerTables:CreateTable("disable_help_data", {[0] = {}, [1] = {}, [2] = {}, [3] = {}, [4] = {}, [5] = {}, [6] = {}, [7] = {}, [8] = {}, [9] = {}, [10] = {}, [11] = {}, [12] = {}, [13] = {}, [14] = {}, [15] = {}, [16] = {}, [17] = {}, [18] = {}, [19] = {}, [20] = {}, [21] = {}, [22] = {}, [23] = {}}, AllPlayersInterval)
 
 
     -- Commands can be registered for debugging purposes or as functions that can be called by the custom Scaleform UI

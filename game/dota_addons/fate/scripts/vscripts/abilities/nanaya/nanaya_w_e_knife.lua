@@ -4,7 +4,9 @@ LinkLuaModifier("modifier_nanaya_animation_knife", "abilities/nanaya/nanaya_w_e_
 jump_ahead_nanaya = class({})
 function jump_ahead_nanaya:OnSpellStart()
 	local caster = self:GetCaster()
-	caster:AddNewModifier(caster, self, "jump_ahead_nanaya_modifier", {})
+	if not caster:IsRooted() then
+		caster:AddNewModifier(caster, self, "jump_ahead_nanaya_modifier", {})
+	end
 	local justpoint = self:GetCursorPosition()
 	if justpoint == caster:GetAbsOrigin() then
 		justpoint = caster:GetAbsOrigin() + caster:GetForwardVector()
@@ -336,7 +338,7 @@ function modifier_nanaya_animation_knife:OnCreated(args)
 		
 		
 		print ("this is", args.enemy_health)
-		if self.parent:FindModifierByName("nanaya_blood_modifier"):GetStackCount() == 30 then
+		if self.parent:FindModifierByName("nanaya_blood_modifier"):GetStackCount() == 30 and self.parent.rnanaya then
 			self.parent:AddNewModifier(self.parent, self, "modifier_combo", {Duration = 1.8})
 			
 			self.target:AddNewModifier(self.parent, self, "modifier_combo", {Duration = 1.8})
@@ -481,7 +483,7 @@ local dmg = abil:GetSpecialValueFor("clone_dmg") + math.floor(caster:GetAgility(
 										local numberhit = 0
 										local cloneanim = 14
 										Timers:CreateTimer(0.1, function()
-										if numberhit < 4 then
+										if numberhit < 4 and units:HasModifier("modifier_master_intervention") ~= true then 
 										if secondtime == nil then 
 										knockback_push = units:GetAbsOrigin() - knockback_push1*120
 										else
@@ -543,6 +545,7 @@ units:EmitSound(test)
 return 0.4
 else
 if secondtime == nil then 
+	if units:HasModifier("modifier_master_intervention") then return end
 --nanaya_clones:Clones(caster, units, 1)
 nanaya_clones:Final_clones(caster, units, knockback_push1)
 
@@ -586,7 +589,7 @@ local knockback = { should_stun = false,
 								    center_x = knockback_push.x,
 									center_y = knockback_push.y,
 	                                center_z = center_unit_z }
-	                                units:AddNewModifier(caster, self, "modifier_stunned", { Duration = 1.5 })
+	                                --units:AddNewModifier(caster, self, "modifier_stunned", { Duration = 1.5 })
 									ParticleManager:CreateParticle("particles/nanaya_jump_back.vpcf", PATTACH_ABSORIGIN, units)
 									if not IsKnockbackImmune(units) then
 										units:AddNewModifier(caster, self, "modifier_knockback", knockback)

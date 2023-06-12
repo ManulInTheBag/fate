@@ -14,6 +14,8 @@ function artoria_ultimate_excalibur:OnSpellStart()
 	local targetPoint = self:GetCursorPosition()
 	local ability = self
 	local facing = caster:GetForwardVector()
+
+	self.TargetsTable = {}
 	
 	Timers:CreateTimer(0.01, function()
 		if caster:IsAlive() then
@@ -124,13 +126,13 @@ function artoria_ultimate_excalibur:OnSpellStart()
 			if caster:IsAlive() then
 				nBeams = 0
 				Timers:CreateTimer(function()
-					if nBeams == 50 then 
+					if nBeams == 26 then 
 						return
 					end
 				self:FireSingleMaxParticle()
 				local projectile = ProjectileManager:CreateLinearProjectile(excal)
 				nBeams = nBeams + 1
-				return 0.02
+				return 0.04
 				end)
 			end
 end})
@@ -177,20 +179,33 @@ function artoria_ultimate_excalibur:OnProjectileHit_ExtraData(hTarget, vLocation
 		return
 	end
 
-	local caster = self:GetCaster()
-	local target = hTarget 
-	local damage = self:GetSpecialValueFor("damage")
-	local player = caster:GetPlayerOwner()
-	
-	if caster:HasModifier("modifier_artoria_improve_excalibur_attribute") then
-		damage = damage + 6500
+	local first = false
+
+	if not self.TargetsTable[hTarget:entindex()] then
+		self.TargetsTable[hTarget:entindex()] = true
+		first = true
 	end
+
+	local caster = self:GetCaster()
+	local target = hTarget
+	local damage = self:GetSpecialValueFor("damage")
+	if caster:HasModifier("modifier_artoria_improve_excalibur_attribute") then
+		damage = damage + 5500
+	end
+
+	damage = damage/25
+
+	if first then
+		damage = self:GetSpecialValueFor("initial_damage")
+	end
+
+	local player = caster:GetPlayerOwner()
 
 	target:AddNewModifier(caster, self, "modifier_maxcalibur_slow", {Duration = 0.5})
 	giveUnitDataDrivenModifier(caster, target, "locked", 0.5)
 	
 	if target:GetUnitName() == "gille_gigantic_horror" then damage = damage * 1.5 end
-	DoDamage(caster, target, damage/50, DAMAGE_TYPE_MAGICAL, 0, self, false)
+	DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
 end
 
 modifier_maxcalibur_slow = class({})

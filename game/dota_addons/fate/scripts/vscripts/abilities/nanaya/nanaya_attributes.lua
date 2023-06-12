@@ -3,6 +3,7 @@ function nanaya_blood_attribute:OnSpellStart()
 local caster = self:GetCaster()
 	local ply = caster:GetPlayerOwner()
 	local hero = caster:GetPlayerOwner():GetAssignedHero()
+	hero.BloodAcquired = true
     hero:FindAbilityByName("nanaya_blood"):SetLevel(2)
     local master = hero.MasterUnit
 	master:SetMana(master:GetMana() - self:GetManaCost(self:GetLevel()))
