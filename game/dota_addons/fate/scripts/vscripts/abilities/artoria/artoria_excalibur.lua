@@ -43,11 +43,11 @@ function artoria_excalibur:OnSpellStart()
 		ParticleManager:ReleaseParticleIndex( chargeFxIndex )
 	end)
 	
-	local enemy = PickRandomEnemy(caster)
+	--[[local enemy = PickRandomEnemy(caster)
 
     if enemy then
         caster:AddNewModifier(enemy, nil, "modifier_vision_provider", { Duration = 2 })
-    end
+    end]]
 	
 	local range = self:GetSpecialValueFor("range") - width -- We need this to take end radius of projectile into account
 	--giveUnitDataDrivenModifier(caster, caster, "pause_sealdisabled", 2)

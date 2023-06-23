@@ -11,6 +11,9 @@ function nanaya_jump_revoke:CheckState()
 		[MODIFIER_STATE_DISARMED] = true,
 		[MODIFIER_STATE_SILENCED] = true,
 		[MODIFIER_STATE_MUTED] = true,
+		[MODIFIER_STATE_INVULNERABLE] = true,
+        [MODIFIER_STATE_NO_HEALTH_BAR] = true,
+
 	}
 	return state
 end
@@ -124,7 +127,7 @@ local caster = self:GetCaster()
 if caster:HasModifier("modifier_nanaya_animation_knife") then 
 return 0.15
 else
-return 0.2
+return 0.35
 end
 end
 
@@ -197,6 +200,8 @@ function nanaya_jump_slashes_modifier_back:CheckState()
                         [MODIFIER_STATE_DISARMED] = true,
                         [MODIFIER_STATE_SILENCED] = true,
                         [MODIFIER_STATE_MUTED] = true,
+                        [MODIFIER_STATE_INVULNERABLE] = true,
+                        [MODIFIER_STATE_NO_HEALTH_BAR] = true,
 
                     }
 					   return state
@@ -263,6 +268,8 @@ function nanaya_jump_slashes_modifier:CheckState()
                         [MODIFIER_STATE_DISARMED] = true,
                         [MODIFIER_STATE_SILENCED] = true,
                         [MODIFIER_STATE_MUTED] = true,
+                        [MODIFIER_STATE_INVULNERABLE] = true,
+                        [MODIFIER_STATE_NO_HEALTH_BAR] = true,
                     }
 					   return state
 end

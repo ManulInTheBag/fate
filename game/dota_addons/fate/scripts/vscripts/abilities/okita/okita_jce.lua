@@ -41,7 +41,7 @@ function okita_jce:OnSpellStart()
 	local interval = duration/hit_count
 
 	caster:AddNewModifier(caster, self, "modifier_jce_active", {})
-	giveUnitDataDrivenModifier(caster, caster, "jump_pause", self:GetSpecialValueFor("duration"))
+	--giveUnitDataDrivenModifier(caster, caster, "jump_pause", self:GetSpecialValueFor("duration"))
 	caster:AddEffects(EF_NODRAW)
 
 	self.fxIndex = ParticleManager:CreateParticle("particles/okita/okita_chronosphere.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
@@ -63,7 +63,7 @@ function okita_jce:OnSpellStart()
     	Timers:CreateTimer(interval*i, function()
     		for j=1,5 do
 				local angle = RandomInt(0, 360)
-				local random1 = RandomInt(200, radius-1)
+				local random1 = radius--RandomInt(200, radius-1)
 				local random2 = RandomInt(0, radius-1)
 			    local startLoc = GetRotationPoint(self.origin,random1,angle)
 			    local endLoc = GetRotationPoint(self.origin,random2,angle + RandomInt(120, 240))
@@ -165,7 +165,8 @@ end]]
 modifier_jce_active = class({})
 
 function modifier_jce_active:CheckState()
-	return { [MODIFIER_STATE_INVULNERABLE] = true,
+	return { --[MODIFIER_STATE_INVULNERABLE] = true,
+				[MODIFIER_STATE_STUNNED] = true,
 			 [MODIFIER_STATE_NO_HEALTH_BAR]	= true,
 			 [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
 			 [MODIFIER_STATE_NOT_ON_MINIMAP] = true,

@@ -189,6 +189,69 @@ CDOTA_Item_Lua.GetBehavior = function(self) --Predict uint64?
     return tonumber(tostring(VALVE_CDOTA_Item_Lua_GetBehavior(self)))
 end
 
+--[[clash module test
+
+CDOTA_Ability_Lua.IsClashable = function(self)
+    return false
+end
+
+CDOTA_Ability_Lua.ClashPower = function(self)
+    return 0
+end
+
+--[local VALVE_CDOTA_Ability_Lua_OnAbilityPhaseStart = CDOTA_Ability_Lua.OnAbilityPhaseStart
+CDOTA_Ability_Lua.OnAbilityPhaseStart = function(self)
+    print("pepega")
+    if type(self.OnFateAbilityPhaseStart) == "function" and self:OnFateAbilityPhaseStart() then
+        print("phase_start")
+        if not self:IsClashable() then return true end
+        print("clash_set_true")
+        local caster = self:GetCaster()
+        local abilityname = self:GetName()
+        caster.clash_possible = abilityname
+        return true
+    end
+    return VALVE_CDOTA_Ability_Lua_OnAbilityPhaseStart
+end
+
+local VALVE_CDOTA_Ability_Lua_OnAbilityPhaseInterrupted = CDOTA_Ability_Lua.OnAbilityPhaseInterrupted
+CDOTA_Ability_Lua.OnAbilityPhaseInterrupted = function(self)
+    local caster = self:GetCaster()
+    if type(self.OnFateAbilityPhaseInterrupted) == "function" and self:OnFateAbilityPhaseInterrupted() then
+        print("clash_set_false")
+        caster.clash_possible = nil
+        return
+    end
+    return VALVE_CDOTA_Ability_Lua_OnAbilityPhaseInterrupted
+end
+
+local VALVE_CDOTA_Ability_Lua_OnSpellStart = CDOTA_Ability_Lua.OnSpellStart
+CDOTA_Ability_Lua.OnSpellStart = function(self)
+    local caster = self:GetCaster()
+    if self:IsClashable() and bit.band(self:GetBehavior(), DOTA_ABILITY_BEHAVIOR_UNIT_TARGET) then
+        local target = self:GetCursorTarget()
+        if target and target.clash_possible then
+            local clashCauser = self
+            local clashOpponent = target:FindAbilityByName(target.clash_possible)
+            local clashCauserPower = clashCauser:ClashPower()
+            local clashOpponentPower = clashOpponent:ClashPower()
+            if clashCauserPower >= clashOpponentPower then
+                print("clash_won")
+                target:Interrupt()
+                clashOpponent:StartCooldown(5)
+            else
+                print("clash_lost")
+                caster:Interrupt()
+                clashCauser:StartCooldown(5)
+                caster.clash_possible = nil
+                return nil
+            end
+        end
+    end
+    caster.clash_possible = nil
+    return (type(self.OnFateSpellStart) == "function" and self:OnFateSpellStart() or VALVE_CDOTA_Ability_Lua_OnSpellStart)
+end]]
+
 --[[CScriptParticleManager = IsServer() and CScriptParticleManager or C_ScriptParticleManager
 
 local VALVE_CreateParticle = CScriptParticleManager.CreateParticle

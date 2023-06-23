@@ -28,7 +28,7 @@ function modifier_attributes_hp:GetModifierHealthBonus()
     self:SetStackCount(-13 * parent:GetStrength())
     --end    
   end
-  return self:GetStackCount()
+  return 0--self:GetStackCount()
 end
 
 

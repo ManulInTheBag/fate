@@ -558,11 +558,11 @@ function OnStrengthGain(keys)
 	if hero.STRgained == nil then
 		hero.STRgained = 1
 	else 
-		if hero.STRgained < 50 then
+		if hero.STRgained < 30 then
 			hero.STRgained = hero.STRgained + 1
 		else
 			caster:GiveMana(1)
-			SendErrorMessage(caster:GetPlayerOwnerID(), "#Cannot_Get_Over_50_Stats")
+			SendErrorMessage(caster:GetPlayerOwnerID(), "#Cannot_Get_Over_30_Stats")
 			return
 		end
 	end 
@@ -584,10 +584,10 @@ function OnAgilityGain(keys)
 	if hero.AGIgained == nil then
 		hero.AGIgained = 1
 	else 
-		if hero.AGIgained < 50 then
+		if hero.AGIgained < 30 then
 			hero.AGIgained = hero.AGIgained + 1
 		else
-			SendErrorMessage(caster:GetPlayerOwnerID(), "#Cannot_Get_Over_50_Stats")
+			SendErrorMessage(caster:GetPlayerOwnerID(), "#Cannot_Get_Over_30_Stats")
 			caster:GiveMana(1)
 			return
 		end
@@ -616,10 +616,10 @@ function OnIntelligenceGain(keys)
 	if hero.INTgained == nil then
 		hero.INTgained = 1
 	else 
-		if hero.INTgained < 50 then
+		if hero.INTgained < 30 then
 			hero.INTgained = hero.INTgained + 1
 		else
-			SendErrorMessage(caster:GetPlayerOwnerID(), "#Cannot_Get_Over_50_Stats")
+			SendErrorMessage(caster:GetPlayerOwnerID(), "#Cannot_Get_Over_30_Stats")
 			caster:GiveMana(1)
 			return
 		end
@@ -643,10 +643,10 @@ function OnDamageGain(keys)
 	if hero.DMGgained == nil then
 		hero.DMGgained = 1
 	else 
-		if hero.DMGgained < 50 then
+		if hero.DMGgained < 30 then
 			hero.DMGgained = hero.DMGgained + 1
 		else
-			SendErrorMessage(caster:GetPlayerOwnerID(), "#Cannot_Get_Over_50_Stats")
+			SendErrorMessage(caster:GetPlayerOwnerID(), "#Cannot_Get_Over_30_Stats")
 			caster:GiveMana(1)
 			return
 		end
@@ -687,10 +687,10 @@ function OnArmorGain(keys)
 	if hero.ARMORgained == nil then
 		hero.ARMORgained = 1
 	else 
-		if hero.ARMORgained < 50 then
+		if hero.ARMORgained < 30 then
 			hero.ARMORgained = hero.ARMORgained + 1
 		else
-			SendErrorMessage(caster:GetPlayerOwnerID(), "#Cannot_Get_Over_50_Stats")
+			SendErrorMessage(caster:GetPlayerOwnerID(), "#Cannot_Get_Over_30_Stats")
 			caster:GiveMana(1)
 			return
 		end
@@ -715,10 +715,10 @@ function OnHPRegenGain(keys)
 	elseif hero.BaseHPRegen == nil then
 		hero.BaseHPRegen = hero:GetBaseHealthRegen()
 	else 
-		if hero.HPREGgained < 50 then
+		if hero.HPREGgained < 30 then
 			hero.HPREGgained = hero.HPREGgained + 1
 		else
-			SendErrorMessage(caster:GetPlayerOwnerID(), "#Cannot_Get_Over_50_Stats")
+			SendErrorMessage(caster:GetPlayerOwnerID(), "#Cannot_Get_Over_30_Stats")
 			caster:GiveMana(1)
 			return
 		end
@@ -752,10 +752,10 @@ function OnManaRegenGain(keys)
 	elseif hero.BaseMPRegen == nil then
 		hero.BaseMPRegen = hero:GetBaseManaRegen()
 	else 
-		if hero.MPREGgained < 50 then
+		if hero.MPREGgained < 30 then
 			hero.MPREGgained = hero.MPREGgained + 1
 		else
-			SendErrorMessage(caster:GetPlayerOwnerID(), "#Cannot_Get_Over_50_Stats")
+			SendErrorMessage(caster:GetPlayerOwnerID(), "#Cannot_Get_Over_30_Stats")
 			caster:GiveMana(1)
 			return
 		end
@@ -776,19 +776,19 @@ function OnMovementSpeedGain(keys)
 	local ply = caster:GetPlayerOwner()
 	local hero = ply:GetAssignedHero()
 
-	if hero:GetName() == "npc_dota_hero_drow_ranger" then
+	--[[if hero:GetName() == "npc_dota_hero_drow_ranger" then
 		SendErrorMessage(caster:GetPlayerOwnerID(), "#Cannot_Acquire_Speed")
 		caster:GiveMana(1)
 		return
-	end
+	end]]
 
 	if hero.MSgained == nil then
 		hero.MSgained = 1
 	else 
-		if hero.MSgained < 50 then
+		if hero.MSgained < 30 then
 			hero.MSgained = hero.MSgained + 1
 		else
-			SendErrorMessage(caster:GetPlayerOwnerID(), "#Cannot_Get_Over_50_Stats")
+			SendErrorMessage(caster:GetPlayerOwnerID(), "#Cannot_Get_Over_30_Stats")
 			caster:GiveMana(1)
 			return
 		end

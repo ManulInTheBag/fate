@@ -3,8 +3,10 @@ modifier_last_spurt = class({})
 function modifier_last_spurt:DeclareFunctions()
     local funcs = {
         MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
+        MODIFIER_PROPERTY_MOVESPEED_LIMIT,
         MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT,
         MODIFIER_PROPERTY_EVASION_CONSTANT,
+        MODIFIER_PROPERTY_MOVESPEED_MAX
     }
  
     return funcs
@@ -28,6 +30,14 @@ end
 
 function modifier_last_spurt:GetModifierIgnoreMovespeedLimit()
     return 1
+end
+
+function modifier_last_spurt:GetModifierMoveSpeed_Limit()
+    return 625
+end
+
+function modifier_last_spurt:GetModifierMoveSpeed_Max()
+    return 625
 end
  
 function modifier_last_spurt:GetAttributes() 

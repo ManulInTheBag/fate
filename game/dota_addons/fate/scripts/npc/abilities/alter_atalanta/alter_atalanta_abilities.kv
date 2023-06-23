@@ -319,7 +319,7 @@
 			"03"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"detonate_damage"	"10"
+				"detonate_damage"	"5"
 			}
 		}
 	}
@@ -358,12 +358,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"120 150 180 210 240"
+				"damage"				"90 110 130 150 170"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"duration"				"5"
+				"duration"				"7"
 			}
 			"03"
 			{
@@ -395,6 +395,35 @@
 				"var_type"				"FIELD_INTEGER"
 				"mr_bonus"				"8 10 12 14 16"
 			}
+		}		
+	}
+
+	"atalanta_tauropolos_alter_stop"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/alter_atalanta/atalanta_tauropolos_alter"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityTextureName"			"custom/alter_atalanta/atalanta_tauropolos"
+		"AnimationPlaybackRate" 		"1.0"
+		
+		"AbilityCastPoint"				"0"
+		"AbilityManaCost"				"0"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+
+		"AbilitySpecial"
+		{
 		}		
 	}
 
@@ -533,13 +562,8 @@
 		{
 			"01"
 			{
-				"var_type"				"FIELD_INTEGER"
-				"crit_chance"			"12"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"crit_percent"			"320"
+				"var_type"				"FIELD_FLOAT"
+				"stack_damage"			"2.5"
 			}
 		}		
 	}

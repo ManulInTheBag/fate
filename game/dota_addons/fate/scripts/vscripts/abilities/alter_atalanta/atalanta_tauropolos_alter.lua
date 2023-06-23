@@ -36,7 +36,14 @@ function atalanta_tauropolos_alter:OnSpellStart()
 	local caster = self:GetCaster()
 
 	caster:AddNewModifier(caster, self, "modifier_tauropolos_alter", {duration = self:GetSpecialValueFor("duration")+0.31})
-    print (duration)
+end
+
+atalanta_tauropolos_alter_stop = class({})
+
+function atalanta_tauropolos_alter_stop:OnSpellStart()
+    local caster = self:GetCaster()
+
+    caster:RemoveModifierByName("modifier_tauropolos_alter")
 end
 
 modifier_tauropolos_alter = class({})
@@ -72,6 +79,17 @@ function modifier_tauropolos_alter:OnCreated()
         self.quadrant = 1  -- Quadrants 1: NW, 2: NE, 3: SE, 4: SW
         self.ability = self:GetAbility()
         self:StartIntervalThink(0.5)
+
+        if self.caster:GetAbilityByIndex(5):GetName() == "atalanta_tauropolos_alter" then               
+            self.caster:SwapAbilities("atalanta_tauropolos_alter", "atalanta_tauropolos_alter_stop", false, true)  
+        end
+    end
+end
+function modifier_tauropolos_alter:OnDestroy()
+    if IsServer() then
+        if self.caster:GetAbilityByIndex(5):GetName() == "atalanta_tauropolos_alter_stop" then               
+            self.caster:SwapAbilities("atalanta_tauropolos_alter", "atalanta_tauropolos_alter_stop", true, false)  
+        end
     end
 end
 function modifier_tauropolos_alter:OnIntervalThink()
@@ -136,7 +154,7 @@ function modifier_tauropolos_alter:OnIntervalThink()
 
 		    for _,unit in pairs(units) do
                 if not unit:HasModifier("modifier_protection_from_arrows_active") then
-    		     	DoDamage(self.caster, unit, self.damage + (self.caster.CursedMoonAcquired and 60 or 0), DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
+    		     	DoDamage(self.caster, unit, self.damage + (self.caster.CursedMoonAcquired and 40 or 0), DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
     		      	for i = 1,(self:GetAbility():GetSpecialValueFor("curse_stacks") + (self.caster.CursedMoonAcquired and 5 or 0)) do
     		           	self.caster:FindAbilityByName("atalanta_curse"):Curse(unit)
                         --[[if self.caster.CursedMoonAcquired then

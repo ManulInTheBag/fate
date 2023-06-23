@@ -497,13 +497,13 @@ function HeroSelection:StartStateInGame(toPrecache)
 						--print(v.hero)
 						--print("pepega4")
 						--print(tostring(v.status))
-						if tostring(v.status) == "picked" and not PlayerResource:IsPlayerAbandoned(plyId) then
+						if tostring(v.status) == "picked" and (PlayerResource:GetConnectionState(plyId) == DOTA_CONNECTION_STATE_CONNECTED) then
 							HeroSelection:SelectHero(plyId, tostring(v.hero), nil, nil, true)
 						end
-						if not (tostring(v.status) == "picked") or (PlayerResource:IsPlayerAbandoned(plyId)) then
+						if not (tostring(v.status) == "picked") or not (PlayerResource:GetConnectionState(plyId) == DOTA_CONNECTION_STATE_CONNECTED) then
 							Timers:CreateTimer(0.1, function()
 								local pepe = PlayerTables:GetTableValue("hero_selection", team)[plyId]
-								if tostring(pepe.status) == "picked" and not PlayerResource:IsPlayerAbandoned(plyId) then
+								if tostring(pepe.status) == "picked" and (PlayerResource:GetConnectionState(plyId) == DOTA_CONNECTION_STATE_CONNECTED) then
 									PrecacheUnitByNameAsync(tostring(pepe.hero), function()
 										HeroSelection:SelectHero(plyId, tostring(pepe.hero), nil, nil, true)
 									end, plyId)

@@ -39,7 +39,7 @@ softdispellable = {
     "modifier_ambush_invis",
     --"modifier_true_assassin_selfmod",
     "modifier_selfmod_agility",
-    "modifier_replenishment_heal",
+    --"modifier_replenishment_heal",
     "modifier_jeanne_trail_debuff",
     "modifier_master_intervention",
     "modifier_merlin_excalibur_attack",

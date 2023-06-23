@@ -4803,6 +4803,9 @@
 		"DOTA_Tooltip_Ability_atalanta_tauropolos_alter_armor_bonus"				"Bonus armor"
 		"DOTA_Tooltip_Ability_atalanta_tauropolos_alter_mr_bonus"					"Bonus magic resistance"
 
+		"DOTA_Tooltip_Ability_atalanta_tauropolos_alter_stop" "Tauropolos - Arrow Rain: Stop"
+		"DOTA_Tooltip_Ability_atalanta_tauropolos_alter_stop_Description"	"Stops Tauropolos - Arrow Rain."
+
 		"DOTA_Tooltip_Ability_atalanta_skia"	"Combo - Tauropolos Skia Thermokrasia"
 		"DOTA_Tooltip_Ability_atalanta_skia_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : D -> E in 4 seconds.</font>\nAtalanta absorbs Tauropolos into her own body, launching herself to the target location as a ballistic missile. Opponents damaged by this Noble Phantasm will be cursed powerfully."
 		"DOTA_Tooltip_Ability_atalanta_skia_damage"	"Damage:"
@@ -4821,10 +4824,10 @@
 		"DOTA_Tooltip_Ability_atalanta_tornado_attribute_skia_pull"	"Combo pull:"
 
 		"DOTA_Tooltip_Ability_atalanta_vision_attribute"	"Attribute: Beastly Enchancement"
-		"DOTA_Tooltip_Ability_atalanta_vision_attribute_Description"	"If Atalanta is alive, position of each enemy with 100 or more Curse stacks will be revealed for Atalanta and her team automatically.\nCurse explosion will deal additional 5 damage per stack."
+		"DOTA_Tooltip_Ability_atalanta_vision_attribute_Description"	"If Atalanta is alive, position of each enemy with 100 or more Curse stacks will be revealed for Atalanta and her team automatically.\nCurse explosion will deal additional %stack_damage% damage per stack."
 		
 		"DOTA_Tooltip_Ability_atalanta_moon_attribute"	"Attribute: Cursed Moon"
-		"DOTA_Tooltip_Ability_atalanta_moon_attribute_Description"	"Roar deals bonus damage and applies bonus Curse stack per each unit in its radius.\nTauropolos - Arrow Rain applies 10 more Curse stacks per impact and deals 100 additional damage per impact."
+		"DOTA_Tooltip_Ability_atalanta_moon_attribute_Description"	"Roar deals bonus damage and applies bonus Curse stack per each unit in its radius.\nTauropolos - Arrow Rain applies 5 more Curse stacks per impact and deals 40 additional damage per impact."
 		"DOTA_Tooltip_Ability_atalanta_moon_attribute_roar_damage"	"Roar bonus damage per unit:"
 		"DOTA_Tooltip_Ability_atalanta_moon_attribute_tauropolos_curse"	"Tauropolos bonus curse stacks:"
 
@@ -6537,7 +6540,7 @@
         "DOTA_Tooltip_ability_atalanta_attribute_golden_apple_Lore"							"Nobody could resist the urge to pick these apples up, making them easy target for the huntress."
 
         "DOTA_Tooltip_ability_atalanta_attribute_crossing_arcadia_plus"                   "Crossing Arcadia Plus"
-        "DOTA_Tooltip_ability_atalanta_attribute_crossing_arcadia_plus_Description"       "Celestial Arrow and Crossing Arcadia now apply Last Spurt buff to Atalanta when hit their enemies. Fires %extra_arrows% extra arrows during Crossing Arcadia and increases the leapback range.\n<font color='#FF6600'>Last Spurt:</font> Gains bonus movespeed and evasion based on stack count. Maximum stack count - 5. Last Spurt removes the movespeed limit of Atalanta. Bonus ms and evasion per stack - 10%%."
+        "DOTA_Tooltip_ability_atalanta_attribute_crossing_arcadia_plus_Description"       "Celestial Arrow and Crossing Arcadia now apply Last Spurt buff to Atalanta when hit their enemies. Fires %extra_arrows% extra arrows during Crossing Arcadia and increases the leapback range.\n<font color='#FF6600'>Last Spurt:</font> Gains bonus movespeed and evasion based on stack count. Maximum stack count - 5. Last Spurt sets the movespeed limit of Atalanta to 625 while active. Bonus ms and evasion per stack - 10%%."
         "DOTA_Tooltip_ability_atalanta_attribute_crossing_arcadia_plus_base_ms"      	  "LAST SPURT BASE MS%:"
         "DOTA_Tooltip_ability_atalanta_attribute_crossing_arcadia_plus_duration"     	  "LAST SPURT DURATION:"
         "DOTA_Tooltip_ability_atalanta_attribute_crossing_arcadia_plus_bonus_range"       "BONUS RANGE:"
@@ -8480,7 +8483,7 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
        	"DOTA_Tooltip_Ability_master_presence_resonator_Note0"			"Cannot detect assassins or invulnerable heroes."
 
 		"DOTA_Tooltip_Ability_master_strength"						"Acquire Strength"
-		"DOTA_Tooltip_ability_master_strength_Description"			"<font color='#58ACFA'>Master Mana Required : 1</font>\nIncreases your Servant's STR by 1 (+7 HP and +0.25 HP Regen)"
+		"DOTA_Tooltip_ability_master_strength_Description"			"<font color='#58ACFA'>Master Mana Required : 1</font>\nIncreases your Servant's STR by 1 (+15 HP and +0.25 HP Regen)"
 
 		"DOTA_Tooltip_Ability_master_agility"						"Acquire Agility"
 		"DOTA_Tooltip_ability_master_agility_Description"			"<font color='#58ACFA'>Master Mana Required : 1</font>\nIncreases your Servant's AGI by 1 (+0.2 Armor, +1 Move Speed and +2 Attack Speed)"
