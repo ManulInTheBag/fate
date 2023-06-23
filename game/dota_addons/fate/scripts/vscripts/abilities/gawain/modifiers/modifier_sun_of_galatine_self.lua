@@ -27,15 +27,15 @@ function modifier_sun_of_galatine_self:OnCreated()
 end
 
 function modifier_sun_of_galatine_self:GetModifierBonusStats_Strength()
-	return 99
+	return 60
 end
 
 function modifier_sun_of_galatine_self:GetModifierBonusStats_Agility()
-	return 99
+	return 60
 end
 
 function modifier_sun_of_galatine_self:GetModifierBonusStats_Intellect()
-	return 99
+	return 60
 end
 
 function modifier_sun_of_galatine_self:RemoveOnDeath()

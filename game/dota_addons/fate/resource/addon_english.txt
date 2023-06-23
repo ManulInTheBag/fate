@@ -4087,7 +4087,7 @@
 		"DOTA_Tooltip_Ability_lancelot_attribute_improve_koh_arsenal_Note0" "Arsenal Contents:\nE Lvl 1 - Caliburn\nE Lvl 2 - Snatch Strike\nE Lvl 3 - Windblade\nE Lvl 4 - The Spear of Striking Death Flight\nE Lvl 5 - Gae Daerg"
 
 		"DOTA_Tooltip_Ability_lancelot_attribute_kotl"         				"Attribute: Knight of the Lake"
-        "DOTA_Tooltip_Ability_lancelot_attribute_kotl_Description"			"Tripples the parameters granted by Arondight. Applies a strong dispel when Arondight is activated."
+        "DOTA_Tooltip_Ability_lancelot_attribute_kotl_Description"			"Multiplies the parameters granted by Arondight by 1.5. Applies a strong dispel when Arondight is activated."
 
         "DOTA_Tooltip_Ability_lancelot_attribute_kotl_Lore"					"The wielder of Arondight is said to be the perfect knight, unrivaled out of those who set at the Round Table of Camelot."
         //"DOTA_Tooltip_Ability_lancelot_attribute_kotl_crit_rate"         "%CRITICAL RATE:"
@@ -5401,7 +5401,7 @@
         "DOTA_Tooltip_ability_gawain_excalibur_galatine_duration"		"FIRE DURATION:"
 
         "DOTA_Tooltip_ability_gawain_excalibur_galatine_combo"				"Combo: Galatine Supernova"
-        "DOTA_Tooltip_ability_gawain_excalibur_galatine_combo_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : W Q - R in 5 seconds</font>\nGathers the power of a supernova and explodes it, dealing huge damage in radius (the further your enemy stands, the less damage it takes), burning all the enemies in radius up and stunning them for 0.3 seconds. After the explosion gains 99 in all attributes for 12 seconds.\nEach Artificial Sun in explosion radius will explode in 700 radius, dealing damage and dissapearing.\nAll enemies hit receive a debuff for 3-6 seconds (based on distance from Gawain), which will grant vision on them and reduce their armor and magic resistance by 30-50%% and 5 - 15%%."
+        "DOTA_Tooltip_ability_gawain_excalibur_galatine_combo_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : W Q - R in 5 seconds</font>\nGathers the power of a supernova and explodes it, dealing huge damage in radius (the further your enemy stands, the less damage it takes), burning all the enemies in radius up and stunning them for 0.3 seconds. After the explosion gains 60 in all attributes for 12 seconds.\nEach Artificial Sun in explosion radius will explode in 700 radius, dealing damage and dissapearing.\nAll enemies hit receive a debuff for 3-6 seconds (based on distance from Gawain), which will grant vision on them and reduce their armor and magic resistance by 30-50%% and 5 - 15%%."
         "DOTA_Tooltip_ability_gawain_excalibur_galatine_combo_Lore"		"The sister sword of Excalibur contains psuedo-Sun within its hilt, purging the evil with solar flame."
         "DOTA_Tooltip_ability_gawain_excalibur_galatine_combo_cast_delay"		"CAST DELAY:"
         "DOTA_Tooltip_ability_gawain_excalibur_galatine_combo_damage"			"DAMAGE:"
