@@ -72,7 +72,7 @@ function UpdateAttributeList(data)
 		CreateAbilityPanel(attributePanel, queryUnit, i, true);
 	}
 	CreateAbilityPanel(cooldownPanel, queryUnit, 5, true);
-	for(i=6; i<14; i++) {
+	for(i=6; i<13; i++) {
 		CreateAbilityPanel(statPanel, queryUnit, i, true);
 	}
 
@@ -95,7 +95,7 @@ function UpdateStatPanel(data)
 	$("#AGIAmount").text = (data.AGI || 0) +  " / 30";
 	$("#INTAmount").text = (data.INT || 0) +  " / 30";
 	$("#DMGAmount").text = (data.DMG || 0) +  " / 30";
-	$("#ARMORAmount").text = (data.ARMOR || 0) +  " / 30";
+	//$("#ARMORAmount").text = (data.ARMOR || 0) +  " / 30";
 	$("#HPREGAmount").text = (data.HPREG || 0) +  " / 30";
 	$("#MPREGAmount").text = (data.MPREG || 0) +  " / 30";
 	$("#MSAmount").text = (data.MS || 0) +  " / 30";
