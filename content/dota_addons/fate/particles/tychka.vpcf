@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf37:version{f9a1c8c4-159b-4786-b740-4d1a118c8f46} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf57:version{4f75132e-4f5d-493c-958e-3bb4328089ba} -->
 {
 	_class = "CParticleSystemDefinition"
 	m_bShouldHitboxesFallbackToRenderBounds = false
@@ -31,7 +31,6 @@
 	[
 		{
 			_class = "C_INIT_RingWave"
-			m_nControlPointNumber = 1
 			m_flParticlesPerOrbit = 
 			{
 				m_nType = "PF_TYPE_LITERAL"
@@ -259,13 +258,20 @@
 					m_vDomainMaxs = [ 0.0, 0.0 ]
 				}
 			}
+			m_TransformInput = 
+			{
+				m_nControlPoint = 1
+			}
 		},
 		{
-			_class = "C_INIT_RemapInitialDirectionToCPToVector"
-			m_nCP = 1
+			_class = "C_INIT_RemapInitialDirectionToTransformToVector"
 			m_bNormalize = true
 			m_nFieldOutput = 21
 			m_flOffsetRot = 1.0
+			m_TransformInput = 
+			{
+				m_nControlPoint = 1
+			}
 		},
 		{
 			_class = "C_INIT_RandomColor"
@@ -1102,8 +1108,11 @@
 					m_Stops = [  ]
 				}
 			}
-			m_nControlPointNumber = 1
 			m_bLocalCoords = true
+			m_TransformInput = 
+			{
+				m_nControlPoint = 1
+			}
 		},
 		{
 			_class = "C_INIT_InitialVelocityNoise"
@@ -1507,9 +1516,11 @@
 					m_Stops = [  ]
 				}
 			}
-			m_nControlPointNumber = 1
-			m_bLocalSpace = true
 			m_vecAbsVal = [ 0.0, 200.0, 0.0 ]
+			m_TransformInput = 
+			{
+				m_nControlPoint = 1
+			}
 		},
 	]
 	m_Operators = 
@@ -1600,6 +1611,7 @@
 			]
 			m_nOutputBlendMode = "PARTICLE_OUTPUT_BLEND_MODE_ADD"
 			m_nColorBlendType = "PARTICLE_COLOR_BLEND_MAX"
+			m_bDisableZBuffering = true
 		},
 	]
 }

@@ -11,6 +11,7 @@
 				[
 					{
 						_class = "DefaultMaterialGroup"
+						name = "BlackShadow"
 						remaps = 
 						[
 							{
@@ -24,6 +25,17 @@
 						]
 						use_global_default = false
 						global_default_material = ""
+					},
+					{
+						_class = "MaterialGroup"
+						name = "WhiteShadow"
+						remaps = 
+						[
+							{
+								from = "materials/nanaya/nanayamat.vmat"
+								to = "materials/nanaya/nanayamat_white.vmat"
+							},
+						]
 					},
 				]
 			},
@@ -725,7 +737,7 @@
 						animgraph_additive = false
 						source_filename = "models/nanaya/animfi.fbx"
 						import_bone_scales = false
-						start_frame = 390
+						start_frame = 405
 						end_frame = 418
 						framerate = 24.0
 						reverse = false
@@ -1573,6 +1585,7 @@
 					{
 						_class = "AnimFile"
 						name = "future_anim1"
+						note = "was 570"
 						children = 
 						[
 							{
@@ -1694,7 +1707,7 @@
 						source_filename = "models/nanaya/animfi.fbx"
 						import_bone_scales = false
 						start_frame = 479
-						end_frame = 570
+						end_frame = 545
 						framerate = 24.0
 						reverse = false
 					},
@@ -2931,6 +2944,28 @@
 						framerate = 24.0
 						reverse = false
 					},
+					{
+						_class = "AnimFile"
+						name = "anim_punch4"
+						activity_name = "ACT_DOTA_CAST_ABILITY_2_END"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.1
+						fade_out_time = 0.3
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nanaya/animfi.fbx"
+						import_bone_scales = false
+						start_frame = 1244
+						end_frame = 1244
+						framerate = -1.0
+						reverse = false
+					},
 				]
 				default_root_bone_name = ""
 			},
@@ -2956,6 +2991,7 @@
 							},
 						]
 						hidden_in_tools = true
+						non_bodygroup_single_choice = false
 					},
 				]
 				disabled = true
@@ -2964,8 +3000,6 @@
 		model_archetype = ""
 		primary_associated_entity = ""
 		anim_graph_name = ""
-		importer_notes = """
-Imported from VMDL
-"""
+		importer_notes = "Imported from VMDL"
 	}
 }

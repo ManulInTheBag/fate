@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf50:version{da6429d4-166f-47ed-8f47-45d5c5f1bd9f} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf57:version{4f75132e-4f5d-493c-958e-3bb4328089ba} -->
 {
 	_class = "CParticleSystemDefinition"
 	m_bShouldHitboxesFallbackToRenderBounds = false
@@ -260,6 +260,9 @@
 				m_vRandomMax = [ 0.0, 0.0, 0.0 ]
 			}
 			m_bDisableOperator = true
+			m_transformInput = 
+			{
+			}
 		},
 		{
 			_class = "C_OP_SetControlPointFromObjectScale"
@@ -441,17 +444,12 @@
 			m_bDisableOperator = true
 			m_TransformInput = 
 			{
-				m_nType = "PT_TYPE_CONTROL_POINT"
 				m_nControlPoint = 2
 			}
 		},
 		{
 			_class = "C_INIT_CreateWithinSphereTransform"
 			m_bDisableOperator = true
-			m_TransformInput = 
-			{
-				m_nType = "PT_TYPE_CONTROL_POINT"
-			}
 		},
 		{
 			_class = "C_INIT_CreateSequentialPath"
@@ -537,7 +535,9 @@
 			_class = "C_INIT_InitialVelocityNoise"
 			m_vecOutputMin = [ 400.0, 0.0, 0.0 ]
 			m_vecOutputMax = [ 400.0, 0.0, 0.0 ]
-			m_bLocalSpace = true
+			m_TransformInput = 
+			{
+			}
 		},
 		{
 			_class = "C_INIT_InitFloat"
@@ -1026,10 +1026,6 @@
 				m_vRandomMax = [ 0.0, 0.0, 0.0 ]
 			}
 			m_bDisableOperator = true
-			m_TransformInput = 
-			{
-				m_nType = "PT_TYPE_CONTROL_POINT"
-			}
 		},
 	]
 	m_Operators = 
@@ -1042,7 +1038,6 @@
 			m_bDisableOperator = true
 			m_TransformStart = 
 			{
-				m_nType = "PT_TYPE_CONTROL_POINT"
 				m_nControlPoint = 4
 			}
 		},
@@ -1062,10 +1057,6 @@
 		{
 			_class = "C_OP_RemapTransformOrientationToYaw"
 			m_bDisableOperator = true
-			m_TransformInput = 
-			{
-				m_nType = "PT_TYPE_CONTROL_POINT"
-			}
 		},
 		{
 			_class = "C_OP_DampenToCP"
@@ -1680,6 +1671,9 @@
 			m_ActivityName = "ACT_SCRIPT_CUSTOM_28"
 			m_bDisableShadows = true
 			m_bDisableOperator = true
+			m_modelInput = 
+			{
+			}
 		},
 		{
 			_class = "C_OP_RenderRopes"

@@ -1,8 +1,8 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf51:version{6d03d500-2498-454e-b833-f654e870bb3d} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf57:version{4f75132e-4f5d-493c-958e-3bb4328089ba} -->
 {
 	_class = "CParticleSystemDefinition"
 	m_nBehaviorVersion = 12
-	m_flConstantLifespan = 6.0
+	m_flConstantLifespan = 10.0
 	m_controlPointConfigurations = 
 	[
 		{
@@ -85,10 +85,6 @@
 		{
 			_class = "C_INIT_PositionOffset"
 			m_bLocalCoords = true
-			m_TransformInput = 
-			{
-				m_nType = "PT_TYPE_CONTROL_POINT"
-			}
 		},
 	]
 	m_Operators = 
@@ -211,6 +207,7 @@
 							m_flNoiseTurbulenceMix = 0.5
 							m_flNoiseImgPreviewScale = 1.0
 							m_bNoiseImgPreviewLive = true
+							m_bUseBoundsCenter = false
 							m_nInputMode = "PF_INPUT_MODE_CLAMPED"
 							m_flMultFactor = 1.0
 							m_flInput0 = 0.0
@@ -228,16 +225,16 @@
 								m_spline = 
 								[
 									{
-										x = 0.274533
+										x = 0.311969
 										y = 0.0
-										m_flSlopeIncoming = 0.165382
-										m_flSlopeOutgoing = 0.165382
+										m_flSlopeIncoming = 0.098059
+										m_flSlopeOutgoing = 0.098059
 									},
 									{
-										x = 6.005405
-										y = 0.947784
-										m_flSlopeIncoming = 0.165382
-										m_flSlopeOutgoing = 0.165382
+										x = 10.0
+										y = 0.95
+										m_flSlopeIncoming = 0.098059
+										m_flSlopeOutgoing = 0.098059
 									},
 								]
 								m_tangents = 
@@ -252,7 +249,7 @@
 									},
 								]
 								m_vDomainMins = [ 0.0, 0.0 ]
-								m_vDomainMaxs = [ 8.8, 1.7 ]
+								m_vDomainMaxs = [ 10.0, 0.95 ]
 							}
 						}
 						m_flFinalTextureScaleV = 

@@ -71,9 +71,7 @@ function cmd_seal_2:OnSpellStart()
 		hero:FindModifierByName("modifier_saito_fds_cast_controller"):BreakCombo()
 		 
 	end
-	if hero:GetName() ~= "npc_dota_hero_night_stalker" then
-		ResetAbilities(hero)
-	end
+	ResetAbilities(hero)
 	ResetItems(hero)
 	IncrementCharges(hero)
 

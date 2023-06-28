@@ -36,7 +36,7 @@ print (sAbil)
 				end)
 		end
 	end
-	if caster:FindModifierByName("nanaya_blood_modifier"):GetStackCount() > 9 then
+	if true then
 	Timers:CreateTimer(0.1, function()
 		local hKnifeProjectile =    {
 			Source            = caster,

@@ -6,8 +6,8 @@ nanaya_blood = class ({})
 
 function nanaya_blood:Spawn()
 	if IsServer() then
-	self:SetLevel(1)
-end
+		self:SetLevel(1)
+	end
 end
 
 
@@ -182,4 +182,3 @@ function nanaya_blood_modifier_animemode:OnRemoved()
 	self.parent:SwapAbilities("nanaya_jump_slashes", "nanaya_dashf", false, true)
 
 end
-		

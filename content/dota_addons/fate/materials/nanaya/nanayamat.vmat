@@ -7,6 +7,10 @@ Layer0
 	//---- 2-Sided Rendering ----
 	F_RENDER_BACKFACES 1
 
+	//---- Effect Proxies ----
+	F_USE_HERO_EFFECTS_PROXY 1
+	F_USE_STATUS_EFFECTS_PROXY 1
+
 	//---- Masks ----
 	F_MASKS_1 1
 
@@ -34,6 +38,14 @@ Layer0
 	g_vTexCoordOffset "[0.000 0.000]"
 	g_vTexCoordScale "[1.000 1.000]"
 	TextureColor "materials/nanaya/00083.png"
+
+	//---- Detail 1 ----
+	g_vDetail2ColorTint "[1.000000 1.000000 1.000000 0.000000]"
+	g_vDetailTexCoordScale "[1.000 1.000]"
+
+	//---- Detail 2 ----
+	g_flDetail2BlendFactor "0.000"
+	TextureDetail2 ""
 
 	//---- Fresnel ----
 	g_flFresnelModulatesAlpha "0.000"
@@ -86,6 +98,12 @@ Layer0
 		{
 		}
 		"Color"
+		{
+		}
+		"Detail 1"
+		{
+		}
+		"Detail 2"
 		{
 		}
 		"Fresnel"

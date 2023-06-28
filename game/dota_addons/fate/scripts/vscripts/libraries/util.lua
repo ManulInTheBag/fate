@@ -425,6 +425,7 @@ donotlevel = {
 
     "leonidas_berserk",
     "altera_adaptive",
+    "nanaya_dash",
 }
 
 CannotReset = {
@@ -591,6 +592,9 @@ CannotReset = {
     "jeanne_crimson_saint_la_pucelle",
     "iskander_summon_hephaestion",
     "iskander_summon_waver",
+
+    "nanaya_dash",
+    "nanaya_kekshi",
 }
 
 femaleservant = {
