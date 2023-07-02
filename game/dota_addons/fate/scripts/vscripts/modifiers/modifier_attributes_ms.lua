@@ -15,7 +15,7 @@ function modifier_attributes_ms:GetModifierMoveSpeedOverride()
 --hero.BaseMS + agility * Attributes.ms_adjustment + hero.MSgained * Attributes.additional_movespeed_adjustment
   if IsServer() then
     local parent = self:GetParent()
-    self:SetStackCount(parent.BaseMS + parent.MSgained * parent.additional_movespeed_adjustment)
+    self:SetStackCount(parent.BaseMS + parent.AGIgained * parent.additional_movespeed_adjustment)
   end
   return self:GetStackCount()
 end

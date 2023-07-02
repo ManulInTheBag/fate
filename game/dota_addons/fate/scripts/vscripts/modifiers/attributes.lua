@@ -10,6 +10,7 @@ if not Attributes then
     LinkLuaModifier("modifier_attributes_hp_regen_adjustment", "modifiers/modifier_attributes_hp_regen_adjustment", LUA_MODIFIER_MOTION_NONE)
     LinkLuaModifier("modifier_attributes_mp_regen_adjustment", "modifiers/modifier_attributes_mp_regen_adjustment", LUA_MODIFIER_MOTION_NONE)
     LinkLuaModifier("modifier_attributes_armor", "modifiers/modifier_attributes_armor", LUA_MODIFIER_MOTION_NONE)
+    LinkLuaModifier("modifier_attributes_cdr", "modifiers/modifier_attributes_cdr", LUA_MODIFIER_MOTION_NONE)
 end
 
 function Attributes:Init()
@@ -38,6 +39,7 @@ function Attributes:Init()
     Attributes.additional_armor_adjustment = v.ARMOR_PER_STAT
     Attributes.additional_mana_regen_adjustment = v.MPREG_PER_STAT
     Attributes.additional_hp_regen_adjustment = v.HPREG_PER_STAT
+    Attributes.additional_cdr_adjustment = v.CDR_PER_STAT
 
     Attributes.applier = CreateItem("item_stat_modifier", nil, nil)
 end
@@ -87,6 +89,7 @@ function Attributes:ModifyBonuses(hero)
 	hero.additional_armor_adjustment = Attributes.additional_armor_adjustment
 	hero.additional_mana_regen_adjustment = Attributes.additional_mana_regen_adjustment
 	hero.additional_hp_regen_adjustment = Attributes.additional_hp_regen_adjustment
+    hero.additional_cdr_adjustment = Attributes.additional_cdr_adjustment
 
 	hero:AddNewModifier(hero,nil,"modifier_attributes_hp",{})
 	hero:AddNewModifier(hero,nil,"modifier_attributes_mp",{})
@@ -97,6 +100,7 @@ function Attributes:ModifyBonuses(hero)
 	--hero:AddNewModifier(hero,nil,"modifier_attributes_as",{})
 	hero:AddNewModifier(hero,nil,"modifier_attributes_ms",{})
     hero:AddNewModifier(hero,nil,"modifier_attributes_mr",{})
+    hero:AddNewModifier(hero,nil,"modifier_attributes_cdr",{})
     hero:AddNewModifier(hero,nil,"modifier_attributes_armor",{})
     hero.base_mana_regen = hero:GetBaseManaRegen()
 

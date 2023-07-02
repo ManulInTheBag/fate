@@ -57,9 +57,9 @@
 							<Panel class="StatAmountContainer">
 								<Label id="MPREGAmount" class="StatDisplayText" text="0 / 30" hittest="false" />
 							</Panel>
-							<Panel class="StatAmountContainer">
+							<!--<Panel class="StatAmountContainer">
 								<Label id="MSAmount" class="StatDisplayText" text="0 / 30" hittest="false" />
-							</Panel>
+							</Panel>-->
 						</Panel>
 					</Panel>
 				</Panel>

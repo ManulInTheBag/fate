@@ -1043,6 +1043,10 @@ function LevelAllAbility(hero)
         -- If skill is actually a talent, do not level it
         if string.match(ability:GetName(),"special_bonus") then level0 = true end
         if not level0 then ability:SetLevel(1) end
+        --mark as combo
+        if GetHeroCombo(hero) == ability:GetName() then
+            ability.IsCombo = true
+        end
         -- if skill should not be reset when using command seal, flag it as unresetable
         for i=1, #CannotReset do
             if ability:GetName() == CannotReset[i] then ability.IsResetable = false break end
@@ -2387,7 +2391,7 @@ local heroCombos = {
     ["npc_dota_hero_venomancer"] = "leonidas_enomotia_combo",
     ["npc_dota_hero_faceless_void"] = "altera_teardrop",
     ["npc_dota_hero_treant"] = "edmon_enfer",
-    ["npc_dota_hero_night_stalker"] = "nanaya_combo",
+    ["npc_dota_hero_night_stalker"] = "nanaya_kekshi",
     
 }
 

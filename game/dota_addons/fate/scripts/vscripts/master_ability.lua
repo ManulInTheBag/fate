@@ -392,7 +392,7 @@ function AddMasterAbility(master, name)
 	--master:AddAbility("master_armor")
 	master:AddAbility("master_health_regen")
 	master:AddAbility("master_mana_regen")
-	master:AddAbility("master_movement_speed")
+	--master:AddAbility("master_movement_speed")
 	master:AddAbility("master_2_passive")
 end
 
@@ -491,7 +491,7 @@ function OnStatList2Open(keys)
 	RemoveAllAbility(caster)
 	caster:AddAbility("master_health_regen")
 	caster:AddAbility("master_mana_regen")
-	caster:AddAbility("master_movement_speed")
+	--caster:AddAbility("master_movement_speed")
 	caster:AddAbility("master_close_stat_list")
 	caster:AddAbility("fate_empty1")
 	caster:AddAbility("fate_empty2")
@@ -627,6 +627,7 @@ function OnIntelligenceGain(keys)
 	hero.ServStat:addInt()
 	hero:SetBaseIntellect(hero:GetBaseIntellect()+1) 
 	hero:CalculateStatBonus(true)
+	hero:FindModifierByName("modifier_attributes_cdr"):UpdateValues()
 	
 	-- Set master 1's mana 
 	local master1 = hero.MasterUnit

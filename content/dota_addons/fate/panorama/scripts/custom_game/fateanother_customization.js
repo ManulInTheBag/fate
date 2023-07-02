@@ -98,7 +98,7 @@ function UpdateStatPanel(data)
 	//$("#ARMORAmount").text = (data.ARMOR || 0) +  " / 30";
 	$("#HPREGAmount").text = (data.HPREG || 0) +  " / 30";
 	$("#MPREGAmount").text = (data.MPREG || 0) +  " / 30";
-	$("#MSAmount").text = (data.MS || 0) +  " / 30";
+	//$("#MSAmount").text = (data.MS || 0) +  " / 30";
 	$("#CustomizationShardNumber").text = (data.ShardAmount || 0);
 }
 

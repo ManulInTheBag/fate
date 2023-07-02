@@ -8428,10 +8428,10 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
 		"DOTA_Tooltip_ability_master_strength_Description"			"<font color='#58ACFA'>Master Mana Required : 1</font>\nIncreases your Servant's STR by 1 (+15 HP and +0.25 HP Regen)"
 
 		"DOTA_Tooltip_Ability_master_agility"						"Acquire Agility"
-		"DOTA_Tooltip_ability_master_agility_Description"			"<font color='#58ACFA'>Master Mana Required : 1</font>\nIncreases your Servant's AGI by 1 (+0.2 Armor, +1 Move Speed and +2 Attack Speed)"
+		"DOTA_Tooltip_ability_master_agility_Description"			"<font color='#58ACFA'>Master Mana Required : 1</font>\nIncreases your Servant's AGI by 1 (+0.2 Armor and +2 Attack Speed).\nServant additionally gains 3 Movement Speed."
 
 		"DOTA_Tooltip_Ability_master_intelligence"					"Acquire Intelligence"
-		"DOTA_Tooltip_ability_master_intelligence_Description"		"<font color='#58ACFA'>Master Mana Required : 1</font>\nIncreases your Servant's INT by 1 (+11 MP and +0.15 MP Regen)"
+		"DOTA_Tooltip_ability_master_intelligence_Description"		"<font color='#58ACFA'>Master Mana Required : 1</font>\nIncreases your Servant's INT by 1 (+11 MP and +0.15 MP Regen).\nAServant aditionally gains 1%% cooldown reduction for everything except combo abilities."
 
 		"DOTA_Tooltip_Ability_master_damage"						"Acquire Damage"
 		"DOTA_Tooltip_ability_master_damage_Description"			"<font color='#58ACFA'>Master Mana Required : 1</font>\nIncreases your Servant's damage by 3"
