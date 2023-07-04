@@ -42,7 +42,7 @@ function heracles_nine_lives:OnSpellStart()
 
 	caster:SetPhysicsFriction(0)
 	caster:SetPhysicsVelocity(caster:GetForwardVector()*distance)
-	--caster:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
+	caster:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
 	giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 3.75) --change to sealdisabled to return revoke here, if you want
 	caster:EmitSound("Hero_OgreMagi.Ignite.Cast")
 
@@ -51,14 +51,14 @@ function heracles_nine_lives:OnSpellStart()
 	caster.NineTimer = Timers:CreateTimer(time, function()
 		self:StartNineLives(berserked)
 	end)
-	--[[caster:OnPhysicsFrame(function(unit)
+	caster:OnPhysicsFrame(function(unit)
 		if CheckDummyCollide(unit) then
 			self:StartNineLives()
 		end
 	end)
 	caster:OnPreBounce(function(unit, normal) -- stop the pushback when unit hits wall
 		self:StartNineLives()
-	end)]]
+	end)
 end
 
 function heracles_nine_lives:StartNineLives(berserked)
