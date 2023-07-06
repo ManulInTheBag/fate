@@ -3,9 +3,9 @@ kuro_gae_bolg = class({})
 function kuro_gae_bolg:GetCooldown(iLevel)
 	local cooldown = self:GetSpecialValueFor("cooldown")
 
-	if self:GetCaster():HasModifier("modifier_kuro_projection") then
+	--[[if self:GetCaster():HasModifier("modifier_kuro_projection") then
 		cooldown = cooldown - (cooldown * 35 / 100)
-	end
+	end]]
 
 	return cooldown
 end

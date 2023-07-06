@@ -23,11 +23,10 @@ function modifier_attributes_cdr:GetModifierPercentageCooldown(args)
   if IsServer() then
     local parent = self:GetParent()
     self:SetStackCount(parent.INTgained * parent.additional_cdr_adjustment)
-    if args.ability ~= nil then
-      if args.ability.IsCombo then
-        print(args.ability:GetName())
-        return 0
-      end
+  end
+  if args.ability ~= nil then
+    if args.ability.IsCombo or args.ability:IsItem() then
+      return 0
     end
   end
   return self:GetStackCount()

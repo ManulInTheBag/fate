@@ -40,8 +40,8 @@ function lancelot_arondite:OnSpellStart()
     local bonus_stats = self:GetSpecialValueFor("bonus_allstat")
 
     if caster:HasModifier("modifier_kotl_attribute") then
-    	bonus_damage = bonus_damage*1.5
-    	bonus_stats = bonus_stats * 1.5
+    	bonus_damage = bonus_damage * 3
+    	bonus_stats = bonus_stats * 3
     end
 
     caster:AddNewModifier(caster, self, "modifier_arondite", {	Duration = self:GetSpecialValueFor("duration"),

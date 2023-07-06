@@ -27,6 +27,7 @@ if IsServer() then
         CustomNetTables:SetTableValue("sync","ambush_movement", {movespeed_bonus = self.fixedMoveSpeed})
         self.bonusDamage = table.bonusDamage
         self.Faded = false
+        self.radius = self:GetAbility():GetSpecialValueFor("invis_radius")
         self:StartIntervalThink(table.fadeDelay)
         local k = 0
         --self:GetParent():AddDagger(self:GetAbility():GetSpecialValueFor("recover_dagger"))
@@ -42,34 +43,41 @@ if IsServer() then
             self.fixedMoveSpeed = 550
         end
         if self.Faded == true then
-            local units = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 2500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
-            if #units > 0 or not caster.IsPCImproved or caster:HasModifier("modifier_inside_marble") or caster:HasModifier("modifier_jeanne_vision") then
-                self.state = { [MODIFIER_STATE_INVISIBLE] = true,
+            local units = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, self.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+            if #units > 0 or caster:HasModifier("modifier_inside_marble") or caster:HasModifier("modifier_jeanne_vision") then
+                self.state = { [MODIFIER_STATE_INVISIBLE] = false,
                            [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
                            [MODIFIER_STATE_TRUESIGHT_IMMUNE] = false,}
+
+                if not self.fx then
+                    self.fx = ParticleManager:CreateParticleForTeam("particles/true_assassin/ambush_found.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent(), self:GetParent():GetTeamNumber()) --i am kinda drunk right now so particle radius is written in particle itself (position along ring -> initial radius) cause no freaking idea how to make it linked to CP and i don't want to fuck with it right now (i know it's possible and maybe easy, but i'm a lazy ass)
+                    ParticleManager:SetParticleControl(self.fx, 4, Vector(26, 0, 0))   
+                end
             else
                 self.state = { [MODIFIER_STATE_INVISIBLE] = true,
                            [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
                            [MODIFIER_STATE_TRUESIGHT_IMMUNE] = true,}
+                if self.fx then
+                    ParticleManager:DestroyParticle(self.fx, true)
+                    ParticleManager:ReleaseParticleIndex(self.fx)
+                    self.fx = nil
+                end
             end
-        elseif caster.IsPCImproved and not caster:HasModifier("modifier_inside_marble") and not caster:HasModifier("modifier_jeanne_vision") then
+            self:StartIntervalThink(FrameTime())
+        else
     		self.state = { [MODIFIER_STATE_INVISIBLE] = true,
     					   [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
     					   [MODIFIER_STATE_TRUESIGHT_IMMUNE] = true,
     					 }
-            Timers:CreateTimer(0.2, function()
+            self:StartIntervalThink(0.2)
+            --[[Timers:CreateTimer(0.2, function()
                 self.state = { [MODIFIER_STATE_INVISIBLE] = true,
                            [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
-                           [MODIFIER_STATE_TRUESIGHT_IMMUNE] = false,}
-                         end)
-    	else
-    		self.state = { [MODIFIER_STATE_INVISIBLE] = true,
-    					   [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
-    					 }
+                           [MODIFIER_STATE_TRUESIGHT_IMMUNE] = true,}
+                         end)]]
     	end
         
         self.Faded = true
-        self:StartIntervalThink(FrameTime())
     end
 
     function modifier_ambush_invis:OnAttackLanded(args)	
@@ -88,9 +96,11 @@ if IsServer() then
     function modifier_ambush_invis:OnAbilityFullyCast(args)
         if args.unit == self:GetParent() then
             if not self.Faded then return end
-            if args.ability:GetName() ~= "true_assassin_ambush" and args.ability:GetName() ~= "true_assassin_combo" and args.ability:GetName() ~= "true_assassin_selfmod" then
+            --if args.ability:GetName() ~= "true_assassin_ambush" and args.ability:GetName() ~= "true_assassin_combo" and args.ability:GetName() ~= "true_assassin_selfmod" then
+            --[[if args.ability:IsItem() then
                 self:Destroy()
-            end
+            end]]
+            --end
         end
     end
 
@@ -108,6 +118,12 @@ if IsServer() then
     end
 
     function modifier_ambush_invis:OnDestroy()
+        if self.fx then
+            ParticleManager:DestroyParticle(self.fx, true)
+            ParticleManager:ReleaseParticleIndex(self.fx)
+            self.fx = nil
+        end
+
         local hCaster = self:GetParent()
         hCaster:AddNewModifier(hCaster, self:GetAbility(), "modifier_ambush_attack_speed", { Duration = 1.5 })
     end

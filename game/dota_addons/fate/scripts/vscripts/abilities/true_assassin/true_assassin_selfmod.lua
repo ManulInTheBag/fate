@@ -50,7 +50,7 @@ function true_assassin_selfmod:OnSpellStart()
 																					 AttackBonus = casterAgi*0
 																					})
 			--end
-		--	self:IntelligenceHeal(true)
+		self:IntelligenceHeal(false)
 		--elseif casterStr >= casterAgi and casterStr >= casterInt then
 		--	self:ReduceZabaniyaCooldown(false)
 		--elseif casterAgi > casterStr and casterAgi >= casterInt then
@@ -68,18 +68,18 @@ end
 function true_assassin_selfmod:IntelligenceHeal(halfEfficiency)
 	local caster = self:GetCaster()
 	local area = 425
-	local amount = 15 * math.ceil(caster:GetIntellect())
+	local amount = self:GetSpecialValueFor("base_heal") + self:GetSpecialValueFor("int_mult") * math.ceil(caster:GetIntellect())
 
 	if halfEfficiency then amount = amount * 0.5 end
 
-	local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, area, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
+	local targets = {caster}--FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, area, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
 
 	for i = 1, #targets do
 		targets[i]:Heal(amount, caster)
 
-		if not IsManaLess(targets[i]) then
+		--[[if not IsManaLess(targets[i]) then
 			targets[i]:GiveMana(amount)
-		end
+		end]]
 
 		local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_bane/bane_fiendsgrip_ground_rubble.vpcf", PATTACH_ABSORIGIN_FOLLOW, targets[i])
 		ParticleManager:SetParticleControl(particle, 1, caster:GetAbsOrigin())

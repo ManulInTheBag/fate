@@ -65,12 +65,12 @@ function nanaya_kick:OnSpellStart()
 	end
 	local stacks = caster:FindModifierByName("modifier_nanaya_instinct_passive"):GetStackCount()
 	if seq <= 3 then
-		if stacks >= (seq*5) then
+		--if stacks >= (seq*5) then
 			self:SequenceSkill()
 			self:EndCooldown()
-		else
+		--[[else
 			self:EndSequence()
-		end
+		end]]
 	elseif seq == 4 then
 		if caster:HasModifier("modifier_nanaya_instinct") then
 			self:SequenceSkill()

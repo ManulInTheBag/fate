@@ -272,8 +272,8 @@ function nanaya_kekshi:ExecuteCombo(caster, target)
 
 			local instinct_modifier = caster:FindModifierByName("modifier_nanaya_instinct_passive")
 
-			if instinct_modifier:GetStackCount() < 14 then
-				instinct_modifier:SetStackCount(14)
+			if instinct_modifier:GetStackCount() < 9 then
+				instinct_modifier:SetStackCount(9)
 			end
 			DoDamage(caster, target, damage, DAMAGE_TYPE_PURE, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self, false)
 

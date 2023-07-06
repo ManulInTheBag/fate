@@ -3502,7 +3502,7 @@
 		"DOTA_Tooltip_ability_true_assassin_presence_concealment_cast_delay"	"FADE-IN DELAY:"
 		
 		"DOTA_Tooltip_Ability_true_assassin_ambush"					"Ambush"
-		"DOTA_Tooltip_ability_true_assassin_ambush_Description"		"After brief delay, Hassan becomes invisible until next spellcast or he attacks. If Hassan takes any damage, the invisibility will break."
+		"DOTA_Tooltip_ability_true_assassin_ambush_Description"		"After brief delay, Hassan becomes ambushed.\nWhile ambushed, Hassan cannot be seen if there are no enemy heroes in %invis_radius% radius around him.\nIf Hassan attacks or takes any damage, the ambush will break."
 		"DOTA_Tooltip_ability_true_assassin_ambush_Lore"	""
 		"DOTA_Tooltip_ability_true_assassin_ambush_fade_delay"		"FADE DELAY:"
 		"DOTA_Tooltip_ability_true_assassin_ambush_damage"			"BONUS DAMAGE:"
@@ -3510,7 +3510,7 @@
 		"DOTA_Tooltip_ability_true_assassin_ambush_duration"		"DURATION:"
 		
 		"DOTA_Tooltip_Ability_true_assassin_selfmod"					"Self Modification"
-		"DOTA_Tooltip_ability_true_assassin_selfmod_Description"		"Hassan reconstructs his body by killing his enemies. Passively gains agility per hero kills. \nActive effect: doubles the agility gained from this ability, also gains additional damage"
+		"DOTA_Tooltip_ability_true_assassin_selfmod_Description"		"Hassan reconstructs his body by killing his enemies. Passively gains agility per hero kills. \nActive effect: doubles the agility gained from this ability, also gains additional damage.\nAlso heals himself for %base_heal% + %int_mult% x Hassan's Intellect."
 		"DOTA_Tooltip_ability_true_assassin_selfmod_Lore"				"Remolding of oneself comes with the cost of straying away from being a proper hero."
 		"DOTA_Tooltip_ability_true_assassin_selfmod_heal_amount"		"Damage gained: "
 		//"DOTA_Tooltip_ability_true_assassin_selfmod_heal_over_time"		"Healing Per Second: "
@@ -3523,7 +3523,7 @@
 		"DOTA_Tooltip_modifier_self_mod_Description"					"Healing over time and gaining a temporary bonus %dMODIFIER_PROPERTY_STATS_AGILITY_BONUS% agility."
 
 		"DOTA_Tooltip_Ability_true_assassin_snatch_strike"				"Snatch Strike"
-		"DOTA_Tooltip_ability_true_assassin_snatch_strike_Description"	"Snatches the target's heart and crushing it, dealing damage a large amount of damage."
+		"DOTA_Tooltip_ability_true_assassin_snatch_strike_Description"	"Snatches the target's heart and crushing it, dealing damage a large amount of damage.\nAlso heals himself for 1/2 of damage dealt."
 		"DOTA_Tooltip_ability_true_assassin_snatch_strike_Lore"	""
 		"DOTA_Tooltip_ability_true_assassin_snatch_strike_damage"		"Damage:"
 		//"DOTA_Tooltip_ability_true_assassin_snatch_strike_bonus_ratio"	"Steal Ratio:"
@@ -4087,7 +4087,7 @@
 		"DOTA_Tooltip_Ability_lancelot_attribute_improve_koh_arsenal_Note0" "Arsenal Contents:\nE Lvl 1 - Caliburn\nE Lvl 2 - Snatch Strike\nE Lvl 3 - Windblade\nE Lvl 4 - The Spear of Striking Death Flight\nE Lvl 5 - Gae Daerg"
 
 		"DOTA_Tooltip_Ability_lancelot_attribute_kotl"         				"Attribute: Knight of the Lake"
-        "DOTA_Tooltip_Ability_lancelot_attribute_kotl_Description"			"Multiplies the parameters granted by Arondight by 1.5. Applies a strong dispel when Arondight is activated."
+        "DOTA_Tooltip_Ability_lancelot_attribute_kotl_Description"			"Multiplies the parameters granted by Arondight by 3. Applies a strong dispel when Arondight is activated."
 
         "DOTA_Tooltip_Ability_lancelot_attribute_kotl_Lore"					"The wielder of Arondight is said to be the perfect knight, unrivaled out of those who set at the Round Table of Camelot."
         //"DOTA_Tooltip_Ability_lancelot_attribute_kotl_crit_rate"         "%CRITICAL RATE:"
@@ -7408,9 +7408,9 @@
         //"DOTA_Tooltip_ability_kuro_attribute_gae_bolg_cast_heartbreak"		"%Heartbreak Threshold:"
 
         "DOTA_Tooltip_ability_kuro_attribute_projection"					"Attribute: Projection Magic"
-        "DOTA_Tooltip_ability_kuro_attribute_projection_Description"		"Greatly reduces the cooldown for all of Chloe's abilities. Also has it's own effect on every Phantasm in Chloe's Spellbook: \n<font color='#58ACFA'>Rho Aias</font>: if Chloe has any Projection stacks, Rho Aias will gain additional 200 health.\n<font color='#58ACFA'>Gae Bolg</font>: if Chloe has any Projection stacks, it will also stun the target inflict the bonus damage.\n<font color='#58ACFA'>Nine Lives</font>: if Chloe has any Projection stacks, each strike will have an additional damage, based on Chloe's Strength.\n<font color='#58ACFA'>Excalibur</font>: if Cloe has any Projection stacks, it will inflict bonus damage.\n<font color='#58ACFA'>Rosa Ichthys</font>: if Chloe has any Projection stacks, increases damage and cast range. \nStacks, that are consumed by using projections from Chloe's Spellbook, do not count."
+        "DOTA_Tooltip_ability_kuro_attribute_projection_Description"		"Greatly reduces cooldown of Chloe's ultimate. Also has it's own effect on every Phantasm in Chloe's Spellbook: \n<font color='#58ACFA'>Rho Aias</font>: if Chloe has any Projection stacks, Rho Aias will gain additional 200 health.\n<font color='#58ACFA'>Gae Bolg</font>: if Chloe has any Projection stacks, it will also stun the target inflict the bonus damage.\n<font color='#58ACFA'>Nine Lives</font>: if Chloe has any Projection stacks, each strike will have an additional damage, based on Chloe's Strength.\n<font color='#58ACFA'>Excalibur</font>: if Cloe has any Projection stacks, it will inflict bonus damage.\n<font color='#58ACFA'>Rosa Ichthys</font>: if Chloe has any Projection stacks, increases damage and cast range. \nStacks, that are consumed by using projections from Chloe's Spellbook, do not count."
         "DOTA_Tooltip_ability_kuro_attribute_projection_Lore"				"The strength of a faker does not lie within the strength of his tools, but the sheer amount of them."
-        "DOTA_Tooltip_ability_kuro_attribute_projection_cooldown_reduction"	"%Cooldown Reduction:"
+        "DOTA_Tooltip_ability_kuro_attribute_projection_cooldown_reduction"	"%Projection Empower cooldown reduction:"
 
 	"DOTA_Tooltip_ability_kuro_attribute_overedge"				"Attribute: Overedge"
 	"DOTA_Tooltip_ability_kuro_attribute_overedge_Description"		"Kanshou & Byuakuya launches an additional pair of blades, but deal 25% less damage. Crane Wings launch 4 blades into the most near target."
@@ -8288,7 +8288,7 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
 		"DOTA_Tooltip_modifier_nanaya_dash_invis_Description"				"Invisible."
 
         "DOTA_Tooltip_ability_nanaya_kick"                                  "Sensa・Yotsutsuji / Sensou・Rikuto"
-        "DOTA_Tooltip_ability_nanaya_kick_Description"                      "<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>%cast_point%</font> | <font color='#FFFAFA'>Re-cast window</font> : <font color='#7FFF00'>%window_duration% seconds</font>\nNanaya blinks to the enemy, slicing them for %kick_damage% damage.\nNanaya gains one additional cast of this ability per 5 Instinct stacks, up to 4 casts.\nEntering Instinct gives a 5-th recast with different properties:\nNanaya dashes to the enemy, launching it in the air, performing 3 kicks for %fly_damage% damage each, then performing a stronger kick with 2x damage."
+        "DOTA_Tooltip_ability_nanaya_kick_Description"                      "<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>%cast_point%</font> | <font color='#FFFAFA'>Re-cast window</font> : <font color='#7FFF00'>%window_duration% seconds</font>\nNanaya blinks to the enemy, slicing them for %kick_damage% damage.\nNanaya can recast this ability up to 4 times.\nBecoming <font color='#FFFAFA'>White</font> gives Nanaya a 5-th recast with different properties:\nNanaya dashes to the enemy, launching it in the air, performing 3 kicks for %fly_damage% damage each, then performing a stronger kick with 2x damage."
         "DOTA_Tooltip_ability_nanaya_kick_attribute_kick_agility_multiplier" "Attribute Sensa・Yotsutsuji agility multiplier:"
         "DOTA_Tooltip_ability_nanaya_kick_attribute_fly_agility_multiplier"  "Attribute Sensou・Rikuto agility multiplier:"
 
@@ -8298,7 +8298,7 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
         "DOTA_Tooltip_ability_nanaya_dash_invis_duration"           "Invisibility duration:"
 
         "DOTA_Tooltip_ability_nanaya_instinct"                      "Instinct"
-        "DOTA_Tooltip_ability_nanaya_instinct_Description"			"<font color='#FFFAFA'>Passive</font>\nEach time Nanaya deals damage to an enemy, he gains a <font color='#002BFF'>Nanaya blood</font> stack, up to %stack_max% stacks, gaining %bonus_agility% <font color='#00FF00'>Agility</font> per each stack.\nStacks reset after %stacks_duration% seconds of not dealing damage.\nWhenever this ability hits 15 stacks, Nanaya becomes <font color='#FFFAFA'>White</font> and refreshes Sensa・Hattenshou.\n<font color='#FFFAFA'>White</font>: Nanaya has %ms% constant movement speed and %cd_reduction_pct%%  cooldown reduction."
+        "DOTA_Tooltip_ability_nanaya_instinct_Description"			"<font color='#FFFAFA'>Passive</font>\nEach time Nanaya deals damage to an enemy, he gains a <font color='#002BFF'>Nanaya blood</font> stack, up to %stack_max% stacks, gaining %bonus_agility% <font color='#00FF00'>Agility</font> per each stack.\nStacks reset after %stacks_duration% seconds of not dealing damage.\nWhenever this ability hits 10 stacks, Nanaya becomes <font color='#FFFAFA'>White</font> and refreshes Sensa・Hattenshou.\n<font color='#FFFAFA'>White</font>: Nanaya has %ms% constant movement speed and %cd_reduction_pct%%  cooldown reduction."
 
 
         "DOTA_Tooltip_ability_nanaya_dashf_return"                              "Shadow return"
@@ -8322,7 +8322,7 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
         "DOTA_Tooltip_ability_nanaya_knife_recast_Description" 				"<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%cast_point%</font>\nNanaya slashes the enemy for %damage% damage and jumps back for 600 units."
 
         "DOTA_Tooltip_ability_nanaya_kekshi"                     "Combo: Kyokushi・Nanaya"
-        "DOTA_Tooltip_ability_nanaya_kekshi_description"         "<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>Instant</font>\n<font color='#58ACFA'>Combo Requirement: 30 all stats </font>\n<font color='#58ACFA'>Combo Sequence: W while Sensa・Kaie knife is flying</font>\nNanaya focuses on his launched knife. If knife hits the opponent, he will teleport behind their back and twist their neck, dealing huge amount of pure damage.\nInstantly gives Nanaya 15 stacks of Instinct if he was at 14 stacks or less."
+        "DOTA_Tooltip_ability_nanaya_kekshi_description"         "<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>Instant</font>\n<font color='#58ACFA'>Combo Requirement: 30 all stats </font>\n<font color='#58ACFA'>Combo Sequence: W while Sensa・Kaie knife is flying</font>\nNanaya focuses on his launched knife. If knife hits the opponent, he will teleport behind their back and twist their neck, dealing huge amount of pure damage.\nInstantly gives Nanaya 10 stacks of Instinct if he was at 9 stacks or less."
 		"DOTA_Tooltip_ability_nanaya_kekshi_damage"                     "Damage:"
 
        "DOTA_Tooltip_ability_nanaya_slashes" 					"Sensa・Hattenshou"
@@ -8330,7 +8330,7 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
        "DOTA_Tooltip_ability_nanaya_slashes_attribute_agility_multiplier" 					"Attribute agility multiplier for each hit:"
 
        "DOTA_Tooltip_ability_nanaya_instinct_attribute" 			"Attribute: Old Memories"
-       "DOTA_Tooltip_ability_nanaya_instinct_attribute_description" "Upgrades Instinct.\nOn 30 Instinct stacks Sensa・Meigokushamon deals <font color='#D1A951'>pure</font> damage."
+       "DOTA_Tooltip_ability_nanaya_instinct_attribute_description" "Upgrades Instinct.\nOn 20 Instinct stacks Sensa・Meigokushamon deals <font color='#D1A951'>pure</font> damage."
        "DOTA_Tooltip_ability_nanaya_instinct_attribute_stack_max"                           "Maximum stacks:"
        "DOTA_Tooltip_ability_nanaya_instinct_attribute_cd_reduction_pct"                    "%Cooldown reduction:"
        "DOTA_Tooltip_ability_nanaya_instinct_attribute_ms"                      			 "Movement speed:"
@@ -8425,7 +8425,7 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
        	"DOTA_Tooltip_Ability_master_presence_resonator_Note0"			"Cannot detect assassins or invulnerable heroes."
 
 		"DOTA_Tooltip_Ability_master_strength"						"Acquire Strength"
-		"DOTA_Tooltip_ability_master_strength_Description"			"<font color='#58ACFA'>Master Mana Required : 1</font>\nIncreases your Servant's STR by 1 (+15 HP and +0.25 HP Regen)"
+		"DOTA_Tooltip_ability_master_strength_Description"			"<font color='#58ACFA'>Master Mana Required : 1</font>\nIncreases your Servant's STR by 1 (+9 HP and +0.25 HP Regen)"
 
 		"DOTA_Tooltip_Ability_master_agility"						"Acquire Agility"
 		"DOTA_Tooltip_ability_master_agility_Description"			"<font color='#58ACFA'>Master Mana Required : 1</font>\nIncreases your Servant's AGI by 1 (+0.2 Armor and +2 Attack Speed).\nServant additionally gains 3 Movement Speed."

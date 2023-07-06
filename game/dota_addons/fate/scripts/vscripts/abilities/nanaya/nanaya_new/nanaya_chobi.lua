@@ -114,7 +114,7 @@ function modifier_nanaya_chobi:PlayEffects()
 		end
 	end
 
-	if self.caster.InstinctAcquired and (self.caster:FindModifierByName("modifier_nanaya_instinct_passive"):GetStackCount() >= 30) then
+	if self.caster.InstinctAcquired and (self.caster:FindModifierByName("modifier_nanaya_instinct_passive"):GetStackCount() >= 20) then
 		damage_type = DAMAGE_TYPE_PURE
 	end
 
