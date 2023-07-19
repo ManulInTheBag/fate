@@ -35,8 +35,8 @@
 			"damage"				"200 250 300 350 400"
 			"attribute_slow_duration"	"1 1.3 1.6 1.9 2.2"
 			"attribute_slow_percent" "100"
-			"damage_first"			"200 250 300 350 400"
-			"damage_second"			"400 500 600 700 800"
+			"damage_first"			"100 125 150 175 200"
+			"damage_second"			"200 250 300 350 400"
 			"damage_per_line"		"5"
 			"mark_duration"			"4"
 		}
@@ -69,8 +69,8 @@
 		{	
 			"cast_point"			"0.5"
 			"radius"				"250"
-			"damage_first"			"200 250 300 350 400"
-			"damage_second"			"400 500 600 700 800"
+			"damage_first"			"100 125 150 175 200"
+			"damage_second"			"200 250 300 350 400"
 			"range"					"1500"
 			"damage_per_line"		"5"
 		}
@@ -96,16 +96,19 @@
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2_ES_ROLL"
 		"AnimationPlaybackRate" 		"1.3"
 		"AbilityCastPoint"				"0.0"
-		"AbilityCooldown"				"13 11 9 7 5"
-		"AbilityManaCost"				"100"
+		"AbilityCharges"				"2"
+		"AbilityChargeRestoreTime"		"15 13 11 9 7"
+		"AbilityCooldown"				"0.5"
+		"AbilityManaCost"				"50"
 		
 		"AbilityValues"
-		{
+		{	
+			"charge_amount"			"2"
 			"cast_point"			"0.0"
 			"range"					"900"
 			"speed"					"5000"
-			"damage"				"30 40 50 60 70"
-			"attribute_silence_duration"	"0.4 0.5 0.6 0.7 0.8"
+			"damage"				"40 47.5 55 62.5 70"
+			"attribute_silence_duration"	"0.3 0.4 0.5 0.6 0.7"
 		}
 	}
 
@@ -175,7 +178,7 @@
 			"cast_point"			"0.05"
 			"range"					"300"
 			"dash_range"			"500 550 600 650 700"
-			"damage"				"200 250 300 350 400"
+			"damage"				"250 325 400 475 550"
 		}
 	}
 
@@ -209,9 +212,9 @@
 			"cast_point_3"			"0.20"
 			"radius"				"500"
 			"window_duration"		"3"
-			"first_damage"			"130 160 190 220 250"
-			"second_damage"			"160 200 240 280 320"
-			"third_damage"			"250 310 370 430 490"
+			"first_damage"			"140 180 220 260 300"
+			"second_damage"			"160 220 280 340 400"
+			"third_damage"			"250 340 430 520 610"
 		}
 	}
 
@@ -431,7 +434,7 @@
 		"AbilityValues"
 		{	
 			"cast_point"				"0.0"
-			"immediate_damage"			"3.0"
+			"immediate_damage"			"4.0"
 			"health_percent"			"2.5"
 			"demise_damage"				"25"
 			"duration"					"3"

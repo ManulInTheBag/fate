@@ -6941,7 +6941,7 @@
 
 
 		"DOTA_Tooltip_ability_ryougi_knife_fan"						"Hidden Dagger (ying)"
-		"DOTA_Tooltip_ability_ryougi_knife_fan_Description"		"<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%cast_point%</font>\nShiki throws 6 daggers forward. They deal <font color='#58ACFA'>%damage%</font> magical damage each."
+		"DOTA_Tooltip_ability_ryougi_knife_fan_Description"		"<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%cast_point%</font> | <font color='#FFFAFA'>Charge amount</font>:  <font color='#7FFF00'>%charge_amount%</font>\nShiki throws 6 daggers forward. They deal <font color='#58ACFA'>%damage%</font> magical damage each."
 		"DOTA_Tooltip_ability_ryougi_knife_fan_range"				"Range:"
 		"DOTA_Tooltip_ability_ryougi_knife_fan_speed"				"Speed:"
 		"DOTA_Tooltip_ability_ryougi_knife_fan_attribute_silence_duration"	"Attribute silence duration:"
@@ -6976,7 +6976,7 @@
 		"DOTA_Tooltip_ability_ryougi_ying_yang_Note0"		"Can be used while stunned."
 
 		"DOTA_Tooltip_ability_ryougi_mystic_eyes"			"Mystic Eyes of Death Perception"
-		"DOTA_Tooltip_ability_ryougi_mystic_eyes_Description"	"<font color='#FFFAFA'>Passive</font> | <font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%cast_point%</font>\n Each individual ability impact <font color='#FFFAFA'>cuts one line</font>. Shiki can't continue to cut lines of one enemy with similar moves, but <font color='#FFFAFA'>will still deal additional damage</font>.\nWhen line is cut, enemy recieves <font color='#D1A951'>%immediate_damage%% </font>  of it's current health as pure and recieves 1 stack of <font color='#FF0000'>Mystic Eyes</font> for %line_duration% seconds.\nWhile this <font color='#FF0000'>debuff</font> persists, it softloks target's health for %health_percent%%  of it's maximum health per stack. If it's higher than that, it's health will slowly decay."
+		"DOTA_Tooltip_ability_ryougi_mystic_eyes_Description"	"<font color='#FFFAFA'>Passive</font> | <font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%cast_point%</font>\n Each individual ability impact <font color='#FFFAFA'>cuts one line</font>. Shiki can't continue to cut lines of one enemy with similar moves, but <font color='#FFFAFA'>will still deal additional damage</font>.\nWhen line is cut, enemy recieves <font color='#D1A951'>%immediate_damage%% </font>  of it's current health as pure and recieves 1 stack of <font color='#FF0000'>Mystic Eyes</font> for %line_duration% seconds."
 		"DOTA_Tooltip_ability_ryougi_mystic_eyes_bonus_vision"				"Attribute bonus vision radius:"
 		"DOTA_Tooltip_ability_ryougi_mystic_eyes_true_sight_range"			"Attribute true sight range:"
 		"DOTA_Tooltip_ability_ryougi_mystic_eyes_duration"					"Attribute duration:"

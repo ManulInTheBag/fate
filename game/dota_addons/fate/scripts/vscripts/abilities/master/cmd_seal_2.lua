@@ -90,6 +90,13 @@ function cmd_seal_2:OnSpellStart()
 			hero:FindAbilityByName("nobu_dash"):SetCurrentAbilityCharges(hero:FindAbilityByName("nobu_dash"):GetCurrentAbilityCharges() + 1)
 		end
 	end
+
+	if(hero:GetName() == "npc_dota_hero_phantom_assassin"  ) then
+		if(hero:FindAbilityByName("ryougi_knife_fan"):GetCurrentAbilityCharges() ~= hero:FindAbilityByName("ryougi_knife_fan"):GetMaxAbilityCharges(-1)) then
+			
+			hero:FindAbilityByName("ryougi_knife_fan"):SetCurrentAbilityCharges(hero:FindAbilityByName("ryougi_knife_fan"):GetMaxAbilityCharges(-1))
+		end
+	end
  
 
 
