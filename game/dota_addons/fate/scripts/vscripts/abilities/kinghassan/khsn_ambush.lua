@@ -104,7 +104,7 @@ if IsServer() then
         local caster = self:GetParent()
 
         if not (caster:GetAbilityByIndex(0):GetName() == "khsn_ambush_blink") then
-        	caster:SwapAbilities("khsn_ambush", "khsn_ambush_blink", false, true)
+        	--caster:SwapAbilities("khsn_ambush", "khsn_ambush_blink", false, true)
         end
     end
 

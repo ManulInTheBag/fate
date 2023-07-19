@@ -420,6 +420,11 @@ function modifier_nero_rosa_motion:UpdateHorizontalMotion(me, dt)
             local units_per_dt = self.speed * dt
             local parent_pos = self.parent:GetAbsOrigin()
 
+            if (parent_pos - self.target:GetAbsOrigin()):Length2D() >= 400 then
+            	self:Destroy()
+            	return
+            end
+
             local next_pos = parent_pos + self.direction * units_per_dt
 
             if not self.parent:HasModifier("modifier_inside_marble") then

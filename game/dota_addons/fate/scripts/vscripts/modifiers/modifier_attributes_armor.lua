@@ -14,7 +14,7 @@ end
 
 
 function modifier_attributes_armor:GetModifierPhysicalArmorBonusUnique(keys)
-  return self:GetStackCount()*0.75
+  return self:GetStackCount()*0.55
 end
 
 

@@ -28,7 +28,7 @@ function tamamo_subterranean_grasp:OnSpellStart()
 		EmitSoundOnLocationWithCaster(target, "Hero_Visage.GraveChill.Cast", caster)
 		local tEnemies = FindUnitsInRadius(caster:GetTeam(), target, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
 		for i = 1, #tEnemies do
-			if caster.IsSpiritTheftAcquired and caster:HasModifier("modifier_amaterasu_ally") then
+			if caster.IsTerritoryAcquired and caster:HasModifier("modifier_amaterasu_ally") then
 				giveUnitDataDrivenModifier(caster, tEnemies[i], "revoked", duration)
 			end
 

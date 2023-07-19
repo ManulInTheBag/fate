@@ -569,6 +569,7 @@ CannotReset = {
     "altera_form",
     "altera_teardrop",
     "khsn_blink",
+    "khsn_azrael",
 
     "edmon_enfer",
     "edmon_dash",

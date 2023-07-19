@@ -545,6 +545,40 @@
 	}
 
 	//=======================================
+	// Assassin - Phantasmal Flame (skolko mozhno, yob tvoy mat)
+	//=======================================
+
+	"khsn_aoe_flame"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/kinghassan/khsn_aoe_flame"
+		"MaxLevel"						"5"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY" 
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/kinghassan/khsn_flame"
+		"AbilityCastAnimation"			"ACT_DOTA_DIE"
+
+		"AbilityCastPoint"				"0.45"
+		"AbilityCooldown"				"45"
+		"AbilityManaCost"				"800"
+		"LevelsBetweenUpgrades"			"2"
+
+		"AbilityValues"
+		{		
+			"radius"						"550"
+			"damage_first"					"200 250 300 350 400"
+			"damage_burn"					"300 375 450 525 600" 
+			"radius_last"					"650"
+			"damage_last"					"350 425 500 575 650"
+			"flame_duration"				"3"
+			"flame_damage_per_second"		"50 62.5 75 87.5 100"
+			"slow_percentage"				"50 55 60 65 70"
+		}
+	}
+
+	//=======================================
 	// Assassin - Mortuary Slash
 	//=======================================
 
@@ -719,9 +753,9 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/kinghassan/khsn_azrael"
-		"MaxLevel"						"5"
+		"MaxLevel"						"1"
 		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"2"
+		"LevelsBetweenUpgrades"			"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
@@ -733,23 +767,23 @@
 		"AbilityCastRange"				"500"
 		"AbilityCastRangeBuffer"		"300"
 		"AbilityCastPoint"				"0.2"
-		"AbilityManaCost"				"800"
+		"AbilityManaCost"				"200"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"32"
+		"AbilityCooldown"				"30"
 
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"800 1000 1200 1400 1600"
+				"damage"				"200"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"dmg_percent"			"20 25 30 35 40"
+				"dmg_percent"			"10"
 			}
 			"03"
 			{
@@ -759,7 +793,7 @@
 			"04"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"death_door_slow"		"10 15 20 25 30"
+				"death_door_slow"		"0"
 			}
 			"05"
 			{
@@ -800,19 +834,19 @@
 
 		"AbilityCooldown"				"200"
 
-		"AbilityManaCost"				"800"
+		"AbilityManaCost"				"200"
 		
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"damage"				"2000"
+				"damage"				"2500"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"dmg_percent"			"100"
+				"dmg_percent"			"125"
 			}
 			"03"
 			{
@@ -919,22 +953,12 @@
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"dmg"					"100"
+				"first_dmg"				"150"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"dmg_percent"			"10"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"combo_dmg"				"500"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"combo_dmg_percent"		"25"
+				"second_dmg"			"200"
 			}
 		}		
 	}

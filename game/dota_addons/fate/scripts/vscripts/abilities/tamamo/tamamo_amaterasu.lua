@@ -1,5 +1,6 @@
 LinkLuaModifier("modifier_tamamo_combo_window", "abilities/tamamo/modifiers/modifier_tamamo_combo_window", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_amaterasu_heal", "abilities/tamamo/modifiers/modifier_amaterasu_heal", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_amaterasu_damage", "abilities/tamamo/tamamo_amaterasu", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_amaterasu_aura", "abilities/tamamo/tamamo_amaterasu", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_amaterasu_ally", "abilities/tamamo/tamamo_amaterasu", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_amaterasu_enemy", "abilities/tamamo/tamamo_amaterasu", LUA_MODIFIER_MOTION_NONE)
@@ -26,7 +27,11 @@ local spellBooks = {
     "atalanta_priestess_of_the_hunt",
     "nero_imperial_open",
     "nero_imperial_close",
-    "nero_imperial_activate"
+    "nero_imperial_activate",
+    "tamamo_fiery_heaven",
+    "tamamo_frigid_heaven",
+    "tamamo_gust_heaven",
+    "tamamo_void_heaven"
 }
 
 tamamo_amaterasu = class({})
@@ -35,7 +40,9 @@ function tamamo_amaterasu:OnSpellStart()
 	local caster = self:GetCaster()
 	local ability = self
 	local radius = self:GetSpecialValueFor("radius")
+	local heal_dmg_radius = self:GetSpecialValueFor("heal_dmg_radius")
 	local duration = self:GetSpecialValueFor("duration")
+	local slow_duration = self:GetSpecialValueFor("slow_duration")
 	--local SilenceDuration = caster.MasterUnit2:FindAbilityByName("tamamo_attribute_witchcraft"):GetSpecialValueFor("silence_duration")
 	if caster.CurrentAmaterasuDummy ~= nil then
 		if IsValidEntity(caster.CurrentAmaterasuDummy) or not caster.CurrentAmaterasuDummy:IsNull() then
@@ -56,14 +63,21 @@ function tamamo_amaterasu:OnSpellStart()
 	dummy.TempleDoors = self:CreateTempleDoorInCircle(caster, caster:GetAbsOrigin(), radius)
 	--EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "Hero_Dazzle.Shallow_Grave", caster)
 
-	if caster.IsTerritoryAcquired then 
-		local allies = FindUnitsInRadius(caster:GetTeam(), caster.AmaterasuCastLoc, nil, radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false) 
-		for i = 1, #allies do
-			allies[i]:AddNewModifier(caster, ability, "modifier_amaterasu_heal", { duration = 1.033 })
-		end
-		local enemies = FindUnitsInRadius(caster:GetTeam(), caster.AmaterasuCastLoc, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
-		for i = 1, #enemies do
-			enemies[i]:AddNewModifier(caster, ability, "modifier_amaterasu_enemy_slow", { duration = 1.5 })
+	if caster.IsTerritoryAcquired then
+		heal_dmg_radius = radius
+		slow_duration = slow_duration + 1
+	end
+		
+	local allies = FindUnitsInRadius(caster:GetTeam(), caster.AmaterasuCastLoc, nil, heal_dmg_radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false) 
+	for i = 1, #allies do
+		allies[i]:AddNewModifier(caster, ability, "modifier_amaterasu_heal", { duration = 1.033 })
+	end
+	local enemies = FindUnitsInRadius(caster:GetTeam(), caster.AmaterasuCastLoc, nil, heal_dmg_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
+	for i = 1, #enemies do
+		enemies[i]:AddNewModifier(caster, ability, "modifier_amaterasu_damage", { duration = 1.033 })
+		enemies[i]:AddNewModifier(caster, ability, "modifier_amaterasu_enemy_slow", { duration = slow_duration })
+		if caster.IsTerritoryAcquired then
+			enemies[i]:AddNewModifier(caster, ability, "modifier_silence", {duration = FrameTime()})
 		end
 	end
 
@@ -115,10 +129,10 @@ function tamamo_amaterasu:OnAmaterasuApplyAura()
 	local ability = self
 	local radius = self:GetSpecialValueFor("radius")
 	if IsServer() then
-		local diff = (caster:GetAbsOrigin() - caster.AmaterasuCastLoc):Length2D()
+		--[[local diff = (caster:GetAbsOrigin() - caster.AmaterasuCastLoc):Length2D()
 		if diff > radius or not caster:IsAlive() then
 			caster.CurrentAmaterasuDummy:RemoveModifierByName("modifier_amaterasu_aura")
-		end	
+		end]]
 
 		local targets = FindUnitsInRadius(caster:GetTeam(), caster.AmaterasuCastLoc, nil, radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
 		for k,v in pairs(targets) do
@@ -209,7 +223,7 @@ function modifier_amaterasu_ally:OnAbilityExecuted(args)
         local caster = self:GetCaster()
         local heal = amaterasu:GetSpecialValueFor("heal_per_cast")
         local mana = amaterasu:GetSpecialValueFor("mana_per_cast")
-        hero:ApplyHeal(heal, amaterasu)
+        --hero:ApplyHeal(heal, amaterasu)
         hero:GiveMana(mana)
         --hero:SetMana(hero:GetMana()+200)
         --hero:SetHealth(hero:GetHealth()+300)
@@ -254,12 +268,12 @@ function modifier_amaterasu_enemy:OnAbilityExecuted(args)
         local amaterasu = self:GetAbility()
         local caster = self:GetCaster()
         local damage = amaterasu:GetSpecialValueFor("damage_per_cast")
-        if caster.IsTerritoryAcquired then
+        --[[if caster.IsTerritoryAcquired then
         	damage = damage + caster:GetIntellect()/2
         	--hero:AddNewModifier(caster, amaterasu, "modifier_amaterasu_enemy_slow", {duration = 0.75})
         	caster:ApplyHeal(amaterasu:GetSpecialValueFor("heal_per_cast")/3, amaterasu)
         	caster:GiveMana(amaterasu:GetSpecialValueFor("mana_per_cast")/3)
-        end
+        end]]
         DoDamage(caster, hero, damage, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
         --DoDamage(caster, hero, amaterasu:GetSpecialValueFor("damage_per_cast"), DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
         hero:EmitSound("Hero_Pugna.NetherWard.Attack")
@@ -288,5 +302,32 @@ function modifier_amaterasu_enemy_slow:DeclareFunctions()
 end
 
 function modifier_amaterasu_enemy_slow:GetModifierMoveSpeedBonus_Percentage()
-	return -70
+	return -self:GetAbility():GetSpecialValueFor("slow_pct")
+end
+
+modifier_amaterasu_damage = class({})
+
+if IsServer() then 
+	function modifier_amaterasu_damage:OnCreated(args)
+		self.nTotalDamage = self:GetAbility():GetSpecialValueFor("total_dmg")
+		self:StartIntervalThink(0.1)
+
+		--print(self:GetParent():GetHealth(), "START")
+	end
+
+	function modifier_amaterasu_damage:OnIntervalThink()
+		--local flAmount = self:GetAbility():GetSpecialValueFor("heal_pct") * 0.1-- * self:GetParent():GetMaxHealth() / 1000
+		DoDamage(self:GetCaster(), self:GetParent(), self.nTotalDamage * 0.1, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
+	end
+	function modifier_amaterasu_damage:OnDestroy()
+		--print(self:GetParent():GetHealth(), "END")
+	end
+end
+
+function modifier_amaterasu_damage:GetTexture()
+	return "custom/tamamo_amaterasu"
+end
+
+function modifier_amaterasu_damage:GetAttributes()
+	return MODIFIER_ATTRIBUTE_MULTIPLE
 end

@@ -592,8 +592,20 @@ function OnAgilityGain(keys)
 			return
 		end
 	end 
+	if hero.ARMORgained == nil then
+		hero.ARMORgained = 1
+	else 
+		if hero.ARMORgained < 30 then
+			hero.ARMORgained = hero.ARMORgained + 1
+		else
+			SendErrorMessage(caster:GetPlayerOwnerID(), "#Cannot_Get_Over_30_Stats")
+			caster:GiveMana(1)
+			return
+		end
+	end 
 	hero.ServStat:addAgi()
-	hero:SetBaseAgility(hero:GetBaseAgility()+1) 
+	hero:SetBaseAgility(hero:GetBaseAgility()+1)
+	hero.ServStat:addArmor()
 	hero:CalculateStatBonus(true)
 	-- Set master 1's mana 
 	local master1 = hero.MasterUnit

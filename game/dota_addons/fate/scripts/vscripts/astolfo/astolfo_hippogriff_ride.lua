@@ -17,6 +17,7 @@ function astolfo_hippogriff_rush:OnSpellStart()
 		SendErrorMessage(caster:GetPlayerOwnerID(), "#Out_Of_Range")
 		return
 	end
+	self:StartCooldown(self:GetSpecialValueFor("cooldown"))
 	Timers:CreateTimer(function()
 		if markerCounter >= 5 then return end
 		local diff = startPos + randomVec * (range/5 * markerCounter + 100)

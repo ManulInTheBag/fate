@@ -572,7 +572,7 @@ function OnNineStart(keys)
 
 	caster:SetPhysicsFriction(0)
 	caster:SetPhysicsVelocity(caster:GetForwardVector()*distance)
-	caster:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
+	--caster:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
 	giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 4.0)
 	caster:EmitSound("Hero_OgreMagi.Ignite.Cast")
 	--ability:ApplyDataDrivenModifier(caster, caster, "modifier_dash_anim", {})
@@ -604,7 +604,7 @@ function OnNineStart(keys)
 		DoNineLanded(caster)
 	end)
 
-	caster:OnPhysicsFrame(function(unit)
+	--[[caster:OnPhysicsFrame(function(unit)
 		if CheckDummyCollide(unit) then
 			DoNineLanded(unit)
 		end
@@ -612,7 +612,7 @@ function OnNineStart(keys)
 
 	caster:OnPreBounce(function(unit, normal) -- stop the pushback when unit hits wall
 		DoNineLanded(unit)
-	end)
+	end)]]
 
 
 	if caster:GetName() == "npc_dota_hero_ember_spirit" then

@@ -77,12 +77,11 @@ function khsn_azrael:OnSpellStart()
 					if not target:IsMagicImmune() then
 						DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, flag, self, false)
 					end
-					if not target:IsMagicImmune() or  caster.AzraelAcquired then
+					if not target:IsMagicImmune() then
 						DoDamage(caster, target, modifier_damage, caster.AzraelAcquired and DAMAGE_TYPE_PURE or DAMAGE_TYPE_MAGICAL, flag, self, false)
 					end
 					target:RemoveModifierByName("modifier_death_door")
 					caster:RemoveModifierByName("jump_pause_nosilence")
-					EmitGlobalSound("azrael_bell")
 					local targetpos = target:GetAbsOrigin() + target:GetForwardVector()*300
 					FindClearSpaceForUnit(caster, targetpos, true)
             		caster:FaceTowards(target:GetAbsOrigin())
@@ -93,13 +92,14 @@ function khsn_azrael:OnSpellStart()
 						ParticleManager:DestroyParticle( slashFx, false )
 						ParticleManager:ReleaseParticleIndex( slashFx )
 					end)
+					EmitGlobalSound("azrael_bell")
 					Timers:CreateTimer(2.0, function()
 						EmitGlobalSound("azrael_bell")
 					end)
 					Timers:CreateTimer(4.0, function()
 						EmitGlobalSound("azrael_bell")
 					end)
-					if target:GetHealth() < self:GetSpecialValueFor("health_threshold")/100*target:GetMaxHealth() and caster.AzraelAcquired then
+					if target:GetHealth() < self:GetSpecialValueFor("health_threshold")/100*target:GetMaxHealth() then
 						--[[target:AddNewModifier(caster, self, "modifier_death_door_pepeg", {duration = self:GetSpecialValueFor("sequence_duration"),
 																							damage = damage})]]
 						target:Execute(self, caster, { bExecution = true })
@@ -189,7 +189,7 @@ function modifier_death_door:OnTakeDamage(args)
 	self.recieved_damage = self.recieved_damage + args.damage
 end
 function modifier_death_door:GetModifierMoveSpeedBonus_Percentage()
-	return -(self:GetCaster():FindAbilityByName("khsn_azrael"):GetSpecialValueFor("death_door_slow") + (self:GetCaster().AzraelAcquired and 10 or 0))
+	return -(self:GetCaster():FindAbilityByName("khsn_azrael"):GetSpecialValueFor("death_door_slow") + (self:GetCaster().AzraelAcquired and 0 or 0))
 end
 
 modifier_death_door_pepeg = class({})

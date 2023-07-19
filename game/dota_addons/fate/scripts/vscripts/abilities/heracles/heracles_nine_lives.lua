@@ -32,17 +32,17 @@ function heracles_nine_lives:OnSpellStart()
 	local ability = self
 	local berserker = Physics:Unit(caster)
 	local origin = caster:GetAbsOrigin()
-	local distance = (targetPoint - origin):Length2D()*2
+	local distance = (targetPoint - origin):Length2D()/0.3
 	local forward = (targetPoint - origin):Normalized() * distance
 	local berserked = caster:HasModifier("modifier_heracles_berserk")
-	local time = 0.5
+	local time = 0.3
 	if berserked then
 		time = 0.01
 	end
 
 	caster:SetPhysicsFriction(0)
 	caster:SetPhysicsVelocity(caster:GetForwardVector()*distance)
-	caster:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
+	--caster:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
 	giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 3.75) --change to sealdisabled to return revoke here, if you want
 	caster:EmitSound("Hero_OgreMagi.Ignite.Cast")
 

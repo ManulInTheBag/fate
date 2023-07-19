@@ -85,7 +85,7 @@ function tamamo_soul_stream:OnSpellStart()
 	local delay = 0
 
 	if hCaster.IsWitchcraftAcquired then
-		delay = 0.2
+		delay = 0.0
 		StartAnimation(self:GetCaster(), {duration=1.67, activity=ACT_DOTA_CAST_ABILITY_2, rate=1.0})
 	end
 
@@ -216,7 +216,7 @@ function tamamo_soul_stream:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
 	local hCharmDebuff = tData["sDebuffName"]
 	local hCharmAbility = hCaster:FindAbilityByName(tData["sCharmAbility"])
 
-	local fManaBurn = 20 + hCaster:GetIntellect() * 0.2
+	local fManaBurn = 15
 
 	if hCaster.IsSpiritTheftAcquired then
 		fDamage = fDamage + fManaBurn

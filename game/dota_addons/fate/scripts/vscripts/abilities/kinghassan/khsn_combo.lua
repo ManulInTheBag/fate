@@ -78,17 +78,14 @@ function khsn_combo:StartCombo(hui)
         end
     end)
 
-    local damage = self:GetSpecialValueFor("damage") + (caster.AzraelAcquired and 500 or 0)
+    local damage = self:GetSpecialValueFor("damage")
     local modifier_damage = 0
     local modifier_death = target:FindModifierByName("modifier_death_door")
     if target:HasModifier("modifier_death_door_pepeg") then
         modifier_death = target:FindModifierByName("modifier_death_door_pepeg")
     end
-    local flag = DOTA_DAMAGE_FLAG_NONE
-    if caster.AzraelAcquired then
-        flag = DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY
-    end
-    local multiplier = self:GetSpecialValueFor("dmg_percent")/100 + (caster.AzraelAcquired and 0.25 or 0)
+    local flag = DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY
+    local multiplier = self:GetSpecialValueFor("dmg_percent")/100
     if modifier_death then
         modifier_damage = modifier_death.recieved_damage*multiplier
     end
@@ -133,10 +130,9 @@ function khsn_combo:StartCombo(hui)
                         end
                     end
                     --DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, flag, self, false)
-                    DoDamage(caster, target, modifier_damage, caster.AzraelAcquired and DAMAGE_TYPE_PURE or DAMAGE_TYPE_MAGICAL, flag, self, false)
+                    DoDamage(caster, target, modifier_damage, DAMAGE_TYPE_PURE, flag, self, false)
                     caster:RemoveModifierByName("jump_pause")
                     --caster:SetAbsOrigin(position)
-                    EmitGlobalSound("azrael_bell")
                     local slashFx = ParticleManager:CreateParticle("particles/kinghassan/khsn_feathers.vpcf", PATTACH_ABSORIGIN, target )
                     ParticleManager:SetParticleControl( slashFx, 0, target:GetAbsOrigin() + Vector(0,0,300))
 
@@ -155,13 +151,14 @@ function khsn_combo:StartCombo(hui)
                         ParticleManager:DestroyParticle( slashFx, false )
                         ParticleManager:ReleaseParticleIndex( slashFx )
                     end)
+                    EmitGlobalSound("azrael_bell")
                     Timers:CreateTimer(2.0, function()
                         EmitGlobalSound("azrael_bell")
                     end)
                     Timers:CreateTimer(4.0, function()
                         EmitGlobalSound("azrael_bell")
                     end)
-                    if target:GetHealth() < self:GetSpecialValueFor("health_threshold")/100*target:GetMaxHealth() and caster.AzraelAcquired then
+                    if target:GetHealth() < self:GetSpecialValueFor("health_threshold")/100*target:GetMaxHealth() then
                         --[[target:AddNewModifier(caster, self, "modifier_death_door_pepeg", {duration = self:GetSpecialValueFor("sequence_duration"),
                                                                                             damage = damage})]]
                         target:Execute(self, caster, { bExecution = true })
@@ -193,7 +190,7 @@ function modifier_khsn_combo_damage:OnCreated()
     self.caster = self:GetCaster()
     self.parent = self:GetParent()
 
-    self.dps = (self:GetAbility():GetSpecialValueFor("damage") + (self.caster.AzraelAcquired and 500 or 0))/(7.63*4)
+    self.dps = (self:GetAbility():GetSpecialValueFor("damage"))/(7.63*4)
     self:StartIntervalThink(0.25)
 
     DoDamage(self.caster, self.parent, self.dps, DAMAGE_TYPE_MAGICAL, DOTA_DAMAGE_FLAG_NONE, self.ability, false)

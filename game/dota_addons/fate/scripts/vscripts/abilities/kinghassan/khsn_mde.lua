@@ -24,7 +24,7 @@ function khsn_mde:OnSpellStart()
 	if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 and caster:GetIntellect() >= 29.1 then		
 		if caster:FindAbilityByName("khsn_azrael"):IsCooldownReady() 
 			and caster:FindAbilityByName("khsn_combo"):IsCooldownReady()  
-	    	and caster:GetAbilityByIndex(5):GetName() == "khsn_azrael" then
+	    	and caster:GetAbilityByIndex(3):GetName() == "khsn_azrael" then
 			caster:SwapAbilities("khsn_mde", "khsn_mde_end", false, true)
 			Timers:CreateTimer(3, function()
 				if caster:GetAbilityByIndex(1):GetName() ~= "khsn_mde" then

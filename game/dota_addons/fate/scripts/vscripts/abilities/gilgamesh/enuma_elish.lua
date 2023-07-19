@@ -86,7 +86,8 @@ function gilgamesh_enuma_elish:AfterOnSpellSt()
 			--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
 		end
 	end)
-  EmitSoundOnLocationForAllies(caster:GetAbsOrigin(), "gilgamesh_enuma_" .. math.random(2,5), caster)
+  --EmitSoundOnLocationForAllies(caster:GetAbsOrigin(), "gilgamesh_enuma_" .. math.random(2,5), caster)
+  EmitGlobalSound("gilgamesh_enuma_" .. math.random(2,5))
   StartAnimation(self:GetCaster(), {duration=5.15, activity=ACT_DOTA_CAST_ABILITY_6, rate=1.1  })
   
  

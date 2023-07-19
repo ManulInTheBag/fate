@@ -30,7 +30,7 @@ function khsn_bc_attribute:OnSpellStart()
 	local ply = caster:GetPlayerOwner()
 	local hero = caster:GetPlayerOwner():GetAssignedHero()
 
-	hero:SwapAbilities("fate_empty6", "khsn_bc", false, true)
+	--hero:SwapAbilities("fate_empty6", "khsn_bc", false, true)
 
 	hero.BattleContinuationAcquired = true
 
@@ -87,7 +87,7 @@ function khsn_flame_attribute:OnSpellStart()
 
 	hero.FlameAcquired = true
 
-	hero:SwapAbilities("fate_empty1", "khsn_blink", false, true)
+	hero:SwapAbilities("fate_empty6", "khsn_blink", false, true)
 
 	-- Set master 1's mana 
 	local master = hero.MasterUnit

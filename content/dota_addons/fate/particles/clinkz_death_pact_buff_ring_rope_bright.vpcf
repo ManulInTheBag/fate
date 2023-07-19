@@ -103,10 +103,6 @@
 					m_vDomainMaxs = [ 0.0, 0.0 ]
 				}
 			}
-			m_TransformInput = 
-			{
-				m_nControlPoint = 2
-			}
 		},
 		{
 			_class = "C_INIT_InitFloat"

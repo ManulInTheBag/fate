@@ -4871,6 +4871,17 @@
 		"DOTA_Tooltip_Ability_khsn_mde_end"		"Your Life is Near the End"
 		"DOTA_Tooltip_Ability_khsn_mde_end_Description"	"Enables Angel, That Announces Death."
 
+		"DOTA_Tooltip_Ability_khsn_aoe_flame"	"Phantasmal Flame"
+		"DOTA_Tooltip_Ability_khsn_aoe_flame_Description"	"King Hassan orders flames to incinerate everything around him, dealing damage, locking, slowing and igniting them. Also applies lock on targets while casting. Deals additional damage at the start of the cast.\nAt the end of the cast sends waves of fire in a bigger radius around him, dealing additional damage and igniting targets."
+		"DOTA_Tooltip_Ability_khsn_aoe_flame_radius"		"Incineration radius:"
+		"DOTA_Tooltip_Ability_khsn_aoe_flame_damage_first"	"Start damage:"
+		"DOTA_Tooltip_Ability_khsn_aoe_flame_damage_burn"	"Total incineration damage:"
+		"DOTA_Tooltip_Ability_khsn_aoe_flame_radius_last"	"Fire waves radius:"
+		"DOTA_Tooltip_Ability_khsn_aoe_flame_damage_last"		"Fire waves damage:"
+		"DOTA_Tooltip_Ability_khsn_aoe_flame_flame_duration"			"Ignite duration:"
+		"DOTA_Tooltip_Ability_khsn_aoe_flame_flame_damage_per_second"	"Ignite DPS:"
+		"DOTA_Tooltip_Ability_khsn_aoe_flame_slow_percentage"			"%Ignite slow:"
+
 		"DOTA_Tooltip_Ability_khsn_flame"		"Phantasmal Flame"
 		"DOTA_Tooltip_Ability_khsn_flame_Description"	"King Hassan sears an enemy with spectral flame, dealing heavy magic damage and stunning it, and ignites all enemies in cone in front of him."
 		"DOTA_Tooltip_Ability_khsn_flame_main_damage"	"Damage to primary target:"
@@ -4931,16 +4942,18 @@
 		"DOTA_Tooltip_Ability_khsn_presence_aura_radius"	"Radius:"
 
 		"DOTA_Tooltip_Ability_khsn_azrael"	"Azrael"
-		"DOTA_Tooltip_Ability_khsn_azrael_Description"	"Passive: Each instance of damage King Hassan deals applies Death's Door debuff to the enemy for 6 seconds.\nDeath's Door: slows target for 6 seconds and remembers all the damage King Hassan deals to this unit under the effect of the debuff. Active: Old Man from the Mountian sentences the target to death, becoming invulnerable himself. After 1.37 seconds the execution becomes real, dealing an amount of magic damage based on how much damage was stored at enemy's Death's Door.\nIf King Hassan has started Azrael, not even Death itself can stop him from performing it to the very end."
+		"DOTA_Tooltip_Ability_khsn_azrael_Description"	"Passive: Each instance of damage King Hassan deals applies Death's Door debuff to the enemy for 6 seconds.\nDeath's Door: slows target for 6 seconds and remembers all the damage King Hassan deals to this unit under the effect of the debuff. Active: Old Man from the Mountian sentences the target to death, becoming invulnerable himself. After 1.37 seconds the execution becomes real, dealing an amount of magic damage based on how much damage was stored at enemy's Death's Door.\nExecutes the target if it's health falls to low.\nIf King Hassan has started Azrael, not even Death itself can stop him from performing it to the very end."
 		"DOTA_Tooltip_Ability_khsn_azrael_damage"	"Base damage:"
 		"DOTA_Tooltip_Ability_khsn_azrael_dmg_percent"	"%Death's Door stored damage multiplier:"
 		"DOTA_Tooltip_Ability_khsn_azrael_death_door_duration"	"Death's Door duration:"
 		"DOTA_Tooltip_Ability_khsn_azrael_death_door_slow"	"%Death's Door slow:"
+		"DOTA_Tooltip_Ability_khsn_azrael_health_threshold"	"%Execution threshold:"
 
 		"DOTA_Tooltip_Ability_khsn_combo"	"Combo - The Angel That Announces Death, Azrael"
-		"DOTA_Tooltip_Ability_khsn_combo_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : W-W-R in 3 seconds</font>\nKing Hassan starts an execution of the target enemy. Deals huge amount of magic damage based on how much damage was stored at enemy's Death's Door after a long delay and teleports to the enemy. King Hassan is invulnerable while using this ability."
+		"DOTA_Tooltip_Ability_khsn_combo_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : W-W-D in 3 seconds</font>\nKing Hassan starts an execution of the target enemy, dealing a huge amount of magic damage over time. After a delay, teleports to the enemy and deals huge amount of pure damage based on how much damage was stored at enemy's Death's Door.\nExecutes the target with the final strike if it's health falls to low.\nKing Hassan is invulnerable while using this ability."
 		"DOTA_Tooltip_Ability_khsn_combo_damage"	"Base damage:"
 		"DOTA_Tooltip_Ability_khsn_combo_dmg_percent"	"%Death's Door stored damage multiplier:"
+		"DOTA_Tooltip_Ability_khsn_combo_health_threshold"	"%Execution threshold:"
 		//"DOTA_Tooltip_ability_khsn_combo_Note0"	"Hero 'hard' names: Arturia Pendragon, Cu Chulain, Arturia Alter, Emiya, Medusa, Heracles, Sasaki Kojiro, Hassan-i-Sabbah, Medea, Gilgamesh, Lancelot, Angra Mainyu, Diarmuid, Iskander, Gilles de Rais, Nero Claudius, Gawain, Tamamo no Mae, Li Shuwen, Jeanne d'Arc, Astolfo, Nursery Rhyme = Alice, Atalanta, Vlad, Karna, Chloe von Einzbern = Kuro, Jack the Ripper, Okita Souji, Mordred, Atalanta Alter. Hero 'easy' names: Saber, Lancer, Salter, Emiya, Medusa, Pepeg, Sasaki, Hassan, Medea, Gilgamesh, Lancelot, Angra, Diarmuid, Iskander, Gilles, Nero, Gawain, Tamamo, Shuwen, Jeanne, Astolfo, Alice, Atalanta, Vlad, Karna, Chloe, Jack, Okita, Mordred, Atalanta Alter."
 
 		"DOTA_Tooltip_Ability_khsn_boundary_attribute"	"Attribute - At The Boundary"
@@ -4966,11 +4979,9 @@
 		"DOTA_Tooltip_Ability_khsn_flame_attribute_turn_rate"	"%Turn rate slow:"
 
 		"DOTA_Tooltip_Ability_khsn_azrael_attribute"	"Attribute - Valley of the Shadow of Death"
-		"DOTA_Tooltip_Ability_khsn_azrael_attribute_Description"	"Azrael and Combo - The Angel That Announces Death, Azrael gain bonus damage and bonus Death's Door damage multiplier.\nIf Azrael or it's combo version drops target's health under 22%%, the target will be killed instantly.\nDeath's Door damage part deals pure damage instead of magic.\nDeath's Door slows it's target by additional 10%."
-		"DOTA_Tooltip_Ability_khsn_azrael_attribute_dmg"	"Azrael bonus damage:"
-		"DOTA_Tooltip_Ability_khsn_azrael_attribute_dmg_percent"	"Azrael bonus multiplier:"
-		"DOTA_Tooltip_Ability_khsn_azrael_attribute_combo_dmg"	"Combo bonus damage:"
-		"DOTA_Tooltip_Ability_khsn_azrael_attribute_combo_dmg_percent"	"Combo bonus multiplier:"
+		"DOTA_Tooltip_Ability_khsn_azrael_attribute_Description"	"Phantasmal Flame deals additional incineration and fire waves damage.\nPhantasmal Flame ignition now resets it's duration upon taking damage from King Hassan and reveals it's target."
+		"DOTA_Tooltip_Ability_khsn_azrael_attribute_first_dmg"	"Incineration bonus damage:"
+		"DOTA_Tooltip_Ability_khsn_azrael_attribute_second_dmg"	"Fire waves bonus damage:"
 
 		//====================================
 		//	Saber of Red
@@ -5596,13 +5607,15 @@
         "DOTA_Tooltip_Ability_tamamo_fates_call_Description"     "Teleports tethered hero to targeted location after delay. The delay is increased based on how far target is from Caster. If Caster is stunned during delay, the teleport is canceled."
         
         "DOTA_Tooltip_Ability_tamamo_amaterasu"     				"Eightfold Blessing of Amaterasu"
-        "DOTA_Tooltip_ability_tamamo_amaterasu_Description" 		"Tamamo creates a %radius% area mythical zone around her. Allies in the zone are blessed with bonus mana regen, movespeed, and attack speed. Any spellcast by Tamamo and her allies would recover their health by %heal_per_cast% and mana by %mana_per_cast%.\nIf enemy casts a spell inside the area, it will take %damage_per_cast% magical damage (this effect have 1 second cd).\nAbility will end if Tamamo leaves the area."
+        "DOTA_Tooltip_ability_tamamo_amaterasu_Description" 		"Tamamo creates a %radius% area mythical zone around her. On creation, in %heal_dmg_radius% radius allies will be healed and enemies will take damage over the span of 1 second. Enemies will additionally be slowed for %slow_duration% seconds.\nAllies in the zone are blessed with bonus movespeed and attack speed. Any spellcast by Tamamo and her allies would recover their mana by %mana_per_cast%.\nIf enemy casts a spell inside the area, it will take %damage_per_cast% magical damage (this effect have 1 second cd)."
         "DOTA_Tooltip_Ability_tamamo_amaterasu_Lore"     			"The celestial mirror reveals itself in the sky, bestowing the primordial mana among the justs."
         "DOTA_Tooltip_Ability_tamamo_amaterasu_cast_point"     		"CAST POINT:"
-        "DOTA_Tooltip_Ability_tamamo_amaterasu_heal_pct"     		"MAX CONSTANT HEAL:"
-        "DOTA_Tooltip_Ability_tamamo_amaterasu_mana_regen"			"%MANA REGEN AURA:"
+        "DOTA_Tooltip_Ability_tamamo_amaterasu_heal_pct"     		"INITIAL HEAL:"
+        "DOTA_Tooltip_Ability_tamamo_amaterasu_total_dmg"     		"INITIAL DAMAGE:"
         "DOTA_Tooltip_Ability_tamamo_amaterasu_movespeed_modifier"	"%SPEED MODIFIER:"
         "DOTA_Tooltip_Ability_tamamo_amaterasu_duration"     		"DURATION:"
+        "DOTA_Tooltip_Ability_tamamo_amaterasu_slow_duration"     	"SLOW DURATION:"
+        "DOTA_Tooltip_Ability_tamamo_amaterasu_slow_pct"     		"%SLOW PERCENTAGE:"
 
         "DOTA_Tooltip_Ability_tamamo_castration_fist"					"Polygamist Castration Fist"
         "DOTA_Tooltip_Ability_tamamo_castration_fist_Description"		"Tamamo lunges towards the target enemy and kicks him or her three times, dealing magic damage and stunning the target. She ends with a kick that sends the target flying backwards. The final kick does more damage than the first two. If the target is a male servant, damage is increased.\nTamamo takes %damage_reduc%%  less damage while performing those kicks."
@@ -5613,7 +5626,7 @@
         "DOTA_Tooltip_Ability_tamamo_castration_fist_Note0"				"This ability's level is based on Tamamo's level. Automatically upgrades to level 2 when Tamamo reaches level 8 and level 3 at level 16 respectively."
 
         "DOTA_Tooltip_Ability_tamamo_combo"					"Combo: Eightfold Blessings"
-        "DOTA_Tooltip_ability_tamamo_combo_Description"		"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : R - R in 4 seconds. Must be cast from within Eightfold Blessing of Amaterasu</font>\nTamamo leaps onto the air and bombards target area with a flurry of ice and fire balls, stunning all enemies hit. After that, she ends it with a last fire ball which deals even more damage."
+        "DOTA_Tooltip_ability_tamamo_combo_Description"		"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : R - R in 4 seconds.\nTamamo leaps onto the air and bombards target area with a flurry of ice and fire balls, stunning all enemies hit. After that, she ends it with a last fire ball which deals even more damage."
         "DOTA_Tooltip_Ability_tamamo_combo_range"			"Cast Range: "
         "DOTA_Tooltip_Ability_tamamo_combo_small_radius"	"Fire and Ice ball AoE: "
         "DOTA_Tooltip_Ability_tamamo_combo_small_damage"	"Fire and Ice ball Damage: "
@@ -5632,7 +5645,7 @@
         "DOTA_Tooltip_ability_tamamo_polygamist_castration_fist_2_Description"    "Activate Combo:Polygamist Castration Kick with half damage and lunge delay, even when <font color='#FF3399'>stunned</font> or <font color='#FF3399'>revoked</font> from Master."
 
         "DOTA_Tooltip_Ability_tamamo_attribute_spirit_theft"         "Attribute: Spirit Theft"
-        "DOTA_Tooltip_ability_tamamo_attribute_spirit_theft_Description"       "Soulstream charms deal additional magic damage and reduce all basic ability cooldowns by 0.5 seconds (excluding itself). Each charm can trigger this effect only once.\nAdditionally, if Tamamo is under effect of Eightfold Blessing of Amaterasu, Subterranean Grasp <font color='#FF3399'>revokes</font> target from Master for duration."  
+        "DOTA_Tooltip_ability_tamamo_attribute_spirit_theft_Description"       "Soulstream charms deal additional magic damage and reduce all basic ability cooldowns by 0.5 seconds (excluding itself). Each charm can trigger this effect only once."  
         "DOTA_Tooltip_Ability_tamamo_attribute_spirit_theft_int_ratio"         "Bonus damage INT ratio:"
         "DOTA_Tooltip_Ability_tamamo_attribute_spirit_theft_mana_drain"        "Bonus damage:"
  
@@ -5666,7 +5679,7 @@
 
 
         "DOTA_Tooltip_Ability_tamamo_attribute_territory"					"Attribute: Territory Creation"
-        "DOTA_Tooltip_Ability_tamamo_attribute_territory_Description"		"Enhances Eightfold Blessing of Amaterasu by causing it to instantly heal allies and slow enemies by 70% for 1.5 seconds on cast.\nEnemies will take additional damage per cast equal to Tamamo's intellect/2. Additionaly, each enemy cast gives 1/3 of Amaterasu ability cast effect to Tamamo."
+        "DOTA_Tooltip_Ability_tamamo_attribute_territory_Description"		"Increases Eightfold Blessing of Amaterasu initial heal, damage and slow effects radius to the area radius. Increases slow duration for 1 second.\nEightfold Blessing of Amaterasu interrupts all enemy abilities in it's radius on cast.\nAdditionally, if Tamamo is under effect of Eightfold Blessing of Amaterasu, Subterranean Grasp <font color='#FF3399'>revokes</font> target from Master for duration."
 
 
         //====================================
@@ -8428,7 +8441,7 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
 		"DOTA_Tooltip_ability_master_strength_Description"			"<font color='#58ACFA'>Master Mana Required : 1</font>\nIncreases your Servant's STR by 1 (+9 HP and +0.25 HP Regen)"
 
 		"DOTA_Tooltip_Ability_master_agility"						"Acquire Agility"
-		"DOTA_Tooltip_ability_master_agility_Description"			"<font color='#58ACFA'>Master Mana Required : 1</font>\nIncreases your Servant's AGI by 1 (+0.2 Armor and +2 Attack Speed).\nServant additionally gains 3 Movement Speed."
+		"DOTA_Tooltip_ability_master_agility_Description"			"<font color='#58ACFA'>Master Mana Required : 1</font>\nIncreases your Servant's AGI by 1 (+0.2 Armor and +2 Attack Speed).\nServant additionally gains 3 Movement Speed and 0.55 bonus armor."
 
 		"DOTA_Tooltip_Ability_master_intelligence"					"Acquire Intelligence"
 		"DOTA_Tooltip_ability_master_intelligence_Description"		"<font color='#58ACFA'>Master Mana Required : 1</font>\nIncreases your Servant's INT by 1 (+11 MP and +0.15 MP Regen).\nAServant aditionally gains 1%% cooldown reduction for everything except combo abilities."
