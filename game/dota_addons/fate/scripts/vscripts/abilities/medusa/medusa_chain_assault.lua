@@ -252,6 +252,16 @@ function medusa_chain_assault:OnProjectileHit_ExtraData(hTarget, vLocation, hTab
 																							direction_x = hTable.direction_x,
 																							direction_y = hTable.direction_y,
 																							direction_z = hTable.direction_z})
+
+	            if not chTarget.modifier_zalupa then
+	            	self.launched = false
+					ParticleManager:DestroyParticle(hTable.pfx_index1, false)
+					ParticleManager:ReleaseParticleIndex(hTable.pfx_index1)
+					ParticleManager:DestroyParticle(hTable.pfx_index2, false)
+					ParticleManager:ReleaseParticleIndex(hTable.pfx_index2)
+					return true
+				end
+				
 	            chTarget.modifier_zalupa.chTarget = chTarget
 	            local sin = Physics:Unit(chTarget)
 				chTarget:SetPhysicsFriction(0)

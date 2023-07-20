@@ -202,11 +202,13 @@ end
 --========================================--
 --NOTE: Function created to emit zlodemon_true voices.
 local EmitZlodemonTrueSound = function(sSoundName)
-    LoopOverPlayers(function(player, playerID, playerHero)
+    --ALO PIDORASI VI SVOIM EBANIM ZLODEMON_TRUE SLOMALI EBANOGO SAITO
+    return nil
+    --[[LoopOverPlayers(function(player, playerID, playerHero)
         if playerHero.zlodemon == true and playerHero == self:GetCaster() then
             CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound=sSoundName})
         end
-    end)
+    end)]]
 end
 --========================================--
 
