@@ -1,4 +1,5 @@
-LinkLuaModifier("modifier_arcueid_shut_up_slow", "abilities/arcueid/arcueid_shut_up", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_arcueid_what", "abilities/arcueid/arcueid_shut_up", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_arcueid_what_buff", "abilities/arcueid/arcueid_shut_up", LUA_MODIFIER_MOTION_NONE)
 
 arcueid_shut_up = class({})
 
@@ -6,14 +7,15 @@ function arcueid_shut_up:OnSpellStart()
 	local caster = self:GetCaster()
 	local ability = self
 	local damage = self:GetSpecialValueFor("damage")
+	local damage_secondary = self:GetSpecialValueFor("damage")/2
 	local collide_damage = self:GetSpecialValueFor("collide_damage")
 	local pushback_range = self:GetSpecialValueFor("range")
 	local target = self:GetCursorTarget()
 	if IsSpellBlocked(target) then return end
-	if caster.MonstrousStrengthAcquired then
+	--[[if caster.MonstrousStrengthAcquired then
 		collide_damage = collide_damage + caster:GetStrength()*self:GetSpecialValueFor("collide_mult")
 		--pushback_range = pushback_range + caster:GetStrength()*self:GetSpecialValueFor("range_mult")
-	end
+	end]]
 
 	caster:EmitSound("arcueid_swing")
 	caster:EmitSound("arcueid_shut_"..math.random(1,4))
@@ -30,35 +32,41 @@ function arcueid_shut_up:OnSpellStart()
     								)]]
 
 	--for _, target in pairs(enemies) do
+		target:AddNewModifier(caster, self, "modifier_arcueid_what", {duration = self:GetSpecialValueFor("duration")})
+		
+		for i = 0,3 do
+			Timers:CreateTimer(FrameTime()*2*i, function()
+				EmitSoundOn("arcueid_hit", target)
+
+				if caster.RecklesnessAcquired then
+					target:AddNewModifier(caster, self, "modifier_stunned", {duration = 0.1})
+				end
+
+				local smokeFx3 = ParticleManager:CreateParticle("particles/custom_game/heroes/kenshiro/kenshiro_pressure_points_explosion/kenshiro_pressure_points_explosion_blood.vpcf", PATTACH_CUSTOMORIGIN, target)
+				ParticleManager:SetParticleControl(smokeFx3, 0, target:GetAbsOrigin())
+				ParticleManager:DestroyParticle(smokeFx3, false)
+				ParticleManager:ReleaseParticleIndex(smokeFx3)
+				local effect_cast = ParticleManager:CreateParticle( "particles/ryougi/ryougi_crit_impact.vpcf", PATTACH_ABSORIGIN_FOLLOW, target )
+				ParticleManager:SetParticleControlEnt(
+					effect_cast,
+					0,
+					target,
+					PATTACH_POINT_FOLLOW,
+					"attach_hitloc",
+					target:GetOrigin(), -- unknown
+					true -- unknown, true
+				)
+				ParticleManager:SetParticleControlTransformForward(effect_cast, 1, Vector(0,0,0), (caster:GetOrigin()-target:GetOrigin()):Normalized())
+				--ParticleManager:SetParticleControlForward( effect_cast, 1, (caster:GetOrigin()-self.source_enemy:GetOrigin()):Normalized() )
+				ParticleManager:ReleaseParticleIndex( effect_cast )
+				--DoDamage(caster, target, damage_secondary/2, DAMAGE_TYPE_MAGICAL, 0, self, false)
+			end)
+		end
 		DoDamage(caster, target, damage , DAMAGE_TYPE_MAGICAL, 0, self, false)
-		caster:FindAbilityByName("arcueid_impulses"):Pepeg(target)
-		target:AddNewModifier(caster, self, "modifier_arcueid_shut_up_slow", {Duration = self:GetSpecialValueFor("slow_duration")})
 
 		if caster.RecklesnessAcquired then
 			target:AddNewModifier(caster, self, "modifier_stunned", {duration = 0.1})
 		end
-
-		local qdProjectile = 
-		{
-			Ability = ability,
-	        EffectName = nil,
-	        iMoveSpeed = self:GetSpecialValueFor("speed"),
-	        vSpawnOrigin = caster:GetOrigin(),
-	        fDistance = pushback_range,
-	        fStartRadius = 150,
-	        fEndRadius = 150,
-	        Source = caster,
-	        bHasFrontalCone = true,
-	        bReplaceExisting = true,
-	        iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-	        iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
-	        iUnitTargetType = DOTA_UNIT_TARGET_ALL,
-	        fExpireTime = GameRules:GetGameTime() + 2.0,
-			bDeleteOnHit = false,
-			vVelocity = caster:GetForwardVector() * self:GetSpecialValueFor("speed")
-		}
-
-		--local projectile = ProjectileManager:CreateLinearProjectile(qdProjectile)
 
 		if not IsKnockbackImmune(target) then
 			local casterfacing = caster:GetForwardVector()
@@ -88,11 +96,12 @@ function arcueid_shut_up:OnSpellStart()
 				giveUnitDataDrivenModifier(caster, target, "stunned", self:GetSpecialValueFor("stun_duration"))
 				target:EmitSound("Hero_EarthShaker.Fissure")
 				DoDamage(caster, target, collide_damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
-				ProjectileManager:DestroyLinearProjectile(projectile)
 			end)
 		end
 
-		target:EmitSound("Hero_EarthShaker.Fissure")
+		target:EmitSound("arcueid_hit")
+
+		--target:EmitSound("Hero_EarthShaker.Fissure")
 		--[[local groundFx = ParticleManager:CreateParticle( "particles/units/heroes/hero_earthshaker/earthshaker_echoslam_start_fallback_mid.vpcf", PATTACH_ABSORIGIN, target )
 		ParticleManager:SetParticleControl( groundFx, 1, target:GetAbsOrigin())]]
 		local groundFx = ParticleManager:CreateParticle( "particles/arcueid/arcueid_blast.vpcf", PATTACH_ABSORIGIN, caster )
@@ -101,28 +110,99 @@ function arcueid_shut_up:OnSpellStart()
 	--end
 end
 
-function arcueid_shut_up:OnProjectileHit_ExtraData(hTarget, vLocation, table)
-	if hTarget == nil then return end
+modifier_arcueid_what = class({})
 
-	local caster = self:GetCaster()
-	local target = hTarget
-	local damage = self:GetSpecialValueFor("damage")
-	local duration = self:GetSpecialValueFor("duration")
+function modifier_arcueid_what:IsHidden() return false end
+function modifier_arcueid_what:IsDebuff() return false end
+function modifier_arcueid_what:RemoveOnDeath() return true end
 
-	--giveUnitDataDrivenModifier(caster, hTarget, "rooted", duration)
-	DoDamage(caster, target, damage , DAMAGE_TYPE_MAGICAL, 0, self, false)
-	caster:FindAbilityByName("arcueid_impulses"):Pepeg(target)
-	target:AddNewModifier(caster, self, "modifier_arcueid_shut_up_slow", {Duration = self:GetSpecialValueFor("slow_duration")})
+function modifier_arcueid_what:OnCreated()
+	if IsServer() then
+		self.caster = self:GetCaster()
+		self.parent = self:GetParent()
+		self.ability = self:GetAbility()
+	end
 end
 
-modifier_arcueid_shut_up_slow = class({})
+--[[function modifier_arcueid_what:OnAttackStart(args)
+	if IsServer() then
+		if args.target ~= self:GetParent() then return end
 
-function modifier_arcueid_shut_up_slow:IsHidden() return false end
-function modifier_arcueid_shut_up_slow:IsDebuff() return true end
-function modifier_arcueid_shut_up_slow:RemoveOnDeath() return true end
-function modifier_arcueid_shut_up_slow:DeclareFunctions()
+		if not self:GetCaster().MonstrousStrengthAcquired then return end
+
+		args.attacker:AddNewModifier(self.caster, self.ability, "modifier_arcueid_what_buff", {duration = 1.5})
+	end
+end
+
+function modifier_arcueid_what:OnAttackLanded(args)
+	if IsServer() then
+		if args.target ~= self:GetParent() then return end
+
+		if not self:GetCaster().MonstrousStrengthAcquired then return end
+
+		self:IncrementStackCount()
+		DoDamage(args.attacker, self.parent, self:GetStackCount()*self:GetAbility():GetSpecialValueFor("attribute_damage"), DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
+	end
+end]]
+
+function modifier_arcueid_what:OnTakeDamage(args)
+	if IsServer() then
+		if args.unit ~= self:GetParent() then return end
+
+		args.attacker:Heal(args.damage*self.ability:GetSpecialValueFor("lifesteal")/100, self.ability)
+		self:PlayEffects(args.attacker)
+	end
+end
+
+function modifier_arcueid_what:DeclareFunctions()
   return {  MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE  }
 end
-function modifier_arcueid_shut_up_slow:GetModifierMoveSpeedBonus_Percentage()
+function modifier_arcueid_what:GetModifierMoveSpeedBonus_Percentage()
   return -1*self:GetAbility():GetSpecialValueFor("slow_percent")
+end
+
+function modifier_arcueid_what:GetEffectName()
+	return "particles/units/heroes/hero_life_stealer/life_stealer_open_wounds.vpcf"
+end
+
+function modifier_arcueid_what:GetEffectAttachType()
+	return PATTACH_ABSORIGIN_FOLLOW
+end
+
+function modifier_arcueid_what:PlayEffects( target )
+	-- Get Resources
+	local particle_cast = "particles/generic_gameplay/generic_lifesteal.vpcf"
+
+	-- Create Particle
+	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, target )
+	-- ParticleManager:SetParticleControl( effect_cast, iControlPoint, vControlVector )
+	-- ParticleManager:SetParticleControlEnt(
+	-- 	effect_cast,
+	-- 	iControlPoint,
+	-- 	hTarget,
+	-- 	PATTACH_NAME,
+	-- 	"attach_name",
+	-- 	vOrigin, -- unknown
+	-- 	bool -- unknown, true
+	-- )
+	ParticleManager:ReleaseParticleIndex( effect_cast )
+end
+
+
+
+modifier_arcueid_what_buff = class({})
+
+function modifier_arcueid_what_buff:IsHidden() return true end
+function modifier_arcueid_what_buff:IsDebuff() return false end
+function modifier_arcueid_what_buff:RemoveOnDeath() return true end
+function modifier_arcueid_what_buff:GetAttributes() 
+    return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
+end
+
+function modifier_arcueid_what_buff:DeclareFunctions()
+	return {MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT}
+end
+
+function modifier_arcueid_what_buff:GetModifierAttackSpeedBonus_Constant()
+	return self:GetAbility():GetSpecialValueFor("attribute_attack_speed")
 end

@@ -901,6 +901,52 @@ function ApplyAirborneOnly(target, knockupSpeed, duration, Acc)
     end)
 end
 
+function ApplyReattachableAirborneOnly(target, knockupSpeed, duration, Acc)
+    --if target:HasModifier("modifier_wind_protection_passive") then return end
+    if target:GetName() == "npc_dota_hero_legion_commander" and target:HasModifier("modifier_avalon") then return end
+
+    local knockupAcc = knockupSpeed/duration * 2
+    if Acc then
+        knockupAcc = Acc
+    end
+
+    target:AddNewModifier(target, nil, "modifier_airborne_marker", {duration = duration})
+
+    Timers:RemoveTimerWithCallbackTest("airborne_timer"..target:entindex())
+
+    Timers:CreateTimer(FrameTime(), function()
+        Physics:Unit(target)
+        target:PreventDI()
+        target:SetPhysicsVelocity(Vector(0,0,knockupSpeed))
+        target:SetPhysicsAcceleration(Vector(0,0,-knockupAcc))
+        target:SetNavCollisionType(PHYSICS_NAV_NOTHING)
+        target:FollowNavMesh(false)
+        target:Hibernate(false)
+
+        Timers:CreateTimer("airborne_timer"..target:entindex(), {
+            endTime = duration,
+            callback = function()
+                target:PreventDI(false)
+                target:SetPhysicsVelocity(Vector(0,0,0))
+                target:SetPhysicsAcceleration(Vector(0,0,0))
+                target:OnPhysicsFrame(nil)
+                target:Hibernate(true)
+                return
+            end
+        })
+    end)
+
+    --[[Timers:CreateTimer(duration, function()
+        --if not target:HasModifier("modifier_airborne_marker") then
+            target:PreventDI(false)
+            target:SetPhysicsVelocity(Vector(0,0,0))
+            target:SetPhysicsAcceleration(Vector(0,0,0))
+            target:OnPhysicsFrame(nil)
+            target:Hibernate(true)
+        --end
+    end)]]
+end
+
 function DummyEnd(dummy)
     dummy:RemoveSelf()
     return nil

@@ -74,7 +74,7 @@ end
 
 modifier_arcueid_impulses = class({})
 
-function modifier_arcueid_impulses:IsHidden() return false end
+function modifier_arcueid_impulses:IsHidden() return true end
 function modifier_arcueid_impulses:IsDebuff() return false end
 --function modifier_true_assassin_selfmod:IsPurgable() return false end
 --function modifier_true_assassin_selfmod:IsPurgeException() return false end
@@ -84,16 +84,16 @@ function modifier_arcueid_impulses:GetAttributes()
 end
 
 function modifier_arcueid_impulses:DeclareFunctions()
-	return {MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
-			MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE}
+	return {MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
+			MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT}
 end
 
-function modifier_arcueid_impulses:GetModifierIncomingDamage_Percentage()
-	return ((self:GetParent():GetModifierStackCount("modifier_arcueid_impulses", self:GetParent()) > 0) and self:GetAbility():GetSpecialValueFor("amp_percent")*(self:GetParent():GetModifierStackCount("modifier_arcueid_impulses", self:GetParent()) or 0))
+function modifier_arcueid_impulses:GetModifierMagicalResistanceBonus()
+	return (self:GetParent():HasModifier("modifier_arcueid_world") and (1 - self:GetParent():GetHealth()/self:GetParent():GetMaxHealth())*self:GetAbility():GetSpecialValueFor("magical_resistance") or 0)
 end
 
 function modifier_arcueid_impulses:GetModifierAttackSpeedBonus_Constant()
-	return (((self:GetParent():GetModifierStackCount("modifier_arcueid_impulses", self:GetParent()) > 0) or (self:GetParent():HasModifier("modifier_arcueid_world") and (self:GetAbility():GetAutoCastState() == true) and (self:GetParent():GetMana() > self:GetAbility():GetSpecialValueFor("mana_per_hit")))) and (self:GetAbility():GetSpecialValueFor("attack_speed") + (self:GetCaster():HasModifier("modifier_arcueid_world") and self:GetCaster():GetAgility()*self:GetAbility():GetSpecialValueFor("agility_multiplier") or 0)) or 0)
+	return (self:GetParent():HasModifier("modifier_arcueid_world") and (1 - self:GetParent():GetHealth()/self:GetParent():GetMaxHealth())*self:GetAbility():GetSpecialValueFor("attack_speed") or 0)
 end
 
 function modifier_arcueid_impulses:OnCreated()
@@ -108,56 +108,40 @@ function modifier_arcueid_impulses:OnAttackLanded(args)
 
 	self.parent = self:GetParent()
 	local caster = self:GetCaster()
-	local damage = self.ability:GetSpecialValueFor("damage")
-	if self:GetCaster():HasModifier("modifier_arcueid_world") then
-		damage = damage + caster:GetStrength()*self.ability:GetSpecialValueFor("strength_multiplier")
-	end
+	local damage = self.ability:GetSpecialValueFor("damage") + self.ability:GetSpecialValueFor("damage_perc")*self.parent:GetMaxHealth()/100
 	if IsServer() then
-		local worked = false
-		if self:GetStackCount() > 0 then
-			self:SetStackCount(self:GetStackCount() - 1)
-			worked = true
-		end
-		if (not worked) and self.parent.RecklesnessAcquired and (self.ability:GetAutoCastState() == true) then
-			if self.parent:GetMana() >= self.ability:GetSpecialValueFor("mana_per_hit") then
-				caster:SpendMana(self.ability:GetSpecialValueFor("mana_per_hit"), self.ability)
-				worked = true
+		if self.parent.MonstrousStrengthAcquired then 
+			--[[local qCD = caster:FindAbilityByName("arcueid_what"):GetCooldownTimeRemaining()
+			caster:FindAbilityByName("arcueid_what"):EndCooldown()
+			if qCD > 0 then
+				caster:FindAbilityByName("arcueid_what"):StartCooldown(qCD - 1)
 			end
-		end
-		if worked then
-			if self.parent.WorldBackupAcquired then 
-				local qCD = caster:FindAbilityByName("arcueid_what"):GetCooldownTimeRemaining()
-				caster:FindAbilityByName("arcueid_what"):EndCooldown()
-				if qCD > 0 then
-					caster:FindAbilityByName("arcueid_what"):StartCooldown(qCD - 1)
-				end
 
-				local wCD = caster:FindAbilityByName("arcueid_shut_up"):GetCooldownTimeRemaining()
-				caster:FindAbilityByName("arcueid_shut_up"):EndCooldown()
-				if wCD > 0 then
-					caster:FindAbilityByName("arcueid_shut_up"):StartCooldown(wCD - 1)
-				end
-
-				local eCD = caster:FindAbilityByName("arcueid_ready"):GetCooldownTimeRemaining()
-				caster:FindAbilityByName("arcueid_ready"):EndCooldown()
-				if eCD > 0 then
-					caster:FindAbilityByName("arcueid_ready"):StartCooldown(eCD - 1)
-				end
-
-				local rCD = caster:FindAbilityByName("arcueid_you"):GetCooldownTimeRemaining()
-				caster:FindAbilityByName("arcueid_you"):EndCooldown()
-				if rCD > 0 then
-					caster:FindAbilityByName("arcueid_you"):StartCooldown(rCD - 1)
-				end
+			local wCD = caster:FindAbilityByName("arcueid_shut_up"):GetCooldownTimeRemaining()
+			caster:FindAbilityByName("arcueid_shut_up"):EndCooldown()
+			if wCD > 0 then
+				caster:FindAbilityByName("arcueid_shut_up"):StartCooldown(wCD - 1)
 			end
-			DoDamage(self.parent, args.target, self:GetAbility():GetSpecialValueFor("damage"), DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
+
+			local eCD = caster:FindAbilityByName("arcueid_ready"):GetCooldownTimeRemaining()
+			caster:FindAbilityByName("arcueid_ready"):EndCooldown()
+			if eCD > 0 then
+				caster:FindAbilityByName("arcueid_ready"):StartCooldown(eCD - 1)
+			end
+
+			local rCD = caster:FindAbilityByName("arcueid_you"):GetCooldownTimeRemaining()
+			caster:FindAbilityByName("arcueid_you"):EndCooldown()
+			if rCD > 0 then
+				caster:FindAbilityByName("arcueid_you"):StartCooldown(rCD - 1)
+			end]]
+		
+			DoDamage(self.parent, args.target, damage, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
+			self.parent:Heal(damage/2, self:GetAbility())
+
+			local effect_cast = ParticleManager:CreateParticle( "particles/generic_gameplay/generic_lifesteal.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent )
+			ParticleManager:ReleaseParticleIndex( effect_cast )
 		end
 	end
-	self:StartIntervalThink(10)
-end
-
-function modifier_arcueid_impulses:OnIntervalThink()
-	self:SetStackCount(0)
 end
 
 modifier_arcueid_combo_window = class({})

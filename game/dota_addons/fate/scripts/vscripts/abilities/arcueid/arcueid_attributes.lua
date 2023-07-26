@@ -88,8 +88,6 @@ function arcueid_world_attribute:OnSpellStart()
 		end
 	end)
 
-	hero:FindAbilityByName("arcueid_impulses"):SetLevel(2)
-
 	hero.WorldBackupAcquired = true
 
 	-- Set master 1's mana 

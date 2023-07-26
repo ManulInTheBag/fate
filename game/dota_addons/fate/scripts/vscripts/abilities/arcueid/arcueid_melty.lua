@@ -222,7 +222,7 @@ function arcueid_melty:OnProjectileHit_ExtraData(hTarget, vLocation, hTable)
 					true -- unknown, true
 				)
 				--ParticleManager:SetParticleControlForward( effect_cast, 1, (self.source_enemy:GetOrigin()-enemy:GetOrigin()):Normalized() )
-				ParticleManager:yySetParticleControlTransformForward(effect_cast, 1, Vector(0,0,0), (self.source_enemy:GetOrigin()-enemy:GetOrigin()):Normalized())
+				ParticleManager:SetParticleControlTransformForward(effect_cast, 1, Vector(0,0,0), (self.source_enemy:GetOrigin()-enemy:GetOrigin()):Normalized())
 				ParticleManager:ReleaseParticleIndex( effect_cast )
 			end
 		end

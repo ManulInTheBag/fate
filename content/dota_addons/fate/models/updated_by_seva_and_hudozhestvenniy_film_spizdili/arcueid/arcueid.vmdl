@@ -189,6 +189,25 @@
 					{
 						_class = "AnimFile"
 						name = "arcueid4"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = true
+								extract_rz = false
+								linear = false
+								quadratic = false
+								root_bone_name = ""
+								motion_type = "Uniform"
+							},
+							{
+								_class = "AnimOffset"
+								translation = [ 554.0, 0.5, 10.0 ]
+								rotation_xyz = [ 0.0, 0.0, 0.0 ]
+							},
+						]
 						activity_name = "ACT_DOTA_CAST_ABILITY_5"
 						activity_weight = 1
 						weight_list_name = ""
@@ -205,7 +224,7 @@
 						import_bone_scales = false
 						start_frame = 289
 						end_frame = 343
-						framerate = 45.0
+						framerate = -1.0
 						reverse = false
 					},
 					{
@@ -285,7 +304,7 @@
 					{
 						_class = "AnimFile"
 						name = "arcueid8"
-						activity_name = "ACT_DOTA_CAST_ABILITY_2_END"
+						activity_name = "ACT_DOTA_ATTACK"
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -300,7 +319,7 @@
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/arcueid/arc_anim_fix.fbx"
 						import_bone_scales = false
 						start_frame = 509
-						end_frame = 554
+						end_frame = 531
 						framerate = -1.0
 						reverse = false
 					},
@@ -381,7 +400,7 @@
 					{
 						_class = "AnimFile"
 						name = "arcueid3_copy"
-						activity_name = "ACT_DOTA_ATTACK"
+						activity_name = "ACT_SCRIPT_CUSTOM_1"
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -417,7 +436,7 @@
 						animgraph_additive = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/arcueid/arc_anim_fix.fbx"
 						import_bone_scales = false
-						start_frame = 509
+						start_frame = 523
 						end_frame = 554
 						framerate = -1.0
 						reverse = false
@@ -1247,6 +1266,15 @@
 						_class = "Attachment"
 						name = "ATTACH_HITLOC"
 						parent_bone = "Bone03"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "ATTACH_HAND"
+						parent_bone = "bone_new48"
 						relative_origin = [ 0.0, 0.0, 0.0 ]
 						relative_angles = [ 0.0, 0.0, 0.0 ]
 						weight = 1.0

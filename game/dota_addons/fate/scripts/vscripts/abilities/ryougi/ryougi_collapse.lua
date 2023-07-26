@@ -35,7 +35,10 @@ function ryougi_collapse:OnSpellStart()
     local width = self:GetSpecialValueFor("width")
 
     local direction = (point-origin)
-    local dist = math.min( max_dist, direction:Length2D() )
+    if point == origin then
+    	direction = caster:GetForwardVector()
+    end
+    local dist = max_dist--math.min( max_dist, direction:Length2D() )
     direction.z = 0
     direction = direction:Normalized()
 

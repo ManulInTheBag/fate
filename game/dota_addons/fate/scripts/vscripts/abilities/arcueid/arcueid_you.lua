@@ -1,14 +1,162 @@
+LinkLuaModifier("modifier_arcueid_you_tracker", "abilities/arcueid/arcueid_you", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_arcueid_you", "abilities/arcueid/arcueid_you", LUA_MODIFIER_MOTION_NONE)
 
 arcueid_you = class({})
 
+function arcueid_you:GetAOERadius()
+	return self:GetSpecialValueFor("radius")
+end
+
+function arcueid_you:CheckSequence()
+	local caster = self:GetCaster()
+
+	if caster:HasModifier("modifier_arcueid_you_tracker") then
+		local stack = caster:GetModifierStackCount("modifier_arcueid_you_tracker", caster)
+
+		return stack
+	else
+		return 1
+	end
+end
+
+function arcueid_you:SequenceSkill()
+	local caster = self:GetCaster()	
+	local ability = self
+	local modifier = caster:FindModifierByName("modifier_arcueid_you_tracker")
+
+	if not modifier then
+		caster:AddNewModifier(caster, ability, "modifier_arcueid_you_tracker", {Duration = self:GetSpecialValueFor("window_duration")})
+		caster:SetModifierStackCount("modifier_arcueid_you_tracker", ability, 2)
+	else
+		caster:AddNewModifier(caster, ability, "modifier_arcueid_you_tracker", {Duration = self:GetSpecialValueFor("window_duration")})
+		caster:SetModifierStackCount("modifier_arcueid_you_tracker", ability, modifier:GetStackCount() + 1)
+	end
+end
+
+function arcueid_you:GetCastAnimation()
+	local seq = self:CheckSequence()
+	if seq == 1 then
+		return ACT_DOTA_ATTACK2
+	elseif seq == 2 then
+		return ACT_DOTA_ATTACK
+	end
+	return ACT_DOTA_CAST_ABILITY_2
+end
+
 function arcueid_you:OnSpellStart()
 	local caster = self:GetCaster()
-	local ability = self
+	local seq = self:CheckSequence()
+
+	if seq == 1 then
+		self:SequenceSkill()
+		self:EndCooldown()
+
+		self:SimpleKick(seq)
+	elseif seq == 2 then
+		self:SequenceSkill()
+		self:EndCooldown()
+
+		self:SimpleKick(seq)
+	else
+		self:EndSequence()
+
+		self:SimpleKick(seq)
+	end
+end
+
+function arcueid_you:EndSequence()
+	self:GetCaster():RemoveModifierByName("modifier_arcueid_you_tracker")
+end
+
+function arcueid_you:SimpleKick(seq)
+	local caster = self:GetCaster()
+	local damage = self:GetSpecialValueFor("damage")
+	local sound = 3 + seq
+
+	local part_vec = Vector(0, 20, 180)
+
+	if seq == 1 then
+		part_vec = Vector(-30, 0, 180)
+	elseif seq == 2 then
+		part_vec = Vector(30, 180, 0)
+	end
+
+	caster:EmitSound("arcueid_ready_"..sound)
+
+	--caster:AddNewModifier(caster, self, "modifier_arcueid_you", {duration = 0.1})
 	
-	caster:AddNewModifier(caster, self, "modifier_arcueid_you", {duration = 1.7})
-	--caster:EmitSound("arcueid_ult_1")
-	StartAnimation(caster, {duration=1.7, activity=ACT_DOTA_CAST_ABILITY_6, rate=1.0})
+	local particle = ParticleManager:CreateParticle("particles/arcueid/arcueid_slash_red.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+	ParticleManager:SetParticleControl(particle, 0, caster:GetAbsOrigin())
+	ParticleManager:SetParticleControl(particle, 5, Vector(self:GetSpecialValueFor("radius") + 50, 0, 70))
+	ParticleManager:SetParticleControl(particle, 10, part_vec)
+	Timers:CreateTimer(1, function()
+		ParticleManager:DestroyParticle(particle, false)
+		ParticleManager:ReleaseParticleIndex(particle)
+	end)
+	
+	local enemies = FindUnitsInRadius(  caster:GetTeamNumber(),
+                                        caster:GetAbsOrigin(),
+                                        nil,
+                                        self:GetSpecialValueFor("radius"),
+                                        DOTA_UNIT_TARGET_TEAM_ENEMY,
+                                        DOTA_UNIT_TARGET_ALL,
+                                        DOTA_UNIT_TARGET_FLAG_NONE,
+                                        FIND_ANY_ORDER,
+                                        false)
+	for _,enemy in pairs(enemies) do
+		local origin_diff = enemy:GetAbsOrigin() - caster:GetAbsOrigin()
+		local origin_diff_norm = origin_diff:Normalized()
+		if caster:GetForwardVector():Dot(origin_diff_norm) > 0 then
+			enemy:AddNewModifier(caster, self, "modifier_stunned", {duration = self:GetSpecialValueFor("stun_duration"..seq)})
+			if caster.RecklesnessAcquired then
+				caster:PerformAttack( enemy, true, true, true, true, false, false, true )
+			end
+		    for i = 0,1 do
+			   	Timers:CreateTimer(FrameTime()*i*3, function()
+			   		
+			   		DoDamage(caster, enemy, damage/2, DAMAGE_TYPE_MAGICAL, 0, self, false)
+			    	EmitSoundOn("arcueid_hit", enemy)
+		        end)
+		    end
+		end
+	end
+end
+
+modifier_arcueid_you_tracker = class({})
+
+function modifier_arcueid_you_tracker:OnCreated()
+	if IsServer() then
+	end
+end 
+
+function modifier_arcueid_you_tracker:OnDestroy()
+	if IsServer() then
+		local caster = self:GetCaster()
+
+		local ability = self:GetAbility()
+		ability:EndCooldown()
+		ability:StartCooldown(ability:GetCooldown(ability:GetLevel() - 1))
+	end
+end
+
+function modifier_arcueid_you_tracker:IsPurgable()
+	return false
+end
+
+function modifier_arcueid_you_tracker:IsHidden()
+	return true
+end
+
+function modifier_arcueid_you_tracker:IsDebuff()
+	return false
+end
+
+function modifier_arcueid_you_tracker:RemoveOnDeath()
+	return true
+end
+
+function modifier_arcueid_you_tracker:GetAttributes()
+  return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
 
 --[[function arcueid_you:OnAbilityPhaseStart()
@@ -30,206 +178,27 @@ function modifier_arcueid_you:OnCreated()
 	if IsServer() then
 		self.caster = self:GetCaster()
 		self.ability = self:GetAbility()
-		self.damage = self.ability:GetSpecialValueFor("damage")
-		self.speed = self.ability:GetSpecialValueFor("speed")
-
-		self.hp = self.caster:GetHealth()
-
-		self.z = 0
+		self.speed = 1000
 
 		self:StartIntervalThink(FrameTime())
-		self.tick = 0
 	end
 end
 
 function modifier_arcueid_you:OnIntervalThink()
 	if IsServer() then
-		self.hp = self.caster:GetHealth()
 		local caster = self.caster
-		local collide_damage = self.ability:GetSpecialValueFor("collide_damage")
-		if caster.MonstrousStrengthAcquired then
-			collide_damage = collide_damage + caster:GetStrength()*self.ability:GetSpecialValueFor("collide_mult")
-		end
-		self.tick = self.tick + 1
 		local vector = caster:GetForwardVector()
 		vector.z = 0
 		local target = caster:GetAbsOrigin() + vector*self.speed*FrameTime()
-		if (self.tick >= 34) and (self.tick <= 41) then
-			self.z = self.z + 14*2
-		end
-		if (self.tick >= 42) and (self.tick <= 48) then
-			self.z = self.z - 16*2
-		end
 		if GridNav:IsTraversable(target) and (not GridNav:IsBlocked(target)) then
-			caster:SetAbsOrigin(GetGroundPosition(target, caster) + Vector(0, 0, self.z))
-		end
-
-		if (self.tick == 5) or (self.tick == 15) or (self.tick == 23) or (self.tick == 33) then
-			if self.tick == 5 then
-				caster:EmitSound("arcueid_ult_first")
-			end
-			if self.tick == 15 then
-				caster:EmitSound("arcueid_ult_2")
-			end
-			if self.tick == 33 then
-				caster:EmitSound("arcueid_ult_3")
-			end
-			caster:EmitSound("arcueid_swing")
-			--[[local particle = ParticleManager:CreateParticle("particles/custom/berserker/nine_lives/hit.vpcf", PATTACH_ABSORIGIN, caster)
-			ParticleManager:SetParticleControl(particle, 2, Vector(1,1,350))
-			ParticleManager:SetParticleControl(particle, 3, Vector(350 / 350,1,1))]]
-			local slash_fx = ParticleManager:CreateParticle("particles/arcueid/juggernaut_blade_fury_other.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
-            ParticleManager:SetParticleControl(slash_fx, 0, caster:GetAbsOrigin() + Vector(0, 0, 80))
-            ParticleManager:SetParticleControl(slash_fx, 5, Vector(300, 1, 1))
-            if (self.tick == 5) or (self.tick == 15) then
-            	ParticleManager:SetParticleControl(slash_fx, 10, Vector(0, 0, 0))
-            elseif (self.tick == 23) then
-            	ParticleManager:SetParticleControl(slash_fx, 10, Vector(180, 0, 0))
-            elseif (self.tick == 33) then
-            	ParticleManager:SetParticleControl(slash_fx, 10, Vector(90, 0, 0))
-            end
-
-			--caster:EmitSound("Hero_EarthSpirit.StoneRemnant.Impact") 
-			local enemies = FindUnitsInRadius(  caster:GetTeamNumber(),
-                                        caster:GetAbsOrigin(),
-                                        nil,
-                                        350,
-                                        DOTA_UNIT_TARGET_TEAM_ENEMY,
-                                        DOTA_UNIT_TARGET_ALL,
-                                        DOTA_UNIT_TARGET_FLAG_NONE,
-                                        FIND_ANY_ORDER,
-                                        false)
-			for _, target in pairs(enemies) do
-				--[[local origin_diff = target:GetAbsOrigin() - caster:GetAbsOrigin()
-				local origin_diff_norm = origin_diff:Normalized()
-				if caster:GetForwardVector():Dot(origin_diff_norm) > 0 then]]
-					--[[target:AddNewModifier(caster, self.ability, "modifier_stunned", {duration = 0.25})
-					caster:FindAbilityByName("arcueid_impulses"):Pepeg()
-					local knockback = { should_stun = 0,
-		                            knockback_duration = FrameTime()*5,
-		                            duration = FrameTime()*5,
-		                            knockback_distance = self.speed*FrameTime()*10,
-		                            knockback_height = 0 or 0,
-		                            center_x = caster:GetAbsOrigin().x,
-		                            center_y = caster:GetAbsOrigin().y,
-		                            center_z = caster:GetAbsOrigin().z }
-		            target:RemoveModifierByName("modifier_knockback")
-
-		            target:AddNewModifier(caster, self.ability, "modifier_knockback", knockback)]]
-
-		            if not IsKnockbackImmune(target) and (self:GetAbility():GetAutoCastState() == true) then
-			            local casterfacing = (target:GetAbsOrigin() - caster:GetAbsOrigin()):Normalized()
-						local pushTarget = Physics:Unit(target)
-						local casterOrigin = caster:GetAbsOrigin()
-						local initialUnitOrigin = target:GetAbsOrigin()
-						target:PreventDI()
-						target:SetPhysicsFriction(0)
-						target:SetPhysicsVelocity(casterfacing:Normalized() * self.speed*2)
-						target:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
-					    target:OnPhysicsFrame(function(unit) 
-							local unitOrigin = unit:GetAbsOrigin()
-							local diff = unitOrigin - initialUnitOrigin
-							local n_diff = diff:Normalized()
-							unit:SetPhysicsVelocity(unit:GetPhysicsVelocity():Length() * n_diff) 
-							if diff:Length() > self.speed*FrameTime()*10 then
-								unit:PreventDI(false)
-								unit:SetPhysicsVelocity(Vector(0,0,0))
-								unit:OnPhysicsFrame(nil)
-								FindClearSpaceForUnit(unit, unit:GetAbsOrigin(), true)
-							end
-						end)	
-						target:OnPreBounce(function(unit, normal) -- stop the pushback when unit hits wall
-							unit:SetBounceMultiplier(0)
-							unit:PreventDI(false)
-							unit:SetPhysicsVelocity(Vector(0,0,0))
-							giveUnitDataDrivenModifier(caster, target, "stunned", self.ability:GetSpecialValueFor("collide_stun_duration"))
-							target:EmitSound("Hero_EarthShaker.Fissure")
-							DoDamage(caster, target, collide_damage, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)	
-						end)
-					end
-
-					caster:FindAbilityByName("arcueid_impulses"):Pepeg(target)
-
-		            for i = 0,2 do
-		            	Timers:CreateTimer(FrameTime()*i*2, function()
-		            		DoDamage(caster, target, self.damage/3, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
-		            		if (i == 0) or (not target:HasModifier("modifier_master_intervention")) then
-		            			target:AddNewModifier(caster, self.ability, "modifier_rooted", {duration = 0.25})
-		            			giveUnitDataDrivenModifier(caster, target, "locked", 0.25)
-		            		end
-		            		EmitSoundOn("arcueid_hit", target)
-	                	end)
-	                end
-	            --end
-			end
-		end
-		if (self.tick == 48) then
-			caster:EmitSound("arcueid_ult_4")
-			
-			local particle = ParticleManager:CreateParticle("particles/custom/berserker/nine_lives/hit.vpcf", PATTACH_ABSORIGIN, caster)
-			ParticleManager:SetParticleControl(particle, 2, Vector(1,1,450))
-			ParticleManager:SetParticleControl(particle, 3, Vector(450 / 350,1,1))
-			ParticleManager:CreateParticle("particles/custom/berserker/nine_lives/last_hit.vpcf", PATTACH_ABSORIGIN, caster)
-
-			caster:EmitSound("Hero_EarthSpirit.BoulderSmash.Target")
-			local enemies = FindUnitsInRadius(  caster:GetTeamNumber(),
-                                        caster:GetAbsOrigin(),
-                                        nil,
-                                        450,
-                                        DOTA_UNIT_TARGET_TEAM_ENEMY,
-                                        DOTA_UNIT_TARGET_ALL,
-                                        DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
-                                        FIND_ANY_ORDER,
-                                        false)
-			for _, target in pairs(enemies) do
-				--local origin_diff = target:GetAbsOrigin() - caster:GetAbsOrigin()
-				--local origin_diff_norm = origin_diff:Normalized()
-				if not IsKnockbackImmune(target) then
-					local casterfacing = (target:GetAbsOrigin() - caster:GetAbsOrigin()):Normalized()
-					local pushTarget = Physics:Unit(target)
-					local casterOrigin = caster:GetAbsOrigin()
-					local initialUnitOrigin = target:GetAbsOrigin()
-					target:PreventDI()
-					target:SetPhysicsFriction(0)
-					target:SetPhysicsVelocity(casterfacing:Normalized() * self.speed*2)
-					target:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
-				    target:OnPhysicsFrame(function(unit) 
-						local unitOrigin = unit:GetAbsOrigin()
-						local diff = unitOrigin - initialUnitOrigin
-						local n_diff = diff:Normalized()
-						unit:SetPhysicsVelocity(unit:GetPhysicsVelocity():Length() * n_diff) 
-						if diff:Length() > 300 then
-							unit:PreventDI(false)
-							unit:SetPhysicsVelocity(Vector(0,0,0))
-							unit:OnPhysicsFrame(nil)
-							FindClearSpaceForUnit(unit, unit:GetAbsOrigin(), true)
-						end
-					end)	
-					target:OnPreBounce(function(unit, normal) -- stop the pushback when unit hits wall
-						unit:SetBounceMultiplier(0)
-						unit:PreventDI(false)
-						unit:SetPhysicsVelocity(Vector(0,0,0))
-						giveUnitDataDrivenModifier(caster, target, "stunned", self.ability:GetSpecialValueFor("collide_stun_duration"))
-						target:EmitSound("Hero_EarthShaker.Fissure")
-						DoDamage(caster, target, collide_damage, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)	
-					end)
-				end
-				--if caster:GetForwardVector():Dot(origin_diff_norm) > 0 then
-					DoDamage(caster, target, self.ability:GetSpecialValueFor("damage_last"), DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
-					target:AddNewModifier(caster, self.ability, "modifier_stunned", {duration = self.ability:GetSpecialValueFor("stun_duration")})
-					caster:FindAbilityByName("arcueid_impulses"):Pepeg(target)
-				--end
-			end
+			caster:SetAbsOrigin(GetGroundPosition(target, caster))
 		end
 	end
 end
 
 function modifier_arcueid_you:CheckState()
 	return {  [MODIFIER_STATE_ROOTED] = true,
-			[MODIFIER_STATE_SILENCED] = true, 
-			[MODIFIER_STATE_MUTED] = true,
-			[MODIFIER_STATE_DISARMED] = true,
-		[MODIFIER_STATE_NO_UNIT_COLLISION] = true}
+			[MODIFIER_STATE_NO_UNIT_COLLISION] = true}
 end
 
 function modifier_arcueid_you:DeclareFunctions()

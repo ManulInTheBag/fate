@@ -64,7 +64,7 @@ end
 function heracles_nine_lives:StartNineLives(berserked)
 	local caster = self:GetCaster()
 	local time = 0.01
-	if berserked then time = 0.5 end
+	if berserked then time = 0.3 end
 	Timers:CreateTimer(time, function()
 		caster:OnPreBounce(nil)
 		caster:OnPhysicsFrame(nil)

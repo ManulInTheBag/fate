@@ -11,51 +11,23 @@
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
 		"AbilityTextureName"			"custom/arcueid/arcueid_what"
-		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
-		"AnimationPlaybackRate" 		"2.0"
-		"AbilityCastPoint"				"0.2"
-		"AbilityCooldown"				"8"
-		"AbilityCastRange"				"550"
+		"AbilityCastAnimation" 			"ACT_DOTA_RAZE_2"
+		"AnimationPlaybackRate" 		"1.5"
+		"AbilityCastPoint"				"0.3"
+		"AbilityCooldown"				"24 22 20 18 16"
 		"AbilityManaCost"				"100"
 		
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"100 160 220 280 340"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"4"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"lifesteal"				"10 15 20 25 30"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"slow_percent"			"50 57.5 65 72.5 80"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"attribute_damage"		"10"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"attribute_attack_speed"	"150"
-			}
+			"cast_point"			"0.3"
+			"damage"				"100 180 260 340 420"
+			"range"					"800 950 1100 1250 1400"
 		}
 	}
 
@@ -77,59 +49,27 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityTextureName"			"custom/arcueid/arcueid_shut_up_2"
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
-		"AnimationPlaybackRate" 		"1.0"
+		"AnimationPlaybackRate" 		"2.0"
 		"AbilityCastPoint"				"0.2"
 		"AbilityCooldown"				"14"
 		"AbilityManaCost"				"200"
 		"AbilityCastRange"				"300"
 		
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"range"					"500 600 700 800 900"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"speed"					"2500"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"200 275 350 425 500"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"slow_duration"			"1.0 1.3 1.6 1.9 2.2"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"slow_percent" 			"100"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"stun_duration" 		"0.5 0.8 1.1 1.4 1.7"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"collide_damage"		"100 150 200 250 300"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"collide_mult" 			"2.0"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"range_mult" 			"3.0"
-			}	
+			"cast_point"			"0.2"
+			"range"					"500 600 700 800 900"
+			"speed"					"1250"
+			"damage"				"200 275 350 425 500"
+			"duration"				"4"
+			"attribute_damage"		"10"
+			"attribute_attack_speed"	"150"
+			"lifesteal"				"10 15 20 25 30"
+			"slow_percent" 			"50 57.5 65 72.5 80"
+			"stun_duration" 		"0.5 0.6 0.7 0.8 0.9"
+			"collide_damage"		"100 150 200 250 300"
+			"collide_mult" 			"2.0"
+			"range_mult" 			"3.0"	
 		}
 	}
 
@@ -145,50 +85,24 @@
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"2"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
 		"AbilityTextureName"			"custom/arcueid/arcueid_ready_2"
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3"
 		"AnimationPlaybackRate" 		"1.0"
-		"AbilityCastPoint"				"0.3"
-		"AbilityCooldown"				"32 28 24 20 16"
-		"AbilityManaCost"				"400"
-		"AbilityCastRange"				"400"
+		"AbilityCastPoint"				"0.7"
+		"AbilityCooldown"				"40"
+		"AbilityManaCost"				"800"
 		
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"120 160 200 240 280"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"0.8"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"stun_duration"			"0.4 0.7 1.0 1.3 1.6"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"collide_damage"		"50 65 80 95 110"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"collide_mult" 			"1.0"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"range"					"200"
-			}
+			"cast_point"			"0.7"
+			"damage"				"300 360 420 480 540"
+			"radius"				"500"
+			"stun_duration"			"1.2"
+			"range"					"600"
 		}
 	}
 
@@ -205,19 +119,15 @@
 		"LevelsBetweenUpgrades"			"25"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityTextureName"			"custom/arcueid/arcueid_regen_2"
+		"AbilityCooldown"				"90"
 		
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"regen_percent"			"30 40"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"3 4"
-			}
+			"regen_percent"			"30 40"
+			"duration"				"3 4"
+			"barrier_amount"		"800"
+			"barrier_duration"		"12"
+			"threshold"				"500"
 		}
 	}
 
@@ -241,18 +151,11 @@
 		"AbilityManaCost"				"100"
 		"AbilityCastRange"				"500"
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"1.5"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"500"
-			}
+		"AbilityValues"
+		{	
+			"cast_point"			"0"
+			"duration"				"2.0"
+			"radius"				"500"
 		}
 	}
 
@@ -264,7 +167,7 @@
 		// General		//------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/arcueid/arcueid_impulses"
-		"MaxLevel"						"2"
+		"MaxLevel"						"1"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"25"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
@@ -274,48 +177,13 @@
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"15"
 		
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"30 50"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"attack_speed"			"100 150"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"10"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"strength_multiplier"	"0.4"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"agility_multiplier"	"1.5"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"mana_per_hit"			"40"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"max_stacks"			"5"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"amp_percent"			"2.0"
-			}
+			"cast_point"			"0"
+			"damage_perc"			"3"
+			"damage"				"30"
+			"magical_resistance"	"25"
+			"attack_speed"			"250"
 		}
 	}
 
@@ -330,58 +198,27 @@
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"2"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AUTOCAST | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityTextureName"			"custom/arcueid/arcueid_you"
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
-		"AnimationPlaybackRate" 		"1"
-		"AbilityCastPoint"				"0.6"
-		"AbilityCooldown"				"40"
-		"AbilityManaCost"				"800"
+		"AnimationPlaybackRate" 		"1.0"
+		"AbilityCastPoint"				"0.5"
+		"AbilityCooldown"				"28 25 22 19 16"
+		"AbilityManaCost"				"200"
 		
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"160 190 220 250 280"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"0.8"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"speed"					"550"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_last"			"250 340 430 520 610"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"collide_damage"		"50 75 100 125 150"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"collide_mult" 			"1.3"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"collide_stun_duration" "1.5"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"stun_duration" 		"1.0"
-			}
+			"cast_point"			"0.5"
+			"cast_point_2"			"0.5"
+			"cast_point_3"			"0.5"
+			"damage"				"220 270 320 370 420"
+			"window_duration"		"3"
+			"radius"				"450"
+			"stun_duration1" 		"0.1"
+			"stun_duration2" 		"0.35"
+			"stun_duration3" 		"0.7"
 		}
 	}
 
@@ -424,48 +261,17 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"speed"					"3000"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"1300"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"1000"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"1.5"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"chain_damage"			"50"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"collide_stun_duration"	"1.5"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"target_damage"			"1000"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"enemy_damage"			"500"
-			}
+			"cast_point"			"0.3"
+			"speed"					"3000"
+			"radius"				"1300"
+			"damage"				"1000"
+			"duration"				"1.5"
+			"chain_damage"			"50"
+			"collide_stun_duration"	"1.5"
+			"target_damage"			"1000"
+			"enemy_damage"			"500"
 		}
 	}
 	
@@ -522,28 +328,10 @@
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
 
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"disarm_duration"	"0.5"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"duration"			"8"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"health_percent"	"2"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"as_bonus"			"150"
-			}
+			"damage_perc"			"3"
+			"damage"				"30"
 		}
 	}
 	"arcueid_regen_attribute"
@@ -564,28 +352,11 @@
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
 
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"duration"			"7"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"10"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"bleed_damage"		"20"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"bleed_absorb"		"10"
-			}
+			"barrier_amount"		"800"
+			"barrier_duration"		"12"
+			"threshold"				"500"
 		}		
 	}
 	"arcueid_recklesness_attribute"
@@ -638,33 +409,10 @@
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
 
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"belle_damage"		"2"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"belle_2_damage"	"10"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_belle_damage"	"100"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_belle2_damage"	"450"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"attribute_range"	"100"
-			}
+			"magical_resistance"	"25"
+			"attack_speed"			"250"
 		}		
 	}
 }
