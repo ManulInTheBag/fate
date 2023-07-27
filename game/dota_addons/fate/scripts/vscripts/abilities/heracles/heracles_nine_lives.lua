@@ -42,7 +42,7 @@ function heracles_nine_lives:OnSpellStart()
 
 	caster:SetPhysicsFriction(0)
 	caster:SetPhysicsVelocity(caster:GetForwardVector()*distance)
-	--caster:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
+	caster:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
 	giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 3.75) --change to sealdisabled to return revoke here, if you want
 	caster:EmitSound("Hero_OgreMagi.Ignite.Cast")
 
