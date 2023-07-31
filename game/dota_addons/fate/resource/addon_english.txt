@@ -2964,8 +2964,9 @@
 		"DOTA_Tooltip_ability_emiya_barrage_moonwalk_Lore"				""	
 
 		"DOTA_Tooltip_Ability_emiya_barrage_rain"							"Sword Barrage - Bombard"
-		"DOTA_Tooltip_ability_emiya_barrage_rain_Description"				"Emiya manipulates numerous weapons on his will and strikes random areas inside Unlimited Blade Works with them, each dealing area damage."
+		"DOTA_Tooltip_ability_emiya_barrage_rain_Description"				"Emiya manipulates numerous weapons on his will and strikes random areas inside Unlimited Blade Works with them, each dealing area damage./nDamage scales of Emiya's INT"
 		"DOTA_Tooltip_ability_emiya_barrage_rain_damage"					"Damage:"
+		"DOTA_Tooltip_ability_emiya_barrage_rain_int_scale"					"INT scale:"
 		"DOTA_Tooltip_ability_emiya_barrage_rain_tooltip_weapon_drop_delay"	"Rate of Fire:"
 		"DOTA_Tooltip_ability_emiya_barrage_rain_tooltip_channeling"		"Duration:"
 		"DOTA_Tooltip_ability_emiya_barrage_rain_Lore"						"The images of once adolescent and naive man materialize into the iron executioner of justice."	
@@ -4979,9 +4980,10 @@
 		"DOTA_Tooltip_Ability_khsn_flame_attribute_turn_rate"	"%Turn rate slow:"
 
 		"DOTA_Tooltip_Ability_khsn_azrael_attribute"	"Attribute - Valley of the Shadow of Death"
-		"DOTA_Tooltip_Ability_khsn_azrael_attribute_Description"	"Phantasmal Flame deals additional incineration and fire waves damage.\nPhantasmal Flame ignition now resets it's duration upon taking damage from King Hassan and reveals it's target."
+		"DOTA_Tooltip_Ability_khsn_azrael_attribute_Description"	"Phantasmal Flame deals additional incineration and fire waves damage.\nPhantasmal Flame ignition duration increased."
 		"DOTA_Tooltip_Ability_khsn_azrael_attribute_first_dmg"	"Incineration bonus damage:"
 		"DOTA_Tooltip_Ability_khsn_azrael_attribute_second_dmg"	"Fire waves bonus damage:"
+		"DOTA_Tooltip_Ability_khsn_azrael_attribute_duration"	"Bonus fire duration:"
 
 		//====================================
 		//	Saber of Red

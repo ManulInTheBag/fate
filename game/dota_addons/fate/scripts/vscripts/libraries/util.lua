@@ -3,7 +3,7 @@ heroList = LoadKeyValues("scripts/npc/herolist.txt")
 
 softdispellable = {
     "modifier_aspd_increase",
-    "modifier_derange",
+    --"modifier_derange",
     "modifier_mordred_mb",
     --"modifier_courage_attack_damage_debuff",
     --"modifier_courage_damage_stack_indicator",
@@ -50,7 +50,7 @@ softdispellable = {
 strongdispellable = {
     -- softdispellable
     "modifier_aspd_increase",
-    "modifier_derange",
+    --"modifier_derange",
     "modifier_mordred_mb",
     "modifier_courage_attack_damage_debuff",
     "modifier_courage_damage_stack_indicator",
@@ -112,7 +112,7 @@ strongdispellable = {
 deargdispellable = {
     -- softdispellable
     "modifier_aspd_increase",
-    "modifier_derange",
+    --"modifier_derange",
     "modifier_mordred_mb",
     "modifier_courage_attack_damage_debuff",
     "modifier_courage_damage_stack_indicator",

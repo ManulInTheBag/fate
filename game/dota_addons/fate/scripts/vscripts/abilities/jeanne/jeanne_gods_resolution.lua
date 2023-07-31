@@ -8,9 +8,32 @@ function jeanne_gods_resolution:GetAOERadius()
 	return self:GetSpecialValueFor("radius")
 end
 
+function jeanne_gods_resolution:GetManaCost()
+	return self:GetCaster():HasModifier("modifier_jeanne_gods_resolution_active_buff") and 0 or 400
+end
+function jeanne_gods_resolution:CastFilterResult()
+	local caster = self:GetCaster()
+	if IsServer() then
+
+		if caster:IsSilenced() and not caster:HasModifier("modifier_jeanne_gods_resolution_active_buff") then 
+			return UF_FAIL_CUSTOM 
+		end
+	end
+	return UF_SUCCESS
+end
+
+function jeanne_gods_resolution:GetCustomCastError()
+    return "#SILENCED"
+end
+
 function jeanne_gods_resolution:OnSpellStart()
 	local caster = self:GetCaster()
 
+	if caster:HasModifier("modifier_jeanne_gods_resolution_active_buff") then
+		caster:RemoveModifierByName("modifier_jeanne_gods_resolution_active_buff")
+		return
+	end
+	self:EndCooldown()
 	local duration = self:GetSpecialValueFor("active_duration")
 	if caster.IsPunishmentAcquired then
 		duration = duration + 1
@@ -22,9 +45,10 @@ function jeanne_gods_resolution:OnSpellStart()
 	--giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", duration)
 	caster:AddNewModifier(caster, self, "modifier_jeanne_gods_resolution_active_buff", {duration = duration})
 
-	local resolutionFx = ParticleManager:CreateParticle("particles/custom/jeanne/jeanne_god_resolution_reborn.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
-   	ParticleManager:SetParticleControl( resolutionFx, 0, caster:GetAbsOrigin())
-   	ParticleManager:SetParticleControl( resolutionFx, 1, Vector(duration, 0, 0))
+	self.resolutionFx = ParticleManager:CreateParticle("particles/custom/jeanne/jeanne_god_resolution_reborn.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+   	ParticleManager:SetParticleControl( self.resolutionFx, 0, caster:GetAbsOrigin())
+   	ParticleManager:SetParticleControl( self.resolutionFx, 1, Vector(duration, 0, 0))
+
 end
 
 modifier_jeanne_gods_resolution_active_buff = class({})
@@ -114,6 +138,11 @@ end
 function modifier_jeanne_gods_resolution_active_buff:OnDestroy()
 	if IsServer() then
 		self.caster:StopSound("Hero_ArcWarden.MagneticField")
+		self.ability:StartCooldown(self.ability:GetCooldown(self.ability:GetLevel()))
+		if type(self.ability.resolutionFx) == "number" then
+			ParticleManager:DestroyParticle(self.ability.resolutionFx, false)
+			ParticleManager:ReleaseParticleIndex(self.ability.resolutionFx)
+		end
 	end
 end
 

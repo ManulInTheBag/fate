@@ -29,7 +29,7 @@ function emiya_barrage_rain:OnSpellStart()
 	local ability = self
 	local targetPoint = self:GetCursorPosition()
 	local radius = self:GetAOERadius() * 0.9
-	local damage = self:GetSpecialValueFor("damage") 
+	local damage = self:GetSpecialValueFor("damage") + caster:GetIntellect() * self:GetSpecialValueFor("int_scale")
  
 	local forwardVec = ( targetPoint - caster:GetAbsOrigin() ):Normalized()
 	local duration = 0

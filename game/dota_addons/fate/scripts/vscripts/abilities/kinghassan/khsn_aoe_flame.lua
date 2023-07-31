@@ -135,7 +135,7 @@ function khsn_aoe_flame:OnProjectileHit(hTarget, vLocation)
 	
 	self.TargetsHit[hTarget:entindex()] = true
 
-	hTarget:AddNewModifier(caster, self, "modifier_khsn_aoe_flame", {duration = duration})
+	hTarget:AddNewModifier(caster, self, "modifier_khsn_aoe_flame", {duration = duration + (caster.AzraelAcquired and 3 or 0)})
 	DoDamage(caster, hTarget, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
 end
 
@@ -158,13 +158,13 @@ function modifier_khsn_aoe_flame:GetModifierProvidesFOWVision()
     return 1
 end
 
-function modifier_khsn_aoe_flame:OnTakeDamage(args)
-	if not self:GetCaster().AzraelAcquired then return end
-	if not args.attacker == self:GetCaster() then return end
-	if args.inflictor == self:GetAbility() then return end
-
-	self:GetParent():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_khsn_aoe_flame", {duration = self:GetAbility():GetSpecialValueFor("flame_duration")})
-end
+--function modifier_khsn_aoe_flame:OnTakeDamage(args)
+--	if not self:GetCaster().AzraelAcquired then return end
+--	if not args.attacker == self:GetCaster() then return end
+--	if args.inflictor == self:GetAbility() then return end
+--
+--	--self:GetParent():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_khsn_aoe_flame", {duration = self:GetAbility():GetSpecialValueFor("flame_duration")})-
+--end
 
 function modifier_khsn_aoe_flame:IsHidden() return false end
 function modifier_khsn_aoe_flame:IsDebuff() return true end
