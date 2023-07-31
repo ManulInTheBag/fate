@@ -96,7 +96,9 @@ function arcueid_what:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
 	        center_y = or_en.y,
 	        center_z = or_en.z }
 
-	hTarget:AddNewModifier(hCaster, self, "modifier_knockback", knockback)
+	if not IsKnockbackImmune(hTarget) then
+		hTarget:AddNewModifier(hCaster, self, "modifier_knockback", knockback)
+	end
 
     self.hitenemy = true
    	--Timers:CreateTimer(0.033,function()

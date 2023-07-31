@@ -275,6 +275,7 @@ cleansable = {
     "modifier_c_rule_breaker",
     "modifier_l_rule_breaker",
     "modifier_purge",
+    "modifier_knockback",
     --"rb_sealdisabled",
     "modifier_dagger_of_treachery",
     "modifier_silence",

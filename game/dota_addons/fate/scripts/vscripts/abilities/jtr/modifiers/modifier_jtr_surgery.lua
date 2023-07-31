@@ -121,7 +121,7 @@ function modifier_jtr_surgery:OnIntervalThink()
 
                 ApplyDamage(damage_table)]]
 
-                local damage = self:GetAbility():GetSpecialValueFor("base_damage") + (self.parent.MentalPollutionAcquired and self.parent:GetAgility()/8 or 0)
+                local damage = self:GetAbility():GetSpecialValueFor("base_damage") + (self.parent.MentalPollutionAcquired and self.parent:GetAgility()/4 or 0)
 
                 DoDamage(self:GetParent(), enemy, damage, DAMAGE_TYPE_MAGICAL, DOTA_DAMAGE_FLAG_NONE, self:GetAbility(), false)
             

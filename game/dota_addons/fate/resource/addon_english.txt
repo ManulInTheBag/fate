@@ -7094,7 +7094,7 @@
 		"DOTA_Tooltip_ability_arcueid_regen_attribute_threshold"		"Health threshold:"
 
 		"DOTA_Tooltip_ability_arcueid_recklesness_attribute"	"Attribute: Recklesness"
-		"DOTA_Tooltip_ability_arcueid_recklesness_attribute_Description"	"Shut Up and Fly! microstuns it's target 4 times.\nYou're in the way! applies autoattacks to it's targets."
+		"DOTA_Tooltip_ability_arcueid_recklesness_attribute_Description"	"You're in the way! applies autoattacks to it's targets."
 
 		"DOTA_Tooltip_ability_arcueid_world_attribute"	"Attribute: World Backup"
 		"DOTA_Tooltip_ability_arcueid_world_attribute_Description"	"Arcueid gains additional magical resistance and attack speed based on her missing health."
@@ -7505,7 +7505,7 @@
         "DOTA_Tooltip_ability_jtr_holy_mother_attribute_stack_duration"		"Duration:"
 
         "DOTA_Tooltip_ability_jtr_mental_pollution_attribute"				"Attribute: Mental Pollution"
-        "DOTA_Tooltip_ability_jtr_mental_pollution_attribute_Description"	"Improves <font color='#FF0000'>Bloody Thirst</font> and enables Jack to enter this mode manually for a short duration. \nEach attack from We are (W) deals JTR's AGI/8 as magical damage."
+        "DOTA_Tooltip_ability_jtr_mental_pollution_attribute_Description"	"Improves <font color='#FF0000'>Bloody Thirst</font> and enables Jack to enter this mode manually for a short duration. \nEach attack from We are (W) deals JTR's AGI/4 as magical damage."
 
         "DOTA_Tooltip_ability_jtr_surgical_procedure_attribute"					"Attribute: Surgical Procedure"
         "DOTA_Tooltip_ability_jtr_surgical_procedure_attribute_Description"		"Attacking enemies also stitches Jack's wounds, healing her as well as all nearby allies by %base_healing% + %agi_bonus% per point of agility. The amount of health that can be recovered is capped at %healing_cap%% of Jack's maximum health.\nWhenever Jack kills the enemy, she replenishes 50%% of her mana and health pools."
@@ -7517,7 +7517,7 @@
         "DOTA_Tooltip_ability_jtr_information_erase_attribute_cooldown"			"Cooldown:"
 
         "DOTA_Tooltip_ability_jtr_efficient_killer_attribute"					"Attribute: Efficient Killer"
-        "DOTA_Tooltip_ability_jtr_efficient_killer_attribute_Description"		"Maria The Ripper does additional 0.6 damage per point of her agility (0.75 to females) on common strikes and 0.75 (1 to females) on finihsing blow and ministuns on each hit. \nIf it is night and it is misty, Maria the Ripper will have increased cast range."
+        "DOTA_Tooltip_ability_jtr_efficient_killer_attribute_Description"		"Maria The Ripper does additional 0.75 damage per point of her agility (0.9 to females) on common strikes and 0.9 (1.15 to females) on finihsing blow and ministuns on each hit. \nIf it is night and it is misty, Maria the Ripper will have increased cast range."
 	"DOTA_Tooltip_ability_jtr_efficient_killer_attribute_radius"	"No-vision search radius:"
 	"DOTA_Tooltip_ability_jtr_efficient_killer_attribute_cast_range"	"Night & mist cast range:"
 

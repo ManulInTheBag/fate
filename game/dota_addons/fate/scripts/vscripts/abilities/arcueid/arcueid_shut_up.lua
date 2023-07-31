@@ -38,9 +38,9 @@ function arcueid_shut_up:OnSpellStart()
 			Timers:CreateTimer(FrameTime()*2*i, function()
 				EmitSoundOn("arcueid_hit", target)
 
-				if caster.RecklesnessAcquired then
+				--[[if caster.RecklesnessAcquired then
 					target:AddNewModifier(caster, self, "modifier_stunned", {duration = 0.1})
-				end
+				end]]
 
 				local smokeFx3 = ParticleManager:CreateParticle("particles/custom_game/heroes/kenshiro/kenshiro_pressure_points_explosion/kenshiro_pressure_points_explosion_blood.vpcf", PATTACH_CUSTOMORIGIN, target)
 				ParticleManager:SetParticleControl(smokeFx3, 0, target:GetAbsOrigin())
@@ -64,9 +64,9 @@ function arcueid_shut_up:OnSpellStart()
 		end
 		DoDamage(caster, target, damage , DAMAGE_TYPE_MAGICAL, 0, self, false)
 
-		if caster.RecklesnessAcquired then
+		--[[if caster.RecklesnessAcquired then
 			target:AddNewModifier(caster, self, "modifier_stunned", {duration = 0.1})
-		end
+		end]]
 
 		if not IsKnockbackImmune(target) then
 			local casterfacing = caster:GetForwardVector()
