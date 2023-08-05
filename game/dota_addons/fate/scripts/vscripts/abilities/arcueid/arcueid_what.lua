@@ -1,5 +1,9 @@
 arcueid_what = class({})
 
+function arcueid_what:GetAOERadius()
+	return self:GetSpecialValueFor("range")
+end
+
 function arcueid_what:OnSpellStart()
 	local caster = self:GetCaster()
 	local tpoint = self:GetCursorPosition()

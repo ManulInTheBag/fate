@@ -189,7 +189,7 @@ function tamamo_soul_stream:OnSpellStart()
 end
 
 function tamamo_soul_stream:OnProjectileThink_ExtraData(vLocation, tData)
-	local proj_id = tData["proj_id"]
+	--[[local proj_id = tData["proj_id"]
 	if not self.ActiveProjectilePosition[proj_id] then return end
 	local prevLocation = self.ActiveProjectilePosition[proj_id]
 	local curLocation = vLocation
@@ -203,7 +203,7 @@ function tamamo_soul_stream:OnProjectileThink_ExtraData(vLocation, tData)
 	    self.ActiveProjectilePosition[proj_id] = nil
 	    --ProjectileManager:DestroyTrackingProjectile(self.ActiveProjectileIDs[proj_id])
 	    break
-	end
+	end]]
 end
 
 function tamamo_soul_stream:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
@@ -216,7 +216,7 @@ function tamamo_soul_stream:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
 	local hCharmDebuff = tData["sDebuffName"]
 	local hCharmAbility = hCaster:FindAbilityByName(tData["sCharmAbility"])
 
-	local fManaBurn = 15
+	local fManaBurn = 20 + hCaster:GetIntellect() * 0.2
 
 	if hCaster.IsSpiritTheftAcquired then
 		fDamage = fDamage + fManaBurn

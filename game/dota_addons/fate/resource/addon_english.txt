@@ -5563,7 +5563,7 @@
         "DOTA_Tooltip_Ability_tamamo_void_heaven_int_ratio"   "Void bubble int to damage ratio:"
 
         "DOTA_Tooltip_Ability_tamamo_soul_stream"				"Soulstream"
-        "DOTA_Tooltip_ability_tamamo_soul_stream_Description"	"Tamamo materializes %spirit_count% spirits and orders them to rush towards target location. Upon arriving or colliding with an enemy, each spirit explodes, dealing damage to enemies within %explode_radius% radius and <font color='#ffa500'>applying</font> <font color='#42aaff'>current</font> <font color='#50c878'>charm</font> <font color='#7442c8'>effects</font> with charm damage divided by spirit count.\nEach usage of Soulstream grants stackable <font color='#FF3399'>Trickery</font> buff.\n<font color='#FF3399'>Trickery</font>: allows Tamamo to proc charm effects with her autoattacks and increases Tamamo's movement speed by %mvsp_per_stack%%% and attack speed by %aspd_per_stack%%% for %buff_dur% seconds. Stacks up to %max_stack% times."
+        "DOTA_Tooltip_ability_tamamo_soul_stream_Description"	"Tamamo materializes %spirit_count% spirits and orders them to rush towards target location. Upon arriving, each spirit explodes, dealing damage to enemies within %explode_radius% radius and <font color='#ffa500'>applying</font> <font color='#42aaff'>current</font> <font color='#50c878'>charm</font> <font color='#7442c8'>effects</font> with charm damage divided by spirit count.\nEach usage of Soulstream grants stackable <font color='#FF3399'>Trickery</font> buff.\n<font color='#FF3399'>Trickery</font>: allows Tamamo to proc charm effects with her autoattacks and increases Tamamo's movement speed by %mvsp_per_stack%%% and attack speed by %aspd_per_stack%%% for %buff_dur% seconds. Stacks up to %max_stack% times."
         "DOTA_Tooltip_Ability_tamamo_soul_stream_damage"		"Damage:"
         "DOTA_Tooltip_Ability_tamamo_soul_stream_range"			"Range:"
         "DOTA_Tooltip_Ability_tamamo_soul_stream_radius"		"Area radius:"
@@ -5609,15 +5609,13 @@
         "DOTA_Tooltip_Ability_tamamo_fates_call_Description"     "Teleports tethered hero to targeted location after delay. The delay is increased based on how far target is from Caster. If Caster is stunned during delay, the teleport is canceled."
         
         "DOTA_Tooltip_Ability_tamamo_amaterasu"     				"Eightfold Blessing of Amaterasu"
-        "DOTA_Tooltip_ability_tamamo_amaterasu_Description" 		"Tamamo creates a %radius% area mythical zone around her. On creation, in %heal_dmg_radius% radius allies will be healed and enemies will take damage over the span of 1 second. Enemies will additionally be slowed for %slow_duration% seconds.\nAllies in the zone are blessed with bonus movespeed and attack speed. Any spellcast by Tamamo and her allies would recover their mana by %mana_per_cast%.\nIf enemy casts a spell inside the area, it will take %damage_per_cast% magical damage (this effect have 1 second cd)."
+        "DOTA_Tooltip_ability_tamamo_amaterasu_Description" 		"Tamamo creates a %radius% area mythical zone around her. Allies in the zone are blessed with bonus mana regen, movespeed, and attack speed. Any spellcast by Tamamo and her allies would recover their health by %heal_per_cast% and mana by %mana_per_cast%.\nIf enemy casts a spell inside the area, it will take %damage_per_cast% magical damage (this effect have 1 second cd).\nAbility will end if Tamamo leaves the area."
         "DOTA_Tooltip_Ability_tamamo_amaterasu_Lore"     			"The celestial mirror reveals itself in the sky, bestowing the primordial mana among the justs."
         "DOTA_Tooltip_Ability_tamamo_amaterasu_cast_point"     		"CAST POINT:"
-        "DOTA_Tooltip_Ability_tamamo_amaterasu_heal_pct"     		"INITIAL HEAL:"
-        "DOTA_Tooltip_Ability_tamamo_amaterasu_total_dmg"     		"INITIAL DAMAGE:"
+        "DOTA_Tooltip_Ability_tamamo_amaterasu_heal_pct"     		"MAX CONSTANT HEAL:"
+        "DOTA_Tooltip_Ability_tamamo_amaterasu_mana_regen"			"%MANA REGEN AURA:"
         "DOTA_Tooltip_Ability_tamamo_amaterasu_movespeed_modifier"	"%SPEED MODIFIER:"
         "DOTA_Tooltip_Ability_tamamo_amaterasu_duration"     		"DURATION:"
-        "DOTA_Tooltip_Ability_tamamo_amaterasu_slow_duration"     	"SLOW DURATION:"
-        "DOTA_Tooltip_Ability_tamamo_amaterasu_slow_pct"     		"%SLOW PERCENTAGE:"
 
         "DOTA_Tooltip_Ability_tamamo_castration_fist"					"Polygamist Castration Fist"
         "DOTA_Tooltip_Ability_tamamo_castration_fist_Description"		"Tamamo lunges towards the target enemy and kicks him or her three times, dealing magic damage and stunning the target. She ends with a kick that sends the target flying backwards. The final kick does more damage than the first two. If the target is a male servant, damage is increased.\nTamamo takes %damage_reduc%%  less damage while performing those kicks."
@@ -5681,7 +5679,7 @@
 
 
         "DOTA_Tooltip_Ability_tamamo_attribute_territory"					"Attribute: Territory Creation"
-        "DOTA_Tooltip_Ability_tamamo_attribute_territory_Description"		"Increases Eightfold Blessing of Amaterasu initial heal, damage and slow effects radius to the area radius. Increases slow duration for 1 second.\nEightfold Blessing of Amaterasu interrupts all enemy abilities in it's radius on cast.\nAdditionally, if Tamamo is under effect of Eightfold Blessing of Amaterasu, Subterranean Grasp <font color='#FF3399'>revokes</font> target from Master for duration."
+        "DOTA_Tooltip_Ability_tamamo_attribute_territory_Description"		"Enhances Eightfold Blessing of Amaterasu by causing it to instantly heal allies and slow enemies by 70% for 1.5 seconds on cast.\nEnemies will take additional damage per cast equal to Tamamo's intellect/2. Additionaly, each enemy cast gives 1/3 of Amaterasu ability cast effect to Tamamo."
 
 
         //====================================

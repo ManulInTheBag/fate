@@ -16,7 +16,7 @@ function arcueid_ready:OnSpellStart()
 	local ability = self
 	
 
-	caster:AddNewModifier(caster, self, "modifier_arcueid_ready", {duration = 0.76})
+	caster:AddNewModifier(caster, self, "modifier_arcueid_ready", {duration = 1.0})
 end
 
 function arcueid_ready:GetAOERadius()
@@ -79,7 +79,7 @@ function modifier_arcueid_ready:OnCreated()
 
 		--self.caster:EmitSound("arcueid_ult_first")
 
-		StartAnimation(self.caster, {duration=1.3, activity=ACT_DOTA_CAST_ABILITY_5, rate=1.3})
+		StartAnimation(self.caster, {duration=1.3, activity=ACT_DOTA_CAST_ABILITY_5, rate=1.0})
 
 		self.damage = self.ability:GetSpecialValueFor("damage")
 		self.collide_damage = self.ability:GetSpecialValueFor("collide_damage")
@@ -94,9 +94,9 @@ function modifier_arcueid_ready:OnCreated()
 		self.direction.z = 0
 		self.factor = 1
 
-        ApplyReattachableAirborneOnly(self.enemy, 1000, 0.75)
+        ApplyReattachableAirborneOnly(self.enemy, 1000, 1.0)
         --self.enemy:AddNewModifier(self.caster, self.ability, "modifier_stunned", {duration = 0.5})
-        ApplyReattachableAirborneOnly(self.caster, 1000, 0.75)
+        ApplyReattachableAirborneOnly(self.caster, 1000, 1.0)
 
         self.caster:SetForwardVector(self.direction*self.factor)
         --self:Slash()
@@ -127,15 +127,15 @@ function modifier_arcueid_ready:OnIntervalThink()
 			self.locked = false
 		end
 
-		if self.tick == 2 then
+		if self.tick == 3 then
 			if self.locked then
-				ApplyReattachableAirborneOnly(self.enemy, 1000, 0.75)
+				ApplyReattachableAirborneOnly(self.enemy, 1000, 1.0)
 			end
-        	ApplyReattachableAirborneOnly(self.caster, 1000, 0.75)
+        	ApplyReattachableAirborneOnly(self.caster, 1000, 1.0)
         end
 
-		if (self.tick == 3) or (self.tick == 13) or (self.tick == 22) then
-			if self.tick == 3 then
+		if (self.tick == 4) or (self.tick == 16) or (self.tick == 28) then
+			if self.tick == 4 then
 				self.factor = 1
 				if self.rand == 1 then
 					caster:EmitSound("arcueid_ready_1")
@@ -151,7 +151,7 @@ function modifier_arcueid_ready:OnIntervalThink()
 				caster:SetAbsOrigin(self.ori - self.factor*self.direction*250)
 				caster:SetForwardVector(self.direction*self.factor)
 			end
-			if self.tick == 13 then
+			if self.tick == 16 then
 				self.factor = -1
 				if self.rand == 1 then
 					caster:EmitSound("arcueid_ready_2")
@@ -160,7 +160,7 @@ function modifier_arcueid_ready:OnIntervalThink()
 				end
 				if self.locked then
 					self.enemy:AddNewModifier(caster, self.ability, "modifier_stunned", {duration = 0.5})
-					ApplyReattachableAirborneOnly(self.enemy, 1000, 0.75)
+					ApplyReattachableAirborneOnly(self.enemy, 1000, 1.0)
 				end
        			--ApplyReattachableAirborneOnly(self.caster, 1000, 0.5)
 
@@ -169,7 +169,7 @@ function modifier_arcueid_ready:OnIntervalThink()
 				caster:SetAbsOrigin(self.ori - self.factor*self.direction*150 + Vector(0, 0, 400))
 				caster:SetForwardVector(self.direction*self.factor)
 			end
-			if self.tick == 22 then
+			if self.tick == 28 then
 				self.factor = 1
 				if self.rand == 1 then
 					caster:EmitSound("arcueid_ready_3")
