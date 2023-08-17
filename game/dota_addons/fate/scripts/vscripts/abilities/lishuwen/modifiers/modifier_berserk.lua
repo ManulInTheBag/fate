@@ -105,3 +105,14 @@ end]]
 function modifier_berserk:GetModifierPreAttack_BonusDamage()
     return self:GetParent():GetStrength()
 end
+
+
+modifier_shuwen_berserk_cc_immune = class({})
+
+function modifier_shuwen_berserk_cc_immune:CheckState()
+	return {[MODIFIER_STATE_DEBUFF_IMMUNE] = true}
+end
+
+function modifier_berserk:IsHidden()
+	return true
+end

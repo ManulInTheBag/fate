@@ -216,7 +216,7 @@ function tamamo_soul_stream:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
 	local hCharmDebuff = tData["sDebuffName"]
 	local hCharmAbility = hCaster:FindAbilityByName(tData["sCharmAbility"])
 
-	local fManaBurn = 20 + hCaster:GetIntellect() * 0.2
+	local fManaBurn = 5 + hCaster:GetIntellect() * 0.2
 
 	if hCaster.IsSpiritTheftAcquired then
 		fDamage = fDamage + fManaBurn
@@ -533,10 +533,10 @@ if IsServer() then
 		end)
 
 		if not self.target:IsMagicImmune() then
-			DoDamage(self.caster, self.target, self.damage * 0.25 * self.damage_mult, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
+			DoDamage(self.caster, self.target, self.damage * 0.5 * self.damage_mult, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
 		end
 
-		self:StartIntervalThink(0.25)
+		self:StartIntervalThink(0.5)
 	end
 
 	function modifier_tamamo_fire_debuff:OnRefresh(args)
@@ -560,7 +560,7 @@ if IsServer() then
 
 	function modifier_tamamo_fire_debuff:OnIntervalThink()
 		if not self.target:IsMagicImmune() then
-			DoDamage(self.caster, self.target, self.damage * 0.25 * self.damage_mult, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
+			DoDamage(self.caster, self.target, self.damage * 0.5 * self.damage_mult, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
 		end
 	end
 end

@@ -19,6 +19,12 @@ function arcueid_you:CheckSequence()
 	end
 end
 
+function arcueid_you:GetManaCost()
+	if self:CheckSequence() > 1 then
+		return 0
+	end
+end
+
 function arcueid_you:SequenceSkill()
 	local caster = self:GetCaster()	
 	local ability = self

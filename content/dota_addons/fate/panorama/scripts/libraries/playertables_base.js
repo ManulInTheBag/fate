@@ -10,6 +10,7 @@ var PT = {
 var UTPromisedCalls = [];
 var UTPromisedCallsTest = [];
 var connected = false;
+var preconnected = false;
 
 $.Msg("[playertables_base.js] Loaded");
 
@@ -115,15 +116,34 @@ function ProcessTable(newTable, oldTable, changes, dels) {
 function SendPID() {
 	var playerId = Players.GetLocalPlayer();
 	var spec = Players.IsSpectator(playerId);
-	//$.Msg(playerId, ' -- ', spec);
+	//$.Msg("SendPID attempting to send ID " + playerId);
 	if (playerId == -1 && !spec) {
 		$.Schedule(1 / 30, SendPID);
 		return;
 	}
 
+	//$.Msg("SendPID sending ID " + playerId);
+
+	GameEvents.SendCustomGameEventToServer("PlayerTables_ConnectAttempt", {
+		pid: playerId
+	});
+
+	//$.Msg("SendPID attempting to preconnect ID " + playerId);
+
+	if (preconnected == false && !spec) {
+		$.Schedule(1, SendPID);
+		return;
+	}
+
+	//$.Msg("SendPID attempting to connect ID " + playerId);
+
 	GameEvents.SendCustomGameEventToServer("PlayerTables_Connected", {
 		pid: playerId
 	});
+}
+
+function PreConnect() {
+	preconnected = true;
 }
 
 
@@ -131,8 +151,13 @@ function SendPID() {
 function TableFullUpdate(msg) {
 	//$.Msg('TableFullUpdate -- ', msg);
 	//msg.table = UnprocessTable(msg.table);
+	//$.Msg("");
+	//$.Msg("PTFU first chain step; chaining to connection");
+
 	var newTable = msg.table;
 	var oldTable = PT.tables[msg.name];
+
+	//$.Msg("PTFU msg read; reading table " + msg.name);
 
 	if (!newTable)
 		delete PT.tables[msg.name];
@@ -163,10 +188,24 @@ function TableFullUpdate(msg) {
 			};*/
 	}
 
+	//$.Msg("PTFU called; pre-conn state")
+
 	var tableIndex = Object.keys(PT.tables).length;
+	if (msg.inputlength != null) {
+		//$.Msg("inputlength != null check success");
+	}
+	//$.Msg("tableIndex == " + tableIndex);
+	//$.Msg("msg.inputlength == " + msg.inputlength)
+	if (tableIndex >= msg.inputlength) {
+		//$.Msg("tableIndex >= msg.inputlength check success");
+	}
+	if (!connected) {
+		//$.Msg("!connected check success");
+	}
 	if (msg.inputlength != null && tableIndex >= msg.inputlength && !connected) {
-		//$.Msg("UTPromisedCalls called" + Object.keys(UTPromisedCalls).length)
+		//$.Msg("UTPromisedCalls called" + Object.keys(UTPromisedCalls).length);
 		//$.Msg("UT2")
+		//$.Msg("PT should be considered connected");
 		connected = true;
 		for (index = 1; index <= Object.keys(UTPromisedCalls).length; ++index) {
 		//_.each(UTPromisedCalls, function(v) {
@@ -262,4 +301,6 @@ PlayerTables.IsConnected = function() {
 	GameEvents.Subscribe("pt_fu", TableFullUpdate);
 	GameEvents.Subscribe("pt_uk", UpdateTable);
 	GameEvents.Subscribe("pt_kd", DeleteTableKeys);
+
+	GameEvents.Subscribe("pt_PRE", PreConnect);
 })();

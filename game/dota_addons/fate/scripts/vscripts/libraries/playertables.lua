@@ -95,6 +95,7 @@ function PlayerTables:start()
 	self.subscriptions = {}
 
 	CustomGameEventManager:RegisterListener("PlayerTables_Connected", Dynamic_Wrap(PlayerTables, "PlayerTables_Connected"))
+	CustomGameEventManager:RegisterListener("PlayerTables_ConnectAttempt", Dynamic_Wrap(PlayerTables, "PlayerTables_ConnectAttempt"))
 end
 
 function PlayerTables:equals(o1, o2, ignore_mt)
@@ -142,8 +143,30 @@ function PlayerTables:GetPlayerSubscriptions(pid)
 	return keys
 end
 
+function PlayerTables:PlayerTables_ConnectAttempt(args)
+	local pid = args.pid
+	--GameRules:SendCustomMessage("PlayerTables_PreConnected attempt ID "..pid, 0, 0)
+	--CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(0), "server_debug_print", { message = "PRESENDING TO 0 ID starting ID "..pid })
+	if not pid then
+		return
+	end
+
+	local player = PlayerResource:GetPlayer(pid)
+	if player then
+		CustomGameEventManager:Send_ServerToPlayer(player, "pt_PRE", {} )
+	else
+		--GameRules:SendCustomMessage("PlayerTables_PreConnected reattempt ID "..pid, 0, 0)
+		--CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(0), "server_debug_print", { message = "PRESENDING TO 0 ID reattempt ID "..pid })
+		Timers:CreateTimer(1, function()
+			PlayerTables:PlayerTables_ConnectAttempt(args)
+		end)
+	end
+end
+
 function PlayerTables:PlayerTables_Connected(args)
 	local pid = args.pid
+	--GameRules:SendCustomMessage("PlayerTables_Connected attempt ID "..pid, 0, 0)
+	--CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(0), "server_debug_print", { message = "SENDING TO 0 ID starting ID "..pid })
 	if not pid then
 		return
 	end
@@ -151,9 +174,17 @@ function PlayerTables:PlayerTables_Connected(args)
 	local player = PlayerResource:GetPlayer(pid)
 	if player then
 		local subscriptions = PlayerTables:GetPlayerSubscriptions(pid)
+		--CustomGameEventManager:Send_ServerToPlayer(player, "server_debug_print", { message = "PT SERVER CONNECTED: for player "..pid.." start updating tables" })
 		for _,k in ipairs(subscriptions) do
+			--CustomGameEventManager:Send_ServerToPlayer(player, "server_debug_print", { message = "PT SERVER CONNECTED: for player "..pid.." update table "..k })
 			CustomGameEventManager:Send_ServerToPlayer(player, "pt_fu", {name=k, table=PlayerTables.tables[k], inputlength=#subscriptions} )
 		end
+	else
+		--GameRules:SendCustomMessage("PlayerTables_Connected reattempt ID "..pid, 0, 0)
+		--CustomGameEventManager:Send_ServerToPlayer(PlayerResource:GetPlayer(0), "server_debug_print", { message = "SENDING TO 0 ID reattempt ID "..pid })
+		Timers:CreateTimer(1, function()
+			PlayerTables:PlayerTables_Connected(args)
+		end)
 	end
 end
 

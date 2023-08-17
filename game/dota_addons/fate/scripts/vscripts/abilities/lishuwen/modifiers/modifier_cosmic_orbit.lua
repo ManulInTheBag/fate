@@ -49,14 +49,22 @@ function modifier_cosmic_orbit:DeclareFunctions()
 end
 
 function modifier_cosmic_orbit:OnIntervalThink()
+	if not IsServer() then return end
 	self.MovespeedPct = 5
 
 	self:StartIntervalThink(-1)
 end
 
-function modifier_cosmic_orbit:OnRefresh()
+function modifier_cosmic_orbit:OnRefresh(keys)
+	if not IsServer() then return end
 	self.MovespeedPct = 100
 	self:StartIntervalThink(self.MovespeedDuration)
+
+	if self:GetCaster().bIsMartialArtsImproved then  
+		self:SetStackCount(keys.Stacks + 2)
+	else
+		self:SetStackCount(keys.Stacks)
+	end
 end
 
 function modifier_cosmic_orbit:OnAttackLanded(keys)

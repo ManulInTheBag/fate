@@ -2,6 +2,7 @@ lishuwen_berserk = class({})
 modifier_lishuwen_berserk_stats = class({})
 
 LinkLuaModifier("modifier_berserk","abilities/lishuwen/modifiers/modifier_berserk", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_shuwen_berserk_cc_immune","abilities/lishuwen/modifiers/modifier_berserk", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_lishuwen_berserk_stats", "abilities/lishuwen/lishuwen_berserk", LUA_MODIFIER_MOTION_NONE)
 
 local revokes = {    
@@ -35,6 +36,8 @@ function lishuwen_berserk:OnSpellStart()
 
 	caster:AddNewModifier(caster, ability, "modifier_berserk", { Duration = self:GetSpecialValueFor("duration"),
 															     CCImmuneDuration = self:GetSpecialValueFor("cc_immune_duration") })
+
+    caster:AddNewModifier(caster, ability, "modifier_shuwen_berserk_cc_immune", { duration = self:GetSpecialValueFor("cc_immune_duration")})
 end
 
 function lishuwen_berserk:CastFilterResult()
@@ -47,9 +50,9 @@ function lishuwen_berserk:CastFilterResult()
     return UF_SUCCESS
 end
 
-function lishuwen_berserk:GetIntrinsicModifierName()
+--[[function lishuwen_berserk:GetIntrinsicModifierName()
     return "modifier_lishuwen_berserk_stats"
-end
+end]]
 
 function lishuwen_berserk:GetCustomCastError()
     return "#Revoked"
