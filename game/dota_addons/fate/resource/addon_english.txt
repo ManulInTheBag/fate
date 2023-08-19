@@ -2861,6 +2861,170 @@
 		"DOTA_Tooltip_Ability_medusa_riding_attribute_Description"		"Increases Bellerophon's damage by %bonus_belle_damage% plus %belle_damage% per point of strength.\nIncreases Bellerophon 2's by %bonus_belle2_damage% plus %belle_2_damage% per point of strength. \nAlso increases Bellerophon's range by %attribute_range%"
 
 		//=================================================================================================================
+		//	Arash (Babylonia archer)
+		//=================================================================================================================
+		"npc_dota_hero_clinkz"				"Arash"
+
+		"npc_dota_hero_clinkz_hype"			""
+		"npc_dota_hero_clinkz_bio"			""
+
+		"DOTA_Tooltip_modifier_arash_stella_stacks"						"Stella stacks"
+		"DOTA_Tooltip_modifier_arash_stella_stacks_Description"			"Stella damage increased."
+
+		"DOTA_Tooltip_modifier_arash_arrow_construction"				"Arrow construction"
+		"DOTA_Tooltip_modifier_arash_arrow_construction_Description"	"Next attack deals bonus damage."
+
+		"DOTA_Tooltip_modifier_arash_mobility_boost"				"Mobility boost"
+		"DOTA_Tooltip_modifier_arash_mobility_boost_Description"	"Mobility boost can be used."
+
+		"DOTA_Tooltip_modifier_arash_toughness"				"Toughness"
+		"DOTA_Tooltip_modifier_arash_toughness_Description"	"Resistances increased."
+
+		"DOTA_Tooltip_modifier_arash_slow"				"Slow"
+		"DOTA_Tooltip_modifier_arash_slow_Description"	"Movement speed decreased."
+
+		"DOTA_Tooltip_modifier_arash_star_arrow"				"Star arrow"
+		"DOTA_Tooltip_modifier_arash_star_arrow_Description"	"Star arrow is being charged."
+
+
+		"DOTA_Tooltip_Ability_arash_toughness"				"Toughness"
+		"DOTA_Tooltip_ability_arash_toughness_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.15</font>\nGrants Arash bonus <font color='#FFFAFA'>magic resistance</font> and <font color='#FFFAFA'>armor</font> for a duration, values are based on <font color='#58ACFA'>Stella</font> stacks.\n<font color='#7CFC00'>Heals</font> Arash on cast."
+		"DOTA_Tooltip_Ability_arash_toughness_Lore"					"Great body to be sacrificed"
+		"DOTA_Tooltip_Ability_arash_toughness_base_armor"			"Base armor:"
+		"DOTA_Tooltip_Ability_arash_toughness_base_mr"				"Base resistance:"
+		"DOTA_Tooltip_Ability_arash_toughness_base_heal"			"Base heal:"
+		"DOTA_Tooltip_Ability_arash_toughness_armor_per_stack"		"Armor per stack:"
+		"DOTA_Tooltip_Ability_arash_toughness_mr_per_stack"			"Resistance per stack:"
+		"DOTA_Tooltip_Ability_arash_toughness_heal_per_stack"		"Heal per stack:"	
+		"DOTA_Tooltip_Ability_arash_toughness_duration"				"Duration:"	
+
+		"DOTA_Tooltip_Ability_arash_arrow_construction"				"Arrow construction"
+		"DOTA_Tooltip_Ability_arash_arrow_construction_Description"	"<font color='#FFFAFA'>Passive</font>\nEach time Arash casts an ability, his next <font color='#FFFAFA'>basic</font> attack is strenghtened."
+		"DOTA_Tooltip_Ability_arash_arrow_constructions_Lore"				"Great power lies in mastering simple things."
+		"DOTA_Tooltip_Ability_arash_arrow_construction_damage"				"Bonus damage:"
+		"DOTA_Tooltip_Ability_arash_arrow_construction_range"				"Bonus range:"
+		"DOTA_Tooltip_Ability_arash_arrow_construction_duration"			"Buff duration:"
+
+		"DOTA_Tooltip_Ability_arash_star_arrow"				"Star arrow"
+		"DOTA_Tooltip_Ability_arash_star_arrow_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.0</font>\nArash starts charging his next shot.\nWhile charging, arash cannot attack and use <font color='#58ACFA'>Stella</font> or <font color='#58ACFA'>Curved fire</font>.\nArash can release arrow at any moment, sending projectile in the recast direction.\nOn hit, arrow deals  <font color='#58ACFA'>damage</font> based on enemy max health in radius and <font color='#9400D3'>slows</font> for %ms_slow_duration% second.\nArrow <font color='#58ACFA'>damage</font> and <font color='#7FFF00'>range</font> are based on charge time.\nArash is slowed for 50% while charging."
+		"DOTA_Tooltip_Ability_arash_star_arrow_Lore"				"Shooting star pierces not only armor, but heart and soul"
+		"DOTA_Tooltip_Ability_arash_star_arrow_damage_pct"			"%Max health damage:"
+		"DOTA_Tooltip_Ability_arash_star_arrow_damage"				"Damage:"
+		"DOTA_Tooltip_Ability_arash_star_arrow_max_range"			"Max range:"
+		"DOTA_Tooltip_Ability_arash_star_arrow_charge_duration"		"Charge time for maximum value:"
+		"DOTA_Tooltip_Ability_arash_star_arrow_speed"				"Arrow speed:"
+		"DOTA_Tooltip_Ability_arash_star_arrow_radius"				"Radius:"
+		"DOTA_Tooltip_Ability_arash_star_arrow_ms_slow"				"%Slow:"
+
+		"DOTA_Tooltip_Ability_arash_star_arrow_release"				"Star arrow release"
+		"DOTA_Tooltip_Ability_arash_star_arrow_release_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.15</font>\nArash immediately releases <font color='#58ACFA'>Star arrow</font>."
+		"DOTA_Tooltip_Ability_arash_star_arrow_release_Lore"		"Shooting star pierces not only armor, but heart and soul"
+		"DOTA_Tooltip_Ability_arash_star_arrow_release_damage_pct"			"%Max health damage:"
+		"DOTA_Tooltip_Ability_arash_star_arrow_release_damage"				"Damage:"
+		"DOTA_Tooltip_Ability_arash_star_arrow_release_max_range"			"Max range:"
+		"DOTA_Tooltip_Ability_arash_star_arrow_release_charge_duration"		"Charge time for maximum value:"
+		"DOTA_Tooltip_Ability_arash_star_arrow_release_speed"				"Arrow speed:"
+		"DOTA_Tooltip_Ability_arash_star_arrow_release_radius"				"Radius:"
+		"DOTA_Tooltip_Ability_arash_star_arrow_release_ms_slow"				"%Slow:"
+
+		"DOTA_Tooltip_Ability_arash_curved_fire"				"Curved fire"
+		"DOTA_Tooltip_Ability_arash_curved_fire_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.8</font>\nArash shoots 3 arrows in <font color='#FFFAFA'>triangle</font> around the point selected.\nWhen arrows fall, they deal <font color='#58ACFA'>damage</font> to all enemies in radius\nTime before arrows will fall depends on distance."
+		"DOTA_Tooltip_Ability_arash_curved_fire_Lore"					"Falling stars crushing enemy's hope"
+		"DOTA_Tooltip_Ability_arash_curved_fire_range"					"Range:"
+		"DOTA_Tooltip_Ability_arash_curved_fire_damage"					"Damage:"
+		"DOTA_Tooltip_Ability_arash_curved_fire_radius"					"Radius:"
+		"DOTA_Tooltip_Ability_arash_curved_fire_duration"				"SA debuffs duration:"
+		"DOTA_Tooltip_Ability_arash_curved_fire_speed"					"Arrows speed:"
+
+		"DOTA_Tooltip_Ability_arash_independent_action"				"Independent action"
+		"DOTA_Tooltip_Ability_arash_independent_action_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.1</font>\nArash quickly <font color='#FFFAFA'>dashes</font> in target direction, moving fixed distance.\nIf Arash hits enemy while dashing, he will <font color='#FF3399'>push</font> him back a little, <font color='#FF3399'>stunning</font> and dealing <font color='#58ACFA'>damage</font>. After that, Arash will jump back from enemy, shooting arrow, dealing damage\nDash immediately ends if Arash hits enemy or wall."
+		"DOTA_Tooltip_Ability_arash_independent_action_Lore"					"Freedom of movement indicates freedom of will."
+		"DOTA_Tooltip_Ability_arash_independent_action_damage"					"Damage:"
+		"DOTA_Tooltip_Ability_arash_independent_action_range"					"Range:"
+		"DOTA_Tooltip_Ability_arash_independent_action_stun_duration"			"Stun duration:"
+		"DOTA_Tooltip_Ability_arash_independent_action_speed"					"Speed:"
+		"DOTA_Tooltip_Ability_arash_independent_action_second_damage"					"Arrow damage:"
+		"DOTA_Tooltip_Ability_arash_independent_action_jump_back_distance"				"Jump back distance:"
+
+		"DOTA_Tooltip_Ability_arash_mobility_boost_active"				"Mobility boost"
+		"DOTA_Tooltip_Ability_arash_mobility_boost_active_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.1</font>\nArash quickly <font color='#FFFAFA'>dashes</font> in target direction, moving fixed distance.\nArash can move through walls with this dash."
+		"DOTA_Tooltip_Ability_arash_mobility_boost_active_Lore"						"There is no use in Archer, that can't escape close fight."
+		"DOTA_Tooltip_Ability_arash_mobility_boost_active_range"					"Range:"
+		"DOTA_Tooltip_Ability_arash_mobility_boost_active_speed"					"Speed:"
+
+		"DOTA_Tooltip_Ability_arash_stella"				"Stella"
+		"DOTA_Tooltip_Ability_arash_stella_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.4</font>\nArash shoots arrow in sky, summoning powerful meteor at a target location after a delay.\nRight after cast Arash becomes <font color='#FF3399'>stunned</font> for a %delay% seconds and takes <font color='#58ACFA'>damage</font> based on his current <font color='#7CFC00'>Health</font>.\nDamage dealt decreases with distance from center.\nEach time Arash uses <font color='#58ACFA'>Stella</font> and hits someone with it he gains <font color='#58ACFA'>Stella</font> stack, increasing <font color='#58ACFA'>Stella</font> <font color='#58ACFA'>damage</font> permanently.\nAll enemies are slowed for 3 seconds on hit. Slow power depends on distance from center."
+		"DOTA_Tooltip_Ability_arash_stella_Lore"					"Behold my deeds, my death, and my Spənta Ārmaiti which I must carry out. After I unleash this last arrow with all my strength, my iron body shall shatter and annihilate me where I stand!"
+		"DOTA_Tooltip_Ability_arash_stella_range"									"Range:"
+		"DOTA_Tooltip_Ability_arash_stella_damage"									"Damage:"
+		"DOTA_Tooltip_Ability_arash_stella_damage_per_stella_stack"					"Damage per stack:"
+		"DOTA_Tooltip_Ability_arash_stella_radius"									"Low damage radius:"
+		"DOTA_Tooltip_Ability_arash_stella_small_radius"							"Max damage radius:"
+		"DOTA_Tooltip_Ability_arash_stella_mid_radius"								"Mid damage radius:"
+		"DOTA_Tooltip_Ability_arash_stella_delay"									"Drop delay:"
+		"DOTA_Tooltip_Ability_arash_stella_mid_damage_pct"							"%Mid damage:"
+		"DOTA_Tooltip_Ability_arash_stella_outer_damage_pct"						"%Low damage:"
+		"DOTA_Tooltip_Ability_arash_stella_self_damage_percentage"					"%Self damage:"
+
+
+
+		"DOTA_Tooltip_Ability_arash_max_stella"				"Combo: MAX Stella"
+		"DOTA_Tooltip_Ability_arash_max_stella_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : D-R in 4 seconds</font>\nArash shoots arrow in sky, summoning powerful meteor at a target location after a delay.\nRight after cast Arash DIES.\nDamage dealt decreases with distance from center.\nAll enemies are slowed for 3 seconds on hit. Slow power depends on distance from center.\nIf Arash is the last survivor, he wont die until Stella falls."
+		"DOTA_Tooltip_Ability_arash_max_stella_Lore"					""
+		"DOTA_Tooltip_Ability_arash_max_stella_range"									"Range:"
+		"DOTA_Tooltip_Ability_arash_max_stella_damage"									"Damage:"
+		"DOTA_Tooltip_Ability_arash_max_stella_damage_per_stella_stack"					"Damage per stack:"
+		"DOTA_Tooltip_Ability_arash_max_stella_radius"									"Low damage radius:"
+		"DOTA_Tooltip_Ability_arash_max_stella_small_radius"							"Max damage radius:"
+		"DOTA_Tooltip_Ability_arash_max_stella_mid_radius"								"Mid damage radius:"
+		"DOTA_Tooltip_Ability_arash_max_stella_delay"									"Drop delay:"
+		"DOTA_Tooltip_Ability_arash_max_stella_mid_damage_pct"							"%Mid damage:"
+		"DOTA_Tooltip_Ability_arash_max_stella_outer_damage_pct"						"%Low damage:"
+
+
+
+		"DOTA_Tooltip_Ability_emiya_arrow_rain"					"Combo: Arrow Rain"
+		"DOTA_Tooltip_ability_emiya_arrow_rain_Description"		"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : R-R in 4 seconds</font>\nEmiya jumps to middle of Unlimited Blade Works, being untargetable and invulnerable. Once positioned, Emiya starts showering enemies beneath with flurry of arrows, followed by consecutive Broken Phantasm shots on random targets."
+		"DOTA_Tooltip_ability_emiya_arrow_rain_Lore"	""
+
+
+		"DOTA_Tooltip_Ability_arash_clairvoyance"				"Attribute: Clairvoyance"
+		"DOTA_Tooltip_Ability_arash_clairvoyance_Description"	"Upgrades <font color='#58ACFA'>Star arrow</font>, increasing its <font color='#58ACFA'>damage</font> and <font color='#FFFAFA'>range</font>\nEach time Arash hits an enemy with <font color='#58ACFA'>Star arrow</font>, he creates a little clairvoyance, granting true sight and vision for Arash's team for a short duration."
+		"DOTA_Tooltip_Ability_arash_clairvoyance_Lore"					""
+		"DOTA_Tooltip_Ability_arash_clairvoyance_clair_duration"				"Vision duration:"
+		"DOTA_Tooltip_Ability_arash_clairvoyance_clair_radius"					"Vision radius:"
+		"DOTA_Tooltip_Ability_arash_clairvoyance_star_arrow_bonus_damage"		"%Star arrow bonus damage:"
+		"DOTA_Tooltip_Ability_arash_clairvoyance_star_arrow_bonus_range"		"Star arrow bonus range:"
+
+		"DOTA_Tooltip_Ability_arash_falling_stars"				"Attribute: Falling stars"
+		"DOTA_Tooltip_Ability_arash_falling_stars_Description"	"Upgrades <font color='#58ACFA'>Curved fire</font>, granting it additional effects on arrows.\n<font color='#EE204D'>Red</font> arrow <font color='#FF3399'>revokes</font> enemies.\n<font color='#9966CC'>Purple</font> arrow <font color='#9400D3'>dimensionally locks</font> enemies.\n<font color='#FFCF48'>Yellow</font> arrow <font color='#9400D3'>roots</font> enemies.\nAfter a delay, arrows explode again, dealing half of the <font color='#58ACFA'>damage</font> and applying same debuffs for half of a duration."
+		"DOTA_Tooltip_Ability_arash_falling_stars_Lore"					""
+		"DOTA_Tooltip_Ability_arash_falling_stars_debuff_duration"				"Debuffs duration:"
+		"DOTA_Tooltip_Ability_arash_falling_stars_explosion_timer"				"Explosion timer:"
+
+		"DOTA_Tooltip_Ability_arash_mobility_boost"				"Attribute: Mobility boost"
+		"DOTA_Tooltip_Ability_arash_mobility_boost_Description"	"Upgrades <font color='#58ACFA'>Independent action</font>, allowing Arash to use <font color='#58ACFA'>Mobility boost</font> for some time after hitting enemy with <font color='#58ACFA'>Independent action</font>.\nMobility boost:\nArash quickly <font color='#FFFAFA'>dashes</font> in target direction, moving fixed distance.\nArash can move through walls with this dash."
+		"DOTA_Tooltip_Ability_arash_mobility_boost_Lore"					""
+		"DOTA_Tooltip_Ability_arash_mobility_boost_recast_duration"				"Recast duration:"
+		"DOTA_Tooltip_Ability_arash_mobility_boost_recast_range"				"Recast range:"
+
+
+		"DOTA_Tooltip_Ability_arash_load_magical_energy"				"Attribute: Load magical energy"
+		"DOTA_Tooltip_Ability_arash_load_magical_energy_Description"	"Upgrades <font color='#58ACFA'>Arrow construction</font>, increasing its <font color='#58ACFA'>damage</font>, based on Arash's <font color='#00FF00'>Agility</font>, <font color='#FFFAFA'>range</font> and reducing cooldown of all basic abilities on hit."
+		"DOTA_Tooltip_Ability_arash_load_magical_energy_Lore"					""
+		"DOTA_Tooltip_Ability_arash_load_magical_energy_agi_scale"					"AGI scale:"
+		"DOTA_Tooltip_Ability_arash_load_magical_energy_bonus_range"				"Bonus range:"
+		"DOTA_Tooltip_Ability_arash_load_magical_energy_cd_reduction"						"Cooldown reduction:"
+
+		"DOTA_Tooltip_Ability_arash_self_sacrifice"				"Attribute: Self sacrifice"
+		"DOTA_Tooltip_Ability_arash_self_sacrifice_Description"	"When Arash dies, all his team in the same realm gets his <font color='#58ACFA'>Toughness</font> buff with additional <font color='#FFFAFA'>movement speed</font> increase and <font color='#7CFC00'>heaks</font> for a fixed amount."
+		"DOTA_Tooltip_Ability_arash_self_sacrifice_Lore"					""
+		"DOTA_Tooltip_Ability_arash_self_sacrifice_buff_duration"					"Buff duration:"
+		"DOTA_Tooltip_Ability_arash_self_sacrifice_ms"								"%Movement speed:"
+		"DOTA_Tooltip_Ability_arash_self_sacrifice_team_heal"						"Heal:"
+
+
+		//=================================================================================================================
 		//	Archer(5th)
 		//=================================================================================================================
 		"npc_dota_hero_ember_spirit"			"Emiya"

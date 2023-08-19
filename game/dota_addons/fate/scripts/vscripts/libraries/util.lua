@@ -597,6 +597,8 @@ CannotReset = {
 
     "nanaya_dash",
     "nanaya_kekshi",
+    "arash_toughness",
+    "arash_max_stella",
 }
 
 femaleservant = {
@@ -711,6 +713,7 @@ tKnightClass = {
     "npc_dota_hero_tiny",
     "npc_dota_hero_venomancer",
     "npc_dota_hero_faceless_void",
+    "npc_dota_hero_clinkz",
 }
 
 tHorsemanClass = {
@@ -2380,6 +2383,7 @@ local heroNames = {
     ["npc_dota_hero_faceless_void"] = "Altera",
     ["npc_dota_hero_treant"] = "Edmond Dantes",
     ["npc_dota_hero_night_stalker"] = "Shiki Nanaya",
+    ["npc_dota_hero_clinkz"] = "Arash",
 }
 
 
@@ -2440,6 +2444,7 @@ local heroCombos = {
     ["npc_dota_hero_faceless_void"] = "altera_teardrop",
     ["npc_dota_hero_treant"] = "edmon_enfer",
     ["npc_dota_hero_night_stalker"] = "nanaya_kekshi",
+    ["npc_dota_hero_clinkz"] = "arash_max_stella",
     
 }
 
