@@ -136,17 +136,17 @@ function arash_max_stella:OnSpellStart()
 			local outer_targets = FindUnitsInRadius(caster:GetTeam(), target_point, nil, large_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	
 			for i = 1, #targets do
-				DoDamage(caster, targets[i], full_damage - damage_mid, DAMAGE_TYPE_MAGICAL, 0, self, false)
+				DoDamage(caster, targets[i], full_damage - damage_mid, DAMAGE_TYPE_PURE, 0, self, false)
 				targets[i]:AddNewModifier(caster, self, "modifier_arash_stella_slow_1", {duration  = 3})
 			end 
 	
 			for i = 1, #mid_targets do
-				DoDamage(caster, mid_targets[i], damage_mid - damage_outer, DAMAGE_TYPE_MAGICAL, 0, self, false)
+				DoDamage(caster, mid_targets[i], damage_mid - damage_outer, DAMAGE_TYPE_PURE, 0, self, false)
 				mid_targets[i]:AddNewModifier(caster, self, "modifier_arash_stella_slow_2", {duration  = 3})
 			end 
 	
 			for i = 1, #outer_targets do
-				DoDamage(caster, outer_targets[i], damage_outer, DAMAGE_TYPE_MAGICAL, 0, self, false)
+				DoDamage(caster, outer_targets[i], damage_outer, DAMAGE_TYPE_PURE, 0, self, false)
 				outer_targets[i]:AddNewModifier(caster, self, "modifier_arash_stella_slow_3", {duration  = 3})
 			end 
 		end) 

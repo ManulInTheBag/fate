@@ -41,7 +41,7 @@ end
 
 function arash_arrow_construction:GetConstructionBuff()
 	local caster = self:GetCaster()
-	local damage = self:GetSpecialValueFor("damage") + (caster.ArashLoadMagicalEnergy and caster.MasterUnit2:FindAbilityByName("arash_load_magical_energy"):GetSpecialValueFor("agi_scale") * caster:GetAgility() or 0)
+	local damage = self:GetSpecialValueFor("damage") + caster:GetLevel()*self:GetSpecialValueFor("damage_per_level") + (caster.ArashLoadMagicalEnergy and caster.MasterUnit2:FindAbilityByName("arash_load_magical_energy"):GetSpecialValueFor("agi_scale") * caster:GetAgility() or 0)
 	local range = self:GetSpecialValueFor("range") + (caster.ArashLoadMagicalEnergy and caster.MasterUnit2:FindAbilityByName("arash_load_magical_energy"):GetSpecialValueFor("bonus_range") or 0)
 	local buffDuration = self:GetSpecialValueFor("duration")
 	caster:AddNewModifier(caster, self, "modifier_arash_arrow_construction", {duration  = buffDuration, damage = damage, range = range})

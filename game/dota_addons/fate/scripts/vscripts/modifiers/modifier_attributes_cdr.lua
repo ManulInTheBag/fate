@@ -25,7 +25,7 @@ function modifier_attributes_cdr:GetModifierPercentageCooldown(args)
     self:SetStackCount(parent.INTgained * parent.additional_cdr_adjustment)
   end
   if args.ability ~= nil then
-    if args.ability.IsCombo or args.ability:IsItem() then
+    if args.ability.IsCombo or args.ability.IsResetable == false or args.ability:IsItem() then
       return 0
     end
   end

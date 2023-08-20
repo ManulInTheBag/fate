@@ -159,9 +159,11 @@ function ryougi_double_belfry:Belfry1()
 		local origin_diff = enemy:GetAbsOrigin() - caster:GetAbsOrigin()
 		local origin_diff_norm = origin_diff:Normalized()
 		if caster:GetForwardVector():Dot(origin_diff_norm) > 0 then
-		    DoDamage(caster, enemy, self:GetSpecialValueFor("first_damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
+			eyes:CutLine(enemy, "belfry_1")
 		    EmitSoundOn("ryougi_hit", enemy)
-		    eyes:CutLine(enemy, "belfry_1")
+		    if enemy:IsAlive() then
+		   		DoDamage(caster, enemy, self:GetSpecialValueFor("first_damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)	
+		    end
         end
     end
 
@@ -202,9 +204,11 @@ function ryougi_double_belfry:Belfry2()
 		local origin_diff = enemy:GetAbsOrigin() - caster:GetAbsOrigin()
 		local origin_diff_norm = origin_diff:Normalized()
 		if caster:GetForwardVector():Dot(origin_diff_norm) > 0 then
-		    DoDamage(caster, enemy, self:GetSpecialValueFor("second_damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
+			eyes:CutLine(enemy, "belfry_2")
+			if enemy:IsAlive() then
+		    	DoDamage(caster, enemy, self:GetSpecialValueFor("second_damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
+		    end
 		    EmitSoundOn("ryougi_hit", enemy)
-		    eyes:CutLine(enemy, "belfry_2")
         end
     end
 
@@ -244,11 +248,13 @@ function ryougi_double_belfry:Belfry3()
 		local origin_diff = enemy:GetAbsOrigin() - caster:GetAbsOrigin()
 		local origin_diff_norm = origin_diff:Normalized()
 		if caster:GetForwardVector():Dot(origin_diff_norm) > 0 then
-		    DoDamage(caster, enemy, self:GetSpecialValueFor("third_damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
+			eyes:CutLine(enemy, "belfry_3")
+			if enemy:IsAlive() then
+		   		DoDamage(caster, enemy, self:GetSpecialValueFor("third_damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
+		   	end
 		    --enemy:AddNewModifier(caster, self, "modifier_muted", {duration = self:GetSpecialValueFor("third_mute_duration")})
 		    --giveUnitDataDrivenModifier(caster, enemy, "muted", self:GetSpecialValueFor("third_mute_duration"))
 		    EmitSoundOn("ryougi_hit", enemy)
-		    eyes:CutLine(enemy, "belfry_3")
         end
     end
 

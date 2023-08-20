@@ -663,6 +663,28 @@
 						framerate = 44.0
 						reverse = false
 					},
+					{
+						_class = "AnimFile"
+						name = "stand_copy"
+						activity_name = "ACT_DOTA_DISABLED"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/arash/arash30_armature.fbx"
+						import_bone_scales = false
+						start_frame = 10
+						end_frame = 76
+						framerate = -1.0
+						reverse = false
+					},
 				]
 				default_root_bone_name = ""
 			},
@@ -752,8 +774,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -43.501251, -39.189774, -94.665985 ]
-								hitbox_maxs = [ 34.589081, 28.916288, 51.097099 ]
+								hitbox_mins = [ -88.439255, -89.723648, -169.245911 ]
+								hitbox_maxs = [ 81.853157, 76.580513, 120.901123 ]
 							},
 							{
 								_class = "Hitbox"

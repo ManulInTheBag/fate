@@ -47,7 +47,7 @@
 	{
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/arash/arash_arrow_construction"
-		"MaxLevel"						"2"
+		"MaxLevel"						"1"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET|DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE|DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
@@ -65,8 +65,9 @@
 		
 		"AbilityValues"
 		{
-			"damage"			    "150 300"
-			"range"					"300 600"
+			"damage"			    "150"
+			"damage_per_level"		"5"
+			"range"					"900"
 			"duration"				"10"
 
 		}
@@ -98,7 +99,7 @@
 		"AbilityValues"
 		{
 			"damage_pct"		   			"4.5 6 7.5 9 10.5"
-			"damage"		   				"150 225 300 375 450"
+			"damage"		   				"300 400 500 600 700"
 			"max_range"						"2000"
 			"charge_duration"				"2"
 			"speed"							"2500"
@@ -277,8 +278,8 @@
 			"small_radius"				"300"
 			"mid_radius"				"500"
 			"radius"					"800"
-			"mid_damage_pct"			"70"
-			"outer_damage_pct"			"50"
+			"mid_damage_pct"			"80"
+			"outer_damage_pct"			"65"
 			"self_damage_percentage"	"80"
 
 		}
@@ -317,8 +318,8 @@
 			"small_radius"				"600"
 			"mid_radius"				"900"
 			"radius"					"1400"
-			"mid_damage_pct"			"70"
-			"outer_damage_pct"			"50"
+			"mid_damage_pct"			"80"
+			"outer_damage_pct"			"65"
 
 		}
 	}
@@ -425,7 +426,7 @@
 		
 		"AbilityValues"
 		{
-			"agi_scale"			    "1"
+			"agi_scale"			    "2"
 			"bonus_range"			"400"
 			"cd_reduction"			"2"
 
