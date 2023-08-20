@@ -87,6 +87,7 @@ function Timers:_xpcall (f, ...)
 end
 
 function Timers:start()
+  print("timers START")
   Timers = self
   self.timers = {}
   

@@ -16,6 +16,7 @@ require('items')
 require('modifiers/attributes')
 require('libraries/util' )
 require('libraries/timers')
+require('libraries/fate_projectile_manager_test')
 require('libraries/popups')
 require('libraries/animations')
 require("util/playerresource")
@@ -53,6 +54,7 @@ _G.LaPucelleActivated = false
 _G.FIRST_BLOOD_TRIGGERED = false
 _G.ClownActive = false
 _G.AllNpcTable = {}
+_G.projfix = false
 
 ENABLE_HERO_RESPAWN = false -- Should the heroes automatically respawn on a timer or stay dead until manually respawned
 UNIVERSAL_SHOP_MODE = true -- Should the main shop contain Secret Shop items as well as regular items
@@ -1165,6 +1167,11 @@ end
             _G.BAN_RECEIVED = not _G.BAN_RECEIVED
             Say(ply, "ENABLED 1 MANA Q SEAL FOR W SEAL", false)
         end
+    end
+
+    if text == "-projfix" then
+        _G.projfix = true
+        Say(ply, "switched to valve proj manager", false)
     end
 
     --[[if text == "-key" then

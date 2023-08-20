@@ -1261,7 +1261,8 @@
 	"item_c_scroll" 
 	{
 	    "ID"           "1114"
-	    "BaseClass"    "item_datadriven"
+	    "BaseClass"    				"item_lua"
+	    "ScriptFile"				"items/c_scroll"
 	    "AbilityTextureName" "custom/c_scroll"
 	    "Model"        "models/props_gameplay/tpscroll01.vmdl" 
 	    "Effect"       "particles/generic_gameplay/dropped_item.vpcf"
@@ -1283,7 +1284,10 @@
 		//"ItemStockTime"					"10.0"
 	    "ItemInitialCharges" "1"
 	    "ItemStackable" "0"
-	    "ItemPermanent" "0"
+	    "ItemRequiresCharges"					"1"
+		"ItemDisplayCharges"					"0"
+		"ItemHideCharges"						"1"
+		"ItemSupport"							"1"
 	    "ItemDisassembleRule" "DOTA_ITEM_DISASSEMBLE_NEVER"
 
 	    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
@@ -1294,7 +1298,6 @@
 
 	    "AbilityCastRange"				"1000"
 	    "AbilityCooldown"				"10"
-	    "AbilityDamage"					"100"
 	    "precache"
 	    {
 	    	"particle"				"particles/units/heroes/hero_lina/lina_base_attack.vpcf"
@@ -1313,16 +1316,7 @@
 				"var_type"				"FIELD_INTEGER"
 				"stun_duration"					"1"
 			}
-		}
-	    "OnSpellStart"
-	    {
-	    	"RunScript"
-			{
-				"ScriptFile"	"items"
-				"Function"		"CScroll"
-			}
-	    	"SpendCharge" {}
-	    }	    
+		}    
 	}	
 
 	"item_b_scroll" 
