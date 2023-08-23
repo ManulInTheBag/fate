@@ -1,0 +1,1403 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc32:version{c5dcef98-b629-46ab-88e3-a17c005c935e} -->
+{
+	rootNode = 
+	{
+		_class = "RootNode"
+		children = 
+		[
+			{
+				_class = "MaterialGroupList"
+				children = 
+				[
+					{
+						_class = "DefaultMaterialGroup"
+						remaps = 
+						[
+							{
+								from = "imported material 01.vmat"
+								to = "materials/models/muramasa/3mat_muramasa.vmat"
+							},
+							{
+								from = "imported material 02.vmat"
+								to = "materials/models/muramasa/1mat_muramasa.vmat"
+							},
+							{
+								from = "imported material 03.vmat"
+								to = "materials/models/muramasa/2mat_muramasa.vmat"
+							},
+						]
+						use_global_default = false
+						global_default_material = ""
+					},
+				]
+			},
+			{
+				_class = "RenderMeshList"
+				children = 
+				[
+					{
+						_class = "RenderMeshFile"
+						name = "muramasa"
+						filename = "models/muramasa/muramasa.fbx"
+						import_scale = 1.0
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = 
+							[
+								"Object004",
+							]
+						}
+					},
+				]
+			},
+			{
+				_class = "AnimationList"
+				children = 
+				[
+					{
+						_class = "AnimFile"
+						name = "muramasa_idle"
+						activity_name = "ACT_DOTA_IDLE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/muramasa/muramasa.fbx"
+						import_bone_scales = false
+						start_frame = 11
+						end_frame = 79
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "muramasa_walk"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/muramasa/muramasa.fbx"
+						import_bone_scales = false
+						start_frame = 100
+						end_frame = 189
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "muramasa_run"
+						activity_name = "ACT_DOTA_RUN"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/muramasa/muramasa.fbx"
+						import_bone_scales = false
+						start_frame = 210
+						end_frame = 256
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "muramasa_attack"
+						children = 
+						[
+							{
+								_class = "AnimOffset"
+								translation = [ 0.0, 0.0, 0.0 ]
+								rotation_xyz = [ 0.0, 0.0, 12.0 ]
+							},
+						]
+						activity_name = "ACT_DOTA_ALCHEMIST_CONCOCTION"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.0
+						fade_out_time = 0.0
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/muramasa/muramasa.fbx"
+						import_bone_scales = false
+						start_frame = 277
+						end_frame = 313
+						framerate = 60.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "muramasa_attack2"
+						activity_name = "ACT_DOTA_ATTACK"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/muramasa/muramasa.fbx"
+						import_bone_scales = false
+						start_frame = 333
+						end_frame = 368
+						framerate = 20.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "muramasa_attack3"
+						activity_name = "ACT_DOTA_ATTACK2"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/muramasa/muramasa.fbx"
+						import_bone_scales = false
+						start_frame = 389
+						end_frame = 428
+						framerate = 15.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "muramasa_back_attack"
+						children = 
+						[
+							{
+								_class = "AnimOffset"
+								translation = [ 0.0, 0.0, 0.0 ]
+								rotation_xyz = [ 0.0, -15.0, 0.0 ]
+							},
+						]
+						activity_name = "ACT_DOTA_ALCHEMIST_CHEMICAL_RAGE_END"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.0
+						fade_out_time = 0.0
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/muramasa/muramasa.fbx"
+						import_bone_scales = false
+						start_frame = 443
+						end_frame = 468
+						framerate = 48.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "muramasa_jump_attack"
+						activity_name = "ACT_DOTA_ALCHEMIST_CHEMICAL_RAGE_START"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.0
+						fade_out_time = 0.0
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/muramasa/muramasa.fbx"
+						import_bone_scales = false
+						start_frame = 489
+						end_frame = 513
+						framerate = 40.0
+						reverse = false
+						anim_hold_list = 
+						[
+							{
+								frame = 513
+								frame_count = 6
+							},
+						]
+					},
+					{
+						_class = "AnimFile"
+						name = "muramasa_attack3_copy"
+						activity_name = "ACT_DOTA_RAZE_2"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.0
+						fade_out_time = 0.0
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/muramasa/muramasa.fbx"
+						import_bone_scales = false
+						start_frame = 389
+						end_frame = 428
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "muramasa_grab_and_kick"
+						activity_name = "ACT_DOTA_CAST_ABILITY_2"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.0
+						fade_out_time = 0.0
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/muramasa/muramasa.fbx"
+						import_bone_scales = false
+						start_frame = 539
+						end_frame = 575
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "muramasa_channel"
+						activity_name = "ACT_DOTA_CAST_ABILITY_5"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/muramasa/muramasa.fbx"
+						import_bone_scales = false
+						start_frame = 595
+						end_frame = 603
+						framerate = 15.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "muramasa_standing_slash"
+						activity_name = "ACT_DOTA_IDLE_RARE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/muramasa/muramasa.fbx"
+						import_bone_scales = false
+						start_frame = 624
+						end_frame = 656
+						framerate = 15.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "muramasa_create_sword"
+						activity_name = "ACT_DOTA_CAST_ABILITY_7"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.0
+						fade_out_time = 0.0
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/muramasa/muramasa.fbx"
+						import_bone_scales = false
+						start_frame = 677
+						end_frame = 721
+						framerate = 60.0
+						reverse = false
+						anim_hold_list = 
+						[
+							{
+								frame = 677
+								frame_count = 5
+							},
+						]
+					},
+					{
+						_class = "AnimFile"
+						name = "muramasa_sword_in_ground"
+						activity_name = "ACT_DOTA_RAZE_3"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.0
+						fade_out_time = 0.0
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/muramasa/muramasa.fbx"
+						import_bone_scales = false
+						start_frame = 742
+						end_frame = 763
+						framerate = 35.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "muramasa_standing_slash_from_ground"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/muramasa/muramasa.fbx"
+						import_bone_scales = false
+						start_frame = 794
+						end_frame = 824
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "muramasa_counter_stance"
+						activity_name = "ACT_DOTA_AW_MAGNETIC_FIELD"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/muramasa/muramasa.fbx"
+						import_bone_scales = false
+						start_frame = 845
+						end_frame = 875
+						framerate = 80.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "muramasa_rush_channel"
+						activity_name = "ACT_DOTA_CAST_ABILITY_4"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/muramasa/muramasa.fbx"
+						import_bone_scales = false
+						start_frame = 865
+						end_frame = 875
+						framerate = -1.0
+						reverse = false
+						anim_hold_list = 
+						[
+							{
+								frame = 875
+								frame_count = 20
+							},
+						]
+					},
+					{
+						_class = "AnimFile"
+						name = "muramasa_attack_from_counter_ready"
+						activity_name = "ACT_DOTA_CAST_ABILITY_6"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.0
+						fade_out_time = 0.0
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/muramasa/muramasa.fbx"
+						import_bone_scales = false
+						start_frame = 896
+						end_frame = 926
+						framerate = 75.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "muramasa_attack_from_counter"
+						activity_name = "ACT_DOTA_RAZE_1"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.0
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/muramasa/muramasa.fbx"
+						import_bone_scales = false
+						start_frame = 947
+						end_frame = 977
+						framerate = 75.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "muramasa_jump"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/muramasa/muramasa.fbx"
+						import_bone_scales = false
+						start_frame = 998
+						end_frame = 1028
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "muramasa_mid_air_attack"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.0
+						fade_out_time = 0.0
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/muramasa/muramasa.fbx"
+						import_bone_scales = false
+						start_frame = 1210
+						end_frame = 1254
+						framerate = 15.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "muramasa_rush"
+						activity_name = "ACT_DOTA_CAST_ABILITY_4_END"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/muramasa/muramasa.fbx"
+						import_bone_scales = false
+						start_frame = 1049
+						end_frame = 1079
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "muramasa_jump_from_rush"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/muramasa/muramasa.fbx"
+						import_bone_scales = false
+						start_frame = 1100
+						end_frame = 1130
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "muramasa_jump_and_kick"
+						children = 
+						[
+							{
+								_class = "AnimOffset"
+								translation = [ 0.0, 0.0, 0.0 ]
+								rotation_xyz = [ 0.0, 0.0, 30.0 ]
+							},
+						]
+						activity_name = "ACT_DOTA_CAST_TORNADO"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/muramasa/muramasa.fbx"
+						import_bone_scales = false
+						start_frame = 1151
+						end_frame = 1189
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "muramasa_weird_channel"
+						activity_name = "ACT_DOTA_ECHO_SLAM"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/muramasa/muramasa.fbx"
+						import_bone_scales = false
+						start_frame = 1295
+						end_frame = 1332
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "muramasa_death"
+						activity_name = "ACT_DOTA_DIE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/muramasa/muramasa.fbx"
+						import_bone_scales = false
+						start_frame = 1374
+						end_frame = 1483
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "muramasa_grab_and_kick_copy"
+						activity_name = "ACT_DOTA_CAST_GHOST_SHIP"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/muramasa/muramasa.fbx"
+						import_bone_scales = false
+						start_frame = 539
+						end_frame = 551
+						framerate = -1.0
+						reverse = false
+						anim_hold_list = 
+						[
+							{
+								frame = 551
+								frame_count = 10
+							},
+						]
+					},
+					{
+						_class = "AnimFile"
+						name = "muramasa_attack_from_counter1"
+						activity_name = "ACT_DOTA_ARCTIC_BURN_END"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.0
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/muramasa/muramasa.fbx"
+						import_bone_scales = false
+						start_frame = 947
+						end_frame = 977
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "Muramasa_stunned"
+						activity_name = "ACT_DOTA_DISABLED"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.0
+						fade_out_time = 0.0
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/muramasa/muramasa.fbx"
+						import_bone_scales = false
+						start_frame = 865
+						end_frame = 875
+						framerate = -1.0
+						reverse = false
+						anim_hold_list = 
+						[
+							{
+								frame = 875
+								frame_count = 20
+							},
+						]
+					},
+					{
+						_class = "AnimFile"
+						name = "muramasa_attackUltimate_1"
+						children = 
+						[
+							{
+								_class = "ActivityModifier"
+								activity_name = "ultimate"
+								activity_weight = 1
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 0
+								event_keys = 
+								{
+									name = resource:"particles/muramasa/muramasa_attack_slash_1.vpcf"
+									detach_from_owner = false
+									always_run = false
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = null
+									attachment_type = "point_follow"
+									attachment_point_cp1 = null
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+						]
+						activity_name = "ACT_DOTA_ATTACK2"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/muramasa/muramasa.fbx"
+						import_bone_scales = false
+						start_frame = 389
+						end_frame = 428
+						framerate = 15.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "muramasa_attackUltimate_2"
+						children = 
+						[
+							{
+								_class = "ActivityModifier"
+								activity_name = "ultimate"
+								activity_weight = 1
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 5
+								event_keys = 
+								{
+									name = resource:"particles/muramasa/muramasa_attack_slash_2.vpcf"
+									detach_from_owner = false
+									always_run = false
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = null
+									attachment_type = "point_follow"
+									attachment_point_cp1 = null
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+						]
+						activity_name = "ACT_DOTA_ATTACK"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/muramasa/muramasa.fbx"
+						import_bone_scales = false
+						start_frame = 333
+						end_frame = 368
+						framerate = 20.0
+						reverse = false
+					},
+				]
+				default_root_bone_name = ""
+			},
+			{
+				_class = "AttachmentList"
+				children = 
+				[
+					{
+						_class = "Attachment"
+						name = "hand"
+						parent_bone = "bone_new309"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "leg"
+						parent_bone = "bone_new24"
+						relative_origin = [ 4.787567, -3.098488, -52.357479 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "sword_base"
+						parent_bone = "bone_new1"
+						relative_origin = [ 13.200144, 0.130264, -0.534657 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "sword_end"
+						parent_bone = "bone_new1"
+						relative_origin = [ 108.66671, -1.195445, -0.335052 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "body"
+						parent_bone = "bone_new28"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "sword_end_dance"
+						parent_bone = "bone_new1"
+						relative_origin = [ 170.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "body1"
+						parent_bone = "bone_new28"
+						relative_origin = [ 6.526374, -75.609329, 40.486588 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "ATTACH_HITLOC"
+						parent_bone = "bone_new101"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+				]
+			},
+			{
+				_class = "HitboxSetList"
+				children = 
+				[
+					{
+						_class = "HitboxSet"
+						name = "default"
+						children = 
+						[
+							{
+								_class = "Hitbox"
+								name = "bone_new34"
+								parent_bone = "bone_new34"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.617687, -8.133616, -17.791756 ]
+								hitbox_maxs = [ 8.923922, 5.367583, 0.604347 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new347"
+								parent_bone = "bone_new347"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -10.832485, -10.145992, -23.240135 ]
+								hitbox_maxs = [ 13.610609, 6.503682, 1.068687 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new9"
+								parent_bone = "bone_new9"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.130455, -4.160291, -16.912148 ]
+								hitbox_maxs = [ 11.256245, 3.566759, 0.795761 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new10"
+								parent_bone = "bone_new10"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -8.167809, -4.890189, -10.999306 ]
+								hitbox_maxs = [ 14.079271, 6.49721, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new13"
+								parent_bone = "bone_new13"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -9.062586, -8.048561, -16.098 ]
+								hitbox_maxs = [ 4.353575, 13.119818, 2.303825 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new14"
+								parent_bone = "bone_new14"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -10.394116, -5.854578, -34.907356 ]
+								hitbox_maxs = [ 7.620415, 13.83427, 11.870113 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new16"
+								parent_bone = "bone_new16"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.995592, -3.617328, -17.176796 ]
+								hitbox_maxs = [ 10.134607, 3.498108, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new17"
+								parent_bone = "bone_new17"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -11.094677, -6.313789, -10.631569 ]
+								hitbox_maxs = [ 11.872223, 5.07361, 0.74353 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new20"
+								parent_bone = "bone_new20"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -13.762518, -7.843995, -34.002872 ]
+								hitbox_maxs = [ 6.696871, 13.081504, 2.273827 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new21"
+								parent_bone = "bone_new21"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -23.132137, -27.06126, -52.075413 ]
+								hitbox_maxs = [ 21.479523, 10.974094, 9.726517 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new23"
+								parent_bone = "bone_new23"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.70768, -7.850782, -33.900517 ]
+								hitbox_maxs = [ 13.016569, 13.074717, 2.376183 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new24"
+								parent_bone = "bone_new24"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.485806, -26.437401, -60.528618 ]
+								hitbox_maxs = [ 18.960487, 23.950562, 1.71891 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new27"
+								parent_bone = "bone_new27"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -16.178902, -11.43129, -0.854088 ]
+								hitbox_maxs = [ 16.677994, 10.349308, 12.82531 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new101"
+								parent_bone = "bone_new101"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -12.299538, -8.972147, -0.593933 ]
+								hitbox_maxs = [ 12.299362, 9.08534, 8.402367 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new12"
+								parent_bone = "bone_new12"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -56.295647, -47.716293, -119.474525 ]
+								hitbox_maxs = [ 53.221962, 44.990715, 50.655838 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new_3"
+								parent_bone = "bone_new_3"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.5, -7.999145, -9.691681 ]
+								hitbox_maxs = [ 10.104781, 6.686475, 4.803207 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new305"
+								parent_bone = "bone_new305"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.790922, -7.053076, -22.585129 ]
+								hitbox_maxs = [ 15.522379, 6.802692, 5.143768 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new307"
+								parent_bone = "bone_new307"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.164864, -5.080127, -16.650078 ]
+								hitbox_maxs = [ 11.594044, 11.359446, 9.575951 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new309"
+								parent_bone = "bone_new309"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.616486, -9.28215, -14.906563 ]
+								hitbox_maxs = [ 5.737816, 7.029243, 6.193764 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new313"
+								parent_bone = "bone_new313"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.5, -1.135257, -0.5 ]
+								hitbox_maxs = [ 3.529057, 1.219423, 1.705391 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new315"
+								parent_bone = "bone_new315"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.138451, -0.863348, -2.343132 ]
+								hitbox_maxs = [ 1.139149, 1.634592, 1.643982 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new319"
+								parent_bone = "bone_new319"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.953987, -0.879167, -0.5 ]
+								hitbox_maxs = [ 0.969013, 0.886683, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new316"
+								parent_bone = "bone_new316"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.991234, -0.619172, -2.273155 ]
+								hitbox_maxs = [ 1.228767, 0.619137, 0.580772 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new320"
+								parent_bone = "bone_new320"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.987049, -0.904472, -0.5 ]
+								hitbox_maxs = [ 0.987751, 0.903897, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new317"
+								parent_bone = "bone_new317"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.865772, -0.717424, -2.282326 ]
+								hitbox_maxs = [ 1.295029, 0.717535, 0.603867 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new321"
+								parent_bone = "bone_new321"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.864475, -0.712741, -0.5 ]
+								hitbox_maxs = [ 0.905926, 0.732299, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new318"
+								parent_bone = "bone_new318"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.800117, -0.711801, -2.184731 ]
+								hitbox_maxs = [ 1.466385, 0.766509, 0.511429 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new322"
+								parent_bone = "bone_new322"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.732697, -0.716922, -0.5 ]
+								hitbox_maxs = [ 0.778004, 0.747678, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new_2"
+								parent_bone = "bone_new_2"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -8.935612, -8.370124, -9.691681 ]
+								hitbox_maxs = [ 0.5, 6.686474, 4.803207 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new204"
+								parent_bone = "bone_new204"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -15.837376, -7.176405, -23.033585 ]
+								hitbox_maxs = [ 1.089524, 6.802692, 4.695312 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new206"
+								parent_bone = "bone_new206"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -12.307005, -5.301646, -19.464348 ]
+								hitbox_maxs = [ 2.297895, 4.232322, 1.709953 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new8"
+								parent_bone = "bone_new8"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -30.396378, -98.644165, -8.090492 ]
+								hitbox_maxs = [ 6.86051, 4.155721, 10.142342 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new31"
+								parent_bone = "bone_new31"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.750206, -1.709127, -3.392303 ]
+								hitbox_maxs = [ 0.940193, 0.891485, 1.917389 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new32"
+								parent_bone = "bone_new32"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.270721, -1.137788, -0.61602 ]
+								hitbox_maxs = [ 1.37048, 1.135871, 1.00528 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new29"
+								parent_bone = "bone_new29"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.967052, -3.740534, -1.181908 ]
+								hitbox_maxs = [ 2.716347, 3.012056, 0.555794 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new1"
+								parent_bone = "bone_new1"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -19.541492, -5.20219, -5.322586 ]
+								hitbox_maxs = [ 22.541538, 5.646931, 4.995415 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new0"
+								parent_bone = "bone_new0"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.5, -1.032471, -0.5 ]
+								hitbox_maxs = [ 0.5, 1.987526, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new_1"
+								parent_bone = "bone_new_1"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.90319, -4.366843, -1.538681 ]
+								hitbox_maxs = [ 4.90319, 4.201658, 6.585419 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new00"
+								parent_bone = "bone_new00"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.940559, -4.555351, -9.668152 ]
+								hitbox_maxs = [ 13.636959, 11.803955, 1.62204 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new_0"
+								parent_bone = "bone_new_0"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.269018, -0.679977, -107.995163 ]
+								hitbox_maxs = [ 14.829189, 21.817032, 0.948822 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new01"
+								parent_bone = "bone_new01"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -15.025038, -1.008324, -82.165932 ]
+								hitbox_maxs = [ 15.823563, 27.918966, 1.589401 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new3"
+								parent_bone = "bone_new3"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -15.789897, -2.263256, -46.050217 ]
+								hitbox_maxs = [ 20.277401, 10.598049, 2.018272 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new100"
+								parent_bone = "bone_new100"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -8.32605, -6.181384, -28.880875 ]
+								hitbox_maxs = [ 7.04785, 4.454583, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new102"
+								parent_bone = "bone_new102"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -11.558155, -5.987106, -78.38916 ]
+								hitbox_maxs = [ 12.278074, 19.977299, 2.714928 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_new4"
+								parent_bone = "bone_new4"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -20.828669, -6.392582, -48.029808 ]
+								hitbox_maxs = [ 16.142782, 12.861521, 3.24028 ]
+							},
+						]
+					},
+				]
+			},
+		]
+		model_archetype = ""
+		primary_associated_entity = ""
+		anim_graph_name = ""
+		importer_notes = "Imported from VMDL"
+	}
+}

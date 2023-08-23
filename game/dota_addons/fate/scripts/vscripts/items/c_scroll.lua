@@ -18,8 +18,9 @@ function item_c_scroll:OnSpellStart()
         flExpireTime = GameRules:GetGameTime() + 10,
         iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_ATTACK_2,
     }
+    local id = 0
     if not _G.projfix then
-    	FATE_ProjectileManager:CreateTrackingProjectile(tProjectile)
+    	id = FATE_ProjectileManager:CreateTrackingProjectile(tProjectile)
     else
     	ProjectileManager:CreateTrackingProjectile(tProjectile)
     end
@@ -31,7 +32,6 @@ function item_c_scroll:OnSpellStart()
 end
 
 function item_c_scroll:OnProjectileHit(hTarget, vLocation, tData)
-	print("pepe")
     if hTarget == nil then
         return 
     end

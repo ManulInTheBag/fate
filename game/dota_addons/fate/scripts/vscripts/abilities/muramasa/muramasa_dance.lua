@@ -1,7 +1,8 @@
 muramasa_dance = class({})
 LinkLuaModifier("modifier_merlin_self_pause","abilities/merlin/merlin_orbs", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_muramasa_dance_controller","abilities/muramasa/muramasa_dance", LUA_MODIFIER_MOTION_NONE)
-
+LinkLuaModifier("modifier_muramasa_dance_debuff","abilities/muramasa/muramasa_dance_upgraded", LUA_MODIFIER_MOTION_NONE)
+--[[
 function muramasa_dance:OnUpgrade()
    local caster = self:GetCaster() 
   if(caster:FindAbilityByName("muramasa_dance_upgraded"):GetLevel()< self:GetLevel()) then
@@ -9,7 +10,7 @@ function muramasa_dance:OnUpgrade()
   end
    
 end
-
+]]
 function muramasa_dance:GetCastRange()
    if(self:GetCaster().targetqenemy ~= nil and self:GetCaster().targetqenemy:IsAlive()) then
      return 2000
@@ -49,17 +50,36 @@ function muramasa_dance:OnSpellStart()
  end
  if self.attacks_completed == 0 then
    self:Attack1()
+   self:MoveForward()
  elseif self.attacks_completed == 1 then   
    self:Attack2()
+   self:MoveForward()
 elseif self.attacks_completed == 2 then   
    self:Attack3()
+   self:MoveForward()
 elseif self.attacks_completed == 3 then   
    self:Attack4()
+   self:MoveForward()
 else   
    self:Attack5()
 end
 
 end
+
+function muramasa_dance:MoveForward()
+   local caster = self:GetCaster()
+   local point = caster:GetAbsOrigin() + caster:GetForwardVector()*100
+   local knockback1 = { should_stun = false,
+      knockback_duration = 0.15,
+      duration = 0.15,
+      knockback_distance = -150,
+      knockback_height = 0,
+      center_x =point.x,
+      center_y = point.y,
+      center_z = point.z }
+   caster:RemoveModifierByName("modifier_knockback")
+   caster:AddNewModifier(caster, self, "modifier_knockback", knockback1)
+ end
 
 
  function muramasa_dance:Attack1()
@@ -143,10 +163,12 @@ end
 
  function muramasa_dance:Attack5()
    local caster = self:GetCaster()
+
    caster:RemoveModifierByName("modifier_muramasa_dance_controller")
    caster:StopAnimation()
     StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_RAZE_3, rate=2.0})
    Timers:CreateTimer( 0.22, function()
+      caster:EmitSound("muramasa_q_end")
    local particle5 = ParticleManager:CreateParticle("particles/muramasa/muramasa_sword_dance_last_hit_new.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
    Timers:CreateTimer( 1.2, function()
       ParticleManager:DestroyParticle(  particle5, true)
@@ -167,6 +189,9 @@ end
        caster:PerformAttack( enemy, true, true, true, true, false, false, false )
        DoDamage(caster, enemy, damage_base, DAMAGE_TYPE_MAGICAL, 0, self, false)
        enemy:AddNewModifier(caster, self, "modifier_stunned", {Duration = 0.1})
+       if caster:HasModifier("modifier_muramasa_forge") then 
+         enemy:AddNewModifier(caster,self, "modifier_muramasa_dance_debuff", {duration = self:GetSpecialValueFor("dmg_amp_duration")})
+      end
   end
 
  end)
@@ -182,8 +207,7 @@ end
 function muramasa_dance:DanceAttack()
     caster = self:GetCaster()
     local damage_base = self:GetSpecialValueFor("base_dmg")
-    self.sound = "muramasa_dance_attack_"..math.random(1,4)
-    --caster:EmitSound(self.sound)
+    caster:EmitSound("muramasa_q")
     local enemies = FindUnitsInRadius(  caster:GetTeamNumber(),
                     caster:GetAbsOrigin(),
                     nil,
@@ -200,6 +224,20 @@ function muramasa_dance:DanceAttack()
    --if caster:GetForwardVector():Dot(origin_diff_norm) > 0 then
      caster:PerformAttack( enemy, true, true, true, true, false, false, false )
      DoDamage(caster, enemy, damage_base, DAMAGE_TYPE_MAGICAL, 0, self, false)
+     local point = caster:GetAbsOrigin() + caster:GetForwardVector() * 150
+     local knockback1 = { should_stun = true,
+		 knockback_duration = 0.15,
+		 duration = 0.15,
+		 knockback_distance = -150,
+		 knockback_height = 0,
+		 center_x = point.x,
+		 center_y = point.y,
+		 center_z = point.z }
+       enemy:RemoveModifierByName("modifier_knockback")
+       enemy:AddNewModifier(caster, self, "modifier_knockback", knockback1)
+     if caster:HasModifier("modifier_muramasa_forge") then 
+      enemy:AddNewModifier(caster,self, "modifier_muramasa_dance_debuff", {duration = self:GetSpecialValueFor("dmg_amp_duration")})
+     end
    --end
  end
 
@@ -213,13 +251,14 @@ modifier_muramasa_dance_controller = class({})
 
  
 function modifier_muramasa_dance_controller:OnDestroy()
-local caster = self:GetCaster()
-self.ability =caster:FindAbilityByName("muramasa_dance")
-self.ability2 = caster:FindAbilityByName("muramasa_dance_upgraded")
-self.ability:EndCooldown()
-self.ability:StartCooldown(self.ability:GetCooldown(self.ability:GetLevel()))
-self.ability2:EndCooldown()
-self.ability2:StartCooldown(self.ability2:GetCooldown(self.ability2:GetLevel()))
+   local caster = self:GetCaster()
+   self.ability =caster:FindAbilityByName("muramasa_dance")
+   --self.ability2 = caster:FindAbilityByName("muramasa_dance_upgraded")
+   self.ability:EndCooldown()
+   self.ability:StartCooldown(self.ability:GetCooldown(self.ability:GetLevel()))
+   --self.ability2:EndCooldown()
+   --self.ability2:StartCooldown(self.ability2:GetCooldown(self.ability2:GetLevel()))
+--[[
 if( caster:GetAbilityByIndex(1):GetName() ~="muramasa_throw") then
    if caster:GetAbilityByIndex(0):GetName() ~="muramasa_dance_upgraded" then
       caster:SwapAbilities("muramasa_dance_upgraded", "muramasa_dance", true, false)
@@ -229,7 +268,7 @@ else
       caster:SwapAbilities("muramasa_dance_upgraded", "muramasa_dance", false, true)
    end
 end
-
+]]
 end
  
 function modifier_muramasa_dance_controller:IsHidden() return false end

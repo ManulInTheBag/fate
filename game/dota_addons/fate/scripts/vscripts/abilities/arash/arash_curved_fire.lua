@@ -1,6 +1,6 @@
 arash_curved_fire= class({})
 
-function arash_curved_fire:CastFilterResult()
+function arash_curved_fire:CastFilterResultLocation(vLocation)
     local caster = self:GetCaster()
     if IsServer() and  caster:FindModifierByName("modifier_arash_star_arrow") then
         return UF_FAIL_CUSTOM
@@ -9,7 +9,7 @@ function arash_curved_fire:CastFilterResult()
     end
 end
 
-function arash_curved_fire:GetCustomCastError()
+function arash_curved_fire:GetCustomCastErrorLocation(vLocation)
 	return "Star arrow active"
 end
 

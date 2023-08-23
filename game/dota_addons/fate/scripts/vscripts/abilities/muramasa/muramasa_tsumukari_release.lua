@@ -3,19 +3,29 @@ muramasa_tsumukari_release = class({})
 LinkLuaModifier("modifier_muramasa_tsumukari_hit_slow","abilities/muramasa/muramasa_tsumukari_release", LUA_MODIFIER_MOTION_NONE)
  
  
-function muramasa_tsumukari_release:OnUpgrade()
-    local Caster = self:GetCaster() 
-    if(Caster:FindAbilityByName("muramasa_tsumukari"):GetLevel()< self:GetLevel()) then
-    Caster:FindAbilityByName("muramasa_tsumukari"):SetLevel(self:GetLevel())
-    end
-    
-end
  
+function muramasa_tsumukari_release:CastFilterResultLocation(vLocation)
+    local caster = self:GetCaster()
+    print(caster)
+    if caster:HasModifier("modifier_muramasa_no_sword") then
+        return UF_FAIL_CUSTOM
+    else
+        return UF_SUCESS
+    end
+end
+
+function muramasa_tsumukari_release:GetCustomCastErrorLocation(vLocation)
+	return "No sword"
+end
+
+
 function muramasa_tsumukari_release:OnSpellStart()
 local caster = self:GetCaster()
 caster:EmitSound("muramasa_tsumukari_cast")
 caster:EmitSound("muramasa_tsumukari_release")
-
+if caster.SwordTrialAcquired then
+    caster:AddNewModifier(caster,self,"modifier_muramasa_forge", {duration = 3})
+end
 --Timers:RemoveTimer("muramasa_sword_particle")
 --caster:SwapAbilities("muramasa_tsumukari", "muramasa_tsumukari_release", true, false)
 
@@ -93,7 +103,13 @@ Timers:CreateTimer(1, function()
 										0
     								)
     for k,v in pairs(targets) do       
-     DoDamage(caster, v, damage_impact , DAMAGE_TYPE_MAGICAL, 0, self, false)
+     
+     if caster:HasModifier("modifier_muramasa_forge") then 
+        DoDamage(caster, v, damage_impact*0.7 , DAMAGE_TYPE_MAGICAL, 0, self, false)
+        DoDamage(caster, v, damage_impact*0.3 , DAMAGE_TYPE_PURE, 0, self, false)
+     else
+        DoDamage(caster, v, damage_impact , DAMAGE_TYPE_MAGICAL, 0, self, false)
+     end
     end        
 end)
 

@@ -2,6 +2,9 @@ FPMVersion = "alpha 0.1"
 
 FPMThink = FrameTime()
 
+FATE_PROJECTILE_TYPE_TRACKING = 1
+FATE_PROJECTILE_TYPE_LINEAR = 2
+
 if FATE_ProjectileManager == nil then
   print ( '[FATE_ProjectileManager] creating FATE Projectile Manager' )
   FATE_ProjectileManager = {}
@@ -43,8 +46,20 @@ function FATE_ProjectileManager:ProjectileDodge(unit)
 	end
 end
 
+function FATE_ProjectileManager:DestroyTrackingProjectile(uid)
+	local v = self.ActiveProjectiles[uid]
+
+	if not v then return end
+
+	if v.projFX then
+		ParticleManager:DestroyParticle(v.projFX, false)
+		ParticleManager:ReleaseParticleIndex(v.projFX)
+	end
+
+	self.ActiveProjectiles[uid] = nil
+end
+
 function FATE_ProjectileManager:CreateTrackingProjectile(args)
-	print("projectile activation")
 	if not args.Target or args.Target:IsNull() then
 		print("FPM target not defined")
 	end
@@ -122,14 +137,23 @@ function FATE_ProjectileManager:CreateTrackingProjectile(args)
 
 	--IsDodgeable
 	local dodgeable = true
-	if args.Dodgeable then
-		dodgeable = args.Dodgeable
+	if args.bDodgeable == false then
+		dodgeable = args.bDodgeable
+	end
+
+	--Expiration time
+	local expires = false
+	local expireTime = 1
+	if args.flExpireTime then
+		expires = true
+		expireTime = args.flExpireTime
 	end
 
 	local UID = self:AssignID()
 
 	local ProjectileTable = {}
 	ProjectileTable.ID = UID
+	ProjectileTable.type = FATE_PROJECTILE_TYPE_TRACKING
 	ProjectileTable.target = target
 	ProjectileTable.targetLoc = target:GetAttachmentOrigin(target:ScriptLookupAttachment("attach_hitloc"))
 	ProjectileTable.targetAlive = target:IsAlive()
@@ -143,59 +167,77 @@ function FATE_ProjectileManager:CreateTrackingProjectile(args)
 	ProjectileTable.speed = speed
 	ProjectileTable.projFX = projFX
 	ProjectileTable.ExtraData = ExtraData
+	ProjectileTable.expires = expires
+	ProjectileTable.expireTime = expireTime
+	ProjectileTable.timeElapsed = 0
 
 	self.ActiveProjectiles[UID] = ProjectileTable
 
 	return UID
 end
 
-function FATE_ProjectileManager:Think() --TODO: use pcall or xpcall
+--TODO: make table-function switch to reduce from O(n) to O(1)
+
+function FATE_ProjectileManager:Think()
 	--targetted
 	for k, v in pairs(self.ActiveProjectiles) do
-		--print(k)
-		local hit = false
-		local speed = v.speed
-		local target = v.target
-		if target and not target:IsNull() then
-			if target:IsAlive() then
-				v.targetLoc = target:GetAttachmentOrigin(target:ScriptLookupAttachment("attach_hitloc"))
-				ParticleManager:SetParticleControl(v.projFX, 1, v.targetLoc)
-			else
-				v.target = nil
-			end
+		--targetted block
+		if v.type == FATE_PROJECTILE_TYPE_TRACKING then
+			pcall(function() return self:Think_TRACKING(k,v) end)
 		end
-		local direction = (v.targetLoc - v.currentLoc):Normalized()
-		local distance = FPMThink*speed
-		local remainingdist = (v.currentLoc - v.targetLoc):Length2D()
-		--print(remainingdist)
-		if remainingdist <= distance then
-			distance = remainingdist
-			hit = true
-		end
-		v.currentLoc = v.currentLoc + distance*direction
-
-		if v.thinkCallback then
-			local thinkStatus, thinkNextCall = xpcall(function() return v.thinkCallback(v.ability, v.currentLoc, v.ExtraData) end, function (msg)
-	                                    return msg..'\n'..debug.traceback()..'\n'
-	                                  end)
-		end
-
-		if hit then
-			--print("FPMSUCCESS"..k)
-
-			self.ActiveProjectiles[k] = nil
-
-			if v.callback then
-				local status, nextCall = xpcall(function() return v.callback(v.ability, v.target, v.currentLoc, v.ExtraData) end, function (msg)
-	                                    return msg..'\n'..debug.traceback()..'\n'
-	                                  end)
-			end
-
-			ParticleManager:DestroyParticle(v.projFX, false)
-			ParticleManager:ReleaseParticleIndex(v.projFX)
-		end
+		--linear block
 	end
 	return FPMThink
+end
+
+function FATE_ProjectileManager:Think_TRACKING(k, v)
+	local hit = false
+	local speed = v.speed
+	local target = v.target
+	if target and not target:IsNull() then
+		if target:IsAlive() then
+			v.targetLoc = target:GetAttachmentOrigin(target:ScriptLookupAttachment("attach_hitloc"))
+			ParticleManager:SetParticleControl(v.projFX, 1, v.targetLoc)
+		else
+			v.target = nil
+		end
+	end
+	ParticleManager:SetParticleControl(v.projFX, 2, Vector(speed, 0, 0))
+	local direction = (v.targetLoc - v.currentLoc):Normalized()
+	local distance = FPMThink*speed
+	local remainingdist = (v.currentLoc - v.targetLoc):Length2D()
+				--print(remainingdist)
+	if remainingdist <= distance then
+		distance = remainingdist
+		hit = true
+	end
+	v.currentLoc = v.currentLoc + distance*direction
+
+	if v.thinkCallback then
+		local thinkStatus, thinkNextCall = xpcall(function() return v.thinkCallback(v.ability, v.currentLoc, v.ExtraData) end, function (msg)
+			                                    return msg..'\n'..debug.traceback()..'\n'
+	                                  end)
+	end
+
+	if hit then
+		--print("FPMSUCCESS"..k)
+		self.ActiveProjectiles[k] = nil
+		if v.callback then
+			local status, nextCall = xpcall(function() return v.callback(v.ability, v.target, v.currentLoc, v.ExtraData) end, function (msg)
+                                    return msg..'\n'..debug.traceback()..'\n'
+                                  end)
+		end
+		
+		ParticleManager:DestroyParticle(v.projFX, false)
+		ParticleManager:ReleaseParticleIndex(v.projFX)
+	end
+	
+	if v.expires and GameRules:GetGameTime() >= v.expireTime then
+		self.ActiveProjectiles[k] = nil
+		
+		ParticleManager:DestroyParticle(v.projFX, false)
+		ParticleManager:ReleaseParticleIndex(v.projFX)
+	end
 end
 
 if not FATE_ProjectileManager.ActiveProjectiles then FATE_ProjectileManager:start() end

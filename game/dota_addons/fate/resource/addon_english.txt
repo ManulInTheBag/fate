@@ -325,6 +325,11 @@
 		"DOTA_Tooltip_modifier_merlin_hero_creation"					"Hero creation"
 		"DOTA_Tooltip_modifier_merlin_hero_creation_Description"		"You are a hero now. Win this for me"
 
+
+		"DOTA_Tooltip_modifier_muramasa_forge"						"Forge"
+		"DOTA_Tooltip_modifier_muramasa_tsumukari_Description"			"skills powered"
+
+
 		"DOTA_Tooltip_modifier_muramasa_tsumukari"						"Tsumukari Muramasa chants"
 		"DOTA_Tooltip_modifier_muramasa_tsumukari_Description"			""
 
@@ -8280,8 +8285,11 @@
 		"npc_dota_hero_magnataur_hype"						""
 		"npc_dota_hero_magnataur_bio"						""
 
+		"DOTA_Tooltip_modifier_muramasa_no_sword"							"No sword"
+		"DOTA_Tooltip_modifier_muramasa_no_sword_Description"				"Craft a new one."
+
         "DOTA_Tooltip_ability_muramasa_dance"							"Sword dance"
-        "DOTA_Tooltip_ability_muramasa_dance_Description"				"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.15</font>\nMuramasa performs attack on all units in radius, dealing bonus <font color='#58ACFA'>magical</font> damage.\n<font color='#FFFAFA'>Can be recasted up to 4 times in 5 seconds.</font>.\nLast attack has a slightly increased radius.\nWhen <font color='#58ACFA'>upgraded</font>, this ability also applies a stacking <font color='#9400D3'>debuff</font> to enemies hit, <font color='#9400D3'>increasing damage taken</font> and <font color='#FFFAFA'>cleanses</font> Muramasa on each attack."      
+        "DOTA_Tooltip_ability_muramasa_dance_Description"				"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.15</font>\nMuramasa performs attack on all units in radius, dealing bonus <font color='#58ACFA'>magical</font> damage.\n<font color='#FFFAFA'>Can be recasted up to 4 times in 5 seconds.</font>.\nLast attack has a slightly increased radius."      
         "DOTA_Tooltip_ability_muramasa_dance_duration"					"Recast duration:"
         "DOTA_Tooltip_ability_muramasa_dance_dmg_mod"					"%Magic on-hit damage:"
         "DOTA_Tooltip_ability_muramasa_dance_dmg_amp"					"%Damage taken increase per stack:"
@@ -8328,7 +8336,7 @@
 	 	
 
         "DOTA_Tooltip_ability_muramasa_rush"					"Rush"
-        "DOTA_Tooltip_ability_muramasa_rush_Description"	 	"Muramasa rushes to point selected. If muramasa hit someone with rush, he will deal damage and apply a burn debuff, ticking every 0.5 seconds.\nWhen upgraded, Muramasa will attack targets he hit with rush, all enemies hit will be rooted for 1 second, and Muramasa will be invincible while flying."
+        "DOTA_Tooltip_ability_muramasa_rush_Description"	 	"Muramasa rushes to point selected. If muramasa hit someone with rush, he will deal damage and apply a burn debuff, ticking every 0.5 seconds."
         "DOTA_Tooltip_ability_muramasa_rush_damage"					"Damage:"
         "DOTA_Tooltip_ability_muramasa_rush_duration"				"Burn duration:"
         "DOTA_Tooltip_ability_muramasa_rush_range"					"Max range:"
@@ -8346,11 +8354,11 @@
 
 
         "DOTA_Tooltip_ability_muramasa_sword_creation"					"Sword creation"
-        "DOTA_Tooltip_ability_muramasa_sword_creation_Description"		"Passive: attacks of Muramasa deal additional magic damage in small radius on hit. This damage is increased based on muramasa BASE agility. Muramasa cannot increase his attackspeed with default options. Using berserk scroll increases his damage instead of giving him AS boost."
+        "DOTA_Tooltip_ability_muramasa_sword_creation_Description"		"Passive: attacks of Muramasa deal additional magic damage in small radius on hit. This damage is increased based on Muramasa level. Muramasa cannot increase his attackspeed with default options. Using berserk scroll increases his damage instead of giving him AS boost.\nMuramasa's sword has a durability of 10 attacks. When durability reaches 0, he doesnt receive bonus damage and sword will be recreated in 10 seconds.\nWhen Muramasa stays in Forge, his sword quickly receives durability up to cap of 10."
         "DOTA_Tooltip_ability_muramasa_sword_creation_max_stacks"				"Maximum swords:"
         "DOTA_Tooltip_ability_muramasa_sword_creation_attack_aoe_radius"		"Attack aoe:"
         "DOTA_Tooltip_ability_muramasa_sword_creation_base_dmg"					"Base magic damage:"
-        "DOTA_Tooltip_ability_muramasa_sword_creation_dmg_per_agi"				"Damage per base agi:"
+        "DOTA_Tooltip_ability_muramasa_sword_creation_damage_per_level"				"Damage per level:"
         "DOTA_Tooltip_ability_muramasa_sword_creation_dmg_berserker"			"Dmg under berserk:"
         "DOTA_Tooltip_ability_muramasa_sword_creation_Lore"			"If I get a request, I'll be sure to make something great."
 
@@ -8359,8 +8367,16 @@
         "DOTA_Tooltip_ability_muramasa_upgrade_Lore"			"Best swords can store enough magic energy to release a true power of its wielder."
 
 
+        "DOTA_Tooltip_ability_muramasa_forge"				"Forge"
+        "DOTA_Tooltip_ability_muramasa_forge_Description"		"Muramasa creates his forge, which stays in place for a duration. Enemies inside of forge take damage every 0.25 second, which greatly increases at the border.\nAll of Muramasa's abilities are buffed, while he is inside of forge:\n<font color='#58ACFA'>Sword dance</font> increases enemies damage taken for a short duration on hit\n<font color='#58ACFA'>Throw</font> renders Muramasa immune to crowd control for a short time.\n<font color='#58ACFA'>Rush</font> performs an auto-attack on each enemy hit.\n<font color='#58ACFA'>Sword creation</font> attacks have increased radius and attack speed.\n<font color='#58ACFA'>Tsumukari Muramasa</font> deals 30%% of its damage as pure."
+        "DOTA_Tooltip_ability_muramasa_forge_Lore"			"Best swords can store enough magic energy to release a true power of its wielder."
+ 		"DOTA_Tooltip_ability_muramasa_forge_duration"							"Duration:"
+ 		"DOTA_Tooltip_ability_muramasa_forge_radius"							"Radius:"
+ 		"DOTA_Tooltip_ability_muramasa_forge_damage"							"Damage:"
+ 		"DOTA_Tooltip_ability_muramasa_forge_damage_ring"						"Outer ring damage:"
+
         "DOTA_Tooltip_ability_muramasa_eye_of_karma"				"Eye of karma"
-        "DOTA_Tooltip_ability_muramasa_eye_of_karma_Description"	"Muramasa is able to see Karma in living beings. Muramasa finds closest enemy in range and applies a debuff, which will grant vision over him and dimensionally locks him after 1.5 second. Each Muramasa attack will extend its duration and reduce enemy magic resistance if Muramasa is under Tsumukari Muramasa buff. This ability always finds non-assasin enemy first."
+        "DOTA_Tooltip_ability_muramasa_eye_of_karma_Description"	"Muramasa finds closest enemy in range and applies a debuff, which will grant vision over him and dimensionally locks him after 1.5 second. Each Muramasa attack will extend its duration and reduce enemy magic resistance if Muramasa is under Tsumukari Muramasa buff. This ability always finds non-assasin enemy first."
         "DOTA_Tooltip_ability_muramasa_eye_of_karma_search_radius"						"Search radius:"
         "DOTA_Tooltip_ability_muramasa_eye_of_karma_duration"								"Base duration:"
         "DOTA_Tooltip_ability_muramasa_eye_of_karma_duration_per_attack"					"Bonus duration per attack:"
@@ -8387,7 +8403,7 @@
 
 
         "DOTA_Tooltip_ability_muramasa_tsumukari_combo"				"Combo: Tsumukari Muramasa - Karma"
-        "DOTA_Tooltip_ability_muramasa_tsumukari_combo_Description"		"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: D-R in 2 seconds while under tsumukari muramasa buff and upgraded skills</font>\nMuramasa chants a powered version of Tsumukari Muramasa, releasing a huge swing dealing damage and stunning for 1 second, after which he sends a crack on the ground, dealing damage, dimensional locking and rooting enemies hit. After a couple of seconds crack explodes dealing burst damage and damage over time."   
+        "DOTA_Tooltip_ability_muramasa_tsumukari_combo_Description"		"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: D-R in 3</font>\nMuramasa chants a powered version of Tsumukari Muramasa, releasing a huge swing dealing damage and stunning for 1 second, after which he sends a crack on the ground, dealing damage, dimensional locking and rooting enemies hit. After a couple of seconds crack explodes dealing burst damage and damage over time."   
         "DOTA_Tooltip_ability_muramasa_tsumukari_combo_range"							"Range:"
         "DOTA_Tooltip_ability_muramasa_tsumukari_combo_damage_first"					"Slash damage:"
         "DOTA_Tooltip_ability_muramasa_tsumukari_combo_damage_impact"					"Crack damage:"
@@ -8400,14 +8416,14 @@
         //
 
         "DOTA_Tooltip_ability_muramasa_appreciation_of_swords_attribute"				"Attribute: Appreciation of swords"
-        "DOTA_Tooltip_ability_muramasa_appreciation_of_swords_attribute_Description"	"Increases muramasa's armor, magic resistance and movement speed per stack of Tsumukari Muramasa chant. If Muramasa is under its buff, he gains maximum stacks bonuses multiplied by 1.5"
-        "DOTA_Tooltip_ability_muramasa_appreciation_of_swords_attribute_mr_bonus"				"%Magic resistance per stack:"
-        "DOTA_Tooltip_ability_muramasa_appreciation_of_swords_attribute_armor_bonus"			"Armor per stack:"
-    	"DOTA_Tooltip_ability_muramasa_appreciation_of_swords_attribute_ms_bonus"				"%MS per stack:"
+        "DOTA_Tooltip_ability_muramasa_appreciation_of_swords_attribute_Description"	"Increases Muramasa armor, movement speed and magic resistance inside of <font color='#58ACFA'>Forge</font>\nEach Muramasa attack reduces <font color='#58ACFA'>Forge</font> cooldown by 1 second.\nEnemies inside <font color='#58ACFA'>Forge</font> are <font color='#FF3399'>slowed</font>"
+        "DOTA_Tooltip_ability_muramasa_appreciation_of_swords_attribute_mr_bonus"				"%Magic resistance:"
+        "DOTA_Tooltip_ability_muramasa_appreciation_of_swords_attribute_armor_bonus"			"Armor:"
+    	"DOTA_Tooltip_ability_muramasa_appreciation_of_swords_attribute_ms_bonus"				"%Movement speed:"
 
         "DOTA_Tooltip_ability_muramasa_sword_trial_attribute"				"Attribute: Sword trial"
-        "DOTA_Tooltip_ability_muramasa_sword_trial_attribute_Description"	"After chanting Tsumukari Muramasa, Muramasa gains a buff, which increases his attackspeed to 0.5 seconds per attack for 1 attack and will reduce Tsumukari cooldown to 1 second with this attack. Also increases Tsumukari Muramasa release damage based on Muramasa's strenght."
-        "DOTA_Tooltip_ability_muramasa_sword_trial_attribute_buff_duration"				"Buff duration:"
+        "DOTA_Tooltip_ability_muramasa_sword_trial_attribute_Description"	"After releasing <font color='#58ACFA'>Tsumukari Muramasa</font>, Muramasa gains <font color='#58ACFA'>Forge</font> buff for 3 seconds.\nIncreases <font color='#58ACFA'>Tsumukari Muramasa</font> release damage based on Muramasa's strenght."
+        //"DOTA_Tooltip_ability_muramasa_sword_trial_attribute_buff_duration"				"Buff duration:"
         "DOTA_Tooltip_ability_muramasa_sword_trial_attribute_str_scale"				"All impact damage per STR:"
  
  		
@@ -8418,8 +8434,7 @@
         "DOTA_Tooltip_ability_muramasa_flame_attribute_dmg_per_agi"				"Dmg per base agi:"
 
         "DOTA_Tooltip_ability_muramasa_eye_of_karma_attribute"				"Attribute: Eye of karma"
-        "DOTA_Tooltip_ability_muramasa_eye_of_karma_attribute_Description"	"Muramasa is able to see Karma in living beings. Enemies hit by his E are now visible while burning, when muramasa health is lower then 50% he gains damage reduction.\nMuramasa gains new Eye of Karma ability.\nEye of karma: Muramasa finds closest enemy in range and applies a debuff, which will grant vision over him and dimensionally locks him after 1.5 second. Each Muramasa attack will extend its duration and reduce enemy magic resistance if Muramasa is under Tsumukari Muramasa buff. This ability always finds non-assasin enemy first."
-        "DOTA_Tooltip_ability_muramasa_eye_of_karma_attribute_reduction"							"%Damage reduction:"
+        "DOTA_Tooltip_ability_muramasa_eye_of_karma_attribute_Description"	"Muramasa gains an active ability <font color='#58ACFA'>Eye of karma</font>:\nMuramasa finds closest enemy in range and applies a debuff, which will grant vision over him and dimensionally locks him after 1.5 second. Each Muramasa attack will extend its duration and reduce enemy magic resistance if Muramasa is under Tsumukari Muramasa buff. This ability always finds non-assasin enemy first."
         "DOTA_Tooltip_ability_muramasa_eye_of_karma_attribute_search_radius"						"Search radius:"
         "DOTA_Tooltip_ability_muramasa_eye_of_karma_attribute_duration"								"Base duration:"
         "DOTA_Tooltip_ability_muramasa_eye_of_karma_attribute_duration_per_attack"					"Bonus duration per attack:"

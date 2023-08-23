@@ -1,7 +1,7 @@
 muramasa_rush = class({})
 LinkLuaModifier("modifier_muramasa_rush_burn","abilities/muramasa/muramasa_rush", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_muramasa_rush_mr","abilities/muramasa/muramasa_rush", LUA_MODIFIER_MOTION_NONE)
-
+--[[
 function muramasa_rush:OnUpgrade()
     local caster = self:GetCaster() 
    if(caster:FindAbilityByName("muramasa_rush_upgraded"):GetLevel()< self:GetLevel()) then
@@ -9,7 +9,7 @@ function muramasa_rush:OnUpgrade()
    end
     
   end
-
+]]
  
  
  
@@ -18,7 +18,7 @@ function muramasa_rush:OnUpgrade()
 function muramasa_rush:OnSpellStart()
     self.ChannelTime = 0
     local caster = self:GetCaster()
-    caster:FindAbilityByName("muramasa_rush_upgraded"):StartCooldown(caster:FindAbilityByName("muramasa_rush_upgraded"):GetCooldown(caster:FindAbilityByName("muramasa_rush_upgraded"):GetLevel()))
+    --caster:FindAbilityByName("muramasa_rush_upgraded"):StartCooldown(caster:FindAbilityByName("muramasa_rush_upgraded"):GetCooldown(caster:FindAbilityByName("muramasa_rush_upgraded"):GetLevel()))
     self.RushPoint = self:GetCursorPosition()
     caster.firstenemy = nil
     local ability = self
@@ -65,7 +65,7 @@ function muramasa_rush:OnSpellStart()
       caster:SetGroundBehavior (PHYSICS_GROUND_LOCK)
 
       self.rushfx = ParticleManager:CreateParticle("particles/muramasa/muramasa_rush_self.vpcf", PATTACH_ABSORIGIN_FOLLOW  , caster )
-   
+
 
     Timers:CreateTimer("muramasa_rush", {
         endTime = rush_time,
@@ -119,7 +119,9 @@ function muramasa_rush:OnProjectileHit_ExtraData(hTarget, vLocation, table)
   
     local damage = self:GetSpecialValueFor("damage")
     local duration = self:GetSpecialValueFor("duration")
- 
+    if caster:HasModifier("modifier_muramasa_forge") then 
+        caster:PerformAttack( hTarget, true, true, true, true, false, false, false )
+    end
 
     hTarget:EmitSound("Hero_Sniper.AssassinateDamage")
     DoDamage(caster, hTarget, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)

@@ -1,7 +1,7 @@
 muramasa_throw = class({})
 LinkLuaModifier("modifier_merlin_self_pause","abilities/merlin/merlin_orbs", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_muramasa_throw_collision_fix","abilities/muramasa/muramasa_throw", LUA_MODIFIER_MOTION_NONE)
-
+LinkLuaModifier("modifier_muramasa_throw_cc_immune","abilities/muramasa/muramasa_throw", LUA_MODIFIER_MOTION_NONE)
 function muramasa_throw:OnUpgrade()
     local caster = self:GetCaster() 
 	if(caster:FindAbilityByName("muramasa_throw_upgraded"):GetLevel()< self:GetLevel()) then
@@ -72,7 +72,8 @@ function muramasa_throw:OnSpellStart()
         return 
     end
     caster:EmitSound("muramasa_grab_sound")
-    caster:FindAbilityByName("muramasa_throw_upgraded"):StartCooldown(caster:FindAbilityByName("muramasa_throw_upgraded"):GetCooldown(caster:FindAbilityByName("muramasa_throw_upgraded"):GetLevel()))
+
+    --caster:FindAbilityByName("muramasa_throw_upgraded"):StartCooldown(caster:FindAbilityByName("muramasa_throw_upgraded"):GetCooldown(caster:FindAbilityByName("muramasa_throw_upgraded"):GetLevel()))
 
     local duration = self:GetSpecialValueFor("duration")
     local throw_range = self:GetSpecialValueFor("throw_range")
@@ -90,7 +91,9 @@ function muramasa_throw:OnSpellStart()
     ParticleManager:SetParticleControlEnt(self.fire_particle_2, 1, caster, PATTACH_POINT_FOLLOW, "leg", Vector(0,0,0), true)
     ParticleManager:SetParticleControlEnt(self.fire_particle_2, 0, caster, PATTACH_POINT_FOLLOW, "leg", Vector(0,0,0), true)
     Timers:CreateTimer( 0.7, function()
-
+        if caster:HasModifier("modifier_muramasa_forge") then 
+            caster:AddNewModifier(caster, self, "modifier_muramasa_throw_cc_immune", {Duration =1.5})
+        end
         ParticleManager:DestroyParticle(  self.fire_particle , true)
 		ParticleManager:ReleaseParticleIndex(  self.fire_particle )
         ParticleManager:DestroyParticle(  self.fire_particle_2 , true)
@@ -102,7 +105,7 @@ function muramasa_throw:OnSpellStart()
     local casterstartvector = caster:GetForwardVector()
  
     Timers:CreateTimer( 0, function()
-    if(counter  == 5 or   caster:IsAlive() == false  or caster:IsStunned() == true or  self.target:IsStunned() == false ) then 
+    if(counter  == 5 or   caster:IsAlive() == false  or (caster:IsStunned() == true and not   caster:HasModifier("modifier_muramasa_forge")) or  self.target:IsStunned() == false ) then 
         
        return end
     local vector =  casterstartvector + turn/( 2.5 ) * counter
@@ -127,7 +130,7 @@ function muramasa_throw:OnSpellStart()
    
 
     Timers:CreateTimer( 0.16, function()
-        if( caster:IsAlive() == false  or caster:IsStunned() == true or  self.target:IsStunned() == false) then return end
+        if( caster:IsAlive() == false  or (caster:IsStunned() == true and not   caster:HasModifier("modifier_muramasa_forge")) or  self.target:IsStunned() == false) then return end
         local throw_direction = (directionpoint-self.target:GetAbsOrigin()):Normalized()
         local sin = Physics:Unit( self.target)
         self.target:SetPhysicsFriction(0)
@@ -195,6 +198,7 @@ function muramasa_throw:OnSpellStart()
             end
           
         end)
+
 	end)
     
 
@@ -248,4 +252,21 @@ function modifier_muramasa_throw_collision_fix:IsHidden()
 end
 function modifier_muramasa_throw_collision_fix:RemoveOnDeath()return true end 
 function modifier_muramasa_throw_collision_fix:IsDebuff() 	return true end
+ 
+modifier_muramasa_throw_cc_immune = class({})
+ 
+ 
+function modifier_muramasa_throw_cc_immune:CheckState()
+    return { [MODIFIER_STATE_STUNNED  ] = false,
+    [MODIFIER_STATE_SILENCED   ] = false,
+    [MODIFIER_STATE_MUTED   ] = false,
+    [MODIFIER_STATE_DISARMED   ] = false,
+    [MODIFIER_STATE_ROOTED   ] = false }
+end
+
+function modifier_muramasa_throw_cc_immune:IsHidden()	
+    return false
+end
+function modifier_muramasa_throw_cc_immune:RemoveOnDeath()return true end 
+function modifier_muramasa_throw_cc_immune:IsDebuff() 	return false end
  
