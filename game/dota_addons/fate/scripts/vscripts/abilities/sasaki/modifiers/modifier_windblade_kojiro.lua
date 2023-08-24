@@ -1,7 +1,7 @@
 modifier_windblade_kojiro = class({})
 
 LinkLuaModifier("modifier_windblade_hit_marker", "abilities/sasaki/modifiers/modifier_windblade_hit_marker", LUA_MODIFIER_MOTION_NONE)
-
+LinkLuaModifier("modifier_windblade_kojiro_damage", "abilities/sasaki/sasaki_windblade", LUA_MODIFIER_MOTION_NONE)
 if IsServer() then
 	function modifier_windblade_kojiro:OnCreated(args)
 		self.WindbladeOrigin = self:GetParent():GetAbsOrigin()
@@ -51,7 +51,8 @@ if IsServer() then
 				FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)				
 
 				--caster:PerformAttack(target_search[i], true, true, true, true, false, false, false)
-				DoDamage(caster, target_search[i], damage, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
+				DoDamage(caster, target_search[i], damage*0.5, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
+				target_search[i]:AddNewModifier(caster, self:GetAbility(), "modifier_windblade_kojiro_damage", {Duration = 0.5, Damage = damage*0.5})  
 				local mai = caster:FindModifierByName("modifier_tsubame_mai")
 				if mai then
 					mai:MaiBuffer(target_search[i])

@@ -209,13 +209,14 @@
         "MaxLevel"						"5"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"2"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET| DOTA_ABILITY_BEHAVIOR_CHANNELLED"
 		"AbilityTextureName"			"custom/gawain_sun_of_galatine"		
-		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
-		"AbilityCastPoint"				"0.3"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3"
+		"AbilityCastPoint"				"0.1"
         "AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"        
 		"AbilityCooldown"				"23"
 		"AbilityManaCost"				"400"
+		"AbilityChannelTime"      		"0.7"
 
 		"precache"
 		{
@@ -226,12 +227,21 @@
 			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_warlock.vsndevts"
 		}
 
+		"AbilityValues"
+		{
+			"damage"			"600 700 800 900 1000"
+			"area_of_effect"	"475"
+			"stun_duration"		"0.5 0.6 0.7 0.8 0.9"
+			"slow"				"40 45 50 55 60"
+
+		}
+
 		"AbilitySpecial"
 		{
 			"01"
 			{	
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"500 580 660 740 820"
+				"damage"			"600 700 800 900 1000"
 			}
 			"02"
 			{

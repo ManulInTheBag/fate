@@ -2,7 +2,7 @@ sasaki_windblade = class({})
 
 LinkLuaModifier("modifier_exhausted", "abilities/sasaki/modifiers/modifier_exhausted", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_windblade_kojiro", "abilities/sasaki/modifiers/modifier_windblade_kojiro", LUA_MODIFIER_MOTION_NONE)
-
+LinkLuaModifier("modifier_windblade_kojiro_damage", "abilities/sasaki/sasaki_windblade", LUA_MODIFIER_MOTION_NONE)
 function sasaki_windblade:GetAOERadius()
 	return self:GetSpecialValueFor("radius")
 end
@@ -113,4 +113,52 @@ function sasaki_windblade:OnSpellStart()
 			break
 		end
 	end]]	
+end
+
+modifier_windblade_kojiro_damage = class({})
+
+  
+function modifier_windblade_kojiro_damage:IsHidden()
+	return false 
+end
+
+function modifier_windblade_kojiro_damage:RemoveOnDeath()
+	return true 
+end
+
+function modifier_windblade_kojiro_damage:IsDebuff()
+	return true 
+end
+
+
+function modifier_windblade_kojiro_damage:OnCreated(args)
+    if not IsServer() then return end
+	self.damage = args.Damage
+    self.slashIndex = ParticleManager:CreateParticle( "particles/saito/saito_inv_sword_explosion.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
+    ParticleManager:SetParticleControl(self.slashIndex, 0, self:GetParent():GetAbsOrigin() + Vector(0,0,100))
+ 
+    Timers:CreateTimer(0.3, function()
+        ParticleManager:DestroyParticle(self.slashIndex, true)
+        ParticleManager:ReleaseParticleIndex(self.slashIndex)
+    end)
+end
+
+
+function modifier_windblade_kojiro_damage:OnDestroy()
+    if not IsServer() then return end
+    DoDamage(self:GetCaster(), self:GetParent(), self.damage, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
+    self.explosion = ParticleManager:CreateParticle( "particles/saito/saito_inv_sword_explosion_real.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
+    ParticleManager:SetParticleControl(self.explosion, 0, self:GetParent():GetAbsOrigin() + Vector(0,0,100))
+    Timers:CreateTimer(0.3, function()
+    ParticleManager:DestroyParticle(self.explosion, true)
+    ParticleManager:ReleaseParticleIndex(self.explosion)
+ 
+    end)
+
+end
+
+
+
+function modifier_windblade_kojiro_damage:GetAttributes()
+	return MODIFIER_ATTRIBUTE_MULTIPLE
 end

@@ -4,18 +4,28 @@ LinkLuaModifier("modifier_arash_stella_stacks", "abilities/arash/arash_stella", 
 LinkLuaModifier("modifier_arash_stella_slow_1", "abilities/arash/arash_stella", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_arash_stella_slow_2", "abilities/arash/arash_stella", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_arash_stella_slow_3", "abilities/arash/arash_stella", LUA_MODIFIER_MOTION_NONE)
-function arash_stella:CastFilterResult()
+ 
+
+function arash_stella:CastFilterResultLocation(hLocation)
     local caster = self:GetCaster()
-    if IsServer() and  caster:FindModifierByName("modifier_arash_star_arrow") then
+    if IsServer() and not IsInSameRealm(caster:GetAbsOrigin(), hLocation) then
         return UF_FAIL_CUSTOM
+    elseif IsServer() and caster:FindModifierByName("modifier_arash_star_arrow") then
+    	return UF_FAIL_CUSTOM
     else
         return UF_SUCESS
     end
 end
 
-function arash_stella:GetCustomCastError()
-	return "Star arrow active"
+function arash_stella:GetCustomCastErrorLocation(hLocation)
+	local caster = self:GetCaster()
+	if caster:FindModifierByName("modifier_arash_star_arrow") then
+		return "#Star arrow active"
+	end
+    return "#Must be in same realm"
 end
+
+ 
 
 function arash_stella:GetIntrinsicModifierName()
 	return  "modifier_arash_stella_stacks"
@@ -38,6 +48,8 @@ function arash_stella:OnSpellStart()
 	ParticleManager:SetParticleControl(arrow_particle, 0,  vSpawnLoc )
 	ParticleManager:SetParticleControl(arrow_particle, 1,  target_point  + Vector(0,0,2000) + caster:GetForwardVector( ) * 500)
 	ParticleManager:SetParticleControl(arrow_particle, 2,  Vector(1500,0,0) )
+	ParticleManager:SetParticleShouldCheckFoW(arrow_particle, false)
+    ParticleManager:SetParticleAlwaysSimulate(arrow_particle)
 	local visiondummy = SpawnVisionDummy(caster, target_point, mid_radius, delay + 1, false)
 	giveUnitDataDrivenModifier(caster,  caster, "stunned", delay)
 	EmitGlobalSound("Arash_stella")
@@ -67,13 +79,13 @@ function arash_stella:OnSpellStart()
 
 
 
-        self.Dummy = CreateUnitByName("dummy_unit", target_point, false, nil, nil, caster:GetTeamNumber())
-		self.Dummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
+ 
 
-        local particle = ParticleManager:CreateParticle("particles/arash/arash_stella_explosion.vpcf", PATTACH_ABSORIGIN, self.Dummy)
+        local particle = ParticleManager:CreateParticle("particles/arash/arash_stella_explosion.vpcf", PATTACH_WORLDORIGIN, nil)
 		ParticleManager:SetParticleControl(particle, 0, target_point) 
-		
-		Timers:CreateTimer(0.2, function()
+		ParticleManager:SetParticleShouldCheckFoW(particle, false)
+		ParticleManager:SetParticleAlwaysSimulate(particle)
+		Timers:CreateTimer(0.3, function()
 			EmitGlobalSound("Arash_stella_drop")
 			local targets = FindUnitsInRadius(caster:GetTeam(), target_point, nil, small_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 			local mid_targets = FindUnitsInRadius(caster:GetTeam(), target_point, nil, mid_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
@@ -104,7 +116,7 @@ function arash_stella:OnSpellStart()
 			ParticleManager:ReleaseParticleIndex(particle)
 			ParticleManager:DestroyParticle(arrow_particle, false)
 			ParticleManager:ReleaseParticleIndex(arrow_particle)
-			self.Dummy:RemoveSelf()
+ 
 
 			return
 		end)

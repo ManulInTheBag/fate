@@ -61,6 +61,8 @@
 						faceMergeAngle = 5.0
 						maxHullVertices = 0
 						import_mode = "SingleHull"
+						small_element_threshold = 0.0
+						thin_element_threshold = 0.0
 						optimization_algorithm = "QEM"
 						import_filter = 
 						{
@@ -1194,6 +1196,49 @@
 						framerate = 60.0
 						reverse = false
 					},
+					{
+						_class = "AnimFile"
+						name = "charge"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								root_bone_name = ""
+								motion_type = "Single"
+							},
+						]
+						activity_name = "ACT_DOTA_CAST_ABILITY_3"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/gawain/death.fbx"
+						import_bone_scales = false
+						start_frame = 0
+						end_frame = 59
+						framerate = 100.0
+						reverse = false
+						anim_hold_list = 
+						[
+							{
+								frame = 59
+								frame_count = 150
+							},
+						]
+					},
 				]
 				default_root_bone_name = ""
 			},
@@ -1201,11 +1246,6 @@
 		model_archetype = ""
 		primary_associated_entity = ""
 		anim_graph_name = ""
-		importer_notes = """
-Imported from VMDL
-==Warnings==
-Changed incompatible animation name 'ground slam' to 'ground_slam'
-
-"""
+		importer_notes = "Imported from VMDL\n==Warnings==\nChanged incompatible animation name 'ground slam' to 'ground_slam'\n"
 	}
 }

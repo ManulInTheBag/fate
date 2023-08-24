@@ -22,9 +22,9 @@ end
 function muramasa_tsumukari_release:OnSpellStart()
 local caster = self:GetCaster()
 caster:EmitSound("muramasa_tsumukari_cast")
-caster:EmitSound("muramasa_tsumukari_release")
+EmitGlobalSound("muramasa_tsumukari_release")
 if caster.SwordTrialAcquired then
-    caster:AddNewModifier(caster,self,"modifier_muramasa_forge", {duration = 3})
+    caster:AddNewModifier(caster,self,"modifier_muramasa_forge", {duration = 3, createdBySA = 1})
 end
 --Timers:RemoveTimer("muramasa_sword_particle")
 --caster:SwapAbilities("muramasa_tsumukari", "muramasa_tsumukari_release", true, false)
@@ -87,6 +87,8 @@ Timers:CreateTimer(1, function()
         point = pull_center + i *start_vec * 120
         local explosionFx = ParticleManager:CreateParticle("particles/muramasa/muramasa_tsumukari_fire.vpcf", PATTACH_CUSTOMORIGIN, nil)
         ParticleManager:SetParticleControl(explosionFx, 0, point)
+        ParticleManager:SetParticleShouldCheckFoW(explosionFx, false)
+		ParticleManager:SetParticleAlwaysSimulate(explosionFx)
         Timers:CreateTimer(2, function() 
             ParticleManager:DestroyParticle(explosionFx, true)
             ParticleManager:ReleaseParticleIndex(explosionFx)

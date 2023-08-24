@@ -3529,7 +3529,7 @@
 		//"DOTA_Tooltip_Ability_sasaki_heart_of_harmony_Note2"		"For 0.5 seconds after counterattack, Assassin cleanses any negative effects on himself and benefits from damage reduction."
 
 		"DOTA_Tooltip_Ability_sasaki_windblade"						"Windblade"
-		"DOTA_Tooltip_ability_sasaki_windblade_Description"			"Kojiro swirls his blade to create slicing wind around him, pushing all enemies away from him, and then proceed to attack each of them, dealing magical damage."
+		"DOTA_Tooltip_ability_sasaki_windblade_Description"			"Kojiro swirls his blade to create slicing wind around him, pushing all enemies away from him, and then proceed to attack each of them, dealing magical damage and stunning.\n0.5 seconds after the slash, he deals same damage to enemies hit."
 		//\n\n<font color='#79C7F0'>Focus</font>:Increase the number of slashes (does not increase maximum number of slashes) and causes them to stun the enemy on each attack. Kojiro becomes invulnerable and disjoints all projectile while slashing.\n\nKojiro is <font color='#FF5555'>Exhausted</font> when this ability is used.
 		"DOTA_Tooltip_ability_sasaki_windblade_Lore"				"A swing from the wanderer's blade brings forward a squall."
 		"DOTA_Tooltip_ability_sasaki_windblade_radius"				"Radius:"
@@ -3537,7 +3537,7 @@
 		//"DOTA_Tooltip_ability_sasaki_windblade_empowered_slashes"	"Focus Bonus Slashes:"
 		//"DOTA_Tooltip_ability_sasaki_windblade_stun_duration"		"Focus Stun Duration:"
 		//"DOTA_Tooltip_ability_sasaki_windblade_exhausted_duration"	"Exhausted Duration:"
-		"DOTA_Tooltip_ability_sasaki_windblade_base_damage"			"Base damage per slash:"
+		"DOTA_Tooltip_ability_sasaki_windblade_base_damage"			"Full damage:"
 
 		"DOTA_Tooltip_Ability_sasaki_tsubame_gaeshi"				"Tsubame Gaeshi"
 		"DOTA_Tooltip_ability_sasaki_tsubame_gaeshi_Description"	"Kojiro performs his ultimate technique, delivering 3 consecutive undefendable and undodgable slashes. Dispells Intervention if target presses it."
@@ -5568,11 +5568,12 @@
         "DOTA_Tooltip_ability_gawain_blade_of_the_devoted_duration"			"Duration:"
 
         "DOTA_Tooltip_ability_gawain_sun_of_galatine"					"Sun of Galatine"
-        "DOTA_Tooltip_ability_gawain_sun_of_galatine_Description"		"Gawain channels the power of the sun to create a massive explosion, dealing damage to all nearby enemies and stuns them.\nCreates an Artificial Sun above Gawain when used."
+        "DOTA_Tooltip_ability_gawain_sun_of_galatine_Description"		"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>0.1</font>|    <font color='#FFFAFA'>Channel time:</font> <font color='#7FFF00'>0.7</font>.\nWhen channeling, all enemies in radius take <font color='#58ACFA'>damage</font> and receive <font color='#9400D3'>slow</font> effect\nAfter channel end, Gawain explodes, dealing <font color='#58ACFA'>damage</font> and <font color='#FF3399'>stunning</font> enemies in radius\nStun time and damage depends on channel time.\nCreates an Artificial Sun above Gawain after explosion."
         "DOTA_Tooltip_ability_gawain_sun_of_galatine_Lore"				""
-        "DOTA_Tooltip_ability_gawain_sun_of_galatine_damage"			"Damage:"
+        "DOTA_Tooltip_ability_gawain_sun_of_galatine_damage"			"Total damage:"
         "DOTA_Tooltip_ability_gawain_sun_of_galatine_area_of_effect"	"Area of Effect:"
         "DOTA_Tooltip_ability_gawain_sun_of_galatine_stun_duration"		"Stun duration:"
+        "DOTA_Tooltip_ability_gawain_sun_of_galatine_slow"				"%Slow:"
 
         "DOTA_Tooltip_ability_gawain_excalibur_galatine"				"Excalibur Galatine"
         "DOTA_Tooltip_ability_gawain_excalibur_galatine_Description"	"Gawain gathers the power of the sun on his blade and launches it as an orb of energy. While the orb travels, it leaves behind a trail of fire, dealing damage every second on enemies standing on it. When the orb detonates, it deals massive amount of magical damage and creates an Artificial Sun.\nGawain may detonate ball at his will during its flight by activating this ability again."
@@ -8355,7 +8356,7 @@
 
         "DOTA_Tooltip_ability_muramasa_sword_creation"					"Sword creation"
         "DOTA_Tooltip_ability_muramasa_sword_creation_Description"		"Passive: attacks of Muramasa deal additional magic damage in small radius on hit. This damage is increased based on Muramasa level. Muramasa cannot increase his attackspeed with default options. Using berserk scroll increases his damage instead of giving him AS boost.\nMuramasa's sword has a durability of 10 attacks. When durability reaches 0, he doesnt receive bonus damage and sword will be recreated in 10 seconds.\nWhen Muramasa stays in Forge, his sword quickly receives durability up to cap of 10."
-        "DOTA_Tooltip_ability_muramasa_sword_creation_max_stacks"				"Maximum swords:"
+        //"DOTA_Tooltip_ability_muramasa_sword_creation_max_stacks"				"Maximum swords:"
         "DOTA_Tooltip_ability_muramasa_sword_creation_attack_aoe_radius"		"Attack aoe:"
         "DOTA_Tooltip_ability_muramasa_sword_creation_base_dmg"					"Base magic damage:"
         "DOTA_Tooltip_ability_muramasa_sword_creation_damage_per_level"				"Damage per level:"

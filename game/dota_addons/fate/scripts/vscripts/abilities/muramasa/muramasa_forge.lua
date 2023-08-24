@@ -92,7 +92,7 @@ end
 
 modifier_muramasa_forge = class({})
 
-function modifier_muramasa_forge:OnCreated( )
+function modifier_muramasa_forge:OnCreated(args)
 
     self.parent = self:GetParent()
     self.caster = self:GetCaster()
@@ -100,6 +100,11 @@ function modifier_muramasa_forge:OnCreated( )
     if self.caster == self.parent then
         self.soundCounter = 8
     end
+    self.createdBySA = 0
+    if args.createdBySA == 1 then
+        self.createdBySA = 1
+    end
+
     self:StartIntervalThink(0.25)
     self.forge = self.ability.modifier
     self.damage = self.ability:GetSpecialValueFor("damage")
@@ -116,6 +121,7 @@ function modifier_muramasa_forge:OnCreated( )
 end
   
 function modifier_muramasa_forge:OnIntervalThink( )
+    if not IsServer() then return end
 	if self.parent:GetTeamNumber() ~=  self.caster:GetTeamNumber() then
         if ( (self.parent:GetAbsOrigin() - self.ability.forge_position):Length2D() > 900 ) then
             DoDamage(self.caster, self.parent, self.damage_ring, self.ability:GetAbilityDamageType(), 0, self.ability, false)
@@ -124,10 +130,10 @@ function modifier_muramasa_forge:OnIntervalThink( )
             DoDamage(self.caster, self.parent, self.damage, self.ability:GetAbilityDamageType(), 0, self.ability, false)
         end
     end
-    if self.parent:HasModifier("modifier_muramasa_no_sword") then 
+    if self.parent:HasModifier("modifier_muramasa_no_sword") and self.createdBySA ~= 1 then 
         self.parent:RemoveModifierByName("modifier_muramasa_no_sword")
     end
-    if self.parent:HasModifier("modifier_muramasa_sword_creation") then 
+    if self.parent:HasModifier("modifier_muramasa_sword_creation") and self.createdBySA ~= 1  then 
         if self.soundCounter == 10 then 
             self.parent:EmitSound("muramasa_forge")
             self.soundCounter = 0

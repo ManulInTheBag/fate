@@ -172,7 +172,7 @@ end]]
 function modifier_lagron_combo_ally:OnTakeDamage(args)
     if IsServer() then
         if args.unit ~= self:GetParent() then return end
-
+		if args.attacker == self:GetParent() then return end
         hTarget = self:GetParent()
         previousHealth = self.hp
         local return_percentage = (self.ability:GetSpecialValueFor("return_percentage") + (self:GetCaster().AvengerAcquired and 10 or 0))/100

@@ -599,6 +599,7 @@ CannotReset = {
     "nanaya_kekshi",
     "arash_toughness",
     "arash_max_stella",
+    "muramasa_forge",
 }
 
 femaleservant = {
