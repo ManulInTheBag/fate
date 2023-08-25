@@ -199,18 +199,9 @@ end
 
 function modifier_jeanne_trail:OnIntervalThink()
     if IsServer() then
-        local enemies = FindUnitsInLine(
-                                            self.caster:GetTeamNumber(),
-                                            self.origin,
-                                            self.origin + self.vector*self.range,
-                                            nil,
-                                            self.width,
-                                            self.ability:GetAbilityTargetTeam(),
-                                            self.ability:GetAbilityTargetType(),
-                                            self.ability:GetAbilityTargetFlags()
-                                        )
+        local enemies2 = FATE_FindUnitsInLine(self.caster:GetTeamNumber(), self.origin, self.origin + self.vector*self.range, self.width, self.ability:GetAbilityTargetTeam(), self.ability:GetAbilityTargetType(), self.ability:GetAbilityTargetFlags(), FIND_ANY_ORDER)
 
-        for _, enemy in pairs(enemies) do
+        for _, enemy in pairs(enemies2) do
             DoDamage(self.caster, enemy, self.ability:GetSpecialValueFor("burn_damage")/4, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
             if self.caster.CursedGroundAcquired then
                 if enemy:HasModifier("modifier_jeanne_curse_active") then
@@ -237,18 +228,10 @@ end
 function modifier_jeanne_trail:Explode()
     if IsServer() then
         EmitSoundOnLocationWithCaster(self.parent:GetAbsOrigin(), "Gilles_Cthulhu_Root", self.caster)
-        local enemies = FindUnitsInLine(
-                                            self.caster:GetTeamNumber(),
-                                            self.origin,
-                                            self.origin + self.vector*self.range,
-                                            nil,
-                                            self.width,
-                                            self.ability:GetAbilityTargetTeam(),
-                                            self.ability:GetAbilityTargetType(),
-                                            self.ability:GetAbilityTargetFlags()
-                                        )
+        
+        local enemies2 = FATE_FindUnitsInLine(self.caster:GetTeamNumber(), self.origin, self.origin + self.vector*self.range, self.width, self.ability:GetAbilityTargetTeam(), self.ability:GetAbilityTargetType(), self.ability:GetAbilityTargetFlags(), FIND_ANY_ORDER)
 
-        for _, enemy in pairs(enemies) do
+        for _, enemy in pairs(enemies2) do
             DoDamage(self.caster, enemy, self.ability:GetSpecialValueFor("initial_damage"), DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
             EmitSoundOnLocationWithCaster(enemy:GetAbsOrigin(), "Gilles_Cthulhu_Root", self.caster)
             enemy:AddNewModifier(self.caster, self, "modifier_jeanne_trail_debuff", {Duration = self.ability:GetSpecialValueFor("stun_duration")})
@@ -270,18 +253,10 @@ function modifier_jeanne_trail:ReExplode()
 
         Timers:CreateTimer(self.delay, function()
             EmitSoundOnLocationWithCaster(self.origin, "Gilles_Cthulhu_Root", self.caster)
-            local enemies = FindUnitsInLine(
-                                                self.caster:GetTeamNumber(),
-                                                self.origin,
-                                                self.origin + self.vector*self.range,
-                                                nil,
-                                                self.width,
-                                                self.ability:GetAbilityTargetTeam(),
-                                                self.ability:GetAbilityTargetType(),
-                                                self.ability:GetAbilityTargetFlags()
-                                            )
 
-            for _, enemy in pairs(enemies) do
+            local enemies2 = FATE_FindUnitsInLine(self.caster:GetTeamNumber(), self.origin, self.origin + self.vector*self.range, self.width, self.ability:GetAbilityTargetTeam(), self.ability:GetAbilityTargetType(), self.ability:GetAbilityTargetFlags(), FIND_ANY_ORDER)
+
+            for _, enemy in pairs(enemies2) do
                 DoDamage(self.caster, enemy, self.ability:GetSpecialValueFor("initial_damage"), DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
                 EmitSoundOnLocationWithCaster(enemy:GetAbsOrigin(), "Gilles_Cthulhu_Root", self.caster)
                 enemy:AddNewModifier(self.caster, enemy, "modifier_jeanne_trail_debuff", {Duration = self.ability:GetSpecialValueFor("stun_duration")})

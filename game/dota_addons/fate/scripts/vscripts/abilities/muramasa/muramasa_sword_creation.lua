@@ -82,10 +82,10 @@ if(caster:HasModifier("modifier_muramasa_dance_controller")) then -- check for Q
 end
 
 if caster.AppreciationOfSwordsAcquired then
-    local cd= self.parent:FindAbilityByName("muramasa_forge"):GetCooldownTimeRemaining()
-    self.parent:FindAbilityByName("muramasa_forge"):EndCooldown()
+    local cd= caster:FindAbilityByName("muramasa_forge"):GetCooldownTimeRemaining()
+    caster:FindAbilityByName("muramasa_forge"):EndCooldown()
     if cd > 1 then 
-        self.parent:FindAbilityByName("muramasa_forge"):StartCooldown(cd - 1)
+        caster:FindAbilityByName("muramasa_forge"):StartCooldown(cd - 1)
     end
 end
 local stackCount = self:GetStackCount()

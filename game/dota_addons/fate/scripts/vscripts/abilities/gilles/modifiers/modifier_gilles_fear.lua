@@ -14,7 +14,7 @@ end
 
 function modifier_gilles_fear:GetModifierIncomingDamage_Percentage(keys)
 		if keys.attacker == self:GetCaster() then
-			return self:GetStackCount()*10
+			return self:GetStackCount()*2.5
 		else
 			return 0
 		end

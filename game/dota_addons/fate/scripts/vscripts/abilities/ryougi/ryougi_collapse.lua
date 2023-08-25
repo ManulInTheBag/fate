@@ -87,15 +87,15 @@ function ryougi_collapse:OnSpellStart()
 	   	end
     end]]
 
-    local enemies = FindUnitsInLine(
+    local enemies = FATE_FindUnitsInLine(
 								        caster:GetTeamNumber(),
 								        origin,
 								        target,
-								        nil,
 								        width,
 										DOTA_UNIT_TARGET_TEAM_ENEMY,
 										DOTA_UNIT_TARGET_HERO,
-										DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES
+										DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+										FIND_CLOSEST
     								)
 
     EmitSoundOn("jtr_slash", caster)

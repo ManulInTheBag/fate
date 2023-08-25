@@ -1,5 +1,6 @@
 LinkLuaModifier("modifier_nanaya_knife_recast", "abilities/nanaya/nanaya_new/nanaya_knife", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_nanaya_combo", "abilities/nanaya/nanaya_new/nanaya_knife", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_nanaya_combo_enemy", "abilities/nanaya/nanaya_new/nanaya_knife", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_nanaya_combo_active", "abilities/nanaya/nanaya_new/nanaya_knife", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_nanaya_combo_window", "abilities/nanaya/nanaya_new/nanaya_knife", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_nanaya_kekshi_cd", "abilities/nanaya/nanaya_new/nanaya_knife", LUA_MODIFIER_MOTION_NONE)
@@ -200,7 +201,7 @@ function nanaya_kekshi:ExecuteCombo(caster, target)
 	EmitGlobalSound("nanaya.combo_execute")
 
 	caster:Stop()
-	target:AddNewModifier(caster, caster, "modifier_nanaya_combo", {Duration = 2})
+	target:AddNewModifier(caster, caster, "modifier_nanaya_combo_enemy", {Duration = 2})
 	caster:AddNewModifier(caster, caster, "modifier_nanaya_combo", {Duration = 2})
 	target:Stop()
 
@@ -302,6 +303,20 @@ function modifier_nanaya_combo:CheckState()
 		[MODIFIER_STATE_NO_HEALTH_BAR] = true,
 		[MODIFIER_STATE_STUNNED] = true,
 		[MODIFIER_STATE_INVULNERABLE] = true,
+	}
+	return funcs
+end
+
+modifier_nanaya_combo_enemy = class({})
+
+function modifier_nanaya_combo_enemy:IsHidden() return true end
+
+function modifier_nanaya_combo_enemy:CheckState()
+	local funcs = {
+		--[MODIFIER_STATE_COMMAND_RESTRICTED] = true, 
+		--[MODIFIER_STATE_NO_HEALTH_BAR] = true,
+		[MODIFIER_STATE_STUNNED] = true,
+		--[MODIFIER_STATE_INVULNERABLE] = true,
 	}
 	return funcs
 end

@@ -331,6 +331,10 @@ cleansable = {
     "modifier_saito_shadowslash_mrr",
     "modifier_saito_fds_active_sdr",
     "modifier_saito_blast_turn_and_slow",
+    "modifier_pepeg_jump",
+    "modifier_gilles_misery",
+    "modifier_gilles_jellyfish_curse",
+    "modifier_gilles_jellyfish_slow",
 }
 
 slowmodifier = {
@@ -756,6 +760,76 @@ function CalculateAngle(u, v)
     local dotproduct = u.x * v.x + u.y * v.y
     local cosangle = dotproduct/(u:Length2D()*v:Length2D()) 
     return math.acos(cosangle)
+end
+
+function FATE_FindUnitsInLine(team, startpoint, endpoint, width, target_team, target_type, target_flags, search_order)
+    local targets = FindUnitsInRadius(team, Vector(0,0,0), nil, -1, target_team, target_type, target_flags, FIND_ANY_ORDER, false)
+
+    local found = {}
+    local sortfound = {}
+
+    for k, v in pairs(targets) do
+        local point = v:GetAbsOrigin()
+
+        local res = distance_Point_to_Segment_IsInside(point[1], point[2], startpoint[1], startpoint[2], endpoint[1], endpoint[2])
+        if res[3] and (res[1]<=width) then
+            sortfound[res[2]] = v
+            table.insert(found, v) --FIND_ANY_ORDER (default)
+        end
+    end
+
+    local sortkeys = {}
+
+    if search_order == 1 then --FIND_CLOSEST
+        for k in pairs(sortfound) do
+            table.insert(sortkeys, k)
+        end
+        table.sort(sortkeys, function(a, b) return (a < b) end)
+        found = {}
+        for _, k in ipairs(sortkeys) do
+            table.insert(found, sortfound[k])
+        end
+    end
+
+    if search_order == 2 then --FIND_FARTHEST
+        for k in pairs(sortfound) do
+            table.insert(sortkeys, k)
+        end
+        table.sort(sortkeys, function(a, b) return (a > b) end)
+        found = {}
+        for _, k in ipairs(sortkeys) do
+            table.insert(found, sortfound[k])
+        end
+    end
+
+    return found
+end
+
+function scalar_product(x1,y1,x2,y2)
+    return x1*x2 + y1*y2
+end
+function norm(x,y)
+    return math.sqrt(scalar_product(x,y,x,y))
+end
+function d(x1,y1,x2,y2)
+    return norm(x1-x2,y1-y2)
+end
+
+function distance_Point_to_Segment_IsInside(x,y,x1,y1,x2,y2)
+    local c1 = scalar_product(x-x1,y-y1,x2-x1,y2-y1);
+    if ( c1 <= 0 ) then
+        return {d(x,y,x1,y1), 0, false};
+    end
+    local c2 = scalar_product(x2-x1,y2-y1,x2-x1,y2-y1);
+    if ( c2 <= c1 ) then
+        return {d(x,y,x2,y2), 0, false};
+    end
+    local b = c1 / c2;
+    
+    local x0 = x1 + b*(x2-x1)
+    local y0 = y1 + b*(y2-y1)
+    
+    return {d(x,y,x0,y0), b, true};
 end
 
 LinkLuaModifier("modifier_chloe_hrunting_possibility_provider", "abilities/kuro/modifiers/modifier_chloe_hrunting_possibility_provider", LUA_MODIFIER_MOTION_NONE)
