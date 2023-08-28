@@ -61,7 +61,7 @@ if IsServer() then
 				self.RemainingHits = self.RemainingHits - 1
 
 				--if caster:HasModifier("modifier_sasaki_kappa") then
-				target_search[i]:AddNewModifier(caster, self:GetAbility(), "modifier_stunned", { Duration = self.StunDuration })
+				--target_search[i]:AddNewModifier(caster, self:GetAbility(), "modifier_stunned", { Duration = self.StunDuration })
 				--end
 
 				CreateSlashFx(caster, current_location, target_search[i]:GetAbsOrigin() + RandomVector(200))

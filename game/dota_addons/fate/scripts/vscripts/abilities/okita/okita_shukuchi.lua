@@ -1,6 +1,8 @@
 LinkLuaModifier("modifier_shukuchi_as", "abilities/okita/modifiers/modifier_shukuchi_as", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_shukuchi_crit", "abilities/okita/modifiers/modifier_shukuchi_as", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_okita_window", "abilities/okita/okita_shukuchi", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_tennen_stacks", "abilities/okita/modifiers/modifier_tennen_stacks", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_tennen_active", "abilities/okita/modifiers/modifier_tennen_active", LUA_MODIFIER_MOTION_NONE)
 
 okita_shukuchi = class({})
 
@@ -28,6 +30,14 @@ function okita_shukuchi:GetCustomCastErrorLocation(vLocation)
     return "#Wrong_Target_Location"
 end
 
+function okita_shukuchi:GetIntrinsicModifierName()
+	return "modifier_tennen_stacks"
+end
+
+function okita_shukuchi:GetAOERadius()
+	return self:GetSpecialValueFor("base_dist")
+end
+
 function okita_shukuchi:OnSpellStart()
 	if IsServer() then
 		local caster = self:GetCaster()
@@ -35,7 +45,7 @@ function okita_shukuchi:OnSpellStart()
 		local modifier = caster:FindModifierByName("modifier_tennen_stacks")
 		local slashes = self:GetSpecialValueFor("base_slashes")
 		local stacks = modifier and modifier:GetStackCount() or 0
-		local dist = self:GetSpecialValueFor("base_dist") + stacks*self:GetSpecialValueFor("stack_dist")
+		local dist = self:GetSpecialValueFor("base_dist") + (caster.IsReducedEarthAcquired and stacks*self:GetSpecialValueFor("stack_dist") or 0)
 
 		if (target - caster:GetAbsOrigin()):Length2D() > dist then
 			target = caster:GetAbsOrigin() + (((target - caster:GetAbsOrigin()):Normalized()) * dist)
@@ -53,25 +63,14 @@ function okita_shukuchi:OnSpellStart()
 		local particle2 = ParticleManager:CreateParticle("particles/okita/okita_shukuchi.vpcf", PATTACH_ABSORIGIN, caster)
 		ParticleManager:SetParticleControl(particle2, 0, caster:GetAbsOrigin())
 
-		caster:AddNewModifier(caster, self, "modifier_shukuchi_as", {duration = self:GetSpecialValueFor("as_duration") + (caster.IsCoatOfOathsAcquired and 1 or 0)})
-		if caster.IsTennenAcquired and caster:HasModifier("modifier_tennen_active") then
-			caster:AddNewModifier(caster, self, "modifier_shukuchi_crit", {duration = self:GetSpecialValueFor("as_duration") + (caster.IsCoatOfOathsAcquired and 1 or 0)})
+		caster:AddNewModifier(caster, self, "modifier_shukuchi_as", {duration = self:GetSpecialValueFor("duration") + (caster.IsCoatOfOathsAcquired and 1 or 0)})
+		caster:AddNewModifier(caster, self, "modifier_tennen_active", {duration = self:GetSpecialValueFor("duration")})
+		if caster.IsTennenAcquired then
+			caster:AddNewModifier(caster, self, "modifier_shukuchi_crit", {duration = self:GetSpecialValueFor("duration") + (caster.IsCoatOfOathsAcquired and 1 or 0)})
 		end
 
 		--print(caster:GetAbsOrigin())
 		--print(GetGroundPosition(caster:GetAbsOrigin(), caster))
-		
-		if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 and caster:GetIntellect() >= 29.1 and caster:HasModifier("modifier_tennen_active") then
-			if (caster:GetAbilityByIndex(5):GetName()=="okita_sandanzuki") and caster:FindAbilityByName("okita_sandanzuki"):IsCooldownReady() and caster:FindAbilityByName("okita_zekken"):IsCooldownReady() then
-				if not caster:HasModifier("modifier_okita_window") then
-					caster:SwapAbilities("okita_zekken", "okita_sandanzuki", true, false)
-					caster:AddNewModifier(caster, self, "modifier_okita_window", {duration = 4})
-					Timers:CreateTimer(4, function()
-						caster:SwapAbilities("okita_zekken", "okita_sandanzuki", false, true)
-					end)
-				end
-			end
-		end
 	end
 end
 

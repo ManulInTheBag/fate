@@ -3364,28 +3364,28 @@
 		"npc_dota_hero_dark_willow_bio"		""
 
 		"DOTA_Tooltip_Ability_okita_shukuchi"		"Shukuchi"
-		"DOTA_Tooltip_ability_okita_shukuchi_Description"		"Okita uses her knowlegdge of blind spots, body movement, breathing and other phenomena to do a fast step to a target location. Gains bonus attackspeed and disjoints all projectiles as well. Does not need any time to cast."
+		"DOTA_Tooltip_ability_okita_shukuchi_Description"		"<font color='#FFFAFA'>Passive</font> | <font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>immediate</font>\n<font color='#FFFAFA'>Passive</font>: Okita becomes stronger and stronger by fighting her enemies. When Saber <font color='#FFFAFA'>attacks</font>, she gets <font color='#FFFAFA'>1</font> stack, that provides <font color='#00FF00'>agility</font>, up to %max_stacks% stacks. Each stack has it's own duration - <font color='#FFFAFA'>10</font> seconds.\n<font color='#FFFAFA'>Active</font>: Okita uses her knowlegdge of blind spots, body movement, breathing and other phenomena to <font color='#FFFAFA'>blink</font> to the target location. Grants bonus attackspeed and damage and <font color='#FFFAFA'>disjoints</font> projectiles as well."
 		"DOTA_Tooltip_ability_okita_shukuchi_base_dist"		"Step distance:"
-		"DOTA_Tooltip_ability_okita_shukuchi_stack_dist"	"Distance per Tennen Rishin-ryū stack:"
+		"DOTA_Tooltip_ability_okita_shukuchi_stack_dist"	"<font color='#ff9900'>Attribute</font> range per stack:"
 		"DOTA_Tooltip_ability_okita_shukuchi_as_bonus"	"Bonus attackspeed:"
 		"DOTA_Tooltip_ability_okita_shukuchi_critical"	"%Attribute critical strike:"
-		"DOTA_Tooltip_ability_okita_shukuchi_as_duration"	"Duration:"
+		"DOTA_Tooltip_Ability_okita_shukuchi_bonus_agi"	"<font color='#00FF00'>Agility</font> per stack:"
+		"DOTA_Tooltip_Ability_okita_shukuchi_dmg_bonus"	"Active damage bonus:"
+		"DOTA_Tooltip_ability_okita_shukuchi_duration"	"Duration:"
 		"DOTA_Tooltip_ability_okita_shukuchi_Lore"	"It is something more than a simple quickness..."
 
-		"DOTA_Tooltip_Ability_okita_tennen"		"Tennen Rishin-ryū"
-		"DOTA_Tooltip_ability_okita_tennen_Description"	"Okita becomes stronger and stronger by fighting her enemies. When Saber attacks, she gets 1 stack, that provides agility, up to 10 stacks. Each stack has it's own duration - 10 seconds. When ability is activated, Okita gains massive bonus damage."
-		"DOTA_Tooltip_Ability_okita_tennen_bonus_agi"	"Agility per stack:"
-		"DOTA_Tooltip_Ability_okita_tennen_dmg_bonus"	"Active damage bonus:"
-		"DOTA_Tooltip_Ability_okita_tennen_duration"	"Active duration:"
-		"DOTA_Tooltip_Ability_okita_tennen_Lore"	"Tennen Rishin-ryū is commonly known as the style practiced by several core members of the Shinsengumi."
+		"DOTA_Tooltip_Ability_okita_tennen"				"Zettō Senjutsu"
+		"DOTA_Tooltip_ability_okita_tennen_Description"	"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>%cast_point%</font>\nOkita <font color='#FFFAFA'>blinks</font> behind the target enemy, dealing <font color='#58ACFA'>magical</font> damage to it and enemies on the way.\nIf she hits a <font color='#FF3399'>stunned</font> target, she will perform two slashes on it, dealing additional <font color='#58ACFA'>magical</font> damage."
+		"DOTA_Tooltip_Ability_okita_tennen_range"		"Range:"
+		"DOTA_Tooltip_Ability_okita_tennen_damage"		"Damage:"
+		"DOTA_Tooltip_Ability_okita_tennen_stun_damage"	"Slash damage:"
+		"DOTA_Tooltip_Ability_okita_tennen_Lore"		"Absolute Blade Xianshu."
 
-		"DOTA_Tooltip_Ability_okita_jce"		"Hira-Seigan"
-		"DOTA_Tooltip_Ability_okita_jce_Description"	"Okita makes a step outside of our dimension, using Reduced Ground technique, becoming immune to all harms for a moment and attacking all enemies in radius a few times. After a brief delay, she will slice the space-time itself, dealing magical damage to everyone in the area."
-		"DOTA_Tooltip_Ability_okita_jce_base_damage"	"Final damage:"
+		"DOTA_Tooltip_Ability_okita_jce"				"Hira-Seigan"
+		"DOTA_Tooltip_Ability_okita_jce_Description"	"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>%cast_point%</font> | <font color='#FFFAFA'>Channel duration:</font> <font color='#7FFF00'>%channel_duration%</font>\nOkita starts slashing everything around the target point, dealing <font color='#58ACFA'>magical</font> damage to all enemies in the area.\nWhen channel finishes, she will deal <font color='#58ACFA'>magical</font> damage based on how long did she channel the ability."
+		"DOTA_Tooltip_Ability_okita_jce_base_damage"	"Maximum final strike damage:"
 		"DOTA_Tooltip_Ability_okita_jce_hit_damage"	"Damage per hit:"
 		"DOTA_Tooltip_Ability_okita_jce_hit_count"	"Hit count:"
-		"DOTA_Tooltip_Ability_okita_jce_attack_damage"	"%Attack damage:"
-		"DOTA_Tooltip_Ability_okita_jce_multiplier"	"Max multiplier:"
 		"DOTA_Tooltip_Ability_okita_jce_radius"	"Radius:"
 		"DOTA_Tooltip_Ability_okita_jce_duration"	"Duration:"
 		"DOTA_Tooltip_Ability_okita_jce_Lore"	"Slay all."
@@ -3400,7 +3400,7 @@
 		"DOTA_Tooltip_Ability_okita_seigan_Lore" "It's over."
 
 		"DOTA_Tooltip_Ability_okita_sandanzuki"		"Mumyou Sandan-Zuki"
-		"DOTA_Tooltip_Ability_okita_sandanzuki_Description"	"Okita prepares her ultimative technique - Lightless, Three-Stage Thrust. Performing it includes 3 steps, the final step is combined with slash. Okita has 6 seconds to complete it. After completing them, the one and only target will suffer huge damage dealt 3 times as pure after a delay."
+		"DOTA_Tooltip_Ability_okita_sandanzuki_Description"	"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>%cast_point%</font>, <font color='#7FFF00'>%cast_point_steps%</font>, <font color='#7FFF00'>%cast_point_steps%</font>, <font color='#7FFF00'>%cast_point_steps%</font>\nOkita prepares her ultimative technique - Lightless, Three-Stage Thrust. Performing it includes 3 steps, the final step is combined with slash.\nOkita has %window_duration% seconds to complete it.\nAfter completing them, the one and only target will suffer huge <font color='#D1A951'>pure</font> damage dealt 3 times after a delay."
 		"DOTA_Tooltip_Ability_okita_sandanzuki_distance"	"Step distance:"
 		"DOTA_Tooltip_Ability_okita_sandanzuki_base_damage"	"Impact damage:"
 		"DOTA_Tooltip_Ability_okita_sandanzuki_delay_duration"	"Delay duration:"
@@ -3427,8 +3427,7 @@
 		"DOTA_Tooltip_Ability_okita_sandanzuki_release_distance"	"Step distance:"
 
 		"DOTA_Tooltip_Ability_okita_weak_constitution"	"Weak Constitution"
-		"DOTA_Tooltip_Ability_okita_weak_constitution_Description"	"Because of her illness, Okita was summoned with this debuff. Increases incoming damage."
-		"DOTA_Tooltip_Ability_okita_weak_constitution_hp_loss_percent"	"%Additional incoming damage:"
+		"DOTA_Tooltip_Ability_okita_weak_constitution_Description"	"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>immediate</font>\nOkita coughs."
 		"DOTA_Tooltip_Ability_okita_weak_constitution_Lore"	"A weakness struck by the nature of frail health."
 
 		"DOTA_Tooltip_Ability_okita_weak_constitution_summer"	"Weak Constitution"
@@ -3459,8 +3458,8 @@
 		"DOTA_Tooltip_Ability_okita_jet_release_speed"		"Dash speed:"
 		"DOTA_Tooltip_Ability_okita_jet_release_distance"	"Dash distance:"
 
-		"DOTA_Tooltip_Ability_okita_zekken"	"Zekken Mukyuu Sandan"
-		"DOTA_Tooltip_Ability_okita_zekken_Description"	"<font color='#58ACFA'>Combo Requirement : 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence : W-Q-R in 4 seconds</font>\nOkita goes berserk, using her most powerful but kinda devilish technique - Zekken Mukyuu Sandan. Attacks all enemies around the selected target's location (including target itself), afterwards fires a dark energy beam at the target, that completely destroys her enemies and deals massive magic damage.\nFollows the target for the first second, then stops at the location it was at that moment."
+		"DOTA_Tooltip_Ability_okita_zekken"				"Combo: Incomplete Zekken Mukyuu Sandan"
+		"DOTA_Tooltip_Ability_okita_zekken_Description"	"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>%cast_point%</font>\n<font color='#58ACFA'>Combo Requirement : 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence : D-R in 4 seconds</font>\nOkita dashes forward until she collides with a hero.\nIf she did not miss, starts attacking all enemies around the collide location, dealing <font color='#A72E28'>physical</font> damage."
 		"DOTA_Tooltip_Ability_okita_zekken_duration"	"Attack phase duration:"
 		"DOTA_Tooltip_Ability_okita_zekken_interval"	"Attack interval:"
 		"DOTA_Tooltip_Ability_okita_zekken_damage"	"Damage per attack:"
@@ -3475,14 +3474,21 @@
 		"DOTA_Tooltip_Ability_okita_mind_eye_evasion"	"Active evasion rate:"
 		"DOTA_Tooltip_Ability_okita_mind_eye_duration"	"Active duration:"
 
-		"DOTA_Tooltip_Ability_okita_attribute_coat_of_oaths"	"Reduced Wind"
-		"DOTA_Tooltip_Ability_okita_attribute_coat_of_oaths_Description" "Technique, similar to Shukuchi, allows her to use even the slightest flows of wind to her advantage. While Tennen Rishin-ryū is active, Okita may attack her target even while moving and evades all evadable projectiles.\nIncreases duration of Shukuchi buffs by 1 second."
+		"DOTA_Tooltip_Ability_okita_attribute_reduced_wind"				"Attribute: Reduced Wind"
+		"DOTA_Tooltip_Ability_okita_attribute_reduced_wind_Description" "While Hira-Seigan is active, evades all evadable projectiles."
+
+		"DOTA_Tooltip_Ability_okita_attribute_reduced_earth"			"Attribute: Reduced Earth"
+		"DOTA_Tooltip_Ability_okita_attribute_reduced_earth_Description" "Zettō Senjutsu performs two more slashes on stunned targets.\nShukuchi gains additional range per stack."
 		
-		"DOTA_Tooltip_Ability_okita_attribute_mind_eye"	"Mind's Eye (False)"
-		"DOTA_Tooltip_Ability_okita_attribute_mind_eye_Description"	"Due to her past and her instinct Okita can predict some attacks and block 1 targetted spell for a short duration."
+		"DOTA_Tooltip_Ability_okita_attribute_mind_eye"					"Attribute: Mind's Eye (False)"
+		"DOTA_Tooltip_Ability_okita_attribute_mind_eye_Description"		"Okita can predict some attacks and block 1 targetted spell for a short duration."
+		"DOTA_Tooltip_Ability_okita_attribute_mind_eye_evasion"					"Active evasion rate:"
+		"DOTA_Tooltip_Ability_okita_attribute_mind_eye_duration"					"Active duration:"
 		
-		"DOTA_Tooltip_Ability_okita_attribute_kiku_ichimonji"	"Kiku-Ichimonjii"
-		"DOTA_Tooltip_Ability_okita_attribute_kiku_ichimonji_Description"	"Grants Okita bonus damage for Lightless, Three-Stage Thrust and Jet Sandan-Zuki (0.75 additional impact damage per agi point) and for Zekken (6 bonus beam damage per agi)."
+		"DOTA_Tooltip_Ability_okita_attribute_kiku_ichimonji"			"Attribute: Kiku-Ichimonjii"
+		"DOTA_Tooltip_Ability_okita_attribute_kiku_ichimonji_Description"	"Grants Okita bonus damage for Lightless, Three-Stage Thrust and for Zekken based on her <font color='#00FF00'>agility</font>."
+		"DOTA_Tooltip_Ability_okita_attribute_kiku_ichimonji_sandanzuki_agi_scale"	"Sandanzuki slash damage per <font color='#00FF00'>agility</font> point:"
+		"DOTA_Tooltip_Ability_okita_attribute_kiku_ichimonji_zekken_agi_scale"		"Zekken slash damage per <font color='#00FF00'>agility</font> point:"
 
 		"DOTA_Tooltip_Ability_okita_attribute_summer_madness"	"Summer Madness"
 		"DOTA_Tooltip_Ability_okita_attribute_summer_madness_Description"	"Cures Okita from her illness, disabling her Weak Constitution passive.\nEnables second combo: Jet Sandan-Zuki.\n<font color='#58ACFA'>Jet Sandan-Zuki:</font>\nOkita uses an overhelmingly mad Noble Phantasm, that she invented during her summer vacation.\nOkita starts charging her jetpack. If she charged the ability for at least 1 second, after releasing it she will fly towards the targetted location. Maximum flight distance depends on how long did she charge her jetpack. All targets she hits on her way will suffer huge damage in 3 impacts dealt as pure damage after a brief delay. Damage is equal to Sandanzuki damage.\nKiku Ichimongii attribute buffs this damage.\nOkita is revealed to her enemies for the flight duration and for 3 seconds after it ends.\nCooldown: 90 seconds.\n<font color='#58ACFA'>Good luck, commander.</font>"
@@ -3492,8 +3498,8 @@
 		"DOTA_Tooltip_Ability_okita_attribute_summer_madness_max_channel_time"	"Maximum channel time:"
 		"DOTA_Tooltip_Ability_okita_attribute_summer_madness_radius"		"Hit radius:"
 
-		"DOTA_Tooltip_Ability_okita_kenjitsu"	"Master of Tennen Rishin-Ryū Kenjitsu"
-		"DOTA_Tooltip_Ability_okita_kenjitsu_Description"	"Okita has mastered her Tennen Rishin-ryū perfectly. \nIncreases maximum Tennen Rishin-ryū stack count to 20. \nWhile Tennen Rishin-ryū is active, Shukuchi will grant you 100% critical strikes for duration."
+		"DOTA_Tooltip_Ability_okita_kenjitsu"				"Attribute: Master of Tennen Rishin-Ryū Kenjitsu"
+		"DOTA_Tooltip_Ability_okita_kenjitsu_Description"	"Okita has mastered her Tennen Rishin-ryū perfectly. \nIncreases maximum Shukuchi stack count to 20. \nShukuchi grants Okita 100% critical strikes for duration.\nHitting enemies with abilities grants Shukuchi stacks."
 		
 		//=================================================================================================================
 		//	False Assassin(5th)
@@ -4496,7 +4502,7 @@
         "DOTA_Tooltip_Ability_diarmuid_gae_buidhe_Note2"	"The maximum health is reduced by the actual amount of damage dealt."
 
         "DOTA_Tooltip_Ability_diarmuid_gae_dearg"       		"Gae Dearg"
-        "DOTA_Tooltip_ability_diarmuid_gae_dearg_Description"   "Pierces target with the Crimson Rose of Exorcism, dealing pure damage and dispelling various buffs.\nThe damage is increased based on how close Lancer is to the target. While Double Spearmanship is active, enables Gae Buidhe to be used for a short duration regardless of cooldown."
+        "DOTA_Tooltip_ability_diarmuid_gae_dearg_Description"   "Pierces target with the Crimson Rose of Exorcism, dealing pure damage and dispelling various buffs.\nThe damage is increased based on how close Lancer is to the target.\nHalf of the damage is dealt in a span of 1 second after the hit.\nWhile Double Spearmanship is active, enables Gae Buidhe to be used for a short duration regardless of cooldown."
         "DOTA_Tooltip_ability_diarmuid_gae_dearg_Lore"			"Against the Red Rose of Exorcism, even the strongest magic-forged defense is rendered useless."
         "DOTA_Tooltip_ability_diarmuid_gae_dearg_delay"			"Cast Point:"
         "DOTA_Tooltip_ability_diarmuid_gae_dearg_min_damage"	"Min Damage:"

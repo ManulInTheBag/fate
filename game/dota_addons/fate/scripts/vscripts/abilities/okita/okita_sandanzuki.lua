@@ -13,6 +13,10 @@ function okita_sandanzuki:CastFilterResult()
     end
 end
 
+function okita_sandanzuki:GetAOERadius()
+    return self:GetSpecialValueFor("distance")
+end
+
 function okita_sandanzuki:GetCustomCastError()
     return "#Sandanzuki_Active_Error"
 end
@@ -43,6 +47,10 @@ end
 
 okita_sandanzuki_charge1 = class({})
 
+function okita_sandanzuki_charge1:GetAOERadius()
+    return self:GetSpecialValueFor("distance")
+end
+
 function okita_sandanzuki_charge1:CastFilterResultLocation(hLocation)
     local caster = self:GetCaster()
     if IsServer() and not IsInSameRealm(caster:GetAbsOrigin(), hLocation) then
@@ -72,6 +80,10 @@ function okita_sandanzuki_charge1:OnSpellStart()
 end
 
 okita_sandanzuki_charge2 = class({})
+
+function okita_sandanzuki_charge2:GetAOERadius()
+    return self:GetSpecialValueFor("distance")
+end
 
 function okita_sandanzuki_charge2:CastFilterResultLocation(hLocation)
     local caster = self:GetCaster()
@@ -184,76 +196,6 @@ function okita_sandanzuki_release:OnSpellStart()
 
     --caster:SwapAbilities("okita_sandanzuki", caster:GetAbilityByIndex(5):GetName(), true, false)
     caster:AddNewModifier(caster, self, "modifier_okita_sandanzuki_release", {})
-    local qdProjectile = 
-        {
-            Ability = self,
-            EffectName = nil, --"particles/custom/false_assassin/fa_quickdraw.vpcf",
-            iMoveSpeed = self:GetSpecialValueFor("speed"),
-            vSpawnOrigin = caster:GetOrigin(),
-            fDistance = self:GetAOERadius(),
-            fStartRadius = 100,
-            fEndRadius = 100,
-            Source = caster,
-            bHasFrontalCone = true,
-            bReplaceExisting = true,
-            iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-            iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
-            iUnitTargetType = DOTA_UNIT_TARGET_ALL,
-            fExpireTime = GameRules:GetGameTime() + 2.0,
-            bDeleteOnHit = false,
-            vVelocity = direction * self:GetSpecialValueFor("speed")
-        }
-
-        local projectile = ProjectileManager:CreateLinearProjectile(qdProjectile)
-end
-
-function okita_sandanzuki_release:OnProjectileHit_ExtraData(hTarget, vLocation, table)
-    if hTarget == nil or self.kappa == true then return end
-
-    if (hTarget:GetName() == "npc_dota_ward_base") then
-        return
-    end
-
-    local caster = self:GetCaster()
-    local ability = self
-    local damage = ability:GetSpecialValueFor("base_damage")
-    if caster.IsKikuIchimonjiAcquired then
-        damage = damage + caster:GetAgility()*self:GetSpecialValueFor("kiku_agi_ratio")
-    end
-    self.kappa = true
-    --hTarget:AddNewModifier(caster, self, "modifier_stunned", {duration = 0.9})
-    local slashIndex = ParticleManager:CreateParticle( "particles/custom/false_assassin/tsubame_gaeshi/tsubame_gaeshi_windup_indicator_flare.vpcf", PATTACH_CUSTOMORIGIN, nil )
-    ParticleManager:SetParticleControl(slashIndex, 0, hTarget:GetAbsOrigin())
-    ParticleManager:SetParticleControl(slashIndex, 1, Vector(500,0,150))
-    ParticleManager:SetParticleControl(slashIndex, 2, Vector(0.2,0,0))
-    Timers:CreateTimer(0.4, function()
-        self.particle = ParticleManager:CreateParticle("particles/custom/false_assassin/tsubame_gaeshi/slashes.vpcf", PATTACH_ABSORIGIN, caster)
-        ParticleManager:SetParticleControl(self.particle, 0, hTarget:GetAbsOrigin())
-        
-    end)
-    Timers:CreateTimer(0.8, function()
-        EmitGlobalSound("Okita.Sandanzuki")
-        DoDamage(caster, hTarget, damage, DAMAGE_TYPE_PURE, 0, self, false)
-        --hTarget:RemoveModifierByName("modifier_master_intervention")
-        hTarget:EmitSound("Tsubame_Slash_" .. math.random(1,3))
-    end)
-    Timers:CreateTimer(1, function()
-        DoDamage(caster, hTarget, damage, DAMAGE_TYPE_PURE, 0, self, false)
-        --hTarget:RemoveModifierByName("modifier_master_intervention")
-        hTarget:EmitSound("Tsubame_Slash_" .. math.random(1,3))
-    end)
-    Timers:CreateTimer(1.2, function()
-        DoDamage(caster, hTarget, damage, DAMAGE_TYPE_PURE, 0, self, false)
-        --hTarget:RemoveModifierByName("modifier_master_intervention")
-        hTarget:EmitSound("Tsubame_Focus")
-       
-    end)
-    Timers:CreateTimer(1.5, function()
-        ParticleManager:DestroyParticle(self.particle, true)
-        ParticleManager:ReleaseParticleIndex(self.particle)
-        ParticleManager:DestroyParticle(slashIndex, true)
-        ParticleManager:ReleaseParticleIndex(slashIndex)
-        end)
 end
 
 modifier_okita_sandanzuki_release = class({})
@@ -266,13 +208,13 @@ function modifier_okita_sandanzuki_release:GetPriority() return MODIFIER_PRIORIT
 function modifier_okita_sandanzuki_release:GetMotionPriority() return DOTA_MOTION_CONTROLLER_PRIORITY_HIGH end
 function modifier_okita_sandanzuki_release:CheckState()
     local state =   { 
-                        [MODIFIER_STATE_COMMAND_RESTRICTED] = true,
+                        --[MODIFIER_STATE_COMMAND_RESTRICTED] = true,
                         [MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true,
                         [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
                         [MODIFIER_STATE_ROOTED] = true,
-                        [MODIFIER_STATE_DISARMED] = true,
-                        [MODIFIER_STATE_SILENCED] = true,
-                        [MODIFIER_STATE_MUTED] = true,
+                        --[MODIFIER_STATE_DISARMED] = true,
+                        --[MODIFIER_STATE_SILENCED] = true,
+                        --[MODIFIER_STATE_MUTED] = true,
                     }
     return state
 end
@@ -296,17 +238,16 @@ function modifier_okita_sandanzuki_release:OnCreated(table)
         self.speed          = self.ability:GetSpecialValueFor("speed")
         self.distance       = self.ability:GetAOERadius()--self.ability:GetSpecialValueFor("distance")
         self.damage         = self.ability:GetSpecialValueFor("damage_per_hit")
-        self.crit           = self.ability:GetSpecialValueFor("crit")
-        self.delay_duration = self.ability:GetSpecialValueFor("delay_duration")
-
-        self.second_targets_damage = self.ability:GetSpecialValueFor("second_targets_damage") * 0.01
 
         self.point          = self.ability:GetCursorPosition() + RandomVector(1)
         self.direction      = (self.point - self.parent:GetAbsOrigin()):Normalized()
         self.direction.z    = 0
         self.point          = self.parent:GetAbsOrigin() + self.direction * self.distance
 
-        self.AttackedTargets    = {}
+        self.parent:Stop()
+        self.parent:FaceTowards(self.point)
+        self.parent:SetForwardVector(self.direction)
+
         self.FirstTarget        = nil
         
         self.DamageToTargetsPercentTable = {}
@@ -349,8 +290,10 @@ function modifier_okita_sandanzuki_release:UpdateHorizontalMotion(me, dt)
         if self.distance >= 0 then
             local units_per_dt = self.speed * dt
             local parent_pos = self.parent:GetAbsOrigin()
+            local direction = self.parent:GetForwardVector()
 
-            local next_pos = parent_pos + self.direction * units_per_dt
+            local next_pos = parent_pos + direction * units_per_dt
+            next_pos = GetGroundPosition(next_pos, self.parent)
             local distance_will = self.distance - units_per_dt
 
             if distance_will < 0 then
@@ -358,15 +301,98 @@ function modifier_okita_sandanzuki_release:UpdateHorizontalMotion(me, dt)
             end
 
             self.parent:SetOrigin(next_pos)
-            self.parent:FaceTowards(self.point)
-            self.parent:SetForwardVector(self.direction)
 
-            --self:PlayEffects()
+            self:PlayEffects(parent_pos, next_pos)
 
             self.distance = self.distance - units_per_dt
         else
             self.parent:RemoveModifierByName("modifier_okita_sandanzuki_charge")
             self:Destroy()
+        end
+    end
+end
+function modifier_okita_sandanzuki_release:PlayEffects(pos1, pos2)
+    local dir = (pos2 - pos1):Normalized()
+    local enemies = FATE_FindUnitsInLine(
+                                        self.parent:GetTeamNumber(),
+                                        pos1 - dir*175,
+                                        pos2,
+                                        self.parent:Script_GetAttackRange(),
+                                        DOTA_UNIT_TARGET_TEAM_ENEMY,
+                                        DOTA_UNIT_TARGET_ALL,
+                                        DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+                                        FIND_CLOSEST
+                                    )
+
+    for _, enemy in pairs(enemies) do
+        if enemy and not enemy:IsNull() and IsValidEntity(enemy) and enemy ~= self.parent and not self.FirstTarget then
+            if not (enemy:GetName() == "npc_dota_ward_base") then
+                self.FirstTarget = true
+
+                local caster = self:GetCaster()
+                local ability = self:GetAbility()
+
+                local slashIndex = ParticleManager:CreateParticle( "particles/custom/false_assassin/tsubame_gaeshi/tsubame_gaeshi_windup_indicator_flare.vpcf", PATTACH_CUSTOMORIGIN, nil )
+                ParticleManager:SetParticleControl(slashIndex, 0, enemy:GetAbsOrigin())
+                ParticleManager:SetParticleControl(slashIndex, 1, Vector(500,0,150))
+                ParticleManager:SetParticleControl(slashIndex, 2, Vector(0.2,0,0))
+                Timers:CreateTimer(0.4, function()
+                    self.particle = ParticleManager:CreateParticle("particles/custom/false_assassin/tsubame_gaeshi/slashes.vpcf", PATTACH_ABSORIGIN, caster)
+                    ParticleManager:SetParticleControl(self.particle, 0, enemy:GetAbsOrigin())
+                end)
+
+                Timers:CreateTimer(0.8, function()
+                    EmitGlobalSound("Okita.Sandanzuki")
+
+                    if caster.IsTennenAcquired then
+                        caster:PerformAttack( enemy, true, true, true, true, false, true, true )
+                    end
+
+                    local damage = ability:GetSpecialValueFor("base_damage")
+                    if caster.IsKikuIchimonjiAcquired then
+                        damage = damage + caster:GetAgility()*ability:GetSpecialValueFor("kiku_agi_ratio")
+                    end
+
+                    DoDamage(caster, enemy, damage, DAMAGE_TYPE_PURE, 0, ability, false)
+
+                    enemy:EmitSound("Tsubame_Slash_" .. math.random(1,3))
+                end)
+                Timers:CreateTimer(1, function()
+                    if caster.IsTennenAcquired then
+                        caster:PerformAttack( enemy, true, true, true, true, false, true, true )
+                    end
+
+                    local damage = ability:GetSpecialValueFor("base_damage")
+                    if caster.IsKikuIchimonjiAcquired then
+                        damage = damage + caster:GetAgility()*ability:GetSpecialValueFor("kiku_agi_ratio")
+                    end
+
+                    DoDamage(caster, enemy, damage, DAMAGE_TYPE_PURE, 0, ability, false)
+
+                    enemy:EmitSound("Tsubame_Slash_" .. math.random(1,3))
+                end)
+                Timers:CreateTimer(1.2, function()
+                    if caster.IsTennenAcquired then
+                        caster:PerformAttack( enemy, true, true, true, true, false, true, true )
+                    end
+
+                    local damage = ability:GetSpecialValueFor("base_damage")
+                    if caster.IsKikuIchimonjiAcquired then
+                        damage = damage + caster:GetAgility()*ability:GetSpecialValueFor("kiku_agi_ratio")
+                    end
+
+                    DoDamage(caster, enemy, damage, DAMAGE_TYPE_PURE, 0, ability, false)
+
+                    enemy:EmitSound("Tsubame_Focus")
+                   
+                end)
+                Timers:CreateTimer(1.5, function()
+                    ParticleManager:DestroyParticle(self.particle, true)
+                    ParticleManager:ReleaseParticleIndex(self.particle)
+                    ParticleManager:DestroyParticle(slashIndex, true)
+                    ParticleManager:ReleaseParticleIndex(slashIndex)
+                    end)
+            end
         end
     end
 end
@@ -388,6 +414,7 @@ function modifier_okita_sandanzuki_charge:IsPurgable() return false end
 function modifier_okita_sandanzuki_charge:IsPurgeException() return false end
 function modifier_okita_sandanzuki_charge:RemoveOnDeath() return true end
 function modifier_okita_sandanzuki_charge:OnDestroy()
+    if not IsServer() then return end
     self:GetParent():SwapAbilities(self:GetParent():GetAbilityByIndex(5):GetName(), "okita_sandanzuki", false, true)
 end
 function modifier_okita_sandanzuki_charge:CheckState()
@@ -418,13 +445,13 @@ function modifier_okita_sandanzuki_dash:GetPriority() return MODIFIER_PRIORITY_H
 function modifier_okita_sandanzuki_dash:GetMotionPriority() return DOTA_MOTION_CONTROLLER_PRIORITY_HIGH end
 function modifier_okita_sandanzuki_dash:CheckState()
     local state =   { 
-                        [MODIFIER_STATE_COMMAND_RESTRICTED] = true,
+                        --[MODIFIER_STATE_COMMAND_RESTRICTED] = true,
                         [MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true,
                         [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
                         [MODIFIER_STATE_ROOTED] = true,
-                        [MODIFIER_STATE_DISARMED] = true,
-                        [MODIFIER_STATE_SILENCED] = true,
-                        [MODIFIER_STATE_MUTED] = true,
+                        --[MODIFIER_STATE_DISARMED] = true,
+                        --[MODIFIER_STATE_SILENCED] = true,
+                        --[MODIFIER_STATE_MUTED] = true,
                     }
     return state
 end
@@ -452,6 +479,10 @@ function modifier_okita_sandanzuki_dash:OnCreated(table)
         self.direction      = (self.point - self.parent:GetAbsOrigin()):Normalized()
         self.direction.z    = 0
         self.point          = self.parent:GetAbsOrigin() + self.direction * self.distance
+
+        self.parent:Stop()
+        self.parent:FaceTowards(self.point)
+        self.parent:SetForwardVector(self.direction)
 
         --[[local dash_fx = ParticleManager:CreateParticle("particles/heroes/anime_hero_zenitsu/zenitsu_flash.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
                         ParticleManager:SetParticleControl(dash_fx, 0, self.parent:GetOrigin()) -- point 0: origin, point 2: sparkles, point 5: burned soil
@@ -489,8 +520,10 @@ function modifier_okita_sandanzuki_dash:UpdateHorizontalMotion(me, dt)
         if self.distance >= 0 then
             local units_per_dt = self.speed * dt
             local parent_pos = self.parent:GetAbsOrigin()
+            local direction = self.parent:GetForwardVector()
 
-            local next_pos = parent_pos + self.direction * units_per_dt
+            local next_pos = parent_pos + direction * units_per_dt
+            next_pos = GetGroundPosition(next_pos, self.parent)
             local distance_will = self.distance - units_per_dt
 
             if distance_will < 0 then
@@ -498,8 +531,8 @@ function modifier_okita_sandanzuki_dash:UpdateHorizontalMotion(me, dt)
             end
 
             self.parent:SetOrigin(next_pos)
-            self.parent:FaceTowards(self.point)
-            self.parent:SetForwardVector(self.direction)
+            --self.parent:FaceTowards(self.point)
+            --self.parent:SetForwardVector(self.direction)
 
             self:PlayEffects()
 

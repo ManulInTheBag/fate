@@ -59,7 +59,7 @@ function sasaki_windblade:OnSpellStart()
 
 			    if not IsKnockbackImmune(v) then
 			    	--if caster:HasModifier("modifier_sasaki_kappa") then
-			    		giveUnitDataDrivenModifier(caster, v, "drag_pause", 0.5)
+			    		--giveUnitDataDrivenModifier(caster, v, "drag_pause", 0.5)
 			    	--end
 					local pushback = Physics:Unit(v)
 					v:PreventDI()

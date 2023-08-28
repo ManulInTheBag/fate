@@ -11,6 +11,10 @@ function okita_jce:OnAbilityPhaseInterrupted()
 	StopSoundOn("okita_attack_4", self:GetCaster())
 end]]
 
+function okita_jce:GetAOERadius()
+	return self:GetSpecialValueFor("radius")
+end
+
 function okita_jce:CastFilterResult()
     local caster = self:GetCaster()
 
@@ -31,7 +35,15 @@ end
 function okita_jce:OnSpellStart()
 	local caster = self:GetCaster()
 	local radius = self:GetSpecialValueFor("radius")
-	self.origin = caster:GetAbsOrigin()
+	self.origin = self:GetCursorPosition()--caster:GetAbsOrigin()
+
+	local direction = (self.origin - caster:GetAbsOrigin())
+    local dist = math.min(self:GetSpecialValueFor("range"), direction:Length2D())
+    direction.z = 0
+    direction = direction:Normalized()
+
+    self.origin = GetGroundPosition( caster:GetAbsOrigin() + direction*dist, nil )
+
 	self.channelTime = 0
 
 	local hit_count = self:GetSpecialValueFor("hit_count")
@@ -43,9 +55,10 @@ function okita_jce:OnSpellStart()
 	caster:AddNewModifier(caster, self, "modifier_jce_active", {})
 	--giveUnitDataDrivenModifier(caster, caster, "jump_pause", self:GetSpecialValueFor("duration"))
 	caster:AddEffects(EF_NODRAW)
+	caster:SetAbsOrigin(self.origin)
 
-	self.fxIndex = ParticleManager:CreateParticle("particles/okita/okita_chronosphere.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
-	ParticleManager:SetParticleControl( self.fxIndex, 0, caster:GetAbsOrigin())
+	self.fxIndex = ParticleManager:CreateParticle("particles/okita/okita_chronosphere.vpcf", PATTACH_ABSORIGIN, caster)
+	ParticleManager:SetParticleControl( self.fxIndex, 0, self.origin)
 	ParticleManager:SetParticleControl( self.fxIndex, 1, Vector(radius, radius, radius))
 
 	AddFOWViewer(2,self.origin, 10, 3, false)
@@ -103,6 +116,7 @@ function okita_jce:JudgementCutEnd()
 
 	caster:RemoveModifierByName("modifier_jce_active")
 	caster:RemoveEffects(EF_NODRAW)
+	FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
 	Timers:CreateTimer(0.01, function()
 		ParticleManager:DestroyParticle(self.fxIndex, false)
 		ParticleManager:ReleaseParticleIndex(self.fxIndex)

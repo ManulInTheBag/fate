@@ -126,7 +126,17 @@ function diarmuid_gae_dearg:OnSpellStart()
 		end
 	end
 
-	DoDamage(caster, target, damage, DAMAGE_TYPE_PURE, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, ability, false)	
+	DoDamage(caster, target, damage/2, DAMAGE_TYPE_PURE, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, ability, false)
+	local counter = 0
+	Timers:CreateTimer(0.1, function()
+		if counter >= 10 then return end
+
+		counter = counter + 1
+
+		DoDamage(caster, target, damage/20, DAMAGE_TYPE_PURE, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, ability, false)
+
+		return 0.1
+	end)
 
 	--EmitGlobalSound("ZL.Gae_Dearg")
 	LoopOverPlayers(function(player, playerID, playerHero)

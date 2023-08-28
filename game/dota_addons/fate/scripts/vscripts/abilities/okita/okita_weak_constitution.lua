@@ -2,8 +2,25 @@ LinkLuaModifier("modifier_okita_weak_constitution","abilities/okita/okita_weak_c
 
 okita_weak_constitution = class({})
 
-function okita_weak_constitution:GetIntrinsicModifierName()
+--[[function okita_weak_constitution:GetIntrinsicModifierName()
 	return "modifier_okita_weak_constitution"
+end]]
+
+function okita_weak_constitution:OnSpellStart()
+	local caster = self:GetCaster()
+	caster:EmitSound("dark_willow_sylph_move_pain_01")
+
+	if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 and caster:GetIntellect() >= 29.1 then
+		if (caster:GetAbilityByIndex(5):GetName()=="okita_sandanzuki") and caster:FindAbilityByName("okita_sandanzuki"):IsCooldownReady() and caster:FindAbilityByName("okita_zekken"):IsCooldownReady() then
+			if not caster:HasModifier("modifier_okita_window") then
+				caster:SwapAbilities("okita_zekken", "okita_sandanzuki", true, false)
+				caster:AddNewModifier(caster, self, "modifier_okita_window", {duration = 4})
+				Timers:CreateTimer(4, function()
+					caster:SwapAbilities("okita_zekken", "okita_sandanzuki", false, true)
+				end)
+			end
+		end
+	end
 end
 
 modifier_okita_weak_constitution = class({})
