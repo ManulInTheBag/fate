@@ -27,8 +27,9 @@
 		{
 			"duration"				"10"
 			"radius"				"1000"
-			"damage"				"25"
-			"damage_ring"				"75"
+			"damage"				"15"
+			"damage_ring"				"50"
+			"damage_per_level"				"0.5"
 			"attribute_armor"				"15"
 			"attribute_mr"				"15"
 			"attribute_ms"				"30"
@@ -45,7 +46,7 @@
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
@@ -53,7 +54,7 @@
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
 		"AnimationPlaybackRate" 		"1.0"
 		"AbilityCastPoint"				"0.15"
-		"AbilityCastRange"				"250"
+		"AbilityCastRange"				"9999"
  		"AbilityCooldown"				"20 19 18 17 16"
 		"AbilityManaCost"				"50"
 
@@ -85,7 +86,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"base_dmg"				"50 60 70 80 90"
+				"base_dmg"				"70 85 100 115 130"
 			}   
 		}
 	}
@@ -410,7 +411,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_FLOAT"
-				"damage_impact"				"900 1100 1300 1500 1700"
+				"damage_impact"				"800 1000 1200 1400 1600"
 			}
 			"06"
 			{

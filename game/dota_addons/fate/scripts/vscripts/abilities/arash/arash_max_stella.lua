@@ -90,7 +90,7 @@ function arash_max_stella:OnSpellStart()
 			ParticleManager:ReleaseParticleIndex(point_particle)
 		end)
 		local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 20000, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_INVULNERABLE + DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO, FIND_ANY_ORDER, false) 
-		if #targets ~= 1 then
+		if #targets ~= 1 and not caster.ArashSelfSacrifice then
 			if caster:IsAlive() then
 				caster:AddNoDraw()
 				caster:Execute(self, caster, { bExecution = true })

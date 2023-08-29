@@ -107,8 +107,8 @@ function modifier_muramasa_forge:OnCreated(args)
 
     self:StartIntervalThink(0.25)
     self.forge = self.ability.modifier
-    self.damage = self.ability:GetSpecialValueFor("damage")
-    self.damage_ring = self.ability:GetSpecialValueFor("damage_ring")
+    self.damage = self.ability:GetSpecialValueFor("damage") + self.caster:GetLevel()*0.5
+    self.damage_ring = self.ability:GetSpecialValueFor("damage_ring")+ self.caster:GetLevel()*1.5
     if self.parent == self.caster then
         self.swordfx = ParticleManager:CreateParticle("particles/muramasa/sword_glow.vpcf", PATTACH_ABSORIGIN_FOLLOW  , self.caster )
         ParticleManager:SetParticleControlEnt(self.swordfx, 1, self.caster, PATTACH_POINT_FOLLOW, "sword_base", Vector(0,0,0), true)

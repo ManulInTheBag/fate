@@ -11,19 +11,13 @@ function muramasa_dance:OnUpgrade()
    
 end
 ]]
-function muramasa_dance:GetCastRange()
-   if(self:GetCaster().targetqenemy ~= nil and self:GetCaster().targetqenemy:IsAlive()) then
-     return 2000
-   else
-      return 250
-   end
- end
-
 
  
 
 function muramasa_dance:OnSpellStart()
  local caster = self:GetCaster()
+ local point = self:GetCursorPosition()
+
  if(caster.targetqenemy ~= nil and caster.targetqenemy:IsAlive()) then
    FindClearSpaceForUnit(caster,caster.targetqenemy:GetAbsOrigin() + caster.targetqenemy:GetForwardVector() * -100,false)
    local vector =  (-caster:GetAbsOrigin()+caster.targetqenemy:GetAbsOrigin()):Normalized()
@@ -50,25 +44,25 @@ function muramasa_dance:OnSpellStart()
  end
  if self.attacks_completed == 0 then
    self:Attack1()
-   self:MoveForward()
+   self:MoveForward(point)
  elseif self.attacks_completed == 1 then   
-   self:Attack2()
-   self:MoveForward()
+   self:Attack2(point)
+   self:MoveForward(point)
 elseif self.attacks_completed == 2 then   
    self:Attack3()
-   self:MoveForward()
+   self:MoveForward(point)
 elseif self.attacks_completed == 3 then   
    self:Attack4()
-   self:MoveForward()
+   self:MoveForward(point)
 else   
    self:Attack5()
 end
 
 end
 
-function muramasa_dance:MoveForward()
+function muramasa_dance:MoveForward(point)
    local caster = self:GetCaster()
-   local point = caster:GetAbsOrigin() + caster:GetForwardVector()*100
+   local point = point
    local knockback1 = { should_stun = false,
       knockback_duration = 0.15,
       duration = 0.15,
@@ -251,6 +245,7 @@ modifier_muramasa_dance_controller = class({})
 
  
 function modifier_muramasa_dance_controller:OnDestroy()
+   if not IsServer() then return end
    local caster = self:GetCaster()
    self.ability =caster:FindAbilityByName("muramasa_dance")
    --self.ability2 = caster:FindAbilityByName("muramasa_dance_upgraded")

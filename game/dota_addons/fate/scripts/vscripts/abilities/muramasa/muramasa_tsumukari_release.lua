@@ -81,7 +81,7 @@ local tsumukariProjectile =
         vVelocity = start_vec * speed
     }
 
-Timers:CreateTimer(1, function()  
+Timers:CreateTimer(1.5, function()  
     EmitGlobalSound("muramasa_explosion") 
     for i = 1, 10 do
         point = pull_center + i *start_vec * 120
@@ -148,7 +148,7 @@ function muramasa_tsumukari_release:OnProjectileHit_ExtraData(hTarget, vLocation
                 knockback.knockback_distance = -10
              end
              hTarget:AddNewModifier(caster, self, "modifier_knockback", knockback)   
-             hTarget:AddNewModifier(caster, self, "modifier_muramasa_tsumukari_hit_slow", {duration = 1})   
+             hTarget:AddNewModifier(caster, self, "modifier_muramasa_tsumukari_hit_slow", {duration = 1.5})   
         end
    
 end

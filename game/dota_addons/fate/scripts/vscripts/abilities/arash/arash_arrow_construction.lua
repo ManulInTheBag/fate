@@ -6,7 +6,7 @@ function arash_arrow_construction:OnSpellStart()
 	--self:GetConstructionBuff()
 	local caster = self:GetCaster()
 	if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 and caster:GetIntellect() >= 29.1 then      
-    	if caster:FindAbilityByName("arash_max_stella"):IsCooldownReady() then
+    	if caster:FindAbilityByName("arash_max_stella"):IsCooldownReady() and caster:FindAbilityByName("arash_stella"):IsCooldownReady() then
     		caster:AddNewModifier(caster, self, "modifier_max_stella_window", { Duration = 4 })
         end
     end

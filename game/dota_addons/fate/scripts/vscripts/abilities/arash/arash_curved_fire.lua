@@ -1,16 +1,22 @@
 arash_curved_fire= class({})
 
-function arash_curved_fire:CastFilterResultLocation(vLocation)
+function arash_curved_fire:CastFilterResultLocation(hLocation)
     local caster = self:GetCaster()
-    if IsServer() and  caster:FindModifierByName("modifier_arash_star_arrow") then
+    if IsServer() and not IsInSameRealm(caster:GetAbsOrigin(), hLocation) then
         return UF_FAIL_CUSTOM
+    elseif IsServer() and caster:FindModifierByName("modifier_arash_star_arrow") then
+    	return UF_FAIL_CUSTOM
     else
         return UF_SUCESS
     end
 end
 
-function arash_curved_fire:GetCustomCastErrorLocation(vLocation)
-	return "Star arrow active"
+function arash_curved_fire:GetCustomCastErrorLocation(hLocation)
+	local caster = self:GetCaster()
+	if caster:FindModifierByName("modifier_arash_star_arrow") then
+		return "#Star arrow active"
+	end
+    return "#Must be in same realm"
 end
 
 function arash_curved_fire:OnSpellStart()
@@ -147,7 +153,6 @@ function arash_curved_fire:OnProjectileHit_ExtraData(hTarget, vLocation, tExtraD
         end
        self:Explosion(vLocation, tExtraData.nDamage,tExtraData.nRadius, tExtraData.colortype, 0.5 )
        --- SA buff
-       print(tExtraData.isBuffed)
        if tExtraData.isBuffed == 1 then
 
         local timedExplosionFx =  ParticleManager:CreateParticle("particles/arash/arash_curved_fire_explosion_attribute.vpcf", PATTACH_WORLDORIGIN, nil)

@@ -3023,7 +3023,7 @@
 		"DOTA_Tooltip_Ability_arash_load_magical_energy_cd_reduction"						"Cooldown reduction:"
 
 		"DOTA_Tooltip_Ability_arash_self_sacrifice"				"Attribute: Self sacrifice"
-		"DOTA_Tooltip_Ability_arash_self_sacrifice_Description"	"When Arash dies, all his team in the same realm gets his <font color='#58ACFA'>Toughness</font> buff with additional <font color='#FFFAFA'>movement speed</font> increase and <font color='#7CFC00'>heaks</font> for a fixed amount."
+		"DOTA_Tooltip_Ability_arash_self_sacrifice_Description"	"When Arash dies, all his team in the same realm gets his <font color='#58ACFA'>Toughness</font> buff with additional <font color='#FFFAFA'>movement speed</font> increase and <font color='#7CFC00'>heaks</font> for a fixed amount.\nArash will now die only after <font color='#58ACFA'>Max stella</font> lands."
 		"DOTA_Tooltip_Ability_arash_self_sacrifice_Lore"					""
 		"DOTA_Tooltip_Ability_arash_self_sacrifice_buff_duration"					"Buff duration:"
 		"DOTA_Tooltip_Ability_arash_self_sacrifice_ms"								"%Movement speed:"
@@ -8296,7 +8296,7 @@
 		"DOTA_Tooltip_modifier_muramasa_no_sword_Description"				"Craft a new one."
 
         "DOTA_Tooltip_ability_muramasa_dance"							"Sword dance"
-        "DOTA_Tooltip_ability_muramasa_dance_Description"				"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.15</font>\nMuramasa performs attack on all units in radius, dealing bonus <font color='#58ACFA'>magical</font> damage.\n<font color='#FFFAFA'>Can be recasted up to 4 times in 5 seconds.</font>.\nLast attack has a slightly increased radius."      
+        "DOTA_Tooltip_ability_muramasa_dance_Description"				"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.15</font>\nMuramasa performs attack on all units in radius, dealing bonus <font color='#58ACFA'>magical</font> damage.\n<font color='#FFFAFA'>Can be recasted up to 4 times in 5 seconds.</font>.\nLast attack has a slightly increased radius and stuns enemies for 0.1 second."      
         "DOTA_Tooltip_ability_muramasa_dance_duration"					"Recast duration:"
         "DOTA_Tooltip_ability_muramasa_dance_dmg_mod"					"%Magic on-hit damage:"
         "DOTA_Tooltip_ability_muramasa_dance_dmg_amp"					"%Damage taken increase per stack:"
@@ -8375,11 +8375,12 @@
 
 
         "DOTA_Tooltip_ability_muramasa_forge"				"Forge"
-        "DOTA_Tooltip_ability_muramasa_forge_Description"		"Muramasa creates his forge, which stays in place for a duration. Enemies inside of forge take damage every 0.25 second, which greatly increases at the border.\nAll of Muramasa's abilities are buffed, while he is inside of forge:\n<font color='#58ACFA'>Sword dance</font> increases enemies damage taken for a short duration on hit\n<font color='#58ACFA'>Throw</font> renders Muramasa immune to crowd control for a short time.\n<font color='#58ACFA'>Rush</font> performs an auto-attack on each enemy hit.\n<font color='#58ACFA'>Sword creation</font> attacks have increased radius and attack speed.\n<font color='#58ACFA'>Tsumukari Muramasa</font> deals 30%% of its damage as pure."
+        "DOTA_Tooltip_ability_muramasa_forge_Description"		"Muramasa creates his forge, which stays in place for a duration. Enemies inside of forge take damage every 0.25 second which is based on Muramasa's level, which greatly increases at the border.\nAll of Muramasa's abilities are buffed, while he is inside of forge:\n<font color='#58ACFA'>Sword dance</font> increases enemies damage taken for a short duration on hit\n<font color='#58ACFA'>Throw</font> renders Muramasa immune to crowd control for a short time.\n<font color='#58ACFA'>Rush</font> performs an auto-attack on each enemy hit.\n<font color='#58ACFA'>Sword creation</font> attacks have increased radius.\n<font color='#58ACFA'>Tsumukari Muramasa</font> deals 30%% of its damage as pure."
         "DOTA_Tooltip_ability_muramasa_forge_Lore"			"Best swords can store enough magic energy to release a true power of its wielder."
  		"DOTA_Tooltip_ability_muramasa_forge_duration"							"Duration:"
  		"DOTA_Tooltip_ability_muramasa_forge_radius"							"Radius:"
  		"DOTA_Tooltip_ability_muramasa_forge_damage"							"Damage:"
+ 		"DOTA_Tooltip_ability_muramasa_forge_damage_per_level"					"Damage per level:"
  		"DOTA_Tooltip_ability_muramasa_forge_damage_ring"						"Outer ring damage:"
 
         "DOTA_Tooltip_ability_muramasa_eye_of_karma"				"Eye of karma"
