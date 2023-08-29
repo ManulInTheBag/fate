@@ -1,4 +1,5 @@
 LinkLuaModifier("modifier_pepeg_jump", "abilities/heracles/pepeg_jump", LUA_MODIFIER_MOTION_BOTH)
+LinkLuaModifier("modifier_pepeg_jump_bers", "abilities/heracles/pepeg_jump", LUA_MODIFIER_MOTION_BOTH)
 LinkLuaModifier("modifier_pepe_slow", "abilities/heracles/pepeg_jump", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_pepe_mute", "abilities/heracles/pepeg_jump", LUA_MODIFIER_MOTION_NONE)
 
@@ -15,7 +16,7 @@ function pepeg_jump:OnSpellStart()
 	local caster = self:GetCaster()
 
     if caster:HasModifier("modifier_heracles_berserk") then
-	   caster:AddNewModifier(caster, self, "modifier_pepeg_jump", {Berserked = true})
+	   caster:AddNewModifier(caster, self, "modifier_pepeg_jump_bers", {Berserked = true})
        LoopOverPlayers(function(player, playerID, playerHero)
         --print("looping through " .. playerHero:GetName())
         if playerHero.zlodemon == true then
@@ -97,6 +98,219 @@ end
 
 function pepeg_jump:GetCustomCastErrorLocation(hLocation)
     return "No targets?"
+end
+
+modifier_pepeg_jump_bers = class({})
+function modifier_pepeg_jump_bers:IsHidden() return true end
+function modifier_pepeg_jump_bers:DeclareFunctions()
+    if self:GetParent() == self:GetCaster() then
+       return { MODIFIER_PROPERTY_DISABLE_TURNING,
+        MODIFIER_PROPERTY_OVERRIDE_ANIMATION }
+    else
+         return {   MODIFIER_PROPERTY_DISABLE_TURNING}
+    end
+end
+function modifier_pepeg_jump_bers:GetOverrideAnimation()
+    return ACT_DOTA_OVERRIDE_ABILITY_3
+end
+function modifier_pepeg_jump_bers:GetModifierDisableTurning()
+    return 1
+end
+function modifier_pepeg_jump_bers:IsDebuff() return false end
+function modifier_pepeg_jump_bers:RemoveOnDeath() return true end
+function modifier_pepeg_jump_bers:CheckState()
+    local state = { --[[[MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true,
+                    [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
+                   
+                    [MODIFIER_STATE_ROOTED] = true,
+                    [MODIFIER_STATE_SILENCED] = true,
+                    [MODIFIER_STATE_MUTED] = true,]]
+                    [MODIFIER_STATE_STUNNED] = true,
+                    [MODIFIER_STATE_DISARMED] = true,
+                    [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
+                    [MODIFIER_STATE_COMMAND_RESTRICTED] = true,
+                }
+    return state
+end
+function modifier_pepeg_jump_bers:OnCreated(args)
+    self.caster = self:GetCaster()
+    self.parent = self:GetParent()
+    self.ability = self:GetAbility()
+
+    if IsServer() then
+        self.point = self.ability:GetCursorPosition()
+        self.radius = self.ability:GetSpecialValueFor("radius")
+
+        self.Berserked = args.Berserked
+
+        self.speed = self.ability:GetSpecialValueFor("speed")
+        self.fly_duration = self.ability:GetSpecialValueFor("fly_duration")
+
+        self.jump_start_pos = self.parent:GetOrigin()
+        self.jump_distance = math.min(self.ability:GetCastRange(self.point, nil),(self.point - self.jump_start_pos):Length2D())
+        self.jump_direction = (self.point - self.jump_start_pos):Normalized()
+
+        -- load data
+        self.jump_duration = self.fly_duration--self.jump_distance/self.speed
+        self.jump_hVelocity = self.jump_distance/self.fly_duration--self.speed
+
+        if self.parent == self:GetCaster() then
+            self.jump_duration = self.jump_distance/self.speed
+            self.jump_hVelocity = self.speed
+        end
+
+        self.jump_peak = self.ability:GetSpecialValueFor("max_height")
+        
+        --[[self.effect_duration = self.ability:GetSpecialValueFor("effect_duration")
+        self.stun_height = self.ability:GetSpecialValueFor("stun_height")
+        self.stun_damage = self.ability:GetSpecialValueFor("stun_damage")]]
+
+        -- sync
+        self.elapsedTime = 0
+        self.motionTick = {}
+        self.motionTick[0] = 0
+        self.motionTick[1] = 0
+        self.motionTick[2] = 0
+
+        -- vertical motion model
+        -- self.gravity = -10*1000
+        self.jump_gravity = -self.jump_peak/(self.jump_duration*self.jump_duration*0.125)
+        self.jump_vVelocity = (-0.5)*self.jump_gravity*self.jump_duration
+
+        --[[local dash_fx = ParticleManager:CreateParticle("particles/heroes/anime_hero_uzume/uzume_dash.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
+                        ParticleManager:SetParticleControl(dash_fx, 0, self.parent:GetOrigin()) -- point 0: origin, point 2: sparkles, point 5: burned soil
+                        ParticleManager:SetParticleControl(dash_fx, 2, self.parent:GetOrigin())
+                        ParticleManager:SetParticleControl(dash_fx, 5, self.parent:GetOrigin())
+
+        self:AddParticle(dash_fx, false, false, -1, true, false)]]
+
+        if self:ApplyVerticalMotionController() == false then
+            self:Destroy()
+        end
+        if self:ApplyHorizontalMotionController() == false then 
+            self:Destroy()
+        end
+    end
+end
+function modifier_pepeg_jump_bers:UpdateHorizontalMotion(me, dt)
+    self:SyncTime(1, dt)
+
+    local target = self.jump_direction * self.jump_hVelocity * self.elapsedTime
+
+    self.parent:SetOrigin(self.jump_start_pos + target)
+    --self.parent:FaceTowards(self.point)
+end
+function modifier_pepeg_jump_bers:UpdateVerticalMotion(me, dt)
+    self:SyncTime(2, dt)
+
+    local target = self.jump_vVelocity * self.elapsedTime + 0.5 * self.jump_gravity * self.elapsedTime * self.elapsedTime
+
+    if self.parent == self:GetCaster() then target = target*0.001 end
+
+    self.parent:SetOrigin(Vector(self.parent:GetOrigin().x, self.parent:GetOrigin().y, self.jump_start_pos.z + target))
+end
+function modifier_pepeg_jump_bers:OnHorizontalMotionInterrupted()
+    if IsServer() then
+        self:Destroy()
+    end
+end
+function modifier_pepeg_jump_bers:OnVerticalMotionInterrupted()
+    if IsServer() then
+        self:Destroy()
+    end
+end
+function modifier_pepeg_jump_bers:OnDestroy()
+    if IsServer() then
+        self.parent:InterruptMotionControllers(true)
+    end
+end
+function modifier_pepeg_jump_bers:SyncTime( iDir, dt )
+    -- check if already synced
+    if self.motionTick[1]==self.motionTick[2] then
+        self.motionTick[0] = self.motionTick[0] + 1
+        self.elapsedTime = self.elapsedTime + dt
+    end
+
+    -- sync time
+    self.motionTick[iDir] = self.motionTick[0]
+    
+    -- end motion
+    if self.elapsedTime > self.jump_duration and self.motionTick[1] == self.motionTick[2] then
+        self:PlayEffects()
+        self:Destroy()
+    end
+end
+function modifier_pepeg_jump_bers:PlayEffects()
+    if not self.do_damage then
+        self.do_damage = true
+
+        --[[local destruct_pfx =    ParticleManager:CreateParticle("particles/heroes/anime_hero_seth/seth_slam.vpcf", PATTACH_CUSTOMORIGIN, nil)
+                                ParticleManager:SetParticleControl(destruct_pfx, 0, self.point)
+                                ParticleManager:SetParticleControl(destruct_pfx, 1, Vector(self.radius, self.radius, self.radius))
+                                ParticleManager:ReleaseParticleIndex(destruct_pfx)]]
+
+        EmitSoundOnLocationWithCaster(self.point, "Hero_Leshrac.Split_Earth", self.parent)
+
+        local hit_fx = ParticleManager:CreateParticle("particles/atalanta/atalanta_earthshock.vpcf", PATTACH_ABSORIGIN, self.parent )
+        ParticleManager:SetParticleControl( hit_fx, 0, GetGroundPosition(self.parent:GetAbsOrigin(), self.parent))
+        ParticleManager:SetParticleControl( hit_fx, 1, Vector(self:GetAbility():GetSpecialValueFor("radius"), 300, 150))
+
+        local enemies = FindUnitsInRadius(  self.caster:GetTeamNumber(),
+                                            self.point, 
+                                            nil, 
+                                            self.radius, 
+                                            self.ability:GetAbilityTargetTeam(), 
+                                            self.ability:GetAbilityTargetType(), 
+                                            self.ability:GetAbilityTargetFlags(), 
+                                            FIND_ANY_ORDER, 
+                                            false)
+
+        if self.parent == self.caster then
+            self.damage = self:GetAbility():GetSpecialValueFor("pepeg_damage") + 1.25 * self.caster:GetStrength()
+            self.percent_damage = self.parent:GetMaxHealth()*self.ability:GetSpecialValueFor("health_percent")/50
+        else
+            self.damage = self:GetAbility():GetSpecialValueFor("damage") + 1 * self.caster:GetStrength()
+            self.percent_damage = self.parent:GetMaxHealth()*self.ability:GetSpecialValueFor("health_percent")/100
+        end
+        
+        for _,enemy in ipairs(enemies) do
+            if enemy ~= self.parent then 
+                --[[local knockback = { should_stun = 1,
+                                    knockback_duration = 0.5,
+                                    duration = 0.5,
+                                    knockback_distance = 0,
+                                    knockback_height = self.stun_height,
+                                    center_x = enemy:GetAbsOrigin().x,
+                                    center_y = enemy:GetAbsOrigin().y,
+                                    center_z = enemy:GetAbsOrigin().z }
+
+                enemy:AddNewModifier(self.parent, self.ability, "modifier_knockback", knockback)
+
+                    local damage_table = {  victim = enemy,
+                                            attacker = self.parent, 
+                                            damage = self.stun_damage,
+                                            damage_type = self.ability:GetAbilityDamageType(),
+                                            ability = self.ability }
+                
+                    ApplyDamage(damage_table)]]
+                DoDamage(self.caster, enemy, self.damage, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
+                DoDamage(self.caster, enemy, self.percent_damage, DAMAGE_TYPE_PURE, 0, self:GetAbility(), false)
+                CustomNetTables:SetTableValue("sync","pepe_slow" .. enemy:GetName(), { slow = -1*self:GetAbility():GetSpecialValueFor("slow") })
+                enemy:AddNewModifier(self.caster, self, "modifier_pepe_slow", {duration = 2})
+                enemy:AddNewModifier(self.caster, self, "modifier_pepe_mute", {duration = self:GetAbility():GetSpecialValueFor("mute_duration")})
+            end
+        end
+        if (self.parent:GetTeamNumber() ~= self.caster:GetTeamNumber()) then
+            --print(self.damage, self.caster:GetStrength(), "SIKKKA")
+            --self.damage = self:GetAbility():GetSpecialValueFor("target_damage") + 1 * self.caster:GetStrength()
+            --self.percent_damage = self.parent:GetMaxHealth()*self.ability:GetSpecialValueFor("health_percent")/50
+            DoDamage(self.caster, self.parent, self.damage, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
+            DoDamage(self.caster, self.parent, self.percent_damage, DAMAGE_TYPE_PURE, 0, self:GetAbility(), false)
+            CustomNetTables:SetTableValue("sync","pepe_slow" .. self.parent:GetName(), { slow = -1*self:GetAbility():GetSpecialValueFor("target_slow") })
+            self.parent:AddNewModifier(self.caster, self, "modifier_pepe_slow", {duration = 2})
+            self.parent:AddNewModifier(self.caster, self, "modifier_pepe_mute", {duration = self:GetAbility():GetSpecialValueFor("mute_duration")})
+        end
+    end
 end
 
 modifier_pepeg_jump = class({})
