@@ -1,15 +1,38 @@
 emiya_big_swords = emiya_big_swords or class({})
 
- 
+function emiya_big_swords:CastFilterResultTarget(hTarget)
+    local caster = self:GetCaster()
+    if IsServer() and not IsInSameRealm(caster:GetAbsOrigin(), hTarget:GetAbsOrigin()) then
+        return UF_FAIL_CUSTOM
+    else
+        return UF_SUCESS
+    end
+end
+
+function emiya_big_swords:GetCustomCastErrorTarget(jopa)
+    return "You are fucking danger to society"
+end
 
 
 function emiya_big_swords:OnSpellStart()
 	local caster = self:GetCaster()
+	local target = self:GetCursorTarget()
 	self.fw = caster:GetForwardVector()
 	local range = self:GetSpecialValueFor("range")
 	local speed = self:GetSpecialValueFor("speed")
 	local rw = caster:GetRightVector()
+	local tProjectile1 = self:GetProjectile(target,"particles/emiya/emiya_big_swords_1.vpcf", rw * 50,self.fw,range,speed,1)
+	local tProjectile2 = self:GetProjectile(target,"particles/emiya/emiya_big_swords_2.vpcf", rw * 150,self.fw,range,speed,2)
+	local tProjectile3 = self:GetProjectile(target,"particles/emiya/emiya_big_swords_3.vpcf", rw * -50,self.fw,range,speed,3)
+	local tProjectile4 = self:GetProjectile(target,"particles/emiya/emiya_big_swords_4.vpcf", rw * -150,self.fw,range,speed,4)
 	caster:EmitSound("emiya_big_swords_spawn")
+	if( IsNotNull(target)) then 
+		self.fw = -(caster:GetAbsOrigin() - target:GetAbsOrigin()):Normalized()
+		 tProjectile1 = self:GetProjectile(target,"particles/emiya/emiya_big_swords_1_tracking.vpcf", rw * 50,self.fw,range,speed,1)
+		 tProjectile2 = self:GetProjectile(target,"particles/emiya/emiya_big_swords_2_tracking.vpcf", rw * 150,self.fw,range,speed,2)
+		 tProjectile3 = self:GetProjectile(target,"particles/emiya/emiya_big_swords_3_tracking.vpcf", rw * -50,self.fw,range,speed,3)
+		 tProjectile4 = self:GetProjectile(target,"particles/emiya/emiya_big_swords_4_tracking.vpcf", rw * -150,self.fw,range,speed,4)
+	end
 	local fx1 = ParticleManager:CreateParticle("particles/emiya/emiya_big_swords_spawn.vpcf", PATTACH_CUSTOMORIGIN, nil )
     ParticleManager:SetParticleControl(fx1, 0, caster:GetAbsOrigin() +rw * 50 )
 	ParticleManager:SetParticleControl(fx1, 1, caster:GetAbsOrigin() +rw * 50 + self.fw*450  )
@@ -22,10 +45,7 @@ function emiya_big_swords:OnSpellStart()
 	local fx4 = ParticleManager:CreateParticle("particles/emiya/emiya_big_swords_spawn.vpcf", PATTACH_CUSTOMORIGIN , nil )
     ParticleManager:SetParticleControl(fx4, 0, caster:GetAbsOrigin() +rw * -150 )
 	ParticleManager:SetParticleControl(fx4, 1, caster:GetAbsOrigin() +rw * -150 + self.fw*450  )
-	local tProjectile1 = self:GetProjectile("particles/emiya/emiya_big_swords_1.vpcf", rw * 50,self.fw,range,speed,1)
-	local tProjectile2 = self:GetProjectile("particles/emiya/emiya_big_swords_2.vpcf", rw * 150,self.fw,range,speed,2)
-	local tProjectile3 = self:GetProjectile("particles/emiya/emiya_big_swords_3.vpcf", rw * -50,self.fw,range,speed,3)
-	local tProjectile4 = self:GetProjectile("particles/emiya/emiya_big_swords_4.vpcf", rw * -150,self.fw,range,speed,4)
+
 	Timers:CreateTimer(0.9, function() 
 		ParticleManager:DestroyParticle( fx1, true)
 		ParticleManager:ReleaseParticleIndex( fx1)
@@ -35,47 +55,73 @@ function emiya_big_swords:OnSpellStart()
 		ParticleManager:ReleaseParticleIndex( fx3)
 		ParticleManager:DestroyParticle( fx4, true)
 		ParticleManager:ReleaseParticleIndex( fx4)
-		ProjectileManager:CreateLinearProjectile(tProjectile1)
-
-		ProjectileManager:CreateLinearProjectile(tProjectile2)
-
-		ProjectileManager:CreateLinearProjectile(tProjectile3)
-
-		ProjectileManager:CreateLinearProjectile(tProjectile4)
+		if( IsNotNull(target)) then 
+			FATE_ProjectileManager:CreateTrackingProjectile(tProjectile1)
+			FATE_ProjectileManager:CreateTrackingProjectile(tProjectile2)
+			FATE_ProjectileManager:CreateTrackingProjectile(tProjectile3)
+			FATE_ProjectileManager:CreateTrackingProjectile(tProjectile4)
+		else
+			ProjectileManager:CreateLinearProjectile(tProjectile1)
+			ProjectileManager:CreateLinearProjectile(tProjectile2)
+			ProjectileManager:CreateLinearProjectile(tProjectile3)
+			ProjectileManager:CreateLinearProjectile(tProjectile4)
+		end
 	end)
 
 	
 end
 
-function emiya_big_swords:GetProjectile(effectname, CorrectionVector, fw, range, speed, swordNum)
+function emiya_big_swords:GetProjectile(target, effectname, CorrectionVector, fw, range, speed, swordNum)
 	local caster = self:GetCaster()
 	local vSpawnOrigin = caster:GetAbsOrigin() + CorrectionVector
-	local tProjectile = {
-		EffectName = effectname,
-		Ability = self,
-		vSpawnOrigin = vSpawnOrigin,
-		vVelocity = fw * speed,
-		fDistance = range,
-		fStartRadius = 30,
-		fEndRadius = 30,
-		Source = caster,
-		bHasFrontalCone = false,
-		bReplaceExisting = false,
-		iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-		iUnitTargetFlags = 0,
-		iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
-		--bProvidesVision = true,
-		bDeleteOnHit = true,
-		--iVisionRadius = 500,
-		--bFlyingVision = true,
-		--iVisionTeamNumber = caster:GetTeamNumber(),
-		ExtraData = {fDamage = self:GetSpecialValueFor("damage"), swordNum = swordNum, fw = fw, initxend = vSpawnOrigin.x, inityend = vSpawnOrigin.y,initzend = vSpawnOrigin.z}
-	}  
-	return tProjectile
+	if IsNotNull(target) then
+		local tProjectile = {
+			Target = target,
+			Ability = self,
+			EffectName = effectname,
+			iMoveSpeed = speed,
+			bDodgeable = true,
+			Source = caster,  
+			vSourceLoc = vSpawnOrigin,
+			bDeleteOnHit = true,
+			bReplaceExisting = false,
+			flExpireTime = GameRules:GetGameTime() + 3,
+			ExtraData = {fDamage = self:GetSpecialValueFor("damage"), swordNum = swordNum, fw = fw, initxend = vSpawnOrigin.x, inityend = vSpawnOrigin.y,initzend = vSpawnOrigin.z, targeted = 1}
+
+		  
+		}
+		return tProjectile
+
+	else
+		
+		local tProjectile = {
+			EffectName = effectname,
+			Ability = self,
+			vSpawnOrigin = vSpawnOrigin,
+			vVelocity = fw * speed,
+			fDistance = range,
+			fStartRadius = 30,
+			fEndRadius = 30,
+			Source = caster,
+			bHasFrontalCone = false,
+			bReplaceExisting = false,
+			iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+			iUnitTargetFlags = 0,
+			iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+			--bProvidesVision = true,
+			bDeleteOnHit = true,
+			--iVisionRadius = 500,
+			--bFlyingVision = true,
+			--iVisionTeamNumber = caster:GetTeamNumber(),
+			ExtraData = {fDamage = self:GetSpecialValueFor("damage"), swordNum = swordNum, fw = fw, initxend = vSpawnOrigin.x, inityend = vSpawnOrigin.y,initzend = vSpawnOrigin.z, targeted = 0}
+		}  
+		return tProjectile
+	end
+	
 end
  
  
-function emiya_big_swords:DistanceToUbwEdge2D(vLocation, vVector) 
+function emiya_big_swords:DistanceToUbwEdge2D(vLocation, vVector) --- its cringe function but i had fun doing it so idc
 	local ubwCenter = Vector(5926, -4837, 0)
 	if( IsServer()) then 
 		if(IsFFA()) then
@@ -113,15 +159,19 @@ function emiya_big_swords:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
 		if not IsKnockbackImmune(hTarget) then
 			local range = self:GetSpecialValueFor("range")
 			local speed = self:GetSpecialValueFor("speed")
-			local SwordAttachFx = ParticleManager:CreateParticle("particles/emiya/emiya_big_swords_"..tData.swordNum.."_target.vpcf", PATTACH_POINT_FOLLOW, hTarget)
-			ParticleManager:SetParticleControlEnt(SwordAttachFx, 0, hTarget, PATTACH_POINT_FOLLOW, "attach_hitloc", hTarget:GetOrigin() , true)
-			ParticleManager:SetParticleControlForward(SwordAttachFx,1,fw)
-			ParticleManager:ReleaseParticleIndex(SwordAttachFx)
-			local distanceTraveled = (vLocation - Vector(tData.initxend,tData.inityend,tData.initzend)):Length2D()		---jopa
-			local endpoint = vLocation + range  * fw
+			if tData.targeted == 0 then
+				local SwordAttachFx = ParticleManager:CreateParticle("particles/emiya/emiya_big_swords_"..tData.swordNum.."_target.vpcf", PATTACH_POINT_FOLLOW, hTarget)
+				ParticleManager:SetParticleControlEnt(SwordAttachFx, 0, hTarget, PATTACH_POINT_FOLLOW, "attach_hitloc", hTarget:GetOrigin() , true)
+				ParticleManager:SetParticleControlForward(SwordAttachFx,1,fw)
+				ParticleManager:ReleaseParticleIndex(SwordAttachFx)
+			else
+			-- здесь должен быть партикль столкновения с другим вектором, но его нет, потому что севе нужно дописать свою либу а мне лень
+			end
+
+			local distanceTraveled = (vLocation - Vector(tData.initxend,tData.inityend,tData.initzend)):Length2D()		---jopa -- прим 30.08.2023: я не понял че сам  сделал
+			local endpoint = vLocation + range  * fw --да, пинает оно тоже хуй пойми куда
 			local knockbackDistance = range - distanceTraveled
 			local distanceToUbwEdge = self:DistanceToUbwEdge2D(vLocation,fw )
-			print(distanceToUbwEdge)
 			if(knockbackDistance > distanceToUbwEdge) then
 				knockbackDistance = distanceToUbwEdge
 			end
@@ -144,7 +194,7 @@ function emiya_big_swords:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
 	end
 
 	---------create endcap
-	if(hTarget == nil) then
+	if(hTarget == nil and  tData.targeted == 0) then
 		local endcapFx = ParticleManager:CreateParticle("particles/emiya/emiya_big_swords_dissapear.vpcf", PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControl(endcapFx,3,vLocation)
 		ParticleManager:SetParticleControlForward(endcapFx,3,fw)

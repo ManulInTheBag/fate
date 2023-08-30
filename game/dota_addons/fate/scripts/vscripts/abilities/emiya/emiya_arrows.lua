@@ -41,7 +41,7 @@ function emiya_arrows:OnSpellStart()
 		--iVisionRadius = 500,
 		--bFlyingVision = true,
 		--iVisionTeamNumber = caster:GetTeamNumber(),
-		ExtraData = {fDamage = self:GetSpecialValueFor("damage")}
+		ExtraData = {fDamage = self:GetSpecialValueFor("damage") + caster:GetIntellect()*self:GetSpecialValueFor("damage_per_int")}
 	}  
 	self.iProjectile = ProjectileManager:CreateLinearProjectile(tProjectile)
 end

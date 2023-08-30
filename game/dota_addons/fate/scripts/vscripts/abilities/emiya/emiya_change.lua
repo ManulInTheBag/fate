@@ -25,14 +25,16 @@ function emiya_change:OnSpellStart()
 		self.arrowsPoint = self.vCastDirection:Normalized() *  self:GetSpecialValueFor("distance") + self.vCasterPos
 	end
 	vPoint = self.vCastDirection:Normalized() * 20000 + self.vCasterPos
-	StartAnimation(self.hCaster, {duration=0.6, activity=ACT_DOTA_CAST_ABILITY_2, rate=1.0})
-	giveUnitDataDrivenModifier(self.hCaster, self.hCaster, "pause_sealenabled", 0.6)
+	StartAnimation(self.hCaster, {duration=0.3, activity=ACT_DOTA_CAST_ABILITY_2, rate=1.0})
+	giveUnitDataDrivenModifier(self.hCaster, self.hCaster, "pause_sealenabled", 0.3)
 	Timers:CreateTimer(0.257,function()
 		self:ShootArrow(self.vCasterPos + self.hCaster:GetForwardVector() * - 50, vPoint, 3500)
 		self.hCaster:EmitSound("Ability.Powershot.Alt")
 	end)
 	Timers:CreateTimer(0.6,function()
-		self:DoSwap()
+		if self:GetAutoCastState()  == true then
+			self:DoSwap()
+		end
 	end)
 	
 
@@ -48,7 +50,7 @@ end
 function emiya_change:ShootArrow(vSpawnLoc, vPoint, nSpeed)
 	pull_center = self.hCaster:GetForwardVector() * -300 +self.vCasterPos
 	local endPos = self.hCaster:GetForwardVector()*700 + self.vCasterPos
-	    self.knockback = { should_stun = true,
+	    self.knockback = { should_stun = false,
                                     knockback_duration = 0.2,
                                     duration = 0.2,
                                     knockback_distance = -300,

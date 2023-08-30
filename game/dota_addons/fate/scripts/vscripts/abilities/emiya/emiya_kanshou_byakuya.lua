@@ -118,7 +118,7 @@ function emiya_kanshou_byakuya:OnSpellStart()
     self.vDirection = GetDirection(point, caster)
     local vLeft = -caster:GetRightVector()
     local speed = 1700
-    local damage = self:GetSpecialValueFor("damage")
+    local damage = self:GetSpecialValueFor("damage") + caster:GetIntellect() * self:GetSpecialValueFor("damage_per_int")
     local sound = math.random(1,10)
 
 	if sound < 5 then
@@ -130,8 +130,8 @@ function emiya_kanshou_byakuya:OnSpellStart()
     end
 
  
-    CreateModifierThinker(caster, self, "modifier_archer_kab", { damage = damage, vector_side = -1, spread = 150, initxend = point.x, inityend = point.y,initzend = point.z}, caster:GetAbsOrigin() + self.vDirection * 100 + vLeft*75, caster:GetTeamNumber(), false)
-    CreateModifierThinker(caster, self, "modifier_archer_kab", { damage = damage, vector_side = 1, spread = 150, initxend = point.x, inityend = point.y,initzend = point.z}, caster:GetAbsOrigin() + self.vDirection * 100 + vLeft*-50, caster:GetTeamNumber(), false)
+    CreateModifierThinker(caster, self, "modifier_archer_kab", { damage = damage, vector_side = -1, spread = 150, initxend = point.x, inityend = point.y,initzend = point.z, firstcast = 1}, caster:GetAbsOrigin() + self.vDirection * 100 + vLeft*75, caster:GetTeamNumber(), false)
+    CreateModifierThinker(caster, self, "modifier_archer_kab", { damage = damage, vector_side = 1, spread = 150, initxend = point.x, inityend = point.y,initzend = point.z, firstcast = 1}, caster:GetAbsOrigin() + self.vDirection * 100 + vLeft*-50, caster:GetTeamNumber(), false)
 
 
 	
@@ -139,9 +139,9 @@ function emiya_kanshou_byakuya:OnSpellStart()
 	 
 end
 
-function emiya_kanshou_byakuya:ThrowDagger(caster, ability,  vector_side, spread, initxend, inityend, initzend, startpos, duration )
+function emiya_kanshou_byakuya:ThrowDagger(caster, ability,  vector_side, spread, initxend, inityend, initzend, startpos, duration, firstcast )
     local damage = self:GetSpecialValueFor("damage")
-    CreateModifierThinker(caster, ability, "modifier_archer_kab", { damage = damage, vector_side = vector_side, spread = spread, initxend = initxend, inityend = inityend,initzend = initzend, duration = duration}, startpos, caster:GetTeamNumber(), false)
+    CreateModifierThinker(caster, ability, "modifier_archer_kab", { damage = damage, vector_side = vector_side, spread = spread, initxend = initxend, inityend = inityend,initzend = initzend, duration = duration, firstcast = firstcast}, startpos, caster:GetTeamNumber(), false)
 
 
 end
@@ -164,10 +164,10 @@ function modifier_archer_kab:OnCreated(hTable)
     self.parent = self:GetParent()
     self.ability = self:GetAbility()
    
-    self.hit_radius = 100
+    self.hit_radius = 150
 
    
-
+    print(hTable.firstcast)
     self.HittedTargets = {}
 
     if IsServer() then
@@ -180,7 +180,7 @@ function modifier_archer_kab:OnCreated(hTable)
         self.vector_side    = hTable.vector_side
         self.forward_fly    = true
         self.latch_offset   = 50
-
+        self.firstcast = hTable.firstcast
         self.point = Vector(hTable.initxend, hTable.inityend, hTable.initzend)
         self.start_pos      = self.parent:GetAbsOrigin()
 
@@ -335,5 +335,9 @@ function modifier_archer_kab:UpdateHorizontalMotion(me, dt)
     end
 end
 function modifier_archer_kab:OnDestroy()
-   
+    if self.firstcast == 1 then
+        local origin = self.caster:GetAbsOrigin()
+        self.ability:ThrowDagger(self.caster, self.ability,self.vector_side,self.spreadbase,origin.x,origin.y,origin.z,self.parent:GetAbsOrigin(),0.7, 0)
+    end
 end
+ 

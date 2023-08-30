@@ -3046,9 +3046,10 @@
  
 		
 		"DOTA_Tooltip_Ability_emiya_kanshou_byakuya"				"Kanshou Bakuya"
-		"DOTA_Tooltip_ability_emiya_kanshou_byakuya_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.3</font>\nEmiya throws a pair of blades at target location, dealing <font color='#58ACFA'>damage</font> to each enemy it passes."
+		"DOTA_Tooltip_ability_emiya_kanshou_byakuya_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.3</font>\nEmiya throws a pair of blades at target location, dealing <font color='#58ACFA'>damage</font> based on Emiya's Int to each enemy it passes."
 		"DOTA_Tooltip_ability_emiya_kanshou_byakuya_Lore"			"Spirit and technique, flawless and firm."
-		"DOTA_Tooltip_ability_emiya_kanshou_byakuya_damage"			"Damage per blade:"
+		"DOTA_Tooltip_ability_emiya_kanshou_byakuya_damage"				"Damage:"
+		"DOTA_Tooltip_ability_emiya_kanshou_byakuya_damage_per_int"			"Damage per int:"
 
 		"DOTA_Tooltip_Ability_emiya_double_slash"				"Double slash"
 		"DOTA_Tooltip_Ability_emiya_double_slash_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.01</font>\nEmiya <font color='#FFFAFA'>dashes</font> in target direction.\nAfter dash, he start slashing enemies <font color='#FFFAFA'>in front of him</font> <font color='#FFFAFA'>4</font> times to deal <font color='#58ACFA'>damage</font>.\nWhile slashing, Emiya can <font color='#FFFAFA'>control</font> his movement, but he is moving at <font color='#FFFAFA'>constant</font> speed."
@@ -3086,12 +3087,13 @@
 		"DOTA_Tooltip_Ability_emiya_arrows_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.2</font>\nEmiya <font color='#FFFAFA'>shoots</font> an arrow in target direction.\nIf arrow hits an enemy, this ability <font color='#FFFAFA'>cooldown</font> will be reduced to 1 second and half of its <font color='#58ACFA'>mana cost</font> will be refunded."
 		"DOTA_Tooltip_Ability_emiya_arrows_Lore"			""
 		"DOTA_Tooltip_Ability_emiya_arrows_damage"			"Damage:"
+		"DOTA_Tooltip_Ability_emiya_arrows_damage_per_int"			"Damage per int:"
 		"DOTA_Tooltip_Ability_emiya_arrows_range"			"Range:"
 		"DOTA_Tooltip_Ability_emiya_arrows_speed"			"Arrow speed:"
 
 
 		"DOTA_Tooltip_Ability_emiya_change"				"Change of plan"
-		"DOTA_Tooltip_Ability_emiya_change_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0</font>\nEmiya quickly <font color='#FFFAFA'>jumps back</font>, shooting a lot of arrows into the sky.\nArrows start raining into the target point, dealing <font color='#58ACFA'>damage</font> and <font color='#9400D3'>slowing</font> enemies hit.\nAfter finishing his jump, emiya <font color='#FFFAFA'>swaps</font> his abilities to <font color='#FFFAFA'>blades</font> stance."
+		"DOTA_Tooltip_Ability_emiya_change_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0</font>\nEmiya quickly <font color='#FFFAFA'>jumps back</font>, shooting a lot of arrows into the sky.\nArrows start raining into the target point, dealing <font color='#58ACFA'>damage</font> and <font color='#9400D3'>slowing</font> enemies hit.\nIf set on autocast, after finishing his jump, Emiya <font color='#FFFAFA'>swaps</font> his abilities to <font color='#FFFAFA'>blades</font> stance."
 		"DOTA_Tooltip_Ability_emiya_change_Lore"			""
 		"DOTA_Tooltip_Ability_emiya_change_damage"			"Damage per second:"
 		"DOTA_Tooltip_Ability_emiya_change_distance"		"Max arrows range:"
@@ -3142,7 +3144,7 @@
 		"DOTA_Tooltip_ability_emiya_barrage_rain_Lore"						"The images of once adolescent and naive man materialize into the iron executioner of justice."	
 
 		"DOTA_Tooltip_Ability_emiya_big_swords"						"Projection: Big swords"
-		"DOTA_Tooltip_ability_emiya_big_swords_Description"			"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.3</font><font color='#FFFAFA'>|  Delay</font>:<font color='#7FFF00'> 1</font>\nEmiya projects <font color='#FFFAFA'>4</font> giant swords and sends them in target direction.\nOn hit, sword will <font color='#FF3399'>stuck</font> in enemy and move it with itself, <font color='#FF3399'>stunning</font> and dealing <font color='#58ACFA'>damage</font>."
+		"DOTA_Tooltip_ability_emiya_big_swords_Description"			"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.3</font><font color='#FFFAFA'>|  Delay</font>:<font color='#7FFF00'> 1</font>\nEmiya projects <font color='#FFFAFA'>4</font> giant swords and sends them in target direction.\nOn hit, sword will <font color='#FF3399'>stuck</font> in enemy and move it with itself, <font color='#FF3399'>stunning</font> and dealing <font color='#58ACFA'>damage</font>.\nCan be casted as unit-target. In that case, swords will follow selected enemy."
 		"DOTA_Tooltip_ability_emiya_big_swords_Lore"					""
 		"DOTA_Tooltip_ability_emiya_big_swords_damage"					"Damage:"
 		"DOTA_Tooltip_ability_emiya_big_swords_range"					"Range:"
