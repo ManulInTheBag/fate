@@ -37,6 +37,8 @@ function okita_zekken:OnSpellStart()
     masterCombo:EndCooldown()
     masterCombo:StartCooldown(self:GetCooldown(1))
 
+    caster:AddNewModifier(caster, self, "modifier_okita_zekken_cd", {duration = ability:GetCooldown(1)})
+
     caster:AddNewModifier(caster, self, "modifier_okita_zekken_flight", {})
 end
 
@@ -61,7 +63,6 @@ function okita_zekken:StartZekken(target)
     end)
 
     caster:AddNewModifier(caster, self, "modifier_okita_zekken", {duration = 3.9, targetind = target:entindex()})
-    caster:AddNewModifier(caster, self, "modifier_okita_zekken_cd", {duration = ability:GetCooldown(1)})
 
     local circleIndex = ParticleManager:CreateParticle( "particles/okita/okita_zekken_ring.vpcf", PATTACH_ABSORIGIN, caster)
     ParticleManager:SetParticleControl( circleIndex, 0, origin)

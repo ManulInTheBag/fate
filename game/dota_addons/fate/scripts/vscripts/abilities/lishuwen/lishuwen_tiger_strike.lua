@@ -167,9 +167,9 @@ function lishuwen_tiger_strike:TigerStrike1()
 
 	local health_1 = target:GetHealth()
 
-	if caster.bIsMartialArtsImproved then
+	--[[if caster.bIsMartialArtsImproved then
 		caster:PerformAttack( target, true, true, true, true, false, true, true )
-	end
+	end]]
 	DoDamage(caster, target, damage, DamageType, 0, self, false)
 
 	self.health_lost = health_1 - target:GetHealth()
@@ -216,9 +216,9 @@ function lishuwen_tiger_strike:TigerStrike2()
 		end
 	end
 
-	if caster.bIsMartialArtsImproved then
+	--[[if caster.bIsMartialArtsImproved then
 		caster:PerformAttack( target, true, true, true, true, false, true, true )
-	end
+	end]]
 
 	if caster:HasModifier("modifier_berserk") then --and self:CalculateCrit() 
 		--print("crit")
@@ -313,9 +313,9 @@ function lishuwen_tiger_strike:TigerStrike3()
 		caster:SetMana(caster:GetMana()+300)
 	end
 
-	if caster.bIsMartialArtsImproved then
+	--[[if caster.bIsMartialArtsImproved then
 		caster:PerformAttack( target, true, true, true, true, false, true, true )
-	end
+	end]]
 
 	target:RemoveModifierByName("modifier_tiger_strike_marker")
 
