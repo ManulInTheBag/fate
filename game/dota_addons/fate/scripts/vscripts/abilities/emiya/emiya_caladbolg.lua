@@ -44,6 +44,14 @@ function emiya_caladbolg:StartCharging()
 		end
 	
 	end)
+	Timers:CreateTimer(self.maxtime + 0.3, function()
+		if self.charge ~= nil then
+			ParticleManager:DestroyParticle( self.charge, true)
+			ParticleManager:ReleaseParticleIndex( self.charge)
+		end
+	
+	end)
+	
 end
 
  

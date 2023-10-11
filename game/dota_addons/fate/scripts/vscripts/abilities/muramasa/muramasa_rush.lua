@@ -102,6 +102,8 @@ function muramasa_rush:OnSpellStart()
 
 end
 
+
+
 function muramasa_rush:OnProjectileHit_ExtraData(hTarget, vLocation, table)
     if hTarget == nil then return end
     local caster = self:GetCaster()

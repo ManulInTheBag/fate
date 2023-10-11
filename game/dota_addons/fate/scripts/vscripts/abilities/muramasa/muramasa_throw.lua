@@ -61,7 +61,7 @@ function muramasa_throw:OnSpellStart()
      caster:AddNewModifier(caster, self, "modifier_merlin_self_pause", {Duration = 0.40}) 
 	local ability = self
 
-    if(self.target == nil or (self.target:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D() > 400) then
+    if(self.target == nil or IsKnockbackImmune(self.target) or (self.target:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D() > 400) then
         self:RefundManaCost()
         self:EndCooldown()
         caster:RemoveModifierByName("modifier_merlin_self_pause")

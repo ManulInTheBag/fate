@@ -2904,7 +2904,7 @@
 		"DOTA_Tooltip_Ability_arash_toughness_duration"				"Duration:"	
 
 		"DOTA_Tooltip_Ability_arash_arrow_construction"				"Arrow construction"
-		"DOTA_Tooltip_Ability_arash_arrow_construction_Description"	"<font color='#FFFAFA'>Passive</font>\nEach time Arash casts an ability, his next <font color='#FFFAFA'>basic</font> attack is strenghtened."
+		"DOTA_Tooltip_Ability_arash_arrow_construction_Description"	"<font color='#FFFAFA'>Passive</font>\nEach time Arash casts an ability, his next <font color='#FFFAFA'>basic</font> attack is strenghtened.\n<font color='#F1C40F'>Upgradable by attribute Load magical energy.</font>"
 		"DOTA_Tooltip_Ability_arash_arrow_constructions_Lore"				"Great power lies in mastering simple things."
 		"DOTA_Tooltip_Ability_arash_arrow_construction_damage"				"Bonus damage:"
 		"DOTA_Tooltip_Ability_arash_arrow_construction_damage_per_level"	"Bonus damage per level:"
@@ -2912,7 +2912,7 @@
 		"DOTA_Tooltip_Ability_arash_arrow_construction_duration"			"Buff duration:"
 
 		"DOTA_Tooltip_Ability_arash_star_arrow"				"Star arrow"
-		"DOTA_Tooltip_Ability_arash_star_arrow_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.0</font>\nArash starts charging his next shot.\nWhile charging, arash cannot attack and use <font color='#58ACFA'>Stella</font> or <font color='#58ACFA'>Curved fire</font>.\nArash can release arrow at any moment, sending projectile in the recast direction.\nOn hit, arrow deals  <font color='#58ACFA'>damage</font> based on enemy max health in radius and <font color='#9400D3'>slows</font> for %ms_slow_duration% second.\nArrow <font color='#58ACFA'>damage</font> and <font color='#7FFF00'>range</font> are based on charge time.\nArash is slowed for 50% while charging."
+		"DOTA_Tooltip_Ability_arash_star_arrow_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.0</font>\nArash starts charging his next shot.\nWhile charging, arash cannot attack and use <font color='#58ACFA'>Stella</font> or <font color='#58ACFA'>Curved fire</font>.\nArash can release arrow at any moment, sending projectile in the recast direction.\nOn hit, arrow deals  <font color='#58ACFA'>damage</font> based on enemy max health in radius and <font color='#9400D3'>slows</font> for %ms_slow_duration% second.\nArrow <font color='#58ACFA'>damage</font> and <font color='#7FFF00'>range</font> are based on charge time.\nArash is slowed for 50% while charging.\n<font color='#F1C40F'>Upgradable by attribute Clairvoyance</font>"
 		"DOTA_Tooltip_Ability_arash_star_arrow_Lore"				"Shooting star pierces not only armor, but heart and soul"
 		"DOTA_Tooltip_Ability_arash_star_arrow_damage_pct"			"%Max health damage:"
 		"DOTA_Tooltip_Ability_arash_star_arrow_damage"				"Damage:"
@@ -2934,7 +2934,7 @@
 		"DOTA_Tooltip_Ability_arash_star_arrow_release_ms_slow"				"%Slow:"
 
 		"DOTA_Tooltip_Ability_arash_curved_fire"				"Curved fire"
-		"DOTA_Tooltip_Ability_arash_curved_fire_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.8</font>\nArash shoots 3 arrows in <font color='#FFFAFA'>triangle</font> around the point selected.\nWhen arrows fall, they deal <font color='#58ACFA'>damage</font> to all enemies in radius\nTime before arrows will fall depends on distance."
+		"DOTA_Tooltip_Ability_arash_curved_fire_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.8</font>\nArash shoots 3 arrows in <font color='#FFFAFA'>triangle</font> around the point selected.\nWhen arrows fall, they deal <font color='#58ACFA'>damage</font> to all enemies in radius\nTime before arrows will fall depends on distance.\n<font color='#F1C40F'>Upgradable by attribute Falling stars.</font>"
 		"DOTA_Tooltip_Ability_arash_curved_fire_Lore"					"Falling stars crushing enemy's hope"
 		"DOTA_Tooltip_Ability_arash_curved_fire_range"					"Range:"
 		"DOTA_Tooltip_Ability_arash_curved_fire_damage"					"Damage:"
@@ -2943,7 +2943,7 @@
 		"DOTA_Tooltip_Ability_arash_curved_fire_speed"					"Arrows speed:"
 
 		"DOTA_Tooltip_Ability_arash_independent_action"				"Independent action"
-		"DOTA_Tooltip_Ability_arash_independent_action_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.1</font>\nArash quickly <font color='#FFFAFA'>dashes</font> in target direction, moving fixed distance.\nIf Arash hits enemy while dashing, he will <font color='#FF3399'>push</font> him back a little, <font color='#FF3399'>stunning</font> and dealing <font color='#58ACFA'>damage</font>. After that, Arash will jump back from enemy, shooting arrow, dealing damage\nDash immediately ends if Arash hits enemy or wall."
+		"DOTA_Tooltip_Ability_arash_independent_action_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.1</font>\nArash quickly <font color='#FFFAFA'>dashes</font> in target direction, moving fixed distance.\nIf Arash hits enemy while dashing, he will <font color='#FF3399'>push</font> him back a little, <font color='#FF3399'>stunning</font> and dealing <font color='#58ACFA'>damage</font>. After that, Arash will jump back from enemy, shooting arrow, dealing damage\nDash immediately ends if Arash hits enemy or wall.\n<font color='#F1C40F'>Upgradable by attribute Mobility boost.</font>"
 		"DOTA_Tooltip_Ability_arash_independent_action_Lore"					"Freedom of movement indicates freedom of will."
 		"DOTA_Tooltip_Ability_arash_independent_action_damage"					"Damage:"
 		"DOTA_Tooltip_Ability_arash_independent_action_range"					"Range:"
@@ -2988,10 +2988,7 @@
 		"DOTA_Tooltip_Ability_arash_max_stella_outer_damage_pct"						"%Low damage:"
 
 
-
-		"DOTA_Tooltip_Ability_emiya_arrow_rain"					"Combo: Arrow Rain"
-		"DOTA_Tooltip_ability_emiya_arrow_rain_Description"		"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : R-R in 4 seconds</font>\nEmiya jumps to middle of Unlimited Blade Works, being untargetable and invulnerable. Once positioned, Emiya starts showering enemies beneath with flurry of arrows, followed by consecutive Broken Phantasm shots on random targets."
-		"DOTA_Tooltip_ability_emiya_arrow_rain_Lore"	""
+ 
 
 
 		"DOTA_Tooltip_Ability_arash_clairvoyance"				"Attribute: Clairvoyance"
@@ -3058,7 +3055,7 @@
  
 
 		"DOTA_Tooltip_Ability_emiya_crane_wings"				"Crane Wings"
-		"DOTA_Tooltip_ability_emiya_crane_wings_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.2</font>\nEmiya kicks target enemy, <font color='#FF3399'>pushing</font> him back and <font color='#FF3399'>stunning</font>. Soon after, Emiya will dash forward, slashing enemies <font color='#FFFAFA'>in front of him </font><font color='#FFFAFA'>4</font> times.\nIf enemy, hits a wall during <font color='#FF3399'>push</font>, he will be <font color='#FF3399'>stunned</font> additionally.\nDash from this ability is <font color='#FFFAFA'>controllable</font>."
+		"DOTA_Tooltip_ability_emiya_crane_wings_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.2</font>\nEmiya kicks target enemy, <font color='#FF3399'>pushing</font> him back and <font color='#FF3399'>stunning</font>. Soon after, Emiya will dash forward, slashing enemies <font color='#FFFAFA'>in front of him </font><font color='#FFFAFA'>4</font> times.\nIf enemy, hits a wall during <font color='#FF3399'>push</font>, he will be <font color='#FF3399'>stunned</font> additionally.\nDash from this ability is <font color='#FFFAFA'>controllable</font>.</font>\n<font color='#F1C40F'>Upgradable by attribute Overedge.</font>"
 		"DOTA_Tooltip_ability_emiya_crane_wings_Lore"			"The two of us cannot hold heavens together."
 		"DOTA_Tooltip_ability_emiya_crane_wings_damage"			"Damage per slash:"
 		"DOTA_Tooltip_ability_emiya_crane_wings_distance"			"Push distance:"
@@ -3070,7 +3067,7 @@
 		"DOTA_Tooltip_Ability_emiya_overedge_circle_damage"			"Damage per slash:"
 
 		"DOTA_Tooltip_Ability_emiya_rho_aias"					"Rho Aias"
-		"DOTA_Tooltip_ability_emiya_rho_aias_Description"		"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.2</font>\nEmiya projects a <font color='#FFFAFA'>shield</font> on friendly target that absorbs certain amount of damage.\nTarget is <font color='#FF3399'>rooted</font> until shield is expired.\n<font color='#FFFAFA'>The target can cancel the shield early by right clicking it on status bar.</font>"
+		"DOTA_Tooltip_ability_emiya_rho_aias_Description"		"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.2</font>\nEmiya projects a <font color='#FFFAFA'>shield</font> on friendly target that absorbs certain amount of damage.\nTarget is <font color='#FF3399'>rooted</font> until shield is expired.\n<font color='#FFFAFA'>The target can cancel the shield early by right clicking it on status bar.</font>\n<font color='#F1C40F'>Upgradable by attribute Shroud of Martin.</font>"
 		"DOTA_Tooltip_ability_emiya_rho_aias_Lore"				"The Seven Rings from Age of Gods boast conceptual superiority over any thrown weapon."
 		"DOTA_Tooltip_ability_emiya_rho_aias_Note0"				"The shield takes magic resistance into account when taking magic damage."
 		"DOTA_Tooltip_ability_emiya_rho_aias_shield_amount"		"Shield Amount:"
@@ -3084,7 +3081,7 @@
 		"DOTA_Tooltip_Ability_emiya_weapon_swap_ubw_range"				"UBW attack range:"
 
 		"DOTA_Tooltip_Ability_emiya_arrows"				"Archery"
-		"DOTA_Tooltip_Ability_emiya_arrows_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.2</font>\nEmiya <font color='#FFFAFA'>shoots</font> an arrow in target direction.\nIf arrow hits an enemy, this ability <font color='#FFFAFA'>cooldown</font> will be reduced to 1 second and half of its <font color='#58ACFA'>mana cost</font> will be refunded."
+		"DOTA_Tooltip_Ability_emiya_arrows_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.2</font>\nEmiya <font color='#FFFAFA'>shoots</font> an arrow in target direction.\nIf arrow hits an enemy, this ability <font color='#FFFAFA'>cooldown</font> will be reduced to 1 second and half of its <font color='#58ACFA'>mana cost</font> will be refunded.\n<font color='#F1C40F'>Upgradable by attribute Eagle Eyes.</font>"
 		"DOTA_Tooltip_Ability_emiya_arrows_Lore"			""
 		"DOTA_Tooltip_Ability_emiya_arrows_damage"			"Damage:"
 		"DOTA_Tooltip_Ability_emiya_arrows_damage_per_int"			"Damage per int:"
@@ -3102,7 +3099,7 @@
 		"DOTA_Tooltip_Ability_emiya_change_radius"			"Rain radius:"
 
 		"DOTA_Tooltip_Ability_emiya_caladbolg"				"Caladbolg II"
-		"DOTA_Tooltip_Ability_emiya_caladbolg_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.2</font><font color='#FFFAFA'>|  Charge</font>:<font color='#7FFF00'> 3</font> \nEmiya channels <font color='#58ACFA'>Caladbolg II</font>, preparing to shoot.\nWhile preparing, <font color='#58ACFA'>Caladbolg II</font> <font color='#58ACFA'>damage</font> and <font color='#FFFAFA'>range</font> increase, while Emiya can turn to aim it.\nEmiya can release it early by recasting ability.\n After releasing, arrow will travel in current target vector and will explode on hit, dealing <font color='#58ACFA'>damage</font> and <font color='#FF3399'>stunning</font>.\nIf Emiya is <font color='#FF3399'>stunned</font> while chargind, it will shoot immediately.\nEmiya is <font color='#FFFAFA'>revealed</font> for enemies for <font color='#FFFAFA'>1</font> second after cast"
+		"DOTA_Tooltip_Ability_emiya_caladbolg_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.2</font><font color='#FFFAFA'>|  Charge</font>:<font color='#7FFF00'> 3</font> \nEmiya channels <font color='#58ACFA'>Caladbolg II</font>, preparing to shoot.\nWhile preparing, <font color='#58ACFA'>Caladbolg II</font> <font color='#58ACFA'>damage</font> and <font color='#FFFAFA'>range</font> increase, while Emiya can turn to aim it.\nEmiya can release it early by recasting ability.\n After releasing, arrow will travel in current target vector and will explode on hit, dealing <font color='#58ACFA'>damage</font> and <font color='#FF3399'>stunning</font>.\nIf Emiya is <font color='#FF3399'>stunned</font> while chargind, it will shoot immediately.\nEmiya is <font color='#FFFAFA'>revealed</font> for enemies for <font color='#FFFAFA'>1</font> second after cast.\n<font color='#F1C40F'>Upgradable by attribute Eagle Eyes.</font>"
 		"DOTA_Tooltip_Ability_emiya_caladbolg_Lore"			""
 		"DOTA_Tooltip_Ability_emiya_caladbolg_damage"			"Max damage:"
 		"DOTA_Tooltip_Ability_emiya_caladbolg_range"			"Max range:"
@@ -3117,7 +3114,7 @@
 
 
 		"DOTA_Tooltip_Ability_emiya_unlimited_bladeworks"					"Unlimited Blade Works"
-		"DOTA_Tooltip_ability_emiya_unlimited_bladeworks_Description"		"Chant a line of the <font color='#58ACFA'>Unlimited Blade Works</font>, decreasing the remaining cooldown of Emiya's <font color='#FFFAFA'>active</font> abilities.\nWhen the chant is completed, Emiya will lay his <font color='#FFFAFA'>Reality marble</font>. \nEmiya gains a set of new abilities, bonus <font color='#7CFC00'>health</font> and <font color='#FFFAFA'>resistances</font> inside his <font color='#FFFAFA'>Reality marble</font>.\nWhen Emiya dies, his <font color='#FFFAFA'>Reality marble</font> ends."
+		"DOTA_Tooltip_ability_emiya_unlimited_bladeworks_Description"		"Chant a line of the <font color='#58ACFA'>Unlimited Blade Works</font>, decreasing the remaining cooldown of Emiya's <font color='#FFFAFA'>active</font> abilities.\nWhen the chant is completed, Emiya will lay his <font color='#FFFAFA'>Reality marble</font>. \nEmiya gains a set of new abilities, bonus <font color='#7CFC00'>health</font> and <font color='#FFFAFA'>resistances</font> inside his <font color='#FFFAFA'>Reality marble</font>.\nWhen Emiya dies, his <font color='#FFFAFA'>Reality marble</font> ends.\n<font color='#F1C40F'>Upgradable by attribute Improve projection.</font>"
 		"DOTA_Tooltip_ability_emiya_unlimited_bladeworks_Lore"				"An aria using a poem of the caster's life, used to activate high-thaumaturgy."
 		"DOTA_Tooltip_Ability_emiya_unlimited_bladeworks_Note0"				"In case UBW is overlapping with another Reality Marble, the battlefield takes place in the first Marble cast. When that Marble is broken, both Marbles cease to sustain."
 		"DOTA_Tooltip_ability_emiya_unlimited_bladeworks_form_delay"		"UBW Delay:"
@@ -3144,7 +3141,7 @@
 		"DOTA_Tooltip_ability_emiya_barrage_rain_Lore"						"The images of once adolescent and naive man materialize into the iron executioner of justice."	
 
 		"DOTA_Tooltip_Ability_emiya_big_swords"						"Projection: Big swords"
-		"DOTA_Tooltip_ability_emiya_big_swords_Description"			"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.3</font><font color='#FFFAFA'>|  Delay</font>:<font color='#7FFF00'> 1</font>\nEmiya projects <font color='#FFFAFA'>4</font> giant swords and sends them in target direction.\nOn hit, sword will <font color='#FF3399'>stuck</font> in enemy and move it with itself, <font color='#FF3399'>stunning</font> and dealing <font color='#58ACFA'>damage</font>.\nCan be casted as unit-target. In that case, swords will follow selected enemy."
+		"DOTA_Tooltip_ability_emiya_big_swords_Description"			"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.3</font><font color='#FFFAFA'>|  Delay</font>:<font color='#7FFF00'> 1</font>\nEmiya projects <font color='#FFFAFA'>4</font> giant swords and sends them in target direction.\nOn hit, sword will <font color='#FF3399'>stuck</font> in enemy and move it with itself, <font color='#FF3399'>stunning</font> and dealing <font color='#58ACFA'>damage</font>.\nCan be casted as unit-target. In that case, 2 swords will follow selected enemy."
 		"DOTA_Tooltip_ability_emiya_big_swords_Lore"					""
 		"DOTA_Tooltip_ability_emiya_big_swords_damage"					"Damage:"
 		"DOTA_Tooltip_ability_emiya_big_swords_range"					"Range:"
@@ -8021,7 +8018,7 @@
 		"npc_dota_hero_puck_bio"						""
 
         "DOTA_Tooltip_ability_flower_beam"							"Flower beam"
-        "DOTA_Tooltip_ability_flower_beam_Description"			"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0   </font> |    <font color='#FFFAFA'>   Vector target.</font>\nMerlin creates an <font color='#FFFAFA'>illusion</font> of him shooting a beam, which travels along the selected vector, dealing <font color='#58ACFA'>damage</font> to all enemies, which scales with the <font color='#FFFAFA'>enemy max health</font>.\nBeam applies a <font color='#9400D3'>slow</font> effect on each hit"
+        "DOTA_Tooltip_ability_flower_beam_Description"			"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0   </font> |    <font color='#FFFAFA'>   Vector target.</font>\nMerlin creates an <font color='#FFFAFA'>illusion</font> of him shooting a beam, which travels along the selected vector, dealing <font color='#58ACFA'>damage</font> to all enemies, which scales with the <font color='#FFFAFA'>enemy max health</font>.\nBeam applies a <font color='#9400D3'>slow</font> effect on each hit\n<font color='#F1C40F'>Upgradable by attribute Rapid chanting.</font>"
         
         "DOTA_Tooltip_ability_flower_beam_range"					"Cast range:"
         "DOTA_Tooltip_ability_flower_beam_damage"					"Damage per tick:"
@@ -8051,7 +8048,7 @@
         "DOTA_Tooltip_ability_merlin_illusion_Lore"				"Illusions may be used with a lot of different purposes. But the most effective is to show someone their paradise. Almost no one could see through beautiful illusion of reality they wished and struggled to see, especially when inhuman caster is the one who made it."
 
         "DOTA_Tooltip_ability_merlin_avalon"				"Avalon"
-        "DOTA_Tooltip_ability_merlin_avalon_Description"		"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.1</font>\nMerlin quickly returns to Avalon, <font color='#FFFAFA'>dissapearing</font>  for a short duration.\nMerlin is <font color='#FFFAFA'>invulnerable</font> while <font color='#FFFAFA'>dissapeared</font>.\nUsing ability again Merlin can <font color='#FFFAFA'>reappear</font> immediately at the target point in <font color='#FFFAFA'>radius</font> around dissapearance place."
+        "DOTA_Tooltip_ability_merlin_avalon_Description"		"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.1</font>\nMerlin quickly returns to Avalon, <font color='#FFFAFA'>dissapearing</font>  for a short duration.\nMerlin is <font color='#FFFAFA'>invulnerable</font> while <font color='#FFFAFA'>dissapeared</font>.\nUsing ability again Merlin can <font color='#FFFAFA'>reappear</font> immediately at the target point in <font color='#FFFAFA'>radius</font> around dissapearance place.\n<font color='#F1C40F'>Upgradable by attribute Independent manifestation.</font>"
         "DOTA_Tooltip_ability_merlin_avalon_range"			"Reappearance radius:"
         "DOTA_Tooltip_ability_merlin_avalon_duration"		"Duration:"
         "DOTA_Tooltip_ability_merlin_avalon_Lore"			"The land of Avalon is not a paradise. It's deadly for ordinary humans, so it will be better to be used as a weapon."
@@ -8065,7 +8062,7 @@
 
 
         "DOTA_Tooltip_ability_merlin_charisma"				"Charisma"
-        "DOTA_Tooltip_ability_merlin_charisma_Description"	"<font color='#FFFAFA'>Aura</font>\nMerlin increases <font color='#7CFC00'>health</font> and <font color='#7CFC00'>regeneration</font> of all allies around him."
+        "DOTA_Tooltip_ability_merlin_charisma_Description"	"<font color='#FFFAFA'>Aura</font>\nMerlin increases <font color='#7CFC00'>health</font> and <font color='#7CFC00'>regeneration</font> of all allies around him.\n<font color='#F1C40F'>Upgradable by attribute Dreamlike charisma.</font>"
         "DOTA_Tooltip_ability_merlin_charisma_health_bonus"				"Health bonus:"
         "DOTA_Tooltip_ability_merlin_charisma_health_regen_bonus"		"%Health regeneration bonus:"
         "DOTA_Tooltip_ability_merlin_charisma_mana_regen_bonus"			"Mana regeneration bonus:"
@@ -8085,7 +8082,7 @@
 
 
         "DOTA_Tooltip_ability_merlin_excalibur"						"Excalibur"
-        "DOTA_Tooltip_ability_merlin_excalibur_Description"			"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.7</font>\nMerlin strikes the ground with <font color='#58ACFA'>Excalibur</font>, dealing <font color='#58ACFA'>damage</font> to all enemies in line over <font color='#FFFAFA'>0.9</font> seconds.\nAll enemies hit are <font color='#FF3399'>pulled</font> towards Merlin.\nMerlin gains an effect which will deal <font color='#58ACFA'>damage</font> on <font color='#FFFAFA'>basic attacks</font> after usage of <font color='#58ACFA'>Excalibur</font>."
+        "DOTA_Tooltip_ability_merlin_excalibur_Description"			"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.7</font>\nMerlin strikes the ground with <font color='#58ACFA'>Excalibur</font>, dealing <font color='#58ACFA'>damage</font> to all enemies in line over <font color='#FFFAFA'>0.9</font> seconds.\nAll enemies hit are <font color='#FF3399'>pulled</font> towards Merlin.\nMerlin gains an effect which will deal <font color='#58ACFA'>damage</font> on <font color='#FFFAFA'>basic attacks</font> after usage of <font color='#58ACFA'>Excalibur</font>.\n<font color='#F1C40F'>Upgradable by attribute King's assistant.</font>"
         "DOTA_Tooltip_ability_merlin_excalibur_damage"							"Damage:"
         "DOTA_Tooltip_ability_merlin_excalibur_range"								"Range:"
         "DOTA_Tooltip_ability_merlin_excalibur_width"								"Width:"
@@ -8252,7 +8249,6 @@
 
 		"DOTA_Tooltip_ability_nobu_combo"						"Combo: Demon king of the sixth heaven"
         "DOTA_Tooltip_ability_nobu_combo_Description"			"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: W-D in 2 seconds</font>\nNobunaga takes a 1.5 seconds charge and then run into the target enemy with insane speed. If she reaches enemy, he will be stunned, she will became invulnerable and will deal magic damage, followed by 25 rifle shots."
-        "DOTA_Tooltip_abilitymerlin_garden_of_avalon_radius"					"Radius:"
         "DOTA_Tooltip_ability_nobu_combo_radius"			"Cast range:"
 		"DOTA_Tooltip_ability_nobu_combo_run_speed"		"Run speed:"
 		"DOTA_Tooltip_ability_nobu_combo_run_duration"	 "Maximum run duration:"
@@ -8325,7 +8321,7 @@
 
 
         "DOTA_Tooltip_ability_muramasa_throw"					"Throw"
-        "DOTA_Tooltip_ability_muramasa_throw_Description"	 	"Muramasa grabs an enemy and throws him in the targeted direction. Enemy is stunned while grabbed and thrown. If enemy collides with a wall or another enemy, he and all enemies around will  take damage and be stunned. If enemy dispells stun debuff while he is grabbed, muramasa will not throw him and ability will end.\n When this ability is upgraded, it will throw enemy further, faster and it will push all enemies hit with main target."
+        "DOTA_Tooltip_ability_muramasa_throw_Description"	 	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.15</font>\nMuramasa grabs an enemy and <font color='#FF3399'>throws</font> him in the targeted direction.\nEnemy is stunned while grabbed and thrown. If enemy collides with a wall or another enemy, he and all enemies around will  take <font color='#58ACFA'>damage</font> and be <font color='#FF3399'>stunned</font>.\nIf enemy dispells stun debuff while he is grabbed, muramasa will not throw him and ability will end."
         "DOTA_Tooltip_ability_muramasa_throw_damage"				"Damage:"
         "DOTA_Tooltip_ability_muramasa_throw_duration"				"Stun duration:"
         "DOTA_Tooltip_ability_muramasa_throw_range"				"Grab range:"
@@ -8348,7 +8344,7 @@
 	 	
 
         "DOTA_Tooltip_ability_muramasa_rush"					"Rush"
-        "DOTA_Tooltip_ability_muramasa_rush_Description"	 	"Muramasa rushes to point selected. If muramasa hit someone with rush, he will deal damage and apply a burn debuff, ticking every 0.5 seconds."
+        "DOTA_Tooltip_ability_muramasa_rush_Description"	 	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.2</font>\nMuramasa rushes to point selected. If muramasa hit someone with rush, he will deal <font color='#58ACFA'>damage</font> and apply a burn debuff.\nBurn deal <font color='#58ACFA'>damage</font> every 0.5 seconds.\n<font color='#F1C40F'>Upgradable by attribute Wicked sword.</font>"
         "DOTA_Tooltip_ability_muramasa_rush_damage"					"Damage:"
         "DOTA_Tooltip_ability_muramasa_rush_duration"				"Burn duration:"
         "DOTA_Tooltip_ability_muramasa_rush_range"					"Max range:"
@@ -8380,7 +8376,7 @@
 
 
         "DOTA_Tooltip_ability_muramasa_forge"				"Forge"
-        "DOTA_Tooltip_ability_muramasa_forge_Description"		"Muramasa creates his forge, which stays in place for a duration. Enemies inside of forge take damage every 0.25 second which is based on Muramasa's level, which greatly increases at the border.\nAll of Muramasa's abilities are buffed, while he is inside of forge:\n<font color='#58ACFA'>Sword dance</font> increases enemies damage taken for a short duration on hit\n<font color='#58ACFA'>Throw</font> renders Muramasa immune to crowd control for a short time.\n<font color='#58ACFA'>Rush</font> performs an auto-attack on each enemy hit.\n<font color='#58ACFA'>Sword creation</font> attacks have increased radius.\n<font color='#58ACFA'>Tsumukari Muramasa</font> deals 30%% of its damage as pure."
+        "DOTA_Tooltip_ability_muramasa_forge_Description"		"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.7</font>\nMuramasa creates his forge, which stays in place for a duration. Enemies inside of forge take damage every 0.25 second which is based on Muramasa's level, which greatly increases at the border.\nAll of Muramasa's abilities are buffed, while he is inside of forge:\n<font color='#58ACFA'>Sword dance</font> increases enemies damage taken for a short duration on hit\n<font color='#58ACFA'>Throw</font> renders Muramasa immune to crowd control for a short time.\n<font color='#58ACFA'>Rush</font> performs an auto-attack on each enemy hit.\n<font color='#58ACFA'>Sword creation</font> attacks have increased radius.\n<font color='#58ACFA'>Tsumukari Muramasa</font> deals 30%% of its damage as pure.\n<font color='#F1C40F'>Upgradable by attribute Appretiation of swords.</font>"
         "DOTA_Tooltip_ability_muramasa_forge_Lore"			"Best swords can store enough magic energy to release a true power of its wielder."
  		"DOTA_Tooltip_ability_muramasa_forge_duration"							"Duration:"
  		"DOTA_Tooltip_ability_muramasa_forge_radius"							"Radius:"
@@ -8409,7 +8405,7 @@
 
 
         "DOTA_Tooltip_ability_muramasa_tsumukari_release"				"Tsumukari Muramasa release"
-        "DOTA_Tooltip_ability_muramasa_tsumukari_release_Description"		"Muramasa releases a powerful swing, cracking earth in the direction of cast and pulling all enemies hit and applying a powerful slow to them. After a delay crack explodes, dealing magic damage"
+        "DOTA_Tooltip_ability_muramasa_tsumukari_release_Description"		"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.4</font>\nMuramasa releases a powerful swing, cracking earth in the direction of cast dealing <font color='#58ACFA'>damage</font>, <font color='#FF3399'>pulling</font> all enemies hit and applying a powerful slow to them.\nAfter a delay crack explodes, dealing <font color='#58ACFA'>damage</font>\n<font color='#F1C40F'>Upgradable by attribute Sword trial.</font>"
         "DOTA_Tooltip_ability_muramasa_tsumukari_release_slow_power"					"%Slow power:"
         "DOTA_Tooltip_ability_muramasa_tsumukari_release_damage_first"					"Crack damage:"
         "DOTA_Tooltip_ability_muramasa_tsumukari_release_damage_impact"					"Explosion damage:"

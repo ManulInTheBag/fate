@@ -227,8 +227,10 @@ function muramasa_dance:DanceAttack()
 		 center_x = point.x,
 		 center_y = point.y,
 		 center_z = point.z }
-       enemy:RemoveModifierByName("modifier_knockback")
-       enemy:AddNewModifier(caster, self, "modifier_knockback", knockback1)
+       if not IsKnockbackImmune(enemy) then
+         enemy:RemoveModifierByName("modifier_knockback")
+         enemy:AddNewModifier(caster, self, "modifier_knockback", knockback1)
+       end
      if caster:HasModifier("modifier_muramasa_forge") then 
       enemy:AddNewModifier(caster,self, "modifier_muramasa_dance_debuff", {duration = self:GetSpecialValueFor("dmg_amp_duration")})
      end

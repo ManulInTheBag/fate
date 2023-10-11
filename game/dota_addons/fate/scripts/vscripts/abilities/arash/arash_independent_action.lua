@@ -146,27 +146,29 @@ function arash_independent_action:OnProjectileHit_ExtraData(hTarget, vLocation, 
     if caster.ArashMobilityBoost then 
         caster:AddNewModifier(caster, self, "modifier_arash_mobility_boost", {duration =  caster.MasterUnit2:FindAbilityByName("arash_mobility_boost"):GetSpecialValueFor("recast_duration") or 0})
     end
-    local sin = Physics:Unit( hTarget)
-    hTarget:SetPhysicsFriction(0)
-    hTarget:SetPhysicsVelocity(self.move_vector* 600)
-    hTarget:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
-    Timers:CreateTimer("arash_pushback", {
-        endTime = 0.4,
-        callback = function()
+    if not IsKnockbackImmune(hTarget)  then
+        local sin = Physics:Unit( hTarget)
+        hTarget:SetPhysicsFriction(0)
+        hTarget:SetPhysicsVelocity(self.move_vector* 600)
+        hTarget:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
+        Timers:CreateTimer("arash_pushback", {
+            endTime = 0.4,
+            callback = function()
+                self:StopPhysics(hTarget)
+                FindClearSpaceForUnit(target,  hTarget:GetAbsOrigin(), true)
+            return
+        end})
+        hTarget:OnPreBounce(function(unit, normal) -- stop the pushback when unit hits wall
+            Timers:RemoveTimer("arash_pushback")
+            unit:EmitSound("muramasa_throw_impact")
             self:StopPhysics(hTarget)
-            FindClearSpaceForUnit(target,  hTarget:GetAbsOrigin(), true)
-        return
-    end})
-    hTarget:OnPreBounce(function(unit, normal) -- stop the pushback when unit hits wall
-        Timers:RemoveTimer("arash_pushback")
-        unit:EmitSound("muramasa_throw_impact")
-        self:StopPhysics(hTarget)
-        local impact_fx = ParticleManager:CreateParticle("particles/muramasa/muramasa_throw_impact.vpcf", PATTACH_CUSTOMORIGIN, nil)
-        ParticleManager:SetParticleControl(impact_fx, 0, hTarget:GetAbsOrigin())
-        ParticleManager:ReleaseParticleIndex(impact_fx)
-        FindClearSpaceForUnit(unit, unit:GetAbsOrigin(), true)
-      
-    end)
+            local impact_fx = ParticleManager:CreateParticle("particles/muramasa/muramasa_throw_impact.vpcf", PATTACH_CUSTOMORIGIN, nil)
+            ParticleManager:SetParticleControl(impact_fx, 0, hTarget:GetAbsOrigin())
+            ParticleManager:ReleaseParticleIndex(impact_fx)
+            FindClearSpaceForUnit(unit, unit:GetAbsOrigin(), true)
+        
+        end)
+    end
     self:SecondAttack(hTarget,vLocation)
     return true
 end

@@ -147,7 +147,9 @@ function muramasa_tsumukari_release:OnProjectileHit_ExtraData(hTarget, vLocation
              if((hTarget:GetAbsOrigin() - caster:GetAbsOrigin() ):Length2D() < 300) then
                 knockback.knockback_distance = -10
              end
-             hTarget:AddNewModifier(caster, self, "modifier_knockback", knockback)   
+             if not IsKnockbackImmune(hTarget) then
+                hTarget:AddNewModifier(caster, self, "modifier_knockback", knockback)   
+             end
              hTarget:AddNewModifier(caster, self, "modifier_muramasa_tsumukari_hit_slow", {duration = 1.5})   
         end
    

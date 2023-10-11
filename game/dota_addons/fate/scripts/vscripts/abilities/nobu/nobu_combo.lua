@@ -28,9 +28,13 @@ function nobu_combo:OnSpellStart()
     masterCombo:EndCooldown()
     masterCombo:StartCooldown(self:GetCooldown(1))
     if IsSpellBlocked(hCaster.target_enemy) then  return end
+    hCaster.runningCombo = false
     hCaster:AddNewModifier(hCaster, self, "modifier_nobu_combo_self", {duration = self:GetSpecialValueFor("run_duration") + 1.5} )
     hCaster:AddNewModifier(hCaster, self, "modifier_merlin_self_pause", {Duration = 1.5}) 
-    
+    Timers:CreateTimer(1.5, function()
+        hCaster.runningCombo = true
+    end
+    )
     
     self.target_enemy = self:GetCursorTarget()
     StartAnimation(hCaster, {duration=1.5 , activity=ACT_DOTA_CAST_CHAOS_METEOR_ORB, rate= 0.5})
@@ -242,13 +246,24 @@ function modifier_nobu_combo_self:IsDebuff() return true end
  
  
 function modifier_nobu_combo_self:CheckState()
-    local state =   { 
-                        
-                        [MODIFIER_STATE_COMMAND_RESTRICTED] = true,
-                        [MODIFIER_STATE_DISARMED] = true,
-                        [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
-                    }
+    if self:GetCaster().runningCombo == true then
+        local state =   { 
+                            
+                            [MODIFIER_STATE_COMMAND_RESTRICTED] = true,
+                            [MODIFIER_STATE_DISARMED] = true,
+                            [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
+                            [MODIFIER_STATE_ROOTED] = false,
+                        }
+        return state
+    else
+        local state =   { 
+                            
+            [MODIFIER_STATE_COMMAND_RESTRICTED] = true,
+            [MODIFIER_STATE_DISARMED] = true,
+            [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
+        }
     return state
+    end
 end
 
 

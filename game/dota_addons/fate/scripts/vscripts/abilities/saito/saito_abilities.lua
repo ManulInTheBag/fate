@@ -1380,7 +1380,9 @@ function saito_shadowslash:OnSpellStart()
         if IsNotNull(hEntity) then
             local vEntLoc = hEntity:GetAbsOrigin()
             --=================================--
-            FindClearSpaceForUnit(hEntity, vPullPoint, true) --Set and clear space with interrupting motion and etc.
+            if not IsKnockbackImmune(hEntity) then
+             FindClearSpaceForUnit(hEntity, vPullPoint, true) --Set and clear space with interrupting motion and etc.
+            end
             --=================================--
             if nAttr_MRR_Duraiton > 0 then
                 hEntity:AddNewModifier(hCaster, self, "modifier_saito_shadowslash_mrr", {duration = nAttr_MRR_Duraiton})
@@ -3083,9 +3085,7 @@ function modifier_saito_vortex_slashing:OnIntervalThink()
             if IsNotNull(hEntity) then
                 if bLastSlash then
                     giveUnitDataDrivenModifier(self.hCaster, hEntity, "stunned", self.nKnockDuration)
-
                     fApplyKnockbackSpecial(hEntity, self.nKnockDistance, self.nKnockDuration, GetDirection(hEntity, vParentLoc))
-
                     EmitSoundOn("Saito.Vortex.Impact", hEntity)
                 else
                     giveUnitDataDrivenModifier(self.hCaster, hEntity, "stunned", self.nSlashStunDuration)
@@ -3189,7 +3189,8 @@ function modifier_saito_vortex_pull:ChargeMotion(me, dt)
         local vNextLoc = vNowLoc + vDirection * nPullSpeed
         local vNextLoc = GetGroundPosition(vNextLoc, me)
 
-        if GetDistance(me, vCenterLoc) > self.nOffset then
+        if GetDistance(me, vCenterLoc) > self.nOffset and not IsKnockbackImmune(self.hParent) then
+
             self.hParent:SetAbsOrigin(vNextLoc)
         end
     end
