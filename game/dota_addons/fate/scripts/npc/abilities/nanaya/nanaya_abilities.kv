@@ -19,7 +19,7 @@
 		"AbilityCooldown"				"26 24 22 20 18"
 		"AbilityCastRange"				"550"
 		"AbilityCastRangeBuffer"		"175"
-		"AbilityManaCost"				"100"
+		"AbilityManaCost"				"80"
 	  
 	  	
 		"AbilityValues"
@@ -65,6 +65,7 @@
 			"dmg_hit"								"200 250 300 350 400"
 			"attribute_hit_agility_multiplier"		"1.5"
 			"speed"									"3000"
+			"recast_range"							"550"
 		}
 	}
 
@@ -99,12 +100,12 @@
 	  	"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"AbilityTextureName"			"custom/nanaya/nanaya_w"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityBehavior" 				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityBehavior" 				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 		"AbilityCastAnimation" 			"ACT_DOTA_ATTACK2"
 		"AbilityCastPoint" 				"0.2"
 		"AnimationPlaybackRate" 		"2"
 		"AbilityCooldown"				"0"
-		"AbilityCastRange"				"300"
+		"AbilityCastRange"				"550"
 		"AbilityCastRangeBuffer"		"0"
 		"AbilityManaCost"				"0"
 	  
@@ -112,6 +113,7 @@
 		"AbilityValues"
 		{	
 			"cast_point"					"0.2"
+			"recast_range"					"550"
 			"damage"						"200 250 300 350 400"
 			"attribute_agility_multiplier"	"1.5"
 		}
@@ -128,7 +130,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_5"
-		"AbilityCastPoint" 				"0.2"
+		"AbilityCastPoint" 				"0.1"
 		"AnimationPlaybackRate" 		"1"
 		"AbilityCooldown"				"10 9 8 7 6"
 		//"AbilityCastRange"				"350"
@@ -137,8 +139,8 @@
 	  	
 		"AbilityValues"
 		{	
-			"cast_point"					"0.2"
-			"radius"						"400"
+			"cast_point"					"0.1"
+			"radius"						"450"
 			"damage"						"40 48 56 64 72"
 			"slash_count"					"7"
 			"attribute_agility_multiplier"	"0.3"
@@ -198,22 +200,23 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
 	  	"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"AbilityTextureName"			"custom/nanaya/BTNQY-F"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityBehavior" 				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityBehavior" 				"DOTA_ABILITY_BEHAVIOR_POINT"
 		"AbilityCastAnimation" 			"ACT_SCRIPT_CUSTOM_4"
 		"AbilityCastPoint" 				"0.7"
 		"AnimationPlaybackRate" 		"0.7"
 		"AbilityCooldown"				"27"
-		"AbilityCastRange"				"500"
-		"AbilityCastRangeBuffer"		"200"
 		"AbilityManaCost"				"800"
 	  
 	  	
 		"AbilityValues"
 		{
 			"dmg"							"800 1000 1200 1400 1600"
-			"attribute_threshold"			"50"
-			"attribute_multiplier"			"150"
+			"range"							"1200"
+			"width"							"225"
+			"attribute_threshold"			"60"
+			"attribute_multiplier"			"120"
+			"attribute_agility_multiplier"	"1.5"
 		}
 	}
 		

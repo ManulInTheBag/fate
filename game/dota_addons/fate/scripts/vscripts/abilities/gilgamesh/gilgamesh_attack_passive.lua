@@ -45,7 +45,7 @@ function gilgamesh_attack_passive:ShootSword(target)
 	self:CreateGOB(vOrigin, target)
    self.info = {
 	  Target = target,
-	  Source = self.caster,
+	  Source = caster,
 	  vSourceLoc = vOrigin + vForwardVector * -60, 
 	  Ability = self,
 	  bHasFrontalCone = false,
@@ -110,7 +110,7 @@ end
 function modifier_gilgamesh_attack_passive:OnAttackFinished(args)
 	if not IsServer() then return end
     if args.attacker ~= self:GetParent() then return end
-	ProjectileManager:CreateTrackingProjectile(self:GetAbility().info) 
+	FATE_ProjectileManager:CreateTrackingProjectile(self:GetAbility().info) 
 end
  
 

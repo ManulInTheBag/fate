@@ -27,27 +27,22 @@ function ryougi_knife_throw:OnSpellStart()
 	EmitGlobalSound("ryougi_mieta")
 
 	local tProjectile = {
+		caster = caster,
+		source = caster,
 	    EffectName = "particles/ryougi/ryougi_dagger_2.vpcf",
-	    Ability = self,
-	    vSpawnOrigin = caster:GetAbsOrigin(),
-	    vVelocity = target * self:GetSpecialValueFor("speed"),
-	    fDistance = range,
-	    fStartRadius = 175,
-	    fEndRadius = 175,
-	    Source = caster,
-	    bHasFrontalCone = false,
-	    bReplaceExisting = false,
+	    ability = self,
+	    sourceLoc = caster:GetAbsOrigin(),
+	    direction = target,
+	    speed = self:GetSpecialValueFor("speed"),
+	    distance = range,
+	    startRadius = 175,
+	    endRadius = 175,
 	    iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
 	    iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
 	    iUnitTargetType = DOTA_UNIT_TARGET_ALL,
-	    --bProvidesVision = true,
-	    bDeleteOnHit = false,
-	    --iVisionRadius = 500,
-	    --bFlyingVision = true,
-	    --iVisionTeamNumber = caster:GetTeamNumber(),
-	    ExtraData = {fDamage = fDamage}
+	    DeleteOnHit = true,
   	}
- 	self.iProjectile = ProjectileManager:CreateLinearProjectile(tProjectile)
+ 	self.iProjectile = FATE_ProjectileManager:CreateLinearProjectile(tProjectile)
     self.hitenemy = false
 end
 
@@ -72,11 +67,11 @@ function ryougi_knife_throw:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
    	--EmitGlobalSound("Atalanta.RImpact2")
     self.hitenemy = true
    	--Timers:CreateTimer(0.033,function()
-   	ProjectileManager:DestroyLinearProjectile(self.iProjectile)
+   	--ProjectileManager:DestroyLinearProjectile(self.iProjectile)
   	--end)
 end
 
-function ryougi_knife_throw:OnProjectileThink(location)
+function ryougi_knife_throw:OnProjectileThink_ExtraData(location)
     local caster = self:GetCaster()
     local radius = 100
     local duration = 0.5

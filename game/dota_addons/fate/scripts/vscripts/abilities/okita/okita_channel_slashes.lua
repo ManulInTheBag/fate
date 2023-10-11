@@ -47,7 +47,7 @@ function okita_jce:OnSpellStart()
 	local hit_count = self:GetSpecialValueFor("hit_count")
 	local duration = self:GetSpecialValueFor("duration")
 	self.hit_damage = self:GetSpecialValueFor("hit_damage")
-	self.end_damage = 0
+	self.end_damage_mult = 0
 	self.radius = self:GetSpecialValueFor("radius")
 	self.interval = duration/hit_count
 	self.channelTime = self.interval
@@ -76,8 +76,11 @@ function okita_jce:OnChannelThink(fInterval)
     self.channelTime = self.channelTime + fInterval
     if self.channelTime >= self.interval then
     	local caster = self:GetCaster()
-    	self.channelTime = 0
-    	self.end_damage = self.end_damage + self:GetSpecialValueFor("base_damage")/self:GetSpecialValueFor("hit_count")
+    	self.channelTime = self.channelTime - self.interval
+    	self.end_damage_mult = self.end_damage_mult + 1/self:GetSpecialValueFor("hit_count")
+
+    	local hit_damage = self:GetSpecialValueFor("hit_damage") + (caster.IsReducedWindAcquired and self:GetSpecialValueFor("hit_agi_scale")*caster:GetAgility() or 0)
+    	print(hit_damage)
 
     	for j=1,5 do
 			local angle = RandomInt(0, 360)
@@ -116,6 +119,8 @@ function okita_jce:JudgementCutEnd()
 	local radius = self:GetSpecialValueFor("radius")
 
 	caster:RemoveModifierByName("modifier_okita_jce_active")
+	local end_damage = self.end_damage_mult*(self:GetSpecialValueFor("base_damage") + (caster.IsReducedWindAcquired and self:GetSpecialValueFor("base_agi_scale")*caster:GetAgility() or 0))
+	print(end_damage)
 
 	local count = 60 --20 + 40*self.channelTime/3
 
@@ -143,7 +148,7 @@ function okita_jce:JudgementCutEnd()
 			if caster.IsTennenAcquired then
 	            caster:PerformAttack( unitGroup[i], true, true, true, true, false, true, true )
 	        end
-			DoDamage(caster, unitGroup[i], self.end_damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+			DoDamage(caster, unitGroup[i], end_damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
 		end
 	end
 end

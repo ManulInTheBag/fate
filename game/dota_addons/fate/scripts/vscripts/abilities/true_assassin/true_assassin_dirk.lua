@@ -60,7 +60,7 @@ function true_assassin_dirk:OnSpellStart()
         		vSpawnOrigin = caster:GetAbsOrigin(),
         		iMoveSpeed = 1800
         	}
-        	ProjectileManager:CreateTrackingProjectile(info) 
+        	FATE_ProjectileManager:CreateTrackingProjectile(info) 
 
         	--[[
         		local targetCount = 1

@@ -32,6 +32,7 @@ function emiya_arrow_rain:OnSpellStart()
 		Target = nil,
 		Source = caster, 
 		Ability = self,
+		level = 2,
 		EffectName = "particles/units/heroes/hero_clinkz/clinkz_searing_arrow.vpcf",
 		vSpawnOrigin = caster:GetAbsOrigin(),
 		iMoveSpeed = 3000
@@ -120,7 +121,7 @@ function emiya_arrow_rain:OnSpellStart()
 		local units = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 2000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		info.Target = units[math.random(#units)]
 		if info.Target ~= nil then 
-			ProjectileManager:CreateTrackingProjectile(info) 
+			FATE_ProjectileManager:CreateTrackingProjectile(info) 
 		end
 		bpCount = bpCount + 1
 		return 0.2

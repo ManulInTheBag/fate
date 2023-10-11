@@ -79,6 +79,7 @@ function jeanne_lagron:LaunchLagronProjectile(checker, point, stored_damage)
         Target = point,
         Source = caster,
         Ability = self,
+        level = -1,
         --EffectName = "particles/jeanne_alter/grimstroke_darkartistry_proj.vpcf",
         iMoveSpeed = 6000,
         vSourceLoc = caster:GetAbsOrigin(),
@@ -88,7 +89,7 @@ function jeanne_lagron:LaunchLagronProjectile(checker, point, stored_damage)
         ExtraData = tExtraData
     }
 
-    ProjectileManager:CreateTrackingProjectile(tProjectile)
+    FATE_ProjectileManager:CreateTrackingProjectile(tProjectile)
 end
 
 function jeanne_lagron:OnProjectileHit_ExtraData(hTarget, vLocation, tData)

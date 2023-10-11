@@ -132,7 +132,8 @@ function nanaya_knife:OnProjectileHitHandle(hTarget, vLocation, iProjectileHandl
 
 	hTarget:EmitSound("nanaya.knifehit")
 
-	caster:AddNewModifier(caster, self, "modifier_nanaya_knife_recast", {duration = self:GetSpecialValueFor("window_duration")})
+	local modifier = caster:AddNewModifier(caster, self, "modifier_nanaya_knife_recast", {duration = self:GetSpecialValueFor("window_duration")})
+	modifier.target = hTarget
 
 	return true
 end
@@ -345,12 +346,35 @@ function modifier_nanaya_knife_recast:IsHidden() return true end
 
 nanaya_knife_recast = class({})
 
+function nanaya_knife_recast:CastFilterResult()
+	local caster = self:GetCaster()
+	if IsServer() then
+		local target = caster:FindModifierByName("modifier_nanaya_knife_recast").target
+		if not target then return UF_FAIL_CUSTOM end
+		local dist = (caster:GetAbsOrigin() - target:GetAbsOrigin()):Length2D()
+
+		if dist > self:GetSpecialValueFor("recast_range") then 
+			return UF_FAIL_CUSTOM 
+		end
+	end
+	return UF_SUCCESS
+end
+
+function nanaya_knife_recast:GetCustomCastError()
+    return "#Target_out_of_range"
+end
+
 function nanaya_knife_recast:OnSpellStart()
 	local caster = self:GetCaster()
-	local target = self:GetCursorTarget()
+	local target = caster:FindModifierByName("modifier_nanaya_knife_recast").target
 	local damage = self:GetSpecialValueFor("damage") + ((caster.ScaleAcquired and caster:HasModifier("modifier_nanaya_instinct")) and caster:GetAgility()*self:GetSpecialValueFor("attribute_agility_multiplier") or 0)
 
 	caster:RemoveModifierByName("modifier_nanaya_knife_recast")
+
+	local position = target:GetAbsOrigin()
+	local dir = (caster:GetAbsOrigin() - position):Normalized()
+
+	FindClearSpaceForUnit(caster, position + dir*100, false)
 
 	local jump = ParticleManager:CreateParticle("particles/blink.vpcf", PATTACH_CUSTOMORIGIN, caster)
 			

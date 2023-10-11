@@ -47,7 +47,7 @@ function modifier_unlimited_bladeworks:OnAttackFinished(args)
 	  
 			  }
 		  }   
-	ProjectileManager:CreateTrackingProjectile(self.info) 
+	FATE_ProjectileManager:CreateTrackingProjectile(self.info) 
 end
  
 

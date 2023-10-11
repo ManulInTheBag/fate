@@ -76,6 +76,7 @@ function cu_chulain_gae_bolg_combo:OnSpellStart()
 		        Target = hTarget,
 		        Source = hCaster,
 		        Ability = self,
+		        level = 0,
 		        EffectName = "particles/custom/archer/archer_hrunting_orb.vpcf",
 		        iMoveSpeed = 3000,
 		        vSourceLoc = hCaster:GetAbsOrigin(),
@@ -84,7 +85,7 @@ function cu_chulain_gae_bolg_combo:OnSpellStart()
 		        iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_ATTACK_1
 		    }
 
-		    ProjectileManager:CreateTrackingProjectile(tProjectile)
+		    FATE_ProjectileManager:CreateTrackingProjectile(tProjectile)
 
 		    if hCaster:IsAlive() then
 		    	giveUnitDataDrivenModifier(hCaster, hCaster, "jump_pause", 5)
@@ -95,7 +96,7 @@ function cu_chulain_gae_bolg_combo:OnSpellStart()
 
 end
 
-function cu_chulain_gae_bolg_combo:OnProjectileThink(vLocation)
+function cu_chulain_gae_bolg_combo:OnProjectileThink_ExtraData(vLocation, table)
 	local caster = self:GetCaster()
 
 	vLocation = GetGroundPosition(vLocation, nil)

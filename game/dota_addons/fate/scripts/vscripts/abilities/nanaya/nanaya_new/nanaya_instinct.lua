@@ -48,7 +48,7 @@ function modifier_nanaya_instinct_passive:OnTakeDamage(keys)
 				self:SetStackCount(stacks+1)
 			end
 			if self:GetStackCount() >= 10 and not self.parent:HasModifier("modifier_nanaya_instinct") then
-				self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_nanaya_instinct", {})
+				self:EnterInstinct()
 			end
 			self.nanaya = ParticleManager:CreateParticle("particles/nanaya_blood2.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
 			Timers:CreateTimer("nanaya", {
@@ -62,6 +62,12 @@ function modifier_nanaya_instinct_passive:OnTakeDamage(keys)
 				end}
 			)
 		end			
+	end
+end
+
+function modifier_nanaya_instinct_passive:EnterInstinct()
+	if IsServer() then
+		self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_nanaya_instinct", {})
 	end
 end
 

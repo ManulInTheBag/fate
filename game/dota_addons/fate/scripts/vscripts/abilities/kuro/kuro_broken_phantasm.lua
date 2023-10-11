@@ -97,13 +97,14 @@ function kuro_broken_phantasm:OnChannelFinish(bInterrupted)
         Ability = self,
         EffectName = "particles/units/heroes/hero_clinkz/clinkz_searing_arrow.vpcf",
         iMoveSpeed = 3000,
+        level = 2,
         vSourceLoc = hCaster:GetAbsOrigin(),
         bDodgeable = true,
         bIsAttack = true,
         flExpireTime = GameRules:GetGameTime() + 10,
         iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_ATTACK_1,
     }
-    ProjectileManager:CreateTrackingProjectile(tProjectile)
+    FATE_ProjectileManager:CreateTrackingProjectile(tProjectile)
 end
 
 function kuro_broken_phantasm:OnProjectileHit_ExtraData(hTarget, vLocation, tData)

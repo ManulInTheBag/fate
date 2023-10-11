@@ -15,6 +15,31 @@ function nanaya_kick:CheckSequence()
 	end
 end
 
+function nanaya_kick:CastFilterResult()
+	local caster = self:GetCaster()
+	if IsServer() then
+		local target = self.target
+		if not target then return UF_FAIL_CUSTOM end
+		local dist = (caster:GetAbsOrigin() - target:GetAbsOrigin()):Length2D()
+
+		if dist > (self:CheckSequence() == 5 and self:GetSpecialValueFor("fly_range") or self:GetSpecialValueFor("kick_range")) then 
+			return UF_FAIL_CUSTOM 
+		end
+	end
+	return UF_SUCCESS
+end
+
+function nanaya_kick:GetCustomCastError()
+    return "#Target_out_of_range"
+end
+
+function nanaya_kick:GetBehavior()
+	if self:CheckSequence() == 1 then
+		return (DOTA_ABILITY_BEHAVIOR_UNIT_TARGET + DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING)
+	end
+	return (DOTA_ABILITY_BEHAVIOR_NO_TARGET + DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING)
+end
+
 function nanaya_kick:GetCastRange()
 	local seq = self:CheckSequence()
 	if seq <= 4 then
@@ -57,7 +82,11 @@ end
 function nanaya_kick:OnSpellStart()
 	local caster = self:GetCaster()
 	local seq = self:CheckSequence()
-	local target = self:GetCursorTarget()
+	if seq == 1 then
+		self.target = nil
+		self.target = self:GetCursorTarget()
+	end
+	local target = self.target
 	if seq <= 4 then
 		self:SimpleKick(seq, target)
 	elseif seq == 5 then
@@ -124,7 +153,7 @@ function modifier_nanaya_kerikedak:OnCreated()
 	self.parent = self:GetParent()
 	self.ability = self:GetAbility()
 	if IsServer() then
-		self.target = self.ability:GetCursorTarget()
+		self.target = self.ability.target
 		self.speed = self.ability:GetSpecialValueFor("fly_speed")
 		self.flytopoint = false
 

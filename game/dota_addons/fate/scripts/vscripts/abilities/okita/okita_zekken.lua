@@ -22,8 +22,12 @@ function okita_zekken:OnAbilityPhaseInterrupted()
     StopGlobalSound("Okita.Precombo")
 end
 
-function okita_zekken:GetAOERadius()
+function okita_zekken:GetCastRange()
     return self:GetSpecialValueFor("range")
+end
+
+function okita_zekken:GetAOERadius()
+    return self:GetSpecialValueFor("radius")
 end
 
 function okita_zekken:OnSpellStart()
@@ -39,7 +43,9 @@ function okita_zekken:OnSpellStart()
 
     caster:AddNewModifier(caster, self, "modifier_okita_zekken_cd", {duration = ability:GetCooldown(1)})
 
-    caster:AddNewModifier(caster, self, "modifier_okita_zekken_flight", {})
+    local target = self:GetCursorTarget()
+    self:StartZekken(target)
+    --caster:AddNewModifier(caster, self, "modifier_okita_zekken_flight", {})
 end
 
 function okita_zekken:StartZekken(target)

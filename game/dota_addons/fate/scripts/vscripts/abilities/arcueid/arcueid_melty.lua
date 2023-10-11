@@ -131,6 +131,7 @@ function arcueid_melty:ChainHunt(source_enemy)
 			    iMoveSpeed = ability:GetSpecialValueFor("speed"),
 			    vSpawnOrigin = source_enemy:GetAbsOrigin(),
 			    bDodgeable = false,
+			    level = 0,
 				Source = source_enemy,  
 				bDeleteOnHit = false,
 				bReplaceExisting = false,
@@ -141,7 +142,7 @@ function arcueid_melty:ChainHunt(source_enemy)
 				}
 			}
 
-			local proj = ProjectileManager:CreateTrackingProjectile(projectile)
+			local proj = FATE_ProjectileManager:CreateTrackingProjectile(projectile)
 
 			self.AttackedTargets[target:entindex()] = hook_particle
 		end

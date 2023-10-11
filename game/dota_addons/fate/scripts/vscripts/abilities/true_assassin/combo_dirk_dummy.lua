@@ -11,12 +11,13 @@ function combo_dirk_dummy:OnSpellStart()
 		Target = target,
 		Source = caster, 
 		Ability = ability,
+		level = 3,
 		EffectName = "particles/units/heroes/hero_phantom_assassin/phantom_assassin_stifling_dagger.vpcf",
 		vSpawnOrigin = caster:GetAbsOrigin(),
 		iMoveSpeed = 1800
 	}
 
-	ProjectileManager:CreateTrackingProjectile(info)
+	FATE_ProjectileManager:CreateTrackingProjectile(info)
 end
 
 function true_assassin_dirk:OnProjectileHit_ExtraData(hTarget, vLocation, tData)

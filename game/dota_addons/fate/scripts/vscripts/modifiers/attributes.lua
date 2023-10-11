@@ -1,3 +1,7 @@
+if IsClient() then
+    print("attributes client")
+end
+
 if not Attributes then
     Attributes = class({})
 	LinkLuaModifier("modifier_attributes_hp", "modifiers/modifier_attributes_hp", LUA_MODIFIER_MOTION_NONE)

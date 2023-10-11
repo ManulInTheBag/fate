@@ -96,13 +96,14 @@ function kuro_crane_wings_combo:FireExtraSwords(target)
 			Target = target, 
 			Source = dummy,
 			Ability = self,
+			level = 3,
 			EffectName = "particles/units/heroes/hero_queenofpain/queen_shadow_strike.vpcf",
 			vSpawnOrigin = dummy:GetAbsOrigin(),
 			iMoveSpeed = projectileSpeed,
 			bDodgeable = false
 		}
 
-		ProjectileManager:CreateTrackingProjectile(info) 
+		FATE_ProjectileManager:CreateTrackingProjectile(info) 
 	end
 end
 

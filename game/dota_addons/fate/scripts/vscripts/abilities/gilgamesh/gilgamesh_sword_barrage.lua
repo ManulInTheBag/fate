@@ -174,7 +174,7 @@ function gilgamesh_sword_barrage:OnSpellStart()
 	end)
 	Timers:CreateTimer(0.2,function()
 	if counter2 == 6 then return end
-	ProjectileManager:CreateTrackingProjectile(info[counter2]) 
+	FATE_ProjectileManager:CreateTrackingProjectile(info[counter2]) 
 	counter2 = counter2 + 1
 	caster:EmitSound("Hero_SkywrathMage.ConcussiveShot.Cast")
 	return 0.1

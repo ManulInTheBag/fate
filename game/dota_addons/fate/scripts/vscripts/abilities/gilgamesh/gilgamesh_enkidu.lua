@@ -200,7 +200,7 @@ function gilgamesh_enkidu:OnSpellStart()
 		Timers:CreateTimer(0.4,function()
 			if counter == 9 then return end
 		
-			ProjectileManager:CreateTrackingProjectile(info[counter]) 
+			FATE_ProjectileManager:CreateTrackingProjectile(info[counter]) 
 			counter = counter + 1
 			return 0.07
 			end)

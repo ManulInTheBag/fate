@@ -102,10 +102,10 @@ function cmd_seal_2:OnSpellStart()
 
 	-- Set cooldown
 	if not caster:HasModifier("modifier_command_seal_1") then
-		caster:FindAbilityByName("cmd_seal_1"):StartCooldown(30)
+		--aster:FindAbilityByName("cmd_seal_1"):StartCooldown(30)
 		--caster:FindAbilityByName("cmd_seal_2"):StartCooldown(30)
-		caster:FindAbilityByName("cmd_seal_3"):StartCooldown(30)
-		caster:FindAbilityByName("cmd_seal_4"):StartCooldown(30)
+		--caster:FindAbilityByName("cmd_seal_3"):StartCooldown(30)
+		--caster:FindAbilityByName("cmd_seal_4"):StartCooldown(30)
 		hero:AddNewModifier(caster, self, "modifier_command_seal_2", { Duration = self:GetCooldown(1) })
 	end
 

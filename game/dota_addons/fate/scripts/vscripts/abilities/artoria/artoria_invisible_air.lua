@@ -39,13 +39,14 @@ function artoria_invisible_air:OnSpellStart()
         EffectName = "",
         iMoveSpeed = 1200,
         vSourceLoc = caster:GetAbsOrigin(),
+        level = 3,
         bDodgeable = true,
         bIsAttack = true,
         flExpireTime = GameRules:GetGameTime() + 10,
         iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_ATTACK_1,
     }
 	
-    ProjectileManager:CreateTrackingProjectile(tProjectile)
+    FATE_ProjectileManager:CreateTrackingProjectile(tProjectile)
 	self.bRetracting = false
 	self.hVictim = nil
 	self.bDiedInInvisibleAir = false

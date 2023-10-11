@@ -42,7 +42,7 @@ function merlin_orbs:OnSpellStart()
 		        Ability = ability,
 		        EffectName = "particles/merlin/merlin_tracking_orb.vpcf",
 		        iMoveSpeed = self:GetSpecialValueFor("speed") + math.random(-300,0),
-		        vSpawnOrigin = caster:GetAbsOrigin()+ Vector(math.random(-200,200),math.random(-200,200),math.random(-100,100)),
+		        vSourceLoc = caster:GetAbsOrigin()+ Vector(math.random(-200,200),math.random(-200,200),math.random(50,100)),
 		        bDodgeable = true,
 				Source = caster,  
 				bDeleteOnHit = false,
@@ -56,7 +56,7 @@ function merlin_orbs:OnSpellStart()
 		        Ability = ability,
 				EffectName = "particles/merlin/merlin_tracking_orb.vpcf",
 		        iMoveSpeed = self:GetSpecialValueFor("speed") + math.random(-300,0),
-		        vSpawnOrigin = caster:GetAbsOrigin() + Vector(math.random(-200,200),math.random(-200,200),math.random(-100,100)),
+		        vSourceLoc = caster:GetAbsOrigin() + Vector(math.random(-200,200),math.random(-200,200),math.random(50,100)),
 		        bDodgeable = true,
 				Source = caster,
 				bReplaceExisting = false,
@@ -70,7 +70,7 @@ function merlin_orbs:OnSpellStart()
 		        Ability = ability,
 				EffectName = "particles/merlin/merlin_tracking_orb.vpcf",
 		        iMoveSpeed = self:GetSpecialValueFor("speed") + math.random(-300,0),
-		        vSpawnOrigin = caster:GetAbsOrigin()+ Vector(math.random(-200,200),math.random(-200,200),math.random(-100,100)),
+		        vSourceLoc = caster:GetAbsOrigin()+ Vector(math.random(-200,200),math.random(-200,200),math.random(50,100)),
 		        bDodgeable = true,
 				Source = caster,  
 				bDeleteOnHit = false,
@@ -83,9 +83,9 @@ function merlin_orbs:OnSpellStart()
 
       
         
-		    self.proj1 = ProjectileManager:CreateTrackingProjectile(projectile1)
-            self.proj2 =  ProjectileManager:CreateTrackingProjectile(projectile2)
-            self.proj3 = ProjectileManager:CreateTrackingProjectile(projectile3)
+		    self.proj1 = FATE_ProjectileManager:CreateTrackingProjectile(projectile1)
+            self.proj2 =  FATE_ProjectileManager:CreateTrackingProjectile(projectile2)
+            self.proj3 = FATE_ProjectileManager:CreateTrackingProjectile(projectile3)
            
 		    
 		end

@@ -185,9 +185,12 @@ function OnBloodfortStart(keys)
 		ParticleManager:ReleaseParticleIndex( ability.sphereFxIndex )
 	end
 
+	--local area_id = FATE_ProjectileManager:CreateSlowingArea_Circle({caster = caster, location = initCasterPoint, radius = radius, target_team = FATE_PROJECTILE_TARGET_TEAM_ENEMY, speed = 100, level = 2})
+
 	Timers:CreateTimer("medusa_bloodfort", {
 		callback = function()
 		if bloodfortCount >= duration or not caster:IsAlive() then
+			--FATE_ProjectileManager:DestroyArea(area_id)
 			if type(ability.sphereFxIndex) == "number" then
 				ParticleManager:DestroyParticle( ability.sphereFxIndex, false )
 				ParticleManager:ReleaseParticleIndex( ability.sphereFxIndex )

@@ -10,6 +10,7 @@ function item_c_scroll:OnSpellStart()
         Target = target,
         Source = caster,
         Ability = self,
+        level = 3,
         EffectName = "particles/units/heroes/hero_lina/lina_base_attack.vpcf",
         iMoveSpeed = 1200,
         vSourceLoc = caster:GetAbsOrigin(),

@@ -115,6 +115,7 @@ function arash_independent_action:SecondAttack(unit, vLocation)
                     Ability = caster:FindAbilityByName("arash_mobility_boost_active"), -- да я насрал но мне лень делать иначе)
                     EffectName = "particles/arash/arash_base_attack.vpcf",
                     iMoveSpeed = 900,
+                    level = 3,
                     vSpawnOrigin = caster:GetAttachmentOrigin(caster:ScriptLookupAttachment("attach_attack1")),
                     bDodgeable = true,
                     Source = caster,  
@@ -123,7 +124,7 @@ function arash_independent_action:SecondAttack(unit, vLocation)
                     flExpireTime = GameRules:GetGameTime() + 1,
                   
                 }
-                ProjectileManager:CreateTrackingProjectile(projectile)
+                FATE_ProjectileManager:CreateTrackingProjectile(projectile)
             end
     
         end

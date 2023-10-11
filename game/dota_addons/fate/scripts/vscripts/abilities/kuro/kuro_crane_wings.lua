@@ -158,12 +158,13 @@ function kuro_crane_wings:FireExtraSwords(targetPoint, radius)
 				Source = dummy,
 				Ability = kbAbility,
 				EffectName = effectName,
+				level = 3,
 				vSpawnOrigin = dummy:GetAbsOrigin(),
 				iMoveSpeed = projectileSpeed,
 				bDodgeable = true,
 				ExtraData = { grant_charges = false }
 			}
-			ProjectileManager:CreateTrackingProjectile(info) 
+			FATE_ProjectileManager:CreateTrackingProjectile(info) 
 		end
 	end
 

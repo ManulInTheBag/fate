@@ -164,6 +164,7 @@ function tamamo_soul_stream:OnSpellStart()
 					Ability = self,	
 			        EffectName = sCharmColor,
 			        iMoveSpeed = 1500,
+			        level = 3,
 					vSourceLoc= hCaster:GetAbsOrigin(),
 					bDrawsOnMinimap = false,
 			        bDodgeable = false,
@@ -175,7 +176,7 @@ function tamamo_soul_stream:OnSpellStart()
 					bProvidesVision = false,
 					ExtraData = tExtraData
 			    }
-			    local proj_true_id = ProjectileManager:CreateTrackingProjectile(projectile)
+			    local proj_true_id = FATE_ProjectileManager:CreateTrackingProjectile(projectile)
 			    self.ActiveProjectileIDs[proj_id] = proj_true_id
 
 			    Timers:CreateTimer(6, function()

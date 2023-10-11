@@ -66,14 +66,18 @@ function atalanta_crossing_arcadia:OnProjectileHit_ExtraData(target, location, d
     if not target then
         return
     end
-    local targets = FindUnitsInRadius(caster:GetTeam(), target:GetOrigin(), nil, data["1"], DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+    local targets = FindUnitsInRadius(caster:GetTeam(), target:GetOrigin(), nil, data[1], DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+
+    if data[5] then
+        data[5]:RemoveSelf()
+    end
     for _,v in pairs(targets) do
         --caster:GrantQBuff(self)
         --[[if data["3"] == 0 then
             caster:ArrowHit(v, data["2"],data["3"])
         else
             if v:GetName() ~= "npc_dota_ward_base" then]]
-                caster:ArrowHit(v, data["2"], data["3"], data["4"])
+                caster:ArrowHit(v, data[2], data[3], data[4])
         --    end
         --end
     end
@@ -124,24 +128,26 @@ function atalanta_crossing_arcadia:ShootAoEArrow(keys)
     local velocity = displacement / keys.Delay
 
     local projectile = {
+        Caster = caster,
         Target = target,
         Source = source,
         Ability = self,
         EffectName = keys.Effect,
-        bDodgable = false,
+        bDodgeable = false,
+        level = 2,
         bProvidesVision = false,
         iMoveSpeed = velocity:Length(),
         iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_HITLOCATION,
-	    ExtraData = {keys.AoE or 0, keys.Slow or 0, keys.IsPhoebus or 0, keys.IsCombo or 0}
+	    ExtraData = {keys.AoE or 0, keys.Slow or 0, keys.IsPhoebus or 0, keys.IsCombo or 0, dummy or nil}
     }
-    ProjectileManager:CreateTrackingProjectile(projectile)
+    FATE_ProjectileManager:CreateTrackingProjectile(projectile)
 
-    Timers:CreateTimer(keys.Delay + 0.1, function()
+    --[[Timers:CreateTimer(keys.Delay + 0.1, function()
         if dummy then
             dummy:RemoveSelf()
         end
 
-    end)
+    end)]]
 end
 
 function atalanta_crossing_arcadia:OnSpellStart()

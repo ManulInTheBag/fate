@@ -175,6 +175,7 @@ function cu_chulain_gae_bolg_jump:OnGaeBolgHit(position, projectile)
 	        Target = hCaster,
 	        Source = self.Dummy,
 	        Ability = self,
+	        level = 0,
 	        EffectName = "particles/custom/lancer/soaring/spear.vpcf",
 	        iMoveSpeed = 3000,
 	        vSourceLoc = self.Dummy:GetAbsOrigin(),
@@ -183,7 +184,7 @@ function cu_chulain_gae_bolg_jump:OnGaeBolgHit(position, projectile)
 	        iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_ATTACK_1
 	    }
 
-	    ProjectileManager:CreateTrackingProjectile(tProjectile)
+	    FATE_ProjectileManager:CreateTrackingProjectile(tProjectile)
 	end)	
 end
 

@@ -49,13 +49,14 @@ function atalanta_calydonian_snipe:OnSpellStart()
 		vSourceLoc= hCaster:GetAbsOrigin(),
 		bDrawsOnMinimap = false,
         bDodgeable = true,
+        level = 2,
         bIsAttack = false,
         bVisibleToEnemies = true,
         bReplaceExisting = false,
         flExpireTime = GameRules:GetGameTime() + 7,
 		bProvidesVision = false,
     }
-    ProjectileManager:CreateTrackingProjectile(projectile)
+    FATE_ProjectileManager:CreateTrackingProjectile(projectile)
 end
 
 function atalanta_calydonian_snipe:OnProjectileHit_ExtraData(hTarget, vLocation, tData)

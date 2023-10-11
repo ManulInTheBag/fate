@@ -54,7 +54,7 @@ function true_assassin_zabaniya:OnSpellStart()
 		iMoveSpeed = projectileSpeed
 	}
 
-	ProjectileManager:CreateTrackingProjectile(info) 
+	FATE_ProjectileManager:CreateTrackingProjectile(info) 
 	Timers:CreateTimer({
 		endTime = 0.033,
 		callback = function()

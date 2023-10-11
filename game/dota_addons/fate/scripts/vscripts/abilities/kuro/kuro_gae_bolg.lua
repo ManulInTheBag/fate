@@ -100,7 +100,7 @@ function kuro_gae_bolg:OnSpellStart()
 		        ExtraData = { fDamage = damage, fStunDur = stuns }
 		    }
 
-		    ProjectileManager:CreateTrackingProjectile(tProjectile)
+		    FATE_ProjectileManager:CreateTrackingProjectile(tProjectile)
 
 		    if hCaster:IsAlive() then
 		    	giveUnitDataDrivenModifier(hCaster, hCaster, "jump_pause", 5)
@@ -111,7 +111,7 @@ function kuro_gae_bolg:OnSpellStart()
 
 end
 
-function kuro_gae_bolg:OnProjectileThink(vLocation)
+function kuro_gae_bolg:OnProjectileThink_ExtraData(vLocation, tData)
 	local caster = self:GetCaster()
 
 	vLocation = GetGroundPosition(vLocation, nil)

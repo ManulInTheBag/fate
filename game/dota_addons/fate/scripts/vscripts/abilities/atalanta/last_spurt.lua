@@ -26,7 +26,8 @@ function atalanta_last_spurt:OnSpellStart()
             stacks = stacks + 1
         end
     end]]
-    local stacks = caster:FindModifierByName("modifier_last_spurt"):GetStackCount() or 0
+    local modifier = caster:FindModifierByName("modifier_last_spurt")
+    local stacks = modifier and modifier:GetStackCount() or 0
 
     caster:RemoveModifierByName("modifier_last_spurt")
     caster:AddNewModifier(caster, self, "modifier_last_spurt", {

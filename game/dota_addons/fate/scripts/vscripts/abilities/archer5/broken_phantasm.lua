@@ -54,7 +54,7 @@ function archer_5th_broken_phantasm:OnChannelFinish(bInterrupted)
         flExpireTime = GameRules:GetGameTime() + 10,
         iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_ATTACK_1,
     }
-    ProjectileManager:CreateTrackingProjectile(tProjectile)
+    FATE_ProjectileManager:CreateTrackingProjectile(tProjectile)
 end
 
 function archer_5th_broken_phantasm:OnProjectileHit_ExtraData(hTarget, vLocation, tData)

@@ -11,9 +11,45 @@ function nanaya_chobi:OnAbilityPhaseInterrupted()
 	StopGlobalSound("nanaya.rstart")
 end
 
+function nanaya_chobi:GetAOERadius()
+	return self:GetSpecialValueFor("range")
+end
+
 function nanaya_chobi:OnSpellStart()
 	local caster = self:GetCaster()
-	local target = self:GetCursorTarget()
+	local point = self:GetCursorPosition()
+	local origin = caster:GetAbsOrigin()
+	local range = self:GetSpecialValueFor("range")
+	local width = self:GetSpecialValueFor("width")
+
+	local direction = (point-origin)
+    if point == origin then
+    	direction = caster:GetForwardVector()
+    end
+    direction.z = 0
+    direction = direction:Normalized()
+
+    local point = GetGroundPosition( origin + direction*range, nil )
+
+	local enemies = FATE_FindUnitsInLine(
+								        caster:GetTeamNumber(),
+								        origin,
+								        point,
+								        width,
+										DOTA_UNIT_TARGET_TEAM_ENEMY,
+										DOTA_UNIT_TARGET_HERO,
+										DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+										FIND_CLOSEST
+    								)
+
+	local target = nil
+
+	for _, v in pairs(enemies) do
+		target = v
+		break
+	end
+
+	if not target then return end
 
 	local target_index = target:entindex()
 
@@ -105,7 +141,7 @@ end
 
 function modifier_nanaya_chobi:PlayEffects()
 	if not IsServer() then return end
-	local dmg = self.ability:GetSpecialValueFor("dmg")
+	local dmg = self.ability:GetSpecialValueFor("dmg") + ((self.caster.ScaleAcquired and self.caster:HasModifier("modifier_nanaya_instinct")) and self.caster:GetAgility()*self.ability:GetSpecialValueFor("attribute_agility_multiplier") or 0)
 	local damage_type = DAMAGE_TYPE_MAGICAL
 
 	if self.caster.ChobiAcquired then
@@ -124,7 +160,8 @@ function modifier_nanaya_chobi:PlayEffects()
 	EmitGlobalSound("nanaya.trigger")
 	self.target:EmitSound("nanaya.finalhit")
 
-	DoDamage(self.caster, self.target, dmg, damage_type, 0, self.ability, false)
+	DoDamage(self.caster, self.target, dmg/2, damage_type, 0, self.ability, false)
+	DoDamage(self.caster, self.target, dmg/2, DAMAGE_TYPE_PURE, 0, self.ability, false)
 
 	self.caster:FadeGesture(ACT_DOTA_CAST_ABILITY_6)
 	self.caster:StartGestureWithPlaybackRate(ACT_SCRIPT_CUSTOM_10, 1.4)
@@ -136,8 +173,18 @@ function modifier_nanaya_chobi:PlayEffects()
 	local part2 = ParticleManager:CreateParticle("particles/hit21.vpcf", PATTACH_CUSTOMORIGIN, self.caster)
 	ParticleManager:SetParticleControl(part2, 0, self.caster:GetAbsOrigin() + Vector(0, 0, 0))
 
-	if self.caster.ChobiAcquired and not self.target:IsAlive() then
-		self.ability:EndCooldown()
-		self.caster:GiveMana(300)
+	if not self.target:IsAlive() then
+		if self.caster.ChobiAcquired then
+			self.ability:EndCooldown()
+			self.caster:GiveMana(400)
+		end
+		if self.caster.InstinctAcquired then
+			local instinct_modifier = self.caster:FindModifierByName("modifier_nanaya_instinct_passive")
+
+			if instinct_modifier:GetStackCount() < 10 then
+				instinct_modifier:SetStackCount(10)
+			end
+			instinct_modifier:EnterInstinct()
+		end
 	end
 end

@@ -246,10 +246,10 @@ function OnSeal3Start(keys)
 	if caster.IsFirstSeal == true then
 		keys.ability:EndCooldown()
 	else
-		caster:FindAbilityByName("cmd_seal_1"):StartCooldown(20)
-		caster:FindAbilityByName("cmd_seal_2"):StartCooldown(20)
+		--caster:FindAbilityByName("cmd_seal_1"):StartCooldown(20)
+		--caster:FindAbilityByName("cmd_seal_2"):StartCooldown(20)
 		caster:FindAbilityByName("cmd_seal_3"):StartCooldown(20)
-		caster:FindAbilityByName("cmd_seal_4"):StartCooldown(20)
+		--caster:FindAbilityByName("cmd_seal_4"):StartCooldown(20)
 		keys.ability:ApplyDataDrivenModifier(keys.caster, hero, "modifier_command_seal_3",{})
 	end
 end
@@ -303,9 +303,9 @@ function OnSeal4Start(keys)
 	if caster.IsFirstSeal == true then
 		keys.ability:EndCooldown()
 	else
-		caster:FindAbilityByName("cmd_seal_1"):StartCooldown(10)
-		caster:FindAbilityByName("cmd_seal_2"):StartCooldown(10)
-		caster:FindAbilityByName("cmd_seal_3"):StartCooldown(10)
+		--caster:FindAbilityByName("cmd_seal_1"):StartCooldown(10)
+		--caster:FindAbilityByName("cmd_seal_2"):StartCooldown(10)
+		--caster:FindAbilityByName("cmd_seal_3"):StartCooldown(10)
 		caster:FindAbilityByName("cmd_seal_4"):StartCooldown(10)
 		keys.ability:ApplyDataDrivenModifier(keys.caster, hero, "modifier_command_seal_4",{})
 	end
