@@ -22,14 +22,14 @@ function nanaya_chobi:OnSpellStart()
 	local caster = self:GetCaster()
 	local point = self:GetCursorPosition()
 
-	giveUnitDataDrivenModifier(caster, caster, "jump_pause", 0.7)
+	giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 0.7)
 
 	Timers:CreateTimer(0.7, function()
 		local origin = caster:GetAbsOrigin()
 		local range = self:GetSpecialValueFor("range")
 		local width = self:GetSpecialValueFor("width")
 
-		caster:RemoveModifierByName("jump_pause")
+		caster:RemoveModifierByName("pause_sealenabled")
 
 		local direction = (point-origin)
 	    if point == origin then
