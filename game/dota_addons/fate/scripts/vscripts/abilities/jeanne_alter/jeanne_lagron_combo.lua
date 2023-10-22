@@ -189,6 +189,11 @@ function modifier_lagron_combo_ally:OnCreated()
         self.parent = self:GetParent()
         self.ability = self:GetAbility()
 
+        self.fx = ParticleManager:CreateParticle("particles/jeanne_alter/jeanne_alter_armor.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, self.parent)
+        ParticleManager:SetParticleControl(self.fx, 0,  self.parent:GetAbsOrigin() )
+        ParticleManager:SetParticleControl(self.fx, 1,  self.parent:GetAbsOrigin() )
+        self:AddParticle(self.fx, false, false, -1, false, false)
+
         --[[if self.target and self.target:HasModifier("modifier_lagron_damage_checker_enemy") then
             self.checker = true
             self.point = self.target

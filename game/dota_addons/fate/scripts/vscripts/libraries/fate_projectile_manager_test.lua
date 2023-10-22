@@ -559,6 +559,9 @@ function FATE_ProjectileManager:Think_TRACKING(k, v)
 		local thinkStatus, thinkNextCall = xpcall(function() return v.thinkCallback(v.ability, v.currentLoc, v.ExtraData) end, function (msg)
 			                                    return msg..'\n'..debug.traceback()..'\n'
 	                                  end)
+		--[[if not thinkStatus then
+			print(thinkNextCall)
+		end]]
 	end
 
 	if hit then

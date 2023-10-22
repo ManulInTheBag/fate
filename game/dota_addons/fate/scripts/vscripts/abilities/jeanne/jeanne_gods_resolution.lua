@@ -8,24 +8,6 @@ function jeanne_gods_resolution:GetAOERadius()
 	return self:GetSpecialValueFor("radius")
 end
 
-function jeanne_gods_resolution:GetManaCost()
-	return self:GetCaster():HasModifier("modifier_jeanne_gods_resolution_active_buff") and 0 or 400
-end
-function jeanne_gods_resolution:CastFilterResult()
-	local caster = self:GetCaster()
-	if IsServer() then
-
-		if caster:IsSilenced() and not caster:HasModifier("modifier_jeanne_gods_resolution_active_buff") then 
-			return UF_FAIL_CUSTOM 
-		end
-	end
-	return UF_SUCCESS
-end
-
-function jeanne_gods_resolution:GetCustomCastError()
-    return "#SILENCED"
-end
-
 function jeanne_gods_resolution:OnSpellStart()
 	local caster = self:GetCaster()
 
@@ -49,6 +31,18 @@ function jeanne_gods_resolution:OnSpellStart()
    	ParticleManager:SetParticleControl( self.resolutionFx, 0, caster:GetAbsOrigin())
    	ParticleManager:SetParticleControl( self.resolutionFx, 1, Vector(duration, 0, 0))
 
+end
+
+jeanne_gods_resolution_end = class({})
+
+function jeanne_gods_resolution_end:OnSpellStart()
+	local caster = self:GetCaster()
+
+	if caster:HasModifier("modifier_jeanne_gods_resolution_active_buff") then
+		caster:RemoveModifierByName("modifier_jeanne_gods_resolution_active_buff")
+	else
+		caster:SwapAbilities("jeanne_gods_resolution", "jeanne_gods_resolution_end", true, false)
+	end
 end
 
 modifier_jeanne_gods_resolution_active_buff = class({})
@@ -119,6 +113,8 @@ function modifier_jeanne_gods_resolution_active_buff:OnCreated()
 
 	self.radius = self.ability:GetSpecialValueFor("radius")
 
+	self.caster:SwapAbilities("jeanne_gods_resolution", "jeanne_gods_resolution_end", false, true)
+
 	self:StartIntervalThink(self.interval)
 end
 
@@ -137,8 +133,8 @@ end
 
 function modifier_jeanne_gods_resolution_active_buff:OnDestroy()
 	if IsServer() then
+		self.caster:SwapAbilities("jeanne_gods_resolution", "jeanne_gods_resolution_end", true, false)
 		self.caster:StopSound("Hero_ArcWarden.MagneticField")
-		self.ability:StartCooldown(self.ability:GetCooldown(self.ability:GetLevel()))
 		if type(self.ability.resolutionFx) == "number" then
 			ParticleManager:DestroyParticle(self.ability.resolutionFx, false)
 			ParticleManager:ReleaseParticleIndex(self.ability.resolutionFx)

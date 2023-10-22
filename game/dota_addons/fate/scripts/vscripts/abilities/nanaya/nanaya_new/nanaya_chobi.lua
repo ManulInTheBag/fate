@@ -3,12 +3,13 @@ LinkLuaModifier("modifier_nanaya_chobi", "abilities/nanaya/nanaya_new/nanaya_cho
 nanaya_chobi = class({})
 
 function nanaya_chobi:OnAbilityPhaseStart()
-	EmitGlobalSound("nanaya.rstart")
+	local caster = self:GetCaster()
+	StartAnimation(caster, {duration=1, activity=ACT_SCRIPT_CUSTOM_4, rate=0.3})
 	return true
 end
 
 function nanaya_chobi:OnAbilityPhaseInterrupted()
-	StopGlobalSound("nanaya.rstart")
+	EndAnimation(self:GetCaster())
 end
 
 function nanaya_chobi:GetAOERadius()
@@ -16,46 +17,55 @@ function nanaya_chobi:GetAOERadius()
 end
 
 function nanaya_chobi:OnSpellStart()
+	EmitGlobalSound("nanaya.rstart")
+
 	local caster = self:GetCaster()
 	local point = self:GetCursorPosition()
-	local origin = caster:GetAbsOrigin()
-	local range = self:GetSpecialValueFor("range")
-	local width = self:GetSpecialValueFor("width")
 
-	local direction = (point-origin)
-    if point == origin then
-    	direction = caster:GetForwardVector()
-    end
-    direction.z = 0
-    direction = direction:Normalized()
+	giveUnitDataDrivenModifier(caster, caster, "jump_pause", 0.7)
 
-    local point = GetGroundPosition( origin + direction*range, nil )
+	Timers:CreateTimer(0.7, function()
+		local origin = caster:GetAbsOrigin()
+		local range = self:GetSpecialValueFor("range")
+		local width = self:GetSpecialValueFor("width")
 
-	local enemies = FATE_FindUnitsInLine(
-								        caster:GetTeamNumber(),
-								        origin,
-								        point,
-								        width,
-										DOTA_UNIT_TARGET_TEAM_ENEMY,
-										DOTA_UNIT_TARGET_HERO,
-										DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
-										FIND_CLOSEST
-    								)
+		caster:RemoveModifierByName("jump_pause")
 
-	local target = nil
+		local direction = (point-origin)
+	    if point == origin then
+	    	direction = caster:GetForwardVector()
+	    end
+	    direction.z = 0
+	    direction = direction:Normalized()
 
-	for _, v in pairs(enemies) do
-		target = v
-		break
-	end
+	    local point = GetGroundPosition( origin + direction*range, nil )
 
-	if not target then return end
+		local enemies = FATE_FindUnitsInLine(
+									        caster:GetTeamNumber(),
+									        origin,
+									        point,
+									        width,
+											DOTA_UNIT_TARGET_TEAM_ENEMY,
+											DOTA_UNIT_TARGET_HERO,
+											DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+											FIND_CLOSEST
+	    								)
 
-	local target_index = target:entindex()
+		local target = nil
 
-	caster:AddNewModifier(caster, self, "modifier_nanaya_chobi", {target = target_index})
+		for _, v in pairs(enemies) do
+			target = v
+			break
+		end
 
-	caster:EmitSound("nanaya.jumpff")
+		if not target then return end
+
+		local target_index = target:entindex()
+
+		caster:AddNewModifier(caster, self, "modifier_nanaya_chobi", {target = target_index})
+
+		caster:EmitSound("nanaya.jumpff")
+	end)
 end
 
 modifier_nanaya_chobi = class({})

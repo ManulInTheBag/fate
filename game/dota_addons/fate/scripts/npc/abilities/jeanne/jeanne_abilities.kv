@@ -217,7 +217,7 @@
 	{
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/jeanne/jeanne_gods_resolution"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_AOE|DOTA_ABILITY_BEHAVIOR_IGNORE_SILENCE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_AOE"
 		"AbilityTextureName"			"custom/jeanne_gods_resolution"
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
@@ -243,13 +243,31 @@
 		"AbilityValues"
 		{
 			"cast_point"			"0"
-			"active_dps"			"300 375 450 525 600"
+			"active_dps"			"340 430 520 610 700"
 			"active_duration"		"2.0"
 			"radius"				"600"
 			"slow_amount"			"-50"
 			"mr_bonus"				"30"
 			"armor_bonus"			"0"			
 		}
+	}
+
+	"jeanne_gods_resolution_end"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/jeanne/jeanne_gods_resolution"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_SILENCE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"			"custom/jeanne_gods_resolution"
+		"MaxLevel"						"1"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"0"
+		"AbilityCastPoint"				"0.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
 	}
 
 

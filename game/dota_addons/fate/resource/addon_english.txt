@@ -4504,7 +4504,7 @@
         "DOTA_Tooltip_Ability_diarmuid_gae_buidhe_Note2"	"The maximum health is reduced by the actual amount of damage dealt."
 
         "DOTA_Tooltip_Ability_diarmuid_gae_dearg"       		"Gae Dearg"
-        "DOTA_Tooltip_ability_diarmuid_gae_dearg_Description"   "Pierces target with the Crimson Rose of Exorcism, dealing pure damage and dispelling various buffs.\nThe damage is increased based on how close Lancer is to the target.\nHalf of the damage is dealt in a span of 1 second after the hit.\nWhile Double Spearmanship is active, enables Gae Buidhe to be used for a short duration regardless of cooldown."
+        "DOTA_Tooltip_ability_diarmuid_gae_dearg_Description"   "Pierces target with the Crimson Rose of Exorcism, dealing mixed pure and magical damage and dispelling various buffs.\nThe damage is increased based on how close Lancer is to the target.\nWhile Double Spearmanship is active, enables Gae Buidhe to be used for a short duration regardless of cooldown."
         "DOTA_Tooltip_ability_diarmuid_gae_dearg_Lore"			"Against the Red Rose of Exorcism, even the strongest magic-forged defense is rendered useless."
         "DOTA_Tooltip_ability_diarmuid_gae_dearg_delay"			"Cast Point:"
         "DOTA_Tooltip_ability_diarmuid_gae_dearg_min_damage"	"Min Damage:"
@@ -7174,7 +7174,7 @@
 		"DOTA_Tooltip_ability_ryougi_pure_knowledge_attribute_Description"		"Activating Mystic Eyes of Death Perception grants Shiki true sight in small range and additional vision radius for 3 seconds."
 
 		"DOTA_Tooltip_ability_ryougi_kiyohime_passing_attribute"		"Attribute: Kiyohime Passing"
-		"DOTA_Tooltip_ability_ryougi_kiyohime_passing_attribute_Description"	"Finishing Double Belfry - Row of Beads reduces it's cooldown to 2 seconds.\nKnife Fan hard cleanses Ryougi on use (not usable while stunned though).\nMystic Eyes of Death Perception restore 50 mana when line is cut."
+		"DOTA_Tooltip_ability_ryougi_kiyohime_passing_attribute_Description"	"Finishing Double Belfry - Row of Beads reduces it's cooldown to 8 seconds.\nKnife Fan hard cleanses Ryougi on use (not usable while stunned though).\nMystic Eyes of Death Perception restore 50 mana when line is cut."
 
 		"DOTA_Tooltip_ability_ryougi_black_moon_attribute"		"Attribute: Black Moon Kite"
 		"DOTA_Tooltip_ability_ryougi_black_moon_attribute_Description"		"Hidden Daggers recieve additional effects: <font color='#9400D3'>slow</font> (yang) and <font color='#FF3399'>silence</font> (ying)."
@@ -8581,7 +8581,7 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
 		"DOTA_Tooltip_ability_master_shard_of_holy_grail_Lore"	"A shard of the legendary artifact that is known to descend upon the soul in its most dire situation. Despite being a makeshift, a trivial wish of mere human may not be asking too much...\n"
 
 		"DOTA_Tooltip_Ability_master_shard_of_avarice"				"Shard of Avarice"
-		"DOTA_Tooltip_ability_master_shard_of_avarice_Description"	"Grants 2500 bonus gold at the beginning of round."
+		"DOTA_Tooltip_ability_master_shard_of_avarice_Description"	"Grants 3250 bonus gold at the beginning of round."
 		"DOTA_Tooltip_Ability_master_shard_of_avarice_Lore"			"A shard of the legendary artifact that is known to descend upon the soul in its most dire situation. Despite being a makeshift, a trivial wish of mere human may not be asking too much...\n"
 
 		"DOTA_Tooltip_Ability_master_shard_of_anti_magic"				"Shard of Anti-Magic"

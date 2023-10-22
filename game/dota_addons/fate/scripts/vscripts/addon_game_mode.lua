@@ -4043,7 +4043,7 @@ function FateGameMode:InitializeRound()
                 --end
             end
             if hero.AvariceCount ~= nil then
-                hero:ModifyGold(2500*hero.AvariceCount, false, 0)
+                hero:ModifyGold(3250*hero.AvariceCount, false, 0)
             end
 
             --local xpBonus = 100 + 
