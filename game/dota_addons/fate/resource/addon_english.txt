@@ -6450,6 +6450,14 @@
         "DOTA_Tooltip_Ability_nursery_rhyme_white_queens_enigma_damage"			"Damage:"
         "DOTA_Tooltip_Ability_nursery_rhyme_white_queens_enigma_lock_duration"	"Lock duration:"
 
+        "DOTA_Tooltip_Ability_alice_enigma"							"White Queen's Enigma"
+        "DOTA_Tooltip_Ability_alice_enigma_Description"				"Launches an enigmatic force in a line. Enemies hit by this ability take magical damage and are <font color='#FF6699'>stunned</font> for %stun_duration% seconds.\nAfter that they are <font color='#FF6699'>slowed</font> by %slow_pct%%% for a longer duration, while taking magical damage based on their maximum health.\nReveals hit enemies briefly."
+        "DOTA_Tooltip_Ability_alice_enigma_damage"							"Damage:"
+        "DOTA_Tooltip_Ability_alice_enigma_duration"						"Slow duration:"
+        "DOTA_Tooltip_Ability_alice_enigma_slow"							"%Slow:"
+        "DOTA_Tooltip_Ability_alice_enigma_perc_damage_per_second"			"%Damage per second:"
+        "DOTA_Tooltip_Ability_alice_enigma_stun_duration"					"Stun duration:"
+
         "DOTA_Tooltip_Ability_nursery_rhyme_the_plains_of_water"				"The Plains of Water"
         "DOTA_Tooltip_Ability_nursery_rhyme_the_plains_of_water_Description"	"Hurls a frost bolt that bounces through nearby enemy units. Each bounce increases bolt's damage by %dmg_reduction%%% and applies a very brief slow immunity piercing slow."
         "DOTA_Tooltip_Ability_nursery_rhyme_the_plains_of_water_damage"			"Damage:"
@@ -6483,6 +6491,24 @@
         "DOTA_Tooltip_Ability_nursery_rhyme_queens_glass_game_activate_Description"	"Paaarty~~."
         "DOTA_Tooltip_Ability_nursery_rhyme_queens_glass_game_activate_Lore"		"Once again denying reality to the reader."
 
+        "DOTA_Tooltip_Ability_alice_return"      			"Queen's Glass Game - Return"
+        "DOTA_Tooltip_Ability_alice_return_Description"   "Nursery Rhyme remembers the moment in time. When the effect ends, she will return to this moment, restoring part of the damage taken, cleansing herself and rewinding her position back to where she was.\nDamages and stuns enemies who are on the line between her initial position and current position.\nCaster can recast this ability to trigger the effect prematurely."
+        "DOTA_Tooltip_Ability_alice_return_duration"      	"Duration:"
+        "DOTA_Tooltip_Ability_alice_return_damage"      	"Damage:"
+        "DOTA_Tooltip_Ability_alice_return_stun_duration"   "Stun duration:"
+
+        "DOTA_Tooltip_Ability_alice_return_activate"      "Queen's Glass Game - Return"
+        "DOTA_Tooltip_Ability_alice_return_activate_Description"	"Paaarty~~."
+
+        "DOTA_Tooltip_Ability_nursery_rhyme_queens_glass_game_old"      "Queen's Glass Game - Rewind"
+        "DOTA_Tooltip_Ability_nursery_rhyme_queens_glass_game_old_Description"      "CHANNELING: Caster winds back the battle, healing all allies instantly and over time."
+        "DOTA_Tooltip_Ability_nursery_rhyme_queens_glass_game_old_radius"		"RADIUS:"
+        "DOTA_Tooltip_Ability_nursery_rhyme_queens_glass_game_old_channel_duration"		"CHANNELING DURATION:"
+        "DOTA_Tooltip_Ability_nursery_rhyme_queens_glass_game_old_instant_heal"		"INSTANT HEAL:"
+        "DOTA_Tooltip_Ability_nursery_rhyme_queens_glass_game_old_instant_heal_pct"	"%INSTANT HEAL BASED ON MISSING HEALTH:"
+        "DOTA_Tooltip_Ability_nursery_rhyme_queens_glass_game_old_heal_over_time_pct"	"%HEAL OVER TIME BASED ON MAX HEALTH:"
+        "DOTA_Tooltip_Ability_nursery_rhyme_queens_glass_game_old_upkeep_mana_cost"		"%UPKEEP MANA COST PER SEC:"
+
 	"DOTA_Tooltip_Ability_alice_tea_party"						"Combo: Alice - Tea Party"
         "DOTA_Tooltip_Ability_alice_tea_party_Description"				"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: R-D in 6 seconds</font>\n\nCaster uses her Reality Marble to start a tea party. Once it's started, all enemies who participate in it (are in party radius) lose huge amount of mana per second. When the amount of mana reaches 0, they lose all their memories, take damage, based on difference between their's and Caster's intellect and become <font color='#58ACFA'>silenced</font> and <font color='#58ACFA'>revoked</font> for the remaining time of the party. Caster gains the same amount of mana per second."
 	"DOTA_Tooltip_Ability_alice_tea_party_radius"					"Radius:"
@@ -6502,12 +6528,7 @@
         "DOTA_Tooltip_Ability_nursery_rhyme_story_for_somebodys_sake_Lore"	"This story will go on forever.\nAs long as the slender fingers return to the first page,\nAs if picking up the next volume.\nOnce again denying reality to the reader."
 
         "DOTA_Tooltip_Ability_nursery_rhyme_attribute_forever_together"		"Attribute: Forever Together"
-        "DOTA_Tooltip_Ability_nursery_rhyme_attribute_forever_together_Description"		"I Am You, and You Are Me causes target to be slowed and take damage every second based on INT continuously if it is looking away from its doppelganger. Also, improves Shapeshift's max duration and slow, and reduces its cooldown."
-        "DOTA_Tooltip_Ability_nursery_rhyme_attribute_forever_together_slow_amount"		"%LOOKAWAY SLOW AMOUNT:"
-        "DOTA_Tooltip_Ability_nursery_rhyme_attribute_forever_together_damage_per_sec"	"LOOKAWAY DAMAGE INT RATIO:"
-        "DOTA_Tooltip_Ability_nursery_rhyme_attribute_forever_together_shapeshift_duration"		"SHAPESHIFT DURATION:"
-        "DOTA_Tooltip_Ability_nursery_rhyme_attribute_forever_together_shapeshift_slow"			"SHAPESHIFT SLOW:"
-        "DOTA_Tooltip_Ability_nursery_rhyme_attribute_forever_together_shapeshift_cd"			"SHAPESHIFT COOLDOWN:"
+        "DOTA_Tooltip_Ability_nursery_rhyme_attribute_forever_together_Description"		"Improves Queen's Glass Game - Return."
 
         "DOTA_Tooltip_Ability_nursery_rhyme_attribute_nightmare"				"Attribute: Nightmare"
         "DOTA_Tooltip_Ability_nursery_rhyme_attribute_nightmare_Description"	"Increases The Plains of Water's max bounce count, damage by %int_ratio% per point of Nursery Rhyme's INT, and causes each bounce onto enemy hero to steal %int_steal% INT from them for %int_steal_duration% seconds."
@@ -6523,7 +6544,7 @@
         "DOTA_Tooltip_Ability_nursery_rhyme_attribute_reminiscence_pct_mana_regen"		"MANA REGEN PERCENTAGE:"
 
         "DOTA_Tooltip_Ability_nursery_rhyme_attribute_improve_queens_glass_game"				"Attribute: Improve Queen's Glass Game"
-        "DOTA_Tooltip_Ability_nursery_rhyme_attribute_improve_queens_glass_game_Description"	"Causes Queen's Glass Game to always refresh cooldown instead of reverting the duration, as well as refreshing cooldown of items in Nursery Rhyme's inventory."
+        "DOTA_Tooltip_Ability_nursery_rhyme_attribute_improve_queens_glass_game_Description"	"Increases instant heal from missing health to 20%%. Increases instant heal by Caster's Intelligence * 4. Causes Queen's Glass Game to restore half of the flat instant heal value as mana.\nReduces Perpetual Engine - Maiden Empire cooldown to 380 seconds."
 
         //====================================
         //      Archer of Red - Atalanta

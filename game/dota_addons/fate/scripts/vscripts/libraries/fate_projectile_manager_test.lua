@@ -653,16 +653,17 @@ function FATE_ProjectileManager:Think_LINEAR(k, v)
 		end
 	end]]
 
+	if v.callback then
+			for kt, vt in pairs(targets) do
+				local status, nextCall = xpcall(function() return v.callback(v.ability, EntIndexToHScript(kt), v.currentLoc, v.ExtraData) end, function (msg)
+	                            return msg..'\n'..debug.traceback()..'\n'
+	                        end)
+		end
+	end
+
 	if hit or lastframe or (v.expires and GameRules:GetGameTime() >= v.expireTime) then
 		--print("FPMSUCCESS"..k)
 		self.ActiveProjectiles[k] = nil
-		if v.callback then
-			for kt, vt in pairs(targets) do
-				local status, nextCall = xpcall(function() return v.callback(v.ability, EntIndexToHScript(kt), v.currentLoc, v.ExtraData) end, function (msg)
-	                                    return msg..'\n'..debug.traceback()..'\n'
-	                                  end)
-			end
-		end
 		if v.projFX then
 			ParticleManager:DestroyParticle(v.projFX, false)
 			ParticleManager:ReleaseParticleIndex(v.projFX)

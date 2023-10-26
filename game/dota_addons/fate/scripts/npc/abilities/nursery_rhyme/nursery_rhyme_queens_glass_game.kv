@@ -81,4 +81,105 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"0"
 	}
+
+	//====================================
+	// Alice: White Queen's Enigma
+	//====================================
+	"alice_enigma"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/nursery_rhyme/alice_enigma"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/nursery_rhyme_white_queens_enigma"
+		"AbilityCastAnimation" 			"ACT_DOTA_ATTACK"
+		"AnimationPlaybackRate" 		"1.0"
+
+		"AbilityCastRange"				"1000"
+		"AbilityCastPoint"				"0.2"
+
+		"AbilityCooldown"				"8 7 6 5 4"
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100"
+
+		"AbilityValues"
+		{
+			"damage"					"300 375 450 525 600"
+			"stun_duration"				"0.4 0.5 0.6 0.7 0.8"
+			"duration"					"1.5"
+			"perc_damage_per_second"	"6 7 8 9 10"
+			"slow"						"75"
+		}
+	}
+
+	//====================================
+	// Alice: Queens Glass Game - Return
+	//====================================
+	"alice_return"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/nursery_rhyme/alice_return"
+		"MaxLevel"						"2"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"25"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/nursery_rhyme_shapeshift"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
+
+		"AbilityCastPoint"				"0.1"
+		"AbilityCooldown"				"45 15"
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"200"
+
+		"AbilityValues"
+		{
+			"duration" 					"5"
+			"heal_perc"					"60"
+			"damage"					"200 400"
+			"stun_duration"				"0.2 1.0"
+		}
+	}
+
+	"alice_return_activate"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/nursery_rhyme/alice_return"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"			"custom/nursery_rhyme_shapeshift"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
+
+		"AbilityCastPoint"				"0.1"
+		"AbilityCooldown"				"0"
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+
+		"AbilityValues"
+		{
+			"duration" 					"5"
+			"heal_perc"					"60"
+		}
+	}
 }

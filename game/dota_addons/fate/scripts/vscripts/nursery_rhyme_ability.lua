@@ -568,7 +568,7 @@ function OnGlassGameStart(keys)
 
 	-- give caster heal aura modifier
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_queens_glass_game", {})
-	if caster.bIsQGGImproved then
+	--[[if caster.bIsQGGImproved then
 		--print("applied aura")
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_queens_glass_game_link_aura", {})
 		Timers:CreateTimer(0.6, function()
@@ -577,7 +577,7 @@ function OnGlassGameStart(keys)
 				ParticleManager:SetParticleControl(caster.aoeFx2, 3, Vector(0,0,0))
 			end
 		end)
-	end
+	end]]
 
 	local cooldown_reduc = ability:GetSpecialValueFor("cooldown_reduc")
 
@@ -617,6 +617,21 @@ function OnGlassGameStart(keys)
 	--[[local SacFx = ParticleManager:CreateParticle("particles/custom/caster/sacrifice/caster_sacrifice_indicator.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster )
 	ParticleManager:SetParticleControl( SacFx, 0, caster:GetAbsOrigin())
 	ParticleManager:SetParticleControl( SacFx, 1, Vector(radius,0,0))]]
+
+	if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 and caster:GetIntellect() >= 29.1 then
+		if caster:FindAbilityByName("nursery_rhyme_story_for_somebodys_sake"):IsCooldownReady() 
+			and caster:GetAbilityByIndex(4):GetName() == "nursery_rhyme_nameless_forest"
+			and not caster:HasModifier("modifier_alice_tea_party_cd") 
+			and (GameRules:GetGameTime() < 60 + _G.RoundStartTime) then
+			caster:SwapAbilities("nursery_rhyme_nameless_forest", "nursery_rhyme_story_for_somebodys_sake", false, true)
+			Timers:CreateTimer({
+				endTime = 2,
+				callback = function()
+					caster:SwapAbilities("nursery_rhyme_nameless_forest", "nursery_rhyme_story_for_somebodys_sake", true, false)
+				end
+			})
+		end
+	end
 end
 
 function OnGlassGameEnd(keys)
@@ -837,7 +852,7 @@ function OnFTAcquired(keys)
 	--hero:SwapAbilities("jeanne_saint", "jeanne_identity_discernment", true, true) 
 	-- Set master 1's mana 
 	hero.bIsFTAcquired = true
-	hero:FindAbilityByName("nursery_rhyme_shapeshift"):SetLevel(2)
+	hero:FindAbilityByName("alice_return"):SetLevel(2)
 	local master = hero.MasterUnit
 	master:SetMana(master:GetMana() - keys.ability:GetManaCost(keys.ability:GetLevel()))
 end
