@@ -55,8 +55,11 @@ function ryougi_knife_throw:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
   	end
   	local hCaster = self:GetCaster()
   	local eyes = hCaster:FindAbilityByName("ryougi_mystic_eyes")
+
+  	print("ryougi knife hit target "..hTarget:GetName())
   	
   	hTarget:AddNewModifier(hCaster, self, "modifier_ryougi_knife_target", {duration = self:GetSpecialValueFor("mark_duration")})
+  	print("ryougi knife after modifier applied target "..hTarget:GetName())
   	if hCaster.BlackMoonAcquired then
       hTarget:AddNewModifier(hCaster, self, "modifier_ryougi_knife_throw_slow", {duration = self:GetSpecialValueFor("attribute_slow_duration")})
     end
@@ -88,6 +91,8 @@ function modifier_ryougi_knife_target:OnCreated()
 	self.caster = self:GetCaster()
 	self.parent = self:GetParent()
 
+	print("ryougi knife modifier created target "..self.parent:GetName())
+
 	if not self.caster.CurrentKnifeTarget then
 		self.caster.CurrentKnifeTarget = self.parent
 	end
@@ -97,9 +102,17 @@ function modifier_ryougi_knife_target:OnCreated()
 	end
 end
 
+function modifier_ryougi_knife_target:OnRemoved()
+	if not IsServer() then return end
+
+	print("ryougi knife modifier run onRemoved target "..self.parent:GetName())
+end
+
 function modifier_ryougi_knife_target:OnDestroy()
 	if not IsServer() then return end
 	self.caster.CurrentKnifeTarget = nil
+
+	print("ryougi knife modifier run onDestroy target "..self.parent:GetName())
 
 	if self.caster:GetAbilityByIndex(5):GetName() == "ryougi_knife_recast" then	    		
 		self.caster:SwapAbilities("ryougi_knife_recast", "ryougi_knife_throw", false, true)	

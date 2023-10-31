@@ -36,6 +36,10 @@ function ryougi_knife_recast:OnSpellStart()
 
 	EmitGlobalSound("ryougi_nibio")
 
+	if caster:GetAbilityByIndex(5):GetName() == "ryougi_knife_recast" then	    		
+		caster:SwapAbilities("ryougi_knife_recast", "ryougi_knife_throw", false, true)	
+	end
+
 	local combo_enemy = caster.CurrentKnifeTarget
 	local origin = caster:GetAbsOrigin()
 	local point = combo_enemy:GetAbsOrigin()

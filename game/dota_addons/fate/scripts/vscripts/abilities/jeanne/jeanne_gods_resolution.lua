@@ -15,7 +15,6 @@ function jeanne_gods_resolution:OnSpellStart()
 		caster:RemoveModifierByName("modifier_jeanne_gods_resolution_active_buff")
 		return
 	end
-	self:EndCooldown()
 	local duration = self:GetSpecialValueFor("active_duration")
 	if caster.IsPunishmentAcquired then
 		duration = duration + 1

@@ -369,6 +369,13 @@ function nanaya_knife_recast:OnSpellStart()
 	local target = caster:FindModifierByName("modifier_nanaya_knife_recast").target
 	local damage = self:GetSpecialValueFor("damage") + ((caster.ScaleAcquired and caster:HasModifier("modifier_nanaya_instinct")) and caster:GetAgility()*self:GetSpecialValueFor("attribute_agility_multiplier") or 0)
 
+	local dist = (caster:GetAbsOrigin() - target:GetAbsOrigin()):Length2D()
+
+	if (dist - 150) > (self:GetSpecialValueFor("recast_range")) then
+		self:EndCooldown()
+		return 
+	end
+
 	caster:RemoveModifierByName("modifier_nanaya_knife_recast")
 
 	local position = target:GetAbsOrigin()

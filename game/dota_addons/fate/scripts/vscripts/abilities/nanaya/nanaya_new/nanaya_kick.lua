@@ -87,6 +87,15 @@ function nanaya_kick:OnSpellStart()
 		self.target = self:GetCursorTarget()
 	end
 	local target = self.target
+
+	local dist = (caster:GetAbsOrigin() - target:GetAbsOrigin()):Length2D()
+
+	if (dist - 150) > (self:CheckSequence() == 5 and self:GetSpecialValueFor("fly_range") or self:GetSpecialValueFor("kick_range")) then
+		caster:GiveMana(80)
+		self:EndCooldown()
+		return 
+	end
+
 	if seq <= 4 then
 		self:SimpleKick(seq, target)
 	elseif seq == 5 then

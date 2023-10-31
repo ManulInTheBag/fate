@@ -290,7 +290,7 @@ function modifier_okita_sandanzuki_release:UpdateHorizontalMotion(me, dt)
         if self.distance >= 0 then
             local units_per_dt = self.speed * dt
             local parent_pos = self.parent:GetAbsOrigin()
-            local direction = self.parent:GetForwardVector()
+            local direction = self.direction--self.parent:GetForwardVector()
 
             local next_pos = parent_pos + direction * units_per_dt
             next_pos = GetGroundPosition(next_pos, self.parent)
@@ -520,7 +520,7 @@ function modifier_okita_sandanzuki_dash:UpdateHorizontalMotion(me, dt)
         if self.distance >= 0 then
             local units_per_dt = self.speed * dt
             local parent_pos = self.parent:GetAbsOrigin()
-            local direction = self.parent:GetForwardVector()
+            local direction = self.direction--self.parent:GetForwardVector()
 
             local next_pos = parent_pos + direction * units_per_dt
             next_pos = GetGroundPosition(next_pos, self.parent)

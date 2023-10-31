@@ -392,6 +392,8 @@ end
 	caster : Workshop
 	ability : The respective item
 ]]
+LinkLuaModifier("modifier_medea_dragon", "abilities/caster/modifier_medea_dragon", LUA_MODIFIER_MOTION_NONE)
+
 function OnSummonDragon(keys)
 	local caster = keys.caster
 	local ability = keys.ability
@@ -422,6 +424,7 @@ function OnSummonDragon(keys)
 		end
 	end)
 	drag:AddNewModifier(caster, nil, "modifier_kill", {duration = 61})
+	drag:AddNewModifier(caster, nil, "modifier_medea_dragon", {duration = 61})
 
 	drag:SetMaxHealth(keys.Health)
 	drag:SetHealth(keys.Health)

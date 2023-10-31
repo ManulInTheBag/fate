@@ -162,13 +162,24 @@ function gilles_abyssal_contract:OnUpgrade()
 end
 
 
-if IsServer() then 
+if IsServer() then
+	function modifier_squidlord_death_checker:OnCreated()
+		self:StartIntervalThink(FrameTime())
+	end
+
 	function modifier_squidlord_death_checker:OnDestroy()		
 		self:GetCaster():RemoveModifierByName("modifier_squidlord_alive")
 
 		local hAbility = self:GetCaster():FindAbilityByName("gilles_abyssal_contract")
 		hAbility:EndCooldown()
 		hAbility:StartCooldown(hAbility:GetCooldown(hAbility:GetLevel()))
+	end
+
+	function modifier_squidlord_death_checker:OnIntervalThink()
+	    local targets = FindUnitsInRadius(self:GetParent():GetTeam(), self:GetParent():GetAbsOrigin(), nil, 2000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false)
+	    for k,v in pairs(targets) do
+	        self:GetParent():AddNewModifier(v, nil, "modifier_vision_provider", {duration = 0.2})
+	    end
 	end
 end
 
