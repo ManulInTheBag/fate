@@ -849,7 +849,7 @@ function SpawnVisionDummy(owner, location, radius, duration, bTrueSight)
     if bTrueSight then
         visiondummy:AddNewModifier(owner, owner, "modifier_item_ward_true_sight", {true_sight_range = radius}) 
     end
-    Timers:CreateTimer(duration, function() visiondummy:RemoveSelf() return end)
+    Timers:CreateTimer(duration, function() if visiondummy and not visiondummy:IsNull() then visiondummy:RemoveSelf() end return end)
     return visiondummy
 end
 

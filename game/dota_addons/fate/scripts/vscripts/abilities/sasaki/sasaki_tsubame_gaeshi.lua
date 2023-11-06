@@ -83,21 +83,12 @@ function sasaki_tsubame_gaeshi:TsubameGaeshi(target)
         end
     end)
 
-	if caster:GetMana() > 99 then
-		enhanced = true
-	end
-	if IsSpellBlocked(target) and( enhanced == false or not caster.IsGanryuAcquired )then return end
-	caster:AddNewModifier(caster, self, "modifier_exhausted", { Duration = self:GetSpecialValueFor("exhausted_duration") })
+	if IsSpellBlocked(target) and(not caster.IsGanryuAcquired) then return end
 
 	if caster.IsGanryuAcquired then
-
-		--if not enhanced then
-			split_damage = split_damage + caster:GetAverageTrueAttackDamage(caster)*0.35
-			final_damage = final_damage + caster:GetAverageTrueAttackDamage(caster)*0.7
-			giveUnitDataDrivenModifier(caster, caster, "jump_pause", 0.5)
-		--else
-		--	combined_damage = combined_damage + caster:GetAverageTrueAttackDamage(caster)
-		--end
+		split_damage = split_damage + caster:GetAverageTrueAttackDamage(caster)*0.35
+		final_damage = final_damage + caster:GetAverageTrueAttackDamage(caster)*0.7
+		giveUnitDataDrivenModifier(caster, caster, "jump_pause", 0.5)
 	end
 
 	--caster:SetMana(0)
@@ -132,7 +123,7 @@ function sasaki_tsubame_gaeshi:TsubameGaeshi(target)
 			--if enhanced then
 			--	self:PerformSlash(caster, target, 1, 3)
 			--else
-				self:PerformSlash(caster, target, split_damage, 2, enhanced)
+				self:PerformSlash(caster, target, split_damage, 2, true)
 			--end
 		else
 			ParticleManager:DestroyParticle(particle, true)
@@ -146,7 +137,7 @@ function sasaki_tsubame_gaeshi:TsubameGaeshi(target)
 			--if enhanced then
 			--	self:PerformSlash(caster, target, 1, 3)
 			--else
-				self:PerformSlash(caster, target, split_damage, 2, enhanced)
+				self:PerformSlash(caster, target, split_damage, 2, true)
 			--end
 		else
 			ParticleManager:DestroyParticle(particle, true)
@@ -161,7 +152,7 @@ function sasaki_tsubame_gaeshi:TsubameGaeshi(target)
 			--	self:PerformSlashk(caster, target, combined_damage, 1)
 			--	target:AddNewModifier(caster, self, "modifier_stunned", { Duration = 1.5 })
 			--else
-				self:PerformSlash(caster, target, final_damage, 2, enhanced)
+				self:PerformSlash(caster, target, final_damage, 2, true)
 			--end
 		else
 			ParticleManager:DestroyParticle(particle, true)

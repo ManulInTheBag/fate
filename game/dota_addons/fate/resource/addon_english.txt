@@ -3518,17 +3518,20 @@
 		"DOTA_Tooltip_ability_false_assassin_minds_eye_agi_ratio_revoked"	"AGI RATIO AGAINST REVOKED ENEMY:"
 		
 		"DOTA_Tooltip_Ability_sasaki_gatekeeper"					"Gate Keeper"
-		"DOTA_Tooltip_ability_sasaki_gatekeeper_Description"		"Kojiro binds assumes a defensive position, gaining bonus physical damage and moving at maximum movement speed as long as he remains within the area. When Kojiro attacks an enemy, he heals himself for the amount equal to the bonus damage he gained from this ability."
+		"DOTA_Tooltip_ability_sasaki_gatekeeper_Description"		"Kojiro assumes a defensive position, gaining bonus armor, magical resistance, health regeneration and physical damage and moving at maximum movement speed as long as he remains within the area. When Kojiro attacks an enemy, he heals himself for the amount equal to the bonus damage he gained from this ability."
 		"DOTA_Tooltip_ability_sasaki_gatekeeper_Lore"			"From the high ground of Ryuudou Temple, the Gatekeeper longs for a match with formiddable opponent."
 		"DOTA_Tooltip_Ability_sasaki_gatekeeper_leash_range"	"Area of Effect:"
-		"DOTA_Tooltip_Ability_sasaki_gatekeeper_bonus_damage"	"Bonus Damage:"
+		"DOTA_Tooltip_Ability_sasaki_gatekeeper_bonus_damage"	"Bonus damage:"
+		"DOTA_Tooltip_Ability_sasaki_gatekeeper_bonus_armor"	"Bonus armor:"
+		"DOTA_Tooltip_Ability_sasaki_gatekeeper_bonus_mr"	"%Bonus magical resistance:"
+		"DOTA_Tooltip_Ability_sasaki_gatekeeper_bonus_regen"	"Bonus regeneration:"
 		"DOTA_Tooltip_Ability_sasaki_gatekeeper_duration"		"Duration:"
 		//"DOTA_Tooltip_ability_false_assassin_gate_keeper_bonus_sight"	"BONUS VISION:"
 		//"DOTA_Tooltip_ability_false_assassin_gate_keeper_movespeed_decrease"	"%MOVEMENT SPEED REDUCTION:"
 		//"DOTA_Tooltip_ability_false_assassin_gate_keeper_duration"	"DURATION:"
 
 		"DOTA_Tooltip_Ability_sasaki_heart_of_harmony"					"Heart of Harmony"
-		"DOTA_Tooltip_ability_sasaki_heart_of_harmony_Description"		"Kojiro assumes a defensive stance for %duration% seconds, placing shield that reduces incoming damage by %damage_reduc%%. Upon taking damage above %threshold%, Kojiro teleports to the attacker's rear and counter attacks with a flurry of slashes. The counter attack stuns the target for %stun_duration% seconds. Heart of Harmony ends when Kojiro uses an offensive ability."
+		"DOTA_Tooltip_ability_sasaki_heart_of_harmony_Description"		"Kojiro assumes a defensive stance for %duration% seconds, placing shield that reduces incoming damage by %damage_reduc%% . Upon taking damage above %threshold%, Kojiro teleports to the attacker's rear and counter attacks with a flurry of slashes, interrupting his current action. Heart of Harmony ends when Kojiro uses an offensive ability."
 		"DOTA_Tooltip_ability_sasaki_heart_of_harmony_Lore"				"With harmony comes the precision."
 		"DOTA_Tooltip_ability_sasaki_heart_of_harmony_slash_count"		"Slash Count:"
 		"DOTA_Tooltip_Ability_sasaki_heart_of_harmony_Note0"		"Counterattack has maximum of 2000 range."
@@ -3537,25 +3540,21 @@
 		//"DOTA_Tooltip_Ability_sasaki_heart_of_harmony_Note2"		"For 0.5 seconds after counterattack, Assassin cleanses any negative effects on himself and benefits from damage reduction."
 
 		"DOTA_Tooltip_Ability_sasaki_windblade"						"Windblade"
-		"DOTA_Tooltip_ability_sasaki_windblade_Description"			"Kojiro swirls his blade to create slicing wind around him, pushing all enemies away from him, and then proceed to attack each of them, dealing magical damage and stunning.\n0.5 seconds after the slash, he deals same damage to enemies hit."
+		"DOTA_Tooltip_ability_sasaki_windblade_Description"			"Kojiro swirls his blade to create slicing wind around him, pushing all enemies away from him, and then proceed to attack each of them, dealing magical damage and rooting them for %stun_duration% seconds.\n0.5 seconds after the slash, enemies are hit with the same damage again."
 		//\n\n<font color='#79C7F0'>Focus</font>:Increase the number of slashes (does not increase maximum number of slashes) and causes them to stun the enemy on each attack. Kojiro becomes invulnerable and disjoints all projectile while slashing.\n\nKojiro is <font color='#FF5555'>Exhausted</font> when this ability is used.
 		"DOTA_Tooltip_ability_sasaki_windblade_Lore"				"A swing from the wanderer's blade brings forward a squall."
 		"DOTA_Tooltip_ability_sasaki_windblade_radius"				"Radius:"
 		"DOTA_Tooltip_ability_sasaki_windblade_base_slashes"		"Max enemies:"
-		//"DOTA_Tooltip_ability_sasaki_windblade_empowered_slashes"	"Focus Bonus Slashes:"
-		//"DOTA_Tooltip_ability_sasaki_windblade_stun_duration"		"Focus Stun Duration:"
-		//"DOTA_Tooltip_ability_sasaki_windblade_exhausted_duration"	"Exhausted Duration:"
-		"DOTA_Tooltip_ability_sasaki_windblade_base_damage"			"Full damage:"
+		"DOTA_Tooltip_ability_sasaki_windblade_base_damage"			"Slash damage:"
 
 		"DOTA_Tooltip_Ability_sasaki_tsubame_gaeshi"				"Tsubame Gaeshi"
-		"DOTA_Tooltip_ability_sasaki_tsubame_gaeshi_Description"	"Kojiro performs his ultimate technique, delivering 3 consecutive undefendable and undodgable slashes. Dispells Intervention if target presses it."
+		"DOTA_Tooltip_ability_sasaki_tsubame_gaeshi_Description"	"Kojiro performs his ultimate technique, delivering 3 consecutive undefendable and undodgable slashes. Ignores and dispells Intervention."
 		//\n\n<font color='#79C7F0'>Focus</font>, all 3 slashes converges together into one single slash instead and pierces all forms of defense including Invulnerability and Spell Block effects.\n\nKojiro becomes <font color='#FF5555'>Exhausted</font> when Tsubame Gaeshi is used.
 		"DOTA_Tooltip_ability_sasaki_tsubame_gaeshi_Lore"			"The sword of infinity, cutting its way towards a future not even the gods can escape from."
 		"DOTA_Tooltip_ability_sasaki_tsubame_gaeshi_delay"				"Cast Delay:"
 		"DOTA_Tooltip_ability_sasaki_tsubame_gaeshi_damage_split"		"First Two Slash: "
 		"DOTA_Tooltip_ability_sasaki_tsubame_gaeshi_damage_final"		"Final Slash:"
 		"DOTA_Tooltip_ability_sasaki_tsubame_gaeshi_damage_combined"	"Total Damage:"		
-		"DOTA_Tooltip_ability_sasaki_tsubame_gaeshi_exhausted_duration"	"Exhausted Duration:"
 		//"DOTA_Tooltip_ability_false_assassin_tsubame_gaeshi_stun_duration"	"STUN DURATION:"
 		//"DOTA_Tooltip_ability_false_assassin_tsubame_gaeshi_global_cooldown"	"GLOBAL COOLDOWN:"
 
@@ -3566,7 +3565,6 @@
 		"DOTA_Tooltip_Ability_sasaki_quickdraw_atk_ratio"			"%Attack Ratio:"
 		"DOTA_Tooltip_Ability_sasaki_quickdraw_focus_attacks"		"Bonus Attacks:"
 		//"DOTA_Tooltip_Ability_sasaki_quickdraw_focus_cdr"			"Focus Cooldown Reduction:"
-		"DOTA_Tooltip_Ability_sasaki_quickdraw_exhausted_duration"	"Exhausted Duration:"
 
 		"DOTA_Tooltip_Ability_false_assassin_tsubame_mai"				"Combo: The Swallow Dance"
 		"DOTA_Tooltip_ability_false_assassin_tsubame_mai_Description"	"<font color='#58ACFA'>Combo Requirement : 30 AGI and STR</font>\n<font color='#58ACFA'>Combo Sequence : Q-W in 2 seconds</font>\nKojiro prepares for his ultimate technique, which activates on next base attack or upon executing counter. Upon activation, Kojiro teleports to the rear of attacker, <font color='#FF3399'>knocking it into air</font>, then performs 5 slashes and Tsubame Gaeshi to the target. \nExecuting this ability will start the cooldown of Tsubame Gaeshi."
@@ -3576,16 +3574,13 @@
 		"DOTA_Tooltip_Ability_false_assassin_tsubame_mai_slash_amount"	"SLASH AMOUNT:"
 
 		"DOTA_Tooltip_Ability_false_assassin_attribute_ganryu"					"Attribute: Ganryu"
-		"DOTA_Tooltip_ability_false_assassin_attribute_ganryu_Description"		"Each slash from Tsubame Gaeshi gains increased damage based on Kojiro's attack. Kojiro becomes invulnerable and untargetable while performing Tsubame Gaeshi. Using Quickdraw refreshes the cooldown of Tsubame Gaeshi.\nIf Kojiro is <font color='#79C7F0'>Focused</font>, Tsubame Gaeshi will pierce invulnerability and Avalon."
+		"DOTA_Tooltip_ability_false_assassin_attribute_ganryu_Description"		"Each slash from Tsubame Gaeshi gains increased damage based on Kojiro's attack. Kojiro becomes invulnerable and untargetable while performing Tsubame Gaeshi. Using Quickdraw refreshes the cooldown of Tsubame Gaeshi.\nTsubame Gaeshi pierces invulnerability and Avalon."
 		"DOTA_Tooltip_ability_false_assassin_attribute_ganryu_minor_slash_dmg"	"%First Two Slash Bonus:"
 		"DOTA_Tooltip_ability_false_assassin_attribute_ganryu_final_slash_dmg"	"%Final Slash Bonus:"
 		"DOTA_Tooltip_ability_false_assassin_attribute_ganryu_Note0"			"Untargettability follows the same rules as Jump effects such as Gae Bolg and Bellerophon."
-		"DOTA_Tooltip_ability_false_assassin_attribute_ganryu_Note1"			"Armor removal happens before damage takes place."
 
 		"DOTA_Tooltip_Ability_false_assassin_attribute_eye_of_serenity"					"Attribute: Eye of Serenity"
-		"DOTA_Tooltip_ability_false_assassin_attribute_eye_of_serenity_Description"		"Grants vision of enemy Servant for several seconds upon detecting their presence. \n(Effect is active only while Gatekeeper is active or 60 seconds have passed in round)"
-		"DOTA_Tooltip_Ability_false_assassin_attribute_eye_of_serenity_vision_duration"		"VISION DURATION:"
-		"DOTA_Tooltip_Ability_false_assassin_attribute_eye_of_serenity_vision_cd"			"COOLDOWN ON SAME SERVANT:"
+		"DOTA_Tooltip_ability_false_assassin_attribute_eye_of_serenity_Description"		"While Gate Keeper is active, gives Kojiro fly vision in 1100 radius around the Gate Keeper center."
 
 		"DOTA_Tooltip_Ability_false_assassin_attribute_quickdraw"						"Attribute: Quickdraw"
 		"DOTA_Tooltip_ability_false_assassin_attribute_quickdraw_Description"			"Enables Quickdraw for the duration of Gatekeeper.\n<font color='#58ACFA'>Quickdraw : </font>Kojiro rushes toward the targetted location and cuts down all enemies in his path, dealing magical damage. Damage is increased by Kojiro's physical attack damage. All enemies struck are also slashed by Kojiro a number of times"
@@ -3593,13 +3588,12 @@
 		"DOTA_Tooltip_Ability_false_assassin_attribute_quickdraw_atk_ratio"				"%Attack Ratio:"
 		"DOTA_Tooltip_Ability_false_assassin_attribute_quickdraw_focus_attacks"			"Bonus Attacks:"
 		//"DOTA_Tooltip_Ability_false_assassin_attribute_quickdraw_focus_cdr"				"Focus Cooldown Reduction:"
-		"DOTA_Tooltip_Ability_false_assassin_attribute_quickdraw_exhausted_duration"	"Exhausted Duration:"
 
 		"DOTA_Tooltip_Ability_false_assassin_attribute_vitrification"				"Attribute: Vitrification"
 		"DOTA_Tooltip_ability_false_assassin_attribute_vitrification_Description"	"Enables Presence Concealment for Kojiro.\n<font color='#58ACFA'>Presence Concealment : </font>Kojiro melds into nature with peace of mind for next 1.5 seconds to enter the state of pure harmony. While in this state, he is invisible and reduces cooldown of all his abilities by 1 second for each second.\nInvisibility breaks immediately after taking damage, attacking or using an ability or an item or with 1 second delay after moving."
 
 		"DOTA_Tooltip_Ability_false_assassin_attribute_improve_minds_eye"					"Attribute: Improve Mind's Eye"
-		"DOTA_Tooltip_ability_false_assassin_attribute_improve_minds_eye_Description"		"Increases the Agility ratio of bonus pure damage on attack. Kojiro regains when attacking enemies and double the amount while Gatekeeper is active. Does not gain mana while Kojiro is <font color='#FF5555'>Exhausted</font>."
+		"DOTA_Tooltip_ability_false_assassin_attribute_improve_minds_eye_Description"		"Increases the Agility ratio of bonus pure damage on attack.\nApplies Mind's Eye damage to both Windblade slashes."
 		"DOTA_Tooltip_Ability_false_assassin_attribute_improve_minds_eye_agi_ratio"			"Agi Ratio:"
 		"DOTA_Tooltip_Ability_false_assassin_attribute_improve_minds_eye_agi_ratio_revoked"	"Agi Ratio Against Revoked Enemy:"
 		"DOTA_Tooltip_Ability_false_assassin_attribute_improve_minds_eye_attack_mana"		"Mana gain on attack:"
@@ -7648,7 +7642,7 @@
         "DOTA_Tooltip_ability_jtr_surgery_slashes"			"Attack number:"
         "DOTA_Tooltip_ability_jtr_surgery_base_damage"		"Additional damage:"
         "DOTA_Tooltip_ability_jtr_surgery_attack_radius"	"Attack radius:"
-	"DOTA_Tooltip_ability_jtr_surgery_blood_rage_agility"	"\n<font color='#FF0000'>Bloody Thirst</font> Bonus agility:"
+	"DOTA_Tooltip_ability_jtr_surgery_blood_rage_agility"	"\n<font color='#FF0000'>Bloody Thirst</font> bonus agility:"
 	"DOTA_Tooltip_ability_jtr_surgery_attack_Note0"		"Jack is untargetable, but is still vulnerable to AOE-abilities."
 
         "DOTA_Tooltip_ability_jtr_information_erase"					"Information Erasure"
@@ -7662,12 +7656,15 @@
         "DOTA_Tooltip_ability_jtr_mental_pollution_passive_cooldown"		"Cooldown:"
 
         "DOTA_Tooltip_ability_jtr_murderer_mist"				"Murderer of the Misty Night"
-        "DOTA_Tooltip_ability_jtr_murderer_mist_Description"	"Jack releases a cloud of mist, recreating the streets of London, slowing all enemies in radius and gaining invisible state while being inside the mist and not in radius 350 from the enemy. Jack can't be detected by Eye for an Art (Gilles de Rais) and Mind's Eye (Diarmuid). Also grants bonus agility.\nDisables ward vision (but not truesight) in 3200 radius.\n<font color='#FF0000'>Bloody Thirst</font> female detection radius is based on the level of this ability."
+        "DOTA_Tooltip_ability_jtr_murderer_mist_Description"	"Jack releases a cloud of mist, recreating the streets of London, slowing all enemies in radius and gaining invisible state while being inside the mist and not in %reveal_radius% radius from any enemy hero. Jack can't be detected by Eye for an Art (Gilles de Rais) and Mind's Eye (Diarmuid). Also grants bonus agility.\nDisables ward vision (but not truesight) in 3200 radius.\n<font color='#FF0000'>Bloody Thirst</font> female detection radius is based on the level of this ability."
         "DOTA_Tooltip_ability_jtr_murderer_mist_radius"			"Area of Effect:"
         "DOTA_Tooltip_ability_jtr_murderer_mist_slow_pct"		"%Slow:"
-	"DOTA_Tooltip_ability_jtr_murderer_mist_blood_rage_vision"		"Vision radius:"
+	"DOTA_Tooltip_ability_jtr_murderer_mist_blood_rage_vision"		"\n<font color='#FF0000'>Bloody Thirst</font> detection radius:"
         "DOTA_Tooltip_ability_jtr_murderer_mist_duration"		"Duration:"
 	"DOTA_Tooltip_ability_jtr_murderer_mist_blood_rage_agility"	"\n<font color='#FF0000'>Bloody Thirst</font> bonus agility:"
+
+		"DOTA_Tooltip_modifier_murderer_mist_slow"				"Murderer of the Misty Night"
+		"DOTA_Tooltip_modifier_murderer_mist_slow_Description"	"Slowed"
 
         "DOTA_Tooltip_ability_jtr_maria_the_ripper"						"Maria the Ripper"
         "DOTA_Tooltip_ability_jtr_maria_the_ripper_Description"			"Jack reproduces the sublimation of her murder on the streets of London. Performs four quick attacks on the target dealing pure damage on each hit. Female targets take additional damage Jack is invulnerable while attacking. \nThis ability has reduced cast point if used while under the effect of Murderer of the Misty Night or The Whitechapel Murderer. \nUpgradeable by attribute Efficient Killer: iIf it is night, it is misty and the target is female, Jack will use the faster version of Maria the Ripper.\nWhile under effect of <font color='#FF0000'>Bloody Thirst</font> this ability has 300%% cooldown recovery speed."
@@ -7693,11 +7690,12 @@
 	"DOTA_Tooltip_ability_jtr_bloody_thirst_Lore"	"We think it's time for Jack... TO LET ER' RIP!"
 
         "DOTA_Tooltip_ability_jtr_whitechapel_murderer"					"Combo: The Whitechapel Murderer"
-        "DOTA_Tooltip_ability_jtr_whitechapel_murderer_Description"		"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : E -> E</font>\nJack recreates the streets of night London. While this ability is active, it is night and all heroes on the map have 600 vision radius.\nJack gains some bonus agility and chance of critical strike. Her vision radius is not changed.\nDetection radius of <font color='#FF0000'>Bloody Thirst</font> is doubled for the duration."
+        "DOTA_Tooltip_ability_jtr_whitechapel_murderer_Description"		"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : E -> E</font>\nJack marks the target. Marked target's position is revealed and it takes %target_dmg%%  additional damage from Jack.\nIf marked target dies by any means, nearest enemy hero in %search_radius% radius will become the new target for the rest of the ability duration.\nJack gains some bonus agility, becomes invisible and enters Bloody Thirst for the duration.\nDetection radius of <font color='#FF0000'>Bloody Thirst</font> is doubled for the duration.\nThis ability causes night for 15 seconds."
         "DOTA_Tooltip_ability_jtr_whitechapel_murderer_agi_bonus"		"Bonus Agility:"
-        "DOTA_Tooltip_ability_jtr_whitechapel_murderer_crit_chance"		"%Critical Chance:"
-        "DOTA_Tooltip_ability_jtr_whitechapel_murderer_crit_damage"		"%Critical Damage:"
         "DOTA_Tooltip_ability_jtr_whitechapel_murderer_duration"		"Duration:"
+
+        "DOTA_Tooltip_modifier_whitechapel_murderer_target"					"The Whitechapel Murderer"
+        "DOTA_Tooltip_modifier_whitechapel_murderer_target_Description"		"You're targeted by Jack and taking additional damage from her."
 
         "DOTA_Tooltip_ability_jtr_holy_mother_attribute"				"Attribute: Holy Mother of Dismemberment"
         "DOTA_Tooltip_ability_jtr_holy_mother_attribute_Description"	"Jack's attacks cause deeper wounds in the enemy with each strike, causing consecutive attacks to the same enemy to deal more damage. If the same target is not attacked after a few seconds, the bonus damage is lost."

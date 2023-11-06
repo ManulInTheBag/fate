@@ -11,7 +11,13 @@ function modifier_gatekeeper:OnCreated(keys)
 		local gkdummypassive = self.CircleDummy:FindAbilityByName("dummy_unit_passive")
 		gkdummypassive:SetLevel(1)
 
-		self:GetParent().IsEyeOfSerenityActive = true
+		if caster.IsEyeOfSerenityAcquired then
+			self.visiondummy = SpawnVisionDummy(caster, caster:GetAbsOrigin(), 1100, self:GetAbility():GetSpecialValueFor("duration"), false)
+		end
+
+		self:StartIntervalThink(FrameTime())
+
+		--self:GetParent().IsEyeOfSerenityActive = true
 
 		self.CircleFx = ParticleManager:CreateParticle( "particles/custom/archer/archer_clairvoyance_circle.vpcf", PATTACH_CUSTOMORIGIN, self.CircleDummy )
 		ParticleManager:SetParticleControl( self.CircleFx, 0, self.CircleDummy:GetAbsOrigin() )
@@ -46,13 +52,28 @@ end
 function modifier_gatekeeper:DeclareFunctions()
 	local funcs = { MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE,
 					MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
+					MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
+					MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
+					MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
 					--MODIFIER_EVENT_ON_ATTACK_LANDED,
 					MODIFIER_EVENT_ON_UNIT_MOVED }
 
 	return funcs
 end
 
-function modifier_gatekeeper:OnUnitMoved()
+function modifier_gatekeeper:GetModifierPhysicalArmorBonus()
+	return self:GetAbility():GetSpecialValueFor("bonus_armor")
+end
+
+function modifier_gatekeeper:GetModifierConstantHealthRegen()
+	return self:GetAbility():GetSpecialValueFor("bonus_regen")
+end
+
+function modifier_gatekeeper:GetModifierMagicalResistanceBonus()
+	return self:GetAbility():GetSpecialValueFor("bonus_mr")
+end
+
+function modifier_gatekeeper:OnIntervalThink()
 	if IsServer() then
 		local caster = self:GetParent()
 
@@ -80,12 +101,12 @@ function modifier_gatekeeper:OnDestroy()
 	if IsServer() then
 		self:RemoveParticlesAndDummy()
 
-		self:GetParent().IsEyeOfSerenityActive = false
+		--[[self:GetParent().IsEyeOfSerenityActive = false
 
 		local targets = FindUnitsInRadius(self:GetParent():GetTeam(), self:GetParent():GetAbsOrigin(), nil, 10000, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
 		for k,v in pairs(targets) do
 			v:RemoveModifierByName("modifier_sasaki_vision")
-		end
+		end]]
 	end
 end
 
@@ -93,9 +114,12 @@ function modifier_gatekeeper:RemoveParticlesAndDummy()
 	if IsServer() then
 		local caster = self:GetParent()
 
-		ParticleManager:DestroyParticle(self.CircleFx, false)
+		ParticleManager:DestroyParticle(self.CircleFx, true)
 	    ParticleManager:ReleaseParticleIndex(self.CircleFx)
 		self.CircleDummy:RemoveSelf()
+		if caster.IsEyeOfSerenityAcquired then
+			self.visiondummy:RemoveSelf()
+		end
 
 		if math.abs((caster:GetAbsOrigin() - self.Anchor):Length2D()) > self.LeashDistance then
 			caster:EmitSound("Sasaki_Gatekeeper_1")

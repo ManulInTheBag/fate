@@ -7,9 +7,12 @@
 	{
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/jtr/jtr_whitechapel_murderer"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityTextureName"			"custom/jtr/whitechapel_murderer"
-		"AbilityCastAnimation" 			"ACT_DOTA_ITEM_PICKUP"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_4"
 		"AnimationPlaybackRate" 		"1.0"
 		"MaxLevel"						"1"
 		"RequiredLevel"					"25"
@@ -35,30 +38,17 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"400"
+		"AbilityManaCost"				"0"
+		"AbilityCastPoint"				"0.3"
+		"AbilityCastRange"				"1500"
+		"AbilityCastRangeBuffer"		"200"
 		
-		"AbilitySpecial"
+		"AbilityValues"
 		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"duration"				"15"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"agi_bonus"				"25"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"crit_chance"			"35"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"crit_damage"			"200"
-			}
+			"duration"				"15"
+			"agi_bonus"				"25"
+			"target_dmg"			"15"
+			"search_radius"			"1500"
 		}
 	}
 }

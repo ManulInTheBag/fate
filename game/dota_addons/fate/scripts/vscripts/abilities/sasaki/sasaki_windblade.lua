@@ -15,9 +15,6 @@ function sasaki_windblade:OnSpellStart()
 	local casterInitOrigin = caster:GetAbsOrigin() 
 	local empowered = false
 	local number_of_slash = self:GetSpecialValueFor("base_slashes")
-	if caster:HasModifier("modifier_sasaki_kappa") then
-		number_of_slash = number_of_slash + 3
-	end
 	
 	local targets = FindUnitsInRadius(caster:GetTeam(), casterInitOrigin, nil, self:GetAOERadius(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 
@@ -41,7 +38,6 @@ function sasaki_windblade:OnSpellStart()
 	--end
 
 	caster:RemoveModifierByName("modifier_heart_of_harmony")
-	--caster:AddNewModifier(caster, self, "modifier_exhausted", { Duration = self:GetSpecialValueFor("exhausted_duration") })
 
 	caster:AddNewModifier(caster, self, "modifier_windblade_kojiro", { Duration = 0.6,
 																	   RemainingHits = number_of_slash,
@@ -146,6 +142,9 @@ end
 
 function modifier_windblade_kojiro_damage:OnDestroy()
     if not IsServer() then return end
+    if self:GetCaster().IsMindsEyeAcquired then
+    	self:GetCaster():PerformAttack(self:GetParent(), true, true, true, true, false, true, false)
+    end
     DoDamage(self:GetCaster(), self:GetParent(), self.damage, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
     self.explosion = ParticleManager:CreateParticle( "particles/saito/saito_inv_sword_explosion_real.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
     ParticleManager:SetParticleControl(self.explosion, 0, self:GetParent():GetAbsOrigin() + Vector(0,0,100))

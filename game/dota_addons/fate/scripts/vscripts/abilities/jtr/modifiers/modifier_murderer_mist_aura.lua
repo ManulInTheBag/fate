@@ -36,7 +36,7 @@ if IsServer() then
 		local caster = self:GetCaster()	
 		self.parent = self:GetParent()
 		local range = 0
-		local targets = FindUnitsInRadius(caster:GetTeam(), self:GetParent():GetAbsOrigin(), nil, 3200, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_INVULNERABLE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+		local targets = FindUnitsInRadius(caster:GetTeam(), self:GetParent():GetAbsOrigin(), nil, 3200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_INVULNERABLE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 		for i,j in pairs(targets) do
 			--if j:IsAlive() then
 				if (j:GetUnitName() == "ward_familiar") or (j:GetUnitName() == "sentry_familiar") then

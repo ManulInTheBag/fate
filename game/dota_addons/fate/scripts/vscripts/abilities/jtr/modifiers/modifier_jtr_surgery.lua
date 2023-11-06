@@ -53,15 +53,15 @@ function modifier_jtr_surgery:OnCreated(args)
             ParticleManager:SetParticleControlEnt(self.swing_fx, 0, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_attack1", self:GetParent():GetAbsOrigin(), true)
             ParticleManager:SetParticleControlEnt(self.swing_fx, 1, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_attack1", self:GetParent():GetAbsOrigin(), true)
 
-            self.swing2_fx = ParticleManager:CreateParticle("particles/jtr/jtr_slashes_b.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, self:GetParent())
+            self.swing2_fx = ParticleManager:CreateParticle("particles/jtr/jtr_slashes_a.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, self:GetParent())
 
             ParticleManager:SetParticleControlEnt(self.swing2_fx, 0, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_attack1", self:GetParent():GetAbsOrigin(), true)
             ParticleManager:SetParticleControlEnt(self.swing2_fx, 1, self:GetParent(), PATTACH_POINT_FOLLOW, "attach_attack1", self:GetParent():GetAbsOrigin(), true)
         end
 
-        self:AddParticle(self.swing_fx, false, false, -1, false, false)
+        self:AddParticle(self.swing_fx, true, false, -1, false, false)
 
-        self:AddParticle(self.swing2_fx, false, false, -1, false, false)
+        self:AddParticle(self.swing2_fx, true, false, -1, false, false)
 
         --EmitSoundOn("Kirito.Sao.Slashes", self:GetParent())
 
@@ -137,7 +137,9 @@ function modifier_jtr_surgery:OnIntervalThink()
             --ParticleManager:SetParticleControl( trailFx, 0, newpoint )
 
             self.slashes = self.slashes - 1
-            self.parent:SetForwardVector((self.target:GetAbsOrigin() - self.parent:GetAbsOrigin()):Normalized())
+            local vec = (self.target:GetAbsOrigin() - self.parent:GetAbsOrigin()):Normalized()
+            vec.z = 0
+            self.parent:SetForwardVector(vec)
             if self.slashes < 1 then
                 FindClearSpaceForUnit(self.parent, self.parent:GetAbsOrigin(), true)
                 self.parent:SetForwardVector(self.forward)

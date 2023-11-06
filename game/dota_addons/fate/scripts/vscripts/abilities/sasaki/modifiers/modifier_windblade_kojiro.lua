@@ -50,9 +50,11 @@ if IsServer() then
 				caster:SetAbsOrigin(target_search[i]:GetAbsOrigin() - diff:Normalized() * 100)
 				FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)				
 
-				--caster:PerformAttack(target_search[i], true, true, true, true, false, false, false)
-				DoDamage(caster, target_search[i], damage*0.5, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
-				target_search[i]:AddNewModifier(caster, self:GetAbility(), "modifier_windblade_kojiro_damage", {Duration = 0.5, Damage = damage*0.5})  
+				if caster.IsMindsEyeAcquired then
+					caster:PerformAttack(target_search[i], true, true, true, true, false, true, false)
+				end
+				DoDamage(caster, target_search[i], damage, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
+				target_search[i]:AddNewModifier(caster, self:GetAbility(), "modifier_windblade_kojiro_damage", {Duration = 0.5, Damage = damage})  
 				local mai = caster:FindModifierByName("modifier_tsubame_mai")
 				if mai then
 					mai:MaiBuffer(target_search[i])
@@ -60,9 +62,7 @@ if IsServer() then
 				target_search[i]:EmitSound("Tsubame_Slash_" .. math.random(1,3))
 				self.RemainingHits = self.RemainingHits - 1
 
-				--if caster:HasModifier("modifier_sasaki_kappa") then
-				--target_search[i]:AddNewModifier(caster, self:GetAbility(), "modifier_stunned", { Duration = self.StunDuration })
-				--end
+				target_search[i]:AddNewModifier(caster, self:GetAbility(), "modifier_rooted", { Duration = self.StunDuration })
 
 				CreateSlashFx(caster, current_location, target_search[i]:GetAbsOrigin() + RandomVector(200))
 				target_search[i]:AddNewModifier(caster, self:GetAbility(), "modifier_windblade_hit_marker", { Duration = 0.433 })

@@ -11,7 +11,6 @@ function modifier_heart_of_harmony:OnCreated(keys)
     self.ManaRegenBonus = keys.ManaRegenBonus
     self.SlashCount = keys.SlashCount
     self.Threshold = keys.Threshold
-    self.ManaThreshold = keys.ManaThreshold
     self.StunDuration = keys.StunDuration
 
     if IsServer() then
@@ -107,7 +106,7 @@ function modifier_heart_of_harmony:OnTakeDamage(args)
                     end
             
                 end)
-                target:AddNewModifier(caster, target, "modifier_stunned", {Duration = self.StunDuration})
+                target:AddNewModifier(caster, target, "modifier_stunned", {Duration = FrameTime()})
             --else
               --  caster:EmitSound("Sasaki_Counter_Fail_" .. math.random(1,2))
             --end

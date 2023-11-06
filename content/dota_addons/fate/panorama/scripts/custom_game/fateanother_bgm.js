@@ -94,14 +94,16 @@ function OnIntro(index)
 }
 
 (function() {
-    GameEvents.Subscribe( "bgm_intro", OnIntro );
+    if (!Game.IsInToolsMode()){
+        GameEvents.Subscribe( "bgm_intro", OnIntro );
 
-    var index2 = 0;
-    g_GameConfig.nextBGMIndex = index2;
-    //$.Msg("Next BGM Index: " + selection.id);
-    if (g_GameConfig.BGMSchedule != 0) {
-        $.CancelScheduled(g_GameConfig.BGMSchedule, {});
-    };
-    PlayBGM();
-    //$.Msg('Game start: change BGM ' + g_GameConfig.nextBGMIndex);
+        var index2 = 0;
+        g_GameConfig.nextBGMIndex = index2;
+        //$.Msg("Next BGM Index: " + selection.id);
+        if (g_GameConfig.BGMSchedule != 0) {
+            $.CancelScheduled(g_GameConfig.BGMSchedule, {});
+        };
+        PlayBGM();
+        //$.Msg('Game start: change BGM ' + g_GameConfig.nextBGMIndex);
+    }
 })();
