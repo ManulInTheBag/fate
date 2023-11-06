@@ -12,12 +12,12 @@ function diarmuid_minds_eye:OnSpellStart()
 	local caster = self:GetCaster()
 	
 	ProjectileManager:ProjectileDodge(caster)
-	local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetOrigin(), nil, 2500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
+	local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetOrigin(), nil, 1500, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
     for _,v in pairs(targets) do
-    	if not v:HasModifier("modifier_murderer_mist_in") and CanBeDetected(v) then
+    	if not v:HasModifier("modifier_murderer_mist_in") then
 			v:AddNewModifier(caster, self, "modifier_vision_provider", { duration = 2 })
 		end
-    end	
+    end
 
     LoopOverPlayers(function(player, playerID, playerHero)
 			        --print("looping through " .. playerHero:GetName())

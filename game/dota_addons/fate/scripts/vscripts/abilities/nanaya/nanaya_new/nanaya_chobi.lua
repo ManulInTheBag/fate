@@ -3,13 +3,12 @@ LinkLuaModifier("modifier_nanaya_chobi", "abilities/nanaya/nanaya_new/nanaya_cho
 nanaya_chobi = class({})
 
 function nanaya_chobi:OnAbilityPhaseStart()
-	local caster = self:GetCaster()
-	StartAnimation(caster, {duration=1, activity=ACT_SCRIPT_CUSTOM_4, rate=0.3})
+	EmitSoundOn("nanaya.rstart", self:GetCaster())
 	return true
 end
 
 function nanaya_chobi:OnAbilityPhaseInterrupted()
-	EndAnimation(self:GetCaster())
+	StopSoundOn("nanaya.rstart", self:GetCaster())
 end
 
 function nanaya_chobi:GetAOERadius()
@@ -17,55 +16,49 @@ function nanaya_chobi:GetAOERadius()
 end
 
 function nanaya_chobi:OnSpellStart()
-	EmitGlobalSound("nanaya.rstart")
-
 	local caster = self:GetCaster()
 	local point = self:GetCursorPosition()
 
-	giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 0.7)
+	local origin = caster:GetAbsOrigin()
+	local range = self:GetSpecialValueFor("range")
+	local width = self:GetSpecialValueFor("width")
 
-	Timers:CreateTimer(0.7, function()
-		local origin = caster:GetAbsOrigin()
-		local range = self:GetSpecialValueFor("range")
-		local width = self:GetSpecialValueFor("width")
+	caster:RemoveModifierByName("pause_sealenabled")
 
-		caster:RemoveModifierByName("pause_sealenabled")
+	local direction = (point-origin)
+	if point == origin then
+		direction = caster:GetForwardVector()
+	end
+	direction.z = 0
+	direction = direction:Normalized()
 
-		local direction = (point-origin)
-	    if point == origin then
-	    	direction = caster:GetForwardVector()
-	    end
-	    direction.z = 0
-	    direction = direction:Normalized()
+	local point = GetGroundPosition( origin + direction*range, nil )
 
-	    local point = GetGroundPosition( origin + direction*range, nil )
+	local enemies = FATE_FindUnitsInLine(
+								        caster:GetTeamNumber(),
+								        origin,
+								        point,
+								        width,
+										DOTA_UNIT_TARGET_TEAM_ENEMY,
+										DOTA_UNIT_TARGET_HERO,
+										DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+										FIND_CLOSEST
+	   								)
 
-		local enemies = FATE_FindUnitsInLine(
-									        caster:GetTeamNumber(),
-									        origin,
-									        point,
-									        width,
-											DOTA_UNIT_TARGET_TEAM_ENEMY,
-											DOTA_UNIT_TARGET_HERO,
-											DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
-											FIND_CLOSEST
-	    								)
+	local target = nil
 
-		local target = nil
+	for _, v in pairs(enemies) do
+		target = v
+		break
+	end
 
-		for _, v in pairs(enemies) do
-			target = v
-			break
-		end
+	if not target then return end
 
-		if not target then return end
+	local target_index = target:entindex()
 
-		local target_index = target:entindex()
+	caster:AddNewModifier(caster, self, "modifier_nanaya_chobi", {target = target_index})
 
-		caster:AddNewModifier(caster, self, "modifier_nanaya_chobi", {target = target_index})
-
-		caster:EmitSound("nanaya.jumpff")
-	end)
+	caster:EmitSound("nanaya.jumpff")
 end
 
 modifier_nanaya_chobi = class({})
@@ -167,8 +160,8 @@ function modifier_nanaya_chobi:PlayEffects()
 	local particle = ParticleManager:CreateParticle("particles/test_part_small1.vpcf", PATTACH_CUSTOMORIGIN, self.caster)
 	ParticleManager:SetParticleControl(particle, 3, self.caster:GetAbsOrigin() - self.caster:GetForwardVector()*250 + Vector (0, 0, 400))
 
-	EmitGlobalSound("nanaya.trigger")
-	self.target:EmitSound("nanaya.finalhit")
+	EmitSoundOn("nanaya.trigger", self.caster)
+	EmitSoundOn("nanaya.finalhit", self.target)
 
 	DoDamage(self.caster, self.target, dmg/2, damage_type, 0, self.ability, false)
 	DoDamage(self.caster, self.target, dmg/2, DAMAGE_TYPE_PURE, 0, self.ability, false)
@@ -184,10 +177,6 @@ function modifier_nanaya_chobi:PlayEffects()
 	ParticleManager:SetParticleControl(part2, 0, self.caster:GetAbsOrigin() + Vector(0, 0, 0))
 
 	if not self.target:IsAlive() then
-		if self.caster.ChobiAcquired then
-			self.ability:EndCooldown()
-			self.caster:GiveMana(400)
-		end
 		if self.caster.InstinctAcquired then
 			local instinct_modifier = self.caster:FindModifierByName("modifier_nanaya_instinct_passive")
 

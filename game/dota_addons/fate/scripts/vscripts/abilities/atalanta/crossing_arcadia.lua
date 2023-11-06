@@ -138,7 +138,7 @@ function atalanta_crossing_arcadia:ShootAoEArrow(keys)
         bProvidesVision = false,
         iMoveSpeed = velocity:Length(),
         iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_HITLOCATION,
-	    ExtraData = {keys.AoE or 0, keys.Slow or 0, keys.IsPhoebus or 0, keys.IsCombo or 0, dummy or nil}
+	    ExtraData = {keys.AoE or 0, keys.Slow or 0, keys.IsPhoebus or false, keys.IsCombo or false, dummy or nil}
     }
     FATE_ProjectileManager:CreateTrackingProjectile(projectile)
 

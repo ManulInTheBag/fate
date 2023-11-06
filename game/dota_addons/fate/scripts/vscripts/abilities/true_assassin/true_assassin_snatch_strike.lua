@@ -61,5 +61,5 @@ function true_assassin_snatch_strike:OnSpellStart()
 
 	--caster:AddNewModifier(caster, ability, "modifier_snatch_strike_bonus_hp", { Duration = self:GetSpecialValueFor("duration"),
 																	--			BonusHealth = totalDamage / 2})
-	caster:Heal(totalDamage / 2, caster)
+	--caster:Heal(totalDamage / 2, caster)
 end

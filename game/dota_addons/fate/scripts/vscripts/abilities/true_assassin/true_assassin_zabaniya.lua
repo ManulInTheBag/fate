@@ -107,25 +107,19 @@ function true_assassin_zabaniya:OnProjectileHit_ExtraData(hTarget, vLocation, ta
 	local curseDuration = self:GetSpecialValueFor("curse_duration")
 	--local damage_type = DAMAGE_TYPE_MAGICAL
 	local damage_type = DAMAGE_TYPE_PURE
-	local mana_damage = self:GetSpecialValueFor("damage")
-	local damage = hTarget:GetHealth()*self:GetSpecialValueFor("zabaniya_penalty")/100
+	local damage = self:GetSpecialValueFor("damage")
 
 	if caster.IsShadowStrikeAcquired then
 		curseDuration = curseDuration + self:GetSpecialValueFor("bonus_curse_duration")
 		--damage_type = DAMAGE_TYPE_PURE
-		mana_damage = mana_damage + 200 + caster:FindModifierByName("modifier_true_assassin_selfmod"):GetStackCount()*10
-		damage = damage + damage*10/self:GetSpecialValueFor("zabaniya_penalty")
+		damage = damage + caster:FindModifierByName("modifier_true_assassin_selfmod"):GetStackCount()*10
 	end	
 	
-	hTarget:Script_ReduceMana(mana_damage, self)
-	if hTarget:GetMana()*100/hTarget:GetMaxMana()<=5 then
-		DoDamage(caster, hTarget, damage, damage_type, 0, self, false)
-		DoDamage(caster, hTarget, mana_damage*self:GetSpecialValueFor("mana_multiplier")/100, DAMAGE_TYPE_MAGICAL, 0, self, false)
-	end
+	DoDamage(caster, hTarget, damage, damage_type, 0, self, false)
 
-	--if not hTarget:IsMagicImmune() and not hTarget:HasModifier("modifier_master_intervention") then
-	--	hTarget:AddNewModifier(caster, self, "modifier_zabaniya_curse", { Duration = curseDuration })
-	--end
+	if not hTarget:IsMagicImmune() and not hTarget:HasModifier("modifier_master_intervention") then
+		hTarget:AddNewModifier(caster, self, "modifier_zabaniya_curse", { Duration = curseDuration })
+	end
 end
 
 function true_assassin_zabaniya:OnUpgrade()

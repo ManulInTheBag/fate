@@ -9,7 +9,10 @@ function modifier_minds_eye_vision:DeclareFunctions()
 end
 
 function modifier_minds_eye_vision:GetModifierProvidesFOWVision()
-	return 1
+	if CanBeDetected(self:GetParent()) then
+		return 1
+	end
+	return 0
 end
 
 function modifier_minds_eye_vision:IsHidden()

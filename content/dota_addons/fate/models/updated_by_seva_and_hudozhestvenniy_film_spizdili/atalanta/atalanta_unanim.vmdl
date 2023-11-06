@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc30:version{66cd490f-437b-4d7d-b009-7907d45422e2} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc32:version{c5dcef98-b629-46ab-88e3-a17c005c935e} -->
 {
 	rootNode = 
 	{
@@ -66,8 +66,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -0.803101, -0.590876, 0.002827 ]
-								hitbox_maxs = [ 0.800652, 0.711385, 0.679399 ]
+								hitbox_mins = [ -4.957314, -3.740314, -8.033478 ]
+								hitbox_maxs = [ 6.192894, 6.569272, 7.013708 ]
 							},
 							{
 								_class = "Hitbox"
@@ -75,8 +75,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -0.942459, -0.732763, -0.06841 ]
-								hitbox_maxs = [ 0.946984, 1.124722, 1.841589 ]
+								hitbox_mins = [ -0.942459, -0.799749, -0.06841 ]
+								hitbox_maxs = [ 0.946984, 1.124722, 4.335676 ]
 							},
 							{
 								_class = "Hitbox"
@@ -2826,7 +2826,9 @@
 						hidden = false
 						anim_markup_ordered = false
 						disable_compression = false
+						animgraph_additive = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/atalanta/atalanta.fbx"
+						import_bone_scales = false
 						start_frame = 31
 						end_frame = 250
 						framerate = 30.0
@@ -2854,7 +2856,9 @@
 						hidden = false
 						anim_markup_ordered = false
 						disable_compression = false
+						animgraph_additive = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/atalanta/atalanta.fbx"
+						import_bone_scales = false
 						start_frame = 285
 						end_frame = 335
 						framerate = 75.0
@@ -2882,7 +2886,9 @@
 						hidden = false
 						anim_markup_ordered = false
 						disable_compression = false
+						animgraph_additive = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/atalanta/atalanta.fbx"
+						import_bone_scales = false
 						start_frame = 580
 						end_frame = 615
 						framerate = 75.0
@@ -2910,7 +2916,9 @@
 						hidden = false
 						anim_markup_ordered = false
 						disable_compression = false
+						animgraph_additive = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/atalanta/atalanta.fbx"
+						import_bone_scales = false
 						start_frame = 648
 						end_frame = 679
 						framerate = 30.0
@@ -2938,7 +2946,9 @@
 						hidden = false
 						anim_markup_ordered = false
 						disable_compression = false
+						animgraph_additive = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/atalanta/atalanta.fbx"
+						import_bone_scales = false
 						start_frame = 840
 						end_frame = 890
 						framerate = 50.0
@@ -2966,7 +2976,9 @@
 						hidden = false
 						anim_markup_ordered = false
 						disable_compression = false
+						animgraph_additive = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/atalanta/atalanta.fbx"
+						import_bone_scales = false
 						start_frame = 1410
 						end_frame = 1475
 						framerate = 75.0
@@ -2994,7 +3006,9 @@
 						hidden = false
 						anim_markup_ordered = false
 						disable_compression = false
+						animgraph_additive = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/atalanta/atalanta.fbx"
+						import_bone_scales = false
 						start_frame = 1710
 						end_frame = 1750
 						framerate = 120.0
@@ -3022,7 +3036,9 @@
 						hidden = false
 						anim_markup_ordered = false
 						disable_compression = false
+						animgraph_additive = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/atalanta/atalanta.fbx"
+						import_bone_scales = false
 						start_frame = 1355
 						end_frame = 1380
 						framerate = 60.0
@@ -3050,7 +3066,9 @@
 						hidden = false
 						anim_markup_ordered = false
 						disable_compression = false
+						animgraph_additive = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/atalanta/atalanta.fbx"
+						import_bone_scales = false
 						start_frame = 1980
 						end_frame = 2055
 						framerate = 30.0
@@ -3063,8 +3081,6 @@
 		model_archetype = ""
 		primary_associated_entity = ""
 		anim_graph_name = ""
-		importer_notes = """
-Imported from VMDL
-"""
+		importer_notes = "Imported from VMDL"
 	}
 }

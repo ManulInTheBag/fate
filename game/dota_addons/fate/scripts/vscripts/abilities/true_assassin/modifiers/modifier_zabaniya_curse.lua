@@ -1,7 +1,7 @@
 modifier_zabaniya_curse = class({})
 
 if IsServer() then
-	function modifier_zabaniya_curse:OnCreated(args)	
+	--[[function modifier_zabaniya_curse:OnCreated(args)	
 		self.LockedHealth = self:GetParent():GetHealth()
 		self:StartIntervalThink(0.033)			
 	end
@@ -19,7 +19,20 @@ if IsServer() then
 		else
 			self.LockedHealth = current_health
 		end
-	end
+	end]]
+end
+
+function modifier_zabaniya_curse:DeclareFunctions()
+	return {MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
+			MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE}
+end
+
+function modifier_zabaniya_curse:GetModifierHealAmplify_PercentageTarget()
+	return self:GetAbility():GetSpecialValueFor("heal_reduction")
+end
+
+function modifier_zabaniya_curse:GetModifierHPRegenAmplify_Percentage()
+	return self:GetAbility():GetSpecialValueFor("heal_reduction")
 end
 
 function modifier_zabaniya_curse:GetTexture()

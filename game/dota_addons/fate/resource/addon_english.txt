@@ -3681,7 +3681,7 @@
 		"DOTA_Tooltip_ability_true_assassin_presence_concealment_cast_delay"	"FADE-IN DELAY:"
 		
 		"DOTA_Tooltip_Ability_true_assassin_ambush"					"Ambush"
-		"DOTA_Tooltip_ability_true_assassin_ambush_Description"		"After brief delay, Hassan becomes ambushed.\nWhile ambushed, Hassan cannot be seen if there are no enemy heroes in %invis_radius% radius around him.\nIf Hassan attacks or takes any damage, the ambush will break."
+		"DOTA_Tooltip_ability_true_assassin_ambush_Description"		"After brief delay, Hassan becomes ambushed.\nWhile ambushed, Hassan cannot be seen if there are no enemy heroes in %invis_radius% radius around him and cannot be revealed by True Sight if there are no enemy heroes in %immune_radius% radius around him.\nIf Hassan attacks or takes any damage, the ambush will break."
 		"DOTA_Tooltip_ability_true_assassin_ambush_Lore"	""
 		"DOTA_Tooltip_ability_true_assassin_ambush_fade_delay"		"FADE DELAY:"
 		"DOTA_Tooltip_ability_true_assassin_ambush_damage"			"BONUS DAMAGE:"
@@ -3689,9 +3689,9 @@
 		"DOTA_Tooltip_ability_true_assassin_ambush_duration"		"DURATION:"
 		
 		"DOTA_Tooltip_Ability_true_assassin_selfmod"					"Self Modification"
-		"DOTA_Tooltip_ability_true_assassin_selfmod_Description"		"Hassan reconstructs his body by killing his enemies. Passively gains agility per hero kills. \nActive effect: doubles the agility gained from this ability, also gains additional damage.\nAlso heals himself for %base_heal% + %int_mult% x Hassan's Intellect."
+		"DOTA_Tooltip_ability_true_assassin_selfmod_Description"		"Hassan reconstructs his body by killing his enemies. Passively gains agility per hero kills. \nActive effect: doubles the agility gained from this ability, also gains additional damage."
 		"DOTA_Tooltip_ability_true_assassin_selfmod_Lore"				"Remolding of oneself comes with the cost of straying away from being a proper hero."
-		"DOTA_Tooltip_ability_true_assassin_selfmod_heal_amount"		"Damage gained: "
+		"DOTA_Tooltip_ability_true_assassin_selfmod_damage"				"Damage gained: "
 		//"DOTA_Tooltip_ability_true_assassin_selfmod_heal_over_time"		"Healing Per Second: "
 		"DOTA_Tooltip_ability_true_assassin_selfmod_bonus_stats"		"Agility per 1 kill: "		
 		"DOTA_Tooltip_ability_true_assassin_selfmod_duration"			"Duration: "
@@ -3702,7 +3702,7 @@
 		"DOTA_Tooltip_modifier_self_mod_Description"					"Healing over time and gaining a temporary bonus %dMODIFIER_PROPERTY_STATS_AGILITY_BONUS% agility."
 
 		"DOTA_Tooltip_Ability_true_assassin_snatch_strike"				"Snatch Strike"
-		"DOTA_Tooltip_ability_true_assassin_snatch_strike_Description"	"Snatches the target's heart and crushing it, dealing damage a large amount of damage.\nAlso heals himself for 1/2 of damage dealt."
+		"DOTA_Tooltip_ability_true_assassin_snatch_strike_Description"	"Snatches the target's heart and crushing it, dealing damage a large amount of damage."
 		"DOTA_Tooltip_ability_true_assassin_snatch_strike_Lore"	""
 		"DOTA_Tooltip_ability_true_assassin_snatch_strike_damage"		"Damage:"
 		//"DOTA_Tooltip_ability_true_assassin_snatch_strike_bonus_ratio"	"Steal Ratio:"
@@ -3711,12 +3711,12 @@
 		//"DOTA_Tooltip_ability_true_assassin_snatch_strike_Note0"		"STR reduction kicks in first before damage happens. Damage dealt is based on target's max health before the STR reduction."
 		
 		"DOTA_Tooltip_Ability_true_assassin_zabaniya"				"Zabaniya"
-		"DOTA_Tooltip_ability_true_assassin_zabaniya_Description"	"Hassan is trying to break the enemy mana shield to use his Noble Phantasm, burning an incredible amount of their mana. If he succeeds and the enemy mana falls below 5%, he extends his demonic arm at enemy's heart, dealing percent of enemy's current health as pure damage and percent of the manaburn value as magic damage ."
+		"DOTA_Tooltip_ability_true_assassin_zabaniya_Description"	"Hassan extends his demonic arm at enemy's heart, dealing damage. The target is then cursed for a short duration, having reduced healing efficiency."
 		"DOTA_Tooltip_ability_true_assassin_zabaniya_Lore"			"The cursing hand of Middle East creates a mirror image of the victim's heart with ether clump, claiming the original without actually touching it."
 		"DOTA_Tooltip_ability_true_assassin_zabaniya_delay"			"CAST DELAY:"
-		"DOTA_Tooltip_ability_true_assassin_zabaniya_damage"			"MANA BURN:"
-		"DOTA_Tooltip_ability_true_assassin_zabaniya_zabaniya_penalty"		"%DAMAGE:"
-		"DOTA_Tooltip_ability_true_assassin_zabaniya_mana_multiplier"	"%MANA BURN DAMAGE:"
+		"DOTA_Tooltip_ability_true_assassin_zabaniya_damage"			"DAMAGE:"
+		"DOTA_Tooltip_ability_true_assassin_zabaniya_heal_reduction"	"%HEALING REDUCTION:"
+		"DOTA_Tooltip_ability_true_assassin_zabaniya_curse_duration"	"CURSE DURATION:"
 
 		"DOTA_Tooltip_Ability_true_assassin_combo"					"Combo: Delusional Illusion"
 		"DOTA_Tooltip_ability_true_assassin_combo_Description"		"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : D-D in 8 seconds</font>\nFor a short duration of time, periodically summons Hundred-Faced Hassan to attack all nearby enemies. The assassin's damage is increased by level of Zabaniya." 
@@ -3728,7 +3728,7 @@
 		"DOTA_Tooltip_Ability_true_assassin_combo_duration"			"Duration:"
 
 		"DOTA_Tooltip_Ability_true_assassin_attribute_improve_presence_concealment"				"Attribute: Improve Presence Concealment"
-		"DOTA_Tooltip_ability_true_assassin_attribute_improve_presence_concealment_Description"	"Hassan gains max movespeed, while he is invisible, also gets true invisibility for 0.2 seconds after fading.\nWhen he is under Ambush effect and there are no enemies in 2500 radius, he has true invisibility.\nCan't be slowed, while invisible.\nReduces Ambush cooldown to 6."
+		"DOTA_Tooltip_ability_true_assassin_attribute_improve_presence_concealment_Description"	"Hassan gains max movespeed, while he is invisible, also gets true invisibility for 0.2 seconds after fading.\nCan't be slowed, while invisible.\nReduces Ambush cooldown to 6."
 		//Hassan takes less damage while he's not visibile, and more while he's visible.
 		//"DOTA_Tooltip_Ability_true_assassin_attribute_improve_presence_concealment_search_radius"		"SEARCH RADIUS:"
 		//"DOTA_Tooltip_Ability_true_assassin_attribute_improve_presence_concealment_reveal_duration"		"REVEAL DURATION:"
@@ -3762,7 +3762,7 @@
 
 
 		"DOTA_Tooltip_Ability_true_assassin_attribute_shadow_strike"						"Attribute: Shadow Strike"
-		"DOTA_Tooltip_ability_true_assassin_attribute_shadow_strike_Description"			"Increases damage dealt by Zabania by 10% and mana burn by 200, Zabaniya burns additional 10 mana per stack of Self Modification. Delusional Illusion's Zabaniya gains increased damage."			
+		"DOTA_Tooltip_ability_true_assassin_attribute_shadow_strike_Description"			"Increases damage dealt by Zabania by %zab_add_dmg% per Self Modification stack. Increases Zabaniya curse duration by %zab_curse_dur%.\nDelusional Illusion's Zabaniya gains increased damage."			
 		//"DOTA_Tooltip_Ability_true_assassin_attribute_shadow_strike_zab_dmg_penalty"		"Zabaniya Damage Penalty:"
 		//"DOTA_Tooltip_Ability_true_assassin_attribute_shadow_strike_zab_curse_dur"			"Bonus Curse Duration:"
 		"DOTA_Tooltip_Ability_true_assassin_attribute_shadow_strike_combo_bonus_damage"		"Delusional Illusion Bonus Damage:"
@@ -6672,7 +6672,7 @@
         "DOTA_Tooltip_ability_atalanta_last_spurt_aoe"                                    "AOE:"
 
         "DOTA_Tooltip_ability_atalanta_priestess_of_the_hunt"                             "Priestess Of The Hunt"
-        "DOTA_Tooltip_ability_atalanta_priestess_of_the_hunt_Description"                 "Atalanta can now attack, and her abilities uses arrow charges. Each arrow in her quiver grants her %bonus_damage% bonus damage and she can hold up to %arrows% arrows at any given time.\nActive: Restores all arrows in her quiver instantly, spending 10 mana per restored arrow."
+        "DOTA_Tooltip_ability_atalanta_priestess_of_the_hunt_Description"                 "Atalanta can now attack, and her abilities uses arrow charges. Each arrow in her quiver grants her %bonus_damage% bonus damage and she can hold up to %arrows% arrows at any given time.\nActive: Restores all arrows in her quiver instantly, spending 30 mana per restored arrow."
         //"DOTA_Tooltip_ability_atalanta_priestess_of_the_hunt_arrows"                      "ARROW CHARGES:"
 
         "DOTA_Tooltip_ability_atalanta_tauropolos"                                        "Tauropolos - Bow of Heaven"
@@ -8557,7 +8557,7 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
        "DOTA_Tooltip_ability_nanaya_scale_attribute_Description" 	"When Nanaya is <font color='#FFFAFA'>White</font>, his abilities deal additional damage based on his <font color='#00FF00'>agility</font>."
 
        "DOTA_Tooltip_ability_nanaya_chobi_attribute" 				"Attribute: Calculated Assault"
-       "DOTA_Tooltip_ability_nanaya_chobi_attribute_Description" 	"Sensa・Meigokushamon deals more damage to units with less than half HP.\nIf Nanaya kills somebody with Sensa・Meigokushamon, the ability will be reset and Nanaya will restore 400 mana."
+       "DOTA_Tooltip_ability_nanaya_chobi_attribute_Description" 	"Sensa・Meigokushamon deals more damage to units with less than half HP."
 
 
         //     Archer(Extra)

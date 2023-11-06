@@ -28,6 +28,7 @@ if IsServer() then
         self.bonusDamage = table.bonusDamage
         self.Faded = false
         self.radius = self:GetAbility():GetSpecialValueFor("invis_radius")
+        self.immune_radius = self:GetAbility():GetSpecialValueFor("immune_radius")
         self:StartIntervalThink(table.fadeDelay)
         local k = 0
         --self:GetParent():AddDagger(self:GetAbility():GetSpecialValueFor("recover_dagger"))
@@ -48,19 +49,16 @@ if IsServer() then
                 self.state = { [MODIFIER_STATE_INVISIBLE] = false,
                            [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
                            [MODIFIER_STATE_TRUESIGHT_IMMUNE] = false,}
-
-                if not self.fx then
-                    self.fx = ParticleManager:CreateParticleForTeam("particles/true_assassin/ambush_found.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent(), self:GetParent():GetTeamNumber()) --i am kinda drunk right now so particle radius is written in particle itself (position along ring -> initial radius) cause no freaking idea how to make it linked to CP and i don't want to fuck with it right now (i know it's possible and maybe easy, but i'm a lazy ass)
-                    ParticleManager:SetParticleControl(self.fx, 4, Vector(26, 0, 0))   
-                end
             else
-                self.state = { [MODIFIER_STATE_INVISIBLE] = true,
-                           [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
-                           [MODIFIER_STATE_TRUESIGHT_IMMUNE] = true,}
-                if self.fx then
-                    ParticleManager:DestroyParticle(self.fx, true)
-                    ParticleManager:ReleaseParticleIndex(self.fx)
-                    self.fx = nil
+                local units2 = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, self.immune_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+                if #units2 > 0 then
+                    self.state = { [MODIFIER_STATE_INVISIBLE] = true,
+                               [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
+                               [MODIFIER_STATE_TRUESIGHT_IMMUNE] = false,}
+                else
+                    self.state = { [MODIFIER_STATE_INVISIBLE] = true,
+                               [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
+                               [MODIFIER_STATE_TRUESIGHT_IMMUNE] = true,}
                 end
             end
             self:StartIntervalThink(FrameTime())
@@ -96,11 +94,9 @@ if IsServer() then
     function modifier_ambush_invis:OnAbilityFullyCast(args)
         if args.unit == self:GetParent() then
             if not self.Faded then return end
-            --if args.ability:GetName() ~= "true_assassin_ambush" and args.ability:GetName() ~= "true_assassin_combo" and args.ability:GetName() ~= "true_assassin_selfmod" then
-            --[[if args.ability:IsItem() then
+            if args.ability:GetName() ~= "true_assassin_ambush" and args.ability:GetName() ~= "true_assassin_combo" and args.ability:GetName() ~= "true_assassin_selfmod" then
                 self:Destroy()
-            end]]
-            --end
+            end
         end
     end
 

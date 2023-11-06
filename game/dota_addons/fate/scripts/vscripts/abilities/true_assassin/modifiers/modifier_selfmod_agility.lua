@@ -2,7 +2,7 @@ modifier_selfmod_agility = class({})
 
 function modifier_selfmod_agility:OnCreated(args)
 	if IsServer() then
-		self.AttackBonus = self:GetAbility():GetSpecialValueFor("heal_amount")
+		self.AttackBonus = self:GetAbility():GetSpecialValueFor("damage")
 		CustomNetTables:SetTableValue("sync","self_mod_damage", { atk_bonus = self.AttackBonus })
 	end
 	self.bFocusing = false

@@ -177,9 +177,9 @@ function atalanta_celestial_arrow:ArrowHit(target, slow, bIsPhoebus, bIsCombo)
     caster:AddHuntStack(target, 1)
     local damage = caster:GetAverageTrueAttackDamage(caster) + self:GetSpecialValueFor("bonus_damage")
 
-    if not (bIsPhoebus and bIsPhoebus == 1) and not (bIsCombo and bIsCombo == 1) then
+    if not (bIsPhoebus) and not (bIsCombo) then
         --if not (bIsCombo and bIsCombo == 1) then
-            if not (bIsPhoebus and bIsPhoebus == 1) then
+            if not (bIsPhoebus) then
                 damage = damage
                 if caster.CrossingArcadiaPlusAcquired then
                     if not caster:HasModifier("modifier_last_spurt") then
@@ -206,7 +206,7 @@ function atalanta_celestial_arrow:ArrowHit(target, slow, bIsPhoebus, bIsCombo)
        -- end
     end
     
-    if bIsPhoebus and bIsPhoebus == 1 and not (bIsCombo and bIsCombo == 1) then
+    if bIsPhoebus and not (bIsCombo) then
         damage = damage * caster:FindAbilityByName("atalanta_phoebus_catastrophe_barrage"):GetSpecialValueFor("arrows_damage_percentage")/100
     end
 

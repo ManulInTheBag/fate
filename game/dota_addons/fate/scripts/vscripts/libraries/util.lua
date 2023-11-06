@@ -335,6 +335,7 @@ cleansable = {
     "modifier_gilles_misery",
     "modifier_gilles_jellyfish_curse",
     "modifier_gilles_jellyfish_slow",
+    "modifier_zabaniya_curse",
 }
 
 slowmodifier = {

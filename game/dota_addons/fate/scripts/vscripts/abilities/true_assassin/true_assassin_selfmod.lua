@@ -50,7 +50,7 @@ function true_assassin_selfmod:OnSpellStart()
 																					 AttackBonus = casterAgi*0
 																					})
 			--end
-		self:IntelligenceHeal(false)
+		--self:IntelligenceHeal(false)
 		--elseif casterStr >= casterAgi and casterStr >= casterInt then
 		--	self:ReduceZabaniyaCooldown(false)
 		--elseif casterAgi > casterStr and casterAgi >= casterInt then
