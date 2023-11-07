@@ -4,10 +4,17 @@ LinkLuaModifier("modifier_heracles_berserk", "abilities/heracles/modifiers/modif
 LinkLuaModifier("modifier_heracles_combo_window", "abilities/heracles/modifiers/modifier_heracles_combo_window", LUA_MODIFIER_MOTION_NONE)
 
 function heracles_berserk:OnSpellStart()
+	local duration = self:GetSpecialValueFor("duration")
+
+	EmitGlobalSound("Berserker.Roar")
+	self:EnterBerserk(duration)
+end
+
+function heracles_berserk:EnterBerserk(duration)
 	local caster = self:GetCaster()
 	local ability = self
 	local hplock = math.max(caster:GetHealth(), caster:GetMaxHealth()*self:GetSpecialValueFor("health_constant")/100)
-	local duration = self:GetSpecialValueFor("duration")
+	local duration = duration
 	local attack_speed = self:GetSpecialValueFor("bns_att_spd")
 	local radius = 300
 	caster.BerserkDamageTaken = 0
@@ -71,7 +78,4 @@ function heracles_berserk:OnSpellStart()
 			end
 		)
 	end
-	
-	EmitGlobalSound("Berserker.Roar")
-
 end

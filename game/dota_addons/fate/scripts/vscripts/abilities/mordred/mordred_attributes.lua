@@ -264,7 +264,7 @@ function modifier_mordred_overload:Doom()
     for k,v in pairs(targets) do
     	if not v:IsMagicImmune() then           
 	        DoDamage(caster, v, damage, DAMAGE_TYPE_MAGICAL, 0, caster:FindAbilityByName("mordred_pedigree"), false)
-	        v:AddNewModifier(caster, self, "modifier_stunned", {Duration = kappa*0.05})
+	        --v:AddNewModifier(caster, self, "modifier_stunned", {Duration = kappa*0.05})
 	        EmitSoundOn("mordred_lightning", v)
 	        Timers:CreateTimer(0.01, function()
 	            local particle = ParticleManager:CreateParticle("particles/custom/mordred/zuus_lightning_bolt.vpcf", PATTACH_WORLDORIGIN, v)

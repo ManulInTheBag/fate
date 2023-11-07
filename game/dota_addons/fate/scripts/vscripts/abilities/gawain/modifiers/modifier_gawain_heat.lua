@@ -2,6 +2,7 @@ modifier_gawain_heat = class({})
 
 LinkLuaModifier("modifier_gawain_heat_stack", "abilities/gawain/modifiers/modifier_gawain_heat_stack", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_kots_trigger", "abilities/gawain/modifiers/modifier_kots_trigger", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_gawain_kots_slow", "abilities/gawain/modifiers/modifier_gawain_heat", LUA_MODIFIER_MOTION_NONE)
 
 if IsServer() then
 	function modifier_gawain_heat:OnCreated(args)
@@ -73,9 +74,9 @@ if IsServer() then
 				caster:AddNewModifier(caster, self:GetAbility(), "modifier_kots_trigger", { Duration = 3.0 })
 				if target.GawainBashCd == true then return end
 				if not target:IsMagicImmune() and not target:HasModifier("modifier_master_intervention") then
-	        	target:AddNewModifier(caster, target, "modifier_stunned", {Duration = 1})
+	        	target:AddNewModifier(caster, target, "modifier_gawain_kots_slow", {Duration = 1})
 	        	target.GawainBashCd = true
-	        	Timers:CreateTimer(3, function()
+	        	Timers:CreateTimer(2, function()
 	        		target.GawainBashCd = false
 	        	end)
 	      end
@@ -133,4 +134,16 @@ end
 
 function modifier_gawain_heat:GetTexture()
 	return "custom/gawain_meltdown"
+end
+
+modifier_gawain_kots_slow = class({})
+
+function modifier_gawain_kots_slow:DeclareFunctions()
+	return { 
+        MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE
+           }
+end
+
+function modifier_gawain_kots_slow:GetModifierMoveSpeedBonus_Percentage(keys)
+    return -100
 end

@@ -67,6 +67,8 @@ function berserker_5th_madmans_roar:OnSpellStart()
 	--caster:FindAbilityByName("berserker_5th_berserk"):ApplyDataDrivenModifier(caster, caster, "modifier_berserk_self_buff", {hplock = hplock * 2})		
 	--caster:SetRenderColor(255, 127, 127)
 
+	caster:FindAbilityByName("heracles_berserk"):EnterBerserk(self:GetSpecialValueFor("bers_duration"))
+
 	local soundQueue = math.random(1,100)
 	EmitGlobalSound("berserker_roar_02")
 	LoopOverPlayers(function(player, playerID, playerHero)
