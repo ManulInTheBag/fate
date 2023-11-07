@@ -155,7 +155,7 @@ function vlad_kazikli_bey:OnSpellStart()
 				for k,v in pairs(lasthitTargets) do
 			        if v:GetName() ~= "npc_dota_ward_base" then
 			        	DoDamage(caster, v, dmg_lastspike, DAMAGE_TYPE_MAGICAL, 0, self, false)
-			  			caster:AddBleedStack(v, false)
+			  			caster:AddBleedStack(v, false, 10)
 			  			v:AddNewModifier(caster, v, "modifier_stunned", { Duration = stun })
 			  			--giveUnitDataDrivenModifier(caster, v, "stunned", stun)
 			  			--giveUnitDataDrivenModifier(caster, v, "revoked", stun)
