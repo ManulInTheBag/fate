@@ -603,7 +603,7 @@
 			"01"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"damage"			"300"
+				"damage"			"250"
 			}
 			"02"
 			{
@@ -835,12 +835,12 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_datadriven"
-		"MaxLevel"						"5"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"2"
+		"MaxLevel"						"2"
+		"RequiredLevel"					"25"
+		"LevelsBetweenUpgrades"			"25"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELED"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
-		"AbilityTextureName"			"custom/nursery_rhyme_queens_glass_game"
+		"AbilityTextureName"			"custom/nursery_rhyme_story_for_somebodys_sake"
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
 
 		"AnimationPlaybackRate" 		"1.0"
@@ -862,24 +862,24 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"800"
+		"AbilityManaCost"				"200"
 		
 		"AbilitySpecial"
 		{
 			"01"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"radius"				"700 775 850 925 1000"
+				"radius"				"1000"
 			}
 			"02"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"channel_duration"		"3 5 7 9 11"
+				"channel_duration"		"6"
 			}
 			"03"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"instant_heal"			"400 500 600 700 800"
+				"instant_heal"			"600"
 			}
 			"04"
 			{
@@ -889,7 +889,7 @@
 			"05"
 			{
 				"var_type"				"FIELD_INTEGER"
-				"heal_over_time_pct"	"4 8 12 16 20"
+				"heal_over_time_pct"	"10"
 			}
 			"06"
 			{
@@ -1148,7 +1148,7 @@
 		
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"9999"
-		"AbilityManaCost"				"12"
+		"AbilityManaCost"				"8"
 
 		"precache"
 		{
@@ -1426,12 +1426,7 @@
 			"05"
 			{
 				"var_type"			"FIELD_INTEGER"
-				"mana_per_second"	"300"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"movespeed_reduc"	"-5 -10 -15 -20 -25"
+				"stacks_per_second"	"40"
 			}
 			"06"
 			{

@@ -561,10 +561,10 @@ function OnGlassGameStart(keys)
 
 	NRCheckCombo(caster, ability)
 
-	if caster.bIsQGGImproved then
+	--[[if caster.bIsQGGImproved then
 		instantHeal = instantHeal + caster:GetIntellect() * 4 
 		instantHealPct = 20
-	end
+	end]]
 
 	-- give caster heal aura modifier
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_queens_glass_game", {})
@@ -586,9 +586,9 @@ function OnGlassGameStart(keys)
 	for k,v in pairs(targets) do
 		--local missingHealth = (v:GetMaxHealth() - v:GetHealth()) * instantHealPct/100
 		local totalHeal = instantHeal
-		if caster.bIsQGGImproved then
+		--[[if caster.bIsQGGImproved then
 			v:GiveMana(totalHeal / 2)
-		end
+		end]]
 		v:ApplyHeal(totalHeal, caster)
 
 		if v ~= caster and v:IsHero() then 
@@ -612,13 +612,13 @@ function OnGlassGameStart(keys)
 	local shineFx = ParticleManager:CreateParticle( "particles/items_fx/aegis_respawn_aegis_starfall.vpcf", PATTACH_CUSTOMORIGIN, nil );
 	ParticleManager:SetParticleControl( shineFx, 0, caster:GetAbsOrigin())
 	EmitGlobalSound("NR.Chronosphere")
-	EmitGlobalSound("NR.GlassGame.Begin")
+	--EmitGlobalSound("NR.GlassGame.Begin")
 	caster:EmitSound("NR.Tick")
 	--[[local SacFx = ParticleManager:CreateParticle("particles/custom/caster/sacrifice/caster_sacrifice_indicator.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster )
 	ParticleManager:SetParticleControl( SacFx, 0, caster:GetAbsOrigin())
 	ParticleManager:SetParticleControl( SacFx, 1, Vector(radius,0,0))]]
 
-	if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 and caster:GetIntellect() >= 29.1 then
+	--[[if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 and caster:GetIntellect() >= 29.1 then
 		if caster:FindAbilityByName("nursery_rhyme_story_for_somebodys_sake"):IsCooldownReady() 
 			and caster:GetAbilityByIndex(4):GetName() == "nursery_rhyme_nameless_forest"
 			and not caster:HasModifier("modifier_alice_tea_party_cd") 
@@ -631,7 +631,7 @@ function OnGlassGameStart(keys)
 				end
 			})
 		end
-	end
+	end]]
 end
 
 function OnGlassGameEnd(keys)

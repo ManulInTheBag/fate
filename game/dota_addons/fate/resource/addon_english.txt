@@ -699,9 +699,6 @@
 		"DOTA_Tooltip_modifier_tea_party_alice"				"Alice Tea Party"
 		"DOTA_Tooltip_modifier_tea_party_alice_Description"		"Gains huge amount of mana per second."
 
-		"DOTA_Tooltip_modifier_tea_party_enemy"				"Alice Tea Party"
-		"DOTA_Tooltip_modifier_tea_party_enemy_Description"		"Loses huge amount of mana per second. I do not recommend to lose it all."
-
 		"DOTA_Tooltip_modifier_protection_from_arrows_active"				"Protection From Arrows"
 		"DOTA_Tooltip_modifier_protection_from_arrows_active_Description"	"No projectiles shall touch Cu Chulainn"
 
@@ -6449,7 +6446,7 @@
         "DOTA_Tooltip_Ability_nursery_rhyme_white_queens_enigma_lock_duration"	"Lock duration:"
 
         "DOTA_Tooltip_Ability_alice_enigma"							"White Queen's Enigma"
-        "DOTA_Tooltip_Ability_alice_enigma_Description"				"Launches an enigmatic force in a line. Enemies hit by this ability take magical damage and are <font color='#FF6699'>stunned</font> for %stun_duration% seconds.\nAfter that they are <font color='#FF6699'>slowed</font> by %slow_pct%%% for a longer duration, while taking magical damage based on their maximum health.\nReveals hit enemies briefly."
+        "DOTA_Tooltip_Ability_alice_enigma_Description"				"Launches an enigmatic force in a line. Enemies hit by this ability take magical damage and are <font color='#FF6699'>stunned</font> for %stun_duration% seconds.\nAfter that they are <font color='#FF6699'>slowed</font> by %slow_pct%%% for a longer duration, while taking magical damage based on their current health.\nReveals hit enemies briefly."
         "DOTA_Tooltip_Ability_alice_enigma_damage"							"Damage:"
         "DOTA_Tooltip_Ability_alice_enigma_duration"						"Slow duration:"
         "DOTA_Tooltip_Ability_alice_enigma_slow"							"%Slow:"
@@ -6479,8 +6476,8 @@
         "DOTA_Tooltip_Ability_nursery_rhyme_doppelganger_Note1"		"Shared damage from doppelganger cannot be lethal."
         "DOTA_Tooltip_Ability_nursery_rhyme_doppelganger_Note2"		"Doppelganger cannot be linked with Spirit Link."
 
-        "DOTA_Tooltip_Ability_nursery_rhyme_queens_glass_game"      				"Queen's Glass Game"
-        "DOTA_Tooltip_Ability_nursery_rhyme_queens_glass_game_Description"      	"Nursery Rhyme starts the Queen's Glass Game. While this effect persist, she may activate this ability again once every %active_cooldown% seconds to rewind time, returning her to where she used this ability, resets her other abilities cooldown to duration during then, as well as her health and mana to the amount during then. This effect ends if Nursery Rhyme exits the area of effect."
+        "DOTA_Tooltip_Ability_nursery_rhyme_queens_glass_game"      				"Queen's Glass Game - Return"
+        "DOTA_Tooltip_Ability_nursery_rhyme_queens_glass_game_Description"      	"Nursery Rhyme starts the Queen's Glass Game. While this effect persist, she may activate this ability again once every %active_cooldown% seconds to rewind time.\nRewinding time returns her to where she used this ability, resets her other abilities cooldown to duration during then, as well as her health and mana to the amount during then.\nThis effect ends if Nursery Rhyme exits the area of effect or after %return_count% recasts."
         "DOTA_Tooltip_Ability_nursery_rhyme_queens_glass_game_radius"				"Radius:"
         "DOTA_Tooltip_Ability_nursery_rhyme_queens_glass_game_duration"				"Duration:"
         "DOTA_Tooltip_Ability_nursery_rhyme_queens_glass_game_Lore"					"As long as the slender fingers return to the first page."
@@ -6507,17 +6504,20 @@
         "DOTA_Tooltip_Ability_nursery_rhyme_queens_glass_game_old_heal_over_time_pct"	"%HEAL OVER TIME BASED ON MAX HEALTH:"
         "DOTA_Tooltip_Ability_nursery_rhyme_queens_glass_game_old_upkeep_mana_cost"		"%UPKEEP MANA COST PER SEC:"
 
-	"DOTA_Tooltip_Ability_alice_tea_party"						"Combo: Alice - Tea Party"
-        "DOTA_Tooltip_Ability_alice_tea_party_Description"				"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: R-D in 6 seconds</font>\n\nCaster uses her Reality Marble to start a tea party. Once it's started, all enemies who participate in it (are in party radius) lose huge amount of mana per second. When the amount of mana reaches 0, they lose all their memories, take damage, based on difference between their's and Caster's intellect and become <font color='#58ACFA'>silenced</font> and <font color='#58ACFA'>revoked</font> for the remaining time of the party. Caster gains the same amount of mana per second."
+	"DOTA_Tooltip_Ability_alice_tea_party"						"Combo: Alice Tea Party"
+        "DOTA_Tooltip_Ability_alice_tea_party_Description"				"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: R-D in 6 seconds</font>\n\nCaster uses her Reality Marble to start a tea party. Once it's started, all enemies inside the radius start gaining stacks of Memory Loss at a rapid rate. Whenever Memory Loss reaches 100 stacks, they lose all their memories, take damage, based on difference between their's and Caster's intellect and become <font color='#58ACFA'>silenced</font> and <font color='#58ACFA'>revoked</font> for 2 seconds.\nCaster also gains additional mana regeneration."
 	"DOTA_Tooltip_Ability_alice_tea_party_radius"					"Radius:"
 	"DOTA_Tooltip_Ability_alice_tea_party_form_delay"				"Form delay:"
 	"DOTA_Tooltip_Ability_alice_tea_party_duration"					"Duration:"
-	"DOTA_Tooltip_Ability_alice_tea_party_damage_per_int"				"Damage per intellect:"
-	"DOTA_Tooltip_Ability_alice_tea_party_mana_per_second"				"Mana per second:"
+	"DOTA_Tooltip_Ability_alice_tea_party_damage_per_int"			"Damage per intellect:"
+	"DOTA_Tooltip_Ability_alice_tea_party_stacks_per_second"		"Memory Loss per second:"
         "DOTA_Tooltip_Ability_alice_tea_party_Lore"					"... 'cause we knew that for sure you and us will have a whole lotta fun playing together~"
 
+        "DOTA_Tooltip_modifier_tea_party_enemy"					"Memory Loss"
+		"DOTA_Tooltip_modifier_tea_party_enemy_Description"		"Your self starts to fade away..."
+
         "DOTA_Tooltip_Ability_nursery_rhyme_story_for_somebodys_sake"	"Combo: Perpetual Engine - Maiden Empire"
-        "DOTA_Tooltip_Ability_nursery_rhyme_story_for_somebodys_sake_Description"	"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: R-R in 2 seconds</font>\n\nCaster conjures a time-rewinding Noble Phantasm. If she is not killed in a given time, current round will reset back to the beginning with an unconditional draw.\nThis abiity cannot be used if round timer is past 60 seconds."
+        "DOTA_Tooltip_Ability_nursery_rhyme_story_for_somebodys_sake_Description"	"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: R-R in 2 seconds</font>\n\nCaster conjures a time-rewinding Noble Phantasm. If she is not killed in a given time, current round will reset back to the beginning with an unconditional draw.\nThis ability cannot be used if round timer is past 60 seconds."
         "DOTA_Tooltip_Ability_nursery_rhyme_story_for_somebodys_sake_time_limit"	"TIME LIMIT:"
         "DOTA_Tooltip_Ability_nursery_rhyme_story_for_somebodys_sake_Note0"			"Until the spell's completion, Caster's location will be pinged by enemy team every 5 seconds."
         "DOTA_Tooltip_Ability_nursery_rhyme_story_for_somebodys_sake_Note1"			"Caster cannot use Teleport Scroll, Gem of Speed, and Blink Scroll while channeling."
@@ -6526,7 +6526,9 @@
         "DOTA_Tooltip_Ability_nursery_rhyme_story_for_somebodys_sake_Lore"	"This story will go on forever.\nAs long as the slender fingers return to the first page,\nAs if picking up the next volume.\nOnce again denying reality to the reader."
 
         "DOTA_Tooltip_Ability_nursery_rhyme_attribute_forever_together"		"Attribute: Forever Together"
-        "DOTA_Tooltip_Ability_nursery_rhyme_attribute_forever_together_Description"		"Improves Queen's Glass Game - Return."
+        "DOTA_Tooltip_Ability_nursery_rhyme_attribute_forever_together_Description"		"I Am You, and You Are Me causes target to be slowed and take damage every second based on INT continuously if it is looking away from its doppelganger."
+        "DOTA_Tooltip_Ability_nursery_rhyme_attribute_forever_together_slow_amount"		"%LOOKAWAY SLOW AMOUNT:"
+        "DOTA_Tooltip_Ability_nursery_rhyme_attribute_forever_together_damage_per_sec"	"LOOKAWAY DAMAGE INT RATIO:"
 
         "DOTA_Tooltip_Ability_nursery_rhyme_attribute_nightmare"				"Attribute: Nightmare"
         "DOTA_Tooltip_Ability_nursery_rhyme_attribute_nightmare_Description"	"Increases The Plains of Water's max bounce count, damage by %int_ratio% per point of Nursery Rhyme's INT, and causes each bounce onto enemy hero to steal %int_steal% INT from them for %int_steal_duration% seconds."
@@ -6541,8 +6543,8 @@
         "DOTA_Tooltip_Ability_nursery_rhyme_attribute_reminiscence_stat_steal_duration"	"STAT STEAL DURATION:"
         "DOTA_Tooltip_Ability_nursery_rhyme_attribute_reminiscence_pct_mana_regen"		"MANA REGEN PERCENTAGE:"
 
-        "DOTA_Tooltip_Ability_nursery_rhyme_attribute_improve_queens_glass_game"				"Attribute: Improve Queen's Glass Game"
-        "DOTA_Tooltip_Ability_nursery_rhyme_attribute_improve_queens_glass_game_Description"	"Increases instant heal from missing health to 20%%. Increases instant heal by Caster's Intelligence * 4. Causes Queen's Glass Game to restore half of the flat instant heal value as mana.\nReduces Perpetual Engine - Maiden Empire cooldown to 380 seconds."
+        "DOTA_Tooltip_Ability_nursery_rhyme_attribute_improve_queens_glass_game"				"Attribute: A Tale That Never Ends"
+        "DOTA_Tooltip_Ability_nursery_rhyme_attribute_improve_queens_glass_game_Description"	"Causes Queen's Glass Game - Return to always refresh cooldown instead of reverting the duration, as well as refreshing cooldown of items in Nursery Rhyme's inventory."
 
         //====================================
         //      Archer of Red - Atalanta
@@ -7933,7 +7935,7 @@
 
 		//Undefeatable Style
 		"DOTA_Tooltip_ability_saito_style"															"Combo: Undefeatable Style"
-		"DOTA_Tooltip_ability_saito_style_Description"												"<font color='#F59D9B'>Combo Requirements: 30 or more in all stats.</font>\n<font color='#F59D9B'>Combo Sequence: F - D -> F on activation step.</font>\nSaitō channels both mind and spirit through the blades to inflict pain on the enemy's very core, granting a chance to deal bonus damage on any damage dealt by Saitō’s attacks or abilities.\nFor the duration of this ability, blocks most targeted spells %max_linken_procs% times and doubles the health and mana gain of <font color='#0075B5'>Freely Drawn Sword</font>.\nThe cast points of <font color='#0075B5'>Flashblade</font>, <font color='#0075B5'>Steelwing</font> and <font color='#0075B5'>Shadowslash</font> are replaced with immediate delay and cannot be interrupted, also reducing their cooldown for duration.\nUpon cast, enables <font color='#F9AF1F'>One By One</font> for %blast_duration% seconds."
+		"DOTA_Tooltip_ability_saito_style_Description"												"<font color='#F59D9B'>Combo Requirements: 30 or more in all stats.</font>\n<font color='#F59D9B'>Combo Sequence: F - D -> F on activation step.</font>\nSaitō channels both mind and spirit through the blades to inflict pain on the enemy's very core, dealing bonus damage on any damage dealt by Saitō’s attacks or abilities.\nFor the duration of this ability, blocks most targeted spells %max_linken_procs% time and doubles the health and mana gain of <font color='#0075B5'>Freely Drawn Sword</font>.\n<font color='#0075B5'>Flashblade</font>, <font color='#0075B5'>Steelwing</font> and <font color='#0075B5'>Shadowslash</font> have their cooldown removed for the duration.\nUpon cast, enables <font color='#F9AF1F'>One By One</font> for %blast_duration% seconds."
 		"DOTA_Tooltip_ability_saito_style_Lore"														"Without form, my sword is intangible. As it flows, it embodies all possibilities. That is why my sword has no equal!"
 		"DOTA_Tooltip_ability_saito_style_AbilityCastPoint"											"CAST POINT:"
 		"DOTA_Tooltip_ability_saito_style_duration"													"DURATION:"

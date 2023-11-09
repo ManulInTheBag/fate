@@ -841,7 +841,7 @@ function saito_flashblade:GetAOERadius() --AOE radius is required to indicate wh
 end
 function saito_flashblade:GetBehavior() --Immediate behavior automatically zerofill cast time, bit.bor is an autosum possible flags and doesn't duplicate like e.g. simple summ AKA FLAG+FLAG == error.
     local nBehavior = tonumber(tostring(self.BaseClass.GetBehavior(self)))
-    return bit.bor(nBehavior, self:GetCaster():HasModifier("modifier_saito_style_active") and DOTA_ABILITY_BEHAVIOR_IMMEDIATE or DOTA_ABILITY_BEHAVIOR_NONE)
+    return bit.bor(nBehavior, self:GetCaster():HasModifier("modifier_saito_style_active") and DOTA_ABILITY_BEHAVIOR_NONE or DOTA_ABILITY_BEHAVIOR_NONE)
 end
 function saito_flashblade:GetCooldown(nLevel)
     return self:GetCaster():HasModifier("modifier_saito_style_active")
@@ -1166,7 +1166,7 @@ function saito_steelwing:GetAOERadius()
 end
 function saito_steelwing:GetBehavior() --Immediate behavior automatically zerofill cast time.
     local nBehavior = tonumber(tostring(self.BaseClass.GetBehavior(self)))
-    return bit.bor(nBehavior, self:GetCaster():HasModifier("modifier_saito_style_active") and DOTA_ABILITY_BEHAVIOR_IMMEDIATE or DOTA_ABILITY_BEHAVIOR_NONE)
+    return bit.bor(nBehavior, self:GetCaster():HasModifier("modifier_saito_style_active") and DOTA_ABILITY_BEHAVIOR_NONE or DOTA_ABILITY_BEHAVIOR_NONE)
 end
 function saito_steelwing:GetCooldown(nLevel)
     return self:GetCaster():HasModifier("modifier_saito_style_active")
@@ -1318,7 +1318,7 @@ function saito_shadowslash:GetAOERadius()
 end
 function saito_shadowslash:GetBehavior() --Immediate behavior automatically zerofill cast time.
     local nBehavior = tonumber(tostring(self.BaseClass.GetBehavior(self)))
-    return bit.bor(nBehavior, self:GetCaster():HasModifier("modifier_saito_style_active") and DOTA_ABILITY_BEHAVIOR_IMMEDIATE or DOTA_ABILITY_BEHAVIOR_NONE)
+    return bit.bor(nBehavior, self:GetCaster():HasModifier("modifier_saito_style_active") and DOTA_ABILITY_BEHAVIOR_NONE or DOTA_ABILITY_BEHAVIOR_NONE)
 end
 function saito_shadowslash:GetCooldown(nLevel) --Changing the cooldown if we are in the combo state then shows the cooldown for the ability will be 3 seconds like in KV as the default value.
     return self:GetCaster():HasModifier("modifier_saito_style_active")
@@ -2083,7 +2083,7 @@ end
 function modifier_saito_fds_cast_controller:CheckSwapQWESet(hAbility) --Basically hardcoded, PEPE.
     if IsServer()
         and IsNotNull(GetAttribute(self.hParent, "saito_attribute_sword"))
-        and not self.hParent:HasModifier("modifier_saito_style_active") then --Locks the swapping if you are in combo state, except for the situation when you cast combo that is already in the 2nd state sent from QWE2.
+        and not self.hParent:HasModifier("modifier_saito_style_active_disabled") then --Locks the swapping if you are in combo state, except for the situation when you cast combo that is already in the 2nd state sent from QWE2.
 
         local nSwapDuration = GetAttributeValue(self.hCaster, "saito_attribute_sword", "fds_swap_set_duration", -1, 0)
         --Get number here because it always calls when we need, attributes as talents basically have to always be called on code which updates more than once for it to actually work.
@@ -3084,11 +3084,11 @@ function modifier_saito_vortex_slashing:OnIntervalThink()
         for _, hEntity in pairs(tEntities) do
             if IsNotNull(hEntity) then
                 if bLastSlash then
-                    giveUnitDataDrivenModifier(self.hCaster, hEntity, "stunned", self.nKnockDuration)
+                    --giveUnitDataDrivenModifier(self.hCaster, hEntity, "stunned", self.nKnockDuration)
                     fApplyKnockbackSpecial(hEntity, self.nKnockDistance, self.nKnockDuration, GetDirection(hEntity, vParentLoc))
                     EmitSoundOn("Saito.Vortex.Impact", hEntity)
                 else
-                    giveUnitDataDrivenModifier(self.hCaster, hEntity, "stunned", self.nSlashStunDuration)
+                    --giveUnitDataDrivenModifier(self.hCaster, hEntity, "stunned", self.nSlashStunDuration)
 
                     EmitSoundOn("Hero_Saito.Attack", hEntity)
                 end
@@ -3151,6 +3151,16 @@ function modifier_saito_vortex_pull:CheckState()
                     }
     return tState
 end
+function modifier_saito_vortex_pull:DeclareFunctions()
+    return { 
+        MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE
+           }
+end
+
+function modifier_saito_vortex_pull:GetModifierMoveSpeedBonus_Percentage(keys)
+    return -100
+end
+
 function modifier_saito_vortex_pull:OnCreated(tTable)
     self.hCaster  = self:GetCaster()
     self.hParent  = self:GetParent()

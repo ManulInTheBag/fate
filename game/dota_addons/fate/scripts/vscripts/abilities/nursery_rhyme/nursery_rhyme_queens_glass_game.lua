@@ -25,8 +25,6 @@ function nursery_rhyme_queens_glass_game:OnSpellStart()
 	hCaster.GlassGameAura:AddNewModifier(hCaster, self, "modifier_queens_glass_game_aura", tParams)
 	hCaster.GlassGameAura:AddNewModifier(hCaster, self, "modifier_kill", tParams)
 
-
-
 	local hAbility1 = hCaster:GetAbilityByIndex(0)
 	local hAbility2 = hCaster:GetAbilityByIndex(1)
 	local hAbility3 = hCaster:GetAbilityByIndex(2)
@@ -55,12 +53,12 @@ function nursery_rhyme_queens_glass_game:OnSpellStart()
 		end
 	end]]
 	if hCaster:GetStrength() >= 29.1 and hCaster:GetAgility() >= 29.1 and hCaster:GetIntellect() >= 29.1 then
-		if hCaster:FindAbilityByName("alice_tea_party"):IsCooldownReady() and not hCaster:HasModifier("modifier_story_for_someones_sake_cooldown") and hCaster:GetAbilityByIndex(3):GetName() == "nursery_rhyme_shapeshift" then
-			hCaster:SwapAbilities("nursery_rhyme_shapeshift", "alice_tea_party", false, true)
+		if hCaster:FindAbilityByName("alice_tea_party"):IsCooldownReady() and not hCaster:HasModifier("modifier_story_for_someones_sake_cooldown") and hCaster:GetAbilityByIndex(3):GetName() == "nursery_rhyme_queens_glass_game_old" then
+			hCaster:SwapAbilities("nursery_rhyme_queens_glass_game_old", "alice_tea_party", false, true)
 			Timers:CreateTimer({
 				endTime = 6,
 				callback = function()
-					hCaster:SwapAbilities("nursery_rhyme_shapeshift", "alice_tea_party", true, false)
+					hCaster:SwapAbilities("nursery_rhyme_queens_glass_game_old", "alice_tea_party", true, false)
 				end
 			})
 		end
@@ -105,6 +103,14 @@ function nursery_rhyme_queens_glass_game_activate:OnSpellStart()
 	end)
 
 	hCaster:SetAbsOrigin(hCaster.GlassGameOrigin)
+
+	local modifier = hCaster:FindModifierByName("modifier_queens_glass_game")
+
+	if modifier and modifier:GetStackCount() > 1 then
+		modifier:DecrementStackCount()
+	else
+		hCaster:RemoveModifierByName("modifier_queens_glass_game")
+	end
 end
 
 function nursery_rhyme_queens_glass_game_activate:CastFilterResult()
@@ -150,6 +156,7 @@ if IsServer() then
 			hCaster:SwapAbilities("nursery_rhyme_queens_glass_game", "nursery_rhyme_queens_glass_game_activate", false, true)
 			hCaster:EmitSound("NR.Tick")
 			hCaster:AddNewModifier(hCaster, self:GetAbility(), "modifier_queens_glass_game_dummy", { Duration = self:GetAbility():GetSpecialValueFor("duration")})
+			self:SetStackCount(self:GetAbility():GetSpecialValueFor("return_count"))
 		end
 	end
 
@@ -167,7 +174,11 @@ if IsServer() then
 end
 
 function modifier_queens_glass_game:IsHidden()
-	return true 
+	return false 
+end
+
+function modifier_queens_glass_game:IsDebuff()
+	return false
 end
 
 function modifier_queens_glass_game_aura:GetAuraSearchTeam()

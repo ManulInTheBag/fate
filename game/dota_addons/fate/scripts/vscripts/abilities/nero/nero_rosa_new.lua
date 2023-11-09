@@ -456,7 +456,7 @@ function modifier_nero_rosa_motion:UpdateHorizontalMotion(me, dt)
             self.target:SetOrigin(next_pos + self.direction*190)
             --self.parent:FaceTowards(self.point)
 
-            if self.time_elapsed > 0.3 then
+            if self.time_elapsed > 0.2 then
             	self:PlayEffects()
             	self.time_elapsed = 0
             end
