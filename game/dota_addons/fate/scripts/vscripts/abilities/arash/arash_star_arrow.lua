@@ -85,6 +85,7 @@ function arash_star_arrow:ReleaseArrow(vector)
 		end
 	
 	end)
+	local damage = self:GetSpecialValueFor("damage") + caster:GetAgility() * self:GetSpecialValueFor("damage_per_agility")
 	local tProjectile = {
 		EffectName = "",
 		Ability = self,
@@ -104,7 +105,7 @@ function arash_star_arrow:ReleaseArrow(vector)
 		--iVisionRadius = 500,
 		--bFlyingVision = true,
 		--iVisionTeamNumber = caster:GetTeamNumber(),
-		ExtraData = {fDamage = self:GetSpecialValueFor("damage") * frames/(self.maxtime*30),
+		ExtraData = {fDamage =  damage* frames/(self.maxtime*30),
 					 fRadius = self:GetSpecialValueFor("radius"), fDamagePct = self:GetSpecialValueFor("damage_pct"), 
 					 colortype = 0 + (frames > 30 and 1 or 0) + (frames >=60 and 1 or 0)}
 	}  

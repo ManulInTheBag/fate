@@ -90,7 +90,7 @@ function arash_max_stella:OnSpellStart()
 			ParticleManager:ReleaseParticleIndex(point_particle)
 		end)
 		local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 20000, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_INVULNERABLE + DOTA_UNIT_TARGET_FLAG_NOT_CREEP_HERO, FIND_ANY_ORDER, false) 
-		if #targets ~= 1 and not caster.ArashSelfSacrifice then
+		if #targets ~= 1 or not caster.ArashSelfSacrifice then
 			if caster:IsAlive() then
 				caster:AddNoDraw()
 				caster:Execute(self, caster, { bExecution = true })
@@ -112,14 +112,27 @@ function arash_max_stella:OnSpellStart()
 					caster:Execute(self, caster, { bExecution = true })
 				end
 				------
+				local pos = caster:GetAbsOrigin()
 				local death_particle = ParticleManager:CreateParticle("particles/arash/arash_death.vpcf", PATTACH_CUSTOMORIGIN, nil)
-				ParticleManager:SetParticleControl(death_particle, 3,  caster:GetAbsOrigin() + Vector(0,0,50) )
+				ParticleManager:SetParticleControl(death_particle, 3,  pos + Vector(0,0,50) )
 				--ParticleManager:SetParticleControl(point_particle, 1,  Vector(radius,0,0) )
 		
 				Timers:CreateTimer(delay, function()
 					ParticleManager:DestroyParticle(death_particle, false)
 					ParticleManager:ReleaseParticleIndex(death_particle)
 				end)
+				Timers:CreateTimer({
+					endTime = 1,
+					callback = function()
+					if IsTeamWiped(caster) == false and caster.ArashSelfSacrifice and _G.CurrentGameState == "FATE_ROUND_ONGOING" then						
+						local particle = ParticleManager:CreateParticle("particles/items_fx/aegis_respawn.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+						caster:SetRespawnPosition(pos)
+						caster:RespawnHero(false,false)
+						caster:SetRespawnPosition(caster.RespawnPos)
+
+					end
+				})	
+			
 			
 			end)
 
@@ -143,7 +156,7 @@ function arash_max_stella:OnSpellStart()
 		Timers:CreateTimer(0.3, function()
 			EmitGlobalSound("Arash_stella_drop")
 			local targets = FindUnitsInRadius(caster:GetTeam(), target_point, nil, small_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-			local mid_targets = FindUnitsInRadius(caster:GetTeam(), target_point, nil, mid_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+			local mid_targets = FindUnitsInRadius(caster:GetTeam(), target_point, nil, mid_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
 			local outer_targets = FindUnitsInRadius(caster:GetTeam(), target_point, nil, large_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	
 			for i = 1, #targets do

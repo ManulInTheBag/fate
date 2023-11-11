@@ -163,7 +163,7 @@ function arash_curved_fire:OnProjectileHit_ExtraData(hTarget, vLocation, tExtraD
         local colortype = tExtraData.colortype
         local color = Vector(0,0,0) + (colortype == 3 and Vector(238,32,77) or Vector(0,0,0)) + (colortype == 2 and Vector(255,207,72) or Vector(0,0,0))+ (colortype == 1 and Vector(153,102,204) or Vector(0,0,0))+ (colortype == 4 and Vector(255,255,255) or Vector(0,0,0))
         ParticleManager:SetParticleControl(timedExplosionFx, 15, color)
-            Timers:CreateTimer(4,function()
+            Timers:CreateTimer(2,function()
                 self:Explosion(vLocation+ Vector(0,0,80),  tExtraData.nDamage * 0.5, tExtraData.nRadius, tExtraData.colortype, 0.5)
                 ParticleManager:DestroyParticle(timedExplosionFx, true)
                 ParticleManager:ReleaseParticleIndex(timedExplosionFx)

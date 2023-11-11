@@ -2909,7 +2909,7 @@
 		"DOTA_Tooltip_Ability_arash_arrow_construction_duration"			"Buff duration:"
 
 		"DOTA_Tooltip_Ability_arash_star_arrow"				"Star arrow"
-		"DOTA_Tooltip_Ability_arash_star_arrow_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.0</font>\nArash starts charging his next shot.\nWhile charging, arash cannot attack and use <font color='#58ACFA'>Stella</font> or <font color='#58ACFA'>Curved fire</font>.\nArash can release arrow at any moment, sending projectile in the recast direction.\nOn hit, arrow deals  <font color='#58ACFA'>damage</font> based on enemy max health in radius and <font color='#9400D3'>slows</font> for %ms_slow_duration% second.\nArrow <font color='#58ACFA'>damage</font> and <font color='#7FFF00'>range</font> are based on charge time.\nArash is slowed for 50% while charging.\n<font color='#F1C40F'>Upgradable by attribute Clairvoyance</font>"
+		"DOTA_Tooltip_Ability_arash_star_arrow_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.0</font>\nArash starts charging his next shot.\nWhile charging, arash cannot attack and use <font color='#58ACFA'>Stella</font> or <font color='#58ACFA'>Curved fire</font>.\nArash can release arrow at any moment, sending projectile in the recast direction.\nOn hit, arrow deals flat <font color='#58ACFA'>damage</font> based on Arash's <font color='#00FF00'>agility</font> and some <font color='#58ACFA'>damage</font> based on enemy max health in radius and <font color='#9400D3'>slows</font> for %ms_slow_duration% second.\nArrow <font color='#58ACFA'>damage</font> and <font color='#7FFF00'>range</font> are based on charge time.\nArash is slowed for 50% while charging.\n<font color='#F1C40F'>Upgradable by attribute Clairvoyance</font>"
 		"DOTA_Tooltip_Ability_arash_star_arrow_Lore"				"Shooting star pierces not only armor, but heart and soul"
 		"DOTA_Tooltip_Ability_arash_star_arrow_damage_pct"			"%Max health damage:"
 		"DOTA_Tooltip_Ability_arash_star_arrow_damage"				"Damage:"
@@ -2918,6 +2918,7 @@
 		"DOTA_Tooltip_Ability_arash_star_arrow_speed"				"Arrow speed:"
 		"DOTA_Tooltip_Ability_arash_star_arrow_radius"				"Radius:"
 		"DOTA_Tooltip_Ability_arash_star_arrow_ms_slow"				"%Slow:"
+		"DOTA_Tooltip_Ability_arash_star_arrow_damage_per_agility"				"Damage per agility:"
 
 		"DOTA_Tooltip_Ability_arash_star_arrow_release"				"Star arrow release"
 		"DOTA_Tooltip_Ability_arash_star_arrow_release_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.15</font>\nArash immediately releases <font color='#58ACFA'>Star arrow</font>."
@@ -2972,7 +2973,7 @@
 
 
 		"DOTA_Tooltip_Ability_arash_max_stella"				"Combo: MAX Stella"
-		"DOTA_Tooltip_Ability_arash_max_stella_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : D-R in 4 seconds</font>\nArash shoots arrow in sky, summoning powerful meteor at a target location after a delay.\nRight after cast Arash DIES.\nDamage dealt decreases with distance from center.\nAll enemies are slowed for 3 seconds on hit. Slow power depends on distance from center.\nIf Arash is the last survivor, he wont die until Stella falls."
+		"DOTA_Tooltip_Ability_arash_max_stella_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : D-R in 4 seconds</font>\nArash shoots arrow in sky, summoning powerful meteor at a target location after a delay.\nRight after cast Arash DIES.\nDamage dealt decreases with distance from center.\nAll enemies are slowed for 3 seconds on hit. Slow power depends on distance from center.\nIf Arash is the last survivor, he wont die until Stella falls.\nEnemies in middle radius take 15%% of damage even through invulnerability."
 		"DOTA_Tooltip_Ability_arash_max_stella_Lore"					""
 		"DOTA_Tooltip_Ability_arash_max_stella_range"									"Range:"
 		"DOTA_Tooltip_Ability_arash_max_stella_damage"									"Damage:"
@@ -3017,7 +3018,7 @@
 		"DOTA_Tooltip_Ability_arash_load_magical_energy_cd_reduction"						"Cooldown reduction:"
 
 		"DOTA_Tooltip_Ability_arash_self_sacrifice"				"Attribute: Self sacrifice"
-		"DOTA_Tooltip_Ability_arash_self_sacrifice_Description"	"When Arash dies, all his team in the same realm gets his <font color='#58ACFA'>Toughness</font> buff with additional <font color='#FFFAFA'>movement speed</font> increase and <font color='#7CFC00'>heaks</font> for a fixed amount.\nArash will now die only after <font color='#58ACFA'>Max stella</font> lands."
+		"DOTA_Tooltip_Ability_arash_self_sacrifice_Description"	"When Arash dies, all his team in the same realm gets his <font color='#58ACFA'>Toughness</font> buff with additional <font color='#FFFAFA'>movement speed</font> increase and <font color='#7CFC00'>heaks</font> for a fixed amount.\nArash will now die only after <font color='#58ACFA'>Max Stella</font> lands.\nIf Arash was killed by <font color='#58ACFA'>Max Stella</font>, he will ressurect 1 second after on the same place he died."
 		"DOTA_Tooltip_Ability_arash_self_sacrifice_Lore"					""
 		"DOTA_Tooltip_Ability_arash_self_sacrifice_buff_duration"					"Buff duration:"
 		"DOTA_Tooltip_Ability_arash_self_sacrifice_ms"								"%Movement speed:"
