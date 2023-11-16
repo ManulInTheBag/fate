@@ -69,7 +69,7 @@ function arash_max_stella:OnSpellStart()
 	giveUnitDataDrivenModifier(caster,  caster, "stunned", delay)
 	EmitGlobalSound("arash_pre_stella")
 	caster:AddNewModifier(caster, self, "modifier_arash_combo_cd", {duration = self:GetCooldown(1)})
-	Timers:CreateTimer(2, function()
+	Timers:CreateTimer(1.75, function()
 		EmitGlobalSound("Arash_stella")
 	
 	end) 
@@ -95,6 +95,8 @@ function arash_max_stella:OnSpellStart()
 				caster:AddNoDraw()
 				caster:Execute(self, caster, { bExecution = true })
 			end
+
+			local pos = caster:GetAbsOrigin()
 			------
 			local death_particle = ParticleManager:CreateParticle("particles/arash/arash_death.vpcf", PATTACH_CUSTOMORIGIN, nil)
 			ParticleManager:SetParticleControl(death_particle, 3,  caster:GetAbsOrigin() + Vector(0,0,50) )
@@ -104,9 +106,21 @@ function arash_max_stella:OnSpellStart()
 				ParticleManager:DestroyParticle(death_particle, false)
 				ParticleManager:ReleaseParticleIndex(death_particle)
 			end)
+
+			Timers:CreateTimer({
+					endTime = 1,
+					callback = function()
+					if IsTeamWiped(caster) == false and caster.ArashSelfSacrifice and _G.CurrentGameState == "FATE_ROUND_ONGOING" then					
+						local particle = ParticleManager:CreateParticle("particles/items_fx/aegis_respawn.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+						caster:SetRespawnPosition(pos)
+						caster:RespawnHero(false,false)
+						caster:SetRespawnPosition(caster.RespawnPos)
+
+					end
+				end})	
 		else
-			giveUnitDataDrivenModifier(caster, caster, "pause_sealdisabled", 3.5)
-			Timers:CreateTimer(3.5, function()
+			giveUnitDataDrivenModifier(caster, caster, "pause_sealdisabled", 2.0)
+			Timers:CreateTimer(1.5, function()
 				if caster:IsAlive() then
 					caster:AddNoDraw()
 					caster:Execute(self, caster, { bExecution = true })
@@ -131,7 +145,7 @@ function arash_max_stella:OnSpellStart()
 						caster:SetRespawnPosition(caster.RespawnPos)
 
 					end
-				})	
+				end})	
 			
 			
 			end)
@@ -156,23 +170,35 @@ function arash_max_stella:OnSpellStart()
 		Timers:CreateTimer(0.3, function()
 			EmitGlobalSound("Arash_stella_drop")
 			local targets = FindUnitsInRadius(caster:GetTeam(), target_point, nil, small_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-			local mid_targets = FindUnitsInRadius(caster:GetTeam(), target_point, nil, mid_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
+			local mid_targets = FindUnitsInRadius(caster:GetTeam(), target_point, nil, mid_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 			local outer_targets = FindUnitsInRadius(caster:GetTeam(), target_point, nil, large_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-	
+
+			local stellatargets = {}
+
 			for i = 1, #targets do
-				DoDamage(caster, targets[i], full_damage - damage_mid, DAMAGE_TYPE_PURE, 0, self, false)
+
+				stellatargets[targets[i]:entindex()] = (stellatargets[targets[i]:entindex()] or 0) + targets[i]:GetHealth() * (full_damage - damage_mid)/100
+				--DoDamage(caster, targets[i], targets[i]:GetHealth() * (full_damage - damage_mid)/100, DAMAGE_TYPE_PURE, 0, self, false)
 				targets[i]:AddNewModifier(caster, self, "modifier_arash_stella_slow_1", {duration  = 3})
 			end 
 	
 			for i = 1, #mid_targets do
-				DoDamage(caster, mid_targets[i], damage_mid - damage_outer, DAMAGE_TYPE_PURE, 0, self, false)
+				stellatargets[mid_targets[i]:entindex()] = (stellatargets[mid_targets[i]:entindex()] or 0) + mid_targets[i]:GetHealth() * (damage_mid - damage_outer)/100
+				--DoDamage(caster, mid_targets[i], mid_targets[i]:GetHealth() * (damage_mid - damage_outer)/100, DAMAGE_TYPE_PURE, 0, self, false)
 				mid_targets[i]:AddNewModifier(caster, self, "modifier_arash_stella_slow_2", {duration  = 3})
 			end 
 	
 			for i = 1, #outer_targets do
-				DoDamage(caster, outer_targets[i], damage_outer, DAMAGE_TYPE_PURE, 0, self, false)
+				stellatargets[outer_targets[i]:entindex()] = (stellatargets[outer_targets[i]:entindex()] or 0) + outer_targets[i]:GetHealth() * damage_outer/100
+				--DoDamage(caster, outer_targets[i], health * damage_outer/100, DAMAGE_TYPE_PURE, 0, self, false)
 				outer_targets[i]:AddNewModifier(caster, self, "modifier_arash_stella_slow_3", {duration  = 3})
-			end 
+			end
+
+			for k,v in pairs(stellatargets) do
+				local entity = EntIndexToHScript(k)
+				entity:RemoveModifierByName("modifier_master_intervention")
+				DoDamage(caster, entity, v, DAMAGE_TYPE_PURE, 0, self, false)
+			end
 		end) 
 
 		Timers:CreateTimer(2, function()

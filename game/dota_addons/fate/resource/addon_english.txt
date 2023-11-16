@@ -2973,11 +2973,11 @@
 
 
 		"DOTA_Tooltip_Ability_arash_max_stella"				"Combo: MAX Stella"
-		"DOTA_Tooltip_Ability_arash_max_stella_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : D-R in 4 seconds</font>\nArash shoots arrow in sky, summoning powerful meteor at a target location after a delay.\nRight after cast Arash DIES.\nDamage dealt decreases with distance from center.\nAll enemies are slowed for 3 seconds on hit. Slow power depends on distance from center.\nIf Arash is the last survivor, he wont die until Stella falls.\nEnemies in middle radius take 15%% of damage even through invulnerability."
+		"DOTA_Tooltip_Ability_arash_max_stella_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : D-R in 4 seconds</font>\nArash shoots arrow in sky, summoning powerful meteor at a target location after a delay.\nRight after cast Arash DIES.\nAll enemies are dealt pure damage based on their current health and slowed for 3 seconds on hit.\nDamage dealt decreases with distance from center. Slow power depends on distance from center.\nIgnores and dispells Intervention."
 		"DOTA_Tooltip_Ability_arash_max_stella_Lore"					""
 		"DOTA_Tooltip_Ability_arash_max_stella_range"									"Range:"
-		"DOTA_Tooltip_Ability_arash_max_stella_damage"									"Damage:"
-		"DOTA_Tooltip_Ability_arash_max_stella_damage_per_stella_stack"					"Damage per stack:"
+		"DOTA_Tooltip_Ability_arash_max_stella_damage"									"%Current health damage:"
+		"DOTA_Tooltip_Ability_arash_max_stella_damage_per_stella_stack"					"%Current health damage per stack:"
 		"DOTA_Tooltip_Ability_arash_max_stella_radius"									"Low damage radius:"
 		"DOTA_Tooltip_Ability_arash_max_stella_small_radius"							"Max damage radius:"
 		"DOTA_Tooltip_Ability_arash_max_stella_mid_radius"								"Mid damage radius:"
