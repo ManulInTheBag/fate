@@ -223,9 +223,7 @@ function modifier_arash_star_arrow:IsDebuff() return false end
 function modifier_arash_star_arrow:IsPurgable() return false end
 function modifier_arash_star_arrow:RemoveOnDeath() return true end
 function modifier_arash_star_arrow:CheckState()
-    local state = { [MODIFIER_STATE_ROOTED] = false,
-					[MODIFIER_STATE_SILENCED] = false,
-					[MODIFIER_STATE_DISARMED] = true,
+    local state = { [MODIFIER_STATE_DISARMED] = true,
 					[MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = false, }
     return state
 end
