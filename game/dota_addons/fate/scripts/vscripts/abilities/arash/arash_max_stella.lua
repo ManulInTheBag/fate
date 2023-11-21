@@ -56,8 +56,8 @@ function arash_max_stella:OnSpellStart()
 	local large_radius = self:GetSpecialValueFor("radius")
 	local full_damage = self:GetSpecialValueFor("damage") + caster:GetModifierStackCount("modifier_arash_stella_stacks",caster) * self:GetSpecialValueFor("damage_per_stella_stack")
 	local delay = self:GetSpecialValueFor("delay")
-	local damage_mid = full_damage * self:GetSpecialValueFor("mid_damage_pct")
-	local damage_outer = full_damage * self:GetSpecialValueFor("outer_damage_pct")
+	local damage_mid = full_damage * self:GetSpecialValueFor("mid_damage_pct")/100
+	local damage_outer = full_damage * self:GetSpecialValueFor("outer_damage_pct")/100
 	local arrow_particle = ParticleManager:CreateParticle("particles/arash/arash_stella_arrow.vpcf", PATTACH_CUSTOMORIGIN, nil)
 	local vSpawnLoc = caster:GetAttachmentOrigin(caster:ScriptLookupAttachment("attach_attack1"))
 	ParticleManager:SetParticleControl(arrow_particle, 0,  vSpawnLoc )

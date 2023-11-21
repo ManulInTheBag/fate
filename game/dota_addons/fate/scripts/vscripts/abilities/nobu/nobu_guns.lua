@@ -63,6 +63,13 @@ function nobu_guns:OnSpellStart()
     print( self.rightvec)
     print(self.direction)
     self.target = self:GetCursorPosition()
+    local vec = self.target - self.caster:GetAbsOrigin()
+    local castrange = self:GetSpecialValueFor("cast_range")
+
+    if vec:Length2D() > castrange then
+        self.target = self.caster:GetAbsOrigin() + vec:Normalized()*castrange
+    end
+    
     if(self.dummies == nil) then
         self.dummies = {}
     end

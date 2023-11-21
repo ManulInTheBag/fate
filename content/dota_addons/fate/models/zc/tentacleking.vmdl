@@ -42,15 +42,6 @@
 						[
 							{
 								_class = "Hitbox"
-								parent_bone = "Bone_Root"
-								surface_property = ""
-								translation_only = false
-								group_id = 0
-								hitbox_mins = [ -140.0, -140.0, -140.0 ]
-								hitbox_maxs = [ 140.0, 140.0, 140.0 ]
-							},
-							{
-								_class = "Hitbox"
 								parent_bone = "bone_new4"
 								surface_property = ""
 								translation_only = false
@@ -163,8 +154,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -214.282135, -149.374207, -63.603905 ]
-								hitbox_maxs = [ 214.282196, 174.391205, 8.687035 ]
+								hitbox_mins = [ -105.361031, -130.920166, -63.603905 ]
+								hitbox_maxs = [ 135.882675, 47.276409, 8.687035 ]
 							},
 							{
 								_class = "Hitbox"
