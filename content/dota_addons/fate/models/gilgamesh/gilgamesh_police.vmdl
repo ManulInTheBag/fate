@@ -67,6 +67,7 @@
 						}
 					},
 				]
+				leave_body_collision_unmodified = false
 			},
 			{
 				_class = "AttachmentList"
@@ -179,8 +180,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -13.82453, -17.894516, -9.111244 ]
-								hitbox_maxs = [ 15.027624, 15.916687, 11.081196 ]
+								hitbox_mins = [ -56.18401, -108.100868, -49.063473 ]
+								hitbox_maxs = [ 52.62249, 88.362411, 47.87051 ]
 							},
 							{
 								_class = "Hitbox"

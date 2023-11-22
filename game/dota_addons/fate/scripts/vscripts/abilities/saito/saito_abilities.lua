@@ -235,7 +235,7 @@ if IsServer() then
                 --Say(hHero, "Hajime-chan changed to the COAT version.", false)
             end
             if sText == "-saito2" then
-                if GameRules:GetGameTime() <= 240 then
+                if GameRules:GetDOTATime(false, false) <= 240 then
                     hHero:AddNewModifier(hHero, nil, "modifier_saito_model_swap", {})
                 end
                 --Say(hHero, "Hajime-chan changed to the HAORI version.", false)
@@ -1570,11 +1570,8 @@ function saito_mind_eye:OnSpellStart()
     end
 
     hCaster:AddNewModifier(hCaster, self, "modifier_saito_mind_eye_active", {duration = nDuration})
-
-    --=================================--
-    CheckComboIsReadyIncrement(hCaster, 1)
-    --=================================--
 end
+
 ---------------------------------------------------------------------------------------------------------------------
 LinkLuaModifier("modifier_saito_mind_eye_active", "abilities/saito/saito_abilities", LUA_MODIFIER_MOTION_NONE)
 
@@ -1853,6 +1850,32 @@ end
 
 
 
+LinkLuaModifier("modifier_saito_jce_window", "abilities/saito/saito_abilities", LUA_MODIFIER_MOTION_NONE)
+
+modifier_saito_jce_window = class({})
+
+function modifier_saito_jce_window:IsHidden() return true end
+function modifier_saito_jce_window:IsDebuff() return false end
+function modifier_saito_jce_window:OnCreated()
+    if IsServer() then
+        local caster = self:GetParent()
+
+        local ability = self:GetAbility()
+        if caster:GetAbilityByIndex(4):GetName() == "saito_fds" then             
+            caster:SwapAbilities("saito_jce", "saito_fds", true, false)  
+        end
+    end
+end
+function modifier_saito_jce_window:OnDestroy()
+    if IsServer() then
+        local caster = self:GetParent()
+
+        local ability = self:GetAbility()
+        if caster:GetAbilityByIndex(4):GetName() == "saito_jce" then
+            caster:SwapAbilities("saito_jce", "saito_fds", false, true)
+        end
+    end
+end
 
 ---------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------
@@ -1873,7 +1896,11 @@ function saito_fds:OnSpellStart()
     hCaster:AddNewModifier(hCaster, self, "modifier_saito_fds_active", {duration = nDuration})
 
     --=================================--
-    CheckComboIsReadyIncrement(hCaster, 0)
+    if hCaster:GetStrength() >= 29.1 and hCaster:GetAgility() >= 29.1 and hCaster:GetIntellect() >= 29.1 then
+        if hCaster:FindAbilityByName("saito_jce"):IsCooldownReady() and hCaster:IsAlive() then                
+            hCaster:AddNewModifier(hCaster, self, "modifier_saito_jce_window", {duration = 3})
+        end
+    end
     --=================================--
 
     local sCastPFX =    "particles/heroes/saito/saito_fds_cast.vpcf"

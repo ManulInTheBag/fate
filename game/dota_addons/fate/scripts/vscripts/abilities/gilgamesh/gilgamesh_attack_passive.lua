@@ -134,7 +134,7 @@ if IsServer() then
                 hHero:RemoveModifierByName("modifier_gil_model_swap")
             end
             if sText == "-gil2" then
-                if GameRules:GetGameTime() <= 240 then
+                if GameRules:GetDOTATime(false, false) <= 240 then
                     hHero:AddNewModifier(hHero, nil, "modifier_gil_model_swap", {})
                 end
             end

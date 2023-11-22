@@ -43,6 +43,13 @@ if IsServer() then
  		ParticleManager:SetParticleControl(self.ParticleIndex, 0, self:GetParent():GetAbsOrigin())
 
  		self:SetStackCount(1)
+
+ 		self.cd = 0
+ 		self:StartIntervalThink(0.1)
+	end
+
+	function modifier_gilles_misery:OnIntervalThink()
+		self.cd = self.cd - 0.1
 	end
 
 	function modifier_gilles_misery:OnRefresh(args)
@@ -56,9 +63,13 @@ if IsServer() then
 
 	function modifier_gilles_misery:OnTakeDamage(args)
 		if args.unit ~= self:GetParent() then return end
-		local hCaster = self:GetCaster()
-		local hAbility = self:GetAbility()
-		self:GetParent():AddNewModifier(hCaster, hAbility, "modifier_stunned", { Duration = 0.033 * self:GetStackCount()})
+		if self.cd <= 0 then
+			local hCaster = self:GetCaster()
+			local hAbility = self:GetAbility()
+			self:GetParent():AddNewModifier(hCaster, hAbility, "modifier_stunned", { Duration = 0.033 * self:GetStackCount()})
+			self.cd = hAbility:GetSpecialValueFor("microcd")
+			DoDamage(hCaster, self:GetParent(), hAbility:GetSpecialValueFor("damage"), DAMAGE_TYPE_MAGICAL, 0, hAbility, false)
+		end
 	end
 end
 

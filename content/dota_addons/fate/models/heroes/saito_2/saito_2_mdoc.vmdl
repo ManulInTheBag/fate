@@ -1985,6 +1985,28 @@
 								framerate = -1.0
 								reverse = false
 							},
+							{
+								_class = "AnimFile"
+								name = "saito_2_sheath1"
+								activity_name = "ACT_DOTA_RAZE_1"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.0
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/heroes/saito_2/saito_sheath.dmx"
+								import_bone_scales = false
+								start_frame = -1
+								end_frame = 5
+								framerate = 5.0
+								reverse = false
+							},
 						]
 					},
 				]
@@ -1994,12 +2016,6 @@
 		model_archetype = ""
 		primary_associated_entity = ""
 		anim_graph_name = ""
-		importer_notes = """
-Imported from VMDL
-==Warnings==
-Changed incompatible hitbox parent bone name 'Arm+_L' to 'Arm__L'
-Changed incompatible hitbox parent bone name 'Arm+_R' to 'Arm__R'
-
-"""
+		importer_notes = "Imported from VMDL\n==Warnings==\nChanged incompatible hitbox parent bone name 'Arm+_L' to 'Arm__L'\nChanged incompatible hitbox parent bone name 'Arm+_R' to 'Arm__R'\n"
 	}
 }

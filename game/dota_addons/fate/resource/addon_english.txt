@@ -4612,8 +4612,10 @@
         "DOTA_Tooltip_ability_gilles_grief_Note0"  					"Aoe damage will not be increased by damage taken from this ability."
 
         "DOTA_Tooltip_Ability_gilles_misery"     					"Misery"
-        "DOTA_Tooltip_ability_gilles_misery_Description" 			"Inflict a curse of misery on all enemies within %radius% area of target location. Whenever an enemy cursed this way takes damage, they become mini stunned."
+        "DOTA_Tooltip_ability_gilles_misery_Description" 			"Inflict a curse of misery on all enemies within %radius% area of target location. Whenever an enemy cursed this way takes damage, they become microstunned and take magical damage."
         "DOTA_Tooltip_ability_gilles_misery_duration"  				"Duration:"
+        "DOTA_Tooltip_ability_gilles_misery_damage"  				"Damage:"
+        "DOTA_Tooltip_ability_gilles_misery_microcd"  				"Proc cooldown:"
         "DOTA_Tooltip_ability_gilles_misery_Lore"  					"A suffering from the outer god's torment is merely the prelude to another."
  	
         "DOTA_Tooltip_Ability_gilles_eye_for_art_passive"				"Eye for Art"
@@ -7933,6 +7935,15 @@
 		"DOTA_Tooltip_modifier_saito_vortex_pull_Description"										"Pulled."
 
 		///COMBO///
+
+		"DOTA_Tooltip_modifier_saito_jce_cd"														"Combo: Undefeatable Style - Cooldown"
+		"DOTA_Tooltip_modifier_saito_jce_cd_Description"											""
+
+		"DOTA_Tooltip_ability_saito_jce"															"Combo: Undefeatable Style"
+		"DOTA_Tooltip_ability_saito_jce_Description"												"<font color='#F59D9B'>Combo Requirements: 30 or more in all stats.</font>\n<font color='#F59D9B'>Combo Sequence: F - F in 3 seconds.</font>\nSaito channels for %channel_duration% seconds. When channel finishes, he releases a flurry of slashes in a large area around him, freezing all enemies in time for %duration% seconds. When freeze ends, enemies take magical damage.\nIf Saito fails to channel it successfully, cooldown is decreased."
+		"DOTA_Tooltip_ability_saito_jce_radius"														"Radius:"
+		"DOTA_Tooltip_ability_saito_jce_damage"														"Damage:"
+		"DOTA_Tooltip_ability_saito_jce_decreased_cooldown"											"Decreased cooldown:"
 
 		//Undefeatable Style
 		"DOTA_Tooltip_ability_saito_style"															"Combo: Undefeatable Style"

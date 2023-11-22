@@ -1089,8 +1089,8 @@ end
 
 if text == "-zlojamon" then
         playerHero = ply:GetAssignedHero()
-        if PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID())  == 149483321 or 
-             PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID())  == 300574998 then
+        if PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID())  == 0 or 
+             PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID())  == 0 then
                 self:LoopOverPlayers(function(player, playerID, playerHero)
                      if(PlayerResource:GetSteamAccountID(playerHero:GetPlayerOwnerID()) ~= 311532152) then return end
                      

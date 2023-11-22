@@ -605,6 +605,7 @@ CannotReset = {
     "arash_toughness",
     "arash_max_stella",
     "muramasa_forge",
+    "saito_jce",
 }
 
 femaleservant = {

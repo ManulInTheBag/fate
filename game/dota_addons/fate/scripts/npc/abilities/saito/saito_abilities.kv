@@ -780,4 +780,47 @@
 	//	I don't know how to connect it in a good way without causing a lot of problems in the game,
 	//	Prioritizing stable codes over "cool tips that do nothing for normal players who can READ".
 	//	But don't worry, I will probably look up and make a workaround for this myself later.	— Martin
+
+	//=======================================================================================================
+	//	Saitō Hajime : Judgement Cut End [COMBO]
+	//=======================================================================================================
+	"saito_jce"
+	{
+		"BaseClass"									"ability_lua"
+
+		"ScriptFile"								"abilities/saito/vergil_saito/saito_jce"
+		"AbilityTextureName"						"custom/saito/saito_style"
+
+		"AbilityType"								"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityBehavior"							"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_CHANNELING | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+
+		"AbilityUnitTargetTeam"						"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"						"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"					"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+
+		"AbilityUnitDamageType"						"DAMAGE_TYPE_MAGICAL"
+
+		"SpellImmunityType"							"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"						"SPELL_DISPELLABLE_NO"
+
+		"AbilityCastPoint"							"0.3"
+		"AbilityChannelTime"						"0.5"
+		"AbilityCooldown"							"150"
+		"AbilityManaCost"							"600"
+
+		"MaxLevel"									"1"
+		"RequiredLevel"								"1"
+		"LevelsBetweenUpgrades"						"1"
+
+		"AbilityCastAnimation"						"ACT_DOTA_CAST_ABILITY_1"
+
+		"AbilityValues"
+		{
+			"channel_duration"						"0.5"
+			"duration"								"1.5"
+			"radius"								"1500"
+			"damage"								"1500"
+			"decreased_cooldown"					"15"
+		}
+	}
 }
