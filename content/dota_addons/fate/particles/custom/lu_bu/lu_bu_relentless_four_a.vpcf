@@ -1,0 +1,95 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf35:version{ec5bfcca-b89d-4591-9ef4-c8679487d623} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_bShouldHitboxesFallbackToRenderBounds = false
+	m_nMaxParticles = 0
+	m_nBehaviorVersion = 11
+	m_nFirstMultipleOverride_BackwardCompat = 5
+	m_controlPointConfigurations = 
+	[
+		{
+			m_name = "preview"
+			m_drivers = 
+			[
+				{
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 1
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_vecOffset = [ 900.0, 450.0, 225.0 ]
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 2
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 60
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_vecOffset = [ 50.0, 255.0, 50.0 ]
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 61
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 62
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+			]
+			m_previewState = 
+			{
+				m_flPlaybackSpeed = 0.0
+			}
+		},
+	]
+	m_Children = 
+	[
+		{
+			m_ChildRef = resource:"particles/custom/lu_bu/lu_bu_relentless_four_a9.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/lu_bu/lu_bu_relentless_four_a11.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/lu_bu/lu_bu_relentless_four_a2.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/lu_bu/lu_bu_relentless_four_a10.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/lu_bu/lu_bu_relentless_four_a12.vpcf"
+		},
+		{
+			m_flDelay = 0.1
+			m_ChildRef = resource:"particles/custom/lu_bu/lu_bu_relentless_four_a1.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/lu_bu/lu_bu_relentless_four_a3.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/lu_bu/lu_bu_relentless_four_a7.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/lu_bu/lu_bu_relentless_four_a5.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/lu_bu/lu_bu_relentless_four_a6.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/lu_bu/lu_bu_relentless_four_a8.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/lu_bu/lu_bu_relentless_four_a4.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/lu_bu/lu_bu_relentless_four_a0.vpcf"
+		},
+	]
+}

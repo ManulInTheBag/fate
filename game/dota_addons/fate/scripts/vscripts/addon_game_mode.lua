@@ -189,6 +189,7 @@ model_lookup["npc_dota_hero_beastmaster"] = "models/karna/karna.vmdl"
 model_lookup["npc_dota_hero_naga_siren"] = "models/kuro/kuro.vmdl"
 model_lookup["npc_dota_hero_dark_willow"] = "models/okita/okita_new.vmdl"
 model_lookup["npc_dota_hero_riki"] = "models/jtr/jtr.vmdl"
+model_lookup["npc_dota_hero_centaur"] = "models/lu_bu/lu_bu.vmdl"
 
 DoNotKillAtTheEndOfRound = {
     "tamamo_charm",
@@ -320,6 +321,9 @@ function Precache( context )
     PrecacheResource("soundfile", "soundevents/pepeg_razgovor.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/heroes/saito.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/heroes/arash.vsndevts", context)
+    
+	PrecacheResource("soundfile", "soundevents/hero_lu_bu.vsndevts", context )
+	PrecacheResource("model", "models/lu_bu/lu_bu.vmdl", context)
     
     PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_silencer.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_enigma.vsndevts", context)

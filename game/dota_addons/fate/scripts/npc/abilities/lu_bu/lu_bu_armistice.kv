@@ -1,0 +1,96 @@
+"DOTAAbilities"
+{
+	//=======================================★★★★★
+	// Lu Bu: Armistice (Q)
+	//=======================================★★★★★
+	"lu_bu_armistice"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/lu_bu/lu_bu_armistice"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityTextureName"			"custom/lu_bu/lu_bu_armistice"
+		
+		// Ability Stats		//------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1000"
+		"AbilityCastRangeBuffer"		"100"
+		"AbilityCastPoint"				"0.1"
+		"AbilityCooldown"				"16 15 14 13 12"
+		"AbilityManaCost"				"100"
+		
+		// Precache		//------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"			"particles/custom/lu_bu/lu_bu_armistice_impact.vpcf"
+		}
+		
+		// Ability Special		//------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"totem_damage_percentage"	"100 200 300 400"
+				"CalculateSpellDamageTooltip"	"0"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"distance"			"1000"
+			}
+			"03"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"aftershock_range"			"300"
+			}
+			"04"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"scepter_height"			"950"
+			}
+			"05"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"scepter_height_arcbuffer"	"100"
+			}
+			"06"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"scepter_acceleration_z"	"4000"
+			}
+			"07"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"scepter_acceleration_horizontal"	"3000"
+			}
+			"08"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"duration"		"1.0"
+			}
+			"09"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"radius"							"400"
+			}
+			"10"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"damage"		"200 250 300 350 400"
+			}
+			"10"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"stun_duration"		"0.75"
+			}
+		}
+	}
+}

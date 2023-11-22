@@ -1,0 +1,79 @@
+"DOTAAbilities"
+{
+	//=======================================★★★★★
+	// Lu Bu: Relentless Assault Four (R -> R)
+	//=======================================★★★★★
+	"lu_bu_relentless_assault_four"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/lu_bu/lu_bu_relentless_assault_four"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"25"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/lu_bu/lu_bu_relentless_assault_four"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_7"
+		"AbilityCastPoint"				"0.3"
+		"AbilityCooldown"				"15"
+		"AbilityManaCost"				"400"
+
+		"precache"
+		{
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_phantom_lancer.vsndevts"
+			"particle"			"particles/custom/lu_bu/lu_bu_relentless_four.vpcf"
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"pushback"				"350"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"collide_damage"				"500 600 700 800 900"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"500"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"knockback_distance_max"	"350"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"knockback_duration"		"0.3"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"knockback_height"		"0"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"aoe"		"600"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"heal"		"700 800 900 1000 1100"
+			}
+			"08"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"silence_duration"		"1.2"
+			}
+		}
+	}
+}

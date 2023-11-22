@@ -7203,6 +7203,185 @@
 		"DOTA_Tooltip_ability_ryougi_black_moon_attribute"		"Attribute: Black Moon Kite"
 		"DOTA_Tooltip_ability_ryougi_black_moon_attribute_Description"		"Hidden Daggers recieve additional effects: <font color='#9400D3'>slow</font> (yang) and <font color='#FF3399'>silence</font> (ying)."
 
+		"DOTA_Tooltip_modifier_relentless_assault_blocker"										"Insurmountable Assault In Place"
+		"DOTA_Tooltip_modifier_relentless_assault_blocker_Description"							"You must use up the swapped skill before gaining more charges."
+		
+		"DOTA_Tooltip_modifier_lu_bu_sky_piercer"										"Sky Piercer"
+		"DOTA_Tooltip_modifier_lu_bu_sky_piercer_Description"							"Down to the ground you go!"
+		
+		"DOTA_Tooltip_modifier_lu_bu_sky_piercer_cooldown"										"Combo: Sky Piercer Cooldown"
+		"DOTA_Tooltip_modifier_lu_bu_sky_piercer_cooldown_Description"							""
+		
+		"DOTA_Tooltip_modifier_lu_bu_restless_soul"										"Restless Soul"
+		"DOTA_Tooltip_modifier_lu_bu_restless_soul_Description"							""
+		
+		"DOTA_Tooltip_modifier_lu_bu_restless_soul_cooldown"										"Restless Soul Cooldown"
+		"DOTA_Tooltip_modifier_lu_bu_restless_soul_cooldown_Description"							""
+		
+		"DOTA_Tooltip_modifier_lu_bu_relentless_assault"										"Relentless Assault Charges"
+		"DOTA_Tooltip_modifier_lu_bu_relentless_assault_Description"							""
+		
+		"DOTA_Tooltip_modifier_lu_bu_rebellious_spirit"										"Rebellious Spirit"
+		"DOTA_Tooltip_modifier_lu_bu_rebellious_spirit_Description"							""
+		
+		"DOTA_Tooltip_modifier_lu_bu_halberd_throw_debuff"										"Halberd Throw Debuff"
+		"DOTA_Tooltip_modifier_lu_bu_halberd_throw_debuff_Description"							""
+		
+		"DOTA_Tooltip_modifier_lu_bu_halberd_throw"										"Halberd Throw"
+		"DOTA_Tooltip_modifier_lu_bu_halberd_throw_Description"							""
+		
+		"DOTA_Tooltip_modifier_lu_bu_armistice"										"Armistice"
+		"DOTA_Tooltip_modifier_lu_bu_armistice_Description"							""
+		
+		//====================================
+		//	Lu Bu (Fate/Extra)
+		//====================================
+		"npc_dota_hero_centaur"		"Lu Bu"
+		
+		"DOTA_Tooltip_Ability_lu_bu_armistice"				"<font color='#FFE56E'>Armistice</font>"
+		"DOTA_Tooltip_Ability_lu_bu_armistice_Description"				"Cast Point: <font color='#FFFFF9'>0.1</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Lu Bu performs a leap to the targeted area, dealing <font color='#05CAFF'>magical damage</font> and <font color='#FF3399'>stunning</font> enemies in the landing radius.\n\n<font color='#FF3399'>Upgradable with attribute Fangtian Huaji</font>"
+		"DOTA_Tooltip_Ability_lu_bu_armistice_Lore"				"Lü Bu's selfishness was strong and he believed that there was no military commander in this world above himself."
+		"DOTA_Tooltip_Ability_lu_bu_armistice_damage"				"DAMAGE:"
+		"DOTA_Tooltip_Ability_lu_bu_armistice_distance"				"LEAP DISTANCE:"
+		"DOTA_Tooltip_Ability_lu_bu_armistice_radius"				"LEAP IMPACT RADIUS:"
+		"DOTA_Tooltip_Ability_lu_bu_armistice_stun_duration"				"STUN DURATION:"
+		
+		"DOTA_Tooltip_Ability_lu_bu_halberd_throw"				"<font color='#FFE56E'>Halberd Throw</font>"
+		"DOTA_Tooltip_Ability_lu_bu_halberd_throw_Description"				"Cast Point: <font color='#FFFFF9'>0.5</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Lu Bu throws God Force, dealing <font color='#05CAFF'>magical damage</font> to each unit it skewers and <font color='#FF3399'>knocking</font> them back.\n\nIf the skewered target collides with an object, they will be dealt additional <font color='#05CAFF'>halved magical damage</font> and <font color='#FF3399'>stunned</font>.\n\n<font color='#FF3399'>Upgradable with attribute Ruthless Warrior of the Turbulent Times</font>"
+		"DOTA_Tooltip_Ability_lu_bu_halberd_throw_Lore"				"Humans dream of flying.\n\nThis is one method to achieve it."
+		"DOTA_Tooltip_Ability_lu_bu_halberd_throw_damage"				"DAMAGE:"
+		"DOTA_Tooltip_Ability_lu_bu_halberd_throw_spear_range"				"THROW RANGE:"
+		"DOTA_Tooltip_Ability_lu_bu_halberd_throw_knockback_duration"				"KNOCKBACK DURATION:"
+		"DOTA_Tooltip_Ability_lu_bu_halberd_throw_stun_duration"				"STUN DURATION:"
+
+
+		"DOTA_Tooltip_Ability_lu_bu_rage"						"<font color='#FFE56E'>Mad enchancement</font>"
+		"DOTA_Tooltip_Ability_lu_bu_rage_Description"				"Cast Point: <font color='#FFFFF9'>0.3</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Lu Bu roars, dealing <font color='#05CAFF'>magical damage</font>, <font color='#9400D3'>locking</font> and <font color='#9400D3'>slowing</font> all enemies in the radius, while gaining bonus <font color='#ff9900'>magical resistance</font> and <font color='#ff9900'>armor</font> .\n\n<font color='#FF3399'>Upgradable with attribute Fangtian Huaji</font>"
+		"DOTA_Tooltip_Ability_lu_bu_armistice_Lore"				"The number of individuals who can withstand this rage is few indeed."
+		"DOTA_Tooltip_Ability_lu_bu_rage_damage"					"TOTAL DAMAGE:"
+		"DOTA_Tooltip_Ability_lu_bu_rage_active_duration"			"DURATION:"
+		"DOTA_Tooltip_Ability_lu_bu_rage_radius"					"RADIUS:"
+		"DOTA_Tooltip_Ability_lu_bu_rage_armor_bonus"				"BONUS ARMOR:"
+		"DOTA_Tooltip_Ability_lu_bu_rage_mr_bonus"					"%BONUS MR:"
+		"DOTA_Tooltip_Ability_lu_bu_rage_slow_amount"				"%SLOW AMOUNT:"
+		
+		"DOTA_Tooltip_Ability_lu_bu_god_strike"				"<font color='#FFE56E'>God Strike</font>"
+		"DOTA_Tooltip_Ability_lu_bu_god_strike_Description"				"Cast Point: <font color='#FFFFF9'>0.4</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Lu Bu uses his immense strength to toss the nearest enemy towards his intended target, dealing <font color='#05CAFF'>magical damage</font> to enemies in the landing radius."
+		"DOTA_Tooltip_Ability_lu_bu_god_strike_Lore"				"The number of individuals who can withstand this blow is few indeed."
+		"DOTA_Tooltip_Ability_lu_bu_god_strike_toss_damage"				"DAMAGE:"
+		"DOTA_Tooltip_Ability_lu_bu_god_strike_max_range"				"TOSS RANGE:"
+		"DOTA_Tooltip_Ability_lu_bu_god_strike_grab_radius"				"GRAB RADIUS:"
+		
+		"DOTA_Tooltip_Ability_lu_bu_rebellious_spirit"				"<font color='#FFE56E'>Rebellious Spirit</font>"
+		"DOTA_Tooltip_Ability_lu_bu_rebellious_spirit_Description"				"Lu Bu gains increased <font color='#05CAFF'>magical resistance</font> and <font color='#05CAFF'>mana regeneration</font> proportional to his <font color='#ACFF05'>missing health points</font>.\n\n<font color='#FF3399'>Upgradable with attribute Bravery</font>"
+		"DOTA_Tooltip_Ability_lu_bu_rebellious_spirit_Lore"				"Predisposition to not stay in place, and not serve one master forever.\n\nA wandering star lacking the caliber to become king, yet unable to find someone to be his king."
+		"DOTA_Tooltip_Ability_lu_bu_rebellious_spirit_maximum_resistance"				"%MAXIMUM MAGICAL RESISTANCE:"
+		"DOTA_Tooltip_Ability_lu_bu_rebellious_spirit_maximum_mana_regen"				"%MAXIMUM MANA REGEN:"
+		"DOTA_Tooltip_Ability_lu_bu_rebellious_spirit_hp_threshold_max"				"%HP THRESHOLD:"
+		
+		"DOTA_Tooltip_Ability_lu_bu_restless_soul"				"<font color='#FFE56E'>Restless Soul</font>"
+		"DOTA_Tooltip_Ability_lu_bu_restless_soul_Description"				"Cast Point: <font color='#FFFFF9'>0</font>s    |    <font color='#EE5C29'>Unrefreshable</font><br><br><font color='#05CAFF'>Passive:</font> If there isn't a <font color='#FF3399'>cooldown</font> in place, whenever Lu Bu incurs <font color='#FF5100'>fatal damage</font>, he will be <font color='#ACFF05'>healed</font> instead.\n\n<font color='#05CAFF'>Active:</font> Lu Bu is able to <font color='#ACFF05'>heal</font> back a set amount of <font color='#ACFF05'>health</font> every few seconds.\n\n<font color='#FF3399'>Upgradable with attribute Restless Soul</font>"
+		"DOTA_Tooltip_Ability_lu_bu_restless_soul_Lore"				"The wandering soul knows no rest."
+		"DOTA_Tooltip_Ability_lu_bu_restless_soul_cooldown"				"PASSIVE HEAL COOLDOWN:"
+		"DOTA_Tooltip_Ability_lu_bu_restless_soul_passive_heal"				"PASSIVE HEAL:"
+		"DOTA_Tooltip_Ability_lu_bu_restless_soul_active_heal"				"ACTIVE HEAL:"
+		
+		"DOTA_Tooltip_Ability_lu_bu_god_force"				"<font color='#FFE56E'>God Force: The Five Soldiers of the War God</font>"
+		"DOTA_Tooltip_Ability_lu_bu_god_force_Description"				"Cast Point: <font color='#FFFFF9'>0.2</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Lu Bu strikes all enemies in radius 5 times, inflicting <font color='#05CAFF'>magical damage</font>, <font color='#FF3399'>stunning</font> them repetitively.\n\nThe last strike has bigger radius, deals more <font color='#05CAFF'>magical damage</font> and briefly <font color='#FF3399'>knocks</font> enemies back.\n\n<font color='#FF3399'>Upgradable with attribute Fangtian Huaji</font>"
+		"DOTA_Tooltip_Ability_lu_bu_god_force_Lore"				"Well, this weapon actually originated from the Northern Song Dynasty, and it shouldn't exist in a time where Lu Bu was alive.\n\nThen why is he holding that weapon you ask?\n\nThat's because I went ahead before it's time and secretly developed the weapon.\n\n-Chen Gong"
+		"DOTA_Tooltip_Ability_lu_bu_god_force_radius"				"RADIUS:"
+		"DOTA_Tooltip_Ability_lu_bu_god_force_damage"				"DAMAGE:"
+		"DOTA_Tooltip_Ability_lu_bu_god_force_damage_lasthit"				"LAST HIT DAMAGE:"
+		"DOTA_Tooltip_Ability_lu_bu_god_force_stun_duration"				"LAST HIT STUN DURATION:"
+		
+		"DOTA_Tooltip_Ability_lu_bu_relentless_assault_one"				"<font color='#FFE56E'>Insurmountable Assault: Ground Slam</font>"
+		"DOTA_Tooltip_Ability_lu_bu_relentless_assault_one_Description"				"Cast Point: <font color='#FFFFF9'>0.6</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Lu Bu slams the ground, inflicting <font color='#05CAFF'>magical damage</font>, <font color='#FF3399'>slowing</font> and <font color='#FF3399'>disarming</font> nearby enemies."
+		"DOTA_Tooltip_Ability_lu_bu_relentless_assault_one_Lore"				"The earth shakes, revealing itself to be your grave."
+		"DOTA_Tooltip_Ability_lu_bu_relentless_assault_one_shock_radius"				"RADIUS:"
+		"DOTA_Tooltip_Ability_lu_bu_relentless_assault_one_damage"				"DAMAGE:"
+		"DOTA_Tooltip_Ability_lu_bu_relentless_assault_one_movement_slow"				"%SLOW:"
+		"DOTA_Tooltip_Ability_lu_bu_relentless_assault_one_duration"				"SLOW AND DISARM DURATION:"
+		
+		"DOTA_Tooltip_Ability_lu_bu_relentless_assault_two"				"<font color='#FFE56E'>Insurmountable Assault: Cleave</font>"
+		"DOTA_Tooltip_Ability_lu_bu_relentless_assault_two_Description"				"Cast Point: <font color='#FFFFF9'>0.1</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Lu Bu does two wide swings in quick succession, inflicting <font color='#C24401'>physical damage</font>, <font color='#FF3399'>knocking back</font> nearby enemies at a 180 degree angle.\n\nThe first swing inflicts <font color='#C24401'>physical armor reduction</font>."
+		"DOTA_Tooltip_Ability_lu_bu_relentless_assault_two_Lore"				"The swing of a madman, imbued with unmatched dexterity."
+		"DOTA_Tooltip_Ability_lu_bu_relentless_assault_two_radius"				"RADIUS:"
+		"DOTA_Tooltip_Ability_lu_bu_relentless_assault_two_damage"				"DAMAGE:"
+		"DOTA_Tooltip_Ability_lu_bu_relentless_assault_two_armor_reduction"				"ARMOR REDUCTION:"
+		"DOTA_Tooltip_Ability_lu_bu_relentless_assault_two_armor_reduction_duration"				"ARMOR REDUCTION AND MUTE DURATION:"
+		
+		"DOTA_Tooltip_Ability_lu_bu_relentless_assault_three"				"<font color='#FFE56E'>Insurmountable Assault: Cyclone</font>"
+		"DOTA_Tooltip_Ability_lu_bu_relentless_assault_three_Description"				"Cast Point: <font color='#FFFFF9'>0</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Lu Bu spins around for a short duration, becoming immune to crowd control and rapidly hitting all enemies in a circular area , inflicting <font color='#05CAFF'>magical damage</font>."
+		"DOTA_Tooltip_Ability_lu_bu_relentless_assault_three_Lore"				"The crimson dance brings swift relief of death."
+		"DOTA_Tooltip_Ability_lu_bu_relentless_assault_three_blade_fury_radius"				"RADIUS:"
+		"DOTA_Tooltip_Ability_lu_bu_relentless_assault_three_blade_fury_damage"				"DAMAGE PER SECOND:"
+		"DOTA_Tooltip_Ability_lu_bu_relentless_assault_three_duration"				"DURATION:"
+		"DOTA_Tooltip_Ability_lu_bu_relentless_assault_three_root_duration"				"ROOT DURATION:"
+		
+		"DOTA_Tooltip_Ability_lu_bu_relentless_assault_four"				"<font color='#FFE56E'>Insurmountable Assault: Warcry</font>"
+		"DOTA_Tooltip_Ability_lu_bu_relentless_assault_four_Description"				"Cast Point: <font color='#FFFFF9'>0.3</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Lu Bu unleashes his inner power, <font color='#ACFF05'>healing</font> himself while inflicting <font color='#05CAFF'>magical damage</font>, <font color='#FF3399'>silence</font> and <font color='#FF3399'>knocking</font> nearby enemies away."
+		"DOTA_Tooltip_Ability_lu_bu_relentless_assault_four_Lore"				"The roar of an unstoppable force of nature."
+		"DOTA_Tooltip_Ability_lu_bu_relentless_assault_four_radius"				"RADIUS:"
+		"DOTA_Tooltip_Ability_lu_bu_relentless_assault_four_collide_damage"				"DAMAGE:"
+		"DOTA_Tooltip_Ability_lu_bu_relentless_assault_four_heal"				"HEAL:"
+		"DOTA_Tooltip_Ability_lu_bu_relentless_assault_four_silence_duration"				"SILENCE DURATION:"
+		
+		"DOTA_Tooltip_Ability_lu_bu_sky_piercer"				"<font color='#FFE56E'>Sky Piercer</font>"
+		"DOTA_Tooltip_Ability_lu_bu_sky_piercer_Description"				"Cast Point: <font color='#FFFFF9'>0.3</font>s    |    <font color='#EE5C29'>Unrefreshable</font><br><br>Lu Bu draws God Force's maximum potential, replicating the feat he had done in his lifetime.\n\nThe sky and ground infront of Lu Bu expands and cracks open, with five fissures erupting dealing  <font color='#05CAFF'>magical damage</font> and inflicting <font color='#FF3399'>stun</font>, <font color='#FF3399'>undispellable slow and mute</font> to nearby enemies.\n\n<font color='#FF3399'>Upgradable with attribute Ruthless Warrior of the Turbulent Times</font>"
+		"DOTA_Tooltip_Ability_lu_bu_sky_piercer_Lore"				"Truly a technique worthy of a potential Godslayer."
+		"DOTA_Tooltip_Ability_lu_bu_sky_piercer_crack_distance"				"FISSURE RANGE:"
+		"DOTA_Tooltip_Ability_lu_bu_sky_piercer_crack_width"				"FISSURE WIDTH:"
+		"DOTA_Tooltip_Ability_lu_bu_sky_piercer_damage"				"FISSURE DAMAGE:"
+		"DOTA_Tooltip_Ability_lu_bu_sky_piercer_slow_duration"				"SLOW AND MUTE DURATION:"
+		"DOTA_Tooltip_Ability_lu_bu_sky_piercer_slow_ct"				"%SLOW:"
+		
+		"DOTA_Tooltip_Ability_lu_bu_combo_list"				"<font color='#FFE56E'>Combo: Sky Piercer</font>"
+		"DOTA_Tooltip_Ability_lu_bu_combo_list_Description"				"Cast Point: <font color='#FFFFF9'>0.3</font>s    |    <font color='#EE5C29'>Unrefreshable</font><br><br><font color='#58ACFA'>Combo Requirement : 30 in all stats</font>\n\n<font color='#58ACFA'>Combo Sequence : F -> R</font>\n\nLu Bu draws God Force's maximum potential, replicating the feat he had done in his lifetime.\n\nThe sky and ground infront of Lu Bu expands and cracks open, with five fissures erupting dealing  <font color='#05CAFF'>magical damage</font> and inflicting <font color='#FF3399'>stun</font>, <font color='#FF3399'>undispellable slow and mute</font> to nearby enemies.\n\n<font color='#FF3399'>Upgradable with attribute Ruthless Warrior of the Turbulent Times</font>"
+		"DOTA_Tooltip_Ability_lu_bu_combo_list_Lore"				"Truly a technique worthy of a potential Godslayer."
+		"DOTA_Tooltip_Ability_lu_bu_combo_list_crack_distance"				"FISSURE RANGE:"
+		"DOTA_Tooltip_Ability_lu_bu_combo_list_crack_width"				"FISSURE WIDTH:"
+		"DOTA_Tooltip_Ability_lu_bu_combo_list_damage"				"FISSURE DAMAGE:"
+		"DOTA_Tooltip_Ability_lu_bu_combo_list_slow_duration"				"SLOW AND MUTE DURATION:"
+		"DOTA_Tooltip_Ability_lu_bu_combo_list_slow_ct"				"%SLOW:"
+		
+		"DOTA_Tooltip_Ability_lu_bu_fangtian_huaji_attribute"				"<font color='#FFE56E'>Fangtian Huaji</font>"
+		"DOTA_Tooltip_Ability_lu_bu_fangtian_huaji_attribute_Description"				"Grants more <font color='#05CAFF'>magical damage</font> to <font color='#FFE56E'>Armistice</font> and <font color='#FFE56E'>God Force: The Five Soldiers of the War God</font>\n\n<font color='#FFE56E'>Armistice</font> gains extra range.\n\nBoth <font color='#FFE56E'>Armistice</font> and the last hit of <font color='#FFE56E'>God Force: The Five Soldiers of the War God</font> gains additional <font color='#05CAFF'>magical damage</font> based on <font color='#FF0000'>STR</font>."
+		"DOTA_Tooltip_Ability_lu_bu_fangtian_huaji_attribute_Lore"				"The real name of God Force, Square Sky Halberd"
+		"DOTA_Tooltip_Ability_lu_bu_fangtian_huaji_attribute_armistice_damage"				"ARMISTICE DAMAGE:"
+		"DOTA_Tooltip_Ability_lu_bu_fangtian_huaji_attribute_armistice_str"				"ARMISTICE DAMAGE PER STR:"
+		"DOTA_Tooltip_Ability_lu_bu_fangtian_huaji_attribute_armistice_range"				"ARMISTICE RANGE:"
+		"DOTA_Tooltip_Ability_lu_bu_fangtian_huaji_attribute_god_force_minor_damage"				"GOD FORCE SMALL HIT DAMAGE:"
+		"DOTA_Tooltip_Ability_lu_bu_fangtian_huaji_attribute_god_force_major_damage"				"GOD FORCE LAST HIT DAMAGE:"
+		"DOTA_Tooltip_Ability_lu_bu_fangtian_huaji_attribute_god_force_major_str"				"GOD FORCE LAST HIT DAMAGE PER STR:"
+		
+		"DOTA_Tooltip_Ability_lu_bu_ruthless_warrior_attribute"				"<font color='#FFE56E'>Ruthless Warrior of the Turbulent Times</font>"
+		"DOTA_Tooltip_Ability_lu_bu_ruthless_warrior_attribute_Description"				"Grants more <font color='#05CAFF'>magical damage</font> and range to <font color='#FFE56E'>Halberd Throw</font> and <font color='#FFE56E'>Sky Piercer</font>\n\n<font color='#FFE56E'>Halberd Throw</font> gains extra <font color='#FF3399'>stun duration</font>.\n\n<font color='#FFE56E'>Halberd Throw</font> gains additional <font color='#05CAFF'>magical damage</font> based on <font color='#FF0000'>STR</font>."
+		"DOTA_Tooltip_Ability_lu_bu_ruthless_warrior_attribute_Lore"				"Lu Bu Fengxian was also known as the slave of three surnames."
+		"DOTA_Tooltip_Ability_lu_bu_ruthless_warrior_attribute_halberd_throw_damage"				"HALBERD THROW DAMAGE:"
+		"DOTA_Tooltip_Ability_lu_bu_ruthless_warrior_attribute_halberd_throw_str"				"HALBERD THROW DAMAGE PER STR:"
+		"DOTA_Tooltip_Ability_lu_bu_ruthless_warrior_attribute_halberd_throw_range"				"HALBERD THROW RANGE:"
+		"DOTA_Tooltip_Ability_lu_bu_ruthless_warrior_attribute_halberd_throw_stun"				"HALBERD THROW STUN DURATION:"
+		"DOTA_Tooltip_Ability_lu_bu_ruthless_warrior_attribute_sky_piercer_damage"				"SKY PIERCER DAMAGE:"
+		"DOTA_Tooltip_Ability_lu_bu_ruthless_warrior_attribute_sky_piercer_range"				"SKY PIERCER RANGE:"
+		
+		"DOTA_Tooltip_Ability_lu_bu_restless_soul_attribute"				"<font color='#FFE56E'>Restless Soul</font>"
+		"DOTA_Tooltip_Ability_lu_bu_restless_soul_attribute_Description"				"Upgrades <font color='#FFE56E'>Restless Soul</font>, gaining more <font color='#ACFF05'>healing</font>."
+		"DOTA_Tooltip_Ability_lu_bu_restless_soul_attribute_Lore"				"Despite his many victories, Lu Bu was forced to wander mainland China, until at last he found his grave at Xiapi."
+		"DOTA_Tooltip_Ability_lu_bu_restless_soul_attribute_passive_heal"				"PASSIVE HEAL:"
+		"DOTA_Tooltip_Ability_lu_bu_restless_soul_attribute_active_heal"				"ACTIVE HEAL:"
+		
+		"DOTA_Tooltip_Ability_lu_bu_bravery_attribute"				"<font color='#FFE56E'>Bravery</font>"
+		"DOTA_Tooltip_Ability_lu_bu_bravery_attribute_Description"				"Upgrades <font color='#FFE56E'>Rebellious Spirit</font>, gaining more <font color='#05CAFF'>maximum magical resistance</font>, <font color='#05CAFF'>maximum mana regeneration</font> and <font color='#ACFF05'>maximum hp threshold</font>."
+		"DOTA_Tooltip_Ability_lu_bu_bravery_attribute_Lore"				"Discretion is the better part of Valour."
+		"DOTA_Tooltip_Ability_lu_bu_bravery_attribute_maximum_resistance"				"%MAXIMUM MAGICAL RESISTANCE:"
+		"DOTA_Tooltip_Ability_lu_bu_bravery_attribute_maximum_mana_regen"				"%MAXIMUM MANA REGEN:"
+		"DOTA_Tooltip_Ability_lu_bu_bravery_attribute_hp_threshold_max"				"%HP THRESHOLD:"
+		
+		"DOTA_Tooltip_Ability_lu_bu_insurmountable_assault_attribute"				"<font color='#FFE56E'>Insurmountable Assault</font>"
+		"DOTA_Tooltip_Ability_lu_bu_insurmountable_assault_attribute_Description"				"Whenever Lu Bu uses an ability, he gains a <font color='#FF3399'>charge</font> of Insurmountable Assault.\n\nOnce Lu Bu reaches <font color='#FF3399'>3 charges</font>, after the use of next primary ability, he will gain an additional mini combo based on the ability used."
+		"DOTA_Tooltip_Ability_lu_bu_insurmountable_assault_attribute_Lore"				"What divides the conqueror to the conquered? Perseverance."
+		"DOTA_Tooltip_Ability_lu_bu_insurmountable_assault_attribute_charge_threshold"				"CHARGE THRESHOLD"
+
 		//====================================
 		//      Arcueid Brunestud
         //====================================

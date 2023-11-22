@@ -1,0 +1,46 @@
+"DOTAAbilities"
+{
+	//=======================================★★★★★
+	// Lu Bu: Rebellious Spirit (D)
+	//=======================================★★★★★
+	"lu_bu_rebellious_spirit"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/lu_bu/lu_bu_rebellious_spirit"
+		"MaxLevel"						"2"
+		"RequiredLevel"					"25"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"custom/lu_bu/lu_bu_rebellious_spirit"
+		
+		// Ability Stats		//------------------------------------------------------------------------------------------------------------
+		
+		// Precache		//------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"			"particles/custom/enkidu/enkiduenergyblades.vpcf"
+		}
+		
+		// Ability Special		//------------------------------------------------------------------------------------------------------------
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"maximum_resistance"			"20 40"
+			}
+			"02"	
+			{
+				"var_type"						"FIELD_INTEGER"
+				"maximum_mana_regen"				"5 10"
+			}
+			"03"	
+			{
+				"var_type"						"FIELD_INTEGER"
+				"hp_threshold_max"				"20"
+			}
+		}
+	}
+}

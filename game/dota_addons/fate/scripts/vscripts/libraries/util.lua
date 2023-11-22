@@ -336,7 +336,11 @@ cleansable = {
     "modifier_gilles_jellyfish_curse",
     "modifier_gilles_jellyfish_slow",
     "modifier_zabaniya_curse",
+    "modifier_lu_bu_halberd_throw_debuff",
+	"modifier_lu_bu_sky_piercer",
 }
+
+
 
 slowmodifier = {
     "modifier_slow_tier1",
@@ -606,7 +610,9 @@ CannotReset = {
     "arash_max_stella",
     "muramasa_forge",
     "saito_jce",
+    "lu_bu_sky_piercer",
 }
+
 
 femaleservant = {
     "npc_dota_hero_legion_commander",
@@ -742,6 +748,7 @@ tHorsemanClass = {
     "npc_dota_hero_skeleton_king",
     "npc_dota_hero_puck",
     "npc_dota_hero_night_stalker",
+    "npc_dota_hero_kentaur"
 }
 
 tipTable = { "<font color='#58ACFA'>Tip : C Scroll</font> is everyone's bread-and-butter item that you should be carrying at all times. Use it to guarantee your skill combo, or help your teammate by interrupting enemy.",
@@ -2461,8 +2468,11 @@ local heroNames = {
     ["npc_dota_hero_treant"] = "Edmond Dantes",
     ["npc_dota_hero_night_stalker"] = "Shiki Nanaya",
     ["npc_dota_hero_clinkz"] = "Arash",
+    ["npc_dota_hero_centaur"] = "Lu Bu",
 }
 
+ 
+ 
 
 function SubstituteMessageCodes(message)
     for k,v in pairs(substitutions) do
@@ -2522,6 +2532,7 @@ local heroCombos = {
     ["npc_dota_hero_treant"] = "edmon_enfer",
     ["npc_dota_hero_night_stalker"] = "nanaya_kekshi",
     ["npc_dota_hero_clinkz"] = "arash_max_stella",
+    ["npc_dota_hero_centaur"] = "lu_bu_sky_piercer",
     
 }
 

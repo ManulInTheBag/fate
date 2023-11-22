@@ -1,0 +1,814 @@
+"lu_bu_spear_throw"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/lu_bu/lu_bu_spear_throw.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "5.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+"lu_bu_armistice_impact"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/lu_bu/lu_bu_armistice_impact.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "4.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+"lu_bu_spear_throw_impact"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/lu_bu/lu_bu_spear_throw_impact.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "3.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+"lu_bu_god_strike"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/lu_bu/lu_bu_god_strike.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "2.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+"lu_bu_god_strike_impact"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/lu_bu/lu_bu_god_strike_impact.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "2.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+"lu_bu_sky_piercer_cast"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/lu_bu/lu_bu_sky_piercer_cast.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+"lu_bu_sky_piercer_explode_1"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/lu_bu/lu_bu_sky_piercer_explode_1.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+"lu_bu_sky_piercer_explode_2"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/lu_bu/lu_bu_sky_piercer_explode_2.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+"lu_bu_sky_piercer_explode_3"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/lu_bu/lu_bu_sky_piercer_explode_3.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "2.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+"relentless_assault_one"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/lu_bu/lu_bu_armistice_impact.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "2.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+"relentless_assault_two"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/lu_bu/relentless_assault_two.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "2.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+"relentless_assault_three"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/lu_bu/relentless_assault_three.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+"lu_bu_bc"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/lu_bu/lu_bu_bc.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "3.00000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+"lu_bu_generic_1"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/lu_bu/lu_bu_generic_1.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "2.500000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+"lu_bu_generic_2"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/lu_bu/lu_bu_generic_2.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "2.500000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+"lu_bu_halberd_gate_shot"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/lu_bu/lu_bu_halberd_gate_shot.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "3.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+"lu_bu_relentless_assault"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/lu_bu/lu_bu_relentless_assault.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "3.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+"lu_bu_relentless_assault_one"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/lu_bu/lu_bu_relentless_assault_one.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "3.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+"lu_bu_relentless_assault_three"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/lu_bu/lu_bu_relentless_assault_three.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "3.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+"lu_bu_sky_piercer"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/lu_bu/lu_bu_sky_piercer.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "4.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+"lu_bu_god_force_small_hit"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/lu_bu/lu_bu_god_force_hit.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+"lu_bu_god_force_big_hit"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/lu_bu/relentless_assault_two.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "2.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+"lu_bu_silence"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/lu_bu/silence.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "5.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+
+                }
+            }
+        }
+    }
+}
+"lu_bu_rage"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/lu_bu/lu_bu_rage.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "6.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+
+                }
+            }
+        }
+    }
+}
