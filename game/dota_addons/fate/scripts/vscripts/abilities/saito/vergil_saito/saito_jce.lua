@@ -41,9 +41,8 @@ function saito_jce:OnChannelFinish(bInterrupted)
 
 	    caster:AddNewModifier(caster, self, "modifier_saito_jce_cd", {duration = self:GetCooldown(1)})
     else
-        for i = 1, 5 do
-            StopSoundOn("saito_jce_impact", hCaster)
-        end
+        StopSoundOn("saito_jce_impact", caster)
+        StopSoundOn("Saito.Style.Cast.Voice", caster)
     end
 end
 
@@ -264,8 +263,7 @@ function modifier_saito_jce_enemy:IsDebuff() return true end
 function modifier_saito_jce_enemy:CheckState()
     local hState =  {
                         [MODIFIER_STATE_STUNNED]       = true,
-                        [MODIFIER_STATE_FROZEN]        = true,
-                        [MODIFIER_STATE_NO_HEALTH_BAR] = true
+                        [MODIFIER_STATE_FROZEN]        = true
                     }
     return hState
 end
