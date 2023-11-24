@@ -41,7 +41,7 @@ function lu_bu_relentless_assault_two:OnSpellStart()
 	cast_direction.z = 0
 	local cast_angle = VectorToAngles( cast_direction ).y
 	
-	StartAnimation(caster, {duration = 1.0, activity=ACT_DOTA_CAST_ABILITY_5, rate = 1.5})
+	StartAnimation(caster, {duration = 1.0, activity=ACT_DOTA_RAZE_3, rate = 2.2})
 
 	Timers:CreateTimer(0.1, function()
 		if caster:IsAlive() then

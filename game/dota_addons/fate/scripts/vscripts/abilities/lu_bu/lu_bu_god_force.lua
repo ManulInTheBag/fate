@@ -35,21 +35,29 @@ function lu_bu_god_force:OnSpellStart()
 	self:StartGodForce()
 	
 	local origin = caster:GetForwardVector()
-	
+	StartAnimation(caster, {duration = 0.35, activity=ACT_DOTA_CAST_ABILITY_5, rate = 2.5})
 	Timers:CreateTimer(0.05, function()
 		if caster:IsAlive() then
 			self:PlayEffects2( caught, origin:Normalized() )
 			caster:EmitSound("lu_bu_god_force_small_hit")
 		end
 	end)
-	
+	Timers:CreateTimer(0.35, function()
+		if caster:IsAlive() then
+			StartAnimation(caster, {duration = 0.4, activity=ACT_DOTA_RAZE_2, rate = 2.5})
+		end
+	end)
 	Timers:CreateTimer(0.45, function()
 		if caster:IsAlive() then
-			self:PlayEffects2( caught, origin:Normalized() )
+			self:PlayEffects3( caught, origin:Normalized() )
 			caster:EmitSound("lu_bu_god_force_small_hit")
 		end
 	end)
-	
+	Timers:CreateTimer(0.75, function()
+		if caster:IsAlive() then
+			StartAnimation(caster, {duration = 0.4, activity=ACT_DOTA_CAST_ABILITY_5, rate = 2.5})
+		end
+	end)
 	Timers:CreateTimer(0.85, function()
 		if caster:IsAlive() then
 			self:PlayEffects2( caught, origin:Normalized() )
@@ -57,46 +65,41 @@ function lu_bu_god_force:OnSpellStart()
 		end
 	end)
 	
-	
+	Timers:CreateTimer(1.15, function()
+		if caster:IsAlive() then
+			StartAnimation(caster, {duration = 0.4, activity=ACT_DOTA_RAZE_2, rate = 2.5})
+		end
+	end)
 	Timers:CreateTimer(1.25, function()
 		if caster:IsAlive() then
-			self:PlayEffects2( caught, origin:Normalized() )
+			self:PlayEffects3( caught, origin:Normalized() )
 			caster:EmitSound("lu_bu_god_force_small_hit")
 		end
 	end)
-	
+	Timers:CreateTimer(1.55, function()
+		if caster:IsAlive() then
+			StartAnimation(caster, {duration = 0.25, activity=ACT_DOTA_CAST_ABILITY_5, rate = 3.5})
+		end
+	end)
 	Timers:CreateTimer(1.65, function()
 		if caster:IsAlive() then
 			self:PlayEffects2( caught, origin:Normalized() )
 			caster:EmitSound("lu_bu_god_force_small_hit")
 		end
 	end)
-	
+	Timers:CreateTimer(1.8, function()
+		if caster:IsAlive() then
+			StartAnimation(caster, {duration = 0.5, activity=ACT_DOTA_CAST_ABILITY_4, rate = 2.5})
+		end
+	end)
 	Timers:CreateTimer(2.00, function()
 		if caster:IsAlive() then
 			self:PlayEffects2( caught, origin:Normalized() )
 		end
 	end)
 	
-	Timers:CreateTimer(0.01, function()
-		if caster:IsAlive() then
-			StartAnimation(caster, {duration = 0.8, activity=ACT_DOTA_CAST_ABILITY_5, rate = 1.5})
-		end
-	end)
-	
-	
-	Timers:CreateTimer(0.8, function()
-		if caster:IsAlive() then
-			StartAnimation(caster, {duration = 0.8, activity=ACT_DOTA_CAST_ABILITY_5, rate = 1.5})
-		end
-	end)
-	
-	
-	Timers:CreateTimer(1.6, function()
-		if caster:IsAlive() then
-			StartAnimation(caster, {duration = 0.6, activity=ACT_DOTA_CAST_ABILITY_4, rate = 1.3})
-		end
-	end)
+ 
+ 
 	
 	Timers:CreateTimer(2.0, function()
 		if caster:IsAlive() then
@@ -166,11 +169,32 @@ function lu_bu_god_force:PlayEffects2( caught, direction )
 	if not caught then
 		local sound_cast = "Hero_Mars.Shield.Cast.Small"
 	end
-
+	direction.z = 0
 	-- Create Particle
 	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_WORLDORIGIN, self:GetCaster() )
-	ParticleManager:SetParticleControl( effect_cast, 0, self:GetCaster():GetOrigin() )
-	ParticleManager:SetParticleControlForward( effect_cast, 0, direction )
+	ParticleManager:SetParticleControlTransformForward( effect_cast, 0, self:GetCaster():GetOrigin(), direction )
+	ParticleManager:ReleaseParticleIndex( effect_cast )
+	
+	Timers:CreateTimer( 2.0, function()
+		ParticleManager:DestroyParticle( effect_cast, false )
+		ParticleManager:ReleaseParticleIndex( effect_cast )
+	end)
+
+	-- Create Sound
+	EmitSoundOnLocationWithCaster( self:GetCaster():GetOrigin(), sound_cast, self:GetCaster() )
+end
+
+function lu_bu_god_force:PlayEffects3( caught, direction )
+	-- Get Resources
+	local particle_cast = "particles/custom/lu_bu/assault_two_ult_reverse.vpcf"
+	local sound_cast = "Hero_Mars.Shield.Cast"
+	if not caught then
+		local sound_cast = "Hero_Mars.Shield.Cast.Small"
+	end
+	direction.z = 0
+	-- Create Particle
+	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_WORLDORIGIN, self:GetCaster() )
+	ParticleManager:SetParticleControlTransformForward( effect_cast, 0, self:GetCaster():GetOrigin(), direction )
 	ParticleManager:ReleaseParticleIndex( effect_cast )
 	
 	Timers:CreateTimer( 2.0, function()

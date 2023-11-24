@@ -15,9 +15,9 @@ end
 function lu_bu_restless_soul:CheckCombo()
 	local caster = self:GetCaster()
 	
-	local blastFx = ParticleManager:CreateParticle("particles/units/heroes/hero_abaddon/abaddon_death_coil_explosion.vpcf", PATTACH_CUSTOMORIGIN, nil)
-	ParticleManager:SetParticleControl( blastFx, 1, caster:GetAbsOrigin())
-
+	local blastFx = ParticleManager:CreateParticle("particles/lu_bu/lu_bu_heal.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, caster)
+	ParticleManager:SetParticleControl( blastFx, 1, caster:GetAbsOrigin()+Vector(0,0,100))
+	ParticleManager:SetParticleControl( blastFx, 0, caster:GetAbsOrigin()+Vector(0,0,100))
     Timers:CreateTimer( 2.0, function()
         ParticleManager:DestroyParticle(blastFx)
         ParticleManager:ReleaseParticleIndex( blastFx )

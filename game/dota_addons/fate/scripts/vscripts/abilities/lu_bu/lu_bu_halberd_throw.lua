@@ -20,7 +20,7 @@ function lu_bu_halberd_throw:OnSpellStart()
 
 	-- load data
 	local projectile_name = "particles/custom/lu_bu/lu_bu_spear.vpcf"
-	local projectile_distance = self:GetSpecialValueFor("spear_range")
+	local projectile_distance = self:GetSpecialValueFor("spear_range")-70
 	local projectile_speed = self:GetSpecialValueFor("spear_speed")
 	local projectile_radius = self:GetSpecialValueFor("spear_width")
 	local projectile_vision = self:GetSpecialValueFor("spear_vision")
@@ -30,14 +30,14 @@ function lu_bu_halberd_throw:OnSpellStart()
 	end
 	
 	-- calculate direction
-	local direction = point - caster:GetOrigin()
-	direction.z = 0
-	direction = direction:Normalized()
+	self.direction = point - caster:GetOrigin()
+	self.direction.z = 0
+	self.direction = self.direction:Normalized()
 
 	local info = {
 		Source = caster,
 		Ability = self,
-		vSpawnOrigin = caster:GetOrigin(),
+		vSpawnOrigin = caster:GetOrigin()+ self.direction * 70,
 		
 	    bDeleteOnHit = false,
 	    
@@ -49,7 +49,7 @@ function lu_bu_halberd_throw:OnSpellStart()
 	    fDistance = projectile_distance,
 	    fStartRadius = projectile_radius,
 	    fEndRadius =projectile_radius,
-		vVelocity = direction * projectile_speed,
+		vVelocity = self.direction * projectile_speed,
 	
 		bHasFrontalCone = false,
 		bReplaceExisting = false,
@@ -100,10 +100,12 @@ function lu_bu_halberd_throw:OnProjectileHit_ExtraData(target, vLocation, tData)
 	local pushTarget = Physics:Unit(target)
     target:PreventDI()
     target:SetPhysicsFriction(0)
-	local vectorC = (target:GetAbsOrigin() - caster:GetAbsOrigin()) 
+	--local vectorC = (target:GetAbsOrigin() - caster:GetAbsOrigin()) 
+
+
 	-- get the direction where target will be pushed back to
-	local vectorB = vectorC - vectorA
-	target:SetPhysicsVelocity(vectorB:Normalized() * 1000)
+	local vectorB = self.direction - vectorA
+	target:SetPhysicsVelocity(vectorB:Normalized() * 1750)
     target:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
 	local initialUnitOrigin = target:GetAbsOrigin()
 	

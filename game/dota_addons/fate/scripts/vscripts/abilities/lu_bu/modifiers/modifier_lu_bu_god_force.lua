@@ -7,17 +7,16 @@ function modifier_lu_bu_god_force:OnCreated(args)
 		self.LargeDamage = args.LargeDamage
 		self.SmallRadius = args.SmallRadius
 		self.LargeRadius = args.LargeRadius
-		self:StartIntervalThink(0.4)
+		self:NormalHit()
+		self:StartIntervalThink(0.5)
 	end
 		
 	local caster = self:GetParent()
 end
 
-function modifier_lu_bu_god_force:OnIntervalThink()
+function modifier_lu_bu_god_force:NormalHit()
 	local caster = self:GetParent()
 	local particle = ParticleManager:CreateParticle("particles/custom/berserker/nine_lives/hit.vpcf", PATTACH_ABSORIGIN, caster)
-
-	if self.HitNumber < 5 then
 		--print("hit " .. self.HitNumber)
 		local targets = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), caster, self.LargeRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, 1, false)
 
@@ -29,8 +28,17 @@ function modifier_lu_bu_god_force:OnIntervalThink()
 
 		ParticleManager:SetParticleControl(particle, 2, Vector(1,1,self.SmallRadius))
 		ParticleManager:SetParticleControl(particle, 3, Vector(self.SmallRadius / 350,1,1))
+
+end
+
+function modifier_lu_bu_god_force:OnIntervalThink()
+	local caster = self:GetParent()
+	local particle = ParticleManager:CreateParticle("particles/custom/berserker/nine_lives/hit.vpcf", PATTACH_ABSORIGIN, caster)
+
+	if self.HitNumber < 4 then
+		self:NormalHit()
 		self.HitNumber = self.HitNumber + 1
-	elseif self.HitNumber == 5 then
+	elseif self.HitNumber == 4 then
 		--print("final hit")
 		caster:EmitSound("Hero_EarthSpirit.BoulderSmash.Target")
 		caster:RemoveModifierByName("pause_sealdisabled") 

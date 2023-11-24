@@ -9,7 +9,15 @@ function iskander_jump:OnSpellStart()
 	local sin = Physics:Unit(caster)
 	caster:SetPhysicsFriction(0)
     caster.IsRiding = false
-	caster:SetPhysicsVelocity(caster:GetForwardVector() * speed)
+	local point = self:GetCursorPosition()
+	local vector = (caster:GetAbsOrigin() - point)
+	local norm = vector:Normalized()
+	local distance = vector:Length2D()
+	local max_distance = speed * 0.75
+	if distance > max_distance then distance = max_distance end
+	caster:SetForwardVector(-norm)
+	speed = distance/0.75
+	caster:SetPhysicsVelocity(-norm * speed)
 	caster:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
     StartAnimation(caster, {duration = 0.75, activity=ACT_DOTA_CAST_ABILITY_1, rate=1})
 	Timers:CreateTimer("kander_dash", {

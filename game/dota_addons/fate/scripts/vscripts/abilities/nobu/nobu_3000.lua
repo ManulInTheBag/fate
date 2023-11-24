@@ -260,11 +260,7 @@ function nobu_3000:Shoot(keys)
                     Range = 1000,
                 },  gun_spawn )
             end
-            if(self.caster.is3000Acquired) then  
-                return false
-            else
-                return true
-            end
+
               
             
         end 

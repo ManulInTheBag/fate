@@ -854,7 +854,7 @@
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 107
-						framerate = 55.0
+						framerate = 85.0
 						reverse = false
 					},
 					{
@@ -890,7 +890,7 @@
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 99
-						framerate = 50.0
+						framerate = 60.0
 						reverse = false
 					},
 					{
@@ -960,9 +960,45 @@
 						animgraph_additive = false
 						source_filename = "models/lu_bu/fast_attack_1.fbx"
 						import_bone_scales = false
-						start_frame = 0
-						end_frame = 119
-						framerate = 50.0
+						start_frame = -1
+						end_frame = 40
+						framerate = 40.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "fast_attack_1_part_2"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								root_bone_name = ""
+								motion_type = "Single"
+							},
+						]
+						activity_name = "ACT_DOTA_RAZE_2"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/lu_bu/fast_attack_1.fbx"
+						import_bone_scales = false
+						start_frame = 40
+						end_frame = 80
+						framerate = 40.0
 						reverse = false
 					},
 					{
@@ -998,7 +1034,7 @@
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 263
-						framerate = 60.0
+						framerate = 53.0
 						reverse = false
 					},
 					{
@@ -1086,7 +1122,7 @@
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 190
-						framerate = 75.0
+						framerate = 55.0
 						reverse = false
 					},
 					{
@@ -1291,6 +1327,42 @@
 						start_frame = 199
 						end_frame = 199
 						framerate = 300.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "fast_attack_4"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								root_bone_name = ""
+								motion_type = "Single"
+							},
+						]
+						activity_name = "ACT_DOTA_RAZE_3"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/lu_bu/fast_attack_1.fbx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = 119
+						framerate = 40.0
 						reverse = false
 					},
 				]

@@ -46,7 +46,7 @@ function iskander_archers:OnSpellStart()
 
 		-- Spawn soldiers on right side
 		for i=1,3 do
-			Timers:CreateTimer(i*0.1, function()
+			Timers:CreateTimer(i*0.15, function()
 				local soldier = CreateUnitByName("iskander_archer", spawn_center + rightvec * 100 * i, true, nil, nil, caster:GetTeamNumber())
 				soldier:SetOwner(caster)
 				soldier:SetForwardVector(caster_vector)
@@ -80,12 +80,14 @@ function iskander_archers:ShootArrow(unit, point)
 	local count = self:GetSpecialValueFor("shots_per_unit")
 	local dmg = self:GetSpecialValueFor("damage")
 	local sArrowParticle = "particles/iskander/sanya_arrows.vpcf" 
+
 	local counter = 0 
 	StartAnimation(unit, {duration = 0.25, activity=ACT_DOTA_CAST_ABILITY_1, rate=4})
 	Timers:CreateTimer(0.25, function()
 		if counter == count then return end  
 		StartAnimation(unit, {duration = 0.25, activity=ACT_DOTA_CAST_ABILITY_1, rate=4})
 		local nArrowParticle =  ParticleManager:CreateParticle(sArrowParticle, PATTACH_WORLDORIGIN, nil)
+		unit:EmitSound("arrow_sanya")
 		--ParticleManager:SetParticleShouldCheckFoW(nArrowParticle, false)
 		ParticleManager:SetParticleAlwaysSimulate(nArrowParticle)
 		ParticleManager:SetParticleControl(nArrowParticle, 0, unitPoint)
@@ -107,7 +109,7 @@ function iskander_archers:ShootArrow(unit, point)
 		ParticleManager:SetParticleControl(iParticleIndex, 1, unitPoint + Vector(0, 0, 500))
 		ParticleManager:SetParticleControl(iParticleIndex, 3, unitPoint + Vector(0, 0, 500))
 		ParticleManager:SetParticleControl(iParticleIndex, 4, Vector(aoe, 1, 1))
-
+		EmitSoundOnLocationWithCaster(point , "arrow_sanya_2", caster)
 		Timers:CreateTimer(1,function()
 			ParticleManager:DestroyParticle(iParticleIndex, true)
 			ParticleManager:ReleaseParticleIndex(iParticleIndex)
