@@ -116,6 +116,15 @@
 						weight = 1.0
 						ignore_rotation = false
 					},
+					{
+						_class = "Attachment"
+						name = "attach_minigun"
+						parent_bone = "Right_Hitloc"
+						relative_origin = [ 0.620891, 72.276138, -0.778957 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
 				]
 			},
 			{
@@ -1284,7 +1293,7 @@
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 90
-						framerate = 96.0
+						framerate = 90.0
 						reverse = false
 					},
 					{
@@ -1293,9 +1302,9 @@
 						activity_name = "ACT_DOTA_CAST_ABILITY_1"
 						activity_weight = 1
 						weight_list_name = ""
-						fade_in_time = 0.2
+						fade_in_time = 0.03
 						fade_out_time = 0.2
-						looping = false
+						looping = true
 						delta = false
 						worldSpace = false
 						hidden = false
@@ -1579,6 +1588,28 @@
 						framerate = 152.0
 						reverse = false
 					},
+					{
+						_class = "AnimFile"
+						name = "idle_copy"
+						activity_name = "ACT_DOTA_DISABLED"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/lancelot/idle.fbx"
+						import_bone_scales = false
+						start_frame = 0
+						end_frame = 479
+						framerate = 40.0
+						reverse = false
+					},
 				]
 				default_root_bone_name = ""
 			},
@@ -1586,15 +1617,6 @@
 		model_archetype = ""
 		primary_associated_entity = ""
 		anim_graph_name = ""
-		importer_notes = """
-Imported from VMDL
-==Warnings==
-Changed incompatible hitbox parent bone name 'Gae Bolg' to 'Gae_Bolg'
-Changed incompatible hitbox parent bone name 'root 3' to 'root_3'
-Changed incompatible hitbox parent bone name 'Rule Breaker' to 'Rule_Breaker'
-Changed incompatible bone name 'Right Hitloc' to 'Right_Hitloc'
-Changed incompatible bone name 'Right Hitloc' to 'Right_Hitloc'
-
-"""
+		importer_notes = "Imported from VMDL\n==Warnings==\nChanged incompatible hitbox parent bone name 'Gae Bolg' to 'Gae_Bolg'\nChanged incompatible hitbox parent bone name 'root 3' to 'root_3'\nChanged incompatible hitbox parent bone name 'Rule Breaker' to 'Rule_Breaker'\nChanged incompatible bone name 'Right Hitloc' to 'Right_Hitloc'\nChanged incompatible bone name 'Right Hitloc' to 'Right_Hitloc'\n"
 	}
 }

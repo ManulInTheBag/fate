@@ -131,15 +131,15 @@ end
 
 function lancelot_knight_of_honor:CastFilterResult()
     local caster = self:GetCaster()
-    --if caster:HasModifier("modifier_arondite") then
-      --  return UF_FAIL_CUSTOM
-    --end
+    if caster:HasModifier("modifier_lancelot_minigun") then
+        return UF_FAIL_CUSTOM
+    end
 
     return UF_SUCCESS
 end
 
 function lancelot_knight_of_honor:GetCustomCastError()
-    return "#Arondite_Active"
+    return "#Minigun_Active"
 end
 
 function lancelot_knight_of_honor:GetAbilityTextureName()

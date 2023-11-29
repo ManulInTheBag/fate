@@ -238,7 +238,7 @@ function OnKnightClosed(keys)
         local a5 = caster:GetAbilityByIndex(4)
         local a6 = caster:GetAbilityByIndex(5)
         -- if knight attribute is not taken, caster.KnightLevel~=nil is false and therefore kills off queueing a 2nd skill. 
-        caster:SwapAbilities(a1:GetName(), "lancelot_smg_barrage", false ,true) 
+        caster:SwapAbilities(a1:GetName(), "lancelot_minigun", false ,true) 
         caster:SwapAbilities(a2:GetName(), "lancelot_double_edge", false, true) 
         caster:SwapAbilities(a3:GetName(), "lancelot_knight_of_honor", false, true)
         if caster.nukeAvail == true then 

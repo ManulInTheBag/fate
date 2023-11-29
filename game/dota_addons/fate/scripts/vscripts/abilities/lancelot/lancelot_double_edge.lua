@@ -27,6 +27,24 @@ function lancelot_double_edge:OnSpellStart()
 				caster:AddNewModifier(caster, self, "modifier_arondite_overload_window", { Duration = 3 })
 		end
 	end]]
+
+	if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 and caster:GetIntellect() >= 29.1 and not caster:HasModifier("modifier_arondite") then
+        if caster:FindAbilityByName("lancelot_f16"):IsCooldownReady() and caster.nukeAvail ~= true then            
+            local abilname = "fate_empty1"
+            if caster:FindAbilityByName("lancelot_blessing_of_fairy") then abilname = "lancelot_blessing_of_fairy" end
+            caster:SwapAbilities("lancelot_f16", abilname, true, false)
+            caster.nukeAvail = true
+            local newTime =  GameRules:GetGameTime()
+            Timers:CreateTimer({
+                endTime = 8,
+                callback = function()
+                if caster:FindAbilityByName("lancelot_blessing_of_fairy") then abilname = "lancelot_blessing_of_fairy" end
+                caster:SwapAbilities("lancelot_f16", abilname, false, true)                
+                caster.nukeAvail = false
+            end
+            })        
+        end
+    end
 end
 
 if IsServer() then 

@@ -181,7 +181,12 @@ function FATE_ProjectileManager:CreateTrackingProjectile(args)
 	ProjectileTable.thinkCallback = thinkCallback
 	ProjectileTable.speed = speed
 	ProjectileTable.projFX = projFX
-	ProjectileTable.ExtraData = ExtraData
+	ProjectileTable.ExtraData = {}
+	if ExtraData then
+		for k, v in pairs(ExtraData) do
+			ProjectileTable.ExtraData[k] = v
+		end
+	end
 	ProjectileTable.expires = expires
 	ProjectileTable.expireTime = expireTime
 	ProjectileTable.level = level
@@ -390,14 +395,18 @@ function FATE_ProjectileManager:CreateLinearProjectile(args)
 	ProjectileTable.end_radius = end_radius
 	ProjectileTable.DeleteOnHit = DeleteOnHit
 	ProjectileTable.projFX = projFX
-	ProjectileTable.ExtraData = ExtraData
+	ProjectileTable.ExtraData = {}
+	if ExtraData then
+		for k, v in pairs(ExtraData) do
+			ProjectileTable.ExtraData[k] = v
+		end
+	end
 	ProjectileTable.expires = expires
 	ProjectileTable.expireTime = expireTime
 	ProjectileTable.level = level
 	ProjectileTable.timeElapsed = 0
 
 	self.ActiveProjectiles[UID] = ProjectileTable
-
 	return UID
 end
 
@@ -662,6 +671,9 @@ function FATE_ProjectileManager:Think_LINEAR(k, v)
 	end
 
 	if hit or lastframe or (v.expires and GameRules:GetGameTime() >= v.expireTime) then
+		local status, nextCall = xpcall(function() return v.callback(v.ability, nil, v.currentLoc, v.ExtraData) end, function (msg)
+	                            return msg..'\n'..debug.traceback()..'\n'
+	                        end)
 		--print("FPMSUCCESS"..k)
 		self.ActiveProjectiles[k] = nil
 		if v.projFX then

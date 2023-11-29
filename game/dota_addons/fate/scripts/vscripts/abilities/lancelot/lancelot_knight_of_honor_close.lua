@@ -4,7 +4,7 @@ function lancelot_knight_of_honor_close:OnSpellStart()
     local hCaster = self:GetCaster()
 
     local tAbilities = {
-        "lancelot_smg_barrage",
+        "lancelot_minigun",
         "lancelot_double_edge",
         "lancelot_knight_of_honor",
         "fate_empty1",

@@ -4123,6 +4123,19 @@
         "DOTA_Tooltip_ability_lancelot_smg_barrage_stack_damage"		"Bonus Damage:"
         "DOTA_Tooltip_ability_lancelot_smg_barrage_upkeep"				"Additional Mana Per Shot:"
 
+        "DOTA_Tooltip_modifier_lancelot_minigun"						"M134 Minigun"
+
+        "DOTA_Tooltip_Ability_lancelot_minigun"							"M134 Minigun"
+        "DOTA_Tooltip_Ability_lancelot_minigun_Description"				"Lancelot pulls out a rotary gun and starts shooting it for a maximum of %duration% seconds.\nLancelot can't move while shooting, but can turn with decreased turn rate.\nLancelot fires %bullets_per_second% bullets per second, spending <font color='#58ACFA'>%mana_per_bullet% mana</font> per bullet.\nEach bullet deals <font color='#A72E28'>physical</font> damage based on Lancelot's attack damage.\nIf Lancelot runs out of <font color='#58ACFA'>mana</font>, this ability will stop automatically.\nThis ability goes on cooldown equal to %cooldown_per_second% times the amount of time Lancelot spent shooting."
+        "DOTA_Tooltip_Ability_lancelot_minigun_base_damage"				"Bullet base damage:"
+        "DOTA_Tooltip_Ability_lancelot_minigun_atk_damage"				"%Bullet attack scale:"
+        "DOTA_Tooltip_Ability_lancelot_minigun_range"					"Range:"
+        "DOTA_Tooltip_ability_lancelot_minigun_Lore"        			"Bringing gun to swordfight is the least of concerns for maddened knight."
+
+        "DOTA_Tooltip_Ability_lancelot_minigun_end"						"M134 Minigun"
+        "DOTA_Tooltip_Ability_lancelot_minigun_end_Description"			"Stops the ability."
+        "DOTA_Tooltip_ability_lancelot_minigun_end_Lore"        		"No bullets?"
+
         "DOTA_Tooltip_Ability_lancelot_double_edge"     				"Double Edge"
         "DOTA_Tooltip_ability_lancelot_double_edge_Description" 		"Lancelot disregards defense for the next %duration% seconds, increasing the damage he'd take. In return, the less HP Lancelot has, the more attackspeed, bonus damage and movespeed he gets."
         "DOTA_Tooltip_ability_lancelot_double_edge_Lore"        		"The Knight of the Round Table knows very well the greater good comes with sacrifice."
@@ -4272,9 +4285,13 @@
         "DOTA_Tooltip_Ability_lancelot_attribute_total_assault_crit_damage"         "%CRITICAL DAMAGE:"
 
         "DOTA_Tooltip_Ability_lancelot_attribute_eternal_flame"					"Attribute: Eternal Flame"
-        "DOTA_Tooltip_ability_lancelot_attribute_eternal_flame_Description"		"Removes the mana cost for Arondight to trigger firing the cone of fire. Causes SMG Barrage to remove a percentage of the enemy's armor when it hits."
-        "DOTA_Tooltip_Ability_lancelot_attribute_eternal_flame_armor_shred"		"%Armor Shred:"
+        "DOTA_Tooltip_ability_lancelot_attribute_eternal_flame_Description"		"Removes the mana cost for Arondight to trigger firing the cone of fire. Causes M134 Minigun to remove a percentage of the enemy's armor when it hits."
+        "DOTA_Tooltip_Ability_lancelot_attribute_eternal_flame_armor_shred"		"%Armor shred:"
+        "DOTA_Tooltip_Ability_lancelot_attribute_eternal_flame_duration"		"Armor shred duration:"
         "DOTA_Tooltip_Ability_lancelot_attribute_eternal_flame_Lore"			"Legend has it that Lancelot once slew a dragon. Perhaps this is why the blade of Arondight spits out fire when swung."
+
+        "DOTA_Tooltip_modifier_eternal_flame_shred"								"Eternal Flame"
+        "DOTA_Tooltip_modifier_eternal_flame_shred_Description"					"Your armor is decreased"
 
         "DOTA_Tooltip_Ability_lancelot_attribute_improve_eternal"               	"Attribute: Eternal Arms Mastership"
         "DOTA_Tooltip_ability_lancelot_attribute_improve_eternal_Description"		"Enables the usage of Eternal Arms Mastership, which grants Lancelot chance to deal critical strikes on attacks. Activating Eternal Arms Mastership temporarily increases the chance of critical strike to 100%% for a very short duration. Also increases level of abilities within Knight of Honor."
@@ -4301,7 +4318,7 @@
 
 		"f16_at_vinta"			"F16"
 		"DOTA_Tooltip_ability_lancelot_f16"	"Combo: F16 Fighter"
-		"DOTA_Tooltip_ability_lancelot_f16_Description"         "<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : W-Q-D in 8 seconds</font>\nCasts 5 seconds. Berserker takes control of F-16 Fighter Aircraft and uses it as a mount to attack his enemies. Due to circumstances of being controlled with mad Heroic Spirit with Knight of Honor, it has 1500 base hp, 10 magical resistance, 15 armor and 1000 constant move speed. F16 has 4 abilities: Barrage, Nuke, Mana Reinforcement and Kamikaze. Abilities scale with level from base Lancelot's abilities. Lasts 30 seconds."
+		"DOTA_Tooltip_ability_lancelot_f16_Description"         "<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : W-D in 8 seconds</font>\nCasts 5 seconds. Berserker takes control of F-16 Fighter Aircraft and uses it as a mount to attack his enemies. Due to circumstances of being controlled with mad Heroic Spirit with Knight of Honor, it has 1500 base hp, 10 magical resistance, 15 armor and 1000 constant move speed. F16 has 4 abilities: Barrage, Nuke, Mana Reinforcement and Kamikaze. Abilities scale with level from base Lancelot's abilities. Lasts 30 seconds."
 
 		"DOTA_Tooltip_ability_lancelot_f16_barrage" 	"Barrage"
 		"DOTA_Tooltip_ability_lancelot_f16_barrage_Description"	"Launches 3 rockets, dealing significant damage each and stunning for 1.5 seconds on impact. He can only fire them forward.\nThis ability levels alongside with SMG Barrage."

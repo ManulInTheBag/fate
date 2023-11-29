@@ -6439,3 +6439,163 @@
 		}
 	}
 }
+"lancelot_minigun_cast"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/lancelot/lancelot_minigun_cast.vsnd"
+						}
+					}
+					"volume"
+					{
+						"value"		"5.000000"
+					}
+					"pitch"
+					{
+						"value"		"1.000000"
+					}
+				}
+			}
+		}
+	}
+}
+"lancelot_minigun_loop"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/lancelot/lancelot_minigun_loop_1.vsnd"
+						}
+					}
+					"volume"
+					{
+						"value"		"5.000000"
+					}
+					"pitch"
+					{
+						"value"		"1.000000"
+					}
+				}
+			}
+		}
+	}
+}
+"lancelot_minigun_impact_1"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/lancelot/mkg_impact_01.vsnd"
+						}
+					}
+					"volume"
+					{
+						"value"		"1.000000"
+					}
+					"pitch"
+					{
+						"value"		"1.000000"
+					}
+					"pitch_rand_min"
+					{
+						"value"		"-0.500000"
+					}
+					"pitch_rand_max"
+					{
+						"value"		"0.500000"
+					}
+					"soundlevel"
+					{
+						"value"		"100.000000"
+					}
+					"distance_max"
+					{
+						"value"		"1600.000000"
+					}
+				}
+			}
+		}
+	}
+}
+"lancelot_minigun_impact_2"
+{
+	"operator_stacks"
+	{
+		"update_stack"
+		{
+			"reference_operator"
+			{
+				"operator"		"sos_reference_stack"
+				"reference_stack"		"dota_src1_3d"
+				"operator_variables"
+				{
+					"vsnd_files"
+					{
+						"value"
+						{
+							"value0"		"sounds/lancelot/mkg_impact_02.vsnd"
+						}
+					}
+					"volume"
+					{
+						"value"		"1.000000"
+					}
+					"pitch"
+					{
+						"value"		"1.000000"
+					}
+					"pitch_rand_min"
+					{
+						"value"		"-0.500000"
+					}
+					"pitch_rand_max"
+					{
+						"value"		"0.500000"
+					}
+					"soundlevel"
+					{
+						"value"		"100.000000"
+					}
+					"distance_max"
+					{
+						"value"		"1600.000000"
+					}
+				}
+			}
+		}
+	}
+}

@@ -4244,6 +4244,8 @@ function FateGameMode:FinishRound(IsTimeOut, winner)
             playerHero:RemoveModifierByName("modifier_holy_mother_buff")
         elseif playerHero:GetName() == "npc_dota_hero_mirana" then
             playerHero:RemoveModifierByName("modifier_jeanne_crimson_saint")
+        elseif playerHero:GetName() == "npc_dota_hero_sven" then
+            playerHero:RemoveModifierByName("modifier_lancelot_minigun")
         end
 
         if playerHero:FindAbilityByName("khsn_flame_active") then

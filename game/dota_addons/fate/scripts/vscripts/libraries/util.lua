@@ -693,6 +693,7 @@ tRemoveTheseModifiers = {
     "modifier_muramasa_tsumukari_buff",
     "modifier_ryougi_lines",
     "modifier_ubw_chant_count",
+    "modifier_lancelot_minigun",
 }
 
 tDivineHeroes = {
