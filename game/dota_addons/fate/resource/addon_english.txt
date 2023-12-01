@@ -4796,6 +4796,16 @@
         "DOTA_Tooltip_ability_iskander_forward_movespeed"		"%MOVEMENT SPEED:"
         "DOTA_Tooltip_ability_iskander_forward_Lore"			"DAVAI!"
 
+        "DOTA_Tooltip_Ability_iskander_thunder"					"Thunder strike"
+        "DOTA_Tooltip_ability_iskander_thunder_Description" 	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.3</font>\nIskandar summons lightning bolts in a line, each <font color='#58ACFA'>damaging</font> and <font color='#9400D3'>slowing</font> enemies hit.\nStrikes are summoned with a delay."
+		"DOTA_Tooltip_ability_iskander_thunder_radius"			"RADIUS:"
+        "DOTA_Tooltip_ability_iskander_thunder_damage"			"DAMAGE:"
+        "DOTA_Tooltip_ability_iskander_thunder_range"			"RANGE:"
+        "DOTA_Tooltip_ability_iskander_thunder_strikes"			"STRIKES:"
+        "DOTA_Tooltip_ability_iskander_thunder_slow_duration"	"SLOW DURATION:"
+        "DOTA_Tooltip_ability_iskander_thunder_ms_slow"			"%SLOW:"
+        "DOTA_Tooltip_ability_iskander_thunder_Lore"			""
+
         "DOTA_Tooltip_Ability_iskander_phalanx"				"Phalanx"
         "DOTA_Tooltip_ability_iskander_phalanx_Description" "<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.3</font>\nIskandar summons a linear formation of army at target location, briefly <font color='#FF3399'>pulling all enemies in vertical line</font> from target location and <font color='#58ACFA'>damaging</font> them.\n<font color='#F1C40F'>Upgradable by attribute Bond Beyond Time.</font>"
         "DOTA_Tooltip_ability_iskander_phalanx_Lore"			"The fabled rock-solid formation of Greek infantry materializes upon this world once again."
@@ -4803,6 +4813,15 @@
         "DOTA_Tooltip_ability_iskander_phalanx_damage"			"DAMAGE:"
         "DOTA_Tooltip_ability_iskander_phalanx_width"			"PHALANX WIDTH:"
         "DOTA_Tooltip_ability_iskander_phalanx_duration"		"PHALANX DURATION:"
+
+         "DOTA_Tooltip_Ability_iskander_cavalry"				"Summon cavalry"
+        "DOTA_Tooltip_Ability_iskander_cavalry_Description" "<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.3</font>\nIskandar summons a rushing formation of cavalry at target location, rushing towards him, <font color='#FF3399'>stunning</font> and <font color='#58ACFA'>damaging</font> all enemies on the way.\nOnly one instance of damage could be received from this ability\n<font color='#F1C40F'>Upgradable by attribute Bond Beyond Time.</font>"
+        "DOTA_Tooltip_Ability_iskander_cavalry_Lore"			"Striking enemies from behind is old but trusted strategy."
+        "DOTA_Tooltip_Ability_iskander_cavalry_stun_duration"	"STUN DURATION:"
+        "DOTA_Tooltip_Ability_iskander_cavalry_damage"			"DAMAGE:"
+        "DOTA_Tooltip_Ability_iskander_cavalry_width"			"PHALANX WIDTH:"
+        "DOTA_Tooltip_Ability_iskander_cavalry_duration"		"SOLDIERS DURATION:"
+
 
 
 
@@ -4900,6 +4919,14 @@
         "DOTA_Tooltip_ability_iskander_jump_radius"			"RADIUS:"
         "DOTA_Tooltip_ability_iskander_jump_damage"			"DAMAGE:"
   
+ 		"DOTA_Tooltip_Ability_sanya_book_open"				"Ionioi hetairoi"
+        "DOTA_Tooltip_ability_sanya_book_open_Description"	"Opens up the reality marble, enabling the summoning of the soldiers: \n<font color='#58ACFA'>Phalanx</font>\n<font color='#58ACFA'>Archers</font>\n<font color='#58ACFA'>Cavalry</font>.\nAbilities in the spellbook upgrade with this ability upgrading and have individual cooldown."
+        "DOTA_Tooltip_ability_sanya_book_open_Lore"			""
+
+  
+ 		"DOTA_Tooltip_Ability_sanya_book_close"				"Ionioi hetairoi close"
+        "DOTA_Tooltip_Ability_sanya_book_close_Description"	"Closes spellbook."
+        "DOTA_Tooltip_Ability_sanya_book_close_Lore"			""
 
         "DOTA_Tooltip_Ability_iskander_attribute_improve_charisma"					"Attribute: Improve Charisma"
         "DOTA_Tooltip_ability_iskander_attribute_improve_charisma_Description"		"Allows <font color='#58ACFA'>Charisma</font> to increase <font color='#FFFAFA'>attack damage</font> of ally units.\nIncreases <font color='#58ACFA'>Charisma</font> <font color='#FFFAFA'>radius</font>.\nDoubles <font color='#58ACFA'>Forward!</font>'s <font color='#FFFAFA'>radius</font>."
@@ -4928,7 +4955,7 @@
         "DOTA_Tooltip_ability_iskander_attribute_via_expugnatio_Note0"	"Via Expugnatio's cooldown can be reset."  
  
         "DOTA_Tooltip_Ability_iskander_attribute_bond_beyond_time"          		"Attribute: Bond Beyond Time"
-        "DOTA_Tooltip_ability_iskander_attribute_bond_beyond_time_Description"		"Using <font color='#58ACFA'>Forward!</font> will make all infantry units <font color='#FFFAFA'>rush forward</font>, dealing <font color='#FFFAFA'>100</font> <font color='#58ACFA'>damage</font> on hit and <font color='#FF3399'>stunning</font> for <font color='#FFFAFA'>0.6</font> second.\nIncreases the number of soldiers and archers within <font color='#58ACFA'>Army of the King</font> by <font color='#FFFAFA'>4</font>.\nIn Army of the King, Iskandar may summon <font color='#58ACFA'>Waver Velvet</font> and his apprentice mages. <font color='#58ACFA'>Waver</font> passively increases the <font color='#FFFAFA'>magic resistance</font> of nearby allies and can cast <font color='#58ACFA'>Briliance of the King</font>.\n<font color='#58ACFA'>Briliance of the King</font>: <font color='#58ACFA'>Waver</font> casts the light that resembles of King's might. All enemies inside Army of the King are <font color='#FF3399'>silenced</font> and <font color='#9400D3'>rooted</font> for a duration."    
+        "DOTA_Tooltip_ability_iskander_attribute_bond_beyond_time_Description"		"Using <font color='#58ACFA'>Forward!</font> will make all infantry and cavalry units <font color='#FFFAFA'>rush in the targeted direction</font>, dealing <font color='#FFFAFA'>100</font> <font color='#58ACFA'>damage</font> on hit and <font color='#FF3399'>stunning</font> for <font color='#FFFAFA'>0.6</font> second.\nIncreases the number of soldiers and archers within <font color='#58ACFA'>Army of the King</font> by <font color='#FFFAFA'>4</font>.\nIn Army of the King, Iskandar may summon <font color='#58ACFA'>Waver Velvet</font> and his apprentice mages. <font color='#58ACFA'>Waver</font> passively increases the <font color='#FFFAFA'>magic resistance</font> of nearby allies and can cast <font color='#58ACFA'>Briliance of the King</font>.\n<font color='#58ACFA'>Briliance of the King</font>: <font color='#58ACFA'>Waver</font> casts the light that resembles of King's might. All enemies inside Army of the King are <font color='#FF3399'>silenced</font> and <font color='#9400D3'>rooted</font> for a duration."    
         
 		
 

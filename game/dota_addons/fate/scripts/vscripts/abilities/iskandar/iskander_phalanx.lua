@@ -31,6 +31,7 @@ function iskander_phalanx:OnSpellStart()
 			local soldier = CreateUnitByName("iskander_infantry", targetPoint + leftvec * 75 * i, true, nil, nil, caster:GetTeamNumber())
 			soldier:SetOwner(caster)
 			soldier:SetForwardVector(caster_vector)
+			soldier.num = i*-1
 			soldier:AddNewModifier(caster, nil, "modifier_kill", {duration = duration})
 			if not caster.IsAOTKActive then
 				soldier:AddNewModifier(caster, self, "modifier_phalanx_soldier_wall", {duration = duration})
@@ -56,6 +57,7 @@ function iskander_phalanx:OnSpellStart()
 			local soldier = CreateUnitByName("iskander_infantry", targetPoint + rightvec * 75 * i, true, nil, nil, caster:GetTeamNumber())
 			soldier:SetOwner(caster)
 			soldier:SetForwardVector(caster_vector)
+			soldier.num = i
 			soldier:AddNewModifier(caster, nil, "modifier_kill", {duration = duration})
 			--caster.AOTKSoldierCount = caster.AOTKSoldierCount + 1
 			if not caster.IsAOTKActive then

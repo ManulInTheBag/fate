@@ -5,15 +5,18 @@ LinkLuaModifier("modifier_iskandar_forward", "abilities/iskandar/iskander_forwar
 
 function iskander_forward:GetBehavior()
 	if self:GetCaster():HasModifier("modifier_gordius_wheel") then
-		return DOTA_ABILITY_BEHAVIOR_NO_TARGET + DOTA_ABILITY_BEHAVIOR_IMMEDIATE
+		return DOTA_ABILITY_BEHAVIOR_POINT + DOTA_ABILITY_BEHAVIOR_IMMEDIATE
 	end
-	return DOTA_ABILITY_BEHAVIOR_NO_TARGET 
+	return DOTA_ABILITY_BEHAVIOR_POINT 
 end
 
 
 function iskander_forward:OnSpellStart()
 	local caster = self:GetCaster()
 	local ply = caster:GetPlayerOwner() 
+	local castPosition = self:GetCursorPosition()
+	local castVector = -(caster:GetAbsOrigin() - castPosition):Normalized()
+	castVector.z = 0
 	local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_legion_commander/legion_commander_press_sphere.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 	ParticleManager:SetParticleControl(particle, 1, caster:GetAbsOrigin() )
 	Timers:CreateTimer( 2.0, function()
@@ -53,11 +56,28 @@ function iskander_forward:OnSpellStart()
 
 	for k,v in pairs(targets) do
 		RemoveSlowEffect(v)
+		local rightvec = Vector(castVector.y, -castVector.x, 0)
 		v:AddNewModifier(caster,ability, "modifier_iskandar_forward", {duration = self:GetSpecialValueFor("duration")})
 		if(v:GetUnitName() == "iskander_infantry") and caster.IsBeyondTimeAcquired then
-			v:AddNewModifier(caster,ability, "modifier_iskandar_infantry_rush", {duration = 0.5})
+			v:SetForwardVector(castVector)
+			
+			dot = castVector:Dot(v:GetRightVector())
+			if dot > 0 then 
+				v.num = - v.num
+			end
+			local vector = (castVector*1200+v.num*rightvec*75):Normalized()
+			v:SetForwardVector(vector)
+			local speed = 1800
+			print(v.num )
+			v:AddNewModifier(caster,ability, "modifier_iskandar_infantry_rush", {duration = 0.5, speed =speed})
+			--v:AddNewModifier(caster,ability, "modifier_phased", {duration = 0.5})
 			StartAnimation(v, {duration=0.5, activity=ACT_DOTA_CAST_ABILITY_1, rate=1})
-			self:CreateInfantryProjectile(v)
+			self:CreateInfantryProjectile(v, speed)
+
+		end
+		if(v:GetUnitName() == "iskander_cavalry") and caster.IsBeyondTimeAcquired then
+			
+			caster:FindAbilityByName("iskander_cavalry"):Charge(radius, castVector)
 		end
 		if v ~= caster and v:IsHero() then
 			v:EmitSound("Hero_LegionCommander.Overwhelming.Location")
@@ -67,14 +87,14 @@ function iskander_forward:OnSpellStart()
     end
 end
 
-function iskander_forward:CreateInfantryProjectile(unit)
+function iskander_forward:CreateInfantryProjectile(unit, speed)
 	local ability = self
 	local caster = self:GetCaster()
 	local qdProjectile = 
 	{
 		Ability = ability,
         --EffectName = "particles/muramasa/muramasa_throw_projectile.vpcf",
-        iMoveSpeed = 1850,
+        iMoveSpeed = speed,
         vSpawnOrigin = unit:GetOrigin(),
         fDistance = 925,
         fStartRadius = 150,
@@ -87,7 +107,7 @@ function iskander_forward:CreateInfantryProjectile(unit)
         iUnitTargetType = DOTA_UNIT_TARGET_ALL,
         fExpireTime = GameRules:GetGameTime() + 2.0,
 		bDeleteOnHit = false,
-		vVelocity = unit:GetForwardVector() * 1850
+		vVelocity = unit:GetForwardVector() * speed
 	}
 	unit.projectile = ProjectileManager:CreateLinearProjectile(qdProjectile)
 
@@ -147,11 +167,11 @@ function modifier_iskandar_infantry_rush:OnCreated(args)
 	local caster = self:GetCaster()
 	local parent = self:GetParent()
 	if not IsServer() then return end
-
+	local speed  = args.speed
 	
 	local sin = Physics:Unit(parent)
 	parent:SetPhysicsFriction(0)
-	parent:SetPhysicsVelocity(parent:GetForwardVector() * 1850)
+	parent:SetPhysicsVelocity(parent:GetForwardVector() * speed)
 	parent:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
 
 	Timers:CreateTimer(0.5, function()

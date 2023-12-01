@@ -200,9 +200,9 @@ function iskander_ionioi:OnAOTKStart()
 	caster:SwapAbilities("iskander_ionioi", "iskander_summon_hephaestion", false, true)
 	caster:SwapAbilities("iskandar_gordius_wheel", "iskandar_buc", false, true)
 	if caster.IsBeyondTimeAcquired then
-		caster:SwapAbilities("iskandar_charisma", "iskander_summon_waver", false, true) 
+		caster:SwapAbilities("iskandar_charisma", "iskander_summon_waver", false, not caster:FindAbilityByName("iskandar_charisma"):IsHidden()) 
 	else 
-		caster:SwapAbilities("iskandar_charisma", "fate_empty4", false, true) 
+		caster:SwapAbilities("iskandar_charisma", "fate_empty4", true, false) 
 	end
 
 	-- Find eligible targets
@@ -352,7 +352,10 @@ function iskander_ionioi:EndAOTK(caster)
 	 end
 	caster:SwapAbilities("fate_empty1", "iskander_summon_hephaestion", true, false)
 	--caster:SwapAbilities("iskandar_gordius_wheel", "iskandar_arrow_bombard", false, true)
-	caster:SwapAbilities("iskandar_charisma", caster:GetAbilityByIndex(3):GetName(), true, false) 
+	if(caster:GetAbilityByIndex(3):GetName() ~= "iskandar_charisma" and caster:GetAbilityByIndex(3):GetName() ~= "iskander_cavalry" ) then
+		caster:SwapAbilities("iskandar_charisma", caster:GetAbilityByIndex(3):GetName(), true, false) 
+	 end
+
 	CreateUITimer("Army of the King", 0, "aotk_timer")
 	caster.IsAOTKActive = false
 	if not caster.AOTKLocator:IsNull() and IsValidEntity(caster.AOTKLocator) then
