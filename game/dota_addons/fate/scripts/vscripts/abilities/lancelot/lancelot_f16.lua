@@ -79,7 +79,7 @@ function lancelot_f16:OnSpellStart()
     f16:SetForwardVector(caster:GetForwardVector())
 			
 			-- Level abilities
-	f16:FindAbilityByName("lancelot_f16_barrage"):SetLevel(caster:FindAbilityByName("lancelot_smg_barrage"):GetLevel())
+	f16:FindAbilityByName("lancelot_f16_barrage"):SetLevel(caster:FindAbilityByName("lancelot_minigun"):GetLevel())
 	f16:FindAbilityByName("lancelot_f16_nuke"):SetLevel(caster:FindAbilityByName("lancelot_double_edge"):GetLevel())
     f16:FindAbilityByName("lancelot_f16_mana"):SetLevel(caster:FindAbilityByName("lancelot_knight_of_honor"):GetLevel())  
 	f16:FindAbilityByName("lancelot_f16_forward"):SetLevel(caster:FindAbilityByName("lancelot_arondite"):GetLevel())
@@ -213,79 +213,12 @@ function modifier_f16_barrage:OnCreated()
 end
 
 function modifier_f16_barrage:OnIntervalThink()
+    if not IsServer() then return end
 	self.parent = self:GetParent()
 	if not self.parent:IsAlive() then
         self.parent:AddEffects(EF_NODRAW)
         return
     end
-	local ability = self.parent:GetOwner():FindAbilityByName("lancelot_smg_barrage")
-    local frontward = self.parent:GetForwardVector()
-    local range = ability:GetSpecialValueFor("range")
-    local start_radius = ability:GetSpecialValueFor("start_radius")
-    local end_radius = ability:GetSpecialValueFor("end_radius")
-	local smg = 
-    {
-        Ability = ability,
-        --EffectName = "particles/units/heroes/hero_dragon_knight/dragon_knight_breathe_fire.vpcf",
-        iMoveSpeed = 2000,
-        vSpawnOrigin = self.parent:GetAbsOrigin(),
-        fDistance = range,
-        fStartRadius = start_radius,
-        fEndRadius = end_radius,
-        Source = self.parent,
-        bHasFrontalCone = true,
-        bReplaceExisting = false,
-        iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-        iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
-        iUnitTargetType = DOTA_UNIT_TARGET_ALL,
-        fExpireTime = GameRules:GetGameTime() + 2.0,
-        bDeleteOnHit = false,
-        vVelocity = self.parent:GetForwardVector() * 2000
-    }
-   
-    --ProjectileManager:CreateLinearProjectile(smg)
-
-    --self.parent:EmitSound("Heckler_Koch_MP5_Unsuppressed")
-
-    local current_point = self.parent:GetAbsOrigin()
-    local currentForwardVec = self.parent:GetForwardVector()
-    local current_radius = start_radius
-    local current_distance = 0
-    local forwardVec = ((self.parent:GetAbsOrigin() + self.parent:GetForwardVector()*range) - current_point ):Normalized()
-    local end_point = current_point + range * forwardVec
-    local difference = end_radius - start_radius
-    
-    -- Loop creating particles
-    -- while current_distance < range do
-    --     -- Create particle
-    --     local particleIndex = ParticleManager:CreateParticle( "particles/custom/lancelot/lancelot_smg.vpcf", PATTACH_CUSTOMORIGIN, self.parent )
-    --     ParticleManager:SetParticleControl( particleIndex, 0, current_point )
-    --     ParticleManager:SetParticleControl( particleIndex, 1, Vector(current_radius, 0, 0 ) )
-        
-    --     Timers:CreateTimer( 1.0, function()
-    --         ParticleManager:DestroyParticle( particleIndex, false )
-    --         ParticleManager:ReleaseParticleIndex( particleIndex )
-    --         return nil
-    --     end)
-        
-    --     -- Update current point
-    --     current_point = current_point + current_radius * forwardVec
-    --     current_distance = current_distance + current_radius
-    --     current_radius = start_radius + current_distance / range * difference
-    -- end
-    
-    -- Create particle
-    --[[local nBarragePFX = ParticleManager:CreateParticle( "particles/custom/lancelot/lancelot_smg_new.vpcf", PATTACH_WORLDORIGIN, nil )
-                        ParticleManager:SetParticleShouldCheckFoW(nBarragePFX, false)
-                        ParticleManager:SetParticleControl( nBarragePFX, 0, current_point )
-                        ParticleManager:SetParticleControl( nBarragePFX, 1, end_point )
-                        ParticleManager:SetParticleControl( nBarragePFX, 2, Vector(end_radius * 0.5, 0, 0) )
-
-    Timers:CreateTimer( 1.0, function()
-        ParticleManager:DestroyParticle( nBarragePFX, false )
-        ParticleManager:ReleaseParticleIndex( nBarragePFX )
-        return nil
-    end)]]
 end
 
 lancelot_f16_nuke = class({})
@@ -435,10 +368,12 @@ function modifier_f16_forward:OnCreated()
 end
 
 function modifier_f16_forward:OnIntervalThink()
-    self.hF16  = self:GetParent()
-    self.hLanc = PlayerResource:GetSelectedHeroEntity(self.hF16:GetMainControllingPlayer())
+    if not IsServer() then return end
 
-	if self.hF16:IsAlive() and self.hLanc:IsAlive() then
+    self.hF16  = self:GetParent()
+    self.hLanc = self.hF16:GetOwner()--PlayerResource:GetSelectedHeroEntity(self.hF16:GetMainControllingPlayer())
+
+	if self.hLanc and self.hF16:IsAlive() and self.hLanc:IsAlive() then
         giveUnitDataDrivenModifier(self.hLanc, self.hLanc, "jump_pause", 0.02)
         self.hLanc:AddNewModifier(self.hLanc, self:GetAbility(), "modifier_f16_owner", {duration = 0.02})
 
