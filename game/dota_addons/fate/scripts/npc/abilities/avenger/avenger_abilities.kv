@@ -523,6 +523,11 @@
 				"var_type"				"FIELD_INTEGER"
 				"num_attacks"			"6"
 			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage_per_attack"			"80 100 120 140 160"
+			}
 		}
 
 		"OnSpellStart"
@@ -531,7 +536,7 @@
 			{
 				"ScriptFile"		"avenger_ability"
 				"Function"			"OnTZStart"
-				"Damage"			"%damage"
+				"Damage"			"%damage_per_attack"
 				"Duration"			"%duration"
 			}
 		}

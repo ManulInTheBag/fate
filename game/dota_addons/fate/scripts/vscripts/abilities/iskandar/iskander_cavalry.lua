@@ -65,6 +65,7 @@ function iskander_cavalry:OnSpellStart()
 			soldier:SetForwardVector(-caster_vector)
 			soldier:AddNewModifier(caster, nil, "modifier_kill", {duration = duration})
 			soldier:AddNewModifier(caster,self, "modifier_iskandar_cavalry_rush", {duration = 0.5, speed = 1500 + 100*i})
+			self:CreateCavalryProjectile(soldier)
 			--caster.AOTKSoldierCount = caster.AOTKSoldierCount + 1
 			if not caster.IsAOTKActive then
 				soldier:AddNewModifier(caster, self, "modifier_phalanx_soldier_wall", {duration = duration})
@@ -90,27 +91,26 @@ function iskander_cavalry:OnSpellStart()
 end
  
 
-function iskander_cavalry:Charge(aoe, vector)
+function iskander_cavalry:Charge(aoe, vector, unit)
 	local caster = self:GetCaster()
-	local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, aoe
-        , DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
-
 	local soundQueue = math.random(1,4)
 	if soundQueue == 3 then soundQueue = 5 end -- i was lazy, but needed to remove 3rd sound. 
-	for k,v in pairs(targets) do
-		if(v:GetUnitName() == "iskander_cavalry") then
-			v:SetForwardVector(vector)
-			v:AddNewModifier(caster,self, "modifier_iskandar_cavalry_rush", {duration = 0.5, speed = 1800})
-			StartAnimation(v, {duration=0.5, activity=ACT_DOTA_CAST_ABILITY_1, rate=1})
-			self:CreateCavalryProjectile(v)
+	unit:SetForwardVector(vector)
+
+
+	unit:AddNewModifier(caster,self, "modifier_iskandar_cavalry_rush", {duration = 0.5, speed = 1800})
+			self:CreateCavalryProjectile(unit)
+			StartAnimation(unit, {duration=0.5, activity=ACT_DOTA_CAST_ABILITY_1, rate=1})
+
+			--[[
 			local particle = ParticleManager:CreateParticle("particles/econ/items/tinker/boots_of_travel/teleport_end_bots_dust.vpcf", PATTACH_ABSORIGIN, v)
 			ParticleManager:SetParticleControl(particle, 0, v:GetAbsOrigin())
 			Timers:CreateTimer(0.5, function()
 				ParticleManager:DestroyParticle( particle, false )
 				ParticleManager:ReleaseParticleIndex( particle )
 			end)
-		end
-    end
+			]]
+    
 
 end
 
@@ -124,8 +124,8 @@ function iskander_cavalry:CreateCavalryProjectile(unit)
         iMoveSpeed = 1850,
         vSpawnOrigin = unit:GetOrigin(),
         fDistance = 925,
-        fStartRadius = 250,
-        fEndRadius = 250,
+        fStartRadius = 175,
+        fEndRadius = 175,
         Source = caster,
         bHasFrontalCone = true,
         bReplaceExisting = true,
@@ -137,19 +137,16 @@ function iskander_cavalry:CreateCavalryProjectile(unit)
 		vVelocity = unit:GetForwardVector() * 1850
 	}
 	unit.projectile = ProjectileManager:CreateLinearProjectile(qdProjectile)
-
 end
 
 function iskander_cavalry:OnProjectileHit_ExtraData(hTarget, vLocation, table)
 	if hTarget == nil then return end
-
 	local caster = self:GetCaster()
 	local damage = self:GetSpecialValueFor("damage")
-	if not hTarget:HasModifier("modifier_iskandar_cavalry_rush_hitmarker") then
-		giveUnitDataDrivenModifier(caster, hTarget, "stunned", self:GetSpecialValueFor("stun_duration"))
-		hTarget:AddNewModifier(caster,self, "modifier_iskandar_cavalry_rush_hitmarker", {duration = 0.5})
-		DoDamage(caster, hTarget, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
-	end
+	giveUnitDataDrivenModifier(caster, hTarget, "stunned", self:GetSpecialValueFor("stun_duration"))
+
+	DoDamage(caster, hTarget, damage *  (hTarget:HasModifier("modifier_iskandar_cavalry_rush_hitmarker") and 0.3 or 1), DAMAGE_TYPE_MAGICAL, 0, self, false)
+	hTarget:AddNewModifier(caster,self, "modifier_iskandar_cavalry_rush_hitmarker", {duration = 0.4})
 
 	
 end

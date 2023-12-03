@@ -4370,13 +4370,13 @@
         "DOTA_Tooltip_ability_avenger_murderous_instinct_mana_regen_percentage_herokill"	"%MANA REGEN PER HERO KILL:"
  
         "DOTA_Tooltip_Ability_avenger_tawrich_zarich"				"Tawrich Zarich"
-        "DOTA_Tooltip_ability_avenger_tawrich_zarich_Description"	"Swiftly strikes target with twin daggers %num_attacks% times, dealing critical strikes, <font color='#FF3399'>slowing</font>, and rendering target <font color='#FF3399'>silenced</font> and <font color='#FF3399'>disarmed</font>.\n<font color='#FF6600'>This ability affects the level of Vengeance Mark in True Form.</font>"
+        "DOTA_Tooltip_ability_avenger_tawrich_zarich_Description"	"Swiftly strikes target with twin daggers %num_attacks% times, dealing <font color='#A72E28'>physical damage</font>, <font color='#FF3399'>slowing</font>, rendering target <font color='#FF3399'>silenced</font> and <font color='#FF3399'>disarmed</font>.\nEach strike damage is increased by 0.75 of Angra's <font color='#A72E28'>attack</font>.\n<font color='#FF6600'>This ability affects the level of Vengeance Mark in True Form.</font>"
         "DOTA_Tooltip_ability_avenger_tawrich_zarich_Lore"			"Avenger's Twin daggers resemble the teeth of animal, optimized for snatching the foe's weapon and effectively disarming them."
-        "DOTA_Tooltip_ability_avenger_tawrich_zarich_crit_dmg"		"%Critical Damage:" 
+        //"DOTA_Tooltip_ability_avenger_tawrich_zarich_crit_dmg"		"%Critical Damage:" 
         "DOTA_Tooltip_ability_avenger_tawrich_zarich_duration"		"SILENCE AND DISARM DURATION:" 
         "DOTA_Tooltip_ability_avenger_tawrich_zarich_slow_amount"	"%SLOW:"
         "DOTA_Tooltip_ability_avenger_tawrich_zarich_slow_duration"	"SLOW DURATION:" 
- 
+ 		"DOTA_Tooltip_ability_avenger_tawrich_zarich_damage_per_attack"		"Damage:" 
         "DOTA_Tooltip_Ability_avenger_true_form"				"True Form"
         "DOTA_Tooltip_ability_avenger_true_form_Description"    "Transforms into the remain of Holy Grail, gaining bonus health, mana, and attack damage. Avenger gains new set of abilities while True Form lasts.\n<font color='#FF6600'>This ability affects the level of Demon Core in True Form.</font>"
         "DOTA_Tooltip_ability_avenger_true_form_Lore"   "The loop must not be broken."
@@ -4815,7 +4815,7 @@
         "DOTA_Tooltip_ability_iskander_phalanx_duration"		"PHALANX DURATION:"
 
          "DOTA_Tooltip_Ability_iskander_cavalry"				"Summon cavalry"
-        "DOTA_Tooltip_Ability_iskander_cavalry_Description" "<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.3</font>\nIskandar summons a rushing formation of cavalry at target location, rushing towards him, <font color='#FF3399'>stunning</font> and <font color='#58ACFA'>damaging</font> all enemies on the way.\nOnly one instance of damage could be received from this ability\n<font color='#F1C40F'>Upgradable by attribute Bond Beyond Time.</font>"
+        "DOTA_Tooltip_Ability_iskander_cavalry_Description" "<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.3</font>\nIskandar summons a rushing formation of cavalry at target location, rushing towards him, <font color='#FF3399'>stunning</font> and <font color='#58ACFA'>damaging</font> all enemies on the way.\nAfter hitting once, all other cavalry will deal only 30% of the damage to the target for 0.4 seconds.\n<font color='#F1C40F'>Upgradable by attribute Bond Beyond Time.</font>"
         "DOTA_Tooltip_Ability_iskander_cavalry_Lore"			"Striking enemies from behind is old but trusted strategy."
         "DOTA_Tooltip_Ability_iskander_cavalry_stun_duration"	"STUN DURATION:"
         "DOTA_Tooltip_Ability_iskander_cavalry_damage"			"DAMAGE:"
@@ -4935,7 +4935,7 @@
         "DOTA_Tooltip_Ability_iskander_attribute_improve_charisma_bonus_damage"		"%ATTACK DAMAGE:"
 
         "DOTA_Tooltip_Ability_iskander_attribute_thundergods_wrath"          "Attribute: Thundergod's Wrath"
-        "DOTA_Tooltip_ability_iskander_attribute_thundergods_wrath_Description"       "<font color='#58ACFA'>Gordius Wheel</font> inflicts additional <font color='#58ACFA'>damage</font> to enemies within small radius.\n<font color='#58ACFA'>Gordius Wheel</font> now can strike random nearby enemy with thunder every second.\nThunder inflicts percentage of target's current health as <font color='#58ACFA'>damage</font>, while <font color='#9400D3'>slowing</font> them down."
+        "DOTA_Tooltip_ability_iskander_attribute_thundergods_wrath_Description"       "<font color='#58ACFA'>Gordius Wheel</font> inflicts additional <font color='#58ACFA'>damage</font> to enemies within small radius.\n<font color='#58ACFA'>Gordius Wheel</font> now can strike random nearby enemy with thunder every second.\nThunder inflicts percentage of target's current health as <font color='#58ACFA'>damage</font>, while <font color='#9400D3'>slowing</font> them down.\nIncreases <font color='#58ACFA'>Thunder strike</font> damaged based on Iskandar's <font color='#1E90FF'>intellect</font>."
         "DOTA_Tooltip_Ability_iskander_attribute_thundergods_wrath_damage"          "STOMP DAMAGE:"
         "DOTA_Tooltip_Ability_iskander_attribute_thundergods_wrath_radius"          "STOMP RADIUS:"
         "DOTA_Tooltip_Ability_iskander_attribute_thundergods_wrath_thunder_damage"  "%THUNDER DAMAGE:"

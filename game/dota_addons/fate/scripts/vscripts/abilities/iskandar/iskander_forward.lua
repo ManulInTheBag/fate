@@ -62,13 +62,13 @@ function iskander_forward:OnSpellStart()
 			v:SetForwardVector(castVector)
 			
 			dot = castVector:Dot(v:GetRightVector())
+			if v.num == nil then v.num = 0 end
 			if dot > 0 then 
 				v.num = - v.num
 			end
 			local vector = (castVector*1200+v.num*rightvec*75):Normalized()
 			v:SetForwardVector(vector)
 			local speed = 1800
-			print(v.num )
 			v:AddNewModifier(caster,ability, "modifier_iskandar_infantry_rush", {duration = 0.5, speed =speed})
 			--v:AddNewModifier(caster,ability, "modifier_phased", {duration = 0.5})
 			StartAnimation(v, {duration=0.5, activity=ACT_DOTA_CAST_ABILITY_1, rate=1})
@@ -76,8 +76,7 @@ function iskander_forward:OnSpellStart()
 
 		end
 		if(v:GetUnitName() == "iskander_cavalry") and caster.IsBeyondTimeAcquired then
-			
-			caster:FindAbilityByName("iskander_cavalry"):Charge(radius, castVector)
+			caster:FindAbilityByName("iskander_cavalry"):Charge(radius, castVector, v)
 		end
 		if v ~= caster and v:IsHero() then
 			v:EmitSound("Hero_LegionCommander.Overwhelming.Location")

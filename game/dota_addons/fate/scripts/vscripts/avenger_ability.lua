@@ -155,7 +155,7 @@ function OnBashSuccess(keys)
 	local target = keys.target
 	local ability = keys.ability 
 
-	if caster:HasModifier("modifier_tawrich_crit") then return end
+	--if caster:HasModifier("modifier_tawrich_crit") then return end
 
 	local bash_damage = ability:GetSpecialValueFor("crit_multiplier")
 
@@ -278,13 +278,13 @@ function OnTZStart(keys)
 	local TZCount = 0
 	if IsSpellBlocked(keys.target) then return end	
 
-	local damage = keys.Damage + caster:GetAverageTrueAttackDamage(target)
 
-	caster:AddNewModifier(caster, ability, "modifier_tawrich_crit", { Duration = 1})
+
+	--caster:AddNewModifier(caster, ability, "modifier_tawrich_crit", { Duration = 1})
 
 	Timers:CreateTimer(0.033, function() 
 		if TZCount == 6 then 
-			caster:RemoveModifierByName("modifier_tawrich_crit")
+			--caster:RemoveModifierByName("modifier_tawrich_crit")
 			return 
 		end
 		caster:EmitSound("Hero_BountyHunter.Jinada")
@@ -295,8 +295,9 @@ function OnTZStart(keys)
 			ParticleManager:ReleaseParticleIndex( particle )
 		end)
 
-		caster:PerformAttack(target, true, true, true, true, false, false, false)
-
+		--caster:PerformAttack(target, true, true, true, true, false, false, false)
+		local damage = keys.Damage + caster:GetAverageTrueAttackDamage(target) * 0.75
+		DoDamage(caster, target, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
 		--[[if caster:HasModifier("modifier_murderous_instinct") and RandomInt(1, 100) < 35 then
 			DoDamage(caster, target, damage * 2, DAMAGE_TYPE_PHYSICAL, 0, keys.ability, false)
 		else

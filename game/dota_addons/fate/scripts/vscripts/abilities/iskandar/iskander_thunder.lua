@@ -29,9 +29,12 @@ function iskander_thunder:ThunderStrike(position)
 	local radius = self:GetSpecialValueFor("radius")
 	local slow_duration = self:GetSpecialValueFor("slow_duration")
 	local damage = self:GetSpecialValueFor("damage")
+	if caster.IsThundergodAcquired then 
+		damage = damage + caster:GetIntellect() * self:GetSpecialValueFor("damage_per_int")
+	 end
 	local targets = FindUnitsInRadius(caster:GetTeam(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
 	for k,v in pairs(targets) do
-	    v:AddNewModifier(caster, v, "iskander_thunder_slow", { Duration = slow_duration })
+	    v:AddNewModifier(caster, self, "iskander_thunder_slow", { duration = slow_duration })
 	    DoDamage(caster, v, damage , DAMAGE_TYPE_MAGICAL, 0, self, false)
 	end
 

@@ -105,6 +105,7 @@ function iskander_ionioi:OnSpellStart()
 		if infantrySpawnCounter == soldierCount then return end
 		local soldier = CreateUnitByName("iskander_infantry", firstRowPos + Vector(0, math.pow(-1,(infantrySpawnCounter+1))* infantrySpawnCounter*100,0), true, nil, nil, caster:GetTeamNumber())
 		soldier:SetForwardVector(Vector(-1,0,0))
+		soldier.num = infantrySpawnCounter * math.pow(-1,(infantrySpawnCounter+1))
 		--soldier:AddNewModifier(caster, nil, "modifier_phased", {})
 		soldier:SetOwner(caster)
 		soldier.IsAOTKSoldier = true
@@ -350,7 +351,7 @@ function iskander_ionioi:EndAOTK(caster)
 	if(caster:GetAbilityByIndex(5):GetName() == "iskandar_buc") then
 		caster:SwapAbilities("iskandar_gordius_wheel", "iskandar_buc", true, false)
 	 end
-	caster:SwapAbilities("fate_empty1", "iskander_summon_hephaestion", true, false)
+	caster:SwapAbilities("fate_empty1", "iskander_summon_hephaestion", not caster:FindAbilityByName("iskander_summon_hephaestion"):IsHidden(), false)
 	--caster:SwapAbilities("iskandar_gordius_wheel", "iskandar_arrow_bombard", false, true)
 	if(caster:GetAbilityByIndex(3):GetName() ~= "iskandar_charisma" and caster:GetAbilityByIndex(3):GetName() ~= "iskander_cavalry" ) then
 		caster:SwapAbilities("iskandar_charisma", caster:GetAbilityByIndex(3):GetName(), true, false) 
