@@ -643,6 +643,7 @@ tCannotDetect = {
     "npc_dota_hero_riki",
     "npc_dota_hero_skeleton_king",
     "npc_dota_hero_night_stalker",
+    "npc_dota_hero_phantom_assassin",
 }
 
 tDangerousBuffs = {
@@ -2767,10 +2768,6 @@ function CanBeDetected(hHero)
         if hHero:GetName() == tCannotDetect[i] then
             return false
         end
-    end
-
-    if hHero.SelflessKnowledgeAcquired then
-        return false
     end
     
     return true

@@ -112,7 +112,7 @@ function true_assassin_zabaniya:OnProjectileHit_ExtraData(hTarget, vLocation, ta
 	if caster.IsShadowStrikeAcquired then
 		curseDuration = curseDuration + self:GetSpecialValueFor("bonus_curse_duration")
 		--damage_type = DAMAGE_TYPE_PURE
-		damage = damage + caster:FindModifierByName("modifier_true_assassin_selfmod"):GetStackCount()*10
+		damage = damage + caster:FindModifierByName("modifier_true_assassin_selfmod"):GetStackCount()*5 + 50
 	end	
 	
 	DoDamage(caster, hTarget, damage, damage_type, 0, self, false)

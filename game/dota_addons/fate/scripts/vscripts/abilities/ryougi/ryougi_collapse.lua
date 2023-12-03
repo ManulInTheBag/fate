@@ -131,7 +131,8 @@ function ryougi_collapse:OnSpellStart()
 
 	local stacks = combo_enemy:FindModifierByName("modifier_ryougi_lines") and combo_enemy:FindModifierByName("modifier_ryougi_lines"):GetStackCount() or 0
 	stacks = stacks + line_count
-	local execute = damage_per_line*stacks
+	local execute = self:GetSpecialValueFor("execute")
+	damage = damage + stacks*damage_per_line
 
 	combo_enemy:RemoveModifierByName("modifier_ryougi_lines")
 
@@ -231,7 +232,7 @@ function ryougi_collapse:OnSpellStart()
 					eyes:CutLine(combo_enemy, "collapse_"..i)
 					EmitSoundOn("ryougi_hit", combo_enemy)
 					combo_enemy:RemoveModifierByName("modifier_ryougi_lines")
-					if combo_enemy:GetHealthPercent() < execute and not (combo_enemy:IsMagicImmune() or combo_enemy:HasModifier("modifier_avalon")) then
+					if caster.SelflessKnowledgeAcquired and combo_enemy:GetHealthPercent() < execute and not (combo_enemy:IsMagicImmune() or combo_enemy:HasModifier("modifier_avalon")) then
 						combo_enemy:Execute(self, caster, { bExecution = true })
 					end
 				end)

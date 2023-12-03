@@ -39,7 +39,7 @@ function modifier_tea_party_enemy:ReaperScythe()
 	giveUnitDataDrivenModifier(self:GetCaster(), target, "revoked", 1)
 	giveUnitDataDrivenModifier(self:GetCaster(), target, "silenced", 1)
 	target:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_tea_party_model", { Duration = 1})
-	Timers:CreateTimer(2, function()
+	Timers:CreateTimer(1, function()
 		if self then self.raped = false end
 	end)
 end

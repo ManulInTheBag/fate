@@ -57,7 +57,7 @@ function lu_bu_relentless_assault_two:OnSpellStart()
 				enemy:AddNewModifier(caster, self, "modifier_lu_bu_relentless_assault_two_armor_reduction", { Duration = armor_reduction_duration })
 
 				-- knockback if not having spear stun
-				if not enemy:HasModifier( "modifier_lu_bu_halberd_throw_debuff" ) then
+				if not enemy:HasModifier( "modifier_lu_bu_halberd_throw_debuff" ) and not IsKnockbackImmune(enemy) then
 					enemy:AddNewModifier(
 						caster, -- player source
 						self, -- ability source
@@ -104,7 +104,7 @@ function lu_bu_relentless_assault_two:OnSpellStart()
 				DoDamage(caster, enemy, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
 
 				-- knockback if not having spear stun
-				if not enemy:HasModifier( "modifier_lu_bu_halberd_throw_debuff" ) then
+				if not enemy:HasModifier( "modifier_lu_bu_halberd_throw_debuff" ) and not IsKnockbackImmune(enemy) then
 					enemy:AddNewModifier(
 						caster, -- player source
 						self, -- ability source

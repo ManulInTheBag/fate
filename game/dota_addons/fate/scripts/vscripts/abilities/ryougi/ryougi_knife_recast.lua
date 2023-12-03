@@ -49,7 +49,8 @@ function ryougi_knife_recast:OnSpellStart()
 	target = point + direction*150
 
 	local stacks = combo_enemy:FindModifierByName("modifier_ryougi_lines") and combo_enemy:FindModifierByName("modifier_ryougi_lines"):GetStackCount() or 0
-	local execute = damage_per_line*stacks
+	damage_second = damage_second + damage_per_line*stacks
+	local execute = self:GetSpecialValueFor("attr_execute")
 
 	combo_enemy:RemoveModifierByName("modifier_ryougi_knife_target")
 	combo_enemy:RemoveModifierByName("modifier_ryougi_lines")
@@ -113,7 +114,7 @@ function ryougi_knife_recast:OnSpellStart()
 			--combo_enemy:AddNewModifier(caster, self, "modifier_stunned", { Duration = 0.2 })
 			EmitSoundOn("ryougi_hit", combo_enemy)
 
-			if combo_enemy:GetHealthPercent() < execute and not (combo_enemy:IsMagicImmune() or combo_enemy:HasModifier("modifier_avalon")) then
+			if caster.SelflessKnowledgeAcquired and combo_enemy:GetHealthPercent() < execute and not (combo_enemy:IsMagicImmune() or combo_enemy:HasModifier("modifier_avalon")) then
 				combo_enemy:Execute(self, caster, { bExecution = true })
 			end
 

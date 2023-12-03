@@ -3755,7 +3755,7 @@
 
 
 		"DOTA_Tooltip_Ability_true_assassin_attribute_shadow_strike"						"Attribute: Shadow Strike"
-		"DOTA_Tooltip_ability_true_assassin_attribute_shadow_strike_Description"			"Increases damage dealt by Zabania by %zab_add_dmg% per Self Modification stack. Increases Zabaniya curse duration by %zab_curse_dur%.\nDelusional Illusion's Zabaniya gains increased damage."			
+		"DOTA_Tooltip_ability_true_assassin_attribute_shadow_strike_Description"			"Increases damage dealt by Zabania by %zab_bonus_damage% + %zab_add_dmg% per Self Modification stack. Increases Zabaniya curse duration by %zab_curse_dur%.\nDelusional Illusion's Zabaniya gains increased damage."			
 		//"DOTA_Tooltip_Ability_true_assassin_attribute_shadow_strike_zab_dmg_penalty"		"Zabaniya Damage Penalty:"
 		//"DOTA_Tooltip_Ability_true_assassin_attribute_shadow_strike_zab_curse_dur"			"Bonus Curse Duration:"
 		"DOTA_Tooltip_Ability_true_assassin_attribute_shadow_strike_combo_bonus_damage"		"Delusional Illusion Bonus Damage:"
@@ -6552,7 +6552,7 @@
         "DOTA_Tooltip_Ability_nursery_rhyme_queens_glass_game_old_upkeep_mana_cost"		"%UPKEEP MANA COST PER SEC:"
 
 	"DOTA_Tooltip_Ability_alice_tea_party"						"Combo: Alice Tea Party"
-        "DOTA_Tooltip_Ability_alice_tea_party_Description"				"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: R-D in 6 seconds</font>\n\nCaster uses her Reality Marble to start a tea party. Once it's started, all enemies inside the radius start gaining stacks of Memory Loss at a rapid rate. Whenever Memory Loss reaches 100 stacks, they lose all their memories, take damage, based on difference between their's and Caster's intellect and become <font color='#58ACFA'>silenced</font> and <font color='#58ACFA'>revoked</font> for 2 seconds.\nCaster also gains additional mana regeneration."
+        "DOTA_Tooltip_Ability_alice_tea_party_Description"				"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: R-D in 6 seconds</font>\n\nCaster uses her Reality Marble to start a tea party. Once it's started, all enemies inside the radius start gaining stacks of Memory Loss at a rapid rate. Whenever Memory Loss reaches 100 stacks, they lose all their memories, take damage, based on difference between their's and Caster's intellect and become <font color='#58ACFA'>silenced</font> and <font color='#58ACFA'>revoked</font> for 1 second."
 	"DOTA_Tooltip_Ability_alice_tea_party_radius"					"Radius:"
 	"DOTA_Tooltip_Ability_alice_tea_party_form_delay"				"Form delay:"
 	"DOTA_Tooltip_Ability_alice_tea_party_duration"					"Duration:"
@@ -7178,13 +7178,13 @@
 		"DOTA_Tooltip_modifier_ryougi_knife_target_Description"			"Is valid target for Bamboo Fence Melody"
 
 		"DOTA_Tooltip_ability_ryougi_knife_throw"					"Hidden Dagger (yang)"
-		"DOTA_Tooltip_ability_ryougi_knife_throw_Description"		"<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%cast_point%</font>\nShiki throws 1 dagger forward. It deals <font color='#58ACFA'>%damage%</font> magical damage to the first enemy.\n<font color='#FFFAFA'>Marks</font> the enemy hit for %mark_duration% seconds, allowing to cast <font color='#ff9900'>Bamboo Fence Melody</font> while the mark persists.\n<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%cast_point_2%</font>\n Dashes to the target hit with <font color='#ff9900'>Hidden Dagger (yang)</font>, dealing <font color='#D1A951'>%damage_first%</font> pure damage.\nAfter a small delay, dashes through the target again, microstunning it, dealing <font color='#D1A951'>%damage_second%</font> pure damage.\nIf enemy health drops below %damage_per_line%%  multiplied by their line count, they will be <font color='#FF3399'>executed</font>."
+		"DOTA_Tooltip_ability_ryougi_knife_throw_Description"		"<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%cast_point%</font>\nShiki throws 1 dagger forward. It deals <font color='#58ACFA'>%damage%</font> magical damage to the first enemy.\n<font color='#FFFAFA'>Marks</font> the enemy hit for %mark_duration% seconds, allowing to cast <font color='#ff9900'>Bamboo Fence Melody</font> while the mark persists.\n<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%cast_point_2%</font>\n Dashes to the target hit with <font color='#ff9900'>Hidden Dagger (yang)</font>, dealing <font color='#D1A951'>%damage_first%</font> pure damage.\nAfter a small delay, dashes through the target again, microstunning it, dealing <font color='#D1A951'>%damage_second%</font> pure damage + <font color='#D1A951'>%damage_per_line%</font> pure damage per line."
 		"DOTA_Tooltip_ability_ryougi_knife_throw_range"				"Range:"
 		"DOTA_Tooltip_ability_ryougi_knife_throw_speed"				"Speed:"
 		"DOTA_Tooltip_ability_ryougi_knife_throw_attribute_slow_duration"	"Attribute slow duration:"
 
 		"DOTA_Tooltip_ability_ryougi_knife_recast"					"Bamboo Fence Melody"
-		"DOTA_Tooltip_ability_ryougi_knife_recast_description"		"<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%cast_point%</font>\nDashes to the target hit with <font color='#ff9900'>Hidden Dagger (yang)</font>, dealing <font color='#D1A951'>%damage_first%</font> pure damage.\nAfter a small delay, dashes through the target again, microstunning it, dealing <font color='#D1A951'>%damage_second%</font> pure damage.\nIf enemy health drops below %damage_per_line%%  multiplied by their line count, they will be <font color='#FF3399'>executed</font>."
+		"DOTA_Tooltip_ability_ryougi_knife_recast_description"		"<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%cast_point%</font>\nDashes to the target hit with <font color='#ff9900'>Hidden Dagger (yang)</font>, dealing <font color='#D1A951'>%damage_first%</font> pure damage.\nAfter a small delay, dashes through the target again, microstunning it, dealing <font color='#D1A951'>%damage_second%</font> pure damage."
 
 
 		"DOTA_Tooltip_ability_ryougi_knife_fan"						"Hidden Dagger (ying)"
@@ -7229,14 +7229,14 @@
 		"DOTA_Tooltip_ability_ryougi_mystic_eyes_duration"					"Attribute duration:"
 
 		"DOTA_Tooltip_ability_ryougi_collapse"				"Combo: Mystic Eyes of Death Perception - Five Scenic Collapse"
-		"DOTA_Tooltip_ability_ryougi_collapse_Description"	"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: F-F in 4 seconds</font>\n<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%cast_point%</font>\nShiki dashes forward. If she dashes through an enemy hero, she will dash through him two more times, becoming <font color='#FFFAFA'>invulnerable</font>, and then slash him %line_count% times, cutting %line_count% lines and dealing <font color='#D1A951'>%damage%</font> total pure damage.\nIf enemy health drops below %damage_per_line%%  multiplied by their line count, they will be <font color='#FF3399'>executed</font>."
+		"DOTA_Tooltip_ability_ryougi_collapse_Description"	"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: F-F in 4 seconds</font>\n<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%cast_point%</font>\nShiki dashes forward. If she dashes through an enemy hero, she will dash through him two more times, becoming <font color='#FFFAFA'>invulnerable</font>, and then slash him %line_count% times, cutting %line_count% lines and dealing <font color='#D1A951'>%damage%</font> + <font color='#D1A951'>%damage_per_line%</font> multiplied by their line count total pure damage."
 		"DOTA_Tooltip_ability_ryougi_collapse_range"		"Range:"
 
 		"DOTA_Tooltip_ability_ryougi_demise_attribute"		"Attribute: Mystic Eyes of Death Perception - Seven Scenic Demise"
 		"DOTA_Tooltip_ability_ryougi_demise_attribute_Description"		"Using Mystic Eyes of Death Perception taught Shiki a bit about weak points. Each time she deals damage with her knife, she also deals <font color='#D1A951'>%damage% + %mult%</font> of Shiki's <font color='#00FF00'>agility</font> <font color='#D1A951'>pure</font> damage."
 
 		"DOTA_Tooltip_ability_ryougi_selfless_knowledge_attribute"		"Attribute: Selfless Knowledge - Empty Heart, Possess Truth"
-		"DOTA_Tooltip_ability_ryougi_selfless_knowledge_attribute_Description"		"Changes Shiki's class to assassin.\nEnemies under 4 or more lines cut are visible to Shiki."
+		"DOTA_Tooltip_ability_ryougi_selfless_knowledge_attribute_Description"		"Bamboo Fence Melody <font color='#FF3399'>executes</font> enemies that drop under %execute%%  maximum health with it's last strike.\nCombo - Five Scenic Collapse <font color='#FF3399'>executes</font> enemies that drop under %collapse_execute%%  maximum health.\nEnemies under 4 or more lines cut are visible to Shiki."
 
 		"DOTA_Tooltip_ability_ryougi_pure_knowledge_attribute"		"Attribute: Pure Knowledge - Empty Boundaries"
 		"DOTA_Tooltip_ability_ryougi_pure_knowledge_attribute_Description"		"Activating Mystic Eyes of Death Perception grants Shiki true sight in small range and additional vision radius for 3 seconds."

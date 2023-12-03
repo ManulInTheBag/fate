@@ -105,31 +105,33 @@ function lu_bu_halberd_throw:OnProjectileHit_ExtraData(target, vLocation, tData)
 
 	-- get the direction where target will be pushed back to
 	local vectorB = self.direction - vectorA
-	target:SetPhysicsVelocity(vectorB:Normalized() * 1750)
-    target:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
-	local initialUnitOrigin = target:GetAbsOrigin()
-	
-	target:OnPhysicsFrame(function(unit) -- pushback distance check
-		local unitOrigin = unit:GetAbsOrigin()
-		local diff = unitOrigin - initialUnitOrigin
-		local n_diff = diff:Normalized()
-		unit:SetPhysicsVelocity(unit:GetPhysicsVelocity():Length() * n_diff) -- track the movement of target being pushed back
-		if diff:Length() > 500 then -- if pushback distance is over 500, stop it
+	if not IsKnockbackImmune(target) then
+		target:SetPhysicsVelocity(vectorB:Normalized() * 1750)
+	    target:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
+		local initialUnitOrigin = target:GetAbsOrigin()
+		
+		target:OnPhysicsFrame(function(unit) -- pushback distance check
+			local unitOrigin = unit:GetAbsOrigin()
+			local diff = unitOrigin - initialUnitOrigin
+			local n_diff = diff:Normalized()
+			unit:SetPhysicsVelocity(unit:GetPhysicsVelocity():Length() * n_diff) -- track the movement of target being pushed back
+			if diff:Length() > 500 then -- if pushback distance is over 500, stop it
+				unit:PreventDI(false)
+				unit:SetPhysicsVelocity(Vector(0,0,0))
+				unit:OnPhysicsFrame(nil)
+				FindClearSpaceForUnit(unit, unit:GetAbsOrigin(), true)
+			end
+		end)
+		
+		target:OnPreBounce(function(unit, normal) -- stop the pushback when unit hits wall
+			unit:SetBounceMultiplier(0)
 			unit:PreventDI(false)
 			unit:SetPhysicsVelocity(Vector(0,0,0))
-			unit:OnPhysicsFrame(nil)
-			FindClearSpaceForUnit(unit, unit:GetAbsOrigin(), true)
-		end
-	end)
-	
-	target:OnPreBounce(function(unit, normal) -- stop the pushback when unit hits wall
-		unit:SetBounceMultiplier(0)
-		unit:PreventDI(false)
-		unit:SetPhysicsVelocity(Vector(0,0,0))
-		target:AddNewModifier(caster, target, "modifier_stunned", { Duration = wall_stun })
-		--giveUnitDataDrivenModifier(caster, target, "stunned",  WallStun)
-		DoDamage(caster, unit, wall_bonus_damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
-	end)
+			target:AddNewModifier(caster, target, "modifier_stunned", { Duration = wall_stun })
+			--giveUnitDataDrivenModifier(caster, target, "stunned",  WallStun)
+			DoDamage(caster, unit, wall_bonus_damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+		end)
+	end
 end
 
 function lu_bu_halberd_throw:OnUpgrade()

@@ -116,28 +116,31 @@ function lu_bu_relentless_assault_four:OnProjectileHit_ExtraData(hTarget, vLocat
 	
 	DoDamage(hCaster, hTarget, collide_damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
 	hTarget:AddNewModifier(caster, self, "modifier_lu_bu_relentless_assault_four_silence", { Duration = silence_duration })
-	
-	local sin = Physics:Unit(hTarget)
-	hTarget:SetPhysicsFriction(0)
-	hTarget:SetPhysicsVelocity((hCaster:GetAbsOrigin() + hTarget:GetAbsOrigin()):Normalized() * (pull_distance / 0.25))
-	hTarget:SetNavCollisionType(PHYSICS_NAV_BOUNCE)	
 
-	hTarget:OnPhysicsFrame(function(unit) 									 -- pushback distance check
-		local unitOrigin = unit:GetAbsOrigin()
-		local diff = unitOrigin - initialUnitOrigin
-		local n_diff = diff:Normalized()
-		unit:SetPhysicsVelocity(unit:GetPhysicsVelocity():Length() * n_diff) -- track the movement of target being pushed back
-		if diff:Length() > pull_distance then 								 -- if pushback distance is over 400, stop it
+	if not IsKnockbackImmune(hTarget) then
+	
+		local sin = Physics:Unit(hTarget)
+		hTarget:SetPhysicsFriction(0)
+		hTarget:SetPhysicsVelocity((hCaster:GetAbsOrigin() + hTarget:GetAbsOrigin()):Normalized() * (pull_distance / 0.25))
+		hTarget:SetNavCollisionType(PHYSICS_NAV_BOUNCE)	
+
+		hTarget:OnPhysicsFrame(function(unit) 									 -- pushback distance check
+			local unitOrigin = unit:GetAbsOrigin()
+			local diff = unitOrigin - initialUnitOrigin
+			local n_diff = diff:Normalized()
+			unit:SetPhysicsVelocity(unit:GetPhysicsVelocity():Length() * n_diff) -- track the movement of target being pushed back
+			if diff:Length() > pull_distance then 								 -- if pushback distance is over 400, stop it
+				unit:PreventDI(false)
+				unit:SetPhysicsVelocity(Vector(0,0,0))
+				unit:OnPhysicsFrame(nil)
+				FindClearSpaceForUnit(unit, unit:GetAbsOrigin(), true)
+			end
+		end)		
+		
+		hTarget:OnPreBounce(function(unit, normal) 								 -- stop the pushback when unit hits wall
+			unit:SetBounceMultiplier(0)
 			unit:PreventDI(false)
 			unit:SetPhysicsVelocity(Vector(0,0,0))
-			unit:OnPhysicsFrame(nil)
-			FindClearSpaceForUnit(unit, unit:GetAbsOrigin(), true)
-		end
-	end)		
-	
-	hTarget:OnPreBounce(function(unit, normal) 								 -- stop the pushback when unit hits wall
-		unit:SetBounceMultiplier(0)
-		unit:PreventDI(false)
-		unit:SetPhysicsVelocity(Vector(0,0,0))
-	end)
+		end)
+	end
 end
