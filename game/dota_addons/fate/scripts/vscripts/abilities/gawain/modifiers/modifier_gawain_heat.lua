@@ -54,7 +54,7 @@ if IsServer() then
 			stacks = modifier:GetStackCount()
 		end
 	 
-
+		
 
 
 		damage = damage + (damage * stacks)

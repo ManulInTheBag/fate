@@ -27,7 +27,7 @@ function pepeg_jump:OnSpellStart()
     end)
     else
         local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 300, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_HERO, 0, FIND_CLOSEST, false)
-        print (targets[2])
+        --print (targets[2])
         if targets[2] then
             targets[2]:AddNewModifier(caster, self, "modifier_pepeg_jump", {Berserked = false})
             LoopOverPlayers(function(player, playerID, playerHero)
@@ -297,7 +297,8 @@ function modifier_pepeg_jump_bers:PlayEffects()
                 DoDamage(self.caster, enemy, self.percent_damage, DAMAGE_TYPE_PURE, 0, self:GetAbility(), false)
                 CustomNetTables:SetTableValue("sync","pepe_slow" .. enemy:GetName(), { slow = -1*self:GetAbility():GetSpecialValueFor("slow") })
                 enemy:AddNewModifier(self.caster, self, "modifier_pepe_slow", {duration = 2})
-                enemy:AddNewModifier(self.caster, self, "modifier_pepe_mute", {duration = self:GetAbility():GetSpecialValueFor("mute_duration")})
+                giveUnitDataDrivenModifier(self.caster, enemy, "locked", self:GetAbility():GetSpecialValueFor("mute_duration"))
+                --enemy:AddNewModifier(self.caster, self, "modifier_pepe_mute", {duration = self:GetAbility():GetSpecialValueFor("mute_duration")})
             end
         end
         if (self.parent:GetTeamNumber() ~= self.caster:GetTeamNumber()) then
@@ -308,7 +309,8 @@ function modifier_pepeg_jump_bers:PlayEffects()
             DoDamage(self.caster, self.parent, self.percent_damage, DAMAGE_TYPE_PURE, 0, self:GetAbility(), false)
             CustomNetTables:SetTableValue("sync","pepe_slow" .. self.parent:GetName(), { slow = -1*self:GetAbility():GetSpecialValueFor("target_slow") })
             self.parent:AddNewModifier(self.caster, self, "modifier_pepe_slow", {duration = 2})
-            self.parent:AddNewModifier(self.caster, self, "modifier_pepe_mute", {duration = self:GetAbility():GetSpecialValueFor("mute_duration")})
+            giveUnitDataDrivenModifier(self.caster, self.parent, "locked", self:GetAbility():GetSpecialValueFor("mute_duration"))
+            --self.parent:AddNewModifier(self.caster, self, "modifier_pepe_mute", {duration = self:GetAbility():GetSpecialValueFor("mute_duration")})
         end
     end
 end
@@ -510,7 +512,8 @@ function modifier_pepeg_jump:PlayEffects()
                 DoDamage(self.caster, enemy, self.percent_damage, DAMAGE_TYPE_PURE, 0, self:GetAbility(), false)
                 CustomNetTables:SetTableValue("sync","pepe_slow" .. enemy:GetName(), { slow = -1*self:GetAbility():GetSpecialValueFor("slow") })
                 enemy:AddNewModifier(self.caster, self, "modifier_pepe_slow", {duration = 2})
-                enemy:AddNewModifier(self.caster, self, "modifier_pepe_mute", {duration = self:GetAbility():GetSpecialValueFor("mute_duration")})
+                giveUnitDataDrivenModifier(self.caster, enemy, "locked", self:GetAbility():GetSpecialValueFor("mute_duration"))
+                --enemy:AddNewModifier(self.caster, self, "modifier_pepe_mute", {duration = self:GetAbility():GetSpecialValueFor("mute_duration")})
             end
         end
         if (self.parent:GetTeamNumber() ~= self.caster:GetTeamNumber()) then
@@ -521,7 +524,8 @@ function modifier_pepeg_jump:PlayEffects()
             DoDamage(self.caster, self.parent, self.percent_damage, DAMAGE_TYPE_PURE, 0, self:GetAbility(), false)
             CustomNetTables:SetTableValue("sync","pepe_slow" .. self.parent:GetName(), { slow = -1*self:GetAbility():GetSpecialValueFor("target_slow") })
             self.parent:AddNewModifier(self.caster, self, "modifier_pepe_slow", {duration = 2})
-            self.parent:AddNewModifier(self.caster, self, "modifier_pepe_mute", {duration = self:GetAbility():GetSpecialValueFor("mute_duration")})
+            giveUnitDataDrivenModifier(self.caster, self.parent, "locked", self:GetAbility():GetSpecialValueFor("mute_duration"))
+            --self.parent:AddNewModifier(self.caster, self, "modifier_pepe_mute", {duration = self:GetAbility():GetSpecialValueFor("mute_duration")})
         end
     end
 end

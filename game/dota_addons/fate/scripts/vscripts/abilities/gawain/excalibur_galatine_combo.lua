@@ -21,6 +21,37 @@ function gawain_excalibur_galatine_combo:OnSpellStart()
     masterCombo:StartCooldown(ability:GetCooldown(1))
     caster:AddNewModifier(caster, self, "modifier_galatine_combo_cd", {duration = ability:GetCooldown(1)})
 
+
+
+    ------Activating Meltdown
+    if caster.IsMeltdownAcquired then
+        local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 20000, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false) 
+        for k,v in pairs(targets) do
+            if v:GetUnitName() == "gawain_artificial_sun" then
+    
+                v:AddNewModifier(caster,self,"modifier_meltdown", {duration = 5})
+                v:FindModifierByNameAndCaster("modifier_gawain_sun_passive", v):Meltdown()
+                v:RemoveModifierByName("modifier_artificial_sun_aura")
+                v:EmitSound("Hero_DoomBringer.ScorchedEarthAura")
+                v:EmitSound("Hero_Warlock.RainOfChaos_buildup" )
+                v.metldownFx = ParticleManager:CreateParticle("particles/custom/gawain/gawain_meltdown.vpcf", PATTACH_ABSORIGIN_FOLLOW, v )
+                ParticleManager:SetParticleControl( v.metldownFx, 0, v:GetAbsOrigin())
+                Timers:CreateTimer(5.0, function()
+                    if IsValidEntity(v) and v:IsAlive() then
+                        ParticleManager:DestroyParticle( v.metldownFx, true )
+                        ParticleManager:ReleaseParticleIndex( v.metldownFx )
+                    end
+                    StopSoundOn("Hero_DoomBringer.ScorchedEarthAura", v)
+                end)
+            end
+        end
+    end
+
+
+
+
+    ------
+
     local abilityW = caster:GetAbilityByIndex(1)
     ParticleManager:DestroyParticle( abilityW.bladefx, false )
     ParticleManager:ReleaseParticleIndex( abilityW.bladefx )

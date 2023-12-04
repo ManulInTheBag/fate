@@ -10,8 +10,8 @@ function modifier_cosmic_orbit:OnCreated(keys)
 		self.AttackSpeedBonus = keys.AttackSpeedBonus
 
 		if caster.bIsMartialArtsImproved then 
-			self.BonusDamage = keys.BonusDamage * 1.25 
-			self:SetStackCount(keys.Stacks + 2)
+			self.BonusDamage = keys.BonusDamage * 1.1 
+			self:SetStackCount(keys.Stacks + 1)
 		else
 			self.BonusDamage = keys.BonusDamage
 			self:SetStackCount(keys.Stacks)

@@ -4,8 +4,8 @@ function modifier_pc_bonus_damage:OnCreated(keys)
 	local caster = self:GetParent()
 	if IsServer() then
 		if caster.bIsMartialArtsImproved then 
-			self.BonusDamage = keys.BonusDamage * 1.25 
-			self:SetStackCount(keys.AttackCount + 2)
+			self.BonusDamage = keys.BonusDamage * 1.1 
+			self:SetStackCount(keys.AttackCount + 1)
 		else
 			self.BonusDamage = keys.BonusDamage
 			self:SetStackCount(keys.AttackCount)
@@ -34,7 +34,6 @@ function modifier_pc_bonus_damage:OnAttackLanded(keys)
 		else
 			self:Destroy()
 		end
-
 		--if caster:HasModifier("modifier_berserk") then return end
 		DoDamage(caster, target, self.BonusDamage, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
 	end

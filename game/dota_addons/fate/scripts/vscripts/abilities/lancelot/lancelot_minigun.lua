@@ -21,7 +21,7 @@ function lancelot_minigun:GetCastPoint()
         return 0
     end
 
-    return 1
+    return 0.3
 end
 function lancelot_minigun:GetCastAnimation()
     local caster = self:GetCaster()
