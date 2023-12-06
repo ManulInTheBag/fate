@@ -51,7 +51,7 @@ end
 function modifier_lu_bu_rebellious_spirit:DeclareFunctions()
 	local funcs = {
 		MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
-		MODIFIER_PROPERTY_MODEL_SCALE,
+		--MODIFIER_PROPERTY_MODEL_SCALE,
 		MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
 	}
 
@@ -70,7 +70,7 @@ function modifier_lu_bu_rebellious_spirit:GetModifierConstantManaRegen()
 	return (1-pct)*self.max_mana*self:GetParent():GetMaxMana()
 end
 
-function modifier_lu_bu_rebellious_spirit:GetModifierModelScale()
+--[[function modifier_lu_bu_rebellious_spirit:GetModifierModelScale()
 	if IsServer() then
 		local pct = math.max((self:GetParent():GetHealthPercent()-self.max_threshold)/self.range,0)
 
@@ -79,7 +79,7 @@ function modifier_lu_bu_rebellious_spirit:GetModifierModelScale()
 
 		return (1-pct)*self.max_size
 	end
-end
+end]]
 --------------------------------------------------------------------------------
 -- Graphics & Animations
 function modifier_lu_bu_rebellious_spirit:PlayEffects()

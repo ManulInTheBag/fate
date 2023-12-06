@@ -415,7 +415,7 @@ function jtr_mtr_new:PerformSlash(caster, target, delay)
 
 	if caster:HasModifier("modifier_efficient_killer") then
 		damage = damage + caster:GetAgility() * (IsFemaleServant(target) and 0.9 or 0.75)
-		target:AddNewModifier(caster, self, "modifier_stunned", { Duration = 0.1 })
+		--target:AddNewModifier(caster, self, "modifier_stunned", { Duration = 0.1 })
 	end
 
 	--caster:SetAbsOrigin(target:GetAbsOrigin() - diff * 100) 
@@ -501,7 +501,7 @@ function jtr_mtr_new:PerformEmpoweredSlash(caster, target, delay)
 
 		if target and target:IsAlive() then
 			if caster:HasModifier("modifier_efficient_killer") then
-				target:AddNewModifier(caster, self, "modifier_stunned", { Duration = 0.1 })
+				--target:AddNewModifier(caster, self, "modifier_stunned", { Duration = 0.1 })
 			end
 			DoDamage(caster, target, damage, DAMAGE_TYPE_PURE, DOTA_DAMAGE_FLAG_NONE, self, false)
 		end
