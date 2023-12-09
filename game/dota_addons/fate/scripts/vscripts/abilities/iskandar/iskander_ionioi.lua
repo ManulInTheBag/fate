@@ -286,9 +286,9 @@ function iskander_ionioi:OnAOTKStart()
 					aotkTargets[i]:AddNewModifier(caster, self, "modifier_silence", {duration = 2})
 				end
 				
-				if aotkTargets[i]:GetName() == "npc_dota_hero_bounty_hunter" or aotkTargets[i]:GetName() == "npc_dota_hero_riki" then
+				--if aotkTargets[i]:GetName() == "npc_dota_hero_bounty_hunter" or aotkTargets[i]:GetName() == "npc_dota_hero_riki" then
 	                aotkTargets[i]:AddNewModifier(caster, ability, "modifier_inside_marble", { Duration = 16 })
-	            end
+	            --end
 
 				aotkTargetPos = aotkTargets[i]:GetAbsOrigin()
 		        aotkTargetLoc[i] = aotkTargetPos
@@ -395,9 +395,9 @@ function iskander_ionioi:EndAOTK(caster)
 			units[i]:RemoveModifierByName("modifier_aestus_domus_aurea_ally")
 			units[i]:RemoveModifierByName("modifier_aestus_domus_aurea_nero")
 
-			if units[i]:GetName() == "npc_dota_hero_bounty_hunter" or units[i]:GetName() == "npc_dota_hero_riki" then
+			--if units[i]:GetName() == "npc_dota_hero_bounty_hunter" or units[i]:GetName() == "npc_dota_hero_riki" then
                 units[i]:RemoveModifierByName("modifier_inside_marble")
-            end
+            --end
 
 			if units[i]:GetName() == "npc_dota_hero_ember_spirit" and units[i]:HasModifier("modifier_unlimited_bladeworks") then
 				units[i]:RemoveModifierByName("modifier_unlimited_bladeworks")
@@ -440,6 +440,81 @@ function iskander_ionioi:EndAOTK(caster)
 	    	end
 	    end
     end
+
+    local timers = 0
+    Timers:CreateTimer("aotk_end_fix", {
+            endTime = 0.5,
+            callback = function()
+                timers = timers+1
+                local units = FindUnitsInRadius(caster:GetTeam(), aotkCenter, nil, 1800, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
+ 
+			    for i=1, #units do
+			    	if IsValidEntity(units[i]) and not units[i]:IsNull() then
+						if string.match(units[i]:GetUnitName(),"dummy") then 
+							table.remove(units, i)
+						end
+					end
+				end
+
+			    for i=1, #units do
+			    	if IsValidEntity(units[i]) and not units[i]:IsNull() then 
+				    	ProjectileManager:ProjectileDodge(units[i])
+				    	-- If unit is Archer and UBW is active, deactive it as well
+
+				    	units[i]:RemoveModifierByName("modifier_aestus_domus_aurea_enemy")
+						units[i]:RemoveModifierByName("modifier_aestus_domus_aurea_ally")
+						units[i]:RemoveModifierByName("modifier_aestus_domus_aurea_nero")
+
+						--if units[i]:GetName() == "npc_dota_hero_bounty_hunter" or units[i]:GetName() == "npc_dota_hero_riki" then
+			                units[i]:RemoveModifierByName("modifier_inside_marble")
+			            --end
+
+						if units[i]:GetName() == "npc_dota_hero_ember_spirit" and units[i]:HasModifier("modifier_unlimited_bladeworks") then
+							units[i]:RemoveModifierByName("modifier_unlimited_bladeworks")
+						end
+						if units[i]:HasModifier("modifier_annihilate_mute") then
+							units[i]:RemoveModifierByName("modifier_annihilate_mute")
+						end
+
+				    	local IsUnitGeneratedInAOTK = true
+				    	if aotkTargets ~= nil then
+					    	for j=1, #aotkTargets do
+					    		if IsValidEntity(aotkTargets[j]) and not aotkTargets[j]:IsNull() then
+						    		if units[i] == aotkTargets[j] then
+						    			if aotkTargets[j] ~= nil then
+						    				units[i]:SetAbsOrigin(aotkTargetLoc[j]) 
+						    			end
+						    			FindClearSpaceForUnit(units[i], units[i]:GetAbsOrigin(), true)
+						    			Timers:CreateTimer(0.1, function() 
+						    				if IsValidEntity(units[i]) and not units[i]:IsNull() then 
+												units[i]:AddNewModifier(units[i], units[i], "modifier_camera_follow", {duration = 1.0})
+											end
+										end)
+						    			IsUnitGeneratedInAOTK = false
+						    			break 
+						    		end
+						    	end
+					    	end 
+				    	end
+				    	if IsUnitGeneratedInAOTK then
+				    		diff = aotkCenter - units[i]:GetAbsOrigin()
+				    		if aotkCasterPos ~= nil then 
+				    			units[i]:SetAbsOrigin(aotkCasterPos - diff * 0.7)
+				    		end
+				    		FindClearSpaceForUnit(units[i], units[i]:GetAbsOrigin(), true) 
+							Timers:CreateTimer(0.1, function() 
+								if IsValidEntity(units[i]) and not units[i]:IsNull() then
+									units[i]:AddNewModifier(units[i], units[i], "modifier_camera_follow", {duration = 1.0})
+								end
+							end)
+				    	end
+				    end
+			    end
+                if timers < 4 then
+                    return 0.5
+                end
+            end
+        })
 
     aotkTargets = nil
     aotkTargetLoc = nil
