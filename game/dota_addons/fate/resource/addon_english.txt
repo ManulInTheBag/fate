@@ -4370,7 +4370,7 @@
         "DOTA_Tooltip_ability_avenger_murderous_instinct_mana_regen_percentage_herokill"	"%MANA REGEN PER HERO KILL:"
  
         "DOTA_Tooltip_Ability_avenger_tawrich_zarich"				"Tawrich Zarich"
-        "DOTA_Tooltip_ability_avenger_tawrich_zarich_Description"	"Swiftly strikes target with twin daggers %num_attacks% times, dealing <font color='#A72E28'>physical damage</font>, <font color='#FF3399'>slowing</font>, rendering target <font color='#FF3399'>silenced</font> and <font color='#FF3399'>disarmed</font>.\nEach strike damage is increased by 0.75 of Angra's <font color='#A72E28'>attack</font>.\n<font color='#FF6600'>This ability affects the level of Vengeance Mark in True Form.</font>"
+        "DOTA_Tooltip_ability_avenger_tawrich_zarich_Description"	"Swiftly strikes target with twin daggers %num_attacks% times, dealing <font color='#A72E28'>physical damage</font>, <font color='#FF3399'>slowing</font>, rendering target <font color='#FF3399'>silenced</font> and <font color='#FF3399'>disarmed</font>.\nEach strike damage is increased by 0.5 of Angra's <font color='#A72E28'>attack</font>.\n<font color='#FF6600'>This ability affects the level of Vengeance Mark in True Form.</font>"
         "DOTA_Tooltip_ability_avenger_tawrich_zarich_Lore"			"Avenger's Twin daggers resemble the teeth of animal, optimized for snatching the foe's weapon and effectively disarming them."
         //"DOTA_Tooltip_ability_avenger_tawrich_zarich_crit_dmg"		"%Critical Damage:" 
         "DOTA_Tooltip_ability_avenger_tawrich_zarich_duration"		"SILENCE AND DISARM DURATION:" 
@@ -5168,7 +5168,7 @@
 		"DOTA_Tooltip_Ability_khsn_azrael_health_threshold"	"%Execution threshold:"
 
 		"DOTA_Tooltip_Ability_khsn_combo"	"Combo - The Angel That Announces Death, Azrael"
-		"DOTA_Tooltip_Ability_khsn_combo_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : W-W-D in 3 seconds</font>\nKing Hassan starts an execution of the target enemy, dealing a huge amount of magic damage over time. After a delay, teleports to the enemy and deals huge amount of pure damage based on how much damage was stored at enemy's Death's Door.\nExecutes the target with the final strike if it's health falls to low.\nKing Hassan is invulnerable while using this ability."
+		"DOTA_Tooltip_Ability_khsn_combo_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : Q-Q-D in 3 seconds</font>\nKing Hassan starts an execution of the target enemy, dealing a huge amount of magic damage over time. After a delay, teleports to the enemy and deals huge amount of pure damage based on how much damage was stored at enemy's Death's Door.\nExecutes the target with the final strike if it's health falls to low.\nKing Hassan is invulnerable while using this ability."
 		"DOTA_Tooltip_Ability_khsn_combo_damage"	"Base damage:"
 		"DOTA_Tooltip_Ability_khsn_combo_dmg_percent"	"%Death's Door stored damage multiplier:"
 		"DOTA_Tooltip_Ability_khsn_combo_health_threshold"	"%Execution threshold:"

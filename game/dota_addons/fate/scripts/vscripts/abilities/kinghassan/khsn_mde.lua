@@ -21,26 +21,15 @@ function khsn_mde:OnSpellStart()
 	caster:AddNewModifier(caster, self, "modifier_khsn_mde_active", {duration = self:GetSpecialValueFor("duration")})
 	caster:EmitSound("Hero_Necrolyte.SpiritForm.Cast")
 	--caster:Heal(self:GetSpecialValueFor("heal"), caster)
-	if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 and caster:GetIntellect() >= 29.1 then		
-		if caster:FindAbilityByName("khsn_azrael"):IsCooldownReady() 
-			and caster:FindAbilityByName("khsn_combo"):IsCooldownReady()  
-	    	and caster:GetAbilityByIndex(3):GetName() == "khsn_azrael" then
-			caster:SwapAbilities("khsn_mde", "khsn_mde_end", false, true)
-			Timers:CreateTimer(3, function()
-				if caster:GetAbilityByIndex(1):GetName() ~= "khsn_mde" then
-					caster:SwapAbilities("khsn_mde", "khsn_mde_end", true, false)
-				end
-			end)
-		end
-	end
+	
 end
 
 khsn_mde_end = class({})
 
-function khsn_mde_end:OnSpellStart()
+function khsn_mde_end:OnSpellStart()--combo is now on Q
 	local caster = self:GetCaster()
 	caster:SwapAbilities("khsn_azrael", "khsn_combo", false, true)
-	caster:SwapAbilities("khsn_mde_end", "khsn_mde", false, true)
+	caster:SwapAbilities("khsn_mde_end", "khsn_ambush", false, true)
 	Timers:CreateTimer(3, function()
 		caster:SwapAbilities("khsn_azrael", "khsn_combo", true, false)
 	end)

@@ -296,7 +296,7 @@ function OnTZStart(keys)
 		end)
 
 		--caster:PerformAttack(target, true, true, true, true, false, false, false)
-		local damage = keys.Damage + caster:GetAverageTrueAttackDamage(target) * 0.75
+		local damage = keys.Damage + caster:GetAverageTrueAttackDamage(target) * 0.5
 		DoDamage(caster, target, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
 		--[[if caster:HasModifier("modifier_murderous_instinct") and RandomInt(1, 100) < 35 then
 			DoDamage(caster, target, damage * 2, DAMAGE_TYPE_PHYSICAL, 0, keys.ability, false)

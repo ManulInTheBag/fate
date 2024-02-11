@@ -48,7 +48,8 @@ function modifier_lu_bu_rage:RemoveOnDeath() return false end
 function modifier_lu_bu_rage:DeclareFunctions()
 	return {MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
 			MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
-			MODIFIER_PROPERTY_OVERRIDE_ANIMATION }
+			MODIFIER_PROPERTY_OVERRIDE_ANIMATION
+		 }
 end
 
 function modifier_lu_bu_rage:CheckState()

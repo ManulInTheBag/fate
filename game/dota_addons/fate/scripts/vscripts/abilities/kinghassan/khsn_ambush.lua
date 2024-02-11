@@ -14,6 +14,18 @@ function khsn_ambush:OnSpellStart()
 			caster:AddNewModifier(caster, self, "modifier_khsn_ambush", {duration = self:GetSpecialValueFor("duration")})
 		end
 	--end)
+    if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 and caster:GetIntellect() >= 29.1 then		
+		if caster:FindAbilityByName("khsn_azrael"):IsCooldownReady() 
+			and caster:FindAbilityByName("khsn_combo"):IsCooldownReady()  
+	    	and caster:GetAbilityByIndex(3):GetName() == "khsn_azrael" then
+			caster:SwapAbilities("khsn_ambush", "khsn_mde_end", false, true)
+			Timers:CreateTimer(3, function()
+				if caster:GetAbilityByIndex(0):GetName() ~= "khsn_ambush" then
+					caster:SwapAbilities("khsn_ambush", "khsn_mde_end", true, false)
+				end
+			end)
+		end
+	end
 end
 
 khsn_ambush_blink = class({})
@@ -122,7 +134,7 @@ if IsServer() then
 
     function modifier_khsn_ambush:OnAbilityFullyCast(args)
         if args.unit == self:GetParent() then
-        	if args.ability:GetName() ~= "khsn_ambush" then
+        	if args.ability:GetName() ~= "khsn_ambush" and args.ability:GetName() ~= "khsn_mde_end" then
             	self:Destroy()
             end
         end
@@ -131,9 +143,9 @@ if IsServer() then
     function modifier_khsn_ambush:OnDestroy()
         local caster = self:GetParent()
         
-        if not (caster:GetAbilityByIndex(0):GetName() == "khsn_ambush") then
-        	caster:SwapAbilities("khsn_ambush", "khsn_ambush_blink", true, false)
-        end
+        --if not (caster:GetAbilityByIndex(0):GetName() == "khsn_ambush") then
+        --	caster:SwapAbilities("khsn_ambush", "khsn_ambush_blink", true, false)
+        --end
         if caster.BoundaryAcquired then
         	caster:AddNewModifier(caster, self:GetAbility(), "modifier_khsn_ambush_as", {duration = self:GetAbility():GetSpecialValueFor("attr_duration")})
         end

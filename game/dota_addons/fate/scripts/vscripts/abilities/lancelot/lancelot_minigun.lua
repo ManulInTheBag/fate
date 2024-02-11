@@ -68,6 +68,9 @@ function lancelot_minigun:OnProjectileHit_ExtraData(hTarget, vLocation, hTable)
         EmitSoundOnLocationWithCaster(vLocation, "lancelot_minigun_impact_"..RandomInt(1, 2), self:GetCaster())
         return
     end
+    if (hTarget:GetName() == "npc_dota_ward_base") then
+        return
+    end
 
     --print("hit", hTarget)
     local hCaster = self:GetCaster()
