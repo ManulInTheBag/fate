@@ -11,7 +11,7 @@ function emiya_double_slash:OnUpgrade()
     end
 
 end
-
+ 
 
 function emiya_double_slash:OnSpellStart()
 	local caster = self:GetCaster()
@@ -30,12 +30,13 @@ function emiya_double_slash:OnSpellStart()
     local damage = self:GetSpecialValueFor("damage")
 	--StartAnimation(caster, {duration= 0.3 , activity=ACT_DOTA_ALCHEMIST_CONCOCTION, rate= 1})
     caster:StartGesture(ACT_DOTA_ALCHEMIST_CONCOCTION)
-	Timers:CreateTimer(0.25, function() 
-        if(caster:HasModifier("emiya_overedge_modifier")) then
-		    StartAnimation(caster, {duration= 0.75 , activity=ACT_DOTA_AW_MAGNETIC_FIELD, rate= 1})
-        else
-            StartAnimation(caster, {duration= 0.75 , activity=ACT_DOTA_CAST_ABILITY_3_END, rate= 1})
-        end
+    if(caster:HasModifier("emiya_overedge_modifier")) then
+        StartAnimation(caster, {duration=1, activity=ACT_DOTA_AW_MAGNETIC_FIELD, rate= 1})
+    else
+        StartAnimation(caster, {duration=1, activity=ACT_DOTA_CAST_ABILITY_3_END, rate= 1})
+    end
+	Timers:CreateTimer(0.25, function()     
+
 	    caster:AddNewModifier(caster, self, "modifier_emiya_self_control", {duration = 0.75, damage = damage, radius = radius, interval = 0.03})
 		--caster:AddNewModifier(caster, self, "emiya_overedge_modifier", {duration = 8})
         

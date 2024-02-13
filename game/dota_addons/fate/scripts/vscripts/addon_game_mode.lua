@@ -2403,7 +2403,7 @@ function FateGameMode:OnHeroInGame(hero)
         elseif hero:GetName() == "npc_dota_hero_queenofpain" then
             --Attachments:AttachProp(hero, "attach_sword", "models/astolfo/astolfo_sword.vmdl")
         end
-        hero:ModifyGold(3000, false, 0)
+        hero:ModifyGold(3050, false, 0)
         local player = hero:GetPlayerOwner()
         CustomGameEventManager:Send_ServerToPlayer(hero:GetPlayerOwner(), "player_selected_hero", playerData)
         CustomGameEventManager:Send_ServerToAllClients("player_register_master_unit", playerData)

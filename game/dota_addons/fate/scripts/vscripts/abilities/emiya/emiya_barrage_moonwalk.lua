@@ -35,7 +35,7 @@ function emiya_barrage_moonwalk:OnSpellStart()
 
 	caster:EmitSound("Archer.NineFinish")
 
-	StartAnimation(caster, {duration=0.375, activity=ACT_DOTA_CAST_ALACRITY, rate=1.5})
+	StartAnimation(caster, {duration=0.375, activity=ACT_ALIEN_BURROW_OUT, rate=1.5})
 	rotateCounter = 1
 
 	if caster:HasModifier("modifier_projection_attribute") then

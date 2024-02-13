@@ -116,7 +116,7 @@ function modifier_emiya_nine_lives:OnCreated(args)
 		self.SmallRadius = args.SmallRadius
 		self.LargeRadius = args.LargeRadius
 		self:StartIntervalThink(0.15)
-		StartAnimation(self:GetParent(), {duration = 1.2, activity=ACT_DOTA_WHIRLING_AXES_RANGED, rate = 1})
+		StartAnimation(self:GetParent(), {duration = 1.4, activity=ACT_DOTA_WHIRLING_AXES_RANGED, rate = 1})
 	end
 end
 
@@ -179,7 +179,7 @@ function modifier_emiya_nine_lives:OnIntervalThink()
 		ParticleManager:ReleaseParticleIndex(  self:GetAbility().swordfx_left)
 		ParticleManager:DestroyParticle(  self:GetAbility().swordfx_right, true)
 		ParticleManager:ReleaseParticleIndex(   self:GetAbility().swordfx_right)
-		EndAnimation(caster)
+		--EndAnimation(caster)
  		self:Destroy()
 	end
 end
