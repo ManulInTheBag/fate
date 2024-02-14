@@ -21,7 +21,8 @@ function emiya_arrows:OnSpellStart()
 	local range = self:GetSpecialValueFor("range")  + (caster.IsEagleEyeAcquired and 400 or 0 )
 	local target = caster:GetForwardVector()
 	caster:EmitSound("Ability.Powershot.Alt")
-	caster:EmitSound("DrowRanger.Attack")
+	caster:EmitSound("arrow_emiya_2")
+	
 	local tProjectile = {
 		EffectName = "particles/emiya/emiya_q_arrow.vpcf",
 		Ability = self,

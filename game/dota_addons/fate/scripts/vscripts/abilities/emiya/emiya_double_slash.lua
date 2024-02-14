@@ -31,9 +31,9 @@ function emiya_double_slash:OnSpellStart()
 	--StartAnimation(caster, {duration= 0.3 , activity=ACT_DOTA_ALCHEMIST_CONCOCTION, rate= 1})
     caster:StartGesture(ACT_DOTA_ALCHEMIST_CONCOCTION)
     if(caster:HasModifier("emiya_overedge_modifier")) then
-        StartAnimation(caster, {duration=1, activity=ACT_DOTA_AW_MAGNETIC_FIELD, rate= 1})
+        StartAnimation(caster, {duration=1.04, activity=ACT_DOTA_AW_MAGNETIC_FIELD, rate= 1})
     else
-        StartAnimation(caster, {duration=1, activity=ACT_DOTA_CAST_ABILITY_3_END, rate= 1})
+        StartAnimation(caster, {duration=1.04, activity=ACT_DOTA_CAST_ABILITY_3_END, rate= 1})
     end
 	Timers:CreateTimer(0.25, function()     
 

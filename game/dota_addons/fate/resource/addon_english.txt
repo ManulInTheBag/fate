@@ -930,8 +930,8 @@
 		"DOTA_Tooltip_modifier_barrage_retreat_shot_slow"                                 "Barrage Retreat Shot Slow"
 		"DOTA_Tooltip_modifier_barrage_retreat_shot_slow_Description"                     ""
 
-		"DOTA_Tooltip_modifier_arrow_rain_cooldown"                                       "Arrow Rain Cooldown"
-		"DOTA_Tooltip_modifier_arrow_rain_cooldown_Description"                           "Arrow Rain is unavailable"
+		"DOTA_Tooltip_modifier_arrow_rain_cooldown"                                       "Combo cooldown"
+		"DOTA_Tooltip_modifier_arrow_rain_cooldown_Description"                           "Combo is unavailable"
 
 		"DOTA_Tooltip_modifier_quickdraw_baseattack_reduction"                            "Quickdraw Baseattack Reduction"
 		"DOTA_Tooltip_modifier_quickdraw_baseattack_reduction_Description"                ""
@@ -3170,6 +3170,16 @@
 		"DOTA_Tooltip_ability_emiya_arrow_rain_arrow_amount"	"Arrow Amount:"
 		"DOTA_Tooltip_ability_emiya_arrow_rain_arrow_damage"	"Arrow Damage:"
 		"DOTA_Tooltip_ability_emiya_arrow_rain_bp_shot_amount"	"Broken Phantasm Amount:"		
+
+
+		"DOTA_Tooltip_Ability_emiya_combo"					"Combo: Instant Unlimited Blade Works"
+		"DOTA_Tooltip_Ability_emiya_combo_Description"		"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : R-R in 1.2 seconds while having 0 <font color='#58ACFA'>Unlimited blade works</font> stacks</font>\nEmiya dashes to the targeted enemy in the 1200 radius and immediately activates <font color='#58ACFA'>Unlimited blade works</font>.\nPrimary target is stunned until cast ends\n Shortly after entering, Emiya drops a bunch of swords on the targeted enemy position, dealing <font color='#58ACFA'>damage</font> and <font color='#FF3399'>stunning</font>, while two sword rain bombard around.\n After a 3 second delay, swords explode, dealing more <font color='#58ACFA'>damage</font>."
+		"DOTA_Tooltip_Ability_emiya_combo_Lore"	""
+		"DOTA_Tooltip_Ability_emiya_combo_Note0"			"If target dies before entering UBW, there will be no combo."
+		"DOTA_Tooltip_Ability_emiya_combo_first_damage"		"Swords damage:"
+		"DOTA_Tooltip_Ability_emiya_combo_explosion_damage"	"Explosion Damage:"
+		"DOTA_Tooltip_Ability_emiya_combo_rain_damage"		"Rain damage:"		
+		
 		
 
 		"DOTA_Tooltip_Ability_emiya_attribute_eagle_eye"					"Attribute: Eagle Eye"

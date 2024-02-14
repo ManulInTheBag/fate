@@ -108,17 +108,20 @@ end
 
 function emiya_unlimited_bladeworks:OnSpellStart()
     if self:GetUBWCastCount() < 6 then
+        if self:GetUBWCastCount() <1 then 
+            self:CheckCombo()
+        end
         self:GrantUBWChantBuff()
         self:ReduceAbilityCooldowns()
     else
-        self:StartUBW()
+        self:StartUBW(true)
     end
 end
 
-function emiya_unlimited_bladeworks:StartUBW()
+function emiya_unlimited_bladeworks:StartUBW(boolsoundOn)
     local caster = self:GetCaster()
     local casterLocation = caster:GetAbsOrigin()
-    local castDelay = 2
+    local castDelay = 1.5 + (boolsoundOn and   0.5 or 0)
     local radius = self:GetSpecialValueFor("radius")
 
     local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetOrigin(), nil, radius - 550, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
@@ -137,21 +140,22 @@ function emiya_unlimited_bladeworks:StartUBW()
 
     giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", castDelay)
     caster:AddNewModifier(caster, self, "modifier_unlimited_bladeworks", { duration = castDelay })
-
-    --giveUnitDataDrivenModifier(caster, caster, "jump_pause", castDelay)
-    LoopOverPlayers(function(player, playerID, playerHero)
-        --print("looping through " .. playerHero:GetName())
-        if playerHero == caster then
-            if playerHero.zlodemon == true then
+    if boolsoundOn then 
+        --giveUnitDataDrivenModifier(caster, caster, "jump_pause", castDelay)
+        LoopOverPlayers(function(player, playerID, playerHero)
+            --print("looping through " .. playerHero:GetName())
+            if playerHero == caster then
+                if playerHero.zlodemon == true then
                 
-            CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="zlodemon_emiya_r_7"})
+                CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="zlodemon_emiya_r_7"})
+                end
             end
-        end
-    end) 
+        end) 
 
    
-    EmitGlobalSound("emiya_ubw7")
-    StartAnimation(caster, {duration=2, activity=ACT_DOTA_ARCTIC_BURN_END, rate=0.5})
+        EmitGlobalSound("emiya_ubw7")
+    end
+    StartAnimation(caster, {duration=castDelay, activity=ACT_DOTA_ARCTIC_BURN_END, rate=0.5})
     
     Timers:CreateTimer({
         endTime = castDelay,
@@ -207,7 +211,7 @@ function emiya_unlimited_bladeworks:EnterUBW()
     local swapAbil = caster:FindAbilityByName("emiya_weapon_swap")
     swapAbil:SwapWeapons(3)
     caster:SetBodygroup(0,1)
-    self:CheckCombo()
+
     local ubwdummyLoc1 = ubwCenter
  
 
@@ -466,10 +470,10 @@ function emiya_unlimited_bladeworks:CheckCombo()
     local caster = self:GetCaster()
 
     if caster:GetStrength() > 29.1 and caster:GetAgility() > 29.1 and caster:GetIntellect() > 29.1 
-        and caster:FindAbilityByName("emiya_arrow_rain"):IsCooldownReady() then 
+        and caster:FindAbilityByName("emiya_combo"):IsCooldownReady() then 
         
-        caster:SwapAbilities("emiya_nine_lives", "emiya_arrow_rain", false, true) 
-        caster:AddNewModifier(caster, self, "modifier_arrow_rain_window", { Duration = 3.5})
+        caster:SwapAbilities("emiya_unlimited_bladeworks", "emiya_combo", false, true) 
+        caster:AddNewModifier(caster, self, "modifier_arrow_rain_window", { Duration = 1.2})
     end
 end
 

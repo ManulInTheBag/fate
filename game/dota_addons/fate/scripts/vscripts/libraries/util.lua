@@ -611,6 +611,7 @@ CannotReset = {
     "muramasa_forge",
     "saito_jce",
     "lu_bu_sky_piercer",
+    "emiya_combo",
 }
 
 
@@ -2494,7 +2495,7 @@ local heroCombos = {
     ["npc_dota_hero_legion_commander"] = "saber_max_excalibur",
     ["npc_dota_hero_phantom_lancer"] = "lancer_5th_wesen_gae_bolg",
     ["npc_dota_hero_spectre"] = "saber_alter_max_mana_burst",
-    ["npc_dota_hero_ember_spirit"] = "archer_5th_arrow_rain",
+    ["npc_dota_hero_ember_spirit"] = "emiya_combo",
     ["npc_dota_hero_templar_assassin"] = "rider_5th_bellerophon_2",
     ["npc_dota_hero_doom_bringer"] = "berserker_5th_madmans_roar",
     ["npc_dota_hero_juggernaut"] = "false_assassin_tsubame_mai",

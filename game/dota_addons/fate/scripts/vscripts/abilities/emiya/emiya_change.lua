@@ -27,7 +27,9 @@ function emiya_change:OnSpellStart()
 	vPoint = self.vCastDirection:Normalized() * 20000 + self.vCasterPos
 	StartAnimation(self.hCaster, {duration=0.3, activity=ACT_DOTA_CAST_ABILITY_2, rate=1.0})
 	giveUnitDataDrivenModifier(self.hCaster, self.hCaster, "pause_sealenabled", 0.3)
+
 	Timers:CreateTimer(0.257,function()
+		EmitSoundOnLocationWithCaster(self.arrowsPoint , "many_arrows_emiya", self.hCaster)
 		self:ShootArrow(self.vCasterPos + self.hCaster:GetForwardVector() * - 50, vPoint, 3500)
 		self.hCaster:EmitSound("Ability.Powershot.Alt")
 	end)
@@ -64,6 +66,7 @@ function emiya_change:ShootArrow(vSpawnLoc, vPoint, nSpeed)
 																		damage = damage, initxend = self.arrowsPoint.x, inityend = self.arrowsPoint.y,
 																		initzend = self.arrowsPoint.z, duration = self:GetSpecialValueFor("duration"),
 																		radius = self:GetSpecialValueFor("radius")}, self.arrowsPoint, self.hCaster:GetTeamNumber(), false)
+
 end
  
 LinkLuaModifier("modifier_archer_change_rain", "abilities/emiya/emiya_change", LUA_MODIFIER_MOTION_NONE)
