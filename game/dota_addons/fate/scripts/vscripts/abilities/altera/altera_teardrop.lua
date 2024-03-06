@@ -130,12 +130,6 @@ function altera_teardrop_release:OnSpellStart()
 																			 Radius = self:GetAOERadius()}
 																			, target, caster:GetTeamNumber(), false)
 
-	   	Timers:CreateTimer(1.5, function()
-			dummy:RemoveSelf()
-		end)
-
-		print("zuzup")
-
 		local targets = FindUnitsInRadius(caster:GetTeam(), target, nil, self:GetAOERadius(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 
 		for i = 1, #targets do

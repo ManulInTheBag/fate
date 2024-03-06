@@ -1,0 +1,1268 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc32:version{c5dcef98-b629-46ab-88e3-a17c005c935e} -->
+{
+	rootNode = 
+	{
+		_class = "RootNode"
+		children = 
+		[
+			{
+				_class = "ModelModifierList"
+				children = 
+				[
+					{
+						_class = "ModelModifier_ScaleAndMirror"
+						scale = 1.2
+						mirror_x = false
+						mirror_y = false
+						mirror_z = false
+						flip_bone_forward = false
+						swap_left_and_right_bones = false
+					},
+				]
+			},
+			{
+				_class = "MaterialGroupList"
+				children = 
+				[
+					{
+						_class = "DefaultMaterialGroup"
+						remaps = 
+						[
+							{
+								from = "imported material 02.vmat"
+								to = "materials/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko_face.vmat"
+							},
+							{
+								from = "imported material 03.vmat"
+								to = "materials/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko_body.vmat"
+							},
+							{
+								from = "imported material 04.vmat"
+								to = "materials/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko_face.vmat"
+							},
+						]
+						use_global_default = false
+						global_default_material = ""
+					},
+				]
+			},
+			{
+				_class = "AttachmentList"
+				children = 
+				[
+					{
+						_class = "Attachment"
+						name = "attach_hitloc"
+						parent_bone = "bone04"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_attack2"
+						parent_bone = "bone39"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_attack1"
+						parent_bone = "bone08"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_leg"
+						parent_bone = "bone61"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_beamu"
+						parent_bone = "bone45"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+				]
+			},
+			{
+				_class = "HitboxSetList"
+				children = 
+				[
+					{
+						_class = "HitboxSet"
+						name = "default"
+						children = 
+						[
+							{
+								_class = "Hitbox"
+								name = "bone73"
+								parent_bone = "bone73"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.365424, -4.471601, -0.5 ]
+								hitbox_maxs = [ 1.323958, 6.852963, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone68"
+								parent_bone = "bone68"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.950458, -5.83081, -20.10746 ]
+								hitbox_maxs = [ 7.892559, 7.444076, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone63"
+								parent_bone = "bone63"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.479652, -5.454813, -36.948803 ]
+								hitbox_maxs = [ 7.043585, 11.195219, 2.779114 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone64"
+								parent_bone = "bone64"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.727723, -6.124617, -45.360535 ]
+								hitbox_maxs = [ 5.779714, 7.209801, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone65"
+								parent_bone = "bone65"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.995259, -11.024115, -9.864091 ]
+								hitbox_maxs = [ 5.095126, 5.226233, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone58"
+								parent_bone = "bone58"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.729328, -5.355804, -36.468449 ]
+								hitbox_maxs = [ 7.803773, 11.231472, 3.456833 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone59"
+								parent_bone = "bone59"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.462952, -5.139681, -45.724335 ]
+								hitbox_maxs = [ 4.454922, 7.401763, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone60"
+								parent_bone = "bone60"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.527287, -11.0679, -9.84599 ]
+								hitbox_maxs = [ 5.080038, 5.182514, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone03"
+								parent_bone = "bone03"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -59.488258, -68.028824, -111.790085 ]
+								hitbox_maxs = [ 59.044739, 64.127472, 84.614273 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone04"
+								parent_bone = "bone04"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -11.443853, -10.439742, -0.5 ]
+								hitbox_maxs = [ 10.713144, 10.38852, 20.667328 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone25"
+								parent_bone = "bone25"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.109253, -4.483028, -1.967194 ]
+								hitbox_maxs = [ 3.597618, 3.047246, 3.960068 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone26"
+								parent_bone = "bone26"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -10.15252, -10.068699, -1.891159 ]
+								hitbox_maxs = [ 9.590331, 12.556953, 20.780701 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone29"
+								parent_bone = "bone29"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -11.882096, -8.680098, -16.075607 ]
+								hitbox_maxs = [ 11.353677, 3.575365, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone30"
+								parent_bone = "bone30"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -20.384577, -6.243913, -20.281891 ]
+								hitbox_maxs = [ 19.830503, 6.241427, 0.687469 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone05"
+								parent_bone = "bone05"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.513105, -4.751783, -3.612488 ]
+								hitbox_maxs = [ 0.5, 3.52373, 2.826416 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone06"
+								parent_bone = "bone06"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -13.17691, -3.963537, -14.856438 ]
+								hitbox_maxs = [ 1.743532, 3.826626, 0.640289 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone07"
+								parent_bone = "bone07"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -19.24498, -4.14759, -19.001923 ]
+								hitbox_maxs = [ 2.796202, 3.529558, 2.088364 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone08"
+								parent_bone = "bone08"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.196087, -3.448097, -5.542839 ]
+								hitbox_maxs = [ 1.261459, 3.662898, 1.105255 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone12"
+								parent_bone = "bone12"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.675751, -0.958677, -1.458893 ]
+								hitbox_maxs = [ 0.5, 0.916222, 0.883072 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone13"
+								parent_bone = "bone13"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.304588, -0.5, -1.084648 ]
+								hitbox_maxs = [ 0.5, 0.894127, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone15"
+								parent_bone = "bone15"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.590519, -0.891334, -1.774803 ]
+								hitbox_maxs = [ 0.5, 1.085208, 0.687607 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone16"
+								parent_bone = "bone16"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.261772, -0.717576, -1.36306 ]
+								hitbox_maxs = [ 0.5, 0.73263, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone18"
+								parent_bone = "bone18"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.420139, -0.858234, -1.653702 ]
+								hitbox_maxs = [ 0.5, 0.791236, 0.750244 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone19"
+								parent_bone = "bone19"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.219776, -0.634171, -1.135361 ]
+								hitbox_maxs = [ 0.542507, 0.734713, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone21"
+								parent_bone = "bone21"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.264782, -0.543715, -1.682091 ]
+								hitbox_maxs = [ 0.958748, 0.717107, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone22"
+								parent_bone = "bone22"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.245125, -0.54333, -1.179718 ]
+								hitbox_maxs = [ 0.5, 0.591096, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone09"
+								parent_bone = "bone09"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.950481, -1.044852, -2.250427 ]
+								hitbox_maxs = [ 1.694935, 1.421252, 0.999466 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone10"
+								parent_bone = "bone10"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.652618, -1.892155, -1.924004 ]
+								hitbox_maxs = [ 0.702793, 0.5, 0.730354 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone36"
+								parent_bone = "bone36"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.5, -4.515222, -4.599731 ]
+								hitbox_maxs = [ 4.932525, 3.760304, 2.831619 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone37"
+								parent_bone = "bone37"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.360765, -4.208336, -14.228432 ]
+								hitbox_maxs = [ 13.414636, 3.766007, 1.028992 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone38"
+								parent_bone = "bone38"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.000841, -3.97963, -18.521362 ]
+								hitbox_maxs = [ 20.19175, 3.850004, 2.245949 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone39"
+								parent_bone = "bone39"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.607536, -3.410563, -6.323448 ]
+								hitbox_maxs = [ 7.068981, 3.700433, 0.622353 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone43"
+								parent_bone = "bone43"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.539661, -0.808911, -1.704773 ]
+								hitbox_maxs = [ 1.669922, 1.065988, 0.556717 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone44"
+								parent_bone = "bone44"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.5, -0.716694, -1.11776 ]
+								hitbox_maxs = [ 1.387123, 0.67582, 0.624084 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone46"
+								parent_bone = "bone46"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.5, -0.977668, -1.660515 ]
+								hitbox_maxs = [ 2.16967, 0.998876, 0.599319 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone47"
+								parent_bone = "bone47"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.5, -0.548446, -1.607201 ]
+								hitbox_maxs = [ 1.367908, 0.901759, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone49"
+								parent_bone = "bone49"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.697124, -0.656068, -1.78196 ]
+								hitbox_maxs = [ 1.807049, 0.993403, 0.618568 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone50"
+								parent_bone = "bone50"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.5, -0.786413, -1.09008 ]
+								hitbox_maxs = [ 1.385952, 0.582472, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone52"
+								parent_bone = "bone52"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.5, -0.696376, -1.919472 ]
+								hitbox_maxs = [ 1.953403, 0.706047, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone53"
+								parent_bone = "bone53"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.5, -0.535681, -1.159073 ]
+								hitbox_maxs = [ 0.993954, 0.598746, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone40"
+								parent_bone = "bone40"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.729416, -1.397044, -2.059135 ]
+								hitbox_maxs = [ 2.382435, 0.5, 1.453415 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone41"
+								parent_bone = "bone41"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.778465, -1.212109, -1.669907 ]
+								hitbox_maxs = [ 0.936283, 0.635803, 0.775139 ]
+							},
+						]
+					},
+				]
+			},
+			{
+				_class = "RenderMeshList"
+				children = 
+				[
+					{
+						_class = "RenderMeshFile"
+						filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
+						import_scale = 1.0
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = 
+							[
+								"Object010",
+							]
+						}
+					},
+				]
+			},
+			{
+				_class = "AnimationList"
+				children = 
+				[
+					{
+						_class = "AnimFile"
+						name = "stand_ready"
+						activity_name = "ACT_DOTA_DISABLED"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
+						import_bone_scales = false
+						start_frame = 71
+						end_frame = 101
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "idle"
+						activity_name = "ACT_DOTA_IDLE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
+						import_bone_scales = false
+						start_frame = 753
+						end_frame = 823
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "death"
+						activity_name = "ACT_DOTA_DIE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
+						import_bone_scales = false
+						start_frame = 127
+						end_frame = 164
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "melee1"
+						activity_name = "ACT_DOTA_ATTACK"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
+						import_bone_scales = false
+						start_frame = 165
+						end_frame = 187
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "melee2"
+						activity_name = "ACT_DOTA_ATTACK2"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
+						import_bone_scales = false
+						start_frame = 188
+						end_frame = 211
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "kick"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
+						import_bone_scales = false
+						start_frame = 212
+						end_frame = 236
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "forward"
+						activity_name = "ACT_DOTA_CHANNEL_ABILITY_6"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
+						import_bone_scales = false
+						start_frame = 237
+						end_frame = 239
+						framerate = 5.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "spell_swim1"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
+						import_bone_scales = false
+						start_frame = 263
+						end_frame = 282
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "spell_swim_2"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
+						import_bone_scales = false
+						start_frame = 283
+						end_frame = 313
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "punch1"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
+						import_bone_scales = false
+						start_frame = 314
+						end_frame = 361
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "uppercut"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
+						import_bone_scales = false
+						start_frame = 362
+						end_frame = 406
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "walk"
+						activity_name = "ACT_DOTA_RUN"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
+						import_bone_scales = false
+						start_frame = 407
+						end_frame = 431
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "spell1"
+						activity_name = "ACT_SCRIPT_CUSTOM_6"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
+						import_bone_scales = false
+						start_frame = 432
+						end_frame = 461
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "beam_powerful"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
+						import_bone_scales = false
+						start_frame = 462
+						end_frame = 500
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "beam_poweful2"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
+						import_bone_scales = false
+						start_frame = 501
+						end_frame = 537
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "beam_powerful3"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
+						import_bone_scales = false
+						start_frame = 538
+						end_frame = 591
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "beam_powerful4"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
+						import_bone_scales = false
+						start_frame = 840
+						end_frame = 886
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "beamu592_624"
+						activity_name = "ACT_DOTA_CAST_ABILITY_1"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
+						import_bone_scales = false
+						start_frame = 592
+						end_frame = 602
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "beamu2"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
+						import_bone_scales = false
+						start_frame = 625
+						end_frame = 658
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "beamu3"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
+						import_bone_scales = false
+						start_frame = 659
+						end_frame = 718
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "pepega"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
+						import_bone_scales = false
+						start_frame = 719
+						end_frame = 752
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "beam"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
+						import_bone_scales = false
+						start_frame = 824
+						end_frame = 839
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "grab"
+						activity_name = "ACT_SCRIPT_CUSTOM_3"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
+						import_bone_scales = false
+						start_frame = 887
+						end_frame = 917
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "melee3"
+						activity_name = "ACT_SCRIPT_CUSTOM_0"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.1
+						fade_out_time = 0.1
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
+						import_bone_scales = false
+						start_frame = 918
+						end_frame = 941
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "melee4"
+						activity_name = "ACT_SCRIPT_CUSTOM_1"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.1
+						fade_out_time = 0.1
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
+						import_bone_scales = false
+						start_frame = 942
+						end_frame = 956
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "melee5"
+						activity_name = "ACT_SCRIPT_CUSTOM_2"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.1
+						fade_out_time = 0.1
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
+						import_bone_scales = false
+						start_frame = 957
+						end_frame = 972
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "melee_combo_and_grab"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
+						import_bone_scales = false
+						start_frame = 973
+						end_frame = 1054
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "jumpback"
+						activity_name = "ACT_DOTA_CAST_ABILITY_3"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
+						import_bone_scales = false
+						start_frame = 1071
+						end_frame = 1095
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "forward_cast"
+						activity_name = "ACT_DOTA_CAST_ABILITY_6"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
+						import_bone_scales = false
+						start_frame = 1055
+						end_frame = 1071
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "kick_copy"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.0
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
+						import_bone_scales = false
+						start_frame = 212
+						end_frame = 218
+						framerate = 15.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "aoko_punch1"
+						activity_name = "ACT_DOTA_CAST_ABILITY_2"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
+						import_bone_scales = false
+						start_frame = 165
+						end_frame = 170
+						framerate = 5.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "aoko_punch2"
+						activity_name = "ACT_SCRIPT_CUSTOM_5"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.03
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
+						import_bone_scales = false
+						start_frame = 171
+						end_frame = 187
+						framerate = -1.0
+						reverse = false
+					},
+				]
+				default_root_bone_name = ""
+			},
+		]
+		model_archetype = ""
+		primary_associated_entity = ""
+		anim_graph_name = ""
+	}
+}
