@@ -21,5 +21,5 @@ function item_mana_essence:OnSpellStart()
 	hTarget:AddNewModifier(hCaster, self, "modifier_mana_essence", { Duration = fDuration, fHealthRegen = fHealthRegen, fManaRegen = fManaRegen })
 	hTarget:EmitSound("DOTA_Item.ClarityPotion.Activate")
 
-	if iCurrentCharges == 1 then self:SpendCharge() else self:SetCurrentCharges(iCurrentCharges - 1) end
+	if iCurrentCharges == 1 then hCaster:RemoveItem(self) else self:SetCurrentCharges(iCurrentCharges - 1) end
 end

@@ -109,7 +109,7 @@ function modifier_priestess_of_the_hunt:OnIntervalThink()
         local nextArrow = hero.NextArrow
         CustomNetTables:SetTableValue("sync","atalanta_agility", {fAgility = hero:GetAgility()})        
 
-        nextArrow = nextArrow + hero:GetAttacksPerSecond()/3 * THINK_INTERVAL
+        nextArrow = nextArrow + hero:GetAttacksPerSecond(false)/3 * THINK_INTERVAL
 
         if nextArrow >= 1 then
             nextArrow = nextArrow - 1

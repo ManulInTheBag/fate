@@ -2,10 +2,6 @@ muramasa_sword_creation = class({})
 LinkLuaModifier("modifier_muramasa_sword_creation","abilities/muramasa/muramasa_sword_creation", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_muramasa_flame","abilities/muramasa/muramasa_sword_creation", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_muramasa_no_sword","abilities/muramasa/muramasa_sword_creation", LUA_MODIFIER_MOTION_NONE)
-
-LinkLuaModifier("modifier_muramasa_sword_drop_enemy", "abilities/muramasa/muramasa_sword_creation", LUA_MODIFIER_MOTION_NONE)
-
-LinkLuaModifier("modifier_muramasa_sword_drop_enemy_buff", "abilities/muramasa/muramasa_sword_creation", LUA_MODIFIER_MOTION_NONE)
 --LinkLuaModifier("modifier_muramasa_rush_mr","abilities/muramasa/muramasa_sword_creation", LUA_MODIFIER_MOTION_NONE)
 
 function muramasa_sword_creation:GetIntrinsicModifierName()
@@ -16,112 +12,6 @@ end
  
 modifier_muramasa_sword_creation = class({})
 
-modifier_muramasa_sword_drop_enemy = modifier_muramasa_sword_drop_enemy or class({})
-
-function modifier_muramasa_sword_drop_enemy:IsHidden() return false end
-function modifier_muramasa_sword_drop_enemy:IsDebuff() return false end
-function modifier_muramasa_sword_drop_enemy:IsPurgable() return false end
-function modifier_muramasa_sword_drop_enemy:IsPurgeException() return false end
-function modifier_muramasa_sword_drop_enemy:RemoveOnDeath() return true end
-function modifier_muramasa_sword_drop_enemy:CheckState()
-    local state = { [MODIFIER_STATE_STUNNED] = true,
-                    [MODIFIER_STATE_NO_UNIT_COLLISION] = true, }
-    return state
-end
-function modifier_muramasa_sword_drop_enemy:OnCreated(hTable)
-    self.caster = self:GetCaster()
-    self.parent = self:GetParent()
-    self.ability = self:GetAbility()
-    self.duration = hTable.duration
-    self.radius = hTable.radius
-    self.start_pos = Vector(hTable.x, hTable.y, 0)
-    if IsServer() then
-        self:StartIntervalThink(FrameTime())
-        if not self.swordfx then
-            local sword_fx = "particles/muramasa/muramasa_sword_drop_enemy.vpcf"
-
-            self.swordfx =   ParticleManager:CreateParticle( sword_fx, PATTACH_ABSORIGIN_FOLLOW, self.parent )
-                            ParticleManager:SetParticleControl( self.swordfx, 0, self.start_pos  )
-                            ParticleManager:SetParticleControl( self.swordfx, 1, Vector(self.radius,0,0) )
-                            ParticleManager:SetParticleControl( self.swordfx, 2, Vector(6,0,0) )
-
-            self:AddParticle(self.swordfx, true, false, -1, false, false)
-        
-            --EmitSoundOn("Archer.Kab.Throw."..RandomInt(1, 1), self.parent)
-        end
-    end
-end
-function modifier_muramasa_sword_drop_enemy:OnRefresh(hTable)
-    self:OnCreated(hTable)
-end
-function modifier_muramasa_sword_drop_enemy:OnIntervalThink()
-    if IsServer() and IsNotNull(self.parent) then
-        local allies = FindUnitsInRadius(  self.caster:GetTeamNumber(), 
-                                            self.parent:GetAbsOrigin(), 
-                                            nil, 
-                                            self.radius, 
-                                            DOTA_UNIT_TARGET_TEAM_FRIENDLY , 
-                                            DOTA_UNIT_TARGET_HERO, 
-                                            DOTA_UNIT_TARGET_FLAG_INVULNERABLE, 
-                                            FIND_CLOSEST, 
-                                            false)
-        if allies[1] ~= nil then 
-            allies[1]:AddNewModifier(self.caster, self.ability, "modifier_muramasa_sword_drop_enemy_buff",{duration = 10 })   
-            self:Destroy()
-        end
-    end
-end
-
-
-function modifier_muramasa_sword_drop_enemy:OnDestroy()
-
-end
-
-
-modifier_muramasa_sword_drop_enemy_buff = class({})
-
-function modifier_muramasa_sword_drop_enemy_buff:OnCreated(args)
-    self.parent = self:GetParent()
-    self.caster = self:GetCaster()
-    self.ability = self:GetAbility()
-    --self.parent:Heal(self.parent:GetMaxHealth()*0.15, self.parent)
-    self:SetStackCount(5)
-end
-  
-  
-function modifier_muramasa_sword_drop_enemy_buff:OnAttackLanded(args)
-    local stackCount = self:GetStackCount()
-    if stackCount <= 1 then self:Destroy() end    ----idk if its needed
-    DoDamage(self.parent, args.target, self.parent:GetAttackDamage(), DAMAGE_TYPE_MAGICAL, 0, self.parent:FindAbilityByName("attribute_bonus_custom"), false)   
-	self:SetStackCount(stackCount-1)
-end
-
-function modifier_muramasa_sword_drop_enemy_buff:IsHidden()
-	return false
-end
-
-function modifier_muramasa_sword_drop_enemy_buff:IsPurgable()
-	return false
-end
-
-function modifier_muramasa_sword_drop_enemy_buff:IsPurgeException()
-	return false
-end
-
-function modifier_muramasa_sword_drop_enemy_buff:IsDebuff()
-	return false
-end
-
-function modifier_muramasa_sword_drop_enemy_buff:RemoveOnDeath()
-	return true
-end
-
-function modifier_muramasa_sword_drop_enemy_buff:GetAttributes()
-  return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
-end
-
- 
- 
 
 
 
@@ -131,10 +21,9 @@ function modifier_muramasa_sword_creation:IsDebuff() 	return false end
 
 function modifier_muramasa_sword_creation:DeclareFunctions()
     return { MODIFIER_PROPERTY_ATTACKSPEED_BASE_OVERRIDE,
-    --MODIFIER_EVENT_ON_UNIT_MOVED,
+    MODIFIER_EVENT_ON_UNIT_MOVED,
     MODIFIER_EVENT_ON_RESPAWN,
-    MODIFIER_PROPERTY_ATTACK_RANGE_BASE_OVERRIDE,
-    MODIFIER_EVENT_ON_HERO_KILLED  }
+    MODIFIER_PROPERTY_ATTACK_RANGE_BASE_OVERRIDE  }
 end
 
 function modifier_muramasa_sword_creation:OnCreated()
@@ -168,22 +57,8 @@ function modifier_muramasa_sword_creation:GetModifierAttackSpeedBaseOverride()
 end
 
  
-function modifier_muramasa_sword_creation:OnHeroKilled(args)
-    local hParent = self:GetParent()
-    local hAbility = self:GetAbility()
-
-    if args.target:GetTeamNumber() ~= hParent:GetTeamNumber() and hParent:IsAlive() and hParent.SoulSwordAcquired then
-        local position = Vector(args.target:GetAbsOrigin().x, args.target:GetAbsOrigin().y, 0)
-        Timers:CreateTimer(0.5, function()
-            CreateModifierThinker(hParent, self, "modifier_muramasa_sword_drop_enemy", {duration = 6, Duration = 6, radius = 175,
-            x = position.x, y = position.y},  position, hParent:GetTeamNumber(), false)
-    
-        end)
-	end
-end
 
  
-
 
  function modifier_muramasa_sword_creation:OnAttackLanded(args)
     local caster = self:GetParent()
@@ -270,4 +145,3 @@ function modifier_muramasa_no_sword:OnDestroy()
     local modifier = caster:FindModifierByName("modifier_muramasa_sword_creation")
     modifier:SetStackCount(10)
 end
-

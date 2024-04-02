@@ -1,7 +1,6 @@
 muramasa_rush = class({})
 LinkLuaModifier("modifier_muramasa_rush_burn","abilities/muramasa/muramasa_rush", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_muramasa_rush_mr","abilities/muramasa/muramasa_rush", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_muramasa_wicked_sword_counter","abilities/muramasa/muramasa_rush", LUA_MODIFIER_MOTION_NONE)
 --[[
 function muramasa_rush:OnUpgrade()
     local caster = self:GetCaster() 
@@ -110,7 +109,6 @@ function muramasa_rush:OnProjectileHit_ExtraData(hTarget, vLocation, table)
     local caster = self:GetCaster()
     if caster.firstenemy == nil then
         if hTarget:IsHero() and self:GetAutoCastState()  == true and caster.WickedSwordAcquired then
-            caster:AddNewModifier(caster, self, "modifier_muramasa_wicked_sword_counter", {duration = 1.2})
             caster.firstenemy = hTarget
             self.swordfx = ParticleManager:CreateParticle("particles/muramasa/muramasa_sword_in_enemy.vpcf", PATTACH_OVERHEAD_FOLLOW  , hTarget )
             Timers:CreateTimer( 1.2, function()
@@ -188,27 +186,3 @@ end
 function modifier_muramasa_rush_mr:GetModifierMagicalResistanceBonus()
     return  self:GetAbility():GetSpecialValueFor("bonus_mr") 
 end
-
-modifier_muramasa_wicked_sword_counter = class({})
-function modifier_muramasa_wicked_sword_counter:IsHidden() return false end
-function modifier_muramasa_wicked_sword_counter:IsDebuff() return false end
-function modifier_muramasa_wicked_sword_counter:RemoveOnDeath() return true end
-
-function modifier_muramasa_wicked_sword_counter:OnRefresh()
-    self:SetStackCount(1)
-    if self:GetAbility():GetName() == "muramasa_throw" then
-        self:SetStackCount(2)
-    end
-end
-function modifier_muramasa_wicked_sword_counter:OnCreated()
-    self:SetStackCount(1)
-    if self:GetAbility():GetName() == "muramasa_throw" then
-        self:SetStackCount(2)
-    end
-end
-
-function modifier_muramasa_wicked_sword_counter:GetTexture()
-    return "custom/muramasa/muramasa_wicked_sword_attribute"
-end
-
-

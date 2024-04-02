@@ -1,8 +1,6 @@
 muramasa_forge = class({})
 LinkLuaModifier("modifier_muramasa_forge_aura", "abilities/muramasa/muramasa_forge", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_muramasa_forge", "abilities/muramasa/muramasa_forge", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_muramasa_sword_drop_forge", "abilities/muramasa/muramasa_forge", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_muramasa_sword_drop_forge_buff", "abilities/muramasa/muramasa_forge", LUA_MODIFIER_MOTION_NONE)
 function muramasa_forge:OnSpellStart()
     local caster = self:GetCaster()
     local cast_point = self:GetCursorPosition()
@@ -18,14 +16,7 @@ function muramasa_forge:OnSpellStart()
     ParticleManager:SetParticleControl(forge_fx_anvil, 0, forge_position)
     ParticleManager:SetParticleControl(forge_fx_anvil, 2, Vector(10,0,0))
     self.forge_position = forge_position
-    Timers:CreateTimer(10, function()
-        if caster.SoulSwordAcquired then
-            CreateModifierThinker(caster, self, "modifier_muramasa_sword_drop_forge", {duration = 6, Duration = 6, radius = 175,
-            x = self.forge_position.x, y = self.forge_position.y},  Vector(self.forge_position.x, self.forge_position.y), caster:GetTeamNumber(), false)
-        end
-    
-    end)
-    CreateModifierThinker(caster, self, "modifier_muramasa_forge_aura", {duration = 10, x = forge_position.x, y = forge_position.y}, forge_position, caster:GetTeamNumber(), false)
+    CreateModifierThinker(caster, self, "modifier_muramasa_forge_aura", {duration = 10}, forge_position, caster:GetTeamNumber(), false)
     if(caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 and caster:GetIntellect() >= 29.1) then
         if caster:FindAbilityByName("muramasa_tsumukari_combo"):IsCooldownReady()  then
              
@@ -74,7 +65,7 @@ function modifier_muramasa_forge_aura:GetModifierAura()
 	return "modifier_muramasa_forge"
 end
 function modifier_muramasa_forge_aura:OnDestroy()
-
+   
 end
 
 function modifier_muramasa_forge_aura:GetAuraSearchTeam()
@@ -201,138 +192,4 @@ function modifier_muramasa_forge:IsDebuff() return false end
 function modifier_muramasa_forge:RemoveOnDeath() return true end
  
  
-modifier_muramasa_sword_drop_forge = modifier_muramasa_sword_drop_forge or class({})
-
-function modifier_muramasa_sword_drop_forge:IsHidden() return false end
-function modifier_muramasa_sword_drop_forge:IsDebuff() return false end
-function modifier_muramasa_sword_drop_forge:IsPurgable() return false end
-function modifier_muramasa_sword_drop_forge:IsPurgeException() return false end
-function modifier_muramasa_sword_drop_forge:RemoveOnDeath() return true end
-function modifier_muramasa_sword_drop_forge:CheckState()
-    local state = { [MODIFIER_STATE_STUNNED] = true,
-                    [MODIFIER_STATE_NO_UNIT_COLLISION] = true, }
-    return state
-end
-function modifier_muramasa_sword_drop_forge:OnCreated(hTable)
-    self.caster = self:GetCaster()
-    self.parent = self:GetParent()
-    self.ability = self:GetAbility()
-    self.duration = hTable.duration
-    self.radius = hTable.radius
-    self.start_pos = Vector(hTable.x, hTable.y, 0)
-    if IsServer() then
-        self:StartIntervalThink(FrameTime())
-        if not self.swordfx then
-            local sword_fx = "particles/muramasa/muramasa_sword_drop.vpcf"
-
-            self.swordfx =   ParticleManager:CreateParticle( sword_fx, PATTACH_ABSORIGIN_FOLLOW, self.parent )
-                            ParticleManager:SetParticleControl( self.swordfx, 0, self.start_pos  )
-                            ParticleManager:SetParticleControl( self.swordfx, 1, Vector(self.radius,0,0) )
-                            ParticleManager:SetParticleControl( self.swordfx, 2, Vector(6,0,0) )
-
-            self:AddParticle(self.swordfx, true, false, -1, false, false)
-        
-            --EmitSoundOn("Archer.Kab.Throw."..RandomInt(1, 1), self.parent)
-        end
-    end
-end
-function modifier_muramasa_sword_drop_forge:OnRefresh(hTable)
-    self:OnCreated(hTable)
-end
-function modifier_muramasa_sword_drop_forge:OnIntervalThink()
-    if IsServer() and IsNotNull(self.parent) then
-        local allies = FindUnitsInRadius(  self.caster:GetTeamNumber(), 
-                                            self.parent:GetAbsOrigin(), 
-                                            nil, 
-                                            self.radius, 
-                                            DOTA_UNIT_TARGET_TEAM_FRIENDLY , 
-                                            DOTA_UNIT_TARGET_HERO, 
-                                            DOTA_UNIT_TARGET_FLAG_INVULNERABLE, 
-                                            FIND_CLOSEST, 
-                                            false)
-        if allies[1] ~= nil then 
-            allies[1]:AddNewModifier(self.caster, self.ability, "modifier_muramasa_sword_drop_forge_buff",{duration = self.duration })   
-            self:Destroy()
-        end
-    end
-end
-
-
-function modifier_muramasa_sword_drop_forge:OnDestroy()
-
-end
  
- 
-
-modifier_muramasa_sword_drop_forge_buff = class({})
-
-function modifier_muramasa_sword_drop_forge_buff:OnCreated(args)
-
-    self.parent = self:GetParent()
-    self.caster = self:GetCaster()
-    self.ability = self:GetAbility()
-    self.BurnDamage = 20
-    self.radius = 550
-    self:StartIntervalThink(0.2)
-end
-  
-  
-function modifier_muramasa_sword_drop_forge_buff:DeclareFunctions()
-	return {
-        MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE, 
-	}
-end
-
-
-
-function modifier_muramasa_sword_drop_forge_buff:GetModifierMoveSpeedBonus_Percentage()
-    local caster = self:GetCaster()
-    return  self:GetAbility():GetSpecialValueFor("attribute_ms")
-end
-
-function modifier_muramasa_sword_drop_forge_buff:OnIntervalThink()	
-    local caster = self:GetCaster()
-
-    if caster ~= nil then
-        local targets = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetOrigin(), nil, self.radius , DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-        for k,v in pairs(targets) do
-            DoDamage(caster, v, self.BurnDamage, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
-        end
-    end
-end
-
-
-
-
-
-function modifier_muramasa_sword_drop_forge_buff:IsHidden()
-	return false
-end
-
-function modifier_muramasa_sword_drop_forge_buff:IsPurgable()
-	return false
-end
-
-function modifier_muramasa_sword_drop_forge_buff:IsPurgeException()
-	return false
-end
-
-function modifier_muramasa_sword_drop_forge_buff:IsDebuff()
-	return false
-end
-
-function modifier_muramasa_sword_drop_forge_buff:RemoveOnDeath()
-	return true
-end
-
-function modifier_muramasa_sword_drop_forge_buff:GetAttributes()
-  return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
-end
-
-function modifier_muramasa_sword_drop_forge_buff:GetEffectName()
-	 return "particles/gawain/gawain_heat.vpcf"
-end
-
-function modifier_muramasa_sword_drop_forge_buff:GetEffectAttachType()
-	return PATTACH_ABSORIGIN_FOLLOW
-end

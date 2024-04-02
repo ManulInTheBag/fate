@@ -2,7 +2,6 @@ muramasa_throw = class({})
 LinkLuaModifier("modifier_merlin_self_pause","abilities/merlin/merlin_orbs", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_muramasa_throw_collision_fix","abilities/muramasa/muramasa_throw", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_muramasa_throw_cc_immune","abilities/muramasa/muramasa_throw", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_muramasa_wicked_sword_counter","abilities/muramasa/muramasa_rush", LUA_MODIFIER_MOTION_NONE)
 function muramasa_throw:OnUpgrade()
     local caster = self:GetCaster() 
 	if(caster:FindAbilityByName("muramasa_throw_upgraded"):GetLevel()< self:GetLevel()) then
@@ -11,10 +10,6 @@ function muramasa_throw:OnUpgrade()
 	 
 end
 
-function muramasa_throw:GetAbilityTextureName() 
-    local hCaster = self:GetCaster()
-    return "custom/muramasa/muramasa_grab".. (hCaster:GetModifierStackCount("modifier_muramasa_wicked_sword_counter", hCaster))
-end
 
 function muramasa_throw:OnAbilityPhaseStart()
     local caster = self:GetCaster()
@@ -193,8 +188,6 @@ function muramasa_throw:OnSpellStart()
             end 
             if(  self.isAttri) and caster.WickedSwordAcquired then
                 caster.targetqenemy = unit
-                caster:AddNewModifier(caster, self, "modifier_muramasa_wicked_sword_counter", {duration = 1.2})
-                caster:SetModifierStackCount("modifier_muramasa_wicked_sword_counter", hCaster, 2)
                 self.swordsfx = ParticleManager:CreateParticle("particles/muramasa/muramasa_swords_on_enemy.vpcf", PATTACH_OVERHEAD_FOLLOW  , unit )
                 Timers:CreateTimer( 1.2, function()
                    caster.targetqenemy = nil
@@ -236,8 +229,6 @@ function muramasa_throw:OnSpellStart()
         self.target:SetGroundBehavior (PHYSICS_GROUND_NOTHING)
         if(  self.isAttri) and caster.WickedSwordAcquired then
             caster.targetqenemy = self.target
-            caster:AddNewModifier(caster, self, "modifier_muramasa_wicked_sword_counter", {duration = 1.2})
-            caster:SetModifierStackCount("modifier_muramasa_wicked_sword_counter", hCaster, 2)
             self.swordsfx = ParticleManager:CreateParticle("particles/muramasa/muramasa_swords_on_enemy.vpcf", PATTACH_OVERHEAD_FOLLOW  , self.target )
             Timers:CreateTimer( 1.2, function()
                 caster.targetqenemy = nil
@@ -248,7 +239,6 @@ function muramasa_throw:OnSpellStart()
         end
     end
 end
-
 
 modifier_muramasa_throw_collision_fix = class({})
  
