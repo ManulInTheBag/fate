@@ -82,3 +82,15 @@ function muramasa_wicked_sword_attribute:OnSpellStart()
 	local master = hero.MasterUnit
 	master:SetMana(master:GetMana() - self:GetManaCost(self:GetLevel()))
 end
+
+muramasa_soul_sword_attribute = class({})
+
+function muramasa_soul_sword_attribute:OnSpellStart()
+	local caster = self:GetCaster()
+	local ply = caster:GetPlayerOwner()
+	local hero = caster:GetPlayerOwner():GetAssignedHero()
+
+	hero.SoulSwordAcquired = true
+	local master = hero.MasterUnit
+	master:SetMana(master:GetMana() - self:GetManaCost(self:GetLevel()))
+end

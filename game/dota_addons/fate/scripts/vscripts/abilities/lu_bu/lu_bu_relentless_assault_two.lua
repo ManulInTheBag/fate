@@ -2,8 +2,9 @@
 --------------------------------------------------------------------------------
 lu_bu_relentless_assault_two = class({})
 LinkLuaModifier( "modifier_lu_bu_relentless_assault_two", "abilities/lu_bu/modifiers/modifier_lu_bu_relentless_assault_two", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_lu_bu_relentless_assault_two_armor_reduction", "abilities/lu_bu/modifiers/modifier_lu_bu_relentless_assault_two_armor_reduction", LUA_MODIFIER_MOTION_NONE )
+--LinkLuaModifier( "modifier_lu_bu_relentless_assault_two_armor_reduction", "abilities/lu_bu/modifiers/modifier_lu_bu_relentless_assault_two_armor_reduction", LUA_MODIFIER_MOTION_NONE )
 LinkLuaModifier( "modifier_lu_bu_relentless_assault_two_knockback", "abilities/lu_bu/modifiers/modifier_lu_bu_relentless_assault_two_knockback", LUA_MODIFIER_MOTION_BOTH )
+LinkLuaModifier( "modifier_lu_bu_relentless_assault_two_damage_reduction", "abilities/lu_bu/lu_bu_relentless_assault_two", LUA_MODIFIER_MOTION_NONE )
 
 --------------------------------------------------------------------------------
 -- Ability Start
@@ -16,10 +17,10 @@ function lu_bu_relentless_assault_two:OnSpellStart()
 	local radius = self:GetSpecialValueFor("radius")
 	local angle = self:GetSpecialValueFor("angle")/2
 	local duration = self:GetSpecialValueFor("knockback_duration")
-	local armor_reduction_duration = self:GetSpecialValueFor("armor_reduction_duration")
+	--local armor_reduction_duration = self:GetSpecialValueFor("armor_reduction_duration")
 	local distance = self:GetSpecialValueFor("knockback_distance")
 	local damage = self:GetSpecialValueFor("damage")
-	
+	local damage_debuff_duration = self:GetSpecialValueFor("debuff_duration")
 	caster:EmitSound("lu_bu_relentless_assault_one")
 
 	-- find units
@@ -53,9 +54,9 @@ function lu_bu_relentless_assault_two:OnSpellStart()
 				local angle_diff = math.abs( AngleDiff( cast_angle, enemy_angle ) )
 				if angle_diff<=angle then
 				-- attack
-				DoDamage(caster, enemy, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
-				enemy:AddNewModifier(caster, self, "modifier_lu_bu_relentless_assault_two_armor_reduction", { Duration = armor_reduction_duration })
-
+				DoDamage(caster, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+				--enemy:AddNewModifier(caster, self, "modifier_lu_bu_relentless_assault_two_armor_reduction", { Duration = armor_reduction_duration })
+				enemy:AddNewModifier(caster, self, "modifier_lu_bu_relentless_assault_two_damage_reduction", { Duration = damage_debuff_duration })
 				-- knockback if not having spear stun
 				if not enemy:HasModifier( "modifier_lu_bu_halberd_throw_debuff" ) and not IsKnockbackImmune(enemy) then
 					enemy:AddNewModifier(
@@ -180,4 +181,37 @@ function lu_bu_relentless_assault_two:PlayEffects2( target, origin, direction )
 
 	-- Create Sound
 	EmitSoundOn( sound_cast, target )
+end
+
+
+
+modifier_lu_bu_relentless_assault_two_damage_reduction = modifier_lu_bu_relentless_assault_two_damage_reduction or class({})
+
+function modifier_lu_bu_relentless_assault_two_damage_reduction:IsHidden()                                                                     return false end
+function modifier_lu_bu_relentless_assault_two_damage_reduction:IsDebuff()                                                                     return true end
+function modifier_lu_bu_relentless_assault_two_damage_reduction:IsPurgable()                                                                   return true end
+function modifier_lu_bu_relentless_assault_two_damage_reduction:IsPurgeException()                                                             return false end
+function modifier_lu_bu_relentless_assault_two_damage_reduction:RemoveOnDeath()                                                                return true end
+function modifier_lu_bu_relentless_assault_two_damage_reduction:DeclareFunctions()
+    local tFunc =   {
+                        MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE
+                    }
+    return tFunc
+end
+function modifier_lu_bu_relentless_assault_two_damage_reduction:GetModifierTotalDamageOutgoing_Percentage(keys)
+    if IsNotNull(self.hCaster)
+        and IsNotNull(self.hParent) then
+        if IsClient() or bit.band(keys.damage_type or DAMAGE_TYPE_NONE, DAMAGE_TYPE_MAGICAL) ~= 0 then
+            return -self.reduction
+        end
+    end
+end
+function modifier_lu_bu_relentless_assault_two_damage_reduction:OnCreated(tTable)
+    self.hCaster  = self:GetCaster()
+    self.hParent  = self:GetParent()
+    self.hAbility = self:GetAbility()
+    self.reduction = self.hAbility:GetSpecialValueFor("magical_damage_reduction")
+end
+function modifier_lu_bu_relentless_assault_two_damage_reduction:OnRefresh(tTable)
+    self:OnCreated(tTable)
 end

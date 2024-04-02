@@ -12,7 +12,10 @@ function muramasa_dance:OnUpgrade()
 end
 ]]
 
- 
+function muramasa_dance:GetAbilityTextureName() 
+   local hCaster = self:GetCaster()
+   return "custom/muramasa/muramasa_dance"  .. (hCaster:GetModifierStackCount("modifier_muramasa_wicked_sword_counter", hCaster))
+end
 
 function muramasa_dance:OnSpellStart()
  local caster = self:GetCaster()
@@ -20,6 +23,7 @@ function muramasa_dance:OnSpellStart()
 
  if(caster.targetqenemy ~= nil and caster.targetqenemy:IsAlive()) then
    FindClearSpaceForUnit(caster,caster.targetqenemy:GetAbsOrigin() + caster.targetqenemy:GetForwardVector() * -100,false)
+   caster:RemoveModifierByName("modifier_muramasa_wicked_sword_counter")
    local vector =  (-caster:GetAbsOrigin()+caster.targetqenemy:GetAbsOrigin()):Normalized()
    vector.z = 0
    caster:SetForwardVector(vector) 

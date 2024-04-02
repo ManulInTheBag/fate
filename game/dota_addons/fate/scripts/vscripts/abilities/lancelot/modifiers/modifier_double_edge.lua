@@ -17,7 +17,7 @@ if IsServer() then
 		self.BaseMovementSpeed = args.BaseMovementSpeed
 		self.BaseDamageAmp = args.BaseDamageAmp
 		self.BaseDamageAmpSelf = args.BaseDamageAmpSelf
-		self.AttackSpeed = self.parent:GetAttackSpeed(true)*(self.BaseAttackSpeed+(self.MaxAttackSpeed-self.BaseAttackSpeed)*(self.parent:GetMaxHealth()-self.parent:GetHealth())/(self.parent:GetMaxHealth()))
+		self.AttackSpeed = self.parent:GetAttackSpeed()*(self.BaseAttackSpeed+(self.MaxAttackSpeed-self.BaseAttackSpeed)*(self.parent:GetMaxHealth()-self.parent:GetHealth())/(self.parent:GetMaxHealth()))
 		self.Movespeed = (self.BaseMovementSpeed +(self.MaxMovespeed-self.BaseMovementSpeed)*(self.parent:GetMaxHealth()-self.parent:GetHealth())/(self.parent:GetMaxHealth()))
 		self.DamageAmp = (self.BaseDamageAmp + (self.MaxDamageAmp-self.BaseDamageAmp)*(self.parent:GetMaxHealth()-self.parent:GetHealth())/(self.parent:GetMaxHealth()))
 
@@ -33,7 +33,7 @@ if IsServer() then
 	end
 
 	function modifier_double_edge:OnIntervalThink()
-		self.AttackSpeed = self.parent:GetAttackSpeed(true)*(self.BaseAttackSpeed+(self.MaxAttackSpeed-self.BaseAttackSpeed)*(self.parent:GetMaxHealth()-self.parent:GetHealth())/(self.parent:GetMaxHealth()))
+		self.AttackSpeed = self.parent:GetAttackSpeed()*(self.BaseAttackSpeed+(self.MaxAttackSpeed-self.BaseAttackSpeed)*(self.parent:GetMaxHealth()-self.parent:GetHealth())/(self.parent:GetMaxHealth()))
 		self.Movespeed = (self.BaseMovementSpeed +(self.MaxMovespeed-self.BaseMovementSpeed)*(self.parent:GetMaxHealth()-self.parent:GetHealth())/(self.parent:GetMaxHealth()))
 		self.DamageAmp = (self.BaseDamageAmp + (self.MaxDamageAmp-self.BaseDamageAmp)*(self.parent:GetMaxHealth()-self.parent:GetHealth())/(self.parent:GetMaxHealth()))
 
