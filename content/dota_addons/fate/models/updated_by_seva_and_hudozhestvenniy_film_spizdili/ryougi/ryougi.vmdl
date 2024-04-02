@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc32:version{c5dcef98-b629-46ab-88e3-a17c005c935e} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc33:version{bed0390a-a564-41a6-9dc3-c9a293c8eea3} -->
 {
 	rootNode = 
 	{
@@ -276,7 +276,7 @@
 						[
 							{
 								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
+								event_class = "AE_BODYGROUP_SET_VALUE"
 								event_frame = 5
 								event_keys = 
 								{
@@ -286,7 +286,7 @@
 							},
 							{
 								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
+								event_class = "AE_BODYGROUP_SET_VALUE"
 								event_frame = 1
 								event_keys = 
 								{
@@ -296,7 +296,7 @@
 							},
 							{
 								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
+								event_class = "AE_BODYGROUP_SET_VALUE"
 								event_frame = 6
 								event_keys = 
 								{
@@ -306,7 +306,7 @@
 							},
 							{
 								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
+								event_class = "AE_BODYGROUP_SET_VALUE"
 								event_frame = 7
 								event_keys = 
 								{
@@ -316,7 +316,7 @@
 							},
 							{
 								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
+								event_class = "AE_BODYGROUP_SET_VALUE"
 								event_frame = 8
 								event_keys = 
 								{
@@ -326,7 +326,7 @@
 							},
 							{
 								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
+								event_class = "AE_BODYGROUP_SET_VALUE"
 								event_frame = 9
 								event_keys = 
 								{
@@ -336,7 +336,7 @@
 							},
 							{
 								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
+								event_class = "AE_BODYGROUP_SET_VALUE"
 								event_frame = 10
 								event_keys = 
 								{
@@ -346,7 +346,7 @@
 							},
 							{
 								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
+								event_class = "AE_BODYGROUP_SET_VALUE"
 								event_frame = 11
 								event_keys = 
 								{
@@ -356,7 +356,7 @@
 							},
 							{
 								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
+								event_class = "AE_BODYGROUP_SET_VALUE"
 								event_frame = 12
 								event_keys = 
 								{
@@ -366,7 +366,7 @@
 							},
 							{
 								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
+								event_class = "AE_BODYGROUP_SET_VALUE"
 								event_frame = 13
 								event_keys = 
 								{
@@ -376,7 +376,7 @@
 							},
 							{
 								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
+								event_class = "AE_BODYGROUP_SET_VALUE"
 								event_frame = 14
 								event_keys = 
 								{
@@ -386,7 +386,7 @@
 							},
 							{
 								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
+								event_class = "AE_BODYGROUP_SET_VALUE"
 								event_frame = 15
 								event_keys = 
 								{
@@ -396,7 +396,7 @@
 							},
 							{
 								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
+								event_class = "AE_BODYGROUP_SET_VALUE"
 								event_frame = 16
 								event_keys = 
 								{
@@ -406,7 +406,7 @@
 							},
 							{
 								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
+								event_class = "AE_BODYGROUP_SET_VALUE"
 								event_frame = 17
 								event_keys = 
 								{
@@ -416,7 +416,7 @@
 							},
 							{
 								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
+								event_class = "AE_BODYGROUP_SET_VALUE"
 								event_frame = 18
 								event_keys = 
 								{
@@ -426,7 +426,7 @@
 							},
 							{
 								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
+								event_class = "AE_BODYGROUP_SET_VALUE"
 								event_frame = 19
 								event_keys = 
 								{
@@ -436,7 +436,7 @@
 							},
 							{
 								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
+								event_class = "AE_BODYGROUP_SET_VALUE"
 								event_frame = 20
 								event_keys = 
 								{
@@ -446,7 +446,7 @@
 							},
 							{
 								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
+								event_class = "AE_BODYGROUP_SET_VALUE"
 								event_frame = 21
 								event_keys = 
 								{
@@ -456,7 +456,7 @@
 							},
 							{
 								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
+								event_class = "AE_BODYGROUP_SET_VALUE"
 								event_frame = 22
 								event_keys = 
 								{
@@ -466,7 +466,7 @@
 							},
 							{
 								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
+								event_class = "AE_BODYGROUP_SET_VALUE"
 								event_frame = 23
 								event_keys = 
 								{
@@ -476,7 +476,7 @@
 							},
 							{
 								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
+								event_class = "AE_BODYGROUP_SET_VALUE"
 								event_frame = 24
 								event_keys = 
 								{
@@ -486,7 +486,7 @@
 							},
 							{
 								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
+								event_class = "AE_BODYGROUP_SET_VALUE"
 								event_frame = 25
 								event_keys = 
 								{
@@ -496,7 +496,7 @@
 							},
 							{
 								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
+								event_class = "AE_BODYGROUP_SET_VALUE"
 								event_frame = 26
 								event_keys = 
 								{
@@ -506,7 +506,7 @@
 							},
 							{
 								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
+								event_class = "AE_BODYGROUP_SET_VALUE"
 								event_frame = 27
 								event_keys = 
 								{
@@ -516,7 +516,7 @@
 							},
 							{
 								_class = "AnimEvent"
-								event_class = "AE_CL_BODYGROUP_SET_VALUE"
+								event_class = "AE_BODYGROUP_SET_VALUE"
 								event_frame = 28
 								event_keys = 
 								{
@@ -618,7 +618,7 @@
 						weight_list_name = ""
 						fade_in_time = 0.2
 						fade_out_time = 0.2
-						looping = false
+						looping = true
 						delta = false
 						worldSpace = false
 						hidden = false
