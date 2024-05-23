@@ -26,7 +26,7 @@ end
 
 function archer_5th_broken_phantasm:OnChannelFinish(bInterrupted)
     local hCaster = self:GetCaster()
-    local hTarget = self:GetCursorTarget()
+    local hTarget = self:GetCursorTarget() or self.hTarget
     local hPlayer = hCaster:GetPlayerOwner()
 
     ParticleManager:DestroyParticle(self.pcMarker, false)

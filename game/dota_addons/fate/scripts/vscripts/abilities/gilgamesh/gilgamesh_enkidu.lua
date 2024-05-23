@@ -280,7 +280,7 @@ function gilgamesh_enkidu:OnChannelThink(fInterval)
 end
 
 function gilgamesh_enkidu:OnChannelFinish(bInterrupted)
-    local target = self:GetCursorTarget()
+    local target = self:GetCursorTarget() or self.hTarget
     target:RemoveModifierByName("modifier_enkidu_hold")
 end
 ]]
