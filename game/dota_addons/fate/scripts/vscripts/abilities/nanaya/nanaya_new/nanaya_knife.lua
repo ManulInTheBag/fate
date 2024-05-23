@@ -25,7 +25,7 @@ function nanaya_knife:GetManaCost()
 	if self:GetCaster():HasModifier("modifier_nanaya_combo_window") then
 		return 0
 	end
-	return 100
+	return 200
 end
 
 function nanaya_knife:OnUpgrade()
@@ -123,48 +123,6 @@ function nanaya_knife:OnProjectileHitHandle(hTarget, vLocation, iProjectileHandl
 
 	DoDamage(caster, hTarget, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
 
-	hTarget:EmitSound("nanaya.knifehit")
-
-	Timers:CreateTimer(0.25, function()
-		local jump = ParticleManager:CreateParticle("particles/blink.vpcf", PATTACH_CUSTOMORIGIN, caster)		
-		ParticleManager:SetParticleControl(jump, 0, caster:GetAbsOrigin() + caster:GetForwardVector()*-90)
-				
-		local jump2 = ParticleManager:CreateParticle("particles/shiki_blink_after.vpcf", PATTACH_CUSTOMORIGIN, caster)
-		ParticleManager:SetParticleControl(jump2, 0, caster:GetAbsOrigin()+ caster:GetForwardVector()*-250)
-		ParticleManager:SetParticleControl(jump2, 4, hTarget:GetAbsOrigin())
-				
-				
-		local dagon_particle = ParticleManager:CreateParticle("particles/items_fx/dagon.vpcf",  PATTACH_ABSORIGIN, hTarget)
-		ParticleManager:SetParticleControl(dagon_particle, 1,  hTarget:GetAbsOrigin()+Vector(0, 0, 150))
-		local particle_effect_intensity = 500
-		ParticleManager:SetParticleControl(dagon_particle, 2, Vector(particle_effect_intensity))
-				
-		local knockback1 = { should_stun = false,
-			knockback_duration = 0.1,
-			duration = 0.15,
-			knockback_distance = 600,
-			knockback_height = 0,
-			center_x = caster:GetAbsOrigin().x + caster:GetForwardVector().x * 600,
-			center_y = caster:GetAbsOrigin().y + caster:GetForwardVector().y * 600,
-		center_z = caster:GetAbsOrigin().z }								
-		
-		caster:EmitSound("nanaya.slash")
-		DoDamage(caster, hTarget, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
-		local culling_kill_particle = ParticleManager:CreateParticle("particles/custom/lancer/lancer_culling_blade_kill.vpcf", PATTACH_CUSTOMORIGIN, hTarget)
-		ParticleManager:SetParticleControlEnt(culling_kill_particle, 0, hTarget, PATTACH_POINT_FOLLOW, "attach_hitloc", hTarget:GetAbsOrigin(), true)
-		ParticleManager:SetParticleControlEnt(culling_kill_particle, 1, hTarget, PATTACH_POINT_FOLLOW, "attach_hitloc", hTarget:GetAbsOrigin(), true)
-		ParticleManager:SetParticleControlEnt(culling_kill_particle, 2, hTarget, PATTACH_POINT_FOLLOW, "attach_hitloc", hTarget:GetAbsOrigin(), true)
-		ParticleManager:SetParticleControlEnt(culling_kill_particle, 4, hTarget, PATTACH_POINT_FOLLOW, "attach_hitloc", hTarget:GetAbsOrigin(), true)
-		ParticleManager:SetParticleControlEnt(culling_kill_particle, 8, hTarget, PATTACH_POINT_FOLLOW, "attach_hitloc", hTarget:GetAbsOrigin(), true)	
-				
-		Timers:CreateTimer( 3.0, function()
-			ParticleManager:DestroyParticle( culling_kill_particle, false )
-			ParticleManager:ReleaseParticleIndex(culling_kill_particle)		
-		end)
-		
-		caster:AddNewModifier(caster, self, "modifier_knockback", knockback1)
-	end)
-
 	local culling_kill_particle = ParticleManager:CreateParticle("particles/nanaya_work_2_great.vpcf", PATTACH_ABSORIGIN, hTarget)
 	local jump2 = ParticleManager:CreateParticle("particles/shiki_blink_after.vpcf", PATTACH_CUSTOMORIGIN, caster)
 	ParticleManager:SetParticleControl(jump2, 0, caster:GetAbsOrigin()+ caster:GetForwardVector()*-90)
@@ -172,8 +130,10 @@ function nanaya_knife:OnProjectileHitHandle(hTarget, vLocation, iProjectileHandl
 	local part = ParticleManager:CreateParticle("particles/blink.vpcf", PATTACH_CUSTOMORIGIN, caster)
 	ParticleManager:SetParticleControl(part, 0, caster:GetAbsOrigin()+ caster:GetForwardVector()*-400)
 
-	--[[local modifier = caster:AddNewModifier(caster, self, "modifier_nanaya_knife_recast", {duration = self:GetSpecialValueFor("window_duration")})
-	modifier.target = hTarget]]
+	hTarget:EmitSound("nanaya.knifehit")
+
+	local modifier = caster:AddNewModifier(caster, self, "modifier_nanaya_knife_recast", {duration = self:GetSpecialValueFor("window_duration")})
+	modifier.target = hTarget
 
 	return true
 end
@@ -242,8 +202,8 @@ function nanaya_kekshi:ExecuteCombo(caster, target)
 	EmitGlobalSound("nanaya.combo_execute")
 
 	caster:Stop()
-	target:AddNewModifier(caster, caster, "modifier_nanaya_combo_enemy", {Duration = 1})
-	caster:AddNewModifier(caster, caster, "modifier_nanaya_combo", {Duration = 1})
+	target:AddNewModifier(caster, caster, "modifier_nanaya_combo_enemy", {Duration = 2})
+	caster:AddNewModifier(caster, caster, "modifier_nanaya_combo", {Duration = 2})
 	target:Stop()
 
 	local sec1 = caster:GetOrigin()
@@ -260,25 +220,25 @@ function nanaya_kekshi:ExecuteCombo(caster, target)
 
 	local nanaya_knife2 = nil
 				
-	caster:StartGestureWithPlaybackRate(ACT_SCRIPT_CUSTOM_16, 2.8)
+	caster:StartGestureWithPlaybackRate(ACT_SCRIPT_CUSTOM_16, 1.4)
 	caster:SetOrigin(targetabs + targetforwardvector*90)
 
 
-	Timers:CreateTimer(0.075, function()
-		caster:EmitSound("nanaya.kekshi2")
+	Timers:CreateTimer(0.15, function()
+		caster:EmitSound("nanaya.kekshi1")
 		local nanaya_knife = ParticleManager:CreateParticle("particles/nanaya_last_arc.vpcf", PATTACH_CUSTOMORIGIN, caster)
 		ParticleManager:SetParticleControlEnt(nanaya_knife, 0, caster, PATTACH_POINT, "attach_knife", caster:GetAbsOrigin(), true)
 
 		local nanaya_knife1 = ParticleManager:CreateParticle("particles/nanaya_last_arc2.vpcf", PATTACH_CUSTOMORIGIN, caster)
 		ParticleManager:SetParticleControlEnt(nanaya_knife1, 0, caster, PATTACH_POINT_FOLLOW, "attach_knife", caster:GetAbsOrigin(), true)
 
-		Timers:CreateTimer(0.15, function()
+		Timers:CreateTimer(0.30, function()
 			local knife = ParticleManager:CreateParticle("particles/maybedashvpcffinalfinal.vpcf", PATTACH_CUSTOMORIGIN, caster)
 			ParticleManager:SetParticleControlEnt(knife, 0, caster, PATTACH_POINT_FOLLOW, "attach_hand", caster:GetAbsOrigin(), true)
 			ParticleManager:SetParticleControl(knife, 4, target:GetAbsOrigin())
 		end)
 
-		Timers:CreateTimer(0.150, function()
+		Timers:CreateTimer(0.350, function()
 			ParticleManager:CreateParticleForPlayer("particles/screen_spla22_ark.vpcf", PATTACH_EYES_FOLLOW, caster, player)
 			ParticleManager:CreateParticleForPlayer("particles/screen_spla22_ark.vpcf", PATTACH_EYES_FOLLOW, caster, player2)
 
@@ -290,14 +250,14 @@ function nanaya_kekshi:ExecuteCombo(caster, target)
 		end)
 	end)
 
-	Timers:CreateTimer(0.60, function()
+	Timers:CreateTimer(1.20, function()
 
 		ScreenShake(targetabs, 14, 20, 1, 2000, 0, true)
 
 		local nanaya_knife1 = ParticleManager:CreateParticle("particles/pa_arcana_phantom_strike_end2.vpcf", PATTACH_CUSTOMORIGIN, caster)
 		ParticleManager:SetParticleControlEnt(nanaya_knife1, 0, caster, PATTACH_POINT, "attach_hand", caster:GetAbsOrigin(), true)
 
-		Timers:CreateTimer(0.25, function()
+		Timers:CreateTimer(0.5, function()
 			local nanaya_knife10 = ParticleManager:CreateParticle("particles/maybedashvpcffinalfinal.vpcf", PATTACH_CUSTOMORIGIN, caster)
 			ParticleManager:SetParticleControlEnt(nanaya_knife10, 0, caster, PATTACH_POINT_FOLLOW, "attach_hand", caster:GetAbsOrigin(), true)
 			ParticleManager:SetParticleControl(nanaya_knife10, 4, targetabs + targetforwardvector*300)
@@ -319,14 +279,10 @@ function nanaya_kekshi:ExecuteCombo(caster, target)
 			end
 			DoDamage(caster, target, damage, DAMAGE_TYPE_PURE, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self, false)
 
-			EmitGlobalSound("nanaya.nanaya")
-			EmitGlobalSound("nanaya.slash")
-			EmitGlobalSound("nanaya.boom")
-
 			local check1 = ParticleManager:CreateParticle("particles/ls_ti10_immortal_infest_groundfollow_trace.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
 			ParticleManager:SetParticleControl(check1, 0, target:GetAbsOrigin())
 
-			Timers:CreateTimer(0.065, function()
+			Timers:CreateTimer(0.135, function()
 				local effect_cast = ParticleManager:CreateParticle( "particles/justcheck.vpcf", PATTACH_CUSTOMORIGIN, target)
 				ParticleManager:SetParticleControl(effect_cast, 0, target:GetAbsOrigin() + Vector(0, 0, 150))
 				ParticleManager:SetParticleControlForward(effect_cast, 1, (target:GetOrigin()-caster:GetOrigin()):Normalized() )

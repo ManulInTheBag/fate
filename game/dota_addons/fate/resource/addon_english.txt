@@ -7160,11 +7160,7 @@
 
 
 
-		//====================================
-		//      Aoko Aozaki
-        //====================================
 
-		"npc_dota_hero_ogre_magi"						"Aoko Aozaki"
 
 
         //====================================
@@ -7361,12 +7357,14 @@
 		"DOTA_Tooltip_Ability_lu_bu_relentless_assault_one_duration"				"SLOW AND DISARM DURATION:"
 		
 		"DOTA_Tooltip_Ability_lu_bu_relentless_assault_two"				"<font color='#FFE56E'>Insurmountable Assault: Cleave</font>"
-		"DOTA_Tooltip_Ability_lu_bu_relentless_assault_two_Description"				"Cast Point: <font color='#FFFFF9'>0.1</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Lu Bu does two wide swings in quick succession, inflicting <font color='#C24401'>physical damage</font>, <font color='#FF3399'>knocking back</font> nearby enemies at a 180 degree angle.\n\nThe first swing inflicts <font color='#C24401'>physical armor reduction</font>."
+		"DOTA_Tooltip_Ability_lu_bu_relentless_assault_two_Description"				"Cast Point: <font color='#FFFFF9'>0.1</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Lu Bu does two wide swings in quick succession, inflicting <font color='#05CAFF'>magical damage</font>, <font color='#FF3399'>knocking back</font> nearby enemies at a 180 degree angle.\n\nThe first swing inflicts <font color='#05CAFF'> outgoing magical damage reduction</font>."
 		"DOTA_Tooltip_Ability_lu_bu_relentless_assault_two_Lore"				"The swing of a madman, imbued with unmatched dexterity."
 		"DOTA_Tooltip_Ability_lu_bu_relentless_assault_two_radius"				"RADIUS:"
 		"DOTA_Tooltip_Ability_lu_bu_relentless_assault_two_damage"				"DAMAGE:"
-		"DOTA_Tooltip_Ability_lu_bu_relentless_assault_two_armor_reduction"				"ARMOR REDUCTION:"
-		"DOTA_Tooltip_Ability_lu_bu_relentless_assault_two_armor_reduction_duration"				"ARMOR REDUCTION AND MUTE DURATION:"
+		"DOTA_Tooltip_Ability_lu_bu_relentless_assault_two_magical_damage_reduction"				"%MAGICAL DAMAGE REDUCTION:"
+		"DOTA_Tooltip_Ability_lu_bu_relentless_assault_two_debuff_duration"							"MAGICAL DAMAGE REDUCTION DURATION:"
+		//"DOTA_Tooltip_Ability_lu_bu_relentless_assault_two_armor_reduction"				"ARMOR REDUCTION:"
+		//"DOTA_Tooltip_Ability_lu_bu_relentless_assault_two_armor_reduction_duration"				"ARMOR REDUCTION AND MUTE DURATION:"
 		
 		"DOTA_Tooltip_Ability_lu_bu_relentless_assault_three"				"<font color='#FFE56E'>Insurmountable Assault: Cyclone</font>"
 		"DOTA_Tooltip_Ability_lu_bu_relentless_assault_three_Description"				"Cast Point: <font color='#FFFFF9'>0</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Lu Bu spins around for a short duration, becoming immune to crowd control and rapidly hitting all enemies in a circular area , inflicting <font color='#05CAFF'>magical damage</font>."

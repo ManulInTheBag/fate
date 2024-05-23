@@ -14,31 +14,45 @@ end
 
 function ryougi_knife_throw:OnSpellStart()
 	local caster = self:GetCaster()
-	local target = self:GetCursorTarget()
+  	local tpoint = self:GetCursorPosition()
+  	local dir = tpoint - caster:GetAbsOrigin()
+  	dir.z = 0
+  	if not(tpoint == caster:GetAbsOrigin()) then
+  		caster:SetForwardVector(dir:Normalized())
+  	end
+	local target = caster:GetForwardVector()
+	local range = self:GetSpecialValueFor("range")
 
 	--EmitSoundOn("ryougi_knife_"..math.random(1,2), caster)
 	EmitGlobalSound("ryougi_mieta")
 
-  local info = {
-    Target = target,
-    Source = caster,
-    iSourceAttachment = "attach_attack1", 
-    Ability = self,
-    EffectName = "particles/ryougi/ryougi_dagger_target.vpcf",
-    vSpawnOrigin = caster:GetAbsOrigin(),
-    iMoveSpeed = self:GetSpecialValueFor("speed")
-  }
-  FATE_ProjectileManager:CreateTrackingProjectile(info) 
+	local tProjectile = {
+		caster = caster,
+		source = caster,
+	    EffectName = "particles/ryougi/ryougi_dagger_2.vpcf",
+	    ability = self,
+	    sourceLoc = caster:GetAbsOrigin(),
+	    direction = target,
+	    speed = self:GetSpecialValueFor("speed"),
+	    distance = range,
+	    startRadius = 175,
+	    endRadius = 175,
+	    iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+	    iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+	    iUnitTargetType = DOTA_UNIT_TARGET_ALL,
+	    DeleteOnHit = true,
+  	}
+ 	self.iProjectile = FATE_ProjectileManager:CreateLinearProjectile(tProjectile)
+    self.hitenemy = false
 end
 
 function ryougi_knife_throw:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
-	if hTarget == nil then
-    return
-  end
+	if hTarget == nil or self.hitenemy  then --ты можешь подумать что я насрал и если инстом кинуть два ножа можно словить баг, но ты его и так ловил, удаляя ласт нож если хитнул любой из них так что похуй
+  		return
+  	end
   	if (hTarget:GetName() == "npc_dota_ward_base") then
   		return
   	end
-    if IsSpellBlocked(hTarget) then return end
   	local hCaster = self:GetCaster()
   	local eyes = hCaster:FindAbilityByName("ryougi_mystic_eyes")
 

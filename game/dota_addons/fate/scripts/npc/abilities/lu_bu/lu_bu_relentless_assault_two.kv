@@ -15,7 +15,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastAnimation" 			"ACT_DOTA_ITEM_PICKUP"
 		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
 		"AbilityTextureName"			"custom/lu_bu/lu_bu_relentless_assault_two"
@@ -59,7 +59,7 @@
 			"07"
 			{
 				"var_type"					"FIELD_FLOAT"
-				"knockback_distance"		"150"
+				"knockback_distance"		"200"
 			}
 			"08"
 			{
@@ -75,6 +75,16 @@
 			{
 				"var_type"					"FIELD_FLOAT"
 				"armor_reduction"			"-4 -6 -8 -10 -12"
+			}
+			"10"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"magical_damage_reduction"			"15 17 19 21 23"
+			}
+			"11"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"debuff_duration"			"3"
 			}
 		}
 	}
