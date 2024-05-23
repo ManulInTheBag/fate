@@ -229,3 +229,14 @@ GameUI.CustomUIConfig().multiteam_top_scoreboard =
 
     var hud = $.GetContextPanel().GetParent().GetParent();
     GameUI.CustomUIConfig().hud = hud;
+
+
+    //WORK WITH COMBINE REMOVING ITEMS ON HERO PICKS AKA SPAWNED
+let pInnatesPanel = GetDotaHud().FindChildrenWithClassTraverse("RootInnateDisplay");
+if (pInnatesPanel)
+{
+    pInnatesPanel.forEach((pChild, nIndex, tIterated) =>
+    {
+        if (pChild && pChild.paneltype == "DOTAInnateDisplay") pChild.visible = false;
+    });
+};

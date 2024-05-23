@@ -2,8 +2,6 @@ AllPlayersInterval = {0,1,2,3,4,5,6,7,8,9,10,11,12,13}
 
 require("eyeherodemo/demo_core") --TEST HERO MOD
 
-
-
 require("statcollection/init")
 require('lishuwen_ability')
 require('archer_ability')
@@ -2195,12 +2193,26 @@ function FateGameMode:OnHeroInGame(hero)
     for i=0,23 do
         if hero:GetAbilityByIndex(i) ~= nil then
             local ability = hero:GetAbilityByIndex(i)
+            --print("REMOVING ABILITY cringe", ability:GetAbilityName())
             if string.match(ability:GetName(),"special_bonus") then
                 hero:RemoveAbility(ability:GetName())
             end
         end
     end
     --END
+
+
+    --NOTE: Bonus fix whatif wrong something
+        --=========================INNATES CRINGE FIX FOR NOW===============---
+        local tVALVE_Facets = GetUnitKeyValuesByName(hero:GetUnitName()).Facets or {}
+        for _sName, tValue in pairs(tVALVE_Facets) do
+            for _, tAbility in pairs(tValue.Abilities or {}) do
+                if type(tAbility.AbilityName) == "string" then
+                    hero:RemoveAbility(tAbility.AbilityName)
+                end
+            end
+        end
+        --=========================INNATES CRINGE FIX FOR NOW===============---
 
     -- Initialize Alternate Particles.
     hero.AltPart = AlternateParticle:initialise(hero)
@@ -3060,7 +3072,6 @@ function FateGameMode:OnPlayerPickHero(keys)
     local heroClass = keys.hero
     local heroEntity = EntIndexToHScript(keys.heroindex)
     local player = EntIndexToHScript(keys.player)
-
 end
 
 -- A player killed another player in a multi-team context

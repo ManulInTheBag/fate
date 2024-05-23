@@ -22,6 +22,16 @@ if _G and not _G["bFATE_FIX_FOR_CRASHES_BY_NONE_ISNULL"] then
     end
 end
 
+CDOTA_BaseNPC_Hero = IsServer() and CDOTA_BaseNPC_Hero or C_DOTA_BaseNPC_Hero
+
+local VALVE_CDOTA_BaseNPC_Hero_GetIntellect = CDOTA_BaseNPC_Hero.GetIntellect
+CDOTA_BaseNPC_Hero.GetIntellect = function(self, bSkinConsumeNo)
+    bSkinConsumeNo = bSkinConsumeNo or false
+    return VALVE_CDOTA_BaseNPC_Hero_GetIntellect(self, bSkinConsumeNo)
+end
+
+
+
 TableLength = function(hTable)
     local i = 0
     if type(hTable) == "table" then
@@ -669,3 +679,18 @@ end
         end
     end
 end]]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

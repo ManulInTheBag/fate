@@ -148,7 +148,7 @@ function SelectionPanelEndListener(){
 				SelectionPanelEndListener();
 			});
 	if (PlayerTables.IsConnected()) {
-		var playerData = Players.GetHeroSelectionPlayerInfo(Game.GetLocalPlayerID())
+		var playerData = Players.GetHeroSelectionPlayerInfo(Game.GetLocalPlayerID()) || {};
 		if ((playerData.status == 'picked') && !(HeroSelectionState < HERO_SELECTION_PHASE_END)){
 			HeroSelectionEnd(true)
 		}
