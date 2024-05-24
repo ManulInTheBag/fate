@@ -490,6 +490,13 @@ if IsServer() then
         end
     end
 
+    local VALVE_CDOTA_BaseNPC_SpendMana = CDOTA_BaseNPC.SpendMana
+    CDOTA_BaseNPC.SpendMana = function(flManaSpent, hAbility)
+        if type(hAbility) == "table" and not hAbility:IsNull() then
+            --NOTE: Can use Script_ReduceMana(mana: float, ability: handle): also if u want, but also can maybe crash, not sure
+            return VALVE_CDOTA_BaseNPC_SpendMana(self, flManaSpent, hAbility)
+        end
+    end
 end
 
 LinkLuaModifier("modifier_fate_mechanic_parent_new", "libraries/fate_functions_server_client", LUA_MODIFIER_MOTION_NONE)
