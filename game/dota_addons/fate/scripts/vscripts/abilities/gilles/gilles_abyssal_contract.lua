@@ -38,6 +38,9 @@ function gilles_abyssal_contract:OnSpellStart()
 	local fSquidLordzdamage = self:GetSpecialValueFor("attack_damage")
 	local fAOE = self:GetAOERadius()
 
+	if IsNotNull(hCaster.Squidlord) then
+		hCaster.Squidlord:ForceKill(false)
+	end
 	EmitGlobalSound("Gilles_Cool")
 	hCaster:AddNewModifier(hCaster, self, "modifier_squidlord_alive", { Duration = 2.9})
 
@@ -97,8 +100,8 @@ function gilles_abyssal_contract:OnSpellStart()
 			hSquidLordz:SetBaseDamageMax(fSquidLordzdamage) 
 			hSquidLordz:SetBaseDamageMin(fSquidLordzdamage) 
 			Timers:CreateTimer(90, function()
-				if hSquidLordz then
-					hSquidLordz:Kill(hSquidLordz:GetAbilityByIndex(0), hSquidLordz)
+				if IsNotNull(hSquidLordz) then
+						hSquidLordz:ForceKill(false)
 				end
 			end)
 			hSquidLordz:AddNewModifier(hCaster, self, "modifier_kill", { duration = 91.0 })

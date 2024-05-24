@@ -265,13 +265,21 @@ function OnManaDrainStart(keys)
 	local particleName = "particles/units/heroes/hero_lion/lion_spell_mana_drain.vpcf"
 
 
-	caster.ManaDrainParticle = ParticleManager:CreateParticle(particleName, PATTACH_POINT_FOLLOW, caster)
-	caster.ManaDrainTarget = target
+
 	if target == caster then 
 		keys.ability:EndCooldown()
+		caster:Interrupt()
+		caster:InterruptChannel()
+		print("KEK")
 		SendErrorMessage(caster:GetPlayerOwnerID(), "#Cannot_Target_Self")
 		return
 	end
+
+	ability:SetChanneling(true)
+	
+	caster.ManaDrainParticle = ParticleManager:CreateParticle(particleName, PATTACH_POINT_FOLLOW, caster)
+	caster.ManaDrainTarget = target
+
 	keys.ManaPerSec = keys.ManaPerSec + hero:GetIntellect() * 0.8
 
 	caster.IsManaDrainChanneling = true
@@ -402,16 +410,23 @@ function OnSummonDragon(keys)
 
 	if caster.IsMobilized then return end 
 
+	print("KEK DRAGON")
 	-- Kill the existing dragon
-	local dragFind = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 20000, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
-	for k,v in pairs(dragFind) do
-		print(v:GetClassname())
-		if v:GetUnitName() == "caster_5th_ancient_dragon" then
-			v:Kill(v:GetAbilityByIndex(0), v)
-		end
+	-- local dragFind = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
+	-- for k,v in pairs(dragFind) do
+	-- 	print(v:GetClassname())
+	-- 	if v:GetUnitName() == "caster_5th_ancient_dragon" then
+	-- 		print("KEK TRYING REMOVE")
+	-- 		v:ForceKill(false)
+	-- 	end
+	-- end
+	if IsNotNull(caster.__hMedeyaDragonCringe) then
+		caster.__hMedeyaDragonCringe:ForceKill(false)
+		caster.__hMedeyaDragonCringe = nil
 	end
-
-	local drag = CreateUnitByName("caster_5th_ancient_dragon", caster:GetAbsOrigin(), true, nil, nil, caster:GetTeamNumber()) 
+	caster.__hMedeyaDragonCringe = CreateUnitByName("caster_5th_ancient_dragon", caster:GetAbsOrigin(), true, caster, caster, caster:GetTeamNumber())
+	local drag = caster.__hMedeyaDragonCringe
+	print(drag:GetClassname(), "WTF")
 	--drag:SetPlayerID(pid) 
 	drag:SetControllableByPlayer(pid, true)
 	drag:SetOwner(caster:GetPlayerOwner():GetAssignedHero())
@@ -419,8 +434,9 @@ function OnSummonDragon(keys)
 	FindClearSpaceForUnit(drag, drag:GetAbsOrigin(), true)
 	drag:AddItem(CreateItem("item_caster_5th_mount" , nil, nil))
 	Timers:CreateTimer(60, function()
-		if drag then
-			drag:Kill(drag:GetAbilityByIndex(0), drag)
+		if IsNotNull(drag) then
+			drag:ForceKill(false)
+			caster.__hMedeyaDragonCringe = nil
 		end
 	end)
 	drag:AddNewModifier(caster, nil, "modifier_kill", {duration = 61})
@@ -1120,6 +1136,9 @@ function OnMTStart(keys)
 	local durCount = 0
 	if target == caster then 
 		keys.ability:EndCooldown()
+		caster:Interrupt()
+		caster:InterruptChannel()
+		--print("KEK")
 		SendErrorMessage(caster:GetPlayerOwnerID(), "#Cannot_Target_Self")
 		return
 	end
