@@ -178,7 +178,7 @@ function OnTerritoryDeath(keys)
 	for k,v in pairs(summons) do
 		print("Found unit " .. v:GetUnitName())
 		if v:GetUnitName() == "caster_5th_skeleton_warrior" or v:GetUnitName() == "caster_5th_skeleton_archer" or v:GetUnitName() == "caster_5th_ancient_dragon" then
-			v:Kill(v:GetAbilityByIndex(0), v) 
+			v:Kill(nil, caster)
 		end
 	end
 end
@@ -421,7 +421,7 @@ function OnSummonDragon(keys)
 	-- 	end
 	-- end
 	if IsNotNull(caster.__hMedeyaDragonCringe) then
-		caster.__hMedeyaDragonCringe:ForceKill(false)
+		caster.__hMedeyaDragonCringe:Kill(nil, caster)
 		caster.__hMedeyaDragonCringe = nil
 	end
 	caster.__hMedeyaDragonCringe = CreateUnitByName("caster_5th_ancient_dragon", caster:GetAbsOrigin(), true, caster, caster, caster:GetTeamNumber())
@@ -434,8 +434,8 @@ function OnSummonDragon(keys)
 	FindClearSpaceForUnit(drag, drag:GetAbsOrigin(), true)
 	drag:AddItem(CreateItem("item_caster_5th_mount" , nil, nil))
 	Timers:CreateTimer(60, function()
-		if IsNotNull(drag) then
-			drag:ForceKill(false)
+		if IsNotNull(caster.__hMedeyaDragonCringe) then
+			caster.__hMedeyaDragonCringe:Kill(nil, caster)
 			caster.__hMedeyaDragonCringe = nil
 		end
 	end)

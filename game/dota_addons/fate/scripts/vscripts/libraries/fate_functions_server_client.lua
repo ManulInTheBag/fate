@@ -490,11 +490,15 @@ if IsServer() then
         end
     end
 
-    local VALVE_CDOTA_BaseNPC_SpendMana = CDOTA_BaseNPC.SpendMana
-    CDOTA_BaseNPC.SpendMana = function(flManaSpent, hAbility)
-        if type(hAbility) == "table" and not hAbility:IsNull() then
-            --NOTE: Can use Script_ReduceMana(mana: float, ability: handle): also if u want, but also can maybe crash, not sure
-            return VALVE_CDOTA_BaseNPC_SpendMana(self, flManaSpent, hAbility)
+    CDOTA_BaseNPC.SpendManaDota = CDOTA_BaseNPC.SpendManaDota or CDOTA_BaseNPC.SpendMana
+    CDOTA_BaseNPC.SpendMana = function(self, flManaSpent, hAbility)
+        if IsNotNull(self) then
+            if type(hAbility) == "table" and not hAbility:IsNull() then
+                --NOTE: Can use Script_ReduceMana(mana: float, ability: handle): also if u want, but also can maybe crash, not sure
+                return self:SpendManaDota(flManaSpent, hAbility)
+            else
+                return self:Script_ReduceMana(flManaSpent, hAbility)
+            end
         end
     end
 end

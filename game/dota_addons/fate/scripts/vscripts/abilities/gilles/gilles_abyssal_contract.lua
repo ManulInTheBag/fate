@@ -39,7 +39,8 @@ function gilles_abyssal_contract:OnSpellStart()
 	local fAOE = self:GetAOERadius()
 
 	if IsNotNull(hCaster.Squidlord) then
-		hCaster.Squidlord:ForceKill(false)
+		hCaster.Squidlord:Kill(nil, hCaster)
+		hCaster.Squidlord = nil
 	end
 	EmitGlobalSound("Gilles_Cool")
 	hCaster:AddNewModifier(hCaster, self, "modifier_squidlord_alive", { Duration = 2.9})
@@ -100,8 +101,9 @@ function gilles_abyssal_contract:OnSpellStart()
 			hSquidLordz:SetBaseDamageMax(fSquidLordzdamage) 
 			hSquidLordz:SetBaseDamageMin(fSquidLordzdamage) 
 			Timers:CreateTimer(90, function()
-				if IsNotNull(hSquidLordz) then
-						hSquidLordz:ForceKill(false)
+				if IsNotNull(hCaster.Squidlord) then
+						hCaster.Squidlord:Kill(nil, hCaster)
+						hCaster.Squidlord = nil
 				end
 			end)
 			hSquidLordz:AddNewModifier(hCaster, self, "modifier_kill", { duration = 91.0 })
@@ -151,8 +153,9 @@ function gilles_abyssal_contract:OnSpellStart()
 end
 
 function gilles_abyssal_contract:OnOwnerDied()
-	if self:GetCaster().Squidlord and self:GetCaster().Squidlord:IsAlive() then
-		self:GetCaster().Squidlord:ForceKill(true)
+	local hCaster = self:GetCaster()
+	if IsNotNull(hCaster.Squidlord) and hCaster.Squidlord:IsAlive() then
+		hCaster.Squidlord:Kill(nil, hCaster)
 	end
 end
 
