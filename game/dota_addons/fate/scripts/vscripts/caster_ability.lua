@@ -434,9 +434,8 @@ function OnSummonDragon(keys)
 	FindClearSpaceForUnit(drag, drag:GetAbsOrigin(), true)
 	drag:AddItem(CreateItem("item_caster_5th_mount" , nil, nil))
 	Timers:CreateTimer(60, function()
-		if IsNotNull(caster.__hMedeyaDragonCringe) then
-			caster.__hMedeyaDragonCringe:Kill(nil, caster)
-			caster.__hMedeyaDragonCringe = nil
+		if IsNotNull(drag) then
+			drag:Kill(nil, caster)
 		end
 	end)
 	drag:AddNewModifier(caster, nil, "modifier_kill", {duration = 61})
