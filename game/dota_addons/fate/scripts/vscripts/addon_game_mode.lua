@@ -4722,6 +4722,11 @@ function my_http_post()
         hero.ServStat.eseal, hero.ServStat.rseal, hero.ServStat.cScroll, hero.ServStat.bScroll, hero.ServStat.aScroll, hero.ServStat.sScroll, hero.ServStat.exScroll,
         hero.ServStat.ward, hero.ServStat.familiar, hero.ServStat.link, hero.ServStat.str, hero.ServStat.agi, hero.ServStat.int, hero.ServStat.atk, hero.ServStat.armor, 
         hero.ServStat.hpregen, hero.ServStat.mpregen, hero.ServStat.ms, hero.ServStat.shard1, hero.ServStat.shard2, hero.ServStat.shard3, hero.ServStat.shard4}
+        hero.ServStat.assist, hero.ServStat.tkill, hero.ServStat.itemValue + hero.ServStat.goldWasted, hero.ServStat.itemValue, hero.ServStat.goldWasted,
+        hero.ServStat.damageDealt, hero.ServStat.damageDealtBR, hero.ServStat.damageTaken, hero.ServStat.damageTakenBR, hero.ServStat.qseal, hero.ServStat.wseal,
+        hero.ServStat.eseal, hero.ServStat.rseal, hero.ServStat.cScroll, hero.ServStat.bScroll, hero.ServStat.aScroll, hero.ServStat.sScroll, hero.ServStat.exScroll,
+        hero.ServStat.ward, hero.ServStat.familiar, hero.ServStat.link, hero.ServStat.str, hero.ServStat.agi, hero.ServStat.int, hero.ServStat.atk, hero.ServStat.armor, 
+        hero.ServStat.hpregen, hero.ServStat.mpregen, hero.ServStat.ms, hero.ServStat.shard1, hero.ServStat.shard2, hero.ServStat.shard3, hero.ServStat.shard4}
         table.insert(matchData, playerData)
     end)
     --[[for k,v in pairs(matchData) do
