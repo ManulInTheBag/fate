@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc33:version{bed0390a-a564-41a6-9dc3-c9a293c8eea3} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc36:version{972dada4-b828-45a4-bb93-7795cf0585da} -->
 {
 	rootNode = 
 	{
@@ -70,7 +70,7 @@
 						weight_list_name = ""
 						fade_in_time = 0.2
 						fade_out_time = 0.2
-						looping = false
+						looping = true
 						delta = false
 						worldSpace = false
 						hidden = false
@@ -278,6 +278,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_BODYGROUP_SET_VALUE"
 								event_frame = 5
+								event_end_frame = -1
 								event_keys = 
 								{
 									bodygroup = "knife"
@@ -288,6 +289,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_BODYGROUP_SET_VALUE"
 								event_frame = 1
+								event_end_frame = -1
 								event_keys = 
 								{
 									bodygroup = "knife"
@@ -298,6 +300,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_BODYGROUP_SET_VALUE"
 								event_frame = 6
+								event_end_frame = -1
 								event_keys = 
 								{
 									bodygroup = "knife"
@@ -308,6 +311,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_BODYGROUP_SET_VALUE"
 								event_frame = 7
+								event_end_frame = -1
 								event_keys = 
 								{
 									bodygroup = "knife"
@@ -318,6 +322,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_BODYGROUP_SET_VALUE"
 								event_frame = 8
+								event_end_frame = -1
 								event_keys = 
 								{
 									bodygroup = "knife"
@@ -328,6 +333,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_BODYGROUP_SET_VALUE"
 								event_frame = 9
+								event_end_frame = -1
 								event_keys = 
 								{
 									bodygroup = "knife"
@@ -338,6 +344,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_BODYGROUP_SET_VALUE"
 								event_frame = 10
+								event_end_frame = -1
 								event_keys = 
 								{
 									bodygroup = "knife"
@@ -348,6 +355,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_BODYGROUP_SET_VALUE"
 								event_frame = 11
+								event_end_frame = -1
 								event_keys = 
 								{
 									bodygroup = "knife"
@@ -358,6 +366,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_BODYGROUP_SET_VALUE"
 								event_frame = 12
+								event_end_frame = -1
 								event_keys = 
 								{
 									bodygroup = "knife"
@@ -368,6 +377,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_BODYGROUP_SET_VALUE"
 								event_frame = 13
+								event_end_frame = -1
 								event_keys = 
 								{
 									bodygroup = "knife"
@@ -378,6 +388,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_BODYGROUP_SET_VALUE"
 								event_frame = 14
+								event_end_frame = -1
 								event_keys = 
 								{
 									bodygroup = "knife"
@@ -388,6 +399,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_BODYGROUP_SET_VALUE"
 								event_frame = 15
+								event_end_frame = -1
 								event_keys = 
 								{
 									bodygroup = "knife"
@@ -398,6 +410,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_BODYGROUP_SET_VALUE"
 								event_frame = 16
+								event_end_frame = -1
 								event_keys = 
 								{
 									bodygroup = "knife"
@@ -408,6 +421,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_BODYGROUP_SET_VALUE"
 								event_frame = 17
+								event_end_frame = -1
 								event_keys = 
 								{
 									bodygroup = "knife"
@@ -418,6 +432,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_BODYGROUP_SET_VALUE"
 								event_frame = 18
+								event_end_frame = -1
 								event_keys = 
 								{
 									bodygroup = "knife"
@@ -428,6 +443,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_BODYGROUP_SET_VALUE"
 								event_frame = 19
+								event_end_frame = -1
 								event_keys = 
 								{
 									bodygroup = "knife"
@@ -438,6 +454,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_BODYGROUP_SET_VALUE"
 								event_frame = 20
+								event_end_frame = -1
 								event_keys = 
 								{
 									bodygroup = "knife"
@@ -448,6 +465,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_BODYGROUP_SET_VALUE"
 								event_frame = 21
+								event_end_frame = -1
 								event_keys = 
 								{
 									bodygroup = "knife"
@@ -458,6 +476,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_BODYGROUP_SET_VALUE"
 								event_frame = 22
+								event_end_frame = -1
 								event_keys = 
 								{
 									bodygroup = "knife"
@@ -468,6 +487,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_BODYGROUP_SET_VALUE"
 								event_frame = 23
+								event_end_frame = -1
 								event_keys = 
 								{
 									bodygroup = "knife"
@@ -478,6 +498,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_BODYGROUP_SET_VALUE"
 								event_frame = 24
+								event_end_frame = -1
 								event_keys = 
 								{
 									bodygroup = "knife"
@@ -488,6 +509,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_BODYGROUP_SET_VALUE"
 								event_frame = 25
+								event_end_frame = -1
 								event_keys = 
 								{
 									bodygroup = "knife"
@@ -498,6 +520,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_BODYGROUP_SET_VALUE"
 								event_frame = 26
+								event_end_frame = -1
 								event_keys = 
 								{
 									bodygroup = "knife"
@@ -508,6 +531,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_BODYGROUP_SET_VALUE"
 								event_frame = 27
+								event_end_frame = -1
 								event_keys = 
 								{
 									bodygroup = "knife"
@@ -518,6 +542,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_BODYGROUP_SET_VALUE"
 								event_frame = 28
+								event_end_frame = -1
 								event_keys = 
 								{
 									bodygroup = "knife"
@@ -1485,5 +1510,6 @@
 		model_archetype = ""
 		primary_associated_entity = ""
 		anim_graph_name = ""
+		document_sub_type = "ModelDocSubType_None"
 	}
 }

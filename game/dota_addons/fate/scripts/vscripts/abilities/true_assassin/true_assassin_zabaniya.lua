@@ -44,12 +44,15 @@ function true_assassin_zabaniya:OnSpellStart()
 	local projectileSpeed = 1050
 
 	caster:EmitSound("Hero_Nightstalker.Trickling_Fear")
-
+	local projectileName = "particles/custom/ta/zabaniya_projectile.vpcf"
+	if caster:HasModifier("modifier_hassan_model_swap") then
+		projectileName = "particles/zlodemon/gojo_puk/custom/ta/zabaniya_nasral.vpcf"
+	end
 	local info = {
 		Target = target,
 		Source = caster, 
 		Ability = ability,
-		EffectName = "particles/custom/ta/zabaniya_projectile.vpcf",
+		EffectName = projectileName,
 		vSpawnOrigin = caster:GetAbsOrigin(),
 		iMoveSpeed = projectileSpeed
 	}
@@ -129,3 +132,67 @@ function true_assassin_zabaniya:OnUpgrade()
 		MasterUnit2:FindAbilityByName("true_assassin_attribute_shadow_strike"):SetLevel(self:GetLevel())
 	end	
 end
+
+
+
+LinkLuaModifier("modifier_hassan_model_swap", "abilities/true_assassin/true_assassin_zabaniya", LUA_MODIFIER_MOTION_NONE)
+--NOTE: Function to handle swapping between models in-game.
+if IsServer() then
+    if type(hassan_abilities_chat_event) == "number" then
+        StopListeningToGameEvent(hassan_abilities_chat_event)
+    end
+    --===--
+    _G.hassan_abilities_chat_event = ListenToGameEvent("player_chat", function(tEventTable)
+        local nPlayerID = tEventTable.playerid
+        local sText     = tEventTable.text
+        local hHero     = PlayerResource:GetSelectedHeroEntity(nPlayerID)
+        if not (hHero:GetName() == "npc_dota_hero_bounty_hunter") then
+            return
+        end
+        if IsNotNull(hHero) then
+            if sText == "-negr" then
+                hHero:RemoveModifierByName("modifier_hassan_model_swap")
+            end
+            if sText == "-gojo" then
+                if GameRules:GetDOTATime(false, false) <= 300 then
+                    hHero:AddNewModifier(hHero, nil, "modifier_hassan_model_swap", {})
+                end
+            end
+        end
+    end, nil)
+end
+---------------------------------------------------------------------------------------------------------------------
+
+
+modifier_hassan_model_swap = modifier_hassan_model_swap or class({})
+
+function modifier_hassan_model_swap:IsHidden()                                                                       return true end
+function modifier_hassan_model_swap:IsDebuff()                                                                       return false end
+function modifier_hassan_model_swap:IsPurgable()                                                                     return false end
+function modifier_hassan_model_swap:IsPurgeException()                                                               return false end
+function modifier_hassan_model_swap:RemoveOnDeath()                                                                  return false end
+function modifier_hassan_model_swap:IsDimensionException()                                                           return true end
+function modifier_hassan_model_swap:AllowIllusionDuplicate()                                                         return true end
+function modifier_hassan_model_swap:GetPriority()                                                                    return MODIFIER_PRIORITY_LOW end
+function modifier_hassan_model_swap:DeclareFunctions()
+    local tFunc =   {
+                        MODIFIER_PROPERTY_MODEL_CHANGE
+                    }
+    return tFunc
+end
+function modifier_hassan_model_swap:GetModifierModelChange(keys)
+    return self.sModelName
+end
+function modifier_hassan_model_swap:OnCreated(hTable)
+    self.hCaster  = self:GetCaster()
+    self.hParent  = self:GetParent()
+    self.hAbility = self:GetAbility()
+
+    if IsServer() then
+        self.sModelName = "models/zlodemon/gojo.vmdl"
+    end
+end
+function modifier_hassan_model_swap:OnRefresh(hTable)
+    self:OnCreated(hTable)
+end
+--========================================--

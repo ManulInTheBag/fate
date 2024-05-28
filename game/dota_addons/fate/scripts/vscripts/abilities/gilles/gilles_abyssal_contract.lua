@@ -101,9 +101,8 @@ function gilles_abyssal_contract:OnSpellStart()
 			hSquidLordz:SetBaseDamageMax(fSquidLordzdamage) 
 			hSquidLordz:SetBaseDamageMin(fSquidLordzdamage) 
 			Timers:CreateTimer(90, function()
-				if IsNotNull(hCaster.Squidlord) then
-						hCaster.Squidlord:Kill(nil, hCaster)
-						hCaster.Squidlord = nil
+				if IsNotNull(hSquidLordz) then
+						hSquidLordz:Kill(nil, hCaster)
 				end
 			end)
 			hSquidLordz:AddNewModifier(hCaster, self, "modifier_kill", { duration = 91.0 })
