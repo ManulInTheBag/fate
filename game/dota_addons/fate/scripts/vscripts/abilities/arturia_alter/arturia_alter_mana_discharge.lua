@@ -74,7 +74,7 @@ function modifier_derange_discharge:OnIntervalThink()
 
 	if self.parent:GetMana() < self:GetAbility().mana_drain then
 		self.mana_discharge = self.mana_discharge + self.parent:GetMana()
-		self:GetParent():SpendMana(self:GetParent():GetMana(), self)
+		self:GetParent():SpendMana(self:GetParent():GetMana(), self.ability)
 
 		if self.mana_discharge >= self.mana/2
 			then self.mana_discharge = self.mana/2
