@@ -58,7 +58,8 @@ function true_assassin_dirk:OnSpellStart()
         		Ability = ability,
         		EffectName = "particles/units/heroes/hero_phantom_assassin/phantom_assassin_stifling_dagger.vpcf",
         		vSpawnOrigin = caster:GetAbsOrigin(),
-        		iMoveSpeed = 1800
+        		iMoveSpeed = 1800,
+                iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_ATTACK_1,
         	}
         	FATE_ProjectileManager:CreateTrackingProjectile(info) 
 

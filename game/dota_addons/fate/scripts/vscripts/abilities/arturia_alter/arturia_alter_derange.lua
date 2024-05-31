@@ -78,7 +78,7 @@ function modifier_derange:OnIntervalThink()
 
 	if self.ability:GetToggleState() == true then
 
-	self:GetParent():SpendMana(self:GetAbility().mana_drain, self)
+	self:GetParent():SpendMana(self:GetAbility().mana_drain, self.ability)
 	if self.parent:GetMana() < self:GetAbility().mana_drain then
         self.parent:RemoveModifierByName("modifier_derange")
         self.parent:GetAbilityByIndex(0):StartCooldown(self.abilitycd)

@@ -44,17 +44,15 @@ function true_assassin_zabaniya:OnSpellStart()
 	local projectileSpeed = 1050
 
 	caster:EmitSound("Hero_Nightstalker.Trickling_Fear")
-	local projectileName = "particles/custom/ta/zabaniya_projectile.vpcf"
-	if caster:HasModifier("modifier_hassan_model_swap") then
-		projectileName = "particles/zlodemon/gojo_puk/custom/ta/zabaniya_nasral.vpcf"
-	end
+	local projectileName = caster:HasModifier("modifier_hassan_model_swap") and "particles/zlodemon/gojo_puk/custom/ta/zabaniya_nasral.vpcf" or "particles/custom/ta/zabaniya_projectile.vpcf"
 	local info = {
 		Target = target,
 		Source = caster, 
 		Ability = ability,
 		EffectName = projectileName,
 		vSpawnOrigin = caster:GetAbsOrigin(),
-		iMoveSpeed = projectileSpeed
+		iMoveSpeed = projectileSpeed,
+		iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_ATTACK_2,
 	}
 
 	FATE_ProjectileManager:CreateTrackingProjectile(info) 

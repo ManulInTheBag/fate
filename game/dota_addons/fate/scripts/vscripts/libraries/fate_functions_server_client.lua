@@ -493,7 +493,7 @@ if IsServer() then
     CDOTA_BaseNPC.SpendManaDota = CDOTA_BaseNPC.SpendManaDota or CDOTA_BaseNPC.SpendMana
     CDOTA_BaseNPC.SpendMana = function(self, flManaSpent, hAbility)
         if IsNotNull(self) then
-            if type(hAbility) == "table" and not hAbility:IsNull() then
+            if type(hAbility) == "table" and not hAbility:IsNull() and type(hAbility.GetManaCost) == "function" then
                 --NOTE: Can use Script_ReduceMana(mana: float, ability: handle): also if u want, but also can maybe crash, not sure
                 return self:SpendManaDota(flManaSpent, hAbility)
             else
