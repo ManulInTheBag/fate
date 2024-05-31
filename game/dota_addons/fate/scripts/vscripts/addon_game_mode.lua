@@ -4034,7 +4034,9 @@ function FateGameMode:InitializeRound()
         --SendChatToPanorama("IRL4"..plyID)
 
         if hero.ProsperityCount ~= nil then
-            --hero.MasterUnit:SetMana(hero.MasterUnit:GetMana() + 1 * hero.ProsperityCount)
+            hero.MasterUnit:SetMana(hero.MasterUnit:GetMana() + 1 * hero.ProsperityCount)
+            hero.MasterUnit:SetHealth(hero.MasterUnit:GetHealth() + 1 * hero.ProsperityCount)
+            hero.MasterUnit2:SetHealth(hero.MasterUnit:GetHealth())
             hero.MasterUnit2:SetMana(hero.MasterUnit:GetMana())
             --print("granted more mana")
         end
@@ -4049,16 +4051,29 @@ function FateGameMode:InitializeRound()
         -- Grant gold
         if self.nCurrentRound > 1 then
             hero.CStock = 10
-            if hero:GetGold() < 5000 then --
-                --print("[FateGameMode] " .. hero:GetName() .. " gained 3000 gold at the start of round")
-                --[[if hero.AvariceCount ~= nil then
-                    hero:ModifyGold(3000 + hero.AvariceCount * 1500, false, 0)
-                else]]
-                    hero:ModifyGold(4000, false, 0)
-                --end
-            end
             if hero.AvariceCount ~= nil then
-                hero:ModifyGold(3250*hero.AvariceCount, false, 0)
+                if hero:GetGold() < (5000 + (hero.AvariceCount * 4000)) then --
+                    --print("[FateGameMode] " .. hero:GetName() .. " gained 3000 gold at the start of round")
+                    --[[if hero.AvariceCount ~= nil then
+                        hero:ModifyGold(3000 + hero.AvariceCount * 1500, false, 0)
+                    else]]
+                        hero:ModifyGold(4000, false, 0)
+                    --end
+                end
+            else
+                if hero:GetGold() < 5000 then 
+                    --print("[FateGameMode] " .. hero:GetName() .. " gained 3000 gold at the start of round")
+                    --[[if hero.AvariceCount ~= nil then
+                        hero:ModifyGold(3000 + hero.AvariceCount * 1500, false, 0)
+                    else]]
+                        hero:ModifyGold(4000, false, 0)
+                    --end
+                end
+
+            end
+
+            if hero.AvariceCount ~= nil then
+                hero:ModifyGold(4000*hero.AvariceCount, false, 0)
             end
 
             --local xpBonus = 100 + 
@@ -4384,6 +4399,12 @@ function FateGameMode:FinishRound(IsTimeOut, winner)
                     else
                         playerHero.ShardAmount = playerHero.ShardAmount + 1
                     end
+                    for i=1,3 do
+                        local level = playerHero:GetLevel()
+                        if level ~= 24 then
+                            playerHero:AddExperience(_G.XP_PER_LEVEL_TABLE[level], false, false)
+                        end
+                    end
                     local statTable = CreateTemporaryStatTable(playerHero)
                     CustomGameEventManager:Send_ServerToPlayer( playerHero:GetPlayerOwner(), "servant_stats_updated", statTable ) -- Send the current stat info to JS
                     Notifications:Top(player, {text= "<font color='#58ACFA'></font> Your team had lost 5 rounds, you are rewarded with a shard of Holy Grail.", duration=8, style={color="rgb(255,140,0)", ["font-size"]="45px"}, continue=true})
@@ -4395,6 +4416,12 @@ function FateGameMode:FinishRound(IsTimeOut, winner)
                         playerHero.ShardAmount = 1
                     else
                         playerHero.ShardAmount = playerHero.ShardAmount + 1
+                    end
+                    for i=1,3 do
+                        local level = playerHero:GetLevel()
+                        if level ~= 24 then
+                            playerHero:AddExperience(_G.XP_PER_LEVEL_TABLE[level], false, false)
+                        end
                     end
                     local statTable = CreateTemporaryStatTable(playerHero)
                     CustomGameEventManager:Send_ServerToPlayer( playerHero:GetPlayerOwner(), "servant_stats_updated", statTable ) -- Send the current stat info to JS
