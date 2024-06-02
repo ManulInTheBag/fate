@@ -3,9 +3,15 @@ heracles_berserk = class({})
 LinkLuaModifier("modifier_heracles_berserk", "abilities/heracles/modifiers/modifier_heracles_berserk", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_heracles_combo_window", "abilities/heracles/modifiers/modifier_heracles_combo_window", LUA_MODIFIER_MOTION_NONE)
 
+function heracles_berserk:GetBehavior()
+    if self:GetCaster():IsStunned() then
+        return self.BaseClass.GetBehavior(self) + DOTA_ABILITY_BEHAVIOR_IMMEDIATE + DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE
+    end
+    return self.BaseClass.GetBehavior(self)
+end
+
 function heracles_berserk:OnSpellStart()
 	local duration = self:GetSpecialValueFor("duration")
-
 	EmitGlobalSound("Berserker.Roar")
 	self:EnterBerserk(duration)
 end
@@ -18,6 +24,36 @@ function heracles_berserk:EnterBerserk(duration)
 	local attack_speed = self:GetSpecialValueFor("bns_att_spd")
 	local radius = 300
 	caster.BerserkDamageTaken = 0
+	if caster:IsStunned() then
+		giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 0.3)
+		caster:StartGestureWithPlaybackRate(ACT_DOTA_CAST_ABILITY_4, 3)
+		Timers:CreateTimer(0.3, function()
+			local particle = ParticleManager:CreateParticle("particles/zlodemon/heracles/heracles_puk.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+			ParticleManager:ReleaseParticleIndex(particle)
+			local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 350, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+			for k,v in pairs(targets) do
+				if IsNotNull(v) then
+					v:AddNewModifier(hCaster, v, "modifier_stunned", {Duration = 0.3})
+					DoDamage(caster, v, 100 + caster:GetMaxHealth()*0.15, DAMAGE_TYPE_MAGICAL, 0, self, false)
+				end
+			end
+			HardCleanse(caster)
+		end)
+		--StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_CAST_ABILITY_4, rate=2.5})
+	else
+		local particle = ParticleManager:CreateParticle("particles/zlodemon/heracles/heracles_puk.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+		ParticleManager:ReleaseParticleIndex(particle)
+		local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 350, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+		for k,v in pairs(targets) do
+			if IsNotNull(v) then
+				v:AddNewModifier(hCaster, v, "modifier_stunned", {Duration = 0.3})
+				DoDamage(caster, v, 100 + caster:GetMaxHealth()*0.15, DAMAGE_TYPE_MAGICAL, 0, self, false)
+			end
+		end
+
+
+
+	end
 
 	if caster:HasModifier("modifier_mad_enhancement_attribute") then
 		duration = duration + 1

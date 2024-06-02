@@ -31,7 +31,7 @@ if IsServer() then
 		self.dt = self.dt + 0.033
 		if self.dt >= 0.5 then
 			self.dt = 0
-			HardCleanse(self:GetParent())
+			--HardCleanse(self:GetParent())
 		end
 
 		if parent:HasModifier("modifier_gae_buidhe") then

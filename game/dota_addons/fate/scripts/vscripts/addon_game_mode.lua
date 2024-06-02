@@ -434,6 +434,11 @@ function Precache( context )
     PrecacheResource("particle", "particles/custom/atalanta/normal_arrow.vpcf", context)
 
     PrecacheResource( "particle_folder", "particles/econ/items/juggernaut", context )
+    PrecacheUnitByNameAsync("npc_dota_hero_puck", nil, nil)
+    PrecacheResource("particle_folder", "particles/altera", context)
+    PrecacheResource("particle_folder", "particles/arash", context)
+    PrecacheResource("particle_folder", "particles/medusa", context)
+    PrecacheResource("particle_folder", "particles/emiya", context)
     --PrecacheResource( "particle_folder", "particles/econ/items/windrunner", context )
 
 --[[
@@ -885,19 +890,16 @@ function FateGameMode:OnPlayerChat(keys)
         print(hero:GetAbsOrigin())
     end
 
-     local emotion_list = {1, 2, 3, 4}
-        --local test2 = tonumber(keys.text)
+
+    local alexeiEbaniy = string.match(text, "^#(%d+)")
+    if tonumber(alexeiEbaniy) ~= nil then 
 
 
-      for i=1, 4 do
-    if text == string.format("#%s", emotion_list[i]) then
-    
-        local emotion = ParticleManager:CreateParticle(string.format("particles/FBT_incident_%s.vpcf", emotion_list[i]), PATTACH_ABSORIGIN_FOLLOW, hero)
+        local emotion = ParticleManager:CreateParticle(string.format("particles/FBT_incident_%s.vpcf", alexeiEbaniy), PATTACH_ABSORIGIN_FOLLOW, hero)
             ParticleManager:SetParticleControl(emotion, 0, hero:GetAbsOrigin())
-           print ("succes")
 
-    end
-end
+   end
+
 
     if text == "-inven" then
         if Convars:GetBool("sv_cheats") then
