@@ -11,7 +11,7 @@ function modifier_eternal_flame_shred:OnCreated(args)
 
 		local hero_armor = self:GetParent():GetPhysicalArmorValue(false) + ((self.Reduction or 0) * -1)
 		self.Reduction = (0.04 * self:GetStackCount()) * hero_armor * -1
-
+		if -self.Reduction > hero_armor then self.Reduction = hero_armor end
 		CustomNetTables:SetTableValue("sync","eternal_flame_shred", { armor_shred = self.Reduction })
 	end
 end

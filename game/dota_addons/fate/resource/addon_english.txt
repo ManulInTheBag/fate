@@ -3112,7 +3112,7 @@
 
 
 		"DOTA_Tooltip_Ability_emiya_unlimited_bladeworks"					"Unlimited Blade Works"
-		"DOTA_Tooltip_ability_emiya_unlimited_bladeworks_Description"		"Chant a line of the <font color='#58ACFA'>Unlimited Blade Works</font>, decreasing the remaining cooldown of Emiya's <font color='#FFFAFA'>active</font> abilities.\nWhen the chant is completed, Emiya will lay his <font color='#FFFAFA'>Reality marble</font>. \nEmiya gains a set of new abilities, bonus <font color='#7CFC00'>health</font> and <font color='#FFFAFA'>resistances</font> inside his <font color='#FFFAFA'>Reality marble</font>.\nWhen Emiya dies, his <font color='#FFFAFA'>Reality marble</font> ends.\n<font color='#F1C40F'>Upgradable by attribute Improve projection.</font>"
+		"DOTA_Tooltip_ability_emiya_unlimited_bladeworks_Description"		"Chant a line of the <font color='#58ACFA'>Unlimited Blade Works</font>, decreasing the remaining cooldown of Emiya's <font color='#FFFAFA'>active</font> abilities.\nWhen the chant is completed, Emiya will lay his <font color='#FFFAFA'>Reality marble</font>. \nEmiya gains a set of new abilities, bonus <font color='#7CFC00'>health</font> and <font color='#FFFAFA'>resistances</font> inside his <font color='#FFFAFA'>Reality marble</font>.\nWhen Emiya dies, his <font color='#FFFAFA'>Reality marble</font> ends.\nCan be set on auto cast to perform combo instead of entering UBW, if Emiya fullfils combo requirements.\n<font color='#F1C40F'>Upgradable by attribute Improve projection.</font>"
 		"DOTA_Tooltip_ability_emiya_unlimited_bladeworks_Lore"				"An aria using a poem of the caster's life, used to activate high-thaumaturgy."
 		"DOTA_Tooltip_Ability_emiya_unlimited_bladeworks_Note0"				"In case UBW is overlapping with another Reality Marble, the battlefield takes place in the first Marble cast. When that Marble is broken, both Marbles cease to sustain."
 		"DOTA_Tooltip_ability_emiya_unlimited_bladeworks_form_delay"		"UBW Delay:"
@@ -3173,7 +3173,7 @@
 
 
 		"DOTA_Tooltip_Ability_emiya_combo"					"Combo: Instant Unlimited Blade Works"
-		"DOTA_Tooltip_Ability_emiya_combo_Description"		"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : R-R in 1.2 seconds while having 0 <font color='#58ACFA'>Unlimited blade works</font> stacks</font>\nEmiya dashes to the targeted enemy in the 1200 radius and immediately activates <font color='#58ACFA'>Unlimited blade works</font>.\nPrimary target is stunned until cast ends\n Shortly after entering, Emiya drops a bunch of swords on the targeted enemy position, dealing <font color='#58ACFA'>damage</font> and <font color='#FF3399'>stunning</font>, while two sword rain bombard around.\n After a 3 second delay, swords explode, dealing more <font color='#58ACFA'>damage</font>."
+		"DOTA_Tooltip_Ability_emiya_combo_Description"		"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : When <font color='#58ACFA'>Unlimited blade works</font>  set on autocast, R-R in 6 seconds while having 5 <font color='#58ACFA'>Unlimited blade works</font> stacks</font>\nEmiya dashes to the targeted enemy in the 1200 radius and immediately activates <font color='#58ACFA'>Unlimited blade works</font>.\nPrimary target is stunned until cast ends\n Shortly after entering, Emiya drops a bunch of swords on the targeted enemy position, dealing <font color='#58ACFA'>damage</font> and <font color='#FF3399'>stunning</font>, while two sword rain bombard around.\n After a 3 second delay, swords explode, dealing more <font color='#58ACFA'>damage</font>."
 		"DOTA_Tooltip_Ability_emiya_combo_Lore"	""
 		"DOTA_Tooltip_Ability_emiya_combo_Note0"			"If target dies before entering UBW, there will be no combo."
 		"DOTA_Tooltip_Ability_emiya_combo_first_damage"		"Swords damage:"
@@ -4136,10 +4136,11 @@
         "DOTA_Tooltip_modifier_lancelot_minigun"						"M134 Minigun"
 
         "DOTA_Tooltip_Ability_lancelot_minigun"							"M134 Minigun"
-        "DOTA_Tooltip_Ability_lancelot_minigun_Description"				"Lancelot pulls out a rotary gun and starts shooting it for a maximum of %duration% seconds.\nLancelot can't move while shooting, but can turn with decreased turn rate.\nLancelot fires %bullets_per_second% bullets per second, spending <font color='#58ACFA'>%mana_per_bullet% mana</font> per bullet.\nEach bullet deals <font color='#A72E28'>physical</font> damage based on Lancelot's attack damage.\nIf Lancelot runs out of <font color='#58ACFA'>mana</font>, this ability will stop automatically.\nThis ability goes on cooldown equal to %cooldown_per_second% times the amount of time Lancelot spent shooting."
+        "DOTA_Tooltip_Ability_lancelot_minigun_Description"				"Lancelot pulls out a rotary gun and starts shooting it for a maximum of %duration% seconds.\nLancelot can't move while shooting, but can turn with decreased turn rate.\nLancelot fires %bullets_per_second% shots per second, spending <font color='#58ACFA'>%mana_per_bullet% mana</font> per bullet.\nEach bullet deals <font color='#A72E28'>physical</font> damage based on Lancelot's attack damage and applyes a <font color='#FF3399'>slow</font> debuff for 1 second.\nIf Lancelot runs out of <font color='#58ACFA'>mana</font>, this ability will stop automatically.\nThis ability goes on cooldown equal to %cooldown_per_second% times the amount of time Lancelot spent shooting."
         "DOTA_Tooltip_Ability_lancelot_minigun_base_damage"				"Bullet base damage:"
         "DOTA_Tooltip_Ability_lancelot_minigun_atk_damage"				"%Bullet attack scale:"
         "DOTA_Tooltip_Ability_lancelot_minigun_range"					"Range:"
+        "DOTA_Tooltip_Ability_lancelot_minigun_ms_slow"					"%Slow:"
         "DOTA_Tooltip_ability_lancelot_minigun_Lore"        			"Bringing gun to swordfight is the least of concerns for maddened knight."
 
         "DOTA_Tooltip_Ability_lancelot_minigun_end"						"M134 Minigun"
@@ -4302,6 +4303,9 @@
 
         "DOTA_Tooltip_modifier_eternal_flame_shred"								"Eternal Flame"
         "DOTA_Tooltip_modifier_eternal_flame_shred_Description"					"Your armor is decreased"
+
+        "DOTA_Tooltip_modifier_lancelot_minigun_slow"					"Slowed"
+		"DOTA_Tooltip_modifier_lancelot_minigun_slow_Description"		""
 
         "DOTA_Tooltip_Ability_lancelot_attribute_improve_eternal"               	"Attribute: Eternal Arms Mastership"
         "DOTA_Tooltip_ability_lancelot_attribute_improve_eternal_Description"		"Enables the usage of Eternal Arms Mastership, which grants Lancelot chance to deal critical strikes on attacks. Activating Eternal Arms Mastership temporarily increases the chance of critical strike to 100%% for a very short duration. Also increases level of abilities within Knight of Honor."

@@ -1,6 +1,6 @@
 LinkLuaModifier("modifier_lancelot_minigun", "abilities/lancelot/lancelot_minigun", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_eternal_flame_shred", "abilities/lancelot/modifiers/modifier_eternal_flame_shred", LUA_MODIFIER_MOTION_NONE)
-
+LinkLuaModifier("modifier_lancelot_minigun_slow", "abilities/lancelot/lancelot_minigun", LUA_MODIFIER_MOTION_NONE)
 lancelot_minigun = lancelot_minigun or class({})
 
 function lancelot_minigun:OnAbilityPhaseStart()
@@ -83,11 +83,13 @@ function lancelot_minigun:OnProjectileHit_ExtraData(hTarget, vLocation, hTable)
         damage = damage + (stacks * (self:GetSpecialValueFor("stack_damage")+0.1*damage_bonus))
     end]]
 
-    if hCaster:HasModifier("modifier_eternal_flame_attribute") then
-        hTarget:AddNewModifier(hCaster, self, "modifier_eternal_flame_shred", { Duration = 5 })
-    end
+
     if not modifier.__jopa[modifier.jopa1][hTarget] then
         DoDamage(hCaster, hTarget, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+        hTarget:AddNewModifier(hCaster, self, "modifier_lancelot_minigun_slow", { Duration = 1 })
+        if hCaster:HasModifier("modifier_eternal_flame_attribute") then
+            hTarget:AddNewModifier(hCaster, self, "modifier_eternal_flame_shred", { Duration = 5 })
+        end
         --hTarget:AddNewModifier(hCaster, self, "modifier_barrage_debuff", { Duration = 5 })
         modifier.__jopa[modifier.jopa1][hTarget] = hTarget
     end
@@ -300,4 +302,27 @@ function modifier_lancelot_minigun:OnDestroy()
 
         StopSoundOn(self.sEmitSound, self.hParent)
     end
+end
+
+modifier_lancelot_minigun_slow = class({})
+
+function modifier_lancelot_minigun_slow:DeclareFunctions()
+	return { MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
+			--MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT
+			}
+end
+function modifier_lancelot_minigun_slow:GetModifierMoveSpeedBonus_Percentage()
+	return -(self:GetAbility():GetSpecialValueFor("ms_slow"))
+end
+
+function modifier_lancelot_minigun_slow:IsDebuff()
+    return true
+end
+
+function modifier_lancelot_minigun_slow:RemoveOnDeath()
+    return true
+end
+
+function modifier_lancelot_minigun_slow:IsHidden()
+    return false
 end

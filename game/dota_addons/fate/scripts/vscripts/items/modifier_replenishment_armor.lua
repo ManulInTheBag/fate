@@ -11,15 +11,15 @@ function modifier_replenishment_armor:DeclareFunctions()
 end
 
 function modifier_replenishment_armor:GetModifierPhysicalArmorBonus()
-	return self:GetAbility():GetSpecialValueFor("armorbonus")
+	return 50--self:GetAbility():GetSpecialValueFor("armorbonus")
 end
 
 function modifier_replenishment_armor:GetModifierHealthBonus()
-	return self:GetAbility():GetSpecialValueFor("hpbonus")
+	return 1000--self:GetAbility():GetSpecialValueFor("hpbonus")
 end
 
 function modifier_replenishment_armor:GetModifierManaBonus()
-	return self:GetAbility():GetSpecialValueFor("manabonus")
+	return 500--self:GetAbility():GetSpecialValueFor("manabonus")
 end
 
 function modifier_replenishment_armor:GetAttributes()
