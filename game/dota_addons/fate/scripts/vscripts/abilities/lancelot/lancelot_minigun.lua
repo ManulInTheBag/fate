@@ -74,10 +74,12 @@ function lancelot_minigun:OnProjectileHit_ExtraData(hTarget, vLocation, hTable)
     end
     local hCaster = self:GetCaster()
     local damage = hTable.fDamage
+
     local modifier = hCaster:FindModifierByName("modifier_lancelot_minigun")
-
+    if modifier == nil then
+        modifier = hCaster.f16:FindModifierByName("modifier_lancelot_minigun_f16")
+    end
     EmitSoundOn("lancelot_minigun_impact_"..RandomInt(1, 2), hTarget)
-
     --[[if hTarget:HasModifier("modifier_barrage_debuff") then
         stacks = hTarget:GetModifierStackCount("modifier_barrage_debuff", hCaster)
         damage = damage + (stacks * (self:GetSpecialValueFor("stack_damage")+0.1*damage_bonus))

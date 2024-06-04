@@ -6,7 +6,9 @@ LinkLuaModifier("modifier_f16_mana", "abilities/lancelot/lancelot_f16", LUA_MODI
 LinkLuaModifier("modifier_f16_owner", "abilities/lancelot/lancelot_f16", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_vision_provider", "abilities/general/modifiers/modifier_vision_provider", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_f16_timer", "abilities/lancelot/lancelot_f16", LUA_MODIFIER_MOTION_NONE)
-
+LinkLuaModifier("modifier_lancelot_minigun_f16", "abilities/lancelot/lancelot_f16", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_lancelot_minigun_slow", "abilities/lancelot/lancelot_minigun", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_eternal_flame_shred", "abilities/lancelot/modifiers/modifier_eternal_flame_shred", LUA_MODIFIER_MOTION_NONE)
 modifier_f16_owner = class({})
 
 function modifier_f16_owner:DeclareFunctions()
@@ -58,6 +60,7 @@ function lancelot_f16:OnSpellStart()
     ParticleManager:DestroyParticle(self.cast, false)
     ParticleManager:ReleaseParticleIndex(self.cast)
     local kappapride = "at_vinta"..math.random(1,2)
+    caster.f16 = f16
     LoopOverPlayers(function(player, playerID, playerHero)
         --print("looping through " .. playerHero:GetName())
         if playerHero.gachi == true then
@@ -83,7 +86,7 @@ function lancelot_f16:OnSpellStart()
 	f16:FindAbilityByName("lancelot_f16_nuke"):SetLevel(caster:FindAbilityByName("lancelot_double_edge"):GetLevel())
     f16:FindAbilityByName("lancelot_f16_mana"):SetLevel(caster:FindAbilityByName("lancelot_knight_of_honor"):GetLevel())  
 	f16:FindAbilityByName("lancelot_f16_forward"):SetLevel(caster:FindAbilityByName("lancelot_arondite"):GetLevel())
-
+    f16:AddNewModifier(caster, caster:FindAbilityByName("lancelot_minigun"), "modifier_lancelot_minigun_f16", { duration = 30.0 })
 	f16:AddNewModifier(hCaster, self, "modifier_kill", { duration = 30.0 })
     f16:AddNewModifier(caster, self, "modifier_f16_timer", {duration = 30})
 end
@@ -430,5 +433,160 @@ function modifier_f16_mana:OnIntervalThink()
     local targets = FindUnitsInRadius(self:GetParent():GetTeam(), self:GetParent():GetAbsOrigin(), nil, 999999, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
     for k,v in pairs(targets) do
         self:GetParent():AddNewModifier(v, nil, "modifier_vision_provider", {duration = 0.2})
+    end
+end
+
+
+
+modifier_lancelot_minigun_f16 = class({})
+
+function modifier_lancelot_minigun_f16:IsHidden()                                                           return false end
+function modifier_lancelot_minigun_f16:IsDebuff()                                                           return false end
+function modifier_lancelot_minigun_f16:RemoveOnDeath()                                                      return true end
+
+function modifier_lancelot_minigun_f16:OnCreated(hTable)
+    self.hCaster  = self:GetCaster()
+    self.hParent  = self:GetParent()
+    self.hAbility = self:GetAbility()
+    self.__jopa = {}
+
+    self.sAttach         = "attach_minigun"
+    self.sProjectileName = "particles/heroes/anime_hero_lancelot/lancelot_minigun_projectile.vpcf"
+
+    if IsServer() then
+        if not (self.hCaster:GetAbilityByIndex(0):GetName() == "lancelot_minigun_end") then
+            self.hCaster:SwapAbilities("lancelot_minigun", "lancelot_minigun_end", false, true)
+        end
+
+        self.vPoint    = self.vPoint or self.hAbility:GetCursorPosition() + self.hCaster:GetForwardVector()
+        self.fDistance = self.hAbility:GetSpecialValueFor("range")*1.7
+        self.fSpeed    = self.hAbility:GetSpecialValueFor("speed")*1.5
+        self.fWidth    = self.hAbility:GetSpecialValueFor("width")
+
+        self.iPatrons   = self.hAbility:GetSpecialValueFor("bullets_per_second")
+        self.flInterval = 1 / self.iPatrons
+
+        self.fBaseDamage   = self.hAbility:GetSpecialValueFor("base_damage")
+        self.damage_perc   = self.hAbility:GetSpecialValueFor("atk_damage")/100
+
+        self.hPatronProjectileTable =   {
+                                            --EffectName        = "particles/units/heroes/hero_windrunner/windrunner_spell_powershot.vpcf",--"particles/heroes/anime_hero_guts/guts_crossbow_projectile.vpcf",
+                                            source            = self.hParent,
+                                            caster            = self.hParent,
+                                            ability           = self.hAbility,
+                                            --vSpawnOrigin      = self.hParent:GetAttachmentOrigin(self.hParent:ScriptLookupAttachment("attach_attack1")),
+
+                                            iUnitTargetTeam   = DOTA_UNIT_TARGET_TEAM_ENEMY,
+                                            iUnitTargetType   = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC+DOTA_UNIT_TARGET_OTHER,
+                                            iUnitTargetFlags  = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE,
+
+                                            distance         = self.fDistance,
+                                            startRadius      = self.fWidth,
+                                            endRadius        = self.fWidth,
+                                            DeleteOnHit = true,
+
+                                            ExtraData         = {
+                                                                    iShoot_PFX  = 0,
+                                                                    fDamage     = self.fBaseDamage
+                                                                }
+                                        }
+
+        self.sEmitSound = "lancelot_minigun_loop"
+        self.sound_timer = 0
+        EmitSoundOn(self.sEmitSound, self.hParent)
+
+        self.interval_timer = 0
+        self.full_timer = 0
+
+        Timers:CreateTimer(FrameTime(), function()
+            if self then
+                self:OnIntervalThink()
+            end
+        end)
+        self:StartIntervalThink(FrameTime())
+    end
+end
+function modifier_lancelot_minigun_f16:OnRefresh(hTable)
+    self:OnCreated(hTable)
+end
+function modifier_lancelot_minigun_f16:OnIntervalThink()
+    if IsServer() then
+
+        self.sound_timer = self.sound_timer + FrameTime()
+        if self.sound_timer >= 1.7 then
+            self.sound_timer = 0
+            EmitSoundOn(self.sEmitSound, self.hParent)
+        end
+
+        self.full_timer = self.full_timer + FrameTime()
+        self.interval_timer = self.interval_timer + FrameTime()
+
+        if not (self.interval_timer >= self.flInterval) then return end
+        self.interval_timer = 0
+
+        self.__jopa = self.__jopa or {}
+        self.jopa1 = DoUniqueString("jopa2")
+        local jopa1 = self.jopa1
+        self.__jopa[jopa1] = {}
+        local vDirection = self.hParent:GetForwardVector()
+        local pfx, bullet = self:shootBullet(vDirection)
+        --self.__jopa[jopa1][pfx] = bullet
+        local vDirection = self.hParent:GetForwardVector() + self.hParent:GetRightVector()*0.3
+        local pfx, bullet = self:shootBullet(vDirection)
+        --self.__jopa[jopa1][pfx] = bullet
+        local vDirection = self.hParent:GetForwardVector()+ self.hParent:GetRightVector()*-0.3
+        local pfx, bullet = self:shootBullet(vDirection)
+        --self.__jopa[jopa1][pfx] = bullet
+        local vDirection = self.hParent:GetForwardVector() + self.hParent:GetRightVector()*0.15
+        local pfx, bullet = self:shootBullet(vDirection)
+        --self.__jopa[jopa1][pfx] = bullet
+        local vDirection = self.hParent:GetForwardVector()+ self.hParent:GetRightVector()*-0.15
+        local pfx, bullet = self:shootBullet(vDirection)
+        --self.__jopa[jopa1][pfx] = bullet
+        
+    end
+end
+
+function modifier_lancelot_minigun_f16:shootBullet(vDirection)
+
+
+    local vAttach = self.hParent:GetAttachmentOrigin(self.hParent:ScriptLookupAttachment(self.sAttach))
+    local vPoint  = vAttach + vDirection * self.fDistance + Vector(0,0,-300)
+
+    local iShoot_PFX =  ParticleManager:CreateParticle(self.sProjectileName, PATTACH_ABSORIGIN_FOLLOW, self.hParent)
+                        ParticleManager:SetParticleShouldCheckFoW(iShoot_PFX, false)
+                        ParticleManager:SetParticleControlEnt(
+                                                                iShoot_PFX, 
+                                                                0, 
+                                                                self.hParent, 
+                                                                PATTACH_POINT_FOLLOW, 
+                                                                self.sAttach, 
+                                                                Vector(0, 0, 0), 
+                                                                false
+                                                            )
+                        ParticleManager:SetParticleControl(iShoot_PFX, 1, vPoint)
+                        ParticleManager:SetParticleControl(iShoot_PFX, 2, Vector(self.fSpeed, 0, 0))
+
+    self.hPatronProjectileTable.sourceLoc = vAttach
+    self.hPatronProjectileTable.direction    = vDirection
+    self.hPatronProjectileTable.distance    = self.fDistance
+    self.hPatronProjectileTable.speed    = self.fSpeed
+
+    self.hPatronProjectileTable.ExtraData.iShoot_PFX = iShoot_PFX
+    self.hPatronProjectileTable.ExtraData.fDamage    = self.fBaseDamage + self.hCaster:GetAverageTrueAttackDamage(self.hCaster)*self.damage_perc
+
+    local bullet = FATE_ProjectileManager:CreateLinearProjectile(self.hPatronProjectileTable)
+    return iShoot_PFX, bullet
+end
+function modifier_lancelot_minigun_f16:OnDestroy()
+    if IsServer()
+        and IsNotNull(self.hCaster) then
+
+        if not (self.hCaster:GetAbilityByIndex(0):GetName() == "lancelot_minigun") then
+            self.hCaster:SwapAbilities("lancelot_minigun", "lancelot_minigun_end", true, false)
+        end
+
+
+        StopSoundOn(self.sEmitSound, self.hParent)
     end
 end
