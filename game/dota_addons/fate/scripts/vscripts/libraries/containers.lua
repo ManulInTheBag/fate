@@ -13,7 +13,7 @@ local ID_BASE = "cont_"
 FORCE_NIL = false
 
 
-CONTAINERS_DEBUG = false --IsInToolsMode() -- Should we print debugging prints for containers
+CONTAINERS_DEBUG = false --(IsInToolsMode() or GameRules:IsCheatMode()) -- Should we print debugging prints for containers
 
 --[[
 

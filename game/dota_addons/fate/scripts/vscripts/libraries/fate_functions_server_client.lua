@@ -30,7 +30,11 @@ CDOTA_BaseNPC_Hero.GetIntellect = function(self, bSkinConsumeNo)
     return VALVE_CDOTA_BaseNPC_Hero_GetIntellect(self, bSkinConsumeNo)
 end
 
-
+--===============================================================--
+MODIFIER_PROPERTY_OVERRIDE_ANIMATION = -1 --NOTE: While gabe not fixed, 06.06.2024
+MODIFIER_PROPERTY_OVERRIDE_ANIMATION_RATE = -1
+MODIFIER_PROPERTY_OVERRIDE_ANIMATION_WEIGHT = -1
+--===============================================================--
 
 TableLength = function(hTable)
     local i = 0
@@ -199,6 +203,23 @@ CDOTA_Item_Lua.GetBehavior = function(self) --Predict uint64?
     return tonumber(tostring(VALVE_CDOTA_Item_Lua_GetBehavior(self)))
 end
 
+
+if IsServer() then
+    CDOTA_BaseNPC.AddNewModifierDota = CDOTA_BaseNPC.AddNewModifierDota or CDOTA_BaseNPC.AddNewModifier
+    CDOTA_BaseNPC.AddNewModifier = function(self, caster, ability, scriptname, modifiertable)
+        if IsNotNull(self) then
+            if scriptname == "modifier_stunned" then
+                -- for k, v in pairs(modifiertable) do
+                --     modifiertable[string.lower(k)]
+                -- end
+                --DeepPrintTable(modifiertable, "WTF")
+                return giveUnitDataDrivenModifier(caster, self, "stunned", modifiertable.duration or modifiertable.Duration)
+            end
+            return self:AddNewModifierDota(caster, ability, scriptname, modifiertable)
+        end
+        Warning("AddNewModifier not valid target "..debug.traceback())
+    end
+end
 --[[clash module test
 
 CDOTA_Ability_Lua.IsClashable = function(self)
@@ -298,13 +319,7 @@ CDOTA_BaseNPC.ForceKill = function(self, bReincarnate)
     return VALVE_ForceKill(self, bReincarnate)
 end
 
-local VALVE_AddNewModifier = CDOTA_BaseNPC.AddNewModifier
-CDOTA_BaseNPC.AddNewModifier = function(self, caster, ability, scriptname, modifiertable)
-    if not IsValidEntity(self) then
-        return error("AddNewModifier not valid target")
-    end
-    return VALVE_AddNewModifier(self, caster, ability, scriptname, modifiertable)
-end
+
 
 local VALVE_RemoveModifierByName = CDOTA_BaseNPC.RemoveModifierByName
 CDOTA_BaseNPC.RemoveModifierByName = function(self, modifiername)
@@ -398,7 +413,7 @@ if IsServer() then
 
     RegisteredTracebacks = {}
 
-    --if not IsInToolsMode() then
+    --if not (IsInToolsMode() or GameRules:IsCheatMode()) then
         debug.old_traceback = debug.old_traceback or debug.traceback
         debug.traceback = function(...)
             local stack = debug.old_traceback(...)

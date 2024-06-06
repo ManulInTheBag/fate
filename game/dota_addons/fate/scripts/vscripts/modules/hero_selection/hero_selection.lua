@@ -48,7 +48,7 @@ ModuleRequire(..., "client_actions")
 ModuleLinkLuaModifier(..., "modifier_hero_selection_transformation")
 
 Events:Register("activate", function ()
-	if IsInToolsMode() then
+	if (IsInToolsMode() or GameRules:IsCheatMode()) then
 		HERO_SELECTION_PICK_TIME = 3
 		HERO_SELECTION_BANNING_TIME = 0
 	end

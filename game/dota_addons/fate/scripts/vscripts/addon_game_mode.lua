@@ -434,7 +434,7 @@ function Precache( context )
     PrecacheResource("particle", "particles/custom/atalanta/normal_arrow.vpcf", context)
 
     PrecacheResource( "particle_folder", "particles/econ/items/juggernaut", context )
-    PrecacheUnitByNameAsync("npc_dota_hero_puck", nil, nil)
+    PrecacheUnitByNameAsync("npc_dota_hero_puck", function(nID) end, -1)
     PrecacheResource("particle_folder", "particles/altera", context)
     PrecacheResource("particle_folder", "particles/arash", context)
     PrecacheResource("particle_folder", "particles/medusa", context)
@@ -1769,7 +1769,7 @@ end
     end
     
     if text == "-ir" then
-        if IsInToolsMode() then
+        if (IsInToolsMode() or GameRules:IsCheatMode()) then
           ROUND_DURATION = 86400
         end
     end
@@ -3598,18 +3598,18 @@ function FateGameMode:InitGameMode()
     --GameRules:SetHeroSelectionTime(0)
     GameRules:SetPreGameTime(10)
     GameRules:SetShowcaseTime(0)
-    GameRules:SetStrategyTime(IsInToolsMode() and 3 or 0)
+    GameRules:SetStrategyTime((IsInToolsMode() or GameRules:IsCheatMode()) and 3 or 0)
     GameRules:SetUseCustomHeroXPValues(true)
     GameRules:SetUseBaseGoldBountyOnHeroes(false)
     GameRules:SetCustomGameSetupTimeout(20)
     GameRules:SetFirstBloodActive(false)
     GameRules:SetCustomGameEndDelay(30)
     GameRules:SetCustomVictoryMessageDuration(30)
-    GameRules:SetCustomGameSetupAutoLaunchDelay(IsInToolsMode() and 3 or 30)
+    GameRules:SetCustomGameSetupAutoLaunchDelay((IsInToolsMode() or GameRules:IsCheatMode()) and 3 or 30)
     GameRules:SetCustomGameAllowBattleMusic( false )
     GameRules:SetCustomGameAllowHeroPickMusic( false )
     GameRules:SetCustomGameAllowMusicAtGameStart( false )
-    if IsInToolsMode() then
+    if (IsInToolsMode() or GameRules:IsCheatMode()) then
         SendToServerConsole( "dota_easybuy 1" )
     end
 
