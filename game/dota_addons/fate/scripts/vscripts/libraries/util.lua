@@ -921,7 +921,7 @@ function giveUnitDataDrivenModifier(source, target, modifier,dur)
         source = source:GetPlayerOwner():GetAssignedHero() 
     end
     local dummyAbility = source:FindAbilityByName("presence_detection_passive")
-    return dummyAbility:ApplyDataDrivenModifier( source, target, modifier, {duration=dur} )
+    dummyAbility:ApplyDataDrivenModifier( source, target, modifier, {duration=dur} )
 end
 
 function DoCompositeDamage(source, target, dmg, dmg_type, dmg_flag, abil, isLoop)

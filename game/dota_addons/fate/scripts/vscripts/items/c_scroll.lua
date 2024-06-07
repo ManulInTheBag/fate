@@ -46,8 +46,7 @@ function item_c_scroll:OnProjectileHit(hTarget, vLocation, tData)
 	DoDamage(caster, target, self:GetSpecialValueFor("damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
 	target:EmitSound("Hero_EmberSpirit.FireRemnant.Explode")
 	if not target:IsMagicImmune() then
-		hModifier = target:AddNewModifier(caster, self, "modifier_stunned", {Duration = self:GetSpecialValueFor("stun_duration")})
-		--print(hModifier:GetName())
+		hModifier = target:AddNewModifier(self, caster, "modifier_stunned", {Duration = self:GetSpecialValueFor("stun_duration")})
 	end
 
 	if self:GetCurrentCharges() < 1 then

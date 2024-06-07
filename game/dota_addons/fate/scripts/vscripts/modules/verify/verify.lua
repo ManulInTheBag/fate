@@ -124,6 +124,6 @@ function Verify:_GetAllAbilities()
 	return abilities
 end
 
-if (IsInToolsMode() or GameRules:IsCheatMode()) and not Verify.verified then
+if IsInToolsMode() and not Verify.verified then
 	Verify:All()
 end

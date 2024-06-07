@@ -77,7 +77,7 @@ function StatsClient:OnGameEnd(winner)
 			PlayerTables:CreateTable("stats_game_result", {error = GameMode.Broken}, AllPlayersInterval)
 			return
 		end
-		if not (IsInToolsMode() or GameRules:IsCheatMode()) and StatsClient.GameEndScheduled then return end
+		if not IsInToolsMode() and StatsClient.GameEndScheduled then return end
 		StatsClient.GameEndScheduled = true
 		local time = GameRules:GetDOTATime(false, true)
 		local matchID = tostring(GameRules:GetMatchID())

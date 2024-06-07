@@ -675,7 +675,7 @@ function leonidas_kick:OnSpellStart()
             --end
 
             hUnit:AddNewModifier(hCaster, self, "modifier_leonidas_enomotia_slow", {duration = nSlowDuration, nSlow = nSlowPct, nStunned = nStunned, nLocked = nLocked})
-            giveUnitDataDrivenModifier(hCaster, hTarget, "stunned", stun_duration)
+            giveUnitDataDrivenModifier(hCaster,hTarget , "stunned", stun_duration)
             local nImpactPFX =  ParticleManager:CreateParticle("particles/heroes/anime_hero_leonidas/leonidas_sparta_kick_impact.vpcf", PATTACH_CENTER_FOLLOW, hUnit)
                                 ParticleManager:ReleaseParticleIndex(nImpactPFX)
 

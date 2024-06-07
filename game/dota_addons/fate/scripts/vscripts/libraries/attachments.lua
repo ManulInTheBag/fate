@@ -147,7 +147,7 @@ function Attachments:start()
   self.gameDir = ""
   self.addonName = ""
 
-  if (IsInToolsMode() or GameRules:IsCheatMode()) then
+  if IsInToolsMode() then
 
     if src:sub(2):find("(.*dota 2 beta[\\/]game[\\/]dota_addons[\\/])([^\\/]+)[\\/]") then
 
@@ -166,7 +166,7 @@ function Attachments:start()
       self.attachDB = LoadKeyValues("scripts/attachments.txt")
 
 
-      if (IsInToolsMode() or GameRules:IsCheatMode()) then
+      if IsInToolsMode() then
         print('[attachments] Tools Mode')
         SendToServerConsole("dota_combine_models 0")
         Convars:RegisterCommand( "attachment_configure", Dynamic_Wrap(Attachments, 'ActivateAttachmentSetup'), "Activate Attachment Setup", FCVAR_CHEAT )

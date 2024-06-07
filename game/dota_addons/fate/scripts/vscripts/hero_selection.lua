@@ -20,7 +20,7 @@ function HeroSelection:constructor()
     end)
 
     self.Time = 65 
-	if (IsInToolsMode() or GameRules:IsCheatMode()) then self.Time = 5 end
+	if IsInToolsMode() then self.Time = 5 end
 
     CustomNetTables:SetTableValue("selection", "all", self.AvailableHeroes)
     CustomNetTables:SetTableValue("selection", "available", self.AvailableHeroes)

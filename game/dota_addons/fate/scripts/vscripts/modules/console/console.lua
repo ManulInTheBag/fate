@@ -16,7 +16,7 @@ function Console:SetVisible(player, value)
 end
 
 function Console:CanEvaluate(playerId)
-	return (IsInToolsMode() or GameRules:IsCheatMode()) or DynamicWearables:HasWearable(playerId, "wearable_developer")
+	return IsInToolsMode() or DynamicWearables:HasWearable(playerId, "wearable_developer")
 end
 
 function Console:SetStack(playerId, stack)
