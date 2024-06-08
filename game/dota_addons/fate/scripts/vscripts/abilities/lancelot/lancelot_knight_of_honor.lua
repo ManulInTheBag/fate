@@ -22,11 +22,11 @@ local tGobAbilities = {
 
 local tStandardProxy = {
     "lancelot_vortigern",    
-    "fate_empty2",
-    "fate_empty3",
-    "fate_empty4",
+    "lancelot_gae_bolg",
+    "lancelot_nine_lives",
+    "lancelot_rule_breaker",
     "lancelot_knight_of_honor_close",
-    "fate_empty5",
+    "lancelot_tsubame_gaeshi",
     "attribute_bonus_custom"
 }
 
@@ -49,35 +49,35 @@ function lancelot_knight_of_honor:OnUpgrade()
         abilityLevel = abilityLevel + hCaster.KnightLevel
     end   
 
-    for i = 1, self:GetLevel() do
-        if not hCaster:HasAbility(tStandardAbilities[i]) then
-            local abil = hCaster:AddAbility(tStandardAbilities[i])
-            abil:SetLevel(abilityLevel)
-            abil:SetHidden(true)
+    -- for i = 1, self:GetLevel() do
+    --     if not hCaster:HasAbility(tStandardAbilities[i]) then
+    --         local abil = hCaster:AddAbility(tStandardAbilities[i])
+    --         abil:SetLevel(abilityLevel)
+    --         abil:SetHidden(true)
 
-            if i > 2 then hCaster:RemoveAbility("fate_empty"..tostring(i - 1)) end
-        end
+    --         if i > 2 then hCaster:RemoveAbility("fate_empty"..tostring(i - 1)) end
+    --     end
 
-        --[[if not hCaster:HasAbility(tGobAbilities[i]) then
-            local abil = hCaster:AddAbility(tGobAbilities[i])
-            abil:SetLevel(1)
-            abil:SetHidden(true)
-        end]]
+    --     --[[if not hCaster:HasAbility(tGobAbilities[i]) then
+    --         local abil = hCaster:AddAbility(tGobAbilities[i])
+    --         abil:SetLevel(1)
+    --         abil:SetHidden(true)
+    --     end]]
 
-        if i == 5 then
-            if not hCaster:HasAbility(tStandardAbilities[6]) then
-                local abil = hCaster:AddAbility(tStandardAbilities[6])
-                abil:SetLevel(abilityLevel)
-                abil:SetHidden(true)
-            end
+    --     if i == 5 then
+    --         if not hCaster:HasAbility(tStandardAbilities[6]) then
+    --             local abil = hCaster:AddAbility(tStandardAbilities[6])
+    --             abil:SetLevel(abilityLevel)
+    --             abil:SetHidden(true)
+    --         end
 
-            --[[if not hCaster:HasAbility(tGobAbilities[6]) then
-                local abil = hCaster:AddAbility(tGobAbilities[6])
-                abil:SetLevel(1)
-                abil:SetHidden(true)
-            end]]
-        end
-    end
+    --         --[[if not hCaster:HasAbility(tGobAbilities[6]) then
+    --             local abil = hCaster:AddAbility(tGobAbilities[6])
+    --             abil:SetLevel(1)
+    --             abil:SetHidden(true)
+    --         end]]
+    --     end
+    -- end
 end
 
 function lancelot_knight_of_honor:OnSpellStart()
@@ -111,7 +111,7 @@ function lancelot_knight_of_honor:OnSpellStart()
         --print(t[i])
 
         local abil = hCaster:FindAbilityByName(t[i])
-        if abil:GetName() ~= "attribute_bonus_custom" then            
+        if IsNotNull(abil) and abil:GetName() ~= "attribute_bonus_custom" then            
             abil:SetLevel(abilityLevel)
         end
     end
