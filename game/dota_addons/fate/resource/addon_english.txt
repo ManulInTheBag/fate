@@ -4296,8 +4296,8 @@
         "DOTA_Tooltip_Ability_lancelot_attribute_total_assault_crit_damage"         "%CRITICAL DAMAGE:"
 
         "DOTA_Tooltip_Ability_lancelot_attribute_eternal_flame"					"Attribute: Eternal Flame"
-        "DOTA_Tooltip_ability_lancelot_attribute_eternal_flame_Description"		"Removes the mana cost for Arondight to trigger firing the cone of fire. Causes M134 Minigun to remove a percentage of the enemy's armor when it hits."
-        "DOTA_Tooltip_Ability_lancelot_attribute_eternal_flame_armor_shred"		"%Armor shred:"
+        "DOTA_Tooltip_ability_lancelot_attribute_eternal_flame_Description"		"Removes the mana cost for Arondight to trigger firing the cone of fire. Causes M134 Minigun to reduce the enemy's armor when it hits \nThis reduction cannot lower armor below 0."
+        "DOTA_Tooltip_Ability_lancelot_attribute_eternal_flame_armor_shred"		"Armor shred:"
         "DOTA_Tooltip_Ability_lancelot_attribute_eternal_flame_duration"		"Armor shred duration:"
         "DOTA_Tooltip_Ability_lancelot_attribute_eternal_flame_Lore"			"Legend has it that Lancelot once slew a dragon. Perhaps this is why the blade of Arondight spits out fire when swung."
 
