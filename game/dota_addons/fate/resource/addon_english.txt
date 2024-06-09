@@ -7605,7 +7605,7 @@
 		"DOTA_Tooltip_ability_edmon_flames_attribute_Description"	"Dark Beams not created by Flames of Hate stack Flames of Love. Each other damage impact from Dantes stacks Flames of Hate. Both stack up to 6.\nFlames of Love: melee attacks use stacks to be nearly instant.\nFlames of Hate: during the delay, third Dark Beam creates two mini-Dark Beams, which deal 1/4 of Dark Beam damage each, per stack."
 
 		"DOTA_Tooltip_ability_edmon_vengeance_attribute"		"Attribute: Avenger"
-		"DOTA_Tooltip_ability_edmon_vengeance_attribute_Description"	"Enemies dealing damage to Dantes are marked for %duration% seconds.\nMarked enemies take %damage%%  more damage from Dantes. Dantes heals himself for %lifesteal%%  of damage dealt when dealing damage to them.\nVengeful conflagration: reduces amount of damage received by Dantes during counter-attack by 50%%."
+		"DOTA_Tooltip_ability_edmon_vengeance_attribute_Description"	"Enemies dealing damage to Dantes are marked for %duration% seconds.\nMarked enemies take %damage%%  more damage from Dantes. Dantes heals himself for %lifesteal_base%%  of damage dealt when dealing damage. \nThis lifesteal is additionally increased by %lifesteal%%  if the attacked enemy is marked. \nVengeful conflagration: reduces amount of damage received by Dantes during counter-attack by 50%%."
 
 		"DOTA_Tooltip_ability_edmon_escape_attribute"			"Attribute: Le Concept d'Evasion"
 		"DOTA_Tooltip_ability_edmon_escape_attribute_Description"			"Allows Dantes to use Afterglow and My Vengeance Never Dies when rooted and locked.\nIncreased My Vengeance Never Dies castrange by 300."
