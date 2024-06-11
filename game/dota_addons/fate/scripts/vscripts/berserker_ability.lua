@@ -843,7 +843,7 @@ function OnGodHandDeath(keys)
 		--print(caster.bIsGHReady)
 		if IsTeamWiped(caster) == false and caster.GodHandStock > 0 and caster.bIsGHReady and _G.CurrentGameState == "FATE_ROUND_ONGOING" then
 			caster.bIsGHReady = false
-			Timers:CreateTimer(11.0, function() caster.bIsGHReady = true end)
+			Timers:CreateTimer(30.0, function() caster.bIsGHReady = true end)
 			EmitGlobalSound("Berserker.Roar") 
 			LoopOverPlayers(function(player, playerID, playerHero)
 				--print("looping through " .. playerHero:GetName())
