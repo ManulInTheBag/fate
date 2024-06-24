@@ -113,7 +113,7 @@ function modifier_jeanne_gods_resolution_active_buff:OnCreated()
 	self.radius = self.ability:GetSpecialValueFor("radius")
 
 	self.caster:SwapAbilities("jeanne_gods_resolution", "jeanne_gods_resolution_end", false, true)
-
+	self.caster:FindAbilityByName("jeanne_gods_resolution_end"):StartCooldown(0.2)
 	self:StartIntervalThink(self.interval)
 end
 

@@ -108,7 +108,7 @@ end
 
 function emiya_unlimited_bladeworks:OnSpellStart()
     if self:GetUBWCastCount() < 6 then
-        if self:GetUBWCastCount() <1 then 
+        if self:GetUBWCastCount() >4 and self:GetAutoCastState() then 
             self:CheckCombo()
         end
         self:GrantUBWChantBuff()
@@ -473,7 +473,7 @@ function emiya_unlimited_bladeworks:CheckCombo()
         and caster:FindAbilityByName("emiya_combo"):IsCooldownReady() then 
         
         caster:SwapAbilities("emiya_unlimited_bladeworks", "emiya_combo", false, true) 
-        caster:AddNewModifier(caster, self, "modifier_arrow_rain_window", { Duration = 1.2})
+        caster:AddNewModifier(caster, self, "modifier_arrow_rain_window", { Duration = 6})
     end
 end
 

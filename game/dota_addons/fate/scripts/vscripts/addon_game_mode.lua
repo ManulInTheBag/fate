@@ -434,6 +434,11 @@ function Precache( context )
     PrecacheResource("particle", "particles/custom/atalanta/normal_arrow.vpcf", context)
 
     PrecacheResource( "particle_folder", "particles/econ/items/juggernaut", context )
+    PrecacheUnitByNameAsync("npc_dota_hero_puck", nil, nil)
+    PrecacheResource("particle_folder", "particles/altera", context)
+    PrecacheResource("particle_folder", "particles/arash", context)
+    PrecacheResource("particle_folder", "particles/medusa", context)
+    PrecacheResource("particle_folder", "particles/emiya", context)
     --PrecacheResource( "particle_folder", "particles/econ/items/windrunner", context )
 
 --[[
@@ -885,19 +890,16 @@ function FateGameMode:OnPlayerChat(keys)
         print(hero:GetAbsOrigin())
     end
 
-     local emotion_list = {1, 2, 3, 4}
-        --local test2 = tonumber(keys.text)
+
+    local alexeiEbaniy = string.match(text, "^#(%d+)")
+    if tonumber(alexeiEbaniy) ~= nil then 
 
 
-      for i=1, 4 do
-    if text == string.format("#%s", emotion_list[i]) then
-    
-        local emotion = ParticleManager:CreateParticle(string.format("particles/FBT_incident_%s.vpcf", emotion_list[i]), PATTACH_ABSORIGIN_FOLLOW, hero)
+        local emotion = ParticleManager:CreateParticle(string.format("particles/FBT_incident_%s.vpcf", alexeiEbaniy), PATTACH_ABSORIGIN_FOLLOW, hero)
             ParticleManager:SetParticleControl(emotion, 0, hero:GetAbsOrigin())
-           print ("succes")
 
-    end
-end
+   end
+
 
     if text == "-inven" then
         if Convars:GetBool("sv_cheats") then
@@ -4034,7 +4036,9 @@ function FateGameMode:InitializeRound()
         --SendChatToPanorama("IRL4"..plyID)
 
         if hero.ProsperityCount ~= nil then
-            --hero.MasterUnit:SetMana(hero.MasterUnit:GetMana() + 1 * hero.ProsperityCount)
+            hero.MasterUnit:SetMana(hero.MasterUnit:GetMana() + 1 * hero.ProsperityCount)
+            hero.MasterUnit:SetHealth(hero.MasterUnit:GetHealth() + 1 * hero.ProsperityCount)
+            hero.MasterUnit2:SetHealth(hero.MasterUnit:GetHealth())
             hero.MasterUnit2:SetMana(hero.MasterUnit:GetMana())
             --print("granted more mana")
         end
@@ -4049,16 +4053,29 @@ function FateGameMode:InitializeRound()
         -- Grant gold
         if self.nCurrentRound > 1 then
             hero.CStock = 10
-            if hero:GetGold() < 5000 then --
-                --print("[FateGameMode] " .. hero:GetName() .. " gained 3000 gold at the start of round")
-                --[[if hero.AvariceCount ~= nil then
-                    hero:ModifyGold(3000 + hero.AvariceCount * 1500, false, 0)
-                else]]
-                    hero:ModifyGold(4000, false, 0)
-                --end
-            end
             if hero.AvariceCount ~= nil then
-                hero:ModifyGold(3250*hero.AvariceCount, false, 0)
+                if hero:GetGold() < (5000 + (hero.AvariceCount * 4000)) then --
+                    --print("[FateGameMode] " .. hero:GetName() .. " gained 3000 gold at the start of round")
+                    --[[if hero.AvariceCount ~= nil then
+                        hero:ModifyGold(3000 + hero.AvariceCount * 1500, false, 0)
+                    else]]
+                        hero:ModifyGold(4000, false, 0)
+                    --end
+                end
+            else
+                if hero:GetGold() < 5000 then 
+                    --print("[FateGameMode] " .. hero:GetName() .. " gained 3000 gold at the start of round")
+                    --[[if hero.AvariceCount ~= nil then
+                        hero:ModifyGold(3000 + hero.AvariceCount * 1500, false, 0)
+                    else]]
+                        hero:ModifyGold(4000, false, 0)
+                    --end
+                end
+
+            end
+
+            if hero.AvariceCount ~= nil then
+                hero:ModifyGold(4000*hero.AvariceCount, false, 0)
             end
 
             --local xpBonus = 100 + 
@@ -4384,6 +4401,12 @@ function FateGameMode:FinishRound(IsTimeOut, winner)
                     else
                         playerHero.ShardAmount = playerHero.ShardAmount + 1
                     end
+                    for i=1,3 do
+                        local level = playerHero:GetLevel()
+                        if level ~= 24 then
+                            playerHero:AddExperience(_G.XP_PER_LEVEL_TABLE[level], false, false)
+                        end
+                    end
                     local statTable = CreateTemporaryStatTable(playerHero)
                     CustomGameEventManager:Send_ServerToPlayer( playerHero:GetPlayerOwner(), "servant_stats_updated", statTable ) -- Send the current stat info to JS
                     Notifications:Top(player, {text= "<font color='#58ACFA'></font> Your team had lost 5 rounds, you are rewarded with a shard of Holy Grail.", duration=8, style={color="rgb(255,140,0)", ["font-size"]="45px"}, continue=true})
@@ -4395,6 +4418,12 @@ function FateGameMode:FinishRound(IsTimeOut, winner)
                         playerHero.ShardAmount = 1
                     else
                         playerHero.ShardAmount = playerHero.ShardAmount + 1
+                    end
+                    for i=1,3 do
+                        local level = playerHero:GetLevel()
+                        if level ~= 24 then
+                            playerHero:AddExperience(_G.XP_PER_LEVEL_TABLE[level], false, false)
+                        end
                     end
                     local statTable = CreateTemporaryStatTable(playerHero)
                     CustomGameEventManager:Send_ServerToPlayer( playerHero:GetPlayerOwner(), "servant_stats_updated", statTable ) -- Send the current stat info to JS

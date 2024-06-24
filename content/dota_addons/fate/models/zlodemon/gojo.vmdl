@@ -81,6 +81,24 @@
 						weight = 1.0
 						ignore_rotation = false
 					},
+					{
+						_class = "Attachment"
+						name = "part"
+						parent_bone = "Bip001_Spine1"
+						relative_origin = [ -30.833971, 10.564445, -21.794823 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "part1"
+						parent_bone = "Bip001_Spine1"
+						relative_origin = [ 2.579432, -8.281147, -0.034027 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
 				]
 			},
 			{
@@ -353,7 +371,7 @@
 					{
 						_class = "RenderMeshFile"
 						name = "gojo"
-						filename = "models/zlodemon/gojo.fbx"
+						filename = "models/zlodemon/gojo jopa3.fbx"
 						import_scale = 1.0
 						import_filter = 
 						{
@@ -532,6 +550,82 @@
 					{
 						_class = "AnimFile"
 						name = "gojo_die"
+						children = 
+						[
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 8
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/econ/items/spectre/spectre_arcana/spectre_arcana_v2_desolate_blood_burst.vpcf"
+									detach_from_owner = false
+									always_run = false
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = "part"
+									attachment_type = "point_follow"
+									attachment_point_cp1 = "part"
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 37
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/custom_game/heroes/guts/guts_hit_blood/guts_hit_blood_a.vpcf"
+									detach_from_owner = false
+									always_run = false
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = "ATTACH_ORIGIN"
+									attachment_type = "point_follow"
+									attachment_point_cp1 = null
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+							{
+								_class = "AnimEvent"
+								disabled = true
+								event_class = "AE_CL_STOP_PARTICLE_EFFECT"
+								event_frame = 50
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/custom/lancer/hearbreak/phantom_assassin_crit_impact_burst_b.vpcf"
+									stop_instantly = true
+									play_endcap = false
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 8
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/units/heroes/hero_night_stalker/nightstalker_shard_hunter_bloodspray.vpcf"
+									detach_from_owner = false
+									always_run = false
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = "part"
+									attachment_type = "point_follow"
+									attachment_point_cp1 = "part"
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+						]
 						activity_name = "ACT_DOTA_DIE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -544,11 +638,11 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
-						source_filename = "models/zlodemon/gojo.fbx"
+						source_filename = "models/zlodemon/gojo jopa3.fbx"
 						import_bone_scales = false
-						start_frame = 238
-						end_frame = 320
-						framerate = -1.0
+						start_frame = 10
+						end_frame = 57
+						framerate = 75.0
 						reverse = false
 					},
 					{

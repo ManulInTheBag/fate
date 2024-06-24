@@ -108,9 +108,10 @@ function modifier_merlin_illusion:OnCreated(args)
 end
 
 function modifier_merlin_illusion:OnIntervalThink()
-    DoDamage(self.caster, self.parent, self.damage , DAMAGE_TYPE_PURE, 0,  self.abililty, false)
+    if IsServer() then
+        DoDamage(self.caster, self.parent, self.damage , DAMAGE_TYPE_PURE, 0,  self.abililty, false)
+    end
 
- 
 end
  
         

@@ -27,6 +27,7 @@ function modifier_mad_enhancement_attribute:OnTakeDamage(args)
 		self.timeout = true
 		Timers:CreateTimer(2, function()
 			self.timeout = false
+
 		end)
 	end
 end

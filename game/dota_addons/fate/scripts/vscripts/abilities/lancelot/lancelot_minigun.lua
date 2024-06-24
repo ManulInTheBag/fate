@@ -1,6 +1,6 @@
 LinkLuaModifier("modifier_lancelot_minigun", "abilities/lancelot/lancelot_minigun", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_eternal_flame_shred", "abilities/lancelot/modifiers/modifier_eternal_flame_shred", LUA_MODIFIER_MOTION_NONE)
-
+LinkLuaModifier("modifier_lancelot_minigun_slow", "abilities/lancelot/lancelot_minigun", LUA_MODIFIER_MOTION_NONE)
 lancelot_minigun = lancelot_minigun or class({})
 
 function lancelot_minigun:OnAbilityPhaseStart()
@@ -44,6 +44,7 @@ function lancelot_minigun:OnSpellStart()
     local hCaster   = self:GetCaster()
 
     local modifier = hCaster:AddNewModifier(hCaster, self, "modifier_lancelot_minigun", {duration = 5})
+
 end
 function lancelot_minigun:OnProjectileHit_ExtraData(hTarget, vLocation, hTable)
     if type(hTable.iShoot_PFX) == "number" then
@@ -68,26 +69,32 @@ function lancelot_minigun:OnProjectileHit_ExtraData(hTarget, vLocation, hTable)
         EmitSoundOnLocationWithCaster(vLocation, "lancelot_minigun_impact_"..RandomInt(1, 2), self:GetCaster())
         return
     end
-    if (hTarget:GetName() == "npc_dota_ward_base") then
+    if hTarget:GetName() == "npc_dota_ward_base" then
         return
     end
-
-    --print("hit", hTarget)
     local hCaster = self:GetCaster()
     local damage = hTable.fDamage
 
+    local modifier = hCaster:FindModifierByName("modifier_lancelot_minigun")
+    if modifier == nil then
+        modifier = hCaster.f16:FindModifierByName("modifier_lancelot_minigun_f16")
+    end
     EmitSoundOn("lancelot_minigun_impact_"..RandomInt(1, 2), hTarget)
-
     --[[if hTarget:HasModifier("modifier_barrage_debuff") then
         stacks = hTarget:GetModifierStackCount("modifier_barrage_debuff", hCaster)
         damage = damage + (stacks * (self:GetSpecialValueFor("stack_damage")+0.1*damage_bonus))
     end]]
 
-    if hCaster:HasModifier("modifier_eternal_flame_attribute") then
-        hTarget:AddNewModifier(hCaster, self, "modifier_eternal_flame_shred", { Duration = 5 })
+
+    if not modifier.__jopa[modifier.jopa1][hTarget] then
+        DoDamage(hCaster, hTarget, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+        hTarget:AddNewModifier(hCaster, self, "modifier_lancelot_minigun_slow", { Duration = 1 })
+        if hCaster:HasModifier("modifier_eternal_flame_attribute") then
+            hTarget:AddNewModifier(hCaster, self, "modifier_eternal_flame_shred", { Duration = 5 })
+        end
+        --hTarget:AddNewModifier(hCaster, self, "modifier_barrage_debuff", { Duration = 5 })
+        modifier.__jopa[modifier.jopa1][hTarget] = hTarget
     end
-    DoDamage(hCaster, hTarget, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
-    --hTarget:AddNewModifier(hCaster, self, "modifier_barrage_debuff", { Duration = 5 })
 end
 
 lancelot_minigun_end = class({})
@@ -109,6 +116,7 @@ function modifier_lancelot_minigun:CheckState()
                         --[MODIFIER_STATE_STUNNED] = true,
                         --[MODIFIER_STATE_IGNORING_MOVE_AND_ATTACK_ORDERS] = true,
                         [MODIFIER_STATE_DISARMED]                        = true,
+                        [MODIFIER_STATE_MUTED]                           = true,
 
                         [MODIFIER_STATE_NO_UNIT_COLLISION]               = true,
                         [MODIFIER_STATE_ROOTED]                        = true,
@@ -144,7 +152,7 @@ function modifier_lancelot_minigun:OnCreated(hTable)
     self.hCaster  = self:GetCaster()
     self.hParent  = self:GetParent()
     self.hAbility = self:GetAbility()
-
+    self.__jopa = {}
     self.fSlowTurning = self.hAbility:GetSpecialValueFor("slow_turning")
 
     self.sAttach         = "attach_minigun"
@@ -174,7 +182,7 @@ function modifier_lancelot_minigun:OnCreated(hTable)
                                             --vSpawnOrigin      = self.hParent:GetAttachmentOrigin(self.hParent:ScriptLookupAttachment("attach_attack1")),
 
                                             iUnitTargetTeam   = DOTA_UNIT_TARGET_TEAM_ENEMY,
-                                            iUnitTargetType   = DOTA_UNIT_TARGET_ALL,
+                                            iUnitTargetType   = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC+DOTA_UNIT_TARGET_OTHER,
                                             iUnitTargetFlags  = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE,
 
                                             distance         = self.fDistance,
@@ -231,36 +239,59 @@ function modifier_lancelot_minigun:OnIntervalThink()
             return
         end
         self.hCaster:SpendMana(self.manacost, self.hAbility)
-
+        self.__jopa = self.__jopa or {}
+        self.jopa1 = DoUniqueString("jopa2")
+        local jopa1 = self.jopa1
+        self.__jopa[jopa1] = {}
         local vDirection = self.hParent:GetForwardVector()
-
-        local vAttach = self.hParent:GetAttachmentOrigin(self.hParent:ScriptLookupAttachment(self.sAttach))
-        local vPoint  = vAttach + vDirection * self.fDistance
-
-        local iShoot_PFX =  ParticleManager:CreateParticle(self.sProjectileName, PATTACH_ABSORIGIN_FOLLOW, self.hParent)
-                            ParticleManager:SetParticleShouldCheckFoW(iShoot_PFX, false)
-                            ParticleManager:SetParticleControlEnt(
-                                                                    iShoot_PFX, 
-                                                                    0, 
-                                                                    self.hParent, 
-                                                                    PATTACH_POINT_FOLLOW, 
-                                                                    self.sAttach, 
-                                                                    Vector(0, 0, 0), 
-                                                                    false
-                                                                )
-                            ParticleManager:SetParticleControl(iShoot_PFX, 1, vPoint)
-                            ParticleManager:SetParticleControl(iShoot_PFX, 2, Vector(self.fSpeed, 0, 0))
-
-        self.hPatronProjectileTable.sourceLoc = vAttach
-        self.hPatronProjectileTable.direction    = self.hCaster:GetForwardVector()
-        self.hPatronProjectileTable.distance    = self.fDistance
-        self.hPatronProjectileTable.speed    = self.fSpeed
-
-        self.hPatronProjectileTable.ExtraData.iShoot_PFX = iShoot_PFX
-        self.hPatronProjectileTable.ExtraData.fDamage    = self.fBaseDamage + self.hCaster:GetAverageTrueAttackDamage(self.hCaster)*self.damage_perc
-
-        FATE_ProjectileManager:CreateLinearProjectile(self.hPatronProjectileTable)
+        local pfx, bullet = self:shootBullet(vDirection)
+        --self.__jopa[jopa1][pfx] = bullet
+        local vDirection = self.hParent:GetForwardVector() + self.hParent:GetRightVector()*0.3
+        local pfx, bullet = self:shootBullet(vDirection)
+        --self.__jopa[jopa1][pfx] = bullet
+        local vDirection = self.hParent:GetForwardVector()+ self.hParent:GetRightVector()*-0.3
+        local pfx, bullet = self:shootBullet(vDirection)
+        --self.__jopa[jopa1][pfx] = bullet
+        local vDirection = self.hParent:GetForwardVector() + self.hParent:GetRightVector()*0.15
+        local pfx, bullet = self:shootBullet(vDirection)
+        --self.__jopa[jopa1][pfx] = bullet
+        local vDirection = self.hParent:GetForwardVector()+ self.hParent:GetRightVector()*-0.15
+        local pfx, bullet = self:shootBullet(vDirection)
+        --self.__jopa[jopa1][pfx] = bullet
+        
     end
+end
+
+function modifier_lancelot_minigun:shootBullet(vDirection)
+
+
+    local vAttach = self.hParent:GetAttachmentOrigin(self.hParent:ScriptLookupAttachment(self.sAttach))
+    local vPoint  = vAttach + vDirection * self.fDistance
+
+    local iShoot_PFX =  ParticleManager:CreateParticle(self.sProjectileName, PATTACH_ABSORIGIN_FOLLOW, self.hParent)
+                        ParticleManager:SetParticleShouldCheckFoW(iShoot_PFX, false)
+                        ParticleManager:SetParticleControlEnt(
+                                                                iShoot_PFX, 
+                                                                0, 
+                                                                self.hParent, 
+                                                                PATTACH_POINT_FOLLOW, 
+                                                                self.sAttach, 
+                                                                Vector(0, 0, 0), 
+                                                                false
+                                                            )
+                        ParticleManager:SetParticleControl(iShoot_PFX, 1, vPoint)
+                        ParticleManager:SetParticleControl(iShoot_PFX, 2, Vector(self.fSpeed, 0, 0))
+
+    self.hPatronProjectileTable.sourceLoc = vAttach
+    self.hPatronProjectileTable.direction    = vDirection
+    self.hPatronProjectileTable.distance    = self.fDistance
+    self.hPatronProjectileTable.speed    = self.fSpeed
+
+    self.hPatronProjectileTable.ExtraData.iShoot_PFX = iShoot_PFX
+    self.hPatronProjectileTable.ExtraData.fDamage    = self.fBaseDamage + self.hCaster:GetAverageTrueAttackDamage(self.hCaster)*self.damage_perc
+
+    local bullet = FATE_ProjectileManager:CreateLinearProjectile(self.hPatronProjectileTable)
+    return iShoot_PFX, bullet
 end
 function modifier_lancelot_minigun:OnDestroy()
     if IsServer()
@@ -274,4 +305,27 @@ function modifier_lancelot_minigun:OnDestroy()
 
         StopSoundOn(self.sEmitSound, self.hParent)
     end
+end
+
+modifier_lancelot_minigun_slow = class({})
+
+function modifier_lancelot_minigun_slow:DeclareFunctions()
+	return { MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
+			--MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT
+			}
+end
+function modifier_lancelot_minigun_slow:GetModifierMoveSpeedBonus_Percentage()
+	return -(self:GetAbility():GetSpecialValueFor("ms_slow"))
+end
+
+function modifier_lancelot_minigun_slow:IsDebuff()
+    return true
+end
+
+function modifier_lancelot_minigun_slow:RemoveOnDeath()
+    return true
+end
+
+function modifier_lancelot_minigun_slow:IsHidden()
+    return false
 end

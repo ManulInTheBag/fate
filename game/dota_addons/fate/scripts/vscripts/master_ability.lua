@@ -922,26 +922,26 @@ function OnProsperityAcquired(keys)
 	end
 
 
-	for i=1,4 do
-		local level = hero:GetLevel()
-		if level ~= 24 then
-			hero:AddExperience(_G.XP_PER_LEVEL_TABLE[level], false, false)
-			--hero:AddExperience(XP_BOUNTY_PER_LEVEL_TABLE[killedUnit:GetLevel()]/realHeroCount, false, false)
-		else
-			master:SetMana(master:GetMana() + 3)
-			master2:SetMana(master:GetMana())		
-		end
-	end
+	-- for i=1,4 do
+	-- 	local level = hero:GetLevel()
+	-- 	if level ~= 24 then
+	-- 		hero:AddExperience(_G.XP_PER_LEVEL_TABLE[level], false, false)
+	-- 		--hero:AddExperience(XP_BOUNTY_PER_LEVEL_TABLE[killedUnit:GetLevel()]/realHeroCount, false, false)
+	-- 	else
+	-- 		master:SetMana(master:GetMana() + 3)
+	-- 		master2:SetMana(master:GetMana())		
+	-- 	end
+	-- end
 
 
 	--[[
 	master:SetMana(master:GetMana()+20)
 	master2:SetMana(master:GetMana())]]
-	master:SetMaxHealth(master:GetMaxHealth() + 4)
-	master:SetHealth(master:GetHealth() + 4)
+	--master:SetMaxHealth(master:GetMaxHealth() + 6)
+	--master:SetHealth(master:GetHealth() + 6)
 	--master:SetMana(master:GetMana() + 3)
-	master2:SetMaxHealth(master:GetMaxHealth()) 
-	master2:SetHealth(master:GetHealth())
+	--master2:SetMaxHealth(master:GetMaxHealth()) 
+	--master2:SetHealth(master:GetHealth())
 	--master2:SetMana(master:GetMana())
     local statTable = CreateTemporaryStatTable(hero)
     CustomGameEventManager:Send_ServerToPlayer( hero:GetPlayerOwner(), "servant_stats_updated", statTable ) -- Send the current stat info to JS

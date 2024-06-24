@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf58:version{9bada39c-a931-42d0-abdd-e5c1b13d37a6} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf60:version{cd92a366-0b0d-4811-a18d-f6d472d19709} -->
 {
 	_class = "CParticleSystemDefinition"
 	m_bShouldHitboxesFallbackToRenderBounds = false
@@ -133,19 +133,24 @@
 	[
 		{
 			m_ChildRef = resource:"particles/heroes/anime_hero_lancelot/lancelot_minigun_projectile_e.vpcf"
+			m_bDisableChild = true
 		},
 		{
 			m_ChildRef = resource:"particles/heroes/anime_hero_lancelot/lancelot_minigun_projectile_f.vpcf"
+			m_bDisableChild = true
 		},
 		{
 			m_bEndCap = true
 			m_ChildRef = resource:"particles/heroes/anime_hero_lancelot/lancelot_minigun_projectile_b.vpcf"
+			m_bDisableChild = true
 		},
 		{
 			m_ChildRef = resource:"particles/heroes/anime_hero_lancelot/lancelot_minigun_projectile_a.vpcf"
+			m_bDisableChild = true
 		},
 		{
 			m_ChildRef = resource:"particles/heroes/anime_hero_lancelot/lancelot_minigun_projectile_d.vpcf"
+			m_bDisableChild = true
 		},
 		{
 			m_ChildRef = resource:"particles/heroes/anime_hero_lancelot/lancelot_minigun_projectile_c.vpcf"
@@ -156,12 +161,15 @@
 		{
 			m_ChildRef = resource:"particles/heroes/anime_hero_lancelot/lancelot_minigun_projectile_explode.vpcf"
 			m_bEndCap = true
+			m_bDisableChild = true
 		},
 		{
 			m_ChildRef = resource:"particles/heroes/anime_hero_lancelot/lancelot_minigun_projectile_fire.vpcf"
+			m_bDisableChild = true
 		},
 		{
 			m_ChildRef = resource:"particles/heroes/anime_hero_lancelot/lancelot_minigun_projectile_capsule.vpcf"
+			m_bDisableChild = true
 		},
 	]
 }

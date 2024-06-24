@@ -4,7 +4,9 @@ function modifier_arrow_rain_window:OnDestroy()
 	if IsServer() then
 		local hero = self:GetParent()
 		--if hero:HasModifier("modifier_unlimited_bladeworks") then
-			hero:SwapAbilities("emiya_unlimited_bladeworks", "emiya_combo", true, false)
+	if hero:GetAbilityByIndex(5):GetName() =="emiya_combo" then
+			hero:SwapAbilities("emiya_unlimited_bladeworks", "emiya_combo", true , false)
+	end
 		--end
 	end
 end

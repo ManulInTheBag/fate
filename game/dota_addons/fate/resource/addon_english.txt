@@ -3112,7 +3112,7 @@
 
 
 		"DOTA_Tooltip_Ability_emiya_unlimited_bladeworks"					"Unlimited Blade Works"
-		"DOTA_Tooltip_ability_emiya_unlimited_bladeworks_Description"		"Chant a line of the <font color='#58ACFA'>Unlimited Blade Works</font>, decreasing the remaining cooldown of Emiya's <font color='#FFFAFA'>active</font> abilities.\nWhen the chant is completed, Emiya will lay his <font color='#FFFAFA'>Reality marble</font>. \nEmiya gains a set of new abilities, bonus <font color='#7CFC00'>health</font> and <font color='#FFFAFA'>resistances</font> inside his <font color='#FFFAFA'>Reality marble</font>.\nWhen Emiya dies, his <font color='#FFFAFA'>Reality marble</font> ends.\n<font color='#F1C40F'>Upgradable by attribute Improve projection.</font>"
+		"DOTA_Tooltip_ability_emiya_unlimited_bladeworks_Description"		"Chant a line of the <font color='#58ACFA'>Unlimited Blade Works</font>, decreasing the remaining cooldown of Emiya's <font color='#FFFAFA'>active</font> abilities.\nWhen the chant is completed, Emiya will lay his <font color='#FFFAFA'>Reality marble</font>. \nEmiya gains a set of new abilities, bonus <font color='#7CFC00'>health</font> and <font color='#FFFAFA'>resistances</font> inside his <font color='#FFFAFA'>Reality marble</font>.\nWhen Emiya dies, his <font color='#FFFAFA'>Reality marble</font> ends.\nCan be set on auto cast to perform combo instead of entering UBW, if Emiya fullfils combo requirements.\n<font color='#F1C40F'>Upgradable by attribute Improve projection.</font>"
 		"DOTA_Tooltip_ability_emiya_unlimited_bladeworks_Lore"				"An aria using a poem of the caster's life, used to activate high-thaumaturgy."
 		"DOTA_Tooltip_Ability_emiya_unlimited_bladeworks_Note0"				"In case UBW is overlapping with another Reality Marble, the battlefield takes place in the first Marble cast. When that Marble is broken, both Marbles cease to sustain."
 		"DOTA_Tooltip_ability_emiya_unlimited_bladeworks_form_delay"		"UBW Delay:"
@@ -3173,7 +3173,7 @@
 
 
 		"DOTA_Tooltip_Ability_emiya_combo"					"Combo: Instant Unlimited Blade Works"
-		"DOTA_Tooltip_Ability_emiya_combo_Description"		"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : R-R in 1.2 seconds while having 0 <font color='#58ACFA'>Unlimited blade works</font> stacks</font>\nEmiya dashes to the targeted enemy in the 1200 radius and immediately activates <font color='#58ACFA'>Unlimited blade works</font>.\nPrimary target is stunned until cast ends\n Shortly after entering, Emiya drops a bunch of swords on the targeted enemy position, dealing <font color='#58ACFA'>damage</font> and <font color='#FF3399'>stunning</font>, while two sword rain bombard around.\n After a 3 second delay, swords explode, dealing more <font color='#58ACFA'>damage</font>."
+		"DOTA_Tooltip_Ability_emiya_combo_Description"		"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : When <font color='#58ACFA'>Unlimited blade works</font>  set on autocast, R-R in 6 seconds while having 5 <font color='#58ACFA'>Unlimited blade works</font> stacks</font>\nEmiya dashes to the targeted enemy in the 1200 radius and immediately activates <font color='#58ACFA'>Unlimited blade works</font>.\nPrimary target is stunned until cast ends\n Shortly after entering, Emiya drops a bunch of swords on the targeted enemy position, dealing <font color='#58ACFA'>damage</font> and <font color='#FF3399'>stunning</font>, while two sword rain bombard around.\n After a 3 second delay, swords explode, dealing more <font color='#58ACFA'>damage</font>."
 		"DOTA_Tooltip_Ability_emiya_combo_Lore"	""
 		"DOTA_Tooltip_Ability_emiya_combo_Note0"			"If target dies before entering UBW, there will be no combo."
 		"DOTA_Tooltip_Ability_emiya_combo_first_damage"		"Swords damage:"
@@ -3259,7 +3259,7 @@
 		//"DOTA_Tooltip_ability_heracles_courage_Note0"				"Courage buff cannot be dispelled."
 
 		"DOTA_Tooltip_Ability_heracles_berserk"					"Berserk"
-		"DOTA_Tooltip_ability_heracles_berserk_Description"		"Heracles runs into prerogative rage his health cannot be changed. During duration, Heracles does not take harm from any damage unless it is fatal. \nApplies <font color='#FF0000'>Berserked</font> status to the other abilities. \n While berserk is active Heracles gain bonus damage, attack and movement speed depending on how low his health percentage was on cast. The following bonuses are capped at 20%."
+		"DOTA_Tooltip_ability_heracles_berserk_Description"		"Heracles runs into prerogative rage his health cannot be changed. During duration, Heracles does not take harm from any damage unless it is fatal. \nApplies <font color='#FF0000'>Berserked</font> status to the other abilities. \n While berserk is active Heracles gain bonus damage, attack and movement speed depending on how low his health percentage was on cast. The following bonuses are capped at 20%.\nWhen casted, Heracles deals 100 + 15% of his maximum health as <font color='#58ACFA'>magical</font> damage in 300 radius around him.\nCan be casted while stunned and silenced.\nHard cleanes heracles upon finishing cast."
 		"DOTA_Tooltip_ability_heracles_berserk_Lore"				"Pain is trivial matter to the raging juggernaut in the heat of battle."
 		"DOTA_Tooltip_ability_heracles_berserk_bns_att_spd"			"Bonus Attack Speed: "
 		"DOTA_Tooltip_ability_heracles_berserk_health_constant"		"%MINIMUM HEALTH LOCK:"
@@ -3361,7 +3361,7 @@
 		"DOTA_Tooltip_ability_pepeg_combo_final_gachi_Description"	"<font color='#58ACFA'>Combo Requirement : 80 Intellect. </font>\n<font color='#58ACFA'>Combo Sequence : Q-Q in 4 seconds</font>\nBerserker uses his true Gachi Power to teach target right ways of fisting."	
 
 		"DOTA_Tooltip_Ability_heracles_mad_enhancement_attribute"					"Attribute: Mad Enhancement"
-		"DOTA_Tooltip_ability_heracles_mad_enhancement_attribute_Description"		"Suffering more than 500 damage in one impact will reduce Berserk's cooldown by 2 seconds. Effect cooldown: 2 seconds. \n Increase duration of the berserk by 1 second.\nUsing courage lowers nine lives cooldown by 5 seconds. \nNine Lives: small strikes also deal 10%% of Berserker's damage as physical damage, final strike deals 100%% of Berserker's damage as physical damage."	
+		"DOTA_Tooltip_ability_heracles_mad_enhancement_attribute_Description"		"Suffering more than 500 damage in one impact will reduce Berserk's cooldown by 2 seconds. Effect cooldown: 2 seconds. \n Increase duration of the berserk by 1 second.\nUsing courage lowers nine lives cooldown by 15 seconds. \nNine Lives: small strikes also deal 10%% of Berserker's damage as physical damage, final strike deals 100%% of Berserker's damage as physical damage."	
 		//"DOTA_Tooltip_Ability_heracles_mad_enhancement_attribute_Note0"				"Slow Immunity is only while Berserk is active."
 		//=================================================================================================================
 		//	Sakura Saber
@@ -4136,10 +4136,11 @@
         "DOTA_Tooltip_modifier_lancelot_minigun"						"M134 Minigun"
 
         "DOTA_Tooltip_Ability_lancelot_minigun"							"M134 Minigun"
-        "DOTA_Tooltip_Ability_lancelot_minigun_Description"				"Lancelot pulls out a rotary gun and starts shooting it for a maximum of %duration% seconds.\nLancelot can't move while shooting, but can turn with decreased turn rate.\nLancelot fires %bullets_per_second% bullets per second, spending <font color='#58ACFA'>%mana_per_bullet% mana</font> per bullet.\nEach bullet deals <font color='#A72E28'>physical</font> damage based on Lancelot's attack damage.\nIf Lancelot runs out of <font color='#58ACFA'>mana</font>, this ability will stop automatically.\nThis ability goes on cooldown equal to %cooldown_per_second% times the amount of time Lancelot spent shooting."
+        "DOTA_Tooltip_Ability_lancelot_minigun_Description"				"Lancelot pulls out a rotary gun and starts shooting it for a maximum of %duration% seconds.\nLancelot can't move while shooting, but can turn with decreased turn rate.\nLancelot fires %bullets_per_second% shots per second, spending <font color='#58ACFA'>%mana_per_bullet% mana</font> per bullet.\nEach bullet deals <font color='#A72E28'>physical</font> damage based on Lancelot's attack damage and applyes a <font color='#FF3399'>slow</font> debuff for 1 second.\nIf Lancelot runs out of <font color='#58ACFA'>mana</font>, this ability will stop automatically.\nThis ability goes on cooldown equal to %cooldown_per_second% times the amount of time Lancelot spent shooting."
         "DOTA_Tooltip_Ability_lancelot_minigun_base_damage"				"Bullet base damage:"
         "DOTA_Tooltip_Ability_lancelot_minigun_atk_damage"				"%Bullet attack scale:"
         "DOTA_Tooltip_Ability_lancelot_minigun_range"					"Range:"
+        "DOTA_Tooltip_Ability_lancelot_minigun_ms_slow"					"%Slow:"
         "DOTA_Tooltip_ability_lancelot_minigun_Lore"        			"Bringing gun to swordfight is the least of concerns for maddened knight."
 
         "DOTA_Tooltip_Ability_lancelot_minigun_end"						"M134 Minigun"
@@ -4295,13 +4296,16 @@
         "DOTA_Tooltip_Ability_lancelot_attribute_total_assault_crit_damage"         "%CRITICAL DAMAGE:"
 
         "DOTA_Tooltip_Ability_lancelot_attribute_eternal_flame"					"Attribute: Eternal Flame"
-        "DOTA_Tooltip_ability_lancelot_attribute_eternal_flame_Description"		"Removes the mana cost for Arondight to trigger firing the cone of fire. Causes M134 Minigun to remove a percentage of the enemy's armor when it hits."
-        "DOTA_Tooltip_Ability_lancelot_attribute_eternal_flame_armor_shred"		"%Armor shred:"
+        "DOTA_Tooltip_ability_lancelot_attribute_eternal_flame_Description"		"Removes the mana cost for Arondight to trigger firing the cone of fire. Causes M134 Minigun to reduce the enemy's armor when it hits \nThis reduction cannot lower armor below 0."
+        "DOTA_Tooltip_Ability_lancelot_attribute_eternal_flame_armor_shred"		"Armor shred:"
         "DOTA_Tooltip_Ability_lancelot_attribute_eternal_flame_duration"		"Armor shred duration:"
         "DOTA_Tooltip_Ability_lancelot_attribute_eternal_flame_Lore"			"Legend has it that Lancelot once slew a dragon. Perhaps this is why the blade of Arondight spits out fire when swung."
 
         "DOTA_Tooltip_modifier_eternal_flame_shred"								"Eternal Flame"
         "DOTA_Tooltip_modifier_eternal_flame_shred_Description"					"Your armor is decreased"
+
+        "DOTA_Tooltip_modifier_lancelot_minigun_slow"					"Slowed"
+		"DOTA_Tooltip_modifier_lancelot_minigun_slow_Description"		""
 
         "DOTA_Tooltip_Ability_lancelot_attribute_improve_eternal"               	"Attribute: Eternal Arms Mastership"
         "DOTA_Tooltip_ability_lancelot_attribute_improve_eternal_Description"		"Enables the usage of Eternal Arms Mastership, which grants Lancelot chance to deal critical strikes on attacks. Activating Eternal Arms Mastership temporarily increases the chance of critical strike to 100%% for a very short duration. Also increases level of abilities within Knight of Honor."
@@ -7301,7 +7305,7 @@
 		"DOTA_Tooltip_Ability_lu_bu_armistice_stun_duration"				"STUN DURATION:"
 		
 		"DOTA_Tooltip_Ability_lu_bu_halberd_throw"				"<font color='#FFE56E'>Halberd Throw</font>"
-		"DOTA_Tooltip_Ability_lu_bu_halberd_throw_Description"				"Cast Point: <font color='#FFFFF9'>0.5</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Lu Bu throws God Force, dealing <font color='#05CAFF'>magical damage</font> to each unit it skewers and <font color='#FF3399'>knocking</font> them back.\n\nIf the skewered target collides with an object, they will be dealt additional <font color='#05CAFF'>halved magical damage</font> and <font color='#FF3399'>stunned</font>.\n\n<font color='#FF3399'>Upgradable with attribute Ruthless Warrior of the Turbulent Times</font>"
+		"DOTA_Tooltip_Ability_lu_bu_halberd_throw_Description"				"Cast Point: <font color='#FFFFF9'>0.5</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Lu Bu throws God Force, dealing <font color='#05CAFF'>magical damage</font> to each unit it skewers and <font color='#FF3399'>knocking</font> them back.\n\nIf the skewered target collides with an object, they will be dealt additional <font color='#05CAFF'>100 magical damage</font> and <font color='#FF3399'>stunned</font>.\n\n<font color='#FF3399'>Upgradable with attribute Ruthless Warrior of the Turbulent Times</font>"
 		"DOTA_Tooltip_Ability_lu_bu_halberd_throw_Lore"				"Humans dream of flying.\n\nThis is one method to achieve it."
 		"DOTA_Tooltip_Ability_lu_bu_halberd_throw_damage"				"DAMAGE:"
 		"DOTA_Tooltip_Ability_lu_bu_halberd_throw_spear_range"				"THROW RANGE:"
@@ -7601,7 +7605,7 @@
 		"DOTA_Tooltip_ability_edmon_flames_attribute_Description"	"Dark Beams not created by Flames of Hate stack Flames of Love. Each other damage impact from Dantes stacks Flames of Hate. Both stack up to 6.\nFlames of Love: melee attacks use stacks to be nearly instant.\nFlames of Hate: during the delay, third Dark Beam creates two mini-Dark Beams, which deal 1/4 of Dark Beam damage each, per stack."
 
 		"DOTA_Tooltip_ability_edmon_vengeance_attribute"		"Attribute: Avenger"
-		"DOTA_Tooltip_ability_edmon_vengeance_attribute_Description"	"Enemies dealing damage to Dantes are marked for %duration% seconds.\nMarked enemies take %damage%%  more damage from Dantes. Dantes heals himself for %lifesteal%%  of damage dealt when dealing damage to them.\nVengeful conflagration: reduces amount of damage received by Dantes during counter-attack by 50%%."
+		"DOTA_Tooltip_ability_edmon_vengeance_attribute_Description"	"Enemies dealing damage to Dantes are marked for %duration% seconds.\nMarked enemies take %damage%%  more damage from Dantes. Dantes heals himself for %lifesteal_base%%  of damage dealt when dealing damage. \nThis lifesteal is additionally increased by %lifesteal%%  if the attacked enemy is marked. \nVengeful conflagration: reduces amount of damage received by Dantes during counter-attack by 50%%."
 
 		"DOTA_Tooltip_ability_edmon_escape_attribute"			"Attribute: Le Concept d'Evasion"
 		"DOTA_Tooltip_ability_edmon_escape_attribute_Description"			"Allows Dantes to use Afterglow and My Vengeance Never Dies when rooted and locked.\nIncreased My Vengeance Never Dies castrange by 300."
@@ -8853,7 +8857,7 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
 		"DOTA_Tooltip_ability_master_shard_of_holy_grail_Lore"	"A shard of the legendary artifact that is known to descend upon the soul in its most dire situation. Despite being a makeshift, a trivial wish of mere human may not be asking too much...\n"
 
 		"DOTA_Tooltip_Ability_master_shard_of_avarice"				"Shard of Avarice"
-		"DOTA_Tooltip_ability_master_shard_of_avarice_Description"	"Grants 3250 bonus gold at the beginning of round."
+		"DOTA_Tooltip_ability_master_shard_of_avarice_Description"	"Grants 4000 bonus gold at the beginning of round, increases gold cap to get gold at the round start by 4000."
 		"DOTA_Tooltip_Ability_master_shard_of_avarice_Lore"			"A shard of the legendary artifact that is known to descend upon the soul in its most dire situation. Despite being a makeshift, a trivial wish of mere human may not be asking too much...\n"
 
 		"DOTA_Tooltip_Ability_master_shard_of_anti_magic"				"Shard of Anti-Magic"
@@ -8865,7 +8869,7 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
 		"DOTA_Tooltip_Ability_master_shard_of_replenishment_Lore"		"A shard of the legendary artifact that is known to descend upon the soul in its most dire situation. Despite being a makeshift, a trivial wish of mere human may not be asking too much...\n"
 
 		"DOTA_Tooltip_Ability_master_shard_of_prosperity"				"Shard of Prosperity"
-		"DOTA_Tooltip_ability_master_shard_of_prosperity_Description"	"Grants 4 levels for hero and 4 health for master upon acquisition. Reduces Q seal cooldown by 15 seconds per shard."
+		"DOTA_Tooltip_ability_master_shard_of_prosperity_Description"	"Grants 1 master mana at round start. Restores one master health at round start. Reduces Q seal cooldown by 15 seconds per shard."
 		"DOTA_Tooltip_Ability_master_shard_of_prosperity_Lore"			"A shard of the legendary artifact that is known to descend upon the soul in its most dire situation. Despite being a makeshift, a trivial wish of mere human may not be asking too much...\n"
 
 		"DOTA_Tooltip_Ability_cmd_seal_1"				"1st Command Seal"

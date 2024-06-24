@@ -111,3 +111,30 @@ function lancelot_arondite:OnProjectileHit_ExtraData(hTarget, vLocation, table)
 		--end
 	end
 end
+
+------------------------------------------------------------------------------
+
+function lancelot_arondite:CastFilterResult()
+    local caster = self:GetCaster()
+    if caster:HasModifier("modifier_lancelot_minigun") then
+        return UF_FAIL_CUSTOM
+    end
+
+    return UF_SUCCESS
+end
+
+function lancelot_arondite:GetCustomCastError()
+    return "#Minigun_Active"
+end
+
+function lancelot_arondite:GetAbilityTextureName()
+    --local caster = self:GetCaster()
+
+    --[[if caster:HasModifier("modifier_double_edge") then
+        return "custom/lancelot_attribute_improve_knight_of_honor"
+    else]]
+    return "custom/lancelot_arondite"
+    --end
+end
+
+------------------------------------------------------------------------------

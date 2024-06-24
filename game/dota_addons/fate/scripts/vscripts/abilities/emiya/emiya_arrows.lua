@@ -2,6 +2,9 @@ emiya_arrows = class({})
 
 LinkLuaModifier("modifier_arrow_rain_cooldown", "abilities/emiya/modifiers/modifier_arrow_rain_cooldown", LUA_MODIFIER_MOTION_NONE)
 
+
+
+
 function emiya_arrows:OnUpgrade()
     local caster = self:GetCaster()
     local ability = self

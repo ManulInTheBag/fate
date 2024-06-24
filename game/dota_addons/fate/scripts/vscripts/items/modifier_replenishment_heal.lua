@@ -9,8 +9,8 @@ if IsServer() then
 	function modifier_replenishment_heal:OnIntervalThink()
 		local parent = self:GetParent()
    	 	if parent:IsAlive() then
-			local HPRegen = self:GetAbility():GetSpecialValueFor("hpregen") / 10
-			local ManaRegen = self:GetAbility():GetSpecialValueFor("manaregen") / 10
+			local HPRegen = 500/10--self:GetAbility():GetSpecialValueFor("hpregen") / 10
+			local ManaRegen = 500/10--self:GetAbility():GetSpecialValueFor("manaregen") / 10
 			parent:ApplyHeal(HPRegen,parent)
 			parent:GiveMana(ManaRegen)
 		end
