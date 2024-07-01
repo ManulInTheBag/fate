@@ -872,11 +872,11 @@ function OnGodHandDeath(keys)
 			-- DebugDrawCircle(caster:GetAbsOrigin(), Vector(255,0,0), 0.5, radius, true, 0.5)
 			for k,v in pairs(targets) do
 		        DoDamage(caster, v, 500 + caster:GetStrength(), DAMAGE_TYPE_MAGICAL, 0, keys.ability, false)
-		        caster:AddNewModifier(caster, keys.ability, "modifier_herc_gh_reduc", {duration = 1})
+		        --caster:AddNewModifier(caster, keys.ability, "modifier_herc_gh_reduc", {duration = 1})
 			end	
 
 			-- Apply penalty
-			--keys.ability:ApplyDataDrivenModifier(caster, caster, "modifier_god_hand_debuff", {}) 
+			keys.ability:ApplyDataDrivenModifier(caster, caster, "modifier_god_hand_debuff", {}) 
 			-- Remove Gae Buidhe modifier
 			caster:RemoveModifierByName("modifier_gae_buidhe")
 			-- Reset godhand stock

@@ -12,7 +12,11 @@ function nobu_3000:OnSpellStart()
 	self.ChannelTime = 0
     self.caster = self:GetCaster()
     self.particle_kappa = ParticleManager:CreateParticle("particles/nobu/3000-charge.vpcf", PATTACH_ABSORIGIN_FOLLOW,  self.caster)
-   
+    self.startpoint = -500
+    self.movement = 100
+    self.localcounter = 0
+    self.globalcounter = 1
+    self.counterlimit = 6
     self.rightvec = self.caster:GetRightVector()
     self.leftvec = self.caster:GetLeftVector()
     self.target = self:GetCursorPosition()
@@ -45,7 +49,7 @@ function nobu_3000:OnSpellStart()
     
     for i=1,5 do 
         local gun_spawn = self.caster:GetAbsOrigin() + self.caster:GetForwardVector() *RandomInt(-200,200)
-        local random1 = RandomInt(0, 300) -- position of gun spawn
+        local random1 = RandomInt(0, 500) -- position of gun spawn
 		local random2 = RandomInt(0,1) -- whether weapon will spawn on left or right side of hero
 		local random3 = RandomInt(25,200)*Vector(0,0,1) 
 		 
@@ -76,21 +80,42 @@ end
 function nobu_3000:OnChannelThink(fInterval)
     self.ChannelTime = self.ChannelTime + fInterval
     if(self.ChannelTime >= 0.03) then
- 
+        if (self.localcounter == self.counterlimit ) then
+            self.localcounter = 0
+            if self.globalcounter == 1 then 
+                self.startpoint  = self.startpoint + self.movement
+                self.counterlimit = 5
+            else
+                self.movement = self.movement / 2
+                self.startpoint  = self.startpoint - self.movement
+                self.counterlimit = self.counterlimit * 2 
+
+            end
+            self.globalcounter = self.globalcounter + 1
+
+
+        end
         local gun_spawn = self.caster:GetAbsOrigin() + self.caster:GetForwardVector()*RandomInt(-200,200)
-        local random1 = RandomInt(0, 300) -- position of gun spawn
+        --local random1 = RandomInt(0, 500) -- position of gun spawn
 		local random2 = RandomInt(0,1) -- whether weapon will spawn on left or right side of hero
 		local random3 = RandomInt(25,200)*Vector(0,0,1) --  
-		
 
-		if random2 == 0 then 
-			gun_spawn = gun_spawn + self.leftvec * random1 + random3
-		else 
-			gun_spawn = gun_spawn + self.rightvec * random1 + random3
+        local calcDistance = self.startpoint + self.localcounter * self.movement*2
+        if(self.localcounter == 0 or self.localcounter % 2 == 0) then
+            if(calcDistance <= 0 ) then calcDistance = calcDistance * -1 end
+        else
+            if(calcDistance >= 0 ) then calcDistance = calcDistance * -1 end 
         end
+        print(calcDistance)
+        gun_spawn = gun_spawn + random3 + (calcDistance * self.rightvec )
+		-- if random2 == 0 then 
+		-- 	gun_spawn = gun_spawn + self.leftvec * random1 + random3
+		-- else 
+		-- 	gun_spawn = gun_spawn + self.rightvec * random1 + random3
+        -- end
         self:CreateGun(gun_spawn)
         self.ChannelTime = self.ChannelTime - 0.03
-       
+        self.localcounter = self.localcounter + 1
     end
     self.caster:SetAbsOrigin(self.caster:GetAbsOrigin() + Vector(0,0,2))
     self.caster:FaceTowards(self.target)

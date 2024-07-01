@@ -1,6 +1,7 @@
 emiya_combo = class({})
 LinkLuaModifier("modifier_ubw_chronosphere", "abilities/emiya/emiya_unlimited_bladeworks", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_arrow_rain_cooldown", "abilities/emiya/modifiers/modifier_arrow_rain_cooldown", LUA_MODIFIER_MOTION_NONE)
+local ubwCenter = Vector(5926, -4837, 222)
 
 function emiya_combo:OnSpellStart()
 	local caster = self:GetCaster()
@@ -9,6 +10,7 @@ function emiya_combo:OnSpellStart()
 	local distance = (caster:GetAbsOrigin() - enemy:GetAbsOrigin()):Length2D()
 	local ubw_ability = caster:FindAbilityByName("emiya_unlimited_bladeworks")
 	EmitGlobalSound("emiya_ubw7")
+
 	----Dash to enemy
     local knockback1 = { should_stun = true,
 		knockback_duration = 0.5,
@@ -44,6 +46,7 @@ function emiya_combo:OnSpellStart()
 	Timers:CreateTimer(2.0, function()
 
 		caster:EmitSound("Archer.Combo") 
+		EmitSoundOnLocationWithCaster(ubwCenter, "emiya_combo_music", caster)
 		local centerpos = caster:GetAbsOrigin() + caster:GetForwardVector()*700
 		local enemypos = enemy:GetAbsOrigin()
 		

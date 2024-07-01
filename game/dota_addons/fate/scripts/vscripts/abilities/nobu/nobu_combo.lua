@@ -29,15 +29,15 @@ function nobu_combo:OnSpellStart()
     masterCombo:StartCooldown(self:GetCooldown(1))
     if IsSpellBlocked(hCaster.target_enemy) then  return end
     hCaster.runningCombo = false
-    hCaster:AddNewModifier(hCaster, self, "modifier_nobu_combo_self", {duration = self:GetSpecialValueFor("run_duration") + 1.5} )
-    hCaster:AddNewModifier(hCaster, self, "modifier_merlin_self_pause", {Duration = 1.5}) 
-    Timers:CreateTimer(1.5, function()
+    hCaster:AddNewModifier(hCaster, self, "modifier_nobu_combo_self", {duration = self:GetSpecialValueFor("run_duration") + 1} )
+    hCaster:AddNewModifier(hCaster, self, "modifier_merlin_self_pause", {Duration = 1}) 
+    Timers:CreateTimer(1, function()
         hCaster.runningCombo = true
     end
     )
     
     self.target_enemy = self:GetCursorTarget()
-    StartAnimation(hCaster, {duration=1.5 , activity=ACT_DOTA_CAST_CHAOS_METEOR_ORB, rate= 0.5})
+    StartAnimation(hCaster, {duration=1 , activity=ACT_DOTA_CAST_CHAOS_METEOR_ORB, rate= 0.75})
     self.particle_kappa = ParticleManager:CreateParticle("particles/nobu/nobu_combo_smoke_red.vpcf", PATTACH_ABSORIGIN_FOLLOW, hCaster)
      hCaster.target_enemy:AddNewModifier(hCaster, self, "modifier_nobu_combo_mark", {duration = self:GetSpecialValueFor("run_duration")} )
      EmitGlobalSound("nobu_combo_cast") 

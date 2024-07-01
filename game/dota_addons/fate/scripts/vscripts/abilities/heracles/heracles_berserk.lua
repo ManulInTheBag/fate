@@ -41,13 +41,15 @@ function heracles_berserk:EnterBerserk(duration)
 		end)
 		--StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_CAST_ABILITY_4, rate=2.5})
 	else
-		local particle = ParticleManager:CreateParticle("particles/zlodemon/heracles/heracles_puk.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
-		ParticleManager:ReleaseParticleIndex(particle)
-		local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 350, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-		for k,v in pairs(targets) do
-			if IsNotNull(v) then
-				v:AddNewModifier(hCaster, v, "modifier_stunned", {Duration = 0.3})
-				DoDamage(caster, v, 100 + caster:GetMaxHealth()*0.15, DAMAGE_TYPE_MAGICAL, 0, self, false)
+		if duration > 4 then
+			local particle = ParticleManager:CreateParticle("particles/zlodemon/heracles/heracles_puk.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+			ParticleManager:ReleaseParticleIndex(particle)
+			local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 350, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+			for k,v in pairs(targets) do
+				if IsNotNull(v) then
+					v:AddNewModifier(hCaster, v, "modifier_stunned", {Duration = 0.3})
+					DoDamage(caster, v, 100 + caster:GetMaxHealth()*0.15, DAMAGE_TYPE_MAGICAL, 0, self, false)
+				end
 			end
 		end
 
