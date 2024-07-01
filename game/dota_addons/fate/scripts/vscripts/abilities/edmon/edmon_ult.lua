@@ -42,6 +42,7 @@ function edmon_ult:OnSpellStart()
 	local duration = self:GetSpecialValueFor("duration")
 	local interval = self:GetSpecialValueFor("interval")
 	local count = 0
+    local autocast = self:GetAutoCastState()
 	local radius = self:GetSpecialValueFor("radius")
     --local target = self:GetCursorTarget()
 	local origin = self:GetCursorPosition()
@@ -82,7 +83,9 @@ function edmon_ult:OnSpellStart()
             count = count + interval
             return interval
         end
-        --FindClearSpaceForUnit(caster,origin,true)
+        if autocast then
+            FindClearSpaceForUnit(caster,origin,true)
+        end
     end)
 end
 

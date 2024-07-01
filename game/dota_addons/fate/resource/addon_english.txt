@@ -5073,10 +5073,10 @@
 		"npc_dota_hero_skeleton_king_bio"	""
 
 		"DOTA_Tooltip_Ability_khsn_ambush"				"Death's Approach"
-        "DOTA_Tooltip_ability_khsn_ambush_Description"	"King Hassan becomes invisible, gains bonus movement speed and enables <font color='#58ACFA'>Death Arrival</font>. Autoattacking, using abilities and items breaks invisibility. \n<font color='#58ACFA'>Death's Arrival</font>: Blinks to the target location. "
+        "DOTA_Tooltip_ability_khsn_ambush_Description"	"King Hassan becomes invisible, gains bonus movement speed. Autoattacking, using abilities and items breaks invisibility. "
         "DOTA_Tooltip_ability_khsn_ambush_duration"			"Duration:"
         "DOTA_Tooltip_ability_khsn_ambush_ms_bonus"			"%Movespeed bonus:"
-        "DOTA_Tooltip_ability_khsn_ambush_range"				"Blink distance:"
+        //"DOTA_Tooltip_ability_khsn_ambush_range"				"Blink distance:"
 
         "DOTA_Tooltip_Ability_khsn_ambush_blink"				"Death's Arrival"
         "DOTA_Tooltip_ability_khsn_ambush_blink_Description"	"King Hassan blinks to the target location."
@@ -7587,12 +7587,12 @@
 		"DOTA_Tooltip_ability_edmon_ground_beams_stun_duration"	"Stun duration:"
 
 		"DOTA_Tooltip_ability_edmon_dash"						"Afterglow"
-		"DOTA_Tooltip_ability_edmon_dash_Description"			"Dashes to the target enemy. If enemy blinks or somehow changes position too quickly, he will instead dash to the point where it was."
+		"DOTA_Tooltip_ability_edmon_dash_Description"			"Dashes to the target unit. If enemy blinks or somehow changes position too quickly, he will instead dash to the point where it was."
 		"DOTA_Tooltip_ability_edmon_dash_range"					"Range:"
 		"DOTA_Tooltip_ability_edmon_dash_speed"					"Speed:"
 
 		"DOTA_Tooltip_ability_edmon_ult"						"My Vengeance Never Dies"
-		"DOTA_Tooltip_ability_edmon_ult_Description"			"Dantes disappears for %duration% second and attacks the selected location 5 times, dealing %damage% magical damage to all enemies in radius with each attack."
+		"DOTA_Tooltip_ability_edmon_ult_Description"			"Dantes disappears for %duration% second and attacks the selected location 5 times, dealing %damage% magical damage to all enemies in radius with each attack.\nWhen set to autocast, Dantes will teleport to the target point after cast."
 		"DOTA_Tooltip_ability_edmon_ult_radius"					"Radius:"
 		"DOTA_Tooltip_ability_edmon_ult_range"					"Range:"
 
@@ -8869,7 +8869,7 @@ If enemy hits a wall or another enemy, muramasa can use Q to teleport to him imm
 		"DOTA_Tooltip_Ability_master_shard_of_replenishment_Lore"		"A shard of the legendary artifact that is known to descend upon the soul in its most dire situation. Despite being a makeshift, a trivial wish of mere human may not be asking too much...\n"
 
 		"DOTA_Tooltip_Ability_master_shard_of_prosperity"				"Shard of Prosperity"
-		"DOTA_Tooltip_ability_master_shard_of_prosperity_Description"	"Grants 1 master mana at round start. Restores one master health at round start. Reduces Q seal cooldown by 15 seconds per shard."
+		"DOTA_Tooltip_ability_master_shard_of_prosperity_Description"	"Grants 1 master mana at round start. Restores one master health at round start. Increases Q seal duration by 5 seconds per shard."
 		"DOTA_Tooltip_Ability_master_shard_of_prosperity_Lore"			"A shard of the legendary artifact that is known to descend upon the soul in its most dire situation. Despite being a makeshift, a trivial wish of mere human may not be asking too much...\n"
 
 		"DOTA_Tooltip_Ability_cmd_seal_1"				"1st Command Seal"

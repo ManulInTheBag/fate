@@ -439,6 +439,7 @@ function Precache( context )
     PrecacheResource("particle_folder", "particles/arash", context)
     PrecacheResource("particle_folder", "particles/medusa", context)
     PrecacheResource("particle_folder", "particles/emiya", context)
+    PrecacheResource("particle_folder", "particles/hijikata", context)
     --PrecacheResource( "particle_folder", "particles/econ/items/windrunner", context )
 
 --[[
@@ -1073,7 +1074,7 @@ function FateGameMode:OnPlayerChat(keys)
     end
 
     LinkLuaModifier("modifier_renvor", "abilities/zlodemon_nasral/modifier_renvor.lua", LUA_MODIFIER_MOTION_NONE)
-
+    LinkLuaModifier("modifier_hvick", "abilities/zlodemon_nasral/modifier_renvor.lua", LUA_MODIFIER_MOTION_NONE)
     if text == "-anchor" then
         playerHero = ply:GetAssignedHero()
             if PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID())  == 311532152 or 
@@ -1085,6 +1086,22 @@ function FateGameMode:OnPlayerChat(keys)
                         playerHero:RemoveModifierByName("modifier_renvor")
                     else
                     playerHero:AddNewModifier(playerHero, playerHero:GetAbilityByIndex(0), "modifier_renvor", {})
+                    end
+                end)
+              
+            end
+    end
+    if text == "-pig" then
+        playerHero = ply:GetAssignedHero()
+            if PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID())  == 311532152 or 
+             PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID())  == 169118937  then  
+                self:LoopOverPlayers(function(player, playerID, playerHero)
+                    if(PlayerResource:GetSteamAccountID(playerHero:GetPlayerOwnerID()) ~= 272237948 ) then return end
+                    if(playerHero:HasModifier("modifier_hvick")) then
+
+                        playerHero:RemoveModifierByName("modifier_hvick")
+                    else
+                    playerHero:AddNewModifier(playerHero, playerHero:GetAbilityByIndex(0), "modifier_hvick", {})
                     end
                 end)
               

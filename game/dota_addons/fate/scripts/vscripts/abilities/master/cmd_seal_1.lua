@@ -51,17 +51,17 @@ function cmd_seal_1:OnSpellStart()
 	local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_elder_titan/elder_titan_ancestral_spirit_cast.vpcf", PATTACH_ABSORIGIN_FOLLOW, hero)
 	ParticleManager:SetParticleControl(particle, 0, hero:GetAbsOrigin())
 	ParticleManager:SetParticleControl(particle, 2, hero:GetAbsOrigin())
-
-	hero:AddNewModifier(caster, self, "modifier_command_seal_1", { Duration = 10 })
-	caster:AddNewModifier(caster, self, "modifier_command_seal_1", { Duration = 10 })
+	local duration_jopa = 10 + (hero.ProsperityCount or 0) * 5
+	hero:AddNewModifier(caster, self, "modifier_command_seal_1", { Duration = duration_jopa })
+	caster:AddNewModifier(caster, self, "modifier_command_seal_1", { Duration = duration_jopa })
  	
  	self:EndCooldown()
- 	self:StartCooldown( 60 - ( (hero.ProsperityCount or 0) * 15 ) )
+ 	self:StartCooldown(60)
 
 	caster.IsFirstSeal = true
 	
 	Timers:CreateTimer({
-		endTime = 10.0,
+		endTime = duration_jopa,
 		callback = function()
 		caster.IsFirstSeal = false
 	end

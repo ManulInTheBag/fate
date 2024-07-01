@@ -27,6 +27,7 @@ function diarmuid_gae_buidhe:GetManaCost(iLevel)
 end
 
 function diarmuid_gae_buidhe:CastFilterResultTarget(hTarget)
+	if IsClient() then return self.BaseClass.CastFilterResultTarget(self, hTarget) end
 	local caster = self:GetCaster()
 	local target_flag = DOTA_UNIT_TARGET_FLAG_NONE
 
