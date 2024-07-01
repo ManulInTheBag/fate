@@ -7,11 +7,11 @@ end
 
 function modifier_eternal_flame_shred:OnCreated(args)
 	if IsServer() then
-		self:SetStackCount(math.min(args.Stacks or 1, 25))
+		self:SetStackCount(math.min(args.Stacks or 1, 20))
 
 		local hero_armor = self:GetParent():GetPhysicalArmorValue(false) + ((self.Reduction or 0) * -1)
-		self.Reduction = (0.04 * self:GetStackCount()) * hero_armor * -1
-		if -self.Reduction > hero_armor then self.Reduction = hero_armor end
+		self.Reduction = (1 * self:GetStackCount()) * -1
+		if -self.Reduction > hero_armor then self.Reduction = math.abs(hero_armor) * -1 end
 		CustomNetTables:SetTableValue("sync","eternal_flame_shred", { armor_shred = self.Reduction })
 	end
 end

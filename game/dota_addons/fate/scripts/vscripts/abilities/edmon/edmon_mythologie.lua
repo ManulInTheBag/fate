@@ -138,6 +138,13 @@ function modifier_edmon_mythologie:OnTakeDamage(args)
 			args.attacker:AddNewModifier(self.parent, self.ability, "modifier_edmon_mark", {duration = self.parent.MasterUnit2:FindAbilityByName("edmon_vengeance_attribute"):GetSpecialValueFor("duration")})
 		end
 	else
+		if self.parent.VengeanceAcquired then
+
+			args.attacker:Heal(args.damage*self.parent.MasterUnit2:FindAbilityByName("edmon_vengeance_attribute"):GetSpecialValueFor("lifesteal_base")/100, self:GetAbility())
+			local effect_cast = ParticleManager:CreateParticle( "particles/generic_gameplay/generic_lifesteal_blue.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent )
+			ParticleManager:ReleaseParticleIndex( effect_cast )
+
+		end
 		if self.parent.FlamesAcquired then
 			if (not args.inflictor) or (args.inflictor and args.inflictor:GetName() ~= "edmon_beam") then
 				local modifier2 = self.parent:AddNewModifier(self.parent, self.ability, "modifier_edmon_beam_stacks", {duration = 5})

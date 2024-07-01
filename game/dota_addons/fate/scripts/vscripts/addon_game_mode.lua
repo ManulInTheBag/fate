@@ -439,7 +439,6 @@ function Precache( context )
     PrecacheResource("particle_folder", "particles/arash", context)
     PrecacheResource("particle_folder", "particles/medusa", context)
     PrecacheResource("particle_folder", "particles/emiya", context)
-    PrecacheResource("particle_folder", "particles/hijikata", context)
     --PrecacheResource( "particle_folder", "particles/econ/items/windrunner", context )
 
 --[[

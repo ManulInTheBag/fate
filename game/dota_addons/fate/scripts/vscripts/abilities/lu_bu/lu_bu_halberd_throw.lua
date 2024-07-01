@@ -82,7 +82,7 @@ function lu_bu_halberd_throw:OnProjectileHit_ExtraData(target, vLocation, tData)
 	local caster = self:GetCaster()
 
 	local damage = self:GetSpecialValueFor( "damage" )  
-	local wall_bonus_damage =  damage/2
+	local wall_bonus_damage =  100
 	local wall_stun = self:GetSpecialValueFor( "stun_duration" ) 
 	
 	if caster:HasModifier("modifier_lu_bu_ruthless_warrior_attribute") then

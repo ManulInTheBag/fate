@@ -116,6 +116,7 @@ function modifier_lancelot_minigun:CheckState()
                         --[MODIFIER_STATE_STUNNED] = true,
                         --[MODIFIER_STATE_IGNORING_MOVE_AND_ATTACK_ORDERS] = true,
                         [MODIFIER_STATE_DISARMED]                        = true,
+                        [MODIFIER_STATE_MUTED]                           = true,
 
                         [MODIFIER_STATE_NO_UNIT_COLLISION]               = true,
                         [MODIFIER_STATE_ROOTED]                        = true,
