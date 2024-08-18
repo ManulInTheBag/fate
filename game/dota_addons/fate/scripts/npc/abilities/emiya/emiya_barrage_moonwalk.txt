@@ -1,0 +1,44 @@
+"DOTAAbilities"
+{
+	//=====================================
+	// Archer : Sword Barrage - Retreat Shot
+	//=====================================
+	"emiya_barrage_moonwalk"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/emiya/emiya_barrage_moonwalk"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"25"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/archer_5th_sword_barrage_retreat_shot"
+		"AbilityCastAnimation" 			"ACT_DOTA_ITEM_PICKUP"
+		"AnimationPlaybackRate" 		"1.0"
+ 
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"800"
+		"AbilityCastPoint"				"0.1"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"3"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+		
+		"AbilityValues"
+        {
+            "damage" "100 150 200 250 300"
+            "retreat_distance" "600"
+            "range" "800"
+        }
+	}
+}

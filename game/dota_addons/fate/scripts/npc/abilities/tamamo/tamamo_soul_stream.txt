@@ -1,0 +1,40 @@
+"DOTAAbilities"
+{
+	//=======================================
+	// Tamamo: Soul Stream
+	//=======================================
+	"tamamo_soul_stream"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/tamamo/tamamo_soul_stream"
+		"MaxLevel"						"5"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityTextureName"			"custom/tamamo_soulstream"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
+		"AbilityCastPoint"				"0.2"
+		"AbilityCooldown"				"4.0 3.5 3.0 2.5 2.0"
+		"AbilityManaCost"				"100"
+
+		"precache"
+		{
+			"particle"					"particles/custom/tamamo/charms_blue_explosion.vpcf"
+	  		"particle"					"particles/custom/tamamo/charms_blue.vpcf"
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_wisp.vsndevts"
+		}
+
+		"AbilityValues"
+        {
+            "range" "800"
+            "radius" "125"
+            "explode_radius" "200"
+            "damage" "50 55 60 65 70"
+            "aspd_per_stack" "15"
+            "mvsp_per_stack" "6"
+            "max_stack" "6"
+            "spirit_count" "6"
+            "buff_dur" "8"
+        }
+	}
+}

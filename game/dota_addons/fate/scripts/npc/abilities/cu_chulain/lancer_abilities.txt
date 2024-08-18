@@ -1,0 +1,157 @@
+#base "cu_chulain_battle_continuation.txt"
+#base "cu_chulain_protection_from_arrows.txt"
+#base "cu_chulain_rune_magic.txt"
+#base "cu_chulain_rune_of_disengage.txt"
+#base "cu_chulain_rune_of_combat.txt"
+#base "cu_chulain_rune_of_ferocity.txt"
+#base "cu_chulain_rune_of_flame.txt"
+#base "cu_chulain_rune_of_protection.txt"
+#base "cu_chulain_relentless_spear.txt"
+#base "cu_chulain_gae_bolg.txt"
+#base "cu_chulain_gae_bolg_jump.txt"
+#base "cu_chulain_gae_bolg_combo.txt"
+	
+"DOTAAbilities"
+{
+	//=======================================
+	// Attribute: Battle Continuation
+	//=======================================
+	"cu_chulain_battle_cont_attribute"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/cu_chulain/cu_chulain_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/lancer_attribute_improve_battle_continuation"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"13"
+
+		"precache"
+		{
+		}
+
+		"AbilityValues"
+        {
+            "min_damage" "200"
+            "max_damage" "1500"
+            "duration" "7"
+        }
+	}
+
+	//=======================================
+	// Lancer : Protection from Arrows
+	//=======================================
+	"cu_chulain_prot_arrows_attribute"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/cu_chulain/cu_chulain_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/lancer_attribute_protection_from_arrows"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"6"
+
+		"precache"
+		{
+		}
+
+		"AbilityValues"
+        {
+            "evasion_bonus" "25"
+            "duration" "4"
+        }
+	}
+
+
+	//=======================================
+	// Lancer : Improve Gae Bolg
+	//=======================================
+	"cu_chulain_death_flight_attribute"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/cu_chulain/cu_chulain_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/cu_chulain/cu_chulain_death_flight_attribute"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"15"
+
+		"precache"
+		{
+		}
+
+		"AbilityValues"
+        {
+            "bonus_damage" "400"
+            "bonus_range" "1000"
+        }
+	}	
+
+	//=======================================
+	// Lancer : The Heartseeker
+	//=======================================
+	"cu_chulain_heartseeker_attribute"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/cu_chulain/cu_chulain_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/cu_chulain/cu_chulain_heartseeker_attribute"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"15"
+
+		"precache"
+		{
+		}
+
+		"AbilityValues"
+        {
+            "heartbreak_threshold" "10 13 16 19 22"
+            "combo_heartbreak" "40"
+        }
+	}
+
+	//=======================================
+	// Lancer : Celtic Runes
+	//=======================================
+	"cu_chulain_celtic_runes_attribute"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/cu_chulain/cu_chulain_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/cu_chulain/cu_chulain_celtic_runes"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"10"
+
+		"precache"
+		{
+		}
+
+		"AbilityValues"
+        {
+            "cooldown_reduction" "75"
+            "combo_heartbreak" "40"
+        }
+	}	
+}

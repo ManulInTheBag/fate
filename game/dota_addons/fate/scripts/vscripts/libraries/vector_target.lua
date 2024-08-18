@@ -58,8 +58,8 @@ function VectorTarget:Init(opts)
     if not opts.noOrderFilter then
         self:InitOrderFilter()
     end
-    if opts.kvList ~= false then
-        self:LoadKV(opts.kvList or {"scripts/npc/npc_abilities_custom.txt", "scripts/npc/npc_items_custom.txt"})
+    if opts.txtList ~= false then
+        self:LoadKV(opts.txtList or {"scripts/npc/npc_abilities_custom.txt", "scripts/npc/npc_items_custom.txt"})
     end
     self.debugMode = opts.debug or self.debugMode
 end
@@ -114,7 +114,7 @@ function VectorTarget:LoadKV(kvList, forgetSource)
             end
         end
         if not forgetSource then
-            table.insert(self.kvSources, kvFile or kv)
+            table.insert(self.txtSources, kvFile or kv)
         end
     end
 end
@@ -127,7 +127,7 @@ function VectorTarget:ReloadAllKV(deletePrevious)
     if deletePrevious ~= false then
         self.abilityKeys = { }
     end
-    self:LoadKV(self.kvSources, true)
+    self:LoadKV(self.txtSources, true)
 end
 
 function VectorTarget:GetInProgressForPlayer(playerId)

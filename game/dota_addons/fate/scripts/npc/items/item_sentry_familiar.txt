@@ -1,0 +1,37 @@
+"DOTAAbilities"
+{
+	"item_sentry_familiar" 
+	{
+	    "ID"           				"2018"
+	    "BaseClass"    				"item_lua"
+	    "ScriptFile"				"items/sentry_familiar"
+	    "AbilityBehavior"			"DOTA_ABILITY_BEHAVIOR_POINT"
+		"Model"						"models/props_gameplay/observer_ward_bundle.vmdl"
+		"AbilityTextureName" 		"custom/item_sentry_familiar"
+		"AbilityCastAnimation"		"ACT_DOTA_ITEM_PICKUP"
+
+		// Stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"400"
+		"AbilityCooldown"				"1.0"
+
+		// Item Info
+		//-------------------------------------------------------------------------------------------------------------
+		"ItemCost"						"200"
+		"ItemStackable"					"1"
+		"ItemShareability"				"ITEM_FULLY_SHAREABLE_STACKING"
+		"ItemPermanent"					"0"
+		"ItemInitialCharges"			"1"	
+		"ItemStockMax"					"10"
+		"ItemStockInitial"				"4"
+		"ItemStockTime"					"30.0"
+		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES"
+
+	    "AbilityValues"
+        {
+            "duration" "90"
+            "vision_range" "25"
+            "truesight_range" "1400"
+        }
+	}
+}

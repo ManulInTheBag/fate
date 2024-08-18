@@ -1,0 +1,28 @@
+"DOTAAbilities"
+{
+	//=================================================================================================================
+	// Master Intervention
+	//=================================================================================================================
+	"master_intervention"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/master/master_intervention"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
+		"AbilityTextureName"			"custom/master/master_intervention"
+		"MaxLevel"						"1"
+		"AbilityCooldown"				"119"
+
+		"precache"
+		{
+			"particle"					"particles/prototype_fx/item_linkens_buff.vpcf"
+			"particle"					"particles/custom/abaddon_death_coil_explosion.vpcf"
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_abaddon.vsndevts"
+		}
+		
+		"AbilityValues"
+        {
+            "duration" "1"
+            "damage_reduc" "-75"
+        }
+	}
+}

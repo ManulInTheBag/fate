@@ -1,0 +1,54 @@
+"DOTAAbilities"
+{
+	//========================================
+	// Jack Murderer Mist
+	//========================================
+	"jtr_murderer_mist"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/jtr/jtr_murderer_mist"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityTextureName"			"custom/jtr/murderer_mist"
+		"AbilityCastAnimation" 			"ACT_DOTA_ITEM_PICKUP"
+		"AnimationPlaybackRate" 		"1.0"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+
+		"precache"
+		{
+			"particle"					"particles/custom/jtr/invis_smoke.vpcf"
+			"particle"					"particles/custom/jtr/jtr_invis_ring.vpcf"
+			"particle"  				"particles/custom/jtr/murderer_mist.vpcf"
+			"particle"  				"particles/custom/jtr/murderer_mist_cloud.vpcf"
+			"particle"  				"particles/custom/jtr/murderer_mist_cloud_center.vpcf"
+			"particle"  				"particles/custom/jtr/murderer_mist_dust.vpcf"
+			"particle"  				"particles/custom/jtr/murderer_mist_start.vpcf"
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_templar_assassin.vsndevts"
+			"soundfile"					"soundevents/hero_jtr.vsndevts"
+		}
+		
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"30"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"400"
+		
+		"AbilityValues"
+        {
+            "radius" "1600"
+            "agi_dmg_pct" "70"
+            "duration" "6 8 10 12 14"
+            "slow_pct" "-15"
+            "base_damage" "25 35 45 55 65"
+            "armor_reduction" "3 6 9 12 15"
+            "bonus_agi" "20 25 30 35 40"
+            "blood_rage_vision" "800 950 1100 1250 1400"
+            "reveal_radius" "450"
+            "ie_radius" "300"
+        }
+	}
+}

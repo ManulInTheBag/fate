@@ -1,54 +1,54 @@
 // Dota Heroes File
 
 
-#base "abilities/astolfo/astolfo_abilities.kv"
-#base "abilities/atalanta/atalanta_abilities.kv"
-#base "abilities/avenger/avenger_abilities.kv"
-#base "abilities/cu_chulain/lancer_abilities.kv"
-#base "abilities/diarmuid/diarmuid_abilities.kv"
-#base "abilities/emiya/emiya_new.kv"
-#base "abilities/gawain/gawain_abilities.kv"
-#base "abilities/gilgamesh/gilgamesh_abilities.kv"
-#base "abilities/gilles/gilles_abilities.kv"
-#base "abilities/heracles/heracles_abilities.kv"
-#base "abilities/iskandar/iskandar_abilities.kv"
-#base "abilities/jeanne/jeanne_abilities.kv"
-#base "abilities/jtr/jtr_abilities.kv"
-#base "abilities/okita/okita_abilities.kv"
-#base "abilities/karna/karna_abilities.kv"
-#base "abilities/kuro/kuro_abilities.kv"
-#base "abilities/lancelot/lancelot_abilities.kv"
-#base "abilities/li_shuwen/li_shuwen_abilities.kv"
-#base "abilities/medea/medea_abilities.kv"
-#base "abilities/medusa/medusa_abilities.kv"
-#base "abilities/nero/nero_abilities.kv"
-#base "abilities/nursery_rhyme/nursery_rhyme_abilities.kv"
-#base "abilities/sasaki/sasaki_abilities.kv"
-#base "abilities/saber/saber_abilities.kv"
-#base "abilities/saber_alter/saber_alter_abilities.kv"
-#base "abilities/semiramis/semiramis_abilities.kv"
-#base "abilities/tamamo/tamamo_abilities.kv"
-#base "abilities/true_assassin/ta_abilities.kv"
-#base "abilities/vlad/vlad_abilities.kv"
-#base "abilities/mordred/mordred_abilities.kv"
-#base "abilities/kinghassan/kinghassan_abilities.kv"
-#base "abilities/alter_atalanta/alter_atalanta_abilities.kv"
-#base "abilities/jeanne_alter/jeanne_alter_abilities.kv"
-#base "abilities/nanaya/nanaya_abilities.kv"
-#base "abilities/saito/saito_abilities.kv"
-#base "abilities/merlin/merlin_abilities.kv"
-#base "abilities/muramasa/muramasa_abilities.kv"
-#base "abilities/ryougi/ryougi_abilities.kv"
-#base "abilities/nobu/nobu_abilities.kv"
-#base "abilities/arcueid/arcueid_abilities.kv"
-#base "abilities/leonidas/leonidas_abilities.kv"
-#base "abilities/altera/altera_abilities.kv"
-#base "abilities/edmon/edmon_abilities.kv"
-#base "abilities/artoria/artoria_abilities.kv"
-#base "abilities/arash/arash_abilities.kv"
-#base "abilities/lu_bu/lu_bu_abilities.kv"
+#base "abilities/astolfo/astolfo_abilities.txt"
+#base "abilities/atalanta/atalanta_abilities.txt"
+#base "abilities/avenger/avenger_abilities.txt"
+#base "abilities/cu_chulain/lancer_abilities.txt"
+#base "abilities/diarmuid/diarmuid_abilities.txt"
+#base "abilities/emiya/emiya_new.txt"
+#base "abilities/gawain/gawain_abilities.txt"
+#base "abilities/gilgamesh/gilgamesh_abilities.txt"
+#base "abilities/gilles/gilles_abilities.txt"
+#base "abilities/heracles/heracles_abilities.txt"
+#base "abilities/iskandar/iskandar_abilities.txt"
+#base "abilities/jeanne/jeanne_abilities.txt"
+#base "abilities/jtr/jtr_abilities.txt"
+#base "abilities/okita/okita_abilities.txt"
+#base "abilities/karna/karna_abilities.txt"
+#base "abilities/kuro/kuro_abilities.txt"
+#base "abilities/lancelot/lancelot_abilities.txt"
+#base "abilities/li_shuwen/li_shuwen_abilities.txt"
+#base "abilities/medea/medea_abilities.txt"
+#base "abilities/medusa/medusa_abilities.txt"
+#base "abilities/nero/nero_abilities.txt"
+#base "abilities/nursery_rhyme/nursery_rhyme_abilities.txt"
+#base "abilities/sasaki/sasaki_abilities.txt"
+#base "abilities/saber/saber_abilities.txt"
+#base "abilities/saber_alter/saber_alter_abilities.txt"
+#base "abilities/semiramis/semiramis_abilities.txt"
+#base "abilities/tamamo/tamamo_abilities.txt"
+#base "abilities/true_assassin/ta_abilities.txt"
+#base "abilities/vlad/vlad_abilities.txt"
+#base "abilities/mordred/mordred_abilities.txt"
+#base "abilities/kinghassan/kinghassan_abilities.txt"
+#base "abilities/alter_atalanta/alter_atalanta_abilities.txt"
+#base "abilities/jeanne_alter/jeanne_alter_abilities.txt"
+#base "abilities/nanaya/nanaya_abilities.txt"
+#base "abilities/saito/saito_abilities.txt"
+#base "abilities/merlin/merlin_abilities.txt"
+#base "abilities/muramasa/muramasa_abilities.txt"
+#base "abilities/ryougi/ryougi_abilities.txt"
+#base "abilities/nobu/nobu_abilities.txt"
+#base "abilities/arcueid/arcueid_abilities.txt"
+#base "abilities/leonidas/leonidas_abilities.txt"
+#base "abilities/altera/altera_abilities.txt"
+#base "abilities/edmon/edmon_abilities.txt"
+#base "abilities/artoria/artoria_abilities.txt"
+#base "abilities/arash/arash_abilities.txt"
+#base "abilities/lu_bu/lu_bu_abilities.txt"
 
-#base "abilities/master/master_abilities.kv"
+#base "abilities/master/master_abilities.txt"
 
 "DOTAAbilities"
 {
@@ -64,14 +64,10 @@
         //"LevelsBetweenUpgrades" "2"
         //"RequiredLevel" "5"
 
-        "AbilitySpecial"
+        "AbilityValues"
         {
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_health"			"25"
-			}
-		}
+            "bonus_health" "25"
+        }
     }
 
 
@@ -436,9 +432,9 @@
 			"particle"	"particles/generic_gameplay/generic_disarm.vpcf"
 		}
 		
-		"AbilitySpecial"
-		{
-		}
+		"AbilityValues"
+        {
+        }
 		
 		"OnSpellStart"
 		{
@@ -768,24 +764,12 @@
 		"AbilityCooldown"				"0"
 		"AbilityGoldCost"				"400"
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"30"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"vision"				"375"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"true_sight"			"1400"
-			}
-		}
+		"AbilityValues"
+        {
+            "duration" "30"
+            "vision" "375"
+            "true_sight" "1400"
+        }
 
 		"OnSpellStart"
 		{
@@ -817,14 +801,10 @@
 			"particle"		"particles/custom/misc/cmd_seal_1_a.vpcf"
 		}
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"			"20"
-			}
-		}
+		"AbilityValues"
+        {
+            "duration" "20"
+        }
 		
 		"OnSpellStart"
 		{
@@ -1164,14 +1144,10 @@
         "LevelsBetweenUpgrades" "2"
         "RequiredLevel" "5"
 
-        "AbilitySpecial"
+        "AbilityValues"
         {
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"stats"			"3 6 9 12 15 18 21"
-			}
-		}
+            "stats" "3 6 9 12 15 18 21"
+        }
 		"Modifiers"
 		{
 			"modifier_all_stats"
@@ -1200,14 +1176,10 @@
         "LevelsBetweenUpgrades" "2"
         "RequiredLevel" 		"5"
 
-        "AbilitySpecial"
+        "AbilityValues"
         {
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"stats"					"3 6 9 12 15 18 21"
-			}
-		}
+            "stats" "3 6 9 12 15 18 21"
+        }
 		"Modifiers"
 		{
 			"modifier_all_stats"
@@ -1235,9 +1207,9 @@
 		"MaxLevel"						"1"
 		"AbilityCooldown"				"0"
 		
-		"AbilitySpecial"
-		{
-		}
+		"AbilityValues"
+        {
+        }
 		
 		"OnSpellStart"
 		{
@@ -1260,9 +1232,9 @@
 		"MaxLevel"						"1"
 		"AbilityCooldown"				"0"
 		
-		"AbilitySpecial"
-		{
-		}
+		"AbilityValues"
+        {
+        }
 		
 		"OnSpellStart"
 		{
@@ -1286,9 +1258,9 @@
 		"MaxLevel"						"1"
 		"AbilityCooldown"				"0"
 		
-		"AbilitySpecial"
-		{
-		}
+		"AbilityValues"
+        {
+        }
 		
 		"OnSpellStart"
 		{
@@ -1312,9 +1284,9 @@
 		"MaxLevel"						"1"
 		"AbilityCooldown"				"0"
 		
-		"AbilitySpecial"
-		{
-		}
+		"AbilityValues"
+        {
+        }
 		
 		"OnSpellStart"
 		{
@@ -1337,9 +1309,9 @@
 		"MaxLevel"						"1"
 		"AbilityCooldown"				"0"
 		
-		"AbilitySpecial"
-		{
-		}
+		"AbilityValues"
+        {
+        }
 		
 		"OnSpellStart"
 		{
@@ -1364,9 +1336,9 @@
 		"MaxLevel"						"1"
 		"AbilityCooldown"				"0"
 		
-		"AbilitySpecial"
-		{
-		}
+		"AbilityValues"
+        {
+        }
 		
 		"OnSpellStart"
 		{
@@ -1389,9 +1361,9 @@
 		"MaxLevel"						"1"
 		"AbilityCooldown"				"0"
 		
-		"AbilitySpecial"
-		{
-		}
+		"AbilityValues"
+        {
+        }
 		
 		"OnSpellStart"
 		{
@@ -1414,9 +1386,9 @@
 		"MaxLevel"						"1"
 		"AbilityCooldown"				"0"
 		
-		"AbilitySpecial"
-		{
-		}
+		"AbilityValues"
+        {
+        }
 		
 		"OnSpellStart"
 		{
@@ -1439,9 +1411,9 @@
 		"MaxLevel"						"1"
 		"AbilityCooldown"				"0"
 		
-		"AbilitySpecial"
-		{
-		}
+		"AbilityValues"
+        {
+        }
 		
 		"OnSpellStart"
 		{
@@ -1465,9 +1437,9 @@
 		"MaxLevel"						"1"
 		"AbilityCooldown"				"0"
 		
-		"AbilitySpecial"
-		{
-		}
+		"AbilityValues"
+        {
+        }
 		
 		"OnSpellStart"
 		{
@@ -1490,9 +1462,9 @@
 		"AbilityCooldown"				"0"
 		"AbilityManaCost"				"1"
 		
-		"AbilitySpecial"
-		{
-		}
+		"AbilityValues"
+        {
+        }
 		
 		"OnSpellStart"
 		{
@@ -1516,9 +1488,9 @@
 		"AbilityCooldown"				"0"
 		"AbilityManaCost"				"1"
 		
-		"AbilitySpecial"
-		{
-		}
+		"AbilityValues"
+        {
+        }
 		
 		"OnSpellStart"
 		{
@@ -1542,9 +1514,9 @@
 		"AbilityCooldown"				"0"
 		"AbilityManaCost"				"1"
 		
-		"AbilitySpecial"
-		{
-		}
+		"AbilityValues"
+        {
+        }
 		
 		"OnSpellStart"
 		{
@@ -1568,9 +1540,9 @@
 		"AbilityCooldown"				"0"
 		"AbilityManaCost"				"1"
 		
-		"AbilitySpecial"
-		{
-		}
+		"AbilityValues"
+        {
+        }
 		
 		"OnSpellStart"
 		{
@@ -1595,9 +1567,9 @@
 		"AbilityCooldown"				"0"
 		"AbilityManaCost"				"1"
 		
-		"AbilitySpecial"
-		{
-		}
+		"AbilityValues"
+        {
+        }
 		
 		"OnSpellStart"
 		{
@@ -1621,9 +1593,9 @@
 		"AbilityCooldown"				"0"
 		"AbilityManaCost"				"1"
 		
-		"AbilitySpecial"
-		{
-		}
+		"AbilityValues"
+        {
+        }
 		
 		"OnSpellStart"
 		{
@@ -1647,9 +1619,9 @@
 		"AbilityCooldown"				"0"
 		"AbilityManaCost"				"1"
 		
-		"AbilitySpecial"
-		{
-		}
+		"AbilityValues"
+        {
+        }
 		
 		"OnSpellStart"
 		{
@@ -1673,9 +1645,9 @@
 		"AbilityCooldown"				"0"
 		"AbilityManaCost"				"1"
 		
-		"AbilitySpecial"
-		{
-		}
+		"AbilityValues"
+        {
+        }
 		
 		"OnSpellStart"
 		{
@@ -1774,14 +1746,10 @@
 		"BaseClass" 					"ability_datadriven"
 		"AbilityTextureName"            "rubick_empty1"
 		"MaxLevel"                      "3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"range"					"1300 1800 2500"
-			}
-		}
+		"AbilityValues"
+        {
+            "range" "1300 1800 2500"
+        }
 		"Modifiers"
 		{
 			"fate_experience_passive_aura"

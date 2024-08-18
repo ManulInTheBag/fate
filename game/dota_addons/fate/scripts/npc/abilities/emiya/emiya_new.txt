@@ -1,0 +1,752 @@
+#base "emiya_arrow_rain.txt"
+#base "emiya_barrage_moonwalk.txt"
+#base "emiya_barrage_rain.txt"
+#base "emiya_gae_bolg.txt"
+#base "emiya_nine_lives.txt"
+
+"DOTAAbilities"
+{
+
+//------------------------------------------------------------------------------------------------------------------------------------
+//
+//															INSTRUMENTAL ABILTIES
+//
+//------------------------------------------------------------------------------------------------------------------------------------
+
+
+	//=================================================================================================================
+	// Archer : Combo
+	//=================================================================================================================
+	"emiya_combo"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/emiya/emiya_combo"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET|ABILITY_NOT_LEARNABLE|DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/archer5_combo"
+		"AbilityCastAnimation" 			"ACT_DOTA_EARTHSHAKER_TOTEM_ATTACKE"
+		"AnimationPlaybackRate" 		"1"
+		"AbilityCastPoint"				"0.1"
+		"AbilityCooldown"				"160"
+		"AbilityManaCost"				"500"
+		"AbilityCastRange"				"1200"
+		
+		"AbilityValues"
+        {
+            "first_damage" "1000"
+            "explosion_damage" "2000"
+            "rain_damage" "70"
+        }
+	}
+
+
+	//=================================================================================================================
+	// Archer : Weapon swap (F + PASSIVE)
+	//=================================================================================================================
+	"emiya_weapon_swap"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/emiya/emiya_weapon_swap"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET|ABILITY_NOT_LEARNABLE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/archer_5th_kanshou_bakuya"
+		"AbilityCastAnimation" 			"ACT_DOTA_EARTHSHAKER_TOTEM_ATTACKE"
+ 		"LinkedAbilities"				"emiya_arrows emiya_change emiya_caladbolg emiya_clairvoyance"
+		"AnimationPlaybackRate" 		"1"
+		"AbilityCastPoint"				"0.33"
+		"AbilityCooldown"				"2"
+		"AbilityManaCost"				"0"
+		
+		"AbilityValues"
+        {
+            "double_atk_chance" "50"
+            "melee_range" "180"
+            "bow_range" "800"
+            "ubw_range" "800"
+        }
+	}
+
+	//=================================================================================================================
+	// Archer : Chant Unlimited Blade Works (R)
+	//=================================================================================================================
+	"emiya_unlimited_bladeworks"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/emiya/emiya_unlimited_bladeworks"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE|DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY" 
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/archer_5th_ubw"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_4"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AnimationPlaybackRate" 		"1.0"
+
+		"LinkedAbilities"				"emiya_barrage_moonwalk emiya_big_swords emiya_gae_bolg emiya_barrage_rain emiya_nine_lives"
+		"LinkedAbilitiesRow"			"2"
+		
+		"AbilityCastPoint"				"0.3"
+		"AbilityCooldown"				"8"
+		"AbilityManaCost"				"100"
+		"AbilityCastRange"				"1150"
+		
+		"AbilityValues"
+        {
+            "cast_delay" "0.3"
+            "radius" "1150"
+            "duration" "12 13 14 15 16"
+            "cooldown_set" "4 5 6 7 8"
+            "movespeed_bonus" "15 20 25 30 35"
+            "form_delay" "2"
+            "bonus_health" "50 100 150 200 250"
+            "bonus_armor" "15"
+            "bonus_mr" "15"
+        }		
+	}	
+
+
+	//=======================================
+	// Archer : Rho Aias (SWORDS D)
+	//=======================================
+	"emiya_rho_aias"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/emiya/emiya_rho_aias"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/archer_5th_rho_aias"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_4"
+		"AnimationPlaybackRate" 		"1.0"
+		"AbilityCastPoint"				"0.2"
+		"AbilityCastRange"				"400"
+		"AbilityCooldown"				"24"
+		"AbilityManaCost"				"200"
+
+
+		"AbilityValues"
+        {
+            "shield_amount" "1000"
+            "duration" "4"
+        }	
+	}
+
+	//=================================================================================================================
+	// Archer : Clairvoyance ( BOW D)
+	//=================================================================================================================
+	"emiya_clairvoyance"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/emiya/emiya_clairvoyance"
+		"MaxLevel"						"2"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_HIDDEN|DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityTextureName"			"custom/archer_5th_clairvoyance"
+		"AOERadius"						"%radius"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_5"
+		"AnimationPlaybackRate" 		"1.0"
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"99999"
+		"AbilityCastPoint"				"0.3"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"22.0 14.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100"
+		
+		"AbilityValues"
+        {
+            "radius" "700 900"
+            "range" "99999"
+            "duration" "9.0"
+        }		
+	}	
+
+//------------------------------------------------------------------------------------------------------------------------------------
+//
+//															SWORDS ABILTIES
+//
+//------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+	//=================================================================================================================
+	// Archer : Kanshou Bakuya (SWORDS Q)
+	//=================================================================================================================
+	"emiya_kanshou_byakuya"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/emiya/emiya_kanshou_byakuya"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/archer_5th_kanshou_bakuya"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
+		"AnimationPlaybackRate" 		"1"
+		
+		
+		"AbilityCastPoint"				"0.3"
+		"AbilityCastRange"				"1000"
+		"AbilityCooldown"				"4"
+		"AbilityManaCost"				"100"
+		
+		"AbilityValues"
+        {
+            "damage" "100 130 160 190 220"
+            "num_blades" "2"
+            "double_attack_chance" "50"
+            "damage_per_int" "0.6 0.7 0.8 0.9 1"
+        }
+	}
+
+	//=================================================================================================================
+	// Archer :  double slash (SWORDS W)
+	//=================================================================================================================
+	"emiya_double_slash"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/emiya/emiya_double_slash"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT| DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/emiya_w_sword"
+		"AbilityCastAnimation" 			"ACT_DOTA_ITEM_DROP"
+		"AnimationPlaybackRate" 		"1"
+		
+		
+		"AbilityCastPoint"				"0.01"
+		"AbilityCooldown"				"15"
+		"AbilityManaCost"				"200"
+		
+		"AbilityValues"
+        {
+            "damage" "150 175 200 225 250"
+        }
+	}
+
+	//=================================================================================================================
+	// Archer :  Crane wings ( SWORDS E)
+	//=================================================================================================================
+	"emiya_crane_wings"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/emiya/emiya_crane_wings"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/emiya_crane_wings"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
+		"AnimationPlaybackRate" 		"1"
+		
+
+		"AbilityCastPoint"				"0.2"
+		"AbilityCastRange"				"150"
+		
+		"AbilityCooldown"				"30"
+		"AbilityManaCost"				"400"
+		
+		"AbilityValues"
+        {
+            "damage" "200 250 300 350 400"
+            "distance" "500"
+            "stun_duration" "0.75"
+        }
+	}
+
+	//=================================================================================================================
+	// Archer :  Fast slashes (Overedge Q)
+	//=================================================================================================================
+	"emiya_overedge_circle"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/emiya/emiya_overedge_circle"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT| DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES|DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/emiya_circles"
+		"AbilityCastAnimation" 			"ACT_DOTA_ITEM_DROP"
+ 
+		"AnimationPlaybackRate" 		"1"
+		
+
+		
+		"AbilityCastPoint"				"0.01"
+		"AbilityCooldown"				"12"
+		"AbilityManaCost"				"200"
+		
+		"AbilityValues"
+        {
+            "damage" "150 175 200 225 250"
+        }
+	}
+
+
+//------------------------------------------------------------------------------------------------------------------------------------
+//
+//															BOW ABILTIES
+//
+//------------------------------------------------------------------------------------------------------------------------------------
+//=================================================================================================================
+	// Archer : BOW Q
+	//=================================================================================================================
+	"emiya_arrows"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/emiya/emiya_arrows"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT|DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/emiya_q_bow"
+		"AbilityCastAnimation" 			"ACT_DOTA_ATTACK"
+		"AnimationPlaybackRate" 		"4"
+		"AbilityCastRange"				"99999"
+		"AbilityCooldown"				"4"
+		"AbilityManaCost"				"100"
+		"AbilityCastPoint"				"0.1"
+		
+		"AbilityValues"
+        {
+            "damage" "200 250 300 350 400"
+            "range" "1200"
+            "speed" "3000"
+            "damage_per_int" "0.8 1 1.2 1.4 1.6"
+        }
+	}
+
+
+	//=================================================================================================================
+	// Archer : Change of plan (BOW W)
+	//=================================================================================================================
+	"emiya_change"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/emiya/emiya_change"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT|DOTA_ABILITY_BEHAVIOR_HIDDEN|DOTA_ABILITY_BEHAVIOR_IMMEDIATE|DOTA_ABILITY_BEHAVIOR_AUTOCAST"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/emiya_w_bow"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
+		"AnimationPlaybackRate" 		"1"
+		"AbilityCastRange"				"99999"
+		"AbilityCooldown"				"15"
+		"AbilityManaCost"				"200"
+		
+		"AbilityValues"
+        {
+            "damage" "200 250 300 350 400"
+            "distance" "1000"
+            "stun_duration" "0.7 0.8 0.9 1.0 1.1"
+            "duration" "3"
+            "slow" "20 30 40 50 60"
+            "radius" "350"
+        }
+	}
+
+
+
+
+
+
+	//=================================================================================================================
+	// Archer : Caladbolg (BOW E)
+	//=================================================================================================================
+	"emiya_caladbolg"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/emiya/emiya_caladbolg"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT|DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/archer_5th_broken_phantasm"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3"
+ 
+		"AnimationPlaybackRate" 		"1"
+		
+		
+		"AbilityCastPoint"				"0.1"
+		"AbilityCastRange"				"3000"
+		"AbilityCooldown"				"30"
+		"AbilityManaCost"				"400"
+		
+		"AbilityValues"
+        {
+            "damage" "600 750 900 1050 1200"
+            "range" "3000"
+            "speed" "3000"
+            "max_channel" "3"
+            "radius" "500"
+            "stun_duration" "0.5 0.6 0.7 0.8 0.9"
+        }
+	}
+
+	"emiya_caladbolg_release" //ooopsie ( BOW E RECAST)
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/emiya/emiya_caladbolg_release"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_HIDDEN|DOTA_ABILITY_BEHAVIOR_NO_TARGET|  DOTA_ABILITY_BEHAVIOR_IGNORE_SILENCE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE "
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/archer_5th_broken_phantasm"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3_END"
+ 		"AnimationPlaybackRate" 		"1"
+		"AbilityCooldown"				"0"
+		"AbilityManaCost"				"0"
+		"AbilityCastPoint"				"0.1"
+		"AbilityValues"
+        {
+        }
+	}
+
+
+//------------------------------------------------------------------------------------------------------------------------------------
+//
+//															UBW ABILTIES
+//
+//------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+	//=================================================================================================================
+	// Archer : BIG SWORDS PROJECTION (UBW W)
+	//=================================================================================================================
+	"emiya_big_swords"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/emiya/emiya_big_swords"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"25"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET|DOTA_ABILITY_BEHAVIOR_HIDDEN|DOTA_ABILITY_BEHAVIOR_OPTIONAL_POINT"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/emiya_w_ubw"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
+ 
+		"AnimationPlaybackRate" 		"1"
+		
+		
+		"AbilityCastPoint"				"0.3"
+		//"AbilityCastRange"				"800"
+		"AbilityCooldown"				"5"
+		"AbilityManaCost"				"200"
+		
+		"AbilityValues"
+        {
+            "damage" "300 375 450 525 600"
+            "range" "1000"
+            "speed" "2000"
+        }
+	}
+
+
+	//=================================================================================================================
+	// Archer : SWORD RAIN PROJECTION (UBW F)
+	//=================================================================================================================
+	"emiya_rain"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/emiya/emiya_rain"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT|DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/archer_5th_kanshou_bakuya"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
+ 
+		"AnimationPlaybackRate" 		"1.1"
+		"AOERadius"						"%radius"
+		
+		"AbilityCastPoint"				"0.2"
+		//"AbilityCastRange"				"800"
+		"AbilityCooldown"				"6"
+		"AbilityManaCost"				"200"
+		
+		"AbilityValues"
+        {
+            "damage" "100"
+            "radius" "800"
+            "speed" "2000"
+        }
+	}
+
+	//=================================================================================================================
+	// Archer : SWORD RAIN PROJECTION RELEASE (UBW F-F) [[Unused]]
+	//=================================================================================================================
+	"emiya_rain_release"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/emiya/emiya_rain_release"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT|DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/archer_5th_kanshou_bakuya"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_5"
+ 
+		"AnimationPlaybackRate" 		"1.1"
+		"AOERadius"						"%radius"
+		
+		"AbilityCastPoint"				"0.2"
+		//"AbilityCastRange"				"800"
+		"AbilityCooldown"				"0"
+		"AbilityManaCost"				"0"
+		
+		"AbilityValues"
+        {
+            "damage" "100"
+            "radius" "800"
+            "speed" "2000"
+        }
+	}
+
+	
+
+
+
+//------------------------------------------------------------------------------------------------------------------------------------
+//
+//															Servant Attributes 
+//
+//------------------------------------------------------------------------------------------------------------------------------------
+
+	//=======================================
+	// Archer Attribute : Eagle Eye
+	//=======================================
+	"emiya_attribute_eagle_eye"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/emiya/emiya_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/archer_5th_attribute_eagle_eye"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"10"
+
+		"precache"
+		{
+		}
+
+		"AbilityValues"
+        {
+            "cv_radius_bonus" "200"
+            "bp_range" "1000"
+            "hrunt_range" "400"
+        }
+	}
+
+	//=======================================
+	// Archer Attribute : Hrunting
+	//=======================================
+	"emiya_attribute_hrunting"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/emiya/emiya_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/archer_5th_attribute_hrunting"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"15"
+
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_chaos_knight/chaos_knight_chaos_bolt.vpcf"
+		}
+
+		"AbilityValues"
+        {
+            "cast_delay" "2.0"
+            "cast_range" "4000"
+            "mana_used" "20"
+            "damage" "250"
+            "bp_damage" "100"
+        }
+	}
+	//=======================================
+	// Archer Attribute : Shroud of Martin
+	//=======================================
+	"emiya_attribute_shroud_of_martin"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/emiya/emiya_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/archer_5th_attribute_shroud_of_martin"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"12"
+
+
+
+		"AbilityValues"
+        {
+            "magic_resist" "10"
+            "armor" "15"
+            "hp_bonus" "4"
+            "shield" "1000"
+            "duration" "4"
+        }
+	}
+
+	//=======================================
+	// Archer Attribute : Improve Projection
+	//=======================================
+	"emiya_attribute_projection"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/emiya/emiya_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/archer_5th_attribute_improve_projection"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"17"
+
+		"precache"
+		{
+		}
+
+		"AbilityValues"
+        {
+            "sword_interval" "0.1"
+            "sword_base_damage" "150 150 150 150 150"
+            "sword_int_ratio" "0.5"
+        }
+	}	
+
+	//=======================================
+	// Archer Attribute : Kanshou Bakuya Overedge
+	//=======================================
+	"emiya_attribute_overedge"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/emiya/emiya_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/archer_5th_attribute_overedge"
+		
+		"LinkedAbilities"				"emiya_overedge_circle"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"15"
+
+		"precache"
+		{
+		}
+
+		"AbilityValues"
+        {
+            "max_stacks" "4"
+            "duration" "10"
+            "duration_overedge" "10"
+            "attack_speed" "35"
+            "bash_chance" "30"
+            "bash_damage" "250"
+        }
+	}
+}

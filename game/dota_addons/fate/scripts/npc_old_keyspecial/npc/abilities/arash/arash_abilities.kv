@@ -1,0 +1,458 @@
+"DOTAAbilities"
+{
+
+	//=======================================
+	// Arash - Toughness (F)
+	//=======================================
+
+	"arash_toughness"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/arash/arash_toughness"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET|DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/arash/arash_toughness"
+		//"AbilityCastRange"				"300"
+		"AnimationPlaybackRate" 		"1.0"
+        "AbilityCastPoint"              "0.15"
+        "AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_5"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"200"
+		"AbilityCooldown"				"45"
+		
+		"AbilityValues"
+		{
+			"base_armor"			    	"15"
+			"base_mr"						"15"
+			"base_heal"						"500"
+			"armor_per_stack"			    "0.2"
+			"mr_per_stack"					"0.2"
+			"heal_per_stack"				"15"
+			"duration"						"5"
+
+		}
+	}
+	//=======================================
+	// Arash - Arrow construction (D)
+	//=======================================
+
+	"arash_arrow_construction"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/arash/arash_arrow_construction"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET|DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE|DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/arash/arash_arrow_construction"
+		//"AbilityCastRange"				"300"
+
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+		"AbilityCooldown"				"5"
+		
+		"AbilityValues"
+		{
+			"damage"			    "130"
+			"damage_per_level"		"5"
+			"range"					"900"
+			"duration"				"10"
+
+		}
+	}
+
+	//=======================================
+	// Arash - Star arrow (Q)
+	//=======================================
+
+	"arash_star_arrow"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/arash/arash_star_arrow"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET|DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"LinkedAbilities"				"arash_star_arrow_release"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/arash/arash_star_arrow"
+		"AnimationPlaybackRate" 		"1.0"
+        "AbilityManaCost"               "100"
+        "AbilityCooldown"               "10 9 8 7 6"
+        "AbilityCastRange"				"2000"
+        "AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+
+		
+		"AbilityValues"
+		{
+			"damage_pct"		   			"3 4 5 6 7"
+			"damage"		   				"300 350 400 450 500"
+			"damage_per_agility"			"1.3"
+			"max_range"						"2000"
+			"charge_duration"				"2"
+			"speed"							"2500"
+			"radius"						"200"
+			"ms_slow"						"40 45 50 55 60"
+			"ms_slow_duration"				"1"
+		}
+	}
+	"arash_star_arrow_release"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/arash/arash_star_arrow_release"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT|DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE|DOTA_ABILITY_BEHAVIOR_HIDDEN"
+
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/arash/arash_star_arrow_release"
+		"AnimationPlaybackRate" 		"1.0"
+        "AbilityManaCost"               "0"
+        "AbilityCastPoint"              "0.15"
+        "AbilityCooldown"               "0"
+        "AbilityCastRange"				"99999"
+        "AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+
+		
+		"AbilityValues"
+		{
+			"damage_pct"		   		"3 4 5 6 7"
+			"damage"		   			"300 350 400 450 500"
+			"max_range"					"2000"
+			"charge_duration"			"2"
+			"speed"						"2500"
+			"radius"					"200"
+			"ms_slow"						"40 45 50 55 60"
+			"ms_slow_duration"				"1"
+
+		}
+	}
+
+	//=======================================
+	// Arash - Curved fire (W)
+	//=======================================
+
+	"arash_curved_fire"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/arash/arash_curved_fire"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT|DOTA_ABILITY_BEHAVIOR_AOE"
+
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/arash/arash_curved_fire"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
+		"AnimationPlaybackRate" 		"2.0"
+        "AbilityManaCost"                           "200"
+        "AbilityCooldown"                           "15 14 13 12 11"
+        "AbilityCastRange"				"2100"
+        "AbilityCastPoint"				"0.4"
+        "AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_2"
+
+		
+		"AbilityValues"
+		{
+			"damage"			    	"180 220 260 300 340"
+			"range"						"2100"
+			"duration"					"1"
+			"speed"						"2400"
+			"radius"					"300"
+
+		}
+	}
+
+
+
+	//=======================================
+	// Arash - Independent action (E)
+	//=======================================
+
+	"arash_independent_action"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/arash/arash_independent_action"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT| DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/arash/arash_independent_action"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3"
+		"AnimationPlaybackRate" 		"1.0"
+		"AbilityCastPoint"				"0.1"
+        "AbilityManaCost"                           "400"
+        "AbilityCooldown"                           "20 18 16 14 12"
+
+		
+		"AbilityValues"
+		{
+			"damage"			    "100 150 200 250 300"
+			"range"					"400 450 500 550 600"
+			"stun_duration"			"0.5 0.7 0.9 1.1 1.3"
+			"speed"					"1700 1900 2100 2300 2500"
+			"second_damage"			"200 275 350 425 500"
+			"jump_back_distance"	"350"
+
+		}
+	}
+
+	//=======================================
+	// Arash - mobiliy boost active
+	//=======================================
+
+	"arash_mobility_boost_active"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/arash/arash_mobility_boost_active"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT| DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES|DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE
+		DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"			"custom/arash/arash_independent_action"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3"
+		"AnimationPlaybackRate" 		"1.0"
+		"AbilityCastPoint"				"0.1"
+        "AbilityManaCost"                           "0"
+        "AbilityCooldown"                           "0"
+
+		
+		"AbilityValues"
+		{
+			"range"					"1000"
+			"speed"					"3200"
+
+		}
+	}
+
+	//=======================================
+	// Arash - Stella (R)
+	//=======================================
+
+	"arash_stella"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/arash/arash_stella"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT|DOTA_ABILITY_BEHAVIOR_AOE"
+
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/arash/arash_stella"
+		"AnimationPlaybackRate" 		"1.0"
+        "AbilityManaCost"               "800"
+        "AbilityCooldown"               "60"
+        "AbilityCastRange"				"3000"
+        "AbilityCastPoint"				"0.4"
+        "AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_6"
+
+		
+		"AbilityValues"
+		{
+			"damage"			    	"1200 1500 1800 2100 2400"
+			"damage_per_stella_stack"	"8"
+			"range"						"3000"
+			"delay"						"2"
+			"small_radius"				"300"
+			"mid_radius"				"500"
+			"radius"					"800"
+			"mid_damage_pct"			"80"
+			"outer_damage_pct"			"65"
+			"self_damage_percentage"	"80"
+
+		}
+	}
+
+	//=======================================
+	// Arash - combo: MAX Stella (d - r)
+	//=======================================
+
+	"arash_max_stella"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/arash/arash_max_stella"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT|DOTA_ABILITY_BEHAVIOR_AOE|DOTA_ABILITY_BEHAVIOR_HIDDEN"
+
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/arash/arash_max_stella"
+		"AnimationPlaybackRate" 		"1.0"
+        "AbilityManaCost"               "800"
+        "AbilityCooldown"               "200"
+        "AbilityCastRange"				"4500"
+        "AbilityCastPoint"				"0.4"
+        "AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_6"
+
+		
+		"AbilityValues"
+		{
+			"damage"			    	"6000"
+			"damage_per_stella_stack"	"10"
+			"range"						"4500"
+			"delay"						"3"
+			"small_radius"				"600"
+			"mid_radius"				"900"
+			"radius"					"1400"
+			"mid_damage_pct"			"80"
+			"outer_damage_pct"			"65"
+
+		}
+	}
+
+
+
+	//=======================================
+	// Arash - Attributes
+	//=======================================
+
+	"arash_clairvoyance"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/arash/arash_attributes"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/arash/arash_clairvoyance"
+		"AbilityCooldown"				"9999"
+
+		"AbilityManaCost"				"11"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+
+			
+		"AbilityValues"
+		{
+			"clair_duration"			    		"5"
+			"clair_radius"							"450"
+			"star_arrow_bonus_damage"				"20"
+			"star_arrow_bonus_range"				"700"
+
+		}
+	}
+	"arash_falling_stars"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/arash/arash_attributes"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/arash/arash_falling_stars"
+		"AbilityCooldown"				"9999"
+
+		"AbilityManaCost"				"12"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		
+		"AbilityValues"
+		{
+			"explosion_timer"			    	"2"
+			"debuff_duration"					"1"
+
+		}
+	}
+	"arash_mobility_boost"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/arash/arash_attributes"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/arash/arash_mobility_boost"
+		"AbilityCooldown"				"9999"
+		"LinkedAbilities"				"arash_mobility_boost_active"
+		"AbilityManaCost"				"9"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+
+				
+		"AbilityValues"
+		{
+			"recast_duration"			    "3"
+			"recast_range"					"1000"
+		}
+	}
+	"arash_load_magical_energy"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/arash/arash_attributes"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/arash/arash_load_magical_energy"
+		"AbilityCooldown"				"9999"
+
+		"AbilityManaCost"				"10"
+
+		
+		"AbilityValues"
+		{
+			"agi_scale"			    "2"
+			"bonus_range"			"400"
+			"cd_reduction"			"2"
+
+		}
+	}
+	"arash_self_sacrifice"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/arash/arash_attributes"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/arash/arash_self_sacrifice"
+		"AbilityCooldown"				"9999"
+
+		"AbilityManaCost"				"9"
+
+		
+		"AbilityValues"
+		{
+			"buff_duration"			 "5"
+			"ms"					"50"
+			"team_heal"				"800"
+		}	
+	}
+}

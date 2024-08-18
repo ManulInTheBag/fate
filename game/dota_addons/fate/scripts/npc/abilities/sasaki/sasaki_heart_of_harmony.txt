@@ -1,0 +1,50 @@
+"DOTAAbilities"
+{
+	//========================================
+	// False Assassin : Heart of Harmony
+	//========================================
+	"sasaki_heart_of_harmony"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/sasaki/sasaki_heart_of_harmony.lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityTextureName"			"custom/false_assassin_heart_of_harmony"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AbilityCastAnimation" 			"ACT_DOTA_ITEM_PICKUP"
+		"AnimationPlaybackRate" 		"1.0"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+
+		"precache"
+		{
+			"particle"					"particles/econ/items/abaddon/abaddon_alliance/abaddon_aphotic_shield_alliance.vpcf"
+			"particle"					"particles/units/heroes/hero_pugna/pugna_decrepify.vpcf"	
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_abaddon.vsndevts"
+		}
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.0"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"15 13 11 9 7"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+		
+		"AbilityValues"
+        {
+            "duration" "0.5"
+            "threshold" "50"
+            "damage_reduc" "-65 -70 -75 -80 -85"
+            "slash_count" "4"
+            "stun_duration" "0.6 0.7 0.8 0.9 1.0"
+            "stun_threshold" "0"
+            "focus_regen" "100"
+        }
+	}
+
+}

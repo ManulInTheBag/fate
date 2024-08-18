@@ -1,0 +1,49 @@
+"DOTAAbilities"
+{
+	//=======================================★★★★★
+	// Lu Bu: Halberd Throw (W)
+	//=======================================★★★★★
+	"lu_bu_halberd_throw"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/lu_bu/lu_bu_halberd_throw"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityTextureName"			"custom/lu_bu/lu_bu_halberd_throw"
+		
+		// Ability Stats		//------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"900 1000 1100 1200 1300"
+		"AbilityCastRangeBuffer"		"100"
+		"AbilityCastPoint"				"0.5"
+		"AbilityCooldown"				"14 13 12 11 10"
+		"AbilityManaCost"				"200"
+		
+		// Precache		//------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"			"particles/custom/lu_bu/lu_bu_spear.vpcf"
+		}
+		
+		// Ability Special		//------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+        {
+            "damage" "300 350 400 450 500"
+            "spear_speed" "4500"
+            "spear_width" "125"
+            "spear_vision" "500"
+            "spear_range" "900 1000 1100 1200 1300"
+            "activity_duration" "1.7"
+            "stun_duration" "0.4 0.45 0.5 0.55 0.6"
+            "knockback_duration" "0.25"
+            "knockback_distance" "75"
+        }
+	}
+}

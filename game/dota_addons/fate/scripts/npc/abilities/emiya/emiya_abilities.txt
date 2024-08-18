@@ -1,0 +1,176 @@
+#base "emiya_arrow_rain.txt"
+#base "emiya_barrage_confine.txt"
+#base "emiya_barrage_moonwalk.txt"
+#base "emiya_barrage_rain.txt"
+#base "emiya_broken_phantasm.txt"
+#base "emiya_clairvoyance.txt"
+#base "emiya_crane_wings.txt"
+#base "emiya_gae_bolg.txt"
+#base "emiya_hrunting.txt"
+#base "emiya_kanshou_byakuya.txt"
+#base "emiya_nine_lives.txt"
+#base "emiya_rho_aias.txt"
+#base "emiya_unlimited_bladeworks.txt"
+
+"DOTAAbilities"
+{
+
+//------------------------------------------------------------------------------------------------------------------------------------
+//
+//															Servant Attributes 
+//
+//------------------------------------------------------------------------------------------------------------------------------------
+
+	//=======================================
+	// Archer Attribute : Eagle Eye
+	//=======================================
+	"emiya_attribute_eagle_eye"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/emiya/emiya_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/archer_5th_attribute_eagle_eye"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"10"
+
+		"precache"
+		{
+		}
+
+		"AbilityValues"
+        {
+            "cv_radius_bonus" "200"
+            "bp_range" "1000"
+            "hrunt_range" "1000"
+        }
+	}
+
+	//=======================================
+	// Archer Attribute : Hrunting
+	//=======================================
+	"emiya_attribute_hrunting"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/emiya/emiya_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/archer_5th_attribute_hrunting"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"15"
+
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_chaos_knight/chaos_knight_chaos_bolt.vpcf"
+		}
+
+		"AbilityValues"
+        {
+            "cast_delay" "2.0"
+            "cast_range" "4000"
+            "mana_used" "20"
+            "damage" "250"
+            "bp_damage" "100"
+        }
+	}
+	//=======================================
+	// Archer Attribute : Shroud of Martin
+	//=======================================
+	"emiya_attribute_shroud_of_martin"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/emiya/emiya_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/archer_5th_attribute_shroud_of_martin"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"14"
+
+		"precache"
+		{
+		}
+
+		"AbilityValues"
+        {
+            "magic_resist" "10"
+            "armor" "15"
+            "hp_bonus" "4"
+            "shield" "2000"
+            "duration" "4"
+        }
+	}
+
+	//=======================================
+	// Archer Attribute : Improve Projection
+	//=======================================
+	"emiya_attribute_projection"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/emiya/emiya_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/archer_5th_attribute_improve_projection"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"17"
+
+		"precache"
+		{
+		}
+
+		"AbilityValues"
+        {
+            "sword_interval" "0.1"
+            "sword_base_damage" "150 150 150 150 150"
+            "sword_int_ratio" "0.5"
+        }
+	}	
+
+	//=======================================
+	// Archer Attribute : Kanshou Bakuya Overedge
+	//=======================================
+	"emiya_attribute_overedge"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/emiya/emiya_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/archer_5th_attribute_overedge"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"10"
+
+		"precache"
+		{
+		}
+
+		"AbilityValues"
+        {
+            "bonus_blades" "2"
+            "mana_reduced" "50"
+            "duration" "10"
+            "attack_speed" "35"
+            "bash_chance" "30"
+            "bash_damage" "250"
+        }
+	}
+}

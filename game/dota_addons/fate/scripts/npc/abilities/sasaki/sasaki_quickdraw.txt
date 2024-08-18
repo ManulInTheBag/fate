@@ -1,0 +1,45 @@
+"DOTAAbilities"
+{
+	//=====================================
+	// False Assassin : Quickdraw
+	//=====================================
+	"sasaki_quickdraw"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/sasaki/sasaki_quickdraw"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/false_assassin_quickdraw"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
+		"AnimationPlaybackRate" 		"1.0"
+
+		"precache"
+		{
+			"particle"					"particles/custom/false_assassin/fa_quickdraw.vpcf"
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_phantom_lancer.vsndevts"
+		}
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1175"
+		"AbilityCastPoint"				"0.1"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"45"
+
+		"AbilityValues"
+        {
+            "base_damage" "500"
+            "atk_ratio" "200"
+            "focus_attacks" "5"
+            "focus_cdr" "50"
+            "exhausted_duration" "8"
+        }		
+	}
+}

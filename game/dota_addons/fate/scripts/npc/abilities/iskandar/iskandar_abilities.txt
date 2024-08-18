@@ -1,0 +1,856 @@
+
+"DOTAAbilities"
+{
+	//================================================
+	// Iskander : Charisma
+	//================================================
+	"iskandar_charisma"
+	{
+		"BaseClass" 					"ability_lua"
+		"ScriptFile"					"abilities/iskandar/iskandar_charisma"
+		"AbilityBehavior" 				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityTextureName"            "custom/iskander_charisma"
+		"MaxLevel"                      "2"
+		"AbilityCastRange"				"1000"
+
+		"AbilityValues"
+		{
+			"radius"								"1000 1300"
+			"bonus_ms"								"15"
+			"bonus_damage"							"0 20"
+		}
+	}
+
+	//========================================
+	// Iskander - Forward!
+	//========================================
+	"iskander_forward"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/iskandar/iskander_forward"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityTextureName"			"custom/iskander_forward"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
+		"AbilityCooldown"				"16 15 14 13 12"
+		"AbilityCastRange"				"9999"
+		"AbilityCastPoint"				"0.3"
+		"AbilityManaCost"				"100"
+
+		"AbilityValues"
+		{
+			"duration"								"3.0 3.5 4.0 4.5 5.0"
+			"movespeed"								"20 25 30 35 40"
+			"radius"								"500 575 650 725 800"
+			"bonus_damage"							"10 14 18 22 26"
+			"sa_damage"								"100"
+		}
+		
+	}
+
+	//================================================
+	// Iskander : Spellbook
+	//================================================
+	"sanya_book_open"
+	{
+		"BaseClass" 					"ability_lua"
+		"ScriptFile"					"abilities/iskandar/sanya_book"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET|DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE|DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityTextureName"            "custom/sanya/sanya_book_open"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AnimationPlaybackRate" 		"0.0"
+		"AbilityCastPoint"				"0.0"
+ 		"AbilityCooldown"				"0"
+		"AbilityManaCost"				"0"
+		"LinkedAbilities"				"iskander_phalanx iskander_archers iskander_cavalry"
+		"AbilityValues"
+		{
+
+		}
+	}
+
+	//================================================
+	// Iskander : Spellbook close
+	//================================================
+	"sanya_book_close"
+	{
+		"BaseClass" 					"ability_lua"
+		"ScriptFile"					"abilities/iskandar/sanya_book"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET|DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE|DOTA_ABILITY_BEHAVIOR_IMMEDIATE|DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"            "custom/sanya/sanya_book_close"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AnimationPlaybackRate" 		"0.0"
+		"AbilityCastPoint"				"0.0"
+ 		"AbilityCooldown"				"0"
+		"AbilityManaCost"				"0"
+		"AbilityValues"
+		{
+
+		}
+	}
+
+	//====================================
+	// Iskander - Thunder strike
+	//====================================
+	"iskander_thunder"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/iskandar/iskander_thunder"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/sanya/iskander_thunder"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_4"
+		"AnimationPlaybackRate" 		"1.0"
+		"AbilityCastRange"				"range"
+		"AbilityCastPoint"				"0.3"
+		"AbilityCooldown"				"18 16 14 12 10"
+		"AbilityManaCost"				"200"
+		"AbilityValues"
+		{
+			"damage"								"250 300 350 400 450"
+			"radius"								"300"
+			"range"									"1600"
+			"slow_duration"							"0.8 1 1.2 1.4 1.6"
+			"strikes"								"4"
+			"ms_slow"								"30 40 50 60 70"
+			"damage_per_int"						"1"
+		}
+		
+	}
+
+	//====================================
+	// Iskander - Phalanx
+	//====================================
+	"iskander_phalanx"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/iskandar/iskander_phalanx"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"30"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT|DOTA_ABILITY_BEHAVIOR_HIDDEN|ABILITY_CANNOT_BE_UPGRADED_NOT_UPGRADABLE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/iskander_phalanx"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
+		"AnimationPlaybackRate" 		"1.0"
+		"AbilityCastRange"				"1000"
+		"AbilityCastPoint"				"0.3" // set in code
+		"AbilityCooldown"				"22 21 20 19 18"
+		"AbilityManaCost"				"200"
+		"AbilityValues"
+		{
+			"damage"								"300 350 400 450 500"
+			"width"									"525"
+			"duration"								"3"
+			"pull_duration"							"0.5"
+		}
+		
+	}
+
+	//====================================
+	// Iskander - Archers bombard
+	//====================================
+	"iskander_archers"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/iskandar/iskander_archers"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"30"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT|DOTA_ABILITY_BEHAVIOR_AOE|DOTA_ABILITY_BEHAVIOR_HIDDEN|ABILITY_CANNOT_BE_UPGRADED_NOT_UPGRADABLE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/iskandar/arrow_bombard"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
+		"AnimationPlaybackRate" 		"1.0"
+		"AOERadius"						"375" /// aoe + 225 (randomness)
+		"AbilityCastRange"				"1700"
+		"AbilityCastPoint"				"0.2" // set in code
+		"AbilityCooldown"				"22 21 20 19 18"
+		"AbilityManaCost"				"200"
+		"AbilityValues"
+		{
+			"damage"										"80 100 120 140 160"
+			"summon_ammount"								"6" // affects damage
+			"duration"										"4" 
+			"shots_per_unit"								"2" ///pfx only
+			"aoe"											"225"
+			"rduration"										"0.6 0.8 1 1.2 1.4" //root duration
+			"distribution_radius"							"225" //root duration
+		}
+		
+	}
+
+	//====================================
+	// Iskander - Cavalry
+	//====================================
+	"iskander_cavalry"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/iskandar/iskander_cavalry"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"30"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT|DOTA_ABILITY_BEHAVIOR_HIDDEN|ABILITY_CANNOT_BE_UPGRADED_NOT_UPGRADABLE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/sanya/iskander_cavalry"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
+		"AnimationPlaybackRate" 		"1.0"
+		"AbilityCastRange"				"1200"
+		"AbilityCastPoint"				"0.3" // set in code
+		"AbilityCooldown"				"22 21 20 19 18"
+		"AbilityManaCost"				"200"
+		"AbilityValues"
+		{
+			"damage"								"200 250 300 350 400"
+			"width"									"525"
+			"duration"								"3"
+			"stun_duration"							"0.5"
+		}
+		
+	}
+
+	//========================================
+	// Iskander - Gordius Wheel
+	//========================================
+	"iskandar_gordius_wheel"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/iskandar/iskandar_gordius_wheel"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityTextureName"			"custom/iskander_gordius_wheel"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_4"
+		"AbilityCooldown"				"34"
+		"AbilityCastPoint"				"0.01"
+		"AbilityManaCost"				"800"
+
+
+		"AbilityValues"
+		{
+			"cast_delay"								"1"
+			"duration"									"10"
+			"bonus_armor"								"10"// mr and armor must be set in code or it will not be seen in game so check  modifier_gordius_wheel  
+			"bonus_mr"								    "30" 
+			"movespeed_per_second"						"6"
+			"base_movespeed"							"30"
+			"radius"								    "400"
+			"radius_max"								"125"
+			"max_damage"								"500 550 600 650 700"
+			"min_damage"								"150 200 250 300 350"
+			"sa_slow_duration"							"0.2"
+		}
+
+	}
+
+	//====================================
+	// Iskander - Via Expugnatio
+	//====================================
+	"iskander_drift"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/iskandar/iskander_drift"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"25"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/iskander_via_expugnatio"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
+		"AnimationPlaybackRate" 		"1.0"
+		"AbilityCastRange"				"1200"
+		"AbilityCastPoint"				"0.15"
+		"AbilityCooldown"				"36"
+		"AbilityManaCost"				"200"
+		"AbilityValues"
+		{
+			"damage"											"50" // its dmg per 100 MS so if set to 100, you will deal your MS dmg + 50 per second of wheels 
+			"trail_damage"										"20"
+			"range"												"1500"
+			"trail_duration"								    "3"
+			"base_damage"								   			"400"
+			"stun_duration"								   		"0.75"
+			"damage_per_unit"								   	"75"
+		}
+		
+	}
+
+	//========================================
+	// Iskander - Army of the King
+	//========================================
+	"iskander_ionioi"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/iskandar/iskander_ionioi"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE|DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"			"custom/iskander_army_of_the_king"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityCooldown"				"140"
+		"AbilityManaCost"				"800"
+
+		"LinkedAbilities"				"iskander_summon_hephaestion iskandar_buc"
+		"LinkedAbilitiesRow"			"2"
+		
+		"AbilityValues"
+		{
+			"cast_delay"													"2"  
+			"radius"														"1150"
+			"duration"														"16"
+			"sustain_limit"								    				"2"  //not used since soldiers are invul lol
+			"archer_bonus_damage"								    		"50"
+			"maharaja_bonus_damage"								    		"100"
+			"infantry_bonus_damage"								    		"60"
+			"cavalry_bonus_damage"								    		"75"
+			"hepha_bonus_damage"								    		"125"
+			"mage_bonus_damage"								    			"55"
+			"waver_bonus_damage"								    		"80"
+		}
+		
+	}
+
+	//========================================
+	// Iskander - Bucephalus
+	//========================================
+	"iskandar_buc"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/iskandar/iskandar_buc"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET|DOTA_ABILITY_BEHAVIOR_IMMEDIATE|DOTA_ABILITY_BEHAVIOR_HIDDEN"//|DOTA_ABILITY_BEHAVIOR_HIDDEN
+		"AbilityTextureName"			"custom/sanya/sanya_buc"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_4"
+		"AbilityCooldown"				"10"
+		"AbilityCastPoint"				"0.01"
+		"AbilityManaCost"				"400"
+
+		"precache"
+		{
+			"particle"				"particles/iskander/sanya_slash_1.vpcf"
+			"particle"				"particles/iskander/sanya_slash_2.vpcf"
+		}
+
+
+		"AbilityValues"
+		{
+			"duration"									"8"
+			"radius"								    "300"
+			"damage"									"200"
+
+		}
+
+	}
+
+	//========================================
+	// Iskander - Bucephalus jump
+	//========================================
+	"iskander_jump"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/iskandar/iskander_jump"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT|DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"			"custom/sanya/sanya_jump"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
+		"AbilityCooldown"				"10"
+		"AbilityCastPoint"				"0.01"
+		"AbilityManaCost"				"0"
+
+
+		"AbilityValues"
+		{
+			"duration"									"1.25"
+			"radius"								    "500"
+			"damage"									"700"
+			"speed"										"1200"
+		}
+
+	}
+
+
+	//=====================================
+	// Iskandar Arrow Bombard
+	//=====================================
+	"iskandar_arrow_bombard"
+	{
+
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/iskandar/iskandar_arrow_bombard"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"25"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AbilityTextureName"			"custom/iskandar/arrow_bombard"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
+		"AnimationPlaybackRate" 		"1.0"
+		"AbilityCastRange"						"1400"
+		"AbilityCastPoint"						"0.1"
+		"AbilityCooldown"						"4"
+		"AbilityManaCost"						"100"
+		
+		"AbilityValues"
+        {
+            "damage" "200 300 400 500 600"
+            "radius" "600"
+            "root_dur" "2.0"
+        }
+	}
+
+	//================================================
+	// Iskander : Maharaja's Passive
+	//================================================
+	"iskander_maharaja_passive"
+	{
+		"AbilityBehavior" 		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/iskandar/units_abilities/iskander_maharaja_passive"
+		"AbilityTextureName"            "custom/iskander_phalanx"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"25"
+		"LevelsBetweenUpgrades"			"1"
+
+		"AbilityValues"
+		{
+			"radius"				"2000"
+			"bonus_damage"			"30"
+		}	
+		
+	}
+
+	//====================================
+	// Iskander - Battle Horn
+	//====================================
+	"iskander_battle_horn"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/iskandar/units_abilities/iskander_battle_horn"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"25"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityTextureName"			"legion_commander_press_the_attack"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
+		"AnimationPlaybackRate" 		"1.5"
+		"AbilityCastPoint"				"0.1"
+		"AbilityCooldown"				"4"
+
+
+		"AbilityValues"
+		{
+			"pct_armor_reduction"				"-70"
+			"duration"							"4"
+			"armor_reduction"					"-15" // is not applied anywhere
+			"ms_reduction"						"-30" // is not applied anywhere
+		}	
+	}
+	//====================================
+	// Iskander - Summon Hephaestion
+	//====================================
+	"iskander_summon_hephaestion"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/iskandar/iskander_summon_hephaestion"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"25"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"			"custom/iskander_summon_hephaestion"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
+		"AnimationPlaybackRate" 		"1.5"
+		"AbilityCastRange"				"500"
+		"AbilityCastPoint"				"0.1"
+		"AbilityCooldown"				"16"
+		"AbilityManaCost"				"150"
+		
+		"AbilityValues"
+		{
+			///NOTHiNG THERE
+		}	
+
+	}
+	//================================================
+	// Iskander : Hephaestion Passive  // DID he REALLY NEEDED THAT PASSIVE?
+	//================================================
+	"iskander_hephaestion_passive"
+	{
+		"AbilityBehavior" 				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/iskandar/units_abilities/iskander_hephaestion_passive"
+		"AbilityTextureName"            "custom/iskander_phalanx"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"25"
+		"LevelsBetweenUpgrades"			"1"
+
+		"AbilityValues"
+		{
+			"radius"				"2000"
+			"bonus_mspd"			"20"
+		}	
+
+		
+	}
+
+	//================================================
+	// Iskander : Waver Passive
+	//================================================
+	"iskander_waver_passive"
+	{
+		"AbilityBehavior" 				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/iskandar/units_abilities/iskander_waver_passive"
+		"AbilityTextureName"            "custom/iskander_phalanx"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"25"
+		"LevelsBetweenUpgrades"			"1"
+
+		"AbilityValues"
+		{
+			"radius"				"2000"
+			"bonus_mr"			"25"
+		}	
+
+		
+	}
+	//====================================
+	// Iskander - Hammer and Anvil
+	//====================================
+	"iskander_hammer_and_anvil"
+	{
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"25"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityTextureName"			"chaos_knight_phantasm"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
+		"AnimationPlaybackRate" 		"1.5"
+		"AOERadius"						"%radius"
+		"AbilityCastPoint"				"0.1"
+		"AbilityCooldown"				"5"
+
+		"AbilityValues"
+		{
+			"damage"				"450"
+		}	
+
+		"OnAbilityPhaseStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"lancer_ability"
+				"Function"		"GBAttachEffect"
+			}
+		}
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+			 	"ScriptFile"	"iskander_ability"
+			 	"Function"		"OnHammerStart"
+			 	"Damage"		"%damage"
+			}
+		}
+
+	}
+	//====================================
+	// Iskander - Summon Waver
+	//====================================
+	"iskander_summon_waver"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/iskandar/iskander_summon_waver"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"25"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"			"custom/iskander_summon_waver"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
+		"AnimationPlaybackRate" 		"1.5"
+		"AOERadius"						"%radius"
+		"AbilityCastRange"				"500"
+		"AbilityCastPoint"				"0.1"
+		"AbilityCooldown"				"16"
+		"AbilityManaCost"				"150"
+
+	}
+
+	//====================================
+	// Iskander - Brilliance of the King
+	//====================================
+	"iskander_brilliance_of_the_king"
+	{
+
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/iskandar/units_abilities/iskander_brilliance_of_the_king"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"25"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityTextureName"			"keeper_of_the_light_illuminate"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_INVULNERABLE"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_BASIC"
+		"AbilityCastPoint"				"0.5"
+		"AbilityCooldown"				"15"
+		"AbilityCastRange"				"3000"
+		"AbilityCastAnimation" 			"ACT_DOTA_ATTACK"
+		"AnimationPlaybackRate" 		"1"
+
+		"AbilityValues"
+		{
+			"duration"				"2"
+		}	
+
+	}
+	//========================================
+	// Iskander : Annihilate!
+	//========================================
+	"iskander_annihilate"
+	{
+		"BaseClass"						"ability_datadriven"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"			"custom/iskander_annihilate"
+		"MaxLevel"						"1"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
+		"precache"
+		{
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_legion_commander.vsndevts"
+			"particle"				"particles/custom/iskandar/iskandar_combo_invul.vpcf"
+			"particle"				"particles/custom/iskandar/iskandar_combo_arrow.vpcf"
+		}
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"140"
+		"AbilityCastPoint"				"0.3"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100"
+		
+		"AbilityValues"
+        {
+            "damage" "300"
+            "aoe" "200"
+            "duration" "6"
+        }
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"		"iskander_ability"
+				"Function"			"OnAnnihilateStart"	
+				"ArrowDamage"		"%damage"
+				"ArrowAoE"			"%aoe"
+			}
+		}
+
+		"Modifiers"
+		{
+			"modifier_annihilate_cooldown"
+			{
+				"IsDebuff"	"1"
+				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
+			}
+
+			"modifier_annihilate_caster"
+			{
+				"Duration"		"12.0"
+				"IsHidden"		"1"
+			}
+			"modifier_annihilate"
+			{		
+                "EffectName" "particles/custom/iskandar/iskandar_combo_invul.vpcf"
+                "EffectAttachType" "follow_origin"
+				"Duration" 	"12.0"
+				"States"
+				{
+					"MODIFIER_STATE_INVULNERABLE"    "MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+			"modifier_annihilate_mute"
+			{
+				"Duration"		"%duration"
+				"IsDebuff"		"1"
+				"States"
+				{
+					"MODIFIER_STATE_MUTED"    "MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
+		}
+	}
+	//=======================================
+	// Iskander : Improve Charisma
+	//=======================================
+	"iskander_attribute_improve_charisma"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/iskander_attribute_improve_charisma"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"9"
+
+		"AbilityValues"
+		{
+			"bonus_ms"		"15"
+			"bonus_damage"		"20"
+			"bonus_range"		"300"
+		}	
+		
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"iskander_ability"
+				"Function"		"OnIskanderCharismaImproved"
+			}
+		}
+	}
+
+	//=======================================
+	// Iskander : Thundergod's Wrath
+	//=======================================
+	"iskander_attribute_thundergods_wrath"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/iskander_attribute_thundergods_wrath"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"15"
+
+ 
+		"AbilityValues"
+		{
+			"damage"		"150"
+			"radius"		"250"
+			"thunder_damage"		"12"
+			"thunder_radius"		"400"
+			"thunder_slow"			"99"
+			"thunder_duration"		"0.2"
+		}	
+
+		
+		
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"iskander_ability"
+				"Function"		"OnThundergodAcquired"
+			}
+		}
+	}
+
+
+	//=======================================
+	// Iskander : Via Expugnatio
+	//=======================================
+	"iskander_attribute_via_expugnatio"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/iskander_via_expugnatio"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"13"
+
+		"AbilityValues"
+		{
+			"damage"											"50" // its dmg per 100 MS so if set to 100, you will deal your MS dmg + 50 per second of wheels 
+			"trail_damage"										"20"
+			"range"												"1500"
+			"trail_duration"								    "3"
+			"base_damage"								   			"400"
+			"stun_duration"								   		"0.75"
+			"damage_per_unit"								   	"75"
+		}	
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"iskander_ability"
+				"Function"		"OnChariotChargeAcquired"
+			}
+		}
+	}
+
+	//=======================================
+	// Iskander : Bond Beyond Time
+	//=======================================
+	"iskander_attribute_bond_beyond_time"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_datadriven"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/iskander_attribute_bond_beyond_time"
+
+		"LinkedAbilities"				"iskander_summon_waver"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"14"
+
+
+		"AbilityValues"
+        {
+        }
+		"OnSpellStart"
+		{
+			"RunScript"
+			{
+				"ScriptFile"	"iskander_ability"
+				"Function"		"OnBeyondTimeAcquired"
+			}
+		}
+	}
+}

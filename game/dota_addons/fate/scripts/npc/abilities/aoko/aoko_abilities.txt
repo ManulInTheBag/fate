@@ -1,0 +1,737 @@
+"DOTAAbilities"
+{
+	//=======================================
+	// Aozaki Aoko - Beam
+	//=======================================
+
+	"aoko_beam"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/aoko/aoko_beam"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
+		"AnimationPlaybackRate" 		"1.0"
+
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/altera/altera_sword"
+		//"AbilityCastRange"				"300"
+
+		"AbilityCastPoint"				"0.2"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"50"
+		"AbilityCooldown"				"3"
+		
+		"AbilityValues"
+		{
+			"damage"					"100 150 200 250 300"
+			"range"						"800"
+		}
+	}
+
+	//=================================================================================================================
+	// Aozaki Aoko: Acceleration Kick
+	//=================================================================================================================
+	"aoko_round_kick"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/aoko/aoko_round_kick"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityTextureName"			"custom/ryougi/ryougi_backflip"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
+		"AnimationPlaybackRate" 		"1.0"
+		//"AbilityCastPoint"				"0.1"
+		"AbilityCooldown"				"12"
+		"AbilityManaCost"				"100"
+		
+		"AbilityValues"
+		{
+			"cast_point"			"0.0"
+			"damage"				"300 375 450 525 600"
+			"radius"				"400"
+		}
+	}
+
+	//=================================================================================================================
+	// Aozaki Aoko: Star Fist
+	//=================================================================================================================
+	"aoko_punch"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/aoko/aoko_punch"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+<<<<<<< Updated upstream
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_OVERSHOOT"
+=======
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_OVERSHOOT"
+>>>>>>> Stashed changes
+		"AbilityTextureName"			"custom/okita/okita_seigan"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
+		"AnimationPlaybackRate" 		"1.0"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityManaCost"				"400"
+		"AbilityCooldown"				"18"
+		"AbilityCastPoint"				"0.2"
+<<<<<<< Updated upstream
+		"AbilityChannelTime"            "1"
+=======
+>>>>>>> Stashed changes
+		"AbilityCastRange"				"350"
+		
+		"AbilityValues"
+		{	
+			"cast_point"			"0.2"
+		}
+	}
+
+	//=================================================================================================================
+	// Aozaki Aoko: Blazing Starmine
+	//=================================================================================================================
+	"aoko_jumpback"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/aoko/aoko_jumpback"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityTextureName"			"custom/ryougi/ryougi_backflip"
+		"AbilityCastAnimation" 			"ACT_DOTA_IDLE"
+		"AnimationPlaybackRate" 		"1.0"
+		"AbilityCastPoint"				"0.05"
+		"AbilityCooldown"				"12"
+		"AbilityManaCost"				"200"
+		
+		"AbilityValues"
+		{
+			"cast_point"			"0.0"
+			"range"					"300"
+			"damage"				"100 125 150 175 200"
+			"stun_duration"			"0.2"
+			"radius"				"150"
+		}
+	}
+
+	//=================================================================================================================
+	// Aozaki Aoko: Cardio Routine
+	//=================================================================================================================
+	"aoko_dailin"
+	{
+		"BaseClass"             		"ability_lua"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+
+		"AbilityTextureName"			"custom/edmon/enfer"
+		"ScriptFile"					"abilities/aoko/aoko_dailin"
+
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_6"
+		"AnimationPlaybackRate" 		"1.0"
+
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.3"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"20"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"400"
+
+		// Special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+        {
+            "speed" "3000"
+            "range" "800"
+        }
+	}
+
+	"aoko_sphere"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/aoko/aoko_sphere"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_OVERSHOOT"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
+		"AnimationPlaybackRate" 		"1.0"
+
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/altera/altera_sword"
+		"AbilityCastRange"				"1100"
+
+		"AbilityCastPoint"				"0.2"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100"
+		"AbilityCooldown"				"20"
+		
+		"AbilityValues"
+		{
+			"damage"					"100 150 200 250 300"
+			"duration"					"5"
+			"radius"					"500"
+			"explosion_count"			"4"
+			"range"						"1100"
+		}
+	}
+
+	"aoko_lazers"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/aoko/aoko_lazers"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
+		"AnimationPlaybackRate" 		"1.0"
+
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/altera/altera_sword"
+		//"AbilityCastRange"				"300"
+
+		"AbilityCastPoint"				"0.2"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"200"
+		"AbilityCooldown"				"20"
+		
+		"AbilityValues"
+		{
+			"damage"					"100 150 200 250 300"
+			"range"						"1100"
+		}
+	}
+
+	"aoko_swap"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/aoko/aoko_swap"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDOQUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_SILENCE"
+
+		"AbilityTextureName"			"custom/altera/altera_sword"
+		
+		"AbilityValues"
+		{
+		}
+	}
+
+	//=================================================================================================================
+	// Altera : Photon Ray (dash)
+	//=================================================================================================================
+	"altera_dash"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/altera/altera_dash"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/altera/altera_rush"
+		"AbilityCastAnimation" 			"ACT_DOTA_CHANNEL_ABILITY_2"
+		"AnimationPlaybackRate" 		"1.0"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+
+        "AbilityManaCost"                           "200"
+        "AbilityCooldown"                           "25 22 19 16 13"
+
+		"AbilityValues"
+		{
+			"speed"					"2000"
+			"distance"				"700"
+			"damage"				"200 275 350 425 500"
+			"radius"				"200"
+			"channel_time"			"0.5"
+			"int_bonus_distance"	"300"
+			"str_airborne_duration"	"0.75"
+			"atr_damage_mult"		"1.5"
+		}
+	}
+
+	//=======================================
+	// Altera - Dimensional Rift
+	//=======================================
+
+	"altera_rift"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/altera/altera_rift"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"					"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		//"AbilityUnitTargetFlags"				"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE"
+
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3"
+		"AnimationPlaybackRate" 		"1.5"
+
+		"SpellImmunityType"						"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/altera/altera_rift"
+
+		"AbilityCastPoint"				"0.2"
+		"AbilityCooldown"				"27"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"400"
+		"AbilityCastRange"				"700"
+		
+		"AbilityValues"
+		{
+			"duration"				"7 7.5 8 8.5 9"
+			"radius"				"900 950 1000 1050 1100"
+			"damage"				"400 525 650 775 900"
+			"damage_radius"			"500"
+			"lingering_duration"	"1.0"
+			"str_slow"				"10 12.5 15 17.5 20"
+			"str_magres_bonus"		"10 12.5 15 17.5 20"
+			"str_armor_bonus"		"6 9 12 15 18"
+			"str_regen_bonus"		"20 30 40 50 60"
+			"agi_ms"				"550 575 600 625 650"
+			"agi_as_bonus"			"60 60 70 80 90 100"
+			"agi_onhit_damage"		"30 45 60 75 90"
+			"int_ms_bonus"			"30 35 40 45 50"
+			"int_magres_bonus"		"5 7.5 10 12.5 15"
+			"atr_damage_mult"		"1.2"
+			"damage_per_second"		"20 40 60 80 100"
+		}
+	}
+
+	//=======================================
+	// Altera - Adaptive Burst
+	//=======================================
+
+	"altera_adaptive"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/altera/altera_adaptive"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"					"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		//"AbilityUnitTargetFlags"				"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE"
+
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_4"
+		"AnimationPlaybackRate" 		"1.0"
+
+		"SpellImmunityType"						"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/altera/altera_burst"
+		"AOERadius"						"%radius"
+
+		"AbilityCastPoint"				"0.2"
+		"AbilityCooldown"				"40"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100"
+		
+		"AbilityValues"
+        {
+            "duration" "1.1"
+            "radius" "500"
+            "damage" "150"
+            "damage_mult" "1.5"
+        }
+	}
+
+	//=======================================
+	// Altera - Photon Ray (beam)
+	//=======================================
+
+	"altera_beam"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/altera/altera_beam"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY" 
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/altera/altera_erosion"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_6"
+		"AnimationPlaybackRate" 		"0.5"
+
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		//"AbilityCastRange"				"1200"
+		"AbilityCastPoint"				"0.4"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"40"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"800"
+		
+		"AbilityValues"
+        {
+            "damage" "900 1200 1500 1800 2100"
+            "duration" "1.6"
+            "distance" "1200"
+            "start_width" "160"
+            "end_width" "125"
+            "int_bonus_distance" "400"
+            "str_lock_duration" "1.0"
+            "str_slow_duration" "1.5"
+            "str_slow" "40 50 60 70 80"
+            "atr_damage_mult" "3.0"
+        }
+	}
+
+	//=======================================
+	// Altera - Adaptive Behaviour
+	//=======================================
+
+	"altera_form_open"
+    {
+    	    "BaseClass"                                     "ability_lua"
+    	    "ScriptFile"                                    "abilities/altera/altera_form"
+    	    "AbilityBehavior"                               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    	    "AbilityTextureName"                            "custom/altera/altera_destroyer"
+
+    	    "LinkedAbilities"								"altera_form_str altera_form_agi altera_form_int"
+
+            "AbilityCastPoint"                              "0.0"
+            "AbilityCooldown"                               "0"
+            "AbilityManaCost"                               "0"
+
+            "MaxLevel"                                      "1"
+            "RequiredLevel"                                 "1"
+            "LevelsBetweenUpgrades"                         "1"
+
+            "AbilityValues"
+        {
+            "attribute_bonus" "15"
+        }
+    }
+
+    "altera_form_close"
+    {
+    	    "BaseClass"                                     "ability_lua"
+    	    "ScriptFile"                                    "abilities/altera/altera_form"
+    	    "AbilityBehavior"                               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL |  DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+    	    "AbilityTextureName"                            "custom/altera/altera_destroyer"
+
+            "AbilityCastPoint"                              "0.0"
+            "AbilityCooldown"                               "0"
+            "AbilityManaCost"                               "0"
+
+            "MaxLevel"                                      "1"
+    }
+
+    "altera_form_str"
+    {
+    	    "BaseClass"                                     "ability_lua"
+    	    "ScriptFile"                                    "abilities/altera/altera_form"
+    	    "AbilityBehavior"                               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL |  DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IGNORE_SILENCE"
+    	    "AbilityTextureName"                            "custom/altera/altera_str"
+
+            "AbilityCastPoint"                              "0.0"
+            "AbilityCooldown"                               "0"
+            "AbilityManaCost"                               "0"
+
+            "MaxLevel"                                      "1"
+
+            "AbilityValues"
+        {
+            "str_bonus" "15"
+            "agi_bonus" "0"
+            "int_bonus" "0"
+        }
+    }
+
+    "altera_form_agi"
+    {
+    	    "BaseClass"                                     "ability_lua"
+    	    "ScriptFile"                                    "abilities/altera/altera_form"
+    	    "AbilityBehavior"                               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL |  DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IGNORE_SILENCE"
+    	    "AbilityTextureName"                            "custom/altera/altera_agi"
+
+            "AbilityCastPoint"                              "0.0"
+            "AbilityCooldown"                               "0"
+            "AbilityManaCost"                               "0"
+
+            "MaxLevel"                                      "1"
+
+            "AbilityValues"
+        {
+            "str_bonus" "0"
+            "agi_bonus" "15"
+            "int_bonus" "0"
+        }
+    }
+
+    "altera_form_int"
+    {
+    	    "BaseClass"                                     "ability_lua"
+    	    "ScriptFile"                                    "abilities/altera/altera_form"
+    	    "AbilityBehavior"                               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL |  DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_IGNORE_SILENCE"
+    	    "AbilityTextureName"                            "custom/altera/altera_int"
+
+            "AbilityCastPoint"                              "0.0"
+            "AbilityCooldown"                               "0"
+            "AbilityManaCost"                               "0"
+
+            "MaxLevel"                                      "1"
+
+            "AbilityValues"
+        {
+            "str_bonus" "0"
+            "agi_bonus" "0"
+            "int_bonus" "15"
+        }
+    }
+
+	//=======================================
+	// Altera - Combo: Teardrop Photon Ray
+	//=======================================
+
+	"altera_teardrop"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/altera/altera_teardrop"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY" 
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/altera/altera_teardrop"
+		"AbilityCastAnimation" 			"ACT_DOTA_RAZE_1"
+		"AnimationPlaybackRate" 		"1"
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.4"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"150"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"800"
+		
+		"AbilityValues"
+        {
+            "impact_damage" "3000"
+            "beam_damage" "7000"
+            "radius" "700"
+            "cast_range" "4500"
+        }
+	}
+
+	//=======================================
+	// Altera - Combo: Teardrop Photon Ray - Release
+	//=======================================
+
+	"altera_teardrop_release"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/altera/altera_teardrop"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY" 
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/altera/altera_teardrop"
+		"AbilityCastAnimation" 			"ACT_DOTA_RAZE_2"
+		"AnimationPlaybackRate" 		"1"
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.3"
+
+		
+		"AbilityValues"
+        {
+            "impact_damage" "3000"
+            "beam_damage" "7000"
+            "radius" "700"
+            "cast_range" "4500"
+        }
+	}
+
+	//=======================================
+	// Altera - Attributes
+	//=======================================
+
+	"altera_crest_attribute"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/altera/altera_attributes"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/altera/altera_crest"
+		"AbilityCooldown"				"9999"
+
+		"AbilityManaCost"				"11"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+
+		"AbilityValues"
+        {
+            "bonus_duration" "7"
+            "crit_percent" "320"
+        }		
+	}
+	"altera_refraction_attribute"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/altera/altera_attributes"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/altera/altera_dimensional"
+		"AbilityCooldown"				"9999"
+
+		"AbilityManaCost"				"8"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+
+		"AbilityValues"
+        {
+            "mana_per_damage" "5"
+            "damage_reduce" "25"
+        }		
+	}
+	"altera_erosion_attribute"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/altera/altera_attributes"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/altera/altera_photon"
+		"AbilityCooldown"				"9999"
+
+		"AbilityManaCost"				"14"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+
+		"AbilityValues"
+        {
+            "aura_radius" "700"
+            "base_value" "12"
+            "improved_value" "24"
+            "duration" "5"
+        }		
+	}
+	"altera_adaptive_attribute"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/altera/altera_attributes"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/altera/altera_burst"
+		"AbilityCooldown"				"9999"
+
+		"AbilityManaCost"				"6"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+
+		"AbilityValues"
+        {
+            "damage_reduce" "10"
+            "duration" "2"
+        }		
+	}
+	"altera_endless_attribute"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/altera/altera_attributes"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/altera/altera_endless"
+		"AbilityCooldown"				"9999"
+
+		"AbilityManaCost"				"8"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+
+		"AbilityValues"
+        {
+            "damage_reduce" "10"
+            "duration" "2"
+        }		
+	}
+}

@@ -1,0 +1,39 @@
+"DOTAAbilities"
+{	
+	"karna_agni"
+	{		
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/karna/karna_agni"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY" 
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/karna/karna_agni"
+		
+		"precache"
+		{
+			"particle"			"particles/custom/karna/agni/agni_fire_flame.vpcf"
+			"particle"			"particles/custom/karna/agni/agni_fire_ambient.vpcf"
+			"particle"			"particles/custom/karna/agni/agni_explosion.vpcf"
+			
+		}
+		
+		"AbilityCastPoint"				"0.1"
+		"AbilityCooldown"				"17"
+		"AbilityManaCost"				"100"
+		
+		"AbilityValues"
+        {
+            "duration" "10"
+            "on_hit_damage" "5 10 15 20 25"
+            "burn_damage" "20 25 30 35 40"
+            "burn_duration" "4"
+            "burn_aoe" "350"
+            "explode_aoe" "350"
+            "explode_damage" "35"
+        }		
+	}
+}

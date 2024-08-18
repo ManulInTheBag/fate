@@ -1,0 +1,43 @@
+"DOTAAbilities"
+{	
+	"jtr_dagger_throw"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/jtr/jtr_dagger_throw"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/jtr/jtr_slash"
+		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"					"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"				"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES | DOTA_UNIT_TARGET_FLAG_NOT_ATTACK_IMMUNE"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3"	
+		"AbilityCastPoint"				"0.2"
+		"AbilityCooldown"				"16 15 14 13 12"
+		"AbilityManaCost"				"100"
+
+		"precache"
+		{
+			"particle"					"particles/units/heroes/hero_phantom_assassin/phantom_assassin_stifling_dagger.vpcf"
+			"soundfile"   				"soundevents/game_sounds_heroes/game_sounds_templar_assassin.vsndevts"
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_antimage.vsndevts"
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_phantom_assassin.vsndevts"
+		}
+
+		"AbilityValues"
+        {
+            "cast_range" "600 650 700 750 800"
+            "base_damage" "150 190 230 270 310"
+            "dagger_ratio_1" "50"
+            "dagger_ratio_2" "100"
+            "duration" "1.0 1.5 2.0 2.5 3.0"
+            "slow_pct" "-100"
+            "mark_duration" "4.0"
+            "width" "100"
+            "blood_rage_ms" "7 9 11 13 15"
+        }
+	}
+}

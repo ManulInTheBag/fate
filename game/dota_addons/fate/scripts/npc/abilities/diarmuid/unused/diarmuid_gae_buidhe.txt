@@ -1,0 +1,55 @@
+"DOTAAbilities"
+{
+	//=================================================================================================================
+	// Diarmuid : Gae Buidhe
+	//=================================================================================================================
+	"diarmuid_gae_buidhe"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/diarmuid/diarmuid_gae_buidhe"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/diarmuid_gae_buidhe"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_4"
+		"AnimationPlaybackRate" 		"1.2"
+		
+		"precache"
+		{
+			"particle"					"particles/units/heroes/hero_chaos_knight/chaos_knight_reality_rift.vpcf"
+			"particle"					"particles/units/heroes/hero_axe/axe_culling_blade_kill.vpcf"
+			"particle"					"particles/custom/diarmuid/diarmuid_gae_cast.vpcf"
+			"particle"					"particles/custom/diarmuid/diarmuid_gae_buidhe.vpcf"
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_lion.vsndevts"
+		}
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"275"
+		"AbilityCastRangeBuffer"		"150"
+		//"AbilityCastPoint"				"0.6"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		//"AbilityCooldown"				"28"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		//"AbilityManaCost"				"500"
+		
+		"AbilityValues"
+        {
+            "damage" "550 675 800 925 1050"
+            "cooldown" "28"
+            "combo_cooldown" "1"
+            "doublespear_window" "3"
+            "attribute_window" "4"
+        }
+	}
+}

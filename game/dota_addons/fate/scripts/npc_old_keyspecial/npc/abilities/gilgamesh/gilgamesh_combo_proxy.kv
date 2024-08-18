@@ -1,0 +1,53 @@
+"DOTAAbilities"
+{
+	//=======================================
+	// Gilgamesh Combo Proxy
+	//=======================================
+	"gilgamesh_combo_proxy"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/gilgamesh/gilgamesh_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/gilgamesh/gilgamesh_final_hour"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"160"
+		"AbilityManaCost"				"0"
+
+		"precache"
+		{
+		}
+
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"edamage"			"3500"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"ecast_delay"		"3.5"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"eradius"			"1700"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"fdamage"			"4000"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"fduration"			"4.0"
+			}
+		}
+	}
+}

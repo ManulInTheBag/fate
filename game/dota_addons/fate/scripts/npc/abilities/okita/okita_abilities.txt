@@ -1,0 +1,625 @@
+// Dota Heroes File
+"DOTAAbilities"
+{
+	//=================================================================================================================
+	// Okita Souji : Innate : Weak Constitution (D)
+	//=================================================================================================================
+	"okita_weak_constitution"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/okita/okita_weak_constitution"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityTextureName"			"custom/okita/okita_weak_constitution"
+		"MaxLevel"						"1"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"10"
+
+		"AbilityValues"
+        {
+            "hp_loss_percent" "20"
+        }
+	}
+	//=================================================================================================================
+	// Okita Souji : Skill 1 : Shukuchi (Q)
+	//=================================================================================================================
+	"okita_shukuchi"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/okita/okita_shukuchi"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityTextureName"			"custom/okita/okita_shukuchi"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
+		"AnimationPlaybackRate" 		"1.0"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityManaCost"				"100"
+		"AbilityCooldown"				"16 15 14 13 12"
+		"AbilityCastPoint"				"0.0"
+
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_riki/riki_backstab.vpcf"
+			"particle"		"particles\units\heroes\hero_pugna\pugna_decrepify.vpcf"
+			"particle"		"particles/units/heroes/hero_bounty_hunter/bounty_hunter_windwalk.vpcf"
+			"soundfile"   	"soundevents/game_sounds_heroes/game_sounds_riki.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_bounty_hunter.vsndevts"
+		}
+
+		
+		"AbilityValues"
+		{
+			"cast_point"			"0.0"
+			"bonus_agi"				"2 2.25 2.5 2.75 3"
+			"agi_per_level"			"0.2"
+			"max_stacks"			"5"
+			"base_dist"				"500 550 600 650 700"
+			"stack_dist"			"35"
+			"as_bonus"				"70 90 110 130 150"
+			"dmg_bonus"				"50 70 90 110 130"	
+			"duration"				"2.5 3 3.5 4"
+			"critical"				"120"					
+		}
+	}
+	//=================================================================================================================
+	// Okita Souji : Skill 2 : Tennen Rishin-Ryu Kenjutsu (W)
+	//=================================================================================================================
+	"okita_tennen"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/okita/okita_tennen"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/okita/okita_something"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_5"
+		"AnimationPlaybackRate" 		"1.0"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityManaCost"				"200"
+		"AbilityCooldown"				"16 14 12 10 8"
+		"AbilityCastPoint"				"0.2"
+		
+		"AbilityValues"
+		{
+			"cast_point"			"0.2"
+			"range"					"700 750 800 850 900"
+			"damage"				"200 240 280 320 360"
+			"stun_damage"			"60 75 90 105 120"
+		}
+	}
+	//=================================================================================================================
+	// Okita Souji : Skill 3 : Hira-Seigan: The Silent Step (E)
+	//=================================================================================================================
+	"okita_seigan"
+	{
+		"BaseClass"             		"ability_lua"
+		"ScriptFile"					"abilities/okita/okita_seigan"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityTextureName"			"custom/okita/okita_seigan"
+		"MaxLevel" 						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityManaCost"				"400"
+		"AbilityCooldown"				"24 22 20 18 16"
+		"AbilityCastPoint"				"0.2"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_5"
+		"AnimationPlaybackRate" 		"1.0"
+		"AOERadius"						"%radius"
+
+		"precache"
+		{
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_sven.vsndevts"
+			"particle"				"particles/custom/ruler/luminosite_eternelle/sacred_zone.vpcf"
+			"particle"				"particles/units/heroes/hero_gyrocopter/gyro_guided_missile_explosion.vpcf"
+		}
+
+		"AbilityValues"
+        {
+            "base_dist" "500"
+            "stack_dist" "0"
+            "damage" "0.8"
+            "damage_big" "1.2"
+            "base_slashes" "3 3 4 4 5"
+            "damage_big_bonus" "0.8"
+        }
+	}
+
+	//=================================================================================================================
+	// Okita Souji : Hira-Seigan: The Silent Step (E) (Judgement Cut End in a nutshell)
+	//=================================================================================================================
+	"okita_jce"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/okita/okita_channel_slashes"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_OVERSHOOT"
+		"AbilityTextureName"			"custom/okita/okita_seigan"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_6"
+		"AnimationPlaybackRate" 		"1.0"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityManaCost"				"400"
+		"AbilityCooldown"				"18"
+		"AbilityCastPoint"				"0.2"
+		"AbilityChannelTime"            "0.5"
+		"AbilityCastRange"				"500"
+		
+		"AbilityValues"
+		{	
+			"cast_point"			"0.2"
+			"channel_duration"		"0.5"
+			"duration"				"0.5"
+			"hit_damage"			"60 70 80 90 100"
+			"hit_agi_scale"			"0.1"
+			"hit_count"				"5"
+			"base_damage"			"300 375 450 525 600"
+			"base_agi_scale"		"0.5"
+			"range"					"500"
+			"radius"				"450"
+		}
+	}
+
+	//=================================================================================================================
+	// Okita Souji : Skill 4 : Mumyo Sandan-Zuki (R)
+	//=================================================================================================================
+	"okita_sandanzuki"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/okita/okita_sandanzuki"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_YES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		//"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityTextureName"			"custom/okita/okita_mumyo"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
+		"AnimationPlaybackRate" 		"1.0"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+
+		"AbilityCastPoint"                          "0.8"
+        "AbilityManaCost"                           "800"
+        "AbilityCooldown"                           "27"
+
+		"AbilityValues"
+		{
+			"cast_point"			"0.8"
+			"cast_point_steps"		"0.0"
+			"window_duration"		"6"
+			"distance"				"750"
+			"base_damage"			"250 320 390 460 530"
+			"delay_duration"		"0.9"
+		}
+	}
+
+		"okita_sandanzuki_charge1"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/okita/okita_sandanzuki"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityTextureName"			"custom/okita/okita_mumyo"
+		"AbilityCastAnimation" 			"ACT_DOTA_RUN"
+		"AnimationPlaybackRate" 		"0.3"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+
+		"AbilityCastPoint"                          "0.0"
+        "AbilityManaCost"                           "0"
+        "AbilityCooldown"                           "0"
+
+		"AbilityValues"
+        {
+            "dash_speed" "2500"
+            "distance" "750"
+        }
+	}
+
+		"okita_sandanzuki_charge2"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/okita/okita_sandanzuki"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityTextureName"			"custom/okita/okita_mumyo"
+		"AbilityCastAnimation" 			"ACT_DOTA_RUN"
+		"AnimationPlaybackRate" 		"0.3"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+
+		"AbilityCastPoint"                          "0.0"
+        "AbilityManaCost"                           "0"
+        "AbilityCooldown"                           "0"
+
+		"AbilityValues"
+        {
+            "dash_speed" "2500"
+            "distance" "750"
+        }
+	}
+
+		"okita_sandanzuki_charge3"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/okita/okita_sandanzuki"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityTextureName"			"custom/okita/okita_mumyo"
+		"AbilityCastAnimation" 			"ACT_DOTA_RUN"
+		"AnimationPlaybackRate" 		"0.3"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+
+		"AbilityCastPoint"                          "0.0"
+        "AbilityManaCost"                           "0"
+        "AbilityCooldown"                           "0"
+
+		"AbilityValues"
+        {
+            "dash_speed" "3500"
+            "distance" "1000"
+        }
+	}
+
+		"okita_sandanzuki_release"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/okita/okita_sandanzuki"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityTextureName"			"custom/okita/okita_mumyo"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3"
+		"AnimationPlaybackRate" 		"1.0"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+
+		"AbilityCastPoint"                          "0.05"
+        "AbilityManaCost"                           "0"
+        "AbilityCooldown"                           "0"
+
+		"AbilityValues"
+        {
+            "speed" "2500"
+            "distance" "750"
+            "base_damage" "250 320 390 460 530"
+            "delay_duration" "0.9"
+            "kiku_agi_ratio" "0.75"
+        }
+	}
+	//=================================================================================================================
+	// Okita Souji : Mind's Eye (False) (F)
+	//=================================================================================================================
+	"okita_mind_eye"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/okita/okita_mind_eye"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityTextureName"			"custom/okita/okita_mind_eye"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_5"
+		"AnimationPlaybackRate" 		"1.0"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"AbilityManaCost"				"0"
+		"AbilityCooldown"				"15.0"
+		"AbilityCastPoint"				"0.0"
+		
+		"AbilityValues"
+        {
+            "duration" "2.0"
+            "evasion" "60"
+        }
+	}
+	//=================================================================================================================
+	// Okita Souji Attribute : Master of Tennen-Ryu Kenjitsu
+	//=================================================================================================================
+	"okita_kenjitsu"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/okita/okita_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/okita/okita_tennen"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"0"
+		"AbilityManaCost"				"11"
+		"AbilityCooldown"				"9999"
+
+		"AbilityValues"
+        {
+            "tennen_bonus_stacks" "10"
+        }
+	}
+
+	//=================================================================================================================
+	// Okita Souji Attribute : Reduced Wind
+	//=================================================================================================================
+	"okita_attribute_reduced_wind"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/okita/okita_attributes"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/okita/okita_reduced_wind"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"0"
+		"AbilityManaCost"				"8"
+		"AbilityCooldown"				"9999"
+
+		"AbilityValues"
+        {
+        }
+	}
+
+	//=================================================================================================================
+	// Okita Souji Attribute : Reduced Earth
+	//=================================================================================================================
+	"okita_attribute_reduced_earth"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/okita/okita_attributes"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/okita/okita_reduced_earth"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"0"
+		"AbilityManaCost"				"9"
+		"AbilityCooldown"				"9999"
+
+		"AbilityValues"
+        {
+        }
+	}
+
+	//=================================================================================================================
+	// Okita Souji Attribute : Mind's Eye (False)
+	//=================================================================================================================
+	"okita_attribute_mind_eye"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/okita/okita_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/okita/okita_mind_eye"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"0"
+		"AbilityManaCost"				"5"
+		"AbilityCooldown"				"9999"
+
+		"AbilityValues"
+		{
+			"evasion"					"60"
+			"duration"					"2"
+		}
+	}
+	//=================================================================================================================
+	// Okita Souji Attribute : Kiku-Ichimonji
+	//=================================================================================================================
+	"okita_attribute_kiku_ichimonji"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/okita/okita_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/okita/okita_attribute_kiku_ichimonjii"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"0"
+		"AbilityManaCost"				"10"
+		"AbilityCooldown"				"9999"
+
+		"AbilityValues"
+        {
+            "sandanzuki_agi_scale" "0.75"
+            "zekken_agi_scale" "0.25"
+        }
+	}
+	//=================================================================================================================
+	// Okita Souji Combo : Incomplete Zekken Mukyuu Sandan (R) 
+	//=================================================================================================================
+	"okita_zekken"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/okita/okita_zekken"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/okita/okita_combo_zekken"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3"
+		"AnimationPlaybackRate" 		"1.0"
+		
+		"precache"
+		{
+			"particle"					"particles/custom/false_assassin/tsubame_gaeshi/tsubame_gaeshi_windup_indicator_flare.vpcf"
+			"particle"					"particles/custom/archer/archer_overedge_slash.vpcf"
+			"particle"					"particles/custom/archer/archer_hrunting_area.vpcf"
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts"
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_mirana.vsndevts"
+		}
+		
+		"AbilityCastPoint"				"0.6"
+		"AbilityCooldown"				"100"
+		"AbilityManaCost"				"800"
+		"AbilityCastRangeBuffer"		"200"	
+		
+		"AbilityValues"
+		{	
+			"cast_point"		"0.6"
+			"interval"			"0.1"
+			"duration"			"2.9"
+			"follow_duration"	"1"
+			"radius"			"800"
+			"kiku_agi_ratio"	"0.25"
+			"damage"			"160"
+			"range"				"500"
+			"speed"				"3000"
+		}
+	}
+	//=================================================================================================================
+	// Okita Souji Combo 2 : Jet Sandan-Zuki (D) 
+	//=================================================================================================================
+	"okita_jet"
+    {
+        "BaseClass"                                 "ability_lua"
+        "ScriptFile"                                "abilities/okita/okita_jet"
+        "AbilityBehavior"                           "DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+        "AbilityTextureName"                        "custom/okita/okita_jet"
+
+        "MaxLevel"                                  "1"
+        "RequiredLevel"                             "1"
+        "LevelsBetweenUpgrades"                     "1"
+
+        "AbilityUnitTargetTeam"                     "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"                     "DOTA_UNIT_TARGET_ALL"
+        "AbilityUnitDamageType"                     "DAMAGE_TYPE_MAGICAL"
+        "AbilityCastAnimation"                      "ACT_DOTA_CAST_ABILITY_2"
+
+		"AbilityCastRange"							"4000"
+
+        "AbilityCastPoint"                          "0.1"
+        "AbilityManaCost"                           "600"
+        "AbilityCooldown"                           "90"
+        "AbilityChannelTime"                        "3"
+
+        "AbilityValues"
+        {
+            "radius" "250"
+            "max_channel_time" "3"
+            "dist_min" "2000"
+            "dist_max" "4000"
+            "speed" "3000"
+            "base_damage" "500"
+            "dmg_level" "10"
+        }
+    }
+
+    "okita_jet_charge1"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/okita/okita_jet_2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityTextureName"			"custom/okita/okita_jet"
+		"AbilityCastAnimation" 			"ACT_DOTA_RUN"
+		"AnimationPlaybackRate" 		"0.3"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+
+		"AbilityCastPoint"                          "0.0"
+        "AbilityManaCost"                           "0"
+        "AbilityCooldown"                           "0"
+
+		"AbilityValues"
+        {
+            "dash_speed" "3750"
+            "distance" "1500"
+        }
+	}
+
+		"okita_jet_charge2"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/okita/okita_jet_2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityTextureName"			"custom/okita/okita_jet"
+		"AbilityCastAnimation" 			"ACT_DOTA_RUN"
+		"AnimationPlaybackRate" 		"0.3"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+
+		"AbilityCastPoint"                          "0.0"
+        "AbilityManaCost"                           "0"
+        "AbilityCooldown"                           "0"
+
+		"AbilityValues"
+        {
+            "dash_speed" "4500"
+            "distance" "1500"
+        }
+	}
+
+		"okita_jet_release"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/okita/okita_jet_2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityTextureName"			"custom/okita/okita_jet"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3"
+		"AnimationPlaybackRate" 		"1.0"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+
+		"AbilityCastPoint"                          "0.05"
+        "AbilityManaCost"                           "0"
+        "AbilityCooldown"                           "0"
+
+		"AbilityValues"
+        {
+            "speed" "7500"
+            "distance" "1500"
+            "base_damage" "300 400 500 600 700"
+            "delay_duration" "0.9"
+            "kiku_agi_ratio" "2.5"
+        }
+	}
+
+    "okita_weak_constitution_summer"
+    {
+    	"BaseClass"									"ability_lua"
+    	"ScriptFile"								"abilities/okita/okita_weak_constitution"
+    	"AbilityBehavior"							"DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_PASSIVE"
+    	"AbilityTextureName"						"custom/okita/okita_weak_constitution_summer"
+
+    	"MaxLevel"                                  "1"
+        "RequiredLevel"                             "1"
+        "LevelsBetweenUpgrades"                     "1"
+    }
+}

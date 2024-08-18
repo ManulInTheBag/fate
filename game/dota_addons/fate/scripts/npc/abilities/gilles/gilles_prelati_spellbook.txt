@@ -1,0 +1,33 @@
+"DOTAAbilities"
+{
+	//=================================================================================================================
+	// Gilles de Rais : Prelati's Spellbook
+	//=================================================================================================================
+	"gilles_prelati_spellbook"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/gilles/gilles_prelati_spellbook"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityTextureName"			"custom/gille_spellbook_of_prelati"
+		"MaxLevel"						"1"
+		"AbilityCooldown"				"60"
+		"AbilityCastPoint"				"0.1"
+		"AbilityChannelTime"			"2.0"
+		"precache"
+		{
+			"particle"			"particles/custom/avenger/avenger_verg_avesta_shield.vpcf"
+			"particle"			"particles/custom/gilles_prelati_shield_aura.vpcf"
+			"particle"			"particles/custom/generic/fate_red_shield.vpcf"
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_warlock.vsndevts"
+		}
+		
+		"AbilityValues"
+        {
+            "regen_pct" "12 15"
+            "block_duration" "10 5"
+            "duration" "2.0"
+            "creep_regen" "3"
+            "hero_regen" "100"
+        }		
+	}
+}

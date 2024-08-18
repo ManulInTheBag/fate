@@ -1,0 +1,53 @@
+"DOTAAbilities"
+{
+	"tamamo_combo"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/tamamo/tamamo_combo"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"25"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/tamamo/tamamo_combo"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
+		"AnimationPlaybackRate" 		"0.5"
+
+		"IsCastableWhileHidden"			"1"
+		"precache"
+		{
+			"particle"		"particles/custom/tamamo/combo/combo_fire_orb_projectile.vpcf"
+			"particle"		"particles/custom/tamamo/combo/combo_ice_orb_projectile.vpcf"
+			"particle"		"particles/custom/tamamo/combo/fire_explosion.vpcf"
+			"particle"		"particles/custom/tamamo/combo/ice_explosion.vpcf"
+			"particle"		"particles/custom/tamamo/combo/final_orb_explosion.vpcf"
+		}
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"750"
+		"AbilityCastPoint"				"0.3"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"135.0"		
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"400"
+		
+		"AbilityValues"
+        {
+            "delay" "0.3"
+            "small_radius" "350"
+            "small_damage" "500"
+            "radius" "700"
+            "final_damage" "2000"
+            "range" "750"
+        }
+	}
+}

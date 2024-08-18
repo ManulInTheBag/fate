@@ -1,0 +1,34 @@
+"DOTAAbilities"
+{
+	//=======================================★★★★★
+	// Artoria: Charisma (D, Passive)
+	//=======================================★★★★★
+	"artoria_charisma"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/artoria/artoria_charisma"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"25"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"			"custom/artoria/artoria_charisma"
+		
+		// Ability Stats		//------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1500"
+		
+		// Precache		//------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"					"particles/items2_fx/rod_of_atos_debuff_glow.vpcf"
+			"particle"					"particles/items2_fx/rod_of_atos_debuff_ground.vpcf"
+		}
+		
+		// Ability Special		//------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+        {
+            "radius" "1500"
+            "speed_modifier" "10"
+        }
+	}
+}

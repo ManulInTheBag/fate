@@ -32,13 +32,9 @@
 			"soundfile"									"soundevents/game_sounds_heroes/game_sounds_antimage.vsndevts"
 		}
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"								"FIELD_INTEGER"
-				"distance"								"1000"
-			}
-		}
+		"AbilityValues"
+        {
+            "distance" "1000"
+        }
 	}
 }

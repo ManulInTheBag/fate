@@ -1,0 +1,462 @@
+
+"DOTAAbilities"
+{	
+	//=================================================================================================================
+	// Diarmuid : Warrior's Charge
+	//=================================================================================================================
+	"diarmuid_warrior_charge"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/diarmuid/diarmuid_warrior_charge"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/diarmuid_warriors_charge"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
+		"AOERadius"						"%radius"
+		"AnimationPlaybackRate" 		"2.5"
+		
+		"precache"
+		{
+			"particle"				"particles/units/heroes/hero_sven/sven_storm_bolt_projectile_explosion.vpcf"
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_huskar.vsndevts"
+		}
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"650 675 700 725 750"
+		"AbilityCastRangeBuffer"		"800"
+		"AbilityCastPoint"				"0.1"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"11 10 9 8 7"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100"
+		
+		"AbilityValues"
+        {
+            "damage" "80 115 150 185 220"
+            "radius" "300"
+            "cooldown" "11 10 9 8 7"
+            "doublespear_cd" "4"
+            "combo_cd" "2"
+            "duration" "0.6 0.7 0.8 0.9 1"
+            "cast_range_checker" "900"
+            "cast_range" "650 675 700 725 750"
+        }
+	}
+
+	//========================================
+	// Diarmuid - Double Spearsmanship
+	//========================================
+	"diarmuid_double_spearmanship"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/diarmuid/diarmuid_double_spearmanship"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityTextureName"			"custom/diarmuid_double_spearsmanship"
+		"MaxLevel"						"5"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
+		"precache"
+		{
+			"particle"				"particles/units/heroes/hero_invoker/invoker_alacrity_buff.vpcf"
+			"particle"				"particles/custom/diarmuid/diarmuid_red_trail.vpcf"
+			"particle"				"particles/custom/diarmuid/diarmuid_yellow_trail.vpcf"
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts"
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_phantom_lancer.vsndevts"
+		}
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"20 19 18 17 16"
+		"AbilityCastPoint"				"0.1"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"200"
+		
+		"AbilityValues"
+        {
+            "duration" "8 9 10 11 12"
+            "proc_chance" "15 20 25 30 35"
+            "combo_duration" "16"
+            "combo_aspd" "100"
+            "combo_damage" "140"
+            "combo_cooldown" "135"
+            "attribute_attack_speed" "30"
+            "window" "3"
+            "on_hit" "20 25 30 35 40"
+        }
+	}
+
+	//=================================================================================================================
+	// Diarmuid : Gae Buidhe
+	//=================================================================================================================
+	"diarmuid_gae_buidhe"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/diarmuid/diarmuid_gae_buidhe"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/diarmuid_gae_buidhe"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_4"
+		"AnimationPlaybackRate" 		"1.2"
+		
+		"precache"
+		{
+			"particle"					"particles/units/heroes/hero_chaos_knight/chaos_knight_reality_rift.vpcf"
+			"particle"					"particles/units/heroes/hero_axe/axe_culling_blade_kill.vpcf"
+			"particle"					"particles/custom/diarmuid/diarmuid_gae_cast.vpcf"
+			"particle"					"particles/custom/diarmuid/diarmuid_gae_buidhe.vpcf"
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_lion.vsndevts"
+		}
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"275"
+		"AbilityCastRangeBuffer"		"150"
+		//"AbilityCastPoint"				"0.6"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		//"AbilityCooldown"				"30"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		//"AbilityManaCost"				"500"
+		
+		"AbilityValues"
+        {
+            "damage" "600 750 900 1050 1200"
+            "cooldown" "30"
+            "combo_cooldown" "1"
+            "doublespear_window" "3"
+            "attribute_window" "4"
+        }
+	}
+
+	//========================================
+	// Diarmuid - Love Spot
+	//========================================
+	"diarmuid_love_spot"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/diarmuid/diarmuid_love_spot"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET|DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE|DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityTextureName"			"custom/diarmuid_love_spot"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"MaxLevel"						"2"
+		"LevelsBetweenUpgrades"			"25"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
+		"precache"
+		{
+			"particle"					"particles/units/heroes/hero_doom_bringer/doom_bringer_lvl_death.vpcf"
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_warlock.vsndevts"
+		}
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"24"
+		"AbilityCastPoint"				"0.2"
+		"AbilityCastRange"				"600 900"
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100"
+		
+		"AbilityValues"
+        {
+            "duration" "1.5 2.5"
+            "damage_reduction" "15"
+            "radius" "600 900"
+        }
+	}
+
+	//=======================================
+	// Diarmuid : Minds Eye
+	//=======================================
+	"diarmuid_minds_eye"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/diarmuid/diarmuid_minds_eye"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"25"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityTextureName"			"custom/diarmuid_attribute_minds_eye"	
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"15"
+		"AbilityManaCost"				"0"
+
+		"precache"
+		{
+		}
+
+		"AbilityValues"
+        {
+            "duration" "3.5"
+            "magic_res" "0"
+            "evasion" "75"
+            "radius" "1500"
+        }
+	}
+
+	//=================================================================================================================
+	// Diarmuid : Gae Dearg
+	//=================================================================================================================
+	"diarmuid_gae_dearg"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/diarmuid/diarmuid_gae_dearg"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityTextureName"			"custom/diarmuid_gae_dearg"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AnimationPlaybackRate" 		"1.0"
+		
+		"precache"
+		{
+			"particle"			"particles/units/heroes/hero_chaos_knight/chaos_knight_reality_rift.vpcf"
+			"particle"			"particles/units/heroes/hero_axe/axe_culling_blade_kill.vpcf"
+			"particle"			"particles/items_fx/dagon.vpcf"
+			"particle" 			"particles/custom/diarmuid/gae_dearg_slash.vpcf"
+			"particle" 			"particles/custom/diarmuid/gae_dearg_slash_flash.vpcf"
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_lion.vsndevts"
+		}
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"350"
+		"AbilityCastRangeBuffer"		"200"
+		"AbilityCastPoint"				"0.8"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"30"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"500"
+		
+		"AbilityValues"
+        {
+            "min_damage" "600 750 900 1050 1200"
+            "max_damage" "800 1000 1200 1400 1600"
+            "min_damage_dist" "350"
+            "max_damage_dist" "200"
+            "duration" "15.0"
+            "doublespear_window" "3"
+            "cooldown" "30"
+            "combo_cooldown" "1.0"
+            "attribute_window" "4"
+        }
+	}
+
+
+	//=======================================
+	// Diarmuid Attribute : Improve Love Spot
+	//=======================================
+	"diarmuid_attribute_love_spot"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/diarmuid/diarmuid_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/diarmuid_attribute_improve_love_spot"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"9"
+
+		"precache"
+		{
+		}
+
+		"AbilityValues"
+        {
+            "duration" "1.0"
+            "range" "300"
+        }
+	}
+
+	//=======================================
+	// Diarmuid Attribute : Mind's Eye
+	//=======================================
+	"diarmuid_attribute_minds_eye"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/diarmuid/diarmuid_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/diarmuid_attribute_minds_eye"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"12"
+
+		"precache"
+		{
+		}
+
+		"AbilityValues"
+        {
+            "duration" "1.0"
+            "radius" "1500"
+            "active_duration" "2.5"
+            "magic_resist" "50"
+            "evasion" "75"
+        }
+	}
+	
+	//=======================================
+	// Diarmuid Attribute : Golden Rose of Mortality
+	//=======================================
+	"diarmuid_attribute_golden_rose"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/diarmuid/diarmuid_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/diarmuid_attribute_golden_rose"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"8"
+
+		"precache"
+		{
+		}
+
+		"AbilityValues"
+        {
+            "damage_per_stack" "1"
+            "cost_reduce" "150"
+        }
+	}
+
+	//=======================================
+	// Diarmuid Attribute : Crimson Rose of Exorcism
+	//=======================================
+	"diarmuid_attribute_crimson_rose"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/diarmuid/diarmuid_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/diarmuid_attribute_crimson_rose"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"10"
+
+		"precache"
+		{
+		}
+
+		"AbilityValues"
+        {
+            "revoke_per_stack" "2.0"
+            "mana_per_stack" "500"
+            "cost_reduce" "150"
+            "mana_duration" "15"
+        }
+	}
+
+	//=======================================
+	// Diarmuid Attribute : Double Spear Strike
+	//=======================================
+	"diarmuid_attribute_doublespear"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/diarmuid/diarmuid_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/diarmuid_attribute_double_spear_strike"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"16"
+
+		"precache"
+		{
+		}
+
+		"AbilityValues"
+        {
+            "use_window" "7.0"
+            "attack_speed" "55"
+            "cost_reduce_buidhe" "100"
+            "cost_reduce_dearg" "100"
+        }
+	}
+
+	//=======================================
+	// Diarmuid : Rampant Warrior Proxy
+	//=======================================
+	"diarmuid_rampant_warrior_proxy"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/diarmuid/diarmuid_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/diarmuid_rampant_warrior"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"135"
+		"AbilityManaCost"				"0"
+
+		"precache"
+		{
+		}
+
+		"AbilityValues"
+        {
+            "cast_reduc" "62.5"
+            "spear_mana" "250"
+            "spear_cd" "1"
+            "atk_mgk_dmg" "125"
+            "atk_pure_dmg" "125"
+            "atk_spd" "100"
+            "duration" "15"
+        }
+	}
+}

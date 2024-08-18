@@ -1,0 +1,80 @@
+"DOTAAbilities"
+{
+	//===================================================
+	// Heracles : Nine Lives
+	//===================================================
+	"heracles_nine_lives"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/heracles/heracles_nine_lives"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/berserker_5th_nine_lives"
+		"AbilityCastAnimation" 			"ACT_DOTA_ITEM_PICKUP"		
+		
+		"precache"
+		{
+			"particle"					"particles/custom/berserker/nine_lives/hit.vpcf"
+			"particle"					"particles/custom/berserker/nine_lives/last_hit.vpcf"
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_earth_spirit.vsndevts"
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_ogre_magi.vsndevts"
+		}
+		
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"600"
+		"AbilityCastPoint"				"0.3"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"40"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"800"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_6"
+		
+		"AbilityValues"
+        {
+            "radius" "350"
+            "damage" "40 48 56 64 72"
+            "radius_lasthit" "450"
+            "damage_lasthit" "350 450 550 650 750"
+            "stun_duration" "1.5"
+            "range" "600"
+            "damage_phys" "10"
+            "last_damage_phys" "100"
+        }
+	}
+
+	"pepeg_combo_final_gachi"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/pepeg_machine"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/gilgamesh_enkidu"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_4"
+		"AnimationPlaybackRate" 		"1.0"
+
+		"AbilityCastPoint"				"0.3"
+		"AbilityCastRange"				"350"
+		"AbilityCastRangeBuffer"		"100"
+		"AbilityCooldown"				"180"
+		"AbilityManaCost"				"100"
+	}
+}

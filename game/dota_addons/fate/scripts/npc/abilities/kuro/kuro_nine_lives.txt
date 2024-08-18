@@ -1,0 +1,151 @@
+"DOTAAbilities"
+{
+	//===================================================
+	// Archer : Nine Lives
+	//===================================================
+	"kuro_nine_lives"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/kuro/kuro_nine_lives"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/archer_5th_nine_lives"
+		"AbilityCastAnimation" 			"ACT_DOTA_ITEM_PICKUP"		
+		
+		"precache"
+		{
+			"particle"					"particles/custom/berserker/nine_lives/hit.vpcf"
+			"particle"					"particles/custom/berserker/nine_lives/last_hit.vpcf"
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_earth_spirit.vsndevts"
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_ogre_magi.vsndevts"
+		}
+		
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"300"
+		"AbilityCastPoint"				"0.2"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"35"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"600"
+		
+		"AbilityValues"
+        {
+            "radius" "275"
+            "damage" "70 80 90 100 110"
+            "radius_lasthit" "375"
+            "damage_lasthit" "500 575 650 725 800"
+            "stun_duration" "0.75"
+            "range" "700"
+            "cooldown" "35"
+            "cooldown_reduction" "35"
+            "manacost" "600"
+        }
+	}
+
+	"kuro_hrunting"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/kuro/kuro_hrunting"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"25"
+		"LevelsBetweenUpgrades"			"25"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/kuro/chloe_hrunting"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
+		"AnimationPlaybackRate" 		"1.0"
+		
+		"precache"
+		{
+			"particle"					"particles/econ/events/ti4/teleport_end_ti4.vpcf"
+			"particle"					"particles/custom/archer/archer_hrunting_orb.vpcf"
+			"particle"					"particles/custom/archer/archer_hrunting_area.vpcf"
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts"
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_mirana.vsndevts"
+		}
+		
+		"AbilityCastPoint"				"0.5"
+		"AbilityChannelTime"			"4"
+		"AbilityCooldown"				"140"
+		"AbilityManaCost"				"0"
+		
+		"AbilityValues"
+        {
+            "cast_delay" "4"
+            "cast_range" "4000"
+            "mana_used" "50"
+            "damage" "300 400 500 600 700"
+            "bonus_range" "800"
+            "stun_duration" "2.5"
+            "radius" "600"
+            "max_bounce" "2"
+            "bounce_damage" "80"
+            "cooldown" "140"
+            "projection_bounce" "4"
+        }
+	}
+
+	"kuro_rosa_ichthys"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/kuro/kuro_rosa_ichthys"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/nero_rosa_ichthys"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3"
+		
+		// Ability stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"700"
+		"AbilityCastRangeBuffer"		"125"
+		"AbilityCastPoint"				"0.2"
+		"AbilityCooldown"				"12"
+		"AbilityManaCost"				"200"
+
+		// Data driven
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"						
+		{
+			"particle"			"particles/custom/archer/archer_overedge_slash.vpcf"
+			"particle"			"particles/units/heroes/hero_legion_commander/legion_duel_start_text_burst_flare.vpcf"
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_lion.vsndevts"
+		}		
+
+		// Ability special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+        {
+            "damage" "350 425 500 575 650"
+            "range" "700"
+            "stun_duration" "1.5"
+            "aestus_cooldown" "3"
+            "projection_damage" "125 150 175 200 225"
+            "aestus_range" "900"
+            "cooldown" "12"
+            "manacost" "200"
+        }
+	}
+}

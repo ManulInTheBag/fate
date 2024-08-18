@@ -1,0 +1,51 @@
+"DOTAAbilities"
+{
+	//=================================================================================================================
+	// Tamamo: Polygamist Castration Fist
+	//=================================================================================================================
+	"tamamo_castration_fist"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/tamamo/tamamo_castration_fist"
+		"MaxLevel"						"3"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/tamamo/tamamo_castration_fist"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
+		
+		// Ability stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"600"
+		"AbilityCastRangeBuffer"		"100"
+		"AbilityCastPoint"				"0.2"
+		"AbilityCooldown"				"40"
+		"AbilityManaCost"				"400"
+
+		// Data driven
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"						
+		{
+			"particle"			"particles/custom/tamamo/tamamo_kick_trail.vpcf"
+			"particle"			"particles/units/heroes/hero_ember_spirit/ember_spirit_hit.vpcf"
+			"particle"			"particles/units/heroes/hero_lina/lina_spell_light_strike_array.vpcf"			
+			"particle"			"particles/custom/screen_violet_splash.vpcf"			
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_tusk.vsndevts"
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_lina.vsndevts"
+		}		
+
+		// Ability special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+        {
+            "range" "600"
+            "damage" "300 350 400"
+            "final_damage" "450 525 600"
+            "male_bonus" "10"
+            "damage_reduc" "-50"
+        }
+	}
+}

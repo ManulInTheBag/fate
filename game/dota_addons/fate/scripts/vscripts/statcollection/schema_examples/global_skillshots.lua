@@ -111,7 +111,7 @@ end
 -------------------------------------
 
 -- If your gamemode is round-based, you can use statCollection:submitRound(bLastRound) at any point of your main game logic code to send a round
--- If you intend to send rounds, make sure your settings.kv has the 'HAS_ROUNDS' set to true. Each round will send the game and player arrays defined earlier
+-- If you intend to send rounds, make sure your settings.txt has the 'HAS_ROUNDS' set to true. Each round will send the game and player arrays defined earlier
 -- The round number is incremented internally, lastRound can be marked to notify that the game ended properly
 function customSchema:submitRound(isLastRound)
 

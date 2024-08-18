@@ -1,0 +1,52 @@
+"DOTAAbilities"
+{
+	//=================================================================================================================
+	// Nero : Rosa Ichthys
+	//=================================================================================================================
+	"nero_rosa_ichthys"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/nero/nero_rosa_ichthys"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/nero_rosa_ichthys"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3"
+		
+		// Ability stats
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"700"
+		"AbilityCastRangeBuffer"		"125"
+		"AbilityCastPoint"				"0.2"
+		"AbilityCooldown"				"16"
+		"AbilityManaCost"				"200"
+
+		// Data driven
+		//-------------------------------------------------------------------------------------------------------------
+		"precache"						
+		{
+			"particle"			"particles/custom/archer/archer_overedge_slash.vpcf"
+			"particle"			"particles/units/heroes/hero_legion_commander/legion_duel_start_text_burst_flare.vpcf"
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_lion.vsndevts"
+		}		
+
+		// Ability special
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+        {
+            "damage" "300 375 450 525 600"
+            "range" "700"
+            "stun_duration" "1.5"
+            "speed" "4000"
+            "cooldown" "10"
+            "aestus_range" "900"
+        }
+	}
+}

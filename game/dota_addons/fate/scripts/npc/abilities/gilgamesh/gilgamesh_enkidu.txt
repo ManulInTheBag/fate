@@ -1,0 +1,45 @@
+"DOTAAbilities"
+{
+	//=====================================
+	// Gilgamesh : Enkidu
+	//=====================================
+	"gilgamesh_enkidu"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/gilgamesh/gilgamesh_enkidu"
+		"MaxLevel"						"2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET|DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/gilgamesh_enkidu"
+		//"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_4"
+		"AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_5"
+		"AnimationPlaybackRate" 		"1.0"
+
+		"AbilityCastPoint"				"0.2"
+		"AbilityCastRange"				"400"
+		"AbilityCastRangeBuffer"		"100"
+		"AbilityCooldown"				"40"
+		"AbilityManaCost"				"200"
+		//"AbilityChannelTime"            "2.0 2.5 3.0 3.5 4.0"
+		
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_skywrath_mage/skywrath_mage_ancient_seal_debuff.vpcf"
+			"particle"		"particles/custom/archer/archer_sword_barrage_impact_circle.vpcf"
+			"particle"		"particles/custom/gilgamesh/gilgamesh_sword_barrage_model.vpcf"
+			"particle"		"particles/units/heroes/hero_gyrocopter/gyro_guided_missile_explosion.vpcf"
+			"particle"		"particles/custom/gilgamesh/gilgamesh_enkidu.vpcf"
+		}
+
+		"AbilityValues"
+        {
+            "cast_range" "400"
+            "duration" "1.5 2.5"
+            "damage" "100"
+            "att_sword_count" "8"
+        }
+	}	
+}

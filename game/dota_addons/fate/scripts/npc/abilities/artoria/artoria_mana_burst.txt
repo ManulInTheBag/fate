@@ -1,0 +1,55 @@
+"DOTAAbilities"
+{
+	//=======================================★★★★★
+	// Artoria: Mana Burst (W)
+	//=======================================★★★★★
+	"artoria_mana_burst"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/artoria/artoria_mana_burst"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
+		"AnimationCastRate" 			"0.625"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityTextureName"			"custom/saber_caliburn"
+		
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
+		// Ability Stats		//------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"250"
+		"AbilityCastRangeBuffer"		"75"
+		"AbilityCastPoint"				"0.4"
+		"AbilityCooldown"				"12"
+		"AbilityManaCost"				"200"
+		
+		// Precache		//------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"				"particles/units/heroes/hero_skywrath_mage/skywrath_mage_concussive_shot_impact.vpcf"
+			"particle"				"particles/units/heroes/hero_magnataur/magnataur_shockwave.vpcf"
+			"particle"				"particles/units/heroes/hero_skywrath_mage/skywrath_mage_arcane_bolt_birds.vpcf"
+			"particle"				"particles/custom/artoria/artoria_mana_burst.vpcf"
+			"particle"				"particles/custom/artoria/artoria_mana_burst_slash.vpcf"
+			"particle"				"particles/custom/saber/caliburn/explosion.vpcf"
+			"particle"				"particles/custom/saber/caliburn/slash.vpcf"
+		}
+		
+		// Ability Special		//------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+        {
+            "damage" "400 475 550 625 700"
+            "aoe_damage_ratio" "50"
+            "radius" "350"
+            "slow_amount" "-35 -40 -45 -50 -55"
+            "duration" "3"
+            "mana_multiplier" "0.05"
+        }
+	}
+}

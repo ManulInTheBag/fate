@@ -1,0 +1,31 @@
+"DOTAAbilities"
+{
+	//=======================================★★★★★
+	// Lu Bu: Restless Soul (F)
+	//=======================================★★★★★
+	"lu_bu_restless_soul"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/lu_bu/lu_bu_restless_soul"
+		"MaxLevel"						"2"
+		"RequiredLevel"					"25"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityTextureName"			"custom/lu_bu/lu_bu_restless_soul"
+		"AbilityCooldown"				"5"
+
+		"precache"
+		{
+			"particle"				"particles/units/heroes/hero_phantom_assassin/phantom_assassin_phantom_strike_end.vpcf"
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_phantom_lancer.vsndevts"
+		}
+		"AbilityValues"
+        {
+            "duration" "5"
+            "passive_heal" "500 1000"
+            "active_heal" "150 300"
+            "spell_amp" "30"
+            "cooldown" "100"
+        }
+	}
+}	

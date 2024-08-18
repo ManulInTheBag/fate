@@ -1,0 +1,49 @@
+"DOTAAbilities"
+{
+	//===================================================
+	// Archer : Nine Lives
+	//===================================================
+	"emiya_nine_lives"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/emiya/emiya_nine_lives"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/archer_5th_nine_lives"
+		"AbilityCastAnimation" 			"ACT_DOTA_ITEM_PICKUP"		
+		
+ 
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"700"
+		"AbilityCastPoint"				"0.3"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"35"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"400"
+		
+		"AbilityValues"
+        {
+            "radius" "275"
+            "damage" "60 70 80 90 100"
+            "radius_lasthit" "375"
+            "damage_lasthit" "500 575 650 725 800"
+            "stun_duration" "0.75"
+            "range" "700"
+            "cooldown" "35"
+            "cooldown_reduction" "35"
+        }
+	}
+}

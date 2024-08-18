@@ -1,0 +1,47 @@
+"DOTAAbilities"
+{
+	//========================================
+	// Verg Avesta
+	//========================================
+	"angra_mainyu_verg_avesta"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/angra_mainyu/angra_mainyu_verg_avesta"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/avenger_verg_avesta"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_6"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_INVULNERABLE | DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+
+		"precache"
+		{
+			"particle"		"particles/econ/items/sniper/sniper_charlie/sniper_assassinate_impact_blood_charlie.vpcf"
+			"particle"		"particles/units/heroes/hero_nevermore/nevermore_shadowraze.vpcf"
+			"particle"		"particles/custom/avenger/avenger_verg_avesta.vpcf"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_witchdoctor.vsndevts"
+		}
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"40"
+		"AbilityCastPoint"				"0.4"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"800"
+		
+		"AbilityValues"
+        {
+            "multiplier" "90 110 130 150 170"
+            "reset_delay" "10"
+            "marker_duration" "10"
+            "return_bonus" "30"
+            "radius" "1500"
+            "delay" "1"
+        }
+	}
+}

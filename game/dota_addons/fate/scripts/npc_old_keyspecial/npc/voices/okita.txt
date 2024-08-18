@@ -1,0 +1,52 @@
+"FATEVoices"
+{
+	"npc_dota_hero_pangolier"
+	{
+		"Spawn"
+		{
+			"01"						"okita_spawn"
+		}
+		
+		"Move"
+		{
+			"01"						"okita_move_01"
+			"02"						"okita_move_03"
+		}
+		
+		"Attack"
+		{
+			"01"						"okita_attack_01"
+			"02"						"okita_attack_02"
+			"03"						"okita_attack_03"
+		}
+		
+		"Cast"
+		{
+			"01"						"okita_move_02"
+		}
+		
+		"Hurt"
+		{
+			"01"						"okita_hurt_02"
+		}
+		
+		"Respawn"
+		{
+			"01"						"okita_respawn_01"
+			"02"						"okita_respawn_02"
+			"03"						"okita_battle_begins"
+			"04"						"okita_levelup"
+		}
+		
+		"Death"
+		{
+			"01"						"okita_death_01"
+			"02"						"okita_death_02"
+		}
+		
+		"Kill"
+		{
+			"01"						"okita_kill"
+		}
+	}
+}

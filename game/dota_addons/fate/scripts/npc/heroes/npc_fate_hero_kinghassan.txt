@@ -1,0 +1,79 @@
+"DOTAHeroes"
+{
+	//=================================================================================================================
+	//	Assassin(Grand) - Old Man from the Mountian
+	//=================================================================================================================
+	"npc_dota_hero_kinghassan"
+	{
+		"override_hero"			"npc_dota_hero_skeleton_king"
+		"DisableWearables" 			"1"
+		"Model"					"models/updated_by_seva_and_hudozhestvenniy_film_spizdili/kinghassan/kinghassan_unanim.vmdl"
+		//"Model"				"models/development/invisiblebox.vmdl"
+		"ModelScale"			"5.0"
+		"LoadoutScale"       "5.0"
+        "SpectatorLoadoutScale"   		"5.0"
+		"DrawParticlesWhileHidden" "1"
+
+		"AbilityLayout"			"6"
+		"Ability1"				"khsn_ambush"
+		"Ability2"				"khsn_mde"
+		//"Ability3"				"khsn_flame"
+		//"Ability3"				"khsn_raze1"
+		"Ability3"				"khsn_slash"
+		//"Ability4"				"khsn_raze2"
+		//"Ability5"				"khsn_raze3"
+		"Ability4"				"khsn_azrael"
+		"Ability5"				"fate_empty6"
+		"Ability6"				"khsn_aoe_flame"
+		"Ability7"				"khsn_combo"
+		"Ability8"				"khsn_bc"
+		"Ability9"				"khsn_presence"
+		"Ability10"				"khsn_mde_end"
+		"Ability11"				"presence_detection_passive"
+		"Ability12"				"attribute_bonus_custom"
+		"Ability13"				"hero_base_stats_bonus"
+		"Ability14"				"khsn_blink"
+		"Ability15"				"khsn_ambush_blink"
+
+
+		"Combo"					"khsn_combo"
+		"AttributeNumber"			"5"
+		"Attribute1"				"khsn_boundary_attribute"
+		"Attribute2"				"khsn_bc_attribute"
+		"Attribute3"				"khsn_presence_attribute"
+		"Attribute4"				"khsn_flame_attribute"
+		"Attribute5"				"khsn_azrael_attribute"
+
+
+		"StatusHealth"					"1300"
+		"StatusHealthRegen"				"15"
+		"StatusMana"					"1000"
+		"StatusManaRegen"				"5"
+
+		"ArmorPhysical"					"4"
+		"MagicalResistance"				"5"
+
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackRange"					"215"
+		"AttackDamageMin"				"120"
+		"AttackDamageMax"				"120"
+		"AttackRate"					"1.42"
+		"AttackAcquisitionRange"		"520"
+		//"AttackAnimationPoint"		"0.3"
+
+
+		"AttributePrimary"				"DOTA_ATTRIBUTE_STRENGTH"
+		"AttributeBaseStrength"			"0"
+		"AttributeStrengthGain"			"3.2"
+		"AttributeBaseAgility"			"0"
+		"AttributeAgilityGain"			"2.0"
+		"AttributeBaseIntelligence"		"0"
+		"AttributeIntelligenceGain"		"1.5"
+
+		"MovementSpeed"					"370"
+		"MovementTurnRate"				"0.8"
+
+		"VisionDaytimeRange"			"1000"
+		"VisionNighttimeRange"			"1000"
+	}
+}

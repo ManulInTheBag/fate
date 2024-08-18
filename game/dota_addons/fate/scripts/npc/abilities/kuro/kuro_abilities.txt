@@ -1,0 +1,162 @@
+#base "kuro_barrage_moonwalk.txt"
+#base "kuro_broken_phantasm.txt"
+#base "kuro_kanshou_byakuya.txt"
+#base "kuro_crane_wings.txt"
+#base "kuro_rho_aias.txt"
+#base "kuro_clairvoyance.txt"
+#base "kuro_crane_wings_combo.txt"
+#base "kuro_nine_lives.txt"
+#base "kuro_gae_bolg.txt"
+#base "kuro_excalibur_image.txt"
+#base "kuro_projection.txt"
+
+"DOTAAbilities"
+{
+	//=======================================
+	// Kuro Attribute Excalibur Image
+	//=======================================
+	"kuro_attribute_eagle_eye"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/kuro/kuro_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/archer_5th_attribute_eagle_eye"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"10"
+
+		"precache"
+		{
+		}
+
+		"AbilityValues"
+        {
+            "main_damage" "1000"
+            "beam_damage" "250"
+        }
+	}
+
+	//=======================================
+	// Kuro Attribute: Gae Bolg Image
+	//=======================================
+	"kuro_attribute_projection_overpower"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/kuro/kuro_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/kuro/kuro_overpower"		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"15"
+
+		"precache"
+		{
+		}
+
+		"AbilityValues"
+        {
+            "cast_delay" "1.0"
+            "silence_duration" "0.5"
+            "damage" "1000"
+            "heartbreak" "25"
+        }
+	}
+
+	//=======================================
+	// Archer Attribute : Kanshou Bakuya Overedge
+	//=======================================
+	"kuro_attribute_projection"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/kuro/kuro_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/kuro/kuro_attribute_projection"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"17"
+
+		"precache"
+		{
+		}
+
+		"AbilityValues"
+        {
+            "cooldown_reduction" "35"
+        }
+	}
+
+	//=======================================
+	// Archer Attribute : Kanshou Bakuya Overedge
+	//=======================================
+	"kuro_attribute_overedge"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/kuro/kuro_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/archer_5th_overedge"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"12"
+
+		"precache"
+		{
+		}
+
+		"AbilityValues"
+        {
+            "bonus_blades" "2"
+        }
+	}
+
+	"kuro_spellbook_open"
+    {
+    	    "BaseClass"                                     "ability_lua"
+    	    "ScriptFile"                                    "abilities/kuro/kuro_spellbook"
+    	    "AbilityBehavior"                               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+    	    "AbilityTextureName"                            "custom/kuro/kuro_barrage"
+
+    	    "LinkedAbilities"								"kuro_rho_aias kuro_gae_bolg kuro_nine_lives kuro_excalibur_image kuro_rosa_ichthys"
+    	    "LinkedAbilitiesRow"							"2"
+
+            "AbilityCastPoint"                              "0.0"
+            "AbilityCooldown"                               "24"
+            "AbilityManaCost"                               "0"
+
+            "MaxLevel"                                      "5"
+            "RequiredLevel"                                 "1"
+            "LevelsBetweenUpgrades"                         "2"
+
+            "AbilityValues"
+        {
+            "mana_cost" "25"
+        }
+    }
+
+    "kuro_spellbook_close"
+    {
+    	    "BaseClass"                                     "ability_lua"
+    	    "ScriptFile"                                    "abilities/kuro/kuro_spellbook"
+    	    "AbilityBehavior"                               "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL |  DOTA_ABILITY_BEHAVIOR_HIDDEN"
+    	    "AbilityTextureName"                            "custom/kuro/kuro_barrage"
+
+            "AbilityCastPoint"                              "0.0"
+            "AbilityCooldown"                               "0"
+            "AbilityManaCost"                               "0"
+
+            "MaxLevel"                                      "1"
+    }
+}

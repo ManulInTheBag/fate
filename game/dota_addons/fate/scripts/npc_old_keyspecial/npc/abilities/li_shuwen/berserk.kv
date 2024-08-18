@@ -1,0 +1,33 @@
+"DOTAAbilities"
+{
+	//=================================================================================================================
+	// Assassin(Extra) : Berserk
+	//=================================================================================================================
+	"lishuwen_berserk"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/lishuwen/lishuwen_berserk"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"			"custom/lishuwen_berserk"
+		"MaxLevel"						"1"
+		"AbilityCooldown"				"30"
+		"precache"
+		{
+			"particle"			"particles/prototype_fx/item_linkens_buff.vpcf"
+			"particle"			"particles/custom/abaddon_death_coil_explosion.vpcf"
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_abaddon.vsndevts"
+			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_sven.vsndevts"
+			"particle"			"particles/units/heroes/hero_spectre/spectre_ambient.vpcf"
+		}
+		
+		"AbilityValues"
+		{
+			"cast_point"			"0"
+			"duration"				"12.0"
+			"cc_immune_duration"	"2.0"
+			"critical_chance"		"25"
+			"str_critical_bonus"	"0.33"
+			"critical_damage"		"200"
+		}
+	}
+}

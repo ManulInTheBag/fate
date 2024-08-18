@@ -1,0 +1,53 @@
+"DOTAAbilities"
+{
+	//=======================================★★★★★
+	// Artoria: Strike Air
+	//=======================================★★★★★
+	"artoria_strike_air"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/artoria/artoria_strike_air"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_ROT"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityTextureName"			"custom/artoria/artoria_strike_air"
+		
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		
+		// Ability Stats		//------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1600"
+		"AbilityCastPoint"				"0.2"
+		"AbilityCooldown"				"34 32 30 28 26"
+		"AbilityManaCost"				"400"
+		
+		// Precache		//------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"				"particles/custom/saber_strike_air_blast.vpcf"
+			"particle"				"particles/units/heroes/hero_windrunner/windrunner_windrun.vpcf"
+			"particle"				"particles/units/heroes/hero_invoker/invoker_deafening_blast_knockback_debuff.vpcf"
+			"particle"				"particles/units/heroes/hero_keeper_of_the_light/keeper_of_the_light_illuminate_impact.vpcf"
+			"particle"				"particles/custom/artoria/strike_air/artoria_strike_air.vpcf"
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_invoker.vsndevts"
+		}
+		
+		// Ability Special		//------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+        {
+            "width" "400"
+            "length" "1600"
+            "speed" "4500"
+            "cast_time" "1.25"
+            "wall_bonus_damage" "200"
+            "wall_stun" "0.8 1 1.2 1.4 1.6"
+            "damage" "400 500 600 700 800"
+        }
+	}
+}

@@ -1,0 +1,51 @@
+"DOTAAbilities"
+{
+	//========================================================================
+	// Emiya : Gae Bolg - The Spear of Striking Death Flight
+	//========================================================================
+	"emiya_gae_bolg"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/emiya/emiya_gae_bolg"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"25"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/lancer_5th_gae_bolg_jump"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ALACRITY"
+		"AnimationPlaybackRate" 		"0.0"
+
+		"IsCastableWhileHidden"			"1"
+ 
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"750"
+		"AbilityCastPoint"				"0.3"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"6.0"
+
+		// Damage.
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityDamage"					"500 575 650 725 800"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"300"
+		
+		"AbilityValues"
+        {
+            "delay" "0.1"
+            "damage" "600 700 800 900 1000"
+            "radius" "500"
+            "range" "1500"
+            "attribute_damage" "900"
+        }
+	}
+}

@@ -1,0 +1,53 @@
+"DOTAAbilities"
+{
+	//========================================
+	// Berserker : Courage
+	//========================================
+	"heracles_courage"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/heracles/heracles_courage"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityTextureName"			"custom/berserker_5th_courage"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
+		"AnimationPlaybackRate" 		"2.0"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		//"AbilityCastRange"				"400"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"20"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"200"
+		"precache"
+		{
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_axe.vsndevts"
+			"particle"				"particles/custom/berserker/courage/buff.vpcf"
+			"particle"				"particles/custom/berserker/courage/debuff.vpcf"
+			"particle"				"particles/custom/berserker/courage/stun_explosion.vpcf"
+		}
+		
+		"AbilityValues"
+        {
+            "self_damage_inc" "0"
+            "damage_reduction" "-30 -35 -40 -45 -50"
+            "self_str_inc" "10 12.5 15 17.5 20"
+            "self_str_inc_base" "25"
+            "bonus_damage" "2 4 6 8 10"
+            "self_damage_inc_base" "25"
+            "duration" "7"
+            "enemy_duration" "4"
+            "radius" "500"
+            "bonus_ms" "6 7 8 9 10"
+            "self_ms_inc_base" "10"
+            "bonus_as" "10 12.5 15 17.5 20"
+            "self_as_inc_base" "25"
+        }
+	}
+}

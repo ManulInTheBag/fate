@@ -1,0 +1,39 @@
+"DOTAAbilities"
+{
+	"true_assassin_ambush"
+	{
+		"BaseClass"							"ability_lua"
+		"ScriptFile"						"abilities/true_assassin/true_assassin_ambush"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_DONT_RESUME_ATTACK | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"		
+		"AbilityTextureName"				"custom/true_assassin_ambush"
+		"AbilityUnitDamageType"				"DAMAGE_TYPE_PHYSICAL"
+		"MaxLevel"							"2"
+		"RequiredLevel"						"25"
+		"LevelsBetweenUpgrades"				"1"
+		
+		"AbilityCooldown"					"12 6"		
+		"AbilityManaCost"					"100"		
+
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_pugna/pugna_decrepify.vpcf"
+			"particle"		"particles/units/heroes/hero_bounty_hunter/bounty_hunter_windwalk.vpcf"
+			"particle"		"particles/msg_fx/msg_crit.vpcf"
+			"soundfile"   	"soundevents/game_sounds_heroes/game_sounds_templar_assassin.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_bounty_hunter.vsndevts"
+		}	
+		
+		"AbilityValues"
+        {
+            "fade_delay" "0.1"
+            "duration" "30"
+            "damage" "0"
+            "attribute_movement_speed" "550"
+            "break_threshold" "1"
+            "attack_speed" "0"
+            "recover_dagger" "0"
+            "invis_radius" "600"
+            "immune_radius" "1500"
+        }
+	}
+}

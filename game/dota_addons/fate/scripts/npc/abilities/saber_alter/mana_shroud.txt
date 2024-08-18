@@ -1,0 +1,16 @@
+"DOTAAbilities"
+{
+	"arturia_alter_mana_shroud_attribute_passive"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/arturia_alter/arturia_alter_mana_shroud_attribute_passive"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"			"custom/saber_alter_mana_shroud"
+		"MaxLevel"						"1"
+		
+		"AbilityValues"
+        {
+            "bonus_mana" "500"
+        }
+	}
+}

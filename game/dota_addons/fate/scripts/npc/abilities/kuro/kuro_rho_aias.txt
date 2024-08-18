@@ -1,0 +1,42 @@
+"DOTAAbilities"
+{
+	//=======================================
+	// Archer : Rho Aias
+	//=======================================
+	"kuro_rho_aias"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/kuro/kuro_rho_aias"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"25"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/archer_5th_rho_aias"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3"
+		"AnimationPlaybackRate" 		"1.0"
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCastRange"				"400"
+		"AbilityCooldown"				"24"
+		"AbilityManaCost"				"400"
+
+		"precache"
+		{
+			"particle"					"particles/custom/archer/archer_rhoaias_shield.vpcf"
+			"particle"					"particles/units/heroes/hero_templar_assassin/templar_assassin_refract_hit_sphere.vpcf"
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_ember_spirit.vsndevts"
+		}
+
+		"AbilityValues"
+        {
+            "shield_amount" "500 800 1100 1400 1700"
+            "duration" "4"
+            "cooldown" "24"
+            "projection_bonus" "200"
+            "manacost" "400"
+        }	
+	}
+}

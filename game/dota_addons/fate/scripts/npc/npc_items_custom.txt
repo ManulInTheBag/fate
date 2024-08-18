@@ -1,7 +1,7 @@
 #base "items/item_blink_scroll.txt"
 #base "items/item_mana_essence.txt"
 #base "items/item_shard_of_replenishment.txt"
-#base "items/item_sentry_familiar.kv"
+#base "items/item_sentry_familiar.txt"
 
 "DOTAAbilities"
 {
@@ -442,24 +442,12 @@
 				"Function"		"OnManaEssenceAcquired"
 			}
 	    }
-	    "AbilitySpecial"
-	    {
-	   		"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"health_regen"				"50"
-			}
-	   		"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"mana_regen"				"30"
-			}
-	   		"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"duration"				"10"
-			}
-	    }
+	    "AbilityValues"
+        {
+            "health_regen" "50"
+            "mana_regen" "30"
+            "duration" "10"
+        }
 
 	    "OnSpellStart"
 	    {
@@ -526,19 +514,11 @@
 	    {
 	    	"particle"		"particles/units/heroes/hero_omniknight/omniknight_purification_g.vpcf"
 	    }
-	    "AbilitySpecial"
-	    {
-	   		"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"health_heal"				"500"
-			}
-	   		"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"mana_heal"				"500"
-			}
-		}
+	    "AbilityValues"
+        {
+            "health_heal" "500"
+            "mana_heal" "500"
+        }
 	    "OnSpellStart"
 	    {
 	    	"SpendCharge" {}
@@ -593,14 +573,10 @@
 	    "AbilityCooldown"				"90"
 	    "AbilityChannelTime"			"1.0"		
 	    "AbilityCastAnimation" 			"ACT_DOTA_ITEM_PICKUP"
-	    "AbilitySpecial"
-	    {
-	   		"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cast_delay"				"1.0"
-			}
-		}
+	    "AbilityValues"
+        {
+            "cast_delay" "1.0"
+        }
 	    "OnSpellStart"
 	    {
 	    	"RunScript"
@@ -661,19 +637,11 @@
 	    {
 	    	"particle"			"particles/units/heroes/hero_dark_seer/dark_seer_surge.vpcf"
 	    }
-	    "AbilitySpecial"
-	    {
-	   		"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"mspd_bonus"				"30"
-			}
-	   		"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"10"
-			}
-		}
+	    "AbilityValues"
+        {
+            "mspd_bonus" "30"
+            "duration" "10"
+        }
 
 
 	    "OnSpellStart"
@@ -733,29 +701,13 @@
 	    	"particle"		"particles\units\heroes\hero_pugna\pugna_decrepify.vpcf"
 	    	"model"			"models/items/courier/mighty_chicken/mighty_chicken_flying.vmdl"
 	    }
-	    "AbilitySpecial"
-	    {
-	   		"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"scout_duration"				"15"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"30"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"vision"				"375"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"true_sight"			"1400"
-			}
-		}
+	    "AbilityValues"
+        {
+            "scout_duration" "15"
+            "duration" "30"
+            "vision" "375"
+            "true_sight" "1400"
+        }
 	    "OnSpellStart"
 	    {
 	    	"SpendCharge" {}
@@ -818,19 +770,11 @@
 	    {
 	    	"particle"		"particles/items2_fx/mask_of_madness.vpcf"
 	    }
-	    "AbilitySpecial"
-	    {
-	   		"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"aspd_bonus"				"150"
-			}
-	   		"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"10"
-			}
-		}
+	    "AbilityValues"
+        {
+            "aspd_bonus" "150"
+            "duration" "10"
+        }
 	    "OnSpellStart"
 	    {
 	    	"RunScript"
@@ -884,19 +828,11 @@
 		"ItemStockInitial"				"4"
 		"ItemStockTime"					"80.0"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES"
-	    "AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"duration"				"90"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"vision_range"			"1400"
-			}
-		}
+	    "AbilityValues"
+        {
+            "duration" "90"
+            "vision_range" "1400"
+        }
 		"OnSpellStart"
 		{
 			"SpendCharge" {}		
@@ -964,14 +900,10 @@
 	    	"particle"			"particles/units/heroes/hero_warlock/warlock_fatal_bonds_pulse.vpcf"
 		"soundfile"			"soundevents/game_sounds_heroes/game_sounds_warlock.vsndevts"
 	    }
-	    "AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"max_link_targets"				"5"
-			}
-		}
+	    "AbilityValues"
+        {
+            "max_link_targets" "5"
+        }
 	    "OnSpellStart"
 	    {
 	    	"SpendCharge" {}
@@ -1144,29 +1076,13 @@
 	    	"particle"			"particles/units/heroes/hero_omniknight/omniknight_purification_g.vpcf"
 	    	"particle"			"particles/units/heroes/hero_lich/lich_frost_armor_model.vpcf"
 	    }
-	    "AbilitySpecial"
-	    {
-	   		"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"heal_amount"				"600"
-			}
-	   		"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"armor_amount"				"25"
-			}
-	   		"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"armor_duration"				"5"
-			}
-	   		"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"600"
-			}
-		}
+	    "AbilityValues"
+        {
+            "heal_amount" "600"
+            "armor_amount" "25"
+            "armor_duration" "5"
+            "radius" "600"
+        }
 	    "OnSpellStart"
 	    {
 	    	"SpendCharge" {}
@@ -1237,14 +1153,10 @@
 			"particle"		"particles/units/heroes/hero_antimage/antimage_blink_start.vpcf"
 			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_antimage.vsndevts"
 		}
-	    "AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"blink_distance"				"1000"
-			}
-		}
+	    "AbilityValues"
+        {
+            "blink_distance" "1000"
+        }
 	    "OnSpellStart"
 	    {
 	    	"RunScript"
@@ -1304,19 +1216,11 @@
 	    	"soundfile"				"soundevents/game_sounds_heroes/game_sounds_ember_spirit.vsndevts"
 	    }
 
-	    "AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"					"100"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"stun_duration"					"1"
-			}
-		}    
+	    "AbilityValues"
+        {
+            "damage" "100"
+            "stun_duration" "1"
+        }    
 	}	
 
 	"item_b_scroll" 
@@ -1350,19 +1254,11 @@
 			"particle"			"particles/custom/item/item_b_scroll_shield.vpcf"
 			"particle"			"particles/units/heroes/hero_oracle/oracle_false_promise_heal_core.vpcf"
 	    }
-	    "AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"barrier_block"					"650"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"duration"					"20"
-			}
-		}
+	    "AbilityValues"
+        {
+            "barrier_block" "650"
+            "duration" "20"
+        }
 	    "OnSpellStart"
 	    {
 	    	"SpendCharge" {}
@@ -1427,24 +1323,12 @@
 	    	"particle"		"particles/units/heroes/hero_oracle/oracle_false_promise_cast_enemy.vpcf"
 	    	"soundfile"				"soundevents/game_sounds_heroes/game_sounds_oracle.vsndevts"
 	    }
-	    "AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_mr"					"50"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"			"5"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"duration"					"10"
-			}
-		}
+	    "AbilityValues"
+        {
+            "bonus_mr" "50"
+            "bonus_armor" "5"
+            "duration" "10"
+        }
 	    "OnSpellStart"
 	    {
 	    	"RunScript"
@@ -1547,29 +1431,13 @@
 	    	"soundfile"		"soundevents/game_sounds_heroes/game_sounds_oracle.vsndevts"
 	    	"soundfile" 	"soundevents/game_sounds_items.vsndevts"
 	    }
-	    "AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_mr"				"50"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"			"35"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"duration"				"10"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"healing"				"300"
-			}
-		}
+	    "AbilityValues"
+        {
+            "bonus_mr" "50"
+            "bonus_armor" "35"
+            "duration" "10"
+            "healing" "300"
+        }
 	    "OnSpellStart"
 	    {
 	    	"FireSound"
@@ -1629,29 +1497,13 @@
 			"particle"	"particles/generic_gameplay/generic_purge.vpcf"
 			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_zuus.vsndevts"
 		}
-	    "AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"					"400"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"slow_initial"					"100"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"slow_duration"					"4"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"lock_duration"					"1"
-			}
-		}
+	    "AbilityValues"
+        {
+            "damage" "400"
+            "slow_initial" "100"
+            "slow_duration" "4"
+            "lock_duration" "1"
+        }
 	    "OnSpellStart"
 	    {
 	    	"RunScript"
@@ -1739,34 +1591,14 @@
 			"particle"	"particles/generic_gameplay/generic_purge.vpcf"
 			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_zuus.vsndevts"
 		}
-	    "AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"					"600"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"max_targets"					"5"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"slow_initial"					"100"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"slow_duration"					"4"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"lock_duration"					"1"
-			}
-		}
+	    "AbilityValues"
+        {
+            "damage" "600"
+            "max_targets" "5"
+            "slow_initial" "100"
+            "slow_duration" "4"
+            "lock_duration" "1"
+        }
 	    "OnSpellStart"
 	    {
 	    	"RunScript"
@@ -1849,34 +1681,14 @@
 	    	"model"			"models/creeps/neutral_creeps/n_creep_troll_skeleton/n_creep_skeleton_melee.vmdl"
 	    }
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"health"			"300 350 400 450 500 600 650 700"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"20 25 30 35 40 45 50 55"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"bonus_armor_multiplier"	"0.15"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"bonus_health_multiplier"	"5"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"bonus_ms_multiplier"		"1"
-			}
-		}
+		"AbilityValues"
+        {
+            "health" "300 350 400 450 500 600 650 700"
+            "damage" "20 25 30 35 40 45 50 55"
+            "bonus_armor_multiplier" "0.15"
+            "bonus_health_multiplier" "5"
+            "bonus_ms_multiplier" "1"
+        }
 
 	    "OnSpellStart"
 	    {
@@ -1926,34 +1738,14 @@
 			"particle"		"particles/units/heroes/hero_clinkz/clinkz_base_attack.vpcf"
 	    }
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"health"			"250 290 330 370 410 450 490 530"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"15 23 31 39 47 55 63 71"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"bonus_damage_multiplier"	"0.6"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"bonus_health_multiplier"	"4.0"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"bonus_ms_multiplier"		"0.8"
-			}
-		}
+		"AbilityValues"
+        {
+            "health" "250 290 330 370 410 450 490 530"
+            "damage" "15 23 31 39 47 55 63 71"
+            "bonus_damage_multiplier" "0.6"
+            "bonus_health_multiplier" "4.0"
+            "bonus_ms_multiplier" "0.8"
+        }
 
 	    "OnSpellStart"
 	    {
@@ -2002,34 +1794,14 @@
 	    	"particle"		"particles/neutral_fx/black_dragon_attack.vpcf"	
 	    }
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"health"			"1000 1100 1200 1300 1400 1500 1600 1700"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"75 100 125 150 175 200 225 250"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"bonus_health_multiplier"	"7.0"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"bonus_mana_multiplier"		"2.0"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"bonus_ms_multiplier"		"0.8"
-			}
-		}
+		"AbilityValues"
+        {
+            "health" "1000 1100 1200 1300 1400 1500 1600 1700"
+            "damage" "75 100 125 150 175 200 225 250"
+            "bonus_health_multiplier" "7.0"
+            "bonus_mana_multiplier" "2.0"
+            "bonus_ms_multiplier" "0.8"
+        }
 
 	    "OnSpellStart"
 	    {
@@ -2087,19 +1859,11 @@
 			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_keeper_of_the_light.vsndevts"
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"radius"			"900"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"duration"			"8.0"
-			}
-		}
+		"AbilityValues"
+        {
+            "radius" "900"
+            "duration" "8.0"
+        }
 
 		"OnSpellStart"
 		{
@@ -2145,19 +1909,11 @@
 	    {
 	    }
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"movespeed"			"200"
-			}	
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"attackspeed"			"50"
-			}	
-		}
+		"AbilityValues"
+        {
+            "movespeed" "200"
+            "attackspeed" "50"
+        }
 
 	    "OnSpellStart"
 	    {
@@ -2247,14 +2003,10 @@
 	    {
 	    	"particle"		"particles/items_fx/black_king_bar_avatar.vpcf"
 	    }
-	    "AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"					"5"
-			}
-		}
+	    "AbilityValues"
+        {
+            "duration" "5"
+        }
 	    "OnSpellStart"
 	    {
 	    	"SpendCharge" {}
@@ -2385,24 +2137,12 @@
 	    	"particle"		"particles/units/heroes/hero_viper/viper_viper_strike_debuff.vpcf"
 	    }
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"radius"			"800"
-			}				
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"500 750 1000 1250 1500"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"duration"			"10.0"
-			}
-		}
+		"AbilityValues"
+        {
+            "radius" "800"
+            "damage" "500 750 1000 1250 1500"
+            "duration" "10.0"
+        }
 		
 		"OnSpellStart"
 		{
@@ -2488,24 +2228,12 @@
 	    {
 	    }
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"movespeed"			"150"
-			}	
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"attackspeed"			"50"
-			}	
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"health"			"500"
-			}	
-		}
+		"AbilityValues"
+        {
+            "movespeed" "150"
+            "attackspeed" "50"
+            "health" "500"
+        }
 
 	    "OnSpellStart"
 	    {
@@ -2601,14 +2329,10 @@
 	    {
 	    }
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"delay"			"1.0"
-			}	
-		}
+		"AbilityValues"
+        {
+            "delay" "1.0"
+        }
 
 	    "OnSpellStart"
 	    {

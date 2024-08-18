@@ -1,0 +1,160 @@
+#base "artoria_invisible_air.txt"
+#base "artoria_mana_burst.txt"
+#base "artoria_avalon.txt"
+#base "artoria_charisma.txt"
+#base "artoria_instinct.txt"
+#base "artoria_improved_instinct.txt"
+#base "artoria_excalibur.txt"
+#base "artoria_strike_air.txt"
+#base "artoria_ultimate_excalibur.txt"
+#base "artoria_ultimate_avalon.txt"
+#base "artoria_final_slash.txt"
+
+"DOTAAbilities"
+{
+	//=======================================
+	// Attribute: Excalibur - Sword of Promised Victory
+	//=======================================
+	"artoria_improve_excalibur_attribute"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/artoria/artoria_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/artoria/artoria_improve_excalibur_attribute"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"15"
+
+		"precache"
+		{
+		}
+
+		"AbilityValues"
+        {
+            "manaScaling" "35 40 45 50 55"
+            "max_excal_bonus_damage" "5500"
+        }
+	}
+
+	//=======================================
+	// Attribute: Improve Instinct
+	//=======================================
+	"artoria_improve_instinct_attribute"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/artoria/artoria_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/artoria/artoria_improve_instinct_attribute"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"10"
+
+		"precache"
+		{
+		}
+
+		"AbilityValues"
+        {
+            "crit" "200"
+            "double_strike_chance" "35"
+            "linken_duration" "3.0"
+            "cooldown" "20"
+            "magic_res" "20"
+        }
+	}
+
+	//=======================================
+	// Attribute: Mana Burst
+	//=======================================
+	"artoria_mana_burst_attribute"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/artoria/artoria_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/artoria/artoria_mana_burst_attribute"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"14"
+
+		"precache"
+		{
+		}
+
+		"AbilityValues"
+        {
+            "base_damage" "30"
+            "mana_burst_bonus_damage" "150"
+            "damage_scale" "0.05"
+            "base_as" "40"
+        }
+	}
+
+	//=======================================
+	// Attribute: Strike Air - Hammer of the Wind King
+	//=======================================
+	"artoria_strike_air_attribute"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/artoria/artoria_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/saber_strike_air"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"13"
+
+		"precache"
+		{
+		}
+
+		"AbilityValues"
+        {
+            "invisible_damage" "75"
+            "strike_damage" "200"
+            "upstream_damage" "75"
+            "upstream_scale" "0.3"
+        }
+	}
+	
+	//=======================================
+	// Attribute: Avalon - The Everdistant Utopia
+	//=======================================
+	"artoria_avalon_attribute"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/artoria/artoria_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/artoria/artoria_avalon_attribute"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"8"
+
+		"precache"
+		{
+		}
+
+		"AbilityValues"
+        {
+            "regen" "250"
+        }
+	}
+}

@@ -1,0 +1,44 @@
+"DOTAAbilities"
+{
+	//=======================================★★★★★
+	// Lu Bu: Relentless Assault One (Q -> Q)
+	//=======================================★★★★★
+	"lu_bu_relentless_assault_one"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/lu_bu/lu_bu_relentless_assault_one"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"25"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_4"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityTextureName"			"custom/lu_bu/lu_bu_relentless_assault_one"
+		
+		// Ability Stats		//------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"600"
+		"AbilityCastPoint"				"0.6"
+		"AbilityCooldown"				"1"
+		"AbilityManaCost"				"200"
+		
+		// Precache		//------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"			"particles/custom/lu_bu/lu_bu_small_impact.vpcf"
+		}
+		
+		// Ability Special		//------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+        {
+            "damage" "300 400 500 600 700"
+            "shock_radius" "600"
+            "movement_slow" "-50 -60 -70 -80 -90"
+            "duration" "4"
+        }
+	}
+}

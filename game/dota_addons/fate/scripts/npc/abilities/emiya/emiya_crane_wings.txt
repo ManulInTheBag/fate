@@ -1,0 +1,55 @@
+"DOTAAbilities"
+{
+	//=================================================================================================================
+	// Archer : Crane Wings
+	//=================================================================================================================
+	"emiya_crane_wings"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/emiya/emiya_crane_wings"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/emiya_crane_wings"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_4"
+		"AnimationPlaybackRate" 		"3.0"	
+		"precache"
+		{
+			"particle"					"particles/custom/archer/archer_overedge_slash.vpcf"
+			"particle"					"particles/units/heroes/hero_centaur/centaur_warstomp.vpcf"
+			"particle"					"particles/units/heroes/hero_queenofpain/queen_shadow_strike.vpcf"
+			"particle"					"particles/econ/courier/courier_mechjaw/mechjaw_death_sparks.vpcf"
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_juggernaut.vsndevts"
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_phantom_lancer.vsndevts"
+			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_centaur.vsndevts"
+		}
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"600"
+		"AbilityCastPoint"				"0.3"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"35 33 31 29 27"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"400"
+		
+		"AbilityValues"
+        {
+            "radius" "275"
+            "damage" "450 550 650 750 850"
+            "cast_range" "600"
+            "cost_reduction" "50"
+            "atk_ratio" "200"
+        }
+	}	
+}

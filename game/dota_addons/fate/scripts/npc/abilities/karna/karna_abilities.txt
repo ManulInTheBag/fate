@@ -1,0 +1,178 @@
+#base "karna_agni.txt"
+#base "karna_brahmastra.txt"
+#base "karna_brahmastra_kundala.txt"
+#base "karna_vasavi_shakti.txt"
+#base "karna_combo_vasavi.txt"
+#base "karna_discern_poor.txt"
+#base "karna_kavacha_kundala.txt"
+
+"DOTAAbilities"
+{
+//------------------------------------------------------------------------------------------------------------------------------------
+//
+//															Servant Attributes 
+//
+//------------------------------------------------------------------------------------------------------------------------------------
+	//=======================================
+	// Karna Attribute: Discernment of the Poor
+	//=======================================
+	"karna_poor_attribute"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/karna/karna_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/karna/karna_discern_poor"		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"13"
+
+		"precache"
+		{
+		}
+
+		"AbilityValues"
+        {
+            "duration" "3"
+            "cast_range" "550"
+        }
+	}
+
+	//=======================================
+	// Karna Attribute: Uncrowned Martial Arts
+	//=======================================
+	"karna_ucm_attribute"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/karna/karna_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/karna/karna_uncrowned_martial_arts"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"16"
+
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_chaos_knight/chaos_knight_chaos_bolt.vpcf"
+		}
+
+		"AbilityValues"
+        {
+            "base_attack_speed" "40"
+            "base_movement_speed" "10"
+            "base_evasion" "10"
+            "attack_speed_gain" "20"
+            "movement_speed_gain" "5"
+            "evasion_gain" "5"
+        }
+	}
+	//=======================================
+	// Karna Attribute: Mana Burst (Flames)
+	//=======================================
+	"karna_mana_burst_attribute"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/karna/karna_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/karna/karna_mana_burst_flames"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"14"
+
+		"precache"
+		{
+		}
+
+		"AbilityValues"
+        {
+            "explode_hits" "6"
+            "explode_damage" "150"
+            "stun_duration" "0.5"
+        }
+	}
+
+	//=======================================
+	// Karna Attribute: Divinity
+	//=======================================
+	"karna_divinity_attribute"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/karna/karna_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/karna/karna_divinity"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"10"
+
+		"precache"
+		{
+		}
+
+		"AbilityValues"
+        {
+            "damage_block" "60"
+            "magic_resist_gain" "15"
+        }
+	}	
+	"karna_divinity_proxy"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/karna/karna_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"			"custom/karna/karna_divinity"		
+
+		"precache"
+		{
+		}
+
+		"AbilityValues"
+        {
+            "damage_block" "60"
+            "magic_resist_gain" "15"
+        }
+	}
+
+	//=======================================
+	// Karna Attribute: Indra's Lighting
+	//=======================================
+	"karna_indra_attribute"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/karna/karna_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/karna/karna_indra_lightning"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"16"
+
+		"precache"
+		{
+		}
+
+		"AbilityValues"
+        {
+            "bonus_damage" "20"
+            "divine_bonus_damage" "30"
+        }
+	}
+}

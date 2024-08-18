@@ -1,0 +1,16 @@
+"DOTAAbilities"
+{
+	"astolfo_monstrous_strength_passive"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/astolfo/astolfo_monstrous_strength_passive"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"			"custom/astolfo_attribute_monstrous_strength"
+		"MaxLevel"						"1"
+		
+		"AbilityValues"
+        {
+            "atk_ratio" "1"
+        }
+	}
+}
