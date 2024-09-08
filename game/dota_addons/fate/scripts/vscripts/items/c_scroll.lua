@@ -26,10 +26,9 @@ function item_c_scroll:OnSpellStart()
     	ProjectileManager:CreateTrackingProjectile(tProjectile)
     end
 
-    self:SpendCharge()
-	if self:GetCurrentCharges() < 1 then
-		caster:TakeItem(self)
-	end
+    self:SetRefCountsModifiers(true)
+    caster:AddNewModifier(caster, self, "modifier_item_c_scroll_fix_cringe", {duration = 20})
+    self:SpendCharge(1)
 end
 
 function item_c_scroll:OnProjectileHit(hTarget, vLocation, tData)
@@ -46,23 +45,15 @@ function item_c_scroll:OnProjectileHit(hTarget, vLocation, tData)
 	DoDamage(caster, target, self:GetSpecialValueFor("damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
 	target:EmitSound("Hero_EmberSpirit.FireRemnant.Explode")
 	if not target:IsMagicImmune() then
-		hModifier = target:AddNewModifier(self, caster, "modifier_stunned", {Duration = self:GetSpecialValueFor("stun_duration")})
-	end
-
-	if self:GetCurrentCharges() < 1 then
-		Timers:CreateTimer(tostring(self:entindex()),
-		{
-        	--useOldStyle = true,
-         	endTime = 0,
-         	callback = function()
-            	if IsNotNull(self) then
-					if not IsNotNull(hModifier)
-						or hModifier:GetAbility() ~= self then
-						UTIL_Remove(self)
-					end
-					return 0.01
-             	end
-        	end
-     	})
+		hModifier = target:AddNewModifier(caster, self, "modifier_stunned", {duration = self:GetSpecialValueFor("stun_duration")})
 	end
 end
+
+LinkLuaModifier("modifier_item_c_scroll_fix_cringe", "items/c_scroll", LUA_MODIFIER_MOTION_NONE)
+
+modifier_item_c_scroll_fix_cringe = modifier_item_c_scroll_fix_cringe or class({})
+
+function modifier_item_c_scroll_fix_cringe:IsHidden() return true end
+function modifier_item_c_scroll_fix_cringe:RemoveOnDeath() return true end
+function modifier_item_c_scroll_fix_cringe:IsPurgable() return false end
+function modifier_item_c_scroll_fix_cringe:IsPurgeException() return false end

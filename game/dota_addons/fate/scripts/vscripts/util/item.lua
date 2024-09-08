@@ -72,11 +72,4 @@ function FindItemInInventoryByName(unit, itemname, searchStash, onlyStash, ignor
 	end
 end
 
-function CDOTA_Item:SpendCharge(amount)
-	local newCharges = self:GetCurrentCharges() - (amount or 1)
-	if newCharges <= 0 then
-		UTIL_Remove(self)
-	else
-		self:SetCurrentCharges(newCharges)
-	end
-end
+

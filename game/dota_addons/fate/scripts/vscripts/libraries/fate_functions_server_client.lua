@@ -501,6 +501,29 @@ if IsServer() then
             end
         end
     end
+
+
+
+    function CDOTA_Item:SpendCharge(nCount)
+        --print("TEST CRINGE")
+        nCount = self:GetCurrentCharges() - (nCount or 1)
+        if nCount <= 0 then
+            self:GetCaster():TakeItem(self)
+            Timers:CreateTimer(tostring(self:entindex()),
+            {
+                --useOldStyle = true,
+                endTime = 0,
+                callback = function()
+                    if IsNotNull(self) and self:NumModifiersUsingAbility() <= 0 then
+                        UTIL_Remove(self)
+                        return 0.01
+                    end
+                end
+            })
+        else
+            self:SetCurrentCharges(nCount)
+        end
+    end
 end
 
 LinkLuaModifier("modifier_fate_mechanic_parent_new", "libraries/fate_functions_server_client", LUA_MODIFIER_MOTION_NONE)

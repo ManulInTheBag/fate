@@ -14,6 +14,8 @@ function item_sentry_familiar:OnSpellStart()
 		return
 	end
 
+	self:SetRefCountsModifiers(true)
+	
 	hero.ServStat:useWard()
 
 	caster.ward = CreateUnitByName("sentry_familiar", targetPoint, true, nil, nil, caster:GetTeamNumber())
@@ -27,5 +29,5 @@ function item_sentry_familiar:OnSpellStart()
     giveUnitDataDrivenModifier(caster, caster.ward, "modifier_ward_dmg_reduce", {duration = self:GetSpecialValueFor("duration")})
     EmitSoundOnLocationForAllies(targetPoint,"DOTA_Item.ObserverWard.Activate",caster)
 
-    if iCurrentCharges == 1 then self:SpendCharge()  else self:SetCurrentCharges(iCurrentCharges - 1) end
+    self:SpendCharge(1)
 end

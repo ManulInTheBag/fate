@@ -2,7 +2,7 @@ AllPlayersInterval = {0,1,2,3,4,5,6,7,8,9,10,11,12,13}
 
 require("eyeherodemo/demo_core") --TEST HERO MOD
 
-require("statcollection/init")
+--require("statcollection/init")
 require('lishuwen_ability')
 require('archer_ability')
 require('master_ability')
@@ -3689,7 +3689,7 @@ function FateGameMode:InitGameMode()
 
 
     --for fixing some nasty bugs with medea, tpscrolls and other possible item limit thingies
-    Convars:SetInt("dota_max_physical_items_purchase_limit", 75)
+    Convars:SetInt("dota_max_physical_items_purchase_limit", 7500) --NOTE: Durable fix
 
     Events:Emit("activate")
 
@@ -4338,13 +4338,13 @@ function FateGameMode:FinishRound(IsTimeOut, winner)
         self.nRadiantScore = self.nRadiantScore + 1
         winnerEventData.winnerTeam = 0
         GameRules.Winner = 2
-        statCollection:submitRound(false)
+        --statCollection:submitRound(false)
     elseif winner == 1 then
         GameRules:SendCustomMessage("#Fate_Round_Winner_2", 0, 0)
         self.nDireScore = self.nDireScore + 1
         winnerEventData.winnerTeam = 1
         GameRules.Winner = 3
-        statCollection:submitRound(false)
+        --statCollection:submitRound(false)
     elseif winner == 2 then
         GameRules:SendCustomMessage("#Fate_Round_Draw", 0, 0)
         winnerEventData.winnerTeam = 2
@@ -4365,13 +4365,13 @@ function FateGameMode:FinishRound(IsTimeOut, winner)
         self.nRadiantScore = self.nRadiantScore + 1
         winnerEventData.winnerTeam = 0
         GameRules.Winner = 2
-        statCollection:submitRound(false)
+        --statCollection:submitRound(false)
     elseif winner == 4 then
         GameRules:SendCustomMessage("#Fate_Round_Winner_2_By_Default", 0, 0)
         self.nDireScore = self.nDireScore + 1
         winnerEventData.winnerTeam = 1
         GameRules.Winner = 3
-        statCollection:submitRound(false)
+       -- statCollection:submitRound(false)
     end
 
 --[[
