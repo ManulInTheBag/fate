@@ -3,7 +3,7 @@ Integrating the library into your scripts
 
 1. Download the statcollection from github and merge the scripts folder into your game/YOUR_ADDON/ folder.
 2. In your addon_game_mode.lua file, copy this line at the top: require('statcollection/init')
-3. Go into the scripts/vscripts/statcollection folder and inside the `settings.txt` file, change the modID XXXXX value with the modID key that was handed to you by an admin.
+3. Go into the scripts/vscripts/statcollection folder and inside the `settings.kv` file, change the modID XXXXX value with the modID key that was handed to you by an admin.
 4. After this, you will be sending the default basic stats when a lobby is succesfully created, and after the match ends.
    You are encouraged to add your own gamemode-specific stats (such as a particular game setting or items being purchased). More about this on the next section.
 
@@ -22,7 +22,7 @@ require('libraries/statcollection/lib/md5')
 require('libraries/statcollection/schema')
 
 -- Settings
-local statInfo = LoadKeyValues('scripts/vscripts/libraries/statcollection/settings.txt')
+local statInfo = LoadKeyValues('scripts/vscripts/libraries/statcollection/settings.kv')
 
 -- Where stuff is posted to
 local postLocation = 'https://api.getdotastats.com/'
@@ -35,10 +35,10 @@ local printPrefix = 'Stat Collection: '
 
 local errorFailedToContactServer = 'Failed to contact the master server! Bad status code!'
 local errorEmptyServerResponse = 'Master server returned empty response!'
-local errorMissingModIdentifier = 'Please ensure you have a settings.txt in your statcollection folder! Missing modID!'
-local errorDefaultModIdentifier = 'Please change your settings.txt with a valid modID, acquired after registration of your mod on the site!'
-local errorMissingSchemaIdentifier = 'Please ensure you have a settings.txt in your statcollection folder! Missing schemaID!'
-local errorDefaultSchemaIdentifier = 'Please change your settings.txt with a valid schemaID, acquired after contacting a site admin!'
+local errorMissingModIdentifier = 'Please ensure you have a settings.kv in your statcollection folder! Missing modID!'
+local errorDefaultModIdentifier = 'Please change your settings.kv with a valid modID, acquired after registration of your mod on the site!'
+local errorMissingSchemaIdentifier = 'Please ensure you have a settings.kv in your statcollection folder! Missing schemaID!'
+local errorDefaultSchemaIdentifier = 'Please change your settings.kv with a valid schemaID, acquired after contacting a site admin!'
 local errorInitCalledTwice = 'Please ensure you only make a single call to statCollection:init, only the first call actually works.'
 local errorJsonDecode = 'There was an issue decoding the JSON returned from the server, see below:'
 local errorSomethingWentWrong = 'The server said something went wrong, see below:'

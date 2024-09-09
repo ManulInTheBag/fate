@@ -1,6 +1,6 @@
-local statInfo = LoadKeyValues('scripts/vscripts/statcollection/settings.txt')
+local statInfo = LoadKeyValues('scripts/vscripts/statcollection/settings.kv')
 if not statInfo then
-    print("Stat Collection: Critical Error, no settings.txt file found")
+    print("Stat Collection: Critical Error, no settings.kv file found")
     return
 end
 

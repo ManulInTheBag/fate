@@ -33,15 +33,43 @@
       "particle" "particles/custom/lancer/soaring/spear.vpcf"
     }
     
-		"AbilityValues"
-        {
-            "cast_delay" "0.6"
-            "radius" "400"
-            "range" "950"
-            "damage_base" "550"
-            "damage_bonus_from_e" "50"
-            "damage_bonus_from_r" "100"
-            "stun_duration" "1"
-        }
+		"AbilitySpecial"
+		{
+      "01"
+      {
+        "var_type"				"FIELD_FLOAT"
+        "cast_delay"			"0.6"
+      }
+      "02"
+      {
+        "var_type"				"FIELD_FLOAT"
+        "radius"			"400"
+      }
+      "03"
+      {
+        "var_type"				"FIELD_FLOAT"
+        "range"			"950"
+      }
+      "03"
+      {
+        "var_type"				"FIELD_FLOAT"
+        "damage_base"			"550"
+      }
+      "04"
+      {
+        "var_type"				"FIELD_FLOAT"
+        "damage_bonus_from_e"			"50"
+      }
+      "05"
+      {
+        "var_type"				"FIELD_FLOAT"
+        "damage_bonus_from_r"			"100"
+      }
+      "06"
+      {
+        "var_type"				"FIELD_FLOAT"
+        "stun_duration"			"1"
+      }
+		}
   }
 }

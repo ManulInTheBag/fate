@@ -33,11 +33,23 @@
 	    	"particle"									"particles/items_fx/healing_flask.vpcf"
 	    }
 		
-	    "AbilityValues"
-        {
-            "health" "500"
-            "mana" "300"
-            "duration" "10"
-        }
+	    "AbilitySpecial"
+	    {
+	   		"01"
+			{
+				"var_type"								"FIELD_INTEGER"
+				"health"								"500"
+			}
+	   		"02"
+			{
+				"var_type"								"FIELD_INTEGER"
+				"mana"									"300"
+			}
+	   		"03"
+			{
+				"var_type"								"FIELD_INTEGER"
+				"duration"								"10"
+			}
+	    }
 	}
 }

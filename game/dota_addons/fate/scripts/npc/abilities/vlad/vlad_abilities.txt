@@ -27,22 +27,74 @@
 
 		}
 
-		"AbilityValues"
-        {
-            "str_per_stack" "1 1.5 2 2.5 3"
-            "str_per_stack__TT" "10 15 20 25 30"
-            "armor_per_stack" "0.8 1 1.2 1.4 1.6"
-            "armor_per_stack__TT" "8 10 12 14 16"
-            "mres_per_stack" "2 2.25 2.5 2.75 3"
-            "mres_per_stack__TT" "20 22.5 25 27.5 30"
-            "self_slow_per_stack" "-4 -3.5 -3 -2.5 -2"
-            "self_slow_per_stack__TT" "-40 -35 -30 -25 -20"
-            "stacks_total" "10"
-            "stacks_interval" "0.05"
-            "drain_per_sec" "0.05"
-            "drain_per_sec__TT" "6"
-            "drain_interval" "0.1"
-        }
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"str_per_stack"					"1 1.5 2 2.5 3"
+			}
+			"02"
+			{
+				"var_type"									"FIELD_FLOAT"
+				"str_per_stack__TT"					"10 15 20 25 30"
+			}
+			"03"
+			{
+				"var_type"							"FIELD_FLOAT"
+				"armor_per_stack"					"0.8 1 1.2 1.4 1.6"
+			}
+			"04"
+			{
+				"var_type"							"FIELD_FLOAT"
+				"armor_per_stack__TT"					"8 10 12 14 16"
+			}
+			"05"
+			{
+				"var_type"								"FIELD_FLOAT"
+				"mres_per_stack"						"2 2.25 2.5 2.75 3"
+			}
+			"06"
+			{
+				"var_type"								"FIELD_FLOAT"
+				"mres_per_stack__TT"				"20 22.5 25 27.5 30"
+			}
+			"07"
+			{
+				"var_type"									"FIELD_FLOAT"
+				"self_slow_per_stack"					"-4 -3.5 -3 -2.5 -2"
+			}
+			"08"
+			{
+				"var_type"											"FIELD_FLOAT"
+				"self_slow_per_stack__TT"					"-40 -35 -30 -25 -20"
+			}
+			"09"
+			{
+				"var_type"					"FIELD_INTEGER"
+				"stacks_total"				"10"
+			}
+			"10"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"stacks_interval"				"0.05"
+			}
+			"11"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"drain_per_sec"					"0.05"
+			}
+			"12"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"drain_per_sec__TT"					"6"
+			}
+			"13"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"drain_interval"					"0.1"
+			}
+		}
 	}
 
 	//=======================================
@@ -70,22 +122,74 @@
 			"particle" 					"particles/units/heroes/hero_life_stealer/life_stealer_open_wounds.vpcf"
 		}
 
-		"AbilityValues"
-        {
-            "delay" "0.3"
-            "delay__TT" "0.4"
-            "aoe_inner" "265"
-            "dmg_inner" "150 190 230 270 310"
-            "stun_inner" "0.25"
-            "aoe_outer" "465"
-            "dmg_outer" "440 505 570 635 700"
-            "stun_outer" "0.75"
-            "slow_per_stack" "-10"
-            "slow_duration" "6"
-            "condition_free_mana" "35"
-            "hp_cost" "0.15"
-            "hp_cost__TT" "15"
-        }
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"delay"								"0.3"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"delay__TT"								"0.4"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"aoe_inner"						"265"
+			}
+			"04"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"dmg_inner"						"150 190 230 270 310"
+			}
+			"05"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"stun_inner"					"0.25"
+			}
+			"06"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"aoe_outer"						"465"
+			}
+			"07"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"dmg_outer"						"440 505 570 635 700"
+			}
+			"08"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"stun_outer"					"0.75"
+			}
+			"09"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"slow_per_stack"								"-10"
+			}
+			"10"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"slow_duration"						"6"
+			}
+			"11"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"condition_free_mana"			"35"
+			}
+			"12"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"hp_cost"						"0.15"
+			}
+			"13"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"hp_cost__TT"						"15"
+			}
+		}
 	}
 
 	//=======================================
@@ -117,15 +221,39 @@
 			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_bloodseeker.vsndevts"
 		}
 
-		"AbilityValues"
-        {
-            "max_shield" "500 600 700 800 900"
-            "max_dmg" "800 950 1100 1250 1400"
-            "aoe" "500"
-            "duration" "10"
-            "hp_cost" "0.2"
-            "hp_cost__TT" "20"
-        }
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"max_shield"						"500 600 700 800 900"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"max_dmg"						"800 950 1100 1250 1400"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"aoe"								"500"
+			}
+			"04"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"duration"							"10"
+			}
+			"05"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"hp_cost"							"0.2"
+			}
+			"06"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"hp_cost__TT"							"20"
+			}
+		}
 	}
 
 
@@ -149,9 +277,9 @@
 		{
 		}
 
-		"AbilityValues"
-        {
-        }
+		"AbilitySpecial"
+		{
+		}
 	}
 
 	//=======================================
@@ -178,18 +306,54 @@
 		"soundfile"					"soundevents/game_sounds_heroes/game_sounds_death_prophet.vsndevts"
 		}
 
-		"AbilityValues"
-        {
-            "duration" "5"
-            "interval" "0.25"
-            "aoe" "500"
-            "dmg" "30"
-            "heal" "30"
-            "dmg_bonus" "10"
-            "slow_per_stack" "-5"
-            "slow_duration" "1"
-            "bloodpower_duration" "20"
-        }
+		"AbilitySpecial"
+		{
+			"07"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"duration"						"5"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"interval"						"0.25"
+			}
+			"04"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"aoe"									"500"
+			}
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"dmg"							"30"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"heal"							"30"
+			}
+			"08"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"dmg_bonus"						"10"
+			}
+			"05"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"slow_per_stack"							"-5"
+			}
+			"09"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"slow_duration"						"1"
+			}
+			"10"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bloodpower_duration"						"20"
+			}
+		}
 	}
 
 	//=======================================
@@ -215,18 +379,54 @@
 		"soundfile"					"soundevents/game_sounds_heroes/game_sounds_leshrac.vsndevts"
 		}
 
-		"AbilityValues"
-        {
-            "range" "600"
-            "delay" "0.5"
-            "damage" "200"
-            "radius_min" "150"
-            "radius_gain" "5"
-            "radius_max" "250"
-            "stun_min" "1"
-            "stun_gain" "0.075"
-            "stun_max" "2.5"
-        }
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"range"					"600"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"delay"					"0.5"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"					"200"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"radius_min"					"150"
+			}
+			"05"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"radius_gain"					"5"
+			}
+			"06"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"radius_max"					"250"
+			}
+			"07"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"stun_min"					"1"
+			}
+			"08"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"stun_gain"					"0.075"
+			}
+			"09"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"stun_max"					"2.5"
+			}
+		}
 	}
 
 	//=======================================
@@ -252,11 +452,19 @@
 			"particle"					"particles/custom/vlad/vlad_bc_heal.vpcf"
 		}
 
-		"AbilityValues"
-        {
-            "hp_condition" "15"
-            "duration" "1.5"
-        }
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"hp_condition"					"15"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"duration"						"1.5"
+			}
+		}
 	}
 
 	//=======================================
@@ -292,17 +500,49 @@
 			"soundfile"						"soundevents/game_sounds_heroes/game_sounds_ogre_magi.vsndevts"
 		}
 
-		"AbilityValues"
-        {
-            "activation" "0.75"
-            "total_activation__TT" "1.05"
-            "endcast_pause" "0.50"
-            "aoe_spikes" "400"
-            "dmg_spikes" "35 45 55 65 75"
-            "aoe_lastspike" "600"
-            "dmg_lastspike" "350 437.5 525 612.5 700"
-            "stun" "1.25"
-        }
+		"AbilitySpecial"
+		{		
+			"01"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"activation"					"0.75"
+			}
+			"02"
+			{
+				"var_type"													"FIELD_FLOAT"
+				"total_activation__TT"							"1.05"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"endcast_pause"					"0.50"
+			}
+			"04"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"aoe_spikes"							"400"
+			}
+			"05"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"dmg_spikes"					"35 45 55 65 75" 
+			}
+			"06"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"aoe_lastspike"						"600"
+			}
+			"07"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"dmg_lastspike"			"350 437.5 525 612.5 700"
+			}
+			"08"
+			{
+				"var_type"						"FIELD_FLOAT"
+				"stun"							"1.25"
+			}
+		}
 	}
 
 	//=======================================
@@ -328,14 +568,34 @@
 			"particle"					"particles/custom/vlad/vlad_combo_ontarget_execute.vpcf"
 		}
 
-		"AbilityValues"
-        {
-            "aoe" "800"
-            "dmg" "1000"
-            "heal" "500"
-            "stun" "3"
-            "penalty" "3"
-        }
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"aoe"							"800"
+			}
+			"02"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"dmg"							"1000"
+			}
+			"03"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"heal"						   	"500"
+			}
+			"04"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"stun"							"3"
+			}
+			"05"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"penalty"						"3"
+			}
+		}
 	}
 
 	//=======================================
@@ -354,14 +614,35 @@
 			"particle"					"particles/custom/vlad/vlad_im_splash.vpcf"
 		}
 		
-		"AbilityValues"
-        {
-            "dmg" "4"
-            "duration" "20"
-            "interval" "2"
-            "stacks_onhit_abilities" "5"
-            "stacks_onhit_melee" "1"
-        }
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"dmg"							"4"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"duration"				"20"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"interval"				"2"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"stacks_onhit_abilities"				"5"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"stacks_onhit_melee"				"1"
+			}
+			
+		}
 	}
 
 	//=======================================
@@ -386,17 +667,49 @@
 			"particle"					"particles/custom/vlad/vlad_im_splash_blood.vpcf"
 		}
 
-		"AbilityValues"
-        {
-            "bonus_mres" "15"
-            "bonus_as_per_1" "4"
-            "bonus_hp_regen_per_1" "0.6"
-            "splash_aoe" "600"
-            "splash_percentage" "0.75"
-            "splash_percentage__TT" "75"
-            "lifesteal" "0.5"
-            "lifesteal__TT" "50"
-        }
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"bonus_mres"					"15"
+			}
+			"02"
+			{
+				"var_type"					"FIELD_FLOAT"
+				"bonus_as_per_1"					"4"
+			}
+			"03"
+			{
+				"var_type"							"FIELD_FLOAT"
+				"bonus_hp_regen_per_1"		"0.6"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"splash_aoe"					"600"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"splash_percentage"					"0.75"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"splash_percentage__TT"					"75"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"lifesteal"					"0.5"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"lifesteal__TT"					"50"
+			}
+		}
 	}
 
 	//=======================================
@@ -420,17 +733,49 @@
 			"particle" "particles/items_fx/black_king_bar_avatar.vpcf"
 		}
 
-		"AbilityValues"
-        {
-            "bonus_ms" "50"
-            "pof_duration" "2"
-            "pof_condition" "500"
-            "pof_cd" "60"
-            "bc_hp_condition" "25"
-            "bc_heal" "50"
-            "bc_heal__TT" "500"
-            "bc_heal_duration" "10"
-        }
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_ms"					"50"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"pof_duration"					"2"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"pof_condition"					"500"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"pof_cd"					"60"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bc_hp_condition"	"25"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bc_heal"					"50"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bc_heal__TT"					"500"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bc_heal_duration"					"10"
+			}
+		}
 	}
 	//=======================================
 	// Vlad III: Protection of Faith CD 					//this is actual CD of proc
@@ -452,9 +797,9 @@
 		{
 		}
 
-		"AbilityValues"
-        {
-        }
+		"AbilitySpecial"
+		{
+		}
 	}
 	//=======================================
 	// Vlad Attribute : Improved Impaling
@@ -476,16 +821,44 @@
 		{
 		}
 
-		"AbilityValues"
-        {
-            "kb_bonus_spikes_dmg" "10"
-            "kb_bonus_lastspike_dmg" "100"
-            "kb_spike_heal_per_target" "100"
-            "kb_bonus_dmg_per_stack" "7"
-            "cp_dmg_bonus" "100"
-            "cp_conditional" "70"
-            "cp_bonus_dmg_per_stack" "5"
-        }
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"kb_bonus_spikes_dmg"					"10"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"kb_bonus_lastspike_dmg"					"100"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"kb_spike_heal_per_target"					"100"
+			}
+			"04"
+			{
+				"var_type"									"FIELD_FLOAT"
+				"kb_bonus_dmg_per_stack"					"7"
+			}
+			"05"
+			{
+				"var_type"									"FIELD_INTEGER"
+				"cp_dmg_bonus"					"100"
+			}
+			"06"
+			{
+				"var_type"									"FIELD_INTEGER"
+				"cp_conditional"					"70"
+			}
+			"07"
+			{
+				"var_type"									"FIELD_INTEGER"
+				"cp_bonus_dmg_per_stack"					"5"
+			}
+		}
 	}
 
 	//=======================================
@@ -508,11 +881,19 @@
 		{
 		}
 
-		"AbilityValues"
-        {
-            "cl_bonus_shield_per_stack" "8"
-            "cl_bonus_dmg_per_stack" "6"
-        }
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"cl_bonus_shield_per_stack"					"8"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"cl_bonus_dmg_per_stack"					"6"
+			}
+		}
 	}
 
 	//=======================================
@@ -535,18 +916,58 @@
 		{
 		}
 
-		"AbilityValues"
-        {
-            "transfusionbonus" "30"
-            "cl_bonus_shield_per_stack" "0.02"
-            "cl_bonus_shield_per_stack__TT" "2"
-            "cl_bonus_dmg_per_stack" "0.01"
-            "cl_bonus_dmg_per_stack__TT" "1"
-            "kb_bonus_dmg_per_stack" "0.01"
-            "kb_bonus_dmg_per_stack__TT" "1"
-            "cp_bonus_dmg_per_stack" "0.01"
-            "cp_bonus_dmg_per_stack__TT" "1"
-            "bloodpower_cap" "30"
-        }
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"transfusionbonus"							"30"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"cl_bonus_shield_per_stack"					"0.02"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"cl_bonus_shield_per_stack__TT"					"2"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"cl_bonus_dmg_per_stack"					"0.01"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"cl_bonus_dmg_per_stack__TT"					"1"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"kb_bonus_dmg_per_stack"					"0.01"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"kb_bonus_dmg_per_stack__TT"					"1"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"cp_bonus_dmg_per_stack"					"0.01"
+			}
+			"09"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"cp_bonus_dmg_per_stack__TT"					"1"
+			}
+			"10"
+			{
+				"var_type"						"FIELD_INTEGER"
+				"bloodpower_cap"						"30"
+			}
+		}
 	}
 }

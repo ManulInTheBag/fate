@@ -3,8 +3,8 @@ modifier_charges = class({})
 if IsServer() then
     function modifier_charges:Update()
         if self:GetDuration() == -1 then
-            self:SetDuration(self.txt.replenish_time, true)
-            self:StartIntervalThink(self.txt.replenish_time)
+            self:SetDuration(self.kv.replenish_time, true)
+            self:StartIntervalThink(self.kv.replenish_time)
         end
 
         --Doesnt work properly for abilities that have a cooldown
@@ -15,7 +15,7 @@ if IsServer() then
 
     function modifier_charges:OnCreated(kv)
         self:SetStackCount(kv.start_count or kv.max_count)
-        self.txt = kv
+        self.kv = kv
 
         if kv.start_count and kv.start_count ~= kv.max_count then
             self:Update()
@@ -46,11 +46,11 @@ if IsServer() then
     function modifier_charges:OnIntervalThink()
         local stacks = self:GetStackCount()
 
-        if stacks < self.txt.max_count then
-            self:SetDuration(self.txt.replenish_time, true)
+        if stacks < self.kv.max_count then
+            self:SetDuration(self.kv.replenish_time, true)
             self:IncrementStackCount()
 
-            if stacks == self.txt.max_count - 1 then
+            if stacks == self.kv.max_count - 1 then
                 self:SetDuration(-1, true)
                 self:StartIntervalThink(-1)
             end

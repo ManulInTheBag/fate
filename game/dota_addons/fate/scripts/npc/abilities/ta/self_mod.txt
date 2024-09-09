@@ -24,12 +24,28 @@
             "soundfile"                                 "soundevents/game_sounds_heroes/game_sounds_life_stealer.vsndevts"
         }
 
-        "AbilityValues"
+        "AbilitySpecial"
         {
-            "heal" "330 440 550 660 770"
-            "duration" "7"
-            "agi_increase" "1 1.75 2.5 3.25 4"
-            "heal_ot" "450 500 550 600 650"
+            "01"
+            {
+                "var_type"                              "FIELD_INTEGER"
+                "heal"                                  "330 440 550 660 770"
+            }
+            "02"
+            {
+                "var_type"                              "FIELD_INTEGER"
+                "duration"                              "7"
+            }
+            "03"
+            {
+                "var_type"                              "FIELD_FLOAT"
+                "agi_increase"                          "1 1.75 2.5 3.25 4"
+            }
+            "04"
+            {
+                "var_type"                              "FIELD_INTEGER"
+                "heal_ot"                               "450 500 550 600 650"
+            }
         }
     }
 }
