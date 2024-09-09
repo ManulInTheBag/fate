@@ -3034,7 +3034,7 @@
 		"npc_dota_hero_ember_spirit_bio"	""
 		
 		"DOTA_Tooltip_Ability_emiya_clairvoyance"				"Clairvoyance"
-		"DOTA_Tooltip_ability_emiya_clairvoyance_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.3</font>\nGrants a vision of small area, anywhere on the map.\n\nEnemies can see, where <font color='#58ACFA'>Clairvoyance</font> was cast.\n<font color='#FFFAFA'>Cannot be casted whie another</font> <font color='#58ACFA'>Clairvoyance</font><font color='#FFFAFA'>  active in your team.</font>\n<font color='#F1C40F'>Upgradable by attribute Eagle Eyes.</font>"
+		"DOTA_Tooltip_ability_emiya_clairvoyance_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.3</font>\nGrants a vision of small area, anywhere on the map.\n\nEnemies can see, where <font color='#58ACFA'>Clairvoyance</font> was cast.\n<font color='#FFFAFA'>Cannot be casted whie another</font> <font color='#58ACFA'>Clairvoyance</font><font color='#FFFAFA'>  active in your team.</font>\n<font color='#F1C40F'>Upgradable by attribute Eagle Eyes.</font>
 		"DOTA_Tooltip_ability_emiya_clairvoyance_Lore"			"Good view is the fundamental of bowman."
 		"DOTA_Tooltip_ability_emiya_clairvoyance_radius"		"RADIUS:"
 		"DOTA_Tooltip_ability_emiya_clairvoyance_duration"		"DURATION:"	
@@ -3236,7 +3236,7 @@
 		"DOTA_Tooltip_ability_pepeg_divinity_regen_percent"		"Regeneration percentage:"
 
 		"DOTA_Tooltip_Ability_berserker_5th_fissure_strike"				"Fissure Strike"
-		"DOTA_Tooltip_ability_berserker_5th_fissure_strike_Description"	"Heracles strikes ground with such force, creating a crack that deals damage to enemies in line, <font color='#FF3399'>pulling  towards him</font> and <font color='#FF3399'>slowing</font> them. If enemies collide with a structure from the knockback, an additional damage and stun are applied."
+		"DOTA_Tooltip_ability_berserker_5th_fissure_strike_Description"	"Heracles strikes ground with such force, creating a crack that deals damage to enemies in line, <font color='#FF3399'>pulling  towards him</font> and <font color='#FF3399'>slowing</font> them. If enemies collide with a structure from the knockback, an additional damage and stun are applied.
 		"DOTA_Tooltip_ability_berserker_5th_fissure_strike_Lore"	""
 		"DOTA_Tooltip_ability_berserker_5th_fissure_strike_range"	"RANGE:"
 		"DOTA_Tooltip_ability_berserker_5th_fissure_strike_damage"	"DAMAGE:"
@@ -5225,7 +5225,7 @@
 		"npc_dota_hero_abaddon_bio"	""
 
 		"DOTA_Tooltip_Ability_mordred_mana_burst"	"Mana Burst - Battle"
-		"DOTA_Tooltip_Ability_mordred_mana_burst_Description"	"Mordred uses Mana Burst to increase her fighting capabilities for a short time. Increases Saber's attack speed and gives her additional magic attack damage.\nWhen her helmet is removed, spends additional mana based on her max mana to gain additional attack speed and magic attack damage."
+		"DOTA_Tooltip_Ability_mordred_mana_burst_Description"	"Mordred uses Mana Burst to increase her fighting capabilities for a short time. Increases Saber's attack speed and gives her additional magic attack damage.\nWhen her helmet is removed, spends additional mana based on her max mana to gain additional attack speed and magic attack damage.
 		"DOTA_Tooltip_Ability_mordred_mana_burst_duration"	"Duration:"
 		"DOTA_Tooltip_Ability_mordred_mana_burst_base_as"	"Base attackspeed:"
 		"DOTA_Tooltip_Ability_mordred_mana_burst_base_damage"	"Base damage:"
@@ -8535,7 +8535,7 @@
 
         "DOTA_Tooltip_ability_nobu_strategy_attribute"				"Attribute: Strategy"
         "DOTA_Tooltip_ability_nobu_strategy_attribute_Description"	"If Oda Nobunaga didn't dealt damage to any enemies for 10 seconds, next time when she deals damage to any enemy she will receive a bonus to movement speed and rifle damage for a duration. Using Dash ability removes cooldown from this attribute."
-        "DOTA_Tooltip_ability_nobu_strategy_attribute_cooldown_time"				"Cooldown:"
+        "DOTA_Tooltip_ability_nobu_strategy_attribute_cooldown_time				"Cooldown:"
         "DOTA_Tooltip_ability_nobu_strategy_attribute_bonus_ms"			"%MS bonus:"
         "DOTA_Tooltip_ability_nobu_strategy_attribute_bonus_attack"			"Rifle damage bonus:"
      	"DOTA_Tooltip_ability_nobu_strategy_attribute_duration"			"Duration:"
@@ -8730,7 +8730,8 @@
         "DOTA_Tooltip_ability_muramasa_territory_creation_attribute_cooldown"					"New cooldown:"
 
         "DOTA_Tooltip_ability_muramasa_wicked_sword_attribute"				"Attribute: Wicked sword"
-        "DOTA_Tooltip_ability_muramasa_wicked_sword_attribute_Description"	"If muramasa set autocast on his Rush ability, using throw in 1 second after using it will teleport muramasa to first enemy hit and perform throw using current throw values. If enemy hits a wall or another enemy, muramasa can use Q to teleport to him immediately and perform a current level sword dance."
+        "DOTA_Tooltip_ability_muramasa_wicked_sword_attribute_Description"	"If muramasa set autocast on his Rush ability, using throw in 1 second after using it will teleport muramasa to first enemy hit and perform throw using current throw values.
+If enemy hits a wall or another enemy, muramasa can use Q to teleport to him immediately and perform a current level sword dance."
         "DOTA_Tooltip_ability_muramasa_wicked_sword_attribute_cast_window"					"Cast window:"
 
 
@@ -9275,7 +9276,7 @@
 		"dota_tip_lore_5"				"Gilgamesh is the original owner of every single legendary weapon that has ever existed. They are stored within Gate of Babylon."
 		"dota_tip_lore_6"				"Cu Chulainn, the Son of Light, is Ireland's most revered hero. Trained under the legendary martial artist Scathach, he has both unparalled martial prowess as well as knowledge and usage of magic in form of runes."
 		"dota_tip_lore_7"				"Karna is the son of the Sun God, Surya. Gifted the golden armor, Kavacha and Kundala, Karna is near invulnerable. Paired with his divine spear Vasavi Shakti, Karna is one of the most deadly servant to exist on the battlefield."
-		"dota_tip_lore_8"				"Li Shuwen, also known as \God Spear Li\, practiced his martial arts to the pinnacle. One strike from his fist is enough to create a circulatory shock, destroying the magic circuit of his foe from within."
+		"dota_tip_lore_8"				"Li Shuwen, also known as \"God Spear Li\", practiced his martial arts to the pinnacle. One strike from his fist is enough to create a circulatory shock, destroying the magic circuit of his foe from within."
 		"dota_tip_lore_9"				"Heracles completed the Twelve Labour of Heracles. As a reward, the gods granted him a blessing of immortality. This is represented by his twelve lives."
 		"dota_tip_lore_10"				"Jack the Ripper is the amalgamation of the children aborted and abandoned by the many prostitutes who lived in Whitechapel, London."
 
@@ -9332,13 +9333,13 @@
 		"dota_tip_universal_52"				"Always be planning your next move."
 		"dota_tip_universal_53"				"Even a defeat is practice for your next victory."
 		"dota_tip_universal_54"				"You can view heroes abilities by clicking on Fatepedia above on the top left corner of the screen."
-		"dota_tip_universal_55"				"You see the cast range of your spells by enabling the \Ability Rangefinder\ in the settings menu."
+		"dota_tip_universal_55"				"You see the cast range of your spells by enabling the \"Ability Rangefinder\" in the settings menu."
 		"dota_tip_universal_56"				"Don't be afraid to experiment by playing an unfamiliar hero."
 		"dota_tip_universal_57"				"Fate/Balance is best enjoyed with friends."
 		"dota_tip_universal_58"				"Never hesitate to mute a rude player."
 		"dota_tip_universal_59"				"Try not to dwell on your mistakes. Learn from them, and move on."
 		"dota_tip_universal_60"				"Always keep an eye on your minimap."
-		"dota_tip_universal_61"				"If you are experiencing gameplay stutters when using voice chat, try going to the settings menu and turning on \Streamlined Push to Talk\."
+		"dota_tip_universal_61"				"If you are experiencing gameplay stutters when using voice chat, try going to the settings menu and turning on \"Streamlined Push to Talk\"."
 		"dota_tip_universal_62"				"After 5 minutes has elapsed, all heroes will receive blessing from the holy grail, gaining massive amount of master mana and have master health refreshed."
 		"dota_tip_universal_63"				"Every subsequent 10 minutes after the first grail blessing, every player will receive another blessing.."
 		"dota_tip_universal_64"				"Spell Blocks are available on certain heroes and when activated, they allow that hero to avoid targetted abilties."
@@ -9360,12 +9361,12 @@
 		"dota_tip_beginner_10"			"Holding shift and clicking on shop items will add them to the Quickbuy."
 		"dota_tip_beginner_11"			"Striking the last hit on an enemy hero grants you the most amount of gold reward."
 		"dota_tip_beginner_12"			"You can cross the river into enemy territory through 3 paths from the top, middle and bottom of the map."
-		"dota_tip_beginner_13"			"The \Hard Lane\ is the shortest lane on your team's side of the river. For the Dire, this is the bottom lane. For the Radiant, it is the top lane."
+		"dota_tip_beginner_13"			"The \"Hard Lane\" is the shortest lane on your team's side of the river. For the Dire, this is the bottom lane. For the Radiant, it is the top lane."
 		"dota_tip_beginner_14"			"Typically, a team only needs one courier."
 		"dota_tip_beginner_15"			"The movement speed bonus for having boots does not stack. No matter how many legs your chosen Hero has, you only need a single set of boots."
 		"dota_tip_beginner_16"			"You can view an enemy Hero's inventory and abilities by selecting them."
 		"dota_tip_beginner_17"			"It is often a good idea to carry a Town Portal Scroll."
-		"dota_tip_beginner_18"			"There are many secret paths hidden in the trees, which are often called \juke spots\. Use these to escape attacks, or to set up an ambush."
+		"dota_tip_beginner_18"			"There are many secret paths hidden in the trees, which are often called \"juke spots\". Use these to escape attacks, or to set up an ambush."
 		"dota_tip_beginner_19"			"Use Dust of Appearance to reveal nearby invisible enemies."
 		"dota_tip_beginner_20"			"One rune will appear in the river every two minutes, either north of the middle lane or to the south. Both Runes will spawn from 40 minutes onward."
 		"dota_tip_beginner_21"			"If you have a Bottle, picking up a Rune will store it for later use. Storing a Rune will also refill the Bottle."
@@ -9380,7 +9381,7 @@
 		"dota_tip_beginner_36"			"Being near your team's fountain will rapidly restore your health and mana."
 		"dota_tip_beginner_40"			"Strength increases maximum Health. Agility increases Attack Speed. Intelligence increases maximum Mana." 
 		"dota_tip_beginner_41"			"The Secret Shop is not actually a secret." 
-		"dota_tip_beginner_42"			"A \Carry\ is a hero that gains power slowly, becoming strong late in the game. A \Support\ hero is often most powerful early in the game, and later enhances their team's effectiveness." 
+		"dota_tip_beginner_42"			"A \"Carry\" is a hero that gains power slowly, becoming strong late in the game. A \"Support\" hero is often most powerful early in the game, and later enhances their team's effectiveness." 
 		"dota_tip_beginner_43"			"As long as your Hero is near a kill when it occurs, you will gain experience." 
 		"dota_tip_beginner_44"			"You can temporarily fortify your structures and creeps, preventing all damage to them, by using the Glyph of Fortification. Use it wisely; it has a very long cooldown." 
 		"dota_tip_beginner_45"			"Using Town Portal Scrolls allows you to teleport to any allied structure. Using Boots of Travel allows you to teleport to any allied unit."
@@ -9393,7 +9394,7 @@
 		"dota_tip_beginner_52"			"Town Portal Scrolls can be given to teammates."
 		"dota_tip_beginner_53"			"Observer and Sentry Wards cannot be placed inside Roshan's pit."
 		"dota_tip_beginner_54"			"Unclaimed Runes will be replaced every two minutes."
-		"dota_tip_beginner_55"			"Earning gold by killing creeps is often called \Farming\."
+		"dota_tip_beginner_55"			"Earning gold by killing creeps is often called \"Farming\"."
 
 		
 //INTERMEDIATE LOADSCREEN TIPS		(75+ games played)	

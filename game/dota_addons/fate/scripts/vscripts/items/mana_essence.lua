@@ -14,8 +14,6 @@ function item_mana_essence:OnSpellStart()
 	local hTarget = self:GetCursorTarget() or hCaster
 	local iCurrentCharges = self:GetCurrentCharges()
 	
-	self:SetRefCountsModifiers(true)
-	
 	local fDuration = self:GetSpecialValueFor("duration")
 	local fHealthRegen = self:GetSpecialValueFor("health") / fDuration
 	local fManaRegen = self:GetSpecialValueFor("mana") / fDuration
@@ -23,5 +21,5 @@ function item_mana_essence:OnSpellStart()
 	hTarget:AddNewModifier(hCaster, self, "modifier_mana_essence", { Duration = fDuration, fHealthRegen = fHealthRegen, fManaRegen = fManaRegen })
 	hTarget:EmitSound("DOTA_Item.ClarityPotion.Activate")
 
-	self:SpendCharge(1)
+	if iCurrentCharges == 1 then self:SpendCharge() else self:SetCurrentCharges(iCurrentCharges - 1) end
 end
