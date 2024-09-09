@@ -15,8 +15,10 @@ function item_shard_of_replenishment:OnSpellStart()
 	hCaster:Heal(1000, hCaster)
 	hCaster:GiveMana(500)
 
+	self:SetRefCountsModifiers(true)
+	
 	hTarget:AddNewModifier(hCaster, self, "modifier_replenishment_armor", { Duration = fArmorDuration })
 	hTarget:AddNewModifier(hCaster, self, "modifier_replenishment_heal", { Duration = fDuration })
 
-	if iCurrentCharges == 1 then self:SpendCharge() else self:SetCurrentCharges(iCurrentCharges - 1) end
+	self:SpendCharge(1)
 end
