@@ -22,24 +22,12 @@
 		{
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"area_of_effect"		"500"
-			}
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"500"
-			}
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"regen"					"500"
-			}
-		}
+		"AbilityValues"
+        {
+            "area_of_effect" "500"
+            "damage" "500"
+            "regen" "500"
+        }
 	}
 
 
@@ -71,24 +59,12 @@
 			}
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"passive_mr"			"10"
-			}	
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"active_mr"				"75"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"active_duration"		"3.5"
-			}		
-		}
+		"AbilityValues"
+        {
+            "passive_mr" "10"
+            "active_mr" "75"
+            "active_duration" "3.5"
+        }
 
 		"Modifiers"
 		{
@@ -173,24 +149,12 @@
 			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_mirana.vsndevts"
 			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_oracle.vsndevts"
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cast_delay"			"0.3"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"damage"				"325 400 475 550 625"
-			}	
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"banish_duration"		"1.5"
-			}	
-		}
+		"AbilityValues"
+        {
+            "cast_delay" "0.3"
+            "damage" "325 400 475 550 625"
+            "banish_duration" "1.5"
+        }
 
 		"OnSpellStart"
 		{
@@ -280,49 +244,17 @@
 			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_sniper.vsndevts"
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"range"				"350"
-			}	
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"attack_amount"		"4"
-			}	
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"damage"		"100 120 140 160 180"
-			}	
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"slow"		"-30 -40 -50 -60 -70"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"slow_duration"		"3"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"lock_duration"		"1.2 1.5 1.8 2.1 2.4"
-			}	
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"slow_tier2"		"-15 -20 -25 -30 -35"
-			}	
-			"08"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"slow_tier3"		"-7.5 -10 -12.5 -15 -17.5"
-			}	
-		}
+		"AbilityValues"
+        {
+            "range" "350"
+            "attack_amount" "4"
+            "damage" "100 120 140 160 180"
+            "slow" "-30 -40 -50 -60 -70"
+            "slow_duration" "3"
+            "lock_duration" "1.2 1.5 1.8 2.1 2.4"
+            "slow_tier2" "-15 -20 -25 -30 -35"
+            "slow_tier3" "-7.5 -10 -12.5 -15 -17.5"
+        }
 
 		"OnSpellStart"
 		{
@@ -427,44 +359,16 @@
 			"particle"			"particles/custom/astolfo/la_black_luna/la_black_luna_shockwave.vpcf"
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"radius"			"2000"
-			}	
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"slow_amount"		"-40 -45 -50 -55 -60"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage_radius"		"700"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"130 160 190 220 250"
-			}		
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"silence_radius"	"700"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"slow_amount1"		"-99"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"slow_amount2"		"-99"
-			}	
-		}
+		"AbilityValues"
+        {
+            "radius" "2000"
+            "slow_amount" "-40 -45 -50 -55 -60"
+            "damage_radius" "700"
+            "damage" "130 160 190 220 250"
+            "silence_radius" "700"
+            "slow_amount1" "-99"
+            "slow_amount2" "-99"
+        }
 
 		"OnAbilityPhaseStart"
 		{
@@ -611,54 +515,18 @@
 			"particle"			"particles/custom/astolfo/hippogriff_raid/astolfo_hippogriff_raid_ascend.vpcf"
 			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_phoenix.vsndevts"
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"max_range"				"2500"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cast_delay"		"0.5"
-			}	
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"reveal_delay"		"2.0"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"total_delay"		"4.0"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"radius"		"600"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"first_impact_damage"		"500 550 600 650 700"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"first_impact_stun_duration"		"2"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"second_impact_damage"		"400 500 600 700 800"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"attribute_bonus_range"	"500"
-			}
-		}
+		"AbilityValues"
+        {
+            "max_range" "2500"
+            "cast_delay" "0.5"
+            "reveal_delay" "2.0"
+            "total_delay" "4.0"
+            "radius" "600"
+            "first_impact_damage" "500 550 600 650 700"
+            "first_impact_stun_duration" "2"
+            "second_impact_damage" "400 500 600 700 800"
+            "attribute_bonus_range" "500"
+        }
 		"OnAbilityPhaseStart"
 		{
 			"RunScript"
@@ -731,34 +599,14 @@
 			"particle"				"particles/custom/astolfo/astolfo_ground_mark_flex_10sec.vpcf"
 			"particle"				"particles/econ/items/kunkka/divine_anchor/hero_kunkka_dafx_skills/kunkka_spell_torrent_bubbles_swirl_fxset.vpcf"
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"ascend_delay"				"2.0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"8.0"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"max_range"				"3000"
-			}	
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"linear_range"			"1000"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"damage"				"1000"
-			}
-		}
+		"AbilityValues"
+        {
+            "ascend_delay" "2.0"
+            "duration" "8.0"
+            "max_range" "3000"
+            "linear_range" "1000"
+            "damage" "1000"
+        }
 
 		"OnSpellStart"
 		{
@@ -834,40 +682,15 @@
 		"precache"
 		{
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"ascend_delay"			"2.0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"8.0"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"max_range"				"3000"
-			}	
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"linear_range"			"1000"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"damage"				"750"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cooldown"				"0.75"
-			}
-
-		}
+		"AbilityValues"
+        {
+            "ascend_delay" "2.0"
+            "duration" "8.0"
+            "max_range" "3000"
+            "linear_range" "1000"
+            "damage" "750"
+            "cooldown" "0.75"
+        }
 
 		"OnSpellStart"
 		{
@@ -887,9 +710,9 @@
 		"AbilityTextureName"			""
 		"MaxLevel"						"1"
 		
-		"AbilitySpecial"
-		{
-		}
+		"AbilityValues"
+        {
+        }
 		
 		"Modifiers"
 		{
@@ -921,9 +744,9 @@
 		"AbilityTextureName"			""
 		"MaxLevel"						"1"
 		
-		"AbilitySpecial"
-		{
-		}
+		"AbilityValues"
+        {
+        }
 		
 		"Modifiers"
 		{
@@ -1015,24 +838,12 @@
 		{
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"vanish_stun_duration"		"0.5"
-			}	
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"raid_first_impact_damage"		"10"
-			}	
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"raid_second_impact_radius"		"100"
-			}	
-		}
+		"AbilityValues"
+        {
+            "vanish_stun_duration" "0.5"
+            "raid_first_impact_damage" "10"
+            "raid_second_impact_radius" "100"
+        }
 		
 		"OnSpellStart"
 		{
@@ -1065,19 +876,11 @@
 		{
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"base_damage"		"35"
-			}	
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"damage_pct"		"8"
-			}
-		}
+		"AbilityValues"
+        {
+            "base_damage" "35"
+            "damage_pct" "8"
+        }
 		
 		"OnSpellStart"
 		{
@@ -1109,29 +912,13 @@
 		{
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"health_regen"		"0.5"
-			}	
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"mana_regen"		"0.8"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"health_regen_boosted"		"1.5"
-			}	
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"mana_regen_boosted"		"3"
-			}
-		}
+		"AbilityValues"
+        {
+            "health_regen" "0.5"
+            "mana_regen" "0.8"
+            "health_regen_boosted" "1.5"
+            "mana_regen_boosted" "3"
+        }
 		
 		"OnSpellStart"
 		{
@@ -1163,29 +950,13 @@
 		{
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bash_damage"			"100"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bash_duration"			"0.75"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"critical_damage"		"200"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"evasion_duration"		"1.0"
-			}
-		}
+		"AbilityValues"
+        {
+            "bash_damage" "100"
+            "bash_duration" "0.75"
+            "critical_damage" "200"
+            "evasion_duration" "1.0"
+        }
 		
 		"OnSpellStart"
 		{
@@ -1224,48 +995,16 @@
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3"
 		"AnimationPlaybackRate" 		"2.0"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"max_range"				"2500"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cast_delay"		"0.5"
-			}	
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"fly_duration"			"1.2"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"1.0"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"pull_radius"				"600"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"airborne_radius"			"300"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"air_damage"			"500 600 700 800 900"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"damage_per_second"		"200 300 400 500 600"
-			}
-		}
+		"AbilityValues"
+        {
+            "max_range" "2500"
+            "cast_delay" "0.5"
+            "fly_duration" "1.2"
+            "duration" "1.0"
+            "pull_radius" "600"
+            "airborne_radius" "300"
+            "air_damage" "500 600 700 800 900"
+            "damage_per_second" "200 300 400 500 600"
+        }
 	}
 }

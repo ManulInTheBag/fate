@@ -18,30 +18,12 @@
 			"particle"		"particles/units/heroes/hero_spectre/spectre_ambient.vpcf"
 		}
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"duration"			"8"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"strbonus"			"20"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"dmg_ratio"			"1.5"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"immune_duration"	
-
-			}
-		}
+		"AbilityValues"
+        {
+            "duration" "8"
+            "strbonus" "20"
+            "dmg_ratio" "1.5"
+        }
 		
 		"OnSpellStart"
 		{
@@ -97,29 +79,13 @@
 		
 		// Ability Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"cast_delay"		"0.8"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"heal_percentage"				"4 6 8 10 12"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"movespeed_bonus_percentage"		"20 25 30 35 40"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"movespeed_duration"	"3.0"	
-			}
-		}
+		"AbilityValues"
+        {
+            "cast_delay" "0.8"
+            "heal_percentage" "4 6 8 10 12"
+            "movespeed_bonus_percentage" "20 25 30 35 40"
+            "movespeed_duration" "3.0"
+        }
 		// Data driven
 		//-------------------------------------------------------------------------------------------------------------
 		"OnSpellStart"
@@ -209,39 +175,15 @@
 		
 		// Ability Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"resist_duration"				"0.1 0.2 0.3 0.4 0.5"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"mr_bonus"		"50"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"armor_bonus"		"30"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"active_bonus_aspd"		"15 30 45 60 75"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"active_bonus_ms"		"15"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"active_duration"		"8"
-			}
-		}
+		"AbilityValues"
+        {
+            "resist_duration" "0.1 0.2 0.3 0.4 0.5"
+            "mr_bonus" "50"
+            "armor_bonus" "30"
+            "active_bonus_aspd" "15 30 45 60 75"
+            "active_bonus_ms" "15"
+            "active_duration" "8"
+        }
 		// Data driven
 		//-------------------------------------------------------------------------------------------------------------
 		"OnSpellStart"
@@ -337,59 +279,19 @@
 		
 		// Ability special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"first_strike_cast_delay"		"0.3"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"first_strike_damage"			"300 350 400 450 500"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"first_strike_slow"		"-30"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"first_strike_slow_duration"		"3"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"second_strike_cast_delay"				"0.35"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"second_strike_damage"				"300 350 400 450 500"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"third_strike_cast_delay"				"0.4"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"third_strike_damage"				"35"
-			}
-			"09"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"third_strike_slow"				"-60"
-			}
-			"10"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"third_strike_slow_duration"				"3.0"
-			}
-		}
+		"AbilityValues"
+        {
+            "first_strike_cast_delay" "0.3"
+            "first_strike_damage" "300 350 400 450 500"
+            "first_strike_slow" "-30"
+            "first_strike_slow_duration" "3"
+            "second_strike_cast_delay" "0.35"
+            "second_strike_damage" "300 350 400 450 500"
+            "third_strike_cast_delay" "0.4"
+            "third_strike_damage" "35"
+            "third_strike_slow" "-60"
+            "third_strike_slow_duration" "3.0"
+        }
 		
 		"OnSpellStart"
 		{
@@ -456,59 +358,19 @@
 		
 		// Ability special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"first_strike_cast_delay"		"0.3"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"first_strike_damage"			"300 350 400 450 500"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"first_strike_slow"		"-30"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"first_strike_slow_duration"		"3"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"second_strike_cast_delay"				"0.45"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"second_strike_damage"				"300 350 400 450 500"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"third_strike_cast_delay"				"0.6"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"third_strike_damage"				"35"
-			}
-			"09"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"third_strike_slow"				"-60"
-			}
-			"10"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"third_strike_slow_duration"				"3.0"
-			}
-		}
+		"AbilityValues"
+        {
+            "first_strike_cast_delay" "0.3"
+            "first_strike_damage" "300 350 400 450 500"
+            "first_strike_slow" "-30"
+            "first_strike_slow_duration" "3"
+            "second_strike_cast_delay" "0.45"
+            "second_strike_damage" "300 350 400 450 500"
+            "third_strike_cast_delay" "0.6"
+            "third_strike_damage" "35"
+            "third_strike_slow" "-60"
+            "third_strike_slow_duration" "3.0"
+        }
 		
 		// Data driven
 		//-------------------------------------------------------------------------------------------------------------
@@ -574,59 +436,19 @@
 		
 		// Ability special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"first_strike_cast_delay"		"0.3"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"first_strike_damage"			"300 350 400 450 500"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"first_strike_slow"		"-30"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"first_strike_slow_duration"		"3"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"second_strike_cast_delay"				"0.45"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"second_strike_damage"				"300 350 400 450 500"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"third_strike_cast_delay"				"0.6"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"third_strike_damage"				"35"
-			}
-			"09"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"third_strike_slow"				"-60"
-			}
-			"10"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"third_strike_slow_duration"				"3.0"
-			}
-		}
+		"AbilityValues"
+        {
+            "first_strike_cast_delay" "0.3"
+            "first_strike_damage" "300 350 400 450 500"
+            "first_strike_slow" "-30"
+            "first_strike_slow_duration" "3"
+            "second_strike_cast_delay" "0.45"
+            "second_strike_damage" "300 350 400 450 500"
+            "third_strike_cast_delay" "0.6"
+            "third_strike_damage" "35"
+            "third_strike_slow" "-60"
+            "third_strike_slow_duration" "3.0"
+        }
 		
 		// Data driven
 		//-------------------------------------------------------------------------------------------------------------
@@ -698,44 +520,16 @@
 		
 		// Ability special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"cast_delay"		"0.75"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"initial_damage"	"650 700 750 800 850"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"stun_duration"		"0.7"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"open_wound_duration"		"3.0"	
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"open_wound_damage"		"60 75 90 105 120"	
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"open_wound_stun_duration"		"0.6"	
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"silence_duration"		"3.0"	
-			}
-		}
+		"AbilityValues"
+        {
+            "cast_delay" "0.75"
+            "initial_damage" "650 700 750 800 850"
+            "stun_duration" "0.7"
+            "open_wound_duration" "3.0"
+            "open_wound_damage" "60 75 90 105 120"
+            "open_wound_stun_duration" "0.6"
+            "silence_duration" "3.0"
+        }
 
 		"OnAbilityPhaseStart"
 		{

@@ -420,25 +420,12 @@
 		"AbilityCooldown"						"4"
 		"AbilityManaCost"						"100"
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"damage"						"200 300 400 500 600"
-			}
-			
-			"02"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"radius"						"600"
-			}
-			"03"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"root_dur"						"2.0"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "200 300 400 500 600"
+            "radius" "600"
+            "root_dur" "2.0"
+        }
 	}
 
 	//================================================
@@ -675,24 +662,12 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"100"
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"damage"		"300"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"aoe"			"200"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"duration"		"6"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "300"
+            "aoe" "200"
+            "duration" "6"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -866,9 +841,9 @@
 		"AbilityManaCost"				"14"
 
 
-		"AbilitySpecial"
-		{
-		}
+		"AbilityValues"
+        {
+        }
 		"OnSpellStart"
 		{
 			"RunScript"

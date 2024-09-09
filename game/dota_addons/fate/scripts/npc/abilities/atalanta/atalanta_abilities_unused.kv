@@ -38,14 +38,10 @@
 
 
     }
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"					"FIELD_FLOAT"
-        "gcd"		"10"
-      }
-    }
+    "AbilityValues"
+        {
+            "gcd" "10"
+        }
   }
   "atalanta_traps_close"
   {
@@ -74,24 +70,12 @@
     "AbilityCastPoint"				"0.7"
     "AbilityCooldown"				"25"
     "AbilityManaCost"				"150"
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"					"FIELD_FLOAT"
-        "sleep_duration"		"2.5 3 3.5 4 4.5"
-      }
-      "02"
-      {
-        "var_type"					"FIELD_FLOAT"
-        "range"		"2500"
-      }      
-      "03"
-      {
-        "var_type"					"FIELD_FLOAT"
-        "cast_point"		"0.7"
-      }   
-    }
+    "AbilityValues"
+        {
+            "sleep_duration" "2.5 3 3.5 4 4.5"
+            "range" "2500"
+            "cast_point" "0.7"
+        }
   }
   //=======================================
   // Atalanta: Cobweb Shot (traps)
@@ -110,39 +94,15 @@
     "AbilityCastPoint"				"0.3"
     "AbilityCooldown"				"25"
     "AbilityManaCost"				"200"
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"					"FIELD_FLOAT"
-        "number_of_webs"		"6 7 8 9 10"
-      }
-      "02"
-      {
-        "var_type"					"FIELD_FLOAT"
-        "dps"		"150 185 220 255 290"
-      }
-      "03"
-      {
-        "var_type"					"FIELD_FLOAT"
-        "web_duration"		"6 7 8 9 10"
-      }
-      "04"
-      {
-        "var_type"					"FIELD_FLOAT"
-        "max_range_of_bounce"		"2500"
-      }
-      "05"
-      {
-        "var_type"					"FIELD_FLOAT"
-        "web_slow"		"-40"
-      }
-      "06"
-      {
-        "var_type"					"FIELD_FLOAT"
-        "web_lock_duration"		"1"
-      }
-    }
+    "AbilityValues"
+        {
+            "number_of_webs" "6 7 8 9 10"
+            "dps" "150 185 220 255 290"
+            "web_duration" "6 7 8 9 10"
+            "max_range_of_bounce" "2500"
+            "web_slow" "-40"
+            "web_lock_duration" "1"
+        }
   }
   //=======================================
   // Atalanta: Entangling Trap (traps)
@@ -161,59 +121,19 @@
     "AbilityCastPoint"				"0.2"
     "AbilityCooldown"				"25"
     "AbilityManaCost"				"300"
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"					"FIELD_FLOAT"
-        "entangle_radius"		"400 450 500 550 600"
-      }
-      "02"
-      {
-        "var_type"					"FIELD_FLOAT"
-        "entangle_punish_dist"		"400"
-      }
-      "03"
-      {
-        "var_type"					"FIELD_FLOAT"
-        "damage"		"500 600 700 800 900"
-      }
-      "04"
-      {
-        "var_type"					"FIELD_FLOAT"
-        "entangle_duration"		"4 4.5 5 5.5 6"
-      }
-      "05"
-      {
-        "var_type"					"FIELD_FLOAT"
-        "stun_duration"		"1.5"
-      }
-      "06"
-      {
-        "var_type"					"FIELD_FLOAT"
-        "trigger_radius"		"300"
-      }
-      "07"
-      {
-        "var_type"					"FIELD_FLOAT"
-        "arm_delay"		"2"
-      }
-      "08"
-      {
-        "var_type"					"FIELD_FLOAT"
-        "initial_pull"		"200"
-      }
-      "09"
-      {
-        "var_type"					"FIELD_FLOAT"
-        "cast_range"		"400"
-      }
-      "10"
-      {
-        "var_type"					"FIELD_FLOAT"
-        "max_targets__TT"		"3"
-      }
-    }
+    "AbilityValues"
+        {
+            "entangle_radius" "400 450 500 550 600"
+            "entangle_punish_dist" "400"
+            "damage" "500 600 700 800 900"
+            "entangle_duration" "4 4.5 5 5.5 6"
+            "stun_duration" "1.5"
+            "trigger_radius" "300"
+            "arm_delay" "2"
+            "initial_pull" "200"
+            "cast_range" "400"
+            "max_targets__TT" "3"
+        }
   }
   //=======================================
   // Atalanta: Reload (traps)
@@ -231,14 +151,10 @@
     "AbilityCooldown"				"10"
     "AbilityManaCost"				"150"
     
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"					"FIELD_FLOAT"
-        "channel_duration"		"3.1 2.7 2.3 1.9 1.5"
-      }
-    }
+    "AbilityValues"
+        {
+            "channel_duration" "3.1 2.7 2.3 1.9 1.5"
+        }
   }
 
   //=======================================
@@ -265,44 +181,16 @@
       "particle"					"particles/custom/atalanta/r/r_charging.vpcf"
       "particle"					"particles/custom/atalanta/atalanta_tauropolos_marker.vpcf"
     }
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"			"FIELD_FLOAT"
-        "damage"			     "800 950 1100 1250 1400"
-      }
-      "02"
-      {
-        "var_type"			"FIELD_FLOAT"
-        "range"			     "3000"
-      }
-      "03"
-      {
-        "var_type"			"FIELD_FLOAT"
-        "splash_radius"			     "500"
-      }
-      "04"
-      {
-        "var_type"			"FIELD_FLOAT"
-        "splash_percentage"			     "50"
-      }
-      "05"
-      {
-        "var_type"			"FIELD_FLOAT"
-        "slow_percentage"			     "-35"
-      }
-      "06"
-      {
-        "var_type"			             "FIELD_FLOAT"
-        "slow_and_vision_duration"			     "2"
-      }
-      "07"
-      {
-        "var_type"			             "FIELD_FLOAT"
-        "cast_point"			     "1.75"
-      }
-    }
+    "AbilityValues"
+        {
+            "damage" "800 950 1100 1250 1400"
+            "range" "3000"
+            "splash_radius" "500"
+            "splash_percentage" "50"
+            "slow_percentage" "-35"
+            "slow_and_vision_duration" "2"
+            "cast_point" "1.75"
+        }
   }
 
   //=======================================
@@ -320,48 +208,16 @@
     "AbilityCooldown"				"140"
     "AbilityManaCost"				"300"
 
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"			"FIELD_INTEGER"
-        "range"				"3000"
-      }
-      "02"
-      {
-        "var_type"			"FIELD_FLOAT"
-        "aoe"				"600"
-      }
-      "03"
-      {
-        "var_type"			"FIELD_FLOAT"
-        "arrow_aoe"			"200"
-      }
-      "04"
-      {
-        "var_type"			"FIELD_INTEGER"
-        "barrage_arrows"	"60"
-      }
-      "05"
-      {
-        "var_type"			"FIELD_INTEGER"
-        "snipe_arrows"		"11"
-      }
-      "06"
-      {
-        "var_type"			"FIELD_FLOAT"
-        "delay"				"2.4"
-      }
-      "07"
-      {
-        "var_type"			"FIELD_FLOAT"
-        "cast_time"			"1.4"
-      }
-      "08"
-      {
-        "var_type"			"FIELD_FLOAT"
-        "arrows_damage_percentage"				"75"
-      }
-    }
+    "AbilityValues"
+        {
+            "range" "3000"
+            "aoe" "600"
+            "arrow_aoe" "200"
+            "barrage_arrows" "60"
+            "snipe_arrows" "11"
+            "delay" "2.4"
+            "cast_time" "1.4"
+            "arrows_damage_percentage" "75"
+        }
   }
 }

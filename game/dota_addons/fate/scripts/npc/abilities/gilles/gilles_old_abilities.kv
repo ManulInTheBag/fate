@@ -19,29 +19,13 @@
 			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_warlock.vsndevts"
 		}
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"madness_regen"			"0.05"
-			}	
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"madness_kill_range"			"900"
-			}	
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"radius"			"1000"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"mr_bonus"			"100"
-			}	
-		}
+		"AbilityValues"
+        {
+            "madness_regen" "0.05"
+            "madness_kill_range" "900"
+            "radius" "1000"
+            "mr_bonus" "100"
+        }
 		
 		"OnSpellStart"
 		{
@@ -170,34 +154,14 @@
 		"AbilityCooldown"				"6"
 
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"radius"			"300"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"summon_number"			"3 3 3 4 4"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"summon_number_no_corpse"			"1 1 1 2 3"
-			}							
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"health"			"190 230 270 310 350"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"cast_range"		"400 550 700 850 1000"
-			}
-		}
+		"AbilityValues"
+        {
+            "radius" "300"
+            "summon_number" "3 3 3 4 4"
+            "summon_number_no_corpse" "1 1 1 2 3"
+            "health" "190 230 270 310 350"
+            "cast_range" "400 550 700 850 1000"
+        }
 		
 		"OnSpellStart"
 		{
@@ -232,14 +196,10 @@
 		{
 		}
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"slow"			"-10"
-			}				
-		}
+		"AbilityValues"
+        {
+            "slow" "-10"
+        }
 		
 		"OnSpellStart"
 		{
@@ -335,29 +295,13 @@
 		"AbilityCooldown"				"10.0"
 
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"radius"			"300"
-			}			
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"duration"			"4"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"total_damage"		"300 400 500 600 700"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"stun_duration"		"0.4"
-			}
-		}
+		"AbilityValues"
+        {
+            "radius" "300"
+            "duration" "4"
+            "total_damage" "300 400 500 600 700"
+            "stun_duration" "0.4"
+        }
 		
 		"OnSpellStart"
 		{
@@ -477,19 +421,11 @@
 		"AbilityCooldown"				"14.0"
 
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"radius"			"300"
-			}			
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"400 450 500 550 600"
-			}
-		}
+		"AbilityValues"
+        {
+            "radius" "300"
+            "damage" "400 450 500 550 600"
+        }
 		
 		"OnSpellStart"
 		{
@@ -587,39 +523,15 @@
 		"AbilityCooldown"				"75.0"
 
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"delay"				"3"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"radius"			"1000"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"500 625 750 875 1000"
-			}			
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"health"			"1500 1750 2000 2250 2500"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"attack_damage"		"150 225 300 375 450"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"summon_disable_duration"	"3"
-			}
-		}
+		"AbilityValues"
+        {
+            "delay" "3"
+            "radius" "1000"
+            "damage" "500 625 750 875 1000"
+            "health" "1500 1750 2000 2250 2500"
+            "attack_damage" "150 225 300 375 450"
+            "summon_disable_duration" "3"
+        }
 		
 		"OnSpellStart"
 		{
@@ -673,9 +585,9 @@
 		"AbilityCooldown"				"10.0"
 
 		
-		"AbilitySpecial"
-		{
-		}
+		"AbilityValues"
+        {
+        }
 		
 		"OnSpellStart"
 		{
@@ -723,24 +635,12 @@
 		"AbilityCooldown"				"10.0"
 
 		
-		"AbilitySpecial"
-		{		
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"health"			"120 190 260 330 400 470 540 610"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"30 33 36 39 42 45 48 51"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"bonus_damage"		"0.9 1.2 1.5 1.8 2.1 2.4 2.7 3.0"
-			}		
-		}
+		"AbilityValues"
+        {
+            "health" "120 190 260 330 400 470 540 610"
+            "damage" "30 33 36 39 42 45 48 51"
+            "bonus_damage" "0.9 1.2 1.5 1.8 2.1 2.4 2.7 3.0"
+        }
 		
 		"OnSpellStart"
 		{
@@ -780,24 +680,12 @@
 			
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"health"			"120 190 260 330 400 470 540 610"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"14 18 22 26 30 34 38 42"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"bonus_damage"		"0.9 1.2 1.5 1.8 2.1 2.4 2.7 3.0"
-			}						
-		}
+		"AbilityValues"
+        {
+            "health" "120 190 260 330 400 470 540 610"
+            "damage" "14 18 22 26 30 34 38 42"
+            "bonus_damage" "0.9 1.2 1.5 1.8 2.1 2.4 2.7 3.0"
+        }
 
 		"Modifiers"
 		{
@@ -855,10 +743,9 @@
 		{
 		}
 
-		"AbilitySpecial"
-		{
-
-		}
+		"AbilityValues"
+        {
+        }
 		
 		"OnSpellStart"
 		{

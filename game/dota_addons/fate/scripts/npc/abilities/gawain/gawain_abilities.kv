@@ -18,31 +18,13 @@
     
 
  
-		"AbilitySpecial"
-		{
-			"01"
-			{	
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"10"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"area_of_effect"	"600"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"mr"				"5 7"
-
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"regen"				"10 15"
-
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "10"
+            "area_of_effect" "600"
+            "mr" "5 7"
+            "regen" "10 15"
+        }
     }	
 
     //=======================================
@@ -62,31 +44,13 @@
 		"AbilityCooldown"				"75"
 		"AbilityManaCost"				"400"
  
-		"AbilitySpecial"
-		{
-			"01"
-			{	
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"10"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"area_of_effect"	"400"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"mr"				"7"
-
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"regen"				"15"
-
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "10"
+            "area_of_effect" "400"
+            "mr" "7"
+            "regen" "15"
+        }
     }	
 
 	"gawain_blessing_proxy"
@@ -99,24 +63,12 @@
 		"RequiredLevel"					"25"
 		"LevelsBetweenUpgrades"			"1"
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"health_regain"			"333"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"health_regeneration"	"333"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"duration"				"3"
-			}
-		}	
+		"AbilityValues"
+        {
+            "health_regain" "333"
+            "health_regeneration" "333"
+            "duration" "3"
+        }	
 	}
 
 	//=================================================================================================================
@@ -137,24 +89,12 @@
 			"particle"					"particles/items_fx/aegis_timer.vpcf"
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"health_regain"			"333"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"health_regeneration"	"111"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"duration"				"3"
-			}
-		}
+		"AbilityValues"
+        {
+            "health_regain" "333"
+            "health_regeneration" "111"
+            "duration" "3"
+        }
 
 		
 		"OnSpellStart"
@@ -236,25 +176,12 @@
 
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{	
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"600 700 800 900 1000"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"area_of_effect"	"475"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"stun_duration"		"0.5 0.6 0.7 0.8 0.9"
-
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "600 700 800 900 1000"
+            "area_of_effect" "475"
+            "stun_duration" "0.5 0.6 0.7 0.8 0.9"
+        }
     }	
 
 	//=================================================================================================================
@@ -293,39 +220,15 @@
 		"AbilityManaCost"				"800"
 		"AbilityCastRange"				"1500"
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cast_delay"			"1.5"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"damage"				"800 1050 1300 1550 1800"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"550"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"dot_damage"			"70 100 130 160 190"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"duration"				"3"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"max_range"				"1500"
-			}
-		}
+		"AbilityValues"
+        {
+            "cast_delay" "1.5"
+            "damage" "800 1050 1300 1550 1800"
+            "radius" "550"
+            "dot_damage" "70 100 130 160 190"
+            "duration" "3"
+            "max_range" "1500"
+        }
 		
 		"OnSpellStart"
 		{
@@ -403,9 +306,9 @@
 		{
 		}
 
-		"AbilitySpecial"
-		{
-		}
+		"AbilityValues"
+        {
+        }
 		
 		"OnSpellStart"
 		{
@@ -440,24 +343,12 @@
 		{
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"health_restored"		"333"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"regen_amount"			"333"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"duration"				"3"
-			}
-		}
+		"AbilityValues"
+        {
+            "health_restored" "333"
+            "regen_amount" "333"
+            "duration" "3"
+        }
 		
 		"OnSpellStart"
 		{
@@ -494,24 +385,12 @@
 		{
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"250"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"combo_damage"			"1250"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"fire_trail_duration"	"3"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "250"
+            "combo_damage" "1250"
+            "fire_trail_duration" "3"
+        }
 		
 		"OnSpellStart"
 		{
@@ -546,20 +425,11 @@
 		{
 		}
 
-		"AbilitySpecial"
-		{
-		 "01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"explosion_aoe"	"350"
-			}
-		"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"explosion_delay"	"0.8"
-			}
-
-		}
+		"AbilityValues"
+        {
+            "explosion_aoe" "350"
+            "explosion_delay" "0.8"
+        }
 	}
 
 
@@ -584,29 +454,13 @@
 		{
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"attack_trigger"		"5"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_aspd"			"400"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"num_attacks"			"5"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"stun_dur"				"1"
-			}
-		}
+		"AbilityValues"
+        {
+            "attack_trigger" "5"
+            "bonus_aspd" "400"
+            "num_attacks" "5"
+            "stun_dur" "1"
+        }
 	}
 
 	//=======================================
@@ -630,31 +484,13 @@
 		{
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{	
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"10"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"area_of_effect"	"400"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"mr"				"7"
-
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"regen"				"15"
-
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "10"
+            "area_of_effect" "400"
+            "mr" "7"
+            "regen" "15"
+        }
 	}
 	 //=================================================================================================================
 	// Gawain : Sun of Galatine Reborn
@@ -696,38 +532,14 @@
 		"AbilityManaCost"				"800"
 		"AbilityCastRange"				"2100"
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cast_delay"			"3.5"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"damage"				"2500"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"area_of_effect"				"2100"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"dot_damage"			"333"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"duration"				"3"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"sun_damage"				"1000"
-			}
-		}
+		"AbilityValues"
+        {
+            "cast_delay" "3.5"
+            "damage" "2500"
+            "area_of_effect" "2100"
+            "dot_damage" "333"
+            "duration" "3"
+            "sun_damage" "1000"
+        }
 	}
 }

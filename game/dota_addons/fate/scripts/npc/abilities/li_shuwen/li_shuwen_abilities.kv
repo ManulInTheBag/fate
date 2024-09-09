@@ -40,39 +40,15 @@
 		"AbilityCastRangeBuffer"		"250"
 		"AbilityCastPoint"				"0.1"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"search_radius"		"700 1300"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"duration"			"2 4"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"vision_radius"		"200"
-			}
-			"04"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"critical_rate_percentage"			"45"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"critical_damage"			"150"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"silence_duration"	"1.5"
-			}
-		}
+		"AbilityValues"
+        {
+            "search_radius" "700 1300"
+            "duration" "2 4"
+            "vision_radius" "200"
+            "critical_rate_percentage" "45"
+            "critical_damage" "150"
+            "silence_duration" "1.5"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -221,74 +197,22 @@
 		
 		// Ability special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"first_strike_cast_delay"		"0.3"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"first_strike_damage"			"600"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"first_strike_slow"		"-30"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"first_strike_slow_duration"		"3"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"second_strike_cast_delay"				"0.35"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"second_strike_damage"				"600"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"second_strike_radius"				"500"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"second_strike_stun_duration"				"1.0"
-			}
-			"09"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"third_strike_cast_delay"				"0.45"
-			}
-			"10"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"third_strike_aerial_damage"				"150"
-			}
-			"11"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"third_strike_aerial_hit_count"				"15"
-			}
-			"12"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"third_strike_knockup_duration"				"1.7"
-			}
-			"13"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"third_strike_failure_cdr"			"75"
-			}
-		}
+		"AbilityValues"
+        {
+            "first_strike_cast_delay" "0.3"
+            "first_strike_damage" "600"
+            "first_strike_slow" "-30"
+            "first_strike_slow_duration" "3"
+            "second_strike_cast_delay" "0.35"
+            "second_strike_damage" "600"
+            "second_strike_radius" "500"
+            "second_strike_stun_duration" "1.0"
+            "third_strike_cast_delay" "0.45"
+            "third_strike_aerial_damage" "150"
+            "third_strike_aerial_hit_count" "15"
+            "third_strike_knockup_duration" "1.7"
+            "third_strike_failure_cdr" "75"
+        }
 		
 		
 		"OnSpellStart"
@@ -365,74 +289,22 @@
 		
 		// Ability special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"first_strike_cast_delay"		"0.3"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"first_strike_damage"			"600"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"first_strike_slow"		"30"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"first_strike_slow_duration"		"3"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"second_strike_cast_delay"				"0.45"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"second_strike_damage"				"600"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"second_strike_radius"				"500"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"second_strike_stun_duration"				"1.0"
-			}
-			"09"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"third_strike_cast_delay"				"0.6"
-			}
-			"10"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"third_strike_aerial_damage"				"150"
-			}
-			"11"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"third_strike_aerial_hit_count"				"15"
-			}
-			"12"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"third_strike_slam_damage"				"600"
-			}
-			"13"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"third_strike_knockup_duration"				"1.7"
-			}
-		}
+		"AbilityValues"
+        {
+            "first_strike_cast_delay" "0.3"
+            "first_strike_damage" "600"
+            "first_strike_slow" "30"
+            "first_strike_slow_duration" "3"
+            "second_strike_cast_delay" "0.45"
+            "second_strike_damage" "600"
+            "second_strike_radius" "500"
+            "second_strike_stun_duration" "1.0"
+            "third_strike_cast_delay" "0.6"
+            "third_strike_aerial_damage" "150"
+            "third_strike_aerial_hit_count" "15"
+            "third_strike_slam_damage" "600"
+            "third_strike_knockup_duration" "1.7"
+        }
 		
 		
 		"OnSpellStart"
@@ -494,74 +366,22 @@
 		
 		// Ability special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"first_strike_cast_delay"		"0.3"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"first_strike_damage"			"600"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"first_strike_slow"		"30"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"first_strike_slow_duration"		"3"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"second_strike_cast_delay"				"0.45"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"second_strike_damage"				"600"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"second_strike_radius"				"500"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"second_strike_stun_duration"				"1.0"
-			}
-			"09"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"third_strike_cast_delay"				"0.6"
-			}
-			"10"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"third_strike_aerial_damage"				"150"
-			}
-			"11"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"third_strike_aerial_hit_count"				"15"
-			}
-			"12"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"third_strike_slam_damage"				"600"
-			}
-			"13"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"third_strike_knockup_duration"				"1.7"
-			}
-		}
+		"AbilityValues"
+        {
+            "first_strike_cast_delay" "0.3"
+            "first_strike_damage" "600"
+            "first_strike_slow" "30"
+            "first_strike_slow_duration" "3"
+            "second_strike_cast_delay" "0.45"
+            "second_strike_damage" "600"
+            "second_strike_radius" "500"
+            "second_strike_stun_duration" "1.0"
+            "third_strike_cast_delay" "0.6"
+            "third_strike_aerial_damage" "150"
+            "third_strike_aerial_hit_count" "15"
+            "third_strike_slam_damage" "600"
+            "third_strike_knockup_duration" "1.7"
+        }
 		
 		
 		"OnSpellStart"
@@ -623,29 +443,13 @@
 		{
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"stun_duration"			"1.75"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"mana_void_damage"		"80"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"knockback_aoe"			"200"	
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"knockback_damage"		"300"
-			}
-		}
+		"AbilityValues"
+        {
+            "stun_duration" "1.75"
+            "mana_void_damage" "80"
+            "knockback_aoe" "200"
+            "knockback_damage" "300"
+        }
 		
 		"OnSpellStart"
 		{
@@ -679,29 +483,13 @@
 			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_antimage.vsndevts"
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_attack"			"2"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"10"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cooldown_bonus"		"100"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"mana_burn"				"55"
-			}
-		}
+		"AbilityValues"
+        {
+            "bonus_attack" "2"
+            "bonus_damage" "10"
+            "cooldown_bonus" "100"
+            "mana_burn" "55"
+        }
 		
 		"OnSpellStart"
 		{
@@ -733,44 +521,16 @@
 		{
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"12.0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cc_immune_duration"	"2.0"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"critical_chance"		"25"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"str_critical_bonus"	"0.33"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"critical_damage"		"200"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_health"			"5"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"1"
-			}
-		}
+		"AbilityValues"
+        {
+            "duration" "12.0"
+            "cc_immune_duration" "2.0"
+            "critical_chance" "25"
+            "str_critical_bonus" "0.33"
+            "critical_damage" "200"
+            "bonus_health" "5"
+            "bonus_damage" "1"
+        }
 		
 		"OnSpellStart"
 		{
@@ -802,39 +562,15 @@
 		{
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"25"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"penalty_damage"		"50"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"health_regen"			"50"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"mana_regen"			"50"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"regen_duration"		"2.0"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"reduced_cooldown"		"13"
-			}
-		}
+		"AbilityValues"
+        {
+            "bonus_damage" "25"
+            "penalty_damage" "50"
+            "health_regen" "50"
+            "mana_regen" "50"
+            "regen_duration" "2.0"
+            "reduced_cooldown" "13"
+        }
 		
 		"OnSpellStart"
 		{

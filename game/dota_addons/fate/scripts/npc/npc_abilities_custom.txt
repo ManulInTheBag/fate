@@ -65,14 +65,10 @@
         //"LevelsBetweenUpgrades" "2"
         //"RequiredLevel" "5"
 
-        "AbilitySpecial"
+        "AbilityValues"
         {
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_health"			"25"
-			}
-		}
+            "bonus_health" "25"
+        }
     }
 
 
@@ -437,9 +433,9 @@
 			"particle"	"particles/generic_gameplay/generic_disarm.vpcf"
 		}
 		
-		"AbilitySpecial"
-		{
-		}
+		"AbilityValues"
+        {
+        }
 		
 		"OnSpellStart"
 		{
@@ -769,24 +765,12 @@
 		"AbilityCooldown"				"0"
 		"AbilityGoldCost"				"400"
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"30"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"vision"				"375"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"true_sight"			"1400"
-			}
-		}
+		"AbilityValues"
+        {
+            "duration" "30"
+            "vision" "375"
+            "true_sight" "1400"
+        }
 
 		"OnSpellStart"
 		{
@@ -818,14 +802,10 @@
 			"particle"		"particles/custom/misc/cmd_seal_1_a.vpcf"
 		}
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"			"20"
-			}
-		}
+		"AbilityValues"
+        {
+            "duration" "20"
+        }
 		
 		"OnSpellStart"
 		{
@@ -1165,14 +1145,10 @@
         "LevelsBetweenUpgrades" "2"
         "RequiredLevel" "5"
 
-        "AbilitySpecial"
+        "AbilityValues"
         {
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"stats"			"3 6 9 12 15 18 21"
-			}
-		}
+            "stats" "3 6 9 12 15 18 21"
+        }
 		"Modifiers"
 		{
 			"modifier_all_stats"
@@ -1201,14 +1177,10 @@
         "LevelsBetweenUpgrades" "2"
         "RequiredLevel" 		"5"
 
-        "AbilitySpecial"
+        "AbilityValues"
         {
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"stats"					"3 6 9 12 15 18 21"
-			}
-		}
+            "stats" "3 6 9 12 15 18 21"
+        }
 		"Modifiers"
 		{
 			"modifier_all_stats"
@@ -1236,9 +1208,9 @@
 		"MaxLevel"						"1"
 		"AbilityCooldown"				"0"
 		
-		"AbilitySpecial"
-		{
-		}
+		"AbilityValues"
+        {
+        }
 		
 		"OnSpellStart"
 		{
@@ -1261,9 +1233,9 @@
 		"MaxLevel"						"1"
 		"AbilityCooldown"				"0"
 		
-		"AbilitySpecial"
-		{
-		}
+		"AbilityValues"
+        {
+        }
 		
 		"OnSpellStart"
 		{
@@ -1287,9 +1259,9 @@
 		"MaxLevel"						"1"
 		"AbilityCooldown"				"0"
 		
-		"AbilitySpecial"
-		{
-		}
+		"AbilityValues"
+        {
+        }
 		
 		"OnSpellStart"
 		{
@@ -1313,9 +1285,9 @@
 		"MaxLevel"						"1"
 		"AbilityCooldown"				"0"
 		
-		"AbilitySpecial"
-		{
-		}
+		"AbilityValues"
+        {
+        }
 		
 		"OnSpellStart"
 		{
@@ -1338,9 +1310,9 @@
 		"MaxLevel"						"1"
 		"AbilityCooldown"				"0"
 		
-		"AbilitySpecial"
-		{
-		}
+		"AbilityValues"
+        {
+        }
 		
 		"OnSpellStart"
 		{
@@ -1365,9 +1337,9 @@
 		"MaxLevel"						"1"
 		"AbilityCooldown"				"0"
 		
-		"AbilitySpecial"
-		{
-		}
+		"AbilityValues"
+        {
+        }
 		
 		"OnSpellStart"
 		{
@@ -1390,9 +1362,9 @@
 		"MaxLevel"						"1"
 		"AbilityCooldown"				"0"
 		
-		"AbilitySpecial"
-		{
-		}
+		"AbilityValues"
+        {
+        }
 		
 		"OnSpellStart"
 		{
@@ -1415,9 +1387,9 @@
 		"MaxLevel"						"1"
 		"AbilityCooldown"				"0"
 		
-		"AbilitySpecial"
-		{
-		}
+		"AbilityValues"
+        {
+        }
 		
 		"OnSpellStart"
 		{
@@ -1440,9 +1412,9 @@
 		"MaxLevel"						"1"
 		"AbilityCooldown"				"0"
 		
-		"AbilitySpecial"
-		{
-		}
+		"AbilityValues"
+        {
+        }
 		
 		"OnSpellStart"
 		{
@@ -1466,9 +1438,9 @@
 		"MaxLevel"						"1"
 		"AbilityCooldown"				"0"
 		
-		"AbilitySpecial"
-		{
-		}
+		"AbilityValues"
+        {
+        }
 		
 		"OnSpellStart"
 		{
@@ -1491,9 +1463,9 @@
 		"AbilityCooldown"				"0"
 		"AbilityManaCost"				"1"
 		
-		"AbilitySpecial"
-		{
-		}
+		"AbilityValues"
+        {
+        }
 		
 		"OnSpellStart"
 		{
@@ -1517,9 +1489,9 @@
 		"AbilityCooldown"				"0"
 		"AbilityManaCost"				"1"
 		
-		"AbilitySpecial"
-		{
-		}
+		"AbilityValues"
+        {
+        }
 		
 		"OnSpellStart"
 		{
@@ -1543,9 +1515,9 @@
 		"AbilityCooldown"				"0"
 		"AbilityManaCost"				"1"
 		
-		"AbilitySpecial"
-		{
-		}
+		"AbilityValues"
+        {
+        }
 		
 		"OnSpellStart"
 		{
@@ -1569,9 +1541,9 @@
 		"AbilityCooldown"				"0"
 		"AbilityManaCost"				"1"
 		
-		"AbilitySpecial"
-		{
-		}
+		"AbilityValues"
+        {
+        }
 		
 		"OnSpellStart"
 		{
@@ -1596,9 +1568,9 @@
 		"AbilityCooldown"				"0"
 		"AbilityManaCost"				"1"
 		
-		"AbilitySpecial"
-		{
-		}
+		"AbilityValues"
+        {
+        }
 		
 		"OnSpellStart"
 		{
@@ -1622,9 +1594,9 @@
 		"AbilityCooldown"				"0"
 		"AbilityManaCost"				"1"
 		
-		"AbilitySpecial"
-		{
-		}
+		"AbilityValues"
+        {
+        }
 		
 		"OnSpellStart"
 		{
@@ -1648,9 +1620,9 @@
 		"AbilityCooldown"				"0"
 		"AbilityManaCost"				"1"
 		
-		"AbilitySpecial"
-		{
-		}
+		"AbilityValues"
+        {
+        }
 		
 		"OnSpellStart"
 		{
@@ -1674,9 +1646,9 @@
 		"AbilityCooldown"				"0"
 		"AbilityManaCost"				"1"
 		
-		"AbilitySpecial"
-		{
-		}
+		"AbilityValues"
+        {
+        }
 		
 		"OnSpellStart"
 		{
@@ -1775,14 +1747,10 @@
 		"BaseClass" 					"ability_datadriven"
 		"AbilityTextureName"            "rubick_empty1"
 		"MaxLevel"                      "3"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"range"					"1300 1800 2500"
-			}
-		}
+		"AbilityValues"
+        {
+            "range" "1300 1800 2500"
+        }
 		"Modifiers"
 		{
 			"fate_experience_passive_aura"

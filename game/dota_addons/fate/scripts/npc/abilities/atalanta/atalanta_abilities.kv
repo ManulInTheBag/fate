@@ -30,79 +30,23 @@
       "soundfile"					"soundevents/game_sounds_heroes/game_sounds_windrunner.vsndevts"
     }
 
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"				  "FIELD_INTEGER"
-        "range"					    "1100 1225 1350 1475 1600"
-      }
-      "02"
-      {
-        "var_type"				  "FIELD_INTEGER"
-        "bonus_arrows"			"0 1 2 3 4"
-      }
-      "03"
-      {
-        "var_type"				  "FIELD_INTEGER"
-        "bonus_damage"			"30 60 90 120 150"
-      }
-      "04"
-      {
-        "var_type"						"FIELD_INTEGER"
-        "agility_per_stack"		"1 2 3 4 5"
-      }
-      "05"
-      {
-        "var_type"						            "FIELD_FLOAT"
-        "casttime_reduction_per_stack"		"1.25 1.75 2.25 2.75 3.25"
-      }
-      "06"
-      {
-        "var_type"						"FIELD_INTEGER"
-        "max_stacks"		      "10"
-      }
-      "07"
-      {
-        "var_type"						"FIELD_INTEGER"
-        "stacks_duration"		  "10"
-      }
-      "08"
-      {
-        "var_type"            "FIELD_INTEGER"
-        "damage"              "100"
-      }
-      "09"
-      {
-        "var_type"               "FIELD_INTEGER"
-        "bonus_range_per_agi"    "5"
-      }
-      "10"
-      {
-        "var_type"          "FIELD_INTEGER"
-        "last_spurt_duration"          "7"
-      }
-      "11"
-      {
-        "var_type"          "FIELD_INTEGER"
-        "base_ms"           "0"
-      }
-      "12"
-      {
-        "var_type"          "FIELD_INTEGER"
-        "ms_per_unit"          "10"
-      }
-      "13"
-      {
-        "var_type"          "FIELD_INTEGER"
-        "base_evade"           "0"
-      }
-      "14"
-      {
-        "var_type"          "FIELD_INTEGER"
-        "evade_per_unit"          "10"
-      }
-    }
+    "AbilityValues"
+        {
+            "range" "1100 1225 1350 1475 1600"
+            "bonus_arrows" "0 1 2 3 4"
+            "bonus_damage" "30 60 90 120 150"
+            "agility_per_stack" "1 2 3 4 5"
+            "casttime_reduction_per_stack" "1.25 1.75 2.25 2.75 3.25"
+            "max_stacks" "10"
+            "stacks_duration" "10"
+            "damage" "100"
+            "bonus_range_per_agi" "5"
+            "last_spurt_duration" "7"
+            "base_ms" "0"
+            "ms_per_unit" "10"
+            "base_evade" "0"
+            "evade_per_unit" "10"
+        }
   }
 
   //=======================================
@@ -132,74 +76,22 @@
       "soundfile"         "soundevents/game_sounds_heroes/game_sounds_bounty_hunter.vsndevts"
     }
 
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"          "FIELD_INTEGER"
-        "max_stacks"        "5"
-      }
-      "02"
-      {
-        "var_type"				  "FIELD_FLOAT"
-        "debuff_duration"		"5.0"
-      }
-      "03"
-      {
-        "var_type"            "FIELD_FLOAT"
-        "root_duration"			  "1.1 1.5 1.9 2.3 2.7"//"0.7 1.0 1.3 1.7 1.9"
-      }
-      "04"
-      {
-        "var_type"            "FIELD_FLOAT"
-        "sight_duration"      "5.0 6.0 7.0 8.0 9.0"
-      }
-      "06"
-      {
-        "var_type"						      "FIELD_INTEGER"
-        "attribute_stack_bonus"			"2"
-      }
-      "07"
-      {
-        "var_type"						        "FIELD_FLOAT"
-        "attribute_bonus_duration"		"2"
-      }
-      "08"
-      {
-        "var_type"            "FIELD_FLOAT"
-        "root_cooldown"				"8"
-      }      
-      "09"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "sight_radius"    "1500 1750 2000 2250 2500"
-      }
-      "10"
-      {
-        "var_type"        "FIELD_FLOAT"
-        "slow_amount"     "-40"
-      }
-      "11"
-      {
-        "var_type"        "FIELD_FLOAT"
-        "slow_duration"     "3"
-      }
-      "12"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "sight_perc"      "60"        //if u wonder, why changing this does not work, it is hardcoded in modifier_calydonian_hunt_sight_2, sorry
-      }
-      "13"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "passive_radius"   "2000 2250 2500 2750 3000"
-      }
-      "14"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "damage"          "200 300 400 500 600"
-      }
-    }
+    "AbilityValues"
+        {
+            "max_stacks" "5"
+            "debuff_duration" "5.0"
+            "root_duration" "1.1 1.5 1.9 2.3 2.7"
+            "sight_duration" "5.0 6.0 7.0 8.0 9.0"
+            "attribute_stack_bonus" "2"
+            "attribute_bonus_duration" "2"
+            "root_cooldown" "8"
+            "sight_radius" "1500 1750 2000 2250 2500"
+            "slow_amount" "-40"
+            "slow_duration" "3"
+            "sight_perc" "60"
+            "passive_radius" "2000 2250 2500 2750 3000"
+            "damage" "200 300 400 500 600"
+        }
   }  
 
   //=======================================
@@ -226,29 +118,13 @@
       "soundfile"					"soundevents/game_sounds_heroes/game_sounds_enchantress.vsndevts"
     }
 
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"					"FIELD_INTEGER"
-        "range"						"1000"
-      }
-      "02"
-      {
-        "var_type"					"FIELD_FLOAT"
-        "lure_duration"				"3"
-      }
-      "03"
-      {
-        "var_type"					"FIELD_FLOAT"
-        "aoe"						 "300"
-      }
-      "04"
-      {
-        "var_type"					"FIELD_FLOAT"
-        "swap_duration"				"2"
-      }
-    }
+    "AbilityValues"
+        {
+            "range" "1000"
+            "lure_duration" "3"
+            "aoe" "300"
+            "swap_duration" "2"
+        }
   }
 
   //=======================================
@@ -273,54 +149,18 @@
       "particle"					"particles/units/heroes/hero_enchantress/enchantress_impetus.vpcf"
     }
 
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"			"FIELD_INTEGER"
-        "range"				   "900 1100"
-      }
-      "02"
-      {
-        "var_type"			"FIELD_FLOAT"
-        "jump_time"			"0.05"
-      }
-      "03"
-      {
-        "var_type"			"FIELD_INTEGER"
-        "aoe"				   "200"
-      }
-      "04"
-      {
-        "var_type"			"FIELD_FLOAT"
-        "stun_duration"		"0"
-      }
-      "05"
-      {
-        "var_type"			"FIELD_INTEGER"
-        "leapback_range"	"900 1100"
-      }
-      "06"
-      {
-        "var_type"			"FIELD_FLOAT"
-        "jump_duration"		"0.5"
-      }
-      "07"
-      {
-        "var_type"          "FIELD_FLOAT"
-        "attribute_swap_duration" "3"
-      }
-      "08"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "cast_range"      "99999"
-      }
-      "09"
-      {
-        "var_type"      "FIELD_INTEGER"
-        "arrow_cost"    "3"
-      }
-    }
+    "AbilityValues"
+        {
+            "range" "900 1100"
+            "jump_time" "0.05"
+            "aoe" "200"
+            "stun_duration" "0"
+            "leapback_range" "900 1100"
+            "jump_duration" "0.5"
+            "attribute_swap_duration" "3"
+            "cast_range" "99999"
+            "arrow_cost" "3"
+        }
   }
 
   //=======================================
@@ -345,39 +185,15 @@
       "soundfile"					"soundevents/game_sounds_heroes/game_sounds_windrunner.vsndevts"
     }
 
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"					"FIELD_INTEGER"
-        "base_ms"					"0"
-      }
-      "02"
-      {
-        "var_type"					"FIELD_INTEGER"
-        "ms_per_unit"				"10"
-      }
-      "03"
-      {
-        "var_type"					"FIELD_INTEGER"
-        "duration"					"7"
-      }
-      "04"
-      {
-        "var_type"					"FIELD_FLOAT"
-        "aoe"						    "700"
-      }
-      "05"
-      {
-        "var_type"          "FIELD_INTEGER"
-        "base_evade"           "20"
-      }
-      "06"
-      {
-        "var_type"          "FIELD_INTEGER"
-        "evade_per_unit"          "10"
-      }
-    }
+    "AbilityValues"
+        {
+            "base_ms" "0"
+            "ms_per_unit" "10"
+            "duration" "7"
+            "aoe" "700"
+            "base_evade" "20"
+            "evade_per_unit" "10"
+        }
   }
 
   //=======================================
@@ -396,24 +212,12 @@
     {
     }
 
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"				"FIELD_INTEGER"
-        "arrows"				  "10"
-      }
-      "02"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "bonus_damage"    "10"
-      }
-      "03"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "cost"            "30"
-      }
-    }
+    "AbilityValues"
+        {
+            "arrows" "10"
+            "bonus_damage" "10"
+            "cost" "30"
+        }
   }
   
 
@@ -439,44 +243,16 @@
       "soundfile"					"soundevents/game_sounds_heroes/game_sounds_legion_commander.vsndevts"
     }
 
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"			         "FIELD_FLOAT"
-        "duration"			         "4.0 4.5 5.0 5.5 6.0"
-      }
-      "02"
-      {
-        "var_type"			         "FIELD_INTEGER"
-        "bonus_arrows"		       "3 4 5 6 7"
-      }
-      "03"
-      {
-        "var_type"					     "FIELD_FLOAT"
-        "cast_time_reduction"		 "0.66"
-      }
-      "04"
-      {
-        "var_type"					     "FIELD_INTEGER"
-        "bonus_range_per_agi"		 "3"
-      }
-      "05"
-      {
-        "var_type"				        "FIELD_INTEGER"
-        "bonus_aoe_per_agi"		   "1"
-      }
-      "06"
-      {
-        "var_type"					           "FIELD_FLOAT"
-        "attribute_swap_duration"				"6"
-      }
-      "07"
-      {
-      	"var_type"						"FIELD_INTEGER"
-      	"bonus_stats"					"15 30 45 60 75"
-      }
-    }
+    "AbilityValues"
+        {
+            "duration" "4.0 4.5 5.0 5.5 6.0"
+            "bonus_arrows" "3 4 5 6 7"
+            "cast_time_reduction" "0.66"
+            "bonus_range_per_agi" "3"
+            "bonus_aoe_per_agi" "1"
+            "attribute_swap_duration" "6"
+            "bonus_stats" "15 30 45 60 75"
+        }
   }  
 
   //=======================================
@@ -507,64 +283,20 @@
       "soundfile"					"soundevents/game_sounds_heroes/game_sounds_mirana.vsndevts"
     }
 
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"			 "FIELD_INTEGER"
-        "range"				   "2500"
-      }
-      "02"
-      {
-        "var_type"			"FIELD_FLOAT"
-        "aoe"				     "600"
-      }
-      "03"
-      {
-        "var_type"			"FIELD_FLOAT"
-        "arrow_aoe"			"280"
-      }
-      "04"
-      {
-        "var_type"			   "FIELD_INTEGER"
-        "arrows"			     "27 33 39 45 51"
-      }
-      "05"
-      {
-        "var_type"			     "FIELD_INTEGER"
-        "arrows_cap"			   "80"
-      }
-      "06"
-      {
-        "var_type"			      "FIELD_FLOAT"
-        "arrows_per_arrow"		"3"
-      }
-      "07"
-      {
-        "var_type"			"FIELD_FLOAT"
-        "delay"				   "2.0"
-      }
-      "08"
-      {
-        "var_type"			"FIELD_FLOAT"
-        "cast_point"				"0.8"
-      }
-      "09"
-      {
-        "var_type"			"FIELD_INTEGER"
-        "slow"				    "50"
-      }
-      "10"
-      {
-        "var_type"			     "FIELD_FLOAT"
-        "slow_duration"				"0.4"
-      }
-      "11"
-      {
-        "var_type"                    "FIELD_FLOAT"
-        "arrows_damage_percentage"				"40 45 50 55 60"
-      }
-    }
+    "AbilityValues"
+        {
+            "range" "2500"
+            "aoe" "600"
+            "arrow_aoe" "280"
+            "arrows" "27 33 39 45 51"
+            "arrows_cap" "80"
+            "arrows_per_arrow" "3"
+            "delay" "2.0"
+            "cast_point" "0.8"
+            "slow" "50"
+            "slow_duration" "0.4"
+            "arrows_damage_percentage" "40 45 50 55 60"
+        }
   }
 
   //=======================================
@@ -595,34 +327,14 @@
       "soundfile"					"soundevents/game_sounds_heroes/game_sounds_mirana.vsndevts"
     }
 
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"			"FIELD_INTEGER"
-        "range"				"3000"
-      }
-      "02"
-      {
-        "var_type"			"FIELD_FLOAT"
-        "arrow_aoe"			"200"
-      }
-      "03"
-      {
-        "var_type"			"FIELD_INTEGER"
-        "arrows"			"20"
-      }
-      "04"
-      {
-        "var_type"			"FIELD_FLOAT"
-        "delay"				"2.4"
-      }
-      "05"
-      {
-        "var_type"			                 "FIELD_FLOAT"
-        "arrows_damage_percentage"				"100"
-      }
-    }
+    "AbilityValues"
+        {
+            "range" "3000"
+            "arrow_aoe" "200"
+            "arrows" "20"
+            "delay" "2.4"
+            "arrows_damage_percentage" "100"
+        }
   }
 
   //=======================================
@@ -645,44 +357,16 @@
     {
     }
 
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"						"FIELD_INTEGER"
-        "attribute_bonus_range"			"100"
-      }
-      "02"
-      {
-        "var_type"						"FIELD_INTEGER"
-        "attribute_vision_radius"			"150"
-      }
-      "03"
-      {
-        "var_type"						"FIELD_INTEGER"
-        "attribute_vision_duration"			"2"
-      }
-      "04"
-      {
-        "var_type"						"FIELD_INTEGER"
-        "attribute_arrows_needed"		"3"
-      }
-      "05"
-      {
-        "var_type"						"FIELD_INTEGER"
-        "attribute_range_per_agi"		"3"
-      }
-      "06"
-      {
-        "var_type"						"FIELD_INTEGER"
-        "attribute_aoe_per_agi"		"1"
-      }
-      "07"
-      {
-        "var_type"        "FIELD_INTEGER"
-        "conversion"      "50"
-      }
-    }
+    "AbilityValues"
+        {
+            "attribute_bonus_range" "100"
+            "attribute_vision_radius" "150"
+            "attribute_vision_duration" "2"
+            "attribute_arrows_needed" "3"
+            "attribute_range_per_agi" "3"
+            "attribute_aoe_per_agi" "1"
+            "conversion" "50"
+        }
   }
 
   //=======================================
@@ -705,34 +389,14 @@
     {
     }
 
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"					"FIELD_INTEGER"
-        "bonus_duration"		"2"
-      }
-      "01"
-      {
-        "var_type"            "FIELD_INTEGER"
-        "cooldown_reduction"  "1"
-      }
-      "01"
-      {
-        "var_type"          "FIELD_INTEGER"
-        "slow_aoe"          "1200"
-      }
-      "01"
-      {
-        "var_type"          "FIELD_INTEGER"
-        "slow_amount"       "-40"
-      }
-      "01"
-      {
-        "var_type"          "FIELD_INTEGER"
-        "slow_duration"     "3"
-      }
-    }
+    "AbilityValues"
+        {
+            "bonus_duration" "2"
+            "cooldown_reduction" "1"
+            "slow_aoe" "1200"
+            "slow_amount" "-40"
+            "slow_duration" "3"
+        }
   }
 
   //=======================================
@@ -755,39 +419,15 @@
     {
     }
 
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"					"FIELD_INTEGER"
-        "range"						"700"
-      }
-      "02"
-      {
-        "var_type"					"FIELD_FLOAT"
-        "lure_duration"				"1.5"
-      }
-      "03"
-      {
-        "var_type"					"FIELD_FLOAT"
-        "aoe"						"300"
-      }
-      "04"
-      {
-        "var_type"					"FIELD_FLOAT"
-        "attribute_swap_duration"	"6"
-      }
-      "05"
-      {
-        "var_type"						"FIELD_INTEGER"
-        "attribute_stack_bonus"			"2"
-      }
-      "06"
-      {
-        "var_type"						"FIELD_FLOAT"
-        "attribute_bonus_duration"		"2"
-      }
-    }
+    "AbilityValues"
+        {
+            "range" "700"
+            "lure_duration" "1.5"
+            "aoe" "300"
+            "attribute_swap_duration" "6"
+            "attribute_stack_bonus" "2"
+            "attribute_bonus_duration" "2"
+        }
   }
 
   //=======================================
@@ -810,29 +450,13 @@
     {
     }
 
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"						"FIELD_INTEGER"
-        "extra_arrows"					"2"
-      }
-      "02"
-      {
-        "var_type"					"FIELD_INTEGER"
-        "base_ms"					"0"
-      }
-      "03"
-      {
-        "var_type"					"FIELD_INTEGER"
-        "duration"					"7"
-      }
-      "04"
-      {
-        "var_type"					"FIELD_INTEGER"
-        "bonus_range"					"300"
-      }
-    }
+    "AbilityValues"
+        {
+            "extra_arrows" "2"
+            "base_ms" "0"
+            "duration" "7"
+            "bonus_range" "300"
+        }
   }
   //=======================================
   // Atalanta Attribute : Bow of Heaven
@@ -854,24 +478,12 @@
     {
     }
 
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"						"FIELD_FLOAT"
-        "r_extra_range"					"1000"
-      }
-      "02"
-      {
-        "var_type"					"FIELD_FLOAT"
-        "r_agi_scaling"					"5"
-      }
-      "03"
-      {
-        "var_type"			"FIELD_FLOAT"
-        "phoebus_max_distance_from_r"				"1500"
-      }
-    }
+    "AbilityValues"
+        {
+            "r_extra_range" "1000"
+            "r_agi_scaling" "5"
+            "phoebus_max_distance_from_r" "1500"
+        }
   }
 
   //=======================================
@@ -889,49 +501,17 @@
     "AbilityCooldown"       "140"
     "AbilityManaCost"       "300"
 
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"      "FIELD_INTEGER"
-        "range"       "3000"
-      }
-      "02"
-      {
-        "var_type"      "FIELD_FLOAT"
-        "aoe"       "600"
-      }
-      "03"
-      {
-        "var_type"      "FIELD_FLOAT"
-        "arrow_aoe"     "200"
-      }
-      "04"
-      {
-        "var_type"      "FIELD_INTEGER"
-        "barrage_arrows"  "60"
-      }
-      "05"
-      {
-        "var_type"      "FIELD_INTEGER"
-        "snipe_arrows"    "11"
-      }
-      "06"
-      {
-        "var_type"      "FIELD_FLOAT"
-        "delay"       "2.4"
-      }
-      "07"
-      {
-        "var_type"      "FIELD_FLOAT"
-        "cast_time"     "1.4"
-      }
-      "08"
-      {
-        "var_type"      "FIELD_FLOAT"
-        "arrows_damage_percentage"        "75"
-      }
-    }
+    "AbilityValues"
+        {
+            "range" "3000"
+            "aoe" "600"
+            "arrow_aoe" "200"
+            "barrage_arrows" "60"
+            "snipe_arrows" "11"
+            "delay" "2.4"
+            "cast_time" "1.4"
+            "arrows_damage_percentage" "75"
+        }
   }
   //=======================================
   // Atalanta: Big Dipper
@@ -966,43 +546,15 @@
       "soundfile"             "soundevents/heroes/anime_hero_tanya.vsndevts"
     }
 
-    "AbilitySpecial"
-    {
-      "01"
-      {
-        "var_type"            "FIELD_FLOAT"
-        "width"             "128"
-      }
-      "02"
-      {
-        "var_type"            "FIELD_FLOAT"
-        "speed"             "1800"
-      }
-      "03"
-      {
-        "var_type"            "FIELD_FLOAT"
-        "radius"            "350"
-      }
-      "04"
-      {
-        "var_type"            "FIELD_FLOAT"
-        "damage"            "600 800 1000 1200 1400"
-      }
-      "05"
-      {
-        "var_type"            "FIELD_FLOAT"
-        "duration"            "3.5"
-      }
-      "06"
-      {
-        "var_type"            "FIELD_FLOAT"
-        "slow"              "-40"
-      }
-      "07"
-      {
-        "var_type"            "FIELD_FLOAT"
-        "range"           "3000"
-      }
-    }
+    "AbilityValues"
+        {
+            "width" "128"
+            "speed" "1800"
+            "radius" "350"
+            "damage" "600 800 1000 1200 1400"
+            "duration" "3.5"
+            "slow" "-40"
+            "range" "3000"
+        }
   }
 }

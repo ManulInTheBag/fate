@@ -14,44 +14,16 @@
 		"AbilityManaCost"					"400"
 		"AbilityCastPoint"					"0.0"
 		"AbilityCastAnimation"                      "ACT_DOTA_CAST_ABILITY_8"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"recast_amount"				"3 4 5 6 7"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"vision_range"				"2000"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"mana_refund"				"60 70 80 90 100"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"vision_duration"			"1.8 2.1 2.4 2.7 3.0"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"buff_duration"				"6"
-			}
-			"06"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"health_refund"				"60 70 80 90 100"
-			}
-			"07"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"resist"					"20 25 30 35 40"
-			}
-		}
+		"AbilityValues"
+        {
+            "recast_amount" "3 4 5 6 7"
+            "vision_range" "2000"
+            "mana_refund" "60 70 80 90 100"
+            "vision_duration" "1.8 2.1 2.4 2.7 3.0"
+            "buff_duration" "6"
+            "health_refund" "60 70 80 90 100"
+            "resist" "20 25 30 35 40"
+        }
 	}
     //=================================================================================================================
 	// Saito Hajime : Skill 1 : QuickSlash (Q)
@@ -70,34 +42,14 @@
 		"AbilityManaCost"				"100"
 		"AbilityCastPoint"					"0.2"
 		"AbilityCooldown"			"10"	
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"dist"				    "500 525 550 575 600"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"damage"				"200 250 300 350 400"
-			}	
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"speed"					"2500"
-			}				
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"atk_scale"					"0.3"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"turnrate_bonus"					"600"
-			}									
-		}
+		"AbilityValues"
+        {
+            "dist" "500 525 550 575 600"
+            "damage" "200 250 300 350 400"
+            "speed" "2500"
+            "atk_scale" "0.3"
+            "turnrate_bonus" "600"
+        }
 	}
 	//=================================================================================================================
 	// Saito Hajime : Skill2 : Clap (W)
@@ -118,44 +70,16 @@
 		"AbilityCastPoint"					"0.2"
 
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"radius"				    "300"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"damage"				"180 225 270 315 360"
-			}	
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"stun_duration"				"0.3"
-			}	
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"slow_duration"				"2"
-			}	
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"slow_power"				"50"
-			}	
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"range"					"100"
-			}	
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"atk_scale"					"0.2"
-			}		
-		}
+		"AbilityValues"
+        {
+            "radius" "300"
+            "damage" "180 225 270 315 360"
+            "stun_duration" "0.3"
+            "slow_duration" "2"
+            "slow_power" "50"
+            "range" "100"
+            "atk_scale" "0.2"
+        }
 	}
 	//=================================================================================================================
 	// Saito Hajime : Skill3 : Invinsible sword (E)
@@ -176,34 +100,14 @@
 		"AbilityCooldown"				"10"	
 		"AbilityCastPoint"					"0.2"
 	
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"radius"				    "300"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"damage"				"240 290 340 390 440"
-			}	
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"airborn_duration"		"0.2"
-			}	
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"atk_scale"					"0.4"
-			}	
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"mr_down"					"10"
-			}		
-		}
+		"AbilityValues"
+        {
+            "radius" "300"
+            "damage" "240 290 340 390 440"
+            "airborn_duration" "0.2"
+            "atk_scale" "0.4"
+            "mr_down" "10"
+        }
 	}
 	//=================================================================================================================
 	// Saito Hajime : Skill4 : Mind eye (D)
@@ -223,60 +127,19 @@
 		"AbilityCooldown"				"18 16 14 12 10"
 	
 	
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"range"				    "800"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"damage"				"200 250 300 350 400"
-			}	
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"resist"				"40 45 50 55 60"
-			}	
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"0.5"
-			}	
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"threshold"				"300 250 200 150 100"
-			}	
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"projectile_speed"				"3500"
-			}	
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"projectile_radius"				"200"
-			}	
-			"08"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"stun_duration"				"0.8 1 1.2 1.4 1.6"
-			}	
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"evasion"				"50"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"mr"					"20"
-			}
-			
-		}
+		"AbilityValues"
+        {
+            "range" "800"
+            "damage" "200 250 300 350 400"
+            "resist" "40 45 50 55 60"
+            "duration" "0.5"
+            "threshold" "300 250 200 150 100"
+            "projectile_speed" "3500"
+            "projectile_radius" "200"
+            "stun_duration" "0.8 1 1.2 1.4 1.6"
+            "evasion" "50"
+            "mr" "20"
+        }
 	}
 	//=================================================================================================================
 	// Saito Hajime : Skill6 : Formlessness(R)
@@ -298,85 +161,24 @@
 
 	
 	
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"range"				    "300"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"damage"				"80 90 100 110 120"
-			}	
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"damage_last_slash"		"600 700 800 900 1000"
-			}	
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"5"
-			}	
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"movement_bonus"		"30"
-			}		
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"lock_duration"			"1.2 1.4 1.6 1.8 2.0"
-			}	
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"last_range"				    "300"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"number_of_slashes"		 "4"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cd_between_slashes"		 "0.1"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"slashes_start_delay"		 "0.20"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"damage_per_stack"		 "50"
-			}
-			"11"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"root_duration"			 "0.5"
-			}
-			"12"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"atk_scale"					"0.25"
-			}	
-			"13"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"atk_scale_last"					"2"
-			}	
-			"14"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"blink_dist"					"300"
-			}	
-			
-		}
+		"AbilityValues"
+        {
+            "range" "300"
+            "damage" "80 90 100 110 120"
+            "damage_last_slash" "600 700 800 900 1000"
+            "duration" "5"
+            "movement_bonus" "30"
+            "lock_duration" "1.2 1.4 1.6 1.8 2.0"
+            "last_range" "300"
+            "number_of_slashes" "4"
+            "cd_between_slashes" "0.1"
+            "slashes_start_delay" "0.20"
+            "damage_per_stack" "50"
+            "root_duration" "0.5"
+            "atk_scale" "0.25"
+            "atk_scale_last" "2"
+            "blink_dist" "300"
+        }
 	}
 	//=================================================================================================================
 	// Saito Hajime : Skill7 :  Undefeatable Style(combo)
@@ -394,52 +196,17 @@
 		"AbilityCooldown"				"90"
 		"AbilityCastPoint"				"0.3"
 		"AbilityCastAnimation"                      "ACT_DOTA_CAST_ABILITY_8"
-		"AbilitySpecial"
-		{
-			 
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"9"
-			}	
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"spellblock_cd"			"1"
-			}		
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"armor"					"0"
-			}	
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"magic_res"				"0"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"mana_refund"		    "150"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"health_refund"		 	"150"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"resist"			    "40"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"combo_cd"				"3"
-			}
-			 
-			 
-		}
+		"AbilityValues"
+        {
+            "duration" "9"
+            "spellblock_cd" "1"
+            "armor" "0"
+            "magic_res" "0"
+            "mana_refund" "150"
+            "health_refund" "150"
+            "resist" "40"
+            "combo_cd" "3"
+        }
 	}
 	//=================================================================================================================
 	// Saito Hajime : Skill11 :  Undefeatable Style activation (combo - recast)
@@ -459,32 +226,13 @@
 		"AbilityCastAnimation"                      "ACT_DOTA_CAST_ABILITY_1"
 	
 	
-		"AbilitySpecial"
-		{
-			 
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"radius"				    "300"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"damage"				"700"
-			}	
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"stun_duration"				"1.1"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"silence_duration"				"0"
-			}		
-		 
-			 
-		}
+		"AbilityValues"
+        {
+            "radius" "300"
+            "damage" "700"
+            "stun_duration" "1.1"
+            "silence_duration" "0"
+        }
 	}
 
 	"saito_undefeatable_swordsman_attribute"
@@ -503,20 +251,11 @@
 		"AbilityManaCost"				"13"
 
 		 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"fdb_health"			"60 70 80 90 100"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"combo_health"			"200"
-			}
-			 
-		}		
+		"AbilityValues"
+        {
+            "fdb_health" "60 70 80 90 100"
+            "combo_health" "200"
+        }		
 	}
 
 	"saito_shinsengumi_attribute"
@@ -535,29 +274,12 @@
 		"AbilityManaCost"				"18"
 
 		 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_per_stack"	 	"50"
-			}
-
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"damage_atk_scale"	 	"0.25"
-			}
-			 
-
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"damage_atk_scale_last"	 	"2"
-			}
-			 
-			 
-		}		
+		"AbilityValues"
+        {
+            "damage_per_stack" "50"
+            "damage_atk_scale" "0.25"
+            "damage_atk_scale_last" "2"
+        }		
 	}
 
 	"saito_free_spirit_attribute"
@@ -576,20 +298,11 @@
 		"AbilityManaCost"				"10"
 
 		 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"evasion"				"50"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"mr"					"20"
-			}
-			 
-		}		
+		"AbilityValues"
+        {
+            "evasion" "50"
+            "mr" "20"
+        }		
 	}
 
 	"saito_freestyle_attribute"
@@ -608,25 +321,12 @@
 		"AbilityManaCost"				"14"
 
 		 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"atk_scale_q"			"0.3"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"atk_scale_w"			"0.2"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"atk_scale_e"			"0.4"
-			}
-			 
-		}		
+		"AbilityValues"
+        {
+            "atk_scale_q" "0.3"
+            "atk_scale_w" "0.2"
+            "atk_scale_e" "0.4"
+        }		
 	}
 	"saito_mastery_attribute"
 	{
@@ -644,30 +344,13 @@
 		"AbilityManaCost"				"12"
 
 		 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"q_turnrate"			"600"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"w_slow"				"50"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"e_magres_down"			"10"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"r_root_duration"		"0.5"
-			}
-			 
-		}		
+		"AbilityValues"
+        {
+            "q_turnrate" "600"
+            "w_slow" "50"
+            "e_magres_down" "10"
+            "r_root_duration" "0.5"
+        }		
 	}
 
 	 

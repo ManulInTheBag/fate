@@ -32,50 +32,17 @@
 			"particle"				"particles/custom/berserker/courage/stun_explosion.vpcf"
 		}
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"armor_reduction"		"-3 -4.5 -6 -7.5 -9"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_reduction"		"-20 -40 -60 -80 -100"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"30 40 50 60 70"
-			}
-
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"aspd_bonus"			"55"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"ms_bonus"				"4 5 6 7 8"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"str_debuff"			"-5"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"max_stack"				"5"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"			"12"
-			}
-		}
+		"AbilityValues"
+        {
+            "armor_reduction" "-3 -4.5 -6 -7.5 -9"
+            "damage_reduction" "-20 -40 -60 -80 -100"
+            "bonus_damage" "30 40 50 60 70"
+            "aspd_bonus" "55"
+            "ms_bonus" "4 5 6 7 8"
+            "str_debuff" "-5"
+            "max_stack" "5"
+            "duration" "12"
+        }
 
 		"OnSpellStart"
 		{
@@ -208,24 +175,12 @@
 		"AbilityManaCost"				"400"
 
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"health_constant"		"800 975 1150 1325 1500"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"4.0"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"max_damage"			"480 585 690 795 900"
-			}
-		}
+		"AbilityValues"
+        {
+            "health_constant" "800 975 1150 1325 1500"
+            "duration" "4.0"
+            "max_damage" "480 585 690 795 900"
+        }
 		
 		"OnSpellStart"
 		{

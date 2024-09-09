@@ -15,14 +15,10 @@
 		"RequiredLevel"					"25"
 		"LevelsBetweenUpgrades"			"1"
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"mana_regen_bonus"		"1"
-			}
-		}
+		"AbilityValues"
+        {
+            "mana_regen_bonus" "1"
+        }
 		
 		"OnSpelLStart"
 		{
@@ -84,29 +80,13 @@
 		"AbilityCooldown"				"17"
 		"AbilityManaCost"				"200 300"
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cast_delay"				"1.0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"450"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"explosion_count"				"5"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"13"
-			}
-		}
+		"AbilityValues"
+        {
+            "cast_delay" "1.0"
+            "radius" "450"
+            "explosion_count" "5"
+            "damage" "13"
+        }
 		
 		"OnSpellStart"
 		{			
@@ -183,9 +163,9 @@
 		"AbilityTextureName"			"custom/saber_alter_darklight_passive"
 		"MaxLevel"						"1"
 		
-		"AbilitySpecial"
-		{
-		}
+		"AbilityValues"
+        {
+        }
 		
 		"Modifiers"
 		{
@@ -276,59 +256,19 @@
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
 		"AnimationPlaybackRate" 		"1.0"
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"as"					"70 80 90 100 110"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"ms"					"5 6 7 8 9"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"dmg"					"100 125 150 175 200"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"maximum_charges"		"9"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"mana_drain_percentage_1"		"0.3"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"mana_drain_percentage_2"		"0.75"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"mana_drain_percentage_3"		"7"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"armor_bonus"			"12 14 16 18 20"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"mr_bonus"				"6 7 8 9 10"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"max_mana_consumption_per_second"				"4"
-			}
-		}
+		"AbilityValues"
+        {
+            "as" "70 80 90 100 110"
+            "ms" "5 6 7 8 9"
+            "dmg" "100 125 150 175 200"
+            "maximum_charges" "9"
+            "mana_drain_percentage_1" "0.3"
+            "mana_drain_percentage_2" "0.75"
+            "mana_drain_percentage_3" "7"
+            "armor_bonus" "12 14 16 18 20"
+            "mr_bonus" "6 7 8 9 10"
+            "max_mana_consumption_per_second" "4"
+        }
 		
 		
 		
@@ -363,24 +303,12 @@
 		"AbilityCooldown"				"10"
 		"AbilityManaCost"				"200"
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"delay"					"0.3"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"400"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"300 380 460 540 620"
-			}
-		}
+		"AbilityValues"
+        {
+            "delay" "0.3"
+            "radius" "400"
+            "damage" "300 380 460 540 620"
+        }
 		
 		"OnAbilityPhaseStart"
 		{
@@ -473,34 +401,14 @@
 		"AbilityCooldown"				"180"
 		"AbilityManaCost"				"200"
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"1700"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"mana_ratio"			"1.2"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"first_dmg_radius"		"700"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"second_dmg_radius"		"1300"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"third_dmg_radius"		"2000"
-			}
-		}
+		"AbilityValues"
+        {
+            "radius" "1700"
+            "mana_ratio" "1.2"
+            "first_dmg_radius" "700"
+            "second_dmg_radius" "1300"
+            "third_dmg_radius" "2000"
+        }
 		
 		"OnAbilityPhaseStart"
 		{
@@ -610,34 +518,14 @@
 		"AbilityManaCost"				"400"
 		"AbilityCastRange"				"600"
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"600"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"450 550 650 750 850"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"low_end"				"75"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"high_end"				"125"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"stun_duration"			"0.6"
-			}
-		}
+		"AbilityValues"
+        {
+            "radius" "600"
+            "damage" "450 550 650 750 850"
+            "low_end" "75"
+            "high_end" "125"
+            "stun_duration" "0.6"
+        }
 		
 		"OnSpellStart"
 		{
@@ -728,55 +616,18 @@
 		
 		// Ability Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"delay"					"2"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"width"					"300"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"length"				"1800"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"speed"					"1100"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"120 155 190 225 260"
-			}
-			// Extra variables
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"pause_duration"		"3.0"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"slow_power"			"80"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"slow_duration"			"1"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"lock_duration"			"1"
-			}
-		}
+		"AbilityValues"
+        {
+            "delay" "2"
+            "width" "300"
+            "length" "1800"
+            "speed" "1100"
+            "damage" "120 155 190 225 260"
+            "pause_duration" "3.0"
+            "slow_power" "80"
+            "slow_duration" "1"
+            "lock_duration" "1"
+        }
 		
 		// Data driven
 		//-------------------------------------------------------------------------------------------------------------
@@ -956,90 +807,25 @@
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
 		"AnimationPlaybackRate" 		"1.0"
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cast_delay"			"0.2"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"as"					"70 80 90 100 110"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"ms"					"5 6 7 8 9"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"dmg"					"100 125 150 175 200"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"mana_drain_percentage_1"		"0.9"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"mana_drain_percentage_2"		"2.25"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"mana_drain_percentage_3"		"22"
-			}
-			"8"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"armor_bonus"			"36 42 48 54 60"
-			}
-			"9"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"mr_bonus"				"18 21 24 27 30"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"250"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_mana"			"100"
-			}
-			"11"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"600"
-			}
-			"12"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"stun_duration"				"1.3"
-			}
-			"13"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"stun_duration_self"		"0.5"
-			}
-			"14"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"max_mana_consumption_per_second"				"20"
-			}
-			"15"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"additional_mana_consumption_per_second"		"46"
-			}
-		
-		}
+		"AbilityValues"
+        {
+            "cast_delay" "0.2"
+            "as" "70 80 90 100 110"
+            "ms" "5 6 7 8 9"
+            "dmg" "100 125 150 175 200"
+            "mana_drain_percentage_1" "0.9"
+            "mana_drain_percentage_2" "2.25"
+            "mana_drain_percentage_3" "22"
+            "armor_bonus" "36 42 48 54 60"
+            "mr_bonus" "18 21 24 27 30"
+            "damage" "250"
+            "damage_mana" "100"
+            "radius" "600"
+            "stun_duration" "1.3"
+            "stun_duration_self" "0.5"
+            "max_mana_consumption_per_second" "20"
+            "additional_mana_consumption_per_second" "46"
+        }
 			
 	}
 
@@ -1064,34 +850,14 @@
 		{
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"bonus_mana"					"500"
-			}
-			"02"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"bonus_armor"					"12 14 16 18 20"
-			}
-			"03"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"bonus_mr"						"6 7 8 9 10"
-			}
-			"04"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"bonus_radius"					"200"
-			}
-			"05"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"stun_duration"					"0.3"
-			}
-		}
+		"AbilityValues"
+        {
+            "bonus_mana" "500"
+            "bonus_armor" "12 14 16 18 20"
+            "bonus_mr" "6 7 8 9 10"
+            "bonus_radius" "200"
+            "stun_duration" "0.3"
+        }
 	}
 
 	//=======================================
@@ -1116,34 +882,14 @@
 		{
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"mana_required_for_catalyst"		"200"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"max_catalyst"			"9"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"catalyst_damage"		"100"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"mana_burst_mana_ratio"	"10"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_damage"			"0.3"
-			}
-		}
+		"AbilityValues"
+        {
+            "mana_required_for_catalyst" "200"
+            "max_catalyst" "9"
+            "catalyst_damage" "100"
+            "mana_burst_mana_ratio" "10"
+            "bonus_damage" "0.3"
+        }
 	}
 
 	//=======================================
@@ -1167,34 +913,14 @@
 		{
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"							"FIELD_FLOAT"
-				"vortigern_bonus_damage"			"100"
-			}
-			"02"
-			{
-				"var_type"							"FIELD_FLOAT"
-				"vortigern_bonus_stun_duration"		"0.3"
-			}
-			"03"
-			{
-				"var_type"							"FIELD_FLOAT"
-				"uf_mana_cost"						"100"
-			}
-			"04"
-			{
-				"var_type"							"FIELD_FLOAT"
-				"uf_int_ratio"						"0.75"
-			}
-			"05"
-			{
-				"var_type"							"FIELD_FLOAT"
-				"uf_str_ratio"						"0.75"
-			}
-		}
+		"AbilityValues"
+        {
+            "vortigern_bonus_damage" "100"
+            "vortigern_bonus_stun_duration" "0.3"
+            "uf_mana_cost" "100"
+            "uf_int_ratio" "0.75"
+            "uf_str_ratio" "0.75"
+        }
 	}
 
 	//=======================================
@@ -1218,14 +944,10 @@
 		{
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"excalibur_bonus_damage"	"30 35 40 45 50"
-			}
-		}
+		"AbilityValues"
+        {
+            "excalibur_bonus_damage" "30 35 40 45 50"
+        }
 	}
 
 	//=======================================
@@ -1249,89 +971,24 @@
 		{
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cast_delay"			"0.2"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"as"					"50 55 60 65 70"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"ms"					"5 6 7 8 9"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"dmg"					"100 125 150 175 200"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"mana_drain_percentage_1"		"0.6"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"mana_drain_percentage_2"		"1.5"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"mana_drain_percentage_3"		"15"
-			}
-			"8"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"armor_bonus"			"36 42 48 54 60"
-			}
-			"9"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"mr_bonus"				"18 21 24 27 30"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"250"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_mana"			"100"
-			}
-			"11"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"600"
-			}
-			"12"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"stun_duration"				"1.3"
-			}
-			"13"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"stun_duration_self"		"0"
-			}
-			"14"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"max_mana_consumption_per_second"				"20"
-			}
-			"15"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"additional_mana_consumption_per_second"		"46"
-			}
-		
-		}
+		"AbilityValues"
+        {
+            "cast_delay" "0.2"
+            "as" "50 55 60 65 70"
+            "ms" "5 6 7 8 9"
+            "dmg" "100 125 150 175 200"
+            "mana_drain_percentage_1" "0.6"
+            "mana_drain_percentage_2" "1.5"
+            "mana_drain_percentage_3" "15"
+            "armor_bonus" "36 42 48 54 60"
+            "mr_bonus" "18 21 24 27 30"
+            "damage" "250"
+            "damage_mana" "100"
+            "radius" "600"
+            "stun_duration" "1.3"
+            "stun_duration_self" "0"
+            "max_mana_consumption_per_second" "20"
+            "additional_mana_consumption_per_second" "46"
+        }
 	}
 }

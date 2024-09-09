@@ -28,45 +28,16 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"200"
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_speed"			"10 20 30 40 50"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_ms"				"15 20 25 30 35"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"slow"					"80"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"mana_burn"				"30 40 50 60 70"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"extra_damage_taken"	"25"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_ms_halved"		"25"
-			}
-
-			"07"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"duration"				"10"
-			}
-		}
+		"AbilityValues"
+        {
+            "bonus_speed" "10 20 30 40 50"
+            "bonus_ms" "15 20 25 30 35"
+            "slow" "80"
+            "mana_burn" "30 40 50 60 70"
+            "extra_damage_taken" "25"
+            "bonus_ms_halved" "25"
+            "duration" "10"
+        }
 		
 		"OnSpellStart"
 		{
@@ -158,9 +129,9 @@
 		{
 		}
 
-		"AbilitySpecial"
-		{
-		}
+		"AbilityValues"
+        {
+        }
 		
 		"OnSpellStart"
 		{
@@ -212,35 +183,14 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"800"
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"			"400 450 500 550 600"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"12 14 16 18 20"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_allstat"			"4 8 12 16 20"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"duration"				"10"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"500"
-			}
-
-		}
+		"AbilityValues"
+        {
+            "damage" "400 450 500 550 600"
+            "bonus_damage" "12 14 16 18 20"
+            "bonus_allstat" "4 8 12 16 20"
+            "duration" "10"
+            "radius" "500"
+        }
 		
 		"OnSpellStart"
 		{
@@ -399,9 +349,9 @@
 			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_abaddon.vsndevts"
 		}
 		
-		"AbilitySpecial"
-		{
-		}
+		"AbilityValues"
+        {
+        }
 		
 		"OnSpellStart"
 		{
@@ -464,45 +414,16 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"100"
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"140 180 220 260 300"
-			}
-			
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"start_radius"		"100"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"end_radius"		"200 225 250 275 300"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"speed"				"2000"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"range"				"750"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"duration"			"8.0"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"armor_reduction"	"-2 -3 -4 -5 -6"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "140 180 220 260 300"
+            "start_radius" "100"
+            "end_radius" "200 225 250 275 300"
+            "speed" "2000"
+            "range" "750"
+            "duration" "8.0"
+            "armor_reduction" "-2 -3 -4 -5 -6"
+        }
 		
 		"OnSpellStart"
 		{

@@ -15,19 +15,11 @@
 		"MaxLevel"                      "1"
 		"AbilityCastRange"				"1000"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"radius"			"1000"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"bonus_ms"			"15"
-			}
-		}	
+		"AbilityValues"
+        {
+            "radius" "1000"
+            "bonus_ms" "15"
+        }	
 		"Modifiers"
 		{
 			"iskander_charisma_passive"
@@ -113,34 +105,14 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"100"
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"duration"			"3.0 3.5 4.0 4.5 5.0"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"movespeed"			"500 550 600 650 700"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"radius"			"500 575 650 725 800"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"bonus_damage"		"12 14 16 18 20"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"sa_damage"		"100"
-			}
-		}
+		"AbilityValues"
+        {
+            "duration" "3.0 3.5 4.0 4.5 5.0"
+            "movespeed" "500 550 600 650 700"
+            "radius" "500 575 650 725 800"
+            "bonus_damage" "12 14 16 18 20"
+            "sa_damage" "100"
+        }
 		
 		"OnSpellStart"
 		{
@@ -205,24 +177,12 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"200"
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"400 500 600 700 800"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"width"				"525"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"duration"			"3.0"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "400 500 600 700 800"
+            "width" "525"
+            "duration" "3.0"
+        }
 
 		"OnAbilityPhaseStart"
 		{
@@ -283,54 +243,18 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"400"
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"cast_delay"			"1.0"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"duration"			"10.0"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"bonus_armor"			"5"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"bonus_mr"			"5"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"movespeed_per_second"			"9"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"radius"			"350"
-			}
-			"07"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"max_damage"			"350 400 450 500 550"
-			}
-			"08"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"min_damage"			"100 150 200 250 300"
-			}
-			"09"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"fixed_ms"			"450 550 650 750 850"
-			}
-		}
+		"AbilityValues"
+        {
+            "cast_delay" "1.0"
+            "duration" "10.0"
+            "bonus_armor" "5"
+            "bonus_mr" "5"
+            "movespeed_per_second" "9"
+            "radius" "350"
+            "max_damage" "350 400 450 500 550"
+            "min_damage" "100 150 200 250 300"
+            "fixed_ms" "450 550 650 750 850"
+        }
 		
 		"OnSpellStart"
 		{
@@ -464,29 +388,13 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"400"
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"charge_damage"			"100"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"trail_damage"			"20"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"range"				"1500"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"trail_duration"	"3.0"
-			}
-		}
+		"AbilityValues"
+        {
+            "charge_damage" "100"
+            "trail_damage" "20"
+            "range" "1500"
+            "trail_duration" "3.0"
+        }
 
 		"OnSpellStart"
 		{
@@ -557,99 +465,27 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"800"
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cast_delay"				"2"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"1150"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"duration"			"12.0"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"sustain_limit"		"2"
-			}
-			"05"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"infantry_bonus_health"		"250 400 550 700 850"
-			}
-			"06"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"archer_bonus_damage"		"30 40 50 60 70"
-			}
-			"07"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"maharaja_bonus_health"		"250 500 750 1000 1250"
-			}
-			"08"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"maharaja_bonus_damage"		"150"	
-			}
-			"09"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"archer_bonus_health"		"75 125 175 225 275"
-			}
-			"10"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"infantry_bonus_damage"		"40 55 70 85 100"
-			}
-			"11"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"cavalry_bonus_health"		"200 400 600 800 1000"
-			}
-			"12"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"cavalry_bonus_damage"		"60 80 100 120 140"
-			}
-			"13"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"hepha_bonus_health"		"300 600 900 1200 1500"
-			}
-			"14"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"hepha_bonus_damage"		"200"
-			}
-			"15"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"mage_bonus_health"		"100 200 300 400 500"
-			}
-			"16"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"mage_bonus_damage"		"30 40 50 60 70"	
-			}
-			"17"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"waver_bonus_health"		"150 300 450 600 750"
-			}
-			"18"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"waver_bonus_damage"		"100"	
-			}
-		}
+		"AbilityValues"
+        {
+            "cast_delay" "2"
+            "radius" "1150"
+            "duration" "12.0"
+            "sustain_limit" "2"
+            "infantry_bonus_health" "250 400 550 700 850"
+            "archer_bonus_damage" "30 40 50 60 70"
+            "maharaja_bonus_health" "250 500 750 1000 1250"
+            "maharaja_bonus_damage" "150"
+            "archer_bonus_health" "75 125 175 225 275"
+            "infantry_bonus_damage" "40 55 70 85 100"
+            "cavalry_bonus_health" "200 400 600 800 1000"
+            "cavalry_bonus_damage" "60 80 100 120 140"
+            "hepha_bonus_health" "300 600 900 1200 1500"
+            "hepha_bonus_damage" "200"
+            "mage_bonus_health" "100 200 300 400 500"
+            "mage_bonus_damage" "30 40 50 60 70"
+            "waver_bonus_health" "150 300 450 600 750"
+            "waver_bonus_damage" "100"
+        }
 		
 		"OnSpellStart"
 		{
@@ -963,14 +799,10 @@
 		"RequiredLevel"					"25"
 		"LevelsBetweenUpgrades"			"1"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"bonus_damage"			"30"
-			}
-		}	
+		"AbilityValues"
+        {
+            "bonus_damage" "30"
+        }	
 		"Modifiers"
 		{
 			"modifier_maharaja_passive"
@@ -1024,24 +856,12 @@
 		"AbilityCooldown"				"4"
 
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"pct_armor_reduction"		"-30 -40 -50 -60 -70"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"duration"		"4"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"armor_reduction"			"-3 -6 -9 -12 -15"
-			}
-		}
+		"AbilityValues"
+        {
+            "pct_armor_reduction" "-30 -40 -50 -60 -70"
+            "duration" "4"
+            "armor_reduction" "-3 -6 -9 -12 -15"
+        }
 
 		"OnSpellStart"
 		{
@@ -1119,19 +939,11 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"150"
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"hero_health"			"700 825 950 1075 1200"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"cavalry_health"			"500 600 700 800 900"
-			}
-		}
+		"AbilityValues"
+        {
+            "hero_health" "700 825 950 1075 1200"
+            "cavalry_health" "500 600 700 800 900"
+        }
 
 		"OnSpellStart"
 		{
@@ -1159,14 +971,10 @@
 		"RequiredLevel"					"25"
 		"LevelsBetweenUpgrades"			"1"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"bonus_mspd"			"20"
-			}
-		}	
+		"AbilityValues"
+        {
+            "bonus_mspd" "20"
+        }	
 		"Modifiers"
 		{
 			"modifier_hephaestion_passive"
@@ -1202,14 +1010,10 @@
 		"RequiredLevel"					"25"
 		"LevelsBetweenUpgrades"			"1"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"bonus_mr"			"25"
-			}
-		}	
+		"AbilityValues"
+        {
+            "bonus_mr" "25"
+        }	
 		"Modifiers"
 		{
 			"modifier_waver_passive"
@@ -1261,14 +1065,10 @@
 		"AbilityCooldown"				"16"
 
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"200 300 400 500 600"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "200 300 400 500 600"
+        }
 		"OnAbilityPhaseStart"
 		{
 			"RunScript"
@@ -1324,19 +1124,11 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"150"
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"hero_health"			"500 600 700 800 900"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"cavalry_health"			"250 325 400 475 550"
-			}
-		}
+		"AbilityValues"
+        {
+            "hero_health" "500 600 700 800 900"
+            "cavalry_health" "250 325 400 475 550"
+        }
 
 		"OnSpellStart"
 		{
@@ -1387,14 +1179,10 @@
 			"particle"	"particles/units/heroes/hero_omniknight/omniknight_guardian_angel_buff_j.vpcf"
 		}
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"duration"		"2.0"
-			}
-		}
+		"AbilityValues"
+        {
+            "duration" "2.0"
+        }
 
 		"OnSpellStart"
 		{
@@ -1562,24 +1350,12 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"100"
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"damage"		"300"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"aoe"			"200"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"duration"		"6"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "300"
+            "aoe" "200"
+            "duration" "6"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"
@@ -1645,19 +1421,11 @@
 		{
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"bonus_ms"		"15"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"bonus_damage"		"20"
-			}
-		}
+		"AbilityValues"
+        {
+            "bonus_ms" "15"
+            "bonus_damage" "20"
+        }
 		
 		"OnSpellStart"
 		{
@@ -1689,29 +1457,13 @@
 		{
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"damage"		"150"
-			}
-			"02"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"radius"		"150"
-			}
-			"03"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"thunder_damage"		"12"
-			}
-			"04"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"thunder_radius"		"400"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "150"
+            "radius" "150"
+            "thunder_damage" "12"
+            "thunder_radius" "400"
+        }
 		
 		"OnSpellStart"
 		{
@@ -1744,9 +1496,9 @@
 		{
 		}
 
-		"AbilitySpecial"
-		{
-		}
+		"AbilityValues"
+        {
+        }
 		
 		"OnSpellStart"
 		{
@@ -1778,14 +1530,10 @@
 		{
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_FLOAT"
-				"health_bonus"		"33"
-			}
-		}
+		"AbilityValues"
+        {
+            "health_bonus" "33"
+        }
 		"OnSpellStart"
 		{
 			"RunScript"

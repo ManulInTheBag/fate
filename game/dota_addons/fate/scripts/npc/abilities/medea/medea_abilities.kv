@@ -25,20 +25,11 @@
 		{
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"b_a_s_chance"			"45 30 25"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"b_a_s_chance_near_workshop"			"33 33 34"
-			}
-
-		}
+		"AbilityValues"
+        {
+            "b_a_s_chance" "45 30 25"
+            "b_a_s_chance_near_workshop" "33 33 34"
+        }
 		
 		"OnSpellStart"
 		{
@@ -91,14 +82,10 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"400"
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"workshop_health"			"10000"
-			}
-		}
+		"AbilityValues"
+        {
+            "workshop_health" "10000"
+        }
 		
 		"OnSpellStart"
 		{
@@ -206,34 +193,14 @@
 			"particle"			"particles/units/heroes/hero_lion/lion_spell_mana_drain.vpcf"
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"duration"					"5.0"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"mana_per_second"			"40"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"break_distance"			"2500"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"tick_interval"				"0.25"
-			}
-			"05"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"int_ratio"				"0.8"
-			}
-		}
+		"AbilityValues"
+        {
+            "duration" "5.0"
+            "mana_per_second" "40"
+            "break_distance" "2500"
+            "tick_interval" "0.25"
+            "int_ratio" "0.8"
+        }
 
 		"OnAbilityPhaseStart"
 		{
@@ -298,14 +265,10 @@
 			"particle"				"particles/custom/caster/workshop_explosion.vpcf"
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"cast_delay"		"0.7"
-			}
-		}
+		"AbilityValues"
+        {
+            "cast_delay" "0.7"
+        }
 		"OnAbilityPhaseStart"
 		{
 			"RunScript"
@@ -347,9 +310,9 @@
 		{
 		}
 
-		"AbilitySpecial"
-		{
-		}
+		"AbilityValues"
+        {
+        }
 		
 		"OnSpellStart"
 		{
@@ -390,9 +353,9 @@
 		{
 		}
 
-		"AbilitySpecial"
-		{
-		}
+		"AbilityValues"
+        {
+        }
 		
 		"OnSpellStart"
 		{
@@ -450,14 +413,10 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"150"
 		
-	    "AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"distance"				"1000"
-			}
-		}
+	    "AbilityValues"
+        {
+            "distance" "1000"
+        }
 	}
 
 
@@ -483,9 +442,9 @@
             "particle"          "particles/units/heroes/hero_wisp/wisp_relocate_channel.vpcf"
 		}
 
-		"AbilitySpecial"
-		{
-		}
+		"AbilityValues"
+        {
+        }
 
 		"OnSpellStart"
 		{
@@ -559,19 +518,11 @@
 		"AbilityTextureName"            "rubick_empty1"
 		"MaxLevel"                      "1"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"bash_chance"				"100"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"bash_duration"				"0.8"
-			}
-		}
+		"AbilityValues"
+        {
+            "bash_chance" "100"
+            "bash_duration" "0.8"
+        }
 
 		"Modifiers"
 		{
@@ -609,19 +560,11 @@
 		"AbilityTextureName"            "winter_wyvern_arctic_burn"
 		"MaxLevel"                      "1"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"slow"				"-50"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"duration"				"1"
-			}
-		}
+		"AbilityValues"
+        {
+            "slow" "-50"
+            "duration" "1"
+        }
 
 		"Modifiers"
 		{
@@ -688,30 +631,13 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"100"
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"delay"				"0.5"
-			}
-			
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"radius"			"300"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"total_duration"				"1.0"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"500 550 600 650 700 750 800 850"
-			}
-		}
+		"AbilityValues"
+        {
+            "delay" "0.5"
+            "radius" "300"
+            "total_duration" "1.0"
+            "damage" "500 550 600 650 700 750 800 850"
+        }
 
 		"OnSpellStart"
 		{
@@ -789,30 +715,13 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"300"
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"delay"				"2.0"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"900 1000 1100 1200 1300 1400 1500 1600"
-			}
-			
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"radius"			"450"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"stun_duration"				"2.25"
-			}
-		}
+		"AbilityValues"
+        {
+            "delay" "2.0"
+            "damage" "900 1000 1100 1200 1300 1400 1500 1600"
+            "radius" "450"
+            "stun_duration" "2.25"
+        }
 		
 		"OnAbilityPhaseStart"
 		{
@@ -877,29 +786,13 @@
 			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_medusa.vsndevts"
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"shield_amount"			"80 160 240 320 400"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"max_shield"			"160 320 480 640 800"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"armor_duration"		"3.0"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"armor"					"25"
-			}
-		}
+		"AbilityValues"
+        {
+            "shield_amount" "80 160 240 320 400"
+            "max_shield" "160 320 480 640 800"
+            "armor_duration" "3.0"
+            "armor" "25"
+        }
 		
 		"OnSpellStart"
 		{
@@ -973,9 +866,9 @@
 		{
 		}
 
-		"AbilitySpecial"
-		{
-		}
+		"AbilityValues"
+        {
+        }
 		
 		"OnToggleOn"
 		{
@@ -1029,24 +922,12 @@
 			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_ember_spirit.vsndevts"
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"pushback"				"900 1000 1100 1200 1300"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"100 130 160 190 220"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"300"
-			}
-		}
+		"AbilityValues"
+        {
+            "pushback" "900 1000 1100 1200 1300"
+            "damage" "100 130 160 190 220"
+            "radius" "300"
+        }
 		
 		"OnSpellStart"
 		{
@@ -1104,20 +985,11 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"200"
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"duration"			"1.4 1.8 2.2 2.6 3.0"
-			}
-			
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"radius"			"250"
-			}
-		}
+		"AbilityValues"
+        {
+            "duration" "1.4 1.8 2.2 2.6 3.0"
+            "radius" "250"
+        }
 		
 		"OnSpellStart"
 		{
@@ -1176,19 +1048,11 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"200"
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"radius"			"325"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"150 175 200 225 250"
-			}
-		}
+		"AbilityValues"
+        {
+            "radius" "325"
+            "damage" "150 175 200 225 250"
+        }
 		
 		"OnSpellStart"
 		{
@@ -1235,19 +1099,11 @@
 			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_witchdoctor.vsndevts"
 		}
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"duration"		"10.0"
-			}
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"radius"		"600 675 750 825 900"
-			}
-		}
+		"AbilityValues"
+        {
+            "duration" "10.0"
+            "radius" "600 675 750 825 900"
+        }
 
 		"OnSpellStart"
 		{
@@ -1401,19 +1257,11 @@
 			"particle"		"particles/econ/items/puck/puck_alliance_set/puck_dreamcoil_tether_aproset.vpcf"
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"mana_amount"			"40 60 80 100 120"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"5.0"
-			}
-		}
+		"AbilityValues"
+        {
+            "mana_amount" "40 60 80 100 120"
+            "duration" "5.0"
+        }
 
 		"OnSpellStart"
 		{
@@ -1493,24 +1341,12 @@
 			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_silencer.vsndevts"
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"delay"					"0.45"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"stun_duration"			"1.0 1.0 1.25 1.25 1.5"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"3.0 4.0 5.0 6.0 7.0"
-			}
-		}
+		"AbilityValues"
+        {
+            "delay" "0.45"
+            "stun_duration" "1.0 1.0 1.25 1.25 1.5"
+            "duration" "3.0 4.0 5.0 6.0 7.0"
+        }
 
 		"OnSpellStart"
 		{
@@ -1616,30 +1452,13 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"800"
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"310 345 380 415 450"
-			}
-			
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"radius_bolt"			"300"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"radius"			"500"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"bolt_amount"		"10"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "310 345 380 415 450"
+            "radius_bolt" "300"
+            "radius" "500"
+            "bolt_amount" "10"
+        }
 
 		"OnSpellStart"
 		{
@@ -1712,39 +1531,15 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"800"
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"damage"			"600"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"lasthit_damage"			"1500"
-			}		
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"radius_bolt"			"300"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"radius_small"			"550"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"radius_big"			"800"
-			}
-			"06"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"bolt_amount"		"13"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "600"
+            "lasthit_damage" "1500"
+            "radius_bolt" "300"
+            "radius_small" "550"
+            "radius_big" "800"
+            "bolt_amount" "13"
+        }
 
 		"OnSpellStart"
 		{
@@ -1801,29 +1596,13 @@
 		{
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"workshop_health"		"2000"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"workshop_mregen"		"20"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"explosion_bonus_damage"		"300"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"workshop_mana"			"1500"
-			}
-		}
+		"AbilityValues"
+        {
+            "workshop_health" "2000"
+            "workshop_mregen" "20"
+            "explosion_bonus_damage" "300"
+            "workshop_mana" "1500"
+        }
 		
 		"OnSpellStart"
 		{
@@ -1855,29 +1634,13 @@
 		{
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"bonus_durability"		"150"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"bonus_charge"		"100"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"armor_duration"		"3"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"armor"					"25"
-			}
-		}
+		"AbilityValues"
+        {
+            "bonus_durability" "150"
+            "bonus_charge" "100"
+            "armor_duration" "3"
+            "armor" "25"
+        }
 		
 		"OnSpellStart"
 		{
@@ -1909,24 +1672,12 @@
 		{
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"bonus_ray"		"3"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"bonus_damage"		"300"
-			}
- 			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"int_ratio"		"1.5"
-			}
-		}
+		"AbilityValues"
+        {
+            "bonus_ray" "3"
+            "bonus_damage" "300"
+            "int_ratio" "1.5"
+        }
 		
 		"OnSpellStart"
 		{
@@ -1958,24 +1709,12 @@
 		{
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"cd_reduction"		"10.0"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"revoke_duration"		"5.0"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"mana_steal_amount"		"1"
-			}
-		}
+		"AbilityValues"
+        {
+            "cd_reduction" "10.0"
+            "revoke_duration" "5.0"
+            "mana_steal_amount" "1"
+        }
 		
 		"OnSpellStart"
 		{

@@ -36,44 +36,16 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"800"
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"activate_heal"			"400 480 560 740 820"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_damage"			"50"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_allstat"			"18 21 24 27 30"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"8 8.5 9 9.5 10"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"fire_damage"			"40"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"ef_dur"				"2"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cast_point"			"0.4"
-			}
-		}
+		"AbilityValues"
+        {
+            "activate_heal" "400 480 560 740 820"
+            "bonus_damage" "50"
+            "bonus_allstat" "18 21 24 27 30"
+            "duration" "8 8.5 9 9.5 10"
+            "fire_damage" "40"
+            "ef_dur" "2"
+            "cast_point" "0.4"
+        }
 	}
 
 	//========================================
@@ -131,19 +103,11 @@
 
 		"AbilityCooldown"				"9"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_radius"			"600"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"200 250 300 350 400"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage_radius" "600"
+            "damage" "200 250 300 350 400"
+        }
 	}
 
 	//========================================
@@ -180,19 +144,11 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_radius"			"1500"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"1500 1750 2000 2250 2500"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage_radius" "1500"
+            "damage" "1500 1750 2000 2250 2500"
+        }
 	}	
 	//========================================
 	// Lancelot : F16 Forward
@@ -227,24 +183,12 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_radius"			"500 600 700 800 900"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"500 750 1000 1250 1500"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"crit"					"750 875 100 1125 1250"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage_radius" "500 600 700 800 900"
+            "damage" "500 750 1000 1250 1500"
+            "crit" "750 875 100 1125 1250"
+        }
 	}
 
 	//========================================
@@ -263,13 +207,9 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_health"			"400 800 1200 1600 2000"
-			}
-		}
+		"AbilityValues"
+        {
+            "bonus_health" "400 800 1200 1600 2000"
+        }
 	}
 }

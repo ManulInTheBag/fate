@@ -32,29 +32,13 @@
 			"particle"	"particles/custom/false_assassin/fa_thunder_clap.vpcf"
 		}
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"300 375 450 525 600"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"500"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"global_cooldown"		"30 26 22 18 14"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"		
-				"focus_slashes"			"1 1 2 2 3"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "300 375 450 525 600"
+            "radius" "500"
+            "global_cooldown" "30 26 22 18 14"
+            "focus_slashes" "1 1 2 2 3"
+        }
 		
 		"OnSpellStart"
 		{
@@ -116,39 +100,15 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"0"
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"3.0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"threshold"				"85 65 55 45 35"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_mr"				"-30 -40 -50 -60 -70"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"attack_count"			"4 4 5 5 6"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"stun_duration"			"1.1 1.2 1.3 1.4 1.5"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"gcd"					"15"
-			}
-		}
+		"AbilityValues"
+        {
+            "duration" "3.0"
+            "threshold" "85 65 55 45 35"
+            "bonus_mr" "-30 -40 -50 -60 -70"
+            "attack_count" "4 4 5 5 6"
+            "stun_duration" "1.1 1.2 1.3 1.4 1.5"
+            "gcd" "15"
+        }
 		
 		"OnSpellStart"
 		{
@@ -294,24 +254,12 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"0"
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"25.0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"maximum_illusion"		"3"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"illusion_spawn_distance"	"100"
-			}
-		}
+		"AbilityValues"
+        {
+            "duration" "25.0"
+            "maximum_illusion" "3"
+            "illusion_spawn_distance" "100"
+        }
 		
 		"OnSpellStart"
 		{

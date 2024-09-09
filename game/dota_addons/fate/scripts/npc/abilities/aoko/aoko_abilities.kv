@@ -165,19 +165,11 @@
 
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"speed"					"3000"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"range"					"800"
-			}
-		}
+		"AbilityValues"
+        {
+            "speed" "3000"
+            "range" "800"
+        }
 	}
 
 	"aoko_sphere"
@@ -382,29 +374,13 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"100"
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"1.1"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"500"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"150"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"damage_mult"			"1.5"
-			}
-		}
+		"AbilityValues"
+        {
+            "duration" "1.1"
+            "radius" "500"
+            "damage" "150"
+            "damage_mult" "1.5"
+        }
 	}
 
 	//=======================================
@@ -440,59 +416,19 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"800"
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"900 1200 1500 1800 2100"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"duration"				"1.6"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"distance"				"1200"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"start_width"			"160"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"end_width"				"125"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"int_bonus_distance"	"400"
-			}
-			"07"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"str_lock_duration"		"1.0"
-			}
-			"08"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"str_slow_duration"		"1.5"
-			}
-			"09"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"str_slow"				"40 50 60 70 80"
-			}
-			"10"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"atr_damage_mult"		"3.0"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "900 1200 1500 1800 2100"
+            "duration" "1.6"
+            "distance" "1200"
+            "start_width" "160"
+            "end_width" "125"
+            "int_bonus_distance" "400"
+            "str_lock_duration" "1.0"
+            "str_slow_duration" "1.5"
+            "str_slow" "40 50 60 70 80"
+            "atr_damage_mult" "3.0"
+        }
 	}
 
 	//=======================================
@@ -516,14 +452,10 @@
             "RequiredLevel"                                 "1"
             "LevelsBetweenUpgrades"                         "1"
 
-            "AbilitySpecial"
-            {
-                "01"
-                {
-                    "var_type"                              "FIELD_INTEGER"
-                    "attribute_bonus"                       "15"
-                }
-            }
+            "AbilityValues"
+        {
+            "attribute_bonus" "15"
+        }
     }
 
     "altera_form_close"
@@ -553,24 +485,12 @@
 
             "MaxLevel"                                      "1"
 
-            "AbilitySpecial"
-            {
-                "01"
-                {
-                    "var_type"                              "FIELD_INTEGER"
-                    "str_bonus"                             "15"
-                }
-                "02"
-                {
-                    "var_type"                              "FIELD_INTEGER"
-                    "agi_bonus"                             "0"
-                }
-                "03"
-                {
-                    "var_type"                              "FIELD_INTEGER"
-                    "int_bonus"                             "0"
-                }
-            }
+            "AbilityValues"
+        {
+            "str_bonus" "15"
+            "agi_bonus" "0"
+            "int_bonus" "0"
+        }
     }
 
     "altera_form_agi"
@@ -586,24 +506,12 @@
 
             "MaxLevel"                                      "1"
 
-            "AbilitySpecial"
-            {
-                "01"
-                {
-                    "var_type"                              "FIELD_INTEGER"
-                    "str_bonus"                             "0"
-                }
-                "02"
-                {
-                    "var_type"                              "FIELD_INTEGER"
-                    "agi_bonus"                             "15"
-                }
-                "03"
-                {
-                    "var_type"                              "FIELD_INTEGER"
-                    "int_bonus"                             "0"
-                }
-            }
+            "AbilityValues"
+        {
+            "str_bonus" "0"
+            "agi_bonus" "15"
+            "int_bonus" "0"
+        }
     }
 
     "altera_form_int"
@@ -619,24 +527,12 @@
 
             "MaxLevel"                                      "1"
 
-            "AbilitySpecial"
-            {
-                "01"
-                {
-                    "var_type"                              "FIELD_INTEGER"
-                    "str_bonus"                             "0"
-                }
-                "02"
-                {
-                    "var_type"                              "FIELD_INTEGER"
-                    "agi_bonus"                             "0"
-                }
-                "03"
-                {
-                    "var_type"                              "FIELD_INTEGER"
-                    "int_bonus"                             "15"
-                }
-            }
+            "AbilityValues"
+        {
+            "str_bonus" "0"
+            "agi_bonus" "0"
+            "int_bonus" "15"
+        }
     }
 
 	//=======================================
@@ -670,29 +566,13 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"800"
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"impact_damage"			"3000"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"beam_damage"			"7000"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"700"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cast_range"			"4500"
-			}
-		}
+		"AbilityValues"
+        {
+            "impact_damage" "3000"
+            "beam_damage" "7000"
+            "radius" "700"
+            "cast_range" "4500"
+        }
 	}
 
 	//=======================================
@@ -719,29 +599,13 @@
 		"AbilityCastPoint"				"0.3"
 
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"impact_damage"			"3000"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"beam_damage"			"7000"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"700"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cast_range"			"4500"
-			}
-		}
+		"AbilityValues"
+        {
+            "impact_damage" "3000"
+            "beam_damage" "7000"
+            "radius" "700"
+            "cast_range" "4500"
+        }
 	}
 
 	//=======================================
@@ -766,19 +630,11 @@
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_duration"		"7"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"crit_percent"			"320"
-			}
-		}		
+		"AbilityValues"
+        {
+            "bonus_duration" "7"
+            "crit_percent" "320"
+        }		
 	}
 	"altera_refraction_attribute"
 	{
@@ -798,19 +654,11 @@
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"mana_per_damage"			"5"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_reduce"			"25"
-			}
-		}		
+		"AbilityValues"
+        {
+            "mana_per_damage" "5"
+            "damage_reduce" "25"
+        }		
 	}
 	"altera_erosion_attribute"
 	{
@@ -830,29 +678,13 @@
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"aura_radius"		"700"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"base_value"		"12"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"improved_value"	"24"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"duration"			"5"
-			}
-		}		
+		"AbilityValues"
+        {
+            "aura_radius" "700"
+            "base_value" "12"
+            "improved_value" "24"
+            "duration" "5"
+        }		
 	}
 	"altera_adaptive_attribute"
 	{
@@ -872,19 +704,11 @@
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_reduce"				"10"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"duration"				"2"
-			}
-		}		
+		"AbilityValues"
+        {
+            "damage_reduce" "10"
+            "duration" "2"
+        }		
 	}
 	"altera_endless_attribute"
 	{
@@ -904,18 +728,10 @@
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage_reduce"				"10"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"duration"				"2"
-			}
-		}		
+		"AbilityValues"
+        {
+            "damage_reduce" "10"
+            "duration" "2"
+        }		
 	}
 }

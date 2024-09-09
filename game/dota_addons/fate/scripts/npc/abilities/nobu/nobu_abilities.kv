@@ -19,36 +19,14 @@
 		"AbilityCastRange"				"700"
  		"AbilityCooldown"				"30 30 25 20"
 		"AbilityManaCost"				"200"
-		"AbilitySpecial"
-		{
-			 
-			
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"base_dmg"				"150"
-			} 
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"dmg_per_lvl"				"10"
-			} 
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"dmg_per_int"				"1"
-			}  
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"amount"				"0 3 5 7"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"cast_range"			"700"
-			}
-		}
+		"AbilityValues"
+        {
+            "base_dmg" "150"
+            "dmg_per_lvl" "10"
+            "dmg_per_int" "1"
+            "amount" "0 3 5 7"
+            "cast_range" "700"
+        }
 	}
 	//=================================================================================================================
 	// Nobu - Gun shot (Q)
@@ -72,26 +50,12 @@
 		"AbilityCastRange"				"1000"
  		"AbilityCooldown"				"2 1.75 1.5 1.25 1"
 		"AbilityManaCost"				"100"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"damage_mod"				"1 1.05 1.1 1.15 1.2"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"slow_power"				"20 25 30 35 40"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"duration"				"1"
-			}
-			 
-			 
-		}
+		"AbilityValues"
+        {
+            "damage_mod" "1 1.05 1.1 1.15 1.2"
+            "slow_power" "20 25 30 35 40"
+            "duration" "1"
+        }
 	}
 
 	
@@ -121,29 +85,13 @@
  		"AbilityCooldown"				"40 38 36 34 32"
 		"AbilityManaCost"				"800"
 		"AbilityChannelTime"			"2.75"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"damage_mod"				"0.5 0.55 0.6 0.65 0.7"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"channel_time"				"2.5"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"range"				"1300"
-			}
-			"04"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"attribute_additional_range"	"200"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage_mod" "0.5 0.55 0.6 0.65 0.7"
+            "channel_time" "2.5"
+            "range" "1300"
+            "attribute_additional_range" "200"
+        }
 	}
 
 	//=================================================================================================================
@@ -171,26 +119,12 @@
 		"AbilityCastPoint"				"0.1"
 		"AbilityCharges"				"3"
 		"AbilityChargeRestoreTime"		"14 12.5 11 9.5 7"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"max_charges"				"3"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"charge_time"				"14 12.5 11 9.5 7"
-			}
-			"03"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"attr_damage"				"30 40 50 60 70"
-			}
-			 
-			
-		}
+		"AbilityValues"
+        {
+            "max_charges" "3"
+            "charge_time" "14 12.5 11 9.5 7"
+            "attr_damage" "30 40 50 60 70"
+        }
 	}
 	//=================================================================================================================
 	// Nobu - (E)
@@ -214,26 +148,12 @@
 		"AbilityCastRange"				"1000"
  		"AbilityCooldown"				"30 26 22 18 14"
 		"AbilityManaCost"				"400"
-		"AbilitySpecial"
-		{
-			 
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"damage_mod"		"0.5 0.55 0.6 0.65 0.7"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"duration"			"5"
-			} 
-			 "03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"sps"				"3"
-			} 
-			 
-		}
+		"AbilityValues"
+        {
+            "damage_mod" "0.5 0.55 0.6 0.65 0.7"
+            "duration" "5"
+            "sps" "3"
+        }
 	}
 
 	//=================================================================================================================
@@ -256,12 +176,9 @@
 		"AbilityCastPoint"				"0.0"
  		"AbilityCooldown"				"0"
 		"AbilityManaCost"				"0"
-		"AbilitySpecial"
-		{
-			 
-			 
-			
-		}
+		"AbilityValues"
+        {
+        }
 	}
 	 
 
@@ -286,12 +203,9 @@
  		"AbilityCooldown"				"0"
 		"AbilityManaCost"				"0"
 		"LinkedAbilities"				"nobu_dow nobu_dogab nobu_fool_of_owari nobu_king_of_innovation"
-		"AbilitySpecial"
-		{
-			 
-			 
-			
-		}
+		"AbilityValues"
+        {
+        }
 	}
 	//=================================================================================================================
 	//  Nobu -  Demon king (F - spellbook close)
@@ -313,12 +227,9 @@
 		"AbilityCastPoint"				"0.0"
  		"AbilityCooldown"				"0"
 		"AbilityManaCost"				"0"
-		"AbilitySpecial"
-		{
-			 
-			 
-			
-		}
+		"AbilityValues"
+        {
+        }
 	}
 	//=================================================================================================================
 	//  Nobu - Destroyer of WORLDS (F - Q)
@@ -340,12 +251,9 @@
 		"AbilityCastPoint"				"0.0"
  		"AbilityCooldown"				"0"
 		"AbilityManaCost"				"0"
-		"AbilitySpecial"
-		{
-			 
-			 
-			
-		}
+		"AbilityValues"
+        {
+        }
 	}
 	//=================================================================================================================
 	//  Nobu - Destroyer of gods and buddhas (F - W)
@@ -367,12 +275,9 @@
 		"AbilityCastPoint"				"0.0"
  		"AbilityCooldown"				"0"
 		"AbilityManaCost"				"0"
-		"AbilitySpecial"
-		{
-			 
-			 
-			
-		}
+		"AbilityValues"
+        {
+        }
 	}
 	//=================================================================================================================
 	//  Nobu - Fool of owari (F - E)
@@ -394,12 +299,9 @@
 		"AbilityCastPoint"				"0.0"
  		"AbilityCooldown"				"0"
 		"AbilityManaCost"				"0"
-		"AbilitySpecial"
-		{
-			 
-			 
-			
-		}
+		"AbilityValues"
+        {
+        }
 	}
 	//=================================================================================================================
 	//  Nobu - King of innovation (F - R)
@@ -421,12 +323,9 @@
 		"AbilityCastPoint"				"0.0"
  		"AbilityCooldown"				"0"
 		"AbilityManaCost"				"0"
-		"AbilitySpecial"
-		{
-			 
-			 
-			
-		}
+		"AbilityValues"
+        {
+        }
 	}
 	
 	 
@@ -447,27 +346,12 @@
 		"AbilityCastRange"				"0"
  		"AbilityCooldown"				"0"
 		"AbilityManaCost"				"0"
-		"AbilitySpecial"
-		{
-			 
-			
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"aura_radius"				"1000"
-			} 
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"ms_bonus"				"10"
-			} 
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"armor_bonus"				"12"
-			} 
-			
-		}
+		"AbilityValues"
+        {
+            "aura_radius" "1000"
+            "ms_bonus" "10"
+            "armor_bonus" "12"
+        }
 	}
 
 	//=================================================================================================================
@@ -487,11 +371,9 @@
 		"AbilityCastRange"				"0"
  		"AbilityCooldown"				"0"
 		"AbilityManaCost"				"0"
-		"AbilitySpecial"
-		{
-			 
-			 
-		}
+		"AbilityValues"
+        {
+        }
 	}
 
 	//=================================================================================================================
@@ -511,36 +393,14 @@
 		"AbilityCastRange"				"0"
  		"AbilityCooldown"				"20"
 		"AbilityManaCost"				"150"
-		"AbilitySpecial"
-		{
-			 
-			 
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"aura_radius"				"1000"
-			} 
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"ms_bonus"				"50"
-			} 
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"health_base"				"80"
-			} 
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"10"
-			} 
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"ms_duration"				"1"
-			} 
-		}
+		"AbilityValues"
+        {
+            "aura_radius" "1000"
+            "ms_bonus" "50"
+            "health_base" "80"
+            "duration" "10"
+            "ms_duration" "1"
+        }
 	}
 
 	//=================================================================================================================
@@ -562,27 +422,12 @@
 		"AbilityCastRange"				"1000"
  		"AbilityCooldown"				"25"
 		"AbilityManaCost"				"200"
-		"AbilitySpecial"
-		{
-			 
-			
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"cast_range"				"1000"
-			} 
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"10"
-			} 
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"activated_duration"				"10"
-			} 
-			
-		}
+		"AbilityValues"
+        {
+            "cast_range" "1000"
+            "duration" "10"
+            "activated_duration" "10"
+        }
 	}
 
 
@@ -608,36 +453,14 @@
  		"AbilityCooldown"				"150"
 		"AbilityManaCost"				"600"
 		"AbilityCastRange"				"3000"
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"radius"				"3000"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"run_speed"				"2250"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"run_duration"				"2"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"dmg_mod"				"0.4"
-			}
-			"05"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"dmg_initial"				"1000"
-			}
-				 
-			
-		}
+		"AbilityValues"
+        {
+            "radius" "3000"
+            "run_speed" "2250"
+            "run_duration" "2"
+            "dmg_mod" "0.4"
+            "dmg_initial" "1000"
+        }
 	}
 
 	 
@@ -658,29 +481,13 @@
 		"AbilityManaCost"				"12"
 
 		 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"cooldown_time"				"10" 		 
-			} 
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"bonus_ms"				"20"
-			} 
-		    "03"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"bonus_attack"				"70"
-			} 
-			"04"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"duration"				"4"
-			} 
-		}		
+		"AbilityValues"
+        {
+            "cooldown_time" "10"
+            "bonus_ms" "20"
+            "bonus_attack" "70"
+            "duration" "4"
+        }		
 	}
 
 	"nobu_expanding_attribute"
@@ -698,10 +505,9 @@
 		"AbilityManaCost"				"9"
 
 		 
-		"AbilitySpecial"
-		{ 
-
-		}		
+		"AbilityValues"
+        {
+        }		
 	}
 	"nobu_3000_attribute"
 	{
@@ -718,22 +524,11 @@
 		"AbilityManaCost"				"12"
 
 		 
-		"AbilitySpecial"
-		{
-			
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"pure_percentage"				"15"
-			} 
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"dmg_mod"				"0.5"
-			} 
-			 
-			 
-		}		
+		"AbilityValues"
+        {
+            "pure_percentage" "15"
+            "dmg_mod" "0.5"
+        }		
 	}
 	"nobu_unifying_attribute"
 	{
@@ -750,19 +545,11 @@
 		"AbilityManaCost"				"11"
 
 		 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"int_scaling"				"1"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"divine_damage_mod"				"1.2"
-			} 
-		}		
+		"AbilityValues"
+        {
+            "int_scaling" "1"
+            "divine_damage_mod" "1.2"
+        }		
 	}
 
 	"nobu_independent_action"
@@ -780,19 +567,11 @@
 		"AbilityManaCost"				"18"
 
 		 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"microstun_duration"				"0.1"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"guns_amount"				"3 5 7"
-			}
-		}		
+		"AbilityValues"
+        {
+            "microstun_duration" "0.1"
+            "guns_amount" "3 5 7"
+        }		
 	}
  
  

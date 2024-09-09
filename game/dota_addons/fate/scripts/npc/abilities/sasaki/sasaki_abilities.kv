@@ -24,19 +24,11 @@
 			"particle"		"particles/units/heroes/hero_juggernaut/jugg_crit_blur_impact.vpcf"
 		}
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"agi_ratio"				"0.4 0.8"
-			}
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"agi_ratio_revoked"		"0.6 1.2"
-			}
-		}
+		"AbilityValues"
+        {
+            "agi_ratio" "0.4 0.8"
+            "agi_ratio_revoked" "0.6 1.2"
+        }
 		
 		"OnSpellStart"
 		{
@@ -147,39 +139,15 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"0"
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_hp_regen"		"50 60 70 80 90"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_armor"			"3 6 9 12 15"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"movespeed_decrease"	"-20 -15 -10 -5 0"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"bonus_sight"			"300"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"5.0"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"mana_regen"			"20"
-			}
-		}
+		"AbilityValues"
+        {
+            "bonus_hp_regen" "50 60 70 80 90"
+            "bonus_armor" "3 6 9 12 15"
+            "movespeed_decrease" "-20 -15 -10 -5 0"
+            "bonus_sight" "300"
+            "duration" "5.0"
+            "mana_regen" "20"
+        }
 		
 		"OnSpellStart"
 		{
@@ -275,19 +243,11 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCooldown"				"45"
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"base_damage"			"500"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"agi_ratio"				"13"
-			}
-		}
+		"AbilityValues"
+        {
+            "base_damage" "500"
+            "agi_ratio" "13"
+        }
 		
 		"OnSpellStart"
 		{
@@ -374,29 +334,13 @@
 			"particle"	"particles/custom/false_assassin/fa_thunder_clap.vpcf"
 		}
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"300 375 450 525 600"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"radius"				"500"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"global_cooldown"		"30 26 22 18 14"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"		
-				"focus_slashes"			"1 1 2 2 3"
-			}
-		}
+		"AbilityValues"
+        {
+            "damage" "300 375 450 525 600"
+            "radius" "500"
+            "global_cooldown" "30 26 22 18 14"
+            "focus_slashes" "1 1 2 2 3"
+        }
 		
 		"OnSpellStart"
 		{
@@ -458,39 +402,15 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"0"
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"duration"				"3.0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"threshold"				"85 65 55 45 35"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"bonus_mr"				"-30 -40 -50 -60 -70"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"attack_count"			"4 4 5 5 6"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"stun_duration"			"1.1 1.2 1.3 1.4 1.5"
-			}
-			"06"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"gcd"					"15"
-			}
-		}
+		"AbilityValues"
+        {
+            "duration" "3.0"
+            "threshold" "85 65 55 45 35"
+            "bonus_mr" "-30 -40 -50 -60 -70"
+            "attack_count" "4 4 5 5 6"
+            "stun_duration" "1.1 1.2 1.3 1.4 1.5"
+            "gcd" "15"
+        }
 		
 		"OnSpellStart"
 		{
@@ -627,14 +547,10 @@
 			"particle"		"particles\units\heroes\hero_pugna\pugna_decrepify.vpcf"
 			
 		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type" 				"FIELD_FLOAT"
-				"duration"				"3"
-			}
-		}
+		"AbilityValues"
+        {
+            "duration" "3"
+        }
 	}
 	
 
@@ -672,29 +588,13 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"0"
 		
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"duration"						"3.0"
-			}
-			"02"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"threshold"						"35"
-			}
-			"03"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"slash_amount"					"5"
-			}
-			"04"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"slash_damage_percentage"		"50"
-			}
-		}
+		"AbilityValues"
+        {
+            "duration" "3.0"
+            "threshold" "35"
+            "slash_amount" "5"
+            "slash_damage_percentage" "50"
+        }
 	}
 	
 
@@ -736,35 +636,14 @@
 			"particle"		"particles/custom/false_assassin/tsubame_gaeshi/tsubame_gaeshi_windup_indicator.vpcf"
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"delay"					"0.85"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"damage"				"200 250 300 350 400"
-			}
-
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"lasthit_damage"		"300 375 450 525 600"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"stun_duration"			"1.5"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"global_cooldown"		"45 43 41 39 37"
-			}
-		}
+		"AbilityValues"
+        {
+            "delay" "0.85"
+            "damage" "200 250 300 350 400"
+            "lasthit_damage" "300 375 450 525 600"
+            "stun_duration" "1.5"
+            "global_cooldown" "45 43 41 39 37"
+        }
 
 		"OnAbilityPhaseStart"
 		{
@@ -876,29 +755,13 @@
 		{
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"			"FIELD_FLOAT"
-				"slash_reduc"		"0.2"
-			}
-			"02"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"minor_slash_dmg"	"35"
-			}
-			"03"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"final_slash_dmg"	"70"
-			}
-			"04"
-			{
-				"var_type"			"FIELD_INTEGER"
-				"armor_reduc"		"33"
-			}
-		}
+		"AbilityValues"
+        {
+            "slash_reduc" "0.2"
+            "minor_slash_dmg" "35"
+            "final_slash_dmg" "70"
+            "armor_reduc" "33"
+        }
 		
 		"OnSpellStart"
 		{
@@ -929,19 +792,11 @@
 		{
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"vision_duration"		"3.0"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"vision_cd"				"10.0"
-			}
-		}
+		"AbilityValues"
+        {
+            "vision_duration" "3.0"
+            "vision_cd" "10.0"
+        }
 		
 		"OnSpellStart"
 		{
@@ -974,34 +829,14 @@
 		{
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"base_damage"			"500"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"atk_ratio"				"200"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"focus_attacks"			"5"
-			}
-			"04"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"focus_cdr"				"50"
-			}
-			"05"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"exhausted_duration"	"8"
-			}
-		}
+		"AbilityValues"
+        {
+            "base_damage" "500"
+            "atk_ratio" "200"
+            "focus_attacks" "5"
+            "focus_cdr" "50"
+            "exhausted_duration" "8"
+        }
 		
 		"OnSpellStart"
 		{
@@ -1033,9 +868,9 @@
 		{
 		}
 
-		"AbilitySpecial"
-		{
-		}
+		"AbilityValues"
+        {
+        }
 		
 		"OnSpellStart"
 		{
@@ -1066,24 +901,12 @@
 		{
 		}
 
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"agi_ratio"				"0.8"
-			}
-			"02"
-			{
-				"var_type"				"FIELD_FLOAT"
-				"agi_ratio_revoked"		"1.2"
-			}
-			"03"
-			{
-				"var_type"				"FIELD_INTEGER"
-				"attack_mana"			"10"
-			}
-		}
+		"AbilityValues"
+        {
+            "agi_ratio" "0.8"
+            "agi_ratio_revoked" "1.2"
+            "attack_mana" "10"
+        }
 		
 		"OnSpellStart"
 		{
