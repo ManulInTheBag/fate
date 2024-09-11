@@ -400,7 +400,7 @@ function nanaya_knife_recast:OnSpellStart()
 	local knockback1 = { should_stun = true,
 		knockback_duration = 0.3,
 		duration = 0.3,
-		knockback_distance = 600,
+		knockback_distance = 400,
 		knockback_height = 0,
 		center_x = target:GetAbsOrigin().x,
 		center_y = target:GetAbsOrigin().y,

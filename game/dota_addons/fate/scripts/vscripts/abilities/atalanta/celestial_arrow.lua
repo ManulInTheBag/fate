@@ -175,7 +175,15 @@ function atalanta_celestial_arrow:ArrowHit(target, slow, bIsPhoebus, bIsCombo)
     if target:HasModifier("modifier_protection_from_arrows_active") then return end
 
     caster:AddHuntStack(target, 1)
-    local damage = caster:GetAverageTrueAttackDamage(caster) + self:GetSpecialValueFor("bonus_damage")
+    local damage = caster:GetAverageTrueAttackDamage(caster) + self:GetSpecialValueFor("bonus_damage") + caster:GetLevel() * 7
+
+    if target:HasModifier("modifier_calydonian_hunt") then
+        DoDamage(caster, target, target:GetMaxHealth()*0.01 , DAMAGE_TYPE_PURE, 0, self, false)
+    end
+
+    if target:HasModifier("modifier_atalanta_big_dipper_slow") and caster.CalydonianSnipeAcquired then
+        damage = damage * 1.1
+    end
 
     if not (bIsPhoebus) and not (bIsCombo) then
         --if not (bIsCombo and bIsCombo == 1) then
@@ -214,15 +222,15 @@ function atalanta_celestial_arrow:ArrowHit(target, slow, bIsPhoebus, bIsCombo)
         damage = damage * 0.65
     end
 
-    if caster.CalydonianSnipeAcquired then--caster:HasModifier("modifier_arrows_of_the_big_dipper") and caster:HasModifier("modifier_tauropolos") and not (bIsPhoebus and bIsPhoebus == 1) then
+    --[[if caster.CalydonianSnipeAcquired then--caster:HasModifier("modifier_arrows_of_the_big_dipper") and caster:HasModifier("modifier_tauropolos") and not (bIsPhoebus and bIsPhoebus == 1) then
         DoDamage(caster, target, damage * 0.5, DAMAGE_TYPE_PHYSICAL, 0, self, false)
 
         if not target:IsNull() and not target:IsMagicImmune() then
             DoDamage(caster, target, damage * 0.5, DAMAGE_TYPE_MAGICAL, 0, self, false)
         end
-    else
+    else]]
         DoDamage(caster, target, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
-    end
+    --end
 
     if slow and slow > 0 and not IsImmuneToSlow(target) then
         target:AddNewModifier(caster, target, "modifier_barrage_slow", {Duration = slow})

@@ -7,7 +7,7 @@ LinkLuaModifier("modifier_squidlord_alive", "abilities/gilles/gilles_abyssal_con
 LinkLuaModifier("modifier_gilles_combo_window", "abilities/gilles/modifiers/modifier_gilles_combo_window", LUA_MODIFIER_MOTION_NONE)
 
 function gilles_abyssal_contract:GetManaCost(iLevel)
-	return self:GetCaster():GetMaxMana()
+	return self:GetCaster():GetMaxMana() * 0.8
 end
 
 function gilles_abyssal_contract:IsHiddenAbilityCastable()

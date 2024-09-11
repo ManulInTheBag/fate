@@ -49,8 +49,8 @@ function true_assassin_snatch_strike:OnSpellStart()
 			--[[DoDamage(caster, target, casterStr * 3, DAMAGE_TYPE_PHYSICAL, 0, ability, false)
 			totalDamage = totalDamage + casterStr * 3]]
 
-			DoDamage(caster, target, casterAgi * 2, DAMAGE_TYPE_PURE, 0, ability, false)
-			totalDamage = totalDamage + casterAgi * 2
+			DoDamage(caster, target, casterAgi * 1.5, DAMAGE_TYPE_PURE, 0, ability, false)
+		--	totalDamage = totalDamage + casterAgi * 2
 
 			--[[DoDamage(caster, target, casterInt * 5, DAMAGE_TYPE_MAGICAL, 0, ability, false)
 			totalDamage = totalDamage + casterInt * 5]]

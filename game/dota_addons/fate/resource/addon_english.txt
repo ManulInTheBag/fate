@@ -6620,7 +6620,8 @@
         "DOTA_Tooltip_ability_atalanta_celestial_arrow_range"                             "RANGE:"
         //"DOTA_Tooltip_ability_atalanta_celestial_arrow_bonus_arrows"                      "BONUS ARROWS:"
         "DOTA_Tooltip_ability_atalanta_celestial_arrow_bonus_damage"                      "BASE DAMAGE:"
-	"DOTA_Tooltip_ability_atalanta_celestial_arrow_bonus_range_per_agi"                 "RANGE PER AGI:"
+		"DOTA_Tooltip_ability_atalanta_celestial_arrow_bonus_range_per_agi"                 "RANGE PER AGI:"
+		"DOTA_Tooltip_ability_atalanta_celestial_arrow_damage_per_level"					"DAMAGE PER LEVEL:"
         //"DOTA_Tooltip_ability_atalanta_celestial_arrow_agility_per_stack"                 "AGI PER STACK:"
         //"DOTA_Tooltip_ability_atalanta_celestial_arrow_casttime_reduction_per_stack"      "%CAST TIME REDUCTION PER STACK:"
 		//"DOTA_Tooltip_ability_atalanta_celestial_arrow_max_stacks"      				  "MAX STACKS & DURATION:"
@@ -6632,12 +6633,12 @@
         "DOTA_Tooltip_ability_atalanta_calydonian_snipe_Note0"			"Arrows can be disjointed."
 
         "DOTA_Tooltip_ability_atalanta_calydonian_hunt"						"Calydonian Hunt"
-        "DOTA_Tooltip_ability_atalanta_calydonian_hunt_Description"			"<font color='#58ACFA'>PASSIVE:</font> Wounded enemies can be seen by Atalanta, if their health drops below 60%%.\n<font color='#58ACFA'>ACTIVE:</font> Marks the target enemy, making it visible. All Atalanta's abilities and attacks will stack the debuff on the enemy. When the debuff reaches %max_stacks% stacks, the enemy is <font color='#FF3399'>rooted</font> and takes some magical damage. Atalanta can't stack the debuff while enemy is rooted. The enemy can be rooted multiple times while this ability is active."
+        "DOTA_Tooltip_ability_atalanta_calydonian_hunt_Description"			"<font color='#58ACFA'>PASSIVE:</font> Wounded enemies can be seen by Atalanta, if their health drops below 60%%.\n<font color='#58ACFA'>ACTIVE:</font> Marks the target enemy, making it visible. All Atalanta's abilities and attacks will stack the debuff on the enemy. When the debuff reaches %max_stacks% stacks, the enemy is <font color='#FF3399'>rooted</font>. Atalanta's arrows deal additional pure damage based on enemy's max HP. Atalanta can't stack the debuff while enemy is rooted. The enemy can be rooted multiple times while this ability is active."
         "DOTA_Tooltip_ability_atalanta_calydonian_hunt_passive_radius"		"Passive Radius"
         "DOTA_Tooltip_ability_atalanta_calydonian_hunt_sight_duration"		"Vision Duration:"
         "DOTA_Tooltip_ability_atalanta_calydonian_hunt_root_duration"		"Root Duration:"
         //"DOTA_Tooltip_ability_atalanta_calydonian_hunt_root_cooldown"		"Root Cooldown:"
-	"DOTA_Tooltip_ability_atalanta_calydonian_hunt_damage"		"Damage:"
+	"DOTA_Tooltip_ability_atalanta_calydonian_hunt_damage"		"%Damage:"
         //"DOTA_Tooltip_ability_atalanta_calydonian_hunt_damage_per_stack"	"Slow Duration:"
 		
 		"DOTA_Tooltip_ability_atalanta_traps"                                  			 "Hunting Tools"
@@ -6733,7 +6734,7 @@
         "DOTA_Tooltip_ability_atalanta_last_spurt_aoe"                                    "AOE:"
 
         "DOTA_Tooltip_ability_atalanta_priestess_of_the_hunt"                             "Priestess Of The Hunt"
-        "DOTA_Tooltip_ability_atalanta_priestess_of_the_hunt_Description"                 "Atalanta can now attack, and her abilities uses arrow charges. Each arrow in her quiver grants her %bonus_damage% bonus damage and she can hold up to %arrows% arrows at any given time.\nActive: Restores all arrows in her quiver instantly, spending 30 mana per restored arrow."
+        "DOTA_Tooltip_ability_atalanta_priestess_of_the_hunt_Description"                 "Atalanta can now attack, and her abilities uses arrow charges. She can hold up to %arrows% arrows at any given time.\nActive: Restores all arrows in her quiver instantly, spending 30 mana per restored arrow."
         //"DOTA_Tooltip_ability_atalanta_priestess_of_the_hunt_arrows"                      "ARROW CHARGES:"
 
         "DOTA_Tooltip_ability_atalanta_tauropolos"                                        "Tauropolos - Bow of Heaven"
@@ -6781,7 +6782,7 @@
 		"DOTA_Tooltip_ability_atalanta_phoebus_catastrophe_snipe_arrows_damage_percentage"      "%ARROW DAMAGE SCALING:"
 
         "DOTA_Tooltip_ability_atalanta_attribute_arrows_of_the_big_dipper"					"Attribute: Arrows of the Big Dipper"
-        "DOTA_Tooltip_ability_atalanta_attribute_arrows_of_the_big_dipper_Description"		"Atalanta imbues her arrows with the blessing of Artemis. Celestial Arrows reveal FOW where they fly.\nArrow of the Big Dipper now pierces the enemies."
+        "DOTA_Tooltip_ability_atalanta_attribute_arrows_of_the_big_dipper_Description"		"Atalanta imbues her arrows with the blessing of Artemis. Celestial Arrows reveal FOW where they fly."
         //"DOTA_Tooltip_ability_atalanta_attribute_arrows_of_the_big_dipper_conversion"		"%Damage Conversion:"
         "DOTA_Tooltip_ability_atalanta_attribute_arrows_of_the_big_dipper_Lore"				"Her hunt is blessed by the Goddess of Hunt herself."
         
@@ -6797,8 +6798,8 @@
         "DOTA_Tooltip_ability_atalanta_attribute_hunters_mark"                      "Attribute: Hunter's Mark"
         "DOTA_Tooltip_ability_atalanta_attribute_hunters_mark_Description"          "Increases the duration of vision provided by Calydonian Hunt. Calydonian Hunt also applies a powerful slow to the target enemy."
         "DOTA_Tooltip_ability_atalanta_attribute_hunters_mark_bonus_duration"      	"Bonus Duration:"
-        "DOTA_Tooltip_ability_atalanta_attribute_hunters_mark_cooldown_reduction"  	"Cooldown Reduction:"
-        "DOTA_Tooltip_ability_atalanta_attribute_hunters_mark_slow_aoe"    	  		"Slow Area of Effect:"
+        //"DOTA_Tooltip_ability_atalanta_attribute_hunters_mark_cooldown_reduction"  	"Cooldown Reduction:"
+        //"DOTA_Tooltip_ability_atalanta_attribute_hunters_mark_slow_aoe"    	  		"Slow Area of Effect:"
         "DOTA_Tooltip_ability_atalanta_attribute_hunters_mark_slow_amount"    	  	"%Slow Amount:"
 		//"DOTA_Tooltip_ability_atalanta_attribute_hunters_mark_slow_duration"    	"Slow Duration:"
 		"DOTA_Tooltip_ability_atalanta_attribute_hunters_mark_Lore"					"Servants are just humanoid boars."
@@ -6820,7 +6821,7 @@
         "DOTA_Tooltip_ability_atalanta_attribute_crossing_arcadia_plus_bonus_range"       "BONUS RANGE:"
 
         "DOTA_Tooltip_ability_atalanta_calydonian_snipe_attribute"				"Attribute: Calydonian Snipe"
-        "DOTA_Tooltip_ability_atalanta_calydonian_snipe_attribute_Description"	"Celestial Arrow and Phoebus Catastrophe deal half of their damage as magical."
+        "DOTA_Tooltip_ability_atalanta_calydonian_snipe_attribute_Description"	"Arrow of the Big Dipper now pierces the enemies. \nEnemies affected by the effect take 10% more damage from Atalanta's arrows."
         "DOTA_Tooltip_ability_atalanta_calydonian_snipe_attribute_Lore"			"Once the hunt is on, there is no hiding from the arrows of the huntress."
         //"DOTA_Tooltip_ability_atalanta_calydonian_snipe_attribute_Note0"		"Arrows can be disjointed."
 		
@@ -8811,7 +8812,7 @@
        "DOTA_Tooltip_ability_nanaya_scale_attribute_Description" 	"When Nanaya is <font color='#FFFAFA'>White</font>, his abilities deal additional damage based on his <font color='#00FF00'>agility</font>."
 
        "DOTA_Tooltip_ability_nanaya_chobi_attribute" 				"Attribute: Calculated Assault"
-       "DOTA_Tooltip_ability_nanaya_chobi_attribute_Description" 	"Sensa・Meigokushamon deals more damage to units with less than half HP."
+       "DOTA_Tooltip_ability_nanaya_chobi_attribute_Description" 	"Sensa・Meigokushamon deals more damage to units with less than %threshold%% HP and Nanaya becomes invisible for the next %invis_duration% seconds. "
 
 
         //     Archer(Extra)
