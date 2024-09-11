@@ -1,42 +1,49 @@
 heracles_fissure = class({})
 
+function heracles_fissure:OnAbilityPhaseStart()
+	local caster = self:GetCaster()
+	EmitSoundOnLocationWithCaster(caster:GetAbsOrigin(), "heracles_q_new_2", caster)
+	return true
+end
+
 function heracles_fissure:OnSpellStart()
 	local caster = self:GetCaster()
-	local projectile_length = self:GetSpecialValueFor("fissure_length")
-	local projectile_speed = self:GetSpecialValueFor("projectile_speed")
-	local fissure_count = projectile_length / 100
+	local damage = self:GetSpecialValueFor("damage")
+	local range = self:GetSpecialValueFor("range")
+	local stun_duration = self:GetSpecialValueFor("stun_duration")
+	local width = self:GetSpecialValueFor("width")
+	local point = self:GetCursorPosition()
+	local vector = -(caster:GetAbsOrigin() - point):Normalized()*range
+	local pointEnd = caster:GetAbsOrigin() + vector
+	local hEnemies =   FindUnitsInLine(
+						caster:GetTeamNumber(),
+						caster:GetAbsOrigin(),
+						pointEnd,
+						nil,
+						width,
+						DOTA_UNIT_TARGET_TEAM_ENEMY,
+						DOTA_UNIT_TARGET_ALL,
+						0
+	)
+	EmitSoundOnLocationWithCaster(pointEnd, "heracles_q_new_1", caster)
 
-	local frontward = caster:GetForwardVector()
-	local fiss = 
-	{
-		Ability = self,
-        EffectName = "particles/custom/berserker/fissure_strike/shockwave.vpcf",
-        iMoveSpeed = projectile_speed,
-        vSpawnOrigin = caster:GetAbsOrigin(),
-        fDistance = projectile_length,
-        fStartRadius = 200,
-        fEndRadius = 200,
-        Source = caster,
-        bHasFrontalCone = true,
-        bReplaceExisting = false,
-        iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-        iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_NONE,
-        iUnitTargetType = DOTA_UNIT_TARGET_ALL,
-        fExpireTime = GameRules:GetGameTime() + 0.5,
-		bDeleteOnHit = false,
-		vVelocity = frontward * projectile_speed
-	}
-	caster.FissureOrigin  = caster:GetAbsOrigin()
-	caster.FissureTarget = keys.target_points[1]
-	projectile = ProjectileManager:CreateLinearProjectile(fiss)
-
-	Timers:CreateTimer(function()
-		if counter >= fissure_count then return end 
-			local projectile_location = 
-
-			local rock_dummy = CreateUnitByName("ubw_sword_confine_dummy", Vector(0,0,0), false, caster, caster, caster:GetTeamNumber())
-			rock_dummy:FindAbilityByName("dummy_visible_unit_passive_no_fly"):SetLevel(1)
-			rock_dummy:SetForwardVector(Vector(0,0,-1))
-		return 0.1
-	end)
+	for _, enemy in pairs(hEnemies) do
+		DoDamage(caster, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)	
+		giveUnitDataDrivenModifier(caster,enemy , "stunned", stun_duration)
+	end
+	local particle = ParticleManager:CreateParticle("particles/zlodemon/heracles/heracles_fissure.vpcf", PATTACH_WORLDORIGIN, nil)
+	ParticleManager:SetParticleControlTransformForward(particle, 0, caster:GetAbsOrigin()+caster:GetForwardVector() * 100, caster:GetForwardVector())
+	ParticleManager:SetParticleControlTransformForward(particle, 1, caster:GetAbsOrigin()+caster:GetForwardVector() * 100,  caster:GetForwardVector())
+	if caster:GetStrength() >= 39.1 and caster:GetAgility() >= 39.1  then
+		if self == caster:FindAbilityByName("heracles_fissure") then
+			caster.QUsed = true
+			QTime = GameRules:GetGameTime()
+			Timers:CreateTimer({
+				endTime = 4,
+				callback = function()
+				caster.QUsed = false
+			end
+			})
+		end
+	end
 end
