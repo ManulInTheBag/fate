@@ -450,6 +450,7 @@
 					{
 						_class = "AnimFile"
 						name = "pepeg_temp"
+						disabled = true
 						activity_name = "ACT_DOTA_CAST_ABILITY_6"
 						activity_weight = 1
 						weight_list_name = ""

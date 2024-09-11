@@ -8,7 +8,7 @@ end
 
 function heracles_fissure:OnSpellStart()
 	local caster = self:GetCaster()
-	local damage = self:GetSpecialValueFor("damage")
+	local damage = self:GetSpecialValueFor("damage") + caster:GetStrength()*(caster.IsEternalRageAcquired and 1 or 0)
 	local range = self:GetSpecialValueFor("range")
 	local stun_duration = self:GetSpecialValueFor("stun_duration")
 	local width = self:GetSpecialValueFor("width")

@@ -94,7 +94,16 @@ function nanaya_knife:OnProjectileHitHandle(hTarget, vLocation, iProjectileHandl
 	caster:RemoveModifierByName("modifier_nanaya_combo_window")
 
 	if hTarget == nil then
-		caster:RemoveModifierByName("modifier_nanaya_combo_active")
+		if caster:HasModifier("modifier_nanaya_combo_active") then
+			caster:RemoveModifierByName("modifier_nanaya_combo_active")
+			caster:FindAbilityByName("nanaya_kekshi"):EndCooldown()
+			caster:FindAbilityByName("nanaya_kekshi"):StartCooldown(45)
+			caster:RemoveModifierByName("modifier_nanaya_kekshi_cd")
+			local masterCombo = caster.MasterUnit2:FindAbilityByName("nanaya_kekshi")
+			masterCombo:EndCooldown()
+			masterCombo:StartCooldown(45)
+			caster:AddNewModifier(caster, caster:FindAbilityByName("nanaya_kekshi"), "modifier_nanaya_kekshi_cd", {duration = 45})
+		end
 		return true
 	end
 

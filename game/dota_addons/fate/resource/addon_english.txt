@@ -3339,7 +3339,7 @@
 		"DOTA_Tooltip_Ability_berserker_5th_attribute_improve_divinity_damage_block"	"DAMAGE BLOCK:"
 
 		"DOTA_Tooltip_Ability_berserker_5th_attribute_berserk"						"Attribute: Eternal Rage"
-		"DOTA_Tooltip_ability_berserker_5th_attribute_berserk_Description"			"Berserker's attacks deal additional 50% of his attack damage in 300 radius around target slowing all affected enemies.\nCourage gains additional base stats (25 strength, 10%% movespeed, 25 damage, 25 attackspeed). \n For the duration of Berserk every second deal magical damage in a small radius to all nearby enemies, damage is equal to 20% of all damage taken between each tick of damage \n Fissure Strike: all values are increased based on Berserker's strength (multipliers: 1 for range, 0.5 for pull range, 0.25 for base damage, 0.1 for collide damage)"
+		"DOTA_Tooltip_ability_berserker_5th_attribute_berserk_Description"			"Berserker's attacks deal additional 50% of his attack damage in 300 radius around target slowing all affected enemies.\nCourage gains additional base stats (25 strength, 10%% movespeed, 25 damage, 25 attackspeed). \n For the duration of Berserk every second deal magical damage in a small radius to all nearby enemies, damage is equal to 20% of all damage taken between each tick of damage \n Fissure Strike: damage is increased based on Berserker's strength (1 damage per STR)."
 		"DOTA_Tooltip_Ability_berserker_5th_attribute_berserk_Note0"				"Bash has 1.5 seconds cooldown."	
 		"DOTA_Tooltip_Ability_berserker_5th_attribute_berserk_Note1"				"Berserk's periodic damage is equivalent to the amount of mana replenished from damage taken for 1 second."
 		//"DOTA_Tooltip_Ability_berserker_5th_attribute_berserk_bash_chance"			"%COURAGE BASH CHANCE:"
@@ -5080,10 +5080,10 @@
 		"npc_dota_hero_skeleton_king_bio"	""
 
 		"DOTA_Tooltip_Ability_khsn_ambush"				"Death's Approach"
-        "DOTA_Tooltip_ability_khsn_ambush_Description"	"King Hassan becomes invisible, gains bonus movement speed and enables <font color='#58ACFA'>Death Arrival</font>. Autoattacking, using abilities and items breaks invisibility. \n<font color='#58ACFA'>Death's Arrival</font>: Blinks to the target location. "
+        "DOTA_Tooltip_ability_khsn_ambush_Description"	"King Hassan becomes invisible, gains bonus movement speed. Autoattacking, using abilities and items breaks invisibility."
         "DOTA_Tooltip_ability_khsn_ambush_duration"			"Duration:"
         "DOTA_Tooltip_ability_khsn_ambush_ms_bonus"			"%Movespeed bonus:"
-        "DOTA_Tooltip_ability_khsn_ambush_range"				"Blink distance:"
+        //"DOTA_Tooltip_ability_khsn_ambush_range"				"Blink distance:"
 
         "DOTA_Tooltip_Ability_khsn_ambush_blink"				"Death's Arrival"
         "DOTA_Tooltip_ability_khsn_ambush_blink_Description"	"King Hassan blinks to the target location."
@@ -7595,12 +7595,12 @@
 		"DOTA_Tooltip_ability_edmon_ground_beams_stun_duration"	"Stun duration:"
 
 		"DOTA_Tooltip_ability_edmon_dash"						"Afterglow"
-		"DOTA_Tooltip_ability_edmon_dash_Description"			"Dashes to the target enemy. If enemy blinks or somehow changes position too quickly, he will instead dash to the point where it was."
+		"DOTA_Tooltip_ability_edmon_dash_Description"			"Dashes to the target enemy or ally. If unit blinks or somehow changes position too quickly, he will instead dash to the point where it was."
 		"DOTA_Tooltip_ability_edmon_dash_range"					"Range:"
 		"DOTA_Tooltip_ability_edmon_dash_speed"					"Speed:"
 
 		"DOTA_Tooltip_ability_edmon_ult"						"My Vengeance Never Dies"
-		"DOTA_Tooltip_ability_edmon_ult_Description"			"Dantes disappears for %duration% second and attacks the selected location 5 times, dealing %damage% magical damage to all enemies in radius with each attack."
+		"DOTA_Tooltip_ability_edmon_ult_Description"			"Dantes disappears for %duration% second and attacks the selected location 5 times, dealing %damage% magical damage to all enemies in radius with each attack.\nWhen set to autocast, Dantes will appear on the cast point instead of position where he used the ability."
 		"DOTA_Tooltip_ability_edmon_ult_radius"					"Radius:"
 		"DOTA_Tooltip_ability_edmon_ult_range"					"Range:"
 
@@ -8356,7 +8356,7 @@
  
 
         "DOTA_Tooltip_ability_merlin_hero_creation"						"Hero creation"
-        "DOTA_Tooltip_ability_merlin_hero_creation_Description"			"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0</font>\nMerlin buffs his ally or himself, granting target increased <font color='#FFFAFA'>main attribute</font>,<font color='#FFFAFA'> movement speed</font> and <font color='#FFFAFA'>10%</font> <font color='#7CFC00'>spell lifesteal</font>.\n<font color='#FFFAFA'> movement speed</font> and <font color='#FFFAFA'>main attribute</font> buff amount increases for each ally around <font color='#58ACFA'>Hero</font>."
+        "DOTA_Tooltip_ability_merlin_hero_creation_Description"			"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0</font>\nMerlin buffs his ally or himself, granting target increased <font color='#FFFAFA'>main attribute</font>,<font color='#FFFAFA'> movement speed</font>, <font color='#FFFAFA'>10%</font> <font color='#7CFC00'>spell lifesteal</font> and <font color='#FFFAFA'>150</font> <font color='#7CFC00'>maximum health</font>.\n<font color='#FFFAFA'> movement speed</font> and <font color='#FFFAFA'>main attribute</font> buff amount increases for each ally around <font color='#58ACFA'>Hero</font>."
         "DOTA_Tooltip_ability_merlin_hero_creation_base_stat_bonus"						"Base stat bonus:"
         "DOTA_Tooltip_ability_merlin_hero_creation_ms_base"								"%Base ms:"
         "DOTA_Tooltip_ability_merlin_hero_creation_duration"							"Duration:"
@@ -8532,7 +8532,7 @@
   
 
 		"DOTA_Tooltip_ability_nobu_combo"						"Combo: Demon king of the sixth heaven"
-        "DOTA_Tooltip_ability_nobu_combo_Description"			"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: W-D in 2 seconds</font>\nNobunaga takes a 1.5 seconds charge and then run into the target enemy with insane speed. If she reaches enemy, he will be stunned, she will became invulnerable and will deal magic damage, followed by 25 rifle shots."
+        "DOTA_Tooltip_ability_nobu_combo_Description"			"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: W-D in 2 seconds</font>\nNobunaga takes a 1.5 seconds charge and then run into the target enemy with insane speed. If she reaches enemy, he will be stunned, she will became invulnerable and will deal magic damage, followed by 25 rifle shots.\nWhile charging and running Nobunaga receives 40% less damage."
         "DOTA_Tooltip_ability_nobu_combo_radius"			"Cast range:"
 		"DOTA_Tooltip_ability_nobu_combo_run_speed"		"Run speed:"
 		"DOTA_Tooltip_ability_nobu_combo_run_duration"	 "Maximum run duration:"
@@ -8799,7 +8799,7 @@
         "DOTA_Tooltip_ability_nanaya_knife_recast_Description" 				"<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%cast_point%</font>\nNanaya <font color='#FFFAFA'>teleports</font> to the enemy hit by the knife (but not further than %recast_range% units from him), slashes it for %damage% damage and jumps back for 600 units."
 
         "DOTA_Tooltip_ability_nanaya_kekshi"                     "Combo: Kyokushi・Nanaya"
-        "DOTA_Tooltip_ability_nanaya_kekshi_description"         "<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>Instant</font>\n<font color='#58ACFA'>Combo Requirement: 30 all stats </font>\n<font color='#58ACFA'>Combo Sequence: W while Sensa・Kaie knife is flying</font>\nNanaya focuses on his launched knife. If knife hits the opponent, he will teleport behind their back and twist their neck, dealing huge amount of pure damage.\nInstantly gives Nanaya 10 stacks of Instinct if he was at 9 stacks or less."
+        "DOTA_Tooltip_ability_nanaya_kekshi_description"         "<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>Instant</font>\n<font color='#58ACFA'>Combo Requirement: 30 all stats </font>\n<font color='#58ACFA'>Combo Sequence: W while Sensa・Kaie knife is flying</font>\nNanaya focuses on his launched knife. If knife hits the opponent, he will teleport behind their back and twist their neck, dealing huge amount of pure damage.\nInstantly gives Nanaya 10 stacks of Instinct if he was at 9 stacks or less.\nIf Kyokushi did not activate, ability will go on reduced 45 seconds cooldown."
 		"DOTA_Tooltip_ability_nanaya_kekshi_damage"                     "Damage:"
 
        "DOTA_Tooltip_ability_nanaya_slashes" 					"Sensa・Hattenshou"
