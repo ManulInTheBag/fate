@@ -14,7 +14,7 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityBehavior" 				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityCastAnimation" 			"ACT_DOTA_ATTACK2"
-		"AbilityCastPoint" 				"0.2"
+		"AbilityCastPoint" 				"0.15"
 		"AnimationPlaybackRate" 		"2"
 		"AbilityCooldown"				"26 24 22 20 18"
 		"AbilityCastRange"				"550"
@@ -24,11 +24,11 @@
 	  	
 		"AbilityValues"
 		{	
-			"cast_point"							"0.2"
-			"kick_damage"							"200 240 280 320 360"
+			"cast_point"							"0.15"
+			"kick_damage"							"180 225 270 315 360"
 			"attribute_kick_agility_multiplier"		"0.8"
 			"kick_range"							"550"
-			"fly_damage"							"50 65 80 95 110"
+			"fly_damage"							"60 75 90 105 120"
 			"attribute_fly_agility_multiplier"		"0.4"
 			"fly_range"								"1000"
 			"fly_speed"								"3000"
@@ -51,7 +51,7 @@
 	  	"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3"
 	  	"AbilityCastPoint"				"0.2"
 	  	"AnimationPlaybackRate" 		"2"
-	  	"AbilityCooldown"				"28 24 20 16 12"
+	  	"AbilityCooldown"				"16 15 14 13 12"
 	  	"AbilityManaCost"				"200"
 
 		"AbilityValues"
@@ -60,7 +60,7 @@
 			"recast_cast_point"						"0.2"
 			"range"									"1500"
 			"window_duration"						"3"
-			"dmg_knife"								"100 150 200 250 300"
+			"dmg_knife"								"150 187.5 225 267.5 300"
 			"attribute_knife_agility_multiplier"	"1"
 			"dmg_hit"								"200 250 300 350 400"
 			"attribute_hit_agility_multiplier"		"1.5"
@@ -313,5 +313,11 @@
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"9999"
 		"AbilityManaCost"				"11"
+
+		"AbilityValues"
+		{
+			"threshold"								"60"
+			"invis_duration"						"3"
+		}
 	}
 }

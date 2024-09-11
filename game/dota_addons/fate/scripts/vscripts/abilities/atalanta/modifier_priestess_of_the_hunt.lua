@@ -46,7 +46,7 @@ end
 function modifier_priestess_of_the_hunt:DeclareFunctions()
     local funcs = {
         MODIFIER_EVENT_ON_RESPAWN,
-        MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
+        --MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
         MODIFIER_EVENT_ON_ATTACK,
         --MODIFIER_EVENT_ON_ATTACK_LANDED,
     }

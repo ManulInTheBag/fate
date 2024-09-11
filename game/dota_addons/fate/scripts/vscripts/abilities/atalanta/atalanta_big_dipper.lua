@@ -85,40 +85,44 @@ function atalanta_big_dipper:OnProjectileThink(location)
     AddFOWViewer(3, location, 40, 0.4, false)
 end
 function atalanta_big_dipper:OnProjectileHit_ExtraData(hTarget, vLocation, table)
-    local enemies = FindUnitsInRadius(  self:GetCaster():GetTeamNumber(),
-                                        vLocation,
-                                        nil,
-                                        table.radius,
-                                        table.teams,
-                                        table.types,
-                                        table.flags,
-                                        FIND_ANY_ORDER,
-                                        false)
 
-    for _,enemy in pairs(enemies) do
-        if IsInSameRealm(enemy:GetAbsOrigin(), self:GetCaster():GetAbsOrigin()) then
-            DoDamage(self:GetCaster(), enemy, self:GetSpecialValueFor("damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
-            self:GetCaster():AddHuntStack(enemy, 1)
+    if(hTarget ~= nil) then
 
-            enemy:AddNewModifier(self:GetCaster(), self, "modifier_atalanta_big_dipper_slow", {duration = table.duration})
+        local enemies = FindUnitsInRadius(  self:GetCaster():GetTeamNumber(),
+                                            vLocation,
+                                            nil,
+                                            table.radius,
+                                            table.teams,
+                                            table.types,
+                                            table.flags,
+                                            FIND_ANY_ORDER,
+                                            false)
+
+        for _,enemy in pairs(enemies) do
+            if IsInSameRealm(enemy:GetAbsOrigin(), self:GetCaster():GetAbsOrigin()) then
+                DoDamage(self:GetCaster(), enemy, self:GetSpecialValueFor("damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
+                self:GetCaster():AddHuntStack(enemy, 1)
+
+                enemy:AddNewModifier(self:GetCaster(), self, "modifier_atalanta_big_dipper_slow", {duration = table.duration})
+            end
         end
+
+        local effect_boom = ParticleManager:CreateParticle("particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf", PATTACH_WORLDORIGIN, nil)
+                            ParticleManager:SetParticleControl(effect_boom, 0, GetGroundPosition(vLocation, nil))
+                            ParticleManager:SetParticleControl(effect_boom, 1, Vector(table.radius, 7, table.radius))
+                            ParticleManager:ReleaseParticleIndex(effect_boom)
+
+        StopSoundOn("big_dipper_fly", self:GetCaster())
+        EmitSoundOn("big_dipper_boom", self:GetCaster())
+
+        EmitSoundOnLocationWithCaster(vLocation, "big_dipper_boom", self:GetCaster())
+
+        if not self:GetCaster().CalydonianSnipeAcquired then
+            return true
+        end
+
+        return false
     end
-
-    local effect_boom = ParticleManager:CreateParticle("particles/econ/items/crystal_maiden/crystal_maiden_cowl_of_ice/maiden_crystal_nova_cowlofice.vpcf", PATTACH_WORLDORIGIN, nil)
-                        ParticleManager:SetParticleControl(effect_boom, 0, GetGroundPosition(vLocation, nil))
-                        ParticleManager:SetParticleControl(effect_boom, 1, Vector(table.radius, 7, table.radius))
-                        ParticleManager:ReleaseParticleIndex(effect_boom)
-
-    StopSoundOn("big_dipper_fly", self:GetCaster())
-    EmitSoundOn("big_dipper_boom", self:GetCaster())
-
-    EmitSoundOnLocationWithCaster(vLocation, "big_dipper_boom", self:GetCaster())
-
-    if not self:GetCaster().ArrowsOfTheBigDipperAcquired then
-        return true
-    end
-
-    return false
 end
 ---------------------------------------------------------------------------------------------------------------------
 modifier_atalanta_big_dipper_slow = class({})
