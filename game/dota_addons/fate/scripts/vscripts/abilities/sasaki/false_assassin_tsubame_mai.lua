@@ -12,7 +12,7 @@ function false_assassin_tsubame_mai:OnSpellStart()
 		return
 	end
 	--ability:ApplyDataDrivenModifier(caster, caster, "modifier_tsubame_mai", {})
-	caster:AddNewModifier(caster, self, "modifier_tsubame_mai", {duration = 3})
+	caster:AddNewModifier(caster, self, "modifier_tsubame_mai", {duration = 2.5})
 	-- Set master's combo cooldown
 	local masterCombo = caster.MasterUnit2:FindAbilityByName(ability:GetAbilityName())
 	masterCombo:EndCooldown()

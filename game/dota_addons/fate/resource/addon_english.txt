@@ -3190,7 +3190,7 @@
 
 
 		"DOTA_Tooltip_Ability_emiya_attribute_shroud_of_martin"					"Attribute: Shroud of Martin"
-		"DOTA_Tooltip_ability_emiya_attribute_shroud_of_martin_Description"		"Increases Emiya's <font color='#FFFAFA'>magic resistance</font> and <font color='#FFFAFA'>armor</font>\nUpgrades <font color='#58ACFA'>Rho Aias</font> barrier amount."  
+		"DOTA_Tooltip_ability_emiya_attribute_shroud_of_martin_Description"		"Increases Emiya's <font color='#FFFAFA'>magic resistance</font> and <font color='#FFFAFA'>armor</font>\nUpgrades <font color='#58ACFA'>Rho Aias</font> barrier amount.\n<font color='#58ACFA'>Rho Aias</font> now hard cleanses target."  
 		"DOTA_Tooltip_Ability_emiya_attribute_shroud_of_martin_Lore"			"The shroud of Saint Martin protects the bearer from witchcraft and sorcery."
 		"DOTA_Tooltip_Ability_emiya_attribute_shroud_of_martin_magic_resist"	"%BONUS MAGIC RESISTANCE:"
 		"DOTA_Tooltip_Ability_emiya_attribute_shroud_of_martin_armor"			"BONUS ARMOR:"
@@ -5040,7 +5040,7 @@
 		"DOTA_Tooltip_Ability_atalanta_tauropolos_alter_explosion_radius"			"Arrow damage radius:"
 		"DOTA_Tooltip_Ability_atalanta_tauropolos_alter_curse_stacks"				"Curse stack count per arrow:"
 		"DOTA_Tooltip_Ability_atalanta_tauropolos_alter_armor_bonus"				"Bonus armor"
-		"DOTA_Tooltip_Ability_atalanta_tauropolos_alter_mr_bonus"					"Bonus magic resistance"
+		"DOTA_Tooltip_Ability_atalanta_tauropolos_alter_mr_bonus"					"%Bonus magic resistance"
 
 		"DOTA_Tooltip_Ability_atalanta_tauropolos_alter_stop" "Tauropolos - Arrow Rain: Stop"
 		"DOTA_Tooltip_Ability_atalanta_tauropolos_alter_stop_Description"	"Stops Tauropolos - Arrow Rain."
@@ -8406,7 +8406,7 @@
  		"DOTA_Tooltip_ability_merlin_dreamlike_charisma_attribute_mana_regen_bonus"				"Mana regeneration:"
 
         "DOTA_Tooltip_ability_merlin_hero_creation_attribute"				"Attribute: Hero creation"
-        "DOTA_Tooltip_ability_merlin_hero_creation_attribute_Description"	"Unlocks <font color='#58ACFA'>Hero creation</font> \n<font color='#58ACFA'>Hero creation</font>:Merlin buffs his ally or himself, granting target increased <font color='#FFFAFA'>main attribute</font>,<font color='#FFFAFA'> movement speed</font> and <font color='#FFFAFA'>10%</font> <font color='#7CFC00'>spell lifesteal</font>.\n<font color='#FFFAFA'> movement speed</font> and <font color='#FFFAFA'>main attribute</font> buff amount increases for each ally around <font color='#58ACFA'>Hero</font>."
+        "DOTA_Tooltip_ability_merlin_hero_creation_attribute_Description"	"Unlocks <font color='#58ACFA'>Hero creation</font> \n<font color='#58ACFA'>Hero creation</font>:Merlin buffs his ally or himself, granting target increased <font color='#FFFAFA'>main attribute</font>,<font color='#FFFAFA'> movement speed</font>, <font color='#FFFAFA'>10%</font> <font color='#7CFC00'>spell lifesteal</font> and <font color='#FFFAFA'>150</font> <font color='#7CFC00'>maximum health</font>.\n<font color='#FFFAFA'> movement speed</font> and <font color='#FFFAFA'>main attribute</font> buff amount increases for each ally around <font color='#58ACFA'>Hero</font>."
         "DOTA_Tooltip_ability_merlin_hero_creation_attribute_base_stat_bonus."						"Base stat bonus:"
         "DOTA_Tooltip_ability_merlin_hero_creation_attribute_ms_base"								"%Base ms:"
         "DOTA_Tooltip_ability_merlin_hero_creation_attribute_duration"							"Duration:"

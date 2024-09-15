@@ -340,6 +340,8 @@ end
 	Warrior parameters : keys.Health/keys.Damag/keys.ArmorRatio/keys.HealthRatio/keys.MSRatio
 	Archer parameters : keys.DamageRatio instead of ArmorRatio
 ]]
+
+
 function OnSummonSkeleton(keys)
 	local caster = keys.caster
 	local ability = keys.ability
@@ -349,8 +351,8 @@ function OnSummonSkeleton(keys)
 
 	if caster.IsMobilized then return end 
 
-	caster:GetItemInSlot(0):StartCooldown(10)
-	caster:GetItemInSlot(1):StartCooldown(10)
+	caster:GetItemInSlot(0):StartCooldown(5)
+	caster:GetItemInSlot(1):StartCooldown(5)
 
 	if ability:GetName()  == "item_summon_skeleton_warrior"  then
 		unitname =  "caster_5th_skeleton_warrior"
