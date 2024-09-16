@@ -32,15 +32,16 @@
 
     "AbilityValues"
         {
-            "range" "1100 1225 1350 1475 1600"
+            "range" "1100 1250 1400 1550 1700"
             "bonus_arrows" "0 1 2 3 4"
-            "bonus_damage" "30 60 90 120 150"
+            "bonus_damage" "150"
+            "damage_per_level" "7"
             "agility_per_stack" "1 2 3 4 5"
             "casttime_reduction_per_stack" "1.25 1.75 2.25 2.75 3.25"
             "max_stacks" "10"
             "stacks_duration" "10"
             "damage" "100"
-            "bonus_range_per_agi" "5"
+            "bonus_range_per_agi" "6"
             "last_spurt_duration" "7"
             "base_ms" "0"
             "ms_per_unit" "10"
@@ -60,11 +61,11 @@
     "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
     "AbilityUnitTargetTeam"     "DOTA_UNIT_TARGET_TEAM_ENEMY"
     "AbilityUnitTargetType"     "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
-    "AbilityUnitDamageType"     "DAMAGE_TYPE_MAGICAL"
+    "AbilityUnitDamageType"     "DAMAGE_TYPE_PURE"
     "AbilityTextureName"			"custom/atalanta_calydonian_hunt"
     "AbilityCastAnimation"    "ACT_DOTA_CAST_ABILITY_3"
     "AbilityCastPoint"				"0.25"
-    "AbilityCastRange"             "1500 1750 2000 2250 2500"
+    "AbilityCastRange"             "2000 2250 2500 2750 3000"
     "AbilityCooldown"				"16"
     "AbilityManaCost"				"200"
     "LevelsBetweenUpgrades"				"1"
@@ -85,12 +86,12 @@
             "attribute_stack_bonus" "2"
             "attribute_bonus_duration" "2"
             "root_cooldown" "8"
-            "sight_radius" "1500 1750 2000 2250 2500"
-            "slow_amount" "-40"
+            "sight_radius" "2000 2250 2500 2750 3000"
+            "slow_amount" "-35"
             "slow_duration" "3"
             "sight_perc" "60"
             "passive_radius" "2000 2250 2500 2750 3000"
-            "damage" "200 300 400 500 600"
+            "damage" "1"
         }
   }  
 
@@ -106,8 +107,8 @@
     "AbilityTextureName"			"custom/atalanta_golden_apple"
     
     "AbilityCastPoint"				"0.3"
-    "AbilityCooldown"				"70"
-    "AbilityManaCost"				"400"
+    "AbilityCooldown"				"45"
+    "AbilityManaCost"				"200"
     "AbilityCastAnimation"    "ACT_DOTA_CAST_ABILITY_3"
 
     "precache"
@@ -115,14 +116,15 @@
       "particle"					"particles/units/heroes/hero_enchantress/enchantress_natures_attendants_lvl4.vpcf"
       "particle"					"particles/econ/items/juggernaut/jugg_arcana/juggernaut_arcana_v2_teleport_model_glow.vpcf"
       "particle"					"particles/units/heroes/hero_furion/furion_base_attack.vpcf"
+      "particle"          "particles/econ/generic/generic_progress_meter/generic_progress_circle.vpcf"
       "soundfile"					"soundevents/game_sounds_heroes/game_sounds_enchantress.vsndevts"
     }
 
     "AbilityValues"
         {
-            "range" "1000"
+            "range" "2000"
             "lure_duration" "3"
-            "aoe" "300"
+            "aoe" "400"
             "swap_duration" "2"
         }
   }
@@ -216,7 +218,7 @@
         {
             "arrows" "10"
             "bonus_damage" "10"
-            "cost" "30"
+            "cost" "10"
         }
   }
   
@@ -291,7 +293,7 @@
             "arrows" "27 33 39 45 51"
             "arrows_cap" "80"
             "arrows_per_arrow" "3"
-            "delay" "2.0"
+            "delay" "1.25"
             "cast_point" "0.8"
             "slow" "50"
             "slow_duration" "0.4"
@@ -351,7 +353,7 @@
     
     "AbilityCastPoint"				"0.0"
     "AbilityCooldown"				"9999"
-    "AbilityManaCost"				"14"
+    "AbilityManaCost"				"6"
 
     "precache"
     {
@@ -394,7 +396,7 @@
             "bonus_duration" "2"
             "cooldown_reduction" "1"
             "slow_aoe" "1200"
-            "slow_amount" "-40"
+            "slow_amount" "-35"
             "slow_duration" "3"
         }
   }
@@ -413,7 +415,7 @@
     
     "AbilityCastPoint"				"0.0"
     "AbilityCooldown"				"9999"
-    "AbilityManaCost"				"8"
+    "AbilityManaCost"				"13"
 
     "precache"
     {
@@ -421,7 +423,7 @@
 
     "AbilityValues"
         {
-            "range" "700"
+            "range" "2000"
             "lure_duration" "1.5"
             "aoe" "300"
             "attribute_swap_duration" "6"
@@ -532,7 +534,7 @@
     "LevelsBetweenUpgrades"     "2"
 
     "AbilityCastPoint"            "0.0"
-    "AbilityChannelTime"          "1.5"
+    "AbilityChannelTime"          "0.75"
     "AbilityCooldown"           "26"
     "AbilityManaCost"           "400"
     "AbilityCastRange"            "3000"
@@ -549,9 +551,9 @@
     "AbilityValues"
         {
             "width" "128"
-            "speed" "1800"
+            "speed" "2400"
             "radius" "350"
-            "damage" "600 800 1000 1200 1400"
+            "damage" "700 875 1050 1225 1400"
             "duration" "3.5"
             "slow" "-40"
             "range" "3000"

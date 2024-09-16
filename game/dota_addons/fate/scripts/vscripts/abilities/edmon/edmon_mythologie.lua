@@ -41,6 +41,11 @@ function modifier_edmon_mythologie:GetModifierAttackSpeed_Limit()
 				return 1
 			end
 		end
+		if self.form == "range" then
+			if self:GetParent():HasModifier("modifier_edmon_beam_stacks") then
+				return 1
+			end
+		end
 	end
 	return 0
 end
@@ -48,6 +53,11 @@ function modifier_edmon_mythologie:GetModifierAttackSpeedBonus_Constant()
 	if self.form then
 		if self.form == "melee" then
 			if self:GetParent():HasModifier("modifier_edmon_melee_stacks") then
+				return 1100
+			end
+		end
+		if self.form == "range" then
+			if self:GetParent():HasModifier("modifier_edmon_beam_stacks") then
 				return 1100
 			end
 		end
@@ -60,10 +70,13 @@ function modifier_edmon_mythologie:GetModifierBaseAttackTimeConstant()
 			if self:GetParent():HasModifier("modifier_edmon_melee_stacks") then
 				return 0.9
 			end
-			return 1.2
+			return 1.1
 		end
 		if self.form == "range" then
-			return 1.4
+			if self:GetParent():HasModifier("modifier_edmon_beam_stacks") then
+				return 0.9
+			end
+			return 1.3
 		end
 	end
 	return 1.4
@@ -95,6 +108,15 @@ function modifier_edmon_mythologie:OnAttackLanded(args)
 	if args.attacker ~= self.parent then return end
 
 	if self.form == "range" then
+		local modifier = self.parent:FindModifierByName("modifier_edmon_beam_stacks")
+		if modifier then
+			if modifier:GetStackCount() > 1 then
+				modifier:SetStackCount(modifier:GetStackCount() - 1)
+			else
+				self.parent:RemoveModifierByName("modifier_edmon_beam_stacks")
+			end
+		end
+
 		local or1 = args.target:GetAbsOrigin()
 		local or2 = self.parent:GetAbsOrigin()
 		local height = or1.z - or2.z
@@ -110,7 +132,7 @@ function modifier_edmon_mythologie:OnAttackLanded(args)
 		local part1 = self.parent:GetAttachmentOrigin(self.parent:ScriptLookupAttachment("attach_attack"..self.seq)) + self.parent:GetForwardVector()*range + Vector(0, 0, height)
 		local part9 = self.parent:GetAttachmentOrigin(self.parent:ScriptLookupAttachment("attach_attack"..self.seq)) + self.parent:GetForwardVector()*25
 
-		self.beam_abil:MiniDarkBeam(part1, part9, true, false, false, self.seq)
+		self.beam_abil:MiniDarkBeam(part1, part9, true, false, true, self.seq)
 	else
 		local modifier = self.parent:FindModifierByName("modifier_edmon_melee_stacks")
 		local isfast = "common"
@@ -146,7 +168,7 @@ function modifier_edmon_mythologie:OnTakeDamage(args)
 
 		end
 		if self.parent.FlamesAcquired then
-			if (not args.inflictor) or (args.inflictor and args.inflictor:GetName() ~= "edmon_beam") then
+			if (args.inflictor and args.inflictor:GetName() ~= "edmon_beam") then
 				local modifier2 = self.parent:AddNewModifier(self.parent, self.ability, "modifier_edmon_beam_stacks", {duration = 5})
 				if modifier2:GetStackCount() < 6 then
 					modifier2:IncrementStackCount()

@@ -355,6 +355,8 @@ function modifier_okita_sandanzuki_release:PlayEffects(pos1, pos2)
 
                     DoDamage(caster, enemy, damage, DAMAGE_TYPE_PURE, 0, ability, false)
 
+                    enemy:RemoveModifierByName("modifier_master_intervention")
+
                     enemy:EmitSound("Tsubame_Slash_" .. math.random(1,3))
                 end)
                 Timers:CreateTimer(1, function()
@@ -369,6 +371,8 @@ function modifier_okita_sandanzuki_release:PlayEffects(pos1, pos2)
 
                     DoDamage(caster, enemy, damage, DAMAGE_TYPE_PURE, 0, ability, false)
 
+                    enemy:RemoveModifierByName("modifier_master_intervention")
+
                     enemy:EmitSound("Tsubame_Slash_" .. math.random(1,3))
                 end)
                 Timers:CreateTimer(1.2, function()
@@ -382,6 +386,8 @@ function modifier_okita_sandanzuki_release:PlayEffects(pos1, pos2)
                     end
 
                     DoDamage(caster, enemy, damage, DAMAGE_TYPE_PURE, 0, ability, false)
+
+                    enemy:RemoveModifierByName("modifier_master_intervention")
 
                     enemy:EmitSound("Tsubame_Focus")
                    

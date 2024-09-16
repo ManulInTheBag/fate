@@ -12,6 +12,7 @@ function emiya_rho_aias:OnSpellStart()
 	local shield = self:GetSpecialValueFor("shield_amount")
 	if   caster:HasModifier("modifier_shroud_of_martin")   then
 		shield = shield  + 1000
+		HardCleanse(target)
 	end
 
 

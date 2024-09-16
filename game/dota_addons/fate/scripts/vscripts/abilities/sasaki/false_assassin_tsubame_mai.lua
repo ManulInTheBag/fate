@@ -12,7 +12,7 @@ function false_assassin_tsubame_mai:OnSpellStart()
 		return
 	end
 	--ability:ApplyDataDrivenModifier(caster, caster, "modifier_tsubame_mai", {})
-	caster:AddNewModifier(caster, self, "modifier_tsubame_mai", {duration = 3})
+	caster:AddNewModifier(caster, self, "modifier_tsubame_mai", {duration = 2.5})
 	-- Set master's combo cooldown
 	local masterCombo = caster.MasterUnit2:FindAbilityByName(ability:GetAbilityName())
 	masterCombo:EndCooldown()
@@ -73,7 +73,7 @@ function modifier_tsubame_mai_omnislash:TsubameMai(initialtarget)
 	local target = initialtarget
 	local ability = self:GetAbility()
 
-	caster:FindAbilityByName("sasaki_tsubame_gaeshi"):StartCooldown(caster:FindAbilityByName("sasaki_tsubame_gaeshi"):GetCooldown(-1))
+	--caster:FindAbilityByName("sasaki_tsubame_gaeshi"):StartCooldown(caster:FindAbilityByName("sasaki_tsubame_gaeshi"):GetCooldown(-1))
 
 	local dummy = CreateUnitByName("godhand_res_locator", caster:GetAbsOrigin(), false, caster, caster, caster:GetTeamNumber())
 	dummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1) 

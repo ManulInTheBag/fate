@@ -94,7 +94,16 @@ function nanaya_knife:OnProjectileHitHandle(hTarget, vLocation, iProjectileHandl
 	caster:RemoveModifierByName("modifier_nanaya_combo_window")
 
 	if hTarget == nil then
-		caster:RemoveModifierByName("modifier_nanaya_combo_active")
+		if caster:HasModifier("modifier_nanaya_combo_active") then
+			caster:RemoveModifierByName("modifier_nanaya_combo_active")
+			caster:FindAbilityByName("nanaya_kekshi"):EndCooldown()
+			caster:FindAbilityByName("nanaya_kekshi"):StartCooldown(35)
+			caster:RemoveModifierByName("modifier_nanaya_kekshi_cd")
+			local masterCombo = caster.MasterUnit2:FindAbilityByName("nanaya_kekshi")
+			masterCombo:EndCooldown()
+			masterCombo:StartCooldown(35)
+			caster:AddNewModifier(caster, caster:FindAbilityByName("nanaya_kekshi"), "modifier_nanaya_kekshi_cd", {duration = 35})
+		end
 		return true
 	end
 
@@ -400,7 +409,7 @@ function nanaya_knife_recast:OnSpellStart()
 	local knockback1 = { should_stun = true,
 		knockback_duration = 0.3,
 		duration = 0.3,
-		knockback_distance = 600,
+		knockback_distance = 400,
 		knockback_height = 0,
 		center_x = target:GetAbsOrigin().x,
 		center_y = target:GetAbsOrigin().y,

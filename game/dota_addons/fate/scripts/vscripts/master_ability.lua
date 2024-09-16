@@ -259,7 +259,7 @@ function OnSeal4Start(keys)
 	local ply = caster:GetPlayerOwner()
 	local hero = ply:GetAssignedHero()
 
-	if hero:GetName() == "npc_dota_hero_juggernaut" or hero:GetName() == "npc_dota_hero_shadow_shaman" then
+	if hero:GetName() == "npc_dota_hero_juggernaut" then
 		caster:SetMana(caster:GetMana()+1) 
 		keys.ability:EndCooldown() 
 		SendErrorMessage(caster:GetPlayerOwnerID(), "#Cannot_Recover_Mana")

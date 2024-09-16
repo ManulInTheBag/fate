@@ -7,11 +7,11 @@ LinkLuaModifier("modifier_furious_chain_regen", "abilities/lishuwen/modifiers/mo
 
 function lishuwen_tiger_strike:GetCastPoint()
 	if self:CheckSequence() == 2 then
-		return 0.35
-	elseif self:CheckSequence() == 1 then
-		return 0.30
-	else
 		return 0.25
+	elseif self:CheckSequence() == 1 then
+		return 0.20
+	else
+		return 0.15
 	end
 end
 
@@ -167,9 +167,9 @@ function lishuwen_tiger_strike:TigerStrike1()
 
 	local health_1 = target:GetHealth()
 
-	--[[if caster.bIsMartialArtsImproved then
+	if caster.bIsMartialArtsImproved then
 		caster:PerformAttack( target, true, true, true, true, false, true, true )
-	end]]
+	end
 	DoDamage(caster, target, damage, DamageType, 0, self, false)
 
 	self.health_lost = health_1 - target:GetHealth()
@@ -216,9 +216,9 @@ function lishuwen_tiger_strike:TigerStrike2()
 		end
 	end
 
-	--[[if caster.bIsMartialArtsImproved then
+	if caster.bIsMartialArtsImproved then
 		caster:PerformAttack( target, true, true, true, true, false, true, true )
-	end]]
+	end
 
 	if caster:HasModifier("modifier_berserk") then --and self:CalculateCrit() 
 		--print("crit")
@@ -284,9 +284,7 @@ function lishuwen_tiger_strike:TigerStrike3()
 	EmitZlodemonTrueSoundEveryone("moskes_li_e3")
 	if IsSpellBlocked(target) then return end
 
-	print(self.health_lost)
-
-	local damage = self:GetSpecialValueFor("damage_3_magical") + self.health_lost*self:GetSpecialValueFor("losthealth_multiplier")
+	local damage = self:GetSpecialValueFor("damage_3_magical")
 
 	caster:RemoveModifierByName("modifier_tiger_strike_tracker")
 	
@@ -313,9 +311,9 @@ function lishuwen_tiger_strike:TigerStrike3()
 		caster:SetMana(caster:GetMana()+300)
 	end
 
-	--[[if caster.bIsMartialArtsImproved then
+	if caster.bIsMartialArtsImproved then
 		caster:PerformAttack( target, true, true, true, true, false, true, true )
-	end]]
+	end
 
 	target:RemoveModifierByName("modifier_tiger_strike_marker")
 

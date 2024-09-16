@@ -256,7 +256,7 @@ function lancelot_f16_nuke:OnSpellStart()
         local targets = FindUnitsInRadius(caster:GetTeam(), targetPoint, nil, 1500, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
         for k,v in pairs(targets) do
             DoDamage(caster, v, self:GetSpecialValueFor("damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
-            if not v:IsMagicImmune() then v:AddNewModifier(caster, v, "modifier_stunned", {Duration = 1.0}) end
+            if not v:IsMagicImmune() then v:AddNewModifier(caster, v, "modifier_stunned", {Duration = self:GetSpecialValueFor("stun_duration")}) end
         end
         -- particle
         local impactFxIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_gyrocopter/gyro_calldown_explosion_second.vpcf", PATTACH_WORLDORIGIN, nil )

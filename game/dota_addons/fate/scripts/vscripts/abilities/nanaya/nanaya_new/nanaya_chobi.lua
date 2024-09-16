@@ -1,4 +1,6 @@
 LinkLuaModifier("modifier_nanaya_chobi", "abilities/nanaya/nanaya_new/nanaya_chobi", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_nanaya_dash_invis", "abilities/nanaya/nanaya_new/nanaya_dash", LUA_MODIFIER_MOTION_NONE)
+
 
 nanaya_chobi = class({})
 
@@ -150,6 +152,8 @@ function modifier_nanaya_chobi:PlayEffects()
 	if self.caster.ChobiAcquired then
 		if self.target:GetHealth()/self.target:GetMaxHealth() < self.ability:GetSpecialValueFor("attribute_threshold")/100 then
 			dmg = dmg*self.ability:GetSpecialValueFor("attribute_multiplier")/100
+
+		self.caster:AddNewModifier(self.caster, self, "modifier_nanaya_dash_invis", {duration = 3})
 		end
 	end
 

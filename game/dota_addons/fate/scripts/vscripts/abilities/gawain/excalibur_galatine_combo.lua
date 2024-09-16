@@ -4,6 +4,8 @@ LinkLuaModifier("modifier_sun_of_galatine_self", "abilities/gawain/modifiers/mod
 LinkLuaModifier("modifier_excalibur_galatine_burn", "abilities/gawain/modifiers/modifier_excalibur_galatine_burn", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_excalibur_galatine_pizdets", "abilities/gawain/modifiers/modifier_excalibur_galatine_pizdets", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_galatine_combo_cd", "abilities/gawain/modifiers/modifier_gawain_combo_cd", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_meltdown", "abilities/gawain/gawain_meltdown", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_meltdown_mark", "abilities/gawain/gawain_meltdown", LUA_MODIFIER_MOTION_NONE)
 
 function gawain_excalibur_galatine_combo:GetAbilityDamageType()
     return DAMAGE_TYPE_MAGICAL
@@ -20,6 +22,13 @@ function gawain_excalibur_galatine_combo:OnSpellStart()
     masterCombo:EndCooldown()
     masterCombo:StartCooldown(ability:GetCooldown(1))
     caster:AddNewModifier(caster, self, "modifier_galatine_combo_cd", {duration = ability:GetCooldown(1)})
+
+    local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
+    
+    for k,v in pairs(targets) do
+        local sunAbility = caster:FindAbilityByName("gawain_artificial_sun")
+        sunAbility:GenerateArtificialSun(caster, v:GetAbsOrigin(), false, self:GetName())
+    end
 
 
 
@@ -95,7 +104,7 @@ function gawain_excalibur_galatine_combo:OnSpellStart()
     ParticleManager:SetParticleControl( castFx2, 0, caster:GetAbsOrigin())
 
     if caster.IsSoVAcquired then
-        damage = damage + 1000
+        damage = damage + 1250
         local bonus_damage = 333
         fireTrailDuration = fireTrailDuration + 3
     end
@@ -107,13 +116,13 @@ function gawain_excalibur_galatine_combo:OnSpellStart()
                 EmitGlobalSound("gawain_galatine_combo_activate_1")
                 local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
                 for k,v in pairs(targets) do
-                    local dist = (v:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D() 
+                    local dist = (v:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D()
                     finaldmg = damage*((radius-dist)/radius) + 1500 + bonus_damage
-                    fireTrailDurationK = (fireTrailDuration*2/3)*(radius-dist)/radius+fireTrailDuration/3
+                    fireTrailDurationK = (fireTrailDuration*1/2)*(radius-dist)/radius+fireTrailDuration/2
                     DoDamage(caster, v, finaldmg, DAMAGE_TYPE_MAGICAL, 0, ability, false)
                     v:AddNewModifier(caster, self, "modifier_stunned", {Duration = 0.3})
                     v:AddNewModifier(caster, self, "modifier_excalibur_galatine_burn", {duration = fireTrailDurationK})
-                    v:AddNewModifier(caster, self, "modifier_excalibur_galatine_pizdets", {duration = 3*((radius-dist)/radius) + 3, armor_debuff = 30*((radius-dist)/radius)+20, magic_debuff = 10*((radius-dist)/radius)+5})
+                    v:AddNewModifier(caster, self, "modifier_excalibur_galatine_pizdets", {duration = 6, armor_debuff = 30*((radius-dist)/radius)+20, magic_debuff = 10*((radius-dist)/radius)+5})
                         
                 end 
 
@@ -124,7 +133,7 @@ function gawain_excalibur_galatine_combo:OnSpellStart()
                 for k,v in pairs(targets) do
                     if v:GetUnitName() == "gawain_artificial_sun" then
                         v:EmitSound("Hero_Warlock.RainOfChaos_buildup" )
-                        local targets = FindUnitsInRadius( caster:GetTeam(), v:GetAbsOrigin(), nil, 700, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
+                        local targets = FindUnitsInRadius( caster:GetTeam(), v:GetAbsOrigin(), nil, 800, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
                         for k,v in pairs(targets) do
                                 DoDamage(caster, v, 1000, DAMAGE_TYPE_MAGICAL, 0, ability, false)
                         end

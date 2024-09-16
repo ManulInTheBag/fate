@@ -616,3 +616,67 @@ end
 function modifier_pepe_mute:IsHidden() return false end
 function modifier_pepe_mute:RemoveOnDeath() return true end
 function modifier_pepe_mute:IsDebuff() return true end
+
+
+LinkLuaModifier("modifier_heracles_model_swap", "abilities/heracles/pepeg_jump", LUA_MODIFIER_MOTION_NONE)
+--NOTE: Function to handle swapping between models in-game.
+if IsServer() then
+    if type(heracles_abilities_chat_event) == "number" then
+        StopListeningToGameEvent(heracles_abilities_chat_event)
+    end
+    --===--
+    _G.heracles_abilities_chat_event = ListenToGameEvent("player_chat", function(tEventTable)
+        local nPlayerID = tEventTable.playerid
+        local sText     = tEventTable.text
+        local hHero     = PlayerResource:GetSelectedHeroEntity(nPlayerID)
+        if not (hHero:GetName() == "npc_dota_hero_doom_bringer") then
+            return
+        end
+        if IsNotNull(hHero) then
+            if sText == "-herc" then
+                hHero:RemoveModifierByName("modifier_heracles_model_swap")
+            end
+            if sText == "-arbuz" then
+                if GameRules:GetDOTATime(false, false) <= 300 then
+                    hHero:AddNewModifier(hHero, nil, "modifier_heracles_model_swap", {})
+                end
+            end
+        end
+    end, nil)
+end
+
+---------------------------------------------------------------------------------------------------------------------
+
+
+modifier_heracles_model_swap = modifier_heracles_model_swap or class({})
+
+function modifier_heracles_model_swap:IsHidden()                                                                       return false end
+function modifier_heracles_model_swap:IsDebuff()                                                                       return false end
+function modifier_heracles_model_swap:IsPurgable()                                                                     return false end
+function modifier_heracles_model_swap:IsPurgeException()                                                               return false end
+function modifier_heracles_model_swap:RemoveOnDeath()                                                                  return false end
+function modifier_heracles_model_swap:IsDimensionException()                                                           return true end
+function modifier_heracles_model_swap:AllowIllusionDuplicate()                                                         return true end
+function modifier_heracles_model_swap:GetPriority()                                                                    return MODIFIER_PRIORITY_LOW end
+function modifier_heracles_model_swap:DeclareFunctions()
+    local tFunc =   {
+                        MODIFIER_PROPERTY_MODEL_CHANGE
+                    }
+    return tFunc
+end
+function modifier_heracles_model_swap:GetModifierModelChange(keys)
+    return self.sModelName
+end
+function modifier_heracles_model_swap:OnCreated(hTable)
+    self.hCaster  = self:GetCaster()
+    self.hParent  = self:GetParent()
+    self.hAbility = self:GetAbility()
+
+    if IsServer() then
+        self.sModelName = "models/zlodemon/heracles_arbuz.vmdl"
+    end
+end
+function modifier_heracles_model_swap:OnRefresh(hTable)
+    self:OnCreated(hTable)
+end
+--========================================--

@@ -147,10 +147,10 @@ function medea_hecatic_graea_combo:OnSpellStart()
 
 	
 	Timers:CreateTimer(travelTime + 2.5, function()
-		local targets = FindUnitsInRadius(caster:GetTeam(), GetGroundPosition(caster:GetAbsOrigin(), caster), nil, barrageRadius_big, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
+		local targets = FindUnitsInRadius(caster:GetTeam(), GetGroundPosition(caster:GetAbsOrigin(), caster), nil, barrageRadius_big+50, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
 		for k,v in pairs(targets) do
         	DoDamage(caster, v, 1500, DAMAGE_TYPE_MAGICAL, 0, ability, false)
-        	v:AddNewModifier(caster, v, "modifier_stunned", {Duration = 1.5})
+        	v:AddNewModifier(caster, v, "modifier_stunned", {Duration = 1.75})
 		end
   	  	local particle = ParticleManager:CreateParticle("particles/custom/caster/hecatic_graea_powered/area.vpcf", PATTACH_CUSTOMORIGIN, caster)
   	  	ParticleManager:SetParticleControl(particle, 0, GetGroundPosition(caster:GetAbsOrigin(), caster)) 

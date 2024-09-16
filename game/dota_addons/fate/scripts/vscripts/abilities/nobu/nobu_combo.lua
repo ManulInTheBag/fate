@@ -220,7 +220,7 @@ function modifier_nobu_combo_self:OnIntervalThink()
 end
 
 function modifier_nobu_combo_self:DeclareFunctions()
-	return {  MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE, MODIFIER_PROPERTY_PROVIDES_FOW_POSITION 
+	return {  MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE, MODIFIER_PROPERTY_PROVIDES_FOW_POSITION, MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE
 				}
 end
 
@@ -228,8 +228,12 @@ function modifier_nobu_combo_self:GetModifierProvidesFOWVision()
     return 1
 end
 
+function modifier_nobu_combo_self:GetModifierIncomingDamage_Percentage() 
+	return -40
+end
+
 function modifier_nobu_combo_self:GetModifierMoveSpeed_Absolute()
-	return 1500  --self:GetAbility():GetSpecialValueFor("run_speed")
+	return 2250  --self:GetAbility():GetSpecialValueFor("run_speed")
 end
 function modifier_nobu_combo_self:GetAttributes()
 	return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE

@@ -81,7 +81,7 @@ function modifier_alice_enigma:OnIntervalThink()
 	if not IsServer() then return end
 
 	local damage = self.ability:GetSpecialValueFor("perc_damage_per_second")*0.25
-	damage = damage*self.parent:GetHealth()/100
+	damage = damage*self.parent:GetMaxHealth()/100
 
 	DoDamage(self.caster, self.parent, damage, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
 end

@@ -22,6 +22,14 @@
 		"AbilityCastPoint"				"0.215"
 		"AbilityCooldown"				"3"
 		"AbilityManaCost"				"100"
+
+		"precache"
+		{
+			"particle"					"particles/edmon/edmon_beam_laser_big.vpcf"
+			"particle"					"particles/edmon/edmon_beam_laser.vpcf"
+			"particle"					"particles/edmon/edmon_fast_trail.vpcf"
+			"particle"					"particles/edmon/edmon_hit_indicator.vpcf"
+		}
 		
 		"AbilityValues"
         {
@@ -29,7 +37,7 @@
             "damage" "140"
             "last_range" "1050 1125 1200 1275 1350"
             "last_damage" "2"
-            "damage_per_level" "6"
+            "damage_per_level" "9"
             "window_duration" "2"
         }
 	}
@@ -55,7 +63,7 @@
 		"precache"
 		{
 			"particle"					"particles/econ/items/abaddon/abaddon_alliance/abaddon_aphotic_shield_alliance.vpcf"
-			"particle"					"particles/units/heroes/hero_pugna/pugna_decrepify.vpcf"	
+			"particle"					"particles/custom/edmond/edmon_slash_tgt_top.vpcf"
 			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_abaddon.vsndevts"
 		}
 
@@ -104,6 +112,12 @@
 		"AbilityCastPoint"				"0.2"
 		"AbilityCooldown"				"28 26 24 22 20"
 		"AbilityManaCost"				"400"
+
+		"precache"
+		{
+			"particle"					"particles/edmon/edmon_beam_laser_ground_white.vpcf"
+			"particle"					"particles/edmon/edmon_beam_laser_ground.vpcf"
+		}
 		
 		"AbilityValues"
         {
@@ -130,13 +144,19 @@
 		"AbilityTextureName"			"custom/edmon/afterglow"
 		"AbilityCooldown"				"10"
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_4"
-		"AnimationPlaybackRate" 		"1.5"
-		"AbilityCastPoint"				"0.3"
+		"AnimationPlaybackRate" 		"2.0"
+		"AbilityCastPoint"				"0.2"
+
+		"precache"
+		{
+			"particle"					"particles/edmon/edmon_dash.vpcf"
+			"particle"					"particles/edmon/edmon_dash_cone.vpcf"
+		}
 
 		"AbilityValues"
         {
-            "range" "1500"
-            "speed" "2500"
+            "range" "2250"
+            "speed" "3500"
         }
 	}
 
@@ -184,6 +204,11 @@
 		"AbilityManaCost"				"800"
 		"AbilityCastRange"				"600"
 		"AbilityCastRangeBuffer"		"600"
+
+		"precache"
+		{
+			"particle"					"particles/custom/edmond/edmond_enfer_slash.vpcf"
+		}
 		
 		"AbilityValues"
         {
@@ -230,13 +255,26 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"400"
 
+		"precache"
+		{
+			"particle"					"particles/edmon/edmon_dash.vpcf"
+			"particle"					"particles/edmon/edmon_dash_cone.vpcf"
+			"particle"					"particles/custom/edmond/edmond_enfer_slash.vpcf"
+			"particle"					"particles/custom/edmond/edmond_dummy.vpcf"
+			"particle"					"particles/edmon/edmon_enfer_sphere.vpcf"
+			"particle"					"particles/edmon/edmon_beam_laser_combo_white.vpcf"
+			"particle"					"particles/edmon/edmon_enfer_magnetic_ring.vpcf"
+			"particle"					"particles/edmon/edmon_enfer_flash.vpcf"
+			"particle"					"particles/custom/screen_lightblue_splash.vpcf"
+		}
+
 		// Special
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
         {
             "speed" "3000"
             "range" "2500"
-            "radius" "700"
+            "radius" "900"
             "hit_damage" "80"
             "burn_damage" "2500"
             "last_damage" "2000"
@@ -259,7 +297,7 @@
 		"AbilityTextureName"			"custom/edmon/vengeance"
 		"AbilityCooldown"				"9999"
 
-		"AbilityManaCost"				"15"
+		"AbilityManaCost"				"14"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------

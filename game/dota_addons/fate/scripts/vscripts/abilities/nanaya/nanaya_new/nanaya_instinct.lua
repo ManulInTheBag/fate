@@ -80,8 +80,8 @@ function modifier_nanaya_instinct:IsDebuff() return false end
 
 function modifier_nanaya_instinct:DeclareFunctions()
     local func = {  MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE, 
-    				--MODIFIER_EVENT_ON_ORDER, 
-    				--MODIFIER_EVENT_ON_ABILITY_FULLY_CAST, 
+    				MODIFIER_EVENT_ON_ORDER, 
+    				MODIFIER_EVENT_ON_ABILITY_FULLY_CAST, 
     				MODIFIER_PROPERTY_COOLDOWN_PERCENTAGE, 
 		}
 		return func
@@ -91,7 +91,7 @@ function modifier_nanaya_instinct:GetModifierPercentageCooldown()
 	return self:GetAbility():GetSpecialValueFor("cd_reduction_pct")
 end
 
---[[function modifier_nanaya_instinct:OnOrder(args)
+function modifier_nanaya_instinct:OnOrder(args)
 	if args.unit ~= self:GetParent() or self.sex ~= true or args.unit:IsCommandRestricted() or args.unit:IsStunned() then return end
 
 	if (args.order_type == DOTA_UNIT_ORDER_ATTACK_MOVE) then--or (args.order_type == DOTA_UNIT_ORDER_MOVE_TO_POSITION) then
@@ -100,7 +100,7 @@ end
 	if (args.order_type == DOTA_UNIT_ORDER_ATTACK_TARGET) then
 	  	self:NanayaBlink(args.target:GetAbsOrigin() + (self.parent:GetAbsOrigin() - args.target:GetAbsOrigin()):Normalized()*100)
 	end
-end]]
+end
 
 function modifier_nanaya_instinct:NanayaBlink(location)
 	self.sex = false

@@ -32,7 +32,7 @@ function jeanne_lagron:OnSpellStart()
 		local point_particle = ParticleManager:CreateParticle("particles/jeanne_alter/lagron_aoe.vpcf", PATTACH_CUSTOMORIGIN, nil)
 	 
 		ParticleManager:SetParticleControl(point_particle, 0,  target_point )
-		ParticleManager:SetParticleControl(point_particle, 1,  Vector(300,0,0) )
+		ParticleManager:SetParticleControl(point_particle, 1,  Vector(350,0,0) )
  
 		Timers:CreateTimer(1.0, function()
 			ParticleManager:DestroyParticle(point_particle, false)

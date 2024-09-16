@@ -3,7 +3,53 @@
 #base "heracles_nine_lives.kv"
 
 "DOTAAbilities"
-{	//=======================================
+{
+	//=======================================
+	// Berserker - Fissure(Q)
+	//=======================================
+
+	"heracles_fissure"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/heracles/heracles_fissure"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/berserker_5th_fissure_strike"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
+		"AnimationPlaybackRate" 		"2.0"
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"900"
+		"AbilityCastPoint"				"0.5"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"13 12 11 10 9"
+		//"AbilityDamage"					"300 350 400 450 500"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100"
+
+
+		"AbilityValues"
+        {
+            "width" "125"
+            "damage" "200 250 300 350 400"
+            "range" "900"
+            "stun_duration" "0.5 0.65 0.8 0.95 1.1"
+        }		
+	}
+
+
+	//=======================================
 	// Berserker - Tiny Airlanes
 	//=======================================
 
@@ -113,7 +159,7 @@
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"750"
-		"AbilityCastPoint"				"0.1"
+		"AbilityCastPoint"				"0.5"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------

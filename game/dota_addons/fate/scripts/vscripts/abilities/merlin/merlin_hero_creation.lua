@@ -49,7 +49,11 @@ function modifier_merlin_hero_creation:OnIntervalThink()
         for k,v in pairs(targets) do
             seva_spasibo   = seva_spasibo + 1
         end
-        if(  self.primaryatr == 0 ) then
+        if(  self.primaryatr == 3 ) then
+            self.strbonus = (self.base_stat_bonus +  self.increase_per_teammate * (seva_spasibo-1))*0.5
+            self.agibonus =  (self.base_stat_bonus+   self.increase_per_teammate * (seva_spasibo-1))*0.5
+            self.intbonus = (self.base_stat_bonus +  self.increase_per_teammate * (seva_spasibo-1))*0.5
+        elseif(  self.primaryatr == 0 ) then
             self.strbonus = self.base_stat_bonus +  self.increase_per_teammate * (seva_spasibo-1)
         elseif(  self.primaryatr == 1 ) then
             self.agibonus =  self.base_stat_bonus+   self.increase_per_teammate * (seva_spasibo-1)
@@ -73,7 +77,8 @@ function modifier_merlin_hero_creation:DeclareFunctions()
 	return { MODIFIER_PROPERTY_STATS_STRENGTH_BONUS, 
 	MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
     MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
-    MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,      }
+    MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE, 
+    MODIFIER_PROPERTY_HEALTH_BONUS      }
 end
 
 
@@ -81,6 +86,11 @@ function modifier_merlin_hero_creation:GetModifierBonusStats_Strength()
 	return  self.strbonus
 end
  
+function modifier_merlin_hero_creation:GetModifierHealthBonus()
+	return  150
+end
+ 
+
 function modifier_merlin_hero_creation:GetModifierBonusStats_Intellect()
 	return  self.intbonus
 end

@@ -33,6 +33,8 @@ function arcueid_shut_up:OnSpellStart()
 
 	--for _, target in pairs(enemies) do
 		target:AddNewModifier(caster, self, "modifier_arcueid_what", {duration = self:GetSpecialValueFor("duration")})
+
+		giveUnitDataDrivenModifier(caster, target, "stunned", self:GetSpecialValueFor("stun_duration"))
 		
 		for i = 0,3 do
 			Timers:CreateTimer(FrameTime()*2*i, function()
@@ -93,9 +95,9 @@ function arcueid_shut_up:OnSpellStart()
 				unit:SetBounceMultiplier(0)
 				unit:PreventDI(false)
 				unit:SetPhysicsVelocity(Vector(0,0,0))
-				giveUnitDataDrivenModifier(caster, target, "stunned", self:GetSpecialValueFor("stun_duration"))
-				target:EmitSound("Hero_EarthShaker.Fissure")
-				DoDamage(caster, target, collide_damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+				--giveUnitDataDrivenModifier(caster, target, "stunned", self:GetSpecialValueFor("stun_duration"))
+				--target:EmitSound("Hero_EarthShaker.Fissure")
+				--DoDamage(caster, target, collide_damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
 			end)
 		end
 
