@@ -819,6 +819,12 @@
 		"DOTA_Tooltip_modifier_snatch_strike_bonus_hp"					"Snatch Strike"
 		"DOTA_Tooltip_modifier_snatch_strike_bonus_hp_Description"		"Maximum health increased"
 
+		"DOTA_Tooltip_modifier_snatch_strike_str_hassan"					"Snatch Strike"
+		"DOTA_Tooltip_modifier_snatch_strike_str_hassan_Description"		"Strength increased"
+
+		"DOTA_Tooltip_modifier_snatch_strike_str_enemy"					"Snatch Strike"
+		"DOTA_Tooltip_modifier_snatch_strike_str_enemy_Description"		"Strength decreased"
+
 		"DOTA_Tooltip_modifier_zabaniya_curse"							"Delusional Heartbeat"
 		"DOTA_Tooltip_modifier_zabaniya_curse_Description"				"Cannot gain health"
 
@@ -2358,7 +2364,7 @@
 		"DOTA_Tooltip_ability_cu_chulain_rune_of_disengage_Note1"		"Applies a hard dispel when activated."
 
 		"DOTA_Tooltip_Ability_cu_chulain_rune_of_combat"				"Rune of Combat"
-		"DOTA_Tooltip_ability_cu_chulain_rune_of_combat_Description"	"Activate a rune which augments Cu Chulainn's combat ability for %duration% seconds. While active, Cu Chulainn gains more damage on every attack and stuns his enemy for %stun_dur% seconds on every 6th attack."
+		"DOTA_Tooltip_ability_cu_chulain_rune_of_combat_Description"	"Activate a rune which augments Cu Chulainn's combat ability for %duration% seconds. While active, Cu Chulainn gains more damage on every attack and stuns his enemy for %stun_dur% seconds on every 4th attack."
 		"DOTA_Tooltip_ability_cu_chulain_rune_of_combat_Lore"			"A rune which raises Cu Chulainn's physical strength, allowing him to match his opponent despite the disadvantages."
 		//"DOTA_Tooltip_ability_cu_chulain_rune_of_combat_duration"		"Duration:"
 		"DOTA_Tooltip_ability_cu_chulain_rune_of_combat_bonus_atk"		"%Bonus Attack:"
@@ -2837,7 +2843,7 @@
 		"DOTA_Tooltip_Ability_medusa_bellerophon_2_radius"	"Radius:"
 
 		"DOTA_Tooltip_Ability_medusa_seal_attribute"		"Attribute: Breaker Gorgon"
-		"DOTA_Tooltip_Ability_medusa_seal_attribute_Description"	"Upgrades <font color='#58ACFA'>Mystic Eyes of Cybele</font>."
+		"DOTA_Tooltip_Ability_medusa_seal_attribute_Description"	"Upgrades <font color='#58ACFA'>Mystic Eyes of Cybele</font>.\n<font color='#58ACFA'>Bloodfort Andromeda</font> each second forces enemies to move towards it's center, restricting them from doing anything for a short duration."
 
 		"DOTA_Tooltip_Ability_medusa_monstrous_attribute"		"Attribute: Ancient Beast"
 		"DOTA_Tooltip_Ability_medusa_monstrous_attribute_Description"		"Unlocks <font color='#58ACFA'>Monstrous Strength</font>. \nUsing <font color='#58ACFA'>Monstrous Strength</font> allows Medusa to deal twice her strengths as magic damage, as well as providing her bonus attack speed and strength for a duaration. Each attack while under the effect of Monstrous Strength disarms the target. This ability seal the usage of Bellerophon and Bellerophon II for its duration."
@@ -2854,7 +2860,7 @@
 		"DOTA_Tooltip_Ability_medusa_chain_attribute_bleed_absorb"		"Bloodfort additional absorb per stack:"
 
 		"DOTA_Tooltip_Ability_medusa_gorgon_attribute"		"Attribute: Gorgon Rush"
-		"DOTA_Tooltip_Ability_medusa_gorgon_attribute_Description"		"Unlocks <font color='#58ACFA'>Gorgon Rush</font>.\n<font color='#58ACFA'>Sequence : Mystic Eyes of Cybele successful slow or petrification -> F in 2 seconds.</font>\nMedusa prepares shortly to dash forward at the insane speed, damaging and pushing back all the enemies on her way."
+		"DOTA_Tooltip_Ability_medusa_gorgon_attribute_Description"		"Unlocks <font color='#58ACFA'>Gorgon Rush</font>.\n<font color='#58ACFA'>Sequence : D -> F in 2 seconds.</font>\nMedusa prepares shortly to dash forward at the insane speed, damaging and pushing back all the enemies on her way."
 		"DOTA_Tooltip_Ability_medusa_gorgon_attribute_range"			"Range:"
 		"DOTA_Tooltip_Ability_medusa_gorgon_attribute_damage"		"Damage:"
 		"DOTA_Tooltip_Ability_medusa_gorgon_attribute_speed"		"Speed:"
@@ -3418,7 +3424,7 @@
 		"DOTA_Tooltip_Ability_okita_seigan_Lore" "It's over."
 
 		"DOTA_Tooltip_Ability_okita_sandanzuki"		"Mumyou Sandan-Zuki"
-		"DOTA_Tooltip_Ability_okita_sandanzuki_Description"	"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>%cast_point%</font>, <font color='#7FFF00'>%cast_point_steps%</font>, <font color='#7FFF00'>%cast_point_steps%</font>, <font color='#7FFF00'>%cast_point_steps%</font>\nOkita prepares her ultimative technique - Lightless, Three-Stage Thrust. Performing it includes 3 steps, the final step is combined with slash.\nOkita has %window_duration% seconds to complete it.\nAfter completing them, the one and only target will suffer huge <font color='#D1A951'>pure</font> damage dealt 3 times after a delay."
+		"DOTA_Tooltip_Ability_okita_sandanzuki_Description"	"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>%cast_point%</font>, <font color='#7FFF00'>%cast_point_steps%</font>, <font color='#7FFF00'>%cast_point_steps%</font>, <font color='#7FFF00'>%cast_point_steps%</font>\nOkita prepares her ultimative technique - Lightless, Three-Stage Thrust. Performing it includes 3 steps, the final step is combined with slash.\nOkita has %window_duration% seconds to complete it.\nAfter completing them, the one and only target will suffer huge <font color='#D1A951'>pure</font> damage dealt 3 times after a delay.\nEach damage impact removes Intervention damage reduction modifier after dealing it's damage."
 		"DOTA_Tooltip_Ability_okita_sandanzuki_distance"	"Step distance:"
 		"DOTA_Tooltip_Ability_okita_sandanzuki_base_damage"	"Impact damage:"
 		"DOTA_Tooltip_Ability_okita_sandanzuki_delay_duration"	"Delay duration:"
@@ -3547,7 +3553,7 @@
 		//"DOTA_Tooltip_ability_false_assassin_gate_keeper_duration"	"DURATION:"
 
 		"DOTA_Tooltip_Ability_sasaki_heart_of_harmony"					"Heart of Harmony"
-		"DOTA_Tooltip_ability_sasaki_heart_of_harmony_Description"		"Kojiro assumes a defensive stance for %duration% seconds, placing shield that reduces incoming damage by %damage_reduc%% . Upon taking damage above %threshold%, Kojiro teleports to the attacker's rear and counter attacks with a flurry of slashes, interrupting his current action. Heart of Harmony ends when Kojiro uses an offensive ability."
+		"DOTA_Tooltip_ability_sasaki_heart_of_harmony_Description"		"Kojiro assumes a defensive stance for %duration% seconds, placing shield that reduces incoming damage by %damage_reduc%% . Upon taking damage above %threshold%, Kojiro teleports to the attacker's rear and counter attacks with a flurry of slashes, stunning him. Heart of Harmony ends when Kojiro uses an offensive ability."
 		"DOTA_Tooltip_ability_sasaki_heart_of_harmony_Lore"				"With harmony comes the precision."
 		"DOTA_Tooltip_ability_sasaki_heart_of_harmony_slash_count"		"Slash Count:"
 		"DOTA_Tooltip_Ability_sasaki_heart_of_harmony_Note0"		"Counterattack has maximum of 2000 range."
@@ -3556,7 +3562,7 @@
 		//"DOTA_Tooltip_Ability_sasaki_heart_of_harmony_Note2"		"For 0.5 seconds after counterattack, Assassin cleanses any negative effects on himself and benefits from damage reduction."
 
 		"DOTA_Tooltip_Ability_sasaki_windblade"						"Windblade"
-		"DOTA_Tooltip_ability_sasaki_windblade_Description"			"Kojiro swirls his blade to create slicing wind around him, pushing all enemies away from him, and then proceed to attack each of them, dealing magical damage and rooting them for %stun_duration% seconds.\n0.5 seconds after the slash, enemies are hit with the same damage again."
+		"DOTA_Tooltip_ability_sasaki_windblade_Description"			"Kojiro swirls his blade to create slicing wind around him, pushing all enemies away from him, and then proceed to attack each of them, dealing magical damage and stunning them for %stun_duration% seconds.\n0.5 seconds after the slash, enemies are hit with the same damage again."
 		//\n\n<font color='#79C7F0'>Focus</font>:Increase the number of slashes (does not increase maximum number of slashes) and causes them to stun the enemy on each attack. Kojiro becomes invulnerable and disjoints all projectile while slashing.\n\nKojiro is <font color='#FF5555'>Exhausted</font> when this ability is used.
 		"DOTA_Tooltip_ability_sasaki_windblade_Lore"				"A swing from the wanderer's blade brings forward a squall."
 		"DOTA_Tooltip_ability_sasaki_windblade_radius"				"Radius:"
@@ -3583,7 +3589,7 @@
 		//"DOTA_Tooltip_Ability_sasaki_quickdraw_focus_cdr"			"Focus Cooldown Reduction:"
 
 		"DOTA_Tooltip_Ability_false_assassin_tsubame_mai"				"Combo: The Swallow Dance"
-		"DOTA_Tooltip_ability_false_assassin_tsubame_mai_Description"	"<font color='#58ACFA'>Combo Requirement : 30 AGI and STR</font>\n<font color='#58ACFA'>Combo Sequence : Q-W in 2 seconds</font>\nKojiro prepares for his ultimate technique, which activates on next base attack or upon executing counter. Upon activation, Kojiro teleports to the rear of attacker, <font color='#FF3399'>knocking it into air</font>, then performs 5 slashes and Tsubame Gaeshi to the target. \nExecuting this ability will start the cooldown of Tsubame Gaeshi."
+		"DOTA_Tooltip_ability_false_assassin_tsubame_mai_Description"	"<font color='#58ACFA'>Combo Requirement : 30 AGI and STR</font>\n<font color='#58ACFA'>Combo Sequence : Q-W in 2 seconds</font>\nKojiro prepares for his ultimate technique, which activates on next base attack or upon executing counter. Upon activation, Kojiro teleports to the rear of attacker, <font color='#FF3399'>knocking it into air</font>, then performs 5 slashes and Tsubame Gaeshi to the target."
 		"DOTA_Tooltip_ability_false_assassin_tsubame_mai_Lore"			"The swordplay ultimatum unravels."
 		"DOTA_Tooltip_ability_false_assassin_tsubame_mai_duration"		"COUNTER DURATION:"
 		"DOTA_Tooltip_ability_false_assassin_tsubame_mai_threshold"		"COUNTER THRESHOLD:"
@@ -3676,10 +3682,12 @@
 		"npc_dota_hero_bounty_hunter_bio"	""
 		
 		"DOTA_Tooltip_Ability_true_assassin_dirk"				"Dirks"
-		"DOTA_Tooltip_ability_true_assassin_dirk_Description"	"Throws all daggers he has at target enemy, dealing damage and applying a poison that <font color='#FF3399'>slows</font> for %poison_duration% seconds. Number of daggers available in stock recharges every %restock_dur% seconds. Additionaly deal part of Hassan's agility as magic damage if thrown while self modification is active."
+		"DOTA_Tooltip_ability_true_assassin_dirk_Description"	"Throws all daggers he has at target enemy, dealing damage and applying a poison that <font color='#FF3399'>slows</font> for %poison_duration% seconds. Number of daggers available in stock recharges every %restock_dur% seconds. Additionaly deal part of Hassan's agility as magic damage if thrown while self modification is active.\nApplies poison dealing damage over time depending on the amount of Weakening Wenom stacks."
 		"DOTA_Tooltip_ability_true_assassin_dirk_Lore"			"The hunter's call begins with flurry of daggers, coated in poison."
 		"DOTA_Tooltip_ability_true_assassin_dirk_damage"		"Damage:"
 		"DOTA_Tooltip_ability_true_assassin_dirk_atk_ratio"		"%Attack Ratio:"
+		"DOTA_Tooltip_ability_true_assassin_dirk_poison_dot"	"Poison DPS per stack:"
+		"DOTA_Tooltip_ability_true_assassin_dirk_duration"		"Duration:"
 		"DOTA_Tooltip_ability_true_assassin_dirk_range"			"Range:"
 		"DOTA_Tooltip_ability_true_assassin_dirk_poison_slow"	"%Poison Slow:"
 		"DOTA_Tooltip_ability_true_assassin_dirk_agi_mult"		"Agility Multiplier:"
@@ -3712,12 +3720,13 @@
 		"DOTA_Tooltip_modifier_self_mod_Description"					"Healing over time and gaining a temporary bonus %dMODIFIER_PROPERTY_STATS_AGILITY_BONUS% agility."
 
 		"DOTA_Tooltip_Ability_true_assassin_snatch_strike"				"Snatch Strike"
-		"DOTA_Tooltip_ability_true_assassin_snatch_strike_Description"	"Snatches the target's heart and crushing it, dealing damage a large amount of damage."
+		"DOTA_Tooltip_ability_true_assassin_snatch_strike_Description"	"Snatches the target's heart and crushing it, dealing damage a large amount of damage.\nHeals for half of the damage dealt."
 		"DOTA_Tooltip_ability_true_assassin_snatch_strike_Lore"	""
 		"DOTA_Tooltip_ability_true_assassin_snatch_strike_damage"		"Damage:"
 		//"DOTA_Tooltip_ability_true_assassin_snatch_strike_bonus_ratio"	"Steal Ratio:"
-		//"DOTA_Tooltip_ability_true_assassin_snatch_strike_duration"		"Duration:"
 		"DOTA_Tooltip_ability_true_assassin_snatch_strike_range"		"Range:"
+		"DOTA_Tooltip_ability_true_assassin_snatch_strike_bonus_strength"		"Attribute strength steal amount:"
+		"DOTA_Tooltip_ability_true_assassin_snatch_strike_duration"		"Attribute strength steal duration:"
 		//"DOTA_Tooltip_ability_true_assassin_snatch_strike_Note0"		"STR reduction kicks in first before damage happens. Damage dealt is based on target's max health before the STR reduction."
 		
 		"DOTA_Tooltip_Ability_true_assassin_zabaniya"				"Zabaniya"
@@ -3784,7 +3793,7 @@
 		
 
 		"DOTA_Tooltip_Ability_true_assassin_attribute_shaytan_arm"				"Attribute: Arm of Shaytan"
-		"DOTA_Tooltip_ability_true_assassin_attribute_shaytan_arm_Description"	"Improves the strength of Snatch Strike by making it deal bonus pure damage based on Hassan's agility."	
+		"DOTA_Tooltip_ability_true_assassin_attribute_shaytan_arm_Description"	"Improves the strength of Snatch Strike by making it deal bonus pure damage based on Hassan's agility and by making it steal part of enemy's strength."	
 		//"DOTA_Tooltip_Ability_true_assassin_attribute_shaytan_arm_snatch_str_dmg"		"Physical Damage Per Str:"
 		"DOTA_Tooltip_Ability_true_assassin_attribute_shaytan_arm_snatch_agi_dmg"		"Pure Damage Per Agi:"
 		//"DOTA_Tooltip_Ability_true_assassin_attribute_shaytan_arm_snatch_int_dmg"		"Magic Damage Per Int:"
@@ -3906,7 +3915,7 @@
 
 
 		"DOTA_Tooltip_Ability_gilgamesh_attribute_rain_of_swords"					"Attribute: Rain of Swords"
-		"DOTA_Tooltip_ability_gilgamesh_attribute_rain_of_swords_Description"		"Every subsequent usage of Sword Barrage increases its damage by %bonus_damage%, area of effect by %bonus_aoe% and manacost by 30. This effect stacks up to %max_stack% times and resets if Sword Barrage has not been used within %reset_timer% seconds."
+		"DOTA_Tooltip_ability_gilgamesh_attribute_rain_of_swords_Description"		"Every subsequent usage of Sword Barrage increases its damage by %bonus_damage%, area of effect by %bonus_aoe% and manacost by 20. This effect stacks up to %max_stack% times and resets if Sword Barrage has not been used within %reset_timer% seconds."
 
 		"DOTA_Tooltip_Ability_gilgamesh_attribute_sword_of_creation"						"Attribute: Sword of Creation"
 		"DOTA_Tooltip_ability_gilgamesh_attribute_sword_of_creation_Description"			"Increases Enuma Elish's range by %enuma_range% and end radius by %enuma_radius%. Increases Combo: MAX Enuma Elish's damage to %max_enuma_damage% and end radius by %max_enuma_radius%."
@@ -4407,8 +4416,9 @@
         "DOTA_Tooltip_ability_avenger_true_form_duration"   "DURATION:"
 
         "DOTA_Tooltip_Ability_angra_mainyu_verg_avesta"					"Verg Avesta"
-        "DOTA_Tooltip_ability_angra_mainyu_verg_avesta_Description"		"Passive: Angra Mainyu stores his resentment, recording the amount of damage he had taken recently.\nActive: Angra Mainyu unleashes a curse of retribution on all marked enemies within %radius% radius around himself. After a %delay% second delay, all enemies affected will take massive magical damage equal to the total damage he had taken recently.\nDamage taken can be tracked on his Verg Avesta buff.\n\nUpgradable by attribute Demon Incarnate."
+        "DOTA_Tooltip_ability_angra_mainyu_verg_avesta_Description"		"Passive: Angra Mainyu stores his resentment, recording the amount of damage he had taken recently.\nActive: Angra Mainyu unleashes a curse of retribution on all marked enemies within %radius% radius around himself. After a %delay% second delay, all enemies affected will take massive magical damage based on the total damage he had taken recently.\nDamage taken can be tracked on his Verg Avesta buff.\n\nUpgradable by attribute Demon Incarnate."
         "DOTA_Tooltip_ability_angra_mainyu_verg_avesta_Lore"			"The killer of mankind assumes the simplest rule of the world - Retribution."
+        "DOTA_Tooltip_ability_angra_mainyu_verg_avesta_damage"			"Base damage:"
  		"DOTA_Tooltip_ability_angra_mainyu_verg_avesta_multiplier"		"%Damage Amplification:"
  		"DOTA_Tooltip_ability_angra_mainyu_verg_avesta_reset_delay" 	"Duration until reset:"
  		"DOTA_Tooltip_ability_angra_mainyu_verg_avesta_marker_duration" "Marker duration on enemy:"
@@ -4997,7 +5007,7 @@
 		"DOTA_Tooltip_Ability_atalanta_roar_ms_slow"	"%Movespeed slow:"
 		"DOTA_Tooltip_Ability_atalanta_roar_as_slow"	"Attackspeed slow:"
 		"DOTA_Tooltip_Ability_atalanta_roar_duration"	"Slow duration:"
-		//"DOTA_Tooltip_Ability_atalanta_roar_duration_locked"	"Lock duration:"
+		"DOTA_Tooltip_Ability_atalanta_roar_duration_locked"	"Lock duration:"
 		"DOTA_Tooltip_Ability_atalanta_roar_base_stacks"	"Curse stack count:"
 
 		"DOTA_Tooltip_Ability_atalanta_ora"	"Attack of the Beast"
@@ -5053,7 +5063,7 @@
 		"DOTA_Tooltip_Ability_atalanta_skia_fly_duration"	"Fly duration:"
 
 		"DOTA_Tooltip_Ability_atalanta_evolution_attribute"	"Attribute: Self-Evolution"
-		"DOTA_Tooltip_Ability_atalanta_evolution_attribute_Description"	"Atalanta heals herself with her attacks by 15% of magical damage she dealt.\nCrossing Arcadia and Tauropolos Skia Thermocrasia stun all enemies in radius for 0.5 seconds."
+		"DOTA_Tooltip_Ability_atalanta_evolution_attribute_Description"	"Atalanta heals herself with her attacks by 15% of magical damage she dealt.\nCrossing Arcadia and Tauropolos Skia Thermocrasia stun all enemies in radius for 0.5 seconds.\Roar deals bonus damage and applies bonus Curse stack per each unit in its radius."
 		"DOTA_Tooltip_Ability_atalanta_evolution_attribute_radius"	"Crossing Arcadia stun radius:"
 
 		"DOTA_Tooltip_Ability_atalanta_tornado_attribute"	"Attribute: Tornado Beast"
@@ -5066,7 +5076,7 @@
 		"DOTA_Tooltip_Ability_atalanta_vision_attribute_Description"	"If Atalanta is alive, position of each enemy with 100 or more Curse stacks will be revealed for Atalanta and her team automatically.\nCurse explosion will deal additional %stack_damage% damage per stack."
 		
 		"DOTA_Tooltip_Ability_atalanta_moon_attribute"	"Attribute: Cursed Moon"
-		"DOTA_Tooltip_Ability_atalanta_moon_attribute_Description"	"Roar deals bonus damage and applies bonus Curse stack per each unit in its radius.\nTauropolos - Arrow Rain applies 5 more Curse stacks per impact and deals 40 additional damage per impact."
+		"DOTA_Tooltip_Ability_atalanta_moon_attribute_Description"	"Roar applies additional MS and AS slow equal to curse stacks on the enemy.\nTauropolos - Arrow Rain applies 10 more Curse stacks per impact and deals 40 additional damage per impact."
 		"DOTA_Tooltip_Ability_atalanta_moon_attribute_roar_damage"	"Roar bonus damage per unit:"
 		"DOTA_Tooltip_Ability_atalanta_moon_attribute_tauropolos_curse"	"Tauropolos bonus curse stacks:"
 
@@ -5636,7 +5646,7 @@
         "DOTA_Tooltip_ability_gawain_blade_of_the_devoted_duration"			"Duration:"
 
         "DOTA_Tooltip_ability_gawain_sun_of_galatine"					"Sun of Galatine"
-        "DOTA_Tooltip_ability_gawain_sun_of_galatine_Description"		"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>0.1</font>|    <font color='#FFFAFA'>Channel time:</font> <font color='#7FFF00'>0.7</font>.\nWhen channeling, all enemies in radius take <font color='#58ACFA'>damage</font> and receive <font color='#9400D3'>slow</font> effect\nAfter channel end, Gawain explodes, dealing <font color='#58ACFA'>damage</font> and <font color='#FF3399'>stunning</font> enemies in radius\nStun time and damage depends on channel time.\nCreates an <font color='#FDB813'>Artificial sun</font> above Gawain after explosion."
+        "DOTA_Tooltip_ability_gawain_sun_of_galatine_Description"		"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>0.1</font>|    <font color='#FFFAFA'>Channel time:</font> <font color='#7FFF00'>0.7</font>.\nWhen channeling, all enemies in radius take <font color='#58ACFA'>damage</font> and receive <font color='#9400D3'>slow</font> effect\nAfter channel end, Gawain explodes, dealing <font color='#58ACFA'>damage</font> and <font color='#FF3399'>stunning</font> enemies in radius.\nCreates an <font color='#FDB813'>Artificial sun</font> above Gawain after explosion."
         "DOTA_Tooltip_ability_gawain_sun_of_galatine_Lore"				""
         "DOTA_Tooltip_ability_gawain_sun_of_galatine_damage"			"Total damage:"
         "DOTA_Tooltip_ability_gawain_sun_of_galatine_area_of_effect"	"Area of Effect:"
@@ -5653,7 +5663,7 @@
         "DOTA_Tooltip_ability_gawain_excalibur_galatine_duration"		"FIRE DURATION:"
 
         "DOTA_Tooltip_ability_gawain_excalibur_galatine_combo"				"Combo: Galatine Supernova"
-        "DOTA_Tooltip_ability_gawain_excalibur_galatine_combo_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : W Q - R in 5 seconds</font>\nGathers the power of a supernova and explodes it, dealing huge <font color='#58ACFA'>damage</font> in radius (the further your enemy stands, the less damage it takes), burning all the enemies in radius up and <font color='#FF3399'>stunning</font> them for <font color='#FFFAFA'>0.3</font>  seconds.\nAfter the explosion Gawain gains 60 in all attributes for 12 seconds.\nEach <font color='#FDB813'>Artificial sun</font> in explosion radius will explode in 700 radius, dealing <font color='#58ACFA'>damage</font> and dissapearing.\nAll enemies hit receive a debuff for <font color='#FFFAFA'>3-6</font> seconds (based on distance from Gawain), which will grant vision on them and reduce their <font color='#FFFAFA'>armor</font> and <font color='#FFFAFA'>magic resistance</font> by <font color='#FFFAFA'>30-50%%</font> and <font color='#FFFAFA'>5-15%%</font>."
+        "DOTA_Tooltip_ability_gawain_excalibur_galatine_combo_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : W Q - R in 5 seconds</font>\nGathers the power of a supernova and explodes it, dealing huge <font color='#58ACFA'>damage</font> in radius (the further your enemy stands, the less damage it takes), burning all the enemies in radius up and <font color='#FF3399'>stunning</font> them for <font color='#FFFAFA'>0.3</font>  seconds.\nAfter the explosion Gawain gains 60 in all attributes for 12 seconds.\nEach <font color='#FDB813'>Artificial sun</font> in explosion radius will explode in 800 radius, dealing <font color='#58ACFA'>damage</font> and dissapearing.\nAll enemies hit receive a debuff for <font color='#FFFAFA'>6</font> seconds, which will grant vision on them and reduce their <font color='#FFFAFA'>armor</font> and <font color='#FFFAFA'>magic resistance</font> by <font color='#FFFAFA'>30-50%%</font> and <font color='#FFFAFA'>5-15%%</font> based on distance from Gawain."
         "DOTA_Tooltip_ability_gawain_excalibur_galatine_combo_Lore"		"The sister sword of Excalibur contains psuedo-Sun within its hilt, purging the evil with solar flame."
         "DOTA_Tooltip_ability_gawain_excalibur_galatine_combo_cast_delay"		"CAST DELAY:"
         "DOTA_Tooltip_ability_gawain_excalibur_galatine_combo_damage"			"DAMAGE:"
@@ -5851,7 +5861,7 @@
         "DOTA_Tooltip_Ability_tamamo_fates_call_Description"     "Teleports tethered hero to targeted location after delay. The delay is increased based on how far target is from Caster. If Caster is stunned during delay, the teleport is canceled."
         
         "DOTA_Tooltip_Ability_tamamo_amaterasu"     				"Eightfold Blessing of Amaterasu"
-        "DOTA_Tooltip_ability_tamamo_amaterasu_Description" 		"Tamamo creates a %radius% area mythical zone around her. Allies in the zone are blessed with bonus mana regen, movespeed, and attack speed. Any spellcast by Tamamo and her allies would recover their health by %heal_per_cast% and mana by %mana_per_cast%.\nIf enemy casts a spell inside the area, it will take %damage_per_cast% magical damage (this effect have 1 second cd).\nAbility will end if Tamamo leaves the area."
+        "DOTA_Tooltip_ability_tamamo_amaterasu_Description" 		"Tamamo creates a %radius% area mythical zone around her. Allies in the zone are blessed with bonus mana regen, movespeed, and attack speed. Any spellcast by Tamamo and her allies would recover their health by %heal_per_cast% and mana by %mana_per_cast%.\nIf enemy casts a spell inside the area, it will take %damage_per_cast% magical damage (this effect has a cooldown of 2 seconds).\nAbility will end if Tamamo leaves the area."
         "DOTA_Tooltip_Ability_tamamo_amaterasu_Lore"     			"The celestial mirror reveals itself in the sky, bestowing the primordial mana among the justs."
         "DOTA_Tooltip_Ability_tamamo_amaterasu_cast_point"     		"CAST POINT:"
         "DOTA_Tooltip_Ability_tamamo_amaterasu_heal_pct"     		"MAX CONSTANT HEAL:"
@@ -5921,7 +5931,7 @@
 
 
         "DOTA_Tooltip_Ability_tamamo_attribute_territory"					"Attribute: Territory Creation"
-        "DOTA_Tooltip_Ability_tamamo_attribute_territory_Description"		"Enhances Eightfold Blessing of Amaterasu by causing it to instantly heal allies and slow enemies by 70% for 1.5 seconds on cast.\nEnemies will take additional damage per cast equal to Tamamo's intellect/2. Additionaly, each enemy cast gives 1/3 of Amaterasu ability cast effect to Tamamo."
+        "DOTA_Tooltip_Ability_tamamo_attribute_territory_Description"		"Enhances Eightfold Blessing of Amaterasu by causing it to instantly heal allies, slow enemies by 70% for 1.5 seconds on cast and silence them for %silence_duration% on cast.\nEnemies will take additional damage per cast equal to Tamamo's intellect/2. Additionaly, each enemy cast gives 1/3 of Amaterasu ability cast effect to Tamamo."
 
 
         //====================================
@@ -5979,7 +5989,7 @@
         "DOTA_Tooltip_Ability_lishuwen_cosmic_orbit_damage"				"BONUS DAMAGE:"
 
         "DOTA_Tooltip_Ability_lishuwen_tiger_strike"					"Fierce Tiger Strike"
-        "DOTA_Tooltip_Ability_lishuwen_tiger_strike_Description"		"<font color='#FFFAFA'>Cast point:</font><font color='#7FFF00'>0.25</font> | </font><font color='#7FFF00'>0.3</font> | </font><font color='#7FFF00'>0.35</font> \n\nPerforms up to 3 ferocious strikes, each with different effects.\n\n<font color='#58ACFA'>1st:</font> Dashes to the target, dealing <font color='#58ACFA'>%damage_1% magic damage</font> and <font color='#9400D3'>slowing</font> the target by <font color='#9400D3'>%slow_amount%</font>% for <font color='#9400D3'>%slow_duration%</font> seconds.\n\n<font color='#58ACFA'>2nd:</font> Lands body blow, dealing <font color='#A72E28'>%damage_2% physical damage</font>, <font color='#FF3399'>knockbacking</font> and <font color='#FF3399'>stunning</font> the target for <font color='#FF3399'>%stun_duration%</font> seconds. If target hits a wall, it will take <font color='#FF0000'>200+3*Li Shuwen's strength</font> <font color='#A72E28'>additional physical damage</font>.\n\n<font color='#58ACFA'>3rd:</font> Smashes critical point with elbow, dealing <font color='#D1A951'>%damage_3_magical% base pure damage</font> plus additional <font color='#D1A951'>pure damage</font> based on <font color='#DD33FF'>how much damage was dealt with first two strikes</font>.\n\n Each strike gets <font color='#FFFAFA'>additional damage</font> equal to %damage_2_physical%% of Li Shuwen's <font color='#FFFAFA'>base attack damage</font>.\n\nIf three strikes sequence was sucessful then <font color='#FFFAFA'>cooldown of this ability will be reduced</font>.<font color='#F1C40F'>\n\n<font color='#F1C40F'>Upgradable by attribute: Improve Martial Arts, Berserk and Furious Chain</font>."
+        "DOTA_Tooltip_Ability_lishuwen_tiger_strike_Description"		"<font color='#FFFAFA'>Cast point:</font><font color='#7FFF00'>0.25</font> | </font><font color='#7FFF00'>0.3</font> | </font><font color='#7FFF00'>0.35</font> \n\nPerforms up to 3 ferocious strikes, each with different effects.\n\n<font color='#58ACFA'>1st:</font> Dashes to the target, dealing <font color='#58ACFA'>%damage_1% magic damage</font> and <font color='#9400D3'>slowing</font> the target by <font color='#9400D3'>%slow_amount%</font>% for <font color='#9400D3'>%slow_duration%</font> seconds.\n\n<font color='#58ACFA'>2nd:</font> Lands body blow, dealing <font color='#A72E28'>%damage_2% physical damage</font>, <font color='#FF3399'>knockbacking</font> and <font color='#FF3399'>stunning</font> the target for <font color='#FF3399'>%stun_duration%</font> seconds. If target hits a wall, it will take <font color='#FF0000'>200+3*Li Shuwen's strength</font> <font color='#A72E28'>additional physical damage</font>.\n\n<font color='#58ACFA'>3rd:</font> Smashes critical point with elbow, dealing <font color='#D1A951'>%damage_3_magical% base pure damage</font>.\n\n Each strike gets <font color='#FFFAFA'>additional damage</font> equal to %damage_2_physical%% of Li Shuwen's <font color='#FFFAFA'>base attack damage</font>.\n\nIf three strikes sequence was sucessful then <font color='#FFFAFA'>cooldown of this ability will be reduced</font>.<font color='#F1C40F'>\n\n<font color='#F1C40F'>Upgradable by attribute: Improve Martial Arts, Berserk and Furious Chain</font>."
         "DOTA_Tooltip_Ability_lishuwen_tiger_strike_Lore"									"The pinnacle of Bajiquan, the tiger's furious clawing specializes in crushing physical object to ashes."
         "DOTA_Tooltip_Ability_lishuwen_tiger_strike_Note0"									"3rd strike damage is calculated based on the damage dealt by first 2 strikes, regardles of the whether it were different or the same targets"
         //"DOTA_Tooltip_Ability_lishuwen_fierce_tiger_strike_first_strike_cast_delay"		"FIRST STRIKE CAST DELAY:"
@@ -6134,11 +6144,11 @@
         "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_Lore"				""
 
         "DOTA_Tooltip_Ability_jeanne_crimson_saint"				"Combo: La Pucelle - The Crimson Holy Maiden"
-        "DOTA_Tooltip_Ability_jeanne_crimson_saint_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats.</font>\n<font color='#58ACFA'>Combo Sequence : Q self > R in 1 second</font>\n<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>%cast_point%</font>\nJeanne starts a prayer to release her ultimate Noble Phantasm. After a %delay_duration%-second delay she erupts with holy flames, dealing %damage% <font color='#05CAFF'>magical damage</font> to enemies in %radius% radius around her.\nAfter that Jeanne starts to slowly burn herself up, <font color='#FFFAFA'>disabling any healing</font> upon herself and losing %self_damage%%  of her maximum health each second, but dealing %burn_damage% <font color='#05CAFF'>magical damage</font> in %burn_radius% radius each second and burning enemies for %attack_damage%%  of their maximum health as <font color='#05CAFF'>magical damage</font> on her attacks.\nAfter 4 seconds, Jeanne will be able to recast the ability to burn herself with her enemies, <font color='#FFFAFA'>killing herself</font> and dealing up to %recast_damage% + %recast_hp_damage%%  of her remaining health as <font color='#05CAFF'>magical damage</font> to all enemies in %recast_radius% radius, depending on how far are they from Jeanne."
+        "DOTA_Tooltip_Ability_jeanne_crimson_saint_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats.</font>\n<font color='#58ACFA'>Combo Sequence : Q self > R in 1 second</font>\n<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>%cast_point%</font>\nJeanne starts a prayer to release her ultimate Noble Phantasm. After a %delay_duration%-second delay she erupts with holy flames, dealing %damage% <font color='#05CAFF'>magical damage</font> to enemies in %radius% radius around her.\nAfter that Jeanne starts to slowly burn herself up, losing %self_damage%%  of her maximum health each second, but dealing %burn_damage% <font color='#05CAFF'>magical damage</font> in %burn_radius% radius each second and burning enemies for %attack_damage%%  of their maximum health as <font color='#05CAFF'>magical damage</font> on her attacks.\nAfter 4 seconds, Jeanne will be able to recast the ability to burn herself with her enemies, <font color='#FFFAFA'>heavily damaging herself</font> and dealing up to %recast_damage% + %recast_hp_damage%%  of her remaining health as <font color='#05CAFF'>magical damage</font> to all enemies in %recast_radius% radius, depending on how far are they from Jeanne."
         "DOTA_Tooltip_Ability_jeanne_crimson_saint_Note0"		"Maximum damage reduction from distance is 50%%."
 		
 		"DOTA_Tooltip_Ability_jeanne_crimson_saint_la_pucelle"				"Combo: La Pucelle - Final Act"
-        "DOTA_Tooltip_Ability_jeanne_crimson_saint_la_pucelle_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>%cast_point%</font>\nAfter a short prayer, Jeanne burns herself with her enemies, <font color='#FFFAFA'>killing herself</font> and dealing up to %recast_damage% + %recast_hp_damage%%  of her remaining health as <font color='#05CAFF'>magical damage</font> to all enemies in %recast_radius% radius, depending on how far are they from Jeanne."
+        "DOTA_Tooltip_Ability_jeanne_crimson_saint_la_pucelle_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>%cast_point%</font>\nAfter a short prayer, Jeanne burns herself with her enemies, <font color='#FFFAFA'>heavily damaging herself</font> and dealing up to %recast_damage% + %recast_hp_damage%%  of her remaining health as <font color='#05CAFF'>magical damage</font> to all enemies in %recast_radius% radius, depending on how far are they from Jeanne."
 
 		"DOTA_Tooltip_Ability_jeanne_flag"		"Luminosite Eternelle"
         "DOTA_Tooltip_Ability_jeanne_flag_Description"	"Ruler plants her flag into the ground, creating a sacred zone for next 5 seconds that absorbs all damage for allied heroes and cleanses all cleansable debuffs with each tick. Damage accumulated within the flag requires Jeanne to spend mana to keep the flag untorn. If Jeanne runs out of mana, the barrier will disappear.\nJeanne herself needs to be fully concentrated on her Noble Phantasm, so she can't act without dropping the barrier.\nJeanne is invulnerable during the effect."
@@ -6182,7 +6192,7 @@
         "DOTA_Tooltip_Ability_jeanne_attribute_punishment_active_duration"	"GODS RESOLUTION ACTIVE DURATION:"
 
         "DOTA_Tooltip_Ability_jeanne_attribute_divine_symbol"	"Attribute: Divine Symbol"
-        "DOTA_Tooltip_Ability_jeanne_attribute_divine_symbol_Description"	"<font color='#FFFAFA'>Increases</font> Luminosite Eternelle's <font color='#ACFF05'>heal</font> by %bonus_heal% and <font color='#ACFF05'>final heal</font> by %bonus_final_heal%.\nLast wave of Luminosite Eternelle also <font color='#FFFAFA'>hard cleanses</font>."
+        "DOTA_Tooltip_Ability_jeanne_attribute_divine_symbol_Description"	"<font color='#FFFAFA'>Increases</font> Luminosite Eternelle's <font color='#ACFF05'>heal</font> by %bonus_heal%%  and <font color='#ACFF05'>final heal</font> by %bonus_final_heal%%.\nLast wave of Luminosite Eternelle also <font color='#FFFAFA'>hard cleanses</font>."
         "DOTA_Tooltip_Ability_jeanne_attribute_divine_symbol_Note0"				"Charisma effect follows current level."
         "DOTA_Tooltip_Ability_jeanne_attribute_divine_symbol_bonus_reduction"	"%Bonus reduction:"
 
@@ -6262,7 +6272,8 @@
 		"DOTA_Tooltip_Ability_altera_teardrop_Description"       "<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : Q-R in 4 seconds, then R in 10 seconds</font>\nAltera invokes an orbital strike towards the target location.\nFirst use: activates the combo. For the next 10 seconds Combo - Teardrop Photon Ray: Release can be used to choose the strike target.\nSecond use: After a 1 second delay, system starts aiming at the target location. Aim marker is visible for everyone. After 2.5 seconds of aim, laser beam strikes, dealing enormous magical damage."
 		"DOTA_Tooltip_Ability_altera_teardrop_impact_damage"		"Impact damage:"
 		"DOTA_Tooltip_Ability_altera_teardrop_beam_damage"			"Beam damage:"
-		"DOTA_Tooltip_Ability_altera_teardrop_radius"				"Radius:"
+		"DOTA_Tooltip_Ability_altera_teardrop_impact_radius"		"Impact radius:"
+		"DOTA_Tooltip_Ability_altera_teardrop_beam_radius"			"Beam radius:"
 		"DOTA_Tooltip_Ability_altera_teardrop_cast_range"			"Cast range:"
 		"DOTA_Tooltip_Ability_altera_teardrop_Lore"					"Connecting to Mars..."
 
@@ -6478,7 +6489,7 @@
         "DOTA_Tooltip_Ability_astolfo_attribute_sanity_Description"			"Hippogriff: Vanish <font color='#FF3399'>stuns</font> target on exit. Astolfo becomes invulnerable and untargetable when he uses Hippogriff: Vanish. If the target is hit by Hippogriff: Vanish, Astolfo reappears beside his target. \nEnables usage of Casa di Logistilla - magic-protection type Phantasm. \nTrap of argalia Astolfo performs an attack against all enemies hit by the ability applying all on-hit effects."
 
         "DOTA_Tooltip_Ability_astolfo_deafening_blast_attribute"					"Attribute: Deafening Blast"
-        "DOTA_Tooltip_Ability_astolfo_deafening_blast_attribute_Description"		"La Black Luna's blast and push away all enemies within %area_of_effect% range on activation, as well as disjointing all disjointable projectiles, muting and slowing all enemies for 99% for 1 second.\nEach La Black Luna tick deals 75 more damage. Enemies pushed away this way are dealt 500 magical damage. \nIf Astolfo finishes casting without being interrupted, he will release an additional wave in 900 radius, that will deal 1000 magical damage, mute and slow all enemies for 99% for 2 seconds."
+        "DOTA_Tooltip_Ability_astolfo_deafening_blast_attribute_Description"		"La Black Luna's blast and push away all enemies within %area_of_effect% range on activation, as well as disjointing all disjointable projectiles, muting and slowing all enemies for 99% for 1 second.\nEach La Black Luna tick deals 150 more damage. Enemies pushed away this way are dealt 500 magical damage. \nIf Astolfo finishes casting without being interrupted, he will release an additional wave in 900 radius, that will deal 1000 pure damage, mute and slow all enemies for 99% for 2 seconds."
 
         //====================================
         //      Caster(Extra) - Nursery Rhyme
@@ -7200,7 +7211,7 @@
 		"DOTA_Tooltip_modifier_ryougi_knife_target_Description"			"Is valid target for Bamboo Fence Melody"
 
 		"DOTA_Tooltip_ability_ryougi_knife_throw"					"Hidden Dagger (yang)"
-		"DOTA_Tooltip_ability_ryougi_knife_throw_Description"		"<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%cast_point%</font>\nShiki throws 1 dagger forward. It deals <font color='#58ACFA'>%damage%</font> magical damage to the first enemy.\n<font color='#FFFAFA'>Marks</font> the enemy hit for %mark_duration% seconds, allowing to cast <font color='#ff9900'>Bamboo Fence Melody</font> while the mark persists.\n<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%cast_point_2%</font>\n Dashes to the target hit with <font color='#ff9900'>Hidden Dagger (yang)</font>, dealing <font color='#D1A951'>%damage_first%</font> pure damage.\nAfter a small delay, dashes through the target again, microstunning it, dealing <font color='#D1A951'>%damage_second%</font> pure damage + <font color='#D1A951'>%damage_per_line%</font> pure damage per line."
+		"DOTA_Tooltip_ability_ryougi_knife_throw_Description"		"<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%cast_point%</font>\nShiki throws 1 dagger forward. It deals <font color='#58ACFA'>%damage%</font> magical damage to the target enemy.\n<font color='#FFFAFA'>Marks</font> the enemy hit for %mark_duration% seconds, allowing to cast <font color='#ff9900'>Bamboo Fence Melody</font> while the mark persists.\n<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%cast_point_2%</font>\n Dashes to the target hit with <font color='#ff9900'>Hidden Dagger (yang)</font>, dealing <font color='#D1A951'>%damage_first%</font> pure damage.\nAfter a small delay, dashes through the target again, microstunning it, dealing <font color='#D1A951'>%damage_second%</font> pure damage + <font color='#D1A951'>%damage_per_line%</font> pure damage per line."
 		"DOTA_Tooltip_ability_ryougi_knife_throw_range"				"Range:"
 		"DOTA_Tooltip_ability_ryougi_knife_throw_speed"				"Speed:"
 		"DOTA_Tooltip_ability_ryougi_knife_throw_attribute_slow_duration"	"Attribute slow duration:"
@@ -7222,9 +7233,11 @@
 		"DOTA_Tooltip_ability_ryougi_avidya_moon_damage"		"Damage:"
 
 		"DOTA_Tooltip_ability_ryougi_glass_moon"				"Glass Moon"
-		"DOTA_Tooltip_ability_ryougi_glass_moon_Description"	"<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%cast_point%</font>\nShiki <font color='#FFFAFA'>dashes</font> forward, flips into the air and deals <font color='#58ACFA'>magical</font> damage behind herself."
+		"DOTA_Tooltip_ability_ryougi_glass_moon_Description"	"<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%cast_point%</font> <font color='#FFFAFA'>|</font> <font color='#7FFF00'>%cast_point2%</font>\n<font color='#58ACFA'>1st:</font>Shiki <font color='#FFFAFA'>blinks</font> to the target location.\n<font color='#58ACFA'>2nd:</font> Shiki flips into the air towards the chosen point, becoming <font color='#ff9900'>untargetable for enemies</font> for a moment and dealing <font color='#58ACFA'>magical</font> damage around herself."
 		"DOTA_Tooltip_ability_ryougi_glass_moon_range"			"Range:"
-		"DOTA_Tooltip_ability_ryougi_glass_moon_dash_range"			"Dash range:"
+		"DOTA_Tooltip_ability_ryougi_glass_moon_dash_range"		"Dash range:"
+		"DOTA_Tooltip_ability_ryougi_glass_moon_leap_range"		"Leap range:"
+		"DOTA_Tooltip_ability_ryougi_glass_moon_radius"			"Leap radius:"
 		"DOTA_Tooltip_ability_ryougi_glass_moon_damage"		"Damage:"
 
 		"DOTA_Tooltip_ability_ryougi_double_belfry"				"Double Belfry - Row of Beads"
@@ -7245,13 +7258,13 @@
 		"DOTA_Tooltip_ability_ryougi_ying_yang_Note0"		"Can be used while stunned."
 
 		"DOTA_Tooltip_ability_ryougi_mystic_eyes"			"Mystic Eyes of Death Perception"
-		"DOTA_Tooltip_ability_ryougi_mystic_eyes_Description"	"<font color='#FFFAFA'>Passive</font> | <font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%cast_point%</font>\n Each individual ability impact <font color='#FFFAFA'>cuts one line</font>. Shiki can't continue to cut lines of one enemy with similar moves, but <font color='#FFFAFA'>will still deal additional damage</font>.\nWhen line is cut, enemy recieves <font color='#D1A951'>%immediate_damage%% </font>  of it's current health as pure and recieves 1 stack of <font color='#FF0000'>Mystic Eyes</font> for %line_duration% seconds."
+		"DOTA_Tooltip_ability_ryougi_mystic_eyes_Description"	"<font color='#FFFAFA'>Passive</font> | <font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%cast_point%</font>\n Each individual ability impact <font color='#FFFAFA'>cuts one line</font>. Shiki can't continue to cut lines of one enemy with similar moves, but <font color='#FFFAFA'>will still deal additional damage</font>.\nWhen line is cut, enemy recieves <font color='#D1A951'>%immediate_damage%% </font>  of it's maximum health as pure and recieves 1 stack of <font color='#FF0000'>Mystic Eyes</font> for %line_duration% seconds."
 		"DOTA_Tooltip_ability_ryougi_mystic_eyes_bonus_vision"				"Attribute bonus vision radius:"
 		"DOTA_Tooltip_ability_ryougi_mystic_eyes_true_sight_range"			"Attribute true sight range:"
 		"DOTA_Tooltip_ability_ryougi_mystic_eyes_duration"					"Attribute duration:"
 
 		"DOTA_Tooltip_ability_ryougi_collapse"				"Combo: Mystic Eyes of Death Perception - Five Scenic Collapse"
-		"DOTA_Tooltip_ability_ryougi_collapse_Description"	"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: F-F in 4 seconds</font>\n<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%cast_point%</font>\nShiki dashes forward. If she dashes through an enemy hero, she will dash through him two more times, becoming <font color='#FFFAFA'>invulnerable</font>, and then slash him %line_count% times, cutting %line_count% lines and dealing <font color='#D1A951'>%damage%</font> + <font color='#D1A951'>%damage_per_line%</font> multiplied by their line count total pure damage."
+		"DOTA_Tooltip_ability_ryougi_collapse_Description"	"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: F-F in 4 seconds</font>\n<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%cast_point%</font>\nShiki dashes through the enemy hero 3 times, becoming <font color='#FFFAFA'>invulnerable</font>, and then slash him %line_count% times, cutting %line_count% lines and dealing <font color='#D1A951'>%damage%</font> + <font color='#D1A951'>%damage_per_line%</font> multiplied by their line count total pure damage."
 		"DOTA_Tooltip_ability_ryougi_collapse_range"		"Range:"
 
 		"DOTA_Tooltip_ability_ryougi_demise_attribute"		"Attribute: Mystic Eyes of Death Perception - Seven Scenic Demise"
@@ -7487,20 +7500,21 @@
 
 
 		"DOTA_Tooltip_ability_arcueid_shut_up"					"Shut Up And Fly!"
-		"DOTA_Tooltip_ability_arcueid_shut_up_Description"		"<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%cast_point%</font>\nArcueid slaps enemies in front of her, dealing <font color='#58ACFA'>magical damage</font>, <font color='#FFFAFA'>knocking</font> them back and heavily <font color='#FF0000'>wounding</font> them.\n<font color='#FF0000'>Wounded</font> enemy is slowed. Dealing damage to the <font color='#FF0000'>wounded</font> enemy <font color='#ACFF05'>heals</font> attacker for a percentage of damage dealt.\nIf enemy collides with a wall, it will take additional <font color='#58ACFA'>magical damage</font> and be <font color='#FF3399'>stunned</font>."
+		"DOTA_Tooltip_ability_arcueid_shut_up_Description"		"<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%cast_point%</font>\nArcueid slaps enemies in front of her, dealing <font color='#58ACFA'>magical damage</font>, <font color='#FFFAFA'>knocking</font> them back and heavily <font color='#FF0000'>wounding</font> and <font color='#FF3399'>stunning</font> them.\n<font color='#FF0000'>Wounded</font> enemy is slowed. Dealing damage to the <font color='#FF0000'>wounded</font> enemy <font color='#ACFF05'>heals</font> attacker for a percentage of damage dealt."
 		"DOTA_Tooltip_ability_arcueid_shut_up_damage"			"Damage:"
-		"DOTA_Tooltip_ability_arcueid_shut_up_collide_damage"	"Collide damage:"
 		"DOTA_Tooltip_ability_arcueid_shut_up_duration"			"<font color='#FF0000'>Wound</font> duration:"
 		"DOTA_Tooltip_ability_arcueid_shut_up_slow_percent"		"%<font color='#FF0000'>Wound</font> <font color='#9400D3'>slow</font>:"
-		"DOTA_Tooltip_ability_arcueid_shut_up_stun_duration"	"Collide <font color='#FF3399'>stun</font> duration:"
+		"DOTA_Tooltip_ability_arcueid_shut_up_stun_duration"	"<font color='#FF3399'>Stun</font> duration:"
 		"DOTA_Tooltip_ability_arcueid_shut_up_range"			"Knockback range:"
 		"DOTA_Tooltip_ability_arcueid_shut_up_lifesteal"		"%<font color='#FF0000'>Wound</font> <font color='#ACFF05'>lifesteal</font>:"
 
 		"DOTA_Tooltip_ability_arcueid_ready"					"Ready, Go!"
-		"DOTA_Tooltip_ability_arcueid_ready_Description"		"<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%cast_point%</font>\nArcueid dashes forward and <font color='#FFFAFA'>performs a three-hit-combo</font> on the first hero she dashed through.\nFirst two hits <font color='#FF3399'>stun</font> the enemy and deal <font color='#58ACFA'>magical damage</font> to all enemies in the area in front of Arcueid.\nLast hit also <font color='#FF3399'>stuns</font> everybody in the radius."
+		"DOTA_Tooltip_ability_arcueid_ready_Description"		"<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%cast_point%</font>\nArcueid dashes forward and <font color='#FFFAFA'>performs a three-hit-combo</font> on the first hero she dashed through.\nFirst two hits <font color='#FF3399'>stun</font> the enemy, deal <font color='#58ACFA'>magical damage</font> to all enemies in the area and <font color='#9400D3'>lock</font> them.\nLast hit also <font color='#FF3399'>stuns</font> everybody in the radius."
 		"DOTA_Tooltip_ability_arcueid_ready_Note0"				"If target gets away more than 400 units from Arcueid by any means, it won't take damage or be stunned anymore, but the ability will be continued as if target still was there."
 		"DOTA_Tooltip_ability_arcueid_ready_damage"				"Damage per hit:"
+		"DOTA_Tooltip_ability_arcueid_ready_lock_duration"		"Lock duration:"
 		"DOTA_Tooltip_ability_arcueid_ready_stun_duration"		"Last hit stun duration:"
+		"DOTA_Tooltip_ability_arcueid_ready_str_mult"			"Attribute <font color='#FF0000'>STR</font> multiplier:"
 
 		"DOTA_Tooltip_ability_arcueid_regen"					"Body Reconstruction"
 		"DOTA_Tooltip_ability_arcueid_regen_Description"		"<font color='#FFFAFA'>Passive</font>\nArcueid slowly <font color='#ACFF05'>restores</font> part of her health after taking damage."
@@ -7508,7 +7522,7 @@
 		"DOTA_Tooltip_ability_arcueid_regen_duration"			"<font color='#ACFF05'>Restoration</font> duration"
 
 		"DOTA_Tooltip_ability_arcueid_eyes"				"Mystic Eyes of Enchantment"
-		"DOTA_Tooltip_ability_arcueid_eyes_Description"	"<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%cast_point%</font>\nFor a duration, each enemy in radius will be <font color='#FF3399'>forced</font> to attack Arcueid every 0.25 seconds."
+		"DOTA_Tooltip_ability_arcueid_eyes_Description"	"<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%cast_point%</font>\nFor a duration, each enemy in radius will be <font color='#FF3399'>forced</font> to attack Arcueid every 0.25 seconds and will be taking magical damage equal to 2x Arcueid's current health regeneration."
 		"DOTA_Tooltip_ability_arcueid_eyes_duration"	"Duration:"
 		"DOTA_Tooltip_ability_arcueid_eyes_radius"	"Radius:"
 
@@ -7528,12 +7542,12 @@
 		"DOTA_Tooltip_ability_arcueid_melty_duration"			"Duration:"
 
 		"DOTA_Tooltip_ability_arcueid_mystic_eyes_attribute"	"Attribute: Mystic Eyes of Enchantment"
-		"DOTA_Tooltip_ability_arcueid_mystic_eyes_attribute_Description"	"Enables <font color='#58ACFA'>Mystic Eyes of Enchantment</font>.\n\n <font color='#58ACFA'>Mystic Eyes of Enchantment:</font> for a duration, each enemy in radius will be <font color='#FF3399'>forced</font> to attack Arcueid every 0.25 seconds."
+		"DOTA_Tooltip_ability_arcueid_mystic_eyes_attribute_Description"	"Enables <font color='#58ACFA'>Mystic Eyes of Enchantment</font>.\n\n <font color='#58ACFA'>Mystic Eyes of Enchantment:</font> for a duration, each enemy in radius will be <font color='#FF3399'>forced</font> to attack Arcueid every 0.25 seconds and will be taking magical damage equal to 2x Arcueid's current health regeneration."
 		"DOTA_Tooltip_ability_arcueid_mystic_eyes_attribute_duration"	"Duration:"
 		"DOTA_Tooltip_ability_arcueid_mystic_eyes_attribute_radius"	"Radius:"
 
 		"DOTA_Tooltip_ability_arcueid_monstrous_strength_attribute"	"Attribute: Monstrous Strength"
-		"DOTA_Tooltip_ability_arcueid_monstrous_strength_attribute_Description"	"Arcueid deals additional <font color='#58ACFA'>magical damage</font> based on her maximum health with her attacks and <font color='#ACFF05'>heals</font> herself for half of the damage dealt."
+		"DOTA_Tooltip_ability_arcueid_monstrous_strength_attribute_Description"	"Arcueid deals additional <font color='#58ACFA'>magical damage</font> based on her maximum health with her attacks and <font color='#ACFF05'>heals</font> herself for half of the damage dealt.\nReady, Go deals additional damage based on Arcueid's <font color='#FF0000'>STR</font>."
 		"DOTA_Tooltip_ability_arcueid_monstrous_strength_attribute_damage"	"Base damage:"
 		"DOTA_Tooltip_ability_arcueid_monstrous_strength_attribute_damage_perc"	"%Health damage:"
 
@@ -7544,7 +7558,7 @@
 		"DOTA_Tooltip_ability_arcueid_regen_attribute_threshold"		"Health threshold:"
 
 		"DOTA_Tooltip_ability_arcueid_recklesness_attribute"	"Attribute: Recklesness"
-		"DOTA_Tooltip_ability_arcueid_recklesness_attribute_Description"	"You're in the way! applies autoattacks to it's targets."
+		"DOTA_Tooltip_ability_arcueid_recklesness_attribute_Description"	"You're in the way! and Ready, Go! apply autoattacks to it's targets."
 
 		"DOTA_Tooltip_ability_arcueid_world_attribute"	"Attribute: World Backup"
 		"DOTA_Tooltip_ability_arcueid_world_attribute_Description"	"Arcueid gains additional magical resistance and attack speed based on her missing health."
@@ -7610,7 +7624,7 @@
 		"DOTA_Tooltip_ability_edmon_enfer_radius"				"Radius:"
 
 		"DOTA_Tooltip_ability_edmon_flames_attribute"			"Attribute: Flames of Love and Hate"
-		"DOTA_Tooltip_ability_edmon_flames_attribute_Description"	"Dark Beams not created by Flames of Hate stack Flames of Love. Each other damage impact from Dantes stacks Flames of Hate. Both stack up to 6.\nFlames of Love: melee attacks use stacks to be nearly instant.\nFlames of Hate: during the delay, third Dark Beam creates two mini-Dark Beams, which deal 1/4 of Dark Beam damage each, per stack."
+		"DOTA_Tooltip_ability_edmon_flames_attribute_Description"	"Dark Beams not created by Flames of Hate stack Flames of Love. Each other damage impact from Dantes stacks Flames of Hate. Both stack up to 6.\nFlames of Love: melee attacks use stacks to be nearly instant.\nFlames of Hate: ranged attacks use stacks to be nearly instant."
 
 		"DOTA_Tooltip_ability_edmon_vengeance_attribute"		"Attribute: Avenger"
 		"DOTA_Tooltip_ability_edmon_vengeance_attribute_Description"	"Enemies dealing damage to Dantes are marked for %duration% seconds.\nMarked enemies take %damage%%  more damage from Dantes. Dantes heals himself for %lifesteal_base%%  of damage dealt when dealing damage. \nThis lifesteal is additionally increased by %lifesteal%%  if the attacked enemy is marked. \nVengeful conflagration: reduces amount of damage received by Dantes during counter-attack by 50%%."
@@ -8773,7 +8787,7 @@
         "DOTA_Tooltip_ability_nanaya_dash_invis_duration"           "Invisibility duration:"
 
         "DOTA_Tooltip_ability_nanaya_instinct"                      "Instinct"
-        "DOTA_Tooltip_ability_nanaya_instinct_Description"			"<font color='#FFFAFA'>Passive</font>\nEach time Nanaya deals damage to an enemy, he gains a <font color='#002BFF'>Nanaya blood</font> stack, up to %stack_max% stacks, gaining %bonus_agility% <font color='#00FF00'>agility</font> per each stack.\nStacks reset after %stacks_duration% seconds of not dealing damage.\nWhenever this ability hits 10 stacks, Nanaya becomes <font color='#FFFAFA'>White</font> and refreshes Sensa・Hattenshou.\n<font color='#FFFAFA'>White</font>: Nanaya has %ms% constant movement speed and %cd_reduction_pct%%  cooldown reduction."
+        "DOTA_Tooltip_ability_nanaya_instinct_Description"			"<font color='#FFFAFA'>Passive</font>\nEach time Nanaya deals damage to an enemy, he gains a <font color='#002BFF'>Nanaya blood</font> stack, up to %stack_max% stacks, gaining %bonus_agility% <font color='#00FF00'>agility</font> per each stack.\nStacks reset after %stacks_duration% seconds of not dealing damage.\nWhenever this ability hits 10 stacks, Nanaya becomes <font color='#FFFAFA'>White</font> and refreshes Sensa・Hattenshou.\n<font color='#FFFAFA'>White</font>: Nanaya has %ms% constant movement speed and %cd_reduction_pct%%  cooldown reduction. After casting any ability, Nanaya can instantly blink up to %blink_distance% range with attack-move or attack-target orders."
 
 
         "DOTA_Tooltip_ability_nanaya_dashf_return"                              "Shadow return"
@@ -8799,7 +8813,7 @@
         "DOTA_Tooltip_ability_nanaya_knife_recast_Description" 				"<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%cast_point%</font>\nNanaya <font color='#FFFAFA'>teleports</font> to the enemy hit by the knife (but not further than %recast_range% units from him), slashes it for %damage% damage and jumps back for 600 units."
 
         "DOTA_Tooltip_ability_nanaya_kekshi"                     "Combo: Kyokushi・Nanaya"
-        "DOTA_Tooltip_ability_nanaya_kekshi_description"         "<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>Instant</font>\n<font color='#58ACFA'>Combo Requirement: 30 all stats </font>\n<font color='#58ACFA'>Combo Sequence: W while Sensa・Kaie knife is flying</font>\nNanaya focuses on his launched knife. If knife hits the opponent, he will teleport behind their back and twist their neck, dealing huge amount of pure damage.\nInstantly gives Nanaya 10 stacks of Instinct if he was at 9 stacks or less.\nIf Kyokushi did not activate, ability will go on reduced 45 seconds cooldown."
+        "DOTA_Tooltip_ability_nanaya_kekshi_description"         "<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>Instant</font>\n<font color='#58ACFA'>Combo Requirement: 30 all stats </font>\n<font color='#58ACFA'>Combo Sequence: W while Sensa・Kaie knife is flying</font>\nNanaya focuses on his launched knife. If knife hits the opponent, he will teleport behind their back and twist their neck, dealing huge amount of pure damage.\nInstantly gives Nanaya 10 stacks of Instinct if he was at 9 stacks or less.\nIf Kyokushi did not activate, ability will go on reduced 35 seconds cooldown."
 		"DOTA_Tooltip_ability_nanaya_kekshi_damage"                     "Damage:"
 
        "DOTA_Tooltip_ability_nanaya_slashes" 					"Sensa・Hattenshou"
@@ -8868,7 +8882,7 @@
 		"DOTA_Tooltip_Ability_master_shard_of_avarice_Lore"			"A shard of the legendary artifact that is known to descend upon the soul in its most dire situation. Despite being a makeshift, a trivial wish of mere human may not be asking too much...\n"
 
 		"DOTA_Tooltip_Ability_master_shard_of_anti_magic"				"Shard of Anti-Magic"
-		"DOTA_Tooltip_ability_master_shard_of_anti_magic_Description"	"Grants 3 Shard of Anti-Magic to your Servant, a powerful artifact that renders the owner immune to magic for 5 seconds and gives them 80%% magical resistance."
+		"DOTA_Tooltip_ability_master_shard_of_anti_magic_Description"	"Grants 3 Shard of Anti-Magic to your Servant, a powerful artifact that renders the owner immune to magic for 8 seconds and gives them 80%% magical resistance."
 		"DOTA_Tooltip_Ability_master_shard_of_anti_magic_Lore"			"A shard of the legendary artifact that is known to descend upon the soul in its most dire situation. Despite being a makeshift, a trivial wish of mere human may not be asking too much...\n"
 
 		"DOTA_Tooltip_Ability_master_shard_of_replenishment"				"Shard of Replenishment"
@@ -8876,11 +8890,11 @@
 		"DOTA_Tooltip_Ability_master_shard_of_replenishment_Lore"		"A shard of the legendary artifact that is known to descend upon the soul in its most dire situation. Despite being a makeshift, a trivial wish of mere human may not be asking too much...\n"
 
 		"DOTA_Tooltip_Ability_master_shard_of_prosperity"				"Shard of Prosperity"
-		"DOTA_Tooltip_ability_master_shard_of_prosperity_Description"	"Grants 1 master mana at round start. Restores one master health at round start. Reduces Q seal cooldown by 15 seconds per shard."
+		"DOTA_Tooltip_ability_master_shard_of_prosperity_Description"	"Grants 1 master mana at round start. Restores one master health at round start. Increases Q seal duration by 5 seconds per shard."
 		"DOTA_Tooltip_Ability_master_shard_of_prosperity_Lore"			"A shard of the legendary artifact that is known to descend upon the soul in its most dire situation. Despite being a makeshift, a trivial wish of mere human may not be asking too much...\n"
 
 		"DOTA_Tooltip_Ability_cmd_seal_1"				"1st Command Seal"
-		"DOTA_Tooltip_ability_cmd_seal_1_Description"		"<font color='#58ACFA'>Master Mana Required : 1</font>\n<font color='#FF0000'>Master Health Required : 1</font>\nFor 10 seconds, Master can cast Command Seal without cooldown limitation."
+		"DOTA_Tooltip_ability_cmd_seal_1_Description"		"<font color='#58ACFA'>Master Mana Required : 1</font>\n<font color='#FF0000'>Master Health Required : 1</font>\nFor 15 seconds, Master can cast Command Seal without cooldown limitation."
 
 		"DOTA_Tooltip_Ability_cmd_seal_2"				"2nd Command Seal"
 		"DOTA_Tooltip_ability_cmd_seal_2_Description"		"<font color='#58ACFA'>Master Mana Required : 2</font>\n<font color='#FF0000'>Master Health Required : 1</font>\nResets all cooldowns of Servant's abilities and items."

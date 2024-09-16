@@ -73,7 +73,7 @@ function modifier_tsubame_mai_omnislash:TsubameMai(initialtarget)
 	local target = initialtarget
 	local ability = self:GetAbility()
 
-	caster:FindAbilityByName("sasaki_tsubame_gaeshi"):StartCooldown(caster:FindAbilityByName("sasaki_tsubame_gaeshi"):GetCooldown(-1))
+	--caster:FindAbilityByName("sasaki_tsubame_gaeshi"):StartCooldown(caster:FindAbilityByName("sasaki_tsubame_gaeshi"):GetCooldown(-1))
 
 	local dummy = CreateUnitByName("godhand_res_locator", caster:GetAbsOrigin(), false, caster, caster, caster:GetTeamNumber())
 	dummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1) 

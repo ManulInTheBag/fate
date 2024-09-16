@@ -75,6 +75,7 @@ if IsServer() then
 				if target.GawainBashCd == true then return end
 				if not target:IsMagicImmune() and not target:HasModifier("modifier_master_intervention") then
 	        	target:AddNewModifier(caster, target, "modifier_gawain_kots_slow", {Duration = 1})
+	        	target:AddNewModifier(caster, target, "modifier_stunned", {Duration = 1})
 	        	target.GawainBashCd = true
 	        	Timers:CreateTimer(2, function()
 	        		target.GawainBashCd = false

@@ -1,253 +1,154 @@
-LinkLuaModifier("modifier_ryougi_glass_moon", "abilities/ryougi/ryougi_glass_moon", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_ryougi_glass_moon_2", "abilities/ryougi/ryougi_glass_moon", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_ryougi_glass_moon_recast", "abilities/ryougi/ryougi_glass_moon", LUA_MODIFIER_MOTION_NONE)
 
 ryougi_glass_moon = class({})
 
-function ryougi_glass_moon:GetBehavior()
-    return DOTA_ABILITY_BEHAVIOR_POINT + DOTA_ABILITY_BEHAVIOR_HIDDEN + DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES
+--[[function ryougi_glass_moon:GetCastRange()
+	local caster = self:GetCaster()
+
+	if caster:HasModifier("modifier_ryougi_glass_moon_recast") then
+		return self:GetSpecialValueFor("leap_range")
+	end
+	return self:GetSpecialValueFor("dash_range")
+end]]
+
+function ryougi_glass_moon:GetCastPoint()
+	local caster = self:GetCaster()
+
+	if caster:HasModifier("modifier_ryougi_glass_moon_recast") then
+		return self:GetSpecialValueFor("cast_point2")
+	end
+	return self:GetSpecialValueFor("cast_point")
 end
 
 function ryougi_glass_moon:OnSpellStart()
 	local caster = self:GetCaster()
-	local eyes = caster:FindAbilityByName("ryougi_mystic_eyes")
 	local target = self:GetCursorPosition()
-	if (self:GetCursorPosition() - caster:GetAbsOrigin()):Length2D() > 0 then
-		caster:SetForwardVector((self:GetCursorPosition() - caster:GetAbsOrigin()):Normalized())
+	if caster:HasModifier("modifier_ryougi_glass_moon_recast") then
+		caster:RemoveModifierByName("modifier_ryougi_glass_moon_recast")
+		self:Cast2(target)
+	else
+		caster:AddNewModifier(caster, self, "modifier_ryougi_glass_moon_recast", {duration = self:GetSpecialValueFor("recast_window")})
+		self:Cast1(target)
 	end
-	caster:AddNewModifier(caster, self, "modifier_ryougi_glass_moon", {duration = 0.21})
-	StartAnimation(caster, {duration=0.315, activity=ACT_DOTA_CAST_ABILITY_1, rate=2})
-	Timers:CreateTimer(0.0, function()
-		caster:EmitSound("ryougi_moon_1")
-		local origin = caster:GetAbsOrigin()
-		local true_dist = (Vector(target.x, target.y, 0) - Vector(origin.x, origin.y, 0)):Length2D()
-		local direction = (Vector(target.x, target.y, 0) - Vector(origin.x, origin.y, 0)):Normalized()
-		if true_dist > self:GetSpecialValueFor("dash_range") then
-			true_dist = self:GetSpecialValueFor("dash_range")
-		end
-		local range = self:GetSpecialValueFor("range")
+end
 
-		if (Vector(target.x, target.y, 0) == Vector(origin.x, origin.y, 0)) then
-			direction = caster:GetForwardVector()
-		end
-		local counter = 0
+function ryougi_glass_moon:Cast1(target)
+	local caster = self:GetCaster()
+	local eyes = caster:FindAbilityByName("ryougi_mystic_eyes")
+	local ori = caster:GetAbsOrigin()
+	local range = self:GetSpecialValueFor("dash_range") + caster:GetCastRangeBonus()
+	if (target - ori):Length2D() > range then
+		target = ori + (target - ori):Normalized()*range
+	end
 
-		caster:AddNewModifier(caster, self, "modifier_ryougi_glass_moon", {duration = 0.215})
-
-		local speed = self:GetSpecialValueFor("dash_range")/0.115
-
-		local sin = Physics:Unit(caster)
-		caster:SetPhysicsFriction(0)
-		caster:SetPhysicsVelocity(direction*speed)
-		caster:SetNavCollisionType(PHYSICS_NAV_NONE)
-
-		Timers:CreateTimer("ryougi_dash", {
-			endTime = true_dist/speed,
-			callback = function()
-
-			local effect_cast = ParticleManager:CreateParticle( "particles/ryougi/ryougi_step_blue.vpcf", PATTACH_WORLDORIGIN, self:GetCaster() )
-		  	ParticleManager:SetParticleControl( effect_cast, 0, origin )
-		    ParticleManager:SetParticleControl( effect_cast, 1, caster:GetAbsOrigin())
-		    ParticleManager:SetParticleControl( effect_cast, 2, caster:GetAbsOrigin() )
-		    Timers:CreateTimer(1.0, function()
-		        ParticleManager:DestroyParticle(effect_cast, true)
-		        ParticleManager:ReleaseParticleIndex( effect_cast )
-		    end)
-			
-			caster:OnPreBounce(nil)
-			caster:SetBounceMultiplier(0)
-			caster:PreventDI(false)
-			caster:SetPhysicsVelocity(Vector(0,0,0))
-			FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
-
-			--if caster:IsStunned() then return end
-
-			EndAnimation(caster)
-			Timers:CreateTimer(FrameTime(), function()
-				StartAnimation(caster, {duration=0.815, activity=ACT_DOTA_CAST_ABILITY_2, rate=2})
-			end)
-
-			local diff = 0
-
-			Timers:CreateTimer(0.0, function()
-				if not caster:IsAlive() then return end
-
-				diff = math.min(diff, range/2)
-
-				caster:AddNewModifier(caster, self, "modifier_ryougi_glass_moon", {duration = 0.3})
-
-				Timers:CreateTimer(0, function()
-					if not caster:IsAlive() then
-						return
-					end
-					if not caster:HasModifier("modifier_ryougi_glass_moon") then
-						FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
-						return
-					end
-
-					counter = counter + 1
-
-					
-					local origin_t = caster:GetAbsOrigin()
-					caster:SetForwardVector(direction)
-					caster:SetAbsOrigin(GetGroundPosition(origin_t + direction*range/0.3*0.033, caster))
-
-					if counter == 6 then
-						local enemies = FindUnitsInLine(
-											        caster:GetTeamNumber(),
-											        caster:GetAbsOrigin(),
-											        caster:GetAbsOrigin() - caster:GetForwardVector()*100,
-											        nil,
-											        200,
-													self:GetAbilityTargetTeam(),
-													self:GetAbilityTargetType(),
-													self:GetAbilityTargetFlags()
-			    								)
-
-					    caster:EmitSound("jtr_slash")
-
-					    local damage = self:GetSpecialValueFor("damage")
-
-					    Timers:CreateTimer(0, function()
-					    	if caster and IsValidEntity(caster) and enemies and #enemies>0 then
-							    for _, enemy in pairs(enemies) do
-							        DoDamage(caster, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
-							        EmitSoundOn("ryougi_hit", enemy)
-							        eyes:CutLine(enemy, "glass_moon")
-
-							        --self:PlayEffects2(enemy)
-
-							      	--enemy:EmitSound("jtr_slash")
-							    end
-							end
-						end)
-						local particle = ParticleManager:CreateParticle("particles/ryougi/ryougi_slash_blue.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
-						ParticleManager:SetParticleControl(particle, 0, caster:GetAbsOrigin())
-						ParticleManager:SetParticleControl(particle, 5, Vector(300, 0, 200)) 
-						ParticleManager:SetParticleControl(particle, 10, Vector(0, 0, 30))
-
-						Timers:CreateTimer(1, function()
-							ParticleManager:DestroyParticle(particle, false)
-							ParticleManager:ReleaseParticleIndex(particle)
-						end)
-					end
-					return 0.033
-				end)
-			end)
-		return end
-		})
-
-		caster:OnPreBounce(function(unit, normal) -- stop the pushback when unit hits wall
-			Timers:RemoveTimer("ryougi_dash")
-			caster:OnPreBounce(nil)
-			caster:SetBounceMultiplier(0)
-			caster:PreventDI(false)
-			caster:SetPhysicsVelocity(Vector(0,0,0))
-			FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
-
-			local effect_cast = ParticleManager:CreateParticle( "particles/ryougi/ryougi_step_blue.vpcf", PATTACH_WORLDORIGIN, self:GetCaster() )
-		  	ParticleManager:SetParticleControl( effect_cast, 0, origin )
-		    ParticleManager:SetParticleControl( effect_cast, 1, caster:GetAbsOrigin())
-		    ParticleManager:SetParticleControl( effect_cast, 2, caster:GetAbsOrigin() )
-		    Timers:CreateTimer(1.0, function()
-		        ParticleManager:DestroyParticle(effect_cast, true)
-		        ParticleManager:ReleaseParticleIndex( effect_cast )
-		    end)
-
-			--if caster:IsStunned() then return end
-
-			EndAnimation(caster)
-			Timers:CreateTimer(FrameTime(), function()
-				StartAnimation(caster, {duration=0.815, activity=ACT_DOTA_CAST_ABILITY_2, rate=2})
-			end)
-
-
-			Timers:CreateTimer(0.0, function()
-				if not caster:IsAlive() then return end
-				caster:AddNewModifier(caster, self, "modifier_ryougi_glass_moon", {duration = 0.3})
-
-				local diff = 0
-
-				Timers:CreateTimer(0, function()
-					diff = math.min(diff, range/2)
-					if not caster:IsAlive() then
-						return
-					end
-					if not caster:HasModifier("modifier_ryougi_glass_moon") then
-						FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
-						return
-					end
-
-					counter = counter + 1
-
-					local origin_t = caster:GetAbsOrigin()
-					caster:SetForwardVector(direction)
-					caster:SetAbsOrigin(GetGroundPosition(origin_t + direction*range/0.3*0.033, caster))
-
-					if counter == 6 then
-						local enemies = FindUnitsInLine(
-											        caster:GetTeamNumber(),
-											        caster:GetAbsOrigin(),
-											        caster:GetAbsOrigin() - caster:GetForwardVector()*100,
-											        nil,
-											        200,
-													self:GetAbilityTargetTeam(),
-													self:GetAbilityTargetType(),
-													self:GetAbilityTargetFlags()
-			    								)
-
-					    caster:EmitSound("jtr_slash")
-
-					    local damage = self:GetSpecialValueFor("damage")
-
-					    Timers:CreateTimer(0, function()
-					    	if caster and IsValidEntity(caster) and enemies and #enemies>0 then
-							    for _, enemy in pairs(enemies) do
-							        DoDamage(caster, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
-							        EmitSoundOn("ryougi_hit", enemy)
-							        eyes:CutLine(enemy, "glass_moon")
-
-							        --self:PlayEffects2(enemy)
-
-							      	--enemy:EmitSound("jtr_slash")
-							    end
-							end
-						end)
-						local particle = ParticleManager:CreateParticle("particles/ryougi/ryougi_slash_blue.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
-						ParticleManager:SetParticleControl(particle, 0, caster:GetAbsOrigin())
-						ParticleManager:SetParticleControl(particle, 5, Vector(300, 0, 200)) 
-						ParticleManager:SetParticleControl(particle, 10, Vector(0, 0, 60))
-
-						Timers:CreateTimer(1, function()
-							ParticleManager:DestroyParticle(particle, false)
-							ParticleManager:ReleaseParticleIndex(particle)
-						end)
-					end
-					return 0.033
-				end)
-			end)
-		end)
+	caster:EmitSound("ryougi_moon_1")
+	FindClearSpaceForUnit(caster, target, true)
+	
+	local effect_cast = ParticleManager:CreateParticle( "particles/ryougi/ryougi_step_blue.vpcf", PATTACH_WORLDORIGIN, caster )
+	ParticleManager:SetParticleControl( effect_cast, 0, ori )
+	ParticleManager:SetParticleControl( effect_cast, 1, target)
+	ParticleManager:SetParticleControl( effect_cast, 2, target)
+	Timers:CreateTimer(1.0, function()
+	    ParticleManager:DestroyParticle(effect_cast, true)
+	    ParticleManager:ReleaseParticleIndex( effect_cast )
 	end)
 end
 
-modifier_ryougi_glass_moon = class({})
+function ryougi_glass_moon:Cast2(target)
+	local caster = self:GetCaster()
+	local eyes = caster:FindAbilityByName("ryougi_mystic_eyes")
+	local ori = caster:GetAbsOrigin()
+	local range = self:GetSpecialValueFor("leap_range")
+	local direction = (target - ori):Normalized()
+	local counter = 0
 
-function modifier_ryougi_glass_moon:CheckState()
-	return { --[MODIFIER_STATE_INVULNERABLE] = true,
-			 [MODIFIER_STATE_NO_HEALTH_BAR]	= true,
-			 [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
-			 [MODIFIER_STATE_NOT_ON_MINIMAP] = true,
-			 [MODIFIER_STATE_UNSELECTABLE] = true,
-			 [MODIFIER_STATE_STUNNED] = true}
+	EmitSoundOn("ryougi_knife_"..math.random(1,4), caster)
+
+	caster:AddNewModifier(caster, self, "modifier_ryougi_glass_moon_2", {duration = 0.3})
+
+	StartAnimation(caster, {duration=0.815, activity=ACT_DOTA_CAST_ABILITY_2, rate=2})
+
+	Timers:CreateTimer(0, function()
+		if not caster:IsAlive() then
+			return
+		end
+		if not caster:HasModifier("modifier_ryougi_glass_moon_2") then
+			FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
+			return
+		end
+
+		counter = counter + 1
+					
+		local origin_t = caster:GetAbsOrigin()
+		caster:SetForwardVector(direction)
+		caster:SetAbsOrigin(GetGroundPosition(origin_t + direction*range/0.3*0.033, caster))
+
+		if counter == 6 then
+			local enemies = FindUnitsInRadius(  caster:GetTeamNumber(),
+                   						caster:GetAbsOrigin(),
+                                        nil,
+                                        self:GetSpecialValueFor("radius"),
+                                        DOTA_UNIT_TARGET_TEAM_ENEMY,
+                                        DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+                                        DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+                                        FIND_ANY_ORDER,
+                                        false)
+
+			caster:EmitSound("jtr_slash")
+		
+		    local damage = self:GetSpecialValueFor("damage")
+
+		    Timers:CreateTimer(0, function()
+		    	if caster and IsValidEntity(caster) and enemies and #enemies>0 then
+				    for _, enemy in pairs(enemies) do
+				        DoDamage(caster, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+				        EmitSoundOn("ryougi_hit", enemy)
+				        eyes:CutLine(enemy, "glass_moon")
+
+				    end
+				end
+			end)
+
+			local particle = ParticleManager:CreateParticle("particles/ryougi/ryougi_slash_blue.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+			ParticleManager:SetParticleControl(particle, 0, caster:GetAbsOrigin())
+			ParticleManager:SetParticleControl(particle, 5, Vector(350, 0, 200)) 
+			ParticleManager:SetParticleControl(particle, 10, Vector(0, 0, 30))
+
+			Timers:CreateTimer(1, function()
+				ParticleManager:DestroyParticle(particle, false)
+				ParticleManager:ReleaseParticleIndex(particle)
+			end)
+		end
+	return 0.033
+	end)
 end
 
-function modifier_ryougi_glass_moon:IsHidden() return true end
+modifier_ryougi_glass_moon_recast = class({})
+
+function modifier_ryougi_glass_moon_recast:IsHidden() return false end
+
+function modifier_ryougi_glass_moon_recast:OnCreated()
+	if IsServer() then
+		self.ability = self:GetAbility()
+		self.ability:EndCooldown()
+	end
+end
+
+function modifier_ryougi_glass_moon_recast:OnDestroy()
+	if IsServer() then
+		self.ability:StartCooldown(self.ability:GetCooldown(-1))
+	end
+end
 
 modifier_ryougi_glass_moon_2 = class({})
 
 function modifier_ryougi_glass_moon_2:CheckState()
 	return { [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
+			 [MODIFIER_STATE_UNTARGETABLE_ENEMY] = true,
+			 [MODIFIER_STATE_NO_HEALTH_BAR] = true,
 			 [MODIFIER_STATE_DISARMED] = true,
-			 [MODIFIER_STATE_SILENCED] = true,
+			 [MODIFIER_STATE_SILENCED] = false,
 			 [MODIFIER_STATE_MUTED] = true,
 			 [MODIFIER_STATE_ROOTED] = true,
 			 [MODIFIER_STATE_COMMAND_RESTRICTED] = false }

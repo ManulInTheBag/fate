@@ -31,7 +31,7 @@ if IsServer() then
 		local modifier = args.target:AddNewModifier(args.attacker, self:GetAbility(), "modifier_rune_of_combat_hit", { Duration = 3 })
 
 		if modifier then
-			if modifier:GetStackCount() % 6 < 1 then 
+			if modifier:GetStackCount() % 4 < 1 then 
 				args.target:AddNewModifier(args.attacker, self:GetAbility(), "modifier_stunned", { Duration = 0.25})
 			end
 		end

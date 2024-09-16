@@ -18,7 +18,7 @@ function diarmuid_gae_buidhe:GetManaCost(iLevel)
 	local caster = self:GetCaster()
 
 	if caster:HasModifier("modifier_rampant_warrior") then
-		return 250
+		return 200
 	elseif caster:HasModifier("modifier_doublespear_attribute") then
 		return 400
 	else
@@ -84,7 +84,7 @@ function diarmuid_gae_buidhe:GetCastPoint()
 	local caster = self:GetCaster()
 
 	if caster:HasModifier("modifier_rampant_warrior") then
-		return 0.4
+		return 0.2
 	elseif caster:HasModifier("modifier_golden_rose_attribute") then
 		return 0.4
 	else

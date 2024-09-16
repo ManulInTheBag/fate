@@ -18,7 +18,7 @@ function atalanta_golden_apple:OnSpellStart()
     local forwardVector = caster:GetForwardVector()
     local duration = self:GetSpecialValueFor("lure_duration")
     local aoe = self:GetAOERadius()
-    local speed = 1500
+    local speed = 6000
     local delay = math.max(0.1, (position - origin):Length() / speed)
     --caster:CloseTraps(self)
     caster:ShootArrow({

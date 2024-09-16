@@ -8,7 +8,7 @@ function modifier_jeanne_luminosite_eternelle:OnCreated()
 	self.parent = self:GetParent()
 	self.hp_heal = self:GetAbility():GetSpecialValueFor("heal_per_second")
 	if self.parent.IsDivineSymbolAcquired then
-		self.hp_heal = self.hp_heal + 50
+		self.hp_heal = self.hp_heal*1.5
 	end
 	
 	local caster = self:GetCaster()
@@ -96,6 +96,9 @@ function modifier_jeanne_luminosite_eternelle:OnRefresh()
 	if not IsServer() then return end
 	self.parent = self:GetParent()
 	self.hp_heal = self:GetAbility():GetSpecialValueFor("heal_per_second")
+	if self.parent.IsDivineSymbolAcquired then
+		self.hp_heal = self.hp_heal*1.5
+	end
 
 	self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_jeanne_luminosite_eternelle_barrier", {duration = self:GetAbility():GetSpecialValueFor("channel_duration")})
 	

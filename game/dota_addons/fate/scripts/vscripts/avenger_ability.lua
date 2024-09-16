@@ -352,6 +352,7 @@ function OnVengeanceEnd(keys)
 	local caster = keys.caster
 	local target = keys.target
 	DoDamage(target, caster, keys.Damage * keys.ReturnAmount/100, DAMAGE_TYPE_MAGICAL, 0, keys.ability, false)
+	DoDamage(target, caster, 1, DAMAGE_TYPE_PURE, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, keys.ability, false)
 end
 
 function OnBloodStart(keys)

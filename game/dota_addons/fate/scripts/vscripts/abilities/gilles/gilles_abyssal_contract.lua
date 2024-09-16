@@ -43,7 +43,7 @@ function gilles_abyssal_contract:OnSpellStart()
 		hCaster.Squidlord = nil
 	end
 	EmitGlobalSound("Gilles_Cool")
-	hCaster:AddNewModifier(hCaster, self, "modifier_squidlord_alive", { Duration = 2.9})
+	hCaster:AddNewModifier(hCaster, self, "modifier_squidlord_alive", { Duration = 3.0})
 
 	AddFOWViewer(hCaster:GetTeamNumber(), vTargetPoint, fAOE, fDelay + 0.5, true)
     hCaster:EmitSound("Hero_Warlock.Upheaval")
@@ -107,7 +107,6 @@ function gilles_abyssal_contract:OnSpellStart()
 			end)
 			hSquidLordz:AddNewModifier(hCaster, self, "modifier_kill", { duration = 91.0 })
 			hSquidLordz:AddNewModifier(hCaster, self, "modifier_squidlord_death_checker", { Duration = 90 })
-			hCaster:AddNewModifier(hCaster, self, "modifier_squidlord_alive", { Duration = 90})
 
 			EmitGlobalSound("ZC.Ravage")
 

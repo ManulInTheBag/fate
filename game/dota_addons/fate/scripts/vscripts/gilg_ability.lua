@@ -439,7 +439,7 @@ function OnMaxEnumaStart(keys)
 	local targetPoint = keys.target_points[1]
 	local frontward = caster:GetForwardVector()
 	giveUnitDataDrivenModifier(keys.caster, keys.caster, "pause_sealdisabled", 5.0)
-	--giveUnitDataDrivenModifier(caster, caster, "jump_pause", 4.5)
+	giveUnitDataDrivenModifier(caster, caster, "jump_pause", 5.0)
 	LoopOverPlayers(function(player, playerID, playerHero)
 		--print("looping through " .. playerHero:GetName())
 		if playerHero.zlodemon == true then

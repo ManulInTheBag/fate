@@ -40,7 +40,7 @@ function tamamo_amaterasu:OnSpellStart()
 	local ability = self
 	local radius = self:GetSpecialValueFor("radius")
 	local duration = self:GetSpecialValueFor("duration")
-	--local SilenceDuration = caster.MasterUnit2:FindAbilityByName("tamamo_attribute_witchcraft"):GetSpecialValueFor("silence_duration")
+	local SilenceDuration = caster.MasterUnit2:FindAbilityByName("tamamo_attribute_witchcraft"):GetSpecialValueFor("silence_duration")
 	if caster.CurrentAmaterasuDummy ~= nil then
 		if IsValidEntity(caster.CurrentAmaterasuDummy) or not caster.CurrentAmaterasuDummy:IsNull() then
 			caster.CurrentAmaterasuDummy:RemoveModifierByName("modifier_amaterasu_aura")
@@ -68,6 +68,7 @@ function tamamo_amaterasu:OnSpellStart()
 		local enemies = FindUnitsInRadius(caster:GetTeam(), caster.AmaterasuCastLoc, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
 		for i = 1, #enemies do
 			enemies[i]:AddNewModifier(caster, ability, "modifier_amaterasu_enemy_slow", { duration = 1.5 })
+			enemies[i]:AddNewModifier(caster, ability, "modifier_silence", { duration = SilenceDuration })
 		end
 	end
 
@@ -271,7 +272,7 @@ function modifier_amaterasu_enemy:OnAbilityExecuted(args)
         ParticleManager:SetParticleControlEnt(particle,	0, caster,	PATTACH_POINT_FOLLOW, "attach_hitloc", caster:GetOrigin(), true)
         ParticleManager:SetParticleControlEnt(particle,	1, hero,	PATTACH_POINT_FOLLOW, "attach_origin", hero:GetOrigin(), true)
         hero.AmaterasuProcCd = true
-        Timers:CreateTimer(1, function()
+        Timers:CreateTimer(2, function()
         	hero.AmaterasuProcCd = false
     	end)
     end

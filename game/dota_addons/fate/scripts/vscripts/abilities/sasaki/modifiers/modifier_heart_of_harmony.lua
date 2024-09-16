@@ -106,7 +106,7 @@ function modifier_heart_of_harmony:OnTakeDamage(args)
                     end
             
                 end)
-                target:AddNewModifier(caster, target, "modifier_stunned", {Duration = FrameTime()})
+                target:AddNewModifier(caster, target, "modifier_stunned", {Duration = self.StunDuration})
             --else
               --  caster:EmitSound("Sasaki_Counter_Fail_" .. math.random(1,2))
             --end

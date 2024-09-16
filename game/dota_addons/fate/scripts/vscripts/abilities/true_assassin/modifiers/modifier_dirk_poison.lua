@@ -10,16 +10,16 @@ end
 
 function modifier_dirk_poison:OnCreated(table)
 	if IsServer() then
-		--self.PoisonDamage = table.PoisonDamage * 0.5
-		--self.PoisonSlow	= table.PoisonSlow
+		self.PoisonDamage = table.PoisonDamage * 0.5
+		self.PoisonSlow	= table.PoisonSlow
 
-		--local target = self:GetParent()
-		--[[if not IsImmuneToSlow(target) then
+		local target = self:GetParent()
+		if not IsImmuneToSlow(target) then
 			target:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_dirk_poison_slow", { PoisonSlow = self.PoisonSlow,
 																									  Duration = self:GetDuration() })
-		end]]
+		end
 
-		--self:StartIntervalThink(0.5)
+		self:StartIntervalThink(0.5)
 	end
 end
 
@@ -36,7 +36,7 @@ function modifier_dirk_poison:OnIntervalThink()
 		stacks = target:GetModifierStackCount("modifier_weakening_venom", self:GetAbility())
 	end
 
-	--DoDamage(caster, target, self.PoisonDamage * stacks, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false) 
+	DoDamage(caster, target, self.PoisonDamage * stacks, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false) 
 end
 
 function modifier_dirk_poison:GetAttributes()

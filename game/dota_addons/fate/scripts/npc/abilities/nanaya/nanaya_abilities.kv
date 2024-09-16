@@ -17,17 +17,26 @@
 		"AbilityCastPoint" 				"0.15"
 		"AnimationPlaybackRate" 		"2"
 		"AbilityCooldown"				"26 24 22 20 18"
-		"AbilityCastRange"				"550"
+		"AbilityCastRange"				"650"
 		"AbilityCastRangeBuffer"		"175"
 		"AbilityManaCost"				"80"
-	  
+
+		"precache"
+		{
+			"particle"					"particles/nanaya_work_2.vpcf"
+			"particle"					"particles/nanaya_hit_test.vpcf"
+			"particle"					"particles/nanaya_work_22.vpcf"
+			"particle"					"particles/test_part6.vpcf"
+			"particle"					"particles/hit2.vpcf"
+			"particle"					"particles/nanaya_jump_back.vpcf"
+		}
 	  	
 		"AbilityValues"
 		{	
 			"cast_point"							"0.15"
 			"kick_damage"							"180 225 270 315 360"
 			"attribute_kick_agility_multiplier"		"0.8"
-			"kick_range"							"550"
+			"kick_range"							"650"
 			"fly_damage"							"60 75 90 105 120"
 			"attribute_fly_agility_multiplier"		"0.4"
 			"fly_range"								"1000"
@@ -53,6 +62,14 @@
 	  	"AnimationPlaybackRate" 		"2"
 	  	"AbilityCooldown"				"16 15 14 13 12"
 	  	"AbilityManaCost"				"200"
+
+	  	"precache"
+		{
+			"particle"					"particles/nanaya_knifethrow.vpcf"
+			"particle"					"particles/heroes/anime_hero_sniper/sniper_knife_projectile.vpcf"
+			"particle"					"particles/nanaya_work_2_great.vpcf"
+			"particle"					"particles/blink.vpcf"
+		}
 
 		"AbilityValues"
 		{	
@@ -80,11 +97,23 @@
 		"AbilityTextureName"			"custom/nanaya/nanaya_combo"
 		"AbilityCastAnimation" 			"ACT_DOTA_ITEM_PICKUP"
 		"AnimationPlaybackRate" 		"1.0"
-		"AbilityCooldown"				"110"
+		"AbilityCooldown"				"70"
+
+		"precache"
+		{
+			"particle"					"particles/nanaya_last_arc.vpcf"
+			"particle"					"particles/nanaya_last_arc2.vpcf"
+			"particle"					"particles/maybedashvpcffinalfinal.vpcf"
+			"particle"					"particles/screen_spla22_ark.vpcf"
+			"particle"					"particles/test_part2.vpcf"
+			"particle"					"particles/pa_arcana_phantom_strike_end2.vpcf"
+			"particle"					"particles/ls_ti10_immortal_infest_groundfollow_trace.vpcf"
+			"particle"					"particles/justcheck.vpcf"
+		}
 
 		"AbilityValues"
 		{
-			"damage"					"1600"
+			"damage"					"1800"
 		}
 	}
 
@@ -108,6 +137,14 @@
 		"AbilityCastRange"				"550"
 		"AbilityCastRangeBuffer"		"0"
 		"AbilityManaCost"				"0"
+
+		"precache"
+		{
+			"particle"					"particles/shiki_blink_after.vpcf"
+			"particle"					"particles/items_fx/dagon.vpcf"
+			"particle"					"particles/custom/lancer/lancer_culling_blade_kill.vpcf"
+			"particle"					"particles/blink.vpcf"
+		}
 	  
 	  	
 		"AbilityValues"
@@ -136,6 +173,12 @@
 		//"AbilityCastRange"				"350"
 		"AbilityTextureName"			"custom/nanaya/nanaya-D2"
 		"AbilityManaCost"				"100"
+
+		"precache"
+		{
+			"particle"					"particles/nanaya/nanaya_slash.vpcf"
+			"particle"					"particles/nanaya_work_22.vpcf"
+		}
 	  	
 		"AbilityValues"
 		{	
@@ -157,6 +200,14 @@
 	  "AbilityCastPoint" 			"0.0"
 	  "AbilityCooldown"				"25"
 	  "AbilityManaCost"				"100"
+
+	  "precache"
+		{
+			"particle"					"particles/blink.vpcf"
+			"particle"					"particles/shiki_blink_after.vpcf"
+			"particle"					"particles/status_fx/status_effect_phantom_assassin_fall20_active_blur.vpcf"
+			"particle"					"particles/units/heroes/hero_phantom_assassin/phantom_assassin_active_blur.vpcf"
+		}
 
 		"AbilityValues"
 		{	
@@ -203,18 +254,26 @@
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityBehavior" 				"DOTA_ABILITY_BEHAVIOR_POINT"
 		"AbilityCastAnimation" 			"ACT_SCRIPT_CUSTOM_4"
-		"AbilityCastPoint" 				"0.7"
+		"AbilityCastPoint" 				"0.6"
 		"AnimationPlaybackRate" 		"0.3"
 		"AbilityCooldown"				"27"
 		"AbilityManaCost"				"800"
 	  
+	  	"precache"
+	  	{
+	  		"particle"					"particles/nanaya/nanaya_afterimage.vpcf"
+	  		"particle"					"particles/test_part_small1.vpcf"
+	  		"particle"					"particles/screen_spla22.vpcf"
+	  		"particle"					"particles/nanaya_work_2.vpcf"
+	  		"particle"					"particles/hit21.vpcf"
+	  	}
 	  	
 		"AbilityValues"
 		{
 			"dmg"							"800 1000 1200 1400 1600"
 			"range"							"1000"
 			"width"							"225"
-			"attribute_threshold"			"60"
+			"attribute_threshold"			"80"
 			"attribute_multiplier"			"120"
 			"attribute_agility_multiplier"	"1.5"
 		}
@@ -233,8 +292,6 @@
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"9999"
 		"AbilityManaCost"				"12"
-
-		"LinkedAbilities"				"nanaya_jump_slashes"
 
 		"AbilityValues"
 		{
@@ -258,7 +315,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
 		"AbilityTextureName"			"custom/nanaya/nanaya-D"
 
-		"LinkedAbilities"				"nanaya_slashes"
+		"LinkedAbilities"				"nanaya_dash"
 		
 		
 		"AbilityCastPoint"				"0.0"
@@ -316,7 +373,7 @@
 
 		"AbilityValues"
 		{
-			"threshold"								"60"
+			"threshold"								"80"
 			"invis_duration"						"3"
 		}
 	}

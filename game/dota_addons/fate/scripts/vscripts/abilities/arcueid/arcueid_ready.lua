@@ -82,10 +82,9 @@ function modifier_arcueid_ready:OnCreated()
 		StartAnimation(self.caster, {duration=1.3, activity=ACT_DOTA_CAST_ABILITY_5, rate=1.0})
 
 		self.damage = self.ability:GetSpecialValueFor("damage")
-		self.collide_damage = self.ability:GetSpecialValueFor("collide_damage")
 		self.ori = self.enemy:GetAbsOrigin()
 		if self.caster.MonstrousStrengthAcquired then
-			self.collide_damage = self.collide_damage + self.caster:GetStrength()*self.ability:GetSpecialValueFor("collide_mult")
+			self.damage = self.damage + self.caster:GetStrength()*self.ability:GetSpecialValueFor("str_mult")
 		end
 		self.direction = (self.ori - self.caster:GetAbsOrigin()):Normalized()
 		if self.caster:GetAbsOrigin() == self.ori then
@@ -231,6 +230,9 @@ function modifier_arcueid_ready:Smash()
     local enemies = FindUnitsInRadius(caster:GetTeam(), hit_point, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, FIND_ANY_ORDER, false)
     for _,enemy in pairs(enemies) do
         if enemy and not enemy:IsNull() and IsValidEntity(enemy) then
+        	if caster.RecklesnessAcquired then
+				caster:PerformAttack( enemy, true, true, true, true, false, true, false )
+			end
             if not enemy:IsMagicImmune() then
             	EmitSoundOn("arcueid_hit", enemy)
                 DoDamage(caster, enemy, self.damage, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
@@ -246,7 +248,7 @@ function modifier_arcueid_ready:Slash()
 
 	local particle = ParticleManager:CreateParticle("particles/arcueid/arcueid_slash.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 	ParticleManager:SetParticleControl(particle, 0, caster:GetAbsOrigin())
-	ParticleManager:SetParticleControl(particle, 5, Vector(radius + 50, 0, 70))
+	ParticleManager:SetParticleControl(particle, 5, Vector(radius + 150, 0, 70))
 	ParticleManager:SetParticleControl(particle, 10, Vector(0, 0, 180))
 	Timers:CreateTimer(1, function()
 		ParticleManager:DestroyParticle(particle, false)
@@ -256,7 +258,7 @@ function modifier_arcueid_ready:Slash()
 	caster:EmitSound("arcueid_swing")
 
 	local enemies = FindUnitsInRadius(  caster:GetTeamNumber(),
-	                                    caster:GetAbsOrigin(),
+	                                    caster:GetAbsOrigin() + caster:GetForwardVector()*150,
 	                                    nil,
 	                                   	radius,
 	                                    DOTA_UNIT_TARGET_TEAM_ENEMY,
@@ -266,12 +268,16 @@ function modifier_arcueid_ready:Slash()
 	                                    false)
 
 	for _,enemy in pairs(enemies) do
-		local origin_diff = enemy:GetAbsOrigin() - caster:GetAbsOrigin()
+		--[[local origin_diff = enemy:GetAbsOrigin() - caster:GetAbsOrigin()
 		local origin_diff_norm = origin_diff:Normalized()
-		if caster:GetForwardVector():Dot(origin_diff_norm) > 0 then
-			EmitSoundOn("arcueid_hit", enemy)
-		    DoDamage(caster, enemy, self.damage , DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
+		if caster:GetForwardVector():Dot(origin_diff_norm) > 0 then]]
+		EmitSoundOn("arcueid_hit", enemy)
+		if caster.RecklesnessAcquired then
+			caster:PerformAttack( enemy, true, true, true, true, false, true, false )
 		end
+		DoDamage(caster, enemy, self.damage , DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
+		giveUnitDataDrivenModifier(caster, enemy, "locked", self.ability:GetSpecialValueFor("lock_duration"))
+		--end
 	end
 end
 

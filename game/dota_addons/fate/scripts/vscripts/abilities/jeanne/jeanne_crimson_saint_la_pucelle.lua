@@ -91,10 +91,8 @@ function jeanne_crimson_saint_la_pucelle:OnSpellStart()
 				ParticleManager:SetParticleControlEnt(effect_target, 1, enemy, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", Vector(0, 0, 0), true)
 				ParticleManager:ReleaseParticleIndex( effect_target )
 			end
-			
-			if caster:IsAlive() then
-				caster:Execute(self, caster, { bExecution = true })
-			end
+			caster:RemoveModifierByName("modifier_jeanne_crimson_saint")
+			caster:SetHealth(caster:GetHealth()/2)
 		end
 		return
 	end)

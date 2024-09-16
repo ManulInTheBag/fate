@@ -211,14 +211,14 @@ function OnBloodfortStart(keys)
 		        caster:ApplyHeal(target_absorb * 0.5, caster)
 		        caster:GiveMana(target_absorb * 0.175)
 
-				--[[if caster.IsSealAcquired and (bloodfortCount % 1 == 0) then  
+				if caster.SealAcquired and (bloodfortCount % 1 == 0) then  
 					forcemove.UnitIndex = v:entindex()
 					ExecuteOrderFromTable(forcemove) 
-					Timers:CreateTimer(0.1, function()
+					Timers:CreateTimer(0.15, function()
 						v:Stop()
 					end)
 					ability:ApplyDataDrivenModifier(caster,v, "modifier_bloodfort_seal", {})
-				end]]
+				end
 			end
 	    end
 		bloodfortCount = bloodfortCount + 0.5

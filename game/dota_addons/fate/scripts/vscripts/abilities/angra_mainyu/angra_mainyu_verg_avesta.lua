@@ -37,7 +37,7 @@ function angra_mainyu_verg_avesta:OnSpellStart()
 			multiplier = multiplier + self:GetSpecialValueFor("return_bonus")
 		end
 
-		damage = damage * (multiplier / 100)
+		damage = damage * (multiplier / 100) + self:GetSpecialValueFor("damage")
 
 		LoopOverPlayers(function(player, playerID, playerHero)
 	        if playerHero:IsAlive() and playerHero:HasModifier("modifier_verg_marker") and not playerHero:IsMagicImmune() then

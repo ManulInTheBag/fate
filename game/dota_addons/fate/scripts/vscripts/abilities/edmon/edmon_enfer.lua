@@ -112,7 +112,7 @@ function modifier_edmon_enfer:UpdateHorizontalMotion(me, dt)
 	self.distelapsed = self.distelapsed - dt*self.speed
 
     if self.distelapsed <= 0 then
-        --self:BOOM()
+        self:BOOM(nil)
 
         self:Destroy()
         return nil
@@ -121,14 +121,17 @@ function modifier_edmon_enfer:UpdateHorizontalMotion(me, dt)
     self:Rush(me, dt)
 end
 function modifier_edmon_enfer:BOOM(target)
-    local position = target:GetAbsOrigin()
     local caster = self:GetParent()
+
+    local origin = caster:GetAbsOrigin()
+    if target then
+    	origin = target:GetAbsOrigin()
+    end
 
    	local duration = 1.6
 	local interval = 0.6
 	local count = 0
 	local radius = self.ability:GetSpecialValueFor("radius")
-	local origin = target:GetAbsOrigin()
 	local damage = self.ability:GetSpecialValueFor("hit_damage") + (caster.HellfireAcquired and 25 or 0)
 	local last_damage = self.ability:GetSpecialValueFor("last_damage") + (caster.HellfireAcquired and 1500 or 0)
 	local burn_damage = self.ability:GetSpecialValueFor("burn_damage") + (caster.HellfireAcquired and 1000 or 0)
@@ -137,8 +140,10 @@ function modifier_edmon_enfer:BOOM(target)
 	--EmitGlobalSound("edmon_enfer_zuzup")
 
 	caster:AddNewModifier(caster, self, "modifier_edmon_ult", {duration = duration + 3.2})
-	giveUnitDataDrivenModifier(caster, target, "locked", 1.5)
-	giveUnitDataDrivenModifier(caster, target, "rooted", 1.5)
+	if target then
+		giveUnitDataDrivenModifier(caster, target, "locked", 1.5)
+		giveUnitDataDrivenModifier(caster, target, "rooted", 1.5)
+	end
 	
 	Timers:CreateTimer(function()
         if count < duration and caster and caster:IsAlive() then

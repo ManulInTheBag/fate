@@ -225,6 +225,7 @@ function OnHornCast(keys)
 		return 
 	end 
 	caster:EmitSound("Astolfo_Luna_" .. RandomInt(1, 2))
+	StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_CAST_ABILITY_3, rate=1.5})
 end
 
 function OnHornStart(keys)
@@ -318,7 +319,7 @@ function OnHornThink(keys)
 
 	if caster.IsDeafeningBlastAcquired then
     	ProjectileManager:ProjectileDodge(caster)
-    	damage = damage + 75
+    	damage = damage + 150
     	caster.rape_count = caster.rape_count + 1
     end
 
@@ -357,7 +358,7 @@ function OnHornInterrupted(keys)
 		for k,v in pairs(rapeTargets) do
 			ability:ApplyDataDrivenModifier(caster, v, "modifier_la_black_luna_slow2", {})
 			keys.ability:ApplyDataDrivenModifier(caster,v, "modifier_astolfo_mute2", {})
-			DoDamage(caster, v, 1000, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+			DoDamage(caster, v, 1000, DAMAGE_TYPE_PURE, 0, ability, false)
 			local shockwaveIndex = ParticleManager:CreateParticle("particles/custom/astolfo/la_black_luna/la_black_luna_shockwave.vpcf", PATTACH_CUSTOMORIGIN, nil)
    			ParticleManager:SetParticleControl( shockwaveIndex, 0, caster:GetAbsOrigin())
     		ParticleManager:SetParticleControl( shockwaveIndex, 1, Vector(500,0,0))

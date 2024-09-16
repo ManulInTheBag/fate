@@ -41,6 +41,8 @@ end
 function modifier_arcueid_eyes:OnIntervalThink()
 	local caster = self:GetParent()
 	local ability = self:GetAbility()
+	local damage = caster:GetHealthRegen()/2
+
 	local forcemove = {
 		UnitIndex = nil,
 		OrderType = DOTA_UNIT_ORDER_ATTACK_TARGET ,
@@ -54,7 +56,10 @@ function modifier_arcueid_eyes:OnIntervalThink()
 		forcemove.UnitIndex = v:entindex()
 		forcemove.TargetIndex = caster:entindex()
 		v:Stop()
-		ExecuteOrderFromTable(forcemove) 
+		ExecuteOrderFromTable(forcemove)
+
+		DoDamage(caster, v, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+
 		local particle = ParticleManager:CreateParticle("particles/arcueid/arc_eyes_target.vpcf", PATTACH_ABSORIGIN_FOLLOW, v)
 		ParticleManager:SetParticleControl(particle, 0, v:GetAbsOrigin())
 	end

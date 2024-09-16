@@ -4407,7 +4407,7 @@ function FateGameMode:FinishRound(IsTimeOut, winner)
                     else
                         playerHero.ShardAmount = playerHero.ShardAmount + 1
                     end
-                    for i=1,3 do
+                    for i=1,2 do
                         local level = playerHero:GetLevel()
                         if level ~= 24 then
                             playerHero:AddExperience(_G.XP_PER_LEVEL_TABLE[level], false, false)
@@ -4425,7 +4425,7 @@ function FateGameMode:FinishRound(IsTimeOut, winner)
                     else
                         playerHero.ShardAmount = playerHero.ShardAmount + 1
                     end
-                    for i=1,3 do
+                    for i=1,2 do
                         local level = playerHero:GetLevel()
                         if level ~= 24 then
                             playerHero:AddExperience(_G.XP_PER_LEVEL_TABLE[level], false, false)

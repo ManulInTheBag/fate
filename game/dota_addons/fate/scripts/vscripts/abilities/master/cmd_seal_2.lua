@@ -91,6 +91,28 @@ function cmd_seal_2:OnSpellStart()
 		end
 	end
 
+	if(hero:GetName() == "npc_dota_hero_ursa"  ) then
+		if(hero:FindAbilityByName("atalanta_jump"):GetCurrentAbilityCharges() ~= hero:FindAbilityByName("atalanta_jump"):GetMaxAbilityCharges(-1)) then
+			
+			hero:FindAbilityByName("atalanta_jump"):SetCurrentAbilityCharges(hero:FindAbilityByName("atalanta_jump"):GetCurrentAbilityCharges() + 1)
+		end
+	end
+
+	if(hero:GetName() == "npc_dota_hero_faceless_void"  ) then
+		if(hero:FindAbilityByName("altera_dash"):GetCurrentAbilityCharges() ~= hero:FindAbilityByName("altera_dash"):GetMaxAbilityCharges(-1)) then
+			
+			hero:FindAbilityByName("altera_dash"):SetCurrentAbilityCharges(hero:FindAbilityByName("altera_dash"):GetCurrentAbilityCharges() + 1)
+		end
+	end
+
+	if(hero:GetName() == "npc_dota_hero_riki"  ) then
+		if(hero:FindAbilityByName("jtr_dagger_throw"):GetCurrentAbilityCharges() ~= hero:FindAbilityByName("jtr_dagger_throw"):GetMaxAbilityCharges(-1)) then
+			
+			hero:FindAbilityByName("jtr_dagger_throw"):SetCurrentAbilityCharges(hero:FindAbilityByName("jtr_dagger_throw"):GetCurrentAbilityCharges() + 1)
+		end
+	end
+
+
 	if(hero:GetName() == "npc_dota_hero_phantom_assassin"  ) then
 		if(hero:FindAbilityByName("ryougi_knife_fan"):GetCurrentAbilityCharges() ~= hero:FindAbilityByName("ryougi_knife_fan"):GetMaxAbilityCharges(-1)) then
 			
