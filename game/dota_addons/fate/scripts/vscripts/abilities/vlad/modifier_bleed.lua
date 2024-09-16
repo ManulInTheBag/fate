@@ -57,7 +57,6 @@ if IsServer() then
   function modifier_bleed:OnIntervalThink()
     local ability = self:GetAbility()
     local dmg = ability:GetSpecialValueFor("dmg")*self:GetStackCount()
-    print(dmg)
     DoDamage(self:GetCaster(), self:GetParent(), dmg, DAMAGE_TYPE_MAGICAL, 0, ability, false)
   end
 

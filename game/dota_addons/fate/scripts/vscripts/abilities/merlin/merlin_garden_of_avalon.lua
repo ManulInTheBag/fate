@@ -16,13 +16,13 @@ function merlin_garden_of_avalon:OnSpellStart()
     masterCombo:StartCooldown(self:GetCooldown(1))
 	caster:AddNewModifier(caster, self, "modifier_merlin_combo_cd", {duration = self:GetCooldown(1)})
 	caster:RemoveModifierByName("modifier_merlin_avalon")
-	caster:AddNewModifier(caster, self, "modifier_merlin_avalon_self_disable", {duration = 4})
+	caster:AddNewModifier(caster, self, "modifier_merlin_avalon_self_disable", {duration = 3})
 
 	local counter = 0	 
 	self.sound = "garden_of_avalon_"..math.random(1,2)
 	EmitGlobalSound(self.sound)
 
-	Timers:CreateTimer(4, function()       
+	Timers:CreateTimer(3, function()       
 		if(caster:IsAlive() == false) then    
 			StopGlobalSound(self.sound)
 			return end
@@ -32,12 +32,12 @@ function merlin_garden_of_avalon:OnSpellStart()
 		if(caster:HasModifier( "modifier_share_damage")) then
 			caster:RemoveModifierByName( "modifier_share_damage")
 		end
-		caster:AddNewModifier(caster, self, "modifier_merlin_avalon_self", {duration = self:GetSpecialValueFor("duration")+4 })	
+		caster:AddNewModifier(caster, self, "modifier_merlin_avalon_self", {duration = self:GetSpecialValueFor("duration")+4})	
 		StartAnimation(caster, {duration=  self:GetSpecialValueFor("duration")+4, activity=ACT_DOTA_CAST_ABILITY_7, rate=1 })
 		
 		EmitGlobalSound("garden_of_avalon_long")
 	end)
-    Timers:CreateTimer(4.05, function()     
+    Timers:CreateTimer(3.05, function()     
 		if(caster:IsAlive() == false) then    	return end
 		
 		if(counter < 5) then
@@ -153,10 +153,14 @@ function modifier_merlin_garden_of_avalon:DeclareFunctions()
 	return { 
 	MODIFIER_PROPERTY_HEALTH_REGEN_PERCENTAGE,
     MODIFIER_PROPERTY_MANA_REGEN_TOTAL_PERCENTAGE,
-	MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT  }
+	MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
+	MODIFIER_PROPERTY_HEALTH_BONUS  }
 end
 
- 
+function modifier_merlin_garden_of_avalon:GetModifierHealthBonus()
+	return  600
+end
+
 function modifier_merlin_garden_of_avalon:GetModifierHealthRegenPercentage()
 	return self:GetAbility():GetSpecialValueFor("health_regen_bonus");  
 end

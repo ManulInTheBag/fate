@@ -187,6 +187,7 @@ function cl_wrapper(modifier)
 		local ability = self:GetAbility()
 		local aoe = ability:GetSpecialValueFor("aoe")
 		local dmg = ((self.CL_MAX_SHIELD - math.max(self.CL_SHIELDLEFT or 0,0))/self.CL_MAX_SHIELD)*(self.CL_MAX_DMG)
+
 		if dmg > 0 then
 			self:VFX2_PreExplosion(parent)
 			Timers:CreateTimer(0.3, function()
@@ -197,6 +198,9 @@ function cl_wrapper(modifier)
 					local targets = FindUnitsInRadius(parent:GetTeam(), parent:GetOrigin(), nil, aoe, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 					for k,v in pairs(targets) do
 				  	DoDamage(parent, v, dmg, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+					  if dmg >= self.CL_MAX_DMG and parent.InstantCurseAcquired then
+						giveUnitDataDrivenModifier(parent, v, "silenced", 0.75)
+					  end
 					end
 				end)
 			end)

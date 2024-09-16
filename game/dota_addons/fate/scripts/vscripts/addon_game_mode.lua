@@ -3988,6 +3988,7 @@ function FateGameMode:InitializeRound()
     _G.IsPreRound = true
     _G.LaPucelleActivated = false
     _G.FIRST_BLOOD_TRIGGERED = false
+
     --SendChatToPanorama("IR1")
     CreateUITimer("Pre-Round", PRE_ROUND_DURATION, "pregame_timer")
     --FireGameEvent('cgm_timer_display', { timerMsg = "Pre-Round", timerSeconds = 16, timerEnd = true, timerPosition = 0})
@@ -4020,6 +4021,11 @@ function FateGameMode:InitializeRound()
         local hero = playerHero
 
         if hero:GetName() == "npc_dota_hero_target_dummy" then return end
+        if hero:GetName() == "npc_dota_hero_doom_bringer" then 
+            if not hero:HasModifier("modifier_god_hand_stock") then
+                hero:FindAbilityByName("berserker_5th_god_hand"):ApplyDataDrivenModifier(hero, hero, "modifier_god_hand_stock", {}) 
+            end
+        end
         --SendChatToPanorama("IRL2"..plyID)
 
         ResetAbilities(hero)

@@ -25,7 +25,7 @@ function modifier_lu_bu_armistice_leap:OnCreated( params )
 end
 
 function modifier_lu_bu_armistice_leap:OnIntervalThink()
-	local z_axis = (-1) * self:GetElapsedTime() * (self:GetElapsedTime() - self:GetDuration()) * 562 * 4
+	local z_axis = (-1) * self:GetElapsedTime() * (self:GetElapsedTime() - self:GetDuration()) * 562 * 5
 	
 	-- self:GetParent():SetOrigin( GetGroundPosition(self:GetParent():GetOrigin(), nil) + Vector(0, 0, z_axis) )
 

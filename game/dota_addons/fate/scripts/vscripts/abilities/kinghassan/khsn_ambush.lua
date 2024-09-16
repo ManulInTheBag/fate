@@ -100,7 +100,9 @@ function modifier_khsn_ambush:DeclareFunctions()
             MODIFIER_EVENT_ON_ATTACK,
             --MODIFIER_EVENT_ON_ATTACK_LANDED,
             MODIFIER_EVENT_ON_ABILITY_FULLY_CAST,
-            --MODIFIER_EVENT_ON_TAKEDAMAGE
+            --MODIFIER_EVENT_ON_TAKEDAMAGE,
+            MODIFIER_EVENT_ON_ATTACK_START,
+            MODIFIER_EVENT_ON_ORDER
             }
     return funcs
 end
@@ -151,7 +153,27 @@ if IsServer() then
         end
     end
 end
-
+function modifier_khsn_ambush:OnOrder(args)
+    if( args.order_type ~= DOTA_UNIT_ORDER_ATTACK_TARGET ) then return end
+    if args.unit ~= self:GetParent() then return end
+    if args.target:GetTeamNumber() == args.unit:GetTeamNumber() then return end
+    local targetpos = args.target:GetAbsOrigin()
+    local casterpos = args.unit:GetAbsOrigin()
+    local distance = (casterpos-targetpos):Length2D()
+    if distance < 350 then 
+        FindClearSpaceForUnit(args.unit, targetpos + args.target:GetForwardVector() * -50, true)
+    end
+end
+function modifier_khsn_ambush:OnAttackStart(args)
+    if args.attacker ~= self:GetParent() then return end
+    if args.target:GetTeamNumber() == args.attacker:GetTeamNumber() then return end
+    local targetpos = args.target:GetAbsOrigin()
+    local casterpos = args.attacker:GetAbsOrigin()
+    local distance = (casterpos-targetpos):Length2D()
+    if distance < 350 then 
+        FindClearSpaceForUnit(args.attacker, targetpos + args.target:GetForwardVector() * -50, true)
+    end
+end
 function modifier_khsn_ambush:GetModifierMoveSpeedBonus_Percentage()
 	return self:GetAbility():GetSpecialValueFor("ms_bonus")
 end
@@ -189,7 +211,7 @@ end
 modifier_khsn_ambush_as = class({})
 
 function modifier_khsn_ambush_as:DeclareFunctions()
-	return {MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT}
+	return {MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT, MODIFIER_EVENT_ON_ORDER, MODIFIER_EVENT_ON_ATTACK_START}
 end
 
 function modifier_khsn_ambush_as:IsHidden() return false end
@@ -197,4 +219,26 @@ function modifier_khsn_ambush_as:IsDebuff() return false end
 
 function modifier_khsn_ambush_as:GetModifierAttackSpeedBonus_Constant()
 	return self:GetAbility():GetSpecialValueFor("attr_as")
+end
+
+function modifier_khsn_ambush_as:OnOrder(args)
+    if( args.order_type ~= DOTA_UNIT_ORDER_ATTACK_TARGET ) then return end
+    if args.unit ~= self:GetParent() then return end
+    if args.target:GetTeamNumber() == args.unit:GetTeamNumber() then return end
+    local targetpos = args.target:GetAbsOrigin()
+    local casterpos = args.unit:GetAbsOrigin()
+    local distance = (casterpos-targetpos):Length2D()
+    if distance < 350 then 
+        FindClearSpaceForUnit(args.unit, targetpos + args.target:GetForwardVector() * -50, true)
+    end
+end
+function modifier_khsn_ambush_as:OnAttackStart(args)
+    if args.attacker ~= self:GetParent() then return end
+    if args.target:GetTeamNumber() == args.attacker:GetTeamNumber() then return end
+    local targetpos = args.target:GetAbsOrigin()
+    local casterpos = args.attacker:GetAbsOrigin()
+    local distance = (casterpos-targetpos):Length2D()
+    if distance < 350 then 
+        FindClearSpaceForUnit(args.attacker, targetpos + args.target:GetForwardVector() * -50, true)
+    end
 end

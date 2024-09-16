@@ -94,14 +94,30 @@ function vlad_kazikli_bey:OnSpellStart()
 	local bloodpower = 0
   --caster:AddNewModifier(caster,self,"modifier_kazikli_bey",{duration = 4})
 
+  if caster.BloodletterAcquired then
+	if caster:GetHealth()/caster:GetMaxHealth() <= 0.5 then
 
+	  local saDamage = caster.MasterUnit2:FindAbilityByName("vlad_attribute_bloodletter"):GetSpecialValueFor("damage")
+	  local saBleed = caster.MasterUnit2:FindAbilityByName("vlad_attribute_bloodletter"):GetSpecialValueFor("bleed")
+	  local explosionFx = ParticleManager:CreateParticle("particles/vlad/vlad_impale_fort.vpcf", PATTACH_WORLDORIGIN, nil)
+	  ParticleManager:SetParticleControl(explosionFx, 3, caster:GetAbsOrigin())
+	  ParticleManager:ReleaseParticleIndex(explosionFx)
+	  caster:EmitSound("Hero_Lycan.Attack")
+	  local targets = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
+	  for k,v in pairs(targets) do
+		DoDamage(caster, v, saDamage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+		caster:AddBleedStack(v, false, saBleed)
+		giveUnitDataDrivenModifier(caster, v, "rooted", 0.5)
+
+	  end
+	end
+  end
 	--check how many bloodpower stacks vlad has at start of cast and save number
 	if not caster:HasModifier("modifier_transfusion_self") then
 	  	local modifier = caster:FindModifierByName("modifier_transfusion_bloodpower")
 	   	bloodpower = modifier and modifier:GetStackCount() or 0
 	   	local bloodpowerduration = modifier and modifier:GetRemainingTime() or 0
-	   	local attribute_ability = caster.MasterUnit2:FindAbilityByName("vlad_attribute_bloodletter")
-	   	local bloodpowercap = attribute_ability:GetSpecialValueFor("bloodpower_cap")
+	   	local bloodpowercap = 30
 	    caster:ResetImpaleSwapTimer()
 		if bloodpower > 30 then 
 			caster:RemoveModifierByName("modifier_transfusion_bloodpower")
