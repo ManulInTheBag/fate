@@ -129,7 +129,7 @@ function nobu_3000:OnChannelFinish(bInterrupted)
     local vCasterFW = self.caster:GetForwardVector()
     local range = self:GetSpecialValueFor("range")
     if self.caster.NobuActionAcquired then
-        range = range + self:GetSpecialValueFor("attribute_additional_range")
+        range = range + self:GetSpecialValueFor("attribute_additional_range") + 50
     end
     self.caster:AddNewModifier(self.caster, self, "modifier_merlin_self_pause", {Duration = 0.3}) 
     ParticleManager:DestroyParticle( self.particle_kappa, false)

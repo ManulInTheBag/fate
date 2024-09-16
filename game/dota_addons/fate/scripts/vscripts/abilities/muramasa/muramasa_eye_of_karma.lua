@@ -100,7 +100,7 @@ end
     self.atkstacks = self.atkstacks +1
     -------------------------------------------------------
  
-    local debufduration  = self:GetDuration()  + 0.5 - (self:GetDuration() - self:GetRemainingTime())
+    local debufduration  = self:GetDuration()  + 0.75 - (self:GetDuration() - self:GetRemainingTime())
    
     self:GetParent():AddNewModifier(caster,ability, "modifier_muramasa_eye_of_karma", { duration = debufduration,atkstacks = self.atkstacks, visionenabled = self.visionenabled})
     self:GetParent():AddNewModifier(caster, ability, "modifier_vision_provider", { duration = debufduration })

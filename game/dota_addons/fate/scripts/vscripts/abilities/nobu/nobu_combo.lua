@@ -198,6 +198,7 @@ modifier_nobu_combo_self = class({})
 
 function modifier_nobu_combo_self:OnCreated()
     self:StartIntervalThink(0.033)
+    self.gunSpawnCounter = 0
     self.caster = self:GetCaster()
 end
 
@@ -212,9 +213,23 @@ function modifier_nobu_combo_self:OnIntervalThink()
         self:GetAbility():AttackEnemy()
         self:Destroy()
     end
- 
+    if self.gunSpawnCounter >= 5 then
+        self.gunSpawnCounter = 0
+        self.caster:FindAbilityByName("nobu_guns"):DOWShoot({
+            Speed = 10000,
+            iscombo = true,
+            AoE = 50,
+            Range = 1000,
+        },  self.caster:GetAbsOrigin() + self.caster:GetRightVector() * 100)
+        self.caster:FindAbilityByName("nobu_guns"):DOWShoot({
+            Speed = 10000,
+            iscombo = true,
+            AoE = 50,
+            Range = 1000,
+        },  self.caster:GetAbsOrigin() + self.caster:GetRightVector() * -100 )
+    end
     self.caster:MoveToTargetToAttack(self.caster.target_enemy)
-
+    self.gunSpawnCounter = self.gunSpawnCounter + 1
 
 
 end

@@ -232,7 +232,9 @@ function nobu_guns:DOWShoot(keys, position)
          target = targets[1]
      end    
     if(target == nil) then return end
-    self.caster.ISDOW = false 
+    if not keys.iscombo then
+        self.caster.ISDOW = false 
+    end
 	self.Dummy = CreateUnitByName("dummy_unit", self.caster:GetAbsOrigin(), false, nil, nil, self.caster:GetTeamNumber())
 	self.Dummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1) 
 	self.Dummy:SetAbsOrigin(position)
@@ -248,7 +250,9 @@ function nobu_guns:DOWShoot(keys, position)
     self.Dummy.GunFx = GunFx
     local dummy = self.Dummy
     Timers:CreateTimer(1.5, function()
-        self.caster.ISDOW = true 
+        if not keys.iscombo then
+            self.caster.ISDOW = true 
+        end
 
     end)
 

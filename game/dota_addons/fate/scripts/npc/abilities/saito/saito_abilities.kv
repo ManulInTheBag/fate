@@ -39,8 +39,8 @@
 
 		"AbilityValues"
 		{
-			"distance"								"600 650 700 750 800"		//Optimum distance.
-			"speed"									"1850"
+			"distance"								"1000"		//Optimum distance.
+			"speed"									"2000"
 			"image_root_duration"					"0.7"
 			"image_duration"						"0.5"
 			"image_radius"							"260"
@@ -240,8 +240,8 @@
 			"active_mp_gain"						"100 110 120 130 140"
 			"active_hp_gain"						"0"
 			"active_debuff_duration"				"6"
-			"active_debuff_max_stacks"				"4 4 5 5 6"
-			"active_debuff_reduction_stack"			"-4 -5 -6 -7 -8"
+			"active_debuff_max_stacks"				"3 4 5 6 7"
+			"active_debuff_reduction_stack"			"-8"
 		}
 	}
 	//=======================================================================================================
@@ -359,7 +359,7 @@
 
 		"AbilityCastPoint"							"0.2"
 		"AbilityCooldown"							"1"
-		"AbilityManaCost"							"250"
+		"AbilityManaCost"							"200"
 		//"AbilityCastRange"						""		//Cast Range should be 0 as this is a global ability, the range is capped in Lua basically.
 
 		"MaxLevel"									"5"
@@ -378,8 +378,8 @@
 			"max_distance"							"850 900 950 1000 1050"
 			"min_distance"							"200"
 			"radius"								"315"
-			"damage"								"550 625 700 775 850"
-			"stun_duration"							"0.75"
+			"damage"								"500 625 750 875 1000"
+			"stun_duration"							"1.25"
 		}
 	}
 	//=======================================================================================================
@@ -406,7 +406,7 @@
 
 		"AbilityCastPoint"							"0.2"
 		"AbilityCooldown"							"1"
-		"AbilityManaCost"							"250"
+		"AbilityManaCost"							"200"
 		"AbilityCastRange"							"800"
 
 		"MaxLevel"									"5"
@@ -425,7 +425,7 @@
 			"duration"								"0.2"
 			"fly_duration"							"0.2"
 			"stun_duration"							"0.5"
-			"damage"								"350 450 550 650 750"
+			"damage"								"500 625 750 875 1000"
 			"pierce_range"							"720"
 			"pierce_width"							"180"
 		}
@@ -453,7 +453,7 @@
 
 		"AbilityCastPoint"							"0.2"
 		"AbilityCooldown"							"1"
-		"AbilityManaCost"							"250"
+		"AbilityManaCost"							"200"
 		//"AbilityCastRange"						""		//Cast Range should be 0 as this ability does not require a target to be cast.
 
 		"MaxLevel"									"5"
@@ -472,9 +472,9 @@
 			"pull_radius"							"460"
 			"slash_radius"							"360"
 			"slash_last_radius"						"410"
-			"slash_stun_duration"					"0.5"
+			"slash_stun_duration"					"0.15"
 			"knockback_distance"					"310"
-			"knockback_duration"					"0.75"
+			"knockback_duration"					"0.5"
 			"slashes_count"							"5"
 			"slashes_interval"						"0.3"		//Optimum time.
 			"slash_damage"							"70 80 90 100 110"

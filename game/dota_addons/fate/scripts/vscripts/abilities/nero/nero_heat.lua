@@ -75,18 +75,16 @@ function nero_heat:IncreaseHeat(caster)
 	end
 	]]--Ended bad, no D cd in arena after reaching SSS
 
-	if caster.IsPrivilegeImproved then
-		caster:AddNewModifier(caster, self, "modifier_imperial_buff_h", {duration = 5})
-	end
+	caster:AddNewModifier(caster, self, "modifier_imperial_buff_h", {duration = 5})
+	
 end
 
 function nero_heat:RefreshHeatDuration(caster)
 	local caster = self:GetCaster()
 	local modifier = caster:FindModifierByName("modifier_nero_heat")
 
-	if caster.IsPrivilegeImproved then
-		caster:AddNewModifier(caster, self, "modifier_imperial_buff_h", {duration = 5})
-	end
+	caster:AddNewModifier(caster, self, "modifier_imperial_buff_h", {duration = 5})
+	
 
 	modifier.duration_remaining = self:GetSpecialValueFor("duration")
 end

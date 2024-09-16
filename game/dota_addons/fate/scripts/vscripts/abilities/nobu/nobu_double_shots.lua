@@ -222,14 +222,14 @@ end
 
 function modifier_nobu_turnlock:OnOrder(args)
     if args.unit ~= self:GetParent() then return end
- 
 	if( args.order_type == DOTA_UNIT_ORDER_ATTACK_TARGET ) then
-       
+        if args.target:GetTeamNumber() == self:GetParent():GetTeamNumber() then return end 
 		self:GetAbility().target_enemy = args.target
 		self:GetAbility().targetted = true
     else 
         if (args.order_type == DOTA_UNIT_ORDER_ATTACK_MOVE) then
          if(args.target ~= nil) then
+            if args.target:GetTeamNumber() == self:GetParent():GetTeamNumber() then return end 
             self:GetAbility().target_enemy = args.target
             self:GetAbility().targetted = true
              
