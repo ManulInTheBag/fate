@@ -175,8 +175,8 @@ if IsServer() then
 		self:GetCaster():RemoveModifierByName("modifier_squidlord_alive")
 
 		local hAbility = self:GetCaster():FindAbilityByName("gilles_abyssal_contract")
-		hAbility:EndCooldown()
-		hAbility:StartCooldown(hAbility:GetCooldown(hAbility:GetLevel()))
+		--hAbility:EndCooldown()
+		--hAbility:StartCooldown(hAbility:GetCooldown(hAbility:GetLevel()))
 	end
 
 	function modifier_squidlord_death_checker:OnIntervalThink()

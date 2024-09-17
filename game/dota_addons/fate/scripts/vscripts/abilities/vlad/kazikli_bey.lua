@@ -95,8 +95,8 @@ function vlad_kazikli_bey:OnSpellStart()
   --caster:AddNewModifier(caster,self,"modifier_kazikli_bey",{duration = 4})
 
   if caster.BloodletterAcquired then
-	if caster:GetHealth()/caster:GetMaxHealth() <= 0.5 then
-
+	if caster:GetHealth()/caster:GetMaxHealth() <= 0.6 then
+  
 	  local saDamage = caster.MasterUnit2:FindAbilityByName("vlad_attribute_bloodletter"):GetSpecialValueFor("damage")
 	  local saBleed = caster.MasterUnit2:FindAbilityByName("vlad_attribute_bloodletter"):GetSpecialValueFor("bleed")
 	  local explosionFx = ParticleManager:CreateParticle("particles/vlad/vlad_impale_fort.vpcf", PATTACH_WORLDORIGIN, nil)
@@ -104,12 +104,12 @@ function vlad_kazikli_bey:OnSpellStart()
 	  ParticleManager:ReleaseParticleIndex(explosionFx)
 	  caster:EmitSound("Hero_Lycan.Attack")
 	  local targets = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
-	  for k,v in pairs(targets) do
-		DoDamage(caster, v, saDamage, DAMAGE_TYPE_MAGICAL, 0, self, false)
-		caster:AddBleedStack(v, false, saBleed)
-		giveUnitDataDrivenModifier(caster, v, "rooted", 0.5)
-
-	  end
+		for k,v in pairs(targets) do
+		  DoDamage(caster, v, saDamage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+		  caster:AddBleedStack(v, false, saBleed)
+		  giveUnitDataDrivenModifier(caster, v, "rooted", 0.5)
+  
+		end
 	end
   end
 	--check how many bloodpower stacks vlad has at start of cast and save number

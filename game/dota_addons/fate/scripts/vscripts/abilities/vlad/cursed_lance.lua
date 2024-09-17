@@ -102,7 +102,7 @@ function vlad_cursed_lance:OnSpellStart()
       self.modifier = caster:AddNewModifier(caster, self, "modifier_cursed_lance",{duration = duration})
     end
     if caster.BloodletterAcquired then
-      if caster:GetHealth()/caster:GetMaxHealth() <= 0.5 then
+      if caster:GetHealth()/caster:GetMaxHealth() <= 0.6 then
     
         local saDamage = caster.MasterUnit2:FindAbilityByName("vlad_attribute_bloodletter"):GetSpecialValueFor("damage")
         local saBleed = caster.MasterUnit2:FindAbilityByName("vlad_attribute_bloodletter"):GetSpecialValueFor("bleed")
@@ -111,14 +111,14 @@ function vlad_cursed_lance:OnSpellStart()
         ParticleManager:ReleaseParticleIndex(explosionFx)
         caster:EmitSound("Hero_Lycan.Attack")
         local targets = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
-        for k,v in pairs(targets) do
-        DoDamage(caster, v, saDamage, DAMAGE_TYPE_MAGICAL, 0, self, false)
-        caster:AddBleedStack(v, false, saBleed)
-        giveUnitDataDrivenModifier(caster, v, "rooted", 0.5)
-  
-        end
+          for k,v in pairs(targets) do
+            DoDamage(caster, v, saDamage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+            caster:AddBleedStack(v, false, saBleed)
+            giveUnitDataDrivenModifier(caster, v, "rooted", 0.5)
+    
+          end
       end
-      end
+    end
   	self:ComboCheck(caster)
   	self:InstantCurseSwap(caster,duration)
   end

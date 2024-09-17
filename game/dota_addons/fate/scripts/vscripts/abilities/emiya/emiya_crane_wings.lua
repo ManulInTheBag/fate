@@ -137,17 +137,17 @@ function emiya_crane_wings:OnSpellStart()
         caster:AddNewModifier(caster, self, "modifier_emiya_dash_crane", {duration = 0.3})
         
         if caster.IsOveredgeAcquired then    
-            StartAnimation(caster, {duration= 0.3 , activity=ACT_DOTA_RAZE_3, rate= 1})
+            StartAnimation(caster, {duration= 0.3 , activity=ACT_DOTA_RAZE_3, rate= 1.5})
         else
-            StartAnimation(caster, {duration= 0.3 , activity=ACT_DOTA_LIFESTEALER_RAGE, rate= 1})
+            StartAnimation(caster, {duration= 0.3 , activity=ACT_DOTA_LIFESTEALER_RAGE, rate= 1.5})
         end
     
     end)
    
     Timers:CreateTimer(0.7, function() 
     
-        StartAnimation(caster, {duration= 0.65 , activity=ACT_DOTA_RAZE_2, rate= 1.5})
-        caster:AddNewModifier(caster, self, "modifier_emiya_self_control", {duration = 0.65, damage = damage, radius = 450,interval = 0.025})
+        StartAnimation(caster, {duration= 0.6 , activity=ACT_DOTA_RAZE_2, rate= 1.8})
+        caster:AddNewModifier(caster, self, "modifier_emiya_self_control", {duration = 0.6, damage = damage, radius = 450,interval = 0.03})
     
     end)
     

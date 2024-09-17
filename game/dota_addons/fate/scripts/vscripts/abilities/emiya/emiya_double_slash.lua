@@ -31,13 +31,13 @@ function emiya_double_slash:OnSpellStart()
 	--StartAnimation(caster, {duration= 0.3 , activity=ACT_DOTA_ALCHEMIST_CONCOCTION, rate= 1})
     caster:StartGesture(ACT_DOTA_ALCHEMIST_CONCOCTION)
     if(caster:HasModifier("emiya_overedge_modifier")) then
-        StartAnimation(caster, {duration=1.04, activity=ACT_DOTA_AW_MAGNETIC_FIELD, rate= 1})
+        StartAnimation(caster, {duration=0.74, activity=ACT_DOTA_AW_MAGNETIC_FIELD, rate= 1.4})
     else
-        StartAnimation(caster, {duration=1.04, activity=ACT_DOTA_CAST_ABILITY_3_END, rate= 1})
+        StartAnimation(caster, {duration=0.74, activity=ACT_DOTA_CAST_ABILITY_3_END, rate= 1.4})
     end
 	Timers:CreateTimer(0.25, function()     
 
-	    caster:AddNewModifier(caster, self, "modifier_emiya_self_control", {duration = 0.75, damage = damage, radius = radius, interval = 0.03})
+	    caster:AddNewModifier(caster, self, "modifier_emiya_self_control", {duration = 0.45, damage = damage, radius = radius, interval = 0.03})
 		--caster:AddNewModifier(caster, self, "emiya_overedge_modifier", {duration = 8})
         
 	end)
@@ -73,7 +73,7 @@ function modifier_emiya_self_control:DeclareFunctions()
                     }
     return hFunc
 end
-function modifier_emiya_self_control:GetModifierMoveSpeed_Absolute() return 200 end
+function modifier_emiya_self_control:GetModifierMoveSpeed_Absolute() return 300 end
 
 function modifier_emiya_self_control:OnCreated(table)
     self.caster = self:GetCaster()
@@ -95,14 +95,14 @@ end
 
 function modifier_emiya_self_control:OnIntervalThink() --- this is insanily stupid but i somehow wrote it not going insane and it works ok for me  
     self.counter = self.counter + 1
-    if(self.counter == 10) then
+    if(self.counter == 5) then
         self:PerformSlash()
     end
-    if(self.counter == 11) then
+    if(self.counter == 6) then
         self:PerformSlash()
     end
 
-    if(self.counter == 20) then
+    if(self.counter == 10) then
         self:PerformSlash()
         self:PerformSlash()
     end

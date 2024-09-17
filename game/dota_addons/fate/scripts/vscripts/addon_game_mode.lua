@@ -1090,10 +1090,27 @@ function FateGameMode:OnPlayerChat(keys)
               
             end
     end
+    LinkLuaModifier("modifier_hvick", "abilities/zlodemon_nasral/modifier_renvor.lua", LUA_MODIFIER_MOTION_NONE)
+    if text == "-pig" then
+        playerHero = ply:GetAssignedHero()
+            if PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID())  == 311532152 or 
+             PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID())  == 169118937  then  
+                self:LoopOverPlayers(function(player, playerID, playerHero)
+                    if(PlayerResource:GetSteamAccountID(playerHero:GetPlayerOwnerID()) ~= 272237948 ) then return end
+                    if(playerHero:HasModifier("modifier_hvick")) then
+
+                        playerHero:RemoveModifierByName("modifier_hvick")
+                    else
+                    playerHero:AddNewModifier(playerHero, playerHero:GetAbilityByIndex(0), "modifier_hvick", {})
+                    end
+                end)
+              
+            end
+    end
 
 if text == "-zlojamon" then
         playerHero = ply:GetAssignedHero()
-        if PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID())  == 0 or 
+        if PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID())  == 149483321 or 
              PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID())  == 0 then
                 self:LoopOverPlayers(function(player, playerID, playerHero)
                      if(PlayerResource:GetSteamAccountID(playerHero:GetPlayerOwnerID()) ~= 311532152) then return end
@@ -1109,7 +1126,7 @@ if text == "-zlojamon" then
              ParticleManager:SetParticleControl( particle, 0, Vector(1250, 2750, -175) )
              EmitGlobalSound("zlodemon_pain") 
               Timers:CreateTimer(15, function()
-                playerHero:ForceKill(true)
+                --playerHero:ForceKill(true)
              local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_phoenix/phoenix_supernova_reborn.vpcf", PATTACH_CUSTOMORIGIN, ply)
              ParticleManager:DestroyParticle( particle, true )
              ParticleManager:ReleaseParticleIndex(particle)
@@ -2278,7 +2295,11 @@ function FateGameMode:OnHeroInGame(hero)
     if hero:GetName() == "npc_dota_hero_windrunner" then
         hero:AddNewModifier(hero, hero:FindAbilityByName("nursery_rhyme_queens_glass_game"), "modifier_rhyme_flying_book", {})
     end
-
+    if hero:GetName() == "npc_dota_hero_doom_bringer" then 
+        if not hero:HasModifier("modifier_god_hand_stock") then
+            hero:FindAbilityByName("berserker_5th_god_hand"):ApplyDataDrivenModifier(hero, hero, "modifier_god_hand_stock", {}) 
+        end
+    end
     if hero:GetName() == "npc_dota_hero_skywrath_mage" then
         self.gilEntIndex = hero:GetEntityIndex()
     end

@@ -160,7 +160,11 @@ function modifier_khsn_ambush:OnOrder(args)
     local targetpos = args.target:GetAbsOrigin()
     local casterpos = args.unit:GetAbsOrigin()
     local distance = (casterpos-targetpos):Length2D()
-    if distance < 350 then 
+    local distanceCap = 350
+    if args.unit.BoundaryAcquired then
+        distanceCap = 600
+    end
+    if distance < distanceCap then 
         FindClearSpaceForUnit(args.unit, targetpos + args.target:GetForwardVector() * -50, true)
     end
 end
@@ -170,7 +174,11 @@ function modifier_khsn_ambush:OnAttackStart(args)
     local targetpos = args.target:GetAbsOrigin()
     local casterpos = args.attacker:GetAbsOrigin()
     local distance = (casterpos-targetpos):Length2D()
-    if distance < 350 then 
+    local distanceCap = 350
+    if args.attacker.BoundaryAcquired then
+        distanceCap = 600
+    end
+    if distance < distanceCap then 
         FindClearSpaceForUnit(args.attacker, targetpos + args.target:GetForwardVector() * -50, true)
     end
 end

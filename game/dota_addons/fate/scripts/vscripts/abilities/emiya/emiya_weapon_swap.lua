@@ -67,29 +67,29 @@ function emiya_weapon_swap:OnAbilityPhaseStart()
 	local caster = self:GetCaster()
 	local form = caster:GetModifierStackCount("modifier_emiya_weapon_swap", caster) 
     if(form == 1) then
-        StartAnimation(caster, {duration= 0.33 , activity=ACT_DOTA_CAST_ABILITY_5, rate= 1}) ----this shit is so bad because i wanted SMOOTH transitions mid-animations
+        StartAnimation(caster, {duration= 0.2 , activity=ACT_DOTA_CAST_ABILITY_5, rate= 1}) ----this shit is so bad because i wanted SMOOTH transitions mid-animations
 	    Timers:CreateTimer("swap_model_1", {
-		    endTime = 0.17,
+		    endTime = 0.1,
 		    callback = function()
 		    caster:SetBodygroup(0,1)
 	    end})
 
         Timers:CreateTimer("swap_model_2", {
-		    endTime = 0.33,
+		    endTime = 0.2,
 		    callback = function()
 		    caster:SetBodygroup(0,2)
 	    end})
 
     elseif(form == 2) then
-        StartAnimation(caster, {duration= 0.35 , activity=ACT_DOTA_CAST_ABILITY_ROT, rate= 1})
+        StartAnimation(caster, {duration= 0.24 , activity=ACT_DOTA_CAST_ABILITY_ROT, rate= 1})
         Timers:CreateTimer("swap_model_1", {
-		    endTime = 0.17,
+		    endTime = 0.12,
 		    callback = function()
 		    caster:SetBodygroup(0,1)
 	    end})
 
         Timers:CreateTimer("swap_model_2", {
-		    endTime = 0.35,
+		    endTime = 0.24,
 		    callback = function()
 		    caster:SetBodygroup(0,0)
 	    end})

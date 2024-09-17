@@ -60,23 +60,23 @@ function vlad_impale:OnSpellStart()
   local delay = self:GetSpecialValueFor("delay")
   local point = caster:GetCursorPosition()
   if caster.BloodletterAcquired then
-		if caster:GetHealth()/caster:GetMaxHealth() <= 0.5 then
+    if caster:GetHealth()/caster:GetMaxHealth() <= 0.6 then
   
-		  local saDamage = caster.MasterUnit2:FindAbilityByName("vlad_attribute_bloodletter"):GetSpecialValueFor("damage")
-		  local saBleed = caster.MasterUnit2:FindAbilityByName("vlad_attribute_bloodletter"):GetSpecialValueFor("bleed")
-		  local explosionFx = ParticleManager:CreateParticle("particles/vlad/vlad_impale_fort.vpcf", PATTACH_WORLDORIGIN, nil)
-		  ParticleManager:SetParticleControl(explosionFx, 3, caster:GetAbsOrigin())
-		  ParticleManager:ReleaseParticleIndex(explosionFx)
-		  caster:EmitSound("Hero_Lycan.Attack")
-		  local targets = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
-		  for k,v in pairs(targets) do
-			DoDamage(caster, v, saDamage, DAMAGE_TYPE_MAGICAL, 0, self, false)
-			caster:AddBleedStack(v, false, saBleed)
-			giveUnitDataDrivenModifier(caster, v, "rooted", 0.5)
-
-		  end
-		end
-	  end
+      local saDamage = caster.MasterUnit2:FindAbilityByName("vlad_attribute_bloodletter"):GetSpecialValueFor("damage")
+      local saBleed = caster.MasterUnit2:FindAbilityByName("vlad_attribute_bloodletter"):GetSpecialValueFor("bleed")
+      local explosionFx = ParticleManager:CreateParticle("particles/vlad/vlad_impale_fort.vpcf", PATTACH_WORLDORIGIN, nil)
+      ParticleManager:SetParticleControl(explosionFx, 3, caster:GetAbsOrigin())
+      ParticleManager:ReleaseParticleIndex(explosionFx)
+      caster:EmitSound("Hero_Lycan.Attack")
+      local targets = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
+        for k,v in pairs(targets) do
+          DoDamage(caster, v, saDamage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+          caster:AddBleedStack(v, false, saBleed)
+          giveUnitDataDrivenModifier(caster, v, "rooted", 0.5)
+  
+        end
+    end
+  end
   caster:RemoveModifierByName("modifier_transfusion_self")
   self:ResetImpaleSwapTimer()
 

@@ -118,6 +118,10 @@
             "bonus_armor" "0 15"
             "duration" "4"
             "regen_percent" "20"
+            "health_percent" "50"
+            "debuff_duration" "7"
+            "debuff_str" "50"
+            "revival_damage" "500"
         }
 		
 		"Modifiers"
@@ -487,7 +491,11 @@
 		{
 			"particle"			"particles/custom/berserker/reincarnation/regen_buff.vpcf"
 		}
-
+		"AbilityValues"
+        {
+            "duration" "4"
+            "regen_percent" "20"
+        }
 		"03"
 		{
 			"var_type"				"FIELD_INTEGER"
@@ -678,8 +686,8 @@
 
 		"AbilityValues"
         {
-            "threshold" "100"
-            "health_regen" "12"
+            "duration" "4"
+            "regen_percent" "20"
             "max_stack" "5"
             "damage_sustain" "20000"
             "bonus_count_percentage" "300"
