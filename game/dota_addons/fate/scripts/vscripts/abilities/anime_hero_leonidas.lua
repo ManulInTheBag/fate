@@ -1200,7 +1200,7 @@ function modifier_leonidas_pride_counter:GetModifierIncomingDamage_Percentage(ke
         --print(keys.damage, keys.original_damage)
         local bCasterBerserked = self.hCaster:HasModifier("modifier_leonidas_berserk")
         self.nBonusDamage = math.ceil(self.nBonusDamage + ( keys.original_damage * self.nCounterResist * 0.01 ))
-        self.nBonusDamage = GetClamped(self.nBonusDamage, 0, self.hParent:GetPhysicalArmorValue() *self.damagePerArmor)
+        self.nBonusDamage = GetClamped(self.nBonusDamage, 0, self.hParent:GetPhysicalArmorValue(false) *self.damagePerArmor)
         
         
         self:SetStackCount(self.nBonusDamage)
