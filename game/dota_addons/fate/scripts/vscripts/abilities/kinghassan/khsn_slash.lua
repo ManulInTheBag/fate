@@ -1,3 +1,4 @@
+LinkLuaModifier("modifier_king_hassan_block", "abilities/kinghassan/khsn_slash", LUA_MODIFIER_MOTION_NONE)
 khsn_slash = class({})
 
 function khsn_slash:OnAbilityPhaseStart()
@@ -101,7 +102,106 @@ function khsn_slash:OnProjectileHit_ExtraData(hTarget, vLocation, table)
 		local bonus_agi = ability:GetSpecialValueFor("bonus_agi") * caster:GetAgility()
 		DoDamage(caster, target, bonus_agi , DAMAGE_TYPE_PURE, 0, ability, false) 			
 	end]]
-
+	caster:AddNewModifier(caster, self, "modifier_king_hassan_block", {})
 	DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
 	target:AddNewModifier(caster, ability, "modifier_stunned", {duration = stun_duration})
+end
+
+
+modifier_king_hassan_block = class({})
+
+function modifier_king_hassan_block:IsHidden() return false end
+function modifier_king_hassan_block:IsDebuff() return false end
+
+function modifier_king_hassan_block:OnCreated()
+
+end
+
+function modifier_king_hassan_block:DeclareFunctions()
+	local hFunc = 	{	
+						--MODIFIER_PROPERTY_MAGICAL_CONSTANT_BLOCK,
+						MODIFIER_PROPERTY_INCOMING_SPELL_DAMAGE_CONSTANT
+					}
+	return hFunc
+end
+--[[function modifier_jeanne_mrex:CheckState()
+	return {[MODIFIER_STATE_DEBUFF_IMMUNE] = true}
+end]]
+function modifier_king_hassan_block:GetModifierIncomingSpellDamageConstant(keys)
+	if IsServer() then
+        if keys.damage > 0 then
+            local block_now   = self:GetStackCount()
+            local block_check = block_now - keys.original_damage
+            local blocked = 0
+            if block_check > 0 then
+            	blocked = keys.original_damage
+                self:SetStackCount(block_check)
+                self.fBarrierBlock = block_check
+            else
+            	blocked = keys.original_damage--block_now
+            	local damage = keys.original_damage - block_now
+            	local dmgtable = {
+		            attacker = keys.attacker,
+		            victim = keys.target,
+		            damage = damage,
+		            damage_type = keys.damage_type,
+		            damage_flags = keys.damage_flags,
+		            ability = keys.inflictor
+		        }
+                self:Destroy()
+                ApplyDamage(dmgtable)
+            end
+
+            return -1*blocked
+        end
+	else
+        return self:GetStackCount()
+    end
+end
+--[[function modifier_jeanne_mrex:GetModifierMagical_ConstantBlock(keys)
+	if IsServer() then
+        if keys.damage > 0 then
+            local block_now   = self:GetStackCount()
+            local block_check = block_now - keys.damage
+            if block_check > 0 then
+                self:SetStackCount(block_check)
+                self.fBarrierBlock = block_check
+            else
+                self:Destroy()
+            end
+
+            return block_now
+        end
+	end
+end]]
+
+function modifier_king_hassan_block:OnCreated(hTable)
+	self.hCaster  = self:GetCaster()
+	self.hParent  = self:GetParent()
+	self.hAbility = self:GetAbility()
+
+	if not self.fBarrierBlock then
+		self.fBarrierBlock = 0
+	end
+
+	self.fBarrierBlock = math.min(self.fBarrierBlock + self.hAbility:GetSpecialValueFor("block_per_unit"), self.hAbility:GetSpecialValueFor("block_max"))
+    
+    if not self.iShieldPFX then
+	    self.iShieldPFX = ParticleManager:CreateParticle( "particles/king_hassan/khsn_shield.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.hParent ) 
+	    ParticleManager:SetParticleControl(self.iShieldPFX, 0, self.hParent:GetAbsOrigin())
+
+	    self:AddParticle(self.iShieldPFX, false, false, -1, false, false)
+	else
+		local flashFX = ParticleManager:CreateParticle("particles/kinghassan/khsn_shield_cast.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.hParent)
+		ParticleManager:SetParticleControl(flashFX, 0, self.hParent:GetAbsOrigin())
+
+		ParticleManager:ReleaseParticleIndex(flashFX)
+	end
+
+	if IsServer() then
+		self:SetStackCount(self.fBarrierBlock)
+	end
+end
+function modifier_king_hassan_block:OnRefresh(hTable)
+	self:OnCreated(hTable)
 end

@@ -120,7 +120,7 @@ function iskander_drift:CreateLightningField(vector)
 					v.ChariotTrailHit = false
 				end)
 
-           		DoDamage(caster, v,damage * currentMS * 0.5 / 100 , DAMAGE_TYPE_MAGICAL, 0, self, false)
+           		DoDamage(caster, v,damage * currentMS * 1 / 100 , DAMAGE_TYPE_MAGICAL, 0, self, false)
            	end
         end
         local randomVec = RandomInt(-400,400)

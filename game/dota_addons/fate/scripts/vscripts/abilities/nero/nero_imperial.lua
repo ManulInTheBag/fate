@@ -132,7 +132,7 @@ function modifier_imperial_buff:OnCreated()
     if IsServer() then
         self.parent = self:GetParent()
         local caster = self:GetCaster()
-        print(self.parent.ImperialChoose)
+        --print(self.parent.ImperialChoose)
         self.rank = self.parent:FindModifierByName("modifier_nero_heat").rank
         if self.parent:HasModifier("modifier_aestus_domus_aurea_nero") then
             self.parent:FindModifierByName("modifier_nero_heat").rank = 1
@@ -242,7 +242,7 @@ function modifier_imperial_buff_h:OnCreated()
     if IsServer() then
         self.parent = self:GetParent()
         local caster = self:GetCaster()
-        print(self.parent.ImperialChoose)
+        --print(self.parent.ImperialChoose)
         self.rank = self.parent:FindModifierByName("modifier_nero_heat").rank
         if self.parent.ImperialChoose == "nero_tactics" then
             local cooldown = self.rank*self.parent:FindAbilityByName("nero_tactics"):GetSpecialValueFor("bonus_value")

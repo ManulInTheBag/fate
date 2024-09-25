@@ -3196,7 +3196,7 @@
 
 
 		"DOTA_Tooltip_Ability_emiya_attribute_shroud_of_martin"					"Attribute: Shroud of Martin"
-		"DOTA_Tooltip_ability_emiya_attribute_shroud_of_martin_Description"		"Increases Emiya's <font color='#FFFAFA'>magic resistance</font> and <font color='#FFFAFA'>armor</font>\nUpgrades <font color='#58ACFA'>Rho Aias</font> barrier amount.\n<font color='#58ACFA'>Rho Aias</font> now hard cleanses target."  
+		"DOTA_Tooltip_ability_emiya_attribute_shroud_of_martin_Description"		"Increases Emiya's <font color='#FFFAFA'>magic resistance</font> and <font color='#FFFAFA'>armor</font>\nUpgrades <font color='#58ACFA'>Rho Aias</font> barrier amount.\n<font color='#58ACFA'>Rho Aias</font> now hard cleanses target.\nIncreases Emiya's health by 4x his INT."  
 		"DOTA_Tooltip_Ability_emiya_attribute_shroud_of_martin_Lore"			"The shroud of Saint Martin protects the bearer from witchcraft and sorcery."
 		"DOTA_Tooltip_Ability_emiya_attribute_shroud_of_martin_magic_resist"	"%BONUS MAGIC RESISTANCE:"
 		"DOTA_Tooltip_Ability_emiya_attribute_shroud_of_martin_armor"			"BONUS ARMOR:"
@@ -3233,13 +3233,17 @@
 		"npc_dota_hero_doom_bringer_hype"	""
 		"npc_dota_hero_doom_bringer_bio"	""
 		
-		"DOTA_Tooltip_Ability_pepeg_divinity"	"Divinity"
-		"DOTA_Tooltip_ability_pepeg_divinity_Description"	"Reduces incoming physical damage.\n\nUpgradable by Improve Divinity and Reincarnation."
+		"DOTA_Tooltip_Ability_pepeg_divinity"	"God hand"
+		"DOTA_Tooltip_ability_pepeg_divinity_Description"	"At the beggining of each round, Heracles gets a God hand stack, allowing him to ressurect upon death with percentage of his maximum health and STR debuff.\nWhen reviving, Heracles deals magical damage around him, increased by 1x o his STR. \nOnly one God hand stack persists at a time. \nReduces incoming physical damage by a flat value.\n\nUpgradable by Improve Divinity, Reincarnation, God hand."
 		"DOTA_Tooltip_ability_pepeg_divinity_Lore"	"The aptitude of Divine Spirit daunts whoever foolish enough to challenge the demigod's might."
-		"DOTA_Tooltip_ability_pepeg_divinity_physical_block"	"Phys damage block:"
-		"DOTA_Tooltip_ability_pepeg_divinity_bonus_armor"		"Bonus armor:"
-		"DOTA_Tooltip_ability_pepeg_divinity_duration"			"Duration:"
-		"DOTA_Tooltip_ability_pepeg_divinity_regen_percent"		"Regeneration percentage:"
+		"DOTA_Tooltip_ability_pepeg_divinity_physical_block"	"PHYS DAMAGE BLOCK:"
+		"DOTA_Tooltip_ability_pepeg_divinity_bonus_armor"		"BONUS ARMOR:"
+		"DOTA_Tooltip_ability_pepeg_divinity_duration"			"REINCARNATION REGENERATION DURATION:"
+		"DOTA_Tooltip_ability_pepeg_divinity_regen_percent"		"%REINCARNATION REGENERATION:"
+		"DOTA_Tooltip_ability_pepeg_divinity_health_percent"		"%HEALTH PERCENTAGE:"
+		"DOTA_Tooltip_ability_pepeg_divinity_debuff_duration"				"DEBUFF DURATION:"
+		"DOTA_Tooltip_ability_pepeg_divinity_debuff_str"				"STR DEBUFF:"
+		"DOTA_Tooltip_ability_pepeg_divinity_revival_damage"				"REVIVAL DAMAGE:"
 
 		"DOTA_Tooltip_Ability_berserker_5th_fissure_strike"				"Fissure Strike"
 		"DOTA_Tooltip_ability_berserker_5th_fissure_strike_Description"	"Heracles strikes ground with such force, creating a crack that deals damage to enemies in line, <font color='#FF3399'>pulling  towards him</font> and <font color='#FF3399'>slowing</font> them. If enemies collide with a structure from the knockback, an additional damage and stun are applied."
@@ -3355,20 +3359,22 @@
 		//"DOTA_Tooltip_Ability_berserker_5th_attribute_berserk_mana_convert_ratio"	"BERSERK MANA CONVERSION RATIO:"
 
 		"DOTA_Tooltip_Ability_berserker_5th_attribute_god_hand"				"Attribute: God Hand"
-		"DOTA_Tooltip_ability_berserker_5th_attribute_god_hand_Description"	"Grants Heracles 11 stock of lives, allowing him to respawn immediately and stomp nearby enemies to deal magic damage (base + 1x Berserker's strength) upon death.\nAfter taking some amount of damage, he will gain another God Hand stack.\nAfter revival, Heracles takes 50%% less damage for 1 second. Can be dispelled.\nRevive cooldown: 11 seconds."
-		"DOTA_Tooltip_Ability_berserker_5th_attribute_god_hand_Note0"				"Heracles revives as long as life stock remains and his team has not been eliminated."
-		"DOTA_Tooltip_Ability_berserker_5th_attribute_god_hand_Note1"				"God Hand cannot be activated while its debuff effect lasts."
+		"DOTA_Tooltip_ability_berserker_5th_attribute_god_hand_Description"	"Upgrades God Hand, making heracles respawn with full health and refreshing Berserk ability upon respawn."
+		//"DOTA_Tooltip_Ability_berserker_5th_attribute_god_hand_Note0"				"Heracles revives as long as  his team has not been eliminated."
+		//"DOTA_Tooltip_Ability_berserker_5th_attribute_god_hand_Note1"				"God Hand cannot be activated while its debuff effect lasts."
 		"DOTA_Tooltip_Ability_berserker_5th_attribute_god_hand_health_percent"				"BASE REVIVAL DAMAGE:"
 		"DOTA_Tooltip_Ability_berserker_5th_attribute_god_hand_duration"				"DURATION:"
-		"DOTA_Tooltip_Ability_berserker_5th_attribute_god_hand_health_for_life"				"DAMAGE FOR 1 STACK:"
+		//"DOTA_Tooltip_Ability_berserker_5th_attribute_god_hand_health_for_life"				"DAMAGE FOR 1 STACK:"
+
+		"DOTA_Tooltip_Ability_berserker_5th_reincarnation"					"Attribute: Reincarnation"
+		"DOTA_Tooltip_ability_berserker_5th_reincarnation_Description"		"Heracles regenerates a portion of the damage dealt to him."	
+		"DOTA_Tooltip_ability_berserker_5th_reincarnation_duration"			"Duration:"
+		"DOTA_Tooltip_ability_berserker_5th_reincarnation_regen_percent"		"%Regeneration percentage:"
 
 		"DOTA_Tooltip_Ability_berserker_5th_attribute_reincarnation"					"Attribute: Reincarnation"
 		"DOTA_Tooltip_ability_berserker_5th_attribute_reincarnation_Description"		"Heracles regenerates a portion of the damage dealt to him."	
-		//"DOTA_Tooltip_Ability_berserker_5th_attribute_reincarnation_Note0"			"Damage is compared with threshold after mitigation."
-		//"DOTA_Tooltip_Ability_berserker_5th_attribute_reincarnation_threshold"		"DAMAGE THRESHOLD:"	
-		//"DOTA_Tooltip_Ability_berserker_5th_attribute_reincarnation_health_regen"		"HEALTH REGEN PER STACK:"
 		"DOTA_Tooltip_ability_berserker_5th_attribute_reincarnation_duration"			"Duration:"
-		"DOTA_Tooltip_ability_berserker_5th_attribute_reincarnation_regen_percent"		"Regeneration percentage:"
+		"DOTA_Tooltip_ability_berserker_5th_attribute_reincarnation_regen_percent"		"%Regeneration percentage:"
 
 		"DOTA_Tooltip_ability_pepeg_combo_final_gachi"	"Combo: Pepeg Police"
 		"DOTA_Tooltip_ability_pepeg_combo_final_gachi_Description"	"<font color='#58ACFA'>Combo Requirement : 80 Intellect. </font>\n<font color='#58ACFA'>Combo Sequence : Q-Q in 4 seconds</font>\nBerserker uses his true Gachi Power to teach target right ways of fisting."	
@@ -4882,7 +4888,7 @@
 
 
         "DOTA_Tooltip_Ability_iskander_drift"     "Via Expugnatio"
-        "DOTA_Tooltip_ability_iskander_drift_Description" "<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.15</font>\nRider charges in target direction on <font color='#58ACFA'>Gordius Wheel</font>, leaving a trail of thunder behind.\nCharge <font color='#FFFAFA'>speed</font> and <font color='#FFFAFA'>range</font> are based on Rider's <font color='#FFFAFA'>movement speed</font> on the moment of cast.\nEnemies tread atop are <font color='#FF3399'>stunned</font> and take <font color='#58ACFA'>damage</font> based on Iskandar <font color='#FFFAFA'>movement speed</font> and on amount of times Iskandar hit enemy <font color='#FFFAFA'>hero</font> with <font color='#58ACFA'>Gordius Wheel</font>.\nUpon finishing the charge, <font color='#58ACFA'>Gordius Wheel</font> disappears and Rider is <font color='#FF3399'>stunned</font> for <font color='#FFFAFA'>0.75</font> second."
+        "DOTA_Tooltip_ability_iskander_drift_Description" "<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.15</font>\nRider charges in target direction on <font color='#58ACFA'>Gordius Wheel</font>, leaving a trail of thunder behind.\nCharge <font color='#FFFAFA'>speed</font> and <font color='#FFFAFA'>range</font> are based on Rider's <font color='#FFFAFA'>movement speed</font> on the moment of cast.\nEnemies tread atop are <font color='#FF3399'>stunned</font> and take <font color='#58ACFA'>damage</font> based on Iskandar <font color='#FFFAFA'>movement speed</font> and on amount of times Iskandar hit enemy <font color='#FFFAFA'>hero</font> with <font color='#58ACFA'>Gordius Wheel</font>.\nUpon finishing the charge, <font color='#58ACFA'>Gordius Wheel</font> disappears and Rider is <font color='#FF3399'>stunned</font> for <font color='#FFFAFA'>1</font> second."
         "DOTA_Tooltip_ability_iskander_drift_Lore"	"Alalalalalal---------!"
         "DOTA_Tooltip_ability_iskander_drift_damage"					"%MS TO CHARGE DAMAGE:"
         "DOTA_Tooltip_ability_iskander_drift_trail_damage"				"%TRAIL DAMAGE PER SECOND:"     
@@ -5090,7 +5096,7 @@
 		"npc_dota_hero_skeleton_king_bio"	""
 
 		"DOTA_Tooltip_Ability_khsn_ambush"				"Death's Approach"
-        "DOTA_Tooltip_ability_khsn_ambush_Description"	"King Hassan becomes invisible, gains bonus movement speed. Autoattacking, using abilities and items breaks invisibility."
+        "DOTA_Tooltip_ability_khsn_ambush_Description"	"King Hassan becomes invisible, gains bonus movement speed. Autoattacking, using abilities and items breaks invisibility.\nWhen sending an attack order, king hassan will teleport behind enemy's back if he is in 350 radius."
         "DOTA_Tooltip_ability_khsn_ambush_duration"			"Duration:"
         "DOTA_Tooltip_ability_khsn_ambush_ms_bonus"			"%Movespeed bonus:"
         //"DOTA_Tooltip_ability_khsn_ambush_range"				"Blink distance:"
@@ -5170,11 +5176,13 @@
 		"DOTA_Tooltip_Ability_khsn_stab_Lore"	"Showing your back to the Death means you're already dead."
 
 		"DOTA_Tooltip_Ability_khsn_slash"				"Mortuary Slash"
-        "DOTA_Tooltip_ability_khsn_slash_Description"	"King Hassan prepares for a moment, then releases a powerful swing in front of him, dealing damage and stunning impacted enemies."
+        "DOTA_Tooltip_ability_khsn_slash_Description"	"King Hassan prepares for a moment, then releases a powerful swing in front of him, dealing damage and stunning impacted enemies.\nWhen hitting enemies with this ability, King hassan gets magic damage barrier, stacking up to a cap."
         "DOTA_Tooltip_ability_khsn_slash_stun"	"Stun duration:"
         "DOTA_Tooltip_ability_khsn_slash_damage"			"Damage:"
         "DOTA_Tooltip_ability_khsn_slash_length"			"Length:"
         "DOTA_Tooltip_ability_khsn_slash_cast_delay"		"Delay:"
+        "DOTA_Tooltip_ability_khsn_slash_block_per_unit"		"Barrier per unit:"
+        "DOTA_Tooltip_ability_khsn_slash_block_max"				"Maximum barrier:"
 
 		"DOTA_Tooltip_Ability_khsn_flame_active"	"Eternal Flame"
 		"DOTA_Tooltip_Ability_khsn_flame_active_Description"	"\nToggle: <font color='#58ACFA'>Eternal Flame</font>: King Hassan ignites all enemies under the Death Door effect with the Phantasmal Flame, dealing 30/45/60/75/90 damage per second based on level of Azrael and providing vision of the ignited enemies. The longer this ability is active, the more mana will it cost.\nThis ability goes on cooldown whenever it deactivates."
@@ -5206,10 +5214,10 @@
 		//"DOTA_Tooltip_ability_khsn_combo_Note0"	"Hero 'hard' names: Arturia Pendragon, Cu Chulain, Arturia Alter, Emiya, Medusa, Heracles, Sasaki Kojiro, Hassan-i-Sabbah, Medea, Gilgamesh, Lancelot, Angra Mainyu, Diarmuid, Iskander, Gilles de Rais, Nero Claudius, Gawain, Tamamo no Mae, Li Shuwen, Jeanne d'Arc, Astolfo, Nursery Rhyme = Alice, Atalanta, Vlad, Karna, Chloe von Einzbern = Kuro, Jack the Ripper, Okita Souji, Mordred, Atalanta Alter. Hero 'easy' names: Saber, Lancer, Salter, Emiya, Medusa, Pepeg, Sasaki, Hassan, Medea, Gilgamesh, Lancelot, Angra, Diarmuid, Iskander, Gilles, Nero, Gawain, Tamamo, Shuwen, Jeanne, Astolfo, Alice, Atalanta, Vlad, Karna, Chloe, Jack, Okita, Mordred, Atalanta Alter."
 
 		"DOTA_Tooltip_Ability_khsn_boundary_attribute"	"Attribute - At The Boundary"
-		"DOTA_Tooltip_Ability_khsn_boundary_attribute_Description"	"Upgrades Death's Approach and Death's Arrival. Grants additional attack speed for a duration after invisibility and increases Death's Arrival blink range.\nChanges Evening Bell passive damage type to pure."
+		"DOTA_Tooltip_Ability_khsn_boundary_attribute_Description"	"Upgrades Death's Approach and Death's Arrival. Grants additional attack speed for a duration after invisibility.\nChanges Evening Bell passive damage type to pure.\nWhile having this effect, King Hassan will be able to teleport behind enemy's back like from Death's approach ability.\nIncreases Death's approach blink range to 600."
 		"DOTA_Tooltip_Ability_khsn_boundary_attribute_bonus_as"	"Bonus attack speed:"
 		"DOTA_Tooltip_Ability_khsn_boundary_attribute_as_duration"	"Bonus attack speed duration:"
-		"DOTA_Tooltip_Ability_khsn_boundary_attribute_bonus_range"	"Bonus range:"
+		//"DOTA_Tooltip_Ability_khsn_boundary_attribute_bonus_range"	"Bonus range:"
 
 		"DOTA_Tooltip_Ability_khsn_bc_attribute"	"Attribute - Abyss of Death"
 		"DOTA_Tooltip_Ability_khsn_bc_attribute_Description"	"Abyss of Death: This swordsman who is no longer certain whether he is alive or dead, even if he receives a fatal wound or loses half of his body for example, will keep snapping at the enemy as if he was in perfectly good health. When his health drops down to zero, he restores 25%% of his max health and activates Evening Bell instead of dying.\nCooldown: 99 seconds.\nKing Hassan also cannot be executed."
@@ -6888,19 +6896,19 @@
 		"DOTA_Tooltip_ability_vlad_attribute_improved_impaling_cp_bonus_dmg_per_stack"				"W BONUS DAMAGE PER BLEED STACK:"
 		
 		"DOTA_Tooltip_ability_vlad_attribute_instant_curse" 										"Attribute: Instant Curse"
-		"DOTA_Tooltip_ability_vlad_attribute_instant_curse_Description"								"Cursed Lance no longer automatically detonates on shield depletion. After casting Cursed Lance, Vlad gains access to ability Instant Curse, which allows him to immediately unleash accumulated damage. \nCursed Lance now gains bonus damage based on total amount of bleed stacks present on all enemy heroes. \nAdditionaly Cursed Lance is no longer soft dispellable when global bleed stacks is atleast 20"
+		"DOTA_Tooltip_ability_vlad_attribute_instant_curse_Description"								"Cursed Lance no longer automatically detonates on shield depletion. After casting Cursed Lance, Vlad gains access to ability Instant Curse, which allows him to immediately unleash accumulated damage. \nCursed Lance now gains bonus damage based on total amount of bleed stacks present on all enemy heroes. \nAdditionaly Cursed Lance is no longer soft dispellable when global bleed stacks is atleast 20\nIf shield was fully depleted at release, Vlad also silences all enemies hit for 0.75 seconds."
 		"DOTA_Tooltip_ability_vlad_attribute_instant_curse_cl_bonus_shield_per_stack"				"E BONUS SHIELD PER BLEED STACK:"
 		"DOTA_Tooltip_ability_vlad_attribute_instant_curse_cl_bonus_dmg_per_stack"					"E BONUS DAMAGE PER BLEED STACK:"
 		"DOTA_Tooltip_ability_vlad_attribute_instant_curse_note0"									"Bloodpower stacks from Bloodletter attribute count as bleed stacks for determining if Cursed Lance is soft dispellable."
 		
-		"DOTA_Tooltip_ability_vlad_attribute_bloodletter" 											"Attribute: Bloodletter"
-		"DOTA_Tooltip_ability_vlad_attribute_bloodletter_Description"								"Transfusion now stores amount of consumed bleed stacks in Bloodpower buff, while this buff is present next damaging ability used after Transfusion ends will consume Bloodpower stacks to gain augmented effects.\nAdditionally while Vlad holds bloodpower stacks, he gains access to ability Impale."
-		"DOTA_Tooltip_ability_vlad_attribute_bloodletter_transfusionbonus"								"TRANSFUSION BONUS DAMAGE:"
-		"DOTA_Tooltip_ability_vlad_attribute_bloodletter_cl_bonus_shield_per_stack__TT"				"%E BONUS SHIELD PER BLOODPOWER:"
-		"DOTA_Tooltip_ability_vlad_attribute_bloodletter_cl_bonus_dmg_per_stack__TT"				"%E BONUS DAMAGE PER BLOODPOWER:"
-		"DOTA_Tooltip_ability_vlad_attribute_bloodletter_cp_bonus_dmg_per_stack__TT"				"%W BONUS DAMAGE PER BLOODPOWER:"
-		"DOTA_Tooltip_ability_vlad_attribute_bloodletter_kb_bonus_dmg_per_stack__TT"				"%R BONUS DAMAGE PER BLOODPOWER:"
-		"DOTA_Tooltip_ability_vlad_attribute_bloodletter_bloodpower_cap"								"MAX STACKS CONSUMED:"
+		"DOTA_Tooltip_ability_vlad_attribute_bloodletter" 											"Attribute: Fortress of Dracula"
+		"DOTA_Tooltip_ability_vlad_attribute_bloodletter_Description"								"While having less then 60% HP, using any basic ability will cause Vlad 3 to summon spikes in 300 radius around him, dealing damage, applying 5 bleed stacks and rooting all enemies for 0.3 seconds."
+		//"DOTA_Tooltip_ability_vlad_attribute_bloodletter_transfusionbonus"								"TRANSFUSION BONUS DAMAGE:"
+		//"DOTA_Tooltip_ability_vlad_attribute_bloodletter_cl_bonus_shield_per_stack__TT"				"%E BONUS SHIELD PER BLOODPOWER:"
+		//"DOTA_Tooltip_ability_vlad_attribute_bloodletter_cl_bonus_dmg_per_stack__TT"				"%E BONUS DAMAGE PER BLOODPOWER:"
+		//"DOTA_Tooltip_ability_vlad_attribute_bloodletter_cp_bonus_dmg_per_stack__TT"				"%W BONUS DAMAGE PER BLOODPOWER:"
+		//"DOTA_Tooltip_ability_vlad_attribute_bloodletter_kb_bonus_dmg_per_stack__TT"				"%R BONUS DAMAGE PER BLOODPOWER:"
+		//"DOTA_Tooltip_ability_vlad_attribute_bloodletter_bloodpower_cap"								"MAX STACKS CONSUMED:"
 		
 		"DOTA_Tooltip_ability_vlad_rebellious_intent" 												"Rebellious Intent"
 		"DOTA_Tooltip_ability_vlad_rebellious_intent_Description"									"Vlad assumes a defensive stance, reducing his movement speed while gaining a large amount of Strength, Armor and Magic Resistance over 0.5 seconds. Vlad loses a percentage of his life every second while this ability is active. \nWhile this ability is active, Vlad's melee attacks apply additional bleed stack."
@@ -6936,7 +6944,7 @@
 		"DOTA_Tooltip_ability_vlad_instant_curse_Description" 										"Unleashes accumulated damage."		
 		
 		"DOTA_Tooltip_ability_vlad_transfusion" 													"Transfusion"
-		"DOTA_Tooltip_ability_vlad_transfusion_Description" 										"PASSIVE: Vlad's melee attacks and some of his abilities apply stacking bleeding effect.\nDuration: 20  Damage per stack: 4  Interval: 0.25\nACTIVE: For duration Vlad siphons lifeforce of his bleeding surrounding enemies dealing damage to them while healing himself for each bleed stack consumed off targets.\nEnemies being sucked are slowed proportionally to how badly they are bleeding."
+		"DOTA_Tooltip_ability_vlad_transfusion_Description" 										"PASSIVE: Vlad's melee attacks and some of his abilities apply stacking bleeding effect.\nDuration: 20  Damage per stack: 4  Interval: 0.25\nACTIVE: For duration Vlad siphons lifeforce of his bleeding surrounding enemies dealing damage to them while healing himself for each bleed stack consumed off targets.\nEnemies being sucked are slowed proportionally to how badly they are bleeding.\Transfusion stores amount of consumed bleed stacks in Bloodpower buff, while this buff is present next damaging ability used after Transfusion ends will consume Bloodpower stacks to gain augmented effects.\nAdditionally while Vlad holds bloodpower stacks, he gains access to ability Impale."
 		"DOTA_Tooltip_ability_vlad_transfusion_duration" 											"DURATION:"
 		"DOTA_Tooltip_ability_vlad_transfusion_interval" 											"INTERVAL TICK:"
 		"DOTA_Tooltip_ability_vlad_transfusion_aoe" 												"AOE:"
@@ -6969,7 +6977,7 @@
 		"DOTA_Tooltip_ability_vlad_combo_penalty" 													"PENALTY SILENCE DURATION:"
 		
 		"DOTA_Tooltip_ability_vlad_impale" 															"Impale"
-		"DOTA_Tooltip_ability_vlad_impale_Description" 												"Vlad summons multiple spikes that emerge from below target location after short delay <font color='#FF3399'>stunning</font> everyone in radius. \nThis ability gets stronger the more bloodpower you hold. Using this ability ends transfusion prematurely if its still in progress and consumes all bloodpower.\n<font color='#b52000'>Applies 10 bleed stacks to targets hit.</font>"
+		"DOTA_Tooltip_ability_vlad_impale_Description" 												"Vlad summons multiple spikes that travel along the ground in the targeted direction, <font color='#FF3399'>stunning</font> everyone in radius. \nThis ability gets stronger the more bloodpower you hold. Using this ability ends transfusion prematurely if its still in progress and consumes all bloodpower.\n<font color='#b52000'>Applies 10 bleed stacks to targets hit.</font>"
 		"DOTA_Tooltip_ability_vlad_impale_range" 													"RANGE:"
 		"DOTA_Tooltip_ability_vlad_impale_delay" 													"DELAY:"
 		"DOTA_Tooltip_ability_vlad_impale_damage" 													"DAMAGE:"
@@ -7068,15 +7076,16 @@
 		"DOTA_Tooltip_ability_leonidas_catch_slow_pct"											"%EFFECT SLOW:"
 
 		"DOTA_Tooltip_ability_leonidas_pride"													"Defensive stance"
-		"DOTA_Tooltip_ability_leonidas_pride_Description"										"Leonidas enters defensive stance, reducing damage taken, while translating portion of damage ally heroes in radius receive to him.Leonidas is disarmed while in this stance. At any moment this spell can be canceled with Release.\n Release: Leonidas throws his spear at targeted location after a 0.3 seconds. All enemies hit will receive damage based on damage Leonidas received in his defensive stance capped at 50% of his max HP and will be stunned for a short duration.\n[BERSERKED] HP based cap of spear is increased to 75%."
+		"DOTA_Tooltip_ability_leonidas_pride_Description"										"Leonidas enters defensive stance, reducing damage taken, while translating portion of damage ally heroes in radius receive to him.Leonidas is disarmed while in this stance. At any moment this spell can be canceled with Release.\n Release: Leonidas throws his spear at targeted location after a 0.3 seconds. All enemies hit will receive damage based on damage Leonidas received in his defensive stance capped, cap based on Leonidas's armor and will be stunned for a short duration.\nStun duration decreases based on how close Leonidas to the target point."
 		"DOTA_Tooltip_ability_leonidas_pride_Note0"												""
 		"DOTA_Tooltip_ability_leonidas_pride_radius"										"RADIUS:"
 		"DOTA_Tooltip_ability_leonidas_pride_counter_duration"								"DURATION:"
 		"DOTA_Tooltip_ability_leonidas_pride_counter_resist"								"%DAMAGE RESIST AND TRANSLATION:"
 		"DOTA_Tooltip_ability_leonidas_pride_damage"										"SPEAR BASE DMG:"
-		"DOTA_Tooltip_ability_leonidas_pride_stun_duration"									"SPEAR STUN DURATION:"
+		"DOTA_Tooltip_ability_leonidas_pride_stun_duration"									"SPEAR MAX STUN DURATION:"
 		"DOTA_Tooltip_ability_leonidas_pride_cast_range"									"SPEAR CASTRANGE:"
 		"DOTA_Tooltip_ability_leonidas_pride_spear_radius"									"SPEAR RADIUS:"
+		"DOTA_Tooltip_ability_leonidas_pride_damage_per_armor"								"DAMAGE CAP PER ARMOR:"
 
 		"DOTA_Tooltip_modifier_leonidas_pride_counter"											"Defensive stance"
 		"DOTA_Tooltip_modifier_leonidas_pride_counter_Description"								"Accumulates damage received."
@@ -7359,7 +7368,7 @@
 		"DOTA_Tooltip_Ability_lu_bu_rebellious_spirit_hp_threshold_max"				"%HP THRESHOLD:"
 		
 		"DOTA_Tooltip_Ability_lu_bu_restless_soul"				"<font color='#FFE56E'>Restless Soul</font>"
-		"DOTA_Tooltip_Ability_lu_bu_restless_soul_Description"				"Cast Point: <font color='#FFFFF9'>0</font>s    |    <font color='#EE5C29'>Unrefreshable</font><br><br><font color='#05CAFF'>Passive:</font> If there isn't a <font color='#FF3399'>cooldown</font> in place, whenever Lu Bu incurs <font color='#FF5100'>fatal damage</font>, he will be <font color='#ACFF05'>healed</font> instead.\n\n<font color='#05CAFF'>Active:</font> Lu Bu is able to <font color='#ACFF05'>heal</font> back a set amount of <font color='#ACFF05'>health</font> every few seconds.\n\n<font color='#FF3399'>Upgradable with attribute Restless Soul</font>"
+		"DOTA_Tooltip_Ability_lu_bu_restless_soul_Description"				"Cast Point: <font color='#FFFFF9'>0</font>s    |    <font color='#EE5C29'>Unrefreshable</font><br><br><font color='#05CAFF'>Passive:</font> If there isn't a <font color='#FF3399'>cooldown</font> in place, whenever Lu Bu incurs <font color='#FF5100'>fatal damage</font>, he will be <font color='#ACFF05'>healed</font> instead.\n\n<font color='#05CAFF'>Active:</font> Lu Bu is able to <font color='#ACFF05'>heal</font> back a set amount of <font color='#ACFF05'>health</font> plus 5% of his max health every few seconds.\n\n<font color='#FF3399'>Upgradable with attribute Restless Soul</font>"
 		"DOTA_Tooltip_Ability_lu_bu_restless_soul_Lore"				"The wandering soul knows no rest."
 		"DOTA_Tooltip_Ability_lu_bu_restless_soul_cooldown"				"PASSIVE HEAL COOLDOWN:"
 		"DOTA_Tooltip_Ability_lu_bu_restless_soul_passive_heal"				"PASSIVE HEAL:"
@@ -7426,7 +7435,7 @@
 		"DOTA_Tooltip_Ability_lu_bu_combo_list_slow_ct"				"%SLOW:"
 		
 		"DOTA_Tooltip_Ability_lu_bu_fangtian_huaji_attribute"				"<font color='#FFE56E'>Fangtian Huaji</font>"
-		"DOTA_Tooltip_Ability_lu_bu_fangtian_huaji_attribute_Description"				"Grants more <font color='#05CAFF'>magical damage</font> to <font color='#FFE56E'>Armistice</font> and <font color='#FFE56E'>God Force: The Five Soldiers of the War God</font>\n\n<font color='#FFE56E'>Armistice</font> gains extra range.\n\nBoth <font color='#FFE56E'>Armistice</font> and the last hit of <font color='#FFE56E'>God Force: The Five Soldiers of the War God</font> gains additional <font color='#05CAFF'>magical damage</font> based on <font color='#FF0000'>STR</font>."
+		"DOTA_Tooltip_Ability_lu_bu_fangtian_huaji_attribute_Description"				"Grants more <font color='#05CAFF'>magical damage</font> to <font color='#FFE56E'>Armistice</font> and <font color='#FFE56E'>God Force: The Five Soldiers of the War God</font>\n\n<font color='#FFE56E'>Armistice</font> gains extra range.\n\nBoth <font color='#FFE56E'>Armistice</font> and the last hit of <font color='#FFE56E'>God Force: The Five Soldiers of the War God</font> gains additional <font color='#05CAFF'>magical damage</font> based on <font color='#FF0000'>STR</font>.\n<font color='#FFE56E'>Mad enchancement</font> gets bonus <font color='#05CAFF'>magical damage</font> equal to 1x of Lu bu's <font color='#FF0000'>STR</font>."
 		"DOTA_Tooltip_Ability_lu_bu_fangtian_huaji_attribute_Lore"				"The real name of God Force, Square Sky Halberd"
 		"DOTA_Tooltip_Ability_lu_bu_fangtian_huaji_attribute_armistice_damage"				"ARMISTICE DAMAGE:"
 		"DOTA_Tooltip_Ability_lu_bu_fangtian_huaji_attribute_armistice_str"				"ARMISTICE DAMAGE PER STR:"
@@ -8090,7 +8099,7 @@
 
 		//Freely Drawn Sword
 		"DOTA_Tooltip_ability_saito_fds"															"Freely Drawn Sword"
-		"DOTA_Tooltip_ability_saito_fds_Description"												"<font color='#00AB9E'>PASSIVE</font>: <font color='#0075B5'>Flashblade</font>, <font color='#0075B5'>Steelwing</font> and <font color='#0075B5'>Shadowslash</font> share cooldowns, able to be cast up to %max_casts% times.\nAll of these abilities must be used simultaneously at certain time intervals, and if you fail to match the time intervals, they will go on cooldown.\nThe time interval starts at %check_interval% seconds and decreases by %check_decreaser% seconds with each concurrent use of these abilities.\n<font color='#00AB9E'>ACTIVE</font>: When activated, whenever Saitō deals damage to an enemy with an ability, he applies a stacking debuff to the enemies he hits, causing them to deal less damage, stacking additively and instantly restoring mana for each enemy hero hit.\n\n<font color='#87C9AC'>Upgradeable with Attribute: Freestyle</font>."
+		"DOTA_Tooltip_ability_saito_fds_Description"												"<font color='#00AB9E'>PASSIVE</font>: <font color='#0075B5'>Flashblade</font>, <font color='#0075B5'>Steelwing</font> and <font color='#0075B5'>Shadowslash</font> share cooldowns, able to be cast up to %max_casts% times.\nAll of these abilities must be used simultaneously at certain time intervals, and if you fail to match the time intervals, they will go on cooldown.\nThe time interval starts at %check_interval% seconds and decreases by %check_decreaser% seconds with each concurrent use of these abilities.\n<font color='#00AB9E'>ACTIVE</font>: When activated, whenever Saitō deals damage to an enemy with an ability, he applies a stacking debuff to the enemies he hits, causing them to deal less damage, stacking additively and instantly restoring mana for each enemy hero hit.\nUpon cast, Saito gains 0.75 seconds of immune to stun and silence.\n\n<font color='#87C9AC'>Upgradeable with Attribute: Freestyle</font>."
 		"DOTA_Tooltip_ability_saito_fds_Lore"														"A sword drawing technique that can freely change forms when the user unsheathes his blade in each hand."
 		"DOTA_Tooltip_ability_saito_fds_AbilityCastPoint"											"CAST POINT:"
 		//"DOTA_Tooltip_ability_saito_fds_max_casts"												""
@@ -8392,7 +8401,7 @@
   
 
 		"DOTA_Tooltip_ability_merlin_garden_of_avalon"						"Combo: Garden of Avalon"
-        "DOTA_Tooltip_ability_merlin_garden_of_avalon_Description"			"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: D-E in 2 seconds\n</font><font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0</font>\n\nMerlin starts <font color='#58ACFA'>Garden of Avalon</font> chant, lasting <font color='#FFFAFA'>4</font> seconds.\nWhile chanting Merlin is <font color='#FF3399'>silenced</font>.\nWhen the chant is finished, merlin will get a <font color='#FFFAFA'>70% damage resistance</font>, while all his allies gain huge <font color='#7CFC00'>health</font> and <font color='#58ACFA'>mana</font> <font color='#7CFC00'>regeneration</font>\nEach<font color='#FFFAFA'> 0.3</font> seconds all allies affected are <font color='#FFFAFA'>cleaned</font>.\nWhen the garden is fully materialised, Merlin can <font color='#FFFAFA'>stop</font> it by using an ability in the <font color='#58ACFA'>Avalon</font> slot. Merlin is <font color='#FFFAFA'>immune to knockback</font> while casting."
+        "DOTA_Tooltip_ability_merlin_garden_of_avalon_Description"			"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: D-E in 2 seconds\n</font><font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0</font>\n\nMerlin starts <font color='#58ACFA'>Garden of Avalon</font> chant, lasting <font color='#FFFAFA'>4</font> seconds.\nWhile chanting Merlin is <font color='#FF3399'>silenced</font>.\nWhen the chant is finished, merlin will get a <font color='#FFFAFA'>70% damage resistance</font>, while all his allies gain huge <font color='#7CFC00'>health</font> and <font color='#58ACFA'>mana</font> <font color='#7CFC00'>regeneration</font> and 600 bonus health.\nEach<font color='#FFFAFA'> 0.3</font> seconds all allies affected are <font color='#FFFAFA'>cleaned</font>.\nWhen the garden is fully materialised, Merlin can <font color='#FFFAFA'>stop</font> it by using an ability in the <font color='#58ACFA'>Avalon</font> slot. Merlin is <font color='#FFFAFA'>immune to knockback</font> while casting."
         "DOTA_Tooltip_abilitymerlin_garden_of_avalon_radius"					"Radius:"
         "DOTA_Tooltip_ability_merlin_garden_of_avalon_duration_visible"			"Garden duration:"
 		"DOTA_Tooltip_ability_merlin_garden_of_avalon_health_regen_bonus"		"%Health regeneration:"
@@ -8546,7 +8555,7 @@
   
 
 		"DOTA_Tooltip_ability_nobu_combo"						"Combo: Demon king of the sixth heaven"
-        "DOTA_Tooltip_ability_nobu_combo_Description"			"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: W-D in 2 seconds</font>\nNobunaga takes a 1.5 seconds charge and then run into the target enemy with insane speed. If she reaches enemy, he will be stunned, she will became invulnerable and will deal magic damage, followed by 25 rifle shots.\nWhile charging and running Nobunaga receives 40% less damage."
+        "DOTA_Tooltip_ability_nobu_combo_Description"			"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: W-D in 2 seconds</font>\nNobunaga takes a 1.5 seconds charge and then run into the target enemy with insane speed. If she reaches enemy, he will be stunned, she will became invulnerable and will deal magic damage, followed by 25 rifle shots.\nWhile charging and running Nobunaga receives 40% less damage.\nWhile running, nobunaga will shot 2 guns to closest enemies in 1000 range every 0.15 seconds."
         "DOTA_Tooltip_ability_nobu_combo_radius"			"Cast range:"
 		"DOTA_Tooltip_ability_nobu_combo_run_speed"		"Run speed:"
 		"DOTA_Tooltip_ability_nobu_combo_run_duration"	 "Maximum run duration:"

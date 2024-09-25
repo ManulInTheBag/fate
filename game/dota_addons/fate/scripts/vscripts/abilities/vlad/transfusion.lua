@@ -17,18 +17,15 @@ function vlad_transfusion:VFX1_SuckOnAndLiveLongBitch(caster,k,target)
 end
 
 function vlad_transfusion:AddBloodpowerStack(target,count)
-	if target.BloodletterAcquired then
-	  local modifier = target:FindModifierByName("modifier_transfusion_bloodpower")
-	  local currentStack = modifier and modifier:GetStackCount() or 0
-	  target:RemoveModifierByName("modifier_transfusion_bloodpower")
-	  target:AddNewModifier(target, self, "modifier_transfusion_bloodpower", {duration = self:GetSpecialValueFor("bloodpower_duration")})
-	  target:SetModifierStackCount("modifier_transfusion_bloodpower", self, currentStack + count)
-	end
+	local modifier = target:FindModifierByName("modifier_transfusion_bloodpower")
+	local currentStack = modifier and modifier:GetStackCount() or 0
+	target:RemoveModifierByName("modifier_transfusion_bloodpower")
+	target:AddNewModifier(target, self, "modifier_transfusion_bloodpower", {duration = self:GetSpecialValueFor("bloodpower_duration")})
+	target:SetModifierStackCount("modifier_transfusion_bloodpower", self, currentStack + count)
 end
 
 --instant curse ability swap
 function vlad_transfusion:ImpaleSwap(caster)
-  if caster.BloodletterAcquired then
     local duration = self:GetSpecialValueFor("bloodpower_duration")
   	if not caster.ImpaleSwapTimer then
   		caster:FindAbilityByName("vlad_transfusion"):StartCooldown(0.75)
@@ -44,7 +41,6 @@ function vlad_transfusion:ImpaleSwap(caster)
         caster:SwapAbilities("vlad_transfusion", "vlad_impale", true, false)
       end)
     end
-  end
 end
 
 function vlad_transfusion:OnSpellStart()
@@ -58,14 +54,25 @@ function vlad_transfusion:OnSpellStart()
 	local duration = self:GetSpecialValueFor("duration")
 	local Wlevel = caster:FindAbilityByName("vlad_ceremonial_purge"):GetLevel()
 	local dmg = dmg + (dmg_bonus*Wlevel)
-  local heal = heal +(dmg_bonus*Wlevel)
+    local heal = heal +(dmg_bonus*Wlevel)
+	if caster.BloodletterAcquired then
+		if caster:GetHealth()/caster:GetMaxHealth() <= 0.5 then
+  
+		  local saDamage = caster.MasterUnit2:FindAbilityByName("vlad_attribute_bloodletter"):GetSpecialValueFor("damage")
+		  local saBleed = caster.MasterUnit2:FindAbilityByName("vlad_attribute_bloodletter"):GetSpecialValueFor("bleed")
+		  local explosionFx = ParticleManager:CreateParticle("particles/vlad/vlad_impale_fort.vpcf", PATTACH_WORLDORIGIN, nil)
+		  ParticleManager:SetParticleControl(explosionFx, 3, caster:GetAbsOrigin())
+		  ParticleManager:ReleaseParticleIndex(explosionFx)
+		  caster:EmitSound("Hero_Lycan.Attack")
+		  local targets = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
+		  for k,v in pairs(targets) do
+			DoDamage(caster, v, saDamage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+			caster:AddBleedStack(v, false, saBleed)
+			giveUnitDataDrivenModifier(caster, v, "rooted", 0.5)
 
-  if caster.BloodletterAcquired then
-    local transfusionbonus = caster.MasterUnit2:FindAbilityByName("vlad_attribute_bloodletter"):GetSpecialValueFor("transfusionbonus")
-    dmg = dmg + transfusionbonus
-    heal = heal + transfusionbonus
-  end
-
+		  end
+		end
+	  end
 	caster:AddNewModifier(caster, self, "modifier_transfusion_self",{duration = duration})
 	caster:EmitSound("Hero_OgreMagi.Bloodlust.Target.FP")
 	caster:EmitSound("Hero_DeathProphet.SpiritSiphon.Cast")

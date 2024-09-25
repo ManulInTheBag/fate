@@ -1894,7 +1894,7 @@ function saito_fds:OnSpellStart()
     local nDuration = self:GetSpecialValueFor("active_duration") + GetAttributeValue(hCaster, "saito_attribute_freestyle", "fds_active_duration", -1, 0)
 
     hCaster:AddNewModifier(hCaster, self, "modifier_saito_fds_active", {duration = nDuration})
-
+    hCaster:AddNewModifier(hCaster, self, "modifier_saito_cc_immune", {Duration = 0.75})
     --=================================--
     if hCaster:GetStrength() >= 29.1 and hCaster:GetAgility() >= 29.1 and hCaster:GetIntellect() >= 29.1 then
         if hCaster:FindAbilityByName("saito_jce"):IsCooldownReady() and hCaster:IsAlive() then                
@@ -2223,6 +2223,24 @@ function modifier_saito_fds_active:OnIntervalThink()
                             ParticleManager:ReleaseParticleIndex(nPulsesPFX)
     end
 end
+---------------------------------------------------------------------------------------------------------------------
+LinkLuaModifier("modifier_saito_cc_immune", "abilities/saito/saito_abilities", LUA_MODIFIER_MOTION_NONE)
+modifier_saito_cc_immune = class({})
+ 
+ 
+function modifier_saito_cc_immune:CheckState()
+    return { [MODIFIER_STATE_STUNNED  ] = false,
+    [MODIFIER_STATE_SILENCED   ] = false,
+        }
+end
+
+function modifier_saito_cc_immune:IsHidden()	
+    return false
+end
+function modifier_saito_cc_immune:RemoveOnDeath()return true end 
+function modifier_saito_cc_immune:IsDebuff() 	return false end
+ 
+
 ---------------------------------------------------------------------------------------------------------------------
 LinkLuaModifier("modifier_saito_fds_aura_sdr", "abilities/saito/saito_abilities", LUA_MODIFIER_MOTION_NONE)
 
@@ -3111,11 +3129,11 @@ function modifier_saito_vortex_slashing:OnIntervalThink()
         for _, hEntity in pairs(tEntities) do
             if IsNotNull(hEntity) then
                 if bLastSlash then
-                    --giveUnitDataDrivenModifier(self.hCaster, hEntity, "stunned", self.nKnockDuration)
+                    giveUnitDataDrivenModifier(self.hCaster, hEntity, "stunned", self.nKnockDuration)
                     fApplyKnockbackSpecial(hEntity, self.nKnockDistance, self.nKnockDuration, GetDirection(hEntity, vParentLoc))
                     EmitSoundOn("Saito.Vortex.Impact", hEntity)
                 else
-                    --giveUnitDataDrivenModifier(self.hCaster, hEntity, "stunned", self.nSlashStunDuration)
+                    giveUnitDataDrivenModifier(self.hCaster, hEntity, "stunned", self.nSlashStunDuration)
 
                     EmitSoundOn("Hero_Saito.Attack", hEntity)
                 end

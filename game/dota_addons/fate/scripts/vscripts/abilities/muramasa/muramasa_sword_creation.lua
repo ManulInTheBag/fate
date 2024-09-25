@@ -198,7 +198,7 @@ if(caster:HasModifier("modifier_berserk_scroll")) then
 damage = damage + self:GetAbility():GetSpecialValueFor("dmg_berserker")
 end
 if(caster:HasModifier("modifier_muramasa_forge") or self:GetCaster():HasModifier("modifier_muramasa_sword_trial_buff")) then
-radius = radius + 80
+radius = radius + 100
 particlestring = "particles/muramasa/muramasa_atk_explosion_powered.vpcf"
 end
  

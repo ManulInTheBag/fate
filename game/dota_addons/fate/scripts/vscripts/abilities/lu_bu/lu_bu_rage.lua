@@ -78,9 +78,11 @@ function modifier_lu_bu_rage:OnCreated()
 
 	--self.caster:EmitSound("Hero_ArcWarden.MagneticField")
 
-	self.interval = 0.1
-
+	self.interval = 0.09
 	self.tickDamage = self.ability:GetSpecialValueFor("damage")*self.interval
+	if self.caster:HasModifier("modifier_lu_bu_fangtian_huaji_attribute") then
+		self.tickDamage =  self.tickDamage  + self.caster:GetStrength() * self.interval
+	end
 
 	self.radius = self.ability:GetSpecialValueFor("radius")
 

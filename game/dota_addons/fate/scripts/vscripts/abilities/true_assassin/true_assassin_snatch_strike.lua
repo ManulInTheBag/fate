@@ -52,12 +52,12 @@ function true_assassin_snatch_strike:OnSpellStart()
 			--[[DoDamage(caster, target, casterStr * 3, DAMAGE_TYPE_PHYSICAL, 0, ability, false)
 			totalDamage = totalDamage + casterStr * 3]]
 
+
 			caster:AddNewModifier(caster, ability, "modifier_snatch_strike_str_hassan", { Duration = self:GetSpecialValueFor("duration"),
 																					BonusStrength = strength})
 
 			target:AddNewModifier(caster, ability, "modifier_snatch_strike_str_enemy", { Duration = self:GetSpecialValueFor("duration"),
 																					BonusStrength = strength})
-
 			DoDamage(caster, target, casterAgi * 1.5, DAMAGE_TYPE_PURE, 0, ability, false)
 		--	totalDamage = totalDamage + casterAgi * 2
 

@@ -77,7 +77,7 @@ function diarmuid_gae_dearg:GetCastPoint()
 	local caster = self:GetCaster()
 
 	if caster:HasModifier("modifier_rampant_warrior") then
-		return 0.2
+		return 0.4
 	elseif caster:HasModifier("modifier_crimson_rose_attribute") then
 		return 0.5
 	else
@@ -128,8 +128,8 @@ function diarmuid_gae_dearg:OnSpellStart()
 		end
 	end
 
-	DoDamage(caster, target, 3*damage/4, DAMAGE_TYPE_PURE, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, ability, false)
-	DoDamage(caster, target, damage/4, DAMAGE_TYPE_MAGICAL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, ability, false)
+	DoDamage(caster, target, damage*0.5, DAMAGE_TYPE_PURE, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, ability, false)
+	DoDamage(caster, target, damage*0.5, DAMAGE_TYPE_MAGICAL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, ability, false)
 	--[[local counter = 0
 	Timers:CreateTimer(0.1, function()
 		if counter >= 10 then return end

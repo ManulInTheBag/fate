@@ -91,8 +91,8 @@ function nero_gladiusanus_new:OnSpellStart()
                     DoDamage(caster, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
                 end
 
-                --enemy:AddNewModifier(caster, enemy, "modifier_rooted", {duration = self:GetSpecialValueFor("root_duration")})
-                --giveUnitDataDrivenModifier(caster, enemy, "locked", self:GetSpecialValueFor("root_duration"))
+                --enemy:AddNewModifier(caster, enemy, "modifier_rooted", {duration = 0.6})
+                giveUnitDataDrivenModifier(caster, enemy, "locked", 0.6)
                 enemy:AddNewModifier(caster, enemy, "modifier_nero_gladiusanus_new", {duration = self:GetSpecialValueFor("root_duration")})
                 --enemy:AddNewModifier(caster, enemy, "modifier_stunned", {duration = 0.1})
 

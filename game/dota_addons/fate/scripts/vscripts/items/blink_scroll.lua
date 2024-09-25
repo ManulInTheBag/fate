@@ -23,6 +23,13 @@ local locks = {
     "modifier_altera_dash",
     "modifier_jeanne_gods_resolution_active_buff",
 }
+function item_blink_scroll:GetBehavior()
+    if self:GetCaster():HasModifier("modifier_nobu_turnlock") then
+        return DOTA_ABILITY_BEHAVIOR_POINT + DOTA_ABILITY_BEHAVIOR_IMMEDIATE
+    else
+        return DOTA_ABILITY_BEHAVIOR_POINT
+    end
+end
 
 function item_blink_scroll:OnSpellStart()
 	AbilityBlink(self:GetCaster(), self:GetCursorPosition(), self:GetSpecialValueFor("distance"))

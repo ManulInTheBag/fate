@@ -955,8 +955,7 @@ function leonidas_pride:ReleaseSpear(vPoint, hTarget, nBonusDamage, bCanDodge)
     
     local nSpeed        = self:GetSpecialValueFor("speed")
     local nDamage       = self:GetSpecialValueFor("damage") + GetAttributeValue(hCaster, "leonidas_pride_attribute", "bonus_damage", -1, 0, false)
-    local nStunDuration = self:GetSpecialValueFor("stun_duration")
-
+    local nStunDuration = math.max(self:GetSpecialValueFor("stun_duration") * nDistance/nCastRange, 0.2)
     local vSpawnLoc = hCaster:GetAttachmentOrigin(hCaster:ScriptLookupAttachment("ATTACH_HITLOC"))
 
     local sSpearParticle = "particles/heroes/anime_hero_leonidas/leonidas_pride_spear_tracking.vpcf" --particles/econ/items/clockwerk/clockwerk_2022_cc/clockwerk_2022_cc_rocket_flare.vpcf
@@ -1201,11 +1200,8 @@ function modifier_leonidas_pride_counter:GetModifierIncomingDamage_Percentage(ke
         --print(keys.damage, keys.original_damage)
         local bCasterBerserked = self.hCaster:HasModifier("modifier_leonidas_berserk")
         self.nBonusDamage = math.ceil(self.nBonusDamage + ( keys.original_damage * self.nCounterResist * 0.01 ))
-        if(bCasterBerserked) then
-            self.nBonusDamage = GetClamped(self.nBonusDamage, 0, self.hParent:GetMaxHealth()*0.35)
-        else
-            self.nBonusDamage = GetClamped(self.nBonusDamage, 0, self.hParent:GetMaxHealth()*0.25)
-        end
+        self.nBonusDamage = GetClamped(self.nBonusDamage, 0, self.hParent:GetPhysicalArmorValue(false) *self.damagePerArmor)
+        
         
         self:SetStackCount(self.nBonusDamage)
         return -self.nCounterResist
@@ -1216,7 +1212,7 @@ function modifier_leonidas_pride_counter:OnCreated(tTable)
     self.hParent  = self:GetParent()
     self.hAbility = self:GetAbility()
     self.nRadius = self.hAbility:GetAOERadius()
-
+    self.damagePerArmor = self.hAbility:GetSpecialValueFor("damage_per_armor")
    
     if IsServer() then
         self.nCounterResist = tTable.nCounterResist or 0
@@ -1400,7 +1396,7 @@ function modifier_leonidas_pride_translator:OnCreated(tTable)
     self.hCaster  = self:GetCaster()
     self.hParent  = self:GetParent()
     self.hAbility = self:GetAbility()
-    self.percent = self.hAbility:GetSpecialValueFor("counter_resist")/100
+    self.percent = self.hAbility:GetSpecialValueFor("translate_percentage")/100
 end
 function modifier_leonidas_pride_translator:OnRefresh(tTable)
     self:OnCreated(tTable)
@@ -2671,33 +2667,33 @@ function leonidas_enomotia_combo:OnSpellStart()
             if IsNotNull(nDefenceAuraModifierThinker) then --NOTE: Stop functions in modifier so if not exist modifier we does nothing
                 self:StopShields_PFX(_nShieldsPFX, false)
                 --=================================--
-                -- Timers:CreateTimer(nPFX_AnimLoopTime * 0.5, function()
-                --     if IsNotNull(nDefenceAuraModifierThinker) then --NOTE: Again checks 1
-                --         EndAnimation(hCaster)
-                --         StartAnimation(hCaster, {duration = nPFX_AnimReleaseTime, activity = ACT_DOTA_CAST_ABILITY_3_END, rate = 0.3/(nPFX_AnimReleaseTime)})
-                --         --=================================--
-                --         if IsNotNull(hEnomotiaComboShield) then --NOTE: Maybe in future will add anti expire hmhmhm... TODO: Make when all shields is gone same releasing, so again rework anything but only in anime... now i'm tired
-                --             local tComboStoreEnemies  = hEnomotiaComboShield:GetStoreEnemies() or {}
-                --             local nTotalDamageBlocked = nDamageBlock - hEnomotiaComboShield:GetStackCount()
-                --             Timers:CreateTimer(nPFX_AnimReleaseTime * 0.5, function()
-                --                 --if IsNotNull(nDefenceAuraModifierThinker) then --NOTE: Again checks 2
-                --                 --end
-                --                 --print("RELEASING SPEARS TO TARGETS??? ", nTotalDamageBlocked, TableLength(tComboStoreEnemies))
+                Timers:CreateTimer(nPFX_AnimLoopTime * 0.5, function()
+                    if IsNotNull(nDefenceAuraModifierThinker) then --NOTE: Again checks 1
+                        EndAnimation(hCaster)
+                        StartAnimation(hCaster, {duration = nPFX_AnimReleaseTime, activity = ACT_DOTA_CAST_ABILITY_3_END, rate = 0.3/(nPFX_AnimReleaseTime)})
+                        --=================================--
+                        if IsNotNull(hEnomotiaComboShield) then --NOTE: Maybe in future will add anti expire hmhmhm... TODO: Make when all shields is gone same releasing, so again rework anything but only in anime... now i'm tired
+                            local tComboStoreEnemies  = hEnomotiaComboShield:GetStoreEnemies() or {}
+                            local nTotalDamageBlocked = nDamageBlock - hEnomotiaComboShield:GetStackCount()
+                            Timers:CreateTimer(nPFX_AnimReleaseTime * 0.5, function()
+                                --if IsNotNull(nDefenceAuraModifierThinker) then --NOTE: Again checks 2
+                                --end
+                                --print("RELEASING SPEARS TO TARGETS??? ", nTotalDamageBlocked, TableLength(tComboStoreEnemies))
 
-                --                 ScreenShake(vCasterGnd, 7, 3, 2, 300 * 5, 0, true)
+                                ScreenShake(vCasterGnd, 7, 3, 2, 300 * 5, 0, true)
 
-                --                 if IsNotNull(hPrideAbility) then
-                --                     local nBonusDamageToAll = ( nTotalDamageBlocked / math.max(TableLength(tComboStoreEnemies), 1) )
-                --                     for _, hEnemy in pairs(tComboStoreEnemies) do
-                --                         if IsNotNull(hEnemy) then --MB ADD CHECK FOR ALIVE BUT NOT WANT KEK
-                --                             hPrideAbility:ReleaseSpear(hEnemy:GetAbsOrigin(), hEnemy, nBonusDamageToAll, false)
-                --                         end
-                --                     end
-                --                 end
-                --             end)
-                --         end
-                --     end
-                -- end)
+                                if IsNotNull(hPrideAbility) then
+                                    local nBonusDamageToAll = ( nTotalDamageBlocked / math.max(TableLength(tComboStoreEnemies), 1) )
+                                    for _, hEnemy in pairs(tComboStoreEnemies) do
+                                        if IsNotNull(hEnemy) then --MB ADD CHECK FOR ALIVE BUT NOT WANT KEK
+                                            hPrideAbility:ReleaseSpear(hEnemy:GetAbsOrigin(), hEnemy, nBonusDamageToAll, false)
+                                        end
+                                    end
+                                end
+                            end)
+                        end
+                    end
+                end)
             end
         end)
         --=================================--

@@ -37,7 +37,11 @@
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityManaCost"				"100"
-
+		"precache"
+		{
+			"particle"		"particles/zlodemon/heracles/heracles_fissure.vpcf"
+		}
+		
 
 		"AbilityValues"
         {
@@ -96,14 +100,14 @@
         }		
 	}
 	//=================================================================================================================
-	// Berserker : Divinity
+	// Berserker : Divinity / God hand
 	//=================================================================================================================
 	"pepeg_divinity"
 	{
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/heracles/pepeg_divinity"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"			"custom/berserker_5th_divinity"
+		"AbilityTextureName"			"custom/berserker_5th_attribute_god_hand"
 		"MaxLevel"						"2"
 		"RequiredLevel"					"25"
 		"LevelsBetweenUpgrades"			"1"
@@ -114,6 +118,10 @@
             "bonus_armor" "0 15"
             "duration" "4"
             "regen_percent" "20"
+            "health_percent" "50"
+            "debuff_duration" "7"
+            "debuff_str" "50"
+            "revival_damage" "500"
         }
 		
 		"Modifiers"
@@ -483,7 +491,11 @@
 		{
 			"particle"			"particles/custom/berserker/reincarnation/regen_buff.vpcf"
 		}
-
+		"AbilityValues"
+        {
+            "duration" "4"
+            "regen_percent" "20"
+        }
 		"03"
 		{
 			"var_type"				"FIELD_INTEGER"
@@ -629,7 +641,7 @@
 		
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"9999"
-		"AbilityManaCost"				"18"
+		"AbilityManaCost"				"12"
 
 		"precache"
 		{
@@ -674,8 +686,8 @@
 
 		"AbilityValues"
         {
-            "threshold" "100"
-            "health_regen" "12"
+            "duration" "4"
+            "regen_percent" "20"
             "max_stack" "5"
             "damage_sustain" "20000"
             "bonus_count_percentage" "300"
