@@ -986,7 +986,7 @@ function leonidas_pride:ReleaseSpear(vPoint, hTarget, nBonusDamage, bCanDodge)
     -- end
 
     if bLockOnTarget then
-        local hModifier = hTarget:AddNewModifier(hCaster, hTarget, "modifier_leonidas_pride_mark_enemy", {})
+        local hModifier = hTarget:AddNewModifier(hCaster, self, "modifier_leonidas_pride_mark_enemy", {})
 
         local tSpearProjectile =    {
                                         EffectName = sSpearParticle,
@@ -1020,6 +1020,7 @@ function leonidas_pride:ReleaseSpear(vPoint, hTarget, nBonusDamage, bCanDodge)
                                                         nStunDuration = nStunDuration,
                                                         nPlaceWardPogChamp = nPlaceWardPogChamp,
 
+                                                        nLockedTarget = hTarget:entindex(),
                                                         hModifier = hModifier,
                                                     }
                                     }
@@ -1099,9 +1100,15 @@ function leonidas_pride:OnProjectileHit_ExtraData(hTarget, vLocation, tExtraData
             ParticleManager:ReleaseParticleIndex(tExtraData.nSpearParticle)
         end
 
-        if IsNotNull(tExtraData.hModifier) then
-            hModifier:Destroy()
+        if type(tExtraData.nLockedTarget) == "number" then
+            local _hTarget = EntIndexToHScript(tExtraData.nLockedTarget)
+            if IsNotNull(_hTarget) then
+                --print("HMMM")
+                _hTarget:RemoveModifierByName("modifier_leonidas_pride_mark_enemy")
+            end
         end
+
+        print(tExtraData.hModifier, "TEST CRINGE")
 
         local hCaster = self:GetCaster()
 
