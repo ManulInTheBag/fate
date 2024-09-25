@@ -14,6 +14,11 @@ function artoria_invisible_air:OnSpellStart()
 	
 	self.vStartPosition = self:GetCaster():GetOrigin()
 	self.vProjectileLocation = self.vStartPosition
+
+	if self.fxIndex then
+		ParticleManager:DestroyParticle( self.fxIndex, false )
+		ParticleManager:ReleaseParticleIndex( self.fxIndex )
+	end
 	
 	local vDirection = self:GetCursorPosition() - self.vStartPosition
 	vDirection.z = 0.0
@@ -37,12 +42,12 @@ function artoria_invisible_air:OnSpellStart()
         Source = caster,
         Ability = self,
         EffectName = "",
-        iMoveSpeed = 1200,
+        iMoveSpeed = 1800,
         vSourceLoc = caster:GetAbsOrigin(),
         level = 3,
-        bDodgeable = true,
+        bDodgeable = false,
         bIsAttack = true,
-        flExpireTime = GameRules:GetGameTime() + 10,
+        flExpireTime = GameRules:GetGameTime() + 3,
         iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_ATTACK_1,
     }
 	
@@ -51,48 +56,35 @@ function artoria_invisible_air:OnSpellStart()
 	self.hVictim = nil
 	self.bDiedInInvisibleAir = false
 	
-	local movespeed = 1200
+	local movespeed = 1800
 	
 	local particleName = "particles/custom/saber/saber_invisible_air.vpcf"
-	local fxIndex = ParticleManager:CreateParticle( particleName, PATTACH_ABSORIGIN, caster )
-	ParticleManager:SetParticleControl( fxIndex, 3, caster:GetAbsOrigin() )
-	
-	local dist = (caster:GetAbsOrigin() - target:GetAbsOrigin()):Length2D()
+	self.fxIndex = ParticleManager:CreateParticle( particleName, PATTACH_ABSORIGIN, caster )
+	ParticleManager:SetParticleControl( self.fxIndex, 3, caster:GetAbsOrigin() )
 	
 	caster:EmitSound("Ability.Focusfire")
 	
-	if dist > 250 then 
-		caster.invisible_air_pos = caster:GetAbsOrigin() + (target:GetAbsOrigin() - caster:GetAbsOrigin()):Normalized() * 150
-	else
-		caster.invisible_air_pos = caster:GetAbsOrigin() + (target:GetAbsOrigin() - caster:GetAbsOrigin()):Normalized() * dist * 0.6
-	end
-	
 	local invisAirCounter = 0
-	Timers:CreateTimer( function() 
-			-- If over 3 seconds
-			if invisAirCounter > 1.5 then
-				ParticleManager:DestroyParticle( fxIndex, false )
-				ParticleManager:ReleaseParticleIndex( fxIndex )
-				return
-			end
-				
-			local forwardVec = ( target:GetAbsOrigin() - caster.invisible_air_pos ):Normalized()
-				
-			caster.invisible_air_pos = caster.invisible_air_pos + forwardVec * movespeed * FrameTime()
-				
-			ParticleManager:SetParticleControl( fxIndex, 3, caster.invisible_air_pos )
-			
-			-- Reach first
-			if self.invisible_air_reach_target then
-				ParticleManager:DestroyParticle( fxIndex, false )
-				ParticleManager:ReleaseParticleIndex( fxIndex )
-				return nil
-			else
-				invisAirCounter = invisAirCounter + FrameTime()
-				return FrameTime()
-			end
+	Timers:CreateTimer(function()
+		if invisAirCounter >= 3 then
+			ParticleManager:DestroyParticle( self.fxIndex, false )
+			ParticleManager:ReleaseParticleIndex( self.fxIndex )
+			return
 		end
-	)
+		invisAirCounter = invisAirCounter + FrameTime()
+
+		ParticleManager:SetParticleControl( self.fxIndex, 3, caster:GetAbsOrigin())
+		return FrameTime()
+	end)
+end
+
+function artoria_invisible_air:OnProjectileThink_ExtraData(vLocation, table)
+	local caster = self:GetCaster()
+
+	vLocation = GetGroundPosition(vLocation, nil)
+
+	caster:SetAbsOrigin(vLocation)
+	caster:SetForwardVector(self.target:GetAbsOrigin() - caster:GetAbsOrigin())
 end
 
 function artoria_invisible_air:OnProjectileHit_ExtraData(target, vLocation, tData)
@@ -102,21 +94,20 @@ function artoria_invisible_air:OnProjectileHit_ExtraData(target, vLocation, tDat
 
 	self.invisible_air_reach_target = true
 
+	ParticleManager:DestroyParticle( self.fxIndex, false )
+	ParticleManager:ReleaseParticleIndex( self.fxIndex )
+
+	FindClearSpaceForUnit(caster, caster:GetAbsOrigin() - caster:GetForwardVector()*150, true)
+
 	damage = self:GetSpecialValueFor( "damage" )  
 	wind_speed = self:GetSpecialValueFor( "wind_speed" )
 
 	vision_radius = self:GetSpecialValueFor( "vision_radius" )  
 	vision_duration = self:GetSpecialValueFor( "vision_duration" )
-
-    if target == nil then
-        return 
-    end
-
 	
 	if IsSpellBlocked(target) -- Linken's
 		or target:IsMagicImmune() -- Magic immunity
 		or target:HasModifier("modifier_wind_protection_passive") 
-		or (target:GetAbsOrigin() - self.vProjectileLocation):Length2D() > (self:GetSpecialValueFor("range") + 100)
 	then
 		return
 	end
@@ -150,35 +141,7 @@ function artoria_invisible_air:OnProjectileHit_ExtraData(target, vLocation, tDat
 					target:Interrupt()
 				end
 			end
-			
-			if not target:HasModifier("modifier_wind_protection_passive") and not IsKnockbackImmune(target) then
-				local caster_position = self.vStartPosition
-				local target_position = target:GetAbsOrigin()
-				
-				local pull_target = Physics:Unit(target)
-				local distance = (caster_position - target_position):Length2D()
-				target:PreventDI()
-				target:SetPhysicsFriction(0)
-				target:SetPhysicsVelocity((caster_position - target_position):Normalized() * distance * 2.2)
-				target:SetNavCollisionType(PHYSICS_NAV_NOTHING)
-				target:FollowNavMesh(true)
-				target:SetAutoUnstuck(false)
-			
-			Timers:CreateTimer({
-				endTime = 0.4,
-				callback = function()
-				
-				target:PreventDI(false)
-				target:SetPhysicsVelocity(Vector(0,0,0))
-				target:OnPhysicsFrame(nil)
-				FindClearSpaceForUnit(target, target:GetAbsOrigin(), true)
-			end})
-			
-			end
 
-			
-
-			AddFOWViewer( self:GetCaster():GetTeamNumber(), target:GetOrigin(), vision_radius, vision_duration, false )
 			self.hVictim = target
 			bTargetPulled = true
 		end

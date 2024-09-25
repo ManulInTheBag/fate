@@ -49,7 +49,6 @@ function emiya_combo:OnSpellStart()
 		EmitSoundOnLocationWithCaster(ubwCenter, "emiya_combo_music", caster)
 		local centerpos = caster:GetAbsOrigin() + caster:GetForwardVector()*700
 		local enemypos = enemy:GetAbsOrigin()
-		
 		giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 0.7)
 		local knockback2 = { should_stun = true,
 			knockback_duration = 0.2,
@@ -70,17 +69,17 @@ function emiya_combo:OnSpellStart()
 		if caster:IsAlive() then 
 			caster:MoveToTargetToAttack(enemy)
 			local enemypos = enemy:GetAbsOrigin()
-			if  IsInSameRealm(caster:GetAbsOrigin(), enemypos) then
+			--if  IsInSameRealm(caster:GetAbsOrigin(), enemypos) then
 				StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_CAST_ABILITY_2_ES_ROLL_START, rate=1})
-				self:SwordRain(enemypos)
-				self:SwordRain(enemypos)
+				self:SwordRain(ubwCenter)
+				self:SwordRain(ubwCenter)
 				local explosionFx = ParticleManager:CreateParticle( "particles/emiya/emiya_combo_swords_drop.vpcf", PATTACH_CUSTOMORIGIN, nil )
-				ParticleManager:SetParticleControl( explosionFx, 3, enemypos )
-				ParticleManager:SetParticleControl( explosionFx, 0, enemypos )
+				ParticleManager:SetParticleControl( explosionFx, 3, ubwCenter )
+				ParticleManager:SetParticleControl( explosionFx, 0, ubwCenter )
 				ParticleManager:SetParticleControl( explosionFx, 5, Vector(800,0,0) )
 				local first_damage = self:GetSpecialValueFor("first_damage")
 				local enemies = FindUnitsInRadius(  caster:GetTeamNumber(),
-								enemypos,
+				ubwCenter,
 								nil,
 								700,
 								DOTA_UNIT_TARGET_TEAM_ENEMY,
@@ -92,7 +91,7 @@ function emiya_combo:OnSpellStart()
 					DoDamage(caster, enemy, first_damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
 					giveUnitDataDrivenModifier(caster, enemy, "stunned", 2)
 				end
-			end
+			--end
 		end
 	end)
 	Timers:CreateTimer(4.5, function()
@@ -103,13 +102,13 @@ function emiya_combo:OnSpellStart()
 	Timers:CreateTimer(5.3, function()
 		if caster:IsAlive() then 
 			local enemypos = enemy:GetAbsOrigin()
-			if  IsInSameRealm(caster:GetAbsOrigin(), enemypos) then
+			--if  IsInSameRealm(caster:GetAbsOrigin(), enemypos) then
 				local explosion_damage = self:GetSpecialValueFor("explosion_damage")
 				caster:EmitSound("explosion_emiya")
 				
 				
 				local enemies = FindUnitsInRadius(  caster:GetTeamNumber(),
-								enemypos,
+				ubwCenter,
 								nil,
 								900,
 								DOTA_UNIT_TARGET_TEAM_ENEMY,
@@ -121,7 +120,7 @@ function emiya_combo:OnSpellStart()
 					DoDamage(caster, enemy, explosion_damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
 					giveUnitDataDrivenModifier(caster, enemy, "stunned", 0.1)
 				end
-			end
+			--end
 		end
 	end)
  

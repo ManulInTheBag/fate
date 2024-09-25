@@ -7,7 +7,7 @@ LinkLuaModifier("modifier_squidlord_alive", "abilities/gilles/gilles_abyssal_con
 LinkLuaModifier("modifier_gilles_combo_window", "abilities/gilles/modifiers/modifier_gilles_combo_window", LUA_MODIFIER_MOTION_NONE)
 
 function gilles_abyssal_contract:GetManaCost(iLevel)
-	return self:GetCaster():GetMaxMana()
+	return self:GetCaster():GetMaxMana() * 0.8
 end
 
 function gilles_abyssal_contract:IsHiddenAbilityCastable()
@@ -43,7 +43,7 @@ function gilles_abyssal_contract:OnSpellStart()
 		hCaster.Squidlord = nil
 	end
 	EmitGlobalSound("Gilles_Cool")
-	hCaster:AddNewModifier(hCaster, self, "modifier_squidlord_alive", { Duration = 2.9})
+	hCaster:AddNewModifier(hCaster, self, "modifier_squidlord_alive", { Duration = 3.0})
 
 	AddFOWViewer(hCaster:GetTeamNumber(), vTargetPoint, fAOE, fDelay + 0.5, true)
     hCaster:EmitSound("Hero_Warlock.Upheaval")
@@ -107,7 +107,6 @@ function gilles_abyssal_contract:OnSpellStart()
 			end)
 			hSquidLordz:AddNewModifier(hCaster, self, "modifier_kill", { duration = 91.0 })
 			hSquidLordz:AddNewModifier(hCaster, self, "modifier_squidlord_death_checker", { Duration = 90 })
-			hCaster:AddNewModifier(hCaster, self, "modifier_squidlord_alive", { Duration = 90})
 
 			EmitGlobalSound("ZC.Ravage")
 
@@ -176,8 +175,8 @@ if IsServer() then
 		self:GetCaster():RemoveModifierByName("modifier_squidlord_alive")
 
 		local hAbility = self:GetCaster():FindAbilityByName("gilles_abyssal_contract")
-		hAbility:EndCooldown()
-		hAbility:StartCooldown(hAbility:GetCooldown(hAbility:GetLevel()))
+		--hAbility:EndCooldown()
+		--hAbility:StartCooldown(hAbility:GetCooldown(hAbility:GetLevel()))
 	end
 
 	function modifier_squidlord_death_checker:OnIntervalThink()

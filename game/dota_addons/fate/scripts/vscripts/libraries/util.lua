@@ -398,7 +398,7 @@ donotlevel = {
     "rider_5th_monstrous_strength_passive",
     "berserker_5th_divinity_improved",
     "berserker_5th_berserk_attribute_passive",
-    "berserker_5th_god_hand",
+    --"berserker_5th_god_hand",
     "false_assassin_presence_concealment",
     "true_assassin_weakening_venom_passive",
     --"true_assassin_protection_from_wind",

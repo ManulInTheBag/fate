@@ -21,7 +21,7 @@
 		"SpellImmunityType"							"SPELL_IMMUNITY_ENEMIES_NO"
 		"SpellDispellableType"						"SPELL_DISPELLABLE_YES"		//This line is only for visuals on the HUD. In Lua for this by default it uses IsPurgable(), and IsPurgeException() for with strong dispels.
 
-		"AbilityCastPoint"							"0.25"
+		"AbilityCastPoint"							"0.2"
 		"AbilityCooldown"							"21 19 17 15 13"		//The cooldown that will start for each ability is different, so you can change it here, and this ability will have a cooldown with that number, along with the cooldown of F ability.
 		"AbilityManaCost"							"100"
 		//"AbilityCastRange"						""		//Cast Range should be 0 as this is a global ability, the range is capped in Lua basically.
@@ -39,9 +39,9 @@
 
 		"AbilityValues"
 		{
-			"distance"								"600 650 700 750 800"		//Optimum distance.
-			"speed"									"1850"
-			"image_root_duration"					"0.4"
+			"distance"								"1000"		//Optimum distance.
+			"speed"									"2000"
+			"image_root_duration"					"0.7"
 			"image_duration"						"0.5"
 			"image_radius"							"260"
 			"image_damage"							"200 220 240 260 280"
@@ -71,7 +71,7 @@
 		"SpellImmunityType"							"SPELL_IMMUNITY_ENEMIES_NO"
 		"SpellDispellableType"						"SPELL_DISPELLABLE_YES_STRONG"		//This line is only for visuals on the HUD. In Lua for this by default it uses IsPurgable(), and IsPurgeException() for with strong dispels.
 
-		"AbilityCastPoint"							"0.25"
+		"AbilityCastPoint"							"0.2"
 		"AbilityCooldown"							"21 19 17 15 13"		//The cooldown that will start for each ability is different, so you can change it here, and this ability will have a cooldown with that number, along with the cooldown of F ability.
 		"AbilityManaCost"							"100"
 		//"AbilityCastRange"						""		//Cast Range should be 0 as this ability does not require a target to be cast.
@@ -117,7 +117,7 @@
 		"SpellImmunityType"							"SPELL_IMMUNITY_ENEMIES_NO"
 		"SpellDispellableType"						"SPELL_DISPELLABLE_YES_STRONG"		//This line is only for visuals on the HUD. In Lua for this by default it uses IsPurgable(), and IsPurgeException() for with strong dispels.
 
-		"AbilityCastPoint"							"0.25"
+		"AbilityCastPoint"							"0.2"
 		"AbilityCooldown"							"21 19 17 15 13"		//The cooldown that will start for each ability is different, so you can change it here, and this ability will have a cooldown with that number, along with the cooldown of F ability.
 		"AbilityManaCost"							"100"
 		//"AbilityCastRange"						""		//Cast Range should be 0 as this ability does not require a target to be cast.
@@ -240,8 +240,8 @@
 			"active_mp_gain"						"100 110 120 130 140"
 			"active_hp_gain"						"0"
 			"active_debuff_duration"				"6"
-			"active_debuff_max_stacks"				"4 4 5 5 6"
-			"active_debuff_reduction_stack"			"-4 -5 -6 -7 -8"
+			"active_debuff_max_stacks"				"3 4 5 6 7"
+			"active_debuff_reduction_stack"			"-8"
 		}
 	}
 	//=======================================================================================================
@@ -310,7 +310,7 @@
 		"SpellImmunityType"							"SPELL_IMMUNITY_ENEMIES_NO"
 		"SpellDispellableType"						"SPELL_DISPELLABLE_YES"		//This line is only for visuals on the HUD. In Lua for this by default it uses IsPurgable(), and IsPurgeException() for with strong dispels.
 
-		"AbilityCastPoint"							"0.15"
+		"AbilityCastPoint"							"0.25"
 		"AbilityCooldown"							"0"
 		"AbilityManaCost"							"50"
 		"AbilityCastRange"							"550 600 650 700 750"
@@ -359,7 +359,7 @@
 
 		"AbilityCastPoint"							"0.2"
 		"AbilityCooldown"							"1"
-		"AbilityManaCost"							"250"
+		"AbilityManaCost"							"200"
 		//"AbilityCastRange"						""		//Cast Range should be 0 as this is a global ability, the range is capped in Lua basically.
 
 		"MaxLevel"									"5"
@@ -378,8 +378,8 @@
 			"max_distance"							"850 900 950 1000 1050"
 			"min_distance"							"200"
 			"radius"								"315"
-			"damage"								"550 625 700 775 850"
-			"stun_duration"							"0.75"
+			"damage"								"500 625 750 875 1000"
+			"stun_duration"							"1.25"
 		}
 	}
 	//=======================================================================================================
@@ -406,7 +406,7 @@
 
 		"AbilityCastPoint"							"0.2"
 		"AbilityCooldown"							"1"
-		"AbilityManaCost"							"250"
+		"AbilityManaCost"							"200"
 		"AbilityCastRange"							"800"
 
 		"MaxLevel"									"5"
@@ -425,7 +425,7 @@
 			"duration"								"0.2"
 			"fly_duration"							"0.2"
 			"stun_duration"							"0.5"
-			"damage"								"350 450 550 650 750"
+			"damage"								"500 625 750 875 1000"
 			"pierce_range"							"720"
 			"pierce_width"							"180"
 		}
@@ -453,7 +453,7 @@
 
 		"AbilityCastPoint"							"0.2"
 		"AbilityCooldown"							"1"
-		"AbilityManaCost"							"250"
+		"AbilityManaCost"							"200"
 		//"AbilityCastRange"						""		//Cast Range should be 0 as this ability does not require a target to be cast.
 
 		"MaxLevel"									"5"
@@ -472,9 +472,9 @@
 			"pull_radius"							"460"
 			"slash_radius"							"360"
 			"slash_last_radius"						"410"
-			"slash_stun_duration"					"0.5"
+			"slash_stun_duration"					"0.15"
 			"knockback_distance"					"310"
-			"knockback_duration"					"0.75"
+			"knockback_duration"					"0.5"
 			"slashes_count"							"5"
 			"slashes_interval"						"0.3"		//Optimum time.
 			"slash_damage"							"70 80 90 100 110"
@@ -771,7 +771,7 @@
 			"fli_fade_delay"						"0.75"
 			"fli_evasion"							"35"
 			"fls_cast_range"						"150"
-			"fls_revoked_scale"						"2"
+			"fls_revoked_scale"						"1.5"
 			"fls_dmg_per_atk"						"25"
 			"fls_last_dmg_per_atk"					"200"
 		}
@@ -819,7 +819,7 @@
 			"channel_duration"						"1.0"
 			"duration"								"1.5"
 			"radius"								"1500"
-			"damage"								"1500"
+			"damage"								"2250"
 			"decreased_cooldown"					"15"
 		}
 	}

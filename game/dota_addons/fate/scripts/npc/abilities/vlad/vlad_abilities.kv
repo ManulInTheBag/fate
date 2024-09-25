@@ -70,6 +70,7 @@
 			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_magnataur.vsndevts"
 			"particle"					"particles/custom/vlad/vlad_cp_spin.vpcf"
 			"particle" 					"particles/units/heroes/hero_life_stealer/life_stealer_open_wounds.vpcf"
+			"particle" 					"particles/vlad/vlad_impale_fort.vpcf"
 		}
 
 		"AbilityValues"
@@ -188,8 +189,8 @@
             "duration" "5"
             "interval" "0.25"
             "aoe" "500"
-            "dmg" "25"
-            "heal" "30"
+            "dmg" "50"
+            "heal" "55"
             "dmg_bonus" "10"
             "slow_per_stack" "-5"
             "slow_duration" "1"
@@ -212,22 +213,21 @@
 		"AbilityCooldown"				"30"
 		"AbilityManaCost"				"100"
 		//"LevelsBetweenUpgrades"				"1"
-
+		"AbilityCastRange"				"900"
 		"precache"
 		{
 		"particle"					"particles/custom/vlad/vlad_ip_prespike.vpcf"
+		"particle"					"particles/vlad/vlad_impale.vpcf"
 		"particle"					"particles/custom/vlad/vlad_ip_spikes.vpcf"
 		"soundfile"					"soundevents/game_sounds_heroes/game_sounds_leshrac.vsndevts"
 		}
 
 		"AbilityValues"
         {
-            "range" "600"
+            "range" "900"
             "delay" "0.5"
             "damage" "200"
-            "radius_min" "150"
-            "radius_gain" "5"
-            "radius_max" "250"
+            "radius" "200"
             "stun_min" "1"
             "stun_gain" "0.075"
             "stun_max" "2.5"
@@ -361,7 +361,7 @@
 		
 		"AbilityValues"
         {
-            "dmg" "2"
+            "dmg" "3"
             "duration" "7"
             "interval" "0.5"
             "stacks_onhit_abilities" "5"
@@ -530,11 +530,11 @@
 		"ScriptFile"					"abilities/vlad/attributes"
 		"MaxLevel"						"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityTextureName"			"custom/vlad_transfusion2"
+		"AbilityTextureName"			"custom/vlad_kazikli_bey"
 
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"9999"
-		"AbilityManaCost"				"11"
+		"AbilityManaCost"				"9"
 
 		"precache"
 		{
@@ -552,6 +552,8 @@
             "cp_bonus_dmg_per_stack" "0.01"
             "cp_bonus_dmg_per_stack__TT" "1"
             "bloodpower_cap" "30"
+            "damage" "100"
+            "bleed" "5"
         }
 	}
 }

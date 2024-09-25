@@ -198,6 +198,7 @@ modifier_nobu_combo_self = class({})
 
 function modifier_nobu_combo_self:OnCreated()
     self:StartIntervalThink(0.033)
+    self.gunSpawnCounter = 0
     self.caster = self:GetCaster()
 end
 
@@ -212,15 +213,29 @@ function modifier_nobu_combo_self:OnIntervalThink()
         self:GetAbility():AttackEnemy()
         self:Destroy()
     end
- 
+    if self.gunSpawnCounter >= 5 then
+        self.gunSpawnCounter = 0
+        self.caster:FindAbilityByName("nobu_guns"):DOWShoot({
+            Speed = 10000,
+            iscombo = true,
+            AoE = 50,
+            Range = 1000,
+        },  self.caster:GetAbsOrigin() + self.caster:GetRightVector() * 100)
+        self.caster:FindAbilityByName("nobu_guns"):DOWShoot({
+            Speed = 10000,
+            iscombo = true,
+            AoE = 50,
+            Range = 1000,
+        },  self.caster:GetAbsOrigin() + self.caster:GetRightVector() * -100 )
+    end
     self.caster:MoveToTargetToAttack(self.caster.target_enemy)
-
+    self.gunSpawnCounter = self.gunSpawnCounter + 1
 
 
 end
 
 function modifier_nobu_combo_self:DeclareFunctions()
-	return {  MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE, MODIFIER_PROPERTY_PROVIDES_FOW_POSITION 
+	return {  MODIFIER_PROPERTY_MOVESPEED_ABSOLUTE, MODIFIER_PROPERTY_PROVIDES_FOW_POSITION, MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE
 				}
 end
 
@@ -228,8 +243,12 @@ function modifier_nobu_combo_self:GetModifierProvidesFOWVision()
     return 1
 end
 
+function modifier_nobu_combo_self:GetModifierIncomingDamage_Percentage() 
+	return -40
+end
+
 function modifier_nobu_combo_self:GetModifierMoveSpeed_Absolute()
-	return 1500  --self:GetAbility():GetSpecialValueFor("run_speed")
+	return 2250  --self:GetAbility():GetSpecialValueFor("run_speed")
 end
 function modifier_nobu_combo_self:GetAttributes()
 	return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE

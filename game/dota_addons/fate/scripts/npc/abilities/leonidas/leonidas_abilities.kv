@@ -40,7 +40,12 @@
 		//"AbilitySharedCooldown"					"tome"
 		
 		//"OnCastbar"								"0"
-
+		"precache"
+		{
+			"particle"		"particles/heroes/anime_hero_leonidas/leonidas_sparta_kick_trail.vpcf"
+			"particle"		"particles/heroes/anime_hero_leonidas/leonidas_sparta_kick_impact.vpcf"
+		}
+		
 		"AbilityValues"
         {
             "push_distance" "600 650 700 750 800"
@@ -92,10 +97,15 @@
 		//"AbilitySharedCooldown"					"tome"
 		
 		//"OnCastbar"								"0"
-
+		"precache"
+		{
+			"particle"		"particles/heroes/anime_hero_leonidas/leonidas_catch_trail.vpcf"
+			"particle"		"particles/heroes/anime_hero_leonidas/leonidas_catch_swing.vpcf"
+		}
+		
 		"AbilityValues"
         {
-            "radius" "250"
+            "radius" "350"
             "base_damage" "300 350 400 450 500"
             "fly_height" "300"
             "fly_duration" "0.6"
@@ -149,13 +159,15 @@
             "radius" "700"
             "vision_radius" "300"
             "counter_duration" "7"
-            "counter_resist" "20 25 30 35 40"
+            "counter_resist" 	   "35"
+            "translate_percentage" "20"
             "speed" "3000"
-            "damage" "200 250 300 350 400"
-            "stun_duration" "0.2"
+            "damage" "400 500 600 700 800"
+            "stun_duration" "1.5"
             "cast_range" "1500"
             "berserk_cooldown" "20"
             "spear_radius" "300"
+            "damage_per_armor" "15"
         }
 	}
 	//=================================================================================================================
@@ -245,7 +257,11 @@
 		//"AbilitySharedCooldown"					"tome"
 		
 		//"OnCastbar"								"0"
-
+		"precache"
+		{
+			"particle"		"particles/heroes/anime_hero_leonidas/leonidas_berserk_crit_swing.vpcf"
+			"particle"		"particles/heroes/anime_hero_leonidas/leonidas_berserk_pulse.vpcf"
+		}
 		"AbilityValues"
         {
             "radius" "450"
@@ -357,7 +373,13 @@
 		//"AbilitySharedCooldown"					"tome"
 		
 		//"OnCastbar"								"0"
-
+		"precache"
+		{
+			"particle"		"particles/heroes/anime_hero_leonidas/leonidas_thermopylae_enomotia_shields.vpcf"
+			"particle"		"particles/heroes/anime_hero_leonidas/leonidas_thermopylae_enomotia_lightning.vpcf"
+			"particle"		"particles/heroes/anime_hero_leonidas/leonidas_thermopylae_enomotia_explosion.vpcf"
+			"particle"		"particles/heroes/anime_hero_leonidas/leonidas_thermopylae_enomotia_debuff.vpcf"
+		}
 		"AbilityValues"
         {
             "radius" "600"
@@ -366,7 +388,7 @@
             "push_slow_duration" "1.5 1.8 2.1 2.4 2.7"
             "push_slow_pct" "-100"
             "shield_duration" "9.0"
-            "shield_damage" "18 21 24 27 30"
+            "shield_damage" "20 25 30 35 40"
             "shield_count" "30"
             "shield_rows" "5"
             "base_block_per_shield" "30 35 40 45 50"
@@ -416,7 +438,10 @@
 		//"AbilitySharedCooldown"					"tome"
 		
 		//"OnCastbar"								"0"
-
+		"precache"
+		{
+			"particle"		"particles/heroes/anime_hero_leonidas/leonidas_thermopylae_enomotia_sphere.vpcf"
+		}
 		"AbilityValues"
         {
             "radius" "1500"
@@ -577,7 +602,7 @@
 		//"AbilityCastPoint"					"0.3"
 		//"AbilityChannelTime"					"0.0"
 		"AbilityCooldown"						"9999"
-		"AbilityManaCost"						"13"
+		"AbilityManaCost"						"11"
 		//"AbilityCastRange"					"600"
 
 		//"HasScepterUpgrade"					"1"

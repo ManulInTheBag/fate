@@ -1,7 +1,12 @@
 LinkLuaModifier("modifier_edmon_beam_tracker", "abilities/edmon/edmon_beam", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_edmon_beam", "abilities/edmon/edmon_beam", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_edmon_beam_attack_range", "abilities/edmon/edmon_beam", LUA_MODIFIER_MOTION_NONE)
 
 edmon_beam = class({})
+
+function edmon_beam:GetIntrinsicModifierName()
+	return "modifier_edmon_beam_attack_range"
+end
 
 function edmon_beam:OnAbilityPhaseStart()
 	local seq = self:CheckSequence() + 1
@@ -130,10 +135,10 @@ function edmon_beam:OnSpellStart()
 		end
 		local stacks = 0
 		local activity = ACT_DOTA_RAZE_1
-		if modifier then
+		--[[if modifier then
 			stacks = modifier:GetStackCount()
 			caster:RemoveModifierByName("modifier_edmon_beam_stacks")
-		end
+		end]]
 		local compens = 0
 		caster:AddNewModifier(caster, self, "modifier_edmon_beam", {duration = stacks*0.132+0.353})
 		for i = 1, stacks + 1 do
@@ -217,9 +222,6 @@ function edmon_beam:MiniDarkBeam(part1, part9, isAA, isMelee, isBeams, seq)
 
 	if isAA then
 		damage = damage*0.5
-	end
-	if isBeams then
-		damage = damage/4
 	end
 
 	if not isMelee then
@@ -332,3 +334,17 @@ function modifier_edmon_beam:CheckState()
 end
 
 function modifier_edmon_beam:IsHidden() return true end
+
+modifier_edmon_beam_attack_range = class({})
+
+function modifier_edmon_beam_attack_range:DeclareFunctions()
+	local func = {	MODIFIER_PROPERTY_ATTACK_RANGE_BASE_OVERRIDE
+				}
+	return func
+end
+
+function modifier_edmon_beam_attack_range:GetModifierAttackRangeOverride()
+	return self:GetAbility():GetSpecialValueFor("range")
+end
+
+function modifier_edmon_beam_attack_range:IsHidden() return true end

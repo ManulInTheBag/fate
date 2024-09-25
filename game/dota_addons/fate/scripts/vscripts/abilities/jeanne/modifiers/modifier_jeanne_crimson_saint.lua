@@ -10,8 +10,6 @@ if IsServer() then
 		self.burn_radius = self.ability:GetSpecialValueFor("burn_radius")
 
 		self.self_damage = self.ability:GetSpecialValueFor("self_damage")/100
-		
-		self.LockedHealth = self:GetParent():GetHealth()
 
 		self.think = 0
 		self.interval = 0.1
@@ -25,10 +23,6 @@ if IsServer() then
 	function modifier_jeanne_crimson_saint:OnDestroy()	
 		local caster = self:GetParent()	
 		caster:SwapAbilities("jeanne_luminosite_eternelle", "jeanne_crimson_saint_la_pucelle", true, false)
-			
-		if caster:IsAlive() then
-			caster:Execute(self, caster, { bExecution = true })
-		end
 	end
 
 	function modifier_jeanne_crimson_saint:OnIntervalThink()
@@ -39,15 +33,15 @@ if IsServer() then
 		
 		local current_hp = caster:GetHealth()
 		
-		if current_hp < self.LockedHealth then
-			self.LockedHealth = current_hp
-		end
-		self.LockedHealth = self.LockedHealth - self_damage
-		if self.LockedHealth <= 1 then
+		current_hp = current_hp - self_damage
+		if current_hp <= 1 then
+			if caster:IsAlive() then
+				caster:Execute(self:GetAbility(), caster, { bExecution = true })
+			end
 			self:Destroy()
 			return
 		end
-		caster:SetHealth(self.LockedHealth)
+		caster:SetHealth(current_hp)
 
 		self.think = self.think + FrameTime()
 		if self.think >= self.interval then

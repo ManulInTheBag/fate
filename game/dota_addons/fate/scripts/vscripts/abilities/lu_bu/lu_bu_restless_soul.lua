@@ -5,7 +5,7 @@ LinkLuaModifier( "modifier_lu_bu_sky_piercer_window", "abilities/lu_bu/modifiers
 
 function lu_bu_restless_soul:OnSpellStart()
 	local caster = self:GetCaster()
-	local hp_heal = self:GetSpecialValueFor("active_heal")
+	local hp_heal = self:GetSpecialValueFor("active_heal") + 0.05 * caster:GetMaxHealth()
 	
 	caster:Heal(hp_heal, caster)
 	
@@ -18,10 +18,7 @@ function lu_bu_restless_soul:CheckCombo()
 	local blastFx = ParticleManager:CreateParticle("particles/lu_bu/lu_bu_heal.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, caster)
 	ParticleManager:SetParticleControl( blastFx, 1, caster:GetAbsOrigin()+Vector(0,0,100))
 	ParticleManager:SetParticleControl( blastFx, 0, caster:GetAbsOrigin()+Vector(0,0,100))
-    Timers:CreateTimer( 2.0, function()
-        ParticleManager:DestroyParticle(blastFx)
-        ParticleManager:ReleaseParticleIndex( blastFx )
-    end)
+    ParticleManager:ReleaseParticleIndex( blastFx )
 
 	if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 and caster:GetIntellect() >= 29.1 and not caster:HasModifier("modifier_relentless_assault_blocker_combo") then
 		if caster:FindAbilityByName("lu_bu_god_force"):IsCooldownReady() 

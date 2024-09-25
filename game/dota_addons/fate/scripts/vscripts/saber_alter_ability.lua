@@ -208,9 +208,9 @@ function OnMMBStart(keys)
 		ParticleManager:DestroyParticle( BlueSplashFx, false )
 	end)
 
-	local dmg = caster:GetMaxMana()*1.2
+	local dmg = caster:GetMaxMana()*1.7
 	if caster.IsManaBlastAcquired then
-		dmg = caster:GetMaxMana()*1.5
+		dmg = caster:GetMaxMana()*2.0
 	end
 	local finaldmg = dmg
 
@@ -219,9 +219,9 @@ function OnMMBStart(keys)
 		if dist <= 700 then
 			finaldmg = dmg
 		elseif dist > 700 and dist <= 1300 then
-			finaldmg = dmg*0.6
+			finaldmg = dmg*0.8
 		elseif dist > 1300 and dist <= 2000 then
-			finaldmg = dmg*0.4
+			finaldmg = dmg*0.6
 		end
 
 	    DoDamage(caster, v, finaldmg , DAMAGE_TYPE_MAGICAL, 0, keys.ability, false)

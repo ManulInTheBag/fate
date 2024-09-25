@@ -46,7 +46,7 @@ function jeanne_luminosite_eternelle:OnChannelFinish( bInterrupted )
 		local final_burst_heal = self:GetSpecialValueFor("final_burst_heal")
 		
 		if caster.IsDivineSymbolAcquired then
-			final_burst_heal = final_burst_heal + 200
+			final_burst_heal = final_burst_heal*1.5
 		end
 		
 		caster:EmitSound("jeanne_heal_beep")
@@ -104,8 +104,7 @@ function jeanne_luminosite_eternelle:OnChannelFinish( bInterrupted )
 			if caster.IsDivineSymbolAcquired then
 				ApplyStrongDispel(enemy)
 			end
-			
-			DoDamage(caster, enemy, 1, DAMAGE_TYPE_MAGICAL, 0, self, false)			
+
 			enemy:AddNewModifier(caster, self, "modifier_jeanne_luminosite_eternelle_slow", { Duration = 1 })
 		end
 	end

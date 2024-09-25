@@ -15,8 +15,6 @@
 		"RequiredLevel"					"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE|DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 		"AbilityTextureName"			"custom/gawain_suns_embrace"		
-    
-
  
 		"AbilityValues"
         {
@@ -41,8 +39,13 @@
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
 		"AbilityCastPoint"				"0.3"
         "AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"        
-		"AbilityCooldown"				"75"
-		"AbilityManaCost"				"400"
+		"AbilityCooldown"				"60"
+		"AbilityManaCost"				"100"
+
+		"precache"
+		{
+			"particle"					"particles/custom/gawain/gawain_meltdown.vpcf"
+		}
  
 		"AbilityValues"
         {
@@ -160,7 +163,8 @@
 
 		"precache"
 		{
-			"particle"					"particles/custom/gawain/gawain_meltdown.vpcf"
+			"particle"					"particles/gawain/gawain_sun_of_galatine_atribute_indicator.vpcf"
+			"particle"					"particles/gawain/gawain_sun_of_galatine_atribute_explosion.vpcf"
 			"particle"					"particles/custom/gawain/gawain_supernova_explosion.vpcf"
 			"particle"					"particles/custom/gawain/manjinx_gawain_e.vpcf"
 			"soundfile"					"soundevents/game_sounds_heroes/game_sounds_phoenix.vsndevts"
@@ -226,7 +230,7 @@
             "damage" "800 1050 1300 1550 1800"
             "radius" "550"
             "dot_damage" "70 100 130 160 190"
-            "duration" "3"
+            "duration" "2"
             "max_range" "1500"
         }
 		
@@ -478,7 +482,7 @@
 		
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"9999"
-		"AbilityManaCost"				"17"
+		"AbilityManaCost"				"14"
 
 		"precache"
 		{

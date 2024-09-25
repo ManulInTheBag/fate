@@ -16,16 +16,21 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastPoint"				"0"
-		"AbilityCastRange"				"700"
+		"AbilityCastRange"				"1200"
  		"AbilityCooldown"				"30 30 25 20"
 		"AbilityManaCost"				"200"
+		"precache"
+		{
+			"particle"		"particles/nobu/gun.vpcf"
+			"particle"		"particles/nobu/nobu_bullet.vpcf"
+		}
 		"AbilityValues"
         {
             "base_dmg" "150"
             "dmg_per_lvl" "10"
             "dmg_per_int" "1"
             "amount" "0 3 5 7"
-            "cast_range" "700"
+            "cast_range" "1200"
         }
 	}
 	//=================================================================================================================
@@ -85,12 +90,20 @@
  		"AbilityCooldown"				"40 38 36 34 32"
 		"AbilityManaCost"				"800"
 		"AbilityChannelTime"			"2.75"
+		"precache"
+		{
+			"particle"		"particles/nobu/3000-charge.vpcf"
+			"particle"		"particles/nobu/gun_no_destroy.vpcf"
+			"particle"		"particles/nobu/gun.vpcf"
+			"particle"		"particles/nobu/nobu_lasers_nonproj.vpcf"
+			"particle"		"particles/nobu/nobu_bullet.vpcf"
+		}
 		"AbilityValues"
         {
             "damage_mod" "0.5 0.55 0.6 0.65 0.7"
-            "channel_time" "2.5"
+            "channel_time" "2.75"
             "range" "1300"
-            "attribute_additional_range" "200"
+            "attribute_additional_range" "300"
         }
 	}
 
@@ -348,7 +361,7 @@
 		"AbilityManaCost"				"0"
 		"AbilityValues"
         {
-            "aura_radius" "1000"
+            "aura_radius" "1500"
             "ms_bonus" "10"
             "armor_bonus" "12"
         }
@@ -392,10 +405,14 @@
 		"AbilityCastPoint"				"0"
 		"AbilityCastRange"				"0"
  		"AbilityCooldown"				"20"
-		"AbilityManaCost"				"150"
+		"AbilityManaCost"				"0"
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_legion_commander/legion_commander_press.vpcf"
+		}
 		"AbilityValues"
         {
-            "aura_radius" "1000"
+            "aura_radius" "1500"
             "ms_bonus" "50"
             "health_base" "80"
             "duration" "10"
@@ -419,12 +436,17 @@
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
 		"AOERadius"						"%cast_range"
 		"AbilityCastPoint"				"0"
-		"AbilityCastRange"				"1000"
- 		"AbilityCooldown"				"25"
-		"AbilityManaCost"				"200"
+		"AbilityCastRange"				"1200"
+ 		"AbilityCooldown"				"15"
+		"AbilityManaCost"				"0"
+		"precache"
+		{
+			"particle"		"particles/nobu/nobu_divinity_mark_activated.vpcf"
+			"particle"		"particles/nobu/nobu_divinity_mark.vpcf"
+		}
 		"AbilityValues"
         {
-            "cast_range" "1000"
+            "cast_range" "1200"
             "duration" "10"
             "activated_duration" "10"
         }
@@ -453,6 +475,11 @@
  		"AbilityCooldown"				"150"
 		"AbilityManaCost"				"600"
 		"AbilityCastRange"				"3000"
+		"precache"
+		{
+			"particle"		"particles/nobu/nobu_combo_smoke_red.vpcf"
+			"particle"		"particles/nobu/nobu_bullet.vpcf"
+		}
 		"AbilityValues"
         {
             "radius" "3000"
@@ -564,7 +591,7 @@
 		"AbilityTextureName"			"custom/nobu/nobu_independent_action"
 		"AbilityCooldown"				"9999"
 
-		"AbilityManaCost"				"18"
+		"AbilityManaCost"				"15"
 
 		 
 		"AbilityValues"

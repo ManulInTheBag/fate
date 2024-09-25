@@ -34,9 +34,9 @@ function atalanta_calydonian_hunt:AddStack(target, count)
     if not target:HasModifier("modifier_calydonian_hunt_pepe") then
         return
     end
-    if target:HasModifier("modifier_calydonian_hunt_root_block") then
+    --[[if target:HasModifier("modifier_calydonian_hunt_root_block") then
         return
-    end
+    end]]
 
     --[[if caster.GoldenAppleAcquired then
         maxStacks = maxStacks + self:GetSpecialValueFor("attribute_stack_bonus")
@@ -62,13 +62,14 @@ function atalanta_calydonian_hunt:RootTarget(target)
         root_cooldown = root_cooldown - 1
     end
 
+    --DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+
     if not target:HasModifier("modifier_calydonian_hunt_root_block") and not target:IsMagicImmune() then
         target:RemoveModifierByName("modifier_calydonian_hunt")
         --target:RemoveModifierByName("modifier_calydonian_hunt_pepe")
         --target:AddNewModifier(caster, self, "modifier_calydonian_hunt_sight", { duration = self:GetSpecialValueFor("root_duration") })
 
         giveUnitDataDrivenModifier(caster, target, "rooted", self:GetSpecialValueFor("root_duration"))
-        DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
         target:EmitSound("Hero_NagaSiren.Ensnare.Cast")
         target:AddNewModifier(caster, self, "modifier_calydonian_hunt_root_block", { duration = self:GetSpecialValueFor("root_duration") })
     end

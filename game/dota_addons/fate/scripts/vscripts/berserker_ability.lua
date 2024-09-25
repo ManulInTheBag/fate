@@ -841,9 +841,11 @@ function OnGodHandDeath(keys)
 		endTime = 1,
 		callback = function()
 		--print(caster.bIsGHReady)
-		if IsTeamWiped(caster) == false and caster.GodHandStock > 0 and caster.bIsGHReady and _G.CurrentGameState == "FATE_ROUND_ONGOING" then
-			caster.bIsGHReady = false
-			Timers:CreateTimer(30.0, function() caster.bIsGHReady = true end)
+		--if IsTeamWiped(caster) == false and caster.GodHandStock > 0 and caster.bIsGHReady and _G.CurrentGameState == "FATE_ROUND_ONGOING" then
+		print(caster:HasModifier("modifier_god_hand_stock"))
+		if IsTeamWiped(caster) == false and caster:HasModifier("modifier_god_hand_stock") and _G.CurrentGameState == "FATE_ROUND_ONGOING" then
+		
+			--Timers:CreateTimer(30.0, function() caster.bIsGHReady = true end)
 			EmitGlobalSound("Berserker.Roar") 
 			LoopOverPlayers(function(player, playerID, playerHero)
 				--print("looping through " .. playerHero:GetName())
@@ -854,17 +856,23 @@ function OnGodHandDeath(keys)
 				end
 			end)
 			local particle = ParticleManager:CreateParticle("particles/items_fx/aegis_respawn.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
-			caster.GodHandStock = caster.GodHandStock - 1
-			GameRules:SendCustomMessage("<font color='#FF0000'>----------!!!!!</font> Remaining God Hand stock : " .. caster.GodHandStock , 0, 0)
+			--caster.GodHandStock = caster.GodHandStock - 1
+			--GameRules:SendCustomMessage("<font color='#FF0000'>----------!!!!!</font> Remaining God Hand stock : " .. caster.GodHandStock , 0, 0)
 			caster:SetRespawnPosition(dummy:GetAbsOrigin())
 			RemoveDebuffsForRevival(caster)
 			caster:RespawnHero(false,false)
+			if not caster.IsGodHandAcquired then
+				caster:SetHealth(caster:GetMaxHealth()*0.5)
+			else
+				caster:FindAbilityByName("heracles_berserk"):EndCooldown()
+			end
+			--[[
 			caster:RemoveModifierByName("modifier_god_hand_stock")
 			if caster.GodHandStock > 0 then
 				keys.ability:ApplyDataDrivenModifier(caster, caster, "modifier_god_hand_stock", {})
 				caster:SetModifierStackCount("modifier_god_hand_stock", caster, caster.GodHandStock)
 			end
-
+			]]
 			-- Apply revive damage
 			local resExp = ParticleManager:CreateParticle("particles/custom/berserker/god_hand/stomp.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 			ParticleManager:SetParticleControl(particle, 3, caster:GetAbsOrigin())
@@ -878,10 +886,11 @@ function OnGodHandDeath(keys)
 			-- Apply penalty
 			keys.ability:ApplyDataDrivenModifier(caster, caster, "modifier_god_hand_debuff", {}) 
 			-- Remove Gae Buidhe modifier
+			caster:RemoveModifierByName("modifier_god_hand_stock")
 			caster:RemoveModifierByName("modifier_gae_buidhe")
 			-- Reset godhand stock
 			--caster.ReincarnationDamageTaken = 0
-			UpdateGodhandProgress(caster)
+			--UpdateGodhandProgress(caster)
 		else
 			--caster.DeathCount = (caster.DeathCount or 0) + 1
 			caster:SetRespawnPosition(caster.RespawnPos)
@@ -894,6 +903,7 @@ function OnGodHandDeath(keys)
 end
 
 function OnReincarnationDamageTaken(keys)
+	--[[
 	local caster = keys.caster
 	local ability = keys.ability
 	local damageTaken = keys.DamageTaken
@@ -901,7 +911,7 @@ function OnReincarnationDamageTaken(keys)
 
 	--[[if damageTaken > 100 then
 		GainReincarnationRegenStack(caster, ability)
-	end]]
+	end
 
 	if damageTaken > 4000 then
 		return
@@ -923,26 +933,26 @@ function OnReincarnationDamageTaken(keys)
 		caster:FindAbilityByName("berserker_5th_god_hand"):ApplyDataDrivenModifier(caster, caster, "modifier_god_hand_stock", {})
 		caster:SetModifierStackCount("modifier_god_hand_stock", caster, caster.GodHandStock)
 	end
-
-	UpdateGodhandProgress(caster)
+	]]
+	--UpdateGodhandProgress(caster)
 end
 
 function OnReincarnationDamageTaken(keys)
-	local caster = keys.caster
-	local ability = keys.ability
-	local damageTaken = keys.DamageTaken
-	local damageThreshold = 100000
+	--local caster = keys.caster
+	--local ability = keys.ability
+	--local damageTaken = keys.DamageTaken
+	--local damageThreshold = 100000
 
 	--[[if damageTaken > 100 then
 		GainReincarnationRegenStack(caster, ability)
-	end]]
+	end
 
 	if damageTaken > 4000 then
 		return
 	end
-
-	if caster.IsGodHandAcquired ~= true then return end -- To prevent reincanationdamagetaken from incrementing when GH is not taken.
-
+	]]
+	--if caster.IsGodHandAcquired ~= true then return end -- To prevent reincanationdamagetaken from incrementing when GH is not taken.
+	--[[
 	if caster:HasModifier("modifier_heracles_berserk") then 
 		caster.ReincarnationDamageTaken = caster.ReincarnationDamageTaken+damageTaken--*3
 	else
@@ -953,12 +963,12 @@ function OnReincarnationDamageTaken(keys)
 	if caster.ReincarnationDamageTaken > damageThreshold and caster.IsGodHandAcquired then
 		caster.ReincarnationDamageTaken = 0
 		caster.GodHandStock = caster.GodHandStock + 1
-		caster:RemoveModifierByName("modifier_god_hand_stock")
-		caster:FindAbilityByName("berserker_5th_god_hand"):ApplyDataDrivenModifier(caster, caster, "modifier_god_hand_stock", {})
-		caster:SetModifierStackCount("modifier_god_hand_stock", caster, caster.GodHandStock)
+		--caster:RemoveModifierByName("modifier_god_hand_stock")
+		--caster:FindAbilityByName("berserker_5th_god_hand"):ApplyDataDrivenModifier(caster, caster, "modifier_god_hand_stock", {})
+		--caster:SetModifierStackCount("modifier_god_hand_stock", caster, caster.GodHandStock)
 	end
-
-	UpdateGodhandProgress(caster)
+	]]
+	--UpdateGodhandProgress(caster)
 end
 
 function UpdateGodhandProgress(caster)
@@ -1013,15 +1023,15 @@ function OnGodHandAcquired(keys)
 	local ply = caster:GetPlayerOwner()
 	local hero = caster:GetPlayerOwner():GetAssignedHero()
 	local ability = hero:FindAbilityByName("berserker_5th_god_hand")
-	ability:SetLevel(1)
+	--ability:SetLevel(1)
 	hero.IsGodHandAcquired = true
-	hero.GodHandStock = 11
-	ability:ApplyDataDrivenModifier(hero, hero, "modifier_god_hand_stock", {}) 
-	hero:SetModifierStackCount("modifier_god_hand_stock", hero, 11)
-	hero.bIsGHReady = true
-	hero:FindAbilityByName("berserker_5th_reincarnation"):SetLevel(1)
-	hero.ReincarnationDamageTaken = 0
-	UpdateGodhandProgress(hero)
+	--hero.GodHandStock = 11
+	--ability:ApplyDataDrivenModifier(hero, hero, "modifier_god_hand_stock", {}) 
+	--hero:SetModifierStackCount("modifier_god_hand_stock", hero, 11)
+	--hero.bIsGHReady = true
+	--hero:FindAbilityByName("berserker_5th_reincarnation"):SetLevel(1)
+	--hero.ReincarnationDamageTaken = 0
+	--UpdateGodhandProgress(hero)
 
 	-- Set master 1's mana 
 	local master = hero.MasterUnit

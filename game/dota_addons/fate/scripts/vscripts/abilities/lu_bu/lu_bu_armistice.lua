@@ -51,7 +51,7 @@ function lu_bu_armistice:OnSpellStart()
 	
 	caster:EmitSound("lu_bu_generic_1")
 	
-	Timers:CreateTimer(1.00, function()
+	Timers:CreateTimer(0.75, function()
 		if caster:IsAlive() then
 		
 		local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetOrigin(), nil, radius , DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
@@ -86,7 +86,7 @@ function lu_bu_armistice:OnSpellStart()
 		-- local modifier_movement_handler = self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_lu_bu_armistice_movement", {})
 		local modifier_movement_handler = self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_lu_bu_armistice_leap",
 			{
-				duration	= 1,
+				duration	= 0.75,
 				x			= self:GetCursorPosition().x,
 				y			= self:GetCursorPosition().y,
 				z			= self:GetCursorPosition().z,

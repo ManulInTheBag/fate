@@ -22,7 +22,7 @@ function vlad_attribute_instant_curse:GetAbilityTextureName()
   return "shadow_demon_disruption"
 end
 function vlad_attribute_bloodletter:GetAbilityTextureName()
-  return "custom/vlad_transfusion2"
+  return "custom/vlad_kazikli_bey"
 end
 
 function WrapAttributes(ability, attributeName, callback)

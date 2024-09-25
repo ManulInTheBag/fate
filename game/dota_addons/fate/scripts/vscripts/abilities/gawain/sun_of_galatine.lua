@@ -47,7 +47,7 @@ function gawain_sun_of_galatine:OnChannelFinish(bInterrupted)
 
     local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, self.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
     for k,v in pairs(targets) do            
-        DoDamage(caster, v, self.damage/2* self.ChannelTime/self:GetChannelTime(), DAMAGE_TYPE_MAGICAL, 0, ability, false)
+        DoDamage(caster, v, self.damage/2, DAMAGE_TYPE_MAGICAL, 0, ability, false)
         v:AddNewModifier(caster, self, "modifier_stunned", {Duration = self:GetSpecialValueFor("stun_duration")* self.ChannelTime/self:GetChannelTime()})     
     end 
     if(caster.IsBeltAcquired) then

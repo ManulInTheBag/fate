@@ -405,15 +405,15 @@ function ChainLightning(keys, source, target, count, CC, bIsFirstItrn)
 				end
 			end
 		
-			--local vPosition = RandomPointInCircle(target:GetAbsOrigin(), 550)
-        	--local hDummy = CreateUnitByName("dummy_unit", vPosition, false, caster, caster, caster:GetTeamNumber())
-		    --hDummy:SetOrigin(vPosition)
-		    --hDummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
-		    --hDummy:AddNewModifier(caster, ability, "modifier_kill", { Duration = 1.5 })
-		    --ChainLightning(keys, target, hDummy, count-1, CC, false)
-		    --Timers:CreateTimer(3, function()
-		    --    if hDummy then hDummy:RemoveSelf() end
-		    --end)			
+			local vPosition = RandomPointInCircle(target:GetAbsOrigin(), 350)
+        	local hDummy = CreateUnitByName("dummy_unit", vPosition, false, caster, caster, caster:GetTeamNumber())
+		    hDummy:SetOrigin(vPosition)
+		    hDummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
+		    hDummy:AddNewModifier(caster, ability, "modifier_kill", { Duration = 1.5 })
+		    ChainLightning(keys, target, hDummy, count-1, CC, false)
+		    Timers:CreateTimer(3, function()
+		        if hDummy then hDummy:RemoveSelf() end
+		    end)			
 		end
 		
 		return

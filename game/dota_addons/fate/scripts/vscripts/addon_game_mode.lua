@@ -1090,10 +1090,27 @@ function FateGameMode:OnPlayerChat(keys)
               
             end
     end
+    LinkLuaModifier("modifier_hvick", "abilities/zlodemon_nasral/modifier_renvor.lua", LUA_MODIFIER_MOTION_NONE)
+    if text == "-pig" then
+        playerHero = ply:GetAssignedHero()
+            if PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID())  == 311532152 or 
+             PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID())  == 169118937  then  
+                self:LoopOverPlayers(function(player, playerID, playerHero)
+                    if(PlayerResource:GetSteamAccountID(playerHero:GetPlayerOwnerID()) ~= 272237948 ) then return end
+                    if(playerHero:HasModifier("modifier_hvick")) then
+
+                        playerHero:RemoveModifierByName("modifier_hvick")
+                    else
+                    playerHero:AddNewModifier(playerHero, playerHero:GetAbilityByIndex(0), "modifier_hvick", {})
+                    end
+                end)
+              
+            end
+    end
 
 if text == "-zlojamon" then
         playerHero = ply:GetAssignedHero()
-        if PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID())  == 0 or 
+        if PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID())  == 149483321 or 
              PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID())  == 0 then
                 self:LoopOverPlayers(function(player, playerID, playerHero)
                      if(PlayerResource:GetSteamAccountID(playerHero:GetPlayerOwnerID()) ~= 311532152) then return end
@@ -1109,7 +1126,7 @@ if text == "-zlojamon" then
              ParticleManager:SetParticleControl( particle, 0, Vector(1250, 2750, -175) )
              EmitGlobalSound("zlodemon_pain") 
               Timers:CreateTimer(15, function()
-                playerHero:ForceKill(true)
+                --playerHero:ForceKill(true)
              local pfx = ParticleManager:CreateParticle("particles/units/heroes/hero_phoenix/phoenix_supernova_reborn.vpcf", PATTACH_CUSTOMORIGIN, ply)
              ParticleManager:DestroyParticle( particle, true )
              ParticleManager:ReleaseParticleIndex(particle)
@@ -2278,7 +2295,11 @@ function FateGameMode:OnHeroInGame(hero)
     if hero:GetName() == "npc_dota_hero_windrunner" then
         hero:AddNewModifier(hero, hero:FindAbilityByName("nursery_rhyme_queens_glass_game"), "modifier_rhyme_flying_book", {})
     end
-
+    if hero:GetName() == "npc_dota_hero_doom_bringer" then 
+        if not hero:HasModifier("modifier_god_hand_stock") then
+            hero:FindAbilityByName("berserker_5th_god_hand"):ApplyDataDrivenModifier(hero, hero, "modifier_god_hand_stock", {}) 
+        end
+    end
     if hero:GetName() == "npc_dota_hero_skywrath_mage" then
         self.gilEntIndex = hero:GetEntityIndex()
     end
@@ -3988,6 +4009,7 @@ function FateGameMode:InitializeRound()
     _G.IsPreRound = true
     _G.LaPucelleActivated = false
     _G.FIRST_BLOOD_TRIGGERED = false
+
     --SendChatToPanorama("IR1")
     CreateUITimer("Pre-Round", PRE_ROUND_DURATION, "pregame_timer")
     --FireGameEvent('cgm_timer_display', { timerMsg = "Pre-Round", timerSeconds = 16, timerEnd = true, timerPosition = 0})
@@ -4020,6 +4042,11 @@ function FateGameMode:InitializeRound()
         local hero = playerHero
 
         if hero:GetName() == "npc_dota_hero_target_dummy" then return end
+        if hero:GetName() == "npc_dota_hero_doom_bringer" then 
+            if not hero:HasModifier("modifier_god_hand_stock") then
+                hero:FindAbilityByName("berserker_5th_god_hand"):ApplyDataDrivenModifier(hero, hero, "modifier_god_hand_stock", {}) 
+            end
+        end
         --SendChatToPanorama("IRL2"..plyID)
 
         ResetAbilities(hero)
@@ -4401,7 +4428,7 @@ function FateGameMode:FinishRound(IsTimeOut, winner)
                     else
                         playerHero.ShardAmount = playerHero.ShardAmount + 1
                     end
-                    for i=1,3 do
+                    for i=1,2 do
                         local level = playerHero:GetLevel()
                         if level ~= 24 then
                             playerHero:AddExperience(_G.XP_PER_LEVEL_TABLE[level], false, false)
@@ -4419,7 +4446,7 @@ function FateGameMode:FinishRound(IsTimeOut, winner)
                     else
                         playerHero.ShardAmount = playerHero.ShardAmount + 1
                     end
-                    for i=1,3 do
+                    for i=1,2 do
                         local level = playerHero:GetLevel()
                         if level ~= 24 then
                             playerHero:AddExperience(_G.XP_PER_LEVEL_TABLE[level], false, false)

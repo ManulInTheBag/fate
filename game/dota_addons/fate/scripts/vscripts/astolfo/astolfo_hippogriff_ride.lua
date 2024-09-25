@@ -12,7 +12,7 @@ function astolfo_hippogriff_rush:OnSpellStart()
 	--local startPos = self:GetInitialPosition()
 	--local endPos = startPos + self:GetDirectionVector() * range
 	local markerCounter = 0
-	if (startPos - caster:GetAbsOrigin()):Length2D() > self:GetSpecialValueFor("max_range")*1.003 or not IsInSameRealm(caster:GetAbsOrigin(), startPos) then
+	if (startPos - caster:GetAbsOrigin()):Length2D() > self:GetSpecialValueFor("max_range")*1.006 or not IsInSameRealm(caster:GetAbsOrigin(), startPos) then
 		self:EndCooldown() 
 		SendErrorMessage(caster:GetPlayerOwnerID(), "#Out_Of_Range")
 		return

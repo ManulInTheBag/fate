@@ -38,6 +38,8 @@ function gawain_artificial_sun:GenerateArtificialSun(caster, location, isLockedO
             self.Blade_sun:RemoveSelf() 
             self.Blade_sun = artSun
         end
+
+    elseif(ability == "gawain_excalibur_galatine_combo") then
      
     else
         if( not self.Ult_sun or self.Ult_sun:IsNull()) then

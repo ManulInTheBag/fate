@@ -11,7 +11,7 @@
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"2"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
@@ -22,7 +22,8 @@
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"25"
 		"AbilityManaCost"				"200"
-		"AOERadius"						"1500"
+		"AbilityCastRange"				"1500"
+		"AbilityCastRangeBuffer"		"250"
 
 		"LinkedAbilities"				"ryougi_knife_recast"
 		
@@ -72,7 +73,7 @@
 			"damage_first"			"100 125 150 175 200"
 			"damage_second"			"300 350 400 450 500"
 			"range"					"1500"
-			"damage_per_line"		"60 75 90 105 120"
+			"damage_per_line"		"40 50 60 70 80"
 			"attr_execute"			"10"
 		}
 	}
@@ -136,11 +137,55 @@
 		"AbilityCooldown"				"20 18 16 14 12"
 		"AbilityManaCost"				"200"
 		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"range"					"300"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"200 250 300 350 400"
+			}
+		}
+	}
+
+	//=================================================================================================================
+	// Shiki Ryougi: Glass Moon
+	//=================================================================================================================
+	"ryougi_glass_moon"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/ryougi/ryougi_glass_moon"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES | DOTA_ABILITY_BEHAVIOR_OVERSHOOT"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/ryougi/ryougi_glass_moon"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
+		"AnimationPlaybackRate" 		"2.0"
+		"AbilityCastPoint"				"0.2"
+		"AbilityCooldown"				"20 18 16 14 12"
+		"AbilityManaCost"				"200"
+		"AbilityCastRange"				"700"
+		
 		"AbilityValues"
-        {
-            "range" "300"
-            "damage" "200 250 300 350 400"
-        }
+		{
+			"cast_point"			"0.2"
+			"cast_point2"			"0"
+			"leap_range"			"300"
+			"dash_range"			"700"
+			"radius"				"350"
+			"damage"				"250 325 400 475 550"
+			"recast_window"			"2"
+		}
 	}
 
 	//=================================================================================================================
@@ -234,16 +279,44 @@
 		"AbilityCooldown"				"30 26 22 18 14"
 		"AbilityManaCost"				"200"
 		
-		"AbilityValues"
-        {
-            "radius" "400"
-            "window_duration" "2"
-            "kick_damage" "300 400 500 600 700"
-            "kick_range" "400"
-            "fourth_damage" "300 350 400 450 500"
-            "fourth_stun_duration" "0.3 0.45 0.6 0.75 0.9"
-            "kick_stun" "1.5"
-        }
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"400"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"window_duration"		"2"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"kick_damage"			"300 400 500 600 700"
+			}
+			"04"
+			{	
+				"var_type"				"FIELD_INTEGER"
+				"kick_range"			"400"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"fourth_damage"			"300 350 400 450 500"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"fourth_stun_duration"	"0.3 0.45 0.6 0.75 0.9"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"kick_stun"				"1.5"
+			}
+		}
 	}
 
 	//=================================================================================================================
@@ -266,17 +339,49 @@
 		"AbilityCooldown"				"30 27 24 21 18"
 		"AbilityManaCost"				"200"
 		
-		"AbilityValues"
-        {
-            "radius" "300"
-            "window_duration" "1.5"
-            "first_damage" "140 180 220 260 300"
-            "range" "400"
-            "width" "100"
-            "second_damage" "300 375 450 525 600"
-            "first_stun_duration" "0.7"
-            "second_stun_duration" "1.5"
-        }
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"radius"				"300"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"window_duration"		"1.5"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"first_damage"			"140 180 220 260 300"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"range"					"400"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"width"					"100"
+			}
+			"06"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"second_damage"			"300 375 450 525 600"
+			}
+			"07"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"first_stun_duration"	"0.7"
+			}
+			"08"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"second_stun_duration"	"1.5"
+			}
+		}
 	}
 
 	//=================================================================================================================
@@ -321,12 +426,24 @@
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"0"
 		
-		"AbilityValues"
-        {
-            "range" "500"
-            "dash_range" "500"
-            "damage" "200 300 400 500 600"
-        }
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"range"					"500"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"dash_range"			"500"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"200 300 400 500 600"
+			}
+		}
 	}
 
 	//=================================================================================================================
@@ -380,7 +497,7 @@
 		"MaxLevel"						"1"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY" 
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
@@ -391,6 +508,8 @@
 		"AbilityTextureName"			"custom/ryougi/ryougi_collapse"
 		"AbilityCooldown"				"110"
 		"AbilityManaCost"				"400"
+		"AbilityCastRange"				"1500"
+		"AbilityCastRangeBuffer"		"250"
 		
 		"AbilityValues"
 		{
@@ -445,18 +564,34 @@
 		"AbilityTextureName"			"custom/ryougi/ryougi_pure"
 		"AbilityCooldown"				"9999"
 
-		"AbilityManaCost"				"12"
+		"AbilityManaCost"				"7"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
 
-		"AbilityValues"
-        {
-            "disarm_duration" "0.5"
-            "duration" "8"
-            "health_percent" "2"
-            "as_bonus" "150"
-        }
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"disarm_duration"	"0.5"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"duration"			"8"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_FLOAT"
+				"health_percent"	"2"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"as_bonus"			"150"
+			}
+		}
 	}
 	"ryougi_black_moon_attribute"
 	{
@@ -476,13 +611,29 @@
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
 
-		"AbilityValues"
-        {
-            "duration" "7"
-            "damage" "10"
-            "bleed_damage" "20"
-            "bleed_absorb" "10"
-        }		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"duration"			"7"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"damage"			"10"
+			}
+			"03"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"bleed_damage"		"20"
+			}
+			"04"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"bleed_absorb"		"10"
+			}
+		}		
 	}
 	"ryougi_demise_attribute"
 	{
@@ -502,11 +653,19 @@
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
 
-		"AbilityValues"
-        {
-            "damage" "25"
-            "mult" "0.45"
-        }		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"damage"				"25"
+			}
+			"02"
+			{
+				"var_type"				"FIELD_FLOAT"
+				"mult"					"0.45"
+			}	
+		}		
 	}
 	"ryougi_kiyohime_passing_attribute"
 	{
@@ -521,18 +680,38 @@
 		"AbilityTextureName"			"custom/ryougi/ryougi_hz_1"
 		"AbilityCooldown"				"9999"
 
-		"AbilityManaCost"				"10"
+		"AbilityManaCost"				"8"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
 
-		"AbilityValues"
-        {
-            "belle_damage" "2"
-            "belle_2_damage" "10"
-            "bonus_belle_damage" "100"
-            "bonus_belle2_damage" "450"
-            "attribute_range" "100"
-        }		
+		"AbilitySpecial"
+		{
+			"01"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"belle_damage"		"2"
+			}
+			"02"
+			{
+				"var_type"			"FIELD_INTEGER"
+				"belle_2_damage"	"10"
+			}
+			"03"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_belle_damage"	"100"
+			}
+			"04"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"bonus_belle2_damage"	"450"
+			}
+			"05"
+			{
+				"var_type"				"FIELD_INTEGER"
+				"attribute_range"	"100"
+			}
+		}		
 	}
 }

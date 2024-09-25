@@ -56,7 +56,7 @@ function ryougi_mystic_eyes:CutLine(enemy, line_name, is_fan)
 		if not enemy:IsAlive() then return end
 	end
 
-	local damage = self:GetSpecialValueFor("immediate_damage")*enemy:GetHealth()/100
+	local damage = self:GetSpecialValueFor("immediate_damage")*enemy:GetMaxHealth()/100
 
 	DoDamage(caster, enemy, damage*multiplier, DAMAGE_TYPE_PURE, DOTA_DAMAGE_FLAG_NONE, self, false)
 	--DoDamage(self.caster, self.parent, damage/2, DAMAGE_TYPE_PURE, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self.ability, false)

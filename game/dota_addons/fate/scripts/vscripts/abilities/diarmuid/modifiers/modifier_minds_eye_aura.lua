@@ -11,7 +11,7 @@ function modifier_minds_eye_aura:GetAuraSearchType()
 end
 
 function modifier_minds_eye_aura:GetAuraRadius()
-	return 800
+	return 1500
 end
 
 function modifier_minds_eye_aura:GetModifierAura()

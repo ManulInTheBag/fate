@@ -46,7 +46,7 @@ function modifier_rampant_warrior:OnAttackLanded(args)
 			--print("performing double attack")
 			caster:PerformAttack(target, true, true, true, true, false, false, false)
 			DoDamage(caster, target, self.HitDamage, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
-			--DoDamage(caster, target, self.HitDamage, DAMAGE_TYPE_PURE, 0, self:GetAbility(), false)
+			DoDamage(caster, target, self.HitDamage, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
 			
 			self:StartIntervalThink(0.1)
 		end

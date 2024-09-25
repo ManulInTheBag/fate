@@ -69,7 +69,7 @@ function modifier_altera_teardrop_anim:IsHidden() return true end
 altera_teardrop_release = class({})
 
 function altera_teardrop_release:GetAOERadius()
-	return self:GetSpecialValueFor("radius")
+	return self:GetSpecialValueFor("beam_radius")
 end
 
 function altera_teardrop_release:GetCastRange(vLocation, hTarget)
@@ -94,6 +94,8 @@ function altera_teardrop_release:OnSpellStart()
 
 	local impact_damage = self:GetSpecialValueFor("impact_damage")
 	local beam_damage = self:GetSpecialValueFor("beam_damage")
+	local impact_radius = self:GetSpecialValueFor("impact_radius")
+	local beam_radius = self:GetSpecialValueFor("beam_radius")
 
 	caster:RemoveModifierByName("modifier_altera_combo_window")
 
@@ -125,9 +127,18 @@ function altera_teardrop_release:OnSpellStart()
 			ParticleManager:ReleaseParticleIndex(laser)
 		end)
 
+		local particle2 = ParticleManager:CreateParticle("particles/altera/altera_teardrop_magnetic_ring.vpcf", PATTACH_ABSORIGIN, caster)
+		ParticleManager:SetParticleControl(particle2, 0, target)
+		ParticleManager:SetParticleControl(particle2, 1, Vector(beam_radius, beam_radius, beam_radius))
+
+		Timers:CreateTimer(1.5, function()
+			ParticleManager:DestroyParticle(particle2, false)
+			ParticleManager:ReleaseParticleIndex(particle2)
+		end)
+
 		CreateModifierThinker(caster, self, "modifier_altera_teardrop_thinker", { Duration = 1.65,
 																			 Damage = beam_damage,
-																			 Radius = self:GetAOERadius()}
+																			 Radius = beam_radius}
 																			, target, caster:GetTeamNumber(), false)
 
 	   	Timers:CreateTimer(1.5, function()
@@ -136,7 +147,7 @@ function altera_teardrop_release:OnSpellStart()
 
 		print("zuzup")
 
-		local targets = FindUnitsInRadius(caster:GetTeam(), target, nil, self:GetAOERadius(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+		local targets = FindUnitsInRadius(caster:GetTeam(), target, nil, impact_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 
 		for i = 1, #targets do
 			print("zuzup2")

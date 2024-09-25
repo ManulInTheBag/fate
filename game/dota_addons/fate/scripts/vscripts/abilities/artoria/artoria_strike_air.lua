@@ -18,26 +18,26 @@ function artoria_strike_air:OnSpellStart()
 	
 	EmitGlobalSound("Saber.StrikeAir_Cast")
 
-	Timers:CreateTimer(0.4, function()
+	Timers:CreateTimer(0.2, function()
 		EmitGlobalSound("Saber.StrikeAir_Release"..math.random(1,2))
 	end)
 	
 	Timers:CreateTimer(0.01, function()
 		if caster:IsAlive() then
-			StartAnimation(caster, {duration=1.25, activity=ACT_DOTA_CAST_ABILITY_6, rate=1.0})
+			StartAnimation(caster, {duration=1.25, activity=ACT_DOTA_CAST_ABILITY_6, rate=2.0})
 		end
 	end)
 	
 	--caster:AddNewModifier(caster, self, "modifier_artoria_np_stun", { Duration = 1.26 })
-	giveUnitDataDrivenModifier(caster, caster, "pause_sealdisabled", 1.26)
+	giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 0.1)
 	
 	local strikeair = 
 	{
 		Ability = self,
         EffectName = "particles/custom/saber_strike_air_blast.vpcf",
         iMoveSpeed = 3500,
-        vSpawnOrigin = caster:GetAbsOrigin(),
-        fDistance = self:GetSpecialValueFor("length") - self:GetSpecialValueFor("width"),
+        vSpawnOrigin = caster:GetAbsOrigin() - caster:GetForwardVector()*200,
+        fDistance = self:GetSpecialValueFor("length") + 200 - self:GetSpecialValueFor("width"),
         fStartRadius = self:GetSpecialValueFor("width"),
         fEndRadius = self:GetSpecialValueFor("width"),
         Source = caster,
@@ -54,14 +54,14 @@ function artoria_strike_air:OnSpellStart()
 	}
     --ProjectileManager:CreateTrackingProjectile(strikeair)
 	
-	Timers:CreateTimer(0.4, function()
+	Timers:CreateTimer(0.1, function()
 		if caster:IsAlive() then 
 			strikeair.vSpawnOrigin = caster:GetAbsOrigin() 
 			strikeair.vVelocity = caster:GetForwardVector() * 3500
 			projectile = ProjectileManager:CreateLinearProjectile(strikeair)
 		end
 	end)
-	caster:EmitSound("Hero_Invoker.Tornado")	
+	caster:EmitSound("Hero_Invoker.Tornado")
 end
 
 function artoria_strike_air:OnProjectileHit_ExtraData(target, vLocation, tData)

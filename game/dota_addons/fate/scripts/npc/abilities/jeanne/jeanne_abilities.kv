@@ -16,6 +16,12 @@
 		"LevelsBetweenUpgrades"			"1"
 		"AbilityCooldown"				"5 3"
 
+		"precache"
+		{
+			"particle"					"particles/jeanne/jeanne_shield.vpcf"
+			"particle"					"particles/jeanne/jeanne_shield_cast.vpcf"
+		}
+
 		"AbilityValues"
 		{	
 			"cast_point"			"0"
@@ -39,15 +45,19 @@
 
 		"precache"
 		{
+			"particle"		"particles/custom/ruler/charisma/buff.vpcf"
+			"particle"		"particles/jeanne/jeanne_saint_burst.vpcf"
+			"particle"		"particles/jeanne/jeanne_charisma_regen.vpcf"
+			"particle"		"particles/jeanne/jeanne_saint_heal_apply.vpcf"
 			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_chen.vsndevts"
 		}
 
 		"AbilityValues"
 		{
 			"radius"				"1000"
-			"heal"					"25 50"
-			"hp_regen_const"		"10 25"
-			"duration"				"3 5"
+			"heal"					"25 75"
+			"hp_regen_const"		"10 40"
+			"duration"				"5"
 			"regen_duration"		"2"
 		}
 	}
@@ -122,15 +132,16 @@
 		"precache"
 		{
 			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_dazzle.vsndevts"
-			"particle"			"particles/custom/ruler/charisma/buff.vpcf"
+			"particle"			"particles/jeanne/jeanne_heal_rope.vpcf"
+			"particle"			"particles/jeanne/jeanne_purge_new.vpcf"
 		}
 		
 		// Ability stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"1000"
+		"AbilityCastRange"				"1300"
 		"AbilityCastRangeBuffer"		"200"
 		"AbilityCastPoint"				"0.3"
-		"AbilityCooldown"				"13 11 9 7 5"
+		"AbilityCooldown"				"9 8 7 6 5"
 		"AbilityManaCost"				"100"
 		
 		// Ability special
@@ -139,8 +150,8 @@
 		{	
 			"cast_point"		"0.3"
 			"radius"			"500"
-			"damage"			"100 125 150 175 200"
-			"heal"				"200 250 300 350 400"
+			"damage"			"200 250 300 350 400"
+			"heal"				"300 375 450 525 600"
 		}
 	}
 
@@ -164,7 +175,7 @@
 		
 		"precache"
 		{
-			"particle"			"particles/custom/ruler/purge_the_unjust/ruler_purge_the_unjust.vpcf"
+			"particle"			"particles/custom/jeanne/jeanne_purge_reborn.vpcf"
 			"particle"			"particles/custom/ruler/purge_the_unjust/ruler_purge_the_unjust_marker.vpcf"
 			"particle"			"particles/units/heroes/hero_chen/chen_penitence_debuff.vpcf"
 			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_chen.vsndevts"
@@ -172,7 +183,7 @@
 		
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"600"
+		"AbilityCastRange"				"800"
 		"AbilityCastPoint"				"0.3"
 		"AbilityManaCost"				"200"
 
@@ -223,7 +234,7 @@
 		"precache"
 		{
 			"particle"				"particles/custom/ruler/gods_resolution/gods_resolution_active_circle.vpcf"
-			"particle"				"particles/units/heroes/hero_chen/chen_teleport_flash_sparks.vpcf"
+			"particle"				"particles/custom/jeanne/jeanne_god_resolution_reborn.vpcf"
 			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_arc_warden.vsndevts"
 		}
 
@@ -240,7 +251,7 @@
 		{
 			"cast_point"			"0"
 			"active_dps"			"340 430 520 610 700"
-			"active_duration"		"2.0"
+			"active_duration"		"3.0"
 			"radius"				"600"
 			"slow_amount"			"-50"
 			"mr_bonus"				"30"
@@ -293,6 +304,8 @@
 		{
 			"particle"			"particles/custom/jeanne/jeanne_luminosite_eternelle.vpcf"
 			"particle"			"particles/custom/jeanne/jeanne_luminosite_eternelle_final_burst.vpcf"
+			"particle"			"particles/custom/jeanne/jeanne_luminosite_eternelle_barrier.vpcf"
+			"particle"			"particles/jeanne/jeanne_luminocite_magnetic.vpcf"
 		}
 
 		"AbilityValues"
@@ -332,6 +345,15 @@
 		"AbilityCastPoint"				"0"
 		"AbilityCooldown"				"180"
 		"AbilityManaCost"				"400"
+
+		"precache"
+		{
+			"particle"			"particles/custom/ruler/la_pucelle/ruler_la_pucelle.vpcf"
+			"particle"			"particles/custom/ruler/la_pucelle/la_pucelle_ring.vpcf"
+			"particle"			"particles/custom/jeanne/jeanne_crimson_saint_burst.vpcf"
+			"particle"			"particles/jeanne/jeanne_heat_wave.vpcf"
+			"particle"			"particles/jeanne/jeanne_la_pucelle_aura.vpcf"
+		}
 		
 		"AbilityValues"
 		{	
@@ -343,9 +365,9 @@
 			"burn_radius"			"1000"
 			"burn_damage"			"250"
 			"attack_damage"			"5"
-			"attack_speed_bonus"	"50"
+			"attack_speed_bonus"	"100"
 			"recast_radius"			"2000"
-			"recast_damage"			"5000"
+			"recast_damage"			"2500"
 			"recast_hp_damage"		"10"
 			"recast_stun_duration"	"1.5"
 		}
@@ -376,6 +398,14 @@
 		"AbilityCastPoint"				"0.33"
 		"AbilityCooldown"				"10"
 		"AbilityManaCost"				"0"
+
+		"precache"
+		{
+			"particle"			"particles/custom/ruler/la_pucelle/ruler_la_pucelle.vpcf"
+			"particle"			"particles/custom/jeanne/jeanne_crimson_saint_burst.vpcf"
+			"particle"			"particles/jeanne/jeanne_la_pucelle_rope.vpcf"
+			"particle"			"particles/jeanne/jeanne_la_pucelle_target.vpcf"
+		}
 		
 		"AbilityValues"
 		{
@@ -383,7 +413,7 @@
 			"delay_duration"		"2"
 			"stun_duration"			"1.5"
 			"radius"				"2000"
-			"damage"				"5000"
+			"damage"				"2500"
 			"hp_damage"				"10"
 		}
 	}
@@ -578,7 +608,7 @@
             "bonus_damage" "20"
             "slow_amount" "40"
             "slow_duration" "3"
-            "active_duration" "3"
+            "active_duration" "4"
         }
 	}
 
@@ -605,8 +635,8 @@
 
 		"AbilityValues"
 		{
-			"bonus_heal"				"50"
-			"bonus_final_heal"			"200"
+			"bonus_heal"				"150"
+			"bonus_final_heal"			"150"
 		}
 	}
 

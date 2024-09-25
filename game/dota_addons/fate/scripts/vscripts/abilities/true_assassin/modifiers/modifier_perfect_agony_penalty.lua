@@ -27,9 +27,9 @@ function modifier_perfect_agony_penalty:OnAttackLanded(args)
 			target:AddNewModifier(caster, dirkAbility, "modifier_weakening_venom", { duration = 12 })
 			target:SetModifierStackCount("modifier_weakening_venom", dirkAbility, stacks + 1)
 
-			local modifier = target:AddNewModifier(caster, dirkAbility, "modifier_dirk_poison", {	Duration = dirkAbility:GetSpecialValueFor("duration"),
+			--[[local modifier = target:AddNewModifier(caster, dirkAbility, "modifier_dirk_poison", {	Duration = dirkAbility:GetSpecialValueFor("duration"),
 																		PoisonDamage = fPoisonDamage,
-																		PoisonSlow = dirkAbility:GetSpecialValueFor("poison_slow") })
+																		PoisonSlow = dirkAbility:GetSpecialValueFor("poison_slow") })]]
 
 			if not dirkAbility:IsCooldownReady() then
 				local dirkCooldown = dirkAbility:GetCooldownTimeRemaining()
