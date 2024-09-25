@@ -1,12 +1,11 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf61:version{39d3ce1d-9442-4407-9b78-8317145b1732} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf56:version{f07dae67-740b-4789-a729-6ddffc9f855e} -->
 {
 	_class = "CParticleSystemDefinition"
 	m_bShouldHitboxesFallbackToRenderBounds = false
-	m_nMaxParticles = 1
-	m_flNoDrawTimeToGoToSleep = 100000.0
-	m_bShouldSort = false
+	m_nMaxParticles = 16
+	m_flConstantRadius = 30.0
+	m_ConstantColor = [ 255, 252, 0, 55 ]
 	m_nBehaviorVersion = 12
-	m_nFirstMultipleOverride_BackwardCompat = 3
 	m_controlPointConfigurations = 
 	[
 		{
@@ -14,11 +13,28 @@
 			m_drivers = 
 			[
 				{
-					m_iControlPoint = 3
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 60
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_vecOffset = [ 8.0, 229.0, 96.0 ]
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 61
 					m_iAttachType = "PATTACH_WORLDORIGIN"
 					m_entityName = "self"
 				},
 			]
+		},
+	]
+	m_PreEmissionOperators = 
+	[
+		{
+			_class = "C_OP_HSVShiftToCP"
+			m_DefaultHSVColor = [ 255, 0, 0, 255 ]
 		},
 	]
 	m_Emitters = 
@@ -39,95 +55,65 @@
 			m_InputValue = 
 			{
 				m_nType = "PF_TYPE_LITERAL"
-				m_flLiteralValue = 0.1
+				m_flLiteralValue = 1.0
 			}
 			m_nOutputField = 1
 		},
 		{
-			m_bDisableOperator = true
-			_class = "C_INIT_InitVec"
-			m_InputValue = 
-			{
-				m_nType = "PVEC_TYPE_LITERAL"
-				m_vLiteralValue = [ 0.0, 0.0, 1.0 ]
-			}
-			m_nOutputField = 21
-		},
-		{
 			_class = "C_INIT_CreateWithinSphereTransform"
-			m_TransformInput = 
-			{
-				m_nControlPoint = 3
-			}
-		},
-		{
-			_class = "C_INIT_PositionOffset"
-			m_bLocalCoords = true
-			m_TransformInput = 
-			{
-				m_nControlPoint = 3
-			}
 		},
 	]
 	m_Operators = 
 	[
 		{
-			_class = "C_OP_BasicMovement"
+			_class = "C_OP_RampScalarLinearSimple"
+			m_flEndTime = 9999.0
+			m_Rate = -8.0
+			m_nField = 16
+			m_nOpEndCapState = "PARTICLE_ENDCAP_ENDCAP_ON"
+		},
+		{
+			_class = "C_OP_AlphaDecay"
+			m_nOpEndCapState = "PARTICLE_ENDCAP_ENDCAP_ON"
 		},
 		{
 			_class = "C_OP_InterpolateRadius"
+			m_flEndTime = 0.25
+			m_flBias = 0.75
 			m_flStartScale = 0.0
-			m_flEndTime = 2.0
-			m_bDisableOperator = true
+			m_nOpEndCapState = "PARTICLE_ENDCAP_ENDCAP_OFF"
 		},
 		{
-			_class = "C_OP_RampScalarLinearSimple"
-			m_Rate = -4.0
-			m_flEndTime = 999999.0
-			m_nField = 4
+			_class = "C_OP_FadeInSimple"
 		},
 		{
-			_class = "C_OP_RadiusDecay"
-			m_nOpEndCapState = "PARTICLE_ENDCAP_ENDCAP_ON"
-			m_flMinRadius = 0.1
-			m_bDisableOperator = true
+			_class = "C_OP_ColorInterpolate"
+			m_ColorFade = [ 255, 0, 0, 255 ]
 		},
 		{
-			_class = "C_OP_PositionLock"
-			m_bLockRot = true
-			m_TransformInput = 
-			{
-				m_nControlPoint = 3
-			}
-		},
-		{
-			_class = "C_OP_RemapCPVelocityToVector"
-			m_bNormalize = true
-			m_nControlPoint = 3
-			m_nFieldOutput = 21
-		},
-		{
-			_class = "C_OP_Decay"
-			m_nOpEndCapState = "PARTICLE_ENDCAP_ENDCAP_ON"
+			_class = "C_OP_SetToCP"
 		},
 	]
 	m_Renderers = 
 	[
 		{
-			_class = "C_OP_RenderModels"
-			m_nManualFrameField = 19
-			m_ModelList = 
+			_class = "C_OP_RenderSprites"
+			m_flOverbrightFactor = 4.5
+			m_flAddSelfAmount = 1.0
+			m_bSaturateColorPreAlphaBlend = false
+			m_flAnimationRate = 0.5
+			m_nHSVShiftControlPoint = 62
+			m_vecTexturesInput = 
 			[
 				{
-					m_model = resource:"models/leonidas/leonidas_spear.vmdl"
+					m_hTexture = resource:"materials/particle/bullseye/bullseye_anim.vtex"
 				},
 			]
-			m_bForceLoopingAnimation = true
 			m_flRadiusScale = 
 			{
 				m_nType = "PF_TYPE_LITERAL"
 				m_nMapType = "PF_MAP_TYPE_DIRECT"
-				m_flLiteralValue = 0.3
+				m_flLiteralValue = 2.0
 				m_NamedValue = ""
 				m_nControlPoint = 0
 				m_nScalarAttribute = 3
@@ -155,6 +141,7 @@
 				m_flNoiseTurbulenceMix = 0.5
 				m_flNoiseImgPreviewScale = 1.0
 				m_bNoiseImgPreviewLive = true
+				m_bUseBoundsCenter = false
 				m_nInputMode = "PF_INPUT_MODE_CLAMPED"
 				m_flMultFactor = 1.0
 				m_flInput0 = 0.0
@@ -175,9 +162,15 @@
 					m_vDomainMaxs = [ 0.0, 0.0 ]
 				}
 			}
-			m_modelInput = 
-			{
-			}
+		},
+	]
+	m_Children = 
+	[
+		{
+			m_ChildRef = resource:"particles/heroes/anime_hero_leonidas/leonidas_pride_spear_enemy_mark_c.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/heroes/anime_hero_leonidas/leonidas_pride_spear_enemy_mark_a.vpcf"
 		},
 	]
 }
