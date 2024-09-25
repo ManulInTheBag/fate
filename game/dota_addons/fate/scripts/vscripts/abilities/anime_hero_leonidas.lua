@@ -986,6 +986,8 @@ function leonidas_pride:ReleaseSpear(vPoint, hTarget, nBonusDamage, bCanDodge)
     -- end
 
     if bLockOnTarget then
+        local hModifier = hTarget:AddNewModifier(hCaster, self, "modifier_leonidas_pride_mark_enemy", {})
+
         local tSpearProjectile =    {
                                         EffectName = sSpearParticle,
                                         Source     = hCaster,
@@ -1016,7 +1018,10 @@ function leonidas_pride:ReleaseSpear(vPoint, hTarget, nBonusDamage, bCanDodge)
                                                         nDamage       = nDamage + nBonusDamage,
                                                         nRadius       = nRadius,
                                                         nStunDuration = nStunDuration,
-                                                        nPlaceWardPogChamp = nPlaceWardPogChamp
+                                                        nPlaceWardPogChamp = nPlaceWardPogChamp,
+
+                                                        nLockedTarget = hTarget:entindex(),
+                                                        hModifier = hModifier,
                                                     }
                                     }
 
@@ -1094,6 +1099,16 @@ function leonidas_pride:OnProjectileHit_ExtraData(hTarget, vLocation, tExtraData
             ParticleManager:DestroyParticle(tExtraData.nSpearParticle, false)
             ParticleManager:ReleaseParticleIndex(tExtraData.nSpearParticle)
         end
+
+        if type(tExtraData.nLockedTarget) == "number" then
+            local _hTarget = EntIndexToHScript(tExtraData.nLockedTarget)
+            if IsNotNull(_hTarget) then
+                --print("HMMM")
+                _hTarget:RemoveModifierByName("modifier_leonidas_pride_mark_enemy")
+            end
+        end
+
+        print(tExtraData.hModifier, "TEST CRINGE")
 
         local hCaster = self:GetCaster()
 
@@ -1414,6 +1429,38 @@ end
 
 
 
+---------------------------------------------------------------------------------------------------------------------
+LinkLuaModifier("modifier_leonidas_pride_mark_enemy", "abilities/anime_hero_leonidas", LUA_MODIFIER_MOTION_NONE)
+
+modifier_leonidas_pride_mark_enemy = modifier_leonidas_pride_mark_enemy or class({})
+
+function modifier_leonidas_pride_mark_enemy:IsHidden()                                                              return false end
+function modifier_leonidas_pride_mark_enemy:IsDebuff()                                                              return false end
+function modifier_leonidas_pride_mark_enemy:IsPurgable()                                                            return false end
+function modifier_leonidas_pride_mark_enemy:IsPurgeException()                                                      return false end
+function modifier_leonidas_pride_mark_enemy:RemoveOnDeath()                                                         return true end
+function modifier_leonidas_pride_mark_enemy:GetPriority()                                                           return MODIFIER_PRIORITY_HIGH end
+function modifier_leonidas_pride_mark_enemy:GetAttributes()                                                         return MODIFIER_ATTRIBUTE_MULTIPLE end
+function modifier_leonidas_pride_mark_enemy:CheckState()
+    local tState =  {
+                        [MODIFIER_STATE_PROVIDES_VISION] = true,
+                    }
+    return tState
+end
+function modifier_leonidas_pride_mark_enemy:GetEffectName()
+    return "particles/heroes/anime_hero_leonidas/leonidas_pride_spear_enemy_mark.vpcf"
+end
+function modifier_leonidas_pride_mark_enemy:GetEffectAttachType()
+    return PATTACH_OVERHEAD_FOLLOW
+end
+
+
+
+
+
+
+
+
 
 
 
@@ -1651,7 +1698,7 @@ function modifier_leonidas_berserk_damage_overtime:OnCreated(tTable)
     self.hAbility = self:GetAbility()
 
     if IsServer() then
-        self.nTicks       = math.max((tTable.nTicks or 10), 1)
+        self.nTicks       = math.max((tTable.nTicks or 3), 1)
         self.nDamageType  = tTable.nDamageType or DAMAGE_TYPE_NONE
         self.nDamageFlags = tTable.nDamageFlags or DOTA_DAMAGE_FLAG_NONE
         self.nDamage      = tTable.nDamage or 0
@@ -2359,7 +2406,7 @@ function modifier_leonidas_enomotia_shield:GetModifierTotal_ConstantBlock(keys)
         end
 
         if IsNotNull(keys.attacker) then
-            self.tStoreEnemies[tostring(keys.attacker:entindex()).."_"..keys.attacker:GetName()] = keys.attacker
+            self.tStoreEnemies[keys.attacker] = (self.tStoreEnemies[keys.attacker] or 0) + keys.original_damage
         end
 
         return iBlockNow
@@ -2674,7 +2721,8 @@ function leonidas_enomotia_combo:OnSpellStart()
                         --=================================--
                         if IsNotNull(hEnomotiaComboShield) then --NOTE: Maybe in future will add anti expire hmhmhm... TODO: Make when all shields is gone same releasing, so again rework anything but only in anime... now i'm tired
                             local tComboStoreEnemies  = hEnomotiaComboShield:GetStoreEnemies() or {}
-                            local nTotalDamageBlocked = nDamageBlock - hEnomotiaComboShield:GetStackCount()
+                            local nShieldsStillHere   = hEnomotiaComboShield:GetStackCount()
+                            local nTotalDamageBlocked = nDamageBlock - nShieldsStillHere
                             Timers:CreateTimer(nPFX_AnimReleaseTime * 0.5, function()
                                 --if IsNotNull(nDefenceAuraModifierThinker) then --NOTE: Again checks 2
                                 --end
@@ -2683,10 +2731,11 @@ function leonidas_enomotia_combo:OnSpellStart()
                                 ScreenShake(vCasterGnd, 7, 3, 2, 300 * 5, 0, true)
 
                                 if IsNotNull(hPrideAbility) then
-                                    local nBonusDamageToAll = ( nTotalDamageBlocked / math.max(TableLength(tComboStoreEnemies), 1) )
-                                    for _, hEnemy in pairs(tComboStoreEnemies) do
+                                    --local nBonusDamageToAll = nShieldsStillHere / math.max(TableLength(tComboStoreEnemies), 1)
+                                    --math.max(1000, ( nTotalDamageBlocked / math.max(TableLength(tComboStoreEnemies), 1) ))
+                                    for hEnemy, nDamage in pairs(tComboStoreEnemies) do
                                         if IsNotNull(hEnemy) then --MB ADD CHECK FOR ALIVE BUT NOT WANT KEK
-                                            hPrideAbility:ReleaseSpear(hEnemy:GetAbsOrigin(), hEnemy, nBonusDamageToAll, false)
+                                            hPrideAbility:ReleaseSpear(hEnemy:GetAbsOrigin(), hEnemy, nDamage * self:GetSpecialValueFor("defence_damage_back") * 0.01, false)
                                         end
                                     end
                                 end

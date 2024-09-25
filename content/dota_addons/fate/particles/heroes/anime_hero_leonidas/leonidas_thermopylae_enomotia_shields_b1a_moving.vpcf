@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf54:version{326b1595-45e8-4004-aa5a-3e08655ff51f} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf45:version{73c3d623-a141-4df2-b548-41dd786e6300} -->
 {
 	_class = "CParticleSystemDefinition"
 	m_bShouldHitboxesFallbackToRenderBounds = false
@@ -860,11 +860,8 @@
 		},
 		{
 			_class = "C_OP_PositionLock"
+			m_nControlPointNumber = 3
 			m_bDisableOperator = true
-			m_TransformInput = 
-			{
-				m_nControlPoint = 3
-			}
 		},
 		{
 			_class = "C_OP_InheritFromParentParticles"

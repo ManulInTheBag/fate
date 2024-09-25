@@ -1,11 +1,11 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf45:version{73c3d623-a141-4df2-b548-41dd786e6300} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf56:version{f07dae67-740b-4789-a729-6ddffc9f855e} -->
 {
 	_class = "CParticleSystemDefinition"
 	m_bShouldHitboxesFallbackToRenderBounds = false
 	m_nMaxParticles = 30
 	m_flCullRadius = -1.0
 	m_bShouldSort = false
-	m_nBehaviorVersion = 4
+	m_nBehaviorVersion = 12
 	m_nFirstMultipleOverride_BackwardCompat = 8
 	m_controlPointConfigurations = 
 	[
@@ -14,11 +14,6 @@
 			m_drivers = 
 			[
 				{
-					m_iAttachType = "PATTACH_WORLDORIGIN"
-					m_entityName = "self"
-				},
-				{
-					m_iControlPoint = 1
 					m_iAttachType = "PATTACH_WORLDORIGIN"
 					m_entityName = "self"
 				},
@@ -142,7 +137,7 @@
 			m_ColorMin = [ 210, 239, 159, 5 ]
 		},
 		{
-			_class = "C_INIT_CreateWithinSphere"
+			_class = "C_INIT_CreateWithinSphereTransform"
 		},
 		{
 			_class = "C_INIT_NormalAlignToCP"
@@ -150,7 +145,6 @@
 		},
 		{
 			_class = "C_INIT_PositionOffset"
-			m_nControlPointNumber = 3
 			m_OffsetMax = 
 			{
 				m_nType = "PVEC_TYPE_LITERAL"
@@ -613,6 +607,10 @@
 				m_vRandomMin = [ 0.0, 0.0, 0.0 ]
 				m_vRandomMax = [ 0.0, 0.0, 0.0 ]
 			}
+			m_TransformInput = 
+			{
+				m_nControlPoint = 3
+			}
 		},
 		{
 			_class = "C_INIT_DistanceToCPInit"
@@ -620,11 +618,15 @@
 			m_nStartCP = 1
 			m_flInputMax = 1024.0
 			m_nSetMethod = "PARTICLE_SET_SCALE_INITIAL_VALUE"
-			m_bDisableOperator = true
 		},
 	]
 	m_Operators = 
 	[
+		{
+			_class = "C_OP_RemapControlPointDirectionToVector"
+			m_nFieldOutput = 21
+			m_bDisableOperator = true
+		},
 		{
 			_class = "C_OP_Decay"
 		},
