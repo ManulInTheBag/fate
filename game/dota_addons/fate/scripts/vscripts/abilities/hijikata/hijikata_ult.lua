@@ -40,6 +40,12 @@ function hijikata_ult:OnSpellStart()
 			ExtraData = {fDamage = self:GetSpecialValueFor("damage"), velocityX = target.x, velocityY = target.y}
 		}  
 		self.iProjectile = ProjectileManager:CreateLinearProjectile(tProjectile)
+		local particle = ParticleManager:CreateParticle("particles/units/hijikata/ult/hijikata_ult.vpcf", PATTACH_WORLDORIGIN, nil)
+		ParticleManager:SetParticleControl(particle, 0, origin)
+		ParticleManager:SetParticleControlTransformForward(particle, 1, origin, target)
+		ParticleManager:SetParticleControl(particle, 3, origin)
+		ParticleManager:SetParticleControlTransformForward( particle, 9, origin, target  )
+		ParticleManager:SetParticleControl(particle, 10, origin + target * range)
 		local endpoint = caster:GetAbsOrigin() + target*500
 		self.knockback = { should_stun = true,
 				knockback_duration = 0.3,

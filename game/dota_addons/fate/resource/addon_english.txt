@@ -8844,6 +8844,20 @@
        "DOTA_Tooltip_ability_nanaya_chobi_attribute" 				"Attribute: Calculated Assault"
        "DOTA_Tooltip_ability_nanaya_chobi_attribute_Description" 	"Sensa・Meigokushamon deals more damage to units with less than %threshold%% HP and Nanaya becomes invisible for the next %invis_duration% seconds. "
 
+		 //====================================
+		//  Hijikata (Berserker)
+        //====================================
+        "npc_dota_hero_spirit_breaker"						"Hijikata Toshizo"
+
+		"npc_dota_hero_spirit_breaker"					""
+		"npc_dota_hero_spirit_breaker"						""
+        "DOTA_Tooltip_ability_hijikata_laws"							"Laws of Shinsengumi"
+        "DOTA_Tooltip_ability_hijikata_laws_Description"			"Hijikata abides a set of rules, which when breaked grants him addional attack damage, but damage him in return.\nWhen all of the Laws are broken, Hijikata becomes stunned for a duration and takes even more damage, when the stun expires, all of stacks expire too.\nLaws:\n<font color='#FFFAFA'>Samurai code</font>: will be broken when Hijikata uses this ability.\n<font color='#FFFAFA'>Prohidition of personal conflict</font>: Broken when Hijikata uses his Duel ability.\n<font color='#FFFAFA'>Escaping from office</font>: Broken when Hijikata uses blink scroll in the direction opposite to his closest visible enemy.\n<font color='#FFFAFA'>Raising money</font>:"
+        "DOTA_Tooltip_ability_nobu_guns_base_dmg"					"Base dmg:"
+        "DOTA_Tooltip_ability_nobu_guns_dmg_per_lvl"					"Dmg per level:"
+        "DOTA_Tooltip_ability_nobu_guns_amount"					"Active guns amount:"
+        "DOTA_Tooltip_ability_nobu_guns_Lore"						"Guns will never be of value on the battlefield. That was what everybody thought at the time. Then I just need to gather a whole bunch of them and fire away right?"
+         
 
         //     Archer(Extra)
         //====================================

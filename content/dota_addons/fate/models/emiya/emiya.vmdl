@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc33:version{bed0390a-a564-41a6-9dc3-c9a293c8eea3} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc36:version{972dada4-b828-45a4-bb93-7795cf0585da} -->
 {
 	rootNode = 
 	{
@@ -309,6 +309,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
 								event_frame = 13
+								event_end_frame = -1
 								event_keys = 
 								{
 									name = resource:"particles/emiya/emiya_sword_spawn.vpcf"
@@ -328,6 +329,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
 								event_frame = 13
+								event_end_frame = -1
 								event_keys = 
 								{
 									name = resource:"particles/emiya/emiya_sword_spawn.vpcf"
@@ -412,6 +414,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
 								event_frame = 24
+								event_end_frame = -1
 								event_keys = 
 								{
 									name = resource:"particles/emiya/emiya_sword_spawn_krane_white.vpcf"
@@ -431,6 +434,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
 								event_frame = 24
+								event_end_frame = -1
 								event_keys = 
 								{
 									name = resource:"particles/emiya/emiya_sword_spawn_krane_black.vpcf"
@@ -475,6 +479,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
 								event_frame = 7
+								event_end_frame = -1
 								event_keys = 
 								{
 									name = resource:"particles/emiya/emiya_overedge_slash_1.vpcf"
@@ -494,6 +499,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
 								event_frame = 9
+								event_end_frame = -1
 								event_keys = 
 								{
 									name = resource:"particles/emiya/emiya_overedge_slash_2.vpcf"
@@ -513,6 +519,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
 								event_frame = 18
+								event_end_frame = -1
 								event_keys = 
 								{
 									name = resource:"particles/emiya/emiya_overedge_slash_3.vpcf"
@@ -533,6 +540,7 @@
 								disabled = true
 								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
 								event_frame = 23
+								event_end_frame = -1
 								event_keys = 
 								{
 									name = resource:"particles/emiya/emiya_overedge_slash_4.vpcf"
@@ -584,6 +592,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
 								event_frame = 7
+								event_end_frame = -1
 								event_keys = 
 								{
 									name = resource:"particles/emiya/emiya_slash_1.vpcf"
@@ -603,6 +612,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
 								event_frame = 9
+								event_end_frame = -1
 								event_keys = 
 								{
 									name = resource:"particles/emiya/emiya_slash_2.vpcf"
@@ -622,6 +632,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
 								event_frame = 18
+								event_end_frame = -1
 								event_keys = 
 								{
 									name = resource:"particles/emiya/emiya_slash_3.vpcf"
@@ -642,6 +653,7 @@
 								disabled = true
 								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
 								event_frame = 18
+								event_end_frame = -1
 								event_keys = 
 								{
 									name = resource:"particles/emiya/emiya_overedge_slash_4.vpcf"
@@ -732,6 +744,7 @@
 								extract_rz = false
 								linear = false
 								quadratic = false
+								extract_initial_offset = false
 								root_bone_name = ""
 								motion_type = "Uniform"
 							},
@@ -786,6 +799,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
 								event_frame = 5
+								event_end_frame = -1
 								event_keys = 
 								{
 									name = resource:"particles/emiya/emiya_circle_attack_base.vpcf"
@@ -805,6 +819,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
 								event_frame = 10
+								event_end_frame = -1
 								event_keys = 
 								{
 									name = resource:"particles/emiya/emiya_circle_attack_base_2.vpcf"
@@ -824,6 +839,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
 								event_frame = 15
+								event_end_frame = -1
 								event_keys = 
 								{
 									name = resource:"particles/emiya/emiya_circle_attack_base_3.vpcf"
@@ -890,6 +906,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
 								event_frame = 7
+								event_end_frame = -1
 								event_keys = 
 								{
 									name = resource:"particles/emiya/crane_wings_black.vpcf"
@@ -909,6 +926,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
 								event_frame = 7
+								event_end_frame = -1
 								event_keys = 
 								{
 									name = resource:"particles/emiya/crane_wings_white.vpcf"
@@ -928,6 +946,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
 								event_frame = 22
+								event_end_frame = -1
 								event_keys = 
 								{
 									name = resource:"particles/emiya/crane_wings_white_2.vpcf"
@@ -947,6 +966,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
 								event_frame = 22
+								event_end_frame = -1
 								event_keys = 
 								{
 									name = resource:"particles/emiya/crane_wings_black_2.vpcf"
@@ -991,6 +1011,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
 								event_frame = 14
+								event_end_frame = -1
 								event_keys = 
 								{
 									name = resource:"particles/emiya/swords_spawn.vpcf"
@@ -1010,6 +1031,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
 								event_frame = 14
+								event_end_frame = -1
 								event_keys = 
 								{
 									name = resource:"particles/emiya/swords_spawn.vpcf"
@@ -1029,6 +1051,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
 								event_frame = 25
+								event_end_frame = -1
 								event_keys = 
 								{
 									name = resource:"particles/emiya/emiya_bow_spawn.vpcf"
@@ -1164,6 +1187,7 @@
 								extract_rz = false
 								linear = false
 								quadratic = false
+								extract_initial_offset = false
 								root_bone_name = ""
 								motion_type = "Uniform"
 							},
@@ -1265,6 +1289,7 @@
 								extract_rz = false
 								linear = false
 								quadratic = false
+								extract_initial_offset = false
 								root_bone_name = ""
 								motion_type = "Uniform"
 							},
@@ -1357,6 +1382,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_CL_HIDE_PARTICLE_EFFECT"
 								event_frame = 11
+								event_end_frame = -1
 								event_keys = 
 								{
 									name = resource:"particles/emiya/arrow_spawn.vpcf"
@@ -1367,12 +1393,14 @@
 								_class = "AnimEvent"
 								event_class = "AE_DOTA_PLAY_SOUND_ATTACK"
 								event_frame = 13
+								event_end_frame = -1
 								event_keys = null
 							},
 							{
 								_class = "AnimEvent"
 								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
 								event_frame = 6
+								event_end_frame = -1
 								event_keys = 
 								{
 									name = resource:"particles/emiya/arrow_spawn.vpcf"
@@ -1392,6 +1420,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_WPN_PRIMARYATTACK"
 								event_frame = 13
+								event_end_frame = -1
 								event_keys = null
 							},
 							{
@@ -1458,6 +1487,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
 								event_frame = 24
+								event_end_frame = -1
 								event_keys = 
 								{
 									name = resource:"particles/emiya/emiya_sword_spawn.vpcf"
@@ -1477,6 +1507,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
 								event_frame = 24
+								event_end_frame = -1
 								event_keys = 
 								{
 									name = resource:"particles/emiya/emiya_sword_spawn.vpcf"
@@ -1496,6 +1527,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
 								event_frame = 13
+								event_end_frame = -1
 								event_keys = 
 								{
 									name = resource:"particles/emiya/swords_dissapear.vpcf"
@@ -1546,6 +1578,7 @@
 								disabled = true
 								event_class = "AE_CL_HIDE_PARTICLE_EFFECT"
 								event_frame = 15
+								event_end_frame = -1
 								event_keys = 
 								{
 									name = resource:"particles/emiya/caladbolg_animation.vpcf"
@@ -1615,6 +1648,7 @@
 								extract_rz = true
 								linear = false
 								quadratic = false
+								extract_initial_offset = false
 								root_bone_name = ""
 								motion_type = "Uniform"
 							},
@@ -1685,6 +1719,7 @@
 								extract_rz = false
 								linear = false
 								quadratic = false
+								extract_initial_offset = false
 								root_bone_name = ""
 								motion_type = "Uniform"
 							},
@@ -1756,6 +1791,7 @@
 								extract_rz = false
 								linear = false
 								quadratic = false
+								extract_initial_offset = false
 								root_bone_name = ""
 								motion_type = "Uniform"
 							},
@@ -1905,6 +1941,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_CL_HIDE_PARTICLE_EFFECT"
 								event_frame = 11
+								event_end_frame = -1
 								event_keys = 
 								{
 									name = resource:"particles/emiya/arrow_spawn.vpcf"
@@ -1915,12 +1952,14 @@
 								_class = "AnimEvent"
 								event_class = "AE_DOTA_PLAY_SOUND_ATTACK"
 								event_frame = 13
+								event_end_frame = -1
 								event_keys = null
 							},
 							{
 								_class = "AnimEvent"
 								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
 								event_frame = 6
+								event_end_frame = -1
 								event_keys = 
 								{
 									name = resource:"particles/emiya/arrow_spawn.vpcf"
@@ -1940,6 +1979,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_WPN_PRIMARYATTACK"
 								event_frame = 13
+								event_end_frame = -1
 								event_keys = null
 							},
 							{
@@ -1977,6 +2017,7 @@
 								disabled = true
 								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
 								event_frame = 3
+								event_end_frame = -1
 								event_keys = 
 								{
 									name = resource:"particles/emiya/emiya_circle_attack_base.vpcf"
@@ -1997,6 +2038,7 @@
 								disabled = true
 								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
 								event_frame = 7
+								event_end_frame = -1
 								event_keys = 
 								{
 									name = resource:"particles/emiya/emiya_circle_attack_base_2.vpcf"
@@ -2017,6 +2059,7 @@
 								disabled = true
 								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
 								event_frame = 15
+								event_end_frame = -1
 								event_keys = 
 								{
 									name = resource:"particles/emiya/emiya_circle_attack_base_3.vpcf"
@@ -2061,6 +2104,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
 								event_frame = 10
+								event_end_frame = -1
 								event_keys = 
 								{
 									name = resource:"particles/emiya/emiya_circle_attack_base_2.vpcf"
@@ -2080,6 +2124,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
 								event_frame = 23
+								event_end_frame = -1
 								event_keys = 
 								{
 									name = resource:"particles/emiya/emiya_circle_attack_base.vpcf"
@@ -2354,6 +2399,7 @@
 								extract_rz = false
 								linear = false
 								quadratic = false
+								extract_initial_offset = false
 								root_bone_name = ""
 								motion_type = "Uniform"
 							},
@@ -3107,5 +3153,6 @@
 		primary_associated_entity = ""
 		anim_graph_name = ""
 		importer_notes = "Imported from VMDL"
+		document_sub_type = "ModelDocSubType_None"
 	}
 }

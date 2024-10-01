@@ -108,6 +108,7 @@
 								calc_per_vertex_curvature = false
 								prefer_high_density_tris_in_uv_density_calc = false
 								skin_parented_transforms = false
+								render_mode = "default"
 							},
 						]
 						filename = "models/hijikata/hijikata.fbx"
@@ -127,6 +128,27 @@
 					{
 						_class = "AnimFile"
 						name = "idle"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								disabled = true
+								extract_tx = true
+								extract_ty = true
+								extract_tz = true
+								extract_rz = true
+								linear = false
+								quadratic = false
+								extract_initial_offset = false
+								root_bone_name = ""
+								motion_type = "Uniform"
+							},
+							{
+								_class = "AnimSmoothLoop"
+								frames_from_start = 19
+								frames_from_end = 80
+							},
+						]
 						activity_name = "ACT_DOTA_IDLE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -141,7 +163,7 @@
 						animgraph_additive = false
 						source_filename = "models/hijikata/hijikata.fbx"
 						import_bone_scales = false
-						start_frame = 20
+						start_frame = 19
 						end_frame = 80
 						framerate = -1.0
 						reverse = false
@@ -209,6 +231,11 @@
 									stop_instantly = false
 									play_endcap = false
 								}
+							},
+							{
+								_class = "AnimSmoothLoop"
+								frames_from_start = 400
+								frames_from_end = 423
 							},
 						]
 						activity_name = "ACT_DOTA_RUN"
@@ -387,7 +414,7 @@
 					{
 						_class = "AnimFile"
 						name = "die_powerful"
-						activity_name = ""
+						activity_name = "ACT_DOTA_DIE"
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -420,6 +447,7 @@
 								extract_rz = false
 								linear = false
 								quadratic = false
+								extract_initial_offset = false
 								root_bone_name = ""
 								motion_type = "Uniform"
 							},
@@ -545,6 +573,7 @@
 								extract_rz = false
 								linear = false
 								quadratic = false
+								extract_initial_offset = false
 								root_bone_name = ""
 								motion_type = "Uniform"
 							},
@@ -600,7 +629,7 @@
 					{
 						_class = "AnimFile"
 						name = "np_attacks_1"
-						activity_name = ""
+						activity_name = "ACT_DOTA_CAST_SUN_STRIKE_ORB"
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -614,9 +643,9 @@
 						animgraph_additive = false
 						source_filename = "models/hijikata/hijikata.fbx"
 						import_bone_scales = false
-						start_frame = 230
+						start_frame = 231
 						end_frame = 265
-						framerate = -1.0
+						framerate = 48.0
 						reverse = false
 					},
 					{

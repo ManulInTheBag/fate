@@ -18,6 +18,11 @@
 		"AbilityManaCost"					"100"
 		"AbilityCastPoint"					"0.2"
 		"AbilityCastAnimation"                      "ACT_DOTA_CAST_ABILITY_1"
+		"precache"
+		{
+			"particle"		"particles/hijikata/hijikata_dash_radius.vpcf"
+			"particle"		"particles/hijikata/hijikata_bullet.vpcf"
+		}
 		"AbilityValues"
 		{
 			"distance"								"1500"		//Optimum distance.
@@ -36,7 +41,7 @@
 		"BaseClass"          			    "ability_lua"
 		"ScriptFile"					    "abilities/hijikata/hijikata_dash_recast"
 		"AbilityTextureName"				"custom/hijikata/hijikata_dash"
-		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_NO_TARGET|DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_NO_TARGET|DOTA_ABILITY_BEHAVIOR_IMMEDIATE|DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_ALL"
 		"AbilityUnitDamageType"				"DAMAGE_TYPE_MAGICAL"
@@ -45,6 +50,13 @@
 		"AbilityManaCost"					"0"
 		"AbilityCastPoint"					"0.0"
 		"AbilityCastAnimation"                      "ACT_DOTA_CAST_ABILITY_1_END"
+		"precache"
+		{
+			"particle"		"particles/hijikata/hijikata_sword_dash.vpcf"
+			"particle"		"particles/hijikata/hijikata_dash_slash.vpcf"
+			"particle"		"particles/econ/items/void_spirit/void_spirit_immortal_2021/void_spirit_immortal_2021_astral_step_dmg_blood.vpcf"
+			"particle"		"particles/hijikata/hijikata_dash_effects.vpcf"
+		}
 		"AbilityValues"
 		{
 			"distance"								"1500"		
@@ -71,6 +83,11 @@
 		"AbilityCastRange"				"350 400 450 500 550"
 		"AbilityCastPoint"				"0.3"
 		"AbilityCastAnimation"                      "ACT_DOTA_CAST_ABILITY_5"
+		"precache"
+		{
+			"particle"		"particles/hijikata/hijikata_duel.vpcf"
+			"particle"		"particles/hijikata/hijikata_duel_text.vpcf"
+		}
 		"AbilityValues"
 		{
 			"duration"									"6"		
@@ -99,11 +116,47 @@
 		"AbilityCastPoint"					"0.5"
 		"AbilityCastAnimation"                      "ACT_DOTA_DISABLED"
 		"AnimationPlaybackRate" 		"1.5"
+		"precache"
+		{
+			"particle"		"particles/custom/lancelot/lancelot_arondite_ambient.vpcf"
+			"particle"		"particles/hijikata/hijikata_eye.vpcf"
+		}
 		"AbilityValues"
 		{
 			"duration"								"4"		
 			"dmg_res"									"50"
 
+		}
+	}
+
+	//=====================================
+	//
+	//=====================================
+	"hijikata_laws"
+	{
+		"BaseClass"          			    "ability_lua"
+		"ScriptFile"					    "abilities/hijikata/hijikata_laws"
+		"AbilityTextureName"				"custom/hijikata/hijikata_berserk"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_NO_TARGET|DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_HERO"
+		"MaxLevel"							"1"
+		"AbilityCooldown"				    "0.5"
+		"AbilityManaCost"					"0"
+		"AbilityCastPoint"					"0.5"
+		"AbilityCastAnimation"                      "ACT_DOTA_DISABLED"
+		"AnimationPlaybackRate" 		"1.5"
+		"precache"
+		{
+			"particle"		"particles/custom/lancelot/lancelot_arondite_ambient.vpcf"
+			"particle"		"particles/hijikata/hijikata_eye.vpcf"
+		}
+		"AbilityValues"
+		{
+			"max_stacks"								"5"		
+			"damage_per_stack"									"30"
+			"damage_take_per_stack_percent"							"10"
+			"stun_duration"									"3"
 		}
 	}
 
@@ -124,6 +177,12 @@
 		"AbilityManaCost"					"0"
 		"AbilityCastPoint"					"0.0"
 		"AbilityCastAnimation"                      "ACT_DOTA_CAST_ABILITY_6"
+
+		"precache"
+		{
+			"particle"		"particles/econ/items/centaur/centaur_ti9/centaur_double_edge_ti9_bloodspray_src.vpcf"
+			"particle"		"particles/units/hijikata/ult/hijikata_ult.vpcf"
+		}
 		"AbilityValues"
 		{
 			"damage"									"600 700 800 900 1000"		//Optimum distance.
@@ -143,7 +202,7 @@
 		"BaseClass"          			    "ability_lua"
 		"ScriptFile"					    "abilities/hijikata/hijikata_combo"
 		"AbilityTextureName"				"custom/hijikata/hijikata_ult"
-		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_POINT|DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_POINT|DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_ALL"
 		"AbilityUnitDamageType"				"DAMAGE_TYPE_MAGICAL"
@@ -152,38 +211,70 @@
 		"AbilityManaCost"					"0"
 		"AbilityCastPoint"					"0.5"
 		"AbilityCastAnimation"                      "ACT_DOTA_CAST_ABILITY_5"
+		"precache"
+		{
+			"particle"		"particles/hijikata/hijikata_combo_onground.vpcf"
+		}
 		"AbilityValues"
 		{
-			"damage"									"600 700 800 900 1000"		//Optimum distance.
+			"damage"									"600 700 800 900 1000"		
 			"ms_slow"									"50"
-			"distance"									"1100"
+			"distance"									"4000"
 			"duration"									"1.5"
 			"max_damage_pct"							"150"
 
 		}
 	}
 
+	//=====================================
+	//		Combo 2nd cast
+	//====================================
+
+	"hijikata_target_dash"
+	{
+		"BaseClass"          			    "ability_lua"
+		"ScriptFile"					    "abilities/hijikata/hijikata_target_dash"
+		"AbilityTextureName"				"custom/saito/saito_fdb"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET|DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"				"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"							"1"
+		"AbilityCooldown"				    "3"
+		"AbilityManaCost"					"0"
+		"AbilityCastPoint"					"0.2"
+		"AbilityCastRange"					  	"900"
+		"AbilityCastAnimation"                      "ACT_DOTA_CAST_ABILITY_1_END"
+		"AbilityValues"
+		{
+			"damage"									"150 200 250 300 350"	
+			"range"										"900"
+			"radius"										"150"
+			"duration"										"0.5"
+		}
+	}
 
 	//=====================================
-	//
-	//=====================================
+	//		Combo 3rd cast
+	//====================================
+
 	"hijikata_knockup"
 	{
 		"BaseClass"          			    "ability_lua"
 		"ScriptFile"					    "abilities/hijikata/hijikata_knockup"
 		"AbilityTextureName"				"custom/saito/saito_fdb"
-		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_POINT|DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_ALL"
 		"AbilityUnitDamageType"				"DAMAGE_TYPE_MAGICAL"
-		"MaxLevel"							"5"
-		"AbilityCooldown"				    "14 12 10 8 6"
+		"MaxLevel"							"1"
+		"AbilityCooldown"				    "3"
 		"AbilityManaCost"					"0"
 		"AbilityCastPoint"					"0.2"
 		"AbilityCastAnimation"                      "ACT_DOTA_CAST_ABILITY_3"
 		"AbilityValues"
 		{
-			"damage"									"150 200 250 300 350"		//Optimum distance.
+			"damage"									"150 200 250 300 350"		
 			"root_duration"								"0.4"
 			"width"										"300"
 

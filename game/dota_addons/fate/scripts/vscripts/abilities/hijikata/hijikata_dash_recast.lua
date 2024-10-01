@@ -124,7 +124,7 @@ function modifier_hijikata_rush:OnDestroy()
     local direction = self.targetpos - pos
     direction.z = 0     
     local attackFx = ParticleManager:CreateParticle("particles/hijikata/hijikata_dash_slash.vpcf", PATTACH_ABSORIGIN_FOLLOW ,self.parent)  
-    
+    ParticleManager:ReleaseParticleIndex(attackFx)
     --ParticleManager:SetParticleControlTransformForward(attackFx, 0, self.parent:GetAbsOrigin(), direction)
     if IsServer() then
         self.parent:InterruptMotionControllers(true)

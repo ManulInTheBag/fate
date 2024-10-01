@@ -8,6 +8,11 @@ function hijikata_madness:OnSpellStart()
 	local caster = self:GetCaster()
     local duration = self:GetSpecialValueFor("duration")
 	caster:AddNewModifier(caster, self, "modifier_hijikata_madness_active", { Duration = duration })
+
+    caster:SwapAbilities("hijikata_madness", "hijikata_combo", false, true)
+    Timers:CreateTimer(4, function()
+      		caster:SwapAbilities("hijikata_madness", "hijikata_combo", true, false)
+    end)
     -- if self.eyes_particle_left ~= nil then
     --     ParticleManager:DestroyParticle(self.eyes_particle_left, true)
     --     ParticleManager:ReleaseParticleIndex(self.eyes_particle_left)
@@ -64,7 +69,9 @@ function modifier_hijikata_madness_active:GetAttributes()
 end
 
 function modifier_hijikata_madness_active:CheckState()
-	return {[MODIFIER_STATE_DEBUFF_IMMUNE] = true}
+	return {[MODIFIER_STATE_DEBUFF_IMMUNE] = true,
+        [MODIFIER_STATE_STUNNED] = false,
+        [MODIFIER_STATE_SILENCED] = false}
 end
 
 function modifier_hijikata_madness_active:DeclareFunctions()
