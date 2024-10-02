@@ -41,7 +41,7 @@ end
 function modifier_arcueid_eyes:OnIntervalThink()
 	local caster = self:GetParent()
 	local ability = self:GetAbility()
-	local damage = caster:GetHealthRegen()/2
+	local damage = math.min(ability:GetSpecialValueFor("max_damage_cap"), caster:GetHealthRegen()/2)
 
 	local forcemove = {
 		UnitIndex = nil,

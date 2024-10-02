@@ -11,7 +11,14 @@ ryougi_glass_moon = class({})
 	end
 	return self:GetSpecialValueFor("dash_range")
 end]]
+function ryougi_glass_moon:GetManaCost(nLevel)
+	local caster = self:GetCaster()
 
+	if caster:HasModifier("modifier_ryougi_glass_moon_recast") then
+		return 0
+	end
+	return self.BaseClass.GetManaCost(self, nLevel)
+end
 function ryougi_glass_moon:GetCastPoint()
 	local caster = self:GetCaster()
 
