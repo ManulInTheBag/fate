@@ -11,10 +11,30 @@ function jeanne_charisma:OnSpellStart()
 	local target = self:GetCursorTarget()
 
 	caster:EmitSound("Jeanne_Skill_"..math.random(7,8))
+	if caster:HasModifier("modifier_jeanne_crimson_saint") then
+		local allies = FindUnitsInRadius(
+			caster:GetTeamNumber(),	-- int, your team number
+			target:GetAbsOrigin() ,	-- point, center point
+			nil,	-- handle, cacheUnit. (not known)
+			700,	-- float, radius. or use FIND_UNITS_EVERYWHERE
+			DOTA_UNIT_TARGET_TEAM_FRIENDLY,	-- int, team filter
+			DOTA_UNIT_TARGET_HERO,	-- int, type filter
+			0,	-- int, flag filter
+			FIND_CLOSEST,	-- int, order filter
+			false	-- bool, can grow cache
+		)
+		if #allies > 1 then
+			if allies[2] == target then
+				self:Pepega(allies[3], false)
+			else
+				self:Pepega(allies[2], false)
+			end
 
+		end
+	end
 	if caster ~= target then
-		self:Pepega(caster)
-		self:Pepega(target)
+		self:Pepega(caster, true)
+		self:Pepega(target, true)
 		local rope_fx = ParticleManager:CreateParticle("particles/jeanne/jeanne_heal_rope.vpcf", PATTACH_POINT_FOLLOW, caster)
 		ParticleManager:SetParticleControlEnt(rope_fx, 0, caster, PATTACH_POINT_FOLLOW, "attach_hitloc", Vector(0, 0, 0), true)
 		ParticleManager:SetParticleControlEnt(rope_fx, 1, target, PATTACH_ABSORIGIN_FOLLOW, "attach_hitloc", Vector(0, 0, 0), true)
@@ -26,11 +46,11 @@ function jeanne_charisma:OnSpellStart()
 		    	caster:AddNewModifier(caster, self, "modifier_jeanne_combo_window", {duration = 1})
 			end
 		end
-		self:Pepega(caster)
+		self:Pepega(caster, true)
 	end
 end
 
-function jeanne_charisma:Pepega(target)
+function jeanne_charisma:Pepega(target, bcleanse)
 	local caster = self:GetCaster()
 
 	local radius = self:GetSpecialValueFor("radius")
@@ -40,7 +60,7 @@ function jeanne_charisma:Pepega(target)
 	target:EmitSound("Hero_Dazzle.Shadow_Wave")
 
 	target:Heal(heal, self)
-	if caster.IsRevelationAcquired then
+	if caster.IsRevelationAcquired and bcleanse then
 		HardCleanse(target)
 	end
 	local targets = FindUnitsInRadius(caster:GetTeam(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)

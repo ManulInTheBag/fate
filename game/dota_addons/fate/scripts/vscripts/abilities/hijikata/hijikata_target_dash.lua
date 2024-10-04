@@ -29,7 +29,7 @@ function hijikata_target_dash:OnSpellStart()
 		self:EndCooldown()
 		return
 	end
-
+	caster:SwapAbilities("hijikata_target_dash", "hijikata_knockup", false, true)
 	caster:SetAbsOrigin(target:GetAbsOrigin() - diff * 100) 
 	FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
 

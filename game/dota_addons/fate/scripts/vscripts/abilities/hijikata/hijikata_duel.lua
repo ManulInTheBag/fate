@@ -10,7 +10,11 @@ function hijikata_duel:OnSpellStart()
     self.target = self:GetCursorTarget()
     local targetpos = (-self.target:GetAbsOrigin() + self.caster:GetAbsOrigin())/2 + self.target:GetAbsOrigin()
     local duration = self:GetSpecialValueFor("duration")
-    
+    local modifier = self.caster:FindModifierByName("modifier_hijikata_laws")
+    if modifier.duel_restriction == false then
+        modifier:IncrementStackCount()
+        modifier.duel_restriction = true
+    end
     if self.AuraDummy ~= nil and not self.AuraDummy:IsNull() then 
         self.AuraDummy:RemoveModifierByName("modifier_hijikata_duel_aura")
         local pepe = self.AuraDummy

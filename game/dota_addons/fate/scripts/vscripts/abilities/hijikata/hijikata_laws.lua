@@ -12,6 +12,7 @@ function hijikata_laws:OnSpellStart()
         caster:FindModifierByName("modifier_hijikata_laws"):IncrementStackCount()
     end
     self.used = true
+
 end
 
 
@@ -25,19 +26,43 @@ function modifier_hijikata_laws:OnRespawn(args)
     if(caster ~= args.unit) then return end
 	self:SetStackCount(0)
     self:GetAbility().used = false
+    self.distance_restriction = false
+    self.duel_restriction = false
+    self.kill_restriction = false
 end
 
 function modifier_hijikata_laws:OnCreated()
     self:SetStackCount(0)
+    self:GetAbility().used = false
+    self.distance_restriction = false
+    self.duel_restriction = false
+    self.kill_restriction = false
 end
+
+function modifier_hijikata_laws:CheckBlinkCondition(beforeBlinkPos, AfterblinkPosition)
+    if self.distance_restriction == true then return end
+    local caster = self:GetParent()
+    local checkRange = self:GetAbility():GetSpecialValueFor("check_range")
+    local targets = FindUnitsInRadius(caster:GetTeam(), beforeBlinkPos, nil, checkRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_CAN_BE_SEEN, FIND_ANY_ORDER, false) 
+    if #targets > 0 then
+        local targets2 = FindUnitsInRadius(caster:GetTeam(), AfterblinkPosition, nil, checkRange, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false) 
+        if #targets2 <= 0 then
+            self.distance_restriction = true
+            self:IncrementStackCount()
+        end
+    end
+end
+
 function modifier_hijikata_laws:OnStackCountChanged(stacks)
     if stacks == 5 then return end
     if stacks == 4 then
-        giveUnitDataDrivenModifier(self:GetParent(),self:GetParent() , "stunned", self:GetAbility():GetSpecialValueFor("stun_duration"))
-        Timers:CreateTimer(3, function()
-            self:SetStackCount(0)
-            self:GetAbility().used = false
-        end)
+        if IsServer() then
+            giveUnitDataDrivenModifier(self:GetParent(),self:GetParent() , "stunned", self:GetAbility():GetSpecialValueFor("stun_duration"))
+            Timers:CreateTimer(3, function()
+                self:SetStackCount(0)
+                self:GetAbility().used = false
+            end)
+        end
     end
 end
 
@@ -55,7 +80,8 @@ function modifier_hijikata_laws:GetAttributes()
 end
 
 function modifier_hijikata_laws:DeclareFunctions()
-   	return {	MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE }
+   	return {	MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
+                MODIFIER_EVENT_ON_RESPAWN }
 end
 
 function modifier_hijikata_laws:GetModifierPreAttack_BonusDamage()

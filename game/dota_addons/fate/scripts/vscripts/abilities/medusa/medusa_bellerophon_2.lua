@@ -55,14 +55,14 @@ function medusa_bellerophon_2:OnSpellStart()
 
 	local dmgdelay = 0
 
-	EmitSoundOn("medusa_pegasus_flight", caster)
+	EmitGlobalSound("medusa_pegasus_flight")
 
 	Timers:CreateTimer(2.2, function()
 		if not caster:IsAlive() then
-			StopSoundOn("medusa_pegasus_flight", caster)
+			StopGlobalSound("medusa_pegasus_flight", caster)
 			return
 		end
-		EmitSoundOn("medusa_belle_alt_new", caster)
+		EmitGlobalSound("medusa_belle_alt_new")
 	end)
 
 	local circle_center = caster:GetAbsOrigin() + caster:GetRightVector()*2000
@@ -130,8 +130,8 @@ function medusa_bellerophon_2:OnSpellStart()
 			asc_pepe = -ascendCount + 45
 		end
 		if not caster:IsAlive() then
-			StopSoundOn("medusa_pegasus_flight", caster)
-			StopSoundOn("medusa_belle_alt_new", caster)
+			StopGlobalSound("medusa_pegasus_flight", caster)
+			StopGlobalSound("medusa_belle_alt_new", caster)
 			return
 		end
 		ascend_dist = ascend_dist + asc_pepe

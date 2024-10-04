@@ -11,7 +11,9 @@ function hijikata_madness:OnSpellStart()
 
     caster:SwapAbilities("hijikata_madness", "hijikata_combo", false, true)
     Timers:CreateTimer(4, function()
-      		caster:SwapAbilities("hijikata_madness", "hijikata_combo", true, false)
+            if not caster:FindAbilityByName("hijikata_combo"):IsHidden() then
+      		    caster:SwapAbilities("hijikata_madness", "hijikata_combo", true, false)
+            end
     end)
     -- if self.eyes_particle_left ~= nil then
     --     ParticleManager:DestroyParticle(self.eyes_particle_left, true)

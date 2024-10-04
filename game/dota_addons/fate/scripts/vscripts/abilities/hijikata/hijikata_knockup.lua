@@ -22,6 +22,7 @@ function hijikata_knockup:OnSpellStart()
  
 
 	caster:EmitSound("nero_w")
+	caster:SwapAbilities("hijikata_knockup", "hijikata_ult", false, true)
 	local slash_fx = ParticleManager:CreateParticle("particles/hijikata/hijikata_knockup_slash.vpcf", PATTACH_WORLDORIGIN, caster)
 	ParticleManager:SetParticleControl(slash_fx, 0, caster:GetAbsOrigin() + caster:GetForwardVector()*150)
 	ParticleManager:SetParticleControl(slash_fx, 7, caster:GetAbsOrigin() + caster:GetForwardVector()*150)
@@ -49,20 +50,7 @@ function hijikata_knockup:OnSpellStart()
 			if not enemy:IsMagicImmune() then
 				DoDamage(caster, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
 			end
-
-			if not IsKnockbackImmune(enemy) then
-				local knockback = { should_stun = false,
-					knockback_duration = knockbackDuration,
-					duration = knockbackDuration,
-					knockback_distance = -knockBackDistance,
-					knockback_height = 400,
-					center_x = knockbackEndpoint.x,
-					center_y = knockbackEndpoint.y,
-					center_z = knockbackEndpoint.z }
-
-				enemy:AddNewModifier(caster, self, "modifier_knockback", knockback)
-				--ApplyAirborneOnly(enemy, 2000, self:GetSpecialValueFor("root_duration"))
-			end
+			
 			Timers:CreateTimer(knockbackDuration, function()
 				enemy:SetAbsOrigin(GetGroundPosition(enemy:GetAbsOrigin(),enemy))
 			end)

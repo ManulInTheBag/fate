@@ -3324,6 +3324,13 @@ function FateGameMode:OnEntityKilled( keys )
             end
 
             killerEntity:ModifyGold(bounty , false, 0)
+            if killerEntity:GetName() == "npc_dota_hero_spirit_breaker" then
+                local modifier = killerEntity:FindModifierByName("modifier_hijikata_laws")
+                if modifier.kill_restriction == false then
+                    modifier.kill_restriction = true
+                    modifier:IncrementStackCount()
+                end
+            end        
             -- if killer has Golden Rule attribute, grant 50% more gold
             if killerEntity:FindAbilityByName("gilgamesh_golden_rule") and killerEntity:FindAbilityByName("gilgamesh_golden_rule"):GetLevel() == 2 then
                 killerEntity:ModifyGold(BOUNTY_PER_LEVEL_TABLE[killedUnit:GetLevel()] / 2, false, 0)
@@ -3341,6 +3348,13 @@ function FateGameMode:OnEntityKilled( keys )
                             table.insert(assistTable, assister)
                             assister.ServStat:onAssist()
                             assister:ModifyGold(400 , false, 0)
+                            if assister:GetName() == "npc_dota_hero_spirit_breaker" then
+                                local modifier = assister:FindModifierByName("modifier_hijikata_laws")
+                                if modifier.kill_restriction == false then
+                                    modifier.kill_restriction = true
+                                    modifier:IncrementStackCount()
+                                end
+                            end    
                             local goldPopupFx = ParticleManager:CreateParticleForPlayer("particles/custom/system/gold_popup.vpcf", PATTACH_CUSTOMORIGIN, nil, assister:GetPlayerOwner())
                             --local goldPopupFx = ParticleManager:CreateParticleForTeam("particles/custom/system/gold_popup.vpcf", PATTACH_CUSTOMORIGIN, nil, killerEntity:GetTeamNumber())
                             ParticleManager:SetParticleControl( goldPopupFx, 0, killedUnit:GetAbsOrigin())

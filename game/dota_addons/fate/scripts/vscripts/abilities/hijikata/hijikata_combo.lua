@@ -25,7 +25,11 @@ function hijikata_combo:OnSpellStart()
     local width = 500	 --
 	local lenght = self:GetSpecialValueFor("distance")  --
 	local end_point = casterPositionOnCast + forwardToPointVectorNorm * -lenght
-
+	if not caster:FindAbilityByName("hijikata_combo"):IsHidden() then
+		caster:SwapAbilities("hijikata_madness", "hijikata_combo", true, false)
+ 	end
+	
+	caster:SwapAbilities("hijikata_ult", "hijikata_target_dash", false, true)
 	---Adding combo modifier
 	local nBarragePFX = ParticleManager:CreateParticle( "particles/hijikata/hijikata_combo_onground.vpcf", PATTACH_WORLDORIGIN, nil )
 	ParticleManager:SetParticleShouldCheckFoW(nBarragePFX, false)

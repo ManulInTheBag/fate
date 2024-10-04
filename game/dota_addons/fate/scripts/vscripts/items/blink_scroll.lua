@@ -1,5 +1,7 @@
 item_blink_scroll = class({})
-
+function item_blink_scroll:GetAOERadius()
+    return self:GetSpecialValueFor("distance")
+end
 local locks = {
     "modifier_sex_scroll_root",
     "locked",
@@ -32,7 +34,13 @@ function item_blink_scroll:GetBehavior()
 end
 
 function item_blink_scroll:OnSpellStart()
-	AbilityBlink(self:GetCaster(), self:GetCursorPosition(), self:GetSpecialValueFor("distance"))
+    local currentHeroPos = self:GetCaster():GetAbsOrigin()
+    local afterBlinkPos =  AbilityBlink(self:GetCaster(), self:GetCursorPosition(), self:GetAOERadius())
+    if self:GetCaster():GetName() == "npc_dota_hero_spirit_breaker" then
+        local modifier = self:GetCaster():FindModifierByName("modifier_hijikata_laws")
+        modifier:CheckBlinkCondition(currentHeroPos, afterBlinkPos)
+    end
+
 end
 
 function item_blink_scroll:IsResettable()

@@ -1020,6 +1020,16 @@
 		"DOTA_Tooltip_modifier_gods_resolution_active_buff"                               "Gods Resolution Active Buff"
 		"DOTA_Tooltip_modifier_gods_resolution_active_buff_Description"                   ""
 
+
+		"DOTA_Tooltip_modifier_jeanne_mana_regen_allies"                            "Luminosite Eternelle mana regen"
+		"DOTA_Tooltip_modifier_jeanne_mana_regen_allies_Description"                ""
+
+		"DOTA_Tooltip_modifier_jeanne_regen_allies"                            "Luminosite Eternelle Health regen"
+		"DOTA_Tooltip_modifier_jeanne_regen_allies_Description"                ""
+
+		"DOTA_Tooltip_modifier_jeanne_mrex_allies"                            "Luminosite Eternelle magical barrier"
+		"DOTA_Tooltip_modifier_jeanne_mrex_allies_Description"                ""
+
 		"DOTA_Tooltip_modifier_luminosite_eternelle_flag_aura"                            "Luminosite Eternelle Flag Aura"
 		"DOTA_Tooltip_modifier_luminosite_eternelle_flag_aura_Description"                ""
 
@@ -6189,7 +6199,7 @@
         "DOTA_Tooltip_Ability_jeanne_attribute_identity_discernment_pr_cooldown_reduction"	"%PRESENCE RESONATOR COOLDOWN REDUCTION:"
        
        	"DOTA_Tooltip_Ability_jeanne_attribute_improve_saint"		"Attribute: Improve Saint"
-        "DOTA_Tooltip_Ability_jeanne_attribute_improve_saint_Description"	"Improves Saint."
+        "DOTA_Tooltip_Ability_jeanne_attribute_improve_saint_Description"	"Improves Saint.\nFirst wave of Luminosite Eternelle roots all enemies for %first_root_duration% seconds.\nSecond wave of Luminosite Eternelle gives all allies magical barrier equal to %barrier_per_cast% for 5 seconds. This barrier does not stack.\nThird wave disarms all enemies for %first_root_duration% seconds.\nFourth wave applies a health regeneration buff for %regen% for 2 seconds.\nFifth wave applies a mana regeneration buff for %regen% for 2 seconds."
         //"DOTA_Tooltip_Ability_jeanne_attribute_improve_saint_bonus_damage"	"%DAMAGE AMPLIFICATION:"	
 
         "DOTA_Tooltip_Ability_jeanne_attribute_punishment"				"Attribute: Punishment"
@@ -8854,7 +8864,7 @@
 		"npc_dota_hero_spirit_breaker"					""
 		"npc_dota_hero_spirit_breaker"						""
         "DOTA_Tooltip_ability_hijikata_laws"							"Laws of Shinsengumi"
-        "DOTA_Tooltip_ability_hijikata_laws_Description"			"Hijikata abides a set of rules, which when breaked grants him addional attack damage, but damage him in return.\nWhen all of the Laws are broken, Hijikata becomes stunned for a duration and takes even more damage, when the stun expires, all of stacks expire too.\nLaws:\n<font color='#FFFAFA'>Samurai code</font>: will be broken when Hijikata uses this ability.\n<font color='#FFFAFA'>Prohidition of personal conflict</font>: Broken when Hijikata uses his Duel ability.\n<font color='#FFFAFA'>Escaping from office</font>: Broken when Hijikata uses blink scroll in the direction opposite to his closest visible enemy.\n<font color='#FFFAFA'>Raising money</font>:"
+        "DOTA_Tooltip_ability_hijikata_laws_Description"			"Hijikata abides a set of rules, which when breaked grants him addional attack damage, but damage him in return.\nWhen all of the Laws are broken, Hijikata becomes stunned for a duration and takes even more damage, when the stun expires, all of stacks expire too.\nLaws:\n<font color='#FFFAFA'>Samurai code</font>: will be broken when Hijikata uses this ability.\n<font color='#FFFAFA'>Prohidition of personal conflict</font>: Broken when Hijikata uses his Duel ability.\n<font color='#FFFAFA'>Escaping from office</font>: Broken when Hijikata uses blink scroll to the position, where there is no enemies, if before that he had an enemy in %check_range% radius.\n<font color='#FFFAFA'>Raising money</font>: Broken when Hijikata kills an enemy or gets an assist."
         "DOTA_Tooltip_ability_nobu_guns_base_dmg"					"Base dmg:"
         "DOTA_Tooltip_ability_nobu_guns_dmg_per_lvl"					"Dmg per level:"
         "DOTA_Tooltip_ability_nobu_guns_amount"					"Active guns amount:"

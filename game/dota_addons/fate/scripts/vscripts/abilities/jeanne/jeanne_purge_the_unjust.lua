@@ -13,7 +13,11 @@ function jeanne_purge_the_unjust:OnSpellStart()
 	local delay = self:GetSpecialValueFor("delay")
 	local baseDamage = self:GetSpecialValueFor("damage")
 	local silenceDuration = self:GetSpecialValueFor("silence_duration")
-
+	
+	if caster:HasModifier("modifier_jeanne_crimson_saint") then
+		delay = delay/2
+		silenceDuration = silenceDuration * 1.3
+	end
 	--[[if caster.IsPunishmentAcquired then
 		local targets = FindUnitsInRadius(caster:GetTeam(), targetPoint, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		for k,v in pairs(targets) do

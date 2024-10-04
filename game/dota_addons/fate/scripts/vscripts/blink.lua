@@ -43,6 +43,7 @@ function AbilityBlink(hCaster, vTarget, fMaxDistance, tParams)
     ParticleManager:SetParticleControl(pcBlinkIn, 0, hCaster:GetAbsOrigin())
     ParticleManager:ReleaseParticleIndex(pcBlinkIn)
     hCaster:EmitSound(sInSound)
+    return hCaster:GetAbsOrigin()
 end
 
 function AbilityBlinkCastError(hCaster, vLocation)
