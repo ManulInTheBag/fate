@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc32:version{c5dcef98-b629-46ab-88e3-a17c005c935e} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc36:version{972dada4-b828-45a4-bb93-7795cf0585da} -->
 {
 	rootNode = 
 	{
@@ -117,6 +117,7 @@
 								extract_rz = false
 								linear = false
 								quadratic = false
+								extract_initial_offset = false
 								root_bone_name = ""
 								motion_type = "Uniform"
 							},
@@ -129,6 +130,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_CL_HIDE_PARTICLE_EFFECT"
 								event_frame = 16
+								event_end_frame = -1
 								event_keys = 
 								{
 									name = resource:"particles/iskander/sanya_slash_1.vpcf"
@@ -139,6 +141,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_CL_HIDE_PARTICLE_EFFECT"
 								event_frame = 39
+								event_end_frame = -1
 								event_keys = 
 								{
 									name = resource:"particles/iskander/sanya_slash_2.vpcf"
@@ -149,6 +152,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
 								event_frame = 20
+								event_end_frame = -1
 								event_keys = 
 								{
 									name = resource:"particles/iskander/sanya_slash_2.vpcf"
@@ -168,6 +172,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
 								event_frame = 3
+								event_end_frame = -1
 								event_keys = 
 								{
 									name = resource:"particles/iskander/sanya_slash_1.vpcf"
@@ -187,6 +192,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_CL_STOP_PARTICLE_EFFECT"
 								event_frame = 16
+								event_end_frame = -1
 								event_keys = 
 								{
 									name = resource:"particles/iskander/sanya_slash_1.vpcf"
@@ -198,6 +204,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_CL_STOP_PARTICLE_EFFECT"
 								event_frame = 16
+								event_end_frame = -1
 								event_keys = 
 								{
 									name = resource:"particles/iskander/sanya_slash_2.vpcf"
@@ -238,6 +245,7 @@
 								extract_rz = false
 								linear = false
 								quadratic = false
+								extract_initial_offset = false
 								root_bone_name = ""
 								motion_type = "Uniform"
 							},
@@ -250,6 +258,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
 								event_frame = 3
+								event_end_frame = -1
 								event_keys = 
 								{
 									name = resource:"particles/iskander/sanya_slash_1.vpcf"
@@ -269,6 +278,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
 								event_frame = 20
+								event_end_frame = -1
 								event_keys = 
 								{
 									name = resource:"particles/iskander/sanya_slash_2.vpcf"
@@ -288,6 +298,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_CL_HIDE_PARTICLE_EFFECT"
 								event_frame = 39
+								event_end_frame = -1
 								event_keys = 
 								{
 									name = resource:"particles/iskander/sanya_slash_2.vpcf"
@@ -298,6 +309,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_CL_HIDE_PARTICLE_EFFECT"
 								event_frame = 16
+								event_end_frame = -1
 								event_keys = 
 								{
 									name = resource:"particles/iskander/sanya_slash_1.vpcf"
@@ -308,6 +320,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_CL_STOP_PARTICLE_EFFECT"
 								event_frame = 16
+								event_end_frame = -1
 								event_keys = 
 								{
 									name = resource:"particles/iskander/sanya_slash_1.vpcf"
@@ -319,6 +332,7 @@
 								_class = "AnimEvent"
 								event_class = "AE_CL_STOP_PARTICLE_EFFECT"
 								event_frame = 16
+								event_end_frame = -1
 								event_keys = 
 								{
 									name = resource:"particles/iskander/sanya_slash_2.vpcf"
@@ -374,6 +388,134 @@
 						start_frame = 55
 						end_frame = 80
 						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "idle1"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								extract_initial_offset = false
+								root_bone_name = ""
+								motion_type = "Uniform"
+							},
+							{
+								_class = "AnimOffset"
+								translation = [ 0.0, 0.0, 0.0 ]
+								rotation_xyz = [ 0.0, 0.0, 90.0 ]
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 3
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/iskander/sanya_slash_1.vpcf"
+									detach_from_owner = false
+									always_run = false
+									stop_on_seq_change = true
+									stop_immediately = true
+									use_layer_sequence = false
+									tags = null
+									attachment_point = null
+									attachment_type = "point_follow"
+									attachment_point_cp1 = null
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 20
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/iskander/sanya_slash_2.vpcf"
+									detach_from_owner = false
+									always_run = false
+									stop_on_seq_change = true
+									stop_immediately = true
+									use_layer_sequence = false
+									tags = null
+									attachment_point = null
+									attachment_type = "point_follow"
+									attachment_point_cp1 = null
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_HIDE_PARTICLE_EFFECT"
+								event_frame = 39
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/iskander/sanya_slash_2.vpcf"
+									stop_on_seq_change = true
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_HIDE_PARTICLE_EFFECT"
+								event_frame = 16
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/iskander/sanya_slash_1.vpcf"
+									stop_on_seq_change = true
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_STOP_PARTICLE_EFFECT"
+								event_frame = 16
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/iskander/sanya_slash_1.vpcf"
+									stop_instantly = true
+									play_endcap = false
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_STOP_PARTICLE_EFFECT"
+								event_frame = 16
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/iskander/sanya_slash_2.vpcf"
+									stop_instantly = true
+									play_endcap = false
+								}
+							},
+						]
+						activity_name = "ACT_DOTA_ATTACK"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/sanya/sanya_kon_anim.dmx"
+						import_bone_scales = false
+						start_frame = 25
+						end_frame = 45
+						framerate = 210.0
 						reverse = false
 					},
 				]
@@ -977,5 +1119,6 @@
 		primary_associated_entity = ""
 		anim_graph_name = ""
 		importer_notes = "Imported from VMDL"
+		document_sub_type = "ModelDocSubType_None"
 	}
 }

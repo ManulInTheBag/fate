@@ -1,0 +1,200 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vrfunknown:version{39d3ce1d-9442-4407-9b78-8317145b1732} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_bShouldHitboxesFallbackToRenderBounds = false
+	m_nMaxParticles = 6
+	m_flConstantRadius = 12.000000
+	m_flConstantLifespan = 0.100000
+	m_ConstantColor = 
+	[
+		218,
+		165,
+		32,
+		255,
+	]
+	m_nGroupID = 2
+	m_nBehaviorVersion = 12
+	m_nFirstMultipleOverride_BackwardCompat = 1
+	m_controlPointConfigurations = 
+	[
+		
+		{
+			m_name = "preview"
+			m_drivers = 
+			[
+				
+				{
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+				
+				{
+					m_iControlPoint = 1
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+			]
+		},
+	]
+	m_PreEmissionOperators = 
+	[
+		
+		{
+			_class = "C_OP_SetControlPointOrientation"
+			m_nCP = 0
+			m_vecRotation = 
+			[
+				90.000000,
+				0.000000,
+				0.000000,
+			]
+			m_vecRotationB = 
+			[
+				90.000000,
+				0.000000,
+				0.000000,
+			]
+			m_bUseWorldLocation = true
+		},
+	]
+	m_Emitters = 
+	[
+		
+		{
+			_class = "C_OP_InstantaneousEmitter"
+			m_nParticlesToEmit = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 6.000000
+			}
+		},
+	]
+	m_Initializers = 
+	[
+		
+		{
+			_class = "C_INIT_CreateSequentialPathV2"
+			m_bCPPairs = true
+			m_flNumToAssign = 6.000000
+			m_PathParams = 
+			{
+				m_nEndControlPointNumber = 1
+				m_flBulge = 0.750000
+				m_nBulgeControl = 1
+			}
+		},
+		
+		{
+			_class = "C_INIT_SetHitboxToClosest"
+			m_HitboxSetName = "head"
+		},
+		
+		{
+			_class = "C_INIT_RemapParticleCountToScalar"
+			m_nInputMax = 5
+			m_nFieldOutput = 7
+		},
+	]
+	m_Operators = 
+	[
+		
+		{
+			_class = "C_OP_BasicMovement"
+			m_nOpEndCapState = "PARTICLE_ENDCAP_ENDCAP_OFF"
+		},
+		
+		{
+			_class = "C_OP_OscillateVector"
+			m_flEndTime_max = 9999999827968.000000
+			m_flEndTime_min = 9999999827968.000000
+			m_bProportional = false
+			m_FrequencyMax = 
+			[
+				3.000000,
+				3.000000,
+				3.000000,
+			]
+			m_FrequencyMin = 
+			[
+				0.500000,
+				0.500000,
+				0.500000,
+			]
+			m_RateMax = 
+			[
+				16.000000,
+				16.000000,
+				4.000000,
+			]
+			m_RateMin = 
+			[
+				-16.000000,
+				-16.000000,
+				-4.000000,
+			]
+			m_bOffset = true
+		},
+		
+		{
+			_class = "C_OP_Noise"
+			m_nFieldOutput = 16
+			m_fl4NoiseScale = 0.500000
+		},
+		
+		{
+			_class = "C_OP_PositionLock"
+			m_nOpEndCapState = "PARTICLE_ENDCAP_ENDCAP_OFF"
+		},
+		
+		{
+			_class = "C_OP_FadeInSimple"
+			m_flFadeInTime = 0.500000
+		},
+		
+		{
+			_class = "C_OP_LerpEndCapScalar"
+			m_flOutput = 0.000000
+			m_flLerpTime = 0.200000
+		},
+		
+		{
+			_class = "C_OP_EndCapTimedDecay"
+			m_flDecayTime = 0.200000
+		},
+	]
+	m_Renderers = 
+	[
+		
+		{
+			_class = "C_OP_RenderRopes"
+			m_flOverbrightFactor = 2.000000
+			m_flRadiusScale = 0.500000
+			m_flTextureVWorldSize = 25.000000
+			m_nMaxTesselation = 2
+			m_nMinTesselation = 2
+			m_vecTexturesInput = 
+			[
+				
+				{
+					m_hTexture = resource:"materials/particle/beam_hotwhite.vtex"
+					m_TextureControls = 
+					{
+						m_flFinalTextureScaleU = 
+						{
+							m_nType = "PF_TYPE_LITERAL"
+							m_flLiteralValue = -1.000000
+						}
+					}
+				},
+			]
+			m_nOutputBlendMode = "PARTICLE_OUTPUT_BLEND_MODE_ADD"
+		},
+	]
+	m_Children = 
+	[
+		
+		{
+			m_ChildRef = resource:"particles/custom/robin/robin_trap_debuffa1.vpcf"
+		},
+	]
+}

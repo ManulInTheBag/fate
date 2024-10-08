@@ -215,6 +215,8 @@ locks = {
     "modifier_arcueid_melty",
     "modifier_gordius_wheel",
     "modifier_altera_dash",
+    "modifier_robin_yew_bow_combo_lock",
+    "modifier_robin_tools_its_a_trap",
 }
 
 goesthruB = {
@@ -436,6 +438,7 @@ donotlevel = {
     "leonidas_berserk",
     "altera_adaptive",
     "nanaya_dash",
+    "robin_faceless_king",
 }
 
 CannotReset = {
@@ -612,6 +615,9 @@ CannotReset = {
     "saito_jce",
     "lu_bu_sky_piercer",
     "emiya_combo",
+    "robin_yew_tree_combo",
+    "robin_faceless_king",
+    "robin_may_king",
 }
 
 
@@ -730,6 +736,7 @@ tKnightClass = {
     "npc_dota_hero_venomancer",
     "npc_dota_hero_faceless_void",
     "npc_dota_hero_clinkz",
+    "npc_dota_hero_sniper",
 }
 
 tHorsemanClass = {
@@ -2472,6 +2479,7 @@ local heroNames = {
     ["npc_dota_hero_night_stalker"] = "Shiki Nanaya",
     ["npc_dota_hero_clinkz"] = "Arash",
     ["npc_dota_hero_centaur"] = "Lu Bu",
+    ["npc_dota_hero_sniper"] = "Robin Hood",
 }
 
  
@@ -2536,7 +2544,7 @@ local heroCombos = {
     ["npc_dota_hero_night_stalker"] = "nanaya_kekshi",
     ["npc_dota_hero_clinkz"] = "arash_max_stella",
     ["npc_dota_hero_centaur"] = "lu_bu_sky_piercer",
-    
+    ["npc_dota_hero_robin"] = "robin_yew_tree_combo",
 }
 
 function GetHeroCombo(hero)

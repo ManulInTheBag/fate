@@ -177,6 +177,7 @@
             "duration" "9 11 13 15 17"
             "mana_regen_percentage" "12"
             "mana_regen_percentage_herokill" "12 14 16 18 20"
+            "on_attack_damage" "20 30 40 50 60"
         }
 		
 		"OnSpellStart"
@@ -227,6 +228,12 @@
 								"Function"			"OnBashSuccess"
 							}
 						}
+					}
+					"RunScript"
+					{
+						"ScriptFile"		"avenger_ability"
+						"Function"			"OnAttackDamageMurderous"
+						"on_attack_damage"	"%on_attack_damage"
 					}
 				}
 			}

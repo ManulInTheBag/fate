@@ -1,0 +1,212 @@
+#base "robin_backflip.kv"
+#base "robin_multishot.kv"
+#base "robin_may_king.kv"
+#base "robin_faceless_king.kv"
+#base "robin_tools.kv"
+#base "robin_tools_its_a_trap.kv"
+#base "robin_tools_mysterious_substance.kv"
+#base "robin_tools_pitfall.kv"
+#base "robin_tools_wolfs_bane.kv"
+#base "robin_yew_bow.kv"
+#base "robin_yew_tree_combo.kv"
+
+"DOTAAbilities"
+{
+	//=======================================★★★★★
+	// Attribute: Thief's Tools
+	//=======================================★★★★★
+	"robin_tools_attribute"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/robin/robin_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/robin/robin_tools_attribute"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"10"
+
+		"precache"
+		{
+		}
+		
+		// Values
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"mana_cost_reduction"		"100"
+			"cooldown_reduction"		"2500"
+		}
+	}
+
+	//=======================================★★★★★
+	// Attribute: Independent Action
+	//=======================================★★★★★
+	"robin_independent_action_attribute"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/robin/robin_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/robin/robin_independent_action_attribute"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"12"
+
+		"precache"
+		{
+		}
+		
+		// Values
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"back_flip_distance"		"400"
+			"back_flip_damage"			"200"
+			"multishot_cooldown"		"2"
+			"additional_mana"			"300"
+		}
+	}
+
+	//=======================================★★★★★
+	// Attribute: No Face May King - Faceless King
+	//=======================================★★★★★
+	"robin_faceless_king_attribute"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/robin/robin_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/robin/robin_faceless_king_attribute"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"10"
+
+		"precache"
+		{
+		}
+		
+		// Values
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"Duration"					"1.50"
+			"Heal"						"1000"
+			"Threshold"					"1000"
+			"damage"					"400 450 500 550 600"
+			"damage_stack"				"23 26 29 32 35"
+			"silence_duration"			"1.50"
+			"poison_detonation_radius"	"1000"
+		}
+	}
+
+	//=======================================★★★★★
+	// Attribute: Robin of Sherwood Forest
+	//=======================================★★★★★
+	"robin_of_sherwood_attribute"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/robin/robin_attributes"
+		"MaxLevel"						"1"
+		"AbilityTextureName"			"custom/robin/robin_sherwood_forest_attribute"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"13"
+
+		"precache"
+		{
+		}
+		
+		// Values
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"silence_duration"			"1.50"
+			"mana_burn"					"600"
+		}
+	}
+	
+	//=======================================★★★★★
+	// Attribute: Yew Bow - One Drop of a Viper
+	//=======================================★★★★★
+	"robin_yew_bow_attribute"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/robin/robin_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/robin/robin_yew_bow_attribute"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"14"
+
+		"precache"
+		{
+		}
+		
+		// Values
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"yew_bow_damage"			"250"
+			"yew_bow_int"				"2.5"
+			"max_poison_stack"			"50"
+		}
+	}
+	
+	//=======================================★★★★★
+	// Attribute: Robin Combo
+	//=======================================★★★★★
+	"robin_combo_list"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/robin/robin_attributes"
+		"MaxLevel"						"1"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY" 
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/robin/robin_yew_tree_combo"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"0"
+		"AbilityManaCost"				"0"
+
+		"precache"
+		{
+		}
+		
+		// Values
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"cast_delay"				"3.4"
+			"projectile_speed"			"2500"
+			"range"						"1500"
+			"radius"					"1800"
+			"damage"					"800"
+			"damage_stack"				"50"
+			"poison_damage"				"3000"
+			"silence_duration"			"1.50"
+			"poison_detonation_radius"	"1000"
+		}
+	}
+}

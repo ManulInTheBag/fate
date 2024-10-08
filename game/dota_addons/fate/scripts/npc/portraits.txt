@@ -65,6 +65,44 @@
 			}
 		}
 	}
+
+		"models/robin/robin.vmdl"
+	{
+		"PortraitLightPosition"		"-33.05 37.77 177.26"
+		"PortraitLightAngles"		"37.44 317.51 0.00"
+		"PortraitLightFOV"		"63"
+		"PortraitLightDistance"		"108"
+		"PortraitLightColor"		"191 218 254"
+		"PortraitShadowColor"		"74 63 89"
+		"PortraitShadowScale"		"5.000000"
+		"PortraitAmbientColor"		"120 111 111"
+		"PortraitAmbientScale"		"5.000000"
+		"PortraitSpecularColor"		"251 74 84"
+		"PortraitSpecularDirection"		"0.000000 0.000000 -1.000000"
+		"PortraitSpecularPower"		"16.000000"
+		"PortraitBackgroundColor1"		"1 1 .9"
+		"PortraitBackgroundColor2"		"1 .9 .9"
+		"PortraitBackgroundColor3"		"1 .9 .9"
+		"PortraitBackgroundColor4"		"1 .8 .8"
+		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/portraitbackground_moon.vmat"
+		"PortraitAnimationActivity"		"ACT_DOTA_IDLE"
+		"PortraitAnimationCycle"		"0.000000"
+		"PortraitAnimationRate"		"1.000000"
+		"PortraitHideHero"		"0"
+		"PortraitLightScale"		"3.250000"
+		"PortraitGroundShadowScale"		"1.500000"
+		"PortraitAmbientDirection"		"5.550 -20.080 -2.630"
+		"cameras"
+		{
+			"default"
+			{
+				"PortraitPosition"		"200.90 -45.63 70.55"
+				"PortraitAngles"		"352.41 167.17 0.00"
+				"PortraitFOV"		"16"
+			}
+		}
+	}
+	
 	"models/zlodemon/heracles.vmdl"
 	{
 		"PortraitLightPosition"		"112.73 -41.13 174.53"

@@ -1,0 +1,40 @@
+"DOTAAbilities"
+{
+	//=======================================★★★★★
+	// Robin: May King
+	//=======================================★★★★★
+	"robin_may_king"
+	{
+		"BaseClass"							"ability_lua"
+		"ScriptFile"						"abilities/robin/robin_may_king"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_NO_TARGET"		
+		"AbilityTextureName"				"custom/robin/robin_may_king"
+		"AbilityUnitDamageType"				"DAMAGE_TYPE_PHYSICAL"
+		"AbilityCastAnimation" 				"ACT_DOTA_CAST_ABILITY_2_ES_ROLL"
+		"MaxLevel"							"1"
+		"RequiredLevel"						"25"
+		"LevelsBetweenUpgrades"				"2"
+		
+		"AbilityCooldown"					"30"
+		"AbilityCastPoint"					"0.4"		
+		"AbilityManaCost"					"200"		
+
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_pugna/pugna_decrepify.vpcf"
+			"particle"		"particles/units/heroes/hero_bounty_hunter/bounty_hunter_windwalk.vpcf"
+			"particle"		"particles/msg_fx/msg_crit.vpcf"
+			"soundfile"   	"soundevents/game_sounds_heroes/game_sounds_templar_assassin.vsndevts"
+			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_bounty_hunter.vsndevts"
+		}
+		
+		// Values
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"fade_delay"					"0.8"
+			"duration"						"15"
+			"break_threshold"						"0"
+		}
+	}
+}

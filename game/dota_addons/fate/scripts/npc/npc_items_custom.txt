@@ -826,7 +826,7 @@
 		"ItemInitialCharges"			"1"
 		"ItemStockMax"					"6"
 		"ItemStockInitial"				"4"
-		"ItemStockTime"					"80.0"
+		"ItemStockTime"					"60"
 		"ItemDeclarations"				"DECLARE_PURCHASES_TO_TEAMMATES"
 	    "AbilityValues"
         {
@@ -2005,7 +2005,7 @@
 	    }
 	    "AbilityValues"
         {
-            "duration" "8"
+            "duration" "5"
         }
 	    "OnSpellStart"
 	    {

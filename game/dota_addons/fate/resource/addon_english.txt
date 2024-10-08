@@ -671,6 +671,11 @@
 
 		"DOTA_Tooltip_modifier_verg_damage_tracker"					"Verg Avesta"
 		"DOTA_Tooltip_modifier_verg_damage_tracker_Description"		"Damage taken so far."
+
+		"DOTA_Tooltip_angra_mainyu_verg_avesta_dot"					"Verg Avesta curse"
+		"DOTA_Tooltip_angra_mainyu_verg_avesta_dot_Description"		"Taking damage from Verg avesta."
+		"DOTA_Tooltip_angra_mainyu_verg_avesta_slow"					"Verg Avesta slow"
+		"DOTA_Tooltip_angra_mainyu_verg_avesta_slow_Description"		"Movement speed decreased."
 		
 		"DOTA_Tooltip_modifier_gawain_revive_regen"					"Blessing of the Fairy"
 		"DOTA_Tooltip_modifier_gawain_revive_regen_Description"		"Regenerating health."
@@ -3369,7 +3374,7 @@
 		//"DOTA_Tooltip_Ability_berserker_5th_attribute_berserk_mana_convert_ratio"	"BERSERK MANA CONVERSION RATIO:"
 
 		"DOTA_Tooltip_Ability_berserker_5th_attribute_god_hand"				"Attribute: God Hand"
-		"DOTA_Tooltip_ability_berserker_5th_attribute_god_hand_Description"	"Upgrades God Hand, making heracles respawn with full health and refreshing Berserk ability upon respawn."
+		"DOTA_Tooltip_ability_berserker_5th_attribute_god_hand_Description"	"Upgrades God Hand, making heracles respawn with full health and entering Berserk for 1 second upon respawn."
 		//"DOTA_Tooltip_Ability_berserker_5th_attribute_god_hand_Note0"				"Heracles revives as long as  his team has not been eliminated."
 		//"DOTA_Tooltip_Ability_berserker_5th_attribute_god_hand_Note1"				"God Hand cannot be activated while its debuff effect lasts."
 		"DOTA_Tooltip_Ability_berserker_5th_attribute_god_hand_health_percent"				"BASE REVIVAL DAMAGE:"
@@ -3578,7 +3583,7 @@
 		//"DOTA_Tooltip_Ability_sasaki_heart_of_harmony_Note2"		"For 0.5 seconds after counterattack, Assassin cleanses any negative effects on himself and benefits from damage reduction."
 
 		"DOTA_Tooltip_Ability_sasaki_windblade"						"Windblade"
-		"DOTA_Tooltip_ability_sasaki_windblade_Description"			"Kojiro swirls his blade to create slicing wind around him, pushing all enemies away from him, and then proceed to attack each of them, dealing magical damage and stunning them for %stun_duration% seconds.\n0.5 seconds after the slash, enemies are hit with the same damage again."
+		"DOTA_Tooltip_ability_sasaki_windblade_Description"			"Kojiro swirls his blade to create slicing wind around him, pushing all enemies away from him, and then proceed to attack each of them, dealing magical damage and rooting them for %stun_duration% seconds.\n0.5 seconds after the slash, enemies are hit with the same damage again."
 		//\n\n<font color='#79C7F0'>Focus</font>:Increase the number of slashes (does not increase maximum number of slashes) and causes them to stun the enemy on each attack. Kojiro becomes invulnerable and disjoints all projectile while slashing.\n\nKojiro is <font color='#FF5555'>Exhausted</font> when this ability is used.
 		"DOTA_Tooltip_ability_sasaki_windblade_Lore"				"A swing from the wanderer's blade brings forward a squall."
 		"DOTA_Tooltip_ability_sasaki_windblade_radius"				"Radius:"
@@ -4407,10 +4412,11 @@
         "DOTA_Tooltip_Ability_avenger_dark_passage_Note1"		"Cannot be cast when dimensionally locked."        
 
         "DOTA_Tooltip_Ability_avenger_murderous_instinct"							"Murderous Instinct"
-        "DOTA_Tooltip_ability_avenger_murderous_instinct_Description"      			"Angra Mainyu feels great pleasure from killing the livings, restoring percentage of max mana on killing unit or hero.\nOn activation, Angra Mainyu's attacks gains chance to double attack and bash the target, dealing bonus damage and <font color='#FF3399'>stunning</font> them for 1 second. Can't bash more than every 2 seconds. \n<font color='#FF6600'>This ability affects the level of Unlimited Remains in True Form.</font>"
+        "DOTA_Tooltip_ability_avenger_murderous_instinct_Description"      			"Angra Mainyu feels great pleasure from killing the livings, restoring percentage of max mana on killing unit or hero.\nOn activation, Angra Mainyu's attacks gains chance to double attack and bash the target, dealing bonus damage and <font color='#FF3399'>stunning</font> them for 1 second. Can't bash more than every 2 seconds.\nEvery Angra Mainyu attack deals additional magic damage, including Tawrich Zarich attacks.\n<font color='#FF6600'>This ability affects the level of Unlimited Remains in True Form.</font>"
         "DOTA_Tooltip_ability_avenger_murderous_instinct_Lore"						"Mankind is to be hated."        
         "DOTA_Tooltip_ability_avenger_murderous_instinct_critical_rate"				"%Double Attack Chance:"
         "DOTA_Tooltip_ability_avenger_murderous_instinct_crit_multiplier"			"Bash Damage:"
+        "DOTA_Tooltip_ability_avenger_murderous_instinct_on_attack_damage"			"Bonus magical damage:"
         "DOTA_Tooltip_ability_avenger_murderous_instinct_duration"					"Duration:"
         "DOTA_Tooltip_ability_avenger_murderous_instinct_mana_regen_percentage"		"%MANA REGEN PER KILL:"
         "DOTA_Tooltip_ability_avenger_murderous_instinct_mana_regen_percentage_herokill"	"%MANA REGEN PER HERO KILL:"
@@ -4432,7 +4438,7 @@
         "DOTA_Tooltip_ability_avenger_true_form_duration"   "DURATION:"
 
         "DOTA_Tooltip_Ability_angra_mainyu_verg_avesta"					"Verg Avesta"
-        "DOTA_Tooltip_ability_angra_mainyu_verg_avesta_Description"		"Passive: Angra Mainyu stores his resentment, recording the amount of damage he had taken recently.\nActive: Angra Mainyu unleashes a curse of retribution on all marked enemies within %radius% radius around himself. After a %delay% second delay, all enemies affected will take massive magical damage based on the total damage he had taken recently.\nDamage taken can be tracked on his Verg Avesta buff.\n\nUpgradable by attribute Demon Incarnate."
+        "DOTA_Tooltip_ability_angra_mainyu_verg_avesta_Description"		"Passive: Angra Mainyu stores his resentment, recording the amount of damage he had taken recently.\nActive: Angra Mainyu unleashes a curse of retribution on all marked enemies within %radius% radius around himself. After a %delay% second delay, all enemies affected will begin massive magical damage over a second, totalling in 3 damage instances.\nDamage is based on the total damage he had taken recently..\nDamage taken can be tracked on his Verg Avesta buff.\n\nUpgradable by attribute Demon Incarnate."
         "DOTA_Tooltip_ability_angra_mainyu_verg_avesta_Lore"			"The killer of mankind assumes the simplest rule of the world - Retribution."
         "DOTA_Tooltip_ability_angra_mainyu_verg_avesta_damage"			"Base damage:"
  		"DOTA_Tooltip_ability_angra_mainyu_verg_avesta_multiplier"		"%Damage Amplification:"
@@ -4504,7 +4510,7 @@
         "DOTA_Tooltip_Ability_avenger_attribute_overdrive_max_aspd"			"%MAX ATTACK SPEED BONUS:"
 
         "DOTA_Tooltip_Ability_avenger_attribute_demon_incarnate"					"Attribute: Demon Incarnate"
-        "DOTA_Tooltip_ability_avenger_attribute_demon_incarnate_Description"		"While toggled on, Demon Core increases Verg Avesta damage.\nWhile toggled on, Demon Core reduces True Form's cooldown each second."
+        "DOTA_Tooltip_ability_avenger_attribute_demon_incarnate_Description"		"While toggled on, Demon Core increases Verg Avesta damage.\nWhile toggled on, Demon Core reduces True Form's cooldown each second.\nVerga avesta now applies a 60%% slow on enemies on every hit."
         "DOTA_Tooltip_Ability_avenger_attribute_demon_incarnate_return_bonus"		"%Damage Increase:"
         "DOTA_Tooltip_Ability_avenger_attribute_demon_incarnate_trueform_cdr"		"TRUE FORM COOLDOWN REDUCTION:"
 
@@ -8006,7 +8012,7 @@
         "DOTA_Tooltip_ability_jtr_information_erase_attribute_cooldown"			"Cooldown:"
 
         "DOTA_Tooltip_ability_jtr_efficient_killer_attribute"					"Attribute: Efficient Killer"
-        "DOTA_Tooltip_ability_jtr_efficient_killer_attribute_Description"		"Maria The Ripper does additional 0.75 damage per point of her agility (0.9 to females) on common strikes and 0.9 (1.15 to females) on finihsing blow. \nIf it is night and it is misty, Maria the Ripper will have increased cast range."
+        "DOTA_Tooltip_ability_jtr_efficient_killer_attribute_Description"		"Maria The Ripper does additional 0.6 damage per point of her agility (0.75 to females) on common strikes and 0.75 (1 to females) on finihsing blow. \nIf it is night and it is misty, Maria the Ripper will have increased cast range."
 	"DOTA_Tooltip_ability_jtr_efficient_killer_attribute_radius"	"No-vision search radius:"
 	"DOTA_Tooltip_ability_jtr_efficient_killer_attribute_cast_range"	"Night & mist cast range:"
 
@@ -8856,6 +8862,187 @@
        "DOTA_Tooltip_ability_nanaya_chobi_attribute" 				"Attribute: Calculated Assault"
        "DOTA_Tooltip_ability_nanaya_chobi_attribute_Description" 	"Sensa・Meigokushamon deals more damage to units with less than %threshold%% HP and Nanaya becomes invisible for the next %invis_duration% seconds. "
 
+       "DOTA_Tooltip_modifier_robin_combo_cooldown"										"Combo: Yew Bow - The Bow of Prayer Cooldown"
+		"DOTA_Tooltip_modifier_robin_combo_cooldown_Description"							"Combo Cooldown"
+		
+		"DOTA_Tooltip_modifier_robin_faceless_king"										"Faceless King"
+		"DOTA_Tooltip_modifier_robin_faceless_king_Description"							""
+		
+		"DOTA_Tooltip_modifier_robin_faceless_king_active"										"Faceless King"
+		"DOTA_Tooltip_modifier_robin_faceless_king_active_Description"							""
+		
+		"DOTA_Tooltip_modifier_robin_faceless_king_cooldown"										"Faceless King Cooldown"
+		"DOTA_Tooltip_modifier_robin_faceless_king_cooldown_Description"							""
+		
+		"DOTA_Tooltip_modifier_robin_faceless_king_debuff"										"Faceless King Debuff"
+		"DOTA_Tooltip_modifier_robin_faceless_king_debuff_Description"							"Silence, Mute and Disarm"
+		
+		"DOTA_Tooltip_modifier_robin_may_king_invis"										"May King Invisibility"
+		"DOTA_Tooltip_modifier_robin_may_king_invis_Description"							"Will be broken upon taking damage or using an ability."
+		
+		"DOTA_Tooltip_modifier_robin_multishot"										"Multishot Channel"
+		"DOTA_Tooltip_modifier_robin_multishot_Description"							""
+		
+		"DOTA_Tooltip_modifier_robin_poison_stack"										"Innate Poison Stack"
+		"DOTA_Tooltip_modifier_robin_poison_stack_Description"							"Does not do anything by itself."
+		
+		"DOTA_Tooltip_modifier_robin_tools_its_a_trap"										"Net Trap"
+		"DOTA_Tooltip_modifier_robin_tools_its_a_trap_Description"							"Rooted"
+		
+		"DOTA_Tooltip_modifier_robin_tools_mysterious_substance_debuff"										"Sabotage Debuff"
+		"DOTA_Tooltip_modifier_robin_tools_mysterious_substance_debuff_Description"							"Muted"
+		
+		"DOTA_Tooltip_modifier_robin_tools_pitfall"										"Pitfall"
+		"DOTA_Tooltip_modifier_robin_tools_pitfall_Description"							""
+		
+		"DOTA_Tooltip_modifier_robin_tools_pitfall_debuff"										"Latched"
+		"DOTA_Tooltip_modifier_robin_tools_pitfall_debuff_Description"							""
+		
+		"DOTA_Tooltip_modifier_robin_tools_wolfs_bane"										"Wolf's Bane"
+		"DOTA_Tooltip_modifier_robin_tools_wolfs_bane_Description"							"Stunned"
+		
+		"DOTA_Tooltip_modifier_robin_yew_bow"										"Locked On"
+		"DOTA_Tooltip_modifier_robin_yew_bow_Description"							""
+
+
+
+
+
+
+
+		//====================================
+        //      Robin Hood - Fate/Extra Archer
+        //====================================
+        "npc_dota_hero_sniper"             "Robin Hood"
+
+        "DOTA_Tooltip_Ability_robin_backflip"	"<font color='#FFE56E'>Flashbang Arrow</font>"
+		"DOTA_Tooltip_Ability_robin_backflip_Description"	"Cast Point: <font color='#FFFFF9'>0.2</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Robin shoots a flashbang arrow at the target location, dealing <font color='#05CAFF'>magical damage</font> and <font color='#FF3399'>mini-stunning</font> enemies within the explosion radius.\n\nSimultaneously, Robin quickly retreat backwards.\n\n<font color='#FF3399'>Upgradable with attribute Independent Action</font>"
+		"DOTA_Tooltip_Ability_robin_backflip_retreat_distance"	"RETREAT DISTANCE:"
+		"DOTA_Tooltip_Ability_robin_backflip_radius"	"EXPLOSION RADIUS:"
+		"DOTA_Tooltip_Ability_robin_backflip_damage"	"DAMAGE:"
+		"DOTA_Tooltip_Ability_robin_backflip_Lore"	"An arrow constructed using simple techniques, combining various chemical compounds to produce a reaction that emulates a blinding flash of light."
+		
+		"DOTA_Tooltip_Ability_robin_multishot"	"<font color='#FFE56E'>Hunter's Rain</font>"
+		"DOTA_Tooltip_Ability_robin_multishot_Description"	"Cast Point: <font color='#FFFFF9'>0.15</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Robin releases multiple arrows that fan out horizontally over a short duration.\n\nDealing <font color='#C24401'>physical damage</font> and applying <font color='#52b000'>2 poison stack</font> to targets hit.\n\nArrows also do additional <font color='#FF5100'>damage</font> based on <font color='#0083E3'>INT</font> ratio.\n\n<font color='#FF3399'>Upgradable with attribute Independent Action</font>"
+		"DOTA_Tooltip_Ability_robin_multishot_arrow_count"	"ARROW COUNT:"
+		"DOTA_Tooltip_Ability_robin_multishot_arrow_range"	"ARROW RANGE:"
+		"DOTA_Tooltip_Ability_robin_multishot_arrow_damage"	"ARROW DAMAGE:"
+		"DOTA_Tooltip_Ability_robin_multishot_arrow_damage_pct"	"%INT DAMAGE RATIO:"
+		"DOTA_Tooltip_Ability_robin_multishot_Lore"	"In his life Robin was not a bad archer by any means, his superb agility allows him to perform inhuman feats of Archery."
+		
+		"DOTA_Tooltip_Ability_robin_may_king"	"<font color='#FFE56E'>May King</font>"
+		"DOTA_Tooltip_Ability_robin_may_king_Description"	"Cast Point: <font color='#FFFFF9'>0.4</font>s    |    <font color='#EE5C29'>Unrefreshable</font><br><br>Robin uses a part of his Noble Phantasm <font color='#FFE56E'>Faceless King</font> to disguise himself with the surroundings.\n\nGaining temporary <font color='#FFE56E'>invisibility</font> and eliminating every hostile wards within a radius of <font color='#f7e7c1'>1250</font>.\n\n<font color='#FFE56E'>Note:</font> Robin can still be detected by presence resonator while <font color='#FFE56E'>invisible</font>."
+		"DOTA_Tooltip_Ability_robin_may_king_fade_delay"	"FADE DELAY:"
+		"DOTA_Tooltip_Ability_robin_may_king_duration"	"INVISIBILITY DURATION:"
+		"DOTA_Tooltip_Ability_robin_may_king_Lore"	"The 'May King' is a metaphor for Robin Hood, a 'transparent king' who added brown accents to his green clothing so that his figure would not be seen."
+		
+		"DOTA_Tooltip_Ability_robin_faceless_king"	"<font color='#FFE56E'>No Face May King: Faceless King</font>"
+		"DOTA_Tooltip_Ability_robin_faceless_king_Description"	"Upon taking fatal <font color='#FF5100'>damage</font> below <font color='#f7e7c1'>1000</font> threshold.\n\nRobin uses his Noble Phantasm <font color='#FFE56E'>Faceless King</font> to disguise himself with the surroundings.\n\nGaining temporary <font color='#FFE56E'>invisibility</font> while <font color='#ACFF05'>healing</font> himself and <font color='#FF3399'>silencing</font>, <font color='#FF3399'>muting</font>, <font color='#FF3399'>disarming</font> every enemies within a radius of <font color='#f7e7c1'>700</font>."
+		"DOTA_Tooltip_Ability_robin_faceless_king_faceless_king_duration"	"DEBUFF DURATION:"
+		"DOTA_Tooltip_Ability_robin_faceless_king_heal"	"HEAL:"
+		"DOTA_Tooltip_Ability_robin_faceless_king_Lore"	"It does not hide magical energy, but it does completely conceal the wearer's sound and scent. It allows for Robin Hood to be a sniper who hides his figure in this cloak, exhibiting Assassin-like behavior."
+		
+		"DOTA_Tooltip_Ability_robin_tools"	"<font color='#FFE56E'>Robin's Personal Tools</font>"
+		"DOTA_Tooltip_Ability_robin_tools_Description"	"Robin Hood has several tools and trapsthat help facilitate his fighting style.\n\n\nAbilities will have <font color='#FF3399'>Global Cooldown</font> initially if attribute is not taken.\n\n<font color='#FF3399'>Upgradable with attribute Thief's Tools</font>"
+		"DOTA_Tooltip_Ability_robin_tools_Lore"	"Being an Outlaw and on the run.\n\nRobin of Sherwood has multiple tricks under his belt to escape the local authorities."
+		
+		"DOTA_Tooltip_Ability_robin_tools_close"	"<font color='#FFE56E'>Robin's Personal Tools: Close</font>"
+		"DOTA_Tooltip_Ability_robin_tools_close_Description"	"Press to close the spellbook, it is also a good bug fix incase your ability layout is messed up."
+		"DOTA_Tooltip_Ability_robin_tools_close_Lore"	"Being an Outlaw and on the run.\n\nRobin of Sherwood has multiple tricks under his belt to escape the local authorities."
+		
+		"DOTA_Tooltip_Ability_robin_tools_its_a_trap"	"<font color='#FFE56E'>Net Trap</font>"
+		"DOTA_Tooltip_Ability_robin_tools_its_a_trap_Description"	"Cast Point: <font color='#FFFFF9'>0.3</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Robin quickly throws a reinforced net at a target, <font color='#FF3399'>dimensional locking</font> and <font color='#FF3399'>rooting</font> them in place.\n\nApplies <font color='#52b000'>4 poison stacks</font>."
+		"DOTA_Tooltip_Ability_robin_tools_its_a_trap_net_range"	"NET RANGE:"
+		"DOTA_Tooltip_Ability_robin_tools_its_a_trap_duration"	"ROOT DURATION:"
+		"DOTA_Tooltip_Ability_robin_tools_its_a_trap_Lore"	"Being a hunter has its perks, the skills that Robin had acquired from hunting wildlife could be applied to hostile humanoid enemies."
+		
+		"DOTA_Tooltip_Ability_robin_tools_mysterious_substance"	"<font color='#FFE56E'>Sabotage</font>"
+		"DOTA_Tooltip_Ability_robin_tools_mysterious_substance_Description"	"Cast Point: <font color='#FFFFF9'>0.2</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Robin smokes the area with an unknown substance, dealing <font color='#05CAFF'>magical damage</font> and <font color='#FF3399'>muting</font> enemies within a radius.\n\nApplies <font color='#52b000'>4 poison stacks</font>."
+		"DOTA_Tooltip_Ability_robin_tools_mysterious_substance_range"	"CAST RANGE:"
+		"DOTA_Tooltip_Ability_robin_tools_mysterious_substance_radius"	"RADIUS:"
+		"DOTA_Tooltip_Ability_robin_tools_mysterious_substance_mute_duration"	"MUTE DURATION:"
+		"DOTA_Tooltip_Ability_robin_tools_mysterious_substance_damage"	"DAMAGE:"
+		"DOTA_Tooltip_Ability_robin_tools_mysterious_substance_Lore"	"It is unknown what the substance is, just that it makes the afflicted more paranoid and unaware of their surroundings."
+		
+		"DOTA_Tooltip_Ability_robin_tools_pitfall"	"<font color='#FFE56E'>Pitfall</font>"
+		"DOTA_Tooltip_Ability_robin_tools_pitfall_Description"	"Cast Point: <font color='#FFFFF9'>0.4</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Robin uses his Noble Phantasm <font color='#FFE56E'>Yew Bow</font> to create vines on the ground that latch on to targets within their proximity.\n\nDealing <font color='#C24401'>physical damage</font>, <font color='#FF3399'>dimensional locking</font> and <font color='#FF3399'>rooting</font> them for a short duration.\n\nApplies <font color='#52b000'>2 poison stacks</font> per latch."
+		"DOTA_Tooltip_Ability_robin_tools_pitfall_placement_count"	"NUMBER OF VINES:"
+		"DOTA_Tooltip_Ability_robin_tools_pitfall_placement_duration"	"VINES DURATION:"
+		"DOTA_Tooltip_Ability_robin_tools_pitfall_latch_duration"	"LATCH DURATION:"
+		"DOTA_Tooltip_Ability_robin_tools_pitfall_latch_damage"	"LATCH DAMAGE:"
+		"DOTA_Tooltip_Ability_robin_tools_pitfall_Lore"	"The bow can materialize a number of roots that swarm around the target and take the form of a tree that subsequently bursts and withers."
+		
+		"DOTA_Tooltip_Ability_robin_tools_wolfs_bane"	"<font color='#FFE56E'>Poisonous Concoction - Wolf's Bane</font>"
+		"DOTA_Tooltip_Ability_robin_tools_wolfs_bane_Description"	"Cast Point: <font color='#FFFFF9'>0.35</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Robin throws a poisonous concoction at his target.\n\nExploding for <font color='#05CAFF'>magical damage</font>, applying <font color='#FF3399'>stuns</font> and <font color='#52b000'>10 poison stacks</font> to enemies within a radius."
+		"DOTA_Tooltip_Ability_robin_tools_wolfs_bane_range"	"THROW RANGE:"
+		"DOTA_Tooltip_Ability_robin_tools_wolfs_bane_max_stun"	"STUN DURATION:"
+		"DOTA_Tooltip_Ability_robin_tools_wolfs_bane_max_damage"	"EXPLOSION DAMAGE:"
+		"DOTA_Tooltip_Ability_robin_tools_wolfs_bane_midair_explosion_radius"	"EXPLOSION RADIUS:"
+		"DOTA_Tooltip_Ability_robin_tools_wolfs_bane_Lore"	"Wolf's bane (also known as monkshood or aconite) can refer to many different species, but in particular those in the genus Aconitum."
+		
+		"DOTA_Tooltip_Ability_robin_yew_bow"	"<font color='#FFE56E'>Yew Bow</font>"
+		"DOTA_Tooltip_Ability_robin_yew_bow_Description"	"Cast Point: <font color='#FFFFF9'>1.2</font>s    |    <font color='#29EE32'>Refreshable</font><br><br><font color='#FFE56E'>PASSIVE:</font> Most of Robin's abilities will apply <font color='#52b000'>poison stacks</font>, up to a maximum of <font color='#f7e7c1'>30</font>. These stacks last for <font color='#f7e7c1'>15</font> seconds and will not do anything by themselves.\n\n<font color='#FFE56E'>ACTIVE:</font> Robin aims at a target, readying his Noble Phantasm <font color='#FFE56E'>Yew Bow</font>.\n\nAfter a delay, an arrow of immense energy is fired and inflicts initial <font color='#05CAFF'>magical damage</font> and <font color='#52b000'>10 poison stacks</font> onto the target.\n\nFor enemies within a certain radius of the target, <font color='#52b000'>Poison stacks</font> are detonated.\n\n<font color='#05CAFF'>Magical damage</font> is dealt based on how many <font color='#52b000'>poison stacks</font> that the victim has.\n\n<font color='#FF3399'>Upgradable with attribute Robin of Sherwood Forest and The Wise Man's Yew Bow</font>"
+		"DOTA_Tooltip_Ability_robin_yew_bow_range"	"RANGE:"
+		"DOTA_Tooltip_Ability_robin_yew_bow_damage"	"INITIAL DAMAGE:"
+		"DOTA_Tooltip_Ability_robin_yew_bow_damage_stack"	"DAMAGE PER STACK:"
+		"DOTA_Tooltip_Ability_robin_yew_bow_poison_detonation_radius"	"POISON DETONATION RADIUS:"
+		"DOTA_Tooltip_Ability_robin_yew_bow_Lore"	"Yew Bow - The Bow of Prayer is a crossbow made from the wood of one of the Yew trees from Sherwood Forest."
+		
+		"DOTA_Tooltip_Ability_robin_yew_tree_combo"	"<font color='#FFE56E'>Combo: Yew Bow - The Bow of Prayer</font>"
+		"DOTA_Tooltip_Ability_robin_yew_tree_combo_Description"	"Cast Point: <font color='#FFFFF9'>0.1</font>s    |    <font color='#EE5C29'>Unrefreshable</font><br><br><font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n\n<font color='#58ACFA'>Combo Sequence : F -> R in 4 seconds</font>\n\nUsing the same mechanics as his usual Noble Phantasm <font color='#FFE56E'>Yew Bow</font>, Robin launches a poison tipped arrow at his enemy target.\n\nBut this time, he unleashes the power of the Bow of Prayer, conjuring a poisonous Yew Tree at the site of his target.\n\n<font color='#FF3399'>Rooting</font> and <font color='#FF3399'>locking</font> the target, the Yew Tree's poison spreads to the enemy target, designating it as a carrier.\n\nSurrounding enemies receive <font color='#05CAFF'>magical damage</font> and are <font color='#FF3399'>slowed</font> by the cloud over a duration, any enemies that die this way will be <font color='#FF0000'>denied</font>.\n\nApplies <font color='#52b000'>20 poison stack</font>, this can ignore the normal stack limit.\n\nFor enemies within a certain radius of the target, <font color='#52b000'>Poison stacks</font> are detonated.\n\n<font color='#05CAFF'>Magical damage</font> is dealt based on how many <font color='#52b000'>poison stacks</font> that the victim has.\n\n<font color='#FF3399'>Upgradable with attribute Robin of Sherwood Forest and The Wise Man's Yew Bow</font>"
+		"DOTA_Tooltip_Ability_robin_yew_tree_combo_cast_delay"	"CAST DELAY::"
+		"DOTA_Tooltip_Ability_robin_yew_tree_combo_range"	"RANGE:"
+		"DOTA_Tooltip_Ability_robin_yew_tree_combo_radius"	"POISON CLOUD RADIUS:"
+		"DOTA_Tooltip_Ability_robin_yew_tree_combo_damage"	"INITIAL DAMAGE:"
+		"DOTA_Tooltip_Ability_robin_yew_tree_combo_damage_stack"	"DAMAGE PER STACK:"
+		"DOTA_Tooltip_Ability_robin_yew_tree_combo_poison_damage"	"OVERALL POISON DAMAGE:"
+		"DOTA_Tooltip_Ability_robin_yew_tree_combo_poison_detonation_radius"	"POISON DETONATION RADIUS:"
+		"DOTA_Tooltip_Ability_robin_yew_tree_combo_Lore"	"It has the ability to instantaneously amplify and surge out any impurities stockpiled in the target's stomach, such as poison and diseases.\n\nIf the target is poisoned for example, it will make that poison explode like gunpowder, dealing extreme damage close to a lethal dose of poison."
+		
+		"DOTA_Tooltip_Ability_robin_tools_attribute"	"<font color='#FFE56E'>Attribute: Thief's Tools</font>"
+		"DOTA_Tooltip_Ability_robin_tools_attribute_Description"	"Removes <font color='#FF3399'>Global Cooldown</font> on <font color='#FFE56E'>Robin's Personal Tools</font>.\n\nAlso lowers the <font color='#05CAFF'>mana cost</font> and <font color='#FF3399'>cooldown</font> of all tool abilities."
+		"DOTA_Tooltip_Ability_robin_tools_attribute_mana_cost_reduction"	"FLAT MANA COST REDUCTION:"
+		"DOTA_Tooltip_Ability_robin_tools_attribute_cooldown_reduction"	"FLAT COOLDOWN REDUCTION:"
+		"DOTA_Tooltip_Ability_robin_tools_attribute_Lore"	"Tricks of the Trade."
+		
+		"DOTA_Tooltip_Ability_robin_independent_action_attribute"	"<font color='#FFE56E'>Attribute: Independent Action</font>"
+		"DOTA_Tooltip_Ability_robin_independent_action_attribute_Description"	"Increases <font color='#FFE56E'>Flashbang Arrow</font>'s retreat distance and <font color='#FF5100'>damage</font>.\n\nReduces <font color='#FF3399'>cooldown</font> on <font color='#FFE56E'>Hunter's Rain</font> and increases Robin's <font color='#05CAFF'>maximum mana</font>."
+		"DOTA_Tooltip_Ability_robin_independent_action_attribute_back_flip_distance"	"ADDITIONAL RETREAT DISTANCE:"
+		"DOTA_Tooltip_Ability_robin_independent_action_attribute_back_flip_damage"	"ADDITIONAL FLASHBANG ARROW DAMAGE:"
+		"DOTA_Tooltip_Ability_robin_independent_action_attribute_multishot_cooldown"	"HUNTER'S RAIN COOLDOWN REDUCTION:"
+		"DOTA_Tooltip_Ability_robin_independent_action_attribute_additional_mana"	"ADDITIONAL MAX MANA:"
+		"DOTA_Tooltip_Ability_robin_independent_action_attribute_Lore"	"Independent Action is the ability to remain independent even when rejecting the Magical Energy supply from one's Master; the ability that allows for action even in the absence of the Master.\n\nTypically featured as a Class Skill of the Archer Class."
+		
+		"DOTA_Tooltip_Ability_robin_faceless_king_attribute"	"<font color='#FFE56E'>Attribute: No Face May King: Faceless King</font>"
+		"DOTA_Tooltip_Ability_robin_faceless_king_attribute_Description"	"Activates <font color='#FFE56E'>No Face May King: Faceless King</font>.\n\nUpon taking fatal <font color='#FF5100'>damage</font> below <font color='#f7e7c1'>1000</font> threshold.\n\nRobin uses his Noble Phantasm <font color='#FFE56E'>Faceless King</font> to disguise himself with the surroundings.\n\nGaining temporary <font color='#FFE56E'>invisibility</font> while <font color='#ACFF05'>healing</font> himself and <font color='#FF3399'>silencing</font>, <font color='#FF3399'>muting</font>, <font color='#FF3399'>disarming</font> every enemies within a radius of <font color='#f7e7c1'>700</font>."
+		"DOTA_Tooltip_Ability_robin_faceless_king_attribute_Duration"	"DEBUFF DURATION:"
+		"DOTA_Tooltip_Ability_robin_faceless_king_attribute_heal"	"HEAL:"
+		"DOTA_Tooltip_Ability_robin_faceless_king_attribute_Lore"	"It does not hide magical energy, but it does completely conceal the wearer's sound and scent. It allows for Robin Hood to be a sniper who hides his figure in this cloak, exhibiting Assassin-like behavior."
+		
+		"DOTA_Tooltip_Ability_robin_of_sherwood_attribute"	"<font color='#FFE56E'>Attribute: Robin of Sherwood Forest</font>"
+		"DOTA_Tooltip_Ability_robin_of_sherwood_attribute_Description"	"Doubles the amount of <font color='#52b000'>poison stacks</font> generated by Robin's abilities.\n\nAdds <font color='#FF3399'>silence</font> and <font color='#05CAFF'>mana burn</font> to <font color='#FFE56E'>Yew Bow</font> and <font color='#FFE56E'>Combo: Yew Bow - The Bow of Prayer</font>."
+		"DOTA_Tooltip_Ability_robin_of_sherwood_attribute_silence_duration"	"SILENCE DURATION:"
+		"DOTA_Tooltip_Ability_robin_of_sherwood_attribute_mana_burn"	"MANA BURN:"
+		"DOTA_Tooltip_Ability_robin_of_sherwood_attribute_Lore"	"Robin Hood is a legendary heroic outlaw originally depicted in English folklore and subsequently featured in literature and film.\n\nAccording to legend, he was a highly skilled archer and swordsman."
+		
+		"DOTA_Tooltip_Ability_robin_yew_bow_attribute"	"<font color='#FFE56E'>Attribute: The Wise Man's Yew Bow </font>"
+		"DOTA_Tooltip_Ability_robin_yew_bow_attribute_Description"	"Increases the maximum amount of <font color='#52b000'>poison stacks</font> to <font color='#f7e7c1'>50</font>.\n\nAdds additional <font color='#05CAFF'>magical damage</font> to <font color='#FFE56E'>Yew Bow</font> and <font color='#FFE56E'>Combo: Yew Bow - The Bow of Prayer</font>.<font color='#FFE56E'>Yew Bow</font> gains additional <font color='#05CAFF'>magical damage</font> based on Robin's <font color='#0083E3'>INT</font>."
+		"DOTA_Tooltip_Ability_robin_yew_bow_attribute_yew_bow_damage"	"ADDITIONAL YEW BOW DAMAGE:"
+		"DOTA_Tooltip_Ability_robin_yew_bow_attribute_yew_bow_int"	"ADDITIONAL YEW BOW DAMAGE PER INT:"
+		"DOTA_Tooltip_Ability_robin_yew_bow_attribute_max_poison_stack"	"MAXIMUM POISON STACK:"
+		"DOTA_Tooltip_Ability_robin_yew_bow_attribute_Lore"	"The act of making a bow from a Yew, which are holy arbor for the Celts and in Northern Europe, in the Forest of Sherwood has ceremonial connotations of 'becoming one with this forest.'\n\nIt is said that the Yew is a tree that leads to the world of the dead, and Robin Hood, perhaps knowing of that, said 'I want to be buried at the place where this arrow drops' before firing an arrow at the end of his life."
+		
+		"DOTA_Tooltip_Ability_robin_combo_list"	"<font color='#FFE56E'>Combo: Yew Bow - The Bow of Prayer</font>"
+		"DOTA_Tooltip_Ability_robin_combo_list_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n\n<font color='#58ACFA'>Combo Sequence : F -> R in 4 seconds</font>\n\nUsing the same mechanics as his usual Noble Phantasm <font color='#FFE56E'>Yew Bow</font>, Robin launches a poison tipped arrow at his enemy target.\n\nBut this time, he unleashes the power of the Bow of Prayer, conjuring a poisonous Yew Tree at the site of his target.\n\n<font color='#FF3399'>Rooting</font> and <font color='#FF3399'>locking</font> the target, the Yew Tree's poison spreads to the enemy target, designating it as a carrier.\n\nSurrounding enemies receive <font color='#05CAFF'>magical damage</font> and are <font color='#FF3399'>slowed</font> by the cloud over a duration, any enemies that die this way will be <font color='#FF0000'>denied</font>.\n\nApplies <font color='#52b000'>20 poison stack</font>, this can ignore the normal stack limit.\n\nFor enemies within a certain radius of the target, <font color='#52b000'>Poison stacks</font> are detonated.\n\n<font color='#05CAFF'>Magical damage</font> is dealt based on how many <font color='#52b000'>poison stacks</font> that the victim has.\n\n<font color='#FF3399'>Upgradable with attribute Robin of Sherwood Forest and The Wise Man's Yew Bow</font>"
+		"DOTA_Tooltip_Ability_robin_combo_list_cast_delay"	"CAST DELAY::"
+		"DOTA_Tooltip_Ability_robin_combo_list_range"	"RANGE:"
+		"DOTA_Tooltip_Ability_robin_combo_list_radius"	"POISON CLOUD RADIUS:"
+		"DOTA_Tooltip_Ability_robin_combo_list_damage"	"INITIAL DAMAGE:"
+		"DOTA_Tooltip_Ability_robin_combo_list_damage_stack"	"DAMAGE PER STACK:"
+		"DOTA_Tooltip_Ability_robin_combo_list_poison_damage"	"OVERALL POISON DAMAGE:"
+		"DOTA_Tooltip_Ability_robin_combo_list_poison_detonation_radius"	"POISON DETONATION RADIUS:"
+		"DOTA_Tooltip_Ability_robin_combo_list_Lore"	"It has the ability to instantaneously amplify and surge out any impurities stockpiled in the target's stomach, such as poison and diseases.\n\nIf the target is poisoned for example, it will make that poison explode like gunpowder, dealing extreme damage close to a lethal dose of poison."
+
 		 //====================================
 		//  Hijikata (Berserker)
         //====================================
@@ -8873,21 +9060,21 @@
 
         //     Archer(Extra)
         //====================================
-        "npc_dota_hero_sniper"             "Archer(Extra)"
+        //"npc_dota_hero_sniper"             "Archer(Extra)"
 
-        "DOTA_Tooltip_Ability_robin_hood_resentment"		"Resentment"
-        "DOTA_Tooltip_Ability_robin_hood_resentment_Description"	"Archer preys on cowardice of his enemies. Cowardice is determined by following conditions, when target is:\nFacing away from Archer\nThe furthest enemy Servant from Archer\na Strength hero\nFor each of conditions met, Archer inflicts increased damage to target."
+        //"DOTA_Tooltip_Ability_robin_hood_resentment"		"Resentment"
+        //"DOTA_Tooltip_Ability_robin_hood_resentment_Description"	"Archer preys on cowardice of his enemies. Cowardice is determined by following //conditions, when target is:\nFacing away from Archer\nThe furthest enemy Servant from Archer\na Strength hero\nFor each of conditions met, Archer //inflicts increased damage to target."
 
 
 
-        "DOTA_Tooltip_Ability_robin_hood_bowmans_resolve"		"Bowman's Resolve"
-        "DOTA_Tooltip_Ability_robin_hood_bowmans_resolve_Description"	"PASSIVE: When Archer does not move for certain amount of time, he becomes Stationed, gaining bonus damage on Strafe and Yew Bow.\nACTIVE: Archer sends a hawk that flies in circle around the furthest enemy Servant from him, revealing vision for short duration."
+        //"DOTA_Tooltip_Ability_robin_hood_bowmans_resolve"		"Bowman's Resolve"
+       // "DOTA_Tooltip_Ability_robin_hood_bowmans_resolve_Description"	"PASSIVE: When Archer does not move for certain amount of time, he becomes //Stationed, gaining bonus damage on Strafe and Yew Bow.\nACTIVE: Archer sends a hawk that flies in circle around the furthest enemy Servant from //him, revealing vision for short duration."
 
-        "DOTA_Tooltip_Ability_robin_hood_strafe"	"Strafe"
-        "DOTA_Tooltip_Ability_robin_hood_strafe_Description"	"CHANELLING:"
+        //"DOTA_Tooltip_Ability_robin_hood_strafe"	"Strafe"
+        //"DOTA_Tooltip_Ability_robin_hood_strafe_Description"	"CHANELLING:"
 
-        "DOTA_Tooltip_Ability_robin_hood_yew_bow"	"Yew Bow"
-        "DOTA_Tooltip_Ability_robin_hood_strafe_Description"	"CHANELLING:"
+        //"DOTA_Tooltip_Ability_robin_hood_yew_bow"	"Yew Bow"
+        //"DOTA_Tooltip_Ability_robin_hood_strafe_Description"	"CHANELLING:"
 
 //=============================GENERAL============================================
 		"DOTA_Tooltip_Ability_master_attribute_list"				"Open Attribute List"
@@ -8917,7 +9104,7 @@
 		"DOTA_Tooltip_Ability_master_shard_of_avarice_Lore"			"A shard of the legendary artifact that is known to descend upon the soul in its most dire situation. Despite being a makeshift, a trivial wish of mere human may not be asking too much...\n"
 
 		"DOTA_Tooltip_Ability_master_shard_of_anti_magic"				"Shard of Anti-Magic"
-		"DOTA_Tooltip_ability_master_shard_of_anti_magic_Description"	"Grants 3 Shard of Anti-Magic to your Servant, a powerful artifact that renders the owner immune to magic for 8 seconds and gives them 80%% magical resistance."
+		"DOTA_Tooltip_ability_master_shard_of_anti_magic_Description"	"Grants 3 Shard of Anti-Magic to your Servant, a powerful artifact that renders the owner immune to magic for 5 seconds and gives them 80%% magical resistance."
 		"DOTA_Tooltip_Ability_master_shard_of_anti_magic_Lore"			"A shard of the legendary artifact that is known to descend upon the soul in its most dire situation. Despite being a makeshift, a trivial wish of mere human may not be asking too much...\n"
 
 		"DOTA_Tooltip_Ability_master_shard_of_replenishment"				"Shard of Replenishment"

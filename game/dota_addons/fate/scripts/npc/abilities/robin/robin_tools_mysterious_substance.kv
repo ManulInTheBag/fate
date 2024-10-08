@@ -1,0 +1,52 @@
+"DOTAAbilities"
+{
+	//=======================================★★★★★
+	// Robin: Mysterious Substance
+	//=======================================★★★★★
+	"robin_tools_mysterious_substance"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/robin/robin_tools_mysterious_substance"
+		"AbilityTextureName"			"custom/robin/robin_tools_mysterious_substance"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"25"
+		"LevelsBetweenUpgrades"			"1"
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_puck.vsndevts"
+			"particle"	"particles/custom/robin/robin_dust.vpcf"
+		}
+		
+		// Ability General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityCastAnimation" 				"ACT_DOTA_CAST_ABILITY_ROT"
+		"AnimationPlaybackRate" 		"2.0"
+
+		// Ability Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"650"
+		"AbilityCastPoint"				"0.2"
+
+		// Ability Resource
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"15"
+		"AbilityManaCost"				"200"
+
+		// Values
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"range"						"650"
+			"radius"					"500"
+			"mute_duration"				"0.6 0.8 1 1.2 1.4"
+			"damage"					"400 450 500 550 600"
+		}
+	}
+}

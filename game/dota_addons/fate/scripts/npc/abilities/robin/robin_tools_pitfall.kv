@@ -1,0 +1,62 @@
+"DOTAAbilities"
+{
+	//=======================================★★★★★
+	// Robin: Pitfall
+	//=======================================★★★★★
+	"robin_tools_pitfall"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/robin/robin_tools_pitfall"
+		"AbilityTextureName"			"custom/robin/robin_tools_pitfall"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"25"
+		"LevelsBetweenUpgrades"			"1"
+		"precache"
+		{
+			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_dark_willow.vsndevts"
+			"particle"	"particles/custom/robin/robin_pitfall_rangefinder.vpcf"
+			"particle"	"particles/custom/robin/robin_pitfall_precast.vpcf"
+			"particle"	"particles/custom/robin/robin_pitfall_cast.vpcf"
+			"particle"	"particles/custom/robin/robin_pitfall_wraith.vpcf"
+			"particle"	"particles/custom/robin/robin_pitfall_debuff.vpcf"
+		}
+		
+		// Ability General
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
+		"SpellDispellableType"			"SPELL_DISPELLABLE_YES"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityCastAnimation" 				"ACT_DOTA_CAST_ABILITY_2_ES_ROLL"
+
+		// Ability Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"900"
+		"AbilityCastPoint"				"0.4"
+
+		// Ability Resource
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"25"
+		"AbilityManaCost"				"400"
+
+		// Values
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"placement_range"				"500"
+			"placement_count"				"8"
+			"placement_duration"			"5"
+			"latch_duration"				"0.2 0.25 0.3 0.35 0.4"
+			"latch_range"					"100"
+			"latch_damage"					"200 250 300 350 400"
+			"latch_creation_interval"		"0.075"
+			"latch_creation_delay"			"0.1"
+			"initial_creation_delay"		"0.5"
+		}
+	}
+}

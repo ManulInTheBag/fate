@@ -188,6 +188,7 @@ model_lookup["npc_dota_hero_naga_siren"] = "models/kuro/kuro.vmdl"
 model_lookup["npc_dota_hero_dark_willow"] = "models/okita/okita_new.vmdl"
 model_lookup["npc_dota_hero_riki"] = "models/jtr/jtr.vmdl"
 model_lookup["npc_dota_hero_centaur"] = "models/lu_bu/lu_bu.vmdl"
+model_lookup["npc_dota_hero_sniper"] = "models/robin/robin.vmdl"
 
 DoNotKillAtTheEndOfRound = {
     "tamamo_charm",
@@ -319,7 +320,7 @@ function Precache( context )
     PrecacheResource("soundfile", "soundevents/pepeg_razgovor.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/heroes/saito.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/heroes/arash.vsndevts", context)
-    
+    PrecacheResource("soundfile", "soundevents/hero_robin.vsndevts", context)
 	PrecacheResource("soundfile", "soundevents/hero_lu_bu.vsndevts", context )
 	PrecacheResource("model", "models/lu_bu/lu_bu.vmdl", context)
     
@@ -4151,7 +4152,7 @@ function FateGameMode:InitializeRound()
                 elseif playerHero:GetTeamNumber() == DOTA_TEAM_GOODGUYS and self.nRadiantScore > self.nDireScore + 1 then
                     AddInertiaModifier(playerHero)
                 end
-
+                ResetItems(playerHero)
                 playerHero:RemoveModifierByName("round_pause")
                 playerHero.ServStat:roundNumber(self.nCurrentRound)
             end)

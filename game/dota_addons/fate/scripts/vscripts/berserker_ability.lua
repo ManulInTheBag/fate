@@ -864,7 +864,8 @@ function OnGodHandDeath(keys)
 			if not caster.IsGodHandAcquired then
 				caster:SetHealth(caster:GetMaxHealth()*0.5)
 			else
-				caster:FindAbilityByName("heracles_berserk"):EndCooldown()
+				caster:FindAbilityByName("heracles_berserk"):EnterBerserk(1)
+				--caster:FindAbilityByName("heracles_berserk"):EndCooldown()
 			end
 			--[[
 			caster:RemoveModifierByName("modifier_god_hand_stock")

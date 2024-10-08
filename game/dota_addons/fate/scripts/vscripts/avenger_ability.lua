@@ -169,6 +169,14 @@ function OnBashSuccess(keys)
 	end
 end
 
+function OnAttackDamageMurderous(keys)
+	local caster = keys.caster
+	local target = keys.target
+	local damage = keys.on_attack_damage
+	DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, 0, keys.ability, false)
+
+end
+
 function OnRemainStart(keys)
 	local caster = keys.caster
 	local ability = keys.ability
@@ -298,6 +306,9 @@ function OnTZStart(keys)
 		--caster:PerformAttack(target, true, true, true, true, false, false, false)
 		local damage = keys.Damage + caster:GetAverageTrueAttackDamage(target) * 0.5
 		DoDamage(caster, target, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+		if caster:HasModifier("modifier_murderous_instinct") then
+			DoDamage(caster, target, caster:FindAbilityByName("avenger_murderous_instinct"):GetSpecialValueFor("on_attack_damage"), DAMAGE_TYPE_MAGICAL, 0, caster:FindAbilityByName("avenger_murderous_instinct"), false)
+		end
 		--[[if caster:HasModifier("modifier_murderous_instinct") and RandomInt(1, 100) < 35 then
 			DoDamage(caster, target, damage * 2, DAMAGE_TYPE_PHYSICAL, 0, keys.ability, false)
 		else
@@ -305,9 +316,9 @@ function OnTZStart(keys)
 		end]]
 
 		
-
+		caster:PerformAttack(target, true, false, true, true, false, true, true)
 		TZCount = TZCount + 1
-		--caster:PerformAttack(target, true, true, true, true, false, true, true)
+		
 
 		return 0.10
 	end)

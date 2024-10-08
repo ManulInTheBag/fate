@@ -1,0 +1,200 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vrfunknown:version{39d3ce1d-9442-4407-9b78-8317145b1732} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_bShouldHitboxesFallbackToRenderBounds = false
+	m_nMaxParticles = 48
+	m_hSnapshot = resource:"particles/particle_snapshots/net/net_static.vsnap"
+	m_nSnapshotControlPoint = 3
+	m_flConstantRadius = 25.000000
+	m_ConstantColor = 
+	[
+		240,
+		187,
+		119,
+		255,
+	]
+	m_bShouldSort = false
+	m_nBehaviorVersion = 12
+	m_nFirstMultipleOverride_BackwardCompat = 4
+	m_Emitters = 
+	[
+		
+		{
+			_class = "C_OP_ContinuousEmitter"
+			m_flStartTime = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 0.100000
+			}
+			m_flEmitRate = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 32.000000
+			}
+		},
+	]
+	m_Initializers = 
+	[
+		
+		{
+			_class = "C_INIT_InitFromCPSnapshot"
+			m_nControlPointNumber = 3
+			m_nAttributeToRead = 0
+		},
+		
+		{
+			_class = "C_INIT_InitFloat"
+			m_InputValue = 
+			{
+				m_nType = "PF_TYPE_RANDOM_UNIFORM"
+				m_flRandomMin = 1.000000
+				m_flRandomMax = 4.000000
+				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+			}
+		},
+		
+		{
+			_class = "C_INIT_InitFloat"
+			m_InputValue = 
+			{
+				m_nType = "PF_TYPE_RANDOM_UNIFORM"
+				m_flRandomMin = 0.000000
+				m_flRandomMax = 360.000000
+				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+				m_bHasRandomSignFlip = true
+			}
+			m_nOutputField = 4
+		},
+		
+		{
+			_class = "C_INIT_InitFloat"
+			m_InputValue = 
+			{
+				m_nType = "PF_TYPE_RANDOM_UNIFORM"
+				m_flRandomMin = 0.750000
+				m_flRandomMax = 1.750000
+				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+			}
+			m_nOutputField = 1
+		},
+		
+		{
+			_class = "C_INIT_InitialVelocityNoise"
+			m_vecOutputMax = 
+			[
+				40.000000,
+				40.000000,
+				0.000000,
+			]
+			m_vecOutputMin = 
+			[
+				-40.000000,
+				-40.000000,
+				0.000000,
+			]
+			m_flNoiseScaleLoc = 0.100000
+			m_flNoiseScale = 4.000000
+			m_TransformInput = 
+			{
+				m_nType = "PT_TYPE_INVALID"
+			}
+		},
+	]
+	m_Operators = 
+	[
+		
+		{
+			_class = "C_OP_BasicMovement"
+			m_fDrag = 0.050000
+			m_Gravity = 
+			[
+				0.000000,
+				0.000000,
+				16.000000,
+			]
+		},
+		
+		{
+			_class = "C_OP_FadeInSimple"
+			m_flFadeInTime = 0.125000
+		},
+		
+		{
+			_class = "C_OP_FadeOut"
+			m_flFadeOutTimeMax = 0.750000
+		},
+		
+		{
+			_class = "C_OP_Decay"
+		},
+		
+		{
+			_class = "C_OP_Noise"
+			m_nFieldOutput = 12
+			m_flOutputMax = 360.000000
+		},
+		
+		{
+			_class = "C_OP_LerpEndCapScalar"
+			m_flLerpTime = 0.500000
+			m_nFieldOutput = 16
+			m_flOutput = 0.000000
+		},
+		
+		{
+			_class = "C_OP_InterpolateRadius"
+			m_flBias = 0.250000
+			m_flEndScale = 0.000000
+			m_flStartScale = 4.000000
+		},
+		
+		{
+			_class = "C_OP_BasicMovement"
+			m_nOpEndCapState = "PARTICLE_ENDCAP_ENDCAP_ON"
+			m_Gravity = 
+			[
+				0.000000,
+				0.000000,
+				-100.000000,
+			]
+		},
+		
+		{
+			_class = "C_OP_VectorNoise"
+			m_nOpEndCapState = "PARTICLE_ENDCAP_ENDCAP_ON"
+			m_fl4NoiseScale = 0.600000
+			m_nFieldOutput = 0
+			m_vecOutputMin = 
+			[
+				-2.000000,
+				-2.000000,
+				0.000000,
+			]
+			m_vecOutputMax = 
+			[
+				2.000000,
+				2.000000,
+				0.000000,
+			]
+			m_bAdditive = true
+		},
+	]
+	m_Renderers = 
+	[
+		
+		{
+			_class = "C_OP_RenderSprites"
+			m_flOverbrightFactor = 10.000000
+			m_flAnimationRate = 0.500000
+			m_nHSVShiftControlPoint = 62
+			m_vecTexturesInput = 
+			[
+				
+				{
+					m_hTexture = resource:"materials/particle/yellowflare2.vtex"
+				},
+			]
+			m_nOutputBlendMode = "PARTICLE_OUTPUT_BLEND_MODE_ADD"
+		},
+	]
+}

@@ -1,0 +1,273 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vrfunknown:version{39d3ce1d-9442-4407-9b78-8317145b1732} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_bShouldHitboxesFallbackToRenderBounds = false
+	m_nMaxParticles = 1
+	m_flConstantRadius = 2.500000
+	m_nConstantSequenceNumber1 = 1
+	m_bShouldSort = false
+	m_Renderers = 
+	[
+		
+		{
+			_class = "C_OP_RenderModels"
+			m_bIgnoreNormal = true
+			m_bManualAnimFrame = true
+			m_nAnimationScaleField = 18
+			m_nBodyGroupField = 19
+			m_nSubModelField = 19
+			m_nManualFrameField = 18
+			m_ModelList = 
+			[
+				
+				{
+					m_model = resource:"models/particle/net.vmdl"
+				},
+			]
+			m_bAnimated = true
+			m_nLOD = 1
+			m_bForceLoopingAnimation = true
+			m_modelInput = 
+			{
+			}
+		},
+	]
+	m_Operators = 
+	[
+		
+		{
+			_class = "C_OP_BasicMovement"
+		},
+		
+		{
+			_class = "C_OP_Decay"
+			m_nOpEndCapState = "PARTICLE_ENDCAP_ENDCAP_ON"
+		},
+		
+		{
+			_class = "C_OP_PercentageBetweenTransforms"
+			m_nFieldOutput = 18
+			m_flOutputMax = 50.000000
+			m_TransformEnd = 
+			{
+				m_nControlPoint = 1
+			}
+		},
+		
+		{
+			_class = "C_OP_InterpolateRadius"
+			m_flBias = 0.850000
+			m_flEndTime = 0.500000
+			m_flStartScale = 0.000000
+		},
+		
+		{
+			_class = "C_OP_SpinYaw"
+			m_nSpinRateMinDegrees = 64
+			m_nSpinRateDegrees = 64
+			m_flOpEndFadeInTime = 1.000000
+		},
+		
+		{
+			_class = "C_OP_SetControlPointsToParticle"
+			m_bSetOrientation = true
+			m_nFirstControlPoint = 3
+		},
+		
+		{
+			_class = "C_OP_CPOffsetToPercentageBetweenCPs"
+			m_bScaleOffset = true
+			m_vecOffset = 
+			[
+				0.000000,
+				0.000000,
+				0.250000,
+			]
+			m_nOffsetCP = 1
+			m_flInputBias = 0.125000
+			m_flInputMax = 0.000000
+			m_flInputMin = 1.000000
+		},
+		
+		{
+			_class = "C_OP_MaxVelocity"
+			m_nOverrideCP = 2
+		},
+		
+		{
+			_class = "C_OP_RemapCPtoVector"
+			m_nCPInput = 60
+			m_nFieldOutput = 6
+			m_vInputMax = 
+			[
+				255.000000,
+				255.000000,
+				255.000000,
+			]
+			m_vOutputMax = 
+			[
+				1.000000,
+				1.000000,
+				1.000000,
+			]
+			m_flOpStrength = 
+			{
+				m_nType = "PF_TYPE_CONTROL_POINT_COMPONENT"
+				m_nControlPoint = 61
+				m_nVectorComponent = 0
+				m_nMapType = "PF_MAP_TYPE_REMAP"
+				m_flInput0 = 0.000000
+				m_flInput1 = 1.000000
+				m_flOutput0 = 0.000000
+				m_flOutput1 = 1.000000
+			}
+		},
+	]
+	m_Initializers = 
+	[
+		
+		{
+			_class = "C_INIT_CreateWithinSphereTransform"
+		},
+		
+		{
+			_class = "C_INIT_InitFloat"
+			m_InputValue = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 0.200000
+			}
+			m_nOutputField = 1
+		},
+	]
+	m_Emitters = 
+	[
+		
+		{
+			_class = "C_OP_InstantaneousEmitter"
+			m_nParticlesToEmit = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 1.000000
+			}
+		},
+	]
+	m_ForceGenerators = 
+	[
+		
+		{
+			_class = "C_OP_AttractToControlPoint"
+			m_fFalloffPower = 0.000000
+			m_fForceAmount = 
+			{
+				m_flLiteralValue = 10000.000000
+			}
+			m_TransformInput = 
+			{
+				m_nControlPoint = 4
+				m_bUseOrientation = false
+			}
+		},
+	]
+	m_Children = 
+	[
+		
+		{
+			m_ChildRef = resource:"particles/custom/robin/robin_trap_projectileb.vpcf"
+		},
+		
+		{
+			m_ChildRef = resource:"particles/custom/robin/robin_trap_projectilec.vpcf"
+		},
+		
+		{
+			m_ChildRef = resource:"particles/custom/robin/robin_trap_projectiled.vpcf"
+		},
+		
+		{
+			m_ChildRef = resource:"particles/custom/robin/robin_trap_projectilea.vpcf"
+		},
+		
+		{
+			m_ChildRef = resource:"particles/custom/robin/robin_trap_projectilee.vpcf"
+		},
+	]
+	m_PreEmissionOperators = 
+	[
+		
+		{
+			_class = "C_OP_HSVShiftToCP"
+			m_DefaultHSVColor = 
+			[
+				239,
+				164,
+				14,
+				255,
+			]
+		},
+	]
+	m_nBehaviorVersion = 12
+	m_controlPointConfigurations = 
+	[
+		
+		{
+			m_name = "preview"
+			m_drivers = 
+			[
+				
+				{
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+				
+				{
+					m_iControlPoint = 1
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+				
+				{
+					m_iControlPoint = 2
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_vecOffset = 
+					[
+						1.000000,
+						0.000000,
+						0.000000,
+					]
+					m_entityName = "self"
+				},
+				
+				{
+					m_iControlPoint = 4
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+				
+				{
+					m_iControlPoint = 5
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+				
+				{
+					m_iControlPoint = 60
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_vecOffset = 
+					[
+						8.000000,
+						229.000000,
+						96.000000,
+					]
+					m_entityName = "self"
+				},
+				
+				{
+					m_iControlPoint = 61
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+			]
+		},
+	]
+}

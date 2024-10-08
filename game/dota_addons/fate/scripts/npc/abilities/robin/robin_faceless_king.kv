@@ -1,0 +1,32 @@
+"DOTAAbilities"
+{
+	//=======================================★★★★★
+	// Robin: Faceless King
+	//=======================================★★★★★
+	"robin_faceless_king"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/robin/robin_faceless_king"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"25"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityTextureName"			"custom/robin/robin_faceless_king"
+		"AbilityCooldown"				"100"
+
+		"precache"
+		{
+			"particle"				"particles/units/heroes/hero_phantom_assassin/phantom_assassin_phantom_strike_end.vpcf"
+			"particle"				"particles/custom/robin/robin_dust.vpcf"
+			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_phantom_lancer.vsndevts"
+		}
+		
+		// Values
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+		{
+			"faceless_king_duration"	"1.50"
+			"heal"						"1000"
+		}
+	}
+}	

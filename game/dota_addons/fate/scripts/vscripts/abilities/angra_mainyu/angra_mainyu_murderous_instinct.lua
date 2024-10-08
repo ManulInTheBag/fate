@@ -23,7 +23,8 @@ end
 
 function modifier_murderous_instinct:DeclareFunctions()
 	return { --MODIFIER_EVENT_ON_TAKEDAMAGE,
-			 MODIFIER_EVENT_ON_ATTACK_START }
+			 MODIFIER_EVENT_ON_ATTACK_START,
+			MODIFIER_EVENT_ON_ATTACK_LANDED }
 end
 
 if IsServer() then 
@@ -49,6 +50,14 @@ if IsServer() then
 		caster:GiveMana(args.damage * mana_conversion / 100)
 	end
 end
+
+if IsServer() then
+	function modifier_murderous_instinct_crit:OnAttackLanded(args)
+		if args.attacker ~= self:GetParent() then return end
+		DoDamage(args.attacker, args.target, self:GetSpecialValueFor("on_attack_damage"), DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
+	end
+end
+
 
 function modifier_murderous_instinct:IsHidden()
 	return false 

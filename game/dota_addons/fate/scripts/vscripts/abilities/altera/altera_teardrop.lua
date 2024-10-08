@@ -130,7 +130,7 @@ function altera_teardrop_release:OnSpellStart()
 		local particle2 = ParticleManager:CreateParticle("particles/altera/altera_teardrop_magnetic_ring.vpcf", PATTACH_ABSORIGIN, caster)
 		ParticleManager:SetParticleControl(particle2, 0, target)
 		ParticleManager:SetParticleControl(particle2, 1, Vector(beam_radius, beam_radius, beam_radius))
-
+		ParticleManager:SetParticleShouldCheckFoW(particle2, false)
 		Timers:CreateTimer(1.5, function()
 			ParticleManager:DestroyParticle(particle2, false)
 			ParticleManager:ReleaseParticleIndex(particle2)

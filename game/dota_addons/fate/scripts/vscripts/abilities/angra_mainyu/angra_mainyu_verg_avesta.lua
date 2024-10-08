@@ -2,6 +2,8 @@ angra_mainyu_verg_avesta = class({})
 
 LinkLuaModifier("modifier_verg_damage_tracker", "abilities/angra_mainyu/modifiers/modifier_verg_damage_tracker", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_verg_damage_tracker_progress", "abilities/angra_mainyu/modifiers/modifier_verg_damage_tracker", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("angra_mainyu_verg_avesta_dot", "abilities/angra_mainyu/angra_mainyu_verg_avesta", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("angra_mainyu_verg_avesta_slow", "abilities/angra_mainyu/angra_mainyu_verg_avesta", LUA_MODIFIER_MOTION_NONE)
 
 function angra_mainyu_verg_avesta:GetAOERadius()
 	return self:GetSpecialValueFor("radius")
@@ -53,10 +55,10 @@ function angra_mainyu_verg_avesta:OnSpellStart()
 					end)
 					Timers:CreateTimer(delay, function()
 						if playerHero and playerHero:IsAlive() then
-							DoDamage(caster, playerHero, damage, DAMAGE_TYPE_MAGICAL, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self, true)
+							--DoDamage(caster, playerHero, damage, DAMAGE_TYPE_MAGICAL, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self, true)
 							--EmitGlobalSound("body_reported")
-
-				        	playerHero:EmitSound("Hero_WitchDoctor.Maledict_Tick")
+							playerHero:AddNewModifier(caster, self , "angra_mainyu_verg_avesta_dot",{duration = 1.1, damage = damage})
+				        	--target:EmitSound("Hero_WitchDoctor.Maledict_Tick")
 					        local particle = ParticleManager:CreateParticle("particles/econ/items/sniper/sniper_charlie/sniper_assassinate_impact_blood_charlie.vpcf", PATTACH_CUSTOMORIGIN, nil)
 					        ParticleManager:SetParticleControl(particle, 1, playerHero:GetAbsOrigin())
 					    end
@@ -78,3 +80,73 @@ end
 function angra_mainyu_verg_avesta:GetIntrinsicModifierName()
 	return "modifier_verg_damage_tracker"
 end
+
+angra_mainyu_verg_avesta_dot = class({})
+
+function angra_mainyu_verg_avesta_dot:GetEffectName()
+    return "particles/zlodemon/avesta_burn.vpcf"
+end
+
+function angra_mainyu_verg_avesta_dot:IsHidden()
+    return false
+end
+function angra_mainyu_verg_avesta_dot:IsDebuff()
+    return true
+end
+function angra_mainyu_verg_avesta_dot:GetEffectAttachType()
+    return PATTACH_ABSORIGIN_FOLLOW
+end
+function angra_mainyu_verg_avesta_dot:IsDebuff() return true end
+if IsServer() then
+	function angra_mainyu_verg_avesta_dot:OnCreated(args)
+
+		self.damage = args.damage
+		self.caster = self:GetCaster()
+		self.target = self:GetParent()
+		self.abil = self:GetAbility()
+		self.target:EmitSound("Hero_WitchDoctor.Maledict_Tick")
+		self.bDoSlow = self.caster.IsDIAcquired
+		DoDamage(self.caster, self.target, self.damage/3, DAMAGE_TYPE_MAGICAL, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self.abil, true)
+		if self.bDoSlow then
+			self.target:AddNewModifier(self.caster, self.abil , "angra_mainyu_verg_avesta_slow",{duration = 0.5})
+		end
+		self:StartIntervalThink(0.5)
+	end
+	function angra_mainyu_verg_avesta_dot:OnIntervalThink()
+		if(not IsServer() ) then return end
+		self.target:EmitSound("Hero_WitchDoctor.Maledict_Tick")
+
+		DoDamage(self.caster, self.target, self.damage/3, DAMAGE_TYPE_MAGICAL, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self.abil, true)
+		if self.bDoSlow then
+			self.target:AddNewModifier(self.caster, self.abil , "angra_mainyu_verg_avesta_slow",{duration = 0.5})
+		end
+	end
+end
+
+
+angra_mainyu_verg_avesta_slow = class({})
+
+function angra_mainyu_verg_avesta_slow:DeclareFunctions()
+    local funcs = {
+        MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
+    }
+ 
+    return funcs
+end
+
+function angra_mainyu_verg_avesta_slow:GetModifierMoveSpeedBonus_Percentage() 
+    return -60
+end
+------------------------------------------------------------------------------
+
+function angra_mainyu_verg_avesta_slow:IsDebuff()
+    return true
+end
+
+-----------------------------------------------------------------------------------
+
+function angra_mainyu_verg_avesta_slow:RemoveOnDeath()
+    return true
+end
+
+-----------------------------------------------------------------------------------

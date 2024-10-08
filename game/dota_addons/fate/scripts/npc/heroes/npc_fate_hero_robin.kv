@@ -1,0 +1,72 @@
+"DOTAHeroes"
+{
+	//=================================================================================================================
+	//	Archer (Fate/Extra) - Robin Hood
+	//=================================================================================================================
+	"npc_dota_hero_robin"
+	{
+		"override_hero"			"npc_dota_hero_sniper"
+		"DisableWearables" 			"1"
+		"Model"					"models/robin/robin.vmdl"
+		//"Model"					"models/development/invisiblebox.vmdl"
+		"ModelScale"			"1.48"
+		//"HeroID"					"130"
+		"DrawParticlesWhileHidden" "1"
+
+		"AbilityLayout"			"6"
+		"Ability1"				"robin_backflip"
+		"Ability2"				"robin_multishot"
+		"Ability3"				"robin_tools"
+		"Ability4"				"robin_faceless_king"
+		"Ability5"				"robin_may_king"
+		"Ability6"				"robin_yew_bow"
+		"Ability7"				"robin_tools_its_a_trap"
+		"Ability8"				"robin_tools_mysterious_substance"
+		"Ability9"				"robin_tools_pitfall"
+		"Ability10"				"robin_tools_wolfs_bane"
+		"Ability11"				"robin_tools_close"
+		"Ability15"				"robin_yew_tree_combo"
+		"Ability17"				"hero_base_stats_bonus"
+		"Ability18"				"presence_detection_passive"
+		"Ability19"				"attribute_bonus_custom"
+
+		"Combo"						"robin_combo_list"
+		"AttributeNumber"			"5"
+		"Attribute1"				"robin_tools_attribute"
+		"Attribute2"				"robin_independent_action_attribute"
+		"Attribute3"				"robin_faceless_king_attribute"
+		"Attribute4"				"robin_of_sherwood_attribute"
+		"Attribute5"				"robin_yew_bow_attribute"
+
+		"StatusHealth"					"1200"
+		"StatusHealthRegen"				"5"
+		"StatusMana"					"1000"
+		"StatusManaRegen"				"10"
+		
+		"ArmorPhysical"					"5"
+		"MagicalResistance"				"5"
+		
+		"AttackCapabilities"			"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"AttackRange"					"800"
+		"AttackDamageMin"				"38"
+		"AttackDamageMax"				"46"
+		"AttackRate"					"0.9"
+		"AttackAcquisitionRange"		"1000"
+		"ProjectileModel"				"particles/custom/robin/robin_base_attack_projectile.vpcf"
+		"ProjectileSpeed"				"1500"
+		
+		"AttributePrimary"				"DOTA_ATTRIBUTE_INTELLECT"
+		"AttributeBaseStrength"			"0"
+		"AttributeStrengthGain"			"2.2"
+		"AttributeBaseAgility"			"0"
+		"AttributeAgilityGain"			"2.2"
+		"AttributeBaseIntelligence"		"0"
+		"AttributeIntelligenceGain"		"2.5"
+		
+		"MovementSpeed"					"350"
+		"MovementTurnRate"				"0.8"
+
+		"VisionDaytimeRange"			"1000"
+		"VisionNighttimeRange"			"1000"
+	}
+}

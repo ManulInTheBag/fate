@@ -62,7 +62,8 @@ if IsServer() then
 				target_search[i]:EmitSound("Tsubame_Slash_" .. math.random(1,3))
 				self.RemainingHits = self.RemainingHits - 1
 
-				target_search[i]:AddNewModifier(caster, self:GetAbility(), "modifier_stunned", { Duration = self.StunDuration })
+				--target_search[i]:AddNewModifier(caster, self:GetAbility(), "modifier_stunned", { Duration = self.StunDuration })
+				giveUnitDataDrivenModifier(caster, target_search[i] , "rooted", self.StunDuration)
 
 				CreateSlashFx(caster, current_location, target_search[i]:GetAbsOrigin() + RandomVector(200))
 				target_search[i]:AddNewModifier(caster, self:GetAbility(), "modifier_windblade_hit_marker", { Duration = 0.433 })
