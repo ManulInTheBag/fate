@@ -4294,7 +4294,8 @@ function FateGameMode:FinishRound(IsTimeOut, winner)
         if playerHero:IsAlive() then
             giveUnitDataDrivenModifier(playerHero, playerHero, "round_pause", 7.0)
         end
-
+        --RemoveTroublesomeModifiers(playerHero)
+        playerHero:RemoveModifierByName("modifier_atalanta_curse")
         -- Remove marble abilities
         if playerHero:GetName() == "npc_dota_hero_ember_spirit" and playerHero:HasModifier("modifier_unlimited_bladeworks") then
             playerHero:RemoveModifierByName("modifier_unlimited_bladeworks")

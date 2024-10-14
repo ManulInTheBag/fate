@@ -34,7 +34,7 @@ function modifier_medusa_monstrous_strength:OnAttackLanded(args)
 
 	--args.attacker:EmitSound("Astolfo_Sanity_" .. RandomInt(1, 8))
 	giveUnitDataDrivenModifier(args.attacker, args.target, "modifier_disarmed", self:GetAbility():GetSpecialValueFor("disarm_duration"))
-	DoDamage(args.attacker, args.target, self:GetParent():GetStrength()*2, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
+	DoDamage(args.attacker, args.target, self:GetAbility():GetSpecialValueFor("base_damage") + self:GetParent():GetStrength()*2, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
 end
 
 function modifier_medusa_monstrous_strength:GetEffectName()

@@ -154,8 +154,8 @@ function modifier_tauropolos_alter:OnIntervalThink()
 
 		    for _,unit in pairs(units) do
                 if not unit:HasModifier("modifier_protection_from_arrows_active") then
-    		     	DoDamage(self.caster, unit, self.damage + (self.caster.CursedMoonAcquired and 40 or 0), DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
-    		      	for i = 1,(self:GetAbility():GetSpecialValueFor("curse_stacks") + (self.caster.CursedMoonAcquired and 10 or 0)) do
+    		     	DoDamage(self.caster, unit, self.damage + (self.caster.CursedMoonAcquired and 30 or 0), DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
+    		      	for i = 1,(self:GetAbility():GetSpecialValueFor("curse_stacks") + (self.caster.CursedMoonAcquired and 5 or 0)) do
     		           	self.caster:FindAbilityByName("atalanta_curse"):Curse(unit)
                         --[[if self.caster.CursedMoonAcquired then
                             self.caster:FindAbilityByName("atalanta_curse"):Curse(unit)

@@ -20,8 +20,7 @@ function medusa_gorgon_rush:OnSpellStart()
 	local target_position = self:GetCastRange()*caster:GetForwardVector() + caster:GetAbsOrigin()
 	local range = self:GetCastRange()
 	local fly_speed = self:GetSpecialValueFor("speed")
-	local damage = self:GetSpecialValueFor("damage")
-
+	local damage = self:GetSpecialValueFor("damage") + caster:GetAgility() * self:GetSpecialValueFor("damage_per_agi")
 	caster:EmitSound("medusa_whooshrs")
 
 	caster:AddNewModifier(caster, self, "modifier_medusa_gorgon_rush", {target_position_x = target_position.x, 

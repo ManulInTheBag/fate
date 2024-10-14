@@ -119,7 +119,9 @@ end
 
 function modifier_jeanne_gods_resolution_active_buff:OnIntervalThink()
 	if not IsServer() then return end
-
+	if not self.caster:IsAlive() then 
+		self:Destroy()
+	end
 	local targets = FindUnitsInRadius(self.caster:GetTeam(), self.caster:GetAbsOrigin(), nil, self.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	for k,v in pairs(targets) do
 	    DoDamage(self.caster, v, self.tickDamage, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)

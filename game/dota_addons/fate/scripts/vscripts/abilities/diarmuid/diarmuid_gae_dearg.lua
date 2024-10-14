@@ -77,9 +77,9 @@ function diarmuid_gae_dearg:GetCastPoint()
 	local caster = self:GetCaster()
 
 	if caster:HasModifier("modifier_rampant_warrior") then
-		return 0.4
-	elseif caster:HasModifier("modifier_crimson_rose_attribute") then
 		return 0.5
+	elseif caster:HasModifier("modifier_crimson_rose_attribute") then
+		return 0.6
 	else
 		return 0.7
 	end

@@ -337,7 +337,7 @@ function medusa_bellerophon:OnProjectileHit_ExtraData(hTarget, vLocation, hTable
 
         if not self.AttackedTargets[hTarget:entindex()] then
             self.AttackedTargets[hTarget:entindex()] = true
-        	DoDamage(hCaster, hTarget, self:GetSpecialValueFor("damage") + (hCaster.RidingAcquired and (self:GetSpecialValueFor("riding_damage") + hCaster:GetStrength()*self:GetSpecialValueFor("agility_multiplier")) or 0), DAMAGE_TYPE_MAGICAL, 0, self, false)
+        	DoDamage(hCaster, hTarget, self:GetSpecialValueFor("damage") + (hCaster.RidingAcquired and (self:GetSpecialValueFor("riding_damage") + hCaster:GetAgility()*self:GetSpecialValueFor("agility_multiplier")) or 0), DAMAGE_TYPE_MAGICAL, 0, self, false)
         	enemy:AddNewModifier(caster, self, "modifier_stunned", {duration = self:GetSpecialValueFor("stun_duration")})
 
 	        local anglevalue = caster:GetRightVector()

@@ -2826,7 +2826,7 @@
 		"DOTA_Tooltip_Ability_medusa_breaker_break_damage"			"%Petrification max health break damage:"
 
 		"DOTA_Tooltip_Ability_medusa_monstrous_strength"			"Monstrous Strength"
-		"DOTA_Tooltip_Ability_medusa_monstrous_strength_Description"	"Allows Medusa to deal twice her strengths as magic damage, as well as providing her bonus attack speed and strength for a duaration. Each attack while under the effect of Monstrous Strength disarms the target. This ability seal the usage of Bellerophon and Bellerophon II for its duration."
+		"DOTA_Tooltip_Ability_medusa_monstrous_strength_Description"	"Allows Medusa to deal %base_damage% + twice her strengths as magic damage, as well as providing her bonus attack speed and strength for a duaration. Each attack while under the effect of Monstrous Strength disarms the target. This ability seal the usage of Bellerophon and Bellerophon II for its duration."
 		"DOTA_Tooltip_Ability_medusa_monstrous_strength_Lore"			"The longer she uses this power, the more she turns into a legendary monster, Gorgon."
 		"DOTA_Tooltip_Ability_medusa_monstrous_strength_duration"			"Duration:"
 		"DOTA_Tooltip_Ability_medusa_monstrous_strength_disarm_duration"			"Disarm duration:"
@@ -2834,11 +2834,11 @@
 		"DOTA_Tooltip_Ability_medusa_monstrous_strength_as_bonus"			"Attack speed bonus:"
 
 		"DOTA_Tooltip_Ability_medusa_gorgon_rush"			"Gorgon Rush"
-		"DOTA_Tooltip_Ability_medusa_gorgon_rush_Description"			"Medusa prepares shortly to dash forward at the insane speed, damaging and pushing back all the enemies on her way."
-		"DOTA_Tooltip_Ability_medusa_gorgon_rush_Lore"			"Fast as a lightning."
-		"DOTA_Tooltip_Ability_medusa_gorgon_rush_range"			"Range:"
-		"DOTA_Tooltip_Ability_medusa_gorgon_rush_damage"		"Damage:"
-
+		"DOTA_Tooltip_Ability_medusa_gorgon_rush_Description"			"Medusa prepares shortly to dash forward at the insane speed, damaging and pushing back all the enemies on her way.\nDamage is increased by Medusa's agility."
+		"DOTA_Tooltip_Ability_medusa_gorgon_rush_Lore"				"Fast as a lightning."
+		"DOTA_Tooltip_Ability_medusa_gorgon_rush_range"				"Range:"
+		"DOTA_Tooltip_Ability_medusa_gorgon_rush_damage"			"Damage:"
+		"DOTA_Tooltip_Ability_medusa_gorgon_rush_damage_per_agi"	"Damage per agi:"
 		"DOTA_Tooltip_Ability_medusa_bellerophon"			"Bellerophon"
 		"DOTA_Tooltip_Ability_medusa_bellerophon_Description"	"Vector targeted.\nMedusa summons legendary beast Pegasus and ascends into sky, becoming untargetable and invulnerable. Then she slams down to the target location and rides a few meters further, damaging, stunning and pushing back all enemies on her way."
 		"DOTA_Tooltip_Ability_medusa_bellerophon_Lore"			"The unstoppable charge of flying Holy Beast engulfs enemy in blinding light like a white comet."
@@ -2861,9 +2861,9 @@
 		"DOTA_Tooltip_Ability_medusa_seal_attribute_Description"	"Upgrades <font color='#58ACFA'>Mystic Eyes of Cybele</font>.\n<font color='#58ACFA'>Bloodfort Andromeda</font> each second forces enemies to move towards it's center, restricting them from doing anything for a short duration."
 
 		"DOTA_Tooltip_Ability_medusa_monstrous_attribute"		"Attribute: Ancient Beast"
-		"DOTA_Tooltip_Ability_medusa_monstrous_attribute_Description"		"Unlocks <font color='#58ACFA'>Monstrous Strength</font>. \nUsing <font color='#58ACFA'>Monstrous Strength</font> allows Medusa to deal twice her strengths as magic damage, as well as providing her bonus attack speed and strength for a duaration. Each attack while under the effect of Monstrous Strength disarms the target. This ability seal the usage of Bellerophon and Bellerophon II for its duration."
+		"DOTA_Tooltip_Ability_medusa_monstrous_attribute_Description"		"Unlocks <font color='#58ACFA'>Monstrous Strength</font>. \nUsing <font color='#58ACFA'>Monstrous Strength</font> allows Medusa to deal %base_damage% + twice her strengths as magic damage, as well as providing her bonus attack speed and strength for a duaration. Each attack while under the effect of Monstrous Strength disarms the target. This ability seal the usage of Bellerophon and Bellerophon II for its duration."
 		"DOTA_Tooltip_Ability_medusa_monstrous_attribute_duration"			"Duration:"
-		"DOTA_Tooltip_Ability_medusa_monstrous_attribute_disarm_duration"			"Disarm duration:"
+		"DOTA_Tooltip_Ability_medusa_monstrous_attribute_disarm_duration"	"Disarm duration:"
 		"DOTA_Tooltip_Ability_medusa_monstrous_attribute_str_bonus"			"Bonus strength:"
 		"DOTA_Tooltip_Ability_medusa_monstrous_attribute_as_bonus"			"Attack speed bonus:"
 
@@ -2875,13 +2875,13 @@
 		"DOTA_Tooltip_Ability_medusa_chain_attribute_bleed_absorb"		"Bloodfort additional absorb per stack:"
 
 		"DOTA_Tooltip_Ability_medusa_gorgon_attribute"		"Attribute: Gorgon Rush"
-		"DOTA_Tooltip_Ability_medusa_gorgon_attribute_Description"		"Unlocks <font color='#58ACFA'>Gorgon Rush</font>.\n<font color='#58ACFA'>Sequence : D -> F in 2 seconds.</font>\nMedusa prepares shortly to dash forward at the insane speed, damaging and pushing back all the enemies on her way."
+		"DOTA_Tooltip_Ability_medusa_gorgon_attribute_Description"		"Unlocks <font color='#58ACFA'>Gorgon Rush</font>.\n<font color='#58ACFA'>Sequence : D -> F in 2 seconds.</font>\nMedusa prepares shortly to dash forward at the insane speed, damaging and pushing back all the enemies on her way.\nDamage is increased based on Medusa's agility."
 		"DOTA_Tooltip_Ability_medusa_gorgon_attribute_range"			"Range:"
 		"DOTA_Tooltip_Ability_medusa_gorgon_attribute_damage"		"Damage:"
 		"DOTA_Tooltip_Ability_medusa_gorgon_attribute_speed"		"Speed:"
-
+		"DOTA_Tooltip_Ability_medusa_gorgon_attribute_damage_per_agi"		"Damage per agility:"
 		"DOTA_Tooltip_Ability_medusa_riding_attribute"		"Attribute: Riding"
-		"DOTA_Tooltip_Ability_medusa_riding_attribute_Description"		"Increases Bellerophon's damage by %bonus_belle_damage% plus %belle_damage% per point of strength.\nIncreases Bellerophon 2's by %bonus_belle2_damage% plus %belle_2_damage% per point of strength. \nAlso increases Bellerophon's range by %attribute_range%"
+		"DOTA_Tooltip_Ability_medusa_riding_attribute_Description"		"Increases Bellerophon's damage by %bonus_belle_damage% plus %belle_damage% per point of agility.\nIncreases Bellerophon 2's by %bonus_belle2_damage% plus %belle_2_damage% per point of agility. \nAlso increases Bellerophon's range by %attribute_range%"
 
 		//=================================================================================================================
 		//	Arash (Babylonia archer)
@@ -3583,7 +3583,7 @@
 		//"DOTA_Tooltip_Ability_sasaki_heart_of_harmony_Note2"		"For 0.5 seconds after counterattack, Assassin cleanses any negative effects on himself and benefits from damage reduction."
 
 		"DOTA_Tooltip_Ability_sasaki_windblade"						"Windblade"
-		"DOTA_Tooltip_ability_sasaki_windblade_Description"			"Kojiro swirls his blade to create slicing wind around him, pushing all enemies away from him, and then proceed to attack each of them, dealing magical damage and rooting them for %stun_duration% seconds.\n0.5 seconds after the slash, enemies are hit with the same damage again."
+		"DOTA_Tooltip_ability_sasaki_windblade_Description"			"Kojiro swirls his blade to create slicing wind around him, pushing all enemies away from him, and then proceed to attack each of them, dealing magical damage, rooting and locking them for %stun_duration% seconds.\n0.5 seconds after the slash, enemies are hit with the same damage again."
 		//\n\n<font color='#79C7F0'>Focus</font>:Increase the number of slashes (does not increase maximum number of slashes) and causes them to stun the enemy on each attack. Kojiro becomes invulnerable and disjoints all projectile while slashing.\n\nKojiro is <font color='#FF5555'>Exhausted</font> when this ability is used.
 		"DOTA_Tooltip_ability_sasaki_windblade_Lore"				"A swing from the wanderer's blade brings forward a squall."
 		"DOTA_Tooltip_ability_sasaki_windblade_radius"				"Radius:"
@@ -4593,11 +4593,11 @@
         "DOTA_Tooltip_Ability_diarmuid_attribute_minds_eye_evasion"			"%Active Evasion:"
 
         "DOTA_Tooltip_Ability_diarmuid_attribute_golden_rose"						"Attribute: Golden Rose of Mortality"
-        "DOTA_Tooltip_ability_diarmuid_attribute_golden_rose_Description"			"Gae Buidhe deals additional damage on the target based on how many times he has been injured by Gae Buidhe as pure damage."
+        "DOTA_Tooltip_ability_diarmuid_attribute_golden_rose_Description"			"Gae Buidhe deals additional damage on the target based on how many times he has been injured by Gae Buidhe as pure damage.\nReduces castpoint of Gae Buidhe by 0.2"
         "DOTA_Tooltip_Ability_diarmuid_attribute_golden_rose_damage_per_stack"		"%Damage Per Stack:"
 
         "DOTA_Tooltip_Ability_diarmuid_attribute_crimson_rose"          		"Attribute: Crimson Rose of Exorcism"
-        "DOTA_Tooltip_ability_diarmuid_attribute_crimson_rose_Description"		"Gae Dearg revokes the target for duration. Gae Dearg also reduces target's maximum mana temporarily."
+        "DOTA_Tooltip_ability_diarmuid_attribute_crimson_rose_Description"		"Gae Dearg revokes the target for duration. Gae Dearg also reduces target's maximum mana temporarily.\nReduces castpoint of Gae Dearg by 0.1."
         "DOTA_Tooltip_Ability_diarmuid_attribute_crimson_rose_revoke_per_stack"	"Revoke Duration:"
         "DOTA_Tooltip_Ability_diarmuid_attribute_crimson_rose_mana_per_stack"	"Mana Reduction:"
         "DOTA_Tooltip_Ability_diarmuid_attribute_crimson_rose_mana_duration"	"Mana Reduction Duration:"
@@ -5230,7 +5230,7 @@
 		//"DOTA_Tooltip_ability_khsn_combo_Note0"	"Hero 'hard' names: Arturia Pendragon, Cu Chulain, Arturia Alter, Emiya, Medusa, Heracles, Sasaki Kojiro, Hassan-i-Sabbah, Medea, Gilgamesh, Lancelot, Angra Mainyu, Diarmuid, Iskander, Gilles de Rais, Nero Claudius, Gawain, Tamamo no Mae, Li Shuwen, Jeanne d'Arc, Astolfo, Nursery Rhyme = Alice, Atalanta, Vlad, Karna, Chloe von Einzbern = Kuro, Jack the Ripper, Okita Souji, Mordred, Atalanta Alter. Hero 'easy' names: Saber, Lancer, Salter, Emiya, Medusa, Pepeg, Sasaki, Hassan, Medea, Gilgamesh, Lancelot, Angra, Diarmuid, Iskander, Gilles, Nero, Gawain, Tamamo, Shuwen, Jeanne, Astolfo, Alice, Atalanta, Vlad, Karna, Chloe, Jack, Okita, Mordred, Atalanta Alter."
 
 		"DOTA_Tooltip_Ability_khsn_boundary_attribute"	"Attribute - At The Boundary"
-		"DOTA_Tooltip_Ability_khsn_boundary_attribute_Description"	"Upgrades Death's Approach and Death's Arrival. Grants additional attack speed for a duration after invisibility.\nChanges Evening Bell passive damage type to pure.\nWhile having this effect, King Hassan will be able to teleport behind enemy's back like from Death's approach ability.\nIncreases Death's approach blink range to 600."
+		"DOTA_Tooltip_Ability_khsn_boundary_attribute_Description"	"Upgrades Death's Approach and Death's Arrival. Grants additional attack speed for a duration after invisibility.\nChanges Evening Bell passive damage type to pure.\nWhile having this effect, King Hassan will be able to teleport behind enemy's back on attack end up to 3 times.\nIncreases Death's approach blink range to 600."
 		"DOTA_Tooltip_Ability_khsn_boundary_attribute_bonus_as"	"Bonus attack speed:"
 		"DOTA_Tooltip_Ability_khsn_boundary_attribute_as_duration"	"Bonus attack speed duration:"
 		//"DOTA_Tooltip_Ability_khsn_boundary_attribute_bonus_range"	"Bonus range:"
@@ -6168,7 +6168,7 @@
         "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_Lore"				""
 
         "DOTA_Tooltip_Ability_jeanne_crimson_saint"				"Combo: La Pucelle - The Crimson Holy Maiden"
-        "DOTA_Tooltip_Ability_jeanne_crimson_saint_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats.</font>\n<font color='#58ACFA'>Combo Sequence : Q self > R in 1 second</font>\n<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>%cast_point%</font>\nJeanne starts a prayer to release her ultimate Noble Phantasm. After a %delay_duration%-second delay she erupts with holy flames, dealing %damage% <font color='#05CAFF'>magical damage</font> to enemies in %radius% radius around her.\nAfter that Jeanne starts to slowly burn herself up, losing %self_damage%%  of her maximum health each second, but dealing %burn_damage% <font color='#05CAFF'>magical damage</font> in %burn_radius% radius each second and burning enemies for %attack_damage%%  of their maximum health as <font color='#05CAFF'>magical damage</font> on her attacks.\nAfter 4 seconds, Jeanne will be able to recast the ability to burn herself with her enemies, <font color='#FFFAFA'>heavily damaging herself</font> and dealing up to %recast_damage% + %recast_hp_damage%%  of her remaining health as <font color='#05CAFF'>magical damage</font> to all enemies in %recast_radius% radius, depending on how far are they from Jeanne."
+        "DOTA_Tooltip_Ability_jeanne_crimson_saint_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats.</font>\n<font color='#58ACFA'>Combo Sequence : Q self > R in 1 second</font>\n<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>%cast_point%</font>\nJeanne starts a prayer to release her ultimate Noble Phantasm. After a %delay_duration%-second delay she erupts with holy flames, dealing %damage% <font color='#05CAFF'>magical damage</font> to enemies in %radius% radius around her.\nAfter that Jeanne starts to slowly burn herself up, losing %self_damage%%  of her maximum health each second, but dealing %burn_damage% <font color='#05CAFF'>magical damage</font> in %burn_radius% radius each second and burning enemies for %attack_damage%%  of their maximum health as <font color='#05CAFF'>magical damage</font> on her attacks.\nAfter 4 seconds, Jeanne will be able to recast the ability to burn herself with her enemies, <font color='#FFFAFA'>heavily damaging herself</font> and dealing up to %recast_damage% + %recast_hp_damage%%  of her remaining health as <font color='#05CAFF'>magical damage</font> to all enemies in %recast_radius% radius, depending on how far are they from Jeanne.\nCombo is 30 seconds long."
         "DOTA_Tooltip_Ability_jeanne_crimson_saint_Note0"		"Maximum damage reduction from distance is 50%%."
 		
 		"DOTA_Tooltip_Ability_jeanne_crimson_saint_la_pucelle"				"Combo: La Pucelle - Final Act"

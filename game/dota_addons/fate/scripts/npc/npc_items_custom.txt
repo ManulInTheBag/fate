@@ -1855,7 +1855,8 @@
 		"precache"
 		{
 			"particle"					"particles/custom/archer/archer_clairvoyance_dust.vpcf"
-			"particle"					"particles/custom/archer/archer_clairvoyance_circle.vpcf"
+			"particle"					"particles/custom/archer/archer_clairvoyance_circle_enemyteam.vpcf"
+			"particle"					"particles/custom/archer/archer_clairvoyance_circle_yourteam.vpcf"
 			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_keeper_of_the_light.vsndevts"
 		}
 

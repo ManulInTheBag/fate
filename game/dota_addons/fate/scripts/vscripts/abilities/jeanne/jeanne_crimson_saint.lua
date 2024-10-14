@@ -62,7 +62,7 @@ function jeanne_crimson_saint:OnSpellStart()
 	
 	Timers:CreateTimer(3, function()
 		if caster:IsAlive() and not caster:HasModifier("round_pause") then
-			caster:AddNewModifier( self:GetCaster(), self, "modifier_jeanne_crimson_saint", {} )
+			caster:AddNewModifier( self:GetCaster(), self, "modifier_jeanne_crimson_saint", {duration = 30} )
 			
 			local blastFx = ParticleManager:CreateParticle("particles/custom/jeanne/jeanne_crimson_saint_burst.vpcf", PATTACH_CUSTOMORIGIN, nil)
 			ParticleManager:SetParticleControl( blastFx, 0, caster:GetAbsOrigin())

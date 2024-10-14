@@ -157,6 +157,7 @@ function modifier_khsn_ambush:OnOrder(args)
     if( args.order_type ~= DOTA_UNIT_ORDER_ATTACK_TARGET ) then return end
     if args.unit ~= self:GetParent() then return end
     if args.target:GetTeamNumber() == args.unit:GetTeamNumber() then return end
+    if (IsServer() and  IsLocked(args.attacker) )then return end
     local targetpos = args.target:GetAbsOrigin()
     local casterpos = args.unit:GetAbsOrigin()
     local distance = (casterpos-targetpos):Length2D()
@@ -171,6 +172,7 @@ end
 function modifier_khsn_ambush:OnAttackStart(args)
     if args.attacker ~= self:GetParent() then return end
     if args.target:GetTeamNumber() == args.attacker:GetTeamNumber() then return end
+    if (IsServer() and  IsLocked(args.attacker) )then return end
     local targetpos = args.target:GetAbsOrigin()
     local casterpos = args.attacker:GetAbsOrigin()
     local distance = (casterpos-targetpos):Length2D()
@@ -219,9 +221,20 @@ end
 modifier_khsn_ambush_as = class({})
 
 function modifier_khsn_ambush_as:DeclareFunctions()
-	return {MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT, MODIFIER_EVENT_ON_ORDER, MODIFIER_EVENT_ON_ATTACK_START}
+	return {MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
+     --MODIFIER_EVENT_ON_ORDER,
+      MODIFIER_EVENT_ON_ATTACK_FINISHED}
 end
-
+function modifier_khsn_ambush_as:OnCreated()
+    if IsServer() then 
+        self:SetStackCount(3)   
+    end    
+end
+function modifier_khsn_ambush_as:OnRefresh()
+    if IsServer() then 
+        self:SetStackCount(3)   
+    end  
+end
 function modifier_khsn_ambush_as:IsHidden() return false end
 function modifier_khsn_ambush_as:IsDebuff() return false end
 
@@ -240,13 +253,17 @@ function modifier_khsn_ambush_as:OnOrder(args)
         FindClearSpaceForUnit(args.unit, targetpos + args.target:GetForwardVector() * -50, true)
     end
 end
-function modifier_khsn_ambush_as:OnAttackStart(args)
+function modifier_khsn_ambush_as:OnAttackFinished(args)
     if args.attacker ~= self:GetParent() then return end
     if args.target:GetTeamNumber() == args.attacker:GetTeamNumber() then return end
+    if (IsServer() and  IsLocked(args.attacker) )then return end
+    if self:GetStackCount() <= 0 then return end
+    
     local targetpos = args.target:GetAbsOrigin()
     local casterpos = args.attacker:GetAbsOrigin()
     local distance = (casterpos-targetpos):Length2D()
     if distance < 350 then 
+        self:SetStackCount(self:GetStackCount() - 1 )
         FindClearSpaceForUnit(args.attacker, targetpos + args.target:GetForwardVector() * -50, true)
     end
 end

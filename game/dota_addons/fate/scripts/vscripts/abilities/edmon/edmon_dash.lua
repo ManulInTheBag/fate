@@ -9,7 +9,22 @@ function edmon_dash:OnAbilityPhaseStart()
 
 	return true
 end
-
+function edmon_dash:CastFilterResultTarget(hTarget)
+    local caster = self:GetCaster()
+    if IsServer() and not IsInSameRealm(caster:GetAbsOrigin(), hTarget:GetAbsOrigin()) then
+        return UF_FAIL_CUSTOM
+    else
+        return UF_SUCESS
+    end
+end
+function edmon_dash:GetCustomCastErrorTarget(hTarget)
+    local caster = self:GetCaster()
+    if IsServer() and not IsInSameRealm(caster:GetAbsOrigin(), hTarget:GetAbsOrigin()) then
+        return "Can't cast into reality marble"
+    else
+        return UF_SUCESS
+    end
+end
 function edmon_dash:OnAbilityPhaseInterrupted()
 	local caster = self:GetCaster()
 	caster:RemoveModifierByName("modifier_edmon_dash_particle")

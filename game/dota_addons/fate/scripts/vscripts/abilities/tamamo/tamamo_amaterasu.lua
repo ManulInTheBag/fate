@@ -30,7 +30,10 @@ local spellBooks = {
     "tamamo_fiery_heaven",
     "tamamo_frigid_heaven",
     "tamamo_gust_heaven",
-    "tamamo_void_heaven"
+    "tamamo_void_heaven",
+	"robin_tools",
+	"robin_tools_close",
+	"vlad_rebellious_intent",
 }
 
 tamamo_amaterasu = class({})
