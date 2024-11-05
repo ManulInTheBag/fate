@@ -2450,9 +2450,10 @@
 		"DOTA_Tooltip_ability_cu_chulain_prot_arrows_attribute_duration"		"Active Duration:"
 
 		"DOTA_Tooltip_Ability_cu_chulain_death_flight_attribute"				"Attribute: The Spear of Striking Death Flight"
-		"DOTA_Tooltip_ability_cu_chulain_death_flight_attribute_Description"	"Increases damage dealt by The Spear of Striking Death Flight and its cast range."
+		"DOTA_Tooltip_ability_cu_chulain_death_flight_attribute_Description"	"Increases damage dealt by The Spear of Striking Death Flight, based on Cu's agility and its cast range."
 		"DOTA_Tooltip_ability_cu_chulain_death_flight_attribute_Lore"			"If he tried, he could even throw it to as far as the other side of earth.\nShirou Emiya."
 		"DOTA_Tooltip_ability_cu_chulain_death_flight_attribute_bonus_damage"	"Bonus Damage:"
+		"DOTA_Tooltip_ability_cu_chulain_death_flight_attribute_damage_per_agi"	"Damage per agi:"
 		"DOTA_Tooltip_ability_cu_chulain_death_flight_attribute_bonus_range"	"Bonus Range:"
 
 		"DOTA_Tooltip_Ability_cu_chulain_heartseeker_attribute"				"Attribute: The Heartseeker"
@@ -3445,7 +3446,7 @@
 		"DOTA_Tooltip_Ability_okita_seigan_Lore" "It's over."
 
 		"DOTA_Tooltip_Ability_okita_sandanzuki"		"Mumyou Sandan-Zuki"
-		"DOTA_Tooltip_Ability_okita_sandanzuki_Description"	"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>%cast_point%</font>, <font color='#7FFF00'>%cast_point_steps%</font>, <font color='#7FFF00'>%cast_point_steps%</font>, <font color='#7FFF00'>%cast_point_steps%</font>\nOkita prepares her ultimative technique - Lightless, Three-Stage Thrust. Performing it includes 3 steps, the final step is combined with slash.\nOkita has %window_duration% seconds to complete it.\nAfter completing them, the one and only target will suffer huge <font color='#D1A951'>pure</font> damage dealt 3 times after a delay.\nEach damage impact removes Intervention damage reduction modifier after dealing it's damage."
+		"DOTA_Tooltip_Ability_okita_sandanzuki_Description"	"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>%cast_point%</font>, <font color='#7FFF00'>%cast_point_steps%</font>, <font color='#7FFF00'>%cast_point_steps%</font>, <font color='#7FFF00'>%cast_point_steps%</font>\nOkita prepares her ultimative technique - Lightless, Three-Stage Thrust. Performing it includes 3 steps, the final step is combined with slash.\nOkita has %window_duration% seconds to complete it.\nAfter completing them, the one and only target will suffer huge <font color='#D1A951'>pure</font> damage dealt 3 times after a delay."
 		"DOTA_Tooltip_Ability_okita_sandanzuki_distance"	"Step distance:"
 		"DOTA_Tooltip_Ability_okita_sandanzuki_base_damage"	"Impact damage:"
 		"DOTA_Tooltip_Ability_okita_sandanzuki_delay_duration"	"Delay duration:"
@@ -3703,7 +3704,7 @@
 		"npc_dota_hero_bounty_hunter_bio"	""
 		
 		"DOTA_Tooltip_Ability_true_assassin_dirk"				"Dirks"
-		"DOTA_Tooltip_ability_true_assassin_dirk_Description"	"Throws all daggers he has at target enemy, dealing damage and applying a poison that <font color='#FF3399'>slows</font> for %poison_duration% seconds. Number of daggers available in stock recharges every %restock_dur% seconds. Additionaly deal part of Hassan's agility as magic damage if thrown while self modification is active.\nApplies poison dealing damage over time depending on the amount of Weakening Wenom stacks."
+		"DOTA_Tooltip_ability_true_assassin_dirk_Description"	"Throws all daggers he has at target enemy, dealing damage and applying a poison that <font color='#FF3399'>slows</font> for %poison_duration% seconds. Number of daggers available in stock recharges every %restock_dur% seconds. Additionaly deal part of Hassan's agility as magic damage if thrown while self modification is active.\nApplies poison dealing damage over time depending on the amount of Weakening Wenom and Dirk poison stacks."
 		"DOTA_Tooltip_ability_true_assassin_dirk_Lore"			"The hunter's call begins with flurry of daggers, coated in poison."
 		"DOTA_Tooltip_ability_true_assassin_dirk_damage"		"Damage:"
 		"DOTA_Tooltip_ability_true_assassin_dirk_atk_ratio"		"%Attack Ratio:"
@@ -4320,7 +4321,7 @@
 		"DOTA_Tooltip_Ability_lancelot_attribute_improve_koh_arsenal_Note0" "Arsenal Contents:\nE Lvl 1 - Caliburn\nE Lvl 2 - Snatch Strike\nE Lvl 3 - Windblade\nE Lvl 4 - The Spear of Striking Death Flight\nE Lvl 5 - Gae Daerg"
 
 		"DOTA_Tooltip_Ability_lancelot_attribute_kotl"         				"Attribute: Knight of the Lake"
-        "DOTA_Tooltip_Ability_lancelot_attribute_kotl_Description"			"Multiplies the parameters granted by Arondight by 3. Applies a strong dispel when Arondight is activated."
+        "DOTA_Tooltip_Ability_lancelot_attribute_kotl_Description"			"Multiplies the parameters granted by Arondight by 2. Applies a strong dispel when Arondight is activated."
 
         "DOTA_Tooltip_Ability_lancelot_attribute_kotl_Lore"					"The wielder of Arondight is said to be the perfect knight, unrivaled out of those who set at the Round Table of Camelot."
         //"DOTA_Tooltip_Ability_lancelot_attribute_kotl_crit_rate"         "%CRITICAL RATE:"
@@ -5687,7 +5688,7 @@
         "DOTA_Tooltip_ability_gawain_excalibur_galatine_duration"		"FIRE DURATION:"
 
         "DOTA_Tooltip_ability_gawain_excalibur_galatine_combo"				"Combo: Galatine Supernova"
-        "DOTA_Tooltip_ability_gawain_excalibur_galatine_combo_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : W Q - R in 5 seconds</font>\nGathers the power of a supernova and explodes it, dealing huge <font color='#58ACFA'>damage</font> in radius (the further your enemy stands, the less damage it takes), burning all the enemies in radius up and <font color='#FF3399'>stunning</font> them for <font color='#FFFAFA'>0.3</font>  seconds.\nAfter the explosion Gawain gains 60 in all attributes for 12 seconds.\nEach <font color='#FDB813'>Artificial sun</font> in explosion radius will explode in 800 radius, dealing <font color='#58ACFA'>damage</font> and dissapearing.\nAll enemies hit receive a debuff for <font color='#FFFAFA'>6</font> seconds, which will grant vision on them and reduce their <font color='#FFFAFA'>armor</font> and <font color='#FFFAFA'>magic resistance</font> by <font color='#FFFAFA'>30-50%%</font> and <font color='#FFFAFA'>5-15%%</font> based on distance from Gawain."
+        "DOTA_Tooltip_ability_gawain_excalibur_galatine_combo_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : W Q - R in 5 seconds</font>\nGathers the power of a supernova and explodes it, dealing huge <font color='#58ACFA'>damage</font> in radius (the further your enemy stands, the less damage it takes), burning all the enemies in radius up and <font color='#FF3399'>stunning</font> them for <font color='#FFFAFA'>0.3</font>  seconds.\nAfter the explosion Gawain gains 60 in all attributes for 12 seconds.\nEach <font color='#FDB813'>Artificial sun</font> in explosion radius will explode in 650 radius, dealing <font color='#58ACFA'>damage</font> and dissapearing.\nAll enemies hit receive a debuff for <font color='#FFFAFA'>6</font> seconds, which will grant vision on them and reduce their <font color='#FFFAFA'>armor</font> and <font color='#FFFAFA'>magic resistance</font> by <font color='#FFFAFA'>30-50%%</font> and <font color='#FFFAFA'>5-15%%</font> based on distance from Gawain."
         "DOTA_Tooltip_ability_gawain_excalibur_galatine_combo_Lore"		"The sister sword of Excalibur contains psuedo-Sun within its hilt, purging the evil with solar flame."
         "DOTA_Tooltip_ability_gawain_excalibur_galatine_combo_cast_delay"		"CAST DELAY:"
         "DOTA_Tooltip_ability_gawain_excalibur_galatine_combo_damage"			"DAMAGE:"
@@ -6513,7 +6514,7 @@
         "DOTA_Tooltip_Ability_astolfo_attribute_sanity_Description"			"Hippogriff: Vanish <font color='#FF3399'>stuns</font> target on exit. Astolfo becomes invulnerable and untargetable when he uses Hippogriff: Vanish. If the target is hit by Hippogriff: Vanish, Astolfo reappears beside his target. \nEnables usage of Casa di Logistilla - magic-protection type Phantasm. \nTrap of argalia Astolfo performs an attack against all enemies hit by the ability applying all on-hit effects."
 
         "DOTA_Tooltip_Ability_astolfo_deafening_blast_attribute"					"Attribute: Deafening Blast"
-        "DOTA_Tooltip_Ability_astolfo_deafening_blast_attribute_Description"		"La Black Luna's blast and push away all enemies within %area_of_effect% range on activation, as well as disjointing all disjointable projectiles, muting and slowing all enemies for 99% for 1 second.\nEach La Black Luna tick deals 150 more damage. Enemies pushed away this way are dealt 500 magical damage. \nIf Astolfo finishes casting without being interrupted, he will release an additional wave in 900 radius, that will deal 1000 pure damage, mute and slow all enemies for 99% for 2 seconds."
+        "DOTA_Tooltip_Ability_astolfo_deafening_blast_attribute_Description"		"La Black Luna's blast and push away all enemies within %area_of_effect% range on activation, as well as disjointing all disjointable projectiles, muting and slowing all enemies for 99% for 1 second.\nEach La Black Luna tick deals 150 more damage. Enemies pushed away this way are dealt 500 magical damage. \nIf Astolfo finishes casting without being interrupted, he will release an additional wave in 900 radius, that will deal 300 + STR * 10 pure damage, mute and slow all enemies for 99% for 2 seconds."
 
         //====================================
         //      Caster(Extra) - Nursery Rhyme
@@ -6549,12 +6550,12 @@
         "DOTA_Tooltip_Ability_nursery_rhyme_white_queens_enigma_lock_duration"	"Lock duration:"
 
         "DOTA_Tooltip_Ability_alice_enigma"							"White Queen's Enigma"
-        "DOTA_Tooltip_Ability_alice_enigma_Description"				"Launches an enigmatic force in a line. Enemies hit by this ability take magical damage and are <font color='#FF6699'>stunned</font> for %stun_duration% seconds.\nAfter that they are <font color='#FF6699'>slowed</font> by %slow_pct%%% for a longer duration, while taking magical damage based on their current health.\nReveals hit enemies briefly."
+        "DOTA_Tooltip_Ability_alice_enigma_Description"				"Launches an enigmatic force in a line. Enemies hit by this ability take magical damage.\nAfter that they are <font color='#FF6699'>slowed</font> by %slow_pct%%% for a  duration, while taking magical damage based on their current health.\nReveals hit enemies briefly."
         "DOTA_Tooltip_Ability_alice_enigma_damage"							"Damage:"
         "DOTA_Tooltip_Ability_alice_enigma_duration"						"Slow duration:"
         "DOTA_Tooltip_Ability_alice_enigma_slow"							"%Slow:"
         "DOTA_Tooltip_Ability_alice_enigma_perc_damage_per_second"			"%Damage per second:"
-        "DOTA_Tooltip_Ability_alice_enigma_stun_duration"					"Stun duration:"
+        //"DOTA_Tooltip_Ability_alice_enigma_stun_duration"					"Stun duration:"
 
         "DOTA_Tooltip_Ability_nursery_rhyme_the_plains_of_water"				"The Plains of Water"
         "DOTA_Tooltip_Ability_nursery_rhyme_the_plains_of_water_Description"	"Hurls a frost bolt that bounces through nearby enemy units. Each bounce increases bolt's damage by %dmg_reduction%%% and applies a very brief slow immunity piercing slow."
@@ -6608,11 +6609,12 @@
         "DOTA_Tooltip_Ability_nursery_rhyme_queens_glass_game_old_upkeep_mana_cost"		"%UPKEEP MANA COST PER SEC:"
 
 	"DOTA_Tooltip_Ability_alice_tea_party"						"Combo: Alice Tea Party"
-        "DOTA_Tooltip_Ability_alice_tea_party_Description"				"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: R-D in 6 seconds</font>\n\nCaster uses her Reality Marble to start a tea party. Once it's started, all enemies inside the radius start gaining stacks of Memory Loss at a rapid rate. Whenever Memory Loss reaches 100 stacks, they lose all their memories, take damage, based on difference between their's and Caster's intellect and become <font color='#58ACFA'>silenced</font> and <font color='#58ACFA'>revoked</font> for 1 second."
+        "DOTA_Tooltip_Ability_alice_tea_party_Description"				"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: R-D in 6 seconds</font>\n\nCaster uses her Reality Marble to start a tea party. Once it's started, all enemies inside the radius start gaining stacks of Memory Loss at a rapid rate. Whenever Memory Loss reaches 100 stacks, they lose all their memories, take damage, and become <font color='#58ACFA'>silenced</font> and <font color='#58ACFA'>revoked</font> for 1 second."
 	"DOTA_Tooltip_Ability_alice_tea_party_radius"					"Radius:"
 	"DOTA_Tooltip_Ability_alice_tea_party_form_delay"				"Form delay:"
 	"DOTA_Tooltip_Ability_alice_tea_party_duration"					"Duration:"
-	"DOTA_Tooltip_Ability_alice_tea_party_damage_per_int"			"Damage per intellect:"
+	//"DOTA_Tooltip_Ability_alice_tea_party_damage_per_int"			"Damage per intellect:"
+	"DOTA_Tooltip_Ability_alice_tea_party_damage"					"Damage:"
 	"DOTA_Tooltip_Ability_alice_tea_party_stacks_per_second"		"Memory Loss per second:"
         "DOTA_Tooltip_Ability_alice_tea_party_Lore"					"... 'cause we knew that for sure you and us will have a whole lotta fun playing together~"
 
@@ -8012,7 +8014,7 @@
         "DOTA_Tooltip_ability_jtr_information_erase_attribute_cooldown"			"Cooldown:"
 
         "DOTA_Tooltip_ability_jtr_efficient_killer_attribute"					"Attribute: Efficient Killer"
-        "DOTA_Tooltip_ability_jtr_efficient_killer_attribute_Description"		"Maria The Ripper does additional 0.6 damage per point of her agility (0.75 to females) on common strikes and 0.75 (1 to females) on finihsing blow. \nIf it is night and it is misty, Maria the Ripper will have increased cast range."
+        "DOTA_Tooltip_ability_jtr_efficient_killer_attribute_Description"		"Maria The Ripper does additional 0.5 damage per point of her agility (0.7 to females) on common strikes and 0.6 (0.8 to females) on finihsing blow. \nIf it is night and it is misty, Maria the Ripper will have increased cast range."
 	"DOTA_Tooltip_ability_jtr_efficient_killer_attribute_radius"	"No-vision search radius:"
 	"DOTA_Tooltip_ability_jtr_efficient_killer_attribute_cast_range"	"Night & mist cast range:"
 
@@ -8113,7 +8115,10 @@
 		"DOTA_Tooltip_modifier_saito_mind_eye_linken_Description"									"The next targeted spell will be blocked."
 
 		"DOTA_Tooltip_modifier_saito_mind_eye_agility"												"Snarksengumi"
-		"DOTA_Tooltip_modifier_saito_mind_eye_agility_Description"									"Gaining bonus %dMODIFIER_PROPERTY_STATS_AGILITY_BONUS% agility permanently from Hajime-chan."
+		"DOTA_Tooltip_modifier_saito_mind_eye_agility_Description"									"Gaining bonus %dMODIFIER_PROPERTY_STATS_AGILITY_BONUS% agility from Hajime-chan."
+
+		"DOTA_Tooltip_modifier_saito_mind_eye_strength"												"Snarksengumi"
+		"DOTA_Tooltip_modifier_saito_mind_eye_strength_Description"									"Gaining bonus %dMODIFIER_PROPERTY_STATS_STRENGTH_BONUS% strength from Hajime-chan."
 
 		//Freely Drawn Sword
 		"DOTA_Tooltip_ability_saito_fds"															"Freely Drawn Sword"
@@ -8303,7 +8308,7 @@
 
 		//Memoir
 		"DOTA_Tooltip_ability_saito_attribute_memoir"												"Attribute: Memoir"
-		"DOTA_Tooltip_ability_saito_attribute_memoir_Description"									"<font color='#0075B5'>Mind’s Eye (True)</font>: applies powerful dispel to Saitō and the target ally and gives both of them <font color='#FFDC60'>Cicada Shell</font> for %me_shell_duration% seconds. Increases max health bonus by %me_hp_bonus%.\n<font color='#FFDC60'>Cicada Shell</font>: provides %me_shell_block%%% damage resistance and blocks most targeted spells once every %me_shell_duration% seconds.\nEnables Special Effect: <font color='#FFDC60'>Snarksengumi</font>.\n<font color='#FFDC60'>Snarksengumi</font>: When used on Okita Souji, <font color='#0075B5'>Mind’s Eye (True)</font> increases her agility by %me_okita_agility% for the duration. Stacked with itself."
+		"DOTA_Tooltip_ability_saito_attribute_memoir_Description"									"<font color='#0075B5'>Mind’s Eye (True)</font>: applies powerful dispel to Saitō and the target ally and gives both of them <font color='#FFDC60'>Cicada Shell</font> for %me_shell_duration% seconds. Increases max health bonus by %me_hp_bonus%.\n<font color='#FFDC60'>Cicada Shell</font>: provides %me_shell_block%%% damage resistance and blocks most targeted spells once every %me_shell_duration% seconds.\nEnables Special Effect: <font color='#FFDC60'>Snarksengumi</font>.\n<font color='#FFDC60'>Snarksengumi</font>: When used on Okita Souji, <font color='#0075B5'>Mind’s Eye (True)</font> increases her agility by %me_okita_agility% for the duration.<br>When used on Hijikata Toshizo, increases his Strength by %me_okita_agility% for the duration.<br>Stacked with itself."
 		"DOTA_Tooltip_ability_saito_attribute_memoir_Lore"											"The lone Shinsengumi who fought through the turbulent age of the Bakumatsu and survived. No one knows about his true thoughts."
 		//"DOTA_Tooltip_ability_saito_attribute_memoir_me_hp_bonus"									""
 		//"DOTA_Tooltip_ability_saito_attribute_memoir_me_shell_duration"							""
@@ -8364,7 +8369,7 @@
 	 
 
         "DOTA_Tooltip_ability_merlin_illusion"					"Illusion"
-        "DOTA_Tooltip_ability_merlin_illusion_Description"	 	"<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>0.2       </font><font color='#FFFAFA'>|  Delay</font>:<font color='#7FFF00'> 0.85</font>\nMerlin creates an illusion in <font color='#FFFAFA'>radius</font>, sending enemies to <font color='#FF3399'>sleep</font> after a <font color='#FFFAFA'>delay</font>.\n<font color='#FF3399'>Sleep</font> duration <font color='#FFFAFA'>decreases</font> with amount of enemies affected.\nEnemy will <font color='#FFFAFA'>awake</font> if  <font color='#FFFAFA'>total damage</font> he received under <font color='#FF3399'>sleep</font> effect will be greater than threshold.\nEach <font color='#FFFAFA'>0.25</font> seconds enemy will take <font color='#D1A951'>pure</font> damage while <font color='#FF3399'>sleeping</font>.\nIf same enemy gets caught in sleep more than once in <font color='#FFFAFA'>5</font> seconds, sleep duration will be <font color='#FFFAFA'>minimazed</font> for that enemy."
+        "DOTA_Tooltip_ability_merlin_illusion_Description"	 	"<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>0.2       </font><font color='#FFFAFA'>|  Delay</font>:<font color='#7FFF00'> 0.85</font>\nMerlin creates an illusion in <font color='#FFFAFA'>radius</font>, sending enemies to <font color='#FF3399'>sleep</font> after a <font color='#FFFAFA'>delay</font>.\n<font color='#FF3399'>Sleep</font> duration <font color='#FFFAFA'>decreases</font> with amount of enemies affected.\nEnemy will <font color='#FFFAFA'>awake</font> if  <font color='#FFFAFA'>total damage</font> he received under <font color='#FF3399'>sleep</font> effect will be greater than threshold.\nEach <font color='#FFFAFA'>0.25</font> seconds enemy will take <font color='#58ACFA'>damage</font> while <font color='#FF3399'>sleeping</font>.\nIf same enemy gets caught in sleep more than once in <font color='#FFFAFA'>5</font> seconds, sleep duration will be <font color='#FFFAFA'>minimazed</font> for that enemy."
         "DOTA_Tooltip_ability_merlin_illusion_basic_duration"			"Sleep base duration:"
         "DOTA_Tooltip_ability_merlin_illusion_min_duration"				"Sleep minimum duration:"
         "DOTA_Tooltip_ability_merlin_illusion_damage_to_awake"			"Damage to awake:"
@@ -9048,15 +9053,177 @@
         //====================================
         "npc_dota_hero_spirit_breaker"						"Hijikata Toshizo"
 
-		"npc_dota_hero_spirit_breaker"					""
-		"npc_dota_hero_spirit_breaker"						""
-        "DOTA_Tooltip_ability_hijikata_laws"							"Laws of Shinsengumi"
-        "DOTA_Tooltip_ability_hijikata_laws_Description"			"Hijikata abides a set of rules, which when breaked grants him addional attack damage, but damage him in return.\nWhen all of the Laws are broken, Hijikata becomes stunned for a duration and takes even more damage, when the stun expires, all of stacks expire too.\nLaws:\n<font color='#FFFAFA'>Samurai code</font>: will be broken when Hijikata uses this ability.\n<font color='#FFFAFA'>Prohidition of personal conflict</font>: Broken when Hijikata uses his Duel ability.\n<font color='#FFFAFA'>Escaping from office</font>: Broken when Hijikata uses blink scroll to the position, where there is no enemies, if before that he had an enemy in %check_range% radius.\n<font color='#FFFAFA'>Raising money</font>: Broken when Hijikata kills an enemy or gets an assist."
-        "DOTA_Tooltip_ability_nobu_guns_base_dmg"					"Base dmg:"
-        "DOTA_Tooltip_ability_nobu_guns_dmg_per_lvl"					"Dmg per level:"
-        "DOTA_Tooltip_ability_nobu_guns_amount"					"Active guns amount:"
-        "DOTA_Tooltip_ability_nobu_guns_Lore"						"Guns will never be of value on the battlefield. That was what everybody thought at the time. Then I just need to gather a whole bunch of them and fire away right?"
-         
+        "DOTA_Tooltip_ability_hijikata_dash"							"Madman shot"
+        "DOTA_Tooltip_ability_hijikata_dash_Description"			"Cast Point: <font color='#FFFFF9'>0.2</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Hijikata shoots his gun in the targeted direction, dealing <font color='#58ACFA'>magical</font> damage on hit.\nIf Hijikata succesfully landed his shot, he is able to recast this ability, into <font color='#58ACFA'>Battle drive</font>.\n<font color='#58ACFA'>Battle drive</font>: Hijikata dashes to the target that was hit by the <font color='#58ACFA'>Madman shot</font>, upon reaching the target, he deals <font color='#58ACFA'>magical</font> damage to the target.\nHijikata is unable to cast <font color='#58ACFA'>Battle drive</font> if target is too far away from him.\n<font color='#58ACFA'>Battle drive</font> is canceled if target blinks.\nTarget is visible to Hijikata while <font color='#58ACFA'>Battle drive</font> recast is available."
+        "DOTA_Tooltip_ability_hijikata_dash_distance"							"Range:"
+        "DOTA_Tooltip_ability_hijikata_dash_speed"								"Bullet speed:"
+        "DOTA_Tooltip_ability_hijikata_dash_recast_duration"					"Recast duration:"
+        "DOTA_Tooltip_ability_hijikata_dash_damage"								"Damage:"
+        "DOTA_Tooltip_ability_hijikata_dash_damage_second"						"Battle drive damage:"
+        "DOTA_Tooltip_ability_hijikata_dash_Lore"							"Battlefield with a lot of men is where Hijikata shines the best, being able to find perfect opportunity to strike down even the most guarded target."
+
+
+        "DOTA_Tooltip_ability_hijikata_dash_recast"							"Battle drive"
+        "DOTA_Tooltip_ability_hijikata_dash_recast_Description"			"Cast Point: <font color='#FFFFF9'>0.0</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Hijikata dashes to the target that was hit by the <font color='#58ACFA'>Madman shot</font>, upon reaching the target, he deals <font color='#58ACFA'>magical</font> damage to the target.\nHijikata is unable to cast <font color='#58ACFA'>Battle drive</font> if target is too far away from him.\n<font color='#58ACFA'>Battle drive</font> is canceled if target blinks."
+        "DOTA_Tooltip_ability_hijikata_dash_recast_distance"							"Range:"
+        "DOTA_Tooltip_ability_hijikata_dash_recast_speed"								"Fly speed:"
+        "DOTA_Tooltip_ability_hijikata_dash_recast_damage"								"Damage:"
+        "DOTA_Tooltip_ability_hijikata_dash_Lore"										"Battlefield with a lot of men is where Hijikata shines the best, being able to find perfect opportunity to strike down even the most guarded target."
+
+        "DOTA_Tooltip_ability_hijikata_demon"							"Demon of the battlefield"
+        "DOTA_Tooltip_ability_hijikata_demon_Description"			"Cast Point: <font color='#FFFFF9'>0.2</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Hijikata blinks to the target enemy, dealing <font color='#58ACFA'>magical</font> damage to the target and gains buff, which increases his <font color='#FFFAFA'>attack speed</font> by a flat value and grants him special <font color='#ff9900'>on hit damage</font> effect.\nThis effect deals percentage of difference between Hijikata and enemy <font color='#ACFF05'>health</font> values as <font color='#58ACFA'>magical</font> damage on every attack for a duration."
+        "DOTA_Tooltip_ability_hijikata_demon_damage"								"Damage:"
+        "DOTA_Tooltip_ability_hijikata_demon_buff_duration"							"Buff duration:"
+        "DOTA_Tooltip_ability_hijikata_demon_as_value"								"Attack speed bonus:"
+        "DOTA_Tooltip_ability_hijikata_demon_hp_percentage_diff_to_damage"			"%Health difference to damage:"
+        "DOTA_Tooltip_ability_hijikata_demon_Lore"										"The way Hijikata fights, just like that of a demon, sometimes strikes fear even towards his allies. No matter how bad his condition is, his power never withers."
+
+        "DOTA_Tooltip_ability_hijikata_duel"							"Duel"
+        "DOTA_Tooltip_ability_hijikata_duel_Description"			"Cast Point: <font color='#FFFFF9'>0.3</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Hijikata declares <font color='#ff9900'>Duel</font> to the target enemy, creating a <font color='#FFFAFA'>territory</font> which him and his enemy <font color='#FF3399'>cannot leave</font> for a duration, or until one of them <font color='#FF3399'>dies</font>.\nWhile Duel persists, effects apply:\nHijikata and his target deal <font color='#FFFAFA'>more</font> damage to each other\nHijikata takes <font color='#FFFAFA'>less</font> damage from all other enemies\nHijikata deals <font color='#FFFAFA'>less</font> damage to all other enemies.\nOnly one duel can persist at a time."
+        "DOTA_Tooltip_ability_hijikata_duel_dmg_res"							"%Damage reduction:"
+        "DOTA_Tooltip_ability_hijikata_duel_duration"							"Duration:"
+        "DOTA_Tooltip_ability_hijikata_duel_dmg_increase"						"%Damage increase:"
+        "DOTA_Tooltip_ability_hijikata_duel_radius"								"Radius:"
+        "DOTA_Tooltip_ability_hijikata_duel_cast_range"							"Cast range:"
+        "DOTA_Tooltip_ability_hijikata_duel_Lore"										"Hijikata's madness drives him to break Shinsengumi codex if it is required, which often only increases his chances on winning the duel."
+
+        "DOTA_Tooltip_ability_hijikata_madness"							"Madness"
+        "DOTA_Tooltip_ability_hijikata_madness_Description"			"Cast Point: <font color='#FFFFF9'>0.5</font>s    |    <font color='#EE5C29'>Unrefreshable</font><br><br>Hijikata goes insane for a short moment, gaining <font color='#ff9900'>immune to crowd control effects</font> buff for a short time.\nIf Hijikata's health percentage is less then <font color='#FFFAFA'>25%%</font>, this ability becomes <font color='#FFFAFA'>instant cast</font> and stun-castable."
+        "DOTA_Tooltip_ability_hijikata_madness_duration"								"Duration:"
+        "DOTA_Tooltip_ability_hijikata_madness_Lore"							"Hijikata is driven by intense self-confidence that spurs his insanity. He believes that as long as he remains, the Shinsengumi shall never die."
+
+        "DOTA_Tooltip_ability_hijikata_laws"							"Shinsengumi codex"
+        "DOTA_Tooltip_ability_hijikata_laws_Description"			"Cast Point: <font color='#FFFFF9'>0.0</font>s    |    <font color='#EE5C29'>Unrefreshable</font><br><br><font color='#FFFAFA'>PASSIVE:</font> Hijikata abides a set of rules, which when breaked grants him addional <font color='#FFFAFA'>attack damage</font> and <font color='#ACFF05'>health</font>, but deal <font color='#D1A951'>damage</font> based on Hijikata's maximum health to him in return.\nWhen all of the Laws are broken, Hijikata becomes <font color='#FF3399'>stunned</font> for a duration and takes even more <font color='#D1A951'>damage</font>, when the stun expires, all of stacks expire too.\nLaws:\n<font color='#FFFAFA'>Samurai code</font>: will be broken when Hijikata uses this ability.\n<font color='#FFFAFA'>Prohidition of personal conflict</font>: Broken when Hijikata uses his <font color='#58ACFA'>Duel</font> ability.\n<font color='#FFFAFA'>Escaping from office</font>: Broken when Hijikata uses blink scroll to the position, where there is no enemies, if before that he had an enemy in %check_range% radius.\n<font color='#FFFAFA'>Raising money</font>: Broken when Hijikata kills an enemy or gets an assist.\n<font color='#FFFAFA'>Stranger assistance</font>: Broken when Hijikata's master uses any command seal except for Intervention and Presence resonator."
+        "DOTA_Tooltip_ability_hijikata_laws_max_stacks"								"Max stacks:"
+        "DOTA_Tooltip_ability_hijikata_laws_dmg_per_stack"						"Attack damage per stack:"
+        "DOTA_Tooltip_ability_hijikata_laws_health_per_stack"						"Health per stack:"
+        "DOTA_Tooltip_ability_hijikata_laws_damage_take_per_stack_percent"			"%Self damage on stack:"
+        "DOTA_Tooltip_ability_hijikata_laws_last_damage_take_per_stack_percent"			"%Self damage on last stack:"
+        "DOTA_Tooltip_ability_hijikata_laws_stun_duration"							"Self stun duration:"
+        "DOTA_Tooltip_ability_hijikata_laws_Lore"							"Even after he threw away his pride as a warrior, Hijikata still aspired to be Shinsengumi, because of that he renders insane when he breaks the codex, up until he is not able to move anymore."
+
+        "DOTA_Tooltip_ability_hijikata_ult"							"Shinsengumi"
+        "DOTA_Tooltip_ability_hijikata_ult_Description"			"Cast Point: <font color='#FFFFF9'>0</font>s. Cast Delay: <font color='#FFFFF9'>%delay%</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Hijikata shoots his gun after a delay, dealing <font color='#58ACFA'>magical</font> damage to all enemies hit, applying a <font color='#9400D3'>slow</font> debuff for a short duration.\nDamage is increased based on Hijikata's lost health percentage, for up to %max_damage_pct_self%%.\nHijikata is pushed back after shooting."
+        "DOTA_Tooltip_ability_hijikata_ult_damage"							"Damage:"
+        "DOTA_Tooltip_ability_hijikata_ult_duration"						"Slow duration:"
+        "DOTA_Tooltip_ability_hijikata_ult_distance"						"Range:"
+        "DOTA_Tooltip_ability_hijikata_ult_knockback_distance"						"Knockback distance:"
+        "DOTA_Tooltip_ability_hijikata_ult_width"							"Width:"
+        "DOTA_Tooltip_ability_hijikata_ult_ms_slow"							"%Slow:"
+        "DOTA_Tooltip_ability_hijikata_ult_max_damage_pct"					"%Maximum SA damage modifier:"
+        "DOTA_Tooltip_ability_hijikata_ult_Lore"										"The Shinsengumi is here, even now."
+
+        "DOTA_Tooltip_ability_hijikata_combo"							"Combo: Unstoppable Shinsengumi"
+        "DOTA_Tooltip_ability_hijikata_combo_Description"			"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.5</font>s\n<font color='#58ACFA'>Combo Requirement: 30 all stats </font>\n<font color='#58ACFA'>Combo Sequence: D - D</font>\nHijikata materializes a battlefield in a wide line for a duration, while gaining <font color='#58ACFA'>Madness</font> for this duration.\nWhile battlefield persists, Hijikata's <font color='#FFFAFA'>speed</font> is set to a value and increases with time, while all of his allies have the <font color='#FFFAFA'>speed</font> increase too, but only inside of the battlefield.\nHijikata is able to cast <font color='#58ACFA'>Unstoppable Shinsengumi</font> 3 times:\nFirst strike: <font color='#FFFAFA'>target blink</font> to the enemy, dealing <font color='#58ACFA'>magical</font> damage, performing one attack and <font color='#FF3399'>stunning</font>.\nSecond strike:Frontal slash, which deals <font color='#58ACFA'>magical</font> damage and <font color='#FF3399'>stuns</font> all enemies hit,\nThird strike: improved version of <font color='#58ACFA'>Shinsengumi</font> ability, dealing more <font color='#58ACFA'>damage</font> with higher range and width.\nCombo does not end when all strikes are casted, but they cannot be cast again."
+        "DOTA_Tooltip_ability_hijikata_combo_duration"										"Duration:"
+        "DOTA_Tooltip_ability_hijikata_combo_width"											"Width:"
+        "DOTA_Tooltip_ability_hijikata_combo_distance"										"Distance:"
+        "DOTA_Tooltip_ability_hijikata_combo_ally_speed"									"Ally base speed:"
+        "DOTA_Tooltip_ability_hijikata_combo_hijikata_speed"								"Hijikata base speed:"
+        "DOTA_Tooltip_ability_hijikata_combo_ally_speed_per_second"							"Ally speed increase per second:"
+        "DOTA_Tooltip_ability_hijikata_combo_hijikata_speed_per_second"						"Hijikata speed increase per second:"
+        "DOTA_Tooltip_ability_hijikata_combo_stun_duration"									"Strikes stun duration:"
+        "DOTA_Tooltip_ability_hijikata_combo_first_strike_damage"							"First strike damage:"
+        "DOTA_Tooltip_ability_hijikata_combo_first_strike_range"							"First strike range:"
+        "DOTA_Tooltip_ability_hijikata_combo_second_strike_range"							"Second strike range:"
+        "DOTA_Tooltip_ability_hijikata_combo_second_strike_width"							"Second strike width:"
+        "DOTA_Tooltip_ability_hijikata_combo_second_strike_damage"							"Second strike damage:"
+        "DOTA_Tooltip_ability_hijikata_combo_third_strike_damage"							"Third strike damage:"
+        "DOTA_Tooltip_ability_hijikata_combo_third_strike_range"							"Third strike range:"
+        "DOTA_Tooltip_ability_hijikata_combo_third_strike_width"							"Third strike width:"
+
+
+        "DOTA_Tooltip_ability_hijikata_target_dash"							"Unstoppable Shinsengumi: First strike"
+        "DOTA_Tooltip_ability_hijikata_target_dash_Description"			"Cast Point: <font color='#FFFFF9'>0.2</font>s<br><br>Hijikata blinks to the target enemy, dealing <font color='#58ACFA'>magical</font> damage to the target and <font color='#FF3399'>stuns</font> enemy for a duration."
+        "DOTA_Tooltip_ability_hijikata_target_dash_damage"								"Damage:"
+        "DOTA_Tooltip_ability_hijikata_target_dash_range"								"Cast range:"
+        "DOTA_Tooltip_ability_hijikata_target_dash_duration"							"Stun duration:"
+
+
+        "DOTA_Tooltip_ability_hijikata_knockup"							"Unstoppable Shinsengumi: Second strike"
+        "DOTA_Tooltip_ability_hijikata_knockup_Description"			"Cast Point: <font color='#FFFFF9'>0.2</font>s<br><br>Hijikata blinks to the target enemy, dealing <font color='#58ACFA'>magical</font> damage to the target and <font color='#FF3399'>stuns</font> enemy for a duration."
+        "DOTA_Tooltip_ability_hijikata_knockup_damage"								"Damage:"
+        "DOTA_Tooltip_ability_hijikata_knockup_range"								"Cast range:"
+        "DOTA_Tooltip_ability_hijikata_knockup_duration"							"Stun duration:"
+        "DOTA_Tooltip_ability_hijikata_knockup_width"								"Width:"
+
+
+
+	
+		"DOTA_Tooltip_ability_hijikata_shinsengumi_attribute"							"Return to office"
+        "DOTA_Tooltip_ability_hijikata_shinsengumi_attribute_Description"				"Upgrades <font color='#58ACFA'>Duel</font>, making it increase all allies inside <font color='#FFFAFA'>armor</font> and <font color='#FFFAFA'>magic resistance</font> and granting <font color='#ff9900'>disengage</font> effect to the winner of duel.\n<font color='#ff9900'>Disengage</font>: Grants powerfull health and mana regeneration buff.\nUpgrades <font color='#58ACFA'>Shinsengumi</font>, making it refresh cooldown of <font color='#58ACFA'>Madman shot</font>, when any enemy is hit."
+        "DOTA_Tooltip_ability_hijikata_shinsengumi_attribute_armor"								"Duel armor:"
+        "DOTA_Tooltip_ability_hijikata_shinsengumi_attribute_mr"								"%Duel magic resistance:"
+        "DOTA_Tooltip_ability_hijikata_shinsengumi_attribute_health_regen"						"Disengage health regen:"
+        "DOTA_Tooltip_ability_hijikata_shinsengumi_attribute_mana_regen"						"Disengage mana regen:"
+        "DOTA_Tooltip_ability_hijikata_shinsengumi_attribute_regen_duration"					"Disengage duration:"
+
+        "DOTA_Tooltip_ability_hijikata_battle_continuation_attribute"							"Fierce journey"
+        "DOTA_Tooltip_ability_hijikata_battle_continuation_attribute_Description"			"<font color='#EE5C29'>Unrefreshable</font>\n<font color='#FFFAFA'>PASSIVE:</font> Allows Hijikata to instantly activate <font color='#ff9900'>Fierce journey</font>, when his health reaches zero.\n<font color='#ff9900'>Fierce journey</font>: Hijikata <font color='#ACFF05'>restores health</font> for up to 25%%, for 1 second he becomes <font color='#FF3399'>stunned</font> and <font color='#FFFAFA'>invulnerable</font> to any damage, then he activates a 1s  <font color='#58ACFA'>Madness</font>."
+        "DOTA_Tooltip_ability_hijikata_battle_continuation_attribute_cooldown"						"Cooldown:"
+        "DOTA_Tooltip_ability_hijikata_battle_continuation_attribute_health_restored"				"Health restored:"
+ 		"DOTA_Tooltip_ability_hijikata_battle_continuation_attribute_duration"						"Self stun duration:"
+
+        "DOTA_Tooltip_ability_hijikata_eternal_madness_attribute"							"Eternal madness"
+        "DOTA_Tooltip_ability_hijikata_eternal_madness_attribute_Description"			"Upgrades <font color='#58ACFA'>Shinsengumi codex</font>, allowing it to be used multiple times to break rules and increasing bonus damage and health values. Also increases maximum amount of stacks, but does not changes amount that renders Hijikata stunned."
+        "DOTA_Tooltip_ability_hijikata_eternal_madness_attribute_recast_amount"			"Breakable rules by cast:"
+        "DOTA_Tooltip_ability_hijikata_eternal_madness_attribute_bonus_damage"			"Bonus damage per stack:"
+        "DOTA_Tooltip_ability_hijikata_eternal_madness_attribute_bonus_health"			"Bonus health per stack:"
+        "DOTA_Tooltip_ability_hijikata_eternal_madness_attribute_max_stacks"			"New maximum stacks:"
+
+        "DOTA_Tooltip_ability_hijikata_tactics_attribute"							"Tactics"
+        "DOTA_Tooltip_ability_hijikata_tactics_attribute_Description"				"Upgrades <font color='#58ACFA'>Shinsengumi</font>, by increasing its <font color='#58ACFA'>damage</font>, based on enemy lost health percentage. Combo version also benefits from this. \nUpgrades <font color='#58ACFA'>Demon of the battlefield</font> by increasing its <font color='#58ACFA'>damage</font> by a flat value and adding a <font color='#9400D3'>slow</font> effect on hit.\nUpgrades <font color='#58ACFA'>Madness</font>, by increasing health percentage conditional to 40%%."
+        "DOTA_Tooltip_ability_hijikata_tactics_attribute_max_damage_pct"			"%Maximum damage modifier:"
+        "DOTA_Tooltip_ability_hijikata_tactics_attribute_slow_duration"						"Slow duration:"
+        "DOTA_Tooltip_ability_hijikata_tactics_attribute_slow_amount"						"%Slow:"
+        "DOTA_Tooltip_ability_hijikata_tactics_attribute_bonus_damage"						"Bonus damage:"
+
+        "DOTA_Tooltip_modifier_hijikata_dash_recast_enable"                                                    "Battle drive ready"
+		"DOTA_Tooltip_modifier_hijikata_dash_recast_enable_Description"                                        "Allowed to use battle drive"
+
+		"DOTA_Tooltip_modifier_hijikata_rush"                                                    				"Battle drive"
+		"DOTA_Tooltip_modifier_hijikata_rush_Description"                                        				"Flying for the kill"
+
+		"DOTA_Tooltip_modifier_demon_buff_hijikata"                                                    			"Demon of battlefield"
+		"DOTA_Tooltip_modifier_demon_buff_hijikata_Description"                                        			"Increased attackspeed and on-hit effect"
+
+		"DOTA_Tooltip_modifier_hijikata_slow"                                                    				"Slow"
+		"DOTA_Tooltip_modifier_hijikata_slow_Description"                                        				"Demon is coming."
+
+		"DOTA_Tooltip_modifier_hijikata_duel"                                                    				"Duel"
+		"DOTA_Tooltip_modifier_hijikata_duel_Description"                                        				"Forced to battle."
+
+		"DOTA_Tooltip_modifier_hijikata_shinsengumi_flag_buff"                                                    "Flag of sincerity"
+		"DOTA_Tooltip_modifier_hijikata_shinsengumi_flag_buff_Description"                                        "Increased armor and magic resistance"
+
+		"DOTA_Tooltip_modifier_hijikata_disengage"                                                    			"Disengage"
+		"DOTA_Tooltip_modifier_hijikata_disengage_Description"                                       			 "Increased health and mana regeneration"
+
+		"DOTA_Tooltip_modifier_hijikata_madness_active"                                                    		"Madness"
+		"DOTA_Tooltip_modifier_hijikata_madness_active_Description"                                        		"Immune to any CC effects"
+
+		"DOTA_Tooltip_modifier_hijikata_laws"                                                    			"Shinsengumi codex"
+		"DOTA_Tooltip_modifier_hijikata_laws_Description"                                        			"Amount of laws broken"
+
+
+		"DOTA_Tooltip_modifier_hijikata_ult_slow"                                                    "Slow"
+		"DOTA_Tooltip_modifier_hijikata_ult_slow_Description"                                        "You survived, huh?"
+
+		"DOTA_Tooltip_modifier_hijikata_combo_ticker"                                                    "Unstoppable Shinsengumi"
+		"DOTA_Tooltip_modifier_hijikata_combo_ticker_Description"                                        "Speed increasing with time"
+
+		"DOTA_Tooltip_modifier_hijikata_combo_buff"                                                    "Unstoppable Shinsengumi"
+		"DOTA_Tooltip_modifier_hijikata_combo_buff_Description"                                        "Speed increasing with time"
+
+		"DOTA_Tooltip_modifier_hijikata_combo_cd"                                                    "Combo cooldown"
+		"DOTA_Tooltip_modifier_hijikata_combo_cd_Description"                                        ""
+
+		"DOTA_Tooltip_modifier_hijikata_bc"                                                    "Fierce journey"
+		"DOTA_Tooltip_modifier_hijikata_bc_Description"                                        ""
+
+		"DOTA_Tooltip_modifier_hijikata_bc_cooldown"                                                    "Fierce journey cooldown"
+		"DOTA_Tooltip_modifier_hijikata_bc_cooldown_Description"                                        ""
+
 
         //     Archer(Extra)
         //====================================

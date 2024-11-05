@@ -167,6 +167,7 @@ deargdispellable = {
     "modifier_merlin_hero_creation",
     --"modifier_heracles_berserk",
     "modifier_master_intervention",
+    "modifier_hijikata_madness_active",
     --"modifier_saito_mind_eye_buff",
     --"modifier_saito_quickslash_bonus",
 }
@@ -340,6 +341,9 @@ cleansable = {
     "modifier_zabaniya_curse",
     "modifier_lu_bu_halberd_throw_debuff",
 	"modifier_lu_bu_sky_piercer",
+
+    "modifier_hijikata_ult_slow",
+    "modifier_hijikata_slow",
 }
 
 
@@ -389,6 +393,8 @@ slowmodifier = {
     "modifier_saito_steelwing_mss",
     "modifier_saito_blast_turn_and_slow",
     "modifier_gordius_wheel_thunder_slow",
+    "modifier_hijikata_ult_slow",
+    "modifier_hijikata_slow",
 }
 
 donotlevel = {
@@ -618,6 +624,11 @@ CannotReset = {
     "robin_yew_tree_combo",
     "robin_faceless_king",
     "robin_may_king",
+
+    "hijikata_madness",
+    "hijikata_laws",
+    "hijikata_combo",
+    "hijikata_fierce_journey",
 }
 
 
@@ -2480,6 +2491,7 @@ local heroNames = {
     ["npc_dota_hero_clinkz"] = "Arash",
     ["npc_dota_hero_centaur"] = "Lu Bu",
     ["npc_dota_hero_sniper"] = "Robin Hood",
+    ["npc_dota_hero_spirit_breaker"] = "Hijikata Toshizo",
 }
 
  

@@ -140,7 +140,7 @@ function cu_chulain_gae_bolg_jump:OnGaeBolgHit(position, projectile)
 	}
 
 	if caster:HasModifier("modifier_improve_throw_attribute") then
-		damage = damage + 400
+		damage = damage + 100 + caster:GetAgility()*self:GetSpecialValueFor("damage_per_agi")
 	end
 
 	Timers:CreateTimer(0.15, function()

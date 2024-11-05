@@ -41,7 +41,7 @@ function heracles_berserk:EnterBerserk(duration)
 		end)
 		--StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_CAST_ABILITY_4, rate=2.5})
 	else
-		if duration > 4 then
+		if duration >= 4 then
 			local particle = ParticleManager:CreateParticle("particles/zlodemon/heracles/heracles_puk.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 			ParticleManager:ReleaseParticleIndex(particle)
 			local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 350, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)

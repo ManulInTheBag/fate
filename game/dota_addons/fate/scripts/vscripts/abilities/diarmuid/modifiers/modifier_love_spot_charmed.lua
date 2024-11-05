@@ -33,6 +33,10 @@ function modifier_love_spot_charmed:OnIntervalThink()
 		OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION ,
 		Position = nil
 	}
+	if (target:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D() > 900 then 
+		self:Destroy()
+		return
+	end
 	giveUnitDataDrivenModifier(caster, target, "silenced",0.25)
 	giveUnitDataDrivenModifier(caster, target, "disarmed",0.25)
 	forcemove.UnitIndex = target:entindex()

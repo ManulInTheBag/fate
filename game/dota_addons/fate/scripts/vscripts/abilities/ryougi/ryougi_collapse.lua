@@ -9,7 +9,17 @@ function ryougi_collapse:OnSpellStart()
 	local damage_per_line = self:GetSpecialValueFor("damage_per_line")
 	local line_count = self:GetSpecialValueFor("line_count")
 	local eyes = caster:FindAbilityByName("ryougi_mystic_eyes")
-
+	local max_dist = self:GetSpecialValueFor("range")
+    local width = self:GetSpecialValueFor("width")
+	local point = self:GetCursorPosition()
+    local direction = (point-origin)
+    if point == origin then
+    	direction = caster:GetForwardVector()
+    end
+    local dist = max_dist--math.min( max_dist, direction:Length2D() )
+    direction.z = 0
+    direction = direction:Normalized()
+	local target = GetGroundPosition( origin + direction*dist, nil )
 	local masterCombo = caster.MasterUnit2:FindAbilityByName(self:GetAbilityName())
     masterCombo:EndCooldown()
     masterCombo:StartCooldown(self:GetCooldown(1))
@@ -29,14 +39,60 @@ function ryougi_collapse:OnSpellStart()
 		ParticleManager:DestroyParticle(particle, false)
 		ParticleManager:ReleaseParticleIndex(particle)
 	end)
-
-    local combo_enemy = self:GetCursorTarget()
+    local combo_enemy = nil
 
     EmitGlobalSound("ryougi_combo_start")
+
+    local affected = false
+
+    self.AffectedTargets = {}
+
+   local enemies = FATE_FindUnitsInLine(
+								        caster:GetTeamNumber(),
+								        origin,
+								        target,
+								        width,
+										DOTA_UNIT_TARGET_TEAM_ENEMY,
+										DOTA_UNIT_TARGET_HERO,
+										DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+										FIND_CLOSEST
+    								)
+
+    EmitSoundOn("jtr_slash", caster)
+
+    if caster and IsValidEntity(caster) and enemies and #enemies>0 then
+	    for _, enemy in pairs(enemies) do
+	    	if not affected then
+	    		affected = true
+		    	self.AffectedTargets[enemy:entindex()] = true
+		    	combo_enemy = enemy
+		    	enemy:AddNewModifier(caster, self, "modifier_stunned", { Duration = 0.2 })
+		        --DoDamage(caster, enemy, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+		        --EmitSoundOn("ryougi_hit", enemy)
+		        --eyes:CutLine(enemy, "kimono_1")
+		    end
+	    end
+	end
+
+	EmitSoundOn("jtr_slash", caster)
+
+	if not combo_enemy then
+		FindClearSpaceForUnit( caster, target, true )
+		local effect_cast = ParticleManager:CreateParticle( "particles/ryougi/ryougi_step_red.vpcf", PATTACH_WORLDORIGIN, self:GetCaster() )
+	  	ParticleManager:SetParticleControl( effect_cast, 0, origin )
+	    ParticleManager:SetParticleControl( effect_cast, 1, target)
+	    ParticleManager:SetParticleControl( effect_cast, 2, target )
+	    Timers:CreateTimer(1.0, function()
+	        ParticleManager:DestroyParticle(effect_cast, true)
+	        ParticleManager:ReleaseParticleIndex( effect_cast )
+	    end)
+		return
+	end
+
+
     
 	combo_enemy:AddNewModifier(caster, self, "modifier_stunned", { Duration = 0.2 })
 
-	EmitSoundOn("jtr_slash", caster)
 
 	local stacks = combo_enemy:FindModifierByName("modifier_ryougi_lines") and combo_enemy:FindModifierByName("modifier_ryougi_lines"):GetStackCount() or 0
 	stacks = stacks + line_count

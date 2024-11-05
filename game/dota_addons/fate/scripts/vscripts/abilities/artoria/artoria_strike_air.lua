@@ -18,18 +18,18 @@ function artoria_strike_air:OnSpellStart()
 	
 	EmitGlobalSound("Saber.StrikeAir_Cast")
 
-	Timers:CreateTimer(0.2, function()
+	Timers:CreateTimer(0.6, function()
 		EmitGlobalSound("Saber.StrikeAir_Release"..math.random(1,2))
 	end)
 	
 	Timers:CreateTimer(0.01, function()
 		if caster:IsAlive() then
-			StartAnimation(caster, {duration=1.25, activity=ACT_DOTA_CAST_ABILITY_6, rate=2.0})
+			StartAnimation(caster, {duration=1.25, activity=ACT_DOTA_CAST_ABILITY_6, rate=1})
 		end
 	end)
 	
 	--caster:AddNewModifier(caster, self, "modifier_artoria_np_stun", { Duration = 1.26 })
-	giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 0.1)
+	giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 0.5)
 	
 	local strikeair = 
 	{
@@ -54,7 +54,7 @@ function artoria_strike_air:OnSpellStart()
 	}
     --ProjectileManager:CreateTrackingProjectile(strikeair)
 	
-	Timers:CreateTimer(0.1, function()
+	Timers:CreateTimer(0.5, function()
 		if caster:IsAlive() then 
 			strikeair.vSpawnOrigin = caster:GetAbsOrigin() 
 			strikeair.vVelocity = caster:GetForwardVector() * 3500

@@ -30,13 +30,13 @@ end
 function modifier_dirk_poison:OnIntervalThink()
 	local target = self:GetParent()
 	local caster = self:GetCaster()
-	local stacks = 1
-
-	if target:HasModifier("modifier_weakening_venom") then
-		stacks = target:GetModifierStackCount("modifier_weakening_venom", self:GetAbility())
+	local stacks = 0
+	local stacksDirk = target:GetModifierStackCount("modifier_dirk_poison_slow", self:GetAbility())
+	if target:HasModifier("modifier_weakening_venom")  then
+		stacks = target:GetModifierStackCount("modifier_weakening_venom", self:GetAbility()) 
 	end
-
-	DoDamage(caster, target, self.PoisonDamage * stacks, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false) 
+	local total_stacks = stacks + stacksDirk
+	DoDamage(caster, target, self.PoisonDamage * total_stacks, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false) 
 end
 
 function modifier_dirk_poison:GetAttributes()

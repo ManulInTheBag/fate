@@ -1,0 +1,2091 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	spirit_breaker_spir_spawn_01 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_spawn_01.vsnd"
+
+	}
+	spirit_breaker_spir_spawn_02 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_spawn_02.vsnd"
+
+	}
+	spirit_breaker_spir_spawn_03 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_spawn_01.vsnd"
+
+	}
+	spirit_breaker_spir_spawn_04 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_spawn_02.vsnd"
+
+	}
+	spirit_breaker_spir_battlebegins_01 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_spawn_01.vsnd"
+
+	}
+	spirit_breaker_spir_firstblood_01 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_kill_01.vsnd"
+
+	}
+	spirit_breaker_spir_firstblood_02 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_kill_01.vsnd"
+
+	}
+	spirit_breaker_spir_move_01 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_move_01.vsnd"
+
+	}
+	spirit_breaker_spir_move_02 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_move_02.vsnd"
+
+	}
+	spirit_breaker_spir_move_03 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_move_03.vsnd"
+
+	}
+	spirit_breaker_spir_move_04 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_move_04.vsnd"
+
+	}
+	spirit_breaker_spir_move_05 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_move_05.vsnd"
+
+	}
+	spirit_breaker_spir_move_06 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_move_06.vsnd"
+
+	}
+	spirit_breaker_spir_move_07 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_move_07.vsnd"
+
+	}
+	spirit_breaker_spir_move_08 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_move_08.vsnd"
+
+	}
+	spirit_breaker_spir_move_09 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_move_09.vsnd"
+
+	}
+	spirit_breaker_spir_move_10 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_move_10.vsnd"
+
+	}
+	spirit_breaker_spir_move_11 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_move_11.vsnd"
+
+	}
+	spirit_breaker_spir_move_12 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_move_12.vsnd"
+
+	}
+	spirit_breaker_spir_move_13 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_move_13.vsnd"
+
+	}
+	spirit_breaker_spir_move_14 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_move_14.vsnd"
+
+	}
+	spirit_breaker_spir_move_15 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_move_15.vsnd"
+
+	}
+	spirit_breaker_spir_move_16 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_move_16.vsnd"
+
+	}
+	spirit_breaker_spir_move_17 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_move_17.vsnd"
+
+	}
+	spirit_breaker_spir_move_18 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_move_18.vsnd"
+
+	}
+	spirit_breaker_spir_move_19 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_move_19.vsnd"
+
+	}
+	spirit_breaker_spir_move_20 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_move_20.vsnd"
+
+	}
+	spirit_breaker_spir_move_21 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_move_21.vsnd"
+
+	}
+	spirit_breaker_spir_move_22 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_move_22.vsnd"
+
+	}
+	spirit_breaker_spir_move_23 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_move_23.vsnd"
+
+	}
+	spirit_breaker_spir_move_24 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_move_23.vsnd"
+
+	}
+	spirit_breaker_spir_move_25 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_move_23.vsnd"
+
+	}
+	spirit_breaker_spir_move_26 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_move_21.vsnd"
+
+	}
+	spirit_breaker_spir_attack_01 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_attack_01.vsnd"
+
+	}
+	spirit_breaker_spir_attack_02 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_attack_02.vsnd"
+
+	}
+	spirit_breaker_spir_attack_03 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_attack_03.vsnd"
+
+	}
+	spirit_breaker_spir_attack_04 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_attack_04.vsnd"
+
+	}
+	spirit_breaker_spir_attack_05 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_attack_05.vsnd"
+
+	}
+	spirit_breaker_spir_attack_06 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_attack_06.vsnd"
+
+	}
+	spirit_breaker_spir_attack_07 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_attack_07.vsnd"
+
+	}
+	spirit_breaker_spir_attack_08 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_attack_08.vsnd"
+
+	}
+	spirit_breaker_spir_attack_09 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_attack_09.vsnd"
+
+	}
+	spirit_breaker_spir_attack_10 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_attack_10.vsnd"
+
+	}
+	spirit_breaker_spir_attack_11 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_attack_11.vsnd"
+
+	}
+	spirit_breaker_spir_attack_12 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_attack_12.vsnd"
+
+	}
+	spirit_breaker_spir_cast_01 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_cast_01.vsnd"
+
+	}
+	spirit_breaker_spir_cast_02 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_cast_02.vsnd"
+
+	}
+	spirit_breaker_spir_cast_03 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_cast_01.vsnd"
+
+	}
+	spirit_breaker_spir_cast_04 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_cast_02.vsnd"
+
+	}
+	spirit_breaker_spir_ability_charge_01 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_ability_charge_01.vsnd"
+
+	}
+	spirit_breaker_spir_ability_charge_02 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_ability_charge_02.vsnd"
+
+	}
+	spirit_breaker_spir_ability_charge_03 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_ability_charge_03.vsnd"
+
+	}
+	spirit_breaker_spir_ability_charge_04 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_ability_charge_04.vsnd"
+
+	}
+	spirit_breaker_spir_ability_charge_05 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_ability_charge_05.vsnd"
+
+	}
+	spirit_breaker_spir_ability_charge_06 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_ability_charge_06.vsnd"
+
+	}
+	spirit_breaker_spir_ability_charge_07 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_ability_charge_07.vsnd"
+
+	}
+	spirit_breaker_spir_ability_charge_08 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_ability_charge_08.vsnd"
+
+	}
+	spirit_breaker_spir_ability_charge_09 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_ability_charge_09.vsnd"
+
+	}
+	spirit_breaker_spir_ability_charge_10 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_ability_charge_10.vsnd"
+
+	}
+	spirit_breaker_spir_ability_charge_11 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_ability_charge_11.vsnd"
+
+	}
+	spirit_breaker_spir_ability_charge_12 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_ability_charge_12.vsnd"
+
+	}
+	spirit_breaker_spir_ability_charge_13 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_ability_charge_13.vsnd"
+
+	}
+	spirit_breaker_spir_ability_charge_14 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_ability_charge_14.vsnd"
+
+	}
+	spirit_breaker_spir_ability_charge_15 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_ability_charge_15.vsnd"
+
+	}
+	spirit_breaker_spir_ability_charge_16 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_ability_charge_16.vsnd"
+
+	}
+	spirit_breaker_spir_ability_charge_17 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_ability_charge_17.vsnd"
+
+	}
+	spirit_breaker_spir_ability_charge_18 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_ability_charge_18.vsnd"
+
+	}
+	spirit_breaker_spir_ability_charge_19 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_ability_charge_19.vsnd"
+
+	}
+	spirit_breaker_spir_ability_bash_01 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_ability_bash_01.vsnd"
+
+	}
+	spirit_breaker_spir_ability_bash_02 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_ability_bash_02.vsnd"
+
+	}
+	spirit_breaker_spir_ability_bash_03 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_ability_bash_03.vsnd"
+
+	}
+	spirit_breaker_spir_ability_bash_04 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_ability_bash_04.vsnd"
+
+	}
+	spirit_breaker_spir_ability_bash_05 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_ability_bash_05.vsnd"
+
+	}
+	spirit_breaker_spir_ability_bash_06 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_ability_bash_06.vsnd"
+
+	}
+	spirit_breaker_spir_ability_bash_07 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_ability_bash_07.vsnd"
+
+	}
+	spirit_breaker_spir_ability_bash_08 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_ability_bash_08.vsnd"
+
+	}
+	spirit_breaker_spir_ability_nether_01 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_ability_nether_01.vsnd"
+
+	}
+	spirit_breaker_spir_ability_nether_02 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_ability_nether_02.vsnd"
+
+	}
+	spirit_breaker_spir_ability_nether_03 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_ability_nether_03.vsnd"
+
+	}
+	spirit_breaker_spir_ability_nether_04 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_ability_nether_04.vsnd"
+
+	}
+	spirit_breaker_spir_ability_nether_05 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_ability_nether_05.vsnd"
+
+	}
+	spirit_breaker_spir_ability_failure_01 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_ability_failure_01.vsnd"
+
+	}
+	spirit_breaker_spir_ability_failure_02 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_ability_failure_02.vsnd"
+
+	}
+	spirit_breaker_spir_ability_failure_03 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_ability_failure_03.vsnd"
+
+	}
+	spirit_breaker_spir_ability_failure_04 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_ability_failure_04.vsnd"
+
+	}
+	spirit_breaker_spir_ability_failure_05 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_ability_failure_05.vsnd"
+
+	}
+	spirit_breaker_spir_level_01 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_level_01.vsnd"
+
+	}
+	spirit_breaker_spir_level_02 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_level_02.vsnd"
+
+	}
+	spirit_breaker_spir_level_03 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_level_03.vsnd"
+
+	}
+	spirit_breaker_spir_level_04 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_level_04.vsnd"
+
+	}
+	spirit_breaker_spir_level_05 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_level_05.vsnd"
+
+	}
+	spirit_breaker_spir_level_06 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_level_06.vsnd"
+
+	}
+	spirit_breaker_spir_level_07 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_level_07.vsnd"
+
+	}
+	spirit_breaker_spir_level_08 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_level_08.vsnd"
+
+	}
+	spirit_breaker_spir_kill_01 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_kill_01.vsnd"
+
+	}
+	spirit_breaker_spir_kill_02 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_kill_02.vsnd"
+
+	}
+	spirit_breaker_spir_kill_03 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_kill_03.vsnd"
+
+	}
+	spirit_breaker_spir_kill_04 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_kill_04.vsnd"
+
+	}
+	spirit_breaker_spir_kill_05 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_kill_05.vsnd"
+
+	}
+	spirit_breaker_spir_kill_06 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_kill_06.vsnd"
+
+	}
+	spirit_breaker_spir_kill_07 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_kill_07.vsnd"
+
+	}
+	spirit_breaker_spir_kill_08 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_kill_08.vsnd"
+
+	}
+	spirit_breaker_spir_kill_09 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_kill_09.vsnd"
+
+	}
+	spirit_breaker_spir_kill_10 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_kill_10.vsnd"
+
+	}
+	spirit_breaker_spir_kill_11 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_kill_11.vsnd"
+
+	}
+	spirit_breaker_spir_kill_12 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_kill_12.vsnd"
+
+	}
+	spirit_breaker_spir_kill_13 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_kill_01.vsnd"
+
+	}
+	spirit_breaker_spir_rival_01 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/elder_titan/blankvoice_.vsnd"
+
+	}
+	spirit_breaker_spir_rival_02 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_rival_02.vsnd"
+
+	}
+	spirit_breaker_spir_rival_03 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/elder_titan/blankvoice_.vsnd"
+
+	}
+	spirit_breaker_spir_rival_04 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/elder_titan/blankvoice_.vsnd"
+
+	}
+	spirit_breaker_spir_rival_05 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/elder_titan/blankvoice_.vsnd"
+
+	}
+	spirit_breaker_spir_rival_06 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		rival_02vsnd_files = "sounds/vo/hijikata/elder_titan/blankvoice_.vsnd"
+
+	}
+	spirit_breaker_spir_rival_07 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/elder_titan/blankvoice_.vsnd"
+
+	}
+	spirit_breaker_spir_rival_08 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/elder_titan/blankvoice_.vsnd"
+
+	}
+	spirit_breaker_spir_rival_09 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/elder_titan/blankvoice_.vsnd"
+
+	}
+	spirit_breaker_spir_rival_10 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/elder_titan/blankvoice_.vsnd"
+
+	}
+	spirit_breaker_spir_death_01 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_death_01.vsnd"
+
+	}
+	spirit_breaker_spir_death_02 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_death_02.vsnd"
+
+	}
+	spirit_breaker_spir_death_03 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_death_03.vsnd"
+
+	}
+	spirit_breaker_spir_death_04 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_death_01.vsnd"
+
+	}
+	spirit_breaker_spir_death_05 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_death_02.vsnd"
+
+	}
+	spirit_breaker_spir_death_06 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_death_03.vsnd"
+
+	}
+	spirit_breaker_spir_death_07 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_death_01.vsnd"
+
+	}
+	spirit_breaker_spir_death_08 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_death_02.vsnd"
+
+	}
+	spirit_breaker_spir_death_09 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_death_03.vsnd"
+
+	}
+	spirit_breaker_spir_death_10 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_death_01.vsnd"
+
+	}
+	spirit_breaker_spir_death_11 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_death_02.vsnd"
+
+	}
+	spirit_breaker_spir_death_12 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_death_03.vsnd"
+
+	}
+	spirit_breaker_spir_death_13 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_death_01.vsnd"
+
+	}
+	spirit_breaker_spir_death_14 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_death_02.vsnd"
+
+	}
+	spirit_breaker_spir_fastres_01 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_kill_03.vsnd"
+
+	}
+	spirit_breaker_spir_fastres_02 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_kill_03.vsnd"
+
+	}
+	spirit_breaker_spir_respawn_01 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_spawn_01.vsnd"
+
+	}
+	spirit_breaker_spir_respawn_02 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_spawn_01.vsnd"
+
+	}
+	spirit_breaker_spir_respawn_03 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_spawn_01.vsnd"
+
+	}
+	spirit_breaker_spir_respawn_04 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_spawn_01.vsnd"
+
+	}
+	spirit_breaker_spir_respawn_05 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_spawn_01.vsnd"
+
+	}
+	spirit_breaker_spir_respawn_06 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_spawn_01.vsnd"
+
+	}
+	spirit_breaker_spir_respawn_07 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_spawn_01.vsnd"
+
+	}
+	spirit_breaker_spir_respawn_08 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_spawn_01.vsnd"
+
+	}
+	spirit_breaker_spir_respawn_09 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_spawn_01.vsnd"
+
+	}
+	spirit_breaker_spir_respawn_10 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_spawn_01.vsnd"
+
+	}
+	spirit_breaker_spir_lasthit_01 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_lasthit_01.vsnd"
+
+	}
+	spirit_breaker_spir_lasthit_02 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_lasthit_01.vsnd"
+
+	}
+	spirit_breaker_spir_lasthit_03 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_lasthit_01.vsnd"
+
+	}
+	spirit_breaker_spir_lasthit_04 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_lasthit_01.vsnd"
+
+	}
+	spirit_breaker_spir_lasthit_05 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_lasthit_01.vsnd"
+
+	}
+	spirit_breaker_spir_lasthit_06 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_lasthit_01.vsnd"
+
+	}
+	spirit_breaker_spir_lasthit_07 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_lasthit_01.vsnd"
+
+	}
+	spirit_breaker_spir_lasthit_08 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_lasthit_01.vsnd"
+
+	}
+	spirit_breaker_spir_lasthit_09 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_lasthit_01.vsnd"
+
+	}
+	spirit_breaker_spir_lasthit_10 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_lasthit_01.vsnd"
+
+	}
+	spirit_breaker_spir_deny_01 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_deny_01.vsnd"
+
+	}
+	spirit_breaker_spir_deny_02 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_deny_01.vsnd"
+
+	}
+	spirit_breaker_spir_deny_03 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_deny_01.vsnd"
+
+	}
+	spirit_breaker_spir_deny_04 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_deny_01.vsnd"
+
+	}
+	spirit_breaker_spir_deny_05 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_deny_01.vsnd"
+
+	}
+	spirit_breaker_spir_deny_06 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_deny_01.vsnd"
+
+	}
+	spirit_breaker_spir_deny_07 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_deny_01.vsnd"
+
+	}
+	spirit_breaker_spir_deny_08 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_deny_01.vsnd"
+
+	}
+	spirit_breaker_spir_rare_01 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_rare_01.vsnd"
+
+	}
+	spirit_breaker_spir_rare_02 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_rare_02.vsnd"
+
+	}
+	spirit_breaker_spir_rare_03 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_rare_03.vsnd"
+
+	}
+	spirit_breaker_spir_rare_04 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_rare_04.vsnd"
+
+	}
+	spirit_breaker_spir_rare_05 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_rare_05.vsnd"
+
+	}
+	spirit_breaker_spir_purch_01 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_purch_01.vsnd"
+
+	}
+	spirit_breaker_spir_purch_02 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_purch_02.vsnd"
+
+	}
+	spirit_breaker_spir_purch_03 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_purch_03.vsnd"
+
+	}
+	spirit_breaker_spir_scepter_01 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_scepter_01.vsnd"
+
+	}
+	spirit_breaker_spir_scepter_02 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_scepter_02.vsnd"
+
+	}
+	spirit_breaker_spir_blink_01 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_blink_01.vsnd"
+
+	}
+	spirit_breaker_spir_blink_02 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_blink_02.vsnd"
+
+	}
+	spirit_breaker_spir_item_01 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_item_01.vsnd"
+
+	}
+	spirit_breaker_spir_item_02 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_item_02.vsnd"
+
+	}
+	spirit_breaker_spir_item_03 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_item_03.vsnd"
+
+	}
+	spirit_breaker_spir_item_04 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_item_04.vsnd"
+
+	}
+	spirit_breaker_spir_item_05 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_item_05.vsnd"
+
+	}
+	spirit_breaker_spir_item_06 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_item_06.vsnd"
+
+	}
+	spirit_breaker_spir_item_07 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_item_07.vsnd"
+
+	}
+	spirit_breaker_spir_item_08 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_item_08.vsnd"
+
+	}
+	spirit_breaker_spir_item_09 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_item_09.vsnd"
+
+	}
+	spirit_breaker_spir_bottle_01 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_bottle_01.vsnd"
+
+	}
+	spirit_breaker_spir_bottle_02 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_bottle_02.vsnd"
+
+	}
+	spirit_breaker_spir_bottle_03 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_bottle_03.vsnd"
+
+	}
+	spirit_breaker_spir_immort_01 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_immort_01.vsnd"
+
+	}
+	spirit_breaker_spir_immort_02 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_immort_02.vsnd"
+
+	}
+	spirit_breaker_spir_haste_01 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_haste_01.vsnd"
+
+	}
+	spirit_breaker_spir_haste_02 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_haste_02.vsnd"
+
+	}
+	spirit_breaker_spir_haste_03 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_haste_03.vsnd"
+
+	}
+	spirit_breaker_spir_doubdam_01 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_doubdam_01.vsnd"
+
+	}
+	spirit_breaker_spir_doubdam_02 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_doubdam_02.vsnd"
+
+	}
+	spirit_breaker_spir_regen_01 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_regen_01.vsnd"
+
+	}
+	spirit_breaker_spir_regen_02 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_regen_02.vsnd"
+
+	}
+	spirit_breaker_spir_illus_01 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_illus_01.vsnd"
+
+	}
+	spirit_breaker_spir_illus_02 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_illus_02.vsnd"
+
+	}
+	spirit_breaker_spir_illus_03 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_illus_03.vsnd"
+
+	}
+	spirit_breaker_spir_invis_01 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_invis_01.vsnd"
+
+	}
+	spirit_breaker_spir_invis_02 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_invis_02.vsnd"
+
+	}
+	spirit_breaker_spir_thanks_01 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_thanks_01.vsnd"
+
+	}
+	spirit_breaker_spir_thanks_02 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_thanks_01.vsnd"
+
+	}
+	spirit_breaker_spir_thanks_03 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_thanks_01.vsnd"
+
+	}
+	spirit_breaker_spir_underattack_01 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_underattack_01.vsnd"
+
+	}
+	spirit_breaker_spir_inthebag_01 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_inthebag_01.vsnd"
+
+	}
+	spirit_breaker_spir_inthebag_02 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_inthebag_02.vsnd"
+
+	}
+	spirit_breaker_spir_shitwiz_01 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_shitwiz_01.vsnd"
+
+	}
+	spirit_breaker_spir_crumwiz_01 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_crumwiz_01.vsnd"
+
+	}
+	spirit_breaker_spir_notyet_01 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_notyet_01.vsnd"
+
+	}
+	spirit_breaker_spir_notyet_02 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_notyet_01.vsnd"
+
+	}
+	spirit_breaker_spir_notyet_03 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_notyet_01.vsnd"
+
+	}
+	spirit_breaker_spir_notyet_04 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_notyet_02.vsnd"
+
+	}
+	spirit_breaker_spir_notyet_05 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_notyet_02.vsnd"
+
+	}
+	spirit_breaker_spir_notyet_06 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_notyet_02.vsnd"
+
+	}
+	spirit_breaker_spir_notyet_07 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_notyet_03.vsnd"
+
+	}
+	spirit_breaker_spir_notyet_08 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_notyet_03.vsnd"
+
+	}
+	spirit_breaker_spir_notyet_09 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_notyet_03.vsnd"
+
+	}
+	spirit_breaker_spir_nomana_01 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_notyet_01.vsnd"
+
+	}
+	spirit_breaker_spir_nomana_02 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_notyet_01.vsnd"
+
+	}
+	spirit_breaker_spir_nomana_03 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_notyet_01.vsnd"
+
+	}
+	spirit_breaker_spir_nomana_04 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_notyet_02.vsnd"
+
+	}
+	spirit_breaker_spir_nomana_05 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_notyet_02.vsnd"
+
+	}
+	spirit_breaker_spir_nomana_06 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_notyet_02.vsnd"
+
+	}
+	spirit_breaker_spir_nomana_07 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_notyet_03.vsnd"
+
+	}
+	spirit_breaker_spir_nomana_08 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_notyet_03.vsnd"
+
+	}
+	spirit_breaker_spir_nomana_09 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_notyet_03.vsnd"
+
+	}
+	spirit_breaker_spir_lose_01 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_death_01.vsnd"
+
+	}
+	spirit_breaker_spir_lose_02 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_death_02.vsnd"
+
+	}
+	spirit_breaker_spir_lose_03 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_death_03.vsnd"
+
+	}
+	spirit_breaker_spir_lose_04 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_death_01.vsnd"
+
+	}
+	spirit_breaker_spir_lose_05 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_death_02.vsnd"
+
+	}
+	spirit_breaker_spir_win_01 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_kill_01.vsnd"
+
+	}
+	spirit_breaker_spir_win_02 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_kill_02.vsnd"
+
+	}
+	spirit_breaker_spir_win_03 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_kill_03.vsnd"
+
+	}
+	spirit_breaker_spir_pain_01 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_pain_01.vsnd"
+
+	}
+	spirit_breaker_spir_pain_02 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_pain_01.vsnd"
+
+	}
+	spirit_breaker_spir_pain_03 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_pain_01.vsnd"
+
+	}
+	spirit_breaker_spir_pain_04 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_pain_01.vsnd"
+
+	}
+	spirit_breaker_spir_pain_05 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_pain_01.vsnd"
+
+	}
+	spirit_breaker_spir_pain_06 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_pain_01.vsnd"
+
+	}
+	spirit_breaker_spir_pain_07 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_pain_01.vsnd"
+
+	}
+	spirit_breaker_spir_pain_08 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_pain_01.vsnd"
+
+	}
+	spirit_breaker_spir_pain_09 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_pain_01.vsnd"
+
+	}
+	spirit_breaker_spir_anger_01 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_anger_01.vsnd"
+
+	}
+	spirit_breaker_spir_anger_02 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_anger_02.vsnd"
+
+	}
+	spirit_breaker_spir_anger_03 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_anger_03.vsnd"
+
+	}
+	spirit_breaker_spir_anger_04 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_anger_04.vsnd"
+
+	}
+	spirit_breaker_spir_anger_05 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_anger_05.vsnd"
+
+	}
+	spirit_breaker_spir_anger_06 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_anger_06.vsnd"
+
+	}
+	spirit_breaker_spir_happy_01 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_happy_01.vsnd"
+
+	}
+	spirit_breaker_spir_happy_02 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_happy_02.vsnd"
+
+	}
+	spirit_breaker_spir_happy_03 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_happy_03.vsnd"
+
+	}
+	spirit_breaker_spir_laugh_01 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_laugh_01.vsnd"
+
+	}
+	spirit_breaker_spir_laugh_02 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_laugh_02.vsnd"
+
+	}
+	spirit_breaker_spir_laugh_03 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_laugh_03.vsnd"
+
+	}
+	spirit_breaker_spir_laugh_04 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_laugh_04.vsnd"
+
+	}
+	spirit_breaker_spir_laugh_05 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_laugh_01.vsnd"
+
+	}
+	spirit_breaker_spir_laugh_06 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_laugh_02.vsnd"
+
+	}
+	spirit_breaker_spir_laugh_07 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_laugh_03.vsnd"
+
+	}
+	spirit_breaker_spir_laugh_08 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_laugh_04.vsnd"
+
+	}
+	spirit_breaker_spir_laugh_09 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_laugh_01.vsnd"
+
+	}
+	spirit_breaker_spir_laugh_10 = 
+	{
+		type = "dota_update_vo_switch"
+		volume = 1.000000
+		pitch = 1.000000
+		vsnd_files = "sounds/vo/hijikata/hijikata_laugh_03.vsnd"
+
+	}
+}

@@ -158,7 +158,7 @@ function modifier_merlin_garden_of_avalon:DeclareFunctions()
 end
 
 function modifier_merlin_garden_of_avalon:GetModifierHealthBonus()
-	return  600
+	return  400
 end
 
 function modifier_merlin_garden_of_avalon:GetModifierHealthRegenPercentage()

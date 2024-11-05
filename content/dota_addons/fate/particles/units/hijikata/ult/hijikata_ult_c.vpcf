@@ -3,7 +3,6 @@
 	_class = "CParticleSystemDefinition"
 	m_bShouldHitboxesFallbackToRenderBounds = false
 	m_nMaxParticles = 1
-	m_ConstantColor = [ 255, 255, 255, 175 ]
 	m_nBehaviorVersion = 12
 	m_nFirstMultipleOverride_BackwardCompat = 4
 	m_controlPointConfigurations = 
@@ -132,6 +131,7 @@
 				m_bHasRandomSignFlip = true
 			}
 			m_nOutputField = 4
+			m_bDisableOperator = true
 		},
 		{
 			_class = "C_INIT_RandomYawFlip"

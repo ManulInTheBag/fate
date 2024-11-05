@@ -54,7 +54,7 @@
         {
             "summon_delay" "3"
             "radius" "1000"
-            "damage" "400 800 1200 1600 2000"
+            "damage" "500 750 1000 1250 1500"
             "max_health" "1400 2000 2400 2800 3200"
             "attack_damage" "150 225 300 375 450"
             "stun_duration"				"2"
@@ -142,10 +142,12 @@
 		"AbilityCooldown"				"10.0"
 		"AbilityCastAnimation" 			"ACT_DOTA_ATTACK2"
 		"AnimationPlaybackRate" 		"1.0"
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_tidehunter/tidehunter_spell_ravage_hit_wrap.vpcf"
 
-	    "precache"
-	    {
-	    }		
+		}
+
 		"AbilityValues"
         {
             "root_duration" "1.5 1.75 2.0 2.25 2.5"
@@ -200,6 +202,8 @@
 		
 		"precache"
 		{
+			"particle"		"particles/units/heroes/hero_tidehunter/tidehunter_spell_ravage_hit.vpcf"
+
 		}
 		
 		// Casting
@@ -415,6 +419,7 @@
 		{
 			"particle"	"particles/custom/gilles/squidlord_contaminate.vpcf"
 			"particle"	"particles/custom/gilles/contaminate_debuff"
+			"particle"	"particles/units/heroes/hero_pugna/pugna_netherblast.vpcf"
 			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_shadow_demon.vsndevts"
 			"soundfile"	"soundevents/game_sounds_heroes/game_sounds_venomancer.vsndevts"
 		}

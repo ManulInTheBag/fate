@@ -120,7 +120,14 @@ function cmd_seal_2:OnSpellStart()
 		end
 	end
  
-
+	if hero:GetName() == "npc_dota_hero_spirit_breaker" then
+		local modifier = hero:FindModifierByName("modifier_hijikata_laws")
+    	if modifier.help_restriction == false then
+        	modifier:IncrementStackCount()
+			modifier:TakeDamage()
+        	modifier.help_restriction = true
+    	end
+	end
 
 	-- Set cooldown
 	if not caster:HasModifier("modifier_command_seal_1") then

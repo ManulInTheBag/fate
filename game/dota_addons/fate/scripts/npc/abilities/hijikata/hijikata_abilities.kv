@@ -12,12 +12,15 @@
 		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_ALL"
 		"AbilityUnitDamageType"				"DAMAGE_TYPE_MAGICAL"
-
+		"LevelsBetweenUpgrades"				"1"
 		"MaxLevel"							"5"
 		"AbilityCooldown"				    "14 12 10 8 6"
 		"AbilityManaCost"					"100"
+		"AbilityCastRange"					"1500"
 		"AbilityCastPoint"					"0.2"
 		"AbilityCastAnimation"                      "ACT_DOTA_CAST_ABILITY_1"
+
+		"LinkedAbilities"				"hijikata_dash_recast"
 		"precache"
 		{
 			"particle"		"particles/hijikata/hijikata_dash_radius.vpcf"
@@ -28,8 +31,8 @@
 			"distance"								"1500"		//Optimum distance.
 			"speed"									"2000"
 			"recast_duration"									"4" 	
-			"damage"									"100"
-
+			"damage"									"100 125 150 175 200"
+			"damage_second"								"200 250 300 350 400"
 		}
 	}
 
@@ -41,7 +44,7 @@
 		"BaseClass"          			    "ability_lua"
 		"ScriptFile"					    "abilities/hijikata/hijikata_dash_recast"
 		"AbilityTextureName"				"custom/hijikata/hijikata_dash"
-		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_NO_TARGET|DOTA_ABILITY_BEHAVIOR_IMMEDIATE|DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_AOE|DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE|DOTA_ABILITY_BEHAVIOR_NO_TARGET|DOTA_ABILITY_BEHAVIOR_IMMEDIATE|DOTA_ABILITY_BEHAVIOR_HIDDEN|DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
 		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_ALL"
 		"AbilityUnitDamageType"				"DAMAGE_TYPE_MAGICAL"
@@ -61,10 +64,46 @@
 		{
 			"distance"								"1500"		
 			"speed"									"2000"
-
+			"damage"								"200 250 300 350 400"
 		}
 	}
 
+	//=====================================
+	// Demon of the battlefield (W)
+	//=====================================
+	"hijikata_demon"
+	{
+		"BaseClass"          			    "ability_lua"
+		"ScriptFile"					    "abilities/hijikata/hijikata_demon"
+		"AbilityTextureName"				"custom/hijikata/hijikata_demon"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"				"DAMAGE_TYPE_MAGICAL"
+		"MaxLevel"							"5"
+		"AbilityCooldown"				    "10 9 8 7 6"
+		"LevelsBetweenUpgrades"				"1"
+		"AbilityManaCost"					"200"
+		"AbilityCastPoint"					"0.2"
+		"AbilityCastRange"				"450"
+
+		"AbilityCastAnimation"              "ACT_DOTA_CAST_ABILITY_2"
+		"precache"
+		{
+			"particle"		"particles/hijikata/hijikata_demon_pierce.vpcf"
+		}
+		"AbilityValues"
+		{
+			"radius"								"700"		
+			"damage"									"200 250 300 350 400"
+			"buff_duration"								"3 3.5 4 4.5 5"		
+			"as_value"									"100 150 200 250 300"
+			"hp_percentage_diff_to_damage"				"10"
+			"slow_duration" "1"
+            "slow_amount" "60"
+            "bonus_damage" "100"
+		}
+	}
 	//=====================================
 	//
 	//=====================================
@@ -77,8 +116,9 @@
 		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_HERO"
 		"MaxLevel"							"5"
-		"AbilityCooldown"				    "14 12 10 8 6"
-		"AbilityManaCost"					"0"
+		"LevelsBetweenUpgrades"				"2"
+		"AbilityCooldown"				    "25 23 21 19 17"
+		"AbilityManaCost"					"400"
 		"AbilityCastPoint"					"0.3"
 		"AbilityCastRange"				"350 400 450 500 550"
 		"AbilityCastPoint"				"0.3"
@@ -87,13 +127,20 @@
 		{
 			"particle"		"particles/hijikata/hijikata_duel.vpcf"
 			"particle"		"particles/hijikata/hijikata_duel_text.vpcf"
+			"particle"		"particles/hijikata/hijikata_duel_victory.vpcf"
 		}
 		"AbilityValues"
 		{
 			"duration"									"6"		
-			"dmg_res"									"50"
-			"radius"									"700 800 900 1000 1100"
-
+			"dmg_res"									"20 25 30 35 40"
+			"dmg_increase"								"10 15 20 25 30"
+			"radius"									"1000"
+			"cast_range"									"350 400 450 500 550"
+			"armor"										"15"
+			"mr"										"10"
+			"health_regen"										"150"
+			"mana_regen"										"100"
+			"regen_duration"									"5"
 		}
 	}
 
@@ -111,8 +158,8 @@
 		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_HERO"
 		"MaxLevel"							"1"
-		"AbilityCooldown"				    "8"
-		"AbilityManaCost"					"0"
+		"AbilityCooldown"				    "9"
+		"AbilityManaCost"					"100"
 		"AbilityCastPoint"					"0.5"
 		"AbilityCastAnimation"                      "ACT_DOTA_DISABLED"
 		"AnimationPlaybackRate" 		"1.5"
@@ -123,9 +170,7 @@
 		}
 		"AbilityValues"
 		{
-			"duration"								"4"		
-			"dmg_res"									"50"
-
+			"duration"								"3"		
 		}
 	}
 
@@ -136,16 +181,18 @@
 	{
 		"BaseClass"          			    "ability_lua"
 		"ScriptFile"					    "abilities/hijikata/hijikata_laws"
-		"AbilityTextureName"				"custom/hijikata/hijikata_berserk"
+		"AbilityTextureName"				"custom/hijikata/hijikata_laws"
 		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_NO_TARGET|DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_HERO"
-		"MaxLevel"							"1"
+		"MaxLevel"							"2"
 		"AbilityCooldown"				    "0.5"
 		"AbilityManaCost"					"0"
 		"AbilityCastPoint"					"0.5"
+		"LevelsBetweenUpgrades"			"25"
 		"AbilityCastAnimation"                      "ACT_DOTA_DISABLED"
 		"AnimationPlaybackRate" 		"1.5"
+		"AbilityUnitDamageType"				"DAMAGE_TYPE_PURE"
 		"precache"
 		{
 			"particle"		"particles/custom/lancelot/lancelot_arondite_ambient.vpcf"
@@ -153,9 +200,11 @@
 		}
 		"AbilityValues"
 		{
-			"max_stacks"								"5"		
-			"damage_per_stack"									"30"
+			"max_stacks"								"5 7"		
+			"dmg_per_stack"									"25 50"
+			"health_per_stack"								"100 200"
 			"damage_take_per_stack_percent"							"10"
+			"last_damage_take_per_stack_percent"							"25"
 			"stun_duration"									"3"
 			"check_range"									"500"
 		}
@@ -174,26 +223,56 @@
 		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_ALL"
 		"AbilityUnitDamageType"				"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"							"5"
-		"AbilityCooldown"				    "14 12 10 8 6"
-		"AbilityManaCost"					"0"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityCooldown"				    "30 28 26 24 22"
+		"AbilityManaCost"					"800"
 		"AbilityCastPoint"					"0.0"
 		"AbilityCastAnimation"                      "ACT_DOTA_CAST_ABILITY_6"
-
+		"AbilityCastRange"					"1100"
 		"precache"
 		{
 			"particle"		"particles/econ/items/centaur/centaur_ti9/centaur_double_edge_ti9_bloodspray_src.vpcf"
 			"particle"		"particles/units/hijikata/ult/hijikata_ult.vpcf"
+			"particle"		"particles/units/hijikata/hijikata_bullet_combo.vpcf"
+			"particle"		"particles/units/hijikata/hijikata_bullet.vpcf"
+			"particle"		"particles/units/hijikata/ult/hijikata_ult_combo.vpcf"
 		}
 		"AbilityValues"
 		{
-			"damage"									"600 700 800 900 1000"		//Optimum distance.
+			"damage"									"750 950 1150 1350 1550"		
+			"max_damage_pct_self"						"150"
 			"ms_slow"									"50"
 			"distance"									"1100"
+			"width"										"100"
 			"duration"									"1.5"
 			"max_damage_pct"							"150"
-
+			"knockback_distance"						"300"
+			"damage_combo"								"2000"	
+			"delay"										"0.5"
 		}
 	}
+	//=====================================
+	//
+	//=====================================
+	"hijikata_fierce_journey"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/hijikata/hijikata_fierce_journey"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"AbilityTextureName"			"custom/hijikata/hijikata_sa3"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+
+		"AbilityCooldown"				"75"
+		
+		"AbilityValues"
+        {
+            "cooldown" "75"
+            "health_restored" "25"
+            "duration" "1"
+        }
+	}	
 
 	//=====================================
 	//
@@ -202,28 +281,41 @@
 	{
 		"BaseClass"          			    "ability_lua"
 		"ScriptFile"					    "abilities/hijikata/hijikata_combo"
-		"AbilityTextureName"				"custom/hijikata/hijikata_ult"
+		"AbilityTextureName"				"custom/hijikata/hijikata_combo"
 		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_POINT|DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_ALL"
 		"AbilityUnitDamageType"				"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"							"1"
-		"AbilityCooldown"				    "120"
+		"AbilityCooldown"				    "160"
 		"AbilityManaCost"					"0"
 		"AbilityCastPoint"					"0.5"
 		"AbilityCastAnimation"                      "ACT_DOTA_CAST_ABILITY_5"
+
+		"LinkedAbilities"				"hijikata_target_dash hijikata_knockup"
+
 		"precache"
 		{
 			"particle"		"particles/hijikata/hijikata_combo_onground.vpcf"
 		}
 		"AbilityValues"
 		{
-			"damage"									"600 700 800 900 1000"		
-			"ms_slow"									"50"
-			"distance"									"4000"
-			"duration"									"1.5"
-			"max_damage_pct"							"150"
-
+			"duration"										"12"	
+			"Width"											"500"		
+			"distance"										"4000"
+			"ally_speed"									"550"
+			"hijikata_speed"								"700"
+			"ally_speed_per_second"							"50"
+			"hijikata_speed_per_second"						"70"
+			"stun_duration"									"1"
+			"first_strike_damage"							"800"
+			"first_strike_range"							"950"
+			"second_strike_range"							"350"
+			"second_strike_width"							"200"
+			"second_strike_damage"							"700"
+			"third_strike_damage"							"2000"
+			"third_strike_range"							"1650"
+			"third_strike_width"							"300"
 		}
 	}
 
@@ -235,7 +327,7 @@
 	{
 		"BaseClass"          			    "ability_lua"
 		"ScriptFile"					    "abilities/hijikata/hijikata_target_dash"
-		"AbilityTextureName"				"custom/saito/saito_fdb"
+		"AbilityTextureName"				"custom/hijikata/hijikata_combo"
 		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET|DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_ALL"
@@ -246,12 +338,16 @@
 		"AbilityCastPoint"					"0.2"
 		"AbilityCastRange"					  	"900"
 		"AbilityCastAnimation"                      "ACT_DOTA_CAST_ABILITY_1_END"
+		"precache"
+		{
+			"particle"		"particles/hijikata/hijikata_dash_slash.vpcf"
+		}
 		"AbilityValues"
 		{
-			"damage"									"150 200 250 300 350"	
+			"damage"									"800"	
 			"range"										"950"
 			"radius"										"150"
-			"duration"										"0.5"
+			"duration"										"1"
 		}
 	}
 
@@ -263,7 +359,7 @@
 	{
 		"BaseClass"          			    "ability_lua"
 		"ScriptFile"					    "abilities/hijikata/hijikata_knockup"
-		"AbilityTextureName"				"custom/saito/saito_fdb"
+		"AbilityTextureName"				"custom/hijikata/hijikata_combo"
 		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_POINT|DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_ALL"
@@ -275,330 +371,55 @@
 		"AbilityCastAnimation"                      "ACT_DOTA_CAST_ABILITY_3"
 		"precache"
 		{
-			"particle"		"particles/hijikata/hijikata_knockup_slash.vpcf"
+			"particle"		"particles/hijikata/hijikata_knockup_slash_new.vpcf"
 		}
 		"AbilityValues"
 		{
-			"damage"									"150 200 250 300 350"		
-			"root_duration"								"0.4"
-			"width"										"300"
-
+			"damage"									"700"		
+			"duration"									"1"
+			"width"										"200"
+			"range"										"350"
 		}
 	}
-    //=================================================================================================================
-	// Saito Hajime : Skill 1 : QuickSlash (Q)
-	//=================================================================================================================
-	"saito_quickslash"
-	{
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/saito/saito_quickslash"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityTextureName"			"custom/saito/saito_quickslash_2"
-		"AnimationPlaybackRate" 		"1.0"
-		"MaxLevel"						"5"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"1"
-		"AbilityManaCost"				"100"
-		"AbilityCastPoint"					"0.2"
-		"AbilityCooldown"			"10"	
-		"AbilityValues"
-        {
-            "dist" "500 525 550 575 600"
-            "damage" "200 250 300 350 400"
-            "speed" "2500"
-            "atk_scale" "0.3"
-            "turnrate_bonus" "600"
-        }
-	}
-	//=================================================================================================================
-	// Saito Hajime : Skill2 : Clap (W)
-	//=================================================================================================================
-	"saito_clap"
-	{
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/saito/saito_clap"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityTextureName"			"custom/saito/saito_clap_2"
-		"AnimationPlaybackRate" 		"1.0"
-		"MaxLevel"						"5"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"1"
-		"AbilityManaCost"				"100"
-		"AbilityCooldown"			"10"	
-		"AbilityCastPoint"					"0.2"
+    
 
-		
-		"AbilityValues"
-        {
-            "radius" "300"
-            "damage" "180 225 270 315 360"
-            "stun_duration" "0.3"
-            "slow_duration" "2"
-            "slow_power" "50"
-            "range" "100"
-            "atk_scale" "0.2"
-        }
-	}
-	//=================================================================================================================
-	// Saito Hajime : Skill3 : Invinsible sword (E)
-	//=================================================================================================================
-	"saito_inv_sword"
-	{
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/saito/saito_inv_sword"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET|DOTA_ABILITY_BEHAVIOR_AOE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityTextureName"			"custom/saito/saito_inv_sword_2"
-		"AbilityCastAnimation"                      "ACT_DOTA_CAST_ABILITY_3"
-		"AnimationPlaybackRate" 		"1.0"
-		"MaxLevel"						"5"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"1"
-		"AbilityManaCost"				"100"
-		"AbilityCooldown"				"10"	
-		"AbilityCastPoint"					"0.2"
-	
-		"AbilityValues"
-        {
-            "radius" "300"
-            "damage" "240 290 340 390 440"
-            "airborn_duration" "0.2"
-            "atk_scale" "0.4"
-            "mr_down" "10"
-        }
-	}
-	//=================================================================================================================
-	// Saito Hajime : Skill4 : Mind eye (D)
-	//=================================================================================================================
-	"saito_mind_eye"
-	{
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/saito/saito_mind_eye"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityTextureName"			"custom/saito/saito_mind_eye"
-		"AnimationPlaybackRate" 		"1.0"
-		"MaxLevel"						"5"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"1"
-		"AbilityManaCost"				"200"
-		"AbilityCooldown"				"18 16 14 12 10"
-	
-	
-		"AbilityValues"
-        {
-            "range" "800"
-            "damage" "200 250 300 350 400"
-            "resist" "40 45 50 55 60"
-            "duration" "0.5"
-            "threshold" "300 250 200 150 100"
-            "projectile_speed" "3500"
-            "projectile_radius" "200"
-            "stun_duration" "0.8 1 1.2 1.4 1.6"
-            "evasion" "50"
-            "mr" "20"
-        }
-	}
-	//=================================================================================================================
-	// Saito Hajime : Skill6 : Formlessness(R)
-	//=================================================================================================================
-	"saito_formlessness"
-	{
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/saito/saito_formlessness"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityTextureName"			"custom/saito/saito_formlessness"
-		"AnimationPlaybackRate" 		"0.5"
-		"MaxLevel"						"5"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"2"
-		"AbilityManaCost"				"800"
-		"AbilityCooldown"				"40"
-		"AbilityCastRangeBuffer"		"150"
-
-	
-	
-		"AbilityValues"
-        {
-            "range" "300"
-            "damage" "80 90 100 110 120"
-            "damage_last_slash" "600 700 800 900 1000"
-            "duration" "5"
-            "movement_bonus" "30"
-            "lock_duration" "1.2 1.4 1.6 1.8 2.0"
-            "last_range" "300"
-            "number_of_slashes" "4"
-            "cd_between_slashes" "0.1"
-            "slashes_start_delay" "0.20"
-            "damage_per_stack" "50"
-            "root_duration" "0.5"
-            "atk_scale" "0.25"
-            "atk_scale_last" "2"
-            "blink_dist" "300"
-        }
-	}
-	//=================================================================================================================
-	// Saito Hajime : Skill7 :  Undefeatable Style(combo)
-	//=================================================================================================================
-	"saito_undefeatable_style"
-	{
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/saito/saito_undefeatable_style"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityTextureName"			"custom/saito/saito_undefeatable_style"
-		"AnimationPlaybackRate" 		"1.0"
-		"MaxLevel"						"1"
-		"AbilityManaCost"				"400"
-		"AbilityCooldown"				"90"
-		"AbilityCastPoint"				"0.3"
-		"AbilityCastAnimation"                      "ACT_DOTA_CAST_ABILITY_8"
-		"AbilityValues"
-        {
-            "duration" "9"
-            "spellblock_cd" "1"
-            "armor" "0"
-            "magic_res" "0"
-            "mana_refund" "150"
-            "health_refund" "150"
-            "resist" "40"
-            "combo_cd" "3"
-        }
-	}
-	//=================================================================================================================
-	// Saito Hajime : Skill11 :  Undefeatable Style activation (combo - recast)
-	//=================================================================================================================
-	"saito_undefeatable_style_active"
-	{
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/saito/saito_undefeatable_style_active"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN|DOTA_ABILITY_BEHAVIOR_IMMEDIATE+ DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING "
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityTextureName"			"custom/saito/saito_undefeatable_style_active"
-		"AnimationPlaybackRate" 		"1.0"
-		"MaxLevel"						"1"
-		"AbilityManaCost"				""
-		"AbilityCooldown"				"3"
-		"AbilityCastPoint"				"0.2"
-		"AbilityCastAnimation"                      "ACT_DOTA_CAST_ABILITY_1"
-	
-	
-		"AbilityValues"
-        {
-            "radius" "300"
-            "damage" "700"
-            "stun_duration" "1.1"
-            "silence_duration" "0"
-        }
-	}
-
-	"saito_undefeatable_swordsman_attribute"
+	"hijikata_shinsengumi_attribute"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/saito/saito_attributes"
+		"ScriptFile"					"abilities/hijikata/hijikata_attributes"
 		"MaxLevel"						"1"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityTextureName"			"custom/saito/saito_undefeatable_swordsman_attribute"
+		"AbilityTextureName"			"custom/hijikata/hijikata_sa4"
 		"AbilityCooldown"				"9999"
 
-		"AbilityManaCost"				"13"
+		"AbilityManaCost"				"9"
 
 		 
 		"AbilityValues"
         {
-            "fdb_health" "60 70 80 90 100"
-            "combo_health" "200"
+			"armor"										"15"
+			"mr"										"10"
+			"health_regen"										"150"
+			"mana_regen"										"100"
+			"regen_duration"									"5"
         }		
 	}
 
-	"saito_shinsengumi_attribute"
+	"hijikata_battle_continuation_attribute"
 	{
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/saito/saito_attributes"
+		"ScriptFile"					"abilities/hijikata/hijikata_attributes"
 		"MaxLevel"						"1"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityTextureName"			"custom/saito/saito_shinsengumi_attribute"
-		"AbilityCooldown"				"9999"
-
-		"AbilityManaCost"				"18"
-
-		 
-		"AbilityValues"
-        {
-            "damage_per_stack" "50"
-            "damage_atk_scale" "0.25"
-            "damage_atk_scale_last" "2"
-        }		
-	}
-
-	"saito_free_spirit_attribute"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/saito/saito_attributes"
-		"MaxLevel"						"1"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityTextureName"			"custom/saito/saito_free_spirit_attribute"
-		"AbilityCooldown"				"9999"
-
-		"AbilityManaCost"				"10"
-
-		 
-		"AbilityValues"
-        {
-            "evasion" "50"
-            "mr" "20"
-        }		
-	}
-
-	"saito_freestyle_attribute"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/saito/saito_attributes"
-		"MaxLevel"						"1"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityTextureName"			"custom/saito/saito_freestyle_attribute"
-		"AbilityCooldown"				"9999"
-
-		"AbilityManaCost"				"14"
-
-		 
-		"AbilityValues"
-        {
-            "atk_scale_q" "0.3"
-            "atk_scale_w" "0.2"
-            "atk_scale_e" "0.4"
-        }		
-	}
-	"saito_mastery_attribute"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_lua"
-		"ScriptFile"					"abilities/saito/saito_attributes"
-		"MaxLevel"						"1"
-		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
-		"AbilityTextureName"			"custom/saito/saito_mastery_attribute"
+		"AbilityTextureName"			"custom/hijikata/hijikata_sa3"
 		"AbilityCooldown"				"9999"
 
 		"AbilityManaCost"				"12"
@@ -606,13 +427,62 @@
 		 
 		"AbilityValues"
         {
-            "q_turnrate" "600"
-            "w_slow" "50"
-            "e_magres_down" "10"
-            "r_root_duration" "0.5"
+            "cooldown" "75"
+            "health_restored" "25"
+            "duration" "1"
         }		
 	}
 
+	"hijikata_eternal_madness_attribute"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/hijikata/hijikata_attributes"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/hijikata/hijikata_sa"
+		"AbilityCooldown"				"9999"
+
+		"AbilityManaCost"				"10"
+
+		 
+		"AbilityValues"
+        {
+            "recast_amount" "3"
+            "bonus_damage" "25"
+            "bonus_health" "100"
+            "max_stacks" "7"
+        }		
+	}
+
+	"hijikata_tactics_attribute"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/hijikata/hijikata_attributes"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/hijikata/hijikata_sa2"
+		"AbilityCooldown"				"9999"
+
+		"AbilityManaCost"				"13"
+
+		 
+		"AbilityValues"
+        {
+            "max_damage_pct" "150"
+            "slow_duration" "1"
+            "slow_amount" "60"
+            "bonus_damage" "100"
+        }		
+	}
+	
 	 
  
 }

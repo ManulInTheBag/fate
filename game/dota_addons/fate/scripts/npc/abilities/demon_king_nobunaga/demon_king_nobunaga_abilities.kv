@@ -1,0 +1,133 @@
+"DOTAAbilities"
+{
+	//=====================================
+	// Demon king nobunaga - Materialization (F)
+	//=====================================
+	"demon_king_materialization"
+	{
+		"BaseClass"          			    "ability_lua"
+		"ScriptFile"					    "abilities/demon_king_nobunaga/demon_king_materialization"
+		"AbilityTextureName"				"custom/saito/saito_fdb"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"MaxLevel"							"1"
+		"precache"
+		{
+			"particle"		"particles/hijikata/hijikata_dash_radius.vpcf"
+			"particle"		"particles/hijikata/hijikata_bullet.vpcf"
+		}
+		"AbilityValues"
+		{
+			"maximum_stage"				"4"
+		}
+	}
+
+    //=====================================
+	// Demon king nobunaga - Ignition (D)
+	//=====================================
+	"demon_king_ignition"
+	{
+		"BaseClass"          			    "ability_lua"
+		"ScriptFile"					    "abilities/demon_king_nobunaga/demon_king_ignition"
+		"AbilityTextureName"				"custom/saito/saito_fdb"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_IMMEDIATE|DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"MaxLevel"							"1"
+		"AbilityCooldown"				"45"
+		"precache"
+		{
+			"particle"		"particles/demon_king_nobunaga/demon_king_nobunaga_ignition.vpcf"
+		}
+		"AbilityValues"
+		{
+
+			"damage_per_second_base"				"0"
+			"dmg_increase_per_second"				"0.25"
+			"dmg_per_second_cap"				"5"
+			"dmg_amp_base"				"10"
+			"dmg_amp_per_second"				"1"
+			"dmg_amp_cap"				"30"
+			"maximum_duration"				"30"
+			"tick_interval"				"0.5"
+			"deactivate_cooldown"				"10"
+			
+		}
+	}
+   
+
+	//=======================================
+	// Demon king nobunaga - Extermination (W)
+	//=======================================
+	"demon_king_extermination"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/demon_king_nobunaga/demon_king_extermination"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL" 
+		"AbilityTextureName"			"custom/demon_king_nobunaga/demon_king_extermination"
+
+		"AbilityCastRange"				"250"
+		"AbilityCastRangeBuffer"		"0"
+		"AbilityCastPoint"				"1"
+		"AbilityCooldown"				"15 14 13 12 11"
+		"AbilityManaCost"				"200"
+		"precache"
+		{
+			"particle"		"particles/demon_king_nobunaga/extermination_cast_base.vpcf"
+			"particle"		"particles/demon_king_nobunaga/extermination_cast_hand_smoke.vpcf"
+			"particle"		"particles/demon_king_nobunaga/extermination_cast_sword_glow.vpcf"
+			"particle"		"particles/demon_king_nobunaga/extermination_cast_sword_glow_red.vpcf"
+			"particle"		"particles/muramasa/muramasa_rush_burn.vpcf"
+		}
+		"AbilityValues"
+		{
+			"damage_hit"				"500 600 700 800 900"
+			"lock_duration"				"0.8 1 1.2 1.4 1.6"
+			"dash_distance_trigger"				"250" // castrange + buffer, not active
+			"dash_distance_max"					"1000"
+			"damage_dash"			"300 350 400 450 500"
+			"burn_dps"			"100 125 150 175 200"
+			"burn_duration"			"2.5"
+			"dash_delay"				"0.25"
+			"dash_speed"				"2500"
+		}
+	}
+
+
+	//=======================================
+	// Demon king nobunaga - Combo
+	//=======================================
+	"demon_king_combo"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/demon_king_nobunaga/demon_king_combo"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT|DOTA_ABILITY_BEHAVIOR_AOE|DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL" 
+		"AbilityTextureName"			"custom/demon_king_nobunaga/demon_king_combo"
+
+		"AbilityCastRange"				"3000"
+		"AbilityCastPoint"				"0.5"
+		"AbilityCooldown"				"150"
+		"AbilityManaCost"				"400"
+		"precache"
+		{
+			"particle"		"particles/demon_king_nobunaga/combo_kostya_spawn_ground.vpcf"
+		}
+		"AbilityValues"
+		{
+			"damage_hit"				"500 600 700 800 900"
+			
+		}
+	}
+
+	 
+ 
+}

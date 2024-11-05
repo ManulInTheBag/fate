@@ -11,7 +11,7 @@
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"2"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
@@ -26,7 +26,10 @@
 		"AbilityCastRangeBuffer"		"250"
 
 		"LinkedAbilities"				"ryougi_knife_recast"
-		
+		"precache"
+		{
+			"particle"				"particles/ryougi/ryougi_dagger_2.vpcf"
+		}
 		"AbilityValues"
 		{	
 			"cast_point"			"0.0"
@@ -65,7 +68,10 @@
 		"AbilityTextureName"			"custom/ryougi/ryougi_kimono_2"
 		"AbilityCooldown"				"0"
 		"AbilityManaCost"				"200"
-		
+		"precache"
+		{
+			"particle"				"particles/ryougi/ryougi_step_red.vpcf"
+		}
 		"AbilityValues"
 		{	
 			"cast_point"			"0.5"
@@ -102,7 +108,10 @@
 		"AbilityChargeRestoreTime"		"15 13 11 9 7"
 		"AbilityCooldown"				"0.5"
 		"AbilityManaCost"				"50"
-		
+		"precache"
+		{
+			"particle"				"particles/ryougi/ryougi_dagger_blue.vpcf"
+		}
 		"AbilityValues"
 		{	
 			"charge_amount"			"2"
@@ -110,7 +119,7 @@
 			"range"					"900"
 			"speed"					"5000"
 			"damage"				"40 47.5 55 62.5 70"
-			"attribute_silence_duration"	"0.3 0.4 0.5 0.6 0.7"
+			"attribute_silence_duration"	"0.3 0.35 0.4 0.45 0.5"
 		}
 	}
 
@@ -136,7 +145,10 @@
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"20 18 16 14 12"
 		"AbilityManaCost"				"200"
-		
+		"precache"
+		{
+			"particle"				"particles/ryougi/ryougi_slash_red.vpcf"
+		}
 		"AbilitySpecial"
 		{
 			"01"
@@ -175,7 +187,11 @@
 		"AbilityCooldown"				"20 18 16 14 12"
 		"AbilityManaCost"				"200"
 		"AbilityCastRange"				"700"
-		
+		"precache"
+		{
+			"particle"				"particles/ryougi/ryougi_step_blue.vpcf"
+			"particle"				"particles/ryougi/ryougi_slash_blue.vpcf"
+		}
 		"AbilityValues"
 		{
 			"cast_point"			"0.2"
@@ -210,7 +226,11 @@
 		"AbilityCastPoint"				"0.05"
 		"AbilityCooldown"				"20 18 16 14 12"
 		"AbilityManaCost"				"200"
-		
+		"precache"
+		{
+			"particle"				"particles/ryougi/ryougi_step_blue.vpcf"
+			"particle"				"particles/ryougi/ryougi_slash_blue.vpcf"
+		}
 		"AbilityValues"
 		{
 			"cast_point"			"0.05"
@@ -242,7 +262,10 @@
 		"AbilityCastPoint"				"0.4"
 		"AbilityCooldown"				"30 26 22 18 14"
 		"AbilityManaCost"				"200"
-
+		"precache"
+		{
+			"particle"				"particles/ryougi/ryougi_slash_blue_speed_up.vpcf"
+		}
 		"AbilityValues"
 		{
 			"cast_point"			"0.225"
@@ -338,7 +361,12 @@
 		"AbilityTextureName"			"custom/ryougi/ryougi_kimono_2"
 		"AbilityCooldown"				"30 27 24 21 18"
 		"AbilityManaCost"				"200"
-		
+		"precache"
+		{
+			"particle"				"particles/ryougi/ryougi_slash_red.vpcf"
+			"particle"				"particles/ryougi/ryougi_step_red.vpcf"
+		}
+
 		"AbilitySpecial"
 		{
 			"01"
@@ -469,6 +497,12 @@
 		
 		// Ability Special
 		//-------------------------------------------------------------------------------------------------------------
+				"precache"
+		{
+			"particle"				"particles/ryougi/ryougi_crit_impact.vpcf"
+			"particle"				"particles/ryougi/ryougi_line_status.vpcf"
+		}
+
 		"AbilityValues"
 		{	
 			"cast_point"				"0.0"
@@ -497,7 +531,7 @@
 		"MaxLevel"						"1"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY" 
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
@@ -510,7 +544,12 @@
 		"AbilityManaCost"				"400"
 		"AbilityCastRange"				"1500"
 		"AbilityCastRangeBuffer"		"250"
-		
+		"precache"
+		{
+			"particle"				"particles/ryougi/ryougi_step_red.vpcf"
+			"particle"				"particles/ryougi/ryougi_slash_red_big.vpcf"
+			"particle"				"particles/econ/items/juggernaut/jugg_arcana/juggernaut_arcana_v2_omni_slash_tgt_serrakura.vpcf"
+		}
 		"AbilityValues"
 		{
 			"cast_point"			"0.2"
@@ -663,7 +702,7 @@
 			"02"
 			{
 				"var_type"				"FIELD_FLOAT"
-				"mult"					"0.45"
+				"mult"					"0.35"
 			}	
 		}		
 	}

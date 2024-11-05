@@ -219,6 +219,8 @@ function emiya_unlimited_bladeworks:EnterUBW()
     caster:RemoveModifierByName("modifier_hrunting_window")
     caster:RemoveModifierByName("modifier_aestus_domus_aurea_ally")
     caster:RemoveModifierByName("modifier_aestus_domus_aurea_enemy")
+    caster:RemoveModifierByName("modifier_hijikata_duel_leash")
+    caster:RemoveModifierByName("modifier_hijikata_duel")
 
 
 
@@ -294,7 +296,8 @@ function emiya_unlimited_bladeworks:EnterUBW()
                 ubwTargets[i]:RemoveModifierByName("modifier_aestus_domus_aurea_enemy")
                 ubwTargets[i]:RemoveModifierByName("modifier_aestus_domus_aurea_ally")
                 ubwTargets[i]:RemoveModifierByName("modifier_aestus_domus_aurea_nero")
-
+                ubwTargets[i]:RemoveModifierByName("modifier_hijikata_duel_leash")
+                ubwTargets[i]:RemoveModifierByName("modifier_hijikata_duel")
                 --if ubwTargets[i]:GetName() == "npc_dota_hero_bounty_hunter" or ubwTargets[i]:GetName() == "npc_dota_hero_riki" then
                     ubwTargets[i]:AddNewModifier(caster, self, "modifier_inside_marble", { Duration = 15 })
                 --end
@@ -348,6 +351,8 @@ function emiya_unlimited_bladeworks:EndUBW()
             units[i]:RemoveModifierByName("modifier_aestus_domus_aurea_enemy")
             units[i]:RemoveModifierByName("modifier_aestus_domus_aurea_ally")
             units[i]:RemoveModifierByName("modifier_aestus_domus_aurea_nero")
+            units[i]:RemoveModifierByName("modifier_hijikata_duel_leash")
+            units[i]:RemoveModifierByName("modifier_hijikata_duel")
 
             --if units[i]:GetName() == "npc_dota_hero_bounty_hunter" or units[i]:GetName() == "npc_dota_hero_riki" then
                 units[i]:RemoveModifierByName("modifier_inside_marble")
@@ -403,6 +408,8 @@ function emiya_unlimited_bladeworks:EndUBW()
                         units[i]:RemoveModifierByName("modifier_aestus_domus_aurea_enemy")
                         units[i]:RemoveModifierByName("modifier_aestus_domus_aurea_ally")
                         units[i]:RemoveModifierByName("modifier_aestus_domus_aurea_nero")
+                        units[i]:RemoveModifierByName("modifier_hijikata_duel_leash")
+                        units[i]:RemoveModifierByName("modifier_hijikata_duel")
             
                         --if units[i]:GetName() == "npc_dota_hero_bounty_hunter" or units[i]:GetName() == "npc_dota_hero_riki" then
                             units[i]:RemoveModifierByName("modifier_inside_marble")

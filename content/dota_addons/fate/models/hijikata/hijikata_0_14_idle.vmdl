@@ -260,7 +260,7 @@
 					{
 						_class = "AnimFile"
 						name = "shot_and_dash"
-						activity_name = ""
+						activity_name = "ACT_DOTA_CAST_ABILITY_2"
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -276,7 +276,7 @@
 						import_bone_scales = false
 						start_frame = 465
 						end_frame = 483
-						framerate = -1.0
+						framerate = 24.0
 						reverse = false
 					},
 					{
@@ -386,7 +386,7 @@
 						import_bone_scales = false
 						start_frame = 650
 						end_frame = 730
-						framerate = -1.0
+						framerate = 35.0
 						reverse = false
 					},
 					{
@@ -408,7 +408,7 @@
 						import_bone_scales = false
 						start_frame = 740
 						end_frame = 805
-						framerate = -1.0
+						framerate = 48.0
 						reverse = false
 					},
 					{
@@ -430,7 +430,7 @@
 						import_bone_scales = false
 						start_frame = 810
 						end_frame = 870
-						framerate = -1.0
+						framerate = 30.0
 						reverse = false
 					},
 					{
@@ -442,7 +442,7 @@
 								_class = "ExtractMotion"
 								disabled = true
 								extract_tx = true
-								extract_ty = true
+								extract_ty = false
 								extract_tz = false
 								extract_rz = false
 								linear = false
@@ -450,6 +450,11 @@
 								extract_initial_offset = false
 								root_bone_name = ""
 								motion_type = "Uniform"
+							},
+							{
+								_class = "AnimSmoothLoop"
+								frames_from_start = 960
+								frames_from_end = 1000
 							},
 						]
 						activity_name = "ACT_DOTA_RUN"
@@ -474,6 +479,29 @@
 					{
 						_class = "AnimFile"
 						name = "attack_1"
+						children = 
+						[
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 10
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/hijikata/hijikata_attack_slash.vpcf"
+									detach_from_owner = false
+									always_run = false
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = null
+									attachment_type = "point_follow"
+									attachment_point_cp1 = null
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+						]
 						activity_name = "ACT_DOTA_ATTACK"
 						activity_weight = 1
 						weight_list_name = ""
@@ -489,15 +517,37 @@
 						source_filename = "models/hijikata/hijikata.fbx"
 						import_bone_scales = false
 						start_frame = 490
-						end_frame = 506
-						framerate = -1.0
+						end_frame = 504
+						framerate = 23.0
 						reverse = false
 					},
 					{
 						_class = "AnimFile"
 						name = "attack_2"
-						disabled = true
-						activity_name = "ACT_DOTA_ATTACK2"
+						children = 
+						[
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 3
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/hijikata/hijikata_attack_slash_horizontal.vpcf"
+									detach_from_owner = false
+									always_run = false
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = null
+									attachment_type = "point_follow"
+									attachment_point_cp1 = null
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+						]
+						activity_name = "ACT_DOTA_ATTACK"
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -513,7 +563,7 @@
 						import_bone_scales = false
 						start_frame = 506
 						end_frame = 524
-						framerate = 36.0
+						framerate = 10.0
 						reverse = false
 					},
 					{
@@ -576,6 +626,38 @@
 								extract_initial_offset = false
 								root_bone_name = ""
 								motion_type = "Uniform"
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 19
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/hijikata/hijikata_ult_charge.vpcf"
+									detach_from_owner = false
+									always_run = false
+									stop_on_seq_change = true
+									stop_immediately = true
+									use_layer_sequence = false
+									tags = null
+									attachment_point = "gun_attach_end"
+									attachment_type = "point_follow"
+									attachment_point_cp1 = "gun_attach_end"
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_STOP_PARTICLE_EFFECT"
+								event_frame = 37
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/hijikata/hijikata_ult_charge.vpcf"
+									stop_instantly = true
+									play_endcap = false
+								}
 							},
 						]
 						activity_name = "ACT_DOTA_CAST_ABILITY_6"
@@ -670,28 +752,6 @@
 						framerate = 60.0
 						reverse = false
 					},
-					{
-						_class = "AnimFile"
-						name = "disabled1"
-						activity_name = "ACT_DOTA_DISABLED"
-						activity_weight = 1
-						weight_list_name = ""
-						fade_in_time = 0.2
-						fade_out_time = 0.2
-						looping = false
-						delta = false
-						worldSpace = false
-						hidden = false
-						anim_markup_ordered = false
-						disable_compression = false
-						animgraph_additive = false
-						source_filename = "models/hijikata/hijikata.fbx"
-						import_bone_scales = false
-						start_frame = 530
-						end_frame = 550
-						framerate = -1.0
-						reverse = false
-					},
 				]
 				default_root_bone_name = ""
 			},
@@ -759,6 +819,15 @@
 						parent_bone = "spine"
 						relative_origin = [ 0.0, 0.0, 0.0 ]
 						relative_angles = [ 90.0, 0.0, 90.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "gun_attach_end"
+						parent_bone = "Musket_bone_fuse"
+						relative_origin = [ -1.940012, 84.807175, -31.228439 ]
+						relative_angles = [ 0.0, 0.0, -22.0 ]
 						weight = 1.0
 						ignore_rotation = false
 					},

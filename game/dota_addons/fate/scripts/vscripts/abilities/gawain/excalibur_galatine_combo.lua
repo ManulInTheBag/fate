@@ -133,9 +133,9 @@ function gawain_excalibur_galatine_combo:OnSpellStart()
                 for k,v in pairs(targets) do
                     if v:GetUnitName() == "gawain_artificial_sun" then
                         v:EmitSound("Hero_Warlock.RainOfChaos_buildup" )
-                        local targets = FindUnitsInRadius( caster:GetTeam(), v:GetAbsOrigin(), nil, 800, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
+                        local targets = FindUnitsInRadius( caster:GetTeam(), v:GetAbsOrigin(), nil, 650, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
                         for k,v in pairs(targets) do
-                                DoDamage(caster, v, 1000, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+                                DoDamage(caster, v, 600, DAMAGE_TYPE_MAGICAL, 0, ability, false)
                         end
                         local pfx = ParticleManager:CreateParticle("particles/gawain/gawain_sun_explosion_combo.vpcf", PATTACH_ABSORIGIN_FOLLOW, v)
                         v:RemoveSelf()

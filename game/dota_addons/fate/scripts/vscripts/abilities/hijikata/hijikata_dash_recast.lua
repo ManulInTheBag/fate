@@ -18,6 +18,9 @@ function hijikata_dash_recast:GetCustomCastError()
 	return "not in the radius"
 end
 ]]
+function hijikata_dash_recast:GetAOERadius()
+    return self:GetSpecialValueFor("distance")
+end
 
 function hijikata_dash_recast:OnUpgrade()
     local caster = self:GetCaster()
@@ -39,10 +42,10 @@ function hijikata_dash_recast:OnSpellStart()
 	if distance > self:GetSpecialValueFor("distance") then
 		return
 	end
-    caster:AddNewModifier(caster, self, "modifier_hijikata_rotation_lock", {Duration = 0.3})
-    StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_CAST_ABILITY_1_END, rate=1})
-
-    Timers:CreateTimer(0.3, function() 
+    caster:AddNewModifier(caster, self, "modifier_hijikata_rotation_lock", {Duration = 0.1})
+    StartAnimation(caster, {duration=0.1, activity=ACT_DOTA_CAST_ABILITY_1_END, rate=3})
+    --caster:EmitSound("hijikata_shut_up")
+    Timers:CreateTimer(0.1, function() 
         local ring_fx = caster:FindAbilityByName("hijikata_dash").radius_ring_fx
         if ring_fx ~= nil then 
             ParticleManager:DestroyParticle(ring_fx, true)
@@ -51,8 +54,8 @@ function hijikata_dash_recast:OnSpellStart()
         
         --caster:EmitSound("mordred_rush")
 
-        self.damage = 250--self:GetSpecialValueFor("damage")
-        self.speed = 2000--self:GetSpecialValueFor("speed")
+        self.damage = self:GetSpecialValueFor("damage")
+        self.speed = self:GetSpecialValueFor("speed")
         caster:AddNewModifier(caster, self, "modifier_hijikata_rush", {damage = self.damage,
                                                                         speed = self.speed })
         caster:RemoveModifierByName("modifier_hijikata_dash_recast_enable")
@@ -67,7 +70,7 @@ modifier_hijikata_rush = class({})
 
 function modifier_hijikata_rush:OnCreated(hui)
     if not IsServer() then return end
-
+    self.bSoundReady = true
 	self.parent = self:GetParent()
     self.parent:Stop() 
 	self.ability = self:GetAbility()
@@ -123,6 +126,7 @@ function modifier_hijikata_rush:OnDestroy()
     local pos = self.parent:GetOrigin()
     local direction = self.targetpos - pos
     direction.z = 0     
+   
     local attackFx = ParticleManager:CreateParticle("particles/hijikata/hijikata_dash_slash.vpcf", PATTACH_ABSORIGIN_FOLLOW ,self.parent)  
     ParticleManager:ReleaseParticleIndex(attackFx)
     --ParticleManager:SetParticleControlTransformForward(attackFx, 0, self.parent:GetAbsOrigin(), direction)
@@ -161,10 +165,14 @@ function modifier_hijikata_rush:UpdateHorizontalMotion(me, dt)
     self.targetpos = self.target:GetAbsOrigin() 
     self.distance = (self.target:GetOrigin() - self.parent:GetOrigin()):Length2D()
 
-  
+    if self.distance < 600 and self.damage_dealth == false and self.bSoundReady == true then
+        self.parent:EmitSound("hijikata_shut_up")
+        self.bSoundReady = false
+    end
  
     if self.distance < 200 and self.damage_dealth == false then
         self:BOOM()
+
         return nil
     end
     if self.distance < 100 then
@@ -192,7 +200,7 @@ function modifier_hijikata_rush:BOOM()
             
         end
     
-        EmitSoundOnLocationWithCaster(position, "Archer.HruntHit", self.parent)
+        EmitSoundOnLocationWithCaster(position, "hijikata_dash_recast_sfx", self.parent)
 
 
 end

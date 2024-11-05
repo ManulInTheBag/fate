@@ -33,7 +33,7 @@ function modifier_nobu_innovation_aura:GetAuraRadius()
 end
 
 function modifier_nobu_innovation_aura:GetEffectName()
-    return "particles/units/heroes/hero_legion_commander/legion_commander_press.vpcf"
+    return "particles/nobu/leader_of_innovation.vpcf"
 end
 
 

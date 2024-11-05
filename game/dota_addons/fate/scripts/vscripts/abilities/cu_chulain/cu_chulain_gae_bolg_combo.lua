@@ -157,6 +157,7 @@ function cu_chulain_gae_bolg_combo:OnProjectileHit_ExtraData(hTarget, vLocation,
 		Timers:CreateTimer( 3.0, function()			
 			ParticleManager:DestroyParticle( hb, false )
 		end)
+		giveUnitDataDrivenModifier(hCaster, hTarget, "can_be_executed", 0.033)
 		hTarget:Execute(self, hCaster, { bExecution = true })
 	end
 end

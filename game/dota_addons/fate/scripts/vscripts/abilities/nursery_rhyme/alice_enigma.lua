@@ -45,7 +45,7 @@ function alice_enigma:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
 	local stun_duration = self:GetSpecialValueFor("stun_duration")
 
 	--target:AddNewModifier(caster, self, "modifier_stunned", { duration = stun_duration })
-	giveUnitDataDrivenModifier(caster, target , "rooted", stun_duration)
+	--giveUnitDataDrivenModifier(caster, target , "rooted", stun_duration)
 	target:AddNewModifier(caster, self, "modifier_alice_enigma",  { duration = duration })
 
 	SpawnAttachedVisionDummy(caster, target, 300, 3, false)

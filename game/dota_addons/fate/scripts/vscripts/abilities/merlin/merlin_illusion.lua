@@ -14,7 +14,6 @@ function merlin_illusion:OnSpellStart()
     local target = self:GetCursorPosition()
     local duration = self:GetSpecialValueFor("basic_duration")
     local duration_reduction = self:GetSpecialValueFor("duration_red_per_unit")
-    local seva_spasibo = 0
     local min_duration = self:GetSpecialValueFor("min_duration")
 
     local damage = self:GetSpecialValueFor("damage")
@@ -109,7 +108,7 @@ end
 
 function modifier_merlin_illusion:OnIntervalThink()
     if IsServer() then
-        DoDamage(self.caster, self.parent, self.damage , DAMAGE_TYPE_PURE, 0,  self.abililty, false)
+        DoDamage(self.caster, self.parent, self.damage , DAMAGE_TYPE_MAGICAL, 0,  self.abililty, false)
     end
 
 end

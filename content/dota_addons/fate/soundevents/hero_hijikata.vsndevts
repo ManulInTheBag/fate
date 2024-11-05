@@ -1,0 +1,781 @@
+"hijikata_scream"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/hijikata/hijikata_scream.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "7.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"hijikata_serya"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/hijikata/hijikata_serya.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "7.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"hijikata_shinei"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/hijikata/hijikata_shinei.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "7.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"hijikata_shut_up"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/hijikata/hijikata_shut_up.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "7.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"hijikata_np_1"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/hijikata/hijikata_np_1.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "15.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"hijikata_np_2"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/hijikata/hijikata_np_2.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "15.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+
+"hijikata_np_3"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/hijikata/hijikata_np_3.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "15.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+
+"hijikata_np_4"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/hijikata/hijikata_np_4.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "15.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+
+"hijikata_np_scream"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/hijikata/hijikata_np_scream.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "5.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+
+"hijikata_np_23"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/hijikata/hijikata_np_23.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "15.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"hijikata_flag"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/hijikata/hijikata_flag.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "7.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"hijikata_laws_stun"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/hijikata/hijikata_laws_stun.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "7.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"hijikata_shot"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/hijikata/hijikata_shot.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "7.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"hijikata_demon_sfx"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/hijikata/hijikata_demon_sfx.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "7.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"hijikata_attack_1"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/hijikata/hijikata_attack_1.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "5.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"hijikata_attack_2"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/hijikata/hijikata_attack_2.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "5.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+
+"hijikata_attack_3"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/hijikata/hijikata_attack_3.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "5.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+
+"hijikata_dash_recast_sfx"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/hijikata/hijikata_dash_recast_sfx.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "7.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+
+"hijikata_shot_q"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/hijikata/hijikata_shot_q.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "7.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+
+"hijikata_combo_w"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/hijikata/hijikata_combo_w.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "7.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+
+"hijikata_cannon"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/hijikata/hijikata_cannon.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "7.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+
+"hijikata_prepare_for_battle"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/hijikata/hijikata_prepare_for_battle.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "5.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+
+"hijikata_battle_sounds_combo"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/hijikata/hijikata_battle_sounds_combo.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "30.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+
+"hijikata_bc"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/hijikata/hijikata_bc.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "15.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+

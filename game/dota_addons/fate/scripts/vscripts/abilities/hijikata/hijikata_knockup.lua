@@ -9,24 +9,26 @@ function hijikata_knockup:OnSpellStart()
 	local vector = (self:GetCursorPosition() - caster:GetAbsOrigin()):Normalized()
 	local knockbackEndpoint = caster:GetAbsOrigin() - vector * 400
     local AttackedTargets = {}
-	local knockbackDuration = self:GetSpecialValueFor("root_duration")
+	local knockbackDuration = self:GetSpecialValueFor("duration")
 	local knockBackDistance = (knockbackEndpoint - caster:GetAbsOrigin()):Length2D() * 1.3
     local targets = FindUnitsInLine(caster:GetTeamNumber(),
 									caster:GetAbsOrigin(),
-									caster:GetAbsOrigin()+vector*300,
+									caster:GetAbsOrigin()+vector*self:GetSpecialValueFor("range"),
 									nil,
-									100,
+									width,
 									DOTA_UNIT_TARGET_TEAM_ENEMY,
 									DOTA_UNIT_TARGET_ALL,
 									0)
- 
 
-	caster:EmitSound("nero_w")
+	caster:EmitSound("hijikata_np_23")
+	caster:EmitSound("hijikata_combo_w")
+	caster.bSoundReady = true
 	caster:SwapAbilities("hijikata_knockup", "hijikata_ult", false, true)
-	local slash_fx = ParticleManager:CreateParticle("particles/hijikata/hijikata_knockup_slash.vpcf", PATTACH_WORLDORIGIN, caster)
-	ParticleManager:SetParticleControl(slash_fx, 0, caster:GetAbsOrigin() + caster:GetForwardVector()*150)
-	ParticleManager:SetParticleControl(slash_fx, 7, caster:GetAbsOrigin() + caster:GetForwardVector()*150)
-	ParticleManager:SetParticleControl(slash_fx, 8, caster:GetAbsOrigin() + caster:GetForwardVector()*150 + Vector(0, 0, 500))
+	caster:FindAbilityByName("hijikata_ult"):StartCooldown(0.5)
+	local slash_fx = ParticleManager:CreateParticle("particles/hijikata/hijikata_knockup_slash_new.vpcf", PATTACH_WORLDORIGIN, caster)
+	ParticleManager:SetParticleControlTransformForward(slash_fx, 0, caster:GetAbsOrigin(), caster:GetForwardVector() )
+	--ParticleManager:SetParticleControl(slash_fx, 7, caster:GetAbsOrigin() + caster:GetForwardVector()*150)
+	--ParticleManager:SetParticleControl(slash_fx, 8, caster:GetAbsOrigin() + caster:GetForwardVector()*150 + Vector(0, 0, 500))
 	Timers:CreateTimer(1, function()
 		ParticleManager:DestroyParticle(slash_fx, false)
 		ParticleManager:ReleaseParticleIndex(slash_fx)
@@ -49,11 +51,13 @@ function hijikata_knockup:OnSpellStart()
 
 			if not enemy:IsMagicImmune() then
 				DoDamage(caster, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+				enemy:AddNewModifier(caster, self, "modifier_stunned", {Duration = knockbackDuration})
 			end
-			
+			--[[
 			Timers:CreateTimer(knockbackDuration, function()
 				enemy:SetAbsOrigin(GetGroundPosition(enemy:GetAbsOrigin(),enemy))
 			end)
+			]]
 		end
 	end
    

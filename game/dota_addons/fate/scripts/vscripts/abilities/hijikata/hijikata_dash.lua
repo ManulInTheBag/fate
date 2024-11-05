@@ -1,7 +1,7 @@
 hijikata_dash = class({})
 
 LinkLuaModifier("modifier_hijikata_dash_recast_enable", "abilities/hijikata/hijikata_dash", LUA_MODIFIER_MOTION_NONE)
-
+LinkLuaModifier("modifier_vision_provider", "abilities/general/modifiers/modifier_vision_provider", LUA_MODIFIER_MOTION_NONE)
 function hijikata_dash:OnUpgrade()
     local caster = self:GetCaster()
     local ability = self
@@ -13,14 +13,14 @@ function hijikata_dash:OnUpgrade()
 
 end
 
-function hijikata_dash:AbilityChange()
+function hijikata_dash:AbilityChange(target)
 	local caster =self:GetCaster()
 	if caster:GetAbilityByIndex(0):GetName() == "hijikata_dash" then
 		caster:SwapAbilities("hijikata_dash", "hijikata_dash_recast", false, true)
 	end
-	caster:AddNewModifier(caster, self, "modifier_hijikata_dash_recast_enable", {duration = self:GetSpecialValueFor("recast_duration"), hTarget = hTarget})
+	caster:AddNewModifier(caster, self, "modifier_hijikata_dash_recast_enable", {duration = self:GetSpecialValueFor("recast_duration")})
 
-	self.radius_ring_fx =     ParticleManager:CreateParticle("particles/hijikata/hijikata_dash_radius.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+	self.radius_ring_fx =     ParticleManager:CreateParticleForTeam("particles/hijikata/hijikata_dash_radius.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster, caster:GetTeam())
 	ParticleManager:SetParticleControl(self.radius_ring_fx,1,Vector( self:GetSpecialValueFor("distance"),0,0))
 	--ParticleManager:ReleaseParticleIndex(self.radius_ring_fx)
 	
@@ -33,7 +33,7 @@ function hijikata_dash:OnSpellStart()
 	local range = self:GetSpecialValueFor("distance")
 	local target = caster:GetForwardVector()
 	local origin = caster:GetAttachmentOrigin(4) 
-	caster:EmitSound("nobu_shoot_1")
+	caster:EmitSound("hijikata_shot_q")
 	local tProjectile = {
 		EffectName = "particles/hijikata/hijikata_bullet.vpcf",
 		Ability = self,
@@ -63,8 +63,8 @@ function hijikata_dash:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
 	local hCaster = self:GetCaster()
  	 if(hTarget ~= nil) then
 	 DoDamage(hCaster, hTarget, tData.fDamage, DAMAGE_TYPE_MAGICAL, 0, self, false)
-	 hCaster:AddNewModifier(hCaster, self, "modifier_vision_provider", { Duration = self:GetSpecialValueFor("recast_duration") })
-	 self:AbilityChange()
+	 hTarget:AddNewModifier(hCaster, self, "modifier_vision_provider", { Duration = self:GetSpecialValueFor("recast_duration") })
+	 self:AbilityChange(hTarget)
 	 hCaster.dash_target = hTarget
  
   end
@@ -89,6 +89,16 @@ function modifier_hijikata_dash_recast_enable:IsDebuff()
     return false 
 end
 
+function modifier_hijikata_dash_recast_enable:OnCreated(args)
+    self:StartIntervalThink(0.1)
+end
+
+function modifier_hijikata_dash_recast_enable:OnIntervalThink()
+    if self:GetCaster().dash_target:IsAlive()~= true then
+		self:Destroy()
+	end
+end
+
 function modifier_hijikata_dash_recast_enable:GetAttributes()
     return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
@@ -99,8 +109,9 @@ function modifier_hijikata_dash_recast_enable:OnDestroy()
 	if parent:GetAbilityByIndex(0):GetName() == "hijikata_dash_recast" then
 		parent:SwapAbilities("hijikata_dash", "hijikata_dash_recast", true, false)
 	end
-	if self.radius_ring_fx ~= nil then 
-		ParticleManager:DestroyParticle(self.radius_ring_fx, true)
-		ParticleManager:ReleaseParticleIndex(self.radius_ring_fx)
+	local abil = self:GetAbility()
+	if abil.radius_ring_fx ~= nil then 
+		ParticleManager:DestroyParticle(abil.radius_ring_fx, true)
+		ParticleManager:ReleaseParticleIndex(abil.radius_ring_fx)
 	end
 end

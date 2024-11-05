@@ -103,6 +103,7 @@ function modifier_nanaya_instinct:OnOrder(args)
 end
 
 function modifier_nanaya_instinct:NanayaBlink(location)
+	if (IsServer() and IsLocked(self:GetParent())) then return end
 	self.sex = false
 
 	if (location - self.parent:GetAbsOrigin()):Length2D() > self.dist then 

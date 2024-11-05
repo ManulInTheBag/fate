@@ -1648,7 +1648,7 @@ function modifier_saito_mind_eye_active:OnCreated(tTable)
     self.nBonusHPRegen = self.hAbility:GetSpecialValueFor("hp_regen")
     self.nAllyScale    = self.hAbility:GetSpecialValueFor("ally_scale") * 0.01
 
-    if self.hCaster ~= self.hParent and self.hParent:GetUnitName() ~= "npc_dota_hero_dark_willow" then --Only Okita receives a 100% bonus.
+    if self.hCaster ~= self.hParent and self.hParent:GetUnitName() ~= "npc_dota_hero_dark_willow" and self.hParent:GetUnitName() ~= "npc_dota_hero_spirit_breaker" then --Only Shinsengumi receives a 100% bonus.
         self.nBonusHP       = self.nBonusHP * self.nAllyScale
         self.nBonusHPRegen  = self.nBonusHPRegen * self.nAllyScale
     end
@@ -1672,6 +1672,9 @@ function modifier_saito_mind_eye_active:OnCreated(tTable)
                 --ResetAbilities(self.hParent) --FATE mechanic, described in F/A 2 code... needs as other functions because it is FATE...
 
                 self.hParent:AddNewModifier(self.hCaster, self.hAbility, "modifier_saito_mind_eye_agility", {duration = self.hAbility:GetSpecialValueFor("duration")})
+            end
+            if self.hParent:GetUnitName() == "npc_dota_hero_spirit_breaker" then 
+                self.hParent:AddNewModifier(self.hCaster, self.hAbility, "modifier_saito_mind_eye_strength", {duration = self.hAbility:GetSpecialValueFor("duration")})
             end
         end
 
@@ -1831,6 +1834,40 @@ end
 function modifier_saito_mind_eye_agility:OnRefresh(tTable)
     self:OnCreated(tTable)
 end
+
+LinkLuaModifier("modifier_saito_mind_eye_strength", "abilities/saito/saito_abilities", LUA_MODIFIER_MOTION_NONE)
+
+modifier_saito_mind_eye_strength = modifier_saito_mind_eye_strength or class({})
+
+function modifier_saito_mind_eye_strength:IsHidden()                                                                 return false end
+function modifier_saito_mind_eye_strength:IsDebuff()                                                                 return false end
+function modifier_saito_mind_eye_strength:IsPurgable()                                                               return false end
+function modifier_saito_mind_eye_strength:IsPurgeException()                                                         return false end
+function modifier_saito_mind_eye_strength:RemoveOnDeath()                                                            return false end
+function modifier_saito_mind_eye_strength:DeclareFunctions()
+    local tFunc =   {
+                        MODIFIER_PROPERTY_STATS_STRENGTH_BONUS
+                    }
+    return tFunc
+end
+function modifier_saito_mind_eye_strength:GetModifierBonusStats_Strength(keys)
+    return self:GetStackCount()
+end
+function modifier_saito_mind_eye_strength:OnCreated(tTable)
+    self.hCaster  = self:GetCaster()
+    self.hParent  = self:GetParent()
+    self.hAbility = self:GetAbility()
+
+    self.nBonusAgility = GetAttributeValue(self.hCaster, "saito_attribute_memoir", "me_okita_agility", -1, 0)
+
+    if IsServer() then
+        self:SetStackCount(self:GetStackCount() + self.nBonusAgility)
+    end
+end
+function modifier_saito_mind_eye_strength:OnRefresh(tTable)
+    self:OnCreated(tTable)
+end
+
 
 
 

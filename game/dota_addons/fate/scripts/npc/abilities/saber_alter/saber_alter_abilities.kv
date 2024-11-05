@@ -377,17 +377,20 @@
 	//=================================================================================================================
 	"saber_alter_max_mana_burst"
 	{
-		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"          			"ability_lua"
+		"ScriptFile"					"abilities/arturia_alter/saber_alter_max_mana_burst"
 		"MaxLevel"						"1"
+		"RequiredLevel"					"26"
+		"LevelsBetweenUpgrades"			"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY" 
-		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityTextureName"			"custom/saber_alter_max_mana_burst"
-		"AOERadius"						"%radius"
-		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_6"
-		"AnimationPlaybackRate" 		"0.5"
+		"AbilityCastPoint"				"0.2"
+		"AbilityCooldown"				"180"
+		"AbilityManaCost"				"200"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
+		"AnimationPlaybackRate" 		"1.0"		
+		
+
 		"precache"
 		{
 			"particle"		"particles/units/heroes/hero_nevermore/nevermore_shadowraze.vpcf"
@@ -396,10 +399,6 @@
 			"particle"		"particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_sanity_eclipse_area.vpcf"
 			"particle"		"particles/custom/screen_blue_splash.vpcf"
 		}
-		
-		"AbilityCastPoint"				"0.8"
-		"AbilityCooldown"				"180"
-		"AbilityManaCost"				"200"
 		
 		"AbilityValues"
         {
@@ -410,83 +409,6 @@
             "third_dmg_radius" "2000"
         }
 		
-		"OnAbilityPhaseStart"
-		{
-			"FireEffect"
-			{
-				"Target"			"CASTER"
-				"EffectName"		"particles/units/heroes/hero_nevermore/nevermore_shadowraze.vpcf"
-				"EffectAttachType"	"start_at_origin"
-			}
-		}
-		
-		"OnSpellStart"
-		{
-			"RemoveModifier"
-			{
-				"Target"		"CASTER"
-				"ModifierName"	"modifier_max_mana_burst_VFX"
-			}
-		
-			"RunScript"
-			{
-				"ScriptFile"	"saber_alter_ability"
-				"Function"		"OnMMBStart"
-				"Radius"		"%radius"
-			}
-		}
-		
-		"Modifiers"
-		{
-			"modifier_max_mana_burst_cooldown"
-			{
-				"IsDebuff"	"1"
-				"Attributes"		"MODIFIER_ATTRIBUTE_PERMANENT | MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE"
-			}
-			"modifier_max_mana_burst_VFX"
-			{
-				"IsHidden"		"1"
-				"IsPurgable"	"0"
-			
-				"Duration"		"1.5"
-				"OnCreated"
-				{
-					"AttachEffect"
-					{
-						"Target"			"TARGET"
-						"EffectName"		"particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_sanity_eclipse_area.vpcf"
-						"EffectAttachType"	"start_at_customorigin"
-						"ControlPoints"
-						{
-							"01"			"%radius 0 0"
-						}
-					}
-				
-					"AttachEffect"
-					{
-						"Target"			"TARGET"
-						"EffectName"		"particles/units/heroes/hero_disruptor/disruptor_static_storm.vpcf"
-						"EffectAttachType"	"start_at_customorigin"
-						"ControlPoints"
-						{
-							"01"			"%radius 0 0"
-							"02"			"1.0 0 0"
-						}
-					}
-					
-					"AttachEffect"
-					{
-						"Target"			"TARGET"
-						"EffectName"		"particles/units/heroes/hero_slark/slark_dark_pact_pulses.vpcf"
-						"EffectAttachType"	"start_at_customorigin"
-						"ControlPoints"
-						{
-							"02"			"%radius 0 0"
-						}
-					}
-				}
-			}
-		}
 	}
 
 	//=================================================================================================================
@@ -806,7 +728,12 @@
 		"AbilityManaCost"				"0"
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
 		"AnimationPlaybackRate" 		"1.0"
-		
+		"precache"
+		{
+			"particle"	"particles/custom/saber_alter/god_is_great/boom.vpcf"
+			"particle"	"particles/items2_fx/satanic_buff.vpcf"
+			"particle"	"particles/custom/saber_alter/god_is_great/boom_buff.vpcf"
+		}
 		"AbilityValues"
         {
             "cast_delay" "0.2"
@@ -884,7 +811,7 @@
 
 		"AbilityValues"
         {
-            "mana_required_for_catalyst" "200"
+            "mana_required_for_catalyst" "125"
             "max_catalyst" "9"
             "catalyst_damage" "100"
             "mana_burst_mana_ratio" "10"

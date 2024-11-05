@@ -23,13 +23,16 @@ function hijikata_target_dash:OnSpellStart()
 	local target = self:GetCursorTarget()
 
 	if IsSpellBlocked(target) then return end -- Linken effect checker
-
+	caster:EmitSound("hijikata_np_1")
+	StopGlobalSound("hijikata_np_scream")
+	caster:EmitSound("hijikata_dash_recast_sfx")
 	local diff = (target:GetAbsOrigin() - caster:GetAbsOrigin() ):Normalized() 
 	if((target:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D() > self:GetSpecialValueFor("range")) then
 		self:EndCooldown()
 		return
 	end
 	caster:SwapAbilities("hijikata_target_dash", "hijikata_knockup", false, true)
+	caster:FindAbilityByName("hijikata_ult"):StartCooldown(0.75)
 	caster:SetAbsOrigin(target:GetAbsOrigin() - diff * 100) 
 	FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
 
@@ -45,11 +48,11 @@ function hijikata_target_dash:OnSpellStart()
     	DoDamage(caster, v, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
 	end
 
-	target:AddNewModifier(caster, v, "modifier_stunned", {Duration = duration})
+	target:AddNewModifier(caster, self, "modifier_stunned", {Duration = duration})
 	caster:PerformAttack(target, true, true, true, true, false, false, false)
 
 	--particle
-	caster:EmitSound("Hero_Huskar.Life_Break")
+	--caster:EmitSound("Hero_Huskar.Life_Break")
     local attackFx = ParticleManager:CreateParticle("particles/hijikata/hijikata_dash_slash.vpcf", PATTACH_ABSORIGIN_FOLLOW , caster)  
     ParticleManager:ReleaseParticleIndex(attackFx)
 end

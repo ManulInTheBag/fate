@@ -189,7 +189,7 @@ function OnBloodfortStart(keys)
 
 	Timers:CreateTimer("medusa_bloodfort", {
 		callback = function()
-		if bloodfortCount >= duration or not caster:IsAlive() then
+		if bloodfortCount >= duration or not caster:IsAlive() or ((caster:GetAbsOrigin() - initCasterPoint):Length2D() > radius and not caster:HasModifier("modifier_medusa_bellerophon")) then
 			--FATE_ProjectileManager:DestroyArea(area_id)
 			if type(ability.sphereFxIndex) == "number" then
 				ParticleManager:DestroyParticle( ability.sphereFxIndex, false )

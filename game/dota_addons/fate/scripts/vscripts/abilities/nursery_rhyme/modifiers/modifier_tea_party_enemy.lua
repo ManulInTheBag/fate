@@ -34,7 +34,8 @@ end
 function modifier_tea_party_enemy:ReaperScythe()
 	self.raped = true
 	local target = self:GetParent()
-	local damage = (self:GetAbility():GetCaster():GetIntellect() - target:GetIntellect())*self:GetAbility():GetSpecialValueFor("damage_per_int")
+	local damage = self:GetAbility():GetSpecialValueFor("damage")
+	--local damage = (self:GetAbility():GetCaster():GetIntellect() - target:GetIntellect())*self:GetAbility():GetSpecialValueFor("damage_per_int")
 	DoDamage(self:GetAbility():GetCaster(), target, damage, DAMAGE_TYPE_PURE, 0, self:GetAbility(), false)
 	giveUnitDataDrivenModifier(self:GetCaster(), target, "revoked", 1)
 	giveUnitDataDrivenModifier(self:GetCaster(), target, "silenced", 1)

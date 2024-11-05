@@ -231,5 +231,11 @@
 		{
 			m_ChildRef = resource:"particles/hijikata/hijik_init_ult.vpcf"
 		},
+		{
+			m_ChildRef = resource:"particles/hijikata/ult_init_smoke.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/hijikata/hijikata_ult_fire.vpcf"
+		},
 	]
 }

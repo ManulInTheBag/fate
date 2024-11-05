@@ -311,6 +311,7 @@ function Precache( context )
     PrecacheResource("soundfile", "soundevents/hero_merlin.vsndevts", context )
     PrecacheResource("soundfile", "soundevents/hero_muramasa.vsndevts", context )
     PrecacheResource("soundfile", "soundevents/hero_oda_nobunaga.vsndevts", context )
+    PrecacheResource("soundfile", "soundevents/hero_hijikata.vsndevts", context )
     PrecacheResource("soundfile", "soundevents/sounds_test.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/soundevents_conquest.vsndevts", context )
     PrecacheResource("soundfile", "soundevents/hero_nanaya.vsndevts", context )
@@ -3330,6 +3331,7 @@ function FateGameMode:OnEntityKilled( keys )
                 if modifier.kill_restriction == false then
                     modifier.kill_restriction = true
                     modifier:IncrementStackCount()
+                    modifier:TakeDamage()
                 end
             end        
             -- if killer has Golden Rule attribute, grant 50% more gold
@@ -3354,6 +3356,7 @@ function FateGameMode:OnEntityKilled( keys )
                                 if modifier.kill_restriction == false then
                                     modifier.kill_restriction = true
                                     modifier:IncrementStackCount()
+                                    modifier:TakeDamage()
                                 end
                             end    
                             local goldPopupFx = ParticleManager:CreateParticleForPlayer("particles/custom/system/gold_popup.vpcf", PATTACH_CUSTOMORIGIN, nil, assister:GetPlayerOwner())

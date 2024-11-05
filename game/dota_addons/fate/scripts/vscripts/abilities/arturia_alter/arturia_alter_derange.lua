@@ -86,8 +86,8 @@ function modifier_derange:OnIntervalThink()
 
     if self:GetParent().IsManaBlastAcquired == true then
     	self.cringe = self.cringe+(self:GetParent():GetMaxMana()*0.01)
-    	if (self.cringe >= 200 and self.counter:GetStackCount() < 9)
-    		then self.cringe = self.cringe - 200
+    	if (self.cringe >= 125 and self.counter:GetStackCount() < 9)
+    		then self.cringe = self.cringe - 125
     		self.counter:SetStackCount(self.counter:GetStackCount()+1)
 		end
 	end

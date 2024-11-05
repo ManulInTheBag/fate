@@ -3,18 +3,30 @@ hijikata_madness = class({})
 LinkLuaModifier("modifier_hijikata_madness_active", "abilities/hijikata/hijikata_madness", LUA_MODIFIER_MOTION_NONE)
 
 
+function hijikata_madness:GetBehavior()
+    if self:GetCaster():GetHealthPercent() < 25 then
+        return self.BaseClass.GetBehavior(self) + DOTA_ABILITY_BEHAVIOR_IMMEDIATE + DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE
+    end
+    if self:GetCaster():GetHealthPercent() < 40 and self:GetCaster().IsHijikataTacticsAcquired then
+        return self.BaseClass.GetBehavior(self) + DOTA_ABILITY_BEHAVIOR_IMMEDIATE + DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE
+    end
+    return self.BaseClass.GetBehavior(self)
+end
 
 function hijikata_madness:OnSpellStart()
 	local caster = self:GetCaster()
     local duration = self:GetSpecialValueFor("duration")
+    print(self:GetCaster():GetHealthPercent() )
 	caster:AddNewModifier(caster, self, "modifier_hijikata_madness_active", { Duration = duration })
-
-    caster:SwapAbilities("hijikata_madness", "hijikata_combo", false, true)
-    Timers:CreateTimer(4, function()
-            if not caster:FindAbilityByName("hijikata_combo"):IsHidden() then
-      		    caster:SwapAbilities("hijikata_madness", "hijikata_combo", true, false)
-            end
-    end)
+    caster:EmitSound("hijikata_scream")
+    if self:CheckCombo() then
+        caster:SwapAbilities("hijikata_madness", "hijikata_combo", false, true)
+        Timers:CreateTimer(4, function()
+                if not caster:FindAbilityByName("hijikata_combo"):IsHidden() then
+                    caster:SwapAbilities("hijikata_madness", "hijikata_combo", true, false)
+                end
+        end)
+    end
     -- if self.eyes_particle_left ~= nil then
     --     ParticleManager:DestroyParticle(self.eyes_particle_left, true)
     --     ParticleManager:ReleaseParticleIndex(self.eyes_particle_left)
@@ -24,6 +36,16 @@ function hijikata_madness:OnSpellStart()
     --     ParticleManager:ReleaseParticleIndex(self.eyes_particle_right)
     -- end
 
+end
+
+function hijikata_madness:CheckCombo()
+	local caster = self:GetCaster()
+	if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 and caster:GetIntellect() >= 29.1 then
+		if caster:FindAbilityByName("hijikata_combo"):IsCooldownReady()  then
+			return true
+		end
+	end
+    return false
 end
 modifier_hijikata_madness_active = class({})
 

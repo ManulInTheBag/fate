@@ -66,7 +66,11 @@ function lancelot_combo_arondite_overload:StartCombo()
 	giveUnitDataDrivenModifier(hCaster, hCaster, "jump_pause", 5.0)
 	hCaster:EmitSound("lancelot_arthur_" .. math.random(1,3))
 	hCaster:AddNewModifier(hCaster, self, "modifier_arondite_overload_crit", { Duration = 5 })
-
+	local fxIndexjopa = ParticleManager:CreateParticle("particles/zlodemon/zlodemon_basic_circle.vpcf", PATTACH_WORLDORIGIN, nil)
+	ParticleManager:SetParticleControl(fxIndexjopa, 0, hCaster:GetAbsOrigin())
+	ParticleManager:SetParticleControl(fxIndexjopa, 1, Vector(0.01,0.01,1))
+	ParticleManager:SetParticleControl(fxIndexjopa, 2, Vector(fAOE,4,0))
+	ParticleManager:ReleaseParticleIndex(fxIndexjopa)
 	Timers:CreateTimer(function()
 		if iFirstSlashCount <= 0 then 
 			hCaster:EmitSound("Saber_Alter.Vortigern")
@@ -267,7 +271,7 @@ end
 
 function modifier_arondite_overload_timer:CheckState()
 	return { [MODIFIER_STATE_STUNNED] = true,
-			 [MODIFIER_STATE_COMMAND_RESTRICTED] = true,
+			 [MODIFIER_STATE_COMMAND_RESTRICTED] = false,
 			 [MODIFIER_STATE_FROZEN] = true,
 			 [MODIFIER_STATE_PROVIDES_VISION] = true }
 end

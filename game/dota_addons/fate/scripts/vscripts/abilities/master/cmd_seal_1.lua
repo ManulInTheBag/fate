@@ -37,7 +37,14 @@ function cmd_seal_1:OnSpellStart()
 	if hero:GetName() == "npc_dota_hero_doom_bringer" and RandomInt(1, 100) <= 35 then
 		EmitGlobalSound("Shiro_Onegai")
 	end
-
+	if hero:GetName() == "npc_dota_hero_spirit_breaker" then
+		local modifier = hero:FindModifierByName("modifier_hijikata_laws")
+    	if modifier.help_restriction == false then
+        	modifier:IncrementStackCount()
+			modifier:TakeDamage()
+        	modifier.help_restriction = true
+    	end
+	end
 	hero.ServStat:useQSeal()
 
 	-- Set master 2's mana 

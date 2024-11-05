@@ -358,7 +358,7 @@ function OnHornInterrupted(keys)
 		for k,v in pairs(rapeTargets) do
 			ability:ApplyDataDrivenModifier(caster, v, "modifier_la_black_luna_slow2", {})
 			keys.ability:ApplyDataDrivenModifier(caster,v, "modifier_astolfo_mute2", {})
-			DoDamage(caster, v, 1000, DAMAGE_TYPE_PURE, 0, ability, false)
+			DoDamage(caster, v, 300 + caster:GetStrength() * 10, DAMAGE_TYPE_PURE, 0, ability, false)
 			local shockwaveIndex = ParticleManager:CreateParticle("particles/custom/astolfo/la_black_luna/la_black_luna_shockwave.vpcf", PATTACH_CUSTOMORIGIN, nil)
    			ParticleManager:SetParticleControl( shockwaveIndex, 0, caster:GetAbsOrigin())
     		ParticleManager:SetParticleControl( shockwaveIndex, 1, Vector(500,0,0))

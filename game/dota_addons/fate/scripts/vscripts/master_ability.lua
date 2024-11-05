@@ -229,7 +229,14 @@ function OnSeal3Start(keys)
 	if hero:GetName() == "npc_dota_hero_doom_bringer" and RandomInt(1, 100) <= 35 then
 		EmitGlobalSound("Shiro_Onegai")
 	end
-
+	if hero:GetName() == "npc_dota_hero_spirit_breaker" then
+		local modifier = hero:FindModifierByName("modifier_hijikata_laws")
+    	if modifier.help_restriction == false then
+        	modifier:IncrementStackCount()
+			modifier:TakeDamage()
+        	modifier.help_restriction = true
+    	end
+	end
 	hero:EmitSound("DOTA_Item.UrnOfShadows.Activate")
 	hero.ServStat:useESeal()
 	-- Set master 2's mana 
@@ -290,7 +297,14 @@ function OnSeal4Start(keys)
 	if hero:GetName() == "npc_dota_hero_doom_bringer" and RandomInt(1, 100) <= 35 then
 		EmitGlobalSound("Shiro_Onegai")
 	end
-
+	if hero:GetName() == "npc_dota_hero_spirit_breaker" then
+		local modifier = hero:FindModifierByName("modifier_hijikata_laws")
+    	if modifier.help_restriction == false then
+        	modifier:IncrementStackCount()
+			modifier:TakeDamage()
+        	modifier.help_restriction = true
+    	end
+	end
 	-- Particle
 	hero:EmitSound("Hero_KeeperOfTheLight.ChakraMagic.Target")
 	local particle = ParticleManager:CreateParticle("particles/items_fx/arcane_boots.vpcf", PATTACH_ABSORIGIN_FOLLOW, hero)
