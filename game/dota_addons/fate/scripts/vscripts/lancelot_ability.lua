@@ -178,7 +178,7 @@ function OnKnightStart(keys)
 
                 caster:FindAbilityByName("lancelot_vortigern"):SetLevel(NPLevel) 
                 caster:SwapAbilities("lancelot_vortigern", a1:GetName(), true, false)
-                print("opening spellbook")
+                --print("opening spellbook")
                 caster:SwapAbilities("fate_empty1", a2:GetName(), true, false) 
                 caster:SwapAbilities("fate_empty2", a3:GetName(), true, false) 
                 caster:SwapAbilities("fate_empty3", a4:GetName(), true, false) 
@@ -271,13 +271,14 @@ function KnightInitialize(keys)
         "lancelot_rule_breaker",
         "lancelot_tsubame_gaeshi"
     }
-
+    --[[
     for i = 1, abilityLevel do
         if not caster:HasAbility(abilities[i]) then
             caster:AddAbility(abilities[i])
             if i > 1 then caster:RemoveAbility("fate_empty"..tostring(i - 1)) end
         end
     end
+    ]]
         --[[if caster.KnightInitialized ~= true then
                 print("knight initialized")
                 caster:RemoveAbility("lancelot_vortigern") 

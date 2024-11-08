@@ -45,7 +45,7 @@ function artoria_invisible_air:OnSpellStart()
         iMoveSpeed = 1800,
         vSourceLoc = caster:GetAbsOrigin(),
         level = 3,
-        bDodgeable = false,
+        bDodgeable = true,
         bIsAttack = true,
         flExpireTime = GameRules:GetGameTime() + 3,
         iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_ATTACK_1,

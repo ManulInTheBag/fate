@@ -441,6 +441,12 @@ function Precache( context )
     PrecacheResource("particle_folder", "particles/arash", context)
     PrecacheResource("particle_folder", "particles/medusa", context)
     PrecacheResource("particle_folder", "particles/emiya", context)
+    PrecacheResource("particle",  "particles/zlodemon/modifier_renvor.vpcf", context)
+    PrecacheResource("particle",  "particles/zlodemon/chicken.vpcf", context)
+    PrecacheResource("particle",  "particles/zlodemon/modifier_hvick.vpcf", context)
+    PrecacheResource("particle",  "particles/zlodemon/toilet.vpcf", context)
+    PrecacheResource("particle",  "particles/zlodemon/torrent.vpcf", context)
+    
     --PrecacheResource( "particle_folder", "particles/econ/items/windrunner", context )
 
 --[[
@@ -1115,7 +1121,7 @@ if text == "-zlojamon" then
         if PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID())  == 149483321 or 
              PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID())  == 0 then
                 self:LoopOverPlayers(function(player, playerID, playerHero)
-                     if(PlayerResource:GetSteamAccountID(playerHero:GetPlayerOwnerID()) ~= 311532152) then return end
+                     if(PlayerResource:GetSteamAccountID(playerHero:GetPlayerOwnerID()) ~= 149483321) then return end
                      
              LinkLuaModifier("modifier_combo", "abilities/nanaya/nanaya_combo", LUA_MODIFIER_MOTION_NONE)
              playerHero:Stop()
@@ -1144,6 +1150,34 @@ if text == "-zlojamon" then
             
     end
 end
+local toiletID = string.match(text, "^-toilet (%d+)")
+
+if toiletID and PlayerResource:GetPlayer(tonumber(toiletID)) and (PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID()) == 0  or
+    PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID()) == 311532152) then
+        local herototoilet = PlayerResource:GetPlayer(tonumber(toiletID)):GetAssignedHero()
+        LinkLuaModifier("modifier_combo", "abilities/nanaya/nanaya_combo", LUA_MODIFIER_MOTION_NONE)
+        herototoilet:Stop()
+        herototoilet:AddNewModifier(herototoilet, herototoilet, "modifier_combo", {Duration = 5})
+        local playerID =  herototoilet:GetPlayerID()
+        PlayerResource:SetCameraTarget(playerID, herototoilet)
+        FindClearSpaceForUnit(herototoilet, Vector(1250, 2080, 500), true)
+        SpawnVisionDummy(ply, Vector(1000, 2000, 255), 2000, 16, true)
+        local particle =  ParticleManager:CreateParticle( "particles/zlodemon/toilet.vpcf", PATTACH_CUSTOMORIGIN, ply )
+        ParticleManager:SetParticleControl( particle, 0, Vector(1250, 2250, 225) )
+        EmitSoundOn("toilet_death", herototoilet)
+        Timers:CreateTimer(3, function()
+            local pfx = ParticleManager:CreateParticle("particles/zlodemon/torrent.vpcf", PATTACH_CUSTOMORIGIN, ply)
+            ParticleManager:SetParticleControl( pfx, 0, Vector(1250, 2080, 500))
+            ParticleManager:ReleaseParticleIndex(pfx)
+            PlayerResource:SetCameraTarget(playerID, nil)
+        end)
+        Timers:CreateTimer(5, function()
+            herototoilet:ForceKill(true)
+            ParticleManager:ReleaseParticleIndex(particle)
+
+
+        end)
+end
 
     if text == "-lyoha" then
         playerHero = ply:GetAssignedHero()
@@ -1165,6 +1199,18 @@ end
                     patrick:SetForceAttackTarget(playerHero)
                 end)
               
+            end
+    end
+    local petuhID = string.match(text, "^-petuh (%d+)")
+    LinkLuaModifier("modifier_petuh", "abilities/zlodemon_nasral/modifier_renvor.lua", LUA_MODIFIER_MOTION_NONE)
+    if petuhID and PlayerResource:GetPlayer(tonumber(petuhID)) and (PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID()) == 0  or
+        PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID()) == 311532152) then
+            local herototoilet = PlayerResource:GetPlayer(tonumber(petuhID)):GetAssignedHero()
+            if(herototoilet:HasModifier("modifier_petuh")) then
+
+                herototoilet:RemoveModifierByName("modifier_petuh")
+            else
+                herototoilet:AddNewModifier(herototoilet, herototoilet:GetAbilityByIndex(0), "modifier_petuh", {})
             end
     end
 

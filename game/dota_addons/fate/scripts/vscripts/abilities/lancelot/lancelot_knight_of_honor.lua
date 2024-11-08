@@ -97,16 +97,24 @@ function lancelot_knight_of_honor:OnSpellStart()
         tProxy = tGobProxy
     else]]
 
-    tAbilities = tStandardAbilities
+    tAbilities = tStandardProxy
     tProxy = tStandardProxy
     --end
-
+    if iLevel > 1 then
+        tAbilities[2] = tStandardAbilities[2]
+    end
+    if iLevel > 2 then
+        tAbilities[3] = tStandardAbilities[3]
+    end
+    if iLevel > 3 then
+        tAbilities[4] = tStandardAbilities[4]
+    end
+    if iLevel > 4 then
+        tAbilities[6] = tStandardAbilities[6]
+    end
     for i = 1, #tAbilities do
-        if not hCaster:HasAbility(tAbilities[i]) then
-            t[i] = tProxy[i]
-        else
             t[i] = tAbilities[i]
-        end
+
 
         --print(t[i])
 

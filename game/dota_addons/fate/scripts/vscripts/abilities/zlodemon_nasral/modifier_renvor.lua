@@ -53,3 +53,42 @@ function modifier_hvick:OnDestroy()
 		end
 	end
 end
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+LinkLuaModifier("modifier_petuh", "abilities/zlodemon_nasral/modifier_renvor.lua", LUA_MODIFIER_MOTION_NONE)
+
+modifier_petuh = class({})
+function modifier_petuh:IsHidden() return true end
+function modifier_petuh:IsDebuff() return false end
+function modifier_petuh:IsPurgable() return false end
+function modifier_petuh:IsPurgeException() return false end
+function modifier_petuh:RemoveOnDeath() return false end
+function modifier_petuh:OnCreated(table)
+	if IsServer() then
+ 
+
+	local particleName = "particles/zlodemon/chicken.vpcf"
+ 
+	self.pfx = ParticleManager:CreateParticle( particleName, PATTACH_ABSORIGIN_FOLLOW, self:GetParent() )
+    ParticleManager:SetParticleControl( self.pfx, 0,  self:GetParent():GetAbsOrigin() )
+		self.damage = 5
+	self:StartIntervalThink(1)
+	end
+end
+
+function modifier_petuh:OnIntervalThink()
+	self.damage = self.damage + 1
+	DoDamage(self:GetParent(), self:GetParent() , self.damage , DAMAGE_TYPE_PURE, 0, self, false)
+	EmitSoundOn("bird_hit_teterew", self:GetParent())
+	ParticleManager:SetParticleControl( self.pfx, 0,  self:GetParent():GetAbsOrigin() )
+end
+
+function modifier_petuh:OnDestroy()
+	if IsServer() then
+		if self.pfx then
+			ParticleManager:DestroyParticle( self.pfx, false )
+			ParticleManager:ReleaseParticleIndex( self.pfx )
+		end
+	end
+end
