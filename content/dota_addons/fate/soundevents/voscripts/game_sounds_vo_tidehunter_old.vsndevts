@@ -1,2285 +1,2732 @@
 <!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
 {
-	chen_chen_spawn_01 = 
+	tidehunter_tide_spawn_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_spawn_01.vsnd",
+			"sounds/vlad/vlad_spawn.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 5.728979
 	}
-	chen_chen_spawn_02 = 
+
+	tidehunter_tide_spawn_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_spawn_02.vsnd",
+			"sounds/vlad/vlad_spawn.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 7.468662
 	}
-	chen_chen_spawn_03 = 
+
+	tidehunter_tide_spawn_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_spawn_03.vsnd",
+			"sounds/vlad/vlad_spawn.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 8.591928
 	}
-	chen_chen_spawn_04 = 
+
+	tidehunter_tide_spawn_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_spawn_01.vsnd",
+			"sounds/vlad/vlad_spawn.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 5.728979
 	}
-	chen_chen_spawn_05 = 
+
+	tidehunter_tide_begins_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_spawn_02.vsnd",
+			"sounds/vlad/vlad_kill2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 7.468662
 	}
-	chen_chen_battlebegins_01 = 
+
+	tidehunter_tide_first_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_battlebegins_01.vsnd",
+			"sounds/vlad/vlad_kill2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.026792
 	}
-	chen_chen_firstblood_01 = 
+
+	tidehunter_tide_move_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_firstblood_01.vsnd",
+			"sounds/vlad/vlad_move1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 4.180657
 	}
-	chen_chen_firstblood_02 = 
+
+	tidehunter_tide_move_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_firstblood_01.vsnd",
+			"sounds/vlad/vlad_move1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 4.180657
 	}
-	chen_chen_move_01 = 
+
+	tidehunter_tide_move_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_move_01.vsnd",
+			"sounds/vlad/vlad_move1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.048646
 	}
-	chen_chen_move_02 = 
+
+	tidehunter_tide_move_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_move_02.vsnd",
+			"sounds/vlad/vlad_move1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.854458
 	}
-	chen_chen_move_03 = 
+
+	tidehunter_tide_move_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_move_03.vsnd",
+			"sounds/vlad/vlad_move2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.780417
 	}
-	chen_chen_move_04 = 
+
+	tidehunter_tide_move_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_move_04.vsnd",
+			"sounds/vlad/vlad_move2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.142063
 	}
-	chen_chen_move_05 = 
+
+	tidehunter_tide_move_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_move_05.vsnd",
+			"sounds/vlad/vlad_move2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.227687
 	}
-	chen_chen_move_06 = 
+
+	tidehunter_tide_move_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_move_06.vsnd",
+			"sounds/vlad/vlad_move2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.285521
 	}
-	chen_chen_move_07 = 
+
+	tidehunter_tide_move_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_move_07.vsnd",
+			"sounds/vlad/vlad_move3.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.346729
 	}
-	chen_chen_move_08 = 
+
+	tidehunter_tide_move_10 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_move_08.vsnd",
+			"sounds/vlad/vlad_move3.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.322729
 	}
-	chen_chen_move_09 = 
+
+	tidehunter_tide_move_11 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_move_09.vsnd",
+			"sounds/vlad/vlad_move3.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.590562
 	}
-	chen_chen_move_10 = 
+
+	tidehunter_tide_move_12 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_move_10.vsnd",
+			"sounds/vlad/vlad_move3.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.385556
 	}
-	chen_chen_move_11 = 
+
+	tidehunter_tide_move_13 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_move_11.vsnd",
+			"sounds/vlad/vlad_move4.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.882896
 	}
-	chen_chen_move_12 = 
+
+	tidehunter_tide_move_14 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_move_12.vsnd",
+			"sounds/vlad/vlad_move4.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.022292
 	}
-	chen_chen_move_13 = 
+
+	tidehunter_tide_move_15 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_move_13.vsnd",
+			"sounds/vlad/vlad_move4.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.196354
 	}
-	chen_chen_attack_01 = 
+
+	tidehunter_tide_attack_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_attack_01.vsnd",
+			"sounds/vlad/vlad_attack1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.104104
 	}
-	chen_chen_attack_02 = 
+
+	tidehunter_tide_attack_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_attack_02.vsnd",
+			"sounds/vlad/vlad_attack1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.131146
 	}
-	chen_chen_attack_03 = 
+
+	tidehunter_tide_attack_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_attack_03.vsnd",
+			"sounds/vlad/vlad_attack1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.458063
 	}
-	chen_chen_attack_04 = 
+
+	tidehunter_tide_attack_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_attack_04.vsnd",
+			"sounds/vlad/vlad_attack2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.756292
 	}
-	chen_chen_attack_05 = 
+
+	tidehunter_tide_attack_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_attack_05.vsnd",
+			"sounds/vlad/vlad_attack2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.046854
 	}
-	chen_chen_attack_06 = 
+
+	tidehunter_tide_attack_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_attack_06.vsnd",
+			"sounds/vlad/vlad_attack2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.557229
 	}
-	chen_chen_attack_07 = 
+
+	tidehunter_tide_attack_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_attack_07.vsnd",
+			"sounds/vlad/vlad_attack3.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.702542
 	}
-	chen_chen_attack_08 = 
+
+	tidehunter_tide_attack_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_attack_08.vsnd",
+			"sounds/vlad/vlad_attack3.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.215917
 	}
-	chen_chen_attack_09 = 
+
+	tidehunter_tide_attack_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_attack_09.vsnd",
+			"sounds/vlad/vlad_attack3.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.404208
 	}
-	chen_chen_attack_10 = 
+
+	tidehunter_tide_attack_10 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_attack_10.vsnd",
+			"sounds/vlad/vlad_attack4.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.336458
 	}
-	chen_chen_attack_11 = 
+
+	tidehunter_tide_attack_11 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_attack_11.vsnd",
+			"sounds/vlad/vlad_attack4.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.399604
 	}
-	chen_chen_cast_01 = 
+
+	tidehunter_tide_cast_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_cast_01.vsnd",
+			"sounds/vlad_cast1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.760417
 	}
-	chen_chen_cast_02 = 
+
+	tidehunter_tide_cast_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_cast_02.vsnd",
+			"sounds/vlad_cast1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.888333
 	}
-	chen_chen_cast_03 = 
+
+	tidehunter_tide_cast_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_cast_03.vsnd",
+			"sounds/vlad_cast2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.439521
 	}
-	chen_chen_cast_04 = 
+
+	tidehunter_tide_ability_gush__01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_cast_04.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.387583
 	}
-	chen_chen_ability_Penit_01 = 
+
+	tidehunter_tide_ability_gush__02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_ability_Penit_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	chen_chen_ability_Penit_02 = 
+
+	tidehunter_tide_ability_gush__03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_ability_Penit_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	chen_chen_ability_Penit_03 = 
+
+	tidehunter_tide_ability_gush__04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_ability_Penit_03.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	chen_chen_ability_test_01 = 
+
+	tidehunter_tide_ability_gush__05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_ability_test_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	chen_chen_ability_test_02 = 
+
+	tidehunter_tide_ability_ravage_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_ability_test_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	chen_chen_ability_holyp_01 = 
+
+	tidehunter_tide_ability_ravage_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_ability_holyp_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	chen_chen_ability_holyp_02 = 
+
+	tidehunter_tide_ability_ravage_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_ability_holyp_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	chen_chen_ability_holyp_03 = 
+
+	tidehunter_tide_ability_ravage_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_ability_holyp_03.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	chen_chen_ability_holyp_04 = 
+
+	tidehunter_tide_psionictrap_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_ability_holyp_04.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	chen_chen_ability_holyp_05 = 
+
+	tidehunter_tide_psionictrap_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_ability_holyp_05.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	chen_chen_ability_holyp_06 = 
+
+	tidehunter_tide_psionictrap_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_ability_holyp_06.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	chen_chen_ability_handgod_01 = 
+
+	tidehunter_tide_psionictrap_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_ability_handgod_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	chen_chen_ability_handgod_02 = 
+
+	tidehunter_tide_psionictrap_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_ability_handgod_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	chen_chen_ability_handgod_03 = 
+
+	tidehunter_tide_psionictrap_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_ability_handgod_03.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	chen_chen_ability_failure_01 = 
+
+	tidehunter_tide_psionictrap_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_ability_failure_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	chen_chen_ability_failure_02 = 
+
+	tidehunter_tide_psionictrap_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_ability_failure_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	chen_chen_ability_failure_03 = 
+
+	tidehunter_tide_psionictrap_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_ability_failure_03.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	chen_chen_ability_failure_04 = 
+
+	tidehunter_tide_psionictrap_10 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_ability_failure_04.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	chen_chen_level_01 = 
+
+	tidehunter_tide_refraction_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_level_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.096292
 	}
-	chen_chen_level_02 = 
+
+	tidehunter_tide_refraction_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_level_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 4.288271
 	}
-	chen_chen_level_03 = 
+
+	tidehunter_tide_refraction_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_level_03.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.311708
 	}
-	chen_chen_level_04 = 
+
+	tidehunter_tide_refraction_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_level_04.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.187417
 	}
-	chen_chen_level_05 = 
+
+	tidehunter_tide_refraction_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_level_05.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.936188
 	}
-	chen_chen_level_06 = 
+
+	tidehunter_tide_refraction_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_level_06.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.936771
 	}
-	chen_chen_kill_01 = 
+
+	tidehunter_tide_refraction_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_kill_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.640396
 	}
-	chen_chen_kill_02 = 
+
+	tidehunter_tide_refraction_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_kill_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.628146
 	}
-	chen_chen_kill_03 = 
+
+	tidehunter_tide_levelup_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_kill_03.vsnd",
+			"sounds/vlad/vlad_levelup.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.999750
 	}
-	chen_chen_kill_04 = 
+
+	tidehunter_tide_levelup_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_kill_04.vsnd",
+			"sounds/vlad/vlad_levelup.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.269625
 	}
-	chen_chen_kill_05 = 
+
+	tidehunter_tide_levelup_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_kill_05.vsnd",
+			"sounds/vlad/vlad_levelup.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.870833
 	}
-	chen_chen_kill_06 = 
+
+	tidehunter_tide_levelup_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_kill_06.vsnd",
+			"sounds/vlad/vlad_levelup.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.306396
 	}
-	chen_chen_kill_07 = 
+
+	tidehunter_tide_levelup_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_kill_07.vsnd",
+			"sounds/vlad/vlad_levelup.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.301604
 	}
-	chen_chen_kill_08 = 
+
+	tidehunter_tide_levelup_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_kill_08.vsnd",
+			"sounds/vlad/vlad_levelup.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 4.102290
 	}
-	chen_chen_kill_09 = 
+
+	tidehunter_tide_levelup_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_kill_09.vsnd",
+			"sounds/vlad/vlad_levelup.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.214127
 	}
-	chen_chen_kill_10 = 
+
+	tidehunter_tide_levelup_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_kill_10.vsnd",
+			"sounds/vlad/vlad_levelup.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.423107
 	}
-	chen_chen_kill_11 = 
+
+	tidehunter_tide_levelup_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_kill_11.vsnd",
+			"sounds/vlad/vlad_levelup.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.867188
 	}
-	chen_chen_kill_12 = 
+
+	tidehunter_tide_levelup_10 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_kill_12.vsnd",
+			"sounds/vlad/vlad_levelup.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 4.810604
 	}
-	chen_chen_rival_01 = 
+
+	tidehunter_tide_kill_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_rival_01.vsnd",
+			"sounds/vlad/vlad_kill1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 4.409208
 	}
-	chen_chen_rival_02 = 
+
+	tidehunter_tide_kill_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/vlad/vlad_kill1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	chen_chen_rival_03 = 
+
+	tidehunter_tide_kill_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/vlad/vlad_kill2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	chen_chen_rival_04 = 
+
+	tidehunter_tide_kill_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/vlad/vlad_kill2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	chen_chen_rival_06 = 
+
+	tidehunter_tide_kill_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/vlad/vlad_other_03.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	chen_chen_rival_07 = 
+
+	tidehunter_tide_kill_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_rival_07.vsnd",
+			"sounds/vlad/vlad_other_03.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.787437
 	}
-	chen_chen_lasthit_01 = 
+
+	tidehunter_tide_kill_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_lasthit_01.vsnd",
+			"sounds/vlad/vlad_other_04.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.808521
 	}
-	chen_chen_lasthit_02 = 
+
+	tidehunter_tide_kill_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_lasthit_02.vsnd",
+			"sounds/vlad/vlad_other_04.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.954063
 	}
-	chen_chen_lasthit_03 = 
+
+	tidehunter_tide_kill_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_lasthit_03.vsnd",
+			"sounds/vlad/vlad_kill1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.362604
 	}
-	chen_chen_lasthit_04 = 
+
+	tidehunter_tide_kill_10 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_lasthit_01.vsnd",
+			"sounds/vlad/vlad_kill1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.808521
 	}
-	chen_chen_lasthit_05 = 
+
+	tidehunter_tide_kill_11 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_lasthit_02.vsnd",
+			"sounds/vlad/vlad_kill2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.954063
 	}
-	chen_chen_lasthit_06 = 
+
+	tidehunter_tide_kill_12 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_lasthit_02.vsnd",
+			"sounds/vlad/vlad_kill2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.954063
 	}
-	chen_chen_lasthit_07 = 
+
+	tidehunter_tide_kill_13 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_lasthit_03.vsnd",
+			"sounds/vlad/vlad_kill2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.362604
 	}
-	chen_chen_lasthit_08 = 
+
+	tidehunter_tide_kill_14 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_lasthit_03.vsnd",
+			"sounds/vlad/vlad_other_02.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.362604
 	}
-	chen_chen_lasthit_09 = 
+
+	tidehunter_tide_kill_15 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_lasthit_03.vsnd",
+			"sounds/vlad/vlad_other_02.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.362604
 	}
-	chen_chen_lasthit_10 = 
+
+	tidehunter_tide_rival_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_lasthit_01.vsnd",
+			"sounds/vlad/vlad_kill2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.808521
 	}
-	chen_chen_death_01 = 
+
+	tidehunter_tide_rival_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_death_01.vsnd",
+			"sounds/vlad/vlad_kill2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.679938
 	}
-	chen_chen_death_02 = 
+
+	tidehunter_tide_rival_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_death_02.vsnd",
+			"sounds/vlad/vlad_kill2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.195351
 	}
-	chen_chen_death_03 = 
+
+	tidehunter_tide_rival_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_death_03.vsnd",
+			"sounds/vlad/vlad_kill2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.736576
 	}
-	chen_chen_death_04 = 
+
+	tidehunter_tide_rival_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_death_04.vsnd",
+			"sounds/vlad/vlad_kill2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 4.546372
 	}
-	chen_chen_death_05 = 
+
+	tidehunter_tide_rival_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_death_05.vsnd",
+			"sounds/vlad/vlad_kill2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.829637
 	}
-	chen_chen_death_06 = 
+
+	tidehunter_tide_rival_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_death_01.vsnd",
+			"sounds/vlad/vlad_kill2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.679938
 	}
-	chen_chen_death_07 = 
+
+	tidehunter_tide_rival_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_death_02.vsnd",
+			"sounds/vlad/vlad_kill2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.195351
 	}
-	chen_chen_death_08 = 
+
+	tidehunter_tide_rival_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_death_03.vsnd",
+			"sounds/vlad/vlad_kill2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.736576
 	}
-	chen_chen_death_09 = 
+
+	tidehunter_tide_rival_10 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_death_04.vsnd",
+			"sounds/vlad/vlad_kill2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 4.546372
 	}
-	chen_chen_death_10 = 
+
+	tidehunter_tide_rival_11 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_death_05.vsnd",
+			"sounds/vlad/vlad_kill2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.829637
 	}
-	chen_chen_death_11 = 
+
+	tidehunter_tide_rival_12 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_death_01.vsnd",
+			"sounds/vlad/vlad_kill2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.679938
 	}
-	chen_chen_death_12 = 
+
+	tidehunter_tide_rival_13 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_death_02.vsnd",
+			"sounds/vlad/vlad_kill2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.195351
 	}
-	chen_chen_death_13 = 
+
+	tidehunter_tide_ally_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_death_03.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.736576
 	}
-	chen_chen_death_14 = 
+
+	tidehunter_tide_ally_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_death_04.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 4.546372
 	}
-	chen_chen_death_15 = 
+
+	tidehunter_tide_ally_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_death_05.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.829637
 	}
-	chen_chen_death_16 = 
+
+	tidehunter_tide_ally_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_death_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.679938
 	}
-	chen_chen_fastres_01 = 
+
+	tidehunter_tide_ally_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_fastres_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 5.022229
 	}
-	chen_chen_respawn_01 = 
+
+	tidehunter_tide_ally_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_respawn_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 5.769958
 	}
-	chen_chen_respawn_02 = 
+
+	tidehunter_tide_lasthit_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_respawn_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 5.769958
 	}
-	chen_chen_respawn_03 = 
+
+	tidehunter_tide_lasthit_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_respawn_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 5.769958
 	}
-	chen_chen_respawn_04 = 
+
+	tidehunter_tide_lasthit_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_respawn_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 5.769958
 	}
-	chen_chen_respawn_05 = 
+
+	tidehunter_tide_lasthit_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_respawn_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 5.769958
 	}
-	chen_chen_respawn_06 = 
+
+	tidehunter_tide_lasthit_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_respawn_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 5.769958
 	}
-	chen_chen_respawn_07 = 
+
+	tidehunter_tide_lasthit_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_respawn_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 5.769958
 	}
-	chen_chen_respawn_08 = 
+
+	tidehunter_tide_lasthit_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_respawn_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 5.769958
 	}
-	chen_chen_respawn_09 = 
+
+	tidehunter_tide_lasthit_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_respawn_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 5.769958
 	}
-	chen_chen_respawn_10 = 
+
+	tidehunter_tide_lasthit_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_respawn_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 5.769958
 	}
-	chen_chen_rare_01 = 
+
+	tidehunter_tide_death_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_rare_01.vsnd",
+			"sounds/vlad/vlad_die1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 5.049750
 	}
-	chen_chen_rare_02 = 
+
+	tidehunter_tide_death_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_rare_02.vsnd",
+			"sounds/vlad/vlad_die1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 6.372500
 	}
-	chen_chen_rare_03 = 
+
+	tidehunter_tide_death_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_rare_03.vsnd",
+			"sounds/vlad/vlad_die1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 5.268458
 	}
-	chen_chen_purch_01 = 
+
+	tidehunter_tide_death_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_purch_01.vsnd",
+			"sounds/vlad/vlad_die1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	chen_chen_purch_02 = 
+
+	tidehunter_tide_death_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_purch_02.vsnd",
+			"sounds/vlad/vlad_die2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	chen_chen_purch_03 = 
+
+	tidehunter_tide_death_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_purch_03.vsnd",
+			"sounds/vlad/vlad_die2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	chen_chen_purch_04 = 
+
+	tidehunter_tide_death_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_purch_04.vsnd",
+			"sounds/vlad/vlad_die2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	chen_chen_blink_01 = 
+
+	tidehunter_tide_death_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_blink_01.vsnd",
+			"sounds/vlad/vlad_die2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	chen_chen_blink_02 = 
+
+	tidehunter_tide_death_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_blink_02.vsnd",
+			"sounds/vlad/vlad_die2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	chen_chen_scepter_01 = 
+
+	tidehunter_tide_death_10 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_scepter_01.vsnd",
+			"sounds/vlad/vlad_die3.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	chen_chen_scepter_02 = 
+
+	tidehunter_tide_death_11 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_scepter_02.vsnd",
+			"sounds/vlad/vlad_die3.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	chen_chen_item_01 = 
+
+	tidehunter_tide_death_12 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_item_01.vsnd",
+			"sounds/vlad/vlad_die3.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	chen_chen_item_02 = 
+
+	tidehunter_tide_death_13 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_item_02.vsnd",
+			"sounds/vlad/vlad_die3.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	chen_chen_item_03 = 
+
+	tidehunter_tide_fastres_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_item_03.vsnd",
+			"sounds/vlad_respawn1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	chen_chen_item_04 = 
+
+	tidehunter_tide_respawn_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_item_04.vsnd",
+			"sounds/vlad_respawn1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	chen_chen_bottle_01 = 
+
+	tidehunter_tide_respawn_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_bottle_01.vsnd",
+			"sounds/vlad_respawn2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	chen_chen_bottle_02 = 
+
+	tidehunter_tide_respawn_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_bottle_02.vsnd",
+			"sounds/vlad_respawn3.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	chen_chen_bottle_03 = 
+
+	tidehunter_tide_respawn_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_bottle_03.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	chen_chen_deny_01 = 
+
+	tidehunter_tide_respawn_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_deny_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.755583
 	}
-	chen_chen_deny_02 = 
+
+	tidehunter_tide_respawn_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_deny_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.474625
 	}
-	chen_chen_deny_03 = 
+
+	tidehunter_tide_respawn_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_deny_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.755583
 	}
-	chen_chen_deny_04 = 
+
+	tidehunter_tide_respawn_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_deny_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.474625
 	}
-	chen_chen_deny_05 = 
+
+	tidehunter_tide_respawn_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_deny_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.755583
 	}
-	chen_chen_deny_06 = 
+
+	tidehunter_tide_respawn_10 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_deny_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.474625
 	}
-	chen_chen_lose_01 = 
+
+	tidehunter_tide_rare_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_lose_01.vsnd",
+			"sounds/vlad/vlad_other_05.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 5.784875
 	}
-	chen_chen_lose_02 = 
+
+	tidehunter_tide_rare_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_lose_02.vsnd",
+			"sounds/vlad/vlad_other_06.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.866236
 	}
-	chen_chen_lose_03 = 
+
+	tidehunter_tide_rare_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_lose_03.vsnd",
+			"sounds/vlad/vlad_other_07.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.718345
 	}
-	chen_chen_win_01 = 
+
+	tidehunter_tide_rare_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_win_01.vsnd",
+			"sounds/vlad/vlad_other_02.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 4.811500
 	}
-	chen_chen_win_02 = 
+
+	tidehunter_tide_purch_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_win_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 4.877812
 	}
-	chen_chen_win_03 = 
+
+	tidehunter_tide_purch_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_win_03.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 5.594083
 	}
-	chen_chen_immort_01 = 
+
+	tidehunter_tide_purch_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_immort_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.501062
 	}
-	chen_chen_immort_02 = 
+
+	tidehunter_tide_scepter_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_immort_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.501062
 	}
-	chen_chen_haste_01 = 
+
+	tidehunter_tide_scepter_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_cast_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.760417
 	}
-	chen_chen_haste_02 = 
+
+	tidehunter_tide_blink_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_cast_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.888333
 	}
-	chen_chen_doubdam_01 = 
+
+	tidehunter_tide_blink_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_attack_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.104104
 	}
-	chen_chen_doubdam_02 = 
+
+	tidehunter_tide_items_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_attack_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.131146
 	}
-	chen_chen_regen_01 = 
+
+	tidehunter_tide_items_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_cast_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.760417
 	}
-	chen_chen_regen_02 = 
+
+	tidehunter_tide_items_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_cast_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.888333
 	}
-	chen_chen_illus_02 = 
+
+	tidehunter_tide_items_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_cast_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.888333
 	}
-	chen_chen_invis_01 = 
+
+	tidehunter_tide_items_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_cast_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.760417
 	}
-	chen_chen_invis_02 = 
+
+	tidehunter_tide_items_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_cast_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.888333
 	}
-	chen_chen_notyet_01 = 
+
+	tidehunter_tide_items_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_notyet_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.699604
 	}
-	chen_chen_notyet_02 = 
+
+	tidehunter_tide_items_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_notyet_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.699604
 	}
-	chen_chen_notyet_03 = 
+
+	tidehunter_tide_items_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_notyet_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.699604
 	}
-	chen_chen_notyet_04 = 
+
+	tidehunter_tide_items_10 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_notyet_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.751270
 	}
-	chen_chen_notyet_05 = 
+
+	tidehunter_tide_bottle_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_notyet_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.751270
 	}
-	chen_chen_notyet_06 = 
+
+	tidehunter_tide_bottle_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_notyet_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.751270
 	}
-	chen_chen_notyet_07 = 
+
+	tidehunter_tide_bottle_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_notyet_03.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.584000
 	}
-	chen_chen_notyet_08 = 
+
+	tidehunter_tide_deny_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_notyet_03.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.584000
 	}
-	chen_chen_notyet_09 = 
+
+	tidehunter_tide_deny_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_notyet_03.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.584000
 	}
-	chen_chen_nomana_01 = 
+
+	tidehunter_tide_deny_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_nomana_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.245500
 	}
-	chen_chen_nomana_02 = 
+
+	tidehunter_tide_deny_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_nomana_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.245500
 	}
-	chen_chen_nomana_03 = 
+
+	tidehunter_tide_deny_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_nomana_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.245500
 	}
-	chen_chen_nomana_04 = 
+
+	tidehunter_tide_deny_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_nomana_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.986372
 	}
-	chen_chen_nomana_05 = 
+
+	tidehunter_tide_deny_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_nomana_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.986372
 	}
-	chen_chen_nomana_06 = 
+
+	tidehunter_tide_deny_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_nomana_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.986372
 	}
-	chen_chen_nomana_07 = 
+
+	tidehunter_tide_deny_10 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_nomana_03.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.900125
 	}
-	chen_chen_nomana_08 = 
+
+	tidehunter_tide_deny_11 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_nomana_03.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.900125
 	}
-	chen_chen_nomana_09 = 
+
+	tidehunter_tide_deny_12 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_nomana_03.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.900125
 	}
-	chen_chen_thanks_01 = 
+
+	tidehunter_tide_deny_13 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_thanks_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.831438
 	}
-	chen_chen_thanks_02 = 
+
+	tidehunter_tide_deny_14 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_thanks_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.685147
 	}
-	chen_chen_thanks_03 = 
+
+	tidehunter_tide_deny_15 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_thanks_03.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.084308
 	}
-	chen_chen_underattack_01 = 
+
+	tidehunter_tide_deny_16 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_underattack_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.150454
 	}
-	chen_chen_inthebag_01 = 
+
+	tidehunter_tide_itemcommon_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_inthebag_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	chen_chen_shitwiz_01 = 
+
+	tidehunter_tide_itemmoderate_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_shitwiz_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	chen_chen_crumwiz_01 = 
+
+	tidehunter_tide_itemrare_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_crumwiz_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	chen_chen_pain_01 = 
+
+	tidehunter_tide_immort_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_pain_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.700896
 	}
-	chen_chen_pain_02 = 
+
+	tidehunter_tide_immort_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_pain_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.528125
 	}
-	chen_chen_pain_03 = 
+
+	tidehunter_tide_haste_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_pain_03.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.454833
 	}
-	chen_chen_pain_04 = 
+
+	tidehunter_tide_haste_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_pain_04.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.320833
 	}
-	chen_chen_pain_05 = 
+
+	tidehunter_tide_doubdam_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_pain_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.700896
 	}
-	chen_chen_pain_06 = 
+
+	tidehunter_tide_doubdam_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_pain_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.528125
 	}
-	chen_chen_pain_07 = 
+
+	tidehunter_tide_regen_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_pain_03.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.454833
 	}
-	chen_chen_pain_08 = 
+
+	tidehunter_tide_regen_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_pain_04.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.320833
 	}
-	chen_chen_pain_09 = 
+
+	tidehunter_tide_illus_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_pain_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.700896
 	}
-	chen_chen_pain_10 = 
+
+	tidehunter_tide_illus_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_pain_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.528125
 	}
-	chen_chen_anger_01 = 
+
+	tidehunter_tide_invis_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_anger_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	chen_chen_anger_02 = 
+
+	tidehunter_tide_invis_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_anger_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	chen_chen_anger_03 = 
+
+	tidehunter_tide_notyet_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_anger_03.vsnd",
+			"sounds/vlad/vlad_hurt_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	chen_chen_anger_04 = 
+
+	tidehunter_tide_notyet_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_anger_04.vsnd",
+			"sounds/vlad/vlad_hurt_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	chen_chen_anger_05 = 
+
+	tidehunter_tide_notyet_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_anger_05.vsnd",
+			"sounds/vlad/vlad_hurt_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	chen_chen_anger_06 = 
+
+	tidehunter_tide_notyet_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_anger_06.vsnd",
+			"sounds/vlad/vlad_hurt_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	chen_chen_happy_01 = 
+
+	tidehunter_tide_notyet_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_happy_01.vsnd",
+			"sounds/vlad/vlad_hurt_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	chen_chen_happy_02 = 
+
+	tidehunter_tide_notyet_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_happy_02.vsnd",
+			"sounds/vlad/vlad_hurt_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	chen_chen_happy_03 = 
+
+	tidehunter_tide_notyet_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_happy_03.vsnd",
+			"sounds/vlad/vlad_hurt_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	chen_chen_happy_04 = 
+
+	tidehunter_tide_notyet_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_happy_04.vsnd",
+			"sounds/vlad/vlad_hurt_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	chen_chen_laugh_01 = 
+
+	tidehunter_tide_notyet_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_laugh_01.vsnd",
+			"sounds/vlad/vlad_hurt_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.931667
 	}
-	chen_chen_laugh_02 = 
+
+	tidehunter_tide_nomana_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_laugh_02.vsnd",
+			"sounds/vlad/vlad_hurt_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.176000
 	}
-	chen_chen_laugh_03 = 
+
+	tidehunter_tide_nomana_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_laugh_03.vsnd",
+			"sounds/vlad/vlad_hurt_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.048000
 	}
-	chen_chen_laugh_04 = 
+
+	tidehunter_tide_nomana_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_laugh_04.vsnd",
+			"sounds/vlad/vlad_hurt_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.569667
 	}
-	chen_chen_laugh_05 = 
+
+	tidehunter_tide_nomana_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_laugh_05.vsnd",
+			"sounds/vlad/vlad_hurt_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.810667
 	}
-	chen_chen_laugh_06 = 
+
+	tidehunter_tide_nomana_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_laugh_06.vsnd",
+			"sounds/vlad/vlad_hurt_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.218667
 	}
-	chen_chen_laugh_07 = 
+
+	tidehunter_tide_nomana_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_laugh_07.vsnd",
+			"sounds/vlad/vlad_hurt_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.853333
 	}
-	chen_chen_laugh_08 = 
+
+	tidehunter_tide_nomana_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_laugh_08.vsnd",
+			"sounds/vlad/vlad_hurt_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.280000
 	}
-	chen_chen_laugh_09 = 
+
+	tidehunter_tide_nomana_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_laugh_09.vsnd",
+			"sounds/vlad/vlad_hurt_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.938667
 	}
-	chen_chen_laugh_10 = 
+
+	tidehunter_tide_nomana_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_laugh_01.vsnd",
+			"sounds/vlad/vlad_hurt_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.931667
 	}
-	chen_chen_laugh_11 = 
+
+	tidehunter_tide_thanks_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/sanya/sanya_laugh_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.176000
 	}
+
+	tidehunter_tide_thanks_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_thanks_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_thanks_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_thanks_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_underattack_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_hurt_02.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_inthebag_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_crumwiz_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_shiwiz_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_lose_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_lose_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_lose_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_win_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_win_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_win_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_pain_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_hurt_01.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_pain_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_hurt_01.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_pain_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_hurt_01.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_pain_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_hurt_02.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_pain_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_hurt_02.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_pain_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_hurt_02.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_pain_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_hurt_02.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_pain_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_hurt_02.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_pain_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_hurt_01.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_anger_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_anger_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_anger_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_anger_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_anger_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_happy_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_happy_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_happy_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_happy_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_laugh_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_laugh_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_laugh_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_laugh_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+
 }

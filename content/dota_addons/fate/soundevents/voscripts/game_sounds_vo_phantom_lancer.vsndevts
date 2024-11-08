@@ -1,3153 +1,3590 @@
 <!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
 {
-	centaur_cent_spawn_01 = 
+	phantom_lancer_plance_spawn_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_spawn_01.vsnd",
+			"sounds/lancer/lancer_spawn.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_spawn_02 = 
+
+	phantom_lancer_plance_spawn_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_spawn_01.vsnd",
+			"sounds/lancer/lancer_spawn.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_spawn_03 = 
+
+	phantom_lancer_plance_spawn_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_spawn_01.vsnd",
+			"sounds/lancer/lancer_spawn.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_spawn_06 = 
+
+	phantom_lancer_plance_spawn_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_spawn_01.vsnd",
+			"sounds/lancer/lancer_spawn.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_spawn_07 = 
+
+	phantom_lancer_plance_spawn_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_spawn_01.vsnd",
+			"sounds/lancer/lancer_spawn.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_battlebegins_01 = 
+
+	phantom_lancer_plance_battlebegins_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_spawn_01.vsnd",
+			"sounds/lancer/cuchulain_battle_begins.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_battlebegins_02 = 
+
+	phantom_lancer_plance_firstblood_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_spawn_01.vsnd",
+			"sounds/vo/phantom_lancer/cuchulain_battle_begins.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_firstblood_01 = 
+
+	phantom_lancer_plance_move_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_kill_01.vsnd",
+			"sounds/lancer/lancer_move_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_firstblood_02 = 
+
+	phantom_lancer_plance_move_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_kill_02.vsnd",
+			"sounds/lancer/lancer_move_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_move_01 = 
+
+	phantom_lancer_plance_move_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_move_01.vsnd",
+			"sounds/lancer/lancer_move_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_move_02 = 
+
+	phantom_lancer_plance_move_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_move_02.vsnd",
+			"sounds/lancer/lancer_move_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_move_03 = 
+
+	phantom_lancer_plance_move_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_move_03.vsnd",
+			"sounds/lancer/lancer_move_02.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_move_04 = 
+
+	phantom_lancer_plance_move_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_move_04.vsnd",
+			"sounds/lancer/lancer_move_02.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_move_05 = 
+
+	phantom_lancer_plance_move_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_move_05.vsnd",
+			"sounds/lancer/lancer_move_02.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_move_06 = 
+
+	phantom_lancer_plance_move_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_move_06.vsnd",
+			"sounds/lancer/lancer_move_02.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_move_07 = 
+
+	phantom_lancer_plance_move_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_move_07.vsnd",
+			"sounds/lancer/lancer_move_02.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_move_08 = 
+
+	phantom_lancer_plance_move_10 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_move_08.vsnd",
+			"sounds/lancer/lancer_move_02.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_move_09 = 
+
+	phantom_lancer_plance_move_11 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_move_09.vsnd",
+			"sounds/lancer/lancer_move_02.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_move_10 = 
+
+	phantom_lancer_plance_move_12 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_move_10.vsnd",
+			"sounds/lancer/lancer_move_02.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_move_11 = 
+
+	phantom_lancer_plance_move_13 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_move_11.vsnd",
+			"sounds/lancer/lancer_move_03.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_move_12 = 
+
+	phantom_lancer_plance_move_14 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_move_12.vsnd",
+			"sounds/lancer/lancer_move_03.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_move_13 = 
+
+	phantom_lancer_plance_move_15 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_move_01.vsnd",
+			"sounds/lancer/lancer_move_03.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_move_14 = 
+
+	phantom_lancer_plance_move_16 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_move_01.vsnd",
+			"sounds/lancer/lancer_move_03.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_move_15 = 
+
+	phantom_lancer_plance_move_17 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_move_05.vsnd",
+			"sounds/lancer/lancer_move_03.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_move_16 = 
+
+	phantom_lancer_plance_move_18 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_move_06.vsnd",
+			"sounds/lancer/lancer_move_03.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_move_17 = 
+
+	phantom_lancer_plance_move_clone_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_move_07.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_move_18 = 
+
+	phantom_lancer_plance_move_clone_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_move_08.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_move_19 = 
+
+	phantom_lancer_plance_move_clone_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_move_09.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_move_20 = 
+
+	phantom_lancer_plance_move_clone_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_move_10.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_move_21 = 
+
+	phantom_lancer_plance_move_clone_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_move_11.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_move_22 = 
+
+	phantom_lancer_plance_move_clone_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_move_12.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_attack_01 = 
+
+	phantom_lancer_plance_move_clone_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_attack_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_attack_02 = 
+
+	phantom_lancer_plance_move_clone_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_attack_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_attack_03 = 
+
+	phantom_lancer_plance_move_clone_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_attack_03.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_attack_04 = 
+
+	phantom_lancer_plance_move_clone_10 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_attack_04.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_attack_05 = 
+
+	phantom_lancer_plance_move_clone_11 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_attack_05.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_attack_06 = 
+
+	phantom_lancer_plance_move_clone_12 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_attack_06.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_attack_07 = 
+
+	phantom_lancer_plance_move_clone_13 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_attack_07.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_attack_08 = 
+
+	phantom_lancer_plance_move_clone_14 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_attack_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_attack_11 = 
+
+	phantom_lancer_plance_move_clone_15 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_attack_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_cast_01 = 
+
+	phantom_lancer_plance_move_clone_16 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_cast_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_cast_02 = 
+
+	phantom_lancer_plance_move_clone_17 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_cast_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_cast_03 = 
+
+	phantom_lancer_plance_move_clone_18 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_cast_03.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_doub_edge_01 = 
+
+	phantom_lancer_plance_move_clone_19 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_doub_edge_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_doub_edge_02 = 
+
+	phantom_lancer_plance_move_clone_20 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_doub_edge_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_doub_edge_03 = 
+
+	phantom_lancer_plance_move_clone_21 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_doub_edge_03.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_doub_edge_04 = 
+
+	phantom_lancer_plance_move_clone_22 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_doub_edge_04.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_doub_edge_05 = 
+
+	phantom_lancer_plance_move_clone_23 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_doub_edge_05.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_doub_edge_06 = 
+
+	phantom_lancer_plance_move_clone_24 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_doub_edge_06.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_doub_edge_07 = 
+
+	phantom_lancer_plance_attack_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_doub_edge_07.vsnd",
+			"sounds/lancer/lancer_attack_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_doub_edge_08 = 
+
+	phantom_lancer_plance_attack_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_doub_edge_08.vsnd",
+			"sounds/lancer/lancer_attack_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_doub_edge_09 = 
+
+	phantom_lancer_plance_attack_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_doub_edge_09.vsnd",
+			"sounds/lancer/lancer_attack_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_doub_edge_10 = 
+
+	phantom_lancer_plance_attack_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_doub_edge_10.vsnd",
+			"sounds/lancer/lancer_attack_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_doub_edge_11 = 
+
+	phantom_lancer_plance_attack_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_doub_edge_11.vsnd",
+			"sounds/lancer/lancer_attack_02.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_hoof_stomp_01 = 
+
+	phantom_lancer_plance_attack_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_hoof_stomp_01.vsnd",
+			"sounds/lancer/lancer_attack_02.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_hoof_stomp_02 = 
+
+	phantom_lancer_plance_attack_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_hoof_stomp_02.vsnd",
+			"sounds/lancer/lancer_attack_02.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_hoof_stomp_03 = 
+
+	phantom_lancer_plance_attack_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_hoof_stomp_03.vsnd",
+			"sounds/lancer/lancer_attack_02.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_hoof_stomp_04 = 
+
+	phantom_lancer_plance_attack_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_hoof_stomp_04.vsnd",
+			"sounds/lancer/lancer_attack_03.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_hoof_stomp_05 = 
+
+	phantom_lancer_plance_attack_10 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_hoof_stomp_05.vsnd",
+			"sounds/lancer/lancer_attack_03.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_failure_01 = 
+
+	phantom_lancer_plance_attack_11 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_failure_01.vsnd",
+			"sounds/lancer/lancer_attack_03.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_failure_02 = 
+
+	phantom_lancer_plance_attack_12 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_failure_02.vsnd",
+			"sounds/lancer/lancer_attack_03.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_failure_03 = 
+
+	phantom_lancer_plance_attack_13 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_failure_03.vsnd",
+			"sounds/lancer/lancer_attack_04.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_failure_04 = 
+
+	phantom_lancer_plance_attack_14 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_failure_04.vsnd",
+			"sounds/lancer/lancer_attack_04.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_failure_05 = 
+
+	phantom_lancer_plance_attack_15 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_failure_05.vsnd",
+			"sounds/lancer/lancer_attack_04.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_failure_06 = 
+
+	phantom_lancer_plance_attack_clone_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_failure_06.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_levelup_01 = 
+
+	phantom_lancer_plance_attack_clone_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_levelup_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_levelup_02 = 
+
+	phantom_lancer_plance_attack_clone_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_levelup_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_levelup_03 = 
+
+	phantom_lancer_plance_attack_clone_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_levelup_03.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_levelup_04 = 
+
+	phantom_lancer_plance_attack_clone_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_levelup_04.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_levelup_05 = 
+
+	phantom_lancer_plance_attack_clone_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_levelup_05.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_levelup_06 = 
+
+	phantom_lancer_plance_attack_clone_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_levelup_06.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_levelup_07 = 
+
+	phantom_lancer_plance_attack_clone_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_levelup_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_levelup_08 = 
+
+	phantom_lancer_plance_attack_clone_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_levelup_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_levelup_09 = 
+
+	phantom_lancer_plance_attack_clone_10 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_levelup_03.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_levelup_10 = 
+
+	phantom_lancer_plance_attack_clone_11 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_levelup_04.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_kill_01 = 
+
+	phantom_lancer_plance_attack_clone_12 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_kill_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_kill_02 = 
+
+	phantom_lancer_plance_attack_clone_13 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_kill_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_kill_03 = 
+
+	phantom_lancer_plance_attack_clone_14 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_kill_03.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_kill_04 = 
+
+	phantom_lancer_plance_attack_clone_15 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_kill_04.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_kill_05 = 
+
+	phantom_lancer_plance_attack_clone_16 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_kill_05.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_kill_06 = 
+
+	phantom_lancer_plance_attack_clone_17 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_kill_06.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_kill_07 = 
+
+	phantom_lancer_plance_attack_clone_18 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_kill_07.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_kill_08 = 
+
+	phantom_lancer_plance_attack_clone_19 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_kill_08.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_kill_09 = 
+
+	phantom_lancer_plance_attack_clone_20 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_kill_09.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_kill_10 = 
+
+	phantom_lancer_plance_attack_clone_21 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_kill_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_kill_11 = 
+
+	phantom_lancer_plance_attack_clone_22 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_kill_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_kill_12 = 
+
+	phantom_lancer_plance_attack_clone_23 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_kill_03.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_01 = 
+
+	phantom_lancer_plance_attack_clone_24 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_02 = 
+
+	phantom_lancer_plance_cast_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_03 = 
+
+	phantom_lancer_plance_cast_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_04 = 
+
+	phantom_lancer_plance_cast_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_05 = 
+
+	phantom_lancer_plance_ability_spiritlance_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_06 = 
+
+	phantom_lancer_plance_ability_spiritlance_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_08 = 
+
+	phantom_lancer_plance_ability_spiritlance_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_09 = 
+
+	phantom_lancer_plance_ability_spiritlance_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_10 = 
+
+	phantom_lancer_plance_ability_spiritlance_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_11 = 
+
+	phantom_lancer_plance_ability_spiritlance_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_12 = 
+
+	phantom_lancer_plance_ability_spiritlance_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_14 = 
+
+	phantom_lancer_plance_ability_spiritlance_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_15 = 
+
+	phantom_lancer_plance_ability_doppelwalk_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_16 = 
+
+	phantom_lancer_plance_ability_doppelwalk_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_17 = 
+
+	phantom_lancer_plance_ability_doppelwalk_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_18 = 
+
+	phantom_lancer_plance_ability_doppelwalk_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_19 = 
+
+	phantom_lancer_plance_ability_doppelwalk_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_20 = 
+
+	phantom_lancer_plance_ability_doppelwalk_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_21 = 
+
+	phantom_lancer_plance_ability_juxtapose_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_22 = 
+
+	phantom_lancer_plance_ability_juxtapose_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_23 = 
+
+	phantom_lancer_plance_ability_juxtapose_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_24 = 
+
+	phantom_lancer_plance_ability_juxtapose_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_25 = 
+
+	phantom_lancer_plance_ability_juxtapose_multi_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_26 = 
+
+	phantom_lancer_plance_ability_juxtapose_multi_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_27 = 
+
+	phantom_lancer_plance_ability_juxtapose_multi_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_28 = 
+
+	phantom_lancer_plance_ability_juxtapose_multi_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_29 = 
+
+	phantom_lancer_plance_ability_juxtapose_multi_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_30 = 
+
+	phantom_lancer_plance_ability_juxtapose_multi_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_31 = 
+
+	phantom_lancer_plance_ability_juxtapose_multi_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_32 = 
+
+	phantom_lancer_plance_ability_juxtapose_multi_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_34 = 
+
+	phantom_lancer_plance_ability_juxtapose_multi_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_35 = 
+
+	phantom_lancer_plance_ability_juxtapose_multi_10 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_36 = 
+
+	phantom_lancer_plance_ability_juxtapose_multi_11 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_37 = 
+
+	phantom_lancer_plance_ability_juxtapose_multi_12 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_38 = 
+
+	phantom_lancer_plance_ability_juxtapose_multi_13 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_ally_01 = 
+
+	phantom_lancer_plance_ability_juxtapose_multi_14 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_ally_02 = 
+
+	phantom_lancer_plance_ability_juxtapose_multi_15 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_ally_03 = 
+
+	phantom_lancer_plance_ability_juxtapose_multi_16 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_ally_04 = 
+
+	phantom_lancer_plance_ability_juxtapose_multi_17 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_ally_05 = 
+
+	phantom_lancer_plance_ability_juxtapose_multi_18 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_ally_06 = 
+
+	phantom_lancer_plance_ability_failure_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_ally_07 = 
+
+	phantom_lancer_plance_ability_failure_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_ally_08 = 
+
+	phantom_lancer_plance_ability_failure_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_ally_09 = 
+
+	phantom_lancer_plance_levelup_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/lancer/cuchulain_level_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_ally_10 = 
+
+	phantom_lancer_plance_levelup_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/lancer/cuchulain_level_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_ally_11 = 
+
+	phantom_lancer_plance_levelup_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/lancer/cuchulain_level_3.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_ally_12 = 
+
+	phantom_lancer_plance_levelup_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/lancer/cuchulain_level_4.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_ally_13 = 
+
+	phantom_lancer_plance_levelup_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/lancer/cuchulain_level_5.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_ally_14 = 
+
+	phantom_lancer_plance_levelup_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/lancer/cuchulain_level_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_ally_15 = 
+
+	phantom_lancer_plance_levelup_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/lancer/cuchulain_level_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_ally_16 = 
+
+	phantom_lancer_plance_levelup_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/lancer/cuchulain_level_3.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_ally_17 = 
+
+	phantom_lancer_plance_levelup_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/lancer/cuchulain_level_4.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_lasthit_01 = 
+
+	phantom_lancer_plance_kill_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_lasthit_01.vsnd",
+			"sounds/lancer/cuchulain_kill_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_lasthit_02 = 
+
+	phantom_lancer_plance_kill_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_lasthit_01.vsnd",
+			"sounds/lancer/cuchulain_kill_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_lasthit_03 = 
+
+	phantom_lancer_plance_kill_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_lasthit_01.vsnd",
+			"sounds/lancer/cuchulain_kill_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_lasthit_04 = 
+
+	phantom_lancer_plance_kill_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_lasthit_01.vsnd",
+			"sounds/lancer/cuchulain_kill_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_lasthit_05 = 
+
+	phantom_lancer_plance_kill_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_lasthit_01.vsnd",
+			"sounds/lancer/cuchulain_kill_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_lasthit_06 = 
+
+	phantom_lancer_plance_kill_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_lasthit_01.vsnd",
+			"sounds/lancer/cuchulain_kill_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_lasthit_07 = 
+
+	phantom_lancer_plance_kill_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_lasthit_01.vsnd",
+			"sounds/lancer/cuchulain_kill_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_lasthit_08 = 
+
+	phantom_lancer_plance_kill_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_lasthit_01.vsnd",
+			"sounds/lancer/cuchulain_kill_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_lasthit_09 = 
+
+	phantom_lancer_plance_kill_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_lasthit_01.vsnd",
+			"sounds/lancer/lancer_victory.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_death_01 = 
+
+	phantom_lancer_plance_kill_10 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_death_01.vsnd",
+			"sounds/lancer/lancer_victory.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_death_02 = 
+
+	phantom_lancer_plance_rival_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_death_02.vsnd",
+			"sounds/lancer/cuchulain_kill_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_death_03 = 
+
+	phantom_lancer_plance_rival_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_death_03.vsnd",
+			"sounds/lancer/cuchulain_kill_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_death_04 = 
+
+	phantom_lancer_plance_rival_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_death_04.vsnd",
+			"sounds/lancer/lancer_victory.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_death_05 = 
+
+	phantom_lancer_plance_rival_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_death_05.vsnd",
+			"sounds/lancer/lancer_victory.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_death_06 = 
+
+	phantom_lancer_plance_rival_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_death_01.vsnd",
+			"sounds/lancer/lancer_victory.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_death_07 = 
+
+	phantom_lancer_plance_rival_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_death_02.vsnd",
+			"sounds/lancer/lancer_victory.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_death_08 = 
+
+	phantom_lancer_plance_rival_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_death_03.vsnd",
+			"sounds/lancer/lancer_victory.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_death_09 = 
+
+	phantom_lancer_plance_rival_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_death_04.vsnd",
+			"sounds/lancer/lancer_victory.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_death_10 = 
+
+	phantom_lancer_plance_rival_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_death_05.vsnd",
+			"sounds/lancer/lancer_victory.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_death_11 = 
+
+	phantom_lancer_plance_rival_10 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_death_01.vsnd",
+			"sounds/lancer/lancer_victory.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_death_12 = 
+
+	phantom_lancer_plance_rival_11 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_death_02.vsnd",
+			"sounds/lancer/lancer_victory.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_death_13 = 
+
+	phantom_lancer_plance_ally_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_death_03.vsnd",
+			"sounds/lancer/lancer_move_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_fastres_01 = 
+
+	phantom_lancer_plance_ally_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_respawn_01.vsnd",
+			"sounds/lancer/lancer_move_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_fastres_02 = 
+
+	phantom_lancer_plance_ally_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_respawn_01.vsnd",
+			"sounds/lancer/lancer_move_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_respawn_01 = 
+
+	phantom_lancer_plance_ally_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_respawn_01.vsnd",
+			"sounds/lancer/lancer_move_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_respawn_02 = 
+
+	phantom_lancer_plance_ally_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_respawn_01.vsnd",
+			"sounds/lancer/lancer_move_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_respawn_03 = 
+
+	phantom_lancer_plance_ally_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_respawn_01.vsnd",
+			"sounds/lancer/lancer_move_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_respawn_04 = 
+
+	phantom_lancer_plance_ally_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_respawn_01.vsnd",
+			"sounds/lancer/lancer_move_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_respawn_05 = 
+
+	phantom_lancer_plance_lasthit_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_respawn_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_respawn_06 = 
+
+	phantom_lancer_plance_lasthit_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_respawn_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_respawn_07 = 
+
+	phantom_lancer_plance_lasthit_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_respawn_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_respawn_08 = 
+
+	phantom_lancer_plance_lasthit_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_respawn_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_respawn_09 = 
+
+	phantom_lancer_plance_lasthit_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_respawn_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_respawn_10 = 
+
+	phantom_lancer_plance_lasthit_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_respawn_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_ally_18 = 
+
+	phantom_lancer_plance_lasthit_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_ally_19 = 
+
+	phantom_lancer_plance_death_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/lancer/cuchulain_death_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_purch_01 = 
+
+	phantom_lancer_plance_death_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_purch_01.vsnd",
+			"sounds/lancer/lancer_death.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_purch_02 = 
+
+	phantom_lancer_plance_death_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_purch_02.vsnd",
+			"sounds/lancer/cuchulain_death_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_purch_03 = 
+
+	phantom_lancer_plance_death_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_purch_03.vsnd",
+			"sounds/lancer/lancer_death.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_scepter_01 = 
+
+	phantom_lancer_plance_death_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_scepter_01.vsnd",
+			"sounds/lancer/cuchulain_death_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_scepter_02 = 
+
+	phantom_lancer_plance_death_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_scepter_02.vsnd",
+			"sounds/lancer/lancer_death.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_blink_01 = 
+
+	phantom_lancer_plance_death_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_blink_01.vsnd",
+			"sounds/lancer/cuchulain_death_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_blink_02 = 
+
+	phantom_lancer_plance_death_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_blink_02.vsnd",
+			"sounds/lancer/cuchulain_death_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_items_01 = 
+
+	phantom_lancer_plance_death_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_items_01.vsnd",
+			"sounds/lancer/cuchulain_death_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_items_02 = 
+
+	phantom_lancer_plance_death_10 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_items_02.vsnd",
+			"sounds/lancer/cuchulain_death_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_items_03 = 
+
+	phantom_lancer_plance_fastres_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_items_03.vsnd",
+			"sounds/lancer/cu_battlecont.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_items_04 = 
+
+	phantom_lancer_plance_respawn_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_items_04.vsnd",
+			"sounds/lancer/cu_battlecont.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_items_05 = 
+
+	phantom_lancer_plance_respawn_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_items_05.vsnd",
+			"sounds/lancer/cu_battlecont.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_items_06 = 
+
+	phantom_lancer_plance_respawn_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_items_06.vsnd",
+			"sounds/lancer/cu_battlecont.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_items_07 = 
+
+	phantom_lancer_plance_respawn_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_items_07.vsnd",
+			"sounds/lancer/cu_battlecont.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_items_08 = 
+
+	phantom_lancer_plance_respawn_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_items_08.vsnd",
+			"sounds/lancer/cu_battlecont.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_items_09 = 
+
+	phantom_lancer_plance_respawn_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_items_09.vsnd",
+			"sounds/lancer/cu_battlecont.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_items_10 = 
+
+	phantom_lancer_plance_respawn_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_items_10.vsnd",
+			"sounds/lancer/cu_battlecont.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_items_11 = 
+
+	phantom_lancer_plance_respawn_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_items_11.vsnd",
+			"sounds/lancer/cu_battlecont.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_items_12 = 
+
+	phantom_lancer_plance_respawn_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_items_12.vsnd",
+			"sounds/lancer/cu_battlecont.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_items_13 = 
+
+	phantom_lancer_plance_respawn_10 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_items_13.vsnd",
+			"sounds/lancer/cu_battlecont.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_bottle_01 = 
+
+	phantom_lancer_plance_respawn_11 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_bottle_01.vsnd",
+			"sounds/lancer/cu_battlecont.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_bottle_02 = 
+
+	phantom_lancer_plance_respawn_12 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_bottle_02.vsnd",
+			"sounds/lancer/cu_battlecont.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_bottle_03 = 
+
+	phantom_lancer_plance_rare_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_bottle_03.vsnd",
+			"sounds/lancer/lancer_other_05.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_deny_01 = 
+
+	phantom_lancer_plance_rare_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_deny_01.vsnd",
+			"sounds/lancer/lancer_other_04.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_deny_02 = 
+
+	phantom_lancer_plance_rare_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_deny_01.vsnd",
+			"sounds/lancer/lancer_other_06.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_deny_03 = 
+
+	phantom_lancer_plance_purch_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_deny_01.vsnd",
+			"sounds/lancer/lancer_other_02.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_deny_04 = 
+
+	phantom_lancer_plance_purch_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_deny_01.vsnd",
+			"sounds/lancer/lancer_other_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_deny_05 = 
+
+	phantom_lancer_plance_purch_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_deny_01.vsnd",
+			"sounds/lancer/lancer_other_02.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_deny_06 = 
+
+	phantom_lancer_plance_blink_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_deny_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_deny_07 = 
+
+	phantom_lancer_plance_blink_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_deny_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_deny_08 = 
+
+	phantom_lancer_plance_scepter_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_deny_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_deny_09 = 
+
+	phantom_lancer_plance_scepter_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_deny_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_deny_10 = 
+
+	phantom_lancer_plance_item_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_deny_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_deny_11 = 
+
+	phantom_lancer_plance_item_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_deny_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_deny_12 = 
+
+	phantom_lancer_plance_item_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_deny_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_deny_13 = 
+
+	phantom_lancer_plance_item_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_deny_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_deny_14 = 
+
+	phantom_lancer_plance_item_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_deny_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_lane_missing_01 = 
+
+	phantom_lancer_plance_item_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_levelup_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_lane_missing_02 = 
+
+	phantom_lancer_plance_item_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_levelup_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_lane_missing_03 = 
+
+	phantom_lancer_plance_item_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/levelup_03.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_drop_common_01 = 
+
+	phantom_lancer_plance_item_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_drop_common_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_drop_medium_01 = 
+
+	phantom_lancer_plance_bottle_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_drop_medium_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_drop_rare_01 = 
+
+	phantom_lancer_plance_bottle_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_drop_rare_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_immort_01 = 
+
+	phantom_lancer_plance_bottle_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_immort_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_immort_02 = 
+
+	phantom_lancer_plance_deny_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_immort_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_happy_03 = 
+
+	phantom_lancer_plance_deny_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_happy_03.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_haste_01 = 
+
+	phantom_lancer_plance_deny_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_haste_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_haste_02 = 
+
+	phantom_lancer_plance_deny_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_haste_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_doubdam_01 = 
+
+	phantom_lancer_plance_deny_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_doubdam_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_doubdam_02 = 
+
+	phantom_lancer_plance_deny_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_doubdam_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_regen_01 = 
+
+	phantom_lancer_plance_deny_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_regen_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_regen_02 = 
+
+	phantom_lancer_plance_deny_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_regen_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_illus_01 = 
+
+	phantom_lancer_plance_deny_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_illus_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_illus_02 = 
+
+	phantom_lancer_plance_deny_10 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_illus_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_illus_03 = 
+
+	phantom_lancer_plance_deny_11 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_illus_03.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_invis_01 = 
+
+	phantom_lancer_plance_deny_12 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_invis_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_invis_02 = 
+
+	phantom_lancer_plance_deny_13 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_invis_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_invis_03 = 
+
+	phantom_lancer_plance_lose_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_invis_03.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_notyet_01 = 
+
+	phantom_lancer_plance_lose_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_notyet_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_notyet_02 = 
+
+	phantom_lancer_plance_lose_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_notyet_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_notyet_03 = 
+
+	phantom_lancer_plance_win_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_notyet_01.vsnd",
+			"sounds/lancer/lancer_victory.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_notyet_04 = 
+
+	phantom_lancer_plance_win_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_notyet_02.vsnd",
+			"sounds/lancer/lancer_victory.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_notyet_05 = 
+
+	phantom_lancer_plance_win_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_notyet_02.vsnd",
+			"sounds/lancer/lancer_victory.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_notyet_06 = 
+
+	phantom_lancer_plance_win_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_notyet_02.vsnd",
+			"sounds/lancer/lancer_victory.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_notyet_07 = 
+
+	phantom_lancer_plance_lane_missing_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_notyet_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_notyet_08 = 
+
+	phantom_lancer_plance_lane_missing_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_notyet_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_notyet_09 = 
+
+	phantom_lancer_plance_lane_missing_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_notyet_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_nomana_01 = 
+
+	phantom_lancer_plance_immort_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_nomana_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_nomana_02 = 
+
+	phantom_lancer_plance_immort_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_nomana_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_nomana_03 = 
+
+	phantom_lancer_plance_haste_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_nomana_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_nomana_04 = 
+
+	phantom_lancer_plance_haste_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_nomana_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_nomana_05 = 
+
+	phantom_lancer_plance_doubdam_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_nomana_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_nomana_06 = 
+
+	phantom_lancer_plance_doubdam_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_nomana_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_nomana_07 = 
+
+	phantom_lancer_plance_regen_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_nomana_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_nomana_08 = 
+
+	phantom_lancer_plance_regen_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_nomana_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_nomana_09 = 
+
+	phantom_lancer_plance_illus_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_nomana_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_thanks_01 = 
+
+	phantom_lancer_plance_illus_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_thanks_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_thanks_02 = 
+
+	phantom_lancer_plance_illus_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_thanks_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_thanks_03 = 
+
+	phantom_lancer_plance_illus_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_thanks_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_thanks_04 = 
+
+	phantom_lancer_plance_invis_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_thanks_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_underattack_01 = 
+
+	phantom_lancer_plance_invis_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_underattack_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_underattack_02 = 
+
+	phantom_lancer_plance_notyet_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_underattack_01.vsnd",
+			"sounds/lancer/lancer_death.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_inthebag_01 = 
+
+	phantom_lancer_plance_notyet_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_inthebag_01.vsnd",
+			"sounds/lancer/lancer_death.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_inthebag_02 = 
+
+	phantom_lancer_plance_notyet_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_inthebag_02.vsnd",
+			"sounds/lancer/lancer_death.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_crumwiz_01 = 
+
+	phantom_lancer_plance_notyet_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_crumwiz_01.vsnd",
+			"sounds/lancer/lancer_death.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_shiwiz_01 = 
+
+	phantom_lancer_plance_notyet_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_shiwiz_01.vsnd",
+			"sounds/lancer/lancer_death.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_lose_01 = 
+
+	phantom_lancer_plance_notyet_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_death_01.vsnd",
+			"sounds/lancer/lancer_death.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_lose_02 = 
+
+	phantom_lancer_plance_notyet_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_death_02.vsnd",
+			"sounds/lancer/lancer_death.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_lose_03 = 
+
+	phantom_lancer_plance_notyet_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_death_03.vsnd",
+			"sounds/lancer/lancer_death.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_lose_04 = 
+
+	phantom_lancer_plance_notyet_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_death_04.vsnd",
+			"sounds/lancer/lancer_death.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_win_01 = 
+
+	phantom_lancer_plance_nomana_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_kill_01.vsnd",
+			"sounds/lancer/lancer_death.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_win_02 = 
+
+	phantom_lancer_plance_nomana_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_kill_02.vsnd",
+			"sounds/lancer/lancer_death.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_win_03 = 
+
+	phantom_lancer_plance_nomana_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_kill_03.vsnd",
+			"sounds/lancer/lancer_death.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_win_04 = 
+
+	phantom_lancer_plance_nomana_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_kill_04.vsnd",
+			"sounds/lancer/lancer_death.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_pain_01 = 
+
+	phantom_lancer_plance_nomana_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_pain_01.vsnd",
+			"sounds/lancer/lancer_death.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_pain_02 = 
+
+	phantom_lancer_plance_nomana_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_pain_02.vsnd",
+			"sounds/lancer/lancer_death.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_pain_03 = 
+
+	phantom_lancer_plance_nomana_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_pain_03.vsnd",
+			"sounds/lancer/lancer_death.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_pain_04 = 
+
+	phantom_lancer_plance_nomana_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_pain_01.vsnd",
+			"sounds/lancer/lancer_death.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_pain_05 = 
+
+	phantom_lancer_plance_nomana_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_pain_01.vsnd",
+			"sounds/lancer/lancer_death.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_pain_06 = 
+
+	phantom_lancer_plance_thanks_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_pain_02.vsnd",
+			"sounds/lancer/cuchulain_thanks_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_pain_07 = 
+
+	phantom_lancer_plance_thanks_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_pain_03.vsnd",
+			"sounds/lancer/cuchulain_thanks_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_pain_08 = 
+
+	phantom_lancer_plance_thanks_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_pain_01.vsnd",
+			"sounds/lancer/cuchulain_thanks_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_pain_09 = 
+
+	phantom_lancer_plance_underattack_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_pain_02.vsnd",
+			"sounds/lancer/lancer_hurt.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_pain_10 = 
+
+	phantom_lancer_plance_inthebag_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_pain_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_pain_11 = 
+
+	phantom_lancer_plance_shiwiz_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_pain_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_pain_12 = 
+
+	phantom_lancer_plance_crumwiz_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_pain_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_pain_13 = 
+
+	phantom_lancer_plance_pain_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_pain_03.vsnd",
+			"sounds/lancer/lancer_hurt.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_pain_14 = 
+
+	phantom_lancer_plance_pain_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_pain_01.vsnd",
+			"sounds/lancer/lancer_hurt.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_anger_01 = 
+
+	phantom_lancer_plance_pain_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_anger_01.vsnd",
+			"sounds/lancer/lancer_hurt.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_anger_02 = 
+
+	phantom_lancer_plance_pain_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_anger_02.vsnd",
+			"sounds/lancer/lancer_hurt.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_anger_03 = 
+
+	phantom_lancer_plance_pain_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_anger_03.vsnd",
+			"sounds/lancer/lancer_hurt.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_anger_04 = 
+
+	phantom_lancer_plance_pain_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_anger_04.vsnd",
+			"sounds/lancer/lancer_hurt.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_anger_05 = 
+
+	phantom_lancer_plance_pain_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_anger_05.vsnd",
+			"sounds/lancer/lancer_hurt.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_anger_06 = 
+
+	phantom_lancer_plance_pain_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_anger_06.vsnd",
+			"sounds/lancer/lancer_hurt.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_anger_07 = 
+
+	phantom_lancer_plance_pain_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_anger_07.vsnd",
+			"sounds/lancer/lancer_hurt.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_anger_09 = 
+
+	phantom_lancer_plance_pain_10 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_anger_09.vsnd",
+			"sounds/lancer/lancer_hurt.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_anger_10 = 
+
+	phantom_lancer_plance_anger_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_anger_10.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_anger_11 = 
+
+	phantom_lancer_plance_anger_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_anger_11.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_anger_12 = 
+
+	phantom_lancer_plance_anger_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_anger_12.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_anger_13 = 
+
+	phantom_lancer_plance_anger_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_anger_13.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_anger_14 = 
+
+	phantom_lancer_plance_anger_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_anger_14.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_anger_15 = 
+
+	phantom_lancer_plance_anger_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_anger_15.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_happy_01 = 
+
+	phantom_lancer_plance_anger_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_happy_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_happy_02 = 
+
+	phantom_lancer_plance_anger_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_happy_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_happy_04 = 
+
+	phantom_lancer_plance_happy_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_happy_04.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_happy_05 = 
+
+	phantom_lancer_plance_happy_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_happy_05.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_happy_06 = 
+
+	phantom_lancer_plance_happy_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_happy_06.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_happy_07 = 
+
+	phantom_lancer_plance_happy_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_happy_07.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_happy_08 = 
+
+	phantom_lancer_plance_happy_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_happy_08.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_happy_09 = 
+
+	phantom_lancer_plance_happy_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_happy_09.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_happy_10 = 
+
+	phantom_lancer_plance_happy_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_happy_10.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_happy_11 = 
+
+	phantom_lancer_plance_happy_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_happy_11.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_happy_12 = 
+
+	phantom_lancer_plance_laugh_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_happy_12.vsnd",
+			"sounds/cuchulain_laugh_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_happy_13 = 
+
+	phantom_lancer_plance_laugh_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_happy_13.vsnd",
+			"sounds/cuchulain_laugh_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_happy_14 = 
+
+	phantom_lancer_plance_laugh_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_happy_14.vsnd",
+			"sounds/cuchulain_laugh_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_laugh_01 = 
+
+	phantom_lancer_plance_laugh_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_laugh_01.vsnd",
+			"sounds/cuchulain_laugh_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_laugh_02 = 
+
+	phantom_lancer_plance_laugh_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_laugh_01.vsnd",
+			"sounds/cuchulain_laugh_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_laugh_03 = 
+
+	phantom_lancer_plance_laugh_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_laugh_01.vsnd",
+			"sounds/cuchulain_laugh_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_laugh_04 = 
+
+	phantom_lancer_plance_laugh_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_laugh_01.vsnd",
+			"sounds/cuchulain_laugh_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_laugh_05 = 
+
+	phantom_lancer_plance_laugh_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_laugh_01.vsnd",
+			"sounds/cuchulain_laugh_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
+
+	phantom_lancer_plance_laugh_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/cuchulain_laugh_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	phantom_lancer_plance_laugh_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/cuchulain_laugh_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	phantom_lancer_plance_laugh_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/cuchulain_laugh_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	phantom_lancer_plance_laugh_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/cuchulain_laugh_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	phantom_lancer_plance_laugh_13 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/cuchulain_laugh_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	phantom_lancer_plance_laugh_14 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/cuchulain_laugh_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	phantom_lancer_plance_laugh_15 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/cuchulain_laugh_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	phantom_lancer_plance_laugh_16 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/cuchulain_laugh_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	phantom_lancer_plance_drop_common = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	phantom_lancer_plance_drop_medium = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	phantom_lancer_plance_drop_rare = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+
 }

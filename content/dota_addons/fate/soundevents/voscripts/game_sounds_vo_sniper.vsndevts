@@ -1,3541 +1,3977 @@
 <!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
 {
-	gyrocopter_gyro_spawn_01 = 
+	sniper_snip_spawn_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_spawn_01.vsnd",
+			"sounds/robin/robin_summon.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 4.280998
+		vsnd_duration = 4.992290
 	}
-	gyrocopter_gyro_spawn_02 = 
+	sniper_snip_spawn_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_spawn_02.vsnd",
+			"sounds/robin/robin_summon.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 7.496009
+		vsnd_duration = 4.992290
 	}
-	gyrocopter_gyro_spawn_03 = 
+	sniper_snip_spawn_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_spawn_03.vsnd",
+			"sounds/robin/robin_summon.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 8.820612
+		vsnd_duration = 4.992290
 	}
-	gyrocopter_gyro_spawn_04 = 
+	sniper_snip_spawn_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_spawn_04.vsnd",
+			"sounds/robin/robin_summon.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.988004
+		vsnd_duration = 4.992290
 	}
-	gyrocopter_gyro_spawn_05 = 
+	sniper_snip_spawn_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_spawn_05.vsnd",
+			"sounds/robin/robin_summon.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 7.328957
+		vsnd_duration = 4.992290
 	}
-	gyrocopter_gyro_spawn_06 = 
+	sniper_snip_begin_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_spawn_06.vsnd",
+			"sounds/robin/robin_select_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 4.363991
 	}
-	gyrocopter_gyro_begins_01 = 
+	sniper_snip_begin_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_begins_01.vsnd",
+			"sounds/robin/robin_select_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.770045
 	}
-	gyrocopter_gyro_begins_02 = 
+	sniper_snip_firstblood_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_begins_01.vsnd",
+			"sounds/robin/robin_select_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.770045
 	}
-	gyrocopter_gyro_first_01 = 
+	sniper_snip_move_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_kill_01.vsnd",
+			"sounds/robin/robin_select_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.926780
 	}
-	gyrocopter_gyro_move_01 = 
+	sniper_snip_move_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_move_01.vsnd",
+			"sounds/robin/robin_select_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.610726
 	}
-	gyrocopter_gyro_move_02 = 
+	sniper_snip_move_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_move_02.vsnd",
+			"sounds/robin/robin_select_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.411678
 	}
-	gyrocopter_gyro_move_03 = 
+	sniper_snip_move_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_move_03.vsnd",
+			"sounds/robin/robin_select_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.900658
 	}
-	gyrocopter_gyro_move_04 = 
+	sniper_snip_move_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_move_04.vsnd",
+			"sounds/robin/robin_select_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.609342
 	}
-	gyrocopter_gyro_move_05 = 
+	sniper_snip_move_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_move_05.vsnd",
+			"sounds/robin/robin_select_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.928027
 	}
-	gyrocopter_gyro_move_06 = 
+	sniper_snip_move_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_move_06.vsnd",
+			"sounds/robin/robin_select_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.678730
 	}
-	gyrocopter_gyro_move_07 = 
+	sniper_snip_move_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_move_07.vsnd",
+			"sounds/robin/robin_select_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.940000
 	}
-	gyrocopter_gyro_move_08 = 
+	sniper_snip_move_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_move_08.vsnd",
+			"sounds/robin/robin_select_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.637143
 	}
-	gyrocopter_gyro_move_09 = 
+	sniper_snip_move_10 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_move_09.vsnd",
+			"sounds/robin/robin_select_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.359433
 	}
-	gyrocopter_gyro_move_10 = 
+	sniper_snip_move_11 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_move_10.vsnd",
+			"sounds/robin/robin_select_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.281066
 	}
-	gyrocopter_gyro_move_11 = 
+	sniper_snip_move_12 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_move_11.vsnd",
+			"sounds/robin/robin_select_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.019841
 	}
-	gyrocopter_gyro_move_12 = 
+	sniper_snip_move_13 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_move_12.vsnd",
+			"sounds/robin/robin_select_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.812925
 	}
-	gyrocopter_gyro_move_13 = 
+	sniper_snip_move_14 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_move_13.vsnd",
+			"sounds/robin/robin_select_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.740658
 	}
-	gyrocopter_gyro_move_14 = 
+	sniper_snip_move_15 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_move_14.vsnd",
+			"sounds/robin/robin_select_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.516621
 	}
-	gyrocopter_gyro_move_15 = 
+	sniper_snip_move_16 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_move_15.vsnd",
+			"sounds/robin/robin_select_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.514989
 	}
-	gyrocopter_gyro_move_16 = 
+	sniper_snip_move_17 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_move_16.vsnd",
+			"sounds/robin/robin_select_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.697732
 	}
-	gyrocopter_gyro_move_17 = 
+	sniper_snip_move_18 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_move_17.vsnd",
+			"sounds/robin/robin_select_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.405805
 	}
-	gyrocopter_gyro_move_18 = 
+	sniper_snip_move_19 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_move_18.vsnd",
+			"sounds/robin/robin_select_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.665555
 	}
-	gyrocopter_gyro_move_19 = 
+	sniper_snip_move_20 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_move_19.vsnd",
+			"sounds/robin/robin_select_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.732494
 	}
-	gyrocopter_gyro_move_20 = 
+	sniper_snip_move_21 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_move_20.vsnd",
+			"sounds/robin/robin_select_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.045964
 	}
-	gyrocopter_gyro_move_21 = 
+	sniper_snip_move_22 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_move_21.vsnd",
+			"sounds/robin/robin_select_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.045964
 	}
-	gyrocopter_gyro_move_22 = 
+	sniper_snip_move_23 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_move_22.vsnd",
+			"sounds/robin/robin_select_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.045964
 	}
-	gyrocopter_gyro_move_23 = 
+	sniper_snip_move_24 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_move_23.vsnd",
+			"sounds/robin/robin_select_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.091338
 	}
-	gyrocopter_gyro_move_24 = 
+	sniper_snip_move_25 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_move_24.vsnd",
+			"sounds/robin/robin_select_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.346757
 	}
-	gyrocopter_gyro_move_25 = 
+	sniper_snip_move_26 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_move_25.vsnd",
+			"sounds/robin/robin_select_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.580499
 	}
-	gyrocopter_gyro_move_26 = 
+	sniper_snip_move_27 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_move_26.vsnd",
+			"sounds/robin/robin_select_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.743039
 	}
-	gyrocopter_gyro_move_27 = 
+	sniper_snip_move_28 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_move_27.vsnd",
+			"sounds/robin/robin_select_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.048095
 	}
-	gyrocopter_gyro_move_28 = 
+	sniper_snip_move_29 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_move_28.vsnd",
+			"sounds/robin/robin_select_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.780113
 	}
-	gyrocopter_gyro_move_29 = 
+	sniper_snip_move_30 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_move_29.vsnd",
+			"sounds/robin/robin_select_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.221474
 	}
-	gyrocopter_gyro_move_30 = 
+	sniper_snip_move_31 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_move_30.vsnd",
+			"sounds/robin/robin_select_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.516168
 	}
-	gyrocopter_gyro_move_31 = 
+	sniper_snip_move_32 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_move_31.vsnd",
+			"sounds/robin/robin_select_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.594535
 	}
-	gyrocopter_gyro_move_32 = 
+	sniper_snip_move_33 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_move_32.vsnd",
+			"sounds/robin/robin_select_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.915351
 	}
-	gyrocopter_gyro_attack_01 = 
+	sniper_snip_move_34 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_attack_01.vsnd",
+			"sounds/robin/robin_select_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.986372
 	}
-	gyrocopter_gyro_attack_02 = 
+	sniper_snip_move_35 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_attack_02.vsnd",
+			"sounds/robin/robin_select_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.672902
 	}
-	gyrocopter_gyro_attack_03 = 
+	sniper_snip_move_36 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_attack_03.vsnd",
+			"sounds/robin/robin_select_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.836984
 	}
-	gyrocopter_gyro_attack_04 = 
+	sniper_snip_move_37 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_attack_04.vsnd",
+			"sounds/robin/robin_select_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.090862
 	}
-	gyrocopter_gyro_attack_05 = 
+	sniper_snip_attack_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_attack_05.vsnd",
+			"sounds/robin/robin_attack_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.176576
+		vsnd_duration = 1.021678
 	}
-	gyrocopter_gyro_attack_06 = 
+	sniper_snip_attack_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_attack_06.vsnd",
+			"sounds/robin/robin_attack_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.863107
+		vsnd_duration = 0.626939
 	}
-	gyrocopter_gyro_attack_07 = 
+	sniper_snip_attack_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_attack_07.vsnd",
+			"sounds/robin/robin_attack_3.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.045964
 	}
-	gyrocopter_gyro_attack_08 = 
+	sniper_snip_attack_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_attack_08.vsnd",
+			"sounds/robin/robin_attack_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.353152
+		vsnd_duration = 1.021678
 	}
-	gyrocopter_gyro_attack_09 = 
+	sniper_snip_attack_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_attack_09.vsnd",
+			"sounds/robin/robin_attack_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.640499
+		vsnd_duration = 0.626939
 	}
-	gyrocopter_gyro_attack_10 = 
+	sniper_snip_attack_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_attack_10.vsnd",
+			"sounds/robin/robin_attack_3.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.836984
 	}
-	gyrocopter_gyro_attack_11 = 
+	sniper_snip_attack_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_attack_11.vsnd",
+			"sounds/robin/robin_attack_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.836984
+		vsnd_duration = 1.021678
 	}
-	gyrocopter_gyro_attack_12 = 
+	sniper_snip_attack_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_attack_12.vsnd",
+			"sounds/robin/robin_attack_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.333311
+		vsnd_duration = 0.626939
 	}
-	gyrocopter_gyro_attack_13 = 
+	sniper_snip_attack_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_attack_13.vsnd",
+			"sounds/robin/robin_attack_3.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.072086
 	}
-	gyrocopter_gyro_attack_14 = 
+	sniper_snip_attack_10 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_attack_14.vsnd",
+			"sounds/robin/robin_attack_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.758617
+		vsnd_duration = 1.021678
 	}
-	gyrocopter_gyro_attack_15 = 
+	sniper_snip_attack_11 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_attack_15.vsnd",
+			"sounds/robin/robin_attack_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 4.086712
+		vsnd_duration = 0.626939
 	}
-	gyrocopter_gyro_attack_16 = 
+	sniper_snip_attack_12 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_attack_16.vsnd",
+			"sounds/robin/robin_attack_3.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.044898
 	}
-	gyrocopter_gyro_attack_17 = 
+	sniper_snip_attack_13 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_attack_17.vsnd",
+			"sounds/robin/robin_attack_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.277097
+		vsnd_duration = 1.021678
 	}
-	gyrocopter_gyro_attack_18 = 
+	sniper_snip_attack_14 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_attack_18.vsnd",
+			"sounds/robin/robin_attack_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.019841
+		vsnd_duration = 0.626939
 	}
-	gyrocopter_gyro_attack_19 = 
+	sniper_snip_attack_15 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_attack_19.vsnd",
+			"sounds/robin/robin_attack_3.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.905578
 	}
-	gyrocopter_gyro_cast_01 = 
+	sniper_snip_attack_16 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_cast_01.vsnd",
+			"sounds/robin/robin_attack_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.996916
+		vsnd_duration = 1.021678
 	}
-	gyrocopter_gyro_cast_02 = 
+	sniper_snip_attack_17 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_cast_02.vsnd",
+			"sounds/robin/robin_attack_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.020136
+		vsnd_duration = 0.626939
 	}
-	gyrocopter_gyro_cast_03 = 
+	sniper_snip_attack_18 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_cast_03.vsnd",
+			"sounds/robin/robin_attack_3.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.672902
 	}
-	gyrocopter_gyro_rocket_barrage_01 = 
+	sniper_snip_attack_19 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_rocket_barrage_01.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_rocket_barrage_02 = 
+	sniper_snip_attack_20 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_rocket_barrage_02.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_rocket_barrage_03 = 
+	sniper_snip_cast_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_rocket_barrage_03.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_rocket_barrage_04 = 
+	sniper_snip_cast_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_rocket_barrage_04.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_rocket_barrage_05 = 
+	sniper_snip_cast_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_rocket_barrage_05.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_rocket_barrage_06 = 
+	sniper_snip_earthbind_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_rocket_barrage_06.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_homing_missile_fire_01 = 
+	sniper_snip_earthbind_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_homing_missile_fire_01.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_homing_missile_fire_02 = 
+	sniper_snip_earthbind_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_homing_missile_fire_02.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_homing_missile_fire_03 = 
+	sniper_snip_earthbind_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_homing_missile_fire_03.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_homing_missile_fire_04 = 
+	sniper_snip_earthbind_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_homing_missile_fire_04.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_homing_missile_fire_05 = 
+	sniper_snip_earthbind_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_homing_missile_fire_05.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_homing_missile_fire_06 = 
+	sniper_snip_earthbind_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_homing_missile_fire_06.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_homing_missile_fire_07 = 
+	sniper_snip_earthbind_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_homing_missile_fire_07.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_homing_missile_impact_01 = 
+	sniper_snip_poof_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_homing_missile_impact_01.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_homing_missile_impact_02 = 
+	sniper_snip_poof_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_homing_missile_impact_02.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_homing_missile_impact_03 = 
+	sniper_snip_poof_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_homing_missile_impact_03.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_homing_missile_impact_04 = 
+	sniper_snip_poof_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_homing_missile_impact_04.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_homing_missile_impact_05 = 
+	sniper_snip_poof_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_homing_missile_impact_05.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_homing_missile_impact_06 = 
+	sniper_snip_poof_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_homing_missile_impact_06.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_homing_missile_impact_07 = 
+	sniper_snip_poof_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_homing_missile_impact_07.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_homing_missile_impact_08 = 
+	sniper_snip_poof_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_homing_missile_impact_08.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_homing_missile_impact_09 = 
+	sniper_snip_divided_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_homing_missile_impact_09.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_homing_missile_destroyed_01 = 
+	sniper_snip_divided_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_homing_missile_destroyed_01.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_homing_missile_destroyed_02 = 
+	sniper_snip_divided_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_homing_missile_destroyed_02.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_homing_missile_destroyed_03 = 
+	sniper_snip_divided_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_homing_missile_destroyed_03.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_homing_missile_destroyed_04 = 
+	sniper_snip_divided_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_homing_missile_destroyed_04.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_homing_missile_destroyed_05 = 
+	sniper_snip_divided_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_homing_missile_destroyed_05.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_homing_missile_destroyed_06 = 
+	sniper_snip_divided_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_homing_missile_destroyed_06.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_flak_cannon_01 = 
+	sniper_snip_divided_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_flak_cannon_01.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_flak_cannon_02 = 
+	sniper_snip_divided_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_flak_cannon_02.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_flak_cannon_03 = 
+	sniper_snip_divided_10 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_flak_cannon_03.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_flak_cannon_04 = 
+	sniper_snip_divided_11 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_flak_cannon_04.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_flak_cannon_05 = 
+	sniper_snip_divided_12 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_flak_cannon_05.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_flak_cannon_06 = 
+	sniper_snip_divided_13 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_flak_cannon_06.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_flak_cannon_07 = 
+	sniper_snip_divided_14 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_flak_cannon_07.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_flak_cannon_08 = 
+	sniper_snip_divided_15 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_flak_cannon_08.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_flak_cannon_09 = 
+	sniper_snip_divided_16 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_flak_cannon_09.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_call_down_01 = 
+	sniper_snip_divided_17 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_call_down_01.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_call_down_02 = 
+	sniper_snip_divided_18 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_call_down_02.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_call_down_03 = 
+	sniper_snip_divided_19 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_call_down_03.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_call_down_04 = 
+	sniper_snip_divided_20 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_call_down_04.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_call_down_05 = 
+	sniper_snip_divided_21 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_call_down_05.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_call_down_06 = 
+	sniper_snip_divided_22 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_call_down_06.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_call_down_07 = 
+	sniper_snip_divided_23 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_call_down_07.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_call_down_08 = 
+	sniper_snip_divided_24 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_call_down_08.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_call_down_09 = 
+	sniper_snip_divided_25 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_call_down_09.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_call_down_10 = 
+	sniper_snip_divided_26 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_call_down_10.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_call_down_11 = 
+	sniper_snip_divided_27 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_call_down_11.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_call_down_12 = 
+	sniper_snip_divided_28 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_call_down_12.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_call_down_13 = 
+	sniper_snip_divided_29 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_call_down_13.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_call_down_14 = 
+	sniper_snip_failure_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_call_down_14.vsnd",
+			"sounds/robin/robin_attacked_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	gyrocopter_gyro_call_down_15 = 
+	sniper_snip_failure_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_call_down_15.vsnd",
+			"sounds/robin/robin_attacked_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	gyrocopter_gyro_failure_01 = 
+	sniper_snip_failure_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/robin/robin_attacked_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	gyrocopter_gyro_failure_02 = 
+	sniper_snip_levelup_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/robin/robin_levelup.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	gyrocopter_gyro_failure_03 = 
+	sniper_snip_levelup_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/robin/robin_levelup.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	gyrocopter_gyro_level_01 = 
+	sniper_snip_levelup_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_level_01.vsnd",
+			"sounds/robin/robin_levelup.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.248027
 	}
-	gyrocopter_gyro_level_02 = 
+	sniper_snip_levelup_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_level_02.vsnd",
+			"sounds/robin/robin_levelup.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.642404
 	}
-	gyrocopter_gyro_level_03 = 
+	sniper_snip_levelup_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_level_03.vsnd",
+			"sounds/robin/robin_levelup.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.802993
 	}
-	gyrocopter_gyro_level_04 = 
+	sniper_snip_levelup_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_level_04.vsnd",
+			"sounds/robin/robin_levelup.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.051134
 	}
-	gyrocopter_gyro_level_05 = 
+	sniper_snip_levelup_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_level_05.vsnd",
+			"sounds/robin/robin_levelup.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.862562
 	}
-	gyrocopter_gyro_level_06 = 
+	sniper_snip_levelup_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_level_06.vsnd",
+			"sounds/robin/robin_levelup.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.500930
 	}
-	gyrocopter_gyro_level_07 = 
+	sniper_snip_levelup_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_level_07.vsnd",
+			"sounds/robin/robin_levelup.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.914649
 	}
-	gyrocopter_gyro_level_08 = 
+	sniper_snip_levelup_10 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_level_08.vsnd",
+			"sounds/robin/robin_levelup.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.855125
 	}
-	gyrocopter_gyro_level_09 = 
+	sniper_snip_levelup_11 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_level_09.vsnd",
+			"sounds/robin/robin_levelup.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.825238
 	}
-	gyrocopter_gyro_level_10 = 
+	sniper_snip_levelup_12 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_level_10.vsnd",
+			"sounds/robin/robin_levelup.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.304989
 	}
-	gyrocopter_gyro_level_11 = 
+	sniper_snip_levelup_13 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_level_11.vsnd",
+			"sounds/robin/robin_levelup.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 4.156621
 	}
-	gyrocopter_gyro_level_12 = 
+	sniper_snip_levelup_14 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_level_12.vsnd",
+			"sounds/robin/robin_levelup.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.603560
 	}
-	gyrocopter_gyro_level_13 = 
+	sniper_snip_levelup_15 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_level_13.vsnd",
+			"sounds/robin/robin_levelup.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.115714
 	}
-	gyrocopter_gyro_kill_01 = 
+	sniper_snip_kill_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_kill_01.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.926780
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_kill_02 = 
+	sniper_snip_kill_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_kill_02.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 4.128413
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_kill_03 = 
+	sniper_snip_kill_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_kill_03.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.103832
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_kill_04 = 
+	sniper_snip_kill_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_kill_04.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.502245
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_kill_05 = 
+	sniper_snip_kill_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_kill_05.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.999410
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_kill_06 = 
+	sniper_snip_kill_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_kill_06.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.031338
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_kill_07 = 
+	sniper_snip_kill_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_kill_07.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.590385
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_kill_08 = 
+	sniper_snip_kill_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_kill_08.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.573197
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_kill_09 = 
+	sniper_snip_kill_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_kill_09.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.101474
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_kill_10 = 
+	sniper_snip_kill_10 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_kill_10.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.423265
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_kill_11 = 
+	sniper_snip_kill_11 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_kill_11.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 8.360250
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_kill_12 = 
+	sniper_snip_kill_12 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_kill_12.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.488889
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_kill_13 = 
+	sniper_snip_kill_13 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_kill_13.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.771111
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_kill_14 = 
+	sniper_snip_kill_14 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_kill_14.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.020680
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_kill_15 = 
+	sniper_snip_kill_15 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_kill_15.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.573968
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_kill_16 = 
+	sniper_snip_kill_16 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_kill_16.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.089796
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_kill_17 = 
+	sniper_snip_kill_17 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_kill_17.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.028027
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_rival_01 = 
+	sniper_snip_kill_18 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_rival_02 = 
+	sniper_snip_kill_19 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_rival_03 = 
+	sniper_snip_kill_20 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_rival_04 = 
+	sniper_snip_kill_21 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_rival_05 = 
+	sniper_snip_kill_22 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_rival_06 = 
+	sniper_snip_kill_23 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_rival_07 = 
+	sniper_snip_kill_24 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_rival_08 = 
+	sniper_snip_rival_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_rival_09 = 
+	sniper_snip_rival_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_rival_10 = 
+	sniper_snip_rival_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_rival_11 = 
+	sniper_snip_rival_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_rival_12 = 
+	sniper_snip_rival_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_rival_13 = 
+	sniper_snip_rival_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_rival_14 = 
+	sniper_snip_rival_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_rival_15 = 
+	sniper_snip_rival_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_rival_16 = 
+	sniper_snip_rival_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_rival_17 = 
+	sniper_snip_rival_10 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_rival_18 = 
+	sniper_snip_rival_11 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_ally_01 = 
+	sniper_snip_rival_12 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_ally_02 = 
+	sniper_snip_rival_13 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_ally_03 = 
+	sniper_snip_rival_14 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_ally_04 = 
+	sniper_snip_rival_15 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_ally_05 = 
+	sniper_snip_rival_16 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_ally_06 = 
+	sniper_snip_rival_17 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_ally_07 = 
+	sniper_snip_ally_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_ally_07.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_ally_08 = 
+	sniper_snip_ally_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_death_01 = 
+	sniper_snip_ally_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_death_01.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.121769
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_death_02 = 
+	sniper_snip_ally_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_death_02.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 4.494966
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_death_03 = 
+	sniper_snip_ally_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_death_03.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.971678
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_death_04 = 
+	sniper_snip_ally_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_death_04.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 4.109932
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_death_05 = 
+	sniper_snip_lasthit_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_death_05.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.157914
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_death_06 = 
+	sniper_snip_lasthit_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_death_06.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 5.878617
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_death_07 = 
+	sniper_snip_lasthit_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_death_07.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.699025
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_death_08 = 
+	sniper_snip_lasthit_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_death_08.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.117370
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_death_09 = 
+	sniper_snip_lasthit_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_death_09.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.011837
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_death_10 = 
+	sniper_snip_lasthit_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_death_10.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.770045
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_death_11 = 
+	sniper_snip_lasthit_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_death_11.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.475352
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_death_12 = 
+	sniper_snip_lasthit_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_death_12.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.832585
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_death_13 = 
+	sniper_snip_lasthit_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_death_13.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.517846
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_death_14 = 
+	sniper_snip_lasthit_10 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_death_14.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 6.871270
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_death_15 = 
+	sniper_snip_death_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_death_15.vsnd",
+			"sounds/robin/robin_death_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.736576
 	}
-	gyrocopter_gyro_death_16 = 
+	sniper_snip_death_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_death_16.vsnd",
+			"sounds/robin/robin_death_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.043356
 	}
-	gyrocopter_gyro_death_17 = 
+	sniper_snip_death_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_death_01.vsnd",
+			"sounds/robin/robin_death_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.121769
 	}
-	gyrocopter_gyro_fastres_01 = 
+	sniper_snip_death_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_fastres_01.vsnd",
+			"sounds/robin/robin_death_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.555374
 	}
-	gyrocopter_gyro_respawn_01 = 
+	sniper_snip_death_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_respawn_01.vsnd",
+			"sounds/robin/robin_death_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.084150
 	}
-	gyrocopter_gyro_respawn_02 = 
+	sniper_snip_death_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_respawn_02.vsnd",
+			"sounds/robin/robin_death_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 4.414649
 	}
-	gyrocopter_gyro_respawn_03 = 
+	sniper_snip_death_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_respawn_01.vsnd",
+			"sounds/robin/robin_death_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.084150
 	}
-	gyrocopter_gyro_respawn_04 = 
+	sniper_snip_death_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_respawn_02.vsnd",
+			"sounds/robin/robin_death_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 4.414649
 	}
-	gyrocopter_gyro_respawn_05 = 
+	sniper_snip_death_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_respawn_01.vsnd",
+			"sounds/robin/robin_death_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.084150
 	}
-	gyrocopter_gyro_respanw_06 = 
+	sniper_snip_death_10 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_respanw_02.vsnd",
+			"sounds/robin/robin_death_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	gyrocopter_gyro_respawn_07 = 
+	sniper_snip_death_11 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_respawn_01.vsnd",
+			"sounds/robin/robin_death_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.084150
 	}
-	gyrocopter_gyro_respawn_08 = 
+	sniper_snip_death_12 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_respawn_02.vsnd",
+			"sounds/robin/robin_death_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 4.414649
 	}
-	gyrocopter_gyro_respawn_09 = 
+	sniper_snip_death_13 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_respawn_01.vsnd",
+			"sounds/robin/robin_death_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.084150
 	}
-	gyrocopter_gyro_respawn_10 = 
+	sniper_snip_death_14 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_respawn_02.vsnd",
+			"sounds/robin/robin_death_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 4.414649
 	}
-	gyrocopter_gyro_respawn_11 = 
+	sniper_snip_fastres_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_respawn_01.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.084150
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_respawn_12 = 
+	sniper_snip_respawn_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_respawn_02.vsnd",
+			"sounds/robin/robin_summon.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 4.414649
+		vsnd_duration = 4.992290
 	}
-	gyrocopter_gyro_lasthit_01 = 
+	sniper_snip_respawn_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_lasthit_01.vsnd",
+			"sounds/robin/robin_summon.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.834036
+		vsnd_duration = 4.992290
 	}
-	gyrocopter_gyro_lasthit_02 = 
+	sniper_snip_respawn_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_lasthit_02.vsnd",
+			"sounds/robin/robin_summon.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.496145
+		vsnd_duration = 4.992290
 	}
-	gyrocopter_gyro_lasthit_03 = 
+	sniper_snip_respawn_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_lasthit_03.vsnd",
+			"sounds/robin/robin_summon.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.600635
+		vsnd_duration = 4.992290
 	}
-	gyrocopter_gyro_lasthit_04 = 
+	sniper_snip_respawn_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_lasthit_01.vsnd",
+			"sounds/robin/robin_summon.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.834036
+		vsnd_duration = 4.992290
 	}
-	gyrocopter_gyro_lasthit_05 = 
+	sniper_snip_respawn_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_lasthit_02.vsnd",
+			"sounds/robin/robin_summon.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.496145
+		vsnd_duration = 4.992290
 	}
-	gyrocopter_gyro_lasthit_06 = 
+	sniper_snip_respawn_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_lasthit_03.vsnd",
+			"sounds/robin/robin_summon.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.600635
+		vsnd_duration = 4.992290
 	}
-	gyrocopter_gyro_lasthit_07 = 
+	sniper_snip_respawn_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_lasthit_01.vsnd",
+			"sounds/robin/robin_summon.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.834036
+		vsnd_duration = 4.992290
 	}
-	gyrocopter_gyro_lasthit_08 = 
+	sniper_snip_respawn_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_lasthit_02.vsnd",
+			"sounds/robin/robin_summon.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.496145
+		vsnd_duration = 4.992290
 	}
-	gyrocopter_gyro_lasthit_09 = 
+	sniper_snip_respawn_10 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_lasthit_03.vsnd",
+			"sounds/robin/robin_summon.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.600635
+		vsnd_duration = 4.992290
 	}
-	gyrocopter_gyro_lasthit_10 = 
+	sniper_snip_respawn_11 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_lasthit_01.vsnd",
+			"sounds/robin/robin_summon.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.834036
+		vsnd_duration = 4.992290
 	}
-	gyrocopter_gyro_deny_01 = 
+	sniper_snip_purch_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_deny_01.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.405057
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_deny_02 = 
+	sniper_snip_purch_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_deny_02.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.801088
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_deny_03 = 
+	sniper_snip_purch_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_deny_03.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.345533
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_deny_04 = 
+	sniper_snip_purch_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_deny_01.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.405057
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_deny_05 = 
+	sniper_snip_purch_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_deny_02.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.801088
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_deny_06 = 
+	sniper_snip_blink_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_deny_03.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.345533
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_deny_07 = 
+	sniper_snip_blink_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_deny_01.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.405057
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_deny_08 = 
+	sniper_snip_scepter_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_deny_02.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.801088
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_deny_09 = 
+	sniper_snip_scepter_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_deny_03.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.345533
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_deny_10 = 
+	sniper_snip_scepter_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_deny_01.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.405057
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_deny_11 = 
+	sniper_snip_scepter_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_deny_02.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.801088
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_deny_12 = 
+	sniper_snip_scepter_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_deny_03.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.345533
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_deny_13 = 
+	sniper_snip_scepter_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_deny_01.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.405057
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_deny_14 = 
+	sniper_snip_items_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_deny_02.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.801088
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_purch_01 = 
+	sniper_snip_items_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_purch_02 = 
+	sniper_snip_items_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_purch_03 = 
+	sniper_snip_items_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_scepter_01 = 
+	sniper_snip_items_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_scepter_02 = 
+	sniper_snip_items_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_blink_01 = 
+	sniper_snip_items_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_blink_01.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_blink_02 = 
+	sniper_snip_bottle_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_blink_02.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_items_01 = 
+	sniper_snip_bottle_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_items_01.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_items_02 = 
+	sniper_snip_bottle_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_items_02.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_items_03 = 
+	sniper_snip_lane_missing_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_items_03.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_items_04 = 
+	sniper_snip_lane_missing_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_items_04.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_items_05 = 
+	sniper_snip_lane_missing_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_items_05.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_items_06 = 
+	sniper_snip_deny_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_items_06.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_items_07 = 
+	sniper_snip_deny_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_items_07.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_items_08 = 
+	sniper_snip_deny_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_items_08.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_items_09 = 
+	sniper_snip_deny_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_items_09.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_items_10 = 
+	sniper_snip_deny_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_items_10.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_items_11 = 
+	sniper_snip_deny_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_items_11.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_bottle_01 = 
+	sniper_snip_deny_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_bottle_01.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_bottle_02 = 
+	sniper_snip_deny_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_bottle_02.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_bottle_03 = 
+	sniper_snip_deny_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_bottle_03.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_immort_01 = 
+	sniper_snip_deny_10 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_immort_01.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 4.014036
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_immort_02 = 
+	sniper_snip_deny_11 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_immort_01.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 4.014036
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_haste_01 = 
+	sniper_snip_deny_12 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_haste_01.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_haste_02 = 
+	sniper_snip_deny_13 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_haste_02.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_doubledam_01 = 
+	sniper_snip_deny_14 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_doubledam_01.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_doubledam_02 = 
+	sniper_snip_deny_15 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_doubledam_02.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_regen_01 = 
+	sniper_snip_deny_16 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_regen_01.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_regen_02 = 
+	sniper_snip_deny_17 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_regen_02.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_illus_01 = 
+	sniper_snip_deny_18 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_illus_01.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_illus_02 = 
+	sniper_snip_deny_19 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_illus_02.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_illus_03 = 
+	sniper_snip_deny_20 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_illus_03.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_invis_01 = 
+	sniper_snip_deny_21 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_invis_01.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_invis_02 = 
+	sniper_snip_lose_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_invis_02.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_thanks_01 = 
+	sniper_snip_lose_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_thanks_01.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.975238
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_thanks_02 = 
+	sniper_snip_lose_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_thanks_01.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.975238
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_underattack_01 = 
+	sniper_snip_lose_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_underattack_01.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.568413
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_inthebag_01 = 
+	sniper_snip_lose_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_inthebag_01.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_shiwiz_01 = 
+	sniper_snip_lose_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_shiwiz_01.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_crumwiz_01 = 
+	sniper_snip_win_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_crumwiz_01.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_missing_01 = 
+	sniper_snip_win_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_missing_01.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_missing_02 = 
+	sniper_snip_win_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_missing_02.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_missing_03 = 
+	sniper_snip_win_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_missing_03.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_notyet_01 = 
+	sniper_snip_win_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_notyet_01.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.833764
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_notyet_02 = 
+	sniper_snip_immort_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_notyet_01.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.833764
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_notyet_03 = 
+	sniper_snip_immort_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_notyet_01.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.833764
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_notyet_04 = 
+	sniper_snip_immort_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_notyet_02.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.143106
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_notyet_05 = 
+	sniper_snip_haste_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_notyet_02.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.143106
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_notyet_06 = 
+	sniper_snip_haste_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_notyet_02.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.143106
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_notyet_07 = 
+	sniper_snip_doubdam_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_notyet_03.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.188004
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_notyet_08 = 
+	sniper_snip_doubdam_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_notyet_03.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.188004
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_notyet_09 = 
+	sniper_snip_regen_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_notyet_03.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.188004
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_nomana_01 = 
+	sniper_snip_regen_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_nomana_01.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.245011
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_nomana_02 = 
+	sniper_snip_illus_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_nomana_01.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.245011
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_nomana_03 = 
+	sniper_snip_illus_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_nomana_01.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.245011
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_nomana_04 = 
+	sniper_snip_invis_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_nomana_02.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.751270
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_nomana_05 = 
+	sniper_snip_invis_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_nomana_02.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.751270
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_nomana_06 = 
+	sniper_snip_drop_common = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_nomana_02.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.751270
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_nomana_07 = 
+	sniper_snip_drop_medium = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_nomana_03.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.881882
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_nomana_08 = 
+	sniper_snip_drop_rare_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_nomana_03.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.881882
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_nomana_09 = 
+	sniper_snip_drop_rare_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_nomana_03.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.881882
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_defeat_01 = 
+	sniper_snip_notyet_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_death_01.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.121769
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_defeat_02 = 
+	sniper_snip_notyet_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_death_02.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 4.494966
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_defeat_03 = 
+	sniper_snip_notyet_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_death_03.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.971678
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_victory_01 = 
+	sniper_snip_notyet_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_kill_01.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.926780
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_victory_02 = 
+	sniper_snip_notyet_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_kill_17.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.028027
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_victory_03 = 
+	sniper_snip_notyet_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_kill_03.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.103832
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_victory_04 = 
+	sniper_snip_notyet_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_kill_04.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.502245
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_pain_01 = 
+	sniper_snip_notyet_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_pain_01.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.281066
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_pain_02 = 
+	sniper_snip_notyet_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_pain_02.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.680249
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_pain_03 = 
+	sniper_snip_nomana_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_pain_03.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.881882
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_pain_04 = 
+	sniper_snip_nomana_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_pain_04.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.628005
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_pain_05 = 
+	sniper_snip_nomana_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_pain_01.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.281066
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_pain_06 = 
+	sniper_snip_nomana_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_pain_02.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.680249
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_pain_07 = 
+	sniper_snip_nomana_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_pain_03.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.881882
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_pain_08 = 
+	sniper_snip_nomana_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_pain_04.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.628005
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_pain_09 = 
+	sniper_snip_nomana_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_pain_01.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.281066
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_pain_10 = 
+	sniper_snip_nomana_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_pain_02.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.680249
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_anger_01 = 
+	sniper_snip_nomana_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_anger_01.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_anger_02 = 
+	sniper_snip_thanks_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_anger_02.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_anger_03 = 
+	sniper_snip_thanks_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_anger_03.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_anger_04 = 
+	sniper_snip_thanks_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_anger_04.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_anger_05 = 
+	sniper_snip_thanks_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_anger_05.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_anger_06 = 
+	sniper_snip_underattack_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_anger_06.vsnd",
+			"sounds/robin/robin_attacked_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	gyrocopter_gyro_anger_07 = 
+	sniper_snip_underattack_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_anger_07.vsnd",
+			"sounds/robin/robin_attacked_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	gyrocopter_gyro_anger_08 = 
+	sniper_snip_underattack_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_anger_08.vsnd",
+			"sounds/robin/robin_attacked_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	gyrocopter_gyro_anger_09 = 
+	sniper_snip_underattack_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_anger_09.vsnd",
+			"sounds/robin/robin_attacked_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	gyrocopter_gyro_happy_01 = 
+	sniper_snip_underattack_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_happy_01.vsnd",
+			"sounds/robin/robin_attacked_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	gyrocopter_gyro_happy_02 = 
+	sniper_snip_underattack_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_happy_02.vsnd",
+			"sounds/robin/robin_attacked_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	gyrocopter_gyro_happy_03 = 
+	sniper_snip_underattack_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_happy_03.vsnd",
+			"sounds/robin/robin_attacked_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	gyrocopter_gyro_happy_04 = 
+	sniper_snip_inthebag_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_happy_04.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_happy_05 = 
+	sniper_snip_inthebag_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_happy_05.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_happy_06 = 
+	sniper_snip_shiwiz_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_happy_06.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_happy_07 = 
+	sniper_snip_crumwiz_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_happy_07.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_laugh_01 = 
+	sniper_snip_rare_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_laugh_01.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.248277
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_laugh_02 = 
+	sniper_snip_rare_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_laugh_02.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.091338
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_laugh_03 = 
+	sniper_snip_rare_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_laugh_03.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.950113
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_laugh_04 = 
+	sniper_snip_rare_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_laugh_04.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.669887
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_laugh_05 = 
+	sniper_snip_pain_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_laugh_05.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.936735
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_laugh_06 = 
+	sniper_snip_pain_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_laugh_06.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.544422
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_laugh_07 = 
+	sniper_snip_pain_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_laugh_07.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.746009
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_laugh_08 = 
+	sniper_snip_pain_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_laugh_08.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.875941
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_laugh_09 = 
+	sniper_snip_pain_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_laugh_09.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.593016
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_laugh_10 = 
+	sniper_snip_pain_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_laugh_10.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.118503
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_laugh_11 = 
+	sniper_snip_pain_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_laugh_11.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.553265
+		vsnd_duration = 5.112667
 	}
-	gyrocopter_gyro_laugh_12 = 
+	sniper_snip_pain_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nobunaga/nobunaga_laugh_12.vsnd",
+			"sounds/enkidu/silence.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.403243
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_anger_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_anger_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_anger_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_anger_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_anger_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_anger_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_anger_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_anger_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_anger_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_anger_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_anger_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_anger_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_anger_13 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_anger_14 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_anger_15 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_anger_16 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_anger_17 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_anger_18 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_happy_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_happy_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_happy_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_happy_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_happy_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_happy_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_happy_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_laugh_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_laugh_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_laugh_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_laugh_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_laugh_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_laugh_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_laugh_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_laugh_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_laugh_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
+	}
+	sniper_snip_laugh_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enkidu/silence.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		vsnd_duration = 5.112667
 	}
 }

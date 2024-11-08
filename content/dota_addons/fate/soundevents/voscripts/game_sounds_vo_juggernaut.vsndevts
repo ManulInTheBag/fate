@@ -1,0 +1,3436 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	juggernaut_jug_spawn_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_spawn.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_spawn_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_spawn.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_spawn_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_spawn.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_spawn_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_spawn.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_spawn_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_spawn.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_spawn_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_spawn.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_spawn_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_spawn.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_spawn_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_spawn.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_move_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_move_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_move_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_move_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_move_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_move_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_move_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_move_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_move_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_move_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_move_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_move_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_move_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_move_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_move_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_move_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_move_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_move_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_move_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_move_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_move_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_move_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_move_13 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_move_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_move_14 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_move_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_move_15 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_move_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_move_16 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_move_03.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_move_17 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_move_03.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_move_18 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_move_03.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_move_19 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_move_03.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_attack_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_attack_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_attack_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_attack_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_attack_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_attack_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_attack_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_attack_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_attack_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_attack_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_attack_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_attack_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_attack_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_attack_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_attack_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_attack_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_attack_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_attack_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_attack_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_attack_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_attack_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_attack_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_attack_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_attack_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_attack_13 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_attack_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_cast_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_cast_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_cast_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_ability_bladefury_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_ability_bladefury_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_ability_bladefury_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_ability_bladefury_03.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_ability_bladefury_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_ability_bladefury_05.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_ability_bladefury_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_ability_bladefury_06.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_ability_bladefury_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_ability_bladefury_07.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_ability_bladefury_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_ability_bladefury_08.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_ability_bladefury_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_ability_bladefury_09.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_ability_stunteleport_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_ability_stunteleport_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_ability_stunteleport_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_ability_stunteleport_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_ability_stunteleport_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_ability_stunteleport_03.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_ability_immunity_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_ability_immunity_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_ability_immunity_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_ability_immunity_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_ability_immunity_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_ability_immunity_03.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_ability_omnislash_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_ability_omnislash_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_ability_omnislash_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_ability_omnislash_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_ability_omnislash_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_ability_omnislash_03.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_ability_omnislash_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_ability_omnislash_04.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_ability_omnislash_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_ability_omnislash_05.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_ability_omnislash_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_ability_omnislash_06.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_ability_omnislash_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_ability_omnislash_07.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_ability_omnislash_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_ability_omnislash_08.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_ability_omnislash_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_ability_omnislash_09.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_ability_omnislash_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_ability_omnislash_10.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_ability_omnislash_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_ability_omnislash_11.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_ability_omnislash_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_ability_omnislash_12.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_ability_omnislash_13 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_ability_omnislash_13.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_ability_omnislash_14 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_ability_omnislash_14.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_ability_omnislash_15 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_ability_omnislash_15.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_ability_omnislash_16 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_ability_omnislash_16.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_ability_omnislash_17 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_ability_omnislash_17.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_ability_omnislash_18 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_ability_omnislash_18.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_ability_omnislash_19 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_ability_omnislash_19.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_ability_omnislash_20 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_ability_omnislash_20.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_ability_omnislash_21 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_ability_omnislash_21.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_ability_omnislash_22 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_ability_omnislash_22.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_ability_omnislash_23 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_ability_omnislash_23.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_ability_omnislash_24 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_ability_omnislash_24.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_ability_omnislash_25 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_ability_omnislash_25.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_ability_omnislash_26 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_ability_omnislash_26.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_ability_omnislash_27 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_ability_omnislash_27.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_ability_omnislash_28 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_ability_omnislash_28.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_ability_omnislash_29 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_ability_omnislash_29.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_ability_omnislash_30 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_ability_omnislash_30.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_ability_omnislash_31 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_ability_omnislash_31.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_ability_omnislash_32 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_ability_omnislash_32.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_ability_omnislash_33 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_ability_omnislash_33.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_ability_omnislash_34 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_ability_omnislash_34.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_ability_waste_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_ability_waste_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_ability_waste_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_ability_waste_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_death_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_death_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_death_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_death_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_death_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_death_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_death_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_death_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_death_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_death_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_death_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_death_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_death_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_death_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_death_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_death_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_death_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_death_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_death_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_death_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_death_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_death_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_kill_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/sasaki_kill_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_kill_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/sasaki_kill_2.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_kill_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/sasaki_kill_3.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_kill_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/sasaki_kill_4.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_kill_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/sasaki_kill_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_kill_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/sasaki_kill_2.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_kill_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/sasaki_kill_3.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_kill_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/sasaki_kill_4.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_kill_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/sasaki_kill_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_kill_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/sasaki_kill_2.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_kill_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/sasaki_kill_3.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_kill_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/sasaki_kill_4.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_respawn_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_spawn.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_respawn_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_spawn.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_respawn_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_spawn.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_respawn_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_spawn.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_respawn_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_spawn.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_respawn_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_spawn.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_respawn_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_spawn.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_rare_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_other_07.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_rare_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_other_06.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_rare_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_other_07.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_rare_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_other_06.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_rare_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_other_07.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_rare_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_other_06.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_rare_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_other_07.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_rare_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_other_06.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_rare_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_other_07.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_rare_17 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_other_06.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_purch_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_purch_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_purch_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_purch_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_purch_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_purch_03.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_ability_bladefury_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_ability_bladefury_10.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_immort_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_immort_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_immort_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_immort_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_immort_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_immort_03.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_missing_lane_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fag_missing_lane_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_missing_lane_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fag_missing_lane_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_missing_lane_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fag_missing_lane_03.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_deny_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_deny_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_deny_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_deny_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_deny_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_deny_03.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_deny_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_deny_04.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_deny_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_deny_05.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_deny_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_deny_06.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_deny_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_deny_07.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_lasthit_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_lasthit_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_lasthit_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_lasthit_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_lasthit_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_lasthit_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_lasthit_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_lasthit_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_lasthit_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_lasthit_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_lasthit_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_lasthit_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_lose_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_death_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_lose_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_death_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_lose_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_death_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_lose_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_death_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_win_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_kill.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_win_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_kill.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_win_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_kill.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_win_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_kill.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_bottle_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_bottle_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_bottle_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_bottle_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_bottle_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_bottle_03.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_bottle_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_bottle_04.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_haste_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_haste_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_haste_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_haste_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_haste_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_haste_03.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_doubdam_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_doubdam_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_doubdam_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_doubdam_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_regen_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_regen_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_regen_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_regen_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_illus_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_illus_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_illus_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_illus_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_illus_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_illus_03.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_invis_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_invis_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_invis_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_invis_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_level_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/sasaki_level_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_level_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/sasaki_level_2.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_level_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/sasaki_level_3.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_level_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/sasaki_level_4.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_level_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/sasaki_level_5.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_pain_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_hurt_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_pain_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_hurt_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_pain_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_hurt_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_pain_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_hurt_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_pain_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_hurt_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_pain_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_hurt_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_pain_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_hurt_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_pain_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_hurt_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_pain_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_hurt_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_pain_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_hurt_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_notyet_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_hurt_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_notyet_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_hurt_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_notyet_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_hurt_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_notyet_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_hurt_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_notyet_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_hurt_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_notyet_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_hurt_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_notyet_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_hurt_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_notyet_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_hurt_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_notyet_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_hurt_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_nomana_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_hurt_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_nomana_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_hurt_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_nomana_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_hurt_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_nomana_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_hurt_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_nomana_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_hurt_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_nomana_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_hurt_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_nomana_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_hurt_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_nomana_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_hurt_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_nomana_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_hurt_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_anger_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_anger_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_anger_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_anger_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_anger_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_anger_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_anger_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_happy_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_happy_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_happy_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_laugh_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/sasaki_laugh_1.vsnd",
+		]
+		volume = "1.500000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_laugh_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/sasaki_laugh_2.vsnd",
+		]
+		volume = "1.500000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_laugh_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/sasaki_laugh_1.vsnd",
+		]
+		volume = "1.500000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_laugh_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/sasaki_laugh_2.vsnd",
+		]
+		volume = "1.500000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_laugh_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/sasaki_laugh_1.vsnd",
+		]
+		volume = "1.500000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_laugh_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/sasaki_laugh_2.vsnd",
+		]
+		volume = "1.500000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_laugh_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/sasaki_laugh_1.vsnd",
+		]
+		volume = "1.500000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_laugh_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/sasaki_laugh_2.vsnd",
+		]
+		volume = "1.500000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_acknow_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_acknow_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_acknow_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_acknow_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_acknow_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_inthebag_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_inthebag_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_inthebag_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_shitwiz_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jug_crumwiz_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_rival_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_rival_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_rival_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_rival_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_rival_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_rival_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_rival_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_rival_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_rival_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_rival_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_rival_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_rival_13 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_rival_14 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_rival_15 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_item_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_item_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_item_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_item_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fag_item_04.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_firstblood_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/sasaki_battle_begins.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_fastres_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fag_fastres_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_blink_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fag_blink_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_blink_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fag_blink_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_battlebegins_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fag_battlebegins_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_ability_bladefury_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fag_ability_bladefury_10.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_ability_bladefury_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fag_ability_bladefury_11.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_ability_bladefury_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fag_ability_bladefury_12.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_ability_bladefury_13 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fag_ability_bladefury_13.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_ability_bladefury_14 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fag_ability_bladefury_14.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_ability_bladefury_15 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fag_ability_bladefury_15.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_ability_bladefury_16 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fag_ability_bladefury_16.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_ability_bladefury_17 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fag_ability_bladefury_17.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_ability_bladefury_18 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fag_ability_bladefury_18.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_underattack_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_hurt_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_thanks_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/sasaki_thanks_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_thanks_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/sasaki_thanks_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_scepter_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fag_scepter_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_scepter_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fag_scepter_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_scepter_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fag_scepter_03.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_taunt_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_taunt_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_taunt_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_taunt_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_taunt_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_taunt_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_taunt_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_taunt_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_drop_common = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fag_drop_common.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_drop_medium = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fag_drop_medium.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_drop_rare = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fag_drop_rare.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_view_victory_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_view_victory_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_view_victory_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_view_defeat_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_view_defeat_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_view_defeat_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_set_complete_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fag_set_complete_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_set_complete_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fag_set_complete_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_set_complete_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fag_set_complete_03.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_set_complete_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fag_set_complete_04.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_set_complete_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fag_set_complete_05.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_set_complete_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fag_set_complete_06.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_equipping_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fag_equipping_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_equipping_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fag_equipping_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_equipping_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fag_equipping_03.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_equipping_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fag_equipping_04.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_equipping_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fag_equipping_05.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	juggernaut_jugg_equipping_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fag_equipping_06.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+
+}

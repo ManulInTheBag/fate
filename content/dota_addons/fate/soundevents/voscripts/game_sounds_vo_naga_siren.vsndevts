@@ -1,3153 +1,3227 @@
 <!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
 {
-	centaur_cent_spawn_01 = 
+	naga_siren_naga_spawn_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_spawn_01.vsnd",
+			"sounds/kuro/chloe_summon.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_spawn_02 = 
+
+	naga_siren_naga_spawn_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_spawn_01.vsnd",
+			"sounds/kuro/chloe_summon.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_spawn_03 = 
+
+	naga_siren_naga_spawn_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_spawn_01.vsnd",
+			"sounds/kuro/chloe_summon.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_spawn_06 = 
+
+	naga_siren_naga_spawn_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_spawn_01.vsnd",
+			"sounds/kuro/chloe_summon.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_spawn_07 = 
+
+	naga_siren_naga_spawn_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_spawn_01.vsnd",
+			"sounds/kuro/chloe_summon.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_battlebegins_01 = 
+
+	naga_siren_naga_spawn_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_spawn_01.vsnd",
+			"sounds/kuro/chloe_summon.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_battlebegins_02 = 
+
+	naga_siren_naga_begin_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_spawn_01.vsnd",
+			"sounds/kuro/chloe_battle_begins.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_firstblood_01 = 
+
+	naga_siren_naga_firstblood_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_kill_01.vsnd",
+			"sounds/kuro/chloe_battle_begins.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_firstblood_02 = 
+
+	naga_siren_naga_firstblood_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_kill_02.vsnd",
+			"sounds/kuro/chloe_battle_begins.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_move_01 = 
+
+	naga_siren_naga_move_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_move_01.vsnd",
+			"sounds/kuro/chloe_move_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_move_02 = 
+
+	naga_siren_naga_move_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_move_02.vsnd",
+			"sounds/kuro/chloe_move_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_move_03 = 
+
+	naga_siren_naga_move_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_move_03.vsnd",
+			"sounds/kuro/chloe_move_3.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_move_04 = 
+
+	naga_siren_naga_move_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_move_04.vsnd",
+			"sounds/kuro/chloe_move_4.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_move_05 = 
+
+	naga_siren_naga_move_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_move_05.vsnd",
+			"sounds/kuro/chloe_move_5.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_move_06 = 
+
+	naga_siren_naga_move_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_move_06.vsnd",
+			"sounds/kuro/chloe_move_6.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_move_07 = 
+
+	naga_siren_naga_move_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_move_07.vsnd",
+			"sounds/kuro/chloe_move_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_move_08 = 
+
+	naga_siren_naga_move_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_move_08.vsnd",
+			"sounds/kuro/chloe_move_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_move_09 = 
+
+	naga_siren_naga_move_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_move_09.vsnd",
+			"sounds/kuro/chloe_move_3.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_move_10 = 
+
+	naga_siren_naga_move_10 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_move_10.vsnd",
+			"sounds/kuro/chloe_move_4.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_move_11 = 
+
+	naga_siren_naga_move_11 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_move_11.vsnd",
+			"sounds/kuro/chloe_move_5.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_move_12 = 
+
+	naga_siren_naga_move_12 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_move_12.vsnd",
+			"sounds/kuro/chloe_move_6.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_move_13 = 
+
+	naga_siren_naga_move_13 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_move_01.vsnd",
+			"sounds/kuro/chloe_move_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_move_14 = 
+
+	naga_siren_naga_move_14 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_move_01.vsnd",
+			"sounds/kuro/chloe_move_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_move_15 = 
+
+	naga_siren_naga_move_15 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_move_05.vsnd",
+			"sounds/kuro/chloe_move_3.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_move_16 = 
+
+	naga_siren_naga_move_16 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_move_06.vsnd",
+			"sounds/kuro/chloe_move_4.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_move_17 = 
+
+	naga_siren_naga_attack_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_move_07.vsnd",
+			"sounds/kuro/chloe_attack_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_move_18 = 
+
+	naga_siren_naga_attack_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_move_08.vsnd",
+			"sounds/kuro/chloe_attack_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_move_19 = 
+
+	naga_siren_naga_attack_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_move_09.vsnd",
+			"sounds/kuro/chloe_attack_3.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_move_20 = 
+
+	naga_siren_naga_attack_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_move_10.vsnd",
+			"sounds/kuro/chloe_attack_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_move_21 = 
+
+	naga_siren_naga_attack_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_move_11.vsnd",
+			"sounds/kuro/chloe_attack_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_move_22 = 
+
+	naga_siren_naga_attack_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_move_12.vsnd",
+			"sounds/kuro/chloe_attack_3.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_attack_01 = 
+
+	naga_siren_naga_attack_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_attack_01.vsnd",
+			"sounds/kuro/chloe_attack_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_attack_02 = 
+
+	naga_siren_naga_attack_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_attack_02.vsnd",
+			"sounds/kuro/chloe_attack_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_attack_03 = 
+
+	naga_siren_naga_attack_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_attack_03.vsnd",
+			"sounds/kuro/chloe_attack_3.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_attack_04 = 
+
+	naga_siren_naga_attack_10 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_attack_04.vsnd",
+			"sounds/kuro/chloe_attack_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_attack_05 = 
+
+	naga_siren_naga_attack_11 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_attack_05.vsnd",
+			"sounds/kuro/chloe_attack_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_attack_06 = 
+
+	naga_siren_naga_attack_12 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_attack_06.vsnd",
+			"sounds/kuro/chloe_attack_3.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_attack_07 = 
+
+	naga_siren_naga_attack_14 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_attack_07.vsnd",
+			"sounds/kuro/chloe_attack_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_attack_08 = 
+
+	naga_siren_naga_attack_15 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_attack_01.vsnd",
+			"sounds/kuro/chloe_attack_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_attack_11 = 
+
+	naga_siren_naga_cast_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_attack_01.vsnd",
+			"sounds/kuro/chloe_attack_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_cast_01 = 
+
+	naga_siren_naga_cast_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_cast_01.vsnd",
+			"sounds/kuro/chloe_attack_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_cast_02 = 
+
+	naga_siren_naga_cast_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_cast_02.vsnd",
+			"sounds/kuro/chloe_attack_3.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_cast_03 = 
+
+	naga_siren_naga_cast_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_cast_03.vsnd",
+			"sounds/kuro/chloe_attack_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_doub_edge_01 = 
+
+	naga_siren_naga_ensnare_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_doub_edge_01.vsnd",
+			"sounds/vo/naga_siren/naga_ensnare_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_doub_edge_02 = 
+
+	naga_siren_naga_ensnare_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_doub_edge_02.vsnd",
+			"sounds/vo/naga_siren/naga_ensnare_02.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_doub_edge_03 = 
+
+	naga_siren_naga_ensnare_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_doub_edge_03.vsnd",
+			"sounds/vo/naga_siren/naga_ensnare_03.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_doub_edge_04 = 
+
+	naga_siren_naga_ensnare_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_doub_edge_04.vsnd",
+			"sounds/vo/naga_siren/naga_ensnare_04.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_doub_edge_05 = 
+
+	naga_siren_naga_ensnare_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_doub_edge_05.vsnd",
+			"sounds/vo/naga_siren/naga_ensnare_05.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_doub_edge_06 = 
+
+	naga_siren_naga_ensnare_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_doub_edge_06.vsnd",
+			"sounds/vo/naga_siren/naga_ensnare_06.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_doub_edge_07 = 
+
+	naga_siren_naga_mirrorimage_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_doub_edge_07.vsnd",
+			"sounds/vo/naga_siren/naga_mirrorimage_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_doub_edge_08 = 
+
+	naga_siren_naga_mirrorimage_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_doub_edge_08.vsnd",
+			"sounds/vo/naga_siren/naga_mirrorimage_02.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_doub_edge_09 = 
+
+	naga_siren_naga_mirrorimage_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_doub_edge_09.vsnd",
+			"sounds/vo/naga_siren/naga_mirrorimage_03.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_doub_edge_10 = 
+
+	naga_siren_naga_songofthesiren_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_doub_edge_10.vsnd",
+			"sounds/vo/naga_siren/naga_songofthesiren_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_doub_edge_11 = 
+
+	naga_siren_naga_songofthesiren_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_doub_edge_11.vsnd",
+			"sounds/vo/naga_siren/naga_songofthesiren_02.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_hoof_stomp_01 = 
+
+	naga_siren_naga_songofthesiren_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_hoof_stomp_01.vsnd",
+			"sounds/vo/naga_siren/naga_songofthesiren_03.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_hoof_stomp_02 = 
+
+	naga_siren_naga_songofthesiren_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_hoof_stomp_02.vsnd",
+			"sounds/vo/naga_siren/naga_songofthesiren_04.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_hoof_stomp_03 = 
+
+	naga_siren_naga_songofthesiren_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_hoof_stomp_03.vsnd",
+			"sounds/vo/naga_siren/naga_songofthesiren_05.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_hoof_stomp_04 = 
+
+	naga_siren_naga_songofthesiren_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_hoof_stomp_04.vsnd",
+			"sounds/vo/naga_siren/naga_songofthesiren_06.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_hoof_stomp_05 = 
+
+	naga_siren_naga_songofthesiren_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_hoof_stomp_05.vsnd",
+			"sounds/vo/naga_siren/naga_songofthesiren_07.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_failure_01 = 
+
+	naga_siren_naga_songofthesiren_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_failure_01.vsnd",
+			"sounds/vo/naga_siren/naga_songofthesiren_08.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_failure_02 = 
+
+	naga_siren_naga_songofthesiren_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_failure_02.vsnd",
+			"sounds/vo/naga_siren/naga_songofthesiren_09.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_failure_03 = 
+
+	naga_siren_naga_songofthesiren_10 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_failure_03.vsnd",
+			"sounds/vo/naga_siren/naga_songofthesiren_10.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_failure_04 = 
+
+	naga_siren_naga_failure_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_failure_04.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_failure_05 = 
+
+	naga_siren_naga_failure_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_failure_05.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_failure_06 = 
+
+	naga_siren_naga_failure_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_failure_06.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_levelup_01 = 
+
+	naga_siren_naga_failure_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_levelup_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_levelup_02 = 
+
+	naga_siren_naga_levelup_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_levelup_02.vsnd",
+			"sounds/kuro/chloe_level_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_levelup_03 = 
+
+	naga_siren_naga_levelup_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_levelup_03.vsnd",
+			"sounds/kuro/chloe_level_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_levelup_04 = 
+
+	naga_siren_naga_levelup_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_levelup_04.vsnd",
+			"sounds/kuro/chloe_level_3.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_levelup_05 = 
+
+	naga_siren_naga_levelup_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_levelup_05.vsnd",
+			"sounds/kuro/chloe_level_4.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_levelup_06 = 
+
+	naga_siren_naga_levelup_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_levelup_06.vsnd",
+			"sounds/kuro/chloe_level_5.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_levelup_07 = 
+
+	naga_siren_naga_levelup_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_levelup_01.vsnd",
+			"sounds/kuro/chloe_level_6.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_levelup_08 = 
+
+	naga_siren_naga_levelup_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_levelup_02.vsnd",
+			"sounds/kuro/chloe_level_7.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_levelup_09 = 
+
+	naga_siren_naga_levelup_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_levelup_03.vsnd",
+			"sounds/kuro/chloe_level_8.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_levelup_10 = 
+
+	naga_siren_naga_levelup_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_levelup_04.vsnd",
+			"sounds/kuro/chloe_level_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_kill_01 = 
+
+	naga_siren_naga_kill_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_kill_01.vsnd",
+			"sounds/kuro/chloe_kill_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_kill_02 = 
+
+	naga_siren_naga_kill_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_kill_02.vsnd",
+			"sounds/kuro/chloe_kill_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_kill_03 = 
+
+	naga_siren_naga_kill_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_kill_03.vsnd",
+			"sounds/kuro/chloe_kill_3.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_kill_04 = 
+
+	naga_siren_naga_kill_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_kill_04.vsnd",
+			"sounds/kuro/chloe_kill_4.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_kill_05 = 
+
+	naga_siren_naga_kill_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_kill_05.vsnd",
+			"sounds/kuro/chloe_kill_5.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_kill_06 = 
+
+	naga_siren_naga_kill_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_kill_06.vsnd",
+			"sounds/kuro/chloe_kill_6.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_kill_07 = 
+
+	naga_siren_naga_kill_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_kill_07.vsnd",
+			"sounds/kuro/chloe_kill_7.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_kill_08 = 
+
+	naga_siren_naga_kill_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_kill_08.vsnd",
+			"sounds/kuro/chloe_kill_8.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_kill_09 = 
+
+	naga_siren_naga_kill_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_kill_09.vsnd",
+			"sounds/kuro/chloe_kill_9.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_kill_10 = 
+
+	naga_siren_naga_kill_10 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_kill_01.vsnd",
+			"sounds/kuro/chloe_kill_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_kill_11 = 
+
+	naga_siren_naga_kill_11 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_kill_02.vsnd",
+			"sounds/kuro/chloe_kill_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_kill_12 = 
+
+	naga_siren_naga_kill_12 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_kill_03.vsnd",
+			"sounds/kuro/chloe_kill_3.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_01 = 
+
+	naga_siren_naga_rival_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/kuro/chloe_kill_4.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_02 = 
+
+	naga_siren_naga_rival_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/kuro/chloe_kill_5.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_03 = 
+
+	naga_siren_naga_rival_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/kuro/chloe_kill_6.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_04 = 
+
+	naga_siren_naga_rival_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/kuro/chloe_kill_7.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_05 = 
+
+	naga_siren_naga_rival_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/kuro/chloe_kill_8.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_06 = 
+
+	naga_siren_naga_rival_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/kuro/chloe_kill_9.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_08 = 
+
+	naga_siren_naga_rival_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/kuro/chloe_kill_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_09 = 
+
+	naga_siren_naga_rival_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/kuro/chloe_kill_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_10 = 
+
+	naga_siren_naga_rival_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/kuro/chloe_kill_3.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_11 = 
+
+	naga_siren_naga_rival_10 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/kuro/chloe_kill_4.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_12 = 
+
+	naga_siren_naga_rival_11 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/kuro/chloe_kill_5.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_14 = 
+
+	naga_siren_naga_rival_12 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/kuro/chloe_kill_6.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_15 = 
+
+	naga_siren_naga_rival_13 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/kuro/chloe_kill_7.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_16 = 
+
+	naga_siren_naga_rival_14 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/kuro/chloe_kill_8.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_17 = 
+
+	naga_siren_naga_rival_15 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/kuro/chloe_kill_9.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_18 = 
+
+	naga_siren_naga_rival_16 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/kuro/chloe_kill_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_19 = 
+
+	naga_siren_naga_rival_17 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/kuro/chloe_kill_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_20 = 
+
+	naga_siren_naga_rival_18 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/kuro/chloe_kill_3.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_21 = 
+
+	naga_siren_naga_rival_19 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/kuro/chloe_kill_4.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_22 = 
+
+	naga_siren_naga_rival_20 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/kuro/chloe_kill_5.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_23 = 
+
+	naga_siren_naga_rival_21 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/kuro/chloe_kill_6.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_24 = 
+
+	naga_siren_naga_rival_22 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/kuro/chloe_kill_7.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_25 = 
+
+	naga_siren_naga_rival_23 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/kuro/chloe_kill_8.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_26 = 
+
+	naga_siren_naga_rival_24 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/kuro/chloe_kill_9.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_27 = 
+
+	naga_siren_naga_rival_25 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/kuro/chloe_kill_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_28 = 
+
+	naga_siren_naga_rival_26 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/kuro/chloe_kill_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_29 = 
+
+	naga_siren_naga_rival_27 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/kuro/chloe_kill_3.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_30 = 
+
+	naga_siren_naga_rival_28 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/kuro/chloe_kill_4.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_31 = 
+
+	naga_siren_naga_rival_29 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/kuro/chloe_kill_5.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_32 = 
+
+	naga_siren_naga_rival_30 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/kuro/chloe_kill_6.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_34 = 
+
+	naga_siren_naga_ally_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_35 = 
+
+	naga_siren_naga_ally_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_36 = 
+
+	naga_siren_naga_ally_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_37 = 
+
+	naga_siren_naga_ally_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_rival_38 = 
+
+	naga_siren_naga_ally_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_ally_01 = 
+
+	naga_siren_naga_ally_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_ally_02 = 
+
+	naga_siren_naga_ally_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_ally_03 = 
+
+	naga_siren_naga_ally_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_ally_04 = 
+
+	naga_siren_naga_ally_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_ally_05 = 
+
+	naga_siren_naga_ally_10 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_ally_06 = 
+
+	naga_siren_naga_lasthit_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_ally_07 = 
+
+	naga_siren_naga_lasthit_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_ally_08 = 
+
+	naga_siren_naga_lasthit_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_ally_09 = 
+
+	naga_siren_naga_lasthit_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_ally_10 = 
+
+	naga_siren_naga_lasthit_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_ally_11 = 
+
+	naga_siren_naga_lasthit_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_ally_12 = 
+
+	naga_siren_naga_lasthit_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_ally_13 = 
+
+	naga_siren_naga_lasthit_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_ally_14 = 
+
+	naga_siren_naga_lasthit_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_ally_15 = 
+
+	naga_siren_naga_death_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/kuro/chloe_death_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_ally_16 = 
+
+	naga_siren_naga_death_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/kuro/chloe_death_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_ally_17 = 
+
+	naga_siren_naga_death_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/kuro/chloe_death_3.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_lasthit_01 = 
+
+	naga_siren_naga_death_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_lasthit_01.vsnd",
+			"sounds/kuro/chloe_death_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_lasthit_02 = 
+
+	naga_siren_naga_death_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_lasthit_01.vsnd",
+			"sounds/kuro/chloe_death_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_lasthit_03 = 
+
+	naga_siren_naga_death_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_lasthit_01.vsnd",
+			"sounds/kuro/chloe_death_3.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_lasthit_04 = 
+
+	naga_siren_naga_death_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_lasthit_01.vsnd",
+			"sounds/kuro/chloe_death_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_lasthit_05 = 
+
+	naga_siren_naga_death_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_lasthit_01.vsnd",
+			"sounds/kuro/chloe_death_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_lasthit_06 = 
+
+	naga_siren_naga_death_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_lasthit_01.vsnd",
+			"sounds/kuro/chloe_death_3.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_lasthit_07 = 
+
+	naga_siren_naga_death_10 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_lasthit_01.vsnd",
+			"sounds/kuro/chloe_death_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_lasthit_08 = 
+
+	naga_siren_naga_death_11 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_lasthit_01.vsnd",
+			"sounds/kuro/chloe_death_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_lasthit_09 = 
+
+	naga_siren_naga_death_12 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_lasthit_01.vsnd",
+			"sounds/kuro/chloe_death_3.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_death_01 = 
+
+	naga_siren_naga_death_13 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_death_01.vsnd",
+			"sounds/kuro/chloe_death_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_death_02 = 
+
+	naga_siren_naga_death_14 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_death_02.vsnd",
+			"sounds/kuro/chloe_death_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_death_03 = 
+
+	naga_siren_naga_death_15 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_death_03.vsnd",
+			"sounds/kuro/chloe_death_3.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_death_04 = 
+
+	naga_siren_naga_death_16 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_death_04.vsnd",
+			"sounds/kuro/chloe_death_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_death_05 = 
+
+	naga_siren_naga_death_17 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_death_05.vsnd",
+			"sounds/kuro/chloe_death_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_death_06 = 
+
+	naga_siren_naga_fastres_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_death_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_death_07 = 
+
+	naga_siren_naga_respawn_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_death_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_death_08 = 
+
+	naga_siren_naga_respawn_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_death_03.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_death_09 = 
+
+	naga_siren_naga_respawn_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_death_04.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_death_10 = 
+
+	naga_siren_naga_respawn_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_death_05.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_death_11 = 
+
+	naga_siren_naga_respawn_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_death_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_death_12 = 
+
+	naga_siren_naga_respawn_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_death_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_death_13 = 
+
+	naga_siren_naga_respawn_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_death_03.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_fastres_01 = 
+
+	naga_siren_naga_respawn_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_respawn_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_fastres_02 = 
+
+	naga_siren_naga_respawn_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_respawn_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_respawn_01 = 
+
+	naga_siren_naga_respawn_10 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_respawn_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_respawn_02 = 
+
+	naga_siren_naga_respawn_11 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_respawn_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_respawn_03 = 
+
+	naga_siren_naga_respawn_12 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_respawn_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_respawn_04 = 
+
+	naga_siren_naga_respawn_13 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_respawn_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_respawn_05 = 
+
+	naga_siren_naga_rare_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_respawn_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_respawn_06 = 
+
+	naga_siren_naga_rare_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_respawn_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_respawn_07 = 
+
+	naga_siren_naga_rare_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_respawn_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_respawn_08 = 
+
+	naga_siren_naga_rare_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_respawn_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_respawn_09 = 
+
+	naga_siren_naga_rare_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_respawn_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_respawn_10 = 
+
+	naga_siren_naga_purch_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_respawn_01.vsnd",
+			"sounds/vo/naga_siren/naga_purch_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_ally_18 = 
+
+	naga_siren_naga_purch_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/vo/naga_siren/naga_purch_02.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_ally_19 = 
+
+	naga_siren_naga_purch_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/elder_titan/blankvoice.vsnd",
+			"sounds/vo/naga_siren/naga_purch_03.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_purch_01 = 
+
+	naga_siren_naga_scepter_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_purch_01.vsnd",
+			"sounds/vo/naga_siren/naga_scepter_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_purch_02 = 
+
+	naga_siren_naga_scepter_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_purch_02.vsnd",
+			"sounds/vo/naga_siren/naga_scepter_02.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_purch_03 = 
+
+	naga_siren_naga_scepter_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_purch_03.vsnd",
+			"sounds/vo/naga_siren/naga_scepter_03.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_scepter_01 = 
+
+	naga_siren_naga_blink_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_scepter_01.vsnd",
+			"sounds/vo/naga_siren/naga_blink_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_scepter_02 = 
+
+	naga_siren_naga_blink_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_scepter_02.vsnd",
+			"sounds/vo/naga_siren/naga_blink_02.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_blink_01 = 
+
+	naga_siren_naga_items_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_blink_01.vsnd",
+			"sounds/vo/naga_siren/naga_items_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_blink_02 = 
+
+	naga_siren_naga_items_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_blink_02.vsnd",
+			"sounds/vo/naga_siren/naga_items_02.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_items_01 = 
+
+	naga_siren_naga_items_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_items_01.vsnd",
+			"sounds/vo/naga_siren/naga_items_03.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_items_02 = 
+
+	naga_siren_naga_items_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_items_02.vsnd",
+			"sounds/vo/naga_siren/naga_items_04.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_items_03 = 
+
+	naga_siren_naga_items_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_items_03.vsnd",
+			"sounds/vo/naga_siren/naga_items_05.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_items_04 = 
+
+	naga_siren_naga_items_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_items_04.vsnd",
+			"sounds/vo/naga_siren/naga_items_06.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_items_05 = 
+
+	naga_siren_naga_items_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_items_05.vsnd",
+			"sounds/vo/naga_siren/naga_items_07.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_items_06 = 
+
+	naga_siren_naga_items_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_items_06.vsnd",
+			"sounds/vo/naga_siren/naga_items_08.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_items_07 = 
+
+	naga_siren_naga_items_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_items_07.vsnd",
+			"sounds/vo/naga_siren/naga_items_09.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_items_08 = 
+
+	naga_siren_naga_bottle_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_items_08.vsnd",
+			"sounds/vo/naga_siren/naga_bottle_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_items_09 = 
+
+	naga_siren_naga_bottle_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_items_09.vsnd",
+			"sounds/vo/naga_siren/naga_bottle_02.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_items_10 = 
+
+	naga_siren_naga_bottle_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_items_10.vsnd",
+			"sounds/vo/naga_siren/naga_bottle_03.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_items_11 = 
+
+	naga_siren_naga_deny_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_items_11.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_items_12 = 
+
+	naga_siren_naga_deny_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_items_12.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_items_13 = 
+
+	naga_siren_naga_deny_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_items_13.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_bottle_01 = 
+
+	naga_siren_naga_deny_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_bottle_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_bottle_02 = 
+
+	naga_siren_naga_deny_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_bottle_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_bottle_03 = 
+
+	naga_siren_naga_deny_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_bottle_03.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_deny_01 = 
+
+	naga_siren_naga_deny_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_deny_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_deny_02 = 
+
+	naga_siren_naga_deny_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_deny_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_deny_03 = 
+
+	naga_siren_naga_deny_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_deny_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_deny_04 = 
+
+	naga_siren_naga_deny_10 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_deny_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_deny_05 = 
+
+	naga_siren_naga_deny_11 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_deny_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_deny_06 = 
+
+	naga_siren_naga_deny_12 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_deny_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_deny_07 = 
+
+	naga_siren_naga_deny_13 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_deny_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_deny_08 = 
+
+	naga_siren_naga_deny_14 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_deny_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_deny_09 = 
+
+	naga_siren_naga_lanemissing_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_deny_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_deny_10 = 
+
+	naga_siren_naga_lanemissing_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_deny_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_deny_11 = 
+
+	naga_siren_naga_lanemissing_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_deny_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_deny_12 = 
+
+	naga_siren_naga_immort_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_deny_01.vsnd",
+			"sounds/vo/naga_siren/naga_immort_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_deny_13 = 
+
+	naga_siren_naga_immort_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_deny_01.vsnd",
+			"sounds/vo/naga_siren/naga_immort_02.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_deny_14 = 
+
+	naga_siren_naga_haste_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_deny_01.vsnd",
+			"sounds/vo/naga_siren/naga_haste_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_lane_missing_01 = 
+
+	naga_siren_naga_haste_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_levelup_01.vsnd",
+			"sounds/vo/naga_siren/naga_haste_02.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_lane_missing_02 = 
+
+	naga_siren_naga_doubdam_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_levelup_02.vsnd",
+			"sounds/vo/naga_siren/naga_doubdam_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_lane_missing_03 = 
+
+	naga_siren_naga_doubdam_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/levelup_03.vsnd",
+			"sounds/vo/naga_siren/naga_doubdam_02.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_drop_common_01 = 
+
+	naga_siren_naga_regen_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_drop_common_01.vsnd",
+			"sounds/vo/naga_siren/naga_regen_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_drop_medium_01 = 
+
+	naga_siren_naga_regen_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_drop_medium_01.vsnd",
+			"sounds/vo/naga_siren/naga_regen_02.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_drop_rare_01 = 
+
+	naga_siren_naga_illus_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_drop_rare_01.vsnd",
+			"sounds/vo/naga_siren/naga_illus_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_immort_01 = 
+
+	naga_siren_naga_illus_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_immort_01.vsnd",
+			"sounds/vo/naga_siren/naga_illus_02.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_immort_02 = 
+
+	naga_siren_naga_invis_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_immort_02.vsnd",
+			"sounds/vo/naga_siren/naga_invis_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_happy_03 = 
+
+	naga_siren_naga_invis_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_happy_03.vsnd",
+			"sounds/vo/naga_siren/naga_invis_02.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_haste_01 = 
+
+	naga_siren_naga_notyet_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_haste_01.vsnd",
+			"sounds/kuro/chloe_not_yet.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_haste_02 = 
+
+	naga_siren_naga_notyet_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_haste_02.vsnd",
+			"sounds/kuro/chloe_not_yet.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_doubdam_01 = 
+
+	naga_siren_naga_notyet_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_doubdam_01.vsnd",
+			"sounds/kuro/chloe_not_yet.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_doubdam_02 = 
+
+	naga_siren_naga_notyet_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_doubdam_02.vsnd",
+			"sounds/kuro/chloe_not_yet.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_regen_01 = 
+
+	naga_siren_naga_notyet_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_regen_01.vsnd",
+			"sounds/kuro/chloe_not_yet.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_regen_02 = 
+
+	naga_siren_naga_notyet_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_regen_02.vsnd",
+			"sounds/kuro/chloe_not_yet.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_illus_01 = 
+
+	naga_siren_naga_notyet_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_illus_01.vsnd",
+			"sounds/kuro/chloe_not_yet.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_illus_02 = 
+
+	naga_siren_naga_notyet_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_illus_02.vsnd",
+			"sounds/kuro/chloe_not_yet.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_illus_03 = 
+
+	naga_siren_naga_notyet_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_illus_03.vsnd",
+			"sounds/kuro/chloe_not_yet.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_invis_01 = 
+
+	naga_siren_naga_nomana_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_invis_01.vsnd",
+			"sounds/kuro/chloe_not_yet.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_invis_02 = 
+
+	naga_siren_naga_nomana_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_invis_02.vsnd",
+			"sounds/kuro/chloe_not_yet.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_invis_03 = 
+
+	naga_siren_naga_nomana_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_invis_03.vsnd",
+			"sounds/kuro/chloe_not_yet.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_notyet_01 = 
+
+	naga_siren_naga_nomana_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_notyet_01.vsnd",
+			"sounds/kuro/chloe_not_yet.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_notyet_02 = 
+
+	naga_siren_naga_nomana_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_notyet_01.vsnd",
+			"sounds/kuro/chloe_not_yet.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_notyet_03 = 
+
+	naga_siren_naga_nomana_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_notyet_01.vsnd",
+			"sounds/kuro/chloe_not_yet.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_notyet_04 = 
+
+	naga_siren_naga_nomana_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_notyet_02.vsnd",
+			"sounds/kuro/chloe_not_yet.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_notyet_05 = 
+
+	naga_siren_naga_nomana_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_notyet_02.vsnd",
+			"sounds/kuro/chloe_not_yet.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_notyet_06 = 
+
+	naga_siren_naga_nomana_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_notyet_02.vsnd",
+			"sounds/kuro/chloe_not_yet.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_notyet_07 = 
+
+	naga_siren_naga_thanks_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_notyet_02.vsnd",
+			"sounds/kuro/chloe_thanks.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_notyet_08 = 
+
+	naga_siren_naga_thanks_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_notyet_02.vsnd",
+			"sounds/kuro/chloe_thanks.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_notyet_09 = 
+
+	naga_siren_naga_underattack_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_notyet_02.vsnd",
+			"sounds/kuro/chloe_hurt.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_nomana_01 = 
+
+	naga_siren_naga_underattack_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_nomana_01.vsnd",
+			"sounds/kuro/chloe_hurt.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_nomana_02 = 
+
+	naga_siren_naga_inthebag_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_nomana_01.vsnd",
+			"sounds/kuro/chloe_hurt.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_nomana_03 = 
+
+	naga_siren_naga_crumwiz_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_nomana_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_nomana_04 = 
+
+	naga_siren_naga_shiwiz_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_nomana_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_nomana_05 = 
+
+	naga_siren_naga_lose_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_nomana_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_nomana_06 = 
+
+	naga_siren_naga_lose_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_nomana_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_nomana_07 = 
+
+	naga_siren_naga_lose_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_nomana_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_nomana_08 = 
+
+	naga_siren_naga_win_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_nomana_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_nomana_09 = 
+
+	naga_siren_naga_win_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_nomana_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_thanks_01 = 
+
+	naga_siren_naga_win_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_thanks_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_thanks_02 = 
+
+	naga_siren_naga_pain_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_thanks_01.vsnd",
+			"sounds/kuro/chloe_hurt.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_thanks_03 = 
+
+	naga_siren_naga_pain_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_thanks_01.vsnd",
+			"sounds/kuro/chloe_hurt.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_thanks_04 = 
+
+	naga_siren_naga_pain_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_thanks_01.vsnd",
+			"sounds/kuro/chloe_hurt.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_underattack_01 = 
+
+	naga_siren_naga_pain_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_underattack_01.vsnd",
+			"sounds/kuro/chloe_hurt.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_underattack_02 = 
+
+	naga_siren_naga_pain_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_underattack_01.vsnd",
+			"sounds/kuro/chloe_hurt.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_inthebag_01 = 
+
+	naga_siren_naga_pain_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_inthebag_01.vsnd",
+			"sounds/kuro/chloe_hurt.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_inthebag_02 = 
+
+	naga_siren_naga_pain_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_inthebag_02.vsnd",
+			"sounds/kuro/chloe_hurt.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_crumwiz_01 = 
+
+	naga_siren_naga_pain_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_crumwiz_01.vsnd",
+			"sounds/kuro/chloe_hurt.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_shiwiz_01 = 
+
+	naga_siren_naga_pain_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_shiwiz_01.vsnd",
+			"sounds/kuro/chloe_hurt.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_lose_01 = 
+
+	naga_siren_naga_pain_10 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_death_01.vsnd",
+			"sounds/kuro/chloe_hurt.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_lose_02 = 
+
+	naga_siren_naga_pain_11 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_death_02.vsnd",
+			"sounds/kuro/chloe_hurt.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_lose_03 = 
+
+	naga_siren_naga_pain_12 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_death_03.vsnd",
+			"sounds/kuro/chloe_hurt.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_lose_04 = 
+
+	naga_siren_naga_pain_13 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_death_04.vsnd",
+			"sounds/kuro/chloe_hurt.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_win_01 = 
+
+	naga_siren_naga_anger_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_kill_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_win_02 = 
+
+	naga_siren_naga_anger_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_kill_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_win_03 = 
+
+	naga_siren_naga_anger_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_kill_03.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_win_04 = 
+
+	naga_siren_naga_anger_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_kill_04.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_pain_01 = 
+
+	naga_siren_naga_anger_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_pain_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_pain_02 = 
+
+	naga_siren_naga_anger_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_pain_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_pain_03 = 
+
+	naga_siren_naga_anger_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_pain_03.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_pain_04 = 
+
+	naga_siren_naga_anger_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_pain_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_pain_05 = 
+
+	naga_siren_naga_anger_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_pain_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_pain_06 = 
+
+	naga_siren_naga_anger_10 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_pain_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_pain_07 = 
+
+	naga_siren_naga_anger_11 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_pain_03.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_pain_08 = 
+
+	naga_siren_naga_anger_12 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_pain_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_pain_09 = 
+
+	naga_siren_naga_anger_13 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_pain_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_pain_10 = 
+
+	naga_siren_naga_anger_14 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_pain_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_pain_11 = 
+
+	naga_siren_naga_happy_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_pain_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_pain_12 = 
+
+	naga_siren_naga_happy_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_pain_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_pain_13 = 
+
+	naga_siren_naga_happy_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_pain_03.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_pain_14 = 
+
+	naga_siren_naga_happy_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_pain_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_anger_01 = 
+
+	naga_siren_naga_happy_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_anger_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_anger_02 = 
+
+	naga_siren_naga_happy_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_anger_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_anger_03 = 
+
+	naga_siren_naga_laugh_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_anger_03.vsnd",
+			"sounds/kuro/chloe_laugh.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_anger_04 = 
+
+	naga_siren_naga_laugh_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_anger_04.vsnd",
+			"sounds/kuro/chloe_laugh.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_anger_05 = 
+
+	naga_siren_naga_laugh_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_anger_05.vsnd",
+			"sounds/kuro/chloe_laugh.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_anger_06 = 
+
+	naga_siren_naga_laugh_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_anger_06.vsnd",
+			"sounds/kuro/chloe_laugh.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_anger_07 = 
+
+	naga_siren_naga_itemcommon_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_anger_07.vsnd",
+			"sounds/vo/naga_siren/naga_itemcommon_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_anger_09 = 
+
+	naga_siren_naga_itemmoderate_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_anger_09.vsnd",
+			"sounds/vo/naga_siren/naga_itemmoderate_02.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_anger_10 = 
+
+	naga_siren_naga_itemrare_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_anger_10.vsnd",
+			"sounds/vo/naga_siren/naga_itemrare_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_anger_11 = 
+
+	naga_siren_naga_itemrare_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/lu/lu_anger_11.vsnd",
+			"sounds/vo/naga_siren/naga_itemrare_02.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	centaur_cent_anger_12 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/lu/lu_anger_12.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-	}
-	centaur_cent_anger_13 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/lu/lu_anger_13.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-	}
-	centaur_cent_anger_14 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/lu/lu_anger_14.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-	}
-	centaur_cent_anger_15 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/lu/lu_anger_15.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-	}
-	centaur_cent_happy_01 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/lu/lu_happy_01.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-	}
-	centaur_cent_happy_02 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/lu/lu_happy_02.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-	}
-	centaur_cent_happy_04 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/lu/lu_happy_04.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-	}
-	centaur_cent_happy_05 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/lu/lu_happy_05.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-	}
-	centaur_cent_happy_06 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/lu/lu_happy_06.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-	}
-	centaur_cent_happy_07 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/lu/lu_happy_07.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-	}
-	centaur_cent_happy_08 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/lu/lu_happy_08.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-	}
-	centaur_cent_happy_09 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/lu/lu_happy_09.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-	}
-	centaur_cent_happy_10 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/lu/lu_happy_10.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-	}
-	centaur_cent_happy_11 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/lu/lu_happy_11.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-	}
-	centaur_cent_happy_12 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/lu/lu_happy_12.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-	}
-	centaur_cent_happy_13 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/lu/lu_happy_13.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-	}
-	centaur_cent_happy_14 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/lu/lu_happy_14.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-	}
-	centaur_cent_laugh_01 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/lu/lu_laugh_01.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-	}
-	centaur_cent_laugh_02 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/lu/lu_laugh_01.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-	}
-	centaur_cent_laugh_03 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/lu/lu_laugh_01.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-	}
-	centaur_cent_laugh_04 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/lu/lu_laugh_01.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-	}
-	centaur_cent_laugh_05 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/lu/lu_laugh_01.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-	}
+
+
 }
