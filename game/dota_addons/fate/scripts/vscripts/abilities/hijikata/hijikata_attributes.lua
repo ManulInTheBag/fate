@@ -2,7 +2,7 @@ hijikata_shinsengumi_attribute = class({})
 hijikata_battle_continuation_attribute = class({})
 hijikata_eternal_madness_attribute = class({})
 hijikata_tactics_attribute = class({})
-
+hijikata_fierce_sincerity_attribute = class({})
 
 LinkLuaModifier("modifier_hijikata_haori", "abilities/hijikata/hijikata_attributes", LUA_MODIFIER_MOTION_NONE)
 
@@ -91,6 +91,17 @@ function hijikata_tactics_attribute:OnSpellStart()
 
 
 	hero.IsHijikataTacticsAcquired = true
+	-- Set master 1's mana 
+	local master = hero.MasterUnit
+	master:SetMana(master:GetMana() - self:GetManaCost(self:GetLevel()))
+end
+
+function hijikata_fierce_sincerity_attribute:OnSpellStart()
+	local caster = self:GetCaster()
+	local hero = caster:GetPlayerOwner():GetAssignedHero()
+
+
+	hero.IsHijikataSincerityAcquired = true
 	-- Set master 1's mana 
 	local master = hero.MasterUnit
 	master:SetMana(master:GetMana() - self:GetManaCost(self:GetLevel()))

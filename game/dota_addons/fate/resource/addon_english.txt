@@ -9178,6 +9178,13 @@
         "DOTA_Tooltip_ability_hijikata_tactics_attribute_slow_amount"						"%Slow:"
         "DOTA_Tooltip_ability_hijikata_tactics_attribute_bonus_damage"						"Bonus damage:"
 
+        "DOTA_Tooltip_ability_hijikata_fierce_sincerity_attribute"							"Fierce sincerity"
+        "DOTA_Tooltip_ability_hijikata_fierce_sincerity_attribute_Description"				"Upgrades <font color='#58ACFA'>Demon of the battlefield</font>, by adding a cleave effect in 180 degrees semi circle.\nUpgrades <font color='#58ACFA'>Shinsengumi codex</font>, decreasing stun duration on 5th stack by 1.5 second and increasing time before stacks dissapear by 2 seconds.\nActivating 5th stack also grants bonus damage for all allies in 1000 radius. This bonus is increased for Shinsengumi."
+        "DOTA_Tooltip_ability_hijikata_fierce_sincerity_attribute_cleave_radius"					"Cleave radius:"
+        "DOTA_Tooltip_ability_hijikata_fierce_sincerity_attribute_cleave_damage_pct"				"%Cleave damage:"
+        "DOTA_Tooltip_ability_hijikata_fierce_sincerity_attribute_damage_bonus"						"Bonus damage:"
+        "DOTA_Tooltip_ability_hijikata_fierce_sincerity_attribute_shinsengumi_damage_bonus"			"Shinsengumi bonus damage:"
+
         "DOTA_Tooltip_modifier_hijikata_dash_recast_enable"                                                    "Battle drive ready"
 		"DOTA_Tooltip_modifier_hijikata_dash_recast_enable_Description"                                        "Allowed to use battle drive"
 

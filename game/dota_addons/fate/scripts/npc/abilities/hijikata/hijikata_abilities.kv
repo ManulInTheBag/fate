@@ -31,7 +31,7 @@
 			"distance"								"1500"		//Optimum distance.
 			"speed"									"2000"
 			"recast_duration"									"4" 	
-			"damage"									"100 125 150 175 200"
+			"damage"									"200 250 300 350 400"
 			"damage_second"								"200 250 300 350 400"
 		}
 	}
@@ -94,7 +94,7 @@
 		}
 		"AbilityValues"
 		{
-			"radius"								"700"		
+			"radius"								"750"		
 			"damage"									"200 250 300 350 400"
 			"buff_duration"								"3 3.5 4 4.5 5"		
 			"as_value"									"100 150 200 250 300"
@@ -132,7 +132,7 @@
 		"AbilityValues"
 		{
 			"duration"									"6"		
-			"dmg_res"									"20 25 30 35 40"
+			"dmg_res"									"25 31.25 37.5 43.75 50"
 			"dmg_increase"								"10 15 20 25 30"
 			"radius"									"1000"
 			"cast_range"									"350 400 450 500 550"
@@ -483,6 +483,29 @@
         }		
 	}
 	
-	 
+	"hijikata_fierce_sincerity_attribute"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/hijikata/hijikata_attributes"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/hijikata/hijikata_sa5"
+		"AbilityCooldown"				"9999"
+
+		"AbilityManaCost"				"12"
+
+		 
+		"AbilityValues"
+        {
+            "cleave_radius" 			"500"
+            "cleave_damage_pct" 		"50"
+            "damage_bonus" 				"100"
+            "shinsengumi_damage_bonus"  "150"
+        }		
+	} 
  
 }

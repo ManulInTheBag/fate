@@ -34,6 +34,7 @@ local spellBooks = {
 	"robin_tools",
 	"robin_tools_close",
 	"vlad_rebellious_intent",
+	"hijikata_laws",
 }
 
 tamamo_amaterasu = class({})

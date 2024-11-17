@@ -3,7 +3,7 @@ hijikata_demon = class({})
 LinkLuaModifier("modifier_demon_buff_hijikata", "abilities/hijikata/hijikata_demon", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_hijikata_attack_sound","abilities/hijikata/hijikata_demon", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_hijikata_slow", "abilities/hijikata/hijikata_demon", LUA_MODIFIER_MOTION_NONE)
-
+LinkLuaModifier("modifier_hijikata_cleave", "abilities/hijikata/hijikata_demon", LUA_MODIFIER_MOTION_NONE)
 function hijikata_demon:GetIntrinsicModifierName()
 	return "modifier_hijikata_attack_sound"
 end
@@ -94,6 +94,10 @@ function hijikata_demon:OnSpellStart()
 		target:AddNewModifier(caster, self, "modifier_hijikata_slow", { duration = self:GetSpecialValueFor("slow_duration")})
 																				
 	end
+
+	if caster.IsHijikataSincerityAcquired then
+		caster:AddNewModifier(caster, self, "modifier_hijikata_cleave", { duration = self:GetSpecialValueFor("buff_duration")})																			
+	end
 	caster:AddNewModifier(caster, self, "modifier_demon_buff_hijikata", { duration = self:GetSpecialValueFor("buff_duration"),
                                                                             as_value = self:GetSpecialValueFor("as_value"),
                                                                             percentage = self:GetSpecialValueFor("hp_percentage_diff_to_damage") })
@@ -158,4 +162,37 @@ function modifier_hijikata_slow:DeclareFunctions()
 end
 function modifier_hijikata_slow:GetModifierMoveSpeedBonus_Percentage()
 	return -self:GetAbility():GetSpecialValueFor("slow_amount")
+end
+
+
+modifier_hijikata_cleave = class({})
+
+function modifier_hijikata_cleave:OnCreated(args)
+	if IsServer() then 
+        self.as_value = args.as_value
+        self.percentage = args.percentage
+        self.caster = self:GetParent()
+    end
+end
+
+
+function modifier_hijikata_cleave:DeclareFunctions()
+	return {  MODIFIER_EVENT_ON_ATTACK_LANDED }
+end
+
+function modifier_hijikata_cleave:IsHidden() 
+	return false 
+end
+
+function modifier_hijikata_cleave:IsDebuff() 
+	return false 
+end
+
+
+function modifier_hijikata_cleave:OnAttackLanded(args) 
+	if args.attacker ~= self.caster then return end
+    if args.target:GetTeamNumber() == self.caster:GetTeamNumber() then return end
+    if not self.caster:IsAlive() then return end
+    local damage = args.damage * 0.5
+    DoCleaveAttack(self.caster, args.target, self:GetAbility(), damage, 500, 500, 500, "particles/hijikata/hijikata_cleave.vpcf")
 end

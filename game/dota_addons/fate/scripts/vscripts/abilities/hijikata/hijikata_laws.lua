@@ -1,5 +1,6 @@
 hijikata_laws = class({})
 LinkLuaModifier("modifier_hijikata_laws", "abilities/hijikata/hijikata_laws", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_hijikata_laws_buff", "abilities/hijikata/hijikata_laws", LUA_MODIFIER_MOTION_NONE)
 
 
 function hijikata_laws:GetIntrinsicModifierName()
@@ -88,7 +89,7 @@ function modifier_hijikata_laws:OnStackCountChanged(stacks)
             --print(self:GetCaster():GetModifierStackCount("modifier_hijikata_laws", self:GetCaster()) )
             --print(not( self:GetCaster():GetModifierStackCount("modifier_hijikata_laws", self:GetCaster()) == 0))
             if (not self:GetCaster():HasModifier("round_pause") ) and not( self:GetCaster():GetModifierStackCount("modifier_hijikata_laws", self:GetCaster()) == 0) then
-                giveUnitDataDrivenModifier(self:GetParent(),self:GetParent() , "stunned", self:GetAbility():GetSpecialValueFor("stun_duration"))
+                giveUnitDataDrivenModifier(self:GetParent(),self:GetParent() , "stunned", self:GetAbility():GetSpecialValueFor("stun_duration")-(self:GetCaster().IsHijikataSincerityAcquired and 1.5 or 0))
                 self:GetCaster():EmitSound("hijikata_laws_stun")
                 if (self:GetCaster():GetHealth() - damage) <= 0 then
                     damage = self:GetCaster():GetHealth() - 1
@@ -96,7 +97,21 @@ function modifier_hijikata_laws:OnStackCountChanged(stacks)
                 else
                     DoDamage( self:GetCaster(),  self:GetCaster(), damage, DAMAGE_TYPE_PURE, 0, self, false)
                 end
-                Timers:CreateTimer(self:GetAbility():GetSpecialValueFor("stun_duration"), function()
+
+        end
+                if(self:GetCaster().IsHijikataSincerityAcquired) then
+                    local targets = FindUnitsInRadius(self:GetCaster():GetTeam(), self:GetCaster():GetAbsOrigin(), nil, 1000, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO,
+                                                         DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false) 
+                    for k,v in pairs(targets) do
+                        if v:GetUnitName() ~= "npc_dota_hero_dark_willow" and v:GetUnitName() ~= "npc_dota_hero_spirit_breaker" and v:GetUnitName() ~= "npc_dota_hero_terrorblade" then
+                            v:AddNewModifier(caster, self, "modifier_hijikata_laws_buff", { Duration = 5, damage = 100 })
+                        else
+                            v:AddNewModifier(caster, self, "modifier_hijikata_laws_buff", { Duration = 5, damage = 150 })
+                        end
+                    end
+                end
+        if IsServer() then
+                Timers:CreateTimer(self:GetAbility():GetSpecialValueFor("stun_duration")+(self:GetCaster().IsHijikataSincerityAcquired and 2 or 0), function()
                     self:SetStackCount(0)
                     self:GetAbility().used = false
                     self:GetAbility().used_times = 0
@@ -137,4 +152,40 @@ end
 
 function modifier_hijikata_laws:GetModifierHealthBonus()
 	return (self:GetAbility():GetSpecialValueFor("health_per_stack") * self:GetStackCount())
+end
+
+
+
+modifier_hijikata_laws_buff = class({})
+
+if IsServer() then
+	function modifier_hijikata_laws_buff:OnCreated(args)	
+        self.damage_buff = args.damage
+	end
+
+end
+
+function modifier_hijikata_laws_buff:DeclareFunctions()
+	return { MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE }
+end
+
+
+function modifier_hijikata_laws_buff:GetModifierPreAttack_BonusDamage()
+	return self.damage_buff
+end
+
+function modifier_hijikata_laws_buff:RemoveOnDeath()
+    return true
+end
+
+function modifier_hijikata_laws_buff:IsDebuff()
+    return false 
+end
+
+function modifier_hijikata_laws_buff:IsHidden()
+    return false 
+end
+
+function modifier_hijikata_laws_buff:GetEffectName()
+    return "particles/hijikata/hijikata_laws_buff.vpcf"
 end
