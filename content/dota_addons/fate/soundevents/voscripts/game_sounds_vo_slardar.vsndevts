@@ -1,446 +1,380 @@
 <!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
 {
-	night_stalker_nstalk_spawn_01 = 
+	slardar_slar_spawn_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_spawn_01.vsnd",
+			"sounds/karna/karna_summon.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 8.251927
 	}
-	night_stalker_nstalk_spawn_02 = 
+
+	slardar_slar_spawn_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_spawn_02.vsnd",
+			"sounds/karna/karna_summon.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 10.154649
 	}
-	night_stalker_nstalk_spawn_03 = 
+
+	slardar_slar_spawn_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_spawn_03.vsnd",
+			"sounds/karna/karna_summon.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 5.308662
 	}
-	night_stalker_nstalk_spawn_04 = 
+
+	slardar_slar_spawn_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_spawn_02.vsnd",
+			"sounds/karna/karna_summon.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 10.154649
 	}
-	night_stalker_nstalk_spawn_05 = 
+
+	slardar_slar_spawn_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_spawn_03.vsnd",
+			"sounds/karna/karna_summon.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 5.308662
 	}
-	night_stalker_nstalk_battlebegins_01 = 
+
+	slardar_slar_move_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/null.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 0.100045
-	}
-	night_stalker_nstalk_battlebegins_02 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/null.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 0.100045
-	}
-	night_stalker_nstalk_move_01 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/nanaya/nanaya_move_01.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 2.812608
-	}
-	night_stalker_nstalk_move_02 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/nanaya/nanaya_move_02.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 2.530975
-	}
-	night_stalker_nstalk_move_03 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/nanaya/nanaya_move_03.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 3.639546
-	}
-	night_stalker_nstalk_move_04 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/nanaya/nanaya_move_04.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 0.393741
-	}
-	night_stalker_nstalk_move_05 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/nanaya/nanaya_move_05.vsnd",
+			"sounds/karna/karna_move_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.444853
 	}
-	night_stalker_nstalk_move_06 = 
+
+	slardar_slar_move_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_move_06.vsnd",
+			"sounds/karna/karna_move_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.513878
 	}
-	night_stalker_nstalk_move_07 = 
+
+	slardar_slar_move_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_move_07.vsnd",
+			"sounds/karna/karna_move_3.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.490567
 	}
-	night_stalker_nstalk_move_08 = 
+
+	slardar_slar_move_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_move_01.vsnd",
+			"sounds/karna/karna_move_4.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.812608
 	}
-	night_stalker_nstalk_move_09 = 
+
+	slardar_slar_move_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_move_02.vsnd",
+			"sounds/karna/karna_move_5.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.530975
 	}
-	night_stalker_nstalk_move_10 = 
+
+	slardar_slar_move_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_move_03.vsnd",
+			"sounds/karna/karna_move_6.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.639546
 	}
-	night_stalker_nstalk_move_11 = 
+
+	slardar_slar_move_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_move_04.vsnd",
+			"sounds/karna/karna_move_7.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.393741
 	}
-	night_stalker_nstalk_move_12 = 
+
+	slardar_slar_move_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_move_05.vsnd",
+			"sounds/karna/karna_move_8.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.444853
 	}
-	night_stalker_nstalk_move_13 = 
+
+	slardar_slar_move_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_move_06.vsnd",
+			"sounds/karna/karna_move_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.513878
 	}
-	night_stalker_nstalk_move_14 = 
+
+	slardar_slar_move_10 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_move_07.vsnd",
+			"sounds/karna/karna_move_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.490567
 	}
-	night_stalker_nstalk_attack_01 = 
+
+	slardar_slar_move_11 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_attack_01.vsnd",
+			"sounds/karna/karna_move_3.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.316599
 	}
-	night_stalker_nstalk_attack_02 = 
+
+	slardar_slar_move_12 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_attack_02.vsnd",
+			"sounds/karna/karna_move_4.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.227846
 	}
-	night_stalker_nstalk_attack_03 = 
+
+	slardar_slar_move_13 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_attack_03.vsnd",
+			"sounds/karna/karna_move_5.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.372517
 	}
-	night_stalker_nstalk_attack_04 = 
+
+	slardar_slar_move_14 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_attack_04.vsnd",
+			"sounds/karna/karna_move_6.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.278821
 	}
-	night_stalker_nstalk_attack_05 = 
+
+	slardar_slar_move_15 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_attack_05.vsnd",
+			"sounds/karna/karna_move_7.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.198594
 	}
-	night_stalker_nstalk_attack_06 = 
+
+	slardar_slar_move_16 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_attack_01.vsnd",
+			"sounds/karna/karna_move_8.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.316599
 	}
-	night_stalker_nstalk_attack_07 = 
+
+	slardar_slar_move_17 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_attack_02.vsnd",
+			"sounds/karna/karna_move_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.227846
 	}
-	night_stalker_nstalk_attack_08 = 
+
+	slardar_slar_attack_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_attack_03.vsnd",
+			"sounds/karna/karna_attack_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.372517
 	}
-	night_stalker_nstalk_attack_09 = 
+
+	slardar_slar_attack_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_attack_04.vsnd",
+			"sounds/karna/karna_attack_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.278821
 	}
-	night_stalker_nstalk_attack_10 = 
+
+	slardar_slar_attack_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_attack_05.vsnd",
+			"sounds/karna/karna_attack_3.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.198594
 	}
-	night_stalker_nstalk_attack_11 = 
+
+	slardar_slar_attack_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_attack_01.vsnd",
+			"sounds/karna/karna_attack_4.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.316599
 	}
-	night_stalker_nstalk_attack_12 = 
+
+	slardar_slar_attack_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_attack_02.vsnd",
+			"sounds/karna/karna_attack_5.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.227846
 	}
-	night_stalker_nstalk_attack_13 = 
+
+	slardar_slar_attack_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_attack_03.vsnd",
+			"sounds/karna/karna_attack_6.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.372517
 	}
-	night_stalker_nstalk_cast_01 = 
+
+	slardar_slar_attack_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/null.vsnd",
+			"sounds/karna/karna_attack_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_cast_02 = 
+
+	slardar_slar_attack_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/null.vsnd",
+			"sounds/karna/karna_attack_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_cast_03 = 
+
+	slardar_slar_attack_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/null.vsnd",
+			"sounds/karna/karna_attack_3.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_ability_void_01 = 
+
+	slardar_slar_attack_10 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/null.vsnd",
+			"sounds/karna/karna_attack_4.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_ability_void_02 = 
+
+	slardar_slar_attack_11 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/null.vsnd",
+			"sounds/karna/karna_attack_5.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_ability_void_03 = 
+
+	slardar_slar_attack_12 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/null.vsnd",
+			"sounds/karna/karna_attack_6.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_ability_void_04 = 
+
+	slardar_slar_cast_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -449,9 +383,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_ability_cripfear_01 = 
+
+	slardar_slar_cast_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -460,9 +394,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_ability_cripfear_02 = 
+
+	slardar_slar_cast_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -471,9 +405,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_ability_cripfear_03 = 
+
+	slardar_slar_ability_ampdam_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -482,9 +416,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_ability_dark_01 = 
+
+	slardar_slar_ability_ampdam_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -493,9 +427,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_ability_dark_02 = 
+
+	slardar_slar_ability_ampdam_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -504,9 +438,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_ability_dark_03 = 
+
+	slardar_slar_ability_ampdam_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -515,9 +449,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_ability_dark_04 = 
+
+	slardar_slar_ability_ampdam_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -526,9 +460,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_ability_dark_05 = 
+
+	slardar_slar_ability_ampdam_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -537,9 +471,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_ability_dark_06 = 
+
+	slardar_slar_ability_ampdam_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -548,9 +482,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_ability_dark_07 = 
+
+	slardar_slar_ability_ampdam_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -559,9 +493,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_ability_dark_08 = 
+
+	slardar_slar_ability_ampdam_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -570,9 +504,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_ability_dark_09 = 
+
+	slardar_slar_ability_ampdam_10 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -581,9 +515,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_ability_dark_10 = 
+
+	slardar_slar_ability_ampdam_11 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -592,9 +526,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_ability_dark_11 = 
+
+	slardar_slar_ability_ampdam_12 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -603,9 +537,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_dayrise_01 = 
+
+	slardar_slar_ability_ampdam_13 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -614,9 +548,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_dayrise_02 = 
+
+	slardar_slar_ability_ampdam_14 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -625,9 +559,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_dayrise_03 = 
+
+	slardar_slar_longdistance_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -636,9 +570,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_dayrise_04 = 
+
+	slardar_slar_longdistance_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -647,9 +581,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_dayrise_05 = 
+
+	slardar_slar_longdistance_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -658,9 +592,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_ability_failure_01 = 
+
+	slardar_slar_ability_failure_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -669,9 +603,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_ability_failure_02 = 
+
+	slardar_slar_ability_failure_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -680,297 +614,262 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_ability_failure_03 = 
+
+	slardar_slar_ability_failure_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
 			"sounds/null.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 0.100045
-	}
-	night_stalker_nstalk_level_01 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/nanaya/nanaya_level_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 5.220907
 	}
-	night_stalker_nstalk_level_02 = 
+
+	slardar_slar_level_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_level_02.vsnd",
+			"sounds/karna/karna_level_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 7.021338
 	}
-	night_stalker_nstalk_level_03 = 
+
+	slardar_slar_level_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_level_03.vsnd",
+			"sounds/karna/karna_level_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 4.618708
 	}
-	night_stalker_nstalk_level_04 = 
+
+	slardar_slar_level_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_level_04.vsnd",
-			"sounds/vo/nanaya/nanaya_level_08.vsnd",
+			"sounds/karna/karna_level_3.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 5.421950
 	}
-	night_stalker_nstalk_level_05 = 
+
+	slardar_slar_level_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_level_05.vsnd",
+			"sounds/karna/karna_level_4.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 6.176644
 	}
-	night_stalker_nstalk_level_06 = 
+
+	slardar_slar_level_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_level_06.vsnd",
-			"sounds/vo/nanaya/nanaya_level_07.vsnd",
+			"sounds/karna/karna_level_5.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 5.391157
 	}
-	night_stalker_nstalk_kill_01 = 
+
+	slardar_slar_level_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_kill_01.vsnd",
+			"sounds/karna/karna_level_6.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 4.729569
 	}
-	night_stalker_nstalk_kill_02 = 
+
+	slardar_slar_level_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_kill_02.vsnd",
+			"sounds/karna/karna_level_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 4.562948
 	}
-	night_stalker_nstalk_kill_03 = 
+
+	slardar_slar_kill_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_kill_03.vsnd",
+			"sounds/karna/karna_kill_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.305442
 	}
-	night_stalker_nstalk_kill_04 = 
+
+	slardar_slar_kill_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_kill_04.vsnd",
+			"sounds/karna/karna_kill_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.590839
 	}
-	night_stalker_nstalk_kill_05 = 
+
+	slardar_slar_kill_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_kill_05.vsnd",
+			"sounds/karna/karna_kill_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 4.537415
 	}
-	night_stalker_nstalk_kill_06 = 
+
+	slardar_slar_kill_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_kill_06.vsnd",
+			"sounds/karna/karna_kill_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 4.647710
 	}
-	night_stalker_nstalk_kill_07 = 
+
+	slardar_slar_kill_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_kill_07.vsnd",
+			"sounds/karna/karna_kill_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 7.813719
 	}
-	night_stalker_nstalk_kill_08 = 
+
+	slardar_slar_kill_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_kill_08.vsnd",
+			"sounds/karna/karna_kill_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 4.125102
 	}
-	night_stalker_nstalk_kill_09 = 
+
+	slardar_slar_kill_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_kill_09.vsnd",
+			"sounds/karna/karna_kill_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 6.402336
 	}
-	night_stalker_nstalk_kill_10 = 
+
+	slardar_slar_kill_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_kill_10.vsnd",
+			"sounds/karna/karna_kill_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.468163
 	}
-	night_stalker_nstalk_kill_11 = 
+
+	slardar_slar_kill_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_kill_11.vsnd",
+			"sounds/karna/karna_kill_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 5.752744
 	}
-	night_stalker_nstalk_kill_12 = 
+
+	slardar_slar_kill_10 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_kill_12.vsnd",
+			"sounds/karna/karna_kill_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.469524
 	}
-	night_stalker_nstalk_kill_13 = 
+
+	slardar_slar_kill_11 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_kill_13.vsnd",
+			"sounds/karna/karna_kill_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 9.146304
 	}
-	night_stalker_nstalk_killspecial_01 = 
+
+	slardar_slar_kill_12 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_kill_08.vsnd",
+			"sounds/karna/karna_kill_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 4.125102
 	}
-	night_stalker_nstalk_killspecial_02 = 
+
+	slardar_slar_lasthit_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_kill_09.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 6.402336
-	}
-	night_stalker_nstalk_killspecial_03 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/nanaya/nanaya_kill_10.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 3.468163
-	}
-	night_stalker_nstalk_killspecial_04 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/nanaya/nanaya_kill_11.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 5.752744
 	}
-	night_stalker_nstalk_killspecial_05 = 
+
+	slardar_slar_lasthit_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_kill_12.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.469524
 	}
-	night_stalker_nstalk_killspecial_06 = 
+
+	slardar_slar_lasthit_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_kill_07.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 7.813719
 	}
-	night_stalker_nstalk_lasthit_01 = 
+
+	slardar_slar_lasthit_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -979,9 +878,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_lasthit_02 = 
+
+	slardar_slar_lasthit_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -990,9 +889,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_lasthit_03 = 
+
+	slardar_slar_lasthit_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -1001,9 +900,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_lasthit_04 = 
+
+	slardar_slar_lasthit_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -1012,9 +911,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_lasthit_05 = 
+
+	slardar_slar_lasthit_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -1023,306 +922,306 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_lasthit_06 = 
+
+	slardar_slar_death_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/null.vsnd",
+			"sounds/karna/karna_death_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_lasthit_07 = 
+
+	slardar_slar_death_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/null.vsnd",
+			"sounds/karna/karna_death_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_lasthit_08 = 
+
+	slardar_slar_death_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/null.vsnd",
+			"sounds/karna/karna_death_3.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_death_01 = 
+
+	slardar_slar_death_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_death_01.vsnd",
+			"sounds/karna/karna_death_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.932925
 	}
-	night_stalker_nstalk_death_02 = 
+
+	slardar_slar_death_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_death_02.vsnd",
+			"sounds/karna/karna_death_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.775964
 	}
-	night_stalker_nstalk_death_03 = 
+
+	slardar_slar_death_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_death_03.vsnd",
+			"sounds/karna/karna_death_3.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.694921
 	}
-	night_stalker_nstalk_death_04 = 
+
+	slardar_slar_death_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_death_04.vsnd",
+			"sounds/karna/karna_death_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 6.680635
 	}
-	night_stalker_nstalk_death_05 = 
+
+	slardar_slar_death_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_death_05.vsnd",
+			"sounds/karna/karna_death_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.604807
 	}
-	night_stalker_nstalk_death_06 = 
+
+	slardar_slar_death_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_death_01.vsnd",
+			"sounds/karna/karna_death_3.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.932925
 	}
-	night_stalker_nstalk_death_07 = 
+
+	slardar_slar_death_10 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_death_02.vsnd",
+			"sounds/karna/karna_death_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.775964
 	}
-	night_stalker_nstalk_death_08 = 
+
+	slardar_slar_death_11 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_death_03.vsnd",
+			"sounds/karna/karna_death_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.694921
 	}
-	night_stalker_nstalk_death_09 = 
+
+	slardar_slar_death_12 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_death_04.vsnd",
+			"sounds/karna/karna_death_3.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 6.680635
 	}
-	night_stalker_nstalk_death_10 = 
+
+	slardar_slar_death_13 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_death_05.vsnd",
+			"sounds/karna/karna_death_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.604807
 	}
-	night_stalker_nstalk_death_11 = 
+
+	slardar_slar_respawn_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_death_01.vsnd",
+			"sounds/karna/karna_fastspawn.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.932925
 	}
-	night_stalker_nstalk_fastres_01 = 
+
+	slardar_slar_respawn_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/null.vsnd",
+			"sounds/karna/karna_fastspawn.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_respawn_01 = 
+
+	slardar_slar_respawn_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_respawn_01.vsnd",
+			"sounds/karna/karna_fastspawn.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 4.636530
 	}
-	night_stalker_nstalk_respawn_02 = 
+
+	slardar_slar_respawn_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_respawn_02.vsnd",
+			"sounds/karna/karna_fastspawn.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.710907
 	}
-	night_stalker_nstalk_respawn_03 = 
+
+	slardar_slar_respawn_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_respawn_03.vsnd",
+			"sounds/karna/karna_fastspawn.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.220907
 	}
-	night_stalker_nstalk_respawn_04 = 
+
+	slardar_slar_respawn_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_respawn_04.vsnd",
+			"sounds/karna/karna_fastspawn.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.630658
 	}
-	night_stalker_nstalk_respawn_05 = 
+
+	slardar_slar_respawn_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_respawn_05.vsnd",
+			"sounds/karna/karna_fastspawn.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.391066
 	}
-	night_stalker_nstalk_respawn_06 = 
+
+	slardar_slar_respawn_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_respawn_06.vsnd",
+			"sounds/karna/karna_fastspawn.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 5.622540
 	}
-	night_stalker_nstalk_respawn_07 = 
+
+	slardar_slar_respawn_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_respawn_01.vsnd",
+			"sounds/karna/karna_fastspawn.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 4.636530
 	}
-	night_stalker_nstalk_respawn_08 = 
+
+	slardar_slar_respawn_10 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_respawn_02.vsnd",
+			"sounds/karna/karna_fastspawn.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.710907
 	}
-	night_stalker_nstalk_respawn_09 = 
+
+	slardar_slar_rare_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_respawn_03.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.220907
 	}
-	night_stalker_nstalk_respawn_10 = 
+
+	slardar_slar_rare_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_respawn_04.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.630658
 	}
-	night_stalker_nstalk_rare_01 = 
+
+	slardar_slar_rare_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_rare_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.492540
 	}
-	night_stalker_nstalk_rare_02 = 
+
+	slardar_slar_rare_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_rare_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.492540
 	}
-	night_stalker_nstalk_purch_01 = 
+
+	slardar_slar_purch_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -1331,9 +1230,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_purch_02 = 
+
+	slardar_slar_purch_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -1342,9 +1241,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_purch_03 = 
+
+	slardar_slar_purch_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -1353,9 +1252,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_blink_01 = 
+
+	slardar_slar_purch_basher_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -1364,9 +1263,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_blink_02 = 
+
+	slardar_slar_blink_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -1375,9 +1274,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_scepter_01 = 
+
+	slardar_slar_blink_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -1386,9 +1285,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_scepter_02 = 
+
+	slardar_slar_blink_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -1397,9 +1296,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_cranbash_01 = 
+
+	slardar_slar_scepter_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -1408,9 +1307,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_sange_01 = 
+
+	slardar_slar_scepter_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -1419,9 +1318,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_yasha_01 = 
+
+	slardar_slar_divine_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -1430,9 +1329,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_sangenyasha_01 = 
+
+	slardar_slar_armlet_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -1441,9 +1340,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_sangenyasha_02 = 
+
+	slardar_slar_armlet_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -1452,9 +1351,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_bottle_01 = 
+
+	slardar_slar_armlet_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -1463,9 +1362,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_bottle_02 = 
+
+	slardar_slar_armlet_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -1474,9 +1373,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_bottle_03 = 
+
+	slardar_slar_bottle_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -1485,108 +1384,108 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_deny_01 = 
+
+	slardar_slar_bottle_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_deny_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.787755
 	}
-	night_stalker_nstalk_deny_02 = 
+
+	slardar_slar_bottle_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_deny_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.787755
 	}
-	night_stalker_nstalk_deny_03 = 
+
+	slardar_slar_bottle_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_deny_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.787755
 	}
-	night_stalker_nstalk_deny_04 = 
+
+	slardar_slar_deny_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_deny_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.787755
 	}
-	night_stalker_nstalk_deny_05 = 
+
+	slardar_slar_deny_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_deny_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.787755
 	}
-	night_stalker_nstalk_deny_06 = 
+
+	slardar_slar_deny_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_deny_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.787755
 	}
-	night_stalker_nstalk_deny_07 = 
+
+	slardar_slar_deny_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_deny_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.787755
 	}
-	night_stalker_nstalk_deny_08 = 
+
+	slardar_slar_deny_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_deny_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.787755
 	}
-	night_stalker_nstalk_deny_09 = 
+
+	slardar_slar_deny_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_deny_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.787755
 	}
-	night_stalker_nstalk_lose_01 = 
+
+	slardar_slar_deny_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -1595,9 +1494,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_lose_02 = 
+
+	slardar_slar_deny_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -1606,872 +1505,876 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_lose_03 = 
+
+	slardar_slar_lose_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/null.vsnd",
+			"sounds/karna/karna_death_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_lose_04 = 
+
+	slardar_slar_lose_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/null.vsnd",
+			"sounds/karna/karna_death_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_win_01 = 
+
+	slardar_slar_lose_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_win_01.vsnd",
+			"sounds/karna/karna_death_3.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.523764
 	}
-	night_stalker_nstalk_win_02 = 
+
+	slardar_slar_win_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_win_02.vsnd",
+			"sounds/karna/karna_fastspawn.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 6.693378
 	}
-	night_stalker_nstalk_win_03 = 
+
+	slardar_slar_win_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_win_01.vsnd",
+			"sounds/karna/karna_fastspawn.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.523764
 	}
-	night_stalker_nstalk_win_04 = 
+
+	slardar_slar_win_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_win_02.vsnd",
+			"sounds/karna/karna_fastspawn.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 6.693378
 	}
-	night_stalker_nstalk_immort_01 = 
+
+	slardar_slar_win_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/null.vsnd",
+			"sounds/karna/karna_fastspawn.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_immort_02 = 
+
+	slardar_slar_win_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/null.vsnd",
+			"sounds/karna/karna_fastspawn.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_haste_01 = 
+
+	slardar_slar_immort_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/null.vsnd",
+			"sounds/vo/slardar/slar_immort_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_haste_02 = 
+
+	slardar_slar_immort_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/null.vsnd",
+			"sounds/vo/slardar/slar_immort_02.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_doubdam_01 = 
+
+	slardar_slar_haste_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/null.vsnd",
+			"sounds/vo/slardar/slar_haste_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_doubdam_02 = 
+
+	slardar_slar_haste_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/null.vsnd",
+			"sounds/vo/slardar/slar_haste_02.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_doubdam_03 = 
+
+	slardar_slar_doubdam_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/null.vsnd",
+			"sounds/vo/slardar/slar_doubdam_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_regen_01 = 
+
+	slardar_slar_doubdam_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/null.vsnd",
+			"sounds/vo/slardar/slar_doubdam_02.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_regen_02 = 
+
+	slardar_slar_regen_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/null.vsnd",
+			"sounds/vo/slardar/slar_regen_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_illus_01 = 
+
+	slardar_slar_regen_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/null.vsnd",
+			"sounds/vo/slardar/slar_regen_02.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_illus_02 = 
+
+	slardar_slar_illus_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/null.vsnd",
+			"sounds/vo/slardar/slar_illus_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_illus_03 = 
+
+	slardar_slar_illus_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/null.vsnd",
+			"sounds/vo/slardar/slar_illus_02.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_invis_01 = 
+
+	slardar_slar_invis_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/null.vsnd",
+			"sounds/vo/slardar/slar_invis_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_invis_02 = 
+
+	slardar_slar_invis_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/null.vsnd",
+			"sounds/vo/slardar/slar_invis_02.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_notyet_01 = 
+
+	slardar_slar_notyet_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_notyet_01.vsnd",
+			"sounds/karna/karna_notyet.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.767755
 	}
-	night_stalker_nstalk_notyet_02 = 
+
+	slardar_slar_notyet_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_notyet_02.vsnd",
+			"sounds/karna/karna_notyet.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.576644
 	}
-	night_stalker_nstalk_notyet_03 = 
+
+	slardar_slar_notyet_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_notyet_01.vsnd",
+			"sounds/karna/karna_notyet.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.767755
 	}
-	night_stalker_nstalk_notyet_04 = 
+
+	slardar_slar_notyet_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_notyet_02.vsnd",
+			"sounds/karna/karna_notyet.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.576644
 	}
-	night_stalker_nstalk_notyet_05 = 
+
+	slardar_slar_notyet_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_notyet_01.vsnd",
+			"sounds/karna/karna_notyet.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.767755
 	}
-	night_stalker_nstalk_notyet_06 = 
+
+	slardar_slar_notyet_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_notyet_02.vsnd",
+			"sounds/karna/karna_notyet.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.576644
 	}
-	night_stalker_nstalk_notyet_07 = 
+
+	slardar_slar_notyet_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_notyet_01.vsnd",
+			"sounds/karna/karna_notyet.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.767755
 	}
-	night_stalker_nstalk_notyet_08 = 
+
+	slardar_slar_notyet_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_notyet_02.vsnd",
+			"sounds/karna/karna_notyet.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.576644
 	}
-	night_stalker_nstalk_notyet_09 = 
+
+	slardar_slar_notyet_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_notyet_01.vsnd",
+			"sounds/karna/karna_notyet.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.767755
 	}
-	night_stalker_nstalk_nomana_01 = 
+
+	slardar_slar_nomana_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_nomana_01.vsnd",
+			"sounds/karna/karna_notyet.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.676009
 	}
-	night_stalker_nstalk_nomana_02 = 
+
+	slardar_slar_nomana_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_nomana_01.vsnd",
+			"sounds/karna/karna_notyet.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.676009
 	}
-	night_stalker_nstalk_nomana_03 = 
+
+	slardar_slar_nomana_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_nomana_01.vsnd",
+			"sounds/karna/karna_notyet.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.676009
 	}
-	night_stalker_nstalk_nomana_04 = 
+
+	slardar_slar_nomana_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_nomana_01.vsnd",
+			"sounds/karna/karna_notyet.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.676009
 	}
-	night_stalker_nstalk_nomana_05 = 
+
+	slardar_slar_nomana_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_nomana_01.vsnd",
+			"sounds/karna/karna_notyet.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.676009
 	}
-	night_stalker_nstalk_nomana_06 = 
+
+	slardar_slar_nomana_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_nomana_01.vsnd",
+			"sounds/karna/karna_notyet.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.676009
 	}
-	night_stalker_nstalk_nomana_07 = 
+
+	slardar_slar_nomana_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_nomana_01.vsnd",
+			"sounds/karna/karna_notyet.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.676009
 	}
-	night_stalker_nstalk_nomana_08 = 
+
+	slardar_slar_nomana_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_nomana_01.vsnd",
+			"sounds/karna/karna_notyet.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.676009
 	}
-	night_stalker_nstalk_nomana_09 = 
+
+	slardar_slar_nomana_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_nomana_01.vsnd",
+			"sounds/karna/karna_notyet.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.676009
 	}
-	night_stalker_nstalk_thanks_01 = 
+
+	slardar_slar_thanks_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_thanks_01.vsnd",
+			"sounds/karna/karna_thanks_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.479410
 	}
-	night_stalker_nstalk_thanks_02 = 
+
+	slardar_slar_thanks_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_thanks_01.vsnd",
+			"sounds/karna/karna_thanks_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.479410
 	}
-	night_stalker_nstalk_firstblood_01 = 
+
+	slardar_slar_thanks_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_firstblood_01.vsnd",
+			"sounds/karna/karna_thanks_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 4.429206
 	}
-	night_stalker_nstalk_firstblood_02 = 
+
+	slardar_slar_firstblood_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_firstblood_01.vsnd",
+			"sounds/karna/karna_battle_begins.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 4.429206
 	}
-	night_stalker_nstalk_underattack_01 = 
+
+	slardar_slar_underattack_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_underattack_01.vsnd",
+			"sounds/karna/karna_damaged_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.847438
 	}
-	night_stalker_nstalk_inthebag_01 = 
+
+	slardar_slar_inthebag_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/null.vsnd",
+			"sounds/vo/slardar/slar_inthebag_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	night_stalker_nstalk_shitwiz_01 = 
+
+	slardar_slar_shitwiz_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/null.vsnd",
+			"sounds/vo/slardar/slar_shitwiz_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	night_stalker_nstalk_crumwiz_01 = 
+
+	slardar_slar_crumwiz_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/null.vsnd",
+			"sounds/vo/slardar/slar_crumwiz_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	night_stalker_nstalk_pain_01 = 
+
+	slardar_slar_pain_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_pain_01.vsnd",
+			"sounds/karna/karna_damaged_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.193243
 	}
-	night_stalker_nstalk_pain_02 = 
+
+	slardar_slar_pain_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_pain_02.vsnd",
+			"sounds/karna/karna_damaged_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.525896
 	}
-	night_stalker_nstalk_pain_03 = 
+
+	slardar_slar_pain_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_pain_03.vsnd",
+			"sounds/karna/karna_damaged_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.125170
 	}
-	night_stalker_nstalk_pain_04 = 
+
+	slardar_slar_pain_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_pain_04.vsnd",
+			"sounds/karna/karna_damaged_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.153605
 	}
-	night_stalker_nstalk_pain_05 = 
+
+	slardar_slar_pain_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_pain_05.vsnd",
+			"sounds/karna/karna_damaged_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.161134
 	}
-	night_stalker_nstalk_pain_06 = 
+
+	slardar_slar_pain_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_pain_06.vsnd",
+			"sounds/karna/karna_damaged_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.175964
 	}
-	night_stalker_nstalk_pain_07 = 
+
+	slardar_slar_pain_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_pain_07.vsnd",
+			"sounds/karna/karna_damaged_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.304263
 	}
-	night_stalker_nstalk_pain_08 = 
+
+	slardar_slar_pain_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_pain_08.vsnd",
+			"sounds/karna/karna_damaged_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.374694
 	}
-	night_stalker_nstalk_pain_09 = 
+
+	slardar_slar_pain_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_pain_09.vsnd",
+			"sounds/karna/karna_damaged_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.521587
 	}
-	night_stalker_nstalk_pain_10 = 
+
+	slardar_slar_pain_10 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_pain_10.vsnd",
+			"sounds/karna/karna_damaged_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.298776
 	}
-	night_stalker_nstalk_anger_01 = 
+
+	slardar_slar_pain_11 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/null.vsnd",
+			"sounds/karna/karna_damaged_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_anger_02 = 
+
+	slardar_slar_pain_12 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/null.vsnd",
+			"sounds/karna/karna_damaged_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_anger_03 = 
+
+	slardar_slar_anger_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/null.vsnd",
+			"sounds/karna/karna_damaged_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_anger_04 = 
+
+	slardar_slar_anger_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/null.vsnd",
+			"sounds/karna/karna_damaged_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_anger_05 = 
+
+	slardar_slar_anger_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/null.vsnd",
+			"sounds/karna/karna_damaged_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_anger_06 = 
+
+	slardar_slar_anger_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/null.vsnd",
+			"sounds/karna/karna_damaged_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_anger_07 = 
+
+	slardar_slar_anger_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/null.vsnd",
+			"sounds/karna/karna_damaged_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_anger_08 = 
+
+	slardar_slar_anger_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/null.vsnd",
+			"sounds/karna/karna_damaged_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_anger_09 = 
+
+	slardar_slar_happy_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/null.vsnd",
+			"sounds/karna/karna_thanks.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_happy_01 = 
+
+	slardar_slar_happy_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/null.vsnd",
+			"sounds/karna/karna_thanks.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_happy_02 = 
+
+	slardar_slar_happy_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/null.vsnd",
+			"sounds/karna/karna_thanks.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_happy_03 = 
+
+	slardar_slar_happy_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/null.vsnd",
+			"sounds/karna/karna_thanks.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_happy_04 = 
+
+	slardar_slar_laugh_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/null.vsnd",
+			"sounds/karna/karna_laugh_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	night_stalker_nstalk_laugh_01 = 
+
+	slardar_slar_laugh_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_laugh_01.vsnd",
+			"sounds/karna/karna_laugh_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.334376
 	}
-	night_stalker_nstalk_laugh_02 = 
+
+	slardar_slar_laugh_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_laugh_01.vsnd",
+			"sounds/karna/karna_laugh_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.334376
 	}
-	night_stalker_nstalk_laugh_03 = 
+
+	slardar_slar_laugh_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_laugh_01.vsnd",
+			"sounds/karna/karna_laugh_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.334376
 	}
-	night_stalker_nstalk_laugh_04 = 
+
+	slardar_slar_laugh_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_laugh_01.vsnd",
+			"sounds/karna/karna_laugh_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.334376
 	}
-	night_stalker_nstalk_laugh_05 = 
+
+	slardar_slar_laugh_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_laugh_01.vsnd",
+			"sounds/karna/karna_laugh_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.334376
 	}
-	night_stalker_nstalk_laugh_06 = 
+
+	slardar_slar_laugh_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_laugh_01.vsnd",
+			"sounds/karna/karna_laugh_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.334376
 	}
-	night_stalker_nstalk_laugh_07 = 
+
+	slardar_slar_laugh_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_laugh_01.vsnd",
+			"sounds/karna/karna_laugh_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.334376
 	}
-	night_stalker_nstalk_laugh_08 = 
+
+	slardar_slar_laugh_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_laugh_01.vsnd",
+			"sounds/karna/karna_laugh_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.334376
 	}
-	night_stalker_nstalk_laugh_09 = 
+
+	slardar_slar_laugh_10 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_laugh_01.vsnd",
+			"sounds/karna/karna_laugh_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.334376
 	}
-	night_stalker_nstalk_laugh_10 = 
+
+	slardar_slar_laugh_11 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/nanaya/nanaya_laugh_01.vsnd",
+			"sounds/karna/karna_laugh_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.334376
 	}
+
+
 }

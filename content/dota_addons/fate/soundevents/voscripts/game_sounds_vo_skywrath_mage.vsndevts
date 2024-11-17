@@ -1,0 +1,2886 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	skywrath_mage_drag_spawn_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_spawn.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_spawn_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_spawn.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_spawn_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_spawn.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_spawn_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_spawn.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_begin_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_spawn.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_begin_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_spawn.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_firstblood_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_laugh.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_move_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_move_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_move_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_move_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_move_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_move_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_move_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_move_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_move_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_move_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_move_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_move_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_move_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_move_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_move_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_move_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_move_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_move_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_move_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_move_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_move_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_move_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_move_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_move_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_move_13 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_move_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_move_14 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_move_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_move_15 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_move_02.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_move_16 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_move_03.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_move_17 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_move_03.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_move_18 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_move_03.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_move_19 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_move_03.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_move_20 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_move_03.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_move_21 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_move_03.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_move_22 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_move_03.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_attack_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_attack_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_attack_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_attack_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_attack_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_attack_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_attack_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_attack_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_attack_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_attack_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_attack_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_attack_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_attack_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_attack_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_attack_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_attack_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_attack_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_attack_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_attack_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_attack_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_attack_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_attack_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_attack_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_attack_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_attack_13 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_attack_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_attack_14 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_attack_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_cast_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_cast_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_cast_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_ancient_seal_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_ancient_seal_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_ancient_seal_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_arcanebolt_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_arcanebolt_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_arcanebolt_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_arcanebolt_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_arcanebolt_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_arcanebolt_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_concussive_shot_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_concussive_shot_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_concussive_shot_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_mystic_flare_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_mystic_flare_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_mystic_flare_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_mystic_flare_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_mystic_flare_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_failure_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_failure_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_failure_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_levelup_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_level_1.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_levelup_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_level_2.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_levelup_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_level_3.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_levelup_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_level_4.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_levelup_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_level_5.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_levelup_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_level_6.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_levelup_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_level_7.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_levelup_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_level_8.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_levelup_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_level_1.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_levelup_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_level_2.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_kill_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_kill_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_kill_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_kill_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_kill_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_kill_3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_kill_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_kill_4.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_kill_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_kill_5.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_kill_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_kill_6.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_kill_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_kill_7.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_kill_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_kill_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_kill_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_kill_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_kill_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_kill_3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_kill_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_kill_4.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_kill_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_kill_5.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_rival_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_kill_6.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_rival_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_kill_7.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_rival_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_kill_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_rival_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_kill_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_rival_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_kill_3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_rival_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_kill_4.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_rival_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_kill_5.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_rival_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_kill_6.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_rival_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_kill_7.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_rival_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_kill_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_rival_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_kill_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_rival_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_kill_3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_rival_13 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_kill_4.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_rival_14 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_kill_5.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_ally_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_laugh.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_ally_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_laugh.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_ally_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_laugh.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_ally_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_laugh.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_ally_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_laugh.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_ally_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_laugh.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_ally_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_laugh.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_ally_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_laugh.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_ally_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_laugh.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_ally_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_laugh.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_ally_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_laugh.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_lasthit_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_lasthit_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_lasthit_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_lasthit_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_lasthit_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_lasthit_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_lasthit_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_lasthit_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_lasthit_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_lasthit_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_lasthit_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_death_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_death.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_death_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_death.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_death_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_death.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_death_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_death.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_death_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_death.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_death_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_death.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_death_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_death.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_death_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_death.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_death_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_death.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_death_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_death.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_death_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_death.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_fastres_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_thanks_2.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_respawn_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_respawn_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_respawn_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_respawn_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_respawn_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_respawn_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_respawn_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_respawn_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_respawn_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_respawn_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_purch_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_purch_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_purch_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_scepter_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_scepter_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_blink_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_blink_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_blink_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_items_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_items_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_items_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_items_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_items_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_items_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_items_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_items_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_items_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_items_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_items_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_items_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_bottle_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_bottle_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_bottle_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_deny_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_deny_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_deny_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_deny_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_deny_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_deny_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_deny_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_deny_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_deny_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_deny_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_deny_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_deny_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_deny_13 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_deny_14 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_deny_15 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_deny_16 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_lanemissing_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_lanemissing_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_lanemissing_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_itemcommon_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_itemmoderate_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_itemrare_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_immort_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_immort_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_haste_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_haste_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_doubdam_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_doubdam_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_regen_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_regen_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_illus_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_illus_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_invis_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_invis_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_notyet_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_hurt_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_notyet_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_hurt_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_notyet_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_hurt_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_notyet_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_hurt_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_notyet_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_hurt_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_notyet_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_hurt_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_notyet_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_hurt_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_notyet_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_hurt_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_notyet_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_hurt_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_nomana_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_hurt_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_nomana_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_hurt_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_nomana_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_hurt_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_nomana_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_hurt_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_nomana_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_hurt_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_nomana_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_hurt_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_nomana_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_hurt_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_nomana_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_hurt_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_nomana_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_hurt_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_thanks_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_thanks_2.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_thanks_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_thanks_3.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_underattack_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_inthebag_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_hurt_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_inthebag_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_hurt_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_crumwiz_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_hurt_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_shiwiz_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_hurt_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_lose_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_hurt_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_lose_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_hurt_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_lose_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_hurt_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_win_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_win_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_win_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_pain_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_hurt_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_pain_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_hurt_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_pain_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_hurt_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_pain_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_hurt_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_pain_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_hurt_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_pain_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_hurt_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_pain_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_hurt_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_pain_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_hurt_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_pain_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilg_hurt_01.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_anger_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_anger_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_anger_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_anger_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_anger_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_anger_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_anger_13 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_anger_14 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/null.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_happy_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_laugh_3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_happy_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_laugh_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_happy_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_laugh_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_happy_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_laugh_3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_happy_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_laugh_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_happy_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_laugh_3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_laugh_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_laugh_3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_laugh_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_laugh_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_laugh_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_laugh_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_laugh_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_laugh_3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	skywrath_mage_drag_laugh_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/gilg/gilgamesh_laugh_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+
+}

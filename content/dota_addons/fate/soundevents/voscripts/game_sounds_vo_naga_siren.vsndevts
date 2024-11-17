@@ -1,380 +1,688 @@
 <!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
 {
-	venomancer_venm_spawn_01 = 
+	naga_siren_naga_spawn_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_spawn_01.vsnd",
+			"sounds/kuro/chloe_summon.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 7.730000
 	}
-	venomancer_venm_spawn_02 = 
+
+	naga_siren_naga_spawn_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_spawn_02.vsnd",
+			"sounds/kuro/chloe_summon.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 6.238708
 	}
-	venomancer_venm_spawn_03 = 
+
+	naga_siren_naga_spawn_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_spawn_01.vsnd",
+			"sounds/kuro/chloe_summon.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 7.730000
 	}
-	venomancer_venm_spawn_04 = 
+
+	naga_siren_naga_spawn_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_spawn_02.vsnd",
+			"sounds/kuro/chloe_summon.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 6.238708
 	}
-	venomancer_venm_move_01 = 
+
+	naga_siren_naga_spawn_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_move_01.vsnd",
+			"sounds/kuro/chloe_summon.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.810862
 	}
-	venomancer_venm_move_02 = 
+
+	naga_siren_naga_spawn_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_move_02.vsnd",
+			"sounds/kuro/chloe_summon.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.654127
 	}
-	venomancer_venm_move_03 = 
+
+	naga_siren_naga_begin_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_move_03.vsnd",
+			"sounds/kuro/chloe_battle_begins.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.575760
 	}
-	venomancer_venm_move_04 = 
+
+	naga_siren_naga_firstblood_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_move_04.vsnd",
+			"sounds/kuro/chloe_battle_begins.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.732494
 	}
-	venomancer_venm_move_05 = 
+
+	naga_siren_naga_firstblood_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_move_05.vsnd",
+			"sounds/kuro/chloe_battle_begins.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.585714
 	}
-	venomancer_venm_move_06 = 
+
+	naga_siren_naga_move_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_move_06.vsnd",
+			"sounds/kuro/chloe_move_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.070612
 	}
-	venomancer_venm_move_07 = 
+
+	naga_siren_naga_move_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_move_07.vsnd",
+			"sounds/kuro/chloe_move_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.197869
 	}
-	venomancer_venm_move_08 = 
+
+	naga_siren_naga_move_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_move_08.vsnd",
+			"sounds/kuro/chloe_move_3.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.270816
 	}
-	venomancer_venm_move_09 = 
+
+	naga_siren_naga_move_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_move_01.vsnd",
+			"sounds/kuro/chloe_move_4.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.810862
 	}
-	venomancer_venm_move_10 = 
+
+	naga_siren_naga_move_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_move_02.vsnd",
+			"sounds/kuro/chloe_move_5.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.654127
 	}
-	venomancer_venm_move_11 = 
+
+	naga_siren_naga_move_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_move_03.vsnd",
+			"sounds/kuro/chloe_move_6.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.575760
 	}
-	venomancer_venm_move_12 = 
+
+	naga_siren_naga_move_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_move_04.vsnd",
+			"sounds/kuro/chloe_move_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.732494
 	}
-	venomancer_venm_move_13 = 
+
+	naga_siren_naga_move_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_move_05.vsnd",
+			"sounds/kuro/chloe_move_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.585714
 	}
-	venomancer_venm_move_14 = 
+
+	naga_siren_naga_move_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_move_06.vsnd",
+			"sounds/kuro/chloe_move_3.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.070612
 	}
-	venomancer_venm_move_15 = 
+
+	naga_siren_naga_move_10 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_move_07.vsnd",
+			"sounds/kuro/chloe_move_4.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.197869
 	}
-	venomancer_venm_move_16 = 
+
+	naga_siren_naga_move_11 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_move_08.vsnd",
+			"sounds/kuro/chloe_move_5.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.270816
 	}
-	venomancer_venm_move_17 = 
+
+	naga_siren_naga_move_12 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_move_01.vsnd",
+			"sounds/kuro/chloe_move_6.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.810862
 	}
-	venomancer_venm_attack_01 = 
+
+	naga_siren_naga_move_13 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_attack_01.vsnd",
+			"sounds/kuro/chloe_move_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.665555
 	}
-	venomancer_venm_attack_02 = 
+
+	naga_siren_naga_move_14 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_attack_02.vsnd",
+			"sounds/kuro/chloe_move_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.762132
 	}
-	venomancer_venm_attack_03 = 
+
+	naga_siren_naga_move_15 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_attack_03.vsnd",
+			"sounds/kuro/chloe_move_3.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.016191
 	}
-	venomancer_venm_attack_04 = 
+
+	naga_siren_naga_move_16 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_attack_04.vsnd",
+			"sounds/kuro/chloe_move_4.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.635102
 	}
-	venomancer_venm_attack_05 = 
+
+	naga_siren_naga_attack_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_attack_05.vsnd",
+			"sounds/kuro/chloe_attack_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.672902
 	}
-	venomancer_venm_attack_06 = 
+
+	naga_siren_naga_attack_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_attack_06.vsnd",
+			"sounds/kuro/chloe_attack_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.056508
 	}
-	venomancer_venm_attack_07 = 
+
+	naga_siren_naga_attack_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_attack_07.vsnd",
+			"sounds/kuro/chloe_attack_3.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.019841
 	}
-	venomancer_venm_attack_08 = 
+
+	naga_siren_naga_attack_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_attack_01.vsnd",
+			"sounds/kuro/chloe_attack_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.665555
 	}
-	venomancer_venm_attack_09 = 
+
+	naga_siren_naga_attack_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_attack_02.vsnd",
+			"sounds/kuro/chloe_attack_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.762132
 	}
-	venomancer_venm_attack_10 = 
+
+	naga_siren_naga_attack_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_attack_03.vsnd",
+			"sounds/kuro/chloe_attack_3.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.016191
 	}
-	venomancer_venm_attack_11 = 
+
+	naga_siren_naga_attack_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_attack_04.vsnd",
+			"sounds/kuro/chloe_attack_1.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.635102
 	}
-	venomancer_venm_cast_01 = 
+
+	naga_siren_naga_attack_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_cast_01.vsnd",
+			"sounds/kuro/chloe_attack_2.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.019841
 	}
-	venomancer_venm_cast_02 = 
+
+	naga_siren_naga_attack_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_cast_02.vsnd",
+			"sounds/kuro/chloe_attack_3.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.236621
 	}
-	venomancer_venm_ability_ward_01 = 
+
+	naga_siren_naga_attack_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_attack_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_attack_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_attack_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_attack_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_attack_3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_attack_14 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_attack_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_attack_15 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_attack_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_cast_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_attack_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_cast_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_attack_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_cast_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_attack_3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_cast_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_attack_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_ensnare_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/naga_siren/naga_ensnare_01.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_ensnare_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/naga_siren/naga_ensnare_02.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_ensnare_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/naga_siren/naga_ensnare_03.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_ensnare_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/naga_siren/naga_ensnare_04.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_ensnare_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/naga_siren/naga_ensnare_05.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_ensnare_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/naga_siren/naga_ensnare_06.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_mirrorimage_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/naga_siren/naga_mirrorimage_01.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_mirrorimage_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/naga_siren/naga_mirrorimage_02.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_mirrorimage_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/naga_siren/naga_mirrorimage_03.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_songofthesiren_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/naga_siren/naga_songofthesiren_01.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_songofthesiren_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/naga_siren/naga_songofthesiren_02.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_songofthesiren_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/naga_siren/naga_songofthesiren_03.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_songofthesiren_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/naga_siren/naga_songofthesiren_04.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_songofthesiren_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/naga_siren/naga_songofthesiren_05.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_songofthesiren_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/naga_siren/naga_songofthesiren_06.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_songofthesiren_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/naga_siren/naga_songofthesiren_07.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_songofthesiren_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/naga_siren/naga_songofthesiren_08.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_songofthesiren_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/naga_siren/naga_songofthesiren_09.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_songofthesiren_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/naga_siren/naga_songofthesiren_10.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_failure_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -383,9 +691,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	venomancer_venm_ability_ward_02 = 
+
+	naga_siren_naga_failure_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -394,9 +702,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	venomancer_venm_ability_ward_03 = 
+
+	naga_siren_naga_failure_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -405,9 +713,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	venomancer_venm_ability_ward_04 = 
+
+	naga_siren_naga_failure_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -416,9 +724,570 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	venomancer_venm_ability_ward_05 = 
+
+	naga_siren_naga_levelup_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_level_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_levelup_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_level_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_levelup_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_level_3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_levelup_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_level_4.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_levelup_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_level_5.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_levelup_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_level_6.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_levelup_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_level_7.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_levelup_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_level_8.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_levelup_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_level_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_kill_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_kill_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_kill_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_kill_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_kill_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_kill_3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_kill_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_kill_4.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_kill_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_kill_5.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_kill_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_kill_6.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_kill_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_kill_7.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_kill_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_kill_8.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_kill_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_kill_9.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_kill_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_kill_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_kill_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_kill_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_kill_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_kill_3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_rival_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_kill_4.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_rival_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_kill_5.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_rival_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_kill_6.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_rival_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_kill_7.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_rival_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_kill_8.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_rival_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_kill_9.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_rival_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_kill_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_rival_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_kill_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_rival_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_kill_3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_rival_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_kill_4.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_rival_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_kill_5.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_rival_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_kill_6.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_rival_13 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_kill_7.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_rival_14 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_kill_8.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_rival_15 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_kill_9.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_rival_16 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_kill_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_rival_17 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_kill_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_rival_18 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_kill_3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_rival_19 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_kill_4.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_rival_20 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_kill_5.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_rival_21 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_kill_6.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_rival_22 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_kill_7.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_rival_23 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_kill_8.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_rival_24 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_kill_9.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_rival_25 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_kill_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_rival_26 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_kill_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_rival_27 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_kill_3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_rival_28 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_kill_4.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_rival_29 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_kill_5.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_rival_30 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_kill_6.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_ally_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -427,9 +1296,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	venomancer_venm_ability_ward_06 = 
+
+	naga_siren_naga_ally_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -438,9 +1307,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	venomancer_venm_ability_nova_01 = 
+
+	naga_siren_naga_ally_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -449,9 +1318,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	venomancer_venm_ability_nova_02 = 
+
+	naga_siren_naga_ally_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -460,9 +1329,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	venomancer_venm_ability_nova_03 = 
+
+	naga_siren_naga_ally_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -471,9 +1340,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	venomancer_venm_ability_nova_04 = 
+
+	naga_siren_naga_ally_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -482,9 +1351,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	venomancer_venm_ability_nova_05 = 
+
+	naga_siren_naga_ally_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -493,9 +1362,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	venomancer_venm_ability_nova_06 = 
+
+	naga_siren_naga_ally_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -504,9 +1373,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	venomancer_venm_ability_nova_07 = 
+
+	naga_siren_naga_ally_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -515,9 +1384,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	venomancer_venm_ability_nova_08 = 
+
+	naga_siren_naga_ally_10 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -526,9 +1395,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	venomancer_venm_ability_nova_09 = 
+
+	naga_siren_naga_lasthit_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -537,9 +1406,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	venomancer_venm_ability_nova_10 = 
+
+	naga_siren_naga_lasthit_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -548,9 +1417,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	venomancer_venm_ability_nova_11 = 
+
+	naga_siren_naga_lasthit_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -559,9 +1428,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	venomancer_venm_ability_nova_12 = 
+
+	naga_siren_naga_lasthit_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -570,9 +1439,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	venomancer_venm_ability_nova_13 = 
+
+	naga_siren_naga_lasthit_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -581,9 +1450,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	venomancer_venm_ability_nova_14 = 
+
+	naga_siren_naga_lasthit_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -592,9 +1461,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	venomancer_venm_ability_nova_15 = 
+
+	naga_siren_naga_lasthit_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -603,9 +1472,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	venomancer_venm_ability_nova_16 = 
+
+	naga_siren_naga_lasthit_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -614,9 +1483,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	venomancer_venm_ability_nova_17 = 
+
+	naga_siren_naga_lasthit_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -625,9 +1494,196 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	venomancer_venm_ability_nova_18 = 
+
+	naga_siren_naga_death_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_death_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_death_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_death_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_death_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_death_3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_death_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_death_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_death_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_death_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_death_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_death_3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_death_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_death_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_death_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_death_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_death_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_death_3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_death_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_death_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_death_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_death_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_death_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_death_3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_death_13 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_death_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_death_14 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_death_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_death_15 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_death_3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_death_16 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_death_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_death_17 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_death_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_fastres_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -636,9 +1692,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	venomancer_venm_ability_nova_19 = 
+
+	naga_siren_naga_respawn_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -647,9 +1703,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	venomancer_venm_ability_nova_20 = 
+
+	naga_siren_naga_respawn_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -658,9 +1714,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	venomancer_venm_ability_nova_21 = 
+
+	naga_siren_naga_respawn_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -669,792 +1725,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	venomancer_venm_ability_fail_01 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_ability_fail_01.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-	}
-	venomancer_venm_ability_fail_02 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_ability_fail_02.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-	}
-	venomancer_venm_ability_fail_03 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_ability_fail_03.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-	}
-	venomancer_venm_ability_fail_04 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_ability_fail_04.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-	}
-	venomancer_venm_ability_fail_05 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_ability_fail_05.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-	}
-	venomancer_venm_ability_fail_06 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_ability_fail_06.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-	}
-	venomancer_venm_ability_fail_07 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_ability_fail_07.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-	}
-	venomancer_venm_ability_fail_08 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_ability_fail_08.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-	}
-	venomancer_venm_level_01 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_level_01.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 3.605964
-	}
-	venomancer_venm_level_02 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_level_02.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 2.494263
-	}
-	venomancer_venm_level_03 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_level_03.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 3.530000
-	}
-	venomancer_venm_level_04 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_level_04.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 3.625964
-	}
-	venomancer_venm_level_05 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_level_05.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 2.078118
-	}
-	venomancer_venm_level_06 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_level_06.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 4.426123
-	}
-	venomancer_venm_level_07 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_level_07.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 7.184739
-	}
-	venomancer_venm_level_08 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_level_08.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 3.919433
-	}
-	venomancer_venm_level_09 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_level_01.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 3.605964
-	}
-	venomancer_venm_level_10 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_level_02.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 2.494263
-	}
-	venomancer_venm_level_11 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_level_03.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 3.530000
-	}
-	venomancer_venm_kill_01 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_kill_01.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 1.455941
-	}
-	venomancer_venm_kill_02 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_kill_02.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 2.678617
-	}
-	venomancer_venm_kill_03 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_kill_03.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 2.710975
-	}
-	venomancer_venm_kill_04 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_kill_04.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 2.639433
-	}
-	venomancer_venm_kill_05 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_kill_05.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 4.191179
-	}
-	venomancer_venm_kill_06 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_kill_06.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 4.768821
-	}
-	venomancer_venm_kill_07 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_kill_07.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 2.307052
-	}
-	venomancer_venm_kill_08 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_kill_08.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 2.270816
-	}
-	venomancer_venm_kill_09 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_kill_09.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 1.056508
-	}
-	venomancer_venm_kill_10 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_kill_01.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 1.455941
-	}
-	venomancer_venm_kill_11 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_kill_02.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 2.678617
-	}
-	venomancer_venm_kill_12 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_kill_03.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 2.710975
-	}
-	venomancer_venm_kill_13 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_kill_04.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 2.639433
-	}
-	venomancer_venm_kill_14 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_kill_05.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 4.191179
-	}
-	venomancer_venm_kill_15 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_kill_06.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 4.768821
-	}
-	venomancer_venm_kill_16 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_kill_07.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 2.307052
-	}
-	venomancer_venm_rival_01 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_kill_01.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 1.455941
-	}
-	venomancer_venm_rival_02 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_kill_01.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 1.455941
-	}
-	venomancer_venm_rosh_01 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_rosh_01.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-	}
-	venomancer_venm_rosh_02 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_rosh_02.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-	}
-	venomancer_venm_rosh_03 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_rosh_03.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-	}
-	venomancer_venm_rosh_04 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_rosh_04.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-	}
-	venomancer_venm_rosh_05 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_rosh_05.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-	}
-	venomancer_venm_rosh_06 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_rosh_06.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-	}
-	venomancer_venm_lasthit_01 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_lasthit_01.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-	}
-	venomancer_venm_lasthit_02 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_lasthit_02.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-	}
-	venomancer_venm_lasthit_03 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_lasthit_01.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-	}
-	venomancer_venm_lasthit_04 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_lasthit_02.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-	}
-	venomancer_venm_lasthit_05 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_lasthit_01.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-	}
-	venomancer_venm_lasthit_06 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_lasthit_02.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-	}
-	venomancer_venm_death_01 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_death_01.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 1.222993
-	}
-	venomancer_venm_death_02 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_death_02.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 2.041565
-	}
-	venomancer_venm_death_03 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_death_03.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 2.041565
-	}
-	venomancer_venm_death_04 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_death_04.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 0.879093
-	}
-	venomancer_venm_death_05 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_death_05.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 2.398526
-	}
-	venomancer_venm_death_06 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_death_01.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 1.222993
-	}
-	venomancer_venm_death_07 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_death_02.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 2.041565
-	}
-	venomancer_venm_death_08 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_death_03.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 2.041565
-	}
-	venomancer_venm_death_09 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_death_04.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 0.879093
-	}
-	venomancer_venm_death_10 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_death_05.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 2.398526
-	}
-	venomancer_venm_death_11 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_death_01.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 1.222993
-	}
-	venomancer_venm_respawn_01 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_respawn_01.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 10.242131
-	}
-	venomancer_venm_respawn_02 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_respawn_01.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 10.242131
-	}
-	venomancer_venm_respawn_03 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_respawn_01.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 10.242131
-	}
-	venomancer_venm_respawn_04 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_respawn_01.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 10.242131
-	}
-	venomancer_venm_respawn_05 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_respawn_01.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 10.242131
-	}
-	venomancer_venm_respawn_06 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_respawn_01.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 10.242131
-	}
-	venomancer_venm_respawn_07 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_respawn_01.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 10.242131
-	}
-	venomancer_venm_respawn_08 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_respawn_01.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 10.242131
-	}
-	venomancer_venm_respawn_09 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_respawn_01.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 10.242131
-	}
-	venomancer_venm_rare_01 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_rare_01.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 5.440726
-	}
-	venomancer_venm_rare_02 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_rare_02.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 5.545216
-	}
-	venomancer_venm_rare_03 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_rare_03.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 9.286530
-	}
-	venomancer_venm_rare_04 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_rare_04.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 7.501497
-	}
-	venomancer_venm_purch_01 = 
+
+	naga_siren_naga_respawn_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -1463,9 +1736,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	venomancer_venm_purch_02 = 
+
+	naga_siren_naga_respawn_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -1474,9 +1747,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	venomancer_venm_purch_03 = 
+
+	naga_siren_naga_respawn_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -1485,9 +1758,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	venomancer_venm_blink_01 = 
+
+	naga_siren_naga_respawn_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -1496,9 +1769,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	venomancer_venm_blink_02 = 
+
+	naga_siren_naga_respawn_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -1507,9 +1780,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	venomancer_venm_scepter_01 = 
+
+	naga_siren_naga_respawn_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -1518,9 +1791,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	venomancer_venm_scepter_02 = 
+
+	naga_siren_naga_respawn_10 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -1529,9 +1802,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	venomancer_venm_blade_01 = 
+
+	naga_siren_naga_respawn_11 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -1540,9 +1813,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	venomancer_venm_blade_02 = 
+
+	naga_siren_naga_respawn_12 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -1551,9 +1824,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	venomancer_venm_blade_03 = 
+
+	naga_siren_naga_respawn_13 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -1562,9 +1835,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	venomancer_venm_bottle_01 = 
+
+	naga_siren_naga_rare_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -1573,9 +1846,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	venomancer_venm_bottle_02 = 
+
+	naga_siren_naga_rare_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -1584,9 +1857,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	venomancer_venm_bottle_03 = 
+
+	naga_siren_naga_rare_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -1595,315 +1868,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	venomancer_venm_deny_01 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_deny_01.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 1.186848
-	}
-	venomancer_venm_deny_02 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_deny_01.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 1.186848
-	}
-	venomancer_venm_deny_03 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_deny_01.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 1.186848
-	}
-	venomancer_venm_deny_04 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_deny_01.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 1.186848
-	}
-	venomancer_venm_deny_05 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_deny_01.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 1.186848
-	}
-	venomancer_venm_deny_06 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_deny_01.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 1.186848
-	}
-	venomancer_venm_deny_07 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_deny_01.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 1.186848
-	}
-	venomancer_venm_deny_08 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_deny_01.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 1.186848
-	}
-	venomancer_venm_deny_09 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_deny_01.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 1.186848
-	}
-	venomancer_venm_deny_10 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_deny_01.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 1.186848
-	}
-	venomancer_venm_deny_11 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_deny_01.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 1.186848
-	}
-	venomancer_venm_deny_12 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_deny_01.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 1.186848
-	}
-	venomancer_venm_deny_13 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_deny_01.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 1.186848
-	}
-	venomancer_venm_deny_14 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_deny_01.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 1.186848
-	}
-	venomancer_venm_deny_15 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_deny_01.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 1.186848
-	}
-	venomancer_venm_deny_16 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_deny_01.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 1.186848
-	}
-	venomancer_venm_deny_17 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_deny_01.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 1.186848
-	}
-	venomancer_venm_deny_18 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_deny_01.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 1.186848
-	}
-	venomancer_venm_deny_19 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_deny_01.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 1.186848
-	}
-	venomancer_venm_lose_01 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_death_01.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 1.222993
-	}
-	venomancer_venm_lose_02 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_death_01.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 1.222993
-	}
-	venomancer_venm_lose_03 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_death_01.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 1.222993
-	}
-	venomancer_venm_win_01 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_kill_03.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 2.710975
-	}
-	venomancer_venm_win_02 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_kill_02.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 2.678617
-	}
-	venomancer_venm_win_03 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_kill_01.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 1.455941
-	}
-	venomancer_venm_win_04 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_kill_04.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-		vsnd_duration = 2.639433
-	}
-	venomancer_venm_immort_01 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_immort_01.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-	}
-	venomancer_venm_immort_02 = 
-	{
-		type = "dota_update_vo_switch"
-		vsnd_files = 
-		[
-			"sounds/vo/anime_hero_leonidas/leonidas_immort_01.vsnd",
-		]
-		volume = "1.000000"
-		pitch = "1.000000"
-	}
-	venomancer_venm_haste_01 = 
+
+	naga_siren_naga_rare_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -1912,9 +1879,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	venomancer_venm_haste_02 = 
+
+	naga_siren_naga_rare_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -1923,9 +1890,229 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	venomancer_venm_doubdam_01 = 
+
+	naga_siren_naga_purch_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/naga_siren/naga_purch_01.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_purch_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/naga_siren/naga_purch_02.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_purch_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/naga_siren/naga_purch_03.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_scepter_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/naga_siren/naga_scepter_01.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_scepter_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/naga_siren/naga_scepter_02.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_scepter_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/naga_siren/naga_scepter_03.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_blink_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/naga_siren/naga_blink_01.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_blink_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/naga_siren/naga_blink_02.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_items_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/naga_siren/naga_items_01.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_items_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/naga_siren/naga_items_02.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_items_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/naga_siren/naga_items_03.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_items_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/naga_siren/naga_items_04.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_items_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/naga_siren/naga_items_05.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_items_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/naga_siren/naga_items_06.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_items_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/naga_siren/naga_items_07.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_items_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/naga_siren/naga_items_08.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_items_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/naga_siren/naga_items_09.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_bottle_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/naga_siren/naga_bottle_01.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_bottle_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/naga_siren/naga_bottle_02.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_bottle_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/naga_siren/naga_bottle_03.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_deny_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -1934,9 +2121,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	venomancer_venm_doubdam_02 = 
+
+	naga_siren_naga_deny_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -1945,9 +2132,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	venomancer_venm_regen_01 = 
+
+	naga_siren_naga_deny_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -1956,9 +2143,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	venomancer_venm_regen_02 = 
+
+	naga_siren_naga_deny_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -1967,9 +2154,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	venomancer_venm_illus_01 = 
+
+	naga_siren_naga_deny_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -1978,9 +2165,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	venomancer_venm_illus_02 = 
+
+	naga_siren_naga_deny_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -1989,9 +2176,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	venomancer_venm_invis_01 = 
+
+	naga_siren_naga_deny_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -2000,9 +2187,9 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	venomancer_venm_invis_02 = 
+
+	naga_siren_naga_deny_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
@@ -2011,598 +2198,1030 @@
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.100045
 	}
-	venomancer_venm_notyet_01 = 
+
+	naga_siren_naga_deny_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_notyet_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.198685
 	}
-	venomancer_venm_notyet_02 = 
+
+	naga_siren_naga_deny_10 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_notyet_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.198685
 	}
-	venomancer_venm_notyet_03 = 
+
+	naga_siren_naga_deny_11 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_notyet_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.198685
 	}
-	venomancer_venm_notyet_04 = 
+
+	naga_siren_naga_deny_12 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_notyet_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.493991
 	}
-	venomancer_venm_notyet_05 = 
+
+	naga_siren_naga_deny_13 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_notyet_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.493991
 	}
-	venomancer_venm_notyet_06 = 
+
+	naga_siren_naga_deny_14 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_notyet_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.493991
 	}
-	venomancer_venm_notyet_07 = 
+
+	naga_siren_naga_lanemissing_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_notyet_03.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.307188
 	}
-	venomancer_venm_notyet_08 = 
+
+	naga_siren_naga_lanemissing_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_notyet_03.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.307188
 	}
-	venomancer_venm_notyet_09 = 
+
+	naga_siren_naga_lanemissing_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_notyet_03.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.307188
 	}
-	venomancer_venm_nomana_01 = 
+
+	naga_siren_naga_immort_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_nomana_01.vsnd",
+			"sounds/vo/naga_siren/naga_immort_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.292132
 	}
-	venomancer_venm_nomana_02 = 
+
+	naga_siren_naga_immort_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_nomana_01.vsnd",
+			"sounds/vo/naga_siren/naga_immort_02.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.292132
 	}
-	venomancer_venm_nomana_03 = 
+
+	naga_siren_naga_haste_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_nomana_01.vsnd",
+			"sounds/vo/naga_siren/naga_haste_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.292132
 	}
-	venomancer_venm_nomana_04 = 
+
+	naga_siren_naga_haste_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_notyet_02.vsnd",
+			"sounds/vo/naga_siren/naga_haste_02.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.493991
 	}
-	venomancer_venm_nomana_05 = 
+
+	naga_siren_naga_doubdam_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_notyet_02.vsnd",
+			"sounds/vo/naga_siren/naga_doubdam_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.493991
 	}
-	venomancer_venm_nomana_06 = 
+
+	naga_siren_naga_doubdam_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_notyet_02.vsnd",
+			"sounds/vo/naga_siren/naga_doubdam_02.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.493991
 	}
-	venomancer_venm_nomana_07 = 
+
+	naga_siren_naga_regen_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_notyet_03.vsnd",
+			"sounds/vo/naga_siren/naga_regen_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.307188
 	}
-	venomancer_venm_nomana_08 = 
+
+	naga_siren_naga_regen_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_notyet_03.vsnd",
+			"sounds/vo/naga_siren/naga_regen_02.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.307188
 	}
-	venomancer_venm_nomana_09 = 
+
+	naga_siren_naga_illus_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_notyet_03.vsnd",
+			"sounds/vo/naga_siren/naga_illus_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.307188
 	}
-	venomancer_venm_thanks_01 = 
+
+	naga_siren_naga_illus_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_thanks_01.vsnd",
+			"sounds/vo/naga_siren/naga_illus_02.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.159660
 	}
-	venomancer_venm_thanks_02 = 
+
+	naga_siren_naga_invis_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_thanks_01.vsnd",
+			"sounds/vo/naga_siren/naga_invis_01.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.159660
 	}
-	venomancer_venm_firstblood_01 = 
+
+	naga_siren_naga_invis_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_kill_07.vsnd",
+			"sounds/vo/naga_siren/naga_invis_02.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.307052
 	}
-	venomancer_venm_firstblood_02 = 
+
+	naga_siren_naga_notyet_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_kill_09.vsnd",
+			"sounds/kuro/chloe_not_yet.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.056508
 	}
-	venomancer_venm_firstblood_03 = 
+
+	naga_siren_naga_notyet_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_kill_02.vsnd",
+			"sounds/kuro/chloe_not_yet.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 2.678617
 	}
-	venomancer_venm_underattack_01 = 
+
+	naga_siren_naga_notyet_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_underattack_01.vsnd",
+			"sounds/kuro/chloe_not_yet.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.594535
 	}
-	venomancer_venm_underattack_02 = 
+
+	naga_siren_naga_notyet_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_underattack_01.vsnd",
+			"sounds/kuro/chloe_not_yet.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.594535
 	}
-	venomancer_venm_inthebag_01 = 
+
+	naga_siren_naga_notyet_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_inthebag_01.vsnd",
+			"sounds/kuro/chloe_not_yet.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	venomancer_venm_shitwiz_01 = 
+
+	naga_siren_naga_notyet_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_shitwiz_01.vsnd",
+			"sounds/kuro/chloe_not_yet.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	venomancer_venm_crumwiz_01 = 
+
+	naga_siren_naga_notyet_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_crumwiz_01.vsnd",
+			"sounds/kuro/chloe_not_yet.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	venomancer_venm_pain_01 = 
+
+	naga_siren_naga_notyet_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_pain_01.vsnd",
+			"sounds/kuro/chloe_not_yet.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.672902
 	}
-	venomancer_venm_pain_02 = 
+
+	naga_siren_naga_notyet_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_pain_02.vsnd",
+			"sounds/kuro/chloe_not_yet.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.863107
 	}
-	venomancer_venm_pain_03 = 
+
+	naga_siren_naga_nomana_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_pain_01.vsnd",
+			"sounds/kuro/chloe_not_yet.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.672902
 	}
-	venomancer_venm_pain_04 = 
+
+	naga_siren_naga_nomana_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_pain_02.vsnd",
+			"sounds/kuro/chloe_not_yet.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 0.863107
 	}
-	venomancer_venm_pain_05 = 
+
+	naga_siren_naga_nomana_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_pain_01.vsnd",
+			"sounds/kuro/chloe_not_yet.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.672902
 	}
-	venomancer_venm_anger_01 = 
+
+	naga_siren_naga_nomana_04 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_anger_01.vsnd",
+			"sounds/kuro/chloe_not_yet.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	venomancer_venm_anger_02 = 
+
+	naga_siren_naga_nomana_05 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_anger_02.vsnd",
+			"sounds/kuro/chloe_not_yet.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	venomancer_venm_anger_03 = 
+
+	naga_siren_naga_nomana_06 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_anger_03.vsnd",
+			"sounds/kuro/chloe_not_yet.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	venomancer_venm_anger_04 = 
+
+	naga_siren_naga_nomana_07 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_anger_04.vsnd",
+			"sounds/kuro/chloe_not_yet.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	venomancer_venm_anger_05 = 
+
+	naga_siren_naga_nomana_08 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_anger_05.vsnd",
+			"sounds/kuro/chloe_not_yet.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	venomancer_venm_anger_06 = 
+
+	naga_siren_naga_nomana_09 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_anger_06.vsnd",
+			"sounds/kuro/chloe_not_yet.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	venomancer_venm_happy_01 = 
+
+	naga_siren_naga_thanks_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_happy_01.vsnd",
+			"sounds/kuro/chloe_thanks.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	venomancer_venm_happy_02 = 
+
+	naga_siren_naga_thanks_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_happy_02.vsnd",
+			"sounds/kuro/chloe_thanks.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	venomancer_venm_happy_03 = 
+
+	naga_siren_naga_underattack_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_happy_03.vsnd",
+			"sounds/kuro/chloe_hurt.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	venomancer_venm_happy_04 = 
+
+	naga_siren_naga_underattack_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_happy_04.vsnd",
+			"sounds/kuro/chloe_hurt.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
 	}
-	venomancer_venm_laugh_01 = 
+
+	naga_siren_naga_inthebag_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_laugh_01.vsnd",
+			"sounds/kuro/chloe_hurt.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.098209
 	}
-	venomancer_venm_laugh_02 = 
+
+	naga_siren_naga_crumwiz_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_laugh_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 4.697687
 	}
-	venomancer_venm_laugh_03 = 
+
+	naga_siren_naga_shiwiz_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_laugh_03.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.914014
 	}
-	venomancer_venm_laugh_04 = 
+
+	naga_siren_naga_lose_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_laugh_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.098209
 	}
-	venomancer_venm_laugh_05 = 
+
+	naga_siren_naga_lose_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_laugh_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 4.697687
 	}
-	venomancer_venm_laugh_06 = 
+
+	naga_siren_naga_lose_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_laugh_03.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.914014
 	}
-	venomancer_venm_laugh_07 = 
+
+	naga_siren_naga_win_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_laugh_01.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.098209
 	}
-	venomancer_venm_laugh_08 = 
+
+	naga_siren_naga_win_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_laugh_02.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 4.697687
 	}
-	venomancer_venm_laugh_09 = 
+
+	naga_siren_naga_win_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_laugh_03.vsnd",
+			"sounds/null.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.914014
 	}
-	venomancer_venm_laugh_10 = 
+
+	naga_siren_naga_pain_01 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_laugh_01.vsnd",
+			"sounds/kuro/chloe_hurt.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 1.098209
 	}
-	venomancer_venm_laugh_11 = 
+
+	naga_siren_naga_pain_02 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_laugh_02.vsnd",
+			"sounds/kuro/chloe_hurt.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 4.697687
 	}
-	venomancer_venm_laugh_12 = 
+
+	naga_siren_naga_pain_03 = 
 	{
 		type = "dota_update_vo_switch"
 		vsnd_files = 
 		[
-			"sounds/vo/anime_hero_leonidas/leonidas_laugh_03.vsnd",
+			"sounds/kuro/chloe_hurt.vsnd",
 		]
 		volume = "1.000000"
 		pitch = "1.000000"
-		vsnd_duration = 3.914014
 	}
+
+	naga_siren_naga_pain_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_hurt.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_pain_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_hurt.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_pain_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_hurt.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_pain_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_hurt.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_pain_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_hurt.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_pain_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_hurt.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_pain_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_hurt.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_pain_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_hurt.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_pain_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_hurt.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_pain_13 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_hurt.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_anger_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_anger_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_anger_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_anger_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_anger_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_anger_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_anger_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_anger_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_anger_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_anger_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_anger_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_anger_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_anger_13 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_anger_14 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_happy_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_happy_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_happy_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_happy_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_happy_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_happy_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_laugh_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_laugh.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_laugh_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_laugh.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_laugh_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_laugh.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_laugh_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_laugh.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_itemcommon_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/naga_siren/naga_itemcommon_01.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_itemmoderate_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/naga_siren/naga_itemmoderate_02.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_itemrare_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/naga_siren/naga_itemrare_01.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	naga_siren_naga_itemrare_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/naga_siren/naga_itemrare_02.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+
 }
