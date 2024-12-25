@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc32:version{c5dcef98-b629-46ab-88e3-a17c005c935e} -->
-=======
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc33:version{bed0390a-a564-41a6-9dc3-c9a293c8eea3} -->
->>>>>>> Stashed changes
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc38:version{81520c21-94aa-45fa-a458-34731c145969} -->
 {
 	rootNode = 
 	{
@@ -714,7 +710,7 @@
 					{
 						_class = "AnimFile"
 						name = "spell_swim1"
-						activity_name = ""
+						activity_name = "ACT_DOTA_CAST_ABILITY_2"
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -736,7 +732,7 @@
 					{
 						_class = "AnimFile"
 						name = "spell_swim_2"
-						activity_name = ""
+						activity_name = "ACT_DOTA_CAST_ABILITY_2_END"
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -846,7 +842,7 @@
 					{
 						_class = "AnimFile"
 						name = "beam_powerful"
-						activity_name = ""
+						activity_name = "ACT_SCRIPT_CUSTOM_11"
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -861,14 +857,14 @@
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
 						import_bone_scales = false
 						start_frame = 462
-						end_frame = 500
+						end_frame = 483
 						framerate = -1.0
 						reverse = false
 					},
 					{
 						_class = "AnimFile"
 						name = "beam_poweful2"
-						activity_name = ""
+						activity_name = "ACT_SCRIPT_CUSTOM_12"
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -883,14 +879,29 @@
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
 						import_bone_scales = false
 						start_frame = 501
-						end_frame = 537
+						end_frame = 522
 						framerate = -1.0
 						reverse = false
 					},
 					{
 						_class = "AnimFile"
 						name = "beam_powerful3"
-						activity_name = ""
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = false
+								extract_ty = false
+								extract_tz = true
+								extract_rz = false
+								linear = false
+								quadratic = false
+								extract_initial_offset = false
+								root_bone_name = ""
+								motion_type = "Uniform"
+							},
+						]
+						activity_name = "ACT_SCRIPT_CUSTOM_13"
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -905,14 +916,34 @@
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
 						import_bone_scales = false
 						start_frame = 538
-						end_frame = 591
+						end_frame = 574
 						framerate = -1.0
 						reverse = false
 					},
 					{
 						_class = "AnimFile"
 						name = "beam_powerful4"
-						activity_name = ""
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = false
+								extract_ty = false
+								extract_tz = true
+								extract_rz = false
+								linear = false
+								quadratic = false
+								extract_initial_offset = false
+								root_bone_name = ""
+								motion_type = "Uniform"
+							},
+							{
+								_class = "AnimOffset"
+								translation = [ 0.0, 0.0, -600.0 ]
+								rotation_xyz = [ 0.0, 0.0, 0.0 ]
+							},
+						]
+						activity_name = "ACT_SCRIPT_CUSTOM_14"
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -956,7 +987,7 @@
 					{
 						_class = "AnimFile"
 						name = "beamu2"
-						activity_name = ""
+						activity_name = "ACT_SCRIPT_CUSTOM_8"
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -978,7 +1009,8 @@
 					{
 						_class = "AnimFile"
 						name = "beamu3"
-						activity_name = ""
+						note = "718 true end"
+						activity_name = "ACT_SCRIPT_CUSTOM_9"
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -993,14 +1025,14 @@
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
 						import_bone_scales = false
 						start_frame = 659
-						end_frame = 718
+						end_frame = 689
 						framerate = -1.0
 						reverse = false
 					},
 					{
 						_class = "AnimFile"
 						name = "pepega"
-						activity_name = ""
+						activity_name = "ACT_SCRIPT_CUSTOM_4"
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -1022,7 +1054,7 @@
 					{
 						_class = "AnimFile"
 						name = "beam"
-						activity_name = ""
+						activity_name = "ACT_SCRIPT_CUSTOM_10"
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -1220,7 +1252,7 @@
 					{
 						_class = "AnimFile"
 						name = "aoko_punch1"
-						activity_name = "ACT_DOTA_CAST_ABILITY_2"
+						activity_name = "0"
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -1236,11 +1268,7 @@
 						import_bone_scales = false
 						start_frame = 165
 						end_frame = 170
-<<<<<<< Updated upstream
 						framerate = 5.0
-=======
-						framerate = -1.0
->>>>>>> Stashed changes
 						reverse = false
 					},
 					{
@@ -1265,6 +1293,50 @@
 						framerate = -1.0
 						reverse = false
 					},
+					{
+						_class = "AnimFile"
+						name = "spell_swim1_copy"
+						activity_name = "ACT_SCRIPT_CUSTOM_7"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
+						import_bone_scales = false
+						start_frame = 269
+						end_frame = 287
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "uppercut_copy"
+						activity_name = "ACT_SCRIPT_CUSTOM_15"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.fbx"
+						import_bone_scales = false
+						start_frame = 389
+						end_frame = 406
+						framerate = -1.0
+						reverse = false
+					},
 				]
 				default_root_bone_name = ""
 			},
@@ -1272,5 +1344,6 @@
 		model_archetype = ""
 		primary_associated_entity = ""
 		anim_graph_name = ""
+		document_sub_type = "ModelDocSubType_None"
 	}
 }

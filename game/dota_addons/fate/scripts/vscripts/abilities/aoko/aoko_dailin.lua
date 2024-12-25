@@ -67,6 +67,8 @@ function aoko_dailin:Effects(target)
 	--ParticleManager:SetParticleControl( groundFx, 0, caster:GetForwardVector())
 	ParticleManager:SetParticleControl( groundFx, 5, target:GetAttachmentOrigin(target:ScriptLookupAttachment("attach_hitloc")))
 
+	--if true then return end
+
 	if not IsKnockbackImmune(target) then
 		local casterfacing = caster:GetForwardVector()
 		local pushTarget = Physics:Unit(target)
@@ -74,14 +76,14 @@ function aoko_dailin:Effects(target)
 		local initialUnitOrigin = target:GetAbsOrigin()
 		target:PreventDI()
 		target:SetPhysicsFriction(0)
-		target:SetPhysicsVelocity(casterfacing:Normalized() * 1000)
+		target:SetPhysicsVelocity(casterfacing:Normalized() * 200)
 		target:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
 		target:OnPhysicsFrame(function(unit) 
 			local unitOrigin = unit:GetAbsOrigin()
 			local diff = unitOrigin - initialUnitOrigin
 			local n_diff = diff:Normalized()
 			unit:SetPhysicsVelocity(unit:GetPhysicsVelocity():Length() * n_diff) 
-			if diff:Length() > 10 then
+			if diff:Length() > 5 then
 				unit:PreventDI(false)
 				unit:SetPhysicsVelocity(Vector(0,0,0))
 				unit:OnPhysicsFrame(nil)
@@ -106,14 +108,14 @@ function aoko_dailin:Effects(target)
 		initialUnitOrigin = caster:GetAbsOrigin()
 		caster:PreventDI()
 		caster:SetPhysicsFriction(0)
-		caster:SetPhysicsVelocity(casterfacing:Normalized() * 1000)
+		caster:SetPhysicsVelocity(casterfacing:Normalized() * 200)
 		caster:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
 		caster:OnPhysicsFrame(function(unit) 
 			local unitOrigin = unit:GetAbsOrigin()
 			local diff = unitOrigin - initialUnitOrigin
 			local n_diff = diff:Normalized()
 			unit:SetPhysicsVelocity(unit:GetPhysicsVelocity():Length() * n_diff) 
-			if diff:Length() > 10 then
+			if diff:Length() > 5 then
 				unit:PreventDI(false)
 				unit:SetPhysicsVelocity(Vector(0,0,0))
 				unit:OnPhysicsFrame(nil)

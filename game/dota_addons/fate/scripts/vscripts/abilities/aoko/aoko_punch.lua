@@ -1,10 +1,6 @@
 aoko_punch = class({})
 
-<<<<<<< Updated upstream
-function aoko_punch:OnChannelFinish(bInterrupted)
-=======
 function aoko_punch:OnSpellStart()
->>>>>>> Stashed changes
 	local caster = self:GetCaster()
 
 	StartAnimation(caster, {duration=0.20, activity=ACT_SCRIPT_CUSTOM_5, rate=1.0})

@@ -1,22 +1,22 @@
 aoko_swap = class({})
 
-local ying = {
-    "aoko_beam",
-    "aoko_punch",
-    "aoko_jumpback",
+local melee = {
+    "aoko_shield",
+    "aoko_facebreaker",
+    "aoko_short_beam",
     "aoko_swap",
-    "fate_empty1",
-    "aoko_dailin",
+    "aoko_circuits",
+    "aoko_intimidation",
     "attribute_bonus_custom"
 }
 
-local yang = {
-    "aoko_beam",
+local range = {
+    "aoko_jumpback",
     "aoko_sphere",
     "aoko_lazers",
     "aoko_swap",
-    "fate_empty1",
-    "aoko_dailin",
+    "aoko_circuits",
+    "aoko_3_beams",
     "attribute_bonus_custom"
 }
 
@@ -28,10 +28,10 @@ function aoko_swap:OnSpellStart()
     end
 
     if self.form == 1 then
-    	UpdateAbilityLayout(caster, yang)
+    	UpdateAbilityLayout(caster, range)
     	self.form = 2
     else
-    	UpdateAbilityLayout(caster, ying)
+    	UpdateAbilityLayout(caster, melee)
     	self.form = 1
     end
 end

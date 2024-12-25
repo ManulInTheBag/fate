@@ -119,6 +119,13 @@ function cmd_seal_2:OnSpellStart()
 			hero:FindAbilityByName("ryougi_knife_fan"):SetCurrentAbilityCharges(hero:FindAbilityByName("ryougi_knife_fan"):GetMaxAbilityCharges(-1))
 		end
 	end
+
+	if(hero:GetName() == "npc_dota_hero_ogre_magi"  ) then
+		if(hero:FindAbilityByName("aoko_sphere"):GetCurrentAbilityCharges() ~= hero:FindAbilityByName("aoko_sphere"):GetMaxAbilityCharges(-1)) then
+			
+			hero:FindAbilityByName("aoko_sphere"):SetCurrentAbilityCharges(hero:FindAbilityByName("aoko_sphere"):GetCurrentAbilityCharges() + 1)
+		end
+	end
  
 	if hero:GetName() == "npc_dota_hero_spirit_breaker" then
 		local modifier = hero:FindModifierByName("modifier_hijikata_laws")

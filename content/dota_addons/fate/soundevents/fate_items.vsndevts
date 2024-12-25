@@ -1,0 +1,80 @@
+"sex_scroll_precast"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/fate_items/gods_wrath_precast.vsnd"
+                        }
+                    }
+                    "soundlevel"
+                    {
+                        "value"        "81.00000"
+                    }
+                    "spread_radius"
+                    {
+                        "value"        "1500.000"
+                    }
+                    "volume"
+                    {
+                        "value"        "2.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"sex_scroll_impact"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/fate_items/gods_wrath_target.vsnd"
+                        }
+                    }
+                     "soundlevel"
+                    {
+                        "value"        "120.00000"
+                    }
+                    "spread_radius"
+                    {
+                        "value"        "1500.000"
+                    }
+                    "volume"
+                    {
+                        "value"        "1.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}

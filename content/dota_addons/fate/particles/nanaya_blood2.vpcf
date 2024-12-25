@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf57:version{4f75132e-4f5d-493c-958e-3bb4328089ba} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf61:version{39d3ce1d-9442-4407-9b78-8317145b1732} -->
 {
 	_class = "CParticleSystemDefinition"
 	m_nBehaviorVersion = 12
@@ -245,9 +245,6 @@
 				m_vRandomMax = [ 0.0, 0.0, 0.0 ]
 			}
 			m_bDisableOperator = true
-			m_transformInput = 
-			{
-			}
 		},
 		{
 			_class = "C_OP_SetSingleControlPointPosition"
@@ -484,9 +481,6 @@
 				m_vRandomMax = [ 0.0, 0.0, 0.0 ]
 			}
 			m_bDisableOperator = true
-			m_transformInput = 
-			{
-			}
 		},
 	]
 	m_Emitters = 
