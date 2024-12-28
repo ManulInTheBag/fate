@@ -22,7 +22,7 @@ function saber_alter_max_mana_burst:OnSpellStart(keys)
     giveUnitDataDrivenModifier(caster, caster, "pause_sealdisabled", 1)
 	StartAnimation(caster, {duration=1, activity=ACT_DOTA_CAST_ABILITY_1, rate=1.5})
 	EmitGlobalSound("saber_alter_other_04")
-	Timers:CreateTimer( 1.0, function()
+	Timers:CreateTimer( 1.3, function()
 		if caster:IsAlive() then 
 			local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 			EmitGlobalSound("Saber_Alter.MMB" ) 

@@ -33,7 +33,7 @@ if IsServer() then
 	    ParticleManager:SetParticleControlEnt(self.SwordParticle, 0, self:GetParent(), PATTACH_CUSTOMORIGIN_FOLLOW, "attach_arondight", self:GetParent():GetOrigin(), true)
 	
 	    if args.KotlAttribute then
-	    	self.state = { [MODIFIER_STATE_MAGIC_IMMUNE] = true }
+	    	self.state = { [MODIFIER_STATE_MAGIC_IMMUNE] = false }
 	    	self:GetParent():RemoveModifierByName("modifier_zabaniya_curse")
 	    	HardCleanse(self:GetParent())
 	    	self:StartIntervalThink(0.5)

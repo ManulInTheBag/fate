@@ -112,8 +112,14 @@ function modifier_edmon_enfer:UpdateHorizontalMotion(me, dt)
 	self.distelapsed = self.distelapsed - dt*self.speed
 
     if self.distelapsed <= 0 then
-        self:BOOM(nil)
+        --self:BOOM(nil)
+		self.ability:StartCooldown(self.ability:GetSpecialValueFor("reduced_cd"))
+		self.parent:RemoveModifierByName("modifier_edmon_enfer_cooldown")
+		self.parent:AddNewModifier(self.parent, self.ability, "modifier_edmon_enfer_cooldown", {duration = self.ability:GetSpecialValueFor("reduced_cd")})
 
+		local masterCombo = self.parent.MasterUnit2:FindAbilityByName(self.ability:GetAbilityName())
+		masterCombo:EndCooldown()
+		masterCombo:StartCooldown(self.ability:GetCooldown(1))
         self:Destroy()
         return nil
     end

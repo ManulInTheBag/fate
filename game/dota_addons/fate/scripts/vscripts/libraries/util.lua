@@ -630,6 +630,7 @@ CannotReset = {
     "hijikata_combo",
     "hijikata_fierce_journey",
     "nursery_rhyme_queens_glass_game_old",
+    "nobu_guns",
 }
 
 

@@ -840,6 +840,9 @@ function AntiMagic(keys)
 	HardCleanse(caster)
 	caster:RemoveModifierByName("modifier_zabaniya_curse")
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_magic_immunity", {})
+	if ability:GetPurchaser() ~= caster then 
+		return
+	end
 end
 
 function Replenish(keys)

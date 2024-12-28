@@ -11,7 +11,9 @@ function item_shard_of_replenishment:OnSpellStart()
 	local fArmorDuration = self:GetSpecialValueFor("armorduration")
 
 	hTarget:EmitSound("DOTA_Item.HealingSalve.Activate")
-
+	if self:GetPurchaser() ~= hCaster then 
+		return
+	end
 	hCaster:Heal(1000, hCaster)
 	hCaster:GiveMana(500)
 

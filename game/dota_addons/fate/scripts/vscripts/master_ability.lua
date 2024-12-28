@@ -881,8 +881,10 @@ function OnAMAcquired(keys)
 		hero.ShardAmount = hero.ShardAmount - 1
 		hero.ServStat:getS2()
 	end
-
-	hero:AddItem(CreateItem("item_shard_of_anti_magic" , nil, nil)) 
+	
+	local item = hero:AddItem(CreateItem("item_shard_of_anti_magic" , nil, nil)) 
+	item:SetPurchaser(hero)
+	item:SetShareability(ITEM_NOT_SHAREABLE )
     local statTable = CreateTemporaryStatTable(hero)
     CustomGameEventManager:Send_ServerToPlayer( hero:GetPlayerOwner(), "servant_stats_updated", statTable ) -- Send the current stat info to JS
 
@@ -900,7 +902,9 @@ function OnReplenishmentAcquired(keys)
 		hero.ShardAmount = hero.ShardAmount - 1
 		hero.ServStat:getS3()
 	end
-	hero:AddItem(CreateItem("item_shard_of_replenishment" , nil, nil)) 
+	local item = hero:AddItem(CreateItem("item_shard_of_replenishment" , nil, nil)) 
+	item:SetPurchaser(hero)
+	item:SetShareability(ITEM_NOT_SHAREABLE )
     local statTable = CreateTemporaryStatTable(hero)
     CustomGameEventManager:Send_ServerToPlayer( hero:GetPlayerOwner(), "servant_stats_updated", statTable ) -- Send the current stat info to JS
 
