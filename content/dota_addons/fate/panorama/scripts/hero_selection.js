@@ -136,7 +136,17 @@ function Snippet_PlayerPanel(playerId, rootPanel) {
 		panel.BLoadLayoutSnippet('PlayerPanel');
 		panel.SetDialogVariable('player_name', Players.GetPlayerName(playerId));
 		var statsData = Players.GetStatsData(playerId);
-		panel.FindChildTraverse('SlotColor').style.backgroundColor = GetHEXPlayerColor(playerId);
+		var playerColor = Players.GetPlayerColor(playerId);
+  		if (playerColor >= 0) {
+			var red = playerColor & 255;
+			var green = playerColor >> 8 & 255;
+			var blue = playerColor >> 16 & 255;
+			var hexColor = "rgb(" + red + "," + green + "," + blue + ")";
+			panel.FindChildTraverse('SlotColor').style.backgroundColor = hexColor;
+		} else {
+ 			panel.FindChildTraverse('SlotColor').style.backgroundColor = "black";
+		}
+		//panel.FindChildTraverse('SlotColor').style.backgroundColor = GetHEXPlayerColor(playerId);
 		PlayerPanels[playerId] = panel;
 	}
 	return PlayerPanels[playerId];

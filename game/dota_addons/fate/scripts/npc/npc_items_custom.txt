@@ -1461,7 +1461,8 @@
 	"item_s_scroll" 
 	{
 	    "ID"           "1122"
-	    "BaseClass"    "item_datadriven"
+	    "BaseClass"    				"item_lua"
+	    "ScriptFile"				"items/sex_scrolls"
 	    "AbilityTextureName" "custom/s_scroll"
 	    "Model"        "models/props_gameplay/tpscroll01.vmdl" 
 	    "Effect"       "particles/generic_gameplay/dropped_item.vpcf"
@@ -1482,7 +1483,7 @@
 	    "ItemPermanent" "0"
 	    "ItemDisassembleRule" "DOTA_ITEM_DISASSEMBLE_ALWAYS"
 
-	    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+	    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
 	    "AbilityCooldown"				"30"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY" 
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
@@ -1492,71 +1493,27 @@
 
 		"precache"
 		{
+			"particle"	"particles/items/s_scroll_timer.vpcf"
 			"particle"	"particles/units/heroes/hero_zuus/zuus_arc_lightning.vpcf"
-			//"particle"	"particles/units/heroes/hero_leshrac/leshrac_lightning_bolt.vpcf"
+			"particle"	"particles/units/heroes/hero_leshrac/leshrac_lightning_bolt.vpcf"
 			"particle"	"particles/generic_gameplay/generic_purge.vpcf"
 			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_zuus.vsndevts"
 		}
 	    "AbilityValues"
         {
             "damage" "400"
+            "radius"	"150"
+            "delay"		"0.3"
             "slow_initial" "100"
             "slow_duration" "4"
             "lock_duration" "1"
         }
-	    "OnSpellStart"
-	    {
-	    	"RunScript"
-			{
-				"ScriptFile"	"items"
-				"Function"		"SScroll"
-			}
-			"SpendCharge" {}
-	    }
-	    "Modifiers"
-	    {
-	    	"modifier_purge"
-	    	{
-	    		"EffectName"		"particles/generic_gameplay/generic_purge.vpcf"
-	    		"TextureName" "custom/s_scroll"
-				"EffectAttachType"	"follow_origin"
-	    		"Duration"			"1.0"
-	    		"IsDebuff"			"1"
-	    		"States"
-	    		{
-	    			"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
-	    		}
-	    	}
-	    	"modifier_slow_tier1"
-	    	{
-	    		"EffectName"		"particles/generic_gameplay/generic_purge.vpcf"
-	    		"TextureName" "custom/s_scroll"
-				"EffectAttachType"	"follow_origin"
-	    		"Duration"			"2.5"
-	    		"IsDebuff"			"1"
-	    		"Properties"
-	    		{
-	    			"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-80"
-	    		}
-	    	}
-	    	"modifier_slow_tier2"
-	    	{
-	    		"EffectName"		"particles/generic_gameplay/generic_purge.vpcf"
-	    		"TextureName" "custom/s_scroll"
-				"EffectAttachType"	"follow_origin"	
-	    		"Duration"			"4.0"
-	    		"IsDebuff"			"1"
-	    		"Properties"
-	    		{
-	    			"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-30"
-	    		}
-	    	}
-	    }
 	}
 
 	"item_ex_scroll" 
 	{
-	    "BaseClass"    "item_datadriven"
+	    "BaseClass"    				"item_lua"
+	    "ScriptFile"				"items/sex_scrolls"
 	    "AbilityTextureName" "custom/ex_scroll"
 	    "Model"        "models/props_gameplay/tpscroll01.vmdl" 
 	    "Effect"       "particles/generic_gameplay/dropped_item.vpcf"
@@ -1577,7 +1534,7 @@
 	    "ItemPermanent" "0"
 	    "ItemDisassembleRule" "DOTA_ITEM_DISASSEMBLE_ALWAYS"
 
-	    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+	    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
 	    "AbilityCooldown"				"35"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY" 
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
@@ -1586,67 +1543,22 @@
 		"AbilityCastAnimation" 			"ACT_DOTA_ITEM_PICKUP"
 		"precache"
 		{
+			"particle"	"particles/items/ex_scroll_timer.vpcf"
 			"particle"	"particles/units/heroes/hero_zuus/zuus_arc_lightning.vpcf"
-			//"particle"	"particles/units/heroes/hero_leshrac/leshrac_lightning_bolt.vpcf"
+			"particle"	"particles/units/heroes/hero_leshrac/leshrac_lightning_bolt.vpcf"
 			"particle"	"particles/generic_gameplay/generic_purge.vpcf"
 			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_zuus.vsndevts"
 		}
 	    "AbilityValues"
         {
             "damage" "600"
+            "radius"	"450"
+            "delay"		"0.3"
             "max_targets" "5"
             "slow_initial" "100"
             "slow_duration" "4"
             "lock_duration" "1"
         }
-	    "OnSpellStart"
-	    {
-	    	"RunScript"
-			{
-				"ScriptFile"	"items"
-				"Function"		"EXScroll"
-			}
-			"SpendCharge" {}
-	    }
-	    "Modifiers"
-	    {
-	    	"modifier_purge"
-	    	{
-	    		"EffectName"		"particles/generic_gameplay/generic_purge.vpcf"
-	    		"TextureName" "custom/ex_scroll"
-				"EffectAttachType"	"follow_origin"
-	    		"Duration"			"1.0"
-	    		"IsDebuff"			"1"
-	    		"States"
-	    		{
-	    			"MODIFIER_STATE_ROOTED"		"MODIFIER_STATE_VALUE_ENABLED"
-	    		}
-	    	}
-	    	"modifier_slow_tier1"
-	    	{
-	    		"EffectName"		"particles/generic_gameplay/generic_purge.vpcf"
-	    		"TextureName" "custom/ex_scroll"
-				"EffectAttachType"	"follow_origin"
-	    		"Duration"			"2.5"
-	    		"IsDebuff"			"1"
-	    		"Properties"
-	    		{
-	    			"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-80"
-	    		}
-	    	}
-	    	"modifier_slow_tier2"
-	    	{
-	    		"EffectName"		"particles/generic_gameplay/generic_purge.vpcf"
-	    		"TextureName" "custom/ex_scroll"
-				"EffectAttachType"	"follow_origin"	
-	    		"Duration"			"4.0"
-	    		"IsDebuff"			"1"
-	    		"Properties"
-	    		{
-	    			"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-30"
-	    		}
-	    	}
-	    }
 	}
 
 	"item_summon_skeleton_warrior" 

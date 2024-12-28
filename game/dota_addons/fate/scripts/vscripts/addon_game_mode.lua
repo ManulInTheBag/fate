@@ -262,6 +262,7 @@ function Precache( context )
 
     PrecacheResource("soundfile", "soundevents/bgm.vsndevts", context)]]
     -- Sound files
+    PrecacheResource("soundfile", "soundevents/fate_items.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/hero_chocolate.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/announcer.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/clown.vsndevts", context)
@@ -323,6 +324,7 @@ function Precache( context )
     PrecacheResource("soundfile", "soundevents/heroes/arash.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/hero_robin.vsndevts", context)
 	PrecacheResource("soundfile", "soundevents/hero_lu_bu.vsndevts", context )
+    PrecacheResource("soundfile", "soundevents/hero_aoko.vsndevts", context)
 	PrecacheResource("model", "models/lu_bu/lu_bu.vmdl", context)
     
     PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_silencer.vsndevts", context)
@@ -3477,7 +3479,7 @@ function FateGameMode:OnEntityKilled( keys )
             local nRadiantAlive = 0
             local nDireAlive = 0
             self:LoopOverPlayers(function(player, playerID, playerHero)
-                if playerHero:IsAlive() then
+                if playerHero:IsAlive() and not playerHero:HasModifier("modifier_aoko_blue_ally") then
                     if playerHero:GetTeam() == DOTA_TEAM_GOODGUYS then
                         nRadiantAlive = nRadiantAlive + 1
                     else
@@ -4285,6 +4287,9 @@ function FateGameMode:InitializeRound()
             local nDireAlive = 0
             -- Check how many people are alive in each team
             self:LoopOverPlayers(function(player, playerID, playerHero)
+                if playerHero:HasModifier("modifier_aoko_blue_ally") then
+                    playerHero:RemoveModifierByName("modifier_aoko_blue_ally")
+                end
                 if playerHero:IsAlive() then
                     if playerHero:GetTeam() == DOTA_TEAM_GOODGUYS then
                         nRadiantAlive = nRadiantAlive + 1
@@ -4345,6 +4350,10 @@ function FateGameMode:FinishRound(IsTimeOut, winner)
         end
         --RemoveTroublesomeModifiers(playerHero)
         playerHero:RemoveModifierByName("modifier_atalanta_curse")
+
+        if playerHero:HasModifier("modifier_aoko_blue_ally") then
+            playerHero:RemoveModifierByName("modifier_aoko_blue_ally")
+        end
         -- Remove marble abilities
         if playerHero:GetName() == "npc_dota_hero_ember_spirit" and playerHero:HasModifier("modifier_unlimited_bladeworks") then
             playerHero:RemoveModifierByName("modifier_unlimited_bladeworks")

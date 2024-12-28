@@ -44,6 +44,7 @@ function Attributes:Init()
     Attributes.additional_mana_regen_adjustment = v.MPREG_PER_STAT
     Attributes.additional_hp_regen_adjustment = v.HPREG_PER_STAT
     Attributes.additional_cdr_adjustment = v.CDR_PER_STAT
+    Attributes.additional_mr_adjustment = v.MR_PER_STAT
 
     Attributes.applier = CreateItem("item_stat_modifier", nil, nil)
 end
@@ -94,6 +95,7 @@ function Attributes:ModifyBonuses(hero)
 	hero.additional_mana_regen_adjustment = Attributes.additional_mana_regen_adjustment
 	hero.additional_hp_regen_adjustment = Attributes.additional_hp_regen_adjustment
     hero.additional_cdr_adjustment = Attributes.additional_cdr_adjustment
+    hero.additional_mr_adjustment = Attributes.additional_mr_adjustment
 
 	hero:AddNewModifier(hero,nil,"modifier_attributes_hp",{})
 	hero:AddNewModifier(hero,nil,"modifier_attributes_mp",{})

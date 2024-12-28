@@ -12,17 +12,24 @@ function modifier_attributes_mr:DeclareFunctions()
   return funcs
 end
 
+function modifier_attributes_mr:OnCreated()
+  if IsServer() then
+    self:StartIntervalThink(0.1)
+  end
+end
+
+function modifier_attributes_mr:OnIntervalThink()
+  if not IsServer() then return end
+  local parent = self:GetParent()
+  self:SetStackCount(parent.STRgained * parent.additional_mr_adjustment * 10)
+end
+
 function modifier_attributes_mr:GetModifierMagicalResistanceDirectModification()
 --strength * Attributes.hp_adjustment
-  --[[if IsServer() then
-    local parent = self:GetParent()
-    self:SetStackCount(math.abs(math.floor(parent:GetStrength() + 0.5) * parent.hp_adjustment))
-  end
-  return self:GetStackCount()]]
+  local parent = self:GetParent()
 
-local parent = self:GetParent()
     --end    
- return (-0.1 * parent:GetIntellect()) + 0.1
+ return (-0.1 * parent:GetIntellect() + self:GetStackCount()/10) + 0.1
 end
 
 

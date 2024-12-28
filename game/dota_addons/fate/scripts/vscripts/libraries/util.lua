@@ -631,6 +631,8 @@ CannotReset = {
     "hijikata_fierce_journey",
     "nursery_rhyme_queens_glass_game_old",
     "nobu_guns",
+    "aoko_circuits",
+    "aoko_blue",
 }
 
 
@@ -654,6 +656,7 @@ femaleservant = {
     "npc_dota_hero_razor",
     "npc_dota_hero_tiny",
     "npc_dota_hero_faceless_void",
+    "npc_dota_hero_ogre_magi",
 }
 
 tCannotDetect = {
@@ -771,6 +774,7 @@ tHorsemanClass = {
     "npc_dota_hero_skeleton_king",
     "npc_dota_hero_puck",
     "npc_dota_hero_night_stalker",
+    "npc_dota_hero_ogre_magi",
     "npc_dota_hero_kentaur"
 }
 
@@ -1680,6 +1684,14 @@ function SendMountStatus(hero)
     CustomGameEventManager:Send_ServerToPlayer( hero:GetPlayerOwner(), "player_mount_status_changed", playerData )
 end
 
+function BIgnoreCheck(abil)
+    local IsBScrollIgnored = false
+    for k,v in pairs(goesthruB) do
+        if abil:GetAbilityName() == v then IsBScrollIgnored = true break end
+    end
+    return IsBScrollIgnored
+end
+
 function DoDamage(source, target , dmg, dmg_type, dmg_flag, abil, isLoop)
     if bit.band(dmg_type or DAMAGE_TYPE_NONE, DAMAGE_TYPE_ALL) == DAMAGE_TYPE_ALL then
         --print("DOINT COMPOSITE DAMAGE INSTEAD")
@@ -1747,6 +1759,10 @@ function DoDamage(source, target , dmg, dmg_type, dmg_flag, abil, isLoop)
 
     if dmg_type == DAMAGE_TYPE_MAGICAL then
         -- Process B scroll
+        if target:HasModifier("modifier_aoko_shield") then
+            IsBScrollIgnored = true
+        end
+
         for k,v in pairs(goesthruB) do
             if abil:GetAbilityName() == v then IsBScrollIgnored = true break end
         end
@@ -2494,6 +2510,7 @@ local heroNames = {
     ["npc_dota_hero_centaur"] = "Lu Bu",
     ["npc_dota_hero_sniper"] = "Robin Hood",
     ["npc_dota_hero_spirit_breaker"] = "Hijikata Toshizo",
+    ["npc_dota_hero_ogre_magi"] = "Aozaki Aoko",
 }
 
  
@@ -2559,6 +2576,7 @@ local heroCombos = {
     ["npc_dota_hero_clinkz"] = "arash_max_stella",
     ["npc_dota_hero_centaur"] = "lu_bu_sky_piercer",
     ["npc_dota_hero_robin"] = "robin_yew_tree_combo",
+    ["npc_dota_hero_aoko"] = "aoko_blue",
 }
 
 function GetHeroCombo(hero)
