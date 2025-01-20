@@ -38,7 +38,11 @@ function arash_curved_fire:OnSpellStart()
         self:ShootArrow(point + castv * -100 +leftvec*192 ,fly_time, Vector(255,255,255), 0, 4)
         self:ShootArrow(point + castv * -100 +leftvec*-192 ,fly_time, Vector(255,255,255), 0, 4)
     end
-
+    --local nParticle =  ParticleManager:CreateParticle("particles/kirei/kirei_dragon/kirei_dragon_ring_base.vpcf", PATTACH_WORLDORIGIN, nil)
+    --ParticleManager:SetParticleShouldCheckFoW(nParticle, false)
+    --ParticleManager:SetParticleAlwaysSimulate(nParticle)
+    --ParticleManager:SetParticleControl(nParticle, 0, caster:GetAbsOrigin())
+   
     caster:FindAbilityByName("arash_arrow_construction"):GetConstructionBuff()
 end
 
