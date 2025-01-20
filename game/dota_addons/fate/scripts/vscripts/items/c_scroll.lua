@@ -2,28 +2,36 @@ item_c_scroll = class({})
 
 function item_c_scroll:OnSpellStart()
 	local caster = self:GetCaster()
-	local target = self:GetCursorTarget()
-
+	local target = self:GetCursorPosition()
+    local vector = (target - caster:GetAbsOrigin()):Normalized()
+    vector.z = 0
+    local speed = 1500
 	caster.ServStat:useC()
 
 	local tProjectile = {
-        Target = target,
-        Source = caster,
+        EffectName = "particles/zlodemon/c_scroll.vpcf" ,
         Ability = self,
-        level = 3,
-        EffectName = "particles/units/heroes/hero_lina/lina_base_attack.vpcf",
-        iMoveSpeed = 1200,
-        vSourceLoc = caster:GetAbsOrigin(),
-        bDodgeable = true,
-        bIsAttack = true,
-        flExpireTime = GameRules:GetGameTime() + 10,
-        iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_ATTACK_2,
+        vSpawnOrigin = caster:GetAbsOrigin() + Vector(0,0,120),
+        vVelocity = vector * speed,
+        fDistance = 1100,
+        fStartRadius = 64,
+        fEndRadius = 64,
+        Source = self:GetCaster(),
+        bHasFrontalCone = false,
+        bReplaceExisting = false,
+        bDeleteOnHit = true,
+        iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+        iUnitTargetFlags = 0,
+        iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
+        flExpireTime = GameRules:GetGameTime() + 0.1,
+        --iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_HITLOCATION,
     }
     local id = 0
     if not _G.projfix then
-    	id = FATE_ProjectileManager:CreateTrackingProjectile(tProjectile)
+    	--id = FATE_ProjectileManager:CreateTrackingProjectile(tProjectile)
+        caster.cScrollProjectile = ProjectileManager:CreateLinearProjectile(tProjectile)
     else
-    	ProjectileManager:CreateTrackingProjectile(tProjectile)
+    	caster.cScrollProjectile  = ProjectileManager:CreateLinearProjectile(tProjectile)
     end
 
     self:SetRefCountsModifiers(true)
@@ -31,23 +39,51 @@ function item_c_scroll:OnSpellStart()
     self:SpendCharge(1)
 end
 
-function item_c_scroll:OnProjectileHit(hTarget, vLocation, tData)
-    if hTarget == nil then
-        return 
+---Linear version
+function item_c_scroll:OnProjectileHit(target, location, tData )
+    if target == nil then
+        return false
     end
-
+    if (target:GetName() == "npc_dota_ward_base") then
+        print("destroyward")
+        return false
+    end
+    if target:HasModifier("modifier_protection_from_arrows_active") then return end
     local hModifier = nil
 
     local caster = self:GetCaster()
-	local target = hTarget
+    if IsSpellBlocked(target) then return true end
+    DoDamage(caster, target, self:GetSpecialValueFor("damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
+    target:EmitSound("Hero_EmberSpirit.FireRemnant.Explode")
+    if not target:IsMagicImmune() then
+        hModifier = target:AddNewModifier(caster, self, "modifier_stunned", {duration = self:GetSpecialValueFor("stun_duration")})
+    end
+    Timers:CreateTimer(0.033,function()
+        ProjectileManager:DestroyLinearProjectile(caster.cScrollProjectile )
+    end)
 
-	if IsSpellBlocked(target) then return end
-	DoDamage(caster, target, self:GetSpecialValueFor("damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
-	target:EmitSound("Hero_EmberSpirit.FireRemnant.Explode")
-	if not target:IsMagicImmune() then
-		hModifier = target:AddNewModifier(caster, self, "modifier_stunned", {duration = self:GetSpecialValueFor("stun_duration")})
-	end
+    return true
 end
+
+---Target version (ya tut nasral maleha)
+-- function item_c_scroll:OnProjectileHit(hTarget, vLocation, tData)
+--     if hTarget == nil then
+--         return 
+--     end
+
+--     local hModifier = nil
+
+--     local caster = self:GetCaster()
+-- 	local target = hTarget
+
+-- 	if IsSpellBlocked(target) then return end
+-- 	DoDamage(caster, target, self:GetSpecialValueFor("damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
+-- 	target:EmitSound("Hero_EmberSpirit.FireRemnant.Explode")
+-- 	if not target:IsMagicImmune() then
+-- 		hModifier = target:AddNewModifier(caster, self, "modifier_stunned", {duration = self:GetSpecialValueFor("stun_duration")})
+-- 	end
+    
+-- end
 
 LinkLuaModifier("modifier_item_c_scroll_fix_cringe", "items/c_scroll", LUA_MODIFIER_MOTION_NONE)
 

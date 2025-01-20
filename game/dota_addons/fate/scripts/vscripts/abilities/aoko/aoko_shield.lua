@@ -185,17 +185,20 @@ function modifier_aoko_shield:GetModifierIncomingDamageConstant(keys)
 				        end
 				    end
 			    end
-            	local dmgtable = {
-		            attacker = keys.attacker,
-		            victim = keys.target,
-		            damage = damage,
-		            damage_type = keys.damage_type,
-		            damage_flags = keys.damage_flags,
-		            ability = keys.inflictor
-		        }
-		        self:ActivateCounter()
-                self:Destroy()
-                ApplyDamage(dmgtable)
+				damage = damage - self.hAbility:GetSpecialValueFor("shield_damage_decrease_flat_value")
+				self:ActivateCounter()
+				if damage > 0 then
+					local dmgtable = {
+						attacker = keys.attacker,
+						victim = keys.target,
+						damage = damage,
+						damage_type = keys.damage_type,
+						damage_flags = keys.damage_flags,
+						ability = keys.inflictor
+					}
+					self:Destroy()
+					ApplyDamage(dmgtable)
+				end
             end
 
             return -1*blocked

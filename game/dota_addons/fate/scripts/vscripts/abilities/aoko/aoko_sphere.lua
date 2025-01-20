@@ -123,11 +123,11 @@ function modifier_aoko_sphere_dummy:OnIntervalThink()
 	if not IsServer() then return end
 	if not self.parent or self.parent:IsNull() then return end
 	if self.moving then
-		local point = self.parent:GetAbsOrigin() + 2*(30-self.count)/30*self.range/30*self.direction
+		local point = self.parent:GetAbsOrigin() + 2*(15-self.count)/15*self.range/15*self.direction
 		self.parent:SetAbsOrigin(GetGroundPosition(point, self.parent))
 
 		self.count = self.count + 1
-		if self.count >= 29 then
+		if self.count >= 14 then
 			self.moving = false
 			self:ProximityExplode()
 		end

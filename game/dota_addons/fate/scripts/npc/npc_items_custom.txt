@@ -1202,7 +1202,7 @@
 		"ItemSupport"							"1"
 	    "ItemDisassembleRule" "DOTA_ITEM_DISASSEMBLE_NEVER"
 
-	    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+	    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
 	    "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
@@ -1213,6 +1213,7 @@
 	    "precache"
 	    {
 	    	"particle"				"particles/units/heroes/hero_lina/lina_base_attack.vpcf"
+	    	"particle"				"particles/zlodemon/c_scroll.vpcf"
 	    	"soundfile"				"soundevents/game_sounds_heroes/game_sounds_ember_spirit.vsndevts"
 	    }
 
