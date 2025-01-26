@@ -63,6 +63,14 @@ function hijikata_dash:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
 	local hCaster = self:GetCaster()
  	 if(hTarget ~= nil) then
 	 DoDamage(hCaster, hTarget, tData.fDamage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+	 if hCaster:GetHealth() < hCaster:GetMaxHealth() then
+		local diff = hCaster:GetMaxHealth() - hCaster:GetHealth()
+
+		if diff > hCaster:GetMaxHealth() * 0.2 then 
+			diff = hCaster:GetMaxHealth() * 0.2
+		end
+		hCaster:Heal(diff, hCaster)
+	 end
 	 hTarget:AddNewModifier(hCaster, self, "modifier_vision_provider", { Duration = self:GetSpecialValueFor("recast_duration") })
 	 self:AbilityChange(hTarget)
 	 hCaster.dash_target = hTarget

@@ -14,3 +14,10 @@ end
 function modifier_okita_mind_eye_active:GetModifierEvasion_Constant()
 	return self:GetAbility():GetSpecialValueFor("evasion")
 end
+
+function modifier_okita_mind_eye_active:GetEffectName()
+    return "particles/zlodemon/immunity_sphere_buff.vpcf"
+end
+function modifier_okita_mind_eye_active:GetEffectAttachType()
+    return PATTACH_ABSORIGIN_FOLLOW
+end

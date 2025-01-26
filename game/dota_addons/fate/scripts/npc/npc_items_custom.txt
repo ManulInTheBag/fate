@@ -670,6 +670,43 @@
 	    }
 	} 
 
+	"item_relic_of_the_king" 
+	{
+	    "ID"           "1104"
+	    "BaseClass"    				"item_lua"
+	    "ScriptFile"				"items/item_relic_of_the_king"
+	    "AbilityTextureName" "custom/relic_of_the_king"
+	    "Model"        "models/props_gameplay/tpscroll01.vmdl" 
+	    "Effect"       "particles/generic_gameplay/dropped_item.vpcf"
+
+	    "ItemCost"     "1800"
+	    "ItemKillable" "1" 
+	    "ItemSellable" "1"
+	    "ItemPurchasable" "1"
+	    "ItemDroppable" "1"
+	    "ItemShareability" "ITEM_FULLY_SHAREABLE_STACKING"
+
+
+	    "SideShop"     "1" 
+	    "SecretShop"   "0"
+
+	    "ItemInitialCharges" "1"
+	    "ItemStackable" "1"
+	    "ItemPermanent" "0"
+	    "ItemDisassembleRule" "DOTA_ITEM_DISASSEMBLE_ALWAYS"
+
+	    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+	    "AbilityCooldown"				"15"
+	    "precache"
+	    {
+	    	"particle"			"particles/zlodemon/immunity_sphere_buff.vpcf"
+	    }
+	    "AbilityValues"
+        {
+            "duration" "2.5"
+        }
+
+	} 
 	"item_scout_familiar" 
 	{
 	    "ID"           "1105"
@@ -739,7 +776,73 @@
 			}
 	    }
 	}
+	"item_attack_familiar" 
+	{
+	    "ID"           "1105"
+	    "BaseClass"    "item_datadriven"
+	    "AbilityTextureName" "custom/attack_familiar"
+	    "Model"        "models/items/beastmaster/hawk/ti9_cache_bm_chieftain_of_the_primal_tribes_bird/ti9_cache_bm_chieftain_of_the_primal_tribes_bird.vmdl" 
+	    "Effect"       "particles/generic_gameplay/dropped_item.vpcf"
 
+	    "ItemCost"     "800"
+	    "ItemKillable" "1" 
+	    "ItemSellable" "1"
+	    "ItemPurchasable" "1"
+	    "ItemDroppable" "1"
+	    "ItemShareability" "ITEM_FULLY_SHAREABLE_STACKING"
+
+
+	    "SideShop"     "1" 
+	    "SecretShop"   "0"
+
+	    "ItemInitialCharges" "1"
+	    "ItemStackable" "1"
+	    "ItemPermanent" "0"
+	    "ItemDisassembleRule" "DOTA_ITEM_DISASSEMBLE_NEVER"
+
+	    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+	    "AbilityCooldown"				"40"
+	    "precache"
+	    {
+	    	"particle"		"particles\units\heroes\hero_pugna\pugna_decrepify.vpcf"
+	    	"model"			"models/items/beastmaster/hawk/ti9_cache_bm_chieftain_of_the_primal_tribes_bird/ti9_cache_bm_chieftain_of_the_primal_tribes_bird.vmdl"
+	    }
+	    "AbilityValues"
+        {
+            "scout_duration" "30"
+
+        }
+	    "OnSpellStart"
+	    {
+	    	"SpendCharge" {}
+	    	"RunScript"
+			{
+				"ScriptFile"	"items"
+				"Function"		"AttackFam"
+			}
+	    }
+	    "Modifiers"
+	    {
+			"modifier_banished"
+			{
+				"IsDebuff"					"false"
+				"IsPurgable"				"false"
+				"EffectName"				"particles\units\heroes\hero_pugna\pugna_decrepify.vpcf"	
+				"EffectAttachType"			"follow_overhead"
+				"States"
+				{
+					"MODIFIER_STATE_ATTACK_IMMUNE"						"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"							"MODIFIER_STATE_VALUE_ENABLED"
+				}
+				"Properties"
+				{
+					"MODIFIER_PROPERTY_MAGICAL_RESISTANCE_DECREPIFY_UNIQUE"	"-100"
+					"MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL"			"1"
+					"MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PURE"				"1"
+				}
+			}
+	    }
+	}
 	"item_berserk_scroll" 
 	{
 	    "ID"           "1106"
@@ -1502,7 +1605,7 @@
 		}
 	    "AbilityValues"
         {
-            "damage" "400"
+            "damage" "300"
             "radius"	"150"
             "delay"		"0.3"
             "slow_initial" "100"
@@ -1552,7 +1655,7 @@
 		}
 	    "AbilityValues"
         {
-            "damage" "600"
+            "damage" "500"
             "radius"	"450"
             "delay"		"0.3"
             "max_targets" "5"

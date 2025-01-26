@@ -239,30 +239,32 @@ function lishuwen_tiger_strike:TigerStrike2()
 	local pushTarget = Physics:Unit(target)
 	local casterOrigin = caster:GetAbsOrigin()
 	local initialUnitOrigin = target:GetAbsOrigin()
-	target:PreventDI()
-	target:SetPhysicsFriction(0)
-	target:SetPhysicsVelocity(casterfacing:Normalized() * 2500)
-	target:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
-    target:OnPhysicsFrame(function(unit) 
-		local unitOrigin = unit:GetAbsOrigin()
-		local diff = unitOrigin - initialUnitOrigin
-		local n_diff = diff:Normalized()
-		unit:SetPhysicsVelocity(unit:GetPhysicsVelocity():Length() * n_diff) 
-		if diff:Length() > (500 + caster:GetStrength() * 4 ) then
+	if( not IsKnockbackImmune(target)) then
+		target:PreventDI()
+		target:SetPhysicsFriction(0)
+		target:SetPhysicsVelocity(casterfacing:Normalized() * 2500)
+		target:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
+		target:OnPhysicsFrame(function(unit) 
+			local unitOrigin = unit:GetAbsOrigin()
+			local diff = unitOrigin - initialUnitOrigin
+			local n_diff = diff:Normalized()
+			unit:SetPhysicsVelocity(unit:GetPhysicsVelocity():Length() * n_diff) 
+			if diff:Length() > (500 + caster:GetStrength() * 4 ) then
+				unit:PreventDI(false)
+				unit:SetPhysicsVelocity(Vector(0,0,0))
+				unit:OnPhysicsFrame(nil)
+				FindClearSpaceForUnit(unit, unit:GetAbsOrigin(), true)
+			end
+		end)	
+		target:OnPreBounce(function(unit, normal) -- stop the pushback when unit hits wall
+			unit:SetBounceMultiplier(0)
 			unit:PreventDI(false)
 			unit:SetPhysicsVelocity(Vector(0,0,0))
-			unit:OnPhysicsFrame(nil)
-			FindClearSpaceForUnit(unit, unit:GetAbsOrigin(), true)
-		end
-	end)	
-	target:OnPreBounce(function(unit, normal) -- stop the pushback when unit hits wall
-		unit:SetBounceMultiplier(0)
-		unit:PreventDI(false)
-		unit:SetPhysicsVelocity(Vector(0,0,0))
-		giveUnitDataDrivenModifier(caster, target, "stunned",1)
-		target:EmitSound("Hero_EarthShaker.Fissure")
-		DoDamage(caster, target, 200 + caster:GetStrength() * 3, DAMAGE_TYPE_PHYSICAL, 0, ability, false)	
-	end)
+			giveUnitDataDrivenModifier(caster, target, "stunned",1)
+			target:EmitSound("Hero_EarthShaker.Fissure")
+			DoDamage(caster, target, 200 + caster:GetStrength() * 3, DAMAGE_TYPE_PHYSICAL, 0, ability, false)	
+		end)
+	end
 
 	self.health_lost = self.health_lost + health_2 - target:GetHealth()
 

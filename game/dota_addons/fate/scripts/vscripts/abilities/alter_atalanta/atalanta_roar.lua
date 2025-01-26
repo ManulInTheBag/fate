@@ -39,8 +39,9 @@ function atalanta_roar:OnSpellStart()
                         center_x = caster:GetAbsOrigin().x,
                         center_y = caster:GetAbsOrigin().y,
                         center_z = caster:GetAbsOrigin().z }
-
-		v:AddNewModifier(caster, self, "modifier_knockback", knockback)
+		if( not IsKnockbackImmune(v)) then
+			v:AddNewModifier(caster, self, "modifier_knockback", knockback)
+		end
 
 		v:AddNewModifier(caster, self, "modifier_roar_slow", {duration = self:GetSpecialValueFor("duration")})
 

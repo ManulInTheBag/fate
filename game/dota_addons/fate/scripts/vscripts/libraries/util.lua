@@ -633,6 +633,7 @@ CannotReset = {
     "nobu_guns",
     "aoko_circuits",
     "aoko_blue",
+    "diarmuid_new_combo",
 }
 
 
@@ -698,6 +699,7 @@ tModifierKBImmune = {
     "modifier_artoria_avalon",
     "modifier_merlin_avalon_self",
     "modifier_leonidas_enomotia_ignore_motion_controll",
+    "modifier_kb_immune",
 }
 
 tManalessHero = {
@@ -1395,33 +1397,31 @@ end
 function IsSpellBlocked(target)
     if target:HasModifier("modifier_artoria_improved_instinct") then  --This abililty is blocked by the active/targeted Linken's effect.
         EmitSoundWithCooldown("DOTA_Item.LinkensSphere.Activate", target, 1)
-        ParticleManager:CreateParticle("particles/items_fx/immunity_sphere.vpcf", PATTACH_ABSORIGIN, target)
+        --ParticleManager:CreateParticle("particles/items_fx/immunity_sphere.vpcf", PATTACH_ABSORIGIN, target)
         target:RemoveModifierByName("modifier_artoria_improved_instinct")
         return true
     elseif target:HasModifier("modifier_okita_mind_eye_active") then
         EmitSoundWithCooldown("DOTA_Item.LinkensSphere.Activate", target, 1)
-        ParticleManager:CreateParticle("particles/items_fx/immunity_sphere.vpcf", PATTACH_ABSORIGIN, target)
+        --ParticleManager:CreateParticle("particles/items_fx/immunity_sphere.vpcf", PATTACH_ABSORIGIN, target)
         target:RemoveModifierByName("modifier_okita_mind_eye_active")
+        return true
+    elseif target:HasModifier("modifier_spellblock_basic") then
+        EmitSoundWithCooldown("DOTA_Item.LinkensSphere.Activate", target, 1)
+        --ParticleManager:CreateParticle("particles/items_fx/immunity_sphere.vpcf", PATTACH_ABSORIGIN, target)
+        target:RemoveModifierByName("modifier_spellblock_basic")
         return true
     --elseif target:HasModifier("modifier_arondite") then
       --  EmitSoundWithCooldown("DOTA_Item.LinkensSphere.Activate", target, 1)
         --ParticleManager:CreateParticle("particles/items_fx/immunity_sphere.vpcf", PATTACH_ABSORIGIN, target)
         --return true
-    elseif target:HasModifier("modifier_diarmuid_minds_eye") then
-        if target:FindModifierByName("modifier_diarmuid_minds_eye").IsSpellBlockReady == false then return false end
-        local ability = target:FindModifierByName("modifier_diarmuid_minds_eye")
-        ability:OnFateSpellBlocked()
-        EmitSoundWithCooldown("DOTA_Item.LinkensSphere.Activate", target, 1)
-        ParticleManager:CreateParticle("particles/items_fx/immunity_sphere.vpcf", PATTACH_ABSORIGIN, target)
-        return true
     elseif target:HasModifier("modifier_rune_of_protection") then
         EmitSoundWithCooldown("DOTA_Item.LinkensSphere.Activate", target, 1)
-        ParticleManager:CreateParticle("particles/items_fx/immunity_sphere.vpcf", PATTACH_ABSORIGIN, target)
+        --ParticleManager:CreateParticle("particles/items_fx/immunity_sphere.vpcf", PATTACH_ABSORIGIN, target)
         target:RemoveModifierByName("modifier_rune_of_protection")
         return true
     elseif target:HasModifier("modifier_jtr_mental_pollution_shield") then
         EmitSoundWithCooldown("DOTA_Item.LinkensSphere.Activate", target, 1)
-        ParticleManager:CreateParticle("particles/items_fx/immunity_sphere.vpcf", PATTACH_ABSORIGIN, target)
+        --ParticleManager:CreateParticle("particles/items_fx/immunity_sphere.vpcf", PATTACH_ABSORIGIN, target)
         target:RemoveModifierByName("modifier_jtr_mental_pollution_shield")
         return true
     elseif target:HasModifier("modifier_saito_mind_eye_linken") then
@@ -2543,7 +2543,7 @@ local heroCombos = {
     ["npc_dota_hero_skywrath_mage"] = "gilgamesh_max_enuma_elish",
     ["npc_dota_hero_sven"] = "lancelot_nuke",
     ["npc_dota_hero_vengefulspirit"] = "avenger_endless_loop",
-    ["npc_dota_hero_huskar"] = "diarmuid_rampant_warrior",
+    ["npc_dota_hero_huskar"] = "diarmuid_new_combo",
     ["npc_dota_hero_chen"] = "iskander_ionioi",
     ["npc_dota_hero_shadow_shaman"] = "gille_larret_de_mort",
     ["npc_dota_hero_lina"] = "nero_laus_saint_claudius_new",

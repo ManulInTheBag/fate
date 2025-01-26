@@ -874,6 +874,10 @@ function OnAMAcquired(keys)
 	local caster = keys.caster
 	local ply = caster:GetPlayerOwner()
 	local hero = ply:GetAssignedHero()
+	if hero.HasPickedAntiMagicShardAlready then 
+		SendErrorMessage(caster:GetPlayerOwnerID(), "#Already_picked_that_shard")
+		return
+	end
 	if hero.ShardAmount == 0 or hero.ShardAmount == nil then 
 		SendErrorMessage(caster:GetPlayerOwnerID(), "#Cannot_Acquire_Shard")
 		return
@@ -883,6 +887,7 @@ function OnAMAcquired(keys)
 	end
 	
 	local item = hero:AddItem(CreateItem("item_shard_of_anti_magic" , nil, nil)) 
+	hero.HasPickedAntiMagicShardAlready = true
 	item:SetPurchaser(hero)
 	item:SetShareability(ITEM_NOT_SHAREABLE )
     local statTable = CreateTemporaryStatTable(hero)
@@ -895,6 +900,10 @@ function OnReplenishmentAcquired(keys)
 	local caster = keys.caster
 	local ply = caster:GetPlayerOwner()
 	local hero = ply:GetAssignedHero()
+	if hero.HasPickedReplenishmentShardAlready then 
+		SendErrorMessage(caster:GetPlayerOwnerID(), "#Already_picked_that_shard")
+		return
+	end
 	if hero.ShardAmount == 0 or hero.ShardAmount == nil then 
 		SendErrorMessage(caster:GetPlayerOwnerID(), "#Cannot_Acquire_Shard")
 		return
@@ -902,6 +911,7 @@ function OnReplenishmentAcquired(keys)
 		hero.ShardAmount = hero.ShardAmount - 1
 		hero.ServStat:getS3()
 	end
+	hero.HasPickedReplenishmentShardAlready = true
 	local item = hero:AddItem(CreateItem("item_shard_of_replenishment" , nil, nil)) 
 	item:SetPurchaser(hero)
 	item:SetShareability(ITEM_NOT_SHAREABLE )

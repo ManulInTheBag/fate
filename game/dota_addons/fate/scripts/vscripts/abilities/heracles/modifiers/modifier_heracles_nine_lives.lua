@@ -1,3 +1,4 @@
+LinkLuaModifier("modifier_kb_immune", "abilities/zlodemon_nasral/modifier_kb_immune", LUA_MODIFIER_MOTION_NONE)
 modifier_heracles_nine_lives = class({})
 
 function modifier_heracles_nine_lives:OnCreated(args)
@@ -40,7 +41,8 @@ function modifier_heracles_nine_lives:OnIntervalThink()
 			if caster.MEacquired then
 				DoDamage(caster, v, self:GetAbility():GetSpecialValueFor("damage_phys")*self:GetParent():GetAverageTrueAttackDamage(self:GetParent())/100, DAMAGE_TYPE_PHYSICAL, 0, self:GetAbility(), false)
 			end
-			v:AddNewModifier(caster, v, "modifier_stunned", { Duration = 0.5 })
+			v:AddNewModifier(caster,self:GetAbility(), "modifier_kb_immune", {duration = 0.5})
+			v:AddNewModifier(caster, self:GetAbility(), "modifier_stunned", { Duration = 0.5 })
 			--giveUnitDataDrivenModifier(caster, v, "stunned", 0.5)
 		end
 

@@ -84,11 +84,11 @@ function diarmuid_gae_buidhe:GetCastPoint()
 	local caster = self:GetCaster()
 
 	if caster:HasModifier("modifier_rampant_warrior") then
-		return 0.4
+		return 0.3
 	elseif caster:HasModifier("modifier_golden_rose_attribute") then
-		return 0.5
+		return 0.4
 	else
-		return 0.6
+		return 0.5
 	end
 end
 
@@ -182,6 +182,15 @@ function diarmuid_gae_buidhe:StartRemainingCooldown(flCooldown)
 end
 
 function diarmuid_gae_buidhe:PlayGaeEffect(target)
+	local flower = ParticleManager:CreateParticle("particles/zlodemon/diar_combo/flower.vpcf", PATTACH_POINT_FOLLOW, target)
+	ParticleManager:SetParticleControl(flower, 0, target:GetAbsOrigin())
+	ParticleManager:ReleaseParticleIndex(flower)
+	local flower2 = ParticleManager:CreateParticle("particles/zlodemon/diar_combo/golden_rose.vpcf", PATTACH_POINT_FOLLOW, target)
+	ParticleManager:SetParticleControl(flower2, 0, target:GetAbsOrigin()+ Vector(0,0,150))
+	ParticleManager:ReleaseParticleIndex(flower2)
+	local petals = ParticleManager:CreateParticle("particles/zlodemon/diar_combo/petals.vpcf", PATTACH_POINT_FOLLOW, target)
+	ParticleManager:SetParticleControl(petals, 0, target:GetAbsOrigin())
+	ParticleManager:ReleaseParticleIndex(petals)
 	--[[local culling_kill_particle = ParticleManager:CreateParticle("particles/custom/diarmuid/diarmuid_cull.vpcf", PATTACH_CUSTOMORIGIN, target)
 	ParticleManager:SetParticleControlEnt(culling_kill_particle, 0, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControlEnt(culling_kill_particle, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)

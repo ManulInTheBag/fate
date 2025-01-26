@@ -1931,6 +1931,38 @@
 		}
 	}
 
+	"models/diarmuid/diarmuid_no_dearg.vmdl"
+	{
+		"PortraitLightPosition"		"12.37 74.76 177.18"
+		"PortraitLightAngles"		"46.55 262.43 0.00"
+		"PortraitLightFOV"		"90"
+		"PortraitLightDistance"		"137"
+		"PortraitLightColor"		"254 215 169"
+		"PortraitShadowColor"		"48 48 63"
+		"PortraitShadowScale"		"5.000000"
+		"PortraitAmbientColor"		"120 114 108"
+		"PortraitAmbientScale"		"5.000000"
+		"PortraitSpecularColor"		"0 0 0"
+		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/portraitbackground_darkclouds.vmat"
+		"PortraitBackgroundColor1"		"0 0 0"
+		"PortraitBackgroundColor2"		"0 0 0"
+		"PortraitBackgroundColor3"		"1 .5 .1"
+		"PortraitBackgroundColor4"		"1 .5 .1"
+		"PortraitLightScale"		"1.750000"
+		"PortraitGroundShadowScale"		"1.500000"
+		"PortraitAmbientDirection"		"1.940 -10.690 3.300"
+		"PortraitAnimationActivity"		"ACT_DOTA_IDLE"
+		"cameras"
+		{
+			"default"
+			{
+				"PortraitPosition"		"115.90 27.04 90.91"
+				"PortraitAngles"		"336.38 191.70 0.00"
+				"PortraitFOV"		"18"
+			}
+		}
+	}
+
 	"models/diarmuid/diarmuid2.vmdl"
 	{
 		"PortraitLightPosition"		"12.37 74.76 177.18"
@@ -13108,6 +13140,38 @@
 			"default"
 			{
 				"PortraitPosition"		"121.24 -50.94 102.00"
+				"PortraitAngles"		"350.68 155.31 0.00"
+				"PortraitFOV"		"34"
+			}
+		}
+	}
+
+	"models/items/beastmaster/hawk/ti9_cache_bm_chieftain_of_the_primal_tribes_bird/ti9_cache_bm_chieftain_of_the_primal_tribes_bird.vmdl"
+	{
+		"PortraitLightPosition"		"62.10 -28.68 272.23"
+		"PortraitLightAngles"		"65.58 152.45 0.00"
+		"PortraitLightFOV"		"46"
+		"PortraitLightDistance"		"243"
+		"PortraitLightColor"		"235 251 254"
+		"PortraitShadowColor"		"89 89 56"
+		"PortraitShadowScale"		"5.000000"
+		"PortraitAmbientColor"		"204 163 0"
+		"PortraitAmbientScale"		"5.000000"
+		"PortraitSpecularColor"		"251 74 84"
+		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/portraitbackground_gradient_btm.vmat"
+		"PortraitBackgroundColor1"		".6 .6 .1"
+		"PortraitBackgroundColor2"		".5 .3 .1"
+		"PortraitBackgroundColor3"		".5 .3 .1"
+		"PortraitBackgroundColor4"		".3 .3 .1"
+		"PortraitLightScale"		"1.850000"
+		"PortraitGroundShadowScale"		"1.500000"
+		"PortraitAmbientDirection"		"33.220 11.080 -124.890"
+		"PortraitAnimationActivity"		"ACT_DOTA_IDLE"
+		"cameras"
+		{
+			"default"
+			{
+				"PortraitPosition"		"150 -50.94 -10.00"
 				"PortraitAngles"		"350.68 155.31 0.00"
 				"PortraitFOV"		"34"
 			}

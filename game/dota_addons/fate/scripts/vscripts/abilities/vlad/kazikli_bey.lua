@@ -1,7 +1,7 @@
 vlad_kazikli_bey = class({})
 --LinkLuaModifier("modifier_kazikli_bey", "abilities/vlad/modifier_kazikli_bey", LUA_MODIFIER_MOTION_NONE)
 --remember to merge util lua ApplyAirborne and new ApplyAirborneOnly
-
+LinkLuaModifier("modifier_kb_immune", "abilities/zlodemon_nasral/modifier_kb_immune", LUA_MODIFIER_MOTION_NONE)
 if IsClient() then  
   function vlad_kazikli_bey:GetCastRange( vLocation, hTarget)
     return self:GetSpecialValueFor("aoe_spikes")
@@ -203,6 +203,7 @@ function vlad_kazikli_bey:OnSpellStart()
 			        end
 					DoDamage(caster, v, dmg_spikes, DAMAGE_TYPE_MAGICAL, 0, self, false)
 					v:AddNewModifier(caster, v, "modifier_stunned", { Duration = 0.4 })
+					v:AddNewModifier(caster,self, "modifier_kb_immune", {duration = 0.5})
 					--giveUnitDataDrivenModifier(caster, v, "stunned", 0.4)
 					--giveUnitDataDrivenModifier(caster, v, "revoked", 0.4)
 				end

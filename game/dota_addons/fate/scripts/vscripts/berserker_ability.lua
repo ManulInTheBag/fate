@@ -632,6 +632,7 @@ function OnNineStart(keys)
 end
 
 -- add pause
+LinkLuaModifier("modifier_kb_immune", "abilities/zlodemon_nasral/modifier_kb_immune", LUA_MODIFIER_MOTION_NONE)
 function OnNineLanded(caster, ability)
 	local tickdmg = ability:GetLevelSpecialValueFor("damage", ability:GetLevel() - 1)
 	local lasthitdmg = ability:GetLevelSpecialValueFor("damage_lasthit", ability:GetLevel() - 1)
@@ -768,6 +769,7 @@ function OnNineLanded(caster, ability)
 					else
 						DoDamage(caster, v, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
 					end
+					v:AddNewModifier(caster,ability, "modifier_kb_immune", {duration = 0.5})
 					v:AddNewModifier(caster, v, "modifier_stunned", { Duration = 0.5 })
 					--giveUnitDataDrivenModifier(caster, v, "stunned", 0.5)
 					--[[if caster:GetName() ~= "npc_dota_hero_ember_spirit" then

@@ -196,6 +196,14 @@ function modifier_hijikata_rush:BOOM()
     	if not self.target:IsMagicImmune() then
             Timers:CreateTimer(0.1, function()
                 DoDamage(self.parent, self.target, damage, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
+                if self.parent:GetHealth() < self.parent:GetMaxHealth() then
+                    local diff = self.parent:GetMaxHealth() - self.parent:GetHealth()
+            
+                    if diff > self.parent:GetMaxHealth() * 0.2 then 
+                        diff = self.parent:GetMaxHealth() * 0.2
+                    end
+                    self.parent:Heal(diff, self.parent)
+                 end
             end)
             
         end

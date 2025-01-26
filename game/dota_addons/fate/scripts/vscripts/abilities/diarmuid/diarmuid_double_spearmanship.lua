@@ -23,19 +23,37 @@ function diarmuid_double_spearmanship:OnSpellStart()
 	local caster = self:GetCaster()
 
 	if caster:HasModifier("modifier_rampant_warrior_window") then
+
+		if caster:FindAbilityByName("diarmuid_new_combo"):IsCooldownReady()  then
+             
+            caster:SwapAbilities("diarmuid_new_combo", "diarmuid_warrior_charge", true, false)
+    
+            Timers:CreateTimer("diar_combo_window",{
+                endTime = 4,
+                callback = function()
+                local index5ability = caster:GetAbilityByIndex(5):GetName()
+                if index5ability == "diarmuid_new_combo"  then
+                     caster:SwapAbilities("diarmuid_new_combo", "diarmuid_warrior_charge", false, true)
+                end
+                 
+            end
+            })
+    
+        end
+		--[[
 		caster:AddNewModifier(caster, self, "modifier_rampant_warrior", { Duration = self:GetSpecialValueFor("combo_duration"),
 																		  AttackSpeed = self:GetSpecialValueFor("combo_aspd"),
 																		  HitDamage = self:GetSpecialValueFor("combo_damage") })
 
 		caster:RemoveModifierByName("modifier_rampant_warrior_window")
-		caster:AddNewModifier(caster, self, "modifier_rampant_warrior_cooldown", { Duration = self:GetSpecialValueFor("combo_cooldown") })
+		--caster:AddNewModifier(caster, self, "modifier_rampant_warrior_cooldown", { Duration = self:GetSpecialValueFor("combo_cooldown") })
 
-		local masterCombo = caster.MasterUnit2:FindAbilityByName("diarmuid_rampant_warrior_proxy")
-		masterCombo:EndCooldown()
-		masterCombo:StartCooldown(masterCombo:GetCooldown(1))
+		--local masterCombo = caster.MasterUnit2:FindAbilityByName("diarmuid_rampant_warrior_proxy")
+		--masterCombo:EndCooldown()
+		--masterCombo:StartCooldown(masterCombo:GetCooldown(1))
 
-		caster:EmitSound("Diarmuid_Combo_" .. math.random(1,2))
-
+		--caster:EmitSound("Diarmuid_Combo_" .. math.random(1,2))
+		
 		LoopOverPlayers(function(player, playerID, playerHero)
 			--print("looping through " .. playerHero:GetName())
 				if playerHero.gachi == true then
@@ -45,7 +63,7 @@ function diarmuid_double_spearmanship:OnSpellStart()
 			 
 				end
 			   end)
-	
+			   ]]
 		
 	else
 		local attack_speed = 0
@@ -66,9 +84,9 @@ function diarmuid_double_spearmanship:OnSpellStart()
 		caster:EmitSound("Diarmuid_Skill_1")
 		if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 and caster:GetIntellect() >= 29.1 then
 			if  not caster:HasModifier("modifier_rampant_warrior_cooldown") then
-				caster:AddNewModifier(caster, self, "modifier_rampant_warrior_window", { Duration = 3 })
+				caster:AddNewModifier(caster, self, "modifier_rampant_warrior_window", { Duration = 4 })
 				self:EndCooldown()
-				Timers:CreateTimer(2.95, function()
+				Timers:CreateTimer(4, function()
 				if(caster:HasModifier("modifier_rampant_warrior_window")) then
 					self:StartCooldown(self:GetCooldown(self:GetLevel()) - 3) 
 				end

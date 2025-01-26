@@ -20,3 +20,10 @@ end
 function modifier_artoria_improved_instinct:RemoveOnDeath()
 	return true
 end
+
+function modifier_artoria_improved_instinct:GetEffectName()
+    return "particles/zlodemon/immunity_sphere_buff.vpcf"
+end
+function modifier_artoria_improved_instinct:GetEffectAttachType()
+    return PATTACH_ABSORIGIN_FOLLOW
+end

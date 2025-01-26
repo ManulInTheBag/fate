@@ -1,5 +1,5 @@
 emiya_nine_lives = class({})
-
+LinkLuaModifier("modifier_kb_immune", "abilities/zlodemon_nasral/modifier_kb_immune", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_emiya_nine_lives", "abilities/emiya/emiya_nine_lives", LUA_MODIFIER_MOTION_NONE)
 
 function emiya_nine_lives:GetAOERadius()
@@ -136,6 +136,7 @@ function modifier_emiya_nine_lives:OnIntervalThink()
 			DoDamage(caster, v, self.SmallDamage, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
 			giveUnitDataDrivenModifier(caster, v, "rooted", 0.3)
 			giveUnitDataDrivenModifier(caster, v, "locked", 0.3)
+			v:AddNewModifier(caster,self:GetAbility(), "modifier_kb_immune", {duration = 0.5})
 			if caster.IsProjectionAcquired then 	giveUnitDataDrivenModifier(caster, v, "stunned", 0.3) end
 			v:EmitSound("Hero_Juggernaut.OmniSlash.Damage")	
 		end

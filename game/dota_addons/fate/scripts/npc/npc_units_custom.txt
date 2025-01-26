@@ -857,6 +857,63 @@
 		"WakesNeutrals"				"0"
 	}
 
+	"attack_familiar"
+	{
+		"Model"						"models/items/beastmaster/hawk/ti9_cache_bm_chieftain_of_the_primal_tribes_bird/ti9_cache_bm_chieftain_of_the_primal_tribes_bird.vmdl"	// Model.
+		"BaseClass"					"npc_dota_beastmaster_hawk"
+		"SoundSet"					"0"			// Name of sound set.
+		"Level"						"6"
+		"ModelScale"				"1.0"
+		// Abilities
+		//----------------------------------------------------------------
+		"Ability1"					"familiar_attack"			// Ability 1
+		"Ability2"					""			// Ability 2
+		"Ability3"					""			// Ability 3
+		"Ability4"					""			// Ability 4
+
+		// Bounty
+		//----------------------------------------------------------------
+		"BountyGoldMin"				"250"		// Gold earned min.
+		"BountyGoldMax"				"250"		// Gold earned max.
+
+		// Armor
+		//----------------------------------------------------------------
+		"ArmorPhysical"				"0"			// Physical protection.
+
+		// Attack
+		//----------------------------------------------------------------
+		"AttackCapabilities"		"DOTA_UNIT_CAP_NO_ATTACK"
+
+		// Bounds
+		//----------------------------------------------------------------
+		"HealthBarOffset"			"50"
+
+		// Movement
+		//----------------------------------------------------------------
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_FLY"
+		"MovementSpeed"				"450"		// Speed.
+		"MovementTurnRate"			"0.5"		// Turning rate.
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"200"		// Base health.
+		"StatusHealthRegen"			"0"		// Health regeneration rate.
+		
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"650"		// Range of vision during day light.
+		"VisionNighttimeRange"		"650"		// Range of vision at night time.
+
+		// Team
+		//----------------------------------------------------------------
+		"TeamName"					"DOTA_TEAM_GOODGUYS"
+		"CombatClassAttack"			"DOTA_COMBAT_CLASS_ATTACK_BASIC"
+		"CombatClassDefend"			"DOTA_COMBAT_CLASS_DEFEND_BASIC"
+		"UnitRelationshipClass"		"DOTA_NPC_UNIT_RELATIONSHIP_TYPE_DEFAULT"
+		
+		"WakesNeutrals"				"0"
+	}
+
 	"caster_5th_territory"
 	{
 		"BaseClass"				 "npc_dota_base_additive"

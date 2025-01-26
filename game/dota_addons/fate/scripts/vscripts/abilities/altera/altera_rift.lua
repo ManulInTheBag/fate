@@ -156,8 +156,10 @@ if IsServer() then
 		            center_z = self.origin.z }
 
 		        enemy:RemoveModifierByName("modifier_knockback")
+				if( not IsKnockbackImmune(enemy)) then
+					enemy:AddNewModifier(caster, self.ability, "modifier_knockback", knockback)
+				end
 
-		        enemy:AddNewModifier(caster, self.ability, "modifier_knockback", knockback)
 	        end
 	    end
 	end

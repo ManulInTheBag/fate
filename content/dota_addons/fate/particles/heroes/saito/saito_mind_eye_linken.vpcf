@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf51:version{6d03d500-2498-454e-b833-f654e870bb3d} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf61:version{39d3ce1d-9442-4407-9b78-8317145b1732} -->
 {
 	_class = "CParticleSystemDefinition"
 	m_bShouldHitboxesFallbackToRenderBounds = false
@@ -40,10 +40,6 @@
 			m_fRadiusMin = 40.0
 			m_fSpeedMin = 500.0
 			m_fSpeedMax = 500.0
-			m_TransformInput = 
-			{
-				m_nType = "PT_TYPE_CONTROL_POINT"
-			}
 		},
 		{
 			_class = "C_INIT_InitFloat"
@@ -60,10 +56,6 @@
 			_class = "C_INIT_RemapInitialDirectionToTransformToVector"
 			m_bNormalize = true
 			m_nFieldOutput = 21
-			m_TransformInput = 
-			{
-				m_nType = "PT_TYPE_CONTROL_POINT"
-			}
 		},
 		{
 			_class = "C_INIT_InitFloat"
@@ -598,10 +590,6 @@
 				m_vRandomMin = [ 0.0, 0.0, 0.0 ]
 				m_vRandomMax = [ 0.0, 0.0, 0.0 ]
 			}
-			m_TransformInput = 
-			{
-				m_nType = "PT_TYPE_CONTROL_POINT"
-			}
 		},
 	]
 	m_Operators = 
@@ -617,10 +605,6 @@
 		},
 		{
 			_class = "C_OP_PositionLock"
-			m_TransformInput = 
-			{
-				m_nType = "PT_TYPE_CONTROL_POINT"
-			}
 		},
 		{
 			_class = "C_OP_RampScalarLinear"

@@ -30,7 +30,7 @@ function diarmuid_gae_dearg:CastFilterResultTarget(hTarget)
 	local caster = self:GetCaster()
 	local target_flag = DOTA_UNIT_TARGET_FLAG_NONE
 	local filter = UnitFilter(hTarget, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, caster:GetTeamNumber())
-
+	if caster:HasModifier("modifier_diar_model_swap") then return UF_FAIL_CUSTOM end
 	if(filter == UF_SUCCESS) then
 		if hTarget:GetName() == "npc_dota_ward_base" then 
 			return UF_FAIL_CUSTOM 
@@ -43,6 +43,7 @@ function diarmuid_gae_dearg:CastFilterResultTarget(hTarget)
 end
 
 function diarmuid_gae_dearg:GetCustomCastErrorTarget(hTarget)
+	if self:GetCaster():HasModifier("modifier_diar_model_swap") then return "No spear???" end
 	return "#Invalid_Target"
 end
 
@@ -203,6 +204,15 @@ function diarmuid_gae_dearg:StartRemainingCooldown(flCooldown)
 end
 
 function diarmuid_gae_dearg:PlayGaeEffect(target)
+	local flower = ParticleManager:CreateParticle("particles/zlodemon/diar_combo/flower_red.vpcf", PATTACH_POINT_FOLLOW, target)
+	ParticleManager:SetParticleControl(flower, 0, target:GetAbsOrigin())
+	ParticleManager:ReleaseParticleIndex(flower)
+	local flower2 = ParticleManager:CreateParticle("particles/zlodemon/diar_combo/red_rose.vpcf", PATTACH_POINT_FOLLOW, target)
+	ParticleManager:SetParticleControl(flower2, 0, target:GetAbsOrigin()+ Vector(0,0,150))
+	ParticleManager:ReleaseParticleIndex(flower2)
+	local petals = ParticleManager:CreateParticle("particles/zlodemon/diar_combo/petals_red.vpcf", PATTACH_POINT_FOLLOW, target)
+	ParticleManager:SetParticleControl(petals, 0, target:GetAbsOrigin())
+	ParticleManager:ReleaseParticleIndex(petals)
 	--[[local culling_kill_particle = ParticleManager:CreateParticle("particles/custom/diarmuid/diarmuid_cull.vpcf", PATTACH_CUSTOMORIGIN, target)
 	ParticleManager:SetParticleControlEnt(culling_kill_particle, 0, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)
 	ParticleManager:SetParticleControlEnt(culling_kill_particle, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), true)

@@ -213,8 +213,9 @@ function modifier_mordred_rush:BOOM()
                         center_x = self.parent:GetAbsOrigin().x,
                         center_y = self.parent:GetAbsOrigin().y,
                         center_z = self.parent:GetAbsOrigin().z }
-
-	self.target:AddNewModifier(self.parent, self.ability, "modifier_knockback", knockback)
+     if( not IsKnockbackImmune(self.target)) then
+	    self.target:AddNewModifier(self.parent, self.ability, "modifier_knockback", knockback)
+     end
 
     local enemies = FindUnitsInRadius(  self.parent:GetTeamNumber(),
                                         position,

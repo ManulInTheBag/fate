@@ -3,9 +3,13 @@ item_c_scroll = class({})
 function item_c_scroll:OnSpellStart()
 	local caster = self:GetCaster()
 	local target = self:GetCursorPosition()
+
+    if target == caster:GetAbsOrigin() then
+        target = caster:GetAbsOrigin() + caster:GetForwardVector()*100
+    end
     local vector = (target - caster:GetAbsOrigin()):Normalized()
     vector.z = 0
-    local speed = 1500
+    local speed = 1800
 	caster.ServStat:useC()
 
 	local tProjectile = {
@@ -14,8 +18,8 @@ function item_c_scroll:OnSpellStart()
         vSpawnOrigin = caster:GetAbsOrigin() + Vector(0,0,120),
         vVelocity = vector * speed,
         fDistance = 1100,
-        fStartRadius = 64,
-        fEndRadius = 64,
+        fStartRadius = 128,
+        fEndRadius = 128,
         Source = self:GetCaster(),
         bHasFrontalCone = false,
         bReplaceExisting = false,

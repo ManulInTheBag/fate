@@ -69,7 +69,7 @@
 
         "AbilityValues"
         {
-            "bonus_health" "25"
+            "bonus_health" "30"
         }
     }
 
@@ -817,6 +817,34 @@
 			 	"Function"		"BecomeWard"
 			}
 		}
+	}
+
+	//=================================================================================================================
+	// Familiar attack
+	//=================================================================================================================
+	"familiar_attack"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"				    "items/familiar_attack"
+		
+	    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+	    "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastAnimation" 			"ACT_DOTA_ITEM_PICKUP"
+
+	    "AbilityCastRange"				"1000"
+	    "AbilityCooldown"				"10"
+		"AbilityTextureName"			"custom/c_scroll"
+		"MaxLevel"						"1"
+		
+		"AbilityValues"
+        {
+            "damage" "100"
+            "stun_duration" "1"
+        }
+
+
 	}
 
 	//=================================================================================================================

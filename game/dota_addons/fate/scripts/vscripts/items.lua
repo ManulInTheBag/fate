@@ -372,6 +372,25 @@ function ScoutFam(keys)
    	scout:AddNewModifier(caster, nil, "modifier_kill", {duration = 30})
 end
 
+function AttackFam(keys)
+	local caster = keys.caster
+	local ability = keys.ability
+	local hero = keys.caster:GetPlayerOwner():GetAssignedHero()
+	if caster:HasModifier("jump_pause_nosilence") then
+		RefundItem(caster, ability)
+		return
+	end
+	local pid = caster:GetPlayerID()
+	hero.ServStat:useFamiliar()
+	local scout = CreateUnitByName("attack_familiar", caster:GetAbsOrigin(), true, caster, caster, caster:GetTeamNumber())
+	scout:SetControllableByPlayer(pid, true)
+	keys.ability:ApplyDataDrivenModifier(caster, scout, "modifier_banished", {})
+	LevelAllAbility(scout)
+   	scout:AddNewModifier(caster, nil, "modifier_kill", {duration = 30})
+end
+
+
+
 function BecomeWard(keys)
 	local caster = keys.caster
 	local origin = caster:GetAbsOrigin()

@@ -1082,7 +1082,7 @@ function FateGameMode:OnPlayerChat(keys)
         FateGameMode:Fisting(herotoban, herotoban)
     end
 
-    LinkLuaModifier("modifier_renvor", "abilities/zlodemon_nasral/modifier_renvor.lua", LUA_MODIFIER_MOTION_NONE)
+    LinkLuaModifier("modifier_renvor", "abilities/zlodemon_nasral/modifier_renvor", LUA_MODIFIER_MOTION_NONE)
 
     if text == "-anchor" then
         playerHero = ply:GetAssignedHero()
@@ -1100,7 +1100,7 @@ function FateGameMode:OnPlayerChat(keys)
               
             end
     end
-    LinkLuaModifier("modifier_hvick", "abilities/zlodemon_nasral/modifier_renvor.lua", LUA_MODIFIER_MOTION_NONE)
+    LinkLuaModifier("modifier_hvick", "abilities/zlodemon_nasral/modifier_renvor", LUA_MODIFIER_MOTION_NONE)
     if text == "-pig" then
         playerHero = ply:GetAssignedHero()
             if PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID())  == 311532152 or 
@@ -3703,7 +3703,7 @@ function FateGameMode:InitGameMode()
     hGameModeEntity:SetControlFateMechanic( true )
     hGameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_AGILITY_ARMOR, 0.2)
     hGameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_AGILITY_ATTACK_SPEED , 2)
-    hGameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_STRENGTH_HP, 9)
+    hGameModeEntity:SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_STRENGTH_HP, 11)
     --GameRules:GetGameModeEntity():SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_STRENGTH_HP_REGEN_PERCENT, 0)
     --GameRules:GetGameModeEntity():SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_STRENGTH_STATUS_RESISTANCE_PERCENT, 0)
     --GameRules:GetGameModeEntity():SetCustomAttributeDerivedStatValue(DOTA_ATTRIBUTE_STRENGTH_MAGIC_RESISTANCE_PERCENT, 0)  

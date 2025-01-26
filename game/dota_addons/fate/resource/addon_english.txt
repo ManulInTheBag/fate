@@ -231,6 +231,7 @@
 		"dummy_unit"                                                                      "Dummy Unit"
 		"ward_familiar"                                                                   "Ward Familiar"
 		"scout_familiar"                                                                  "Scout Familiar"
+		"attack_familiar"                                                                  "Attack Familiar"
 		"caster_5th_territory"                                                            "Tower"
 		"caster_5th_territory_improved"                                                   "Big Tower"
 		"caster_5th_skeleton_warrior"                                                     "Mr Skeletor"
@@ -2041,6 +2042,9 @@
 
 		"DOTA_Tooltip_modifier_a_scroll"                                                  "A Scroll"
 		"DOTA_Tooltip_modifier_a_scroll_Description"                                      ""
+
+		"DOTA_Tooltip_modifier_spellblock_basic"				"Spellblock"
+		"DOTA_Tooltip_modifier_spellblock_basic_Description"	"Blocks targetted spell"
 
 		"DOTA_Tooltip_modifier_mount"                                                     "Mount"
 		"DOTA_Tooltip_modifier_mount_Description"                                         ""
@@ -4609,6 +4613,21 @@
         "DOTA_Tooltip_Ability_diarmuid_attribute_doublespear_attack_speed"		"Double Spearmanship Attack Speed:"
         "DOTA_Tooltip_Ability_diarmuid_attribute_doublespear_cost_reduce_buidhe"		"Mana cost reduction:"
  
+
+
+
+
+        "DOTA_Tooltip_Ability_diarmuid_new_combo"					"Combo: Rampant Warrior"
+        "DOTA_Tooltip_Ability_diarmuid_new_combo_Description"		"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : W-W in 4 seconds, Q in 4 seconds, Q in %recast_timer% seconds</font>\nDiarmuid throws Gae Dearg in the targetted direction, applying all Gae Dearg effects with decreased damage as pure. If Warrior's charge is used on the same enemy in %recast_timer% seconds, on arrival Diarmuid will start slashing them in a small radius with Gae Buidhe, dealing magical damage and reducing their maximum health based on damage dealt.\nDiarmuid will follow enemy on any movement, but cannot act until combo ends.\nMissing Gae Dearg will render ability to go on a lowered cooldown.\nDiarmuid takes 40%% less damage while performing combo."
+        "DOTA_Tooltip_Ability_diarmuid_new_combo_Lore"			""
+        "DOTA_Tooltip_Ability_diarmuid_new_combo_damage"		"Gae Dearg damage:"
+ 		"DOTA_Tooltip_Ability_diarmuid_new_combo_radius"		"Aoe radius:"
+ 		"DOTA_Tooltip_Ability_diarmuid_new_combo_duration"		"Combo duration:"
+ 		"DOTA_Tooltip_Ability_diarmuid_new_combo_total_damage"	"Total Gae Buidhe damage:"
+ 	    "DOTA_Tooltip_Ability_diarmuid_new_combo_reduced_cooldown"		"Reduced cooldown:"
+
+
+
         "DOTA_Tooltip_Ability_diarmuid_rampant_warrior_proxy"					"Combo: Rampant Warrior"
         "DOTA_Tooltip_ability_diarmuid_rampant_warrior_proxy_Description"		"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : W-W in 3 seconds</font>\nDiarmuid puts everything he's got into battle. For a short duration, Gae Buidhe and Gae Dearg has a fixed cooldown, greatly reduced mana cost and reduced cast point. His attacks always hits twice and deals bonus magical and pure damage and he gains a massive amount of attack speed."
         "DOTA_Tooltip_ability_diarmuid_rampant_warrior_proxy_Lore"			""
@@ -7257,10 +7276,11 @@
 		"DOTA_Tooltip_modifier_aoko_short_beam_debuff"				"Outgoing magical damage reduced"
 
 		"DOTA_Tooltip_ability_aoko_shield"					"Shield"
-		"DOTA_Tooltip_ability_aoko_shield_Description"		"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>%cast_point%</font> | <font color='#FFFAFA'>Channel duration:</font> <font color='#7FFF00'>%channel_duration%</font>\nAoko channels a small shield, gaining %shield_amount% <font color='#FFFAFA'>all-damage barrier</font> and becoming <font color='#ff9900'>immune to crowd control</font> for the duration.\nIf shield is broken, she <font color='#FFFAFA'>cleanses</font> herself, blinks %distance% units backwards and restores %mana%%  of her max mana.\nIncreases <font color='#00FFFF'>Circuit Charge</font> when broken.\nShares level with <font color='#58ACFA'>Blazing Starmine - Retreat</font>."
+		"DOTA_Tooltip_ability_aoko_shield_Description"		"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>%cast_point%</font> | <font color='#FFFAFA'>Channel duration:</font> <font color='#7FFF00'>%channel_duration%</font>\nAoko channels a small shield, gaining %shield_amount% <font color='#FFFAFA'>all-damage barrier</font> and becoming <font color='#ff9900'>immune to crowd control</font> for the duration.\nIf shield is broken, she <font color='#FFFAFA'>cleanses</font> herself, blinks %distance% units backwards and restores %mana%%  of her max mana.\nIncreases <font color='#00FFFF'>Circuit Charge</font> when broken.\nIf shield is broken, the damage that destroyed it will be reduced by a flat value.\nShares level with <font color='#58ACFA'>Blazing Starmine - Retreat</font>."
 		"DOTA_Tooltip_ability_aoko_shield_Note0"					"Aoko turns herself to the chosen point on-cast."
 		"DOTA_Tooltip_ability_aoko_shield_Note1"					"Barrier has highest priority and works before B Scroll. Although any source of physical or magical barrier will work before it."
 		"DOTA_Tooltip_ability_aoko_shield_stack_gain"				"<font color='#00FFFF'>Circuit Charge</font> gain:"
+		"DOTA_Tooltip_ability_aoko_shield_shield_damage_decrease_flat_value"				"Damage decrease on destroy:"
 		"DOTA_Tooltip_ability_aoko_shield_lore"						"Aoko's spells are simple, but she has various ways of using them."
 
 		"DOTA_Tooltip_ability_aoko_jumpback"				"Blazing Starmine - Retreat"
@@ -9197,7 +9217,7 @@
         "npc_dota_hero_spirit_breaker"						"Hijikata Toshizo"
 
         "DOTA_Tooltip_ability_hijikata_dash"							"Madman shot"
-        "DOTA_Tooltip_ability_hijikata_dash_Description"			"Cast Point: <font color='#FFFFF9'>0.2</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Hijikata shoots his gun in the targeted direction, dealing <font color='#58ACFA'>magical</font> damage on hit.\nIf Hijikata succesfully landed his shot, he is able to recast this ability, into <font color='#58ACFA'>Battle drive</font>.\n<font color='#58ACFA'>Battle drive</font>: Hijikata dashes to the target that was hit by the <font color='#58ACFA'>Madman shot</font>, upon reaching the target, he deals <font color='#58ACFA'>magical</font> damage to the target.\nHijikata is unable to cast <font color='#58ACFA'>Battle drive</font> if target is too far away from him.\n<font color='#58ACFA'>Battle drive</font> is canceled if target blinks.\nTarget is visible to Hijikata while <font color='#58ACFA'>Battle drive</font> recast is available."
+        "DOTA_Tooltip_ability_hijikata_dash_Description"			"Cast Point: <font color='#FFFFF9'>0.2</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Hijikata shoots his gun in the targeted direction, dealing <font color='#58ACFA'>magical</font> damage on hit.\nIf Hijikata succesfully landed his shot, he is able to recast this ability, into <font color='#58ACFA'>Battle drive</font>.\n<font color='#58ACFA'>Battle drive</font>: Hijikata dashes to the target that was hit by the <font color='#58ACFA'>Madman shot</font>, upon reaching the target, he deals <font color='#58ACFA'>magical</font> damage to the target.\nHijikata will heal up to 20% of lost health on hit\nHijikata is unable to cast <font color='#58ACFA'>Battle drive</font> if target is too far away from him.\n<font color='#58ACFA'>Battle drive</font> is canceled if target blinks.\nTarget is visible to Hijikata while <font color='#58ACFA'>Battle drive</font> recast is available."
         "DOTA_Tooltip_ability_hijikata_dash_distance"							"Range:"
         "DOTA_Tooltip_ability_hijikata_dash_speed"								"Bullet speed:"
         "DOTA_Tooltip_ability_hijikata_dash_recast_duration"					"Recast duration:"
@@ -9207,7 +9227,7 @@
 
 
         "DOTA_Tooltip_ability_hijikata_dash_recast"							"Battle drive"
-        "DOTA_Tooltip_ability_hijikata_dash_recast_Description"			"Cast Point: <font color='#FFFFF9'>0.0</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Hijikata dashes to the target that was hit by the <font color='#58ACFA'>Madman shot</font>, upon reaching the target, he deals <font color='#58ACFA'>magical</font> damage to the target.\nHijikata is unable to cast <font color='#58ACFA'>Battle drive</font> if target is too far away from him.\n<font color='#58ACFA'>Battle drive</font> is canceled if target blinks."
+        "DOTA_Tooltip_ability_hijikata_dash_recast_Description"			"Cast Point: <font color='#FFFFF9'>0.0</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Hijikata dashes to the target that was hit by the <font color='#58ACFA'>Madman shot</font>, upon reaching the target, he deals <font color='#58ACFA'>magical</font> damage to the target.\nHijikata will heal up to 20% of lost health on hit\nHijikata is unable to cast <font color='#58ACFA'>Battle drive</font> if target is too far away from him.\n<font color='#58ACFA'>Battle drive</font> is canceled if target blinks."
         "DOTA_Tooltip_ability_hijikata_dash_recast_distance"							"Range:"
         "DOTA_Tooltip_ability_hijikata_dash_recast_speed"								"Fly speed:"
         "DOTA_Tooltip_ability_hijikata_dash_recast_damage"								"Damage:"
@@ -9421,11 +9441,11 @@
 		"DOTA_Tooltip_Ability_master_shard_of_avarice_Lore"			"A shard of the legendary artifact that is known to descend upon the soul in its most dire situation. Despite being a makeshift, a trivial wish of mere human may not be asking too much...\n"
 
 		"DOTA_Tooltip_Ability_master_shard_of_anti_magic"				"Shard of Anti-Magic"
-		"DOTA_Tooltip_ability_master_shard_of_anti_magic_Description"	"Grants 3 Shard of Anti-Magic to your Servant, a powerful artifact that renders the owner immune to magic for 5 seconds and gives them 80%% magical resistance."
+		"DOTA_Tooltip_ability_master_shard_of_anti_magic_Description"	"Grants 3 Shard of Anti-Magic to your Servant, a powerful artifact that renders the owner immune to magic for 5 seconds and gives them 80%% magical resistance.\nCan only be picked once"
 		"DOTA_Tooltip_Ability_master_shard_of_anti_magic_Lore"			"A shard of the legendary artifact that is known to descend upon the soul in its most dire situation. Despite being a makeshift, a trivial wish of mere human may not be asking too much...\n"
 
 		"DOTA_Tooltip_Ability_master_shard_of_replenishment"				"Shard of Replenishment"
-		"DOTA_Tooltip_ability_master_shard_of_replenishment_Description"	"Grants 3 Shard of Replenishment, which when used will heal the user's health and mana, grant 1000 additional health and 500 additional mana for 5 seconds, 500 health and mana regeneration per second for 5 seconds, and 50 increased armor for 5 seconds."
+		"DOTA_Tooltip_ability_master_shard_of_replenishment_Description"	"Grants 3 Shard of Replenishment, which when used will heal the user's health and mana, grant 1000 additional health and 500 additional mana for 5 seconds, 500 health and mana regeneration per second for 5 seconds, and 50 increased armor for 5 seconds.\nCan only be picked once"
 		"DOTA_Tooltip_Ability_master_shard_of_replenishment_Lore"		"A shard of the legendary artifact that is known to descend upon the soul in its most dire situation. Despite being a makeshift, a trivial wish of mere human may not be asking too much...\n"
 
 		"DOTA_Tooltip_Ability_master_shard_of_prosperity"				"Shard of Prosperity"
@@ -9455,7 +9475,7 @@
        	"DOTA_Tooltip_Ability_master_presence_resonator_Note0"			"Cannot detect assassins or invulnerable heroes."
 
 		"DOTA_Tooltip_Ability_master_strength"						"Acquire Strength"
-		"DOTA_Tooltip_ability_master_strength_Description"			"<font color='#58ACFA'>Master Mana Required : 1</font>\nIncreases your Servant's STR by 1 (+9 HP, +0.25 HP Regen and 0.2%%  Magical Resistance)"
+		"DOTA_Tooltip_ability_master_strength_Description"			"<font color='#58ACFA'>Master Mana Required : 1</font>\nIncreases your Servant's STR by 1 (+11 HP, +0.25 HP Regen and 0.2%%  Magical Resistance)"
 
 		"DOTA_Tooltip_Ability_master_agility"						"Acquire Agility"
 		"DOTA_Tooltip_ability_master_agility_Description"			"<font color='#58ACFA'>Master Mana Required : 1</font>\nIncreases your Servant's AGI by 1 (+0.2 Armor and +2 Attack Speed).\nServant additionally gains 3 Movement Speed and 0.55 bonus armor."
@@ -9525,6 +9545,14 @@
 		"DOTA_Tooltip_ability_item_teleport_scroll_Description"                 "<h1>Use: Relocation</h1> Teleport to a target ward.\n<font color='#FF0000'>Items cost 50%% more outside of base.</font>"
 		"DOTA_Tooltip_ability_item_teleport_scroll_cast_delay"                  "CHANNELING TIME:"
 		"DOTA_Tooltip_ability_item_teleport_scroll_Note0"                       "If cast on the ground, targets nearest ward within 5000 units radius."
+
+		//====================================
+		//	Relic of the king
+		//====================================
+		"DOTA_Tooltip_ability_item_relic_of_the_king"                                "Relic of the king"
+		"DOTA_Tooltip_ability_item_relic_of_the_king_Lore"                           "Shapka magomeda"
+		"DOTA_Tooltip_ability_item_relic_of_the_king_Description"                    "<h1>Use: Spellblock</h1> Grants user a one-time spellblock.\n<font color='#FF0000'>Items cost 50%% more outside of base.</font>"
+		"DOTA_Tooltip_ability_item_relic_of_the_king_duration"                       "DURATION:"
 		//====================================
 		//	Gem of Speed
 		//====================================
@@ -9551,6 +9579,23 @@
 		"DOTA_Tooltip_ability_ward_conversion_duration"							"Ward duration: "
 		"DOTA_Tooltip_ability_ward_conversion_vision"							"Ward vision: "
 		"DOTA_Tooltip_ability_ward_conversion_true_sight"						"Ward true sight vision: "
+
+		//====================================
+		//	Attack Familiar
+		//====================================
+		"DOTA_Tooltip_ability_item_attack_familiar"                              "Attack Familiar"
+		"DOTA_Tooltip_ability_item_attack_familiar_Lore"                         "Useful for setting up a fight."
+		"DOTA_Tooltip_ability_item_attack_familiar_Description"                  "<h1>Use: Summon Familiar</h1> Summons an Attack Familiar. The familiar has unobstructed movement and vision, and can send a C scroll once, dying after cast.\n<font color='#FF0000'>Items cost 50%% more outside of base.</font>"
+		"DOTA_Tooltip_ability_item_attack_familiar_scout_duration"               "FAMILIAR DURATION:"
+
+
+
+
+		"DOTA_Tooltip_ability_familiar_attack"                                  "Fireball"
+		"DOTA_Tooltip_ability_familiar_attack_Description"                      "<h1>Use: Fireball</h1> Hurls a small orb of fire in a direction, inflicting magic damage and <font color='#FF3399'>stunning</font> target it hits."
+		"DOTA_Tooltip_ability_familiar_attack_damage"							"DAMAGE: "
+		"DOTA_Tooltip_ability_familiar_attack_stun_duration"					"STUN DURATION: "
+
 
 		//====================================
 		//	Berserk Scroll
@@ -9668,8 +9713,10 @@
 		//====================================
 		"DOTA_Tooltip_ability_item_s_scroll"                                    "Rank S Great Magic Scroll"
 		"DOTA_Tooltip_ability_item_s_scroll_Lore"                               "Costly yet powerful, this extraordinary scroll conjures an unstable dimensional rim, preventing victim from fleeing to another dimension."
-		"DOTA_Tooltip_ability_item_s_scroll_Description"                        "<h1>Use: Lightning strike</h1> Unleashes a powerful bolt of lightning at target. The target is <font color='#FF3399'>dispelled</font>, dealt magic damage, and also <font color='#FF3399'>slowed</font> and <font color='#FF3399'>dimensionally locked</font> for a duration.\n<font color='#FF0000'>Items cost 50%% more outside of base.</font>"
+		"DOTA_Tooltip_ability_item_s_scroll_Description"                        "<h1>Use: Lightning strike</h1> Unleashes a powerful bolt of lightning at the target location after a delay. Targets hit are <font color='#FF3399'>dispelled</font>, dealt magic damage, and also <font color='#FF3399'>slowed</font> and <font color='#FF3399'>dimensionally locked</font> for a duration.\n<font color='#FF0000'>Items cost 50%% more outside of base.</font>"
 		"DOTA_Tooltip_ability_item_s_scroll_damage"                             "DAMAGE:"
+		"DOTA_Tooltip_ability_item_s_scroll_radius"                             "RADIUS:"
+		"DOTA_Tooltip_ability_item_s_scroll_delay"                              "DELAY:"
 		"DOTA_Tooltip_ability_item_s_scroll_slow_initial"                       "%INITIAL SLOW:"
 		"DOTA_Tooltip_ability_item_s_scroll_slow_duration"                      "SLOW DURATION:"
 		"DOTA_Tooltip_ability_item_s_scroll_lock_duration"                      "LOCK DURATION:"
@@ -9681,9 +9728,10 @@
 		//====================================
 		"DOTA_Tooltip_ability_item_ex_scroll"                                   "Rank EX Great Magic Scroll"
 		"DOTA_Tooltip_ability_item_ex_scroll_Lore"                              "Said to have been created using the Fifth True Theoretical Factor."
-		"DOTA_Tooltip_ability_item_ex_scroll_Description"                       "<h1>Use: Forked thunder strike</h1> Unleashes a powerful forked thunderbolt at a group of targets, dealing magic damage. The primary target is also <font color='#FF3399'>dispelled</font>, <font color='#FF3399'>slowed</font> and <font color='#FF3399'>dimensionally locked</font> for a duration.\n<font color='#FF0000'>Items cost 50%% more outside of base.</font>"
+		"DOTA_Tooltip_ability_item_ex_scroll_Description"                       "<h1>Use: Great thunder strike</h1>Unleashes a powerful bolt of lightning at the target location after a delay. Targets hit are <font color='#FF3399'>dispelled</font>, dealt magic damage, and also <font color='#FF3399'>slowed</font> and <font color='#FF3399'>dimensionally locked</font> for a duration.\n<font color='#FF0000'>Items cost 50%% more outside of base.</font>"
 		"DOTA_Tooltip_ability_item_ex_scroll_damage"                            "DAMAGE:"
-		"DOTA_Tooltip_ability_item_ex_scroll_max_targets"                       "MAX TARGETS:"
+		"DOTA_Tooltip_ability_item_ex_scroll_radius"                      		"RADIUS:"
+		"DOTA_Tooltip_ability_item_ex_scroll_delay"                      		"Delay:"
 		"DOTA_Tooltip_ability_item_ex_scroll_slow_initial"                      "%INITIAL SLOW:"
 		"DOTA_Tooltip_ability_item_ex_scroll_slow_duration"                     "SLOW DURATION:"
 		"DOTA_Tooltip_ability_item_ex_scroll_lock_duration"                     "LOCK DURATION:"
@@ -10425,6 +10473,7 @@
 		"Master_Not_Enough_Health"			"Not Enough Health (Wait for Health Reset from Holy Grail's Blessing)"
 		"Cannot_Get_Over_50_Stats"			"Cannot Acquire Over 50 Stat"
 		"Cannot_Acquire_Shard"				"Have Not lost 5 rounds yet"
+		"Already_picked_that_shard"			"Already picked this shard."
 		"Presence_Detected"					"Enemy Servant's presence has been detected"
 		"Cannot_Recover_Mana"				"Cannot Recover Mana"
 		"Cannot_Acquire_Intelligence"		"Cannot acquire Intelligence"

@@ -1,6 +1,68 @@
 
 "DOTAAbilities"
 {	
+
+	//=================================================================================================================
+	// Diarmuid : New combo
+	//=================================================================================================================
+	"diarmuid_new_combo"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/diarmuid/diarmuid_new_combo"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT|DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/diar_throw"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_7"
+		"AOERadius"						"%radius"
+		"AnimationPlaybackRate" 		"1"
+		
+		"precache"
+		{
+			"particle"				"particles/zlodemon/diar_combo/flower.vpcf"
+			"particle"				"particles/zlodemon/diar_combo/gae_buidhe_slash_0.vpcf"
+			"particle"				"particles/zlodemon/diar_combo/gae_buidhe_slash_0_back.vpcf"
+			"particle"				"particles/zlodemon/diar_combo/gae_buidhe_slash_1.vpcf"
+			"particle"				"particles/zlodemon/diar_combo/gae_buidhe_slash_1_baack.vpcf"
+			"particle"				"particles/zlodemon/diar_combo/gae_buidhe_slash_2.vpcf"
+			"particle"				"particles/zlodemon/diar_combo/gae_buidhe_slash_3.vpcf"
+			"particle"				"particles/zlodemon/diar_combo/gae_dearg_projectile.vpcf"
+			"particle"				"particles/zlodemon/diar_combo/gae_dearg_target.vpcf"
+			"particle"				"particles/zlodemon/diar_combo/gae_dearg_trail.vpcf"
+			"particle"				"particles/zlodemon/diar_combo/golden_rose.vpcf"
+			"particle"				"particles/zlodemon/diar_combo/petals.vpcf"
+		}
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1000"
+		"AbilityCastPoint"				"0.4"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"120"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"400"
+		
+		"AbilityValues"
+        {
+            "damage" "400"
+            "duration" "1.4"
+            "cast_range" "1000"
+            "recast_timer" "2"
+            "radius" "250"
+            "total_damage" "1800"
+            "reduced_cooldown" "60"
+        }
+	}
 	//=================================================================================================================
 	// Diarmuid : Warrior's Charge
 	//=================================================================================================================
@@ -122,6 +184,9 @@
 		
 		"precache"
 		{
+			"particle"				"particles/zlodemon/diar_combo/flower.vpcf"
+			"particle"				"particles/zlodemon/diar_combo/golden_rose.vpcf"
+			"particle"				"particles/zlodemon/diar_combo/petals.vpcf"
 			"particle"					"particles/units/heroes/hero_chaos_knight/chaos_knight_reality_rift.vpcf"
 			"particle"					"particles/units/heroes/hero_axe/axe_culling_blade_kill.vpcf"
 			"particle"					"particles/custom/diarmuid/diarmuid_gae_cast.vpcf"
@@ -145,7 +210,7 @@
 		
 		"AbilityValues"
         {
-            "damage" "600 750 900 1050 1200"
+            "damage" "700 850 1000 1150 1300"
             "cooldown" "30"
             "combo_cooldown" "1"
             "doublespear_window" "3"
@@ -244,6 +309,9 @@
 		
 		"precache"
 		{
+			"particle"				"particles/zlodemon/diar_combo/flower_red.vpcf"
+			"particle"				"particles/zlodemon/diar_combo/red_rose.vpcf"
+			"particle"				"particles/zlodemon/diar_combo/petals_red.vpcf"
 			"particle"			"particles/units/heroes/hero_chaos_knight/chaos_knight_reality_rift.vpcf"
 			"particle"			"particles/units/heroes/hero_axe/axe_culling_blade_kill.vpcf"
 			"particle"			"particles/items_fx/dagon.vpcf"

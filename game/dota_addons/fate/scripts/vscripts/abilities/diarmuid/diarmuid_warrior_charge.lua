@@ -117,7 +117,9 @@ function diarmuid_warrior_charge:OnSpellStart()
 	end
 
 	caster:AddNewModifier(caster, self, "modifier_warrior_charge_attspd", { duration = 2.0 })
-
+	if target:HasModifier("modifier_diar_fw_controller") then
+		caster:FindAbilityByName("diarmuid_new_combo"):ActivateCombo(target)
+	end
 	--particle
 	caster:EmitSound("Hero_Huskar.Life_Break")
 	local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_sven/sven_storm_bolt_projectile_explosion.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)

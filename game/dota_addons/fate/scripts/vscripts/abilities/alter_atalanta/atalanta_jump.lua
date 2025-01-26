@@ -184,8 +184,9 @@ function modifier_atalanta_jump:PlayEffects()
 	                                center_x = self.parent:GetAbsOrigin().x,
 	                                center_y = self.parent:GetAbsOrigin().y,
 	                                center_z = self.parent:GetAbsOrigin().z }
-
-	            enemy:AddNewModifier(self.parent, self.ability, "modifier_knockback", knockback)
+                if( not IsKnockbackImmune(enemy)) then
+	                enemy:AddNewModifier(self.parent, self.ability, "modifier_knockback", knockback)
+                end
         end
  
         local enemies = FindUnitsInRadius(  self.parent:GetTeamNumber(),

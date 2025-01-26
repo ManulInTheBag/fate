@@ -1,5 +1,5 @@
 diarmuid_minds_eye = class({})
-
+LinkLuaModifier("modifier_spellblock_basic", "abilities/zlodemon_nasral/modifier_spellblock_basic", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_diarmuid_minds_eye", "abilities/diarmuid/modifiers/modifier_diarmuid_minds_eye", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_minds_eye_aura", "abilities/diarmuid/modifiers/modifier_minds_eye_aura", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_vision_provider", "abilities/general/modifiers/modifier_vision_provider", LUA_MODIFIER_MOTION_NONE)
@@ -31,6 +31,7 @@ function diarmuid_minds_eye:OnSpellStart()
 	caster:AddNewModifier(caster, self, "modifier_diarmuid_minds_eye", { Duration = self:GetSpecialValueFor("duration"),
 																		 MagicResist = self:GetSpecialValueFor("magic_res"),
 																		 Evasion = self:GetSpecialValueFor("evasion")})
+	caster:AddNewModifier(caster, self, "modifier_spellblock_basic", { Duration = self:GetSpecialValueFor("duration")})
 end
 
 function diarmuid_minds_eye:GetIntrinsicModifierName()
