@@ -72,56 +72,57 @@ function tamamo_castration_fist:OnSpellStart()
 			target:EmitSound("Tamamo_Kick_Sfx")
 			local forward = caster:GetForwardVector()
 			local backwards = forward * -1
+			if( not IsKnockbackImmune(target)) then
+				local tama = Physics:Unit(caster)
+				caster:SetPhysicsFriction(0)
+				caster:SetPhysicsVelocity(backwards * 400)
+				caster:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
 
-			local tama = Physics:Unit(caster)
-			caster:SetPhysicsFriction(0)
-			caster:SetPhysicsVelocity(backwards * 400)
-			caster:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
+				local target_phys = Physics:Unit(target)
+				target:SetPhysicsFriction(0)
+				target:SetPhysicsVelocity(forward * 800)
+				target:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
 
-			local target_phys = Physics:Unit(target)
-			target:SetPhysicsFriction(0)
-			target:SetPhysicsVelocity(forward * 800)
-			target:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
+				Timers:CreateTimer("tamamo_back_jump", {
+					endTime = 0.4,
+					callback = function()
+					caster:OnPreBounce(nil)
+					caster:SetBounceMultiplier(0)
+					caster:PreventDI(false)
+					caster:SetPhysicsVelocity(Vector(0,0,0))
+					FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
+					return 
+				end})
 
-			Timers:CreateTimer("tamamo_back_jump", {
-				endTime = 0.4,
-				callback = function()
-				caster:OnPreBounce(nil)
-				caster:SetBounceMultiplier(0)
-				caster:PreventDI(false)
-				caster:SetPhysicsVelocity(Vector(0,0,0))
-				FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
-				return 
-			end})
+				Timers:CreateTimer("kick_target_backjump", {
+					endTime = 0.4,
+					callback = function()
+					target:OnPreBounce(nil)
+					target:SetBounceMultiplier(0)
+					target:PreventDI(false)
+					target:SetPhysicsVelocity(Vector(0,0,0))
+					FindClearSpaceForUnit(target, target:GetAbsOrigin(), true)
+					return 
+				end})
 
-			Timers:CreateTimer("kick_target_backjump", {
-				endTime = 0.4,
-				callback = function()
-				target:OnPreBounce(nil)
-				target:SetBounceMultiplier(0)
-				target:PreventDI(false)
-				target:SetPhysicsVelocity(Vector(0,0,0))
-				FindClearSpaceForUnit(target, target:GetAbsOrigin(), true)
-				return 
-			end})
+				caster:OnPreBounce(function(unit, normal) -- stop the pushback when unit hits wall
+					Timers:RemoveTimer("tamamo_back_jump")
+					unit:OnPreBounce(nil)
+					unit:SetBounceMultiplier(0)
+					unit:PreventDI(false)
+					unit:SetPhysicsVelocity(Vector(0,0,0))
+					FindClearSpaceForUnit(unit, unit:GetAbsOrigin(), true)
+				end)
 
-			caster:OnPreBounce(function(unit, normal) -- stop the pushback when unit hits wall
-				Timers:RemoveTimer("tamamo_back_jump")
-				unit:OnPreBounce(nil)
-				unit:SetBounceMultiplier(0)
-				unit:PreventDI(false)
-				unit:SetPhysicsVelocity(Vector(0,0,0))
-				FindClearSpaceForUnit(unit, unit:GetAbsOrigin(), true)
-			end)
-
-			target:OnPreBounce(function(unit, normal) -- stop the pushback when unit hits wall
-				Timers:RemoveTimer("kick_target_backjump")
-				unit:OnPreBounce(nil)
-				unit:SetBounceMultiplier(0)
-				unit:PreventDI(false)
-				unit:SetPhysicsVelocity(Vector(0,0,0))
-				FindClearSpaceForUnit(unit, unit:GetAbsOrigin(), true)
-			end)
+				target:OnPreBounce(function(unit, normal) -- stop the pushback when unit hits wall
+					Timers:RemoveTimer("kick_target_backjump")
+					unit:OnPreBounce(nil)
+					unit:SetBounceMultiplier(0)
+					unit:PreventDI(false)
+					unit:SetPhysicsVelocity(Vector(0,0,0))
+					FindClearSpaceForUnit(unit, unit:GetAbsOrigin(), true)
+				end)
+			end
 
 			local dur = 0
 			Timers:CreateTimer(0.4, function()				

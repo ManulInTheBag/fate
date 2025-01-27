@@ -3,6 +3,173 @@ lishuwen_no_second_strike = class({})
 LinkLuaModifier("modifier_nss_knockback_stun", "abilities/lishuwen/modifiers/modifier_nss_knockback_stun.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_nss_shock", "abilities/lishuwen/modifiers/modifier_nss_shock.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_berserk","abilities/lishuwen/modifiers/modifier_berserk", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_nss_shock_stackable", "abilities/lishuwen/lishuwen_no_second_strike.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_shuwen_passive_nss_attack_stacking", "abilities/lishuwen/lishuwen_no_second_strike.lua", LUA_MODIFIER_MOTION_NONE)
+
+
+
+function lishuwen_no_second_strike:AddShock(target, amount)
+	local caster = self:GetCaster()
+	local stacks = 0
+
+	if not target or not target:IsAlive() or target:IsNull() then return end
+
+	if target:HasModifier("modifier_nss_shock_stackable") then
+		stacks = target:FindModifierByName("modifier_nss_shock_stackable"):GetStackCount()
+	end
+	if (stacks + amount) > 50 then 
+		target:AddNewModifier(caster, self, "modifier_nss_shock_stackable", {duration = self:GetSpecialValueFor("stacks_duration")})
+		target:FindModifierByName("modifier_nss_shock_stackable"):SetStackCount(50)
+	else
+		target:AddNewModifier(caster, self, "modifier_nss_shock_stackable", {duration = self:GetSpecialValueFor("stacks_duration")})
+		target:FindModifierByName("modifier_nss_shock_stackable"):SetStackCount(stacks + amount)
+
+	end
+
+end
+
+modifier_nss_shock_stackable = class({})
+
+function lishuwen_no_second_strike:GetIntrinsicModifierName()
+	return "modifier_shuwen_passive_nss_attack_stacking"
+end
+
+modifier_shuwen_passive_nss_attack_stacking = class({})
+
+
+
+function modifier_shuwen_passive_nss_attack_stacking:DeclareFunctions()
+	local funcs = {	MODIFIER_EVENT_ON_ATTACK_LANDED
+	 }
+	return funcs
+end
+
+function modifier_shuwen_passive_nss_attack_stacking:OnAttackLanded(keys)	
+	if IsServer() then
+		if keys.attacker ~= self:GetParent() then return end
+		local caster = self:GetParent()
+		local target = keys.target
+		caster:FindAbilityByName("lishuwen_no_second_strike"):AddShock(target, 1)
+	end
+end
+
+
+
+function modifier_shuwen_passive_nss_attack_stacking:IsHidden()
+	return true
+end
+
+function modifier_shuwen_passive_nss_attack_stacking:IsDebuff()
+	return false
+end
+
+function modifier_shuwen_passive_nss_attack_stacking:RemoveOnDeath()
+	return false
+end
+
+function modifier_shuwen_passive_nss_attack_stacking:GetAttributes()
+  return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
+end
+
+function modifier_nss_shock_stackable:IsHidden() return false end
+function modifier_nss_shock_stackable:IsDebuff() return true end
+function modifier_nss_shock_stackable:DeclareFunctions()
+	return { MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE,
+			MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
+			MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
+			MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
+			MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
+			MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE}
+end
+function modifier_nss_shock_stackable:GetModifierTotalDamageOutgoing_Percentage(keys)
+    if IsNotNull(self.hCaster)
+        and IsNotNull(self.hParent) then
+        if IsClient() or bit.band(keys.damage_type or DAMAGE_TYPE_NONE, DAMAGE_TYPE_MAGICAL) ~= 0 then
+            return -self.reduction
+        end
+    end
+end
+
+
+
+function modifier_nss_shock_stackable:GetModifierHealAmplify_PercentageTarget()
+	return -self.heal_reduction
+end
+
+function modifier_nss_shock_stackable:GetModifierHPRegenAmplify_Percentage()
+	return -self.heal_reduction
+end
+
+
+function modifier_nss_shock_stackable:GetModifierPhysicalArmorBonus()
+
+	if IsServer() then
+		CustomNetTables:SetTableValue("sync","nss_variables", { armor_reduction = -self.armor_reduction })
+		return -self.armor_reduction
+	elseif IsClient() then
+		local armor_reduction_jopa = CustomNetTables:GetTableValue("sync","nss_variables").armor_reduction
+		return armor_reduction_jopa
+	end
+end
+
+function modifier_nss_shock_stackable:GetModifierMagicalResistanceBonus()
+	if IsServer() then
+		CustomNetTables:SetTableValue("sync","nss_variables", { mr_reduction = -self.mr_reduction })
+		return -self.mr_reduction
+	elseif IsClient() then
+		local mr_reduction_jopa = CustomNetTables:GetTableValue("sync","nss_variables").mr_reduction
+		return mr_reduction_jopa
+	end
+end
+function modifier_nss_shock_stackable:OnCreated(tTable)
+    self.hCaster  = self:GetCaster()
+    self.hParent  = self:GetParent()
+    self.hAbility = self:GetAbility()
+	self.stacks = self:GetStackCount()
+	self.reduction = 0
+	self.slow_power = 0
+	self.armor_reduction = 0
+	self.mr_reduction = 0
+	self.heal_reduction = 0
+	if self.hCaster.LiShuwenNewSa then 
+		if self.stacks >= 10 then
+			self.reduction = self.hAbility:GetSpecialValueFor("magical_damage_reduction_1")
+		end
+		if self.stacks>= 25 then
+			self.slow_power = self.hAbility:GetSpecialValueFor("slow_power")
+			self.heal_reduction = self.hAbility:GetSpecialValueFor("heal_reduction_1")
+		end
+		if self.stacks >= 50 then
+			self.reduction = self.hAbility:GetSpecialValueFor("magical_damage_reduction_2")
+			self.armor_reduction = self.hAbility:GetSpecialValueFor("armor_reduction")
+			self.mr_reduction = self.hAbility:GetSpecialValueFor("mr_reduction")
+			self.heal_reduction = self.hAbility:GetSpecialValueFor("heal_reduction_2")
+		end
+	end
+end
+function modifier_nss_shock_stackable:OnRefresh(tTable)
+    self:OnCreated(tTable)
+end
+
+function modifier_nss_shock_stackable:GetModifierMoveSpeedBonus_Percentage()
+	if IsServer() then
+		CustomNetTables:SetTableValue("sync","nss_variables", { ms_reduction =  -self.slow_power })
+		return  -self.slow_power
+	elseif IsClient() then
+		local ms_reduction_jopa = CustomNetTables:GetTableValue("sync","nss_variables").ms_reduction
+		return ms_reduction_jopa
+	end
+end
+
+
+function modifier_nss_shock_stackable:GetTexture()
+    return "custom/lishuwen_attribute_circulatory_shock"
+end
+
+function modifier_nss_shock_stackable:OnDestroy()
+	if not IsServer() then return end
+end
+
 
 function lishuwen_no_second_strike:GetCastPoint()
 	return self:GetSpecialValueFor("cast_delay")
@@ -73,7 +240,10 @@ function lishuwen_no_second_strike:OnSpellStart()
 	if caster.bIsCirculatoryShockAcquired then stunDuration = self:GetSpecialValueFor("attribute_stun_duration") end
 
 	local damage = self:GetSpecialValueFor("initial_damage")
-
+	local stacks = 0
+	if target:HasModifier("modifier_nss_shock_stackable") then
+		stacks = target:FindModifierByName("modifier_nss_shock_stackable"):GetStackCount()
+	end
 	if caster.bIsCirculatoryShockAcquired then
 		--[[if (target:GetName() ~= "npc_dota_hero_juggernaut" and target:GetName() ~= "npc_dota_hero_shadow_shaman") and target:IsHero() then
 			target:SetMana(target:GetMana()/5)
@@ -81,13 +251,15 @@ function lishuwen_no_second_strike:OnSpellStart()
 			DoDamage(caster, target, mana_shock_damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
 		end]]
 
-		damage = damage + self:GetSpecialValueFor("shock_damage") + 0.42*(target:GetMaxHealth()-target:GetHealth())
+		damage = damage + self:GetSpecialValueFor("shock_damage") + 0.2*(target:GetMaxHealth()-target:GetHealth()) +
+		 stacks * (self:GetSpecialValueFor("damage_per_nss_stack") + self:GetSpecialValueFor("sa_bonus_damage_per_stack"))
 		--stunDuration = self:GetSpecialValueFor("attribute_stun_duration")
 		target:AddNewModifier(caster, self, "modifier_nss_shock", { Duration = self:GetSpecialValueFor("revoke_duration"),
 																	  ShockDamage = 0})
 	else
 		target:AddNewModifier(caster, self, "modifier_nss_shock", { Duration = self:GetSpecialValueFor("revoke_duration"),
-																	  ShockDamage = self:GetSpecialValueFor("shock_damage")})
+																	  ShockDamage = self:GetSpecialValueFor("shock_damage") + 
+																	stacks * self:GetSpecialValueFor("damage_per_nss_stack")})
 	end
 	
 	DoDamage(caster, target, damage, DAMAGE_TYPE_PURE, 0, self, false)

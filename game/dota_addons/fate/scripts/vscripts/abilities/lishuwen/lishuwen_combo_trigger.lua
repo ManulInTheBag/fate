@@ -6,7 +6,7 @@ function lishuwen_combo_trigger:OnSpellStart()
 
 	if caster:GetAbilityByIndex(2):GetName() == "lishuwen_tiger_strike" then
     	caster:SwapAbilities("lishuwen_raging_dragon_strike", "lishuwen_tiger_strike", true, false)
-    	caster:SwapAbilities("lishuwen_combo_trigger", "lishuwen_cosmic_orbit", false, true)
+    	caster:SwapAbilities("lishuwen_combo_trigger", "lishuwen_presence_concealment", false, true)
     end
     
     Timers:CreateTimer('raging_dragon_timer',{

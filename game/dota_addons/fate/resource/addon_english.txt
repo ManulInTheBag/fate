@@ -2130,6 +2130,9 @@
 		"master_1"	"Emiya Shirou"
 		"master_2"	"Tohsaka Rin"
 
+		"DOTA_Tooltip_li_shuwen_new_w_slow"                                                "Slow"
+		"DOTA_Tooltip_li_shuwen_new_w_slow_Description"                                    "Movement speed reduced"
+
 		//=================================================================================================================
 		//	Saber
 		//=================================================================================================================
@@ -6032,8 +6035,19 @@
         "DOTA_Tooltip_Ability_lishuwen_cosmic_orbit_attack_speed"		"BONUS ATTACK SPEED:"
         "DOTA_Tooltip_Ability_lishuwen_cosmic_orbit_damage"				"BONUS DAMAGE:"
 
+
+        "DOTA_Tooltip_Ability_li_shuwen_new_w"			"Unpredictable assault"
+        "DOTA_Tooltip_Ability_li_shuwen_new_w_Description"	"<font color='#FFFAFA'>Cast point:</font><font color='#7FFF00'>0.2</font>.\nLi shuwen starts attacking targets in selected radius %total_strikes% times, dealing additional <font color='#58ACFA'>magical</font> damage on each hit.\nTargets are selected randomly.\nIf there is no targets in radius, the ability will end.\nLi shuwen applies <font color='#9400D3'>slow</font> debuff on each attack to the enemy.\nAttacks apply 2 <font color='#FF0000'>Circulatory shock</font> stacks on the enemy hit."
+        "DOTA_Tooltip_Ability_li_shuwen_new_w_Lore"		""
+        "DOTA_Tooltip_Ability_li_shuwen_new_w_total_strikes"	"TOTAL ATTACKS: "
+        "DOTA_Tooltip_Ability_li_shuwen_new_w_bonus_damage"		"BONUS DAMAGE:"        
+        "DOTA_Tooltip_Ability_li_shuwen_new_w_radius"			"RADIUS:"
+        "DOTA_Tooltip_Ability_li_shuwen_new_w_slow_duration"		"SLOW DURATION:"
+        "DOTA_Tooltip_Ability_li_shuwen_new_w_slow_power"				"%SLOW:"
+
+
         "DOTA_Tooltip_Ability_lishuwen_tiger_strike"					"Fierce Tiger Strike"
-        "DOTA_Tooltip_Ability_lishuwen_tiger_strike_Description"		"<font color='#FFFAFA'>Cast point:</font><font color='#7FFF00'>0.25</font> | </font><font color='#7FFF00'>0.3</font> | </font><font color='#7FFF00'>0.35</font> \n\nPerforms up to 3 ferocious strikes, each with different effects.\n\n<font color='#58ACFA'>1st:</font> Dashes to the target, dealing <font color='#58ACFA'>%damage_1% magic damage</font> and <font color='#9400D3'>slowing</font> the target by <font color='#9400D3'>%slow_amount%</font>% for <font color='#9400D3'>%slow_duration%</font> seconds.\n\n<font color='#58ACFA'>2nd:</font> Lands body blow, dealing <font color='#A72E28'>%damage_2% physical damage</font>, <font color='#FF3399'>knockbacking</font> and <font color='#FF3399'>stunning</font> the target for <font color='#FF3399'>%stun_duration%</font> seconds. If target hits a wall, it will take <font color='#FF0000'>200+3*Li Shuwen's strength</font> <font color='#A72E28'>additional physical damage</font>.\n\n<font color='#58ACFA'>3rd:</font> Smashes critical point with elbow, dealing <font color='#D1A951'>%damage_3_magical% base pure damage</font>.\n\n Each strike gets <font color='#FFFAFA'>additional damage</font> equal to %damage_2_physical%% of Li Shuwen's <font color='#FFFAFA'>base attack damage</font>.\n\nIf three strikes sequence was sucessful then <font color='#FFFAFA'>cooldown of this ability will be reduced</font>.<font color='#F1C40F'>\n\n<font color='#F1C40F'>Upgradable by attribute: Improve Martial Arts, Berserk and Furious Chain</font>."
+        "DOTA_Tooltip_Ability_lishuwen_tiger_strike_Description"		"<font color='#FFFAFA'>Cast point:</font><font color='#7FFF00'>0.25</font> | </font><font color='#7FFF00'>0.3</font> | </font><font color='#7FFF00'>0.35</font> \n\nPerforms up to 3 ferocious strikes, each with different effects.\n\n<font color='#58ACFA'>1st:</font> Dashes to the target, dealing <font color='#58ACFA'>%damage_1% magic damage</font>, <font color='#9400D3'>slowing</font> the target by <font color='#9400D3'>%slow_amount%</font>% for <font color='#9400D3'>%slow_duration%</font> seconds and applying 3 <font color='#FF0000'>Circulatory shock</font> stacks.\n\n<font color='#58ACFA'>2nd:</font> Lands body blow, dealing <font color='#A72E28'>%damage_2% physical damage</font>, <font color='#FF3399'>knockbacking</font>, <font color='#FF3399'>stunning</font> the target for <font color='#FF3399'>%stun_duration%</font> seconds and applying 3 <font color='#FF0000'>Circulatory shock</font> stacks. If target hits a wall, it will take <font color='#FF0000'>200+3*Li Shuwen's strength</font> <font color='#A72E28'>additional physical damage</font>.\n\n<font color='#58ACFA'>3rd:</font> Smashes critical point with elbow, dealing <font color='#D1A951'>%damage_3_magical% base pure damage</font>.\n\n Each strike gets <font color='#FFFAFA'>additional damage</font> equal to %damage_2_physical%% of Li Shuwen's <font color='#FFFAFA'>base attack damage</font> and applies 5 <font color='#FF0000'>Circulatory shock</font> stacks.\n\nIf three strikes sequence was sucessful then <font color='#FFFAFA'>cooldown of this ability will be reduced</font>.<font color='#F1C40F'>\n\n<font color='#F1C40F'>Upgradable by attribute: Improve Martial Arts, Berserk and Furious Chain</font>."
         "DOTA_Tooltip_Ability_lishuwen_tiger_strike_Lore"									"The pinnacle of Bajiquan, the tiger's furious clawing specializes in crushing physical object to ashes."
         "DOTA_Tooltip_Ability_lishuwen_tiger_strike_Note0"									"3rd strike damage is calculated based on the damage dealt by first 2 strikes, regardles of the whether it were different or the same targets"
         //"DOTA_Tooltip_Ability_lishuwen_fierce_tiger_strike_first_strike_cast_delay"		"FIRST STRIKE CAST DELAY:"
@@ -6051,13 +6065,16 @@
 
 
         "DOTA_Tooltip_Ability_lishuwen_no_second_strike"						"No Second Strike"
-        "DOTA_Tooltip_Ability_lishuwen_no_second_strike_Description"			"<font color='#FFFAFA'>Cast point: </font><font color='#7FFF00'>%cast_delay%</font>.\n\nPerforms a devastating blow on the target's body, inflicting <font color='#D1A951'>pure damage</font>, <font color='#FF3399'>stunning and revoking</font> the target for a short duration. \n\nAfter a short duration, the target takes extra <font color='#D1A951'>pure damage</font>."
+        "DOTA_Tooltip_Ability_lishuwen_no_second_strike_Description"			"<font color='#FFFAFA'>Passive</font>: All of Li Shuwen's abilities apply <font color='#FF0000'>Circulatory shock</font> effect on enemy.\n<font color='#FFFAFA'>Cast point: </font><font color='#7FFF00'>%cast_delay%</font>.\n\nPerforms a devastating blow on the target's body, inflicting <font color='#D1A951'>pure damage</font>, <font color='#FF3399'>stunning and revoking</font> the target for a short duration. \n\nAfter a short duration, the target takes extra <font color='#D1A951'>pure damage</font>.\nShock deals additional damage based on <font color='#FF0000'>Circulatory shock</font> stacks on the enemy."
         "DOTA_Tooltip_Ability_lishuwen_no_second_strike_Lore"					"The swirl of Chi shatters its victim's inner system, bringing them sure death regardless of physical prowess."
         //"DOTA_Tooltip_Ability_lishuwen_no_second_strike_cast_delay"				"Cast Delay:"
         "DOTA_Tooltip_Ability_lishuwen_no_second_strike_initial_damage"			"Initial Damage:"
         "DOTA_Tooltip_Ability_lishuwen_no_second_strike_stun_duration"			"Stun Duration:"
         "DOTA_Tooltip_Ability_lishuwen_no_second_strike_revoke_duration"		"Revoke Duration:"
         "DOTA_Tooltip_Ability_lishuwen_no_second_strike_shock_damage"			"Open Wound Damage:"
+        "DOTA_Tooltip_Ability_lishuwen_no_second_strike_damage_per_nss_stack"	"Damage per stack:"
+        "DOTA_Tooltip_Ability_lishuwen_no_second_strike_stacks_duration"		"Stacks duration:"
+        "DOTA_Tooltip_Ability_lishuwen_no_second_strike_sa_bonus_damage_per_stack"		"Sa bonus damage per stack:"
         "DOTA_Tooltip_Ability_lishuwen_no_second_strike_Note0"					"Open Wound damage is dealt at the end of the revoke effect."
 
         "DOTA_Tooltip_Ability_lishuwen_concealment"					"Presence Concealment"
@@ -6070,14 +6087,14 @@
 
         //combo
         "DOTA_Tooltip_Ability_lishuwen_raging_dragon_strike"				"Combo: Raging Dragon Strike"
-        "DOTA_Tooltip_Ability_lishuwen_raging_dragon_strike_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : W-W-E in 3 seconds</font>\nLi Shuwen chains together 3 devastating moves.\n<font color='#58ACFA'>1st:</font> Dashes to target, striking all enemies in his path %first_strike_damage% magic damage and <font color='#FF3399'>slowing</font> them by %first_strike_slow%% for %first_strike_slow_duration% seconds.\n<font color='#58ACFA'>2nd:</font> Stomps the ground, dealing %second_strike_damage% physical damage to enemies within %second_strike_radius% area and stunning them for %second_strike_stun_duration% seconds.\n<font color='#58ACFA'>3rd:</font> Li Shuwen launches all nearby enemies to the air for %third_strike_knockup_duration% seconds and striking them up to %third_strike_aerial_hit_count% times, divided evenly, dealing mage %third_strike_aerial_damage% plus Li Shuwen's attack damage as composite damage.\nIf Li Shuwen fails to activate the 3rd strike, the cooldown of this ability is reduced to %third_strike_third_strike_failure_cdr% seconds."
+        "DOTA_Tooltip_Ability_lishuwen_raging_dragon_strike_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : W-W-E in 3 seconds</font>\nLi Shuwen chains together 3 devastating moves.\n<font color='#58ACFA'>1st:</font> Dashes to target, striking all enemies in his path %first_strike_damage% magic damage and <font color='#FF3399'>slowing</font> them by %first_strike_slow%% for %first_strike_slow_duration% seconds and applying 5 <font color='#FF0000'>Circulatory shock</font> stacks.\n<font color='#58ACFA'>2nd:</font> Stomps the ground, dealing %second_strike_damage% physical damage to enemies within %second_strike_radius% area, stunning them for %second_strike_stun_duration% seconds and applying 5 <font color='#FF0000'>Circulatory shock</font> stacks.\n<font color='#58ACFA'>3rd:</font> Li Shuwen launches all nearby enemies to the air for %third_strike_knockup_duration% seconds and striking them up to %third_strike_aerial_hit_count% times, divided evenly, dealing mage %third_strike_aerial_damage% plus Li Shuwen's attack damage as composite damage, each strike applying 1 additional <font color='#FF0000'>Circulatory shock</font> stack.\nIf Li Shuwen fails to activate the 3rd strike, the cooldown of this ability is reduced to %third_strike_third_strike_failure_cdr% seconds."
         "DOTA_Tooltip_Ability_lishuwen_raging_dragon_strike_Lore"		"Crouching Tiger, Hidden Dragon"
         "DOTA_Tooltip_Ability_lishuwen_raging_dragon_strike_Note0"		"If there's only one target, that unit will be hit by all 15 hits."
         "DOTA_Tooltip_Ability_lishuwen_raging_dragon_strike_Note1"		"Composite damage deals one third of total damage in each type."
 
         //attribute
         "DOTA_Tooltip_Ability_lishuwen_attribute_circulatory_shock"					"Attribute: Circulatory Shock"
-        "DOTA_Tooltip_Ability_lishuwen_attribute_circulatory_shock_Description"		"Removes delayed damage from No Second Strike. Increases the initial damage by amount equal to the delayed damage and 0.42*target's missing health. Enemies killed by No Second Strike will have their master lose 1 mana."
+        "DOTA_Tooltip_Ability_lishuwen_attribute_circulatory_shock_Description"		"Removes delayed damage from No Second Strike.\nIncreases the initial damage by amount equal to the delayed damage and 0.2*target's missing health.\n Increases damage per <font color='#FF0000'>Circulatory shock</font>stacks by 10.\nEnemies killed by No Second Strike will have their master lose 1 mana."
         //"DOTA_Tooltip_Ability_lishuwen_attribute_circulatory_shock_knockback_damage"	"KNOCKBACK PURE DAMAGE:"
         //"DOTA_Tooltip_Ability_lishuwen_attribute_circulatory_shock_knockback_distance"	"KNOCKBACK DISTANCE:"
         //"DOTA_Tooltip_Ability_lishuwen_attribute_circulatory_shock_mana_void_damage"	"%Mana Void Damage:"
@@ -6104,13 +6121,27 @@
         "DOTA_Tooltip_Ability_lishuwen_attribute_dual_class_Note1"					"Purge only upon activation. CC applied after is ignored for its duration."
 
         "DOTA_Tooltip_Ability_lishuwen_attribute_furious_chain"					"Attribute: Furious Chain"
-        "DOTA_Tooltip_Ability_lishuwen_attribute_furious_chain_Description"		"Using Fierce Tiger Strikes on the same target deals 25% more damage, while using on different target deals half of initial damage. Li Shuwen gains massive health and mana regeneration for a short duration after using Fierce Tiger Strike. Completing Fierce Tiger Strike greatly reduces its cooldown."
-        "DOTA_Tooltip_Ability_lishuwen_attribute_furious_bonus_damage"			"%BONUS DAMAGE:"
-        "DOTA_Tooltip_Ability_lishuwen_attribute_furious_penalty_damage"		"%DAMAGE PENALTY:"
-        "DOTA_Tooltip_Ability_lishuwen_attribute_furious_health_regen"			"BONUS HEALTH REGEN:"
-        "DOTA_Tooltip_Ability_lishuwen_attribute_furious_mana_regen"			"BONUS MANA REGEN:"
-        "DOTA_Tooltip_Ability_lishuwen_attribute_furious_regen_duration"		"REGEN DURATION:"
-        "DOTA_Tooltip_Ability_lishuwen_attribute_furious_reduced_cooldown"		"REDUCED COOLDOWN:"
+        "DOTA_Tooltip_Ability_lishuwen_attribute_furious_chain_Description"		"Using Fierce Tiger Strikes on the same target deals 25% more damage and applies 10 additional <font color='#FF0000'>Circulatory shock</font> stacks, while using on different target deals half of initial damage.\n Li Shuwen gains massive <font color='#ACFF05'>health</font> and <font color='#58ACFA'>mana</font> regeneration and attack speed for a short duration after using Fierce Tiger Strike.\n Completing Fierce Tiger Strike greatly reduces its cooldown."
+        "DOTA_Tooltip_Ability_lishuwen_attribute_furious_chain_bonus_damage"			"%BONUS DAMAGE:"
+        "DOTA_Tooltip_Ability_lishuwen_attribute_furious_chain_penalty_damage"		"%DAMAGE PENALTY:"
+        "DOTA_Tooltip_Ability_lishuwen_attribute_furious_chain_health_regen"			"BONUS HEALTH REGEN:"
+        "DOTA_Tooltip_Ability_lishuwen_attribute_furious_chain_mana_regen"			"BONUS MANA REGEN:"
+        "DOTA_Tooltip_Ability_lishuwen_attribute_furious_chain_regen_duration"		"REGEN DURATION:"
+        "DOTA_Tooltip_Ability_lishuwen_attribute_furious_chain_reduced_cooldown"		"REDUCED COOLDOWN:"
+        "DOTA_Tooltip_Ability_lishuwen_attribute_furious_chain_sa_attack_speed"			"ATTACK SPEED BONUS:"
+        //"DOTA_Tooltip_Ability_lishuwen_attribute_furious_chain_Note0"			"Additional damage's damage type follows respective ability."
+
+
+        "DOTA_Tooltip_Ability_lishuwen_attribute_new"					"Attribute: Shock paralysis"
+        "DOTA_Tooltip_Ability_lishuwen_attribute_new_Description"		"Upgrades <font color='#FF0000'>Circulatory shock</font> effect, making it apply debuffs based on stack count.\nOn 10 or more stacks, <font color='#FF0000'>Circulatory shock</font> reduces enemy magical damage dealth.
+        \nOn 25 or more stacks enemies are slowed and get reduced healing.\nOn 50 stacks enemies have their magic resistance and armor reduced, they receive even less healing and deal even less magical damage."
+        "DOTA_Tooltip_Ability_lishuwen_attribute_new_magical_damage_reduction_1"			"%Magical damage reduction:"
+        "DOTA_Tooltip_Ability_lishuwen_attribute_new_magical_damage_reduction_2"		"%Powerful magical damage reduction:"
+        "DOTA_Tooltip_Ability_lishuwen_attribute_new_slow_power"			"%Slow power:"
+        "DOTA_Tooltip_Ability_lishuwen_attribute_new_heal_reduction_1"		"%Healing reduction:"
+        "DOTA_Tooltip_Ability_lishuwen_attribute_new_heal_reduction_2"		"%Powerful healing reduction:"
+        "DOTA_Tooltip_Ability_lishuwen_attribute_new_mr_reduction"			"%MR reduction:"
+        "DOTA_Tooltip_Ability_lishuwen_attribute_new_armor_reduction"		"Armor reduction:"
         //"DOTA_Tooltip_Ability_lishuwen_attribute_furious_chain_Note0"			"Additional damage's damage type follows respective ability."
 
         //====================================
@@ -9277,7 +9308,7 @@
         "DOTA_Tooltip_ability_hijikata_ult_Lore"										"The Shinsengumi is here, even now."
 
         "DOTA_Tooltip_ability_hijikata_combo"							"Combo: Unstoppable Shinsengumi"
-        "DOTA_Tooltip_ability_hijikata_combo_Description"			"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.5</font>s\n<font color='#58ACFA'>Combo Requirement: 30 all stats </font>\n<font color='#58ACFA'>Combo Sequence: D - D</font>\nHijikata materializes a battlefield in a wide line for a duration, while gaining <font color='#58ACFA'>Madness</font> for this duration.\nWhile battlefield persists, Hijikata's <font color='#FFFAFA'>speed</font> is set to a value and increases with time, while all of his allies have the <font color='#FFFAFA'>speed</font> increase too, but only inside of the battlefield.\nHijikata is able to cast <font color='#58ACFA'>Unstoppable Shinsengumi</font> 3 times:\nFirst strike: <font color='#FFFAFA'>target blink</font> to the enemy, dealing <font color='#58ACFA'>magical</font> damage, performing one attack and <font color='#FF3399'>stunning</font>.\nSecond strike:Frontal slash, which deals <font color='#58ACFA'>magical</font> damage and <font color='#FF3399'>stuns</font> all enemies hit,\nThird strike: improved version of <font color='#58ACFA'>Shinsengumi</font> ability, dealing more <font color='#58ACFA'>damage</font> with higher range and width.\nCombo does not end when all strikes are casted, but they cannot be cast again."
+        "DOTA_Tooltip_ability_hijikata_combo_Description"			"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.5</font>s\n<font color='#58ACFA'>Combo Requirement: 30 all stats </font>\n<font color='#58ACFA'>Combo Sequence: D - D</font>\nHijikata materializes a battlefield in a wide line for a duration and refreshing <font color='#58ACFA'>Madness</font> ability.\nWhile battlefield persists, Hijikata's <font color='#FFFAFA'>speed</font> is set to a value and increases with time, while all of his allies have the <font color='#FFFAFA'>speed</font> increase too, but only inside of the battlefield.\nHijikata is able to cast <font color='#58ACFA'>Unstoppable Shinsengumi</font> 3 times:\nFirst strike: <font color='#FFFAFA'>target blink</font> to the enemy, dealing <font color='#58ACFA'>magical</font> damage, performing one attack and <font color='#FF3399'>stunning</font>.\nSecond strike:Frontal slash, which deals <font color='#58ACFA'>magical</font> damage and <font color='#FF3399'>stuns</font> all enemies hit,\nThird strike: improved version of <font color='#58ACFA'>Shinsengumi</font> ability, dealing more <font color='#58ACFA'>damage</font> with higher range and width.\nCombo does not end when all strikes are casted, but they cannot be cast again."
         "DOTA_Tooltip_ability_hijikata_combo_duration"										"Duration:"
         "DOTA_Tooltip_ability_hijikata_combo_width"											"Width:"
         "DOTA_Tooltip_ability_hijikata_combo_distance"										"Distance:"

@@ -30,4 +30,40 @@ function lishuwen_presence_concealment:OnSpellStart()
 	if caster.bIsMartialArtsImproved then
 		caster:AddNewModifier(caster, ability, "modifier_pc_nss_cooldown_recovery", {})
 	end
+	self:CheckCombo()
+end
+
+function lishuwen_presence_concealment:CheckCombo()
+	local caster = self:GetCaster()
+	local ability = self
+	if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 and caster:GetIntellect() >= 29.1 then      
+    	if caster:FindAbilityByName("lishuwen_raging_dragon_strike"):IsCooldownReady() 
+    		and caster:FindAbilityByName("lishuwen_tiger_strike"):IsCooldownReady() 
+    		and not caster:HasModifier("modifier_tiger_strike_tracker") then
+
+    		caster:SwapAbilities("lishuwen_combo_trigger", "lishuwen_presence_concealment", true, false)
+
+    		Timers:CreateTimer('dragon_trigger_window',{
+		        endTime = 2,
+		        callback = function()
+		        if caster:GetAbilityByIndex(0):GetName() ~= "lishuwen_presence_concealment" then
+		       		caster:SwapAbilities("lishuwen_combo_trigger", "lishuwen_presence_concealment", false, true)
+		       	end
+		    end
+		    })
+
+
+    		--[[if not caster:HasModifier("modifier_lishuwen_combo_seq") then
+    			caster:AddNewModifier(caster, self, "modifier_lishuwen_combo_seq", {Duration = 5})
+    			self:EndCooldown()
+    			caster:GiveMana(self:GetManaCost(self:GetLevel()))
+    			return false
+    		end]]
+
+    		
+            --return true
+        end
+    end
+
+    --return false
 end

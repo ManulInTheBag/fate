@@ -167,8 +167,9 @@ function modifier_medusa_gorgon_rush:PlayEffects()
 	                                center_x = kborigin.x,
 	                                center_y = kborigin.y,
 	                                center_z = kborigin.z }
-
-	    	enemy:AddNewModifier(caster, self.ability, "modifier_knockback", knockback)
+            if( not IsKnockbackImmune(enemy)) then
+	    	    enemy:AddNewModifier(caster, self.ability, "modifier_knockback", knockback)
+            end
 
             DoDamage(self.parent, enemy, self.damage, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
         end

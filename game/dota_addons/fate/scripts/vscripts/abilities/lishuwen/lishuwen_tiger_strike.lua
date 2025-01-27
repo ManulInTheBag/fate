@@ -171,7 +171,7 @@ function lishuwen_tiger_strike:TigerStrike1()
 		caster:PerformAttack( target, true, true, true, true, false, true, true )
 	end
 	DoDamage(caster, target, damage, DamageType, 0, self, false)
-
+	caster:FindAbilityByName("lishuwen_no_second_strike"):AddShock(target, 3)
 	self.health_lost = health_1 - target:GetHealth()
 
 	if not IsImmuneToSlow(target) then 
@@ -234,7 +234,7 @@ function lishuwen_tiger_strike:TigerStrike2()
 
 	DoDamage(caster, target, damage , DAMAGE_TYPE_PHYSICAL, 0, self, false)
 	target:AddNewModifier(caster, target, "modifier_stunned", {Duration = self:GetSpecialValueFor("stun_duration")})
-
+	caster:FindAbilityByName("lishuwen_no_second_strike"):AddShock(target, 3)
 	local casterfacing = caster:GetForwardVector()
 	local pushTarget = Physics:Unit(target)
 	local casterOrigin = caster:GetAbsOrigin()
@@ -298,6 +298,7 @@ function lishuwen_tiger_strike:TigerStrike3()
 		if target:HasModifier("modifier_tiger_strike_marker") then 
 			--print("chaining")
 			damage = damage * self:GetSpecialValueFor("chain_bonus_multiplier") 
+			caster:FindAbilityByName("lishuwen_no_second_strike"):AddShock(target, 10)
 		else 
 			--print("breaking")
 			damage = damage * self:GetSpecialValueFor("chain_switch_penalty")
@@ -316,7 +317,7 @@ function lishuwen_tiger_strike:TigerStrike3()
 	if caster.bIsMartialArtsImproved then
 		caster:PerformAttack( target, true, true, true, true, false, true, true )
 	end
-
+	caster:FindAbilityByName("lishuwen_no_second_strike"):AddShock(target, 5)
 	target:RemoveModifierByName("modifier_tiger_strike_marker")
 
 	if caster:HasModifier("modifier_berserk") then

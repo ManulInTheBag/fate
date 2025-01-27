@@ -491,6 +491,7 @@ function OnDragonStrike1Start(keys)
 		local endpoint = nil
 		for k,v in pairs(caster.targetTable) do
 			DoDamage(caster, v, keys.Damage, DAMAGE_TYPE_MAGICAL, 0, keys.ability, false)
+			caster:FindAbilityByName("lishuwen_no_second_strike"):AddShock(v, 5)
 			ApplyMarkOfFatality(caster, v)
 			endpoint = v:GetAbsOrigin()
 			local trailFx = ParticleManager:CreateParticle( "particles/units/heroes/hero_ember_spirit/ember_spirit_sleightoffist_trail.vpcf", PATTACH_CUSTOMORIGIN, v )
@@ -545,6 +546,7 @@ function OnDragonStrike2Start(keys)
 	local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, keys.Radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
 	for k,v in pairs(targets) do
 		DoDamage(caster, v, keys.Damage, DAMAGE_TYPE_PHYSICAL, 0, ability, false)
+		caster:FindAbilityByName("lishuwen_no_second_strike"):AddShock(v, 5)
 		v:AddNewModifier(caster, v, "modifier_stunned", {Duration = keys.StunDuration})
 	end
 	caster:EmitSound("Hero_Centaur.HoofStomp")
@@ -664,6 +666,7 @@ function OnDragonStrike3Start(keys)
 			--print(target:GetName() .. counter)
 			DoCompositeDamage(caster, target, keys.Damage, DAMAGE_TYPE_COMPOSITE, 0, keys.ability, false)
 			ApplyMarkOfFatality(caster, target)
+			caster:FindAbilityByName("lishuwen_no_second_strike"):AddShock(target, 1)
 		end
 
 

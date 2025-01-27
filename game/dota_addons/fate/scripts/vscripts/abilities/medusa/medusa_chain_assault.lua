@@ -192,7 +192,7 @@ function medusa_chain_assault:OnProjectileHit_ExtraData(hTarget, vLocation, hTab
         	--end
         end
 
-        if not hTarget:HasModifier("modifier_medusa_chain_movement_enemy") and hTarget:IsAlive() and self.firstHit == false then
+        if not hTarget:HasModifier("modifier_medusa_chain_movement_enemy") and hTarget:IsAlive() and self.firstHit == false and not IsKnockbackImmune(hTarget) then 
         	self.firstHit = true
         	Timers:RemoveTimer("medusa_chain_particle")
         	if GridNav:IsNearbyTree( hTarget:GetAbsOrigin(), 120, false) then
@@ -263,58 +263,67 @@ function medusa_chain_assault:OnProjectileHit_ExtraData(hTarget, vLocation, hTab
 				end
 				
 	            chTarget.modifier_zalupa.chTarget = chTarget
+				if( not IsKnockbackImmune(chTarget)) then
 	            local sin = Physics:Unit(chTarget)
-				chTarget:SetPhysicsFriction(0)
-				chTarget:SetPhysicsVelocity(Vector(hTable.direction_x, hTable.direction_y, hTable.direction_z)*self:GetSpecialValueFor("speed"))
-				chTarget:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
+				
+					chTarget:SetPhysicsFriction(0)
+					chTarget:SetPhysicsVelocity(Vector(hTable.direction_x, hTable.direction_y, hTable.direction_z)*self:GetSpecialValueFor("speed"))
+					chTarget:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
 
-				Timers:CreateTimer("medusa_chain", {
-					endTime = remaining_time,
-					callback = function()
-					chTarget:OnPreBounce(nil)
-					chTarget:SetBounceMultiplier(0)
-					chTarget:PreventDI(false)
-					chTarget:SetPhysicsVelocity(Vector(0,0,0))
-					FindClearSpaceForUnit(chTarget, chTarget:GetAbsOrigin(), true)
-					self.launched = false
-					ParticleManager:DestroyParticle(hTable.pfx_index1, false)
-					ParticleManager:ReleaseParticleIndex(hTable.pfx_index1)
-					ParticleManager:DestroyParticle(hTable.pfx_index2, false)
-					ParticleManager:ReleaseParticleIndex(hTable.pfx_index2)
-					if chTarget.modifier_zalupa then
-						chTarget.modifier_zalupa:Destroy()
-					end
-				return end
-				})
-
-				chTarget:OnPreBounce(function(unit, normal) -- stop the pushback when unit hits wall
-					Timers:RemoveTimer("medusa_chain")
-					unit:OnPreBounce(nil)
-					unit:SetBounceMultiplier(0)
-					unit:PreventDI(false)
-					unit:SetPhysicsVelocity(Vector(0,0,0))
-					FindClearSpaceForUnit(unit, unit:GetAbsOrigin(), true)
-					if IsNotNull(hTarget) then
-						if hTarget:IsAlive() then
-							hTarget:AddNewModifier(hCaster, self, "modifier_stunned", {duration = self:GetSpecialValueFor("collide_stun_duration")})
+					Timers:CreateTimer("medusa_chain", {
+						endTime = remaining_time,
+						callback = function()
+						chTarget:OnPreBounce(nil)
+						chTarget:SetBounceMultiplier(0)
+						chTarget:PreventDI(false)
+						chTarget:SetPhysicsVelocity(Vector(0,0,0))
+						FindClearSpaceForUnit(chTarget, chTarget:GetAbsOrigin(), true)
+						self.launched = false
+						ParticleManager:DestroyParticle(hTable.pfx_index1, false)
+						ParticleManager:ReleaseParticleIndex(hTable.pfx_index1)
+						ParticleManager:DestroyParticle(hTable.pfx_index2, false)
+						ParticleManager:ReleaseParticleIndex(hTable.pfx_index2)
+						if chTarget.modifier_zalupa then
+							chTarget.modifier_zalupa:Destroy()
 						end
+					return end
+					})
 
-						if hCaster:IsAlive() then
-							local target_position = hTarget:GetAbsOrigin()
-							local range = (target_position - hCaster:GetAbsOrigin()):Length2D()
-							local direction = (target_position - hCaster:GetAbsOrigin()):Normalized()
-							target_position = hTarget:GetAbsOrigin() - direction*130
+					chTarget:OnPreBounce(function(unit, normal) -- stop the pushback when unit hits wall
+						Timers:RemoveTimer("medusa_chain")
+						unit:OnPreBounce(nil)
+						unit:SetBounceMultiplier(0)
+						unit:PreventDI(false)
+						unit:SetPhysicsVelocity(Vector(0,0,0))
+						FindClearSpaceForUnit(unit, unit:GetAbsOrigin(), true)
+						if IsNotNull(hTarget) then
+							if hTarget:IsAlive() then
+								hTarget:AddNewModifier(hCaster, self, "modifier_stunned", {duration = self:GetSpecialValueFor("collide_stun_duration")})
+							end
 
-							local modifier = hCaster:AddNewModifier(hCaster, self, "modifier_medusa_chain_movement", {	target_position_x = target_position.x, 
-																									target_position_y = target_position.y,
-																									target_position_z = target_position.z,
-																									particle1 = hTable.pfx_index1,
-																									particle2 = hTable.pfx_index2,
-																									range = range,
-																									fly_speed = fly_speed,
-																									damage = fDamage
-																									})
-							modifier.primary_enemy = hTarget
+							if hCaster:IsAlive() then
+								local target_position = hTarget:GetAbsOrigin()
+								local range = (target_position - hCaster:GetAbsOrigin()):Length2D()
+								local direction = (target_position - hCaster:GetAbsOrigin()):Normalized()
+								target_position = hTarget:GetAbsOrigin() - direction*130
+
+								local modifier = hCaster:AddNewModifier(hCaster, self, "modifier_medusa_chain_movement", {	target_position_x = target_position.x, 
+																										target_position_y = target_position.y,
+																										target_position_z = target_position.z,
+																										particle1 = hTable.pfx_index1,
+																										particle2 = hTable.pfx_index2,
+																										range = range,
+																										fly_speed = fly_speed,
+																										damage = fDamage
+																										})
+								modifier.primary_enemy = hTarget
+							else
+								self.launched = false
+								ParticleManager:DestroyParticle(hTable.pfx_index1, false)
+								ParticleManager:ReleaseParticleIndex(hTable.pfx_index1)
+								ParticleManager:DestroyParticle(hTable.pfx_index2, false)
+								ParticleManager:ReleaseParticleIndex(hTable.pfx_index2)
+							end
 						else
 							self.launched = false
 							ParticleManager:DestroyParticle(hTable.pfx_index1, false)
@@ -322,17 +331,11 @@ function medusa_chain_assault:OnProjectileHit_ExtraData(hTarget, vLocation, hTab
 							ParticleManager:DestroyParticle(hTable.pfx_index2, false)
 							ParticleManager:ReleaseParticleIndex(hTable.pfx_index2)
 						end
-					else
-						self.launched = false
-						ParticleManager:DestroyParticle(hTable.pfx_index1, false)
-						ParticleManager:ReleaseParticleIndex(hTable.pfx_index1)
-						ParticleManager:DestroyParticle(hTable.pfx_index2, false)
-						ParticleManager:ReleaseParticleIndex(hTable.pfx_index2)
-					end
-					if unit.modifier_zalupa then
-						unit.modifier_zalupa:Destroy()
-					end
-				end)
+						if unit.modifier_zalupa then
+							unit.modifier_zalupa:Destroy()
+						end
+					end)
+				end
 			end
         end
         return true
@@ -551,19 +554,20 @@ function modifier_medusa_chain_movement:PlayEffects()
 			temptarget:SetForwardVector(anglevalue)
 
 			local kborigin = -temptarget:GetForwardVector()*100 + temptarget:GetAbsOrigin()
-
-			local knockback = { should_stun = false,
-	                                knockback_duration = 0.05,
-	                                duration = 0.05,
-	                                knockback_distance = 75 or 0,
-	                                knockback_height = 30,
-	                                center_x = kborigin.x,
-	                                center_y = kborigin.y,
-	                                center_z = kborigin.z }
-	        if enemy ~= self.primary_enemy then
-	        --	print("pepeg")
-	    		enemy:AddNewModifier(caster, self.ability, "modifier_knockback", knockback)
-	    	end
+			if( not IsKnockbackImmune(enemy)) then
+				local knockback = { should_stun = false,
+										knockback_duration = 0.05,
+										duration = 0.05,
+										knockback_distance = 75 or 0,
+										knockback_height = 30,
+										center_x = kborigin.x,
+										center_y = kborigin.y,
+										center_z = kborigin.z }
+				if enemy ~= self.primary_enemy then
+				--	print("pepeg")
+					enemy:AddNewModifier(caster, self.ability, "modifier_knockback", knockback)
+				end
+			end
 	    	--print("zuzup")
 
             DoDamage(self.parent, enemy, self.damage, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)

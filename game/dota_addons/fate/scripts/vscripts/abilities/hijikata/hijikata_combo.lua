@@ -53,6 +53,7 @@ function hijikata_combo:OnSpellStart()
 	if caster:GetAbilityByIndex(5):GetName() == "hijikata_ult" then
 		caster:SwapAbilities("hijikata_ult", "hijikata_target_dash", false, true)
 	end
+	caster:FindAbilityByName("hijikata_madness"):EndCooldown()
 	---Adding combo modifier
 	local nBarragePFX = ParticleManager:CreateParticle( "particles/hijikata/hijikata_combo_onground.vpcf", PATTACH_WORLDORIGIN, nil )
 	ParticleManager:SetParticleShouldCheckFoW(nBarragePFX, false)
@@ -77,7 +78,7 @@ function hijikata_combo:OnSpellStart()
 																			start_point_y = casterPositionOnCast.y, start_point_z = casterPositionOnCast.z,
 																			end_point_x = end_point.x, end_point_y = end_point.y, end_point_z = end_point.z,
 																			width = 500, particleIndex =nBarragePFX  })
-	caster:AddNewModifier(caster, self, "modifier_hijikata_madness_active", { Duration = self:GetSpecialValueFor("duration") })
+	--caster:AddNewModifier(caster, self, "modifier_hijikata_madness_active", { Duration = self:GetSpecialValueFor("duration") })
 
 end
 

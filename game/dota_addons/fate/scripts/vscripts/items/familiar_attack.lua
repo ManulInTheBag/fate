@@ -39,9 +39,7 @@ function familiar_attack:OnSpellStart()
     end
     self:SetRefCountsModifiers(true)
     caster:AddNewModifier(caster, self, "modifier_item_c_scroll_fix_cringe", {duration = 20})
-    Timers:CreateTimer(1, function()
-        caster:RemoveSelf()
-    end)
+
 
 end
 

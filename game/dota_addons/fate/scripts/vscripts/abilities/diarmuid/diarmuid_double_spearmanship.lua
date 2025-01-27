@@ -31,8 +31,8 @@ function diarmuid_double_spearmanship:OnSpellStart()
             Timers:CreateTimer("diar_combo_window",{
                 endTime = 4,
                 callback = function()
-                local index5ability = caster:GetAbilityByIndex(5):GetName()
-                if index5ability == "diarmuid_new_combo"  then
+                local index0ability = caster:GetAbilityByIndex(0):GetName()
+                if index0ability == "diarmuid_new_combo"  then
                      caster:SwapAbilities("diarmuid_new_combo", "diarmuid_warrior_charge", false, true)
                 end
                  
@@ -83,7 +83,7 @@ function diarmuid_double_spearmanship:OnSpellStart()
 																					 OnHit = self:GetSpecialValueFor("on_hit") })
 		caster:EmitSound("Diarmuid_Skill_1")
 		if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 and caster:GetIntellect() >= 29.1 then
-			if  not caster:HasModifier("modifier_rampant_warrior_cooldown") then
+			if caster:FindAbilityByName("diarmuid_new_combo"):IsCooldownReady()  then
 				caster:AddNewModifier(caster, self, "modifier_rampant_warrior_window", { Duration = 4 })
 				self:EndCooldown()
 				Timers:CreateTimer(4, function()

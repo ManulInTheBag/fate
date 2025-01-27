@@ -90,6 +90,8 @@ function diarmuid_new_combo:OnSpellStart()
 			caster:RemoveModifierByName("modifier_rampant_warrior_cooldown")
 			caster:AddNewModifier(caster, self, "modifier_rampant_warrior_cooldown", { Duration = self:GetSpecialValueFor("reduced_cooldown")})
 			local masterCombo = caster.MasterUnit2:FindAbilityByName("diarmuid_new_combo")
+			self:EndCooldown()
+			self:StartCooldown(self:GetSpecialValueFor("reduced_cooldown"))
 			masterCombo:EndCooldown()
 			masterCombo:StartCooldown(self:GetSpecialValueFor("reduced_cooldown"))			
 		elseif self.dearg_attach_fx == nil then
@@ -97,6 +99,8 @@ function diarmuid_new_combo:OnSpellStart()
 			caster:AddNewModifier(caster, self, "modifier_rampant_warrior_cooldown", { Duration = self:GetSpecialValueFor("reduced_cooldown")})
 
 			local masterCombo = caster.MasterUnit2:FindAbilityByName("diarmuid_new_combo")
+			self:EndCooldown()
+			self:StartCooldown(self:GetSpecialValueFor("reduced_cooldown"))
 			masterCombo:EndCooldown()
 			masterCombo:StartCooldown(self:GetSpecialValueFor("reduced_cooldown"))
 		end

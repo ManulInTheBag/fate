@@ -24,9 +24,20 @@ function modifier_furious_chain_regen:GetModifierConstantManaRegen()
 	return self:GetRegenAmount()
 end
 
+function modifier_furious_chain_regen:GetModifierAttackSpeedBonus_Constant()
+	if IsServer() then
+		CustomNetTables:SetTableValue("sync","cosmic_orbit_variables", { attack_speed = self:GetAbility():GetSpecialValueFor("sa_attack_speed")})
+		return self.AttackSpeedBonus
+	elseif IsClient() then
+		local cosmic_attack_speed = CustomNetTables:GetTableValue("sync","cosmic_orbit_variables").attack_speed
+		return cosmic_attack_speed
+	end
+end
+
 function modifier_furious_chain_regen:DeclareFunctions()
 	local funcs = {	MODIFIER_PROPERTY_HEALTH_REGEN_CONSTANT,
-					MODIFIER_PROPERTY_MANA_REGEN_CONSTANT }
+					MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
+					MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT }
 	return funcs
 end
 

@@ -377,8 +377,9 @@ function medusa_bellerophon:OnProjectileHit_ExtraData(hTarget, vLocation, hTable
 	                                center_x = kborigin.x,
 	                                center_y = kborigin.y,
 	                                center_z = kborigin.z }
-
-	    	enemy:AddNewModifier(caster, self, "modifier_knockback", knockback)
+			if( not IsKnockbackImmune(enemy)) then
+	    		enemy:AddNewModifier(caster, self, "modifier_knockback", knockback)
+			end
         end
     end
 end
