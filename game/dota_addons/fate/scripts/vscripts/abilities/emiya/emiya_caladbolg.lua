@@ -72,7 +72,13 @@ function emiya_caladbolg:ReleaseArrow(frames)
     ParticleManager:ReleaseParticleIndex(casterFX)
 	local target = caster:GetForwardVector()
 	local range = (self:GetSpecialValueFor("range") + (caster.IsEagleEyeAcquired and 1000 or 0))  * (0.5 + frames/(self.maxtime*60))
-	caster:EmitSound("Emiya_Caladbolg_" .. math.random(1,2))
+
+	if caster:HasModifier("modifier_emiya_model_swap") then
+        caster:EmitSound("emiya_skin_e_range")
+    else
+		caster:EmitSound("Emiya_Caladbolg_" .. math.random(1,2))
+    end
+
 	local tProjectile = {
 		EffectName = "particles/emiya/caladbolg.vpcf",
 		Ability = self,

@@ -61,7 +61,13 @@ function emiya_nine_lives:OnSpellStart()
 	caster:SetPhysicsVelocity(caster:GetForwardVector()*distance)
 	giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 1.9) --change to sealdisabled to return revoke here, if you want
 	caster:EmitSound("Hero_OgreMagi.Ignite.Cast")
-	caster:EmitSound("Archer.NineLives")
+
+	if caster:HasModifier("modifier_emiya_model_swap") then
+        caster:EmitSound("emiya_skin_ubw_r")
+    else
+		caster:EmitSound("Archer.NineLives")
+    end
+
 	StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_RAZE_3, rate=2.0})
 
 	caster.NineTimer = Timers:CreateTimer(time, function()

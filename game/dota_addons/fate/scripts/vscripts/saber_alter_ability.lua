@@ -231,6 +231,7 @@ function OnMMBStart(keys)
 end
 
 vortigernCount = 0
+LinkLuaModifier("modifier_merlin_self_pause","abilities/merlin/merlin_orbs", LUA_MODIFIER_MOTION_NONE)
 function OnVortigernStart(keys)
 	ArsenalReturnMana(keys.caster)
 	local caster = keys.caster
@@ -245,8 +246,8 @@ function OnVortigernStart(keys)
 	if (math.abs(destination.x - origin.x) < 0.01) and (math.abs(destination.y - origin.y) < 0.01) then
 		destination = caster:GetForwardVector() + caster:GetAbsOrigin()
 	end
-	
-	giveUnitDataDrivenModifier(keys.caster, keys.caster, "pause_sealdisabled", 0.70) -- Beam interval * 9 + 0.44
+	keys.caster:AddNewModifier(keys.caster, ability, "modifier_merlin_self_pause", {Duration = 0.70}) 
+	--giveUnitDataDrivenModifier(keys.caster, keys.caster, "pause_sealdisabled", 0.70) -- Beam interval * 9 + 0.44
 	EmitGlobalSound("Saber_Alter.Vortigern")
 	if keys.caster:GetName() == "npc_dota_hero_sven" then
 		EmitZlodemonTrueSoundEveryone("moskes_lanc_vort")
@@ -408,7 +409,7 @@ end
         end
     end
 end]]
-
+LinkLuaModifier("modifier_salter_model_swap_jopa", "abilities/arturia_alter/arturia_alter_derange", LUA_MODIFIER_MOTION_NONE)
 function OnDexVfxControllerStart(keys)
 	local caster = keys.caster
 	local ability = keys.ability
@@ -426,15 +427,19 @@ end
 function OnDexStart(keys)
 	local caster = keys.caster
 	local ability = keys.ability 
+	--caster:AddNewModifier(caster, ability, "modifier_merlin_self_pause", {Duration = 3}) 
 	giveUnitDataDrivenModifier(keys.caster, keys.caster, "pause_sealdisabled", 3)
 	keys.Range = keys.Range - keys.Width -- We need this to take end radius of projectile into account
 	print(keys.Range)
 	local range = keys.Range
 	local width = keys.Width
+	if caster:HasModifier("modifier_salter_model_swap") then
+		caster:AddNewModifier(caster, nil, "modifier_salter_model_swap_jopa", {duration = 3.0})
+	end
 	EmitGlobalSound("Saber.Caliburn")
 	--EmitGlobalSound("Excalibur_Morgan_Precast")
 	ability:ApplyDataDrivenModifier(caster, caster, "dark_excalibur_VFX_controller", {})
-	StartAnimation(caster, {duration = 2, activity = ACT_DOTA_CAST_ABILITY_4, rate = 1.35})
+	StartAnimation(caster, {duration = 3, activity = ACT_DOTA_CAST_ABILITY_4, rate = 1.35})
 	local dex = 
 	{
 		Ability = keys.ability,

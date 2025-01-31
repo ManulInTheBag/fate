@@ -108,9 +108,15 @@ function emiya_barrage_rain:OnSpellStart()
 			--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
 		end
 	end)
-	if math.random(1,2) == 1 then
-		caster:EmitSound("Archer.Bladeoff")
-	else
-		caster:EmitSound("Archer.Yuke")
-	end
+	if caster:HasModifier("modifier_emiya_model_swap") then
+        caster:EmitSound("emiya_skin_ubw_f")
+    else
+		if math.random(1,2) == 1 then
+			caster:EmitSound("Archer.Bladeoff")
+		else
+			caster:EmitSound("Archer.Yuke")
+		end
+    end
+
+
 end

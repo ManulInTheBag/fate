@@ -3,6 +3,7 @@ LinkLuaModifier("modifier_li_motion_controller_w", "abilities/lishuwen/li_shuwen
 LinkLuaModifier("modifier_li_shuwen_new_w_contoller", "abilities/lishuwen/li_shuwen_new_w", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_shuwen_atk_sound","abilities/lishuwen/li_shuwen_new_w", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("li_shuwen_new_w_slow","abilities/lishuwen/li_shuwen_new_w", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_li_shuwen_barrier", "abilities/lishuwen/li_shuwen_new_w", LUA_MODIFIER_MOTION_NONE)
 function li_shuwen_new_w:GetIntrinsicModifierName()
 	return "modifier_shuwen_atk_sound"
 end
@@ -52,13 +53,16 @@ function li_shuwen_new_w:OnSpellStart()
 	local target_point = self:GetCursorPosition()
 	local total_strikes = self:GetSpecialValueFor("total_strikes")
 	local bonus_damage = self:GetSpecialValueFor("bonus_damage")
-	local duration = 1.5
+	local duration = 1.2
 	local radius = self:GetSpecialValueFor("radius")
 	local slow_dur = self:GetSpecialValueFor("slow_duration")
 	local slow_power = self:GetSpecialValueFor("slow_power")
+	ProjectileManager:ProjectileDodge(caster)
+	caster:EmitSound("li_new_w_voice")
 	caster:AddNewModifier(caster, self, "modifier_li_shuwen_new_w_contoller", {duration = duration, total_strikes = total_strikes, duration = duration, radius = radius, slow_dur = slow_dur,
 																				slow_power = slow_power, bonus_damage = bonus_damage, target_point_x = target_point.x,
 																				target_point_y = target_point.y, target_point_z = target_point.z})
+	caster:AddNewModifier(caster, self, "modifier_li_shuwen_barrier", {duration = self:GetSpecialValueFor("shield_duration")})
 end
 
 modifier_li_shuwen_new_w_contoller = modifier_li_shuwen_new_w_contoller or class({})
@@ -82,6 +86,13 @@ function modifier_li_shuwen_new_w_contoller:OnCreated(htable)
 		self.radius = htable.radius
 		self.duration = htable.duration
 		self.total_strikes = htable.total_strikes
+		local enemies = FindUnitsInRadius(self.hCaster:GetTeam(), self.target_point, nil, self.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
+
+		self.enemiesCount = #enemies -1
+
+		if self.enemiesCount > 0 then
+			self.total_strikes = self.total_strikes + self.enemiesCount
+		end
 		self.interval = self.duration/self.total_strikes
 
 
@@ -97,9 +108,9 @@ function modifier_li_shuwen_new_w_contoller:OnCreated(htable)
 		self:StartIntervalThink(self.interval - 0.033)
 end
 function modifier_li_shuwen_new_w_contoller:OnIntervalThink()
-
+	self.attack_counter = self.attack_counter + 1
 	if self.attack_counter % 2 == 1 then 
-		self.hAbility:PlayRandomSounds()
+		--self.hAbility:PlayRandomSounds()
 	end
 	if self.attack_counter == self.total_strikes then
 		self:Destroy()
@@ -116,7 +127,7 @@ function modifier_li_shuwen_new_w_contoller:OnIntervalThink()
 		vector_to_target.z = 0
 		self.hCaster:SetForwardVector(vector_to_target)
 		local animcount = math.random(1,4)
-		self.hAbility:PlayRandomAttackAnimation(animcount)
+		self.hAbility:PlayRandomAttackAnimation(animcount, 0)
 		if animcount == 1 then
 			local particle = ParticleManager:CreateParticle("particles/zlodemon/li_shuwen_w_afterimage.vpcf", PATTACH_ABSORIGIN, self.hCaster)
 			ParticleManager:SetParticleControlTransformForward(particle, 0, self.hCaster:GetAbsOrigin(),  direction_vector)
@@ -158,7 +169,7 @@ function modifier_li_shuwen_new_w_contoller:OnIntervalThink()
 		
 		end)
 
-		self.attack_counter = self.attack_counter + 1
+
 	else 
 		self:Destroy()
 	end
@@ -167,8 +178,10 @@ function modifier_li_shuwen_new_w_contoller:OnRefresh(hTable)
     self:OnCreated(hTable)
 end
 function modifier_li_shuwen_new_w_contoller:OnDestroy(hTable)
+	HardCleanse(self.hCaster)
 	ParticleManager:DestroyParticle(self.particle, false)
     ParticleManager:ReleaseParticleIndex(self.particle)
+	
 	--ParticleManager:DestroyParticle(self.particle2, false)
     --ParticleManager:ReleaseParticleIndex(self.particle2)
 end
@@ -185,14 +198,15 @@ function modifier_li_shuwen_new_w_contoller:CheckState()
     return state
 end
 
-function li_shuwen_new_w:PlayRandomAttackAnimation(animation_number)
+function li_shuwen_new_w:PlayRandomAttackAnimation(animation_number, additionalTargetsCount)
 	local caster = self:GetCaster()
-	local duration = 0.142857143*1.5
+	local animation_multiplier = 1.875 --+ 0.1*additionalTargetsCount
+	local duration = 0.142857143*animation_multiplier
 
 	if IsServer() then
 			local direction_vector = Vector(100,100,100)
 		if animation_number == 1 then
-			StartAnimation(caster, {duration=duration, activity=ACT_DOTA_CAST_ABILITY_6, rate=6/1.5}) 
+			StartAnimation(caster, {duration=duration, activity=ACT_DOTA_CAST_ABILITY_6, rate=6/animation_multiplier}) 
 			particle = ParticleManager:CreateParticle("particles/zlodemon/li_shuwen_w_afterimage.vpcf", PATTACH_ABSORIGIN, self.hCaster)
 			ParticleManager:SetParticleControlTransformForward(particle, 0, caster:GetAbsOrigin(),  direction_vector)
 			ParticleManager:SetParticleControl(particle, 1, caster:GetAbsOrigin() + direction_vector * (450 * 0.9))
@@ -200,7 +214,7 @@ function li_shuwen_new_w:PlayRandomAttackAnimation(animation_number)
 			ParticleManager:ReleaseParticleIndex(particle)
 
 		elseif animation_number == 2 then
-			StartAnimation(caster, {duration=duration, activity=ACT_DOTA_CAST_ABILITY_3, rate=5/1.5})
+			StartAnimation(caster, {duration=duration, activity=ACT_DOTA_CAST_ABILITY_3, rate=5/animation_multiplier})
 			particle = ParticleManager:CreateParticle("particles/zlodemon/li_shuwen_w_afterimage_2.vpcf", PATTACH_ABSORIGIN, self.hCaster)
 			ParticleManager:SetParticleControlTransformForward(particle, 0, caster:GetAbsOrigin(),  direction_vector)
 			ParticleManager:SetParticleControl(particle, 1, caster:GetAbsOrigin() + direction_vector * (450 * 0.9))
@@ -208,7 +222,7 @@ function li_shuwen_new_w:PlayRandomAttackAnimation(animation_number)
 			ParticleManager:ReleaseParticleIndex(particle)
 
 		elseif animation_number == 3 then
-			StartAnimation(caster, {duration=duration, activity=ACT_DOTA_CAST_ABILITY_2, rate=7/1.5})
+			StartAnimation(caster, {duration=duration, activity=ACT_DOTA_CAST_ABILITY_2, rate=7/animation_multiplier})
 			particle = ParticleManager:CreateParticle("particles/zlodemon/li_shuwen_w_afterimage_3.vpcf", PATTACH_ABSORIGIN, self.hCaster)
 			ParticleManager:SetParticleControlTransformForward(particle, 0, caster:GetAbsOrigin(),  direction_vector)
 			ParticleManager:SetParticleControl(particle, 1, caster:GetAbsOrigin() + direction_vector * (450 * 0.9))
@@ -216,7 +230,7 @@ function li_shuwen_new_w:PlayRandomAttackAnimation(animation_number)
 			ParticleManager:ReleaseParticleIndex(particle)
 
 		else 
-			StartAnimation(caster, {duration=duration, activity=ACT_DOTA_ATTACK_EVENT, rate=5/1.5})
+			StartAnimation(caster, {duration=duration, activity=ACT_DOTA_ATTACK_EVENT, rate=5/animation_multiplier})
 			particle = ParticleManager:CreateParticle("particles/zlodemon/li_shuwen_w_afterimage_4.vpcf", PATTACH_ABSORIGIN, self.hCaster)
 			ParticleManager:SetParticleControlTransformForward(particle, 0, caster:GetAbsOrigin(),  direction_vector)
 			ParticleManager:SetParticleControl(particle, 1, caster:GetAbsOrigin() + direction_vector * (450 * 0.9))
@@ -245,7 +259,7 @@ end
 
 function li_shuwen_new_w:PlayRandomSounds()
 	local caster = self:GetCaster()
-	local soundQueue = math.random(1,4)
+	local soundQueue = math.random(1,3)
 
 	caster:EmitSound("Lishuwen_Attack" .. soundQueue)
 end
@@ -337,4 +351,68 @@ function modifier_li_motion_controller_w:UpdateHorizontalMotion(me, dt)
             self:Destroy()
         end
     end
+end
+
+
+modifier_li_shuwen_barrier = class({})
+
+function modifier_li_shuwen_barrier:IsHidden() return false end
+function modifier_li_shuwen_barrier:IsDebuff() return false end
+
+
+function modifier_li_shuwen_barrier:DeclareFunctions()
+	local hFunc = 	{	
+						--MODIFIER_PROPERTY_MAGICAL_CONSTANT_BLOCK,
+						MODIFIER_PROPERTY_INCOMING_DAMAGE_CONSTANT
+					}
+	return hFunc
+end
+function modifier_li_shuwen_barrier:GetModifierIncomingDamageConstant(keys)
+	if IsServer() then
+        if keys.damage > 0 then
+            local block_now   = self:GetStackCount()
+            local block_check = block_now - keys.original_damage
+            local blocked = 0
+            if block_check > 0 then
+            	blocked = keys.original_damage
+                self:SetStackCount(block_check)
+                self.fBarrierBlock = block_check
+            else
+            	blocked = keys.original_damage--block_now
+            	local damage = keys.original_damage - block_now
+
+            	local dmgtable = {
+		            attacker = keys.attacker,
+		            victim = keys.target,
+		            damage = damage,
+		            damage_type = keys.damage_type,
+		            damage_flags = keys.damage_flags,
+		            ability = keys.inflictor
+		        }
+                self:Destroy()
+                ApplyDamage(dmgtable)
+            end
+
+            return -1*blocked
+        end
+	else
+        return self:GetStackCount()
+    end
+end
+
+function modifier_li_shuwen_barrier:OnCreated(hTable)
+	self.hCaster  = self:GetCaster()
+	self.hParent  = self:GetParent()
+	self.hAbility = self:GetAbility()
+
+	self.fBarrierBlock = self.hAbility:GetSpecialValueFor("shield_percentage")/100 *self.hCaster:GetMaxHealth()
+    
+  
+	if IsServer() then
+		--self.hCaster:EmitSound("aoko_shield_sfx")
+		self:SetStackCount(self.fBarrierBlock)
+	end
+end
+function modifier_li_shuwen_barrier:OnRefresh(hTable)
+	self:OnCreated(hTable)
 end

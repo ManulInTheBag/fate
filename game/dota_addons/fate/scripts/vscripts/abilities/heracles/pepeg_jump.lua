@@ -650,7 +650,7 @@ end
 
 modifier_heracles_model_swap = modifier_heracles_model_swap or class({})
 
-function modifier_heracles_model_swap:IsHidden()                                                                       return false end
+function modifier_heracles_model_swap:IsHidden()                                                                       return true end
 function modifier_heracles_model_swap:IsDebuff()                                                                       return false end
 function modifier_heracles_model_swap:IsPurgable()                                                                     return false end
 function modifier_heracles_model_swap:IsPurgeException()                                                               return false end

@@ -297,7 +297,7 @@ function modifier_aoko_sphere_dummy:ShortExplode()
 
 	local ori = self.parent:GetAbsOrigin()
 
-	damage = damage*self.explosions_remaining/self.ability:GetSpecialValueFor("explosion_count")
+	--damage = damage*self.explosions_remaining/self.ability:GetSpecialValueFor("explosion_count")
 
 	local explosion_fx = ParticleManager:CreateParticle("particles/aoko/aoko_sphere_aoe_area.vpcf", PATTACH_ABSORIGIN, self.parent)
 	ParticleManager:SetParticleControl(explosion_fx, 0, ori)
@@ -322,6 +322,7 @@ function modifier_aoko_sphere_dummy:ShortExplode()
 	        	enemy:AddNewModifier(caster, ability, "modifier_rooted", {duration = root_duration})
 	        	enemy:AddNewModifier(caster, ability, "modifier_disarmed", {duration = root_duration})
 	        	DoDamage(caster, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+
 	        end
 	    end
 	end

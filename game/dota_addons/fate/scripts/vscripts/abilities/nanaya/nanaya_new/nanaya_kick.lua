@@ -89,7 +89,7 @@ function nanaya_kick:OnSpellStart()
 	local target = self.target
 
 	local dist = (caster:GetAbsOrigin() - target:GetAbsOrigin()):Length2D()
-
+	if IsSpellBlocked(target) then return end
 	if (dist - 150) > (self:CheckSequence() == 5 and self:GetSpecialValueFor("fly_range") or self:GetSpecialValueFor("kick_range")) then
 		caster:GiveMana(80)
 		self:EndCooldown()

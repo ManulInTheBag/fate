@@ -120,14 +120,19 @@ function emiya_kanshou_byakuya:OnSpellStart()
     local speed = 1700
     local damage = self:GetSpecialValueFor("damage") + caster:GetIntellect() * self:GetSpecialValueFor("damage_per_int")
     local sound = math.random(1,10)
+    if caster:HasModifier("modifier_emiya_model_swap") then
+        if sound < 5 then
+            caster:EmitSound("emiya_skin_q_melee")
+        end
+    else
+ 
 
-	if sound < 5 then
-		caster:EmitSound("emiya_kanshou_byakuya_" .. math.random(1,2))
-	end
-    if IsNotNull(hTarget)
-        and hTarget:TriggerSpellAbsorb(self) then
-        return nil
+        if sound < 5 then
+            caster:EmitSound("emiya_kanshou_byakuya_" .. math.random(1,2))
+        end
     end
+
+
 
  
     CreateModifierThinker(caster, self, "modifier_archer_kab", { damage = damage, vector_side = -1, spread = 150, initxend = point.x, inityend = point.y,initzend = point.z, firstcast = 1}, caster:GetAbsOrigin() + self.vDirection * 100 + vLeft*75, caster:GetTeamNumber(), false)

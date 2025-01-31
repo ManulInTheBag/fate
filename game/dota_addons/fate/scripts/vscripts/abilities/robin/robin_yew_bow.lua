@@ -94,7 +94,7 @@ end
 -- Projectile
 function robin_yew_bow:OnProjectileHit_ExtraData( target, location, extradata )
 	-- cancel if gone
-	if (not target) or target:IsInvulnerable() or target:IsOutOfGame() or target:TriggerSpellAbsorb( self ) then
+	if (not target) or target:IsInvulnerable() or target:IsOutOfGame() or IsSpellBlocked(target) then
 		return
 	end
 	

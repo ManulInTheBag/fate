@@ -85,7 +85,7 @@ function robin_tools_wolfs_bane:OnProjectileHit_ExtraData( target, location, Ext
 	if not target then return end
 
 	-- check if the ability GOT TRIGGERED BY SOMETHING TRIVIAL
-	local TRIGGERED = target:TriggerSpellAbsorb( self )
+	local TRIGGERED = IsSpellBlocked(target)
 
 	-- calm down if you GOT TRIGGERED
 	if TRIGGERED then return end

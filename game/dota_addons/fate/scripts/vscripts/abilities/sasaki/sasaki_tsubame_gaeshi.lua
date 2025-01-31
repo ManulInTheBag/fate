@@ -83,7 +83,7 @@ function sasaki_tsubame_gaeshi:TsubameGaeshi(target)
         end
     end)
 
-	if IsSpellBlocked(target) and(not caster.IsGanryuAcquired) then return end
+	if IsSpellBlocked(target)  then return end
 
 	if caster.IsGanryuAcquired then
 		split_damage = split_damage + caster:GetAverageTrueAttackDamage(caster)*0.35

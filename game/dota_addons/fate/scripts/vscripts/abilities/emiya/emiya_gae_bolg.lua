@@ -27,7 +27,14 @@ function emiya_gae_bolg:OnAbilityPhaseStart()
 		ParticleManager:DestroyParticle( self.GBCastFx, false )
 	end)
 	
-	caster:EmitSound("emiya_gae_bolg")
+	if caster:HasModifier("modifier_emiya_model_swap") then
+        caster:EmitSound("emiya_skin_ubw_e")
+    else
+		caster:EmitSound("emiya_gae_bolg")
+    end
+
+
+
 	return true
 end
 

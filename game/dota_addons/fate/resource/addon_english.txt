@@ -526,8 +526,12 @@
 		"DOTA_Tooltip_modifier_iskander_hephaestion_passive_Description"	"Bonus ms"
 
 
- 
- 
+ 		"DOTA_Tooltip_modifier_li_shuwen_barrier"                       "Unpredictable assault shield"
+		"DOTA_Tooltip_modifier_li_shuwen_barrier_Description"           "Blocks all damage"
+
+  		"DOTA_Tooltip_modifier_nss_shock_stackable"                       "Circulatory shock"
+		"DOTA_Tooltip_modifier_nss_shock_stackable_Description"           "Increases damage from No Second Strike."
+
 		"DOTA_Tooltip_modifier_iskandar_forward"						"Forward"
 		"DOTA_Tooltip_modifier_iskandar_forward_Description"			"Bonus ms and atk dmg"
 
@@ -2961,7 +2965,7 @@
 		"DOTA_Tooltip_Ability_arash_star_arrow_release_ms_slow"				"%Slow:"
 
 		"DOTA_Tooltip_Ability_arash_curved_fire"				"Curved fire"
-		"DOTA_Tooltip_Ability_arash_curved_fire_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.8</font>\nArash shoots 3 arrows in <font color='#FFFAFA'>triangle</font> around the point selected.\nWhen arrows fall, they deal <font color='#58ACFA'>damage</font> to all enemies in radius\nTime before arrows will fall depends on distance.\n<font color='#F1C40F'>Upgradable by attribute Falling stars.</font>"
+		"DOTA_Tooltip_Ability_arash_curved_fire_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.4</font>\nArash shoots 3 arrows in <font color='#FFFAFA'>triangle</font> around the point selected.\nWhen arrows fall, they deal <font color='#58ACFA'>damage</font> to all enemies in radius\nTime before arrows will fall depends on distance.\n<font color='#F1C40F'>Upgradable by attribute Falling stars.</font>"
 		"DOTA_Tooltip_Ability_arash_curved_fire_Lore"					"Falling stars crushing enemy's hope"
 		"DOTA_Tooltip_Ability_arash_curved_fire_range"					"Range:"
 		"DOTA_Tooltip_Ability_arash_curved_fire_damage"					"Damage:"
@@ -6037,13 +6041,15 @@
 
 
         "DOTA_Tooltip_Ability_li_shuwen_new_w"			"Unpredictable assault"
-        "DOTA_Tooltip_Ability_li_shuwen_new_w_Description"	"<font color='#FFFAFA'>Cast point:</font><font color='#7FFF00'>0.2</font>.\nLi shuwen starts attacking targets in selected radius %total_strikes% times, dealing additional <font color='#58ACFA'>magical</font> damage on each hit.\nTargets are selected randomly.\nIf there is no targets in radius, the ability will end.\nLi shuwen applies <font color='#9400D3'>slow</font> debuff on each attack to the enemy.\nAttacks apply 2 <font color='#FF0000'>Circulatory shock</font> stacks on the enemy hit."
+        "DOTA_Tooltip_Ability_li_shuwen_new_w_Description"	"<font color='#FFFAFA'>Cast point:</font><font color='#7FFF00'>0.2</font>.\nLi shuwen gets barrier, based on his maximum health and starts attacking targets in selected radius %total_strikes% times, dealing additional <font color='#58ACFA'>magical</font> damage on each hit.\nTargets are selected randomly.\nIf there is no targets in radius, the ability will end.\nLi shuwen applies <font color='#9400D3'>slow</font> debuff on each attack to the enemy.\nAttacks apply 2 <font color='#FF0000'>Circulatory shock</font> stacks on the enemy hit.\nAmount of strikes increases by 1 for each enemy after the first one.\nLi shuwen disjoins projectiles on cast.\nLi Shuwen cleanses himself after finishing the ability"
         "DOTA_Tooltip_Ability_li_shuwen_new_w_Lore"		""
         "DOTA_Tooltip_Ability_li_shuwen_new_w_total_strikes"	"TOTAL ATTACKS: "
         "DOTA_Tooltip_Ability_li_shuwen_new_w_bonus_damage"		"BONUS DAMAGE:"        
         "DOTA_Tooltip_Ability_li_shuwen_new_w_radius"			"RADIUS:"
         "DOTA_Tooltip_Ability_li_shuwen_new_w_slow_duration"		"SLOW DURATION:"
         "DOTA_Tooltip_Ability_li_shuwen_new_w_slow_power"				"%SLOW:"
+        "DOTA_Tooltip_Ability_li_shuwen_new_w_shield_percentage"		"%SHIELD FROM HP"
+        "DOTA_Tooltip_Ability_li_shuwen_new_w_shield_duration"			"SHIELD DURATION:"
 
 
         "DOTA_Tooltip_Ability_lishuwen_tiger_strike"					"Fierce Tiger Strike"
@@ -6065,7 +6071,7 @@
 
 
         "DOTA_Tooltip_Ability_lishuwen_no_second_strike"						"No Second Strike"
-        "DOTA_Tooltip_Ability_lishuwen_no_second_strike_Description"			"<font color='#FFFAFA'>Passive</font>: All of Li Shuwen's abilities apply <font color='#FF0000'>Circulatory shock</font> effect on enemy.\n<font color='#FFFAFA'>Cast point: </font><font color='#7FFF00'>%cast_delay%</font>.\n\nPerforms a devastating blow on the target's body, inflicting <font color='#D1A951'>pure damage</font>, <font color='#FF3399'>stunning and revoking</font> the target for a short duration. \n\nAfter a short duration, the target takes extra <font color='#D1A951'>pure damage</font>.\nShock deals additional damage based on <font color='#FF0000'>Circulatory shock</font> stacks on the enemy."
+        "DOTA_Tooltip_Ability_lishuwen_no_second_strike_Description"			"<font color='#FFFAFA'>Passive</font>: All of Li Shuwen's abilities apply <font color='#FF0000'>Circulatory shock</font> effect on enemy.\n<font color='#FFFAFA'>Cast point: </font><font color='#7FFF00'>%cast_delay%</font>.\n\nPerforms a devastating blow on the target's body, inflicting <font color='#D1A951'>pure damage</font>, <font color='#FF3399'>stunning and revoking</font> the target for a short duration. \n\nAfter a short duration, the target takes extra <font color='#D1A951'>pure damage</font>.\nShock deals additional damage based on <font color='#FF0000'>Circulatory shock</font> stacks on the enemy.\n<font color='#F1C40F'>Upgradable by attributes: Circulatory shock and Shock paralysis</font>."
         "DOTA_Tooltip_Ability_lishuwen_no_second_strike_Lore"					"The swirl of Chi shatters its victim's inner system, bringing them sure death regardless of physical prowess."
         //"DOTA_Tooltip_Ability_lishuwen_no_second_strike_cast_delay"				"Cast Delay:"
         "DOTA_Tooltip_Ability_lishuwen_no_second_strike_initial_damage"			"Initial Damage:"

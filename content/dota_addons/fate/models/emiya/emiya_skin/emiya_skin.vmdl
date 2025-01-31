@@ -1,0 +1,3030 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc39:version{1ceecb0d-4093-4729-ab18-b76886c64cde} -->
+{
+	rootNode = 
+	{
+		_class = "RootNode"
+		children = 
+		[
+			{
+				_class = "MaterialGroupList"
+				children = 
+				[
+					{
+						_class = "DefaultMaterialGroup"
+						remaps = 
+						[
+							{
+								from = "imported material 01.vmat"
+								to = "models/emiya/emiya_7.vmat"
+							},
+							{
+								from = "imported material 02.vmat"
+								to = "imported material 02.vmat"
+							},
+							{
+								from = "imported material 03.vmat"
+								to = "models/emiya/emiya_skin/default.vmat"
+							},
+							{
+								from = ""
+								to = "models/emiya/emiya_skin/default.vmat"
+							},
+						]
+						use_global_default = false
+						global_default_material = ""
+					},
+				]
+			},
+			{
+				_class = "RenderMeshList"
+				children = 
+				[
+					{
+						_class = "RenderMeshFile"
+						name = "swords"
+						filename = "models/emiya/emiya_skin/emiya_skin.fbx"
+						import_scale = 1.0
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = 
+							[
+								"Mesh_006",
+								"Mesh_008",
+								"Mesh",
+								"Mesh_005",
+								"Mesh_004",
+								"Mesh_003",
+								"Mesh_001",
+								"Mesh_002",
+								"Mesh_010",
+								"Object006",
+								"Object004",
+								"Object002",
+								"Object003",
+								"Object005",
+								"pepega76",
+								"pepega77",
+								"pepega81",
+								"pepega79",
+							]
+						}
+					},
+					{
+						_class = "RenderMeshFile"
+						name = "archer_bow"
+						filename = "models/emiya/emiya_skin/emiya_skin.fbx"
+						import_scale = 1.0
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = 
+							[
+								"Mesh_008",
+								"Mesh_007",
+								"Mesh_010",
+								"Mesh_009",
+								"Mesh_005",
+								"Mesh_006",
+								"Mesh_001",
+								"Mesh",
+								"Mesh_004",
+								"Mesh_003",
+								"Object002",
+								"Object003",
+								"Object006",
+								"Object004",
+								"Object005",
+								"pepega77",
+								"pepega78",
+								"pepega80",
+								"pepega81",
+								"pepega79",
+							]
+						}
+					},
+					{
+						_class = "RenderMeshFile"
+						name = "archer_no_swords"
+						filename = "models/emiya/emiya_skin/emiya_skin.fbx"
+						import_scale = 1.0
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = 
+							[
+								"Mesh_009",
+								"Mesh_007",
+								"Mesh_006",
+								"Mesh_008",
+								"Mesh_010",
+								"Mesh_002",
+								"Object001",
+								"Object002",
+								"Object003",
+								"Object006",
+								"Object004",
+								"Object005",
+								"pepega76",
+								"pepega77",
+								"pepega78",
+								"pepega79",
+								"pepega80",
+								"pepega81",
+							]
+						}
+					},
+					{
+						_class = "RenderMeshFile"
+						name = "archer_overedge"
+						filename = "models/emiya/emiya_skin/emiya_skin.fbx"
+						import_scale = 1.0
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = 
+							[
+								"Mesh_010",
+								"Mesh_009",
+								"Mesh",
+								"Mesh_004",
+								"Mesh_003",
+								"Mesh_002",
+								"Mesh_005",
+								"Mesh_008",
+								"Mesh_001",
+								"Mesh_007",
+								"Object001",
+								"Object003",
+								"Object005",
+								"Object004",
+								"Object006",
+								"pepega81",
+								"pepega80",
+								"pepega79",
+								"pepega78",
+								"pepega76",
+							]
+						}
+					},
+				]
+			},
+			{
+				_class = "AnimationList"
+				children = 
+				[
+					{
+						_class = "AnimFile"
+						name = "stand"
+						children = 
+						[
+							{
+								_class = "ActivityModifier"
+								activity_name = "1"
+								activity_weight = 1
+							},
+						]
+						activity_name = "ACT_DOTA_IDLE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
+						import_bone_scales = false
+						start_frame = 10
+						end_frame = 70
+						framerate = 30.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "walk"
+						children = 
+						[
+							{
+								_class = "ActivityModifier"
+								activity_name = "1"
+								activity_weight = 1
+							},
+						]
+						activity_name = "ACT_DOTA_RUN"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
+						import_bone_scales = false
+						start_frame = 71
+						end_frame = 95
+						framerate = 30.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "stand_ready"
+						children = 
+						[
+							{
+								_class = "ActivityModifier"
+								activity_name = "1"
+								activity_weight = 1
+							},
+						]
+						activity_name = "ACT_DOTA_ATTACK_STATUE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
+						import_bone_scales = false
+						start_frame = 96
+						end_frame = 127
+						framerate = 30.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "attack_1"
+						children = 
+						[
+							{
+								_class = "ActivityModifier"
+								activity_name = "double"
+								activity_weight = 1
+							},
+							{
+								_class = "ActivityModifier"
+								activity_name = "1"
+								activity_weight = 1
+							},
+						]
+						activity_name = "ACT_DOTA_ATTACK"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
+						import_bone_scales = false
+						start_frame = 128
+						end_frame = 163
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "attack_2"
+						children = 
+						[
+							{
+								_class = "ActivityModifier"
+								activity_name = "single"
+								activity_weight = 1
+							},
+							{
+								_class = "ActivityModifier"
+								activity_name = "1"
+								activity_weight = 1
+							},
+						]
+						activity_name = "ACT_DOTA_ATTACK"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
+						import_bone_scales = false
+						start_frame = 163
+						end_frame = 198
+						framerate = 35.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "throw_daggers"
+						children = 
+						[
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 13
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/emiya/emiya_sword_spawn.vpcf"
+									detach_from_owner = true
+									always_run = true
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = "sword_left"
+									attachment_type = "point"
+									attachment_point_cp1 = "sword_left_end"
+									attachment_type_cp1 = "point"
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 13
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/emiya/emiya_sword_spawn.vpcf"
+									detach_from_owner = true
+									always_run = true
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = "sword_right"
+									attachment_type = "point"
+									attachment_point_cp1 = "sword_right_end"
+									attachment_type_cp1 = "point"
+								}
+							},
+							{
+								_class = "ActivityModifier"
+								activity_name = "1"
+								activity_weight = 1
+							},
+						]
+						activity_name = "ACT_DOTA_CAST_ABILITY_1"
+						activity_weight = 1
+						weight_list_name = "default"
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
+						import_bone_scales = false
+						start_frame = 420
+						end_frame = 438
+						framerate = 48.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "prepare_for_dash"
+						children = 
+						[
+							{
+								_class = "ActivityModifier"
+								activity_name = "1"
+								activity_weight = 1
+							},
+						]
+						activity_name = "ACT_DOTA_CAST_ABILITY_3"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.0
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
+						import_bone_scales = false
+						start_frame = 199
+						end_frame = 214
+						framerate = 37.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "dash_combo_attack_end"
+						children = 
+						[
+							{
+								_class = "ActivityModifier"
+								activity_name = "1"
+								activity_weight = 1
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 24
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/emiya/emiya_sword_spawn_krane_white.vpcf"
+									detach_from_owner = false
+									always_run = true
+									stop_on_seq_change = false
+									stop_immediately = true
+									use_layer_sequence = false
+									tags = null
+									attachment_point = "sword_right"
+									attachment_type = "point_follow"
+									attachment_point_cp1 = "sword_right_end_overedge_dash"
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 24
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/emiya/emiya_sword_spawn_krane_black.vpcf"
+									detach_from_owner = false
+									always_run = true
+									stop_on_seq_change = false
+									stop_immediately = true
+									use_layer_sequence = false
+									tags = null
+									attachment_point = "sword_left"
+									attachment_type = "point_follow"
+									attachment_point_cp1 = "sword_left_end_overedge_dash"
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+						]
+						activity_name = "ACT_DOTA_CAST_ABILITY_2"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
+						import_bone_scales = false
+						start_frame = 244
+						end_frame = 285
+						framerate = 62.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "dash_combo_attack_no_throw_overedge"
+						children = 
+						[
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 7
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/emiya/emiya_overedge_slash_1.vpcf"
+									detach_from_owner = false
+									always_run = true
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = ""
+									attachment_type = "point_follow"
+									attachment_point_cp1 = ""
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 9
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/emiya/emiya_overedge_slash_2.vpcf"
+									detach_from_owner = false
+									always_run = true
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = null
+									attachment_type = "point_follow"
+									attachment_point_cp1 = null
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 18
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/emiya/emiya_overedge_slash_3.vpcf"
+									detach_from_owner = false
+									always_run = true
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = null
+									attachment_type = "point_follow"
+									attachment_point_cp1 = null
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+							{
+								_class = "AnimEvent"
+								disabled = true
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 23
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/emiya/emiya_overedge_slash_4.vpcf"
+									detach_from_owner = false
+									always_run = false
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = null
+									attachment_type = "point_follow"
+									attachment_point_cp1 = "sword_left_end"
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+						]
+						activity_name = "ACT_DOTA_AW_MAGNETIC_FIELD"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.0
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
+						import_bone_scales = false
+						start_frame = 210
+						end_frame = 230
+						framerate = 25.0
+						reverse = false
+						anim_hold_list = 
+						[
+							{
+								frame = 210
+								frame_count = 6
+							},
+						]
+					},
+					{
+						_class = "AnimFile"
+						name = "dash_combo_attack_no_throw"
+						children = 
+						[
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 7
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/emiya/emiya_slash_1.vpcf"
+									detach_from_owner = false
+									always_run = true
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = ""
+									attachment_type = "point_follow"
+									attachment_point_cp1 = ""
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 9
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/emiya/emiya_slash_2.vpcf"
+									detach_from_owner = false
+									always_run = true
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = null
+									attachment_type = "point_follow"
+									attachment_point_cp1 = null
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 18
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/emiya/emiya_slash_3.vpcf"
+									detach_from_owner = false
+									always_run = true
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = null
+									attachment_type = "point_follow"
+									attachment_point_cp1 = null
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+							{
+								_class = "AnimEvent"
+								disabled = true
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 18
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/emiya/emiya_overedge_slash_4.vpcf"
+									detach_from_owner = false
+									always_run = false
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = null
+									attachment_type = "point_follow"
+									attachment_point_cp1 = "sword_left_end"
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+						]
+						activity_name = "ACT_DOTA_CAST_ABILITY_3_END"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.0
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
+						import_bone_scales = false
+						start_frame = 210
+						end_frame = 230
+						framerate = 25.0
+						reverse = false
+						anim_hold_list = 
+						[
+							{
+								frame = 210
+								frame_count = 6
+							},
+						]
+					},
+					{
+						_class = "AnimFile"
+						name = "death"
+						children = 
+						[
+							{
+								_class = "ActivityModifier"
+								activity_name = "1"
+								activity_weight = 1
+							},
+						]
+						activity_name = "ACT_DOTA_DIE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
+						import_bone_scales = false
+						start_frame = 287
+						end_frame = 316
+						framerate = 30.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "spell_cast_ubw"
+						children = 
+						[
+							{
+								_class = "ActivityModifier"
+								activity_name = "3"
+								activity_weight = 1
+							},
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = true
+								extract_rz = false
+								linear = false
+								quadratic = false
+								extract_initial_offset = false
+								root_bone_name = ""
+								motion_type = "Uniform"
+							},
+						]
+						activity_name = "ACT_DOTA_CAST_ABILITY_2"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
+						import_bone_scales = false
+						start_frame = 317
+						end_frame = 333
+						framerate = 45.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "dashing"
+						activity_name = "ACT_DOTA_RAZE_3"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.0
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
+						import_bone_scales = false
+						start_frame = 368
+						end_frame = 376
+						framerate = 7.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "circle_attack"
+						children = 
+						[
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 5
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/emiya/emiya_circle_attack_base.vpcf"
+									detach_from_owner = false
+									always_run = true
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = null
+									attachment_type = "point_follow"
+									attachment_point_cp1 = null
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 10
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/emiya/emiya_circle_attack_base_2.vpcf"
+									detach_from_owner = false
+									always_run = true
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = null
+									attachment_type = "point_follow"
+									attachment_point_cp1 = null
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 15
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/emiya/emiya_circle_attack_base_3.vpcf"
+									detach_from_owner = false
+									always_run = true
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = null
+									attachment_type = "point_follow"
+									attachment_point_cp1 = null
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+						]
+						activity_name = "ACT_DOTA_ALCHEMIST_CONCOCTION_THROW"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
+						import_bone_scales = false
+						start_frame = 377
+						end_frame = 407
+						framerate = 40.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "fast_dash_overedge_"
+						activity_name = "ACT_DOTA_RAZE_1"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.0
+						fade_out_time = 0.0
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
+						import_bone_scales = false
+						start_frame = 408
+						end_frame = 418
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "overedge_attack"
+						children = 
+						[
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 7
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/emiya/crane_wings_black.vpcf"
+									detach_from_owner = false
+									always_run = true
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = ""
+									attachment_type = "point_follow"
+									attachment_point_cp1 = ""
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 7
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/emiya/crane_wings_white.vpcf"
+									detach_from_owner = false
+									always_run = true
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = null
+									attachment_type = "point_follow"
+									attachment_point_cp1 = null
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 22
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/emiya/crane_wings_white_2.vpcf"
+									detach_from_owner = false
+									always_run = true
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = ""
+									attachment_type = "point_follow"
+									attachment_point_cp1 = ""
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 22
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/emiya/crane_wings_black_2.vpcf"
+									detach_from_owner = false
+									always_run = true
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = null
+									attachment_type = "point_follow"
+									attachment_point_cp1 = null
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+						]
+						activity_name = "ACT_DOTA_RAZE_2"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.0
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
+						import_bone_scales = false
+						start_frame = 419
+						end_frame = 459
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "morph"
+						children = 
+						[
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 14
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/emiya/swords_spawn.vpcf"
+									detach_from_owner = false
+									always_run = true
+									stop_on_seq_change = true
+									stop_immediately = true
+									use_layer_sequence = false
+									tags = null
+									attachment_point = "sword_left"
+									attachment_type = "point_follow"
+									attachment_point_cp1 = "sword_left_end"
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 14
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/emiya/swords_spawn.vpcf"
+									detach_from_owner = false
+									always_run = true
+									stop_on_seq_change = true
+									stop_immediately = true
+									use_layer_sequence = false
+									tags = null
+									attachment_point = "sword_right"
+									attachment_type = "point_follow"
+									attachment_point_cp1 = "sword_right_end"
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 25
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/emiya/emiya_bow_spawn.vpcf"
+									detach_from_owner = false
+									always_run = true
+									stop_on_seq_change = false
+									stop_immediately = true
+									use_layer_sequence = false
+									tags = null
+									attachment_point = "bow_spawn_1"
+									attachment_type = "point_follow"
+									attachment_point_cp1 = "bow_spawn_2"
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+						]
+						activity_name = "ACT_DOTA_CAST_ABILITY_5"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
+						import_bone_scales = false
+						start_frame = 460
+						end_frame = 490
+						framerate = 90.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "bow_cast"
+						activity_name = "ACT_DOTA_CAST_ABILITY_2"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
+						import_bone_scales = false
+						start_frame = 634
+						end_frame = 669
+						framerate = 35.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "bow_death"
+						children = 
+						[
+							{
+								_class = "ActivityModifier"
+								activity_name = "2"
+								activity_weight = 1
+							},
+						]
+						activity_name = "ACT_DOTA_DIE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
+						import_bone_scales = false
+						start_frame = 897
+						end_frame = 917
+						framerate = 30.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "spell_ubw"
+						children = 
+						[
+							{
+								_class = "ActivityModifier"
+								activity_name = "3"
+								activity_weight = 1
+							},
+						]
+						activity_name = "ACT_DOTA_ATTACK2"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
+						import_bone_scales = false
+						start_frame = 825
+						end_frame = 865
+						framerate = 30.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "attack_ubw"
+						children = 
+						[
+							{
+								_class = "ActivityModifier"
+								activity_name = "3"
+								activity_weight = 1
+							},
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								extract_initial_offset = false
+								root_bone_name = ""
+								motion_type = "Uniform"
+							},
+						]
+						activity_name = "ACT_DOTA_ATTACK"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
+						import_bone_scales = false
+						start_frame = 866
+						end_frame = 896
+						framerate = 30.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "death_ubw"
+						children = 
+						[
+							{
+								_class = "ActivityModifier"
+								activity_name = "3"
+								activity_weight = 1
+							},
+						]
+						activity_name = "ACT_DOTA_DIE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
+						import_bone_scales = false
+						start_frame = 287
+						end_frame = 316
+						framerate = 30.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "walk_ubw"
+						children = 
+						[
+							{
+								_class = "ActivityModifier"
+								activity_name = "3"
+								activity_weight = 1
+							},
+						]
+						activity_name = "ACT_DOTA_RUN"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
+						import_bone_scales = false
+						start_frame = 71
+						end_frame = 95
+						framerate = 30.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "cast_ubw"
+						children = 
+						[
+							{
+								_class = "ActivityModifier"
+								activity_name = "1"
+								activity_weight = 1
+							},
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								extract_initial_offset = false
+								root_bone_name = ""
+								motion_type = "Uniform"
+							},
+						]
+						activity_name = "ACT_DOTA_CAST_ABILITY_4"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
+						import_bone_scales = false
+						start_frame = 1002
+						end_frame = 1032
+						framerate = 50.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "bow_stand"
+						children = 
+						[
+							{
+								_class = "ActivityModifier"
+								activity_name = "2"
+								activity_weight = 1
+							},
+						]
+						activity_name = "ACT_DOTA_IDLE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
+						import_bone_scales = false
+						start_frame = 491
+						end_frame = 551
+						framerate = 30.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "bow_walk"
+						children = 
+						[
+							{
+								_class = "ActivityModifier"
+								activity_name = "2"
+								activity_weight = 1
+							},
+						]
+						activity_name = "ACT_DOTA_RUN"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
+						import_bone_scales = false
+						start_frame = 552
+						end_frame = 576
+						framerate = 30.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "bow_attack"
+						children = 
+						[
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_HIDE_PARTICLE_EFFECT"
+								event_frame = 11
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/emiya/arrow_spawn.vpcf"
+									stop_on_seq_change = true
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_DOTA_PLAY_SOUND_ATTACK"
+								event_frame = 13
+								event_end_frame = -1
+								event_keys = null
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 6
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/emiya/arrow_spawn.vpcf"
+									detach_from_owner = true
+									always_run = false
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = "attach_attack_particle1"
+									attachment_type = "point_follow"
+									attachment_point_cp1 = "attach_attack_particle2"
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_WPN_PRIMARYATTACK"
+								event_frame = 13
+								event_end_frame = -1
+								event_keys = null
+							},
+							{
+								_class = "ActivityModifier"
+								activity_name = "2"
+								activity_weight = 1
+							},
+						]
+						activity_name = "ACT_DOTA_ATTACK"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
+						import_bone_scales = false
+						start_frame = 609
+						end_frame = 633
+						framerate = 30.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "bow_stand_ready"
+						children = 
+						[
+							{
+								_class = "ActivityModifier"
+								activity_name = "2"
+								activity_weight = 1
+							},
+						]
+						activity_name = "ACT_DOTA_ATTACK_STATUE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
+						import_bone_scales = false
+						start_frame = 577
+						end_frame = 607
+						framerate = 30.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "morph_alternate"
+						children = 
+						[
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 24
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/emiya/emiya_sword_spawn.vpcf"
+									detach_from_owner = false
+									always_run = true
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = "sword_left"
+									attachment_type = "point_follow"
+									attachment_point_cp1 = "sword_left_end"
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 24
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/emiya/emiya_sword_spawn.vpcf"
+									detach_from_owner = false
+									always_run = true
+									stop_on_seq_change = false
+									stop_immediately = true
+									use_layer_sequence = false
+									tags = null
+									attachment_point = "sword_right"
+									attachment_type = "point_follow"
+									attachment_point_cp1 = "sword_right_end"
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 13
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/emiya/swords_dissapear.vpcf"
+									detach_from_owner = true
+									always_run = true
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = "bow_spawn_1"
+									attachment_type = "point"
+									attachment_point_cp1 = "bow_spawn_2"
+									attachment_type_cp1 = "point"
+								}
+							},
+						]
+						activity_name = "ACT_DOTA_CAST_ABILITY_ROT"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
+						import_bone_scales = false
+						start_frame = 738
+						end_frame = 763
+						framerate = 85.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "bow_channel_end"
+						children = 
+						[
+							{
+								_class = "ActivityModifier"
+								activity_name = "2"
+								activity_weight = 1
+							},
+							{
+								_class = "AnimEvent"
+								disabled = true
+								event_class = "AE_CL_HIDE_PARTICLE_EFFECT"
+								event_frame = 15
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/emiya/caladbolg_animation.vpcf"
+									stop_on_seq_change = true
+								}
+							},
+						]
+						activity_name = "ACT_DOTA_CAST_ABILITY_3_END"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.0
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
+						import_bone_scales = false
+						start_frame = 1061
+						end_frame = 1081
+						framerate = 45.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "bow_channel_broken_ig_1"
+						children = 
+						[
+							{
+								_class = "ActivityModifier"
+								activity_name = "2"
+								activity_weight = 1
+							},
+						]
+						activity_name = "ACT_DOTA_CAST_ABILITY_3"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
+						import_bone_scales = false
+						start_frame = 1046
+						end_frame = 1061
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "bow_channel_broken_ig_2"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = true
+								linear = false
+								quadratic = false
+								extract_initial_offset = false
+								root_bone_name = ""
+								motion_type = "Uniform"
+							},
+						]
+						activity_name = "ACT_DOTA_CAST_ABILITY_3"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
+						import_bone_scales = false
+						start_frame = 1046
+						end_frame = 1061
+						framerate = 5.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "prepare_for_dash1"
+						activity_name = "ACT_DOTA_ALCHEMIST_CONCOCTION"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.0
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
+						import_bone_scales = false
+						start_frame = 199
+						end_frame = 214
+						framerate = 60.0
+						reverse = false
+						anim_hold_list = 
+						[
+							{
+								frame = 214
+								frame_count = 15
+							},
+						]
+					},
+					{
+						_class = "AnimFile"
+						name = "spell_cast1"
+						children = 
+						[
+							{
+								_class = "ActivityModifier"
+								activity_name = "2"
+								activity_weight = 1
+							},
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								extract_initial_offset = false
+								root_bone_name = ""
+								motion_type = "Uniform"
+							},
+						]
+						activity_name = "ACT_DOTA_CAST_ABILITY_5"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
+						import_bone_scales = false
+						start_frame = 317
+						end_frame = 367
+						framerate = 55.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "stand_ubw"
+						children = 
+						[
+							{
+								_class = "ActivityModifier"
+								activity_name = "3"
+								activity_weight = 1
+							},
+						]
+						activity_name = "ACT_DOTA_IDLE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
+						import_bone_scales = false
+						start_frame = 10
+						end_frame = 70
+						framerate = 30.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "spell_ubw_f"
+						children = 
+						[
+							{
+								_class = "ActivityModifier"
+								activity_name = "3"
+								activity_weight = 1
+							},
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								extract_initial_offset = false
+								root_bone_name = ""
+								motion_type = "Uniform"
+							},
+						]
+						activity_name = "ACT_DOTA_CAST_ABILITY_5"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
+						import_bone_scales = false
+						start_frame = 866
+						end_frame = 896
+						framerate = 60.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "moonwalk"
+						activity_name = "ACT_DOTA_CAST_ALACRITY"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
+						import_bone_scales = false
+						start_frame = 287
+						end_frame = 298
+						framerate = 22.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "ubw_spear"
+						activity_name = "ACT_DOTA_CAST_DEAFENING_BLAST"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
+						import_bone_scales = false
+						start_frame = 244
+						end_frame = 285
+						framerate = 62.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "bow_stand1"
+						activity_name = "ACT_DOTA_DISABLED"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
+						import_bone_scales = false
+						start_frame = 491
+						end_frame = 491
+						framerate = 1.0
+						reverse = false
+						anim_hold_list = 
+						[
+							{
+								frame = 491
+								frame_count = 1
+							},
+						]
+					},
+					{
+						_class = "AnimFile"
+						name = "ubw_start"
+						activity_name = "ACT_DOTA_ARCTIC_BURN_END"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
+						import_bone_scales = false
+						start_frame = 825
+						end_frame = 865
+						framerate = 20.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "stand_ready1"
+						activity_name = "ACT_DOTA_CAPTURE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
+						import_bone_scales = false
+						start_frame = 96
+						end_frame = 127
+						framerate = 1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "bow_attack1"
+						children = 
+						[
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_HIDE_PARTICLE_EFFECT"
+								event_frame = 11
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/emiya/arrow_spawn.vpcf"
+									stop_on_seq_change = true
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_DOTA_PLAY_SOUND_ATTACK"
+								event_frame = 13
+								event_end_frame = -1
+								event_keys = null
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 6
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/emiya/arrow_spawn.vpcf"
+									detach_from_owner = true
+									always_run = true
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = "attach_attack_particle1"
+									attachment_type = "point_follow"
+									attachment_point_cp1 = "attach_attack_particle2"
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_WPN_PRIMARYATTACK"
+								event_frame = 13
+								event_end_frame = -1
+								event_keys = null
+							},
+							{
+								_class = "ActivityModifier"
+								activity_name = "2"
+								activity_weight = 1
+							},
+						]
+						activity_name = "ACT_DOTA_ATTACK2"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
+						import_bone_scales = false
+						start_frame = 609
+						end_frame = 633
+						framerate = 30.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "circle_attack_nine"
+						children = 
+						[
+							{
+								_class = "AnimEvent"
+								disabled = true
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 3
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/emiya/emiya_circle_attack_base.vpcf"
+									detach_from_owner = false
+									always_run = true
+									stop_on_seq_change = true
+									stop_immediately = true
+									use_layer_sequence = false
+									tags = null
+									attachment_point = null
+									attachment_type = "point_follow"
+									attachment_point_cp1 = null
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+							{
+								_class = "AnimEvent"
+								disabled = true
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 7
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/emiya/emiya_circle_attack_base_2.vpcf"
+									detach_from_owner = false
+									always_run = true
+									stop_on_seq_change = true
+									stop_immediately = true
+									use_layer_sequence = false
+									tags = null
+									attachment_point = null
+									attachment_type = "point_follow"
+									attachment_point_cp1 = null
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+							{
+								_class = "AnimEvent"
+								disabled = true
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 15
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/emiya/emiya_circle_attack_base_3.vpcf"
+									detach_from_owner = false
+									always_run = false
+									stop_on_seq_change = true
+									stop_immediately = true
+									use_layer_sequence = false
+									tags = null
+									attachment_point = null
+									attachment_type = "point_follow"
+									attachment_point_cp1 = null
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+						]
+						activity_name = "ACT_DOTA_WHIRLING_AXES_RANGED"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
+						import_bone_scales = false
+						start_frame = 384
+						end_frame = 400
+						framerate = 75.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "attack_3"
+						children = 
+						[
+							{
+								_class = "ActivityModifier"
+								activity_name = "double"
+								activity_weight = 1
+							},
+							{
+								_class = "ActivityModifier"
+								activity_name = "1"
+								activity_weight = 1
+							},
+						]
+						activity_name = "ACT_DOTA_ATTACK2"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
+						import_bone_scales = false
+						start_frame = 128
+						end_frame = 163
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "attack_4"
+						children = 
+						[
+							{
+								_class = "ActivityModifier"
+								activity_name = "single"
+								activity_weight = 1
+							},
+							{
+								_class = "ActivityModifier"
+								activity_name = "1"
+								activity_weight = 1
+							},
+						]
+						activity_name = "ACT_DOTA_ATTACK2"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
+						import_bone_scales = false
+						start_frame = 163
+						end_frame = 198
+						framerate = 35.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "dashing_no_overedge"
+						activity_name = "ACT_DOTA_LIFESTEALER_RAGE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.0
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
+						import_bone_scales = false
+						start_frame = 368
+						end_frame = 376
+						framerate = 30.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "Ubw_q"
+						activity_name = "ACT_ALIEN_BURROW_OUT"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
+						import_bone_scales = false
+						start_frame = 644
+						end_frame = 669
+						framerate = 35.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "bow_stand2"
+						children = 
+						[
+							{
+								_class = "ActivityModifier"
+								activity_name = "1"
+								activity_weight = 1
+							},
+						]
+						activity_name = "ACT_DOTA_DISABLED"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
+						import_bone_scales = false
+						start_frame = 491
+						end_frame = 491
+						framerate = 1.0
+						reverse = false
+						anim_hold_list = 
+						[
+							{
+								frame = 491
+								frame_count = 1
+							},
+						]
+					},
+					{
+						_class = "AnimFile"
+						name = "bow_stand3"
+						children = 
+						[
+							{
+								_class = "ActivityModifier"
+								activity_name = "2"
+								activity_weight = 1
+							},
+						]
+						activity_name = "ACT_DOTA_DISABLED"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
+						import_bone_scales = false
+						start_frame = 491
+						end_frame = 491
+						framerate = 1.0
+						reverse = false
+						anim_hold_list = 
+						[
+							{
+								frame = 491
+								frame_count = 1
+							},
+						]
+					},
+					{
+						_class = "AnimFile"
+						name = "bow_stand4"
+						children = 
+						[
+							{
+								_class = "ActivityModifier"
+								activity_name = "3"
+								activity_weight = 1
+							},
+						]
+						activity_name = "ACT_DOTA_DISABLED"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
+						import_bone_scales = false
+						start_frame = 491
+						end_frame = 491
+						framerate = 1.0
+						reverse = false
+						anim_hold_list = 
+						[
+							{
+								frame = 491
+								frame_count = 1
+							},
+						]
+					},
+					{
+						_class = "AnimFile"
+						name = "combo_rain"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								extract_initial_offset = false
+								root_bone_name = ""
+								motion_type = "Uniform"
+							},
+						]
+						activity_name = "ACT_DOTA_CAST_ABILITY_2_ES_ROLL_START"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/emiya/emiya_skin/emiya_skin.fbx"
+						import_bone_scales = false
+						start_frame = 866
+						end_frame = 896
+						framerate = 60.0
+						reverse = false
+					},
+				]
+				default_root_bone_name = ""
+			},
+			{
+				_class = "BodyGroupList"
+				children = 
+				[
+					{
+						_class = "BodyGroup"
+						name = "no_swords"
+						children = 
+						[
+							{
+								_class = "BodyGroupChoice"
+								name = "swords"
+								meshes = 
+								[
+									"swords",
+								]
+							},
+							{
+								_class = "BodyGroupChoice"
+								name = "no_weapon_"
+								meshes = [  ]
+							},
+							{
+								_class = "BodyGroupChoice"
+								name = "bow"
+								meshes = 
+								[
+									"archer_bow",
+								]
+							},
+							{
+								_class = "BodyGroupChoice"
+								name = "overedge"
+								meshes = 
+								[
+									"archer_overedge",
+								]
+							},
+						]
+						hidden_in_tools = false
+						non_bodygroup_single_choice = false
+					},
+					{
+						_class = "BodyGroup"
+						name = "emiya"
+						children = 
+						[
+							{
+								_class = "BodyGroupChoice"
+								meshes = 
+								[
+									"archer_no_swords",
+								]
+							},
+						]
+						hidden_in_tools = false
+						non_bodygroup_single_choice = false
+					},
+				]
+			},
+			{
+				_class = "AttachmentList"
+				children = 
+				[
+					{
+						_class = "Attachment"
+						name = "sword_left"
+						parent_bone = "pepega30"
+						relative_origin = [ 4.713764, -0.276918, -0.897453 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "sword_right"
+						parent_bone = "pepega47"
+						relative_origin = [ -5.620933, -2.010849, -0.473812 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "sword_left_end"
+						parent_bone = "pepega30"
+						relative_origin = [ 25.083008, -74.521805, 24.722897 ]
+						relative_angles = [ 0.0, 0.0, 0.000264 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "sword_right_end"
+						parent_bone = "pepega47"
+						relative_origin = [ -27.167534, -69.483246, 22.798286 ]
+						relative_angles = [ 0.0, 0.0, -0.000416 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "sword_spawn_loc_1"
+						parent_bone = "pepega30"
+						relative_origin = [ 43.149101, 35.095245, -66.600914 ]
+						relative_angles = [ 0.0, 0.0, -0.000404 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "sword_spawn_loc_2"
+						parent_bone = "pepega48"
+						relative_origin = [ -40.88813, 41.083916, -73.552284 ]
+						relative_angles = [ 0.0, 0.0, 0.000021 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "bow_spawn_1"
+						parent_bone = "pepega30"
+						relative_origin = [ 3.472616, 32.363281, -4.501684 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "bow_spawn_2"
+						parent_bone = "pepega30"
+						relative_origin = [ -0.438755, -34.449352, 2.587082 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_attack_particle2"
+						parent_bone = ""
+						relative_origin = [ 158.759659, -16.314604, 144.053833 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_attack_particle1"
+						parent_bone = "pepega18"
+						relative_origin = [ -43.09201, 8.442348, -12.528938 ]
+						relative_angles = [ 0.0, 0.0, 0.000106 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_attack1"
+						parent_bone = "pepega27"
+						relative_origin = [ 14.601089, -6.443333, 23.093342 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_hitloc"
+						parent_bone = "pepega18"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "sword_left_end_overedge"
+						parent_bone = "pepega30"
+						relative_origin = [ 5.673752, -145.857849, 46.027946 ]
+						relative_angles = [ 0.0, 0.0, 0.000114 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "sword_right_end_overedge"
+						parent_bone = "pepega47"
+						relative_origin = [ -4.537109, -141.836151, 46.724762 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_attack2"
+						parent_bone = "pepega27"
+						relative_origin = [ 14.601089, -6.443333, 23.093342 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "sword_left_end_overedge_dash"
+						parent_bone = "pepega25"
+						relative_origin = [ 81.079842, -108.279175, 5.84124 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "sword_right_end_overedge_dash"
+						parent_bone = "pepega44"
+						relative_origin = [ -24.469442, -59.555008, -3.401489 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+				]
+			},
+			{
+				_class = "HitboxSetList"
+				children = 
+				[
+					{
+						_class = "HitboxSet"
+						name = "default"
+						children = 
+						[
+							{
+								_class = "Hitbox"
+								name = "bone01"
+								parent_bone = "bone01"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -21.109154, -12.65486, -9.193398 ]
+								hitbox_maxs = [ 21.99823, 14.352405, 14.556595 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone02"
+								parent_bone = "bone02"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -35.508526, -34.907539, -188.304916 ]
+								hitbox_maxs = [ 41.277897, 18.039845, 88.632828 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone03"
+								parent_bone = "bone03"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -18.775928, -10.648136, -7.448303 ]
+								hitbox_maxs = [ 21.951305, 20.61941, 32.18222 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bip001_L_Clavicle"
+								parent_bone = "Bip001_L_Clavicle"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.77579, -11.553777, -7.659698 ]
+								hitbox_maxs = [ 10.183957, 11.534051, 6.564056 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bip001_L_UpperArm"
+								parent_bone = "Bip001_L_UpperArm"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.5, -7.333036, -9.483276 ]
+								hitbox_maxs = [ 30.752178, 8.727268, 6.969208 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bip001_L_Forearm"
+								parent_bone = "Bip001_L_Forearm"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.608944, -6.207747, -6.102539 ]
+								hitbox_maxs = [ 26.297832, 5.580423, 6.233307 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bip001_L_Hand"
+								parent_bone = "Bip001_L_Hand"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.5, -10.212235, -88.418205 ]
+								hitbox_maxs = [ 148.660339, 41.534706, 3.285736 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone50"
+								parent_bone = "bone50"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -20.48848, -26.653431, -106.461639 ]
+								hitbox_maxs = [ 16.269257, 30.534519, 123.674103 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bip001_R_Clavicle"
+								parent_bone = "Bip001_R_Clavicle"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -10.486594, -9.261683, -6.718033 ]
+								hitbox_maxs = [ 0.549867, 8.66356, 4.134262 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bip001_R_UpperArm"
+								parent_bone = "Bip001_R_UpperArm"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -30.193989, -8.18062, -7.537369 ]
+								hitbox_maxs = [ 1.720173, 9.044271, 7.258209 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bip001_R_Forearm"
+								parent_bone = "Bip001_R_Forearm"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -26.88673, -5.991667, -6.350342 ]
+								hitbox_maxs = [ 5.86491, 5.659903, 5.88681 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bip001_R_Hand"
+								parent_bone = "Bip001_R_Hand"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -24.531433, -10.369041, -5.776474 ]
+								hitbox_maxs = [ 0.5, 5.386036, 3.125748 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone020"
+								parent_bone = "Bone020"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.635551, -17.62974, -18.027184 ]
+								hitbox_maxs = [ 16.731125, 0.5, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone021"
+								parent_bone = "Bone021"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -8.534967, -20.334959, -15.030441 ]
+								hitbox_maxs = [ 13.65799, 0.5, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone022"
+								parent_bone = "Bone022"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.576134, -19.830023, -18.739342 ]
+								hitbox_maxs = [ 16.894485, 0.673277, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone023"
+								parent_bone = "Bone023"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -6.688873, -24.060234, -18.832253 ]
+								hitbox_maxs = [ 21.447754, 0.5, 2.214279 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone015"
+								parent_bone = "Bone015"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.298363, -16.289612, -17.182327 ]
+								hitbox_maxs = [ 7.356525, 4.951952, 3.931686 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone016"
+								parent_bone = "Bone016"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -10.369219, -17.224003, -26.457596 ]
+								hitbox_maxs = [ 7.286148, 12.348663, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone017"
+								parent_bone = "Bone017"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -12.371902, -26.592667, -28.77063 ]
+								hitbox_maxs = [ 7.630737, 13.359595, 1.222214 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone018"
+								parent_bone = "Bone018"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -13.7384, -34.326481, -29.190372 ]
+								hitbox_maxs = [ 11.996237, 14.663593, 1.26786 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone025"
+								parent_bone = "Bone025"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -15.721385, -4.320946, -17.480736 ]
+								hitbox_maxs = [ 14.970172, 0.772972, 1.682022 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone026"
+								parent_bone = "Bone026"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -20.842392, -2.735706, -16.907845 ]
+								hitbox_maxs = [ 21.137123, 8.28602, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone027"
+								parent_bone = "Bone027"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -26.259838, -7.864631, -17.45282 ]
+								hitbox_maxs = [ 28.822559, 8.294888, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone028"
+								parent_bone = "Bone028"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -32.72533, -14.600317, -20.215179 ]
+								hitbox_maxs = [ 36.345631, 9.580503, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone006"
+								parent_bone = "Bone006"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.191633, -17.492043, -16.981514 ]
+								hitbox_maxs = [ 5.463253, 4.601812, 3.645798 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone007"
+								parent_bone = "Bone007"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.327007, -19.937784, -19.0597 ]
+								hitbox_maxs = [ 12.036264, 11.5581, 1.864548 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone008"
+								parent_bone = "Bone008"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.997528, -28.455471, -19.269554 ]
+								hitbox_maxs = [ 11.684814, 12.758831, 2.733932 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone009"
+								parent_bone = "Bone009"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -11.441423, -36.59148, -20.622177 ]
+								hitbox_maxs = [ 14.20713, 14.121048, 1.180527 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone001"
+								parent_bone = "Bone001"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -17.923166, -17.139277, -17.796272 ]
+								hitbox_maxs = [ 4.797621, 0.5, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone002"
+								parent_bone = "Bone002"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -13.944057, -20.233788, -15.43438 ]
+								hitbox_maxs = [ 7.992716, 0.5, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone003"
+								parent_bone = "Bone003"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -17.819046, -19.424919, -18.876007 ]
+								hitbox_maxs = [ 6.840874, 0.5, 0.865158 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "Bone004"
+								parent_bone = "Bone004"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -22.419289, -26.659885, -19.496941 ]
+								hitbox_maxs = [ 8.324238, 0.5, 2.158493 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_foot03"
+								parent_bone = "bone_foot03"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -10.993454, -11.30702, -60.878761 ]
+								hitbox_maxs = [ 9.123837, 9.936277, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_foot04"
+								parent_bone = "bone_foot04"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -8.69562, -7.281857, -52.341972 ]
+								hitbox_maxs = [ 7.434065, 10.988232, 2.200081 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_foot05"
+								parent_bone = "bone_foot05"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -8.33873, -13.47711, -20.755409 ]
+								hitbox_maxs = [ 7.157043, 10.055355, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_foot07"
+								parent_bone = "bone_foot07"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -8.058052, -11.311394, -60.586525 ]
+								hitbox_maxs = [ 12.059242, 9.931902, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_foot00"
+								parent_bone = "bone_foot00"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.625995, -7.120717, -52.270477 ]
+								hitbox_maxs = [ 8.503692, 11.149673, 2.271477 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "bone_foot01"
+								parent_bone = "bone_foot01"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.22817, -13.828089, -20.692381 ]
+								hitbox_maxs = [ 8.267603, 9.704378, 0.5 ]
+							},
+						]
+					},
+				]
+			},
+			{
+				_class = "ModelModifierList"
+				children = 
+				[
+					{
+						_class = "ModelModifier_ScaleAndMirror"
+						scale = 0.4
+						mirror_x = false
+						mirror_y = false
+						mirror_z = false
+						flip_bone_forward = false
+						swap_left_and_right_bones = false
+					},
+				]
+			},
+		]
+		model_archetype = ""
+		primary_associated_entity = ""
+		anim_graph_name = ""
+		importer_notes = "Imported from VMDL"
+		document_sub_type = "ModelDocSubType_None"
+	}
+}

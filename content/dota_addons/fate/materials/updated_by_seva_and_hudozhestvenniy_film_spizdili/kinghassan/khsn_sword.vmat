@@ -34,7 +34,7 @@ Layer0
 	g_flTexCoordRotation "0.000"
 	g_vTexCoordOffset "[0.000 0.000]"
 	g_vTexCoordScale "[1.000 1.000]"
-	TextureColor "materials/updated_by_seva_and_hudozhestvenniy_film_spizdili/kinghassan/khsn_sword.jpg"
+	TextureColor "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/kinghassan/khsn_sword.tga"
 
 	//---- Detail 1 ----
 	g_vDetail2ColorTint "[1.000000 1.000000 1.000000 0.000000]"
@@ -73,4 +73,44 @@ Layer0
 	g_flSpecularExponent "32.000"
 	g_flSpecularScale "1.000"
 	g_vSpecularColor "[1.000000 1.000000 1.000000 0.000000]"
+
+
+	VariableState
+	{
+		"Blend To Full"
+		{
+		}
+		"Cloak"
+		{
+		}
+		"Color"
+		{
+		}
+		"Detail 1"
+		{
+		}
+		"Detail 2"
+		{
+		}
+		"Fresnel"
+		{
+		}
+		"Lighting"
+		{
+			"Ambient" 0
+			"Bloom" 0
+		}
+		"Mask 1"
+		{
+		}
+		"Normal Map"
+		{
+		}
+		"Rim"
+		{
+		}
+		"Specular"
+		{
+		}
+	}
 }

@@ -46,14 +46,14 @@ function cu_chulain_gae_bolg:OnSpellStart()
 	local ability = self
 	local damage = self:GetSpecialValueFor("damage")
 	local hbThreshold = self:GetSpecialValueFor("heart_break")
-	
+	if IsSpellBlocked(target) then 
+		return 
+	end
 	if caster.HeartSeekerImproved then 
 		local percentbreak = (target:GetMaxHealth() * self:GetSpecialValueFor("atr_hb_pct") / 100)
 		if(percentbreak	> hbThreshold ) then
 			hbThreshold = percentbreak
 		end
-	elseif IsSpellBlocked(target) then 
-		return 
 	end
  
 	local original_pos = caster:GetAbsOrigin()

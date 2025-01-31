@@ -33,6 +33,7 @@ end
 function okita_zekken:OnSpellStart()
 	local caster = self:GetCaster()
     local ability = self
+    local target = self:GetCursorTarget()
 
     local ability_cooldown = caster:FindAbilityByName("okita_sandanzuki")
     ability_cooldown:StartCooldown(ability_cooldown:GetCooldown(1))
@@ -43,7 +44,7 @@ function okita_zekken:OnSpellStart()
 
     caster:AddNewModifier(caster, self, "modifier_okita_zekken_cd", {duration = ability:GetCooldown(1)})
 
-    local target = self:GetCursorTarget()
+    if IsSpellBlocked(target)  then return end
     self:StartZekken(target)
     --caster:AddNewModifier(caster, self, "modifier_okita_zekken_flight", {})
 end

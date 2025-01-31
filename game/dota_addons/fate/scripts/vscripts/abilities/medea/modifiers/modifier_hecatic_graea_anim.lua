@@ -3,7 +3,16 @@ modifier_hecatic_graea_anim = class({})
 function modifier_hecatic_graea_anim:IsHidden()
 	return true 
 end
+function modifier_hecatic_graea_anim:RemoveOnDeath()
+	return true 
+end
+function modifier_hecatic_graea_anim:OnCreated()
+	self:GetCaster():SetBodygroup(0,2)
+end
 
+function modifier_hecatic_graea_anim:OnDestroy()
+	self:GetCaster():SetBodygroup(0,0)
+end
 function modifier_hecatic_graea_anim:DeclareFunctions()
 	return { MODIFIER_PROPERTY_OVERRIDE_ANIMATION,
 			 MODIFIER_PROPERTY_OVERRIDE_ANIMATION_RATE }

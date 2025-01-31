@@ -32,8 +32,13 @@ function emiya_barrage_moonwalk:OnSpellStart()
 	end)
 
 	giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 0.2)
+	if caster:HasModifier("modifier_emiya_model_swap") then
+        caster:EmitSound("emiya_skin_ubw_q")
+    else
+		caster:EmitSound("Archer.NineFinish")
+    end
 
-	caster:EmitSound("Archer.NineFinish")
+
 
 	StartAnimation(caster, {duration=0.375, activity=ACT_ALIEN_BURROW_OUT, rate=1.5})
 	rotateCounter = 1

@@ -49,7 +49,7 @@ function medea_hecatic_graea:OnSpellStart()
 		return 
 	end 
 
-	caster:AddNewModifier(caster, ability, "modifier_hecatic_graea_anim", { Duration = 4 })
+	caster:AddNewModifier(caster, ability, "modifier_hecatic_graea_anim", { Duration = 3.5 })
 
 	giveUnitDataDrivenModifier(caster, caster, "jump_pause", descendTime)
 	Timers:CreateTimer(descendTime, function()

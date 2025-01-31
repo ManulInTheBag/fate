@@ -53,13 +53,22 @@ function emiya_unlimited_bladeworks:GrantUBWChantBuff()
             CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="zlodemon_emiya_r_".. self:GetUBWCastCount()})
              else
             -- apply legion horn vsnd on their client
-            CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="emiya_ubw".. self:GetUBWCastCount()})
+            if caster:HasModifier("modifier_emiya_model_swap") then
+                CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="emiya_skin_ubw_chant_".. self:GetUBWCastCount()})
+            else
+                CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="emiya_ubw".. self:GetUBWCastCount()})
+            end
+            
             --caster:EmitSound("Hero_LegionCommander.PressTheAttack")
             end
         end
     end) 
+    if caster:HasModifier("modifier_emiya_model_swap") then
+        caster:EmitSound("emiya_skin_ubw_chant_".. self:GetUBWCastCount())
+    else
+        caster:EmitSound("emiya_ubw".. self:GetUBWCastCount())
+    end
 
-    caster:EmitSound("emiya_ubw".. self:GetUBWCastCount())
     
 end
 
@@ -152,8 +161,12 @@ function emiya_unlimited_bladeworks:StartUBW(boolsoundOn)
             end
         end) 
 
-   
-        EmitGlobalSound("emiya_ubw7")
+        if caster:HasModifier("modifier_emiya_model_swap") then
+            EmitGlobalSound("emiya_skin_ubw_chant_7")
+        else
+            EmitGlobalSound("emiya_ubw7")
+        end
+        
     end
     StartAnimation(caster, {duration=castDelay, activity=ACT_DOTA_ARCTIC_BURN_END, rate=0.5})
     

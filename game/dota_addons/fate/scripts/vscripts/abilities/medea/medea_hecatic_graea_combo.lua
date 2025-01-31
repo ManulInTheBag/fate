@@ -63,7 +63,7 @@ function medea_hecatic_graea_combo:OnSpellStart()
 		damage = damage + caster:GetIntellect() * 1
 	end 
 
-	caster:AddNewModifier(caster, ability, "modifier_hecatic_graea_anim", { Duration = 4 })
+	caster:AddNewModifier(caster, ability, "modifier_hecatic_graea_anim", { Duration = 5.4 })
 	giveUnitDataDrivenModifier(caster, caster, "jump_pause", descendTime)
 
 	local diff = (targetPoint - caster:GetAbsOrigin()) * 1 / travelTime

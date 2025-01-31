@@ -10,7 +10,7 @@ function khsn_aoe_flame:OnSpellStart()
 	local caster = self:GetCaster()
 	local radius = self:GetSpecialValueFor("radius")
 	local aoe_lastspike = self:GetSpecialValueFor("aoe_lastspike")
-	local damage_per_tick = (self:GetSpecialValueFor("damage_burn") + (caster.AzraelAcquired and 150 or 0))/15
+	local damage_per_tick = (self:GetSpecialValueFor("damage_burn") + (caster.AzraelAcquired and 100 or 0))/15
 	local damage_first = self:GetSpecialValueFor("damage_first")
 	local hitcounter = 1
 	local duration 	= self:GetSpecialValueFor("flame_duration")
@@ -131,11 +131,11 @@ function khsn_aoe_flame:OnProjectileHit(hTarget, vLocation)
 	if self.TargetsHit[hTarget:entindex()] then return end
 	local caster = self:GetCaster()
 	local duration 	= self:GetSpecialValueFor("flame_duration")
-	local damage = self:GetSpecialValueFor("damage_last") + (caster.AzraelAcquired and 200 or 0)
+	local damage = self:GetSpecialValueFor("damage_last") + (caster.AzraelAcquired and 150 or 0)
 	
 	self.TargetsHit[hTarget:entindex()] = true
 
-	hTarget:AddNewModifier(caster, self, "modifier_khsn_aoe_flame", {duration = duration + (caster.AzraelAcquired and 3 or 0)})
+	hTarget:AddNewModifier(caster, self, "modifier_khsn_aoe_flame", {duration = duration + (caster.AzraelAcquired and 2 or 0)})
 	DoDamage(caster, hTarget, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
 end
 

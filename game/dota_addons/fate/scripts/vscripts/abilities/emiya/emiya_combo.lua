@@ -9,8 +9,12 @@ function emiya_combo:OnSpellStart()
 	local enemy = self:GetCursorTarget()
 	local distance = (caster:GetAbsOrigin() - enemy:GetAbsOrigin()):Length2D()
 	local ubw_ability = caster:FindAbilityByName("emiya_unlimited_bladeworks")
-	EmitGlobalSound("emiya_ubw7")
 
+	if caster:HasModifier("modifier_emiya_model_swap") then
+		EmitGlobalSound("emiya_skin_ubw_chant_7")
+	else
+		EmitGlobalSound("emiya_ubw7")
+	end
 	----Dash to enemy
     local knockback1 = { should_stun = true,
 		knockback_duration = 0.5,
@@ -44,9 +48,19 @@ function emiya_combo:OnSpellStart()
 	end)
 
 	Timers:CreateTimer(2.0, function()
-
-		caster:EmitSound("Archer.Combo") 
-		EmitSoundOnLocationWithCaster(ubwCenter, "emiya_combo_music", caster)
+		if caster:HasModifier("modifier_emiya_model_swap") then
+			caster:EmitSound("emiya_skin_ubw_combo")
+		else
+			caster:EmitSound("Archer.Combo") 
+		end
+	
+		if caster:HasModifier("modifier_emiya_model_swap") then
+			EmitSoundOnLocationWithCaster(ubwCenter, "emiya_skin_shirou_ubw", caster)
+		else
+			EmitSoundOnLocationWithCaster(ubwCenter, "emiya_combo_music", caster)
+		end
+	
+		
 		local centerpos = caster:GetAbsOrigin() + caster:GetForwardVector()*700
 		local enemypos = enemy:GetAbsOrigin()
 		giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 0.7)

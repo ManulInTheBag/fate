@@ -14,6 +14,9 @@ Layer0
 	//---- Masks ----
 	F_MASKS_1 1
 
+	//---- Translucency ----
+	F_ALPHA_TEST 1
+
 	//---- Blend To Full ----
 	g_flEnvMapBlendToFull "0.000"
 	g_flMetalnessBlendToFull "0.000"
@@ -34,7 +37,7 @@ Layer0
 	g_flTexCoordRotation "0.000"
 	g_vTexCoordOffset "[0.000 0.000]"
 	g_vTexCoordScale "[1.000 1.000]"
-	TextureColor "materials/updated_by_seva_and_hudozhestvenniy_film_spizdili/kinghassan/khsn_manto.jpg"
+	TextureColor "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/kinghassan/khsn_manteau1.png"
 
 	//---- Detail 1 ----
 	g_vDetail2ColorTint "[1.000000 1.000000 1.000000 0.000000]"
@@ -54,6 +57,7 @@ Layer0
 	g_flAmbientScale "1.000"
 	g_flBloomScale "0.000"
 	g_flBloomShift "0.000"
+	g_flOverbrightFactor "1.000"
 	g_vBloomColor "[1.000000 1.000000 1.000000 0.000000]"
 
 	//---- Mask 1 ----
@@ -73,6 +77,10 @@ Layer0
 	g_flSpecularExponent "32.000"
 	g_flSpecularScale "1.000"
 	g_vSpecularColor "[1.000000 1.000000 1.000000 0.000000]"
+
+	//---- Translucency ----
+	g_flAlphaTestReference "0.010"
+	TextureTranslucency "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/kinghassan/khsn_manteau1.png"
 
 
 	VariableState
@@ -99,6 +107,7 @@ Layer0
 		{
 			"Ambient" 0
 			"Bloom" 0
+			"Overbright" 0
 		}
 		"Mask 1"
 		{
@@ -110,6 +119,9 @@ Layer0
 		{
 		}
 		"Specular"
+		{
+		}
+		"Translucency"
 		{
 		}
 	}

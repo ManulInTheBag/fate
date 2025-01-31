@@ -36,7 +36,14 @@ end
 function cu_chulain_relentless_spear:OnSpellStart()
 	local caster = self:GetCaster()
 	self.target = self:GetCursorTarget()
+	self.stopOrder_self = {
+		UnitIndex = caster:entindex(), 
+		OrderType = DOTA_UNIT_ORDER_STOP
+	}
 
+	if IsSpellBlocked(self.target) then
+		ExecuteOrderFromTable(self.stopOrder_self)  return
+		 end
 	caster:EmitSound("cu_skill_" .. math.random(1,4))
 
 	self.target:AddNewModifier(caster, self, "modifier_stunned", { Duration = 0.15})

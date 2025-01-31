@@ -16,13 +16,19 @@ function emiya_rho_aias:OnSpellStart()
 	end
 
 
-	local soundQueue = math.random(1,2)
+	if caster:HasModifier("modifier_emiya_model_swap") then
+        caster:EmitSound("emiya_skin_rho_aias")
+    else
+		local soundQueue = math.random(1,2)
 
-	if soundQueue == 1 then
-		caster:EmitSound("Archer.RhoAias" ) 
-	else
-		caster:EmitSound("Emiya_Rho_Aias_Alt")
-	end
+		if soundQueue == 1 then
+			caster:EmitSound("Archer.RhoAias" ) 
+		else
+			caster:EmitSound("Emiya_Rho_Aias_Alt")
+		end
+    end
+
+
 	LoopOverPlayers(function(player, playerID, playerHero)
 		--print("looping through " .. playerHero:GetName())
 		if playerHero.zlodemon == true    then

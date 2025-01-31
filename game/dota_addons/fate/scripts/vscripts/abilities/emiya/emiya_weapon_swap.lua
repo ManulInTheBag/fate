@@ -263,3 +263,63 @@ function modifier_emiya_weapon_swap:OnRefresh(hTable)
     self:OnCreated(hTable)
 end
 
+
+LinkLuaModifier("modifier_emiya_model_swap", "abilities/emiya/emiya_weapon_swap", LUA_MODIFIER_MOTION_NONE)
+--NOTE: Function to handle swapping between models in-game.
+if IsServer() then
+    if type(emiya_abilities_chat_event) == "number" then
+        StopListeningToGameEvent(emiya_abilities_chat_event)
+    end
+    --===--
+    _G.emiya_abilities_chat_event = ListenToGameEvent("player_chat", function(tEventTable)
+        local nPlayerID = tEventTable.playerid
+        local sText     = tEventTable.text
+        local hHero     = PlayerResource:GetSelectedHeroEntity(nPlayerID)
+        if not (hHero:GetName() == "npc_dota_hero_ember_spirit") then
+            return
+        end
+        if IsNotNull(hHero) then
+            if sText == "-emiya1" then
+                hHero:RemoveModifierByName("modifier_emiya_model_swap")
+            end
+            if sText == "-emiya2" then
+                if GameRules:GetDOTATime(false, false) <= 300 then 
+                    hHero:AddNewModifier(hHero, nil, "modifier_emiya_model_swap", {})
+                end
+            end
+        end
+    end, nil)
+end
+
+modifier_emiya_model_swap = modifier_emiya_model_swap or class({})
+
+function modifier_emiya_model_swap:IsHidden()                                                                       return true end
+function modifier_emiya_model_swap:IsDebuff()                                                                       return false end
+function modifier_emiya_model_swap:IsPurgable()                                                                     return false end
+function modifier_emiya_model_swap:IsPurgeException()                                                               return false end
+function modifier_emiya_model_swap:RemoveOnDeath()                                                                  return false end
+function modifier_emiya_model_swap:IsDimensionException()                                                           return true end
+function modifier_emiya_model_swap:AllowIllusionDuplicate()                                                         return true end
+function modifier_emiya_model_swap:GetPriority()                                                                    return MODIFIER_PRIORITY_LOW end
+function modifier_emiya_model_swap:DeclareFunctions()
+    local tFunc =   {
+                        MODIFIER_PROPERTY_MODEL_CHANGE
+                    }
+    return tFunc
+end
+function modifier_emiya_model_swap:GetModifierModelChange(keys)
+    return self.sModelName
+end
+function modifier_emiya_model_swap:OnCreated(hTable)
+    self.hCaster  = self:GetCaster()
+    self.hParent  = self:GetParent()
+    self.hAbility = self:GetAbility()
+    if IsServer() then
+        self.sModelName = "models/emiya/emiya_skin/emiya_skin.vmdl"
+    end
+end
+function modifier_emiya_model_swap:OnRefresh(hTable)
+    self:OnCreated(hTable)
+end
+
+--========================================--

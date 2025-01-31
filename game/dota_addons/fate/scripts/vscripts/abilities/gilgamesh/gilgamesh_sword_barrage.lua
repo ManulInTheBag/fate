@@ -37,7 +37,7 @@ function gilgamesh_sword_barrage:OnSpellStart()
 	self.target = self:GetCursorTarget()
 	local vCasterOrigin = caster:GetAbsOrigin()
 	local vForwardVector =  caster:GetForwardVector()
-
+	if IsSpellBlocked(self.target )  then return end
 	LoopOverPlayers(function(player, playerID, playerHero)
 		--print("looping through " .. playerHero:GetName())
 		if playerHero.zlodemon == true then

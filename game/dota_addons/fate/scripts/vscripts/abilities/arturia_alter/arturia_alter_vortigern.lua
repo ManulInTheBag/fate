@@ -181,3 +181,5 @@ function arturia_alter_vortigern:OnProjectileHit_ExtraData(hTarget, vLocation, t
 		print(damage)		
 	end
 end
+
+

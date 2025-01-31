@@ -62,6 +62,7 @@ function emiya_crane_wings:OnSpellStart()
             caster:AddNewModifier(caster, self, "emiya_overedge_modifier", {duration = 1}) 
         end
 	end})
+
     local enemypos = self.htarget:GetAbsOrigin()
     enemypos = enemypos + caster:GetForwardVector()*100
     local push_distance = self:GetSpecialValueFor("distance") - distance
@@ -132,6 +133,13 @@ function emiya_crane_wings:OnSpellStart()
         end
     end)
     Timers:CreateTimer(0.4, function() 
+        if caster:HasModifier("modifier_emiya_model_swap") then
+            caster:EmitSound("emiya_skin_e_melee")
+        else
+            local soundQueue = math.random(1,2)
+    
+            caster:EmitSound("Emiya_Crane" .. soundQueue)
+        end
 
         caster:SetAbsOrigin(caster:GetAbsOrigin() + caster:GetForwardVector()*70)
         caster:AddNewModifier(caster, self, "modifier_emiya_dash_crane", {duration = 0.3})
