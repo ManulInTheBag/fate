@@ -634,6 +634,10 @@ CannotReset = {
     "aoko_circuits",
     "aoko_blue",
     "diarmuid_new_combo",
+    "karna_armor",
+    "karna_combo_vasavi_new",
+    "karna_spin_2",
+    "karna_recast_dash",
 }
 
 

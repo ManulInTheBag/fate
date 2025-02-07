@@ -26,15 +26,7 @@ function karna_ucm_attribute:OnSpellStart()
 	local caster = self:GetCaster()
 	local hero = caster:GetPlayerOwner():GetAssignedHero()
 
-	Timers:CreateTimer(function()
-		if hero:IsAlive() then 
-			hero:AddNewModifier(hero, self, "modifier_uncrowned_martial_arts", {})
-			return nil
-		else
-			return 1
-		end
-	end)
-
+	hero:FindAbilityByName("karna_armor"):SetLevel(2)
 	hero.UncrownedAttribute = true
 
 	-- Set master 1's mana 

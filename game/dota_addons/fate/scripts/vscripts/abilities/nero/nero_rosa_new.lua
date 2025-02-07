@@ -451,9 +451,10 @@ function modifier_nero_rosa_motion:UpdateHorizontalMotion(me, dt)
 
             --[[print(self.parent:GetAbsOrigin())
             print(next_pos)]]
-
-            self.parent:SetOrigin(next_pos)
-            self.target:SetOrigin(next_pos + self.direction*190)
+			if not IsKnockbackImmune(self.target) then
+				self.parent:SetOrigin(next_pos)
+				self.target:SetOrigin(next_pos + self.direction*190)
+			end
             --self.parent:FaceTowards(self.point)
 
             if self.time_elapsed > 0.2 then

@@ -730,6 +730,22 @@
 		"DOTA_Tooltip_modifier_kavacha_kundala"							"Kavacha and Kundala"
 		"DOTA_Tooltip_modifier_kavacha_kundala_Description"				"Bonus armor and magic resist."
 
+		"DOTA_Tooltip_modifier_karna_self_pause"							"Ability locked"
+		"DOTA_Tooltip_modifier_karna_self_pause_Description"				"Currently performing an ability"
+
+		"DOTA_Tooltip_modifier_karna_self_pause_2"							"Ability locked"
+		"DOTA_Tooltip_modifier_karna_self_pause_2_Description"				"Currently performing an ability."
+
+		"DOTA_Tooltip_modifier_karna_armor"							"Kavacha and Kundala"
+		"DOTA_Tooltip_modifier_karna_armor_Description"				"Replenishable barrier, defensive stats."
+
+		"DOTA_Tooltip_modifier_karna_buff_melee"							"Mana burst (flame)"
+		"DOTA_Tooltip_modifier_karna_buff_melee_Description"				"Applying burn with abilities and attacks."
+
+		"DOTA_Tooltip_modifier_karna_melee_buff_burn"							"Burn"
+		"DOTA_Tooltip_modifier_karna_melee_buff_burn_Description"				"Damage over time(stackable)"
+
+
 		"DOTA_Tooltip_modifier_karna_divinity"							"Divinity"
 		"DOTA_Tooltip_modifier_karna_divinity_Description"				"Reduced physical damage taken and increased magic resistance."
 
@@ -1870,6 +1886,9 @@
 
 		"DOTA_Tooltip_modifier_gust_heaven_purge_slow_tier2"                              "Gust Heaven Purge Slow Tier2"
 		"DOTA_Tooltip_modifier_gust_heaven_purge_slow_tier2_Description"                  ""
+
+		"DOTA_Tooltip_modifier_karna_slow_jopa"                              "Slowed"
+		"DOTA_Tooltip_modifier_karna_slow_jopa_Description"                  ""
 
 		"DOTA_Tooltip_modifier_mantra_tether"                                             "Mantra Tether"
 		"DOTA_Tooltip_modifier_mantra_tether_Description"                                 ""
@@ -6093,7 +6112,7 @@
 
         //combo
         "DOTA_Tooltip_Ability_lishuwen_raging_dragon_strike"				"Combo: Raging Dragon Strike"
-        "DOTA_Tooltip_Ability_lishuwen_raging_dragon_strike_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : W-W-E in 3 seconds</font>\nLi Shuwen chains together 3 devastating moves.\n<font color='#58ACFA'>1st:</font> Dashes to target, striking all enemies in his path %first_strike_damage% magic damage and <font color='#FF3399'>slowing</font> them by %first_strike_slow%% for %first_strike_slow_duration% seconds and applying 5 <font color='#FF0000'>Circulatory shock</font> stacks.\n<font color='#58ACFA'>2nd:</font> Stomps the ground, dealing %second_strike_damage% physical damage to enemies within %second_strike_radius% area, stunning them for %second_strike_stun_duration% seconds and applying 5 <font color='#FF0000'>Circulatory shock</font> stacks.\n<font color='#58ACFA'>3rd:</font> Li Shuwen launches all nearby enemies to the air for %third_strike_knockup_duration% seconds and striking them up to %third_strike_aerial_hit_count% times, divided evenly, dealing mage %third_strike_aerial_damage% plus Li Shuwen's attack damage as composite damage, each strike applying 1 additional <font color='#FF0000'>Circulatory shock</font> stack.\nIf Li Shuwen fails to activate the 3rd strike, the cooldown of this ability is reduced to %third_strike_third_strike_failure_cdr% seconds."
+        "DOTA_Tooltip_Ability_lishuwen_raging_dragon_strike_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : Q-Q-E in 3 seconds</font>\nLi Shuwen chains together 3 devastating moves.\n<font color='#58ACFA'>1st:</font> Dashes to target, striking all enemies in his path %first_strike_damage% magic damage and <font color='#FF3399'>slowing</font> them by %first_strike_slow%% for %first_strike_slow_duration% seconds and applying 5 <font color='#FF0000'>Circulatory shock</font> stacks.\n<font color='#58ACFA'>2nd:</font> Stomps the ground, dealing %second_strike_damage% physical damage to enemies within %second_strike_radius% area, stunning them for %second_strike_stun_duration% seconds and applying 5 <font color='#FF0000'>Circulatory shock</font> stacks.\n<font color='#58ACFA'>3rd:</font> Li Shuwen launches all nearby enemies to the air for %third_strike_knockup_duration% seconds and striking them up to %third_strike_aerial_hit_count% times, divided evenly, dealing mage %third_strike_aerial_damage% plus Li Shuwen's attack damage as composite damage, each strike applying 1 additional <font color='#FF0000'>Circulatory shock</font> stack.\nIf Li Shuwen fails to activate the 3rd strike, the cooldown of this ability is reduced to %third_strike_third_strike_failure_cdr% seconds."
         "DOTA_Tooltip_Ability_lishuwen_raging_dragon_strike_Lore"		"Crouching Tiger, Hidden Dragon"
         "DOTA_Tooltip_Ability_lishuwen_raging_dragon_strike_Note0"		"If there's only one target, that unit will be hit by all 15 hits."
         "DOTA_Tooltip_Ability_lishuwen_raging_dragon_strike_Note1"		"Composite damage deals one third of total damage in each type."
@@ -6107,7 +6126,7 @@
         "DOTA_Tooltip_Ability_lishuwen_attribute_circulatory_shock_stun_duration"		"Stun Duration: "
 
         "DOTA_Tooltip_Ability_lishuwen_attribute_improve_martial_arts"					"Attribute: Improve Martial Arts"
-        "DOTA_Tooltip_Ability_lishuwen_attribute_improve_martial_arts_Description"		"Cosmic Orbit and Presence Concealment has increased charges and deals more damage. While under Presence Concealment, No Second Strike's has increased cooldown recovery speed. Li Shuwen's attacks burns mana."
+        "DOTA_Tooltip_Ability_lishuwen_attribute_improve_martial_arts_Description"		"Presence Concealment has increased charges and deals more damage. While under Presence Concealment, No Second Strike's has increased cooldown recovery speed. Li Shuwen's attacks burns mana."
 
         "DOTA_Tooltip_Ability_lishuwen_attribute_improve_martial_arts_bonus_attack"		"NUMBER OF ATTACKS:"
         "DOTA_Tooltip_Ability_lishuwen_attribute_improve_martial_arts_bonus_damage"		"%BONUS DAMAGE:"
@@ -6501,8 +6520,9 @@
         "DOTA_Tooltip_Ability_astolfo_hippogriff_vanish_Lore"		"The beast of impossible existence drags its victim to dimension where it belongs."
  
         "DOTA_Tooltip_Ability_astolfo_trap_of_argalia"        		"Trap of Argalia"
-        "DOTA_Tooltip_Ability_astolfo_trap_of_argalia_Description"	"Astolfo strikes enemies in a line, dealing damage, locking all enemies hit for a short duration."
+        "DOTA_Tooltip_Ability_astolfo_trap_of_argalia_Description"	"Astolfo dashes, hitting enemies in a line, dealing damage, locking all enemies hit for a short duration."
         "DOTA_Tooltip_Ability_astolfo_trap_of_argalia_damage"		"Damage:"
+        "DOTA_Tooltip_Ability_astolfo_trap_of_argalia_dash_distance"		"Dash distance:"
         "DOTA_Tooltip_Ability_astolfo_trap_of_argalia_duration"		"Lock duration:"
         "DOTA_Tooltip_Ability_astolfo_trap_of_argalia_Lore"			"Only little is known about how clumsy, seemingly unreliable paladin reigned as the king of cavalry tournament."
 
@@ -7874,6 +7894,98 @@
 		"npc_dota_hero_beastmaster_hype"		""
 		"npc_dota_hero_beastmaster_bio"			""
 
+		"DOTA_Tooltip_ability_karna_combo_vasavi_new"					"Combo: O’sun, Abide to Death"
+		"DOTA_Tooltip_ability_karna_combo_vasavi_new_Description" 		"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : F-F in 3 seconds while having <font color='#ff9900'>Kavacha and Kundala</font></font>\n<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%cast_point%</font>\nKarna channels the power of Indra's god-slaying spear, firing a narrow beam which pierces through enemies, dealing massive damage. At the end of this effect, the beam explodes, dealing even more damage to all enemies within an area.\nKarna's <font color='#ff9900'>Kavacha and Kundala</font> cooldown is reset after usage."
+		"DOTA_Tooltip_ability_karna_combo_vasavi_new_beam_aoe"			"Beam Width:"
+		"DOTA_Tooltip_ability_karna_combo_vasavi_new_range"				"Range:"
+		"DOTA_Tooltip_ability_karna_combo_vasavi_new_beam_damage"		"Damage:"
+		"DOTA_Tooltip_ability_karna_combo_vasavi_new_full_damage"		"End Damage:"
+		"DOTA_Tooltip_ability_karna_combo_vasavi_new_end_radius"		"Explosion Radius:"
+		"DOTA_Tooltip_ability_karna_combo_vasavi_new_fire_delay"		"Delay:"
+		"DOTA_Tooltip_ability_karna_combo_Note0"					"Enemies hit by beam and explosion takes damage in 2 instance totalling to explosion damage."
+
+        "DOTA_Tooltip_ability_karna_armor"							"<font color='#ff9900'>Kavacha and Kundala</font>"
+        "DOTA_Tooltip_ability_karna_armor_Description"			"Delay: <font color='#FFFFF9'>0.5</font>s    |    <font color='#A72E28'>Unrefreshable</font><br><br><font color='#FFFAFA'>Passive:</font>Karna passively has replenishable <font color='#ff9900'>armor</font>, which protects him from any damage, scaling from Karna's level. Armor counts resistances.<br>While <font color='#ff9900'>armor</font> persists, Karna gains additional resistances.<br>Armor starts recharging once Karna is not taking any damage for set amount of time\nKarna always starts the round in <font color='#ff9900'>armor</font>.\n<font color='#FFFAFA'>Active:</font>Karna explodes his <font color='#ff9900'>armor</font>, dealing <font color='#58ACFA'>magical</font> damage based on armor block left, <font color='#FF3399'>stunning</font> and knockbacking all enemies hit.\nWhen Karna changes stances, he replenishes mana for himself.\nUsing E seal replenishes shield."
+        "DOTA_Tooltip_ability_karna_armor_armor_base"								"Shield:"
+        "DOTA_Tooltip_ability_karna_armor_armor_per_level"							"Shield per level:"
+        "DOTA_Tooltip_ability_karna_armor_bonus_armor"								"Bonus armor:"
+        "DOTA_Tooltip_ability_karna_armor_bonus_resist"								"%Bonus magic resistance:"
+        "DOTA_Tooltip_ability_karna_armor_explosion_radius"							"Explosion radius:"
+        "DOTA_Tooltip_ability_karna_armor_explosion_damage_base"					"Explosion base damage:"
+        "DOTA_Tooltip_ability_karna_armor_explosion_damage_armor_pct"				"%Explosion damage from shield"
+        "DOTA_Tooltip_ability_karna_armor_explosion_stun_duration"					"Explosion stun duration:"
+        "DOTA_Tooltip_ability_karna_armor_armor_replensh_time"						"Armor replenish time:"
+        "DOTA_Tooltip_ability_karna_armor_mana_resplenish_percentage"				"%Mana restore:"
+        "DOTA_Tooltip_ability_karna_armor_Lore"							"O' Sun, Become Armor."
+
+
+
+        "DOTA_Tooltip_ability_karna_spin"							"Martial arts"
+        "DOTA_Tooltip_ability_karna_spin_Description"			"Cast point: <font color='#FFFFF9'>0.1</font>s\nKarna starts attacking all enemies with his spear with wide range slashes, while moving forward in a controllable dash.\nFirst two slashes hit in radius, third slash hits in line.<br>Slashes deal <font color='#58ACFA'>magical</font> damage on hit.\nIn the last <font color='#FFFFF9'>0.4</font> seconds of this ability it can be <font color='#FFFFF9'>recasted</font> with one of two abilities, following on first and second ability slot (Q, W)."
+        "DOTA_Tooltip_ability_karna_spin_damage"								"Damage:"
+        "DOTA_Tooltip_ability_karna_spin_radius"							"Radius:"
+        "DOTA_Tooltip_ability_karna_spin_recast_timer"								"Recast timer:"
+
+        "DOTA_Tooltip_ability_karna_spin_2"							"Martial arts : Spin"
+        "DOTA_Tooltip_ability_karna_spin_2_Description"			"Cast point: <font color='#FFFFF9'>0.0</font>s\nKarna starts spinning, attacking all enemies with his spear with wide range slashes.<br>Karna can move while attacking. Slashes deal <font color='#58ACFA'>magical</font> damage on hit."
+        "DOTA_Tooltip_ability_karna_spin_2_damage"								"Damage:"
+        "DOTA_Tooltip_ability_karna_spin_2_radius"								"Radius:"
+
+
+        "DOTA_Tooltip_ability_karna_recast_dash"							"Martial arts : Dash"
+        "DOTA_Tooltip_ability_karna_recast_dash_Description"			"Cast point: <font color='#FFFFF9'>0.0</font>s\nKarna dashes in the target direction, dealing <font color='#58ACFA'>magical</font> damage to all enemies hit, applying <font color='#FF3399'>airborn</font>."
+        "DOTA_Tooltip_ability_karna_recast_dash_damage"							"Damage:"
+        "DOTA_Tooltip_ability_karna_recast_dash_distance"							"Distance:"
+        "DOTA_Tooltip_ability_karna_recast_airborn_duration"						"Airborn duration:"
+
+        "DOTA_Tooltip_ability_karna_slashes"							"Martial arts : Slashes"
+        "DOTA_Tooltip_ability_karna_slashes_Description"			"Cast point: <font color='#FFFFF9'>0.2</font>s\nKarna slashes twice in the target direction, dealing <font color='#58ACFA'>magical</font> damage to all enemies hit.\nOnly enemies in front of Karna are hit."
+        "DOTA_Tooltip_ability_karna_slashes_damage"							"Damage:"
+        "DOTA_Tooltip_ability_karna_slashes_radius"							"Radius:"
+
+        "DOTA_Tooltip_ability_karna_buff_melee"							"Mana burst: Flame"
+        "DOTA_Tooltip_ability_karna_buff_melee_Description"			"Cast point: <font color='#FFFFF9'>0.3</font>s\nKarna enchances his spear with mana, restoring percentage of <font color='#ff9900'>Kavacha and Kundala</font>'s shield, while gaining buff, which will apply stackable <font color='#FF0000'>Burn</font> effect on enemies on each of his basic attacks and skills and increase Karna's <font color='#FFFAFA'>movement speed</font>.<br>This buff only persists while Karna has <font color='#ff9900'>Kavacha and Kundala</font>.\n<font color='#FF0000'>Burn</font> deals magical damage every 0.5 second."
+        "DOTA_Tooltip_ability_karna_buff_melee_armor_restore_percentage"							"%Shield restore:"
+        "DOTA_Tooltip_ability_karna_buff_melee_duration"							"Duration:"
+        "DOTA_Tooltip_ability_karna_buff_melee_movespeed_bonus"							"%Movespeed bonus:"
+        "DOTA_Tooltip_ability_karna_buff_melee_damage"							"Bonus attack damage:"
+        "DOTA_Tooltip_ability_karna_buff_melee_burn_damage_per_stack"							"<font color='#FF0000'>Burn</font> damage per stack:"
+        "DOTA_Tooltip_ability_karna_buff_melee_burn_duration"							"<font color='#FF0000'>Burn</font> duration:"
+
+
+        "DOTA_Tooltip_ability_karna_jump"							"Martial arts: Leap"
+        "DOTA_Tooltip_ability_karna_jump_Description"			"Cast point: <font color='#FFFFF9'>0.2</font>s\nKarna leaps into the air for a short while, then descends on the target point, dealing <font color='#58ACFA'>magical</font> damage, applying <font color='#9400D3'>root</font> and <font color='#9400D3'>lock</font> effects for a short while and allowing recast this skill in a short time."
+        "DOTA_Tooltip_ability_karna_jump_damage"							"Damage:"
+        "DOTA_Tooltip_ability_karna_jump_radius"							"Radius:"
+        "DOTA_Tooltip_ability_karna_jump_recast_timer"						"Recast time:"
+        "DOTA_Tooltip_ability_karna_jump_duration"							"Root and lock duration:"
+
+        "DOTA_Tooltip_ability_karna_upper_slash"							"Martial arts : Uppercut"
+        "DOTA_Tooltip_ability_karna_upper_slash_Description"			"Cast point: <font color='#FFFFF9'>0.0</font>s\nKarna Slashes upwards in the target direction, after a short delay, dealing <font color='#58ACFA'>magical</font> damage to all enemies hit, applying <font color='#FF3399'>airborn</font>."
+        "DOTA_Tooltip_ability_karna_upper_slash_damage"							"Damage:"
+        "DOTA_Tooltip_ability_karna_upper_slash_radius"							"Distance:"
+        "DOTA_Tooltip_ability_karna_upper_slash_airborne_duration"				"Airborn duration:"
+
+        "DOTA_Tooltip_ability_karna_push"							"Martial arts : Push"
+        "DOTA_Tooltip_ability_karna_push_Description"			"Cast point: <font color='#FFFFF9'>0.2</font>s\nKarna strikes target enemy, pushing him away, dealing <font color='#58ACFA'>magical</font> damage and <font color='#FF3399'>stunning</font> for a short while."
+        "DOTA_Tooltip_ability_karna_push_damage"							"Damage:"
+        "DOTA_Tooltip_ability_karna_push_distance"							"Push distance:"
+        "DOTA_Tooltip_ability_karna_push_stun_duration"						"Stun duration:"
+
+        "DOTA_Tooltip_ability_karna_brahmastra_new"							"Brahmastra"
+        "DOTA_Tooltip_ability_karna_brahmastra_new_Description"			"Cast point: <font color='#FFFFF9'>0.4</font>s\nKarna shoots Brahmastra in cone in a targetted direction, dealing <font color='#58ACFA'>magical</font> damage on hit."
+        "DOTA_Tooltip_ability_karna_brahmastra_new_damage"							"Damage:"
+
+        "DOTA_Tooltip_ability_karna_brahmastra_kundala_new"							"Brahmastra Kundala"
+        "DOTA_Tooltip_ability_karna_brahmastra_kundala_new_Description"			"Cast point: <font color='#FFFFF9'>0.45</font>s\nKarna throws his spear in the targetted direction dealing <font color='#58ACFA'>magical</font> damage to all targets hit, losing ability to attack for a short time.<br>After spear hits the ground, Karna can use this ability again, to retrieve it, dealing <font color='#58ACFA'>magical</font> damage to all enemies hit again.\nIf Karna doesnt return the spear, it will return to him after a short while automatically."
+        "DOTA_Tooltip_ability_karna_brahmastra_kundala_new_damage"							"Damage:"
+        "DOTA_Tooltip_ability_karna_brahmastra_kundala_new_radius"							"Spear radius:"
+        "DOTA_Tooltip_ability_karna_brahmastra_kundala_new_spear_loss_duration"				"Recast duration:"
+
+         "DOTA_Tooltip_ability_karna_brahmastra_kundala_retrieve"							"Return spear"
+        "DOTA_Tooltip_ability_karna_brahmastra_kundala_retrieve_Description"			"Cast point: <font color='#FFFFF9'>0.1</font>s\nReturns spear into the Karna's hands, dealing damage on its way."
+
+	
 		"DOTA_Tooltip_ability_karna_agni"					"Agni"
 		"DOTA_Tooltip_ability_karna_agni_Description" 		"For a short duration, Karna's attacks deal bonus magic damage and causes the target and nearby enemies to burn, taking damage every second."
 		"DOTA_Tooltip_ability_karna_agni_on_hit_damage" 	"Bonus Damage:"
@@ -7900,6 +8012,17 @@
 		"DOTA_Tooltip_ability_karna_brahmastra_kundala_damage"			"Damage:"
 		"DOTA_Tooltip_ability_karna_brahmastra_kundala_Note0"			"Provides vision in the full damage area of effect."
 		"DOTA_Tooltip_ability_karna_brahmastra_kundala_Lore"			"This is not an imitation of Arjuna...! Beware the sky, I think it is going to get bad."
+
+
+
+		"DOTA_Tooltip_ability_karna_spears_barrage"					"Lightning spears"
+		"DOTA_Tooltip_ability_karna_spears_barrage_Description" 	"Cast point: <font color='#FFFFF9'>0.8</font>s\nKarna summons spears over the target point, which after a short delay drop down, dealing <font color='#58ACFA'>magical</font> damage, <font color='#9400D3'>rooting</font> and <font color='#9400D3'>locking</font> all enemies hit."
+		"DOTA_Tooltip_ability_karna_spears_barrage_damage" 				"Damage:"
+		"DOTA_Tooltip_ability_karna_spears_barrage_radius"			"Radius:"
+		"DOTA_Tooltip_ability_karna_spears_barrage_duration"			"Debuffs duration:"
+		"DOTA_Tooltip_ability_karna_spears_barrage_spear_amount"			"Spears:"
+
+
 
 		"DOTA_Tooltip_ability_karna_discern_poor"				"Discernment of the Poor"
 		"DOTA_Tooltip_ability_karna_discern_poor_Description" 	"<font color='#79C7F0'>Passive</font>: Karna may detect enemies even before the 60 second round timer mark.\n<font color='#79C7F0'>Active</font>: Silence the target for a short duration. Also Disarm the target if it belongs to the Knights class. Also Mute the target if it belongs to the Horseman class. Disarm and Mute the target if it belongs to neither."
@@ -7946,15 +8069,10 @@
 		"DOTA_Tooltip_ability_karna_poor_attribute_Note2"			"All other servants belongs to Extra classes."
 		"DOTA_Tooltip_ability_karna_poor_attribute_Lore"			"Karna grasp the true nature of his opponents."
 
-		"DOTA_Tooltip_ability_karna_ucm_attribute"						"Attribute: Uncrowned Martial Arts"
-		"DOTA_Tooltip_ability_karna_ucm_attribute_Description" 			"Attacking an enemy grants Karna bonus attack speed, evasion, and movement speed. This effect stacks on every attack."
-		"DOTA_Tooltip_ability_karna_ucm_attribute_base_attack_speed"	"Base Attack Speed:"
-		"DOTA_Tooltip_ability_karna_ucm_attribute_base_movement_speed"	"Base Movement Speed:"
-		"DOTA_Tooltip_ability_karna_ucm_attribute_base_evasion"			"Base Evasion:"
-		"DOTA_Tooltip_ability_karna_ucm_attribute_attack_speed_gain"	"Bonus Attack Speed:"
-		"DOTA_Tooltip_ability_karna_ucm_attribute_movement_speed_gain"	"Bonus Movement Speed:"
-		"DOTA_Tooltip_ability_karna_ucm_attribute_evasion_gain"			"Bonus Evasion:"
-		"DOTA_Tooltip_ability_karna_ucm_attribute_Lore"					"Despite being an expert in combat, Karna's martial prowess was never recognized by anyone."
+		"DOTA_Tooltip_ability_karna_ucm_attribute"						"Attribute: Sun god's blessing"
+		"DOTA_Tooltip_ability_karna_ucm_attribute_Description" 			"Upgrades <font color='#ff9900'>Kavacha and Kundala</font>'s level, increasing ints shield value, resistances and reduces swap duration.\nMartial arts: Slashes now restore percentage of <font color='#ff9900'>Kavacha and Kundala</font>'s shield"
+		"DOTA_Tooltip_ability_karna_ucm_attribute_armor_restore_percentage"	"Armor restore percentage:"
+
 		
 		"DOTA_Tooltip_ability_karna_mana_burst_attribute"					"Attribute: Mana Burst (Flames)"
 		"DOTA_Tooltip_ability_karna_mana_burst_attribute_Description" 		"While Agni is active, every certain number of attacks causes it to erupt, dealing damage to all nearby enemies and stunning the target for short duration. Each explosion deals more damage the more stacks of Agni the target is being affected by.\nBrahmastra and Brahmastra Kundala pierces B scroll."
@@ -7970,10 +8088,9 @@
 		"DOTA_Tooltip_ability_karna_divinity_attribute_Lore"				"He was the son of the sun, who could not be burned even by flame spirits"
 
 		"DOTA_Tooltip_ability_karna_indra_attribute"						"Attribute: Indra's Lightning"
-		"DOTA_Tooltip_ability_karna_indra_attribute_Description" 			"Increases the damage of both Vasavi Shakti and Vasavi Shakti: O’sun, Abide to Death. \nEnemies with Divine trait takes extra damage from Vasavi Shakti and Vasavi Shakti: O’sun, Abide to Death."
-		"DOTA_Tooltip_ability_karna_indra_attribute_bonus_damage"			"%Bonus Damage:"
-		"DOTA_Tooltip_ability_karna_indra_attribute_divine_bonus_damage"	"%Bonus Damage vs Divine:"
-		"DOTA_Tooltip_ability_karna_indra_attribute_Note0"					"Divine heroes are Heracles, Cu Chulainn, Medusa, Gilgamesh, Iskandar, Tamamo, Semiramis and Karna."
+		"DOTA_Tooltip_ability_karna_indra_attribute_Description" 			"Increases the damage of Lightning spears based on Karna's <font color='#1E90FF'>intellect</font>.\nIncreases Brahmastra's damage based on the beam's traveled distance"
+		"DOTA_Tooltip_ability_karna_indra_attribute_damage_per_int"			"Total damage per INT"
+		"DOTA_Tooltip_ability_karna_indra_attribute_beam_damage_pct"		"%Max beam damage increase"
 		"DOTA_Tooltip_ability_karna_indra_attribute_Lore" 					"Know the mercy of the King of the Gods. Indra, observe me."
         
         //====================================
@@ -9271,11 +9388,12 @@
         "DOTA_Tooltip_ability_hijikata_dash_Lore"										"Battlefield with a lot of men is where Hijikata shines the best, being able to find perfect opportunity to strike down even the most guarded target."
 
         "DOTA_Tooltip_ability_hijikata_demon"							"Demon of the battlefield"
-        "DOTA_Tooltip_ability_hijikata_demon_Description"			"Cast Point: <font color='#FFFFF9'>0.2</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Hijikata blinks to the target enemy, dealing <font color='#58ACFA'>magical</font> damage to the target and gains buff, which increases his <font color='#FFFAFA'>attack speed</font> by a flat value and grants him special <font color='#ff9900'>on hit damage</font> effect.\nThis effect deals percentage of difference between Hijikata and enemy <font color='#ACFF05'>health</font> values as <font color='#58ACFA'>magical</font> damage on every attack for a duration."
+        "DOTA_Tooltip_ability_hijikata_demon_Description"			"Cast Point: <font color='#FFFFF9'>0.2</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Hijikata blinks to the target enemy, dealing <font color='#58ACFA'>magical</font> damage to the target and gains buff, which increases his <font color='#FFFAFA'>attack speed</font> by a flat value and grants him special <font color='#ff9900'>on hit damage</font> effect.\nThis effect deals percentage of difference between Hijikata and enemy <font color='#ACFF05'>health</font> plus base damage  as <font color='#58ACFA'>magical</font> damage on every attack for a duration."
         "DOTA_Tooltip_ability_hijikata_demon_damage"								"Damage:"
         "DOTA_Tooltip_ability_hijikata_demon_buff_duration"							"Buff duration:"
         "DOTA_Tooltip_ability_hijikata_demon_as_value"								"Attack speed bonus:"
         "DOTA_Tooltip_ability_hijikata_demon_hp_percentage_diff_to_damage"			"%Health difference to damage:"
+        "DOTA_Tooltip_ability_hijikata_demon_base_damage"			"Base on-hit damage"
         "DOTA_Tooltip_ability_hijikata_demon_Lore"										"The way Hijikata fights, just like that of a demon, sometimes strikes fear even towards his allies. No matter how bad his condition is, his power never withers."
 
         "DOTA_Tooltip_ability_hijikata_duel"							"Duel"

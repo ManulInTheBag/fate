@@ -166,7 +166,9 @@ function nero_laus_saint_claudius_new:OnSpellStart()
 end
 
 modifier_lsk_stunned=class({})
+--[[
 function modifier_lsk_stunned:CheckState()
 	return { [MODIFIER_STATE_SILENCED] = true,
 			 [MODIFIER_STATE_COMMAND_RESTRICTED] = false }
 end
+]]

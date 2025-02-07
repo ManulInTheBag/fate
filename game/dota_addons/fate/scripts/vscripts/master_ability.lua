@@ -229,6 +229,9 @@ function OnSeal3Start(keys)
 	if hero:GetName() == "npc_dota_hero_doom_bringer" and RandomInt(1, 100) <= 35 then
 		EmitGlobalSound("Shiro_Onegai")
 	end
+	if hero:GetName() == "npc_dota_hero_beastmaster"  then
+		hero:FindModifierByName("modifier_karna_armor"):RestoreArmorPercentage(100)
+	end
 	if hero:GetName() == "npc_dota_hero_spirit_breaker" then
 		local modifier = hero:FindModifierByName("modifier_hijikata_laws")
     	if modifier.help_restriction == false then

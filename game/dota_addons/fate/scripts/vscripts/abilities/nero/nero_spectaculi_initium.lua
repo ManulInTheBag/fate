@@ -337,7 +337,7 @@ function modifier_nero_spectaculi_initium:OnIntervalThink()
 	                                center_x = point.x,
 	                                center_y = point.y,
 	                                center_z = point.z }
-	                if self:GetAbility():GetAutoCastState() == true then
+	                if self:GetAbility():GetAutoCastState() == true and not  IsKnockbackImmune(enemy) then
 	    				enemy:AddNewModifier(caster, self.ability, "modifier_knockback", knockback)
 	    			end
                 end

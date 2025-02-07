@@ -71,8 +71,9 @@ function nero_spectaculi_buffed:OnSpellStart()
 	                                center_x = point.x,
 	                                center_y = point.y,
 	                                center_z = point.z }
-
-	    		enemy:AddNewModifier(caster, self, "modifier_knockback", knockback)
+				if not IsKnockbackImmune(enemy) then
+	    			enemy:AddNewModifier(caster, self, "modifier_knockback", knockback)
+				end
             end
         end
     end

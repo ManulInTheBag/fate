@@ -3255,7 +3255,7 @@
                     }
                     "volume"
                     {
-                        "value"        "5.000000"
+                        "value"        "7.000000"
                     }
                     "pitch"
                     {
@@ -3287,7 +3287,7 @@
                     }
                     "volume"
                     {
-                        "value"        "5.000000"
+                        "value"        "7.000000"
                     }
                     "pitch"
                     {
@@ -3319,7 +3319,7 @@
                     }
                     "volume"
                     {
-                        "value"        "5.000000"
+                        "value"        "7.000000"
                     }
                     "pitch"
                     {
@@ -3351,7 +3351,7 @@
                     }
                     "volume"
                     {
-                        "value"        "5.000000"
+                        "value"        "7.000000"
                     }
                     "pitch"
                     {
@@ -3607,7 +3607,7 @@
                     }
                     "volume"
                     {
-                        "value"        "5.000000"
+                        "value"        "7.000000"
                     }
                     "pitch"
                     {
@@ -3639,7 +3639,7 @@
                     }
                     "volume"
                     {
-                        "value"        "5.000000"
+                        "value"        "7.000000"
                     }
                     "pitch"
                     {
@@ -3671,7 +3671,7 @@
                     }
                     "volume"
                     {
-                        "value"        "5.000000"
+                        "value"        "7.000000"
                     }
                     "pitch"
                     {
@@ -3703,7 +3703,7 @@
                     }
                     "volume"
                     {
-                        "value"        "5.000000"
+                        "value"        "7.000000"
                     }
                     "pitch"
                     {
@@ -3735,7 +3735,7 @@
                     }
                     "volume"
                     {
-                        "value"        "5.000000"
+                        "value"        "7.000000"
                     }
                     "pitch"
                     {
@@ -3767,7 +3767,7 @@
                     }
                     "volume"
                     {
-                        "value"        "5.000000"
+                        "value"        "7.000000"
                     }
                     "pitch"
                     {
@@ -3799,7 +3799,7 @@
                     }
                     "volume"
                     {
-                        "value"        "5.000000"
+                        "value"        "7.000000"
                     }
                     "pitch"
                     {
@@ -3831,7 +3831,7 @@
                     }
                     "volume"
                     {
-                        "value"        "5.000000"
+                        "value"        "7.000000"
                     }
                     "pitch"
                     {
@@ -3864,7 +3864,7 @@
                     }
                     "volume"
                     {
-                        "value"        "5.000000"
+                        "value"        "7.000000"
                     }
                     "pitch"
                     {
@@ -3897,6 +3897,710 @@
                     "volume"
                     {
                         "value"        "5.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"salter_combo_voiceline"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/salter/salter_combo.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "7.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"karna_new_explosion_1"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/karna/explosion_1.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "7.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"karna_new_explosion_2"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/karna/explosion_2.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "7.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"karna_new_fire_1"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/karna/fire_1.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "5.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"karna_new_fire_2"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/karna/fire_2.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "5.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"karna_new_shockwae"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/karna/shockwae.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "7.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"karna_new_fire_explosion"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/karna/fire_explosion.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "7.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"karna_new_fire_thunder"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/karna/fire_thunder.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "7.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"karna_new_dash_2"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/karna/dash_2.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "7.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"karna_new_dash_1"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/karna/dash_1.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "7.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"karna_new_karna_hit_1"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/karna/karna_hit_1.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "2.500000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"karna_new_karna_beam_1"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/karna/beam_1.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "5.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"karna_new_karna_beam_2"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/karna/beam_2.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "7.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"karna_new_karna_hit_2"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/karna/karna_hit_2.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "5.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"karna_new_karna_hit_3"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/karna/karna_hit_3.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "4.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"karna_new_karna_hit_4"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/karna/karna_hit_4.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "7.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"karna_new_karna_kundala"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/karna/kundala.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "5.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"karna_new_karna_too_slow"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/karna/too_slow.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "7.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"karna_new_karna_spears_voice"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/karna/karna_spears_voice.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "5.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"karna_new_karna_return_armor_voice"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/karna/karna_return_armor_voice.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "6.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"karna_new_karna_remove_armor_voice"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/karna/karna_remove_armor_voice.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "6.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"karna_new_karna_buff_voice"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/karna/karna_buff_voice.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "7.000000"
                     }
                     "pitch"
                     {

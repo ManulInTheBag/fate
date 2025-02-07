@@ -29,7 +29,7 @@ function tamamo_subterranean_grasp:OnSpellStart()
 		local tEnemies = FindUnitsInRadius(caster:GetTeam(), target, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
 		for i = 1, #tEnemies do
 			if caster.IsTerritoryAcquired and caster:HasModifier("modifier_amaterasu_ally") then
-				giveUnitDataDrivenModifier(caster, tEnemies[i], "revoked", duration)
+				--giveUnitDataDrivenModifier(caster, tEnemies[i], "revoked", duration)
 			end
 
 			tEnemies[i]:AddNewModifier(caster, self, "modifier_subterranean_grasp", {duration = duration})

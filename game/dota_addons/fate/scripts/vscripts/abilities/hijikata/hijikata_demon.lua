@@ -100,7 +100,8 @@ function hijikata_demon:OnSpellStart()
 	end
 	caster:AddNewModifier(caster, self, "modifier_demon_buff_hijikata", { duration = self:GetSpecialValueFor("buff_duration"),
                                                                             as_value = self:GetSpecialValueFor("as_value"),
-                                                                            percentage = self:GetSpecialValueFor("hp_percentage_diff_to_damage") })
+                                                                            percentage = self:GetSpecialValueFor("hp_percentage_diff_to_damage"),
+																			base_damage = self:GetSpecialValueFor("base_damage") })
 
 	--particle
 	--caster:EmitSound("Hero_Huskar.Life_Break")
@@ -120,6 +121,7 @@ function modifier_demon_buff_hijikata:OnCreated(args)
         self.as_value = args.as_value
         self.percentage = args.percentage
         self.caster = self:GetParent()
+		self.bonus_damage = args.base_damage
     end
 end
 
@@ -147,9 +149,12 @@ function modifier_demon_buff_hijikata:OnAttackLanded(args)
     if not self.caster:IsAlive() then return end
     local caster_health = self.caster:GetHealth()
     local target_health = args.target:GetHealth()
-    local damage = (target_health - caster_health)/100 * self.percentage
-    if damage <= 0 then return end
-    DoDamage(self.caster, args.target, damage, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
+    local damage = self.bonus_damage
+	local health_damage = (target_health - caster_health)/100 * self.percentage 
+    if health_damage <= 0 then 
+		health_damage = 0
+	 end
+    DoDamage(self.caster, args.target, damage + health_damage, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
 end
 
  
@@ -196,3 +201,5 @@ function modifier_hijikata_cleave:OnAttackLanded(args)
     local damage = args.damage * 0.5
     DoCleaveAttack(self.caster, args.target, self:GetAbility(), damage, 500, 500, 500, "particles/hijikata/hijikata_cleave.vpcf")
 end
+
+ 

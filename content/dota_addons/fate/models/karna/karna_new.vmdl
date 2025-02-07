@@ -53,13 +53,64 @@
 				[
 					{
 						_class = "RenderMeshFile"
-						name = "muramasa"
+						name = "karna_armor"
 						filename = "models/karna/karna_exd.fbx"
 						import_scale = 1.0
 						import_filter = 
 						{
 							exclude_by_default = false
 							exception_list = [  ]
+						}
+					},
+					{
+						_class = "RenderMeshFile"
+						name = "karna_no_armor"
+						filename = "models/karna/karna_exd.fbx"
+						import_scale = 1.0
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = 
+							[
+								"Object011",
+								"Object010",
+								"Object007",
+								"Object012",
+							]
+						}
+					},
+					{
+						_class = "RenderMeshFile"
+						name = "karna_armor_no_spear"
+						filename = "models/karna/karna_exd.fbx"
+						import_scale = 1.0
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = 
+							[
+								"Object008",
+								"Object009",
+							]
+						}
+					},
+					{
+						_class = "RenderMeshFile"
+						name = "karna_no_armor_no_spear"
+						filename = "models/karna/karna_exd.fbx"
+						import_scale = 1.0
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = 
+							[
+								"Object011",
+								"Object010",
+								"Object007",
+								"Object012",
+								"Object008",
+								"Object009",
+							]
 						}
 					},
 				]
@@ -70,7 +121,7 @@
 				[
 					{
 						_class = "AnimFile"
-						name = "muramasa_idle"
+						name = "karna_idle"
 						activity_name = "ACT_DOTA_IDLE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -85,10 +136,1567 @@
 						animgraph_additive = false
 						source_filename = "models/karna/karna_exd.fbx"
 						import_bone_scales = false
-						start_frame = 11
-						end_frame = 3000
+						start_frame = 10
+						end_frame = 70
 						framerate = -1.0
 						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "karna_move"
+						activity_name = "ACT_DOTA_RUN"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/karna/karna_exd.fbx"
+						import_bone_scales = false
+						start_frame = 283
+						end_frame = 315
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "karna_attack1"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								extract_initial_offset = false
+								root_bone_name = ""
+								motion_type = "Uniform"
+							},
+						]
+						activity_name = "ACT_DOTA_ATTACK"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/karna/karna_exd.fbx"
+						import_bone_scales = false
+						start_frame = 320
+						end_frame = 391
+						framerate = 60.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "karna_spin_attack"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/karna/karna_exd.fbx"
+						import_bone_scales = false
+						start_frame = 392
+						end_frame = 449
+						framerate = 55.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "karna_spin_attack_no_return"
+						children = 
+						[
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 15
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/karna/karna_spin_slash_2.vpcf"
+									detach_from_owner = false
+									always_run = false
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = null
+									attachment_type = "point_follow"
+									attachment_point_cp1 = null
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 6
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/karna/karna_spin_slash.vpcf"
+									detach_from_owner = false
+									always_run = false
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = null
+									attachment_type = "point_follow"
+									attachment_point_cp1 = null
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 25
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/karna/karna_spin_slash_3.vpcf"
+									detach_from_owner = false
+									always_run = false
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = null
+									attachment_type = "point_follow"
+									attachment_point_cp1 = null
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+						]
+						activity_name = "ACT_DOTA_CAST_ABILITY_1"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/karna/karna_exd.fbx"
+						import_bone_scales = false
+						start_frame = 392
+						end_frame = 422
+						framerate = 35.0
+						reverse = false
+						anim_hold_list = 
+						[
+							{
+								frame = 422
+								frame_count = 12
+							},
+						]
+					},
+					{
+						_class = "AnimFile"
+						name = "karna_spin_attack2"
+						children = 
+						[
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 17
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/karna/karna_spin_slash_4.vpcf"
+									detach_from_owner = false
+									always_run = false
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = null
+									attachment_type = "point_follow"
+									attachment_point_cp1 = null
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 27
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/karna/karna_spin_slash_5.vpcf"
+									detach_from_owner = false
+									always_run = false
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = null
+									attachment_type = "point_follow"
+									attachment_point_cp1 = null
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 33
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/karna/karna_spin_slash_6.vpcf"
+									detach_from_owner = false
+									always_run = false
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = null
+									attachment_type = "point_follow"
+									attachment_point_cp1 = null
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+							{
+								_class = "AnimEvent"
+								disabled = true
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 43
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/karna/karna_spin_slash_7.vpcf"
+									detach_from_owner = false
+									always_run = false
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = null
+									attachment_type = "point_follow"
+									attachment_point_cp1 = null
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+						]
+						activity_name = "ACT_DOTA_CAST_ABILITY_1_END"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/karna/karna_exd.fbx"
+						import_bone_scales = false
+						start_frame = 450
+						end_frame = 490
+						framerate = 45.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "karna_attack_2"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/karna/karna_exd.fbx"
+						import_bone_scales = false
+						start_frame = 558
+						end_frame = 628
+						framerate = 45.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "karna_hand_beam"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								extract_initial_offset = false
+								root_bone_name = ""
+								motion_type = "Uniform"
+							},
+						]
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/karna/karna_exd.fbx"
+						import_bone_scales = false
+						start_frame = 645
+						end_frame = 709
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "karna_uppercut"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/karna/karna_exd.fbx"
+						import_bone_scales = false
+						start_frame = 716
+						end_frame = 773
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "karna_uppercut_no_fly_delay"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/karna/karna_exd.fbx"
+						import_bone_scales = false
+						start_frame = 716
+						end_frame = 747
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "karna_cast"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/karna/karna_exd.fbx"
+						import_bone_scales = false
+						start_frame = 777
+						end_frame = 854
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "karna_buff_spear_over_head"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/karna/karna_exd.fbx"
+						import_bone_scales = false
+						start_frame = 857
+						end_frame = 934
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "karna_flex_spear"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/karna/karna_exd.fbx"
+						import_bone_scales = false
+						start_frame = 939
+						end_frame = 1020
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "karna_dash_attack"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								extract_initial_offset = false
+								root_bone_name = ""
+								motion_type = "Uniform"
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 10
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/gawain/karna_spear_dash_glow.vpcf"
+									detach_from_owner = false
+									always_run = false
+									stop_on_seq_change = true
+									stop_immediately = true
+									use_layer_sequence = false
+									tags = null
+									attachment_point = "attach_weapon_end"
+									attachment_type = "point_follow"
+									attachment_point_cp1 = "attach_weapon_base"
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_STOP_PARTICLE_EFFECT"
+								event_frame = 50
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/gawain/karna_spear_dash_glow.vpcf"
+									stop_instantly = true
+									play_endcap = false
+								}
+							},
+						]
+						activity_name = "ACT_DOTA_CAST_ABILITY_2_END"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.1
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/karna/karna_exd.fbx"
+						import_bone_scales = false
+						start_frame = 1021
+						end_frame = 1075
+						framerate = 120.0
+						reverse = false
+						anim_hold_list = 
+						[
+							{
+								frame = 1033
+								frame_count = 30
+							},
+						]
+					},
+					{
+						_class = "AnimFile"
+						name = "carna_attack_ground"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/karna/karna_exd.fbx"
+						import_bone_scales = false
+						start_frame = 1077
+						end_frame = 1159
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "karna_eye_beam"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/karna/karna_exd.fbx"
+						import_bone_scales = false
+						start_frame = 1160
+						end_frame = 1288
+						framerate = 60.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "karna_spear_throw_gorizontal"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/karna/karna_exd.fbx"
+						import_bone_scales = false
+						start_frame = 1288
+						end_frame = 1388
+						framerate = 60.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "karna_spear_retrieve_gorizontal"
+						activity_name = "ACT_DOTA_CAST_REFRACTION"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.0
+						fade_out_time = 0.0
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/karna/karna_exd.fbx"
+						import_bone_scales = false
+						start_frame = 1356
+						end_frame = 1388
+						framerate = 80.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "karna_spear_only_throw_gorizontal"
+						activity_name = "ACT_DOTA_CAST_ABILITY_7"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/karna/karna_exd.fbx"
+						import_bone_scales = false
+						start_frame = 1288
+						end_frame = 1338
+						framerate = 60.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "karna_double_slash"
+						children = 
+						[
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 12
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/karna/karna_spin_slash_8.vpcf"
+									detach_from_owner = false
+									always_run = false
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = null
+									attachment_type = "point_follow"
+									attachment_point_cp1 = null
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 30
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/karna/karna_spin_slash_4.vpcf"
+									detach_from_owner = false
+									always_run = false
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = null
+									attachment_type = "point_follow"
+									attachment_point_cp1 = null
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+						]
+						activity_name = "ACT_DOTA_CAST_ABILITY_2"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/karna/karna_exd.fbx"
+						import_bone_scales = false
+						start_frame = 1391
+						end_frame = 1430
+						framerate = 45.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "karna_forward_strikes_multiple"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/karna/karna_exd.fbx"
+						import_bone_scales = false
+						start_frame = 1434
+						end_frame = 1527
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "karna_forward_strikes_channel"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = true
+								extract_rz = false
+								linear = false
+								quadratic = false
+								extract_initial_offset = false
+								root_bone_name = ""
+								motion_type = "Uniform"
+							},
+							{
+								_class = "AnimSmoothLoop"
+								frames_from_start = 0
+								frames_from_end = 0
+							},
+						]
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/karna/karna_exd.fbx"
+						import_bone_scales = false
+						start_frame = 1443
+						end_frame = 1479
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "karna_forward_strikes_channel_end"
+						activity_name = "ACT_DOTA_CAST_GHOST_SHIP"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/karna/karna_exd.fbx"
+						import_bone_scales = false
+						start_frame = 1479
+						end_frame = 1527
+						framerate = 100.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "karna_dash_forward_long_windup"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/karna/karna_exd.fbx"
+						import_bone_scales = false
+						start_frame = 1527
+						end_frame = 1560
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "karna_dash_forward_pose"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/karna/karna_exd.fbx"
+						import_bone_scales = false
+						start_frame = 1559
+						end_frame = 1559
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "karna_ascend"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = true
+								extract_rz = false
+								linear = false
+								quadratic = false
+								extract_initial_offset = false
+								root_bone_name = ""
+								motion_type = "Uniform"
+							},
+						]
+						disabled = true
+						activity_name = "ACT_DOTA_CAST_ABILITY_3"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/karna/karna_exd.fbx"
+						import_bone_scales = false
+						start_frame = 1563
+						end_frame = 1578
+						framerate = 30.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "karna_vasavi_prepare"
+						disabled = true
+						activity_name = "ACT_DOTA_CAST_ABILITY_3_END"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/karna/karna_exd.fbx"
+						import_bone_scales = false
+						start_frame = 1578
+						end_frame = 1615
+						framerate = 76.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "karna_vasavi_prepare_jopa"
+						activity_name = "ACT_DOTA_CAST_ABILITY_3_END"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.1
+						fade_out_time = 0.1
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/karna/karna_exd.fbx"
+						import_bone_scales = false
+						start_frame = 1578
+						end_frame = 1641
+						framerate = 76.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "karna_vasavi_channel_head_down"
+						activity_name = "ACT_DOTA_ALCHEMIST_CHEMICAL_RAGE_END"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/karna/karna_exd.fbx"
+						import_bone_scales = false
+						start_frame = 1616
+						end_frame = 1641
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "karna_ascend_jopa"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = true
+								extract_rz = false
+								linear = false
+								quadratic = false
+								extract_initial_offset = false
+								root_bone_name = ""
+								motion_type = "Uniform"
+							},
+						]
+						activity_name = "ACT_DOTA_CAST_ABILITY_5"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/karna/karna_exd.fbx"
+						import_bone_scales = false
+						start_frame = 1563
+						end_frame = 1670
+						framerate = 100.0
+						reverse = false
+						anim_hold_list = 
+						[
+							{
+								frame = 1563
+								frame_count = 30
+							},
+						]
+					},
+					{
+						_class = "AnimFile"
+						name = "karna_descent"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = false
+								extract_ty = false
+								extract_tz = true
+								extract_rz = false
+								linear = false
+								quadratic = false
+								extract_initial_offset = false
+								root_bone_name = "Spine2"
+								motion_type = "Uniform"
+							},
+							{
+								_class = "AnimOffset"
+								translation = [ 0.0, 0.0, -290.0 ]
+								rotation_xyz = [ 0.0, 0.0, 0.0 ]
+							},
+						]
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/karna/karna_exd.fbx"
+						import_bone_scales = false
+						start_frame = 1641
+						end_frame = 1711
+						framerate = 120.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "karna_eye_beam_gorizontal"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/karna/karna_exd.fbx"
+						import_bone_scales = false
+						start_frame = 1711
+						end_frame = 1800
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "karna_golova_bolit_cheto"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/karna/karna_exd.fbx"
+						import_bone_scales = false
+						start_frame = 1801
+						end_frame = 1857
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "karna_attack_overhead_downcast"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/karna/karna_exd.fbx"
+						import_bone_scales = false
+						start_frame = 1857
+						end_frame = 1932
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "karna_spear_throw_air"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/karna/karna_exd.fbx"
+						import_bone_scales = false
+						start_frame = 1932
+						end_frame = 2079
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "karna_spear_retreive_air"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/karna/karna_exd.fbx"
+						import_bone_scales = false
+						start_frame = 2042
+						end_frame = 2079
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "karna_spear_throw_only_air"
+						activity_name = "ACT_DOTA_CAST_ABILITY_4"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/karna/karna_exd.fbx"
+						import_bone_scales = false
+						start_frame = 1932
+						end_frame = 2040
+						framerate = 120.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "karna_spell_cast_spear_over_head"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/karna/karna_exd.fbx"
+						import_bone_scales = false
+						start_frame = 2080
+						end_frame = 2160
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "karna_death"
+						activity_name = "ACT_DOTA_DIE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/karna/karna_exd.fbx"
+						import_bone_scales = false
+						start_frame = 2163
+						end_frame = 2225
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "karna_remove_armor"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/karna/karna_exd.fbx"
+						import_bone_scales = false
+						start_frame = 2226
+						end_frame = 2303
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "karna_vasavi_combo_prepare"
+						disabled = true
+						activity_name = "ACT_DOTA_CAST_GHOST_WALK"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.0
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/karna/karna_exd.fbx"
+						import_bone_scales = false
+						start_frame = 2315
+						end_frame = 2433
+						framerate = 50.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "karna_vasavi_combo_release"
+						activity_name = "ACT_DOTA_CAST_DEAFENING_BLAST"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.0
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/karna/karna_exd.fbx"
+						import_bone_scales = false
+						start_frame = 2436
+						end_frame = 2513
+						framerate = 48.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "karna_armor_reappear"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/karna/karna_exd.fbx"
+						import_bone_scales = false
+						start_frame = 2516
+						end_frame = 2618
+						framerate = -1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "karna_attack_2_jopa"
+						activity_name = "ACT_DOTA_ATTACK2"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/karna/karna_exd.fbx"
+						import_bone_scales = false
+						start_frame = 1392
+						end_frame = 1412
+						framerate = 68.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "karna_eye_beam_small"
+						activity_name = ""
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/karna/karna_exd.fbx"
+						import_bone_scales = false
+						start_frame = 1210
+						end_frame = 1252
+						framerate = 45.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "karna_golova_bolit_cheto1"
+						activity_name = "ACT_DOTA_DISABLED"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/karna/karna_exd.fbx"
+						import_bone_scales = false
+						start_frame = 1805
+						end_frame = 1806
+						framerate = 1.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "karna_buff_spear_over_head_usable"
+						activity_name = "ACT_DOTA_CAST_ABILITY_3"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/karna/karna_exd.fbx"
+						import_bone_scales = false
+						start_frame = 870
+						end_frame = 917
+						framerate = 120.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "karna_remove_armor_usable"
+						activity_name = "ACT_DOTA_CAST_COLD_SNAP"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/karna/karna_exd.fbx"
+						import_bone_scales = false
+						start_frame = 2226
+						end_frame = 2303
+						framerate = 90.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "karna_armor_reappear_usable"
+						activity_name = "ACT_DOTA_CAST_ICE_WALL"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/karna/karna_exd.fbx"
+						import_bone_scales = false
+						start_frame = 2516
+						end_frame = 2618
+						framerate = 100.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "karna_uppercut_no_fly_delay_usable"
+						children = 
+						[
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 16
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/karna/karna_spin_slash_9.vpcf"
+									detach_from_owner = false
+									always_run = false
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = null
+									attachment_type = "point_follow"
+									attachment_point_cp1 = null
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+						]
+						activity_name = "ACT_DOTA_CAST_ALACRITY"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/karna/karna_exd.fbx"
+						import_bone_scales = false
+						start_frame = 724
+						end_frame = 752
+						framerate = 40.0
+						reverse = false
+						anim_hold_list = 
+						[
+							{
+								frame = 747
+								frame_count = 5
+							},
+						]
+					},
+					{
+						_class = "AnimFile"
+						name = "karna_cast_usable"
+						activity_name = "ACT_DOTA_CAST_ABILITY_6"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/karna/karna_exd.fbx"
+						import_bone_scales = false
+						start_frame = 785
+						end_frame = 824
+						framerate = 35.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "karna_eye_beam_gorizontal_usable"
+						activity_name = "ACT_DOTA_CAST_DRAGONBREATH"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/karna/karna_exd.fbx"
+						import_bone_scales = false
+						start_frame = 1718
+						end_frame = 1774
+						framerate = 55.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "karna_vasavi_combo_prepare_copy"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								extract_initial_offset = false
+								root_bone_name = ""
+								motion_type = "Uniform"
+							},
+						]
+						activity_name = "ACT_DOTA_CAST_GHOST_WALK"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/karna/karna_exd.fbx"
+						import_bone_scales = false
+						start_frame = 2315
+						end_frame = 2513
+						framerate = 52.0
+						reverse = false
+						anim_hold_list = 
+						[
+							{
+								frame = 2513
+								frame_count = 40
+							},
+						]
 					},
 				]
 				default_root_bone_name = ""
@@ -99,8 +1707,8 @@
 				[
 					{
 						_class = "Attachment"
-						name = "hand"
-						parent_bone = "bone_new309"
+						name = "attach_hitloc"
+						parent_bone = "Spine2"
 						relative_origin = [ 0.0, 0.0, 0.0 ]
 						relative_angles = [ 0.0, 0.0, 0.0 ]
 						weight = 1.0
@@ -108,35 +1716,8 @@
 					},
 					{
 						_class = "Attachment"
-						name = "leg"
-						parent_bone = "bone_new24"
-						relative_origin = [ 4.787567, -3.098488, -52.357479 ]
-						relative_angles = [ 0.0, 0.0, 0.0 ]
-						weight = 1.0
-						ignore_rotation = false
-					},
-					{
-						_class = "Attachment"
-						name = "sword_base"
-						parent_bone = "bone_new1"
-						relative_origin = [ 13.200144, 0.130264, -0.534657 ]
-						relative_angles = [ 0.0, 0.0, 0.0 ]
-						weight = 1.0
-						ignore_rotation = false
-					},
-					{
-						_class = "Attachment"
-						name = "sword_end"
-						parent_bone = "bone_new1"
-						relative_origin = [ 108.66671, -1.195445, -0.335052 ]
-						relative_angles = [ 0.0, 0.0, 0.0 ]
-						weight = 1.0
-						ignore_rotation = false
-					},
-					{
-						_class = "Attachment"
-						name = "body"
-						parent_bone = "bone_new28"
+						name = "attach_right_eye"
+						parent_bone = "P2_Right_eye"
 						relative_origin = [ 0.0, 0.0, 0.0 ]
 						relative_angles = [ 0.0, 0.0, 0.0 ]
 						weight = 1.0
@@ -144,26 +1725,44 @@
 					},
 					{
 						_class = "Attachment"
-						name = "sword_end_dance"
-						parent_bone = "bone_new1"
-						relative_origin = [ 170.0, 0.0, 0.0 ]
+						name = "attach_left_eye"
+						parent_bone = "P2_Left_eye"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
 						relative_angles = [ 0.0, 0.0, 0.0 ]
 						weight = 1.0
 						ignore_rotation = false
 					},
 					{
 						_class = "Attachment"
-						name = "body1"
-						parent_bone = "bone_new28"
-						relative_origin = [ 6.526374, -75.609329, 40.486588 ]
+						name = "attach_weapon_base"
+						parent_bone = "Weapon_B_L"
+						relative_origin = [ -0.499344, 9.083344, -0.144396 ]
+						relative_angles = [ 0.0, 0.0, 0.000093 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_weapon_end"
+						parent_bone = "Weapon_B_L"
+						relative_origin = [ -0.169464, -347.583313, 0.139385 ]
+						relative_angles = [ 0.0, 90.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_left_hand"
+						parent_bone = "LeftHand"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
 						relative_angles = [ 0.0, 0.0, 0.0 ]
 						weight = 1.0
 						ignore_rotation = false
 					},
 					{
 						_class = "Attachment"
-						name = "ATTACH_HITLOC"
-						parent_bone = "bone_new101"
+						name = "attach_shield"
+						parent_bone = "Spine1"
 						relative_origin = [ 0.0, 0.0, 0.0 ]
 						relative_angles = [ 0.0, 0.0, 0.0 ]
 						weight = 1.0
@@ -182,455 +1781,687 @@
 						[
 							{
 								_class = "Hitbox"
-								name = "bone_new34"
-								parent_bone = "bone_new34"
+								name = "Spine1"
+								parent_bone = "Spine1"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -4.617687, -8.133616, -17.791756 ]
-								hitbox_maxs = [ 8.923922, 5.367583, 0.604347 ]
+								hitbox_mins = [ -11.794186, -9.970088, -8.769379 ]
+								hitbox_maxs = [ 12.390743, 6.57079, 18.728249 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "bone_new347"
-								parent_bone = "bone_new347"
+								name = "Spine2"
+								parent_bone = "Spine2"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -10.832485, -10.145992, -23.240135 ]
-								hitbox_maxs = [ 13.610609, 6.503682, 1.068687 ]
+								hitbox_mins = [ -30.085497, -23.714985, -15.011017 ]
+								hitbox_maxs = [ 34.801762, 26.76536, 43.372543 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "bone_new9"
-								parent_bone = "bone_new9"
+								name = "Neck"
+								parent_bone = "Neck"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -7.130455, -4.160291, -16.912148 ]
-								hitbox_maxs = [ 11.256245, 3.566759, 0.795761 ]
+								hitbox_mins = [ -6.54093, -4.99632, -5.319824 ]
+								hitbox_maxs = [ 6.539675, 5.173427, 9.188965 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "bone_new10"
-								parent_bone = "bone_new10"
+								name = "Head"
+								parent_bone = "Head"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -8.167809, -4.890189, -10.999306 ]
-								hitbox_maxs = [ 14.079271, 6.49721, 0.5 ]
+								hitbox_mins = [ -18.326336, -20.642262, -10.014999 ]
+								hitbox_maxs = [ 23.458784, 26.623899, 41.816818 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "bone_new13"
-								parent_bone = "bone_new13"
+								name = "P1_Jow"
+								parent_bone = "P1_Jow"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -9.062586, -8.048561, -16.098 ]
-								hitbox_maxs = [ 4.353575, 13.119818, 2.303825 ]
+								hitbox_mins = [ -5.019924, -6.57126, -4.939941 ]
+								hitbox_maxs = [ 5.019619, 0.5, 0.5 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "bone_new14"
-								parent_bone = "bone_new14"
+								name = "LeftShoulder"
+								parent_bone = "LeftShoulder"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -10.394116, -5.854578, -34.907356 ]
-								hitbox_maxs = [ 7.620415, 13.83427, 11.870113 ]
+								hitbox_mins = [ -5.5753, -10.570066, -9.880157 ]
+								hitbox_maxs = [ 18.818933, 14.211184, 27.565277 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "bone_new16"
-								parent_bone = "bone_new16"
+								name = "LeftArm"
+								parent_bone = "LeftArm"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -7.995592, -3.617328, -17.176796 ]
-								hitbox_maxs = [ 10.134607, 3.498108, 0.5 ]
+								hitbox_mins = [ -7.724865, -5.3457, -9.877609 ]
+								hitbox_maxs = [ 35.135368, 6.603549, 5.32872 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "bone_new17"
-								parent_bone = "bone_new17"
+								name = "LeftForeArm"
+								parent_bone = "LeftForeArm"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -11.094677, -6.313789, -10.631569 ]
-								hitbox_maxs = [ 11.872223, 5.07361, 0.74353 ]
+								hitbox_mins = [ -16.215347, -18.840622, -12.741287 ]
+								hitbox_maxs = [ 29.681507, 17.213285, 15.69054 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "bone_new20"
-								parent_bone = "bone_new20"
+								name = "LeftHand"
+								parent_bone = "LeftHand"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -13.762518, -7.843995, -34.002872 ]
-								hitbox_maxs = [ 6.696871, 13.081504, 2.273827 ]
+								hitbox_mins = [ -8.1539, -17.793379, -14.809351 ]
+								hitbox_maxs = [ 19.920891, 14.394229, 13.042427 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "bone_new21"
-								parent_bone = "bone_new21"
+								name = "LeftFinger3_1"
+								parent_bone = "LeftFinger3_1"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -23.132137, -27.06126, -52.075413 ]
-								hitbox_maxs = [ 21.479523, 10.974094, 9.726517 ]
+								hitbox_mins = [ -1.881516, -3.401711, -1.660431 ]
+								hitbox_maxs = [ 4.253616, 2.761683, 2.347076 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "bone_new23"
-								parent_bone = "bone_new23"
+								name = "LeftFinger1_1"
+								parent_bone = "LeftFinger1_1"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -6.70768, -7.850782, -33.900517 ]
-								hitbox_maxs = [ 13.016569, 13.074717, 2.376183 ]
+								hitbox_mins = [ -2.5084, -2.651782, -1.927185 ]
+								hitbox_maxs = [ 3.315742, 2.651468, 4.281067 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "bone_new24"
-								parent_bone = "bone_new24"
+								name = "LeftFinger2_1"
+								parent_bone = "LeftFinger2_1"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -7.485806, -26.437401, -60.528618 ]
-								hitbox_maxs = [ 18.960487, 23.950562, 1.71891 ]
+								hitbox_mins = [ -1.878822, -1.07747, -1.254761 ]
+								hitbox_maxs = [ 3.218193, 1.551287, 2.118973 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "bone_new27"
-								parent_bone = "bone_new27"
+								name = "RightShoulder"
+								parent_bone = "RightShoulder"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -16.178902, -11.43129, -0.854088 ]
-								hitbox_maxs = [ 16.677994, 10.349308, 12.82531 ]
+								hitbox_mins = [ -25.846489, -19.120144, -10.144943 ]
+								hitbox_maxs = [ 4.55566, 19.454121, 16.841293 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "bone_new101"
-								parent_bone = "bone_new101"
+								name = "RightArm"
+								parent_bone = "RightArm"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -12.299538, -8.972147, -0.593933 ]
-								hitbox_maxs = [ 12.299362, 9.08534, 8.402367 ]
+								hitbox_mins = [ -35.137646, -5.329451, -9.880234 ]
+								hitbox_maxs = [ 7.727718, 6.598719, 5.340118 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "bone_new12"
-								parent_bone = "bone_new12"
+								name = "RightForeArm"
+								parent_bone = "RightForeArm"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -56.295647, -47.716293, -119.474525 ]
-								hitbox_maxs = [ 53.221962, 44.990715, 50.655838 ]
+								hitbox_mins = [ -29.678333, -12.944046, -10.071739 ]
+								hitbox_maxs = [ 10.254108, 8.942299, 12.052723 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "bone_new_3"
-								parent_bone = "bone_new_3"
+								name = "RightHand"
+								parent_bone = "RightHand"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -0.5, -7.999145, -9.691681 ]
-								hitbox_maxs = [ 10.104781, 6.686475, 4.803207 ]
+								hitbox_mins = [ -19.567513, -15.586487, -12.21332 ]
+								hitbox_maxs = [ 12.217438, 8.562393, 11.332734 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "bone_new305"
-								parent_bone = "bone_new305"
+								name = "Weapon_A"
+								parent_bone = "Weapon_A"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -0.790922, -7.053076, -22.585129 ]
-								hitbox_maxs = [ 15.522379, 6.802692, 5.143768 ]
+								hitbox_mins = [ -41.633705, -80.069519, -33.301857 ]
+								hitbox_maxs = [ 34.118866, 150.01123, 24.901211 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "bone_new307"
-								parent_bone = "bone_new307"
+								name = "RightFinger3_1"
+								parent_bone = "RightFinger3_1"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -4.164864, -5.080127, -16.650078 ]
-								hitbox_maxs = [ 11.594044, 11.359446, 9.575951 ]
+								hitbox_mins = [ -4.256599, -3.401899, -1.66037 ]
+								hitbox_maxs = [ 1.896133, 2.762315, 2.346634 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "bone_new309"
-								parent_bone = "bone_new309"
+								name = "RightFinger2_1"
+								parent_bone = "RightFinger2_1"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -7.616486, -9.28215, -14.906563 ]
-								hitbox_maxs = [ 5.737816, 7.029243, 6.193764 ]
+								hitbox_mins = [ -3.218742, -1.074474, -1.255737 ]
+								hitbox_maxs = [ 1.893738, 1.549506, 2.116699 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "bone_new313"
-								parent_bone = "bone_new313"
+								name = "RightFinger1_1"
+								parent_bone = "RightFinger1_1"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -0.5, -1.135257, -0.5 ]
-								hitbox_maxs = [ 3.529057, 1.219423, 1.705391 ]
+								hitbox_mins = [ -3.313828, -2.64947, -1.924362 ]
+								hitbox_maxs = [ 2.509354, 2.652188, 4.281189 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "bone_new315"
-								parent_bone = "bone_new315"
+								name = "eri"
+								parent_bone = "eri"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -1.138451, -0.863348, -2.343132 ]
-								hitbox_maxs = [ 1.139149, 1.634592, 1.643982 ]
+								hitbox_mins = [ -21.993561, -13.847034, -5.658508 ]
+								hitbox_maxs = [ 9.473106, 17.315456, 14.815475 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "bone_new319"
-								parent_bone = "bone_new319"
+								name = "LeftWing"
+								parent_bone = "LeftWing"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -0.953987, -0.879167, -0.5 ]
-								hitbox_maxs = [ 0.969013, 0.886683, 0.5 ]
+								hitbox_mins = [ -0.5, -1.724363, -19.389259 ]
+								hitbox_maxs = [ 19.557743, 2.066671, 19.344803 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "bone_new316"
-								parent_bone = "bone_new316"
+								name = "LeftWing_B_1"
+								parent_bone = "LeftWing_B_1"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -0.991234, -0.619172, -2.273155 ]
-								hitbox_maxs = [ 1.228767, 0.619137, 0.580772 ]
+								hitbox_mins = [ -0.5, -0.82859, -33.883652 ]
+								hitbox_maxs = [ 18.697382, 1.238707, 0.5 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "bone_new320"
-								parent_bone = "bone_new320"
+								name = "LeftWing_C_1"
+								parent_bone = "LeftWing_C_1"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -0.987049, -0.904472, -0.5 ]
-								hitbox_maxs = [ 0.987751, 0.903897, 0.5 ]
+								hitbox_mins = [ -0.5, -14.063229, -80.208069 ]
+								hitbox_maxs = [ 76.609779, 7.212841, 14.014526 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "bone_new317"
-								parent_bone = "bone_new317"
+								name = "LeftWing_D_1"
+								parent_bone = "LeftWing_D_1"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -0.865772, -0.717424, -2.282326 ]
-								hitbox_maxs = [ 1.295029, 0.717535, 0.603867 ]
+								hitbox_mins = [ -0.5, -0.942159, -20.840782 ]
+								hitbox_maxs = [ 31.731419, 0.97551, 0.5 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "bone_new321"
-								parent_bone = "bone_new321"
+								name = "LeftWing_A_1"
+								parent_bone = "LeftWing_A_1"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -0.864475, -0.712741, -0.5 ]
-								hitbox_maxs = [ 0.905926, 0.732299, 0.5 ]
+								hitbox_mins = [ -2.126152, -0.5, -37.152786 ]
+								hitbox_maxs = [ 9.828979, 1.248045, 0.5 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "bone_new318"
-								parent_bone = "bone_new318"
+								name = "RightWing"
+								parent_bone = "RightWing"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -0.800117, -0.711801, -2.184731 ]
-								hitbox_maxs = [ 1.466385, 0.766509, 0.511429 ]
+								hitbox_mins = [ -19.557638, -1.722134, -19.387573 ]
+								hitbox_maxs = [ 0.5, 2.068901, 19.346481 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "bone_new322"
-								parent_bone = "bone_new322"
+								name = "RightWing_B_1"
+								parent_bone = "RightWing_B_1"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -0.732697, -0.716922, -0.5 ]
-								hitbox_maxs = [ 0.778004, 0.747678, 0.5 ]
+								hitbox_mins = [ -72.755844, -18.082729, -79.389832 ]
+								hitbox_maxs = [ 7.246213, 9.102428, 8.14579 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "bone_new_2"
-								parent_bone = "bone_new_2"
+								name = "RightWing_C_1"
+								parent_bone = "RightWing_C_1"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -8.935612, -8.370124, -9.691681 ]
-								hitbox_maxs = [ 0.5, 6.686474, 4.803207 ]
+								hitbox_mins = [ -26.584435, -0.775638, -28.495888 ]
+								hitbox_maxs = [ 0.5, 1.140762, 0.5 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "bone_new204"
-								parent_bone = "bone_new204"
+								name = "RightWing_D_1"
+								parent_bone = "RightWing_D_1"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -15.837376, -7.176405, -23.033585 ]
-								hitbox_maxs = [ 1.089524, 6.802692, 4.695312 ]
+								hitbox_mins = [ -31.737476, -0.933267, -20.829468 ]
+								hitbox_maxs = [ 0.5, 0.983461, 0.5 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "bone_new206"
-								parent_bone = "bone_new206"
+								name = "RightWing_A_1"
+								parent_bone = "RightWing_A_1"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -12.307005, -5.301646, -19.464348 ]
-								hitbox_maxs = [ 2.297895, 4.232322, 1.709953 ]
+								hitbox_mins = [ -9.841236, -0.5, -37.149498 ]
+								hitbox_maxs = [ 2.121105, 1.250017, 0.5 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "bone_new8"
-								parent_bone = "bone_new8"
+								name = "LeftUpLeg"
+								parent_bone = "LeftUpLeg"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -30.396378, -98.644165, -8.090492 ]
-								hitbox_maxs = [ 6.86051, 4.155721, 10.142342 ]
+								hitbox_mins = [ -18.594238, -19.181835, -50.299416 ]
+								hitbox_maxs = [ 14.218857, 11.043071, 12.390793 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "bone_new31"
-								parent_bone = "bone_new31"
+								name = "LeftLeg"
+								parent_bone = "LeftLeg"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -1.750206, -1.709127, -3.392303 ]
-								hitbox_maxs = [ 0.940193, 0.891485, 1.917389 ]
+								hitbox_mins = [ -8.975163, -12.399048, -54.143749 ]
+								hitbox_maxs = [ 11.519867, 13.436122, 5.619965 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "bone_new32"
-								parent_bone = "bone_new32"
+								name = "LeftFoot"
+								parent_bone = "LeftFoot"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -1.270721, -1.137788, -0.61602 ]
-								hitbox_maxs = [ 1.37048, 1.135871, 1.00528 ]
+								hitbox_mins = [ -5.885877, -35.395317, -8.220657 ]
+								hitbox_maxs = [ 12.773031, 11.66773, 17.284378 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "bone_new29"
-								parent_bone = "bone_new29"
+								name = "RightUpLeg"
+								parent_bone = "RightUpLeg"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -1.967052, -3.740534, -1.181908 ]
-								hitbox_maxs = [ 2.716347, 3.012056, 0.555794 ]
+								hitbox_mins = [ -13.695823, -23.501785, -50.302322 ]
+								hitbox_maxs = [ 16.469509, 15.208376, 5.792557 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "bone_new1"
-								parent_bone = "bone_new1"
+								name = "RightLeg"
+								parent_bone = "RightLeg"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -19.541492, -5.20219, -5.322586 ]
-								hitbox_maxs = [ 22.541538, 5.646931, 4.995415 ]
+								hitbox_mins = [ -10.196313, -16.093288, -54.172478 ]
+								hitbox_maxs = [ 13.931795, 13.043358, 5.590157 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "bone_new0"
-								parent_bone = "bone_new0"
+								name = "RightFoot"
+								parent_bone = "RightFoot"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -0.5, -1.032471, -0.5 ]
-								hitbox_maxs = [ 0.5, 1.987526, 0.5 ]
+								hitbox_mins = [ -7.662831, -34.583881, -8.240789 ]
+								hitbox_maxs = [ 14.229409, 6.551614, 14.180309 ]
 							},
 							{
 								_class = "Hitbox"
-								name = "bone_new_1"
-								parent_bone = "bone_new_1"
+								name = "base"
+								parent_bone = "Spine2"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -4.90319, -4.366843, -1.538681 ]
-								hitbox_maxs = [ 4.90319, 4.201658, 6.585419 ]
-							},
-							{
-								_class = "Hitbox"
-								name = "bone_new00"
-								parent_bone = "bone_new00"
-								surface_property = ""
-								translation_only = false
-								group_id = 0
-								hitbox_mins = [ -5.940559, -4.555351, -9.668152 ]
-								hitbox_maxs = [ 13.636959, 11.803955, 1.62204 ]
-							},
-							{
-								_class = "Hitbox"
-								name = "bone_new_0"
-								parent_bone = "bone_new_0"
-								surface_property = ""
-								translation_only = false
-								group_id = 0
-								hitbox_mins = [ -5.269018, -0.679977, -107.995163 ]
-								hitbox_maxs = [ 14.829189, 21.817032, 0.948822 ]
-							},
-							{
-								_class = "Hitbox"
-								name = "bone_new01"
-								parent_bone = "bone_new01"
-								surface_property = ""
-								translation_only = false
-								group_id = 0
-								hitbox_mins = [ -15.025038, -1.008324, -82.165932 ]
-								hitbox_maxs = [ 15.823563, 27.918966, 1.589401 ]
-							},
-							{
-								_class = "Hitbox"
-								name = "bone_new3"
-								parent_bone = "bone_new3"
-								surface_property = ""
-								translation_only = false
-								group_id = 0
-								hitbox_mins = [ -15.789897, -2.263256, -46.050217 ]
-								hitbox_maxs = [ 20.277401, 10.598049, 2.018272 ]
-							},
-							{
-								_class = "Hitbox"
-								name = "bone_new100"
-								parent_bone = "bone_new100"
-								surface_property = ""
-								translation_only = false
-								group_id = 0
-								hitbox_mins = [ -8.32605, -6.181384, -28.880875 ]
-								hitbox_maxs = [ 7.04785, 4.454583, 0.5 ]
-							},
-							{
-								_class = "Hitbox"
-								name = "bone_new102"
-								parent_bone = "bone_new102"
-								surface_property = ""
-								translation_only = false
-								group_id = 0
-								hitbox_mins = [ -11.558155, -5.987106, -78.38916 ]
-								hitbox_maxs = [ 12.278074, 19.977299, 2.714928 ]
-							},
-							{
-								_class = "Hitbox"
-								name = "bone_new4"
-								parent_bone = "bone_new4"
-								surface_property = ""
-								translation_only = false
-								group_id = 0
-								hitbox_mins = [ -20.828669, -6.392582, -48.029808 ]
-								hitbox_maxs = [ 16.142782, 12.861521, 3.24028 ]
+								hitbox_mins = [ -40.378349, -39.903934, -102.105949 ]
+								hitbox_maxs = [ 59.431637, 53.80188, 76.605698 ]
 							},
 						]
+					},
+				]
+			},
+			{
+				_class = "BodyGroupList"
+				children = 
+				[
+					{
+						_class = "BodyGroup"
+						name = "model_karna"
+						children = 
+						[
+							{
+								_class = "BodyGroupChoice"
+								name = "armor"
+								meshes = 
+								[
+									"karna_armor",
+								]
+							},
+							{
+								_class = "BodyGroupChoice"
+								name = "no_armor"
+								meshes = 
+								[
+									"karna_no_armor",
+								]
+							},
+							{
+								_class = "BodyGroupChoice"
+								name = "armor_no_spear"
+								meshes = 
+								[
+									"karna_armor_no_spear",
+								]
+							},
+							{
+								_class = "BodyGroupChoice"
+								name = "no_armor_no_spear"
+								meshes = 
+								[
+									"karna_no_armor_no_spear",
+								]
+							},
+						]
+						hidden_in_tools = false
+						non_bodygroup_single_choice = false
+					},
+				]
+			},
+			{
+				_class = "VSNAPList"
+				children = 
+				[
+					{
+						_class = "VSNAPFile"
+						name = "karna_exd"
+						children = 
+						[
+							{
+								_class = "MeshSimplify"
+								targetTrianglePercent = 0.6633
+								targetError = 0.4894
+								attributeAware = false
+								normalWeight = 1.25
+								uvWeight = 0.5
+								jointWeightWeight = 1.0
+								colorWeight = 0.0
+								lockBorder = true
+								removeSmallComponents = true
+								smallComponentSize = 0.025
+								weldVertices = false
+								weldPositionTolerance = 0.001
+								visualizeEdges = false
+							},
+						]
+						filename = "models/karna/karna_exd.fbx"
+						output_vsnap = ""
+						bind_pose_reference = "models/karna/karna_exd.fbx"
+						weighted_bone = ""
+						local_space_bone = ""
+						vertex_normals = false
+						vertex_colors = false
+						vertex_sort_by_color = false
+						vertex_sort_by_texcoord_u = false
+						skin_to_bones = false
+						cull_unskinned_verts = false
+						skin_threshold = 0.12
+						multibone_skinning = true
+						angle_streams_are_radians = true
+						preview_as_rope = true
+						preview_show_indices = true
+						preview_start_index = -1
+						preview_end_index = -1
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = 
+							[
+								"Object012",
+								"Object011",
+								"Object010",
+								"Object002",
+								"Object001",
+								"Object003",
+								"Object004",
+								"Object005",
+								"Object006",
+								"Object007",
+								"Object008",
+							]
+						}
+					},
+					{
+						_class = "VSNAPFile"
+						name = "karna_exd1"
+						children = 
+						[
+							{
+								_class = "MeshSimplify"
+								targetTrianglePercent = 0.3775
+								targetError = 0.2819
+								attributeAware = false
+								normalWeight = 4.0
+								uvWeight = 4.0
+								jointWeightWeight = 4.0
+								colorWeight = 0.0
+								lockBorder = false
+								removeSmallComponents = true
+								smallComponentSize = 0.21
+								weldVertices = true
+								weldPositionTolerance = 0.001
+								visualizeEdges = false
+							},
+						]
+						filename = "models/karna/karna_exd.fbx"
+						output_vsnap = ""
+						bind_pose_reference = "models/karna/karna_exd.fbx"
+						weighted_bone = "Weapon_B_R"
+						local_space_bone = ""
+						vertex_normals = false
+						vertex_colors = false
+						vertex_sort_by_color = false
+						vertex_sort_by_texcoord_u = false
+						skin_to_bones = true
+						cull_unskinned_verts = true
+						skin_threshold = 0.114
+						multibone_skinning = false
+						angle_streams_are_radians = false
+						preview_as_rope = true
+						preview_show_indices = true
+						preview_start_index = 22
+						preview_end_index = 25
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = 
+							[
+								"Object012",
+								"Object011",
+								"Object010",
+								"Object002",
+								"Object001",
+								"Object003",
+								"Object004",
+								"Object005",
+								"Object006",
+								"Object007",
+								"Object009",
+							]
+						}
+					},
+					{
+						_class = "VSNAPFile"
+						name = "karna_exd2"
+						children = 
+						[
+							{
+								_class = "MeshSimplify"
+								targetTrianglePercent = 0.99
+								targetError = 0.4248
+								attributeAware = false
+								normalWeight = 1.25
+								uvWeight = 1.041
+								jointWeightWeight = 1.0
+								colorWeight = 0.0
+								lockBorder = true
+								removeSmallComponents = false
+								smallComponentSize = 0.025
+								weldVertices = true
+								weldPositionTolerance = 0.2
+								visualizeEdges = false
+							},
+						]
+						filename = "models/karna/karna_exd.fbx"
+						output_vsnap = ""
+						bind_pose_reference = "models/karna/karna_exd.fbx"
+						weighted_bone = "Weapon_B_L"
+						local_space_bone = ""
+						vertex_normals = false
+						vertex_colors = false
+						vertex_sort_by_color = false
+						vertex_sort_by_texcoord_u = true
+						skin_to_bones = false
+						cull_unskinned_verts = false
+						skin_threshold = 0.12
+						multibone_skinning = true
+						angle_streams_are_radians = false
+						preview_as_rope = true
+						preview_show_indices = true
+						preview_start_index = -1
+						preview_end_index = -1
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = 
+							[
+								"Object012",
+								"Object011",
+								"Object010",
+								"Object002",
+								"Object001",
+								"Object003",
+								"Object004",
+								"Object005",
+								"Object006",
+								"Object007",
+								"Object009",
+							]
+						}
+					},
+					{
+						_class = "VSNAPFile"
+						name = "karna_exd3"
+						children = 
+						[
+							{
+								_class = "MeshSimplify"
+								targetTrianglePercent = 0.01
+								targetError = 0.6474
+								attributeAware = false
+								normalWeight = 1.25
+								uvWeight = 2.47
+								jointWeightWeight = 1.0
+								colorWeight = 0.0
+								lockBorder = false
+								removeSmallComponents = true
+								smallComponentSize = 0.1
+								weldVertices = false
+								weldPositionTolerance = 0.2
+								visualizeEdges = false
+							},
+						]
+						filename = "models/karna/karna_exd.fbx"
+						output_vsnap = ""
+						bind_pose_reference = "models/karna/karna_exd.fbx"
+						weighted_bone = "Weapon_B_L"
+						local_space_bone = ""
+						vertex_normals = false
+						vertex_colors = false
+						vertex_sort_by_color = false
+						vertex_sort_by_texcoord_u = false
+						skin_to_bones = true
+						cull_unskinned_verts = true
+						skin_threshold = 0.317
+						multibone_skinning = false
+						angle_streams_are_radians = false
+						preview_as_rope = true
+						preview_show_indices = true
+						preview_start_index = 10
+						preview_end_index = 17
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = 
+							[
+								"Object012",
+								"Object011",
+								"Object010",
+								"Object002",
+								"Object001",
+								"Object003",
+								"Object004",
+								"Object005",
+								"Object006",
+								"Object007",
+								"Object009",
+							]
+						}
+					},
+				]
+			},
+			{
+				_class = "Skeleton"
+				children = 
+				[
+					{
+						_class = "Bone"
+						name = "jopa1"
+						origin = [ 341.180237, -284.668274, 11.201858 ]
+						angles = [ 0.0, 0.0, 0.0 ]
+						do_not_discard = false
 					},
 				]
 			},

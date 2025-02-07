@@ -8,15 +8,15 @@ function muramasa_forge:OnSpellStart()
     local cast_point = self:GetCursorPosition()
     local forge_position =  cast_point
 
-    local forge_fx = ParticleManager:CreateParticle("particles/muramasa/muramasa_forge_zone.vpcf", PATTACH_WORLDORIGIN  , nil)
-    ParticleManager:SetParticleControl(forge_fx, 0, forge_position)
-    ParticleManager:SetParticleControl(forge_fx, 1, Vector(1000,10,0))
-    ParticleManager:SetParticleControl(forge_fx, 2, Vector(10,0,0))
-    ParticleManager:SetParticleShouldCheckFoW(forge_fx, false)
-    ParticleManager:SetParticleAlwaysSimulate(forge_fx)
-    local forge_fx_anvil = ParticleManager:CreateParticle("particles/muramasa/muramasa_forge_anvil.vpcf", PATTACH_WORLDORIGIN  , nil)
-    ParticleManager:SetParticleControl(forge_fx_anvil, 0, forge_position)
-    ParticleManager:SetParticleControl(forge_fx_anvil, 2, Vector(10,0,0))
+    self.forge_fx = ParticleManager:CreateParticle("particles/muramasa/muramasa_forge_zone.vpcf", PATTACH_WORLDORIGIN  , nil)
+    ParticleManager:SetParticleControl(self.forge_fx, 0, forge_position)
+    ParticleManager:SetParticleControl(self.forge_fx, 1, Vector(1000,10,0))
+    ParticleManager:SetParticleControl(self.forge_fx, 2, Vector(10,0,0))
+    ParticleManager:SetParticleShouldCheckFoW(self.forge_fx, false)
+    ParticleManager:SetParticleAlwaysSimulate(self.forge_fx)
+    self.forge_fx_anvil = ParticleManager:CreateParticle("particles/muramasa/muramasa_forge_anvil.vpcf", PATTACH_WORLDORIGIN  , nil)
+    ParticleManager:SetParticleControl(self.forge_fx_anvil, 0, forge_position)
+    ParticleManager:SetParticleControl(self.forge_fx_anvil, 2, Vector(10,0,0))
     self.forge_position = forge_position
     Timers:CreateTimer(10, function()
         if caster.SoulSwordAcquired then
@@ -65,11 +65,23 @@ function modifier_muramasa_forge_aura:CheckState()
     return state
 end
 function modifier_muramasa_forge_aura:OnCreated(hTable)
+    self:StartIntervalThink(0.2)
 end
 function modifier_muramasa_forge_aura:OnRefresh(hTable)
     self:OnCreated(hTable)
 end
- 
+function modifier_muramasa_forge_aura:OnIntervalThink( )
+    if IsServer() then
+        if not self:GetCaster():IsAlive() then
+
+            ParticleManager:DestroyParticle( self:GetAbility().forge_fx, true )
+            ParticleManager:ReleaseParticleIndex( self:GetAbility().forge_fx)
+            ParticleManager:DestroyParticle( self:GetAbility().forge_fx_anvil, true )
+            ParticleManager:ReleaseParticleIndex( self:GetAbility().forge_fx_anvil )
+            self:Destroy()
+        end
+    end
+end
 function modifier_muramasa_forge_aura:GetModifierAura()
 	return "modifier_muramasa_forge"
 end
@@ -131,6 +143,7 @@ end
   
 function modifier_muramasa_forge:OnIntervalThink( )
     if not IsServer() then return end
+    --if not self.caster:IsAlive() then self:Destroy() end
 	if self.parent:GetTeamNumber() ~=  self.caster:GetTeamNumber() then
         if ( (self.parent:GetAbsOrigin() - self.ability.forge_position):Length2D() > 900 ) then
             DoDamage(self.caster, self.parent, self.damage_ring, self.ability:GetAbilityDamageType(), 0, self.ability, false)

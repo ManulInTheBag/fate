@@ -119,7 +119,7 @@ function karna_combo_vasavi:OnSpellStart()
 				Ability = self,
 				EffectName = "particles/custom/karna/combo/vasavi_beam.vpcf",
 				iMoveSpeed = 10,
-				vSpawnOrigin = caster:GetAbsOrigin(),
+				vSpawnOrigin = caster:GetAttachmentOrigin(caster:ScriptLookupAttachment("attach_weapon_end")) ,
 				fDistance = range,
 				Source = self:GetCaster(),
 				fStartRadius = aoe,
@@ -141,7 +141,7 @@ function karna_combo_vasavi:OnSpellStart()
 			self.Dummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1)			
 
 		    self.LaserBeam = ParticleManager:CreateParticle("particles/custom/karna/combo/vasavi_shakti_beam_combo.vpcf", PATTACH_CUSTOMORIGIN, self.Dummy)
-			ParticleManager:SetParticleControlEnt(self.LaserBeam, 0, caster, PATTACH_POINT_FOLLOW, "attach_weapon", caster:GetOrigin(), true)
+			ParticleManager:SetParticleControlEnt(self.LaserBeam, 0, caster, PATTACH_POINT_FOLLOW, "attach_weapon_end", caster:GetOrigin(), true)
 			ParticleManager:SetParticleControl(self.LaserBeam, 1, caster:GetOrigin())			
 		end
 		return
@@ -154,7 +154,7 @@ function karna_combo_vasavi:OnProjectileThink(vLocation)
 	vLocation = self:GetCaster():GetAbsOrigin() + (self.target - self:GetCaster():GetAbsOrigin()):Normalized()*3000*self.timexp/self.time
 	self.Dummy:SetAbsOrigin(vLocation)
 	
-	ParticleManager:SetParticleControlEnt(self.LaserBeam, 0, self:GetCaster(), PATTACH_POINT_FOLLOW, "attach_weapon", self:GetCaster():GetOrigin(), true)
+	ParticleManager:SetParticleControlEnt(self.LaserBeam, 0, self:GetCaster(), PATTACH_POINT_FOLLOW, "attach_weapon_end", self:GetCaster():GetOrigin(), true)
 	ParticleManager:SetParticleControl(self.LaserBeam, 1, vLocation)
 end
 

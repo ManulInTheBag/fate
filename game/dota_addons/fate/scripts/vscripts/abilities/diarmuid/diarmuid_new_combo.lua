@@ -43,7 +43,7 @@ function diarmuid_new_combo:ActivateCombo(target)
 	       
    		end)
 	caster:AddNewModifier(caster, self, "modifier_diar_combo_sequence_controller", {duration = self:GetSpecialValueFor("duration"), htarget = target:entindex()})
-
+	caster.combo_casted = true
 end
 function diarmuid_new_combo:OnSpellStart()
 	local caster = self:GetCaster()
@@ -57,6 +57,7 @@ function diarmuid_new_combo:OnSpellStart()
 	local recast_time = self:GetSpecialValueFor("recast_timer")
 	caster:AddNewModifier(caster, self, "modifier_diar_model_swap", {duration = self:GetSpecialValueFor("duration")+recast_time + 0.4})
 	self.dearg_attach_fx = nil
+	caster.combo_casted = false
     local speed = 3000
 	local tProjectile = {
         EffectName = "particles/zlodemon/diar_combo/gae_dearg_projectile.vpcf",
@@ -82,8 +83,8 @@ function diarmuid_new_combo:OnSpellStart()
 		 caster:SwapAbilities("diarmuid_new_combo", "diarmuid_warrior_charge", false, true)
 	end
 	Timers:CreateTimer(recast_time + 0.4, function()
-		if self.dearg_attach_fx ~= nil and not caster:HasModifier("modifier_diar_combo_sequence_controller") then
-
+		if self.dearg_attach_fx ~= nil and not caster.combo_casted then
+			print("condition1")
 			ParticleManager:DestroyParticle(self.dearg_attach_fx, true) 
 			ParticleManager:ReleaseParticleIndex(self.dearg_attach_fx) 
 			caster:RemoveModifierByName("modifier_diar_model_swap")
@@ -97,7 +98,7 @@ function diarmuid_new_combo:OnSpellStart()
 		elseif self.dearg_attach_fx == nil then
 			caster:RemoveModifierByName("modifier_rampant_warrior_cooldown")
 			caster:AddNewModifier(caster, self, "modifier_rampant_warrior_cooldown", { Duration = self:GetSpecialValueFor("reduced_cooldown")})
-
+			print("condition2")
 			local masterCombo = caster.MasterUnit2:FindAbilityByName("diarmuid_new_combo")
 			self:EndCooldown()
 			self:StartCooldown(self:GetSpecialValueFor("reduced_cooldown"))

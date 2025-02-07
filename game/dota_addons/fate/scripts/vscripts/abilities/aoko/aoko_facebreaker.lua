@@ -116,8 +116,9 @@ function aoko_facebreaker:OnChannelFinish(bInterrupted)
 
 			local dir_2 = (enemy:GetAbsOrigin() - ori):Normalized()
 			local pos = ori_2 + dir_2*50
-
-			FindClearSpaceForUnit(enemy, GetGroundPosition(pos, enemy), true)
+			if( not IsKnockbackImmune(enemy)) then
+				FindClearSpaceForUnit(enemy, GetGroundPosition(pos, enemy), true)
+			end
 		end
 	end
 end

@@ -26,7 +26,7 @@ function karna_brahmastra_kundala:OnSpellStart()
 	local full_damage = self:GetSpecialValueFor("damage")
 	local delay = self:GetSpecialValueFor("delay")
 	local half_damage = full_damage * 0.5
-	
+	caster:SetBodygroup(0,2)
 	local target_ray = ParticleManager:CreateParticleForTeam("particles/custom/karna/brahmastra_kundala/brahmastra_kundala_ray.vpcf", PATTACH_ABSORIGIN, caster, caster:GetTeamNumber())
 	ParticleManager:SetParticleControl(target_ray, 0, target_point) 
 	ParticleManager:SetParticleControl(target_ray, 1, Vector(100,0,0))

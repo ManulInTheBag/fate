@@ -8,6 +8,641 @@
 
 "DOTAAbilities"
 {
+	//=================================================================================================================
+	// Karna armor
+	//=================================================================================================================
+
+
+	"karna_armor"
+	{		
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/karna/karna_new_abilities/karna_armor"
+		"MaxLevel"						"2"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"26"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE|DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY" 
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/karna/karna_kavacha_and_kundala"
+		"LinkedAbilities"				"karna_push karna_brahmastra_new karna_brahmastra_kundala_new karna_spears_barrage"
+		"LinkedAbilitiesRow"			"2"
+		"precache"
+		{
+			"particle"					"particles/karna/karna_armor_change_use.vpcf"
+			"particle"					"particles/karna/karna_armor_shield.vpcf"
+			
+		}
+		
+		"AbilityCastPoint"				"0.1"
+		"AbilityCooldown"				"60 40"
+		"AbilityManaCost"				"0"
+		
+		"AbilityValues"
+        {
+        	"armor_base" "700"
+        	"armor_per_level" "30 45"
+            "remove_duration" "60 40"
+            "bonus_armor" "15 25"
+            "bonus_resist" "20 25"
+            "explosion_radius" "500"
+            "explosion_damage_base" "300"
+            "explosion_damage_armor_pct" "35"
+            "explosion_stun_duration" "0.3"
+            "armor_replensh_time" "10" 
+            "mana_resplenish_percentage" "50 100" 
+        }		
+	}
+
+	//=================================================================================================================
+	// Karna spin attack
+	//=================================================================================================================
+	"karna_spin"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/karna/karna_new_abilities/karna_spin"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/karna/karna_spin"
+		"AbilityCastAnimation" 			"ACT_DOTA_ITEM_PICKUP"
+		"AnimationPlaybackRate" 		"1"
+		"LinkedAbilities"				"karna_spin_2 karna_recast_dash"
+		"precache"
+		{
+			"particle"				"particles/karna/karna_spin_slash_2.vpcf"
+			"particle"				"particles/karna/karna_spin_slash.vpcf"
+			"particle"				"particles/karna/karna_spin_slash_3.vpcf"
+		}
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+ 
+		"AbilityCastPoint"				"0.1"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"12 11 10 9 8"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100"
+		
+		"AbilityValues"
+        {
+            "damage" "40 50 60 70 80"
+            "duration" "1.4"
+            "radius" "600"
+            "recast_timer" "0.4"
+        }
+	}
+
+	//=================================================================================================================
+	// Karna spin attack recast
+	//=================================================================================================================
+	"karna_spin_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/karna/karna_new_abilities/karna_spin_2"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"26"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET|DOTA_ABILITY_BEHAVIOR_IMMEDIATE|DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/karna/karna_spin_2"
+		"AbilityCastAnimation" 			"ACT_DOTA_ITEM_PICKUP"
+		"AnimationPlaybackRate" 		"1"
+		
+		"precache"
+		{
+			"particle"				"particles/karna/karna_spin_slash_4.vpcf"
+			"particle"				"particles/karna/karna_spin_slash_5.vpcf"
+			"particle"				"particles/karna/karna_spin_slash_6.vpcf"
+			"particle"				"particles/karna/karna_spin_slash_7.vpcf"
+		}
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.1"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"1"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100"
+		
+		"AbilityValues"
+        {
+            "damage" "40 50 60 70 80"
+            "duration" "1.4"
+            "radius" "600"
+            "recast_timer" "2"
+
+            "total_damage" "1800"
+            "reduced_cooldown" "60"
+        }
+	}
+
+	//=================================================================================================================
+	// Karna recast dash
+	//=================================================================================================================
+	"karna_recast_dash"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/karna/karna_new_abilities/karna_recast_dash"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"26"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT|DOTA_ABILITY_BEHAVIOR_IMMEDIATE|DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/karna/karna_dash_recast"
+		"AbilityCastAnimation" 			"ACT_DOTA_ITEM_PICKUP"
+		"AnimationPlaybackRate" 		"1"
+		
+		"precache"
+		{
+			"particle"				"particles/gawain/karna_spear_dash_glow.vpcf"
+		}
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.1"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"1"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"100"
+		
+		"AbilityValues"
+        {
+            "damage" "160 200 240 280 320"
+            "airborne_duration" "0.5"
+        }
+	}
+	//=================================================================================================================
+	// Karna Slashes
+	//=================================================================================================================
+	"karna_slashes"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/karna/karna_new_abilities/karna_slashes"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/karna/karna_slash_jopa"
+		"AbilityCastAnimation" 			"ACT_DOTA_ITEM_PICKUP"
+		"AnimationPlaybackRate" 		"11 10 9 8 7"
+		
+		"precache"
+		{
+			"particle"				"particles/karna/karna_spin_slash_4.vpcf"
+			"particle"				"particles/karna/karna_spin_slash_8.vpcf"
+		}
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.2"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"1"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"200"
+ 
+		"AbilityValues"
+        {
+            "damage" "200 250 300 350 400"
+            "radius" "550"
+            "recast_timer" "2"
+        }
+	}
+
+	//=================================================================================================================
+	// Karna Melee buff
+	//=================================================================================================================
+
+
+	"karna_buff_melee"
+	{		
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/karna/karna_new_abilities/karna_buff_melee"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY" 
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/karna/karna_buff_melee"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3"
+		"AnimationPlaybackRate" 		"1"
+		"precache"
+		{
+			"particle"					"particles/karna/karna_buff_activation.vpcf"
+			"particle"					"particles/karna/karna_test_jopa_main.vpcf"
+			"particle"					"particles/karna/karna_buff_burn.vpcf"
+			"particle"					"particles/karna/karna_spear_buff_endcap.vpcf"
+		}
+		
+		"AbilityCastPoint"				"0.3"
+		"AbilityCooldown"				"20"
+		"AbilityManaCost"				"400"
+		
+		"AbilityValues"
+        {
+            "armor_restore_percentage" "30 35 40 45 50"
+            "duration" "10"
+            "movespeed_bonus" "15 20 25 30 35"
+            "damage" "20 25 30 35 40"
+            "burn_damage_per_stack" "5 6.25 7.5 8.75 10" // per 1 second
+            "burn_duration" "3" // per 1 second
+        }		
+	}
+
+	//=================================================================================================================
+	// Karna jump
+	//=================================================================================================================
+	"karna_jump"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/karna/karna_new_abilities/karna_jump"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT|DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/karna/karna_jump"
+		"AbilityCastAnimation" 			"ACT_DOTA_ITEM_PICKUP"
+		"AnimationPlaybackRate" 		"1"
+		"LinkedAbilities"				"karna_upper_slash"
+		"precache"
+		{
+			"particle"				"particles/custom_game/heroes/guts/guts_sword_hit_ground/guts_sword_hit_ground.vpcf"
+			"particle"				"particles/econ/items/invoker/invoker_apex/invoker_sun_strike_ground_immortal1.vpcf"
+			"particle"				"particles/karna/karna_jump_ground_hit.vpcf"
+		}
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.2"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"30"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"800"
+		"AbilityCastRange"				"1600"
+		"AbilityValues"
+        {
+            "damage" "500 625 750 875 1000"
+            "duration" "0.5"
+            "radius" "350"
+            "recast_timer" "0.6"
+        }
+	}
+	//=================================================================================================================
+	// Karna jump recast (upper slash)
+	//=================================================================================================================
+	"karna_upper_slash"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/karna/karna_new_abilities/karna_upper_slash"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"26"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT|DOTA_ABILITY_BEHAVIOR_IMMEDIATE|DOTA_ABILITY_BEHAVIOR_HIDDEN"
+
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/karna/karna_jump_recast"
+		"AbilityCastAnimation" 			"ACT_DOTA_ITEM_PICKUP"
+		"AnimationPlaybackRate" 		"1"
+		
+		"precache"
+		{
+			"particle"				"particles/karna/karna_spin_slash_9.vpcf"
+		}
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.2"//jopa
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"1"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+		"AbilityValues"
+        {
+            "damage" "400 500 600 700 800"
+            "airborne_duration" "1"
+            "radius" "600"
+        }
+	}
+	//=================================================================================================================
+	// Karna_push (Range Q)
+	//=================================================================================================================
+	"karna_push"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/karna/karna_new_abilities/karna_push"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET|DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/karna/karna_push"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_GHOST_SHIP"
+		"AnimationPlaybackRate" 		"1"
+		
+
+		"AbilityCastPoint"				"0.2"
+		"AbilityCastRange"				"400"
+		
+		"AbilityCooldown"				"7 6.5 6 5.5 5"
+		"AbilityManaCost"				"100"
+		
+		"AbilityValues"
+        {
+            "damage" "200 250 300 350 400"
+            "distance" "500"
+            "stun_duration" "0.2"
+        }
+	}
+
+	//=================================================================================================================
+	// Karna Brahmastra (no armor W)
+	//=================================================================================================================
+	"karna_brahmastra_new"
+	{		
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/karna/karna_new_abilities/karna_brahmastra_new"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT|DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY" 
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/karna/karna_brahmastra"
+		
+		"precache"
+		{
+			"particle"			"particles/custom/karna/brahmastra_laser/brahmastra_laser.vpcf"
+			"particle"			"particles/karna/brahmastra_laser/brahmastra_laser_powered.vpcf"
+			"particle"			"particles/karna/brahmastra_laser/ground_burn.vpcf"
+		}
+		"AbilityCastAnimation" 			"ACT_DOTA_ITEM_PICKUP"
+		"AnimationPlaybackRate" 		"1"
+		"AbilityCastPoint"				"0.4"
+		"AbilityCooldown"				"12"
+		"AbilityManaCost"				"200"
+		"AbilityCastRange"				"1100"
+		"AbilityValues"
+        {
+            "beam_aoe" "150"
+            "range" "1100"
+            "damage" "300 400 500 600 700"
+            "slow_percentage" "25"
+            "slow_duration" "1 1.25 1.5 1.75 2"
+        }		
+	}
+
+	//=================================================================================================================
+	// Karna spear barrage (no armor R)
+	//=================================================================================================================
+	"karna_brahmastra_kundala_new"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/karna/karna_new_abilities/karna_brahmastra_kundala_new"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT|DOTA_ABILITY_BEHAVIOR_HIDDEN|DOTA_ABILITY_BEHAVIOR_AOE"
+
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/karna/karna_brahmastra_kundala"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_7"
+		"AnimationPlaybackRate" 		"1"
+		"LinkedAbilities"				"karna_brahmastra_kundala_retrieve"
+		"LinkedAbilitiesRow"			"3"
+		"precache"
+		{
+			"particle"				"particles/karna/karna_spear_init.vpcf"
+			"particle"				"particles/karna/spear_throw.vpcf"
+			"particle"				"particles/karna/karna_spear_in_ground_.vpcf"
+			"particle"				"particles/karna/karna_kundala_hit.vpcf"
+		}
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.45"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"15"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"400"
+		"AbilityCastRange"				"2000"
+		"AbilityValues"
+        {
+            "range" "2000"
+            "radius" "150"
+            "damage" "300 375 450 525 600"
+            "spear_loss_duration" "3"
+        }
+	}
+
+	//=================================================================================================================
+	// Karna spear barrage (no armor R)
+	//=================================================================================================================
+	"karna_brahmastra_kundala_retrieve"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/karna/karna_new_abilities/karna_brahmastra_kundala_retrieve"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET|DOTA_ABILITY_BEHAVIOR_HIDDEN|DOTA_ABILITY_BEHAVIOR_AOE|DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/karna/karna_brahmastra_kundala"
+		"AbilityCastAnimation" 			"ACT_DOTA_ITEM_PICKUP"
+		"AnimationPlaybackRate" 		"1"
+		
+		"precache"
+		{
+			"particle"				"particles/karna/karna_spear_init.vpcf"
+			"particle"				"particles/karna/spear_throw.vpcf"
+			"particle"				"particles/karna/karna_spear_in_ground_.vpcf"
+			"particle"				"particles/karna/karna_kundala_hit.vpcf"
+		}
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.1"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"1"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"0"
+		"AbilityCastRange"				"2500"
+		"AbilityValues"
+        {
+            "range" "2500"
+        }
+	}
+
+
+	//=================================================================================================================
+	// Karna spear barrage (no armor R)
+	//=================================================================================================================
+	"karna_spears_barrage"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/karna/karna_new_abilities/karna_spears_barrage"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT|DOTA_ABILITY_BEHAVIOR_HIDDEN|DOTA_ABILITY_BEHAVIOR_AOE"
+
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/karna/karna_spears_barrage"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_6"
+		"AnimationPlaybackRate" 		"0.8"
+		
+		"precache"
+		{
+			"particle"				"particles/karna/karna_barrage_spear.vpcf"
+			"particle"				"particles/karna/karna_barrage_spear_explosion_1.vpcf"
+			"particle"				"particles/karna/karna_barrage_spear_explosion_2.vpcf"
+			"particle"				"particles/karna/karna_spears_spawn_area.vpcf"
+			"particle"				"particles/karna/karna_spears_radiusvpcf.vpcf"
+		}
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastPoint"				"0.8"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"30"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"800"
+		"AbilityCastRange"				"1000"
+		"AbilityValues"
+        {
+            "damage" "100 125 150 175 200"
+            "duration" "0.8"
+            "radius" "350"
+            "spear_amount" "8"
+        }
+	}
+
+
+	"karna_combo_vasavi_new"
+	{		
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/karna/karna_new_abilities/karna_combo_vasavi_new"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT|DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY" 
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/karna/karna_vasavi_shakti_combo"
+		"AbilityCastAnimation" 			"ACT_DOTA_ITEM_PICKUP"
+		"AnimationPlaybackRate" 		"1"
+		
+		"precache"
+		{
+			"particle"			"particles/custom/karna/combo/vasavi_beam.vpcf"
+			"particle"			"particles/custom/karna/combo/vasavi_explode.vpcf"
+			"particle"			"particles/custom/karna/combo/combo_vasavi_attach.vpcf"	
+			"particle"			"particles/custom/karna/combo/vasavi_shakti_beam_combo.vpcf"	
+			"particle"			"particles/custom/gawain/gawain_excalibur_galatine_orb.vpcf"	
+		
+		}
+		
+		"AbilityCastPoint"				"0.3"
+		"AbilityCooldown"				"150"
+		"AbilityManaCost"				"800"
+		
+		"AbilityValues"
+        {
+            "beam_aoe" "250"
+            "range" "3500"
+            "cast_range" "3500"
+            "beam_damage" "2000"
+            "full_damage" "6000"
+            "fire_delay" "3"
+            "prefire_delay" "2"
+            "cast_point" "0.3"
+            "end_radius" "700"
+        }		
+	}
+
 //------------------------------------------------------------------------------------------------------------------------------------
 //
 //															Servant Attributes 
@@ -55,7 +690,7 @@
 		
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"9999"
-		"AbilityManaCost"				"16"
+		"AbilityManaCost"				"13"
 
 		"precache"
 		{
@@ -64,12 +699,7 @@
 
 		"AbilityValues"
         {
-            "base_attack_speed" "40"
-            "base_movement_speed" "10"
-            "base_evasion" "10"
-            "attack_speed_gain" "20"
-            "movement_speed_gain" "5"
-            "evasion_gain" "5"
+            "armor_restore_percentage" "10"
         }
 	}
 	//=======================================
@@ -125,7 +755,7 @@
 		"AbilityValues"
         {
             "damage_block" "60"
-            "magic_resist_gain" "15"
+            "magic_resist_gain" "5"
         }
 	}	
 	"karna_divinity_proxy"
@@ -144,7 +774,7 @@
 		"AbilityValues"
         {
             "damage_block" "60"
-            "magic_resist_gain" "15"
+            "magic_resist_gain" "5"
         }
 	}
 
@@ -171,8 +801,8 @@
 
 		"AbilityValues"
         {
-            "bonus_damage" "20"
-            "divine_bonus_damage" "30"
+            "damage_per_int" "3"
+            "beam_damage_pct" "40"
         }
 	}
 }

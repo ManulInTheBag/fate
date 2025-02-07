@@ -2,7 +2,7 @@
 {
 	_class = "CParticleSystemDefinition"
 	m_nBehaviorVersion = 12
-	m_flConstantLifespan = 8.0
+	m_flConstantLifespan = 12.0
 	m_controlPointConfigurations = 
 	[
 		{
@@ -130,6 +130,7 @@
 				m_flRandomMin = 0.0
 				m_flRandomMax = 1.0
 				m_bHasRandomSignFlip = false
+				m_nRandomSeed = -1
 				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
 				m_flLOD0 = 0.0
 				m_flLOD1 = 0.0
@@ -149,6 +150,8 @@
 				m_flNoiseTurbulenceMix = 0.5
 				m_flNoiseImgPreviewScale = 1.0
 				m_bNoiseImgPreviewLive = true
+				m_flNoCameraFallback = 0.0
+				m_bUseBoundsCenter = false
 				m_nInputMode = "PF_INPUT_MODE_CLAMPED"
 				m_flMultFactor = 1.0
 				m_flInput0 = 0.0
@@ -159,6 +162,7 @@
 				m_flNotchedRangeMax = 1.0
 				m_flNotchedOutputOutside = 0.0
 				m_flNotchedOutputInside = 1.0
+				m_nRoundType = "PF_ROUND_TYPE_NEAREST"
 				m_nBiasType = "PF_BIAS_TYPE_STANDARD"
 				m_flBiasParameter = 0.0
 				m_Curve = 
@@ -230,14 +234,14 @@
 									{
 										x = 0.0
 										y = 0.95
-										m_flSlopeIncoming = -0.11875
-										m_flSlopeOutgoing = -0.11875
+										m_flSlopeIncoming = -0.079167
+										m_flSlopeOutgoing = -0.079167
 									},
 									{
-										x = 8.0
+										x = 12.0
 										y = 0.0
-										m_flSlopeIncoming = -0.11875
-										m_flSlopeOutgoing = -0.11875
+										m_flSlopeIncoming = -0.079167
+										m_flSlopeOutgoing = -0.079167
 									},
 								]
 								m_tangents = 
@@ -252,7 +256,7 @@
 									},
 								]
 								m_vDomainMins = [ 0.0, 0.0 ]
-								m_vDomainMaxs = [ 8.0, 0.95 ]
+								m_vDomainMaxs = [ 12.0, 0.95 ]
 							}
 						}
 						m_flFinalTextureScaleV = 

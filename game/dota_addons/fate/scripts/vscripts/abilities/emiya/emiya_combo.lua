@@ -9,12 +9,22 @@ function emiya_combo:OnSpellStart()
 	local enemy = self:GetCursorTarget()
 	local distance = (caster:GetAbsOrigin() - enemy:GetAbsOrigin()):Length2D()
 	local ubw_ability = caster:FindAbilityByName("emiya_unlimited_bladeworks")
+	LoopOverPlayers(function(player, playerID, playerHero)
+		--print("looping through " .. playerHero:GetName())
+		if playerHero == caster then
+			if playerHero.zlodemon == true then
+			
+			CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="zlodemon_emiya_r_7"})
+			else
+				if caster:HasModifier("modifier_emiya_model_swap") then
+					CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="emiya_skin_ubw_chant_7"})
+				end
+			end
+		else
+			CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="emiya_ubw7"})
+		end
+	end) 
 
-	if caster:HasModifier("modifier_emiya_model_swap") then
-		EmitGlobalSound("emiya_skin_ubw_chant_7")
-	else
-		EmitGlobalSound("emiya_ubw7")
-	end
 	----Dash to enemy
     local knockback1 = { should_stun = true,
 		knockback_duration = 0.5,

@@ -1516,7 +1516,37 @@
 			}
 		}
 	}
-
+	"models/karna/karna_new.vmdl"
+	{
+		"PortraitLightPosition"		"202.70 -23.15 308.17"
+		"PortraitLightAngles"		"54.79 171.70 0.00"
+		"PortraitLightFOV"		"69"
+		"PortraitLightDistance"		"377"
+		"PortraitLightColor"		"254 248 242"
+		"PortraitShadowColor"		"74 74 74"
+		"PortraitShadowScale"		"5.000000"
+		"PortraitAmbientColor"		"79 108 108"
+		"PortraitAmbientScale"		"5.000000"
+		"PortraitSpecularColor"		"251 74 84"
+		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/portraitbackground_gradient_btm.vmat"
+		"PortraitBackgroundColor1"		".9 .1 0"
+		"PortraitBackgroundColor2"		".9 .3 0"
+		"PortraitBackgroundColor3"		".9 .5 1"
+		"PortraitBackgroundColor4"		".9 .3 0"
+		"PortraitLightScale"		"4.500000"
+		"PortraitGroundShadowScale"		"1.500000"
+		"PortraitAmbientDirection"		"-79.070 -84.150 -25.320"
+		"PortraitAnimationActivity"		"ACT_DOTA_IDLE"
+		"cameras"
+		{
+			"default"
+			{
+				"PortraitPosition"		"155 -40 145"
+				"PortraitAngles"		"350.89 166.83 0.00"
+				"PortraitFOV"		"16"
+			}
+		}
+	}
 	"models/shirou/shirou.vmdl"
 	{
 		"PortraitLightPosition"		"202.70 -23.15 308.17"
