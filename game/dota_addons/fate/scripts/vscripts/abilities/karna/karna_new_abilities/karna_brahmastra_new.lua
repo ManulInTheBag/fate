@@ -31,6 +31,9 @@ function karna_brahmastra_new:OnSpellStart()
 	local caster = self:GetCaster()
 	local targetPoint = self:GetCursorPosition()
 	local forward = (targetPoint - caster:GetAbsOrigin()):Normalized()
+	if forward:Length2D() < 1 then
+		forward = caster:GetForwardVector()
+	end
 	local forward2 = forward
 	forward2.z = 0
 	caster:SetForwardVector(forward2)

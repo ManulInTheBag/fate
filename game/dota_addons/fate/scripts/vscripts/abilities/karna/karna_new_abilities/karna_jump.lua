@@ -49,6 +49,10 @@ function karna_jump:OnSpellStart()
 	local buff_ability = caster:FindAbilityByName("karna_buff_melee")
 	local distance = (targetPoint - origin):Length2D()
 	local forward = (targetPoint - origin):Normalized()
+	if forward:Length2D() < 1 then
+		forward = caster:GetForwardVector()
+	end
+
 	local jump_time = 1
 	local aoe_radius = self:GetSpecialValueFor("radius")
 	local aoe_damage = self:GetSpecialValueFor("damage")
@@ -57,6 +61,7 @@ function karna_jump:OnSpellStart()
 	local forward2 = forward
 	forward2.z = 0
 	caster:SetForwardVector(forward2)
+	
 	giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 1.2)  
 	local vector_to_mid_position = (mid_position_in_air - origin):Normalized()
 	EmitSoundOn("karna_new_dash_2", caster)
