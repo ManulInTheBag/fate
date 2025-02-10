@@ -7973,8 +7973,10 @@
         "DOTA_Tooltip_ability_karna_push_stun_duration"						"Stun duration:"
 
         "DOTA_Tooltip_ability_karna_brahmastra_new"							"Brahmastra"
-        "DOTA_Tooltip_ability_karna_brahmastra_new_Description"			"Cast point: <font color='#FFFFF9'>0.4</font>s\nKarna shoots Brahmastra in cone in a targetted direction, dealing <font color='#58ACFA'>magical</font> damage on hit."
+        "DOTA_Tooltip_ability_karna_brahmastra_new_Description"			"Cast point: <font color='#FFFFF9'>0.4</font>s\nKarna shoots Brahmastra in cone in a targetted direction, dealing <font color='#58ACFA'>magical</font> damage on hit and applying a <font color='#9400D3'>slow</font> debuff."
         "DOTA_Tooltip_ability_karna_brahmastra_new_damage"							"Damage:"
+        "DOTA_Tooltip_ability_karna_brahmastra_new_slow_percentage"					"%Slow:"
+        "DOTA_Tooltip_ability_karna_brahmastra_new_slow_duration"					"Slow duration:"
 
         "DOTA_Tooltip_ability_karna_brahmastra_kundala_new"							"Brahmastra Kundala"
         "DOTA_Tooltip_ability_karna_brahmastra_kundala_new_Description"			"Cast point: <font color='#FFFFF9'>0.45</font>s\nKarna throws his spear in the targetted direction dealing <font color='#58ACFA'>magical</font> damage to all targets hit, losing ability to attack for a short time.<br>After spear hits the ground, Karna can use this ability again, to retrieve it, dealing <font color='#58ACFA'>magical</font> damage to all enemies hit again.\nIf Karna doesnt return the spear, it will return to him after a short while automatically."
@@ -9817,7 +9819,7 @@
 		//====================================
 		"DOTA_Tooltip_ability_item_c_scroll"                                    "Rank C Magic Scroll"
 		"DOTA_Tooltip_ability_item_c_scroll_Lore"                               "Despite being very simple to craft and use, the unmatched reliability and flexibility made it a common equipment among reknowned mages."
-		"DOTA_Tooltip_ability_item_c_scroll_Description"                        "<h1>Use: Fireball</h1> Hurls a small orb of fire in a direction, inflicting magic damage and <font color='#FF3399'>stunning</font> target it hits.\n<font color='#FF0000'>Items cost 50%% more outside of base.</font>"
+		"DOTA_Tooltip_ability_item_c_scroll_Description"                        "<h1>Use: Fireball</h1> Hurls a small orb of fire in a direction, inflicting magic damage and <font color='#FF3399'>stunning</font> target it hits.\nBlockable by Linken effect.\n<font color='#FF0000'>Items cost 50%% more outside of base.</font>"
 		"DOTA_Tooltip_ability_item_c_scroll_damage"                             "DAMAGE:"
 		"DOTA_Tooltip_ability_item_c_scroll_stun_duration"                      "STUN DURATION:"
 

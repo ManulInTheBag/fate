@@ -1,6 +1,22 @@
 
 karna_push = class({})
 
+
+function karna_push:OnUpgrade()
+	local caster = self:GetCaster()
+    
+    if caster:FindAbilityByName("karna_spin_2"):GetLevel() ~= self:GetLevel() then
+    	caster:FindAbilityByName("karna_spin_2"):SetLevel(self:GetLevel())
+    end
+	if caster:FindAbilityByName("karna_recast_dash"):GetLevel() ~= self:GetLevel() then
+    	caster:FindAbilityByName("karna_recast_dash"):SetLevel(self:GetLevel())
+    end
+	if caster:FindAbilityByName("karna_spin"):GetLevel() ~= self:GetLevel() then
+    	caster:FindAbilityByName("karna_spin"):SetLevel(self:GetLevel())
+    end
+end
+
+
 function karna_push:OnSpellStart()
 	local caster = self:GetCaster()
 	local ability = self

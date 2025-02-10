@@ -32,7 +32,7 @@ function karna_upper_slash:OnSpellStart()
 	local aoe_radius = self:GetSpecialValueFor("radius")
 	local aoe_damage = self:GetSpecialValueFor("damage")
 	caster:SetForwardVector(forward)
-	caster:AddNewModifier(caster, self, "modifier_karna_self_pause_2", {Duration = 0.8}) 
+	caster:AddNewModifier(caster, self, "modifier_karna_self_pause_2", {Duration = 0.6}) 
 
 	local buff_ability = caster:FindAbilityByName("karna_buff_melee")
 	StartAnimation(caster, {duration=0.8, activity=ACT_DOTA_CAST_ALACRITY, rate=1})

@@ -3,6 +3,15 @@ LinkLuaModifier("modifier_karna_no_spear","abilities/karna/karna_new_abilities/k
 
 modifier_karna_no_spear = class({})
 
+function karna_brahmastra_kundala_new:OnUpgrade()
+	local caster = self:GetCaster()
+    
+    if caster:FindAbilityByName("karna_buff_melee"):GetLevel() ~= self:GetLevel() then
+    	caster:FindAbilityByName("karna_buff_melee"):SetLevel(self:GetLevel())
+    end
+
+
+end
 
 function modifier_karna_no_spear:CheckState()
     local state =   { 
@@ -83,7 +92,7 @@ function karna_brahmastra_kundala_new:OnSpellStart()
 		EffectName = "particles/karna/spear_throw.vpcf",
 		Ability = self,
 		vSpawnOrigin = caster:GetAbsOrigin(),
-		vVelocity = target * 2500,
+		vVelocity = target * 3000,
 		fDistance = range,
 		fStartRadius = 150,
 		fEndRadius = 150,

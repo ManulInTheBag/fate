@@ -1,6 +1,16 @@
 karna_spears_barrage = class({})
 
- 
+function karna_spears_barrage:OnUpgrade()
+	local caster = self:GetCaster()
+    
+    if caster:FindAbilityByName("karna_upper_slash"):GetLevel() ~= self:GetLevel() then
+    	caster:FindAbilityByName("karna_upper_slash"):SetLevel(self:GetLevel())
+    end
+	if caster:FindAbilityByName("karna_jump"):GetLevel() ~= self:GetLevel() then
+    	caster:FindAbilityByName("karna_jump"):SetLevel(self:GetLevel())
+    end
+
+end
 
 function karna_spears_barrage:GetAOERadius()
 	return self:GetSpecialValueFor("radius")
@@ -51,47 +61,46 @@ function karna_spears_barrage:OnSpellStart()
 	ParticleManager:SetParticleControl(fx_jopa_2, 1, Vector(radius,0,0) )
 	ParticleManager:ReleaseParticleIndex(fx_jopa_2)
 	Timers:CreateTimer(function()
-		if caster:IsAlive() then
-				if self.counter >= (count+1) then
-					Timers:CreateTimer(delay * 0.3, function()
-						if self.counter2 >= (count+1) then	 
-							return  
-						else
+			if self.counter >= (count+1) then
+				Timers:CreateTimer(delay * 0.3, function()
+					if self.counter2 >= (count+1) then	 
+						return  
+					else
 
-							ParticleManager:SetParticleControl( self.spears[self.counter2], 1, Vector(self.vectors[self.counter2][1],self.vectors[self.counter2][2],self.vectors[self.counter2][3]) *2)
-							--Timers:CreateTimer(delay* 0.25, function()
+						ParticleManager:SetParticleControl( self.spears[self.counter2], 1, Vector(self.vectors[self.counter2][1],self.vectors[self.counter2][2],self.vectors[self.counter2][3]) *2)
+						--Timers:CreateTimer(delay* 0.25, function()
 
-								ParticleManager:DestroyParticle( self.spears[self.counter2], false )
-								ParticleManager:ReleaseParticleIndex( self.spears[self.counter2] )
-								local vector_point = Vector(self.vectors_point[self.counter2][1],self.vectors_point[self.counter2][2],self.vectors_point[self.counter2][3]) * scale_vector_1
-								local targets = FindUnitsInRadius(caster:GetTeam(), targetPoint  , nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
-								for k,v in pairs(targets) do
-									DoDamage(caster, v, damage , DAMAGE_TYPE_MAGICAL, 0, self, false)
-									giveUnitDataDrivenModifier(caster, v, "rooted", self:GetSpecialValueFor("duration"))
-									giveUnitDataDrivenModifier(caster, v, "locked", self:GetSpecialValueFor("duration"))
-								end
-								EmitSoundOnLocationWithCaster(targetPoint, "karna_new_fire_thunder", caster)
-								local explosionFxIndex = ParticleManager:CreateParticle( "particles/karna/karna_barrage_spear_explosion_1.vpcf", PATTACH_CUSTOMORIGIN, caster )
-								ParticleManager:SetParticleControl( explosionFxIndex, 0, targetPoint+ vector_point )
-								ParticleManager:SetParticleShouldCheckFoW(explosionFxIndex, false)
-								local impactFxIndex = ParticleManager:CreateParticle( "particles/karna/karna_barrage_spear_explosion_2.vpcf", PATTACH_CUSTOMORIGIN, caster )
-								ParticleManager:SetParticleControl( impactFxIndex, 0, targetPoint+ vector_point )
-								ParticleManager:SetParticleShouldCheckFoW(impactFxIndex, false)
-								
-								-- Destroy Particle
-								Timers:CreateTimer( 0.5, function()
-									ParticleManager:DestroyParticle( explosionFxIndex, false )
-									ParticleManager:DestroyParticle( impactFxIndex, false )
-									ParticleManager:ReleaseParticleIndex( explosionFxIndex )
-									ParticleManager:ReleaseParticleIndex( impactFxIndex )
-								end)
-							--end)
-							self.counter2 = self.counter2 + 1
-							return spawn_delay
-						end
-					end)
-					return		
-				end
+							ParticleManager:DestroyParticle( self.spears[self.counter2], false )
+							ParticleManager:ReleaseParticleIndex( self.spears[self.counter2] )
+							local vector_point = Vector(self.vectors_point[self.counter2][1],self.vectors_point[self.counter2][2],self.vectors_point[self.counter2][3]) * scale_vector_1
+							local targets = FindUnitsInRadius(caster:GetTeam(), targetPoint  , nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
+							for k,v in pairs(targets) do
+								DoDamage(caster, v, damage , DAMAGE_TYPE_MAGICAL, 0, self, false)
+								giveUnitDataDrivenModifier(caster, v, "rooted", self:GetSpecialValueFor("duration"))
+								giveUnitDataDrivenModifier(caster, v, "locked", self:GetSpecialValueFor("duration"))
+							end
+							EmitSoundOnLocationWithCaster(targetPoint, "karna_new_fire_thunder", caster)
+							local explosionFxIndex = ParticleManager:CreateParticle( "particles/karna/karna_barrage_spear_explosion_1.vpcf", PATTACH_CUSTOMORIGIN, caster )
+							ParticleManager:SetParticleControl( explosionFxIndex, 0, targetPoint+ vector_point )
+							ParticleManager:SetParticleShouldCheckFoW(explosionFxIndex, false)
+							local impactFxIndex = ParticleManager:CreateParticle( "particles/karna/karna_barrage_spear_explosion_2.vpcf", PATTACH_CUSTOMORIGIN, caster )
+							ParticleManager:SetParticleControl( impactFxIndex, 0, targetPoint+ vector_point )
+							ParticleManager:SetParticleShouldCheckFoW(impactFxIndex, false)
+							
+							-- Destroy Particle
+							Timers:CreateTimer( 0.5, function()
+								ParticleManager:DestroyParticle( explosionFxIndex, false )
+								ParticleManager:DestroyParticle( impactFxIndex, false )
+								ParticleManager:ReleaseParticleIndex( explosionFxIndex )
+								ParticleManager:ReleaseParticleIndex( impactFxIndex )
+							end)
+						--end)
+						self.counter2 = self.counter2 + 1
+						return spawn_delay
+					end
+				end)
+				return		
+			end
 
 				duration = duration + spawn_delay
 				local swordVector = Vector(RandomFloat(-radius, radius), RandomFloat(-radius, radius), 0)
@@ -114,7 +123,7 @@ function karna_spears_barrage:OnSpellStart()
 				return spawn_delay
 			
 
-		end 
+
 	
 	end)
 

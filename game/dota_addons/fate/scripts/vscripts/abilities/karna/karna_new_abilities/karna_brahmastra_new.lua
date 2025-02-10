@@ -5,6 +5,14 @@ LinkLuaModifier("modifier_karna_slow_jopa", "abilities/karna/karna_new_abilities
 --[[function karna_brahmastra:GetAOERadius()
 	return self:GetSpecialValueFor("radius")
 end]]
+function karna_brahmastra_new:OnUpgrade()
+	local caster = self:GetCaster()
+    
+    if caster:FindAbilityByName("karna_slashes"):GetLevel() ~= self:GetLevel() then
+    	caster:FindAbilityByName("karna_slashes"):SetLevel(self:GetLevel())
+    end
+
+end
 
 function karna_brahmastra_new:GetCastRange(vLocation, hTarget)
 	return self:GetSpecialValueFor("cast_range")
