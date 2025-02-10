@@ -50,6 +50,7 @@ function karna_armor:OnSpellStart()
 		caster:EmitSound("karna_new_karna_remove_armor_voice")
 		caster:EmitSound("karna_new_fire_explosion")
 		StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_CAST_COLD_SNAP, rate=1})
+		modifier:RestoreArmorPercentage(50)
 		local effect_shield= ParticleManager:CreateParticle("particles/karna/karna_armor_shield.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, caster)
 		ParticleManager:SetParticleControlEnt(effect_shield, 0, caster, PATTACH_POINT_FOLLOW, "attach_shield", caster:GetAbsOrigin(), false )
 		--print("active armor disable")
@@ -91,7 +92,8 @@ function karna_armor:OnSpellStart()
 			if caster:GetAbilityByIndex(5):GetName() == "karna_jump" then
 				caster:SwapAbilities(tArmorAbilities[4], tNoArmorAbilities[4], false, true)
 			else
-				caster:SwapAbilities(caster:GetAbilityByIndex(5), tNoArmorAbilities[4], false, true)
+				Timers:RemoveTimer("karna_jump_ab_change_window")
+				caster:SwapAbilities(caster:GetAbilityByIndex(5):GetName(), tNoArmorAbilities[4], false, true)
 			end
 			if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 and caster:GetIntellect() >= 29.1 then		
 				if caster:FindAbilityByName("karna_combo_vasavi_new"):IsCooldownReady() 	
@@ -146,7 +148,9 @@ function modifier_karna_armor:DeclareFunctions()
 	return { MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
 			 MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
 			 MODIFIER_PROPERTY_INCOMING_DAMAGE_CONSTANT,
-			 MODIFIER_EVENT_ON_RESPAWN }
+			 MODIFIER_EVENT_ON_RESPAWN,
+			 MODIFIER_EVENT_ON_HEAL_RECEIVED,
+			 MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE }
 end
 
 if IsServer() then
@@ -176,9 +180,29 @@ if IsServer() then
 		self.fBarrierBlock = self.fMaxBarrierBlock
 		self:SetStackCount(self.fMaxBarrierBlock)
 		self:ReturnArmor()
-		self.ArmorRegenActive = true
-		self:StartIntervalThink(0.1)
+		self.ArmorRegenActive = false
+		--self:StartIntervalThink(0.1)
 	end
+
+	function modifier_karna_armor:OnHealReceived(args) 
+		if(self.hCaster ~= args.unit) then return end
+		if self.hCaster.ArmorActive == false then return end
+
+		if (self.hCaster:GetHealth() < self.hCaster:GetMaxHealth()) then
+			local diff = self.hCaster:GetMaxHealth() - self.hCaster:GetHealth()
+			if args.gain < diff then return end
+			local shield_gain = diff - args.gain
+			local percentage = shield_gain/self.fMaxBarrierBlock * 100
+			self:RestoreArmorPercentage(percentage)
+		else
+			if self.fBarrierBlock < self.fMaxBarrierBlock then 
+				local shield_gain = args.gain
+				local percentage = shield_gain/self.fMaxBarrierBlock * 100
+				self:RestoreArmorPercentage(percentage)
+			end
+		end
+	end
+	
 	
 	function modifier_karna_armor:OnCreated(args)
 		--print("oncreated")
@@ -244,6 +268,13 @@ if IsServer() then
 
 	end
 end
+function modifier_karna_armor:GetModifierHPRegenAmplify_Percentage()
+	if self.ArmorActive and  (self.hCaster:GetHealth() >= self.hCaster:GetMaxHealth()) then
+		 return -100
+	else 
+		return nil
+	end
+end
 
 function modifier_karna_armor:GetModifierMagicalResistanceBonus()
 	--if self.fBarrierBlock <= 0 then return 0 end
@@ -286,15 +317,18 @@ function modifier_karna_armor:OnIntervalThink()
 		--print("jopa")
 		self:StartIntervalThink(-1)
 		self:StartIntervalThink(0.1)
+
 		self.ArmorRegenActive = true
 		return
 	end
 	--print("jopa2")
 	self.fMaxBarrierBlock = self.hAbility:GetSpecialValueFor("armor_base") + self.hAbility:GetSpecialValueFor("armor_per_level") * self.hCaster:GetLevel()
 	self.fBarrierBlock = self.fBarrierBlock + self.fMaxBarrierBlock/10
-	if self.fBarrierBlock > self.fMaxBarrierBlock then 
+	if self.fBarrierBlock >= self.fMaxBarrierBlock then 
 		self.fBarrierBlock = self.fMaxBarrierBlock
 		self:StartIntervalThink(-1)
+		self.ArmorRegenActive = false
+
 	end
 	self:SetStackCount(self.fBarrierBlock)
 	self.Armor = self.hAbility:GetSpecialValueFor("bonus_armor")
@@ -306,7 +340,9 @@ end
  
 function modifier_karna_armor:GetModifierIncomingDamageConstant(keys)
 	if self.ArmorActive == false then return end
+	self:StartIntervalThink(-1)
 	self:StartIntervalThink(10)
+
 	self:SetDuration(10, true)
 	self.ArmorRegenActive = false
 	if IsServer() then
@@ -342,7 +378,7 @@ function modifier_karna_armor:GetModifierIncomingDamageConstant(keys)
 					ApplyDamage(dmgtable)
 
 
-					self:SetDuration(5, true)
+					self:SetDuration(10, true)
 				end
 
 				return -1*blocked

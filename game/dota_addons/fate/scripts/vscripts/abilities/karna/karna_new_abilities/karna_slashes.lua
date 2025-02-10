@@ -24,7 +24,7 @@ end
 --phase start 0.2
 function karna_slashes:OnAbilityPhaseStart()
 	local caster = self:GetCaster()
-	StartAnimation(caster, {duration=0.85, activity=ACT_DOTA_CAST_ABILITY_2, rate=1})
+	StartAnimation(caster, {duration=0.6, activity=ACT_DOTA_CAST_ABILITY_2, rate=1.4})
 end
 
 function karna_slashes:OnAbilityPhaseInterrupted()
@@ -44,14 +44,14 @@ function karna_slashes:OnSpellStart()
 	local time = 0.8
 	local aoe_radius = self:GetSpecialValueFor("radius")
 	local aoe_damage = self:GetSpecialValueFor("damage")
-	giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 0.6)  
+	giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 0.4)  
 	local buff_ability = caster:FindAbilityByName("karna_buff_melee")
 	caster:EmitSound("karna_new_fire_2")
 	caster:EmitSound("karna_new_karna_hit_3")
 	local saBool1 = false
 	local saBool2 = false
 	local armor_modifier = caster:FindModifierByName("modifier_karna_armor") 
-	Timers:CreateTimer(0.07, function()
+	Timers:CreateTimer(0.0, function()
 
 		--local particle = ParticleManager:CreateParticle("particles/karna/karna_spin_slash.vpcf", PATTACH_ABSORIGIN, caster)
 		--ParticleManager:ReleaseParticleIndex(particle)
@@ -76,12 +76,12 @@ function karna_slashes:OnSpellStart()
 	
 	
 	end)
-	Timers:CreateTimer(0.47, function()
+	Timers:CreateTimer(0.35, function()
 		caster:EmitSound("karna_new_fire_2")
 		caster:EmitSound("karna_new_karna_hit_3")
 
 	end)
-	Timers:CreateTimer(0.57, function()
+	Timers:CreateTimer(0.4, function()
 		--local particle = ParticleManager:CreateParticle("particles/karna/karna_spin_slash_2.vpcf", PATTACH_ABSORIGIN, caster)
 		--ParticleManager:ReleaseParticleIndex(particle)
 

@@ -30,7 +30,9 @@ function karna_brahmastra_kundala_retrieve:OnSpellStart()
 	local spear_abi = caster:FindAbilityByName("karna_brahmastra_kundala_new")
 	local aoe_damage = spear_abi:GetSpecialValueFor("damage")
 	
-
+	if caster.IndraAttribute then
+		aoe_damage = aoe_damage + (caster.IndraAttribute and 1 * caster:GetIntellect() or 0)
+	end
 	giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 0.4)  
 	if caster:GetAbilityByIndex(2):GetName() == "karna_brahmastra_kundala_retrieve"  then
 		caster:SwapAbilities("karna_brahmastra_kundala_retrieve", "karna_brahmastra_kundala_new", false, true)

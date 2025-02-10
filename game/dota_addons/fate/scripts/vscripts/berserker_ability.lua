@@ -863,12 +863,7 @@ function OnGodHandDeath(keys)
 			caster:SetRespawnPosition(dummy:GetAbsOrigin())
 			RemoveDebuffsForRevival(caster)
 			caster:RespawnHero(false,false)
-			if not caster.IsGodHandAcquired then
-				caster:SetHealth(caster:GetMaxHealth()*0.5)
-			else
-				caster:FindAbilityByName("heracles_berserk"):EnterBerserk(1)
-				--caster:FindAbilityByName("heracles_berserk"):EndCooldown()
-			end
+
 			--[[
 			caster:RemoveModifierByName("modifier_god_hand_stock")
 			if caster.GodHandStock > 0 then
@@ -888,6 +883,13 @@ function OnGodHandDeath(keys)
 
 			-- Apply penalty
 			keys.ability:ApplyDataDrivenModifier(caster, caster, "modifier_god_hand_debuff", {}) 
+			if not caster.IsGodHandAcquired then
+				caster:SetHealth(caster:GetMaxHealth()*0.5)
+			else
+				caster:SetHealth(caster:GetMaxHealth()*0.75)
+				caster:FindAbilityByName("heracles_berserk"):EnterBerserk(1)
+				--caster:FindAbilityByName("heracles_berserk"):EndCooldown()
+			end
 			-- Remove Gae Buidhe modifier
 			caster:RemoveModifierByName("modifier_god_hand_stock")
 			caster:RemoveModifierByName("modifier_gae_buidhe")

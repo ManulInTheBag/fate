@@ -27,6 +27,13 @@ function karna_ucm_attribute:OnSpellStart()
 	local hero = caster:GetPlayerOwner():GetAssignedHero()
 
 	hero:FindAbilityByName("karna_armor"):SetLevel(2)
+	local modifier = hero:FindModifierByName("modifier_karna_armor")
+	modifier.fMaxBarrierBlock = modifier.hAbility:GetSpecialValueFor("armor_base") + modifier.hAbility:GetSpecialValueFor("armor_per_level") * modifier.hCaster:GetLevel()
+	modifier.Armor = modifier.hAbility:GetSpecialValueFor("bonus_armor")
+	modifier.MagicResist = modifier.hAbility:GetSpecialValueFor("bonus_resist")
+		CustomNetTables:SetTableValue("sync","karna_armor", { armor = modifier.Armor,
+																magic_resist = modifier.MagicResist })
+																
 	hero.UncrownedAttribute = true
 
 	-- Set master 1's mana 

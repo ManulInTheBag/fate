@@ -42,6 +42,16 @@ function karna_spears_barrage:OnSpellStart()
 	EmitSoundOnLocationWithCaster(targetPoint, "emiya_big_swords_spawn", caster)
 	local forwardVec = ( targetPoint - caster:GetAbsOrigin() ):Normalized()
 	local duration = 0
+	if self.spears ~= nil then
+		if #self.spears ~= 0 then
+			for k,v in pairs(self.spears) do
+				ParticleManager:DestroyParticle( self.spears[k], true )
+				ParticleManager:ReleaseParticleIndex( self.spears[k] )
+			end
+			Timers:RemoveTimer("karna_spears_barrage")
+			Timers:RemoveTimer("karna_spears_barrage_2")
+		end
+	end
 	self.spears = {}
 	self.vectors = {}
 	self.vectors_point = {}
@@ -60,10 +70,13 @@ function karna_spears_barrage:OnSpellStart()
 	ParticleManager:SetParticleControl(fx_jopa_2, 0, targetPoint )
 	ParticleManager:SetParticleControl(fx_jopa_2, 1, Vector(radius,0,0) )
 	ParticleManager:ReleaseParticleIndex(fx_jopa_2)
-	Timers:CreateTimer(function()
+	Timers:CreateTimer("karna_spears_barrage", {callback = function()
 			if self.counter >= (count+1) then
-				Timers:CreateTimer(delay * 0.3, function()
+				Timers:CreateTimer("karna_spears_barrage_2", {endtime = delay * 0.5, callback = function()
 					if self.counter2 >= (count+1) then	 
+						self.spears = {}
+						self.vectors = {}
+						self.vectors_point = {}
 						return  
 					else
 
@@ -98,7 +111,7 @@ function karna_spears_barrage:OnSpellStart()
 						self.counter2 = self.counter2 + 1
 						return spawn_delay
 					end
-				end)
+				end})
 				return		
 			end
 
@@ -125,7 +138,7 @@ function karna_spears_barrage:OnSpellStart()
 
 
 	
-	end)
+	end})
 
 
 

@@ -87,6 +87,10 @@ function karna_brahmastra_kundala_new:OnSpellStart()
     ParticleManager:ReleaseParticleIndex(casterFX)
 	local target = caster:GetForwardVector()
 	local range = self:GetSpecialValueFor("range")
+	local aoe_damage = self:GetSpecialValueFor("damage")
+	if caster.IndraAttribute then
+		aoe_damage = aoe_damage + (caster.IndraAttribute and 1 * caster:GetIntellect() or 0)
+	end
 	caster:AddNewModifier(caster, self, "modifier_karna_no_spear", {duration = self:GetSpecialValueFor("spear_loss_duration")})
 	local tProjectile = {
 		EffectName = "particles/karna/spear_throw.vpcf",
@@ -107,7 +111,7 @@ function karna_brahmastra_kundala_new:OnSpellStart()
 		--iVisionRadius = 500,
 		--bFlyingVision = true,
 		--iVisionTeamNumber = caster:GetTeamNumber(),
-		ExtraData = {fDamage = self:GetSpecialValueFor("damage"), fRadius = self:GetSpecialValueFor("radius")}
+		ExtraData = {fDamage = aoe_damage, fRadius = self:GetSpecialValueFor("radius")}
 	}  
 	self.iProjectile = ProjectileManager:CreateLinearProjectile(tProjectile)
 	--self:StartCooldown(self:GetLevel())	  	

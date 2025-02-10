@@ -1,7 +1,7 @@
 "AttributeBonus"
 {
     // Custom Stat Values
-    "HP_PER_STR"            "17"
+    "HP_PER_STR"            "11"
     "HP_REGEN_PER_STR"      "0.25"
     "MANA_PER_INT"          "15"
     "MANA_REGEN_PER_INT"    "0.15"
@@ -17,5 +17,5 @@
     "MPREG_PER_STAT"		"1.5"
     "MS_PER_STAT"			"3"
     "CDR_PER_STAT"          "1"
-    "MR_PER_STAT"           "0.2"
+    "MR_PER_STAT"           "0.1"
 }

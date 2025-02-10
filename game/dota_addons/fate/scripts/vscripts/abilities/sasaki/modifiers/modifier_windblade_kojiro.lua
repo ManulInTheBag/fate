@@ -29,7 +29,7 @@ if IsServer() then
 	function modifier_windblade_kojiro:OnIntervalThink()
 		local caster = self:GetParent()
 		local target_search = FindUnitsInRadius(caster:GetTeam(), self.WindbladeOrigin, nil, self.Radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_FOW_VISIBLE, FIND_FARTHEST, false)
-		local damage = self:GetAbility():GetSpecialValueFor("base_damage")
+		local damage = self:GetAbility():GetSpecialValueFor("base_damage") + caster:GetAttackDamage() * self:GetAbility():GetSpecialValueFor("atk_scale")
 		local continue_possible = true
 		local current_location = caster:GetAbsOrigin()
 		local skip_target = false

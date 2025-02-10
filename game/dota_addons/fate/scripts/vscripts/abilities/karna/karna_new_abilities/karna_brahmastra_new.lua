@@ -36,7 +36,11 @@ function karna_brahmastra_new:OnSpellStart()
 	local aoe = self:GetSpecialValueFor("beam_aoe")
 	local range = self:GetSpecialValueFor("range")	
 	self.damage = self:GetSpecialValueFor("damage")
+
 	local caster = self:GetCaster()
+	if caster.IndraAttribute then
+		self.damage  = self.damage  + (caster.IndraAttribute and 1 * caster:GetIntellect() or 0)
+	end
 	local targetPoint = self:GetCursorPosition()
 	local forward = (targetPoint - caster:GetAbsOrigin()):Normalized()
 	if forward:Length2D() < 1 then

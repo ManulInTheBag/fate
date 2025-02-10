@@ -112,7 +112,7 @@ function karna_jump:OnSpellStart()
 		if caster:GetAbilityByIndex(5):GetName() == "karna_jump"  then
 			caster:SwapAbilities("karna_jump", "karna_upper_slash", false, true)
 			Timers:CreateTimer("karna_jump_ab_change_window", {
-				endTime = 0.6,
+				endTime = 1.2,
 				callback = function()
 				if caster:GetAbilityByIndex(5):GetName() == "karna_upper_slash"  then
 					caster:SwapAbilities("karna_jump", "karna_upper_slash", true, false)
