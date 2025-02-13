@@ -50,13 +50,16 @@ function nobu_shot:OnSpellStart()
                 Speed = 10000,
                 Facing = facing,
                 AoE = aoe*2,
-                Range = 1000,
+                Range = 1400,
             } )
         
         
         
         end)
-
+        if self:GetCooldownTimeRemaining() > 0 then
+            self:EndCooldown()
+            self:StartCooldown(self:GetCooldown(self:GetLevel()) / 2)
+        end
 
     end
    

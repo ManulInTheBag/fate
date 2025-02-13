@@ -77,11 +77,28 @@ function karna_recast_dash:OnProjectileHit_ExtraData(hTarget, vLocation, table)
 	local caster = self:GetCaster()
 	local damage = self:GetSpecialValueFor("damage")
 	local buff_ability = caster:FindAbilityByName("karna_buff_melee")
+	local bMartialArts = caster.ManaBurstAttribute
 	--giveUnitDataDrivenModifier(caster, hTarget, "rooted", duration)
 	--giveUnitDataDrivenModifier(caster, hTarget, "locked", duration)
 
 	hTarget:EmitSound("Hero_Sniper.AssassinateDamage")
 	DoDamage(caster, hTarget, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+	if bMartialArts then 
+		if hTarget:HasModifier("modifier_karna_ucm_sa_stacking") then
+			local stacks = hTarget:GetModifierStackCount("modifier_karna_ucm_sa_stacking", caster)
+			if stacks == 4 then 
+				DoDamage(caster, hTarget, caster:GetIntellect() * 1.5, DAMAGE_TYPE_MAGICAL, 0, self, false)
+				giveUnitDataDrivenModifier(caster, hTarget, "stunned",  0.5)
+				hTarget:RemoveModifierByName("modifier_karna_ucm_sa_stacking")
+			else
+				hTarget:AddNewModifier(caster, self, "modifier_karna_ucm_sa_stacking", { Duration = 2})	
+				hTarget:FindModifierByName("modifier_karna_ucm_sa_stacking"):SetStackCount(stacks + 1)
+			end
+		else
+			hTarget:AddNewModifier(caster, self, "modifier_karna_ucm_sa_stacking", { Duration = 2})	
+			hTarget:FindModifierByName("modifier_karna_ucm_sa_stacking"):SetStackCount(1)
+		end
+	end
 	ApplyAirborne(caster, hTarget, 0.5)--self:GetAbility():GetSpecialValueFor("airborne_duration"))
 	if caster:HasModifier("modifier_karna_buff_melee") then
 		buff_ability:ApplyBurnStacks(hTarget)

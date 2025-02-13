@@ -124,7 +124,14 @@ function karna_armor:OnSpellStart()
 			modifier:ReturnArmor()
 			caster:SwapAbilities(tArmorAbilities[1], tNoArmorAbilities[1], true, false)
 			caster:SwapAbilities(tArmorAbilities[2], tNoArmorAbilities[2], true, false)
-			caster:SwapAbilities(tArmorAbilities[3], tNoArmorAbilities[3], true, false)
+			if caster:GetAbilityByIndex(2):GetName() == "karna_brahmastra_kundala_new" then
+				print("brahmastra")
+				caster:SwapAbilities(tArmorAbilities[3], tNoArmorAbilities[3], true, false)
+			else
+				print("return jopa")
+				caster:SwapAbilities("karna_brahmastra_kundala_retrieve", "karna_brahmastra_kundala_new", false, true)
+				caster:SwapAbilities(tArmorAbilities[3], tNoArmorAbilities[3], true, false)
+			end
 			caster:SwapAbilities(tArmorAbilities[4], tNoArmorAbilities[4], true, false)
 	
 		end)

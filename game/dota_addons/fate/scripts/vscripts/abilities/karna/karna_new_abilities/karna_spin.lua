@@ -1,7 +1,7 @@
 karna_spin = class({})
 LinkLuaModifier("modifier_karna_self_pause","abilities/karna/karna_new_abilities/karna_spin", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_karna_self_pause_2","abilities/karna/karna_new_abilities/karna_spin", LUA_MODIFIER_MOTION_NONE)
-
+LinkLuaModifier("modifier_karna_ucm_sa_stacking","abilities/karna/karna_new_abilities/karna_spin", LUA_MODIFIER_MOTION_NONE)
 
 function karna_spin:OnUpgrade()
 	local caster = self:GetCaster()
@@ -16,6 +16,13 @@ function karna_spin:OnUpgrade()
     	caster:FindAbilityByName("karna_push"):SetLevel(self:GetLevel())
     end
 end
+
+modifier_karna_ucm_sa_stacking = class({})
+
+
+function modifier_karna_ucm_sa_stacking:IsHidden() return false end
+function modifier_karna_ucm_sa_stacking:RemoveOnDeath() return true end
+function modifier_karna_ucm_sa_stacking:IsDebuff() return true end
 
 modifier_karna_self_pause_2 = class({})
 function modifier_karna_self_pause_2:CheckState()
@@ -89,7 +96,9 @@ function karna_spin:OnSpellStart()
 	local time = 1.2
 	local aoe_radius = self:GetSpecialValueFor("radius")
 	local aoe_damage = self:GetSpecialValueFor("damage")
+	local bMartialArts = caster.ManaBurstAttribute
 	caster:AddNewModifier(caster, self, "modifier_karna_self_pause", {Duration = 1.2}) 
+	local bMartialArts = caster.ManaBurstAttribute
 	local physics = Physics:Unit(caster)
 	caster:SetPhysicsFriction(0)
 	caster:SetPhysicsVelocity(forward*400)
@@ -108,6 +117,23 @@ function karna_spin:OnSpellStart()
 		for k,v in pairs(targets) do
 			if v:GetName() ~= "npc_dota_ward_base" then
 				DoDamage(caster, v, aoe_damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+				if bMartialArts then 
+					if v:HasModifier("modifier_karna_ucm_sa_stacking") then
+						local stacks = v:GetModifierStackCount("modifier_karna_ucm_sa_stacking", caster)
+						if stacks == 4 then 
+							DoDamage(caster, v, caster:GetIntellect() * 1.5, DAMAGE_TYPE_MAGICAL, 0, self, false)
+							giveUnitDataDrivenModifier(caster, v, "stunned",  0.5)
+							v:RemoveModifierByName("modifier_karna_ucm_sa_stacking")
+						else
+							v:AddNewModifier(caster, self, "modifier_karna_ucm_sa_stacking", { Duration = 2})	
+							v:FindModifierByName("modifier_karna_ucm_sa_stacking"):SetStackCount(stacks + 1)
+						end
+					else
+						v:AddNewModifier(caster, self, "modifier_karna_ucm_sa_stacking", { Duration = 2})	
+						v:FindModifierByName("modifier_karna_ucm_sa_stacking"):SetStackCount(1)
+					end
+				end
+
 				if caster:HasModifier("modifier_karna_buff_melee") then
 					buff_ability:ApplyBurnStacks(v)
 				end
@@ -127,6 +153,22 @@ function karna_spin:OnSpellStart()
 		for k,v in pairs(targets) do
 			if v:GetName() ~= "npc_dota_ward_base" then
 				DoDamage(caster, v, aoe_damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+				if bMartialArts then 
+					if v:HasModifier("modifier_karna_ucm_sa_stacking") then
+						local stacks = v:GetModifierStackCount("modifier_karna_ucm_sa_stacking", caster)
+						if stacks == 4 then 
+							DoDamage(caster, v, caster:GetIntellect() * 1.5, DAMAGE_TYPE_MAGICAL, 0, self, false)
+							giveUnitDataDrivenModifier(caster, v, "stunned",  0.5)
+							v:RemoveModifierByName("modifier_karna_ucm_sa_stacking")
+						else
+							v:AddNewModifier(caster, self, "modifier_karna_ucm_sa_stacking", { Duration = 2})	
+							v:FindModifierByName("modifier_karna_ucm_sa_stacking"):SetStackCount(stacks + 1)
+						end
+					else
+						v:AddNewModifier(caster, self, "modifier_karna_ucm_sa_stacking", { Duration = 2})	
+						v:FindModifierByName("modifier_karna_ucm_sa_stacking"):SetStackCount(1)
+					end
+				end
 				if caster:HasModifier("modifier_karna_buff_melee") then
 					buff_ability:ApplyBurnStacks(v)
 				end
@@ -157,6 +199,22 @@ function karna_spin:OnSpellStart()
 		for k,v in pairs(enemies) do
 			if v:GetName() ~= "npc_dota_ward_base" then
 				DoDamage(caster, v, aoe_damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+				if bMartialArts then 
+					if v:HasModifier("modifier_karna_ucm_sa_stacking") then
+						local stacks = v:GetModifierStackCount("modifier_karna_ucm_sa_stacking", caster)
+						if stacks == 4 then 
+							DoDamage(caster, v, caster:GetIntellect() * 1.5, DAMAGE_TYPE_MAGICAL, 0, self, false)
+							giveUnitDataDrivenModifier(caster, v, "stunned",  0.5)
+							v:RemoveModifierByName("modifier_karna_ucm_sa_stacking")
+						else
+							v:AddNewModifier(caster, self, "modifier_karna_ucm_sa_stacking", { Duration = 2})	
+							v:FindModifierByName("modifier_karna_ucm_sa_stacking"):SetStackCount(stacks + 1)
+						end
+					else
+						v:AddNewModifier(caster, self, "modifier_karna_ucm_sa_stacking", { Duration = 2})	
+						v:FindModifierByName("modifier_karna_ucm_sa_stacking"):SetStackCount(1)
+					end
+				end
 				if caster:HasModifier("modifier_karna_buff_melee") then
 					buff_ability:ApplyBurnStacks(v)
 				end

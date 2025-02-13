@@ -31,7 +31,9 @@ function karna_upper_slash:OnSpellStart()
 	local forward = (targetPoint - origin):Normalized()
 	local aoe_radius = self:GetSpecialValueFor("radius")
 	local aoe_damage = self:GetSpecialValueFor("damage")
-	caster:SetForwardVector(forward)
+	local forward2 = forward
+	forward2.z = 0
+	caster:SetForwardVector(forward2)
 	caster:AddNewModifier(caster, self, "modifier_karna_self_pause_2", {Duration = 0.6}) 
 
 	local buff_ability = caster:FindAbilityByName("karna_buff_melee")

@@ -50,6 +50,7 @@ function karna_slashes:OnSpellStart()
 	caster:EmitSound("karna_new_karna_hit_3")
 	local saBool1 = false
 	local saBool2 = false
+	local bMartialArts = caster.ManaBurstAttribute
 	local armor_modifier = caster:FindModifierByName("modifier_karna_armor") 
 	Timers:CreateTimer(0.0, function()
 
@@ -63,11 +64,29 @@ function karna_slashes:OnSpellStart()
   				local origin_diff_norm = origin_diff:Normalized()
    				if caster:GetForwardVector():Dot(origin_diff_norm) > 0 then
 					DoDamage(caster, v, aoe_damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+					if bMartialArts then 
+						if v:HasModifier("modifier_karna_ucm_sa_stacking") then
+							local stacks = v:GetModifierStackCount("modifier_karna_ucm_sa_stacking", caster)
+							if stacks == 4 then 
+								DoDamage(caster, v, caster:GetIntellect() * 1.5, DAMAGE_TYPE_MAGICAL, 0, self, false)
+								giveUnitDataDrivenModifier(caster, v, "stunned",  0.5)
+								v:RemoveModifierByName("modifier_karna_ucm_sa_stacking")
+							else
+								v:AddNewModifier(caster, self, "modifier_karna_ucm_sa_stacking", { Duration = 2})	
+								v:FindModifierByName("modifier_karna_ucm_sa_stacking"):SetStackCount(stacks + 1)
+							end
+						else
+							v:AddNewModifier(caster, self, "modifier_karna_ucm_sa_stacking", { Duration = 2})	
+							v:FindModifierByName("modifier_karna_ucm_sa_stacking"):SetStackCount(1)
+						end
+					end
 					if caster:HasModifier("modifier_karna_buff_melee") then
 						buff_ability:ApplyBurnStacks(v)
 					end
-					if caster.UncrownedAttribute and not saBool1 then
-						armor_modifier:RestoreArmorPercentage(10)
+					if not saBool1 then
+						if caster.UncrownedAttribute then
+							armor_modifier:RestoreArmorPercentage(10)
+						end
 						saBool1 = true
 					end
 				end
@@ -93,17 +112,40 @@ function karna_slashes:OnSpellStart()
 				local origin_diff_norm = origin_diff:Normalized()
 				if caster:GetForwardVector():Dot(origin_diff_norm) > 0 then
 				    DoDamage(caster, v, aoe_damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+					if bMartialArts then 
+						if v:HasModifier("modifier_karna_ucm_sa_stacking") then
+							local stacks = v:GetModifierStackCount("modifier_karna_ucm_sa_stacking", caster)
+							if stacks == 4 then 
+								DoDamage(caster, v, caster:GetIntellect() * 1.5, DAMAGE_TYPE_MAGICAL, 0, self, false)
+								giveUnitDataDrivenModifier(caster, v, "stunned",  0.5)
+								v:RemoveModifierByName("modifier_karna_ucm_sa_stacking")
+							else
+								v:AddNewModifier(caster, self, "modifier_karna_ucm_sa_stacking", { Duration = 2})	
+								v:FindModifierByName("modifier_karna_ucm_sa_stacking"):SetStackCount(stacks + 1)
+							end
+						else
+							v:AddNewModifier(caster, self, "modifier_karna_ucm_sa_stacking", { Duration = 2})	
+							v:FindModifierByName("modifier_karna_ucm_sa_stacking"):SetStackCount(1)
+						end
+					end
 					if caster:HasModifier("modifier_karna_buff_melee") then
 						buff_ability:ApplyBurnStacks(v)
 					end
-					if caster.UncrownedAttribute and not saBool2 then
-						armor_modifier:RestoreArmorPercentage(10)
+					if  not saBool2 then
+						if caster.UncrownedAttribute then
+							armor_modifier:RestoreArmorPercentage(10)
+						end
 						saBool2 = true
 					end
 			  	end
 			end
 		end
-		
+		if saBool1 == true and saBool2 == true and caster.ManaBurstAttribute then
+			if self:GetCooldownTimeRemaining() > 1 then
+				self:EndCooldown()
+				self:StartCooldown(1)
+			end
+		end
 
 	
 	end)

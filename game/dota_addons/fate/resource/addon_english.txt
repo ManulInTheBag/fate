@@ -4765,7 +4765,7 @@
         "DOTA_Tooltip_Ability_gilles_eye_for_art_attribute_Lore"			"Gilles vast collection of artworks has allowed him to identify servants from their appearance."
  		
  		"DOTA_Tooltip_Ability_gilles_outer_god_attribute"				"Attribute: Outer God's Favour"
- 		"DOTA_Tooltip_Ability_gilles_outer_god_attribute_Description"	"Increases Prelati's Spellbook's mana regeneration to %regen_pct%%% and reduces the duration of regeneration pause from activation to %block_duration% seconds."
+ 		"DOTA_Tooltip_Ability_gilles_outer_god_attribute_Description"	"Increases Prelati's Spellbook's mana regeneration to %regen_pct%%% and removes the regeneration pause from activation."
  		"DOTA_Tooltip_ability_gilles_outer_god_attribute_Lore"			"Ph'nglui mglw'nafh Cthulhu R'lyeh wgah'nagl fhtagn."
 
         "DOTA_Tooltip_Ability_gilles_demonic_horde_attribute"				"Attribute: Demonic Horde"
@@ -8077,12 +8077,15 @@
 		"DOTA_Tooltip_ability_karna_ucm_attribute_armor_restore_percentage"	"Armor restore percentage:"
 
 		
-		"DOTA_Tooltip_ability_karna_mana_burst_attribute"					"Attribute: Mana Burst (Flames)"
-		"DOTA_Tooltip_ability_karna_mana_burst_attribute_Description" 		"While Agni is active, every certain number of attacks causes it to erupt, dealing damage to all nearby enemies and stunning the target for short duration. Each explosion deals more damage the more stacks of Agni the target is being affected by.\nBrahmastra and Brahmastra Kundala pierces B scroll."
-		"DOTA_Tooltip_ability_karna_mana_burst_attribute_explode_hits"		"Attacks to Explode:"
-		"DOTA_Tooltip_ability_karna_mana_burst_attribute_explode_damage"	"Explosion Damage:"
+		"DOTA_Tooltip_ability_karna_mana_burst_attribute"					"Uncrowned martial arts"
+		"DOTA_Tooltip_ability_karna_mana_burst_attribute_Description" 		"When karna hits at least one enemy with both Martial arts: Slashes hits, its cooldown will be lowered to 1 second.\nWhen Karna hits enemies with his Martial arts, Martial arts: Spin, Martial arts: Slashes and Martial arts: Dash, he will apply a stacking effect on enemy, when this effect reaches 5 stacks, enemy will be <font color='#FF3399'>stunned</font>  and dealth bonus damage, based on  Karna's <font color='#1E90FF'>intellect</font> as <font color='#58ACFA'>magical</font>, then the stacks are removed."
+		"DOTA_Tooltip_ability_karna_mana_burst_attribute_damage_per_int"	"Damage per INT:"
+		"DOTA_Tooltip_ability_karna_mana_burst_attribute_stacks_duration"	"Stacks duration:"
 		"DOTA_Tooltip_ability_karna_mana_burst_attribute_stun_duration"		"Stun Duration:"
-		"DOTA_Tooltip_ability_karna_mana_burst_attribute_Lore"				"Blazing flames is the source of Karna's magical energy."
+
+		"DOTA_Tooltip_modifier_karna_ucm_sa_stacking"				"Uncrowned martial arts"
+		"DOTA_Tooltip_modifier_karna_ucm_sa_stacking_Description"	"Will be stunned upon reaching 5 stacks."
+
 
 		"DOTA_Tooltip_ability_karna_divinity_attribute"						"Attribute: Divinity"
 		"DOTA_Tooltip_ability_karna_divinity_attribute_Description" 		"Grants Karna bonus magic resistance and flat damage block against physical attack."
@@ -8091,7 +8094,7 @@
 		"DOTA_Tooltip_ability_karna_divinity_attribute_Lore"				"He was the son of the sun, who could not be burned even by flame spirits"
 
 		"DOTA_Tooltip_ability_karna_indra_attribute"						"Attribute: Indra's Lightning"
-		"DOTA_Tooltip_ability_karna_indra_attribute_Description" 			"Increases the damage of Lightning spears based on Karna's <font color='#1E90FF'>intellect</font>.\nIncreases Brahmastra's damage based on the beam's traveled distance\nIncreases Brahmastra and Brahmastra Kundala damage by 1x of Karna's <font color='#1E90FF'>intellect</font>"
+		"DOTA_Tooltip_ability_karna_indra_attribute_Description" 			"Increases the damage of Lightning spears based on Karna's <font color='#1E90FF'>intellect</font>.\nIncreases Brahmastra's damage based on the beam's traveled distance\nIncreases Brahmastra and Brahmastra Kundala damage by 1x of Karna's <font color='#1E90FF'>intellect</font>."
 		"DOTA_Tooltip_ability_karna_indra_attribute_damage_per_int"			"Total damage per INT"
 		"DOTA_Tooltip_ability_karna_indra_attribute_beam_damage_pct"		"%Max beam damage increase"
 		"DOTA_Tooltip_ability_karna_indra_attribute_Lore" 					"Know the mercy of the King of the Gods. Indra, observe me."

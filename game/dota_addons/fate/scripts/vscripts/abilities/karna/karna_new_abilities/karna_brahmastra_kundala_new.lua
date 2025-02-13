@@ -121,7 +121,7 @@ function karna_brahmastra_kundala_new:OnSpellStart()
 		self.endFX = ParticleManager:CreateParticle("particles/karna/karna_spear_in_ground_.vpcf", PATTACH_WORLDORIGIN, nil)
 		ParticleManager:SetParticleControlTransformForward(self.endFX, 0, self.spear_position, self.spear_position)
 
-		if caster:GetAbilityByIndex(2):GetName() == "karna_brahmastra_kundala_new"  then
+		if caster:GetAbilityByIndex(2):GetName() == "karna_brahmastra_kundala_new"   and not  caster:FindModifierByName("modifier_karna_armor").ArmorActive  then
 			caster:SwapAbilities("karna_brahmastra_kundala_new", "karna_brahmastra_kundala_retrieve", false, true)
 		end
 	
@@ -138,7 +138,7 @@ function karna_brahmastra_kundala_new:OnSpellStart()
 			caster:RemoveModifierByName("modifier_karna_no_spear")
 			ParticleManager:DestroyParticle(self.endFX, true)
 			ParticleManager:ReleaseParticleIndex(self.endFX)
-			if caster:GetAbilityByIndex(2):GetName() == "karna_brahmastra_kundala_retrieve"  then
+			if caster:GetAbilityByIndex(2):GetName() == "karna_brahmastra_kundala_retrieve" and not not caster:FindModifierByName("modifier_karna_armor").ArmorActive then
 				caster:SwapAbilities("karna_brahmastra_kundala_retrieve", "karna_brahmastra_kundala_new", false, true)
 			end
 		
