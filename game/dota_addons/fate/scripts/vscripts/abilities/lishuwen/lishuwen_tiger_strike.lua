@@ -99,7 +99,11 @@ function lishuwen_tiger_strike:GrantFuriousChainBuff()
 	else
 		caster:AddNewModifier(caster, self, "modifier_furious_chain_regen", {Duration = self:GetSpecialValueFor("regen_duration"),
 																			 RegenAmount = self:GetSpecialValueFor("regen_amount")})
-		caster:SetModifierStackCount("modifier_furious_chain_regen", self, modifier:GetStackCount() + 1)
+		if modifier:GetStackCount() >= 6 then
+			caster:SetModifierStackCount("modifier_furious_chain_regen", self, 6)
+		else
+			caster:SetModifierStackCount("modifier_furious_chain_regen", self, modifier:GetStackCount() + 1)
+		end
 	end
 end
 
@@ -147,7 +151,7 @@ function lishuwen_tiger_strike:TigerStrike1()
 		--if self:CalculateCrit() then 
 			--print("crit")			
 			caster:EmitSound("Hero_Juggernaut.BladeDance")
-			damage = damage + caster:GetAverageTrueAttackDamage(caster)
+			damage = damage + caster:GetAverageTrueAttackDamage(caster)* self:GetSpecialValueFor("damage_bers_physical") / 100
 			--damage = damage * self:GetSpecialValueFor("crit_multiplier") / 100 
 
 			self:CreateCritFx(target)
@@ -168,7 +172,8 @@ function lishuwen_tiger_strike:TigerStrike1()
 	local health_1 = target:GetHealth()
 
 	if caster.bIsMartialArtsImproved then
-		caster:PerformAttack( target, true, true, true, true, false, true, true )
+		DoDamage(caster, target, 40, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+		--caster:PerformAttack( target, true, true, true, true, false, true, true )
 	end
 	DoDamage(caster, target, damage, DamageType, 0, self, false)
 	caster:FindAbilityByName("lishuwen_no_second_strike"):AddShock(target, 3)
@@ -217,13 +222,14 @@ function lishuwen_tiger_strike:TigerStrike2()
 	end
 
 	if caster.bIsMartialArtsImproved then
-		caster:PerformAttack( target, true, true, true, true, false, true, true )
+		DoDamage(caster, target, 40, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+		--caster:PerformAttack( target, true, true, true, true, false, true, true )
 	end
 
 	if caster:HasModifier("modifier_berserk") then --and self:CalculateCrit() 
 		--print("crit")
 		caster:EmitSound("Hero_Juggernaut.BladeDance")
-		damage = damage + caster:GetAverageTrueAttackDamage(caster)
+		damage = damage + caster:GetAverageTrueAttackDamage(caster)* self:GetSpecialValueFor("damage_bers_physical") / 100
 
 		self:CreateCritFx(target)
 	else
@@ -315,7 +321,8 @@ function lishuwen_tiger_strike:TigerStrike3()
 	end
 
 	if caster.bIsMartialArtsImproved then
-		caster:PerformAttack( target, true, true, true, true, false, true, true )
+		DoDamage(caster, target, 40, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+		--caster:PerformAttack( target, true, true, true, true, false, true, true )
 	end
 	caster:FindAbilityByName("lishuwen_no_second_strike"):AddShock(target, 5)
 	target:RemoveModifierByName("modifier_tiger_strike_marker")
@@ -324,7 +331,7 @@ function lishuwen_tiger_strike:TigerStrike3()
 		--if self:CalculateCrit() then 
 			--print("crit")
 			caster:EmitSound("Hero_Juggernaut.BladeDance")
-			damage = damage + caster:GetAverageTrueAttackDamage(caster)
+			damage = damage + caster:GetAverageTrueAttackDamage(caster)* self:GetSpecialValueFor("damage_bers_physical") / 100
 			--damage = damage * self:GetSpecialValueFor("crit_multiplier") / 100 
 
 			self:CreateCritFx(target)

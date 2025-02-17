@@ -138,7 +138,7 @@ function karna_brahmastra_kundala_new:OnSpellStart()
 			caster:RemoveModifierByName("modifier_karna_no_spear")
 			ParticleManager:DestroyParticle(self.endFX, true)
 			ParticleManager:ReleaseParticleIndex(self.endFX)
-			if caster:GetAbilityByIndex(2):GetName() == "karna_brahmastra_kundala_retrieve" and not not caster:FindModifierByName("modifier_karna_armor").ArmorActive then
+			if caster:GetAbilityByIndex(2):GetName() == "karna_brahmastra_kundala_retrieve" and not  caster:FindModifierByName("modifier_karna_armor").ArmorActive then
 				caster:SwapAbilities("karna_brahmastra_kundala_retrieve", "karna_brahmastra_kundala_new", false, true)
 			end
 		

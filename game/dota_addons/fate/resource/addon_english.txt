@@ -2889,7 +2889,7 @@
 		"DOTA_Tooltip_Ability_medusa_bellerophon_2_radius"	"Radius:"
 
 		"DOTA_Tooltip_Ability_medusa_seal_attribute"		"Attribute: Breaker Gorgon"
-		"DOTA_Tooltip_Ability_medusa_seal_attribute_Description"	"Upgrades <font color='#58ACFA'>Mystic Eyes of Cybele</font>.\n<font color='#58ACFA'>Bloodfort Andromeda</font> each second forces enemies to move towards it's center, restricting them from doing anything for a short duration."
+		"DOTA_Tooltip_Ability_medusa_seal_attribute_Description"	"Upgrades <font color='#58ACFA'>Mystic Eyes of Cybele</font>.\n<font color='#58ACFA'>Bloodfort Andromeda</font> each 2 second roots and locks all enemies for 0.3 seconds."
 
 		"DOTA_Tooltip_Ability_medusa_monstrous_attribute"		"Attribute: Ancient Beast"
 		"DOTA_Tooltip_Ability_medusa_monstrous_attribute_Description"		"Unlocks <font color='#58ACFA'>Monstrous Strength</font>. \nUsing <font color='#58ACFA'>Monstrous Strength</font> allows Medusa to deal %base_damage% + twice her strengths as magic damage, as well as providing her bonus attack speed and strength for a duaration. Each attack while under the effect of Monstrous Strength disarms the target. This ability seal the usage of Bellerophon and Bellerophon II for its duration."
@@ -4444,7 +4444,7 @@
         "DOTA_Tooltip_Ability_avenger_dark_passage_Note1"		"Cannot be cast when dimensionally locked."        
 
         "DOTA_Tooltip_Ability_avenger_murderous_instinct"							"Murderous Instinct"
-        "DOTA_Tooltip_ability_avenger_murderous_instinct_Description"      			"Angra Mainyu feels great pleasure from killing the livings, restoring percentage of max mana on killing unit or hero.\nOn activation, Angra Mainyu's attacks gains chance to double attack and bash the target, dealing bonus damage and <font color='#FF3399'>stunning</font> them for 1 second. Can't bash more than every 2 seconds.\nEvery Angra Mainyu attack deals additional magic damage, including Tawrich Zarich attacks.\n<font color='#FF6600'>This ability affects the level of Unlimited Remains in True Form.</font>"
+        "DOTA_Tooltip_ability_avenger_murderous_instinct_Description"      			"Angra Mainyu feels great pleasure from killing the livings, restoring percentage of max mana on killing unit or hero.\nOn activation, Angra Mainyu's attacks gains chance to double attack and bash the target, dealing bonus damage and <font color='#FF3399'>stunning</font> them for 1 second. Can't bash more than every 2 seconds.\n<font color='#FF6600'>This ability affects the level of Unlimited Remains in True Form.</font>"
         "DOTA_Tooltip_ability_avenger_murderous_instinct_Lore"						"Mankind is to be hated."        
         "DOTA_Tooltip_ability_avenger_murderous_instinct_critical_rate"				"%Double Attack Chance:"
         "DOTA_Tooltip_ability_avenger_murderous_instinct_crit_multiplier"			"Bash Damage:"
@@ -6037,6 +6037,7 @@
         "DOTA_Tooltip_Ability_lishuwen_berserk_critical_chance"		"%CRITICAL CHANCE:"
         "DOTA_Tooltip_Ability_lishuwen_berserk_str_critical_bonus"	"CRITICAL CHANCE PER STR:"
         "DOTA_Tooltip_Ability_lishuwen_berserk_critical_damage"		"%CRITICAL DAMAGE:"
+        "DOTA_Tooltip_Ability_lishuwen_berserk_fts_damage_skale_pct"	"%DAMAGE FROM ATK ON TIGER STRIKE:"
         "DOTA_Tooltip_Ability_lishuwen_berserk_Note0"				"Berserk cannot be dispelled."
         "DOTA_Tooltip_Ability_lishuwen_berserk_Note1"				"Purge only upon activation. CC applied after is ignored for its duration."
 
@@ -6073,7 +6074,7 @@
 
 
         "DOTA_Tooltip_Ability_lishuwen_tiger_strike"					"Fierce Tiger Strike"
-        "DOTA_Tooltip_Ability_lishuwen_tiger_strike_Description"		"<font color='#FFFAFA'>Cast point:</font><font color='#7FFF00'>0.25</font> | </font><font color='#7FFF00'>0.3</font> | </font><font color='#7FFF00'>0.35</font> \n\nPerforms up to 3 ferocious strikes, each with different effects.\n\n<font color='#58ACFA'>1st:</font> Dashes to the target, dealing <font color='#58ACFA'>%damage_1% magic damage</font>, <font color='#9400D3'>slowing</font> the target by <font color='#9400D3'>%slow_amount%</font>% for <font color='#9400D3'>%slow_duration%</font> seconds and applying 3 <font color='#FF0000'>Circulatory shock</font> stacks.\n\n<font color='#58ACFA'>2nd:</font> Lands body blow, dealing <font color='#A72E28'>%damage_2% physical damage</font>, <font color='#FF3399'>knockbacking</font>, <font color='#FF3399'>stunning</font> the target for <font color='#FF3399'>%stun_duration%</font> seconds and applying 3 <font color='#FF0000'>Circulatory shock</font> stacks. If target hits a wall, it will take <font color='#FF0000'>200+3*Li Shuwen's strength</font> <font color='#A72E28'>additional physical damage</font>.\n\n<font color='#58ACFA'>3rd:</font> Smashes critical point with elbow, dealing <font color='#D1A951'>%damage_3_magical% base pure damage</font>.\n\n Each strike gets <font color='#FFFAFA'>additional damage</font> equal to %damage_2_physical%% of Li Shuwen's <font color='#FFFAFA'>base attack damage</font> and applies 5 <font color='#FF0000'>Circulatory shock</font> stacks.\n\nIf three strikes sequence was sucessful then <font color='#FFFAFA'>cooldown of this ability will be reduced</font>.<font color='#F1C40F'>\n\n<font color='#F1C40F'>Upgradable by attribute: Improve Martial Arts, Berserk and Furious Chain</font>."
+        "DOTA_Tooltip_Ability_lishuwen_tiger_strike_Description"		"<font color='#FFFAFA'>Cast point:</font><font color='#7FFF00'>0.25</font> | </font><font color='#7FFF00'>0.3</font> | </font><font color='#7FFF00'>0.35</font> \n\nPerforms up to 3 ferocious strikes, each with different effects.\n\n<font color='#58ACFA'>1st:</font> Dashes to the target, dealing <font color='#58ACFA'>%damage_1% magic damage</font>, <font color='#9400D3'>slowing</font> the target by <font color='#9400D3'>%slow_amount%</font>% for <font color='#9400D3'>%slow_duration%</font> seconds and applying 3 <font color='#FF0000'>Circulatory shock</font> stacks.\n\n<font color='#58ACFA'>2nd:</font> Lands body blow, dealing <font color='#A72E28'>%damage_2% physical damage</font>, <font color='#FF3399'>knockbacking</font>, <font color='#FF3399'>stunning</font> the target for <font color='#FF3399'>%stun_duration%</font> seconds and applying 3 <font color='#FF0000'>Circulatory shock</font> stacks. If target hits a wall, it will take <font color='#FF0000'>200+3*Li Shuwen's strength</font> <font color='#A72E28'>additional physical damage</font>.\n\n<font color='#58ACFA'>3rd:</font> Smashes critical point with elbow, dealing <font color='#D1A951'>%damage_3_magical% base pure damage</font> and applies 5 <font color='#FF0000'>Circulatory shock</font> stacks.\n\n Each strike gets <font color='#FFFAFA'>additional damage</font> equal to %damage_2_physical%% of Li Shuwen's <font color='#FFFAFA'>base attack damage</font>.\n\nIf three strikes sequence was sucessful then <font color='#FFFAFA'>cooldown of this ability will be reduced</font>.<font color='#F1C40F'>\n\n<font color='#F1C40F'>Upgradable by attribute: Improve Martial Arts, Berserk and Furious Chain</font>."
         "DOTA_Tooltip_Ability_lishuwen_tiger_strike_Lore"									"The pinnacle of Bajiquan, the tiger's furious clawing specializes in crushing physical object to ashes."
         "DOTA_Tooltip_Ability_lishuwen_tiger_strike_Note0"									"3rd strike damage is calculated based on the damage dealt by first 2 strikes, regardles of the whether it were different or the same targets"
         //"DOTA_Tooltip_Ability_lishuwen_fierce_tiger_strike_first_strike_cast_delay"		"FIRST STRIKE CAST DELAY:"
@@ -6091,7 +6092,7 @@
 
 
         "DOTA_Tooltip_Ability_lishuwen_no_second_strike"						"No Second Strike"
-        "DOTA_Tooltip_Ability_lishuwen_no_second_strike_Description"			"<font color='#FFFAFA'>Passive</font>: All of Li Shuwen's abilities apply <font color='#FF0000'>Circulatory shock</font> effect on enemy.\n<font color='#FFFAFA'>Cast point: </font><font color='#7FFF00'>%cast_delay%</font>.\n\nPerforms a devastating blow on the target's body, inflicting <font color='#D1A951'>pure damage</font>, <font color='#FF3399'>stunning and revoking</font> the target for a short duration. \n\nAfter a short duration, the target takes extra <font color='#D1A951'>pure damage</font>.\nShock deals additional damage based on <font color='#FF0000'>Circulatory shock</font> stacks on the enemy.\n<font color='#F1C40F'>Upgradable by attributes: Circulatory shock and Shock paralysis</font>."
+        "DOTA_Tooltip_Ability_lishuwen_no_second_strike_Description"			"<font color='#FFFAFA'>Passive</font>: All of Li Shuwen's abilities apply <font color='#FF0000'>Circulatory shock</font> effect on enemy.\n<font color='#FFFAFA'>Cast point: </font><font color='#7FFF00'>%cast_delay%</font>.\n\nDashes forward, hitting all enemies on the way, inflicting <font color='#D1A951'>pure damage</font> and <font color='#FF3399'>stunning</font>. First target also gets   <font color='#FF3399'>revoked</font>  for a short duration. \n\nAfter a short duration, the main target takes extra <font color='#D1A951'>pure damage</font>.\nShock deals additional damage based on <font color='#FF0000'>Circulatory shock</font> stacks on the enemy.\n<font color='#F1C40F'>Upgradable by attributes: Circulatory shock and Shock paralysis</font>."
         "DOTA_Tooltip_Ability_lishuwen_no_second_strike_Lore"					"The swirl of Chi shatters its victim's inner system, bringing them sure death regardless of physical prowess."
         //"DOTA_Tooltip_Ability_lishuwen_no_second_strike_cast_delay"				"Cast Delay:"
         "DOTA_Tooltip_Ability_lishuwen_no_second_strike_initial_damage"			"Initial Damage:"
@@ -6127,7 +6128,7 @@
         "DOTA_Tooltip_Ability_lishuwen_attribute_circulatory_shock_stun_duration"		"Stun Duration: "
 
         "DOTA_Tooltip_Ability_lishuwen_attribute_improve_martial_arts"					"Attribute: Improve Martial Arts"
-        "DOTA_Tooltip_Ability_lishuwen_attribute_improve_martial_arts_Description"		"Presence Concealment has increased charges and deals more damage. While under Presence Concealment, No Second Strike's has increased cooldown recovery speed. Li Shuwen's attacks burns mana."
+        "DOTA_Tooltip_Ability_lishuwen_attribute_improve_martial_arts_Description"		"Presence Concealment has increased charges and deals more damage.\n While under Presence Concealment, No Second Strike's has increased cooldown recovery speed.\nLi Shuwen's attacks and Fierce Tiger Strikes burn mana, dealing additional physical damage equal to mana burned."
 
         "DOTA_Tooltip_Ability_lishuwen_attribute_improve_martial_arts_bonus_attack"		"NUMBER OF ATTACKS:"
         "DOTA_Tooltip_Ability_lishuwen_attribute_improve_martial_arts_bonus_damage"		"%BONUS DAMAGE:"
@@ -6136,13 +6137,14 @@
         //"DOTA_Tooltip_Ability_lishuwen_attribute_improve_martial_arts_damage_percentage"	"%ADDITIONAL DAMAGE ON BASE ATTACK:"
 
         "DOTA_Tooltip_Ability_lishuwen_attribute_dual_class"				"Attribute: Dual Class"
-        "DOTA_Tooltip_Ability_lishuwen_attribute_dual_class_Description"	"Enables Berserk.\n<font color='#58ACFA'>Berserk:</font> Li Shuwen becomes enraged, removing all negative effects and Crowd Controls on himself and becoming immune to them for a short duration. This ability can be cast only when Li Shuwen is not revoked from Master.\nDuring this effect, Fierce Tiger Strikes damage changed to physical and can critical strike. Li Shuwen may not use No Second Strike during this effect."
+        "DOTA_Tooltip_Ability_lishuwen_attribute_dual_class_Description"	"Enables Berserk.\n<font color='#58ACFA'>Berserk:</font>  Li Shuwen becomes <font color='#B60A1A'>enraged</font>, <font color='#FF9900'>removing all negative and crowd control effects</font> on himself and becoming <font color='#FF9900'>immune</font> to them for a short duration.\n\n Li Shuwen gains <font color='#FFFAFA'>critical strike chance</font> which increased based on his <font color='#FF0000'>strength</font>. \n\nThis ability can be cast only when Li Shuwen is <font color='#FF3399'>not revoked</font> from Master.\n\nDuring this effect, Fierce Tiger Strikes have <font color='#FFFAFA'>increased attack damage scaling</font>. \n\nLi Shuwen <font color='#FFFAFA'>may not use No Second Strike</font> during this effect."
 
         "DOTA_Tooltip_Ability_lishuwen_attribute_dual_class_duration"				"DURATION:"
         "DOTA_Tooltip_Ability_lishuwen_attribute_dual_class_cc_immune_duration"		"IMMUNITY DURATION:"
         "DOTA_Tooltip_Ability_lishuwen_attribute_dual_class_critical_chance"		"%CRITICAL CHANCE:"
         "DOTA_Tooltip_Ability_lishuwen_attribute_dual_class_str_critical_bonus"		"CRITICAL CHANCE PER STR:"
         "DOTA_Tooltip_Ability_lishuwen_attribute_dual_class_critical_damage"		"%CRITICAL DAMAGE:"
+        "DOTA_Tooltip_Ability_lishuwen_attribute_dual_class_fts_damage_skale_pct"	"%DAMAGE FROM ATK ON TIGER STRIKE:"
         "DOTA_Tooltip_Ability_lishuwen_attribute_dual_class_Note0"					"Berserk cannot be dispelled."
         "DOTA_Tooltip_Ability_lishuwen_attribute_dual_class_Note1"					"Purge only upon activation. CC applied after is ignored for its duration."
 

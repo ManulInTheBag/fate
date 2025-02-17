@@ -217,7 +217,9 @@ function OnBloodfortStart(keys)
 					Timers:CreateTimer(0.15, function()
 						v:Stop()
 					end)
-					ability:ApplyDataDrivenModifier(caster,v, "modifier_bloodfort_seal", {})
+						giveUnitDataDrivenModifier(caster, v, "rooted", 0.3)
+						giveUnitDataDrivenModifier(caster, v, "locked", 0.3)
+					--ability:ApplyDataDrivenModifier(caster,v, "modifier_bloodfort_seal", {})
 				end
 			end
 	    end

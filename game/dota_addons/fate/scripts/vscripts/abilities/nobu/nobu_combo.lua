@@ -56,6 +56,7 @@ function nobu_combo:AttackEnemy()
     giveUnitDataDrivenModifier(hCaster, hCaster, "jump_pause", 3)
     target:RemoveModifierByName("modifier_nobu_combo_mark")
     giveUnitDataDrivenModifier(hCaster, target, "modifier_nobu_combo_stun", 3)
+    target:AddNewModifier(hCaster,self, "modifier_kb_immune", {duration = 3})
     local sin = Physics:Unit( target)
     Timers:CreateTimer( 0.40, function()
         if(hCaster:IsAlive() == false) then return end

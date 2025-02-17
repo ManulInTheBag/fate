@@ -165,7 +165,7 @@ function OnBashSuccess(keys)
 		DoDamage(caster, target, bash_damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
 	    target:AddNewModifier(caster, target, "modifier_stunned", {Duration = 0.75})
 	else
-		DoDamage(caster, target, bash_damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+		--DoDamage(caster, target, bash_damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
 	end
 end
 

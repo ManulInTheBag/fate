@@ -36,6 +36,7 @@ local spellBooks = {
 	"vlad_rebellious_intent",
 	"hijikata_laws",
 	"aoko_swap",
+	"avenger_demon_core",
 }
 
 tamamo_amaterasu = class({})

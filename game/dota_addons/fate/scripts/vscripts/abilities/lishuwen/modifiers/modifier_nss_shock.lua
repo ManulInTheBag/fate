@@ -16,9 +16,14 @@ end
 function modifier_nss_shock:OnDestroy()
 	if IsServer() then
 		local target = self:GetParent()
-
+		
 		target:EmitSound("Hero_Oracle.FalsePromise.Damaged")
-		DoDamage(self:GetCaster(), target, self.ShockDamage, DAMAGE_TYPE_PURE, 0, self:GetAbility(), false)
+
+		if self:GetCaster():HasModifier("modifier_berserk") then
+			DoDamage(self:GetCaster(), target, self.ShockDamage, DAMAGE_TYPE_PHYSICAL, 0, self:GetAbility(), false)
+		else
+			DoDamage(self:GetCaster(), target, self.ShockDamage, DAMAGE_TYPE_PURE, 0, self:GetAbility(), false)
+		end
 	end
 end
 

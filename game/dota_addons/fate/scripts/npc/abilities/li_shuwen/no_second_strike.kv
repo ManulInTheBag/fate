@@ -12,7 +12,7 @@
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"2"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
@@ -20,13 +20,17 @@
 		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
 		"AbilityTextureName"			"custom/lishuwen_no_second_strike"
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_4"
-		"AnimationPlaybackRate" 		"0.4"
+		"AnimationPlaybackRate" 		"0.35"
 		"precache"
 		{
 			"particle"			"particles/custom/lishuwen/lishuwen_no_second_strike_windup.vpcf"
 			"particle"			"particles/units/heroes/hero_earthshaker/earthshaker_echoslam_start_fallback_mid.vpcf"
 			"particle"			"particles/custom/lishuwen/lishuwen_no_second_strike_hit.vpcf"
 			"particle"			"particles/custom/lishuwen/lishuwen_no_second_strike_windup.vpcf"
+			"particle"			"particles/custom_game/heroes/saitama/saitama_windup.vpcf"
+			"particle"			"particles/custom_game/heroes/kenshiro/kenshiro_ganzan_hit/kenshiro_ganzan_hit_j.vpcf"
+			"particle"			"particles/zlodemon/shuwen_jopa_1.vpcf"
+			"particle"			"particles/zlodemon/shuwen_jopa_2.vpcf"
 			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_nyx_assassin.vsndevts"
 			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_bloodseeker.vsndevts"
 			"soundfile"			"soundevents/game_sounds_heroes/game_sounds_spirit_breaker.vsndevts"
@@ -35,9 +39,9 @@
 		
 		// Ability stats
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"150"
-		"AbilityCastRangeBuffer"		"50"
-		"AbilityCastPoint"				"0.65"
+		"AbilityCastRange"				"600"
+		"AbilityCastRangeBuffer"		"300"
+		"AbilityCastPoint"				"0.55"
 		"AbilityCooldown"				"22"
 		"AbilityManaCost"				"800"
 		
@@ -45,7 +49,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
         {
-            "cast_delay" "0.65"
+            "cast_delay" "0.55"
             "initial_damage" "300 350 400 450 500"
             "stun_duration" "0.5"
             "revoke_duration" "2.00"

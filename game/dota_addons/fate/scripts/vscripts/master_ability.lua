@@ -82,7 +82,7 @@ end
 
 function ResetItems(hero)
 	-- Reset all items
-	for i=0, 14 do
+	for i=0, 16 do
 		local item = hero:GetItemInSlot(i) 
 		if item ~= nil then
 			item:EndCooldown()

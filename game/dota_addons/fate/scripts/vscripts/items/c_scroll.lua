@@ -11,7 +11,6 @@ function item_c_scroll:OnSpellStart()
     vector.z = 0
     local speed = 1800
 	caster.ServStat:useC()
-
 	local tProjectile = {
         EffectName = "particles/zlodemon/c_scroll.vpcf" ,
         Ability = self,
