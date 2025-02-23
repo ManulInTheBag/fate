@@ -20,7 +20,7 @@ end
 
 function karna_brahmastra_new:OnAbilityPhaseStart()
 	local caster = self:GetCaster()
-	StartAnimation(caster, {duration=0.9, activity=ACT_DOTA_CAST_DRAGONBREATH, rate=1})
+	StartAnimation(caster, {duration=0.7, activity=ACT_DOTA_CAST_DRAGONBREATH, rate=1.6})
 end
 
 function karna_brahmastra_new:OnAbilityPhaseInterrupted()

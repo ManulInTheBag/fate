@@ -61,6 +61,7 @@ function aoko_blue:OnSpellStart()
 	giveUnitDataDrivenModifier(caster, caster, "pause_sealdisabled", 7.5)
 	caster:AddNewModifier(caster, self, "modifier_aoko_blue_fx", {duration = 8.5, targetexists = (target and 1 or 0), target = (target and target:entindex() or 0)})
 
+	--[[
 	local enemy = PickRandomEnemy(caster)
 
     if enemy then
@@ -69,7 +70,7 @@ function aoko_blue:OnSpellStart()
 
     AddFOWViewer(2, caster:GetAbsOrigin(), 40, 3.3, false)
 	AddFOWViewer(3, caster:GetAbsOrigin(), 40, 3.3, false)
-
+	]]
 	Timers:CreateTimer(7.5, function()
 		if not caster:IsAlive() then return end
 
@@ -153,9 +154,10 @@ function modifier_aoko_blue_fx:OnCreated(args)
 		if target then
 			self.runes_fx_2 = ParticleManager:CreateParticle("particles/aoko/aoko_blue_runes_target.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
 			ParticleManager:SetParticleControl(self.runes_fx_2, 0, target:GetAbsOrigin())
-
+			--[[
 			AddFOWViewer(2, target:GetAbsOrigin(), 40, 7.5, false)
 			AddFOWViewer(3, target:GetAbsOrigin(), 40, 7.5, false)
+			]]
 		end
 
 		Timers:CreateTimer(1.2, function()
@@ -250,10 +252,10 @@ function modifier_aoko_blue_fx:OnCreated(args)
 
 			self.flowers_fx = ParticleManager:CreateParticle("particles/aoko/aoko_blue_flowers.vpcf", PATTACH_ABSORIGIN, caster)
 			ParticleManager:SetParticleControl(self.flowers_fx, 9, caster:GetAbsOrigin())
-
+			--[[
 			AddFOWViewer(2, caster:GetAbsOrigin(), 40, 4.3, false)
 			AddFOWViewer(3, caster:GetAbsOrigin(), 40, 4.3, false)
-
+			]]
 			Timers:CreateTimer(4.3, function()
 				ParticleManager:DestroyParticle(self.flowers_fx, false)
 				ParticleManager:ReleaseParticleIndex(self.flowers_fx)

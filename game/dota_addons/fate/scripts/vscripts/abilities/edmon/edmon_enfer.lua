@@ -59,6 +59,8 @@ function modifier_edmon_enfer:OnCreated()
 		ParticleManager:SetParticleControl(self.fx, 0, self.parent:GetAbsOrigin())
 		self:AddParticle(self.fx, false, false, -1, false, false)
 
+		self.pepega = false
+
         self.targetpos = self.parent:GetAbsOrigin() + self.parent:GetForwardVector()*self.ability:GetSpecialValueFor("range")
 
 		self:StartIntervalThink(FrameTime())
@@ -334,11 +336,10 @@ function modifier_edmon_enfer:Rush(me, dt)
     self.parent:SetOrigin(target)
     --self.parent:SetForwardVector(direction:Normalized())
 
-    local pepeg = false
     local unitGroup = FindUnitsInRadius(self.parent:GetTeam(), target, nil, 175, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
     for i = 1, #unitGroup do
-    	if not pepeg then
-    		pepeg = true
+    	if not self.pepega then
+    		self.pepega = true
 			self:BOOM(unitGroup[i])
 			self:Destroy()
 		end

@@ -41,7 +41,7 @@ if IsServer() then
 			end
 		end
 
-		parent:SetHealth(self.LockedHealth)
+		--parent:SetHealth(self.LockedHealth)
 	end
 
 	function modifier_heracles_berserk:OnTakeDamage(args)
@@ -73,8 +73,14 @@ function modifier_heracles_berserk:DeclareFunctions()
 			 MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
 			 --MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
 			 MODIFIER_PROPERTY_BASEDAMAGEOUTGOING_PERCENTAGE,
-			 MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE }
+			 MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
+			 MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE }
 end
+
+function modifier_heracles_berserk:GetModifierIncomingDamage_Percentage() 
+	return -40
+end
+
 
 function modifier_heracles_berserk:GetModifierBaseDamageOutgoing_Percentage()
 	local bonus_damage = 0

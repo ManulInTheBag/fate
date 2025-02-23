@@ -106,7 +106,7 @@ function gawain_excalibur_galatine_combo:OnSpellStart()
     if caster.IsSoVAcquired then
         damage = damage + 1250
         local bonus_damage = 333
-        fireTrailDuration = fireTrailDuration + 3
+        fireTrailDuration = fireTrailDuration + 1.5
     end
 
     Timers:CreateTimer(3.5, function() --explosion part

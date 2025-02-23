@@ -2409,7 +2409,7 @@
 		"DOTA_Tooltip_ability_cu_chulain_rune_of_disengage_Note1"		"Applies a hard dispel when activated."
 
 		"DOTA_Tooltip_Ability_cu_chulain_rune_of_combat"				"Rune of Combat"
-		"DOTA_Tooltip_ability_cu_chulain_rune_of_combat_Description"	"Activate a rune which augments Cu Chulainn's combat ability for %duration% seconds. While active, Cu Chulainn gains more damage on every attack and stuns his enemy for %stun_dur% seconds on every 4th attack."
+		"DOTA_Tooltip_ability_cu_chulain_rune_of_combat_Description"	"Activate a rune which augments Cu Chulainn's combat ability for %duration% seconds. While active, Cu Chulainn gains more damage on every attack."
 		"DOTA_Tooltip_ability_cu_chulain_rune_of_combat_Lore"			"A rune which raises Cu Chulainn's physical strength, allowing him to match his opponent despite the disadvantages."
 		//"DOTA_Tooltip_ability_cu_chulain_rune_of_combat_duration"		"Duration:"
 		"DOTA_Tooltip_ability_cu_chulain_rune_of_combat_bonus_atk"		"%Bonus Attack:"
@@ -3322,7 +3322,7 @@
 		//"DOTA_Tooltip_ability_heracles_courage_Note0"				"Courage buff cannot be dispelled."
 
 		"DOTA_Tooltip_Ability_heracles_berserk"					"Berserk"
-		"DOTA_Tooltip_ability_heracles_berserk_Description"		"Heracles runs into prerogative rage his health cannot be changed. During duration, Heracles does not take harm from any damage unless it is fatal. \nApplies <font color='#FF0000'>Berserked</font> status to the other abilities. \n While berserk is active Heracles gain bonus damage, attack and movement speed depending on how low his health percentage was on cast. The following bonuses are capped at 20%.\nWhen casted, Heracles deals 100 + 15% of his maximum health as <font color='#58ACFA'>magical</font> damage in 300 radius around him.\nCan be casted while stunned and silenced.\nHard cleanes heracles upon finishing cast."
+		"DOTA_Tooltip_ability_heracles_berserk_Description"		"Heracles runs into prerogative rage, gaining 40%% damage reduction. \nApplies <font color='#FF0000'>Berserked</font> status to the other abilities. \n While berserk is active Heracles gain bonus damage, attack and movement speed depending on how low his health percentage was on cast. The following bonuses are capped at 20%.\nWhen casted, Heracles deals 100 + 15% of his maximum health as <font color='#58ACFA'>magical</font> damage in 300 radius around him.\nCan be casted while stunned and silenced.\nHard cleanes heracles upon finishing cast."
 		"DOTA_Tooltip_ability_heracles_berserk_Lore"				"Pain is trivial matter to the raging juggernaut in the heat of battle."
 		"DOTA_Tooltip_ability_heracles_berserk_bns_att_spd"			"Bonus Attack Speed: "
 		"DOTA_Tooltip_ability_heracles_berserk_health_constant"		"%MINIMUM HEALTH LOCK:"
@@ -5080,7 +5080,7 @@
 		"DOTA_Tooltip_Ability_atalanta_roar_base_stacks"	"Curse stack count:"
 
 		"DOTA_Tooltip_Ability_atalanta_ora"	"Attack of the Beast"
-		"DOTA_Tooltip_Ability_atalanta_ora_Description"	"Atalanta enters enraged state, significantly increasing her attack speed, attack range and dealing additional magic damage with her attacks.\nDeals 1 additional damage per curse stack."
+		"DOTA_Tooltip_Ability_atalanta_ora_Description"	"Atalanta enters enraged state, significantly increasing her attack speed, attack range and dealing additional magic damage with her attacks.\nDeals 0.25 additional damage per curse stack."
 		"DOTA_Tooltip_Ability_atalanta_ora_duration"	"Duration:"
 		"DOTA_Tooltip_Ability_atalanta_ora_base_damage"	"Base damage:"
 		"DOTA_Tooltip_Ability_atalanta_ora_as_bonus"	"Attackspeed bonus:"
@@ -5708,7 +5708,7 @@
         "DOTA_Tooltip_ability_gawain_heat_radius"			"Area of Effect:"
 
 		"DOTA_Tooltip_ability_gawain_blade_of_the_devoted"					"Blade of the Devoted"
-        "DOTA_Tooltip_ability_gawain_blade_of_the_devoted_Description"		"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>Immediate</font>\nGawain enchants his blade. On his next attack, it deals bonus <font color='#58ACFA'>damage</font>, <font color='#FF3399'>stuns</font> the target for a duration and creates an <font color='#FDB813'>Artificial sun</font> above target's head.\nSubsequent attacks will <font color='#FF3399'>mini-stun</font> his target.\nGawain has increased <font color='#ff9900'>movement speed</font> and <font color='#A72E28'>damage</font> while this effect persist."
+        "DOTA_Tooltip_ability_gawain_blade_of_the_devoted_Description"		"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>Immediate</font>\nGawain enchants his blade. On his next attack, it deals bonus <font color='#58ACFA'>damage</font>, <font color='#FF3399'>stuns</font> the target for a duration and creates an <font color='#FDB813'>Artificial sun</font> above target's head.\nGawain has increased <font color='#ff9900'>movement speed</font> and <font color='#A72E28'>damage</font> while this effect persist."
         "DOTA_Tooltip_ability_gawain_blade_of_the_devoted_Lore"				""
         "DOTA_Tooltip_ability_gawain_blade_of_the_devoted_damage"			"Damage:"
         "DOTA_Tooltip_ability_gawain_blade_of_the_devoted_sub_damage"		"Bonus Damage:"
@@ -5770,7 +5770,7 @@
 		//"DOTA_Tooltip_ability_gawain_attribute_res_sov_fire_trail_duration"	"Bonus Fire Trail Duration:"
 
         "DOTA_Tooltip_Ability_gawain_attribute_belt"					"Attribute: Belt of Bertilak"
-		"DOTA_Tooltip_ability_gawain_attribute_belt_Description"		"After <font color='#58ACFA'>Sun of Galatine</font> explosion, Gawain will set up a delayed explosive  <font color='#ff9900'>runes</font> on the ground around himself.\nAfter a delay  <font color='#ff9900'>runes</font> will explode, dealing  <font color='#58ACFA'>damage</font>, based on <font color='#58ACFA'>Sun of Galatine</font> channel time, up to a half of its <font color='#58ACFA'>damage</font>.\nExplosion <font color='#FF3399'>mini-stuns</font> enemies."
+		"DOTA_Tooltip_ability_gawain_attribute_belt_Description"		"After <font color='#58ACFA'>Sun of Galatine</font> explosion, Gawain will set up a delayed explosive  <font color='#ff9900'>runes</font> on the ground around himself.\nAfter a delay  <font color='#ff9900'>runes</font> will explode, dealing  <font color='#58ACFA'>damage</font>, based on <font color='#58ACFA'>Sun of Galatine</font> channel time, up to a half of its <font color='#58ACFA'>damage</font>.\nExplosion <font color='#FF3399'>mini-stuns</font> enemies.\nBlade of the devoted deals aoe damage around target."
 		 "DOTA_Tooltip_ability_gawain_attribute_belt_explosion_aoe"		"Explosion aoe:"
 		 "DOTA_Tooltip_ability_gawain_attribute_belt_explosion_delay"		"Explosion delay:"
 		//"DOTA_Tooltip_ability_gawain_attribute_belt_blade_aoe"			"Blade of the Devoted AOE:"
@@ -7976,7 +7976,7 @@
         "DOTA_Tooltip_ability_karna_push_stun_duration"						"Stun duration:"
 
         "DOTA_Tooltip_ability_karna_brahmastra_new"							"Brahmastra"
-        "DOTA_Tooltip_ability_karna_brahmastra_new_Description"			"Cast point: <font color='#FFFFF9'>0.4</font>s\nKarna shoots Brahmastra in cone in a targetted direction, dealing <font color='#58ACFA'>magical</font> damage on hit and applying a <font color='#9400D3'>slow</font> debuff."
+        "DOTA_Tooltip_ability_karna_brahmastra_new_Description"			"Cast point: <font color='#FFFFF9'>0.2</font>s\nKarna shoots Brahmastra in cone in a targetted direction, dealing <font color='#58ACFA'>magical</font> damage on hit and applying a <font color='#9400D3'>slow</font> debuff."
         "DOTA_Tooltip_ability_karna_brahmastra_new_damage"							"Damage:"
         "DOTA_Tooltip_ability_karna_brahmastra_new_slow_percentage"					"%Slow:"
         "DOTA_Tooltip_ability_karna_brahmastra_new_slow_duration"					"Slow duration:"
@@ -8291,7 +8291,7 @@
 		"DOTA_Tooltip_modifier_murderer_mist_slow_Description"	"Slowed"
 
         "DOTA_Tooltip_ability_jtr_maria_the_ripper"						"Maria the Ripper"
-        "DOTA_Tooltip_ability_jtr_maria_the_ripper_Description"			"Jack reproduces the sublimation of her murder on the streets of London. Performs four quick attacks on the target dealing pure damage on each hit. Female targets take additional damage Jack is invulnerable while attacking. \nThis ability has reduced cast point if used while under the effect of Murderer of the Misty Night or The Whitechapel Murderer. \nUpgradeable by attribute Efficient Killer: iIf it is night, it is misty and the target is female, Jack will use the faster version of Maria the Ripper.\nWhile under effect of <font color='#FF0000'>Bloody Thirst</font> this ability has 300%% cooldown recovery speed."
+        "DOTA_Tooltip_ability_jtr_maria_the_ripper_Description"			"Jack reproduces the sublimation of her murder on the streets of London. Performs four quick attacks on the target dealing pure damage on each hit. Female targets take additional damage Jack is taking 30%% less damage while attacking. \nThis ability has reduced cast point if used while under the effect of Murderer of the Misty Night or The Whitechapel Murderer. \nUpgradeable by attribute Efficient Killer: iIf it is night, it is misty and the target is female, Jack will use the faster version of Maria the Ripper.\nWhile under effect of <font color='#FF0000'>Bloody Thirst</font> this ability has 300%% cooldown recovery speed."
         "DOTA_Tooltip_ability_jtr_maria_the_ripper_cast_point"			"Cast Time:"
         "DOTA_Tooltip_ability_jtr_maria_the_ripper_reduced_cast_point"	"Reduced Cast Time:"
         "DOTA_Tooltip_ability_jtr_maria_the_ripper_cast_range"			"Cast Range:"

@@ -204,6 +204,7 @@ end
  
 if(caster:HasModifier("modifier_muramasa_dance_controller")) then -- check for Q cast
     damage = damage * self:GetCaster():FindAbilityByName("muramasa_dance"):GetSpecialValueFor("dmg_mod")/100
+    DoDamage(caster, args.target, damage, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false) 
 end
 
 if caster.AppreciationOfSwordsAcquired then
@@ -219,8 +220,10 @@ if(stackCount > 0 ) then
     ParticleManager:SetParticleControl(explosionFx, 0, point)
 
  local targets = FindUnitsInRadius(caster:GetTeam(), point, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
-    for k,v in pairs(targets) do        
-        DoDamage(caster, v, damage, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)   
+    if(not caster:HasModifier("modifier_muramasa_dance_controller"))  then
+        for k,v in pairs(targets) do        
+            DoDamage(caster, v, damage, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)   
+        end
     end
     if( (stackCount - 1 )<= 0) then   
         self:SetStackCount(0)

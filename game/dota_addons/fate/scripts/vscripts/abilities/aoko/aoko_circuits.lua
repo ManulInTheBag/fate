@@ -158,11 +158,10 @@ function modifier_aoko_circuits_passive:RaiseStackCount(count)
 		else
 			self:SetStackCount(self:GetMaxStackCount())
 		end
+		stacks = self:GetStackCount()
 		if stacks >= 100 and not self.fullChargeSoundJopa then
 			LoopOverPlayers(function(player, playerID, playerHero)
-					print("jopa1")
 					if playerHero == self:GetParent() then
-						print("jopa2")
 						CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="aoko_aoko_full_charge_jopa"})
 						end
 				   end)

@@ -29,12 +29,13 @@ if IsServer() then
 		CustomNetTables:SetTableValue("sync","rune_of_combat_damage", { atk_bonus = self.BaseDamage })
 
 		local modifier = args.target:AddNewModifier(args.attacker, self:GetAbility(), "modifier_rune_of_combat_hit", { Duration = 3 })
-
+		--[[
 		if modifier then
 			if modifier:GetStackCount() % 4 < 1 then 
 				args.target:AddNewModifier(args.attacker, self:GetAbility(), "modifier_stunned", { Duration = 0.25})
 			end
 		end
+		]]
 	end
 end
 

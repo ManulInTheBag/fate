@@ -270,8 +270,8 @@ function modifier_aoko_intimidation_grab:OnCreated(args)
 
         self.targetpos = self.parent:GetAbsOrigin() + self.parent:GetForwardVector()*self.ability:GetSpecialValueFor("range")
 
-        self.enemy:AddNewModifier(self.parent, self.ability, "modifier_aoko_intimidation_grab_enemy", {duration = 0.75})
-        self.enemy:AddNewModifier(self.parent, self.ability, "modifier_stunned", {duration = 0.75}) -- DOUBLING THIS BECAUSE OF "STUNNED" ANIMATION, DO NOT REMOVE
+        self.enemy:AddNewModifier(self.parent, self.ability, "modifier_aoko_intimidation_grab_enemy", {duration = 0.8})
+        self.enemy:AddNewModifier(self.parent, self.ability, "modifier_stunned", {duration = 0.8}) -- DOUBLING THIS BECAUSE OF "STUNNED" ANIMATION, DO NOT REMOVE
 
         --[[self.hand_fx_1 = ParticleManager:CreateParticle("particles/aoko/aoko_intimidation_hands_trail.vpcf", PATTACH_ABSORIGIN, self.parent)
 		ParticleManager:SetParticleControl(self.hand_fx_1, 1, self.parent:GetAttachmentOrigin(self.parent:ScriptLookupAttachment("attach_attack1")))

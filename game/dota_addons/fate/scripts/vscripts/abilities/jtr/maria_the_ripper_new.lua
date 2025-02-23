@@ -3,6 +3,37 @@ jtr_mtr_new = class({})
 LinkLuaModifier("modifier_mtr_night_checker", "abilities/jtr/modifiers/modifier_mtr_night_checker", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_mtr_night_checker_tick", "abilities/jtr/modifiers/modifier_mtr_night_checker_tick", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_mtr_particle", "abilities/jtr/modifiers/modifier_mtr_particle", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_jtr_dmg_reduct", "abilities/jtr/maria_the_ripper_new", LUA_MODIFIER_MOTION_NONE)
+
+
+
+modifier_jtr_dmg_reduct = class({})
+
+function modifier_jtr_dmg_reduct:DeclareFunctions()
+	local funcs = {MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE,
+	   }
+
+	return funcs
+end
+
+
+
+
+
+function modifier_jtr_dmg_reduct:IsHidden() 
+	return true
+end
+
+function modifier_jtr_dmg_reduct:IsDebuff() 
+	return false
+end
+
+
+function modifier_jtr_dmg_reduct:GetModifierIncomingDamage_Percentage() 
+	return -30
+end
+
+
 
 function jtr_mtr_new:GetCastPoint()
 	if self:GetCaster():HasModifier("modifier_murderer_mist_invis") then
@@ -188,7 +219,8 @@ function jtr_mtr_new:NotTrue(caster, target)
 	caster:AddNewModifier(caster, nil, "modifier_phased", {duration = 1.1})
 	giveUnitDataDrivenModifier(caster, caster, "dragged", 1.0)
 	giveUnitDataDrivenModifier(caster, caster, "revoked", 1.0)
-	giveUnitDataDrivenModifier(caster, caster, "jump_pause", 1.1)
+	caster:AddNewModifier(caster, nil, "modifier_jtr_dmg_reduct", {duration = 1.1})
+	--giveUnitDataDrivenModifier(caster, caster, "jump_pause", 1.1)
 
     target:EmitSound("jtr_maria_slashes")
 	EmitGlobalSound("jtr_maria_the_ripper")

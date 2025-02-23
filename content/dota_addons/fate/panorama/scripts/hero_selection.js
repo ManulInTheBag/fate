@@ -144,7 +144,7 @@ function Snippet_PlayerPanel(playerId, rootPanel) {
 			var hexColor = "rgb(" + red + "," + green + "," + blue + ")";
 			panel.FindChildTraverse('SlotColor').style.backgroundColor = hexColor;
 		} else {
- 			panel.FindChildTraverse('SlotColor').style.backgroundColor = "black";
+ 			panel.FindChildTraverse('SlotColor').style.backgroundColor = "white";
 		}
 		//panel.FindChildTraverse('SlotColor').style.backgroundColor = GetHEXPlayerColor(playerId);
 		PlayerPanels[playerId] = panel;

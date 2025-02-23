@@ -31,9 +31,7 @@ if IsServer() then
 		local target = args.target
 		local ability = caster:FindAbilityByName("gawain_blade_of_the_devoted")
 		
-		if not target:IsMagicImmune() and not target:HasModifier("modifier_master_intervention") then
-	        		    target:AddNewModifier(caster, target, "modifier_stunned", {Duration = self.StunDuration})
-	    end
+
 
 		if caster.IsBeltAcquired then
 			local aoeTargets = FindUnitsInRadius(caster:GetTeam(), target:GetAbsOrigin(), nil, 250, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
@@ -41,9 +39,11 @@ if IsServer() then
 	        for k, v in pairs(aoeTargets) do
 	        	if v ~= target then
 	        		DoDamage(caster, v, self.Damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
-	        		if not target:IsMagicImmune() and not target:HasModifier("modifier_master_intervention") then
-	        		    target:AddNewModifier(caster, target, "modifier_stunned", {Duration = self.StunDuration})
-	        		end
+					if self.FirstHit then
+						if not target:IsMagicImmune() and not target:HasModifier("modifier_master_intervention") then
+							target:AddNewModifier(caster, target, "modifier_stunned", {Duration = self.StunDuration})
+						end
+					end
 	        	end
 	        end
 	        
@@ -56,6 +56,9 @@ if IsServer() then
 		end
 
 		if self.FirstHit then
+			if not target:IsMagicImmune() and not target:HasModifier("modifier_master_intervention") then
+				target:AddNewModifier(caster, target, "modifier_stunned", {Duration = self.StunDuration})
+			end
 			local soundQueue = math.random(1,3)
 			target:EmitSound("Hero_Invoker.ColdSnap")
 			caster:EmitSound("Gawain_Attack" .. soundQueue)
@@ -63,7 +66,7 @@ if IsServer() then
 			local sunAbility = caster:FindAbilityByName("gawain_artificial_sun")
 			sunAbility:GenerateArtificialSun(caster, target:GetAbsOrigin(), true, ability:GetName())
 			self.Damage = self.SubDamage
-			self.StunDuration = 0.01
+			self.StunDuration = 0
 			self.FirstHit = false
 		else
 			target:EmitSound("Hero_Invoker.ColdSnap.Freeze")

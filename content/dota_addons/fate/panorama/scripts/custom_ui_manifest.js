@@ -192,6 +192,13 @@ GameUI.CustomUIConfig().multiteam_top_scoreboard =
         // Team Container
         var teamScoreUI = UIRoot.FindChildTraverse("HUDElements").FindChildTraverse("scoreboard");
 
+        // roshtimer
+        var roshantimerUI = UIRoot.FindChildTraverse("HUDElements").FindChildTraverse("minimap_container").FindChildTraverse("RoshanTimerContainer");
+        roshantimerUI.style.visibility = "collapse";
+        // neutraltimer
+        var neutraltimerUI = UIRoot.FindChildTraverse("HUDElements").FindChildTraverse("lower_hud").FindChildTraverse("center_with_stats").FindChildTraverse("center_block").FindChildTraverse("inventory_composition_layer_container").FindChildTraverse("inventory_neutral_craft_holder");
+        neutraltimerUI.style.visibility = "collapse";
+
         teamScoreUI.style.height = "800px";
         teamScoreUI.style.marginLeft =  "60%";
         teamScoreUI.FindChildTraverse("Background").style.height = "800px";

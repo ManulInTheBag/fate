@@ -64,14 +64,21 @@ function nero_aestus_domus_aurea:OnSpellStart()
 	caster:SwapAbilities("nero_aestus_domus_aurea", "nero_heat", false, true)
 
 	giveUnitDataDrivenModifier(caster, caster, "locked", delay)
-
+	giveUnitDataDrivenModifier(caster, caster, "rooted", delay)
 	caster:AddNewModifier(caster, ability, "modifier_nero_aestus_cooldown", {Duration = self:GetCooldown(1)})
 	local masterCombo = caster.MasterUnit2:FindAbilityByName(ability:GetAbilityName())
 	masterCombo:EndCooldown()
 	masterCombo:StartCooldown(ability:GetCooldown(1))
-
+	local fxIndexjopa = ParticleManager:CreateParticle("particles/zlodemon/zlodemon_basic_circle.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
+	ParticleManager:SetParticleControl(fxIndexjopa, 0, caster:GetAbsOrigin())
+	ParticleManager:SetParticleControl(fxIndexjopa, 1, Vector(1,0.1,0.1))
+	ParticleManager:SetParticleControl(fxIndexjopa, 2, Vector(radius,delay,0))	
+	ParticleManager:SetParticleShouldCheckFoW(fxIndexjopa, false)
+	ParticleManager:ReleaseParticleIndex(fxIndexjopa)
 	Timers:CreateTimer(delay, function()
 		if caster:IsAlive() then
+
+
 			if caster.IsISAcquired then
 				HardCleanse(caster)
 			end		
