@@ -45,9 +45,9 @@ function saber_alter_max_mana_burst:OnSpellStart(keys)
 				ParticleManager:ReleaseParticleIndex(BlueSplashFx)
 			end)
 
-			local dmg = caster:GetMaxMana()*1.7
+			local dmg = caster:GetMaxMana()*1.3
 			if caster.IsManaBlastAcquired then
-				dmg = caster:GetMaxMana()*2.0
+				dmg = caster:GetMaxMana()*1.6
 			end
 			local finaldmg = dmg
 

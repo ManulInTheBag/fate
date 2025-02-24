@@ -161,6 +161,7 @@ function khsn_combo:StartCombo(hui)
                     if target:GetHealth() < self:GetSpecialValueFor("health_threshold")/100*target:GetMaxHealth() then
                         --[[target:AddNewModifier(caster, self, "modifier_death_door_pepeg", {duration = self:GetSpecialValueFor("sequence_duration"),
                                                                                             damage = damage})]]
+                        giveUnitDataDrivenModifier(caster, target, "can_be_executed", 0.033)
                         target:Execute(self, caster, { bExecution = true })
                     end
 

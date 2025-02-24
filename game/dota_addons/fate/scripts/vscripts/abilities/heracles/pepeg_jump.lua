@@ -28,7 +28,8 @@ function pepeg_jump:OnSpellStart()
     else
         local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 300, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_HERO, 0, FIND_CLOSEST, false)
         --print (targets[2])
-        if targets[2] then
+        if targets[2] and not IsKnockbackImmune(targets[2]) then 
+           
             targets[2]:AddNewModifier(caster, self, "modifier_pepeg_jump", {Berserked = false})
             LoopOverPlayers(function(player, playerID, playerHero)
                 --print("looping through " .. playerHero:GetName())

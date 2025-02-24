@@ -196,7 +196,7 @@ if IsServer() then
 		if (self.hCaster:GetHealth() < self.hCaster:GetMaxHealth()) then
 			local diff = self.hCaster:GetMaxHealth() - self.hCaster:GetHealth()
 			if args.gain < diff then return end
-			local shield_gain = diff - args.gain
+			local shield_gain = args.gain - diff
 			local percentage = shield_gain/self.fMaxBarrierBlock * 100
 			self:RestoreArmorPercentage(percentage)
 		else

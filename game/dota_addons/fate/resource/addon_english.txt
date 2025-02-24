@@ -4470,11 +4470,11 @@
         "DOTA_Tooltip_ability_avenger_true_form_duration"   "DURATION:"
 
         "DOTA_Tooltip_Ability_angra_mainyu_verg_avesta"					"Verg Avesta"
-        "DOTA_Tooltip_ability_angra_mainyu_verg_avesta_Description"		"Passive: Angra Mainyu stores his resentment, recording the amount of damage he had taken recently.\nActive: Angra Mainyu unleashes a curse of retribution on all marked enemies within %radius% radius around himself. After a %delay% second delay, all enemies affected will begin massive magical damage over a second, totalling in 3 damage instances.\nDamage is based on the total damage he had taken recently..\nDamage taken can be tracked on his Verg Avesta buff.\n\nUpgradable by attribute Demon Incarnate."
+        "DOTA_Tooltip_ability_angra_mainyu_verg_avesta_Description"		"Passive: Angra Mainyu enters state for the duration, in which he will return all damage he took to the enemies who inflicted it as <font color='#D1A951'>pure</font>.\nOnly enemies within %radius% radius around him are affected.\n\nUpgradable by attribute Demon Incarnate."
         "DOTA_Tooltip_ability_angra_mainyu_verg_avesta_Lore"			"The killer of mankind assumes the simplest rule of the world - Retribution."
         "DOTA_Tooltip_ability_angra_mainyu_verg_avesta_damage"			"Base damage:"
  		"DOTA_Tooltip_ability_angra_mainyu_verg_avesta_multiplier"		"%Damage Amplification:"
- 		"DOTA_Tooltip_ability_angra_mainyu_verg_avesta_reset_delay" 	"Duration until reset:"
+ 		"DOTA_Tooltip_ability_angra_mainyu_verg_avesta_reset_delay" 	"Duration:"
  		"DOTA_Tooltip_ability_angra_mainyu_verg_avesta_marker_duration" "Marker duration on enemy:"
  		"DOTA_Tooltip_Ability_angra_mainyu_verg_avesta_Note0"			"Damage added is after mitigation."
  		"DOTA_Tooltip_Ability_angra_mainyu_verg_avesta_Note1"			"Ignores Spirit Link."
@@ -4542,7 +4542,7 @@
         "DOTA_Tooltip_Ability_avenger_attribute_overdrive_max_aspd"			"%MAX ATTACK SPEED BONUS:"
 
         "DOTA_Tooltip_Ability_avenger_attribute_demon_incarnate"					"Attribute: Demon Incarnate"
-        "DOTA_Tooltip_ability_avenger_attribute_demon_incarnate_Description"		"While toggled on, Demon Core increases Verg Avesta damage.\nWhile toggled on, Demon Core reduces True Form's cooldown each second.\nVerga avesta now applies a 60%% slow on enemies on every hit."
+        "DOTA_Tooltip_ability_avenger_attribute_demon_incarnate_Description"		"Increases Verg Avesta damage.\nWhile toggled on, Demon Core reduces True Form's cooldown each second.\nVerg avesta now applies a 30%% slow on enemies on every hit for 0.5 seconds."
         "DOTA_Tooltip_Ability_avenger_attribute_demon_incarnate_return_bonus"		"%Damage Increase:"
         "DOTA_Tooltip_Ability_avenger_attribute_demon_incarnate_trueform_cdr"		"TRUE FORM COOLDOWN REDUCTION:"
 
@@ -8021,7 +8021,7 @@
 
 
 		"DOTA_Tooltip_ability_karna_spears_barrage"					"Lightning spears"
-		"DOTA_Tooltip_ability_karna_spears_barrage_Description" 	"Cast point: <font color='#FFFFF9'>0.8</font>s\nKarna summons spears over the target point, which after a short delay drop down, dealing <font color='#58ACFA'>magical</font> damage, <font color='#9400D3'>rooting</font> and <font color='#9400D3'>locking</font> all enemies hit."
+		"DOTA_Tooltip_ability_karna_spears_barrage_Description" 	"Cast point: <font color='#FFFFF9'>0.4</font>s\nKarna summons spears over the target point, which after a short delay drop down, dealing <font color='#58ACFA'>magical</font> damage, <font color='#9400D3'>rooting</font> and <font color='#9400D3'>locking</font> all enemies hit."
 		"DOTA_Tooltip_ability_karna_spears_barrage_damage" 				"Damage:"
 		"DOTA_Tooltip_ability_karna_spears_barrage_radius"			"Radius:"
 		"DOTA_Tooltip_ability_karna_spears_barrage_duration"			"Debuffs duration:"
@@ -8299,7 +8299,7 @@
 	"DOTA_Tooltip_ability_jtr_maria_the_ripper_female_damage"		"Additional damage to female servants:"
 
 	"DOTA_Tooltip_ability_jtr_mtr_new"						"Maria the Ripper"
-        "DOTA_Tooltip_ability_jtr_mtr_new_Description"			"Jack reproduces the sublimation of her murder on the streets of London. Performs three quick strikes and then a finishing blow on the target dealing pure damage on each hit. Each strike locks the target for 0.75 seconds. Jack is invulnerable while attacking.\nWhile under effect of <font color='#FF0000'>Bloody Thirst</font> this ability has 300%% cooldown recovery speed."
+        "DOTA_Tooltip_ability_jtr_mtr_new_Description"			"Jack reproduces the sublimation of her murder on the streets of London. Performs three quick strikes and then a finishing blow on the target dealing pure damage on each hit.\nEach strike locks the target for 0.75 seconds.\nJack is taking 30%% less damage while attacking.\nWhile under effect of <font color='#FF0000'>Bloody Thirst</font> this ability has 300%% cooldown recovery speed."
         "DOTA_Tooltip_ability_jtr_mtr_new_cast_range"			"Cast Range:"
         "DOTA_Tooltip_ability_jtr_mtr_new_damage_per_hit"		"Damage Per Hit:"
 	"DOTA_Tooltip_ability_jtr_mtr_new_final_damage"		"Finishing Blow Damage:"
@@ -8396,7 +8396,7 @@
 
 		//Shadowslash
 		"DOTA_Tooltip_ability_saito_shadowslash"													"Shadowslash"
-		"DOTA_Tooltip_ability_saito_shadowslash_Description"										"Saitō slashes all enemies around him and pulls the enemies towards him, dealing damage. After a short delay, a burst of secondary damage is applied to the targets, mini-stunning and dealing %burst_damage_pct%%% of this ability's damage to all enemies within a %burst_radius% units around the hit targets.\nLinked in level with <font color='#0075B5'>Flashblade</font> and <font color='#0075B5'>Steelwing</font>.\nThis ability's initial damage and pull radius will decrease gradually if used %repeat_halver_count_need% or more times in a row.\n\n<font color='#87C9AC'>Upgradable with Attribute: Swords of Freedom and Invincible Sword</font>."
+		"DOTA_Tooltip_ability_saito_shadowslash_Description"										"Saitō slashes all enemies around him and pulls the enemies towards him, dealing damage. After a short delay, a burst of secondary damage is applied to the targets, mini-stunning and dealing %burst_damage_pct%%% of this ability's damage to enemy again.\nLinked in level with <font color='#0075B5'>Flashblade</font> and <font color='#0075B5'>Steelwing</font>.\nThis ability's initial damage and pull radius will decrease gradually if used %repeat_halver_count_need% or more times in a row.\n\n<font color='#87C9AC'>Upgradable with Attribute: Swords of Freedom and Invincible Sword</font>."
 		"DOTA_Tooltip_ability_saito_shadowslash_Lore"												"Light-speed assault invisible to the naked eye."
 		"DOTA_Tooltip_ability_saito_shadowslash_AbilityCastPoint"									"CAST POINT:"
 		"DOTA_Tooltip_ability_saito_shadowslash_pull_radius"										"PULL RADIUS:"

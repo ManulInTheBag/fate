@@ -658,7 +658,7 @@ function OnDIAcquired(keys)
     local hero = caster:GetPlayerOwner():GetAssignedHero()
     hero.IsDIAcquired = true
     hero:FindAbilityByName("angra_mainyu_demon_incarnate_passive"):SetLevel(1)
-
+	
     -- Set master 1's mana 
     local master = hero.MasterUnit
     master:SetMana(master:GetMana() - keys.ability:GetManaCost(keys.ability:GetLevel()))

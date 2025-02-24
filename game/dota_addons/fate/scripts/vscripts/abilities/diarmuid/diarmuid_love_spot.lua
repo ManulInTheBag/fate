@@ -8,6 +8,7 @@ LinkLuaModifier("modifier_love_spot_charmed", "abilities/diarmuid/modifiers/modi
 function diarmuid_love_spot:OnSpellStart()
 	local caster = self:GetCaster()
 	local target  = self:GetCursorTarget()
+	if IsSpellBlocked(target) then return end -- Linken effect checker
 	local forcemove = {
 		UnitIndex = nil,
 		OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION ,

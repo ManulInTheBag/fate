@@ -1399,6 +1399,7 @@ function saito_shadowslash:OnSpellStart()
         for _, hEntity in pairs(hEntities) do
             if IsNotNull(hEntity)
                 and hEntity:IsAlive() then --Just checker for not to blow around dead enemies.
+                    --[[
                 local hEntities2 = FindUnitsInRadius(
                                                         nCasterTeam,
                                                         hEntity:GetAbsOrigin(),
@@ -1422,6 +1423,13 @@ function saito_shadowslash:OnSpellStart()
                         self:PullTargetEffect(hEntity2, vEntLoc)
                     end
                 end
+                ]]
+                local vEntLoc = hEntity:GetAbsOrigin()
+                giveUnitDataDrivenModifier(hCaster, hEntity, "stunned", nBurstStunDuration)
+
+                DoDamage(hCaster, hEntity, nBurstDamage, nDamageType, DOTA_DAMAGE_FLAG_NONE, hAbility, false)
+                --=================================--
+                self:PullTargetEffect(hEntity, vEntLoc)
             end
         end
     end)

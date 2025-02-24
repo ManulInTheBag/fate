@@ -73,7 +73,7 @@ function emiya_combo:OnSpellStart()
 		
 		local centerpos = caster:GetAbsOrigin() + caster:GetForwardVector()*700
 		local enemypos = enemy:GetAbsOrigin()
-		giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 0.7)
+		giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 1)
 		local knockback2 = { should_stun = true,
 			knockback_duration = 0.2,
 			duration = 0.5,
@@ -89,7 +89,7 @@ function emiya_combo:OnSpellStart()
 		StartAnimation(caster, {duration=0.2, activity=ACT_ALIEN_BURROW_OUT, rate=2})
 	
 	end)
-	Timers:CreateTimer(2.3, function()
+	Timers:CreateTimer(2.6, function()
 		if caster:IsAlive() then 
 			caster:MoveToTargetToAttack(enemy)
 			local enemypos = enemy:GetAbsOrigin()
@@ -113,7 +113,7 @@ function emiya_combo:OnSpellStart()
 								false)
 				for _,enemy in pairs(enemies) do
 					DoDamage(caster, enemy, first_damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
-					giveUnitDataDrivenModifier(caster, enemy, "stunned", 2)
+					giveUnitDataDrivenModifier(caster, enemy, "stunned", 1.7)
 				end
 			--end
 		end
