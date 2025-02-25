@@ -48,7 +48,7 @@ function modifier_atalanta_ora:OnAttackLanded(args)
     ParticleManager:SetParticleControl( slashFx, 1, self.parent:GetAbsOrigin())
    
    DoDamage(args.attacker, args.target, self.ability:GetSpecialValueFor("base_damage") +
-    (args.target:HasModifier("modifier_atalanta_curse") and args.target:FindModifierByName("modifier_atalanta_curse"):GetStackCount() * 0.25 or 0),
+    (args.target:HasModifier("modifier_atalanta_curse") and args.target:FindModifierByName("modifier_atalanta_curse"):GetStackCount() * 0 or 0),
      DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
 end
 function modifier_atalanta_ora:GetModifierAttackSpeedBonus_Constant()
