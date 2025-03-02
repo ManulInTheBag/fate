@@ -1238,10 +1238,13 @@ end
 --     end
 --     return self.BaseClass.GetCastRange(self, vLocation, hTarget) * nScale
 -- end
+
 function leonidas_pride:GetBehavior()
     local hCaster = self:GetCaster()
     local nBonus  = DOTA_ABILITY_BEHAVIOR_NONE
     local nBonus2 = DOTA_ABILITY_BEHAVIOR_NONE
+
+
     if IsNotNull(hCaster) then
         -- nBonus = hCaster:HasModifier("modifier_leonidas_berserk")
         --          and DOTA_ABILITY_BEHAVIOR_UNIT_TARGET
@@ -1280,6 +1283,16 @@ function leonidas_pride:OnSpellStart()
     local hTarget = self:GetCursorTarget()
     --local vPoint  = self:GetCursorPosition() + hCaster:GetForwardVector()
     local nCounterDuration =  self:GetSpecialValueFor("counter_duration")
+   
+
+    self:EndCooldown()
+
+    Timers:CreateTimer(0.5, function()
+        if hCaster:GetAbilityByIndex(2):GetName() == "leonidas_pride"   and   hCaster:HasModifier("modifier_leonidas_pride_counter")  then
+			hCaster:SwapAbilities("leonidas_pride", "leonidas_pride_release", false, true)
+		end
+    
+    end)
     EmitGlobalSound("Leonidas.Pride.Cast.2")
     hCaster:AddNewModifier(hCaster, self, "modifier_leonidas_pride_counter", {duration = nCounterDuration, nCounterResist = self:GetSpecialValueFor("counter_resist")})
     --=================================--
@@ -1352,6 +1365,15 @@ function leonidas_pride:OnSpellStart()
     hCaster:AddNewModifier(hCaster, self, "modifier_leonidas_enomotia_shield", {duration = nCounterDuration, nDamageBlock = barrier})
     hCaster:AddNewModifier(hCaster, self, "modifier_leonidas_enomotia_ignore_motion_controll", {duration = nCounterDuration})
     --=================================--
+    --[[
+    local bCasterBerserked = hCaster:HasModifier("modifier_leonidas_berserk")
+    if bCasterBerserked then
+        hCaster:AddNewModifier(hCaster, self, "modifier_silence", {duration = nCounterDuration})
+        hCaster:AddNewModifier(hCaster, self, "modifier_disarmed", {duration = nCounterDuration})
+    else
+        hCaster:AddNewModifier(hCaster, self, "modifier_merlin_self_pause", {Duration = nCounterDuration}) 
+    end
+    ]]
     hCaster:AddNewModifier(hCaster, self, "modifier_merlin_self_pause", {Duration = nCounterDuration}) 
     ---- lock leonidas + add recast to stop shieldwall
     StartAnimation(hCaster, {duration=nCounterDuration, activity=ACT_DOTA_CHANNEL_ABILITY_7, rate=1}) 
@@ -1734,9 +1756,14 @@ function modifier_leonidas_pride_counter:OnDestroy()
        -- self.hParent:SwapAbilities("leonidas_pride", "leonidas_pride_release", true, false)
        self.hCaster:RemoveModifierByName("modifier_merlin_self_pause")
         self.hAbility:StopShields_PFX(self.hAbility._nShieldsPFX, true)
+        self.hAbility:StartCooldown(self.hAbility:GetEffectiveCooldown(self.hAbility:GetLevel()))
         for k, v in  pairs(self.hAbility.brothers) do
             v:Kill(self.hAbility, self.hCaster)
         end
+        if self.hCaster:GetAbilityByIndex(2):GetName() == "leonidas_pride_release"   then
+			self.hCaster:SwapAbilities("leonidas_pride", "leonidas_pride_release", true, false)
+		end
+        EndAnimation(self.hCaster)
         --[[
         if not self.hParent:HasModifier("modifier_leonidas_enomotia_ignore_motion_controll") then
             local hAbility     = self.hAbility
@@ -1786,12 +1813,14 @@ function leonidas_pride_release:OnAbilityPhaseInterrupted()
 end
 function leonidas_pride_release:OnSpellStart()
     local hCaster = self:GetCaster()
+    --[[
     local hTarget = self:GetCursorTarget()
     local vPoint  = self:GetCursorPosition() + hCaster:GetForwardVector()
     local nBonusDamage = hCaster:GetModifierStackCount("modifier_leonidas_pride_counter", hCaster)
     -- local pride_attribute = GetAttributeValue(hCaster, "leonidas_pride_attribute", "", -1, 0, true)
     local hAbility = hCaster:FindAbilityByName("leonidas_pride")
     hAbility:ReleaseSpear(vPoint, hTarget, nBonusDamage, true)
+    ]]
     hCaster:RemoveModifierByNameAndCaster("modifier_leonidas_pride_counter", hCaster)
 end
 
@@ -1961,7 +1990,14 @@ function leonidas_berserk:OnSpellStart()
     local nDuration = self:GetSpecialValueFor("duration")
 
     hCaster:AddNewModifier(hCaster, self, "modifier_leonidas_berserk", {duration = nDuration})
+    local BROTHERS = FindUnitsInRadius(hCaster:GetTeam(), hCaster:GetAbsOrigin(), nil, 700, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
+    for k,v in pairs(BROTHERS) do
+        if v:GetUnitName() == "leonidas_brother_soldier" then
+            v:FindModifierByName("modifier_leonidas_brother").state = 2
+            v:SetAttackCapability(DOTA_UNIT_CAP_MELEE_ATTACK )
+        end
 
+    end
     EmitSoundOn("Leonidas.Berserk.Cast.1", hCaster)
     --EmitGlobalSound("Leonidas.MultiAttack.Sound")
 end

@@ -47,15 +47,19 @@ function leonidas_brothers:OnSpellStart()
 	soldier1:SetMaxHealth(10)
 	soldier1:SetBaseMaxHealth(10)
 	soldier1:SetHealth(10)
-	soldier1:SetBaseDamageMax(0) 
-	soldier1:SetBaseDamageMin(0) 
+	soldier1:SetBaseDamageMax(caster:GetBaseDamageMax()) 
+	soldier1:SetBaseDamageMin(caster:GetBaseDamageMin()) 
+	soldier1:SetBaseAttackTime( 0.3)
+	
 	soldier1:SetBaseMagicalResistanceValue(self:GetSpecialValueFor("mr")) 
 	soldier1:SetPhysicalArmorBaseValue(self:GetSpecialValueFor("armor")) 
 	soldier2:SetMaxHealth(10)
 	soldier2:SetBaseMaxHealth(10)
 	soldier2:SetHealth(10)
-	soldier2:SetBaseDamageMax(0) 
-	soldier2:SetBaseDamageMin(0) 
+	soldier2:SetBaseDamageMax(caster:GetBaseDamageMax()) 
+	soldier2:SetBaseDamageMin(caster:GetBaseDamageMin()) 
+	soldier2:SetBaseAttackTime( 0.3)
+
 	soldier2:SetBaseMagicalResistanceValue(self:GetSpecialValueFor("mr")) 
 	soldier2:SetPhysicalArmorBaseValue(self:GetSpecialValueFor("armor")) 
 	soldier1:SetOwner(caster)
@@ -121,7 +125,7 @@ function modifier_leonidas_brother:OnIntervalThink()
 		if distance > self.maxdistance then
 			self.parent:SetBaseMoveSpeed(self.caster:GetIdealSpeed() + 150) 
 		end
-	else
+	elseif self.state == 1 then
 		if self.barrier_give_counter >= 5 then 
 			self:StartIntervalThink(-1)
 			return
@@ -151,6 +155,12 @@ function modifier_leonidas_brother:OnIntervalThink()
 		end
 		
 		self.barrier_give_counter = self.barrier_give_counter + 1
+	else
+		local ENEMIES = FindUnitsInRadius(self.caster:GetTeam(), self.parent:GetAbsOrigin(), nil, 1000,
+			DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
+		if #ENEMIES > 0 then
+			self.parent:MoveToTargetToAttack(ENEMIES[1])
+		end
 	end
 end
 
