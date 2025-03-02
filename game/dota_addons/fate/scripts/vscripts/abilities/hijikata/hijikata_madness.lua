@@ -1,8 +1,8 @@
 hijikata_madness = class({})
 
 LinkLuaModifier("modifier_hijikata_madness_active", "abilities/hijikata/hijikata_madness", LUA_MODIFIER_MOTION_NONE)
-
-
+LinkLuaModifier("modifier_merlin_self_pause","abilities/merlin/merlin_orbs", LUA_MODIFIER_MOTION_NONE)
+--[[
 function hijikata_madness:GetBehavior()
     if self:GetCaster():GetHealthPercent() < 25 then
         return self.BaseClass.GetBehavior(self) + DOTA_ABILITY_BEHAVIOR_IMMEDIATE + DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE
@@ -12,13 +12,26 @@ function hijikata_madness:GetBehavior()
     end
     return self.BaseClass.GetBehavior(self)
 end
-
+]]
 function hijikata_madness:OnSpellStart()
 	local caster = self:GetCaster()
     local duration = self:GetSpecialValueFor("duration")
-    print(self:GetCaster():GetHealthPercent() )
-	caster:AddNewModifier(caster, self, "modifier_hijikata_madness_active", { Duration = duration })
-    caster:EmitSound("hijikata_scream")
+    local delay = 0.5
+    if self:GetCaster():GetHealthPercent() < 25 then
+        delay = 0
+    end
+    if self:GetCaster():GetHealthPercent() < 40 and self:GetCaster().IsHijikataTacticsAcquired then
+        delay = 0
+    end
+
+    StartAnimation(caster, {duration=delay , activity=ACT_DOTA_DISABLED, rate=1})
+    if delay > 0 then
+	    caster:AddNewModifier(caster, self, "modifier_merlin_self_pause", {Duration = delay}) 
+    end
+    Timers:CreateTimer(delay, function()
+        caster:AddNewModifier(caster, self, "modifier_hijikata_madness_active", { Duration = duration })
+        caster:EmitSound("hijikata_scream")
+    end)
     if self:CheckCombo() then
         caster:SwapAbilities("hijikata_madness", "hijikata_combo", false, true)
         Timers:CreateTimer(4, function()

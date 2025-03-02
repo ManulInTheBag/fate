@@ -90,6 +90,9 @@ function hijikata_demon:OnSpellStart()
 	caster:PerformAttack(target, true, true, true, true, false, false, false)
 
 	DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+	if caster.IsShinsengumiAcquired then
+		DoDamage(caster, target, caster:GetAttackDamage(), DAMAGE_TYPE_PHYSICAL, 0, self, false)
+	end
 	if caster.IsHijikataTacticsAcquired then
 		target:AddNewModifier(caster, self, "modifier_hijikata_slow", { duration = self:GetSpecialValueFor("slow_duration")})
 																				
@@ -153,6 +156,11 @@ function modifier_demon_buff_hijikata:OnAttackLanded(args)
 	local health_damage = (target_health - caster_health)/100 * self.percentage 
     if health_damage <= 0 then 
 		health_damage = 0
+	 end
+	 local cd = self:GetAbility():GetCooldownTimeRemaining()
+	 self:GetAbility():EndCooldown()
+	 if cd > 0.5 then 
+		self:GetAbility():StartCooldown(cd - 0.5)
 	 end
     DoDamage(self.caster, args.target, damage + health_damage, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
 end

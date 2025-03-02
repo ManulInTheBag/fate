@@ -68,14 +68,18 @@ if IsServer() then
 
 	--	CustomNetTables:SetTableValue("sync","gilles_hysteria_stat", { att_spd = self.AttackSpeed })
     --end
-
+	function modifier_gilles_hysteria:OnRemoved()
+		self.dontDoDamage = true
+	end
 	function modifier_gilles_hysteria:OnDestroy()
 		local hCaster = self:GetCaster()
 		local hAbility = self:GetAbility()
-		local fDamage = (self:GetParent():GetMaxHealth() * self.Damage / 100)
-		if not self:GetParent():IsMagicImmune() then
-			DoDamage(hCaster, self:GetParent(), fDamage, DAMAGE_TYPE_MAGICAL, 0, hAbility, false)
-			self:GetParent():AddNewModifier(hCaster, hAbility, "modifier_stunned", {Duration = hAbility:GetSpecialValueFor("stun_duration") })
+		if not self.dontDoDamage then
+			local fDamage = (self:GetParent():GetMaxHealth() * self.Damage / 100)
+			if not self:GetParent():IsMagicImmune() then
+				DoDamage(hCaster, self:GetParent(), fDamage, DAMAGE_TYPE_MAGICAL, 0, hAbility, false)
+				--self:GetParent():AddNewModifier(hCaster, hAbility, "modifier_stunned", {Duration = hAbility:GetSpecialValueFor("stun_duration") })
+			end
 		end
 		
 

@@ -21,6 +21,8 @@ function hijikata_ult:OnSpellStart()
 	local duration = self:GetSpecialValueFor("delay") + 0.3 / anim_rate
 	StartAnimation(caster, {duration=self:GetSpecialValueFor("delay") + 0.3 , activity=ACT_DOTA_CAST_ABILITY_6, rate=anim_rate})
 	caster:AddNewModifier(caster, self, "modifier_merlin_self_pause", {Duration = self:GetSpecialValueFor("delay")}) 
+	AddFOWViewer(2, caster:GetAbsOrigin(), 40, 0.9, false)
+	AddFOWViewer(3, caster:GetAbsOrigin(), 40, 0.9, false)
 	if caster:HasModifier("modifier_hijikata_combo_ticker") and caster.bSoundReady then
 		Timers:CreateTimer(0.2, function() 
 			caster:EmitSound("hijikata_np_4")
@@ -30,7 +32,7 @@ function hijikata_ult:OnSpellStart()
 		end)
 
 	else
-		caster:EmitSound("hijikata_shinei")
+		EmitSoundOn("hijikata_shinei", caster)
 	end
 	
     Timers:CreateTimer(0.8/anim_rate, function() 
@@ -72,6 +74,7 @@ function hijikata_ult:OnSpellStart()
 				ParticleManager:SetParticleControl(particle, 3, origin)
 				ParticleManager:SetParticleControlTransformForward( particle, 9, origin, target  )
 				ParticleManager:SetParticleControl(particle, 10, origin + target * range*1.5)
+				ParticleManager:SetParticleShouldCheckFoW(particle, false)
 			 
 		else
 			 tProjectile = {
@@ -101,6 +104,7 @@ function hijikata_ult:OnSpellStart()
 			ParticleManager:SetParticleControl(particle, 3, origin)
 			ParticleManager:SetParticleControlTransformForward( particle, 9, origin, target  )
 			ParticleManager:SetParticleControl(particle, 10, origin + target * range)
+			ParticleManager:SetParticleShouldCheckFoW(particle, false)
 		end
 		self.iProjectile = ProjectileManager:CreateLinearProjectile(tProjectile)
 		local endpoint = caster:GetAbsOrigin() + target*500

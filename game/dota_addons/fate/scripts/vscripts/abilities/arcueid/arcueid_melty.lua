@@ -38,6 +38,12 @@ function arcueid_melty:OnSpellStart()
 
 	local target = self:GetCursorTarget()
 	if IsSpellBlocked(target) then return end
+	local fxIndexjopa = ParticleManager:CreateParticle("particles/zlodemon/zlodemon_basic_circle.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
+	ParticleManager:SetParticleControl(fxIndexjopa, 0, target:GetAbsOrigin())
+	ParticleManager:SetParticleControl(fxIndexjopa, 1, Vector(0.01,1,0.01))
+	ParticleManager:SetParticleControl(fxIndexjopa, 2, Vector(self:GetSpecialValueFor("radius"),self:GetSpecialValueFor("duration"),0))
+	ParticleManager:SetParticleShouldCheckFoW(fxIndexjopa, false)
+	ParticleManager:ReleaseParticleIndex(fxIndexjopa)
 	target:AddNewModifier(caster, self, "modifier_arcueid_melty", {duration = self:GetSpecialValueFor("duration")})
 end
 

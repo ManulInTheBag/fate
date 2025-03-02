@@ -15,6 +15,7 @@ end
 
 function hijikata_dash:AbilityChange(target)
 	local caster =self:GetCaster()
+	if not caster:IsAlive() then return end
 	if caster:GetAbilityByIndex(0):GetName() == "hijikata_dash" then
 		caster:SwapAbilities("hijikata_dash", "hijikata_dash_recast", false, true)
 	end
@@ -63,6 +64,9 @@ function hijikata_dash:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
 	local hCaster = self:GetCaster()
  	 if(hTarget ~= nil) then
 	 DoDamage(hCaster, hTarget, tData.fDamage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+	 if hCaster.IsShinsengumiAcquired then
+		DoDamage(hCaster, hTarget, hCaster:GetAttackDamage(), DAMAGE_TYPE_PHYSICAL, 0, self, false)
+	end
 	 if hCaster:GetHealth() < hCaster:GetMaxHealth() then
 		local diff = hCaster:GetMaxHealth() - hCaster:GetHealth()
 

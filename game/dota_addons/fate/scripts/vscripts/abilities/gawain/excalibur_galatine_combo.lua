@@ -29,7 +29,11 @@ function gawain_excalibur_galatine_combo:OnSpellStart()
         local sunAbility = caster:FindAbilityByName("gawain_artificial_sun")
         sunAbility:GenerateArtificialSun(caster, v:GetAbsOrigin(), false, self:GetName())
     end
-
+    local fxIndexjopa = ParticleManager:CreateParticle("particles/zlodemon/zlodemon_basic_circle.vpcf", PATTACH_WORLDORIGIN, nil)
+	ParticleManager:SetParticleControl(fxIndexjopa, 0, caster:GetAbsOrigin())
+	ParticleManager:SetParticleControl(fxIndexjopa, 1, Vector(1,0.8,0.01))
+	ParticleManager:SetParticleControl(fxIndexjopa, 2, Vector(radius,3.5,0))
+	ParticleManager:ReleaseParticleIndex(fxIndexjopa)
 
 
     ------Activating Meltdown

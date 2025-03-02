@@ -96,7 +96,7 @@ function aoko_shield:Counter()
 	caster:EmitSound("aoko_shield_sfx_proc_"..rand)
 	caster:EmitSound("aoko_barrier_proc_"..math.random(1, 2))
 
-	local point = caster:GetAbsOrigin() - dir*dist
+	local point = caster:GetAbsOrigin() + dir*dist
 
 	local particle1 = ParticleManager:CreateParticle("particles/aoko/aoko_red_warp.vpcf", PATTACH_ABSORIGIN, caster)
 	ParticleManager:SetParticleControl(particle1, 0, caster:GetAttachmentOrigin(caster:ScriptLookupAttachment("attach_hitloc")))
@@ -167,11 +167,6 @@ function modifier_aoko_shield:GetModifierIncomingDamageConstant(keys)
 			        		IsBScrollIgnored = true
 			        	end
 
-				        if (keys.inflictor:GetAbilityName() == "karna_brahmastra" 
-				            or keys.inflictor:GetAbilityName() == "karna_brahmastra_kundala")
-				            and keys.attacker.ManaBurstAttribute then
-				            IsBScrollIgnored = true
-				        end
 
 				        if IsBScrollIgnored == false and keys.target:HasModifier("modifier_b_scroll") then 
 				            local originalDamage = damage - keys.target.BShieldAmount

@@ -41,6 +41,9 @@ function modifier_hijikata_laws:OnRespawn(args)
     self.duel_restriction = false
     self.kill_restriction = false
     self.help_restriction = false
+    if caster:GetAbilityByIndex(0):GetName() == "hijikata_dash_recast" then
+		caster:SwapAbilities("hijikata_dash_recast", "hijikata_dash", false, true)
+	end
 end
 
 function modifier_hijikata_laws:OnCreated()

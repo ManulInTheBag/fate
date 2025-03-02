@@ -44,9 +44,14 @@ function gilles_cthulhu_favour:OnSpellStart()
 	 		local tEnemies = FindUnitsInRadius(self:GetCaster():GetTeam(), vTargetLocation, nil, self:GetSpecialValueFor("radius"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		
 			for _,v in pairs(tEnemies) do
-				if not v:IsMagicImmune() then
+				if not v:IsMagicImmune() and not v.GillesChtulhuRootApplied then
 					giveUnitDataDrivenModifier(self:GetCaster(), v, "rooted", self:GetSpecialValueFor("root_duration"))
 					giveUnitDataDrivenModifier(self:GetCaster(), v, "locked", self:GetSpecialValueFor("lock_duration"))
+					v.GillesChtulhuRootApplied = true
+					Timers:CreateTimer(2.0, function()
+						v.GillesChtulhuRootApplied = false
+
+					end)
 				end
 			end
 	 	end
@@ -70,6 +75,20 @@ if IsServer() then
 
 	function modifier_cthulhu_favour_thinker:OnIntervalThink()
 		self.pepega = self.pepega + 0.2
+		if self:GetCaster():HasModifier("modifier_sunken_city_attribute") then
+			local tEnemies = FindUnitsInRadius(self:GetCaster():GetTeam(), self:GetParent():GetAbsOrigin(), nil, self:GetAbility():GetAOERadius() - 50, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+			for _,v in pairs(tEnemies) do
+				if not v:IsMagicImmune() and not v.GillesChtulhuRootApplied then
+					giveUnitDataDrivenModifier(self:GetCaster(), v, "rooted", self:GetAbility():GetSpecialValueFor("root_duration"))
+					giveUnitDataDrivenModifier(self:GetCaster(), v, "locked", self:GetAbility():GetSpecialValueFor("lock_duration"))
+					v.GillesChtulhuRootApplied = true
+					Timers:CreateTimer(2.0, function()
+						v.GillesChtulhuRootApplied = false
+
+					end)
+				end
+			end
+		end
 		if self.pepega >= 3 then
 			self.pepega = 0
 			local fAOE = self:GetAbility():GetAOERadius()
