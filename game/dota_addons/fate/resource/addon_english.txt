@@ -7175,7 +7175,7 @@
 		"DOTA_Tooltip_ability_leonidas_catch_slow_pct"											"%EFFECT SLOW:"
 
 		"DOTA_Tooltip_ability_leonidas_brothers"													"БРАТЬЯ СОЛДАТЫ!"
-		"DOTA_Tooltip_ability_leonidas_brothers_Description"										"Leonidas summons two soldiers, who will follow him around at all times until they die.\nSoldiers have barrier as health calculated as percentage of Leonidas's health.\nSoldiers do nothing by themselfs, but when kicked with <font color='#FFFAFA'>This is sparta</font>, they will try to find enemy around themself and kick them back to leonidas if possible.\nIf there is no enemies around them, or after the kick, soldiers will provide barriers to all allies in radius every 0.5 seconds for 3 seconds total."
+		"DOTA_Tooltip_ability_leonidas_brothers_Description"										"Leonidas summons two soldiers, who will follow him around at all times until they die.\nSoldiers have barrier as health calculated as percentage of Leonidas's health.\nSoldiers do nothing by themselfs, but when kicked with <font color='#FFFAFA'>This is sparta</font>, they will try to find enemy around themself and kick them back to leonidas if possible.\nIf there is no enemies around them, or after the kick, soldiers will provide barriers to all allies in radius every 0.5 seconds for 3 seconds total.\n\n[BERSERKED] When berserk is casted while soldiers alive, they will go and try to attack closest enemy."
 		"DOTA_Tooltip_ability_leonidas_pride_Note0"												""
 		"DOTA_Tooltip_ability_leonidas_brothers_radius"										"BARRIER GIVE RADIUS:"
 		"DOTA_Tooltip_ability_leonidas_brothers_duration"									"SOLDIERS DURATION:"

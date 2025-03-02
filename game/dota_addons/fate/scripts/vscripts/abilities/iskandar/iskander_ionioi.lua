@@ -45,6 +45,18 @@ end
 
 function iskander_ionioi:OnSpellStart()
 	local caster = self:GetCaster()
+	if caster:GetAbsOrigin().y < -3100 then
+		FireGameEvent( 'custom_error_show', { player_ID = caster:GetPlayerOwnerID(), _error = "Already Within Reality Marble" } )
+		caster:SetMana(caster:GetMana() + 800)
+		self:EndCooldown()
+		return
+	end
+	if caster.IsRiding then 
+		FireGameEvent( 'custom_error_show', { player_ID = caster:GetPlayerOwnerID(), _error = "Cant cast while riding" } )
+		caster:GiveMana(800)
+		self:EndCooldown() 
+		return 
+	end
 	caster.WaverSummoned = false
 	caster.CavalrySummoned = false
 	local hero = caster:GetPlayerOwner():GetAssignedHero()
@@ -64,18 +76,7 @@ function iskander_ionioi:OnSpellStart()
 
 
 	StartAnimation(caster, {duration=2, activity=ACT_DOTA_CAST_ABILITY_3, rate=0.8})
-	if caster:GetAbsOrigin().y < -3100 then
-		FireGameEvent( 'custom_error_show', { player_ID = caster:GetPlayerOwnerID(), _error = "Already Within Reality Marble" } )
-		caster:SetMana(caster:GetMana() + 800)
-		self:EndCooldown()
-		return
-	end
-	if caster.IsRiding then 
-		FireGameEvent( 'custom_error_show', { player_ID = caster:GetPlayerOwnerID(), _error = "Cant cast while riding" } )
-		caster:GiveMana(800)
-		self:EndCooldown() 
-		return 
-	end
+	
 	LoopOverPlayers(function(player, playerID, playerHero)
        	if playerHero.gachi == true then
            	CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound = "one_piece_is_real"})
