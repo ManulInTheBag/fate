@@ -708,7 +708,7 @@ function OnNineLanded(caster, ability)
 						else
 							DoDamage(caster, v, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
 						end
-						v:AddNewModifier(caster, v, "modifier_stunned", { Duration = 1.5 })
+						v:AddNewModifier(caster, v, "modifier_stunned", { Duration = 1.0 })
 						--giveUnitDataDrivenModifier(caster, v, "stunned", 1.5)
 
 						--[[if caster:GetName() ~= "npc_dota_hero_ember_spirit" then

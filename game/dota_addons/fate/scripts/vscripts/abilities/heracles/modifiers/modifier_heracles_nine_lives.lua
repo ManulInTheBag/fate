@@ -64,7 +64,7 @@ function modifier_heracles_nine_lives:OnIntervalThink()
 					DoDamage(caster, v, self:GetAbility():GetSpecialValueFor("last_damage_phys")*self:GetParent():GetAverageTrueAttackDamage(self:GetParent())/100, DAMAGE_TYPE_PHYSICAL, 0, self:GetAbility(), false)
 				end
 				
-				v:AddNewModifier(caster, v, "modifier_stunned", { Duration = 1.5 })
+				v:AddNewModifier(caster, v, "modifier_stunned", { Duration = 1.0 })
 				--giveUnitDataDrivenModifier(caster, v, "stunned", 1.5)			
 
 				if not IsKnockbackImmune(v) then
