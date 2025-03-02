@@ -212,11 +212,13 @@ function OnBloodfortStart(keys)
 		        caster:GiveMana(target_absorb * 0.175)
 
 				if caster.SealAcquired and (bloodfortCount % 2 == 0) then  
+					--[[
 					forcemove.UnitIndex = v:entindex()
 					ExecuteOrderFromTable(forcemove) 
 					Timers:CreateTimer(0.15, function()
 						v:Stop()
 					end)
+					]]
 						giveUnitDataDrivenModifier(caster, v, "rooted", 0.3)
 						giveUnitDataDrivenModifier(caster, v, "locked", 0.3)
 					--ability:ApplyDataDrivenModifier(caster,v, "modifier_bloodfort_seal", {})

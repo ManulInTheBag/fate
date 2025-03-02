@@ -98,7 +98,7 @@ end
 -- ANIME_ATTRIBUTE_MAX  = ANIME_ATTRIBUTE_5
 
 --========================================--
-local GetAttributeValue = function(hUnit, sAttributeName, sKeyName, nLevel, nDefaultValue, bReturnAbility)
+_G.GetAttributeValue = function(hUnit, sAttributeName, sKeyName, nLevel, nDefaultValue, bReturnAbility)
     --NOTE: -2 Becomes 0 return as with GetSpecialValueFor properly.... looks like
     nLevel = nLevel or -1
     if nLevel == 0 then
@@ -582,17 +582,82 @@ function leonidas_kick:OnAbilityPhaseStart()
 end
 function leonidas_kick:OnAbilityPhaseInterrupted()
 end
+
+function leonidas_kick:GetCastRange(vector, target)
+    if target then
+        local hCaster = self:GetCaster()
+        local BROTHERS = FindUnitsInRadius(hCaster:GetTeam(), hCaster:GetAbsOrigin(), nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
+        for k,v in pairs(BROTHERS) do
+            if v:GetUnitName() == "leonidas_brother_soldier" then
+                return self:GetSpecialValueFor("push_distance")
+            end
+
+        end
+        return 250
+    end
+    return self:GetSpecialValueFor("push_distance")
+end
+
+
+function leonidas_kick:CastFilterResultLocation(vector)
+    if IsServer() then
+        local hCaster = self:GetCaster()
+        local soldat_jopa = false
+        local BROTHERS = FindUnitsInRadius(hCaster:GetTeam(), hCaster:GetAbsOrigin(), nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
+        for k,v in pairs(BROTHERS) do
+            if v:GetUnitName() == "leonidas_brother_soldier" then
+                return UF_SUCCESS
+            end
+
+        end
+        if soldat_jopa == false then return UF_FAIL_CUSTOM end
+    end
+    return self.BaseClass.CastFilterResultLocation(self, vector)
+end
+
+-- function leonidas_kick:CastFilterResultTarget(target)
+--     if 250 < GetDistance(target, self:GetCaster()) then
+--         return UF_FAIL_CUSTOM
+--     end
+--     return self.BaseClass.CastFilterResultTarget(self, target)
+-- end
+
+function leonidas_kick:GetCustomCastErrorLocation()
+    return "NO SOLDIER"
+end
+
+-- function leonidas_kick:GetCustomCastErrorTarget()
+--     return "DISTANCE TOO BIG"
+-- end
+ 
+ 
 function leonidas_kick:OnSpellStart()
     local hCaster = self:GetCaster()
     local hTarget = self:GetCursorTarget()
+    local soldat_jopa = false
+    local BROTHERS = FindUnitsInRadius(hCaster:GetTeam(), hCaster:GetAbsOrigin(), nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
+    for k,v in pairs(BROTHERS) do
+        if v:GetUnitName() == "leonidas_brother_soldier" then
+            soldat_jopa = true
 
-    if IsSpellBlocked(hTarget) then
-        return nil
+        end
     end
+    local cdr = GetAttributeValue(hCaster, "leonidas_pride_attribute", "cdr", -1, 0, false)
+    local cd = self:GetCooldownTimeRemaining()
+    
+    if cdr > 0  and soldat_jopa then
+        self:EndCooldown()
+        self:StartCooldown(cd/2)
+    end
+    -- if (( IsNotNull(hTarget)) and (hTarget:GetAbsOrigin()-hCaster:GetAbsOrigin()):Length2D() > 300  and not soldat_jopa ) or (not IsNotNull(hTarget) and not soldat_jopa) then 
+    --     self:RefundManaCost()
+    --     self:EndCooldown()
+    --     return
+    -- end
 
     local nDamageType = self:GetAbilityDamageType()
 
-    local vDirection = GetDirection(hTarget, hCaster)
+
 
     local nScaleFactor = ( 1 + ( GetAttributeValue(hCaster, "leonidas_math_attribute", "kick_push_distance_pct_scale_per_int", -1, 0, false) * hCaster:GetIntellect() * 0.01 ) )
 
@@ -615,89 +680,371 @@ function leonidas_kick:OnSpellStart()
         stun_duration = stun_duration*2
         nSlowDuration = nSlowDuration * 1.5
     end
+    if( IsNotNull(hTarget) and (hTarget:GetAbsOrigin()-hCaster:GetAbsOrigin()):Length2D() < 300) then
+        if IsSpellBlocked(hTarget) then
+            return nil
+        end
 
-    local hKickModifier = hTarget:AddNewModifier(hCaster, self, "modifier_leonidas_enomotia_slow", {duration = nDuration * ( nScaleFactor * 2 ), nSlow = 0, nLocked = 0, nDisarmed = nLocked, nVision = 1})
-    if IsNotNull(hKickModifier)
-        and not hKickModifier.nImpactPFX then
-        hKickModifier.nImpactPFX =  ParticleManager:CreateParticle("particles/heroes/anime_hero_leonidas/leonidas_sparta_kick_trail.vpcf", PATTACH_CENTER_FOLLOW, hTarget)
-                                    ParticleManager:SetParticleControlForward(hKickModifier.nImpactPFX, 1, vDirection)
+        local vDirection = GetDirection(hTarget, hCaster)
+        local hKickModifier = hTarget:AddNewModifier(hCaster, self, "modifier_leonidas_enomotia_slow", {duration = nDuration * ( nScaleFactor * 2 ), nSlow = 0, nLocked = 0, nDisarmed = nLocked, nVision = 1})
+        if IsNotNull(hKickModifier)
+            and not hKickModifier.nImpactPFX then
+            hKickModifier.nImpactPFX =  ParticleManager:CreateParticle("particles/heroes/anime_hero_leonidas/leonidas_sparta_kick_trail.vpcf", PATTACH_CENTER_FOLLOW, hTarget)
+                                        ParticleManager:SetParticleControlForward(hKickModifier.nImpactPFX, 1, vDirection)
 
-        hKickModifier:AddParticle(hKickModifier.nImpactPFX, false, false, -1, false, false)
+            hKickModifier:AddParticle(hKickModifier.nImpactPFX, false, false, -1, false, false)
+        end
+        if not IsKnockbackImmune(hTarget) then
+            EmitSoundOn("Leonidas.Kick.Impact.3", hTarget)
+            local sTimerNameUnique = self:GetAbilityName()..DoUniqueString(tostring(hTarget:entindex())) --.."_"
+            --=================================--
+            hTarget:InterruptMotionControllers(false)
+    
+            local hPhysicsThingReturn = Physics:Unit(hTarget)
+    
+            hTarget:PreventDI(true)
+            hTarget:SetPhysicsFriction(0)
+            hTarget:SetPhysicsVelocity(vDirection * ( nDistance / nDuration ))
+            hTarget:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
+            hTarget:SetGroundBehavior(PHYSICS_GROUND_LOCK)
+            hTarget:FollowNavMesh(true)
+            --=================================--
+            Timers:CreateTimer(sTimerNameUnique,
+            {
+                endTime  = nDuration * ( nScaleFactor ),
+                callback = function()
+                    hTarget:OnPreBounce(nil)
+                    hTarget:SetBounceMultiplier(0)
+                    hTarget:PreventDI(false)
+                    hTarget:SetPhysicsVelocity(Vector(0,0,0))
+                    hTarget:OnPhysicsFrame(nil)
+                    hTarget:SetGroundBehavior(PHYSICS_GROUND_NOTHING)
+                    FindClearSpaceForUnit(hTarget, hTarget:GetAbsOrigin(), true)
+                end
+            })
+            --=================================--
+            hTarget:OnPreBounce(function(hUnit, vNormal)
+                --if not bCasterBerserked then
+                    Timers:RemoveTimer(sTimerNameUnique)
+    
+                    if IsNotNull(hKickModifier) then
+                        hKickModifier:Destroy()
+                    end
+    
+                    hUnit:OnPreBounce(nil)
+                    hUnit:SetBounceMultiplier(0)
+                    hUnit:PreventDI(false)
+                    hUnit:SetPhysicsVelocity(Vector(0,0,0))
+                    hUnit:OnPhysicsFrame(nil)
+                    hUnit:SetGroundBehavior(PHYSICS_GROUND_NOTHING)
+                    FindClearSpaceForUnit(hUnit, hUnit:GetAbsOrigin(), true)
+                --end
+    
+                hUnit:AddNewModifier(hCaster, self, "modifier_leonidas_enomotia_slow", {duration = nSlowDuration, nSlow = nSlowPct, nStunned = nStunned, nLocked = nLocked})
+                giveUnitDataDrivenModifier(hCaster,hTarget , "stunned", stun_duration)
+                local nImpactPFX =  ParticleManager:CreateParticle("particles/heroes/anime_hero_leonidas/leonidas_sparta_kick_impact.vpcf", PATTACH_CENTER_FOLLOW, hUnit)
+                                    ParticleManager:ReleaseParticleIndex(nImpactPFX)
+    
+                EmitSoundOn("Leonidas.Kick.Impact.2", hUnit)
+                --=================================--
+                DoDamage(hCaster, hUnit, nBounceDamage, nDamageType, DOTA_DAMAGE_FLAG_NONE, self, false)
+                --=================================--
+                if nBounceCriticalDamage > 0 then
+                    -- DoDamage(hCaster, hUnit, nBounceCriticalDamage, DAMAGE_TYPE_PHYSICAL, DOTA_DAMAGE_FLAG_NONE, self, false)
+                    -- SendOverheadEventMessage(nil, OVERHEAD_ALERT_DEADLY_BLOW, hUnit, nBounceCriticalDamage, nil)
+                    hUnit:AddNewModifier(hCaster, self, "modifier_leonidas_berserk_damage_overtime", {duration = 3, nDamageType = DAMAGE_TYPE_PHYSICAL, nDamage = nBounceCriticalDamage})
+                end
+            end)
+            --=================================--
+            DoDamage(hCaster, hTarget, nBaseDamage, nDamageType, DOTA_DAMAGE_FLAG_NONE, self, false)
+            --=================================--
+            if nBaseCriticalDamage > 0 then
+                -- DoDamage(hCaster, hTarget, nBaseDamage, DAMAGE_TYPE_PHYSICAL, DOTA_DAMAGE_FLAG_NONE, self, false)
+                -- SendOverheadEventMessage(nil, OVERHEAD_ALERT_DEADLY_BLOW, hTarget, nBaseDamage, nil)
+                hTarget:AddNewModifier(hCaster, self, "modifier_leonidas_berserk_damage_overtime", {duration = 3, nDamageType = DAMAGE_TYPE_PHYSICAL, nDamage = nBaseCriticalDamage})
+            end
+        end
+    else
+        local BROTHERS = FindUnitsInRadius(hCaster:GetTeam(), hCaster:GetAbsOrigin(), nil, 300, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
+        for k,v in pairs(BROTHERS) do
+            if v:GetUnitName() == "leonidas_brother_soldier" then
+                local modifier = v:FindModifierByName("modifier_leonidas_brother")
+                modifier.state = 1
+                modifier:StartIntervalThink(-1)
+                self.stopOrder_self = {
+                    UnitIndex = v:entindex(), 
+                    OrderType = DOTA_UNIT_ORDER_STOP
+                }
+                local direction_brother = nil
+                local distance_brother = nil
+                if IsNotNull(hTarget) then 
+                     distance_brother = (v:GetAbsOrigin() - hTarget:GetAbsOrigin()):Length2D()
+                     direction_brother = -(v:GetAbsOrigin() - hTarget:GetAbsOrigin()):Normalized()
+                else
+                     distance_brother = (v:GetAbsOrigin() - self:GetCursorPosition()):Length2D()
+                     direction_brother = -(v:GetAbsOrigin() - self:GetCursorPosition()):Normalized()
+                end
+
+
+                nDuration = 0.2
+                ExecuteOrderFromTable(self.stopOrder_self)
+                local hKickModifier = v:AddNewModifier(hCaster, self, "modifier_leonidas_enomotia_slow", {duration = nDuration * ( nScaleFactor * 2 ), nSlow = 0, nLocked = 0, nDisarmed = nLocked, nVision = 1})
+                if IsNotNull(hKickModifier)
+                    and not hKickModifier.nImpactPFX then
+                    hKickModifier.nImpactPFX =  ParticleManager:CreateParticle("particles/heroes/anime_hero_leonidas/leonidas_sparta_kick_trail.vpcf", PATTACH_CENTER_FOLLOW, v)
+                                                ParticleManager:SetParticleControlForward(hKickModifier.nImpactPFX, 1, direction_brother)
+        
+                    hKickModifier:AddParticle(hKickModifier.nImpactPFX, false, false, -1, false, false)
+                end
+                EmitSoundOn("Leonidas.Kick.Impact.3", v)
+                local sTimerNameUnique = self:GetAbilityName()..DoUniqueString(tostring(v:entindex())) --.."_"
+                --=================================--
+                v:InterruptMotionControllers(false)
+        
+                local hPhysicsThingReturn = Physics:Unit(v)
+                
+                v:PreventDI(true)
+                v:SetPhysicsFriction(0)
+                v:SetPhysicsVelocity( direction_brother * ( distance_brother / nDuration ))
+                v:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
+                v:SetGroundBehavior(PHYSICS_GROUND_LOCK)
+                v:FollowNavMesh(true)
+                --=================================--
+                Timers:CreateTimer(sTimerNameUnique,
+                {
+                    endTime  =  nDuration * ( nScaleFactor ),
+                    callback = function()
+                        v:OnPreBounce(nil)
+                        v:SetBounceMultiplier(0)
+                        v:PreventDI(false)
+                        v:SetPhysicsVelocity(Vector(0,0,0))
+                        v:OnPhysicsFrame(nil)
+                        v:SetGroundBehavior(PHYSICS_GROUND_NOTHING)
+                        FindClearSpaceForUnit(v, v:GetAbsOrigin(), true)
+
+                        local SOLDIER_ENEMIES = FindUnitsInRadius(hCaster:GetTeam(), v:GetAbsOrigin(), nil, 300,
+                         DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_CLOSEST, false)
+
+                        if #SOLDIER_ENEMIES >= 1 then
+                            hTarget = SOLDIER_ENEMIES[1]
+                            StartAnimation(v, {duration=0.2, activity=ACT_DOTA_CAST_ABILITY_1, rate=1.3}) 
+                            distance_brother = (hCaster:GetAbsOrigin() - hTarget:GetAbsOrigin()):Length2D()
+                            direction_brother = (hCaster:GetAbsOrigin() - hTarget:GetAbsOrigin()):Normalized()
+                            v:FaceTowards(hCaster:GetAbsOrigin())
+                            v:SetForwardVector(direction_brother)
+                            Timers:CreateTimer(0.2, function()
+                                v:FindModifierByName("modifier_leonidas_brother"):ShareBarriers()
+                                if (hTarget:GetAbsOrigin() - v:GetAbsOrigin()):Length2D() > 300 then return end
+
+
+    
+                                nDuration = 0.75
+                                if not IsKnockbackImmune(hTarget) then
+                                    EmitSoundOn("Leonidas.Kick.Impact.3", hTarget)
+                                    local sTimerNameUnique = self:GetAbilityName()..DoUniqueString(tostring(hTarget:entindex())) --.."_"
+                                    --=================================--
+                                    hTarget:InterruptMotionControllers(false)
+    
+                                    local hPhysicsThingReturn = Physics:Unit(hTarget)
+                                    if distance_brother > (nDistance+100) then distance_brother = nDistance end
+                                    hTarget:PreventDI(true)
+                                    hTarget:SetPhysicsFriction(0)
+                                    hTarget:SetPhysicsVelocity(direction_brother * ( distance_brother / nDuration ))
+                                    hTarget:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
+                                    hTarget:SetGroundBehavior(PHYSICS_GROUND_LOCK)
+                                    hTarget:FollowNavMesh(true)
+                                    --=================================--
+                                    Timers:CreateTimer(sTimerNameUnique,
+                                    {
+                                        endTime  = nDuration * ( nScaleFactor ),
+                                        callback = function()
+                                            hTarget:OnPreBounce(nil)
+                                            hTarget:SetBounceMultiplier(0)
+                                            hTarget:PreventDI(false)
+                                            hTarget:SetPhysicsVelocity(Vector(0,0,0))
+                                            hTarget:OnPhysicsFrame(nil)
+                                            hTarget:SetGroundBehavior(PHYSICS_GROUND_NOTHING)
+                                            FindClearSpaceForUnit(hTarget, hTarget:GetAbsOrigin(), true)
+                                        end
+                                    })
+                                    --=================================--
+                                    hTarget:OnPreBounce(function(hUnit, vNormal)
+                                        --if not bCasterBerserked then
+                                            Timers:RemoveTimer(sTimerNameUnique)
+                            
+                                            if IsNotNull(hKickModifier) then
+                                                hKickModifier:Destroy()
+                                            end
+                            
+                                            hUnit:OnPreBounce(nil)
+                                            hUnit:SetBounceMultiplier(0)
+                                            hUnit:PreventDI(false)
+                                            hUnit:SetPhysicsVelocity(Vector(0,0,0))
+                                            hUnit:OnPhysicsFrame(nil)
+                                            hUnit:SetGroundBehavior(PHYSICS_GROUND_NOTHING)
+                                            FindClearSpaceForUnit(hUnit, hUnit:GetAbsOrigin(), true)
+                                        --end
+                            
+                                        hUnit:AddNewModifier(hCaster, self, "modifier_leonidas_enomotia_slow", {duration = nSlowDuration, nSlow = nSlowPct, nStunned = nStunned, nLocked = nLocked})
+                                        giveUnitDataDrivenModifier(hCaster,hTarget , "stunned", stun_duration)
+                                        local nImpactPFX =  ParticleManager:CreateParticle("particles/heroes/anime_hero_leonidas/leonidas_sparta_kick_impact.vpcf", PATTACH_CENTER_FOLLOW, hUnit)
+                                                            ParticleManager:ReleaseParticleIndex(nImpactPFX)
+                            
+                                        EmitSoundOn("Leonidas.Kick.Impact.2", hUnit)
+                                        --=================================--
+                                        DoDamage(hCaster, hUnit, nBounceDamage, nDamageType, DOTA_DAMAGE_FLAG_NONE, self, false)
+                                        --=================================--
+                                        if nBounceCriticalDamage > 0 then
+                                            -- DoDamage(hCaster, hUnit, nBounceCriticalDamage, DAMAGE_TYPE_PHYSICAL, DOTA_DAMAGE_FLAG_NONE, self, false)
+                                            -- SendOverheadEventMessage(nil, OVERHEAD_ALERT_DEADLY_BLOW, hUnit, nBounceCriticalDamage, nil)
+                                            hUnit:AddNewModifier(hCaster, self, "modifier_leonidas_berserk_damage_overtime", {duration = 3, nDamageType = DAMAGE_TYPE_PHYSICAL, nDamage = nBounceCriticalDamage})
+                                        end
+                                    end)
+                                    --=================================--
+                                    DoDamage(hCaster, hTarget, nBaseDamage, nDamageType, DOTA_DAMAGE_FLAG_NONE, self, false)
+                                    --=================================--
+                                    if nBaseCriticalDamage > 0 then
+                                        -- DoDamage(hCaster, hTarget, nBaseDamage, DAMAGE_TYPE_PHYSICAL, DOTA_DAMAGE_FLAG_NONE, self, false)
+                                        -- SendOverheadEventMessage(nil, OVERHEAD_ALERT_DEADLY_BLOW, hTarget, nBaseDamage, nil)
+                                        hTarget:AddNewModifier(hCaster, self, "modifier_leonidas_berserk_damage_overtime", {duration = 3, nDamageType = DAMAGE_TYPE_PHYSICAL, nDamage = nBaseCriticalDamage})
+                                    end
+                                end
+                            end)
+                        else
+                            v:FindModifierByName("modifier_leonidas_brother"):ShareBarriers()
+
+                        end
+                    end
+                            
+                })
+                --=================================--
+                v:OnPreBounce(function(hUnit, vNormal)
+                        Timers:RemoveTimer(sTimerNameUnique)
+        
+                        if IsNotNull(hKickModifier) then
+                            hKickModifier:Destroy()
+                        end
+        
+                        hUnit:OnPreBounce(nil)
+                        hUnit:SetBounceMultiplier(0)
+                        hUnit:PreventDI(false)
+                        hUnit:SetPhysicsVelocity(Vector(0,0,0))
+                        hUnit:OnPhysicsFrame(nil)
+                        hUnit:SetGroundBehavior(PHYSICS_GROUND_NOTHING)
+                        FindClearSpaceForUnit(hUnit, hUnit:GetAbsOrigin(), true)
+                        local SOLDIER_ENEMIES = FindUnitsInRadius(hCaster:GetTeam(), v:GetAbsOrigin(), nil, 300,
+                         DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_CLOSEST, false)
+
+                        if #SOLDIER_ENEMIES >= 1 then
+                            hTarget = SOLDIER_ENEMIES[1]
+                            StartAnimation(v, {duration=0.2, activity=ACT_DOTA_CAST_ABILITY_1, rate=1.3}) 
+                            distance_brother = (hCaster:GetAbsOrigin() - hTarget:GetAbsOrigin()):Length2D()
+                            direction_brother = (hCaster:GetAbsOrigin() - hTarget:GetAbsOrigin()):Normalized()
+                            v:FaceTowards(hCaster:GetAbsOrigin())
+                            v:SetForwardVector(direction_brother)
+                            Timers:CreateTimer(0.2, function()
+                                v:FindModifierByName("modifier_leonidas_brother"):ShareBarriers()
+                                if (hTarget:GetAbsOrigin() - v:GetAbsOrigin()):Length2D() > 300 then return end
+
+
+    
+                                nDuration = 0.75
+                                if not IsKnockbackImmune(hTarget) then
+                                    EmitSoundOn("Leonidas.Kick.Impact.3", hTarget)
+                                    local sTimerNameUnique = self:GetAbilityName()..DoUniqueString(tostring(hTarget:entindex())) --.."_"
+                                    --=================================--
+                                    hTarget:InterruptMotionControllers(false)
+    
+                                    local hPhysicsThingReturn = Physics:Unit(hTarget)
+                                    if distance_brother > (nDistance+100) then distance_brother = nDistance end
+                                    hTarget:PreventDI(true)
+                                    hTarget:SetPhysicsFriction(0)
+                                    hTarget:SetPhysicsVelocity(direction_brother * ( distance_brother / nDuration ))
+                                    hTarget:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
+                                    hTarget:SetGroundBehavior(PHYSICS_GROUND_LOCK)
+                                    hTarget:FollowNavMesh(true)
+                                    --=================================--
+                                    Timers:CreateTimer(sTimerNameUnique,
+                                    {
+                                        endTime  = nDuration * ( nScaleFactor ),
+                                        callback = function()
+                                            hTarget:OnPreBounce(nil)
+                                            hTarget:SetBounceMultiplier(0)
+                                            hTarget:PreventDI(false)
+                                            hTarget:SetPhysicsVelocity(Vector(0,0,0))
+                                            hTarget:OnPhysicsFrame(nil)
+                                            hTarget:SetGroundBehavior(PHYSICS_GROUND_NOTHING)
+                                            FindClearSpaceForUnit(hTarget, hTarget:GetAbsOrigin(), true)
+                                        end
+                                    })
+                                    --=================================--
+                                    hTarget:OnPreBounce(function(hUnit, vNormal)
+                                        --if not bCasterBerserked then
+                                            Timers:RemoveTimer(sTimerNameUnique)
+                            
+                                            if IsNotNull(hKickModifier) then
+                                                hKickModifier:Destroy()
+                                            end
+                            
+                                            hUnit:OnPreBounce(nil)
+                                            hUnit:SetBounceMultiplier(0)
+                                            hUnit:PreventDI(false)
+                                            hUnit:SetPhysicsVelocity(Vector(0,0,0))
+                                            hUnit:OnPhysicsFrame(nil)
+                                            hUnit:SetGroundBehavior(PHYSICS_GROUND_NOTHING)
+                                            FindClearSpaceForUnit(hUnit, hUnit:GetAbsOrigin(), true)
+                                        --end
+                            
+                                        hUnit:AddNewModifier(hCaster, self, "modifier_leonidas_enomotia_slow", {duration = nSlowDuration, nSlow = nSlowPct, nStunned = nStunned, nLocked = nLocked})
+                                        giveUnitDataDrivenModifier(hCaster,hTarget , "stunned", stun_duration)
+                                        local nImpactPFX =  ParticleManager:CreateParticle("particles/heroes/anime_hero_leonidas/leonidas_sparta_kick_impact.vpcf", PATTACH_CENTER_FOLLOW, hUnit)
+                                                            ParticleManager:ReleaseParticleIndex(nImpactPFX)
+                            
+                                        EmitSoundOn("Leonidas.Kick.Impact.2", hUnit)
+                                        --=================================--
+                                        DoDamage(hCaster, hUnit, nBounceDamage, nDamageType, DOTA_DAMAGE_FLAG_NONE, self, false)
+                                        --=================================--
+                                        if nBounceCriticalDamage > 0 then
+                                            -- DoDamage(hCaster, hUnit, nBounceCriticalDamage, DAMAGE_TYPE_PHYSICAL, DOTA_DAMAGE_FLAG_NONE, self, false)
+                                            -- SendOverheadEventMessage(nil, OVERHEAD_ALERT_DEADLY_BLOW, hUnit, nBounceCriticalDamage, nil)
+                                            hUnit:AddNewModifier(hCaster, self, "modifier_leonidas_berserk_damage_overtime", {duration = 3, nDamageType = DAMAGE_TYPE_PHYSICAL, nDamage = nBounceCriticalDamage})
+                                        end
+                                    end)
+                                    --=================================--
+                                    DoDamage(hCaster, hTarget, nBaseDamage, nDamageType, DOTA_DAMAGE_FLAG_NONE, self, false)
+                                    --=================================--
+                                    if nBaseCriticalDamage > 0 then
+                                        -- DoDamage(hCaster, hTarget, nBaseDamage, DAMAGE_TYPE_PHYSICAL, DOTA_DAMAGE_FLAG_NONE, self, false)
+                                        -- SendOverheadEventMessage(nil, OVERHEAD_ALERT_DEADLY_BLOW, hTarget, nBaseDamage, nil)
+                                        hTarget:AddNewModifier(hCaster, self, "modifier_leonidas_berserk_damage_overtime", {duration = 3, nDamageType = DAMAGE_TYPE_PHYSICAL, nDamage = nBaseCriticalDamage})
+                                    end
+                                end
+                            end)
+                        else
+                            v:FindModifierByName("modifier_leonidas_brother"):ShareBarriers()
+
+                        end
+        
+                    local nImpactPFX =  ParticleManager:CreateParticle("particles/heroes/anime_hero_leonidas/leonidas_sparta_kick_impact.vpcf", PATTACH_CENTER_FOLLOW, hUnit)
+                                        ParticleManager:ReleaseParticleIndex(nImpactPFX)
+        
+                    EmitSoundOn("Leonidas.Kick.Impact.2", hUnit)
+    
+    
+                end)
+                return
+            end
+        end
+           
+
     end
+
+
 
     EmitSoundOn("Leonidas.Kick.Cast.1", hCaster)
     EmitSoundOn("Leonidas.Kick.Impact.1", hTarget)
 
-    if not IsKnockbackImmune(hTarget) then
-        EmitSoundOn("Leonidas.Kick.Impact.3", hTarget)
-        local sTimerNameUnique = self:GetAbilityName()..DoUniqueString(tostring(hTarget:entindex())) --.."_"
-        --=================================--
-        hTarget:InterruptMotionControllers(false)
-
-        local hPhysicsThingReturn = Physics:Unit(hTarget)
-
-        hTarget:PreventDI(true)
-        hTarget:SetPhysicsFriction(0)
-        hTarget:SetPhysicsVelocity(vDirection * ( nDistance / nDuration ))
-        hTarget:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
-        hTarget:SetGroundBehavior(PHYSICS_GROUND_LOCK)
-        hTarget:FollowNavMesh(true)
-        --=================================--
-        Timers:CreateTimer(sTimerNameUnique,
-        {
-            endTime  = nDuration * ( nScaleFactor ),
-            callback = function()
-                hTarget:OnPreBounce(nil)
-                hTarget:SetBounceMultiplier(0)
-                hTarget:PreventDI(false)
-                hTarget:SetPhysicsVelocity(Vector(0,0,0))
-                hTarget:OnPhysicsFrame(nil)
-                hTarget:SetGroundBehavior(PHYSICS_GROUND_NOTHING)
-                FindClearSpaceForUnit(hTarget, hTarget:GetAbsOrigin(), true)
-            end
-        })
-        --=================================--
-        hTarget:OnPreBounce(function(hUnit, vNormal)
-            --if not bCasterBerserked then
-                Timers:RemoveTimer(sTimerNameUnique)
-
-                if IsNotNull(hKickModifier) then
-                    hKickModifier:Destroy()
-                end
-
-                hUnit:OnPreBounce(nil)
-                hUnit:SetBounceMultiplier(0)
-                hUnit:PreventDI(false)
-                hUnit:SetPhysicsVelocity(Vector(0,0,0))
-                hUnit:OnPhysicsFrame(nil)
-                hUnit:SetGroundBehavior(PHYSICS_GROUND_NOTHING)
-                FindClearSpaceForUnit(hUnit, hUnit:GetAbsOrigin(), true)
-            --end
-
-            hUnit:AddNewModifier(hCaster, self, "modifier_leonidas_enomotia_slow", {duration = nSlowDuration, nSlow = nSlowPct, nStunned = nStunned, nLocked = nLocked})
-            giveUnitDataDrivenModifier(hCaster,hTarget , "stunned", stun_duration)
-            local nImpactPFX =  ParticleManager:CreateParticle("particles/heroes/anime_hero_leonidas/leonidas_sparta_kick_impact.vpcf", PATTACH_CENTER_FOLLOW, hUnit)
-                                ParticleManager:ReleaseParticleIndex(nImpactPFX)
-
-            EmitSoundOn("Leonidas.Kick.Impact.2", hUnit)
-            --=================================--
-            DoDamage(hCaster, hUnit, nBounceDamage, nDamageType, DOTA_DAMAGE_FLAG_NONE, self, false)
-            --=================================--
-            if nBounceCriticalDamage > 0 then
-                -- DoDamage(hCaster, hUnit, nBounceCriticalDamage, DAMAGE_TYPE_PHYSICAL, DOTA_DAMAGE_FLAG_NONE, self, false)
-                -- SendOverheadEventMessage(nil, OVERHEAD_ALERT_DEADLY_BLOW, hUnit, nBounceCriticalDamage, nil)
-                hUnit:AddNewModifier(hCaster, self, "modifier_leonidas_berserk_damage_overtime", {duration = 3, nDamageType = DAMAGE_TYPE_PHYSICAL, nDamage = nBounceCriticalDamage})
-            end
-        end)
-        --=================================--
-        DoDamage(hCaster, hTarget, nBaseDamage, nDamageType, DOTA_DAMAGE_FLAG_NONE, self, false)
-        --=================================--
-        if nBaseCriticalDamage > 0 then
-            -- DoDamage(hCaster, hTarget, nBaseDamage, DAMAGE_TYPE_PHYSICAL, DOTA_DAMAGE_FLAG_NONE, self, false)
-            -- SendOverheadEventMessage(nil, OVERHEAD_ALERT_DEADLY_BLOW, hTarget, nBaseDamage, nil)
-            hTarget:AddNewModifier(hCaster, self, "modifier_leonidas_berserk_damage_overtime", {duration = 3, nDamageType = DAMAGE_TYPE_PHYSICAL, nDamage = nBaseCriticalDamage})
-        end
-    end
+   
 end
 
 
@@ -919,6 +1266,15 @@ function leonidas_pride:OnAbilityPhaseStart()
 end
 function leonidas_pride:OnAbilityPhaseInterrupted()
 end
+LinkLuaModifier("modifier_merlin_self_pause","abilities/merlin/merlin_orbs", LUA_MODIFIER_MOTION_NONE)
+
+function leonidas_pride:StopShields_PFX(nParticleIndex, bNow)
+    if type(nParticleIndex) == "number" then
+        ParticleManager:DestroyParticle(nParticleIndex, bNow)
+        ParticleManager:ReleaseParticleIndex(nParticleIndex)
+    end
+end
+
 function leonidas_pride:OnSpellStart()
     local hCaster = self:GetCaster()
     local hTarget = self:GetCursorTarget()
@@ -932,7 +1288,80 @@ function leonidas_pride:OnSpellStart()
      --=================================--
     --ScreenShake(hCaster:GetAbsOrigin(), 7, 3, 2, 300 * 5, 0, true)
     --=================================--
-    CheckComboIsReadyIncrement(hCaster, 0)
+
+
+    nShowShields = 3
+    nShieldRows = 1
+    CheckComboIsReadyIncrement(hCaster, 1)
+    local barrier = self:GetSpecialValueFor("barrier_on_cast") + GetAttributeValue(hCaster, "leonidas_math_attribute",
+    "wall_bonus_barrier_per_int", -1, 0, false) * hCaster:GetIntellect(false)
+    local barriers_modifiers = hCaster:FindAllModifiersByName("modifier_leonidas_enomotia_shield")
+    for _, modifier in pairs(barriers_modifiers) do
+        barrier =  barrier + modifier:GetStackCount()
+    end
+    self.brothers = {}
+    hCaster:RemoveAllModifiersOfName("modifier_leonidas_enomotia_shield")
+    local right_vec = hCaster:GetRightVector()
+    local bonus_soldier = GetAttributeValue(hCaster, "leonidas_army_attribute", "bonus_soldier", -1, 0, false)
+    local soldier_barrier = hCaster:GetMaxHealth() * 0.2
+    print(bonus_soldier)
+    if bonus_soldier == 2 then
+        if  true then
+            local position1 = hCaster:GetAbsOrigin() + right_vec * 250
+            local position2 = hCaster:GetAbsOrigin() + right_vec * -250
+            local soldier1 = CreateUnitByName("leonidas_brother_soldier", position1, true, nil, nil, hCaster:GetTeamNumber())
+            local soldier2 = CreateUnitByName("leonidas_brother_soldier", position2, true, nil, nil, hCaster:GetTeamNumber())
+
+            FindClearSpaceForUnit(soldier1, position1, true)
+            FindClearSpaceForUnit(soldier2, position2, true)
+            soldier1:AddNewModifier(hCaster, self, "modifier_kill", { duration = nCounterDuration })
+            soldier2:AddNewModifier(hCaster, self, "modifier_kill", { duration = nCounterDuration })
+            soldier1:AddNewModifier(hCaster, self, "modifier_leonidas_brother", { duration = nCounterDuration,  barrier = soldier_barrier, right = 2})
+            soldier2:AddNewModifier(hCaster, self, "modifier_leonidas_brother", { duration = nCounterDuration, barrier = soldier_barrier, right = -2})
+            soldier1:FindModifierByName("modifier_leonidas_brother").state = 1 
+            soldier2:FindModifierByName("modifier_leonidas_brother").state = 1 
+        end
+
+    end
+    local BROTHERS = FindUnitsInRadius(hCaster:GetTeam(), hCaster:GetAbsOrigin(), nil, self:GetSpecialValueFor("radius"), DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
+    for k,v in pairs(BROTHERS) do
+        if v:GetUnitName() == "leonidas_brother_soldier" then
+            if v:HasModifier("modifier_leonidas_brother") then 
+                barrier = barrier + v:GetModifierStackCount("modifier_leonidas_brother", hCaster) * self:GetSpecialValueFor("soldier_barrier_consume_percentage")/100
+                StartAnimation(v, {duration=nCounterDuration, activity=ACT_DOTA_CHANNEL_ABILITY_7, rate=1}) 
+                AbilityBlink(v, hCaster:GetAbsOrigin() + hCaster:GetRightVector() * v:FindModifierByName("modifier_leonidas_brother").right * 125, 2000)
+                v:FaceTowards(hCaster:GetAbsOrigin() + hCaster:GetForwardVector() * 1000)
+                v:SetForwardVector(hCaster:GetForwardVector())
+                v:RemoveModifierByName("modifier_leonidas_brother")
+                table.insert( self.brothers, v)
+                nShowShields = nShowShields + 6
+                nShieldRows = nShieldRows + 1
+            end
+        else
+            if v:HasModifier("modifier_leonidas_enomotia_shield") then
+                barrier = barrier + v:GetModifierStackCount("modifier_leonidas_brother", hCaster)
+                v:RemoveModifierByName("modifier_leonidas_enomotia_shield")
+                nShowShields = nShowShields + 2
+                
+            end
+            barrier = barrier + self:GetSpecialValueFor("shield_per_ally_inside")
+            nShowShields = nShowShields + 1
+        end
+    end
+  
+    hCaster:AddNewModifier(hCaster, self, "modifier_leonidas_enomotia_shield", {duration = nCounterDuration, nDamageBlock = barrier})
+    hCaster:AddNewModifier(hCaster, self, "modifier_leonidas_enomotia_ignore_motion_controll", {duration = nCounterDuration})
+    --=================================--
+    hCaster:AddNewModifier(hCaster, self, "modifier_merlin_self_pause", {Duration = nCounterDuration}) 
+    ---- lock leonidas + add recast to stop shieldwall
+    StartAnimation(hCaster, {duration=nCounterDuration, activity=ACT_DOTA_CHANNEL_ABILITY_7, rate=1}) 
+    local vPFX_SpawnOrigin  = (hCaster:GetAbsOrigin() + hCaster:GetForwardVector() * 100) + Vector(0, 0, 150)
+    self._nShieldsPFX =    ParticleManager:CreateParticle("particles/heroes/anime_hero_leonidas/leonidas_thermopylae_enomotia_shields.vpcf", PATTACH_WORLDORIGIN, nil)
+    ParticleManager:SetParticleShouldCheckFoW(self._nShieldsPFX, false)
+    ParticleManager:SetParticleControlTransformForward(self._nShieldsPFX, 0, hCaster:GetAttachmentOrigin(hCaster:ScriptLookupAttachment("ATTACH_HITLOC")),hCaster:GetForwardVector())
+    ParticleManager:SetParticleControlTransformForward(self._nShieldsPFX, 1, vPFX_SpawnOrigin,hCaster:GetForwardVector())
+    ParticleManager:SetParticleControl(self._nShieldsPFX, 3, Vector(nCounterDuration, ( nShowShields / nShieldRows ), nShieldRows))
+    ParticleManager:SetParticleControl(self._nShieldsPFX, 4, Vector(0, 0, nCounterDuration ))
 end
 function leonidas_pride:ReleaseSpear(vPoint, hTarget, nBonusDamage, bCanDodge)
     local hCaster = self:GetCaster()
@@ -1189,12 +1618,14 @@ function modifier_leonidas_pride_counter:CheckState()
                     }
     return tState
 end
+--[[
 function modifier_leonidas_pride_counter:DeclareFunctions()
     local tFunc =   {
                         MODIFIER_PROPERTY_INCOMING_DAMAGE_PERCENTAGE
                     }
     return tFunc
 end
+]]
 function modifier_leonidas_pride_counter:GetAuraRadius()
     return self.nRadius
 end
@@ -1210,35 +1641,55 @@ end
 function modifier_leonidas_pride_counter:GetModifierAura()
     return "modifier_leonidas_pride_translator"
 end
+--[[
 function modifier_leonidas_pride_counter:GetModifierIncomingDamage_Percentage(keys)
     if IsServer() then
         --print(keys.damage, keys.original_damage)
-        local bCasterBerserked = self.hCaster:HasModifier("modifier_leonidas_berserk")
-        self.nBonusDamage = math.ceil(self.nBonusDamage + ( keys.original_damage * self.nCounterResist * 0.01 ))
-        self.nBonusDamage = GetClamped(self.nBonusDamage, 0, self.hParent:GetPhysicalArmorValue(false) *self.damagePerArmor)
+       -- local bCasterBerserked = self.hCaster:HasModifier("modifier_leonidas_berserk")
+       -- self.nBonusDamage = math.ceil(self.nBonusDamage + ( keys.original_damage * self.nCounterResist * 0.01 ))
+       -- self.nBonusDamage = GetClamped(self.nBonusDamage, 0, self.hParent:GetPhysicalArmorValue(false) *self.damagePerArmor)
         
         
-        self:SetStackCount(self.nBonusDamage)
+       -- self:SetStackCount(self.nBonusDamage)
         return -self.nCounterResist
     end
 end
+]]
+--[[
+function modifier_leonidas_pride_counter:OnTakeDamage(args)
+    if IsServer() then
+        if args.unit ~= self:GetParent() then return end
+
+    end
+end
+]]
+
 function modifier_leonidas_pride_counter:OnCreated(tTable)
     self.hCaster  = self:GetCaster()
     self.hParent  = self:GetParent()
     self.hAbility = self:GetAbility()
     self.nRadius = self.hAbility:GetAOERadius()
-    self.damagePerArmor = self.hAbility:GetSpecialValueFor("damage_per_armor")
-   
+    --self.damagePerArmor = self.hAbility:GetSpecialValueFor("damage_per_armor")
+    ----------------------------------
+    self.AbilitiesTable = {}
+
+
+
+
+
+
+
+    ----------------------------------------------
     if IsServer() then
         self.nCounterResist = tTable.nCounterResist or 0
 
         self.vPoint  = self.hAbility:GetCursorPosition()
         self.hTarget = self.hAbility:GetCursorTarget()
 
-        self.nBonusDamage = self.nBonusDamage or 0
+       -- self.nBonusDamage = self.nBonusDamage or 0
 
 
-        self.hParent:SwapAbilities("leonidas_pride", "leonidas_pride_release", false, true)
+        --self.hParent:SwapAbilities("leonidas_pride", "leonidas_pride_release", false, true)
 
         local nReleaseStart = self:GetDuration()
 
@@ -1261,8 +1712,8 @@ function modifier_leonidas_pride_counter:OnCreated(tTable)
         self._nShieldsPFX = tTable._nShieldsPFX --NOTE: Idk using -1 will be fine or not so just not using
 
         self.vRememberLocFixNeronaAndEtc = self.hParent:GetAbsOrigin()
-        --self.nThinkInterval = 0.01
-        --self:StartIntervalThink(self.nThinkInterval)
+        self.nThinkInterval = 0.1
+        self:StartIntervalThink(self.nThinkInterval)
     end
 end
 function modifier_leonidas_pride_counter:OnRefresh(tTable)
@@ -1270,16 +1721,23 @@ function modifier_leonidas_pride_counter:OnRefresh(tTable)
 end
 function modifier_leonidas_pride_counter:OnIntervalThink()
     if IsServer() then
-        --maybe will add my angle rotator idk..
-        self.hParent:SetForwardVector(GetDirection(self.vPoint, self.hParent))
+        --self.hParent:SetForwardVector(GetDirection(self.vPoint, self.hParent))
+        self.AbilitiesTable = {}
+
+        if not self.hParent:FindModifierByName("modifier_leonidas_enomotia_shield") then self:Destroy() end
     end
 end
 function modifier_leonidas_pride_counter:OnDestroy()
     if IsServer()
         and IsNotNull(self.hParent) then
         --self:OnIntervalThink()
-        self.hParent:SwapAbilities("leonidas_pride", "leonidas_pride_release", true, false)
-        self:StopShields_PFX(self._nShieldsPFX, true)
+       -- self.hParent:SwapAbilities("leonidas_pride", "leonidas_pride_release", true, false)
+       self.hCaster:RemoveModifierByName("modifier_merlin_self_pause")
+        self.hAbility:StopShields_PFX(self.hAbility._nShieldsPFX, true)
+        for k, v in  pairs(self.hAbility.brothers) do
+            v:Kill(self.hAbility, self.hCaster)
+        end
+        --[[
         if not self.hParent:HasModifier("modifier_leonidas_enomotia_ignore_motion_controll") then
             local hAbility     = self.hAbility
             local vPoint       = self.vPoint
@@ -1303,6 +1761,7 @@ function modifier_leonidas_pride_counter:OnDestroy()
             --    hAbility:ReleaseSpear(vPoint, hTarget, nBonusDamage, true)
             --end)
         end
+        ]]
     end
 end
 function modifier_leonidas_pride_counter:StopShields_PFX(nParticleIndex, bNow)
@@ -1383,27 +1842,27 @@ function modifier_leonidas_pride_translator:GetTotalDamageNullify(keys)
     if IsServer()
         and IsNotNull(self.hCaster)
         and self.hCaster:IsAlive()
-        and keys.original_damage > 0 then --IDK WHY BUT WHEN CLEAVE HITS DAMAGE IS 0
-
-        -- local hDamageTable =    {
-        --                             victim       = self.hCaster,
-        --                             attacker     = keys.attacker,
-        --                             damage       = keys.damage,
-        --                             damage_type  = keys.damage_type,
-        --                             ability      = keys.inflictor or self.hAbility,
-        --                             damage_flags = keys.damage_flags
-        --                         }
-
-        -- ApplyDamage(hDamageTable)
-        --=================================--
-        DoDamage(keys.attacker, self.hCaster, keys.original_damage*self.percent , keys.damage_type, keys.damage_flags, keys.inflictor or self.hAbility, false)
+        and keys.original_damage > 0 then 
+        
+        if not self.hCaster:HasModifier("modifier_leonidas_enomotia_shield") then return DAMAGE_TYPE_NONE end
         local truedmg = CalculateDamagePostReduction(keys.damage_type, keys.original_damage*(1-self.percent), self.hParent )     
+            for k, v in pairs( self.modifier.AbilitiesTable) do
+                if v == keys.inflictor then
+  
+                    return DAMAGE_TYPE_ALL
+                end
+            end
+        --table.insert(self.modifier.AbilitiesTable, keys.inflictor ) 
+
+        DoDamage(keys.attacker, self.hCaster, keys.original_damage*self.percent , keys.damage_type, keys.damage_flags, keys.inflictor or self.hAbility, false)
+        table.insert(self.modifier.AbilitiesTable, keys.inflictor ) 
 
         if( (self.hParent:GetHealth() - truedmg )< 1) then
             self.hParent:Kill(keys.inflictor or self.hAbility, keys.attacker)
         else
             self.hParent:SetHealth(self.hParent:GetHealth()- truedmg)
         end
+
         return DAMAGE_TYPE_ALL
     end
 end
@@ -1411,7 +1870,9 @@ function modifier_leonidas_pride_translator:OnCreated(tTable)
     self.hCaster  = self:GetCaster()
     self.hParent  = self:GetParent()
     self.hAbility = self:GetAbility()
+    self.modifier =  self.hCaster:FindModifierByName("modifier_leonidas_pride_counter")
     self.percent = self.hAbility:GetSpecialValueFor("translate_percentage")/100
+
 end
 function modifier_leonidas_pride_translator:OnRefresh(tTable)
     self:OnCreated(tTable)
@@ -2369,9 +2830,15 @@ function modifier_leonidas_enomotia_shield:DeclareFunctions()
     local hFunc =   { 
                         MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK,
                         --MODIFIER_PROPERTY_IGNORE_PHYSICAL_ARMOR
-                        MODIFIER_PROPERTY_PHYSICAL_ARMOR_BASE_PERCENTAGE
+                        MODIFIER_PROPERTY_PHYSICAL_ARMOR_BASE_PERCENTAGE,
+                        MODIFIER_PROPERTY_INCOMING_DAMAGE_CONSTANT,
                     }
     return hFunc
+end
+function modifier_leonidas_enomotia_shield:GetModifierIncomingDamageConstant(keys)
+    if IsClient() then
+        return self:GetStackCount()
+    end
 end
 function modifier_leonidas_enomotia_shield:GetModifierTotal_ConstantBlock(keys)
     if IsServer() then
@@ -2379,30 +2846,48 @@ function modifier_leonidas_enomotia_shield:GetModifierTotal_ConstantBlock(keys)
         if hModifiers[1] ~= self then
             return
         end
+        
+        -- local hServerStat = self.hParent.ServStat
+        -- if type(hServerStat) == "table" then
+        --     hServerStat:takeActualDamage(keys.damage)
+        --     hServerStat:takeDamageBeforeReduction(keys.original_damage)
+        --     if IsNotNull(keys.attacker) then
+        --         local hAttackerStat = keys.attacker.ServStat
+        --         if type(hAttackerStat) == "table" then
+        --             hAttackerStat:doActualDamage(keys.damage)
+        --             hAttackerStat:doDamageBeforeReduction(keys.original_damage)
+        --         end
+        --     end
+        -- end
 
-        local hServerStat = self.hParent.ServStat
-        if type(hServerStat) == "table" then
-            hServerStat:takeActualDamage(keys.damage)
-            hServerStat:takeDamageBeforeReduction(keys.original_damage)
-            if IsNotNull(keys.attacker) then
-                local hAttackerStat = keys.attacker.ServStat
-                if type(hAttackerStat) == "table" then
-                    hAttackerStat:doActualDamage(keys.damage)
-                    hAttackerStat:doDamageBeforeReduction(keys.original_damage)
+        local shouldBlock = 0
+        if self.hParent:HasModifier("modifier_leonidas_pride_counter") then
+            local modifier = self.hParent:FindModifierByName("modifier_leonidas_pride_counter")
+            
+            for k, v in pairs( modifier.AbilitiesTable) do
+
+                if v == keys.inflictor then
+                    shouldBlock = 1
+
                 end
             end
+
+            table.insert(modifier.AbilitiesTable, keys.inflictor ) 
         end
 
-        if self.hParent:HasModifier("modifier_leonidas_bc_immortal") then --NOTE: BASICALY NOT NEED BUT WANNA PREVENT SHOWING DAMAGE VALUES
+        if self.hParent:HasModifier("modifier_leonidas_bc_immortal") or (shouldBlock == 1) then --NOTE: BASICALY NOT NEED BUT WANNA PREVENT SHOWING DAMAGE VALUES
             return math.ceil(keys.damage) + 1
         end
-
         local iBlockNow   = self:GetStackCount()
         local iBlockCheck = iBlockNow - keys.damage
         if iBlockCheck > 0 then
             self:SetStackCount(iBlockCheck)
         elseif not self.bIsComboShield then
-            self:Destroy()
+            self:SetStackCount(0)
+            Timers:CreateTimer(FrameTime(), function()
+                self:Destroy()
+            end)
+            
         end
 
         if IsNotNull(keys.attacker) then
@@ -2677,7 +3162,7 @@ function leonidas_enomotia_combo:OnSpellStart()
 
         nPFX_AnimationSequence = ACT_DOTA_CHANNEL_ABILITY_7
         --=================================--
-        local nShowShields = nShieldCount - 12 - 112
+        local nShowShields = nShieldCount --- 12 - 112
         local _nShieldsPFX =    ParticleManager:CreateParticle("particles/heroes/anime_hero_leonidas/leonidas_thermopylae_enomotia_shields.vpcf", PATTACH_WORLDORIGIN, nil)
                                 ParticleManager:SetParticleShouldCheckFoW(_nShieldsPFX, false)
                                -- ParticleManager:SetParticleControlOrientationFLU(_nShieldsPFX, 0, vForward, -vRight, vUp)
@@ -2717,19 +3202,21 @@ function leonidas_enomotia_combo:OnSpellStart()
                 Timers:CreateTimer(nPFX_AnimLoopTime * 0.5, function()
                     if IsNotNull(nDefenceAuraModifierThinker) then --NOTE: Again checks 1
                         EndAnimation(hCaster)
+                        --[[
                         StartAnimation(hCaster, {duration = nPFX_AnimReleaseTime, activity = ACT_DOTA_CAST_ABILITY_3_END, rate = 0.3/(nPFX_AnimReleaseTime)})
                         --=================================--
                         if IsNotNull(hEnomotiaComboShield) then --NOTE: Maybe in future will add anti expire hmhmhm... TODO: Make when all shields is gone same releasing, so again rework anything but only in anime... now i'm tired
                             local tComboStoreEnemies  = hEnomotiaComboShield:GetStoreEnemies() or {}
                             local nShieldsStillHere   = hEnomotiaComboShield:GetStackCount()
                             local nTotalDamageBlocked = nDamageBlock - nShieldsStillHere
+                            
                             Timers:CreateTimer(nPFX_AnimReleaseTime * 0.5, function()
                                 --if IsNotNull(nDefenceAuraModifierThinker) then --NOTE: Again checks 2
                                 --end
                                 --print("RELEASING SPEARS TO TARGETS??? ", nTotalDamageBlocked, TableLength(tComboStoreEnemies))
 
                                 ScreenShake(vCasterGnd, 7, 3, 2, 300 * 5, 0, true)
-
+                                
                                 if IsNotNull(hPrideAbility) then
                                     --local nBonusDamageToAll = nShieldsStillHere / math.max(TableLength(tComboStoreEnemies), 1)
                                     --math.max(1000, ( nTotalDamageBlocked / math.max(TableLength(tComboStoreEnemies), 1) ))
@@ -2739,8 +3226,11 @@ function leonidas_enomotia_combo:OnSpellStart()
                                         end
                                     end
                                 end
+                                
                             end)
+                           
                         end
+                         ]]
                     end
                 end)
             end

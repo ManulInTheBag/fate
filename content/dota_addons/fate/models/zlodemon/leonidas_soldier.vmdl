@@ -987,6 +987,29 @@
 								framerate = -1.0
 								reverse = false
 							},
+							{
+								_class = "AnimFile"
+								name = "leonidas_cast_7"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_CAST_ABILITY_ROT"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/leonidas/leonidas.fbx"
+								import_bone_scales = false
+								start_frame = 179
+								end_frame = 190
+								framerate = 22.0
+								reverse = false
+							},
 						]
 					},
 				]

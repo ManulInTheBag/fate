@@ -11,7 +11,7 @@
 		"AbilityTextureName" 					"anime_hero_leonidas/leonidas_kick"
 
 		"AbilityType"							"DOTA_ABILITY_TYPE_BASIC"
-		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_OPTIONAL_UNIT_TARGET|DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_POINT"
 		
 		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"					"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -26,7 +26,7 @@
 		//"AbilityChannelTime"						"0.0"
 		"AbilityCooldown"						"14 13 12 11 10"
 		"AbilityManaCost"						"100"
-		"AbilityCastRange"					  	"200"
+		"AbilityCastRange"					  	"600 700 800 900 1000"
 
 		//"HasScepterUpgrade"					  	"1"
 
@@ -48,13 +48,61 @@
 		
 		"AbilityValues"
         {
-            "push_distance" "600 650 700 750 800"
+            "push_distance" "600 700 800 900 1000"
             "push_duration" "0.5"
             "slow_duration" "0.9 1.2 1.5 1.8 2.1"
             "slow_pct" "-70"
             "base_damage" "300 350 400 450 500"
             "stun_duration" "0.4 0.5 0.6 0.7 0.8"
             "bounce_damage" "300"
+        }
+	}
+	//=================================================================================================================
+	// Leonidas : Brother soldier
+	//=================================================================================================================
+	"leonidas_brothers"
+	{
+		"BaseClass"								"ability_lua"
+
+		"ScriptFile"							"abilities/leonidas/leonidas_brothers"
+		"AbilityTextureName" 					"anime_hero_leonidas/leonidas_catch"
+		"AbilityType"							"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"					"DOTA_UNIT_TARGET_HERO"
+		//"AbilityUnitTargetFlags"				"DOTA_UNIT_TARGET_FLAG_NONE"
+
+		"SpellImmunityType"						"SPELL_IMMUNITY_ENEMIES_NO"
+		"SpellDispellableType"					"SPELL_DISPELLABLE_YES"
+
+		"AbilityCastPoint"						"0.2"
+		//"AbilityChannelTime"						"0.0"
+		"AbilityCooldown"						"14 13 12 11 10"
+		"AbilityManaCost"						"200"
+		//"AbilityCastRange"					  	"300"
+
+		//"HasScepterUpgrade"					  	"1"
+
+		"MaxLevel"								"5"
+		"RequiredLevel"							"1"
+		"LevelsBetweenUpgrades"					"1"
+		"AnimationPlaybackRate" 		"2"
+		"AbilityCastAnimation"					"ACT_DOTA_CAST_ABILITY_6"
+		"precache"
+		{
+			"particle"		"particles/heroes/anime_hero_leonidas/leonidas_catch_trail.vpcf"
+			"particle"		"particles/heroes/anime_hero_leonidas/leonidas_brother_shield_give_effect.vpcf"
+		}
+		
+		"AbilityValues"
+        {
+        	"radius" "450"
+        	"duration" "10"
+        	"health_percentage" "50"
+            "enomotia_shield_duration" "5"
+            "enomotia_shield_block" "80 100 120 140 160"
+            "mr" "25"
+            "armor" "20"
         }
 	}
 	//=================================================================================================================
@@ -114,7 +162,7 @@
         }
 	}
 	//=================================================================================================================
-	// Leonidas : Pride
+	// Leonidas : Shield wall (pride)
 	//=================================================================================================================
 	"leonidas_pride"
 	{
@@ -135,14 +183,14 @@
 		"SpellImmunityType"						"SPELL_IMMUNITY_ENEMIES_NO"
 		"SpellDispellableType"					"SPELL_DISPELLABLE_YES"
 
-		"AbilityCastPoint"						"0.6"
+		"AbilityCastPoint"						"0.2"
 		//"AbilityChannelTime"						"0.0"
-		"AbilityCooldown"						"35 33 31 29 27 "
+		"AbilityCooldown"						"35 33 31 29 27"
 		"AbilityManaCost"						"400"
 		"AbilityCastRange"					  	"700"
 
 		//"HasScepterUpgrade"					  	"1"
-
+		"AnimationPlaybackRate" 		"2.5"
 		"MaxLevel"								"5"
 		"RequiredLevel"							"1"
 		"LevelsBetweenUpgrades"					"2"
@@ -158,16 +206,19 @@
         {
             "radius" "700"
             "vision_radius" "300"
-            "counter_duration" "7"
-            "counter_resist" 	   "35"
-            "translate_percentage" "20"
-            "speed" "3000"
-            "damage" "400 500 600 700 800"
-            "stun_duration" "1.5"
-            "cast_range" "1500"
+            "counter_duration" "3"
+            "barrier_on_cast" "400 500 600 700 800"
+            "shield_per_ally_inside" "120 150 180 210 240"
+            "soldier_barrier_consume_percentage" "20"
+            //"counter_resist" 	   "35"
+            "translate_percentage" "100"
+            //"speed" "3000"
+            //"damage" "400 500 600 700 800"
+            //"stun_duration" "1.5"
+            //"cast_range" "1500"
             "berserk_cooldown" "20"
-            "spear_radius" "300"
-            "damage_per_armor" "15"
+            //"spear_radius" "300"
+            //"damage_per_armor" "15"
         }
 	}
 	//=================================================================================================================
@@ -409,7 +460,7 @@
 		"AbilityTextureName" 					"anime_hero_leonidas/leonidas_enomotia_combo"
 
 		"AbilityType"							"DOTA_ABILITY_TYPE_ULTIMATE"
-		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IGNORE_SILENCE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		
 		"AbilityUnitTargetTeam"					"DOTA_UNIT_TARGET_TEAM_BOTH"
 		"AbilityUnitTargetType"					"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -453,7 +504,7 @@
             "shield_damage" "9"
             "shield_count" "200"
             "shield_rows" "8"
-            "base_block_per_shield" "30"
+            "base_block_per_shield" "50"
             "bonus_block_per_pushed" "10"
             "pfx_anim_start_time" "1.8"
             "pfx_anim_loop_time" "2.2"
@@ -528,6 +579,8 @@
             "catch_radius_pct_scale_per_int" "0.5"
             "pride_radius_pct_scale_per_int" "0.5"
             "enomotia_radius_pct_scale_per_int" "0.5"
+            "soldiers_bonus_barrier_per_int" "0.5"
+            "wall_bonus_barrier_per_int" "2.5"
         }
 	}
 	//=================================================================================================================
@@ -577,6 +630,7 @@
             "enomotia_damage_block_from_armor_pct" "30"
             "enomotia_nullify_armor_on_shield" "0"
             "bonus_magic_resistance_pct" "10"
+            "bonus_soldier" "2"
         }
 	}
 	//=================================================================================================================
@@ -624,6 +678,7 @@
         {
             "scale_per_hero_max" "30"
             "bonus_damage" "150"
+            "cdr" "50"
         }
 	}
 	//=================================================================================================================

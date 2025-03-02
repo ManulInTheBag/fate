@@ -66,8 +66,8 @@ function atalanta_phoebus_catastrophe_snipe:OnSpellStart()
     end)
 
     self:ShootAirArrows()
-    caster.snipeParticle = ParticleManager:CreateParticleForTeam("particles/custom/atalanta/atalanta_crosshair.vpcf", PATTACH_OVERHEAD_FOLLOW, target, caster:GetTeamNumber())
-
+    caster.snipeParticle = ParticleManager:CreateParticle("particles/custom/atalanta/atalanta_crosshair.vpcf", PATTACH_OVERHEAD_FOLLOW, target)
+    ParticleManager:SetParticleShouldCheckFoW( caster.snipeParticle, false)
     ParticleManager:SetParticleControl( caster.snipeParticle, 0, target:GetAbsOrigin() + Vector(0,0,100)) 
     ParticleManager:SetParticleControl( caster.snipeParticle, 1, target:GetAbsOrigin() + Vector(0,0,100)) 
 

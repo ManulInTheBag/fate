@@ -7103,23 +7103,25 @@
 		"DOTA_Tooltip_modifier_leonidas_attributes_Description"									"Just for showing u, allies and enemies what u have picked and prediction bugs"
 
 		"DOTA_Tooltip_ability_leonidas_math_attribute"											"Attribute: Math Is Great"
-		"DOTA_Tooltip_ability_leonidas_math_attribute_Description"								"Math is great. I feel so accomplished when my calculations are correct. \n\n Calculate strategy options and increase abilities values from intellect. \n\n[VALUE SCALES BY % TO BASE VALUE PER EACH INT POINT]"
+		"DOTA_Tooltip_ability_leonidas_math_attribute_Description"								"Math is great. I feel so accomplished when my calculations are correct. \nGives Leonidas 30 intellect\n Calculate strategy options and increase abilities values from intellect. \n\n[VALUE SCALES BY % TO BASE VALUE PER EACH INT POINT]"
 		//"DOTA_Tooltip_ability_leonidas_math_attribute_int_to_str_pct"							"%INT TO STRENGTH:"
 		//"DOTA_Tooltip_ability_leonidas_math_attribute_bonus_int"								"BONUS INTELLECT:"
-		"DOTA_Tooltip_ability_leonidas_math_attribute_kick_push_distance_pct_scale_per_int"		"%INT SCALE TO [Q] PUSH DISTANCE:"
-		"DOTA_Tooltip_ability_leonidas_math_attribute_catch_radius_pct_scale_per_int"			"%INT RADIUS SCALE TO [W]:"
+		//"DOTA_Tooltip_ability_leonidas_math_attribute_kick_push_distance_pct_scale_per_int"		"%INT SCALE TO [Q] PUSH DISTANCE:"
+		//"DOTA_Tooltip_ability_leonidas_math_attribute_catch_radius_pct_scale_per_int"			"%INT RADIUS SCALE TO [W]:"
 		//"DOTA_Tooltip_ability_leonidas_math_attribute_pride_radius_pct_scale_per_int"			"%INT AOE RADIUS [E]:"
-		"DOTA_Tooltip_ability_leonidas_math_attribute_enomotia_radius_pct_scale_per_int"		"%INT SCALE TO [R] RADIUS:"
+		"DOTA_Tooltip_ability_leonidas_math_attribute_soldiers_bonus_barrier_per_int"		"INT SCALE TO [W] BARRIERS GIVEN:"
+		"DOTA_Tooltip_ability_leonidas_math_attribute_wall_bonus_barrier_per_int"			"INT SCALE TO [E] BASE BARRIER:"
+
 
 		"DOTA_Tooltip_ability_leonidas_army_attribute"											"Attribute: Struggle of Three Hundred"
-		"DOTA_Tooltip_ability_leonidas_army_attribute_Description"								"Thermopylae Enomotia now scales from armor values. But Shield nullify all armor when active. Passivly, Grant bonus armor based on basic armor."
+		"DOTA_Tooltip_ability_leonidas_army_attribute_Description"								"Thermopylae Enomotia now scales from armor values. But Shield nullify all armor when active. Passivly, Grant bonus armor based on basic armor.\nShield wall now adds 2 additional soldiers into the wall."
 		"DOTA_Tooltip_ability_leonidas_army_attribute_bonus_armor_from_base_pct"				"%BONUS ARMOR BY BASE ARMOR:"
 		"DOTA_Tooltip_ability_leonidas_army_attribute_enomotia_damage_block_from_armor_pct"		"%[R][COMBO] BONUS BLOCK PER ARMOR:"
 		"DOTA_Tooltip_ability_leonidas_army_attribute_enomotia_nullify_armor_on_shield"			"[R][COMBO] NULLIFY SELF BASE ARMOR:"
 		"DOTA_Tooltip_ability_leonidas_army_attribute_bonus_magic_resistance_pct"				"%BONUS MAGIC RESISTANCE:"
 
 		"DOTA_Tooltip_ability_leonidas_pride_attribute"											"Attribute: Rear Guard's Pride"
-		"DOTA_Tooltip_ability_leonidas_pride_attribute_Description"								"Skill that displays more power the more disadvantageous the situation. Increase Leonidas Skills damage by %scale_per_hero_max%%% maximum (caped) per each alive enemy and dead ally. \nIncrease Defensive stance: Release radius and flat damage by 150."
+		"DOTA_Tooltip_ability_leonidas_pride_attribute_Description"								"Skill that displays more power the more disadvantageous the situation. Increase Leonidas Skills damage by %scale_per_hero_max%%% maximum (caped) per each alive enemy and dead ally.\nWhen Leonidas kicks soldier, This is sparta cooldown will be twice lower."
  
 		"DOTA_Tooltip_ability_leonidas_mad_attribute"											"Attribute: Dual Class"
 		"DOTA_Tooltip_ability_leonidas_mad_attribute_Description"								"[USABLE IN STUN AND SILENCE]\n[CAN;T BE USED UNDER REVOKE] \n Leonidas becomes enraged, all skills and normal attacks can critical strike, with intervals dispel all negative effects and does damage to near enemies counted times. Recieve attack speed as much as he lost hp. Spend health active all 3 seconds not instant 30% just 10% per each tick"
@@ -7154,7 +7156,7 @@
 		//"DOTA_Tooltip_modifier_artoria_calibur_slow_Description"								"Slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 
 		"DOTA_Tooltip_ability_leonidas_kick"													"This Is Sparta"
-		"DOTA_Tooltip_ability_leonidas_kick_Description"										"Knocking selected target, if target pushed to wall applies slow, lock effect, does bonus damage and stuns for a little. \n\n[BERSERKED] Stun duration on wall hit is doubled, slow is extended."
+		"DOTA_Tooltip_ability_leonidas_kick_Description"										"Knocking selected target, if target pushed to wall applies slow, lock effect, does bonus damage and stuns for a little. \n\n[BERSERKED] Stun duration on wall hit is doubled, slow is extended.\nWhen casted on point, kick soldier if possible."
 		"DOTA_Tooltip_ability_leonidas_kick_push_distance"										"PUSH DISTANCE:"
 		"DOTA_Tooltip_ability_leonidas_kick_push_duration"										"PUSH TIME:"
 		"DOTA_Tooltip_ability_leonidas_kick_stun_duration"										"STUN DURATION:"
@@ -7172,11 +7174,30 @@
 		"DOTA_Tooltip_ability_leonidas_catch_slow_duration"										"IMPACT EFFECT DURATION:"
 		"DOTA_Tooltip_ability_leonidas_catch_slow_pct"											"%EFFECT SLOW:"
 
-		"DOTA_Tooltip_ability_leonidas_pride"													"Defensive stance"
-		"DOTA_Tooltip_ability_leonidas_pride_Description"										"Leonidas enters defensive stance, reducing damage taken, while translating portion of damage ally heroes in radius receive to him.Leonidas is disarmed while in this stance. At any moment this spell can be canceled with Release.\n Release: Leonidas throws his spear at targeted location after a 0.3 seconds. All enemies hit will receive damage based on damage Leonidas received in his defensive stance capped, cap based on Leonidas's armor and will be stunned for a short duration.\nStun duration decreases based on how close Leonidas to the target point."
+		"DOTA_Tooltip_ability_leonidas_brothers"													"БРАТЬЯ СОЛДАТЫ!"
+		"DOTA_Tooltip_ability_leonidas_brothers_Description"										"Leonidas summons two soldiers, who will follow him around at all times until they die.\nSoldiers have barrier as health calculated as percentage of Leonidas's health.\nSoldiers do nothing by themselfs, but when kicked with <font color='#FFFAFA'>This is sparta</font>, they will try to find enemy around themself and kick them back to leonidas if possible.\nIf there is no enemies around them, or after the kick, soldiers will provide barriers to all allies in radius every 0.5 seconds for 3 seconds total."
+		"DOTA_Tooltip_ability_leonidas_pride_Note0"												""
+		"DOTA_Tooltip_ability_leonidas_brothers_radius"										"BARRIER GIVE RADIUS:"
+		"DOTA_Tooltip_ability_leonidas_brothers_duration"									"SOLDIERS DURATION:"
+		"DOTA_Tooltip_ability_leonidas_brothers_health_percentage"							"%BARRIER FROM LEONIDAS HEALTH:"
+		"DOTA_Tooltip_ability_leonidas_brothers_armor"										"SOLDIER ARMOR:"
+		"DOTA_Tooltip_ability_leonidas_brothers_mr"											"%SOLDIER MAGIC RESISTANCE:"
+		"DOTA_Tooltip_ability_leonidas_brothers_enomotia_shield_duration"					"BARRIER DURATION:"
+		"DOTA_Tooltip_ability_leonidas_brothers_enomotia_shield_block"						"BARRIER PER TICK:"
+
+
+		"DOTA_Tooltip_ability_leonidas_pride"													"Shield wall"
+		"DOTA_Tooltip_ability_leonidas_pride_Description"										"Leonidas enters defence stance, locking himself on one place and gaining barrier, based on amount of allies inside, for a duration.\nWhile Leonidas is in the stance, all allies around him translate all damage taken to him.\nWhen barrier depletes, ability ends.\nOn cast, Leonidas comsumes all barriers he gave to his teammates into this one shield, as well as portion of barrier of his soldiers.\nSoldiers will die, when ability ends.\nALL AOE damage is dealth only ONCE if it hits units inside shield wall at one moment."
 		"DOTA_Tooltip_ability_leonidas_pride_Note0"												""
 		"DOTA_Tooltip_ability_leonidas_pride_radius"										"RADIUS:"
 		"DOTA_Tooltip_ability_leonidas_pride_counter_duration"								"DURATION:"
+		"DOTA_Tooltip_ability_leonidas_pride_barrier_on_cast"								"BASE SHIELD:"
+		"DOTA_Tooltip_ability_leonidas_pride_shield_per_ally_inside"								"SHIELD PER TEAMMATE:"
+		"DOTA_Tooltip_ability_leonidas_pride_soldier_barrier_consume_percentage"			"%SHIELD FROM SOLDIERS BARRIER:"
+		"DOTA_Tooltip_ability_leonidas_pride_counter_resist"								"%DAMAGE RESIST AND TRANSLATION:"
+
+
+
 		"DOTA_Tooltip_ability_leonidas_pride_counter_resist"								"%DAMAGE RESIST AND TRANSLATION:"
 		"DOTA_Tooltip_ability_leonidas_pride_damage"										"SPEAR BASE DMG:"
 		"DOTA_Tooltip_ability_leonidas_pride_stun_duration"									"SPEAR MAX STUN DURATION:"
@@ -7259,7 +7280,7 @@
 		"DOTA_Tooltip_modifier_leonidas_enomotia_slow_Description"								"Slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%. This Modifier universal and applies many effects based on leonidas properties."
 
 		"DOTA_Tooltip_ability_leonidas_enomotia_combo"											"COMBO: Thermopylae Enomotia Counterattack"
-		"DOTA_Tooltip_ability_leonidas_enomotia_combo_Description"								"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: E-W-R in %steps_duration%*%combo_steps% seconds</font>\n Releasing Noble Phantasm is [DEFENCE] state, any ally in radius around Leonidas will transfer all original damage to him and spend shields first, after his health, combo not ends when shields is gone. Also Grant Vision (not true sight) to radius which defends.  \n[BERSERKED] Releaseing Strong Version of normal Thermopylae Enomotia. Recieve Bonus Berserk duration for full time of releasing and shields duration after release, total time not increases, just setups to new if u already in berserk when cast begins."
+		"DOTA_Tooltip_ability_leonidas_enomotia_combo_Description"								"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: W-E-R in %steps_duration%*%combo_steps% seconds</font>\n Releasing Noble Phantasm is [DEFENCE] state, any ally in radius around Leonidas will transfer all original damage to him and spend shields first, after his health, combo not ends when shields is gone. Also Grant Vision (not true sight) to radius which defends.  \n[BERSERKED] Releaseing Strong Version of normal Thermopylae Enomotia. Recieve Bonus Berserk duration for full time of releasing and shields duration after release, total time not increases, just setups to new if u already in berserk when cast begins."
 		"DOTA_Tooltip_ability_leonidas_enomotia_combo_radius"									"RADIUS:"
 		"DOTA_Tooltip_ability_leonidas_enomotia_combo_push_radius"								"[BERSERKED] PUSH RADIUS:"
 		"DOTA_Tooltip_ability_leonidas_enomotia_combo_push_duration"							"[BERSERKED] PUSH TIME:"
