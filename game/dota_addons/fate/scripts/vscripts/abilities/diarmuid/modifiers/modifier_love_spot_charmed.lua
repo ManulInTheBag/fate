@@ -33,7 +33,7 @@ function modifier_love_spot_charmed:OnIntervalThink()
 		OrderType = DOTA_UNIT_ORDER_MOVE_TO_POSITION ,
 		Position = nil
 	}
-	if (target:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D() > 900 then 
+	if (target:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D() > 1200 then 
 		self:Destroy()
 		return
 	end

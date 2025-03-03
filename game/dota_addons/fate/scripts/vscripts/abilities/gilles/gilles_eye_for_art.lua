@@ -36,6 +36,22 @@ function modifier_eye_for_art_vision:RemoveOnDeath()
     return true
 end
 
+function modifier_eye_for_art_vision:OnCreated()
+	if IsClient() then
+		self.OverheadFx = ParticleManager:CreateParticle( "particles/zlodemon/zlodemon_overhead_eye.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetParent() )
+		ParticleManager:SetParticleControl( self.OverheadFx , 1, Vector( 1,1,0.5 ) )
+		ParticleManager:SetParticleControl( self.OverheadFx , 2, Vector( 100,0,0 ) )
+		
+	end
+end
+
+function modifier_eye_for_art_vision:OnDestroy()
+    if type(self.OverheadFx) == "number" then
+            ParticleManager:DestroyParticle(self.OverheadFx, true)
+            ParticleManager:ReleaseParticleIndex(self.OverheadFx)
+    end
+end
+
 function modifier_eye_for_art_vision:GetTexture()
 	return "custom/gille_attribute_eye_for_art"
 end

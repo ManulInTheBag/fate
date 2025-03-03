@@ -33,6 +33,14 @@ end
 function modifier_calydonian_hunt_sight:GetTexture()
     return "custom/atalanta_calydonian_hunt"
 end
+function modifier_calydonian_hunt_sight:OnCreated()
+	if IsClient() then
+		self.OverheadFx = ParticleManager:CreateParticle( "particles/zlodemon/zlodemon_overhead_eye.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetParent() )
+		ParticleManager:SetParticleControl( self.OverheadFx , 1, Vector( 0.1,1,0.1 ) )
+		ParticleManager:SetParticleControl( self.OverheadFx , 2, Vector( self:GetDuration(),0,0 ) )
+		self:AddParticle(-1, true, false, self:GetPriority(), false, true)
+	end
+end
 
 -----------------------
 

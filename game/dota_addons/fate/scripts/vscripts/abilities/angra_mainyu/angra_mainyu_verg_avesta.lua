@@ -46,6 +46,11 @@ end
 function modifier_verg_avesta_counter:OnTakeDamage(args)
     if IsServer() then
         if args.unit ~= self:GetParent() then return end
+		if args.attacker:GetTeamNumber() ~= self:GetParent():GetTeamNumber() and GetDistance(args.attacker, self:GetParent()) <= self:GetAbility():GetSpecialValueFor("radius") then
+
+			self:GetParent():GiveMana(args.damage * self:GetAbility():GetSpecialValueFor("mana_restore_percentage") * 0.01)
+
+		end
 		if args.unit:IsAlive() and not args.unit:IsMagicImmune() then
 
 			if args.attacker:GetTeamNumber() ~= self:GetParent():GetTeamNumber() and GetDistance(args.attacker, self:GetParent()) <= self:GetAbility():GetSpecialValueFor("radius") then
@@ -78,7 +83,7 @@ function angra_mainyu_verg_avesta_slow:DeclareFunctions()
 end
 
 function angra_mainyu_verg_avesta_slow:GetModifierMoveSpeedBonus_Percentage() 
-    return -30
+    return -50
 end
 ------------------------------------------------------------------------------
 

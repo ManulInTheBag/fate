@@ -1317,11 +1317,22 @@ function leonidas_pride:OnSpellStart()
     local right_vec = hCaster:GetRightVector()
     local bonus_soldier = GetAttributeValue(hCaster, "leonidas_army_attribute", "bonus_soldier", -1, 0, false)
     local soldier_barrier = hCaster:GetMaxHealth() * 0.2
-    print(bonus_soldier)
+    local initialBrotherCount = 0
+    local BROTHERS = FindUnitsInRadius(hCaster:GetTeam(), hCaster:GetAbsOrigin(), nil, self:GetSpecialValueFor("radius"), DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
+    for k,v in pairs(BROTHERS) do
+        if v:GetUnitName() == "leonidas_brother_soldier" then
+            initialBrotherCount = initialBrotherCount + 1
+        end
+
+    end
+    local right_vec_mod = 1
+    if initialBrotherCount == 0 then
+        right_vec_mod = 0.5
+    end
     if bonus_soldier == 2 then
         if  true then
-            local position1 = hCaster:GetAbsOrigin() + right_vec * 250
-            local position2 = hCaster:GetAbsOrigin() + right_vec * -250
+            local position1 = hCaster:GetAbsOrigin() + right_vec * 250*right_vec_mod
+            local position2 = hCaster:GetAbsOrigin() + right_vec * -250*right_vec_mod
             local soldier1 = CreateUnitByName("leonidas_brother_soldier", position1, true, nil, nil, hCaster:GetTeamNumber())
             local soldier2 = CreateUnitByName("leonidas_brother_soldier", position2, true, nil, nil, hCaster:GetTeamNumber())
 
@@ -1329,14 +1340,15 @@ function leonidas_pride:OnSpellStart()
             FindClearSpaceForUnit(soldier2, position2, true)
             soldier1:AddNewModifier(hCaster, self, "modifier_kill", { duration = nCounterDuration })
             soldier2:AddNewModifier(hCaster, self, "modifier_kill", { duration = nCounterDuration })
-            soldier1:AddNewModifier(hCaster, self, "modifier_leonidas_brother", { duration = nCounterDuration,  barrier = soldier_barrier, right = 2})
-            soldier2:AddNewModifier(hCaster, self, "modifier_leonidas_brother", { duration = nCounterDuration, barrier = soldier_barrier, right = -2})
+            soldier1:AddNewModifier(hCaster, self, "modifier_leonidas_brother", { duration = nCounterDuration,  barrier = soldier_barrier, right = 2*right_vec_mod})
+            soldier2:AddNewModifier(hCaster, self, "modifier_leonidas_brother", { duration = nCounterDuration, barrier = soldier_barrier, right = -2*right_vec_mod})
             soldier1:FindModifierByName("modifier_leonidas_brother").state = 1 
             soldier2:FindModifierByName("modifier_leonidas_brother").state = 1 
         end
 
     end
-    local BROTHERS = FindUnitsInRadius(hCaster:GetTeam(), hCaster:GetAbsOrigin(), nil, self:GetSpecialValueFor("radius"), DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
+    BROTHERS = FindUnitsInRadius(hCaster:GetTeam(), hCaster:GetAbsOrigin(), nil, self:GetSpecialValueFor("radius"), DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
+
     for k,v in pairs(BROTHERS) do
         if v:GetUnitName() == "leonidas_brother_soldier" then
             if v:HasModifier("modifier_leonidas_brother") then 
@@ -1742,12 +1754,39 @@ function modifier_leonidas_pride_counter:OnRefresh(tTable)
     --self:OnCreated(tTable)
 end
 function modifier_leonidas_pride_counter:OnIntervalThink()
-    if IsServer() then
+   -- if IsServer() then
+        local width = 100
+
+        width = width + #self.hAbility.brothers * 50
+        local enemies = FindUnitsInLine( self.hParent:GetTeam(),  self.hParent:GetAbsOrigin(),  self.hParent:GetAbsOrigin() +  self.hParent:GetForwardVector() * 250
+        , nil, width, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0)
+        local damage = self.hAbility:GetSpecialValueFor("damage")/10
+        local bCasterBerserked = self.hParent:HasModifier("modifier_leonidas_berserk")
+  
+        for _,v in ipairs(enemies) do
+           DoDamage(self.hParent, v, damage, DAMAGE_TYPE_MAGICAL, 0, self.hAbility, false)
+           if bCasterBerserked then
+                DoDamage(self.hParent, v, self.hParent:GetAttackDamage() * self.hAbility:GetSpecialValueFor("berserk_damage_mod")/10, DAMAGE_TYPE_PHYSICAL, 0, self.hAbility, false)
+           end
+           --DoDamage(self.hParent, v, 50, DAMAGE_TYPE_MAGICAL, 0, self.hAbility, false)
+       end
+
+       for k, v in pairs(self.hAbility.brothers) do
+            self.jopaPfx= ParticleManager:CreateParticle("particles/zlodemon/leonidas_shield_wall/leonidas_shield_wall_spears.vpcf", PATTACH_WORLDORIGIN, nil)
+            ParticleManager:SetParticleControlTransformForward(self.jopaPfx, 0, v:GetAbsOrigin() + v:GetForwardVector() * 175, v:GetForwardVector())
+            --ParticleManager:DestroyParticle(self.jopaPfx, false)
+            ParticleManager:ReleaseParticleIndex(self.jopaPfx)
+
+       end
+       self.jopaPfx= ParticleManager:CreateParticle("particles/zlodemon/leonidas_shield_wall/leonidas_shield_wall_spears.vpcf", PATTACH_WORLDORIGIN, nil)
+       ParticleManager:SetParticleControlTransformForward(self.jopaPfx, 0, self.hParent:GetAbsOrigin() + self.hParent:GetForwardVector() * 175, self.hParent:GetForwardVector())
+       --ParticleManager:DestroyParticle(self.jopaPfx, false)
+       ParticleManager:ReleaseParticleIndex(self.jopaPfx)
         --self.hParent:SetForwardVector(GetDirection(self.vPoint, self.hParent))
         self.AbilitiesTable = {}
 
         if not self.hParent:FindModifierByName("modifier_leonidas_enomotia_shield") then self:Destroy() end
-    end
+   -- end
 end
 function modifier_leonidas_pride_counter:OnDestroy()
     if IsServer()
@@ -1993,8 +2032,10 @@ function leonidas_berserk:OnSpellStart()
     local BROTHERS = FindUnitsInRadius(hCaster:GetTeam(), hCaster:GetAbsOrigin(), nil, 700, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
     for k,v in pairs(BROTHERS) do
         if v:GetUnitName() == "leonidas_brother_soldier" then
-            v:FindModifierByName("modifier_leonidas_brother").state = 2
-            v:SetAttackCapability(DOTA_UNIT_CAP_MELEE_ATTACK )
+            if not v:HasModifier("modifier_leonidas_pride_translator") then
+                v:FindModifierByName("modifier_leonidas_brother").state = 2
+                v:SetAttackCapability(DOTA_UNIT_CAP_MELEE_ATTACK )
+            end
         end
 
     end

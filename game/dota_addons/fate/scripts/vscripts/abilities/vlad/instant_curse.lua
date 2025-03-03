@@ -15,7 +15,7 @@ function vlad_instant_curse:OnSpellStart()
       ParticleManager:SetParticleControl(explosionFx, 3, caster:GetAbsOrigin())
       ParticleManager:ReleaseParticleIndex(explosionFx)
       caster:EmitSound("Hero_Lycan.Attack")
-      local targets = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
+      local targets = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 450, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
         for k,v in pairs(targets) do
           DoDamage(caster, v, saDamage, DAMAGE_TYPE_MAGICAL, 0, self, false)
           caster:AddBleedStack(v, false, saBleed)

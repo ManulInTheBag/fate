@@ -4461,8 +4461,10 @@
         "DOTA_Tooltip_ability_avenger_tawrich_zarich_slow_amount"	"%SLOW:"
         "DOTA_Tooltip_ability_avenger_tawrich_zarich_slow_duration"	"SLOW DURATION:" 
  		"DOTA_Tooltip_ability_avenger_tawrich_zarich_damage_per_attack"		"Damage:" 
+
+
         "DOTA_Tooltip_Ability_avenger_true_form"				"True Form"
-        "DOTA_Tooltip_ability_avenger_true_form_Description"    "Transforms into the remain of Holy Grail, gaining bonus health, mana, and attack damage. Avenger gains new set of abilities while True Form lasts.\n<font color='#FF6600'>This ability affects the level of Demon Core in True Form.</font>"
+        "DOTA_Tooltip_ability_avenger_true_form_Description"    "Transforms into the remain of Holy Grail, gaining bonus health, mana, and attack damage. Avenger gains new set of abilities while True Form lasts.\nMust be set to autocast in order to use combo.\n<font color='#FF6600'>This ability affects the level of Demon Core in True Form.</font>"
         "DOTA_Tooltip_ability_avenger_true_form_Lore"   "The loop must not be broken."
         "DOTA_Tooltip_ability_avenger_true_form_bonus_health"   "MAX HEALTH BONUS:"
         //"DOTA_Tooltip_ability_avenger_true_form_bonus_mana"		"MAX MANA BONUS:"
@@ -4470,7 +4472,7 @@
         "DOTA_Tooltip_ability_avenger_true_form_duration"   "DURATION:"
 
         "DOTA_Tooltip_Ability_angra_mainyu_verg_avesta"					"Verg Avesta"
-        "DOTA_Tooltip_ability_angra_mainyu_verg_avesta_Description"		"Passive: Angra Mainyu enters state for the duration, in which he will return all damage he took to the enemies who inflicted it as <font color='#D1A951'>pure</font>.\nOnly enemies within %radius% radius around him are affected.\n\nUpgradable by attribute Demon Incarnate."
+        "DOTA_Tooltip_ability_angra_mainyu_verg_avesta_Description"		"Passive: Angra Mainyu enters state for the duration, in which he will return all damage he took to the enemies who inflicted it as <font color='#D1A951'>pure</font>.\nOnly enemies within %radius% radius around him are affected.\nWhen taking damage under Verg Avesta effect, Angra gains mana equal to %mana_restore_percentage%%  of damage\nUpgradable by attribute Demon Incarnate."
         "DOTA_Tooltip_ability_angra_mainyu_verg_avesta_Lore"			"The killer of mankind assumes the simplest rule of the world - Retribution."
         "DOTA_Tooltip_ability_angra_mainyu_verg_avesta_damage"			"Base damage:"
  		"DOTA_Tooltip_ability_angra_mainyu_verg_avesta_multiplier"		"%Damage Amplification:"
@@ -4523,7 +4525,7 @@
  
 
 		"DOTA_Tooltip_Ability_avenger_endless_loop"				"Combo: Endless Loop"
-		"DOTA_Tooltip_ability_avenger_endless_loop_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : E-R in 4 seconds</font>\nAvenger brings upon him the miracle of tainted Holy Grail, reverting health back to health at cast and resetting the cooldowns of all abilities and items every 3 seconds.\nThe effect of Verg Avesta is also applied for duration. Return multiplier follows current level value of Verg Avesta, but duration is set to 12 seconds regardless."
+		"DOTA_Tooltip_ability_avenger_endless_loop_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : E(set to autocast)-R in 4 seconds</font>\nAvenger brings upon him the miracle of tainted Holy Grail, reverting health back to health at cast and resetting the cooldowns of all abilities and items every 3 seconds.\nThe effect of Verg Avesta is also applied for duration. Return multiplier follows current level value of Verg Avesta, but duration is set to 12 seconds regardless."
 		"DOTA_Tooltip_ability_avenger_endless_loop_Lore"	"The night fades away and new day comes, but never a new beginning." 
 		"DOTA_Tooltip_ability_avenger_endless_loop_duration"		"DURATION:"
 
@@ -6031,7 +6033,7 @@
         "DOTA_Tooltip_Ability_lishuwen_martial_arts_silence_duration"	"SILENCE DURATION:"
 
         "DOTA_Tooltip_Ability_lishuwen_berserk"						"Berserk"
-        "DOTA_Tooltip_Ability_lishuwen_berserk_Description"			"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>%cast_point%</font> \n\n Li Shuwen becomes <font color='#B60A1A'>enraged</font>, <font color='#FF9900'>removing all negative and crowd control effects</font> on himself and becoming <font color='#FF9900'>immune</font> to them for a short duration.\n\n Li Shuwen gains <font color='#FFFAFA'>critical strike chance</font> which increased based on his <font color='#FF0000'>strength</font>. \n\nThis ability can be cast only when Li Shuwen is <font color='#FF3399'>not revoked</font> from Master.\n\nDuring this effect, Fierce Tiger Strikes have <font color='#FFFAFA'>increased attack damage scaling</font>. \n\nLi Shuwen <font color='#FFFAFA'>may not use No Second Strike</font> during this effect."
+        "DOTA_Tooltip_Ability_lishuwen_berserk_Description"			"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>%cast_point%</font> \n\n Li Shuwen becomes <font color='#B60A1A'>enraged</font>, <font color='#FF9900'>removing all negative and crowd control effects</font> on himself and becoming <font color='#FF9900'>immune</font> to them for a short duration.\n\n Li Shuwen gains <font color='#FFFAFA'>critical strike chance</font> which increased based on his <font color='#FF0000'>strength</font>. \n\nThis ability can be cast only when Li Shuwen is <font color='#FF3399'>not revoked</font> from Master.\n\nDuring this effect, Fierce Tiger Strikes have <font color='#FFFAFA'>increased attack damage scaling</font>. \n\nLi Shuwen's <font color='#FFFAFA'>No Second Strike</font> will deal physical damage during this effect."
         "DOTA_Tooltip_Ability_lishuwen_berserk_duration"			"DURATION:"
         "DOTA_Tooltip_Ability_lishuwen_berserk_cc_immune_duration"	"IMMUNITY DURATION:"
         "DOTA_Tooltip_Ability_lishuwen_berserk_critical_chance"		"%CRITICAL CHANCE:"
@@ -6137,7 +6139,7 @@
         //"DOTA_Tooltip_Ability_lishuwen_attribute_improve_martial_arts_damage_percentage"	"%ADDITIONAL DAMAGE ON BASE ATTACK:"
 
         "DOTA_Tooltip_Ability_lishuwen_attribute_dual_class"				"Attribute: Dual Class"
-        "DOTA_Tooltip_Ability_lishuwen_attribute_dual_class_Description"	"Enables Berserk.\n<font color='#58ACFA'>Berserk:</font>  Li Shuwen becomes <font color='#B60A1A'>enraged</font>, <font color='#FF9900'>removing all negative and crowd control effects</font> on himself and becoming <font color='#FF9900'>immune</font> to them for a short duration.\n\n Li Shuwen gains <font color='#FFFAFA'>critical strike chance</font> which increased based on his <font color='#FF0000'>strength</font>. \n\nThis ability can be cast only when Li Shuwen is <font color='#FF3399'>not revoked</font> from Master.\n\nDuring this effect, Fierce Tiger Strikes have <font color='#FFFAFA'>increased attack damage scaling</font>. \n\nLi Shuwen <font color='#FFFAFA'>may not use No Second Strike</font> during this effect."
+        "DOTA_Tooltip_Ability_lishuwen_attribute_dual_class_Description"	"Enables Berserk.\n<font color='#58ACFA'>Berserk:</font>  Li Shuwen becomes <font color='#B60A1A'>enraged</font>, <font color='#FF9900'>removing all negative and crowd control effects</font> on himself and becoming <font color='#FF9900'>immune</font> to them for a short duration.\n\n Li Shuwen gains <font color='#FFFAFA'>critical strike chance</font> which increased based on his <font color='#FF0000'>strength</font>. \n\nThis ability can be cast only when Li Shuwen is <font color='#FF3399'>not revoked</font> from Master.\n\nDuring this effect, Fierce Tiger Strikes have <font color='#FFFAFA'>increased attack damage scaling</font>. \n\nLi Shuwen's <font color='#FFFAFA'>No Second Strike</font> will deal physical damage during this effect."
 
         "DOTA_Tooltip_Ability_lishuwen_attribute_dual_class_duration"				"DURATION:"
         "DOTA_Tooltip_Ability_lishuwen_attribute_dual_class_cc_immune_duration"		"IMMUNITY DURATION:"
@@ -6999,7 +7001,7 @@
 		"DOTA_Tooltip_ability_vlad_attribute_instant_curse_note0"									"Bloodpower stacks from Bloodletter attribute count as bleed stacks for determining if Cursed Lance is soft dispellable."
 		
 		"DOTA_Tooltip_ability_vlad_attribute_bloodletter" 											"Attribute: Fortress of Dracula"
-		"DOTA_Tooltip_ability_vlad_attribute_bloodletter_Description"								"While having less then 60% HP, using any basic ability will cause Vlad 3 to summon spikes in 300 radius around him, dealing damage, applying 5 bleed stacks and rooting all enemies for 0.3 seconds."
+		"DOTA_Tooltip_ability_vlad_attribute_bloodletter_Description"								"While having less then 60% HP, using any basic ability will cause Vlad 3 to summon spikes in 450 radius around him, dealing damage, applying 5 bleed stacks and rooting all enemies for 0.5 seconds.\nRebellious intent has a 2 second cooldown for this effect."
 		//"DOTA_Tooltip_ability_vlad_attribute_bloodletter_transfusionbonus"								"TRANSFUSION BONUS DAMAGE:"
 		//"DOTA_Tooltip_ability_vlad_attribute_bloodletter_cl_bonus_shield_per_stack__TT"				"%E BONUS SHIELD PER BLOODPOWER:"
 		//"DOTA_Tooltip_ability_vlad_attribute_bloodletter_cl_bonus_dmg_per_stack__TT"				"%E BONUS DAMAGE PER BLOODPOWER:"
@@ -7175,7 +7177,7 @@
 		"DOTA_Tooltip_ability_leonidas_catch_slow_pct"											"%EFFECT SLOW:"
 
 		"DOTA_Tooltip_ability_leonidas_brothers"													"БРАТЬЯ СОЛДАТЫ!"
-		"DOTA_Tooltip_ability_leonidas_brothers_Description"										"Leonidas summons two soldiers, who will follow him around at all times until they die.\nSoldiers have barrier as health calculated as percentage of Leonidas's health.\nSoldiers do nothing by themselfs, but when kicked with <font color='#FFFAFA'>This is sparta</font>, they will try to find enemy around themself and kick them back to leonidas if possible.\nIf there is no enemies around them, or after the kick, soldiers will provide barriers to all allies in radius every 0.5 seconds for 3 seconds total.\n\n[BERSERKED] When berserk is casted while soldiers alive, they will go and try to attack closest enemy."
+		"DOTA_Tooltip_ability_leonidas_brothers_Description"										"Leonidas summons two soldiers, who will follow him around at all times until they die.\nSoldiers have barrier as health calculated as percentage of Leonidas's health.\nSoldiers do nothing by themselfs, but when kicked with <font color='#FFFAFA'>This is sparta</font>, they will try to find enemy around themself and kick them back to leonidas if possible.\nIf there is no enemies around them, or after the kick, soldiers will provide barriers to all allies in radius every 0.5 seconds for 3 seconds total, dealing same damage to all enemies in radius.\n\n[BERSERKED] When berserk is casted while soldiers alive, they will go and try to attack closest enemy."
 		"DOTA_Tooltip_ability_leonidas_pride_Note0"												""
 		"DOTA_Tooltip_ability_leonidas_brothers_radius"										"BARRIER GIVE RADIUS:"
 		"DOTA_Tooltip_ability_leonidas_brothers_duration"									"SOLDIERS DURATION:"
@@ -7187,11 +7189,13 @@
 
 
 		"DOTA_Tooltip_ability_leonidas_pride"													"Shield wall"
-		"DOTA_Tooltip_ability_leonidas_pride_Description"										"Leonidas enters defence stance, locking himself on one place and gaining barrier, based on amount of allies inside, for a duration.\nWhile Leonidas is in the stance, all allies around him translate all damage taken to him.\nWhen barrier depletes, ability ends.\nOn cast, Leonidas comsumes all barriers he gave to his teammates into this one shield, as well as portion of barrier of his soldiers.\nSoldiers will die, when ability ends.\nALL AOE damage is dealth only ONCE if it hits units inside shield wall at one moment."
+		"DOTA_Tooltip_ability_leonidas_pride_Description"										"Leonidas enters defence stance, locking himself on one place and gaining barrier, based on amount of allies inside, for a duration.\nWhile Leonidas is in the stance, all allies around him translate all damage taken to him.\nWhen barrier depletes, ability ends.\nOn cast, Leonidas comsumes all barriers he gave to his teammates into this one shield, as well as portion of barrier of his soldiers.\nSoldiers will die, when ability ends.\nALL AOE damage is dealth only ONCE if it hits units inside shield wall at one moment.\nWhile wall persists, Leonidas and all of his soldiers will attack enemies in front of the wall, dealing damage over time.\n[BERSERKED] dealth additional physical damage, based on Leonidas attack."
 		"DOTA_Tooltip_ability_leonidas_pride_Note0"												""
 		"DOTA_Tooltip_ability_leonidas_pride_radius"										"RADIUS:"
 		"DOTA_Tooltip_ability_leonidas_pride_counter_duration"								"DURATION:"
 		"DOTA_Tooltip_ability_leonidas_pride_barrier_on_cast"								"BASE SHIELD:"
+		"DOTA_Tooltip_ability_leonidas_pride_damage"										"DAMAGE PER SECOND:"
+		"DOTA_Tooltip_ability_leonidas_pride_berserk_damage_mod"							"ATTACK DAMAGE MOD PER SECOND:"
 		"DOTA_Tooltip_ability_leonidas_pride_shield_per_ally_inside"								"SHIELD PER TEAMMATE:"
 		"DOTA_Tooltip_ability_leonidas_pride_soldier_barrier_consume_percentage"			"%SHIELD FROM SOLDIERS BARRIER:"
 		"DOTA_Tooltip_ability_leonidas_pride_counter_resist"								"%DAMAGE RESIST AND TRANSLATION:"

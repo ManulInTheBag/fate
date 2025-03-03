@@ -599,7 +599,7 @@ end
 
 function AvengerCheckCombo(caster, ability)
 	if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 and caster:GetIntellect() >= 29.1 then
-		if ability == caster:FindAbilityByName("avenger_true_form") and caster:FindAbilityByName("angra_mainyu_verg_avesta"):IsCooldownReady() and caster:FindAbilityByName("avenger_endless_loop"):IsCooldownReady()  then
+		if ability == caster:FindAbilityByName("avenger_true_form") and ability:GetAutoCastState() and caster:FindAbilityByName("angra_mainyu_verg_avesta"):IsCooldownReady() and caster:FindAbilityByName("avenger_endless_loop"):IsCooldownReady()  then
 			caster:SwapAbilities("angra_mainyu_verg_avesta", "avenger_endless_loop", false, true) 
 			Timers:CreateTimer({
 				endTime = 3,

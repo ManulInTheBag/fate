@@ -21,7 +21,7 @@ function arcueid_what:OnSpellStart()
   	self.dir = dir:Normalized()
 	local target = caster:GetForwardVector()
 	local range = self:GetSpecialValueFor("range")
-
+	self.casterpos = caster:GetAbsOrigin()
 	local tProjectile = {
 	    EffectName = nil,
 	    Ability = self,
@@ -89,16 +89,16 @@ function arcueid_what:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
 	local or_tar = hTarget:GetAbsOrigin()
 	local or_en = hCaster:GetAbsOrigin()
 
-	local distance = (or_tar - or_en):Length2D()
+	local distance = (or_tar - self.casterpos):Length2D()
 
 	local knockback = { should_stun = 1,
 	        knockback_duration = 0.3,
 		    duration = 0.3,
 	        knockback_distance = -distance + 100,
 	        knockback_height = 100 or 0,
-	        center_x = or_en.x,
-	        center_y = or_en.y,
-	        center_z = or_en.z }
+	        center_x = self.casterpos.x,
+	        center_y = self.casterpos.y,
+	        center_z = self.casterpos.z }
 
 	if not IsKnockbackImmune(hTarget) then
 		hTarget:AddNewModifier(hCaster, self, "modifier_knockback", knockback)
