@@ -600,7 +600,7 @@
 		"DOTA_Tooltip_modifier_gilles_smother_Description"		"Taking magic damage over time. Explodes when uses an ability."
 
 		"DOTA_Tooltip_modifier_gilles_hysteria"					"Hysteria"
-		"DOTA_Tooltip_modifier_gilles_hysteria_Description"		"Increased attack speed. Takes pure damage and stunned at the end of duration."
+		"DOTA_Tooltip_modifier_gilles_hysteria_Description"		"Decreased attack speed. Takes magic damage at the end of duration."
 
 		"DOTA_Tooltip_modifier_gilles_fear"						"Fear"
 		"DOTA_Tooltip_modifier_gilles_fear_Description"		    "Gilles spells deal additional damage to you."
@@ -4461,8 +4461,10 @@
         "DOTA_Tooltip_ability_avenger_tawrich_zarich_slow_amount"	"%SLOW:"
         "DOTA_Tooltip_ability_avenger_tawrich_zarich_slow_duration"	"SLOW DURATION:" 
  		"DOTA_Tooltip_ability_avenger_tawrich_zarich_damage_per_attack"		"Damage:" 
+
+
         "DOTA_Tooltip_Ability_avenger_true_form"				"True Form"
-        "DOTA_Tooltip_ability_avenger_true_form_Description"    "Transforms into the remain of Holy Grail, gaining bonus health, mana, and attack damage. Avenger gains new set of abilities while True Form lasts.\n<font color='#FF6600'>This ability affects the level of Demon Core in True Form.</font>"
+        "DOTA_Tooltip_ability_avenger_true_form_Description"    "Transforms into the remain of Holy Grail, gaining bonus health, mana, and attack damage. Avenger gains new set of abilities while True Form lasts.\nMust be set to autocast in order to use combo.\n<font color='#FF6600'>This ability affects the level of Demon Core in True Form.</font>"
         "DOTA_Tooltip_ability_avenger_true_form_Lore"   "The loop must not be broken."
         "DOTA_Tooltip_ability_avenger_true_form_bonus_health"   "MAX HEALTH BONUS:"
         //"DOTA_Tooltip_ability_avenger_true_form_bonus_mana"		"MAX MANA BONUS:"
@@ -4470,7 +4472,7 @@
         "DOTA_Tooltip_ability_avenger_true_form_duration"   "DURATION:"
 
         "DOTA_Tooltip_Ability_angra_mainyu_verg_avesta"					"Verg Avesta"
-        "DOTA_Tooltip_ability_angra_mainyu_verg_avesta_Description"		"Passive: Angra Mainyu enters state for the duration, in which he will return all damage he took to the enemies who inflicted it as <font color='#D1A951'>pure</font>.\nOnly enemies within %radius% radius around him are affected.\n\nUpgradable by attribute Demon Incarnate."
+        "DOTA_Tooltip_ability_angra_mainyu_verg_avesta_Description"		"Passive: Angra Mainyu enters state for the duration, in which he will return all damage he took to the enemies who inflicted it as <font color='#D1A951'>pure</font>.\nOnly enemies within %radius% radius around him are affected.\nWhen taking damage under Verg Avesta effect, Angra gains mana equal to %mana_restore_percentage%%  of damage\nUpgradable by attribute Demon Incarnate."
         "DOTA_Tooltip_ability_angra_mainyu_verg_avesta_Lore"			"The killer of mankind assumes the simplest rule of the world - Retribution."
         "DOTA_Tooltip_ability_angra_mainyu_verg_avesta_damage"			"Base damage:"
  		"DOTA_Tooltip_ability_angra_mainyu_verg_avesta_multiplier"		"%Damage Amplification:"
@@ -4523,7 +4525,7 @@
  
 
 		"DOTA_Tooltip_Ability_avenger_endless_loop"				"Combo: Endless Loop"
-		"DOTA_Tooltip_ability_avenger_endless_loop_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : E-R in 4 seconds</font>\nAvenger brings upon him the miracle of tainted Holy Grail, reverting health back to health at cast and resetting the cooldowns of all abilities and items every 3 seconds.\nThe effect of Verg Avesta is also applied for duration. Return multiplier follows current level value of Verg Avesta, but duration is set to 12 seconds regardless."
+		"DOTA_Tooltip_ability_avenger_endless_loop_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : E(set to autocast)-R in 4 seconds</font>\nAvenger brings upon him the miracle of tainted Holy Grail, reverting health back to health at cast and resetting the cooldowns of all abilities and items every 3 seconds.\nThe effect of Verg Avesta is also applied for duration. Return multiplier follows current level value of Verg Avesta, but duration is set to 12 seconds regardless."
 		"DOTA_Tooltip_ability_avenger_endless_loop_Lore"	"The night fades away and new day comes, but never a new beginning." 
 		"DOTA_Tooltip_ability_avenger_endless_loop_duration"		"DURATION:"
 
@@ -4715,7 +4717,7 @@
         "DOTA_Tooltip_ability_gilles_smother_Lore"  				"One should never make any sound, no matter the horror that lies in their eyes."
 
         "DOTA_Tooltip_Ability_gilles_hysteria"     					"Hysteria"
-        "DOTA_Tooltip_ability_gilles_hysteria_Description" 			"Render the target in a frenzied state for %duration% seconds,  decreasing its attack speed. When this effect ends, the target takes an amount of magical damage equal to a portion of its maximum health and is stunned for %stun_duration% seconds."        
+        "DOTA_Tooltip_ability_gilles_hysteria_Description" 			"Render the target in a frenzied state for %duration% seconds,  decreasing its attack speed. When this effect ends, the target takes an amount of magical damage equal to a portion of its maximum health."        
         "DOTA_Tooltip_ability_gilles_hysteria_attack_speed"  		"%Attack Speed penalty:"
         "DOTA_Tooltip_ability_gilles_hysteria_damage"  				"%Damage based on Max Health:"
         "DOTA_Tooltip_ability_gilles_hysteria_Lore"  				"Confronted by their greatest fear, one can only put up a futile resistance in desperation."
@@ -4773,7 +4775,7 @@
         "DOTA_Tooltip_ability_gilles_demonic_horde_attribute_Lore"			"The fresh terror brought to you, right from the days of Tiffauges."
  
         "DOTA_Tooltip_Ability_gilles_sunken_city_attribute"				"Attribute: Sunken City of R'lyeh"
-        "DOTA_Tooltip_Ability_gilles_sunken_city_attribute_Description"	"Upon the cast of Cthulhu's Favour, all enemies within the radius become rooted and dimensionally locked for 1-2 seconds. After 3 seconds, all enemies within the circle are stunned for %stun_dur% seconds and dealt %end_damage% magic damage. Cthulhu's Favour gains 200 bonus cast range."
+        "DOTA_Tooltip_Ability_gilles_sunken_city_attribute_Description"	"Upon the cast of Cthulhu's Favour, all enemies within the radius become rooted and dimensionally locked for 0.5 - 1 seconds. This effect may be applied again to all enemies within the area with a 2 second cooldown.\nAfter 3 seconds, all enemies within the circle are stunned for %stun_dur% seconds and dealt %end_damage% magic damage.\nCthulhu's Favour gains 200 bonus cast range."
         "DOTA_Tooltip_ability_gilles_sunken_city_attribute_Lore"		""
  
         "DOTA_Tooltip_Ability_gilles_abyssal_connection_attribute"				"Attribute: Abyssal Connection"
@@ -6031,7 +6033,7 @@
         "DOTA_Tooltip_Ability_lishuwen_martial_arts_silence_duration"	"SILENCE DURATION:"
 
         "DOTA_Tooltip_Ability_lishuwen_berserk"						"Berserk"
-        "DOTA_Tooltip_Ability_lishuwen_berserk_Description"			"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>%cast_point%</font> \n\n Li Shuwen becomes <font color='#B60A1A'>enraged</font>, <font color='#FF9900'>removing all negative and crowd control effects</font> on himself and becoming <font color='#FF9900'>immune</font> to them for a short duration.\n\n Li Shuwen gains <font color='#FFFAFA'>critical strike chance</font> which increased based on his <font color='#FF0000'>strength</font>. \n\nThis ability can be cast only when Li Shuwen is <font color='#FF3399'>not revoked</font> from Master.\n\nDuring this effect, Fierce Tiger Strikes have <font color='#FFFAFA'>increased attack damage scaling</font>. \n\nLi Shuwen <font color='#FFFAFA'>may not use No Second Strike</font> during this effect."
+        "DOTA_Tooltip_Ability_lishuwen_berserk_Description"			"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>%cast_point%</font> \n\n Li Shuwen becomes <font color='#B60A1A'>enraged</font>, <font color='#FF9900'>removing all negative and crowd control effects</font> on himself and becoming <font color='#FF9900'>immune</font> to them for a short duration.\n\n Li Shuwen gains <font color='#FFFAFA'>critical strike chance</font> which increased based on his <font color='#FF0000'>strength</font>. \n\nThis ability can be cast only when Li Shuwen is <font color='#FF3399'>not revoked</font> from Master.\n\nDuring this effect, Fierce Tiger Strikes have <font color='#FFFAFA'>increased attack damage scaling</font>. \n\nLi Shuwen's <font color='#FFFAFA'>No Second Strike</font> will deal physical damage during this effect."
         "DOTA_Tooltip_Ability_lishuwen_berserk_duration"			"DURATION:"
         "DOTA_Tooltip_Ability_lishuwen_berserk_cc_immune_duration"	"IMMUNITY DURATION:"
         "DOTA_Tooltip_Ability_lishuwen_berserk_critical_chance"		"%CRITICAL CHANCE:"
@@ -6137,7 +6139,7 @@
         //"DOTA_Tooltip_Ability_lishuwen_attribute_improve_martial_arts_damage_percentage"	"%ADDITIONAL DAMAGE ON BASE ATTACK:"
 
         "DOTA_Tooltip_Ability_lishuwen_attribute_dual_class"				"Attribute: Dual Class"
-        "DOTA_Tooltip_Ability_lishuwen_attribute_dual_class_Description"	"Enables Berserk.\n<font color='#58ACFA'>Berserk:</font>  Li Shuwen becomes <font color='#B60A1A'>enraged</font>, <font color='#FF9900'>removing all negative and crowd control effects</font> on himself and becoming <font color='#FF9900'>immune</font> to them for a short duration.\n\n Li Shuwen gains <font color='#FFFAFA'>critical strike chance</font> which increased based on his <font color='#FF0000'>strength</font>. \n\nThis ability can be cast only when Li Shuwen is <font color='#FF3399'>not revoked</font> from Master.\n\nDuring this effect, Fierce Tiger Strikes have <font color='#FFFAFA'>increased attack damage scaling</font>. \n\nLi Shuwen <font color='#FFFAFA'>may not use No Second Strike</font> during this effect."
+        "DOTA_Tooltip_Ability_lishuwen_attribute_dual_class_Description"	"Enables Berserk.\n<font color='#58ACFA'>Berserk:</font>  Li Shuwen becomes <font color='#B60A1A'>enraged</font>, <font color='#FF9900'>removing all negative and crowd control effects</font> on himself and becoming <font color='#FF9900'>immune</font> to them for a short duration.\n\n Li Shuwen gains <font color='#FFFAFA'>critical strike chance</font> which increased based on his <font color='#FF0000'>strength</font>. \n\nThis ability can be cast only when Li Shuwen is <font color='#FF3399'>not revoked</font> from Master.\n\nDuring this effect, Fierce Tiger Strikes have <font color='#FFFAFA'>increased attack damage scaling</font>. \n\nLi Shuwen's <font color='#FFFAFA'>No Second Strike</font> will deal physical damage during this effect."
 
         "DOTA_Tooltip_Ability_lishuwen_attribute_dual_class_duration"				"DURATION:"
         "DOTA_Tooltip_Ability_lishuwen_attribute_dual_class_cc_immune_duration"		"IMMUNITY DURATION:"
@@ -6999,7 +7001,7 @@
 		"DOTA_Tooltip_ability_vlad_attribute_instant_curse_note0"									"Bloodpower stacks from Bloodletter attribute count as bleed stacks for determining if Cursed Lance is soft dispellable."
 		
 		"DOTA_Tooltip_ability_vlad_attribute_bloodletter" 											"Attribute: Fortress of Dracula"
-		"DOTA_Tooltip_ability_vlad_attribute_bloodletter_Description"								"While having less then 60% HP, using any basic ability will cause Vlad 3 to summon spikes in 300 radius around him, dealing damage, applying 5 bleed stacks and rooting all enemies for 0.3 seconds."
+		"DOTA_Tooltip_ability_vlad_attribute_bloodletter_Description"								"While having less then 60% HP, using any basic ability will cause Vlad 3 to summon spikes in 450 radius around him, dealing damage, applying 5 bleed stacks and rooting all enemies for 0.5 seconds.\nRebellious intent has a 2 second cooldown for this effect."
 		//"DOTA_Tooltip_ability_vlad_attribute_bloodletter_transfusionbonus"								"TRANSFUSION BONUS DAMAGE:"
 		//"DOTA_Tooltip_ability_vlad_attribute_bloodletter_cl_bonus_shield_per_stack__TT"				"%E BONUS SHIELD PER BLOODPOWER:"
 		//"DOTA_Tooltip_ability_vlad_attribute_bloodletter_cl_bonus_dmg_per_stack__TT"				"%E BONUS DAMAGE PER BLOODPOWER:"
@@ -7175,7 +7177,7 @@
 		"DOTA_Tooltip_ability_leonidas_catch_slow_pct"											"%EFFECT SLOW:"
 
 		"DOTA_Tooltip_ability_leonidas_brothers"													"БРАТЬЯ СОЛДАТЫ!"
-		"DOTA_Tooltip_ability_leonidas_brothers_Description"										"Leonidas summons two soldiers, who will follow him around at all times until they die.\nSoldiers have barrier as health calculated as percentage of Leonidas's health.\nSoldiers do nothing by themselfs, but when kicked with <font color='#FFFAFA'>This is sparta</font>, they will try to find enemy around themself and kick them back to leonidas if possible.\nIf there is no enemies around them, or after the kick, soldiers will provide barriers to all allies in radius every 0.5 seconds for 3 seconds total.\n\n[BERSERKED] When berserk is casted while soldiers alive, they will go and try to attack closest enemy."
+		"DOTA_Tooltip_ability_leonidas_brothers_Description"										"Leonidas summons two soldiers, who will follow him around at all times until they die.\nSoldiers have barrier as health calculated as percentage of Leonidas's health.\nSoldiers do nothing by themselfs, but when kicked with <font color='#FFFAFA'>This is sparta</font>, they will try to find enemy around themself and kick them back to leonidas if possible.\nIf there is no enemies around them, or after the kick, soldiers will provide barriers to all allies in radius every 0.5 seconds for 3 seconds total, dealing same damage to all enemies in radius.\n\n[BERSERKED] When berserk is casted while soldiers alive, they will go and try to attack closest enemy."
 		"DOTA_Tooltip_ability_leonidas_pride_Note0"												""
 		"DOTA_Tooltip_ability_leonidas_brothers_radius"										"BARRIER GIVE RADIUS:"
 		"DOTA_Tooltip_ability_leonidas_brothers_duration"									"SOLDIERS DURATION:"
@@ -7187,11 +7189,13 @@
 
 
 		"DOTA_Tooltip_ability_leonidas_pride"													"Shield wall"
-		"DOTA_Tooltip_ability_leonidas_pride_Description"										"Leonidas enters defence stance, locking himself on one place and gaining barrier, based on amount of allies inside, for a duration.\nWhile Leonidas is in the stance, all allies around him translate all damage taken to him.\nWhen barrier depletes, ability ends.\nOn cast, Leonidas comsumes all barriers he gave to his teammates into this one shield, as well as portion of barrier of his soldiers.\nSoldiers will die, when ability ends.\nALL AOE damage is dealth only ONCE if it hits units inside shield wall at one moment."
+		"DOTA_Tooltip_ability_leonidas_pride_Description"										"Leonidas enters defence stance, locking himself on one place and gaining barrier, based on amount of allies inside, for a duration.\nWhile Leonidas is in the stance, all allies around him translate all damage taken to him.\nWhen barrier depletes, ability ends.\nOn cast, Leonidas comsumes all barriers he gave to his teammates into this one shield, as well as portion of barrier of his soldiers.\nSoldiers will die, when ability ends.\nALL AOE damage is dealth only ONCE if it hits units inside shield wall at one moment.\nWhile wall persists, Leonidas and all of his soldiers will attack enemies in front of the wall, dealing damage over time.\n[BERSERKED] dealth additional physical damage, based on Leonidas attack."
 		"DOTA_Tooltip_ability_leonidas_pride_Note0"												""
 		"DOTA_Tooltip_ability_leonidas_pride_radius"										"RADIUS:"
 		"DOTA_Tooltip_ability_leonidas_pride_counter_duration"								"DURATION:"
 		"DOTA_Tooltip_ability_leonidas_pride_barrier_on_cast"								"BASE SHIELD:"
+		"DOTA_Tooltip_ability_leonidas_pride_damage"										"DAMAGE PER SECOND:"
+		"DOTA_Tooltip_ability_leonidas_pride_berserk_damage_mod"							"ATTACK DAMAGE MOD PER SECOND:"
 		"DOTA_Tooltip_ability_leonidas_pride_shield_per_ally_inside"								"SHIELD PER TEAMMATE:"
 		"DOTA_Tooltip_ability_leonidas_pride_soldier_barrier_consume_percentage"			"%SHIELD FROM SOLDIERS BARRIER:"
 		"DOTA_Tooltip_ability_leonidas_pride_counter_resist"								"%DAMAGE RESIST AND TRANSLATION:"
@@ -7357,7 +7361,7 @@
 		"DOTA_Tooltip_modifier_aoko_short_beam_debuff"				"Outgoing magical damage reduced"
 
 		"DOTA_Tooltip_ability_aoko_shield"					"Shield"
-		"DOTA_Tooltip_ability_aoko_shield_Description"		"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>%cast_point%</font> | <font color='#FFFAFA'>Channel duration:</font> <font color='#7FFF00'>%channel_duration%</font>\nAoko channels a small shield, gaining %shield_amount% <font color='#FFFAFA'>all-damage barrier</font> and becoming <font color='#ff9900'>immune to crowd control</font> for the duration.\nIf shield is broken, she <font color='#FFFAFA'>cleanses</font> herself, blinks %distance% units backwards and restores %mana%%  of her max mana.\nIncreases <font color='#00FFFF'>Circuit Charge</font> when broken.\nIf shield is broken, the damage that destroyed it will be reduced by a flat value.\nShares level with <font color='#58ACFA'>Blazing Starmine - Retreat</font>."
+		"DOTA_Tooltip_ability_aoko_shield_Description"		"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>%cast_point%</font> | <font color='#FFFAFA'>Channel duration:</font> <font color='#7FFF00'>%channel_duration%</font>\nAoko channels a small shield, gaining %shield_amount% <font color='#FFFAFA'>all-damage barrier</font> and becoming <font color='#ff9900'>immune to crowd control</font> for the duration.\nIf shield is broken, she <font color='#FFFAFA'>cleanses</font> herself, blinks %distance% units forward and restores %mana%%  of her max mana.\nIncreases <font color='#00FFFF'>Circuit Charge</font> when broken.\nIf shield is broken, the damage that destroyed it will be reduced by a flat value.\nShares level with <font color='#58ACFA'>Blazing Starmine - Retreat</font>."
 		"DOTA_Tooltip_ability_aoko_shield_Note0"					"Aoko turns herself to the chosen point on-cast."
 		"DOTA_Tooltip_ability_aoko_shield_Note1"					"Barrier has highest priority and works before B Scroll. Although any source of physical or magical barrier will work before it."
 		"DOTA_Tooltip_ability_aoko_shield_stack_gain"				"<font color='#00FFFF'>Circuit Charge</font> gain:"
@@ -9435,7 +9439,7 @@
         "DOTA_Tooltip_ability_hijikata_duel_Lore"										"Hijikata's madness drives him to break Shinsengumi codex if it is required, which often only increases his chances on winning the duel."
 
         "DOTA_Tooltip_ability_hijikata_madness"							"Madness"
-        "DOTA_Tooltip_ability_hijikata_madness_Description"			"Cast Point: <font color='#FFFFF9'>0.5</font>s    |    <font color='#EE5C29'>Unrefreshable</font><br><br>Hijikata goes insane for a short moment, gaining <font color='#ff9900'>immune to crowd control effects</font> buff for a short time.\nIf Hijikata's health percentage is less then <font color='#FFFAFA'>25%%</font>, this ability becomes <font color='#FFFAFA'>instant cast</font> and stun-castable."
+        "DOTA_Tooltip_ability_hijikata_madness_Description"			"Cast delay: <font color='#FFFFF9'>0.5</font>s    |    <font color='#EE5C29'>Unrefreshable</font><br><br>Hijikata goes insane for a short moment, gaining <font color='#ff9900'>immune to crowd control effects</font> buff for a short time.\nIf Hijikata's health percentage is less then <font color='#FFFAFA'>25%%</font>, this ability becomes <font color='#FFFAFA'>instant cast</font> and stun-castable."
         "DOTA_Tooltip_ability_hijikata_madness_duration"								"Duration:"
         "DOTA_Tooltip_ability_hijikata_madness_Lore"							"Hijikata is driven by intense self-confidence that spurs his insanity. He believes that as long as he remains, the Shinsengumi shall never die."
 
@@ -9498,7 +9502,7 @@
 
 	
 		"DOTA_Tooltip_ability_hijikata_shinsengumi_attribute"							"Return to office"
-        "DOTA_Tooltip_ability_hijikata_shinsengumi_attribute_Description"				"Upgrades <font color='#58ACFA'>Duel</font>, making it increase all allies inside <font color='#FFFAFA'>armor</font> and <font color='#FFFAFA'>magic resistance</font> and granting <font color='#ff9900'>disengage</font> effect to the winner of duel.\n<font color='#ff9900'>Disengage</font>: Grants powerfull health and mana regeneration buff.\nUpgrades <font color='#58ACFA'>Shinsengumi</font>, making it refresh cooldown of <font color='#58ACFA'>Madman shot</font>, when any enemy is hit."
+        "DOTA_Tooltip_ability_hijikata_shinsengumi_attribute_Description"				"Upgrades <font color='#58ACFA'>Duel</font>, making it increase all allies inside <font color='#FFFAFA'>armor</font> and <font color='#FFFAFA'>magic resistance</font> and granting <font color='#ff9900'>disengage</font> effect to the winner of duel.\n<font color='#ff9900'>Disengage</font>: Grants powerfull health and mana regeneration buff.\nUpgrades <font color='#58ACFA'>Shinsengumi</font>, making it refresh cooldown of <font color='#58ACFA'>Madman shot</font>, when any enemy is hit.\n<font color='#58ACFA'>Madman shot</font> and <font color='#58ACFA'>Demon of the battlefield</font>  deal additional physical damage equal to Hijikata's attack"
         "DOTA_Tooltip_ability_hijikata_shinsengumi_attribute_armor"								"Duel armor:"
         "DOTA_Tooltip_ability_hijikata_shinsengumi_attribute_mr"								"%Duel magic resistance:"
         "DOTA_Tooltip_ability_hijikata_shinsengumi_attribute_health_regen"						"Disengage health regen:"

@@ -12,7 +12,12 @@ function modifier_gatekeeper:OnCreated(keys)
 		gkdummypassive:SetLevel(1)
 
 		if caster.IsEyeOfSerenityAcquired then
-			self.visiondummy = SpawnVisionDummy(caster, caster:GetAbsOrigin(), 1100, self:GetAbility():GetSpecialValueFor("duration"), false)
+			self.visiondummy = SpawnVisionDummy(caster, caster:GetAbsOrigin(), self:GetAbility():GetSpecialValueFor("leash_range"), self:GetAbility():GetSpecialValueFor("duration")/2, true)
+			self.OverheadFx = ParticleManager:CreateParticle( "particles/zlodemon/zlodemon_overhead_eye.vpcf", PATTACH_OVERHEAD_FOLLOW, caster )
+			--ParticleManager:SetParticleControl( self.CircleFx, 0, self.CircleDummy:GetAbsOrigin() )
+			ParticleManager:SetParticleControl( self.OverheadFx , 1, Vector( 1,1,1 ) )
+			ParticleManager:SetParticleControl( self.OverheadFx , 2, Vector( self:GetAbility():GetSpecialValueFor("duration")/2,0,0 ) )
+			ParticleManager:ReleaseParticleIndex(self.OverheadFx)
 		end
 
 		self:StartIntervalThink(FrameTime())

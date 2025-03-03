@@ -55,7 +55,7 @@ function vlad_ceremonial_purge:GetDamage(caster)
 	end
 
 	--improve dmg by percentile value based on bloodpower stacks if buff is present and remove the buff
-	print("before  ",dmg_inner, "   ", dmg_outer)
+	--print("before  ",dmg_inner, "   ", dmg_outer)
 	if caster.BloodletterAcquired then
     if not caster:HasModifier("modifier_transfusion_self") then
 			caster:ResetImpaleSwapTimer()
@@ -75,7 +75,7 @@ function vlad_ceremonial_purge:GetDamage(caster)
 			end
   	end
 	end
-	print("after  ",dmg_inner, "   ", dmg_outer)
+	--print("after  ",dmg_inner, "   ", dmg_outer)
 	--cap dmg bonus from sources: global bleeds, bloodpower
 	--dmg_inner = math.min(dmg_inner, dmg_inner_base + bonus_cap)
 	--dmg_outer = math.min(dmg_outer, dmg_outer_base + bonus_cap)
@@ -115,9 +115,10 @@ function vlad_ceremonial_purge:OnSpellStart()
 		  local saBleed = caster.MasterUnit2:FindAbilityByName("vlad_attribute_bloodletter"):GetSpecialValueFor("bleed")
 		  local explosionFx = ParticleManager:CreateParticle("particles/vlad/vlad_impale_fort.vpcf", PATTACH_WORLDORIGIN, nil)
 		  ParticleManager:SetParticleControl(explosionFx, 3, caster:GetAbsOrigin())
+		  --ParticleManager:DestroyParticle(explosionFx, false)
 		  ParticleManager:ReleaseParticleIndex(explosionFx)
 		  caster:EmitSound("Hero_Lycan.Attack")
-		  local targets = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 300, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
+		  local targets = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, 450, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
 			for k,v in pairs(targets) do
 			  DoDamage(caster, v, saDamage, DAMAGE_TYPE_MAGICAL, 0, self, false)
 			  caster:AddBleedStack(v, false, saBleed)

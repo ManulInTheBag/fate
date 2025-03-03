@@ -185,7 +185,7 @@
 
 		"AbilityCastPoint"						"0.2"
 		//"AbilityChannelTime"						"0.0"
-		"AbilityCooldown"						"35 33 31 29 27"
+		"AbilityCooldown"						"25 23 21 19 17"
 		"AbilityManaCost"						"400"
 		"AbilityCastRange"					  	"700"
 
@@ -201,17 +201,22 @@
 		//"AbilitySharedCooldown"					"tome"
 		
 		//"OnCastbar"								"0"
-
+		"precache"
+		{
+			"particle"		"particles/zlodemon/leonidas_shield_wall/leonidas_shield_wall_spears.vpcf"
+		}
 		"AbilityValues"
         {
             "radius" "700"
             "vision_radius" "300"
-            "counter_duration" "3"
+            "counter_duration" "4"
             "barrier_on_cast" "400 500 600 700 800"
             "shield_per_ally_inside" "120 150 180 210 240"
             "soldier_barrier_consume_percentage" "20"
             //"counter_resist" 	   "35"
             "translate_percentage" "100"
+            "damage" "200 250 300 350 400"
+            "berserk_damage_mod" "1 1.25 1.5 1.75 2"
             //"speed" "3000"
             //"damage" "400 500 600 700 800"
             //"stun_duration" "1.5"

@@ -134,11 +134,12 @@ function modifier_leonidas_brother:OnIntervalThink()
 		ParticleManager:SetParticleControl(particle, 1, Vector(self.ability:GetSpecialValueFor("radius"),0,0))
 		ParticleManager:ReleaseParticleIndex(particle)
 		StartAnimation(self.parent, {duration=0.5, activity=ACT_DOTA_CAST_ABILITY_ROT, rate=0.7}) 
+		local Block = self.ability:GetSpecialValueFor("enomotia_shield_block") + ( GetAttributeValue(self.caster, "leonidas_math_attribute",
+		"soldiers_bonus_barrier_per_int", -1, 0, false) * self.caster:GetIntellect(false))
 		local ALLIES = FindUnitsInRadius(self.caster:GetTeam(), self.parent:GetAbsOrigin(), nil, self.ability:GetSpecialValueFor("radius"),
 		DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 		for _, hEntity in pairs(ALLIES) do
-			local Block = self.ability:GetSpecialValueFor("enomotia_shield_block") + ( GetAttributeValue(self.caster, "leonidas_math_attribute",
-			"soldiers_bonus_barrier_per_int", -1, 0, false) * self.caster:GetIntellect(false))
+
 			if IsNotNull(hEntity) then
 				--[[
 				local modifier = hEntity:FindModifierByName("modifier_leonidas_enomotia_shield")
@@ -152,6 +153,11 @@ function modifier_leonidas_brother:OnIntervalThink()
 					nDamageBlock = Block })
 				--end
 			end
+		end
+		local ENEMIES = FindUnitsInRadius(self.caster:GetTeam(), self.parent:GetAbsOrigin(), nil, self.ability:GetSpecialValueFor("radius"),
+		DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+		for _, hEntity in pairs(ENEMIES) do
+			DoDamage(self.caster, hEntity, Block, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
 		end
 		
 		self.barrier_give_counter = self.barrier_give_counter + 1
@@ -175,11 +181,12 @@ function modifier_leonidas_brother:ShareBarriers()
 	local particle = ParticleManager:CreateParticle("particles/heroes/anime_hero_leonidas/leonidas_brother_shield_give_effect.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
 	ParticleManager:SetParticleControl(particle, 1, Vector(self.ability:GetSpecialValueFor("radius"),0,0))
 	ParticleManager:ReleaseParticleIndex(particle)
+	local Block = self.ability:GetSpecialValueFor("enomotia_shield_block") + ( GetAttributeValue(self.caster, "leonidas_math_attribute",
+		"soldiers_bonus_barrier_per_int", -1, 0, false) * self.caster:GetIntellect(false))
 	local ALLIES = FindUnitsInRadius(self.caster:GetTeam(), self.parent:GetAbsOrigin(), nil, self.ability:GetSpecialValueFor("radius"),
 	DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
 	for _, hEntity in pairs(ALLIES) do
-		local Block = self.ability:GetSpecialValueFor("enomotia_shield_block") + ( GetAttributeValue(self.caster, "leonidas_math_attribute",
-		"soldiers_bonus_barrier_per_int", -1, 0, false) * self.caster:GetIntellect(false))
+		
 		if IsNotNull(hEntity) then
 			--[[
 			local modifier = hEntity:FindModifierByName("modifier_leonidas_enomotia_shield")
@@ -193,6 +200,11 @@ function modifier_leonidas_brother:ShareBarriers()
 				 nDamageBlock = Block })
 			--end
 		end
+	end
+	local ENEMIES = FindUnitsInRadius(self.caster:GetTeam(), self.parent:GetAbsOrigin(), nil, self.ability:GetSpecialValueFor("radius"),
+	DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	for _, hEntity in pairs(ENEMIES) do
+		DoDamage(self.caster, hEntity, Block, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
 	end
 end
 

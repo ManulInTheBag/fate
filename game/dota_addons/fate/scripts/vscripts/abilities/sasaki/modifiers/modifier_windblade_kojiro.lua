@@ -38,9 +38,10 @@ if IsServer() then
 
 		for i = 1, #target_search do
 			skip_target = false
-			if target_search[i]:HasModifier("modifier_windblade_hit_marker") or target_search[i]:HasModifier("modifier_wind_protection_passive") then
+			print(target_search[i]:GetUnitName())
+			if target_search[i]:HasModifier("modifier_windblade_hit_marker") or target_search[i]:HasModifier("modifier_wind_protection_passive") or target_search[i]:GetUnitName() == "ward_familiar" then
 				local stacks = target_search[i]:GetModifierStackCount("modifier_windblade_hit_marker", caster)
-				if stacks >= 1 or target_search[i]:HasModifier("modifier_wind_protection_passive") then 
+				if stacks >= 1 or target_search[i]:HasModifier("modifier_wind_protection_passive") or target_search[i]:GetUnitName() == "ward_familiar"  then 
 					skip_target = true 
 				end			
 			end

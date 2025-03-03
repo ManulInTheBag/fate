@@ -46,6 +46,9 @@ end
 
 
 if IsServer() then 
+	function modifier_gilles_grief:OnRemoved()
+		self.dontDoDamage = true
+	end
 	function modifier_gilles_grief:OnCreated(args)
 		self.Damage = args.Damage
 
@@ -65,20 +68,22 @@ if IsServer() then
 		EmitSoundOnLocationWithCaster(self:GetParent():GetAbsOrigin(), "Gilles_Grief_Explode", hCaster)
 		ParticleManager:DestroyParticle( self.Particle, true )
         ParticleManager:ReleaseParticleIndex( self.Particle )
-		local fExplosionDamage = (self:GetParent():GetMaxHealth() - self:GetParent():GetHealth()) / self:GetParent():GetMaxHealth() + 1
-		if self:GetParent():IsAlive() then
+		if not self.dontDoDamage then
+			local fExplosionDamage = (self:GetParent():GetMaxHealth() - self:GetParent():GetHealth()) / self:GetParent():GetMaxHealth() + 1
+			if self:GetParent():IsAlive() then
+				
+				--[[local tTargets = FindUnitsInRadius(hCaster:GetTeam(), self:GetParent():GetAbsOrigin(), nil, hAbility:GetAOERadius(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 			
-			--[[local tTargets = FindUnitsInRadius(hCaster:GetTeam(), self:GetParent():GetAbsOrigin(), nil, hAbility:GetAOERadius(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-		
-			for _,v in pairs(tTargets) do
-				if not v:IsMagicImmune() then
-					DoDamage(hCaster, v, fExplosionDamage, DAMAGE_TYPE_MAGICAL, 0, hAbility, false)
-				end
-			end]]
-			self:GetParent():AddNewModifier(hCaster, hAbility, "modifier_stunned", {Duration = hAbility:GetSpecialValueFor("stun_duration") })
-		end
-		if not self:GetParent():IsMagicImmune() then
-			DoDamage(hCaster, self:GetParent(), fDamage * fExplosionDamage, DAMAGE_TYPE_MAGICAL, 0, hAbility, false)
+				for _,v in pairs(tTargets) do
+					if not v:IsMagicImmune() then
+						DoDamage(hCaster, v, fExplosionDamage, DAMAGE_TYPE_MAGICAL, 0, hAbility, false)
+					end
+				end]]
+				self:GetParent():AddNewModifier(hCaster, hAbility, "modifier_stunned", {Duration = hAbility:GetSpecialValueFor("stun_duration") })
+			end
+			if not self:GetParent():IsMagicImmune() then
+				DoDamage(hCaster, self:GetParent(), fDamage * fExplosionDamage, DAMAGE_TYPE_MAGICAL, 0, hAbility, false)
+			end
 		end
 		local particleIndex = ParticleManager:CreateParticle("particles/units/heroes/hero_sandking/sandking_caustic_finale_explode.vpcf", PATTACH_CUSTOMORIGIN, self:GetParent())
 	 	ParticleManager:SetParticleControl(particleIndex, 0, self:GetParent():GetAbsOrigin()) 

@@ -15,6 +15,10 @@ function diarmuid_minds_eye:OnSpellStart()
 	local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetOrigin(), nil, 2250, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES + DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
     for _,v in pairs(targets) do
     	if not v:HasModifier("modifier_murderer_mist_in") then
+			self.OverheadFx = ParticleManager:CreateParticle( "particles/zlodemon/zlodemon_overhead_eye.vpcf", PATTACH_OVERHEAD_FOLLOW, v )
+			ParticleManager:SetParticleControl( self.OverheadFx , 1, Vector( 1,0.1,0.1 ) )
+			ParticleManager:SetParticleControl( self.OverheadFx , 2, Vector( 3,0,0 ) )
+			ParticleManager:ReleaseParticleIndex(self.OverheadFx)
 			v:AddNewModifier(caster, self, "modifier_vision_provider", { duration = 3 })
 		end
     end
