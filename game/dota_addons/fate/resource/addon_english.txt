@@ -6741,11 +6741,11 @@
 	"npc_dota_hero_drow_ranger_bio"			""
 
         "DOTA_Tooltip_ability_atalanta_celestial_arrow"                                   "Celestial Arrow"
-        "DOTA_Tooltip_ability_atalanta_celestial_arrow_Description"                       "<font color='#FF6600'>Arrows Used: 1</font>\nFires an single powerful shot, dealing physical damage to all enemies in a straight line equal to base damage + %damage%%% of Atalanta's attack.\nDecreases cooldown and increases range depending on how much agility Atalanta has.\nBonus damage from Celestial Arrow applies to both versions of Phoebus Catastrophe."
+        "DOTA_Tooltip_ability_atalanta_celestial_arrow_Description"                       "<font color='#FF6600'>Arrows Used: 1</font>\nFires an single powerful shot, dealing physical damage to all enemies in a straight line equal to base damage. \nBase damage from Celestial Arrow applies to both versions of Phoebus Catastrophe."
         "DOTA_Tooltip_ability_atalanta_celestial_arrow_range"                             "RANGE:"
         //"DOTA_Tooltip_ability_atalanta_celestial_arrow_bonus_arrows"                      "BONUS ARROWS:"
         "DOTA_Tooltip_ability_atalanta_celestial_arrow_bonus_damage"                      "BASE DAMAGE:"
-		"DOTA_Tooltip_ability_atalanta_celestial_arrow_bonus_range_per_agi"                 "RANGE PER AGI:"
+		//"DOTA_Tooltip_ability_atalanta_celestial_arrow_bonus_range_per_agi"                 "RANGE PER AGI:"
 		"DOTA_Tooltip_ability_atalanta_celestial_arrow_damage_per_level"					"DAMAGE PER LEVEL:"
         //"DOTA_Tooltip_ability_atalanta_celestial_arrow_agility_per_stack"                 "AGI PER STACK:"
         //"DOTA_Tooltip_ability_atalanta_celestial_arrow_casttime_reduction_per_stack"      "%CAST TIME REDUCTION PER STACK:"
@@ -6859,7 +6859,7 @@
         "DOTA_Tooltip_ability_atalanta_last_spurt_aoe"                                    "AOE:"
 
         "DOTA_Tooltip_ability_atalanta_priestess_of_the_hunt"                             "Priestess Of The Hunt"
-        "DOTA_Tooltip_ability_atalanta_priestess_of_the_hunt_Description"                 "Atalanta can now attack, and her abilities uses arrow charges. She can hold up to %arrows% arrows at any given time.\nActive: Restores all arrows in her quiver instantly, spending 30 mana per restored arrow."
+        "DOTA_Tooltip_ability_atalanta_priestess_of_the_hunt_Description"                 "Atalanta can now attack, and her abilities uses arrow charges. She can hold up to %arrows% arrows at any given time. One charge is generated every 1 second. \nActive: Restores all arrows in her quiver instantly, spending 10 mana per restored arrow."
         //"DOTA_Tooltip_ability_atalanta_priestess_of_the_hunt_arrows"                      "ARROW CHARGES:"
 
         "DOTA_Tooltip_ability_atalanta_tauropolos"                                        "Tauropolos - Bow of Heaven"
@@ -6907,7 +6907,7 @@
 		"DOTA_Tooltip_ability_atalanta_phoebus_catastrophe_snipe_arrows_damage_percentage"      "%ARROW DAMAGE SCALING:"
 
         "DOTA_Tooltip_ability_atalanta_attribute_arrows_of_the_big_dipper"					"Attribute: Arrows of the Big Dipper"
-        "DOTA_Tooltip_ability_atalanta_attribute_arrows_of_the_big_dipper_Description"		"Atalanta imbues her arrows with the blessing of Artemis. Celestial Arrows reveal FOW where they fly."
+        "DOTA_Tooltip_ability_atalanta_attribute_arrows_of_the_big_dipper_Description"		"Atalanta imbues her arrows with the blessing of Artemis. Celestial Arrows reveal FOW where they fly. \nArrows additionally deal Atalanta's agility as bonus magic damage."
         //"DOTA_Tooltip_ability_atalanta_attribute_arrows_of_the_big_dipper_conversion"		"%Damage Conversion:"
         "DOTA_Tooltip_ability_atalanta_attribute_arrows_of_the_big_dipper_Lore"				"Her hunt is blessed by the Goddess of Hunt herself."
         

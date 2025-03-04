@@ -41,7 +41,7 @@ function atalanta_celestial_arrow:GetCastRange(location, target)
 
     --if caster:HasModifier("modifier_tauropolos") then
         --local tauropolos = caster:FindAbilityByName("atalanta_tauropolos")
-        range = range + self:GetSpecialValueFor("bonus_range_per_agi") * caster:GetAgility()
+        --range = range + self:GetSpecialValueFor("bonus_range_per_agi") * caster:GetAgility()
     --end
 
     return range
@@ -49,14 +49,14 @@ end
 
 function atalanta_celestial_arrow:GetCooldown()
     --local cast_point = 2.5
-    local cast_point = 0.9
+    local cast_point = 0.5
     local caster = self:GetCaster()
 
     --if caster:HasModifier("modifier_tauropolos") then
-        local pct_reduc = (caster:GetAgility() + 30) / 200 
-        cast_point = cast_point - (cast_point * pct_reduc)
+        --local pct_reduc = (caster:GetAgility() + 30) / 200 
+        --cast_point = cast_point - (cast_point * pct_reduc)
         --cast_point = math.max(cast_point, 0.9)
-        cast_point = math.max(cast_point, 0.2)
+        --cast_point = math.max(cast_point, 0.2)
     --end
 
     return cast_point
@@ -175,10 +175,16 @@ function atalanta_celestial_arrow:ArrowHit(target, slow, bIsPhoebus, bIsCombo)
     if target:HasModifier("modifier_protection_from_arrows_active") then return end
 
     caster:AddHuntStack(target, 1)
-    local damage = caster:GetAverageTrueAttackDamage(caster) + self:GetSpecialValueFor("bonus_damage") + caster:GetLevel() * 7
+    local damage = caster:GetAverageTrueAttackDamage(caster) + self:GetSpecialValueFor("bonus_damage") + caster:GetLevel() * self:GetSpecialValueFor("damage_per_level")
+
+    if caster.ArrowsOfTheBigDipperAcquired then
+
+        DoDamage(caster, target, caster:GetAgility(), DAMAGE_TYPE_MAGICAL, 0, self, false)
+
+    end
 
     if target:HasModifier("modifier_calydonian_hunt") then
-        DoDamage(caster, target, target:GetMaxHealth()*0.01 , DAMAGE_TYPE_PURE, 0, self, false)
+        DoDamage(caster, target, target:GetMaxHealth() * 0.03, DAMAGE_TYPE_PURE, 0, self, false)
     end
 
     if target:HasModifier("modifier_atalanta_big_dipper_slow") and caster.CalydonianSnipeAcquired then
