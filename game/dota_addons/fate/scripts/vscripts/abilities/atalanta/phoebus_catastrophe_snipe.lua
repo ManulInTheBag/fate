@@ -90,7 +90,7 @@ function atalanta_phoebus_catastrophe_snipe:OnSpellStart()
         end
 
         for i=1,arrows do
-            Timers:CreateTimer(0.1 + 0.1 * i, function()
+            Timers:CreateTimer(0.1 + 0.15 * i, function()
                 local sameRealm = IsInSameRealm(target:GetOrigin(), position)
                 EmitGlobalSound("Ability.Powershot.Alt")
                 caster:ShootArrow({
