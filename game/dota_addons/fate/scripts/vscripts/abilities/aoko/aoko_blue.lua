@@ -154,10 +154,10 @@ function modifier_aoko_blue_fx:OnCreated(args)
 		if target then
 			self.runes_fx_2 = ParticleManager:CreateParticle("particles/aoko/aoko_blue_runes_target.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
 			ParticleManager:SetParticleControl(self.runes_fx_2, 0, target:GetAbsOrigin())
-			--[[
+			
 			AddFOWViewer(2, target:GetAbsOrigin(), 40, 7.5, false)
 			AddFOWViewer(3, target:GetAbsOrigin(), 40, 7.5, false)
-			]]
+			
 		end
 
 		Timers:CreateTimer(1.2, function()
