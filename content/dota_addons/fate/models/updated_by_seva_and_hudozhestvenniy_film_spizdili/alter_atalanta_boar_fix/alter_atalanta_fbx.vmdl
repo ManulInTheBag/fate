@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc32:version{c5dcef98-b629-46ab-88e3-a17c005c935e} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc39:version{1ceecb0d-4093-4729-ab18-b76886c64cde} -->
 {
 	rootNode = 
 	{
@@ -14,24 +14,24 @@
 						remaps = 
 						[
 							{
-								from = "main_part.vmat"
+								from = "imported material 01.vmat"
 								to = "materials/updated_by_seva_and_hudozhestvenniy_film_spizdili/alter_atalanta_boar_fix/1.vmat"
 							},
 							{
-								from = "second_part.vmat"
+								from = "imported material 02.vmat"
 								to = "materials/updated_by_seva_and_hudozhestvenniy_film_spizdili/alter_atalanta_boar_fix/2.vmat"
 							},
 							{
-								from = "third_part.vmat"
+								from = "imported material 05.vmat"
 								to = "materials/updated_by_seva_and_hudozhestvenniy_film_spizdili/alter_atalanta_boar_fix/3.vmat"
 							},
 							{
-								from = "fourth_part.vmat"
+								from = "imported material 06.vmat"
 								to = "materials/updated_by_seva_and_hudozhestvenniy_film_spizdili/alter_atalanta_boar_fix/4.vmat"
 							},
 							{
-								from = ""
-								to = ""
+								from = "imported material 07.vmat"
+								to = "materials/updated_by_seva_and_hudozhestvenniy_film_spizdili/alter_atalanta_boar_fix/4.vmat"
 							},
 						]
 						use_global_default = false
@@ -46,7 +46,7 @@
 					{
 						_class = "Attachment"
 						name = "attach_hitloc"
-						parent_bone = "Bone03"
+						parent_bone = "pepega06"
 						relative_origin = [ 0.0, 0.0, 0.0 ]
 						relative_angles = [ 0.0, 0.0, 0.0 ]
 						weight = 1.0
@@ -55,7 +55,7 @@
 					{
 						_class = "Attachment"
 						name = "attach_attack1"
-						parent_bone = "bone_new1_001"
+						parent_bone = "pepega17"
 						relative_origin = [ 0.0, 0.0, 0.0 ]
 						relative_angles = [ 0.0, 0.0, 0.0 ]
 						weight = 1.0
@@ -64,16 +64,7 @@
 					{
 						_class = "Attachment"
 						name = "attach_attack2"
-						parent_bone = "Bone16"
-						relative_origin = [ 0.0, 0.0, 0.0 ]
-						relative_angles = [ 0.0, 0.0, 0.0 ]
-						weight = 1.0
-						ignore_rotation = false
-					},
-					{
-						_class = "Attachment"
-						name = "attach_origin"
-						parent_bone = "m3bone_root"
+						parent_bone = "pepega39"
 						relative_origin = [ 0.0, 0.0, 0.0 ]
 						relative_angles = [ 0.0, 0.0, 0.0 ]
 						weight = 1.0
@@ -92,525 +83,423 @@
 						[
 							{
 								_class = "Hitbox"
-								parent_bone = "Bone01"
+								name = "pepega05"
+								parent_bone = "pepega05"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -39.020329, -27.525707, -93.851967 ]
-								hitbox_maxs = [ 39.042961, 43.165123, 94.367729 ]
+								hitbox_mins = [ -41.638771, -35.516773, -90.194099 ]
+								hitbox_maxs = [ 54.172371, 55.596909, 90.812218 ]
 							},
 							{
 								_class = "Hitbox"
-								parent_bone = "bone_new1"
+								name = "pepega06"
+								parent_bone = "pepega06"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -9.441929, -5.909056, -0.888931 ]
-								hitbox_maxs = [ 9.437817, 6.46509, 6.409782 ]
+								hitbox_mins = [ -54.580753, -39.6991, -165.454117 ]
+								hitbox_maxs = [ 61.07048, 53.462288, 86.034744 ]
 							},
 							{
 								_class = "Hitbox"
-								parent_bone = "Bone02"
+								name = "pepega07"
+								parent_bone = "pepega07"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -9.524166, -6.500902, 0.147522 ]
-								hitbox_maxs = [ 9.520061, 6.371456, 8.522858 ]
+								hitbox_mins = [ -10.475625, -9.337307, -1.276817 ]
+								hitbox_maxs = [ 10.471494, 15.228123, 18.753746 ]
 							},
 							{
 								_class = "Hitbox"
-								parent_bone = "Bone03"
+								name = "pepega34"
+								parent_bone = "pepega34"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -10.475632, -9.337324, -1.276833 ]
-								hitbox_maxs = [ 10.471523, 15.228151, 18.753761 ]
+								hitbox_mins = [ -17.83205, -8.454855, -5.279724 ]
+								hitbox_maxs = [ 0.5, 9.713327, 4.715775 ]
 							},
 							{
 								_class = "Hitbox"
-								parent_bone = "bone_new3"
+								name = "pepega36"
+								parent_bone = "pepega36"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -17.832081, -8.454901, -5.2798 ]
-								hitbox_maxs = [ -0.160057, 9.713343, 4.715721 ]
+								hitbox_mins = [ -20.160738, -5.302617, -7.184814 ]
+								hitbox_maxs = [ 0.800053, 5.21208, 2.834648 ]
 							},
 							{
 								_class = "Hitbox"
-								parent_bone = "bone_new2"
+								name = "pepega37"
+								parent_bone = "pepega37"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ 0.67288, -8.775171, -6.611908 ]
-								hitbox_maxs = [ 17.456764, 9.709492, 4.717308 ]
+								hitbox_mins = [ -22.877954, -4.580268, -5.913399 ]
+								hitbox_maxs = [ 0.5, 3.275338, 2.438988 ]
 							},
 							{
 								_class = "Hitbox"
-								parent_bone = "Bone08"
+								name = "pepega39"
+								parent_bone = "pepega39"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -20.160818, -5.302661, -7.184875 ]
-								hitbox_maxs = [ 0.800104, 5.212102, 2.834648 ]
+								hitbox_mins = [ -7.786823, -4.696712, -4.017311 ]
+								hitbox_maxs = [ 0.5, 3.278791, 1.440735 ]
 							},
 							{
 								_class = "Hitbox"
-								parent_bone = "Bone58"
+								name = "pepega40"
+								parent_bone = "pepega40"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -0.826777, -5.250037, -7.378845 ]
-								hitbox_maxs = [ 20.116644, 5.264726, 2.860817 ]
+								hitbox_mins = [ -2.550812, -1.500213, -1.920097 ]
+								hitbox_maxs = [ 0.5, 0.5, 0.710739 ]
 							},
 							{
 								_class = "Hitbox"
-								parent_bone = "Bone09"
+								name = "pepega46"
+								parent_bone = "pepega46"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -22.877964, -4.580342, -5.913437 ]
-								hitbox_maxs = [ 0.343575, 3.275352, 2.439041 ]
+								hitbox_mins = [ -3.358444, -0.892407, -1.003311 ]
+								hitbox_maxs = [ 0.5, 0.939479, 0.764038 ]
 							},
 							{
 								_class = "Hitbox"
-								parent_bone = "Bone42"
+								name = "pepega47"
+								parent_bone = "pepega47"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -0.42695, -4.582609, -5.87458 ]
-								hitbox_maxs = [ 22.805319, 3.111244, 2.439766 ]
+								hitbox_mins = [ -1.962574, -0.744038, -0.957985 ]
+								hitbox_maxs = [ 0.5, 0.687512, 0.783653 ]
 							},
 							{
 								_class = "Hitbox"
-								parent_bone = "bone_new0_001"
+								name = "pepega43"
+								parent_bone = "pepega43"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -3.996033, -2.697553, -0.945808 ]
-								hitbox_maxs = [ 3.912169, 4.506643, 5.171196 ]
+								hitbox_mins = [ -3.384628, -1.117213, -1.132614 ]
+								hitbox_maxs = [ 0.5, 0.756446, 0.61937 ]
 							},
 							{
 								_class = "Hitbox"
-								parent_bone = "Bone10"
+								name = "pepega44"
+								parent_bone = "pepega44"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -7.336467, -4.696816, -4.017334 ]
-								hitbox_maxs = [ 0.044792, 3.27885, 1.440819 ]
+								hitbox_mins = [ -0.5, -0.656304, -0.687157 ]
+								hitbox_maxs = [ 0.5, 0.756088, 0.661415 ]
 							},
 							{
 								_class = "Hitbox"
-								parent_bone = "Bone43"
+								name = "pepega49"
+								parent_bone = "pepega49"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -0.108494, -4.698186, -4.012413 ]
-								hitbox_maxs = [ 7.27316, 3.277481, 1.445915 ]
+								hitbox_mins = [ -3.208618, -0.914018, -1.10228 ]
+								hitbox_maxs = [ 0.5, 0.981528, 0.699883 ]
 							},
 							{
 								_class = "Hitbox"
-								parent_bone = "Bone_head"
+								name = "pepega50"
+								parent_bone = "pepega50"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -32.431297, -19.668427, -15.459428 ]
-								hitbox_maxs = [ 32.499393, 32.453251, 46.773327 ]
+								hitbox_mins = [ -2.370415, -0.682326, -0.699295 ]
+								hitbox_maxs = [ 0.5, 0.906365, 0.759407 ]
 							},
 							{
 								_class = "Hitbox"
-								parent_bone = "Bone05"
+								name = "pepega52"
+								parent_bone = "pepega52"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -10.880269, -7.618811, -34.352955 ]
-								hitbox_maxs = [ 7.143535, 10.318733, -2.912994 ]
+								hitbox_mins = [ -2.483616, -0.540213, -1.289383 ]
+								hitbox_maxs = [ 0.5, 1.046246, 0.5 ]
 							},
 							{
 								_class = "Hitbox"
-								parent_bone = "Bonea65"
+								name = "pepega53"
+								parent_bone = "pepega53"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -7.277191, -7.421952, -34.353729 ]
-								hitbox_maxs = [ 10.432404, 10.323066, -2.91378 ]
+								hitbox_mins = [ -1.54401, -0.566124, -0.992752 ]
+								hitbox_maxs = [ 0.5, 0.686471, 0.5 ]
 							},
 							{
 								_class = "Hitbox"
-								parent_bone = "bone_new0_004"
+								name = "pepega14"
+								parent_bone = "pepega14"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -1.953696, -1.45999, -13.265213 ]
-								hitbox_maxs = [ 4.825693, 4.347901, 1.097939 ]
+								hitbox_mins = [ -0.5, -4.534247, -1.971924 ]
+								hitbox_maxs = [ 4.181777, 7.707709, 2.44342 ]
 							},
 							{
 								_class = "Hitbox"
-								parent_bone = "Bone17"
+								name = "pepega15"
+								parent_bone = "pepega15"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -3.357818, -0.892424, -1.003281 ]
-								hitbox_maxs = [ -0.316963, 0.939525, 0.764137 ]
+								hitbox_mins = [ -0.826746, -5.249994, -7.378784 ]
+								hitbox_maxs = [ 20.116547, 5.264702, 2.860817 ]
 							},
 							{
 								_class = "Hitbox"
-								parent_bone = "Bone12"
+								name = "pepega16"
+								parent_bone = "pepega16"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -3.383991, -1.117177, -1.132584 ]
-								hitbox_maxs = [ -0.359185, 0.756551, 0.619469 ]
+								hitbox_mins = [ -0.5, -4.582538, -5.874527 ]
+								hitbox_maxs = [ 22.805286, 3.111228, 2.43972 ]
 							},
 							{
 								_class = "Hitbox"
-								parent_bone = "Bone22"
+								name = "pepega17"
+								parent_bone = "pepega17"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -3.208, -0.914109, -1.102249 ]
-								hitbox_maxs = [ -0.069389, 0.981505, 0.699974 ]
+								hitbox_mins = [ -0.5, -4.698082, -4.01239 ]
+								hitbox_maxs = [ 7.715508, 3.277416, 1.445839 ]
 							},
 							{
 								_class = "Hitbox"
-								parent_bone = "Bone24"
+								name = "pepega19"
+								parent_bone = "pepega19"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -2.482978, -0.540343, -1.28936 ]
-								hitbox_maxs = [ -0.122146, 1.046172, 0.229576 ]
+								hitbox_mins = [ -0.5, -1.493814, -1.949333 ]
+								hitbox_maxs = [ 2.630104, 0.5, 0.681511 ]
 							},
 							{
 								_class = "Hitbox"
-								parent_bone = "Bone45"
+								name = "pepega21"
+								parent_bone = "pepega21"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ 0.44239, -1.115719, -1.134056 ]
-								hitbox_maxs = [ 3.467201, 0.75801, 0.617996 ]
+								hitbox_mins = [ -0.5, -1.11576, -1.134087 ]
+								hitbox_maxs = [ 3.467812, 0.7579, 0.617897 ]
 							},
 							{
 								_class = "Hitbox"
-								parent_bone = "Bone48"
+								name = "pepega22"
+								parent_bone = "pepega22"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ 0.238228, -0.888592, -1.004311 ]
-								hitbox_maxs = [ 3.279087, 0.943357, 0.763107 ]
+								hitbox_mins = [ -0.5, -0.840288, -0.686584 ]
+								hitbox_maxs = [ 1.879707, 0.665248, 0.661987 ]
 							},
 							{
 								_class = "Hitbox"
-								parent_bone = "Bone51"
+								name = "pepega24"
+								parent_bone = "pepega24"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ 0.070721, -0.931706, -1.117592 ]
-								hitbox_maxs = [ 3.209347, 0.963909, 0.684631 ]
+								hitbox_mins = [ -0.5, -0.888573, -1.004341 ]
+								hitbox_maxs = [ 3.279701, 0.94331, 0.763008 ]
 							},
 							{
 								_class = "Hitbox"
-								parent_bone = "Bone54"
+								name = "pepega25"
+								parent_bone = "pepega25"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ 0.094059, -0.611343, -1.266388 ]
-								hitbox_maxs = [ 2.454892, 1.043145, 0.252548 ]
+								hitbox_mins = [ -0.5, -0.771565, -0.960808 ]
+								hitbox_maxs = [ 1.975746, 0.659986, 0.780823 ]
 							},
 							{
 								_class = "Hitbox"
-								parent_bone = "bone_new0_002"
+								name = "pepega27"
+								parent_bone = "pepega27"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -18.542816, -8.839983, -14.00386 ]
-								hitbox_maxs = [ 18.545776, 5.91723, -0.268173 ]
+								hitbox_mins = [ -0.5, -0.931615, -1.117622 ]
+								hitbox_maxs = [ 3.209942, 0.96393, 0.68454 ]
 							},
 							{
 								_class = "Hitbox"
-								parent_bone = "Bone06"
+								name = "pepega28"
+								parent_bone = "pepega28"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -5.443647, -4.327635, -34.228451 ]
-								hitbox_maxs = [ 3.215239, 6.467061, -0.032116 ]
+								hitbox_mins = [ -0.5, -0.702917, -0.704185 ]
+								hitbox_maxs = [ 2.395969, 0.885775, 0.754517 ]
 							},
 							{
 								_class = "Hitbox"
-								parent_bone = "BoneA66"
+								name = "pepega30"
+								parent_bone = "pepega30"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -3.616358, -4.343609, -34.234398 ]
-								hitbox_maxs = [ 5.050395, 6.460445, -0.038029 ]
+								hitbox_mins = [ -0.5, -0.611207, -1.266411 ]
+								hitbox_maxs = [ 2.455502, 1.043219, 0.5 ]
 							},
 							{
 								_class = "Hitbox"
-								parent_bone = "bone_new1_003"
+								name = "pepega31"
+								parent_bone = "pepega31"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -4.335034, -2.381503, -12.360657 ]
-								hitbox_maxs = [ 3.217809, 9.584419, 0.281807 ]
+								hitbox_mins = [ -0.5, -0.5, -0.991386 ]
+								hitbox_maxs = [ 1.516273, 0.754733, 0.5 ]
 							},
 							{
 								_class = "Hitbox"
-								parent_bone = "bone_new4_001"
+								name = "pepega08"
+								parent_bone = "pepega08"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -2.550248, -1.500152, -1.920006 ]
-								hitbox_maxs = [ 0.406425, 0.377774, 0.71093 ]
+								hitbox_mins = [ -3.996033, -2.69753, -0.94574 ]
+								hitbox_maxs = [ 3.912144, 4.506642, 5.171234 ]
 							},
 							{
 								_class = "Hitbox"
-								parent_bone = "Bone18"
+								name = "pepega09"
+								parent_bone = "pepega09"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -1.961818, -0.74409, -0.957962 ]
-								hitbox_maxs = [ 0.047554, 0.687553, 0.783791 ]
+								hitbox_mins = [ -12.566212, -7.948194, -7.163269 ]
+								hitbox_maxs = [ 12.592569, 13.114671, 21.673218 ]
 							},
 							{
 								_class = "Hitbox"
-								parent_bone = "Bone13"
+								name = "pepega10"
+								parent_bone = "pepega10"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -0.127628, -0.656266, -0.687119 ]
-								hitbox_maxs = [ 0.212807, 0.756217, 0.661537 ]
+								hitbox_mins = [ -18.542622, -8.839769, -14.003616 ]
+								hitbox_maxs = [ 18.545551, 5.917274, 0.5 ]
 							},
 							{
 								_class = "Hitbox"
-								parent_bone = "Bone23"
+								name = "pepega11"
+								parent_bone = "pepega11"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -2.369716, -0.682431, -0.699272 ]
-								hitbox_maxs = [ 0.122666, 0.906365, 0.759521 ]
+								hitbox_mins = [ -21.546288, -9.942301, -19.575134 ]
+								hitbox_maxs = [ 22.13139, 8.275148, 1.00882 ]
 							},
 							{
 								_class = "Hitbox"
-								parent_bone = "Bone25"
+								name = "pepega58"
+								parent_bone = "pepega58"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -1.543315, -0.566278, -0.992714 ]
-								hitbox_maxs = [ 0.149182, 0.686395, 0.47625 ]
+								hitbox_mins = [ -10.880266, -7.618803, -34.35294 ]
+								hitbox_maxs = [ 7.14353, 10.318731, 0.5 ]
 							},
 							{
 								_class = "Hitbox"
-								parent_bone = "bone_new2_001"
+								name = "pepega59"
+								parent_bone = "pepega59"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -0.327107, -1.493749, -1.949242 ]
-								hitbox_maxs = [ 2.629566, 0.384177, 0.681702 ]
+								hitbox_mins = [ -5.443645, -4.327625, -37.032867 ]
+								hitbox_maxs = [ 3.215231, 6.46706, 0.5 ]
 							},
 							{
 								_class = "Hitbox"
-								parent_bone = "Bone46"
+								name = "pepega60"
+								parent_bone = "pepega60"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -0.113007, -0.840263, -0.686546 ]
-								hitbox_maxs = [ 1.878963, 0.665369, 0.662109 ]
+								hitbox_mins = [ -4.020337, -8.650047, -14.133516 ]
+								hitbox_maxs = [ 3.957449, 5.678495, 2.249357 ]
 							},
 							{
 								_class = "Hitbox"
-								parent_bone = "Bone49"
+								name = "pepega63"
+								parent_bone = "pepega63"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -0.034321, -0.771618, -0.960793 ]
-								hitbox_maxs = [ 1.975022, 0.660025, 0.78096 ]
+								hitbox_mins = [ -7.277195, -7.421947, -34.353718 ]
+								hitbox_maxs = [ 10.432394, 10.323064, 0.5 ]
 							},
 							{
 								_class = "Hitbox"
-								parent_bone = "Bone52"
+								name = "pepega64"
+								parent_bone = "pepega64"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -0.097076, -0.70302, -0.704163 ]
-								hitbox_maxs = [ 2.395291, 0.885778, 0.754631 ]
+								hitbox_mins = [ -3.61636, -4.343598, -37.026268 ]
+								hitbox_maxs = [ 5.050386, 6.460445, 0.5 ]
 							},
 							{
 								_class = "Hitbox"
-								parent_bone = "Bone55"
+								name = "pepega65"
+								parent_bone = "pepega65"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -0.176902, -0.498002, -0.991364 ]
-								hitbox_maxs = [ 1.515599, 0.75467, 0.4776 ]
+								hitbox_mins = [ -3.797647, -8.552603, -14.146054 ]
+								hitbox_maxs = [ 4.180133, 5.77594, 2.236794 ]
 							},
 							{
 								_class = "Hitbox"
-								parent_bone = "bone_new0_003"
+								name = "pepega01"
+								parent_bone = "pepega01"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -21.546709, -9.942634, -19.57534 ]
-								hitbox_maxs = [ 22.131857, 8.275184, 1.009041 ]
+								hitbox_mins = [ -1.953703, -1.459984, -13.265213 ]
+								hitbox_maxs = [ 4.825683, 4.347899, 1.097946 ]
 							},
 							{
 								_class = "Hitbox"
-								parent_bone = "Bone63"
+								name = "pepega02"
+								parent_bone = "pepega02"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -4.020344, -8.650073, -14.133462 ]
-								hitbox_maxs = [ 3.957456, 5.678494, 2.249438 ]
+								hitbox_mins = [ -4.335036, -2.381497, -12.360649 ]
+								hitbox_maxs = [ 3.217798, 9.584414, 0.5 ]
 							},
 							{
 								_class = "Hitbox"
-								parent_bone = "BoneA67"
+								name = "pepega03"
+								parent_bone = "pepega03"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -3.797653, -8.552629, -14.146002 ]
-								hitbox_maxs = [ 4.18014, 5.775937, 2.236876 ]
-							},
-							{
-								_class = "Hitbox"
-								parent_bone = "bone_new2_002"
-								surface_property = ""
-								translation_only = false
-								group_id = 0
-								hitbox_mins = [ -9.913724, -2.602674, -12.582798 ]
-								hitbox_maxs = [ 2.74719, 16.027613, 1.302711 ]
-							},
-							{
-								_class = "Hitbox"
-								parent_bone = "bone_new5_001"
-								surface_property = ""
-								translation_only = false
-								group_id = 0
-								hitbox_mins = [ -1.875417, -1.02096, -1.488632 ]
-								hitbox_maxs = [ 0.435561, 0.576954, 0.64135 ]
-							},
-							{
-								_class = "Hitbox"
-								parent_bone = "Bone16"
-								surface_property = ""
-								translation_only = false
-								group_id = 0
-								hitbox_mins = [ -2.6731, -0.61966, -1.122902 ]
-								hitbox_maxs = [ 0.124401, 0.659784, 0.674294 ]
-							},
-							{
-								_class = "Hitbox"
-								parent_bone = "Bone14"
-								surface_property = ""
-								translation_only = false
-								group_id = 0
-								hitbox_mins = [ -2.920357, -0.577401, -0.587318 ]
-								hitbox_maxs = [ 0.161854, 0.692548, 0.653008 ]
-							},
-							{
-								_class = "Hitbox"
-								parent_bone = "Bone21"
-								surface_property = ""
-								translation_only = false
-								group_id = 0
-								hitbox_mins = [ -2.556892, -0.600443, -1.486557 ]
-								hitbox_maxs = [ 0.459404, 0.735876, 0.581917 ]
-							},
-							{
-								_class = "Hitbox"
-								parent_bone = "Bone27"
-								surface_property = ""
-								translation_only = false
-								group_id = 0
-								hitbox_mins = [ -2.017177, -0.565887, -0.849594 ]
-								hitbox_maxs = [ 0.234803, 0.539723, 0.542519 ]
-							},
-							{
-								_class = "Hitbox"
-								parent_bone = "bone_new0"
-								surface_property = ""
-								translation_only = false
-								group_id = 0
-								hitbox_mins = [ -33.892822, -24.135353, -12.524918 ]
-								hitbox_maxs = [ 10.075661, 18.57856, 24.806015 ]
-							},
-							{
-								_class = "Hitbox"
-								parent_bone = "bone_new3_001"
-								surface_property = ""
-								translation_only = false
-								group_id = 0
-								hitbox_mins = [ -0.317078, -1.032009, -1.516464 ]
-								hitbox_maxs = [ 1.993903, 0.565905, 0.613525 ]
-							},
-							{
-								_class = "Hitbox"
-								parent_bone = "Bone47"
-								surface_property = ""
-								translation_only = false
-								group_id = 0
-								hitbox_mins = [ -0.167485, -0.611871, -0.575439 ]
-								hitbox_maxs = [ 2.914646, 0.658077, 0.664886 ]
-							},
-							{
-								_class = "Hitbox"
-								parent_bone = "Bone41"
-								surface_property = ""
-								translation_only = false
-								group_id = 0
-								hitbox_mins = [ -0.059273, -0.605087, -1.141205 ]
-								hitbox_maxs = [ 2.738159, 0.674357, 0.655991 ]
-							},
-							{
-								_class = "Hitbox"
-								parent_bone = "Bone53"
-								surface_property = ""
-								translation_only = false
-								group_id = 0
-								hitbox_mins = [ -0.444282, -0.639227, -1.481903 ]
-								hitbox_maxs = [ 2.571965, 0.697092, 0.586578 ]
-							},
-							{
-								_class = "Hitbox"
-								parent_bone = "Bone56"
-								surface_property = ""
-								translation_only = false
-								group_id = 0
-								hitbox_mins = [ -0.135757, -0.506078, -0.885033 ]
-								hitbox_maxs = [ 2.116215, 0.599535, 0.50708 ]
-							},
-							{
-								_class = "Hitbox"
-								parent_bone = "bone_new1_002"
-								surface_property = ""
-								translation_only = false
-								group_id = 0
-								hitbox_mins = [ -27.451355, -13.62772, -27.98774 ]
-								hitbox_maxs = [ 29.081726, 6.766884, 2.182198 ]
-							},
-							{
-								_class = "Hitbox"
-								parent_bone = "Bone64"
-								surface_property = ""
-								translation_only = false
-								group_id = 0
-								hitbox_mins = [ -3.997291, -7.4842, -3.215573 ]
-								hitbox_maxs = [ 4.198188, 0.833973, 1.705714 ]
-							},
-							{
-								_class = "Hitbox"
-								parent_bone = "BoneA68"
-								surface_property = ""
-								translation_only = false
-								group_id = 0
-								hitbox_mins = [ -4.185433, -7.45025, -3.241189 ]
-								hitbox_maxs = [ 4.010041, 0.867923, 1.6801 ]
-							},
-							{
-								_class = "Hitbox"
-								parent_bone = "bone_new3_002"
-								surface_property = ""
-								translation_only = false
-								group_id = 0
-								hitbox_mins = [ -4.708621, -4.44562, -9.54047 ]
-								hitbox_maxs = [ 7.45659, 9.327736, 4.441929 ]
+								hitbox_mins = [ -9.913711, -2.602657, -12.582787 ]
+								hitbox_maxs = [ 2.74718, 16.027597, 1.302696 ]
 							},
 						]
 					},
@@ -623,12 +512,15 @@
 					{
 						_class = "RenderMeshFile"
 						name = "alter_atalanta_fbx"
-						filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/alter_atalanta_boar_fix/alter_atalant_model_blend.dmx"
+						filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/alter_atalanta_boar_fix/alter_atalanta_fbx.fbx"
 						import_scale = 1.0
 						import_filter = 
 						{
 							exclude_by_default = false
-							exception_list = [  ]
+							exception_list = 
+							[
+								"pepega72",
+							]
 						}
 					},
 				]
@@ -640,6 +532,7 @@
 					{
 						_class = "AnimFile"
 						name = "alter_atalant_idle"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_IDLE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -652,16 +545,17 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
-						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/alter_atalanta_boar_fix/alter_atalant_anim_blender.dmx"
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/alter_atalanta_boar_fix/alter_atalanta_fbx.fbx"
 						import_bone_scales = false
-						start_frame = 32
-						end_frame = 93
+						start_frame = 11
+						end_frame = 71
 						framerate = 30.0
 						reverse = false
 					},
 					{
 						_class = "AnimFile"
 						name = "alter_atalant_attack"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_ATTACK"
 						activity_weight = 1
 						weight_list_name = ""
@@ -674,16 +568,17 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
-						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/alter_atalanta_boar_fix/alter_atalant_anim_blender.dmx"
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/alter_atalanta_boar_fix/alter_atalanta_fbx.fbx"
 						import_bone_scales = false
-						start_frame = 94
-						end_frame = 101
+						start_frame = 72
+						end_frame = 102
 						framerate = 30.0
 						reverse = false
 					},
 					{
 						_class = "AnimFile"
 						name = "alter_atalant_roar"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_1"
 						activity_weight = 1
 						weight_list_name = ""
@@ -696,16 +591,17 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
-						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/alter_atalanta_boar_fix/alter_atalant_anim_blender.dmx"
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/alter_atalanta_boar_fix/alter_atalanta_fbx.fbx"
 						import_bone_scales = false
-						start_frame = 102
-						end_frame = 123
+						start_frame = 103
+						end_frame = 129
 						framerate = 15.0
 						reverse = false
 					},
 					{
 						_class = "AnimFile"
 						name = "alter_atalant_jump"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_3"
 						activity_weight = 1
 						weight_list_name = ""
@@ -718,16 +614,17 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
-						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/alter_atalanta_boar_fix/alter_atalant_anim_blender.dmx"
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/alter_atalanta_boar_fix/alter_atalanta_fbx.fbx"
 						import_bone_scales = false
-						start_frame = 271
-						end_frame = 328
+						start_frame = 391
+						end_frame = 421
 						framerate = 30.0
 						reverse = false
 					},
 					{
 						_class = "AnimFile"
 						name = "alter_atalant_run"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_RUN"
 						activity_weight = 1
 						weight_list_name = ""
@@ -740,16 +637,17 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
-						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/alter_atalanta_boar_fix/alter_atalant_anim_blender.dmx"
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/alter_atalanta_boar_fix/alter_atalanta_fbx.fbx"
 						import_bone_scales = false
-						start_frame = 366
-						end_frame = 394
+						start_frame = 295
+						end_frame = 322
 						framerate = 30.0
 						reverse = false
 					},
 					{
 						_class = "AnimFile"
 						name = "alter_atalant_die"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_DIE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -762,16 +660,17 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
-						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/alter_atalanta_boar_fix/alter_atalant_anim_blender.dmx"
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/alter_atalanta_boar_fix/alter_atalanta_fbx.fbx"
 						import_bone_scales = false
-						start_frame = 403
-						end_frame = 440
+						start_frame = 323
+						end_frame = 359
 						framerate = 30.0
 						reverse = false
 					},
 					{
 						_class = "AnimFile"
 						name = "alter_atalant_tauropolos"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_6"
 						activity_weight = 1
 						weight_list_name = ""
@@ -784,16 +683,17 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
-						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/alter_atalanta_boar_fix/alter_atalant_anim_blender.dmx"
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/alter_atalanta_boar_fix/alter_atalanta_fbx.fbx"
 						import_bone_scales = false
-						start_frame = 203
-						end_frame = 232
+						start_frame = 241
+						end_frame = 268
 						framerate = 20.0
 						reverse = false
 					},
 					{
 						_class = "AnimFile"
 						name = "alter_atalant_attack2"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_ATTACK2"
 						activity_weight = 1
 						weight_list_name = ""
@@ -806,10 +706,10 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
-						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/alter_atalanta_boar_fix/alter_atalant_anim_blender.dmx"
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/alter_atalanta_boar_fix/alter_atalanta_fbx.fbx"
 						import_bone_scales = false
-						start_frame = 174
-						end_frame = 181
+						start_frame = 133
+						end_frame = 141
 						framerate = 30.0
 						reverse = false
 					},
@@ -821,5 +721,6 @@
 		primary_associated_entity = ""
 		anim_graph_name = ""
 		importer_notes = "Imported from VMDL\n==Warnings==\nChanged incompatible hitbox parent bone name 'bone_new0.001' to 'bone_new0_001'\nChanged incompatible hitbox parent bone name 'bone_new0.004' to 'bone_new0_004'\nChanged incompatible hitbox parent bone name 'bone_new0.002' to 'bone_new0_002'\nChanged incompatible hitbox parent bone name 'bone_new1.003' to 'bone_new1_003'\nChanged incompatible hitbox parent bone name 'bone_new4.001' to 'bone_new4_001'\nChanged incompatible hitbox parent bone name 'bone_new2.001' to 'bone_new2_001'\nChanged incompatible hitbox parent bone name 'bone_new0.003' to 'bone_new0_003'\nChanged incompatible hitbox parent bone name 'bone_new2.002' to 'bone_new2_002'\nChanged incompatible hitbox parent bone name 'bone_new5.001' to 'bone_new5_001'\nChanged incompatible hitbox parent bone name 'bone_new3.001' to 'bone_new3_001'\nChanged incompatible hitbox parent bone name 'bone_new1.002' to 'bone_new1_002'\nChanged incompatible hitbox parent bone name 'bone_new3.002' to 'bone_new3_002'\nChanged incompatible bone name 'bone_new1.001' to 'bone_new1_001'\n"
+		document_sub_type = "ModelDocSubType_None"
 	}
 }

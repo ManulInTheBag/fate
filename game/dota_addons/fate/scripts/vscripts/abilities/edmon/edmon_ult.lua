@@ -52,6 +52,8 @@ function edmon_ult:OnSpellStart()
 
 	EmitGlobalSound("edmon_r"..math.random(1,2))
 
+    local originalpos = caster:GetAbsOrigin()
+
 	Timers:CreateTimer(function()
         if count < duration and caster and caster:IsAlive() then
             --if target then
@@ -64,6 +66,12 @@ function edmon_ult:OnSpellStart()
             ParticleManager:SetParticleControl( fxIndex, 0, startLoc)
             ParticleManager:SetParticleControl( fxIndex, 1, endLoc + Vector(0,0,50))
             ParticleManager:SetParticleShouldCheckFoW(fxIndex, false)
+
+            local dir = (endLoc - startLoc):Normalized()
+            dir.z = 0
+            caster:SetAbsOrigin(startLoc - dir*100)
+            caster:SetForwardVector(dir)
+
             --local p = CreateParticle("particles/heroes/juggernaut/phantom_sword_dance_a.vpcf",PATTACH_ABSORIGIN,caster,2)
             --ParticleManager:SetParticleControl( p, 0, startLoc)
             --ParticleManager:SetParticleControl( p, 2, endLoc + Vector(0,0,50))
@@ -85,6 +93,8 @@ function edmon_ult:OnSpellStart()
         end
         if autocast then
             FindClearSpaceForUnit(caster,origin,true)
+        else
+            FindClearSpaceForUnit(caster,originalpos,true)
         end
     end)
 end
@@ -105,19 +115,50 @@ function modifier_edmon_ult:CheckState()
                         [MODIFIER_STATE_STUNNED] = true,
                         --[MODIFIER_STATE_SILENCED] = true,
                         --[MODIFIER_STATE_MUTED] = true,
-                        [MODIFIER_STATE_UNTARGETABLE] = true,
-                        [MODIFIER_STATE_NO_HEALTH_BAR] = true,
-                        [MODIFIER_STATE_INVULNERABLE] = true,
+                        --[MODIFIER_STATE_UNTARGETABLE] = true,
+                        --[MODIFIER_STATE_NO_HEALTH_BAR] = true,
+                        --[MODIFIER_STATE_INVULNERABLE] = true,
                     }
     return state
 end
-function modifier_edmon_ult:OnCreated()
-	if IsServer() then
-		self:GetParent():AddEffects(EF_NODRAW)
-	end
+function modifier_edmon_ult:DeclareFunctions()
+    return {MODIFIER_PROPERTY_OVERRIDE_ANIMATION}
 end
-function modifier_edmon_ult:OnDestroy()
+function modifier_edmon_ult:GetOverrideAnimation()
+    return ACT_DOTA_CAST_ABILITY_4_END
+end
+function modifier_edmon_ult:OnIntervalThink()
+    self:UpdateHorizontalMotion(self.parent, FrameTime())
+end
+function modifier_edmon_ult:UpdateHorizontalMotion(me, dt)
+    self:Rush(me, dt)
+end
+function modifier_edmon_ult:Rush(me, dt)
+    --[[if self.parent:IsStunned() then
+        return nil
+    end]]
+
+    local pos = self.parent:GetOrigin()
+
+    local direction = self.parent:GetForwardVector()
+    direction.z = 0     
+    local target = pos + direction:Normalized() * (self.speed * dt)
+
+    self.parent:SetOrigin(target)
+end
+function modifier_edmon_ult:OnCreated()
+	--[[if IsServer() then
+		self:GetParent():AddEffects(EF_NODRAW)
+	end]]
+    if IsServer() then
+        self.parent = self:GetParent()
+        self.ability = self:GetAbility()
+        self.speed = self.ability:GetSpecialValueFor("radius")*2/self.ability:GetSpecialValueFor("interval")
+        self:StartIntervalThink(FrameTime())
+    end    
+end
+--[[function modifier_edmon_ult:OnDestroy()
 	if IsServer() then
 		self:GetParent():RemoveEffects(EF_NODRAW)
 	end
-end
+end]]

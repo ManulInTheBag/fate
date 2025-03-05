@@ -113,7 +113,6 @@ function Teams:PostInitialize()
 			playerCounter = playerCounter + 1
 			local color = data.playerColors[playerCounter]
 			PLAYER_DATA[playerId].Color = color
-			PlayerResource:SetCustomPlayerColor(playerId, color[1], color[2], color[3])
 		end
 	end
 end

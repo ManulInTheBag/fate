@@ -518,7 +518,7 @@ This function is called once and only once after all players have loaded into th
     It can be used to initialize non-hero player state or adjust the hero selection (i.e. force random etc)
     ]]
 function FateGameMode:OnAllPlayersLoaded()
-   -- print("[BAREBONES] All Players have loaded into the game")
+   print("[BAREBONES] All Players have loaded into the game")
     GameRules:SendCustomMessage("Fate/Balance " .. FATE_VERSION .. " by Balance Department", 0, 0)
     GameRules:SendCustomMessage("Game is currently and forever in beta, so you may run into minor and major issues that nobody cares about. You've been warned.", 0, 0)
     --GameRules:SendCustomMessage("#Fate_Choose_Hero_Alert_60", 0, 0)
@@ -579,11 +579,13 @@ function FateGameMode:OnAllPlayersLoaded()
     badColorTable = {{164,105,0},{254,134,194},{0,131,33},{101,217,247},{161,180,71},{244,164,96},{176,196,222}}
     goodColorTable = {{51,117,255},{102,255,191},{255,107,0},{191,0,191},{243,240,11},{255,20,147},{220,20,60}}
     for i=0, 13 do
-        if PlayerResource:GetPlayer(i) ~= nil then
+        --if PlayerResource:GetPlayer(i) ~= nil then
             local playerID = i
             local player = PlayerResource:GetPlayer(i)
             print(playerID)
             print(player:GetTeam())
+
+            print("IDidSetColor")
 
             if player:GetTeam() == 2 then
                 print("GOOD GUY COLOR")
@@ -594,7 +596,7 @@ function FateGameMode:OnAllPlayersLoaded()
                 PlayerResource:SetCustomPlayerColor(i, badColorTable[badGuyColorIndex][1], badColorTable[badGuyColorIndex][2], badColorTable[badGuyColorIndex][3])
                 badGuyColorIndex = badGuyColorIndex + 1
             end
-        end
+        --end
     end
 
     VICTORY_CONDITION = maxkey
@@ -2182,6 +2184,28 @@ function FateGameMode:OnGameRulesStateChange(keys)
 
         Selection = HeroSelection()
         Selection:UpdateTime()]]
+        badGuyColorIndex = 1
+        goodGuyColorIndex = 1
+        badColorTable = {{164,105,0},{254,134,194},{0,131,33},{101,217,247},{161,180,71},{244,164,96},{176,196,222}}
+        goodColorTable = {{51,117,255},{102,255,191},{255,107,0},{191,0,191},{243,240,11},{255,20,147},{220,20,60}}
+        for i=0, 13 do
+            if PlayerResource:GetPlayer(i) ~= nil then
+                local playerID = i
+                local player = PlayerResource:GetPlayer(i)
+                print(playerID)
+                print(player:GetTeam())
+
+                if player:GetTeam() == 2 then
+                    print("GOOD GUY COLOR")
+                    PlayerResource:SetCustomPlayerColor(i, goodColorTable[goodGuyColorIndex][1], goodColorTable[goodGuyColorIndex][2], goodColorTable[goodGuyColorIndex][3])
+                    goodGuyColorIndex = goodGuyColorIndex + 1
+                else
+                    print("BAD GUY COLOR")
+                    PlayerResource:SetCustomPlayerColor(i, badColorTable[badGuyColorIndex][1], badColorTable[badGuyColorIndex][2], badColorTable[badGuyColorIndex][3])
+                    badGuyColorIndex = badGuyColorIndex + 1
+                end
+            end
+        end
     elseif newState == DOTA_GAMERULES_STATE_STRATEGY_TIME then
         -- screw 7.00
     elseif newState == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
