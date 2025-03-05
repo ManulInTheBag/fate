@@ -9502,9 +9502,10 @@
 
 	
 		"DOTA_Tooltip_ability_hijikata_shinsengumi_attribute"							"Return to office"
-        "DOTA_Tooltip_ability_hijikata_shinsengumi_attribute_Description"				"Upgrades <font color='#58ACFA'>Duel</font>, making it increase all allies inside <font color='#FFFAFA'>armor</font> and <font color='#FFFAFA'>magic resistance</font> and granting <font color='#ff9900'>disengage</font> effect to the winner of duel.\n<font color='#ff9900'>Disengage</font>: Grants powerfull health and mana regeneration buff.\nUpgrades <font color='#58ACFA'>Shinsengumi</font>, making it refresh cooldown of <font color='#58ACFA'>Madman shot</font>, when any enemy is hit.\n<font color='#58ACFA'>Madman shot</font> and <font color='#58ACFA'>Demon of the battlefield</font>  deal additional physical damage equal to Hijikata's attack"
+        "DOTA_Tooltip_ability_hijikata_shinsengumi_attribute_Description"				"Upgrades <font color='#58ACFA'>Duel</font>, making it increase all allies inside <font color='#FFFAFA'>armor</font>, <font color='#FFFAFA'>magic resistance</font> and <font color='#FFFAFA'>movement speed</font> and granting <font color='#ff9900'>disengage</font> effect to the winner of duel.\n<font color='#ff9900'>Disengage</font>: Grants powerfull health and mana regeneration buff.\nUpgrades <font color='#58ACFA'>Shinsengumi</font>, making it refresh cooldown of <font color='#58ACFA'>Madman shot</font>, when any enemy is hit.\n<font color='#58ACFA'>Madman shot</font> and <font color='#58ACFA'>Demon of the battlefield</font>  deal additional physical damage equal to Hijikata's attack"
         "DOTA_Tooltip_ability_hijikata_shinsengumi_attribute_armor"								"Duel armor:"
         "DOTA_Tooltip_ability_hijikata_shinsengumi_attribute_mr"								"%Duel magic resistance:"
+        "DOTA_Tooltip_ability_hijikata_shinsengumi_attribute_ms"								"%Duel movement speed:"
         "DOTA_Tooltip_ability_hijikata_shinsengumi_attribute_health_regen"						"Disengage health regen:"
         "DOTA_Tooltip_ability_hijikata_shinsengumi_attribute_mana_regen"						"Disengage mana regen:"
         "DOTA_Tooltip_ability_hijikata_shinsengumi_attribute_regen_duration"					"Disengage duration:"

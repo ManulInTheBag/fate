@@ -31,6 +31,8 @@ function hijikata_duel:OnSpellStart()
 
     --EmitSoundOnLocationWithCaster(targetpos, "hijikata_prepare_for_battle", self.caster)
 	self.caster:EmitSound("hijikata_prepare_for_battle")
+	AddFOWViewer(2, targetpos, radius, duration, false)
+	AddFOWViewer(3, targetpos, radius, duration, false)
     self.AuraDummy = CreateUnitByName("sight_dummy_unit", targetpos, false, nil, nil, self.caster:GetTeamNumber())
 	self.AuraDummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
 	self.AuraDummy:SetDayTimeVisionRange(radius)
@@ -195,6 +197,7 @@ end
 function modifier_hijikata_shinsengumi_flag_buff:OnCreated()
     self.armor = self:GetAbility():GetSpecialValueFor("armor")
 	self.mr = self:GetAbility():GetSpecialValueFor("mr")
+	self.ms = self:GetAbility():GetSpecialValueFor("ms")
     self.parent = self:GetParent()
 end
 
@@ -216,7 +219,8 @@ end
 
 function modifier_hijikata_shinsengumi_flag_buff:DeclareFunctions()
 	return {	MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
-				MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS }
+				MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
+				MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE}
 end
 
 function modifier_hijikata_shinsengumi_flag_buff:GetModifierPhysicalArmorBonus()
@@ -226,7 +230,9 @@ end
 function modifier_hijikata_shinsengumi_flag_buff:GetModifierMagicalResistanceBonus()
 	return self.mr
 end
-
+function modifier_hijikata_shinsengumi_flag_buff:GetModifierMoveSpeedBonus_Percentage(keys)
+    return self.ms
+end
 
 
 
