@@ -347,6 +347,13 @@ cleansable = {
 
     "modifier_hijikata_ult_slow",
     "modifier_hijikata_slow",
+    "modifier_robin_faceless_king_debuff",
+    "modifier_robin_tools_its_a_trap",
+    "modifier_robin_tools_pitfall_debuff",
+    "modifier_robin_tools_wolfs_bane",
+    "modifier_robin_tools_mysterious_substance_debuff",
+    "modifier_robin_yew_bow_silence",
+    "modifier_robin_yew_bow_combo_lock",
 }
 
 
