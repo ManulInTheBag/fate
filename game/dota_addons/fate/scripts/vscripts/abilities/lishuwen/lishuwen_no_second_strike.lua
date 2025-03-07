@@ -104,7 +104,7 @@ end
 function modifier_nss_shock_stackable:GetModifierPhysicalArmorBonus()
 
 	if IsServer() then
-		CustomNetTables:SetTableValue("sync","nss_variables", { armor_reduction = -self.armor_reduction })
+		CustomNetTables:SetTableValue("sync","nss_variables", { ms_reduction =  -self.slow_power, mr_reduction = -self.mr_reduction, armor_reduction = -self.armor_reduction })
 		return -self.armor_reduction
 	elseif IsClient() then
 		local armor_reduction_jopa = CustomNetTables:GetTableValue("sync","nss_variables").armor_reduction
@@ -114,7 +114,7 @@ end
 
 function modifier_nss_shock_stackable:GetModifierMagicalResistanceBonus()
 	if IsServer() then
-		CustomNetTables:SetTableValue("sync","nss_variables", { mr_reduction = -self.mr_reduction })
+		CustomNetTables:SetTableValue("sync","nss_variables", { ms_reduction =  -self.slow_power, mr_reduction = -self.mr_reduction, armor_reduction = -self.armor_reduction })
 		return -self.mr_reduction
 	elseif IsClient() then
 		local mr_reduction_jopa = CustomNetTables:GetTableValue("sync","nss_variables").mr_reduction
@@ -131,6 +131,9 @@ function modifier_nss_shock_stackable:OnCreated(tTable)
 	self.armor_reduction = 0
 	self.mr_reduction = 0
 	self.heal_reduction = 0
+	if IsServer() then
+		Timers:RemoveTimer("liShuwenDebuffsTimer")
+	end
 	if self.hCaster.LiShuwenNewSa then 
 		if self.stacks >= 10 then
 			self.reduction = self.hAbility:GetSpecialValueFor("magical_damage_reduction_1")
@@ -145,7 +148,20 @@ function modifier_nss_shock_stackable:OnCreated(tTable)
 			self.mr_reduction = self.hAbility:GetSpecialValueFor("mr_reduction")
 			self.heal_reduction = self.hAbility:GetSpecialValueFor("heal_reduction_2")
 		end
+		CustomNetTables:SetTableValue("sync","nss_variables", { ms_reduction =  -self.slow_power, mr_reduction = -self.mr_reduction, armor_reduction = -self.armor_reduction })
+
 	end
+	Timers:CreateTimer("liShuwenDebuffsTimer", {
+		endTime = 3,
+		callback = function()
+			self.reduction = 0
+			self.slow_power = 0
+			self.armor_reduction = 0
+			self.mr_reduction = 0
+			self.heal_reduction = 0
+			CustomNetTables:SetTableValue("sync","nss_variables", { ms_reduction =  0, mr_reduction =0, armor_reduction = 0 })
+		return end
+	})
 end
 function modifier_nss_shock_stackable:OnRefresh(tTable)
     self:OnCreated(tTable)
@@ -153,7 +169,7 @@ end
 
 function modifier_nss_shock_stackable:GetModifierMoveSpeedBonus_Percentage()
 	if IsServer() then
-		CustomNetTables:SetTableValue("sync","nss_variables", { ms_reduction =  -self.slow_power })
+		CustomNetTables:SetTableValue("sync","nss_variables", { ms_reduction =  -self.slow_power, mr_reduction = -self.mr_reduction, armor_reduction = -self.armor_reduction })
 		return  -self.slow_power
 	elseif IsClient() then
 		local ms_reduction_jopa = CustomNetTables:GetTableValue("sync","nss_variables").ms_reduction

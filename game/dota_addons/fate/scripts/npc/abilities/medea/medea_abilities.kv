@@ -2,6 +2,30 @@
 
 "DOTAAbilities"
 {
+	//=================================================================================================================
+	// medea blink (spellbook ability)
+	//=================================================================================================================
+	"medea_blink"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/medea/medea_blink"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE|DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"			"antimage_blink"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
+		"AnimationPlaybackRate" 		"1.0"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"25"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityManaCost"				"100"
+		"AbilityCooldown"				"11"
+		"AbilityCastPoint"				"0.0"
+		
+		"AbilityValues"
+		{
+			"cast_point"			"0.0"
+			"base_dist"				"350 400 450 500 550"		
+		}
+	}
 	//=======================================
 	// Caster : Item Construction
 	//=======================================
@@ -140,7 +164,7 @@
 			{
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"		"30"
+					"MODIFIER_PROPERTY_MANA_REGEN_CONSTANT"		"50"
 				}	
 			}
 			"modifier_territory_root"
@@ -853,7 +877,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_TOGGLE"
 		"AbilityTextureName"			"custom/caster_5th_ancient_magic"
 
-		"LinkedAbilities"				"caster_5th_wall_of_flame caster_5th_silence caster_5th_divine_words caster_5th_mana_transfer caster_5th_sacrifice"		
+		"LinkedAbilities"				"caster_5th_wall_of_flame caster_5th_silence caster_5th_divine_words medea_blink caster_5th_sacrifice"		
 		
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"0"
@@ -921,7 +945,7 @@
 
 		"AbilityValues"
         {
-            "pushback" "900 1000 1100 1200 1300"
+            "pushback" "500 600 700 800 900"
             "damage" "100 130 160 190 220"
             "radius" "300"
         }
@@ -1324,7 +1348,7 @@
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3"
 		"AnimationPlaybackRate" 		"1.8"
 		"AbilityCastPoint"				"0.45"
-		"AbilityCastRange"				"200"
+		"AbilityCastRange"				"450"
 		"AbilityCastRangeBuffer"		"100"
 		"AbilityCooldown"				"35"
 		"AbilityManaCost"				"400"
@@ -1596,7 +1620,7 @@
 		"AbilityValues"
         {
             "workshop_health" "2000"
-            "workshop_mregen" "30"
+            "workshop_mregen" "50"
             "explosion_bonus_damage" "300"
             "workshop_mana" "1500"
         }
@@ -1700,7 +1724,7 @@
 		
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"9999"
-		"AbilityManaCost"				"14"
+		"AbilityManaCost"				"11"
 
 		"precache"
 		{

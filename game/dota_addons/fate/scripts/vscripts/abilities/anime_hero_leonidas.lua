@@ -680,7 +680,7 @@ function leonidas_kick:OnSpellStart()
         stun_duration = stun_duration*2
         nSlowDuration = nSlowDuration * 1.5
     end
-    if( IsNotNull(hTarget) and (hTarget:GetAbsOrigin()-hCaster:GetAbsOrigin()):Length2D() < 300) then
+    if( IsNotNull(hTarget) and (hTarget:GetAbsOrigin()-hCaster:GetAbsOrigin()):Length2D() < 450) then
         if IsSpellBlocked(hTarget) then
             return nil
         end

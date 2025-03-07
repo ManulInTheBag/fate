@@ -25,6 +25,7 @@
 		"RemoveSpawnedUnits_Msg"					"Removed Spawned Units"
 		"LaneCreepsOn_Msg"							"Lane Creeps: On"
 		"LaneCreepsOff_Msg"							"Lane Creeps: Off"		
+		"Is_Locked"									"Locked"
 
 		"DemoOptions_MinimizeButton"				"Demo Options"
 		"DemoOptions_UnMinimizeButton"				"  >&#xD;&#xD;&#xD;&#xD;  >"
@@ -3980,7 +3981,9 @@
 
 		"npc_dota_hero_crystal_maiden_hype"	""
 		"npc_dota_hero_crystal_maiden_bio"	""
-		
+		"DOTA_Tooltip_Ability_medea_blink"	"Blink"
+		"DOTA_Tooltip_ability_medea_blink_Description"	"Medea immediately blinks to the target point, disjoining projectiles."
+		"DOTA_Tooltip_ability_medea_blink_base_dist"	"Distance:"
 		"DOTA_Tooltip_Ability_caster_5th_item_construction"	"Item Construction"
 		"DOTA_Tooltip_ability_caster_5th_item_construction_Description"	"Crafts an B, A or S scroll. The chance to craft a higher rank scroll increases while Caster is nearby her Workshop."
 		"DOTA_Tooltip_ability_caster_5th_item_construction_Lore"	"From simple magic scrolls to ichor of immortality, Caster forms magic into powerful artifacts."
@@ -8884,7 +8887,7 @@
         "DOTA_Tooltip_ability_nobu_fool_of_owari_Lore" ""
 
         "DOTA_Tooltip_ability_nobu_king_of_innovation"				"Spirit altering: King of innovation"
-        "DOTA_Tooltip_ability_nobu_king_of_innovation_Description"	"Gives Oda Nobunaga new ability: Leader of innovation\nLeader of innovation:\nUpon cast, Oda Nobunaga will receive an aura for 10 seconds. Each time a Nobunaga deals damage, all of her allies gain a 50% ms buff for 1 seconds on a 1 second cooldown. Each time an ally of Nobunaga deals damage, she heals herself for 80 + STR health with a cooldown of a 1 second.\n With Demon King Expanding attribute this choice will grant both King of innovation and Destroyer of worlds bonuses."
+        "DOTA_Tooltip_ability_nobu_king_of_innovation_Description"	"Gives Oda Nobunaga new ability: Leader of innovation\nLeader of innovation:\nUpon cast, Oda Nobunaga will receive an aura for 10 seconds. Each time a Nobunaga deals damage, all of her allies gain a 50% ms buff for 1 seconds on a 1 second cooldown and healed by 40 + 2 * hero level + STR. Each time an ally of Nobunaga deals damage, she heals herself for by 40 + 2 * hero level + STR with a cooldown of a 1 second.\n With Demon King Expanding attribute this choice will grant both King of innovation and Destroyer of worlds bonuses."
         "DOTA_Tooltip_ability_nobu_king_of_innovation_Lore" 				""
 
         "DOTA_Tooltip_ability_nobu_demon_king_close"				"Demon King close"
@@ -8904,10 +8907,11 @@
         "DOTA_Tooltip_ability_nobu_dow_passive_Lore"								""
 
          "DOTA_Tooltip_ability_nobu_leader_of_innovation"						"Leader of innovation"
-        "DOTA_Tooltip_ability_nobu_leader_of_innovation_Description"			"Upon cast, Oda Nobunaga will receive an aura for 10 seconds. Each time a Nobunaga deals damage, all of her allies gain a 50% ms buff for 1 seconds and heal them for 80 + caster STR. Each time an ally of Nobunaga deals damage, she heals herself for 80 + STR health with a cooldown of a 1 second."
+        "DOTA_Tooltip_ability_nobu_leader_of_innovation_Description"			"Upon cast, Oda Nobunaga will receive an aura for 10 seconds. Each time a Nobunaga deals damage, all of her allies gain a 50% ms buff for 1 seconds on a 1 second cooldown and healed by 40 + 2 * hero level + STR. Each time an ally of Nobunaga deals damage, she heals herself for by 40 + 2 * hero level + STR with a cooldown of a 1 second.\n With Demon King Expanding attribute this choice will grant both King of innovation and Destroyer of worlds bonuses."
         "DOTA_Tooltip_ability_nobu_leader_of_innovation_aura_radius"						"Aura radius:"
         "DOTA_Tooltip_ability_nobu_leader_of_innovation_ms_bonus"								"%MS bonus:"
         "DOTA_Tooltip_ability_nobu_leader_of_innovation_health_base"								"Base heal:"
+        "DOTA_Tooltip_ability_nobu_leader_of_innovation_health_per_level"								"Heal per hero level:"
         "DOTA_Tooltip_ability_nobu_leader_of_innovation_duration"								"Duration:"
         "DOTA_Tooltip_ability_nobu_leader_of_innovation_ms_duration"								"MS bonus duration:"
         "DOTA_Tooltip_ability_nobu_leader_of_innovation_Lore"								""

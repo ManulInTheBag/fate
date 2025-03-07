@@ -43,8 +43,8 @@ function jeanne_lagron_combo:OnSpellStart()
 	Timers:CreateTimer(delay, function()
 	   	if caster:IsAlive() then
 	   		local damage = math.min(self:GetSpecialValueFor("damage") + caster:FindModifierByName("modifier_jeanne_lagron_combo_block").stored_damage, self:GetSpecialValueFor("max_damage"))
-	   		StartAnimation(caster, {duration=1.5, activity=ACT_DOTA_CAST_ABILITY_2_END, rate=4})
-
+	   		--StartAnimation(caster, {duration=1.5, activity=ACT_DOTA_CAST_ABILITY_2_END, rate=4})
+			   StartAnimation(caster, {duration=1.5, activity=ACT_DOTA_CAST_ABILITY_7, rate=1})
 	   		EmitGlobalSound("lagron")
 
 	   		--[[self.FireParticle = ParticleManager:CreateParticle("particles/jeanne_alter/vasavi_ground.vpcf", PATTACH_CUSTOMORIGIN, dummy)

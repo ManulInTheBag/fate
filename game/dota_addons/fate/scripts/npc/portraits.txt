@@ -823,6 +823,38 @@
 		}
 	}
 
+	"models/zlodemon/alter_jaba/jeanne_alter.vmdl"
+	{
+		"PortraitLightPosition"		"77.29 -68.51 304.23"
+		"PortraitLightAngles"		"41.19 112.90 0.00"
+		"PortraitLightFOV"		"65"
+		"PortraitLightDistance"		"218"
+		"PortraitLightColor"		"254 142 0"
+		"PortraitShadowColor"		"173 173 173"
+		"PortraitShadowScale"		"0.000000"
+		"PortraitAmbientColor"		"123 74 74"
+		"PortraitAmbientScale"		"5.000000"
+		"PortraitSpecularColor"		"251 74 84"
+		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/portraitbackground_gradient_btm.vmat"
+		"PortraitBackgroundColor1"		"1 .2 .1"
+		"PortraitBackgroundColor2"		"1 .2 .1"
+		"PortraitBackgroundColor3"		"1 .1 .2"
+		"PortraitBackgroundColor4"		"1 .1 .2"
+		"PortraitLightScale"		"4.950000"
+		"PortraitGroundShadowScale"		"1.500000"
+		"PortraitAmbientDirection"		"122.720 51.760 -16.720"
+		"PortraitAnimationActivity"		"ACT_DOTA_IDLE"
+		"cameras"
+		{
+			"default"
+			{
+				"PortraitPosition"		"55.75 -15.51 132.67"
+				"PortraitAngles"		"346.26 160.12 0.00"
+				"PortraitFOV"		"45"
+			}
+		}
+	}
+
 	"models/updated_by_seva_and_hudozhestvenniy_film_spizdili/aoko/aoko.vmdl"
 	{
 		"PortraitLightPosition"		"8.34 -51.72 127.79"

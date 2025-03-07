@@ -76,6 +76,23 @@ function altera_teardrop_release:GetCastRange(vLocation, hTarget)
 	return self:GetSpecialValueFor("cast_range")
 end
 
+function altera_teardrop_release:CastFilterResultLocation(vLocation)
+    local hCaster = self:GetCaster()
+
+    if vLocation
+        and hCaster and not hCaster:IsNull() then
+        if not ( IsServer() and not IsInSameRealm(hCaster:GetAbsOrigin(), vLocation) ) then
+            return UF_SUCCESS
+        end
+    end
+    return UF_FAIL_CUSTOM
+end
+
+function altera_teardrop_release:GetCustomCastErrorLocation(vLocation)
+	 return "#Wrong_Target_Location"
+end
+
+
 function altera_teardrop_release:OnSpellStart()
 	local caster = self:GetCaster()
 	local target = self:GetCursorPosition()
