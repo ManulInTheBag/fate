@@ -51,7 +51,7 @@ function modifier_verg_avesta_counter:OnTakeDamage(args)
 			self:GetParent():GiveMana(args.damage * self:GetAbility():GetSpecialValueFor("mana_restore_percentage") * 0.01)
 
 		end
-		if args.unit:IsAlive() and not args.unit:IsMagicImmune() then
+		if args.unit:IsAlive() and not args.attacker:IsMagicImmune() then
 
 			if args.attacker:GetTeamNumber() ~= self:GetParent():GetTeamNumber() and GetDistance(args.attacker, self:GetParent()) <= self:GetAbility():GetSpecialValueFor("radius") then
 				local return_percentage = self:GetAbility():GetSpecialValueFor("multiplier")
