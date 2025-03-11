@@ -3,6 +3,8 @@ astolfo_trap_of_argalia = class({})
 function astolfo_trap_of_argalia:OnSpellStart()
 	local caster = self:GetCaster()
 	local ability = self
+	local vector = (self:GetCursorPosition() - caster:GetAbsOrigin()):Normalized()
+	vector.z = 0
 	local qdProjectile = 
 	{
 		Ability = ability,
@@ -20,11 +22,11 @@ function astolfo_trap_of_argalia:OnSpellStart()
         iUnitTargetType = DOTA_UNIT_TARGET_ALL,
         fExpireTime = GameRules:GetGameTime() + 2.0,
 		bDeleteOnHit = false,
-		vVelocity = caster:GetForwardVector() * 1850
+		vVelocity = vector * 1850
 	}
 
 	caster:EmitSound("Astolfo_Slide_" .. math.random(1,5))
-
+	caster:SetForwardVector(vector)
 	local projectile = ProjectileManager:CreateLinearProjectile(qdProjectile)
 	giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 0.5)
 	caster:EmitSound("Hero_PhantomLancer.Doppelwalk") 

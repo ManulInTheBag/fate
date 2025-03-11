@@ -3,7 +3,7 @@
 	_class = "CParticleSystemDefinition"
 	m_bShouldHitboxesFallbackToRenderBounds = false
 	m_nMaxParticles = 128
-	m_nBehaviorVersion = 3
+	m_nBehaviorVersion = 12
 	m_nFirstMultipleOverride_BackwardCompat = 8
 	m_controlPointConfigurations = 
 	[
@@ -944,6 +944,11 @@
 			m_nFieldOutput = 12
 			m_flOutput = 90.0
 		},
+		{
+			_class = "C_OP_InterpolateRadius"
+			m_flStartTime = 0.5
+			m_flEndScale = 0.0
+		},
 	]
 	m_ForceGenerators = 
 	[
@@ -969,7 +974,7 @@
 			]
 			m_nLOD = 1
 			m_bForceLoopingAnimation = true
-			m_hOverrideMaterial = resource:"materials/models/courier/greevil/greevil_horns_red.vmat"
+			m_hOverrideMaterial = resource:"materials/vlad/spike_red.vmat"
 			m_modelInput = 
 			{
 			}

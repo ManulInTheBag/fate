@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc32:version{c5dcef98-b629-46ab-88e3-a17c005c935e} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc39:version{1ceecb0d-4093-4729-ab18-b76886c64cde} -->
 {
 	rootNode = 
 	{
@@ -44,6 +44,15 @@
 						_class = "Attachment"
 						name = "attach_horn"
 						parent_bone = "bone_new35"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_hitloc"
+						parent_bone = "Bone03"
 						relative_origin = [ 0.0, 0.0, 0.0 ]
 						relative_angles = [ 0.0, 0.0, 0.0 ]
 						weight = 1.0
@@ -106,6 +115,7 @@
 					{
 						_class = "AnimFile"
 						name = "astolfo"
+						is_default_idle_anim = false
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -128,6 +138,7 @@
 					{
 						_class = "AnimFile"
 						name = "astolfo_attack_1"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_ATTACK"
 						activity_weight = 1
 						weight_list_name = ""
@@ -150,6 +161,7 @@
 					{
 						_class = "AnimFile"
 						name = "astolfo_run"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_RUN"
 						activity_weight = 1
 						weight_list_name = ""
@@ -172,6 +184,7 @@
 					{
 						_class = "AnimFile"
 						name = "astolfo_death"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_DIE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -194,6 +207,7 @@
 					{
 						_class = "AnimFile"
 						name = "astolfo_idle"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_IDLE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -216,6 +230,7 @@
 					{
 						_class = "AnimFile"
 						name = "astolfo_cast_1"
+						is_default_idle_anim = false
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -238,6 +253,7 @@
 					{
 						_class = "AnimFile"
 						name = "astolfo_cast2"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_1"
 						activity_weight = 1
 						weight_list_name = ""
@@ -260,6 +276,7 @@
 					{
 						_class = "AnimFile"
 						name = "astolfo_cast3"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_2"
 						activity_weight = 1
 						weight_list_name = ""
@@ -282,6 +299,7 @@
 					{
 						_class = "AnimFile"
 						name = "astolfo_cast4"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_3"
 						activity_weight = 1
 						weight_list_name = ""
@@ -304,6 +322,7 @@
 					{
 						_class = "AnimFile"
 						name = "astolfo_cast5"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_3_END"
 						activity_weight = 1
 						weight_list_name = ""
@@ -331,5 +350,6 @@
 		primary_associated_entity = ""
 		anim_graph_name = ""
 		importer_notes = "Imported from VMDL"
+		document_sub_type = "ModelDocSubType_None"
 	}
 }

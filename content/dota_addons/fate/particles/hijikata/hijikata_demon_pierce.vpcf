@@ -26,6 +26,10 @@
 		},
 		{
 			m_ChildRef = resource:"particles/hijikata/hijikata_demon_pierce_strike.vpcf"
+			m_bDisableChild = true
+		},
+		{
+			m_ChildRef = resource:"particles/hijikata/impale/hijikata_impale.vpcf"
 		},
 	]
 }

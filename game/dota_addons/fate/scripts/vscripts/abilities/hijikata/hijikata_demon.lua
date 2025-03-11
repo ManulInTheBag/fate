@@ -74,7 +74,10 @@ function hijikata_demon:OnSpellStart()
 	caster:EmitSound("hijikata_demon_sfx")
 	caster:SetAbsOrigin(target:GetAbsOrigin() - diff * 100) 
 	FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
-
+	caster:FaceTowards(target:GetAbsOrigin())
+	local vector = -(caster:GetAbsOrigin() - target:GetAbsOrigin())
+	vector.z = 0
+	caster:SetForwardVector(vector)
 	--StartAnimation(caster, {duration=0.35, activity=ACT_DOTA_CAST_ABILITY_1_END, rate=2})
 	
 	local damage = self:GetSpecialValueFor("damage") 
@@ -108,9 +111,13 @@ function hijikata_demon:OnSpellStart()
 
 	--particle
 	--caster:EmitSound("Hero_Huskar.Life_Break")
-	local particle = ParticleManager:CreateParticle("particles/hijikata/hijikata_demon_pierce.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, caster)
-	ParticleManager:SetParticleControl(particle, 0, caster:GetAbsOrigin())
-    ParticleManager:SetParticleControl(particle, 1, caster:GetAbsOrigin())
+	local particle = ParticleManager:CreateParticle("particles/hijikata/hijikata_demon_pierce.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	ParticleManager:SetParticleControlTransformForward(particle, 0, caster:GetAbsOrigin() + Vector(0,0,130),caster:GetForwardVector())
+    ParticleManager:SetParticleControlTransformForward(particle, 1, caster:GetAbsOrigin()+ Vector(0,0,130),caster:GetForwardVector())
+
+
+
+
 	Timers:CreateTimer( 2.0, function()
 		ParticleManager:DestroyParticle( particle, false )
 		ParticleManager:ReleaseParticleIndex( particle )
@@ -145,6 +152,8 @@ function modifier_demon_buff_hijikata:IsDebuff()
 	return false 
 end
 
+
+ 
 
 function modifier_demon_buff_hijikata:OnAttackLanded(args) 
 	if args.attacker ~= self.caster then return end

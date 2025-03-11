@@ -46,9 +46,7 @@ end
 
 
 if IsServer() then 
-	function modifier_gilles_grief:OnRemoved()
-		self.dontDoDamage = true
-	end
+
 	function modifier_gilles_grief:OnCreated(args)
 		self.Damage = args.Damage
 
@@ -68,7 +66,7 @@ if IsServer() then
 		EmitSoundOnLocationWithCaster(self:GetParent():GetAbsOrigin(), "Gilles_Grief_Explode", hCaster)
 		ParticleManager:DestroyParticle( self.Particle, true )
         ParticleManager:ReleaseParticleIndex( self.Particle )
-		if not self.dontDoDamage then
+		if self:GetRemainingTime()<= 0.05 then
 			local fExplosionDamage = (self:GetParent():GetMaxHealth() - self:GetParent():GetHealth()) / self:GetParent():GetMaxHealth() + 1
 			if self:GetParent():IsAlive() then
 				

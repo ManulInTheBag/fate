@@ -1,6 +1,11 @@
 vlad_ceremonial_purge = class({})
 LinkLuaModifier("modifier_ceremonial_purge_slow", "abilities/vlad/modifier_ceremonial_purge_slow", LUA_MODIFIER_MOTION_NONE)
 
+--[[
+function vlad_ceremonial_purge:GetHealthCost(iLevel)
+	return 500--(caster:GetHealth() - self:GetSpecialValueFor("hp_cost")) > 0 and self:GetSpecialValueFor("hp_cost") or (caster:GetHealth() - 1)
+end
+]]
 function vlad_ceremonial_purge:GetManaCost(iLevel)
 	local caster = self:GetCaster()
 	local condition_free_mana = 35

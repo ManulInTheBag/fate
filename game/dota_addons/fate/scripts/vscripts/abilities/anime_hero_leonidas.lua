@@ -2900,6 +2900,7 @@ function modifier_leonidas_enomotia_shield:IsPurgable()                         
 function modifier_leonidas_enomotia_shield:IsPurgeException()                                                               return false end
 function modifier_leonidas_enomotia_shield:RemoveOnDeath()                                                                  return true end
 function modifier_leonidas_enomotia_shield:GetAttributes()                                                                  return MODIFIER_ATTRIBUTE_MULTIPLE end
+--function modifier_leonidas_enomotia_shield:GetPriority()                                                                  return MODIFIER_PRIORITY_ULTRA end
 function modifier_leonidas_enomotia_shield:GetTexture()
     return "anime_hero_leonidas/leonidas_enomotia_shield"
 end
@@ -2920,10 +2921,13 @@ end
 function modifier_leonidas_enomotia_shield:GetModifierTotal_ConstantBlock(keys)
     if IsServer() then
         local hModifiers = self.hParent:FindAllModifiersByName(self:GetName()) --NOT CONFIRMED BUT HOPE WORKS
-        if hModifiers[1] ~= self then
+        if hModifiers[#hModifiers] ~= self then
             return
         end
-        
+        local iBlockNow    = 0
+        for k, v in pairs (hModifiers) do
+            iBlockNow = iBlockNow + v:GetStackCount()
+        end
         -- local hServerStat = self.hParent.ServStat
         -- if type(hServerStat) == "table" then
         --     hServerStat:takeActualDamage(keys.damage)
@@ -2955,17 +2959,82 @@ function modifier_leonidas_enomotia_shield:GetModifierTotal_ConstantBlock(keys)
         if self.hParent:HasModifier("modifier_leonidas_bc_immortal") or (shouldBlock == 1) then --NOTE: BASICALY NOT NEED BUT WANNA PREVENT SHOWING DAMAGE VALUES
             return math.ceil(keys.damage) + 1
         end
-        local iBlockNow   = self:GetStackCount()
-        local iBlockCheck = iBlockNow - keys.damage
-        if iBlockCheck > 0 then
-            self:SetStackCount(iBlockCheck)
-        elseif not self.bIsComboShield then
-            self:SetStackCount(0)
-            Timers:CreateTimer(FrameTime(), function()
-                self:Destroy()
-            end)
+        local lowestDuration = self:GetRemainingTime()
+        local lowestDurMod = self
+        local lowestIndex = 1
+        local removeTable = {}
+        function findLowestDurationModifier()
+            --print("total modifiers:")
+            --print(#hModifiers)
+            lowestDuration = 100
+            for k, v in pairs (hModifiers) do
+                --print("K:")
+                --print(k)
+                if v:GetRemainingTime()<lowestDuration then
+                    lowestDuration = v:GetRemainingTime()
+                    lowestDurMod = v
+                    lowestIndex = k
+                    --print("foundNewFastestModifier")
+                    --print(k)
+                end
+            end
             
         end
+        local iBlockCheck = iBlockNow - keys.damage
+        local damage_left = keys.damage
+        --print("damage left:")
+        --print(damage_left)
+        --print("shield_left")
+        --print(iBlockNow)
+        if iBlockCheck <= 0 and not self.bIsComboShield then
+            --print("shield_broken")
+            for k, v in pairs (hModifiers) do
+
+                if self.hParent:HasModifier("modifier_leonidas_pride_counter") then
+                    v:SetStackCount(0)
+                    Timers:CreateTimer(FrameTime(), function()
+                        v:Destroy()
+                    end)
+                else
+                    v:Destroy()
+                end
+                
+            end
+        else
+            for i=1, #hModifiers do
+                --print("iteration")
+                --print(i)
+                findLowestDurationModifier()
+                if damage_left - lowestDurMod:GetStackCount() > 0 then
+                    --print("destroyed modifier with:")
+                    --print(lowestDurMod:GetStackCount())
+                    damage_left = damage_left - lowestDurMod:GetStackCount()
+                    lowestDurMod:SetStackCount(0)
+                    Timers:CreateTimer(FrameTime(), function()
+                        for k, v in pairs (removeTable) do
+                            --print("before remove")
+                            --print(v:GetStackCount())
+
+                            v:Destroy()
+                        end
+                        removeTable = {}
+                    end)
+                    table.insert(removeTable, lowestDurMod)
+                    --print("removed from Hmodifiers")
+                    --print(lowestIndex)
+                    table.remove(hModifiers, lowestIndex )
+                else
+                    --print("Set last block with:")
+                    --print(lowestDurMod:GetStackCount()- damage_left)
+                    lowestDurMod:SetStackCount(lowestDurMod:GetStackCount() - damage_left)
+                    break
+                end
+            end
+            
+
+
+        end
+
 
         if IsNotNull(keys.attacker) then
             self.tStoreEnemies[keys.attacker] = (self.tStoreEnemies[keys.attacker] or 0) + keys.original_damage

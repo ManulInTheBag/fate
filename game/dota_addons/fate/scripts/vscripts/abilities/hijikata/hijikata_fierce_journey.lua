@@ -37,9 +37,12 @@ function modifier_hijikata_bc:GetModifierTotal_ConstantBlock(keys)
 			keys.target:AddNewModifier(self.hCaster, self.hAbility, "modifier_hijikata_bc_resist", {duration = 1})  
 			keys.target:AddNewModifier(self.hCaster, self.hAbilit, "modifier_merlin_self_pause", {Duration = 1}) 
 			StartAnimation(self.hCaster, {duration=1, activity=ACT_DOTA_DISABLED, rate=1})
+            self.ParticleIndex = ParticleManager:CreateParticle("particles/hijikata/hijikata_bc_proc_particle.vpcf", PATTACH_OVERHEAD_FOLLOW, self.hCaster)
+            ParticleManager:SetParticleControl(self.ParticleIndex, 0, self.hCaster:GetAbsOrigin() + Vector(0,0,500))
 			Timers:CreateTimer(1, function()
 				keys.target:AddNewModifier(self.hCaster, self.hAbility, "modifier_hijikata_madness_active", { Duration = 1 })
-			
+                ParticleManager:DestroyParticle( self.ParticleIndex, false )
+                ParticleManager:ReleaseParticleIndex( self.ParticleIndex )
 			end)
             keys.target:AddNewModifier(self.hCaster, self.hAbility, "modifier_hijikata_bc_cooldown", {duration = self.hAbility:GetEffectiveCooldown(-1)})   
             self.hAbility:UseResources(false, false, false, true)
@@ -80,10 +83,8 @@ function modifier_hijikata_bc_resist:IsDebuff()           return false end
 function modifier_hijikata_bc_resist:IsPurgable()         return false end
 function modifier_hijikata_bc_resist:RemoveOnDeath()      return true end
 
-function modifier_hijikata_bc_resist:GetEffectName()
-    return "particles/hijikata/hijikata_bc_proc_particle.vpcf"
+function modifier_hijikata_bc_resist:GetStatusEffectName()
+    return "particles/status_fx/status_effect_pudge_dismember_default.vpcf"
 end
 
-function modifier_hijikata_bc_resist:GetEffectAttachType()
-    return PATTACH_CUSTOMORIGIN_FOLLOW
-end
+ 
