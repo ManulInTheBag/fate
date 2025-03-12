@@ -161,7 +161,7 @@ function ChooseHeroUpdatePanels() {
 	UpdateSelectionButton();
 	var context = $.GetContextPanel();
 	$('#SelectedHeroSelectHeroName').text = $.Localize('#' + SelectedHeroName);
-	$('#SelectedHeroOverview').text = $.Localize('#' + SelectedHeroName + '_hype');
+	//$('#SelectedHeroOverview').text = $.Localize('#' + SelectedHeroName + '_hype');
 	context.SetHasClass('HoveredHeroHasLinked', selectedHeroData.linked_heroes != null);
 	if (selectedHeroData.linked_heroes != null) {
 		var linked = [];
@@ -180,7 +180,7 @@ function ChooseHeroUpdatePanels() {
 			$.Localize('#' + 'hero_selection_disabled_reason_disabled_in_ranked') : '';
 	FillAbilitiesUI($('#SelectedHeroAbilitiesPanelInner'), selectedHeroData.abilities, 'SelectedHeroAbility');
 	FillAbilitiesUI($('#SelectedHeroAttributesAndComboPanelInner'), selectedHeroData.attributesandcombo, 'SelectedHeroAbility');
-	//FillAttributeUI($('#HeroListControlsGroup3'), selectedHeroData.attributes);
+	FillAttributeUI($('#HeroListControlsGroup3'), selectedHeroData.attributes);
 }
 
 function FillAbilitiesUI(rootPanel, abilities, className) {

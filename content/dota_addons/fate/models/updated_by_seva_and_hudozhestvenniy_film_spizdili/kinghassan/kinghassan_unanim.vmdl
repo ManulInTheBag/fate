@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc39:version{1ceecb0d-4093-4729-ab18-b76886c64cde} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc36:version{972dada4-b828-45a4-bb93-7795cf0585da} -->
 {
 	rootNode = 
 	{
@@ -57,24 +57,6 @@
 						name = "ATTACH_ATTACK1"
 						parent_bone = "bone_newk0"
 						relative_origin = [ 0.0, 0.0, 0.0 ]
-						relative_angles = [ 0.0, 0.0, 0.0 ]
-						weight = 1.0
-						ignore_rotation = false
-					},
-					{
-						_class = "Attachment"
-						name = "right_eye"
-						parent_bone = "bone_new8"
-						relative_origin = [ -1.0, -1.16902, 0.552631 ]
-						relative_angles = [ 0.0, 0.0, 0.0 ]
-						weight = 1.0
-						ignore_rotation = false
-					},
-					{
-						_class = "Attachment"
-						name = "left_eye"
-						parent_bone = "bone_new8"
-						relative_origin = [ 1.0, -1.16902, 0.552631 ]
 						relative_angles = [ 0.0, 0.0, 0.0 ]
 						weight = 1.0
 						ignore_rotation = false
@@ -406,7 +388,6 @@
 					{
 						_class = "AnimFile"
 						name = "kinghassan_idle"
-						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_IDLE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -429,7 +410,6 @@
 					{
 						_class = "AnimFile"
 						name = "kinghassan_run"
-						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_RUN"
 						activity_weight = 1
 						weight_list_name = ""
@@ -452,7 +432,6 @@
 					{
 						_class = "AnimFile"
 						name = "kinghassan_spin"
-						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_3"
 						activity_weight = 1
 						weight_list_name = ""
@@ -475,7 +454,6 @@
 					{
 						_class = "AnimFile"
 						name = "kinghassan_attack"
-						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_ATTACK"
 						activity_weight = 1
 						weight_list_name = ""
@@ -498,7 +476,6 @@
 					{
 						_class = "AnimFile"
 						name = "kinghassan_death"
-						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_DIE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -521,7 +498,6 @@
 					{
 						_class = "AnimFile"
 						name = "kinghassan_kappa"
-						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_4"
 						activity_weight = 1
 						weight_list_name = ""
@@ -544,61 +520,6 @@
 					{
 						_class = "AnimFile"
 						name = "kinghassan_azrael"
-						children = 
-						[
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
-								event_frame = 18
-								event_end_frame = -1
-								event_keys = 
-								{
-									name = resource:"particles/kinghassan/khsn_eye.vpcf"
-									detach_from_owner = false
-									always_run = true
-									stop_on_seq_change = false
-									stop_immediately = false
-									use_layer_sequence = false
-									tags = null
-									attachment_point = "left_eye"
-									attachment_type = "point_follow"
-									attachment_point_cp1 = null
-									attachment_type_cp1 = "point_follow"
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
-								event_frame = 18
-								event_end_frame = -1
-								event_keys = 
-								{
-									name = resource:"particles/kinghassan/khsn_eye.vpcf"
-									detach_from_owner = false
-									always_run = true
-									stop_on_seq_change = false
-									stop_immediately = false
-									use_layer_sequence = false
-									tags = null
-									attachment_point = "right_eye"
-									attachment_type = "point_follow"
-									attachment_point_cp1 = null
-									attachment_type_cp1 = "point_follow"
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_HIDE_PARTICLE_EFFECT"
-								event_frame = 35
-								event_end_frame = -1
-								event_keys = 
-								{
-									name = resource:"particles/kinghassan/khsn_eye.vpcf"
-									stop_on_seq_change = true
-								}
-							},
-						]
-						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_4_END"
 						activity_weight = 1
 						weight_list_name = ""
@@ -621,62 +542,6 @@
 					{
 						_class = "AnimFile"
 						name = "kinghassan_blink"
-						children = 
-						[
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
-								event_frame = 5
-								event_end_frame = -1
-								event_keys = 
-								{
-									name = resource:"particles/kinghassan/khsn_eye.vpcf"
-									detach_from_owner = false
-									always_run = true
-									stop_on_seq_change = false
-									stop_immediately = false
-									use_layer_sequence = false
-									tags = null
-									attachment_point = "left_eye"
-									attachment_type = "point_follow"
-									attachment_point_cp1 = null
-									attachment_type_cp1 = "point_follow"
-								}
-							},
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
-								event_frame = 5
-								event_end_frame = -1
-								event_keys = 
-								{
-									name = resource:"particles/kinghassan/khsn_eye.vpcf"
-									detach_from_owner = false
-									always_run = true
-									stop_on_seq_change = false
-									stop_immediately = false
-									use_layer_sequence = false
-									tags = null
-									attachment_point = "right_eye"
-									attachment_type = "point_follow"
-									attachment_point_cp1 = null
-									attachment_type_cp1 = "point_follow"
-								}
-							},
-							{
-								_class = "AnimEvent"
-								disabled = true
-								event_class = "AE_CL_HIDE_PARTICLE_EFFECT"
-								event_frame = 25
-								event_end_frame = -1
-								event_keys = 
-								{
-									name = resource:"particles/kinghassan/khsn_eye.vpcf"
-									stop_on_seq_change = true
-								}
-							},
-						]
-						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_1"
 						activity_weight = 1
 						weight_list_name = ""
@@ -699,7 +564,6 @@
 					{
 						_class = "AnimFile"
 						name = "kinghassan_w"
-						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_2"
 						activity_weight = 1
 						weight_list_name = ""
@@ -722,7 +586,6 @@
 					{
 						_class = "AnimFile"
 						name = "kinghassan_stunned"
-						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_DISABLED"
 						activity_weight = 1
 						weight_list_name = ""

@@ -121,6 +121,13 @@
 					<Panel />
 					<Label text="#random" />
 				</Button>
+				<Panel id="HeroSkinSelection" class="HeroListControlsGroup">
+						<!--<Button id="SwitchHeroesButton" class="PickButton" onactivate="SwitchTab()" >
+							<Label text="#hero_selection_heroes_default" id="SwitchHeroesDefault" />
+							<Panel />
+							<Label text="#hero_selection_heroes_new" id="SwitchHeroesNew" />
+						</Button>-->
+				</Panel>
 			</Panel>
 			<Panel id="HeroListBasePanel">
 				<Panel id="HeroListControls">
@@ -130,9 +137,8 @@
 							<Panel />
 							<Label text="#hero_selection_heroes_new" id="SwitchHeroesNew" />
 						</Button>-->
-						<Label id="SelectedHeroOverview" />
 					</Panel>
-					<!--<Panel id="HeroListControlsGroup3" class="HeroListControlsGroup">
+					<Panel id="HeroListControlsGroup3" class="HeroListControlsGroup">
 						<Image id="HeroPreviewEnterButton" src="s2r://panorama/images/control_icons/return_to_game_png.vtex" onactivate="ToggleHeroPreviewHeroList(true)"/>
 						<Panel id="SelectedHeroAttributesPanel">
 							<Panel class="SelectedHeroAttributesElement" style="flow-children: down; height: fit-children; width: fit-children; vertical-align: center; margin-right: 12px;">
@@ -168,7 +174,7 @@
 								</Panel>
 							</Panel>
 						</Panel>
-					</Panel>-->
+					</Panel>
 				</Panel>
 				<Panel id="AbilitiesPanel">
 					<!--<TextEntry id="HeroSearchTextEntry" oncancel="ClearSearch()" oninputsubmit="DropInputFocus()" placeholder="#hero_selection_button_search"/>-->

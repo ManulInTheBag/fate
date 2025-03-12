@@ -301,13 +301,16 @@ function HeroSelection:UpdateStatusForPlayer(playerId, status, hero, bForNotPick
 	return false
 end
 
-function HeroSelection:PreformPlayerRandom(playerId)
+function HeroSelection:PreformPlayerRandom(old_data)
 	while true do
 		local hero = HeroSelection.RandomableHeroes[RandomInt(1, #HeroSelection.RandomableHeroes)]
 		if not HeroSelection:IsHeroSelected(hero) and
 			not HeroSelection:IsHeroBanned(hero) and
 			not HeroSelection:IsHeroDisabledInRanked(hero) then
-			HeroSelection:UpdateStatusForPlayer(playerId, "picked", hero)
+				local data = old_data
+				data.hero = hero
+				HeroSelection:OnHeroSelectHero(data)
+			--HeroSelection:UpdateStatusForPlayer(playerId, "picked", hero)
 			--[[Chat:SendSystemMessage({
 				localizable = "DOTA_Chat_Random",
 				variables = {
