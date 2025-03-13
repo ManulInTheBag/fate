@@ -477,16 +477,16 @@ function Precache( context )
 ]]
 
     -- AOTK Soldier assets
-    PrecacheResource("model_folder", "models/heroes/chen", context)
-    PrecacheResource("model_folder", "models/items/chen", context)
-    PrecacheResource("model_folder", "models/heroes/dragon_knight", context)
-    PrecacheResource("model_folder", "models/items/dragon_knight", context)
-    PrecacheResource("model_folder", "models/heroes/chaos_knight", context)
-    PrecacheResource("model_folder", "models/items/chaos_knight", context)
-    PrecacheResource("model_folder", "models/heroes/silencer", context)
-    PrecacheResource("model_folder", "models/items/silencer", context)
-    PrecacheResource("model_folder", "models/heroes/windrunner", context)
-    PrecacheResource("model_folder", "models/items/windrunner", context)
+    -- PrecacheResource("model_folder", "models/heroes/chen", context)
+    -- PrecacheResource("model_folder", "models/items/chen", context)
+    -- PrecacheResource("model_folder", "models/heroes/dragon_knight", context)
+    -- PrecacheResource("model_folder", "models/items/dragon_knight", context)
+    -- PrecacheResource("model_folder", "models/heroes/chaos_knight", context)
+    -- PrecacheResource("model_folder", "models/items/chaos_knight", context)
+    -- PrecacheResource("model_folder", "models/heroes/silencer", context)
+    -- PrecacheResource("model_folder", "models/items/silencer", context)
+    -- PrecacheResource("model_folder", "models/heroes/windrunner", context)
+    -- PrecacheResource("model_folder", "models/items/windrunner", context)
 
     -- Vector target
     --VectorTarget:Precache( context )

@@ -2,13 +2,16 @@ vlad_cursed_lance = class({})
 LinkLuaModifier("modifier_cursed_lance", "abilities/vlad/modifier_cursed_lance", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_cursed_lance_bp", "abilities/vlad/modifier_cursed_lance_bp", LUA_MODIFIER_MOTION_NONE)
 
-if IsClient() then  
+function vlad_cursed_lance:GetHealthCost( ilevel)
+  return self:GetSpecialValueFor("hp_cost")
+end
+--if IsClient() then  
   function vlad_cursed_lance:GetCastRange( vLocation, hTarget)
     return self:GetSpecialValueFor("aoe")
   end  
   
-  return
-end
+ --return
+--end
 --combo timer ability swap
 function vlad_cursed_lance:ComboCheck(caster)
 	if caster:GetStrength() >= 29.1
@@ -90,11 +93,11 @@ function vlad_cursed_lance:OnSpellStart()
   local bleedcounter = caster:GetGlobalBleeds()
 
   if caster:IsAlive() then
-  	if hp_current > 1 then
-  		caster:SetHealth(hp_current)
-  	else
-  		caster:SetHealth(1)
-  	end 
+  	-- if hp_current > 1 then
+  	-- 	caster:SetHealth(hp_current)
+  	-- else
+  	-- 	caster:SetHealth(1)
+  	-- end 
 
     if caster.InstantCurseAcquired and (bleedcounter + bloodpower) > 14 then
       self.modifier = caster:AddNewModifier(caster, self, "modifier_cursed_lance_bp",{duration = duration})

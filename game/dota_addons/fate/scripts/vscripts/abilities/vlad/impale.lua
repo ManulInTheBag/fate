@@ -77,12 +77,13 @@ function vlad_impale:OnSpellStart()
         end
     end
   end
+  --[[
   caster:RemoveModifierByName("modifier_transfusion_self")
   self:ResetImpaleSwapTimer()
-
+  ]]
   local modifier = caster:FindModifierByName("modifier_transfusion_bloodpower")
  	local bloodpower = modifier and modifier:GetStackCount() or 0
-  caster:RemoveModifierByName("modifier_transfusion_bloodpower")
+  --caster:RemoveModifierByName("modifier_transfusion_bloodpower")
 
   local stun = math.max(stun_min, math.min(stun_min + bloodpower * stun_gain, stun_max))
   local radius = self:GetAOERadius()
