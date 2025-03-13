@@ -1330,7 +1330,8 @@
 	"item_b_scroll" 
 	{
 	    "ID"           "1116"
-	    "BaseClass"    "item_datadriven"
+	    "BaseClass"    				"item_lua"
+	    "ScriptFile"				"items/b_scroll"
 	    "AbilityTextureName" "custom/b_scroll"
 	    "Model"        "models/props_gameplay/tpscroll01.vmdl" 
 	    "Effect"       "particles/generic_gameplay/dropped_item.vpcf"

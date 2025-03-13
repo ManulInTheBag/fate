@@ -118,8 +118,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -8.684253, -2.279167, -5.975495 ]
-								hitbox_maxs = [ 8.684253, 14.797173, 8.072901 ]
+								hitbox_mins = [ -18.874123, -77.09465, -18.951027 ]
+								hitbox_maxs = [ 18.160881, 14.797173, 13.556862 ]
 							},
 							{
 								_class = "Hitbox"
@@ -136,8 +136,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -11.694375, -5.91246, -6.153893 ]
-								hitbox_maxs = [ 11.694213, 15.108986, 10.001717 ]
+								hitbox_mins = [ -26.52088, -99.369118, -34.147129 ]
+								hitbox_maxs = [ 33.754192, 42.20697, 30.321701 ]
 							},
 							{
 								_class = "Hitbox"
@@ -820,8 +820,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -8.034957, -3.586174, -4.338701 ]
-								hitbox_maxs = [ 8.034957, 6.64785, 4.113892 ]
+								hitbox_mins = [ -11.746344, -9.653183, -4.338701 ]
+								hitbox_maxs = [ 16.921093, 9.956039, 7.605137 ]
 							},
 							{
 								_class = "Hitbox"
@@ -877,7 +877,31 @@
 				[
 					{
 						_class = "AnimFile"
+						name = "idle"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_IDLE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nero/idle.fbx"
+						import_bone_scales = false
+						start_frame = 0
+						end_frame = 119
+						framerate = 60.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
 						name = "arena_begin"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_4"
 						activity_weight = 1
 						weight_list_name = ""
@@ -915,6 +939,7 @@
 								motion_type = "Single"
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_ATTACK"
 						activity_weight = 1
 						weight_list_name = ""
@@ -952,6 +977,7 @@
 								motion_type = "Single"
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_ATTACK2"
 						activity_weight = 1
 						weight_list_name = ""
@@ -974,6 +1000,7 @@
 					{
 						_class = "AnimFile"
 						name = "buff"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_6"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1011,6 +1038,7 @@
 								motion_type = "Single"
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_5"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1048,6 +1076,7 @@
 								motion_type = "Single"
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_DIE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1070,7 +1099,8 @@
 					{
 						_class = "AnimFile"
 						name = "declaration"
-						activity_name = ""
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CAST_ABILITY_1_END"
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -1086,34 +1116,13 @@
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 279
-						framerate = 25.0
-						reverse = false
-					},
-					{
-						_class = "AnimFile"
-						name = "idle"
-						activity_name = "ACT_DOTA_IDLE"
-						activity_weight = 1
-						weight_list_name = ""
-						fade_in_time = 0.2
-						fade_out_time = 0.2
-						looping = true
-						delta = false
-						worldSpace = false
-						hidden = false
-						anim_markup_ordered = false
-						disable_compression = false
-						animgraph_additive = false
-						source_filename = "models/nero/idle.fbx"
-						import_bone_scales = false
-						start_frame = 0
-						end_frame = 119
-						framerate = 70.0
+						framerate = 140.0
 						reverse = false
 					},
 					{
 						_class = "AnimFile"
 						name = "rosa"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_3"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1130,7 +1139,7 @@
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 20
-						framerate = 67.0
+						framerate = 20.0
 						reverse = false
 					},
 					{
@@ -1151,6 +1160,7 @@
 								motion_type = "Single"
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_RUN"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1173,6 +1183,7 @@
 					{
 						_class = "AnimFile"
 						name = "stun_1"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_DISABLED"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1195,6 +1206,7 @@
 					{
 						_class = "AnimFile"
 						name = "whirlwind_short"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_1"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1217,6 +1229,7 @@
 					{
 						_class = "AnimFile"
 						name = "rosa_end"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_3_END"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1234,6 +1247,44 @@
 						start_frame = 20
 						end_frame = 119
 						framerate = 110.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "glaudisanus_begin"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								extract_initial_offset = false
+								root_bone_name = ""
+								motion_type = "Single"
+							},
+						]
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CAST_ABILITY_2"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/nero/combo.fbx"
+						import_bone_scales = false
+						start_frame = 52
+						end_frame = 92
+						framerate = 100.0
 						reverse = false
 					},
 				]

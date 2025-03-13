@@ -1195,7 +1195,7 @@ function OnAncientClosed(keys)
 		print("combo is currently active")
 		ultiName = "medea_hecatic_graea_combo"
 	end
-	caster:SwapAbilities(a1:GetName(), "caster_5th_argos", false ,true) 
+	caster:SwapAbilities(a1:GetName(), "medea_argos", false ,true) 
 	caster:SwapAbilities(a2:GetName(), "caster_5th_ancient_magic", false, true) 
 	caster:SwapAbilities(a3:GetName(), "caster_5th_rule_breaker", false, true) 
 	caster:SwapAbilities(a4:GetName(), "caster_5th_territory_creation", false, true) 
@@ -1498,7 +1498,7 @@ end
 
 function CasterCheckCombo(caster, ability)
 	if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 and caster:GetIntellect() >= 29.1 then
-		if ability == caster:FindAbilityByName("caster_5th_argos") and caster:FindAbilityByName("medea_hecatic_graea"):IsCooldownReady() and caster:FindAbilityByName("medea_hecatic_graea_combo"):IsCooldownReady() then
+		if ability == caster:FindAbilityByName("medea_argos") and caster:FindAbilityByName("medea_hecatic_graea"):IsCooldownReady() and caster:FindAbilityByName("medea_hecatic_graea_combo"):IsCooldownReady() then
 			caster:SwapAbilities("medea_hecatic_graea", "medea_hecatic_graea_combo", false, true) 
 			caster.IsHGComboEnabled = true
 			Timers:CreateTimer({

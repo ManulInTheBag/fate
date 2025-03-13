@@ -75,26 +75,23 @@ function cl_wrapper(modifier)
 	end
 
 	function modifier:OnDestroy()
-		print("ondestroy")
+		--print("ondestroy")
 		--print("no explosion, destroy all particles")
 		self:StartIntervalThink(-1)
-		--if  IsServer() then
 			if  IsServer() then
 				FxDestroyer(self.PI0, true)
-			
-			FxDestroyer(self.PI1, false)
+				FxDestroyer(self.PI1, false)
+				FxDestroyer(self.PI2, false)
+				FxDestroyer(self.PI5, true)
+				FxDestroyer(self.PI6, false)
 			end
-			FxDestroyer(self.PI2, false)
-			FxDestroyer(self.PI5, true)
-			FxDestroyer(self.PI6, false)
 			Timers:CreateTimer(1, function()
 				FxDestroyer(self.PI3, false)
 				FxDestroyer(self.PI4, false)
 			end)
-		--end
 		local caster = self:GetCaster()
 		if caster.InstantSwapTimer then
-			print("TimerCheck")
+			--print("TimerCheck")
 			Timers:RemoveTimer(caster.InstantSwapTimer)
 			caster.InstantSwapTimer = nil
 			caster:SwapAbilities("vlad_cursed_lance", "vlad_instant_curse", true, false)
@@ -115,9 +112,9 @@ function cl_wrapper(modifier)
 		self.timer_tick = 0
 		self.isICAcquired = false
 		self.isICAcquired = parent.InstantCurseAcquired
-		print("set fbarrier")
+		--print("set fbarrier")
 		self.fBarrierBlock = self.CL_MAX_SHIELD
-		print(self.fBarrierBlock)
+		--print(self.fBarrierBlock)
 		self:SetStackCount(self.fBarrierBlock)
 		self:StartIntervalThink(0.1)
 		if  IsServer() then
@@ -127,7 +124,7 @@ function cl_wrapper(modifier)
 		
 	end
 	function modifier:OnRefresh()
-		print("onrefresh PROCKED WTF")
+		--print("onrefresh PROCKED WTF")
 		self:OnDestroy()
 		self:OnCreated()
 	end
@@ -189,13 +186,13 @@ function cl_wrapper(modifier)
 				local block_check = block_now - keys.damage
 				local blocked = 0
 				if block_check > 0 then
-					print("blocked")
+					--print("blocked")
 					blocked = keys.damage
-					print(keys.damage)
+					--print(keys.damage)
 					self:SetStackCount(block_check)
 					self.fBarrierBlock = block_check
-					print("barrier now")
-					print(self.fBarrierBlock)
+					--print("barrier now")
+					--print(self.fBarrierBlock)
 				else
 					blocked = keys.damage--block_now
 					local damage = keys.damage - block_now
@@ -209,30 +206,30 @@ function cl_wrapper(modifier)
 							damage_flags = keys.damage_flags,
 							ability = keys.inflictor
 						}
-						print("destroying")
-						print("status acquired")
-						print(self.isICAcquired)
+						--print("destroying")
+						--print("status acquired")
+						--print(self.isICAcquired)
+						self.fBarrierBlock = 0
 						if not self.isICAcquired  then
-							print("destroying barrier in block")
+							--print("destroying barrier in block")
 							self:Destroy()
 						else
-							print("seting count to 0")
-							self.fBarrierBlock = 0
+							--print("seting count to 0")
 							self:SetStackCount(0)
 						end
-						print("applying damage")
-						print(dmgtable)
+						--print("applying damage")
+						--print(dmgtable)
 						for index, data in ipairs(dmgtable) do
-							print(index)
+							--print(index)
 						
 							for key, value in pairs(data) do
-								print('\t', key, value)
+								--print('\t', key, value)
 							end
 						end
 						ApplyDamage(dmgtable)
 					end
 				end
-				print("return")
+				--print("return")
 				return -1*blocked
 			end
 		else
@@ -244,14 +241,14 @@ function cl_wrapper(modifier)
 
 	--explosion
 	function modifier:OnRemoved()
-		print("OnRemoved")
+		--print("OnRemoved")
 		local parent = self:GetParent()
 		local ability = self:GetAbility()
 		local aoe = ability:GetSpecialValueFor("aoe")
 		local dmg = ((self.CL_MAX_SHIELD - math.max(self.fBarrierBlock or 0,0))/self.CL_MAX_SHIELD)*(self.CL_MAX_DMG)
 
 		if dmg > 0 then
-			print("dmg>0")
+			--print("dmg>0")
 			if  IsServer() then
 				self:VFX2_PreExplosion(parent)
 			end
@@ -262,10 +259,10 @@ function cl_wrapper(modifier)
 					parent:EmitSound("Hero_Abaddon.AphoticShield.Destroy")
 				end
 				Timers:CreateTimer(0.15, function()
-					print("dmg:")
-					print(dmg)
-					print("max dmg:")
-					print(self.CL_MAX_DMG)
+					--print("dmg:")
+					--print(dmg)
+					--print("max dmg:")
+					--print(self.CL_MAX_DMG)
 					local targets = FindUnitsInRadius(parent:GetTeam(), parent:GetOrigin(), nil, aoe, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 					for k,v in pairs(targets) do
 						DoDamage(parent, v, dmg, DAMAGE_TYPE_MAGICAL, 0, ability, false)

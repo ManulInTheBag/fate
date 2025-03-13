@@ -279,3 +279,75 @@ function modifier_nero_tres_window:OnDestroy()
 		self.ability:StartCooldown(self.ability:GetCooldown(self.ability:GetLevel()))
 	end
 end
+
+
+
+LinkLuaModifier("modifier_nero_model_swap", "abilities/nero/nero_tres_new", LUA_MODIFIER_MOTION_NONE)
+--NOTE: Function to handle swapping between models in-game.
+if IsServer() then
+    if type(nero_abilities_chat_event) == "number" then
+        StopListeningToGameEvent(nero_abilities_chat_event)
+    end
+    --===--
+    _G.nero_abilities_chat_event = ListenToGameEvent("player_chat", function(tEventTable)
+        local nPlayerID = tEventTable.playerid
+        local sText     = tEventTable.text
+        local hHero     = PlayerResource:GetSelectedHeroEntity(nPlayerID)
+        if not (hHero:GetName() == "npc_dota_hero_lina") then
+            return
+        end
+        if IsNotNull(hHero) then
+            if sText == "-nero1" then
+                hHero:RemoveModifierByName("modifier_nero_model_swap")
+            end
+            if sText == "-nero2" then
+                if GameRules:GetDOTATime(false, false) <= 300 then --300
+                    hHero:AddNewModifier(hHero, nil, "modifier_nero_model_swap", {status = 1})
+                end
+            end
+            if sText == "-nero3" then
+                if GameRules:GetDOTATime(false, false) <= 300 then --300
+                    hHero:AddNewModifier(hHero, nil, "modifier_nero_model_swap", {status  = 2})
+                end
+            end
+        end
+    end, nil)
+end
+
+
+modifier_nero_model_swap = modifier_nero_model_swap or class({})
+
+function modifier_nero_model_swap:IsHidden()                                                                       return true end
+function modifier_nero_model_swap:IsDebuff()                                                                       return false end
+function modifier_nero_model_swap:IsPurgable()                                                                     return false end
+function modifier_nero_model_swap:IsPurgeException()                                                               return false end
+function modifier_nero_model_swap:RemoveOnDeath()                                                                  return false end
+function modifier_nero_model_swap:IsDimensionException()                                                           return true end
+function modifier_nero_model_swap:AllowIllusionDuplicate()                                                         return true end
+function modifier_nero_model_swap:GetPriority()                                                                    return MODIFIER_PRIORITY_LOW end
+function modifier_nero_model_swap:DeclareFunctions()
+    local tFunc =   {
+                        MODIFIER_PROPERTY_MODEL_CHANGE
+                    }
+    return tFunc
+end
+function modifier_nero_model_swap:GetModifierModelChange(keys)
+    return self.sModelName
+end
+function modifier_nero_model_swap:OnCreated(hTable)
+    self.hCaster  = self:GetCaster()
+    self.hParent  = self:GetParent()
+    self.hAbility = self:GetAbility()
+    if IsServer() then
+        if hTable.status == 1 then
+            self.sModelName = "models/nero/nero_bride_unshackled.vmdl"
+        else
+            self.sModelName = "models/nero/nero_swimsuit.vmdl"
+        end
+    end
+end
+function modifier_nero_model_swap:OnRefresh(hTable)
+    self:OnCreated(hTable)
+end
+
+--========================================--

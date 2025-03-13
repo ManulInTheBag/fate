@@ -945,6 +945,15 @@
 		"DOTA_Tooltip_saber_strike_air_anim_vfx"                                          "Saber Strike Air Anim Vfx"
 		"DOTA_Tooltip_saber_strike_air_anim_vfx_Description"                              ""
 
+		"DOTA_Tooltip_silenced"                                                           "Silenced"
+		"DOTA_Tooltip_silenced_Description"                                               ""
+
+		"DOTA_Tooltip_modifier_argos_armor"                                              "Bonus Armor"
+		"DOTA_Tooltip_modifier_argos_armor_Description"                                  ""
+
+		"DOTA_Tooltip_modifier_argos_shield"                                              "Argos shield"
+		"DOTA_Tooltip_modifier_argos_shield_Description"                                  ""
+
 		"DOTA_Tooltip_modifier_strike_air_upstream_ready"                                 "Strike Air Upstream Ready"
 		"DOTA_Tooltip_modifier_strike_air_upstream_ready_Description"                     ""
 
@@ -4087,6 +4096,12 @@
 		"DOTA_Tooltip_ability_caster_5th_argos_shield_amount"	"SHIELD CHARGE PER CAST:"
 		"DOTA_Tooltip_ability_caster_5th_argos_max_shield"	"MAX SHIELD CHARGE:"
 		"DOTA_Tooltip_ability_caster_5th_argos_Lore"	""	
+
+		"DOTA_Tooltip_Ability_medea_argos"	"Argos"
+		"DOTA_Tooltip_Ability_medea_argos_Description"	"Caster surrounds herself with a magical shield that absorbs a certain amount of damage.\n\nUpgradable by attribute Improve Argos."
+		"DOTA_Tooltip_Ability_medea_argos_shield_amount"	"SHIELD CHARGE PER CAST:"
+		"DOTA_Tooltip_Ability_medea_argos_max_shield"	"MAX SHIELD CHARGE:"
+		"DOTA_Tooltip_Ability_medea_argos_Lore"	""	
 		
 		"DOTA_Tooltip_Ability_caster_5th_ancient_magic"	"Magic of the Ancient Ages"
 		"DOTA_Tooltip_ability_caster_5th_ancient_magic_Description"	"SPELLBOOK : Allows Caster to cast various spells from the Age of Gods. Spells inside don't share cooldown and follow the level of this ability."
@@ -7046,7 +7061,7 @@
 		"DOTA_Tooltip_ability_vlad_instant_curse_Description" 										"Unleashes accumulated damage."		
 		
 		"DOTA_Tooltip_ability_vlad_transfusion" 													"Transfusion"
-		"DOTA_Tooltip_ability_vlad_transfusion_Description" 										"PASSIVE: Vlad's melee attacks and some of his abilities apply stacking bleeding effect.\nDuration: 20  Damage per stack: 4  Interval: 0.25\nACTIVE: For duration Vlad siphons lifeforce of his bleeding surrounding enemies dealing damage to them while healing himself for each bleed stack consumed off targets.\nEnemies being sucked are slowed proportionally to how badly they are bleeding.\Transfusion stores amount of consumed bleed stacks in Bloodpower buff, while this buff is present next damaging ability used after Transfusion ends will consume Bloodpower stacks to gain augmented effects.\nAdditionally while Vlad holds bloodpower stacks, he gains access to ability Impale."
+		"DOTA_Tooltip_ability_vlad_transfusion_Description" 										"PASSIVE: Vlad's melee attacks and some of his abilities apply stacking bleeding effect.\nDuration: 8.  Damage per stack: 4  Interval: 0.25\nACTIVE: For duration Vlad siphons lifeforce of his bleeding surrounding enemies dealing damage to them while healing himself for each bleed stack consumed off targets.\nEnemies being sucked are slowed proportionally to how badly they are bleeding.\Transfusion stores amount of consumed bleed stacks in Bloodpower buff, while this buff is present next damaging ability used after Transfusion ends will consume Bloodpower stacks to gain augmented effects.\nAdditionally while Vlad holds bloodpower stacks, he gains access to ability Impale."
 		"DOTA_Tooltip_ability_vlad_transfusion_duration" 											"DURATION:"
 		"DOTA_Tooltip_ability_vlad_transfusion_interval" 											"INTERVAL TICK:"
 		"DOTA_Tooltip_ability_vlad_transfusion_aoe" 												"AOE:"
@@ -7061,7 +7076,7 @@
 		"DOTA_Tooltip_ability_vlad_battle_continuation_duration" 									"DURATION:"
 		
 		"DOTA_Tooltip_ability_vlad_kazikli_bey" 													"The Fortress of Impalement"
-		"DOTA_Tooltip_ability_vlad_kazikli_bey_Description" 										"Vlad summons infinite amount of spears from below, piercing his surrounding enemies 10 times, while <font color='#FF3399'>stunning</font> and <font color='#FF3399'>revoking</font> them. \nAt the end of cast enemies in range are impaled and knocked up into the air while being <font color='#FF3399'>stunned</font> and <font color='#FF3399'>revoked</font>.\n<font color='#b52000'>Applies 10 bleed stacks to targets hit with last strike.</font>"
+		"DOTA_Tooltip_ability_vlad_kazikli_bey_Description" 										"Vlad summons infinite amount of spears from below, piercing his surrounding enemies 10 times, while <font color='#FF3399'>stunning</font> them. \nAt the end of cast enemies in range are impaled and knocked up into the air while being <font color='#FF3399'>stunned</font>\n<font color='#b52000'>Applies 10 bleed stacks to targets hit with last strike.</font>"
 		"DOTA_Tooltip_ability_vlad_kazikli_bey_total_activation__TT" 								"TOTAL ACTIVATION DELAY:"
 		"DOTA_Tooltip_ability_vlad_kazikli_bey_endcast_pause"										"ENDCAST PAUSE:"
 		"DOTA_Tooltip_ability_vlad_kazikli_bey_aoe_spikes" 											"AOE SMALL SPEARS:"

@@ -785,10 +785,11 @@
 	//=======================================
 	// Caster : Argos
 	//=======================================
-	"caster_5th_argos"
+	"medea_argos"
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
-		"BaseClass"						"ability_datadriven"
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/medea/medea_argos"
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
@@ -804,6 +805,7 @@
 		{
 			"particle"	"particles/units/heroes/hero_medusa/medusa_mana_shield.vpcf"
 			"particle"	"particles/custom/caster/caster_argos_durability.vpcf"
+			"particle"	"particles/zlodemon/medea_base_attack.vpcf"
 			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_medusa.vsndevts"
 		}
 
@@ -815,53 +817,53 @@
             "armor" "25"
         }
 		
-		"OnSpellStart"
-		{
-			"RunScript"
-			{
-				"ScriptFile"	"caster_ability"
-				"Function"		"OnArgosStart"
-				"ShieldAmount"	"%shield_amount"
-				"MaxShield"		"%max_shield"
-			}
-			"FireSound"
-			{
-				"EffectName"	"Hero_Medusa.ManaShield.On" 
-				"Target"		"CASTER"
-			}
-		}
+		// "OnSpellStart"
+		// {
+		// 	"RunScript"
+		// 	{
+		// 		"ScriptFile"	"caster_ability"
+		// 		"Function"		"OnArgosStart"
+		// 		"ShieldAmount"	"%shield_amount"
+		// 		"MaxShield"		"%max_shield"
+		// 	}
+		// 	"FireSound"
+		// 	{
+		// 		"EffectName"	"Hero_Medusa.ManaShield.On" 
+		// 		"Target"		"CASTER"
+		// 	}
+		// }
 
 		
 
-		"Modifiers"
-		{
-			"modifier_argos_shield"
-			{
-				"IsDebuff"		"false"
-				"IsPurgable"	"false"
-				"OnTakeDamage"
-				{
-					"RunScript"
-					{
-						"ScriptFile"	"caster_ability"
-						"Function"		"OnArgosDamaged"
-						"DamageTaken"	"%attack_damage"		
-					}
-				}
-				"EffectName"	"particles/units/heroes/hero_medusa/medusa_mana_shield.vpcf"
-				"EffectAttachType"	"follow_origin"
-			}
-			"modifier_argos_armor"
-			{
-				"IsDebuff"		"false"
-				"IsPurgable"	"false"
-				"Duration"      "%armor_duration"
-				"Properties"
-				{
-					"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%armor"
-				}
-			}
-		}
+		// "Modifiers"
+		// {
+		// 	"modifier_argos_shield"
+		// 	{
+		// 		"IsDebuff"		"false"
+		// 		"IsPurgable"	"false"
+		// 		"OnTakeDamage"
+		// 		{
+		// 			"RunScript"
+		// 			{
+		// 				"ScriptFile"	"caster_ability"
+		// 				"Function"		"OnArgosDamaged"
+		// 				"DamageTaken"	"%attack_damage"		
+		// 			}
+		// 		}
+		// 		"EffectName"	"particles/units/heroes/hero_medusa/medusa_mana_shield.vpcf"
+		// 		"EffectAttachType"	"follow_origin"
+		// 	}
+		// 	"modifier_argos_armor"
+		// 	{
+		// 		"IsDebuff"		"false"
+		// 		"IsPurgable"	"false"
+		// 		"Duration"      "%armor_duration"
+		// 		"Properties"
+		// 		{
+		// 			"MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS"	"%armor"
+		// 		}
+		// 	}
+		// }
 	}
 
 	//=======================================
@@ -1463,7 +1465,7 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"53.0"
+		"AbilityCooldown"				"40.0"
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
