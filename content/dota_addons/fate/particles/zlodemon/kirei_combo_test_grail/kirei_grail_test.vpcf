@@ -1,0 +1,59 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf61:version{39d3ce1d-9442-4407-9b78-8317145b1732} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_bShouldHitboxesFallbackToRenderBounds = false
+	m_nMaxParticles = 0
+	m_nBehaviorVersion = 12
+	m_controlPointConfigurations = 
+	[
+		{
+			m_name = "preview"
+			m_drivers = 
+			[
+				{
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 5
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_vecOffset = [ 275.0, 275.0, 275.0 ]
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 3
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_vecOffset = [ 2500.0, 0.0, 0.0 ]
+					m_entityName = "self"
+				},
+			]
+		},
+	]
+	m_Children = 
+	[
+		{
+			m_ChildRef = resource:"particles/zlodemon/kirei_combo_test_grail/kirei_grail_testa.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/zlodemon/kirei_combo_test_grail/kirei_grail_testb.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/zlodemon/kirei_combo_test_grail/kirei_grail_testh.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/zlodemon/kirei_combo_test_grail/kirei_grail_testg.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/zlodemon/kirei_combo_test_grail/kirei_grail_teste.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/zlodemon/kirei_combo_test_grail/kirei_grail_testd.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/zlodemon/kirei_combo_test_grail/kirei_grail_testc.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/zlodemon/kirei_combo_test_grail/kirei_grail_testf.vpcf"
+		},
+	]
+}

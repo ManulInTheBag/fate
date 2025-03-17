@@ -1,0 +1,288 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vrfunknown:version{73c3d623-a141-4df2-b548-41dd786e6300} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_bShouldHitboxesFallbackToRenderBounds = false
+	m_nMaxParticles = 96
+	m_Renderers = 
+	[
+		
+		{
+			_class = "C_OP_RenderTrails"
+			m_flOverbrightFactor = 6.000000
+			m_flAddSelfAmount = 2.000000
+			m_bSaturateColorPreAlphaBlend = false
+			m_flMaxLength = 300.000000
+			m_flRadiusScale = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 0.500000
+			}
+			m_vecTexturesInput = 
+			[
+				
+				{
+					m_hTexture = resource:"materials/particle/electrical_arc2/electrical_arc_2_05.vtex"
+					m_TextureControls = 
+					{
+						m_flFinalTextureScaleV = 
+						{
+							m_nType = "PF_TYPE_LITERAL"
+							m_flLiteralValue = -1.000000
+						}
+						m_flFinalTextureOffsetV = 
+						{
+							m_nType = "PF_TYPE_LITERAL"
+							m_flLiteralValue = 1.000000
+						}
+					}
+				},
+			]
+		},
+	]
+	m_Operators = 
+	[
+		
+		{
+			_class = "C_OP_BasicMovement"
+			m_fDrag = 0.350000
+		},
+		
+		{
+			_class = "C_OP_Decay"
+		},
+		
+		{
+			_class = "C_OP_FadeInSimple"
+		},
+		
+		{
+			_class = "C_OP_OscillateVector"
+			m_FrequencyMax = 
+			[
+				3.000000,
+				3.000000,
+				3.000000,
+			]
+			m_RateMax = 
+			[
+				8.000000,
+				8.000000,
+				8.000000,
+			]
+			m_RateMin = 
+			[
+				-8.000000,
+				-8.000000,
+				-8.000000,
+			]
+			m_FrequencyMin = 
+			[
+				2.000000,
+				2.000000,
+				2.000000,
+			]
+		},
+		
+		{
+			_class = "C_OP_OscillateVector"
+			m_FrequencyMin = 
+			[
+				8.000000,
+				8.000000,
+				8.000000,
+			]
+			m_RateMin = 
+			[
+				-80.000000,
+				-80.000000,
+				-80.000000,
+			]
+			m_RateMax = 
+			[
+				80.000000,
+				80.000000,
+				80.000000,
+			]
+			m_FrequencyMax = 
+			[
+				18.000000,
+				18.000000,
+				18.000000,
+			]
+		},
+		
+		{
+			_class = "C_OP_OscillateScalar"
+			m_bProportional = false
+			m_FrequencyMax = 12.000000
+			m_FrequencyMin = 4.000000
+			m_RateMax = -100.000000
+			m_RateMin = -700.000000
+			m_nField = 3
+		},
+		
+		{
+			_class = "C_OP_OscillateScalar"
+			m_nField = 16
+			m_RateMin = -600.000000
+			m_RateMax = -60.000000
+			m_FrequencyMin = 8.000000
+			m_FrequencyMax = 25.000000
+			m_bProportional = false
+		},
+		
+		{
+			_class = "C_OP_FadeOutSimple"
+			m_flFadeOutTime = 0.750000
+		},
+		
+		{
+			_class = "C_OP_OscillateVector"
+			m_flStartTime_max = 0.600000
+			m_flStartTime_min = 0.400000
+			m_FrequencyMax = 
+			[
+				0.200000,
+				0.200000,
+				0.200000,
+			]
+			m_FrequencyMin = 
+			[
+				0.100000,
+				0.100000,
+				0.100000,
+			]
+			m_RateMax = 
+			[
+				12.000000,
+				12.000000,
+				12.000000,
+			]
+			m_RateMin = 
+			[
+				-12.000000,
+				-12.000000,
+				-12.000000,
+			]
+		},
+	]
+	m_Initializers = 
+	[
+		
+		{
+			_class = "C_INIT_InitFloat"
+			m_InputValue = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 0.500000
+			}
+			m_nOutputField = 1
+		},
+		
+		{
+			_class = "C_INIT_RingWave"
+			m_flParticlesPerOrbit = 48.000000
+			m_bEvenDistribution = true
+			m_flInitialRadius = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 8.000000
+			}
+			m_flInitialSpeedMin = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 2805.000000
+			}
+			m_flInitialSpeedMax = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 2855.000000
+			}
+		},
+		
+		{
+			_class = "C_INIT_InitFloat"
+			m_InputValue = 
+			{
+				m_nType = "PF_TYPE_RANDOM_UNIFORM"
+				m_flRandomMin = 0.000000
+				m_flRandomMax = 40.000000
+				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+			}
+		},
+		
+		{
+			_class = "C_INIT_InitFloat"
+			m_InputValue = 
+			{
+				m_nType = "PF_TYPE_RANDOM_UNIFORM"
+				m_flRandomMin = 0.000000
+				m_flRandomMax = 0.215686
+				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+			}
+			m_nOutputField = 7
+		},
+		
+		{
+			_class = "C_INIT_RandomColor"
+			m_ColorMax = 
+			[
+				180,
+				166,
+				233,
+				255,
+			]
+			m_ColorMin = 
+			[
+				147,
+				59,
+				230,
+				255,
+			]
+		},
+		
+		{
+			_class = "C_INIT_PositionOffset"
+			m_OffsetMax = 
+			[
+				8.000000,
+				8.000000,
+				65.000000,
+			]
+			m_OffsetMin = 
+			[
+				-8.000000,
+				-8.000000,
+				65.000000,
+			]
+			m_nControlPointNumber = 1
+		},
+	]
+	m_Emitters = 
+	[
+		
+		{
+			_class = "C_OP_InstantaneousEmitter"
+			m_nParticlesToEmit = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 96.000000
+			}
+		},
+	]
+	m_ForceGenerators = 
+	[
+		
+		{
+			_class = "C_OP_AttractToControlPoint"
+			m_fFalloffPower = -1.000000
+			m_fForceAmount = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = -4.000000
+			}
+		},
+	]
+	m_nBehaviorVersion = 5
+	m_nFirstMultipleOverride_BackwardCompat = 5
+}

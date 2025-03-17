@@ -16,7 +16,7 @@ end
 function OnCasaStart(keys)
 	local caster = keys.caster
 	local ability = keys.ability
-	if caster:HasModifier("modifier_hippogriff_ride_ascended") then 
+	if caster:HasModifier("modifier_hippogriff_ride_ascended") or not caster.bIsSanityAcquired then 
 		ability:EndCooldown()
 		caster:GiveMana(ability:GetManaCost(1)) 
 		return 
@@ -57,11 +57,11 @@ function OnVanishStart(keys)
 	caster:EmitSound("Astolfo_Snatch_" .. RandomInt(1,4))
 	caster:EmitSound("Hero_Mirana.Leap.MoonGriffon")
 
-	if caster.bIsSanityAcquired then		
-		caster:AddNewModifier(caster, ability, "modifier_astolfo_vanish", { Duration = 1.5 })
+	if caster.bIsSanityAcquired and ability:GetAutoCastState() then		
+		caster:AddNewModifier(caster, ability, "modifier_astolfo_vanish", { Duration = 0.75 })
 		caster:AddEffects(EF_NODRAW)
 
-		Timers:CreateTimer(1.5, function()
+		Timers:CreateTimer(0.75, function()
 			caster:RemoveEffects(EF_NODRAW)
 			return
 		end)
@@ -79,7 +79,7 @@ function OnVanishHit(keys)
 	local ability = keys.ability
 	local damage = keys.Damage
 
-	if caster.bIsSanityAcquired then
+	if caster.bIsSanityAcquired and ability:GetAutoCastState() then
 		caster:SetAbsOrigin(target:GetAbsOrigin())
 		FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
 	end
@@ -95,10 +95,10 @@ function OnVanishDebuffStart(keys)
 	local target = keys.target
 	local ability = keys.ability
 
-	if target:GetName() == "npc_dota_hero_queenofpain" and not debug_mode then
-		local prop = Attachments:GetCurrentAttachment(target, "attach_sword")
-		prop:RemoveSelf()
-	end
+	-- if target:GetName() == "npc_dota_hero_queenofpain" and not debug_mode then
+	-- 	local prop = Attachments:GetCurrentAttachment(target, "attach_sword")
+	-- 	prop:RemoveSelf()
+	-- end
 	target:AddEffects(EF_NODRAW)
 	--target:SetModel("models/development/invisiblebox.vmdl")
 	--target:SetOriginalModel("models/development/invisiblebox.vmdl")
@@ -118,9 +118,9 @@ function OnVanishDebuffEnd(keys)
 		--giveUnitDataDrivenModifier(caster, target, "stunned", 0.5)
 	end
 
-	if target:GetName() == "npc_dota_hero_queenofpain" and not debug_mode then
-		Attachments:AttachProp(target, "attach_sword", "models/astolfo/astolfo_sword.vmdl")
-	end
+	-- if target:GetName() == "npc_dota_hero_queenofpain" and not debug_mode then
+	-- 	Attachments:AttachProp(target, "attach_sword", "models/astolfo/astolfo_sword.vmdl")
+	-- end
 end
 
 function OnDownStart(keys)
@@ -132,7 +132,10 @@ function OnDownStart(keys)
 	local attackCount = keys.AttackCount
 	local counter = 1
 	local nHits = 4
-
+	local vector = (targetPoint - caster:GetAbsOrigin()):Normalized()
+	vector.z = 0
+	caster:FaceTowards(targetPoint)
+	caster:SetForwardVector(vector)
 	if caster:HasModifier("modifier_hippogriff_ride_ascended") then 
 		ability:EndCooldown()
 		caster:GiveMana(ability:GetManaCost(1)) 
@@ -140,12 +143,16 @@ function OnDownStart(keys)
 	end 
 	range = 350
 	giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 0.5)
-	giveUnitDataDrivenModifier(caster, caster, "zero_attack_damage", 0.5)
-	giveUnitDataDrivenModifier(caster, caster, "modifier_astolfo_disable_mstrength", 0.5)
-
+	--giveUnitDataDrivenModifier(caster, caster, "zero_attack_damage", 0.5)
+	--giveUnitDataDrivenModifier(caster, caster, "modifier_astolfo_disable_mstrength", 0.5)
+	-- Attachments:AttachProp(caster, "attach_sword", "models/astolfo/astolfo_sword.vmdl")
 	Timers:CreateTimer(function()
-		if counter > nHits then return end
-		local forwardVec = RotatePosition(Vector(0,0,0), QAngle(0,RandomFloat(12, -12),0), caster:GetForwardVector())
+		if counter > nHits then 
+			-- local prop = Attachments:GetCurrentAttachment(caster, "attach_sword")
+			-- if not prop:IsNull() then prop:RemoveSelf() end
+			return
+		 end
+		local forwardVec = RotatePosition(Vector(0,0,0), QAngle(0,RandomFloat(12, -12),0), vector)
 		local spearProjectile = 
 		{
 			Ability = ability,
@@ -169,7 +176,7 @@ function OnDownStart(keys)
 		--[[if caster:HasModifier("modifier_astolfo_monstrous_strength") and caster.bIsSanityAcquired then
 			DoDamage(caster, caster, 4*caster:GetHealth()/100 , DAMAGE_TYPE_MAGICAL, 0, ability, false)
 		end]]
-		StartAnimation(caster, {duration=0.2, activity=ACT_DOTA_ATTACK, rate=4.0})
+		StartAnimation(caster, {duration=0.15, activity=ACT_DOTA_ATTACK, rate=4.0})
 		caster:EmitSound("Hero_Sniper.AssassinateDamage")
 		counter = counter + 1
 		return 0.12
@@ -225,7 +232,8 @@ function OnHornCast(keys)
 		return 
 	end 
 	caster:EmitSound("Astolfo_Luna_" .. RandomInt(1, 2))
-	StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_CAST_ABILITY_3, rate=1.5})
+	StartAnimation(caster, {duration=4.6, activity=ACT_DOTA_CAST_ABILITY_3_END, rate=1.0})
+	--StartAnimation(caster, {duration=0.55, activity=ACT_DOTA_CAST_ABILITY_ROT, rate=1.0})
 end
 
 function OnHornStart(keys)
@@ -285,11 +293,12 @@ function OnHornStart(keys)
 		end
     end
 
-	StartAnimation(caster, {duration=1.0, activity=ACT_DOTA_CAST_ABILITY_3_END, rate=1.0})
-
-	if not debug_mode then 
-		Attachments:AttachProp(caster, "attach_horn", "models/astolfo/astolfo_horn.vmdl")
-	end
+	--StartAnimation(caster, {duration=1.0, activity=ACT_DOTA_CAST_ABILITY_3_END, rate=1.0})
+	--caster:StopAnimation()
+	--StartAnimation(caster, {duration=4.1, activity=ACT_DOTA_CAST_ABILITY_3_END, rate=1.0})
+	-- if not debug_mode then 
+	-- 	Attachments:AttachProp(caster, "attach_horn", "models/astolfo/astolfo_horn.vmdl")
+	-- end
     LoopOverPlayers(function(player, playerID, playerHero)
     	--print("looping through " .. playerHero:GetName())
         if playerHero:GetTeamNumber() == caster:GetTeamNumber() then
@@ -368,10 +377,12 @@ function OnHornInterrupted(keys)
 	
 	CustomGameEventManager:Send_ServerToAllClients("stop_horn_sound", {})
 	caster:RemoveModifierByName("modifier_la_black_luna")
-	if not debug_mode then 
-		local prop = Attachments:GetCurrentAttachment(caster, "attach_horn")
-		if not prop:IsNull() then prop:RemoveSelf() end
-	end
+	-- if not debug_mode then 
+	-- 	local prop = Attachments:GetCurrentAttachment(caster, "attach_horn")
+	-- 	if not prop:IsNull() then prop:RemoveSelf() end
+	-- end
+	caster:StopAnimation()
+	StartAnimation(caster, {duration=0.01, activity=ACT_DOTA_ATTACK, rate=1.0})	
 end
 
 function CreateGroundMark(caster, team, location, duration)
@@ -485,9 +496,12 @@ function OnRaidStart(keys)
 			local birdOrigin = caster:GetAbsOrigin() + Vector(0,0,2000) + (caster:GetAbsOrigin() - targetPoint):Normalized()*1000
 			local dist = (targetPoint  - birdOrigin):Length2D()
 			local birdVector = (targetPoint  - birdOrigin):Normalized() * dist * 3
-			local swordFxIndex = ParticleManager:CreateParticle( "particles/custom/astolfo/astolfo_hippogriff_raid_flyer.vpcf", PATTACH_CUSTOMORIGIN, nil )
-			ParticleManager:SetParticleControl( swordFxIndex, 0, birdOrigin)
-			ParticleManager:SetParticleControl( swordFxIndex, 1,  birdVector)
+			local swordFxIndex = ParticleManager:CreateParticle( "particles/custom/astolfo/raid_hippogriff.vpcf", PATTACH_CUSTOMORIGIN, caster )
+			ParticleManager:SetParticleControl( swordFxIndex, 0, birdOrigin )
+			ParticleManager:SetParticleControl( swordFxIndex, 1, birdVector )
+			-- local swordFxIndex = ParticleManager:CreateParticle( "particles/custom/astolfo/astolfo_hippogriff_raid_flyer.vpcf", PATTACH_CUSTOMORIGIN, nil )
+			-- ParticleManager:SetParticleControl( swordFxIndex, 0, birdOrigin)
+			-- ParticleManager:SetParticleControl( swordFxIndex, 1,  birdVector)
 		end)
 		Timers:CreateTimer(1.0, function()
 			local targets = FindUnitsInRadius(caster:GetTeam(), targetPoint, nil, radius
@@ -569,15 +583,15 @@ function OnRideStart(keys)
 	EmitGlobalSound("Astolfo.SolarForge")
 	-- pause for ascend delay
 	giveUnitDataDrivenModifier(caster, caster, "pause_sealdisabled", ascendDelay)
-	StartAnimation(caster, {duration=1.0, activity=ACT_DOTA_CAST_ABILITY_3, rate=0.5})
+	--StartAnimation(caster, {duration=1.0, activity=ACT_DOTA_CAST_ABILITY_3, rate=0.5})
 	local ascendIndex = ParticleManager:CreateParticle("particles/econ/items/kunkka/divine_anchor/hero_kunkka_dafx_skills/kunkka_spell_torrent_bubbles_swirl_fxset.vpcf", PATTACH_CUSTOMORIGIN, nil)
 	ParticleManager:SetParticleControl( ascendIndex, 0, caster:GetAbsOrigin())
 
-	
+	StartAnimation(caster, {duration=2.0, activity=ACT_DOTA_CAST_ABILITY_1, rate=0.45})
 	Timers:CreateTimer(ascendDelay, function()
 		if caster:IsAlive() then
 			ability:ApplyDataDrivenModifier(caster, caster, "modifier_hippogriff_ride_ascended", {})
-			giveUnitDataDrivenModifier(caster, caster, "zero_attack_damage", 10.0)
+			giveUnitDataDrivenModifier(caster, caster, "zero_attack_damage", 9.0)
 			HardCleanse(caster)
 			for i=2, 13 do
 				if caster:GetTeamNumber() ~= i then
@@ -611,7 +625,7 @@ function OnRideAscend(keys)
 	local duration = keys.Duration
 	giveUnitDataDrivenModifier(caster, caster, "jump_pause_nosilence", duration)
 	caster:AddEffects(EF_NODRAW)
-	caster:SwapAbilities("fate_empty1", "astolfo_hippogriff_rush", false, true)
+	caster:SwapAbilities("astolfo_hippogriff_vanish", "astolfo_hippogriff_rush", false, true)
 	Timers:CreateTimer(0.7, function()
 		EmitGlobalSound("Astolfo_Hippogriff_Ride_Success_" .. caster.ComboStringNum)
 		return
@@ -630,7 +644,7 @@ function OnRideAscendEnd(keys)
 	local ability = keys.ability
 
 	caster:RemoveEffects(EF_NODRAW)
-	caster:SwapAbilities("fate_empty1", "astolfo_hippogriff_rush", true, false)
+	caster:SwapAbilities("astolfo_hippogriff_vanish", "astolfo_hippogriff_rush", true, false)
 end
 
 function OnMStrengthHit(keys)
@@ -677,11 +691,11 @@ end
 function AstolfoCheckCombo(caster, ability)
 	if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 and caster:GetIntellect() >= 29.1 then
 		if ability == caster:FindAbilityByName("astolfo_la_black_luna") then
-			caster:SwapAbilities("fate_empty1", "astolfo_hippogriff_ride", false, true)
+			caster:SwapAbilities("astolfo_hippogriff_vanish", "astolfo_hippogriff_ride", false, true)
 			Timers:CreateTimer({
 				endTime = 2,
 				callback = function()
-				caster:SwapAbilities("fate_empty1", "astolfo_hippogriff_ride", true, false)
+				caster:SwapAbilities("astolfo_hippogriff_vanish", "astolfo_hippogriff_ride", true, false)
 			end
 			})
 		end
@@ -738,7 +752,7 @@ function OnSanityAcquired(keys)
     --hero:AddAbility("astolfo_evaporation_of_sanity")
     --hero:FindAbilityByName("astolfo_evaporation_of_sanity"):SetLevel(1)
     --hero:FindAbilityByName("astolfo_evaporation_of_sanity"):SetHidden(true)
-    hero:FindAbilityByName("astolfo_casa_di_logistilla"):SetHidden(false)
+    --hero:FindAbilityByName("astolfo_casa_di_logistilla"):SetHidden(false)
 
     -- Set master 1's mana
     local master = hero.MasterUnit

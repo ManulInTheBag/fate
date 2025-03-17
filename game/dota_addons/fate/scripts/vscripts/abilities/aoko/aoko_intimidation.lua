@@ -230,7 +230,7 @@ function modifier_aoko_intimidation:Rush(me, dt)
     self.parent:SetOrigin(GetGroundPosition(target, self.parent))
     --self.parent:SetForwardVector(direction:Normalized())
 
-    local unitGroup = FindUnitsInRadius(self.parent:GetTeam(), target, nil, 175, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_CLOSEST, false)
+    local unitGroup = FindUnitsInRadius(self.parent:GetTeam(), target, nil, 175, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_CLOSEST, false)
     for i = 1, #unitGroup do
     	if not self.pepeg and not IsKnockbackImmune(unitGroup[i]) then
     		self.pepeg = true

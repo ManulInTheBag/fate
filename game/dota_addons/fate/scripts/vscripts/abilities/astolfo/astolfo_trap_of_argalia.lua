@@ -5,6 +5,8 @@ function astolfo_trap_of_argalia:OnSpellStart()
 	local ability = self
 	local vector = (self:GetCursorPosition() - caster:GetAbsOrigin()):Normalized()
 	vector.z = 0
+	StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_CAST_ABILITY_3, rate=1.0})
+	-- Attachments:AttachProp(caster, "attach_sword", "models/astolfo/astolfo_sword.vmdl")
 	local qdProjectile = 
 	{
 		Ability = ability,
@@ -43,6 +45,8 @@ function astolfo_trap_of_argalia:OnSpellStart()
 		caster:PreventDI(false)
 		caster:SetPhysicsVelocity(Vector(0,0,0))
 		caster:RemoveModifierByName("pause_sealenabled")
+		-- local prop = Attachments:GetCurrentAttachment(caster, "attach_sword")
+		-- if not prop:IsNull() then prop:RemoveSelf() end
 		FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
 	return end
 	})
@@ -55,6 +59,8 @@ function astolfo_trap_of_argalia:OnSpellStart()
 		unit:SetPhysicsVelocity(Vector(0,0,0))
 		ProjectileManager:DestroyLinearProjectile(projectile)
 		caster:RemoveModifierByName("pause_sealenabled")
+		-- local prop = Attachments:GetCurrentAttachment(caster, "attach_sword")
+		-- if not prop:IsNull() then prop:RemoveSelf() end
 		FindClearSpaceForUnit(unit, unit:GetAbsOrigin(), true)
 	end)
 end
@@ -76,3 +82,76 @@ function astolfo_trap_of_argalia:OnProjectileHit_ExtraData(hTarget, vLocation, t
 		caster:PerformAttack( hTarget, true, true, true, true, false, false, false )
 	end
 end
+
+
+
+
+LinkLuaModifier("modifier_astolfo_model_swap", "abilities/astolfo/astolfo_trap_of_argalia", LUA_MODIFIER_MOTION_NONE)
+--NOTE: Function to handle swapping between models in-game.
+if IsServer() then
+    if type(astolfo_abilities_chat_event) == "number" then
+        StopListeningToGameEvent(astolfo_abilities_chat_event)
+    end
+    --===--
+    _G.astolfo_abilities_chat_event = ListenToGameEvent("player_chat", function(tEventTable)
+        local nPlayerID = tEventTable.playerid
+        local sText     = tEventTable.text
+        local hHero     = PlayerResource:GetSelectedHeroEntity(nPlayerID)
+        if not (hHero:GetName() == "npc_dota_hero_queenofpain") then
+            return
+        end
+        if IsNotNull(hHero) then
+            if sText == "-astolfo1" then
+                hHero:RemoveModifierByName("modifier_astolfo_model_swap")
+            end
+            if sText == "-astolfo2" then
+                if GameRules:GetDOTATime(false, false) <= 300 then --300
+                    hHero:AddNewModifier(hHero, nil, "modifier_astolfo_model_swap", {status = 1})
+                end
+            end
+            if sText == "-astolfo3" then
+                if GameRules:GetDOTATime(false, false) <= 300 then --300
+                    hHero:AddNewModifier(hHero, nil, "modifier_astolfo_model_swap", {status  = 2})
+                end
+            end
+        end
+    end, nil)
+end
+
+
+modifier_astolfo_model_swap = modifier_astolfo_model_swap or class({})
+
+function modifier_astolfo_model_swap:IsHidden()                                                                       return true end
+function modifier_astolfo_model_swap:IsDebuff()                                                                       return false end
+function modifier_astolfo_model_swap:IsPurgable()                                                                     return false end
+function modifier_astolfo_model_swap:IsPurgeException()                                                               return false end
+function modifier_astolfo_model_swap:RemoveOnDeath()                                                                  return false end
+function modifier_astolfo_model_swap:IsDimensionException()                                                           return true end
+function modifier_astolfo_model_swap:AllowIllusionDuplicate()                                                         return true end
+function modifier_astolfo_model_swap:GetPriority()                                                                    return MODIFIER_PRIORITY_LOW end
+function modifier_astolfo_model_swap:DeclareFunctions()
+    local tFunc =   {
+                        MODIFIER_PROPERTY_MODEL_CHANGE
+                    }
+    return tFunc
+end
+function modifier_astolfo_model_swap:GetModifierModelChange(keys)
+    return self.sModelName
+end
+function modifier_astolfo_model_swap:OnCreated(hTable)
+    self.hCaster  = self:GetCaster()
+    self.hParent  = self:GetParent()
+    self.hAbility = self:GetAbility()
+    if IsServer() then
+        if hTable.status == 1 then
+            self.sModelName = "models/astolfo/astolfo_trifas.vmdl"
+        else
+            self.sModelName = "models/astolfo/extella/astolfo_swimsuit.vmdl"
+        end
+    end
+end
+function modifier_astolfo_model_swap:OnRefresh(hTable)
+    self:OnCreated(hTable)
+end
+
+--========================================--

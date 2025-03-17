@@ -15,15 +15,23 @@ function item_b_scroll:OnSpellStart()
 	caster:AddNewModifier(caster, ability, "modifier_b_scroll", {duration = self:GetSpecialValueFor("duration"), barrier = self:GetSpecialValueFor("barrier_block")})
 	caster.BShieldAmount = self:GetSpecialValueFor("barrier_block")
 	caster:EmitSound("DOTA_Item.ArcaneBoots.Activate")
-
+	self.iShieldPFX = ParticleManager:CreateParticle( "particles/units/heroes/hero_oracle/oracle_false_promise_heal_core.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster) 
+	ParticleManager:SetParticleControl(self.iShieldPFX, 0, caster:GetAbsOrigin())
+	ParticleManager:ReleaseParticleIndex(self.iShieldPFX)
+	self:SpendCharge(1)
 end
 
 modifier_b_scroll = class({})
+
+function modifier_b_scroll:GetTexture()
+    return "custom/b_scroll"
+end
 
 function modifier_b_scroll:IsHidden() return false end
 function modifier_b_scroll:IsDebuff() return false end
 
 function modifier_b_scroll:OnCreated()
+
 
 end
 
@@ -76,7 +84,7 @@ function modifier_b_scroll:GetModifierIncomingSpellDamageConstant(keys)
 end
 
 function modifier_b_scroll:GetEffectName()
-	return "particles/units/heroes/hero_oracle/oracle_false_promise_heal_core.vpcf"
+	return "particles/custom/item/item_b_scroll_shield.vpcf"
 end
 function modifier_b_scroll:GetEffectAttachType()
 	return PATTACH_ABSORIGIN_FOLLOW

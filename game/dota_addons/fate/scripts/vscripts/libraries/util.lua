@@ -645,6 +645,8 @@ CannotReset = {
     "karna_combo_vasavi_new",
     "karna_spin_2",
     "karna_recast_dash",
+
+    "astolfo_hippogriff_vanish",
 }
 
 

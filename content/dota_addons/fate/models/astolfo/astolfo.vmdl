@@ -342,6 +342,37 @@
 						framerate = 7.0
 						reverse = false
 					},
+					{
+						_class = "AnimFile"
+						name = "astolfo_cast6"
+						children = 
+						[
+							{
+								_class = "AnimSmoothLoop"
+								frames_from_start = 0
+								frames_from_end = 0
+							},
+						]
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CAST_ABILITY_ROT"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/astolfo/astolfo.fbx"
+						import_bone_scales = false
+						start_frame = 102
+						end_frame = 107
+						framerate = 20.0
+						reverse = false
+					},
 				]
 				default_root_bone_name = ""
 			},

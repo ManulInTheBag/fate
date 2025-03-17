@@ -266,7 +266,7 @@ function nero_rosa_new:OnSpellStart()
 		local projectile = ProjectileManager:CreateLinearProjectile(slash)
 
 		if target:HasModifier("modifier_airborne_marker") and (math.abs(target:GetPhysicsVelocity()[3]) > 0 or math.abs(target:GetPhysicsAcceleration()[3]) > 0) then
-			local duration = 1.5 - target:FindModifierByName("modifier_airborne_marker").elapsed
+			local duration = 2.25 - target:FindModifierByName("modifier_airborne_marker").elapsed
 			local knockupSpeed = target:GetPhysicsVelocity()[3]
 			local knockupAcc = target:GetPhysicsAcceleration()[3]
 			--caster:AddNewModifier(caster, self, "modifier_nero_rosa_new", {duration = duration})
@@ -470,10 +470,10 @@ function modifier_nero_rosa_motion:UpdateHorizontalMotion(me, dt)
 end
 function modifier_nero_rosa_motion:PlayEffects()
 	if self.sequence == 0 then
-		StartAnimation(self.parent, {duration = 0.5, activity = ACT_DOTA_ATTACK, rate = 2})
+		StartAnimation(self.parent, {duration = 0.75, activity = ACT_DOTA_ATTACK, rate = 1.5})
 		self.sequence = self.sequence + 1
 	elseif self.sequence == 1 then
-		StartAnimation(self.parent, {duration = 0.5, activity = ACT_DOTA_ATTACK2, rate = 2})
+		StartAnimation(self.parent, {duration = 0.75, activity = ACT_DOTA_ATTACK2, rate = 1.5})
 		self.sequence = self.sequence + 1
 	else
 		StartAnimation(self.parent, {duration = 1, activity = ACT_DOTA_CAST_ABILITY_3_END, rate = 1.5})

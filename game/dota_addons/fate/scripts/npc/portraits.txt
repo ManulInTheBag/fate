@@ -33,6 +33,96 @@
 			}
 		}
 	}
+	"models/astolfo/extella/astolfo.vmdl"
+	{
+		"PortraitLightPosition"		"75.79 -21.18 200.33"
+		"PortraitLightAngles"		"130.94 332.64 0.00"
+		"PortraitLightFOV"		"10"
+		"PortraitLightDistance"		"158"
+		"PortraitLightColor"		"195 233 254"
+		"PortraitShadowColor"		"74 74 74"
+		"PortraitShadowScale"		"10.000000"
+		"PortraitAmbientColor"		"123 148 163"
+		"PortraitAmbientScale"		"5.000000"
+		"PortraitSpecularColor"		"251 74 84"
+		"PortraitParticle"		"particles/units/heroes/hero_winter_wyvern/portrait_winter_wyvern.vpcf"
+		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/portraitbackground_moon.vmat"
+		"PortraitBackgroundColor3"		".9 1 1"
+		"PortraitLightScale"		"4.200000"
+		"PortraitGroundShadowScale"		"1.500000"
+		"PortraitAmbientDirection"		"-98.020 -38.470 -66.960"
+		"PortraitAnimationActivity"		"ACT_DOTA_CAPTURE"
+		"cameras"
+		{
+			"default"
+			{
+				"PortraitPosition"		"215.90  0.63 70.55"
+				"PortraitAngles"		"350.41 180.17 0.00"
+				"PortraitFOV"		"15"
+			}
+		}
+	}
+	
+	"models/astolfo/astolfo_trifas.vmdl"
+	{
+		"PortraitLightPosition"		"75.79 -21.18 200.33"
+		"PortraitLightAngles"		"130.94 332.64 0.00"
+		"PortraitLightFOV"		"10"
+		"PortraitLightDistance"		"158"
+		"PortraitLightColor"		"195 233 254"
+		"PortraitShadowColor"		"74 74 74"
+		"PortraitShadowScale"		"10.000000"
+		"PortraitAmbientColor"		"123 148 163"
+		"PortraitAmbientScale"		"5.000000"
+		"PortraitSpecularColor"		"251 74 84"
+		"PortraitParticle"		"particles/units/heroes/hero_winter_wyvern/portrait_winter_wyvern.vpcf"
+		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/portraitbackground_moon.vmat"
+		"PortraitBackgroundColor3"		".9 1 1"
+		"PortraitLightScale"		"4.200000"
+		"PortraitGroundShadowScale"		"1.500000"
+		"PortraitAmbientDirection"		"-98.020 -38.470 -66.960"
+		"PortraitAnimationActivity"		"ACT_DOTA_CAPTURE"
+		"cameras"
+		{
+			"default"
+			{
+				"PortraitPosition"		"215.90  0.63 70.55"
+				"PortraitAngles"		"350.41 180.17 0.00"
+				"PortraitFOV"		"15"
+			}
+		}
+	}
+	
+	"models/astolfo/extella/astolfo_swimsuit.vmdl"
+	{
+		"PortraitLightPosition"		"75.79 -21.18 200.33"
+		"PortraitLightAngles"		"130.94 332.64 0.00"
+		"PortraitLightFOV"		"10"
+		"PortraitLightDistance"		"158"
+		"PortraitLightColor"		"195 233 254"
+		"PortraitShadowColor"		"74 74 74"
+		"PortraitShadowScale"		"10.000000"
+		"PortraitAmbientColor"		"123 148 163"
+		"PortraitAmbientScale"		"5.000000"
+		"PortraitSpecularColor"		"251 74 84"
+		"PortraitParticle"		"particles/units/heroes/hero_winter_wyvern/portrait_winter_wyvern.vpcf"
+		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/portraitbackground_moon.vmat"
+		"PortraitBackgroundColor3"		".9 1 1"
+		"PortraitLightScale"		"4.200000"
+		"PortraitGroundShadowScale"		"1.500000"
+		"PortraitAmbientDirection"		"-98.020 -38.470 -66.960"
+		"PortraitAnimationActivity"		"ACT_DOTA_CAPTURE"
+		"cameras"
+		{
+			"default"
+			{
+				"PortraitPosition"		"215.90  0.63 70.55"
+				"PortraitAngles"		"350.41 180.17 0.00"
+				"PortraitFOV"		"15"
+			}
+		}
+	}
+	
 	"models/zlodemon/salter_skin/sbr_alter.vmdl"
 	{
 		"PortraitLightPosition"		"75.79 -21.18 200.33"

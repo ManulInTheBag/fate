@@ -6181,8 +6181,7 @@
 
 
         "DOTA_Tooltip_Ability_lishuwen_attribute_new"					"Attribute: Shock paralysis"
-        "DOTA_Tooltip_Ability_lishuwen_attribute_new_Description"		"Upgrades <font color='#FF0000'>Circulatory shock</font> effect, making it apply debuffs based on stack count.\nOn 10 or more stacks, <font color='#FF0000'>Circulatory shock</font> reduces enemy magical damage dealth.
-        \nOn 25 or more stacks enemies are slowed and get reduced healing.\nOn 50 stacks enemies have their magic resistance and armor reduced, they receive even less healing and deal even less magical damage."
+        "DOTA_Tooltip_Ability_lishuwen_attribute_new_Description"		"Upgrades <font color='#FF0000'>Circulatory shock</font> effect, making it apply debuffs based on stack count.\nOn 10 or more stacks, <font color='#FF0000'>Circulatory shock</font> reduces enemy magical damage dealth.\nOn 25 or more stacks enemies are slowed and get reduced healing.\nOn 50 stacks enemies have their magic resistance and armor reduced, they receive even less healing and deal even less magical damage."
         "DOTA_Tooltip_Ability_lishuwen_attribute_new_magical_damage_reduction_1"			"%Magical damage reduction:"
         "DOTA_Tooltip_Ability_lishuwen_attribute_new_magical_damage_reduction_2"		"%Powerful magical damage reduction:"
         "DOTA_Tooltip_Ability_lishuwen_attribute_new_slow_power"			"%Slow power:"
@@ -6526,14 +6525,14 @@
 	"npc_dota_hero_queenofpain_bio"			""
  
         "DOTA_Tooltip_Ability_astolfo_casa_di_logistilla"       "Casa Di Logistilla"
-        "DOTA_Tooltip_Ability_astolfo_casa_di_logistilla_Description"   "PASSIVE: Astolfo's mysterious spellbook grants him magic resistance.\nACTIVE: Temporarily boosts bonus magic resistance. Passive effect is disabled during cooldown."
+        "DOTA_Tooltip_Ability_astolfo_casa_di_logistilla_Description"   "PASSIVE: Astolfo's mysterious spellbook grants him magic resistance.\nACTIVE: Temporarily boosts bonus magic resistance. Passive effect is disabled during cooldown.\nACTIVE effect only usable with <font color='#F1C40F'>Evaporation of sanity</font> attribute."
         "DOTA_Tooltip_Ability_astolfo_casa_di_logistilla_passive_mr"	"%PASSIVE MAGIC RESISTANCE:"
         "DOTA_Tooltip_Ability_astolfo_casa_di_logistilla_active_mr"		"%ACTIVE MAGIC RESISTANCE:"
         "DOTA_Tooltip_Ability_astolfo_casa_di_logistilla_active_duration"	"ACTIVE DURATION:"
         "DOTA_Tooltip_Ability_astolfo_casa_di_logistilla_Lore"		"Astolfo's lucky pickup from his journey spells a certain doom for any sorceries."
  
         "DOTA_Tooltip_Ability_astolfo_hippogriff_vanish"        "Hippogriff: Vanish"
-        "DOTA_Tooltip_Ability_astolfo_hippogriff_vanish_Description"        "Astolfo orders his Hippogriff to snatch a target and slip into the otherverse, dealing damage, dispelling, and <font color='#FF3399'>expelling</font> it from the game for a few seconds."
+        "DOTA_Tooltip_Ability_astolfo_hippogriff_vanish_Description"        "Astolfo orders his Hippogriff to snatch a target and slip into the otherverse, dealing damage, dispelling, and <font color='#FF3399'>stunnning</font> it, while making it untargetabble/nWhen set to autocast with SA, Astolfo will teleport to the target, rendering himself invulnerable.\n<font color='#F1C40F'>Upgradable with  Evaporation of sanity attribute</font>."
         "DOTA_Tooltip_Ability_astolfo_hippogriff_vanish_cast_delay"		"CAST DELAY:"
         "DOTA_Tooltip_Ability_astolfo_hippogriff_vanish_damage"		"DAMAGE:"
         "DOTA_Tooltip_Ability_astolfo_hippogriff_vanish_banish_duration"	"EXPEL DURATION:"
@@ -6543,14 +6542,14 @@
         "DOTA_Tooltip_Ability_astolfo_hippogriff_vanish_Lore"		"The beast of impossible existence drags its victim to dimension where it belongs."
  
         "DOTA_Tooltip_Ability_astolfo_trap_of_argalia"        		"Trap of Argalia"
-        "DOTA_Tooltip_Ability_astolfo_trap_of_argalia_Description"	"Astolfo dashes, hitting enemies in a line, dealing damage, locking all enemies hit for a short duration."
+        "DOTA_Tooltip_Ability_astolfo_trap_of_argalia_Description"	"Astolfo dashes, hitting enemies in a line, dealing damage, locking all enemies hit for a short duration.\n<font color='#F1C40F'>Upgradable by attribute Evaporation of sanity.</font>"
         "DOTA_Tooltip_Ability_astolfo_trap_of_argalia_damage"		"Damage:"
         "DOTA_Tooltip_Ability_astolfo_trap_of_argalia_dash_distance"		"Dash distance:"
         "DOTA_Tooltip_Ability_astolfo_trap_of_argalia_duration"		"Lock duration:"
         "DOTA_Tooltip_Ability_astolfo_trap_of_argalia_Lore"			"Only little is known about how clumsy, seemingly unreliable paladin reigned as the king of cavalry tournament."
 
         "DOTA_Tooltip_Ability_astolfo_down_with_a_touch"        "Down with a Touch!"
-        "DOTA_Tooltip_Ability_astolfo_down_with_a_touch_Description"        "Astolfo strikes enemies in a line several times with his mystic spear, dealing damage, <font color='#FF3399'>slowing</font>, and dimensionally <font color='#FF3399'>locking</font> enemies. Slow effect diminishes over duration."
+        "DOTA_Tooltip_Ability_astolfo_down_with_a_touch_Description"        "Astolfo strikes enemies in a line several times with his mystic spear, dealing damage, <font color='#FF3399'>slowing</font>, and dimensionally <font color='#FF3399'>locking</font> enemies. Slow effect diminishes over duration.\n<font color='#F1C40F'>Upgradable by attribute Monstrous strenght and Evaporation of sanity.</font>"
         "DOTA_Tooltip_Ability_astolfo_down_with_a_touch_attack_amount"	"ATTACK AMOUNT:"
         "DOTA_Tooltip_Ability_astolfo_down_with_a_touch_damage"		"DAMAGE PER ATTACK:"
         "DOTA_Tooltip_Ability_astolfo_down_with_a_touch_slow"		"%INITIAL SLOW AMOUNT:"
@@ -6559,7 +6558,7 @@
         "DOTA_Tooltip_Ability_astolfo_down_with_a_touch_Lore"		"Only little is known about how clumsy, seemingly unreliable paladin reigned as the king of cavalry tournament."
  		
         "DOTA_Tooltip_Ability_astolfo_la_black_luna"       "La Black Luna"
-        "DOTA_Tooltip_Ability_astolfo_la_black_luna_Description"   "CHANNELLED: Astolfo blows his blaring horn, deafening enemy heroes to most sounds. In addition, enemies in Astolfo's vincinity are <font color='#FF3399'>slowed</font>, <font color='#FF3399'>silenced</font> and dealt flat damage." 
+        "DOTA_Tooltip_Ability_astolfo_la_black_luna_Description"   "CHANNELLED: Astolfo blows his blaring horn, deafening enemy heroes to most sounds. In addition, enemies in Astolfo's vincinity are <font color='#FF3399'>slowed</font>, <font color='#FF3399'>silenced</font> and dealt flat damage.\n<font color='#F1C40F'>Upgradable by attribute Deafening blast.</font>" 
         "DOTA_Tooltip_Ability_astolfo_la_black_luna_radius"				"SLOW RADIUS:"
         "DOTA_Tooltip_Ability_astolfo_la_black_luna_slow_amount"		"%Slow:"  
         "DOTA_Tooltip_Ability_astolfo_la_black_luna_damage_radius"		"Area of Effect:"
@@ -6567,7 +6566,7 @@
         "DOTA_Tooltip_Ability_astolfo_la_black_luna_Lore"		"Astolfo's petite flute materializes into the gigantic horn of terror, emitting an artifical roar of dragon that overwhelms foes with auditory impairment."
  
         "DOTA_Tooltip_Ability_astolfo_hippogriff_raid"      "Hippogriff: Raid"
-        "DOTA_Tooltip_Ability_astolfo_hippogriff_raid_Description"      "Astolfo orders his Hippogriff to ascend into the sky for an aerial strike. After a delay, a destination beacon appears at target location which Hippogriff soon slams down onto.\nUpon impact, enemies are <font color='#FF3399'>locked</font> and damaged, followed by a second impact that also deals damage.\n\nEnemies under the effect of La Black Luna cannot see the beacon."
+        "DOTA_Tooltip_Ability_astolfo_hippogriff_raid_Description"      "Astolfo orders his Hippogriff to ascend into the sky for an aerial strike. After a delay, a destination beacon appears at target location which Hippogriff soon slams down onto.\nUpon impact, enemies are <font color='#FF3399'>locked</font> and damaged, followed by a second impact that also deals damage.\n\nEnemies under the effect of La Black Luna cannot see the beacon.\n<font color='#F1C40F'>Upgradable by attribute Riding.</font>"
         "DOTA_Tooltip_Ability_astolfo_hippogriff_raid_max_range"		"MAX RANGE:"
         "DOTA_Tooltip_Ability_astolfo_hippogriff_raid_cast_delay"		"CAST DELAY:"
         "DOTA_Tooltip_Ability_astolfo_hippogriff_raid_reveal_delay"		"DELAY UNTIL BEACON REVEAL TO ENEMIES:"
@@ -6599,7 +6598,7 @@
         //"DOTA_Tooltip_Ability_astolfo_attribute_riding_raid_second_impact_radius"	"RAID SECOND IMPACT BONUS RADIUS:"
 
         "DOTA_Tooltip_Ability_astolfo_attribute_monstrous_strength"					"Attribute: Monstrous Strength"
-        "DOTA_Tooltip_Ability_astolfo_attribute_monstrous_strength_Description"		"Increases Astolfo's damage by 1 per point of Strength. Astolfo's base attacks deals %damage_pct%% of his max health as magic damage."
+        "DOTA_Tooltip_Ability_astolfo_attribute_monstrous_strength_Description"		"Increases Astolfo's damage by 1 per point of Strength. Astolfo's base attacks deals %damage_pct%% of his max health as magic damage.\nDown with a touch now applies autoattacks to all impacts.\nAstolfo's attacks root target for a short amount of time."
 
         "DOTA_Tooltip_Ability_astolfo_attribute_independent_action"					"Attribute: Independent Action"
         "DOTA_Tooltip_Ability_astolfo_attribute_independent_action_Description"		"Passively grants Astolfo bonus health and mana regen. This effect is empowered, and Astolfo gains maximum movement speed, when Astolfo is <font color='#FF3399'>revoked</font> or cannot be seen by enemies."  
@@ -6610,7 +6609,7 @@
         "DOTA_Tooltip_Ability_astolfo_attribute_independent_action_mana_regen_boosted"	"%CONDITIONAL BONUS MANA REGEN:"
  
         "DOTA_Tooltip_Ability_astolfo_attribute_sanity"						"Attribute: Evaporation of Sanity"
-        "DOTA_Tooltip_Ability_astolfo_attribute_sanity_Description"			"Hippogriff: Vanish <font color='#FF3399'>stuns</font> target on exit. Astolfo becomes invulnerable and untargetable when he uses Hippogriff: Vanish. If the target is hit by Hippogriff: Vanish, Astolfo reappears beside his target. \nEnables usage of Casa di Logistilla - magic-protection type Phantasm. \nTrap of argalia Astolfo performs an attack against all enemies hit by the ability applying all on-hit effects."
+        "DOTA_Tooltip_Ability_astolfo_attribute_sanity_Description"			"Hippogriff: Vanish <font color='#FF3399'>stuns</font> target on exit.\n Astolfo becomes invulnerable and untargetable when he uses Hippogriff: Vanish, when it is set to autocast.\n If the target is hit by Hippogriff: Vanish, Astolfo reappears beside his target. \nEnables usage of Casa di Logistilla - magic-protection type Phantasm. \nTrap of argalia Astolfo performs an attack against all enemies hit by the ability applying all on-hit effects.\nDown with a touch now also disarms on hit."
 
         "DOTA_Tooltip_Ability_astolfo_deafening_blast_attribute"					"Attribute: Deafening Blast"
         "DOTA_Tooltip_Ability_astolfo_deafening_blast_attribute_Description"		"La Black Luna's blast and push away all enemies within %area_of_effect% range on activation, as well as disjointing all disjointable projectiles, muting and slowing all enemies for 99% for 1 second.\nEach La Black Luna tick deals 150 more damage. Enemies pushed away this way are dealt 500 magical damage. \nIf Astolfo finishes casting without being interrupted, he will release an additional wave in 900 radius, that will deal 300 + STR * 10 pure damage, mute and slow all enemies for 99% for 2 seconds."
