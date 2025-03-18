@@ -59,12 +59,12 @@ function gilgamesh_sword_rain:OnSpellStart()
 	end
 
 	caster:EmitSound("Archer.UBWAmbient")
-	CreateModifierThinker(caster, self, "modifier_sword_rain_thinker", 
+	local thinker = CreateModifierThinker(caster, self, "modifier_sword_rain_thinker", 
 						  { Damage = damage_per_tick,
 						    Radius = self:GetAOERadius(),
 						    Duration = self:GetSpecialValueFor("duration") + 0.033 }, 
 						  self:GetCursorPosition(), caster:GetTeamNumber(), false)
-
+	thinker:MakeVisibleToTeam(caster:GetTeamNumber(),self:GetSpecialValueFor("duration") + 0.033 )
 	if caster:HasModifier("modifier_rain_of_swords_attribute") then
 		caster:AddNewModifier(caster, self, "modifier_rain_of_swords_count", { Duration = 5 })
 	end

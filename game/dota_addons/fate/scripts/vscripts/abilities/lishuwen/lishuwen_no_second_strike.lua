@@ -256,7 +256,7 @@ function lishuwen_no_second_strike:OnSpellStart()
 	local stunDuration = self:GetSpecialValueFor("stun_duration")
 	StartAnimation(caster, {duration=0.4, activity=ACT_DOTA_CAST_ABILITY_4_END, rate=0.8})
 	local ability = self
-	local distance = 600
+	local distance = 700
 	EmitGlobalSound("Lishuwen.NoSecondStrike")
 	self.firsthit = false
 	local vector = (self:GetCursorPosition() - caster:GetAbsOrigin()):Normalized()

@@ -28,9 +28,12 @@ function khsn_combo:StartCombo(hui)
     local target = hui
     local ability = self
     local caster_name =  PlayerResource:GetPlayerName(caster:GetPlayerID())
-	local target_name =  PlayerResource:GetPlayerName(target:GetPlayerID())
-	GameRules:SendCustomMessage("<font color='#0083E3'>".. caster_name .." :</font> Hearken. The evening bell tolls thy name. Wings of death, will thou sever <font color='#FF0000'>".. target_name .."</font> head?!", 0, 0)
-
+    if target:IsHero() then
+        local target_name =  PlayerResource:GetPlayerName(target:GetPlayerID())
+        GameRules:SendCustomMessage("<font color='#0083E3'>".. caster_name .." :</font> Hearken. The evening bell tolls thy name. Wings of death, will thou sever <font color='#FF0000'>".. target_name .."</font> head?!", 0, 0)
+    else
+        GameRules:SendCustomMessage("<font color='#0083E3'>".. caster_name .." :</font> Hearken. The evening bell tolls thy name. Wings of death, will thou sever <font color='#FF0000'>their</font> head?!", 0, 0)
+    end
     giveUnitDataDrivenModifier(caster, caster, "jump_pause", 9999)
     caster:AddNewModifier(caster, self, "modifier_azrael_particle", {duration = 6.26 + 2.210})
     --caster:AddNewModifier(caster, self, "modifier_azrael_move", {duration = 1.63+3.25})

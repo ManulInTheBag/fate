@@ -162,7 +162,10 @@ function atalanta_crossing_arcadia:OnSpellStart()
 
         position = position - diff:Normalized() * (length_diff - self:GetSpecialValueFor("range"))
     end
-
+    local vector =-(caster:GetAbsOrigin() - position):Normalized()
+    vector.z = 0
+    caster:FaceTowards(position)
+    caster:SetForwardVector(vector)
     local retreatDist = self:GetSpecialValueFor("leapback_range")
     local forwardVec = caster:GetForwardVector()
     --position - caster:GetAbsOrigin()

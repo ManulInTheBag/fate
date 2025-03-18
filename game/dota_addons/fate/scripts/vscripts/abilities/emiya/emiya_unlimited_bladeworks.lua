@@ -147,7 +147,7 @@ function emiya_unlimited_bladeworks:StartUBW(boolsoundOn)
         giveUnitDataDrivenModifier(caster, w, "rooted", castDelay)
         giveUnitDataDrivenModifier(caster, w, "locked", castDelay)
     end
-
+    caster:RemoveModifierByName("modifier_ubw_chant_count")
     giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", castDelay)
     caster:AddNewModifier(caster, self, "modifier_unlimited_bladeworks", { duration = castDelay })
     if boolsoundOn then 

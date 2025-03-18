@@ -3914,7 +3914,7 @@
 		"DOTA_Tooltip_ability_gilgamesh_enkidu_att_sword_count"	"Attribute sword count:"
 		
 		"DOTA_Tooltip_Ability_gilgamesh_gate_of_babylon"	"Gate of Babylon"	
-		"DOTA_Tooltip_ability_gilgamesh_gate_of_babylon_Description"	"Gilgamesh opens a portal to his arsenal, which sends forth numerous weapons over duration.\n If you upgraded Power of Sumer attribute, when this ability is toggled, gate will follow Gilgamesh, otherwise it will stay in place. If you refresh this ability, current gate will stay in place, while new one will follow be one to toggle state of."
+		"DOTA_Tooltip_ability_gilgamesh_gate_of_babylon_Description"	"Gilgamesh opens a portal to his arsenal, which sends forth numerous weapons over duration.\n If you upgraded Power of Sumer attribute, when this ability is toggled, gate will follow Gilgamesh, otherwise it will stay in place.\nIf you refresh this ability, current gate will stay in place, while new one will follow, based on the toggle state."
 		"DOTA_Tooltip_ability_gilgamesh_gate_of_babylon_damage"	"WEAPON DAMAGE:"
 		"DOTA_Tooltip_ability_gilgamesh_gate_of_babylon_duration"	"DURATION:"
 		"DOTA_Tooltip_ability_gilgamesh_gate_of_babylon_Note0"	"Bypasses B Scroll."
@@ -3966,9 +3966,10 @@
 		"DOTA_Tooltip_Ability_gilgamesh_attribute_improve_golden_rule_bounty_bonus"	"%BONUS GOLD BOUNTY:"
 
 		"DOTA_Tooltip_Ability_gilgamesh_attribute_power_of_sumer"					"Attribute: Power of Sumer"
-		"DOTA_Tooltip_ability_gilgamesh_attribute_power_of_sumer_Description"		"Increases Gilgamesh's gate of babylon and sword barrage damage based on ATK. Bonus damage is dealth as physical. Allow Gate of Babylon to follow Gilgamesh when ability is toggled on."
-		"DOTA_Tooltip_Ability_gilgamesh_attribute_power_of_sumer_dmg_ratio"			"ATTACK DAMAGE RATIO E:"
-		"DOTA_Tooltip_Ability_gilgamesh_attribute_power_of_sumer_dmg_ratio_q"			"ATTACK DAMAGE RATIO Q:"
+		"DOTA_Tooltip_ability_gilgamesh_attribute_power_of_sumer_Description"		"Increases Gilgamesh's Gate of Babylon and sword barrage damage based on ATK.\nBonus damage is dealth as physical on sword barrage and as both physical and magical on Gate of Babylon.\nAllow Gate of Babylon to follow Gilgamesh when ability is toggled on."
+		"DOTA_Tooltip_Ability_gilgamesh_attribute_power_of_sumer_dmg_ratio"					"ATTACK DAMAGE RATIO E PHYS:"
+		"DOTA_Tooltip_Ability_gilgamesh_attribute_power_of_sumer_dmg_ratio_magical"			"ATTACK DAMAGE RATIO E MAGIC:"
+		"DOTA_Tooltip_Ability_gilgamesh_attribute_power_of_sumer_dmg_ratio_q"				"ATTACK DAMAGE RATIO Q:"
 
 		"DOTA_Tooltip_Ability_gilgamesh_attribute_chains_of_heaven"					"Attribute: Chains of heaven"
 		"DOTA_Tooltip_ability_gilgamesh_attribute_chains_of_heaven_Description"		"Upgrades Enkidu, making it lasting longer and shooting blades from gate of babylon into its target, dealing damage, half of which is dealt in aoe."
@@ -8024,7 +8025,7 @@
         "DOTA_Tooltip_ability_karna_brahmastra_new_slow_duration"					"Slow duration:"
 
         "DOTA_Tooltip_ability_karna_brahmastra_kundala_new"							"Brahmastra Kundala"
-        "DOTA_Tooltip_ability_karna_brahmastra_kundala_new_Description"			"Cast point: <font color='#FFFFF9'>0.45</font>s\nKarna throws his spear in the targetted direction dealing <font color='#58ACFA'>magical</font> damage to all targets hit, losing ability to attack for a short time.<br>After spear hits the ground, Karna can use this ability again, to retrieve it, dealing <font color='#58ACFA'>magical</font> damage to all enemies hit again.\nIf Karna doesnt return the spear, it will return to him after a short while automatically."
+        "DOTA_Tooltip_ability_karna_brahmastra_kundala_new_Description"			"Cast point: <font color='#FFFFF9'>0.225</font>s\nKarna throws his spear in the targetted direction dealing <font color='#58ACFA'>magical</font> damage to all targets hit, losing ability to attack for a short time.<br>After spear hits the ground, Karna can use this ability again, to retrieve it, dealing <font color='#58ACFA'>magical</font> damage to all enemies hit again.\nIf Karna doesnt return the spear, it will return to him after a short while automatically."
         "DOTA_Tooltip_ability_karna_brahmastra_kundala_new_damage"							"Damage:"
         "DOTA_Tooltip_ability_karna_brahmastra_kundala_new_radius"							"Spear radius:"
         "DOTA_Tooltip_ability_karna_brahmastra_kundala_new_spear_loss_duration"				"Recast duration:"

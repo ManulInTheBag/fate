@@ -247,7 +247,7 @@ function OnHornStart(keys)
 		caster:Stop()
 		return 
 	end
-
+	caster.AstolfoSimpleFix = false
 	caster.rape_count = 1
 
 	AstolfoCheckCombo(caster, ability)
@@ -362,7 +362,7 @@ function OnHornInterrupted(keys)
 	local caster = keys.caster
 	local ability = keys.ability
 
-	if caster.rape_count == 5 then
+	if caster.rape_count == 5 and not keys.caster.AstolfoSimpleFix  then
 		local rapeTargets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 900, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		for k,v in pairs(rapeTargets) do
 			ability:ApplyDataDrivenModifier(caster, v, "modifier_la_black_luna_slow2", {})
@@ -373,6 +373,7 @@ function OnHornInterrupted(keys)
     		ParticleManager:SetParticleControl( shockwaveIndex, 1, Vector(500,0,0))
     		ParticleManager:SetParticleControl( shockwaveIndex, 2, Vector(radius,0,0))
     	end
+		keys.caster.AstolfoSimpleFix = true
     end
 	
 	CustomGameEventManager:Send_ServerToAllClients("stop_horn_sound", {})

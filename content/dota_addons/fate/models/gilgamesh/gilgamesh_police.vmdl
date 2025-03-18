@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc32:version{c5dcef98-b629-46ab-88e3-a17c005c935e} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc39:version{1ceecb0d-4093-4729-ab18-b76886c64cde} -->
 {
 	rootNode = 
 	{
@@ -49,6 +49,8 @@
 						parent_bone = ""
 						surface_prop = "default"
 						collision_prop = "default"
+						tool_material = ""
+						hitgroup = "HITGROUP_INVALID"
 						recenter_on_parent_bone = false
 						offset_origin = [ 0.0, 0.0, 0.0 ]
 						offset_angles = [ 0.0, 0.0, 0.0 ]
@@ -724,6 +726,7 @@
 					{
 						_class = "AnimFile"
 						name = "sword_barrage"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_5"
 						activity_weight = 1
 						weight_list_name = ""
@@ -756,10 +759,12 @@
 								extract_rz = false
 								linear = false
 								quadratic = false
+								extract_initial_offset = false
 								root_bone_name = ""
 								motion_type = "Single"
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_DIE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -782,6 +787,7 @@
 					{
 						_class = "AnimFile"
 						name = "enkidu"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_4"
 						activity_weight = 1
 						weight_list_name = ""
@@ -804,6 +810,7 @@
 					{
 						_class = "AnimFile"
 						name = "enuma_elish"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_6"
 						activity_weight = 1
 						weight_list_name = ""
@@ -826,6 +833,7 @@
 					{
 						_class = "AnimFile"
 						name = "gate_of_babylon"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_1"
 						activity_weight = 1
 						weight_list_name = ""
@@ -848,6 +856,7 @@
 					{
 						_class = "AnimFile"
 						name = "idle"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_IDLE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -880,11 +889,13 @@
 								extract_rz = false
 								linear = false
 								quadratic = false
+								extract_initial_offset = false
 								root_bone_name = ""
 								motion_type = "Single"
 							},
 						]
 						disabled = true
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_RUN"
 						activity_weight = 1
 						weight_list_name = ""
@@ -907,6 +918,7 @@
 					{
 						_class = "AnimFile"
 						name = "stunned"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_DISABLED"
 						activity_weight = 1
 						weight_list_name = ""
@@ -929,6 +941,7 @@
 					{
 						_class = "AnimFile"
 						name = "max_enuma"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_7"
 						activity_weight = 1
 						weight_list_name = ""
@@ -951,6 +964,7 @@
 					{
 						_class = "AnimFile"
 						name = "final_hour"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_2_ES_ROLL_START"
 						activity_weight = 1
 						weight_list_name = ""
@@ -984,10 +998,12 @@
 								extract_rz = false
 								linear = false
 								quadratic = false
+								extract_initial_offset = false
 								root_bone_name = ""
 								motion_type = "Single"
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_RUN"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1010,6 +1026,7 @@
 					{
 						_class = "AnimFile"
 						name = "atk"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_ATTACK"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1025,13 +1042,14 @@
 						source_filename = "models/gilgamesh/idle.fbx"
 						import_bone_scales = false
 						start_frame = 0
-						end_frame = 0
-						framerate = 59.0
+						end_frame = 1
+						framerate = 1.0
 						reverse = false
 					},
 					{
 						_class = "AnimFile"
 						name = "atk2"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_ATTACK2"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1047,13 +1065,14 @@
 						source_filename = "models/gilgamesh/idle.fbx"
 						import_bone_scales = false
 						start_frame = 0
-						end_frame = 0
-						framerate = 59.0
+						end_frame = 1
+						framerate = 1.0
 						reverse = false
 					},
 					{
 						_class = "AnimFile"
 						name = "enuma_elish_fast"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_ALCHEMIST_CHEMICAL_RAGE_END"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1076,6 +1095,7 @@
 					{
 						_class = "AnimFile"
 						name = "max_ea"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_BELLYACHE_END"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1103,5 +1123,6 @@
 		primary_associated_entity = ""
 		anim_graph_name = ""
 		importer_notes = "Imported from VMDL\n==Warnings==\nChanged incompatible animation name 'enuma elish' to 'enuma_elish'\n"
+		document_sub_type = "ModelDocSubType_None"
 	}
 }

@@ -188,30 +188,60 @@ for i = 1, 12 do
     end)
         local targets = FindUnitsInRadius(caster:GetTeam(), point, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
         for k,v in pairs(targets) do       
-            DoDamage(caster, v, damage_explosion , DAMAGE_TYPE_MAGICAL, 0, self, false)
+            if not v.IsMuramasaDealthComboDamageExplosion then 
+                DoDamage(caster, v, damage_explosion , DAMAGE_TYPE_MAGICAL, 0, self, false)
+                v.IsMuramasaDealthComboDamageExplosion = true
+                Timers:CreateTimer(0.5, function()
+                    v.IsMuramasaDealthComboDamageExplosion = false
+                end)
+            end
         end
         Timers:CreateTimer(0.4, function() 
             local targets = FindUnitsInRadius(caster:GetTeam(), point, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
-            for k,v in pairs(targets) do       
-                DoDamage(caster, v, damage_burn , DAMAGE_TYPE_MAGICAL, 0, self, false)
+            for k,v in pairs(targets) do    
+                if not v.IsMuramasaDealthComboDamageBurn then    
+                    DoDamage(caster, v, damage_burn , DAMAGE_TYPE_MAGICAL, 0, self, false)
+                    v.IsMuramasaDealthComboDamageBurn = true
+                    Timers:CreateTimer(0.3, function()
+                        v.IsMuramasaDealthComboDamageBurn = false
+                    end)
+                end
             end
         end)
         Timers:CreateTimer(0.8, function() 
             local targets = FindUnitsInRadius(caster:GetTeam(), point, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
             for k,v in pairs(targets) do       
-                DoDamage(caster, v, damage_burn , DAMAGE_TYPE_MAGICAL, 0, self, false)
+                if not v.IsMuramasaDealthComboDamageBurn then    
+                    DoDamage(caster, v, damage_burn , DAMAGE_TYPE_MAGICAL, 0, self, false)
+                    v.IsMuramasaDealthComboDamageBurn = true
+                    Timers:CreateTimer(0.3, function()
+                        v.IsMuramasaDealthComboDamageBurn = false
+                    end)
+                end
             end
         end)
         Timers:CreateTimer(1.2, function() 
             local targets = FindUnitsInRadius(caster:GetTeam(), point, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
             for k,v in pairs(targets) do       
-                DoDamage(caster, v, damage_burn , DAMAGE_TYPE_MAGICAL, 0, self, false)
+                if not v.IsMuramasaDealthComboDamageBurn then    
+                    DoDamage(caster, v, damage_burn , DAMAGE_TYPE_MAGICAL, 0, self, false)
+                    v.IsMuramasaDealthComboDamageBurn = true
+                    Timers:CreateTimer(0.3, function()
+                        v.IsMuramasaDealthComboDamageBurn = false
+                    end)
+                end
             end
         end)
         Timers:CreateTimer(1.6, function() 
             local targets = FindUnitsInRadius(caster:GetTeam(), point, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
             for k,v in pairs(targets) do       
-                DoDamage(caster, v, damage_burn , DAMAGE_TYPE_MAGICAL, 0, self, false)
+                if not v.IsMuramasaDealthComboDamageBurn then    
+                    DoDamage(caster, v, damage_burn , DAMAGE_TYPE_MAGICAL, 0, self, false)
+                    v.IsMuramasaDealthComboDamageBurn = true
+                    Timers:CreateTimer(0.3, function()
+                        v.IsMuramasaDealthComboDamageBurn = false
+                    end)
+                end
             end
         end)
         end

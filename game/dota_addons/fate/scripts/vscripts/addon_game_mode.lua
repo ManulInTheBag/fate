@@ -2834,6 +2834,9 @@ function FateGameMode:OnItemPurchased( keys )
     local isPriceIncreased = not hero.IsInBase
     local isCStockMessage = false
 
+    if  hero:HasModifier("round_pause") then
+        isPriceIncreased = false
+    end
     --[[if hero.IsInBase then
         if itemName == "item_c_scroll" then
             if hero.CStock > 0 then

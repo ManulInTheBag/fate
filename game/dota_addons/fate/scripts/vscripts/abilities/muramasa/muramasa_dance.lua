@@ -223,7 +223,7 @@ function muramasa_dance:DanceAttack()
      caster:PerformAttack( enemy, true, true, true, true, false, false, false )
      DoDamage(caster, enemy, damage_base, DAMAGE_TYPE_MAGICAL, 0, self, false)
      local point = caster:GetAbsOrigin() + caster:GetForwardVector() * 150
-     local knockback1 = { should_stun = true,
+     local knockback1 = { should_stun = false,
 		 knockback_duration = 0.15,
 		 duration = 0.15,
 		 knockback_distance = -100,
