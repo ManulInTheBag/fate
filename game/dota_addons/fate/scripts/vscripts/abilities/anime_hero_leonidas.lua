@@ -3329,6 +3329,7 @@ function leonidas_enomotia_combo:OnSpellStart()
         --=================================--
         local nDamageBlock = nShieldCount * ( nBaseBlockPerShield + nDefenceBonusBlockPerShield )
         --=================================--
+        --local hEnomotiaComboShield = hCaster:AddNewModifier(hCaster, self, "modifier_leonidas_enomotia_shield", {duration = nPFX_AnimStartTime + nPFX_AnimLoopTime + nPFX_AnimReleaseTime, nDamageBlock = 1500, nIsComboShield = 1})
         local hEnomotiaComboShield = hCaster:AddNewModifier(hCaster, self, "modifier_leonidas_enomotia_shield", {duration = nPFX_AnimStartTime + nPFX_AnimLoopTime + nPFX_AnimReleaseTime, nDamageBlock = nPreviousStacks + nDamageBlock, nIsComboShield = 1})
         --=================================--
         --=================================--
@@ -3636,7 +3637,8 @@ function leonidas_enomotia_combo:ReleaseEnomotia(hCaster, nPFX_AnimReleaseTime, 
     --=================================--
     local nDamageBlock = nShieldCount * ( nBaseBlockPerShield + ( nPushedUnits * nBonusBlockPerPushed ) )
     --=================================--
-    hCaster:AddNewModifier(hCaster, self, "modifier_leonidas_enomotia_shield", {duration = nShieldDuration, nDamageBlock = nPreviousStacks + nDamageBlock})
+    --hCaster:AddNewModifier(hCaster, self, "modifier_leonidas_enomotia_shield", {duration = nShieldDuration, nDamageBlock = nPreviousStacks + nDamageBlock})
+    hCaster:AddNewModifier(hCaster, self, "modifier_leonidas_enomotia_shield", {duration = nShieldDuration, nDamageBlock = 1500})
 end
 
 
@@ -3725,6 +3727,11 @@ function modifier_leonidas_enomotia_combo:OnIntervalThink()
         local nDistanceFix = GetDistance(self.vRememberLocFixNeronaAndEtc, vCasterGnd)
         if nDistanceFix > 0 and nDistanceFix < 1500 then
             self.hParent:SetAbsOrigin(self.vRememberLocFixNeronaAndEtc)
+        end
+        local modifier_table = self.hParent:FindAllModifiersByName("modifier_leonidas_enomotia_shield")
+        if #modifier_table == 0 then
+            self.hParent:RemoveModifierByNameAndCaster("pause_sealenabled", self.hParent)
+            self:Destroy()
         end
     end
 end

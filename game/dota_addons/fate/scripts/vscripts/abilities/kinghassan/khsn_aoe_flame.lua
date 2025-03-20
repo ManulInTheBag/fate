@@ -29,7 +29,7 @@ function khsn_aoe_flame:OnSpellStart()
 		ParticleManager:ReleaseParticleIndex(particle2)
 	end)
 
-	giveUnitDataDrivenModifier(caster, caster, "pause_sealdisabled", 1.66)
+	giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 1.66)
 	StartAnimation(caster, {duration = 2.4, activity = ACT_DOTA_CAST_ABILITY_4_END, rate = 0.5 })
 
 	Timers:CreateTimer(0, function()

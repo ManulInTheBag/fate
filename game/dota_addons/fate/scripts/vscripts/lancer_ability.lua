@@ -333,7 +333,7 @@ function OnGBTargetHit(keys)
 
 	giveUnitDataDrivenModifier(caster, target, "can_be_executed", 0.033)
 	DoDamage(caster, target, keys.Damage, DAMAGE_TYPE_MAGICAL, 0, keys.ability, false)
-	target:AddNewModifier(caster, target, "modifier_stunned", {Duration = 1.0})
+	--target:AddNewModifier(caster, target, "modifier_stunned", {Duration = 1.0})
 	if target:GetHealth() < keys.HBThreshold then
 		PlayHeartBreakEffect(ability, caster, target)
 	end  -- check for HB

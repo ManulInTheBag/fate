@@ -758,7 +758,8 @@
 		// General
 		//
 		"BaseClass"					"npc_dota_ward_base"	// Class of entity of link to.
-		"Model"						"models/props_gameplay/default_ward.vmdl"	// Model.
+		//"Model"						"models/props_gameplay/default_ward.vmdl"	// Model.
+		"Model"						"models/nero/nero_plushie.vmdl"	// Model.
 		"SoundSet"					""					// Name of sound set.
 		"Level"						"0"
 		"ModelScale"					"1"

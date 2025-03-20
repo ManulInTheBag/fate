@@ -715,6 +715,7 @@ function OnNineLanded(caster, ability)
 							giveUnitDataDrivenModifier(caster, v, "revoked", 0.5)
 						end]]
 						-- push enemies back
+						v:RemoveModifierByNameAndCaster("modifier_kb_immune", caster)
 						if not IsKnockbackImmune(v) then
 							local pushback = Physics:Unit(v)
 							v:PreventDI()
@@ -825,7 +826,7 @@ end
 
 LinkLuaModifier("modifier_death_tracker", "abilities/heracles/modifiers/modifier_death_tracker", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_herc_gh_reduc", "abilities/heracles/modifiers/modifier_herc_gh_reduc", LUA_MODIFIER_MOTION_NONE)
-
+LinkLuaModifier("modifier_heracles_heal_disable", "abilities/heracles/modifiers/modifier_heracles_heal_disable", LUA_MODIFIER_MOTION_NONE)
 function OnGodHandDeath(keys)
 	local caster = keys.caster
 	local newRespawnPos = caster:GetOrigin()
@@ -883,6 +884,7 @@ function OnGodHandDeath(keys)
 
 			-- Apply penalty
 			keys.ability:ApplyDataDrivenModifier(caster, caster, "modifier_god_hand_debuff", {}) 
+			caster:AddNewModifier(caster, keys.ability, "modifier_heracles_heal_disable", { duration = 1 })
 			if not caster.IsGodHandAcquired then
 				caster:SetHealth(caster:GetMaxHealth()*0.5)
 			else

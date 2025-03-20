@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc32:version{c5dcef98-b629-46ab-88e3-a17c005c935e} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc39:version{1ceecb0d-4093-4729-ab18-b76886c64cde} -->
 {
 	rootNode = 
 	{
@@ -1001,6 +1001,7 @@
 					{
 						_class = "AnimFile"
 						name = "arondight_overload"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_4_END"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1023,6 +1024,7 @@
 					{
 						_class = "AnimFile"
 						name = "arondight_powerup"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_4"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1055,10 +1057,12 @@
 								extract_rz = false
 								linear = false
 								quadratic = false
+								extract_initial_offset = false
 								root_bone_name = ""
 								motion_type = "Single"
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_ATTACK2"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1091,10 +1095,12 @@
 								extract_rz = false
 								linear = false
 								quadratic = false
+								extract_initial_offset = false
 								root_bone_name = ""
 								motion_type = "Single"
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_ATTACK"
 						activity_weight = 5
 						weight_list_name = ""
@@ -1127,10 +1133,12 @@
 								extract_rz = false
 								linear = false
 								quadratic = false
+								extract_initial_offset = false
 								root_bone_name = ""
 								motion_type = "Single"
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_OVERRIDE_ABILITY_1"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1163,10 +1171,12 @@
 								extract_rz = false
 								linear = false
 								quadratic = false
+								extract_initial_offset = false
 								root_bone_name = ""
 								motion_type = "Single"
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_DIE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1189,6 +1199,7 @@
 					{
 						_class = "AnimFile"
 						name = "gaebolg_strike"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_OVERRIDE_ABILITY_2"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1211,6 +1222,7 @@
 					{
 						_class = "AnimFile"
 						name = "gaebolg1"
+						is_default_idle_anim = false
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -1233,6 +1245,7 @@
 					{
 						_class = "AnimFile"
 						name = "gaebolg2"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_AMBUSH"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1255,6 +1268,7 @@
 					{
 						_class = "AnimFile"
 						name = "idle"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_IDLE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1277,6 +1291,7 @@
 					{
 						_class = "AnimFile"
 						name = "minigun1"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CHANNEL_END_ABILITY_1"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1299,6 +1314,7 @@
 					{
 						_class = "AnimFile"
 						name = "minigun2"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_1"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1321,6 +1337,7 @@
 					{
 						_class = "AnimFile"
 						name = "minigun3"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CHANNEL_END_ABILITY_3"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1343,6 +1360,7 @@
 					{
 						_class = "AnimFile"
 						name = "ninelives1"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_2_ES_ROLL"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1365,6 +1383,7 @@
 					{
 						_class = "AnimFile"
 						name = "ninelives2"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_3_END"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1387,6 +1406,7 @@
 					{
 						_class = "AnimFile"
 						name = "ninelivesdash"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_2_ES_ROLL_START"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1409,6 +1429,7 @@
 					{
 						_class = "AnimFile"
 						name = "parry1"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_OVERRIDE_ABILITY_4"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1431,6 +1452,7 @@
 					{
 						_class = "AnimFile"
 						name = "parry2"
+						is_default_idle_anim = false
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -1453,6 +1475,7 @@
 					{
 						_class = "AnimFile"
 						name = "rosa1"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_EMP"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1475,6 +1498,7 @@
 					{
 						_class = "AnimFile"
 						name = "rulebreaker1"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_OVERRIDE_ABILITY_3"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1507,10 +1531,12 @@
 								extract_rz = false
 								linear = false
 								quadratic = false
+								extract_initial_offset = false
 								root_bone_name = ""
 								motion_type = "Single"
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_RUN"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1543,10 +1569,12 @@
 								extract_rz = false
 								linear = false
 								quadratic = false
+								extract_initial_offset = false
 								root_bone_name = ""
 								motion_type = "Single"
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -1569,6 +1597,7 @@
 					{
 						_class = "AnimFile"
 						name = "arondight_powerup_copy"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_CHAOS_METEOR"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1591,6 +1620,7 @@
 					{
 						_class = "AnimFile"
 						name = "idle_copy"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_DISABLED"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1618,5 +1648,6 @@
 		primary_associated_entity = ""
 		anim_graph_name = ""
 		importer_notes = "Imported from VMDL\n==Warnings==\nChanged incompatible hitbox parent bone name 'Gae Bolg' to 'Gae_Bolg'\nChanged incompatible hitbox parent bone name 'root 3' to 'root_3'\nChanged incompatible hitbox parent bone name 'Rule Breaker' to 'Rule_Breaker'\nChanged incompatible bone name 'Right Hitloc' to 'Right_Hitloc'\nChanged incompatible bone name 'Right Hitloc' to 'Right_Hitloc'\n"
+		document_sub_type = "ModelDocSubType_None"
 	}
 }

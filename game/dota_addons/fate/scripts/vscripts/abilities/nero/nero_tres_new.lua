@@ -79,7 +79,7 @@ function nero_tres_new:OnSpellStart()
                 local damage = self:GetSpecialValueFor("slash_damage") + self:GetSpecialValueFor("slash_damage_per_stack")*caster:FindModifierByName("modifier_nero_heat").rank + (caster:HasModifier("modifier_sovereign_attribute") and caster:GetAverageTrueAttackDamage(caster)*self:GetSpecialValueFor("slash_damage_scale")/100 or 0)
                 if not enemy:IsMagicImmune() then
                     DoDamage(caster, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
-                    enemy:AddNewModifier(caster, self, "modifier_stunned", {Duration = 0.02})
+                    --enemy:AddNewModifier(caster, self, "modifier_stunned", {Duration = 0.02})
                     --EmitSoundOn("nero_fast_slash", enemy)
                 end
             end

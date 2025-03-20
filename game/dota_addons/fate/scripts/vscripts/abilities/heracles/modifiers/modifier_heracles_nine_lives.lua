@@ -66,7 +66,7 @@ function modifier_heracles_nine_lives:OnIntervalThink()
 				
 				v:AddNewModifier(caster, v, "modifier_stunned", { Duration = 1.0 })
 				--giveUnitDataDrivenModifier(caster, v, "stunned", 1.5)			
-
+				v:RemoveModifierByNameAndCaster("modifier_kb_immune", caster)
 				if not IsKnockbackImmune(v) then
 					local pushback = Physics:Unit(v)
 					v:PreventDI()

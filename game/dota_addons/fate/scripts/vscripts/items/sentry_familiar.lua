@@ -1,3 +1,4 @@
+LinkLuaModifier("modifier_ward_invis", "items/sentry_familiar", LUA_MODIFIER_MOTION_NONE)
 item_sentry_familiar = class({})
 
 function item_sentry_familiar:OnSpellStart()
@@ -23,11 +24,21 @@ function item_sentry_familiar:OnSpellStart()
 	caster.ward:SetDayTimeVisionRange(self:GetSpecialValueFor("vision_range"))
 	caster.ward:SetNightTimeVisionRange(self:GetSpecialValueFor("vision_range"))
 
-	caster.ward:AddNewModifier(caster, caster, "modifier_invisible", {})
+	caster.ward:AddNewModifier(caster, self, "modifier_ward_invis", {})
 	caster.ward:AddNewModifier(caster, caster, "modifier_item_ward_true_sight", { true_sight_range = self:GetSpecialValueFor("truesight_range"), duration = self:GetSpecialValueFor("duration")})
     caster.ward:AddNewModifier(caster, caster, "modifier_kill", {duration = self:GetSpecialValueFor("duration")})
     giveUnitDataDrivenModifier(caster, caster.ward, "modifier_ward_dmg_reduce", {duration = self:GetSpecialValueFor("duration")})
     EmitSoundOnLocationForAllies(targetPoint,"DOTA_Item.ObserverWard.Activate",caster)
 
     self:SpendCharge(1)
+end
+
+
+
+modifier_ward_invis = class({})
+ 
+function modifier_ward_invis:CheckState()
+   	return { [MODIFIER_STATE_INVISIBLE] = true,
+    		[MODIFIER_STATE_NO_UNIT_COLLISION] = true,
+    		 }
 end
