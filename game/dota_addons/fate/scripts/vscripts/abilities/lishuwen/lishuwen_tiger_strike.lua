@@ -245,7 +245,7 @@ function lishuwen_tiger_strike:TigerStrike2()
 	local pushTarget = Physics:Unit(target)
 	local casterOrigin = caster:GetAbsOrigin()
 	local initialUnitOrigin = target:GetAbsOrigin()
-	if( not IsKnockbackImmune(target)) then
+	if( not IsKnockbackImmune(target) and self:GetAutoCastState()) then
 		target:PreventDI()
 		target:SetPhysicsFriction(0)
 		target:SetPhysicsVelocity(casterfacing:Normalized() * 2500)

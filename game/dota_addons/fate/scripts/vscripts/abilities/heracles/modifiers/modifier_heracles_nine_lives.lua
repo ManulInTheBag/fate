@@ -23,14 +23,16 @@ function modifier_heracles_nine_lives:OnCreated(args)
 			self:GetParent():EmitSound("Heracles_Combo_Easter_1")
 		end
 
-		StartAnimation(self:GetParent(), {duration = 2.4, activity=ACT_DOTA_OVERRIDE_ABILITY_4, rate = 1.2})
+		StartAnimation(self:GetParent(), {duration = 2.1, activity=ACT_DOTA_OVERRIDE_ABILITY_4, rate = 1.2})
 	end
 end
 
 function modifier_heracles_nine_lives:OnIntervalThink()
 	local caster = self:GetParent()
 	local particle = ParticleManager:CreateParticle("particles/custom/berserker/nine_lives/hit.vpcf", PATTACH_ABSORIGIN, caster)
-
+	if self.HitNumber == 8 then
+		StartAnimation(caster, {duration = 0.5, activity=ACT_DOTA_CAST_ABILITY_ROT, rate = 1.3})
+	end
 	if self.HitNumber < 9 then
 		--print("hit " .. self.HitNumber)
 		caster:EmitSound("Hero_EarthSpirit.StoneRemnant.Impact") 		
@@ -88,7 +90,7 @@ function modifier_heracles_nine_lives:OnIntervalThink()
 		ParticleManager:SetParticleControl(particle, 3, Vector(self.LargeRadius / 350,1,1))
 		ParticleManager:CreateParticle("particles/custom/berserker/nine_lives/last_hit.vpcf", PATTACH_ABSORIGIN, caster)
 		
-		StartAnimation(caster, {duration = 0.5, activity=ACT_DOTA_CAST_ABILITY_4, rate = 3})
+		
 		self:Destroy()
 	end
 end

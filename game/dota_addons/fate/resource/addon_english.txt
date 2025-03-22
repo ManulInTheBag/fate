@@ -925,7 +925,11 @@
 		"DOTA_Tooltip_modifier_pc_bonus_damage_Description"							"Attacks deals bonus magical damage."
 
 		"DOTA_Tooltip_modifier_nss_shock"											"No Second Strike"
-		"DOTA_Tooltip_modifier_nss_shock_Description"								"Revoked"
+		"DOTA_Tooltip_modifier_nss_shock_Description"								"Revoked and damage after delay."
+
+		"DOTA_Tooltip_modifier_nss_shock_no_revoke"											"No Second Strike"
+		"DOTA_Tooltip_modifier_nss_shock_no_revoke_Description"								"Damage after delay"
+		
 
 		"DOTA_Tooltip_modifier_furious_chain_regen"									"Furious Chain"
 		"DOTA_Tooltip_modifier_furious_chain_regen_Description"						"Regeneration increased."
@@ -1939,8 +1943,11 @@
 		"DOTA_Tooltip_modifier_furious_chain_buff"                                        "Furious Chain Buff"
 		"DOTA_Tooltip_modifier_furious_chain_buff_Description"                            ""
 
+		"DOTA_Tooltip_modifier_shuwen_berserk_cc_immune"                                        			  "Berserk CC IMMUNE"
+		"DOTA_Tooltip_modifier_shuwen_berserk_cc_immune_Description"                              		  "Cannot be controlled."
+
 		"DOTA_Tooltip_modifier_berserk"                                        			  "Berserk"
-		"DOTA_Tooltip_modifier_berserk_Description"                              		  "Fierce Tiger Strike may critical strike. Abilities deal no non-physical damage."
+		"DOTA_Tooltip_modifier_berserk_Description"                              		  "Fierce Tiger Strike deal additional damage. Damage increased."
 
 		"DOTA_Tooltip_modifier_lishuwen_concealment"                                      "Lishuwen Concealment"
 		"DOTA_Tooltip_modifier_lishuwen_concealment_Description"                          ""
@@ -3019,7 +3026,7 @@
 		"DOTA_Tooltip_Ability_arash_mobility_boost_active_speed"					"Speed:"
 
 		"DOTA_Tooltip_Ability_arash_stella"				"Stella"
-		"DOTA_Tooltip_Ability_arash_stella_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.4</font>\nArash shoots arrow in sky, summoning powerful meteor at a target location after a delay.\nRight after cast Arash becomes <font color='#FF3399'>stunned</font> for a %delay% seconds and takes <font color='#58ACFA'>damage</font> based on his current <font color='#7CFC00'>Health</font>.\nDamage dealt decreases with distance from center.\nEach time Arash uses <font color='#58ACFA'>Stella</font> and hits someone with it he gains <font color='#58ACFA'>Stella</font> stack, increasing <font color='#58ACFA'>Stella</font> <font color='#58ACFA'>damage</font> permanently.\nAll enemies are slowed for 3 seconds on hit. Slow power depends on distance from center."
+		"DOTA_Tooltip_Ability_arash_stella_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.4</font>\nArash shoots arrow in sky, summoning powerful meteor at a target location after a delay.\nRight after cast Arash becomes <font color='#FF3399'>stunned</font> for a %delay% seconds and takes <font color='#58ACFA'>damage</font> based on his current <font color='#7CFC00'>Health</font>.\nDamage dealt decreases with distance from center.\nEach time Arash uses <font color='#58ACFA'>Stella</font> and hits someone with it he gains <font color='#58ACFA'>Stella</font> stack, increasing <font color='#58ACFA'>Stella</font> <font color='#58ACFA'>damage</font> permanently.\nAll enemies are slowed for 1 second on hit. Slow power depends on distance from center."
 		"DOTA_Tooltip_Ability_arash_stella_Lore"					"Behold my deeds, my death, and my Spənta Ārmaiti which I must carry out. After I unleash this last arrow with all my strength, my iron body shall shatter and annihilate me where I stand!"
 		"DOTA_Tooltip_Ability_arash_stella_range"									"Range:"
 		"DOTA_Tooltip_Ability_arash_stella_damage"									"Damage:"
@@ -3080,7 +3087,7 @@
 		"DOTA_Tooltip_Ability_arash_load_magical_energy_cd_reduction"						"Cooldown reduction:"
 
 		"DOTA_Tooltip_Ability_arash_self_sacrifice"				"Attribute: Self sacrifice"
-		"DOTA_Tooltip_Ability_arash_self_sacrifice_Description"	"When Arash dies, all his team in the same realm gets his <font color='#58ACFA'>Toughness</font> buff with additional <font color='#FFFAFA'>movement speed</font> increase and <font color='#7CFC00'>heaks</font> for a fixed amount.\nIf Arash was killed by <font color='#58ACFA'>Max Stella</font>, he will ressurect 1 second after on the same place he died."
+		"DOTA_Tooltip_Ability_arash_self_sacrifice_Description"	"When Arash dies, all his team in the same realm gets his <font color='#58ACFA'>Toughness</font> buff with additional <font color='#FFFAFA'>movement speed</font> increase and <font color='#7CFC00'>heals</font> for a fixed amount.\nIf Arash was killed by <font color='#58ACFA'>Max Stella</font>, he will ressurect 1 second after on the same place he died."
 		"DOTA_Tooltip_Ability_arash_self_sacrifice_Lore"					""
 		"DOTA_Tooltip_Ability_arash_self_sacrifice_buff_duration"					"Buff duration:"
 		"DOTA_Tooltip_Ability_arash_self_sacrifice_ms"								"%Movement speed:"
@@ -3966,7 +3973,7 @@
 		"DOTA_Tooltip_Ability_gilgamesh_attribute_improve_golden_rule_bounty_bonus"	"%BONUS GOLD BOUNTY:"
 
 		"DOTA_Tooltip_Ability_gilgamesh_attribute_power_of_sumer"					"Attribute: Power of Sumer"
-		"DOTA_Tooltip_ability_gilgamesh_attribute_power_of_sumer_Description"		"Increases Gilgamesh's Gate of Babylon and sword barrage damage based on ATK.\nBonus damage is dealth as physical on sword barrage and as both physical and magical on Gate of Babylon.\nAllow Gate of Babylon to follow Gilgamesh when ability is toggled on."
+		"DOTA_Tooltip_ability_gilgamesh_attribute_power_of_sumer_Description"		"Increases Gilgamesh's Gate of Babylon and sword barrage damage based on ATK.\nBonus damage is dealt as physical on sword barrage and as both physical and magical on Gate of Babylon.\nAllow Gate of Babylon to follow Gilgamesh when ability is toggled on."
 		"DOTA_Tooltip_Ability_gilgamesh_attribute_power_of_sumer_dmg_ratio"					"ATTACK DAMAGE RATIO E PHYS:"
 		"DOTA_Tooltip_Ability_gilgamesh_attribute_power_of_sumer_dmg_ratio_magical"			"ATTACK DAMAGE RATIO E MAGIC:"
 		"DOTA_Tooltip_Ability_gilgamesh_attribute_power_of_sumer_dmg_ratio_q"				"ATTACK DAMAGE RATIO Q:"
@@ -6042,17 +6049,17 @@
         "DOTA_Tooltip_Ability_lishuwen_combo_trigger_Description"	"Use again to enable combo."
 
         "DOTA_Tooltip_Ability_lishuwen_martial_arts"				"Martial Arts"
-        "DOTA_Tooltip_Ability_lishuwen_martial_arts_Description"	"<font color='#58ACFA'>PASSIVE:</font> Li Shuwen reads deadly intention in the air, marking enemies with <font color='#B60A1A'>Mark of Fatality</font> whenever they cast a spell in Li Shuwen's vicinity.\n\n<font color='#58ACFA'>ACTIVE:</font> Li Shuwen focuses his murderous presence on a target to <font color='#FF3399'>silence</font> it and apply <font color='#B60A1A'>Mark of Fatality</font>.\n\n<font color='#B60A1A'>Mark of Fatality</font> grants vision to Li Shuwen and a chance to critically strike when attacking a marked enemy."
+        "DOTA_Tooltip_Ability_lishuwen_martial_arts_Description"	"<font color='#58ACFA'>PASSIVE:</font> Li Shuwen reads deadly intention in the air, marking enemies with <font color='#B60A1A'>Mark of Fatality</font> whenever they cast a spell in Li Shuwen's vicinity.\nLi Shuwen's attacks may criticaly strike targets under <font color='#B60A1A'>Mark of Fatality</font> based on stacks.\n<font color='#58ACFA'>ACTIVE:</font> Li Shuwen focuses his murderous presence on a target to <font color='#FF3399'>silence</font> it and apply <font color='#B60A1A'>Mark of Fatality</font>.\n\n<font color='#B60A1A'>Mark of Fatality</font> grants vision to Li Shuwen."
         "DOTA_Tooltip_Ability_lishuwen_martial_arts_Lore"			"Seeing is believing. Feeling is enlightment."
         "DOTA_Tooltip_Ability_lishuwen_martial_arts_search_radius"		"SEARCH RADIUS:"
         "DOTA_Tooltip_Ability_lishuwen_martial_arts_duration"			"MARK OF FATALITY DURATION:"
         "DOTA_Tooltip_Ability_lishuwen_martial_arts_vision_radius"		"MARK OF FATALITY VISION RADIUS:"
-        "DOTA_Tooltip_Ability_lishuwen_martial_arts_critical_rate_percentage"	"%MARK OF FATALITY CRIT. RATE:"
-        "DOTA_Tooltip_Ability_lishuwen_martial_arts_critical_damage"	"%MARK OF FATALITY CRIT. DAMAGE:"
+        "DOTA_Tooltip_Ability_lishuwen_martial_arts_critical_rate_percentage"	"%CRIT. RATE PER STACK:"
+        "DOTA_Tooltip_Ability_lishuwen_martial_arts_critical_damage"	"%CRIT. DAMAGE:"
         "DOTA_Tooltip_Ability_lishuwen_martial_arts_silence_duration"	"SILENCE DURATION:"
 
         "DOTA_Tooltip_Ability_lishuwen_berserk"						"Berserk"
-        "DOTA_Tooltip_Ability_lishuwen_berserk_Description"			"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>%cast_point%</font> \n\n Li Shuwen becomes <font color='#B60A1A'>enraged</font>, <font color='#FF9900'>removing all negative and crowd control effects</font> on himself and becoming <font color='#FF9900'>immune</font> to them for a short duration.\n\n Li Shuwen gains <font color='#FFFAFA'>critical strike chance</font> which increased based on his <font color='#FF0000'>strength</font>. \n\nThis ability can be cast only when Li Shuwen is <font color='#FF3399'>not revoked</font> from Master.\n\nDuring this effect, Fierce Tiger Strikes have <font color='#FFFAFA'>increased attack damage scaling</font>. \n\nLi Shuwen's <font color='#FFFAFA'>No Second Strike</font> will deal physical damage during this effect."
+        "DOTA_Tooltip_Ability_lishuwen_berserk_Description"			"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>%cast_point%</font> \n\n Li Shuwen becomes <font color='#B60A1A'>enraged</font>, <font color='#FF9900'>removing all negative and crowd control effects</font> on himself and becoming <font color='#FF9900'>immune</font> to them for a short duration.\n\n Li Shuwen gains <font color='#FFFAFA'>attack damage</font> equal to his <font color='#FF0000'>strength</font>. \n\nThis ability can be cast only when Li Shuwen is <font color='#FF3399'>not revoked</font> from Master.\n\nDuring this effect, Fierce Tiger Strikes have <font color='#FFFAFA'>increased attack damage scaling</font>. \n\nLi Shuwen's <font color='#FFFAFA'>No Second Strike</font> will deal physical damage during this effect."
         "DOTA_Tooltip_Ability_lishuwen_berserk_duration"			"DURATION:"
         "DOTA_Tooltip_Ability_lishuwen_berserk_cc_immune_duration"	"IMMUNITY DURATION:"
         "DOTA_Tooltip_Ability_lishuwen_berserk_critical_chance"		"%CRITICAL CHANCE:"
@@ -6095,7 +6102,7 @@
 
 
         "DOTA_Tooltip_Ability_lishuwen_tiger_strike"					"Fierce Tiger Strike"
-        "DOTA_Tooltip_Ability_lishuwen_tiger_strike_Description"		"<font color='#FFFAFA'>Cast point:</font><font color='#7FFF00'>0.25</font> | </font><font color='#7FFF00'>0.3</font> | </font><font color='#7FFF00'>0.35</font> \n\nPerforms up to 3 ferocious strikes, each with different effects.\n\n<font color='#58ACFA'>1st:</font> Dashes to the target, dealing <font color='#58ACFA'>%damage_1% magic damage</font>, <font color='#9400D3'>slowing</font> the target by <font color='#9400D3'>%slow_amount%</font>% for <font color='#9400D3'>%slow_duration%</font> seconds and applying 3 <font color='#FF0000'>Circulatory shock</font> stacks.\n\n<font color='#58ACFA'>2nd:</font> Lands body blow, dealing <font color='#A72E28'>%damage_2% physical damage</font>, <font color='#FF3399'>knockbacking</font>, <font color='#FF3399'>stunning</font> the target for <font color='#FF3399'>%stun_duration%</font> seconds and applying 3 <font color='#FF0000'>Circulatory shock</font> stacks. If target hits a wall, it will take <font color='#FF0000'>200+3*Li Shuwen's strength</font> <font color='#A72E28'>additional physical damage</font>.\n\n<font color='#58ACFA'>3rd:</font> Smashes critical point with elbow, dealing <font color='#D1A951'>%damage_3_magical% base pure damage</font> and applies 5 <font color='#FF0000'>Circulatory shock</font> stacks.\n\n Each strike gets <font color='#FFFAFA'>additional damage</font> equal to %damage_2_physical%% of Li Shuwen's <font color='#FFFAFA'>base attack damage</font>.\n\nIf three strikes sequence was sucessful then <font color='#FFFAFA'>cooldown of this ability will be reduced</font>.<font color='#F1C40F'>\n\n<font color='#F1C40F'>Upgradable by attribute: Improve Martial Arts, Berserk and Furious Chain</font>."
+        "DOTA_Tooltip_Ability_lishuwen_tiger_strike_Description"		"<font color='#FFFAFA'>Cast point:</font><font color='#7FFF00'>0.25</font> | </font><font color='#7FFF00'>0.3</font> | </font><font color='#7FFF00'>0.35</font> \n\nPerforms up to 3 ferocious strikes, each with different effects.\n\n<font color='#58ACFA'>1st:</font> Dashes to the target, dealing <font color='#58ACFA'>%damage_1% magic damage</font>, <font color='#9400D3'>slowing</font> the target by <font color='#9400D3'>%slow_amount%</font>% for <font color='#9400D3'>%slow_duration%</font> seconds and applying 3 <font color='#FF0000'>Circulatory shock</font> stacks.\n\n<font color='#58ACFA'>2nd:</font> Lands body blow, dealing <font color='#A72E28'>%damage_2% physical damage</font>, if ability is set to autocast, <font color='#FF3399'>knockbacking</font>, <font color='#FF3399'>stunning</font> the target for <font color='#FF3399'>%stun_duration%</font> seconds and applying 3 <font color='#FF0000'>Circulatory shock</font> stacks. If target hits a wall, it will take <font color='#FF0000'>200+3*Li Shuwen's strength</font> <font color='#A72E28'>additional physical damage</font>.\n\n<font color='#58ACFA'>3rd:</font> Smashes critical point with elbow, dealing <font color='#D1A951'>%damage_3_magical% base pure damage</font> and applies 5 <font color='#FF0000'>Circulatory shock</font> stacks.\n\n Each strike gets <font color='#FFFAFA'>additional damage</font> equal to %damage_2_physical%% of Li Shuwen's <font color='#FFFAFA'>base attack damage</font>.\n\nIf three strikes sequence was sucessful then <font color='#FFFAFA'>cooldown of this ability will be reduced</font>.<font color='#F1C40F'>\n\n<font color='#F1C40F'>Upgradable by attribute: Improve Martial Arts, Berserk and Furious Chain</font>."
         "DOTA_Tooltip_Ability_lishuwen_tiger_strike_Lore"									"The pinnacle of Bajiquan, the tiger's furious clawing specializes in crushing physical object to ashes."
         "DOTA_Tooltip_Ability_lishuwen_tiger_strike_Note0"									"3rd strike damage is calculated based on the damage dealt by first 2 strikes, regardles of the whether it were different or the same targets"
         //"DOTA_Tooltip_Ability_lishuwen_fierce_tiger_strike_first_strike_cast_delay"		"FIRST STRIKE CAST DELAY:"
@@ -6142,14 +6149,14 @@
 
         //attribute
         "DOTA_Tooltip_Ability_lishuwen_attribute_circulatory_shock"					"Attribute: Circulatory Shock"
-        "DOTA_Tooltip_Ability_lishuwen_attribute_circulatory_shock_Description"		"Removes delayed damage from No Second Strike.\nIncreases the initial damage by amount equal to the delayed damage and 0.2*target's missing health.\n Increases damage per <font color='#FF0000'>Circulatory shock</font>stacks by 10.\nEnemies killed by No Second Strike will have their master lose 1 mana."
+        "DOTA_Tooltip_Ability_lishuwen_attribute_circulatory_shock_Description"		"Increases the  damage of No Second Strike both impacts by amount equal to 0.2*target's missing health.\n Increases damage per <font color='#FF0000'>Circulatory shock</font>stacks by 8.\nEnemies killed by No Second Strike will have their master lose 1 mana.\nNow all enemies hit get shock effect, but only first target is revoked."
         //"DOTA_Tooltip_Ability_lishuwen_attribute_circulatory_shock_knockback_damage"	"KNOCKBACK PURE DAMAGE:"
         //"DOTA_Tooltip_Ability_lishuwen_attribute_circulatory_shock_knockback_distance"	"KNOCKBACK DISTANCE:"
         //"DOTA_Tooltip_Ability_lishuwen_attribute_circulatory_shock_mana_void_damage"	"%Mana Void Damage:"
         "DOTA_Tooltip_Ability_lishuwen_attribute_circulatory_shock_stun_duration"		"Stun Duration: "
 
         "DOTA_Tooltip_Ability_lishuwen_attribute_improve_martial_arts"					"Attribute: Improve Martial Arts"
-        "DOTA_Tooltip_Ability_lishuwen_attribute_improve_martial_arts_Description"		"Presence Concealment has increased charges and deals more damage.\n While under Presence Concealment, No Second Strike's has increased cooldown recovery speed.\nLi Shuwen's attacks and Fierce Tiger Strikes burn mana, dealing additional physical damage equal to mana burned."
+        "DOTA_Tooltip_Ability_lishuwen_attribute_improve_martial_arts_Description"		"Presence Concealment has increased charges and deals more damage.\n While under Presence Concealment, No Second Strike's has <font color='#FFFAFA'>increased cooldown recovery speed</font>.\nLi Shuwen's attacks and Fierce Tiger Strikes burn mana, dealing additional <font color='#A72E28'>physical damage</font> equal to mana burned.\nUpgrades Martial Arts, making Li Shuwen attacks deal additional <font color='#58ACFA'>magical damage</font>, equal to <font color='#FFFAFA'>3.5%%</font> of their maximum health if target is under  <font color='#B60A1A'>Mark of Fatality</font>."
 
         "DOTA_Tooltip_Ability_lishuwen_attribute_improve_martial_arts_bonus_attack"		"NUMBER OF ATTACKS:"
         "DOTA_Tooltip_Ability_lishuwen_attribute_improve_martial_arts_bonus_damage"		"%BONUS DAMAGE:"
@@ -6158,7 +6165,7 @@
         //"DOTA_Tooltip_Ability_lishuwen_attribute_improve_martial_arts_damage_percentage"	"%ADDITIONAL DAMAGE ON BASE ATTACK:"
 
         "DOTA_Tooltip_Ability_lishuwen_attribute_dual_class"				"Attribute: Dual Class"
-        "DOTA_Tooltip_Ability_lishuwen_attribute_dual_class_Description"	"Enables Berserk.\n<font color='#58ACFA'>Berserk:</font>  Li Shuwen becomes <font color='#B60A1A'>enraged</font>, <font color='#FF9900'>removing all negative and crowd control effects</font> on himself and becoming <font color='#FF9900'>immune</font> to them for a short duration.\n\n Li Shuwen gains <font color='#FFFAFA'>critical strike chance</font> which increased based on his <font color='#FF0000'>strength</font>. \n\nThis ability can be cast only when Li Shuwen is <font color='#FF3399'>not revoked</font> from Master.\n\nDuring this effect, Fierce Tiger Strikes have <font color='#FFFAFA'>increased attack damage scaling</font>. \n\nLi Shuwen's <font color='#FFFAFA'>No Second Strike</font> will deal physical damage during this effect."
+        "DOTA_Tooltip_Ability_lishuwen_attribute_dual_class_Description"	"Enables Berserk.\n<font color='#58ACFA'>Berserk:</font>  Li Shuwen becomes <font color='#B60A1A'>enraged</font>, <font color='#FF9900'>removing all negative and crowd control effects</font> on himself and becoming <font color='#FF9900'>immune</font> to them for a short duration.\n\n Li Shuwen gains <font color='#FFFAFA'>attack damage</font> equal to his <font color='#FF0000'>strength</font>. \n\nThis ability can be cast only when Li Shuwen is <font color='#FF3399'>not revoked</font> from Master.\n\nDuring this effect, Fierce Tiger Strikes have <font color='#FFFAFA'>increased attack damage scaling</font>. \n\nLi Shuwen's <font color='#FFFAFA'>No Second Strike</font> will deal physical damage during this effect."
 
         "DOTA_Tooltip_Ability_lishuwen_attribute_dual_class_duration"				"DURATION:"
         "DOTA_Tooltip_Ability_lishuwen_attribute_dual_class_cc_immune_duration"		"IMMUNITY DURATION:"
@@ -6182,7 +6189,7 @@
 
 
         "DOTA_Tooltip_Ability_lishuwen_attribute_new"					"Attribute: Shock paralysis"
-        "DOTA_Tooltip_Ability_lishuwen_attribute_new_Description"		"Upgrades <font color='#FF0000'>Circulatory shock</font> effect, making it apply debuffs based on stack count.\nOn 10 or more stacks, <font color='#FF0000'>Circulatory shock</font> reduces enemy magical damage dealth.\nOn 25 or more stacks enemies are slowed and get reduced healing.\nOn 50 stacks enemies have their magic resistance and armor reduced, they receive even less healing and deal even less magical damage."
+        "DOTA_Tooltip_Ability_lishuwen_attribute_new_Description"		"Upgrades <font color='#FF0000'>Circulatory shock</font> effect, making it apply debuffs based on stack count.\nOn 10 or more stacks, <font color='#FF0000'>Circulatory shock</font> reduces enemy magical damage .\nOn 25 or more stacks enemies are slowed and get reduced healing.\nOn 50 stacks enemies have their magic resistance and armor reduced, they receive even less healing and deal even less magical damage."
         "DOTA_Tooltip_Ability_lishuwen_attribute_new_magical_damage_reduction_1"			"%Magical damage reduction:"
         "DOTA_Tooltip_Ability_lishuwen_attribute_new_magical_damage_reduction_2"		"%Powerful magical damage reduction:"
         "DOTA_Tooltip_Ability_lishuwen_attribute_new_slow_power"			"%Slow power:"
@@ -7207,7 +7214,7 @@
 
 
 		"DOTA_Tooltip_ability_leonidas_pride"													"Shield wall"
-		"DOTA_Tooltip_ability_leonidas_pride_Description"										"Leonidas enters defence stance, locking himself on one place and gaining barrier, based on amount of allies inside, for a duration.\nWhile Leonidas is in the stance, all allies around him translate all damage taken to him.\nWhen barrier depletes, ability ends.\nOn cast, Leonidas comsumes all barriers he gave to his teammates into this one shield, as well as portion of barrier of his soldiers.\nSoldiers will die, when ability ends.\nALL AOE damage is dealth only ONCE if it hits units inside shield wall at one moment.\nWhile wall persists, Leonidas and all of his soldiers will attack enemies in front of the wall, dealing damage over time.\n[BERSERKED] dealth additional physical damage, based on Leonidas attack."
+		"DOTA_Tooltip_ability_leonidas_pride_Description"										"Leonidas enters defence stance, locking himself on one place and gaining barrier, based on amount of allies inside, for a duration.\nWhile Leonidas is in the stance, all allies around him translate all damage taken to him.\nWhen barrier depletes, ability ends.\nOn cast, Leonidas comsumes all barriers he gave to his teammates into this one shield, as well as portion of barrier of his soldiers.\nSoldiers will die, when ability ends.\nALL AOE damage is dealt only ONCE if it hits units inside shield wall at one moment.\nWhile wall persists, Leonidas and all of his soldiers will attack enemies in front of the wall, dealing damage over time.\n[BERSERKED] dealt additional physical damage, based on Leonidas attack."
 		"DOTA_Tooltip_ability_leonidas_pride_Note0"												""
 		"DOTA_Tooltip_ability_leonidas_pride_radius"										"RADIUS:"
 		"DOTA_Tooltip_ability_leonidas_pride_counter_duration"								"DURATION:"
@@ -8123,7 +8130,7 @@
 
 		
 		"DOTA_Tooltip_ability_karna_mana_burst_attribute"					"Uncrowned martial arts"
-		"DOTA_Tooltip_ability_karna_mana_burst_attribute_Description" 		"When karna hits at least one enemy with both Martial arts: Slashes hits, its cooldown will be lowered to 1 second.\nWhen Karna hits enemies with his Martial arts, Martial arts: Spin, Martial arts: Slashes and Martial arts: Dash, he will apply a stacking effect on enemy, when this effect reaches 5 stacks, enemy will be <font color='#FF3399'>stunned</font>  and dealth bonus damage, based on  Karna's <font color='#1E90FF'>intellect</font> as <font color='#58ACFA'>magical</font>, then the stacks are removed."
+		"DOTA_Tooltip_ability_karna_mana_burst_attribute_Description" 		"When karna hits at least one enemy with both Martial arts: Slashes hits, its cooldown will be lowered to 1 second.\nWhen Karna hits enemies with his Martial arts, Martial arts: Spin, Martial arts: Slashes and Martial arts: Dash, he will apply a stacking effect on enemy, when this effect reaches 5 stacks, enemy will be <font color='#FF3399'>stunned</font>  and dealt bonus damage, based on  Karna's <font color='#1E90FF'>intellect</font> as <font color='#58ACFA'>magical</font>, then the stacks are removed."
 		"DOTA_Tooltip_ability_karna_mana_burst_attribute_damage_per_int"	"Damage per INT:"
 		"DOTA_Tooltip_ability_karna_mana_burst_attribute_stacks_duration"	"Stacks duration:"
 		"DOTA_Tooltip_ability_karna_mana_burst_attribute_stun_duration"		"Stun Duration:"
@@ -9440,13 +9447,22 @@
         "DOTA_Tooltip_ability_hijikata_dash_Lore"										"Battlefield with a lot of men is where Hijikata shines the best, being able to find perfect opportunity to strike down even the most guarded target."
 
         "DOTA_Tooltip_ability_hijikata_demon"							"Demon of the battlefield"
-        "DOTA_Tooltip_ability_hijikata_demon_Description"			"Cast Point: <font color='#FFFFF9'>0.2</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Hijikata blinks to the target enemy, dealing <font color='#58ACFA'>magical</font> damage to the target and gains buff, which increases his <font color='#FFFAFA'>attack speed</font> by a flat value and grants him special <font color='#ff9900'>on hit damage</font> effect.\nThis effect deals percentage of difference between Hijikata and enemy <font color='#ACFF05'>health</font> plus base damage  as <font color='#58ACFA'>magical</font> damage on every attack for a duration."
+        "DOTA_Tooltip_ability_hijikata_demon_Description"			"Cast Point: <font color='#FFFFF9'>0.2</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Hijikata blinks to the target enemy, dealing <font color='#58ACFA'>magical</font> damage to the target and gains buff, which increases his <font color='#FFFAFA'>attack speed</font> by a flat value and grants him special <font color='#ff9900'>on hit damage</font> effect.\nThis effect deals percentage of difference between Hijikata and enemy <font color='#ACFF05'>health</font> plus base damage  as <font color='#58ACFA'>magical</font> damage on every attack for a duration.\nAllows to recast this ability after usage."
         "DOTA_Tooltip_ability_hijikata_demon_damage"								"Damage:"
         "DOTA_Tooltip_ability_hijikata_demon_buff_duration"							"Buff duration:"
         "DOTA_Tooltip_ability_hijikata_demon_as_value"								"Attack speed bonus:"
         "DOTA_Tooltip_ability_hijikata_demon_hp_percentage_diff_to_damage"			"%Health difference to damage:"
         "DOTA_Tooltip_ability_hijikata_demon_base_damage"			"Base on-hit damage"
         "DOTA_Tooltip_ability_hijikata_demon_Lore"										"The way Hijikata fights, just like that of a demon, sometimes strikes fear even towards his allies. No matter how bad his condition is, his power never withers."
+
+
+
+        "DOTA_Tooltip_ability_hijikata_demon_recast"							"Demon of the battlefield"
+        "DOTA_Tooltip_ability_hijikata_demon_recast_Description"			"Cast Point: <font color='#FFFFF9'>0.2</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Hijikata slashes twice in front of him, dealing <font color='#58ACFA'>magical</font> damage to all targets hit, if strikes hit at least one enemy, Hijikata heals."
+        "DOTA_Tooltip_ability_hijikata_demon_recast_damage"								"Damage:"
+        "DOTA_Tooltip_ability_hijikata_demon_recast_radius"							"Radius:"
+        "DOTA_Tooltip_ability_hijikata_demon_recast_heal"								"%Heal from MAX HP:"
+ 
 
         "DOTA_Tooltip_ability_hijikata_duel"							"Duel"
         "DOTA_Tooltip_ability_hijikata_duel_Description"			"Cast Point: <font color='#FFFFF9'>0.3</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Hijikata declares <font color='#ff9900'>Duel</font> to the target enemy, creating a <font color='#FFFAFA'>territory</font> which him and his enemy <font color='#FF3399'>cannot leave</font> for a duration, or until one of them <font color='#FF3399'>dies</font>.\nWhile Duel persists, effects apply:\nHijikata and his target deal <font color='#FFFAFA'>more</font> damage to each other\nHijikata takes <font color='#FFFAFA'>less</font> damage from all other enemies\nHijikata deals <font color='#FFFAFA'>less</font> damage to all other enemies.\nOnly one duel can persist at a time."
@@ -9473,8 +9489,9 @@
         "DOTA_Tooltip_ability_hijikata_laws_Lore"							"Even after he threw away his pride as a warrior, Hijikata still aspired to be Shinsengumi, because of that he renders insane when he breaks the codex, up until he is not able to move anymore."
 
         "DOTA_Tooltip_ability_hijikata_ult"							"Shinsengumi"
-        "DOTA_Tooltip_ability_hijikata_ult_Description"			"Cast Point: <font color='#FFFFF9'>0</font>s. Cast Delay: <font color='#FFFFF9'>%delay%</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Hijikata shoots his gun after a delay, dealing <font color='#58ACFA'>magical</font> damage to all enemies hit, applying a <font color='#9400D3'>slow</font> debuff for a short duration.\nDamage is increased based on Hijikata's lost health percentage, for up to %max_damage_pct_self%%.\nHijikata is pushed back after shooting."
+        "DOTA_Tooltip_ability_hijikata_ult_Description"			"Cast Point: <font color='#FFFFF9'>0</font>s. Cast Delay: <font color='#FFFFF9'>%delay%</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Hijikata shoots his gun after a delay, dealing <font color='#58ACFA'>magical</font> damage to all enemies hit, increased by Hijikata's attack, applying a <font color='#9400D3'>slow</font> debuff for a short duration.\nDamage is increased based on Hijikata's lost health percentage, for up to %max_damage_pct_self%%.\nHijikata is pushed back after shooting."
         "DOTA_Tooltip_ability_hijikata_ult_damage"							"Damage:"
+        "DOTA_Tooltip_ability_hijikata_ult_attack_damage_mod"				"%Attack damage:"
         "DOTA_Tooltip_ability_hijikata_ult_duration"						"Slow duration:"
         "DOTA_Tooltip_ability_hijikata_ult_distance"						"Range:"
         "DOTA_Tooltip_ability_hijikata_ult_knockback_distance"						"Knockback distance:"
@@ -9521,7 +9538,7 @@
 
 	
 		"DOTA_Tooltip_ability_hijikata_shinsengumi_attribute"							"Return to office"
-        "DOTA_Tooltip_ability_hijikata_shinsengumi_attribute_Description"				"Upgrades <font color='#58ACFA'>Duel</font>, making it increase all allies inside <font color='#FFFAFA'>armor</font>, <font color='#FFFAFA'>magic resistance</font> and <font color='#FFFAFA'>movement speed</font> and granting <font color='#ff9900'>disengage</font> effect to the winner of duel.\n<font color='#ff9900'>Disengage</font>: Grants powerfull health and mana regeneration buff.\nUpgrades <font color='#58ACFA'>Shinsengumi</font>, making it refresh cooldown of <font color='#58ACFA'>Madman shot</font>, when any enemy is hit.\n<font color='#58ACFA'>Madman shot</font> and <font color='#58ACFA'>Demon of the battlefield</font>  deal additional physical damage equal to Hijikata's attack"
+        "DOTA_Tooltip_ability_hijikata_shinsengumi_attribute_Description"				"Upgrades <font color='#58ACFA'>Duel</font>, making it increase all allies inside <font color='#FFFAFA'>armor</font>, <font color='#FFFAFA'>magic resistance</font> and <font color='#FFFAFA'>movement speed</font> and granting <font color='#ff9900'>disengage</font> effect to the winner of duel.\n<font color='#ff9900'>Disengage</font>: Grants powerfull health and mana regeneration buff.\nUpgrades <font color='#58ACFA'>Shinsengumi</font>, making it refresh cooldown of <font color='#58ACFA'>Madman shot</font>, when any enemy is hit.\n<font color='#58ACFA'>Madman shot</font> and <font color='#58ACFA'>Demon of the battlefield</font>  deal additional magical damage equal to Hijikata's attack"
         "DOTA_Tooltip_ability_hijikata_shinsengumi_attribute_armor"								"Duel armor:"
         "DOTA_Tooltip_ability_hijikata_shinsengumi_attribute_mr"								"%Duel magic resistance:"
         "DOTA_Tooltip_ability_hijikata_shinsengumi_attribute_ms"								"%Duel movement speed:"

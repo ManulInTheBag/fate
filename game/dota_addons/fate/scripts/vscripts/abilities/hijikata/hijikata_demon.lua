@@ -1,5 +1,14 @@
 hijikata_demon = class({})
 
+function hijikata_demon:OnUpgrade()
+	local caster = self:GetCaster()
+    
+    if caster:FindAbilityByName("hijikata_demon_recast"):GetLevel() ~= self:GetLevel() then
+    	caster:FindAbilityByName("hijikata_demon_recast"):SetLevel(self:GetLevel())
+    end
+
+end
+
 LinkLuaModifier("modifier_demon_buff_hijikata", "abilities/hijikata/hijikata_demon", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_hijikata_attack_sound","abilities/hijikata/hijikata_demon", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_hijikata_slow", "abilities/hijikata/hijikata_demon", LUA_MODIFIER_MOTION_NONE)
@@ -94,7 +103,7 @@ function hijikata_demon:OnSpellStart()
 
 	DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
 	if caster.IsShinsengumiAcquired then
-		DoDamage(caster, target, caster:GetAttackDamage(), DAMAGE_TYPE_PHYSICAL, 0, self, false)
+		DoDamage(caster, target, caster:GetAverageTrueAttackDamage(hCaster), DAMAGE_TYPE_MAGICAL, 0, self, false)
 	end
 	if caster.IsHijikataTacticsAcquired then
 		target:AddNewModifier(caster, self, "modifier_hijikata_slow", { duration = self:GetSpecialValueFor("slow_duration")})
@@ -122,6 +131,19 @@ function hijikata_demon:OnSpellStart()
 		ParticleManager:DestroyParticle( particle, false )
 		ParticleManager:ReleaseParticleIndex( particle )
 	end)
+
+	print(caster:GetAbilityByIndex(1):GetName())
+	if caster:GetAbilityByIndex(1):GetName() == "hijikata_demon"  then
+		caster:SwapAbilities("hijikata_demon", "hijikata_demon_recast", false, true)
+		Timers:CreateTimer("hijik_recast_w_window", {
+			endTime = 2,
+			callback = function()
+			if caster:GetAbilityByIndex(1):GetName() == "hijikata_demon_recast"  then
+				caster:SwapAbilities("hijikata_demon", "hijikata_demon_recast", true, false)
+			end
+			return end
+		})
+	end
 end
 
 modifier_demon_buff_hijikata = class({})

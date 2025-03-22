@@ -29,6 +29,11 @@ function hijikata_duel:OnSpellStart()
     self.caster:AddNewModifier(self.caster, self, "modifier_hijikata_duel", { duration = duration,auraRadius = radius})
 
 
+	self.part1 = ParticleManager:CreateParticle( "particles/zlodemon/zlodemon_overhead_duel.vpcf", PATTACH_OVERHEAD_FOLLOW, self.caster )
+    ParticleManager:SetParticleControl( self.part1, 0,self.caster:GetAbsOrigin())
+	self.part2 = ParticleManager:CreateParticle( "particles/zlodemon/zlodemon_overhead_duel.vpcf", PATTACH_OVERHEAD_FOLLOW,  self.target )
+    ParticleManager:SetParticleControl( self.part2, 0,  self.target:GetAbsOrigin())
+
     --EmitSoundOnLocationWithCaster(targetpos, "hijikata_prepare_for_battle", self.caster)
 	self.caster:EmitSound("hijikata_prepare_for_battle")
 	AddFOWViewer(2, targetpos, radius, duration, false)
@@ -69,6 +74,14 @@ function hijikata_duel:RemoveDuel(winner)
 	if self.castfx then 
 		ParticleManager:DestroyParticle(self.castfx, false)
 		ParticleManager:ReleaseParticleIndex(self.castfx)
+	end
+	if self.part1 then 
+		ParticleManager:DestroyParticle(self.part1, true)
+		ParticleManager:ReleaseParticleIndex(self.part1)
+	end
+	if self.part2 then 
+		ParticleManager:DestroyParticle(self.part2, true)
+		ParticleManager:ReleaseParticleIndex(self.part2)
 	end
 	self:DeclareWinner(winner)
 	if self.AuraDummy ~= nil and not self.AuraDummy:IsNull() then 
@@ -292,6 +305,7 @@ function modifier_hijikata_duel:OnCreated()
     self.parent = self:GetParent()
     self.hijikata = self:GetAbility().caster
     self.initialTarget = self:GetAbility().target
+
 end
 
 function modifier_hijikata_duel:RemoveOnDeath()

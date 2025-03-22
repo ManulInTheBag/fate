@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc36:version{972dada4-b828-45a4-bb93-7795cf0585da} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc39:version{1ceecb0d-4093-4729-ab18-b76886c64cde} -->
 {
 	rootNode = 
 	{
@@ -112,6 +112,7 @@
 					{
 						_class = "AnimFile"
 						name = "pepeg_idle"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_IDLE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -134,6 +135,7 @@
 					{
 						_class = "AnimFile"
 						name = "pepeg_slap"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_3"
 						activity_weight = 1
 						weight_list_name = ""
@@ -156,6 +158,7 @@
 					{
 						_class = "AnimFile"
 						name = "pepeg_spin"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_OVERRIDE_ABILITY_4"
 						activity_weight = 1
 						weight_list_name = ""
@@ -178,6 +181,7 @@
 					{
 						_class = "AnimFile"
 						name = "pepeg_berserk"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_4"
 						activity_weight = 1
 						weight_list_name = ""
@@ -200,6 +204,7 @@
 					{
 						_class = "AnimFile"
 						name = "pepeg_death"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_DIE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -222,6 +227,7 @@
 					{
 						_class = "AnimFile"
 						name = "pepeg_fly"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_OVERRIDE_ABILITY_3"
 						activity_weight = 1
 						weight_list_name = ""
@@ -251,6 +257,7 @@
 					{
 						_class = "AnimFile"
 						name = "pepeg_fissure"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_1"
 						activity_weight = 1
 						weight_list_name = ""
@@ -274,6 +281,7 @@
 						_class = "AnimFile"
 						name = "pepeg_fissure_bers"
 						disabled = true
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_OVERRIDE_ABILITY_1"
 						activity_weight = 1
 						weight_list_name = ""
@@ -296,6 +304,7 @@
 					{
 						_class = "AnimFile"
 						name = "pepeg_fuck_you"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_OVERRIDE_ABILITY_2"
 						activity_weight = 1
 						weight_list_name = ""
@@ -318,6 +327,7 @@
 					{
 						_class = "AnimFile"
 						name = "peeporun"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_RUN"
 						activity_weight = 1
 						weight_list_name = ""
@@ -340,6 +350,7 @@
 					{
 						_class = "AnimFile"
 						name = "pepeg_attack"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_ATTACK"
 						activity_weight = 1
 						weight_list_name = ""
@@ -362,6 +373,7 @@
 					{
 						_class = "AnimFile"
 						name = "pepeg_attack1"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_ATTACK2"
 						activity_weight = 1
 						weight_list_name = ""
@@ -384,6 +396,7 @@
 					{
 						_class = "AnimFile"
 						name = "pepeg_stunned"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_DISABLED"
 						activity_weight = 1
 						weight_list_name = ""
@@ -406,6 +419,7 @@
 					{
 						_class = "AnimFile"
 						name = "pepeg_stunned1"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_DISABLED"
 						activity_weight = 1
 						weight_list_name = ""
@@ -428,6 +442,7 @@
 					{
 						_class = "AnimFile"
 						name = "pepeg_cast_nine"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_6"
 						activity_weight = 1
 						weight_list_name = ""
@@ -451,6 +466,7 @@
 						_class = "AnimFile"
 						name = "pepeg_temp"
 						disabled = true
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_6"
 						activity_weight = 1
 						weight_list_name = ""
@@ -469,6 +485,36 @@
 						end_frame = 957
 						framerate = 30.0
 						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "pepeg_spin1"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CAST_ABILITY_ROT"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/zlodemon/heracless.fbx"
+						import_bone_scales = false
+						start_frame = 841
+						end_frame = 900
+						framerate = 115.0
+						reverse = false
+						anim_hold_list = 
+						[
+							{
+								frame = 900
+								frame_count = 10
+							},
+						]
 					},
 				]
 				default_root_bone_name = ""

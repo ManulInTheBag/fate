@@ -65,7 +65,7 @@ function hijikata_dash:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
  	 if(hTarget ~= nil) then
 	 DoDamage(hCaster, hTarget, tData.fDamage, DAMAGE_TYPE_MAGICAL, 0, self, false)
 	 if hCaster.IsShinsengumiAcquired then
-		DoDamage(hCaster, hTarget, hCaster:GetAttackDamage(), DAMAGE_TYPE_PHYSICAL, 0, self, false)
+		DoDamage(hCaster, hTarget, hCaster:GetAverageTrueAttackDamage(hCaster), DAMAGE_TYPE_MAGICAL, 0, self, false)
 	end
 	 if hCaster:GetHealth() < hCaster:GetMaxHealth() then
 		local diff = hCaster:GetMaxHealth() - hCaster:GetHealth()

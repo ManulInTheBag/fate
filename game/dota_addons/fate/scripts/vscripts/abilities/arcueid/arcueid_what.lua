@@ -53,15 +53,17 @@ function arcueid_what:OnSpellStart()
 end
 
 function arcueid_what:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
-	ParticleManager:DestroyParticle(self.hook_particle, false)
-  	ParticleManager:ReleaseParticleIndex(self.hook_particle)
-  	self.active = false
+
+  
 	if hTarget == nil or self.hitenemy then --ты можешь подумать что я насрал и если инстом кинуть два ножа можно словить баг, но ты его и так ловил, удаляя ласт нож если хитнул любой из них так что похуй
   		return
   	end
   	if (hTarget:GetName() == "npc_dota_ward_base") then
   		return
   	end
+    self.active = false
+	ParticleManager:DestroyParticle(self.hook_particle, false)
+  	ParticleManager:ReleaseParticleIndex(self.hook_particle)
   	local hCaster = self:GetCaster()
   	
   	EmitSoundOn("arcueid_hit", hTarget)

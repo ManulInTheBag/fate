@@ -40,7 +40,7 @@ function modifier_courage_self_buff:GetModifierIncomingDamage_Percentage()
 end
 
 function modifier_courage_self_buff:GetModifierBonusStats_Strength()
-	return (self:GetAbility():GetSpecialValueFor("self_str_inc")*self:GetStackCount() --+ self:GetAbility():GetSpecialValueFor("self_str_inc_base")*(self:GetParent().IsEternalRageAcquired and 1 or 0))
+	return (self:GetAbility():GetSpecialValueFor("self_str_inc")*self:GetStackCount()) --+ self:GetAbility():GetSpecialValueFor("self_str_inc_base")*(self:GetParent().IsEternalRageAcquired and 1 or 0))
 end
 
 --[[function modifier_courage_self_buff:GetModifierPhysicalArmorBonus()

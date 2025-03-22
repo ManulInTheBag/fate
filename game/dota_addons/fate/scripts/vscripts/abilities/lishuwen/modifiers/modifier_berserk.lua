@@ -114,5 +114,5 @@ function modifier_shuwen_berserk_cc_immune:CheckState()
 end
 
 function modifier_berserk:IsHidden()
-	return true
+	return false
 end
