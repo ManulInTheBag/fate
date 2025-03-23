@@ -56,7 +56,10 @@ function arcueid_what:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
 
   
 	if hTarget == nil or self.hitenemy then --ты можешь подумать что я насрал и если инстом кинуть два ножа можно словить баг, но ты его и так ловил, удаляя ласт нож если хитнул любой из них так что похуй
-  		return
+		self.active = false
+		ParticleManager:DestroyParticle(self.hook_particle, false)
+		ParticleManager:ReleaseParticleIndex(self.hook_particle)
+		return
   	end
   	if (hTarget:GetName() == "npc_dota_ward_base") then
   		return

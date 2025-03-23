@@ -390,7 +390,7 @@ function AttackFam(keys)
 end
 
 
-
+LinkLuaModifier("modifier_ward_invis", "items/sentry_familiar", LUA_MODIFIER_MOTION_NONE)
 function BecomeWard(keys)
 	local caster = keys.caster
 	local origin = caster:GetAbsOrigin()
@@ -411,7 +411,8 @@ function BecomeWard(keys)
 	local wardPos = transform:GetAbsOrigin()
 	transform:SetDayTimeVisionRange(375)
 	transform:SetNightTimeVisionRange(375)
-	transform:AddNewModifier(hero, hero, "modifier_invisible", {})
+	--transform:AddNewModifier(hero, hero, "modifier_invisible", {})
+	transform:AddNewModifier(hero, hero, "modifier_ward_invis", {})
 	transform:AddNewModifier(hero, hero, "modifier_item_ward_true_sight", {true_sight_range = 1400, duration = 30})
 	transform:AddNewModifier(hero, hero, "modifier_kill", {duration = 30})
 	giveUnitDataDrivenModifier(hero, transform, "modifier_ward_dmg_reduce", {duration = 30})
