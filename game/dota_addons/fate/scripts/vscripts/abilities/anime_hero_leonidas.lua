@@ -3152,7 +3152,8 @@ function modifier_leonidas_enomotia_slow:OnCreated(tTable)
         end
 
         if ( tTable.nStunned or 0 ) > 0 then
-            giveUnitDataDrivenModifier(self.hCaster, self.hParent, "stunned", self.nDuration)
+
+            giveUnitDataDrivenModifier(self.hCaster, self.hParent, "stunned", self.hAbility:GetSpecialValueFor("berserk_stun"))
         end
 
         if ( tTable.nSilenced or 0 ) > 0 then

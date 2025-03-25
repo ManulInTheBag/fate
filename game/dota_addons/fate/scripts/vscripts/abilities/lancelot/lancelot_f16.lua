@@ -83,7 +83,7 @@ function lancelot_f16:OnSpellStart()
 			
 			-- Level abilities
 	f16:FindAbilityByName("lancelot_f16_barrage"):SetLevel(caster:FindAbilityByName("lancelot_minigun"):GetLevel())
-	f16:FindAbilityByName("lancelot_f16_nuke"):SetLevel(caster:FindAbilityByName("lancelot_double_edge"):GetLevel())
+	f16:FindAbilityByName("lancelot_f16_nuke"):SetLevel(caster:FindAbilityByName("lancelot_parry"):GetLevel())
     f16:FindAbilityByName("lancelot_f16_mana"):SetLevel(caster:FindAbilityByName("lancelot_knight_of_honor"):GetLevel())  
 	f16:FindAbilityByName("lancelot_f16_forward"):SetLevel(caster:FindAbilityByName("lancelot_arondite"):GetLevel())
     f16:AddNewModifier(caster, caster:FindAbilityByName("lancelot_minigun"), "modifier_lancelot_minigun_f16", { duration = 30.0 })

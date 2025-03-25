@@ -2,14 +2,11 @@
 {
 	_class = "CParticleSystemDefinition"
 	m_bShouldHitboxesFallbackToRenderBounds = false
-	m_nMaxParticles = 100
-	m_BoundingBoxMin = [ -10.0, -10.0, 300.0 ]
-	m_BoundingBoxMax = [ 100.0, 100.0, 300.0 ]
-	m_flConstantRadius = 1.0
-	m_ConstantColor = [ 213, 0, 0, 255 ]
+	m_nMaxParticles = 20
+	m_flConstantRadius = 200.0
+	m_flStopSimulationAfterTime = 100000000.0
 	m_nBehaviorVersion = 12
 	m_nFirstMultipleOverride_BackwardCompat = 5
-	m_flConstantLifespan = 3.0
 	m_controlPointConfigurations = 
 	[
 		{
@@ -20,7 +17,32 @@
 					m_iAttachType = "PATTACH_WORLDORIGIN"
 					m_entityName = "self"
 				},
+				{
+					m_iControlPoint = 1
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
 			]
+		},
+	]
+	m_PreEmissionOperators = 
+	[
+		{
+			_class = "C_OP_SetControlPointOrientation"
+			m_vecRotation = [ 0.0, 90.0, 0.0 ]
+			m_vecRotationB = [ 0.0, 90.0, 0.0 ]
+		},
+		{
+			_class = "C_OP_SetControlPointPositions"
+			m_bUseWorldLocation = true
+			m_nCP1 = 5
+			m_nCP2 = 6
+			m_nCP3 = 7
+			m_nCP4 = 7
+			m_vecCP1Pos = [ 450.0, 0.0, 150.0 ]
+			m_vecCP2Pos = [ 30.0, 180.0, -30.0 ]
+			m_vecCP3Pos = [ 0.0, 0.0, 0.0 ]
+			m_vecCP4Pos = [ 0.0, 0.0, 0.0 ]
 		},
 	]
 	m_Emitters = 
@@ -30,8 +52,13 @@
 			m_flEmissionDuration = 
 			{
 				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 0.075
+			}
+			m_flStartTime = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
 				m_nMapType = "PF_MAP_TYPE_DIRECT"
-				m_flLiteralValue = 3.0
+				m_flLiteralValue = 0.025
 				m_NamedValue = ""
 				m_nControlPoint = 0
 				m_nScalarAttribute = 3
@@ -40,7 +67,6 @@
 				m_flRandomMin = 0.0
 				m_flRandomMax = 1.0
 				m_bHasRandomSignFlip = false
-				m_nRandomSeed = -1
 				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
 				m_flLOD0 = 0.0
 				m_flLOD1 = 0.0
@@ -60,8 +86,6 @@
 				m_flNoiseTurbulenceMix = 0.5
 				m_flNoiseImgPreviewScale = 1.0
 				m_bNoiseImgPreviewLive = true
-				m_flNoCameraFallback = 0.0
-				m_bUseBoundsCenter = false
 				m_nInputMode = "PF_INPUT_MODE_CLAMPED"
 				m_flMultFactor = 1.0
 				m_flInput0 = 0.0
@@ -72,7 +96,6 @@
 				m_flNotchedRangeMax = 1.0
 				m_flNotchedOutputOutside = 0.0
 				m_flNotchedOutputInside = 1.0
-				m_nRoundType = "PF_ROUND_TYPE_NEAREST"
 				m_nBiasType = "PF_BIAS_TYPE_STANDARD"
 				m_flBiasParameter = 0.0
 				m_Curve = 
@@ -86,58 +109,7 @@
 			m_flEmitRate = 
 			{
 				m_nType = "PF_TYPE_LITERAL"
-				m_nMapType = "PF_MAP_TYPE_DIRECT"
 				m_flLiteralValue = 200.0
-				m_NamedValue = ""
-				m_nControlPoint = 0
-				m_nScalarAttribute = 3
-				m_nVectorAttribute = 6
-				m_nVectorComponent = 0
-				m_flRandomMin = 0.0
-				m_flRandomMax = 1.0
-				m_bHasRandomSignFlip = false
-				m_nRandomSeed = -1
-				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
-				m_flLOD0 = 0.0
-				m_flLOD1 = 0.0
-				m_flLOD2 = 0.0
-				m_flLOD3 = 0.0
-				m_nNoiseInputVectorAttribute = 0
-				m_flNoiseOutputMin = 0.0
-				m_flNoiseOutputMax = 1.0
-				m_flNoiseScale = 0.1
-				m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
-				m_flNoiseOffset = 0.0
-				m_nNoiseOctaves = 1
-				m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
-				m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
-				m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
-				m_flNoiseTurbulenceScale = 1.0
-				m_flNoiseTurbulenceMix = 0.5
-				m_flNoiseImgPreviewScale = 1.0
-				m_bNoiseImgPreviewLive = true
-				m_flNoCameraFallback = 0.0
-				m_bUseBoundsCenter = false
-				m_nInputMode = "PF_INPUT_MODE_CLAMPED"
-				m_flMultFactor = 1.0
-				m_flInput0 = 0.0
-				m_flInput1 = 1.0
-				m_flOutput0 = 0.0
-				m_flOutput1 = 1.0
-				m_flNotchedRangeMin = 0.0
-				m_flNotchedRangeMax = 1.0
-				m_flNotchedOutputOutside = 0.0
-				m_flNotchedOutputInside = 1.0
-				m_nRoundType = "PF_ROUND_TYPE_NEAREST"
-				m_nBiasType = "PF_BIAS_TYPE_STANDARD"
-				m_flBiasParameter = 0.0
-				m_Curve = 
-				{
-					m_spline = [  ]
-					m_tangents = [  ]
-					m_vDomainMins = [ 0.0, 0.0 ]
-					m_vDomainMaxs = [ 0.0, 0.0 ]
-				}
 			}
 		},
 	]
@@ -149,7 +121,7 @@
 			{
 				m_nType = "PF_TYPE_LITERAL"
 				m_nMapType = "PF_MAP_TYPE_DIRECT"
-				m_flLiteralValue = 0.3
+				m_flLiteralValue = 0.75
 				m_NamedValue = ""
 				m_nControlPoint = 0
 				m_nScalarAttribute = 3
@@ -204,1131 +176,17 @@
 			m_nOutputField = 1
 		},
 		{
-			_class = "C_INIT_CreateWithinSphereTransform"
-			m_fRadiusMin = 
-			{
-				m_nType = "PF_TYPE_LITERAL"
-				m_nMapType = "PF_MAP_TYPE_DIRECT"
-				m_flLiteralValue = 30.0
-				m_NamedValue = ""
-				m_nControlPoint = 0
-				m_nScalarAttribute = 3
-				m_nVectorAttribute = 6
-				m_nVectorComponent = 0
-				m_flRandomMin = 0.0
-				m_flRandomMax = 1.0
-				m_bHasRandomSignFlip = false
-				m_nRandomSeed = -1
-				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
-				m_flLOD0 = 0.0
-				m_flLOD1 = 0.0
-				m_flLOD2 = 0.0
-				m_flLOD3 = 0.0
-				m_nNoiseInputVectorAttribute = 0
-				m_flNoiseOutputMin = 0.0
-				m_flNoiseOutputMax = 1.0
-				m_flNoiseScale = 0.1
-				m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
-				m_flNoiseOffset = 0.0
-				m_nNoiseOctaves = 1
-				m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
-				m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
-				m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
-				m_flNoiseTurbulenceScale = 1.0
-				m_flNoiseTurbulenceMix = 0.5
-				m_flNoiseImgPreviewScale = 1.0
-				m_bNoiseImgPreviewLive = true
-				m_flNoCameraFallback = 0.0
-				m_bUseBoundsCenter = false
-				m_nInputMode = "PF_INPUT_MODE_CLAMPED"
-				m_flMultFactor = 1.0
-				m_flInput0 = 0.0
-				m_flInput1 = 1.0
-				m_flOutput0 = 0.0
-				m_flOutput1 = 1.0
-				m_flNotchedRangeMin = 0.0
-				m_flNotchedRangeMax = 1.0
-				m_flNotchedOutputOutside = 0.0
-				m_flNotchedOutputInside = 1.0
-				m_nRoundType = "PF_ROUND_TYPE_NEAREST"
-				m_nBiasType = "PF_BIAS_TYPE_STANDARD"
-				m_flBiasParameter = 0.0
-				m_Curve = 
-				{
-					m_spline = [  ]
-					m_tangents = [  ]
-					m_vDomainMins = [ 0.0, 0.0 ]
-					m_vDomainMaxs = [ 0.0, 0.0 ]
-				}
-			}
-			m_fRadiusMax = 
-			{
-				m_nType = "PF_TYPE_LITERAL"
-				m_nMapType = "PF_MAP_TYPE_DIRECT"
-				m_flLiteralValue = 85.0
-				m_NamedValue = ""
-				m_nControlPoint = 0
-				m_nScalarAttribute = 3
-				m_nVectorAttribute = 6
-				m_nVectorComponent = 0
-				m_flRandomMin = 0.0
-				m_flRandomMax = 1.0
-				m_bHasRandomSignFlip = false
-				m_nRandomSeed = -1
-				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
-				m_flLOD0 = 0.0
-				m_flLOD1 = 0.0
-				m_flLOD2 = 0.0
-				m_flLOD3 = 0.0
-				m_nNoiseInputVectorAttribute = 0
-				m_flNoiseOutputMin = 0.0
-				m_flNoiseOutputMax = 1.0
-				m_flNoiseScale = 0.1
-				m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
-				m_flNoiseOffset = 0.0
-				m_nNoiseOctaves = 1
-				m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
-				m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
-				m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
-				m_flNoiseTurbulenceScale = 1.0
-				m_flNoiseTurbulenceMix = 0.5
-				m_flNoiseImgPreviewScale = 1.0
-				m_bNoiseImgPreviewLive = true
-				m_flNoCameraFallback = 0.0
-				m_bUseBoundsCenter = false
-				m_nInputMode = "PF_INPUT_MODE_CLAMPED"
-				m_flMultFactor = 1.0
-				m_flInput0 = 0.0
-				m_flInput1 = 1.0
-				m_flOutput0 = 0.0
-				m_flOutput1 = 1.0
-				m_flNotchedRangeMin = 0.0
-				m_flNotchedRangeMax = 1.0
-				m_flNotchedOutputOutside = 0.0
-				m_flNotchedOutputInside = 1.0
-				m_nRoundType = "PF_ROUND_TYPE_NEAREST"
-				m_nBiasType = "PF_BIAS_TYPE_STANDARD"
-				m_flBiasParameter = 0.0
-				m_Curve = 
-				{
-					m_spline = [  ]
-					m_tangents = [  ]
-					m_vDomainMins = [ 0.0, 0.0 ]
-					m_vDomainMaxs = [ 0.0, 0.0 ]
-				}
-			}
-			m_vecDistanceBias = 
-			{
-				m_nType = "PVEC_TYPE_LITERAL"
-				m_vLiteralValue = [ 1.0, 1.0, 0.2 ]
-				m_LiteralColor = [ 0, 0, 0 ]
-				m_NamedValue = ""
-				m_bFollowNamedValue = false
-				m_nVectorAttribute = 6
-				m_vVectorAttributeScale = [ 1.0, 1.0, 1.0 ]
-				m_nControlPoint = 0
-				m_nDeltaControlPoint = 0
-				m_vCPValueScale = [ 1.0, 1.0, 1.0 ]
-				m_vCPRelativePosition = [ 0.0, 0.0, 0.0 ]
-				m_vCPRelativeDir = [ 1.0, 0.0, 0.0 ]
-				m_FloatComponentX = 
-				{
-					m_nType = "PF_TYPE_LITERAL"
-					m_nMapType = "PF_MAP_TYPE_DIRECT"
-					m_flLiteralValue = 0.0
-					m_NamedValue = ""
-					m_nControlPoint = 0
-					m_nScalarAttribute = 3
-					m_nVectorAttribute = 6
-					m_nVectorComponent = 0
-					m_flRandomMin = 0.0
-					m_flRandomMax = 1.0
-					m_bHasRandomSignFlip = false
-					m_nRandomSeed = -1
-					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
-					m_flLOD0 = 0.0
-					m_flLOD1 = 0.0
-					m_flLOD2 = 0.0
-					m_flLOD3 = 0.0
-					m_nNoiseInputVectorAttribute = 0
-					m_flNoiseOutputMin = 0.0
-					m_flNoiseOutputMax = 1.0
-					m_flNoiseScale = 0.1
-					m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
-					m_flNoiseOffset = 0.0
-					m_nNoiseOctaves = 1
-					m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
-					m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
-					m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
-					m_flNoiseTurbulenceScale = 1.0
-					m_flNoiseTurbulenceMix = 0.5
-					m_flNoiseImgPreviewScale = 1.0
-					m_bNoiseImgPreviewLive = true
-					m_flNoCameraFallback = 0.0
-					m_bUseBoundsCenter = false
-					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
-					m_flMultFactor = 1.0
-					m_flInput0 = 0.0
-					m_flInput1 = 1.0
-					m_flOutput0 = 0.0
-					m_flOutput1 = 1.0
-					m_flNotchedRangeMin = 0.0
-					m_flNotchedRangeMax = 1.0
-					m_flNotchedOutputOutside = 0.0
-					m_flNotchedOutputInside = 1.0
-					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
-					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
-					m_flBiasParameter = 0.0
-					m_Curve = 
-					{
-						m_spline = [  ]
-						m_tangents = [  ]
-						m_vDomainMins = [ 0.0, 0.0 ]
-						m_vDomainMaxs = [ 0.0, 0.0 ]
-					}
-				}
-				m_FloatComponentY = 
-				{
-					m_nType = "PF_TYPE_LITERAL"
-					m_nMapType = "PF_MAP_TYPE_DIRECT"
-					m_flLiteralValue = 0.0
-					m_NamedValue = ""
-					m_nControlPoint = 0
-					m_nScalarAttribute = 3
-					m_nVectorAttribute = 6
-					m_nVectorComponent = 0
-					m_flRandomMin = 0.0
-					m_flRandomMax = 1.0
-					m_bHasRandomSignFlip = false
-					m_nRandomSeed = -1
-					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
-					m_flLOD0 = 0.0
-					m_flLOD1 = 0.0
-					m_flLOD2 = 0.0
-					m_flLOD3 = 0.0
-					m_nNoiseInputVectorAttribute = 0
-					m_flNoiseOutputMin = 0.0
-					m_flNoiseOutputMax = 1.0
-					m_flNoiseScale = 0.1
-					m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
-					m_flNoiseOffset = 0.0
-					m_nNoiseOctaves = 1
-					m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
-					m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
-					m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
-					m_flNoiseTurbulenceScale = 1.0
-					m_flNoiseTurbulenceMix = 0.5
-					m_flNoiseImgPreviewScale = 1.0
-					m_bNoiseImgPreviewLive = true
-					m_flNoCameraFallback = 0.0
-					m_bUseBoundsCenter = false
-					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
-					m_flMultFactor = 1.0
-					m_flInput0 = 0.0
-					m_flInput1 = 1.0
-					m_flOutput0 = 0.0
-					m_flOutput1 = 1.0
-					m_flNotchedRangeMin = 0.0
-					m_flNotchedRangeMax = 1.0
-					m_flNotchedOutputOutside = 0.0
-					m_flNotchedOutputInside = 1.0
-					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
-					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
-					m_flBiasParameter = 0.0
-					m_Curve = 
-					{
-						m_spline = [  ]
-						m_tangents = [  ]
-						m_vDomainMins = [ 0.0, 0.0 ]
-						m_vDomainMaxs = [ 0.0, 0.0 ]
-					}
-				}
-				m_FloatComponentZ = 
-				{
-					m_nType = "PF_TYPE_LITERAL"
-					m_nMapType = "PF_MAP_TYPE_DIRECT"
-					m_flLiteralValue = 0.0
-					m_NamedValue = ""
-					m_nControlPoint = 0
-					m_nScalarAttribute = 3
-					m_nVectorAttribute = 6
-					m_nVectorComponent = 0
-					m_flRandomMin = 0.0
-					m_flRandomMax = 1.0
-					m_bHasRandomSignFlip = false
-					m_nRandomSeed = -1
-					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
-					m_flLOD0 = 0.0
-					m_flLOD1 = 0.0
-					m_flLOD2 = 0.0
-					m_flLOD3 = 0.0
-					m_nNoiseInputVectorAttribute = 0
-					m_flNoiseOutputMin = 0.0
-					m_flNoiseOutputMax = 1.0
-					m_flNoiseScale = 0.1
-					m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
-					m_flNoiseOffset = 0.0
-					m_nNoiseOctaves = 1
-					m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
-					m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
-					m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
-					m_flNoiseTurbulenceScale = 1.0
-					m_flNoiseTurbulenceMix = 0.5
-					m_flNoiseImgPreviewScale = 1.0
-					m_bNoiseImgPreviewLive = true
-					m_flNoCameraFallback = 0.0
-					m_bUseBoundsCenter = false
-					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
-					m_flMultFactor = 1.0
-					m_flInput0 = 0.0
-					m_flInput1 = 1.0
-					m_flOutput0 = 0.0
-					m_flOutput1 = 1.0
-					m_flNotchedRangeMin = 0.0
-					m_flNotchedRangeMax = 1.0
-					m_flNotchedOutputOutside = 0.0
-					m_flNotchedOutputInside = 1.0
-					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
-					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
-					m_flBiasParameter = 0.0
-					m_Curve = 
-					{
-						m_spline = [  ]
-						m_tangents = [  ]
-						m_vDomainMins = [ 0.0, 0.0 ]
-						m_vDomainMaxs = [ 0.0, 0.0 ]
-					}
-				}
-				m_FloatInterp = 
-				{
-					m_nType = "PF_TYPE_LITERAL"
-					m_nMapType = "PF_MAP_TYPE_DIRECT"
-					m_flLiteralValue = 0.0
-					m_NamedValue = ""
-					m_nControlPoint = 0
-					m_nScalarAttribute = 3
-					m_nVectorAttribute = 6
-					m_nVectorComponent = 0
-					m_flRandomMin = 0.0
-					m_flRandomMax = 1.0
-					m_bHasRandomSignFlip = false
-					m_nRandomSeed = -1
-					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
-					m_flLOD0 = 0.0
-					m_flLOD1 = 0.0
-					m_flLOD2 = 0.0
-					m_flLOD3 = 0.0
-					m_nNoiseInputVectorAttribute = 0
-					m_flNoiseOutputMin = 0.0
-					m_flNoiseOutputMax = 1.0
-					m_flNoiseScale = 0.1
-					m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
-					m_flNoiseOffset = 0.0
-					m_nNoiseOctaves = 1
-					m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
-					m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
-					m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
-					m_flNoiseTurbulenceScale = 1.0
-					m_flNoiseTurbulenceMix = 0.5
-					m_flNoiseImgPreviewScale = 1.0
-					m_bNoiseImgPreviewLive = true
-					m_flNoCameraFallback = 0.0
-					m_bUseBoundsCenter = false
-					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
-					m_flMultFactor = 1.0
-					m_flInput0 = 0.0
-					m_flInput1 = 1.0
-					m_flOutput0 = 0.0
-					m_flOutput1 = 1.0
-					m_flNotchedRangeMin = 0.0
-					m_flNotchedRangeMax = 1.0
-					m_flNotchedOutputOutside = 0.0
-					m_flNotchedOutputInside = 1.0
-					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
-					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
-					m_flBiasParameter = 0.0
-					m_Curve = 
-					{
-						m_spline = [  ]
-						m_tangents = [  ]
-						m_vDomainMins = [ 0.0, 0.0 ]
-						m_vDomainMaxs = [ 0.0, 0.0 ]
-					}
-				}
-				m_flInterpInput0 = 0.0
-				m_flInterpInput1 = 1.0
-				m_vInterpOutput0 = [ 0.0, 0.0, 0.0 ]
-				m_vInterpOutput1 = [ 1.0, 1.0, 1.0 ]
-				m_Gradient = 
-				{
-					m_Stops = [  ]
-				}
-				m_vRandomMin = [ 0.0, 0.0, 0.0 ]
-				m_vRandomMax = [ 0.0, 0.0, 0.0 ]
-			}
-			m_LocalCoordinateSystemSpeedMin = 
-			{
-				m_nType = "PVEC_TYPE_LITERAL"
-				m_vLiteralValue = [ 1500.0, -1000.0, -500.0 ]
-				m_LiteralColor = [ 0, 0, 0 ]
-				m_NamedValue = ""
-				m_bFollowNamedValue = false
-				m_nVectorAttribute = 6
-				m_vVectorAttributeScale = [ 1.0, 1.0, 1.0 ]
-				m_nControlPoint = 0
-				m_nDeltaControlPoint = 0
-				m_vCPValueScale = [ 1.0, 1.0, 1.0 ]
-				m_vCPRelativePosition = [ 0.0, 0.0, 0.0 ]
-				m_vCPRelativeDir = [ 1.0, 0.0, 0.0 ]
-				m_FloatComponentX = 
-				{
-					m_nType = "PF_TYPE_LITERAL"
-					m_nMapType = "PF_MAP_TYPE_DIRECT"
-					m_flLiteralValue = 0.0
-					m_NamedValue = ""
-					m_nControlPoint = 0
-					m_nScalarAttribute = 3
-					m_nVectorAttribute = 6
-					m_nVectorComponent = 0
-					m_flRandomMin = 0.0
-					m_flRandomMax = 1.0
-					m_bHasRandomSignFlip = false
-					m_nRandomSeed = -1
-					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
-					m_flLOD0 = 0.0
-					m_flLOD1 = 0.0
-					m_flLOD2 = 0.0
-					m_flLOD3 = 0.0
-					m_nNoiseInputVectorAttribute = 0
-					m_flNoiseOutputMin = 0.0
-					m_flNoiseOutputMax = 1.0
-					m_flNoiseScale = 0.1
-					m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
-					m_flNoiseOffset = 0.0
-					m_nNoiseOctaves = 1
-					m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
-					m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
-					m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
-					m_flNoiseTurbulenceScale = 1.0
-					m_flNoiseTurbulenceMix = 0.5
-					m_flNoiseImgPreviewScale = 1.0
-					m_bNoiseImgPreviewLive = true
-					m_flNoCameraFallback = 0.0
-					m_bUseBoundsCenter = false
-					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
-					m_flMultFactor = 1.0
-					m_flInput0 = 0.0
-					m_flInput1 = 1.0
-					m_flOutput0 = 0.0
-					m_flOutput1 = 1.0
-					m_flNotchedRangeMin = 0.0
-					m_flNotchedRangeMax = 1.0
-					m_flNotchedOutputOutside = 0.0
-					m_flNotchedOutputInside = 1.0
-					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
-					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
-					m_flBiasParameter = 0.0
-					m_Curve = 
-					{
-						m_spline = [  ]
-						m_tangents = [  ]
-						m_vDomainMins = [ 0.0, 0.0 ]
-						m_vDomainMaxs = [ 0.0, 0.0 ]
-					}
-				}
-				m_FloatComponentY = 
-				{
-					m_nType = "PF_TYPE_LITERAL"
-					m_nMapType = "PF_MAP_TYPE_DIRECT"
-					m_flLiteralValue = 0.0
-					m_NamedValue = ""
-					m_nControlPoint = 0
-					m_nScalarAttribute = 3
-					m_nVectorAttribute = 6
-					m_nVectorComponent = 0
-					m_flRandomMin = 0.0
-					m_flRandomMax = 1.0
-					m_bHasRandomSignFlip = false
-					m_nRandomSeed = -1
-					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
-					m_flLOD0 = 0.0
-					m_flLOD1 = 0.0
-					m_flLOD2 = 0.0
-					m_flLOD3 = 0.0
-					m_nNoiseInputVectorAttribute = 0
-					m_flNoiseOutputMin = 0.0
-					m_flNoiseOutputMax = 1.0
-					m_flNoiseScale = 0.1
-					m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
-					m_flNoiseOffset = 0.0
-					m_nNoiseOctaves = 1
-					m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
-					m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
-					m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
-					m_flNoiseTurbulenceScale = 1.0
-					m_flNoiseTurbulenceMix = 0.5
-					m_flNoiseImgPreviewScale = 1.0
-					m_bNoiseImgPreviewLive = true
-					m_flNoCameraFallback = 0.0
-					m_bUseBoundsCenter = false
-					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
-					m_flMultFactor = 1.0
-					m_flInput0 = 0.0
-					m_flInput1 = 1.0
-					m_flOutput0 = 0.0
-					m_flOutput1 = 1.0
-					m_flNotchedRangeMin = 0.0
-					m_flNotchedRangeMax = 1.0
-					m_flNotchedOutputOutside = 0.0
-					m_flNotchedOutputInside = 1.0
-					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
-					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
-					m_flBiasParameter = 0.0
-					m_Curve = 
-					{
-						m_spline = [  ]
-						m_tangents = [  ]
-						m_vDomainMins = [ 0.0, 0.0 ]
-						m_vDomainMaxs = [ 0.0, 0.0 ]
-					}
-				}
-				m_FloatComponentZ = 
-				{
-					m_nType = "PF_TYPE_LITERAL"
-					m_nMapType = "PF_MAP_TYPE_DIRECT"
-					m_flLiteralValue = 0.0
-					m_NamedValue = ""
-					m_nControlPoint = 0
-					m_nScalarAttribute = 3
-					m_nVectorAttribute = 6
-					m_nVectorComponent = 0
-					m_flRandomMin = 0.0
-					m_flRandomMax = 1.0
-					m_bHasRandomSignFlip = false
-					m_nRandomSeed = -1
-					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
-					m_flLOD0 = 0.0
-					m_flLOD1 = 0.0
-					m_flLOD2 = 0.0
-					m_flLOD3 = 0.0
-					m_nNoiseInputVectorAttribute = 0
-					m_flNoiseOutputMin = 0.0
-					m_flNoiseOutputMax = 1.0
-					m_flNoiseScale = 0.1
-					m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
-					m_flNoiseOffset = 0.0
-					m_nNoiseOctaves = 1
-					m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
-					m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
-					m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
-					m_flNoiseTurbulenceScale = 1.0
-					m_flNoiseTurbulenceMix = 0.5
-					m_flNoiseImgPreviewScale = 1.0
-					m_bNoiseImgPreviewLive = true
-					m_flNoCameraFallback = 0.0
-					m_bUseBoundsCenter = false
-					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
-					m_flMultFactor = 1.0
-					m_flInput0 = 0.0
-					m_flInput1 = 1.0
-					m_flOutput0 = 0.0
-					m_flOutput1 = 1.0
-					m_flNotchedRangeMin = 0.0
-					m_flNotchedRangeMax = 1.0
-					m_flNotchedOutputOutside = 0.0
-					m_flNotchedOutputInside = 1.0
-					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
-					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
-					m_flBiasParameter = 0.0
-					m_Curve = 
-					{
-						m_spline = [  ]
-						m_tangents = [  ]
-						m_vDomainMins = [ 0.0, 0.0 ]
-						m_vDomainMaxs = [ 0.0, 0.0 ]
-					}
-				}
-				m_FloatInterp = 
-				{
-					m_nType = "PF_TYPE_LITERAL"
-					m_nMapType = "PF_MAP_TYPE_DIRECT"
-					m_flLiteralValue = 0.0
-					m_NamedValue = ""
-					m_nControlPoint = 0
-					m_nScalarAttribute = 3
-					m_nVectorAttribute = 6
-					m_nVectorComponent = 0
-					m_flRandomMin = 0.0
-					m_flRandomMax = 1.0
-					m_bHasRandomSignFlip = false
-					m_nRandomSeed = -1
-					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
-					m_flLOD0 = 0.0
-					m_flLOD1 = 0.0
-					m_flLOD2 = 0.0
-					m_flLOD3 = 0.0
-					m_nNoiseInputVectorAttribute = 0
-					m_flNoiseOutputMin = 0.0
-					m_flNoiseOutputMax = 1.0
-					m_flNoiseScale = 0.1
-					m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
-					m_flNoiseOffset = 0.0
-					m_nNoiseOctaves = 1
-					m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
-					m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
-					m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
-					m_flNoiseTurbulenceScale = 1.0
-					m_flNoiseTurbulenceMix = 0.5
-					m_flNoiseImgPreviewScale = 1.0
-					m_bNoiseImgPreviewLive = true
-					m_flNoCameraFallback = 0.0
-					m_bUseBoundsCenter = false
-					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
-					m_flMultFactor = 1.0
-					m_flInput0 = 0.0
-					m_flInput1 = 1.0
-					m_flOutput0 = 0.0
-					m_flOutput1 = 1.0
-					m_flNotchedRangeMin = 0.0
-					m_flNotchedRangeMax = 1.0
-					m_flNotchedOutputOutside = 0.0
-					m_flNotchedOutputInside = 1.0
-					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
-					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
-					m_flBiasParameter = 0.0
-					m_Curve = 
-					{
-						m_spline = [  ]
-						m_tangents = [  ]
-						m_vDomainMins = [ 0.0, 0.0 ]
-						m_vDomainMaxs = [ 0.0, 0.0 ]
-					}
-				}
-				m_flInterpInput0 = 0.0
-				m_flInterpInput1 = 1.0
-				m_vInterpOutput0 = [ 0.0, 0.0, 0.0 ]
-				m_vInterpOutput1 = [ 1.0, 1.0, 1.0 ]
-				m_Gradient = 
-				{
-					m_Stops = [  ]
-				}
-				m_vRandomMin = [ 0.0, 0.0, 0.0 ]
-				m_vRandomMax = [ 0.0, 0.0, 0.0 ]
-			}
-			m_LocalCoordinateSystemSpeedMax = 
-			{
-				m_nType = "PVEC_TYPE_LITERAL"
-				m_vLiteralValue = [ 1500.0, 1000.0, 500.0 ]
-				m_LiteralColor = [ 0, 0, 0 ]
-				m_NamedValue = ""
-				m_bFollowNamedValue = false
-				m_nVectorAttribute = 6
-				m_vVectorAttributeScale = [ 1.0, 1.0, 1.0 ]
-				m_nControlPoint = 0
-				m_nDeltaControlPoint = 0
-				m_vCPValueScale = [ 1.0, 1.0, 1.0 ]
-				m_vCPRelativePosition = [ 0.0, 0.0, 0.0 ]
-				m_vCPRelativeDir = [ 1.0, 0.0, 0.0 ]
-				m_FloatComponentX = 
-				{
-					m_nType = "PF_TYPE_LITERAL"
-					m_nMapType = "PF_MAP_TYPE_DIRECT"
-					m_flLiteralValue = 0.0
-					m_NamedValue = ""
-					m_nControlPoint = 0
-					m_nScalarAttribute = 3
-					m_nVectorAttribute = 6
-					m_nVectorComponent = 0
-					m_flRandomMin = 0.0
-					m_flRandomMax = 1.0
-					m_bHasRandomSignFlip = false
-					m_nRandomSeed = -1
-					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
-					m_flLOD0 = 0.0
-					m_flLOD1 = 0.0
-					m_flLOD2 = 0.0
-					m_flLOD3 = 0.0
-					m_nNoiseInputVectorAttribute = 0
-					m_flNoiseOutputMin = 0.0
-					m_flNoiseOutputMax = 1.0
-					m_flNoiseScale = 0.1
-					m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
-					m_flNoiseOffset = 0.0
-					m_nNoiseOctaves = 1
-					m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
-					m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
-					m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
-					m_flNoiseTurbulenceScale = 1.0
-					m_flNoiseTurbulenceMix = 0.5
-					m_flNoiseImgPreviewScale = 1.0
-					m_bNoiseImgPreviewLive = true
-					m_flNoCameraFallback = 0.0
-					m_bUseBoundsCenter = false
-					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
-					m_flMultFactor = 1.0
-					m_flInput0 = 0.0
-					m_flInput1 = 1.0
-					m_flOutput0 = 0.0
-					m_flOutput1 = 1.0
-					m_flNotchedRangeMin = 0.0
-					m_flNotchedRangeMax = 1.0
-					m_flNotchedOutputOutside = 0.0
-					m_flNotchedOutputInside = 1.0
-					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
-					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
-					m_flBiasParameter = 0.0
-					m_Curve = 
-					{
-						m_spline = [  ]
-						m_tangents = [  ]
-						m_vDomainMins = [ 0.0, 0.0 ]
-						m_vDomainMaxs = [ 0.0, 0.0 ]
-					}
-				}
-				m_FloatComponentY = 
-				{
-					m_nType = "PF_TYPE_LITERAL"
-					m_nMapType = "PF_MAP_TYPE_DIRECT"
-					m_flLiteralValue = 0.0
-					m_NamedValue = ""
-					m_nControlPoint = 0
-					m_nScalarAttribute = 3
-					m_nVectorAttribute = 6
-					m_nVectorComponent = 0
-					m_flRandomMin = 0.0
-					m_flRandomMax = 1.0
-					m_bHasRandomSignFlip = false
-					m_nRandomSeed = -1
-					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
-					m_flLOD0 = 0.0
-					m_flLOD1 = 0.0
-					m_flLOD2 = 0.0
-					m_flLOD3 = 0.0
-					m_nNoiseInputVectorAttribute = 0
-					m_flNoiseOutputMin = 0.0
-					m_flNoiseOutputMax = 1.0
-					m_flNoiseScale = 0.1
-					m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
-					m_flNoiseOffset = 0.0
-					m_nNoiseOctaves = 1
-					m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
-					m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
-					m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
-					m_flNoiseTurbulenceScale = 1.0
-					m_flNoiseTurbulenceMix = 0.5
-					m_flNoiseImgPreviewScale = 1.0
-					m_bNoiseImgPreviewLive = true
-					m_flNoCameraFallback = 0.0
-					m_bUseBoundsCenter = false
-					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
-					m_flMultFactor = 1.0
-					m_flInput0 = 0.0
-					m_flInput1 = 1.0
-					m_flOutput0 = 0.0
-					m_flOutput1 = 1.0
-					m_flNotchedRangeMin = 0.0
-					m_flNotchedRangeMax = 1.0
-					m_flNotchedOutputOutside = 0.0
-					m_flNotchedOutputInside = 1.0
-					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
-					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
-					m_flBiasParameter = 0.0
-					m_Curve = 
-					{
-						m_spline = [  ]
-						m_tangents = [  ]
-						m_vDomainMins = [ 0.0, 0.0 ]
-						m_vDomainMaxs = [ 0.0, 0.0 ]
-					}
-				}
-				m_FloatComponentZ = 
-				{
-					m_nType = "PF_TYPE_LITERAL"
-					m_nMapType = "PF_MAP_TYPE_DIRECT"
-					m_flLiteralValue = 0.0
-					m_NamedValue = ""
-					m_nControlPoint = 0
-					m_nScalarAttribute = 3
-					m_nVectorAttribute = 6
-					m_nVectorComponent = 0
-					m_flRandomMin = 0.0
-					m_flRandomMax = 1.0
-					m_bHasRandomSignFlip = false
-					m_nRandomSeed = -1
-					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
-					m_flLOD0 = 0.0
-					m_flLOD1 = 0.0
-					m_flLOD2 = 0.0
-					m_flLOD3 = 0.0
-					m_nNoiseInputVectorAttribute = 0
-					m_flNoiseOutputMin = 0.0
-					m_flNoiseOutputMax = 1.0
-					m_flNoiseScale = 0.1
-					m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
-					m_flNoiseOffset = 0.0
-					m_nNoiseOctaves = 1
-					m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
-					m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
-					m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
-					m_flNoiseTurbulenceScale = 1.0
-					m_flNoiseTurbulenceMix = 0.5
-					m_flNoiseImgPreviewScale = 1.0
-					m_bNoiseImgPreviewLive = true
-					m_flNoCameraFallback = 0.0
-					m_bUseBoundsCenter = false
-					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
-					m_flMultFactor = 1.0
-					m_flInput0 = 0.0
-					m_flInput1 = 1.0
-					m_flOutput0 = 0.0
-					m_flOutput1 = 1.0
-					m_flNotchedRangeMin = 0.0
-					m_flNotchedRangeMax = 1.0
-					m_flNotchedOutputOutside = 0.0
-					m_flNotchedOutputInside = 1.0
-					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
-					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
-					m_flBiasParameter = 0.0
-					m_Curve = 
-					{
-						m_spline = [  ]
-						m_tangents = [  ]
-						m_vDomainMins = [ 0.0, 0.0 ]
-						m_vDomainMaxs = [ 0.0, 0.0 ]
-					}
-				}
-				m_FloatInterp = 
-				{
-					m_nType = "PF_TYPE_LITERAL"
-					m_nMapType = "PF_MAP_TYPE_DIRECT"
-					m_flLiteralValue = 0.0
-					m_NamedValue = ""
-					m_nControlPoint = 0
-					m_nScalarAttribute = 3
-					m_nVectorAttribute = 6
-					m_nVectorComponent = 0
-					m_flRandomMin = 0.0
-					m_flRandomMax = 1.0
-					m_bHasRandomSignFlip = false
-					m_nRandomSeed = -1
-					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
-					m_flLOD0 = 0.0
-					m_flLOD1 = 0.0
-					m_flLOD2 = 0.0
-					m_flLOD3 = 0.0
-					m_nNoiseInputVectorAttribute = 0
-					m_flNoiseOutputMin = 0.0
-					m_flNoiseOutputMax = 1.0
-					m_flNoiseScale = 0.1
-					m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
-					m_flNoiseOffset = 0.0
-					m_nNoiseOctaves = 1
-					m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
-					m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
-					m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
-					m_flNoiseTurbulenceScale = 1.0
-					m_flNoiseTurbulenceMix = 0.5
-					m_flNoiseImgPreviewScale = 1.0
-					m_bNoiseImgPreviewLive = true
-					m_flNoCameraFallback = 0.0
-					m_bUseBoundsCenter = false
-					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
-					m_flMultFactor = 1.0
-					m_flInput0 = 0.0
-					m_flInput1 = 1.0
-					m_flOutput0 = 0.0
-					m_flOutput1 = 1.0
-					m_flNotchedRangeMin = 0.0
-					m_flNotchedRangeMax = 1.0
-					m_flNotchedOutputOutside = 0.0
-					m_flNotchedOutputInside = 1.0
-					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
-					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
-					m_flBiasParameter = 0.0
-					m_Curve = 
-					{
-						m_spline = [  ]
-						m_tangents = [  ]
-						m_vDomainMins = [ 0.0, 0.0 ]
-						m_vDomainMaxs = [ 0.0, 0.0 ]
-					}
-				}
-				m_flInterpInput0 = 0.0
-				m_flInterpInput1 = 1.0
-				m_vInterpOutput0 = [ 0.0, 0.0, 0.0 ]
-				m_vInterpOutput1 = [ 1.0, 1.0, 1.0 ]
-				m_Gradient = 
-				{
-					m_Stops = [  ]
-				}
-				m_vRandomMin = [ 0.0, 0.0, 0.0 ]
-				m_vRandomMax = [ 0.0, 0.0, 0.0 ]
-			}
-		},
-		{
-			_class = "C_INIT_InitFloat"
-			m_InputValue = 
-			{
-				m_nType = "PF_TYPE_LITERAL"
-				m_nMapType = "PF_MAP_TYPE_DIRECT"
-				m_flLiteralValue = 1.0
-				m_NamedValue = ""
-				m_nControlPoint = 0
-				m_nScalarAttribute = 3
-				m_nVectorAttribute = 6
-				m_nVectorComponent = 0
-				m_flRandomMin = 1.0
-				m_flRandomMax = 1.0
-				m_bHasRandomSignFlip = false
-				m_nRandomSeed = -1
-				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
-				m_flLOD0 = 0.0
-				m_flLOD1 = 0.0
-				m_flLOD2 = 0.0
-				m_flLOD3 = 0.0
-				m_nNoiseInputVectorAttribute = 0
-				m_flNoiseOutputMin = 0.0
-				m_flNoiseOutputMax = 1.0
-				m_flNoiseScale = 0.1
-				m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
-				m_flNoiseOffset = 0.0
-				m_nNoiseOctaves = 1
-				m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
-				m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
-				m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
-				m_flNoiseTurbulenceScale = 1.0
-				m_flNoiseTurbulenceMix = 0.5
-				m_flNoiseImgPreviewScale = 1.0
-				m_bNoiseImgPreviewLive = true
-				m_flNoCameraFallback = 0.0
-				m_bUseBoundsCenter = false
-				m_nInputMode = "PF_INPUT_MODE_CLAMPED"
-				m_flMultFactor = 1.0
-				m_flInput0 = 0.0
-				m_flInput1 = 1.0
-				m_flOutput0 = 0.0
-				m_flOutput1 = 1.0
-				m_flNotchedRangeMin = 0.0
-				m_flNotchedRangeMax = 1.0
-				m_flNotchedOutputOutside = 0.0
-				m_flNotchedOutputInside = 1.0
-				m_nRoundType = "PF_ROUND_TYPE_NEAREST"
-				m_nBiasType = "PF_BIAS_TYPE_STANDARD"
-				m_flBiasParameter = 0.0
-				m_Curve = 
-				{
-					m_spline = [  ]
-					m_tangents = [  ]
-					m_vDomainMins = [ 0.0, 0.0 ]
-					m_vDomainMaxs = [ 0.0, 0.0 ]
-				}
-			}
-			m_nOutputField = 16
-		},
-		{
-			m_bDisableOperator = true
-			_class = "C_INIT_InitFloat"
-			m_InputValue = 
-			{
-				m_nType = "PF_TYPE_RANDOM_BIASED"
-				m_flRandomMin = 1.1
-				m_flRandomMax = 1.1
-				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
-				m_nBiasType = "PF_BIAS_TYPE_EXPONENTIAL"
-				m_flBiasParameter = -0.157895
-			}
-		},
-		{
-			_class = "C_INIT_RingWave"
-			m_flParticlesPerOrbit = 
-			{
-				m_nType = "PF_TYPE_LITERAL"
-				m_nMapType = "PF_MAP_TYPE_DIRECT"
-				m_flLiteralValue = 50.0
-				m_NamedValue = ""
-				m_nControlPoint = 0
-				m_nScalarAttribute = 3
-				m_nVectorAttribute = 6
-				m_nVectorComponent = 0
-				m_flRandomMin = 0.0
-				m_flRandomMax = 1.0
-				m_bHasRandomSignFlip = false
-				m_nRandomSeed = -1
-				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
-				m_flLOD0 = 0.0
-				m_flLOD1 = 0.0
-				m_flLOD2 = 0.0
-				m_flLOD3 = 0.0
-				m_nNoiseInputVectorAttribute = 0
-				m_flNoiseOutputMin = 0.0
-				m_flNoiseOutputMax = 1.0
-				m_flNoiseScale = 0.1
-				m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
-				m_flNoiseOffset = 0.0
-				m_nNoiseOctaves = 1
-				m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
-				m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
-				m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
-				m_flNoiseTurbulenceScale = 1.0
-				m_flNoiseTurbulenceMix = 0.5
-				m_flNoiseImgPreviewScale = 1.0
-				m_bNoiseImgPreviewLive = true
-				m_flNoCameraFallback = 0.0
-				m_bUseBoundsCenter = false
-				m_nInputMode = "PF_INPUT_MODE_CLAMPED"
-				m_flMultFactor = 1.0
-				m_flInput0 = 0.0
-				m_flInput1 = 1.0
-				m_flOutput0 = 0.0
-				m_flOutput1 = 1.0
-				m_flNotchedRangeMin = 0.0
-				m_flNotchedRangeMax = 1.0
-				m_flNotchedOutputOutside = 0.0
-				m_flNotchedOutputInside = 1.0
-				m_nRoundType = "PF_ROUND_TYPE_NEAREST"
-				m_nBiasType = "PF_BIAS_TYPE_STANDARD"
-				m_flBiasParameter = 0.0
-				m_Curve = 
-				{
-					m_spline = [  ]
-					m_tangents = [  ]
-					m_vDomainMins = [ 0.0, 0.0 ]
-					m_vDomainMaxs = [ 0.0, 0.0 ]
-				}
-			}
-			m_bEvenDistribution = true
-			m_flInitialRadius = 
-			{
-				m_nType = "PF_TYPE_LITERAL"
-				m_nMapType = "PF_MAP_TYPE_DIRECT"
-				m_flLiteralValue = 10.0
-				m_NamedValue = ""
-				m_nControlPoint = 0
-				m_nScalarAttribute = 3
-				m_nVectorAttribute = 6
-				m_nVectorComponent = 0
-				m_flRandomMin = 0.0
-				m_flRandomMax = 1.0
-				m_bHasRandomSignFlip = false
-				m_nRandomSeed = -1
-				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
-				m_flLOD0 = 0.0
-				m_flLOD1 = 0.0
-				m_flLOD2 = 0.0
-				m_flLOD3 = 0.0
-				m_nNoiseInputVectorAttribute = 0
-				m_flNoiseOutputMin = 0.0
-				m_flNoiseOutputMax = 1.0
-				m_flNoiseScale = 0.1
-				m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
-				m_flNoiseOffset = 0.0
-				m_nNoiseOctaves = 1
-				m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
-				m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
-				m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
-				m_flNoiseTurbulenceScale = 1.0
-				m_flNoiseTurbulenceMix = 0.5
-				m_flNoiseImgPreviewScale = 1.0
-				m_bNoiseImgPreviewLive = true
-				m_flNoCameraFallback = 0.0
-				m_bUseBoundsCenter = false
-				m_nInputMode = "PF_INPUT_MODE_CLAMPED"
-				m_flMultFactor = 1.0
-				m_flInput0 = 0.0
-				m_flInput1 = 1.0
-				m_flOutput0 = 0.0
-				m_flOutput1 = 1.0
-				m_flNotchedRangeMin = 0.0
-				m_flNotchedRangeMax = 1.0
-				m_flNotchedOutputOutside = 0.0
-				m_flNotchedOutputInside = 1.0
-				m_nRoundType = "PF_ROUND_TYPE_NEAREST"
-				m_nBiasType = "PF_BIAS_TYPE_STANDARD"
-				m_flBiasParameter = 0.0
-				m_Curve = 
-				{
-					m_spline = [  ]
-					m_tangents = [  ]
-					m_vDomainMins = [ 0.0, 0.0 ]
-					m_vDomainMaxs = [ 0.0, 0.0 ]
-				}
-			}
-			m_TransformInput = 
-			{
-				m_nControlPoint = 3
-			}
-			m_bDisableOperator = true
-			m_flYaw = 
-			{
-				m_nType = "PF_TYPE_LITERAL"
-				m_nMapType = "PF_MAP_TYPE_DIRECT"
-				m_flLiteralValue = 90.0
-				m_NamedValue = ""
-				m_nControlPoint = 0
-				m_nScalarAttribute = 3
-				m_nVectorAttribute = 6
-				m_nVectorComponent = 0
-				m_flRandomMin = 0.0
-				m_flRandomMax = 1.0
-				m_bHasRandomSignFlip = false
-				m_nRandomSeed = -1
-				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
-				m_flLOD0 = 0.0
-				m_flLOD1 = 0.0
-				m_flLOD2 = 0.0
-				m_flLOD3 = 0.0
-				m_nNoiseInputVectorAttribute = 0
-				m_flNoiseOutputMin = 0.0
-				m_flNoiseOutputMax = 1.0
-				m_flNoiseScale = 0.1
-				m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
-				m_flNoiseOffset = 0.0
-				m_nNoiseOctaves = 1
-				m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
-				m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
-				m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
-				m_flNoiseTurbulenceScale = 1.0
-				m_flNoiseTurbulenceMix = 0.5
-				m_flNoiseImgPreviewScale = 1.0
-				m_bNoiseImgPreviewLive = true
-				m_flNoCameraFallback = 0.0
-				m_bUseBoundsCenter = false
-				m_nInputMode = "PF_INPUT_MODE_CLAMPED"
-				m_flMultFactor = 1.0
-				m_flInput0 = 0.0
-				m_flInput1 = 1.0
-				m_flOutput0 = 0.0
-				m_flOutput1 = 1.0
-				m_flNotchedRangeMin = 0.0
-				m_flNotchedRangeMax = 1.0
-				m_flNotchedOutputOutside = 0.0
-				m_flNotchedOutputInside = 1.0
-				m_nRoundType = "PF_ROUND_TYPE_NEAREST"
-				m_nBiasType = "PF_BIAS_TYPE_STANDARD"
-				m_flBiasParameter = 0.0
-				m_Curve = 
-				{
-					m_spline = [  ]
-					m_tangents = [  ]
-					m_vDomainMins = [ 0.0, 0.0 ]
-					m_vDomainMaxs = [ 0.0, 0.0 ]
-				}
-			}
-			m_bXYVelocityOnly = false
-		},
-		{
 			_class = "C_INIT_PositionOffset"
 			m_OffsetMin = 
 			{
 				m_nType = "PVEC_TYPE_LITERAL"
-				m_vLiteralValue = [ 0.0, 0.0, 110.0 ]
+				m_vLiteralValue = [ 20.0, 0.0, 100.0 ]
 				m_LiteralColor = [ 0, 0, 0 ]
 				m_NamedValue = ""
 				m_bFollowNamedValue = false
 				m_nVectorAttribute = 6
 				m_vVectorAttributeScale = [ 1.0, 1.0, 1.0 ]
 				m_nControlPoint = 0
-				m_nDeltaControlPoint = 0
 				m_vCPValueScale = [ 1.0, 1.0, 1.0 ]
 				m_vCPRelativePosition = [ 0.0, 0.0, 0.0 ]
 				m_vCPRelativeDir = [ 1.0, 0.0, 0.0 ]
@@ -1345,7 +203,6 @@
 					m_flRandomMin = 0.0
 					m_flRandomMax = 1.0
 					m_bHasRandomSignFlip = false
-					m_nRandomSeed = -1
 					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
 					m_flLOD0 = 0.0
 					m_flLOD1 = 0.0
@@ -1365,8 +222,6 @@
 					m_flNoiseTurbulenceMix = 0.5
 					m_flNoiseImgPreviewScale = 1.0
 					m_bNoiseImgPreviewLive = true
-					m_flNoCameraFallback = 0.0
-					m_bUseBoundsCenter = false
 					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
 					m_flMultFactor = 1.0
 					m_flInput0 = 0.0
@@ -1377,7 +232,6 @@
 					m_flNotchedRangeMax = 1.0
 					m_flNotchedOutputOutside = 0.0
 					m_flNotchedOutputInside = 1.0
-					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
 					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
 					m_flBiasParameter = 0.0
 					m_Curve = 
@@ -1401,7 +255,6 @@
 					m_flRandomMin = 0.0
 					m_flRandomMax = 1.0
 					m_bHasRandomSignFlip = false
-					m_nRandomSeed = -1
 					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
 					m_flLOD0 = 0.0
 					m_flLOD1 = 0.0
@@ -1421,8 +274,6 @@
 					m_flNoiseTurbulenceMix = 0.5
 					m_flNoiseImgPreviewScale = 1.0
 					m_bNoiseImgPreviewLive = true
-					m_flNoCameraFallback = 0.0
-					m_bUseBoundsCenter = false
 					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
 					m_flMultFactor = 1.0
 					m_flInput0 = 0.0
@@ -1433,7 +284,6 @@
 					m_flNotchedRangeMax = 1.0
 					m_flNotchedOutputOutside = 0.0
 					m_flNotchedOutputInside = 1.0
-					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
 					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
 					m_flBiasParameter = 0.0
 					m_Curve = 
@@ -1457,7 +307,6 @@
 					m_flRandomMin = 0.0
 					m_flRandomMax = 1.0
 					m_bHasRandomSignFlip = false
-					m_nRandomSeed = -1
 					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
 					m_flLOD0 = 0.0
 					m_flLOD1 = 0.0
@@ -1477,8 +326,6 @@
 					m_flNoiseTurbulenceMix = 0.5
 					m_flNoiseImgPreviewScale = 1.0
 					m_bNoiseImgPreviewLive = true
-					m_flNoCameraFallback = 0.0
-					m_bUseBoundsCenter = false
 					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
 					m_flMultFactor = 1.0
 					m_flInput0 = 0.0
@@ -1489,7 +336,6 @@
 					m_flNotchedRangeMax = 1.0
 					m_flNotchedOutputOutside = 0.0
 					m_flNotchedOutputInside = 1.0
-					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
 					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
 					m_flBiasParameter = 0.0
 					m_Curve = 
@@ -1513,7 +359,6 @@
 					m_flRandomMin = 0.0
 					m_flRandomMax = 1.0
 					m_bHasRandomSignFlip = false
-					m_nRandomSeed = -1
 					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
 					m_flLOD0 = 0.0
 					m_flLOD1 = 0.0
@@ -1533,8 +378,6 @@
 					m_flNoiseTurbulenceMix = 0.5
 					m_flNoiseImgPreviewScale = 1.0
 					m_bNoiseImgPreviewLive = true
-					m_flNoCameraFallback = 0.0
-					m_bUseBoundsCenter = false
 					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
 					m_flMultFactor = 1.0
 					m_flInput0 = 0.0
@@ -1545,7 +388,6 @@
 					m_flNotchedRangeMax = 1.0
 					m_flNotchedOutputOutside = 0.0
 					m_flNotchedOutputInside = 1.0
-					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
 					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
 					m_flBiasParameter = 0.0
 					m_Curve = 
@@ -1570,14 +412,13 @@
 			m_OffsetMax = 
 			{
 				m_nType = "PVEC_TYPE_LITERAL"
-				m_vLiteralValue = [ 0.0, 0.0, 110.0 ]
+				m_vLiteralValue = [ 20.0, 0.0, 100.0 ]
 				m_LiteralColor = [ 0, 0, 0 ]
 				m_NamedValue = ""
 				m_bFollowNamedValue = false
 				m_nVectorAttribute = 6
 				m_vVectorAttributeScale = [ 1.0, 1.0, 1.0 ]
 				m_nControlPoint = 0
-				m_nDeltaControlPoint = 0
 				m_vCPValueScale = [ 1.0, 1.0, 1.0 ]
 				m_vCPRelativePosition = [ 0.0, 0.0, 0.0 ]
 				m_vCPRelativeDir = [ 1.0, 0.0, 0.0 ]
@@ -1594,7 +435,6 @@
 					m_flRandomMin = 0.0
 					m_flRandomMax = 1.0
 					m_bHasRandomSignFlip = false
-					m_nRandomSeed = -1
 					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
 					m_flLOD0 = 0.0
 					m_flLOD1 = 0.0
@@ -1614,8 +454,6 @@
 					m_flNoiseTurbulenceMix = 0.5
 					m_flNoiseImgPreviewScale = 1.0
 					m_bNoiseImgPreviewLive = true
-					m_flNoCameraFallback = 0.0
-					m_bUseBoundsCenter = false
 					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
 					m_flMultFactor = 1.0
 					m_flInput0 = 0.0
@@ -1626,7 +464,6 @@
 					m_flNotchedRangeMax = 1.0
 					m_flNotchedOutputOutside = 0.0
 					m_flNotchedOutputInside = 1.0
-					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
 					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
 					m_flBiasParameter = 0.0
 					m_Curve = 
@@ -1650,7 +487,6 @@
 					m_flRandomMin = 0.0
 					m_flRandomMax = 1.0
 					m_bHasRandomSignFlip = false
-					m_nRandomSeed = -1
 					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
 					m_flLOD0 = 0.0
 					m_flLOD1 = 0.0
@@ -1670,8 +506,6 @@
 					m_flNoiseTurbulenceMix = 0.5
 					m_flNoiseImgPreviewScale = 1.0
 					m_bNoiseImgPreviewLive = true
-					m_flNoCameraFallback = 0.0
-					m_bUseBoundsCenter = false
 					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
 					m_flMultFactor = 1.0
 					m_flInput0 = 0.0
@@ -1682,7 +516,6 @@
 					m_flNotchedRangeMax = 1.0
 					m_flNotchedOutputOutside = 0.0
 					m_flNotchedOutputInside = 1.0
-					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
 					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
 					m_flBiasParameter = 0.0
 					m_Curve = 
@@ -1706,7 +539,6 @@
 					m_flRandomMin = 0.0
 					m_flRandomMax = 1.0
 					m_bHasRandomSignFlip = false
-					m_nRandomSeed = -1
 					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
 					m_flLOD0 = 0.0
 					m_flLOD1 = 0.0
@@ -1726,8 +558,6 @@
 					m_flNoiseTurbulenceMix = 0.5
 					m_flNoiseImgPreviewScale = 1.0
 					m_bNoiseImgPreviewLive = true
-					m_flNoCameraFallback = 0.0
-					m_bUseBoundsCenter = false
 					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
 					m_flMultFactor = 1.0
 					m_flInput0 = 0.0
@@ -1738,7 +568,6 @@
 					m_flNotchedRangeMax = 1.0
 					m_flNotchedOutputOutside = 0.0
 					m_flNotchedOutputInside = 1.0
-					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
 					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
 					m_flBiasParameter = 0.0
 					m_Curve = 
@@ -1762,7 +591,6 @@
 					m_flRandomMin = 0.0
 					m_flRandomMax = 1.0
 					m_bHasRandomSignFlip = false
-					m_nRandomSeed = -1
 					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
 					m_flLOD0 = 0.0
 					m_flLOD1 = 0.0
@@ -1782,8 +610,6 @@
 					m_flNoiseTurbulenceMix = 0.5
 					m_flNoiseImgPreviewScale = 1.0
 					m_bNoiseImgPreviewLive = true
-					m_flNoCameraFallback = 0.0
-					m_bUseBoundsCenter = false
 					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
 					m_flMultFactor = 1.0
 					m_flInput0 = 0.0
@@ -1794,7 +620,6 @@
 					m_flNotchedRangeMax = 1.0
 					m_flNotchedOutputOutside = 0.0
 					m_flNotchedOutputInside = 1.0
-					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
 					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
 					m_flBiasParameter = 0.0
 					m_Curve = 
@@ -1817,34 +642,123 @@
 				m_vRandomMax = [ 0.0, 0.0, 0.0 ]
 			}
 			m_bLocalCoords = true
-			m_TransformInput = 
-			{
-				m_nControlPoint = 3
-			}
 		},
 		{
 			_class = "C_INIT_NormalAlignToCP"
 			m_nControlPointAxis = "PARTICLE_CP_AXIS_Z"
-		},
-		{
-			_class = "C_INIT_InitFloat"
-			m_nOutputField = 4
+			m_transformInput = 
+			{
+				m_nControlPoint = 1
+			}
 		},
 		{
 			_class = "C_INIT_InitFloat"
 			m_InputValue = 
 			{
-				m_nType = "PF_TYPE_RANDOM_UNIFORM"
-				m_nMapType = "PF_MAP_TYPE_DIRECT"
+				m_nType = "PF_TYPE_PARTICLE_NUMBER"
+				m_nMapType = "PF_MAP_TYPE_CURVE"
 				m_flLiteralValue = 0.0
 				m_NamedValue = ""
 				m_nControlPoint = 0
 				m_nScalarAttribute = 3
 				m_nVectorAttribute = 6
 				m_nVectorComponent = 0
-				m_flRandomMin = -10.0
-				m_flRandomMax = 10.0
-				m_bHasRandomSignFlip = true
+				m_flRandomMin = 0.0
+				m_flRandomMax = 1.0
+				m_bHasRandomSignFlip = false
+				m_nRandomSeed = -1
+				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+				m_flLOD0 = 0.0
+				m_flLOD1 = 0.0
+				m_flLOD2 = 0.0
+				m_flLOD3 = 0.0
+				m_nNoiseInputVectorAttribute = 0
+				m_flNoiseOutputMin = 0.0
+				m_flNoiseOutputMax = 1.0
+				m_flNoiseScale = 0.1
+				m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
+				m_flNoiseOffset = 0.0
+				m_nNoiseOctaves = 1
+				m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
+				m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
+				m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
+				m_flNoiseTurbulenceScale = 1.0
+				m_flNoiseTurbulenceMix = 0.5
+				m_flNoiseImgPreviewScale = 1.0
+				m_bNoiseImgPreviewLive = true
+				m_flNoCameraFallback = 0.0
+				m_bUseBoundsCenter = false
+				m_nInputMode = "PF_INPUT_MODE_CLAMPED"
+				m_flMultFactor = 1.0
+				m_flInput0 = 0.0
+				m_flInput1 = 1.0
+				m_flOutput0 = 0.0
+				m_flOutput1 = 1.0
+				m_flNotchedRangeMin = 0.0
+				m_flNotchedRangeMax = 1.0
+				m_flNotchedOutputOutside = 0.0
+				m_flNotchedOutputInside = 1.0
+				m_nRoundType = "PF_ROUND_TYPE_NEAREST"
+				m_nBiasType = "PF_BIAS_TYPE_STANDARD"
+				m_flBiasParameter = 0.0
+				m_Curve = 
+				{
+					m_spline = 
+					[
+						{
+							x = 0.000118
+							y = 0.0
+							m_flSlopeIncoming = 0.0
+							m_flSlopeOutgoing = 0.0
+						},
+						{
+							x = 7.220426
+							y = 500.0
+							m_flSlopeIncoming = 0.0
+							m_flSlopeOutgoing = 0.0
+						},
+						{
+							x = 14.0
+							y = 0.0
+							m_flSlopeIncoming = -73.750946
+							m_flSlopeOutgoing = -73.750946
+						},
+					]
+					m_tangents = 
+					[
+						{
+							m_nIncomingTangent = "CURVE_TANGENT_FREE"
+							m_nOutgoingTangent = "CURVE_TANGENT_MIRROR"
+						},
+						{
+							m_nIncomingTangent = "CURVE_TANGENT_FREE"
+							m_nOutgoingTangent = "CURVE_TANGENT_MIRROR"
+						},
+						{
+							m_nIncomingTangent = "CURVE_TANGENT_MIRROR"
+							m_nOutgoingTangent = "CURVE_TANGENT_SPLINE"
+						},
+					]
+					m_vDomainMins = [ 0.0, 0.0 ]
+					m_vDomainMaxs = [ 14.0, 500.0 ]
+				}
+			}
+		},
+		{
+			_class = "C_INIT_RingWave"
+			m_flParticlesPerOrbit = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_nMapType = "PF_MAP_TYPE_DIRECT"
+				m_flLiteralValue = 22.0
+				m_NamedValue = ""
+				m_nControlPoint = 0
+				m_nScalarAttribute = 3
+				m_nVectorAttribute = 6
+				m_nVectorComponent = 0
+				m_flRandomMin = 0.0
+				m_flRandomMax = 1.0
+				m_bHasRandomSignFlip = false
 				m_nRandomSeed = -1
 				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
 				m_flLOD0 = 0.0
@@ -1888,61 +802,992 @@
 					m_vDomainMaxs = [ 0.0, 0.0 ]
 				}
 			}
-			m_nOutputField = 12
-			m_bDisableOperator = true
+			m_flInitialRadius = 
+			{
+				m_nType = "PF_TYPE_CONTROL_POINT_COMPONENT"
+				m_nControlPoint = 5
+				m_nVectorComponent = 0
+				m_nMapType = "PF_MAP_TYPE_MULT"
+				m_flMultFactor = 0.7
+			}
+			m_flThickness = 
+			{
+				m_nType = "PF_TYPE_CONTROL_POINT_COMPONENT"
+				m_nMapType = "PF_MAP_TYPE_MULT"
+				m_flLiteralValue = 0.0
+				m_NamedValue = ""
+				m_nControlPoint = 5
+				m_nScalarAttribute = 3
+				m_nVectorAttribute = 6
+				m_nVectorComponent = 1
+				m_flRandomMin = 0.0
+				m_flRandomMax = 1.0
+				m_bHasRandomSignFlip = false
+				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+				m_flLOD0 = 0.0
+				m_flLOD1 = 0.0
+				m_flLOD2 = 0.0
+				m_flLOD3 = 0.0
+				m_nNoiseInputVectorAttribute = 0
+				m_flNoiseOutputMin = 0.0
+				m_flNoiseOutputMax = 1.0
+				m_flNoiseScale = 0.1
+				m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
+				m_flNoiseOffset = 0.0
+				m_nNoiseOctaves = 1
+				m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
+				m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
+				m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
+				m_flNoiseTurbulenceScale = 1.0
+				m_flNoiseTurbulenceMix = 0.5
+				m_flNoiseImgPreviewScale = 1.0
+				m_bNoiseImgPreviewLive = true
+				m_nInputMode = "PF_INPUT_MODE_CLAMPED"
+				m_flMultFactor = 0.0
+				m_flInput0 = 0.0
+				m_flInput1 = 1.0
+				m_flOutput0 = 0.0
+				m_flOutput1 = 1.0
+				m_flNotchedRangeMin = 0.0
+				m_flNotchedRangeMax = 1.0
+				m_flNotchedOutputOutside = 0.0
+				m_flNotchedOutputInside = 1.0
+				m_nBiasType = "PF_BIAS_TYPE_STANDARD"
+				m_flBiasParameter = 0.0
+				m_Curve = 
+				{
+					m_spline = [  ]
+					m_tangents = [  ]
+					m_vDomainMins = [ 0.0, 0.0 ]
+					m_vDomainMaxs = [ 0.0, 0.0 ]
+				}
+			}
+			m_flInitialSpeedMin = 
+			{
+				m_nType = "PF_TYPE_CONTROL_POINT_COMPONENT"
+				m_nMapType = "PF_MAP_TYPE_MULT"
+				m_flLiteralValue = 0.0
+				m_NamedValue = ""
+				m_nControlPoint = 5
+				m_nScalarAttribute = 3
+				m_nVectorAttribute = 6
+				m_nVectorComponent = 2
+				m_flRandomMin = 0.0
+				m_flRandomMax = 1.0
+				m_bHasRandomSignFlip = false
+				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+				m_flLOD0 = 0.0
+				m_flLOD1 = 0.0
+				m_flLOD2 = 0.0
+				m_flLOD3 = 0.0
+				m_nNoiseInputVectorAttribute = 0
+				m_flNoiseOutputMin = 0.0
+				m_flNoiseOutputMax = 1.0
+				m_flNoiseScale = 0.1
+				m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
+				m_flNoiseOffset = 0.0
+				m_nNoiseOctaves = 1
+				m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
+				m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
+				m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
+				m_flNoiseTurbulenceScale = 1.0
+				m_flNoiseTurbulenceMix = 0.5
+				m_flNoiseImgPreviewScale = 1.0
+				m_bNoiseImgPreviewLive = true
+				m_nInputMode = "PF_INPUT_MODE_CLAMPED"
+				m_flMultFactor = 0.0
+				m_flInput0 = 0.0
+				m_flInput1 = 1.0
+				m_flOutput0 = 0.0
+				m_flOutput1 = 1.0
+				m_flNotchedRangeMin = 0.0
+				m_flNotchedRangeMax = 1.0
+				m_flNotchedOutputOutside = 0.0
+				m_flNotchedOutputInside = 1.0
+				m_nBiasType = "PF_BIAS_TYPE_STANDARD"
+				m_flBiasParameter = 0.0
+				m_Curve = 
+				{
+					m_spline = [  ]
+					m_tangents = [  ]
+					m_vDomainMins = [ 0.0, 0.0 ]
+					m_vDomainMaxs = [ 0.0, 0.0 ]
+				}
+			}
+			m_flInitialSpeedMax = 
+			{
+				m_nType = "PF_TYPE_CONTROL_POINT_COMPONENT"
+				m_nMapType = "PF_MAP_TYPE_MULT"
+				m_flLiteralValue = 0.0
+				m_NamedValue = ""
+				m_nControlPoint = 5
+				m_nScalarAttribute = 3
+				m_nVectorAttribute = 6
+				m_nVectorComponent = 2
+				m_flRandomMin = 0.0
+				m_flRandomMax = 1.0
+				m_bHasRandomSignFlip = false
+				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+				m_flLOD0 = 0.0
+				m_flLOD1 = 0.0
+				m_flLOD2 = 0.0
+				m_flLOD3 = 0.0
+				m_nNoiseInputVectorAttribute = 0
+				m_flNoiseOutputMin = 0.0
+				m_flNoiseOutputMax = 1.0
+				m_flNoiseScale = 0.1
+				m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
+				m_flNoiseOffset = 0.0
+				m_nNoiseOctaves = 1
+				m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
+				m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
+				m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
+				m_flNoiseTurbulenceScale = 1.0
+				m_flNoiseTurbulenceMix = 0.5
+				m_flNoiseImgPreviewScale = 1.0
+				m_bNoiseImgPreviewLive = true
+				m_nInputMode = "PF_INPUT_MODE_CLAMPED"
+				m_flMultFactor = 0.0
+				m_flInput0 = 0.0
+				m_flInput1 = 1.0
+				m_flOutput0 = 0.0
+				m_flOutput1 = 1.0
+				m_flNotchedRangeMin = 0.0
+				m_flNotchedRangeMax = 1.0
+				m_flNotchedOutputOutside = 0.0
+				m_flNotchedOutputInside = 1.0
+				m_nBiasType = "PF_BIAS_TYPE_STANDARD"
+				m_flBiasParameter = 0.0
+				m_Curve = 
+				{
+					m_spline = [  ]
+					m_tangents = [  ]
+					m_vDomainMins = [ 0.0, 0.0 ]
+					m_vDomainMaxs = [ 0.0, 0.0 ]
+				}
+			}
+			m_flRoll = 
+			{
+				m_nType = "PF_TYPE_CONTROL_POINT_COMPONENT"
+				m_nMapType = "PF_MAP_TYPE_DIRECT"
+				m_flLiteralValue = 0.0
+				m_NamedValue = ""
+				m_nControlPoint = 6
+				m_nScalarAttribute = 3
+				m_nVectorAttribute = 6
+				m_nVectorComponent = 0
+				m_flRandomMin = 0.0
+				m_flRandomMax = 1.0
+				m_bHasRandomSignFlip = false
+				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+				m_flLOD0 = 0.0
+				m_flLOD1 = 0.0
+				m_flLOD2 = 0.0
+				m_flLOD3 = 0.0
+				m_nNoiseInputVectorAttribute = 0
+				m_flNoiseOutputMin = 0.0
+				m_flNoiseOutputMax = 1.0
+				m_flNoiseScale = 0.1
+				m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
+				m_flNoiseOffset = 0.0
+				m_nNoiseOctaves = 1
+				m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
+				m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
+				m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
+				m_flNoiseTurbulenceScale = 1.0
+				m_flNoiseTurbulenceMix = 0.5
+				m_flNoiseImgPreviewScale = 1.0
+				m_bNoiseImgPreviewLive = true
+				m_nInputMode = "PF_INPUT_MODE_CLAMPED"
+				m_flMultFactor = 1.0
+				m_flInput0 = 0.0
+				m_flInput1 = 1.0
+				m_flOutput0 = 0.0
+				m_flOutput1 = 1.0
+				m_flNotchedRangeMin = 0.0
+				m_flNotchedRangeMax = 1.0
+				m_flNotchedOutputOutside = 0.0
+				m_flNotchedOutputInside = 1.0
+				m_nBiasType = "PF_BIAS_TYPE_STANDARD"
+				m_flBiasParameter = 0.0
+				m_Curve = 
+				{
+					m_spline = [  ]
+					m_tangents = [  ]
+					m_vDomainMins = [ 0.0, 0.0 ]
+					m_vDomainMaxs = [ 0.0, 0.0 ]
+				}
+			}
+			m_flPitch = 
+			{
+				m_nType = "PF_TYPE_CONTROL_POINT_COMPONENT"
+				m_nMapType = "PF_MAP_TYPE_DIRECT"
+				m_flLiteralValue = 0.0
+				m_NamedValue = ""
+				m_nControlPoint = 6
+				m_nScalarAttribute = 3
+				m_nVectorAttribute = 6
+				m_nVectorComponent = 1
+				m_flRandomMin = 0.0
+				m_flRandomMax = 1.0
+				m_bHasRandomSignFlip = false
+				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+				m_flLOD0 = 0.0
+				m_flLOD1 = 0.0
+				m_flLOD2 = 0.0
+				m_flLOD3 = 0.0
+				m_nNoiseInputVectorAttribute = 0
+				m_flNoiseOutputMin = 0.0
+				m_flNoiseOutputMax = 1.0
+				m_flNoiseScale = 0.1
+				m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
+				m_flNoiseOffset = 0.0
+				m_nNoiseOctaves = 1
+				m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
+				m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
+				m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
+				m_flNoiseTurbulenceScale = 1.0
+				m_flNoiseTurbulenceMix = 0.5
+				m_flNoiseImgPreviewScale = 1.0
+				m_bNoiseImgPreviewLive = true
+				m_nInputMode = "PF_INPUT_MODE_CLAMPED"
+				m_flMultFactor = 1.0
+				m_flInput0 = 0.0
+				m_flInput1 = 1.0
+				m_flOutput0 = 0.0
+				m_flOutput1 = 1.0
+				m_flNotchedRangeMin = 0.0
+				m_flNotchedRangeMax = 1.0
+				m_flNotchedOutputOutside = 0.0
+				m_flNotchedOutputInside = 1.0
+				m_nBiasType = "PF_BIAS_TYPE_STANDARD"
+				m_flBiasParameter = 0.0
+				m_Curve = 
+				{
+					m_spline = [  ]
+					m_tangents = [  ]
+					m_vDomainMins = [ 0.0, 0.0 ]
+					m_vDomainMaxs = [ 0.0, 0.0 ]
+				}
+			}
+			m_flYaw = 
+			{
+				m_nType = "PF_TYPE_CONTROL_POINT_COMPONENT"
+				m_nMapType = "PF_MAP_TYPE_DIRECT"
+				m_flLiteralValue = 0.0
+				m_NamedValue = ""
+				m_nControlPoint = 6
+				m_nScalarAttribute = 3
+				m_nVectorAttribute = 6
+				m_nVectorComponent = 2
+				m_flRandomMin = 0.0
+				m_flRandomMax = 1.0
+				m_bHasRandomSignFlip = false
+				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+				m_flLOD0 = 0.0
+				m_flLOD1 = 0.0
+				m_flLOD2 = 0.0
+				m_flLOD3 = 0.0
+				m_nNoiseInputVectorAttribute = 0
+				m_flNoiseOutputMin = 0.0
+				m_flNoiseOutputMax = 1.0
+				m_flNoiseScale = 0.1
+				m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
+				m_flNoiseOffset = 0.0
+				m_nNoiseOctaves = 1
+				m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
+				m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
+				m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
+				m_flNoiseTurbulenceScale = 1.0
+				m_flNoiseTurbulenceMix = 0.5
+				m_flNoiseImgPreviewScale = 1.0
+				m_bNoiseImgPreviewLive = true
+				m_nInputMode = "PF_INPUT_MODE_CLAMPED"
+				m_flMultFactor = 1.0
+				m_flInput0 = 0.0
+				m_flInput1 = 1.0
+				m_flOutput0 = 0.0
+				m_flOutput1 = 1.0
+				m_flNotchedRangeMin = 0.0
+				m_flNotchedRangeMax = 1.0
+				m_flNotchedOutputOutside = 0.0
+				m_flNotchedOutputInside = 1.0
+				m_nBiasType = "PF_BIAS_TYPE_STANDARD"
+				m_flBiasParameter = 0.0
+				m_Curve = 
+				{
+					m_spline = [  ]
+					m_tangents = [  ]
+					m_vDomainMins = [ 0.0, 0.0 ]
+					m_vDomainMaxs = [ 0.0, 0.0 ]
+				}
+			}
+			m_bEvenDistribution = true
+		},
+		{
+			_class = "C_INIT_InitFloat"
+			m_InputValue = 
+			{
+				m_nType = "PF_TYPE_PARTICLE_FLOAT"
+				m_nMapType = "PF_MAP_TYPE_REMAP"
+				m_flLiteralValue = 0.0
+				m_NamedValue = ""
+				m_nControlPoint = 0
+				m_nScalarAttribute = 8
+				m_nVectorAttribute = 6
+				m_nVectorComponent = 0
+				m_flRandomMin = 0.0
+				m_flRandomMax = 1.0
+				m_bHasRandomSignFlip = false
+				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+				m_flLOD0 = 0.0
+				m_flLOD1 = 0.0
+				m_flLOD2 = 0.0
+				m_flLOD3 = 0.0
+				m_nNoiseInputVectorAttribute = 0
+				m_flNoiseOutputMin = 0.0
+				m_flNoiseOutputMax = 1.0
+				m_flNoiseScale = 0.1
+				m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
+				m_flNoiseOffset = 0.0
+				m_nNoiseOctaves = 1
+				m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
+				m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
+				m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
+				m_flNoiseTurbulenceScale = 1.0
+				m_flNoiseTurbulenceMix = 0.5
+				m_flNoiseImgPreviewScale = 1.0
+				m_bNoiseImgPreviewLive = true
+				m_nInputMode = "PF_INPUT_MODE_CLAMPED"
+				m_flMultFactor = 1.0
+				m_flInput0 = 0.01
+				m_flInput1 = 0.2
+				m_flOutput0 = 0.1
+				m_flOutput1 = 1.0
+				m_flNotchedRangeMin = 0.0
+				m_flNotchedRangeMax = 1.0
+				m_flNotchedOutputOutside = 0.0
+				m_flNotchedOutputInside = 1.0
+				m_nBiasType = "PF_BIAS_TYPE_STANDARD"
+				m_flBiasParameter = 0.0
+				m_Curve = 
+				{
+					m_spline = [  ]
+					m_tangents = [  ]
+					m_vDomainMins = [ 0.0, 0.0 ]
+					m_vDomainMaxs = [ 0.0, 0.0 ]
+				}
+			}
+			m_nOutputField = 1
+			m_nSetMethod = "PARTICLE_SET_SCALE_INITIAL_VALUE"
+			m_flOpStrength = 
+			{
+				m_nType = "PF_TYPE_COLLECTION_AGE"
+				m_nMapType = "PF_MAP_TYPE_NOTCHED"
+				m_flNotchedRangeMin = 0.0
+				m_flNotchedRangeMax = 0.2
+				m_flNotchedOutputOutside = 0.0
+				m_flNotchedOutputInside = 1.0
+			}
+		},
+		{
+			_class = "C_INIT_PositionOffset"
+			m_OffsetMin = 
+			{
+				m_nType = "PVEC_TYPE_CP_VALUE"
+				m_vLiteralValue = [ 0.0, 0.0, 48.0 ]
+				m_LiteralColor = [ 0, 0, 0 ]
+				m_NamedValue = ""
+				m_nVectorAttribute = 6
+				m_vVectorAttributeScale = [ 1.0, 1.0, 1.0 ]
+				m_nControlPoint = 5
+				m_vCPValueScale = [ 0.0, 0.0, 1.0 ]
+				m_vCPRelativePosition = [ 0.0, 0.0, 0.0 ]
+				m_vCPRelativeDir = [ 1.0, 0.0, 0.0 ]
+				m_FloatComponentX = 
+				{
+					m_nType = "PF_TYPE_LITERAL"
+					m_nMapType = "PF_MAP_TYPE_DIRECT"
+					m_flLiteralValue = 0.0
+					m_NamedValue = ""
+					m_nControlPoint = 0
+					m_nScalarAttribute = 3
+					m_nVectorAttribute = 6
+					m_nVectorComponent = 0
+					m_flRandomMin = 0.0
+					m_flRandomMax = 1.0
+					m_bHasRandomSignFlip = false
+					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+					m_flLOD0 = 0.0
+					m_flLOD1 = 0.0
+					m_flLOD2 = 0.0
+					m_flLOD3 = 0.0
+					m_nNoiseInputVectorAttribute = 0
+					m_flNoiseOutputMin = 0.0
+					m_flNoiseOutputMax = 1.0
+					m_flNoiseScale = 0.1
+					m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
+					m_flNoiseOffset = 0.0
+					m_nNoiseOctaves = 1
+					m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
+					m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
+					m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
+					m_flNoiseTurbulenceScale = 1.0
+					m_flNoiseTurbulenceMix = 0.5
+					m_flNoiseImgPreviewScale = 1.0
+					m_bNoiseImgPreviewLive = true
+					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
+					m_flMultFactor = 1.0
+					m_flInput0 = 0.0
+					m_flInput1 = 1.0
+					m_flOutput0 = 0.0
+					m_flOutput1 = 1.0
+					m_flNotchedRangeMin = 0.0
+					m_flNotchedRangeMax = 1.0
+					m_flNotchedOutputOutside = 0.0
+					m_flNotchedOutputInside = 1.0
+					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
+					m_flBiasParameter = 0.0
+					m_Curve = 
+					{
+						m_spline = [  ]
+						m_tangents = [  ]
+						m_vDomainMins = [ 0.0, 0.0 ]
+						m_vDomainMaxs = [ 0.0, 0.0 ]
+					}
+				}
+				m_FloatComponentY = 
+				{
+					m_nType = "PF_TYPE_LITERAL"
+					m_nMapType = "PF_MAP_TYPE_DIRECT"
+					m_flLiteralValue = 0.0
+					m_NamedValue = ""
+					m_nControlPoint = 0
+					m_nScalarAttribute = 3
+					m_nVectorAttribute = 6
+					m_nVectorComponent = 0
+					m_flRandomMin = 0.0
+					m_flRandomMax = 1.0
+					m_bHasRandomSignFlip = false
+					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+					m_flLOD0 = 0.0
+					m_flLOD1 = 0.0
+					m_flLOD2 = 0.0
+					m_flLOD3 = 0.0
+					m_nNoiseInputVectorAttribute = 0
+					m_flNoiseOutputMin = 0.0
+					m_flNoiseOutputMax = 1.0
+					m_flNoiseScale = 0.1
+					m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
+					m_flNoiseOffset = 0.0
+					m_nNoiseOctaves = 1
+					m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
+					m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
+					m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
+					m_flNoiseTurbulenceScale = 1.0
+					m_flNoiseTurbulenceMix = 0.5
+					m_flNoiseImgPreviewScale = 1.0
+					m_bNoiseImgPreviewLive = true
+					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
+					m_flMultFactor = 1.0
+					m_flInput0 = 0.0
+					m_flInput1 = 1.0
+					m_flOutput0 = 0.0
+					m_flOutput1 = 1.0
+					m_flNotchedRangeMin = 0.0
+					m_flNotchedRangeMax = 1.0
+					m_flNotchedOutputOutside = 0.0
+					m_flNotchedOutputInside = 1.0
+					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
+					m_flBiasParameter = 0.0
+					m_Curve = 
+					{
+						m_spline = [  ]
+						m_tangents = [  ]
+						m_vDomainMins = [ 0.0, 0.0 ]
+						m_vDomainMaxs = [ 0.0, 0.0 ]
+					}
+				}
+				m_FloatComponentZ = 
+				{
+					m_nType = "PF_TYPE_LITERAL"
+					m_nMapType = "PF_MAP_TYPE_DIRECT"
+					m_flLiteralValue = 0.0
+					m_NamedValue = ""
+					m_nControlPoint = 0
+					m_nScalarAttribute = 3
+					m_nVectorAttribute = 6
+					m_nVectorComponent = 0
+					m_flRandomMin = 0.0
+					m_flRandomMax = 1.0
+					m_bHasRandomSignFlip = false
+					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+					m_flLOD0 = 0.0
+					m_flLOD1 = 0.0
+					m_flLOD2 = 0.0
+					m_flLOD3 = 0.0
+					m_nNoiseInputVectorAttribute = 0
+					m_flNoiseOutputMin = 0.0
+					m_flNoiseOutputMax = 1.0
+					m_flNoiseScale = 0.1
+					m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
+					m_flNoiseOffset = 0.0
+					m_nNoiseOctaves = 1
+					m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
+					m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
+					m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
+					m_flNoiseTurbulenceScale = 1.0
+					m_flNoiseTurbulenceMix = 0.5
+					m_flNoiseImgPreviewScale = 1.0
+					m_bNoiseImgPreviewLive = true
+					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
+					m_flMultFactor = 1.0
+					m_flInput0 = 0.0
+					m_flInput1 = 1.0
+					m_flOutput0 = 0.0
+					m_flOutput1 = 1.0
+					m_flNotchedRangeMin = 0.0
+					m_flNotchedRangeMax = 1.0
+					m_flNotchedOutputOutside = 0.0
+					m_flNotchedOutputInside = 1.0
+					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
+					m_flBiasParameter = 0.0
+					m_Curve = 
+					{
+						m_spline = [  ]
+						m_tangents = [  ]
+						m_vDomainMins = [ 0.0, 0.0 ]
+						m_vDomainMaxs = [ 0.0, 0.0 ]
+					}
+				}
+				m_FloatInterp = 
+				{
+					m_nType = "PF_TYPE_LITERAL"
+					m_nMapType = "PF_MAP_TYPE_DIRECT"
+					m_flLiteralValue = 0.0
+					m_NamedValue = ""
+					m_nControlPoint = 0
+					m_nScalarAttribute = 3
+					m_nVectorAttribute = 6
+					m_nVectorComponent = 0
+					m_flRandomMin = 0.0
+					m_flRandomMax = 1.0
+					m_bHasRandomSignFlip = false
+					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+					m_flLOD0 = 0.0
+					m_flLOD1 = 0.0
+					m_flLOD2 = 0.0
+					m_flLOD3 = 0.0
+					m_nNoiseInputVectorAttribute = 0
+					m_flNoiseOutputMin = 0.0
+					m_flNoiseOutputMax = 1.0
+					m_flNoiseScale = 0.1
+					m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
+					m_flNoiseOffset = 0.0
+					m_nNoiseOctaves = 1
+					m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
+					m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
+					m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
+					m_flNoiseTurbulenceScale = 1.0
+					m_flNoiseTurbulenceMix = 0.5
+					m_flNoiseImgPreviewScale = 1.0
+					m_bNoiseImgPreviewLive = true
+					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
+					m_flMultFactor = 1.0
+					m_flInput0 = 0.0
+					m_flInput1 = 1.0
+					m_flOutput0 = 0.0
+					m_flOutput1 = 1.0
+					m_flNotchedRangeMin = 0.0
+					m_flNotchedRangeMax = 1.0
+					m_flNotchedOutputOutside = 0.0
+					m_flNotchedOutputInside = 1.0
+					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
+					m_flBiasParameter = 0.0
+					m_Curve = 
+					{
+						m_spline = [  ]
+						m_tangents = [  ]
+						m_vDomainMins = [ 0.0, 0.0 ]
+						m_vDomainMaxs = [ 0.0, 0.0 ]
+					}
+				}
+				m_flInterpInput0 = 0.0
+				m_flInterpInput1 = 1.0
+				m_vInterpOutput0 = [ 0.0, 0.0, 0.0 ]
+				m_vInterpOutput1 = [ 1.0, 1.0, 1.0 ]
+				m_Gradient = 
+				{
+					m_Stops = [  ]
+				}
+				m_vRandomMin = [ 0.0, 0.0, 0.0 ]
+				m_vRandomMax = [ 0.0, 0.0, 0.0 ]
+			}
+			m_OffsetMax = 
+			{
+				m_nType = "PVEC_TYPE_CP_VALUE"
+				m_vLiteralValue = [ 0.0, 0.0, 48.0 ]
+				m_LiteralColor = [ 0, 0, 0 ]
+				m_NamedValue = ""
+				m_bFollowNamedValue = false
+				m_nVectorAttribute = 6
+				m_vVectorAttributeScale = [ 1.0, 1.0, 1.0 ]
+				m_nControlPoint = 5
+				m_nDeltaControlPoint = 0
+				m_vCPValueScale = [ 0.0, 0.0, 1.0 ]
+				m_vCPRelativePosition = [ 0.0, 0.0, 0.0 ]
+				m_vCPRelativeDir = [ 1.0, 0.0, 0.0 ]
+				m_FloatComponentX = 
+				{
+					m_nType = "PF_TYPE_LITERAL"
+					m_nMapType = "PF_MAP_TYPE_DIRECT"
+					m_flLiteralValue = 0.0
+					m_NamedValue = ""
+					m_nControlPoint = 0
+					m_nScalarAttribute = 3
+					m_nVectorAttribute = 6
+					m_nVectorComponent = 0
+					m_flRandomMin = 0.0
+					m_flRandomMax = 1.0
+					m_bHasRandomSignFlip = false
+					m_nRandomSeed = -1
+					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+					m_flLOD0 = 0.0
+					m_flLOD1 = 0.0
+					m_flLOD2 = 0.0
+					m_flLOD3 = 0.0
+					m_nNoiseInputVectorAttribute = 0
+					m_flNoiseOutputMin = 0.0
+					m_flNoiseOutputMax = 1.0
+					m_flNoiseScale = 0.1
+					m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
+					m_flNoiseOffset = 0.0
+					m_nNoiseOctaves = 1
+					m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
+					m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
+					m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
+					m_flNoiseTurbulenceScale = 1.0
+					m_flNoiseTurbulenceMix = 0.5
+					m_flNoiseImgPreviewScale = 1.0
+					m_bNoiseImgPreviewLive = true
+					m_flNoCameraFallback = 0.0
+					m_bUseBoundsCenter = false
+					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
+					m_flMultFactor = 1.0
+					m_flInput0 = 0.0
+					m_flInput1 = 1.0
+					m_flOutput0 = 0.0
+					m_flOutput1 = 1.0
+					m_flNotchedRangeMin = 0.0
+					m_flNotchedRangeMax = 1.0
+					m_flNotchedOutputOutside = 0.0
+					m_flNotchedOutputInside = 1.0
+					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
+					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
+					m_flBiasParameter = 0.0
+					m_Curve = 
+					{
+						m_spline = [  ]
+						m_tangents = [  ]
+						m_vDomainMins = [ 0.0, 0.0 ]
+						m_vDomainMaxs = [ 0.0, 0.0 ]
+					}
+				}
+				m_FloatComponentY = 
+				{
+					m_nType = "PF_TYPE_LITERAL"
+					m_nMapType = "PF_MAP_TYPE_DIRECT"
+					m_flLiteralValue = 0.0
+					m_NamedValue = ""
+					m_nControlPoint = 0
+					m_nScalarAttribute = 3
+					m_nVectorAttribute = 6
+					m_nVectorComponent = 0
+					m_flRandomMin = 0.0
+					m_flRandomMax = 1.0
+					m_bHasRandomSignFlip = false
+					m_nRandomSeed = -1
+					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+					m_flLOD0 = 0.0
+					m_flLOD1 = 0.0
+					m_flLOD2 = 0.0
+					m_flLOD3 = 0.0
+					m_nNoiseInputVectorAttribute = 0
+					m_flNoiseOutputMin = 0.0
+					m_flNoiseOutputMax = 1.0
+					m_flNoiseScale = 0.1
+					m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
+					m_flNoiseOffset = 0.0
+					m_nNoiseOctaves = 1
+					m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
+					m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
+					m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
+					m_flNoiseTurbulenceScale = 1.0
+					m_flNoiseTurbulenceMix = 0.5
+					m_flNoiseImgPreviewScale = 1.0
+					m_bNoiseImgPreviewLive = true
+					m_flNoCameraFallback = 0.0
+					m_bUseBoundsCenter = false
+					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
+					m_flMultFactor = 1.0
+					m_flInput0 = 0.0
+					m_flInput1 = 1.0
+					m_flOutput0 = 0.0
+					m_flOutput1 = 1.0
+					m_flNotchedRangeMin = 0.0
+					m_flNotchedRangeMax = 1.0
+					m_flNotchedOutputOutside = 0.0
+					m_flNotchedOutputInside = 1.0
+					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
+					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
+					m_flBiasParameter = 0.0
+					m_Curve = 
+					{
+						m_spline = [  ]
+						m_tangents = [  ]
+						m_vDomainMins = [ 0.0, 0.0 ]
+						m_vDomainMaxs = [ 0.0, 0.0 ]
+					}
+				}
+				m_FloatComponentZ = 
+				{
+					m_nType = "PF_TYPE_LITERAL"
+					m_nMapType = "PF_MAP_TYPE_DIRECT"
+					m_flLiteralValue = 0.0
+					m_NamedValue = ""
+					m_nControlPoint = 0
+					m_nScalarAttribute = 3
+					m_nVectorAttribute = 6
+					m_nVectorComponent = 0
+					m_flRandomMin = 0.0
+					m_flRandomMax = 1.0
+					m_bHasRandomSignFlip = false
+					m_nRandomSeed = -1
+					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+					m_flLOD0 = 0.0
+					m_flLOD1 = 0.0
+					m_flLOD2 = 0.0
+					m_flLOD3 = 0.0
+					m_nNoiseInputVectorAttribute = 0
+					m_flNoiseOutputMin = 0.0
+					m_flNoiseOutputMax = 1.0
+					m_flNoiseScale = 0.1
+					m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
+					m_flNoiseOffset = 0.0
+					m_nNoiseOctaves = 1
+					m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
+					m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
+					m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
+					m_flNoiseTurbulenceScale = 1.0
+					m_flNoiseTurbulenceMix = 0.5
+					m_flNoiseImgPreviewScale = 1.0
+					m_bNoiseImgPreviewLive = true
+					m_flNoCameraFallback = 0.0
+					m_bUseBoundsCenter = false
+					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
+					m_flMultFactor = 1.0
+					m_flInput0 = 0.0
+					m_flInput1 = 1.0
+					m_flOutput0 = 0.0
+					m_flOutput1 = 1.0
+					m_flNotchedRangeMin = 0.0
+					m_flNotchedRangeMax = 1.0
+					m_flNotchedOutputOutside = 0.0
+					m_flNotchedOutputInside = 1.0
+					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
+					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
+					m_flBiasParameter = 0.0
+					m_Curve = 
+					{
+						m_spline = [  ]
+						m_tangents = [  ]
+						m_vDomainMins = [ 0.0, 0.0 ]
+						m_vDomainMaxs = [ 0.0, 0.0 ]
+					}
+				}
+				m_FloatInterp = 
+				{
+					m_nType = "PF_TYPE_LITERAL"
+					m_nMapType = "PF_MAP_TYPE_DIRECT"
+					m_flLiteralValue = 0.0
+					m_NamedValue = ""
+					m_nControlPoint = 0
+					m_nScalarAttribute = 3
+					m_nVectorAttribute = 6
+					m_nVectorComponent = 0
+					m_flRandomMin = 0.0
+					m_flRandomMax = 1.0
+					m_bHasRandomSignFlip = false
+					m_nRandomSeed = -1
+					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+					m_flLOD0 = 0.0
+					m_flLOD1 = 0.0
+					m_flLOD2 = 0.0
+					m_flLOD3 = 0.0
+					m_nNoiseInputVectorAttribute = 0
+					m_flNoiseOutputMin = 0.0
+					m_flNoiseOutputMax = 1.0
+					m_flNoiseScale = 0.1
+					m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
+					m_flNoiseOffset = 0.0
+					m_nNoiseOctaves = 1
+					m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
+					m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
+					m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
+					m_flNoiseTurbulenceScale = 1.0
+					m_flNoiseTurbulenceMix = 0.5
+					m_flNoiseImgPreviewScale = 1.0
+					m_bNoiseImgPreviewLive = true
+					m_flNoCameraFallback = 0.0
+					m_bUseBoundsCenter = false
+					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
+					m_flMultFactor = 1.0
+					m_flInput0 = 0.0
+					m_flInput1 = 1.0
+					m_flOutput0 = 0.0
+					m_flOutput1 = 1.0
+					m_flNotchedRangeMin = 0.0
+					m_flNotchedRangeMax = 1.0
+					m_flNotchedOutputOutside = 0.0
+					m_flNotchedOutputInside = 1.0
+					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
+					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
+					m_flBiasParameter = 0.0
+					m_Curve = 
+					{
+						m_spline = [  ]
+						m_tangents = [  ]
+						m_vDomainMins = [ 0.0, 0.0 ]
+						m_vDomainMaxs = [ 0.0, 0.0 ]
+					}
+				}
+				m_flInterpInput0 = 0.0
+				m_flInterpInput1 = 1.0
+				m_vInterpOutput0 = [ 0.0, 0.0, 0.0 ]
+				m_vInterpOutput1 = [ 1.0, 1.0, 1.0 ]
+				m_Gradient = 
+				{
+					m_Stops = [  ]
+				}
+				m_vRandomMin = [ 0.0, 0.0, 0.0 ]
+				m_vRandomMax = [ 0.0, 0.0, 0.0 ]
+			}
 		},
 	]
 	m_Operators = 
 	[
 		{
-			_class = "C_OP_Decay"
-		},
-		{
-			_class = "C_OP_EndCapTimedDecay"
+			_class = "C_OP_BasicMovement"
 			m_bDisableOperator = true
 		},
 		{
-			_class = "C_OP_BasicMovement"
-			m_fDrag = 0.2
-		},
-		{
-			_class = "C_OP_RemapTransformOrientationToYaw"
-			m_flRotOffset = 180.0
+			_class = "C_OP_Decay"
+			m_flOpEndFadeInTime = 0.5
+			m_flOpStartFadeInTime = 0.5
 		},
 		{
 			_class = "C_OP_InterpolateRadius"
-			m_flStartScale = 0.0
-			m_flBias = 0.9
-			m_bDisableOperator = true
-		},
-		{
-			_class = "C_OP_FadeAndKill"
-			m_flEndFadeInTime = 3.0
-			m_flStartFadeOutTime = 0.2
-			m_flEndFadeOutTime = 0.3
-			m_flStartAlpha = 0.0
-			m_flEndAlpha = 1.0
-			m_bDisableOperator = true
+			m_flBias = 0.65
+			m_flEndScale = 0.0
 		},
 		{
 			_class = "C_OP_FadeInSimple"
-			m_flFadeInTime = 0.4
+			m_flFadeInTime = 0.15
 		},
 		{
-			_class = "C_OP_FadeOutSimple"
-			m_flFadeOutTime = 0.6
+			_class = "C_OP_ColorInterpolate"
+			m_ColorFade = [ 146, 0, 0, 255 ]
+			m_flFadeEndTime = 0.9
+			m_flFadeStartTime = 0.3
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_OP_RampScalarLinearSimple"
+			m_Rate = -200.0
+			m_flEndTime = 100000.0
+			m_nField = 7
+			m_nOpEndCapState = "PARTICLE_ENDCAP_ENDCAP_ON"
+		},
+		{
+			_class = "C_OP_RampScalarLinearSimple"
+			m_Rate = -100.0
+			m_nField = 7
+			m_nOpEndCapState = "PARTICLE_ENDCAP_ENDCAP_ON"
+		},
+		{
+			_class = "C_OP_FadeIn"
+		},
+		{
+			_class = "C_OP_PositionLock"
+		},
+		{
+			_class = "C_OP_MovementPlaceOnGround"
+			m_flOffset = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_nMapType = "PF_MAP_TYPE_DIRECT"
+				m_flLiteralValue = 120.0
+				m_NamedValue = ""
+				m_nControlPoint = 0
+				m_nScalarAttribute = 3
+				m_nVectorAttribute = 6
+				m_nVectorComponent = 0
+				m_flRandomMin = 0.0
+				m_flRandomMax = 1.0
+				m_bHasRandomSignFlip = false
+				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+				m_flLOD0 = 0.0
+				m_flLOD1 = 0.0
+				m_flLOD2 = 0.0
+				m_flLOD3 = 0.0
+				m_nNoiseInputVectorAttribute = 0
+				m_flNoiseOutputMin = 0.0
+				m_flNoiseOutputMax = 1.0
+				m_flNoiseScale = 0.1
+				m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
+				m_flNoiseOffset = 0.0
+				m_nNoiseOctaves = 1
+				m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
+				m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
+				m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
+				m_flNoiseTurbulenceScale = 1.0
+				m_flNoiseTurbulenceMix = 0.5
+				m_flNoiseImgPreviewScale = 1.0
+				m_bNoiseImgPreviewLive = true
+				m_nInputMode = "PF_INPUT_MODE_CLAMPED"
+				m_flMultFactor = 1.0
+				m_flInput0 = 0.0
+				m_flInput1 = 1.0
+				m_flOutput0 = 0.0
+				m_flOutput1 = 1.0
+				m_flNotchedRangeMin = 0.0
+				m_flNotchedRangeMax = 1.0
+				m_flNotchedOutputOutside = 0.0
+				m_flNotchedOutputInside = 1.0
+				m_nBiasType = "PF_BIAS_TYPE_STANDARD"
+				m_flBiasParameter = 0.0
+				m_Curve = 
+				{
+					m_spline = [  ]
+					m_tangents = [  ]
+					m_vDomainMins = [ 0.0, 0.0 ]
+					m_vDomainMaxs = [ 0.0, 0.0 ]
+				}
+			}
+			m_bDisableOperator = true
 		},
 	]
 	m_Renderers = 
 	[
 		{
-			_class = "C_OP_RenderTrails"
-			m_flMaxLength = 200.0
-			m_flRadiusScale = 
+			_class = "C_OP_RenderRopes"
+			m_nMinTesselation = 3
+			m_nMaxTesselation = 3
+			m_flTextureVWorldSize = 
 			{
 				m_nType = "PF_TYPE_LITERAL"
 				m_nMapType = "PF_MAP_TYPE_DIRECT"
-				m_flLiteralValue = 10.0
+				m_flLiteralValue = 2500.0
 				m_NamedValue = ""
 				m_nControlPoint = 0
 				m_nScalarAttribute = 3
@@ -1994,575 +1839,13 @@
 					m_vDomainMaxs = [ 0.0, 0.0 ]
 				}
 			}
-			m_vecTexturesInput = 
-			[
-				{
-					m_hTexture = resource:"materials/particle/beam_fast_swipe.vtex"
-				},
-			]
-		},
-		{
-			_class = "C_OP_RenderTrails"
-			m_flMaxLength = 200.0
-			m_vecHeadColorScale = 
-			{
-				m_nType = "PVEC_TYPE_LITERAL_COLOR"
-				m_vLiteralValue = [ 0.0, 0.0, 0.0 ]
-				m_LiteralColor = [ 0, 0, 0 ]
-				m_NamedValue = ""
-				m_bFollowNamedValue = false
-				m_nVectorAttribute = 6
-				m_vVectorAttributeScale = [ 1.0, 1.0, 1.0 ]
-				m_nControlPoint = 0
-				m_nDeltaControlPoint = 0
-				m_vCPValueScale = [ 1.0, 1.0, 1.0 ]
-				m_vCPRelativePosition = [ 0.0, 0.0, 0.0 ]
-				m_vCPRelativeDir = [ 1.0, 0.0, 0.0 ]
-				m_FloatComponentX = 
-				{
-					m_nType = "PF_TYPE_LITERAL"
-					m_nMapType = "PF_MAP_TYPE_DIRECT"
-					m_flLiteralValue = 0.0
-					m_NamedValue = ""
-					m_nControlPoint = 0
-					m_nScalarAttribute = 3
-					m_nVectorAttribute = 6
-					m_nVectorComponent = 0
-					m_flRandomMin = 0.0
-					m_flRandomMax = 1.0
-					m_bHasRandomSignFlip = false
-					m_nRandomSeed = -1
-					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
-					m_flLOD0 = 0.0
-					m_flLOD1 = 0.0
-					m_flLOD2 = 0.0
-					m_flLOD3 = 0.0
-					m_nNoiseInputVectorAttribute = 0
-					m_flNoiseOutputMin = 0.0
-					m_flNoiseOutputMax = 1.0
-					m_flNoiseScale = 0.1
-					m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
-					m_flNoiseOffset = 0.0
-					m_nNoiseOctaves = 1
-					m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
-					m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
-					m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
-					m_flNoiseTurbulenceScale = 1.0
-					m_flNoiseTurbulenceMix = 0.5
-					m_flNoiseImgPreviewScale = 1.0
-					m_bNoiseImgPreviewLive = true
-					m_flNoCameraFallback = 0.0
-					m_bUseBoundsCenter = false
-					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
-					m_flMultFactor = 1.0
-					m_flInput0 = 0.0
-					m_flInput1 = 1.0
-					m_flOutput0 = 0.0
-					m_flOutput1 = 1.0
-					m_flNotchedRangeMin = 0.0
-					m_flNotchedRangeMax = 1.0
-					m_flNotchedOutputOutside = 0.0
-					m_flNotchedOutputInside = 1.0
-					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
-					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
-					m_flBiasParameter = 0.0
-					m_Curve = 
-					{
-						m_spline = [  ]
-						m_tangents = [  ]
-						m_vDomainMins = [ 0.0, 0.0 ]
-						m_vDomainMaxs = [ 0.0, 0.0 ]
-					}
-				}
-				m_FloatComponentY = 
-				{
-					m_nType = "PF_TYPE_LITERAL"
-					m_nMapType = "PF_MAP_TYPE_DIRECT"
-					m_flLiteralValue = 0.0
-					m_NamedValue = ""
-					m_nControlPoint = 0
-					m_nScalarAttribute = 3
-					m_nVectorAttribute = 6
-					m_nVectorComponent = 0
-					m_flRandomMin = 0.0
-					m_flRandomMax = 1.0
-					m_bHasRandomSignFlip = false
-					m_nRandomSeed = -1
-					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
-					m_flLOD0 = 0.0
-					m_flLOD1 = 0.0
-					m_flLOD2 = 0.0
-					m_flLOD3 = 0.0
-					m_nNoiseInputVectorAttribute = 0
-					m_flNoiseOutputMin = 0.0
-					m_flNoiseOutputMax = 1.0
-					m_flNoiseScale = 0.1
-					m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
-					m_flNoiseOffset = 0.0
-					m_nNoiseOctaves = 1
-					m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
-					m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
-					m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
-					m_flNoiseTurbulenceScale = 1.0
-					m_flNoiseTurbulenceMix = 0.5
-					m_flNoiseImgPreviewScale = 1.0
-					m_bNoiseImgPreviewLive = true
-					m_flNoCameraFallback = 0.0
-					m_bUseBoundsCenter = false
-					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
-					m_flMultFactor = 1.0
-					m_flInput0 = 0.0
-					m_flInput1 = 1.0
-					m_flOutput0 = 0.0
-					m_flOutput1 = 1.0
-					m_flNotchedRangeMin = 0.0
-					m_flNotchedRangeMax = 1.0
-					m_flNotchedOutputOutside = 0.0
-					m_flNotchedOutputInside = 1.0
-					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
-					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
-					m_flBiasParameter = 0.0
-					m_Curve = 
-					{
-						m_spline = [  ]
-						m_tangents = [  ]
-						m_vDomainMins = [ 0.0, 0.0 ]
-						m_vDomainMaxs = [ 0.0, 0.0 ]
-					}
-				}
-				m_FloatComponentZ = 
-				{
-					m_nType = "PF_TYPE_LITERAL"
-					m_nMapType = "PF_MAP_TYPE_DIRECT"
-					m_flLiteralValue = 0.0
-					m_NamedValue = ""
-					m_nControlPoint = 0
-					m_nScalarAttribute = 3
-					m_nVectorAttribute = 6
-					m_nVectorComponent = 0
-					m_flRandomMin = 0.0
-					m_flRandomMax = 1.0
-					m_bHasRandomSignFlip = false
-					m_nRandomSeed = -1
-					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
-					m_flLOD0 = 0.0
-					m_flLOD1 = 0.0
-					m_flLOD2 = 0.0
-					m_flLOD3 = 0.0
-					m_nNoiseInputVectorAttribute = 0
-					m_flNoiseOutputMin = 0.0
-					m_flNoiseOutputMax = 1.0
-					m_flNoiseScale = 0.1
-					m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
-					m_flNoiseOffset = 0.0
-					m_nNoiseOctaves = 1
-					m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
-					m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
-					m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
-					m_flNoiseTurbulenceScale = 1.0
-					m_flNoiseTurbulenceMix = 0.5
-					m_flNoiseImgPreviewScale = 1.0
-					m_bNoiseImgPreviewLive = true
-					m_flNoCameraFallback = 0.0
-					m_bUseBoundsCenter = false
-					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
-					m_flMultFactor = 1.0
-					m_flInput0 = 0.0
-					m_flInput1 = 1.0
-					m_flOutput0 = 0.0
-					m_flOutput1 = 1.0
-					m_flNotchedRangeMin = 0.0
-					m_flNotchedRangeMax = 1.0
-					m_flNotchedOutputOutside = 0.0
-					m_flNotchedOutputInside = 1.0
-					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
-					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
-					m_flBiasParameter = 0.0
-					m_Curve = 
-					{
-						m_spline = [  ]
-						m_tangents = [  ]
-						m_vDomainMins = [ 0.0, 0.0 ]
-						m_vDomainMaxs = [ 0.0, 0.0 ]
-					}
-				}
-				m_FloatInterp = 
-				{
-					m_nType = "PF_TYPE_LITERAL"
-					m_nMapType = "PF_MAP_TYPE_DIRECT"
-					m_flLiteralValue = 0.0
-					m_NamedValue = ""
-					m_nControlPoint = 0
-					m_nScalarAttribute = 3
-					m_nVectorAttribute = 6
-					m_nVectorComponent = 0
-					m_flRandomMin = 0.0
-					m_flRandomMax = 1.0
-					m_bHasRandomSignFlip = false
-					m_nRandomSeed = -1
-					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
-					m_flLOD0 = 0.0
-					m_flLOD1 = 0.0
-					m_flLOD2 = 0.0
-					m_flLOD3 = 0.0
-					m_nNoiseInputVectorAttribute = 0
-					m_flNoiseOutputMin = 0.0
-					m_flNoiseOutputMax = 1.0
-					m_flNoiseScale = 0.1
-					m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
-					m_flNoiseOffset = 0.0
-					m_nNoiseOctaves = 1
-					m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
-					m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
-					m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
-					m_flNoiseTurbulenceScale = 1.0
-					m_flNoiseTurbulenceMix = 0.5
-					m_flNoiseImgPreviewScale = 1.0
-					m_bNoiseImgPreviewLive = true
-					m_flNoCameraFallback = 0.0
-					m_bUseBoundsCenter = false
-					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
-					m_flMultFactor = 1.0
-					m_flInput0 = 0.0
-					m_flInput1 = 1.0
-					m_flOutput0 = 0.0
-					m_flOutput1 = 1.0
-					m_flNotchedRangeMin = 0.0
-					m_flNotchedRangeMax = 1.0
-					m_flNotchedOutputOutside = 0.0
-					m_flNotchedOutputInside = 1.0
-					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
-					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
-					m_flBiasParameter = 0.0
-					m_Curve = 
-					{
-						m_spline = [  ]
-						m_tangents = [  ]
-						m_vDomainMins = [ 0.0, 0.0 ]
-						m_vDomainMaxs = [ 0.0, 0.0 ]
-					}
-				}
-				m_flInterpInput0 = 0.0
-				m_flInterpInput1 = 1.0
-				m_vInterpOutput0 = [ 0.0, 0.0, 0.0 ]
-				m_vInterpOutput1 = [ 1.0, 1.0, 1.0 ]
-				m_Gradient = 
-				{
-					m_Stops = [  ]
-				}
-				m_vRandomMin = [ 0.0, 0.0, 0.0 ]
-				m_vRandomMax = [ 0.0, 0.0, 0.0 ]
-			}
-			m_flRadiusTaper = 
-			{
-				m_nType = "PF_TYPE_LITERAL"
-				m_nMapType = "PF_MAP_TYPE_DIRECT"
-				m_flLiteralValue = 0.5
-				m_NamedValue = ""
-				m_nControlPoint = 0
-				m_nScalarAttribute = 3
-				m_nVectorAttribute = 6
-				m_nVectorComponent = 0
-				m_flRandomMin = 0.0
-				m_flRandomMax = 1.0
-				m_bHasRandomSignFlip = false
-				m_nRandomSeed = -1
-				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
-				m_flLOD0 = 0.0
-				m_flLOD1 = 0.0
-				m_flLOD2 = 0.0
-				m_flLOD3 = 0.0
-				m_nNoiseInputVectorAttribute = 0
-				m_flNoiseOutputMin = 0.0
-				m_flNoiseOutputMax = 1.0
-				m_flNoiseScale = 0.1
-				m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
-				m_flNoiseOffset = 0.0
-				m_nNoiseOctaves = 1
-				m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
-				m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
-				m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
-				m_flNoiseTurbulenceScale = 1.0
-				m_flNoiseTurbulenceMix = 0.5
-				m_flNoiseImgPreviewScale = 1.0
-				m_bNoiseImgPreviewLive = true
-				m_flNoCameraFallback = 0.0
-				m_bUseBoundsCenter = false
-				m_nInputMode = "PF_INPUT_MODE_CLAMPED"
-				m_flMultFactor = 1.0
-				m_flInput0 = 0.0
-				m_flInput1 = 1.0
-				m_flOutput0 = 0.0
-				m_flOutput1 = 1.0
-				m_flNotchedRangeMin = 0.0
-				m_flNotchedRangeMax = 1.0
-				m_flNotchedOutputOutside = 0.0
-				m_flNotchedOutputInside = 1.0
-				m_nRoundType = "PF_ROUND_TYPE_NEAREST"
-				m_nBiasType = "PF_BIAS_TYPE_STANDARD"
-				m_flBiasParameter = 0.0
-				m_Curve = 
-				{
-					m_spline = [  ]
-					m_tangents = [  ]
-					m_vDomainMins = [ 0.0, 0.0 ]
-					m_vDomainMaxs = [ 0.0, 0.0 ]
-				}
-			}
-			m_vecTailColorScale = 
-			{
-				m_nType = "PVEC_TYPE_LITERAL_COLOR"
-				m_vLiteralValue = [ 0.0, 0.0, 0.0 ]
-				m_LiteralColor = [ 0, 0, 0 ]
-				m_NamedValue = ""
-				m_bFollowNamedValue = false
-				m_nVectorAttribute = 6
-				m_vVectorAttributeScale = [ 1.0, 1.0, 1.0 ]
-				m_nControlPoint = 0
-				m_nDeltaControlPoint = 0
-				m_vCPValueScale = [ 1.0, 1.0, 1.0 ]
-				m_vCPRelativePosition = [ 0.0, 0.0, 0.0 ]
-				m_vCPRelativeDir = [ 1.0, 0.0, 0.0 ]
-				m_FloatComponentX = 
-				{
-					m_nType = "PF_TYPE_LITERAL"
-					m_nMapType = "PF_MAP_TYPE_DIRECT"
-					m_flLiteralValue = 0.0
-					m_NamedValue = ""
-					m_nControlPoint = 0
-					m_nScalarAttribute = 3
-					m_nVectorAttribute = 6
-					m_nVectorComponent = 0
-					m_flRandomMin = 0.0
-					m_flRandomMax = 1.0
-					m_bHasRandomSignFlip = false
-					m_nRandomSeed = -1
-					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
-					m_flLOD0 = 0.0
-					m_flLOD1 = 0.0
-					m_flLOD2 = 0.0
-					m_flLOD3 = 0.0
-					m_nNoiseInputVectorAttribute = 0
-					m_flNoiseOutputMin = 0.0
-					m_flNoiseOutputMax = 1.0
-					m_flNoiseScale = 0.1
-					m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
-					m_flNoiseOffset = 0.0
-					m_nNoiseOctaves = 1
-					m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
-					m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
-					m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
-					m_flNoiseTurbulenceScale = 1.0
-					m_flNoiseTurbulenceMix = 0.5
-					m_flNoiseImgPreviewScale = 1.0
-					m_bNoiseImgPreviewLive = true
-					m_flNoCameraFallback = 0.0
-					m_bUseBoundsCenter = false
-					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
-					m_flMultFactor = 1.0
-					m_flInput0 = 0.0
-					m_flInput1 = 1.0
-					m_flOutput0 = 0.0
-					m_flOutput1 = 1.0
-					m_flNotchedRangeMin = 0.0
-					m_flNotchedRangeMax = 1.0
-					m_flNotchedOutputOutside = 0.0
-					m_flNotchedOutputInside = 1.0
-					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
-					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
-					m_flBiasParameter = 0.0
-					m_Curve = 
-					{
-						m_spline = [  ]
-						m_tangents = [  ]
-						m_vDomainMins = [ 0.0, 0.0 ]
-						m_vDomainMaxs = [ 0.0, 0.0 ]
-					}
-				}
-				m_FloatComponentY = 
-				{
-					m_nType = "PF_TYPE_LITERAL"
-					m_nMapType = "PF_MAP_TYPE_DIRECT"
-					m_flLiteralValue = 0.0
-					m_NamedValue = ""
-					m_nControlPoint = 0
-					m_nScalarAttribute = 3
-					m_nVectorAttribute = 6
-					m_nVectorComponent = 0
-					m_flRandomMin = 0.0
-					m_flRandomMax = 1.0
-					m_bHasRandomSignFlip = false
-					m_nRandomSeed = -1
-					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
-					m_flLOD0 = 0.0
-					m_flLOD1 = 0.0
-					m_flLOD2 = 0.0
-					m_flLOD3 = 0.0
-					m_nNoiseInputVectorAttribute = 0
-					m_flNoiseOutputMin = 0.0
-					m_flNoiseOutputMax = 1.0
-					m_flNoiseScale = 0.1
-					m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
-					m_flNoiseOffset = 0.0
-					m_nNoiseOctaves = 1
-					m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
-					m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
-					m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
-					m_flNoiseTurbulenceScale = 1.0
-					m_flNoiseTurbulenceMix = 0.5
-					m_flNoiseImgPreviewScale = 1.0
-					m_bNoiseImgPreviewLive = true
-					m_flNoCameraFallback = 0.0
-					m_bUseBoundsCenter = false
-					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
-					m_flMultFactor = 1.0
-					m_flInput0 = 0.0
-					m_flInput1 = 1.0
-					m_flOutput0 = 0.0
-					m_flOutput1 = 1.0
-					m_flNotchedRangeMin = 0.0
-					m_flNotchedRangeMax = 1.0
-					m_flNotchedOutputOutside = 0.0
-					m_flNotchedOutputInside = 1.0
-					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
-					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
-					m_flBiasParameter = 0.0
-					m_Curve = 
-					{
-						m_spline = [  ]
-						m_tangents = [  ]
-						m_vDomainMins = [ 0.0, 0.0 ]
-						m_vDomainMaxs = [ 0.0, 0.0 ]
-					}
-				}
-				m_FloatComponentZ = 
-				{
-					m_nType = "PF_TYPE_LITERAL"
-					m_nMapType = "PF_MAP_TYPE_DIRECT"
-					m_flLiteralValue = 0.0
-					m_NamedValue = ""
-					m_nControlPoint = 0
-					m_nScalarAttribute = 3
-					m_nVectorAttribute = 6
-					m_nVectorComponent = 0
-					m_flRandomMin = 0.0
-					m_flRandomMax = 1.0
-					m_bHasRandomSignFlip = false
-					m_nRandomSeed = -1
-					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
-					m_flLOD0 = 0.0
-					m_flLOD1 = 0.0
-					m_flLOD2 = 0.0
-					m_flLOD3 = 0.0
-					m_nNoiseInputVectorAttribute = 0
-					m_flNoiseOutputMin = 0.0
-					m_flNoiseOutputMax = 1.0
-					m_flNoiseScale = 0.1
-					m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
-					m_flNoiseOffset = 0.0
-					m_nNoiseOctaves = 1
-					m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
-					m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
-					m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
-					m_flNoiseTurbulenceScale = 1.0
-					m_flNoiseTurbulenceMix = 0.5
-					m_flNoiseImgPreviewScale = 1.0
-					m_bNoiseImgPreviewLive = true
-					m_flNoCameraFallback = 0.0
-					m_bUseBoundsCenter = false
-					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
-					m_flMultFactor = 1.0
-					m_flInput0 = 0.0
-					m_flInput1 = 1.0
-					m_flOutput0 = 0.0
-					m_flOutput1 = 1.0
-					m_flNotchedRangeMin = 0.0
-					m_flNotchedRangeMax = 1.0
-					m_flNotchedOutputOutside = 0.0
-					m_flNotchedOutputInside = 1.0
-					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
-					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
-					m_flBiasParameter = 0.0
-					m_Curve = 
-					{
-						m_spline = [  ]
-						m_tangents = [  ]
-						m_vDomainMins = [ 0.0, 0.0 ]
-						m_vDomainMaxs = [ 0.0, 0.0 ]
-					}
-				}
-				m_FloatInterp = 
-				{
-					m_nType = "PF_TYPE_LITERAL"
-					m_nMapType = "PF_MAP_TYPE_DIRECT"
-					m_flLiteralValue = 0.0
-					m_NamedValue = ""
-					m_nControlPoint = 0
-					m_nScalarAttribute = 3
-					m_nVectorAttribute = 6
-					m_nVectorComponent = 0
-					m_flRandomMin = 0.0
-					m_flRandomMax = 1.0
-					m_bHasRandomSignFlip = false
-					m_nRandomSeed = -1
-					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
-					m_flLOD0 = 0.0
-					m_flLOD1 = 0.0
-					m_flLOD2 = 0.0
-					m_flLOD3 = 0.0
-					m_nNoiseInputVectorAttribute = 0
-					m_flNoiseOutputMin = 0.0
-					m_flNoiseOutputMax = 1.0
-					m_flNoiseScale = 0.1
-					m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
-					m_flNoiseOffset = 0.0
-					m_nNoiseOctaves = 1
-					m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
-					m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
-					m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
-					m_flNoiseTurbulenceScale = 1.0
-					m_flNoiseTurbulenceMix = 0.5
-					m_flNoiseImgPreviewScale = 1.0
-					m_bNoiseImgPreviewLive = true
-					m_flNoCameraFallback = 0.0
-					m_bUseBoundsCenter = false
-					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
-					m_flMultFactor = 1.0
-					m_flInput0 = 0.0
-					m_flInput1 = 1.0
-					m_flOutput0 = 0.0
-					m_flOutput1 = 1.0
-					m_flNotchedRangeMin = 0.0
-					m_flNotchedRangeMax = 1.0
-					m_flNotchedOutputOutside = 0.0
-					m_flNotchedOutputInside = 1.0
-					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
-					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
-					m_flBiasParameter = 0.0
-					m_Curve = 
-					{
-						m_spline = [  ]
-						m_tangents = [  ]
-						m_vDomainMins = [ 0.0, 0.0 ]
-						m_vDomainMaxs = [ 0.0, 0.0 ]
-					}
-				}
-				m_flInterpInput0 = 0.0
-				m_flInterpInput1 = 1.0
-				m_vInterpOutput0 = [ 0.0, 0.0, 0.0 ]
-				m_vInterpOutput1 = [ 1.0, 1.0, 1.0 ]
-				m_Gradient = 
-				{
-					m_Stops = [  ]
-				}
-				m_vRandomMin = [ 0.0, 0.0, 0.0 ]
-				m_vRandomMax = [ 0.0, 0.0, 0.0 ]
-			}
+			m_flTextureVScrollRate = -2000.0
+			m_nOrientationType = "PARTICLE_ORIENTATION_ALIGN_TO_PARTICLE_NORMAL"
 			m_flRadiusScale = 
 			{
 				m_nType = "PF_TYPE_LITERAL"
 				m_nMapType = "PF_MAP_TYPE_DIRECT"
-				m_flLiteralValue = 10.0
+				m_flLiteralValue = 0.4
 				m_NamedValue = ""
 				m_nControlPoint = 0
 				m_nScalarAttribute = 3
@@ -2618,7 +1901,7 @@
 			{
 				m_nType = "PVEC_TYPE_LITERAL_COLOR"
 				m_vLiteralValue = [ 0.0, 0.0, 0.0 ]
-				m_LiteralColor = [ 3, 3, 3 ]
+				m_LiteralColor = [ 7, 0, 67 ]
 				m_NamedValue = ""
 				m_bFollowNamedValue = false
 				m_nVectorAttribute = 6
@@ -2863,27 +2146,14 @@
 				m_vRandomMin = [ 0.0, 0.0, 0.0 ]
 				m_vRandomMax = [ 0.0, 0.0, 0.0 ]
 			}
-			m_nColorBlendType = "PARTICLE_COLOR_BLEND_MOD2X"
 			m_vecTexturesInput = 
 			[
 				{
-					m_hTexture = resource:"materials/particle/energy_flames/beam_energy_flames_red.vtex"
+					m_hTexture = resource:"materials/particle/beam_fast_swipe.vtex"
 				},
 			]
-			m_bGammaCorrectVertexColors = false
-		},
-		{
-			_class = "C_OP_RenderModels"
-			m_bOrientZ = true
-			m_ModelList = 
-			[
-				{
-					m_model = resource:"models/maounobu/maounobu_fist.vmdl"
-				},
-			]
-			m_bAnimated = true
-			m_ActivityName = "ACT_DOTA_IDLE"
-			m_flAnimationRate = 
+			m_bSaturateColorPreAlphaBlend = false
+			m_flAddSelfAmount = 
 			{
 				m_nType = "PF_TYPE_LITERAL"
 				m_nMapType = "PF_MAP_TYPE_DIRECT"
@@ -2939,510 +2209,7 @@
 					m_vDomainMaxs = [ 0.0, 0.0 ]
 				}
 			}
-			m_bForceLoopingAnimation = true
-			m_vecLocalOffset = 
-			{
-				m_nType = "PVEC_TYPE_LITERAL"
-				m_vLiteralValue = [ -36.0, 0.0, -105.0 ]
-				m_LiteralColor = [ 0, 0, 0 ]
-				m_NamedValue = ""
-				m_bFollowNamedValue = false
-				m_nVectorAttribute = 6
-				m_vVectorAttributeScale = [ 1.0, 1.0, 1.0 ]
-				m_nControlPoint = 0
-				m_nDeltaControlPoint = 0
-				m_vCPValueScale = [ 1.0, 1.0, 1.0 ]
-				m_vCPRelativePosition = [ 0.0, 0.0, 0.0 ]
-				m_vCPRelativeDir = [ 1.0, 0.0, 0.0 ]
-				m_FloatComponentX = 
-				{
-					m_nType = "PF_TYPE_LITERAL"
-					m_nMapType = "PF_MAP_TYPE_DIRECT"
-					m_flLiteralValue = 0.0
-					m_NamedValue = ""
-					m_nControlPoint = 0
-					m_nScalarAttribute = 3
-					m_nVectorAttribute = 6
-					m_nVectorComponent = 0
-					m_flRandomMin = 0.0
-					m_flRandomMax = 1.0
-					m_bHasRandomSignFlip = false
-					m_nRandomSeed = -1
-					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
-					m_flLOD0 = 0.0
-					m_flLOD1 = 0.0
-					m_flLOD2 = 0.0
-					m_flLOD3 = 0.0
-					m_nNoiseInputVectorAttribute = 0
-					m_flNoiseOutputMin = 0.0
-					m_flNoiseOutputMax = 1.0
-					m_flNoiseScale = 0.1
-					m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
-					m_flNoiseOffset = 0.0
-					m_nNoiseOctaves = 1
-					m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
-					m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
-					m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
-					m_flNoiseTurbulenceScale = 1.0
-					m_flNoiseTurbulenceMix = 0.5
-					m_flNoiseImgPreviewScale = 1.0
-					m_bNoiseImgPreviewLive = true
-					m_flNoCameraFallback = 0.0
-					m_bUseBoundsCenter = false
-					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
-					m_flMultFactor = 1.0
-					m_flInput0 = 0.0
-					m_flInput1 = 1.0
-					m_flOutput0 = 0.0
-					m_flOutput1 = 1.0
-					m_flNotchedRangeMin = 0.0
-					m_flNotchedRangeMax = 1.0
-					m_flNotchedOutputOutside = 0.0
-					m_flNotchedOutputInside = 1.0
-					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
-					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
-					m_flBiasParameter = 0.0
-					m_Curve = 
-					{
-						m_spline = [  ]
-						m_tangents = [  ]
-						m_vDomainMins = [ 0.0, 0.0 ]
-						m_vDomainMaxs = [ 0.0, 0.0 ]
-					}
-				}
-				m_FloatComponentY = 
-				{
-					m_nType = "PF_TYPE_LITERAL"
-					m_nMapType = "PF_MAP_TYPE_DIRECT"
-					m_flLiteralValue = 0.0
-					m_NamedValue = ""
-					m_nControlPoint = 0
-					m_nScalarAttribute = 3
-					m_nVectorAttribute = 6
-					m_nVectorComponent = 0
-					m_flRandomMin = 0.0
-					m_flRandomMax = 1.0
-					m_bHasRandomSignFlip = false
-					m_nRandomSeed = -1
-					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
-					m_flLOD0 = 0.0
-					m_flLOD1 = 0.0
-					m_flLOD2 = 0.0
-					m_flLOD3 = 0.0
-					m_nNoiseInputVectorAttribute = 0
-					m_flNoiseOutputMin = 0.0
-					m_flNoiseOutputMax = 1.0
-					m_flNoiseScale = 0.1
-					m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
-					m_flNoiseOffset = 0.0
-					m_nNoiseOctaves = 1
-					m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
-					m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
-					m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
-					m_flNoiseTurbulenceScale = 1.0
-					m_flNoiseTurbulenceMix = 0.5
-					m_flNoiseImgPreviewScale = 1.0
-					m_bNoiseImgPreviewLive = true
-					m_flNoCameraFallback = 0.0
-					m_bUseBoundsCenter = false
-					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
-					m_flMultFactor = 1.0
-					m_flInput0 = 0.0
-					m_flInput1 = 1.0
-					m_flOutput0 = 0.0
-					m_flOutput1 = 1.0
-					m_flNotchedRangeMin = 0.0
-					m_flNotchedRangeMax = 1.0
-					m_flNotchedOutputOutside = 0.0
-					m_flNotchedOutputInside = 1.0
-					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
-					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
-					m_flBiasParameter = 0.0
-					m_Curve = 
-					{
-						m_spline = [  ]
-						m_tangents = [  ]
-						m_vDomainMins = [ 0.0, 0.0 ]
-						m_vDomainMaxs = [ 0.0, 0.0 ]
-					}
-				}
-				m_FloatComponentZ = 
-				{
-					m_nType = "PF_TYPE_LITERAL"
-					m_nMapType = "PF_MAP_TYPE_DIRECT"
-					m_flLiteralValue = 0.0
-					m_NamedValue = ""
-					m_nControlPoint = 0
-					m_nScalarAttribute = 3
-					m_nVectorAttribute = 6
-					m_nVectorComponent = 0
-					m_flRandomMin = 0.0
-					m_flRandomMax = 1.0
-					m_bHasRandomSignFlip = false
-					m_nRandomSeed = -1
-					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
-					m_flLOD0 = 0.0
-					m_flLOD1 = 0.0
-					m_flLOD2 = 0.0
-					m_flLOD3 = 0.0
-					m_nNoiseInputVectorAttribute = 0
-					m_flNoiseOutputMin = 0.0
-					m_flNoiseOutputMax = 1.0
-					m_flNoiseScale = 0.1
-					m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
-					m_flNoiseOffset = 0.0
-					m_nNoiseOctaves = 1
-					m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
-					m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
-					m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
-					m_flNoiseTurbulenceScale = 1.0
-					m_flNoiseTurbulenceMix = 0.5
-					m_flNoiseImgPreviewScale = 1.0
-					m_bNoiseImgPreviewLive = true
-					m_flNoCameraFallback = 0.0
-					m_bUseBoundsCenter = false
-					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
-					m_flMultFactor = 1.0
-					m_flInput0 = 0.0
-					m_flInput1 = 1.0
-					m_flOutput0 = 0.0
-					m_flOutput1 = 1.0
-					m_flNotchedRangeMin = 0.0
-					m_flNotchedRangeMax = 1.0
-					m_flNotchedOutputOutside = 0.0
-					m_flNotchedOutputInside = 1.0
-					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
-					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
-					m_flBiasParameter = 0.0
-					m_Curve = 
-					{
-						m_spline = [  ]
-						m_tangents = [  ]
-						m_vDomainMins = [ 0.0, 0.0 ]
-						m_vDomainMaxs = [ 0.0, 0.0 ]
-					}
-				}
-				m_FloatInterp = 
-				{
-					m_nType = "PF_TYPE_LITERAL"
-					m_nMapType = "PF_MAP_TYPE_DIRECT"
-					m_flLiteralValue = 0.0
-					m_NamedValue = ""
-					m_nControlPoint = 0
-					m_nScalarAttribute = 3
-					m_nVectorAttribute = 6
-					m_nVectorComponent = 0
-					m_flRandomMin = 0.0
-					m_flRandomMax = 1.0
-					m_bHasRandomSignFlip = false
-					m_nRandomSeed = -1
-					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
-					m_flLOD0 = 0.0
-					m_flLOD1 = 0.0
-					m_flLOD2 = 0.0
-					m_flLOD3 = 0.0
-					m_nNoiseInputVectorAttribute = 0
-					m_flNoiseOutputMin = 0.0
-					m_flNoiseOutputMax = 1.0
-					m_flNoiseScale = 0.1
-					m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
-					m_flNoiseOffset = 0.0
-					m_nNoiseOctaves = 1
-					m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
-					m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
-					m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
-					m_flNoiseTurbulenceScale = 1.0
-					m_flNoiseTurbulenceMix = 0.5
-					m_flNoiseImgPreviewScale = 1.0
-					m_bNoiseImgPreviewLive = true
-					m_flNoCameraFallback = 0.0
-					m_bUseBoundsCenter = false
-					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
-					m_flMultFactor = 1.0
-					m_flInput0 = 0.0
-					m_flInput1 = 1.0
-					m_flOutput0 = 0.0
-					m_flOutput1 = 1.0
-					m_flNotchedRangeMin = 0.0
-					m_flNotchedRangeMax = 1.0
-					m_flNotchedOutputOutside = 0.0
-					m_flNotchedOutputInside = 1.0
-					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
-					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
-					m_flBiasParameter = 0.0
-					m_Curve = 
-					{
-						m_spline = [  ]
-						m_tangents = [  ]
-						m_vDomainMins = [ 0.0, 0.0 ]
-						m_vDomainMaxs = [ 0.0, 0.0 ]
-					}
-				}
-				m_flInterpInput0 = 0.0
-				m_flInterpInput1 = 1.0
-				m_vInterpOutput0 = [ 0.0, 0.0, 0.0 ]
-				m_vInterpOutput1 = [ 1.0, 1.0, 1.0 ]
-				m_Gradient = 
-				{
-					m_Stops = [  ]
-				}
-				m_vRandomMin = [ 0.0, 0.0, 0.0 ]
-				m_vRandomMax = [ 0.0, 0.0, 0.0 ]
-			}
-			m_vecLocalRotation = 
-			{
-				m_nType = "PVEC_TYPE_LITERAL"
-				m_vLiteralValue = [ 0.0, -45.0, 0.0 ]
-				m_LiteralColor = [ 0, 0, 0 ]
-				m_NamedValue = ""
-				m_bFollowNamedValue = false
-				m_nVectorAttribute = 6
-				m_vVectorAttributeScale = [ 1.0, 1.0, 1.0 ]
-				m_nControlPoint = 0
-				m_nDeltaControlPoint = 0
-				m_vCPValueScale = [ 1.0, 1.0, 1.0 ]
-				m_vCPRelativePosition = [ 0.0, 0.0, 0.0 ]
-				m_vCPRelativeDir = [ 1.0, 0.0, 0.0 ]
-				m_FloatComponentX = 
-				{
-					m_nType = "PF_TYPE_LITERAL"
-					m_nMapType = "PF_MAP_TYPE_DIRECT"
-					m_flLiteralValue = 0.0
-					m_NamedValue = ""
-					m_nControlPoint = 0
-					m_nScalarAttribute = 3
-					m_nVectorAttribute = 6
-					m_nVectorComponent = 0
-					m_flRandomMin = 0.0
-					m_flRandomMax = 1.0
-					m_bHasRandomSignFlip = false
-					m_nRandomSeed = -1
-					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
-					m_flLOD0 = 0.0
-					m_flLOD1 = 0.0
-					m_flLOD2 = 0.0
-					m_flLOD3 = 0.0
-					m_nNoiseInputVectorAttribute = 0
-					m_flNoiseOutputMin = 0.0
-					m_flNoiseOutputMax = 1.0
-					m_flNoiseScale = 0.1
-					m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
-					m_flNoiseOffset = 0.0
-					m_nNoiseOctaves = 1
-					m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
-					m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
-					m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
-					m_flNoiseTurbulenceScale = 1.0
-					m_flNoiseTurbulenceMix = 0.5
-					m_flNoiseImgPreviewScale = 1.0
-					m_bNoiseImgPreviewLive = true
-					m_flNoCameraFallback = 0.0
-					m_bUseBoundsCenter = false
-					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
-					m_flMultFactor = 1.0
-					m_flInput0 = 0.0
-					m_flInput1 = 1.0
-					m_flOutput0 = 0.0
-					m_flOutput1 = 1.0
-					m_flNotchedRangeMin = 0.0
-					m_flNotchedRangeMax = 1.0
-					m_flNotchedOutputOutside = 0.0
-					m_flNotchedOutputInside = 1.0
-					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
-					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
-					m_flBiasParameter = 0.0
-					m_Curve = 
-					{
-						m_spline = [  ]
-						m_tangents = [  ]
-						m_vDomainMins = [ 0.0, 0.0 ]
-						m_vDomainMaxs = [ 0.0, 0.0 ]
-					}
-				}
-				m_FloatComponentY = 
-				{
-					m_nType = "PF_TYPE_LITERAL"
-					m_nMapType = "PF_MAP_TYPE_DIRECT"
-					m_flLiteralValue = 0.0
-					m_NamedValue = ""
-					m_nControlPoint = 0
-					m_nScalarAttribute = 3
-					m_nVectorAttribute = 6
-					m_nVectorComponent = 0
-					m_flRandomMin = 0.0
-					m_flRandomMax = 1.0
-					m_bHasRandomSignFlip = false
-					m_nRandomSeed = -1
-					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
-					m_flLOD0 = 0.0
-					m_flLOD1 = 0.0
-					m_flLOD2 = 0.0
-					m_flLOD3 = 0.0
-					m_nNoiseInputVectorAttribute = 0
-					m_flNoiseOutputMin = 0.0
-					m_flNoiseOutputMax = 1.0
-					m_flNoiseScale = 0.1
-					m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
-					m_flNoiseOffset = 0.0
-					m_nNoiseOctaves = 1
-					m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
-					m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
-					m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
-					m_flNoiseTurbulenceScale = 1.0
-					m_flNoiseTurbulenceMix = 0.5
-					m_flNoiseImgPreviewScale = 1.0
-					m_bNoiseImgPreviewLive = true
-					m_flNoCameraFallback = 0.0
-					m_bUseBoundsCenter = false
-					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
-					m_flMultFactor = 1.0
-					m_flInput0 = 0.0
-					m_flInput1 = 1.0
-					m_flOutput0 = 0.0
-					m_flOutput1 = 1.0
-					m_flNotchedRangeMin = 0.0
-					m_flNotchedRangeMax = 1.0
-					m_flNotchedOutputOutside = 0.0
-					m_flNotchedOutputInside = 1.0
-					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
-					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
-					m_flBiasParameter = 0.0
-					m_Curve = 
-					{
-						m_spline = [  ]
-						m_tangents = [  ]
-						m_vDomainMins = [ 0.0, 0.0 ]
-						m_vDomainMaxs = [ 0.0, 0.0 ]
-					}
-				}
-				m_FloatComponentZ = 
-				{
-					m_nType = "PF_TYPE_LITERAL"
-					m_nMapType = "PF_MAP_TYPE_DIRECT"
-					m_flLiteralValue = 0.0
-					m_NamedValue = ""
-					m_nControlPoint = 0
-					m_nScalarAttribute = 3
-					m_nVectorAttribute = 6
-					m_nVectorComponent = 0
-					m_flRandomMin = 0.0
-					m_flRandomMax = 1.0
-					m_bHasRandomSignFlip = false
-					m_nRandomSeed = -1
-					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
-					m_flLOD0 = 0.0
-					m_flLOD1 = 0.0
-					m_flLOD2 = 0.0
-					m_flLOD3 = 0.0
-					m_nNoiseInputVectorAttribute = 0
-					m_flNoiseOutputMin = 0.0
-					m_flNoiseOutputMax = 1.0
-					m_flNoiseScale = 0.1
-					m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
-					m_flNoiseOffset = 0.0
-					m_nNoiseOctaves = 1
-					m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
-					m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
-					m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
-					m_flNoiseTurbulenceScale = 1.0
-					m_flNoiseTurbulenceMix = 0.5
-					m_flNoiseImgPreviewScale = 1.0
-					m_bNoiseImgPreviewLive = true
-					m_flNoCameraFallback = 0.0
-					m_bUseBoundsCenter = false
-					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
-					m_flMultFactor = 1.0
-					m_flInput0 = 0.0
-					m_flInput1 = 1.0
-					m_flOutput0 = 0.0
-					m_flOutput1 = 1.0
-					m_flNotchedRangeMin = 0.0
-					m_flNotchedRangeMax = 1.0
-					m_flNotchedOutputOutside = 0.0
-					m_flNotchedOutputInside = 1.0
-					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
-					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
-					m_flBiasParameter = 0.0
-					m_Curve = 
-					{
-						m_spline = [  ]
-						m_tangents = [  ]
-						m_vDomainMins = [ 0.0, 0.0 ]
-						m_vDomainMaxs = [ 0.0, 0.0 ]
-					}
-				}
-				m_FloatInterp = 
-				{
-					m_nType = "PF_TYPE_LITERAL"
-					m_nMapType = "PF_MAP_TYPE_DIRECT"
-					m_flLiteralValue = 0.0
-					m_NamedValue = ""
-					m_nControlPoint = 0
-					m_nScalarAttribute = 3
-					m_nVectorAttribute = 6
-					m_nVectorComponent = 0
-					m_flRandomMin = 0.0
-					m_flRandomMax = 1.0
-					m_bHasRandomSignFlip = false
-					m_nRandomSeed = -1
-					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
-					m_flLOD0 = 0.0
-					m_flLOD1 = 0.0
-					m_flLOD2 = 0.0
-					m_flLOD3 = 0.0
-					m_nNoiseInputVectorAttribute = 0
-					m_flNoiseOutputMin = 0.0
-					m_flNoiseOutputMax = 1.0
-					m_flNoiseScale = 0.1
-					m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
-					m_flNoiseOffset = 0.0
-					m_nNoiseOctaves = 1
-					m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
-					m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
-					m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
-					m_flNoiseTurbulenceScale = 1.0
-					m_flNoiseTurbulenceMix = 0.5
-					m_flNoiseImgPreviewScale = 1.0
-					m_bNoiseImgPreviewLive = true
-					m_flNoCameraFallback = 0.0
-					m_bUseBoundsCenter = false
-					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
-					m_flMultFactor = 1.0
-					m_flInput0 = 0.0
-					m_flInput1 = 1.0
-					m_flOutput0 = 0.0
-					m_flOutput1 = 1.0
-					m_flNotchedRangeMin = 0.0
-					m_flNotchedRangeMax = 1.0
-					m_flNotchedOutputOutside = 0.0
-					m_flNotchedOutputInside = 1.0
-					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
-					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
-					m_flBiasParameter = 0.0
-					m_Curve = 
-					{
-						m_spline = [  ]
-						m_tangents = [  ]
-						m_vDomainMins = [ 0.0, 0.0 ]
-						m_vDomainMaxs = [ 0.0, 0.0 ]
-					}
-				}
-				m_flInterpInput0 = 0.0
-				m_flInterpInput1 = 1.0
-				m_vInterpOutput0 = [ 0.0, 0.0, 0.0 ]
-				m_vInterpOutput1 = [ 1.0, 1.0, 1.0 ]
-				m_Gradient = 
-				{
-					m_Stops = [  ]
-				}
-				m_vRandomMin = [ 0.0, 0.0, 0.0 ]
-				m_vRandomMax = [ 0.0, 0.0, 0.0 ]
-			}
-			m_bOverrideTranslucentMaterials = false
-			m_modelInput = 
-			{
-			}
-			m_flRadiusScale = 
+			m_flOverbrightFactor = 
 			{
 				m_nType = "PF_TYPE_LITERAL"
 				m_nMapType = "PF_MAP_TYPE_DIRECT"
@@ -3498,7 +2265,1831 @@
 					m_vDomainMaxs = [ 0.0, 0.0 ]
 				}
 			}
-			m_nAlpha2Field = 7
+			m_bDisableZBuffering = true
+		},
+		{
+			_class = "C_OP_RenderRopes"
+			m_nOrientationType = "PARTICLE_ORIENTATION_ALIGN_TO_PARTICLE_NORMAL"
+			m_flOverbrightFactor = 6.0
+			m_flAddSelfAmount = 2.0
+			m_bSaturateColorPreAlphaBlend = false
+			m_flTextureVWorldSize = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_nMapType = "PF_MAP_TYPE_DIRECT"
+				m_flLiteralValue = 300.0
+				m_NamedValue = ""
+				m_nControlPoint = 0
+				m_nScalarAttribute = 3
+				m_nVectorAttribute = 6
+				m_nVectorComponent = 0
+				m_flRandomMin = 0.0
+				m_flRandomMax = 1.0
+				m_bHasRandomSignFlip = false
+				m_nRandomSeed = -1
+				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+				m_flLOD0 = 0.0
+				m_flLOD1 = 0.0
+				m_flLOD2 = 0.0
+				m_flLOD3 = 0.0
+				m_nNoiseInputVectorAttribute = 0
+				m_flNoiseOutputMin = 0.0
+				m_flNoiseOutputMax = 1.0
+				m_flNoiseScale = 0.1
+				m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
+				m_flNoiseOffset = 0.0
+				m_nNoiseOctaves = 1
+				m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
+				m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
+				m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
+				m_flNoiseTurbulenceScale = 1.0
+				m_flNoiseTurbulenceMix = 0.5
+				m_flNoiseImgPreviewScale = 1.0
+				m_bNoiseImgPreviewLive = true
+				m_flNoCameraFallback = 0.0
+				m_bUseBoundsCenter = false
+				m_nInputMode = "PF_INPUT_MODE_CLAMPED"
+				m_flMultFactor = 1.0
+				m_flInput0 = 0.0
+				m_flInput1 = 1.0
+				m_flOutput0 = 0.0
+				m_flOutput1 = 1.0
+				m_flNotchedRangeMin = 0.0
+				m_flNotchedRangeMax = 1.0
+				m_flNotchedOutputOutside = 0.0
+				m_flNotchedOutputInside = 1.0
+				m_nRoundType = "PF_ROUND_TYPE_NEAREST"
+				m_nBiasType = "PF_BIAS_TYPE_STANDARD"
+				m_flBiasParameter = 0.0
+				m_Curve = 
+				{
+					m_spline = [  ]
+					m_tangents = [  ]
+					m_vDomainMins = [ 0.0, 0.0 ]
+					m_vDomainMaxs = [ 0.0, 0.0 ]
+				}
+			}
+			m_flTextureVScrollRate = -2000.0
+			m_nMaxTesselation = 3
+			m_nMinTesselation = 3
+			m_vecTexturesInput = 
+			[
+				{
+					m_hTexture = resource:"materials/particle/beam_plasma_05.vtex"
+					m_nTextureChannels = "SPRITECARD_TEXTURE_CHANNEL_MIX_A"
+					m_flTextureBlend = 
+					{
+						m_nType = "PF_TYPE_LITERAL"
+						m_nMapType = "PF_MAP_TYPE_DIRECT"
+						m_flLiteralValue = 5.0
+						m_NamedValue = ""
+						m_nControlPoint = 0
+						m_nScalarAttribute = 3
+						m_nVectorAttribute = 6
+						m_nVectorComponent = 0
+						m_flRandomMin = 0.0
+						m_flRandomMax = 1.0
+						m_bHasRandomSignFlip = false
+						m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+						m_flLOD0 = 0.0
+						m_flLOD1 = 0.0
+						m_flLOD2 = 0.0
+						m_flLOD3 = 0.0
+						m_nNoiseInputVectorAttribute = 0
+						m_flNoiseOutputMin = 0.0
+						m_flNoiseOutputMax = 1.0
+						m_flNoiseScale = 0.1
+						m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
+						m_flNoiseOffset = 0.0
+						m_nNoiseOctaves = 1
+						m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
+						m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
+						m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
+						m_flNoiseTurbulenceScale = 1.0
+						m_flNoiseTurbulenceMix = 0.5
+						m_flNoiseImgPreviewScale = 1.0
+						m_bNoiseImgPreviewLive = true
+						m_nInputMode = "PF_INPUT_MODE_CLAMPED"
+						m_flMultFactor = 1.0
+						m_flInput0 = 0.0
+						m_flInput1 = 1.0
+						m_flOutput0 = 0.0
+						m_flOutput1 = 1.0
+						m_flNotchedRangeMin = 0.0
+						m_flNotchedRangeMax = 1.0
+						m_flNotchedOutputOutside = 0.0
+						m_flNotchedOutputInside = 1.0
+						m_nBiasType = "PF_BIAS_TYPE_STANDARD"
+						m_flBiasParameter = 0.0
+						m_Curve = 
+						{
+							m_spline = [  ]
+							m_tangents = [  ]
+							m_vDomainMins = [ 0.0, 0.0 ]
+							m_vDomainMaxs = [ 0.0, 0.0 ]
+						}
+					}
+				},
+			]
+			m_vecColorScale = 
+			{
+				m_nType = "PVEC_TYPE_LITERAL_COLOR"
+				m_vLiteralValue = [ 0.0, 0.0, 0.0 ]
+				m_LiteralColor = [ 77, 26, 0 ]
+				m_NamedValue = ""
+				m_bFollowNamedValue = false
+				m_nVectorAttribute = 6
+				m_vVectorAttributeScale = [ 1.0, 1.0, 1.0 ]
+				m_nControlPoint = 0
+				m_nDeltaControlPoint = 0
+				m_vCPValueScale = [ 1.0, 1.0, 1.0 ]
+				m_vCPRelativePosition = [ 0.0, 0.0, 0.0 ]
+				m_vCPRelativeDir = [ 1.0, 0.0, 0.0 ]
+				m_FloatComponentX = 
+				{
+					m_nType = "PF_TYPE_LITERAL"
+					m_nMapType = "PF_MAP_TYPE_DIRECT"
+					m_flLiteralValue = 0.0
+					m_NamedValue = ""
+					m_nControlPoint = 0
+					m_nScalarAttribute = 3
+					m_nVectorAttribute = 6
+					m_nVectorComponent = 0
+					m_flRandomMin = 0.0
+					m_flRandomMax = 1.0
+					m_bHasRandomSignFlip = false
+					m_nRandomSeed = -1
+					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+					m_flLOD0 = 0.0
+					m_flLOD1 = 0.0
+					m_flLOD2 = 0.0
+					m_flLOD3 = 0.0
+					m_nNoiseInputVectorAttribute = 0
+					m_flNoiseOutputMin = 0.0
+					m_flNoiseOutputMax = 1.0
+					m_flNoiseScale = 0.1
+					m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
+					m_flNoiseOffset = 0.0
+					m_nNoiseOctaves = 1
+					m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
+					m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
+					m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
+					m_flNoiseTurbulenceScale = 1.0
+					m_flNoiseTurbulenceMix = 0.5
+					m_flNoiseImgPreviewScale = 1.0
+					m_bNoiseImgPreviewLive = true
+					m_flNoCameraFallback = 0.0
+					m_bUseBoundsCenter = false
+					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
+					m_flMultFactor = 1.0
+					m_flInput0 = 0.0
+					m_flInput1 = 1.0
+					m_flOutput0 = 0.0
+					m_flOutput1 = 1.0
+					m_flNotchedRangeMin = 0.0
+					m_flNotchedRangeMax = 1.0
+					m_flNotchedOutputOutside = 0.0
+					m_flNotchedOutputInside = 1.0
+					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
+					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
+					m_flBiasParameter = 0.0
+					m_Curve = 
+					{
+						m_spline = [  ]
+						m_tangents = [  ]
+						m_vDomainMins = [ 0.0, 0.0 ]
+						m_vDomainMaxs = [ 0.0, 0.0 ]
+					}
+				}
+				m_FloatComponentY = 
+				{
+					m_nType = "PF_TYPE_LITERAL"
+					m_nMapType = "PF_MAP_TYPE_DIRECT"
+					m_flLiteralValue = 0.0
+					m_NamedValue = ""
+					m_nControlPoint = 0
+					m_nScalarAttribute = 3
+					m_nVectorAttribute = 6
+					m_nVectorComponent = 0
+					m_flRandomMin = 0.0
+					m_flRandomMax = 1.0
+					m_bHasRandomSignFlip = false
+					m_nRandomSeed = -1
+					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+					m_flLOD0 = 0.0
+					m_flLOD1 = 0.0
+					m_flLOD2 = 0.0
+					m_flLOD3 = 0.0
+					m_nNoiseInputVectorAttribute = 0
+					m_flNoiseOutputMin = 0.0
+					m_flNoiseOutputMax = 1.0
+					m_flNoiseScale = 0.1
+					m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
+					m_flNoiseOffset = 0.0
+					m_nNoiseOctaves = 1
+					m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
+					m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
+					m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
+					m_flNoiseTurbulenceScale = 1.0
+					m_flNoiseTurbulenceMix = 0.5
+					m_flNoiseImgPreviewScale = 1.0
+					m_bNoiseImgPreviewLive = true
+					m_flNoCameraFallback = 0.0
+					m_bUseBoundsCenter = false
+					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
+					m_flMultFactor = 1.0
+					m_flInput0 = 0.0
+					m_flInput1 = 1.0
+					m_flOutput0 = 0.0
+					m_flOutput1 = 1.0
+					m_flNotchedRangeMin = 0.0
+					m_flNotchedRangeMax = 1.0
+					m_flNotchedOutputOutside = 0.0
+					m_flNotchedOutputInside = 1.0
+					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
+					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
+					m_flBiasParameter = 0.0
+					m_Curve = 
+					{
+						m_spline = [  ]
+						m_tangents = [  ]
+						m_vDomainMins = [ 0.0, 0.0 ]
+						m_vDomainMaxs = [ 0.0, 0.0 ]
+					}
+				}
+				m_FloatComponentZ = 
+				{
+					m_nType = "PF_TYPE_LITERAL"
+					m_nMapType = "PF_MAP_TYPE_DIRECT"
+					m_flLiteralValue = 0.0
+					m_NamedValue = ""
+					m_nControlPoint = 0
+					m_nScalarAttribute = 3
+					m_nVectorAttribute = 6
+					m_nVectorComponent = 0
+					m_flRandomMin = 0.0
+					m_flRandomMax = 1.0
+					m_bHasRandomSignFlip = false
+					m_nRandomSeed = -1
+					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+					m_flLOD0 = 0.0
+					m_flLOD1 = 0.0
+					m_flLOD2 = 0.0
+					m_flLOD3 = 0.0
+					m_nNoiseInputVectorAttribute = 0
+					m_flNoiseOutputMin = 0.0
+					m_flNoiseOutputMax = 1.0
+					m_flNoiseScale = 0.1
+					m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
+					m_flNoiseOffset = 0.0
+					m_nNoiseOctaves = 1
+					m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
+					m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
+					m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
+					m_flNoiseTurbulenceScale = 1.0
+					m_flNoiseTurbulenceMix = 0.5
+					m_flNoiseImgPreviewScale = 1.0
+					m_bNoiseImgPreviewLive = true
+					m_flNoCameraFallback = 0.0
+					m_bUseBoundsCenter = false
+					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
+					m_flMultFactor = 1.0
+					m_flInput0 = 0.0
+					m_flInput1 = 1.0
+					m_flOutput0 = 0.0
+					m_flOutput1 = 1.0
+					m_flNotchedRangeMin = 0.0
+					m_flNotchedRangeMax = 1.0
+					m_flNotchedOutputOutside = 0.0
+					m_flNotchedOutputInside = 1.0
+					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
+					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
+					m_flBiasParameter = 0.0
+					m_Curve = 
+					{
+						m_spline = [  ]
+						m_tangents = [  ]
+						m_vDomainMins = [ 0.0, 0.0 ]
+						m_vDomainMaxs = [ 0.0, 0.0 ]
+					}
+				}
+				m_FloatInterp = 
+				{
+					m_nType = "PF_TYPE_LITERAL"
+					m_nMapType = "PF_MAP_TYPE_DIRECT"
+					m_flLiteralValue = 0.0
+					m_NamedValue = ""
+					m_nControlPoint = 0
+					m_nScalarAttribute = 3
+					m_nVectorAttribute = 6
+					m_nVectorComponent = 0
+					m_flRandomMin = 0.0
+					m_flRandomMax = 1.0
+					m_bHasRandomSignFlip = false
+					m_nRandomSeed = -1
+					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+					m_flLOD0 = 0.0
+					m_flLOD1 = 0.0
+					m_flLOD2 = 0.0
+					m_flLOD3 = 0.0
+					m_nNoiseInputVectorAttribute = 0
+					m_flNoiseOutputMin = 0.0
+					m_flNoiseOutputMax = 1.0
+					m_flNoiseScale = 0.1
+					m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
+					m_flNoiseOffset = 0.0
+					m_nNoiseOctaves = 1
+					m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
+					m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
+					m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
+					m_flNoiseTurbulenceScale = 1.0
+					m_flNoiseTurbulenceMix = 0.5
+					m_flNoiseImgPreviewScale = 1.0
+					m_bNoiseImgPreviewLive = true
+					m_flNoCameraFallback = 0.0
+					m_bUseBoundsCenter = false
+					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
+					m_flMultFactor = 1.0
+					m_flInput0 = 0.0
+					m_flInput1 = 1.0
+					m_flOutput0 = 0.0
+					m_flOutput1 = 1.0
+					m_flNotchedRangeMin = 0.0
+					m_flNotchedRangeMax = 1.0
+					m_flNotchedOutputOutside = 0.0
+					m_flNotchedOutputInside = 1.0
+					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
+					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
+					m_flBiasParameter = 0.0
+					m_Curve = 
+					{
+						m_spline = [  ]
+						m_tangents = [  ]
+						m_vDomainMins = [ 0.0, 0.0 ]
+						m_vDomainMaxs = [ 0.0, 0.0 ]
+					}
+				}
+				m_flInterpInput0 = 0.0
+				m_flInterpInput1 = 1.0
+				m_vInterpOutput0 = [ 0.0, 0.0, 0.0 ]
+				m_vInterpOutput1 = [ 1.0, 1.0, 1.0 ]
+				m_Gradient = 
+				{
+					m_Stops = [  ]
+				}
+				m_vRandomMin = [ 0.0, 0.0, 0.0 ]
+				m_vRandomMax = [ 0.0, 0.0, 0.0 ]
+			}
+			m_bDisableZBuffering = true
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_OP_RenderRopes"
+			m_nMinTesselation = 3
+			m_nMaxTesselation = 3
+			m_flTextureVWorldSize = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_nMapType = "PF_MAP_TYPE_DIRECT"
+				m_flLiteralValue = 2000.0
+				m_NamedValue = ""
+				m_nControlPoint = 0
+				m_nScalarAttribute = 3
+				m_nVectorAttribute = 6
+				m_nVectorComponent = 0
+				m_flRandomMin = 0.0
+				m_flRandomMax = 1.0
+				m_bHasRandomSignFlip = false
+				m_nRandomSeed = -1
+				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+				m_flLOD0 = 0.0
+				m_flLOD1 = 0.0
+				m_flLOD2 = 0.0
+				m_flLOD3 = 0.0
+				m_nNoiseInputVectorAttribute = 0
+				m_flNoiseOutputMin = 0.0
+				m_flNoiseOutputMax = 1.0
+				m_flNoiseScale = 0.1
+				m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
+				m_flNoiseOffset = 0.0
+				m_nNoiseOctaves = 1
+				m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
+				m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
+				m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
+				m_flNoiseTurbulenceScale = 1.0
+				m_flNoiseTurbulenceMix = 0.5
+				m_flNoiseImgPreviewScale = 1.0
+				m_bNoiseImgPreviewLive = true
+				m_flNoCameraFallback = 0.0
+				m_bUseBoundsCenter = false
+				m_nInputMode = "PF_INPUT_MODE_CLAMPED"
+				m_flMultFactor = 1.0
+				m_flInput0 = 0.0
+				m_flInput1 = 1.0
+				m_flOutput0 = 0.0
+				m_flOutput1 = 1.0
+				m_flNotchedRangeMin = 0.0
+				m_flNotchedRangeMax = 1.0
+				m_flNotchedOutputOutside = 0.0
+				m_flNotchedOutputInside = 1.0
+				m_nRoundType = "PF_ROUND_TYPE_NEAREST"
+				m_nBiasType = "PF_BIAS_TYPE_STANDARD"
+				m_flBiasParameter = 0.0
+				m_Curve = 
+				{
+					m_spline = [  ]
+					m_tangents = [  ]
+					m_vDomainMins = [ 0.0, 0.0 ]
+					m_vDomainMaxs = [ 0.0, 0.0 ]
+				}
+			}
+			m_flTextureVScrollRate = -2000.0
+			m_nOrientationType = "PARTICLE_ORIENTATION_ALIGN_TO_PARTICLE_NORMAL"
+			m_flRadiusScale = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_nMapType = "PF_MAP_TYPE_DIRECT"
+				m_flLiteralValue = 0.5
+				m_NamedValue = ""
+				m_nControlPoint = 0
+				m_nScalarAttribute = 3
+				m_nVectorAttribute = 6
+				m_nVectorComponent = 0
+				m_flRandomMin = 0.0
+				m_flRandomMax = 1.0
+				m_bHasRandomSignFlip = false
+				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+				m_flLOD0 = 0.0
+				m_flLOD1 = 0.0
+				m_flLOD2 = 0.0
+				m_flLOD3 = 0.0
+				m_nNoiseInputVectorAttribute = 0
+				m_flNoiseOutputMin = 0.0
+				m_flNoiseOutputMax = 1.0
+				m_flNoiseScale = 0.1
+				m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
+				m_flNoiseOffset = 0.0
+				m_nNoiseOctaves = 1
+				m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
+				m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
+				m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
+				m_flNoiseTurbulenceScale = 1.0
+				m_flNoiseTurbulenceMix = 0.5
+				m_flNoiseImgPreviewScale = 1.0
+				m_bNoiseImgPreviewLive = true
+				m_nInputMode = "PF_INPUT_MODE_CLAMPED"
+				m_flMultFactor = 1.0
+				m_flInput0 = 0.0
+				m_flInput1 = 1.0
+				m_flOutput0 = 0.0
+				m_flOutput1 = 1.0
+				m_flNotchedRangeMin = 0.0
+				m_flNotchedRangeMax = 1.0
+				m_flNotchedOutputOutside = 0.0
+				m_flNotchedOutputInside = 1.0
+				m_nBiasType = "PF_BIAS_TYPE_STANDARD"
+				m_flBiasParameter = 0.0
+				m_Curve = 
+				{
+					m_spline = [  ]
+					m_tangents = [  ]
+					m_vDomainMins = [ 0.0, 0.0 ]
+					m_vDomainMaxs = [ 0.0, 0.0 ]
+				}
+			}
+			m_vecColorScale = 
+			{
+				m_nType = "PVEC_TYPE_LITERAL_COLOR"
+				m_vLiteralValue = [ 0.0, 0.0, 0.0 ]
+				m_LiteralColor = [ 4, 0, 19 ]
+				m_NamedValue = ""
+				m_bFollowNamedValue = false
+				m_nVectorAttribute = 6
+				m_vVectorAttributeScale = [ 1.0, 1.0, 1.0 ]
+				m_nControlPoint = 0
+				m_nDeltaControlPoint = 0
+				m_vCPValueScale = [ 1.0, 1.0, 1.0 ]
+				m_vCPRelativePosition = [ 0.0, 0.0, 0.0 ]
+				m_vCPRelativeDir = [ 1.0, 0.0, 0.0 ]
+				m_FloatComponentX = 
+				{
+					m_nType = "PF_TYPE_LITERAL"
+					m_nMapType = "PF_MAP_TYPE_DIRECT"
+					m_flLiteralValue = 0.0
+					m_NamedValue = ""
+					m_nControlPoint = 0
+					m_nScalarAttribute = 3
+					m_nVectorAttribute = 6
+					m_nVectorComponent = 0
+					m_flRandomMin = 0.0
+					m_flRandomMax = 1.0
+					m_bHasRandomSignFlip = false
+					m_nRandomSeed = -1
+					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+					m_flLOD0 = 0.0
+					m_flLOD1 = 0.0
+					m_flLOD2 = 0.0
+					m_flLOD3 = 0.0
+					m_nNoiseInputVectorAttribute = 0
+					m_flNoiseOutputMin = 0.0
+					m_flNoiseOutputMax = 1.0
+					m_flNoiseScale = 0.1
+					m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
+					m_flNoiseOffset = 0.0
+					m_nNoiseOctaves = 1
+					m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
+					m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
+					m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
+					m_flNoiseTurbulenceScale = 1.0
+					m_flNoiseTurbulenceMix = 0.5
+					m_flNoiseImgPreviewScale = 1.0
+					m_bNoiseImgPreviewLive = true
+					m_flNoCameraFallback = 0.0
+					m_bUseBoundsCenter = false
+					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
+					m_flMultFactor = 1.0
+					m_flInput0 = 0.0
+					m_flInput1 = 1.0
+					m_flOutput0 = 0.0
+					m_flOutput1 = 1.0
+					m_flNotchedRangeMin = 0.0
+					m_flNotchedRangeMax = 1.0
+					m_flNotchedOutputOutside = 0.0
+					m_flNotchedOutputInside = 1.0
+					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
+					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
+					m_flBiasParameter = 0.0
+					m_Curve = 
+					{
+						m_spline = [  ]
+						m_tangents = [  ]
+						m_vDomainMins = [ 0.0, 0.0 ]
+						m_vDomainMaxs = [ 0.0, 0.0 ]
+					}
+				}
+				m_FloatComponentY = 
+				{
+					m_nType = "PF_TYPE_LITERAL"
+					m_nMapType = "PF_MAP_TYPE_DIRECT"
+					m_flLiteralValue = 0.0
+					m_NamedValue = ""
+					m_nControlPoint = 0
+					m_nScalarAttribute = 3
+					m_nVectorAttribute = 6
+					m_nVectorComponent = 0
+					m_flRandomMin = 0.0
+					m_flRandomMax = 1.0
+					m_bHasRandomSignFlip = false
+					m_nRandomSeed = -1
+					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+					m_flLOD0 = 0.0
+					m_flLOD1 = 0.0
+					m_flLOD2 = 0.0
+					m_flLOD3 = 0.0
+					m_nNoiseInputVectorAttribute = 0
+					m_flNoiseOutputMin = 0.0
+					m_flNoiseOutputMax = 1.0
+					m_flNoiseScale = 0.1
+					m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
+					m_flNoiseOffset = 0.0
+					m_nNoiseOctaves = 1
+					m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
+					m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
+					m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
+					m_flNoiseTurbulenceScale = 1.0
+					m_flNoiseTurbulenceMix = 0.5
+					m_flNoiseImgPreviewScale = 1.0
+					m_bNoiseImgPreviewLive = true
+					m_flNoCameraFallback = 0.0
+					m_bUseBoundsCenter = false
+					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
+					m_flMultFactor = 1.0
+					m_flInput0 = 0.0
+					m_flInput1 = 1.0
+					m_flOutput0 = 0.0
+					m_flOutput1 = 1.0
+					m_flNotchedRangeMin = 0.0
+					m_flNotchedRangeMax = 1.0
+					m_flNotchedOutputOutside = 0.0
+					m_flNotchedOutputInside = 1.0
+					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
+					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
+					m_flBiasParameter = 0.0
+					m_Curve = 
+					{
+						m_spline = [  ]
+						m_tangents = [  ]
+						m_vDomainMins = [ 0.0, 0.0 ]
+						m_vDomainMaxs = [ 0.0, 0.0 ]
+					}
+				}
+				m_FloatComponentZ = 
+				{
+					m_nType = "PF_TYPE_LITERAL"
+					m_nMapType = "PF_MAP_TYPE_DIRECT"
+					m_flLiteralValue = 0.0
+					m_NamedValue = ""
+					m_nControlPoint = 0
+					m_nScalarAttribute = 3
+					m_nVectorAttribute = 6
+					m_nVectorComponent = 0
+					m_flRandomMin = 0.0
+					m_flRandomMax = 1.0
+					m_bHasRandomSignFlip = false
+					m_nRandomSeed = -1
+					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+					m_flLOD0 = 0.0
+					m_flLOD1 = 0.0
+					m_flLOD2 = 0.0
+					m_flLOD3 = 0.0
+					m_nNoiseInputVectorAttribute = 0
+					m_flNoiseOutputMin = 0.0
+					m_flNoiseOutputMax = 1.0
+					m_flNoiseScale = 0.1
+					m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
+					m_flNoiseOffset = 0.0
+					m_nNoiseOctaves = 1
+					m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
+					m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
+					m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
+					m_flNoiseTurbulenceScale = 1.0
+					m_flNoiseTurbulenceMix = 0.5
+					m_flNoiseImgPreviewScale = 1.0
+					m_bNoiseImgPreviewLive = true
+					m_flNoCameraFallback = 0.0
+					m_bUseBoundsCenter = false
+					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
+					m_flMultFactor = 1.0
+					m_flInput0 = 0.0
+					m_flInput1 = 1.0
+					m_flOutput0 = 0.0
+					m_flOutput1 = 1.0
+					m_flNotchedRangeMin = 0.0
+					m_flNotchedRangeMax = 1.0
+					m_flNotchedOutputOutside = 0.0
+					m_flNotchedOutputInside = 1.0
+					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
+					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
+					m_flBiasParameter = 0.0
+					m_Curve = 
+					{
+						m_spline = [  ]
+						m_tangents = [  ]
+						m_vDomainMins = [ 0.0, 0.0 ]
+						m_vDomainMaxs = [ 0.0, 0.0 ]
+					}
+				}
+				m_FloatInterp = 
+				{
+					m_nType = "PF_TYPE_LITERAL"
+					m_nMapType = "PF_MAP_TYPE_DIRECT"
+					m_flLiteralValue = 0.0
+					m_NamedValue = ""
+					m_nControlPoint = 0
+					m_nScalarAttribute = 3
+					m_nVectorAttribute = 6
+					m_nVectorComponent = 0
+					m_flRandomMin = 0.0
+					m_flRandomMax = 1.0
+					m_bHasRandomSignFlip = false
+					m_nRandomSeed = -1
+					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+					m_flLOD0 = 0.0
+					m_flLOD1 = 0.0
+					m_flLOD2 = 0.0
+					m_flLOD3 = 0.0
+					m_nNoiseInputVectorAttribute = 0
+					m_flNoiseOutputMin = 0.0
+					m_flNoiseOutputMax = 1.0
+					m_flNoiseScale = 0.1
+					m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
+					m_flNoiseOffset = 0.0
+					m_nNoiseOctaves = 1
+					m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
+					m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
+					m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
+					m_flNoiseTurbulenceScale = 1.0
+					m_flNoiseTurbulenceMix = 0.5
+					m_flNoiseImgPreviewScale = 1.0
+					m_bNoiseImgPreviewLive = true
+					m_flNoCameraFallback = 0.0
+					m_bUseBoundsCenter = false
+					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
+					m_flMultFactor = 1.0
+					m_flInput0 = 0.0
+					m_flInput1 = 1.0
+					m_flOutput0 = 0.0
+					m_flOutput1 = 1.0
+					m_flNotchedRangeMin = 0.0
+					m_flNotchedRangeMax = 1.0
+					m_flNotchedOutputOutside = 0.0
+					m_flNotchedOutputInside = 1.0
+					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
+					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
+					m_flBiasParameter = 0.0
+					m_Curve = 
+					{
+						m_spline = [  ]
+						m_tangents = [  ]
+						m_vDomainMins = [ 0.0, 0.0 ]
+						m_vDomainMaxs = [ 0.0, 0.0 ]
+					}
+				}
+				m_flInterpInput0 = 0.0
+				m_flInterpInput1 = 1.0
+				m_vInterpOutput0 = [ 0.0, 0.0, 0.0 ]
+				m_vInterpOutput1 = [ 1.0, 1.0, 1.0 ]
+				m_Gradient = 
+				{
+					m_Stops = [  ]
+				}
+				m_vRandomMin = [ 0.0, 0.0, 0.0 ]
+				m_vRandomMax = [ 0.0, 0.0, 0.0 ]
+			}
+			m_vecTexturesInput = 
+			[
+				{
+					m_hTexture = resource:"materials/particle/beam_crack_08.vtex"
+					m_nTextureChannels = "SPRITECARD_TEXTURE_CHANNEL_MIX_A"
+					m_flTextureBlend = 
+					{
+						m_nType = "PF_TYPE_LITERAL"
+						m_nMapType = "PF_MAP_TYPE_DIRECT"
+						m_flLiteralValue = 5.0
+						m_NamedValue = ""
+						m_nControlPoint = 0
+						m_nScalarAttribute = 3
+						m_nVectorAttribute = 6
+						m_nVectorComponent = 0
+						m_flRandomMin = 0.0
+						m_flRandomMax = 1.0
+						m_bHasRandomSignFlip = false
+						m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+						m_flLOD0 = 0.0
+						m_flLOD1 = 0.0
+						m_flLOD2 = 0.0
+						m_flLOD3 = 0.0
+						m_nNoiseInputVectorAttribute = 0
+						m_flNoiseOutputMin = 0.0
+						m_flNoiseOutputMax = 1.0
+						m_flNoiseScale = 0.1
+						m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
+						m_flNoiseOffset = 0.0
+						m_nNoiseOctaves = 1
+						m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
+						m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
+						m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
+						m_flNoiseTurbulenceScale = 1.0
+						m_flNoiseTurbulenceMix = 0.5
+						m_flNoiseImgPreviewScale = 1.0
+						m_bNoiseImgPreviewLive = true
+						m_nInputMode = "PF_INPUT_MODE_CLAMPED"
+						m_flMultFactor = 1.0
+						m_flInput0 = 0.0
+						m_flInput1 = 1.0
+						m_flOutput0 = 0.0
+						m_flOutput1 = 1.0
+						m_flNotchedRangeMin = 0.0
+						m_flNotchedRangeMax = 1.0
+						m_flNotchedOutputOutside = 0.0
+						m_flNotchedOutputInside = 1.0
+						m_nBiasType = "PF_BIAS_TYPE_STANDARD"
+						m_flBiasParameter = 0.0
+						m_Curve = 
+						{
+							m_spline = [  ]
+							m_tangents = [  ]
+							m_vDomainMins = [ 0.0, 0.0 ]
+							m_vDomainMaxs = [ 0.0, 0.0 ]
+						}
+					}
+				},
+			]
+			m_bSaturateColorPreAlphaBlend = false
+			m_flAddSelfAmount = 2.0
+			m_flOverbrightFactor = 6.0
+			m_bDisableZBuffering = true
+		},
+		{
+			_class = "C_OP_RenderRopes"
+			m_nMinTesselation = 3
+			m_nMaxTesselation = 3
+			m_flTextureVWorldSize = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_nMapType = "PF_MAP_TYPE_DIRECT"
+				m_flLiteralValue = 200.0
+				m_NamedValue = ""
+				m_nControlPoint = 0
+				m_nScalarAttribute = 3
+				m_nVectorAttribute = 6
+				m_nVectorComponent = 0
+				m_flRandomMin = 0.0
+				m_flRandomMax = 1.0
+				m_bHasRandomSignFlip = false
+				m_nRandomSeed = -1
+				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+				m_flLOD0 = 0.0
+				m_flLOD1 = 0.0
+				m_flLOD2 = 0.0
+				m_flLOD3 = 0.0
+				m_nNoiseInputVectorAttribute = 0
+				m_flNoiseOutputMin = 0.0
+				m_flNoiseOutputMax = 1.0
+				m_flNoiseScale = 0.1
+				m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
+				m_flNoiseOffset = 0.0
+				m_nNoiseOctaves = 1
+				m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
+				m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
+				m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
+				m_flNoiseTurbulenceScale = 1.0
+				m_flNoiseTurbulenceMix = 0.5
+				m_flNoiseImgPreviewScale = 1.0
+				m_bNoiseImgPreviewLive = true
+				m_flNoCameraFallback = 0.0
+				m_bUseBoundsCenter = false
+				m_nInputMode = "PF_INPUT_MODE_CLAMPED"
+				m_flMultFactor = 1.0
+				m_flInput0 = 0.0
+				m_flInput1 = 1.0
+				m_flOutput0 = 0.0
+				m_flOutput1 = 1.0
+				m_flNotchedRangeMin = 0.0
+				m_flNotchedRangeMax = 1.0
+				m_flNotchedOutputOutside = 0.0
+				m_flNotchedOutputInside = 1.0
+				m_nRoundType = "PF_ROUND_TYPE_NEAREST"
+				m_nBiasType = "PF_BIAS_TYPE_STANDARD"
+				m_flBiasParameter = 0.0
+				m_Curve = 
+				{
+					m_spline = [  ]
+					m_tangents = [  ]
+					m_vDomainMins = [ 0.0, 0.0 ]
+					m_vDomainMaxs = [ 0.0, 0.0 ]
+				}
+			}
+			m_flTextureVScrollRate = -2000.0
+			m_nOrientationType = "PARTICLE_ORIENTATION_ALIGN_TO_PARTICLE_NORMAL"
+			m_vecColorScale = 
+			{
+				m_nType = "PVEC_TYPE_LITERAL_COLOR"
+				m_vLiteralValue = [ 0.0, 0.0, 0.0 ]
+				m_LiteralColor = [ 77, 26, 0 ]
+				m_NamedValue = ""
+				m_bFollowNamedValue = false
+				m_nVectorAttribute = 6
+				m_vVectorAttributeScale = [ 1.0, 1.0, 1.0 ]
+				m_nControlPoint = 0
+				m_nDeltaControlPoint = 0
+				m_vCPValueScale = [ 1.0, 1.0, 1.0 ]
+				m_vCPRelativePosition = [ 0.0, 0.0, 0.0 ]
+				m_vCPRelativeDir = [ 1.0, 0.0, 0.0 ]
+				m_FloatComponentX = 
+				{
+					m_nType = "PF_TYPE_LITERAL"
+					m_nMapType = "PF_MAP_TYPE_DIRECT"
+					m_flLiteralValue = 0.0
+					m_NamedValue = ""
+					m_nControlPoint = 0
+					m_nScalarAttribute = 3
+					m_nVectorAttribute = 6
+					m_nVectorComponent = 0
+					m_flRandomMin = 0.0
+					m_flRandomMax = 1.0
+					m_bHasRandomSignFlip = false
+					m_nRandomSeed = -1
+					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+					m_flLOD0 = 0.0
+					m_flLOD1 = 0.0
+					m_flLOD2 = 0.0
+					m_flLOD3 = 0.0
+					m_nNoiseInputVectorAttribute = 0
+					m_flNoiseOutputMin = 0.0
+					m_flNoiseOutputMax = 1.0
+					m_flNoiseScale = 0.1
+					m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
+					m_flNoiseOffset = 0.0
+					m_nNoiseOctaves = 1
+					m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
+					m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
+					m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
+					m_flNoiseTurbulenceScale = 1.0
+					m_flNoiseTurbulenceMix = 0.5
+					m_flNoiseImgPreviewScale = 1.0
+					m_bNoiseImgPreviewLive = true
+					m_flNoCameraFallback = 0.0
+					m_bUseBoundsCenter = false
+					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
+					m_flMultFactor = 1.0
+					m_flInput0 = 0.0
+					m_flInput1 = 1.0
+					m_flOutput0 = 0.0
+					m_flOutput1 = 1.0
+					m_flNotchedRangeMin = 0.0
+					m_flNotchedRangeMax = 1.0
+					m_flNotchedOutputOutside = 0.0
+					m_flNotchedOutputInside = 1.0
+					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
+					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
+					m_flBiasParameter = 0.0
+					m_Curve = 
+					{
+						m_spline = [  ]
+						m_tangents = [  ]
+						m_vDomainMins = [ 0.0, 0.0 ]
+						m_vDomainMaxs = [ 0.0, 0.0 ]
+					}
+				}
+				m_FloatComponentY = 
+				{
+					m_nType = "PF_TYPE_LITERAL"
+					m_nMapType = "PF_MAP_TYPE_DIRECT"
+					m_flLiteralValue = 0.0
+					m_NamedValue = ""
+					m_nControlPoint = 0
+					m_nScalarAttribute = 3
+					m_nVectorAttribute = 6
+					m_nVectorComponent = 0
+					m_flRandomMin = 0.0
+					m_flRandomMax = 1.0
+					m_bHasRandomSignFlip = false
+					m_nRandomSeed = -1
+					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+					m_flLOD0 = 0.0
+					m_flLOD1 = 0.0
+					m_flLOD2 = 0.0
+					m_flLOD3 = 0.0
+					m_nNoiseInputVectorAttribute = 0
+					m_flNoiseOutputMin = 0.0
+					m_flNoiseOutputMax = 1.0
+					m_flNoiseScale = 0.1
+					m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
+					m_flNoiseOffset = 0.0
+					m_nNoiseOctaves = 1
+					m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
+					m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
+					m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
+					m_flNoiseTurbulenceScale = 1.0
+					m_flNoiseTurbulenceMix = 0.5
+					m_flNoiseImgPreviewScale = 1.0
+					m_bNoiseImgPreviewLive = true
+					m_flNoCameraFallback = 0.0
+					m_bUseBoundsCenter = false
+					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
+					m_flMultFactor = 1.0
+					m_flInput0 = 0.0
+					m_flInput1 = 1.0
+					m_flOutput0 = 0.0
+					m_flOutput1 = 1.0
+					m_flNotchedRangeMin = 0.0
+					m_flNotchedRangeMax = 1.0
+					m_flNotchedOutputOutside = 0.0
+					m_flNotchedOutputInside = 1.0
+					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
+					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
+					m_flBiasParameter = 0.0
+					m_Curve = 
+					{
+						m_spline = [  ]
+						m_tangents = [  ]
+						m_vDomainMins = [ 0.0, 0.0 ]
+						m_vDomainMaxs = [ 0.0, 0.0 ]
+					}
+				}
+				m_FloatComponentZ = 
+				{
+					m_nType = "PF_TYPE_LITERAL"
+					m_nMapType = "PF_MAP_TYPE_DIRECT"
+					m_flLiteralValue = 0.0
+					m_NamedValue = ""
+					m_nControlPoint = 0
+					m_nScalarAttribute = 3
+					m_nVectorAttribute = 6
+					m_nVectorComponent = 0
+					m_flRandomMin = 0.0
+					m_flRandomMax = 1.0
+					m_bHasRandomSignFlip = false
+					m_nRandomSeed = -1
+					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+					m_flLOD0 = 0.0
+					m_flLOD1 = 0.0
+					m_flLOD2 = 0.0
+					m_flLOD3 = 0.0
+					m_nNoiseInputVectorAttribute = 0
+					m_flNoiseOutputMin = 0.0
+					m_flNoiseOutputMax = 1.0
+					m_flNoiseScale = 0.1
+					m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
+					m_flNoiseOffset = 0.0
+					m_nNoiseOctaves = 1
+					m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
+					m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
+					m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
+					m_flNoiseTurbulenceScale = 1.0
+					m_flNoiseTurbulenceMix = 0.5
+					m_flNoiseImgPreviewScale = 1.0
+					m_bNoiseImgPreviewLive = true
+					m_flNoCameraFallback = 0.0
+					m_bUseBoundsCenter = false
+					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
+					m_flMultFactor = 1.0
+					m_flInput0 = 0.0
+					m_flInput1 = 1.0
+					m_flOutput0 = 0.0
+					m_flOutput1 = 1.0
+					m_flNotchedRangeMin = 0.0
+					m_flNotchedRangeMax = 1.0
+					m_flNotchedOutputOutside = 0.0
+					m_flNotchedOutputInside = 1.0
+					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
+					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
+					m_flBiasParameter = 0.0
+					m_Curve = 
+					{
+						m_spline = [  ]
+						m_tangents = [  ]
+						m_vDomainMins = [ 0.0, 0.0 ]
+						m_vDomainMaxs = [ 0.0, 0.0 ]
+					}
+				}
+				m_FloatInterp = 
+				{
+					m_nType = "PF_TYPE_LITERAL"
+					m_nMapType = "PF_MAP_TYPE_DIRECT"
+					m_flLiteralValue = 0.0
+					m_NamedValue = ""
+					m_nControlPoint = 0
+					m_nScalarAttribute = 3
+					m_nVectorAttribute = 6
+					m_nVectorComponent = 0
+					m_flRandomMin = 0.0
+					m_flRandomMax = 1.0
+					m_bHasRandomSignFlip = false
+					m_nRandomSeed = -1
+					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+					m_flLOD0 = 0.0
+					m_flLOD1 = 0.0
+					m_flLOD2 = 0.0
+					m_flLOD3 = 0.0
+					m_nNoiseInputVectorAttribute = 0
+					m_flNoiseOutputMin = 0.0
+					m_flNoiseOutputMax = 1.0
+					m_flNoiseScale = 0.1
+					m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
+					m_flNoiseOffset = 0.0
+					m_nNoiseOctaves = 1
+					m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
+					m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
+					m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
+					m_flNoiseTurbulenceScale = 1.0
+					m_flNoiseTurbulenceMix = 0.5
+					m_flNoiseImgPreviewScale = 1.0
+					m_bNoiseImgPreviewLive = true
+					m_flNoCameraFallback = 0.0
+					m_bUseBoundsCenter = false
+					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
+					m_flMultFactor = 1.0
+					m_flInput0 = 0.0
+					m_flInput1 = 1.0
+					m_flOutput0 = 0.0
+					m_flOutput1 = 1.0
+					m_flNotchedRangeMin = 0.0
+					m_flNotchedRangeMax = 1.0
+					m_flNotchedOutputOutside = 0.0
+					m_flNotchedOutputInside = 1.0
+					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
+					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
+					m_flBiasParameter = 0.0
+					m_Curve = 
+					{
+						m_spline = [  ]
+						m_tangents = [  ]
+						m_vDomainMins = [ 0.0, 0.0 ]
+						m_vDomainMaxs = [ 0.0, 0.0 ]
+					}
+				}
+				m_flInterpInput0 = 0.0
+				m_flInterpInput1 = 1.0
+				m_vInterpOutput0 = [ 0.0, 0.0, 0.0 ]
+				m_vInterpOutput1 = [ 1.0, 1.0, 1.0 ]
+				m_Gradient = 
+				{
+					m_Stops = [  ]
+				}
+				m_vRandomMin = [ 0.0, 0.0, 0.0 ]
+				m_vRandomMax = [ 0.0, 0.0, 0.0 ]
+			}
+			m_vecTexturesInput = 
+			[
+				{
+					m_hTexture = resource:"materials/particle/beam_plasma_06.vtex"
+					m_nTextureChannels = "SPRITECARD_TEXTURE_CHANNEL_MIX_A"
+					m_flTextureBlend = 
+					{
+						m_nType = "PF_TYPE_LITERAL"
+						m_nMapType = "PF_MAP_TYPE_DIRECT"
+						m_flLiteralValue = 5.0
+						m_NamedValue = ""
+						m_nControlPoint = 0
+						m_nScalarAttribute = 3
+						m_nVectorAttribute = 6
+						m_nVectorComponent = 0
+						m_flRandomMin = 0.0
+						m_flRandomMax = 1.0
+						m_bHasRandomSignFlip = false
+						m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+						m_flLOD0 = 0.0
+						m_flLOD1 = 0.0
+						m_flLOD2 = 0.0
+						m_flLOD3 = 0.0
+						m_nNoiseInputVectorAttribute = 0
+						m_flNoiseOutputMin = 0.0
+						m_flNoiseOutputMax = 1.0
+						m_flNoiseScale = 0.1
+						m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
+						m_flNoiseOffset = 0.0
+						m_nNoiseOctaves = 1
+						m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
+						m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
+						m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
+						m_flNoiseTurbulenceScale = 1.0
+						m_flNoiseTurbulenceMix = 0.5
+						m_flNoiseImgPreviewScale = 1.0
+						m_bNoiseImgPreviewLive = true
+						m_nInputMode = "PF_INPUT_MODE_CLAMPED"
+						m_flMultFactor = 1.0
+						m_flInput0 = 0.0
+						m_flInput1 = 1.0
+						m_flOutput0 = 0.0
+						m_flOutput1 = 1.0
+						m_flNotchedRangeMin = 0.0
+						m_flNotchedRangeMax = 1.0
+						m_flNotchedOutputOutside = 0.0
+						m_flNotchedOutputInside = 1.0
+						m_nBiasType = "PF_BIAS_TYPE_STANDARD"
+						m_flBiasParameter = 0.0
+						m_Curve = 
+						{
+							m_spline = [  ]
+							m_tangents = [  ]
+							m_vDomainMins = [ 0.0, 0.0 ]
+							m_vDomainMaxs = [ 0.0, 0.0 ]
+						}
+					}
+				},
+			]
+			m_bSaturateColorPreAlphaBlend = false
+			m_flAddSelfAmount = 2.0
+			m_flOverbrightFactor = 6.0
+			m_bDisableZBuffering = true
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_OP_RenderRopes"
+			m_nMinTesselation = 3
+			m_nMaxTesselation = 3
+			m_flTextureVWorldSize = 
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_nMapType = "PF_MAP_TYPE_DIRECT"
+				m_flLiteralValue = 1300.0
+				m_NamedValue = ""
+				m_nControlPoint = 0
+				m_nScalarAttribute = 3
+				m_nVectorAttribute = 6
+				m_nVectorComponent = 0
+				m_flRandomMin = 0.0
+				m_flRandomMax = 1.0
+				m_bHasRandomSignFlip = false
+				m_nRandomSeed = -1
+				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+				m_flLOD0 = 0.0
+				m_flLOD1 = 0.0
+				m_flLOD2 = 0.0
+				m_flLOD3 = 0.0
+				m_nNoiseInputVectorAttribute = 0
+				m_flNoiseOutputMin = 0.0
+				m_flNoiseOutputMax = 1.0
+				m_flNoiseScale = 0.1
+				m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
+				m_flNoiseOffset = 0.0
+				m_nNoiseOctaves = 1
+				m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
+				m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
+				m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
+				m_flNoiseTurbulenceScale = 1.0
+				m_flNoiseTurbulenceMix = 0.5
+				m_flNoiseImgPreviewScale = 1.0
+				m_bNoiseImgPreviewLive = true
+				m_flNoCameraFallback = 0.0
+				m_bUseBoundsCenter = false
+				m_nInputMode = "PF_INPUT_MODE_CLAMPED"
+				m_flMultFactor = 1.0
+				m_flInput0 = 0.0
+				m_flInput1 = 1.0
+				m_flOutput0 = 0.0
+				m_flOutput1 = 1.0
+				m_flNotchedRangeMin = 0.0
+				m_flNotchedRangeMax = 1.0
+				m_flNotchedOutputOutside = 0.0
+				m_flNotchedOutputInside = 1.0
+				m_nRoundType = "PF_ROUND_TYPE_NEAREST"
+				m_nBiasType = "PF_BIAS_TYPE_STANDARD"
+				m_flBiasParameter = 0.0
+				m_Curve = 
+				{
+					m_spline = [  ]
+					m_tangents = [  ]
+					m_vDomainMins = [ 0.0, 0.0 ]
+					m_vDomainMaxs = [ 0.0, 0.0 ]
+				}
+			}
+			m_flTextureVScrollRate = -2000.0
+			m_nOrientationType = "PARTICLE_ORIENTATION_ALIGN_TO_PARTICLE_NORMAL"
+			m_vecColorScale = 
+			{
+				m_nType = "PVEC_TYPE_LITERAL_COLOR"
+				m_vLiteralValue = [ 0.0, 0.0, 0.0 ]
+				m_LiteralColor = [ 146, 48, 0 ]
+				m_NamedValue = ""
+				m_bFollowNamedValue = false
+				m_nVectorAttribute = 6
+				m_vVectorAttributeScale = [ 1.0, 1.0, 1.0 ]
+				m_nControlPoint = 0
+				m_nDeltaControlPoint = 0
+				m_vCPValueScale = [ 1.0, 1.0, 1.0 ]
+				m_vCPRelativePosition = [ 0.0, 0.0, 0.0 ]
+				m_vCPRelativeDir = [ 1.0, 0.0, 0.0 ]
+				m_FloatComponentX = 
+				{
+					m_nType = "PF_TYPE_LITERAL"
+					m_nMapType = "PF_MAP_TYPE_DIRECT"
+					m_flLiteralValue = 0.0
+					m_NamedValue = ""
+					m_nControlPoint = 0
+					m_nScalarAttribute = 3
+					m_nVectorAttribute = 6
+					m_nVectorComponent = 0
+					m_flRandomMin = 0.0
+					m_flRandomMax = 1.0
+					m_bHasRandomSignFlip = false
+					m_nRandomSeed = -1
+					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+					m_flLOD0 = 0.0
+					m_flLOD1 = 0.0
+					m_flLOD2 = 0.0
+					m_flLOD3 = 0.0
+					m_nNoiseInputVectorAttribute = 0
+					m_flNoiseOutputMin = 0.0
+					m_flNoiseOutputMax = 1.0
+					m_flNoiseScale = 0.1
+					m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
+					m_flNoiseOffset = 0.0
+					m_nNoiseOctaves = 1
+					m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
+					m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
+					m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
+					m_flNoiseTurbulenceScale = 1.0
+					m_flNoiseTurbulenceMix = 0.5
+					m_flNoiseImgPreviewScale = 1.0
+					m_bNoiseImgPreviewLive = true
+					m_flNoCameraFallback = 0.0
+					m_bUseBoundsCenter = false
+					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
+					m_flMultFactor = 1.0
+					m_flInput0 = 0.0
+					m_flInput1 = 1.0
+					m_flOutput0 = 0.0
+					m_flOutput1 = 1.0
+					m_flNotchedRangeMin = 0.0
+					m_flNotchedRangeMax = 1.0
+					m_flNotchedOutputOutside = 0.0
+					m_flNotchedOutputInside = 1.0
+					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
+					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
+					m_flBiasParameter = 0.0
+					m_Curve = 
+					{
+						m_spline = [  ]
+						m_tangents = [  ]
+						m_vDomainMins = [ 0.0, 0.0 ]
+						m_vDomainMaxs = [ 0.0, 0.0 ]
+					}
+				}
+				m_FloatComponentY = 
+				{
+					m_nType = "PF_TYPE_LITERAL"
+					m_nMapType = "PF_MAP_TYPE_DIRECT"
+					m_flLiteralValue = 0.0
+					m_NamedValue = ""
+					m_nControlPoint = 0
+					m_nScalarAttribute = 3
+					m_nVectorAttribute = 6
+					m_nVectorComponent = 0
+					m_flRandomMin = 0.0
+					m_flRandomMax = 1.0
+					m_bHasRandomSignFlip = false
+					m_nRandomSeed = -1
+					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+					m_flLOD0 = 0.0
+					m_flLOD1 = 0.0
+					m_flLOD2 = 0.0
+					m_flLOD3 = 0.0
+					m_nNoiseInputVectorAttribute = 0
+					m_flNoiseOutputMin = 0.0
+					m_flNoiseOutputMax = 1.0
+					m_flNoiseScale = 0.1
+					m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
+					m_flNoiseOffset = 0.0
+					m_nNoiseOctaves = 1
+					m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
+					m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
+					m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
+					m_flNoiseTurbulenceScale = 1.0
+					m_flNoiseTurbulenceMix = 0.5
+					m_flNoiseImgPreviewScale = 1.0
+					m_bNoiseImgPreviewLive = true
+					m_flNoCameraFallback = 0.0
+					m_bUseBoundsCenter = false
+					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
+					m_flMultFactor = 1.0
+					m_flInput0 = 0.0
+					m_flInput1 = 1.0
+					m_flOutput0 = 0.0
+					m_flOutput1 = 1.0
+					m_flNotchedRangeMin = 0.0
+					m_flNotchedRangeMax = 1.0
+					m_flNotchedOutputOutside = 0.0
+					m_flNotchedOutputInside = 1.0
+					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
+					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
+					m_flBiasParameter = 0.0
+					m_Curve = 
+					{
+						m_spline = [  ]
+						m_tangents = [  ]
+						m_vDomainMins = [ 0.0, 0.0 ]
+						m_vDomainMaxs = [ 0.0, 0.0 ]
+					}
+				}
+				m_FloatComponentZ = 
+				{
+					m_nType = "PF_TYPE_LITERAL"
+					m_nMapType = "PF_MAP_TYPE_DIRECT"
+					m_flLiteralValue = 0.0
+					m_NamedValue = ""
+					m_nControlPoint = 0
+					m_nScalarAttribute = 3
+					m_nVectorAttribute = 6
+					m_nVectorComponent = 0
+					m_flRandomMin = 0.0
+					m_flRandomMax = 1.0
+					m_bHasRandomSignFlip = false
+					m_nRandomSeed = -1
+					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+					m_flLOD0 = 0.0
+					m_flLOD1 = 0.0
+					m_flLOD2 = 0.0
+					m_flLOD3 = 0.0
+					m_nNoiseInputVectorAttribute = 0
+					m_flNoiseOutputMin = 0.0
+					m_flNoiseOutputMax = 1.0
+					m_flNoiseScale = 0.1
+					m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
+					m_flNoiseOffset = 0.0
+					m_nNoiseOctaves = 1
+					m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
+					m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
+					m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
+					m_flNoiseTurbulenceScale = 1.0
+					m_flNoiseTurbulenceMix = 0.5
+					m_flNoiseImgPreviewScale = 1.0
+					m_bNoiseImgPreviewLive = true
+					m_flNoCameraFallback = 0.0
+					m_bUseBoundsCenter = false
+					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
+					m_flMultFactor = 1.0
+					m_flInput0 = 0.0
+					m_flInput1 = 1.0
+					m_flOutput0 = 0.0
+					m_flOutput1 = 1.0
+					m_flNotchedRangeMin = 0.0
+					m_flNotchedRangeMax = 1.0
+					m_flNotchedOutputOutside = 0.0
+					m_flNotchedOutputInside = 1.0
+					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
+					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
+					m_flBiasParameter = 0.0
+					m_Curve = 
+					{
+						m_spline = [  ]
+						m_tangents = [  ]
+						m_vDomainMins = [ 0.0, 0.0 ]
+						m_vDomainMaxs = [ 0.0, 0.0 ]
+					}
+				}
+				m_FloatInterp = 
+				{
+					m_nType = "PF_TYPE_LITERAL"
+					m_nMapType = "PF_MAP_TYPE_DIRECT"
+					m_flLiteralValue = 0.0
+					m_NamedValue = ""
+					m_nControlPoint = 0
+					m_nScalarAttribute = 3
+					m_nVectorAttribute = 6
+					m_nVectorComponent = 0
+					m_flRandomMin = 0.0
+					m_flRandomMax = 1.0
+					m_bHasRandomSignFlip = false
+					m_nRandomSeed = -1
+					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+					m_flLOD0 = 0.0
+					m_flLOD1 = 0.0
+					m_flLOD2 = 0.0
+					m_flLOD3 = 0.0
+					m_nNoiseInputVectorAttribute = 0
+					m_flNoiseOutputMin = 0.0
+					m_flNoiseOutputMax = 1.0
+					m_flNoiseScale = 0.1
+					m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
+					m_flNoiseOffset = 0.0
+					m_nNoiseOctaves = 1
+					m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
+					m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
+					m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
+					m_flNoiseTurbulenceScale = 1.0
+					m_flNoiseTurbulenceMix = 0.5
+					m_flNoiseImgPreviewScale = 1.0
+					m_bNoiseImgPreviewLive = true
+					m_flNoCameraFallback = 0.0
+					m_bUseBoundsCenter = false
+					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
+					m_flMultFactor = 1.0
+					m_flInput0 = 0.0
+					m_flInput1 = 1.0
+					m_flOutput0 = 0.0
+					m_flOutput1 = 1.0
+					m_flNotchedRangeMin = 0.0
+					m_flNotchedRangeMax = 1.0
+					m_flNotchedOutputOutside = 0.0
+					m_flNotchedOutputInside = 1.0
+					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
+					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
+					m_flBiasParameter = 0.0
+					m_Curve = 
+					{
+						m_spline = [  ]
+						m_tangents = [  ]
+						m_vDomainMins = [ 0.0, 0.0 ]
+						m_vDomainMaxs = [ 0.0, 0.0 ]
+					}
+				}
+				m_flInterpInput0 = 0.0
+				m_flInterpInput1 = 1.0
+				m_vInterpOutput0 = [ 0.0, 0.0, 0.0 ]
+				m_vInterpOutput1 = [ 1.0, 1.0, 1.0 ]
+				m_Gradient = 
+				{
+					m_Stops = [  ]
+				}
+				m_vRandomMin = [ 0.0, 0.0, 0.0 ]
+				m_vRandomMax = [ 0.0, 0.0, 0.0 ]
+			}
+			m_vecTexturesInput = 
+			[
+				{
+					m_hTexture = resource:"materials/particle/beam_splatter_lava.vtex"
+					m_nTextureChannels = "SPRITECARD_TEXTURE_CHANNEL_MIX_A"
+					m_flTextureBlend = 
+					{
+						m_nType = "PF_TYPE_LITERAL"
+						m_nMapType = "PF_MAP_TYPE_DIRECT"
+						m_flLiteralValue = 5.0
+						m_NamedValue = ""
+						m_nControlPoint = 0
+						m_nScalarAttribute = 3
+						m_nVectorAttribute = 6
+						m_nVectorComponent = 0
+						m_flRandomMin = 0.0
+						m_flRandomMax = 1.0
+						m_bHasRandomSignFlip = false
+						m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+						m_flLOD0 = 0.0
+						m_flLOD1 = 0.0
+						m_flLOD2 = 0.0
+						m_flLOD3 = 0.0
+						m_nNoiseInputVectorAttribute = 0
+						m_flNoiseOutputMin = 0.0
+						m_flNoiseOutputMax = 1.0
+						m_flNoiseScale = 0.1
+						m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
+						m_flNoiseOffset = 0.0
+						m_nNoiseOctaves = 1
+						m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
+						m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
+						m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
+						m_flNoiseTurbulenceScale = 1.0
+						m_flNoiseTurbulenceMix = 0.5
+						m_flNoiseImgPreviewScale = 1.0
+						m_bNoiseImgPreviewLive = true
+						m_nInputMode = "PF_INPUT_MODE_CLAMPED"
+						m_flMultFactor = 1.0
+						m_flInput0 = 0.0
+						m_flInput1 = 1.0
+						m_flOutput0 = 0.0
+						m_flOutput1 = 1.0
+						m_flNotchedRangeMin = 0.0
+						m_flNotchedRangeMax = 1.0
+						m_flNotchedOutputOutside = 0.0
+						m_flNotchedOutputInside = 1.0
+						m_nBiasType = "PF_BIAS_TYPE_STANDARD"
+						m_flBiasParameter = 0.0
+						m_Curve = 
+						{
+							m_spline = [  ]
+							m_tangents = [  ]
+							m_vDomainMins = [ 0.0, 0.0 ]
+							m_vDomainMaxs = [ 0.0, 0.0 ]
+						}
+					}
+				},
+			]
+			m_bSaturateColorPreAlphaBlend = false
+			m_flAddSelfAmount = 2.0
+			m_flOverbrightFactor = 6.0
+			m_bDisableZBuffering = true
+			m_bDisableOperator = true
+		},
+		{
+			_class = "C_OP_RenderRopes"
+			m_nMinTesselation = 3
+			m_nMaxTesselation = 3
+			m_flTextureVWorldSize = 666.666687
+			m_flTextureVScrollRate = -2000.0
+			m_nOrientationType = "PARTICLE_ORIENTATION_ALIGN_TO_PARTICLE_NORMAL"
+			m_flRadiusScale = 0.5
+			m_vecColorScale = 
+			{
+				m_nType = "PVEC_TYPE_LITERAL_COLOR"
+				m_vLiteralValue = [ 0.0, 0.0, 0.0 ]
+				m_LiteralColor = [ 0, 0, 0 ]
+				m_NamedValue = ""
+				m_bFollowNamedValue = false
+				m_nVectorAttribute = 6
+				m_vVectorAttributeScale = [ 1.0, 1.0, 1.0 ]
+				m_nControlPoint = 0
+				m_nDeltaControlPoint = 0
+				m_vCPValueScale = [ 1.0, 1.0, 1.0 ]
+				m_vCPRelativePosition = [ 0.0, 0.0, 0.0 ]
+				m_vCPRelativeDir = [ 1.0, 0.0, 0.0 ]
+				m_FloatComponentX = 
+				{
+					m_nType = "PF_TYPE_LITERAL"
+					m_nMapType = "PF_MAP_TYPE_DIRECT"
+					m_flLiteralValue = 0.0
+					m_NamedValue = ""
+					m_nControlPoint = 0
+					m_nScalarAttribute = 3
+					m_nVectorAttribute = 6
+					m_nVectorComponent = 0
+					m_flRandomMin = 0.0
+					m_flRandomMax = 1.0
+					m_bHasRandomSignFlip = false
+					m_nRandomSeed = -1
+					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+					m_flLOD0 = 0.0
+					m_flLOD1 = 0.0
+					m_flLOD2 = 0.0
+					m_flLOD3 = 0.0
+					m_nNoiseInputVectorAttribute = 0
+					m_flNoiseOutputMin = 0.0
+					m_flNoiseOutputMax = 1.0
+					m_flNoiseScale = 0.1
+					m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
+					m_flNoiseOffset = 0.0
+					m_nNoiseOctaves = 1
+					m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
+					m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
+					m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
+					m_flNoiseTurbulenceScale = 1.0
+					m_flNoiseTurbulenceMix = 0.5
+					m_flNoiseImgPreviewScale = 1.0
+					m_bNoiseImgPreviewLive = true
+					m_flNoCameraFallback = 0.0
+					m_bUseBoundsCenter = false
+					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
+					m_flMultFactor = 1.0
+					m_flInput0 = 0.0
+					m_flInput1 = 1.0
+					m_flOutput0 = 0.0
+					m_flOutput1 = 1.0
+					m_flNotchedRangeMin = 0.0
+					m_flNotchedRangeMax = 1.0
+					m_flNotchedOutputOutside = 0.0
+					m_flNotchedOutputInside = 1.0
+					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
+					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
+					m_flBiasParameter = 0.0
+					m_Curve = 
+					{
+						m_spline = [  ]
+						m_tangents = [  ]
+						m_vDomainMins = [ 0.0, 0.0 ]
+						m_vDomainMaxs = [ 0.0, 0.0 ]
+					}
+				}
+				m_FloatComponentY = 
+				{
+					m_nType = "PF_TYPE_LITERAL"
+					m_nMapType = "PF_MAP_TYPE_DIRECT"
+					m_flLiteralValue = 0.0
+					m_NamedValue = ""
+					m_nControlPoint = 0
+					m_nScalarAttribute = 3
+					m_nVectorAttribute = 6
+					m_nVectorComponent = 0
+					m_flRandomMin = 0.0
+					m_flRandomMax = 1.0
+					m_bHasRandomSignFlip = false
+					m_nRandomSeed = -1
+					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+					m_flLOD0 = 0.0
+					m_flLOD1 = 0.0
+					m_flLOD2 = 0.0
+					m_flLOD3 = 0.0
+					m_nNoiseInputVectorAttribute = 0
+					m_flNoiseOutputMin = 0.0
+					m_flNoiseOutputMax = 1.0
+					m_flNoiseScale = 0.1
+					m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
+					m_flNoiseOffset = 0.0
+					m_nNoiseOctaves = 1
+					m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
+					m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
+					m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
+					m_flNoiseTurbulenceScale = 1.0
+					m_flNoiseTurbulenceMix = 0.5
+					m_flNoiseImgPreviewScale = 1.0
+					m_bNoiseImgPreviewLive = true
+					m_flNoCameraFallback = 0.0
+					m_bUseBoundsCenter = false
+					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
+					m_flMultFactor = 1.0
+					m_flInput0 = 0.0
+					m_flInput1 = 1.0
+					m_flOutput0 = 0.0
+					m_flOutput1 = 1.0
+					m_flNotchedRangeMin = 0.0
+					m_flNotchedRangeMax = 1.0
+					m_flNotchedOutputOutside = 0.0
+					m_flNotchedOutputInside = 1.0
+					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
+					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
+					m_flBiasParameter = 0.0
+					m_Curve = 
+					{
+						m_spline = [  ]
+						m_tangents = [  ]
+						m_vDomainMins = [ 0.0, 0.0 ]
+						m_vDomainMaxs = [ 0.0, 0.0 ]
+					}
+				}
+				m_FloatComponentZ = 
+				{
+					m_nType = "PF_TYPE_LITERAL"
+					m_nMapType = "PF_MAP_TYPE_DIRECT"
+					m_flLiteralValue = 0.0
+					m_NamedValue = ""
+					m_nControlPoint = 0
+					m_nScalarAttribute = 3
+					m_nVectorAttribute = 6
+					m_nVectorComponent = 0
+					m_flRandomMin = 0.0
+					m_flRandomMax = 1.0
+					m_bHasRandomSignFlip = false
+					m_nRandomSeed = -1
+					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+					m_flLOD0 = 0.0
+					m_flLOD1 = 0.0
+					m_flLOD2 = 0.0
+					m_flLOD3 = 0.0
+					m_nNoiseInputVectorAttribute = 0
+					m_flNoiseOutputMin = 0.0
+					m_flNoiseOutputMax = 1.0
+					m_flNoiseScale = 0.1
+					m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
+					m_flNoiseOffset = 0.0
+					m_nNoiseOctaves = 1
+					m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
+					m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
+					m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
+					m_flNoiseTurbulenceScale = 1.0
+					m_flNoiseTurbulenceMix = 0.5
+					m_flNoiseImgPreviewScale = 1.0
+					m_bNoiseImgPreviewLive = true
+					m_flNoCameraFallback = 0.0
+					m_bUseBoundsCenter = false
+					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
+					m_flMultFactor = 1.0
+					m_flInput0 = 0.0
+					m_flInput1 = 1.0
+					m_flOutput0 = 0.0
+					m_flOutput1 = 1.0
+					m_flNotchedRangeMin = 0.0
+					m_flNotchedRangeMax = 1.0
+					m_flNotchedOutputOutside = 0.0
+					m_flNotchedOutputInside = 1.0
+					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
+					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
+					m_flBiasParameter = 0.0
+					m_Curve = 
+					{
+						m_spline = [  ]
+						m_tangents = [  ]
+						m_vDomainMins = [ 0.0, 0.0 ]
+						m_vDomainMaxs = [ 0.0, 0.0 ]
+					}
+				}
+				m_FloatInterp = 
+				{
+					m_nType = "PF_TYPE_LITERAL"
+					m_nMapType = "PF_MAP_TYPE_DIRECT"
+					m_flLiteralValue = 0.0
+					m_NamedValue = ""
+					m_nControlPoint = 0
+					m_nScalarAttribute = 3
+					m_nVectorAttribute = 6
+					m_nVectorComponent = 0
+					m_flRandomMin = 0.0
+					m_flRandomMax = 1.0
+					m_bHasRandomSignFlip = false
+					m_nRandomSeed = -1
+					m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+					m_flLOD0 = 0.0
+					m_flLOD1 = 0.0
+					m_flLOD2 = 0.0
+					m_flLOD3 = 0.0
+					m_nNoiseInputVectorAttribute = 0
+					m_flNoiseOutputMin = 0.0
+					m_flNoiseOutputMax = 1.0
+					m_flNoiseScale = 0.1
+					m_vecNoiseOffsetRate = [ 0.0, 0.0, 0.0 ]
+					m_flNoiseOffset = 0.0
+					m_nNoiseOctaves = 1
+					m_nNoiseTurbulence = "PF_NOISE_TURB_NONE"
+					m_nNoiseType = "PF_NOISE_TYPE_PERLIN"
+					m_nNoiseModifier = "PF_NOISE_MODIFIER_NONE"
+					m_flNoiseTurbulenceScale = 1.0
+					m_flNoiseTurbulenceMix = 0.5
+					m_flNoiseImgPreviewScale = 1.0
+					m_bNoiseImgPreviewLive = true
+					m_flNoCameraFallback = 0.0
+					m_bUseBoundsCenter = false
+					m_nInputMode = "PF_INPUT_MODE_CLAMPED"
+					m_flMultFactor = 1.0
+					m_flInput0 = 0.0
+					m_flInput1 = 1.0
+					m_flOutput0 = 0.0
+					m_flOutput1 = 1.0
+					m_flNotchedRangeMin = 0.0
+					m_flNotchedRangeMax = 1.0
+					m_flNotchedOutputOutside = 0.0
+					m_flNotchedOutputInside = 1.0
+					m_nRoundType = "PF_ROUND_TYPE_NEAREST"
+					m_nBiasType = "PF_BIAS_TYPE_STANDARD"
+					m_flBiasParameter = 0.0
+					m_Curve = 
+					{
+						m_spline = [  ]
+						m_tangents = [  ]
+						m_vDomainMins = [ 0.0, 0.0 ]
+						m_vDomainMaxs = [ 0.0, 0.0 ]
+					}
+				}
+				m_flInterpInput0 = 0.0
+				m_flInterpInput1 = 1.0
+				m_vInterpOutput0 = [ 0.0, 0.0, 0.0 ]
+				m_vInterpOutput1 = [ 1.0, 1.0, 1.0 ]
+				m_Gradient = 
+				{
+					m_Stops = [  ]
+				}
+				m_vRandomMin = [ 0.0, 0.0, 0.0 ]
+				m_vRandomMax = [ 0.0, 0.0, 0.0 ]
+			}
+			m_vecTexturesInput = 
+			[
+				{
+					m_hTexture = resource:"materials/particle/beam_hotwhite.vtex"
+				},
+			]
+			m_nOutputBlendMode = "PARTICLE_OUTPUT_BLEND_MODE_ADD"
+			m_bGammaCorrectVertexColors = false
+			m_bSaturateColorPreAlphaBlend = false
+			m_flAddSelfAmount = 2.0
+			m_bDisableZBuffering = true
 		},
 	]
 }

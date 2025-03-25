@@ -14,7 +14,7 @@ end
 --phase start 0.2
 function hijikata_demon_recast:OnAbilityPhaseStart()
 	local caster = self:GetCaster()
-	StartAnimation(caster, {duration=0.6, activity=ACT_DOTA_CAST_ABILITY_ROT, rate=1})
+	StartAnimation(caster, {duration=0.7, activity=ACT_DOTA_CAST_ABILITY_ROT, rate=0.9})
 end
 
 function hijikata_demon_recast:OnAbilityPhaseInterrupted()
@@ -40,7 +40,7 @@ function hijikata_demon_recast:OnSpellStart()
 	if caster:GetAbilityByIndex(1):GetName() == "hijikata_demon_recast"  then
 		caster:SwapAbilities("hijikata_demon", "hijikata_demon_recast", true, false)
 	end
-	Timers:CreateTimer(0.0, function()
+	Timers:CreateTimer(0.1, function()
 
 	if not caster:IsAlive() then return end
 		EmitSoundOn("hijikata_attack_1", caster)
@@ -56,7 +56,7 @@ function hijikata_demon_recast:OnSpellStart()
 					end
 					DoDamage(caster, v, aoe_damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
 					if caster.IsShinsengumiAcquired then
-						DoDamage(caster, v, caster:GetAverageTrueAttackDamage(hCaster), DAMAGE_TYPE_MAGICAL, 0, self, false)
+						DoDamage(caster, v, caster:GetAverageTrueAttackDamage(hCaster) * 0.5, DAMAGE_TYPE_MAGICAL, 0, self, false)
 					end
 					
 				end
@@ -72,7 +72,7 @@ function hijikata_demon_recast:OnSpellStart()
 	
 	end)
 
-	Timers:CreateTimer(0.15, function()
+	Timers:CreateTimer(0.3, function()
 		EmitSoundOn("hijikata_attack_1", caster)
 		if not caster:IsAlive() then return end
 		local targets = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), caster, aoe_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER , false)
@@ -87,7 +87,7 @@ function hijikata_demon_recast:OnSpellStart()
 					end
 				    DoDamage(caster, v, aoe_damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
 					if caster.IsShinsengumiAcquired then
-						DoDamage(caster, v, caster:GetAverageTrueAttackDamage(hCaster), DAMAGE_TYPE_MAGICAL, 0, self, false)
+						DoDamage(caster, v, caster:GetAverageTrueAttackDamage(hCaster)* 0.5, DAMAGE_TYPE_MAGICAL, 0, self, false)
 					end
 			  	end
 			end

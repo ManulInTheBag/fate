@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc36:version{972dada4-b828-45a4-bb93-7795cf0585da} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc39:version{1ceecb0d-4093-4729-ab18-b76886c64cde} -->
 {
 	rootNode = 
 	{
@@ -654,6 +654,7 @@
 					{
 						_class = "AnimFile"
 						name = "flying_stationary"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_POOF_END"
 						activity_weight = 1
 						weight_list_name = ""
@@ -676,6 +677,7 @@
 					{
 						_class = "AnimFile"
 						name = "idle"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_IDLE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -698,6 +700,7 @@
 					{
 						_class = "AnimFile"
 						name = "walk"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_RUN"
 						activity_weight = 1
 						weight_list_name = ""
@@ -720,6 +723,7 @@
 					{
 						_class = "AnimFile"
 						name = "attack"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_ATTACK"
 						activity_weight = 1
 						weight_list_name = ""
@@ -742,6 +746,7 @@
 					{
 						_class = "AnimFile"
 						name = "leg_attack"
+						is_default_idle_anim = false
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -764,6 +769,7 @@
 					{
 						_class = "AnimFile"
 						name = "attack_2"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_ATTACK2"
 						activity_weight = 1
 						weight_list_name = ""
@@ -786,6 +792,7 @@
 					{
 						_class = "AnimFile"
 						name = "one_fist_attack"
+						is_default_idle_anim = false
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -848,6 +855,7 @@
 								frames_from_end = 0
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_3"
 						activity_weight = 1
 						weight_list_name = ""
@@ -864,12 +872,13 @@
 						import_bone_scales = false
 						start_frame = 360
 						end_frame = 387
-						framerate = 75.0
+						framerate = 100.0
 						reverse = false
 					},
 					{
 						_class = "AnimFile"
 						name = "fist_attack_series_into_leg_attack"
+						is_default_idle_anim = false
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -892,6 +901,7 @@
 					{
 						_class = "AnimFile"
 						name = "breathe_startup"
+						is_default_idle_anim = false
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -914,6 +924,7 @@
 					{
 						_class = "AnimFile"
 						name = "breathe_channel"
+						is_default_idle_anim = false
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -936,6 +947,7 @@
 					{
 						_class = "AnimFile"
 						name = "breathe_end"
+						is_default_idle_anim = false
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -958,6 +970,7 @@
 					{
 						_class = "AnimFile"
 						name = "sky_attack"
+						is_default_idle_anim = false
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -980,6 +993,7 @@
 					{
 						_class = "AnimFile"
 						name = "hand_push"
+						is_default_idle_anim = false
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -1002,6 +1016,7 @@
 					{
 						_class = "AnimFile"
 						name = "dash_startup"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_2_END"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1024,6 +1039,7 @@
 					{
 						_class = "AnimFile"
 						name = "dash"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_ALCHEMIST_CHEMICAL_RAGE_END"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1046,6 +1062,7 @@
 					{
 						_class = "AnimFile"
 						name = "slow_strike"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_2"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1068,6 +1085,7 @@
 					{
 						_class = "AnimFile"
 						name = "energy_release"
+						is_default_idle_anim = false
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -1090,6 +1108,7 @@
 					{
 						_class = "AnimFile"
 						name = "guns_order_startup"
+						is_default_idle_anim = false
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -1112,6 +1131,7 @@
 					{
 						_class = "AnimFile"
 						name = "guns_order_channel"
+						is_default_idle_anim = false
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -1134,6 +1154,7 @@
 					{
 						_class = "AnimFile"
 						name = "idle_rare"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_IDLE_RARE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1156,6 +1177,7 @@
 					{
 						_class = "AnimFile"
 						name = "death"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_DIE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1178,6 +1200,7 @@
 					{
 						_class = "AnimFile"
 						name = "fly_into_air"
+						is_default_idle_anim = false
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -1200,6 +1223,7 @@
 					{
 						_class = "AnimFile"
 						name = "combo_cast_flying"
+						is_default_idle_anim = false
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -1222,6 +1246,7 @@
 					{
 						_class = "AnimFile"
 						name = "combo_cast_flying_end"
+						is_default_idle_anim = false
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -1244,6 +1269,7 @@
 					{
 						_class = "AnimFile"
 						name = "flying_down"
+						is_default_idle_anim = false
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""

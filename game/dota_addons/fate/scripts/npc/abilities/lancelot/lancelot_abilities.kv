@@ -12,6 +12,44 @@
 
 "DOTAAbilities"
 {	
+
+	//====================================
+	// Lancelot parry
+	//====================================
+	"lancelot_parry"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/lancelot/lancelot_parry"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"AbilityTextureName"			"custom/lancelot/lancelot_parry"
+		"AbilityCastPoint"				"0.1"
+		"AbilityCooldown"				"15 14 13 12 11"
+		"AbilityManaCost"				"200"
+		"AbilityChannelTime"			"1"
+		"AbilityCastAnimation" 			"ACT_DOTA_OVERRIDE_ABILITY_4"
+
+
+		"precache"
+		{
+			"particle"			"particles/lancelot/lancelot_slash_parry.vpcf"
+			"particle"			"particles/lancelot/shield/lancelot_parry.vpcf"
+		}
+
+		"AbilityValues"
+		{	
+			"cast_point"				"0.1"
+			"channel_duration"			"1"
+			"shield_amount"				"400"
+			"damage"					"300 375 450 525 600"
+			"root_dur"					"0.8 1 1.2 1.4 1.6"
+			"shield_damage_decrease_flat_value"					"200 250 300 350 400"
+		}
+	}
+
 	//=================================================================================================================
 	// Lancelot : Blessing of Fairy
 	//=================================================================================================================

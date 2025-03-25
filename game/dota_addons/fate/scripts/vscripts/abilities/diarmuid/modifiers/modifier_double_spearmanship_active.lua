@@ -46,7 +46,7 @@ if IsServer() then
 			self:StartIntervalThink(0.1)
 			caster:PerformAttack(target, true, true, true, true, false, false, false)
 			DoDamage(caster, target, self.OnHit, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
-			DoDamage(caster, target, self.OnHit, DAMAGE_TYPE_PURE, 0, self:GetAbility(), false)
+			--DoDamage(caster, target, self.OnHit, DAMAGE_TYPE_PURE, 0, self:GetAbility(), false)
 		end	
 	end
 

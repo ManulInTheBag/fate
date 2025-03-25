@@ -2430,6 +2430,7 @@
 		"DOTA_Tooltip_ability_cu_chulain_rune_of_combat_Lore"			"A rune which raises Cu Chulainn's physical strength, allowing him to match his opponent despite the disadvantages."
 		//"DOTA_Tooltip_ability_cu_chulain_rune_of_combat_duration"		"Duration:"
 		"DOTA_Tooltip_ability_cu_chulain_rune_of_combat_bonus_atk"		"%Bonus Attack:"
+		"DOTA_Tooltip_ability_cu_chulain_rune_of_combat_bonus_atk_max"		"%Bonus Attack maximum:"
 		//"DOTA_Tooltip_ability_cu_chulain_rune_of_combat_stun_dur"		"Stun Duration:"
 
 		"DOTA_Tooltip_Ability_cu_chulain_rune_of_ferocity"						"Rune of Ferocity"
@@ -4214,6 +4215,15 @@
 	"npc_dota_hero_sven_hype"	""
 	"npc_dota_hero_sven_bio"	""
 
+		"DOTA_Tooltip_ability_lancelot_parry"					"Parry"
+		"DOTA_Tooltip_ability_lancelot_parry_Description"		"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>0.1</font> | <font color='#FFFAFA'>Channel duration:</font> <font color='#7FFF00'>1</font>\nLancelot gains a  %shield_amount% <font color='#FFFAFA'>all-damage barrier</font> and becomes <font color='#ff9900'>immune to crowd control</font> for the duration.\nIf shield is broken, Lancelot <font color='#FFFAFA'>cleanses</font> himself and slashes all enemies in front of him, dealing magical damage, rooting and disarming targets hit and attacking them once with his basic attack.\nDamage that have breaken shield is additionally decreased."
+		"DOTA_Tooltip_ability_lancelot_parry_Note1"					"Barrier has highest priority and works before B Scroll. Although any source of physical or magical barrier will work before it."
+		"DOTA_Tooltip_ability_lancelot_parry_shield_amount"				"Shield amount:"
+		"DOTA_Tooltip_ability_lancelot_parry_damage"					"Damage:"
+		"DOTA_Tooltip_ability_lancelot_parry_root_dur"					"Debuffs duration:"
+		"DOTA_Tooltip_ability_lancelot_parry_shield_damage_decrease_flat_value"					"Damage reduction:"
+
+
         "DOTA_Tooltip_Ability_lancelot_arms_mastership" 				"Eternal Arms Mastership"
         "DOTA_Tooltip_ability_lancelot_arms_mastership_Description" 	"<font color='#79C7F0'>Passive</font>: Lancelot's basic attacks have chance to critical strike.\n<font color='#79C7F0'>Active</font>: For a very short duration, Lancelot's basic attacks are guaranteed to be critical strikes."
         "DOTA_Tooltip_Ability_lancelot_arms_mastership_crit_chance"		"%Critical Chance: "
@@ -4611,7 +4621,7 @@
         "DOTA_Tooltip_ability_diarmuid_double_spearmanship_proc_chance"	"%Double Attack Chance:"
         "DOTA_Tooltip_ability_diarmuid_double_spearmanship_duration"	"Active Duration:"
         "DOTA_Tooltip_ability_diarmuid_double_spearmanship_on_hit"		"Active On Hit Magic Damage:"
-        "DOTA_Tooltip_ability_diarmuid_double_spearmanship_on_hit"		"Active On Hit Pure Damage:"
+        "DOTA_Tooltip_ability_diarmuid_double_spearmanship_on_hit"		"Active On Hit Magic Damage:"
         "DOTA_Tooltip_ability_diarmuid_double_spearmanship_window"		"Gae Window:"
         "DOTA_Tooltip_ability_diarmuid_double_spearmanship_Lore"     	""
 
@@ -5727,11 +5737,12 @@
 		"DOTA_Tooltip_ability_gawain_blessing_proxy_duration"					"Regen Duration:"
 
 		"DOTA_Tooltip_ability_gawain_heat"					"Heat"
-        "DOTA_Tooltip_ability_gawain_heat_Description"		"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>Immediate</font>\nGawain engulfs himself in a coat of flame, dealing <font color='#58ACFA'>damage</font> to all nearby enemies every second. While this effect persist, Gawain's attacks deals bonus <font color='#A72E28'>damage</font> on the target he's attacking.\n The bonus <font color='#A72E28'>damage</font> increases by its base value on each hit."
+        "DOTA_Tooltip_ability_gawain_heat_Description"		"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>Immediate</font>\nGawain engulfs himself in a coat of flame, dealing <font color='#58ACFA'>damage</font> to all nearby enemies every second. While this effect persist, Gawain's attacks deals bonus <font color='#A72E28'>damage</font> on the target he's attacking.\n The bonus <font color='#A72E28'>damage</font> increases by its base value on each hit until a cap."
         "DOTA_Tooltip_ability_gawain_heat_Lore"				""
         "DOTA_Tooltip_ability_gawain_heat_burn_damage"		"Burn Damage:"
         "DOTA_Tooltip_ability_gawain_heat_attack_speed"		"%Attack Speed:"
         "DOTA_Tooltip_ability_gawain_heat_stack_damage"		"Stack Damage:"
+        "DOTA_Tooltip_ability_gawain_heat_stack_damage_max"		"Stack Damage maximum:"
         "DOTA_Tooltip_ability_gawain_heat_duration"			"Duration:"
         "DOTA_Tooltip_ability_gawain_heat_radius"			"Area of Effect:"
 
@@ -7290,6 +7301,7 @@
 		"DOTA_Tooltip_ability_leonidas_enomotia_radius"											"RADIUS:"
 		"DOTA_Tooltip_ability_leonidas_enomotia_push_radius"									"PUSH RADIUS:"
 		"DOTA_Tooltip_ability_leonidas_enomotia_push_duration"									"PUSH TIME:"
+		"DOTA_Tooltip_ability_leonidas_enomotia_berserk_stun"									"BERSERK STUN TIME:"
 		"DOTA_Tooltip_ability_leonidas_enomotia_push_slow_duration"								"PUSH EFFECT DURATION:"
 		"DOTA_Tooltip_ability_leonidas_enomotia_push_slow_pct"									"%PUSH EFFECT SLOW:"
 		"DOTA_Tooltip_ability_leonidas_enomotia_shield_duration"								"SHIELD DURATION:"
@@ -8374,6 +8386,7 @@
         "DOTA_Tooltip_ability_jtr_holy_mother_attribute"				"Attribute: Holy Mother of Dismemberment"
         "DOTA_Tooltip_ability_jtr_holy_mother_attribute_Description"	"Jack's attacks cause deeper wounds in the enemy with each strike, causing consecutive attacks to the same enemy to deal more damage. If the same target is not attacked after a few seconds, the bonus damage is lost."
         "DOTA_Tooltip_ability_jtr_holy_mother_attribute_damage_per_stack"	"Damage per stack:"
+        "DOTA_Tooltip_ability_jtr_holy_mother_attribute_maximum_damage"			"Maximum damage:"
         "DOTA_Tooltip_ability_jtr_holy_mother_attribute_stack_duration"		"Duration:"
 
         "DOTA_Tooltip_ability_jtr_mental_pollution_attribute"				"Attribute: Mental Pollution"

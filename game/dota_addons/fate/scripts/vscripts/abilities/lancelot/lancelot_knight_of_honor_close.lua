@@ -5,7 +5,7 @@ function lancelot_knight_of_honor_close:OnSpellStart()
 
     local tAbilities = {
         "lancelot_minigun",
-        "lancelot_double_edge",
+        "lancelot_parry",
         "lancelot_knight_of_honor",
         "fate_empty1",
         "lancelot_arms_mastership",

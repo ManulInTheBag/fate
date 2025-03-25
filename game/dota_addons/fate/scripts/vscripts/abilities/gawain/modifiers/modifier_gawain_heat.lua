@@ -56,8 +56,12 @@ if IsServer() then
 	 
 		
 
-
+		local stackdamage = (damage * stacks)
 		damage = damage + (damage * stacks)
+		if stackdamage > self:GetAbility():GetSpecialValueFor("stack_damage_max") then
+			damage =  self:GetAbility():GetSpecialValueFor("stack_damage_max")
+		end
+		
 		DoDamage(caster, target, damage, DAMAGE_TYPE_PHYSICAL, 0, self:GetAbility(), false)
 
 		

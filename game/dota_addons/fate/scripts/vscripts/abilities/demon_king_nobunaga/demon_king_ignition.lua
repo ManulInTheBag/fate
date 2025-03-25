@@ -4,7 +4,7 @@ demon_king_ignition = class({})
 LinkLuaModifier("modifier_demon_king_ignition", "abilities/demon_king_nobunaga/demon_king_ignition", LUA_MODIFIER_MOTION_NONE)
 function demon_king_ignition:OnSpellStart()
    self.caster = self:GetCaster() 
-   StartAnimation(self.caster, {duration=3, activity=ACT_DOTA_CAST_ABILITY_3, rate=1})
+   --StartAnimation(self.caster, {duration=3, activity=ACT_DOTA_CAST_ABILITY_3, rate=1})
    if(self.caster:HasModifier("modifier_demon_king_ignition")) then
       self.caster:RemoveModifierByName("modifier_demon_king_ignition")
       self:StartCooldown(self:GetCooldown(-1))

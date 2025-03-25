@@ -14,7 +14,8 @@ end
 
 function demon_king_extermination:OnAbilityPhaseStart()
    local caster = self:GetCaster()
-   
+   StartAnimation(caster, {duration=1, activity=ACT_DOTA_CAST_ABILITY_2, rate=1})
+
    self.castfx = ParticleManager:CreateParticle("particles/demon_king_nobunaga/extermination_cast_base.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
    ParticleManager:SetParticleControl(self.castfx, 1, caster:GetAbsOrigin()+caster:GetForwardVector()*-4 + caster:GetRightVector()*-3)
    ParticleManager:SetParticleControl(self.castfx, 0, caster:GetAbsOrigin()+caster:GetForwardVector()*-4 + caster:GetRightVector()*-3)
@@ -24,12 +25,7 @@ function demon_king_extermination:OnAbilityPhaseStart()
    Timers:CreateTimer(0.9, function()
       ParticleManager:DestroyParticle(self.handfx, true)
       ParticleManager:ReleaseParticleIndex(self.handfx)
-      self.swordblackfx = ParticleManager:CreateParticle("particles/demon_king_nobunaga/extermination_cast_sword_glow.vpcf", PATTACH_ABSORIGIN_FOLLOW  , caster )
-      ParticleManager:SetParticleControlEnt(self.swordblackfx, 1, caster, PATTACH_POINT_FOLLOW, "sword_base", Vector(0,0,0), true)
-      ParticleManager:SetParticleControlEnt(self.swordblackfx, 2, caster, PATTACH_POINT_FOLLOW, "sword_end", Vector(0,0,0), true)
-      self.swordredfx = ParticleManager:CreateParticle("particles/demon_king_nobunaga/extermination_cast_sword_glow_red.vpcf", PATTACH_ABSORIGIN_FOLLOW  , caster )
-      ParticleManager:SetParticleControlEnt(self.swordredfx, 1, caster, PATTACH_POINT_FOLLOW, "sword_base", Vector(0,0,0), true)
-      ParticleManager:SetParticleControlEnt(self.swordredfx, 2, caster, PATTACH_POINT_FOLLOW, "sword_end", Vector(0,0,0), true)
+
    
    end)
    local castfx = self.castfx
