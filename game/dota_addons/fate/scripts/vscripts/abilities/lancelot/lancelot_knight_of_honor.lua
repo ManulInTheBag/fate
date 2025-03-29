@@ -4,7 +4,7 @@ local tStandardAbilities = {
     "lancelot_vortigern",
     "lancelot_gae_bolg",
     "lancelot_nine_lives",
-    "lancelot_rule_breaker",
+    "lancelot_rosa",
     "lancelot_knight_of_honor_close",
     "lancelot_tsubame_gaeshi",
     "attribute_bonus_custom"
@@ -97,21 +97,10 @@ function lancelot_knight_of_honor:OnSpellStart()
         tProxy = tGobProxy
     else]]
 
-    tAbilities = tStandardProxy
+    tAbilities = tStandardAbilities 
     tProxy = tStandardProxy
     --end
-    if iLevel > 1 then
-        tAbilities[2] = tStandardAbilities[2]
-    end
-    if iLevel > 2 then
-        tAbilities[3] = tStandardAbilities[3]
-    end
-    if iLevel > 3 then
-        tAbilities[4] = tStandardAbilities[4]
-    end
-    if iLevel > 4 then
-        tAbilities[6] = tStandardAbilities[6]
-    end
+   
     for i = 1, #tAbilities do
             t[i] = tAbilities[i]
 
@@ -120,7 +109,7 @@ function lancelot_knight_of_honor:OnSpellStart()
 
         local abil = hCaster:FindAbilityByName(t[i])
         if abil:GetName() ~= "attribute_bonus_custom" then            
-            abil:SetLevel(abilityLevel)
+            abil:SetLevel(self:GetLevel())
         end
     end
 

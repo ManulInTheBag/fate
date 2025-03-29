@@ -1,0 +1,73 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf61:version{39d3ce1d-9442-4407-9b78-8317145b1732} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_bShouldHitboxesFallbackToRenderBounds = false
+	m_nMaxParticles = 1
+	m_nBehaviorVersion = 12
+	m_controlPointConfigurations = 
+	[
+		{
+			m_name = "preview"
+			m_drivers = 
+			[
+				{
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 1
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_vecOffset = [ 1.0, 1.0, 1.0 ]
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 3
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+			]
+		},
+	]
+	m_Children = 
+	[
+		{
+			m_ChildRef = resource:"particles/custom/lancelot/arondight_overload_new_explosion_f.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/lancelot/arondight_overload_new_explosion_g.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/lancelot/arondight_overload_new_explosion_k.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/lancelot/arondight_overload_new_explosion_d.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/lancelot/arondight_overload_new_explosion_h.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/lancelot/arondight_overload_new_explosion_m.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/lancelot/arondight_overload_new_explosion_e.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/lancelot/arondight_overload_new_explosion_i.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/lancelot/arondight_overload_new_explosion_j.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/lancelot/arondight_overload_new_explosion_c.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/lancelot/arondight_overload_new_explosion_b.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/lancelot/arondight_overload_new_explosion_l.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/lancelot/arondight_overload_new_explosion_a.vpcf"
+		},
+	]
+}

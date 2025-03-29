@@ -2,14 +2,14 @@ lancelot_attribute_eternal_flame = class({})
 lancelot_attribute_improve_eternal = class({})
 lancelot_attribute_improve_knight_of_honor = class({})
 lancelot_attribute_kotl = class({})
-
+lancelot_attribute_knight_of_owner = class({})
 LinkLuaModifier("modifier_eternal_flame_attribute", "abilities/lancelot/modifiers/modifier_eternal_flame_attribute", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_kotl_attribute", "abilities/lancelot/modifiers/modifier_kotl_attribute", LUA_MODIFIER_MOTION_NONE)
 
 function lancelot_attribute_kotl:OnSpellStart()
 	local caster = self:GetCaster()
 	local hero = caster:GetPlayerOwner():GetAssignedHero()	
-	
+	hero.KotlSaAcquired = true
 	Timers:CreateTimer(function()
 		if hero:IsAlive() then 
 	    	hero:AddNewModifier(hero, self, "modifier_kotl_attribute", {})
@@ -79,6 +79,17 @@ function lancelot_attribute_improve_knight_of_honor:OnSpellStart()
 	end
 
 	--print("KOH Attribute", hero.KnightLevel)
+
+	-- Set master 1's mana 
+	local master = hero.MasterUnit
+	master:SetMana(master:GetMana() - self:GetManaCost(self:GetLevel()))
+end
+
+function lancelot_attribute_knight_of_owner:OnSpellStart()
+	local caster = self:GetCaster()
+	local hero = caster:GetPlayerOwner():GetAssignedHero()
+
+	hero.ImproveKnightOfOwner = true
 
 	-- Set master 1's mana 
 	local master = hero.MasterUnit

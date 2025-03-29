@@ -18,6 +18,9 @@ function lancelot_knight_of_honor_close:OnSpellStart()
     elseif hCaster:HasAbility("lancelot_blessing_of_fairy") then
         tAbilities[4] = "lancelot_blessing_of_fairy"
     end
+    if hCaster:HasModifier("modifier_arondite") then
+          tAbilities[6] = "lancelot_arondight_overload"
+    end
 
     UpdateAbilityLayout(hCaster, tAbilities)
 end

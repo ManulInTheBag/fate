@@ -87,7 +87,7 @@ function lancelot_minigun:OnProjectileHit_ExtraData(hTarget, vLocation, hTable)
 
 
     if not modifier.__jopa[modifier.jopa1][hTarget] then
-        DoDamage(hCaster, hTarget, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+        DoDamage(hCaster, hTarget, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
         hTarget:AddNewModifier(hCaster, self, "modifier_lancelot_minigun_slow", { Duration = 1 })
         if hCaster:HasModifier("modifier_eternal_flame_attribute") then
             hTarget:AddNewModifier(hCaster, self, "modifier_eternal_flame_shred", { Duration = 5 })
@@ -119,7 +119,7 @@ function modifier_lancelot_minigun:CheckState()
                         [MODIFIER_STATE_MUTED]                           = true,
 
                         [MODIFIER_STATE_NO_UNIT_COLLISION]               = true,
-                        [MODIFIER_STATE_ROOTED]                        = true,
+                        --[MODIFIER_STATE_ROOTED]                        = true,
                         [MODIFIER_STATE_ALLOW_PATHING_THROUGH_CLIFFS]   = true,
                         [MODIFIER_STATE_ALLOW_PATHING_THROUGH_TREES]    = true, --NEED BECAUSE SOMETIMES U CAN'T CLICK OVER TREE... WTF
                     }
@@ -161,6 +161,9 @@ function modifier_lancelot_minigun:OnCreated(hTable)
     if IsServer() then
         if not (self.hCaster:GetAbilityByIndex(0):GetName() == "lancelot_minigun_end") then
             self.hCaster:SwapAbilities("lancelot_minigun", "lancelot_minigun_end", false, true)
+        end
+        if not (self.hCaster:GetAbilityByIndex(1):GetName() == "lancelot_dash") then
+            self.hCaster:SwapAbilities("lancelot_dash", "lancelot_parry", true, false)
         end
 
         self.vPoint    = self.vPoint or self.hAbility:GetCursorPosition() + self.hCaster:GetForwardVector()
@@ -299,6 +302,9 @@ function modifier_lancelot_minigun:OnDestroy()
 
         if not (self.hCaster:GetAbilityByIndex(0):GetName() == "lancelot_minigun") then
             self.hCaster:SwapAbilities("lancelot_minigun", "lancelot_minigun_end", true, false)
+        end
+        if not (self.hCaster:GetAbilityByIndex(1):GetName() == "lancelot_parry") then
+            self.hCaster:SwapAbilities("lancelot_parry", "lancelot_dash", true, false)
         end
 
         self.hCaster:FindAbilityByName("lancelot_minigun"):StartCooldown(self.full_timer*self.hAbility:GetSpecialValueFor("cooldown_per_second"))

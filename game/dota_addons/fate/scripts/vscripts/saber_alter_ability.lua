@@ -358,7 +358,9 @@ function OnVortigernHit(keys)
 			damage = damage * 0.66
 		end		
 	end]]
-	
+	if caster.ImproveKnightOfOwner then
+		StunDuration = StunDuration + 0.2
+	end
 	StunDuration = StunDuration * (80 + vortigernCount * 5)/100
 	if target.IsVortigernHit ~= true then
 		target.IsVortigernHit = true

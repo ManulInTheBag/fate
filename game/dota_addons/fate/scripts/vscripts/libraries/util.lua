@@ -1442,6 +1442,10 @@ function IsSpellBlocked(target)
         ParticleManager:CreateParticle("particles/heroes/saito/saito_mind_eye_linken_release.vpcf", PATTACH_ABSORIGIN, target)
         target:RemoveModifierByName("modifier_saito_mind_eye_linken")
         return true
+    elseif target:HasModifier("modifier_eam_crit_active") then
+        EmitSoundWithCooldown("lancelot_eternal_prock", target, 1)
+        target:FindModifierByName("modifier_eam_crit_active"):OnLinkenProcked()
+        return false
     elseif target:HasModifier("modifier_saito_style_active") then
         local hLinkModifier = target:FindModifierByName("modifier_saito_style_active")
         if IsNotNull(hLinkModifier) and hLinkModifier:BlockSpellCheck() then

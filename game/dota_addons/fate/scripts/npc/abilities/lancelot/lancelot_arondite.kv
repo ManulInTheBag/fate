@@ -16,6 +16,8 @@
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"2"
+		"LinkedAbilities"				"lancelot_arondight_overload"
+
 		"precache"
 		{
 			"particle"			"particles/custom/lancelot/lancelot_arondite.vpcf"
@@ -35,17 +37,18 @@
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"800"
+		"AbilityManaCost"				"400"
 		
 		"AbilityValues"
         {
             "activate_heal" "400 480 560 740 820"
-            "bonus_damage" "50"
-            "bonus_allstat" "18 21 24 27 30"
+            //"bonus_damage" "50"
+            "bonus_allstat" "15 18 21 24 27"
             "duration" "8 8.5 9 9.5 10"
-            "fire_damage" "40"
+            "fire_damage" "30 45 60 75 90"
             "ef_dur" "2"
             "cast_point" "0.4"
+            "cleanse_duration" "3"
         }
 	}
 

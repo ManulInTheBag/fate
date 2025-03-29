@@ -1263,7 +1263,7 @@
 		"DOTA_Tooltip_modifier_arondite_passive_Description"                              ""
 
 		"DOTA_Tooltip_modifier_arondite"                                                  "Arondite"
-		"DOTA_Tooltip_modifier_arondite_Description"                                      "Immune to targetted abilities and increased parameters."
+		"DOTA_Tooltip_modifier_arondite_Description"                                      "Bonus stats."
 
 		"DOTA_Tooltip_modifier_dark_passage"                                              "Dark Passage"
 		"DOTA_Tooltip_modifier_dark_passage_Description"                                  ""
@@ -4216,19 +4216,21 @@
 	"npc_dota_hero_sven_bio"	""
 
 		"DOTA_Tooltip_ability_lancelot_parry"					"Parry"
-		"DOTA_Tooltip_ability_lancelot_parry_Description"		"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>0.1</font> | <font color='#FFFAFA'>Channel duration:</font> <font color='#7FFF00'>1</font>\nLancelot gains a  %shield_amount% <font color='#FFFAFA'>all-damage barrier</font> and becomes <font color='#ff9900'>immune to crowd control</font> for the duration.\nIf shield is broken, Lancelot <font color='#FFFAFA'>cleanses</font> himself and slashes all enemies in front of him, dealing magical damage, rooting and disarming targets hit and attacking them once with his basic attack.\nDamage that have breaken shield is additionally decreased."
+		"DOTA_Tooltip_ability_lancelot_parry_Description"		"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>0.1</font> | <font color='#FFFAFA'>Channel duration:</font> <font color='#7FFF00'>1</font>\nLancelot gains a  %shield_amount% <font color='#FFFAFA'>all-damage barrier</font> and becomes <font color='#ff9900'>immune to crowd control</font> for the duration.\nIf shield is broken, Lancelot <font color='#FFFAFA'>cleanses</font> himself and slashes all enemies in front of him, dealing <font color='#58ACFA'>magical</font> damage, <font color='#9400D3'>rooting</font> and <font color='#9400D3'>disarming</font> targets hit and <font color='#A72E28'>attaking</font> them once with his basic attack.\nDamage that have breaken shield is additionally decreased.\nActivating Parry will reset cooldown of <font color='#00008B'>Arondight overload</font> and restore mana to Lancelot."
 		"DOTA_Tooltip_ability_lancelot_parry_Note1"					"Barrier has highest priority and works before B Scroll. Although any source of physical or magical barrier will work before it."
 		"DOTA_Tooltip_ability_lancelot_parry_shield_amount"				"Shield amount:"
 		"DOTA_Tooltip_ability_lancelot_parry_damage"					"Damage:"
 		"DOTA_Tooltip_ability_lancelot_parry_root_dur"					"Debuffs duration:"
+		"DOTA_Tooltip_ability_lancelot_parry_mana"						"Mana restore:"
 		"DOTA_Tooltip_ability_lancelot_parry_shield_damage_decrease_flat_value"					"Damage reduction:"
 
 
         "DOTA_Tooltip_Ability_lancelot_arms_mastership" 				"Eternal Arms Mastership"
-        "DOTA_Tooltip_ability_lancelot_arms_mastership_Description" 	"<font color='#79C7F0'>Passive</font>: Lancelot's basic attacks have chance to critical strike.\n<font color='#79C7F0'>Active</font>: For a very short duration, Lancelot's basic attacks are guaranteed to be critical strikes."
+        "DOTA_Tooltip_ability_lancelot_arms_mastership_Description" 	"\n<font color='#F1C40F'>Unlocked by attribute Eternal Arms mastership.\n</font><font color='#79C7F0'>Passive</font>: Lancelot's basic attacks have chance to <font color='#A72E28'>critical strike</font>.\n<font color='#79C7F0'>Active</font>: For a duration, Lancelot's attacks are guarenteed to be a <font color='#A72E28'>critical strike</font>\nIn addition, whenever Lancelot is targeted by a  <font color='#FFFAFA'>unit-target</font> ability, he will receive a  <font color='#FFFAFA'>damage reduction</font> effect for a %proc_dur% duration."
         "DOTA_Tooltip_Ability_lancelot_arms_mastership_crit_chance"		"%Critical Chance: "
         "DOTA_Tooltip_Ability_lancelot_arms_mastership_crit_damage"		"%Critical Damage: "
         "DOTA_Tooltip_Ability_lancelot_arms_mastership_active_duration"	"Active Duration: "
+        "DOTA_Tooltip_Ability_lancelot_arms_mastership_proc_dmg_reduct" "%Proc damage reduction: "
         "DOTA_Tooltip_Ability_lancelot_arms_mastership_Lore"    		"Lancelot's mastership of combat arts has reached the point where it is possible for him to make full use of it despite being under the influence of madness."
 
         "DOTA_Tooltip_Ability_lancelot_smg_barrage"						"SMG Barrage"
@@ -4241,12 +4243,18 @@
         "DOTA_Tooltip_modifier_lancelot_minigun"						"M134 Minigun"
 
         "DOTA_Tooltip_Ability_lancelot_minigun"							"M134 Minigun"
-        "DOTA_Tooltip_Ability_lancelot_minigun_Description"				"Lancelot pulls out a rotary gun and starts shooting it for a maximum of %duration% seconds.\nLancelot can't move while shooting, but can turn with decreased turn rate.\nLancelot fires %bullets_per_second% shots per second, spending <font color='#58ACFA'>%mana_per_bullet% mana</font> per bullet.\nEach bullet deals <font color='#A72E28'>physical</font> damage based on Lancelot's attack damage and applyes a <font color='#FF3399'>slow</font> debuff for 1 second.\nIf Lancelot runs out of <font color='#58ACFA'>mana</font>, this ability will stop automatically.\nThis ability goes on cooldown equal to %cooldown_per_second% times the amount of time Lancelot spent shooting."
+        "DOTA_Tooltip_Ability_lancelot_minigun_Description"				"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>0.3</font> | <font color='#FFFAFA'>Channel duration:</font> <font color='#7FFF00'>5</font>\nLancelot pulls out a rotary gun and starts shooting it for a maximum of %duration% seconds.\nLancelot can't move while shooting, but can turn with decreased turn rate.\nLancelot fires %bullets_per_second% shots per second, spending <font color='#58ACFA'>%mana_per_bullet% mana</font> per bullet.\nEach bullet deals <font color='#58ACFA'>magical</font> damage based on Lancelot's attack damage and applies a <font color='#FF3399'>slow</font> debuff for 1 second.\nIf Lancelot runs out of <font color='#58ACFA'>mana</font>, this ability will stop automatically.\nThis ability goes on cooldown equal to %cooldown_per_second% times the amount of time Lancelot spent shooting.\nWhile this ability is performed, Lancelot may use <font color='#58ACFA'>Reposition</font> ability.\n<font color='#F1C40F'>Upgradable by attribute Eternal flame.</font>"
         "DOTA_Tooltip_Ability_lancelot_minigun_base_damage"				"Bullet base damage:"
         "DOTA_Tooltip_Ability_lancelot_minigun_atk_damage"				"%Bullet attack scale:"
         "DOTA_Tooltip_Ability_lancelot_minigun_range"					"Range:"
         "DOTA_Tooltip_Ability_lancelot_minigun_ms_slow"					"%Slow:"
         "DOTA_Tooltip_ability_lancelot_minigun_Lore"        			"Bringing gun to swordfight is the least of concerns for maddened knight."
+
+
+        "DOTA_Tooltip_Ability_lancelot_dash"							"Reposition"
+        "DOTA_Tooltip_Ability_lancelot_dash_Description"				"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>IMMEDIATE</font>\nLancelot quickly dashes towards target point, while greatly increasing his <font color='#FFFAFA'>turn rate speed</font> for a short duration."
+        "DOTA_Tooltip_Ability_lancelot_dash_speed"					"Speed:"
+        "DOTA_Tooltip_Ability_lancelot_dash_distance"				"Distance:"
 
         "DOTA_Tooltip_Ability_lancelot_minigun_end"						"M134 Minigun"
         "DOTA_Tooltip_Ability_lancelot_minigun_end_Description"			"Stops the ability."
@@ -4264,7 +4272,7 @@
          "DOTA_Tooltip_ability_lancelot_double_edge_base_dmg_amp_self"	"%Incoming Damage:"
 
         "DOTA_Tooltip_Ability_lancelot_knight_of_honor" 				"Knight of Honor"
-        "DOTA_Tooltip_ability_lancelot_knight_of_honor_Description"     "SPELLBOOK : Allows Berserker to execute Noble Phantasms of other Servants as his own. Can unlock up to 5 abilities as skill level increases. All Noble Phantasms are fixed at Level 1 and have global cooldown.\nLvl 1 : Vortigern\nLv 2 : Gae Bolg\nLv 3 : Nine Lives\nLv 4 : Rule Breaker\nLv 5 : Tsubame Gaeshi\n\nUpgradable with attribute Improve Knight of Honor."
+        "DOTA_Tooltip_ability_lancelot_knight_of_honor_Description"     "<font color='#FFFAFA'>SPELLBOOK</font> : Allows Berserker to execute Noble Phantasms of other Servants as his own.\nAll noble phantasms are upgraded with this ability level and have <font color='#FFFAFA'>global cooldown</font>.\nAbilities list:\n<font color='#58ACFA'>Vortigern</font>\n<font color='#58ACFA'>Gae Bolg</font>\n<font color='#58ACFA'>Rosa Ichtys</font>\n<font color='#58ACFA'>Nine lives</font>\n<font color='#58ACFA'>Tsubame Gaeshi</font>.\n<font color='#F1C40F'>Upgradable by attribute Eternal arms mastership</font>"
         "DOTA_Tooltip_ability_lancelot_knight_of_honor_Lore"    		"The knight does not die empty-handed."
 
         "DOTA_Tooltip_lancelot_knight_of_honor_close"					"Close"
@@ -4283,15 +4291,15 @@
 		"DOTA_Tooltip_ability_lancelot_caliburn_Note0"		"Target damage and AoE damage are separate instances, and may not fall into proc range of certain abilities such as Lancer(5th)'s Battle Continuation"
 
 		"DOTA_Tooltip_Ability_lancelot_vortigern"		"Vortigern"
-		"DOTA_Tooltip_ability_lancelot_vortigern_Description"	"Berserker swings his sword in crescent, dealing damage to enemies in trail and <font color='#FF3399'>stunning</font> them. Units at the start of swing take less damage and are stunned for shorter duration, but as sword gets momentum it deals more damage and stuns for longer at the end."
+		"DOTA_Tooltip_ability_lancelot_vortigern_Description"	"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>0.1</font>\nLancelot swings his sword in crescent, dealing <font color='#58ACFA'>magical</font> to enemies in trail and <font color='#FF3399'>stunning</font> them.\nUnits at the start of swing take <font color='#FFFAFA'>less</font> damage and are stunned for shorter duration, but as sword gets momentum it deals <font color='#FFFAFA'>more</font> damage and stuns for longer at the end."
 		"DOTA_Tooltip_ability_lancelot_vortigern_radius"	"RANGE:"
 		"DOTA_Tooltip_ability_lancelot_vortigern_damage"	"BASE DAMAGE:"
 		"DOTA_Tooltip_ability_lancelot_vortigern_low_end"	"%MIN. DAMAGE:"
 		"DOTA_Tooltip_ability_lancelot_vortigern_high_end"	"%MAX. DAMAGE:"
-		"DOTA_Tooltip_ability_lancelot_vortigern_stun_duration"	"STUN DURATION:"
+		"DOTA_Tooltip_ability_lancelot_vortigern_stun_duration"	"BASE STUN DURATION:"
 
 		"DOTA_Tooltip_Ability_lancelot_gae_bolg"					"The Spear of Impaling Barbed Death"
-		"DOTA_Tooltip_ability_lancelot_gae_bolg_Description"		"Berserker pierces the enemy with Gae Bolg, dealing damage and stunning target. If this blow would reduce the target's health below threshold, target is instantly killed. \nUpgradable with attribute Improve Gae Bolg and The Heartseeker."
+		"DOTA_Tooltip_ability_lancelot_gae_bolg_Description"		"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>0.6</font>\nLancelot pierces the enemy with <font color='#58ACFA'>Gae Bolg</font>, dealing <font color='#58ACFA'>damage</font>.\nIf this blow would reduce the target's health below threshold, target is <font color='#D1A951'>executed</font>."
 		"DOTA_Tooltip_ability_lancelot_gae_bolg_heartbreak_threshold"		"Execution Threshold: "
 		"DOTA_Tooltip_ability_lancelot_gae_bolg_Note0"				"Heart Break is considered a forced kill, and bypasses most of revival abilities such as Red Saber(Extra)'s Invictus Spiritus and Ruler's La Pucelle."
 
@@ -4301,13 +4309,21 @@
 		"DOTA_Tooltip_ability_lancelot_rule_breaker_duration"	"BANISH DURATION:"
 
 		"DOTA_Tooltip_Ability_lancelot_nine_lives"	"Nine Lives"
-		"DOTA_Tooltip_ability_lancelot_nine_lives_Description"	"Berserker rapidly dashes to target location and strikes all enemies in 350 radius 9 times, damaging and stunning them repetitively over duration. The last strike deals more damage and briefly knocks therm back in 500 area of effect. Once activated, Berserker cannot be interrupted."	
+		"DOTA_Tooltip_ability_lancelot_nine_lives_Description"	"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>0.1</font>\nLancelot rapidly <font color='#FFFAFA'>dashes</font> to target location and strikes all enemies in <font color='#FFFAFA'>350</font> radius 9 times, dealing <font color='#58ACFA'>damage</font>, <font color='#9400D3'>rooting</font> and <font color='#9400D3'>locking</font> them.\nThe last strike deals more damage and briefly knocks therm back in 500 area of effect, <font color='#FF3399'>stunning</font>.\nOnce activated, Lancelot cannot be interrupted."	
 		"DOTA_Tooltip_ability_lancelot_nine_lives_range"	"RANGE:"
 		"DOTA_Tooltip_ability_lancelot_nine_lives_damage"	"DAMAGE PER HIT:"
 		"DOTA_Tooltip_ability_lancelot_nine_lives_damage_lasthit"	"LAST HIT DAMAGE:"
+		"DOTA_Tooltip_ability_lancelot_nine_lives_radius_lasthit"	"LAST HIT RADIUS:"
+		"DOTA_Tooltip_ability_lancelot_nine_lives_stun_duration"	"LAST HIT STUN DURATION:"
+
+		"DOTA_Tooltip_Ability_lancelot_rosa"	"Rosa Ichtys"
+		"DOTA_Tooltip_ability_lancelot_rosa_Description"	"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>0.1</font>\nLancelot strikes enemies in front of him, dealing <font color='#58ACFA'>damage</font>, and <font color='#FF3399'>pushing</font> them from left to right.\nWhile enemies are pushed, they are stunned."
+		"DOTA_Tooltip_ability_lancelot_rosa_damage"			"Damage:"
+		"DOTA_Tooltip_ability_lancelot_rosa_radius"			"Radius:"
+		"DOTA_Tooltip_ability_lancelot_rosa_stun_duration"	"Stun duration:"
 
 		"DOTA_Tooltip_Ability_lancelot_tsubame_gaeshi"	"Tsubame Gaeshi"
-		"DOTA_Tooltip_ability_lancelot_tsubame_gaeshi_Description"	"Berserker takes stance for 0.6 seconds to prepare for his ultimate technique, delivering 3 consecutive slashes that deal pure damage.\nLast strike deals more damage.\nOnce activated, it cannot be dodged."
+		"DOTA_Tooltip_ability_lancelot_tsubame_gaeshi_Description"	"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>0.6</font>\nLancelot strikes the target 3 times, dealing <font color='#D1A951'>pure</font> damage.\nLast hit damage is increased.\nOnce activated, it cannot be dodged."
 		"DOTA_Tooltip_ability_lancelot_tsubame_gaeshi_damage"	"DAMAGE:"
 		"DOTA_Tooltip_ability_lancelot_tsubame_gaeshi_lasthit_damage"	"LAST HIT DAMAGE:"
 		//"DOTA_Tooltip_ability_lancelot_tsubame_gaeshi_stun_duration"	"STUN DURATION:"
@@ -4355,7 +4371,7 @@
         "DOTA_Tooltip_ability_lancelot_gae_dearg_Note1"		"Gae Dearg is considered a strong dispel, and will remove shield effects as well(i.e B Scroll, Archer's Rho Aias)"		
 
         "DOTA_Tooltip_Ability_lancelot_arondite"        			"Arondight"
-        "DOTA_Tooltip_ability_lancelot_arondite_Description"    	"Lancelot unveils his true weapon, Arondight. Greatly increases his parameters (agility is half of the amount), recovering some health, rendering Lancelot immune to negative effects (hardcleanses himself every 0.5 seconds), as well as causing his attacks to create a cone of fire, dealing magical damage to all enemies hit if he has the mana."
+        "DOTA_Tooltip_ability_lancelot_arondite_Description"    	"<font color='#FFFAFA'>Cast point </font>:  <font color='#7FFF00'>%cast_point%</font>\nLancelot unveils his true weapon, <font color='#00008B'>Arondight</font>. Greatly increases his parameters and <font color='#ACFF05'>healing</font> himself.\nWhile active, Lancelot's attacks spend <font color='#58ACFA'>mana</font> to deal additional magical damage in a cone.\nFor the duration, allows the usage of <font color='#00008B'>Arondight overload</font>.\n<font color='#F1C40F'>Upgradable by attributes Knight of the Lake and Eternal Flame.</font>"
         "DOTA_Tooltip_ability_lancelot_arondite_Lore"   			"The unfading light of the lake, blackened by the madness and resentment of Lancelot."
         "DOTA_Tooltip_ability_lancelot_arondite_activate_heal" 		"Health Regained:"
         //"DOTA_Tooltip_ability_lancelot_arondite_radius" 			"RADIUS :"
@@ -4363,21 +4379,29 @@
         "DOTA_Tooltip_ability_lancelot_arondite_bonus_damage"		"Bonus Damage:"
         "DOTA_Tooltip_ability_lancelot_arondite_bonus_allstat"		"Bonus All Stats:"
         "DOTA_Tooltip_ability_lancelot_arondite_duration"			"Duration:"
-        //"DOTA_Tooltip_Ability_lancelot_arondite_Note0"				"Arondight prevents a lot of targeted abilities from affecting Lancelot, but there are abilities which ignores this effect."
+
+
+
+        "DOTA_Tooltip_Ability_lancelot_arondight_overload"        			"Arondight overload"
+        "DOTA_Tooltip_ability_lancelot_arondight_overload_Description"    	"<font color='#FFFAFA'>Cast point </font>:  <font color='#7FFF00'>%cast_point%</font>\nLancelot strikes in front of him with a slashing attack of overloaded <font color='#00008B'>Arondight</font>.\nSlash deals <font color='#58ACFA'>damage</font>, performs an <font color='#A72E28'>attack</font> on all targets hit and <font color='#FF3399'>stuns</font> them.\n<font color='#F1C40F'>Upgradable by attribute Knight of the Lake.</font>"
+        "DOTA_Tooltip_ability_lancelot_arondight_overload_damage"		"Damage:"
+        "DOTA_Tooltip_ability_lancelot_arondight_overload_radius"		"Radius:"
+        "DOTA_Tooltip_ability_lancelot_arondight_overload_stun_duration"			"Stun duration:"
 
         "DOTA_Tooltip_Ability_lancelot_blessing_of_fairy"        		"Blessing of Fairy"
-        "DOTA_Tooltip_ability_lancelot_blessing_of_fairy_Description"	"Lancelot becomes immune to magic when his health drops critically low."
+        "DOTA_Tooltip_ability_lancelot_blessing_of_fairy_Description"	"When Lancelot's health drops to a threshold, he will gain <font color='#ff9900'>magic immunity</font> for a duration and <font color='#ACFF05'>heal</font> himself."
         "DOTA_Tooltip_ability_lancelot_blessing_of_fairy_Lore"   		"The gifted fortune from Fairies of Lake allows bearer to thrive in even the most dire battle."
         "DOTA_Tooltip_ability_lancelot_blessing_of_fairy_Note0"			"Applies a strong dispel when triggered."
         "DOTA_Tooltip_ability_lancelot_blessing_of_fairy_damage_threshold"	"HEALTH THRESHOLD:"
         "DOTA_Tooltip_ability_lancelot_blessing_of_fairy_duration"			"MAGIC IMMUNITY DURATION:"
-
+        "DOTA_Tooltip_ability_lancelot_blessing_of_fairy_heal"				"HEAL:"
 
         "DOTA_Tooltip_Ability_lancelot_attribute_blessing_of_fairy"							"Attribute: Blessing of Fairy"
-        "DOTA_Tooltip_ability_lancelot_attribute_blessing_of_fairy_Description"				"Allows Berserker to become immune to magic when his health drops critically low."
+        "DOTA_Tooltip_ability_lancelot_attribute_blessing_of_fairy_Description"				"When Lancelot's health drops to a threshold, he will gain <font color='#ff9900'>magic immunity</font> for a duration and <font color='#ACFF05'>heal</font> himself."
         "DOTA_Tooltip_Ability_lancelot_attribute_blessing_of_fairy_Note0"					"Applies a strong dispel when triggered."
         "DOTA_Tooltip_Ability_lancelot_attribute_blessing_of_fairy_health_threshold"		"HEALTH THRESHOLD:"
-        "DOTA_Tooltip_Ability_lancelot_attribute_blessing_of_fairy_magic_immune_duration"	"MAGIC IMMUNITY DURATION"
+        "DOTA_Tooltip_Ability_lancelot_attribute_blessing_of_fairy_magic_immune_duration"	"MAGIC IMMUNITY DURATION:"
+        "DOTA_Tooltip_Ability_lancelot_attribute_blessing_of_fairy_healing"					"HEAL:"
         "DOTA_Tooltip_Ability_lancelot_attribute_blessing_of_fairy_Lore"   					"The gifted fortune from Fairies of Lake allows bearer to thrive in even the most dire battle."
 
         "DOTA_Tooltip_Ability_lancelot_attribute_improve_knight_of_honor"					"Attribute: Improve Knight of Honor"
@@ -4388,7 +4412,7 @@
 		"DOTA_Tooltip_Ability_lancelot_attribute_improve_koh_arsenal_Note0" "Arsenal Contents:\nE Lvl 1 - Caliburn\nE Lvl 2 - Snatch Strike\nE Lvl 3 - Windblade\nE Lvl 4 - The Spear of Striking Death Flight\nE Lvl 5 - Gae Daerg"
 
 		"DOTA_Tooltip_Ability_lancelot_attribute_kotl"         				"Attribute: Knight of the Lake"
-        "DOTA_Tooltip_Ability_lancelot_attribute_kotl_Description"			"Multiplies the parameters granted by Arondight by 2. Applies a strong dispel when Arondight is activated."
+        "DOTA_Tooltip_Ability_lancelot_attribute_kotl_Description"			"Upgrades <font color='#00008B'>Arondight</font>, <font color='#FFFAFA'>multiplying</font> the parameters granted by Arondight by 2.\nApplies a strong dispel when <font color='#00008B'>Arondight</font> is activated.\n\nFor the first 3 seconds, Lancelot will <font color='#FFFAFA'>hard cleanse himself</font> every <font color='#FFFAFA'>0.5</font> seconds after casting <font color='#00008B'>Arondight</font>.\nIncreases <font color='#00008B'>Arondight overload</font> damage by <font color='#FFFAFA'>1.5x</font> of his attack."
 
         "DOTA_Tooltip_Ability_lancelot_attribute_kotl_Lore"					"The wielder of Arondight is said to be the perfect knight, unrivaled out of those who set at the Round Table of Camelot."
         //"DOTA_Tooltip_Ability_lancelot_attribute_kotl_crit_rate"         "%CRITICAL RATE:"
@@ -4401,23 +4425,36 @@
         "DOTA_Tooltip_Ability_lancelot_attribute_total_assault_crit_damage"         "%CRITICAL DAMAGE:"
 
         "DOTA_Tooltip_Ability_lancelot_attribute_eternal_flame"					"Attribute: Eternal Flame"
-        "DOTA_Tooltip_ability_lancelot_attribute_eternal_flame_Description"		"Removes the mana cost for Arondight to trigger firing the cone of fire. Causes M134 Minigun to reduce the enemy's armor when it hits \nThis reduction cannot lower armor below 0."
-        "DOTA_Tooltip_Ability_lancelot_attribute_eternal_flame_armor_shred"		"Armor shred:"
-        "DOTA_Tooltip_Ability_lancelot_attribute_eternal_flame_duration"		"Armor shred duration:"
+        "DOTA_Tooltip_ability_lancelot_attribute_eternal_flame_Description"		"Removes the mana cost for <font color='#00008B'>Arondight</font> to trigger firing the cone of fire.\nCauses  <font color='#58ACFA'>M134 Minigun</font> to apply a stacking debuff on enemy, which will <font color='#9400D3'>root</font> and <font color='#9400D3'>lock</font> enemies upon reaching 10 stacks."
+        //"DOTA_Tooltip_Ability_lancelot_attribute_eternal_flame_armor_shred"		"Armor shred:"
+        "DOTA_Tooltip_Ability_lancelot_attribute_eternal_flame_duration"		"Debuff duration:"
+        "DOTA_Tooltip_Ability_lancelot_attribute_eternal_flame_root_dur"		"Root and lock duration:"
         "DOTA_Tooltip_Ability_lancelot_attribute_eternal_flame_Lore"			"Legend has it that Lancelot once slew a dragon. Perhaps this is why the blade of Arondight spits out fire when swung."
 
+
+        "DOTA_Tooltip_Ability_lancelot_attribute_knight_of_owner"					"Attribute: Improve Knight of Honor"
+        "DOTA_Tooltip_ability_lancelot_attribute_knight_of_owner_Description"		"Upgrades <font color='#58ACFA'>Knight of Honor</font>, applying effects: \n<font color='#58ACFA'>Vortigern</font>: <font color='#FF3399'>stun</font> duration increased by <font color='#FFFAFA'>0.2</font>\n<font color='#58ACFA'>Gae Bolg</font>:Damage type changed to <font color='#D1A951'>pure</font>.\n<font color='#58ACFA'>Rosa Ichtys</font>:Damage is increased by <font color='#FFFAFA'>200</font>, now Lancelot performs <font color='#A72E28'>basic attacks</font> on enemies hit.\n<font color='#58ACFA'>Nine Lives</font>:Now <font color='#FF3399'>microstuns</font> on each hit.\n<font color='#58ACFA'>Tsubame Gaeshi</font>: Now performs <font color='#A72E28'>basic attacks</font> on each hit."
+        //"DOTA_Tooltip_Ability_lancelot_attribute_eternal_flame_armor_shred"		"Armor shred:"
+     
+
+        "DOTA_Tooltip_modifier_eam_crit_active"								"Eternal arms"
+        "DOTA_Tooltip_modifier_eam_crit_active_Description"					"Gain damage resistance upon getting hit by unit target skill"
+
+        "DOTA_Tooltip_modifier_lancelot_eternal_procked"								"Eternal arms prock"
+        "DOTA_Tooltip_modifier_lancelot_eternal_procked_Description"					"Damage resistance."
+
         "DOTA_Tooltip_modifier_eternal_flame_shred"								"Eternal Flame"
-        "DOTA_Tooltip_modifier_eternal_flame_shred_Description"					"Your armor is decreased"
+        "DOTA_Tooltip_modifier_eternal_flame_shred_Description"					"You will be rooted and locked upon reaching 10 stacks"
 
         "DOTA_Tooltip_modifier_lancelot_minigun_slow"					"Slowed"
 		"DOTA_Tooltip_modifier_lancelot_minigun_slow_Description"		""
 
         "DOTA_Tooltip_Ability_lancelot_attribute_improve_eternal"               	"Attribute: Eternal Arms Mastership"
-        "DOTA_Tooltip_ability_lancelot_attribute_improve_eternal_Description"		"Enables the usage of Eternal Arms Mastership, which grants Lancelot chance to deal critical strikes on attacks. Activating Eternal Arms Mastership temporarily increases the chance of critical strike to 100%% for a very short duration. Also increases level of abilities within Knight of Honor."
-        "DOTA_Tooltip_ability_lancelot_attribute_improve_eternal_active_duration"	"Active Duration: "
-        "DOTA_Tooltip_ability_lancelot_attribute_improve_eternal_crit_chance"		"%Critical Chance"
-        "DOTA_Tooltip_ability_lancelot_attribute_improve_eternal_crit_damage"		"%Critical Damage"
-        "DOTA_Tooltip_ability_lancelot_attribute_improve_eternal_koh_level"			"Knight of Honor level: "
+        "DOTA_Tooltip_ability_lancelot_attribute_improve_eternal_Description"		"Unlocks <font color='#58ACFA'>Eternal arms mastership</font>.\nRemoves <font color='#FFFAFA'>global cooldown</font> from <font color='#58ACFA'>Knight of Honor</font>."
+        //"DOTA_Tooltip_ability_lancelot_attribute_improve_eternal_active_duration"	"Active Duration: "
+        //"DOTA_Tooltip_ability_lancelot_attribute_improve_eternal_crit_chance"		"%Critical Chance"
+        //"DOTA_Tooltip_ability_lancelot_attribute_improve_eternal_crit_damage"		"%Critical Damage"
+        //"DOTA_Tooltip_ability_lancelot_attribute_improve_eternal_koh_level"			"Knight of Honor level: "
         "DOTA_Tooltip_ability_lancelot_attribute_improve_eternal_Lore"    			"Lancelot's mastership of combat arts has reached the point where it is possible for him to make full use of it despite being under the influence of madness."
 
         "DOTA_Tooltip_Ability_lancelot_combo_arondite_overload"				"Combo: Arondite - Overload"

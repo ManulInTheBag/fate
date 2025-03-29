@@ -1478,29 +1478,6 @@
 					},
 					{
 						_class = "AnimFile"
-						name = "rosa1"
-						is_default_idle_anim = false
-						activity_name = "ACT_DOTA_CAST_EMP"
-						activity_weight = 1
-						weight_list_name = ""
-						fade_in_time = 0.2
-						fade_out_time = 0.2
-						looping = false
-						delta = false
-						worldSpace = false
-						hidden = false
-						anim_markup_ordered = false
-						disable_compression = false
-						animgraph_additive = false
-						source_filename = "models/lancelot/rosa1.fbx"
-						import_bone_scales = false
-						start_frame = 0
-						end_frame = 50
-						framerate = 50.0
-						reverse = false
-					},
-					{
-						_class = "AnimFile"
 						name = "rulebreaker1"
 						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_OVERRIDE_ABILITY_3"
@@ -1727,6 +1704,29 @@
 						start_frame = 0
 						end_frame = 92
 						framerate = 120.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "rosa1"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CAST_EMP"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.0
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/lancelot/rosa1.fbx"
+						import_bone_scales = false
+						start_frame = -1
+						end_frame = 15
+						framerate = 25.0
 						reverse = false
 					},
 				]

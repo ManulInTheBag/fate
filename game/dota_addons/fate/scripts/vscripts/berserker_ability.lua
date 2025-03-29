@@ -580,9 +580,10 @@ function OnNineStart(keys)
 		StartAnimation(caster, {duration=1, activity=ACT_DOTA_CAST_ABILITY_5, rate=0.5})
 	elseif casterName == "npc_dota_hero_sven" then
 		caster:SetBodygroup(0,1)
-		Timers:CreateTimer(1, function() 
+		Timers:CreateTimer(1.3, function() 
 			if not caster.bNineStarted  then
 				caster:SetBodygroup(0,0)
+				print("set back")
 			end
 		end)
 		StartAnimation(caster, {duration=1, activity=ACT_DOTA_CAST_ABILITY_2_ES_ROLL_START, rate=0.5})
@@ -783,7 +784,12 @@ function OnNineLanded(caster, ability)
 						DoDamage(caster, v, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
 					end
 					v:AddNewModifier(caster,ability, "modifier_kb_immune", {duration = 0.5})
-					v:AddNewModifier(caster, v, "modifier_stunned", { Duration = 0.5 })
+					v:AddNewModifier(caster, v, "modifier_rooted", { Duration = 0.5 })
+					if caster.ImproveKnightOfOwner then
+						v:AddNewModifier(caster, v, "modifier_stunned", { Duration = 0.2 })
+					end
+					giveUnitDataDrivenModifier(caster, v, "locked", 0.5)
+					--v:AddNewModifier(caster, v, "modifier_stunned", { Duration = 0.5 })
 					--giveUnitDataDrivenModifier(caster, v, "stunned", 0.5)
 					--[[if caster:GetName() ~= "npc_dota_hero_ember_spirit" then
 						print("9 revoke")

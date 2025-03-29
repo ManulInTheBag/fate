@@ -4739,3 +4739,99 @@
         }
     }
 }
+"arondite_overload_impact"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/lancelot/arondite_overload_impact.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "7.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"lancelot_arondight_overload_slash"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/lancelot/arondite_overload.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "7.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"lancelot_eternal_prock"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/lancelot/eternal_prock.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "7.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}

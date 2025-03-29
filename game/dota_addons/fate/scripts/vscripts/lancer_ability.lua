@@ -332,7 +332,12 @@ function OnGBTargetHit(keys)
 	end
 
 	giveUnitDataDrivenModifier(caster, target, "can_be_executed", 0.033)
-	DoDamage(caster, target, keys.Damage, DAMAGE_TYPE_MAGICAL, 0, keys.ability, false)
+	if caster.ImproveKnightOfOwner then 
+		DoDamage(caster, target, keys.Damage, DAMAGE_TYPE_PURE, 0, keys.ability, false)
+	else
+		DoDamage(caster, target, keys.Damage, DAMAGE_TYPE_MAGICAL, 0, keys.ability, false)
+	end
+
 	--target:AddNewModifier(caster, target, "modifier_stunned", {Duration = 1.0})
 	if target:GetHealth() < keys.HBThreshold then
 		PlayHeartBreakEffect(ability, caster, target)

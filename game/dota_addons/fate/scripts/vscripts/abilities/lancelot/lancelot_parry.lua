@@ -74,11 +74,11 @@ function lancelot_parry:Counter()
 	local aoe_radius = 400
 	caster:EmitSound("lancelot_parry")
 	local damage = self:GetSpecialValueFor("damage")
-
+	caster:FindAbilityByName("lancelot_arondight_overload"):EndCooldown()
 	local particle = ParticleManager:CreateParticle("particles/lancelot/lancelot_slash_parry.vpcf", PATTACH_ABSORIGIN, caster)
 	ParticleManager:SetParticleControlTransformForward(particle, 0, caster:GetAbsOrigin(), dir)
 	ParticleManager:ReleaseParticleIndex(particle)
-
+	caster:GiveMana(self:GetSpecialValueFor("mana_gain"))
 	local targets = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), caster, aoe_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER , false)
 		for k,v in pairs(targets) do
 			if v:GetName() ~= "npc_dota_ward_base" then

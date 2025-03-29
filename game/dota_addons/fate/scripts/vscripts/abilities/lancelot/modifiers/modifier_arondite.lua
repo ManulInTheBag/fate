@@ -5,7 +5,7 @@ function modifier_arondite:DeclareFunctions()
 			 MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
 			 MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
 			 MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
-			 MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
+			 --MODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE,
 			 MODIFIER_PROPERTY_MODEL_CHANGE }
 end
 
@@ -23,20 +23,24 @@ if IsServer() then
 		self.AgilityBonus = args.AgilityBonus
 		self.IntelligenceBonus = args.IntelligenceBonus
 		self.BonusDamage = args.BonusDamage
-
+		local caster = self:GetCaster()
+		if caster:GetAbilityByIndex(5):GetName() == "lancelot_arondite"  then
+			caster:SwapAbilities("lancelot_arondight_overload", "lancelot_arondite", true, false)
+		end
 		CustomNetTables:SetTableValue("sync","arondite_stats", { str_bonus = self.StrengthBonus,
 																 agi_bonus = self.AgilityBonus,
 																 int_bonus = self.IntelligenceBonus,
 																 bonus_damage = self.BonusDamage })
 
-		self.SwordParticle = ParticleManager:CreateParticle("particles/custom/lancelot/lancelot_arondite.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, self:GetParent())
-	    ParticleManager:SetParticleControlEnt(self.SwordParticle, 0, self:GetParent(), PATTACH_CUSTOMORIGIN_FOLLOW, "attach_arondight", self:GetParent():GetOrigin(), true)
-	
-	    if args.KotlAttribute then
+		-- self.SwordParticle = ParticleManager:CreateParticle("particles/custom/lancelot/lancelot_arondite.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, self:GetParent())
+	    -- ParticleManager:SetParticleControlEnt(self.SwordParticle, 0, self:GetParent(), PATTACH_CUSTOMORIGIN_FOLLOW, "attach_arondight", self:GetParent():GetOrigin(), true)
+		-- ParticleManager:SetParticleControlEnt(self.SwordParticle, 2, self:GetParent(), PATTACH_CUSTOMORIGIN_FOLLOW, "attach_arondight", self:GetParent():GetOrigin(), true)
+
+		if caster.KotlSaAcquired then
 	    	self.state = { [MODIFIER_STATE_MAGIC_IMMUNE] = false }
 	    	self:GetParent():RemoveModifierByName("modifier_zabaniya_curse")
 	    	HardCleanse(self:GetParent())
-	    	self:StartIntervalThink(0.5)
+			self:StartIntervalThink(0.5)
 
 	    	self.nRagePFX = ParticleManager:CreateParticle("particles/units/heroes/hero_life_stealer/life_stealer_rage.vpcf", PATTACH_ABSORIGIN_FOLLOW, self:GetParent())
 	    					for i = 0, 2 do
@@ -50,7 +54,7 @@ if IsServer() then
 	                                                                false -- unknown, true
 	                                                                )
 	    					end
-	    	Timers:CreateTimer(2, function()
+	    	Timers:CreateTimer(3, function()
 	    		self:RemoveBKBPfx()
 	    		self.state={}
 	    	end)
@@ -64,6 +68,10 @@ if IsServer() then
 	end
 
 	function modifier_arondite:OnDestroy()
+		local caster = self:GetCaster()
+		if caster:GetAbilityByIndex(5):GetName() == "lancelot_arondight_overload"  then
+			caster:SwapAbilities("lancelot_arondite", "lancelot_arondight_overload", true, false)
+		end
 		self:RemoveParticles()
 	end
 
@@ -76,9 +84,9 @@ if IsServer() then
 	end
 
 	function modifier_arondite:RemoveParticles()
-		ParticleManager:DestroyParticle( self.SwordParticle, false )
-		ParticleManager:ReleaseParticleIndex( self.SwordParticle )
-		self.SwordParticle = nil
+		-- ParticleManager:DestroyParticle( self.SwordParticle, false )
+		-- ParticleManager:ReleaseParticleIndex( self.SwordParticle )
+		-- self.SwordParticle = nil
 	end
 
 	function modifier_arondite:OnAttackLanded(args)
@@ -88,7 +96,9 @@ if IsServer() then
 	end
 
 	function modifier_arondite:OnIntervalThink()
-       HardCleanse(self:GetParent())
+		if self:GetDuration() - self:GetRemainingTime() <3 then
+       		HardCleanse(self:GetParent())
+		end
 	end
 end
 
@@ -121,14 +131,14 @@ function modifier_arondite:GetModifierBonusStats_Intellect()
     end
 end
 
-function modifier_arondite:GetModifierPreAttack_BonusDamage()
-	if IsServer() then       
-        return self.BonusDamage
-    elseif IsClient() then
-        local bonus_damage = CustomNetTables:GetTableValue("sync","arondite_stats").bonus_damage
-        return bonus_damage 
-    end
-end
+-- function modifier_arondite:GetModifierPreAttack_BonusDamage()
+-- 	if IsServer() then       
+--         return self.BonusDamage
+--     elseif IsClient() then
+--         local bonus_damage = CustomNetTables:GetTableValue("sync","arondite_stats").bonus_damage
+--         return bonus_damage 
+--     end
+-- end
 
 function modifier_arondite:GetAttributes() 
     return MODIFIER_ATTRIBUTE_NONE
