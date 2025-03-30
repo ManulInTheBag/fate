@@ -11,7 +11,7 @@ function hijikata_demon_recast:OnUpgrade()
 end
 
 
---phase start 0.2
+--phase start 0.3
 function hijikata_demon_recast:OnAbilityPhaseStart()
 	local caster = self:GetCaster()
 	StartAnimation(caster, {duration=0.7, activity=ACT_DOTA_CAST_ABILITY_ROT, rate=0.9})
@@ -33,7 +33,7 @@ function hijikata_demon_recast:OnSpellStart()
 	local forward = (targetPoint - origin):Normalized()
 	local aoe_radius = self:GetSpecialValueFor("radius")
 	local aoe_damage = self:GetSpecialValueFor("damage")
-	giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 0.3)  
+	giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 0.4)  
 	local part1 = false
 	local part2 = false
 

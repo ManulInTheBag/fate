@@ -32,13 +32,17 @@ function iskander_forward:OnSpellStart()
 		if caster:FindAbilityByName("iskander_ionioi"):IsCooldownReady()  then
 			if(caster:GetAbilityByIndex(4):GetName() == "fate_empty1" and not caster.IsAOTKActive) then
 				caster:SwapAbilities("iskander_ionioi", "fate_empty1", true, false)
-			 end
+			elseif(caster:GetAbilityByIndex(4):GetName() == "iskander_trap" and not caster.IsAOTKActive) then
+				caster:SwapAbilities("iskander_ionioi", "iskander_trap", true, false)
+			end
 			   local newTime =  GameRules:GetGameTime()
 			   Timers:CreateTimer({
 				   endTime = 5,
 				   callback = function()
 					if(caster:GetAbilityByIndex(4):GetName() == "iskander_ionioi") then
 				   		caster:SwapAbilities("iskander_ionioi", "fate_empty1", false, true)
+					elseif(caster:GetAbilityByIndex(4):GetName() == "iskander_ionioi" and  caster.IsTacticsAcquired) then
+						caster:SwapAbilities("iskander_ionioi", "iskander_trap", false, true)
 					end
 				   
 			   end
@@ -77,6 +81,13 @@ function iskander_forward:OnSpellStart()
 		end
 		if(v:GetUnitName() == "iskander_cavalry") and caster.IsBeyondTimeAcquired then
 			caster:FindAbilityByName("iskander_cavalry"):Charge(radius, castVector, v)
+		end
+		if(v:GetUnitName() == "iskander_archer") and caster.IsBeyondTimeAcquired then
+			if not v.iSShooting then
+				v:FindModifierByName("modifier_kill"):SetDuration(3, true)
+				caster:FindAbilityByName("iskander_archers"):ShootArrow(v,castPosition )
+			end
+
 		end
 		if v ~= caster and v:IsHero() then
 			v:EmitSound("Hero_LegionCommander.Overwhelming.Location")
@@ -117,7 +128,7 @@ function iskander_forward:OnProjectileHit_ExtraData(hTarget, vLocation, table)
 
 	local caster = self:GetCaster()
 	local damage = self:GetSpecialValueFor("sa_damage")
-	giveUnitDataDrivenModifier(caster, hTarget, "stunned", 0.6)
+	giveUnitDataDrivenModifier(caster, hTarget, "stunned", 0.3)
 	DoDamage(caster, hTarget, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
 
 end

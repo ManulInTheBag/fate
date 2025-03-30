@@ -4,7 +4,8 @@ LinkLuaModifier("modifier_phalanx_soldier_wall","abilities/iskandar/iskander_pha
 
 
 function iskander_phalanx:GetCastPoint()
-	return self:GetCaster().IsRiding and 0 or 0.3
+	--return self:GetCaster().IsRiding and 0 or 0.3
+	return 0.3
 end
 
 
@@ -33,6 +34,7 @@ function iskander_phalanx:OnSpellStart()
 			soldier:SetForwardVector(caster_vector)
 			soldier.num = i*-1
 			soldier:AddNewModifier(caster, nil, "modifier_kill", {duration = duration})
+			soldier:SetHullRadius(50)
 			if not caster.IsAOTKActive then
 				soldier:AddNewModifier(caster, self, "modifier_phalanx_soldier_wall", {duration = duration})
 			end
@@ -59,6 +61,7 @@ function iskander_phalanx:OnSpellStart()
 			soldier:SetForwardVector(caster_vector)
 			soldier.num = i
 			soldier:AddNewModifier(caster, nil, "modifier_kill", {duration = duration})
+			soldier:SetHullRadius(50)
 			--caster.AOTKSoldierCount = caster.AOTKSoldierCount + 1
 			if not caster.IsAOTKActive then
 				soldier:AddNewModifier(caster, self, "modifier_phalanx_soldier_wall", {duration = duration})

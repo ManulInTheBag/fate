@@ -34,7 +34,7 @@ function lancelot_arondight_overload:OnSpellStart()
 	if hCaster:HasModifier("modifier_kotl_attribute") then
 		aoe_damage = aoe_damage + hCaster:GetAverageTrueAttackDamage(hCaster) * 1.5
 	end
-	giveUnitDataDrivenModifier(hCaster, hCaster, "jump_pause", 0.4)
+	giveUnitDataDrivenModifier(hCaster, hCaster, "pause_sealenabled", 0.4)
 
 	Timers:CreateTimer(0.2, function()
 		hCaster:EmitSound("lancelot_arondight_overload_slash")

@@ -80,9 +80,16 @@ function sanya_book_open:OpenSpellbook()
     local hCaster = self:GetCaster()
     hCaster:SwapAbilities(tStandardAbilities[1], tSanyaBook[1], false, true)
     hCaster:SwapAbilities(tStandardAbilities[2], tSanyaBook[2], false, true)
-    hCaster:SwapAbilities(tStandardAbilities[3], tSanyaBook[3], false, true)
+    if hCaster:GetAbilityByIndex(3):GetName() == "iskander_thunder_2"  then
+        hCaster:SwapAbilities("iskander_thunder_2", tSanyaBook[3], false, true)
+    elseif  hCaster:GetAbilityByIndex(3):GetName() ~= "iskander_thunder_2" then
+        hCaster:SwapAbilities(tStandardAbilities[3], tSanyaBook[3], false, true)
+    end
+   
     if hCaster:GetAbilityByIndex(4):GetName() == "iskander_ionioi" then
         hCaster:SwapAbilities("iskander_ionioi", tSanyaBook[4], false, true)
+    elseif  hCaster:GetAbilityByIndex(4):GetName() == "iskander_trap" then
+        hCaster:SwapAbilities("iskander_trap", tSanyaBook[4], false, true)
     else
         hCaster:SwapAbilities(tStandardAbilities[4], tSanyaBook[4], false, true)
     end
@@ -105,6 +112,7 @@ function sanya_book_open:OpenSpellbookMarbleSA()
     hCaster:SwapAbilities(tStandardAbilitiyMarbleWithSa[3], tSanyaBook[3], false, true)
     hCaster:SwapAbilities(tStandardAbilitiyMarbleWithSa[4], tSanyaBook[4], false, true)
 
+
 end
 
 function sanya_book_close:OnSpellStart()
@@ -124,7 +132,13 @@ function sanya_book_close:CloseSpellbook()
     hCaster:SwapAbilities(tStandardAbilities[2], tSanyaBook[2], true, false)
     hCaster:SwapAbilities(tStandardAbilities[3], tSanyaBook[3], true, false)
     hCaster:SwapAbilities(tStandardAbilities[4], tSanyaBook[4], true, false)
+    if hCaster.IsTacticsAcquired then
+        hCaster:SwapAbilities("iskander_trap", tStandardAbilities[4], true, false)
+   end
 
+   if hCaster.IsTacticsAcquired and hCaster:HasModifier("modifier_gordius_wheel") then
+    hCaster:SwapAbilities("iskander_thunder_2", tStandardAbilities[3], true, false)
+end
 end
  
 function sanya_book_close:CloseSpellbookMarbleSA()

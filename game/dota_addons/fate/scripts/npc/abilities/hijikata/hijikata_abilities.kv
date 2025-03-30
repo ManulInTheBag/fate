@@ -31,8 +31,9 @@
 			"distance"								"1500"		//Optimum distance.
 			"speed"									"2000"
 			"recast_duration"									"4" 	
-			"damage"									"200 250 300 350 400"
-			"damage_second"								"200 250 300 350 400"
+			"damage"									"160 200 240 280 320"
+			"damage_second"								"160 200 240 280 320"
+			"sa_atk_dmg_mod"								"0.5"
 		}
 	}
 
@@ -44,14 +45,14 @@
 		"BaseClass"          			    "ability_lua"
 		"ScriptFile"					    "abilities/hijikata/hijikata_dash_recast"
 		"AbilityTextureName"				"custom/hijikata/hijikata_dash"
-		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_AOE|DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE|DOTA_ABILITY_BEHAVIOR_NO_TARGET|DOTA_ABILITY_BEHAVIOR_IMMEDIATE|DOTA_ABILITY_BEHAVIOR_HIDDEN|DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
+		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_AOE|DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE|DOTA_ABILITY_BEHAVIOR_NO_TARGET|DOTA_ABILITY_BEHAVIOR_HIDDEN|DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES"
 		"AbilityUnitTargetTeam"				"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_ALL"
 		"AbilityUnitDamageType"				"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"							"5"
 		"AbilityCooldown"				    "0"
 		"AbilityManaCost"					"0"
-		"AbilityCastPoint"					"0.0"
+		"AbilityCastPoint"					"0.1"
 		"AbilityCastAnimation"                      "ACT_DOTA_CAST_ABILITY_1_END"
 		"precache"
 		{
@@ -64,7 +65,8 @@
 		{
 			"distance"								"1500"		
 			"speed"									"2000"
-			"damage"								"200 250 300 350 400"
+			"damage"								"160 200 240 280 320"
+			"sa_atk_dmg_mod"								"0.5"
 		}
 	}
 
@@ -81,7 +83,7 @@
 		"AbilityUnitTargetType"				"DOTA_UNIT_TARGET_ALL"
 		"AbilityUnitDamageType"				"DAMAGE_TYPE_MAGICAL"
 		"MaxLevel"							"5"
-		"AbilityCooldown"				    "10 9 8 7 6"
+		"AbilityCooldown"				    "15 14 13 12 11"
 		"LevelsBetweenUpgrades"				"1"
 		"AbilityManaCost"					"200"
 		"AbilityCastPoint"					"0.2"
@@ -97,7 +99,7 @@
 		"AbilityValues"
 		{
 			"radius"								"750"		
-			"damage"									"300 375 450 525 600"
+			"damage"									"250 325 400 475 550"
 			"buff_duration"								"3 3.5 4 4.5 5"		
 			"as_value"									"50"
 			"hp_percentage_diff_to_damage"				"10"
@@ -105,6 +107,7 @@
             "slow_amount" "60"
             "bonus_damage" "100"
             "base_damage" "30 35 40 45 50"
+            "sa_atk_dmg_mod"								"0.5"
 		}
 	}
 
@@ -132,7 +135,7 @@
 		}
 		"AbilityValues"
 		{	
-			"damage"									"200 250 300 350 400"
+			"damage"									"100 125 150 175 200"
 			"radius"									"500"
 			"heal"										"5 6.25 7.5 8.75 10"
 		}
@@ -168,7 +171,7 @@
 		{
 			"duration"									"6"		
 			"dmg_res"									"25 31.25 37.5 43.75 50"
-			"dmg_increase"								"10 15 20 25 30"
+			"dmg_increase"								"10 12.5 15 17.5 20"
 			"radius"									"1000"
 			"cast_range"								"550"
 			"armor"										"15"
@@ -237,7 +240,7 @@
 		"AbilityValues"
 		{
 			"max_stacks"								"5 7"		
-			"dmg_per_stack"									"25 50"
+			"dmg_per_stack"									"25 40"
 			"health_per_stack"								"100 200"
 			"damage_take_per_stack_percent"							"10"
 			"last_damage_take_per_stack_percent"							"25"
@@ -438,7 +441,7 @@
 		"AbilityTextureName"			"custom/hijikata/hijikata_sa4"
 		"AbilityCooldown"				"9999"
 
-		"AbilityManaCost"				"11"
+		"AbilityManaCost"				"15"
 
 		 
 		"AbilityValues"
@@ -465,7 +468,7 @@
 		"AbilityTextureName"			"custom/hijikata/hijikata_sa3"
 		"AbilityCooldown"				"9999"
 
-		"AbilityManaCost"				"12"
+		"AbilityManaCost"				"10"
 
 		 
 		"AbilityValues"
@@ -489,7 +492,7 @@
 		"AbilityTextureName"			"custom/hijikata/hijikata_sa"
 		"AbilityCooldown"				"9999"
 
-		"AbilityManaCost"				"10"
+		"AbilityManaCost"				"12"
 
 		 
 		"AbilityValues"
@@ -514,7 +517,7 @@
 		"AbilityTextureName"			"custom/hijikata/hijikata_sa2"
 		"AbilityCooldown"				"9999"
 
-		"AbilityManaCost"				"13"
+		"AbilityManaCost"				"11"
 
 		 
 		"AbilityValues"
@@ -539,7 +542,7 @@
 		"AbilityTextureName"			"custom/hijikata/hijikata_sa5"
 		"AbilityCooldown"				"9999"
 
-		"AbilityManaCost"				"12"
+		"AbilityManaCost"				"11"
 
 		 
 		"AbilityValues"

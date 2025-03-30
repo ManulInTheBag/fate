@@ -71,7 +71,7 @@ function lancelot_parry:Counter()
 	giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 0.3)  
 	EndAnimation(caster)
 	StartAnimation(caster, {duration=0.4, activity=ACT_DOTA_CAST_GHOST_SHIP, rate=1.8})
-	local aoe_radius = 400
+	local aoe_radius = 450
 	caster:EmitSound("lancelot_parry")
 	local damage = self:GetSpecialValueFor("damage")
 	caster:FindAbilityByName("lancelot_arondight_overload"):EndCooldown()

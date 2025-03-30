@@ -647,6 +647,8 @@ CannotReset = {
     "karna_recast_dash",
 
     "astolfo_hippogriff_vanish",
+    "iskander_trap",
+    "iskander_thunder_2",
 }
 
 

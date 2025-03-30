@@ -84,7 +84,7 @@ function iskander_ionioi:OnSpellStart()
     end)
 	caster.AOTKSoldiers = {}
 	if caster.AOTKSoldierCount == nil then caster.AOTKSoldierCount = 0 end --initialize soldier count if its not made yet
-	giveUnitDataDrivenModifier(caster, caster, "pause_sealdisabled", 2)
+	giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 2)
 	EmitGlobalSound("Iskander.AOTK")
 
 	local aotkAbilityHandle = self
@@ -198,7 +198,9 @@ function iskander_ionioi:OnAOTKStart()
 	-- Swap abilities
 	if(caster:GetAbilityByIndex(4):GetName() == "fate_empty1") then
 		caster:SwapAbilities("iskander_ionioi", "fate_empty1", true, false)
-	 end
+	elseif(caster:GetAbilityByIndex(4):GetName() == "iskander_trap") then
+		caster:SwapAbilities("iskander_trap", "fate_empty1", true, false)
+	end
 	caster:SwapAbilities("iskander_ionioi", "iskander_summon_hephaestion", false, true)
 	caster:SwapAbilities("iskandar_gordius_wheel", "iskandar_buc", false, true)
 	if caster.IsBeyondTimeAcquired then
@@ -354,6 +356,9 @@ function iskander_ionioi:EndAOTK(caster)
 		caster:SwapAbilities("iskandar_gordius_wheel", "iskandar_buc", true, false)
 	 end
 	caster:SwapAbilities("fate_empty1", "iskander_summon_hephaestion", not caster:FindAbilityByName("iskander_summon_hephaestion"):IsHidden(), false)
+	if caster.IsTacticsAcquired and not caster:FindAbilityByName("fate_empty1"):IsHidden() then
+		caster:SwapAbilities("iskander_trap", "fate_empty1", true, false)
+	end
 	--caster:SwapAbilities("iskandar_gordius_wheel", "iskandar_arrow_bombard", false, true)
 	if(caster:GetAbilityByIndex(3):GetName() ~= "iskandar_charisma" and caster:GetAbilityByIndex(3):GetName() ~= "iskander_cavalry" ) then
 		caster:SwapAbilities("iskandar_charisma", caster:GetAbilityByIndex(3):GetName(), true, false) 

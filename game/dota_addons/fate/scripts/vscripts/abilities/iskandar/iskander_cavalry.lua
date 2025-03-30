@@ -5,7 +5,8 @@ LinkLuaModifier("modifier_phalanx_soldier_wall","abilities/iskandar/iskander_pha
 LinkLuaModifier("modifier_iskandar_cavalry_rush","abilities/iskandar/iskander_cavalry", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_iskandar_cavalry_rush_hitmarker","abilities/iskandar/iskander_cavalry", LUA_MODIFIER_MOTION_NONE)
 function iskander_cavalry:GetCastPoint()
-	return self:GetCaster().IsRiding and 0 or 0.3
+	--return self:GetCaster().IsRiding and 0 or 0.3
+	return 0.3
 end
 
 
@@ -143,8 +144,8 @@ function iskander_cavalry:OnProjectileHit_ExtraData(hTarget, vLocation, table)
 	if hTarget == nil then return end
 	local caster = self:GetCaster()
 	local damage = self:GetSpecialValueFor("damage")
-	giveUnitDataDrivenModifier(caster, hTarget, "stunned", self:GetSpecialValueFor("stun_duration"))
-
+	--giveUnitDataDrivenModifier(caster, hTarget, "stunned", self:GetSpecialValueFor("stun_duration"))
+	giveUnitDataDrivenModifier(caster, hTarget, "locked", self:GetSpecialValueFor("stun_duration"))
 	DoDamage(caster, hTarget, damage *  (hTarget:HasModifier("modifier_iskandar_cavalry_rush_hitmarker") and 0.3 or 1), DAMAGE_TYPE_MAGICAL, 0, self, false)
 	hTarget:AddNewModifier(caster,self, "modifier_iskandar_cavalry_rush_hitmarker", {duration = 0.4})
 

@@ -36,6 +36,10 @@ function nanaya_knife:OnUpgrade()
     end
 end
 
+function nanaya_knife:GetAOERadius()
+	return self:GetSpecialValueFor("range")
+end
+
 function nanaya_knife:OnSpellStart()
 	local caster = self:GetCaster()
 

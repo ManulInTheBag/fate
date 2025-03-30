@@ -103,7 +103,7 @@ function hijikata_demon:OnSpellStart()
 
 	DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
 	if caster.IsShinsengumiAcquired then
-		DoDamage(caster, target, caster:GetAverageTrueAttackDamage(hCaster), DAMAGE_TYPE_MAGICAL, 0, self, false)
+		DoDamage(caster, target, caster:GetAverageTrueAttackDamage(hCaster) * self:GetSpecialValueFor("sa_atk_dmg_mod"), DAMAGE_TYPE_MAGICAL, 0, self, false)
 	end
 	if caster.IsHijikataTacticsAcquired then
 		target:AddNewModifier(caster, self, "modifier_hijikata_slow", { duration = self:GetSpecialValueFor("slow_duration")})

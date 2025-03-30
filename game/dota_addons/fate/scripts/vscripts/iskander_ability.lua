@@ -1372,3 +1372,14 @@ function OnBeyondTimeAcquired(keys)
     local master = hero.MasterUnit
     master:SetMana(master:GetMana() - keys.ability:GetManaCost(keys.ability:GetLevel()))
 end
+function OnTacticsAcquired(keys)
+    local caster = keys.caster
+    local ply = caster:GetPlayerOwner()
+    local hero = caster:GetPlayerOwner():GetAssignedHero()
+    hero.IsTacticsAcquired = true
+	if hero:GetAbilityByIndex(4):GetName() == "fate_empty1" then
+        hero:SwapAbilities("fate_empty1", "iskander_trap", false, true)
+	end
+    local master = hero.MasterUnit
+    master:SetMana(master:GetMana() - keys.ability:GetManaCost(keys.ability:GetLevel()))
+end
