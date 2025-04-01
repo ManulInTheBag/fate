@@ -83,21 +83,23 @@ function gilgamesh_gate_of_babylon:OnProjectileHit_ExtraData(hTarget, vLocation,
 	local hCaster = self:GetCaster()
 	local damage = self:GetSpecialValueFor("damage")	
 	local damage1 = 0
-	if hCaster.IsSumerAcquired then
-		damage1 = hCaster:GetAttackDamage() * 0.175
-		damage = damage +  hCaster:GetAttackDamage() * 0.05
-		DoDamage(hCaster, hTarget, damage1, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+	if  not hTarget:HasModifier("modifier_protection_from_arrows_active") then 
+		if hCaster.IsSumerAcquired then
+			damage1 = hCaster:GetAttackDamage() * 0.175
+			damage = damage +  hCaster:GetAttackDamage() * 0.05
+			DoDamage(hCaster, hTarget, damage1, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+		end
+		
+		DoDamage(hCaster, hTarget, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+		--[[local particle = ParticleManager:CreateParticle("particles/custom_game/heroes/gilgamesh/gilgamesh_enlarge_gate_hit/gilgamesh_enlarge_gate_hit.vpcf", PATTACH_ABSORIGIN, hTarget)
+		ParticleManager:SetParticleControl(particle, 0, hTarget:GetAbsOrigin())
+		Timers:CreateTimer(0.3,function()
+			ParticleManager:DestroyParticle(particle, false)
+			ParticleManager:ReleaseParticleIndex(particle)
+		
+		end)]]
+		hTarget:EmitSound("Hero_Juggernaut.OmniSlash.Damage")
 	end
-	
-	DoDamage(hCaster, hTarget, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
-	--[[local particle = ParticleManager:CreateParticle("particles/custom_game/heroes/gilgamesh/gilgamesh_enlarge_gate_hit/gilgamesh_enlarge_gate_hit.vpcf", PATTACH_ABSORIGIN, hTarget)
-	ParticleManager:SetParticleControl(particle, 0, hTarget:GetAbsOrigin())
-	Timers:CreateTimer(0.3,function()
-		ParticleManager:DestroyParticle(particle, false)
-		ParticleManager:ReleaseParticleIndex(particle)
-	
-	end)]]
-	hTarget:EmitSound("Hero_Juggernaut.OmniSlash.Damage")
 end
 
 

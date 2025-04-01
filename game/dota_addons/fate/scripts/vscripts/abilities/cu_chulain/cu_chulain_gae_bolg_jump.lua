@@ -34,7 +34,7 @@ end
 function cu_chulain_gae_bolg_jump:OnAbilityPhaseInterrupted()
 	local caster = self:GetCaster()
 	ParticleManager:DestroyParticle( self.GBCastFx, true )
-
+	EndAnimation(caster)
 	return true
 end
 
@@ -43,7 +43,7 @@ function cu_chulain_gae_bolg_jump:OnAbilityPhaseStart()
 	self.GBCastFx = ParticleManager:CreateParticle("particles/units/heroes/hero_chaos_knight/chaos_knight_reality_rift.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 	ParticleManager:SetParticleControl(self.GBCastFx, 1, caster:GetAbsOrigin()) -- target effect location
 	ParticleManager:SetParticleControl(self.GBCastFx, 2, caster:GetAbsOrigin()) -- circle effect location
-	
+	StartAnimation(caster, {duration=0.8, activity=ACT_DOTA_CAST_ABILITY_4, rate=0.7})
 	return true
 end
 
@@ -58,61 +58,72 @@ function cu_chulain_gae_bolg_jump:OnSpellStart()
 	local descendCount = 0	
 
 	EmitGlobalSound("lancer_gae_bolg_2")
-	
-	Timers:CreateTimer( 1.0, function()
-		ParticleManager:DestroyParticle( self.GBCastFx, false )
+	self.oldfw = caster:GetForwardVector()
+	local newfw = -(caster:GetAbsOrigin() - targetPoint):Normalized()
+	caster:SetForwardVector(newfw)
+	caster:FaceTowards(targetPoint)
+	local distance = (caster:GetAbsOrigin() - targetPoint):Length2D()
+	Timers:CreateTimer( 0.1, function()
+		ParticleManager:DestroyParticle( self.GBCastFx, true )
+		ParticleManager:ReleaseParticleIndex(self.GBCastFx)
 	end)
 
 	--EmitGlobalSound("archer_attack_03")
-	giveUnitDataDrivenModifier(caster, caster, "jump_pause", 0.8)
-	Timers:CreateTimer(0.8, function()
-		giveUnitDataDrivenModifier(caster, caster, "jump_pause_postdelay", 0.15)
-	end)
-	Timers:CreateTimer(0.95, function()
-		giveUnitDataDrivenModifier(caster, caster, "jump_pause_postlock", 0.2)
+	giveUnitDataDrivenModifier(caster, caster, "jump_pause", 1)
+	Timers:CreateTimer(3, function()
+		caster:SetBodygroup(0,0)
+	
 	end)
 	--ability:ApplyDataDrivenModifier(caster, caster, "modifier_gae_jump_throw_anim", {}) 
 
 	Timers:CreateTimer('gb_throw', {
-		endTime = 0.35,
+		endTime = 0.6,
 		callback = function()
-		StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_CAST_ABILITY_4, rate=2})
-
+			caster:SetBodygroup(0,1)
 		local projectileOrigin = caster:GetAbsOrigin() + Vector(0,0,300)
 		local projectile = CreateUnitByName("dummy_unit", projectileOrigin, false, nil, nil, caster:GetTeamNumber())
 		projectile:FindAbilityByName("dummy_unit_passive"):SetLevel(1)
 		projectile:SetAbsOrigin(projectileOrigin)
 
-		local particle_name = "particles/custom/lancer/lancer_gae_bolg_projectile.vpcf"
+		local particle_name = "particles/cu_chulain/gae_bolg_proj.vpcf"
 		local throw_particle = ParticleManager:CreateParticle(particle_name, PATTACH_ABSORIGIN_FOLLOW, projectile)
 		ParticleManager:SetParticleControl(throw_particle, 1, (targetPoint - projectileOrigin):Normalized() * projectileSpeed)
 
 		caster:AddNewModifier(caster, self, "modifier_self_disarm", { Duration = 3 })
-
+		EndAnimation(caster)
+		caster:SetForwardVector(self.oldfw)
+		StartAnimation(caster, {duration=0.4, activity=ACT_DOTA_CAST_ABILITY_4_END, rate=1})
 		local travelTime = (targetPoint - projectileOrigin):Length() / projectileSpeed
-		Timers:CreateTimer(travelTime, function()
+		Timers:CreateTimer(travelTime-0.1, function()
 			ParticleManager:DestroyParticle(throw_particle, false)
 			self:OnGaeBolgHit(targetPoint, projectile)
 		end)
 	end
 	})
+	local shift_vector = Vector(0,0,0)
+	if distance < 500 then 
+		shift_vector = newfw * (500 -distance)/15
+	end
 
 	Timers:CreateTimer('gb_ascend', {
 		endTime = 0,
 		callback = function()
-	   	if ascendCount == 15 then 	   		
+	   	if ascendCount == 15 then 	  
+	
 		   	return 
 		end
-		caster:SetAbsOrigin(Vector(caster:GetAbsOrigin().x,caster:GetAbsOrigin().y,caster:GetAbsOrigin().z+50))
+		caster:SetAbsOrigin(Vector(caster:GetAbsOrigin().x,caster:GetAbsOrigin().y,caster:GetAbsOrigin().z+50) - shift_vector)
 		ascendCount = ascendCount + 1;
 		return 0.033
 	end
 	})
 
 	Timers:CreateTimer("gb_descend", {
-	    endTime = 0.3,
+	    endTime = 0.6,
 	    callback = function()
-	    	if descendCount == 15 then return end
+	    	if descendCount == 15 then 
+				FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true) 	return 
+			end
 			caster:SetAbsOrigin(Vector(caster:GetAbsOrigin().x,caster:GetAbsOrigin().y,caster:GetAbsOrigin().z-50))
 			descendCount = descendCount + 1;
 	      	return 0.033
@@ -184,13 +195,20 @@ function cu_chulain_gae_bolg_jump:OnGaeBolgHit(position, projectile)
 	        iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_ATTACK_1
 	    }
 
-	    FATE_ProjectileManager:CreateTrackingProjectile(tProjectile)
+	    self.iProjectile = FATE_ProjectileManager:CreateTrackingProjectile(tProjectile)
 	end)	
 end
 
 function cu_chulain_gae_bolg_jump:OnProjectileHit_ExtraData(hTarget, vLocation, table)
 	if hTarget == nil then return end
-
+	caster = self:GetCaster()
+	caster:SetBodygroup(0,0)
 	hTarget:RemoveModifierByName("modifier_self_disarm")
 	self.Dummy:RemoveSelf()
+	StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_ALCHEMIST_CHEMICAL_RAGE_START, rate=2})
+	caster:EmitSound("cu_chulain_gae_bolg_retrieve")
+	Timers:CreateTimer(0.033,function()
+		ProjectileManager:DestroyLinearProjectile(self.iProjectile)
+   end)
+	return true
 end

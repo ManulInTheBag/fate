@@ -7,8 +7,8 @@ if IsServer() then
 		self.DamagePct = args.DamagePct
 
 		self.particles = ParticleManager:CreateParticle("particles/custom/lancer/lancer_relentless_spear/lancer_relentless_spear.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
-		ParticleManager:SetParticleControlEnt(self.particles, 0, caster, PATTACH_POINT_FOLLOW, "attach_weapon", caster:GetOrigin(), true)	
-
+		ParticleManager:SetParticleControlEnt(self.particles, 0, caster, PATTACH_POINT_FOLLOW, "attach_spear_end", caster:GetOrigin(), true)	
+		StartAnimation(caster, {duration=self:GetDuration(), activity=ACT_DOTA_RAZE_1 , rate=1})	
 		self:StartIntervalThink(0.125)
 	end
 
@@ -27,13 +27,15 @@ if IsServer() then
 			self.target:AddNewModifier(caster, self:GetAbility(), "modifier_stunned", { Duration = 0.15})
 			self.target:EmitSound("Hero_PhantomLancer.Attack")
 
-			StartAnimation(caster, {duration=0.35, activity=ACT_DOTA_ATTACK , rate=2.5})			
+		
 		else
 			self:Destroy()
 		end
 	end
 
 	function modifier_relentless_spear:OnDestroy()
+		local caster = self:GetParent()
+		EndAnimation(caster)
 		ParticleManager:DestroyParticle(self.particles, true)
 		ParticleManager:ReleaseParticleIndex(self.particles)
 	end

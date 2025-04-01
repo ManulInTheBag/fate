@@ -29,8 +29,10 @@ if IsServer() then
 			local targets = FindUnitsInRadius(caster:GetTeam(), target_loc, nil, aoe, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 
 			for i = 1, #targets do
-				DoDamage(caster, targets[i], damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
-				targets[i]:EmitSound("Hero_Juggernaut.OmniSlash.Damage")
+				if  not targets[i]:HasModifier("modifier_protection_from_arrows_active") then 
+					DoDamage(caster, targets[i], damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+					targets[i]:EmitSound("Hero_Juggernaut.OmniSlash.Damage")
+				end
 			end
 
 			local explosionFxIndex = ParticleManager:CreateParticle( "particles/gilgamesh/gob_hit_extra_big.vpcf", PATTACH_CUSTOMORIGIN, parent )

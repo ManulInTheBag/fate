@@ -126,15 +126,17 @@ function arash_curved_fire:Explosion(vLocation, damage, radius, colortype, mod)
                                         )
     for _, hEntity in pairs(hEntities) do
         if IsNotNull(hEntity) then
-            DoDamage(hCaster, hEntity, damage, self:GetAbilityDamageType(), DOTA_DAMAGE_FLAG_NONE, self, false)
-            if colortype == 1 then
-                giveUnitDataDrivenModifier(hCaster,hEntity , "rooted", self:GetSpecialValueFor("duration") * mod)
-            end
-            if colortype == 2 then
-                giveUnitDataDrivenModifier(hCaster,hEntity , "locked", self:GetSpecialValueFor("duration") * mod)
-            end
-            if colortype == 3 then
-                giveUnitDataDrivenModifier(hCaster,hEntity , "revoked", self:GetSpecialValueFor("duration") * mod)
+            if not hEntity:HasModifier("modifier_protection_from_arrows_active") then 
+                DoDamage(hCaster, hEntity, damage, self:GetAbilityDamageType(), DOTA_DAMAGE_FLAG_NONE, self, false)
+                if colortype == 1 then
+                    giveUnitDataDrivenModifier(hCaster,hEntity , "rooted", self:GetSpecialValueFor("duration") * mod)
+                end
+                if colortype == 2 then
+                    giveUnitDataDrivenModifier(hCaster,hEntity , "locked", self:GetSpecialValueFor("duration") * mod)
+                end
+                if colortype == 3 then
+                    giveUnitDataDrivenModifier(hCaster,hEntity , "revoked", self:GetSpecialValueFor("duration") * mod)
+                end
             end
         end
     end

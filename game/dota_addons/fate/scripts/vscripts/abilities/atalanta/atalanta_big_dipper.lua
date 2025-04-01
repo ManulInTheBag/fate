@@ -87,7 +87,7 @@ end
 function atalanta_big_dipper:OnProjectileHit_ExtraData(hTarget, vLocation, table)
 
     if(hTarget ~= nil) then
-
+    if hTarget:HasModifier("modifier_protection_from_arrows_active") then return end
         local enemies = FindUnitsInRadius(  self:GetCaster():GetTeamNumber(),
                                             vLocation,
                                             nil,

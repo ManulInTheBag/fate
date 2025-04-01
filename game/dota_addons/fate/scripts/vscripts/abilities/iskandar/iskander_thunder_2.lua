@@ -30,8 +30,8 @@ end
 
 function iskander_thunder_2:ThunderStrike(position)
 	local caster = self:GetCaster()
-	local radius = 200
-	local slow_duration = 0.5
+	local radius = 250
+	local slow_duration = 1
 	local damage = self:GetSpecialValueFor("damage")
 
 	local targets = FindUnitsInRadius(caster:GetTeam(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
@@ -62,6 +62,6 @@ function iskander_thunder_slow_2:DeclareFunctions()
 	return { MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE}
 end
 function iskander_thunder_slow_2:GetModifierMoveSpeedBonus_Percentage()
-	return -50
+	return -60
 end
 

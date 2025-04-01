@@ -124,7 +124,7 @@ end
 function hijikata_ult:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
 	local hCaster = self:GetCaster()
  	 if(hTarget ~= nil) then
-
+		if hTarget:HasModifier("modifier_protection_from_arrows_active") then return end
 		local dmg_mod = 1
 		local hp_pct = hTarget:GetHealthPercent()
 		local self_hp_pct = hCaster:GetHealthPercent()

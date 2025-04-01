@@ -2742,6 +2742,38 @@
 		}
 	}
 
+	"models/cu_chulain/lancer_new.vmdl"
+	{
+		"PortraitLightPosition"		"35.96 12.10 191.93"
+		"PortraitLightAngles"		"56.43 203.42 359.08"
+		"PortraitLightFOV"		"90"
+		"PortraitLightDistance"		"80"
+		"PortraitLightColor"		"251 254 239"
+		"PortraitShadowColor"		"56 56 56"
+		"PortraitShadowScale"		"5.000000"
+		"PortraitAmbientColor"		"129 182 228"
+		"PortraitAmbientScale"		"4.525000"
+		"PortraitSpecularColor"		"251 74 84"
+		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/portraitbackground_glacier.vmat"
+		"PortraitBackgroundColor1"		".1 .2 .4"
+		"PortraitBackgroundColor2"		".1 .2 .4"
+		"PortraitBackgroundColor3"		"0 0 0"
+		"PortraitBackgroundColor4"		"0 .5 1"
+		"PortraitLightScale"		"1.500000"
+		"PortraitGroundShadowScale"		"1.500000"
+		"PortraitAmbientDirection"		"-17.980 -22.490 -1.490"
+		"PortraitAnimationActivity"		"ACT_DOTA_IDLE"
+		"cameras"
+		{
+			"default"
+			{
+				"PortraitPosition"		"300.96 -110.46 185.97"
+				"PortraitAngles"		"5.03 160.74 0.00"
+				"PortraitFOV"		"18"
+			}
+		}
+	}
+
 	"default"
 	{
 		"PortraitLightPosition"		"202.70 -23.15 308.17"

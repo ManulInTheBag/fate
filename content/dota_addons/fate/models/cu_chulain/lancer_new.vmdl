@@ -1,0 +1,1116 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc39:version{1ceecb0d-4093-4729-ab18-b76886c64cde} -->
+{
+	rootNode = 
+	{
+		_class = "RootNode"
+		children = 
+		[
+			{
+				_class = "MaterialGroupList"
+				children = 
+				[
+					{
+						_class = "DefaultMaterialGroup"
+						remaps = 
+						[
+							{
+								from = "imported material 01.vmat"
+								to = "models/cu_chulain/lancer_mat.vmat"
+							},
+						]
+						use_global_default = false
+						global_default_material = ""
+					},
+				]
+			},
+			{
+				_class = "AttachmentList"
+				children = 
+				[
+					{
+						_class = "Attachment"
+						name = "attach_hitloc"
+						parent_bone = "pepega20"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_weapon"
+						parent_bone = "pepega35"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_origin"
+						parent_bone = "pepega51"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_spear_start"
+						parent_bone = "pepega35"
+						relative_origin = [ 153.241959, -0.163361, -0.753433 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_spear_end"
+						parent_bone = "pepega35"
+						relative_origin = [ -155.448685, -0.19416, -0.785049 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_right_eye"
+						parent_bone = "pepega21"
+						relative_origin = [ -4.698299, -7.104116, 9.353241 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_left_eye"
+						parent_bone = "pepega21"
+						relative_origin = [ 4.140723, -6.53977, 9.703491 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+				]
+			},
+			{
+				_class = "HitboxSetList"
+				children = 
+				[
+					{
+						_class = "HitboxSet"
+						name = "default"
+						children = 
+						[
+							{
+								_class = "Hitbox"
+								name = "pepega19"
+								parent_bone = "pepega19"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -58.868061, -31.273605, -99.278702 ]
+								hitbox_maxs = [ 67.459808, 30.169037, 112.269028 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "pepega20"
+								parent_bone = "pepega20"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -82.164818, -89.404358, -134.405716 ]
+								hitbox_maxs = [ 85.549477, 92.050507, 146.812851 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "pepega31"
+								parent_bone = "pepega31"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -14.777417, -7.107495, -1.196686 ]
+								hitbox_maxs = [ 0.5, 9.995647, 7.224915 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "pepega32"
+								parent_bone = "pepega32"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -28.536932, -7.54589, -8.239578 ]
+								hitbox_maxs = [ 0.669453, 8.223202, 5.755417 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "pepega33"
+								parent_bone = "pepega33"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -32.366619, -4.63189, -6.578125 ]
+								hitbox_maxs = [ 2.287289, 7.596346, 5.557968 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "pepega34"
+								parent_bone = "pepega34"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -16.471046, -5.965485, -7.118027 ]
+								hitbox_maxs = [ 0.5, 6.59928, 4.303482 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "pepega21"
+								parent_bone = "pepega21"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -10.026386, -10.790884, -1.893051 ]
+								hitbox_maxs = [ 10.019577, 11.698957, 24.38382 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "pepega22"
+								parent_bone = "pepega22"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.085755, -0.976006, -10.694916 ]
+								hitbox_maxs = [ 1.684779, 6.720165, 0.770035 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "pepega23"
+								parent_bone = "pepega23"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.455944, -1.915961, -6.53006 ]
+								hitbox_maxs = [ 2.11606, 3.582419, 0.728012 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "pepega25"
+								parent_bone = "pepega25"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.173762, -0.5, -0.5 ]
+								hitbox_maxs = [ 1.173864, 0.5, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "pepega26"
+								parent_bone = "pepega26"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.5, -0.5, -0.5 ]
+								hitbox_maxs = [ 0.5, 0.5, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "pepega28"
+								parent_bone = "pepega28"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.5, -0.5, -0.5 ]
+								hitbox_maxs = [ 0.5, 0.5, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "pepega40"
+								parent_bone = "pepega40"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.5, -8.619734, -1.010864 ]
+								hitbox_maxs = [ 15.1455, 9.995649, 7.410736 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "pepega41"
+								parent_bone = "pepega41"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -0.849915, -8.352451, -7.085541 ]
+								hitbox_maxs = [ 28.237925, 7.226602, 6.835953 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "pepega42"
+								parent_bone = "pepega42"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -1.954159, -3.892685, -5.788666 ]
+								hitbox_maxs = [ 31.673092, 7.549185, 5.244141 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "pepega11"
+								parent_bone = "pepega11"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -9.480474, -10.023458, -51.815529 ]
+								hitbox_maxs = [ 9.349408, 12.685545, 3.135483 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "pepega12"
+								parent_bone = "pepega12"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.140729, -5.416209, -48.544113 ]
+								hitbox_maxs = [ 9.254951, 10.70672, 0.5 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "pepega15"
+								parent_bone = "pepega15"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -9.567904, -10.023459, -51.559563 ]
+								hitbox_maxs = [ 9.26198, 12.685546, 3.391449 ]
+							},
+							{
+								_class = "Hitbox"
+								name = "pepega16"
+								parent_bone = "pepega16"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -9.197196, -5.392576, -48.271423 ]
+								hitbox_maxs = [ 7.198476, 10.730352, 0.711449 ]
+							},
+						]
+					},
+				]
+			},
+			{
+				_class = "RenderMeshList"
+				children = 
+				[
+					{
+						_class = "RenderMeshFile"
+						name = "lancer2"
+						filename = "models/cu_chulain/cu_chulain.fbx"
+						import_scale = 1.0
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = 
+							[
+								"pepega07",
+								"pepega06",
+								"pepega05",
+								"pepega04",
+								"pepega03",
+							]
+						}
+					},
+					{
+						_class = "RenderMeshFile"
+						name = "lancer_no_gb"
+						filename = "models/cu_chulain/cu_chulain.fbx"
+						import_scale = 1.0
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = 
+							[
+								"pepega07",
+								"pepega06",
+								"pepega05",
+								"pepega04",
+								"pepega03",
+								"pepega01",
+							]
+						}
+					},
+				]
+			},
+			{
+				_class = "AnimationList"
+				children = 
+				[
+					{
+						_class = "Folder"
+						name = "lancer2"
+						children = 
+						[
+							{
+								_class = "AnimFile"
+								name = "lancer2_walk"
+								children = 
+								[
+									{
+										_class = "AnimSmoothLoop"
+										frames_from_start = 0
+										frames_from_end = 0
+									},
+									{
+										_class = "ActivityModifier"
+										activity_name = "run_slow"
+										activity_weight = 1
+									},
+								]
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_RUN"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = true
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/cu_chulain/cu_chulain.fbx"
+								import_bone_scales = false
+								start_frame = 270
+								end_frame = 343
+								framerate = 32.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_idle"
+								children = 
+								[
+									{
+										_class = "ActivityModifier"
+										activity_name = "in_fight"
+										activity_weight = 1
+									},
+								]
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_IDLE"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = true
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/cu_chulain/cu_chulain.fbx"
+								import_bone_scales = false
+								start_frame = 10
+								end_frame = 52
+								framerate = 30.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_attack_poke"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_ATTACK"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/cu_chulain/cu_chulain.fbx"
+								import_bone_scales = false
+								start_frame = 53
+								end_frame = 89
+								framerate = 17.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_attack_thrash"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_ATTACK2"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/cu_chulain/cu_chulain.fbx"
+								import_bone_scales = false
+								start_frame = 90
+								end_frame = 126
+								framerate = 17.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_cast"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_CAST_ABILITY_1"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/cu_chulain/cu_chulain.fbx"
+								import_bone_scales = false
+								start_frame = 210
+								end_frame = 242
+								framerate = 30.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_gae_bolg_cast"
+								children = 
+								[
+									{
+										_class = "AnimEvent"
+										event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+										event_frame = 2
+										event_end_frame = -1
+										event_keys = 
+										{
+											name = resource:"particles/cu_chulain/gae_bolg_proj_outline_2.vpcf"
+											detach_from_owner = false
+											always_run = false
+											stop_on_seq_change = false
+											stop_immediately = false
+											use_layer_sequence = false
+											tags = null
+											attachment_point = "attach_spear_end"
+											attachment_type = "point_follow"
+											attachment_point_cp1 = "attach_spear_start"
+											attachment_type_cp1 = "point_follow"
+										}
+									},
+									{
+										_class = "AnimEvent"
+										event_class = "AE_CL_STOP_PARTICLE_EFFECT"
+										event_frame = 24
+										event_end_frame = -1
+										event_keys = 
+										{
+											name = resource:"particles/cu_chulain/gae_bolg_proj_outline_2.vpcf"
+											stop_instantly = true
+											play_endcap = false
+										}
+									},
+									{
+										_class = "AnimEvent"
+										event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+										event_frame = 10
+										event_end_frame = -1
+										event_keys = 
+										{
+											name = resource:"particles/econ/items/centaur/centaur_ti6_gold/centaur_ti6_ambient_gold_eyes.vpcf"
+											detach_from_owner = false
+											always_run = false
+											stop_on_seq_change = false
+											stop_immediately = false
+											use_layer_sequence = false
+											tags = null
+											attachment_point = "attach_right_eye"
+											attachment_type = "point_follow"
+											attachment_point_cp1 = "attach_right_eye"
+											attachment_type_cp1 = "point_follow"
+										}
+									},
+									{
+										_class = "AnimEvent"
+										event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+										event_frame = 10
+										event_end_frame = -1
+										event_keys = 
+										{
+											name = resource:"particles/econ/items/centaur/centaur_ti6_gold/centaur_ti6_ambient_gold_eyes.vpcf"
+											detach_from_owner = false
+											always_run = false
+											stop_on_seq_change = false
+											stop_immediately = false
+											use_layer_sequence = false
+											tags = null
+											attachment_point = "attach_left_eye"
+											attachment_type = "point_follow"
+											attachment_point_cp1 = "attach_left_eye"
+											attachment_type_cp1 = "point_follow"
+										}
+									},
+									{
+										_class = "AnimEvent"
+										event_class = "AE_CL_STOP_PARTICLE_EFFECT"
+										event_frame = 17
+										event_end_frame = -1
+										event_keys = 
+										{
+											name = resource:"particles/econ/items/centaur/centaur_ti6_gold/centaur_ti6_ambient_gold_eyes.vpcf"
+											stop_instantly = true
+											play_endcap = false
+										}
+									},
+								]
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_CAST_ABILITY_3"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/cu_chulain/cu_chulain.fbx"
+								import_bone_scales = false
+								start_frame = 413
+								end_frame = 438
+								framerate = 20.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_gae_bolg_poke"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_CAST_ABILITY_3_END"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/cu_chulain/cu_chulain.fbx"
+								import_bone_scales = false
+								start_frame = 344
+								end_frame = 356
+								framerate = 30.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_jump"
+								children = 
+								[
+									{
+										_class = "AnimEvent"
+										event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+										event_frame = 12
+										event_end_frame = -1
+										event_keys = 
+										{
+											name = resource:"particles/cu_chulain/gae_bolg_proj_outline_2.vpcf"
+											detach_from_owner = false
+											always_run = false
+											stop_on_seq_change = false
+											stop_immediately = false
+											use_layer_sequence = false
+											tags = null
+											attachment_point = "attach_spear_end"
+											attachment_type = "point_follow"
+											attachment_point_cp1 = "attach_spear_start"
+											attachment_type_cp1 = "point_follow"
+										}
+									},
+									{
+										_class = "AnimEvent"
+										event_class = "AE_CL_STOP_PARTICLE_EFFECT"
+										event_frame = 50
+										event_end_frame = -1
+										event_keys = 
+										{
+											name = resource:"particles/cu_chulain/gae_bolg_proj_outline_2.vpcf"
+											stop_instantly = true
+											play_endcap = false
+										}
+									},
+								]
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_CAST_ABILITY_4"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/cu_chulain/cu_chulain.fbx"
+								import_bone_scales = false
+								start_frame = 553
+								end_frame = 613
+								framerate = 60.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_death"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_DIE"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/cu_chulain/cu_chulain.fbx"
+								import_bone_scales = false
+								start_frame = 459
+								end_frame = 550
+								framerate = 30.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_idle_true"
+								children = 
+								[
+									{
+										_class = "ActivityModifier"
+										activity_name = "not_in_fight"
+										activity_weight = 1
+									},
+								]
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_IDLE"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = true
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/cu_chulain/cu_chulain.fbx"
+								import_bone_scales = false
+								start_frame = 681
+								end_frame = 741
+								framerate = 30.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_walk1"
+								children = 
+								[
+									{
+										_class = "AnimSmoothLoop"
+										frames_from_start = 0
+										frames_from_end = 0
+									},
+									{
+										_class = "ActivityModifier"
+										activity_name = "run_fast"
+										activity_weight = 1
+									},
+								]
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_RUN"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = true
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/cu_chulain/cu_chulain.fbx"
+								import_bone_scales = false
+								start_frame = 243
+								end_frame = 269
+								framerate = 20.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_all_test"
+								is_default_idle_anim = false
+								activity_name = ""
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = true
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/cu_chulain/cu_chulain.fbx"
+								import_bone_scales = false
+								start_frame = 0
+								end_frame = 1000
+								framerate = 30.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_slash_attack"
+								is_default_idle_anim = false
+								activity_name = ""
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = true
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/cu_chulain/cu_chulain.fbx"
+								import_bone_scales = false
+								start_frame = 127
+								end_frame = 163
+								framerate = 30.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_micro_jump_back_with_pierce"
+								is_default_idle_anim = false
+								activity_name = ""
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = true
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/cu_chulain/cu_chulain.fbx"
+								import_bone_scales = false
+								start_frame = 164
+								end_frame = 209
+								framerate = 30.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_deflect_start"
+								is_default_idle_anim = false
+								activity_name = ""
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = true
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/cu_chulain/cu_chulain.fbx"
+								import_bone_scales = false
+								start_frame = 210
+								end_frame = 225
+								framerate = 30.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_deflect"
+								is_default_idle_anim = false
+								activity_name = ""
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = true
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/cu_chulain/cu_chulain.fbx"
+								import_bone_scales = false
+								start_frame = 226
+								end_frame = 242
+								framerate = 30.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_rush_attack"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_RAZE_1"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = true
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/cu_chulain/cu_chulain.fbx"
+								import_bone_scales = false
+								start_frame = 344
+								end_frame = 355
+								framerate = 25.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_prepare_for_pierce"
+								is_default_idle_anim = false
+								activity_name = ""
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = true
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/cu_chulain/cu_chulain.fbx"
+								import_bone_scales = false
+								start_frame = 356
+								end_frame = 378
+								framerate = 30.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_jump_back"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_CAST_ABILITY_ROT"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = true
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/cu_chulain/cu_chulain.fbx"
+								import_bone_scales = false
+								start_frame = 379
+								end_frame = 420
+								framerate = 60.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_pierce"
+								is_default_idle_anim = false
+								activity_name = ""
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = true
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/cu_chulain/cu_chulain.fbx"
+								import_bone_scales = false
+								start_frame = 421
+								end_frame = 458
+								framerate = 30.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_jump_end"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_CAST_ABILITY_4_END"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = true
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/cu_chulain/cu_chulain.fbx"
+								import_bone_scales = false
+								start_frame = 615
+								end_frame = 635
+								framerate = 30.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer_combo_pose"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_CAST_ALACRITY"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = true
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/cu_chulain/cu_chulain.fbx"
+								import_bone_scales = false
+								start_frame = 551
+								end_frame = 551
+								framerate = 30.0
+								reverse = false
+								anim_hold_list = 
+								[
+									{
+										frame = 551
+										frame_count = 8
+									},
+								]
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_jump_end1"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_ALCHEMIST_CHEMICAL_RAGE_START"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = true
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/cu_chulain/cu_chulain.fbx"
+								import_bone_scales = false
+								start_frame = 643
+								end_frame = 680
+								framerate = 30.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_capture"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_CAPTURE"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = true
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/cu_chulain/cu_chulain.fbx"
+								import_bone_scales = false
+								start_frame = 681
+								end_frame = 741
+								framerate = 30.0
+								reverse = false
+							},
+						]
+					},
+				]
+				default_root_bone_name = ""
+			},
+			{
+				_class = "BodyGroupList"
+				children = 
+				[
+					{
+						_class = "BodyGroup"
+						name = "cu"
+						children = 
+						[
+							{
+								_class = "BodyGroupChoice"
+								name = "with_gb"
+								meshes = 
+								[
+									"lancer2",
+								]
+							},
+							{
+								_class = "BodyGroupChoice"
+								name = "no_gb"
+								meshes = 
+								[
+									"lancer_no_gb",
+								]
+							},
+						]
+						hidden_in_tools = false
+						non_bodygroup_single_choice = false
+					},
+				]
+			},
+		]
+		model_archetype = ""
+		primary_associated_entity = ""
+		anim_graph_name = ""
+		importer_notes = "Imported from VMDL"
+		document_sub_type = "ModelDocSubType_None"
+	}
+}

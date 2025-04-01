@@ -107,6 +107,7 @@ end
 function emiya_caladbolg:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
   	local hCaster = self:GetCaster()
 	if(hTarget ~= nil) then
+		if hTarget:HasModifier("modifier_protection_from_arrows_active") then return end
 		local explosionFx = ParticleManager:CreateParticle("particles/emiya/caladbolg_explosion.vpcf", PATTACH_CUSTOMORIGIN, nil)
 		ParticleManager:SetParticleControl(explosionFx, 1, hTarget:GetAbsOrigin())
 		ParticleManager:SetParticleControl(explosionFx, 0, hTarget:GetAbsOrigin())

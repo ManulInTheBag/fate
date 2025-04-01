@@ -126,8 +126,10 @@ function iskander_archers:ShootArrow(unit, point)
                         false)
     
      	for _,enemy in pairs(enemies) do
-			DoDamage(caster, enemy, dmg, DAMAGE_TYPE_MAGICAL, 0, self, false)
-			giveUnitDataDrivenModifier(caster, enemy, "rooted", self:GetSpecialValueFor("rduration"))
+			if not enemy:HasModifier("modifier_protection_from_arrows_active") then 
+				DoDamage(caster, enemy, dmg, DAMAGE_TYPE_MAGICAL, 0, self, false)
+				giveUnitDataDrivenModifier(caster, enemy, "rooted", self:GetSpecialValueFor("rduration"))
+			end
        	end
 		   unit.iSShooting = false
 	end)

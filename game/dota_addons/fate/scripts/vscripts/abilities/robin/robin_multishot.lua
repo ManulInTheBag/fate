@@ -59,6 +59,7 @@ end
 -- Projectile
 function robin_multishot:OnProjectileHit_ExtraData( target, location, data )
 	if not target then return end
+    if target:HasModifier("modifier_protection_from_arrows_active") then return end
 
 	self.targets[ target ] = data.wave
 	

@@ -80,8 +80,14 @@ function robin_yew_tree_combo:OnProjectileHit_ExtraData( target, location, extra
 	
 	local caster = self:GetCaster()
 	local target_point = target:GetAbsOrigin()
-	
-	target:AddNewModifier(caster, self, "modifier_robin_yew_bow_combo_lock", { Duration = 2 })
+
+	if not target:HasModifier("modifier_protection_from_arrows_active") then 
+		target:AddNewModifier(caster, self, "modifier_robin_yew_bow_combo_lock", { Duration = 2 })
+
+	else
+		local target_name =  PlayerResource:GetPlayerName(target:GetPlayerID())
+		GameRules:SendCustomMessage("<font color='#0083E3'>".. target_name .." :</font> Eat shit, asshole", 0, 0)
+	end
 	
 	-- Create Particle
 	local TreeFx = ParticleManager:CreateParticle("particles/custom/robin/robin_yew_bow_combo_impact.vpcf", PATTACH_CUSTOMORIGIN, nil)
@@ -114,16 +120,17 @@ function robin_yew_tree_combo:OnProjectileHit_ExtraData( target, location, extra
 	local damage_stack = self:GetSpecialValueFor("damage_stack")
 	local silence_duration = self:GetSpecialValueFor("silence_duration")
 	local poison_detonation_radius = self:GetSpecialValueFor("poison_detonation_radius")
-	
-	if caster:HasModifier("modifier_robin_of_sherwood_attribute") then
-		target:AddNewModifier(
-			self:GetCaster(), -- player source
-			self, -- ability source
-			"modifier_robin_yew_bow_silence", -- modifier name
-			{ duration = silence_duration } -- kv
-		)
-		if target:GetMaxMana() > 0 then
-			target:Script_ReduceMana(600, nil)
+	if not target:HasModifier("modifier_protection_from_arrows_active") then 
+		if caster:HasModifier("modifier_robin_of_sherwood_attribute") then
+			target:AddNewModifier(
+				self:GetCaster(), -- player source
+				self, -- ability source
+				"modifier_robin_yew_bow_silence", -- modifier name
+				{ duration = silence_duration } -- kv
+			)
+			if target:GetMaxMana() > 0 then
+				target:Script_ReduceMana(600, nil)
+			end
 		end
 	end
 	
@@ -157,10 +164,14 @@ function robin_yew_tree_combo:OnProjectileHit_ExtraData( target, location, extra
 		damage_type = DAMAGE_TYPE_MAGICAL,
 		ability = self, --Optional.
 	}
-	ApplyDamage(damageTable)
+	if not target:HasModifier("modifier_protection_from_arrows_active") then 
+
+		ApplyDamage(damageTable)
+		target:Interrupt()
+	end
 
 	-- stun
-	target:Interrupt()
+
 	
 	if target:HasModifier("modifier_robin_poison_stack") then
 		target:RemoveModifierByName("modifier_robin_poison_stack")

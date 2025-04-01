@@ -254,36 +254,37 @@ function nobu_3000:Shoot(keys)
 		ParticleManager:SetParticleControl(fx, 1,   keys.Origin+keys.Range*keys.Facing)       
         ParticleManager:SetParticleControl(fx, 9,  keys.Origin)           
         for k,v in pairs(targets) do            
-          
-            local damage = self.caster:FindAbilityByName("nobu_guns"):GetGunsDamage() * self:GetSpecialValueFor("damage_mod")
-            if IsDivineServant(v) and self.caster.UnifyingAcquired then 
-                damage= damage*1.2
-            end
-                DoDamage(self.caster, v, damage*0.85, DAMAGE_TYPE_PHYSICAL, 0, self, false)
-                DoDamage(self.caster, v, damage*0.15, DAMAGE_TYPE_PURE, 0, self, false)
-           
-            if( self.caster:FindModifierByName("modifier_nobu_dash_dmg") ) then
-                DoDamage(self.caster, v, self.caster:FindAbilityByName("nobu_dash"):GetSpecialValueFor("attr_damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
-            end
-            if(self.caster.ISDOW) then
-                local gun_spawn = self.caster:GetAbsOrigin()
-                local random1 = RandomInt(25, 150) -- position of gun spawn
-                local random2 = RandomInt(0,1) -- whether weapon will spawn on left or right side of hero
-                local random3 = RandomInt(80,200)*Vector(0,0,1) 
-                
-        
-                if random2 == 0 then 
-                    gun_spawn = gun_spawn +  self.caster:GetRightVector() * -1 * random1 + random3
-                else 
-                    gun_spawn = gun_spawn + self.caster:GetRightVector() * random1 + random3
+            if   not v:HasModifier("modifier_protection_from_arrows_active") then 
+                local damage = self.caster:FindAbilityByName("nobu_guns"):GetGunsDamage() * self:GetSpecialValueFor("damage_mod")
+                if IsDivineServant(v) and self.caster.UnifyingAcquired then 
+                    damage= damage*1.2
                 end
-                local aoe = 50
-                
-                self.caster:FindAbilityByName("nobu_guns"):DOWShoot({
-                    Speed = 10000,
-                    AoE = aoe,
-                    Range = 1000,
-                },  gun_spawn )
+                    DoDamage(self.caster, v, damage*0.85, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+                    DoDamage(self.caster, v, damage*0.15, DAMAGE_TYPE_PURE, 0, self, false)
+            
+                if( self.caster:FindModifierByName("modifier_nobu_dash_dmg") ) then
+                    DoDamage(self.caster, v, self.caster:FindAbilityByName("nobu_dash"):GetSpecialValueFor("attr_damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
+                end
+                if(self.caster.ISDOW) then
+                    local gun_spawn = self.caster:GetAbsOrigin()
+                    local random1 = RandomInt(25, 150) -- position of gun spawn
+                    local random2 = RandomInt(0,1) -- whether weapon will spawn on left or right side of hero
+                    local random3 = RandomInt(80,200)*Vector(0,0,1) 
+                    
+            
+                    if random2 == 0 then 
+                        gun_spawn = gun_spawn +  self.caster:GetRightVector() * -1 * random1 + random3
+                    else 
+                        gun_spawn = gun_spawn + self.caster:GetRightVector() * random1 + random3
+                    end
+                    local aoe = 50
+                    
+                    self.caster:FindAbilityByName("nobu_guns"):DOWShoot({
+                        Speed = 10000,
+                        AoE = aoe,
+                        Range = 1000,
+                    },  gun_spawn )
+                end
             end
 
               
@@ -318,6 +319,8 @@ function nobu_3000:OnProjectileHit_ExtraData(target, location, data)
     if target == nil then
         return
     end
+    if target:HasModifier("modifier_protection_from_arrows_active") then return end
+
     local hCaster = self:GetCaster()
     local damage = hCaster:FindAbilityByName("nobu_guns"):GetGunsDamage() * self:GetSpecialValueFor("damage_mod")
     if IsDivineServant(target) and hCaster.UnifyingAcquired then 

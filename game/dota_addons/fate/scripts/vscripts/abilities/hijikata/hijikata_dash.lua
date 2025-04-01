@@ -63,6 +63,8 @@ end
 function hijikata_dash:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
 	local hCaster = self:GetCaster()
  	 if(hTarget ~= nil) then
+	if hTarget:HasModifier("modifier_protection_from_arrows_active") then return end
+
 	 DoDamage(hCaster, hTarget, tData.fDamage, DAMAGE_TYPE_MAGICAL, 0, self, false)
 	 if hCaster.IsShinsengumiAcquired then
 		DoDamage(hCaster, hTarget, hCaster:GetAverageTrueAttackDamage(hCaster) * self:GetSpecialValueFor("sa_atk_dmg_mod"), DAMAGE_TYPE_MAGICAL, 0, self, false)

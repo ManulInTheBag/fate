@@ -93,6 +93,7 @@ function nobu_shot:OnProjectileHit(target, location )
     if target == nil then
         return
     end
+    if target:HasModifier("modifier_protection_from_arrows_active") then return end
     local hCaster = self:GetCaster()
     local damage = hCaster:FindAbilityByName("nobu_guns"):GetGunsDamage() * self:GetSpecialValueFor("damage_mod")
     if IsDivineServant(target) and hCaster.UnifyingAcquired then 

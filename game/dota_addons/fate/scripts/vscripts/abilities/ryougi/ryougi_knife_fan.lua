@@ -65,6 +65,7 @@ function ryougi_knife_fan:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
 	  if hTarget == nil then
        return
     end
+    if hTarget:HasModifier("modifier_protection_from_arrows_active") then return end
     if (hTarget:GetName() == "npc_dota_ward_base") then
       return
     end
