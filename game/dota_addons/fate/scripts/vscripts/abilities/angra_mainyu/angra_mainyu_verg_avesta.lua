@@ -1,10 +1,15 @@
 angra_mainyu_verg_avesta = class({})
 
-LinkLuaModifier("modifier_verg_avesta_counter", "abilities/angra_mainyu/angra_mainyu_verg_avesta", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("angra_mainyu_verg_avesta_dot", "abilities/angra_mainyu/angra_mainyu_verg_avesta", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("angra_mainyu_verg_avesta_slow", "abilities/angra_mainyu/angra_mainyu_verg_avesta", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("angra_mainyu_verg_avesta_count", "abilities/angra_mainyu/angra_mainyu_verg_avesta", LUA_MODIFIER_MOTION_NONE)
 
 function angra_mainyu_verg_avesta:GetAOERadius()
 	return self:GetSpecialValueFor("radius")
+end
+
+function angra_mainyu_verg_avesta:GetHealthCost()
+	return self:GetCaster():GetMaxHealth()*0.1 --self:GetCaster():HasModifier("angra_mainyu_verg_avesta_count") and (self:GetCaster():GetModifierStackCount("angra_mainyu_verg_avesta_count", self:GetCaster())+1) * 50 or
 end
 
 function angra_mainyu_verg_avesta:OnSpellStart()
@@ -13,63 +18,105 @@ function angra_mainyu_verg_avesta:OnSpellStart()
 	local radius = self:GetAOERadius()
 	local delay = self:GetSpecialValueFor("delay")
 
+	--caster:AddNewModifier(caster, self, "angra_mainyu_verg_avesta_count", { Duration = 55 })
 
-	EmitGlobalSound("Avenger.Berg")
-
-	EmitGlobalSound("Avenger.BergShout")
-
-	caster:AddNewModifier(caster,self,"modifier_verg_avesta_counter", {duration = self:GetSpecialValueFor("reset_delay"), DIACQUIRED = caster.IsDIAcquired})
+	Timers:CreateTimer(delay, function()
+		caster:EmitSound("Avenger.Berg")
+	end)
+	caster:EmitSound("Avenger.BergShout")
 
 	local verg_particle = ParticleManager:CreateParticle("particles/custom/avenger/avenger_verg_avesta.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, caster)
 	ParticleManager:SetParticleControl(verg_particle, 0, caster:GetAbsOrigin())
 
-	Timers:CreateTimer(10, function()
+	Timers:CreateTimer(delay, function()
 		ParticleManager:DestroyParticle( verg_particle, false )
 		ParticleManager:ReleaseParticleIndex( verg_particle )
 		return nil
 	end)
 
+	damage = self:GetSpecialValueFor("damage") * (((1-caster:GetHealth()/caster:GetMaxHealth()) * self:GetSpecialValueFor("lost_health_amp")/100) + 1)
+	print(damage)
+	print(self:GetSpecialValueFor("lost_health_amp"))
+
+	local targets = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), caster, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER , false)
+	for k,v in pairs(targets) do
+		if v:GetName() ~= "npc_dota_ward_base" then
+			DoDamage(caster, v, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+			if not v:IsAlive() and caster.IsDIAcquired and v:IsHero() then
+				self:GetCaster():FindAbilityByName("angra_puddle"):DeathPuddle(v:GetAbsOrigin())
+			end
+
+
+			local verg_particle_hero = ParticleManager:CreateParticle("particles/custom/avenger/avenger_verg_avesta.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, v)
+			ParticleManager:SetParticleControl(verg_particle_hero, 0, v:GetAbsOrigin())
+
+			Timers:CreateTimer(delay, function()
+				ParticleManager:DestroyParticle( verg_particle_hero, false )
+				ParticleManager:ReleaseParticleIndex( verg_particle_hero )
+				return nil
+			end)
+			Timers:CreateTimer(delay, function()
+				if v and v:IsAlive() then
+					v:AddNewModifier(caster, self , "angra_mainyu_verg_avesta_dot",{duration = 1.1, damage = damage})
+			        local particle = ParticleManager:CreateParticle("particles/econ/items/sniper/sniper_charlie/sniper_assassinate_impact_blood_charlie.vpcf", PATTACH_CUSTOMORIGIN, nil)
+			        ParticleManager:SetParticleControl(particle, 1, v:GetAbsOrigin())
+			    end
+    	 	end)
+
+		end
+	end
 	
 end
 
-modifier_verg_avesta_counter = class({})
+angra_mainyu_verg_avesta_dot = class({})
 
-function modifier_verg_avesta_counter:IsDebuff()
-	return false 
+function angra_mainyu_verg_avesta_dot:GetEffectName()
+    return "particles/zlodemon/avesta_burn.vpcf"
 end
-function modifier_verg_avesta_counter:OnCreated(table)
-	self.DIACQUIRED = table.DIACQUIRED
-end
-function modifier_verg_avesta_counter:IsHidden()
-	return false 
-end
-function modifier_verg_avesta_counter:OnTakeDamage(args)
-    if IsServer() then
-        if args.unit ~= self:GetParent() then return end
-		if args.attacker:GetTeamNumber() ~= self:GetParent():GetTeamNumber() and GetDistance(args.attacker, self:GetParent()) <= self:GetAbility():GetSpecialValueFor("radius") then
 
-			self:GetParent():GiveMana(args.damage * self:GetAbility():GetSpecialValueFor("mana_restore_percentage") * 0.01)
+function angra_mainyu_verg_avesta_dot:IsHidden()
+    return false
+end
+function angra_mainyu_verg_avesta_dot:IsDebuff()
+    return true
+end
+function angra_mainyu_verg_avesta_dot:GetEffectAttachType()
+    return PATTACH_ABSORIGIN_FOLLOW
+end
+function angra_mainyu_verg_avesta_dot:GetAttributes()                                                                  return MODIFIER_ATTRIBUTE_MULTIPLE end
 
+function angra_mainyu_verg_avesta_dot:IsDebuff() return true end
+if IsServer() then
+	function angra_mainyu_verg_avesta_dot:OnCreated(args)
+
+		self.damage = args.damage
+		self.caster = self:GetCaster()
+		self.target = self:GetParent()
+		self.abil = self:GetAbility()
+		self.target:EmitSound("Hero_WitchDoctor.Maledict_Tick")
+		self.bDoSlow = self.caster.IsDIAcquired
+		DoDamage(self.caster, self.target, self.damage/3, DAMAGE_TYPE_MAGICAL, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self.abil, true)
+		if not self.target:IsAlive() and self.caster.IsDIAcquired and self.target:IsHero() then
+			self.caster:FindAbilityByName("angra_puddle"):DeathPuddle(self.target:GetAbsOrigin())
 		end
-		if args.unit:IsAlive() and not args.unit:IsMagicImmune() then
-
-			if args.attacker:GetTeamNumber() ~= self:GetParent():GetTeamNumber() and GetDistance(args.attacker, self:GetParent()) <= self:GetAbility():GetSpecialValueFor("radius") then
-				local return_percentage = self:GetAbility():GetSpecialValueFor("multiplier")
-				if self.DIACQUIRED and self:GetParent():HasModifier("modifier_true_form") then
-					return_percentage = return_percentage + self:GetAbility():GetSpecialValueFor("return_bonus")
-				end
-				local damage  = args.damage*return_percentage/100
-				DoDamage(self:GetCaster(), args.attacker, damage, DAMAGE_TYPE_PURE, 0, self:GetAbility(), false)
-				if self.DIACQUIRED then
-					args.attacker:AddNewModifier(self:GetParent(), self:GetAbility() , "angra_mainyu_verg_avesta_slow",{duration = 0.5})
-				end
-			end
+		if self.bDoSlow then
+			self.target:AddNewModifier(self.caster, self.abil , "angra_mainyu_verg_avesta_slow",{duration = 0.5})
 		end
-    end
+		self:StartIntervalThink(0.5)
+	end
+	function angra_mainyu_verg_avesta_dot:OnIntervalThink()
+		if(not IsServer() ) then return end
+		self.target:EmitSound("Hero_WitchDoctor.Maledict_Tick")
+
+		DoDamage(self.caster, self.target, self.damage/3, DAMAGE_TYPE_MAGICAL, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self.abil, true)
+		if not self.target:IsAlive() and self.caster.IsDIAcquired and self.target:IsHero() then
+			self.caster:FindAbilityByName("angra_puddle"):DeathPuddle(self.target:GetAbsOrigin())
+		end
+		if self.bDoSlow then
+			self.target:AddNewModifier(self.caster, self.abil , "angra_mainyu_verg_avesta_slow",{duration = 0.5})
+		end
+	end
 end
-
-
-
 
 
 angra_mainyu_verg_avesta_slow = class({})
@@ -83,7 +130,7 @@ function angra_mainyu_verg_avesta_slow:DeclareFunctions()
 end
 
 function angra_mainyu_verg_avesta_slow:GetModifierMoveSpeedBonus_Percentage() 
-    return -50
+    return -60
 end
 ------------------------------------------------------------------------------
 
@@ -98,3 +145,23 @@ function angra_mainyu_verg_avesta_slow:RemoveOnDeath()
 end
 
 -----------------------------------------------------------------------------------
+
+angra_mainyu_verg_avesta_count = class({})
+
+if IsServer() then 
+	function angra_mainyu_verg_avesta_count:OnCreated(args)
+		self:SetStackCount(args.Stacks or 1)
+	end
+
+	function angra_mainyu_verg_avesta_count:OnRefresh(args)
+		self:SetStackCount(math.min(self:GetStackCount() + 1, 5))
+	end
+end
+
+function angra_mainyu_verg_avesta_count:IsHidden()
+	return false
+end
+
+function angra_mainyu_verg_avesta_count:RemoveOnDeath()
+	return true
+end

@@ -304,11 +304,11 @@ function OnTZStart(keys)
 		end)
 
 		--caster:PerformAttack(target, true, true, true, true, false, false, false)
-		local damage = keys.Damage + caster:GetAverageTrueAttackDamage(target) * 0.5
-		DoDamage(caster, target, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
-		if caster:HasModifier("modifier_murderous_instinct") then
-			DoDamage(caster, target, caster:FindAbilityByName("avenger_murderous_instinct"):GetSpecialValueFor("on_attack_damage"), DAMAGE_TYPE_MAGICAL, 0, caster:FindAbilityByName("avenger_murderous_instinct"), false)
-		end
+		local damage = keys.Damage --+ caster:GetAverageTrueAttackDamage(target) * 0.5
+		DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, 0, keys.ability, false)
+		-- if caster:HasModifier("modifier_murderous_instinct") then
+		-- 	DoDamage(caster, target, caster:FindAbilityByName("avenger_murderous_instinct"):GetSpecialValueFor("on_attack_damage"), DAMAGE_TYPE_MAGICAL, 0, caster:FindAbilityByName("avenger_murderous_instinct"), false)
+		-- end
 		--[[if caster:HasModifier("modifier_murderous_instinct") and RandomInt(1, 100) < 35 then
 			DoDamage(caster, target, damage * 2, DAMAGE_TYPE_PHYSICAL, 0, keys.ability, false)
 		else
@@ -352,6 +352,7 @@ function OnVengeanceStart(keys)
 
 	if IsSpellBlocked(keys.target) then return end
 	keys.ability:ApplyDataDrivenModifier(caster, target, "modifier_vengeance_mark", {})
+	giveUnitDataDrivenModifier(caster, target , "rooted", keys.Duration)
 	DoDamage(caster, target, keys.Damage, DAMAGE_TYPE_MAGICAL, 0, keys.ability, false)
 
 	caster:EmitSound("Hero_DoomBringer.Devour")
@@ -359,12 +360,12 @@ function OnVengeanceStart(keys)
 	ParticleManager:SetParticleControl(particle, 0, target:GetAbsOrigin())
 end
 
-function OnVengeanceEnd(keys)
-	local caster = keys.caster
-	local target = keys.target
-	DoDamage(target, caster, keys.Damage * keys.ReturnAmount/100, DAMAGE_TYPE_MAGICAL, 0, keys.ability, false)
-	DoDamage(target, caster, 1, DAMAGE_TYPE_PURE, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, keys.ability, false)
-end
+-- function OnVengeanceEnd(keys)
+-- 	local caster = keys.caster
+-- 	local target = keys.target
+-- 	--DoDamage(target, caster, keys.Damage * keys.ReturnAmount/100, DAMAGE_TYPE_MAGICAL, 0, keys.ability, false)
+-- 	--DoDamage(target, caster, 1, DAMAGE_TYPE_PURE, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, keys.ability, false)
+-- end
 
 function OnBloodStart(keys)
 	local caster = keys.caster
@@ -374,14 +375,17 @@ function OnBloodStart(keys)
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_blood_mark_cooldown", {duration = ability:GetCooldown(ability:GetLevel())})
 	if IsSpellBlocked(keys.target) then return end
 
-	local casterHealthPct = caster:GetHealthPercent()
-	local targetHealthPct = target:GetHealthPercent()
+	DoDamage(caster, target, 500, DAMAGE_TYPE_PURE, 0, keys.ability, false)
+	caster:Heal(500, ability)
 
-	print(casterHealthPct)
-	print(targetHealthPct)
+	-- local casterHealthPct = caster:GetHealthPercent()
+	-- local targetHealthPct = target:GetHealthPercent()
 
-	caster:SetHealth(math.max(caster:GetMaxHealth() * targetHealthPct / 100, 1))
-	target:SetHealth(math.max(target:GetMaxHealth() * casterHealthPct / 100, 1))
+	-- print(casterHealthPct)
+	-- print(targetHealthPct)
+
+	-- caster:SetHealth(math.max(caster:GetMaxHealth() * targetHealthPct / 100, 1))
+	-- target:SetHealth(math.max(target:GetMaxHealth() * casterHealthPct / 100, 1))
 
 	--[[local initHealth = caster:GetHealth() 
 	local initTargetHealth = target:GetHealth()
@@ -411,10 +415,10 @@ function OnTFStart(keys)
 	AvengerCheckCombo(keys.caster, keys.ability)
 	--local a1 = caster:GetAbilityByIndex(0)
 	--local a2 = caster:GetAbilityByIndex(1):GetAbilityName()
-    caster:SwapAbilities("avenger_murderous_instinct", "avenger_unlimited_remains", false, true) 
+    caster:SwapAbilities("angra_murderous", "avenger_unlimited_remains", false, true) 
     --caster:SetMana(newMana)
 
-    caster:SwapAbilities("avenger_true_form", "avenger_demon_core", false, true)
+    caster:SwapAbilities("avenger_true_form", "angra_puddle", false, true)
     if caster.IsBloodMarkAcquired then 
     	caster:SwapAbilities("fate_empty1", "avenger_blood_mark", false, true)
     end
@@ -431,14 +435,14 @@ end
 
 function OnTFLevelUp(keys)
 	local caster = keys.caster
-	caster:FindAbilityByName("avenger_demon_core"):SetLevel(keys.ability:GetLevel())
+	caster:FindAbilityByName("angra_puddle"):SetLevel(keys.ability:GetLevel())
 end
 
 
 function OnTFEnd(keys)
 	local caster = keys.caster
 	local ply = caster:GetPlayerOwner()
-    caster:SwapAbilities("avenger_murderous_instinct", "avenger_unlimited_remains", true, false) 
+    caster:SwapAbilities("angra_murderous", "avenger_unlimited_remains", true, false) 
     local a2 = caster:GetAbilityByIndex(1):GetAbilityName()
     caster:SwapAbilities("avenger_tawrich_zarich", a2, true, false) 
     --[[if caster.IsBloodMarkAcquired then 
@@ -446,17 +450,17 @@ function OnTFEnd(keys)
     end
     caster:SwapAbilities("fate_empty1", "avenger_demon_core", true, false)]]
 
-    caster:SwapAbilities("avenger_true_form", "avenger_demon_core", true, false) 
+    caster:SwapAbilities("avenger_true_form", "angra_puddle", true, false) 
 
     if caster.IsBloodMarkAcquired then 
     	caster:SwapAbilities("fate_empty1", "avenger_blood_mark", true, false)
     else
     end
 
-    local demoncore = caster:FindAbilityByName("avenger_demon_core")
-    if demoncore:GetToggleState() then
-    	demoncore:ToggleAbility()
-    end
+    -- local demoncore = caster:FindAbilityByName("avenger_demon_core")
+    -- if demoncore:GetToggleState() then
+    -- 	demoncore:ToggleAbility()
+    -- end
     caster.OriginalModel = "models/avenger/avenger.vmdl"
     caster:SetModel("models/avenger/avenger.vmdl")
     caster:SetOriginalModel("models/avenger/avenger.vmdl")
@@ -598,19 +602,19 @@ function OnOverdriveAttack(keys)
 end
 
 function AvengerCheckCombo(caster, ability)
-	if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 and caster:GetIntellect() >= 29.1 then
-		if ability == caster:FindAbilityByName("avenger_true_form") and ability:GetAutoCastState() and caster:FindAbilityByName("angra_mainyu_verg_avesta"):IsCooldownReady() and caster:FindAbilityByName("avenger_endless_loop"):IsCooldownReady()  then
-			caster:SwapAbilities("angra_mainyu_verg_avesta", "avenger_endless_loop", false, true) 
-			Timers:CreateTimer({
-				endTime = 3,
-				callback = function()
-				if caster:GetAbilityByIndex(5):GetName() ~= "angra_mainyu_verg_avesta" then
-					caster:SwapAbilities("angra_mainyu_verg_avesta", "avenger_endless_loop", true, false) 
-				end				
-			end
-			})
-		end
-	end
+    if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 and caster:GetIntellect() >= 29.1 then
+        if ability == caster:FindAbilityByName("avenger_true_form") and ability:GetAutoCastState() and caster:FindAbilityByName("angra_mainyu_verg_avesta"):IsCooldownReady() and caster:FindAbilityByName("avenger_endless_loop"):IsCooldownReady()  then
+            caster:SwapAbilities("angra_mainyu_verg_avesta", "avenger_endless_loop", false, true) 
+            Timers:CreateTimer({
+                endTime = 3,
+                callback = function()
+                if caster:GetAbilityByIndex(5):GetName() ~= "angra_mainyu_verg_avesta" then
+                    caster:SwapAbilities("angra_mainyu_verg_avesta", "avenger_endless_loop", true, false) 
+                end
+            end
+            })
+        end
+    end
 end
 
 function OnDarkPassageImproved(keys)
@@ -642,8 +646,9 @@ function OnOverdriveAcquired(keys)
     local caster = keys.caster
     local ply = caster:GetPlayerOwner()
     local hero = caster:GetPlayerOwner():GetAssignedHero()
-    hero:FindAbilityByName("avenger_overdrive"):SetLevel(1)
-    hero:AddNewModifier(caster, keys.ability, "modifier_overdrive_attribute", {})
+    hero.PuddleArmy = true
+    -- hero:FindAbilityByName("avenger_overdrive"):SetLevel(1)
+    -- hero:AddNewModifier(caster, keys.ability, "modifier_overdrive_attribute", {})
 
 
     -- enable overdrive passive
@@ -658,6 +663,18 @@ function OnDIAcquired(keys)
     local hero = caster:GetPlayerOwner():GetAssignedHero()
     hero.IsDIAcquired = true
     hero:FindAbilityByName("angra_mainyu_demon_incarnate_passive"):SetLevel(1)
+	
+    -- Set master 1's mana 
+    local master = hero.MasterUnit
+    master:SetMana(master:GetMana() - keys.ability:GetManaCost(keys.ability:GetLevel()))
+end
+
+
+function OnRevengeAcquired(keys)
+    local caster = keys.caster
+    local ply = caster:GetPlayerOwner()
+    local hero = caster:GetPlayerOwner():GetAssignedHero()
+    hero.IsRevengeAcquired = true
 	
     -- Set master 1's mana 
     local master = hero.MasterUnit
