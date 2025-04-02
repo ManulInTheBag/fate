@@ -4,7 +4,8 @@ LinkLuaModifier("modifier_archers_soldier_script","abilities/iskandar/iskander_a
 
 
 function iskander_archers:GetCastPoint()
-	return self:GetCaster().IsRiding and 0 or 0.2
+	--return self:GetCaster().IsRiding and 0 or 0.2
+	return 0.2
 end
 
 function iskander_archers:OnSpellStart()
@@ -80,7 +81,7 @@ function iskander_archers:ShootArrow(unit, point)
 	local count = self:GetSpecialValueFor("shots_per_unit")
 	local dmg = self:GetSpecialValueFor("damage")
 	local sArrowParticle = "particles/iskander/sanya_arrows.vpcf" 
-
+	unit.iSShooting = true
 	local counter = 0 
 	StartAnimation(unit, {duration = 0.25, activity=ACT_DOTA_CAST_ABILITY_1, rate=4})
 	Timers:CreateTimer(0.25, function()
@@ -125,10 +126,12 @@ function iskander_archers:ShootArrow(unit, point)
                         false)
     
      	for _,enemy in pairs(enemies) do
-			DoDamage(caster, enemy, dmg, DAMAGE_TYPE_MAGICAL, 0, self, false)
-			giveUnitDataDrivenModifier(caster, enemy, "rooted", self:GetSpecialValueFor("rduration"))
+			if not enemy:HasModifier("modifier_protection_from_arrows_active") then 
+				DoDamage(caster, enemy, dmg, DAMAGE_TYPE_MAGICAL, 0, self, false)
+				giveUnitDataDrivenModifier(caster, enemy, "rooted", self:GetSpecialValueFor("rduration"))
+			end
        	end
-
+		   unit.iSShooting = false
 	end)
 
 

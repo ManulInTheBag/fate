@@ -68,7 +68,7 @@ function HeroSelection:OnHeroRandomHero(data)
 	if PlayerResource:IsPlayerAbandoned(data.PlayerID) then return end
 	local team = PlayerResource:GetTeam(data.PlayerID)
 	if HeroSelection:GetState() >= HERO_SELECTION_PHASE_HERO_PICK and HeroSelection:GetPlayerStatus(data.PlayerID).status ~= "picked" then
-		HeroSelection:PreformPlayerRandom(data.PlayerID)
+		HeroSelection:PreformPlayerRandom(data)
 	end
 	HeroSelection:CheckEndHeroSelection()
 end

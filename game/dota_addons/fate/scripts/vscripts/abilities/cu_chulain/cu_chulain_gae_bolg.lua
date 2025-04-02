@@ -35,9 +35,14 @@ function cu_chulain_gae_bolg:OnAbilityPhaseStart()
 		ParticleManager:DestroyParticle( GBCastFx, false )
 	end)
 
-	caster:EmitSound("Lancer.GaeBolg")
-
+	--caster:EmitSound("Lancer.GaeBolg")
+	caster:EmitSound("cu_chulain_gae_bolg_voice")
 	return true
+end
+
+function cu_chulain_gae_bolg:OnAbilityPhaseInterrupted()
+	local caster = self:GetCaster()
+	caster:StopSound("cu_chulain_gae_bolg_voice")
 end
 
 function cu_chulain_gae_bolg:OnSpellStart()
@@ -59,12 +64,26 @@ function cu_chulain_gae_bolg:OnSpellStart()
 	local original_pos = caster:GetAbsOrigin()
 
 	local diff = (target:GetAbsOrigin() - caster:GetAbsOrigin()):Normalized()
-	caster:SetAbsOrigin(target:GetAbsOrigin() - diff * 100)
-	FindClearSpaceForUnit( caster, caster:GetAbsOrigin(), true )
+	if (target:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D() > 250 then 
+		caster:SetAbsOrigin(target:GetAbsOrigin() - diff * 250)
+		FindClearSpaceForUnit( caster, caster:GetAbsOrigin(), true )
+	end
 
 	local flashIndex = ParticleManager:CreateParticle( "particles/custom/diarmuid/gae_dearg_slash.vpcf", PATTACH_CUSTOMORIGIN, caster )
     ParticleManager:SetParticleControl( flashIndex, 2, original_pos )
     ParticleManager:SetParticleControl( flashIndex, 3, caster:GetAbsOrigin() )
+
+	local particle = ParticleManager:CreateParticle("particles/cu_chulain/gae_bolg_pierce.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	ParticleManager:SetParticleControlTransformForward(particle, 0, caster:GetAbsOrigin() + Vector(0,0,130)+caster:GetRightVector() * - 20,caster:GetForwardVector())
+    ParticleManager:SetParticleControlTransformForward(particle, 1, caster:GetAbsOrigin()+ Vector(0,0,130)+caster:GetRightVector() * - 20,caster:GetForwardVector())
+	ParticleManager:SetParticleControlTransformForward(particle, 5, target:GetAbsOrigin()+ Vector(0,0,130) + caster:GetForwardVector() * - 50,caster:GetForwardVector())
+
+
+
+	Timers:CreateTimer( 2.0, function()
+		ParticleManager:DestroyParticle( particle, false )
+		ParticleManager:ReleaseParticleIndex( particle )
+	end)
 
 	giveUnitDataDrivenModifier(caster, target, "can_be_executed", 0.033)
 	DoDamage(caster, target, damage, DAMAGE_TYPE_PURE, 0, ability, false)
@@ -81,21 +100,24 @@ function cu_chulain_gae_bolg:OnSpellStart()
 		end)
 	end
 	
-	StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_ATTACK, rate=3})
+	--StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_ATTACK, rate=3})
 	
 	-- Add dagon particle
-	local dagon_particle = ParticleManager:CreateParticle("particles/items_fx/dagon.vpcf",  PATTACH_ABSORIGIN_FOLLOW, caster)
-	ParticleManager:SetParticleControlEnt(dagon_particle, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), false)
-	local particle_effect_intensity = 600
-	ParticleManager:SetParticleControl(dagon_particle, 2, Vector(particle_effect_intensity))
-	target:EmitSound("Hero_Lion.Impale")
-	
+	-- local dagon_particle = ParticleManager:CreateParticle("particles/items_fx/dagon.vpcf",  PATTACH_ABSORIGIN_FOLLOW, caster)
+	-- ParticleManager:SetParticleControlEnt(dagon_particle, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), false)
+	-- local particle_effect_intensity = 600
+	-- ParticleManager:SetParticleControl(dagon_particle, 2, Vector(particle_effect_intensity))
+	target:EmitSound("cu_pierce_new")
+	target:EmitSound("cu_pierce_new_2")
+
 	-- Blood splat
 	local splat = ParticleManager:CreateParticle("particles/generic_gameplay/screen_blood_splatter.vpcf", PATTACH_EYES_FOLLOW, target)
 
 	Timers:CreateTimer( 3.0, function()
-		ParticleManager:DestroyParticle( dagon_particle, false )
+		--ParticleManager:DestroyParticle( dagon_particle, false )
+
 		ParticleManager:DestroyParticle( splat, false )
+		ParticleManager:ReleaseParticleIndex(splat)
 	end)
 
 	local culling_kill_particle = ParticleManager:CreateParticle("particles/custom/lancer/lancer_culling_blade_kill.vpcf", PATTACH_CUSTOMORIGIN, target)
@@ -111,3 +133,44 @@ function cu_chulain_gae_bolg:OnSpellStart()
 	end)
 	--target:Execute(ability, killer, { bExecution = true })
 end
+function cu_chulain_gae_bolg:GetIntrinsicModifierName()
+    return "modifier_cu_idle_animation"
+end
+LinkLuaModifier("modifier_cu_idle_animation", "abilities/cu_chulain/cu_chulain_gae_bolg", LUA_MODIFIER_MOTION_NONE)
+modifier_cu_idle_animation = class({})
+function modifier_cu_idle_animation:OnCreated(args)
+    self.activity = "not_in_fight"
+	self:StartIntervalThink(0.5)
+end
+function modifier_cu_idle_animation:OnIntervalThink()
+	if self:GetRemainingTime() < 0.5 then
+		self.activity = "not_in_fight"
+	end
+end
+function modifier_cu_idle_animation:OnTakeDamage(args)
+	if args.unit ~= self:GetParent() then return end
+ 	self.activity = "in_fight"
+	self:SetDuration(4, true)
+end
+function modifier_cu_idle_animation:OnAttackLanded(args)
+    if args.attacker ~= self:GetParent() then return end
+    self.activity = "in_fight"
+	self:SetDuration(4, true)
+end
+
+function modifier_cu_idle_animation:IsHidden() return true end
+function modifier_cu_idle_animation:IsDebuff() return false end
+function modifier_cu_idle_animation:IsPurgable() return false end
+function modifier_cu_idle_animation:IsPurgeException() return false end
+function modifier_cu_idle_animation:DestroyOnExpire() return false end
+function modifier_cu_idle_animation:RemoveOnDeath() return false end
+
+function modifier_cu_idle_animation:DeclareFunctions()
+    local func = {    MODIFIER_PROPERTY_TRANSLATE_ACTIVITY_MODIFIERS}
+    return func
+end
+
+function modifier_cu_idle_animation:GetActivityTranslationModifiers()
+	return self.activity
+end
+

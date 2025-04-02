@@ -96,7 +96,7 @@ function hijikata_ult:OnSpellStart()
 				--iVisionRadius = 500,
 				--bFlyingVision = true,
 				--iVisionTeamNumber = caster:GetTeamNumber(),
-				ExtraData = {fDamage = self:GetSpecialValueFor("damage"), velocityX = target.x, velocityY = target.y}
+				ExtraData = {fDamage = self:GetSpecialValueFor("damage") + caster:GetAverageTrueAttackDamage(caster)*self:GetSpecialValueFor("attack_damage_mod")/100 , velocityX = target.x, velocityY = target.y}
 			}  
 			local particle = ParticleManager:CreateParticle("particles/units/hijikata/ult/hijikata_ult.vpcf", PATTACH_WORLDORIGIN, nil)
 			ParticleManager:SetParticleControlTransformForward(particle, 0, origin, target)
@@ -124,7 +124,7 @@ end
 function hijikata_ult:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
 	local hCaster = self:GetCaster()
  	 if(hTarget ~= nil) then
-
+		if hTarget:HasModifier("modifier_protection_from_arrows_active") then return end
 		local dmg_mod = 1
 		local hp_pct = hTarget:GetHealthPercent()
 		local self_hp_pct = hCaster:GetHealthPercent()

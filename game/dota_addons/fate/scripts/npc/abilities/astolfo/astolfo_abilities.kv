@@ -39,7 +39,7 @@
 		// General		//------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_datadriven"
 		"AbilityTextureName"			"custom/astolfo_casa_di_logistilla"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"MaxLevel"						"1"
 		"RequiredLevel"					"25"
 		"LevelsBetweenUpgrades"			"1"
@@ -125,15 +125,15 @@
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_datadriven"
-		"MaxLevel"						"5"
+		"MaxLevel"						"1"
 		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"1"
+		"LevelsBetweenUpgrades"			"25"
 		"AbilityTextureName"			"custom/astolfo_hippogriff_vanish"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
 
-		"AbilityCooldown"				"11 10 9 8 7"
+		"AbilityCooldown"				"25"
 		"AbilityManaCost"				"100"
 		"AbilityCastRange"				"800"
 		"AbilityCastRangeBuffer"		"100"
@@ -152,8 +152,8 @@
 		"AbilityValues"
         {
             "cast_delay" "0.3"
-            "damage" "325 400 475 550 625"
-            "banish_duration" "1.5"
+            "damage" "400"
+            "banish_duration" "0.75"
         }
 
 		"OnSpellStart"
@@ -201,10 +201,10 @@
 				}
 				"States"
 				{
-					"MODIFIER_STATE_UNSELECTABLE" "MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_INVULNERABLE"    "MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NOT_ON_MINIMAP" "MODIFIER_STATE_VALUE_ENABLED"
-					"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
+					//"MODIFIER_STATE_UNSELECTABLE" "MODIFIER_STATE_VALUE_ENABLED"
+					//"MODIFIER_STATE_INVULNERABLE"    "MODIFIER_STATE_VALUE_ENABLED"
+					//"MODIFIER_STATE_NOT_ON_MINIMAP" "MODIFIER_STATE_VALUE_ENABLED"
+					//"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_STUNNED"		"MODIFIER_STATE_VALUE_ENABLED"
 					"MODIFIER_STATE_SILENCED"		"MODIFIER_STATE_SILENCED"
 					"MODIFIER_STATE_NO_UNIT_COLLISION"	"MODIFIER_STATE_VALUE_ENABLED"
@@ -221,7 +221,7 @@
 		// General		//------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_datadriven"
 		"MaxLevel"						"5"
-		"AbilityTextureName"			"custom/astolfo_down_with_a_touch"
+		"AbilityTextureName"			"custom/astolfo/astolfo_down"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
@@ -230,13 +230,13 @@
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
 
-		"AbilityCooldown"				"24 22 20 18 16"
-		"AbilityManaCost"				"200"
-		"AbilityCastRange"				"350"
-		"AbilityCastPoint"				"0.5"
+		"AbilityCooldown"				"15 14 13 12 11"
+		"AbilityManaCost"				"100"
+		//"AbilityCastRange"				"350"
+		"AbilityCastPoint"				"0.25"
 
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3"
-		"AnimationPlaybackRate" 		"2.0"
+		"AnimationPlaybackRate" 		"4.0"
 
 		"precache"
 		{
@@ -248,10 +248,10 @@
         {
             "range" "350"
             "attack_amount" "4"
-            "damage" "100 120 140 160 180"
+            "damage" "70 90 110 130 150"
             "slow" "-30 -40 -50 -60 -70"
             "slow_duration" "3"
-            "lock_duration" "1.2 1.5 1.8 2.1 2.4"
+            "lock_duration" "0.6 0.7 0.8 0.9 1"
             "slow_tier2" "-15 -20 -25 -30 -35"
             "slow_tier3" "-7.5 -10 -12.5 -15 -17.5"
         }
@@ -341,8 +341,8 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
-		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3"
-		"AnimationPlaybackRate" 		"3.0"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_ROT"
+		"AnimationPlaybackRate" 		"1.0"
 		
 		"AbilityCastPoint"				"0.5"
 		"AbilityChannelTime"			"4.1"		
@@ -503,11 +503,12 @@
 		"AbilityCastRange"				"2000"
 		"AbilityCastPoint"				"0.5"
 
-		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3"
-		"AnimationPlaybackRate" 		"2.0"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
+		"AnimationPlaybackRate" 		"0.75"
 
 		"precache"
 		{
+			"particle"			"particles/custom/astolfo/raid_hippogriff.vpcf"
 			"particle"			"particles/custom/astolfo/astolfo_hippogriff_raid_flyer.vpcf"
 			"particle"			"particles/custom/astolfo/astolfo_ground_mark_flex.vpcf"
 			"particle"			"particles/custom/astolfo/hippogriff_raid/astolfo_hippogriff_raid_first_impact.vpcf"
@@ -517,7 +518,7 @@
 		}
 		"AbilityValues"
         {
-            "max_range" "2500"
+            "max_range" "2000"
             "cast_delay" "0.5"
             "reveal_delay" "2.0"
             "total_delay" "4.0"
@@ -579,12 +580,14 @@
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		// "AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
+		// "AnimationPlaybackRate" 		"0.5"
 		"MaxLevel"						"1"
 		"RequiredLevel"					"24"
 		"LevelsBetweenUpgrades"			"1"
 
 
-		"AbilityCooldown"				"150"
+		"AbilityCooldown"				"180"
 		"AbilityManaCost"				"600"
 		"AbilityCastRange"				"3500"
 
@@ -605,7 +608,7 @@
             "duration" "8.0"
             "max_range" "3500"
             "linear_range" "1000"
-            "damage" "1000"
+            "damage" "800"
         }
 
 		"OnSpellStart"

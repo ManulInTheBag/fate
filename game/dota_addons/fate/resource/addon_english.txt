@@ -25,6 +25,7 @@
 		"RemoveSpawnedUnits_Msg"					"Removed Spawned Units"
 		"LaneCreepsOn_Msg"							"Lane Creeps: On"
 		"LaneCreepsOff_Msg"							"Lane Creeps: Off"		
+		"Is_Locked"									"Locked"
 
 		"DemoOptions_MinimizeButton"				"Demo Options"
 		"DemoOptions_UnMinimizeButton"				"  >&#xD;&#xD;&#xD;&#xD;  >"
@@ -924,7 +925,11 @@
 		"DOTA_Tooltip_modifier_pc_bonus_damage_Description"							"Attacks deals bonus magical damage."
 
 		"DOTA_Tooltip_modifier_nss_shock"											"No Second Strike"
-		"DOTA_Tooltip_modifier_nss_shock_Description"								"Revoked"
+		"DOTA_Tooltip_modifier_nss_shock_Description"								"Revoked and damage after delay."
+
+		"DOTA_Tooltip_modifier_nss_shock_no_revoke"											"No Second Strike"
+		"DOTA_Tooltip_modifier_nss_shock_no_revoke_Description"								"Damage after delay"
+		
 
 		"DOTA_Tooltip_modifier_furious_chain_regen"									"Furious Chain"
 		"DOTA_Tooltip_modifier_furious_chain_regen_Description"						"Regeneration increased."
@@ -943,6 +948,15 @@
 
 		"DOTA_Tooltip_saber_strike_air_anim_vfx"                                          "Saber Strike Air Anim Vfx"
 		"DOTA_Tooltip_saber_strike_air_anim_vfx_Description"                              ""
+
+		"DOTA_Tooltip_silenced"                                                           "Silenced"
+		"DOTA_Tooltip_silenced_Description"                                               ""
+
+		"DOTA_Tooltip_modifier_argos_armor"                                              "Bonus Armor"
+		"DOTA_Tooltip_modifier_argos_armor_Description"                                  ""
+
+		"DOTA_Tooltip_modifier_argos_shield"                                              "Argos shield"
+		"DOTA_Tooltip_modifier_argos_shield_Description"                                  ""
 
 		"DOTA_Tooltip_modifier_strike_air_upstream_ready"                                 "Strike Air Upstream Ready"
 		"DOTA_Tooltip_modifier_strike_air_upstream_ready_Description"                     ""
@@ -1249,7 +1263,7 @@
 		"DOTA_Tooltip_modifier_arondite_passive_Description"                              ""
 
 		"DOTA_Tooltip_modifier_arondite"                                                  "Arondite"
-		"DOTA_Tooltip_modifier_arondite_Description"                                      "Immune to targetted abilities and increased parameters."
+		"DOTA_Tooltip_modifier_arondite_Description"                                      "Bonus stats."
 
 		"DOTA_Tooltip_modifier_dark_passage"                                              "Dark Passage"
 		"DOTA_Tooltip_modifier_dark_passage_Description"                                  ""
@@ -1929,8 +1943,11 @@
 		"DOTA_Tooltip_modifier_furious_chain_buff"                                        "Furious Chain Buff"
 		"DOTA_Tooltip_modifier_furious_chain_buff_Description"                            ""
 
+		"DOTA_Tooltip_modifier_shuwen_berserk_cc_immune"                                        			  "Berserk CC IMMUNE"
+		"DOTA_Tooltip_modifier_shuwen_berserk_cc_immune_Description"                              		  "Cannot be controlled."
+
 		"DOTA_Tooltip_modifier_berserk"                                        			  "Berserk"
-		"DOTA_Tooltip_modifier_berserk_Description"                              		  "Fierce Tiger Strike may critical strike. Abilities deal no non-physical damage."
+		"DOTA_Tooltip_modifier_berserk_Description"                              		  "Fierce Tiger Strike deal additional damage. Damage increased."
 
 		"DOTA_Tooltip_modifier_lishuwen_concealment"                                      "Lishuwen Concealment"
 		"DOTA_Tooltip_modifier_lishuwen_concealment_Description"                          ""
@@ -2413,6 +2430,7 @@
 		"DOTA_Tooltip_ability_cu_chulain_rune_of_combat_Lore"			"A rune which raises Cu Chulainn's physical strength, allowing him to match his opponent despite the disadvantages."
 		//"DOTA_Tooltip_ability_cu_chulain_rune_of_combat_duration"		"Duration:"
 		"DOTA_Tooltip_ability_cu_chulain_rune_of_combat_bonus_atk"		"%Bonus Attack:"
+		"DOTA_Tooltip_ability_cu_chulain_rune_of_combat_bonus_atk_max"		"%Bonus Attack maximum:"
 		//"DOTA_Tooltip_ability_cu_chulain_rune_of_combat_stun_dur"		"Stun Duration:"
 
 		"DOTA_Tooltip_Ability_cu_chulain_rune_of_ferocity"						"Rune of Ferocity"
@@ -3009,7 +3027,7 @@
 		"DOTA_Tooltip_Ability_arash_mobility_boost_active_speed"					"Speed:"
 
 		"DOTA_Tooltip_Ability_arash_stella"				"Stella"
-		"DOTA_Tooltip_Ability_arash_stella_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.4</font>\nArash shoots arrow in sky, summoning powerful meteor at a target location after a delay.\nRight after cast Arash becomes <font color='#FF3399'>stunned</font> for a %delay% seconds and takes <font color='#58ACFA'>damage</font> based on his current <font color='#7CFC00'>Health</font>.\nDamage dealt decreases with distance from center.\nEach time Arash uses <font color='#58ACFA'>Stella</font> and hits someone with it he gains <font color='#58ACFA'>Stella</font> stack, increasing <font color='#58ACFA'>Stella</font> <font color='#58ACFA'>damage</font> permanently.\nAll enemies are slowed for 3 seconds on hit. Slow power depends on distance from center."
+		"DOTA_Tooltip_Ability_arash_stella_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.4</font>\nArash shoots arrow in sky, summoning powerful meteor at a target location after a delay.\nRight after cast Arash becomes <font color='#FF3399'>stunned</font> for a %delay% seconds and takes <font color='#58ACFA'>damage</font> based on his current <font color='#7CFC00'>Health</font>.\nDamage dealt decreases with distance from center.\nEach time Arash uses <font color='#58ACFA'>Stella</font> and hits someone with it he gains <font color='#58ACFA'>Stella</font> stack, increasing <font color='#58ACFA'>Stella</font> <font color='#58ACFA'>damage</font> permanently.\nAll enemies are slowed for 1 second on hit. Slow power depends on distance from center."
 		"DOTA_Tooltip_Ability_arash_stella_Lore"					"Behold my deeds, my death, and my Spənta Ārmaiti which I must carry out. After I unleash this last arrow with all my strength, my iron body shall shatter and annihilate me where I stand!"
 		"DOTA_Tooltip_Ability_arash_stella_range"									"Range:"
 		"DOTA_Tooltip_Ability_arash_stella_damage"									"Damage:"
@@ -3070,7 +3088,7 @@
 		"DOTA_Tooltip_Ability_arash_load_magical_energy_cd_reduction"						"Cooldown reduction:"
 
 		"DOTA_Tooltip_Ability_arash_self_sacrifice"				"Attribute: Self sacrifice"
-		"DOTA_Tooltip_Ability_arash_self_sacrifice_Description"	"When Arash dies, all his team in the same realm gets his <font color='#58ACFA'>Toughness</font> buff with additional <font color='#FFFAFA'>movement speed</font> increase and <font color='#7CFC00'>heaks</font> for a fixed amount.\nIf Arash was killed by <font color='#58ACFA'>Max Stella</font>, he will ressurect 1 second after on the same place he died."
+		"DOTA_Tooltip_Ability_arash_self_sacrifice_Description"	"When Arash dies, all his team in the same realm gets his <font color='#58ACFA'>Toughness</font> buff with additional <font color='#FFFAFA'>movement speed</font> increase and <font color='#7CFC00'>heals</font> for a fixed amount.\nIf Arash was killed by <font color='#58ACFA'>Max Stella</font>, he will ressurect 1 second after on the same place he died."
 		"DOTA_Tooltip_Ability_arash_self_sacrifice_Lore"					""
 		"DOTA_Tooltip_Ability_arash_self_sacrifice_buff_duration"					"Buff duration:"
 		"DOTA_Tooltip_Ability_arash_self_sacrifice_ms"								"%Movement speed:"
@@ -3904,7 +3922,7 @@
 		"DOTA_Tooltip_ability_gilgamesh_enkidu_att_sword_count"	"Attribute sword count:"
 		
 		"DOTA_Tooltip_Ability_gilgamesh_gate_of_babylon"	"Gate of Babylon"	
-		"DOTA_Tooltip_ability_gilgamesh_gate_of_babylon_Description"	"Gilgamesh opens a portal to his arsenal, which sends forth numerous weapons over duration.\n If you upgraded Power of Sumer attribute, when this ability is toggled, gate will follow Gilgamesh, otherwise it will stay in place. If you refresh this ability, current gate will stay in place, while new one will follow be one to toggle state of."
+		"DOTA_Tooltip_ability_gilgamesh_gate_of_babylon_Description"	"Gilgamesh opens a portal to his arsenal, which sends forth numerous weapons over duration.\n If you upgraded Power of Sumer attribute, when this ability is toggled, gate will follow Gilgamesh, otherwise it will stay in place.\nIf you refresh this ability, current gate will stay in place, while new one will follow, based on the toggle state."
 		"DOTA_Tooltip_ability_gilgamesh_gate_of_babylon_damage"	"WEAPON DAMAGE:"
 		"DOTA_Tooltip_ability_gilgamesh_gate_of_babylon_duration"	"DURATION:"
 		"DOTA_Tooltip_ability_gilgamesh_gate_of_babylon_Note0"	"Bypasses B Scroll."
@@ -3956,9 +3974,10 @@
 		"DOTA_Tooltip_Ability_gilgamesh_attribute_improve_golden_rule_bounty_bonus"	"%BONUS GOLD BOUNTY:"
 
 		"DOTA_Tooltip_Ability_gilgamesh_attribute_power_of_sumer"					"Attribute: Power of Sumer"
-		"DOTA_Tooltip_ability_gilgamesh_attribute_power_of_sumer_Description"		"Increases Gilgamesh's gate of babylon and sword barrage damage based on ATK. Bonus damage is dealth as physical. Allow Gate of Babylon to follow Gilgamesh when ability is toggled on."
-		"DOTA_Tooltip_Ability_gilgamesh_attribute_power_of_sumer_dmg_ratio"			"ATTACK DAMAGE RATIO E:"
-		"DOTA_Tooltip_Ability_gilgamesh_attribute_power_of_sumer_dmg_ratio_q"			"ATTACK DAMAGE RATIO Q:"
+		"DOTA_Tooltip_ability_gilgamesh_attribute_power_of_sumer_Description"		"Increases Gilgamesh's Gate of Babylon and sword barrage damage based on ATK.\nBonus damage is dealt as physical on sword barrage and as both physical and magical on Gate of Babylon.\nAllow Gate of Babylon to follow Gilgamesh when ability is toggled on."
+		"DOTA_Tooltip_Ability_gilgamesh_attribute_power_of_sumer_dmg_ratio"					"ATTACK DAMAGE RATIO E PHYS:"
+		"DOTA_Tooltip_Ability_gilgamesh_attribute_power_of_sumer_dmg_ratio_magical"			"ATTACK DAMAGE RATIO E MAGIC:"
+		"DOTA_Tooltip_Ability_gilgamesh_attribute_power_of_sumer_dmg_ratio_q"				"ATTACK DAMAGE RATIO Q:"
 
 		"DOTA_Tooltip_Ability_gilgamesh_attribute_chains_of_heaven"					"Attribute: Chains of heaven"
 		"DOTA_Tooltip_ability_gilgamesh_attribute_chains_of_heaven_Description"		"Upgrades Enkidu, making it lasting longer and shooting blades from gate of babylon into its target, dealing damage, half of which is dealt in aoe."
@@ -3980,7 +3999,9 @@
 
 		"npc_dota_hero_crystal_maiden_hype"	""
 		"npc_dota_hero_crystal_maiden_bio"	""
-		
+		"DOTA_Tooltip_Ability_medea_blink"	"Blink"
+		"DOTA_Tooltip_ability_medea_blink_Description"	"Medea immediately blinks to the target point, disjoining projectiles."
+		"DOTA_Tooltip_ability_medea_blink_base_dist"	"Distance:"
 		"DOTA_Tooltip_Ability_caster_5th_item_construction"	"Item Construction"
 		"DOTA_Tooltip_ability_caster_5th_item_construction_Description"	"Crafts an B, A or S scroll. The chance to craft a higher rank scroll increases while Caster is nearby her Workshop."
 		"DOTA_Tooltip_ability_caster_5th_item_construction_Lore"	"From simple magic scrolls to ichor of immortality, Caster forms magic into powerful artifacts."
@@ -4084,6 +4105,12 @@
 		"DOTA_Tooltip_ability_caster_5th_argos_shield_amount"	"SHIELD CHARGE PER CAST:"
 		"DOTA_Tooltip_ability_caster_5th_argos_max_shield"	"MAX SHIELD CHARGE:"
 		"DOTA_Tooltip_ability_caster_5th_argos_Lore"	""	
+
+		"DOTA_Tooltip_Ability_medea_argos"	"Argos"
+		"DOTA_Tooltip_Ability_medea_argos_Description"	"Caster surrounds herself with a magical shield that absorbs a certain amount of damage.\n\nUpgradable by attribute Improve Argos."
+		"DOTA_Tooltip_Ability_medea_argos_shield_amount"	"SHIELD CHARGE PER CAST:"
+		"DOTA_Tooltip_Ability_medea_argos_max_shield"	"MAX SHIELD CHARGE:"
+		"DOTA_Tooltip_Ability_medea_argos_Lore"	""	
 		
 		"DOTA_Tooltip_Ability_caster_5th_ancient_magic"	"Magic of the Ancient Ages"
 		"DOTA_Tooltip_ability_caster_5th_ancient_magic_Description"	"SPELLBOOK : Allows Caster to cast various spells from the Age of Gods. Spells inside don't share cooldown and follow the level of this ability."
@@ -4188,11 +4215,22 @@
 	"npc_dota_hero_sven_hype"	""
 	"npc_dota_hero_sven_bio"	""
 
+		"DOTA_Tooltip_ability_lancelot_parry"					"Parry"
+		"DOTA_Tooltip_ability_lancelot_parry_Description"		"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>0.1</font> | <font color='#FFFAFA'>Channel duration:</font> <font color='#7FFF00'>1</font>\nLancelot gains a  %shield_amount% <font color='#FFFAFA'>all-damage barrier</font> and becomes <font color='#ff9900'>immune to crowd control</font> for the duration.\nIf shield is broken, Lancelot <font color='#FFFAFA'>cleanses</font> himself and slashes all enemies in front of him, dealing <font color='#58ACFA'>magical</font> damage, <font color='#9400D3'>rooting</font> and <font color='#9400D3'>disarming</font> targets hit and <font color='#A72E28'>attaking</font> them once with his basic attack.\nDamage that have breaken shield is additionally decreased.\nActivating Parry will reset cooldown of <font color='#00008B'>Arondight overload</font> and restore mana to Lancelot."
+		"DOTA_Tooltip_ability_lancelot_parry_Note1"					"Barrier has highest priority and works before B Scroll. Although any source of physical or magical barrier will work before it."
+		"DOTA_Tooltip_ability_lancelot_parry_shield_amount"				"Shield amount:"
+		"DOTA_Tooltip_ability_lancelot_parry_damage"					"Damage:"
+		"DOTA_Tooltip_ability_lancelot_parry_root_dur"					"Debuffs duration:"
+		"DOTA_Tooltip_ability_lancelot_parry_mana"						"Mana restore:"
+		"DOTA_Tooltip_ability_lancelot_parry_shield_damage_decrease_flat_value"					"Damage reduction:"
+
+
         "DOTA_Tooltip_Ability_lancelot_arms_mastership" 				"Eternal Arms Mastership"
-        "DOTA_Tooltip_ability_lancelot_arms_mastership_Description" 	"<font color='#79C7F0'>Passive</font>: Lancelot's basic attacks have chance to critical strike.\n<font color='#79C7F0'>Active</font>: For a very short duration, Lancelot's basic attacks are guaranteed to be critical strikes."
+        "DOTA_Tooltip_ability_lancelot_arms_mastership_Description" 	"\n<font color='#F1C40F'>Unlocked by attribute Eternal Arms mastership.\n</font><font color='#79C7F0'>Passive</font>: Lancelot's basic attacks have chance to <font color='#A72E28'>critical strike</font>.\n<font color='#79C7F0'>Active</font>: For a duration, Lancelot's attacks are guarenteed to be a <font color='#A72E28'>critical strike</font>\nIn addition, whenever Lancelot is targeted by a  <font color='#FFFAFA'>unit-target</font> ability, he will receive a  <font color='#FFFAFA'>damage reduction</font> effect for a %proc_dur% duration."
         "DOTA_Tooltip_Ability_lancelot_arms_mastership_crit_chance"		"%Critical Chance: "
         "DOTA_Tooltip_Ability_lancelot_arms_mastership_crit_damage"		"%Critical Damage: "
         "DOTA_Tooltip_Ability_lancelot_arms_mastership_active_duration"	"Active Duration: "
+        "DOTA_Tooltip_Ability_lancelot_arms_mastership_proc_dmg_reduct" "%Proc damage reduction: "
         "DOTA_Tooltip_Ability_lancelot_arms_mastership_Lore"    		"Lancelot's mastership of combat arts has reached the point where it is possible for him to make full use of it despite being under the influence of madness."
 
         "DOTA_Tooltip_Ability_lancelot_smg_barrage"						"SMG Barrage"
@@ -4205,12 +4243,18 @@
         "DOTA_Tooltip_modifier_lancelot_minigun"						"M134 Minigun"
 
         "DOTA_Tooltip_Ability_lancelot_minigun"							"M134 Minigun"
-        "DOTA_Tooltip_Ability_lancelot_minigun_Description"				"Lancelot pulls out a rotary gun and starts shooting it for a maximum of %duration% seconds.\nLancelot can't move while shooting, but can turn with decreased turn rate.\nLancelot fires %bullets_per_second% shots per second, spending <font color='#58ACFA'>%mana_per_bullet% mana</font> per bullet.\nEach bullet deals <font color='#A72E28'>physical</font> damage based on Lancelot's attack damage and applyes a <font color='#FF3399'>slow</font> debuff for 1 second.\nIf Lancelot runs out of <font color='#58ACFA'>mana</font>, this ability will stop automatically.\nThis ability goes on cooldown equal to %cooldown_per_second% times the amount of time Lancelot spent shooting."
+        "DOTA_Tooltip_Ability_lancelot_minigun_Description"				"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>0.3</font> | <font color='#FFFAFA'>Channel duration:</font> <font color='#7FFF00'>5</font>\nLancelot pulls out a rotary gun and starts shooting it for a maximum of %duration% seconds.\nLancelot can't move while shooting, but can turn with decreased turn rate.\nLancelot fires %bullets_per_second% shots per second, spending <font color='#58ACFA'>%mana_per_bullet% mana</font> per bullet.\nEach bullet deals <font color='#58ACFA'>magical</font> damage based on Lancelot's attack damage and applies a <font color='#FF3399'>slow</font> debuff for 1 second.\nIf Lancelot runs out of <font color='#58ACFA'>mana</font>, this ability will stop automatically.\nThis ability goes on cooldown equal to %cooldown_per_second% times the amount of time Lancelot spent shooting.\nWhile this ability is performed, Lancelot may use <font color='#58ACFA'>Reposition</font> ability.\n<font color='#F1C40F'>Upgradable by attribute Eternal flame.</font>"
         "DOTA_Tooltip_Ability_lancelot_minigun_base_damage"				"Bullet base damage:"
         "DOTA_Tooltip_Ability_lancelot_minigun_atk_damage"				"%Bullet attack scale:"
         "DOTA_Tooltip_Ability_lancelot_minigun_range"					"Range:"
         "DOTA_Tooltip_Ability_lancelot_minigun_ms_slow"					"%Slow:"
         "DOTA_Tooltip_ability_lancelot_minigun_Lore"        			"Bringing gun to swordfight is the least of concerns for maddened knight."
+
+
+        "DOTA_Tooltip_Ability_lancelot_dash"							"Reposition"
+        "DOTA_Tooltip_Ability_lancelot_dash_Description"				"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>IMMEDIATE</font>\nLancelot quickly dashes towards target point, while greatly increasing his <font color='#FFFAFA'>turn rate speed</font> for a short duration."
+        "DOTA_Tooltip_Ability_lancelot_dash_speed"					"Speed:"
+        "DOTA_Tooltip_Ability_lancelot_dash_distance"				"Distance:"
 
         "DOTA_Tooltip_Ability_lancelot_minigun_end"						"M134 Minigun"
         "DOTA_Tooltip_Ability_lancelot_minigun_end_Description"			"Stops the ability."
@@ -4228,7 +4272,7 @@
          "DOTA_Tooltip_ability_lancelot_double_edge_base_dmg_amp_self"	"%Incoming Damage:"
 
         "DOTA_Tooltip_Ability_lancelot_knight_of_honor" 				"Knight of Honor"
-        "DOTA_Tooltip_ability_lancelot_knight_of_honor_Description"     "SPELLBOOK : Allows Berserker to execute Noble Phantasms of other Servants as his own. Can unlock up to 5 abilities as skill level increases. All Noble Phantasms are fixed at Level 1 and have global cooldown.\nLvl 1 : Vortigern\nLv 2 : Gae Bolg\nLv 3 : Nine Lives\nLv 4 : Rule Breaker\nLv 5 : Tsubame Gaeshi\n\nUpgradable with attribute Improve Knight of Honor."
+        "DOTA_Tooltip_ability_lancelot_knight_of_honor_Description"     "<font color='#FFFAFA'>SPELLBOOK</font> : Allows Berserker to execute Noble Phantasms of other Servants as his own.\nAll noble phantasms are upgraded with this ability level and have <font color='#FFFAFA'>global cooldown</font>.\nAbilities list:\n<font color='#58ACFA'>Vortigern</font>\n<font color='#58ACFA'>Gae Bolg</font>\n<font color='#58ACFA'>Rosa Ichtys</font>\n<font color='#58ACFA'>Nine lives</font>\n<font color='#58ACFA'>Tsubame Gaeshi</font>.\n<font color='#F1C40F'>Upgradable by attribute Eternal arms mastership</font>"
         "DOTA_Tooltip_ability_lancelot_knight_of_honor_Lore"    		"The knight does not die empty-handed."
 
         "DOTA_Tooltip_lancelot_knight_of_honor_close"					"Close"
@@ -4247,15 +4291,15 @@
 		"DOTA_Tooltip_ability_lancelot_caliburn_Note0"		"Target damage and AoE damage are separate instances, and may not fall into proc range of certain abilities such as Lancer(5th)'s Battle Continuation"
 
 		"DOTA_Tooltip_Ability_lancelot_vortigern"		"Vortigern"
-		"DOTA_Tooltip_ability_lancelot_vortigern_Description"	"Berserker swings his sword in crescent, dealing damage to enemies in trail and <font color='#FF3399'>stunning</font> them. Units at the start of swing take less damage and are stunned for shorter duration, but as sword gets momentum it deals more damage and stuns for longer at the end."
+		"DOTA_Tooltip_ability_lancelot_vortigern_Description"	"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>0.1</font>\nLancelot swings his sword in crescent, dealing <font color='#58ACFA'>magical</font> to enemies in trail and <font color='#FF3399'>stunning</font> them.\nUnits at the start of swing take <font color='#FFFAFA'>less</font> damage and are stunned for shorter duration, but as sword gets momentum it deals <font color='#FFFAFA'>more</font> damage and stuns for longer at the end."
 		"DOTA_Tooltip_ability_lancelot_vortigern_radius"	"RANGE:"
 		"DOTA_Tooltip_ability_lancelot_vortigern_damage"	"BASE DAMAGE:"
 		"DOTA_Tooltip_ability_lancelot_vortigern_low_end"	"%MIN. DAMAGE:"
 		"DOTA_Tooltip_ability_lancelot_vortigern_high_end"	"%MAX. DAMAGE:"
-		"DOTA_Tooltip_ability_lancelot_vortigern_stun_duration"	"STUN DURATION:"
+		"DOTA_Tooltip_ability_lancelot_vortigern_stun_duration"	"BASE STUN DURATION:"
 
 		"DOTA_Tooltip_Ability_lancelot_gae_bolg"					"The Spear of Impaling Barbed Death"
-		"DOTA_Tooltip_ability_lancelot_gae_bolg_Description"		"Berserker pierces the enemy with Gae Bolg, dealing damage and stunning target. If this blow would reduce the target's health below threshold, target is instantly killed. \nUpgradable with attribute Improve Gae Bolg and The Heartseeker."
+		"DOTA_Tooltip_ability_lancelot_gae_bolg_Description"		"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>0.6</font>\nLancelot pierces the enemy with <font color='#58ACFA'>Gae Bolg</font>, dealing <font color='#58ACFA'>damage</font>.\nIf this blow would reduce the target's health below threshold, target is <font color='#D1A951'>executed</font>."
 		"DOTA_Tooltip_ability_lancelot_gae_bolg_heartbreak_threshold"		"Execution Threshold: "
 		"DOTA_Tooltip_ability_lancelot_gae_bolg_Note0"				"Heart Break is considered a forced kill, and bypasses most of revival abilities such as Red Saber(Extra)'s Invictus Spiritus and Ruler's La Pucelle."
 
@@ -4265,16 +4309,24 @@
 		"DOTA_Tooltip_ability_lancelot_rule_breaker_duration"	"BANISH DURATION:"
 
 		"DOTA_Tooltip_Ability_lancelot_nine_lives"	"Nine Lives"
-		"DOTA_Tooltip_ability_lancelot_nine_lives_Description"	"Berserker rapidly dashes to target location and strikes all enemies in 350 radius 9 times, damaging and stunning them repetitively over duration. The last strike deals more damage and briefly knocks therm back in 500 area of effect. Once activated, Berserker cannot be interrupted."	
+		"DOTA_Tooltip_ability_lancelot_nine_lives_Description"	"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>0.1</font>\nLancelot rapidly <font color='#FFFAFA'>dashes</font> to target location and strikes all enemies in <font color='#FFFAFA'>350</font> radius 9 times, dealing <font color='#58ACFA'>damage</font>, <font color='#9400D3'>rooting</font> and <font color='#9400D3'>locking</font> them.\nThe last strike deals more damage and briefly knocks therm back in 500 area of effect, <font color='#FF3399'>stunning</font>.\nOnce activated, Lancelot cannot be interrupted."	
 		"DOTA_Tooltip_ability_lancelot_nine_lives_range"	"RANGE:"
 		"DOTA_Tooltip_ability_lancelot_nine_lives_damage"	"DAMAGE PER HIT:"
 		"DOTA_Tooltip_ability_lancelot_nine_lives_damage_lasthit"	"LAST HIT DAMAGE:"
+		"DOTA_Tooltip_ability_lancelot_nine_lives_radius_lasthit"	"LAST HIT RADIUS:"
+		"DOTA_Tooltip_ability_lancelot_nine_lives_stun_duration"	"LAST HIT STUN DURATION:"
+
+		"DOTA_Tooltip_Ability_lancelot_rosa"	"Rosa Ichtys"
+		"DOTA_Tooltip_ability_lancelot_rosa_Description"	"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>0.1</font>\nLancelot strikes enemies in front of him, dealing <font color='#58ACFA'>damage</font>, and <font color='#FF3399'>pushing</font> them from left to right.\nWhile enemies are pushed, they are stunned."
+		"DOTA_Tooltip_ability_lancelot_rosa_damage"			"Damage:"
+		"DOTA_Tooltip_ability_lancelot_rosa_radius"			"Radius:"
+		"DOTA_Tooltip_ability_lancelot_rosa_stun_duration"	"Stun duration:"
 
 		"DOTA_Tooltip_Ability_lancelot_tsubame_gaeshi"	"Tsubame Gaeshi"
-		"DOTA_Tooltip_ability_lancelot_tsubame_gaeshi_Description"	"Berserker takes stance for 0.7 seconds to prepare for his ultimate technique, delivering 3 consecutive slashes that deal pure damage. Last strike deals more damage and stuns target for 1.5 seconds. Once activated, it cannot be dodged."
+		"DOTA_Tooltip_ability_lancelot_tsubame_gaeshi_Description"	"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>0.6</font>\nLancelot strikes the target 3 times, dealing <font color='#D1A951'>pure</font> damage.\nLast hit damage is increased.\nOnce activated, it cannot be dodged."
 		"DOTA_Tooltip_ability_lancelot_tsubame_gaeshi_damage"	"DAMAGE:"
 		"DOTA_Tooltip_ability_lancelot_tsubame_gaeshi_lasthit_damage"	"LAST HIT DAMAGE:"
-		"DOTA_Tooltip_ability_lancelot_tsubame_gaeshi_stun_duration"	"STUN DURATION:"
+		//"DOTA_Tooltip_ability_lancelot_tsubame_gaeshi_stun_duration"	"STUN DURATION:"
 
 		"DOTA_Tooltip_Ability_lancelot_close_spellbook"					"Close Spellbook"
 		"DOTA_Tooltip_ability_lancelot_close_spellbook_Description"	"Closes spellbook and returns to Berserker's original abilities."
@@ -4319,7 +4371,7 @@
         "DOTA_Tooltip_ability_lancelot_gae_dearg_Note1"		"Gae Dearg is considered a strong dispel, and will remove shield effects as well(i.e B Scroll, Archer's Rho Aias)"		
 
         "DOTA_Tooltip_Ability_lancelot_arondite"        			"Arondight"
-        "DOTA_Tooltip_ability_lancelot_arondite_Description"    	"Lancelot unveils his true weapon, Arondight. Greatly increases his parameters (agility is half of the amount), recovering some health, rendering Lancelot immune to negative effects (hardcleanses himself every 0.5 seconds), as well as causing his attacks to create a cone of fire, dealing magical damage to all enemies hit if he has the mana."
+        "DOTA_Tooltip_ability_lancelot_arondite_Description"    	"<font color='#FFFAFA'>Cast point </font>:  <font color='#7FFF00'>%cast_point%</font>\nLancelot unveils his true weapon, <font color='#00008B'>Arondight</font>. Greatly increases his parameters and <font color='#ACFF05'>healing</font> himself.\nWhile active, Lancelot's attacks spend <font color='#58ACFA'>mana</font> to deal additional magical damage in a cone.\nFor the duration, allows the usage of <font color='#00008B'>Arondight overload</font>.\n<font color='#F1C40F'>Upgradable by attributes Knight of the Lake and Eternal Flame.</font>"
         "DOTA_Tooltip_ability_lancelot_arondite_Lore"   			"The unfading light of the lake, blackened by the madness and resentment of Lancelot."
         "DOTA_Tooltip_ability_lancelot_arondite_activate_heal" 		"Health Regained:"
         //"DOTA_Tooltip_ability_lancelot_arondite_radius" 			"RADIUS :"
@@ -4327,21 +4379,29 @@
         "DOTA_Tooltip_ability_lancelot_arondite_bonus_damage"		"Bonus Damage:"
         "DOTA_Tooltip_ability_lancelot_arondite_bonus_allstat"		"Bonus All Stats:"
         "DOTA_Tooltip_ability_lancelot_arondite_duration"			"Duration:"
-        //"DOTA_Tooltip_Ability_lancelot_arondite_Note0"				"Arondight prevents a lot of targeted abilities from affecting Lancelot, but there are abilities which ignores this effect."
+
+
+
+        "DOTA_Tooltip_Ability_lancelot_arondight_overload"        			"Arondight overload"
+        "DOTA_Tooltip_ability_lancelot_arondight_overload_Description"    	"<font color='#FFFAFA'>Cast point </font>:  <font color='#7FFF00'>%cast_point%</font>\nLancelot strikes in front of him with a slashing attack of overloaded <font color='#00008B'>Arondight</font>.\nSlash deals <font color='#58ACFA'>damage</font>, performs an <font color='#A72E28'>attack</font> on all targets hit and <font color='#FF3399'>stuns</font> them.\n<font color='#F1C40F'>Upgradable by attribute Knight of the Lake.</font>"
+        "DOTA_Tooltip_ability_lancelot_arondight_overload_damage"		"Damage:"
+        "DOTA_Tooltip_ability_lancelot_arondight_overload_radius"		"Radius:"
+        "DOTA_Tooltip_ability_lancelot_arondight_overload_stun_duration"			"Stun duration:"
 
         "DOTA_Tooltip_Ability_lancelot_blessing_of_fairy"        		"Blessing of Fairy"
-        "DOTA_Tooltip_ability_lancelot_blessing_of_fairy_Description"	"Lancelot becomes immune to magic when his health drops critically low."
+        "DOTA_Tooltip_ability_lancelot_blessing_of_fairy_Description"	"When Lancelot's health drops to a threshold, he will gain <font color='#ff9900'>magic immunity</font> for a duration and <font color='#ACFF05'>heal</font> himself."
         "DOTA_Tooltip_ability_lancelot_blessing_of_fairy_Lore"   		"The gifted fortune from Fairies of Lake allows bearer to thrive in even the most dire battle."
         "DOTA_Tooltip_ability_lancelot_blessing_of_fairy_Note0"			"Applies a strong dispel when triggered."
         "DOTA_Tooltip_ability_lancelot_blessing_of_fairy_damage_threshold"	"HEALTH THRESHOLD:"
         "DOTA_Tooltip_ability_lancelot_blessing_of_fairy_duration"			"MAGIC IMMUNITY DURATION:"
-
+        "DOTA_Tooltip_ability_lancelot_blessing_of_fairy_heal"				"HEAL:"
 
         "DOTA_Tooltip_Ability_lancelot_attribute_blessing_of_fairy"							"Attribute: Blessing of Fairy"
-        "DOTA_Tooltip_ability_lancelot_attribute_blessing_of_fairy_Description"				"Allows Berserker to become immune to magic when his health drops critically low."
+        "DOTA_Tooltip_ability_lancelot_attribute_blessing_of_fairy_Description"				"When Lancelot's health drops to a threshold, he will gain <font color='#ff9900'>magic immunity</font> for a duration and <font color='#ACFF05'>heal</font> himself."
         "DOTA_Tooltip_Ability_lancelot_attribute_blessing_of_fairy_Note0"					"Applies a strong dispel when triggered."
         "DOTA_Tooltip_Ability_lancelot_attribute_blessing_of_fairy_health_threshold"		"HEALTH THRESHOLD:"
-        "DOTA_Tooltip_Ability_lancelot_attribute_blessing_of_fairy_magic_immune_duration"	"MAGIC IMMUNITY DURATION"
+        "DOTA_Tooltip_Ability_lancelot_attribute_blessing_of_fairy_magic_immune_duration"	"MAGIC IMMUNITY DURATION:"
+        "DOTA_Tooltip_Ability_lancelot_attribute_blessing_of_fairy_healing"					"HEAL:"
         "DOTA_Tooltip_Ability_lancelot_attribute_blessing_of_fairy_Lore"   					"The gifted fortune from Fairies of Lake allows bearer to thrive in even the most dire battle."
 
         "DOTA_Tooltip_Ability_lancelot_attribute_improve_knight_of_honor"					"Attribute: Improve Knight of Honor"
@@ -4352,7 +4412,7 @@
 		"DOTA_Tooltip_Ability_lancelot_attribute_improve_koh_arsenal_Note0" "Arsenal Contents:\nE Lvl 1 - Caliburn\nE Lvl 2 - Snatch Strike\nE Lvl 3 - Windblade\nE Lvl 4 - The Spear of Striking Death Flight\nE Lvl 5 - Gae Daerg"
 
 		"DOTA_Tooltip_Ability_lancelot_attribute_kotl"         				"Attribute: Knight of the Lake"
-        "DOTA_Tooltip_Ability_lancelot_attribute_kotl_Description"			"Multiplies the parameters granted by Arondight by 2. Applies a strong dispel when Arondight is activated."
+        "DOTA_Tooltip_Ability_lancelot_attribute_kotl_Description"			"Upgrades <font color='#00008B'>Arondight</font>, <font color='#FFFAFA'>multiplying</font> the parameters granted by Arondight by 2.\nApplies a strong dispel when <font color='#00008B'>Arondight</font> is activated.\n\nFor the first 3 seconds, Lancelot will <font color='#FFFAFA'>hard cleanse himself</font> every <font color='#FFFAFA'>0.5</font> seconds after casting <font color='#00008B'>Arondight</font>.\nIncreases <font color='#00008B'>Arondight overload</font> damage by <font color='#FFFAFA'>1.5x</font> of his attack."
 
         "DOTA_Tooltip_Ability_lancelot_attribute_kotl_Lore"					"The wielder of Arondight is said to be the perfect knight, unrivaled out of those who set at the Round Table of Camelot."
         //"DOTA_Tooltip_Ability_lancelot_attribute_kotl_crit_rate"         "%CRITICAL RATE:"
@@ -4365,23 +4425,36 @@
         "DOTA_Tooltip_Ability_lancelot_attribute_total_assault_crit_damage"         "%CRITICAL DAMAGE:"
 
         "DOTA_Tooltip_Ability_lancelot_attribute_eternal_flame"					"Attribute: Eternal Flame"
-        "DOTA_Tooltip_ability_lancelot_attribute_eternal_flame_Description"		"Removes the mana cost for Arondight to trigger firing the cone of fire. Causes M134 Minigun to reduce the enemy's armor when it hits \nThis reduction cannot lower armor below 0."
-        "DOTA_Tooltip_Ability_lancelot_attribute_eternal_flame_armor_shred"		"Armor shred:"
-        "DOTA_Tooltip_Ability_lancelot_attribute_eternal_flame_duration"		"Armor shred duration:"
+        "DOTA_Tooltip_ability_lancelot_attribute_eternal_flame_Description"		"Removes the mana cost for <font color='#00008B'>Arondight</font> to trigger firing the cone of fire.\nCauses  <font color='#58ACFA'>M134 Minigun</font> to apply a stacking debuff on enemy, which will <font color='#9400D3'>root</font> and <font color='#9400D3'>lock</font> enemies upon reaching 10 stacks."
+        //"DOTA_Tooltip_Ability_lancelot_attribute_eternal_flame_armor_shred"		"Armor shred:"
+        "DOTA_Tooltip_Ability_lancelot_attribute_eternal_flame_duration"		"Debuff duration:"
+        "DOTA_Tooltip_Ability_lancelot_attribute_eternal_flame_root_dur"		"Root and lock duration:"
         "DOTA_Tooltip_Ability_lancelot_attribute_eternal_flame_Lore"			"Legend has it that Lancelot once slew a dragon. Perhaps this is why the blade of Arondight spits out fire when swung."
 
+
+        "DOTA_Tooltip_Ability_lancelot_attribute_knight_of_owner"					"Attribute: Improve Knight of Honor"
+        "DOTA_Tooltip_ability_lancelot_attribute_knight_of_owner_Description"		"Upgrades <font color='#58ACFA'>Knight of Honor</font>, applying effects: \n<font color='#58ACFA'>Vortigern</font>: <font color='#FF3399'>stun</font> duration increased by <font color='#FFFAFA'>0.2</font>\n<font color='#58ACFA'>Gae Bolg</font>:Damage type changed to <font color='#D1A951'>pure</font>.\n<font color='#58ACFA'>Rosa Ichtys</font>:Damage is increased by <font color='#FFFAFA'>200</font>, now Lancelot performs <font color='#A72E28'>basic attacks</font> on enemies hit.\n<font color='#58ACFA'>Nine Lives</font>:Now <font color='#FF3399'>microstuns</font> on each hit.\n<font color='#58ACFA'>Tsubame Gaeshi</font>: Now performs <font color='#A72E28'>basic attacks</font> on each hit."
+        //"DOTA_Tooltip_Ability_lancelot_attribute_eternal_flame_armor_shred"		"Armor shred:"
+     
+
+        "DOTA_Tooltip_modifier_eam_crit_active"								"Eternal arms"
+        "DOTA_Tooltip_modifier_eam_crit_active_Description"					"Gain damage resistance upon getting hit by unit target skill"
+
+        "DOTA_Tooltip_modifier_lancelot_eternal_procked"								"Eternal arms prock"
+        "DOTA_Tooltip_modifier_lancelot_eternal_procked_Description"					"Damage resistance."
+
         "DOTA_Tooltip_modifier_eternal_flame_shred"								"Eternal Flame"
-        "DOTA_Tooltip_modifier_eternal_flame_shred_Description"					"Your armor is decreased"
+        "DOTA_Tooltip_modifier_eternal_flame_shred_Description"					"You will be rooted and locked upon reaching 10 stacks"
 
         "DOTA_Tooltip_modifier_lancelot_minigun_slow"					"Slowed"
 		"DOTA_Tooltip_modifier_lancelot_minigun_slow_Description"		""
 
         "DOTA_Tooltip_Ability_lancelot_attribute_improve_eternal"               	"Attribute: Eternal Arms Mastership"
-        "DOTA_Tooltip_ability_lancelot_attribute_improve_eternal_Description"		"Enables the usage of Eternal Arms Mastership, which grants Lancelot chance to deal critical strikes on attacks. Activating Eternal Arms Mastership temporarily increases the chance of critical strike to 100%% for a very short duration. Also increases level of abilities within Knight of Honor."
-        "DOTA_Tooltip_ability_lancelot_attribute_improve_eternal_active_duration"	"Active Duration: "
-        "DOTA_Tooltip_ability_lancelot_attribute_improve_eternal_crit_chance"		"%Critical Chance"
-        "DOTA_Tooltip_ability_lancelot_attribute_improve_eternal_crit_damage"		"%Critical Damage"
-        "DOTA_Tooltip_ability_lancelot_attribute_improve_eternal_koh_level"			"Knight of Honor level: "
+        "DOTA_Tooltip_ability_lancelot_attribute_improve_eternal_Description"		"Unlocks <font color='#58ACFA'>Eternal arms mastership</font>.\nRemoves <font color='#FFFAFA'>global cooldown</font> from <font color='#58ACFA'>Knight of Honor</font>."
+        //"DOTA_Tooltip_ability_lancelot_attribute_improve_eternal_active_duration"	"Active Duration: "
+        //"DOTA_Tooltip_ability_lancelot_attribute_improve_eternal_crit_chance"		"%Critical Chance"
+        //"DOTA_Tooltip_ability_lancelot_attribute_improve_eternal_crit_damage"		"%Critical Damage"
+        //"DOTA_Tooltip_ability_lancelot_attribute_improve_eternal_koh_level"			"Knight of Honor level: "
         "DOTA_Tooltip_ability_lancelot_attribute_improve_eternal_Lore"    			"Lancelot's mastership of combat arts has reached the point where it is possible for him to make full use of it despite being under the influence of madness."
 
         "DOTA_Tooltip_Ability_lancelot_combo_arondite_overload"				"Combo: Arondite - Overload"
@@ -4585,7 +4658,7 @@
         "DOTA_Tooltip_ability_diarmuid_double_spearmanship_proc_chance"	"%Double Attack Chance:"
         "DOTA_Tooltip_ability_diarmuid_double_spearmanship_duration"	"Active Duration:"
         "DOTA_Tooltip_ability_diarmuid_double_spearmanship_on_hit"		"Active On Hit Magic Damage:"
-        "DOTA_Tooltip_ability_diarmuid_double_spearmanship_on_hit"		"Active On Hit Pure Damage:"
+        "DOTA_Tooltip_ability_diarmuid_double_spearmanship_on_hit"		"Active On Hit Magic Damage:"
         "DOTA_Tooltip_ability_diarmuid_double_spearmanship_window"		"Gae Window:"
         "DOTA_Tooltip_ability_diarmuid_double_spearmanship_Lore"     	""
 
@@ -4936,7 +5009,7 @@
         "DOTA_Tooltip_ability_iskander_archers_distribution_radius"			"DISTRIBUTION RADIUS:"
 
         "DOTA_Tooltip_Ability_iskandar_gordius_wheel"     "Gordius Wheel"
-        "DOTA_Tooltip_ability_iskandar_gordius_wheel_Description" "<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.01</font>\nIskandar rides on battle chariot, gaining bonus <font color='#FFFAFA'>armor</font>, <font color='#FFFAFA'>magic resistance</font> and <font color='#FFFAFA'>movement speed</font>\nEvery second Iskandar <font color='#FFFAFA'>movement speed</font> increases without a limit and he deals <font color='#58ACFA'>damage</font> in radius, based on distance to enemy.\nWhile Gordius Wheel persists, <font color='#58ACFA'>Forward!</font>, <font color='#58ACFA'>Phalanx</font> and <font color='#58ACFA'>Summon archers</font> all have <font color='#7FFF00'>0</font> <font color='#FFFAFA'>Cast point</font> and <font color='#58ACFA'>Army of the King</font> cannot be cast.\nIskandar is <font color='#9400D3'>locked</font> while riding.\n<font color='#F1C40F'>Upgradable by attributes Thundergod's Wrath and Via Expugnatio.</font>"
+        "DOTA_Tooltip_ability_iskandar_gordius_wheel_Description" "<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.01</font>\nIskandar rides on battle chariot, gaining bonus <font color='#FFFAFA'>armor</font>, <font color='#FFFAFA'>magic resistance</font> and <font color='#FFFAFA'>movement speed</font>\nEvery second Iskandar <font color='#FFFAFA'>movement speed</font> increases without a limit and he deals <font color='#58ACFA'>damage</font> in radius, based on distance to enemy.\nWhile Gordius Wheel persists, <font color='#58ACFA'>Forward!</font>, <font color='#58ACFA'>Phalanx</font> and <font color='#58ACFA'>Summon archers</font> all have <font color='#7FFF00'>0</font> <font color='#FFFAFA'>Cast point</font> and <font color='#58ACFA'>Army of the King</font> cannot be cast.\nIskandar is <font color='#9400D3'>locked</font> while riding.\nIskandar will only deal damage, if he traveled atleast 100 distance between ticks.\n<font color='#F1C40F'>Upgradable by attributes Thundergod's Wrath and Via Expugnatio.</font>"
         "DOTA_Tooltip_ability_iskandar_gordius_wheel_Lore"	"When getting in Rider's path of domination, one should be prepared for the mighty stomp of divine bulls."
         "DOTA_Tooltip_ability_iskandar_gordius_wheel_cast_delay"    			 "CAST DELAY:"   
         "DOTA_Tooltip_ability_iskandar_gordius_wheel_duration"     				 "DURATION:"
@@ -5057,9 +5130,26 @@
         "DOTA_Tooltip_ability_iskander_attribute_via_expugnatio_Note0"	"Via Expugnatio's cooldown can be reset."  
  
         "DOTA_Tooltip_Ability_iskander_attribute_bond_beyond_time"          		"Attribute: Bond Beyond Time"
-        "DOTA_Tooltip_ability_iskander_attribute_bond_beyond_time_Description"		"Using <font color='#58ACFA'>Forward!</font> will make all infantry and cavalry units <font color='#FFFAFA'>rush in the targeted direction</font>, dealing <font color='#FFFAFA'>100</font> <font color='#58ACFA'>damage</font> on hit and <font color='#FF3399'>stunning</font> for <font color='#FFFAFA'>0.6</font> second.\nIncreases the number of soldiers and archers within <font color='#58ACFA'>Army of the King</font> by <font color='#FFFAFA'>4</font>.\nIn Army of the King, Iskandar may summon <font color='#58ACFA'>Waver Velvet</font> and his apprentice mages. <font color='#58ACFA'>Waver</font> passively increases the <font color='#FFFAFA'>magic resistance</font> of nearby allies and can cast <font color='#58ACFA'>Briliance of the King</font>.\n<font color='#58ACFA'>Briliance of the King</font>: <font color='#58ACFA'>Waver</font> casts the light that resembles of King's might. All enemies inside Army of the King are <font color='#FF3399'>silenced</font> and <font color='#9400D3'>rooted</font> for a duration."    
+        "DOTA_Tooltip_ability_iskander_attribute_bond_beyond_time_Description"		"Using <font color='#58ACFA'>Forward!</font> will make all infantry and cavalry units <font color='#FFFAFA'>rush in the targeted direction</font>, dealing <font color='#FFFAFA'>75</font> <font color='#58ACFA'>damage</font> on hit and <font color='#FF3399'>stunning</font> for <font color='#FFFAFA'>0.3</font> second.\nArchers will shoot again in the target point.\nIncreases the number of soldiers and archers within <font color='#58ACFA'>Army of the King</font> by <font color='#FFFAFA'>4</font>.\nIn Army of the King, Iskandar may summon <font color='#58ACFA'>Waver Velvet</font> and his apprentice mages. <font color='#58ACFA'>Waver</font> passively increases the <font color='#FFFAFA'>magic resistance</font> of nearby allies and can cast <font color='#58ACFA'>Briliance of the King</font>.\n<font color='#58ACFA'>Briliance of the King</font>: <font color='#58ACFA'>Waver</font> casts the light that resembles of King's might. All enemies inside Army of the King are <font color='#FF3399'>silenced</font> and <font color='#9400D3'>rooted</font> for a duration."    
         
-		
+		 "DOTA_Tooltip_Ability_iskander_trap"				"Soldier trap"
+        "DOTA_Tooltip_Ability_iskander_trap_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.2</font>\nIskandar sets up a trap for %duration% seconds.\nWhen enemy hero comes to close, it will activate, summonning soldier to attack target, while the target becomes <font color='#FF3399'>rooted</font> and <font color='#FF3399'>silenced</font>.\nTrap is invisible, but can be destroyed with any aoe damage ability."
+        "DOTA_Tooltip_Ability_iskander_trap_damage"		"Trap damage:"
+        "DOTA_Tooltip_Ability_iskander_trap_radius"		"Activation radius:"
+		"DOTA_Tooltip_Ability_iskander_trap_debuff_duration"	"Debuffs duration:"
+		"DOTA_Tooltip_Ability_iskander_trap_soldier_dur"		"Soldiers duration:"
+
+
+		"DOTA_Tooltip_Ability_iskander_thunder_2"				"Thunder conqueror"
+        "DOTA_Tooltip_Ability_iskander_thunder_2_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.3</font>\nIskandar strikes the area around him with multiple thunder strikes.\nEach strike deals magical damage and slows targets hit for a short duration.\nStrikes start at Iskandar's location and move to the maximum radius over short duration."
+        "DOTA_Tooltip_Ability_iskander_thunder_2_damage"		"Damage per strike:"
+        "DOTA_Tooltip_Ability_iskander_thunder_2_radius"		"Max range:"
+		"DOTA_Tooltip_Ability_iskander_thunder_2_slow_duration"	"Slow duration:"
+		"DOTA_Tooltip_Ability_iskander_thunder_2_slow_power"	"%Slow power:"
+
+		"DOTA_Tooltip_Ability_iskander_attribute_tactics"					"Attribute: Military tactics"
+        "DOTA_Tooltip_ability_iskander_attribute_tactics_Description"		"Unlocks 2 new abilities: <font color='#58ACFA'>Soldier trap</font> and <font color='#58ACFA'>Thunder conqueror</font>.\n<font color='#58ACFA'>Soldier trap</font> is usable when Iskander is not inside <font color='#58ACFA'>AOTK</font>.\n<font color='#58ACFA'>Thunder conqueror</font> usable only on <font color='#58ACFA'>Gordius wheel</font>."
+
 
 		//====================================
 		//	Apocrypha - Raging Cat
@@ -5701,11 +5791,12 @@
 		"DOTA_Tooltip_ability_gawain_blessing_proxy_duration"					"Regen Duration:"
 
 		"DOTA_Tooltip_ability_gawain_heat"					"Heat"
-        "DOTA_Tooltip_ability_gawain_heat_Description"		"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>Immediate</font>\nGawain engulfs himself in a coat of flame, dealing <font color='#58ACFA'>damage</font> to all nearby enemies every second. While this effect persist, Gawain's attacks deals bonus <font color='#A72E28'>damage</font> on the target he's attacking.\n The bonus <font color='#A72E28'>damage</font> increases by its base value on each hit."
+        "DOTA_Tooltip_ability_gawain_heat_Description"		"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>Immediate</font>\nGawain engulfs himself in a coat of flame, dealing <font color='#58ACFA'>damage</font> to all nearby enemies every second. While this effect persist, Gawain's attacks deals bonus <font color='#A72E28'>damage</font> on the target he's attacking.\n The bonus <font color='#A72E28'>damage</font> increases by its base value on each hit until a cap."
         "DOTA_Tooltip_ability_gawain_heat_Lore"				""
         "DOTA_Tooltip_ability_gawain_heat_burn_damage"		"Burn Damage:"
         "DOTA_Tooltip_ability_gawain_heat_attack_speed"		"%Attack Speed:"
         "DOTA_Tooltip_ability_gawain_heat_stack_damage"		"Stack Damage:"
+        "DOTA_Tooltip_ability_gawain_heat_stack_damage_max"		"Stack Damage maximum:"
         "DOTA_Tooltip_ability_gawain_heat_duration"			"Duration:"
         "DOTA_Tooltip_ability_gawain_heat_radius"			"Area of Effect:"
 
@@ -6023,17 +6114,17 @@
         "DOTA_Tooltip_Ability_lishuwen_combo_trigger_Description"	"Use again to enable combo."
 
         "DOTA_Tooltip_Ability_lishuwen_martial_arts"				"Martial Arts"
-        "DOTA_Tooltip_Ability_lishuwen_martial_arts_Description"	"<font color='#58ACFA'>PASSIVE:</font> Li Shuwen reads deadly intention in the air, marking enemies with <font color='#B60A1A'>Mark of Fatality</font> whenever they cast a spell in Li Shuwen's vicinity.\n\n<font color='#58ACFA'>ACTIVE:</font> Li Shuwen focuses his murderous presence on a target to <font color='#FF3399'>silence</font> it and apply <font color='#B60A1A'>Mark of Fatality</font>.\n\n<font color='#B60A1A'>Mark of Fatality</font> grants vision to Li Shuwen and a chance to critically strike when attacking a marked enemy."
+        "DOTA_Tooltip_Ability_lishuwen_martial_arts_Description"	"<font color='#58ACFA'>PASSIVE:</font> Li Shuwen reads deadly intention in the air, marking enemies with <font color='#B60A1A'>Mark of Fatality</font> whenever they cast a spell in Li Shuwen's vicinity.\nLi Shuwen's attacks may criticaly strike targets under <font color='#B60A1A'>Mark of Fatality</font> based on stacks.\n<font color='#58ACFA'>ACTIVE:</font> Li Shuwen focuses his murderous presence on a target to <font color='#FF3399'>silence</font> it and apply <font color='#B60A1A'>Mark of Fatality</font>.\n\n<font color='#B60A1A'>Mark of Fatality</font> grants vision to Li Shuwen."
         "DOTA_Tooltip_Ability_lishuwen_martial_arts_Lore"			"Seeing is believing. Feeling is enlightment."
         "DOTA_Tooltip_Ability_lishuwen_martial_arts_search_radius"		"SEARCH RADIUS:"
         "DOTA_Tooltip_Ability_lishuwen_martial_arts_duration"			"MARK OF FATALITY DURATION:"
         "DOTA_Tooltip_Ability_lishuwen_martial_arts_vision_radius"		"MARK OF FATALITY VISION RADIUS:"
-        "DOTA_Tooltip_Ability_lishuwen_martial_arts_critical_rate_percentage"	"%MARK OF FATALITY CRIT. RATE:"
-        "DOTA_Tooltip_Ability_lishuwen_martial_arts_critical_damage"	"%MARK OF FATALITY CRIT. DAMAGE:"
+        "DOTA_Tooltip_Ability_lishuwen_martial_arts_critical_rate_percentage"	"%CRIT. RATE PER STACK:"
+        "DOTA_Tooltip_Ability_lishuwen_martial_arts_critical_damage"	"%CRIT. DAMAGE:"
         "DOTA_Tooltip_Ability_lishuwen_martial_arts_silence_duration"	"SILENCE DURATION:"
 
         "DOTA_Tooltip_Ability_lishuwen_berserk"						"Berserk"
-        "DOTA_Tooltip_Ability_lishuwen_berserk_Description"			"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>%cast_point%</font> \n\n Li Shuwen becomes <font color='#B60A1A'>enraged</font>, <font color='#FF9900'>removing all negative and crowd control effects</font> on himself and becoming <font color='#FF9900'>immune</font> to them for a short duration.\n\n Li Shuwen gains <font color='#FFFAFA'>critical strike chance</font> which increased based on his <font color='#FF0000'>strength</font>. \n\nThis ability can be cast only when Li Shuwen is <font color='#FF3399'>not revoked</font> from Master.\n\nDuring this effect, Fierce Tiger Strikes have <font color='#FFFAFA'>increased attack damage scaling</font>. \n\nLi Shuwen's <font color='#FFFAFA'>No Second Strike</font> will deal physical damage during this effect."
+        "DOTA_Tooltip_Ability_lishuwen_berserk_Description"			"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>%cast_point%</font> \n\n Li Shuwen becomes <font color='#B60A1A'>enraged</font>, <font color='#FF9900'>removing all negative and crowd control effects</font> on himself and becoming <font color='#FF9900'>immune</font> to them for a short duration.\n\n Li Shuwen gains <font color='#FFFAFA'>attack damage</font> equal to his <font color='#FF0000'>strength</font>. \n\nThis ability can be cast only when Li Shuwen is <font color='#FF3399'>not revoked</font> from Master.\n\nDuring this effect, Fierce Tiger Strikes have <font color='#FFFAFA'>increased attack damage scaling</font>. \n\nLi Shuwen's <font color='#FFFAFA'>No Second Strike</font> will deal physical damage during this effect."
         "DOTA_Tooltip_Ability_lishuwen_berserk_duration"			"DURATION:"
         "DOTA_Tooltip_Ability_lishuwen_berserk_cc_immune_duration"	"IMMUNITY DURATION:"
         "DOTA_Tooltip_Ability_lishuwen_berserk_critical_chance"		"%CRITICAL CHANCE:"
@@ -6076,7 +6167,7 @@
 
 
         "DOTA_Tooltip_Ability_lishuwen_tiger_strike"					"Fierce Tiger Strike"
-        "DOTA_Tooltip_Ability_lishuwen_tiger_strike_Description"		"<font color='#FFFAFA'>Cast point:</font><font color='#7FFF00'>0.25</font> | </font><font color='#7FFF00'>0.3</font> | </font><font color='#7FFF00'>0.35</font> \n\nPerforms up to 3 ferocious strikes, each with different effects.\n\n<font color='#58ACFA'>1st:</font> Dashes to the target, dealing <font color='#58ACFA'>%damage_1% magic damage</font>, <font color='#9400D3'>slowing</font> the target by <font color='#9400D3'>%slow_amount%</font>% for <font color='#9400D3'>%slow_duration%</font> seconds and applying 3 <font color='#FF0000'>Circulatory shock</font> stacks.\n\n<font color='#58ACFA'>2nd:</font> Lands body blow, dealing <font color='#A72E28'>%damage_2% physical damage</font>, <font color='#FF3399'>knockbacking</font>, <font color='#FF3399'>stunning</font> the target for <font color='#FF3399'>%stun_duration%</font> seconds and applying 3 <font color='#FF0000'>Circulatory shock</font> stacks. If target hits a wall, it will take <font color='#FF0000'>200+3*Li Shuwen's strength</font> <font color='#A72E28'>additional physical damage</font>.\n\n<font color='#58ACFA'>3rd:</font> Smashes critical point with elbow, dealing <font color='#D1A951'>%damage_3_magical% base pure damage</font> and applies 5 <font color='#FF0000'>Circulatory shock</font> stacks.\n\n Each strike gets <font color='#FFFAFA'>additional damage</font> equal to %damage_2_physical%% of Li Shuwen's <font color='#FFFAFA'>base attack damage</font>.\n\nIf three strikes sequence was sucessful then <font color='#FFFAFA'>cooldown of this ability will be reduced</font>.<font color='#F1C40F'>\n\n<font color='#F1C40F'>Upgradable by attribute: Improve Martial Arts, Berserk and Furious Chain</font>."
+        "DOTA_Tooltip_Ability_lishuwen_tiger_strike_Description"		"<font color='#FFFAFA'>Cast point:</font><font color='#7FFF00'>0.25</font> | </font><font color='#7FFF00'>0.3</font> | </font><font color='#7FFF00'>0.35</font> \n\nPerforms up to 3 ferocious strikes, each with different effects.\n\n<font color='#58ACFA'>1st:</font> Dashes to the target, dealing <font color='#58ACFA'>%damage_1% magic damage</font>, <font color='#9400D3'>slowing</font> the target by <font color='#9400D3'>%slow_amount%</font>% for <font color='#9400D3'>%slow_duration%</font> seconds and applying 3 <font color='#FF0000'>Circulatory shock</font> stacks.\n\n<font color='#58ACFA'>2nd:</font> Lands body blow, dealing <font color='#A72E28'>%damage_2% physical damage</font>, if ability is set to autocast, <font color='#FF3399'>knockbacking</font>, <font color='#FF3399'>stunning</font> the target for <font color='#FF3399'>%stun_duration%</font> seconds and applying 3 <font color='#FF0000'>Circulatory shock</font> stacks. If target hits a wall, it will take <font color='#FF0000'>200+3*Li Shuwen's strength</font> <font color='#A72E28'>additional physical damage</font>.\n\n<font color='#58ACFA'>3rd:</font> Smashes critical point with elbow, dealing <font color='#D1A951'>%damage_3_magical% base pure damage</font> and applies 5 <font color='#FF0000'>Circulatory shock</font> stacks.\n\n Each strike gets <font color='#FFFAFA'>additional damage</font> equal to %damage_2_physical%% of Li Shuwen's <font color='#FFFAFA'>base attack damage</font>.\n\nIf three strikes sequence was sucessful then <font color='#FFFAFA'>cooldown of this ability will be reduced</font>.<font color='#F1C40F'>\n\n<font color='#F1C40F'>Upgradable by attribute: Improve Martial Arts, Berserk and Furious Chain</font>."
         "DOTA_Tooltip_Ability_lishuwen_tiger_strike_Lore"									"The pinnacle of Bajiquan, the tiger's furious clawing specializes in crushing physical object to ashes."
         "DOTA_Tooltip_Ability_lishuwen_tiger_strike_Note0"									"3rd strike damage is calculated based on the damage dealt by first 2 strikes, regardles of the whether it were different or the same targets"
         //"DOTA_Tooltip_Ability_lishuwen_fierce_tiger_strike_first_strike_cast_delay"		"FIRST STRIKE CAST DELAY:"
@@ -6123,14 +6214,14 @@
 
         //attribute
         "DOTA_Tooltip_Ability_lishuwen_attribute_circulatory_shock"					"Attribute: Circulatory Shock"
-        "DOTA_Tooltip_Ability_lishuwen_attribute_circulatory_shock_Description"		"Removes delayed damage from No Second Strike.\nIncreases the initial damage by amount equal to the delayed damage and 0.2*target's missing health.\n Increases damage per <font color='#FF0000'>Circulatory shock</font>stacks by 10.\nEnemies killed by No Second Strike will have their master lose 1 mana."
+        "DOTA_Tooltip_Ability_lishuwen_attribute_circulatory_shock_Description"		"Increases the  damage of No Second Strike both impacts by amount equal to 0.2*target's missing health.\n Increases damage per <font color='#FF0000'>Circulatory shock</font>stacks by 8.\nEnemies killed by No Second Strike will have their master lose 1 mana.\nNow all enemies hit get shock effect, but only first target is revoked."
         //"DOTA_Tooltip_Ability_lishuwen_attribute_circulatory_shock_knockback_damage"	"KNOCKBACK PURE DAMAGE:"
         //"DOTA_Tooltip_Ability_lishuwen_attribute_circulatory_shock_knockback_distance"	"KNOCKBACK DISTANCE:"
         //"DOTA_Tooltip_Ability_lishuwen_attribute_circulatory_shock_mana_void_damage"	"%Mana Void Damage:"
         "DOTA_Tooltip_Ability_lishuwen_attribute_circulatory_shock_stun_duration"		"Stun Duration: "
 
         "DOTA_Tooltip_Ability_lishuwen_attribute_improve_martial_arts"					"Attribute: Improve Martial Arts"
-        "DOTA_Tooltip_Ability_lishuwen_attribute_improve_martial_arts_Description"		"Presence Concealment has increased charges and deals more damage.\n While under Presence Concealment, No Second Strike's has increased cooldown recovery speed.\nLi Shuwen's attacks and Fierce Tiger Strikes burn mana, dealing additional physical damage equal to mana burned."
+        "DOTA_Tooltip_Ability_lishuwen_attribute_improve_martial_arts_Description"		"Presence Concealment has increased charges and deals more damage.\n While under Presence Concealment, No Second Strike's has <font color='#FFFAFA'>increased cooldown recovery speed</font>.\nLi Shuwen's attacks and Fierce Tiger Strikes burn mana, dealing additional <font color='#A72E28'>physical damage</font> equal to mana burned.\nUpgrades Martial Arts, making Li Shuwen attacks deal additional <font color='#58ACFA'>magical damage</font>, equal to <font color='#FFFAFA'>3.5%%</font> of their maximum health if target is under  <font color='#B60A1A'>Mark of Fatality</font>."
 
         "DOTA_Tooltip_Ability_lishuwen_attribute_improve_martial_arts_bonus_attack"		"NUMBER OF ATTACKS:"
         "DOTA_Tooltip_Ability_lishuwen_attribute_improve_martial_arts_bonus_damage"		"%BONUS DAMAGE:"
@@ -6139,7 +6230,7 @@
         //"DOTA_Tooltip_Ability_lishuwen_attribute_improve_martial_arts_damage_percentage"	"%ADDITIONAL DAMAGE ON BASE ATTACK:"
 
         "DOTA_Tooltip_Ability_lishuwen_attribute_dual_class"				"Attribute: Dual Class"
-        "DOTA_Tooltip_Ability_lishuwen_attribute_dual_class_Description"	"Enables Berserk.\n<font color='#58ACFA'>Berserk:</font>  Li Shuwen becomes <font color='#B60A1A'>enraged</font>, <font color='#FF9900'>removing all negative and crowd control effects</font> on himself and becoming <font color='#FF9900'>immune</font> to them for a short duration.\n\n Li Shuwen gains <font color='#FFFAFA'>critical strike chance</font> which increased based on his <font color='#FF0000'>strength</font>. \n\nThis ability can be cast only when Li Shuwen is <font color='#FF3399'>not revoked</font> from Master.\n\nDuring this effect, Fierce Tiger Strikes have <font color='#FFFAFA'>increased attack damage scaling</font>. \n\nLi Shuwen's <font color='#FFFAFA'>No Second Strike</font> will deal physical damage during this effect."
+        "DOTA_Tooltip_Ability_lishuwen_attribute_dual_class_Description"	"Enables Berserk.\n<font color='#58ACFA'>Berserk:</font>  Li Shuwen becomes <font color='#B60A1A'>enraged</font>, <font color='#FF9900'>removing all negative and crowd control effects</font> on himself and becoming <font color='#FF9900'>immune</font> to them for a short duration.\n\n Li Shuwen gains <font color='#FFFAFA'>attack damage</font> equal to his <font color='#FF0000'>strength</font>. \n\nThis ability can be cast only when Li Shuwen is <font color='#FF3399'>not revoked</font> from Master.\n\nDuring this effect, Fierce Tiger Strikes have <font color='#FFFAFA'>increased attack damage scaling</font>. \n\nLi Shuwen's <font color='#FFFAFA'>No Second Strike</font> will deal physical damage during this effect."
 
         "DOTA_Tooltip_Ability_lishuwen_attribute_dual_class_duration"				"DURATION:"
         "DOTA_Tooltip_Ability_lishuwen_attribute_dual_class_cc_immune_duration"		"IMMUNITY DURATION:"
@@ -6163,8 +6254,7 @@
 
 
         "DOTA_Tooltip_Ability_lishuwen_attribute_new"					"Attribute: Shock paralysis"
-        "DOTA_Tooltip_Ability_lishuwen_attribute_new_Description"		"Upgrades <font color='#FF0000'>Circulatory shock</font> effect, making it apply debuffs based on stack count.\nOn 10 or more stacks, <font color='#FF0000'>Circulatory shock</font> reduces enemy magical damage dealth.
-        \nOn 25 or more stacks enemies are slowed and get reduced healing.\nOn 50 stacks enemies have their magic resistance and armor reduced, they receive even less healing and deal even less magical damage."
+        "DOTA_Tooltip_Ability_lishuwen_attribute_new_Description"		"Upgrades <font color='#FF0000'>Circulatory shock</font> effect, making it apply debuffs based on stack count.\nOn 10 or more stacks, <font color='#FF0000'>Circulatory shock</font> reduces enemy magical damage .\nOn 25 or more stacks enemies are slowed and get reduced healing.\nOn 50 stacks enemies have their magic resistance and armor reduced, they receive even less healing and deal even less magical damage."
         "DOTA_Tooltip_Ability_lishuwen_attribute_new_magical_damage_reduction_1"			"%Magical damage reduction:"
         "DOTA_Tooltip_Ability_lishuwen_attribute_new_magical_damage_reduction_2"		"%Powerful magical damage reduction:"
         "DOTA_Tooltip_Ability_lishuwen_attribute_new_slow_power"			"%Slow power:"
@@ -6508,14 +6598,14 @@
 	"npc_dota_hero_queenofpain_bio"			""
  
         "DOTA_Tooltip_Ability_astolfo_casa_di_logistilla"       "Casa Di Logistilla"
-        "DOTA_Tooltip_Ability_astolfo_casa_di_logistilla_Description"   "PASSIVE: Astolfo's mysterious spellbook grants him magic resistance.\nACTIVE: Temporarily boosts bonus magic resistance. Passive effect is disabled during cooldown."
+        "DOTA_Tooltip_Ability_astolfo_casa_di_logistilla_Description"   "PASSIVE: Astolfo's mysterious spellbook grants him magic resistance.\nACTIVE: Temporarily boosts bonus magic resistance. Passive effect is disabled during cooldown.\nACTIVE effect only usable with <font color='#F1C40F'>Evaporation of sanity</font> attribute."
         "DOTA_Tooltip_Ability_astolfo_casa_di_logistilla_passive_mr"	"%PASSIVE MAGIC RESISTANCE:"
         "DOTA_Tooltip_Ability_astolfo_casa_di_logistilla_active_mr"		"%ACTIVE MAGIC RESISTANCE:"
         "DOTA_Tooltip_Ability_astolfo_casa_di_logistilla_active_duration"	"ACTIVE DURATION:"
         "DOTA_Tooltip_Ability_astolfo_casa_di_logistilla_Lore"		"Astolfo's lucky pickup from his journey spells a certain doom for any sorceries."
  
         "DOTA_Tooltip_Ability_astolfo_hippogriff_vanish"        "Hippogriff: Vanish"
-        "DOTA_Tooltip_Ability_astolfo_hippogriff_vanish_Description"        "Astolfo orders his Hippogriff to snatch a target and slip into the otherverse, dealing damage, dispelling, and <font color='#FF3399'>expelling</font> it from the game for a few seconds."
+        "DOTA_Tooltip_Ability_astolfo_hippogriff_vanish_Description"        "Astolfo orders his Hippogriff to snatch a target and slip into the otherverse, dealing damage, dispelling, and <font color='#FF3399'>stunnning</font> it, while making it untargetabble/nWhen set to autocast with SA, Astolfo will teleport to the target, rendering himself invulnerable.\n<font color='#F1C40F'>Upgradable with  Evaporation of sanity attribute</font>."
         "DOTA_Tooltip_Ability_astolfo_hippogriff_vanish_cast_delay"		"CAST DELAY:"
         "DOTA_Tooltip_Ability_astolfo_hippogriff_vanish_damage"		"DAMAGE:"
         "DOTA_Tooltip_Ability_astolfo_hippogriff_vanish_banish_duration"	"EXPEL DURATION:"
@@ -6525,14 +6615,14 @@
         "DOTA_Tooltip_Ability_astolfo_hippogriff_vanish_Lore"		"The beast of impossible existence drags its victim to dimension where it belongs."
  
         "DOTA_Tooltip_Ability_astolfo_trap_of_argalia"        		"Trap of Argalia"
-        "DOTA_Tooltip_Ability_astolfo_trap_of_argalia_Description"	"Astolfo dashes, hitting enemies in a line, dealing damage, locking all enemies hit for a short duration."
+        "DOTA_Tooltip_Ability_astolfo_trap_of_argalia_Description"	"Astolfo dashes, hitting enemies in a line, dealing damage, locking all enemies hit for a short duration.\n<font color='#F1C40F'>Upgradable by attribute Evaporation of sanity.</font>"
         "DOTA_Tooltip_Ability_astolfo_trap_of_argalia_damage"		"Damage:"
         "DOTA_Tooltip_Ability_astolfo_trap_of_argalia_dash_distance"		"Dash distance:"
         "DOTA_Tooltip_Ability_astolfo_trap_of_argalia_duration"		"Lock duration:"
         "DOTA_Tooltip_Ability_astolfo_trap_of_argalia_Lore"			"Only little is known about how clumsy, seemingly unreliable paladin reigned as the king of cavalry tournament."
 
         "DOTA_Tooltip_Ability_astolfo_down_with_a_touch"        "Down with a Touch!"
-        "DOTA_Tooltip_Ability_astolfo_down_with_a_touch_Description"        "Astolfo strikes enemies in a line several times with his mystic spear, dealing damage, <font color='#FF3399'>slowing</font>, and dimensionally <font color='#FF3399'>locking</font> enemies. Slow effect diminishes over duration."
+        "DOTA_Tooltip_Ability_astolfo_down_with_a_touch_Description"        "Astolfo strikes enemies in a line several times with his mystic spear, dealing damage, <font color='#FF3399'>slowing</font>, and dimensionally <font color='#FF3399'>locking</font> enemies. Slow effect diminishes over duration.\n<font color='#F1C40F'>Upgradable by attribute Monstrous strenght and Evaporation of sanity.</font>"
         "DOTA_Tooltip_Ability_astolfo_down_with_a_touch_attack_amount"	"ATTACK AMOUNT:"
         "DOTA_Tooltip_Ability_astolfo_down_with_a_touch_damage"		"DAMAGE PER ATTACK:"
         "DOTA_Tooltip_Ability_astolfo_down_with_a_touch_slow"		"%INITIAL SLOW AMOUNT:"
@@ -6541,7 +6631,7 @@
         "DOTA_Tooltip_Ability_astolfo_down_with_a_touch_Lore"		"Only little is known about how clumsy, seemingly unreliable paladin reigned as the king of cavalry tournament."
  		
         "DOTA_Tooltip_Ability_astolfo_la_black_luna"       "La Black Luna"
-        "DOTA_Tooltip_Ability_astolfo_la_black_luna_Description"   "CHANNELLED: Astolfo blows his blaring horn, deafening enemy heroes to most sounds. In addition, enemies in Astolfo's vincinity are <font color='#FF3399'>slowed</font>, <font color='#FF3399'>silenced</font> and dealt flat damage." 
+        "DOTA_Tooltip_Ability_astolfo_la_black_luna_Description"   "CHANNELLED: Astolfo blows his blaring horn, deafening enemy heroes to most sounds. In addition, enemies in Astolfo's vincinity are <font color='#FF3399'>slowed</font>, <font color='#FF3399'>silenced</font> and dealt flat damage.\n<font color='#F1C40F'>Upgradable by attribute Deafening blast.</font>" 
         "DOTA_Tooltip_Ability_astolfo_la_black_luna_radius"				"SLOW RADIUS:"
         "DOTA_Tooltip_Ability_astolfo_la_black_luna_slow_amount"		"%Slow:"  
         "DOTA_Tooltip_Ability_astolfo_la_black_luna_damage_radius"		"Area of Effect:"
@@ -6549,7 +6639,7 @@
         "DOTA_Tooltip_Ability_astolfo_la_black_luna_Lore"		"Astolfo's petite flute materializes into the gigantic horn of terror, emitting an artifical roar of dragon that overwhelms foes with auditory impairment."
  
         "DOTA_Tooltip_Ability_astolfo_hippogriff_raid"      "Hippogriff: Raid"
-        "DOTA_Tooltip_Ability_astolfo_hippogriff_raid_Description"      "Astolfo orders his Hippogriff to ascend into the sky for an aerial strike. After a delay, a destination beacon appears at target location which Hippogriff soon slams down onto.\nUpon impact, enemies are <font color='#FF3399'>locked</font> and damaged, followed by a second impact that also deals damage.\n\nEnemies under the effect of La Black Luna cannot see the beacon."
+        "DOTA_Tooltip_Ability_astolfo_hippogriff_raid_Description"      "Astolfo orders his Hippogriff to ascend into the sky for an aerial strike. After a delay, a destination beacon appears at target location which Hippogriff soon slams down onto.\nUpon impact, enemies are <font color='#FF3399'>locked</font> and damaged, followed by a second impact that also deals damage.\n\nEnemies under the effect of La Black Luna cannot see the beacon.\n<font color='#F1C40F'>Upgradable by attribute Riding.</font>"
         "DOTA_Tooltip_Ability_astolfo_hippogriff_raid_max_range"		"MAX RANGE:"
         "DOTA_Tooltip_Ability_astolfo_hippogriff_raid_cast_delay"		"CAST DELAY:"
         "DOTA_Tooltip_Ability_astolfo_hippogriff_raid_reveal_delay"		"DELAY UNTIL BEACON REVEAL TO ENEMIES:"
@@ -6581,7 +6671,7 @@
         //"DOTA_Tooltip_Ability_astolfo_attribute_riding_raid_second_impact_radius"	"RAID SECOND IMPACT BONUS RADIUS:"
 
         "DOTA_Tooltip_Ability_astolfo_attribute_monstrous_strength"					"Attribute: Monstrous Strength"
-        "DOTA_Tooltip_Ability_astolfo_attribute_monstrous_strength_Description"		"Increases Astolfo's damage by 1 per point of Strength. Astolfo's base attacks deals %damage_pct%% of his max health as magic damage."
+        "DOTA_Tooltip_Ability_astolfo_attribute_monstrous_strength_Description"		"Increases Astolfo's damage by 1 per point of Strength. Astolfo's base attacks deals %damage_pct%% of his max health as magic damage.\nDown with a touch now applies autoattacks to all impacts.\nAstolfo's attacks root target for a short amount of time."
 
         "DOTA_Tooltip_Ability_astolfo_attribute_independent_action"					"Attribute: Independent Action"
         "DOTA_Tooltip_Ability_astolfo_attribute_independent_action_Description"		"Passively grants Astolfo bonus health and mana regen. This effect is empowered, and Astolfo gains maximum movement speed, when Astolfo is <font color='#FF3399'>revoked</font> or cannot be seen by enemies."  
@@ -6592,7 +6682,7 @@
         "DOTA_Tooltip_Ability_astolfo_attribute_independent_action_mana_regen_boosted"	"%CONDITIONAL BONUS MANA REGEN:"
  
         "DOTA_Tooltip_Ability_astolfo_attribute_sanity"						"Attribute: Evaporation of Sanity"
-        "DOTA_Tooltip_Ability_astolfo_attribute_sanity_Description"			"Hippogriff: Vanish <font color='#FF3399'>stuns</font> target on exit. Astolfo becomes invulnerable and untargetable when he uses Hippogriff: Vanish. If the target is hit by Hippogriff: Vanish, Astolfo reappears beside his target. \nEnables usage of Casa di Logistilla - magic-protection type Phantasm. \nTrap of argalia Astolfo performs an attack against all enemies hit by the ability applying all on-hit effects."
+        "DOTA_Tooltip_Ability_astolfo_attribute_sanity_Description"			"Hippogriff: Vanish <font color='#FF3399'>stuns</font> target on exit.\n Astolfo becomes invulnerable and untargetable when he uses Hippogriff: Vanish, when it is set to autocast.\n If the target is hit by Hippogriff: Vanish, Astolfo reappears beside his target. \nEnables usage of Casa di Logistilla - magic-protection type Phantasm. \nTrap of argalia Astolfo performs an attack against all enemies hit by the ability applying all on-hit effects.\nDown with a touch now also disarms on hit."
 
         "DOTA_Tooltip_Ability_astolfo_deafening_blast_attribute"					"Attribute: Deafening Blast"
         "DOTA_Tooltip_Ability_astolfo_deafening_blast_attribute_Description"		"La Black Luna's blast and push away all enemies within %area_of_effect% range on activation, as well as disjointing all disjointable projectiles, muting and slowing all enemies for 99% for 1 second.\nEach La Black Luna tick deals 150 more damage. Enemies pushed away this way are dealt 500 magical damage. \nIf Astolfo finishes casting without being interrupted, he will release an additional wave in 900 radius, that will deal 300 + STR * 10 pure damage, mute and slow all enemies for 99% for 2 seconds."
@@ -7043,7 +7133,7 @@
 		"DOTA_Tooltip_ability_vlad_instant_curse_Description" 										"Unleashes accumulated damage."		
 		
 		"DOTA_Tooltip_ability_vlad_transfusion" 													"Transfusion"
-		"DOTA_Tooltip_ability_vlad_transfusion_Description" 										"PASSIVE: Vlad's melee attacks and some of his abilities apply stacking bleeding effect.\nDuration: 20  Damage per stack: 4  Interval: 0.25\nACTIVE: For duration Vlad siphons lifeforce of his bleeding surrounding enemies dealing damage to them while healing himself for each bleed stack consumed off targets.\nEnemies being sucked are slowed proportionally to how badly they are bleeding.\Transfusion stores amount of consumed bleed stacks in Bloodpower buff, while this buff is present next damaging ability used after Transfusion ends will consume Bloodpower stacks to gain augmented effects.\nAdditionally while Vlad holds bloodpower stacks, he gains access to ability Impale."
+		"DOTA_Tooltip_ability_vlad_transfusion_Description" 										"PASSIVE: Vlad's melee attacks and some of his abilities apply stacking bleeding effect.\nDuration: 8.  Damage per stack: 4  Interval: 0.25\nACTIVE: For duration Vlad siphons lifeforce of his bleeding surrounding enemies dealing damage to them while healing himself for each bleed stack consumed off targets.\nEnemies being sucked are slowed proportionally to how badly they are bleeding.\Transfusion stores amount of consumed bleed stacks in Bloodpower buff, while this buff is present next damaging ability used after Transfusion ends will consume Bloodpower stacks to gain augmented effects.\nAdditionally while Vlad holds bloodpower stacks, he gains access to ability Impale."
 		"DOTA_Tooltip_ability_vlad_transfusion_duration" 											"DURATION:"
 		"DOTA_Tooltip_ability_vlad_transfusion_interval" 											"INTERVAL TICK:"
 		"DOTA_Tooltip_ability_vlad_transfusion_aoe" 												"AOE:"
@@ -7058,7 +7148,7 @@
 		"DOTA_Tooltip_ability_vlad_battle_continuation_duration" 									"DURATION:"
 		
 		"DOTA_Tooltip_ability_vlad_kazikli_bey" 													"The Fortress of Impalement"
-		"DOTA_Tooltip_ability_vlad_kazikli_bey_Description" 										"Vlad summons infinite amount of spears from below, piercing his surrounding enemies 10 times, while <font color='#FF3399'>stunning</font> and <font color='#FF3399'>revoking</font> them. \nAt the end of cast enemies in range are impaled and knocked up into the air while being <font color='#FF3399'>stunned</font> and <font color='#FF3399'>revoked</font>.\n<font color='#b52000'>Applies 10 bleed stacks to targets hit with last strike.</font>"
+		"DOTA_Tooltip_ability_vlad_kazikli_bey_Description" 										"Vlad summons infinite amount of spears from below, piercing his surrounding enemies 10 times, while <font color='#FF3399'>stunning</font> them. \nAt the end of cast enemies in range are impaled and knocked up into the air while being <font color='#FF3399'>stunned</font>\n<font color='#b52000'>Applies 10 bleed stacks to targets hit with last strike.</font>"
 		"DOTA_Tooltip_ability_vlad_kazikli_bey_total_activation__TT" 								"TOTAL ACTIVATION DELAY:"
 		"DOTA_Tooltip_ability_vlad_kazikli_bey_endcast_pause"										"ENDCAST PAUSE:"
 		"DOTA_Tooltip_ability_vlad_kazikli_bey_aoe_spikes" 											"AOE SMALL SPEARS:"
@@ -7076,7 +7166,7 @@
 		"DOTA_Tooltip_ability_vlad_combo_penalty" 													"PENALTY SILENCE DURATION:"
 		
 		"DOTA_Tooltip_ability_vlad_impale" 															"Impale"
-		"DOTA_Tooltip_ability_vlad_impale_Description" 												"Vlad summons multiple spikes that travel along the ground in the targeted direction, <font color='#FF3399'>stunning</font> everyone in radius. \nThis ability gets stronger the more bloodpower you hold. Using this ability ends transfusion prematurely if its still in progress and consumes all bloodpower.\n<font color='#b52000'>Applies 10 bleed stacks to targets hit.</font>"
+		"DOTA_Tooltip_ability_vlad_impale_Description" 												"Vlad summons multiple spikes that travel along the ground in the targeted direction, <font color='#FF3399'>stunning</font> everyone in radius. \nThis ability gets stronger the more bloodpower you hold.\n<font color='#b52000'>Applies 10 bleed stacks to targets hit.</font>"
 		"DOTA_Tooltip_ability_vlad_impale_range" 													"RANGE:"
 		"DOTA_Tooltip_ability_vlad_impale_delay" 													"DELAY:"
 		"DOTA_Tooltip_ability_vlad_impale_damage" 													"DAMAGE:"
@@ -7189,7 +7279,7 @@
 
 
 		"DOTA_Tooltip_ability_leonidas_pride"													"Shield wall"
-		"DOTA_Tooltip_ability_leonidas_pride_Description"										"Leonidas enters defence stance, locking himself on one place and gaining barrier, based on amount of allies inside, for a duration.\nWhile Leonidas is in the stance, all allies around him translate all damage taken to him.\nWhen barrier depletes, ability ends.\nOn cast, Leonidas comsumes all barriers he gave to his teammates into this one shield, as well as portion of barrier of his soldiers.\nSoldiers will die, when ability ends.\nALL AOE damage is dealth only ONCE if it hits units inside shield wall at one moment.\nWhile wall persists, Leonidas and all of his soldiers will attack enemies in front of the wall, dealing damage over time.\n[BERSERKED] dealth additional physical damage, based on Leonidas attack."
+		"DOTA_Tooltip_ability_leonidas_pride_Description"										"Leonidas enters defence stance, locking himself on one place and gaining barrier, based on amount of allies inside, for a duration.\nWhile Leonidas is in the stance, all allies around him translate all damage taken to him.\nWhen barrier depletes, ability ends.\nOn cast, Leonidas comsumes all barriers he gave to his teammates into this one shield, as well as portion of barrier of his soldiers.\nSoldiers will die, when ability ends.\nALL AOE damage is dealt only ONCE if it hits units inside shield wall at one moment.\nWhile wall persists, Leonidas and all of his soldiers will attack enemies in front of the wall, dealing damage over time.\n[BERSERKED] dealt additional physical damage, based on Leonidas attack."
 		"DOTA_Tooltip_ability_leonidas_pride_Note0"												""
 		"DOTA_Tooltip_ability_leonidas_pride_radius"										"RADIUS:"
 		"DOTA_Tooltip_ability_leonidas_pride_counter_duration"								"DURATION:"
@@ -7265,6 +7355,7 @@
 		"DOTA_Tooltip_ability_leonidas_enomotia_radius"											"RADIUS:"
 		"DOTA_Tooltip_ability_leonidas_enomotia_push_radius"									"PUSH RADIUS:"
 		"DOTA_Tooltip_ability_leonidas_enomotia_push_duration"									"PUSH TIME:"
+		"DOTA_Tooltip_ability_leonidas_enomotia_berserk_stun"									"BERSERK STUN TIME:"
 		"DOTA_Tooltip_ability_leonidas_enomotia_push_slow_duration"								"PUSH EFFECT DURATION:"
 		"DOTA_Tooltip_ability_leonidas_enomotia_push_slow_pct"									"%PUSH EFFECT SLOW:"
 		"DOTA_Tooltip_ability_leonidas_enomotia_shield_duration"								"SHIELD DURATION:"
@@ -7284,18 +7375,18 @@
 		"DOTA_Tooltip_modifier_leonidas_enomotia_slow_Description"								"Slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%. This Modifier universal and applies many effects based on leonidas properties."
 
 		"DOTA_Tooltip_ability_leonidas_enomotia_combo"											"COMBO: Thermopylae Enomotia Counterattack"
-		"DOTA_Tooltip_ability_leonidas_enomotia_combo_Description"								"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: W-E-R in %steps_duration%*%combo_steps% seconds</font>\n Releasing Noble Phantasm is [DEFENCE] state, any ally in radius around Leonidas will transfer all original damage to him and spend shields first, after his health, combo not ends when shields is gone. Also Grant Vision (not true sight) to radius which defends.  \n[BERSERKED] Releaseing Strong Version of normal Thermopylae Enomotia. Recieve Bonus Berserk duration for full time of releasing and shields duration after release, total time not increases, just setups to new if u already in berserk when cast begins."
+		"DOTA_Tooltip_ability_leonidas_enomotia_combo_Description"								"<font color='#58ACFA'>Combo Requirement: 30 in all stats</font>\n<font color='#58ACFA'>Combo Sequence: W-E-R in %steps_duration%*%combo_steps% seconds</font>\n Releasing Noble Phantasm is [DEFENCE] state, any ally in radius around Leonidas will transfer all original damage to him and spend shields first, after his health, combo not ends when shields is gone. Also Grant Vision (not true sight) to radius which defends."
 		"DOTA_Tooltip_ability_leonidas_enomotia_combo_radius"									"RADIUS:"
-		"DOTA_Tooltip_ability_leonidas_enomotia_combo_push_radius"								"[BERSERKED] PUSH RADIUS:"
-		"DOTA_Tooltip_ability_leonidas_enomotia_combo_push_duration"							"[BERSERKED] PUSH TIME:"
-		"DOTA_Tooltip_ability_leonidas_enomotia_combo_push_slow_duration"						"[BERSERKED] PUSH EFFECT DURATION:"
-		"DOTA_Tooltip_ability_leonidas_enomotia_combo_push_slow_pct"							"[BERSERKED] %PUSH EFFECT SLOW:"
-		"DOTA_Tooltip_ability_leonidas_enomotia_combo_shield_duration"							"[BERSERKED] SHIELD DURATION:"
-		"DOTA_Tooltip_ability_leonidas_enomotia_combo_shield_damage"							"[BERSERKED] DAMAGE PER SHIELD:"
+		//"DOTA_Tooltip_ability_leonidas_enomotia_combo_push_radius"								"[BERSERKED] PUSH RADIUS:"
+		//"DOTA_Tooltip_ability_leonidas_enomotia_combo_push_duration"							"[BERSERKED] PUSH TIME:"
+		//"DOTA_Tooltip_ability_leonidas_enomotia_combo_push_slow_duration"						"[BERSERKED] PUSH EFFECT DURATION:"
+		//"DOTA_Tooltip_ability_leonidas_enomotia_combo_push_slow_pct"							"[BERSERKED] %PUSH EFFECT SLOW:"
+		//"DOTA_Tooltip_ability_leonidas_enomotia_combo_shield_duration"							"[BERSERKED] SHIELD DURATION:"
+		//"DOTA_Tooltip_ability_leonidas_enomotia_combo_shield_damage"							"[BERSERKED] DAMAGE PER SHIELD:"
 		"DOTA_Tooltip_ability_leonidas_enomotia_combo_shield_count"								"SHIELDS COUNT:"
 		//"DOTA_Tooltip_ability_leonidas_enomotia_combo_shield_rows"								"PFX SHIELD ROWS:"
 		"DOTA_Tooltip_ability_leonidas_enomotia_combo_base_block_per_shield"					"BLOCK PER SHIELD:"
-		"DOTA_Tooltip_ability_leonidas_enomotia_combo_bonus_block_per_pushed"					"[BERSERKED] BONUS BLOCK PER PUSHED:"
+		//"DOTA_Tooltip_ability_leonidas_enomotia_combo_bonus_block_per_pushed"					"[BERSERKED] BONUS BLOCK PER PUSHED:"
 		//"DOTA_Tooltip_ability_leonidas_enomotia_combo_pfx_anim_start_time"						"PFX START TIME:"
 		//"DOTA_Tooltip_ability_leonidas_enomotia_combo_pfx_anim_loop_time"						"[BERSERKED] PFX LOOP TIME:"
 		//"DOTA_Tooltip_ability_leonidas_enomotia_combo_pfx_anim_release_time"					"PFX RELEASE TIME:"
@@ -7305,7 +7396,7 @@
 		"DOTA_Tooltip_ability_leonidas_enomotia_combo_steps_duration"							"[ACTIVATION] STEP DURATION:"
 		"DOTA_Tooltip_ability_leonidas_enomotia_combo_combo_duration"							"[ACTIVATION] WINDOW DURATION:"
 		"DOTA_Tooltip_ability_leonidas_enomotia_combo_combo_steps"								"[ACTIVATION] REQUIRE STEPS:"
-		"DOTA_Tooltip_ability_leonidas_enomotia_combo_defence_damage_back"						"%SPEAR BONUS DAMAGE FROM TAKEN:"
+		//"DOTA_Tooltip_ability_leonidas_enomotia_combo_defence_damage_back"						"%SPEAR BONUS DAMAGE FROM TAKEN:"
 		
 		"DOTA_Tooltip_modifier_leonidas_enomotia_combo_indicator"								"COMBO INDICATION"
 		"DOTA_Tooltip_modifier_leonidas_enomotia_combo_indicator_Description"					"Shows steps duration, current step, combo window and cooldown"
@@ -7891,7 +7982,7 @@
 		"DOTA_Tooltip_ability_edmon_dash_speed"					"Speed:"
 
 		"DOTA_Tooltip_ability_edmon_ult"						"My Vengeance Never Dies"
-		"DOTA_Tooltip_ability_edmon_ult_Description"			"Dantes disappears for %duration% second and attacks the selected location 5 times, dealing %damage% magical damage to all enemies in radius with each attack.\nWhen set to autocast, Dantes will appear on the cast point instead of position where he used the ability."
+		"DOTA_Tooltip_ability_edmon_ult_Description"			"Dantes dashes through the selected location 5 times, dealing %damage% magical damage to all enemies in radius with each attack.\nWhen set to autocast, Dantes will appear on the cast point instead of position where he used the ability."
 		"DOTA_Tooltip_ability_edmon_ult_radius"					"Radius:"
 		"DOTA_Tooltip_ability_edmon_ult_range"					"Range:"
 
@@ -8007,7 +8098,7 @@
         "DOTA_Tooltip_ability_karna_brahmastra_new_slow_duration"					"Slow duration:"
 
         "DOTA_Tooltip_ability_karna_brahmastra_kundala_new"							"Brahmastra Kundala"
-        "DOTA_Tooltip_ability_karna_brahmastra_kundala_new_Description"			"Cast point: <font color='#FFFFF9'>0.45</font>s\nKarna throws his spear in the targetted direction dealing <font color='#58ACFA'>magical</font> damage to all targets hit, losing ability to attack for a short time.<br>After spear hits the ground, Karna can use this ability again, to retrieve it, dealing <font color='#58ACFA'>magical</font> damage to all enemies hit again.\nIf Karna doesnt return the spear, it will return to him after a short while automatically."
+        "DOTA_Tooltip_ability_karna_brahmastra_kundala_new_Description"			"Cast point: <font color='#FFFFF9'>0.225</font>s\nKarna throws his spear in the targetted direction dealing <font color='#58ACFA'>magical</font> damage to all targets hit, losing ability to attack for a short time.<br>After spear hits the ground, Karna can use this ability again, to retrieve it, dealing <font color='#58ACFA'>magical</font> damage to all enemies hit again.\nIf Karna doesnt return the spear, it will return to him after a short while automatically."
         "DOTA_Tooltip_ability_karna_brahmastra_kundala_new_damage"							"Damage:"
         "DOTA_Tooltip_ability_karna_brahmastra_kundala_new_radius"							"Spear radius:"
         "DOTA_Tooltip_ability_karna_brahmastra_kundala_new_spear_loss_duration"				"Recast duration:"
@@ -8105,7 +8196,7 @@
 
 		
 		"DOTA_Tooltip_ability_karna_mana_burst_attribute"					"Uncrowned martial arts"
-		"DOTA_Tooltip_ability_karna_mana_burst_attribute_Description" 		"When karna hits at least one enemy with both Martial arts: Slashes hits, its cooldown will be lowered to 1 second.\nWhen Karna hits enemies with his Martial arts, Martial arts: Spin, Martial arts: Slashes and Martial arts: Dash, he will apply a stacking effect on enemy, when this effect reaches 5 stacks, enemy will be <font color='#FF3399'>stunned</font>  and dealth bonus damage, based on  Karna's <font color='#1E90FF'>intellect</font> as <font color='#58ACFA'>magical</font>, then the stacks are removed."
+		"DOTA_Tooltip_ability_karna_mana_burst_attribute_Description" 		"When karna hits at least one enemy with both Martial arts: Slashes hits, its cooldown will be lowered to 1 second.\nWhen Karna hits enemies with his Martial arts, Martial arts: Spin, Martial arts: Slashes and Martial arts: Dash, he will apply a stacking effect on enemy, when this effect reaches 5 stacks, enemy will be <font color='#FF3399'>stunned</font>  and dealt bonus damage, based on  Karna's <font color='#1E90FF'>intellect</font> as <font color='#58ACFA'>magical</font>, then the stacks are removed."
 		"DOTA_Tooltip_ability_karna_mana_burst_attribute_damage_per_int"	"Damage per INT:"
 		"DOTA_Tooltip_ability_karna_mana_burst_attribute_stacks_duration"	"Stacks duration:"
 		"DOTA_Tooltip_ability_karna_mana_burst_attribute_stun_duration"		"Stun Duration:"
@@ -8349,6 +8440,7 @@
         "DOTA_Tooltip_ability_jtr_holy_mother_attribute"				"Attribute: Holy Mother of Dismemberment"
         "DOTA_Tooltip_ability_jtr_holy_mother_attribute_Description"	"Jack's attacks cause deeper wounds in the enemy with each strike, causing consecutive attacks to the same enemy to deal more damage. If the same target is not attacked after a few seconds, the bonus damage is lost."
         "DOTA_Tooltip_ability_jtr_holy_mother_attribute_damage_per_stack"	"Damage per stack:"
+        "DOTA_Tooltip_ability_jtr_holy_mother_attribute_maximum_damage"			"Maximum damage:"
         "DOTA_Tooltip_ability_jtr_holy_mother_attribute_stack_duration"		"Duration:"
 
         "DOTA_Tooltip_ability_jtr_mental_pollution_attribute"				"Attribute: Mental Pollution"
@@ -8884,7 +8976,7 @@
         "DOTA_Tooltip_ability_nobu_fool_of_owari_Lore" ""
 
         "DOTA_Tooltip_ability_nobu_king_of_innovation"				"Spirit altering: King of innovation"
-        "DOTA_Tooltip_ability_nobu_king_of_innovation_Description"	"Gives Oda Nobunaga new ability: Leader of innovation\nLeader of innovation:\nUpon cast, Oda Nobunaga will receive an aura for 10 seconds. Each time a Nobunaga deals damage, all of her allies gain a 50% ms buff for 1 seconds on a 1 second cooldown. Each time an ally of Nobunaga deals damage, she heals herself for 80 + STR health with a cooldown of a 1 second.\n With Demon King Expanding attribute this choice will grant both King of innovation and Destroyer of worlds bonuses."
+        "DOTA_Tooltip_ability_nobu_king_of_innovation_Description"	"Gives Oda Nobunaga new ability: Leader of innovation\nLeader of innovation:\nUpon cast, Oda Nobunaga will receive an aura for 10 seconds. Each time a Nobunaga deals damage, all of her allies gain a 50% ms buff for 1 seconds on a 1 second cooldown and healed by 40 + 2 * hero level + STR. Each time an ally of Nobunaga deals damage, she heals herself for by 40 + 2 * hero level + STR with a cooldown of a 1 second.\n With Demon King Expanding attribute this choice will grant both King of innovation and Destroyer of worlds bonuses."
         "DOTA_Tooltip_ability_nobu_king_of_innovation_Lore" 				""
 
         "DOTA_Tooltip_ability_nobu_demon_king_close"				"Demon King close"
@@ -8904,10 +8996,11 @@
         "DOTA_Tooltip_ability_nobu_dow_passive_Lore"								""
 
          "DOTA_Tooltip_ability_nobu_leader_of_innovation"						"Leader of innovation"
-        "DOTA_Tooltip_ability_nobu_leader_of_innovation_Description"			"Upon cast, Oda Nobunaga will receive an aura for 10 seconds. Each time a Nobunaga deals damage, all of her allies gain a 50% ms buff for 1 seconds and heal them for 80 + caster STR. Each time an ally of Nobunaga deals damage, she heals herself for 80 + STR health with a cooldown of a 1 second."
+        "DOTA_Tooltip_ability_nobu_leader_of_innovation_Description"			"Upon cast, Oda Nobunaga will receive an aura for 10 seconds. Each time a Nobunaga deals damage, all of her allies gain a 50% ms buff for 1 seconds on a 1 second cooldown and healed by 40 + 2 * hero level + STR. Each time an ally of Nobunaga deals damage, she heals herself for by 40 + 2 * hero level + STR with a cooldown of a 1 second.\n With Demon King Expanding attribute this choice will grant both King of innovation and Destroyer of worlds bonuses."
         "DOTA_Tooltip_ability_nobu_leader_of_innovation_aura_radius"						"Aura radius:"
         "DOTA_Tooltip_ability_nobu_leader_of_innovation_ms_bonus"								"%MS bonus:"
         "DOTA_Tooltip_ability_nobu_leader_of_innovation_health_base"								"Base heal:"
+        "DOTA_Tooltip_ability_nobu_leader_of_innovation_health_per_level"								"Heal per hero level:"
         "DOTA_Tooltip_ability_nobu_leader_of_innovation_duration"								"Duration:"
         "DOTA_Tooltip_ability_nobu_leader_of_innovation_ms_duration"								"MS bonus duration:"
         "DOTA_Tooltip_ability_nobu_leader_of_innovation_Lore"								""
@@ -9410,24 +9503,36 @@
         "DOTA_Tooltip_ability_hijikata_dash_recast_duration"					"Recast duration:"
         "DOTA_Tooltip_ability_hijikata_dash_damage"								"Damage:"
         "DOTA_Tooltip_ability_hijikata_dash_damage_second"						"Battle drive damage:"
+        "DOTA_Tooltip_ability_hijikata_dash_sa_atk_dmg_mod"						"SA atk damage mod:"
         "DOTA_Tooltip_ability_hijikata_dash_Lore"							"Battlefield with a lot of men is where Hijikata shines the best, being able to find perfect opportunity to strike down even the most guarded target."
 
 
         "DOTA_Tooltip_ability_hijikata_dash_recast"							"Battle drive"
-        "DOTA_Tooltip_ability_hijikata_dash_recast_Description"			"Cast Point: <font color='#FFFFF9'>0.0</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Hijikata dashes to the target that was hit by the <font color='#58ACFA'>Madman shot</font>, upon reaching the target, he deals <font color='#58ACFA'>magical</font> damage to the target.\nHijikata will heal up to 20% of lost health on hit\nHijikata is unable to cast <font color='#58ACFA'>Battle drive</font> if target is too far away from him.\n<font color='#58ACFA'>Battle drive</font> is canceled if target blinks."
+        "DOTA_Tooltip_ability_hijikata_dash_recast_Description"			"Cast Point: <font color='#FFFFF9'>0.2</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Hijikata dashes to the target that was hit by the <font color='#58ACFA'>Madman shot</font>, upon reaching the target, he deals <font color='#58ACFA'>magical</font> damage to the target.\nHijikata will heal up to 20% of lost health on hit\nHijikata is unable to cast <font color='#58ACFA'>Battle drive</font> if target is too far away from him.\n<font color='#58ACFA'>Battle drive</font> is canceled if target blinks."
         "DOTA_Tooltip_ability_hijikata_dash_recast_distance"							"Range:"
         "DOTA_Tooltip_ability_hijikata_dash_recast_speed"								"Fly speed:"
         "DOTA_Tooltip_ability_hijikata_dash_recast_damage"								"Damage:"
+        "DOTA_Tooltip_ability_hijikata_dash_recast_sa_atk_dmg_mod"						"SA atk damage mod:"
         "DOTA_Tooltip_ability_hijikata_dash_Lore"										"Battlefield with a lot of men is where Hijikata shines the best, being able to find perfect opportunity to strike down even the most guarded target."
 
         "DOTA_Tooltip_ability_hijikata_demon"							"Demon of the battlefield"
-        "DOTA_Tooltip_ability_hijikata_demon_Description"			"Cast Point: <font color='#FFFFF9'>0.2</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Hijikata blinks to the target enemy, dealing <font color='#58ACFA'>magical</font> damage to the target and gains buff, which increases his <font color='#FFFAFA'>attack speed</font> by a flat value and grants him special <font color='#ff9900'>on hit damage</font> effect.\nThis effect deals percentage of difference between Hijikata and enemy <font color='#ACFF05'>health</font> plus base damage  as <font color='#58ACFA'>magical</font> damage on every attack for a duration."
+        "DOTA_Tooltip_ability_hijikata_demon_Description"			"Cast Point: <font color='#FFFFF9'>0.2</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Hijikata blinks to the target enemy, dealing <font color='#58ACFA'>magical</font> damage to the target and gains buff, which increases his <font color='#FFFAFA'>attack speed</font> by a flat value and grants him special <font color='#ff9900'>on hit damage</font> effect.\nThis effect deals percentage of difference between Hijikata and enemy <font color='#ACFF05'>health</font> plus base damage  as <font color='#58ACFA'>magical</font> damage on every attack for a duration.\nAllows to recast this ability after usage."
         "DOTA_Tooltip_ability_hijikata_demon_damage"								"Damage:"
         "DOTA_Tooltip_ability_hijikata_demon_buff_duration"							"Buff duration:"
         "DOTA_Tooltip_ability_hijikata_demon_as_value"								"Attack speed bonus:"
         "DOTA_Tooltip_ability_hijikata_demon_hp_percentage_diff_to_damage"			"%Health difference to damage:"
         "DOTA_Tooltip_ability_hijikata_demon_base_damage"			"Base on-hit damage"
+        "DOTA_Tooltip_ability_hijikata_demon_sa_atk_dmg_mod"						"SA atk damage mod:"
         "DOTA_Tooltip_ability_hijikata_demon_Lore"										"The way Hijikata fights, just like that of a demon, sometimes strikes fear even towards his allies. No matter how bad his condition is, his power never withers."
+
+
+
+        "DOTA_Tooltip_ability_hijikata_demon_recast"							"Demon of the battlefield"
+        "DOTA_Tooltip_ability_hijikata_demon_recast_Description"			"Cast Point: <font color='#FFFFF9'>0.3</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Hijikata slashes twice in front of him, dealing <font color='#58ACFA'>magical</font> damage to all targets hit, if strikes hit at least one enemy, Hijikata heals."
+        "DOTA_Tooltip_ability_hijikata_demon_recast_damage"								"Damage:"
+        "DOTA_Tooltip_ability_hijikata_demon_recast_radius"							"Radius:"
+        "DOTA_Tooltip_ability_hijikata_demon_recast_heal"								"%Heal from MAX HP:"
+ 
 
         "DOTA_Tooltip_ability_hijikata_duel"							"Duel"
         "DOTA_Tooltip_ability_hijikata_duel_Description"			"Cast Point: <font color='#FFFFF9'>0.3</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Hijikata declares <font color='#ff9900'>Duel</font> to the target enemy, creating a <font color='#FFFAFA'>territory</font> which him and his enemy <font color='#FF3399'>cannot leave</font> for a duration, or until one of them <font color='#FF3399'>dies</font>.\nWhile Duel persists, effects apply:\nHijikata and his target deal <font color='#FFFAFA'>more</font> damage to each other\nHijikata takes <font color='#FFFAFA'>less</font> damage from all other enemies\nHijikata deals <font color='#FFFAFA'>less</font> damage to all other enemies.\nOnly one duel can persist at a time."
@@ -9454,8 +9559,9 @@
         "DOTA_Tooltip_ability_hijikata_laws_Lore"							"Even after he threw away his pride as a warrior, Hijikata still aspired to be Shinsengumi, because of that he renders insane when he breaks the codex, up until he is not able to move anymore."
 
         "DOTA_Tooltip_ability_hijikata_ult"							"Shinsengumi"
-        "DOTA_Tooltip_ability_hijikata_ult_Description"			"Cast Point: <font color='#FFFFF9'>0</font>s. Cast Delay: <font color='#FFFFF9'>%delay%</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Hijikata shoots his gun after a delay, dealing <font color='#58ACFA'>magical</font> damage to all enemies hit, applying a <font color='#9400D3'>slow</font> debuff for a short duration.\nDamage is increased based on Hijikata's lost health percentage, for up to %max_damage_pct_self%%.\nHijikata is pushed back after shooting."
+        "DOTA_Tooltip_ability_hijikata_ult_Description"			"Cast Point: <font color='#FFFFF9'>0</font>s. Cast Delay: <font color='#FFFFF9'>%delay%</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Hijikata shoots his gun after a delay, dealing <font color='#58ACFA'>magical</font> damage to all enemies hit, increased by Hijikata's attack, applying a <font color='#9400D3'>slow</font> debuff for a short duration.\nDamage is increased based on Hijikata's lost health percentage, for up to %max_damage_pct_self%%.\nHijikata is pushed back after shooting."
         "DOTA_Tooltip_ability_hijikata_ult_damage"							"Damage:"
+        "DOTA_Tooltip_ability_hijikata_ult_attack_damage_mod"				"%Attack damage:"
         "DOTA_Tooltip_ability_hijikata_ult_duration"						"Slow duration:"
         "DOTA_Tooltip_ability_hijikata_ult_distance"						"Range:"
         "DOTA_Tooltip_ability_hijikata_ult_knockback_distance"						"Knockback distance:"
@@ -9502,9 +9608,10 @@
 
 	
 		"DOTA_Tooltip_ability_hijikata_shinsengumi_attribute"							"Return to office"
-        "DOTA_Tooltip_ability_hijikata_shinsengumi_attribute_Description"				"Upgrades <font color='#58ACFA'>Duel</font>, making it increase all allies inside <font color='#FFFAFA'>armor</font> and <font color='#FFFAFA'>magic resistance</font> and granting <font color='#ff9900'>disengage</font> effect to the winner of duel.\n<font color='#ff9900'>Disengage</font>: Grants powerfull health and mana regeneration buff.\nUpgrades <font color='#58ACFA'>Shinsengumi</font>, making it refresh cooldown of <font color='#58ACFA'>Madman shot</font>, when any enemy is hit.\n<font color='#58ACFA'>Madman shot</font> and <font color='#58ACFA'>Demon of the battlefield</font>  deal additional physical damage equal to Hijikata's attack"
+        "DOTA_Tooltip_ability_hijikata_shinsengumi_attribute_Description"				"Upgrades <font color='#58ACFA'>Duel</font>, making it increase all allies inside <font color='#FFFAFA'>armor</font>, <font color='#FFFAFA'>magic resistance</font> and <font color='#FFFAFA'>movement speed</font> and granting <font color='#ff9900'>disengage</font> effect to the winner of duel.\n<font color='#ff9900'>Disengage</font>: Grants powerfull health and mana regeneration buff.\nUpgrades <font color='#58ACFA'>Shinsengumi</font>, making it refresh cooldown of <font color='#58ACFA'>Madman shot</font>, when any enemy is hit.\n<font color='#58ACFA'>Madman shot</font> and <font color='#58ACFA'>Demon of the battlefield</font>  deal additional magical damage equal  percent of Hijikata's attack"
         "DOTA_Tooltip_ability_hijikata_shinsengumi_attribute_armor"								"Duel armor:"
         "DOTA_Tooltip_ability_hijikata_shinsengumi_attribute_mr"								"%Duel magic resistance:"
+        "DOTA_Tooltip_ability_hijikata_shinsengumi_attribute_ms"								"%Duel movement speed:"
         "DOTA_Tooltip_ability_hijikata_shinsengumi_attribute_health_regen"						"Disengage health regen:"
         "DOTA_Tooltip_ability_hijikata_shinsengumi_attribute_mana_regen"						"Disengage mana regen:"
         "DOTA_Tooltip_ability_hijikata_shinsengumi_attribute_regen_duration"					"Disengage duration:"

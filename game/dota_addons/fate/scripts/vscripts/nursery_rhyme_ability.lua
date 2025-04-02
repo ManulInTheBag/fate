@@ -852,7 +852,7 @@ function OnFTAcquired(keys)
 	--hero:SwapAbilities("jeanne_saint", "jeanne_identity_discernment", true, true) 
 	-- Set master 1's mana 
 	hero.bIsFTAcquired = true
-	hero:FindAbilityByName("alice_return"):SetLevel(2)
+	--hero:FindAbilityByName("alice_return"):SetLevel(2)
 	local master = hero.MasterUnit
 	master:SetMana(master:GetMana() - keys.ability:GetManaCost(keys.ability:GetLevel()))
 end

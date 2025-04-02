@@ -1143,5 +1143,9 @@
 		{
 			m_ChildRef = resource:"particles/zlodemon/angra_jopa/angra_jopa_splasj.vpcf"
 		},
+
+		{
+			m_ChildRef = resource:"particles/zlodemon/angra_jopa/angra_jopa_steam.vpcf"
+		},
 	]
 }

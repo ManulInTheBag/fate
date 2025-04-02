@@ -68,13 +68,11 @@ if IsServer() then
 
 	--	CustomNetTables:SetTableValue("sync","gilles_hysteria_stat", { att_spd = self.AttackSpeed })
     --end
-	function modifier_gilles_hysteria:OnRemoved()
-		self.dontDoDamage = true
-	end
+ 
 	function modifier_gilles_hysteria:OnDestroy()
 		local hCaster = self:GetCaster()
 		local hAbility = self:GetAbility()
-		if not self.dontDoDamage then
+		if self:GetRemainingTime()<= 0.05 then
 			local fDamage = (self:GetParent():GetMaxHealth() * self.Damage / 100)
 			if not self:GetParent():IsMagicImmune() then
 				DoDamage(hCaster, self:GetParent(), fDamage, DAMAGE_TYPE_MAGICAL, 0, hAbility, false)

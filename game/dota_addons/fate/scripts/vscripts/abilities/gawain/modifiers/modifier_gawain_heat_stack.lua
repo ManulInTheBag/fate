@@ -12,7 +12,7 @@ if IsServer() then
 end
 
 function modifier_gawain_heat_stack:IsHidden()
-	return true
+	return false
 end
 
 function modifier_gawain_heat_stack:IsPurgable()

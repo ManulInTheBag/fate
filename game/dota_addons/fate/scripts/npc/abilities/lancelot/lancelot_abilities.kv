@@ -13,6 +13,142 @@
 "DOTAAbilities"
 {	
 	//=================================================================================================================
+	// Lancelot - dash (Q-W)
+	//=================================================================================================================
+	"lancelot_dash"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/lancelot/lancelot_dash"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"25"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_ROOT_DISABLES|DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityTextureName"			"custom/lancelot/lancelot_dash"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2"
+		"AnimationPlaybackRate" 		"1.0"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"25"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityManaCost"				"100"
+		"AbilityCooldown"				"3"
+		"AbilityCastPoint"				"0.1"
+
+		"AbilityValues"
+        {
+        	"distance"				"400"
+        	"speed"					"1200"
+        }
+	}
+	//====================================
+	// Lancelot rosa
+	//====================================
+	"lancelot_rosa"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/lancelot/lancelot_rosa"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"25"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT|DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"			"custom/lancelot/lancelot_rosa"
+		"AbilityCastPoint"				"0.1"
+		"AbilityCooldown"				"20"
+		"AbilityManaCost"				"250"
+
+
+
+		"precache"
+		{
+			"particle"			"particles/lancelot/lancelot_slash_rosa.vpcf"
+			"particle"			"particles/custom/kinghassan/azraelflash.vpcf"
+		}
+
+		"AbilityValues"
+		{	
+			"cast_point"				"0.1"
+			"damage"					"300 375 450 525 600"
+			"stun_duration"				"0.3"
+			"radius"					"450"
+			"mana"						"200 250 300 350 400"
+		}
+	}
+
+	//====================================
+	// Lancelot overload
+	//====================================
+	"lancelot_arondight_overload"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/lancelot/lancelot_arondight_overload"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"25"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT|DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"			"custom/lancelot/lancelot_arondight_overload"
+		"AbilityCastPoint"				"0.2"
+		"AbilityCooldown"				"10"
+		"AbilityManaCost"				"400"
+
+
+
+		"precache"
+		{
+			"particle"			"particles/custom/lancelot/arondight_overload_new_explosion.vpcf"
+			"particle"			"particles/custom/kinghassan/azraelflash.vpcf"
+			"particle"			"particles/lancelot/lancelot_slash_overload.vpcf"
+		}
+
+		"AbilityValues"
+		{	
+			"cast_point"				"0.2"
+			"damage"					"500 625 750 875 1000"
+			"stun_duration"				"0.5"
+			"radius"					"450"
+		}
+	}
+	//====================================
+	// Lancelot parry
+	//====================================
+	"lancelot_parry"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/lancelot/lancelot_parry"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED"
+		"AbilityTextureName"			"custom/lancelot/lancelot_parry"
+		"AbilityCastPoint"				"0.1"
+		"AbilityCooldown"				"15 14 13 12 11"
+		"AbilityManaCost"				"200"
+		"AbilityChannelTime"			"1"
+		"AbilityCastAnimation" 			"ACT_DOTA_OVERRIDE_ABILITY_4"
+
+
+		"precache"
+		{
+			"particle"			"particles/lancelot/lancelot_slash_parry.vpcf"
+			"particle"			"particles/lancelot/shield/lancelot_parry.vpcf"
+		}
+
+		"AbilityValues"
+		{	
+			"cast_point"				"0.1"
+			"channel_duration"			"1"
+			"shield_amount"				"400"
+			"damage"					"300 375 450 525 600"
+			"root_dur"					"0.8 1 1.2 1.4 1.6"
+			"mana"						"200 250 300 350 400"
+		}
+	}
+
+	//=================================================================================================================
 	// Lancelot : Blessing of Fairy
 	//=================================================================================================================
 	"lancelot_blessing_of_fairy"
@@ -28,6 +164,7 @@
             "damage_threshold" "500"
             "duration" "3.5"
             "magres" "80"
+            "heal" "500"
         }
 		
 		"Modifiers"
@@ -203,7 +340,7 @@
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_datadriven"
-		"MaxLevel"						"4"
+		"MaxLevel"						"5"
 		"RequiredLevel"					"25"
 		"LevelsBetweenUpgrades"			"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN"
@@ -228,7 +365,7 @@
 		"AbilityValues"
         {
             "radius" "600"
-            "damage" "450 550 650 750"
+            "damage" "400 500 600 700 800"
             "low_end" "80"
             "high_end" "120"
             "stun_duration" "0.3"
@@ -278,7 +415,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_datadriven"
-		"MaxLevel"						"4"
+		"MaxLevel"						"5"
 		"RequiredLevel"					"25"
 		"LevelsBetweenUpgrades"			"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
@@ -288,7 +425,7 @@
 		"AbilityTextureName"			"custom/lancelot_gae_bolg"
 		//"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_4"
 		"AbilityCastAnimation"			"ACT_DOTA_OVERRIDE_ABILITY_2"
-		"AnimationPlaybackRate" 		"2.0"
+		"AnimationPlaybackRate" 		"2.5"
 		
 		"precache"
 		{
@@ -306,7 +443,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityCastRange"				"300"
 		"AbilityCastRangeBuffer"		"150"
-		"AbilityCastPoint"				"0.8"
+		"AbilityCastPoint"				"0.6"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -314,7 +451,7 @@
 
 		// Damage.
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityDamage"					"550 660 770 880"
+		"AbilityDamage"					"500 600 700 800 900"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -322,8 +459,8 @@
 		
 		"AbilityValues"
         {
-            "damage" "550 660 770 880"
-            "heartbreak_threshold" "200 240 280 320"
+            "damage" "500 600 700 800 900"
+            "heartbreak_threshold" "160 200 240 280 320"
         }
 		
 		"OnAbilityPhaseStart"
@@ -365,7 +502,7 @@
 		// General
 		//-------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_datadriven"
-		"MaxLevel"						"4"
+		"MaxLevel"						"5"
 		"RequiredLevel"					"25"
 		"LevelsBetweenUpgrades"			"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
@@ -404,9 +541,9 @@
         {
             "radius" "350"
             "radius_lasthit" "500"
-            "damage" "35 40 45 50"
-            "damage_lasthit" "250 300 350 400"
-            "stun_duration" "1.5"
+            "damage" "30 35 40 45 50"
+            "damage_lasthit" "300 350 400 450 500"
+            "stun_duration" "1.0"
             "range" "700"
         }
 		"OnAbilityPhaseStart"
@@ -571,7 +708,7 @@
 	{
 		// General		//------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_datadriven"
-		"MaxLevel"						"4"
+		"MaxLevel"						"5"
 		"RequiredLevel"					"25"
 		"LevelsBetweenUpgrades"			"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
@@ -600,10 +737,11 @@
 
 		"AbilityValues"
         {
-            "damage" "250 275 300 350"
-            "lasthit_damage" "300 400 500 600"
-            "stun_duration" "1.5"
+            "damage" "200 230 260 320 350"
+            "lasthit_damage" "300 375 450 525 600"
+            //"stun_duration" "1.5"
             "global_cooldown" "45 43 41 39 37"
+            "cast_point"			"0.6"
         }
 
 		"OnAbilityPhaseStart"
@@ -695,10 +833,9 @@
 
 		"AbilityValues"
         {
-            "active_duration" "1 2"
-            "crit_chance" "10 20"
+            "active_duration" "5"
+            "crit_chance" "20"
             "crit_damage" "200"
-            "koh_level" "2 4"
         }
 	}
 
@@ -716,7 +853,7 @@
 		
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"9999"
-		"AbilityManaCost"				"13"
+		"AbilityManaCost"				"11"
 
 		"precache"
 		{
@@ -726,6 +863,7 @@
         {
             "health_threshold" "500"
             "magic_immune_duration" "3.5"
+            "healing" "500"
         }
 		
 		"OnSpellStart"
@@ -779,7 +917,7 @@
 		
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"9999"
-		"AbilityManaCost"				"10"
+		"AbilityManaCost"				"8"
 
 		"precache"
 		{
@@ -789,8 +927,39 @@
         {
             "armor_shred" "1"
             "duration" "5"
+            "root_dur" "0.4"
         }
 	}
+
+	//=======================================
+	// Lancelot Attribute : Improve owner
+	//=======================================
+	"lancelot_attribute_knight_of_owner"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/lancelot/lancelot_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/lancelot/lancelot_5sa"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"16"
+
+		"precache"
+		{
+		}
+
+		"AbilityValues"
+        {
+            "armor_shred" "1"
+            "duration" "5"
+            "root_dur" "0.4"
+        }
+	}
+
 
 	//=======================================
 	// Lancelot Attribute : Knight of the Lake
@@ -807,7 +976,7 @@
 		
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"9999"
-		"AbilityManaCost"				"8"
+		"AbilityManaCost"				"12"
 
 		"precache"
 		{

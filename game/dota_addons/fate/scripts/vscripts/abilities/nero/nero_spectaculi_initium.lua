@@ -133,7 +133,7 @@ function nero_spectaculi_initium:OnSpellStart()
 		local point = self:GetCursorPosition()
 		caster:AddNewModifier(caster, self, "modifier_nero_spectaculi_initium", {duration = self:GetSpecialValueFor("delay") + FrameTime()})
 
-		caster:FindAbilityByName("nero_heat"):StartPerformance(2000, 4000/1.5)
+		caster:FindAbilityByName("nero_heat"):StartPerformance(2000, 4000/2.25)
 
 		self:ShieldCharge(self:GetSpecialValueFor("shield_amount"))
 	end

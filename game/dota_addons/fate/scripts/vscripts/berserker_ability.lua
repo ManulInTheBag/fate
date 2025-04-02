@@ -569,7 +569,7 @@ function OnNineStart(keys)
 	local origin = caster:GetAbsOrigin()
 	local distance = (targetPoint - origin):Length2D()
 	local forward = (targetPoint - origin):Normalized() * distance
-
+	caster.bNineStarted = false
 	caster:SetPhysicsFriction(0)
 	caster:SetPhysicsVelocity(caster:GetForwardVector()*distance)
 	--caster:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
@@ -579,6 +579,13 @@ function OnNineStart(keys)
 	if casterName == "npc_dota_hero_doom_bringer" then
 		StartAnimation(caster, {duration=1, activity=ACT_DOTA_CAST_ABILITY_5, rate=0.5})
 	elseif casterName == "npc_dota_hero_sven" then
+		caster:SetBodygroup(0,1)
+		Timers:CreateTimer(1.3, function() 
+			if not caster.bNineStarted  then
+				caster:SetBodygroup(0,0)
+				print("set back")
+			end
+		end)
 		StartAnimation(caster, {duration=1, activity=ACT_DOTA_CAST_ABILITY_2_ES_ROLL_START, rate=0.5})
 	elseif casterName == "npc_dota_hero_ember_spirit" then
 		StartAnimation(caster, {duration=1, activity=ACT_DOTA_RUN, rate=0.8})
@@ -652,7 +659,7 @@ function OnNineLanded(caster, ability)
 	local nineCounter = 0
 	local casterInitOrigin = caster:GetAbsOrigin() 
 	local ilya = false
-
+	caster.bNineStarted = true
 	-- swap animation
 	if caster:GetName() == "npc_dota_hero_doom_bringer" then 
 		if caster:IsAlive() then
@@ -678,17 +685,22 @@ function OnNineLanded(caster, ability)
 			ParticleManager:SetParticleControl(particle, 1, Vector(0,0,(nineCounter % 2) * 180))
 			ParticleManager:SetParticleControl(particle, 2, Vector(1,1,radius))
 			ParticleManager:SetParticleControl(particle, 3, Vector(radius / 350,1,1))
-			if caster:GetName() == "npc_dota_hero_sven" then 
+			if caster:GetName() == "npc_dota_hero_sven" and nineCounter < 7 and nineCounter %2 == 0 then 
 				if math.random(0,1) == 0 then 
-					StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_CAST_ABILITY_2_ES_ROLL, rate=2.5})
+					StartAnimation(caster, {duration=0.6, activity=ACT_DOTA_CAST_ABILITY_2_ES_ROLL, rate=1.25})
 				else
-					StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_CAST_ABILITY_3_END, rate=2.5})
+					StartAnimation(caster, {duration=0.6, activity=ACT_DOTA_CAST_ABILITY_3_END, rate=1.5})
 				end
 			elseif caster:GetName() == "npc_dota_hero_ember_spirit" then 
 				StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_ATTACK, rate=3.0}) 
 			end
 			caster:EmitSound("Hero_EarthSpirit.StoneRemnant.Impact") 
+			if nineCounter == 7 then
+				if caster:GetName() == "npc_dota_hero_sven" then 
+					StartAnimation(caster, {duration=0.3, activity=ACT_DOTA_CAST_ABILITY_ROT, rate=4.5})
+				end
 
+			end
 			if nineCounter == 8 then -- if it is last strike
 
 				caster:EmitSound("Hero_EarthSpirit.BoulderSmash.Target")
@@ -715,6 +727,7 @@ function OnNineLanded(caster, ability)
 							giveUnitDataDrivenModifier(caster, v, "revoked", 0.5)
 						end]]
 						-- push enemies back
+						v:RemoveModifierByNameAndCaster("modifier_kb_immune", caster)
 						if not IsKnockbackImmune(v) then
 							local pushback = Physics:Unit(v)
 							v:PreventDI()
@@ -736,6 +749,7 @@ function OnNineLanded(caster, ability)
 					--EmitGlobalSound("Berserker.Roar")
 				elseif caster:GetName() == "npc_dota_hero_sven" then
 					EmitGlobalSound("Lancelot.Roar1" )
+					caster:SetBodygroup(0,0)
 					StartAnimation(caster, {duration=0.7, activity=ACT_DOTA_CAST_CHAOS_METEOR, rate=3.0})
 				elseif caster:GetName() == "npc_dota_hero_ember_spirit" then
 					caster:EmitSound("Archer.NineFinish") 
@@ -770,7 +784,12 @@ function OnNineLanded(caster, ability)
 						DoDamage(caster, v, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
 					end
 					v:AddNewModifier(caster,ability, "modifier_kb_immune", {duration = 0.5})
-					v:AddNewModifier(caster, v, "modifier_stunned", { Duration = 0.5 })
+					v:AddNewModifier(caster, v, "modifier_rooted", { Duration = 0.5 })
+					if caster.ImproveKnightOfOwner then
+						v:AddNewModifier(caster, v, "modifier_stunned", { Duration = 0.2 })
+					end
+					giveUnitDataDrivenModifier(caster, v, "locked", 0.5)
+					--v:AddNewModifier(caster, v, "modifier_stunned", { Duration = 0.5 })
 					--giveUnitDataDrivenModifier(caster, v, "stunned", 0.5)
 					--[[if caster:GetName() ~= "npc_dota_hero_ember_spirit" then
 						print("9 revoke")
@@ -788,7 +807,12 @@ function OnNineLanded(caster, ability)
 				return returnDelay
 			end
 
-		end 
+		else
+			if caster:GetName() == "npc_dota_hero_sven" then
+				caster:SetBodygroup(0,0)
+				
+			end
+		end
 	end)
 end
 
@@ -825,7 +849,7 @@ end
 
 LinkLuaModifier("modifier_death_tracker", "abilities/heracles/modifiers/modifier_death_tracker", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_herc_gh_reduc", "abilities/heracles/modifiers/modifier_herc_gh_reduc", LUA_MODIFIER_MOTION_NONE)
-
+LinkLuaModifier("modifier_heracles_heal_disable", "abilities/heracles/modifiers/modifier_heracles_heal_disable", LUA_MODIFIER_MOTION_NONE)
 function OnGodHandDeath(keys)
 	local caster = keys.caster
 	local newRespawnPos = caster:GetOrigin()
@@ -883,6 +907,7 @@ function OnGodHandDeath(keys)
 
 			-- Apply penalty
 			keys.ability:ApplyDataDrivenModifier(caster, caster, "modifier_god_hand_debuff", {}) 
+			caster:AddNewModifier(caster, keys.ability, "modifier_heracles_heal_disable", { duration = 1 })
 			if not caster.IsGodHandAcquired then
 				caster:SetHealth(caster:GetMaxHealth()*0.5)
 			else

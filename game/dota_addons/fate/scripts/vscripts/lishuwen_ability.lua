@@ -29,7 +29,9 @@ function OnMartialAttackStart(keys)
 	local target = keys.target
 	local chance = keys.Chance
 	local ability = keys.ability
-	--if not target:HasModifier("modifier_mark_of_fatality") then return end
+	if not target:HasModifier("modifier_mark_of_fatality") then return end
+	local stacks = target:FindModifierByName("modifier_mark_of_fatality"):GetStackCount()
+	chance = stacks * chance
 	local roll = math.random(100)
 	if roll < chance then
 		ability:ApplyDataDrivenModifier(caster, caster, "modifier_martial_arts_crit_hit", {})

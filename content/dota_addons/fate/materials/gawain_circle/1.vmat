@@ -1,0 +1,39 @@
+// THIS FILE IS AUTO-GENERATED
+
+Layer0
+{
+	shader "projected_dota.vfx"
+
+	//---- Color ----
+	TextureColor "materials/gawain_circle/1.png"
+
+	//---- Overbright ----
+	g_flOverbrightFactor "1.000"
+
+	//---- Translucency ----
+	TextureTranslucency "materials/gawain_circle/1.png"
+
+	UnusedVariables
+	{
+		"g_flFalloffFinal" "0"
+		"g_flFalloffRange" "0"
+		"g_flAlphaRange" "0"
+		"g_flSolidRange" "0"
+		"g_flBumpStrength" "1"
+		"TextureNormal" ""
+	}
+
+
+	VariableState
+	{
+		"Color"
+		{
+		}
+		"Overbright"
+		{
+		}
+		"Translucency"
+		{
+		}
+	}
+}

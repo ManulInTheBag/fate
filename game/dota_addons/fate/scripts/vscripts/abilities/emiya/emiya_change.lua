@@ -126,8 +126,10 @@ function modifier_archer_change_rain:OnIntervalThink()
                         FIND_ANY_ORDER,
                         false)
 		for _,enemy in pairs(enemies) do
-			DoDamage(self.hCaster, enemy, self.damage/10, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
-			enemy:AddNewModifier(self.hCaster, self.ability,"modifier_archer_change_rain_slow", {duration = 0.25})
+			if not enemy:HasModifier("modifier_protection_from_arrows_active") then 
+				DoDamage(self.hCaster, enemy, self.damage/10, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
+				enemy:AddNewModifier(self.hCaster, self.ability,"modifier_archer_change_rain_slow", {duration = 0.25})
+			end
        	end
 end
  

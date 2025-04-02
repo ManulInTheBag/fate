@@ -5,16 +5,16 @@ function modifier_monstrous_strengh_damage_bonus:DeclareFunctions()
 end
 
 function modifier_monstrous_strengh_damage_bonus:GetModifierPreAttack_BonusDamage()
-	local bonus_damage
+	-- local bonus_damage
 
-	if IsServer() then 
-		bonus_damage = self:GetParent():GetStrength()
-		CustomNetTables:SetTableValue("sync","astolfo_monstrous_str", { bonus_damage = bonus_damage})
-	else
-		bonus_damage = CustomNetTables:GetTableValue("sync","astolfo_monstrous_str").bonus_damage
-	end
+	-- if IsServer() then 
+	-- 	bonus_damage = self:GetParent():GetStrength()
+	-- 	CustomNetTables:SetTableValue("sync","astolfo_monstrous_str", { bonus_damage = bonus_damage})
+	-- else
+	-- 	bonus_damage = CustomNetTables:GetTableValue("sync","astolfo_monstrous_str").bonus_damage
+	-- end
 
-	return bonus_damage
+	return self:GetParent():GetStrength()
 end
 
 function modifier_monstrous_strengh_damage_bonus:IsPermanent()

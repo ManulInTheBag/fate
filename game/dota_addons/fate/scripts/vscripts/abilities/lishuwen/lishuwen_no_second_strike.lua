@@ -2,6 +2,7 @@ lishuwen_no_second_strike = class({})
 
 LinkLuaModifier("modifier_nss_knockback_stun", "abilities/lishuwen/modifiers/modifier_nss_knockback_stun.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_nss_shock", "abilities/lishuwen/modifiers/modifier_nss_shock.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_nss_shock_no_revoke", "abilities/lishuwen/modifiers/modifier_nss_shock.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_berserk","abilities/lishuwen/modifiers/modifier_berserk", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_nss_shock_stackable", "abilities/lishuwen/lishuwen_no_second_strike.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_shuwen_passive_nss_attack_stacking", "abilities/lishuwen/lishuwen_no_second_strike.lua", LUA_MODIFIER_MOTION_NONE)
@@ -104,7 +105,7 @@ end
 function modifier_nss_shock_stackable:GetModifierPhysicalArmorBonus()
 
 	if IsServer() then
-		CustomNetTables:SetTableValue("sync","nss_variables", { armor_reduction = -self.armor_reduction })
+		CustomNetTables:SetTableValue("sync","nss_variables", { ms_reduction =  -self.slow_power, mr_reduction = -self.mr_reduction, armor_reduction = -self.armor_reduction })
 		return -self.armor_reduction
 	elseif IsClient() then
 		local armor_reduction_jopa = CustomNetTables:GetTableValue("sync","nss_variables").armor_reduction
@@ -114,7 +115,7 @@ end
 
 function modifier_nss_shock_stackable:GetModifierMagicalResistanceBonus()
 	if IsServer() then
-		CustomNetTables:SetTableValue("sync","nss_variables", { mr_reduction = -self.mr_reduction })
+		CustomNetTables:SetTableValue("sync","nss_variables", { ms_reduction =  -self.slow_power, mr_reduction = -self.mr_reduction, armor_reduction = -self.armor_reduction })
 		return -self.mr_reduction
 	elseif IsClient() then
 		local mr_reduction_jopa = CustomNetTables:GetTableValue("sync","nss_variables").mr_reduction
@@ -131,6 +132,9 @@ function modifier_nss_shock_stackable:OnCreated(tTable)
 	self.armor_reduction = 0
 	self.mr_reduction = 0
 	self.heal_reduction = 0
+	if IsServer() then
+		Timers:RemoveTimer("liShuwenDebuffsTimer")
+	end
 	if self.hCaster.LiShuwenNewSa then 
 		if self.stacks >= 10 then
 			self.reduction = self.hAbility:GetSpecialValueFor("magical_damage_reduction_1")
@@ -145,7 +149,20 @@ function modifier_nss_shock_stackable:OnCreated(tTable)
 			self.mr_reduction = self.hAbility:GetSpecialValueFor("mr_reduction")
 			self.heal_reduction = self.hAbility:GetSpecialValueFor("heal_reduction_2")
 		end
+		CustomNetTables:SetTableValue("sync","nss_variables", { ms_reduction =  -self.slow_power, mr_reduction = -self.mr_reduction, armor_reduction = -self.armor_reduction })
+
 	end
+	Timers:CreateTimer("liShuwenDebuffsTimer", {
+		endTime = 3,
+		callback = function()
+			self.reduction = 0
+			self.slow_power = 0
+			self.armor_reduction = 0
+			self.mr_reduction = 0
+			self.heal_reduction = 0
+			CustomNetTables:SetTableValue("sync","nss_variables", { ms_reduction =  0, mr_reduction =0, armor_reduction = 0 })
+		return end
+	})
 end
 function modifier_nss_shock_stackable:OnRefresh(tTable)
     self:OnCreated(tTable)
@@ -153,7 +170,7 @@ end
 
 function modifier_nss_shock_stackable:GetModifierMoveSpeedBonus_Percentage()
 	if IsServer() then
-		CustomNetTables:SetTableValue("sync","nss_variables", { ms_reduction =  -self.slow_power })
+		CustomNetTables:SetTableValue("sync","nss_variables", { ms_reduction =  -self.slow_power, mr_reduction = -self.mr_reduction, armor_reduction = -self.armor_reduction })
 		return  -self.slow_power
 	elseif IsClient() then
 		local ms_reduction_jopa = CustomNetTables:GetTableValue("sync","nss_variables").ms_reduction
@@ -240,7 +257,7 @@ function lishuwen_no_second_strike:OnSpellStart()
 	local stunDuration = self:GetSpecialValueFor("stun_duration")
 	StartAnimation(caster, {duration=0.4, activity=ACT_DOTA_CAST_ABILITY_4_END, rate=0.8})
 	local ability = self
-	local distance = 600
+	local distance = 700
 	EmitGlobalSound("Lishuwen.NoSecondStrike")
 	self.firsthit = false
 	local vector = (self:GetCursorPosition() - caster:GetAbsOrigin()):Normalized()
@@ -329,14 +346,19 @@ function lishuwen_no_second_strike:OnProjectileHit_ExtraData(hTarget, vLocation,
 			DoDamage(caster, target, mana_shock_damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
 		end]]
 
-		damage = damage + self:GetSpecialValueFor("shock_damage") + 0.2*(hTarget:GetMaxHealth()-hTarget:GetHealth()) +
-		 stacks * (self:GetSpecialValueFor("damage_per_nss_stack") + self:GetSpecialValueFor("sa_bonus_damage_per_stack"))
+		damage = damage + 0.2*(hTarget:GetMaxHealth()-hTarget:GetHealth()) --+
+		-- stacks * (self:GetSpecialValueFor("damage_per_nss_stack") + self:GetSpecialValueFor("sa_bonus_damage_per_stack"))
 		--stunDuration = self:GetSpecialValueFor("attribute_stun_duration")
 		if not self.firsthit then
 			hTarget:AddNewModifier(caster, self, "modifier_nss_shock", { Duration = self:GetSpecialValueFor("revoke_duration"),
-																		ShockDamage = 0})
+																		ShockDamage = self:GetSpecialValueFor("shock_damage") + 
+																		stacks * (self:GetSpecialValueFor("damage_per_nss_stack") + self:GetSpecialValueFor("sa_bonus_damage_per_stack"))})
 			self.firsthit = true		
-		end														  
+		else
+			hTarget:AddNewModifier(caster, self, "modifier_nss_shock_no_revoke", { Duration = self:GetSpecialValueFor("revoke_duration"),
+																		ShockDamage = self:GetSpecialValueFor("shock_damage") + 	stacks * (self:GetSpecialValueFor("damage_per_nss_stack") + self:GetSpecialValueFor("sa_bonus_damage_per_stack"))})
+																	
+		end
 	else
 		if not self.firsthit then
 			hTarget:AddNewModifier(caster, self, "modifier_nss_shock", { Duration = self:GetSpecialValueFor("revoke_duration"),

@@ -71,7 +71,9 @@ function emiya_barrage_rain:OnSpellStart()
 						--[[if v:HasModifier("modifier_sword_barrage_confine") then
 							DoDamage(caster, v, damage * 1.4, DAMAGE_TYPE_PHYSICAL, 0, self, false)
 						else]]
-							DoDamage(caster, v, damage , DAMAGE_TYPE_MAGICAL, 0, self, false)
+							if not  v:HasModifier("modifier_protection_from_arrows_active") then
+								DoDamage(caster, v, damage , DAMAGE_TYPE_MAGICAL, 0, self, false)
+							end
 						--end
 					end
 					

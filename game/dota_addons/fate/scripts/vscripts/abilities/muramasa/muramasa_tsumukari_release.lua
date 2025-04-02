@@ -111,6 +111,7 @@ Timers:CreateTimer(1.5, function()
         DoDamage(caster, v, damage_impact*0.3 , DAMAGE_TYPE_PURE, 0, self, false)
      else
         DoDamage(caster, v, damage_impact , DAMAGE_TYPE_MAGICAL, 0, self, false)
+
      end
     end        
 end)

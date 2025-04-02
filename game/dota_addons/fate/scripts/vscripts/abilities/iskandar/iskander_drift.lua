@@ -28,10 +28,12 @@ function iskander_drift:OnSpellStart()
 	local damage = self:GetSpecialValueFor("damage")
 	local base_damage = self:GetSpecialValueFor("base_damage")
 	local stun_duration = self:GetSpecialValueFor("stun_duration")
+	local modifier = caster:FindModifierByName("modifier_gordius_wheel")
+	modifier.turnrate_pct = -1000
 	Timers:CreateTimer("chariot_dash_damage", {
 		endTime = 0.0,
 		callback = function()
-
+		caster:SetPhysicsVelocity(caster:GetForwardVector() * speed)
 		self:CreateLightningField(caster:GetAbsOrigin())
 		local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 400, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
         local bonus_charge_damage = caster.BonusChargeDamage or 0

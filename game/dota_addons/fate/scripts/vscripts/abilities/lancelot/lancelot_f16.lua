@@ -83,7 +83,7 @@ function lancelot_f16:OnSpellStart()
 			
 			-- Level abilities
 	f16:FindAbilityByName("lancelot_f16_barrage"):SetLevel(caster:FindAbilityByName("lancelot_minigun"):GetLevel())
-	f16:FindAbilityByName("lancelot_f16_nuke"):SetLevel(caster:FindAbilityByName("lancelot_double_edge"):GetLevel())
+	f16:FindAbilityByName("lancelot_f16_nuke"):SetLevel(caster:FindAbilityByName("lancelot_parry"):GetLevel())
     f16:FindAbilityByName("lancelot_f16_mana"):SetLevel(caster:FindAbilityByName("lancelot_knight_of_honor"):GetLevel())  
 	f16:FindAbilityByName("lancelot_f16_forward"):SetLevel(caster:FindAbilityByName("lancelot_arondite"):GetLevel())
     f16:AddNewModifier(caster, caster:FindAbilityByName("lancelot_minigun"), "modifier_lancelot_minigun_f16", { duration = 30.0 })
@@ -298,12 +298,14 @@ function lancelot_f16_forward:OnSpellStart()
     end)
     caster:AddNewModifier(caster, caster, "modifier_forward_cmd_disable", {duration = 2.0})
 	--caster:AddNewModifier(caster, caster, "modifier_stunned", {Duration = 2.0})
+
 	Timers:CreateTimer(2, function()
 
 		local targetPoint = caster:GetAbsOrigin()
         if( not caster:IsAlive()) then
             return end
         EmitGlobalSound("Lancelot.Nuke_Impact")
+
 		local targets = FindUnitsInRadius(caster:GetTeam(), targetPoint, nil, self:GetSpecialValueFor("damage_radius"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
         for k,v in pairs(targets) do
             DoDamage(caster, v, self:GetSpecialValueFor("damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)

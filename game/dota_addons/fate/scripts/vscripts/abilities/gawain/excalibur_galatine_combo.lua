@@ -34,8 +34,10 @@ function gawain_excalibur_galatine_combo:OnSpellStart()
 	ParticleManager:SetParticleControl(fxIndexjopa, 1, Vector(1,0.8,0.01))
 	ParticleManager:SetParticleControl(fxIndexjopa, 2, Vector(radius,3.5,0))
 	ParticleManager:ReleaseParticleIndex(fxIndexjopa)
-
-
+    self.particleNew = ParticleManager:CreateParticle("particles/zlodemon/gawain_combo_circlevpcf.vpcf", PATTACH_WORLDORIGIN, nil)
+    ParticleManager:SetParticleControl(self.particleNew, 0, caster:GetAbsOrigin())
+    ParticleManager:SetParticleControl(self.particleNew, 1, Vector(radius,0,0))
+    ParticleManager:SetParticleShouldCheckFoW(self.particleNew, false)
     ------Activating Meltdown
     if caster.IsMeltdownAcquired then
         local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 20000, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false) 
@@ -116,6 +118,8 @@ function gawain_excalibur_galatine_combo:OnSpellStart()
     Timers:CreateTimer(3.5, function() --explosion part
             ParticleManager:DestroyParticle( flameFx1, false )
             ParticleManager:ReleaseParticleIndex( flameFx1 )
+            ParticleManager:DestroyParticle(self.particleNew, false)
+            ParticleManager:ReleaseParticleIndex(self.particleNew)
             if caster:IsAlive() then
                 EmitGlobalSound("gawain_galatine_combo_activate_1")
                 local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 

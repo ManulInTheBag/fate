@@ -148,7 +148,7 @@ function vlad_kazikli_bey:OnSpellStart()
 			--elseif hitcounter == 4 then
 			--	StartAnimation(caster, {duration=2.5, activity=ACT_DOTA_CAST_ABILITY_2, rate=0.8})
 			--else
-			if hitcounter == 8 then
+			if hitcounter == 6 then
 				EmitGlobalSound("Vlad.KB")
 			elseif hitcounter == 9 then
 				self.PI1 = {}

@@ -20,7 +20,7 @@ function khsn_slash:OnSpellStart()
 	local range = ability:GetSpecialValueFor("length")
 	local speed = ability:GetSpecialValueFor("speed")
 
-	giveUnitDataDrivenModifier(caster, caster, "pause_sealdisabled", 0.5)
+	giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 0.5)
     caster:EmitSound("KingHassan.Azrael")
 
 	local azrael = 

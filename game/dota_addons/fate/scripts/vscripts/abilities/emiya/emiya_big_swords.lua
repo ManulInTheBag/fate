@@ -167,7 +167,7 @@ function emiya_big_swords:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
   	local hCaster = self:GetCaster()
 	  local fw = self.fw
 	if(hTarget ~= nil) then
-		
+		if   hTarget:HasModifier("modifier_protection_from_arrows_active") then return end
 		
 		DoDamage(hCaster, hTarget, tData.fDamage, DAMAGE_TYPE_MAGICAL, 0, self, false)
 		giveUnitDataDrivenModifier(hCaster, hTarget, "rooted", 0.3)

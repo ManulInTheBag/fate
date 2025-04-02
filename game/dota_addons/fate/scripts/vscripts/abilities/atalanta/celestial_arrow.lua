@@ -175,7 +175,7 @@ function atalanta_celestial_arrow:ArrowHit(target, slow, bIsPhoebus, bIsCombo)
     if target:HasModifier("modifier_protection_from_arrows_active") then return end
 
     caster:AddHuntStack(target, 1)
-    local damage = caster:GetAverageTrueAttackDamage(caster) + self:GetSpecialValueFor("bonus_damage") + caster:GetLevel() * self:GetSpecialValueFor("damage_per_level")
+    local damage = self:GetSpecialValueFor("bonus_damage") + caster:GetLevel() * self:GetSpecialValueFor("damage_per_level")
 
     if caster.ArrowsOfTheBigDipperAcquired then
 

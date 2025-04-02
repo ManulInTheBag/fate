@@ -1,6 +1,6 @@
 LinkLuaModifier("modifier_edmon_enfer", "abilities/edmon/edmon_enfer", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_edmon_enfer_particle", "abilities/edmon/edmon_enfer", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_edmon_ult", "abilities/edmon/edmon_ult", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_edmon_enfer_disappear", "abilities/edmon/edmon_enfer", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_edmon_enfer_thinker", "abilities/edmon/edmon_enfer", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_edmon_enfer_slow", "abilities/edmon/edmon_enfer", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_edmon_enfer_cooldown", "abilities/edmon/edmon_enfer", LUA_MODIFIER_MOTION_NONE)
@@ -147,7 +147,7 @@ function modifier_edmon_enfer:BOOM(target)
 	EmitGlobalSound("edmon_enfer2")
 	--EmitGlobalSound("edmon_enfer_zuzup")
 
-	caster:AddNewModifier(caster, self, "modifier_edmon_ult", {duration = duration + 3.2})
+	caster:AddNewModifier(caster, self, "modifier_edmon_enfer_disappear", {duration = duration + 3.2})
 	if target then
 		giveUnitDataDrivenModifier(caster, target, "locked", 1.5)
 		giveUnitDataDrivenModifier(caster, target, "rooted", 1.5)
@@ -310,7 +310,7 @@ function modifier_edmon_enfer:BOOM(target)
 			end)
 							
 			Timers:CreateTimer(2.9, function()	
-				caster:RemoveModifierByName("modifier_edmon_ult")
+				caster:RemoveModifierByName("modifier_edmon_enfer_disappear")
 				if IsInSameRealm(origin, caster:GetAbsOrigin()) then
 					caster:SetAbsOrigin(origin)
 				else
@@ -425,4 +425,35 @@ end
 
 function modifier_edmon_enfer_cooldown:GetAttributes()
 	return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
+end
+
+modifier_edmon_enfer_disappear = class({})
+function modifier_edmon_enfer_disappear:IsHidden() return true end
+function modifier_edmon_enfer_disappear:IsDebuff() return false end
+function modifier_edmon_enfer_disappear:IsPurgable() return false end
+function modifier_edmon_enfer_disappear:IsPurgeException() return false end
+function modifier_edmon_enfer_disappear:RemoveOnDeath() return true end
+function modifier_edmon_enfer_disappear:CheckState()
+    local state =   { 
+                        --[MODIFIER_STATE_COMMAND_RESTRICTED] = true,
+                        [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
+                        --[MODIFIER_STATE_ROOTED] = true,
+                        [MODIFIER_STATE_STUNNED] = true,
+                        --[MODIFIER_STATE_SILENCED] = true,
+                        --[MODIFIER_STATE_MUTED] = true,
+                        [MODIFIER_STATE_UNTARGETABLE] = true,
+                        [MODIFIER_STATE_NO_HEALTH_BAR] = true,
+                        [MODIFIER_STATE_INVULNERABLE] = true,
+                    }
+    return state
+end
+function modifier_edmon_enfer_disappear:OnCreated()
+	if IsServer() then
+		self:GetParent():AddEffects(EF_NODRAW)
+	end
+end
+function modifier_edmon_enfer_disappear:OnDestroy()
+	if IsServer() then
+		self:GetParent():RemoveEffects(EF_NODRAW)
+	end
 end

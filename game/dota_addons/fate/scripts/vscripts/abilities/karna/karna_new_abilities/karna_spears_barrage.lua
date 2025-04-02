@@ -89,9 +89,11 @@ function karna_spears_barrage:OnSpellStart()
 							local vector_point = Vector(self.vectors_point[self.counter2][1],self.vectors_point[self.counter2][2],self.vectors_point[self.counter2][3]) * scale_vector_1
 							local targets = FindUnitsInRadius(caster:GetTeam(), targetPoint  , nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
 							for k,v in pairs(targets) do
-								DoDamage(caster, v, damage , DAMAGE_TYPE_MAGICAL, 0, self, false)
-								giveUnitDataDrivenModifier(caster, v, "rooted", self:GetSpecialValueFor("duration"))
-								giveUnitDataDrivenModifier(caster, v, "locked", self:GetSpecialValueFor("duration"))
+								if not v:HasModifier("modifier_protection_from_arrows_active") then 
+									DoDamage(caster, v, damage , DAMAGE_TYPE_MAGICAL, 0, self, false)
+									giveUnitDataDrivenModifier(caster, v, "rooted", self:GetSpecialValueFor("duration"))
+									giveUnitDataDrivenModifier(caster, v, "locked", self:GetSpecialValueFor("duration"))
+								end
 							end
 							EmitSoundOnLocationWithCaster(targetPoint, "karna_new_fire_thunder", caster)
 							local explosionFxIndex = ParticleManager:CreateParticle( "particles/karna/karna_barrage_spear_explosion_1.vpcf", PATTACH_WORLDORIGIN, nil )

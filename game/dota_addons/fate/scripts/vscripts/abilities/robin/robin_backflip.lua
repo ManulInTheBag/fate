@@ -128,9 +128,11 @@ function robin_backflip:OnFlashArrowHit(position, projectile)
 	Timers:CreateTimer(0.01, function()
 		local targets = FindUnitsInRadius(caster:GetTeam(), targetPoint, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		for k,v in pairs(targets) do
-	        DoDamage(caster, v, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
-	        v:AddNewModifier(caster, v, "modifier_stunned", {Duration = stun_duration})
-	        v:AddNewModifier(v, nil, "modifier_knockback", modifierKnockback )
+			if  not v:HasModifier("modifier_protection_from_arrows_active") then 
+				DoDamage(caster, v, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+				v:AddNewModifier(caster, v, "modifier_stunned", {Duration = stun_duration})
+				v:AddNewModifier(v, nil, "modifier_knockback", modifierKnockback )
+			end
 	    end
 	    projectile:SetAbsOrigin(targetPoint)
 		local crack = ParticleManager:CreateParticle("particles/units/heroes/hero_elder_titan/elder_titan_echo_stomp_cracks.vpcf", PATTACH_ABSORIGIN, projectile)

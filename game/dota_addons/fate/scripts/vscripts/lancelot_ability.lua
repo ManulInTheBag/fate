@@ -172,7 +172,7 @@ function OnKnightStart(keys)
         local NPLevel = 1
         if caster.KnightLevel ~= nil then NPLevel = NPLevel + caster.KnightLevel end
 
-        
+        print("jopa")
         caster:SwapAbilities("lancelot_close_spellbook", a5:GetName(), true,false)
         if ability:GetLevel() == 1 then
 
@@ -239,7 +239,7 @@ function OnKnightClosed(keys)
         local a6 = caster:GetAbilityByIndex(5)
         -- if knight attribute is not taken, caster.KnightLevel~=nil is false and therefore kills off queueing a 2nd skill. 
         caster:SwapAbilities(a1:GetName(), "lancelot_minigun", false ,true) 
-        caster:SwapAbilities(a2:GetName(), "lancelot_double_edge", false, true) 
+        caster:SwapAbilities(a2:GetName(), "lancelot_parry", false, true) 
         caster:SwapAbilities(a3:GetName(), "lancelot_knight_of_honor", false, true)
         if caster.nukeAvail == true then 
             caster:SwapAbilities(a4:GetName(), "lancelot_nuke", false, true) 
@@ -249,7 +249,12 @@ function OnKnightClosed(keys)
             caster:SwapAbilities(a4:GetName(), "fate_empty1", false, true) 
         end
         caster:SwapAbilities(a5:GetName(), "lancelot_arms_mastership", false, true) 
-        caster:SwapAbilities(a6:GetName(), "lancelot_arondite", false, true )       
+        
+        if caster:HasModifier("modifier_arondite") then
+            caster:SwapAbilities(a6:GetName(), "lancelot_arondight_overload", false, true )     
+        else
+            caster:SwapAbilities(a6:GetName(), "lancelot_arondite", false, true )     
+        end
 end
 
 function KnightInitialize(keys)
@@ -436,7 +441,7 @@ function OnFairyDmgTaken(keys)
         keys.ability:ApplyDataDrivenModifier(caster, caster, "modifier_blessing_of_fairy_cooldown", {duration = keys.ability:GetCooldown(keys.ability:GetLevel())})
         caster.IsFairyReady = false
         HardCleanse(caster)
-
+        caster:Heal(500, caster)
         Timers:CreateTimer(keys.ability:GetCooldown(keys.ability:GetLevel()), function()
             caster.IsFairyReady = true
         end)
@@ -652,7 +657,6 @@ function OnKnightImproved(keys)
 
     if hero.KnightLevel == nil then            
             hero.KnightLevel = 1
-            keys.ability:EndCooldown()
     else
             hero.KnightLevel = 2
     end 

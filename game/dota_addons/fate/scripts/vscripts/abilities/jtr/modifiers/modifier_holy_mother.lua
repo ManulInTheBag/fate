@@ -16,14 +16,18 @@ if IsServer() then
 		if not target then return end
 		if not target:IsAlive() then return end
 		local caster = self:GetParent()
-		local damage = self:GetAbility():GetSpecialValueFor("damage_per_stack")--caster:GetAgility()*0.25
+
 		target:AddNewModifier(caster, self:GetAbility(), "modifier_holy_mother_debuff", {duration = self:GetAbility():GetSpecialValueFor("stack_duration")})
+		local damage = self:GetAbility():GetSpecialValueFor("damage_per_stack") * target:FindModifierByName("modifier_holy_mother_debuff"):GetStackCount()
+		if damage > self:GetAbility():GetSpecialValueFor("maximum_damage") then
+			damage = self:GetAbility():GetSpecialValueFor("maximum_damage") 
+		end
 		--[[if IsFemaleServant(target) then
 			damage = damage*2
 			caster:AddNewModifier(caster, self:GetAbility(), "modifier_holy_mother_buff", { Duration = self:GetAbility():GetSpecialValueFor("duration"),
 																						    AgiPerStack = self:GetAbility():GetSpecialValueFor("agi_per_stack")})
 		end]]
-		DoDamage(caster, target, damage*target:FindModifierByName("modifier_holy_mother_debuff"):GetStackCount(), DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
+		DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
 	end
 end
 

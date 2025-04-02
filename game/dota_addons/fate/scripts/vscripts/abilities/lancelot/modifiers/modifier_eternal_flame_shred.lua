@@ -1,18 +1,19 @@
 modifier_eternal_flame_shred = class({})
 
 function modifier_eternal_flame_shred:DeclareFunctions()
-	local func = { MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS}
+	local func = { --MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS}
+					}
 	return func
 end
 
 function modifier_eternal_flame_shred:OnCreated(args)
 	if IsServer() then
-		self:SetStackCount(math.min(args.Stacks or 1, 20))
+	   self:SetStackCount(math.min(args.Stacks or 1, 20))
 
-		local hero_armor = self:GetParent():GetPhysicalArmorValue(false) + ((self.Reduction or 0) * -1)
-		self.Reduction = (1 * self:GetStackCount()) * -1
-		if -self.Reduction > hero_armor then self.Reduction = math.abs(hero_armor) * -1 end
-		CustomNetTables:SetTableValue("sync","eternal_flame_shred", { armor_shred = self.Reduction })
+		-- local hero_armor = self:GetParent():GetPhysicalArmorValue(false) + ((self.Reduction or 0) * -1)
+		-- self.Reduction = (1 * self:GetStackCount()) * -1
+		-- if -self.Reduction > hero_armor then self.Reduction = math.abs(hero_armor) * -1 end
+		-- CustomNetTables:SetTableValue("sync","eternal_flame_shred", { armor_shred = self.Reduction })
 	end
 end
 
@@ -20,17 +21,22 @@ function modifier_eternal_flame_shred:OnRefresh(args)
 	if IsServer() then
 		args.Stacks = self:GetStackCount() + 1
 		self:OnCreated(args)
+		if (self:GetStackCount() + 1) >= 10 then
+			giveUnitDataDrivenModifier( self:GetCaster(), self:GetParent(), "rooted", 0.4)
+			giveUnitDataDrivenModifier(self:GetCaster(),  self:GetParent(), "locked", 0.4)
+			self:SetStackCount(0)
+		end
 	end
 end
 
-function modifier_eternal_flame_shred:GetModifierPhysicalArmorBonus() 
-    if IsServer() then
-		return self.Reduction
-	elseif IsClient() then
-		local armor_shred = CustomNetTables:GetTableValue("sync","eternal_flame_shred").armor_shred
-        return armor_shred 
-	end
-end
+-- function modifier_eternal_flame_shred:GetModifierPhysicalArmorBonus() 
+--     if IsServer() then
+-- 		return self.Reduction
+-- 	elseif IsClient() then
+-- 		local armor_shred = CustomNetTables:GetTableValue("sync","eternal_flame_shred").armor_shred
+--         return armor_shred 
+-- 	end
+-- end
 
 function modifier_eternal_flame_shred:IsDebuff()
     return true

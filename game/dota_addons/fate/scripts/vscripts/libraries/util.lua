@@ -227,9 +227,6 @@ goesthruB = {
     "gilgamesh_gate_of_babylon",
     "false_assassin_quickdraw",
     "avenger_verg_avesta",
-    "cu_chulain_gae_bolg",
-    "cu_chulain_gae_bolg_combo",
-    "lancelot_gae_bolg",
 }
 
 cleansable = {
@@ -648,6 +645,10 @@ CannotReset = {
     "karna_combo_vasavi_new",
     "karna_spin_2",
     "karna_recast_dash",
+
+    "astolfo_hippogriff_vanish",
+    "iskander_trap",
+    "iskander_thunder_2",
 }
 
 
@@ -1443,6 +1444,10 @@ function IsSpellBlocked(target)
         ParticleManager:CreateParticle("particles/heroes/saito/saito_mind_eye_linken_release.vpcf", PATTACH_ABSORIGIN, target)
         target:RemoveModifierByName("modifier_saito_mind_eye_linken")
         return true
+    elseif target:HasModifier("modifier_eam_crit_active") then
+        EmitSoundWithCooldown("lancelot_eternal_prock", target, 1)
+        target:FindModifierByName("modifier_eam_crit_active"):OnLinkenProcked()
+        return false
     elseif target:HasModifier("modifier_saito_style_active") then
         local hLinkModifier = target:FindModifierByName("modifier_saito_style_active")
         if IsNotNull(hLinkModifier) and hLinkModifier:BlockSpellCheck() then
@@ -1718,9 +1723,9 @@ function DoDamage(source, target , dmg, dmg_type, dmg_flag, abil, isLoop)
         return error("DoDamage source or target invalid")
     end
 
-    if true then
+   -- if true then
         --return
-    end
+   -- end
 
     if target:GetClassname() == "npc_dota_broodmother_spiderling" then
         local dmgtable = {
@@ -1771,122 +1776,39 @@ function DoDamage(source, target , dmg, dmg_type, dmg_flag, abil, isLoop)
     end
     -- END
 
-    if dmg_type == DAMAGE_TYPE_MAGICAL then
-        -- Process B scroll
-        if target:HasModifier("modifier_aoko_shield") then
-            IsBScrollIgnored = true
-        end
+    -- if dmg_type == DAMAGE_TYPE_MAGICAL then
+    --     -- Process B scroll
+    --     if target:HasModifier("modifier_aoko_shield") or target:HasModifier("modifier_heart_of_harmony")  then
+    --         IsBScrollIgnored = true
+    --     end
 
-        for k,v in pairs(goesthruB) do
-            if abil:GetAbilityName() == v then IsBScrollIgnored = true break end
-        end
+    --     for k,v in pairs(goesthruB) do
+    --         if abil:GetAbilityName() == v then IsBScrollIgnored = true break end
+    --     end
 
-        --[[if (abil:GetAbilityName() == "karna_combo_vasavi" 
-            or abil:GetAbilityName() == "karna_vasavi_shakti")
-            and source.IndraAttribute then
-            IsBScrollIgnored = true
-        else]]
-        if (abil:GetAbilityName() == "karna_brahmastra" 
-            or abil:GetAbilityName() == "karna_brahmastra_kundala")
-            and source.ManaBurstAttribute then
-            IsBScrollIgnored = true
-        end
 
-        if IsBScrollIgnored == false and target:HasModifier("modifier_b_scroll") then 
-            local originalDamage = dmg - target.BShieldAmount --* 1/(1-MR)
-            target.BShieldAmount = target.BShieldAmount - dmg --* (1-MR)
-            if target.BShieldAmount <= 0 then
-                dmg = originalDamage
-                target:RemoveModifierByName("modifier_b_scroll")
-            else 
-                dmg = 0
-                IsAbsorbed = true
-            end
-        end
-    end
+
+    --     -- if IsBScrollIgnored == false and target:HasModifier("modifier_b_scroll") then 
+    --     --     local originalDamage = dmg - target.BShieldAmount --* 1/(1-MR)
+    --     --     target.BShieldAmount = target.BShieldAmount - dmg --* (1-MR)
+    --     --     if target.BShieldAmount <= 0 then
+    --     --         dmg = originalDamage
+    --     --         target:RemoveModifierByName("modifier_b_scroll")
+    --     --     else 
+    --     --         dmg = 0
+    --     --         IsAbsorbed = true
+    --     --     end
+    --     -- end
+    -- end
 
   
   
     -- check if target has Cursed Lance
-    if not IsAbsorbed and (target:HasModifier("modifier_cursed_lance") or target:HasModifier("modifier_cursed_lance_bp")) then
-  	    local modifier = target:FindModifierByName("modifier_cursed_lance") or target:FindModifierByName("modifier_cursed_lance_bp")
-        local reduction = 0
-        if dmg_type == DAMAGE_TYPE_PHYSICAL then
-            reduction = GetPhysicalDamageReduction(target:GetPhysicalArmorValue(false))
-        elseif dmg_type == DAMAGE_TYPE_MAGICAL then
-            reduction = target:Script_GetMagicalArmorValue(false, nil)
-        end
-        local originalDamage = dmg - modifier.CL_SHIELDLEFT * 1/(1-reduction)
-        modifier.CL_SHIELDLEFT = modifier.CL_SHIELDLEFT - dmg * (1-reduction)
-        if modifier.CL_SHIELDLEFT <= 0 then
-            dmg = originalDamage
-            if not target.InstantCurseAcquired then
-                target:RemoveModifierByName("modifier_cursed_lance")
-            end
-            modifier.CL_SHIELDLEFT = 0
-        else
-            dmg = 0
-            IsAbsorbed = true
-        end
-    end
 
-    --SAITO DAMAGE REDUCTION
-    --[[if(target:GetName() == "npc_dota_hero_terrorblade" and dmg < 2500) then
-        if(  target:HasModifier("modifier_saito_mind_eye_active")) then
-            dmg = dmg*(1- target:FindAbilityByName("saito_mind_eye"):GetSpecialValueFor("resist")/100) 
-        end
-    end]]
 
-    -- Check if target has Avalon up
-    if target:GetName() == "npc_dota_hero_legion_commander" and target:HasModifier("modifier_avalon") then
-        local incomingDmg = dmg
-        local reduction = 0
 
-        if target:HasModifier("modifier_l_rule_breaker") or target:HasModifier ("modifier_c_rule_breaker") and (dmg_type == DAMAGE_TYPE_PURE or dmg_type == DAMAGE_TYPE_PHYSICAL) then
-            incomingDmg = incomingDmg * 0
-        elseif dmg_type == DAMAGE_TYPE_MAGICAL then
-            incomingDmg = incomingDmg * 1--(1-MR)
-        elseif dmg_type == DAMAGE_TYPE_PHYSICAL then
-            reduction = GetPhysicalDamageReduction(target:GetPhysicalArmorValue(false))
-            incomingDmg = incomingDmg * (1-reduction) 
-        end
 
-        if abil:GetAbilityName() == "sasaki_tsubame_gaeshi" and dmg_flag == (DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY + DOTA_DAMAGE_FLAG_NO_SPELL_AMPLIFICATION) then
-            target.IsAvalonPenetrated = true
-            target.IsAvalonProc = false
-        else
-            if incomingDmg > 300 then 
-                target.IsAvalonProc = true
-            else 
-                target.IsAvalonProc = false
-            end
-            dmg = 0
-            target.IsAvalonPenetrated = false
-        end
-    end 
-    -- check if target has Argos
-    if not IsAbsorbed and target:HasModifier("modifier_argos_shield") then
-        local reduction = 0
-        if dmg_type == DAMAGE_TYPE_PHYSICAL then
-            reduction = GetPhysicalDamageReduction(target:GetPhysicalArmorValue(false))
-        elseif dmg_type == DAMAGE_TYPE_MAGICAL then
-            reduction = target:Script_GetMagicalArmorValue(false, nil)
-        end 
-        local originalDamage = dmg - target.argosShieldAmount * 1/(1-reduction)
-        target.argosShieldAmount = target.argosShieldAmount - dmg * (1-reduction)
-        if target.argosShieldAmount <= 0 then
-            dmg = originalDamage
-            target:RemoveModifierByName("modifier_argos_shield") 
-            target.argosShieldAmount = 0
-        else
-            dmg = 0
-            IsAbsorbed = true
-        end
-    end
-
-    --[[if IsFemaleServant(source) and target:HasModifier("modifier_love_spot") and source:HasModifier("modifier_love_spot_charmed") then
-        dmg = dmg * 0.5
-    end]]
+    
 
     -- if damage was not fully absorbed by shield, deal residue damage 
     if IsAbsorbed == true then

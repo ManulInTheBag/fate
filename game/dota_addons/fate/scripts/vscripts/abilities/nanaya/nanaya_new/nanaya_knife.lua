@@ -36,6 +36,10 @@ function nanaya_knife:OnUpgrade()
     end
 end
 
+function nanaya_knife:GetAOERadius()
+	return self:GetSpecialValueFor("range")
+end
+
 function nanaya_knife:OnSpellStart()
 	local caster = self:GetCaster()
 
@@ -106,7 +110,7 @@ function nanaya_knife:OnProjectileHitHandle(hTarget, vLocation, iProjectileHandl
 		end
 		return true
 	end
-
+	if hTarget:HasModifier("modifier_protection_from_arrows_active") then return end
 	if caster:HasModifier("modifier_nanaya_combo_active") then
 		caster:FindAbilityByName("nanaya_kekshi"):ExecuteCombo(caster, hTarget)
 		caster:RemoveModifierByName("modifier_nanaya_combo_active")

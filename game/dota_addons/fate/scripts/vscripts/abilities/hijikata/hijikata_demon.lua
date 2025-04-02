@@ -1,5 +1,14 @@
 hijikata_demon = class({})
 
+function hijikata_demon:OnUpgrade()
+	local caster = self:GetCaster()
+    
+    if caster:FindAbilityByName("hijikata_demon_recast"):GetLevel() ~= self:GetLevel() then
+    	caster:FindAbilityByName("hijikata_demon_recast"):SetLevel(self:GetLevel())
+    end
+
+end
+
 LinkLuaModifier("modifier_demon_buff_hijikata", "abilities/hijikata/hijikata_demon", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_hijikata_attack_sound","abilities/hijikata/hijikata_demon", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_hijikata_slow", "abilities/hijikata/hijikata_demon", LUA_MODIFIER_MOTION_NONE)
@@ -74,7 +83,10 @@ function hijikata_demon:OnSpellStart()
 	caster:EmitSound("hijikata_demon_sfx")
 	caster:SetAbsOrigin(target:GetAbsOrigin() - diff * 100) 
 	FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
-
+	caster:FaceTowards(target:GetAbsOrigin())
+	local vector = -(caster:GetAbsOrigin() - target:GetAbsOrigin())
+	vector.z = 0
+	caster:SetForwardVector(vector)
 	--StartAnimation(caster, {duration=0.35, activity=ACT_DOTA_CAST_ABILITY_1_END, rate=2})
 	
 	local damage = self:GetSpecialValueFor("damage") 
@@ -91,7 +103,7 @@ function hijikata_demon:OnSpellStart()
 
 	DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
 	if caster.IsShinsengumiAcquired then
-		DoDamage(caster, target, caster:GetAttackDamage(), DAMAGE_TYPE_PHYSICAL, 0, self, false)
+		DoDamage(caster, target, caster:GetAverageTrueAttackDamage(hCaster) * self:GetSpecialValueFor("sa_atk_dmg_mod"), DAMAGE_TYPE_MAGICAL, 0, self, false)
 	end
 	if caster.IsHijikataTacticsAcquired then
 		target:AddNewModifier(caster, self, "modifier_hijikata_slow", { duration = self:GetSpecialValueFor("slow_duration")})
@@ -108,13 +120,30 @@ function hijikata_demon:OnSpellStart()
 
 	--particle
 	--caster:EmitSound("Hero_Huskar.Life_Break")
-	local particle = ParticleManager:CreateParticle("particles/hijikata/hijikata_demon_pierce.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, caster)
-	ParticleManager:SetParticleControl(particle, 0, caster:GetAbsOrigin())
-    ParticleManager:SetParticleControl(particle, 1, caster:GetAbsOrigin())
+	local particle = ParticleManager:CreateParticle("particles/hijikata/hijikata_demon_pierce.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	ParticleManager:SetParticleControlTransformForward(particle, 0, caster:GetAbsOrigin() + Vector(0,0,130),caster:GetForwardVector())
+    ParticleManager:SetParticleControlTransformForward(particle, 1, caster:GetAbsOrigin()+ Vector(0,0,130),caster:GetForwardVector())
+
+
+
+
 	Timers:CreateTimer( 2.0, function()
 		ParticleManager:DestroyParticle( particle, false )
 		ParticleManager:ReleaseParticleIndex( particle )
 	end)
+
+	print(caster:GetAbilityByIndex(1):GetName())
+	if caster:GetAbilityByIndex(1):GetName() == "hijikata_demon"  then
+		caster:SwapAbilities("hijikata_demon", "hijikata_demon_recast", false, true)
+		Timers:CreateTimer("hijik_recast_w_window", {
+			endTime = 2,
+			callback = function()
+			if caster:GetAbilityByIndex(1):GetName() == "hijikata_demon_recast"  then
+				caster:SwapAbilities("hijikata_demon", "hijikata_demon_recast", true, false)
+			end
+			return end
+		})
+	end
 end
 
 modifier_demon_buff_hijikata = class({})
@@ -145,6 +174,8 @@ function modifier_demon_buff_hijikata:IsDebuff()
 	return false 
 end
 
+
+ 
 
 function modifier_demon_buff_hijikata:OnAttackLanded(args) 
 	if args.attacker ~= self.caster then return end

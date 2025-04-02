@@ -336,11 +336,16 @@ function Precache( context )
     PrecacheResource("model", "models/heroes/saito_1/saito_1_mdoc.vmdl", context)
     PrecacheResource("model", "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/mordred/mordred_unanim_face.vmdl", context)
     PrecacheResource("model", "models/gilgamesh/gilgamesh_police.vmdl", context)
+    PrecacheResource("model", "models/zlodemon/alter_jaba/jeanne_alter.vmdl", context)
     PrecacheResource("model", "models/hijikata/hijikata_0_14_idle_haori.vmdl", context)
     PrecacheResource("model", "models/muramasa/muramasa_no_sword.vmdl", context)
     PrecacheResource("model", "models/sanya/sanya_buc.vmdl", context)
     PrecacheResource("model", "models/sanya/sanya_telega.vmdl", context)
     PrecacheResource("model", "models/astolfo/astolfo_horn.vmdl", context)
+    PrecacheResource("model", "models/nero/nero_bride_unshackled.vmdl", context)
+    PrecacheResource("model", "models/nero/nero_swimsuit.vmdl", context)
+    PrecacheResource("model", "models/astolfo/astolfo_trifas.vmdl", context)
+    PrecacheResource("model", "models/astolfo/extella/astolfo_swimsuit.vmdl", context)
     PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_silencer.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_enigma.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_bane.vsndevts", context)
@@ -476,16 +481,16 @@ function Precache( context )
 ]]
 
     -- AOTK Soldier assets
-    PrecacheResource("model_folder", "models/heroes/chen", context)
-    PrecacheResource("model_folder", "models/items/chen", context)
-    PrecacheResource("model_folder", "models/heroes/dragon_knight", context)
-    PrecacheResource("model_folder", "models/items/dragon_knight", context)
-    PrecacheResource("model_folder", "models/heroes/chaos_knight", context)
-    PrecacheResource("model_folder", "models/items/chaos_knight", context)
-    PrecacheResource("model_folder", "models/heroes/silencer", context)
-    PrecacheResource("model_folder", "models/items/silencer", context)
-    PrecacheResource("model_folder", "models/heroes/windrunner", context)
-    PrecacheResource("model_folder", "models/items/windrunner", context)
+    -- PrecacheResource("model_folder", "models/heroes/chen", context)
+    -- PrecacheResource("model_folder", "models/items/chen", context)
+    -- PrecacheResource("model_folder", "models/heroes/dragon_knight", context)
+    -- PrecacheResource("model_folder", "models/items/dragon_knight", context)
+    -- PrecacheResource("model_folder", "models/heroes/chaos_knight", context)
+    -- PrecacheResource("model_folder", "models/items/chaos_knight", context)
+    -- PrecacheResource("model_folder", "models/heroes/silencer", context)
+    -- PrecacheResource("model_folder", "models/items/silencer", context)
+    -- PrecacheResource("model_folder", "models/heroes/windrunner", context)
+    -- PrecacheResource("model_folder", "models/items/windrunner", context)
 
     -- Vector target
     --VectorTarget:Precache( context )
@@ -518,7 +523,7 @@ This function is called once and only once after all players have loaded into th
     It can be used to initialize non-hero player state or adjust the hero selection (i.e. force random etc)
     ]]
 function FateGameMode:OnAllPlayersLoaded()
-   -- print("[BAREBONES] All Players have loaded into the game")
+   print("[BAREBONES] All Players have loaded into the game")
     GameRules:SendCustomMessage("Fate/Balance " .. FATE_VERSION .. " by Balance Department", 0, 0)
     GameRules:SendCustomMessage("Game is currently and forever in beta, so you may run into minor and major issues that nobody cares about. You've been warned.", 0, 0)
     --GameRules:SendCustomMessage("#Fate_Choose_Hero_Alert_60", 0, 0)
@@ -579,11 +584,13 @@ function FateGameMode:OnAllPlayersLoaded()
     badColorTable = {{164,105,0},{254,134,194},{0,131,33},{101,217,247},{161,180,71},{244,164,96},{176,196,222}}
     goodColorTable = {{51,117,255},{102,255,191},{255,107,0},{191,0,191},{243,240,11},{255,20,147},{220,20,60}}
     for i=0, 13 do
-        if PlayerResource:GetPlayer(i) ~= nil then
+        --if PlayerResource:GetPlayer(i) ~= nil then
             local playerID = i
             local player = PlayerResource:GetPlayer(i)
             print(playerID)
             print(player:GetTeam())
+
+            print("IDidSetColor")
 
             if player:GetTeam() == 2 then
                 print("GOOD GUY COLOR")
@@ -594,7 +601,7 @@ function FateGameMode:OnAllPlayersLoaded()
                 PlayerResource:SetCustomPlayerColor(i, badColorTable[badGuyColorIndex][1], badColorTable[badGuyColorIndex][2], badColorTable[badGuyColorIndex][3])
                 badGuyColorIndex = badGuyColorIndex + 1
             end
-        end
+        --end
     end
 
     VICTORY_CONDITION = maxkey
@@ -2182,6 +2189,28 @@ function FateGameMode:OnGameRulesStateChange(keys)
 
         Selection = HeroSelection()
         Selection:UpdateTime()]]
+        badGuyColorIndex = 1
+        goodGuyColorIndex = 1
+        badColorTable = {{164,105,0},{254,134,194},{0,131,33},{101,217,247},{161,180,71},{244,164,96},{176,196,222}}
+        goodColorTable = {{51,117,255},{102,255,191},{255,107,0},{191,0,191},{243,240,11},{255,20,147},{220,20,60}}
+        for i=0, 13 do
+            if PlayerResource:GetPlayer(i) ~= nil then
+                local playerID = i
+                local player = PlayerResource:GetPlayer(i)
+                print(playerID)
+                print(player:GetTeam())
+
+                if player:GetTeam() == 2 then
+                    print("GOOD GUY COLOR")
+                    PlayerResource:SetCustomPlayerColor(i, goodColorTable[goodGuyColorIndex][1], goodColorTable[goodGuyColorIndex][2], goodColorTable[goodGuyColorIndex][3])
+                    goodGuyColorIndex = goodGuyColorIndex + 1
+                else
+                    print("BAD GUY COLOR")
+                    PlayerResource:SetCustomPlayerColor(i, badColorTable[badGuyColorIndex][1], badColorTable[badGuyColorIndex][2], badColorTable[badGuyColorIndex][3])
+                    badGuyColorIndex = badGuyColorIndex + 1
+                end
+            end
+        end
     elseif newState == DOTA_GAMERULES_STATE_STRATEGY_TIME then
         -- screw 7.00
     elseif newState == DOTA_GAMERULES_STATE_GAME_IN_PROGRESS then
@@ -2805,6 +2834,9 @@ function FateGameMode:OnItemPurchased( keys )
     local isPriceIncreased = not hero.IsInBase
     local isCStockMessage = false
 
+    if  hero:HasModifier("round_pause") then
+        isPriceIncreased = false
+    end
     --[[if hero.IsInBase then
         if itemName == "item_c_scroll" then
             if hero.CStock > 0 then

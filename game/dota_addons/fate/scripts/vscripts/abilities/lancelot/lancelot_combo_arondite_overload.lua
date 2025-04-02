@@ -232,7 +232,14 @@ function lancelot_combo_arondite_overload:StartCombo()
 
 	Timers:CreateTimer(3.0, function()
 		StartAnimation(hCaster, {duration = 1.5, activity = ACT_DOTA_CAST_ABILITY_4, rate = 0.7})
-
+		Timers:CreateTimer(0.2, function()
+			hCaster:EmitSound("lancelot_arondight_overload_slash")
+			local particle = ParticleManager:CreateParticle("particles/lancelot/lancelot_slash_overload.vpcf", PATTACH_ABSORIGIN, hCaster)
+			ParticleManager:SetParticleControlTransformForward(particle, 0, hCaster:GetAbsOrigin(), hCaster:GetForwardVector())
+			ParticleManager:ReleaseParticleIndex(particle)
+		
+		
+		end)
 		hCaster:EmitSound("lancelot_arthur")
 
 		-- Create particles
@@ -244,7 +251,13 @@ function lancelot_combo_arondite_overload:StartCombo()
 		local fxIndex3 = ParticleManager:CreateParticle("particles/custom/lancelot/judgement_final_c.vpcf", PATTACH_CUSTOMORIGIN, hCaster)
 		ParticleManager:SetParticleControl(fxIndex3, 0, hCaster:GetAbsOrigin())
 		ParticleManager:SetParticleControl(fxIndex3, 1, Vector(800, 800, 800))
-
+		Timers:CreateTimer(0.5, function()
+			local blastFx = ParticleManager:CreateParticle("particles/custom/lancelot/arondight_overload_new_explosion.vpcf", PATTACH_CUSTOMORIGIN, nil)
+			ParticleManager:SetParticleControl( blastFx, 0, hCaster:GetAbsOrigin() + hCaster:GetForwardVector() * 300)
+			ParticleManager:SetParticleControl( blastFx, 1, Vector(800, 800, 800))
+			ParticleManager:ReleaseParticleIndex(blastFx)
+			EmitSoundOn("arondite_overload_impact", hCaster)
+		end)
 		Timers:CreateTimer( 0.2, function()
 			ParticleManager:DestroyParticle(fxIndex3, false)
 			ParticleManager:ReleaseParticleIndex(fxIndex3)

@@ -48,11 +48,12 @@ end
 
 function ryougi_knife_throw:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
 	if hTarget == nil then
-    return
-  end
+   	return
+  	end
   	if (hTarget:GetName() == "npc_dota_ward_base") then
   		return
   	end
+	if hTarget:HasModifier("modifier_protection_from_arrows_active") then return end
     if IsSpellBlocked(hTarget) then return end
   	local hCaster = self:GetCaster()
   	local eyes = hCaster:FindAbilityByName("ryougi_mystic_eyes")

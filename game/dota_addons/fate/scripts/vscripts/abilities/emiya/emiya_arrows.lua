@@ -54,6 +54,7 @@ end
 function emiya_arrows:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
 	local hCaster = self:GetCaster()
  	 if(hTarget ~= nil) then
+	if hTarget:HasModifier("modifier_protection_from_arrows_active") then return end
 	 DoDamage(hCaster, hTarget, tData.fDamage, DAMAGE_TYPE_MAGICAL, 0, self, false)
 	 if(self:GetCooldownTimeRemaining() > 1) then
 		self:EndCooldown()	

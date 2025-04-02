@@ -5,7 +5,7 @@ function lancelot_knight_of_honor_close:OnSpellStart()
 
     local tAbilities = {
         "lancelot_minigun",
-        "lancelot_double_edge",
+        "lancelot_parry",
         "lancelot_knight_of_honor",
         "fate_empty1",
         "lancelot_arms_mastership",
@@ -17,6 +17,9 @@ function lancelot_knight_of_honor_close:OnSpellStart()
         tAbilities[4] = "lancelot_nuke"
     elseif hCaster:HasAbility("lancelot_blessing_of_fairy") then
         tAbilities[4] = "lancelot_blessing_of_fairy"
+    end
+    if hCaster:HasModifier("modifier_arondite") then
+          tAbilities[6] = "lancelot_arondight_overload"
     end
 
     UpdateAbilityLayout(hCaster, tAbilities)

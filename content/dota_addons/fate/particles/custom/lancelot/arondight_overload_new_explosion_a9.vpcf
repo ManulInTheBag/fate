@@ -1,0 +1,91 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf61:version{39d3ce1d-9442-4407-9b78-8317145b1732} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_bShouldHitboxesFallbackToRenderBounds = false
+	m_nMaxParticles = 0
+	m_nBehaviorVersion = 12
+	m_nFirstMultipleOverride_BackwardCompat = 5
+	m_controlPointConfigurations = 
+	[
+		{
+			m_name = "preview"
+			m_drivers = 
+			[
+				{
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 2
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 60
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_vecOffset = [ 50.0, 255.0, 50.0 ]
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 61
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+				{
+					m_iControlPoint = 62
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+			]
+			m_previewState = 
+			{
+				m_flPlaybackSpeed = 0.0
+			}
+		},
+	]
+	m_Children = 
+	[
+		{
+			m_ChildRef = resource:"particles/custom/lancelot/arondight_overload_new_explosion_a9f.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/lancelot/arondight_overload_new_explosion_a9h.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/lancelot/arondight_overload_new_explosion_a9j.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/lancelot/arondight_overload_new_explosion_a9a.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/lancelot/arondight_overload_new_explosion_a9e.vpcf"
+			m_bDisableChild = true
+		},
+		{
+			m_flDelay = 0.1
+			m_ChildRef = resource:"particles/custom/lancelot/arondight_overload_new_explosion_a9c.vpcf"
+			m_bDisableChild = true
+		},
+		{
+			m_ChildRef = resource:"particles/custom/lancelot/arondight_overload_new_explosion_a9k.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/lancelot/arondight_overload_new_explosion_a9i.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/lancelot/arondight_overload_new_explosion_a9l.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/lancelot/arondight_overload_new_explosion_a9d.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/lancelot/arondight_overload_new_explosion_a9b.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/lancelot/arondight_overload_new_explosion_a9g.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/custom/lancelot/arondight_overload_new_explosion_a9m.vpcf"
+		},
+	]
+}

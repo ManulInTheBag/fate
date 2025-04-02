@@ -116,6 +116,7 @@ end
 function arash_star_arrow:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
   	local hCaster = self:GetCaster()
 	if(hTarget ~= nil) then
+		if hTarget:HasModifier("modifier_protection_from_arrows_active") then return end
 		if type( self.nParticle) == "number" then
 			ParticleManager:DestroyParticle( self.nParticle, false)
 			ParticleManager:ReleaseParticleIndex( self.nParticle)

@@ -99,6 +99,7 @@ if IsServer() then
 		if not self.target:IsAlive() and self.caster.IsDIAcquired and self.target:IsHero() then
 			self.caster:FindAbilityByName("angra_puddle"):DeathPuddle(self.target:GetAbsOrigin())
 		end
+
 		if self.bDoSlow then
 			self.target:AddNewModifier(self.caster, self.abil , "angra_mainyu_verg_avesta_slow",{duration = 0.5})
 		end
@@ -111,6 +112,8 @@ if IsServer() then
 		DoDamage(self.caster, self.target, self.damage/3, DAMAGE_TYPE_MAGICAL, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self.abil, true)
 		if not self.target:IsAlive() and self.caster.IsDIAcquired and self.target:IsHero() then
 			self.caster:FindAbilityByName("angra_puddle"):DeathPuddle(self.target:GetAbsOrigin())
+
+
 		end
 		if self.bDoSlow then
 			self.target:AddNewModifier(self.caster, self.abil , "angra_mainyu_verg_avesta_slow",{duration = 0.5})

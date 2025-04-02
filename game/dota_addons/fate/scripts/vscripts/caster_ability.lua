@@ -107,7 +107,7 @@ function OnTerritoryCreated(keys)
 	-- Initialize territory
 	caster.Territory:SetHealth(1 + caster.Territory:GetMaxHealth()/2)
 	caster.Territory:SetMana(0)
-	caster.Territory:SetBaseManaRegen(3) 
+	caster.Territory:SetBaseManaRegen(25) 
 	caster.Territory:AddItem(warriorItem)
 	caster.Territory:AddItem(archerItem)
 	if hero.IsTerritoryImproved then
@@ -121,7 +121,12 @@ function OnTerritoryCreated(keys)
 	-- Constrcut territory over time
 	local territoryConstTimer = 0
 	Timers:CreateTimer(function()
-		if territoryConstTimer == 10 then return end
+		if territoryConstTimer == 10 then
+			if hero.IsTerritoryImproved then
+				caster.Territory:GiveMana(300)
+			end
+			return 
+		end
 		caster.Territory:SetHealth(caster.Territory:GetHealth() + caster.Territory:GetMaxHealth() / 20)
 		territoryConstTimer = territoryConstTimer + 1
 		return 0.5
@@ -935,7 +940,7 @@ function OnAncientStart(keys)
 	caster:SwapAbilities("caster_5th_wall_of_flame", a1:GetName(), true, false) 
 	caster:SwapAbilities("caster_5th_silence", a2:GetName(), true, false) 
 	caster:SwapAbilities("caster_5th_divine_words", a3:GetName(), true, false)
-	caster:SwapAbilities("caster_5th_mana_transfer", a4:GetName(), true, false) 
+	caster:SwapAbilities("medea_blink", a4:GetName(), true, false) 
 	caster:SwapAbilities("caster_5th_close_spellbook", a5:GetName(), true, false) 
 	caster:SwapAbilities("caster_5th_sacrifice", a6:GetName(), true, false) 
 end
@@ -951,7 +956,7 @@ function AncientLevelUp(keys)
 	local a3 = caster:FindAbilityByName("caster_5th_divine_words")
 	a3:SetLevel(keys.ability:GetLevel())
 	a3:EndCooldown()
-	local a4 = caster:FindAbilityByName("caster_5th_mana_transfer")
+	local a4 = caster:FindAbilityByName("medea_blink")
 	a4:SetLevel(keys.ability:GetLevel())
 	a4:EndCooldown()
 	local a5 = caster:FindAbilityByName("caster_5th_sacrifice")
@@ -1190,7 +1195,7 @@ function OnAncientClosed(keys)
 		print("combo is currently active")
 		ultiName = "medea_hecatic_graea_combo"
 	end
-	caster:SwapAbilities(a1:GetName(), "caster_5th_argos", false ,true) 
+	caster:SwapAbilities(a1:GetName(), "medea_argos", false ,true) 
 	caster:SwapAbilities(a2:GetName(), "caster_5th_ancient_magic", false, true) 
 	caster:SwapAbilities(a3:GetName(), "caster_5th_rule_breaker", false, true) 
 	caster:SwapAbilities(a4:GetName(), "caster_5th_territory_creation", false, true) 
@@ -1212,7 +1217,10 @@ function OnRBStart(keys)
 	if caster:GetName() == "npc_dota_hero_crystal_maiden" then
 		caster:EmitSound("Medea_Rule_Breaker_" .. math.random(1,2))		
 		keys.ability:ApplyDataDrivenModifier(caster, target, "modifier_c_rule_breaker", {}) 
-
+		if (target:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D() > 200 then
+			local afterBlinkPos = AbilityBlink(caster, caster:GetAbsOrigin() -(caster:GetAbsOrigin()-target:GetAbsOrigin()):Normalized()*250,
+			 math.min((target:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D()-250, 250))
+		end
 
 		if caster.IsRBImproved then
 			keys.ability:EndCooldown()
@@ -1490,7 +1498,7 @@ end
 
 function CasterCheckCombo(caster, ability)
 	if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 and caster:GetIntellect() >= 29.1 then
-		if ability == caster:FindAbilityByName("caster_5th_argos") and caster:FindAbilityByName("medea_hecatic_graea"):IsCooldownReady() and caster:FindAbilityByName("medea_hecatic_graea_combo"):IsCooldownReady() then
+		if ability == caster:FindAbilityByName("medea_argos") and caster:FindAbilityByName("medea_hecatic_graea"):IsCooldownReady() and caster:FindAbilityByName("medea_hecatic_graea_combo"):IsCooldownReady() then
 			caster:SwapAbilities("medea_hecatic_graea", "medea_hecatic_graea_combo", false, true) 
 			caster.IsHGComboEnabled = true
 			Timers:CreateTimer({

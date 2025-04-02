@@ -625,7 +625,7 @@ function OnTGStart(keys)
 	giveUnitDataDrivenModifier(caster, caster, "dragged", 1.0)
 	giveUnitDataDrivenModifier(caster, caster, "revoked", 1.0)
 
-	ability:ApplyDataDrivenModifier(caster, caster, "modifier_tg_baseattack_reduction", {})
+	--ability:ApplyDataDrivenModifier(caster, caster, "modifier_tg_baseattack_reduction", {})
 
 	local particle = ParticleManager:CreateParticle("particles/custom/false_assassin/tsubame_gaeshi/slashes.vpcf", PATTACH_ABSORIGIN, caster)
 	ParticleManager:SetParticleControl(particle, 0, target:GetAbsOrigin()) 
@@ -637,7 +637,9 @@ function OnTGStart(keys)
 			--if IsSpellBlocked(target) then return end
 			
 			DoDamage(caster, target, keys.Damage, DAMAGE_TYPE_PURE, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, keys.ability, false)
-			caster:PerformAttack( target, true, true, true, true, false, false, false )
+			if caster.ImproveKnightOfOwner then
+				caster:PerformAttack( target, true, true, true, true, false, false, false )
+			end
 			local slashIndex = ParticleManager:CreateParticle( "particles/custom/false_assassin/tsubame_gaeshi/tsubame_gaeshi_windup_indicator_flare.vpcf", PATTACH_CUSTOMORIGIN, nil )
 		    ParticleManager:SetParticleControl(slashIndex, 0, target:GetAbsOrigin())
 		    ParticleManager:SetParticleControl(slashIndex, 1, Vector(500,0,150))
@@ -677,7 +679,7 @@ function OnTGStart(keys)
 			
 			DoDamage(caster, target, keys.LastDamage, DAMAGE_TYPE_PURE, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, keys.ability, false)
 			caster:PerformAttack( target, true, true, true, true, false, false, false )
-			target:AddNewModifier(caster, target, "modifier_stunned", {Duration = 1.5})
+			--target:AddNewModifier(caster, target, "modifier_stunned", {Duration = 1.5})
 			local slashIndex = ParticleManager:CreateParticle( "particles/custom/false_assassin/tsubame_gaeshi/tsubame_gaeshi_windup_indicator_flare.vpcf", PATTACH_CUSTOMORIGIN, nil )
 		    ParticleManager:SetParticleControl(slashIndex, 0, target:GetAbsOrigin())
 		    ParticleManager:SetParticleControl(slashIndex, 1, Vector(500,0,150))

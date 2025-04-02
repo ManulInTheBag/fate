@@ -11,6 +11,16 @@ function lancelot_arondite:GetCastPoint()
 	return self:GetSpecialValueFor("cast_point")
 end
 
+function lancelot_arondite:OnUpgrade()
+	local caster = self:GetCaster()
+    
+    if caster:FindAbilityByName("lancelot_arondight_overload"):GetLevel() ~= self:GetLevel() then
+    	caster:FindAbilityByName("lancelot_arondight_overload"):SetLevel(self:GetLevel())
+    end
+
+end
+
+
 function lancelot_arondite:OnAbilityPhaseStart()
 	local caster = self:GetCaster()
 
@@ -36,20 +46,20 @@ function lancelot_arondite:OnSpellStart()
         FxDestroyer(warp,false)
     end)
 
-    local bonus_damage = self:GetSpecialValueFor("bonus_damage")
+
     local bonus_stats = self:GetSpecialValueFor("bonus_allstat")
 
     if caster:HasModifier("modifier_kotl_attribute") then
-    	bonus_damage = bonus_damage
+
     	bonus_stats = bonus_stats * 2
     end
 
     caster:AddNewModifier(caster, self, "modifier_arondite", {	Duration = self:GetSpecialValueFor("duration"),
     															StrengthBonus = bonus_stats,
-    															AgilityBonus = bonus_stats/2,
+    															AgilityBonus = bonus_stats,
     															IntelligenceBonus = bonus_stats,
-    															BonusDamage = bonus_damage,
-    															KotlAttribute = caster:HasModifier("modifier_kotl_attribute") })
+    															BonusDamage = 0,
+    															KotlAttribute = caster.KotlSaAcquired })
 
     caster:Heal(self:GetSpecialValueFor("activate_heal"), caster)
 

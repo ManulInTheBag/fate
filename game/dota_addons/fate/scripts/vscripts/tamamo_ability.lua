@@ -683,8 +683,15 @@ function OnMantraTakeDamage(keys)
 	local charm_type = ""
 
 	if target:GetTeamNumber() == caster:GetTeamNumber() then
+		if target.IsMantraProcOnCooldown then
+			return
+		end
 		modifierName = "modifier_mantra_ally"
 		local pepega = target:FindModifierByName(modifierName)
+		target.IsMantraProcOnCooldown = true
+		Timers:CreateTimer(0.099, function()
+			target.IsMantraProcOnCooldown = false
+		end)
 		charm_type = pepega.ability
 		orbBlockAmt = keys.BlockAmt 
 		if currentHealth == 0 then

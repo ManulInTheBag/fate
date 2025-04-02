@@ -33,6 +33,9 @@ end
 function arash_stella:GetAOERadius()
 	return self:GetSpecialValueFor("radius")
 end
+function arash_stella:GetHealthCost(level)
+	return self:GetCaster():GetHealth()*self:GetSpecialValueFor("self_damage_percentage")/100
+end
 function arash_stella:OnSpellStart()
 	local caster = self:GetCaster()
 	local target_point = self:GetCursorPosition()
@@ -61,7 +64,7 @@ function arash_stella:OnSpellStart()
 		----- self debuff
 		StartAnimation(caster, {duration=delay - 0.2, activity=ACT_DOTA_DIE, rate=0.3})
 
-		DoDamage(caster, caster, caster:GetHealth() *self:GetSpecialValueFor("self_damage_percentage")/100 , DAMAGE_TYPE_MAGICAL, 0, self, false)
+		--DoDamage(caster, caster, caster:GetHealth() *self:GetSpecialValueFor("self_damage_percentage")/100 , DAMAGE_TYPE_MAGICAL, 0, self, false)
 
 		------
 

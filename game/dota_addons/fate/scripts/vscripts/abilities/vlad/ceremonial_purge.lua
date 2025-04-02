@@ -1,6 +1,11 @@
 vlad_ceremonial_purge = class({})
 LinkLuaModifier("modifier_ceremonial_purge_slow", "abilities/vlad/modifier_ceremonial_purge_slow", LUA_MODIFIER_MOTION_NONE)
 
+--[[
+function vlad_ceremonial_purge:GetHealthCost(iLevel)
+	return 500--(caster:GetHealth() - self:GetSpecialValueFor("hp_cost")) > 0 and self:GetSpecialValueFor("hp_cost") or (caster:GetHealth() - 1)
+end
+]]
 function vlad_ceremonial_purge:GetManaCost(iLevel)
 	local caster = self:GetCaster()
 	local condition_free_mana = 35
@@ -14,13 +19,17 @@ function vlad_ceremonial_purge:GetManaCost(iLevel)
   end
 end
 
-if IsClient() then
+function vlad_ceremonial_purge:GetHealthCost( ilevel)
+	return self:GetSpecialValueFor("hp_cost")
+end
+
+--if IsClient() then
 	function vlad_ceremonial_purge:GetCastRange( vLocation, hTarget)
 		return self:GetSpecialValueFor("aoe_outer")
 	end
 
-  return
-end
+  --return
+--end
 
 function vlad_ceremonial_purge:VFX1_Slash(caster)
 	local PI1 = FxCreator("particles/custom/vlad/vlad_cp_spin.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster, 2, nil)
@@ -130,11 +139,11 @@ function vlad_ceremonial_purge:OnSpellStart()
 	--local hp_current = caster:GetHealth() - (hp_max * hp_cost)
 	local hp_current = caster:GetHealth() -  hp_cost
 	if caster:IsAlive() then
-		if hp_current > 1 then
-			caster:SetHealth(hp_current)
-		else
-			caster:SetHealth(1)
-		end
+		-- if hp_current > 1 then
+		-- 	caster:SetHealth(hp_current)
+		-- else
+		-- 	caster:SetHealth(1)
+		-- end
 		
 		StartAnimation(caster, {duration=1, activity=ACT_DOTA_CAST_ABILITY_1, rate=1.5})
 		self:VFX1_Slash(caster)

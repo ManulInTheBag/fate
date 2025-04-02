@@ -78,7 +78,7 @@ end
 
 function lu_bu_halberd_throw:OnProjectileHit_ExtraData(target, vLocation, tData)
 	if target == nil then return end
-	
+	if target:HasModifier("modifier_protection_from_arrows_active") then return end
 	local caster = self:GetCaster()
 
 	local damage = self:GetSpecialValueFor( "damage" )  

@@ -67,20 +67,22 @@ function emiya_barrage_moonwalk:OnSpellStart()
 		Timers:CreateTimer(0.25, function()
 			local targets = FindUnitsInRadius(caster:GetTeamNumber(), targetPoint, caster, 200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, 1, false)
 			for k,v in pairs(targets) do
-				if caster:HasModifier("modifier_projection_attribute") and not v:HasModifier("modifier_moonwalk_root_cooldown") then 
-					giveUnitDataDrivenModifier(caster, v, "rooted", 0.5)
-					v:AddNewModifier(caster, self, "modifier_moonwalk_root_cooldown", { Duration = 5 })
+				if not  v:HasModifier("modifier_protection_from_arrows_active") then
+					if caster:HasModifier("modifier_projection_attribute") and not v:HasModifier("modifier_moonwalk_root_cooldown") then 
+						giveUnitDataDrivenModifier(caster, v, "rooted", 0.5)
+						v:AddNewModifier(caster, self, "modifier_moonwalk_root_cooldown", { Duration = 5 })
+					end
+
+					--[[if v:HasModifier("modifier_sword_barrage_confine") then
+						DoDamage(caster, v, damage * 1.4, DAMAGE_TYPE_PHYSICAL, 0, ability, false)
+					else]]
+						DoDamage(caster, v, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+					--end
+
+					--giveUnitDataDrivenModifier(caster, v, "stunned", 0.1)
+					v:AddNewModifier(caster, v, "modifier_stunned", { Duration = 0.1 })
 				end
-
-				--[[if v:HasModifier("modifier_sword_barrage_confine") then
-					DoDamage(caster, v, damage * 1.4, DAMAGE_TYPE_PHYSICAL, 0, ability, false)
-				else]]
-					DoDamage(caster, v, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
-				--end
-
-				--giveUnitDataDrivenModifier(caster, v, "stunned", 0.1)
-				v:AddNewModifier(caster, v, "modifier_stunned", { Duration = 0.1 })
-				
+					
 			end
 			-- Particles on impact
 			local explosionFxIndex = ParticleManager:CreateParticle( "particles/units/heroes/hero_gyrocopter/gyro_guided_missile_explosion.vpcf", PATTACH_CUSTOMORIGIN, caster )

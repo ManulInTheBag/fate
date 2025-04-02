@@ -97,8 +97,16 @@ function HeroSelection:PrepareTables()
 			local heroTable = GetHeroTableByName(name)
 			local baseHero = heroTable.base_hero
 			local tabIndex = baseHero and 2 or 1
+			if not heroTable.Skins then
+				heroTable.Skins = {}
+			end
+			heroTable.Skins.skin_0 = {}
+			heroTable.Skins.skin_0.loc_name = baseData.override_hero
+			heroTable.Skins.skin_0.model = baseData.Model
+			PrintTable(heroTable.Skins)
 			local heroData = {
 				model = baseData.override_hero,
+				skins = heroTable.Skins,
 				useCustomScene = heroTable.UseCustomScene == 1,
 				attributes = HeroSelection:ExtractHeroStats(baseData),
 				tabIndex = tabIndex

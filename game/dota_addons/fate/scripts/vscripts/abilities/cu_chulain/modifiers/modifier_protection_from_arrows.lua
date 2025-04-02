@@ -5,7 +5,7 @@ function modifier_protection_from_arrows:DeclareFunctions()
 end
 
 function modifier_protection_from_arrows:GetModifierEvasion_Constant()
-	return 25
+	return 35
 end
 
 function modifier_protection_from_arrows:IsHidden()

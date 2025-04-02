@@ -3188,7 +3188,7 @@ function modifier_saito_vortex_slashing:OnIntervalThink()
 
         self:PlayEffects(self.hParent, nRadius)
 
-        giveUnitDataDrivenModifier(self.hCaster, self.hParent, "pause_sealdisabled", 0.3) --NOTE: With another solution [?]
+        giveUnitDataDrivenModifier(self.hCaster, self.hParent, "pause_sealenabled", 0.3) --NOTE: With another solution [?]
 
         if bLastSlash then
             self:Destroy()

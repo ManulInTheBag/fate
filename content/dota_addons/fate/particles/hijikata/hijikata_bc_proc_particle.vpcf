@@ -945,6 +945,7 @@
 	[
 		{
 			m_ChildRef = resource:"particles/units/heroes/hero_pudge/pudge_fleshheap_block_shield_model.vpcf"
+			m_bDisableChild = true
 		},
 		{
 			m_ChildRef = resource:"particles/hijikata/hijikata_bc_proc_particle_1.vpcf"

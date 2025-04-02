@@ -68,7 +68,7 @@ function nero_gladiusanus_new:OnSpellStart()
 
         --print(caster:GetPhysicsVelocity())
 
-        caster:FindAbilityByName("nero_heat"):StartPerformance(2000, 4000/1.5)
+        caster:FindAbilityByName("nero_heat"):StartPerformance(2000, 4000/2.25)
 
         for _, enemy in pairs(targets) do
             if enemy and not enemy:IsNull() and IsValidEntity(enemy) then

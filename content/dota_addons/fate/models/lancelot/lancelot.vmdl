@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc32:version{c5dcef98-b629-46ab-88e3-a17c005c935e} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc39:version{1ceecb0d-4093-4729-ab18-b76886c64cde} -->
 {
 	rootNode = 
 	{
@@ -55,7 +55,7 @@
 							},
 							{
 								from = "visualmaterial0.vmat"
-								to = "materials/models/development/invisibletexture.vmat"
+								to = "materials/lancelot/lancelot_nine_lives.vmat"
 							},
 							{
 								from = "dagger.vmat"
@@ -125,6 +125,15 @@
 						name = "attach_minigun"
 						parent_bone = "Right_Hitloc"
 						relative_origin = [ 0.620891, 72.276138, -0.778957 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_hand"
+						parent_bone = "RightHand"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
 						relative_angles = [ 0.0, 0.0, 0.0 ]
 						weight = 1.0
 						ignore_rotation = false
@@ -993,7 +1002,24 @@
 						import_filter = 
 						{
 							exclude_by_default = false
-							exception_list = [  ]
+							exception_list = 
+							[
+								"Nine_Lives",
+							]
+						}
+					},
+					{
+						_class = "RenderMeshFile"
+						name = "lancelot1"
+						filename = "models/lancelot/lancelot.dmx"
+						import_scale = 1.0
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = 
+							[
+								"Arondight",
+							]
 						}
 					},
 				]
@@ -1005,6 +1031,7 @@
 					{
 						_class = "AnimFile"
 						name = "arondight_overload"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_4_END"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1027,6 +1054,7 @@
 					{
 						_class = "AnimFile"
 						name = "arondight_powerup"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_4"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1059,10 +1087,12 @@
 								extract_rz = false
 								linear = false
 								quadratic = false
+								extract_initial_offset = false
 								root_bone_name = ""
 								motion_type = "Single"
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_ATTACK2"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1095,10 +1125,12 @@
 								extract_rz = false
 								linear = false
 								quadratic = false
+								extract_initial_offset = false
 								root_bone_name = ""
 								motion_type = "Single"
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_ATTACK2"
 						activity_weight = 5
 						weight_list_name = ""
@@ -1131,10 +1163,12 @@
 								extract_rz = false
 								linear = false
 								quadratic = false
+								extract_initial_offset = false
 								root_bone_name = ""
 								motion_type = "Single"
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_OVERRIDE_ABILITY_1"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1167,10 +1201,12 @@
 								extract_rz = false
 								linear = false
 								quadratic = false
+								extract_initial_offset = false
 								root_bone_name = ""
 								motion_type = "Single"
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_DIE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1193,6 +1229,7 @@
 					{
 						_class = "AnimFile"
 						name = "gaebolg_strike"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_OVERRIDE_ABILITY_2"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1215,6 +1252,7 @@
 					{
 						_class = "AnimFile"
 						name = "gaebolg1"
+						is_default_idle_anim = false
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -1237,6 +1275,7 @@
 					{
 						_class = "AnimFile"
 						name = "gaebolg2"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_AMBUSH"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1259,6 +1298,7 @@
 					{
 						_class = "AnimFile"
 						name = "idle"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_IDLE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1281,6 +1321,7 @@
 					{
 						_class = "AnimFile"
 						name = "minigun1"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CHANNEL_END_ABILITY_1"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1303,6 +1344,7 @@
 					{
 						_class = "AnimFile"
 						name = "minigun2"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_1"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1325,6 +1367,7 @@
 					{
 						_class = "AnimFile"
 						name = "minigun3"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CHANNEL_END_ABILITY_3"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1347,6 +1390,16 @@
 					{
 						_class = "AnimFile"
 						name = "ninelives1"
+						children = 
+						[
+							{
+								_class = "AnimForceBoneScale"
+								bone = "RightHand"
+								frame = 0
+								scale = 0.65
+							},
+						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_2_ES_ROLL"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1369,6 +1422,16 @@
 					{
 						_class = "AnimFile"
 						name = "ninelives2"
+						children = 
+						[
+							{
+								_class = "AnimForceBoneScale"
+								bone = "RightHand"
+								frame = 0
+								scale = 0.65
+							},
+						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_3_END"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1385,12 +1448,22 @@
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 100
-						framerate = 20.0
+						framerate = 100.0
 						reverse = false
 					},
 					{
 						_class = "AnimFile"
 						name = "ninelivesdash"
+						children = 
+						[
+							{
+								_class = "AnimForceBoneScale"
+								bone = "RightHand"
+								frame = 0
+								scale = 0.65
+							},
+						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_2_ES_ROLL_START"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1413,10 +1486,11 @@
 					{
 						_class = "AnimFile"
 						name = "parry1"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_OVERRIDE_ABILITY_4"
 						activity_weight = 1
 						weight_list_name = ""
-						fade_in_time = 0.2
+						fade_in_time = 0.1
 						fade_out_time = 0.2
 						looping = false
 						delta = false
@@ -1429,13 +1503,14 @@
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 59
-						framerate = 25.0
+						framerate = 51.0
 						reverse = false
 					},
 					{
 						_class = "AnimFile"
 						name = "parry2"
-						activity_name = ""
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CAST_GHOST_SHIP"
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -1451,16 +1526,17 @@
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 92
-						framerate = 25.0
+						framerate = 120.0
 						reverse = false
 					},
 					{
 						_class = "AnimFile"
 						name = "rosa1"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_EMP"
 						activity_weight = 1
 						weight_list_name = ""
-						fade_in_time = 0.2
+						fade_in_time = 0.0
 						fade_out_time = 0.2
 						looping = false
 						delta = false
@@ -1472,13 +1548,14 @@
 						source_filename = "models/lancelot/rosa1.fbx"
 						import_bone_scales = false
 						start_frame = 0
-						end_frame = 50
-						framerate = 50.0
+						end_frame = 15
+						framerate = 25.0
 						reverse = false
 					},
 					{
 						_class = "AnimFile"
 						name = "rulebreaker1"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_OVERRIDE_ABILITY_3"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1511,10 +1588,12 @@
 								extract_rz = false
 								linear = false
 								quadratic = false
+								extract_initial_offset = false
 								root_bone_name = ""
 								motion_type = "Single"
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_RUN"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1547,10 +1626,12 @@
 								extract_rz = false
 								linear = false
 								quadratic = false
+								extract_initial_offset = false
 								root_bone_name = ""
 								motion_type = "Single"
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_ATTACK"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1573,6 +1654,7 @@
 					{
 						_class = "AnimFile"
 						name = "arondight_powerup_copy"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_CHAOS_METEOR"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1595,6 +1677,7 @@
 					{
 						_class = "AnimFile"
 						name = "idle_copy"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_DISABLED"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1614,13 +1697,84 @@
 						framerate = 40.0
 						reverse = false
 					},
+					{
+						_class = "AnimFile"
+						name = "arondight_overload1"
+						children = 
+						[
+							{
+								_class = "AnimForceBoneScale"
+								bone = "RightHand"
+								frame = 0
+								scale = 0.65
+							},
+						]
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CAST_ABILITY_ROT"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/lancelot/arondight_overload.fbx"
+						import_bone_scales = false
+						start_frame = 8
+						end_frame = 120
+						framerate = 120.0
+						reverse = false
+						anim_hold_list = 
+						[
+							{
+								frame = 120
+								frame_count = 60
+							},
+						]
+					},
 				]
 				default_root_bone_name = ""
+			},
+			{
+				_class = "BodyGroupList"
+				children = 
+				[
+					{
+						_class = "BodyGroup"
+						name = "weapon"
+						children = 
+						[
+							{
+								_class = "BodyGroupChoice"
+								name = "base"
+								meshes = 
+								[
+									"lancelot",
+								]
+							},
+							{
+								_class = "BodyGroupChoice"
+								name = "nine"
+								meshes = 
+								[
+									"lancelot1",
+								]
+							},
+						]
+						hidden_in_tools = false
+						non_bodygroup_single_choice = false
+					},
+				]
 			},
 		]
 		model_archetype = ""
 		primary_associated_entity = ""
 		anim_graph_name = ""
 		importer_notes = "Imported from VMDL\n==Warnings==\nChanged incompatible hitbox parent bone name 'Gae Bolg' to 'Gae_Bolg'\nChanged incompatible hitbox parent bone name 'root 3' to 'root_3'\nChanged incompatible hitbox parent bone name 'Rule Breaker' to 'Rule_Breaker'\nChanged incompatible bone name 'Right Hitloc' to 'Right_Hitloc'\nChanged incompatible bone name 'Right Hitloc' to 'Right_Hitloc'\n"
+		document_sub_type = "ModelDocSubType_None"
 	}
 }

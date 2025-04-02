@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc32:version{c5dcef98-b629-46ab-88e3-a17c005c935e} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc39:version{1ceecb0d-4093-4729-ab18-b76886c64cde} -->
 {
 	rootNode = 
 	{
@@ -500,6 +500,7 @@
 								rotation_xyz = [ 0.0, 0.0, 90.0 ]
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_IDLE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -530,6 +531,7 @@
 								rotation_xyz = [ 0.0, 0.0, 90.0 ]
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAPTURE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -560,6 +562,7 @@
 								rotation_xyz = [ 0.0, 0.0, 90.0 ]
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_1"
 						activity_weight = 1
 						weight_list_name = ""
@@ -592,6 +595,7 @@
 								extract_rz = false
 								linear = false
 								quadratic = false
+								extract_initial_offset = false
 								root_bone_name = ""
 								motion_type = "Single"
 							},
@@ -601,6 +605,7 @@
 								rotation_xyz = [ 0.0, 0.0, 90.0 ]
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_ATTACK"
 						activity_weight = 1
 						weight_list_name = ""
@@ -633,6 +638,7 @@
 								extract_rz = false
 								linear = false
 								quadratic = false
+								extract_initial_offset = false
 								root_bone_name = ""
 								motion_type = "Single"
 							},
@@ -642,6 +648,7 @@
 								rotation_xyz = [ 0.0, 0.0, 90.0 ]
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_ATTACK2"
 						activity_weight = 1
 						weight_list_name = ""
@@ -674,6 +681,7 @@
 								extract_rz = false
 								linear = false
 								quadratic = false
+								extract_initial_offset = false
 								root_bone_name = ""
 								motion_type = "Single"
 							},
@@ -683,6 +691,7 @@
 								rotation_xyz = [ 0.0, 0.0, 90.0 ]
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -713,6 +722,7 @@
 								rotation_xyz = [ 0.0, 0.0, 90.0 ]
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -743,6 +753,7 @@
 								rotation_xyz = [ 0.0, 0.0, 90.0 ]
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -778,6 +789,7 @@
 								frames_from_end = 3
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CHANNEL_ABILITY_3"
 						activity_weight = 1
 						weight_list_name = ""
@@ -808,6 +820,7 @@
 								rotation_xyz = [ 0.0, 0.0, 90.0 ]
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_3"
 						activity_weight = 1
 						weight_list_name = ""
@@ -840,6 +853,7 @@
 								extract_rz = false
 								linear = false
 								quadratic = false
+								extract_initial_offset = false
 								root_bone_name = ""
 								motion_type = "Single"
 							},
@@ -849,6 +863,7 @@
 								rotation_xyz = [ 0.0, 0.0, 90.0 ]
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_DIE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -879,6 +894,7 @@
 								rotation_xyz = [ 0.0, 0.0, 90.0 ]
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_5"
 						activity_weight = 1
 						weight_list_name = ""
@@ -909,6 +925,7 @@
 								rotation_xyz = [ 0.0, 0.0, 90.0 ]
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_4"
 						activity_weight = 1
 						weight_list_name = ""
@@ -941,6 +958,7 @@
 								extract_rz = false
 								linear = false
 								quadratic = false
+								extract_initial_offset = false
 								root_bone_name = ""
 								motion_type = "Single"
 							},
@@ -950,6 +968,7 @@
 								rotation_xyz = [ 0.0, 0.0, 90.0 ]
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_RUN"
 						activity_weight = 1
 						weight_list_name = ""
@@ -980,6 +999,7 @@
 								rotation_xyz = [ 0.0, 0.0, 90.0 ]
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -1010,6 +1030,7 @@
 								rotation_xyz = [ 0.0, 0.0, 90.0 ]
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_DISABLED"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1042,6 +1063,7 @@
 								extract_rz = false
 								linear = false
 								quadratic = false
+								extract_initial_offset = false
 								root_bone_name = ""
 								motion_type = "Single"
 							},
@@ -1051,6 +1073,7 @@
 								rotation_xyz = [ 0.0, 0.0, 90.0 ]
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_2"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1092,5 +1115,6 @@
 		model_archetype = ""
 		primary_associated_entity = ""
 		anim_graph_name = ""
+		document_sub_type = "ModelDocSubType_None"
 	}
 }

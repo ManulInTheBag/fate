@@ -25,7 +25,9 @@ if IsServer() then
 		if args.attacker ~= self:GetParent() then return end
 
 		self.BaseDamage = self.BaseDamage + self.BonusAtkPct
-
+		if self.BaseDamage > self:GetAbility():GetSpecialValueFor("bonus_atk_max") then
+			self.BaseDamage = self:GetAbility():GetSpecialValueFor("bonus_atk_max")
+		end
 		CustomNetTables:SetTableValue("sync","rune_of_combat_damage", { atk_bonus = self.BaseDamage })
 
 		local modifier = args.target:AddNewModifier(args.attacker, self:GetAbility(), "modifier_rune_of_combat_hit", { Duration = 3 })

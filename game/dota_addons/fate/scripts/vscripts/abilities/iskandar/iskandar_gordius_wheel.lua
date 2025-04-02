@@ -56,7 +56,7 @@ modifier_gordius_wheel = class({})
 function modifier_gordius_wheel:DeclareFunctions()
 	return { MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
 			 MODIFIER_PROPERTY_IGNORE_MOVESPEED_LIMIT,
-			 MODIFIER_PROPERTY_TURN_RATE_PERCENTAGE,
+			 MODIFIER_PROPERTY_TURN_RATE_OVERRIDE ,
 			 MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
 			 MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS
 			 }
@@ -67,8 +67,8 @@ function modifier_gordius_wheel:GetModifierIgnoreMovespeedLimit()
 end
 
 
-function modifier_gordius_wheel:GetModifierTurnRate_Percentage()
-	return -350
+function modifier_gordius_wheel:GetModifierTurnRate_Override()
+	return 0.0001
 end
 
 function modifier_gordius_wheel:GetModifierMoveSpeedBonus_Percentage()
@@ -103,6 +103,7 @@ end
 
 function modifier_gordius_wheel:CheckState()
     local state = { [MODIFIER_STATE_UNSLOWABLE ] = true,
+					[MODIFIER_STATE_NO_UNIT_COLLISION  ] = true,
                 }
     return state
 end
@@ -112,9 +113,9 @@ end
 function modifier_gordius_wheel:OnCreated(args)
 	local ability = self:GetAbility()
 	local caster = self:GetParent()
-
+	self.turnrate_pct = -350
 	self.Movespeed = ability:GetSpecialValueFor("base_movespeed")
-	self.mr = 30				--ability:GetSpecialValueFor("bonus_mr") IT WILL BREAK IF YOU Change to LINK IDK WHY
+	self.mr = 10				--ability:GetSpecialValueFor("bonus_mr") IT WILL BREAK IF YOU Change to LINK IDK WHY
 	self.armor = 10			--ability:GetSpecialValueFor("bonus_armor")
 	if(IsServer() ) then
 		CustomNetTables:SetTableValue("sync","gordius_wheel", {movespeed = self.Movespeed, mres = self.mr, armor = self.armor})
@@ -129,6 +130,10 @@ function modifier_gordius_wheel:OnCreated(args)
 	local radius = ability:GetSpecialValueFor("radius")
 	local damageDiff = max_damage - min_damage
 	local damage
+	if caster.IsTacticsAcquired  and caster:GetAbilityByIndex(3):GetName() == "iskandar_charisma" then
+		caster:SwapAbilities("iskandar_charisma", "iskander_thunder_2", false, true)
+	end
+	local position = caster:GetAbsOrigin()
 	if(IsServer()) then
 		caster:SetModel("models/sanya/sanya_telega.vmdl")
 		caster:SetOriginalModel("models/sanya/sanya_telega.vmdl")
@@ -141,22 +146,24 @@ function modifier_gordius_wheel:OnCreated(args)
 			if(IsServer() ) then
 				CustomNetTables:SetTableValue("sync","gordius_wheel", {movespeed = self.Movespeed, mres = self.mr, armor = self.armor})
 			end
-			local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
-		 	for k,v in pairs(targets) do
-				local distDiff = 250 -- max damage at 100, min damage at 350
-			 	local distance = (caster:GetAbsOrigin() - v:GetAbsOrigin()):Length2D() 
-			 	if distance <= 100 then 
-					damage = max_damage
-			 	elseif distance > 100 then
-					damage = max_damage - damageDiff * distance/radius
-			 	end
-			 	DoDamage(caster, v, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
-				if(v:IsHero()) then
-					caster.BonusChargeDamage =  caster.BonusChargeDamage + 75
+			if (caster:GetAbsOrigin() - position):Length2D() > 100 then
+				local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
+				for k,v in pairs(targets) do
+					local distDiff = 250 -- max damage at 100, min damage at 350
+					local distance = (caster:GetAbsOrigin() - v:GetAbsOrigin()):Length2D() 
+					if distance <= 100 then 
+						damage = max_damage
+					elseif distance > 100 then
+						damage = max_damage - damageDiff * distance/radius
+					end
+					DoDamage(caster, v, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+					if(v:IsHero()) then
+						caster.BonusChargeDamage =  caster.BonusChargeDamage + 75
+					end
 				end
-		 	end
 		 	
-
+			end
+			position = caster:GetAbsOrigin()
 		 	if caster.IsThundergodAcquired then
 			 	local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 250, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
 			 	for k,v in pairs(targets) do
@@ -198,6 +205,9 @@ function modifier_gordius_wheel:OnDestroy()
 	local caster = self:GetParent()
 	caster.OriginalModel = "models/sanya/sanya.vmdl"
 	caster.IsRiding = false
+	if caster.IsTacticsAcquired and caster:GetAbilityByIndex(3):GetName() == "iskander_thunder_2" then
+		caster:SwapAbilities("iskandar_charisma", "iskander_thunder_2", true, false)
+	end
 	if(IsServer()) then
 		caster:SetModel("models/sanya/sanya.vmdl")
 		caster:SetOriginalModel("models/sanya/sanya.vmdl")

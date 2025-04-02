@@ -8,7 +8,8 @@ function modifier_cu_battle_continuation:IsPurgeException() return false end
 function modifier_cu_battle_continuation:RemoveOnDeath() return false end
 function modifier_cu_battle_continuation:DeclareFunctions()
     local func = {  MODIFIER_PROPERTY_MIN_HEALTH,
-                    MODIFIER_PROPERTY_AVOID_DAMAGE,}
+                    MODIFIER_PROPERTY_AVOID_DAMAGE,
+                    MODIFIER_PROPERTY_TRANSLATE_ACTIVITY_MODIFIERS}
     return func
 end
 function modifier_cu_battle_continuation:GetMinHealth()
@@ -52,3 +53,8 @@ function modifier_cu_battle_continuation:OnCreated()
         self.killer = tostring(self:GetParent():GetEntityIndex())
     end
 end
+
+function modifier_cu_battle_continuation:GetActivityTranslationModifiers()
+	return self:GetParent():GetIdealSpeed() > 500 and "run_fast" or "run_slow"
+end
+

@@ -212,7 +212,7 @@ if IsServer() then
 		ParticleManager:ReleaseParticleIndex(self.particle)
 		ParticleManager:DestroyParticle(self.particle2, false)
 		ParticleManager:ReleaseParticleIndex(self.particle2)
-		if self.caster.RefractionAcquired then
+		if self.caster.RefractionAcquired and self:GetRemainingTime() <= 0.1 then
 			self:Explode(1/2)
 		end
 	end

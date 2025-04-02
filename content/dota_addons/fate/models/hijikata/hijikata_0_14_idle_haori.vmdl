@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc36:version{972dada4-b828-45a4-bb93-7795cf0585da} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc39:version{1ceecb0d-4093-4729-ab18-b76886c64cde} -->
 {
 	rootNode = 
 	{
@@ -108,7 +108,9 @@
 								calc_per_vertex_curvature = false
 								prefer_high_density_tris_in_uv_density_calc = false
 								skin_parented_transforms = false
+								use_uv2_for_charts = false
 								render_mode = "default"
+								blend_weights_per_vertex = "4"
 							},
 						]
 						filename = "models/hijikata/hijikata.fbx"
@@ -149,6 +151,7 @@
 								frames_from_end = 80
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_IDLE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -171,6 +174,7 @@
 					{
 						_class = "AnimFile"
 						name = "np"
+						is_default_idle_anim = false
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -238,6 +242,7 @@
 								frames_from_end = 423
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_RUN"
 						activity_weight = 1
 						weight_list_name = ""
@@ -260,6 +265,7 @@
 					{
 						_class = "AnimFile"
 						name = "shot_and_dash"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_2"
 						activity_weight = 1
 						weight_list_name = ""
@@ -282,6 +288,7 @@
 					{
 						_class = "AnimFile"
 						name = "shoot"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_1"
 						activity_weight = 1
 						weight_list_name = ""
@@ -304,7 +311,51 @@
 					{
 						_class = "AnimFile"
 						name = "double_attack"
-						activity_name = ""
+						children = 
+						[
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 10
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/hijikata/hijikata_attack_slash.vpcf"
+									detach_from_owner = false
+									always_run = false
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = null
+									attachment_type = "point_follow"
+									attachment_point_cp1 = null
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 19
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/hijikata/hijikata_attack_slash_horizontal.vpcf"
+									detach_from_owner = false
+									always_run = false
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = null
+									attachment_type = "point_follow"
+									attachment_point_cp1 = null
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+						]
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CAST_ABILITY_ROT"
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -319,13 +370,14 @@
 						source_filename = "models/hijikata/hijikata.fbx"
 						import_bone_scales = false
 						start_frame = 490
-						end_frame = 524
-						framerate = -1.0
+						end_frame = 514
+						framerate = 40.0
 						reverse = false
 					},
 					{
 						_class = "AnimFile"
 						name = "madness_cast"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_DISABLED"
 						activity_weight = 1
 						weight_list_name = ""
@@ -348,6 +400,7 @@
 					{
 						_class = "AnimFile"
 						name = "jump_dash"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_1_END"
 						activity_weight = 1
 						weight_list_name = ""
@@ -370,6 +423,7 @@
 					{
 						_class = "AnimFile"
 						name = "idle_rare"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_IDLE_RARE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -392,6 +446,7 @@
 					{
 						_class = "AnimFile"
 						name = "die"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_DIE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -414,6 +469,7 @@
 					{
 						_class = "AnimFile"
 						name = "die_powerful"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_DIE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -457,6 +513,7 @@
 								frames_from_end = 1000
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_RUN"
 						activity_weight = 1
 						weight_list_name = ""
@@ -478,7 +535,100 @@
 					},
 					{
 						_class = "AnimFile"
+						name = "attack_1"
+						children = 
+						[
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 10
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/hijikata/hijikata_attack_slash.vpcf"
+									detach_from_owner = false
+									always_run = false
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = null
+									attachment_type = "point_follow"
+									attachment_point_cp1 = null
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+						]
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_ATTACK"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/hijikata/hijikata.fbx"
+						import_bone_scales = false
+						start_frame = 490
+						end_frame = 504
+						framerate = 23.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "attack_2"
+						children = 
+						[
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 3
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/hijikata/hijikata_attack_slash_horizontal.vpcf"
+									detach_from_owner = false
+									always_run = false
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = null
+									attachment_type = "point_follow"
+									attachment_point_cp1 = null
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+						]
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_ATTACK"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/hijikata/hijikata.fbx"
+						import_bone_scales = false
+						start_frame = 506
+						end_frame = 524
+						framerate = 10.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
 						name = "dash_end"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_ALCHEMIST_CONCOCTION"
 						activity_weight = 1
 						weight_list_name = ""
@@ -501,6 +651,7 @@
 					{
 						_class = "AnimFile"
 						name = "dash_pose"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_AMBUSH"
 						activity_weight = 1
 						weight_list_name = ""
@@ -570,6 +721,7 @@
 								}
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_6"
 						activity_weight = 1
 						weight_list_name = ""
@@ -599,6 +751,7 @@
 					{
 						_class = "AnimFile"
 						name = "duel_cast"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_5"
 						activity_weight = 1
 						weight_list_name = ""
@@ -621,6 +774,7 @@
 					{
 						_class = "AnimFile"
 						name = "np_attacks_1"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_SUN_STRIKE_ORB"
 						activity_weight = 1
 						weight_list_name = ""
@@ -643,6 +797,7 @@
 					{
 						_class = "AnimFile"
 						name = "np_attacks_2"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_3"
 						activity_weight = 1
 						weight_list_name = ""
@@ -660,96 +815,6 @@
 						start_frame = 265
 						end_frame = 290
 						framerate = 60.0
-						reverse = false
-					},
-					{
-						_class = "AnimFile"
-						name = "attack_1"
-						children = 
-						[
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
-								event_frame = 10
-								event_end_frame = -1
-								event_keys = 
-								{
-									name = resource:"particles/hijikata/hijikata_attack_slash.vpcf"
-									detach_from_owner = false
-									always_run = false
-									stop_on_seq_change = false
-									stop_immediately = false
-									use_layer_sequence = false
-									tags = null
-									attachment_point = null
-									attachment_type = "point_follow"
-									attachment_point_cp1 = null
-									attachment_type_cp1 = "point_follow"
-								}
-							},
-						]
-						activity_name = "ACT_DOTA_ATTACK"
-						activity_weight = 1
-						weight_list_name = ""
-						fade_in_time = 0.2
-						fade_out_time = 0.2
-						looping = false
-						delta = false
-						worldSpace = false
-						hidden = false
-						anim_markup_ordered = false
-						disable_compression = false
-						animgraph_additive = false
-						source_filename = "models/hijikata/hijikata.fbx"
-						import_bone_scales = false
-						start_frame = 490
-						end_frame = 504
-						framerate = 23.0
-						reverse = false
-					},
-					{
-						_class = "AnimFile"
-						name = "attack_2"
-						children = 
-						[
-							{
-								_class = "AnimEvent"
-								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
-								event_frame = 3
-								event_end_frame = -1
-								event_keys = 
-								{
-									name = resource:"particles/hijikata/hijikata_attack_slash_horizontal.vpcf"
-									detach_from_owner = false
-									always_run = false
-									stop_on_seq_change = false
-									stop_immediately = false
-									use_layer_sequence = false
-									tags = null
-									attachment_point = null
-									attachment_type = "point_follow"
-									attachment_point_cp1 = null
-									attachment_type_cp1 = "point_follow"
-								}
-							},
-						]
-						activity_name = "ACT_DOTA_ATTACK"
-						activity_weight = 1
-						weight_list_name = ""
-						fade_in_time = 0.2
-						fade_out_time = 0.2
-						looping = false
-						delta = false
-						worldSpace = false
-						hidden = false
-						anim_markup_ordered = false
-						disable_compression = false
-						animgraph_additive = false
-						source_filename = "models/hijikata/hijikata.fbx"
-						import_bone_scales = false
-						start_frame = 506
-						end_frame = 524
-						framerate = 10.0
 						reverse = false
 					},
 				]

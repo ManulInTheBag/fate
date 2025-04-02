@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc32:version{c5dcef98-b629-46ab-88e3-a17c005c935e} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc39:version{1ceecb0d-4093-4729-ab18-b76886c64cde} -->
 {
 	rootNode = 
 	{
@@ -916,6 +916,7 @@
 								frames_from_end = 1
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_IDLE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -938,6 +939,7 @@
 					{
 						_class = "AnimFile"
 						name = "jeanne_alter_run"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_RUN"
 						activity_weight = 1
 						weight_list_name = ""
@@ -960,6 +962,7 @@
 					{
 						_class = "AnimFile"
 						name = "jeanne_alter_attack1"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_ATTACK"
 						activity_weight = 1
 						weight_list_name = ""
@@ -982,6 +985,7 @@
 					{
 						_class = "AnimFile"
 						name = "jeanne_alter_attack2"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_ATTACK2"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1004,6 +1008,7 @@
 					{
 						_class = "AnimFile"
 						name = "jeanne_alter_death"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_DIE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1026,6 +1031,7 @@
 					{
 						_class = "AnimFile"
 						name = "jeanne_alter_pepega_start"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_2"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1048,6 +1054,7 @@
 					{
 						_class = "AnimFile"
 						name = "jeanne_alter_pepega_channel"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_2_END"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1070,6 +1077,7 @@
 					{
 						_class = "AnimFile"
 						name = "jeanne_alter_stop"
+						is_default_idle_anim = false
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -1092,6 +1100,7 @@
 					{
 						_class = "AnimFile"
 						name = "jeanne_alter_sword_point"
+						is_default_idle_anim = false
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -1114,6 +1123,7 @@
 					{
 						_class = "AnimFile"
 						name = "jeanne_alter_lagrond"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_6"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1136,6 +1146,7 @@
 					{
 						_class = "AnimFile"
 						name = "jeanne_alter_slap"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_5"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1158,6 +1169,7 @@
 					{
 						_class = "AnimFile"
 						name = "jeanne_alter_jump"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_3"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1177,6 +1189,29 @@
 						framerate = 60.0
 						reverse = false
 					},
+					{
+						_class = "AnimFile"
+						name = "jeanne_alter_lagrond_combo"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CAST_ABILITY_7"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/jeanne_alter/jeanne_alter.fbx"
+						import_bone_scales = false
+						start_frame = 466
+						end_frame = 485
+						framerate = 10.0
+						reverse = false
+					},
 				]
 				default_root_bone_name = ""
 			},
@@ -1185,5 +1220,6 @@
 		primary_associated_entity = ""
 		anim_graph_name = ""
 		importer_notes = "Imported from VMDL\n==Warnings==\nChanged incompatible hitbox parent bone name 'Bip01 Pelvis' to 'Bip01_Pelvis'\nChanged incompatible hitbox parent bone name 'Bip01 Spine' to 'Bip01_Spine'\nChanged incompatible hitbox parent bone name 'Bip01 Spine1' to 'Bip01_Spine1'\nChanged incompatible hitbox parent bone name 'Bip01 Spine2' to 'Bip01_Spine2'\nChanged incompatible hitbox parent bone name 'Bip01 Neck' to 'Bip01_Neck'\nChanged incompatible hitbox parent bone name 'Bip01 L Clavicle' to 'Bip01_L_Clavicle'\nChanged incompatible hitbox parent bone name 'Bip01 L UpperArm' to 'Bip01_L_UpperArm'\nChanged incompatible hitbox parent bone name 'Bip01 R Clavicle' to 'Bip01_R_Clavicle'\nChanged incompatible hitbox parent bone name 'Bip01 L Forearm' to 'Bip01_L_Forearm'\nChanged incompatible hitbox parent bone name 'Bip01 R UpperArm' to 'Bip01_R_UpperArm'\nChanged incompatible hitbox parent bone name 'Bip01 L Hand' to 'Bip01_L_Hand'\nChanged incompatible hitbox parent bone name 'Bip01 R Forearm' to 'Bip01_R_Forearm'\nChanged incompatible hitbox parent bone name 'Bip01 R Hand' to 'Bip01_R_Hand'\nChanged incompatible hitbox parent bone name 'Bip01 R Thigh' to 'Bip01_R_Thigh'\nChanged incompatible hitbox parent bone name 'Bip01 L Thigh' to 'Bip01_L_Thigh'\nChanged incompatible hitbox parent bone name 'Bip01 L Finger2' to 'Bip01_L_Finger2'\nChanged incompatible hitbox parent bone name 'Bip01 L Finger0' to 'Bip01_L_Finger0'\nChanged incompatible hitbox parent bone name 'Bip01 L Finger1' to 'Bip01_L_Finger1'\nChanged incompatible hitbox parent bone name 'Bip01 R Finger2' to 'Bip01_R_Finger2'\nChanged incompatible hitbox parent bone name 'Bip01 R Finger0' to 'Bip01_R_Finger0'\nChanged incompatible hitbox parent bone name 'Bip01 R Finger1' to 'Bip01_R_Finger1'\nChanged incompatible hitbox parent bone name 'Bip01 Head' to 'Bip01_Head'\nChanged incompatible hitbox parent bone name 'Bip01 R Calf' to 'Bip01_R_Calf'\nChanged incompatible hitbox parent bone name 'Bip01 L Calf' to 'Bip01_L_Calf'\nChanged incompatible hitbox parent bone name 'Bip01 L Finger21' to 'Bip01_L_Finger21'\nChanged incompatible hitbox parent bone name 'Bip01 L Finger01' to 'Bip01_L_Finger01'\nChanged incompatible hitbox parent bone name 'Bip01 L Finger11' to 'Bip01_L_Finger11'\nChanged incompatible hitbox parent bone name 'Bip01 R Finger21' to 'Bip01_R_Finger21'\nChanged incompatible hitbox parent bone name 'Bip01 R Finger01' to 'Bip01_R_Finger01'\nChanged incompatible hitbox parent bone name 'Bip01 R Finger11' to 'Bip01_R_Finger11'\nChanged incompatible hitbox parent bone name 'Bip01 R Foot' to 'Bip01_R_Foot'\nChanged incompatible hitbox parent bone name 'Bip01 L Foot' to 'Bip01_L_Foot'\nChanged incompatible hitbox parent bone name 'Bip01 L Finger22' to 'Bip01_L_Finger22'\nChanged incompatible hitbox parent bone name 'Bip01 L Finger02' to 'Bip01_L_Finger02'\nChanged incompatible hitbox parent bone name 'Bip01 L Finger12' to 'Bip01_L_Finger12'\nChanged incompatible hitbox parent bone name 'Bip01 LUpArmTwist' to 'Bip01_LUpArmTwist'\nChanged incompatible hitbox parent bone name 'Bip01 R Finger22' to 'Bip01_R_Finger22'\nChanged incompatible hitbox parent bone name 'Bip01 R Finger02' to 'Bip01_R_Finger02'\nChanged incompatible hitbox parent bone name 'Bip01 R Finger12' to 'Bip01_R_Finger12'\nChanged incompatible hitbox parent bone name 'Bip01 RUpArmTwist' to 'Bip01_RUpArmTwist'\nChanged incompatible hitbox parent bone name 'Bip01 R Toe0' to 'Bip01_R_Toe0'\nChanged incompatible hitbox parent bone name 'Bip01 L Toe0' to 'Bip01_L_Toe0'\nChanged incompatible bone name 'Bip01 L Finger12' to 'Bip01_L_Finger12'\n"
+		document_sub_type = "ModelDocSubType_None"
 	}
 }

@@ -79,6 +79,8 @@ end
 function karna_brahmastra_kundala_retrieve:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
 	local hCaster = self:GetCaster()
   if(hTarget ~= nil) then
+	if hTarget:HasModifier("modifier_protection_from_arrows_active") then return end
+
 	  local explosionFx = ParticleManager:CreateParticle("particles/karna/karna_kundala_hit.vpcf", PATTACH_CUSTOMORIGIN, nil)
 	  ParticleManager:SetParticleControl(explosionFx, 0, hTarget:GetAbsOrigin())
 	  ParticleManager:ReleaseParticleIndex(explosionFx)
