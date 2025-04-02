@@ -8,7 +8,9 @@
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/angra_mainyu/angra_mainyu_verg_avesta"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityTextureName"			"custom/avenger_verg_avesta"
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
@@ -27,8 +29,8 @@
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"40 38 36 34 32"
-		"AbilityCastPoint"				"0.4"
+		"AbilityCooldown"				"1"
+		"AbilityCastPoint"				"0.7"
 
 		// Cost
 		//-------------------------------------------------------------------------------------------------------------
@@ -36,14 +38,17 @@
 		
 		"AbilityValues"
         {
-            "multiplier" "100 110 120 130 140"
-            //"damage"	"600 800 1000 1200 1400"
-            "reset_delay" "4 5.25 6.5 7.75 9"
-            "mana_restore_percentage" "33"
+            //"multiplier" "100 110 120 130 140"
+            "damage"	"400 475 550 625 700"
+            //"reset_delay" "4 5.25 6.5 7.75 9"
+            //"angra_regen" "100"
+            //"mana_restore_percentage" "33"
             //"marker_duration" "10"
-            "return_bonus" "40"
-            "radius" "1750"
-            //"delay" "0.5"
+            //"return_bonus" "40"
+            "radius" "700"
+            "delay" "0.5"
+            "lost_health_amp" "50"
         }
 	}
+
 }
