@@ -1281,6 +1281,139 @@
 									},
 								]
 							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_micro_jump_back"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_CAST_SUN_STRIKE"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = true
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/cu_chulain/cu_chulain.fbx"
+								import_bone_scales = false
+								start_frame = 164
+								end_frame = 190
+								framerate = 30.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_jump_pierce"
+								children = 
+								[
+									{
+										_class = "AnimEvent"
+										event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+										event_frame = 2
+										event_end_frame = -1
+										event_keys = 
+										{
+											name = resource:"particles/cu_chulain/gae_bolg_proj_outline_2.vpcf"
+											detach_from_owner = false
+											always_run = false
+											stop_on_seq_change = false
+											stop_immediately = false
+											use_layer_sequence = false
+											tags = null
+											attachment_point = "attach_spear_end"
+											attachment_type = "point_follow"
+											attachment_point_cp1 = "attach_spear_start"
+											attachment_type_cp1 = "point_follow"
+										}
+									},
+									{
+										_class = "AnimEvent"
+										event_class = "AE_CL_STOP_PARTICLE_EFFECT"
+										event_frame = 18
+										event_end_frame = -1
+										event_keys = 
+										{
+											name = resource:"particles/cu_chulain/gae_bolg_proj_outline_2.vpcf"
+											stop_instantly = true
+											play_endcap = false
+										}
+									},
+									{
+										_class = "AnimEvent"
+										event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+										event_frame = 10
+										event_end_frame = -1
+										event_keys = 
+										{
+											name = resource:"particles/econ/items/centaur/centaur_ti6_gold/centaur_ti6_ambient_gold_eyes.vpcf"
+											detach_from_owner = false
+											always_run = false
+											stop_on_seq_change = false
+											stop_immediately = false
+											use_layer_sequence = false
+											tags = null
+											attachment_point = "attach_right_eye"
+											attachment_type = "point_follow"
+											attachment_point_cp1 = "attach_right_eye"
+											attachment_type_cp1 = "point_follow"
+										}
+									},
+									{
+										_class = "AnimEvent"
+										event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+										event_frame = 10
+										event_end_frame = -1
+										event_keys = 
+										{
+											name = resource:"particles/econ/items/centaur/centaur_ti6_gold/centaur_ti6_ambient_gold_eyes.vpcf"
+											detach_from_owner = false
+											always_run = false
+											stop_on_seq_change = false
+											stop_immediately = false
+											use_layer_sequence = false
+											tags = null
+											attachment_point = "attach_left_eye"
+											attachment_type = "point_follow"
+											attachment_point_cp1 = "attach_left_eye"
+											attachment_type_cp1 = "point_follow"
+										}
+									},
+									{
+										_class = "AnimEvent"
+										event_class = "AE_CL_STOP_PARTICLE_EFFECT"
+										event_frame = 17
+										event_end_frame = -1
+										event_keys = 
+										{
+											name = resource:"particles/econ/items/centaur/centaur_ti6_gold/centaur_ti6_ambient_gold_eyes.vpcf"
+											stop_instantly = true
+											play_endcap = false
+										}
+									},
+								]
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_CAST_GHOST_SHIP"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = true
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/cu_chulain/cu_chulain.fbx"
+								import_bone_scales = false
+								start_frame = 190
+								end_frame = 209
+								framerate = 30.0
+								reverse = false
+							},
 						]
 					},
 				]

@@ -428,7 +428,7 @@ function OnTFStart(keys)
     caster:SetModel("models/avenger/trueform/trueform.vmdl")
     caster:SetOriginalModel("models/avenger/trueform/trueform.vmdl")
 
-    caster:SetModelScale(1.1)
+    caster:SetModelScale(1.3)
 
     caster:EmitSound("Avenger.TransformShort")
 end
@@ -461,11 +461,11 @@ function OnTFEnd(keys)
     -- if demoncore:GetToggleState() then
     -- 	demoncore:ToggleAbility()
     -- end
-    caster.OriginalModel = "models/avenger/avenger.vmdl"
-    caster:SetModel("models/avenger/avenger.vmdl")
-    caster:SetOriginalModel("models/avenger/avenger.vmdl")
+    caster.OriginalModel = "models/avenger/avenger_new.vmdl"
+    caster:SetModel("models/avenger/avenger_new.vmdl")
+    caster:SetOriginalModel("models/avenger/avenger_new.vmdl")
 
-    caster:SetModelScale(0.8)
+    caster:SetModelScale(1.5)
 end
 
 function OnDCToggleOn(keys)

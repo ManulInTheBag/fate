@@ -61,3 +61,46 @@ end
 function modifier_angra_murderous:GetEffectAttachType()
 	return PATTACH_ABSORIGIN_FOLLOW
 end
+
+
+function angra_murderous:GetIntrinsicModifierName()
+    return "modifier_angra_idle_animation"
+end
+LinkLuaModifier("modifier_angra_idle_animation", "abilities/angra_mainyu/angra_murderous", LUA_MODIFIER_MOTION_NONE)
+modifier_angra_idle_animation = class({})
+function modifier_angra_idle_animation:OnCreated(args)
+    self.activity = "not_in_fight"
+	self:StartIntervalThink(0.5)
+end
+function modifier_angra_idle_animation:OnIntervalThink()
+	if self:GetRemainingTime() < 0.5 then
+		self.activity = "not_in_fight"
+	end
+end
+function modifier_angra_idle_animation:OnTakeDamage(args)
+	if args.unit ~= self:GetParent() then return end
+ 	self.activity = "in_fight"
+	self:SetDuration(4, true)
+end
+function modifier_angra_idle_animation:OnAttackLanded(args)
+    if args.attacker ~= self:GetParent() then return end
+    self.activity = "in_fight"
+	self:SetDuration(4, true)
+end
+
+function modifier_angra_idle_animation:IsHidden() return true end
+function modifier_angra_idle_animation:IsDebuff() return false end
+function modifier_angra_idle_animation:IsPurgable() return false end
+function modifier_angra_idle_animation:IsPurgeException() return false end
+function modifier_angra_idle_animation:DestroyOnExpire() return false end
+function modifier_angra_idle_animation:RemoveOnDeath() return false end
+
+function modifier_angra_idle_animation:DeclareFunctions()
+    local func = {    MODIFIER_PROPERTY_TRANSLATE_ACTIVITY_MODIFIERS}
+    return func
+end
+
+function modifier_angra_idle_animation:GetActivityTranslationModifiers()
+	return self.activity
+end
+

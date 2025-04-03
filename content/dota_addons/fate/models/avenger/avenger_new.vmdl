@@ -70,8 +70,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -80.0, -80.0, -80.0 ]
-								hitbox_maxs = [ 80.0, 80.0, 80.0 ]
+								hitbox_mins = [ -55.159138, -46.837181, -80.0 ]
+								hitbox_maxs = [ 60.435375, 55.422043, 80.0 ]
 							},
 							{
 								_class = "Hitbox"
@@ -265,6 +265,11 @@
 										frames_from_start = 0
 										frames_from_end = 0
 									},
+									{
+										_class = "ActivityModifier"
+										activity_name = "not_in_fight"
+										activity_weight = 1
+									},
 								]
 								is_default_idle_anim = false
 								activity_name = "ACT_DOTA_IDLE"
@@ -282,7 +287,7 @@
 								source_filename = "models/avenger/avenger_new.fbx"
 								import_bone_scales = false
 								start_frame = 10
-								end_frame = 40
+								end_frame = 50
 								framerate = 30.0
 								reverse = false
 							},
@@ -304,14 +309,22 @@
 								animgraph_additive = false
 								source_filename = "models/avenger/avenger_new.fbx"
 								import_bone_scales = false
-								start_frame = 10
-								end_frame = 1000
-								framerate = 30.0
+								start_frame = 294
+								end_frame = 330
+								framerate = 40.0
 								reverse = false
 							},
 							{
 								_class = "AnimFile"
 								name = "avenger_walk"
+								children = 
+								[
+									{
+										_class = "AnimSmoothLoop"
+										frames_from_start = 0
+										frames_from_end = 0
+									},
+								]
 								is_default_idle_anim = false
 								activity_name = "ACT_DOTA_RUN"
 								activity_weight = 1
@@ -325,10 +338,10 @@
 								anim_markup_ordered = false
 								disable_compression = false
 								animgraph_additive = false
-								source_filename = "models/avenger/avenger_anim.FBX"
+								source_filename = "models/avenger/avenger_new.fbx"
 								import_bone_scales = false
-								start_frame = 267
-								end_frame = 300
+								start_frame = 132
+								end_frame = 158
 								framerate = 30.0
 								reverse = false
 							},
@@ -348,11 +361,11 @@
 								anim_markup_ordered = false
 								disable_compression = false
 								animgraph_additive = false
-								source_filename = "models/avenger/avenger_anim.FBX"
+								source_filename = "models/avenger/avenger_new.fbx"
 								import_bone_scales = false
-								start_frame = 310
-								end_frame = 355
-								framerate = 30.0
+								start_frame = 604
+								end_frame = 624
+								framerate = 35.0
 								reverse = false
 							},
 							{
@@ -371,10 +384,10 @@
 								anim_markup_ordered = false
 								disable_compression = false
 								animgraph_additive = false
-								source_filename = "models/avenger/avenger_anim.FBX"
+								source_filename = "models/avenger/avenger_new.fbx"
 								import_bone_scales = false
-								start_frame = 434
-								end_frame = 475
+								start_frame = 569
+								end_frame = 602
 								framerate = 50.0
 								reverse = false
 							},
@@ -394,11 +407,147 @@
 								anim_markup_ordered = false
 								disable_compression = false
 								animgraph_additive = false
-								source_filename = "models/avenger/avenger_anim.FBX"
+								source_filename = "models/avenger/avenger_new.fbx"
 								import_bone_scales = false
-								start_frame = 476
-								end_frame = 541
+								start_frame = 221
+								end_frame = 256
+								framerate = 60.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "avenger_idle_rare"
+								children = 
+								[
+									{
+										_class = "AnimSmoothLoop"
+										frames_from_start = 0
+										frames_from_end = 0
+									},
+								]
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_IDLE_RARE"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = true
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/avenger/avenger_new.fbx"
+								import_bone_scales = false
+								start_frame = 678
+								end_frame = 758
+								framerate = 55.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "avenger_attack_two1"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_ATTACK2"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/avenger/avenger_new.fbx"
+								import_bone_scales = false
+								start_frame = 535
+								end_frame = 568
 								framerate = 50.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "avenger_attack_one1"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_ATTACK"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/avenger/avenger_new.fbx"
+								import_bone_scales = false
+								start_frame = 342
+								end_frame = 371
+								framerate = 50.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "avenger_attack_one2"
+								is_default_idle_anim = false
+								activity_name = ""
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/avenger/avenger_new.fbx"
+								import_bone_scales = false
+								start_frame = 0
+								end_frame = 1000
+								framerate = 30.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "avenger_idle_battle"
+								children = 
+								[
+									{
+										_class = "AnimSmoothLoop"
+										frames_from_start = 0
+										frames_from_end = 0
+									},
+									{
+										_class = "ActivityModifier"
+										activity_name = "in_fight"
+										activity_weight = 1
+									},
+								]
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_IDLE"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = true
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/avenger/avenger_new.fbx"
+								import_bone_scales = false
+								start_frame = 489
+								end_frame = 534
+								framerate = 30.0
 								reverse = false
 							},
 						]
