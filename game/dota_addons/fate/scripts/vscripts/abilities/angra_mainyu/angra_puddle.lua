@@ -12,7 +12,7 @@ angra_puddle = class({})
 end]]
 function angra_puddle:OnSpellStart()
     local caster = self:GetCaster()
-    local duration = 6
+    local duration = self:GetSpecialValueFor("duration")
 
     --self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_jeanne_flag_swing_vfx", {duration = 0.5})
 
@@ -41,7 +41,7 @@ end
 function angra_puddle:DeathPuddle(spawn)
 
     local caster = self:GetCaster()
-    local duration = 6
+    local duration = self:GetSpecialValueFor("duration")
 
     --self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_jeanne_flag_swing_vfx", {duration = 0.5})
 
