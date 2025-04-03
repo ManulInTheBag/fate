@@ -39,7 +39,22 @@ function ChooseHeroPanelHero() {
 		var localPlayerId = Game.GetLocalPlayerID();
 		if (Players.IsValidPlayerID(localPlayerId) && !Players.IsSpectator(localPlayerId)) {
 			GameEvents.SendCustomGameEventToServer('hero_selection_player_hover', {
-				hero: SelectedHeroName
+				hero: SelectedHeroName,
+				skin_number: 0
+			});
+			//Game.EmitSound('melty_lock');
+		}
+	}
+}
+
+function UpdateHeroSkin(skinNumber) {
+	ChooseSkinUpdatePanels(skinNumber);
+	if (!IsLocalHeroLockedOrPicked()) {
+		var localPlayerId = Game.GetLocalPlayerID();
+		if (Players.IsValidPlayerID(localPlayerId) && !Players.IsSpectator(localPlayerId)) {
+			GameEvents.SendCustomGameEventToServer('hero_selection_player_hover', {
+				hero: SelectedHeroName,
+				skin_number: skinNumber
 			});
 			//Game.EmitSound('melty_lock');
 		}

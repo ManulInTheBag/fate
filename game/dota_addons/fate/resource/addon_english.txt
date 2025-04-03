@@ -121,6 +121,10 @@
 
 		"npc_dota_hero_target_dummy"	"Target Dummy Lonk"
 
+		//skin selection
+		"hero_selection_skins_up"					"Previous"
+		"hero_selection_skins_down"					"Next"
+
 		// Stat override
 		"DOTA_StatTooltip_StrengthBonus"		"- Each point increases hit points by 7\n- Each point increases hit point regen by 0.25\n"
 		"DOTA_StatTooltip_AgilityBonus"			"- Each point increases armor by 0.3\n- Each point increases attack speed by 2\n"
@@ -2617,6 +2621,8 @@
 		//	Saber Alter
 		//=================================================================================================================
 		"npc_dota_hero_spectre"		"Arturia (Alter)"
+
+		"saber_alter_schoolgirl"	"Schoolgirl Arturia (Alter)"
 
 		"npc_dota_hero_spectre_hype"	""
 		"npc_dota_hero_spectre_bio"	""

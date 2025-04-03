@@ -280,7 +280,7 @@ function HeroSelection:GetPlayerStatus(playerId)
 	return table.deepcopy(HeroSelection.EmptyStateData)
 end
 
-function HeroSelection:UpdateStatusForPlayer(playerId, status, hero, bForNotPicked)
+function HeroSelection:UpdateStatusForPlayer(playerId, status, hero, bForNotPicked, skin)
 	local tableData = PlayerTables:GetTableValue("hero_selection", PlayerResource:GetTeam(playerId))
 	if tableData and (not bForNotPicked or not tableData[playerId] or tableData[playerId].status ~= "picked") then
 		if not tableData[playerId] then tableData[playerId] = {} end
@@ -289,6 +289,9 @@ function HeroSelection:UpdateStatusForPlayer(playerId, status, hero, bForNotPick
 		end
 		if status then
 			tableData[playerId].status = status
+		end
+		if skin then
+			tableData[playerId].skin = skin
 		end
 		PlayerTables:SetTableValue("hero_selection", PlayerResource:GetTeam(playerId), tableData)
 		if status == "picked" then

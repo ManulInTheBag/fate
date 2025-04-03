@@ -122,11 +122,26 @@
 					<Label text="#random" />
 				</Button>
 				<Panel id="HeroSkinSelection" class="HeroListControlsGroup">
-						<!--<Button id="SwitchHeroesButton" class="PickButton" onactivate="SwitchTab()" >
-							<Label text="#hero_selection_heroes_default" id="SwitchHeroesDefault" />
+					<Panel id="HeroSkinSelectionPreview" class="HeroListControlsGroup">
+							<Panel id="HeroSkinSelectionPreviewTextPart" class="HeroListControlsGroup">
+									<Panel />
+									<Label text="Skin" id="SkinPanelText" />
+							</Panel>
+							<Panel id="HeroSkinSelectionPreviewSkinPart" class="HeroListControlsGroup">
+									<Panel />
+									<Label text="#hero_selection_skin_name" id="SkinName" />
+							</Panel>
+					</Panel>
+					<Panel id="HeroSkinSelectionButtons" class="HeroListControlsGroup">
+						<Button id="SwitchSkinsUpButton" class="SkinButton" onactivate="SwitchSkinsUp()" >
 							<Panel />
-							<Label text="#hero_selection_heroes_new" id="SwitchHeroesNew" />
-						</Button>-->
+							<Label text="#hero_selection_skins_up" id="SkinButtonUp" />
+						</Button>
+						<Button id="SwitchSkinsDownButton" class="SkinButton" onactivate="SwitchSkinsDown()" >
+							<Panel />
+							<Label text="#hero_selection_skins_down" id="SkinButtonDown" />
+						</Button>
+					</Panel>	
 				</Panel>
 			</Panel>
 			<Panel id="HeroListBasePanel">
@@ -141,9 +156,15 @@
 					<Panel id="HeroListControlsGroup3" class="HeroListControlsGroup">
 						<Image id="HeroPreviewEnterButton" src="s2r://panorama/images/control_icons/return_to_game_png.vtex" onactivate="ToggleHeroPreviewHeroList(true)"/>
 						<Panel id="SelectedHeroAttributesPanel">
-							<Panel class="SelectedHeroAttributesElement" style="flow-children: down; height: fit-children; width: fit-children; vertical-align: center; margin-right: 12px;">
-								<Image src="s2r://panorama/images/hud/reborn/icon_damage_psd.vtex" style="horizontal-align: center;"/>
-								<Label id="HeroAttributes_damage" class="AttributeValueText" style="horizontal-align: center;" text="0 - 0" />
+							<Panel class="SelectedHeroAttributesElement" style="height: 100%; flow-children: down;">
+								<Panel class="SelectedHeroAttributesElement">
+									<Image src="s2r://panorama/images/hud/reborn/icon_damage_psd.vtex"/>
+									<Label id="HeroAttributes_damage" class="AttributeValueText" text="0 - 0" />
+								</Panel>
+								<Panel class="SelectedHeroAttributesElement">
+									<Image src="s2r://panorama/images/hud/reborn/icon_attack_speed_psd.vtex" style="color: white; margin-left: -2px;" />
+									<Label id="HeroAttributes_bat" class="AttributeValueText" text="0" />
+								</Panel>
 							</Panel>
 							<Panel style="height: 100%; flow-children: down;">
 								<Panel class="SelectedHeroAttributesElement">
@@ -151,12 +172,12 @@
 									<Label id="HeroAttributes_speed" class="AttributeValueText" text="0" />
 								</Panel>
 								<Panel class="SelectedHeroAttributesElement">
-									<Image src="s2r://panorama/images/hud/reborn/icon_attack_speed_psd.vtex" style="color: white; margin-left: -2px;" />
-									<Label id="HeroAttributes_bat" class="AttributeValueText" text="0" />
-								</Panel>
-								<Panel class="SelectedHeroAttributesElement">
 									<Image src="s2r://panorama/images/hud/reborn/icon_armor_psd.vtex" />
 									<Label id="HeroAttributes_armor" style="margin-left: 5px;" class="AttributeValueText" text="0" />
+								</Panel>
+								<Panel class="SelectedHeroAttributesElement">
+									<Image src="s2r://panorama/images/hud/reborn/icon_magic_resist_psd.vtex"/>
+									<Label id="HeroAttributes_mr" class="AttributeValueText" text="0" />
 								</Panel>
 							</Panel>
 							<Panel style="width: 128px; height: 100%; flow-children: down;">
