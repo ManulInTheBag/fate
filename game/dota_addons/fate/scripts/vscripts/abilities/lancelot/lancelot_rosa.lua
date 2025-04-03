@@ -41,7 +41,7 @@ function lancelot_rosa:OnSpellStart()
 	vector.z = 0
 	hCaster:SetForwardVector(vector)
 	local right_vector = hCaster:GetRightVector()
-	local move_pos = hCaster:GetAbsOrigin() + hCaster:GetForwardVector() * 300 + right_vector * 150
+	local move_pos = hCaster:GetAbsOrigin() + hCaster:GetForwardVector() * 150 + right_vector * 300
 	giveUnitDataDrivenModifier(hCaster, hCaster, "pause_sealenabled", 0.3)
 	EmitSoundOn("nero_swoosh_1", hCaster)
 	if hCaster.ImproveKnightOfOwner then

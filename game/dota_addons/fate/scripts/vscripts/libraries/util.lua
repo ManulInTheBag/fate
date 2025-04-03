@@ -1431,6 +1431,7 @@ function IsSpellBlocked(target)
         --return true
     elseif target:HasModifier("modifier_rune_of_protection") then
         EmitSoundWithCooldown("DOTA_Item.LinkensSphere.Activate", target, 1)
+        target:FindAbilityByName("cu_chulain_rune_of_protection"):OnRuneProck()
         --ParticleManager:CreateParticle("particles/items_fx/immunity_sphere.vpcf", PATTACH_ABSORIGIN, target)
         target:RemoveModifierByName("modifier_rune_of_protection")
         return true

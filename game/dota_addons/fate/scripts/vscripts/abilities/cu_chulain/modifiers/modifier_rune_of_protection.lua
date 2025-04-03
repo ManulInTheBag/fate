@@ -8,8 +8,8 @@ function modifier_rune_of_protection:RemoveOnDeath()
 	return true
 end
 function modifier_rune_of_protection:GetEffectName()
-    return "particles/zlodemon/immunity_sphere_buff.vpcf"
+    return "particles/zlodemon/immunity_sphere_buff_red.vpcf"
 end
 function modifier_rune_of_protection:GetEffectAttachType()
-    return PATTACH_ABSORIGIN_FOLLOW
+    return PATTACH_CUSTOMORIGIN_FOLLOW
 end

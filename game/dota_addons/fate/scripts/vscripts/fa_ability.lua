@@ -658,7 +658,9 @@ function OnTGStart(keys)
 			--if IsSpellBlocked(target) then return end
 			
 			DoDamage(caster, target, keys.Damage, DAMAGE_TYPE_PURE, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, keys.ability, false)
-			caster:PerformAttack( target, true, true, true, true, false, false, false )
+			if caster.ImproveKnightOfOwner then
+				caster:PerformAttack( target, true, true, true, true, false, false, false )
+			end
 			local slashIndex = ParticleManager:CreateParticle( "particles/custom/false_assassin/tsubame_gaeshi/tsubame_gaeshi_windup_indicator_flare.vpcf", PATTACH_CUSTOMORIGIN, nil )
 		    ParticleManager:SetParticleControl(slashIndex, 0, target:GetAbsOrigin())
 		    ParticleManager:SetParticleControl(slashIndex, 1, Vector(500,0,150))
@@ -678,7 +680,9 @@ function OnTGStart(keys)
 			--if IsSpellBlocked(target) then return end
 			
 			DoDamage(caster, target, keys.LastDamage, DAMAGE_TYPE_PURE, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, keys.ability, false)
-			caster:PerformAttack( target, true, true, true, true, false, false, false )
+			if caster.ImproveKnightOfOwner then
+				caster:PerformAttack( target, true, true, true, true, false, false, false )
+			end
 			--target:AddNewModifier(caster, target, "modifier_stunned", {Duration = 1.5})
 			local slashIndex = ParticleManager:CreateParticle( "particles/custom/false_assassin/tsubame_gaeshi/tsubame_gaeshi_windup_indicator_flare.vpcf", PATTACH_CUSTOMORIGIN, nil )
 		    ParticleManager:SetParticleControl(slashIndex, 0, target:GetAbsOrigin())

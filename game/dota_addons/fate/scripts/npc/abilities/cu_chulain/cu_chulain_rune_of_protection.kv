@@ -12,22 +12,33 @@
 		"LevelsBetweenUpgrades"			"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityTextureName"			"antimage_spell_shield"
-		
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
 		"AbilityCastPoint"				"0.1"
 		"AbilityManaCost"				"100"
-		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
-		"AnimationPlaybackRate" 		"3.0"
+		// "AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
+		// "AnimationPlaybackRate" 		"3.0"
 		"AbilityCooldown"				"60 55 50 45 40"
 
 		"precache"
 		{
-			"particle"				"particles/units/heroes/hero_phantom_assassin/phantom_assassin_phantom_strike_end.vpcf"
+			"particle"				"particles/cu_chulain/gae_bolg_pierce.vpcf"
+			"particle"				"particles/econ/items/void_spirit/void_spirit_immortal_2021/void_spirit_immortal_2021_astral_step_dmg_blood.vpcf"
+			"particle"				"particles/hijikata/hijikata_run_test.vpcf"
+			"particle"				"particles/zlodemon/immunity_sphere_buff_red.vpcf"
 			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_phantom_lancer.vsndevts"
 		}
 		"AbilityValues"
         {
-            "duration" "3"
+            "duration" "0.9"
             "cooldown" "60 55 50 45 40"
+            "cast_point" "0.1"
+            "maximum_distance" "700"
+            "break_distance" "1000"
+            "dash_speed" "2100"
+            "damage" "400 500 600 700 800"
+            "silence_duration" "0.5"
         }
 	}
 }

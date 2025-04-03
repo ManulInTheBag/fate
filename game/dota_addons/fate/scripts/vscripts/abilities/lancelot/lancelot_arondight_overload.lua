@@ -29,7 +29,7 @@ function lancelot_arondight_overload:OnSpellStart()
 	local vTargetPoint = self:GetCursorPosition()
 	local vOrigin = hCaster:GetAbsOrigin()
 	local aoe_damage = self:GetSpecialValueFor("damage")
-	local aoe_radius = self:GetSpecialValueFor("radius")
+	local aoe_radius = self:GetSpecialValueFor("radius")+50
 	local stun_duration = self:GetSpecialValueFor("stun_duration")
 	if hCaster:HasModifier("modifier_kotl_attribute") then
 		aoe_damage = aoe_damage + hCaster:GetAverageTrueAttackDamage(hCaster) * 1.5

@@ -14,7 +14,7 @@ local tNormalSkills = {
 local tRunes = {
     "cu_chulain_rune_of_disengage",
     "cu_chulain_rune_of_combat",
-    "cu_chulain_rune_of_ferocity",
+    "cu_chulain_rune_of_frost",
     "cu_chulain_rune_of_protection",
     "cu_chulain_close_runes",
     "cu_chulain_rune_of_flame",
@@ -27,7 +27,7 @@ function cu_chulain_rune_magic:OnUpgrade()
 
     hCaster:FindAbilityByName("cu_chulain_rune_of_disengage"):SetLevel(abilityLevel)
     hCaster:FindAbilityByName("cu_chulain_rune_of_combat"):SetLevel(abilityLevel)
-    hCaster:FindAbilityByName("cu_chulain_rune_of_ferocity"):SetLevel(abilityLevel)
+    hCaster:FindAbilityByName("cu_chulain_rune_of_frost"):SetLevel(abilityLevel)
     hCaster:FindAbilityByName("cu_chulain_rune_of_protection"):SetLevel(abilityLevel)
     hCaster:FindAbilityByName("cu_chulain_rune_of_flame"):SetLevel(abilityLevel)
 end
