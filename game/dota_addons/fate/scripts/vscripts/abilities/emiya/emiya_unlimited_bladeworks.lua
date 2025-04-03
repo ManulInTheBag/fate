@@ -54,7 +54,7 @@ function emiya_unlimited_bladeworks:GrantUBWChantBuff()
             CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="zlodemon_emiya_r_".. self:GetUBWCastCount()})
              else
             -- apply legion horn vsnd on their client
-            if caster:HasModifier("modifier_emiya_model_swap") then
+            if caster:HasModifier("modifier_hero_selection_skin") then
                 CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="emiya_skin_ubw_chant_".. self:GetUBWCastCount()})
             else
                 CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="emiya_ubw".. self:GetUBWCastCount()})
@@ -64,7 +64,7 @@ function emiya_unlimited_bladeworks:GrantUBWChantBuff()
             end
         end
     end) 
-    if caster:HasModifier("modifier_emiya_model_swap") then
+    if caster:HasModifier("modifier_hero_selection_skin") then
         caster:EmitSound("emiya_skin_ubw_chant_".. self:GetUBWCastCount())
     else
         caster:EmitSound("emiya_ubw".. self:GetUBWCastCount())
@@ -159,7 +159,7 @@ function emiya_unlimited_bladeworks:StartUBW(boolsoundOn)
                 
                 CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="zlodemon_emiya_r_7"})
                 else
-                    if caster:HasModifier("modifier_emiya_model_swap") then
+                    if caster:HasModifier("modifier_hero_selection_skin") then
                         CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="emiya_skin_ubw_chant_7"})
                     end
                 end
@@ -168,7 +168,7 @@ function emiya_unlimited_bladeworks:StartUBW(boolsoundOn)
             end
         end) 
         --[[
-        if caster:HasModifier("modifier_emiya_model_swap") then
+        if caster:HasModifier("modifier_hero_selection_skin") then
             EmitGlobalSound("emiya_skin_ubw_chant_7")
         else
             EmitGlobalSound("emiya_ubw7")

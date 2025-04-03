@@ -120,7 +120,7 @@ function emiya_kanshou_byakuya:OnSpellStart()
     local speed = 1700
     local damage = self:GetSpecialValueFor("damage") + caster:GetIntellect() * self:GetSpecialValueFor("damage_per_int")
     local sound = math.random(1,10)
-    if caster:HasModifier("modifier_emiya_model_swap") then
+    if caster:HasModifier("modifier_hero_selection_skin") then
         if sound < 5 then
             caster:EmitSound("emiya_skin_q_melee")
         end

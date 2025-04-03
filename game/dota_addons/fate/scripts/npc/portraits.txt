@@ -2632,14 +2632,14 @@
 		"PortraitLightScale"		"1.000000"
 		"PortraitGroundShadowScale"		"1.500000"
 		"PortraitAmbientDirection"		"-75.850 -49.880 27.200"
-		"PortraitAnimationActivity"		"ACT_DOTA_IDLE"
+		"PortraitAnimationActivity"		"ACT_DOTA_CAPTURE"
 		"cameras"
 		{
 			"default"
 			{
-				"PortraitPosition"		"126.07 -14.40 170.18"
-				"PortraitAngles"		"1.85 172.19 0.00"
-				"PortraitFOV"		"25"
+				"PortraitPosition"		"250.17 -60.29 80.69"
+				"PortraitAngles"		"355.89 166.83 0.00"
+				"PortraitFOV"		"16"
 			}
 		}
 	}

@@ -115,64 +115,64 @@ end
  
 
 
-LinkLuaModifier("modifier_gil_model_swap", "abilities/gilgamesh/gilgamesh_attack_passive", LUA_MODIFIER_MOTION_NONE)
---NOTE: Function to handle swapping between models in-game.
-if IsServer() then
-    if type(gil_abilities_chat_event) == "number" then
-        StopListeningToGameEvent(gil_abilities_chat_event)
-    end
-    --===--
-    _G.gil_abilities_chat_event = ListenToGameEvent("player_chat", function(tEventTable)
-        local nPlayerID = tEventTable.playerid
-        local sText     = tEventTable.text
-        local hHero     = PlayerResource:GetSelectedHeroEntity(nPlayerID)
-        if not (hHero:GetName() == "npc_dota_hero_skywrath_mage") then
-            return
-        end
-        if IsNotNull(hHero) then
-            if sText == "-gil1" then
-                hHero:RemoveModifierByName("modifier_gil_model_swap")
-            end
-            if sText == "-gil2" then
-                if GameRules:GetDOTATime(false, false) <= 240 then
-                    hHero:AddNewModifier(hHero, nil, "modifier_gil_model_swap", {})
-                end
-            end
-        end
-    end, nil)
-end
----------------------------------------------------------------------------------------------------------------------
+-- LinkLuaModifier("modifier_gil_model_swap", "abilities/gilgamesh/gilgamesh_attack_passive", LUA_MODIFIER_MOTION_NONE)
+-- --NOTE: Function to handle swapping between models in-game.
+-- if IsServer() then
+--     if type(gil_abilities_chat_event) == "number" then
+--         StopListeningToGameEvent(gil_abilities_chat_event)
+--     end
+--     --===--
+--     _G.gil_abilities_chat_event = ListenToGameEvent("player_chat", function(tEventTable)
+--         local nPlayerID = tEventTable.playerid
+--         local sText     = tEventTable.text
+--         local hHero     = PlayerResource:GetSelectedHeroEntity(nPlayerID)
+--         if not (hHero:GetName() == "npc_dota_hero_skywrath_mage") then
+--             return
+--         end
+--         if IsNotNull(hHero) then
+--             if sText == "-gil1" then
+--                 hHero:RemoveModifierByName("modifier_gil_model_swap")
+--             end
+--             if sText == "-gil2" then
+--                 if GameRules:GetDOTATime(false, false) <= 240 then
+--                     hHero:AddNewModifier(hHero, nil, "modifier_gil_model_swap", {})
+--                 end
+--             end
+--         end
+--     end, nil)
+-- end
+-- ---------------------------------------------------------------------------------------------------------------------
 
 
-modifier_gil_model_swap = modifier_gil_model_swap or class({})
+-- modifier_gil_model_swap = modifier_gil_model_swap or class({})
 
-function modifier_gil_model_swap:IsHidden()                                                                       return true end
-function modifier_gil_model_swap:IsDebuff()                                                                       return false end
-function modifier_gil_model_swap:IsPurgable()                                                                     return false end
-function modifier_gil_model_swap:IsPurgeException()                                                               return false end
-function modifier_gil_model_swap:RemoveOnDeath()                                                                  return false end
-function modifier_gil_model_swap:IsDimensionException()                                                           return true end
-function modifier_gil_model_swap:AllowIllusionDuplicate()                                                         return true end
-function modifier_gil_model_swap:GetPriority()                                                                    return MODIFIER_PRIORITY_LOW end
-function modifier_gil_model_swap:DeclareFunctions()
-    local tFunc =   {
-                        MODIFIER_PROPERTY_MODEL_CHANGE
-                    }
-    return tFunc
-end
-function modifier_gil_model_swap:GetModifierModelChange(keys)
-    return self.sModelName
-end
-function modifier_gil_model_swap:OnCreated(hTable)
-    self.hCaster  = self:GetCaster()
-    self.hParent  = self:GetParent()
-    self.hAbility = self:GetAbility()
+-- function modifier_gil_model_swap:IsHidden()                                                                       return true end
+-- function modifier_gil_model_swap:IsDebuff()                                                                       return false end
+-- function modifier_gil_model_swap:IsPurgable()                                                                     return false end
+-- function modifier_gil_model_swap:IsPurgeException()                                                               return false end
+-- function modifier_gil_model_swap:RemoveOnDeath()                                                                  return false end
+-- function modifier_gil_model_swap:IsDimensionException()                                                           return true end
+-- function modifier_gil_model_swap:AllowIllusionDuplicate()                                                         return true end
+-- function modifier_gil_model_swap:GetPriority()                                                                    return MODIFIER_PRIORITY_LOW end
+-- function modifier_gil_model_swap:DeclareFunctions()
+--     local tFunc =   {
+--                         MODIFIER_PROPERTY_MODEL_CHANGE
+--                     }
+--     return tFunc
+-- end
+-- function modifier_gil_model_swap:GetModifierModelChange(keys)
+--     return self.sModelName
+-- end
+-- function modifier_gil_model_swap:OnCreated(hTable)
+--     self.hCaster  = self:GetCaster()
+--     self.hParent  = self:GetParent()
+--     self.hAbility = self:GetAbility()
 
-    if IsServer() then
-        self.sModelName = "models/gilgamesh/gilgamesh_police.vmdl"
-    end
-end
-function modifier_gil_model_swap:OnRefresh(hTable)
-    self:OnCreated(hTable)
-end
---========================================--
+--     if IsServer() then
+--         self.sModelName = "models/gilgamesh/gilgamesh_police.vmdl"
+--     end
+-- end
+-- function modifier_gil_model_swap:OnRefresh(hTable)
+--     self:OnCreated(hTable)
+-- end
+-- --========================================--

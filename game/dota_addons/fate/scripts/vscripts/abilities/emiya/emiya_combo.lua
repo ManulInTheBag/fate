@@ -16,7 +16,7 @@ function emiya_combo:OnSpellStart()
 			
 			CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="zlodemon_emiya_r_7"})
 			else
-				if caster:HasModifier("modifier_emiya_model_swap") then
+				if caster:HasModifier("modifier_hero_selection_skin") then
 					CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="emiya_skin_ubw_chant_7"})
 				end
 			end
@@ -58,13 +58,13 @@ function emiya_combo:OnSpellStart()
 	end)
 
 	Timers:CreateTimer(2.0, function()
-		if caster:HasModifier("modifier_emiya_model_swap") then
+		if caster:HasModifier("modifier_hero_selection_skin") then
 			caster:EmitSound("emiya_skin_ubw_combo")
 		else
 			caster:EmitSound("Archer.Combo") 
 		end
 	
-		if caster:HasModifier("modifier_emiya_model_swap") then
+		if caster:HasModifier("modifier_hero_selection_skin") then
 			EmitSoundOnLocationWithCaster(ubwCenter, "emiya_skin_shirou_ubw", caster)
 		else
 			EmitSoundOnLocationWithCaster(ubwCenter, "emiya_combo_music", caster)

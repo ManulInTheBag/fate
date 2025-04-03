@@ -62,7 +62,7 @@ function emiya_nine_lives:OnSpellStart()
 	giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 1.9) --change to sealdisabled to return revoke here, if you want
 	caster:EmitSound("Hero_OgreMagi.Ignite.Cast")
 
-	if caster:HasModifier("modifier_emiya_model_swap") then
+	if caster:HasModifier("modifier_hero_selection_skin") then
         caster:EmitSound("emiya_skin_ubw_r")
     else
 		caster:EmitSound("Archer.NineLives")

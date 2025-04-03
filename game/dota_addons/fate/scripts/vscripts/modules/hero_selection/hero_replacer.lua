@@ -55,8 +55,9 @@ function HeroSelection:SelectHero(playerId, heroName, beforeReplace, afterReplac
 							hero:AddAbility("ability_empty")
 							hero:AddAbility("ability_empty")
 						end
-
-						hero:AddNewModifier(hero, nil, "modifier_hero_selection_skin", {skinNumber = skinNumber})
+						if skinNumber ~= 0 then 
+							hero:AddNewModifier(hero, nil, "modifier_hero_selection_skin", {skinNumber = skinNumber})
+						end
 						if afterReplace then afterReplace(hero) end
 					else
 						return 0.1

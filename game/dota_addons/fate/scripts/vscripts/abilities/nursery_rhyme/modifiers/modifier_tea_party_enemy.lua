@@ -133,7 +133,7 @@ function modifier_tea_party_model:GetModifierModelChange()
 	return self.model_fx
 end
 
- 
+function modifier_tea_party_model:GetPriority()                                                                    return MODIFIER_PRIORITY_HIGH end
 function modifier_tea_party_model:IsHidden()
 	return true
 end

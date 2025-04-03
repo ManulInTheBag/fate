@@ -73,7 +73,7 @@ function emiya_caladbolg:ReleaseArrow(frames)
 	local target = caster:GetForwardVector()
 	local range = (self:GetSpecialValueFor("range") + (caster.IsEagleEyeAcquired and 1000 or 0))  * (0.5 + frames/(self.maxtime*60))
 
-	if caster:HasModifier("modifier_emiya_model_swap") then
+	if caster:HasModifier("modifier_hero_selection_skin") then
         caster:EmitSound("emiya_skin_e_range")
     else
 		caster:EmitSound("Emiya_Caladbolg_" .. math.random(1,2))

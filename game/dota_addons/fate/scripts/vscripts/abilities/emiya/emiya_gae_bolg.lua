@@ -27,7 +27,7 @@ function emiya_gae_bolg:OnAbilityPhaseStart()
 		ParticleManager:DestroyParticle( self.GBCastFx, false )
 	end)
 	
-	if caster:HasModifier("modifier_emiya_model_swap") then
+	if caster:HasModifier("modifier_hero_selection_skin") then
         caster:EmitSound("emiya_skin_ubw_e")
     else
 		caster:EmitSound("emiya_gae_bolg")

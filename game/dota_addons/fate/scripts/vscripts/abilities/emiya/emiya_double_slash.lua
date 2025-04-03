@@ -19,7 +19,7 @@ function emiya_double_slash:OnSpellStart()
 	local vCasterPos = caster:GetAbsOrigin()
 	local vCastDirection =    (vPoint -vCasterPos):Normalized()
     caster:SetForwardVector(vCastDirection)
-    if caster:HasModifier("modifier_emiya_model_swap") then
+    if caster:HasModifier("modifier_hero_selection_skin") then
         caster:EmitSound("emiya_skin_w_melee")
     end
     Timers:CreateTimer(FrameTime(), function() 

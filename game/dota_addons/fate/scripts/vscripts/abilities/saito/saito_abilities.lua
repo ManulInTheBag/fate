@@ -215,69 +215,69 @@ end
 
 --========================================--
 --NOTE: Function to handle swapping between models in-game.
-if IsServer() then
-    if type(saito_abilities_chat_event) == "number" then
-        StopListeningToGameEvent(saito_abilities_chat_event)
-    end
-    --===--
-    _G.saito_abilities_chat_event = ListenToGameEvent("player_chat", function(tEventTable)
-        local nPlayerID = tEventTable.playerid
-        local sText     = tEventTable.text
-        local hHero     = PlayerResource:GetSelectedHeroEntity(nPlayerID)
-        if not (hHero:GetName() == "npc_dota_hero_terrorblade") then
-            return
-        end
-        if IsNotNull(hHero) then
-            if sText == "-saito1" then
-                --if GameRules:GetGameTime() <= 240 then
-                    hHero:RemoveModifierByName("modifier_saito_model_swap")
-                --end
-                --Say(hHero, "Hajime-chan changed to the COAT version.", false)
-            end
-            if sText == "-saito2" then
-                if GameRules:GetDOTATime(false, false) <= 240 then
-                    hHero:AddNewModifier(hHero, nil, "modifier_saito_model_swap", {})
-                end
-                --Say(hHero, "Hajime-chan changed to the HAORI version.", false)
-            end
-        end
-    end, nil)
-end
----------------------------------------------------------------------------------------------------------------------
-LinkLuaModifier("modifier_saito_model_swap", "abilities/saito/saito_abilities", LUA_MODIFIER_MOTION_NONE)
+-- if IsServer() then
+--     if type(saito_abilities_chat_event) == "number" then
+--         StopListeningToGameEvent(saito_abilities_chat_event)
+--     end
+--     --===--
+--     _G.saito_abilities_chat_event = ListenToGameEvent("player_chat", function(tEventTable)
+--         local nPlayerID = tEventTable.playerid
+--         local sText     = tEventTable.text
+--         local hHero     = PlayerResource:GetSelectedHeroEntity(nPlayerID)
+--         if not (hHero:GetName() == "npc_dota_hero_terrorblade") then
+--             return
+--         end
+--         if IsNotNull(hHero) then
+--             if sText == "-saito1" then
+--                 --if GameRules:GetGameTime() <= 240 then
+--                     hHero:RemoveModifierByName("modifier_saito_model_swap")
+--                 --end
+--                 --Say(hHero, "Hajime-chan changed to the COAT version.", false)
+--             end
+--             if sText == "-saito2" then
+--                 if GameRules:GetDOTATime(false, false) <= 240 then
+--                     hHero:AddNewModifier(hHero, nil, "modifier_saito_model_swap", {})
+--                 end
+--                 --Say(hHero, "Hajime-chan changed to the HAORI version.", false)
+--             end
+--         end
+--     end, nil)
+-- end
+-- ---------------------------------------------------------------------------------------------------------------------
+-- LinkLuaModifier("modifier_saito_model_swap", "abilities/saito/saito_abilities", LUA_MODIFIER_MOTION_NONE)
 
-modifier_saito_model_swap = modifier_saito_model_swap or class({})
+-- modifier_saito_model_swap = modifier_saito_model_swap or class({})
 
-function modifier_saito_model_swap:IsHidden()                                                                       return true end
-function modifier_saito_model_swap:IsDebuff()                                                                       return false end
-function modifier_saito_model_swap:IsPurgable()                                                                     return false end
-function modifier_saito_model_swap:IsPurgeException()                                                               return false end
-function modifier_saito_model_swap:RemoveOnDeath()                                                                  return false end
-function modifier_saito_model_swap:IsDimensionException()                                                           return true end
-function modifier_saito_model_swap:AllowIllusionDuplicate()                                                         return true end
-function modifier_saito_model_swap:GetPriority()                                                                    return MODIFIER_PRIORITY_LOW end
-function modifier_saito_model_swap:DeclareFunctions()
-    local tFunc =   {
-                        MODIFIER_PROPERTY_MODEL_CHANGE
-                    }
-    return tFunc
-end
-function modifier_saito_model_swap:GetModifierModelChange(keys)
-    return self.sModelName
-end
-function modifier_saito_model_swap:OnCreated(hTable)
-    self.hCaster  = self:GetCaster()
-    self.hParent  = self:GetParent()
-    self.hAbility = self:GetAbility()
+-- function modifier_saito_model_swap:IsHidden()                                                                       return true end
+-- function modifier_saito_model_swap:IsDebuff()                                                                       return false end
+-- function modifier_saito_model_swap:IsPurgable()                                                                     return false end
+-- function modifier_saito_model_swap:IsPurgeException()                                                               return false end
+-- function modifier_saito_model_swap:RemoveOnDeath()                                                                  return false end
+-- function modifier_saito_model_swap:IsDimensionException()                                                           return true end
+-- function modifier_saito_model_swap:AllowIllusionDuplicate()                                                         return true end
+-- function modifier_saito_model_swap:GetPriority()                                                                    return MODIFIER_PRIORITY_LOW end
+-- function modifier_saito_model_swap:DeclareFunctions()
+--     local tFunc =   {
+--                         MODIFIER_PROPERTY_MODEL_CHANGE
+--                     }
+--     return tFunc
+-- end
+-- function modifier_saito_model_swap:GetModifierModelChange(keys)
+--     return self.sModelName
+-- end
+-- function modifier_saito_model_swap:OnCreated(hTable)
+--     self.hCaster  = self:GetCaster()
+--     self.hParent  = self:GetParent()
+--     self.hAbility = self:GetAbility()
 
-    if IsServer() then
-        self.sModelName = "models/heroes/saito_1/saito_1_mdoc.vmdl"
-    end
-end
-function modifier_saito_model_swap:OnRefresh(hTable)
-    self:OnCreated(hTable)
-end
---========================================--
+--     if IsServer() then
+--         self.sModelName = "models/heroes/saito_1/saito_1_mdoc.vmdl"
+--     end
+-- end
+-- function modifier_saito_model_swap:OnRefresh(hTable)
+--     self:OnCreated(hTable)
+-- end
+-- --========================================--
 
 
 ---------------------------------------------------------------------------------------------------------------------

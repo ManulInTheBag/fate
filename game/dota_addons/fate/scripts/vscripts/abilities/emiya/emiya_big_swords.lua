@@ -25,7 +25,7 @@ function emiya_big_swords:OnSpellStart()
 	local tProjectile2 = self:GetProjectile(target,"particles/emiya/emiya_big_swords_2.vpcf", rw * 150,self.fw,range,speed,2)
 	local tProjectile3 = self:GetProjectile(target,"particles/emiya/emiya_big_swords_3.vpcf", rw * -50,self.fw,range,speed,3)
 	local tProjectile4 = self:GetProjectile(target,"particles/emiya/emiya_big_swords_4.vpcf", rw * -150,self.fw,range,speed,4)
-	if caster:HasModifier("modifier_emiya_model_swap") then
+	if caster:HasModifier("modifier_hero_selection_skin") then
         caster:EmitSound("emiya_skin_ubw_w")
     end
 

@@ -89,7 +89,7 @@ function cu_chulain_gae_bolg_combo:OnSpellStart()
 
 		    if hCaster:IsAlive() then
 		    	giveUnitDataDrivenModifier(hCaster, hCaster, "jump_pause", 5)
-		    	StartAnimation(hCaster, {duration=5, activity=ACT_DOTA_ATTACK , rate=0.2})
+		    	StartAnimation(hCaster, {duration=5, activity=ACT_DOTA_CAST_GHOST_SHIP , rate=0.1})
 		    end
 		end
 	end)   
@@ -129,14 +129,25 @@ function cu_chulain_gae_bolg_combo:OnProjectileHit_ExtraData(hTarget, vLocation,
 	
 	FindClearSpaceForUnit(hCaster, hCaster:GetAbsOrigin(), true)
 	hCaster:SetForwardVector(self.ForwardVector)
-
+	hCaster:FaceTowards(hTarget:GetAbsOrigin())
+	StartAnimation(hCaster, {duration=1, activity=ACT_DOTA_CAST_GHOST_SHIP , rate=0.6})
 	hTarget:RemoveModifierByName("modifier_heart_of_harmony")
 	--hTarget:RemoveModifierByName("modifier_share_damage")
 	hTarget:RemoveModifierByName("modifier_master_intervention")
 	--ApplyStrongDispel(hTarget)
+	local particle = ParticleManager:CreateParticle("particles/cu_chulain/gae_bolg_pierce.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	ParticleManager:SetParticleControlTransformForward(particle, 0, hCaster:GetAbsOrigin() + Vector(0,0,130)+hCaster:GetRightVector() * - 20,hCaster:GetForwardVector())
+    ParticleManager:SetParticleControlTransformForward(particle, 1, hCaster:GetAbsOrigin()+ Vector(0,0,130)+hCaster:GetRightVector() * - 20,hCaster:GetForwardVector())
+	ParticleManager:SetParticleControlTransformForward(particle, 5, hCaster:GetAbsOrigin()+ Vector(0,0,130) + hCaster:GetForwardVector() * - 50,hCaster:GetForwardVector())
+	Timers:CreateTimer( 1, function()
+		ParticleManager:DestroyParticle( particle, false )
+		ParticleManager:ReleaseParticleIndex( particle )
+		EndAnimation(hCaster)
+	end)
 
 	DoDamage(hCaster, hTarget, damage, DAMAGE_TYPE_PURE, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self, false)
-
+	hTarget:EmitSound("cu_pierce_new")
+	hTarget:EmitSound("cu_pierce_new_2")
 	hTarget:EmitSound("Hero_Lion.Impale")
 	local culling_kill_particle = ParticleManager:CreateParticle("particles/custom/lancer/lancer_culling_blade_kill.vpcf", PATTACH_CUSTOMORIGIN, hTarget)
 	ParticleManager:SetParticleControlEnt(culling_kill_particle, 0, hTarget, PATTACH_POINT_FOLLOW, "attach_hitloc", hTarget:GetAbsOrigin(), true)

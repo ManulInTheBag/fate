@@ -133,7 +133,7 @@ function emiya_crane_wings:OnSpellStart()
         end
     end)
     Timers:CreateTimer(0.4, function() 
-        if caster:HasModifier("modifier_emiya_model_swap") then
+        if caster:HasModifier("modifier_hero_selection_skin") then
             caster:EmitSound("emiya_skin_e_melee")
         else
             local soundQueue = math.random(1,2)

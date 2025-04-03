@@ -38,7 +38,7 @@ function modifier_hijikata_haori:IsPurgeException()                             
 function modifier_hijikata_haori:RemoveOnDeath()                                                                  return false end
 function modifier_hijikata_haori:IsDimensionException()                                                           return true end
 function modifier_hijikata_haori:AllowIllusionDuplicate()                                                         return true end
-function modifier_hijikata_haori:GetPriority()                                                                    return MODIFIER_PRIORITY_LOW end
+function modifier_hijikata_haori:GetPriority()                                                                    return MODIFIER_PRIORITY_NORMAL end
 function modifier_hijikata_haori:DeclareFunctions()
     local tFunc =   {
                         MODIFIER_PROPERTY_MODEL_CHANGE

@@ -16,7 +16,7 @@ function emiya_rho_aias:OnSpellStart()
 	end
 
 
-	if caster:HasModifier("modifier_emiya_model_swap") then
+	if caster:HasModifier("modifier_hero_selection_skin") then
         caster:EmitSound("emiya_skin_rho_aias")
     else
 		local soundQueue = math.random(1,2)

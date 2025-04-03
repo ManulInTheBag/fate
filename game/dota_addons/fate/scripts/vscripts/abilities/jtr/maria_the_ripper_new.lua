@@ -30,7 +30,7 @@ end
 
 
 function modifier_jtr_dmg_reduct:GetModifierIncomingDamage_Percentage() 
-	return -30
+	return -45
 end
 
 

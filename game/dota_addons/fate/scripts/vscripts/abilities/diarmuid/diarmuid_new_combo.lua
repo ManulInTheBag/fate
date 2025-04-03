@@ -172,7 +172,7 @@ function modifier_diar_model_swap:IsPurgeException()                            
 function modifier_diar_model_swap:RemoveOnDeath()                                                                  return false end
 function modifier_diar_model_swap:IsDimensionException()                                                           return true end
 function modifier_diar_model_swap:AllowIllusionDuplicate()                                                         return true end
-function modifier_diar_model_swap:GetPriority()                                                                    return MODIFIER_PRIORITY_LOW end
+function modifier_diar_model_swap:GetPriority()                                                                    return MODIFIER_PRIORITY_NORMAL end
 function modifier_diar_model_swap:DeclareFunctions()
     local tFunc =   {
                         MODIFIER_PROPERTY_MODEL_CHANGE

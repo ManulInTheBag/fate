@@ -32,7 +32,7 @@ function emiya_barrage_moonwalk:OnSpellStart()
 	end)
 
 	giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 0.2)
-	if caster:HasModifier("modifier_emiya_model_swap") then
+	if caster:HasModifier("modifier_hero_selection_skin") then
         caster:EmitSound("emiya_skin_ubw_q")
     else
 		caster:EmitSound("Archer.NineFinish")

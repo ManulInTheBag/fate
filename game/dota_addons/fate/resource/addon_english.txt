@@ -2639,7 +2639,7 @@
 		//=================================================================================================================
 		"npc_dota_hero_spectre"		"Arturia (Alter)"
 
-		"saber_alter_schoolgirl"	"Schoolgirl Arturia (Alter)"
+		"saber_alter_schoolgirl"	"Shinjuku Arturia (Alter)"
 
 		"npc_dota_hero_spectre_hype"	""
 		"npc_dota_hero_spectre_bio"	""
@@ -3104,8 +3104,8 @@
 		//=================================================================================================================
 		//	Archer(5th)
 		//=================================================================================================================
-		"npc_dota_hero_ember_spirit"			"Emiya"
-
+		"npc_dota_hero_ember_spirit"			"EMIYA"
+		"emiya_1"			"Shiro Emiya"
 		"npc_dota_hero_ember_spirit_hype"	""
 		"npc_dota_hero_ember_spirit_bio"	""
 		
@@ -3299,7 +3299,7 @@
 		//	Berserker(5th) or PEPEG
 		//=================================================================================================================
 		"npc_dota_hero_doom_bringer"			"Heracles"
-
+		"herc_1"			"Cool Heracles (ARBUZ)"
 		"npc_dota_hero_doom_bringer_hype"	""
 		"npc_dota_hero_doom_bringer_bio"	""
 		
@@ -3754,7 +3754,7 @@
 		//	True Assassin(5th)
 		//=================================================================================================================
 		"npc_dota_hero_bounty_hunter"		"Hassan-i-Sabbah"
-
+		"ta_1"		"Black Satoru Gojo"
 		"npc_dota_hero_bounty_hunter_hype"	""
 		"npc_dota_hero_bounty_hunter_bio"	""
 		
@@ -3884,7 +3884,7 @@
 
 		"npc_dota_hero_skywrath_mage_hype"	""
 		"npc_dota_hero_skywrath_mage_bio"	""
-
+		"gil_cop"	"Police Gilgamesh"
 		"DOTA_Tooltip_Ability_gilgamesh_sword_rain"					"Sword Rain"
 		"DOTA_Tooltip_ability_gilgamesh_sword_rain_Description"		"Gilgamesh releases a barrage of weapons from the sky onto target location, dealing damage over time."
 		"DOTA_Tooltip_ability_gilgamesh_sword_rain_Lore"			"At Gilgamesh's will, a flurry of weapons hails upon his enemies."
@@ -4544,7 +4544,7 @@
         "DOTA_Tooltip_ability_avenger_true_form_Description"    "<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>Immediate</font> \nTransforms into the remain of Holy Grail, <font color='#ff9900'>gaining bonus health and amplifying incoming healing effects</font>. \n<font color='#ff9900'>Angra Mainyu gains new set of abilities while True Form lasts</font>.\nMust be set to autocast in order to use combo.\n<font color='#FF6600'>This ability affects the level of Pool of Corruption in True Form.</font>"
         "DOTA_Tooltip_ability_avenger_true_form_Lore"   "The loop must not be broken."
         "DOTA_Tooltip_ability_avenger_true_form_bonus_health"   			"Max health bonus:"
-        "DOTA_Tooltip_ability_avenger_true_form_bonus_healing power"		"%Healing power:"
+        "DOTA_Tooltip_ability_avenger_true_form_bonus_healing_power"		"%Healing power:"
         "DOTA_Tooltip_ability_avenger_true_form_duration"   				"Duration:"
 
         "DOTA_Tooltip_Ability_angra_mainyu_verg_avesta"					"Verg Avesta"
@@ -5500,7 +5500,8 @@
 
 		"npc_dota_hero_lina_hype"	""
 		"npc_dota_hero_lina_bio"	""
-
+		"nero_1"		"Bride Nero Claudius"
+		"nero_2"		"Swimsuit Nero Claudius"
         "DOTA_Tooltip_Ability_nero_imperial_privilege"     			"Imperial Privilege"
         "DOTA_Tooltip_ability_nero_imperial_privilege_Description" 	"Once a round, Nero can choose between wide array of Innate Abilities from other Servants. Nero can learn only one ability at a time."
         "DOTA_Tooltip_ability_nero_imperial_privilege_Lore"	"The deranged Emperor takes bragging to a whole new level."
@@ -6493,7 +6494,7 @@
         //      Jeanne d'Arc Alter (Lonkus gaming)
         //====================================
         "npc_dota_hero_razor"             "Jeanne d'Arc Alter"
-
+	"jalter_1"             "Shinjuku Jeanne d'Arc Alter"
 	"npc_dota_hero_razor_hype"		""
 	"npc_dota_hero_razor_bio"		""
 
@@ -6595,7 +6596,8 @@
 
 	"npc_dota_hero_queenofpain_hype"		""
 	"npc_dota_hero_queenofpain_bio"			""
- 
+ 		 "astolfo_1"             "Trifas Astolfo"
+ 		  "astolfo_2"             "Swimsuit Astolfo"
         "DOTA_Tooltip_Ability_astolfo_casa_di_logistilla"       "Casa Di Logistilla"
         "DOTA_Tooltip_Ability_astolfo_casa_di_logistilla_Description"   "PASSIVE: Astolfo's mysterious spellbook grants him magic resistance.\nACTIVE: Temporarily boosts bonus magic resistance. Passive effect is disabled during cooldown.\nACTIVE effect only usable with <font color='#F1C40F'>Evaporation of sanity</font> attribute."
         "DOTA_Tooltip_Ability_astolfo_casa_di_logistilla_passive_mr"	"%PASSIVE MAGIC RESISTANCE:"
@@ -7557,7 +7559,7 @@
         //====================================
 
 		"npc_dota_hero_phantom_assassin"				"Shiki Ryougi"
-
+		"ryougi_1"				"Pyjamas Shiki Ryougi"
 		"npc_dota_hero_phantom_assassin_hype"		""
 		"npc_dota_hero_phantom_assassin_bio"		""
 
@@ -8467,7 +8469,7 @@
 		"npc_dota_hero_terrorblade"																	"Saitō Hajime"
 		"npc_dota_hero_terrorblade_summon"															"Servant Saitō Hajime has been summoned."
 		"npc_dota_hero_terrorblade_enable_combo"													"Enable Combo: Undefeatable Style"
-
+		"saito_haori"																				"Haori Saitō Hajime"
 		//Special Modifiers for Counting Some Keys.
 		"DOTA_Tooltip_modifier_saito_q_counter"														"[Q] Counter"
 		"DOTA_Tooltip_modifier_saito_q_counter_Description"											"Flashblade's distance/damage is divided by this stack amount after a certain use."
