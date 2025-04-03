@@ -35,8 +35,6 @@ function angra_mainyu_verg_avesta:OnSpellStart()
 	end)
 
 	damage = self:GetSpecialValueFor("damage") * (((1-caster:GetHealth()/caster:GetMaxHealth()) * self:GetSpecialValueFor("lost_health_amp")/100) + 1)
-	print(damage)
-	print(self:GetSpecialValueFor("lost_health_amp"))
 
 	local targets = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), caster, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER , false)
 	for k,v in pairs(targets) do
@@ -45,7 +43,6 @@ function angra_mainyu_verg_avesta:OnSpellStart()
 			if not v:IsAlive() and caster.IsDIAcquired and v:IsHero() then
 				self:GetCaster():FindAbilityByName("angra_puddle"):DeathPuddle(v:GetAbsOrigin())
 			end
-
 
 			local verg_particle_hero = ParticleManager:CreateParticle("particles/custom/avenger/avenger_verg_avesta.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, v)
 			ParticleManager:SetParticleControl(verg_particle_hero, 0, v:GetAbsOrigin())

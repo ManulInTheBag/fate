@@ -21,7 +21,7 @@ function avenger_dark_passage:OnSpellStart()
         if  self:GetCooldownTimeRemaining() >= 20 then
         else
             self:EndCooldown()
-            self:StartCooldown(GetSpecialValueFor("reduced_cooldown"))
+            self:StartCooldown(self:GetSpecialValueFor("reduced_cooldown"))
         end
         fRange = 1000
     end

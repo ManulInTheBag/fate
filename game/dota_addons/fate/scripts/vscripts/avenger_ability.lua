@@ -241,43 +241,43 @@ function OnRemainExplode(keys)
     caster:ForceKill(true)
 end
 
-function OnRemainMultiplyStart(keys)
-	local caster = keys.caster
-	Timers:CreateTimer(0.033, function()
-		local avenger = caster:GetPlayerOwner():GetAssignedHero()
-		local remainabil = avenger:FindAbilityByName("avenger_unlimited_remains")
-		local period = remainabil:GetLevelSpecialValueFor("multiply_period", remainabil:GetLevel()-1)	
-		Timers:CreateTimer(period, function() 
-			if not IsValidEntity(caster) or not caster:IsAlive() then return end
-			OnRemainMultiply(keys)
-			return period
-		end)	
-	end)
+-- function OnRemainMultiplyStart(keys)
+-- 	local caster = keys.caster
+-- 	Timers:CreateTimer(0.033, function()
+-- 		local avenger = caster:GetPlayerOwner():GetAssignedHero()
+-- 		local remainabil = avenger:FindAbilityByName("avenger_unlimited_remains")
+-- 		local period = remainabil:GetLevelSpecialValueFor("multiply_period", remainabil:GetLevel()-1)	
+-- 		Timers:CreateTimer(period, function() 
+-- 			if not IsValidEntity(caster) or not caster:IsAlive() then return end
+-- 			OnRemainMultiply(keys)
+-- 			return period
+-- 		end)	
+-- 	end)
 
-end
+-- end
 
-function OnRemainMultiply(keys)
-	local caster = keys.caster
-	local attackmove = {
-		UnitIndex = nil,
-		OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
-		Position = nil
-	}
-	local remain = CreateUnitByName("avenger_remain", caster:GetAbsOrigin(), true, nil, nil, caster:GetTeamNumber()) 
-	--remain:SetControllableByPlayer(caster:GetPlayerID(), true)
-	remain:SetOwner(caster:GetPlayerOwner():GetAssignedHero())
-	LevelAllAbility(remain)
-	FindClearSpaceForUnit(remain, remain:GetAbsOrigin(), true)
-	remain:FindAbilityByName("avenger_remain_passive"):SetLevel(keys.ability:GetLevel())
-	remain:AddNewModifier(caster, nil, "modifier_kill", {duration = 30})
-	Timers:CreateTimer(3.0, function() 
-		if not remain:IsAlive() then return end
-		attackmove.UnitIndex = remain:entindex()
-		attackmove.Position = remain:GetAbsOrigin() + RandomVector(1000) 
-		ExecuteOrderFromTable(attackmove)
-		return 3.0
-	end)
-end
+-- function OnRemainMultiply(keys)
+-- 	local caster = keys.caster
+-- 	local attackmove = {
+-- 		UnitIndex = nil,
+-- 		OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
+-- 		Position = nil
+-- 	}
+-- 	local remain = CreateUnitByName("avenger_remain", caster:GetAbsOrigin(), true, nil, nil, caster:GetTeamNumber()) 
+-- 	--remain:SetControllableByPlayer(caster:GetPlayerID(), true)
+-- 	remain:SetOwner(caster:GetPlayerOwner():GetAssignedHero())
+-- 	LevelAllAbility(remain)
+-- 	FindClearSpaceForUnit(remain, remain:GetAbsOrigin(), true)
+-- 	remain:FindAbilityByName("avenger_remain_passive"):SetLevel(keys.ability:GetLevel())
+-- 	remain:AddNewModifier(caster, nil, "modifier_kill", {duration = 30})
+-- 	Timers:CreateTimer(3.0, function() 
+-- 		if not remain:IsAlive() then return end
+-- 		attackmove.UnitIndex = remain:entindex()
+-- 		attackmove.Position = remain:GetAbsOrigin() + RandomVector(1000) 
+-- 		ExecuteOrderFromTable(attackmove)
+-- 		return 3.0
+-- 	end)
+-- end
 
 function OnTZStart(keys)
 	local caster = keys.caster
