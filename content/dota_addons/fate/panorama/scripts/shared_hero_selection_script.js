@@ -181,6 +181,47 @@ function ChooseHeroUpdatePanels() {
 	FillAbilitiesUI($('#SelectedHeroAbilitiesPanelInner'), selectedHeroData.abilities, 'SelectedHeroAbility');
 	FillAbilitiesUI($('#SelectedHeroAttributesAndComboPanelInner'), selectedHeroData.attributesandcombo, 'SelectedHeroAbility');
 	FillAttributeUI($('#HeroListControlsGroup3'), selectedHeroData.attributes);
+	FillSkinUI($('#HeroSkinSelection'), selectedHeroData.skins);
+}
+
+function FillSkinUI(rootPanel, skins) {
+	rootPanel.FindChildTraverse('SkinName').text = $.Localize('#' + skins.skin_0.loc_name);
+}
+
+function ChooseSkinUpdatePanels(number) {
+	rootPanel = $('#HeroSkinSelection')
+	var selectedHeroSkinData = HeroesData[SelectedHeroName].skins;
+	var name = 'skin_' + number;
+
+	rootPanel.FindChildTraverse('SkinName').text = $.Localize('#' + selectedHeroSkinData['skin_' + number].loc_name);
+}
+
+function SwitchSkinsUp() {
+	var tableData = PlayerTables.GetTableValue('hero_selection', Players.GetTeam(Game.GetLocalPlayerID()));
+	var skin_number = tableData[Game.GetLocalPlayerID()].skin;
+
+	var selectedHeroData = HeroesData[SelectedHeroName];
+	var max_skins = Object.keys(selectedHeroData.skins).length;
+
+	skin_number = skin_number - 1;
+	if (skin_number < 0) {
+		skin_number = max_skins - 1;
+	}
+	UpdateHeroSkin(skin_number)
+}
+
+function SwitchSkinsDown() {
+	var tableData = PlayerTables.GetTableValue('hero_selection', Players.GetTeam(Game.GetLocalPlayerID()));
+	var skin_number = tableData[Game.GetLocalPlayerID()].skin;
+
+	var selectedHeroData = HeroesData[SelectedHeroName];
+	var max_skins = Object.keys(selectedHeroData.skins).length;
+
+	skin_number = skin_number + 1;
+	if (skin_number >= max_skins) {
+		skin_number = 0;
+	}
+	UpdateHeroSkin(skin_number)
 }
 
 function FillAbilitiesUI(rootPanel, abilities, className) {
@@ -212,6 +253,7 @@ function FillAttributeUI(rootPanel, attributesData) {
 	rootPanel.FindChildTraverse('HeroAttributes_speed').text = attributesData.movespeed;
 	rootPanel.FindChildTraverse('HeroAttributes_armor').text = Number(attributesData.armor).toFixed(1);
 	rootPanel.FindChildTraverse('HeroAttributes_bat').text = Number(attributesData.attackrate).toFixed(1);
+	rootPanel.FindChildTraverse('HeroAttributes_mr').text = Number(attributesData.mr).toFixed(1) + '%';
 }
 
 function SwitchTab() {

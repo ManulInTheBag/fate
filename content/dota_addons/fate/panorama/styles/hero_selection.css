@@ -370,8 +370,8 @@ margin-left: 11.24%;
 flow-children: right-wrap; }
 
 #AbilitiesPanel {
-margin-left: 20%;
-width: 60%;
+margin-left: 15%;
+width: 70%;
 height: 52px; }
 
 #SelectedHeroAbilitiesPanelInner {
@@ -659,7 +659,129 @@ saturation: 0; }
 
 #HeroSkinSelection {
 width: 100%;
-/*background-image: url("s2r://panorama/images/custom_game/customization_background_png.vtex");*/
 height: 70%;
+border-top: 4px solid #6f819b;
+border-right: 4px solid #6f819b;
+border-bottom: 4px solid #6f819b;
+border-left: 4px solid #6f819b;
 horizontal-align: right;
 flow-children: right;}
+
+#HeroSkinSelectionPreview {
+width: 80%;
+height: 100%;
+border-top: 4px solid #6f819b;
+border-right: 4px solid #6f819b;
+border-bottom: 4px solid #6f819b;
+border-left: 4px solid #6f819b;
+horizontal-align: right;
+flow-children: down;}
+
+#HeroSkinSelectionPreviewTextPart {
+width: 100%;
+height: 20%;
+horizontal-align: right;
+flow-children: down;}
+#HeroSkinSelectionPreviewTextPart > Label {
+width: 100%;
+margin-bottom: -6px;
+font-size: 25px;
+color: white;
+text-align: center;
+text-overflow: shrink;
+vertical-align: center; }
+
+#HeroSkinSelectionPreviewSkinPart {
+width: 100%;
+height: 80%;
+horizontal-align: right;
+flow-children: down;}
+#HeroSkinSelectionPreviewSkinPart > Label {
+width: 100%;
+margin-bottom: -6px;
+font-size: 40px;
+color: white;
+text-align: center;
+text-overflow: shrink;
+vertical-align: center; }
+
+#HeroSkinSelectionButtons {
+width: 20%;
+height: 100%;
+border-top: 4px solid #6f819b;
+border-right: 4px solid #6f819b;
+border-bottom: 4px solid #6f819b;
+border-left: 4px solid #6f819b;
+horizontal-align: right;
+flow-children: down;}
+
+#HeroSkinSelectionButtons > Label {
+width: 100%;
+margin-bottom: -6px;
+font-size: 20px;
+color: white;
+text-align: center;
+text-overflow: shrink;
+vertical-align: bottom; }
+
+#SwitchSkinsUpButton {
+width: 100%;
+height: 35%;
+align: right bottom;
+margin-bottom: 3%;
+saturation: 0;
+brightness: .2; }
+#SwitchSkinsUpButton > Label {
+width: 100%;
+margin-bottom: -6px;
+font-size: 20px;
+color: white;
+text-align: center;
+text-overflow: shrink;
+vertical-align: bottom; }
+#SwitchSkinsUpButton > Panel {
+width: 34px;
+height: 38px;
+background-image: url("s2r://panorama/images/control_icons/arrow_solid_up_png.vtex");
+background-position: center;
+background-repeat: no-repeat;
+background-size: contain;
+horizontal-align: center; }
+#SwitchSkinsUpButton {
+saturation: 1;
+brightness: 1; }
+#SwitchSkinsUpButton:hover {
+brightness: 2; }
+#SwitchSkinsUpButton:active {
+brightness: 1.5; }
+
+#SwitchSkinsDownButton {
+width: 100%;
+height: 35%;
+align: right bottom;
+margin-bottom: 3%;
+saturation: 0;
+brightness: .2; }
+#SwitchSkinsDownButton > Label {
+width: 100%;
+margin-bottom: -6px;
+font-size: 20px;
+color: white;
+text-align: center;
+text-overflow: shrink;
+vertical-align: bottom; }
+#SwitchSkinsDownButton > Panel {
+width: 34px;
+height: 38px;
+background-image: url("s2r://panorama/images/control_icons/arrow_solid_down_png.vtex");
+background-position: center;
+background-repeat: no-repeat;
+background-size: contain;
+horizontal-align: center; }
+#SwitchSkinsDownButton {
+saturation: 1;
+brightness: 1; }
+#SwitchSkinsDownButton:hover {
+brightness: 2; }
+#SwitchSkinsDownButton:active {
+brightness: 1.5; }

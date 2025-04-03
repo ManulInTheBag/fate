@@ -1,8 +1,6 @@
-function HeroSelection:SelectHero(playerId, heroName, beforeReplace, afterReplace, bSkipPrecache, bUpdateStatus)
-	if bUpdateStatus ~= false then
-		HeroSelection:UpdateStatusForPlayer(playerId, "picked", heroName)
-	end
+LinkLuaModifier("modifier_hero_selection_skin", "modules/hero_selection/hero_replacer.lua", LUA_MODIFIER_MOTION_NONE)
 
+function HeroSelection:SelectHero(playerId, heroName, beforeReplace, afterReplace, bSkipPrecache, skinNumber)
 	Timers:CreateTimer(function()
 		local connectionState = GetConnectionState(playerId)
 		if connectionState == DOTA_CONNECTION_STATE_CONNECTED then
@@ -57,6 +55,8 @@ function HeroSelection:SelectHero(playerId, heroName, beforeReplace, afterReplac
 							hero:AddAbility("ability_empty")
 							hero:AddAbility("ability_empty")
 						end
+
+						hero:AddNewModifier(hero, nil, "modifier_hero_selection_skin", {skinNumber = skinNumber})
 						if afterReplace then afterReplace(hero) end
 					else
 						return 0.1
@@ -205,4 +205,44 @@ function HeroSelection:ChangeHero(playerId, newHeroName, keepExp, duration, item
 	end)
 
 	return true
+end
+
+
+modifier_hero_selection_skin = modifier_hero_selection_skin or class({})
+
+function modifier_hero_selection_skin:IsHidden()                                                                       return true end
+function modifier_hero_selection_skin:IsDebuff()                                                                       return false end
+function modifier_hero_selection_skin:IsPurgable()                                                                     return false end
+function modifier_hero_selection_skin:IsPurgeException()                                                               return false end
+function modifier_hero_selection_skin:RemoveOnDeath()                                                                  return false end
+function modifier_hero_selection_skin:IsDimensionException()                                                           return true end
+function modifier_hero_selection_skin:AllowIllusionDuplicate()                                                         return true end
+function modifier_hero_selection_skin:GetPriority()                                                                    return MODIFIER_PRIORITY_LOW end
+function modifier_hero_selection_skin:DeclareFunctions()
+    local tFunc =   {
+                        MODIFIER_PROPERTY_MODEL_CHANGE
+                    }
+    return tFunc
+end
+function modifier_hero_selection_skin:GetModifierModelChange(keys)
+    return self.sModelName
+end
+function modifier_hero_selection_skin:OnCreated(hTable)
+    self.hCaster  = self:GetCaster()
+    self.hParent  = self:GetParent()
+    self.hAbility = self:GetAbility()
+    self.skinNumber = hTable.skinNumber
+    if IsServer() then
+    	local tableData = PlayerTables:GetTableValue("hero_selection_heroes_data", self.hCaster:GetUnitName())
+    	local skinData = tableData.skins["skin_"..self.skinNumber]
+    	
+    	if skinData then
+        	self.sModelName = tableData.skins["skin_"..self.skinNumber].model--"models/zlodemon/salter_skin/sbr_alter.vmdl"
+        else
+        	self.sModelName = tableData.skins["skin_0"].model
+        end
+    end
+end
+function modifier_hero_selection_skin:OnRefresh(hTable)
+    self:OnCreated(hTable)
 end

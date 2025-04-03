@@ -60,7 +60,7 @@ end
 function HeroSelection:OnHeroHover(data)
 	if PlayerResource:IsPlayerAbandoned(data.PlayerID) then return end
 	--if HeroSelection:GetState() >= HERO_SELECTION_PHASE_HERO_PICK then
-		HeroSelection:UpdateStatusForPlayer(data.PlayerID, "hover", tostring(data.hero), true)
+		HeroSelection:UpdateStatusForPlayer(data.PlayerID, "hover", tostring(data.hero), true, data.skin_number)
 	--end
 end
 

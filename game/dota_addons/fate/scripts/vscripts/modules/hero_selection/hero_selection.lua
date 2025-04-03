@@ -103,7 +103,6 @@ function HeroSelection:PrepareTables()
 			heroTable.Skins.skin_0 = {}
 			heroTable.Skins.skin_0.loc_name = baseData.override_hero
 			heroTable.Skins.skin_0.model = baseData.Model
-			PrintTable(heroTable.Skins)
 			local heroData = {
 				model = baseData.override_hero,
 				skins = heroTable.Skins,
@@ -506,14 +505,14 @@ function HeroSelection:StartStateInGame(toPrecache)
 						--print("pepega4")
 						--print(tostring(v.status))
 						if tostring(v.status) == "picked" and (PlayerResource:GetConnectionState(plyId) == DOTA_CONNECTION_STATE_CONNECTED) then
-							HeroSelection:SelectHero(plyId, tostring(v.hero), nil, nil, true)
+							HeroSelection:SelectHero(plyId, tostring(v.hero), nil, nil, true, v.skin)
 						end
 						if not (tostring(v.status) == "picked") or not (PlayerResource:GetConnectionState(plyId) == DOTA_CONNECTION_STATE_CONNECTED) then
 							Timers:CreateTimer(0.1, function()
 								local pepe = PlayerTables:GetTableValue("hero_selection", team)[plyId]
 								if tostring(pepe.status) == "picked" and (PlayerResource:GetConnectionState(plyId) == DOTA_CONNECTION_STATE_CONNECTED) then
 									PrecacheUnitByNameAsync(tostring(pepe.hero), function()
-										HeroSelection:SelectHero(plyId, tostring(pepe.hero), nil, nil, true)
+										HeroSelection:SelectHero(plyId, tostring(pepe.hero), nil, nil, true, pepe.skin)
 									end, plyId)
 								else
 									--print("debug")
