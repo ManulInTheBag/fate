@@ -2,7 +2,7 @@ cu_chulain_rune_of_frost = class({})
 
 function cu_chulain_rune_of_frost:OnAbilityPhaseStart()
 	local caster = self:GetCaster()
-	StartAnimation(caster, {duration=0.4, activity=ACT_DOTA_ICE_VORTEX, rate=1.0})
+	StartAnimation(caster, {duration=0.2, activity=ACT_DOTA_ICE_VORTEX, rate=2.0})
 	caster:EmitSound("cu_rune_of_frost_cast") 
 end
 
@@ -34,19 +34,23 @@ function cu_chulain_rune_of_frost:OnSpellStart()
 	local ability = self
 	local vector = (self:GetCursorPosition() - caster:GetAbsOrigin()):Normalized()
 	vector.z = 0
-	giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 0.2)
+	local speed = self:GetSpecialValueFor("range") * 2
+	--giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 0.2)
 	local blastFx = ParticleManager:CreateParticle("particles/cu_chulain/cu_rune_of_frost.vpcf", PATTACH_CUSTOMORIGIN, nil)
 	ParticleManager:SetParticleControl( blastFx, 0, caster:GetAbsOrigin() + caster:GetForwardVector() * 25)
-	ParticleManager:SetParticleControl( blastFx, 1, vector * self:GetSpecialValueFor("range") - 135)
+	ParticleManager:SetParticleControl( blastFx, 1, speed * vector)
 	ParticleManager:SetParticleControl( blastFx, 2,Vector(self:GetSpecialValueFor("radius"),self:GetSpecialValueFor("radius"),self:GetSpecialValueFor("radius")))
 	ParticleManager:ReleaseParticleIndex(blastFx)
-	caster:EmitSound("cu_rune_of_frost") 
+	local soundRandom = RandomFloat(0, 1)
+	if soundRandom > 0.5 then
+		caster:EmitSound("cu_rune_of_frost") 
+	end
 
 	local qdProjectile = 
 	{
 		Ability = ability,
         EffectName = "",
-        iMoveSpeed = self:GetSpecialValueFor("range"),
+        iMoveSpeed = speed,
         vSpawnOrigin = caster:GetOrigin(),
         fDistance = self:GetSpecialValueFor("range")-200,
         fStartRadius =  self:GetSpecialValueFor("radius"),
@@ -59,7 +63,7 @@ function cu_chulain_rune_of_frost:OnSpellStart()
         iUnitTargetType = DOTA_UNIT_TARGET_ALL,
         fExpireTime = GameRules:GetGameTime() + 2.0,
 		bDeleteOnHit = false,
-		vVelocity = vector * self:GetSpecialValueFor("range")
+		vVelocity = vector * speed
 	}
 
 

@@ -1,5 +1,5 @@
 cu_chulain_rune_of_disengage = class({})
-
+LinkLuaModifier("modifier_cu_disengage_ms", "abilities/cu_chulain/cu_chulain_rune_of_disengage", LUA_MODIFIER_MOTION_NONE)
 function cu_chulain_rune_of_disengage:GetManaCost(iLevel)
 	if self:GetCaster():HasModifier("modifier_celtic_rune_attribute") then
 		return 0
@@ -55,6 +55,7 @@ function cu_chulain_rune_of_disengage:OnSpellStart()
 		caster:SetAbsOrigin(newLoc)
 		ProjectileManager:ProjectileDodge(caster) 
 		FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
+		caster:AddNewModifier(caster, self, "modifier_cu_disengage_ms", {duration = self:GetSpecialValueFor("ms_duration")})
 	end)
 
 	if not caster:HasModifier("modifier_celtic_rune_attribute") then
@@ -66,4 +67,20 @@ function cu_chulain_rune_of_disengage:OnSpellStart()
 		ParticleManager:DestroyParticle(particle, false)
 		ParticleManager:ReleaseParticleIndex(particle)
 	end) 
+end
+
+
+modifier_cu_disengage_ms = class({})
+
+function modifier_cu_disengage_ms:IsHidden() return false end
+function modifier_cu_disengage_ms:IsDebuff() return false end
+function modifier_cu_disengage_ms:RemoveOnDeath() return true end
+function modifier_cu_disengage_ms:DeclareFunctions()
+	return { 
+        MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE
+           }
+end
+
+function modifier_cu_disengage_ms:GetModifierMoveSpeedBonus_Percentage(keys)
+    return self:GetAbility():GetSpecialValueFor("ms")
 end
