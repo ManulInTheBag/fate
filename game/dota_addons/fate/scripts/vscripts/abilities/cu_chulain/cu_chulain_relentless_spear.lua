@@ -21,7 +21,7 @@ end
 function cu_chulain_relentless_spear:OnChannelThink(flInterval)
 	local caster = self:GetCaster()
 	local distance = (caster:GetAbsOrigin() - self.target:GetAbsOrigin()):Length2D()
-
+	
 	if not self:GetCaster():IsAlive() or not self.target:IsAlive() or distance > 450 then
 		local stopOrder = {
 	 		UnitIndex = caster:entindex(), 
@@ -61,6 +61,17 @@ end
 LinkLuaModifier("modifier_cu_relentless_tracker", "abilities/cu_chulain/cu_chulain_relentless_spear", LUA_MODIFIER_MOTION_NONE)
 
 
+function cu_chulain_relentless_spear:GetChannelTime()
+	if self:CheckSequence() == 3 then
+		return 1.05
+	elseif self:CheckSequence() == 2 then
+		return 0.0
+	elseif self:CheckSequence() == 1 then
+		return 0.0
+	else
+		return 1.05
+	end
+end
 function cu_chulain_relentless_spear:GetCastPoint()
 	if self:CheckSequence() == 3 then
 		return 0.2
@@ -87,7 +98,7 @@ function cu_chulain_relentless_spear:CheckSequence()
 
 	if caster:HasModifier("modifier_cu_relentless_tracker") then
 		local stack = caster:GetModifierStackCount("modifier_cu_relentless_tracker", caster)
-
+		
 		return stack
 	else
 		return 0
@@ -160,7 +171,7 @@ function cu_chulain_relentless_spear:TigerStrike1()
 	local dist = (caster:GetAbsOrigin() - target):Length2D()
 
 
-	
+
 	local dir = (caster:GetAbsOrigin() - target):Normalized()
 	dir.z = 0
 	caster:SetForwardVector(-dir)
@@ -197,6 +208,11 @@ function cu_chulain_relentless_spear:TigerStrike1()
 			if targets[1]:IsAlive() then
 				DoDamage(caster, targets[1], self:GetSpecialValueFor("damage_first"), DAMAGE_TYPE_MAGICAL, 0, self, false)
 				caster:PerformAttack(targets[1], true, true, true, true, false, false, true)
+				if self:CheckSequence() == 2 then
+					giveUnitDataDrivenModifier(caster, targets[1], "rooted", self:GetSpecialValueFor("root_dur"))
+				else
+					giveUnitDataDrivenModifier(caster, targets[1], "locked", self:GetSpecialValueFor("root_dur"))
+				end
 				targets[1]:EmitSound("cu_pierce_new")
 				targets[1]:EmitSound("cu_pierce_new_2")
 			end
@@ -236,8 +252,9 @@ function cu_chulain_relentless_spear:TigerStrike3()
 		modifier:OnIntervalThink()
 	end
 
-	caster:RemoveModifierByName("modifier_cu_relentless_tracker")
+	
 	self:CheckCombo()
+
 end
 
 

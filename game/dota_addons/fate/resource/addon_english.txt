@@ -2481,10 +2481,11 @@
 		"DOTA_Tooltip_ability_cu_chulain_rune_of_flame_stun_duration"	"Stun Duration"
 		
 		"DOTA_Tooltip_Ability_cu_chulain_relentless_spear"					"Relentless Spear"
-		"DOTA_Tooltip_ability_cu_chulain_relentless_spear_Description"		"<font color='#FFFAFA'>Cast point </font>:  <font color='#7FFF00'>immediate / 0.2</font>\nCu Chulain may cast this ability for up to 3 times in a %window_duration% seconds.\nFirst two casts are a %distance% distance dashes.\nUpon reaching destination, Cu Chulain will pierce closest enemy in <font color='#FFFAFA'>300</font> radius, dealing <font color='#58ACFA'>damage</font> and <font color='#A72E28'>attacks</font> them once with his basic attack.\nThird cast is a <font color='#FFFAFA'>channeled</font> series of attacks for up to %num_attacks% attacks during %duration% seconds.\nEach attack in series is a <font color='#A72E28'>basic attack</font> with a multiplier damage."
+		"DOTA_Tooltip_ability_cu_chulain_relentless_spear_Description"		"<font color='#FFFAFA'>Cast point </font>:  <font color='#7FFF00'>immediate / 0.2</font>\nCu Chulain may cast this ability for up to 3 times in a %window_duration% seconds.\nFirst two casts are a %distance% distance dashes.\nUpon reaching destination, Cu Chulain will pierce closest enemy in <font color='#FFFAFA'>300</font> radius, dealing <font color='#58ACFA'>damage</font> and <font color='#A72E28'>attacks</font> them once with his basic attack.\nFirst strike <font color='#9400D3'>roots the enemy</font>, second strike <font color='#9400D3'>locks</font>.\nThird cast is a <font color='#FFFAFA'>channeled</font> series of attacks for up to %num_attacks% attacks during %duration% seconds.\nEach attack in series is a <font color='#A72E28'>basic attack</font> with a multiplier damage."
 		"DOTA_Tooltip_ability_cu_chulain_relentless_spear_Lore"				"Lancer class in one word? The fastest."
 		"DOTA_Tooltip_ability_cu_chulain_relentless_spear_damage_first"			"First two strikes damage:"	
 		"DOTA_Tooltip_ability_cu_chulain_relentless_spear_damage"			"%Third cast Damage multiplier:"	
+		"DOTA_Tooltip_ability_cu_chulain_relentless_spear_root_dur"			"Root and lock duration:"	
 		//"DOTA_Tooltip_ability_cu_chulain_relentless_spear_num_attacks"		"Number of Attacks:"
 
 		"DOTA_Tooltip_Ability_cu_chulain_gae_bolg"						"The Spear of Impaling Barbed Death"

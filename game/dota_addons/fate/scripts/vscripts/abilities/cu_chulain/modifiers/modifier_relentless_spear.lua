@@ -38,6 +38,7 @@ if IsServer() then
 		EndAnimation(caster)
 		ParticleManager:DestroyParticle(self.particles, true)
 		ParticleManager:ReleaseParticleIndex(self.particles)
+		caster:RemoveModifierByName("modifier_cu_relentless_tracker")
 	end
 end
 

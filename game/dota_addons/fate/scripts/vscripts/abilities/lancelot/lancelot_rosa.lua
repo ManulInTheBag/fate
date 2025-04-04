@@ -14,7 +14,9 @@ function lancelot_rosa:OnAbilityPhaseInterrupted()
     EndAnimation(caster)
 end
 
-
+function lancelot_rosa:GetAOERadius()
+	return 375
+end
 
 function lancelot_rosa:CastFilterResultLocation(vLocation)
     local caster = self:GetCaster()
@@ -40,6 +42,18 @@ function lancelot_rosa:OnSpellStart()
 	local vector = (self:GetCursorPosition() - hCaster:GetAbsOrigin()):Normalized()
 	vector.z = 0
 	hCaster:SetForwardVector(vector)
+	local dist = (hCaster:GetAbsOrigin() - vTargetPoint):Length2D()
+
+	local knockback1 = { should_stun = false,
+		knockback_duration = 0.15,
+		duration = 0.15,
+		knockback_distance = -math.min(dist, 375),
+		knockback_height = 0,
+		center_x = vTargetPoint.x,
+		center_y = vTargetPoint.y,
+		center_z = vTargetPoint.z }
+
+		hCaster:AddNewModifier(hCaster, self, "modifier_knockback", knockback1)
 	local right_vector = hCaster:GetRightVector()
 	local move_pos = hCaster:GetAbsOrigin() + hCaster:GetForwardVector() * 150 + right_vector * 300
 	giveUnitDataDrivenModifier(hCaster, hCaster, "pause_sealenabled", 0.3)
