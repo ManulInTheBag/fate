@@ -1,0 +1,513 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc39:version{1ceecb0d-4093-4729-ab18-b76886c64cde} -->
+{
+	rootNode = 
+	{
+		_class = "RootNode"
+		children = 
+		[
+			{
+				_class = "AttachmentList"
+				children = 
+				[
+					{
+						_class = "Attachment"
+						name = "attach_hitloc"
+						parent_bone = "Spine1"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_attack1"
+						parent_bone = "RightArm3"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_attack2"
+						parent_bone = "LeftArm3"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+				]
+			},
+			{
+				_class = "HitboxSetList"
+				children = 
+				[
+					{
+						_class = "HitboxSet"
+						name = "default"
+						children = 
+						[
+							{
+								_class = "Hitbox"
+								parent_bone = "Spine0"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -510.894501, -1104.578979, -458.407501 ]
+								hitbox_maxs = [ 510.894501, 1411.603149, 591.918091 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "LeftArm0"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -278.716766, -69.629761, -330.465271 ]
+								hitbox_maxs = [ 209.475769, 945.967224, 303.57196 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "RightArm0"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -209.475037, -69.629761, -330.465881 ]
+								hitbox_maxs = [ 278.717499, 945.967224, 303.57135 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Spine1"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -246.386688, -440.318329, -639.739502 ]
+								hitbox_maxs = [ 246.386688, 304.271423, 757.297607 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "LeftArm1"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -304.971252, -591.92041, -444.213989 ]
+								hitbox_maxs = [ 210.877609, 1615.781982, 291.282654 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "RightArm1"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -210.878525, -591.9198, -444.213745 ]
+								hitbox_maxs = [ 304.970337, 1615.782593, 291.282898 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "Spine2"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -451.86673, -416.840973, -589.152039 ]
+								hitbox_maxs = [ 453.644043, 597.421387, 438.915344 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "LeftArm2"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -219.308441, -797.515381, -227.6922 ]
+								hitbox_maxs = [ 210.877563, 1005.891479, 291.282654 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "RightArm2"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -210.87854, -797.515625, -227.691895 ]
+								hitbox_maxs = [ 219.307465, 1005.891235, 291.282959 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "tentacle1"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ 53.335022, -70.409912, -47.41713 ]
+								hitbox_maxs = [ 636.587097, 46.423828, 70.674637 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "tentacle2"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -8.480804, -449.183838, -182.918106 ]
+								hitbox_maxs = [ 451.734711, 7.650391, 57.227951 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "tentacle3"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -80.326241, -573.342407, -236.220551 ]
+								hitbox_maxs = [ 53.221703, -18.837891, 51.153381 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "tentacle4"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -375.411438, -479.065186, -195.777481 ]
+								hitbox_maxs = [ 8.7276, 7.897217, 57.416107 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "tentacle5"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -618.863281, -67.761719, -47.652191 ]
+								hitbox_maxs = [ -35.631226, 47.43457, 70.705765 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "tentacle6"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -459.978485, -18.862549, -33.304932 ]
+								hitbox_maxs = [ 7.711456, 384.773438, 185.114243 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "tentacle7"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -54.788887, 13.795898, -25.497139 ]
+								hitbox_maxs = [ 64.055367, 612.190918, 281.396667 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "tentacle8"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -5.54657, -24.666992, -35.809723 ]
+								hitbox_maxs = [ 492.395325, 369.569336, 178.277115 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "mouth"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -91.570885, -80.434326, -34.645668 ]
+								hitbox_maxs = [ 91.801781, 74.9375, 50.667137 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "LeftArm3"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -219.308502, -347.090576, -227.692261 ]
+								hitbox_maxs = [ 210.877502, 470.583374, 291.282593 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "RightArm3"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -210.87854, -347.091309, -227.691895 ]
+								hitbox_maxs = [ 219.307465, 470.582642, 291.282959 ]
+							},
+						]
+					},
+				]
+			},
+			{
+				_class = "RenderMeshList"
+				children = 
+				[
+					{
+						_class = "RenderMeshFile"
+						name = "gilles_squid"
+						children = 
+						[
+							{
+								_class = "ReplaceMeshMaterials"
+								remaps = 
+								[
+									{
+										from = "ch028_w51_00_p02_mat.vmat"
+										to = "materials/gilles/gilles_squid_2.vmat"
+									},
+									{
+										from = "ch028_w51_00_p01_mat.vmat"
+										to = "materials/gilles/gilles_squid_2.vmat"
+									},
+								]
+								use_single_material = false
+								single_override_material = ""
+							},
+						]
+						filename = "models/gilles/gillessquid.fbx"
+						import_scale = 1.0
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = [  ]
+						}
+					},
+				]
+			},
+			{
+				_class = "AnimationList"
+				children = 
+				[
+					{
+						_class = "AnimFile"
+						name = "squid_attack_1"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								extract_initial_offset = false
+								root_bone_name = ""
+								motion_type = "Single"
+							},
+						]
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_ATTACK"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/gilles/squid_attack_1.fbx"
+						import_bone_scales = false
+						start_frame = 0
+						end_frame = 50
+						framerate = 40.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "squid_attack_2"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								extract_initial_offset = false
+								root_bone_name = ""
+								motion_type = "Single"
+							},
+						]
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_ATTACK2"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/gilles/squid_attack_2.fbx"
+						import_bone_scales = false
+						start_frame = 0
+						end_frame = 50
+						framerate = 40.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "squid_spell_1"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CAST_ABILITY_1"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/gilles/squid_spell_1.fbx"
+						import_bone_scales = false
+						start_frame = 0
+						end_frame = 60
+						framerate = 25.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "squid_idle"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_IDLE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/gilles/squid_idle.fbx"
+						import_bone_scales = false
+						start_frame = 0
+						end_frame = 40
+						framerate = 5.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "squid_run"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_RUN"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/gilles/squid_run.fbx"
+						import_bone_scales = false
+						start_frame = 0
+						end_frame = 80
+						framerate = 20.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "squid_death"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								extract_initial_offset = false
+								root_bone_name = ""
+								motion_type = "Single"
+							},
+						]
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_DIE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/gilles/squid_death.fbx"
+						import_bone_scales = false
+						start_frame = 0
+						end_frame = 40
+						framerate = 25.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "squid_spawn_in"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_SPAWN"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/gilles/squid_spawn_in.fbx"
+						import_bone_scales = false
+						start_frame = 0
+						end_frame = 60
+						framerate = 30.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "squid_spawn_out"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CAST_ABILITY_7"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/gilles/squid_spawn_out.fbx"
+						import_bone_scales = false
+						start_frame = 0
+						end_frame = 90
+						framerate = 20.0
+						reverse = false
+					},
+				]
+				default_root_bone_name = ""
+			},
+		]
+		model_archetype = ""
+		primary_associated_entity = ""
+		anim_graph_name = ""
+		importer_notes = "Imported from VMDL\n==Warnings==\nImportAttachmentList - Failed to create node: attach_hitloc (Likely skipping duplicate)\n"
+		document_sub_type = "ModelDocSubType_None"
+	}
+}

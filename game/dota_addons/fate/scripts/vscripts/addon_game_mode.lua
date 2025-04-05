@@ -346,6 +346,7 @@ function Precache( context )
     PrecacheResource("model", "models/nero/nero_swimsuit.vmdl", context)
     PrecacheResource("model", "models/astolfo/astolfo_trifas.vmdl", context)
     PrecacheResource("model", "models/astolfo/extella/astolfo_swimsuit.vmdl", context)
+    PrecacheResource("model", "models/gilles/gilles_pope.vmdl", context)
     PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_silencer.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_enigma.vsndevts", context)
     PrecacheResource("soundfile", "soundevents/game_sounds_heroes/game_sounds_bane.vsndevts", context)
@@ -1427,7 +1428,12 @@ end
                 and PlayerResource:HasSelectedHero(iPlayerID)
                 and PlayerResource:GetTeam(iPlayerID) == nTeamNumber
                 and iPlayerID ~= nPlayerID then
-                table.insert(tActiveAllies, iPlayerID)
+                    local ply = PlayerResource:GetPlayer(iPlayerID)
+                    if ply then 
+                        if PlayerResource:GetPlayer(tonumber(iPlayerID)):GetAssignedHero():IsAlive() then
+                            table.insert(tActiveAllies, iPlayerID)
+                        end
+                    end
             end
         end
 
@@ -1451,12 +1457,13 @@ end
                     for _, tPlayerTable in pairs(tActiveAlliesMuch) do
                         local nSpendGold = -PlayerResource:ModifyGold(nPlayerID, -tPlayerTable.nCalcGold, false, DOTA_ModifyGold_SharedGold)
                         local nAddGold   = PlayerResource:ModifyGold(tPlayerTable.nToPlayerID, nSpendGold, false, DOTA_ModifyGold_SharedGold)
-
-                        CustomGameEventManager:Send_ServerToTeam(nTeamNumber, "fate_gold_sent", {
-                                                                                                    goldAmt  = nAddGold,
-                                                                                                    sender   = PlayerResource:GetSelectedHeroEntity(nPlayerID):entindex(),
-                                                                                                    recipent = PlayerResource:GetSelectedHeroEntity(tPlayerTable.nToPlayerID):entindex()
-                                                                                                })
+                        if nSpendGold > 0 then 
+                            CustomGameEventManager:Send_ServerToTeam(nTeamNumber, "fate_gold_sent", {
+                                                                                                        goldAmt  = nAddGold,
+                                                                                                        sender   = PlayerResource:GetSelectedHeroEntity(nPlayerID):entindex(),
+                                                                                                        recipent = PlayerResource:GetSelectedHeroEntity(tPlayerTable.nToPlayerID):entindex()
+                                                                                                    })
+                        end
                     end
                 end
             else

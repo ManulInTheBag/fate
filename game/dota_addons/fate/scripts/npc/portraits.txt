@@ -33,6 +33,89 @@
 			}
 		}
 	}
+		"models/gilles/gilles.vmdl"
+	{
+		"PortraitLightPosition"		"112.73 -41.13 174.53"
+		"PortraitLightAngles"		"42.54 149.30 0.00"
+		"PortraitLightFOV"		"90"
+		"PortraitLightDistance"		"133"
+		"PortraitLightColor"		"185 216 254"
+		"PortraitShadowColor"		"69 84 56"
+		"PortraitShadowScale"		"5.000000"
+		"PortraitAmbientColor"		"192 0 56"
+		"PortraitAmbientScale"		"5.000000"
+		"PortraitSpecularColor"		"251 74 84"
+		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/gilles_fon.vmat"
+		"PortraitLightScale"		"1.950000"
+		"PortraitGroundShadowScale"		"1.500000"
+		"PortraitAmbientDirection"		"-31.670 34.840 37.060"
+		"PortraitAnimationActivity"		"ACT_DOTA_IDLE"
+		"cameras"
+		{
+			"default"
+			{
+				"PortraitPosition"		"235.90 -35.63 90.55"
+				"PortraitAngles"		"352.41 167.17 0.00"
+				"PortraitFOV"		"32"
+			}
+		}
+	}
+	
+	"models/gilles/gilles_pope.vmdl"
+	{
+		"PortraitLightPosition"		"112.73 -41.13 174.53"
+		"PortraitLightAngles"		"42.54 149.30 0.00"
+		"PortraitLightFOV"		"90"
+		"PortraitLightDistance"		"133"
+		"PortraitLightColor"		"185 216 254"
+		"PortraitShadowColor"		"69 84 56"
+		"PortraitShadowScale"		"5.000000"
+		"PortraitAmbientColor"		"192 0 56"
+		"PortraitAmbientScale"		"5.000000"
+		"PortraitSpecularColor"		"251 74 84"
+		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/gilles_fon.vmat"
+		"PortraitLightScale"		"1.950000"
+		"PortraitGroundShadowScale"		"1.500000"
+		"PortraitAmbientDirection"		"-31.670 34.840 37.060"
+		"PortraitAnimationActivity"		"ACT_DOTA_IDLE"
+		"cameras"
+		{
+			"default"
+			{
+				"PortraitPosition"		"235.90 -35.63 90.55"
+				"PortraitAngles"		"352.41 167.17 0.00"
+				"PortraitFOV"		"32"
+			}
+		}
+	}
+	
+	"models/gilles/gilles_starfish.vmdl"
+	{
+		"PortraitLightPosition"		"112.73 -41.13 174.53"
+		"PortraitLightAngles"		"42.54 149.30 0.00"
+		"PortraitLightFOV"		"90"
+		"PortraitLightDistance"		"133"
+		"PortraitLightColor"		"185 216 254"
+		"PortraitShadowColor"		"69 84 56"
+		"PortraitShadowScale"		"5.000000"
+		"PortraitAmbientColor"		"192 0 56"
+		"PortraitAmbientScale"		"5.000000"
+		"PortraitSpecularColor"		"251 74 84"
+		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/portraitbackground_moon.vmat"
+		"PortraitLightScale"		"1.950000"
+		"PortraitGroundShadowScale"		"1.500000"
+		"PortraitAmbientDirection"		"-31.670 34.840 37.060"
+		"PortraitAnimationActivity"		"ACT_DOTA_IDLE"
+		"cameras"
+		{
+			"default"
+			{
+				"PortraitPosition"		"365.90 -70.63 90.55"
+				"PortraitAngles"		"352.41 167.17 0.00"
+				"PortraitFOV"		"32"
+			}
+		}
+	}
 	"models/astolfo/extella/astolfo.vmdl"
 	{
 		"PortraitLightPosition"		"75.79 -21.18 200.33"
@@ -1546,7 +1629,37 @@
 			}
 		}
 	}
-
+	"models/jack/jtr.vmdl"
+	{
+		"PortraitLightPosition"		"202.70 -23.15 308.17"
+		"PortraitLightAngles"		"54.79 171.70 0.00"
+		"PortraitLightFOV"		"69"
+		"PortraitLightDistance"		"377"
+		"PortraitLightColor"		"254 248 242"
+		"PortraitShadowColor"		"74 74 74"
+		"PortraitShadowScale"		"5.000000"
+		"PortraitAmbientColor"		"79 108 108"
+		"PortraitAmbientScale"		"5.000000"
+		"PortraitSpecularColor"		"251 74 84"
+		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/jack_fon.vmat"
+		"PortraitBackgroundColor1"		"1 1 1"
+		"PortraitBackgroundColor2"		"1 1 1"
+		"PortraitBackgroundColor3"		"1 1 1"
+		"PortraitBackgroundColor4"		"1 1 1"
+		"PortraitLightScale"		"4.500000"
+		"PortraitGroundShadowScale"		"1.500000"
+		"PortraitAmbientDirection"		"-79.070 -84.150 -25.320"
+		"PortraitAnimationActivity"		"ACT_DOTA_IDLE"
+		"cameras"
+		{
+			"default"
+			{
+				"PortraitPosition"		"200 -65 30"
+				"PortraitAngles"		"350.89 160.83 0.00"
+				"PortraitFOV"			"16"
+			}
+		}
+	}
 	"models/jtr/jtr.vmdl"
 	{
 		"PortraitLightPosition"		"202.70 -23.15 308.17"

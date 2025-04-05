@@ -61,6 +61,10 @@ if IsServer() then
 					   	   --[MODIFIER_STATE_TRUESIGHT_IMMUNE] = true
 					   	   }
 			self.hidden = false
+			if type(self.OverheadFx) == "number" then
+				ParticleManager:DestroyParticle(self.OverheadFx, true)
+				ParticleManager:ReleaseParticleIndex(self.OverheadFx)
+			end
 			--ParticleManager:SetParticleControl(self.ring_fx, 3, Vector(self.radius, 0, 0))
 		else
 			if self.hidden == false then
@@ -73,6 +77,13 @@ if IsServer() then
 			        end
     			end)
     		end
+			if type(self.OverheadFx) == "number" then
+				ParticleManager:DestroyParticle(self.OverheadFx, true)
+				ParticleManager:ReleaseParticleIndex(self.OverheadFx)
+			end
+			self.OverheadFx = ParticleManager:CreateParticle( "particles/zlodemon/zlodemon_overhead_eye.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetParent() )
+			ParticleManager:SetParticleControl( self.OverheadFx , 1, Vector( 1,1,1 ) )
+			ParticleManager:SetParticleControl( self.OverheadFx , 2, Vector( 0.5,0,0 ) )
 			self.State = {}
 			self.hidden = true
 			--ParticleManager:SetParticleControl(self.ring_fx, 3, Vector(self.radius, 0, 0))

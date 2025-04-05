@@ -1,0 +1,432 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc39:version{1ceecb0d-4093-4729-ab18-b76886c64cde} -->
+{
+	rootNode = 
+	{
+		_class = "RootNode"
+		children = 
+		[
+			{
+				_class = "AttachmentList"
+				children = 
+				[
+					{
+						_class = "Attachment"
+						name = "attach_hitloc"
+						parent_bone = "hips"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_attack1"
+						parent_bone = "hips"
+						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+				]
+			},
+			{
+				_class = "HitboxSetList"
+				children = 
+				[
+					{
+						_class = "HitboxSet"
+						name = "default"
+						children = 
+						[
+							{
+								_class = "Hitbox"
+								parent_bone = "hips"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -153.019485, -220.820938, -160.788239 ]
+								hitbox_maxs = [ 153.056717, 71.314445, 118.868874 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "tentacle1"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ 0.230255, -21.717314, -19.472073 ]
+								hitbox_maxs = [ 175.38443, 28.768282, 19.472073 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "tentacle2"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.455067, -21.717316, -128.650528 ]
+								hitbox_maxs = [ 129.086716, 30.337738, 6.423275 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "tentacle3"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -20.125746, -21.717316, -170.740677 ]
+								hitbox_maxs = [ 20.125746, 30.337738, 2.622406 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "tentacle4"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -128.990387, -21.717316, -128.538361 ]
+								hitbox_maxs = [ 7.570278, 30.337738, 6.535446 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "tentacle5"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -171.061035, -21.717314, -19.472073 ]
+								hitbox_maxs = [ 2.593658, 28.768282, 19.472073 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "tentacle6"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -129.011383, -21.717316, -6.514606 ]
+								hitbox_maxs = [ 7.549286, 30.337738, 128.559204 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "tentacle7"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -20.125746, -21.717316, -2.580841 ]
+								hitbox_maxs = [ 20.125746, 30.337738, 170.782227 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "tentacle8"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -7.585499, -21.717316, -6.550556 ]
+								hitbox_maxs = [ 128.912552, 30.337738, 128.523254 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "tentacle1_1"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -40.879242, -18.682892, -17.575296 ]
+								hitbox_maxs = [ 140.803345, 25.970543, 17.575296 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "tentacle2_1"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -35.437027, -18.55151, -101.255905 ]
+								hitbox_maxs = [ 101.916214, 25.361584, 35.415787 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "tentacle3_1"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -17.575298, -18.790054, -134.88031 ]
+								hitbox_maxs = [ 17.575298, 25.970543, 44.769333 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "tentacle4_1"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -101.80101, -18.55151, -101.143738 ]
+								hitbox_maxs = [ 35.447498, 24.852337, 35.905823 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "tentacle5_1"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -133.094421, -18.682892, -17.575296 ]
+								hitbox_maxs = [ 44.793335, 26.640167, 17.575296 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "tentacle6_1"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -101.821991, -18.551506, -35.884987 ]
+								hitbox_maxs = [ 35.180527, 25.300186, 101.164574 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "tentacle7_1"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -17.575298, -18.790054, -44.915634 ]
+								hitbox_maxs = [ 17.575298, 24.423683, 131.800598 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "tentacle8_1"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -35.976761, -18.551508, -35.920937 ]
+								hitbox_maxs = [ 101.785782, 25.656424, 101.128624 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "mouth"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -23.936714, -7.879264, -22.520267 ]
+								hitbox_maxs = [ 23.936714, 5.251484, 22.520267 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "tentacle1_2"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -2.761658, -10.177811, -8.749295 ]
+								hitbox_maxs = [ 69.88269, 14.704254, 8.749295 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "tentacle2_2"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -3.638306, -10.561831, -52.207237 ]
+								hitbox_maxs = [ 52.867462, 14.307111, 4.304504 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "tentacle3_2"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -9.056044, -10.468439, -63.959671 ]
+								hitbox_maxs = [ 8.557001, 15.482664, 7.941025 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "tentacle4_2"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -52.752258, -10.561831, -52.09507 ]
+								hitbox_maxs = [ 3.573357, 13.370749, 4.297195 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "tentacle5_2"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -64.311752, -10.177811, -8.749295 ]
+								hitbox_maxs = [ 5.409805, 13.460983, 8.749295 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "tentacle6_2"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -52.773239, -10.561831, -5.422752 ]
+								hitbox_maxs = [ 3.828751, 13.370749, 52.115898 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "tentacle7_2"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -8.557002, -10.468439, -7.493912 ]
+								hitbox_maxs = [ 8.557002, 14.160175, 63.935196 ]
+							},
+							{
+								_class = "Hitbox"
+								parent_bone = "tentacle8_2"
+								surface_property = ""
+								translation_only = false
+								group_id = 0
+								hitbox_mins = [ -4.319618, -10.561831, -4.899956 ]
+								hitbox_maxs = [ 52.73703, 13.438304, 52.079964 ]
+							},
+						]
+					},
+				]
+			},
+			{
+				_class = "RenderMeshList"
+				children = 
+				[
+					{
+						_class = "RenderMeshFile"
+						name = "gilles_starfish"
+						children = 
+						[
+							{
+								_class = "ReplaceMeshMaterials"
+								remaps = 
+								[
+									{
+										from = "starfish.vmat"
+										to = "materials/gilles/gilles_squid_1.vmat"
+									},
+								]
+								use_single_material = false
+								single_override_material = ""
+							},
+						]
+						filename = "models/gilles/gilles_starfish.fbx"
+						import_scale = 1.0
+						import_filter = 
+						{
+							exclude_by_default = false
+							exception_list = [  ]
+						}
+					},
+				]
+			},
+			{
+				_class = "AnimationList"
+				children = 
+				[
+					{
+						_class = "AnimFile"
+						name = "starfish"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_IDLE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/gilles/starfish_idle.fbx"
+						import_bone_scales = false
+						start_frame = 0
+						end_frame = 43
+						framerate = 25.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "starfish_death"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								extract_initial_offset = false
+								root_bone_name = ""
+								motion_type = "Single"
+							},
+						]
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_DIE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/gilles/starfish_death.fbx"
+						import_bone_scales = false
+						start_frame = 0
+						end_frame = 43
+						framerate = 43.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "starfish_spawn"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_SPAWN"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/gilles/starfish_spawn.fbx"
+						import_bone_scales = false
+						start_frame = 0
+						end_frame = 43
+						framerate = 120.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "starfish_run"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_RUN"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/gilles/starfish_idle.fbx"
+						import_bone_scales = false
+						start_frame = 0
+						end_frame = 43
+						framerate = 43.0
+						reverse = false
+					},
+				]
+				default_root_bone_name = ""
+			},
+		]
+		model_archetype = ""
+		primary_associated_entity = ""
+		anim_graph_name = ""
+		importer_notes = "Imported from VMDL"
+		document_sub_type = "ModelDocSubType_None"
+	}
+}

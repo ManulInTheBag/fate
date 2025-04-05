@@ -4769,7 +4769,7 @@
         //      Caster(4th)
         //====================================
         "npc_dota_hero_shadow_shaman"   	"Gilles de Rais"
-
+        "gilles_1"   	"Pope Gilles de Rais"
 	"npc_dota_hero_shadow_shaman_hype"	""
 	"npc_dota_hero_shadow_shaman_bio"	""
 
@@ -8433,7 +8433,7 @@
 		"DOTA_Tooltip_modifier_murderer_mist_slow_Description"	"Slowed"
 
         "DOTA_Tooltip_ability_jtr_maria_the_ripper"						"Maria the Ripper"
-        "DOTA_Tooltip_ability_jtr_maria_the_ripper_Description"			"Jack reproduces the sublimation of her murder on the streets of London. Performs four quick attacks on the target dealing pure damage on each hit. Female targets take additional damage Jack is taking 30%% less damage while attacking. \nThis ability has reduced cast point if used while under the effect of Murderer of the Misty Night or The Whitechapel Murderer. \nUpgradeable by attribute Efficient Killer: iIf it is night, it is misty and the target is female, Jack will use the faster version of Maria the Ripper.\nWhile under effect of <font color='#FF0000'>Bloody Thirst</font> this ability has 300%% cooldown recovery speed."
+        "DOTA_Tooltip_ability_jtr_maria_the_ripper_Description"			"Jack reproduces the sublimation of her murder on the streets of London. Performs four quick attacks on the target dealing pure damage on each hit. Female targets take additional damage Jack is taking 45%% less damage while attacking. \nThis ability has reduced cast point if used while under the effect of Murderer of the Misty Night or The Whitechapel Murderer. \nUpgradeable by attribute Efficient Killer: iIf it is night, it is misty and the target is female, Jack will use the faster version of Maria the Ripper.\nWhile under effect of <font color='#FF0000'>Bloody Thirst</font> this ability has 300%% cooldown recovery speed."
         "DOTA_Tooltip_ability_jtr_maria_the_ripper_cast_point"			"Cast Time:"
         "DOTA_Tooltip_ability_jtr_maria_the_ripper_reduced_cast_point"	"Reduced Cast Time:"
         "DOTA_Tooltip_ability_jtr_maria_the_ripper_cast_range"			"Cast Range:"
@@ -8441,13 +8441,13 @@
 	"DOTA_Tooltip_ability_jtr_maria_the_ripper_female_damage"		"Additional damage to female servants:"
 
 	"DOTA_Tooltip_ability_jtr_mtr_new"						"Maria the Ripper"
-        "DOTA_Tooltip_ability_jtr_mtr_new_Description"			"Jack reproduces the sublimation of her murder on the streets of London. Performs three quick strikes and then a finishing blow on the target dealing pure damage on each hit.\nEach strike locks the target for 0.75 seconds.\nJack is taking 30%% less damage while attacking.\nWhile under effect of <font color='#FF0000'>Bloody Thirst</font> this ability has 300%% cooldown recovery speed."
+        "DOTA_Tooltip_ability_jtr_mtr_new_Description"			"Jack reproduces the sublimation of her murder on the streets of London. Performs three quick strikes and then a finishing blow on the target dealing pure damage on each hit.\nEach strike locks the target for 0.75 seconds.\nJack is taking 45%% less damage while attacking.\nWhile under effect of <font color='#FF0000'>Bloody Thirst</font> this ability has 300%% cooldown recovery speed."
         "DOTA_Tooltip_ability_jtr_mtr_new_cast_range"			"Cast Range:"
         "DOTA_Tooltip_ability_jtr_mtr_new_damage_per_hit"		"Damage Per Hit:"
 	"DOTA_Tooltip_ability_jtr_mtr_new_final_damage"		"Finishing Blow Damage:"
 
 	"DOTA_Tooltip_ability_jtr_bloody_thirst"		"<font color='#FF0000'>Bloody Thirst</font>"
-	"DOTA_Tooltip_ability_jtr_bloody_thirst_Description"	"When Jack gets her first kill, she activates ability to detect wounded and female enemy servants, marking them with red and blue circles on the screen. Circles are only visible to Jack. Female detection is based on a certain radius based on the level of 'We are... Jack the Ripper'.\nWhenever Jack kills an enemy hero, she enters <font color='#FF0000'>Bloody Thirst</font> mode, hungering for more and more kills. <font color='#FF0000'>Bloody Thirst</font> provides phased status, bonus move speed based on 'Quick Strike' level, bonus agility based on 'Murderer of the Misty Night' level and increased 'Maria the Ripper' cooldown recovery speed."
+	"DOTA_Tooltip_ability_jtr_bloody_thirst_Description"	"When Jack gets her first kill, she activates ability to detect wounded and female enemy servants, marking them with red and blue circles on the screen.\nCircles are only visible to Jack.\nFemale detection is based on a certain radius based on the level of Murderer's mist\nIf the female and Jack are inside the mist, she is revealed to Jack.\nWhenever Jack kills an enemy hero, she enters <font color='#FF0000'>Bloody Thirst</font> mode, hungering for more and more kills.\n<font color='#FF0000'>Bloody Thirst</font> provides phased status, bonus move speed based on 'Quick Strike' level, bonus agility based on 'We are jack the ripper' level and increased 'Maria the Ripper' cooldown recovery speed."
 	"DOTA_Tooltip_ability_jtr_bloody_thirst_health_threshold"	"%Wounded detection threshold:"
 	//"DOTA_Tooltip_ability_jtr_bloody_thirst_bonus_radius"		"Active bonus detection radius:"
 	"DOTA_Tooltip_ability_jtr_bloody_thirst_wounded_radius"		"Wounded detection radius:"

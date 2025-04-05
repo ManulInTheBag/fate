@@ -36,8 +36,15 @@ function iskander_thunder_2:ThunderStrike(position)
 
 	local targets = FindUnitsInRadius(caster:GetTeam(), position, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_CLOSEST, false)
 	for k,v in pairs(targets) do
-	    v:AddNewModifier(caster, self, "iskander_thunder_slow_2", { duration = slow_duration })
-	    DoDamage(caster, v, damage , DAMAGE_TYPE_MAGICAL, 0, self, false)
+		if not v.IsHitByIskandarThunder2 then 
+			v:AddNewModifier(caster, self, "iskander_thunder_slow_2", { duration = slow_duration })
+			v.IsHitByIskandarThunder2 = true
+			DoDamage(caster, v, damage , DAMAGE_TYPE_MAGICAL, 0, self, false)
+			Timers:CreateTimer(0.15, function()
+				v.IsHitByIskandarThunder2 = false
+			
+			end)
+		end
 	end
 
 	local lightningfx = ParticleManager:CreateParticle( "particles/iskander/sanya_w.vpcf", PATTACH_CUSTOMORIGIN, nil)

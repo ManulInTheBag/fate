@@ -3,12 +3,15 @@
 LinkLuaModifier("modifier_jtr_bloody_thirst_passive", "abilities/jtr/jtr_bloody_thirst", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_jtr_bloody_thirst_active", "abilities/jtr/jtr_bloody_thirst", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_jtr_bloody_thirst_vision", "abilities/jtr/jtr_bloody_thirst", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_mist_vision_jtr", "abilities/jtr/jtr_bloody_thirst", LUA_MODIFIER_MOTION_NONE)
+
 
 jtr_bloody_thirst = class({})
 
 function jtr_bloody_thirst:GetIntrinsicModifierName()
 	return "modifier_jtr_bloody_thirst_passive"
 end
+
 
 function jtr_bloody_thirst:GetBehavior()
 	return self:GetSpecialValueFor("behavior") + 64 + 2048--64 for not learnable, 2 passive, 4 no target, 2048 immediate
@@ -22,6 +25,11 @@ end
 --
 
 modifier_jtr_bloody_thirst_passive = class({})
+
+function modifier_jtr_bloody_thirst_passive:GetActivityTranslationModifiers()
+	return self:GetParent():GetIdealSpeed() > 500 and "run_fast" or "run_normal"
+end
+
 
 function modifier_jtr_bloody_thirst_passive:IsHidden() 
 	return true
@@ -40,7 +48,8 @@ function modifier_jtr_bloody_thirst_passive:GetAttributes()
 end
 
 function modifier_jtr_bloody_thirst_passive:DeclareFunctions()
-	return {	MODIFIER_EVENT_ON_HERO_KILLED	}
+	return {	MODIFIER_EVENT_ON_HERO_KILLED,
+	MODIFIER_PROPERTY_TRANSLATE_ACTIVITY_MODIFIERS	}
 end
 
 function modifier_jtr_bloody_thirst_passive:OnHeroKilled(args)
@@ -116,6 +125,9 @@ function modifier_jtr_bloody_thirst_passive:OnIntervalThink()
 				ParticleManager:DestroyParticle(hParticle2, false)
 				ParticleManager:ReleaseParticleIndex(hParticle2)
 			end)
+			if self.parent:HasModifier("modifier_murderer_mist_in") and enemy2:HasModifier("modifier_murderer_mist_slow") then
+				enemy2:AddNewModifier(self.parent, self.ability, "modifier_mist_vision_jtr", {duration = 0.2})
+			end
 		end
 	end
 end
@@ -273,4 +285,49 @@ function modifier_jtr_bloody_thirst_vision:CanBeDetected(hHero)
     end
     
     return 1
+end
+
+
+modifier_mist_vision_jtr = class({})
+
+function modifier_mist_vision_jtr:DeclareFunctions()
+    local funcs = {
+        MODIFIER_PROPERTY_PROVIDES_FOW_POSITION,
+    }
+ 
+    return funcs
+end
+
+function modifier_mist_vision_jtr:OnCreated()
+	if IsClient() then
+		self.OverheadFx = ParticleManager:CreateParticle( "particles/zlodemon/zlodemon_overhead_eye.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetParent() )
+		ParticleManager:SetParticleControl( self.OverheadFx , 1, Vector( 1,0.6,0.9 ) )
+		ParticleManager:SetParticleControl( self.OverheadFx , 2, Vector( 100,0,0 ) )
+	end
+end
+
+function modifier_mist_vision_jtr:OnDestroy()
+    if type(self.OverheadFx) == "number" then
+            ParticleManager:DestroyParticle(self.OverheadFx, true)
+            ParticleManager:ReleaseParticleIndex(self.OverheadFx)
+    end
+end
+
+function modifier_mist_vision_jtr:GetModifierProvidesFOWVision()
+	if CanBeDetected(self:GetParent()) then
+		return 1
+	end
+	return 0
+end
+
+function modifier_mist_vision_jtr:IsHidden()
+	return false
+end
+
+function modifier_mist_vision_jtr:IsDebuff()
+    return true
+end
+
+function modifier_mist_vision_jtr:RemoveOnDeath()
+    return true
 end

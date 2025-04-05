@@ -214,7 +214,7 @@ function jtr_mtr_new:OnSpellStart()
 end
 
 function jtr_mtr_new:NotTrue(caster, target)
-	StartAnimation(caster, {duration = 1.2, activity= ACT_DOTA_CAST_ABILITY_4 , rate=1.5})
+	StartAnimation(caster, {duration = 1, activity= ACT_DOTA_CAST_ABILITY_4_END , rate=1.0})
 
 	caster:AddNewModifier(caster, nil, "modifier_phased", {duration = 1.1})
 	giveUnitDataDrivenModifier(caster, caster, "dragged", 1.0)
@@ -354,7 +354,7 @@ function jtr_mtr_new:NotTrue(caster, target)
 
 	Timers:CreateTimer(0.55, function()  
 		if caster:IsAlive() and target:IsAlive() then
-			StartAnimation(caster, {duration = 1.2, activity= ACT_DOTA_CAST_ABILITY_4_END , rate=1.5})
+			--StartAnimation(caster, {duration = 1.2, activity= ACT_DOTA_CAST_ABILITY_4_END , rate=1.5})
 			local currentpoint = caster:GetAbsOrigin()
 
 			local newpoint = caster:GetForwardVector()*100 + target:GetAbsOrigin()
