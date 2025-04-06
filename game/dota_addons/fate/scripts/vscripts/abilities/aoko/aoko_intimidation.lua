@@ -84,7 +84,7 @@ function aoko_intimidation:GroundHit(target)
 	local circuits = caster:FindAbilityByName("aoko_circuits")
 	local stacks = self:GetSpecialValueFor("impact_stacks")
 
-	local damage = target:GetMaxHealth() * self:GetSpecialValueFor("impact_health_damage")/100
+	local damage = self:GetSpecialValueFor("impact_health_damage")
 	local radius = self:GetSpecialValueFor("impact_radius")
 	local duration = self:GetSpecialValueFor("slow_duration")
 
@@ -111,7 +111,7 @@ function aoko_intimidation:GroundHit(target)
 
 	ParticleManager:ReleaseParticleIndex(explosion_fx)
 
-	if caster.HighSpeedIncantationAcquired then
+	--[[if caster.HighSpeedIncantationAcquired then
 		local abil = caster:FindAbilityByName("aoko_sphere")
 		local vision_radius = abil:GetSpecialValueFor("vision_radius")
 		local dummy = CreateUnitByName("aoko_sphere", point, false, nil, nil, caster:GetTeamNumber())
@@ -120,7 +120,7 @@ function aoko_intimidation:GroundHit(target)
 		dummy:SetNightTimeVisionRange(vision_radius)
 		dummy:SetForwardVector(caster:GetForwardVector())
 		dummy:AddNewModifier(caster, abil, "modifier_aoko_sphere_dummy", {Duration  = abil:GetSpecialValueFor("duration"), posx = point.x, posy = point.y, posz = point.z})
-	end
+	end]]--
  
     local enemies = FindUnitsInRadius(  caster:GetTeamNumber(),
                                         point, 
@@ -140,6 +140,12 @@ function aoko_intimidation:GroundHit(target)
     		circuits:GainStacks(stacks)
     	end
     	enemy:AddNewModifier(caster, self, "modifier_aoko_intimidation_slow", {duration = duration})
+
+
+		if caster.HighSpeedIncantationAcquired then
+			giveUnitDataDrivenModifier(caster, enemy, "locked", self:GetSpecialValueFor("lock_duration"))
+		end
+
         DoDamage(caster, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
     end
 end

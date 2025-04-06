@@ -51,11 +51,6 @@ function lancelot_attribute_improve_eternal:OnSpellStart()
 
 	hero.KnightLevel = (hero.KnightLevel or 0) + 1
 
-	if eternalArms:GetLevel() < 2 then
-		self:EndCooldown()
-	else
-		hero.KnightLevel = (hero.KnightLevel or 0) + 1
-	end
 
 	-- Set master 1's mana 
 	local master = hero.MasterUnit

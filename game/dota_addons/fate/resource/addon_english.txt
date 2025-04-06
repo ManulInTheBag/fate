@@ -4573,7 +4573,7 @@
         "DOTA_Tooltip_ability_avenger_true_form_duration"   				"Duration:"
 
         "DOTA_Tooltip_Ability_angra_mainyu_verg_avesta"					"Verg Avesta"
-        "DOTA_Tooltip_ability_angra_mainyu_verg_avesta_Description"		"<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>0.7</font> \nAngra Mainyu curses enemies around himself dealing <font color='#58ACFA'>magical damage </font> immediately and then dealing same <font color='#58ACFA'>magical damage </font> over duration of 1.5 seconds.\nCasting this ability takes <font color='#FFFAFA'>10% of Angra's maximum health</font> and <font color='#FFFAFA'>increases its damage based on his lost health</font> up to a maximum of <font color='#FFFAFA'>50%</font>.\n<font color='#F1C40F'>Upgradable by attribute Demon Incarnate</font>"
+        "DOTA_Tooltip_ability_angra_mainyu_verg_avesta_Description"		"<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>0.5</font> \nAngra Mainyu curses enemies around himself dealing <font color='#58ACFA'>magical damage </font> immediately and then dealing same <font color='#58ACFA'>magical damage </font> over duration of 1.5 seconds.\nCasting this ability takes <font color='#FFFAFA'>10% of Angra's maximum health</font> and <font color='#FFFAFA'>increases its damage based on his lost health</font> up to a maximum of <font color='#FFFAFA'>50%</font>.\n<font color='#F1C40F'>Upgradable by attribute Demon Incarnate</font>"
         "DOTA_Tooltip_ability_angra_mainyu_verg_avesta_Lore"			"The killer of mankind assumes the simplest rule of the world - Retribution."
         "DOTA_Tooltip_ability_angra_mainyu_verg_avesta_radius"			"Radius:"
         "DOTA_Tooltip_ability_angra_mainyu_verg_avesta_damage"			"Base damage:"
@@ -7522,7 +7522,7 @@
 		"DOTA_Tooltip_ability_aoko_lazers_Lore"				"Aoko's magic bullets are simple spells utilizing her rapidly-spinning Magic Circuits as a barrel of a gun to fire magical energy."
 
 		"DOTA_Tooltip_ability_aoko_intimidation"				"Forced Rotation Acceleration"
-		"DOTA_Tooltip_ability_aoko_intimidation_Description"	"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>%cast_point%</font>\nAoko dashes forward and grabs first enemy hero or <font color='#58ACFA'>Floating Starmine</font> on her way, dealing %grab_damage% damage if it's an enemy.\nAfter grabbing, Aoko leaps for another 600 units in the same direction, slamming her target into the ground on arrival, dealing %impact_health_damage%%  of grabbed target's maximum health as damage in %impact_radius% radius and <font color='#9400D3'>slowing</font> all enemies in radius by %slow_pct%%  for %slow_duration% seconds.\nIf Aoko grabbed <font color='#58ACFA'>Floating Starmine</font>, deals %impact_aoko_damage% damage instead and destroys the sphere.\nIncreases <font color='#00FFFF'>Circuit Charge</font> on grab and on ground slam, if at least 1 enemy was hit with it.\nShares level with <font color='#58ACFA'>Severe Break Slider</font>."
+		"DOTA_Tooltip_ability_aoko_intimidation_Description"	"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>%cast_point%</font>\nAoko dashes forward and grabs first enemy hero or <font color='#58ACFA'>Floating Starmine</font> on her way, dealing %grab_damage% damage if it's an enemy.\nAfter grabbing, Aoko leaps for another 600 units in the same direction, slamming her target into the ground on arrival, dealing %impact_health_damage% damage in %impact_radius% radius and <font color='#9400D3'>slowing</font> all enemies in radius by %slow_pct%%  for %slow_duration% seconds.\nIf Aoko grabbed <font color='#58ACFA'>Floating Starmine</font>, deals %impact_aoko_damage% damage instead and destroys the sphere.\nIncreases <font color='#00FFFF'>Circuit Charge</font> on grab and on ground slam, if at least 1 enemy was hit with it.\nShares level with <font color='#58ACFA'>Severe Break Slider</font>."
 		"DOTA_Tooltip_ability_aoko_intimidation_Note0"			"Can't grab knockback immune enemies."
 		"DOTA_Tooltip_ability_aoko_intimidation_range"			"Dash range:"
 		"DOTA_Tooltip_ability_aoko_intimidation_speed"			"Dash speed:"
@@ -7549,7 +7549,7 @@
 		"DOTA_Tooltip_ability_aoko_circuits_Description"	"<font color='#FFFAFA'>Passive</font> | <font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>Immediate</font>\n<font color='#00FFFF'>Circuit Charge</font>:\nAoko gains <font color='#00FFFF'>Circuit Charge</font> stacks for hitting enemies with her abilities.\n<font color='#00FFFF'>Circuit Charge</font> provides Aoko with additional mana regeneration and improves certain abilities, but increases mana costs.\nCan be activated at %overload_threshold% <font color='#00FFFF'>Circuit Charge</font> to enter <font color='#FF0033'>Circuit Overload</font> for %overload_duration% seconds.\n<font color='#FF0033'>Circuit Overload</font>:\nLocks <font color='#00FFFF'>Circuit Charge</font> stack count at %stack_max%.\nSets <font color='#58ACFA'>Floating Starmine - Trap</font> charge restore time to %overload_sphere_charge_time% seconds.\nAoko gets additional magic resistance, armor, spell lifesteal and movement speed.\nWhen <font color='#FF0033'>Circuit Overload</font> ends, reduces the amount of <font color='#00FFFF'>Circuit Charge</font> to 0."
 		"DOTA_Tooltip_ability_aoko_circuits_stack_max"						"Maximum <font color='#00FFFF'>Circuit Charge</font>:"
 		"DOTA_Tooltip_ability_aoko_circuits_stacks_duration"				"<font color='#00FFFF'>Circuit Charge</font> passive duration:"
-		"DOTA_Tooltip_ability_aoko_circuits_manaregen_per_stack"			"%\nMaximum mana regeneration per stack:"
+		"DOTA_Tooltip_ability_aoko_circuits_manaregen_per_stack"			"\nMana regeneration per stack:"
 		"DOTA_Tooltip_ability_aoko_circuits_manacost_increase_per_stack"	"%Manacost increase per stack:"
 		"DOTA_Tooltip_ability_aoko_circuits_overload_magres"				"%\n<font color='#FF0033'>Circuit Overload</font> magic resistance:"
 		"DOTA_Tooltip_ability_aoko_circuits_overload_armor"					"<font color='#FF0033'>Circuit Overload</font> armor:"
@@ -7572,11 +7572,15 @@
 		"DOTA_Tooltip_ability_aoko_bullet_attribute_Description"		"<font color='#58ACFA'>Browning Starmine - Burst:</font>\nApplies debuff that reduces outgoing <font color='#58ACFA'>magical</font> damage by %short_beam_debuff_power%%  for %short_beam_duration% seconds.\nDeals %short_beam_int_scale% <font color='#1E90FF'>INT</font> more damage.\n<font color='#58ACFA'>Browning Starmine - Barrage:</font>\nDeals %lazers_int_scale% <font color='#1E90FF'>INT</font> more damage and reveals them for %lazers_vision_duration% seconds."
 
 		"DOTA_Tooltip_ability_aoko_incantation_attribute"				"Attribute: Unlimited Rotation"
-		"DOTA_Tooltip_ability_aoko_incantation_attribute_Description"	"\n<font color='#58ACFA'>Forced Rotation Acceleration:</font>\nCreates a <font color='#58ACFA'>Floating Starmine</font> on impact.\n<font color='#58ACFA'>Severe Break Slider:</font>\nDeals %severe_int_scale% <font color='#1E90FF'>INT</font> more damage. Third laser deals %severe_int_scale_leg% <font color='#1E90FF'>INT</font> more damage instead."
+		"DOTA_Tooltip_ability_aoko_incantation_attribute_Description"	"\n<font color='#58ACFA'>Forced Rotation Acceleration:</font>\nApplies <font color='#9400D3'>dimensional lock</font> for 1 second on impact.\n<font color='#58ACFA'>Severe Break Slider:</font>\nDeals %severe_int_scale% <font color='#1E90FF'>INT</font> more damage. Third laser deals %severe_int_scale_leg% <font color='#1E90FF'>INT</font> more damage instead."
+
+		//Creates a <font color='#58ACFA'>Floating Starmine</font> on impact.
 
 		"DOTA_Tooltip_ability_aoko_magician_attribute"					"Attribute: Magician of the Fifth Magic"
-		"DOTA_Tooltip_ability_aoko_magician_attribute_Description"		"<font color='#58ACFA'>Fifth Magic - Blue</font>:\nIncreases cast range by %blue_bonus_range%.\nIncreases Aoko's barrier by %blue_shield_amount%.\nAoko's team gains %blue_ms% fixed movement speed for %blue_ms_duration% seconds.\n<font color='#FF0033'>Circuit Overload</font>:\n<font color='#00FFFF'>Circuit Charge</font> stack gain is converted to flat cooldown reduction applied to all Aoko's basic abilities."
+		"DOTA_Tooltip_ability_aoko_magician_attribute_Description"		"<font color='#58ACFA'>Fifth Magic - Blue</font>:\nIncreases Aoko's barrier by %blue_shield_amount%.\nAoko's team gains %blue_ms% fixed movement speed for %blue_ms_duration% seconds.\n<font color='#FF0033'>Circuit Overload</font>:\n<font color='#00FFFF'>Circuit Charge</font> stack gain is converted to flat cooldown reduction applied to all Aoko's basic abilities."
 		"DOTA_Tooltip_ability_aoko_magician_attribute_cdr_per_stack"	"<font color='#FF0033'>Circuit Overload</font> cooldown reduction per stack:"
+
+		//Increases cast range by %blue_bonus_range%
 
 
         //====================================

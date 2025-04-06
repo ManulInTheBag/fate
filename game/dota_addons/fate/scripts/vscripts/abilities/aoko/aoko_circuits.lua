@@ -80,14 +80,14 @@ function modifier_aoko_circuits_passive:IsHidden() return false end
 function modifier_aoko_circuits_passive:IsDebuff() return false end
 
 function modifier_aoko_circuits_passive:DeclareFunctions()
-    local func = { MODIFIER_PROPERTY_MANA_REGEN_TOTAL_PERCENTAGE,
+    local func = { MODIFIER_PROPERTY_MANA_REGEN_CONSTANT,
     				MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
     				MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS,
     				MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE}
     return func
 end
 
-function modifier_aoko_circuits_passive:GetModifierTotalPercentageManaRegen()
+function modifier_aoko_circuits_passive:GetModifierConstantManaRegen()
 	return self:GetStackCount()*self:GetAbility():GetSpecialValueFor("manaregen_per_stack")
 end
 
