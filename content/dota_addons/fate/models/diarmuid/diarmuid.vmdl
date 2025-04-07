@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc32:version{c5dcef98-b629-46ab-88e3-a17c005c935e} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc39:version{1ceecb0d-4093-4729-ab18-b76886c64cde} -->
 {
 	rootNode = 
 	{
@@ -282,6 +282,7 @@
 							{
 								_class = "AnimFile"
 								name = "diarmuid_idle"
+								is_default_idle_anim = false
 								activity_name = ""
 								activity_weight = 1
 								weight_list_name = ""
@@ -304,6 +305,7 @@
 							{
 								_class = "AnimFile"
 								name = "diarmuid_double"
+								is_default_idle_anim = false
 								activity_name = "ACT_DOTA_CAST_ABILITY_6"
 								activity_weight = 1
 								weight_list_name = ""
@@ -326,6 +328,7 @@
 							{
 								_class = "AnimFile"
 								name = "diarmuid_move"
+								is_default_idle_anim = false
 								activity_name = "ACT_DOTA_RUN"
 								activity_weight = 1
 								weight_list_name = ""
@@ -348,6 +351,7 @@
 							{
 								_class = "AnimFile"
 								name = "diarmuid_dearg"
+								is_default_idle_anim = false
 								activity_name = "ACT_DOTA_CAST_ABILITY_1"
 								activity_weight = 1
 								weight_list_name = ""
@@ -370,6 +374,7 @@
 							{
 								_class = "AnimFile"
 								name = "diarmuid_death"
+								is_default_idle_anim = false
 								activity_name = "ACT_DOTA_DIE"
 								activity_weight = 1
 								weight_list_name = ""
@@ -392,6 +397,7 @@
 							{
 								_class = "AnimFile"
 								name = "diarmuid_dearg_cast"
+								is_default_idle_anim = false
 								activity_name = "ACT_DOTA_CAST_ABILITY_5"
 								activity_weight = 1
 								weight_list_name = ""
@@ -414,6 +420,7 @@
 							{
 								_class = "AnimFile"
 								name = "diarmuid_attack_one"
+								is_default_idle_anim = false
 								activity_name = "ACT_DOTA_ATTACK"
 								activity_weight = 1
 								weight_list_name = ""
@@ -436,6 +443,7 @@
 							{
 								_class = "AnimFile"
 								name = "diarmuid_attack_two"
+								is_default_idle_anim = false
 								activity_name = "ACT_DOTA_ATTACK2"
 								activity_weight = 1
 								weight_list_name = ""
@@ -458,6 +466,7 @@
 							{
 								_class = "AnimFile"
 								name = "diarmuid_attack_three"
+								is_default_idle_anim = false
 								activity_name = "ACT_DOTA_ATTACK_EVENT"
 								activity_weight = 1
 								weight_list_name = ""
@@ -480,6 +489,7 @@
 							{
 								_class = "AnimFile"
 								name = "diarmuid_idle_two"
+								is_default_idle_anim = false
 								activity_name = "ACT_DOTA_IDLE"
 								activity_weight = 1
 								weight_list_name = ""
@@ -502,6 +512,7 @@
 							{
 								_class = "AnimFile"
 								name = "diarmuid_dearg2"
+								is_default_idle_anim = false
 								activity_name = "ACT_DOTA_CAST_ABILITY_4"
 								activity_weight = 1
 								weight_list_name = ""
@@ -521,6 +532,29 @@
 								framerate = 30.0
 								reverse = false
 							},
+							{
+								_class = "AnimFile"
+								name = "diarmuid_dearg3"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_CAST_ABILITY_4"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/diarmuid/diarmuid_anim.FBX"
+								import_bone_scales = false
+								start_frame = 0
+								end_frame = 3313
+								framerate = 30.0
+								reverse = false
+							},
 						]
 					},
 				]
@@ -531,5 +565,6 @@
 		primary_associated_entity = ""
 		anim_graph_name = ""
 		importer_notes = "Imported from VMDL\n==Warnings==\nChanged incompatible hitbox parent bone name 'Bone Root' to 'Bone_Root'\nChanged incompatible hitbox parent bone name 'Bone Chest' to 'Bone_Chest'\nChanged incompatible hitbox parent bone name 'Bone Chest2' to 'Bone_Chest2'\nChanged incompatible hitbox parent bone name 'Bone_Arm1 R' to 'Bone_Arm1_R'\nChanged incompatible hitbox parent bone name 'Bone_Arm1 L' to 'Bone_Arm1_L'\nChanged incompatible hitbox parent bone name 'Bone_Arm2 R' to 'Bone_Arm2_R'\nChanged incompatible hitbox parent bone name 'Bone_Arm2 L' to 'Bone_Arm2_L'\nChanged incompatible hitbox parent bone name 'Bone_Leg1 L' to 'Bone_Leg1_L'\nChanged incompatible hitbox parent bone name 'Bone_Leg1 R' to 'Bone_Leg1_R'\nChanged incompatible hitbox parent bone name 'Bone_Hand R' to 'Bone_Hand_R'\nChanged incompatible hitbox parent bone name 'Bone_Hand L' to 'Bone_Hand_L'\nChanged incompatible hitbox parent bone name 'Bone_Leg2 L' to 'Bone_Leg2_L'\nChanged incompatible hitbox parent bone name 'Bone_Leg2 R' to 'Bone_Leg2_R'\nChanged incompatible hitbox parent bone name 'Bone Head' to 'Bone_Head'\nChanged incompatible hitbox parent bone name 'Bone_Weapon R' to 'Bone_Weapon_R'\nChanged incompatible hitbox parent bone name 'Bone_Shoulder Pad' to 'Bone_Shoulder_Pad'\nChanged incompatible hitbox parent bone name 'Bone_Weapon L' to 'Bone_Weapon_L'\nChanged incompatible hitbox parent bone name 'Bone_Foot L' to 'Bone_Foot_L'\nChanged incompatible hitbox parent bone name 'Bone_Foot R' to 'Bone_Foot_R'\nChanged incompatible bone name 'Bone Chest2' to 'Bone_Chest2'\nChanged incompatible bone name 'Bone_Weapon R' to 'Bone_Weapon_R'\nChanged incompatible bone name 'Bone_Weapon L' to 'Bone_Weapon_L'\n"
+		document_sub_type = "ModelDocSubType_None"
 	}
 }

@@ -78,12 +78,14 @@ if IsServer() then
     			end)
     		end
 			if type(self.OverheadFx) == "number" then
-				ParticleManager:DestroyParticle(self.OverheadFx, true)
+				--ParticleManager:DestroyParticle(self.OverheadFx, true)
 				ParticleManager:ReleaseParticleIndex(self.OverheadFx)
 			end
-			self.OverheadFx = ParticleManager:CreateParticle( "particles/zlodemon/zlodemon_overhead_eye.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetParent() )
-			ParticleManager:SetParticleControl( self.OverheadFx , 1, Vector( 1,1,1 ) )
-			ParticleManager:SetParticleControl( self.OverheadFx , 2, Vector( 0.5,0,0 ) )
+			if  kappa1 then
+				self.OverheadFx = ParticleManager:CreateParticle( "particles/zlodemon/zlodemon_overhead_eye.vpcf", PATTACH_OVERHEAD_FOLLOW, self:GetParent() )
+				ParticleManager:SetParticleControl( self.OverheadFx , 1, Vector( 1,1,1 ) )
+				ParticleManager:SetParticleControl( self.OverheadFx , 2, Vector( 0.2,0,0 ) )
+			end
 			self.State = {}
 			self.hidden = true
 			--ParticleManager:SetParticleControl(self.ring_fx, 3, Vector(self.radius, 0, 0))

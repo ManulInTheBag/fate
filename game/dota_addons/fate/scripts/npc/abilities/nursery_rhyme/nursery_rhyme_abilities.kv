@@ -650,6 +650,7 @@
             "doppelganger_health" "70 90 110 130 150"
             "damage_shared" "40"
             "duration" "5 5.5 6 6.5 7"
+            "damage_per_sec_flat" "100 125 150 175 200"
         }
 		
 
@@ -678,6 +679,7 @@
 					{
 						"ScriptFile"	"nursery_rhyme_ability"
 						"Function"		"OnCloneThink"
+						"damage_per_sec" 	"%damage_per_sec_flat"
 					}
 				}
 
@@ -732,7 +734,7 @@
 				"IsDebuff"		"1"
 				"Properties"
 				{
-					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-70"
+					"MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE"	"-50"
 				}
 			}
 		}
@@ -1023,7 +1025,7 @@
 		
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"9999"
-		"AbilityManaCost"				"8"
+		"AbilityManaCost"				"14"
 
 		"precache"
 		{
@@ -1031,11 +1033,12 @@
 
 		"AbilityValues"
         {
-            "slow_amount" "70"
-            "damage_per_sec" "3"
+            "slow_amount" "50"
+            "damage_per_sec" "1.5"
             "shapeshift_duration" "7"
             "shapeshift_slow" "40"
             "shapeshift_cd" "20"
+            "damage_per_sec_flat" "100 125 150 175 200"
         }
 		
 		"OnSpellStart"
@@ -1062,7 +1065,7 @@
 		
 		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"9999"
-		"AbilityManaCost"				"16"
+		"AbilityManaCost"				"10"
 
 		"precache"
 		{

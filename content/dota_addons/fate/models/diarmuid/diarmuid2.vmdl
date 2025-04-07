@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc38:version{81520c21-94aa-45fa-a458-34731c145969} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc39:version{1ceecb0d-4093-4729-ab18-b76886c64cde} -->
 {
 	rootNode = 
 	{
@@ -248,6 +248,7 @@
 							{
 								_class = "AnimFile"
 								name = "diarmuid2_idle"
+								is_default_idle_anim = false
 								activity_name = "ACT_DOTA_IDLE"
 								activity_weight = 1
 								weight_list_name = ""
@@ -270,6 +271,7 @@
 							{
 								_class = "AnimFile"
 								name = "diarmuid2_walk"
+								is_default_idle_anim = false
 								activity_name = "ACT_DOTA_RUN"
 								activity_weight = 1
 								weight_list_name = ""
@@ -292,6 +294,7 @@
 							{
 								_class = "AnimFile"
 								name = "diarmuid2_dearg_poke"
+								is_default_idle_anim = false
 								activity_name = "ACT_DOTA_ATTACK2"
 								activity_weight = 1
 								weight_list_name = ""
@@ -314,6 +317,7 @@
 							{
 								_class = "AnimFile"
 								name = "diarmuid2_buidhe_poke"
+								is_default_idle_anim = false
 								activity_name = "ACT_DOTA_ATTACK"
 								activity_weight = 1
 								weight_list_name = ""
@@ -336,6 +340,7 @@
 							{
 								_class = "AnimFile"
 								name = "diarmuid2_dearg_whip"
+								is_default_idle_anim = false
 								activity_name = "ACT_DOTA_ATTACK_EVENT"
 								activity_weight = 1
 								weight_list_name = ""
@@ -358,6 +363,7 @@
 							{
 								_class = "AnimFile"
 								name = "diarmuid2_buidhe_whip"
+								is_default_idle_anim = false
 								activity_name = ""
 								activity_weight = 1
 								weight_list_name = ""
@@ -380,6 +386,7 @@
 							{
 								_class = "AnimFile"
 								name = "diarmuid2_attack3"
+								is_default_idle_anim = false
 								activity_name = "ACT_DOTA_CAST_ABILITY_1"
 								activity_weight = 1
 								weight_list_name = ""
@@ -402,6 +409,7 @@
 							{
 								_class = "AnimFile"
 								name = "diarmuid2_cast"
+								is_default_idle_anim = false
 								activity_name = "ACT_DOTA_CAST_ABILITY_2"
 								activity_weight = 1
 								weight_list_name = ""
@@ -424,6 +432,7 @@
 							{
 								_class = "AnimFile"
 								name = "diarmuid2_dearg_cast"
+								is_default_idle_anim = false
 								activity_name = "ACT_DOTA_CAST_ABILITY_3"
 								activity_weight = 1
 								weight_list_name = ""
@@ -446,6 +455,7 @@
 							{
 								_class = "AnimFile"
 								name = "diarmuid2_buidhe_cast"
+								is_default_idle_anim = false
 								activity_name = "ACT_DOTA_CAST_ABILITY_4"
 								activity_weight = 1
 								weight_list_name = ""
@@ -468,6 +478,7 @@
 							{
 								_class = "AnimFile"
 								name = "diarmuid2_dearg_end"
+								is_default_idle_anim = false
 								activity_name = "ACT_DOTA_CAST_ABILITY_3_END"
 								activity_weight = 1
 								weight_list_name = ""
@@ -490,6 +501,7 @@
 							{
 								_class = "AnimFile"
 								name = "diarmuid2_buidhe_end"
+								is_default_idle_anim = false
 								activity_name = "ACT_DOTA_CAST_ABILITY_4_END"
 								activity_weight = 1
 								weight_list_name = ""
@@ -512,6 +524,7 @@
 							{
 								_class = "AnimFile"
 								name = "diarmuid2_death"
+								is_default_idle_anim = false
 								activity_name = "ACT_DOTA_DIE"
 								activity_weight = 1
 								weight_list_name = ""
@@ -534,6 +547,7 @@
 							{
 								_class = "AnimFile"
 								name = "gae_dearg_throw"
+								is_default_idle_anim = false
 								activity_name = "ACT_DOTA_CAST_ABILITY_7"
 								activity_weight = 1
 								weight_list_name = ""
@@ -551,6 +565,30 @@
 								start_frame = 797
 								end_frame = 822
 								framerate = 70.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "diarmuid2_spears_rotation"
+								disabled = true
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_CAST_ABILITY_2"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/diarmuid/diarmuid_anim.fbx"
+								import_bone_scales = false
+								start_frame = 750
+								end_frame = 780
+								framerate = 30.0
 								reverse = false
 							},
 						]

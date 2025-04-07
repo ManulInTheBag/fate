@@ -3424,7 +3424,7 @@
 		"DOTA_Tooltip_ability_berserker_5th_nine_lives_Note0"	"Berserker is stunned and revoked from Master until she finishes casting."
 
 		"DOTA_Tooltip_Ability_berserker_5th_madmans_roar"	"Combo: Madman's Roar"
-		"DOTA_Tooltip_ability_berserker_5th_madmans_roar_Description"	"<font color='#58ACFA'>Combo Requirement : 40 Strength and Agility</font>\n<font color='#58ACFA'>Combo Sequence : Q-W-D in 4 seconds</font>\nBerserker lets out a deafening howl, putting all players in coma where screen is altered and entering a shorter version of Berserk. All enemies in 3000 range suffer damage and crowd control, differing based on the distance from Berserker and on Berserker's strength. \nStrong <font color='#FF3399'>slow</font>, <font color='#FF3399'>revoke</font>, stun, dimensional lock and high damage + 2x Berserker's strength as damage in 350 range.\nStrong <font color='#FF3399'>slow</font>, dimensional lock and medium damage + 1.5x Berserker's strength as damage in 1000 range.\nWeaker <font color='#FF3399'>slow</font>, dimensional lock and moderate damage + 1x Berserker's strength as damage in 3000 range.\nOnly weak <font color='#FF3399'>slow</font> across all the map."
+		"DOTA_Tooltip_ability_berserker_5th_madmans_roar_Description"	"<font color='#58ACFA'>Combo Requirement : 30 Strength and Agility</font>\n<font color='#58ACFA'>Combo Sequence : Q-W-D in 4 seconds</font>\nBerserker lets out a deafening howl, putting all players in coma where screen is altered and entering a shorter version of Berserk. All enemies in 3000 range suffer damage and crowd control, differing based on the distance from Berserker and on Berserker's strength. \nStrong <font color='#FF3399'>slow</font>, <font color='#FF3399'>revoke</font>, stun, dimensional lock and high damage + 2x Berserker's strength as damage in 350 range.\nStrong <font color='#FF3399'>slow</font>, dimensional lock and medium damage + 1.5x Berserker's strength as damage in 1000 range.\nWeaker <font color='#FF3399'>slow</font>, dimensional lock and moderate damage + 1x Berserker's strength as damage in 3000 range.\nOnly weak <font color='#FF3399'>slow</font> across all the map."
 		"DOTA_Tooltip_ability_berserker_5th_madmans_roar_Lore"	"Berserker's shout engraves the terror deep into the very core of enemies, even manipulating the visual neural system temporarily."
 		"DOTA_Tooltip_ability_berserker_5th_madmans_roar_damage"	"HIGH DAMAGE:"
 		"DOTA_Tooltip_ability_berserker_5th_madmans_roar_lock_duration_1"	"Lock duration:"
@@ -3454,7 +3454,7 @@
 		//"DOTA_Tooltip_Ability_berserker_5th_attribute_berserk_mana_convert_ratio"	"BERSERK MANA CONVERSION RATIO:"
 
 		"DOTA_Tooltip_Ability_berserker_5th_attribute_god_hand"				"Attribute: God Hand"
-		"DOTA_Tooltip_ability_berserker_5th_attribute_god_hand_Description"	"Upgrades God Hand, making heracles respawn with 75%% health and entering Berserk for 1 second upon respawn."
+		"DOTA_Tooltip_ability_berserker_5th_attribute_god_hand_Description"	"Upgrades God Hand, making heracles respawn with 60%% health and entering Berserk for 1 second upon respawn."
 		//"DOTA_Tooltip_Ability_berserker_5th_attribute_god_hand_Note0"				"Heracles revives as long as  his team has not been eliminated."
 		//"DOTA_Tooltip_Ability_berserker_5th_attribute_god_hand_Note1"				"God Hand cannot be activated while its debuff effect lasts."
 		"DOTA_Tooltip_Ability_berserker_5th_attribute_god_hand_health_percent"				"BASE REVIVAL DAMAGE:"
@@ -4253,7 +4253,7 @@
 		"DOTA_Tooltip_ability_lancelot_parry_damage"					"Damage:"
 		"DOTA_Tooltip_ability_lancelot_parry_root_dur"					"Debuffs duration:"
 		"DOTA_Tooltip_ability_lancelot_parry_mana"						"Mana restore:"
-		"DOTA_Tooltip_ability_lancelot_parry_shield_damage_decrease_flat_value"					"Damage reduction:"
+		"DOTA_Tooltip_ability_lancelot_parry_shield_damage_decrease_flat_value"					"FLAT damage reduction:"
 
 
         "DOTA_Tooltip_Ability_lancelot_arms_mastership" 				"Eternal Arms Mastership"
@@ -6773,6 +6773,7 @@
         "DOTA_Tooltip_Ability_nursery_rhyme_doppelganger_doppelganger_health"			"%DOPPELGANGER HEALTH:"
         "DOTA_Tooltip_Ability_nursery_rhyme_doppelganger_damage_shared"		"%SHARED DAMAGE:"
         "DOTA_Tooltip_Ability_nursery_rhyme_doppelganger_duration"	"DURATION:"
+        "DOTA_Tooltip_Ability_nursery_rhyme_doppelganger_damage_per_sec_flat"	"SA LOOKAWAY DPS:"
         "DOTA_Tooltip_Ability_nursery_rhyme_doppelganger_Note0"		"Only 1 doppelganger can exist at a time."
         "DOTA_Tooltip_Ability_nursery_rhyme_doppelganger_Note1"		"Shared damage from doppelganger cannot be lethal."
         "DOTA_Tooltip_Ability_nursery_rhyme_doppelganger_Note2"		"Doppelganger cannot be linked with Spirit Link."
@@ -6831,7 +6832,7 @@
         "DOTA_Tooltip_Ability_nursery_rhyme_attribute_forever_together_Description"		"I Am You, and You Are Me causes target to be slowed and take damage every second based on INT continuously if it is looking away from its doppelganger."
         "DOTA_Tooltip_Ability_nursery_rhyme_attribute_forever_together_slow_amount"		"%LOOKAWAY SLOW AMOUNT:"
         "DOTA_Tooltip_Ability_nursery_rhyme_attribute_forever_together_damage_per_sec"	"LOOKAWAY DAMAGE INT RATIO:"
-
+        "DOTA_Tooltip_Ability_nursery_rhyme_attribute_forever_together_damage_per_sec_flat"	"LOOKAWAY DAMAGE PER SECOND:"
         "DOTA_Tooltip_Ability_nursery_rhyme_attribute_nightmare"				"Attribute: Nightmare"
         "DOTA_Tooltip_Ability_nursery_rhyme_attribute_nightmare_Description"	"Increases The Plains of Water's max bounce count, damage by %int_ratio% per point of Nursery Rhyme's INT, and causes each bounce onto enemy hero to steal %int_steal% INT from them for %int_steal_duration% seconds."
         "DOTA_Tooltip_Ability_nursery_rhyme_attribute_nightmare_extra_bounce"	"Extra Bounces:"
@@ -8416,7 +8417,7 @@
 	"DOTA_Tooltip_ability_jtr_surgery_attack_Note0"		"Jack is untargetable, but is still vulnerable to AOE-abilities."
 
         "DOTA_Tooltip_ability_jtr_information_erase"					"Information Erasure"
-        "DOTA_Tooltip_ability_jtr_information_erase_Description"		"Removes various buffs from the target enemy and forces their abilities to go on cooldown."
+        "DOTA_Tooltip_ability_jtr_information_erase_Description"		"Removes various buffs from the target enemy and silences them."
         "DOTA_Tooltip_ability_jtr_information_erase_cast_range"			"Cast Range:"
         "DOTA_Tooltip_ability_jtr_information_erase_cooldown_forced"	"Silence duration:"
 

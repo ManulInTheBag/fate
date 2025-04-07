@@ -909,9 +909,9 @@ function OnGodHandDeath(keys)
 			keys.ability:ApplyDataDrivenModifier(caster, caster, "modifier_god_hand_debuff", {}) 
 			caster:AddNewModifier(caster, keys.ability, "modifier_heracles_heal_disable", { duration = 1 })
 			if not caster.IsGodHandAcquired then
-				caster:SetHealth(caster:GetMaxHealth()*0.5)
+				caster:SetHealth(caster:GetMaxHealth()*0.25)
 			else
-				caster:SetHealth(caster:GetMaxHealth()*0.75)
+				caster:SetHealth(caster:GetMaxHealth()*0.6)
 				caster:FindAbilityByName("heracles_berserk"):EnterBerserk(1)
 				--caster:FindAbilityByName("heracles_berserk"):EndCooldown()
 			end

@@ -37,7 +37,7 @@ function jtr_information_erase:OnSpellStart()
 				break
 			end
 		end]]
-		--ApplyStrongDispel(target)
+		ApplyStrongDispel(target)
 		--target:RemoveModifierByName("modifier_a_scroll")
 		--target:RemoveModifierByName("modifier_heart_of_harmony")
 	end

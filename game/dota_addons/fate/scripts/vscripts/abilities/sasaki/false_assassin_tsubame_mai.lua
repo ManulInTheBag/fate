@@ -160,7 +160,7 @@ function modifier_tsubame_mai_omnislash:TsubameMai(initialtarget)
 
 	Timers:CreateTimer(1.4, function()
 		if caster:IsAlive() and target:IsAlive() then
-			tsubame:TsubameGaeshi(target)
+			tsubame:TsubameGaeshi(target, true)
 		end
 	end)
 end

@@ -506,7 +506,7 @@ function OnCloneThink(keys)
 	local ability = keys.ability
 	if caster.bIsFTAcquired then
 		if not IsFacingUnit(caster.CurrentDoppelgangerOriginal, caster.CurrentDoppelganger, 180) then
-			DoDamage(caster, caster.CurrentDoppelgangerOriginal, caster:GetIntellect()*1.5 , DAMAGE_TYPE_MAGICAL, 0, ability, false)
+			DoDamage(caster, caster.CurrentDoppelgangerOriginal, caster:GetIntellect()*0.5 + keys.damage_per_sec/3 , DAMAGE_TYPE_MAGICAL, 0, ability, false)
 			ability:ApplyDataDrivenModifier(caster, caster.CurrentDoppelgangerOriginal, "modifier_doppelganger_lookaway_slow", {})
 		end
 	end

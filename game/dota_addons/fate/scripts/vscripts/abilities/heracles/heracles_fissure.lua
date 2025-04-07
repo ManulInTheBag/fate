@@ -34,7 +34,7 @@ function heracles_fissure:OnSpellStart()
 	local particle = ParticleManager:CreateParticle("particles/zlodemon/heracles/heracles_fissure.vpcf", PATTACH_WORLDORIGIN, nil)
 	ParticleManager:SetParticleControlTransformForward(particle, 0, caster:GetAbsOrigin()+caster:GetForwardVector() * 100, caster:GetForwardVector())
 	ParticleManager:SetParticleControlTransformForward(particle, 1, caster:GetAbsOrigin()+caster:GetForwardVector() * 100,  caster:GetForwardVector())
-	if caster:GetStrength() >= 39.1 and caster:GetAgility() >= 39.1  then
+	if caster:GetStrength() >= 30 and caster:GetAgility() >= 30  then
 		if self == caster:FindAbilityByName("heracles_fissure") then
 			caster.QUsed = true
 			QTime = GameRules:GetGameTime()

@@ -61,10 +61,10 @@ end
 
 function sasaki_tsubame_gaeshi:OnSpellStart()
 	local target = self:GetCursorTarget()
-	self:TsubameGaeshi(target)
+	self:TsubameGaeshi(target, false)
 end
 
-function sasaki_tsubame_gaeshi:TsubameGaeshi(target)
+function sasaki_tsubame_gaeshi:TsubameGaeshi(target, doPierceSpellBlock)
 	local caster = self:GetCaster()
 	--local target = self:GetCursorTarget()
 	local enhanced = false
@@ -82,8 +82,9 @@ function sasaki_tsubame_gaeshi:TsubameGaeshi(target)
             --caster:EmitSound("Hero_LegionCommander.PressTheAttack")
         end
     end)
-
-	if IsSpellBlocked(target)  then return end
+	if not doPierceSpellBlock then 
+		if IsSpellBlocked(target)  then return end
+	end
 
 	if caster.IsGanryuAcquired then
 		split_damage = split_damage + caster:GetAverageTrueAttackDamage(caster)*0.35

@@ -270,6 +270,7 @@ function jtr_mtr_new:NotTrue(caster, target)
 		else
 			caster:RemoveModifierByName("jump_pause")
 			FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
+			HardCleanse(caster)
 		end
 		return 
 	end)
@@ -297,6 +298,8 @@ function jtr_mtr_new:NotTrue(caster, target)
 		else
 			caster:RemoveModifierByName("jump_pause")
 			FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
+			HardCleanse(caster)
+
 		end
 		return
 	end)
@@ -324,6 +327,7 @@ function jtr_mtr_new:NotTrue(caster, target)
 		else
 			caster:RemoveModifierByName("jump_pause")
 			FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
+			HardCleanse(caster)
 		end
 		return 
 	end)
@@ -348,6 +352,7 @@ function jtr_mtr_new:NotTrue(caster, target)
 		else
 			caster:RemoveModifierByName("jump_pause")
 			FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
+			HardCleanse(caster)
 		end
 		return
 	end)
@@ -376,6 +381,7 @@ function jtr_mtr_new:NotTrue(caster, target)
 		else
 			caster:RemoveModifierByName("jump_pause")
 			FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
+			HardCleanse(caster)
 		end
 		return 
 	end)
@@ -384,8 +390,10 @@ function jtr_mtr_new:NotTrue(caster, target)
 		if caster:IsAlive() and target:IsAlive() then
 			giveUnitDataDrivenModifier(caster, target, "locked", self:GetSpecialValueFor("duration"))
 			self:PerformEmpoweredSlash(caster, target, 0.125)
+			HardCleanse(caster)
 		else
 			caster:RemoveModifierByName("jump_pause")
+			HardCleanse(caster)
 		end
 
 		return 
