@@ -182,80 +182,80 @@ end
 
 
 
-LinkLuaModifier("modifier_salter_model_swap", "abilities/arturia_alter/arturia_alter_derange", LUA_MODIFIER_MOTION_NONE)
---NOTE: Function to handle swapping between models in-game.
-if IsServer() then
-    if type(salter_abilities_chat_event) == "number" then
-        StopListeningToGameEvent(salter_abilities_chat_event)
-    end
-    --===--
-    _G.salter_abilities_chat_event = ListenToGameEvent("player_chat", function(tEventTable)
-        local nPlayerID = tEventTable.playerid
-        local sText     = tEventTable.text
-        local hHero     = PlayerResource:GetSelectedHeroEntity(nPlayerID)
-        if not (hHero:GetName() == "npc_dota_hero_spectre") then
-            return
-        end
-        if IsNotNull(hHero) then
-            if sText == "-alter1" then
-                hHero:RemoveModifierByName("modifier_salter_model_swap")
-            end
-            if sText == "-alter2" then
-                if GameRules:GetDOTATime(false, false) <= 300 then --300
-                    hHero:AddNewModifier(hHero, nil, "modifier_salter_model_swap", {})
-                end
-            end
-        end
-    end, nil)
-end
+-- LinkLuaModifier("modifier_salter_model_swap", "abilities/arturia_alter/arturia_alter_derange", LUA_MODIFIER_MOTION_NONE)
+-- --NOTE: Function to handle swapping between models in-game.
+-- if IsServer() then
+--     if type(salter_abilities_chat_event) == "number" then
+--         StopListeningToGameEvent(salter_abilities_chat_event)
+--     end
+--     --===--
+--     _G.salter_abilities_chat_event = ListenToGameEvent("player_chat", function(tEventTable)
+--         local nPlayerID = tEventTable.playerid
+--         local sText     = tEventTable.text
+--         local hHero     = PlayerResource:GetSelectedHeroEntity(nPlayerID)
+--         if not (hHero:GetName() == "npc_dota_hero_spectre") then
+--             return
+--         end
+--         if IsNotNull(hHero) then
+--             if sText == "-alter1" then
+--                 hHero:RemoveModifierByName("modifier_salter_model_swap")
+--             end
+--             if sText == "-alter2" then
+--                 if GameRules:GetDOTATime(false, false) <= 300 then --300
+--                     hHero:AddNewModifier(hHero, nil, "modifier_salter_model_swap", {})
+--                 end
+--             end
+--         end
+--     end, nil)
+-- end
 
 
-modifier_salter_model_swap = modifier_salter_model_swap or class({})
+-- modifier_salter_model_swap = modifier_salter_model_swap or class({})
 
-function modifier_salter_model_swap:IsHidden()                                                                       return true end
-function modifier_salter_model_swap:IsDebuff()                                                                       return false end
-function modifier_salter_model_swap:IsPurgable()                                                                     return false end
-function modifier_salter_model_swap:IsPurgeException()                                                               return false end
-function modifier_salter_model_swap:RemoveOnDeath()                                                                  return false end
-function modifier_salter_model_swap:IsDimensionException()                                                           return true end
-function modifier_salter_model_swap:AllowIllusionDuplicate()                                                         return true end
-function modifier_salter_model_swap:GetPriority()                                                                    return MODIFIER_PRIORITY_LOW end
-function modifier_salter_model_swap:DeclareFunctions()
-    local tFunc =   {
-                        MODIFIER_PROPERTY_MODEL_CHANGE
-                    }
-    return tFunc
-end
-function modifier_salter_model_swap:GetModifierModelChange(keys)
-    return self.sModelName
-end
-function modifier_salter_model_swap:OnCreated(hTable)
-    self.hCaster  = self:GetCaster()
-    self.hParent  = self:GetParent()
-    self.hAbility = self:GetAbility()
-    if IsServer() then
-        self.sModelName = "models/zlodemon/salter_skin/sbr_alter.vmdl"
-    end
-end
-function modifier_salter_model_swap:OnRefresh(hTable)
-    self:OnCreated(hTable)
-end
-LinkLuaModifier("modifier_salter_model_swap_jopa", "abilities/arturia_alter/arturia_alter_derange", LUA_MODIFIER_MOTION_NONE)
---========================================--
+-- function modifier_salter_model_swap:IsHidden()                                                                       return true end
+-- function modifier_salter_model_swap:IsDebuff()                                                                       return false end
+-- function modifier_salter_model_swap:IsPurgable()                                                                     return false end
+-- function modifier_salter_model_swap:IsPurgeException()                                                               return false end
+-- function modifier_salter_model_swap:RemoveOnDeath()                                                                  return false end
+-- function modifier_salter_model_swap:IsDimensionException()                                                           return true end
+-- function modifier_salter_model_swap:AllowIllusionDuplicate()                                                         return true end
+-- function modifier_salter_model_swap:GetPriority()                                                                    return MODIFIER_PRIORITY_LOW end
+-- function modifier_salter_model_swap:DeclareFunctions()
+--     local tFunc =   {
+--                         MODIFIER_PROPERTY_MODEL_CHANGE
+--                     }
+--     return tFunc
+-- end
+-- function modifier_salter_model_swap:GetModifierModelChange(keys)
+--     return self.sModelName
+-- end
+-- function modifier_salter_model_swap:OnCreated(hTable)
+--     self.hCaster  = self:GetCaster()
+--     self.hParent  = self:GetParent()
+--     self.hAbility = self:GetAbility()
+--     if IsServer() then
+--         self.sModelName = "models/zlodemon/salter_skin/sbr_alter.vmdl"
+--     end
+-- end
+-- function modifier_salter_model_swap:OnRefresh(hTable)
+--     self:OnCreated(hTable)
+-- end
+-- LinkLuaModifier("modifier_salter_model_swap_jopa", "abilities/arturia_alter/arturia_alter_derange", LUA_MODIFIER_MOTION_NONE)
+-- --========================================--
 
-modifier_salter_model_swap_jopa = modifier_salter_model_swap_jopa or class({})
+-- modifier_salter_model_swap_jopa = modifier_salter_model_swap_jopa or class({})
 
-function modifier_salter_model_swap_jopa:IsHidden()                                                                       return true end
-function modifier_salter_model_swap_jopa:IsDebuff()                                                                       return false end
-function modifier_salter_model_swap_jopa:IsPurgable()                                                                     return false end
-function modifier_salter_model_swap_jopa:IsPurgeException()                                                               return false end
-function modifier_salter_model_swap_jopa:RemoveOnDeath()                                                                  return true end
+-- function modifier_salter_model_swap_jopa:IsHidden()                                                                       return true end
+-- function modifier_salter_model_swap_jopa:IsDebuff()                                                                       return false end
+-- function modifier_salter_model_swap_jopa:IsPurgable()                                                                     return false end
+-- function modifier_salter_model_swap_jopa:IsPurgeException()                                                               return false end
+-- function modifier_salter_model_swap_jopa:RemoveOnDeath()                                                                  return true end
 
 
-function modifier_salter_model_swap_jopa:OnCreated(hTable)
-	self:GetCaster():SetBodygroup(0,1)
-end
-function modifier_salter_model_swap_jopa:OnDestroy()
-	self:GetCaster():SetBodygroup(0,0)
-end
---========================================--
+-- function modifier_salter_model_swap_jopa:OnCreated(hTable)
+-- 	self:GetCaster():SetBodygroup(0,1)
+-- end
+-- function modifier_salter_model_swap_jopa:OnDestroy()
+-- 	self:GetCaster():SetBodygroup(0,0)
+-- end
+-- --========================================--

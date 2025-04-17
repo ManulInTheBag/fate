@@ -95,8 +95,11 @@ function arcueid_what:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
 	local or_en = hCaster:GetAbsOrigin()
 
 	local distance = (or_tar - self.casterpos):Length2D()
-
-	local knockback = { should_stun = 1,
+	local shouldStun = 1
+	if hTarget:IsMagicImmune() then
+		shouldStun = 0
+	end
+	local knockback = { should_stun = shouldStun,
 	        knockback_duration = 0.3,
 		    duration = 0.3,
 	        knockback_distance = -distance + 100,

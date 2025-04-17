@@ -11,7 +11,7 @@ function edmon_dash:OnAbilityPhaseStart()
 end
 function edmon_dash:CastFilterResultTarget(hTarget)
     local caster = self:GetCaster()
-    if IsServer() and not IsInSameRealm(caster:GetAbsOrigin(), hTarget:GetAbsOrigin()) then
+    if IsServer() and not IsInSameRealm(caster:GetAbsOrigin(), hTarget:GetAbsOrigin()) or caster == hTarget then
         return UF_FAIL_CUSTOM
     else
         return UF_SUCESS
@@ -22,7 +22,7 @@ function edmon_dash:GetCustomCastErrorTarget(hTarget)
     if IsServer() and not IsInSameRealm(caster:GetAbsOrigin(), hTarget:GetAbsOrigin()) then
         return "Can't cast into reality marble"
     else
-        return UF_SUCESS
+        return "Cant cast on self"
     end
 end
 function edmon_dash:OnAbilityPhaseInterrupted()

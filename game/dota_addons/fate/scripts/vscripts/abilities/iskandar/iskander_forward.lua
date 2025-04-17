@@ -39,10 +39,10 @@ function iskander_forward:OnSpellStart()
 			   Timers:CreateTimer({
 				   endTime = 5,
 				   callback = function()
-					if(caster:GetAbilityByIndex(4):GetName() == "iskander_ionioi") then
-				   		caster:SwapAbilities("iskander_ionioi", "fate_empty1", false, true)
-					elseif(caster:GetAbilityByIndex(4):GetName() == "iskander_ionioi" and  caster.IsTacticsAcquired) then
-						caster:SwapAbilities("iskander_ionioi", "iskander_trap", false, true)
+					if(caster:GetAbilityByIndex(4):GetName() == "iskander_ionioi" and  caster.IsTacticsAcquired) then
+				   		caster:SwapAbilities("iskander_ionioi", "iskander_trap", false, true)
+					elseif(caster:GetAbilityByIndex(4):GetName() == "iskander_ionioi" ) then
+						caster:SwapAbilities("iskander_ionioi", "fate_empty1", false, true)
 					end
 				   
 			   end

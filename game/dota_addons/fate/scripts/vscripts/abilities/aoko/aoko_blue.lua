@@ -122,6 +122,10 @@ function modifier_aoko_blue_ally:OnCreated()
 	self.caster = self:GetCaster()
 	self.parent = self:GetParent()
 	self.ability = self:GetAbility()
+	
+	self.overhead_fx = ParticleManager:CreateParticle("particles/aoko/aoko_res_overhead.vpcf", PATTACH_OVERHEAD_FOLLOW, self.parent)
+	self:AddParticle(self.overhead_fx, false, false, -1, false, true)
+	--ParticleManager:SetParticleControl(self.runes_fx, 0, caster:GetAbsOrigin())
 end
 
 function modifier_aoko_blue_ally:OnDestroy()

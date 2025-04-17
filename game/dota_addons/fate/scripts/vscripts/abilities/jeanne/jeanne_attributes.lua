@@ -81,7 +81,7 @@ function jeanne_attribute_divine_symbol:OnSpellStart()
 	if not hero then 
 		hero = caster.HeroUnit
 	end
-
+	
 	hero.IsDivineSymbolAcquired = true
 
 	-- Set master 1's mana 

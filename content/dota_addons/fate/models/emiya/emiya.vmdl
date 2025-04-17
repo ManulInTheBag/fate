@@ -151,6 +151,7 @@
 								activity_weight = 1
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_IDLE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -181,6 +182,7 @@
 								activity_weight = 1
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_RUN"
 						activity_weight = 1
 						weight_list_name = ""
@@ -211,6 +213,7 @@
 								activity_weight = 1
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_ATTACK_STATUE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -246,6 +249,7 @@
 								activity_weight = 1
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_ATTACK"
 						activity_weight = 1
 						weight_list_name = ""
@@ -281,6 +285,7 @@
 								activity_weight = 1
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_ATTACK"
 						activity_weight = 1
 						weight_list_name = ""
@@ -351,6 +356,7 @@
 								activity_weight = 1
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_1"
 						activity_weight = 1
 						weight_list_name = "default"
@@ -381,6 +387,7 @@
 								activity_weight = 1
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_3"
 						activity_weight = 1
 						weight_list_name = ""
@@ -451,6 +458,7 @@
 								}
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_2"
 						activity_weight = 1
 						weight_list_name = ""
@@ -557,6 +565,7 @@
 								}
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_AW_MAGNETIC_FIELD"
 						activity_weight = 1
 						weight_list_name = ""
@@ -670,6 +679,7 @@
 								}
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_3_END"
 						activity_weight = 1
 						weight_list_name = ""
@@ -707,6 +717,7 @@
 								activity_weight = 1
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_DIE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -749,6 +760,7 @@
 								motion_type = "Uniform"
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_2"
 						activity_weight = 1
 						weight_list_name = ""
@@ -771,6 +783,7 @@
 					{
 						_class = "AnimFile"
 						name = "dashing"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_RAZE_3"
 						activity_weight = 1
 						weight_list_name = ""
@@ -856,6 +869,7 @@
 								}
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_ALCHEMIST_CONCOCTION_THROW"
 						activity_weight = 1
 						weight_list_name = ""
@@ -878,6 +892,7 @@
 					{
 						_class = "AnimFile"
 						name = "fast_dash_overedge_"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_RAZE_1"
 						activity_weight = 1
 						weight_list_name = ""
@@ -983,6 +998,7 @@
 								}
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_RAZE_2"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1068,6 +1084,7 @@
 								}
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_5"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1090,6 +1107,7 @@
 					{
 						_class = "AnimFile"
 						name = "bow_cast"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_2"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1120,6 +1138,7 @@
 								activity_weight = 1
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_DIE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1150,6 +1169,7 @@
 								activity_weight = 1
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_ATTACK2"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1192,6 +1212,7 @@
 								motion_type = "Uniform"
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_ATTACK"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1222,6 +1243,7 @@
 								activity_weight = 1
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_DIE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1252,6 +1274,7 @@
 								activity_weight = 1
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_RUN"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1294,6 +1317,7 @@
 								motion_type = "Uniform"
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_4"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1324,6 +1348,7 @@
 								activity_weight = 1
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_IDLE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1354,6 +1379,7 @@
 								activity_weight = 1
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_RUN"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1429,6 +1455,7 @@
 								activity_weight = 1
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_ATTACK"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1459,6 +1486,7 @@
 								activity_weight = 1
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_ATTACK_STATUE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1544,6 +1572,7 @@
 								}
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_ROT"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1586,6 +1615,7 @@
 								}
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_3_END"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1616,6 +1646,7 @@
 								activity_weight = 1
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_3"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1653,6 +1684,7 @@
 								motion_type = "Uniform"
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_3"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1675,6 +1707,7 @@
 					{
 						_class = "AnimFile"
 						name = "prepare_for_dash1"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_ALCHEMIST_CONCOCTION"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1724,6 +1757,7 @@
 								motion_type = "Uniform"
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_5"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1754,6 +1788,7 @@
 								activity_weight = 1
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_IDLE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1796,6 +1831,7 @@
 								motion_type = "Uniform"
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_5"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1818,6 +1854,7 @@
 					{
 						_class = "AnimFile"
 						name = "moonwalk"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ALACRITY"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1840,6 +1877,7 @@
 					{
 						_class = "AnimFile"
 						name = "ubw_spear"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_DEAFENING_BLAST"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1862,6 +1900,7 @@
 					{
 						_class = "AnimFile"
 						name = "bow_stand1"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_DISABLED"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1891,6 +1930,7 @@
 					{
 						_class = "AnimFile"
 						name = "ubw_start"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_ARCTIC_BURN_END"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1913,6 +1953,7 @@
 					{
 						_class = "AnimFile"
 						name = "stand_ready1"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAPTURE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -1988,6 +2029,7 @@
 								activity_weight = 1
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_ATTACK2"
 						activity_weight = 1
 						weight_list_name = ""
@@ -2076,6 +2118,7 @@
 								}
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_WHIRLING_AXES_RANGED"
 						activity_weight = 1
 						weight_list_name = ""
@@ -2142,6 +2185,7 @@
 							},
 						]
 						disabled = true
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_RAZE_2"
 						activity_weight = 1
 						weight_list_name = ""
@@ -2177,6 +2221,7 @@
 								activity_weight = 1
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_ATTACK2"
 						activity_weight = 1
 						weight_list_name = ""
@@ -2212,6 +2257,7 @@
 								activity_weight = 1
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_ATTACK2"
 						activity_weight = 1
 						weight_list_name = ""
@@ -2234,6 +2280,7 @@
 					{
 						_class = "AnimFile"
 						name = "dashing_no_overedge"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_LIFESTEALER_RAGE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -2256,6 +2303,7 @@
 					{
 						_class = "AnimFile"
 						name = "Ubw_q"
+						is_default_idle_anim = false
 						activity_name = "ACT_ALIEN_BURROW_OUT"
 						activity_weight = 1
 						weight_list_name = ""
@@ -2286,6 +2334,7 @@
 								activity_weight = 1
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_DISABLED"
 						activity_weight = 1
 						weight_list_name = ""
@@ -2323,6 +2372,7 @@
 								activity_weight = 1
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_DISABLED"
 						activity_weight = 1
 						weight_list_name = ""
@@ -2360,6 +2410,7 @@
 								activity_weight = 1
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_DISABLED"
 						activity_weight = 1
 						weight_list_name = ""
@@ -2404,6 +2455,7 @@
 								motion_type = "Uniform"
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_2_ES_ROLL_START"
 						activity_weight = 1
 						weight_list_name = ""
@@ -2421,6 +2473,72 @@
 						start_frame = 1322
 						end_frame = 1352
 						framerate = 60.0
+						reverse = false
+					},
+					{
+						_class = "AnimFile"
+						name = "dash_combo_attack_end1"
+						children = 
+						[
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 24
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/emiya/emiya_sword_spawn_krane_white.vpcf"
+									detach_from_owner = false
+									always_run = true
+									stop_on_seq_change = false
+									stop_immediately = true
+									use_layer_sequence = false
+									tags = null
+									attachment_point = "sword_right"
+									attachment_type = "point_follow"
+									attachment_point_cp1 = "sword_right_end_overedge_dash"
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 24
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/emiya/emiya_sword_spawn_krane_black.vpcf"
+									detach_from_owner = false
+									always_run = true
+									stop_on_seq_change = false
+									stop_immediately = true
+									use_layer_sequence = false
+									tags = null
+									attachment_point = "sword_left"
+									attachment_type = "point_follow"
+									attachment_point_cp1 = "sword_left_end_overedge_dash"
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+						]
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CAST_LIFE_BREAK_START"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/emiya/archer5.fbx"
+						import_bone_scales = false
+						start_frame = 358
+						end_frame = 399
+						framerate = 62.0
 						reverse = false
 					},
 				]
@@ -2671,8 +2789,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -17.713989, -26.351793, -15.961823 ]
-								hitbox_maxs = [ 15.975185, 14.535596, 8.752659 ]
+								hitbox_mins = [ -13.687169, -26.351793, -43.160648 ]
+								hitbox_maxs = [ 24.039028, 28.665785, 37.264343 ]
 							},
 							{
 								_class = "Hitbox"

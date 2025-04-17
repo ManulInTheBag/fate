@@ -58,7 +58,9 @@ function modifier_arcueid_ready:OnCreated()
 			    	self.target = self.enemy:GetAbsOrigin() + fw*150
 			    	self.locked = true
 			    end
-			    enemy:AddNewModifier(caster, self.ability, "modifier_stunned", {duration = 0.2})
+				if not  enemy:IsMagicImmune() then
+			    	enemy:AddNewModifier(caster, self.ability, "modifier_stunned", {duration = 0.2})
+				end
 		    end
 		end
 
@@ -141,7 +143,7 @@ function modifier_arcueid_ready:OnIntervalThink()
 				elseif self.rand == 2 then
 					caster:EmitSound("arcueid_ult_2")--caster:EmitSound("arcueid_ready_4")
 				end
-				if self.locked then
+				if self.locked and not self.enemy:IsMagicImmune() then
 					self.enemy:AddNewModifier(caster, self.ability, "modifier_stunned", {duration = 0.5})
 				end
 
@@ -157,7 +159,7 @@ function modifier_arcueid_ready:OnIntervalThink()
 				elseif self.rand == 2 then
 					caster:EmitSound("arcueid_ult_3")--caster:EmitSound("arcueid_ready_5")
 				end
-				if self.locked then
+				if self.locked  and not self.enemy:IsMagicImmune() then
 					self.enemy:AddNewModifier(caster, self.ability, "modifier_stunned", {duration = 0.5})
 					ApplyReattachableAirborneOnly(self.enemy, 1000, 1.0)
 				end
@@ -275,8 +277,10 @@ function modifier_arcueid_ready:Slash()
 		if caster.RecklesnessAcquired then
 			caster:PerformAttack( enemy, true, true, true, true, false, true, false )
 		end
-		DoDamage(caster, enemy, self.damage , DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
-		giveUnitDataDrivenModifier(caster, enemy, "locked", self.ability:GetSpecialValueFor("lock_duration"))
+		if not enemy:IsMagicImmune() then
+			DoDamage(caster, enemy, self.damage , DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
+			giveUnitDataDrivenModifier(caster, enemy, "locked", self.ability:GetSpecialValueFor("lock_duration"))
+		end
 		--end
 	end
 end

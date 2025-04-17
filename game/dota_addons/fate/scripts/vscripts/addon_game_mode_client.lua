@@ -1,6 +1,7 @@
 require('libraries/animations_cl')
 require('modifiers/attributes_cl')
-
+-- require('modules/hero_selection/hero_selection')
+-- require('modules/hero_selection/hero_replacer')
 LinkLuaModifier("modifier_sex_scroll_root","items/modifiers/modifier_sex_scroll_root.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_sex_scroll_slow","items/modifiers/modifier_sex_scroll_slow.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_a_scroll", "items/modifiers/modifier_a_scroll.lua", LUA_MODIFIER_MOTION_NONE)

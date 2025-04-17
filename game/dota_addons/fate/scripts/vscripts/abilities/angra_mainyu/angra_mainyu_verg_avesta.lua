@@ -8,8 +8,22 @@ function angra_mainyu_verg_avesta:GetAOERadius()
 	return self:GetSpecialValueFor("radius")
 end
 
+function angra_mainyu_verg_avesta:GetManaCost()
+	local caster = self:GetCaster()
+	if caster:GetMana() >= 800 then
+		return 800
+	else
+		return caster:GetMana()
+	end
+end
+
 function angra_mainyu_verg_avesta:GetHealthCost()
-	return self:GetCaster():GetMaxHealth()*0.1 --self:GetCaster():HasModifier("angra_mainyu_verg_avesta_count") and (self:GetCaster():GetModifierStackCount("angra_mainyu_verg_avesta_count", self:GetCaster())+1) * 50 or
+	local caster = self:GetCaster()
+	if caster:GetMana() >= 800 then 
+		return self:GetCaster():GetMaxHealth()*0.1 --self:GetCaster():HasModifier("angra_mainyu_verg_avesta_count") and (self:GetCaster():GetModifierStackCount("angra_mainyu_verg_avesta_count", self:GetCaster())+1) * 50 or
+	else
+		return self:GetCaster():GetMaxHealth()*0.1 + 800 - caster:GetMana()
+	end
 end
 
 function angra_mainyu_verg_avesta:OnSpellStart()
@@ -34,7 +48,7 @@ function angra_mainyu_verg_avesta:OnSpellStart()
 		return nil
 	end)
 
-	damage = self:GetSpecialValueFor("damage") * (((1-caster:GetHealth()/caster:GetMaxHealth()) * self:GetSpecialValueFor("lost_health_amp")/100) + 1)
+	damage = self:GetSpecialValueFor("damage") * (((1-caster:GetHealth()/caster:GetMaxHealth()) * self:GetSpecialValueFor("lost_health_amp")/100) + 1) + (caster.IsDIAcquired and caster:GetMaxHealth() * 0.1 or 0)
 
 	local targets = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), caster, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER , false)
 	for k,v in pairs(targets) do
@@ -77,6 +91,9 @@ end
 function angra_mainyu_verg_avesta_dot:IsDebuff()
     return true
 end
+function angra_mainyu_verg_avesta_dot:RemoveOnDeath()
+    return false
+end
 function angra_mainyu_verg_avesta_dot:GetEffectAttachType()
     return PATTACH_ABSORIGIN_FOLLOW
 end
@@ -90,11 +107,13 @@ if IsServer() then
 		self.caster = self:GetCaster()
 		self.target = self:GetParent()
 		self.abil = self:GetAbility()
+		self.spawnedPool = false
 		self.target:EmitSound("Hero_WitchDoctor.Maledict_Tick")
 		self.bDoSlow = self.caster.IsDIAcquired
 		DoDamage(self.caster, self.target, self.damage/3, DAMAGE_TYPE_MAGICAL, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self.abil, true)
-		if not self.target:IsAlive() and self.caster.IsDIAcquired and self.target:IsHero() then
+		if not self.target:IsAlive() and self.caster.IsDIAcquired and self.target:IsHero() and not self.spawnedPool then
 			self.caster:FindAbilityByName("angra_puddle"):DeathPuddle(self.target:GetAbsOrigin())
+			self.spawnedPool = true
 		end
 
 		if self.bDoSlow then
@@ -107,9 +126,9 @@ if IsServer() then
 		self.target:EmitSound("Hero_WitchDoctor.Maledict_Tick")
 
 		DoDamage(self.caster, self.target, self.damage/3, DAMAGE_TYPE_MAGICAL, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self.abil, true)
-		if not self.target:IsAlive() and self.caster.IsDIAcquired and self.target:IsHero() then
+		if not self.target:IsAlive() and self.caster.IsDIAcquired and self.target:IsHero() and not self.spawnedPool then
 			self.caster:FindAbilityByName("angra_puddle"):DeathPuddle(self.target:GetAbsOrigin())
-
+			self.spawnedPool = true
 
 		end
 		if self.bDoSlow then

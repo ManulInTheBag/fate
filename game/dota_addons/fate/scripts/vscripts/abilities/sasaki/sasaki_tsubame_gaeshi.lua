@@ -8,7 +8,7 @@ function sasaki_tsubame_gaeshi:CastFilterResultTarget(hTarget)
 	local filter = UnitFilter(hTarget, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, self:GetCaster():GetTeamNumber())
 
 	if(filter == UF_SUCCESS) then
-		if hTarget:GetName() == "npc_dota_ward_base" then 
+		if hTarget:GetName() == "npc_dota_ward_base" or caster:HasModifier("modifier_tsubame_mai") then 
 			return UF_FAIL_CUSTOM 
 		else
 			return UF_SUCCESS
@@ -19,7 +19,11 @@ function sasaki_tsubame_gaeshi:CastFilterResultTarget(hTarget)
 end
 
 function sasaki_tsubame_gaeshi:GetCustomCastErrorTarget()
-    return "#Invalid_Target"
+	if self:GetCaster():HasModifier("modifier_tsubame_mai") then
+		return "Че самый умный, хуесос"
+	else
+    	return "#Invalid_Target"
+	end
 end
 
 function sasaki_tsubame_gaeshi:GetCastPoint()

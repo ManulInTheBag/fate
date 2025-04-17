@@ -4,6 +4,15 @@ LinkLuaModifier("modifier_emiya_dash_crane", "abilities/emiya/emiya_crane_wings"
 LinkLuaModifier("modifier_emiya_self_control","abilities/emiya/emiya_double_slash", LUA_MODIFIER_MOTION_NONE)
 
 
+function emiya_crane_wings:OnAbilityPhaseStart()
+	local caster = self:GetCaster()
+	StartAnimation(caster, {duration=0.66, activity=ACT_DOTA_CAST_LIFE_BREAK_START, rate=1})
+end
+
+function emiya_crane_wings:OnAbilityPhaseInterrupted()
+	local caster = self:GetCaster()
+    EndAnimation(caster)
+end
 
 function emiya_crane_wings:OnUpgrade()
     local caster = self:GetCaster()
@@ -34,6 +43,7 @@ function emiya_crane_wings:OnSpellStart()
     local caster = self:GetCaster()
 	--giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 1)
 	self.htarget = self:GetCursorTarget() 
+    
     local distance = (caster:GetAbsOrigin() - self.htarget:GetAbsOrigin()):Length2D()
     if(distance > 400 ) then
          self:RefundManaCost()

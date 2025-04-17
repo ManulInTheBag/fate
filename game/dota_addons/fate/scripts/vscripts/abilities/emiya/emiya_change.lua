@@ -27,7 +27,7 @@ function emiya_change:OnSpellStart()
 	vPoint = self.vCastDirection:Normalized() * 20000 + self.vCasterPos
 	StartAnimation(self.hCaster, {duration=0.3, activity=ACT_DOTA_CAST_ABILITY_2, rate=1.0})
 	giveUnitDataDrivenModifier(self.hCaster, self.hCaster, "pause_sealenabled", 0.3)
-	if self.hcaster:HasModifier("modifier_hero_selection_skin") then
+	if self.hCaster:HasModifier("modifier_hero_selection_skin") then
         self.hCaster:EmitSound("emiya_skin_w_range")
     end
 	Timers:CreateTimer(0.257,function()

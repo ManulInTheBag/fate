@@ -109,7 +109,9 @@ function modifier_jeanne_gods_resolution_active_buff:OnCreated()
 
 	self.tickDamage = self.ability:GetSpecialValueFor("active_dps")*self.interval
 	self.tickSinDamage = self.ability:GetSpecialValueFor("sin_damage")*self.interval
-
+	if self.caster.IsPunishmentAcquired then
+		self.tickDamage = self.tickDamage + self.caster:GetIntellect() * self.ability:GetSpecialValueFor("sa_int_scale") * self.interval
+	end
 	self.radius = self.ability:GetSpecialValueFor("radius")
 
 	self.caster:SwapAbilities("jeanne_gods_resolution", "jeanne_gods_resolution_end", false, true)

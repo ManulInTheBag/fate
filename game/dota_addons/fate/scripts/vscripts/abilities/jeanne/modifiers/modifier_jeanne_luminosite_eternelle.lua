@@ -6,19 +6,22 @@ LinkLuaModifier("modifier_jeanne_mrex_allies", "abilities/jeanne/modifiers/modif
 LinkLuaModifier("modifier_jeanne_regen_allies", "abilities/jeanne/modifiers/modifier_jeanne_luminosite_eternelle", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_jeanne_mana_regen_allies", "abilities/jeanne/modifiers/modifier_jeanne_luminosite_eternelle", LUA_MODIFIER_MOTION_NONE)
 function modifier_jeanne_luminosite_eternelle:OnCreated()
+
 	if not IsServer() then return end
+	local caster = self:GetCaster()
 	self.parent = self:GetParent()
 	self.hp_heal = self:GetAbility():GetSpecialValueFor("heal_per_second")
 	if self.parent.IsDivineSymbolAcquired then
-		self.hp_heal = self.hp_heal*1.5
+		self.hp_heal = self.hp_heal + 3 * caster:GetIntellect()
+
 	end
 	
-	local caster = self:GetCaster()
+	
 	local parent = self:GetParent()
 	local radius = self:GetAbility():GetSpecialValueFor("radius")
 	local ori = caster:GetAbsOrigin()
 	
-	self.hp_heal = self:GetAbility():GetSpecialValueFor("heal_per_second")
+	--self.hp_heal = self:GetAbility():GetSpecialValueFor("heal_per_second")
 
 	self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_jeanne_luminosite_eternelle_barrier", {duration = self:GetAbility():GetSpecialValueFor("channel_duration")})
 	
@@ -104,7 +107,7 @@ function modifier_jeanne_luminosite_eternelle:OnRefresh()
 	self.parent = self:GetParent()
 	self.hp_heal = self:GetAbility():GetSpecialValueFor("heal_per_second")
 	if self.parent.IsDivineSymbolAcquired then
-		self.hp_heal = self.hp_heal*1.5
+		self.hp_heal = self.hp_heal + 3  *  self:GetCaster():GetIntellect()
 	end
 
 	self.parent:AddNewModifier(self.parent, self:GetAbility(), "modifier_jeanne_luminosite_eternelle_barrier", {duration = self:GetAbility():GetSpecialValueFor("channel_duration")})

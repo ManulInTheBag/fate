@@ -24,7 +24,7 @@ function jeanne_luminosite_eternelle:OnSpellStart()
 		return
 	end)
 
-	caster:AddNewModifier( self:GetCaster(), self, "modifier_jeanne_luminosite_eternelle", { duration = self:GetChannelTime() } )
+	caster:AddNewModifier(caster, self, "modifier_jeanne_luminosite_eternelle", { duration = self:GetChannelTime() } )
 	
 end
 
@@ -46,7 +46,7 @@ function jeanne_luminosite_eternelle:OnChannelFinish( bInterrupted )
 		local final_burst_heal = self:GetSpecialValueFor("final_burst_heal")
 		
 		if caster.IsDivineSymbolAcquired then
-			final_burst_heal = final_burst_heal*1.5
+			final_burst_heal = final_burst_heal + 4 * caster:GetIntellect()
 		end
 		
 		caster:EmitSound("jeanne_heal_beep")

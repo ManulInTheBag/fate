@@ -18,6 +18,7 @@ if IsServer() then
 
 		if args.target == self:GetParent() and args.attacker ~= self:GetParent() and args.attacker:IsHero() then
 			self:GetParent():FindAbilityByName("angra_puddle"):DeathPuddle(self:GetParent():GetAbsOrigin())
+			self:GetParent():FindAbilityByName("angra_puddle"):DeathPuddle(args.attacker:GetAbsOrigin())
 		end
 
 	end

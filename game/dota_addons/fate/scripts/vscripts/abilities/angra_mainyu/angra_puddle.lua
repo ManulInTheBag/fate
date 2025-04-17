@@ -136,7 +136,17 @@ function modifier_angra_puddle:OnIntervalThink()
 
         end
         local enemies2 = FindUnitsInRadius(self.caster:GetTeam(), self.parent:GetAbsOrigin(), nil, self.radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
-
+        local allies = FindUnitsInRadius(self.caster:GetTeam(), self.parent:GetAbsOrigin(), nil, self.radius, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
+        for _, ally in pairs(allies) do
+            if ally:GetUnitName() == "npc_dota_hero_vengefulspirit" and not ally.healcd then
+                ally:Heal(self:GetAbility():GetSpecialValueFor("heal_per_tick"), ally)
+                ally.healcd = true
+                Timers:CreateTimer(0.15, function()
+                    ally.healcd = false
+                
+                end)
+            end
+        end
         for _, enemy in pairs(enemies2) do
             local stackcount = 0
             if enemy.PuddleChecker then -- Лужи стакаются частично Злодемон ебись сам
@@ -189,3 +199,17 @@ modifier_puddle_debuff = class({})
 function modifier_puddle_debuff:IsHidden() return false end
 function modifier_puddle_debuff:IsDebuff() return true end
 function modifier_puddle_debuff:RemoveOnDeath() return true end
+
+function modifier_puddle_debuff:DeclareFunctions()
+	return { MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE}
+end
+function modifier_puddle_debuff:GetModifierMoveSpeedBonus_Percentage()
+	return -25
+end
+ 
+function modifier_puddle_debuff:GetEffectName()
+    return "particles/units/heroes/hero_clinkz/clinkz_tar_bomb_debuff.vpcf"
+end
+function modifier_puddle_debuff:GetEffectAttachType()
+    return PATTACH_ABSORIGIN_FOLLOW
+end

@@ -4573,7 +4573,7 @@
         "DOTA_Tooltip_ability_avenger_true_form_duration"   				"Duration:"
 
         "DOTA_Tooltip_Ability_angra_mainyu_verg_avesta"					"Verg Avesta"
-        "DOTA_Tooltip_ability_angra_mainyu_verg_avesta_Description"		"<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>0.5</font> \nAngra Mainyu curses enemies around himself dealing <font color='#58ACFA'>magical damage </font> immediately and then dealing same <font color='#58ACFA'>magical damage </font> over duration of 1.5 seconds.\nCasting this ability takes <font color='#FFFAFA'>10% of Angra's maximum health</font> and <font color='#FFFAFA'>increases its damage based on his lost health</font> up to a maximum of <font color='#FFFAFA'>50%</font>.\n<font color='#F1C40F'>Upgradable by attribute Demon Incarnate</font>"
+        "DOTA_Tooltip_ability_angra_mainyu_verg_avesta_Description"		"<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>0.5</font> \nAngra Mainyu curses enemies around himself dealing <font color='#58ACFA'>magical damage </font> immediately and then dealing same <font color='#58ACFA'>magical damage </font> over duration of 1.5 seconds.\nCasting this ability takes <font color='#FFFAFA'>10% of Angra's maximum health</font> and <font color='#FFFAFA'>increases its damage based on his lost health</font> up to a maximum of <font color='#FFFAFA'>50%</font>.\nIf caster has less mana then required, he will lose health equal to missing mana on cast.\n<font color='#F1C40F'>Upgradable by attribute Demon Incarnate</font>"
         "DOTA_Tooltip_ability_angra_mainyu_verg_avesta_Lore"			"The killer of mankind assumes the simplest rule of the world - Retribution."
         "DOTA_Tooltip_ability_angra_mainyu_verg_avesta_radius"			"Radius:"
         "DOTA_Tooltip_ability_angra_mainyu_verg_avesta_damage"			"Base damage:"
@@ -4613,13 +4613,17 @@
         "DOTA_Tooltip_ability_avenger_demon_core_mana_cost_per_second"		"MANA COST PER SECOND:"
 
         "DOTA_Tooltip_Ability_angra_puddle"   					"Pool of Corruption"
- 		"DOTA_Tooltip_ability_angra_puddle_Description"			"<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>0.4</font> \nAngra Mainyu unleashes the corruption of the Holy Grail to the outside world. Whoever stands within the pool starts to take <font color='#58ACFA'>magical damage</font> and is slowly corrupted by it. Upon reaching <font color='#FFFAFA'>100 stacks</font> the next time target is affected by the corruption it will be <font color='#9400D3'>dimensionally locked</font>.\n<font color='#F1C40F'>Upgradable by attribute Host of Tainted Grail</font> \n<font color='#F1C40F'>Upgradable by attribute Vengeful incarnate</font>"
+ 		"DOTA_Tooltip_ability_angra_puddle_Description"			"<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>0.4</font> \nAngra Mainyu unleashes the corruption of the Holy Grail to the outside world. Whoever stands within the pool starts to take <font color='#58ACFA'>magical damage</font> every 0.25 seconds and is slowly corrupted by it.\nUpon reaching <font color='#FFFAFA'>100 stacks</font> the next time target is affected by the corruption it will be <font color='#9400D3'>dimensionally locked</font>.\nEnemies inside of the pool are <font color='#9400D3'>slowed</font> by <font color='#FFFAFA'>25%</font>\nAngra is <font color='#ACFF05'>healed</font> while inside the pool\n<font color='#F1C40F'>Upgradable by attribute Host of Tainted Grail</font> \n<font color='#F1C40F'>Upgradable by attribute Vengeful incarnate</font>"
  		"DOTA_Tooltip_ability_angra_puddle_Lore"			"Tainted Holy Grail can corrupt everything and everyone that touches it."
  		"DOTA_Tooltip_ability_angra_puddle_duration"		"Duration:"
- 		"DOTA_Tooltip_ability_angra_puddle_damage"			"Damage:"
+ 		"DOTA_Tooltip_ability_angra_puddle_damage"			"Damage per tick:"
+ 		"DOTA_Tooltip_ability_angra_puddle_heal_per_tick"		"Heal per tick:"
  		"DOTA_Tooltip_ability_angra_puddle_radius"			"Radius:"
  		"DOTA_Tooltip_ability_angra_puddle_lock_duration"	"Lock duration:"
  		"DOTA_Tooltip_ability_angra_puddle_revoke_duration"	"Revoke duration:"
+
+ 		"DOTA_Tooltip_modifier_puddle_debuff"										"Pool of corruption"
+		"DOTA_Tooltip_modifier_puddle_debuff_Description"							"Slowed, will be locked at 100 stacks"
 
 		"DOTA_Tooltip_Ability_avenger_endless_loop"				"Combo: Endless Loop"
 		"DOTA_Tooltip_ability_avenger_endless_loop_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : E(set to autocast)-R in 4 seconds</font>\nAvenger brings upon him the miracle of tainted Holy Grail, reverting health back to health at cast and resetting the cooldowns of all abilities and items every 3 seconds."
@@ -4640,10 +4644,10 @@
         "DOTA_Tooltip_ability_avenger_attribute_overdrive_Description"		"Pool of corruption will spawn unlimited remains at their current level in it's center every <font color='#FFFAFA'>1.5 seconds</font>. \nAdditionally on corruption proc target will be allso <font color='#FF3399'>revoked from master for 1.4 seconds</font>."
 
         "DOTA_Tooltip_Ability_avenger_attribute_demon_incarnate"					"Attribute: Demon Incarnate"
-        "DOTA_Tooltip_ability_avenger_attribute_demon_incarnate_Description"		"Verg Avesta applies <font color='#9400D3'>60% slow for 0.5 seconds</font> on each secondary damage proc. \n<font color='#FFFAFA'>When hero is killed by or during the effect of Verg Avesta</font> it will spawn Pool of Corruption at its current level under place of its death."
+        "DOTA_Tooltip_ability_avenger_attribute_demon_incarnate_Description"		"Verg Avesta applies <font color='#9400D3'>60% slow for 0.5 seconds</font> on each secondary damage proc and gains additional damage equal to <font color='#FFFAFA'>10%</font> of Angra's MAX health. \n<font color='#FFFAFA'>When hero is killed by or during the effect of Verg Avesta</font> it will spawn Pool of Corruption at its current level under place of its death."
 
         "DOTA_Tooltip_Ability_avenger_attribute_revenge"					"Attribute: Vengeful Incarnate"
-        "DOTA_Tooltip_ability_avenger_attribute_revenge_Description"		"Upon his death Angra Mainyu will place pool of corruption at its current level under himself."
+        "DOTA_Tooltip_ability_avenger_attribute_revenge_Description"		"Upon his death Angra Mainyu will place pool of corruption at its current level under himself and his killer."
 
         //====================================
         //      Lancer(4th)
@@ -6405,14 +6409,15 @@
         //"DOTA_Tooltip_Ability_jeanne_attribute_improve_saint_bonus_damage"	"%DAMAGE AMPLIFICATION:"	
 
         "DOTA_Tooltip_Ability_jeanne_attribute_punishment"				"Attribute: Punishment"
-        "DOTA_Tooltip_Ability_jeanne_attribute_punishment_Description"	"Purge the Unjust slows the enemies.\nIncreases God's Resolution active duration and makes Jeanne <font color='#ff9900'>unslowable</font> and <font color='#ff9900'>phased</font> for the duration."
+        "DOTA_Tooltip_Ability_jeanne_attribute_punishment_Description"	"Purge the Unjust slows the enemies.\nIncreases God's Resolution active duration and damage, based on Jeanne's <font color='#1E90FF'>intellect</font> and makes Jeanne <font color='#ff9900'>unslowable</font> and <font color='#ff9900'>phased</font> for the duration."
         //"DOTA_Tooltip_Ability_jeanne_attribute_punishment_bonus_damage"	"%PURGE THE UNJUST EXTRA DAMAGE PER DEAD TEAMMATE:"
         //"DOTA_Tooltip_Ability_jeanne_attribute_punishment_slow_amount"	"%PURGE THE UNJUST SLOW AMOUNT:"
         //"DOTA_Tooltip_Ability_jeanne_attribute_punishment_slow_duration"	"SLOW AND REVOKE DURATION:"
         "DOTA_Tooltip_Ability_jeanne_attribute_punishment_active_duration"	"GODS RESOLUTION ACTIVE DURATION:"
+        "DOTA_Tooltip_Ability_jeanne_attribute_punishment_int_scale"	"%GODS RESOLUTION INT SCALE:"
 
         "DOTA_Tooltip_Ability_jeanne_attribute_divine_symbol"	"Attribute: Divine Symbol"
-        "DOTA_Tooltip_Ability_jeanne_attribute_divine_symbol_Description"	"<font color='#FFFAFA'>Increases</font> Luminosite Eternelle's <font color='#ACFF05'>heal</font> by %bonus_heal%%  and <font color='#ACFF05'>final heal</font> by %bonus_final_heal%%.\nLast wave of Luminosite Eternelle also <font color='#FFFAFA'>hard cleanses</font>."
+        "DOTA_Tooltip_Ability_jeanne_attribute_divine_symbol_Description"	"<font color='#FFFAFA'>Increases</font> Luminosite Eternelle's <font color='#ACFF05'>heal</font> by %bonus_heal%% of Jeanne's <font color='#1E90FF'>intellect</font>  and <font color='#ACFF05'>final heal</font> by %bonus_final_heal%% of <font color='#1E90FF'>intellect</font>.\nLast wave of Luminosite Eternelle also <font color='#FFFAFA'>hard cleanses</font>."
         "DOTA_Tooltip_Ability_jeanne_attribute_divine_symbol_Note0"				"Charisma effect follows current level."
         "DOTA_Tooltip_Ability_jeanne_attribute_divine_symbol_bonus_reduction"	"%Bonus reduction:"
 
@@ -9590,7 +9595,7 @@
         "DOTA_Tooltip_ability_hijikata_laws_Lore"							"Even after he threw away his pride as a warrior, Hijikata still aspired to be Shinsengumi, because of that he renders insane when he breaks the codex, up until he is not able to move anymore."
 
         "DOTA_Tooltip_ability_hijikata_ult"							"Shinsengumi"
-        "DOTA_Tooltip_ability_hijikata_ult_Description"			"Cast Point: <font color='#FFFFF9'>0</font>s. Cast Delay: <font color='#FFFFF9'>%delay%</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Hijikata shoots his gun after a delay, dealing <font color='#58ACFA'>magical</font> damage to all enemies hit, increased by Hijikata's attack, applying a <font color='#9400D3'>slow</font> debuff for a short duration.\nDamage is increased based on Hijikata's lost health percentage, for up to %max_damage_pct_self%%.\nHijikata is pushed back after shooting."
+        "DOTA_Tooltip_ability_hijikata_ult_Description"			"Cast Point: <font color='#FFFFF9'>0</font>s. Cast Delay: <font color='#FFFFF9'>%delay%</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Hijikata stores damage he has taken for up to %stack_reset_delay% seconds, capped at 75% of Hijikata's base maximum health(not counting STR).\nHijikata shoots his gun after a delay, dealing <font color='#58ACFA'>magical</font> damage to all enemies hit, increased by Hijikata's attack and a portion of stored damage, applying a <font color='#9400D3'>slow</font> debuff for a short duration.\nHijikata is pushed back after shooting.\nAt full stacks, width of the shot is increased and it applies <font color='#FF3399'>silence</font> debuff for %silence_duration% second, as well as powerful <font color='#9400D3'>slow</font>."
         "DOTA_Tooltip_ability_hijikata_ult_damage"							"Damage:"
         "DOTA_Tooltip_ability_hijikata_ult_attack_damage_mod"				"%Attack damage:"
         "DOTA_Tooltip_ability_hijikata_ult_duration"						"Slow duration:"
@@ -9599,6 +9604,9 @@
         "DOTA_Tooltip_ability_hijikata_ult_width"							"Width:"
         "DOTA_Tooltip_ability_hijikata_ult_ms_slow"							"%Slow:"
         "DOTA_Tooltip_ability_hijikata_ult_max_damage_pct"					"%Maximum SA damage modifier:"
+        "DOTA_Tooltip_ability_hijikata_ult_health_pct_to_max_damage"		"%Health lost for full stacks:"
+        "DOTA_Tooltip_ability_hijikata_ult_stacks_damage_pct"				"%Stacks to damage:"
+        "DOTA_Tooltip_ability_hijikata_ult_max_stacks_width"				"Max stacks Width:"
         "DOTA_Tooltip_ability_hijikata_ult_Lore"										"The Shinsengumi is here, even now."
 
         "DOTA_Tooltip_ability_hijikata_combo"							"Combo: Unstoppable Shinsengumi"
@@ -9648,7 +9656,7 @@
         "DOTA_Tooltip_ability_hijikata_shinsengumi_attribute_regen_duration"					"Disengage duration:"
 
         "DOTA_Tooltip_ability_hijikata_battle_continuation_attribute"							"Fierce journey"
-        "DOTA_Tooltip_ability_hijikata_battle_continuation_attribute_Description"			"<font color='#EE5C29'>Unrefreshable</font>\n<font color='#FFFAFA'>PASSIVE:</font> Allows Hijikata to instantly activate <font color='#ff9900'>Fierce journey</font>, when his health reaches zero.\n<font color='#ff9900'>Fierce journey</font>: Hijikata <font color='#ACFF05'>restores health</font> for up to 25%%, for 1 second he becomes <font color='#FF3399'>stunned</font> and <font color='#FFFAFA'>invulnerable</font> to any damage, then he activates a 1s  <font color='#58ACFA'>Madness</font>."
+        "DOTA_Tooltip_ability_hijikata_battle_continuation_attribute_Description"			"<font color='#EE5C29'>Unrefreshable</font>\n<font color='#FFFAFA'>PASSIVE:</font> Allows Hijikata to instantly activate <font color='#ff9900'>Fierce journey</font>, when his health reaches zero.\n<font color='#ff9900'>Fierce journey</font>: Hijikata <font color='#ACFF05'>restores health</font> for up to 25%%, for 1 second he becomes <font color='#FF3399'>stunned</font> and <font color='#FFFAFA'>invulnerable</font> to any damage, then he activates a 1s  <font color='#58ACFA'>Madness</font>.\nUpgrades Shinsengumi, by increasing maximum stacks cap by 25% of MAX health and increasing damage per stored stacks by 0.17."
         "DOTA_Tooltip_ability_hijikata_battle_continuation_attribute_cooldown"						"Cooldown:"
         "DOTA_Tooltip_ability_hijikata_battle_continuation_attribute_health_restored"				"Health restored:"
  		"DOTA_Tooltip_ability_hijikata_battle_continuation_attribute_duration"						"Self stun duration:"
@@ -9684,7 +9692,13 @@
 		"DOTA_Tooltip_modifier_demon_buff_hijikata_Description"                                        			"Increased attackspeed and on-hit effect"
 
 		"DOTA_Tooltip_modifier_hijikata_slow"                                                    				"Slow"
-		"DOTA_Tooltip_modifier_hijikata_slow_Description"                                        				"Demon is coming."
+		"DOTA_Tooltip_modifier_hijikata_slow_Description"                                        				"MS decreased."
+
+		"DOTA_Tooltip_modifier_hijikata_slow_powerful"                                                    				"Slow"
+		"DOTA_Tooltip_modifier_hijikata_slow_powerful_Description"                                        				"Demon is coming."
+
+		"DOTA_Tooltip_modifier_hijikata_ult_stacks"                                                    				"Shinsengumi"
+		"DOTA_Tooltip_modifier_hijikata_ult_stacks_Description"                                        				"Ult charge percentage."
 
 		"DOTA_Tooltip_modifier_hijikata_duel"                                                    				"Duel"
 		"DOTA_Tooltip_modifier_hijikata_duel_Description"                                        				"Forced to battle."

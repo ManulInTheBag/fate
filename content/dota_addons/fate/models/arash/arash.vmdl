@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc32:version{c5dcef98-b629-46ab-88e3-a17c005c935e} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc39:version{1ceecb0d-4093-4729-ab18-b76886c64cde} -->
 {
 	rootNode = 
 	{
@@ -87,6 +87,7 @@
 					{
 						_class = "AnimFile"
 						name = "stand"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_IDLE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -109,6 +110,7 @@
 					{
 						_class = "AnimFile"
 						name = "stand_ready"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_ATTACK_STATUE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -131,6 +133,7 @@
 					{
 						_class = "AnimFile"
 						name = "attack_1"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_ATTACK"
 						activity_weight = 1
 						weight_list_name = ""
@@ -153,6 +156,7 @@
 					{
 						_class = "AnimFile"
 						name = "attack_2"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_ATTACK2"
 						activity_weight = 1
 						weight_list_name = ""
@@ -185,10 +189,12 @@
 								extract_rz = false
 								linear = false
 								quadratic = false
+								extract_initial_offset = false
 								root_bone_name = ""
 								motion_type = "Uniform"
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_ALCHEMIST_CHEMICAL_RAGE_END"
 						activity_weight = 1
 						weight_list_name = ""
@@ -211,6 +217,7 @@
 					{
 						_class = "AnimFile"
 						name = "spell"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_5"
 						activity_weight = 1
 						weight_list_name = ""
@@ -243,10 +250,12 @@
 								extract_rz = false
 								linear = false
 								quadratic = false
+								extract_initial_offset = false
 								root_bone_name = ""
 								motion_type = "Uniform"
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_2"
 						activity_weight = 1
 						weight_list_name = ""
@@ -279,10 +288,12 @@
 								extract_rz = false
 								linear = false
 								quadratic = false
+								extract_initial_offset = false
 								root_bone_name = ""
 								motion_type = "Uniform"
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -315,6 +326,7 @@
 								extract_rz = false
 								linear = false
 								quadratic = false
+								extract_initial_offset = false
 								root_bone_name = ""
 								motion_type = "Uniform"
 							},
@@ -324,6 +336,7 @@
 								rotation_xyz = [ 0.0, 0.0, 0.0 ]
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -356,6 +369,7 @@
 								extract_rz = false
 								linear = false
 								quadratic = false
+								extract_initial_offset = false
 								root_bone_name = ""
 								motion_type = "Uniform"
 							},
@@ -366,6 +380,7 @@
 							},
 						]
 						disabled = true
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_6"
 						activity_weight = 1
 						weight_list_name = ""
@@ -388,6 +403,7 @@
 					{
 						_class = "AnimFile"
 						name = "move"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_RUN"
 						activity_weight = 1
 						weight_list_name = ""
@@ -410,6 +426,7 @@
 					{
 						_class = "AnimFile"
 						name = "death"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_DIE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -432,6 +449,7 @@
 					{
 						_class = "AnimFile"
 						name = "stand_ready1"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_ATTACK2_STATUE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -465,6 +483,7 @@
 								extract_rz = false
 								linear = false
 								quadratic = false
+								extract_initial_offset = false
 								root_bone_name = ""
 								motion_type = "Uniform"
 							},
@@ -475,6 +494,7 @@
 								activity_weight = 1
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_RUN"
 						activity_weight = 1
 						weight_list_name = ""
@@ -507,6 +527,7 @@
 								extract_rz = false
 								linear = false
 								quadratic = false
+								extract_initial_offset = false
 								root_bone_name = ""
 								motion_type = "Uniform"
 							},
@@ -516,6 +537,7 @@
 								rotation_xyz = [ 0.0, 0.0, 0.0 ]
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_1"
 						activity_weight = 1
 						weight_list_name = ""
@@ -549,6 +571,7 @@
 								extract_rz = false
 								linear = false
 								quadratic = false
+								extract_initial_offset = false
 								root_bone_name = ""
 								motion_type = "Uniform"
 							},
@@ -564,6 +587,7 @@
 								rotation_xyz = [ 0.0, 0.0, 0.0 ]
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_IDLE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -586,6 +610,7 @@
 					{
 						_class = "AnimFile"
 						name = "rush"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_3"
 						activity_weight = 1
 						weight_list_name = ""
@@ -608,6 +633,7 @@
 					{
 						_class = "AnimFile"
 						name = "rush1"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_3_END"
 						activity_weight = 1
 						weight_list_name = ""
@@ -640,10 +666,12 @@
 								extract_rz = false
 								linear = false
 								quadratic = false
+								extract_initial_offset = false
 								root_bone_name = ""
 								motion_type = "Uniform"
 							},
 						]
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_6"
 						activity_weight = 1
 						weight_list_name = ""
@@ -666,6 +694,7 @@
 					{
 						_class = "AnimFile"
 						name = "stand_copy"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_DISABLED"
 						activity_weight = 1
 						weight_list_name = ""
@@ -774,8 +803,8 @@
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -88.439255, -89.723648, -169.245911 ]
-								hitbox_maxs = [ 81.853157, 76.580513, 120.901123 ]
+								hitbox_mins = [ -166.371033, -133.034225, -268.040405 ]
+								hitbox_maxs = [ 169.488358, 111.112984, 147.766251 ]
 							},
 							{
 								_class = "Hitbox"
@@ -1293,5 +1322,6 @@
 		primary_associated_entity = ""
 		anim_graph_name = ""
 		importer_notes = "Imported from VMDL"
+		document_sub_type = "ModelDocSubType_None"
 	}
 }

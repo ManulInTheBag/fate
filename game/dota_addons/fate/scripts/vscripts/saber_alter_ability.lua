@@ -432,11 +432,12 @@ function OnDexStart(keys)
 	--caster:AddNewModifier(caster, ability, "modifier_merlin_self_pause", {Duration = 3}) 
 	giveUnitDataDrivenModifier(keys.caster, keys.caster, "pause_sealdisabled", 3)
 	keys.Range = keys.Range - keys.Width -- We need this to take end radius of projectile into account
-	print(keys.Range)
+	--print(keys.Range)
 	local range = keys.Range
 	local width = keys.Width
-	if caster:HasModifier("modifier_salter_model_swap") then
-		caster:AddNewModifier(caster, nil, "modifier_salter_model_swap_jopa", {duration = 3.0})
+	if caster:HasModifier("modifier_hero_selection_skin") then
+		--caster:AddNewModifier(caster, nil, "modifier_salter_model_swap_jopa", {duration = 3.0})
+		caster:SetBodygroup(0, 1)
 	end
 	EmitGlobalSound("Saber.Caliburn")
 	--EmitGlobalSound("Excalibur_Morgan_Precast")
@@ -479,6 +480,12 @@ function OnDexStart(keys)
             if not caster:IsAlive() then return end
             local projectile = ProjectileManager:CreateLinearProjectile(dex)
             	if(counter == 0) then
+					if caster:HasModifier("modifier_hero_selection_skin") then
+						--caster:AddNewModifier(caster, nil, "modifier_salter_model_swap_jopa", {duration = 3.0})
+						Timers:CreateTimer(0.2, function() 
+							caster:SetBodygroup(0, 0)
+						end)
+					end
                 return  
             	end
             return 0.08
@@ -506,6 +513,9 @@ function OnDexStart(keys)
 					ParticleManager:ReleaseParticleIndex( excalpepegFxIndex )
 				end)
 			end)
+		else
+			caster:SetBodygroup(0, 0)
+
 		end
 	end)
 end

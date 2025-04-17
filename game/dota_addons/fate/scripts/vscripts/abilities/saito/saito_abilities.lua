@@ -2027,8 +2027,10 @@ function modifier_saito_fds_cast_controller:OnAbilityFullyCast(keys) --Different
                     self.hParent:SetModifierStackCount(sModifierName, self.hCaster, nNewStacks)
 
                     --At the same time we just end their cooldowns, because if don't do this then they will go on cooldown.... PEPE
-                    hAbility:EndCooldown() --Should be done before BreakCombo function, which puts the abilities on cooldown.
-                    hAbility:StartCooldown(nLockerCooldown * self.hParent:GetCooldownReduction()) --There is my genius mechanic, which puts the abilities to micro-cooldown after use.
+                    if hAbility:GetName() ~= keys.ability:GetName() then 
+                        hAbility:EndCooldown() --Should be done before BreakCombo function, which puts the abilities on cooldown.
+                        hAbility:StartCooldown(nLockerCooldown * self.hParent:GetCooldownReduction()) --There is my genius mechanic, which puts the abilities to micro-cooldown after use.
+                    end
                 end
             end
             --Check over all for resetting if using basically different abilities.

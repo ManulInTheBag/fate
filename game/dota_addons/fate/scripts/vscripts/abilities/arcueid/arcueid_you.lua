@@ -113,7 +113,9 @@ function arcueid_you:SimpleKick(seq)
 		local origin_diff = enemy:GetAbsOrigin() - caster:GetAbsOrigin()
 		local origin_diff_norm = origin_diff:Normalized()
 		if caster:GetForwardVector():Dot(origin_diff_norm) > 0 then
-			enemy:AddNewModifier(caster, self, "modifier_stunned", {duration = self:GetSpecialValueFor("stun_duration"..seq)})
+			if not enemy:IsMagicImmune() then
+				enemy:AddNewModifier(caster, self, "modifier_stunned", {duration = self:GetSpecialValueFor("stun_duration"..seq)})
+			end
 			if caster.RecklesnessAcquired then
 				caster:PerformAttack( enemy, true, true, true, true, false, false, true )
 			end

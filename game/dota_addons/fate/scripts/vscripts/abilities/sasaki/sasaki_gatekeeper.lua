@@ -41,6 +41,7 @@ function sasaki_gatekeeper:CheckCombo()
 	if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 
 	and caster:FindAbilityByName("sasaki_heart_of_harmony"):IsCooldownReady() 
 	and caster:FindAbilityByName("false_assassin_tsubame_mai"):IsCooldownReady()
+	and caster:FindAbilityByName("sasaki_tsubame_gaeshi"):IsCooldownReady() 
 	and (caster:GetAbilityByIndex(1):GetName()~="false_assassin_tsubame_mai") then
 		caster:SwapAbilities("sasaki_heart_of_harmony", "false_assassin_tsubame_mai", false, true) 
 
