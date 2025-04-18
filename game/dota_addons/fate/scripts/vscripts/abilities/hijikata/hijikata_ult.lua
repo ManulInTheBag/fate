@@ -17,7 +17,7 @@ function hijikata_ult:OnSpellStart()
 	local caster = self:GetCaster()
 	local ability = self
 	local range = self:GetSpecialValueFor("distance")
-	local target = -(caster:GetAbsOrigin() - self:GetCursorPosition()):Normalized()
+	local target = -(caster:GetAbsOrigin() - (self:GetCursorPosition()+ RandomVector(1))):Normalized() 
 	target.z = 0
 	local bSoundReady = false
 	local bUpgradedUlt = false

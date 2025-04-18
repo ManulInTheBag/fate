@@ -403,7 +403,7 @@
 								import_bone_scales = false
 								start_frame = 828
 								end_frame = 867
-								framerate = 30.0
+								framerate = 145.0
 								reverse = false
 							},
 							{
@@ -592,6 +592,93 @@
 								reverse = false
 							},
 						]
+					},
+					{
+						_class = "AnimFile"
+						name = "diarmuid_dearg5"
+						children = 
+						[
+							{
+								_class = "AnimEvent"
+								disabled = true
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 0
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/zlodemon/diar_combo/gae_buidhe_slash_1_baack.vpcf"
+									detach_from_owner = false
+									always_run = false
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = null
+									attachment_type = "point_follow"
+									attachment_point_cp1 = null
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 10
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/zlodemon/diar_combo/gae_buidhe_slash_0_back_smalol.vpcf"
+									detach_from_owner = false
+									always_run = false
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = null
+									attachment_type = "point_follow"
+									attachment_point_cp1 = null
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 13
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/zlodemon/diar_combo/gae_buidhe_slash_0_red.vpcf"
+									detach_from_owner = false
+									always_run = false
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = null
+									attachment_type = "point_follow"
+									attachment_point_cp1 = null
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+						]
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_RAZE_1"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						source_filename = "models/diarmuid/diarmuid_anim.FBX"
+						import_bone_scales = false
+						start_frame = 704
+						end_frame = 734
+						framerate = 30.0
+						reverse = true
 					},
 				]
 				default_root_bone_name = ""

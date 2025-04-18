@@ -60,6 +60,7 @@ function cu_chulain_gae_bolg_jump:OnSpellStart()
 	EmitGlobalSound("lancer_gae_bolg_2")
 	self.oldfw = caster:GetForwardVector()
 	local newfw = -(caster:GetAbsOrigin() - targetPoint):Normalized()
+	--newfw.z =
 	caster:SetForwardVector(newfw)
 	caster:FaceTowards(targetPoint)
 	local distance = (caster:GetAbsOrigin() - targetPoint):Length2D()

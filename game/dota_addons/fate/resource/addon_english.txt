@@ -4670,7 +4670,7 @@
         "DOTA_Tooltip_Ability_diarmuid_minds_eye_duration"			"Active Duration:"
 
         "DOTA_Tooltip_Ability_diarmuid_warrior_charge"				"Warrior's Charge"
-        "DOTA_Tooltip_ability_diarmuid_warrior_charge_Description"	"Diarmuid instantly closes gap to target and strikes nearby enemies on arrival, dealing damage. The primary target is rooted for a short duration and attacked by Diarmuid once. If Double Spearmanship or Rampant Warrior is active, Diarmuid deals additional damage as physical and attacks the target twice instead of once."
+        "DOTA_Tooltip_ability_diarmuid_warrior_charge_Description"	"Diarmuid instantly closes gap to target and strikes nearby enemies on arrival, dealing damage.\nThe primary target is <font color='#9400D3'>rooted</font> for a short duration and <font color='#A72E28'>attacked</font> by Diarmuid once."
         "DOTA_Tooltip_ability_diarmuid_warrior_charge_Lore"    "The blinding charge by first spear of Fianna Knights is a prelude to the showstopper's showdown."
         "DOTA_Tooltip_ability_diarmuid_warrior_charge_cast_range"	"Cast range:"
         "DOTA_Tooltip_ability_diarmuid_warrior_charge_damage"	"Damage:"
@@ -4680,6 +4680,14 @@
 
         //"DOTA_Tooltip_ability_diarmuid_warrior_charge_slow_amount"	"%SLOW:"
         //"DOTA_Tooltip_ability_diarmuid_warrior_charge_slow_duration"	"SLOW DURATION:"
+
+        "DOTA_Tooltip_Ability_diarmuid_dash"			 	"Assault charge"
+        "DOTA_Tooltip_ability_diarmuid_dash_Description"	"Diarmuid dashes to the target point, dealing <font color='#58ACFA'>damage</font> on his way.\nHitting at least one enemy with this ability reduces <font color='#58ACFA'>Warrior's Charge</font> cooldown."
+        "DOTA_Tooltip_ability_diarmuid_dash_dash_speed"	"Dash speed:"
+        "DOTA_Tooltip_ability_diarmuid_dash_distance"	"Distance:"
+        "DOTA_Tooltip_ability_diarmuid_dash_damage"		"Damage:"
+        "DOTA_Tooltip_ability_diarmuid_dash_q_cdr"		"Warrior's charge cdr:"
+
 
         "DOTA_Tooltip_Ability_diarmuid_double_spearmanship"			 	"Double Spearsmanship"
         "DOTA_Tooltip_ability_diarmuid_double_spearmanship_Description"	"Passive: Diarmuid's attacks have chance to be double attack instead.\nActive: For a short duration, Diarmuid's attacks always deals double attack and using Gae Buidhe or Gae Dearg would refresh its other counterpart temporarily."
@@ -9298,7 +9306,7 @@
         "DOTA_Tooltip_ability_nanaya_dash_invis_duration"           "Invisibility duration:"
 
         "DOTA_Tooltip_ability_nanaya_instinct"                      "Instinct"
-        "DOTA_Tooltip_ability_nanaya_instinct_Description"			"<font color='#FFFAFA'>Passive</font>\nEach time Nanaya deals damage to an enemy, he gains a <font color='#002BFF'>Nanaya blood</font> stack, up to %stack_max% stacks, gaining %bonus_agility% <font color='#00FF00'>agility</font> per each stack.\nStacks reset after %stacks_duration% seconds of not dealing damage.\nWhenever this ability hits 10 stacks, Nanaya becomes <font color='#FFFAFA'>White</font> and refreshes Sensa・Hattenshou.\n<font color='#FFFAFA'>White</font>: Nanaya has %ms% constant movement speed and %cd_reduction_pct%%  cooldown reduction. After casting any ability, Nanaya can instantly blink up to %blink_distance% range with attack-move or attack-target orders."
+        "DOTA_Tooltip_ability_nanaya_instinct_Description"			"<font color='#FFFAFA'>Passive</font>\nEach time Nanaya deals damage to an enemy, he gains a <font color='#002BFF'>Nanaya blood</font> stack, up to %stack_max% stacks, gaining %bonus_agility% <font color='#00FF00'>agility</font> and %mana_regen_constant% <font color='#58ACFA'>mana regen</font> per each stack.\nStacks reset after %stacks_duration% seconds of not dealing damage.\nWhenever this ability hits 10 stacks, Nanaya becomes <font color='#FFFAFA'>White</font> and refreshes Sensa・Hattenshou.\n<font color='#FFFAFA'>White</font>: Nanaya has %ms% constant movement speed and %cd_reduction_pct%%  cooldown reduction. After casting any ability, Nanaya can instantly blink up to %blink_distance% range with attack-move or attack-target orders."
 
 
         "DOTA_Tooltip_ability_nanaya_dashf_return"                              "Shadow return"

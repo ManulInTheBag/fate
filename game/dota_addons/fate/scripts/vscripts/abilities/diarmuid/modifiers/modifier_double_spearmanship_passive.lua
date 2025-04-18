@@ -2,7 +2,7 @@ modifier_double_spearmanship_passive = class({})
 
 function modifier_double_spearmanship_passive:OnCreated(args)
 	if IsServer() then
-		self.DoubleAttackChance = args.DoubleAttackChance
+		self.DoubleAttackChance = 0
 		self.ProcReady = true
 		--self:StartIntervalThink(0.1)
 	end

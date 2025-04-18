@@ -536,7 +536,7 @@
 								_class = "AnimFile"
 								name = "diarmuid_dearg3"
 								is_default_idle_anim = false
-								activity_name = "ACT_DOTA_CAST_ABILITY_4"
+								activity_name = "ACT_DOTA_RAZE_2"
 								activity_weight = 1
 								weight_list_name = ""
 								fade_in_time = 0.2
@@ -550,8 +550,54 @@
 								animgraph_additive = false
 								source_filename = "models/diarmuid/diarmuid_anim.FBX"
 								import_bone_scales = false
-								start_frame = 0
-								end_frame = 3313
+								start_frame = 313
+								end_frame = 343
+								framerate = 30.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "diarmuid_dearg4"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_RAZE_1"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/diarmuid/diarmuid_anim.FBX"
+								import_bone_scales = false
+								start_frame = 453
+								end_frame = 473
+								framerate = 30.0
+								reverse = false
+							},
+							{
+								_class = "AnimFile"
+								name = "diarmuid_dearg5"
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_RAZE_1"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								source_filename = "models/diarmuid/diarmuid_anim.FBX"
+								import_bone_scales = false
+								start_frame = 704
+								end_frame = 734
 								framerate = 30.0
 								reverse = false
 							},

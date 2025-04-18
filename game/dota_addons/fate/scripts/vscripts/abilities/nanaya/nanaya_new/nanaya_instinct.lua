@@ -11,11 +11,16 @@ end
 
 modifier_nanaya_instinct_passive = class ({})
 
+function modifier_nanaya_instinct_passive:GetModifierConstantManaRegen()
+	return self:GetAbility():GetSpecialValueFor("mana_regen_constant") * self:GetStackCount()
+end
+
 function modifier_nanaya_instinct_passive:IsHidden() return false end
 function modifier_nanaya_instinct_passive:IsDebuff() return false end
 
 function modifier_nanaya_instinct_passive:DeclareFunctions()
     local func = {  MODIFIER_EVENT_ON_TAKEDAMAGE,
+					MODIFIER_PROPERTY_MANA_REGEN_CONSTANT, 
                     MODIFIER_PROPERTY_STATS_AGILITY_BONUS }
     return func
 end
@@ -86,10 +91,11 @@ function modifier_nanaya_instinct:DeclareFunctions()
 		}
 		return func
 end
-
 function modifier_nanaya_instinct:GetModifierPercentageCooldown()
 	return self:GetAbility():GetSpecialValueFor("cd_reduction_pct")
 end
+
+
 
 function modifier_nanaya_instinct:OnOrder(args)
 	if args.unit ~= self:GetParent() or self.sex ~= true or args.unit:IsCommandRestricted() or args.unit:IsStunned() then return end

@@ -53,15 +53,15 @@ function diarmuid_warrior_charge:CastFilterResultTarget(hTarget)
 	end
 end
 
-function diarmuid_warrior_charge:GetCooldown(iLevel)
-	if self:GetCaster():HasModifier("modifier_rampant_warrior") then
-		return self:GetSpecialValueFor("combo_cd")
-	elseif self:GetCaster():HasModifier("modifier_double_spearmanship_active") then
-		return self:GetSpecialValueFor("doublespear_cd")
-	else
-		return self:GetSpecialValueFor("cooldown")
-	end
-end
+-- function diarmuid_warrior_charge:GetCooldown(iLevel)
+-- 	if self:GetCaster():HasModifier("modifier_rampant_warrior") then
+-- 		return self:GetSpecialValueFor("combo_cd")
+-- 	elseif self:GetCaster():HasModifier("modifier_double_spearmanship_active") then
+-- 		return self:GetSpecialValueFor("doublespear_cd")
+-- 	else
+-- 		return self:GetSpecialValueFor("cooldown")
+-- 	end
+-- end
 
 function diarmuid_warrior_charge:OnSpellStart()
 	local caster = self:GetCaster()
