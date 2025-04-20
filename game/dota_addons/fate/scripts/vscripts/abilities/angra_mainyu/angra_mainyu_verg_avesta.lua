@@ -8,24 +8,24 @@ function angra_mainyu_verg_avesta:GetAOERadius()
 	return self:GetSpecialValueFor("radius")
 end
 
-function angra_mainyu_verg_avesta:GetManaCost()
-	local caster = self:GetCaster()
-	if caster:GetMana() >= 800 then
-		self.spendHealth = 0
-		return 800
-	else
-		self.spendHealth = 800 - caster:GetMana()
-		return caster:GetMana()
-	end
-end
+-- function angra_mainyu_verg_avesta:GetManaCost()
+-- 	local caster = self:GetCaster()
+-- 	if caster:GetMana() >= 800 then
+-- 		self.spendHealth = 0
+-- 		return 800
+-- 	else
+-- 		self.spendHealth = 800 - caster:GetMana()
+-- 		return caster:GetMana()
+-- 	end
+-- end
 
 function angra_mainyu_verg_avesta:GetHealthCost()
-	local caster = self:GetCaster()
-	if caster:GetMana() >= 800 then 
-		return self:GetCaster():GetMaxHealth()*0.1 --self:GetCaster():HasModifier("angra_mainyu_verg_avesta_count") and (self:GetCaster():GetModifierStackCount("angra_mainyu_verg_avesta_count", self:GetCaster())+1) * 50 or
-	else
-		return self:GetCaster():GetMaxHealth()*0.1 + (self.spendHealth and self.spendHealth or 0)
-	end
+	return self:GetCaster():GetMaxHealth()*0.1 --self:GetCaster():HasModifier("angra_mainyu_verg_avesta_count") and (self:GetCaster():GetModifierStackCount("angra_mainyu_verg_avesta_count", self:GetCaster())+1) * 50 or
+	-- if caster:GetMana() >= 800 then 
+	-- 	return self:GetCaster():GetMaxHealth()*0.1 --self:GetCaster():HasModifier("angra_mainyu_verg_avesta_count") and (self:GetCaster():GetModifierStackCount("angra_mainyu_verg_avesta_count", self:GetCaster())+1) * 50 or
+	-- else
+	-- 	return self:GetCaster():GetMaxHealth()*0.1 + (self.spendHealth and self.spendHealth or 0)
+	-- end
 end
 
 function angra_mainyu_verg_avesta:OnSpellStart()
