@@ -73,7 +73,7 @@ GameUI.CustomUIConfig().multiteam_top_scoreboard =
       //GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_INVENTORY_SHOP, false );     //Shop portion of the Inventory.
       //GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_INVENTORY_ITEMS, false );      //Player items.
       //GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_INVENTORY_QUICKBUY, false );     //Quickbuy.
-      GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_INVENTORY_COURIER, false );      //Courier controls.
+      //GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_INVENTORY_COURIER, false );      //Courier controls.
       GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_INVENTORY_PROTECT, false );      //Glyph.
       //GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_INVENTORY_GOLD, false );     //Gold display.
       //GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_SHOP_SUGGESTEDITEMS, false );      //Suggested items shop panel.
@@ -188,6 +188,17 @@ GameUI.CustomUIConfig().multiteam_top_scoreboard =
 
         // Quickbuy
         var quickbuyUI = UIRoot.FindChildTraverse("HUDElements").FindChildTraverse("lower_hud").FindChildTraverse("shop_launcher_block").FindChildTraverse("quickbuy").FindChildTraverse("QuickBuyRows");
+
+        //fucking courier
+        var gabenuebanUI = UIRoot.FindChildTraverse("HUDElements").FindChildTraverse("lower_hud").FindChildTraverse("shop_launcher_block").FindChildTraverse("quickbuy").FindChildTraverse("ShopCourierControls").FindChildTraverse("CourierControls");
+        gabenuebanUI.style.visibility = "collapse";
+
+        var overallshopUI = UIRoot.FindChildTraverse("HUDElements").FindChildTraverse("shop").FindChildTraverse("Main");
+        overallshopUI.style.width = "350px";
+
+        //teamitems
+        var teamitemsUI = UIRoot.FindChildTraverse("HUDElements").FindChildTraverse("shop").FindChildTraverse("Main").FindChildTraverse("HeightLimiter").FindChildTraverse("GridMainShop").FindChildTraverse("GridHeaderAndMainContent").FindChildTraverse("GridMainContent").FindChildTraverse("MainShopContentsVersionContainer").FindChildTraverse("FilterContainer");
+        teamitemsUI.style.visibility = "collapse";
 
         // Team Container
         var teamScoreUI = UIRoot.FindChildTraverse("HUDElements").FindChildTraverse("scoreboard");
