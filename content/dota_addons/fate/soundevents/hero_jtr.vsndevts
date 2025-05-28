@@ -1,0 +1,433 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	jtr_attack_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/jtr/jtr_attack_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	jtr_attack_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/jtr/jtr_attack_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	jtr_attack_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/jtr/jtr_attack_3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	jtr_damaged_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/jtr/jtr_damaged_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	jtr_damaged_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/jtr/jtr_damaged_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	jtr_death_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/jtr/jtr_death_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	jtr_death_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/jtr/jtr_death_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	jtr_death_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/jtr/jtr_death_3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	jtr_death_4 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/jtr/jtr_death_4.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	jtr_kill_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/jtr/jtr_kill_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	jtr_kill_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/jtr/jtr_kill_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	jtr_kill_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/jtr/jtr_kill_3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	jtr_kill_4 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/jtr/jtr_kill_4.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	jtr_kill_5 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/jtr/jtr_kill_5.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	jtr_laugh_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/jtr/jtr_laugh_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	jtr_laugh_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/jtr/jtr_laugh_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	jtr_level_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/jtr/jtr_level_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	jtr_level_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/jtr/jtr_level_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	jtr_level_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/jtr/jtr_level_3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	jtr_level_4 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/jtr/jtr_level_4.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	jtr_level_5 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/jtr/jtr_level_5.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	jtr_level_6 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/jtr/jtr_level_6.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	jtr_level_7 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/jtr/jtr_level_7.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	jtr_level_8 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/jtr/jtr_level_8.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	jtr_move_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/jtr/jtr_move_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	jtr_move_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/jtr/jtr_move_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	jtr_move_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/jtr/jtr_move_3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	jtr_move_4 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/jtr/jtr_move_4.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	jtr_move_5 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/jtr/jtr_move_5.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	jtr_thanks = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/jtr/jtr_thanks.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	jtr_summon = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/jtr/jtr_summon.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	jtr_maria_the_ripper = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/jtr/jtr_maria_the_ripper.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	jtr_maria_slashes = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/jtr/jtr_maria_slashes.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	jtr_backstab = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/jtr/jtr_backstab.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	jtr_smoke = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/jtr/jtr_smoke.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	jtr_invis = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/jtr/jtr_invis.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	jtr_bell = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/jtr/jtr_bell.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	jtr_combo = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/jtr/jtr_combo.vsnd",
+		]
+		volume = "2.500000"
+		pitch = "1.000000"
+	}
+
+	jtr_np = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/jtr/jtr_np.vsnd",
+		]
+		volume = "17.000000"
+		pitch = "1.000000"
+	}
+
+
+}

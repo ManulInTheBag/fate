@@ -1,0 +1,2732 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	tidehunter_tide_spawn_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_spawn.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_spawn_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_spawn.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_spawn_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_summon.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_spawn_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_summon.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_begins_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_kill2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_first_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_kill2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_move_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_move1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_move_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_move1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_move_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_move1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_move_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_move1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_move_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_move2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_move_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_move2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_move_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_move2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_move_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_move2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_move_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_move3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_move_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_move3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_move_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_move3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_move_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_move3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_move_13 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_move4.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_move_14 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_move4.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_move_15 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_move4.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_attack_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_attack1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_attack_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_attack1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_attack_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_attack1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_attack_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_attack2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_attack_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_attack2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_attack_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_attack2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_attack_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_attack3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_attack_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_attack3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_attack_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_attack3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_attack_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_attack4.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_attack_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_attack4.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_cast_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad_cast1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_cast_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad_cast1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_cast_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad_cast2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_ability_gush__01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_ability_gush__02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_ability_gush__03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_ability_gush__04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_ability_gush__05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_ability_ravage_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_ability_ravage_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_ability_ravage_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_ability_ravage_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_psionictrap_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_psionictrap_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_psionictrap_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_psionictrap_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_psionictrap_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_psionictrap_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_psionictrap_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_psionictrap_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_psionictrap_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_psionictrap_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_refraction_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_refraction_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_refraction_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_refraction_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_refraction_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_refraction_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_refraction_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_refraction_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_levelup_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_levelup.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_levelup_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_levelup.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_levelup_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_levelup.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_levelup_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_levelup.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_levelup_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_levelup.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_levelup_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_levelup.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_levelup_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_levelup.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_levelup_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_levelup.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_levelup_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_levelup.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_levelup_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_levelup.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_kill_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_kill1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_kill_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_kill1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_kill_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_kill2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_kill_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_kill2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_kill_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_other_03.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_kill_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_other_03.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_kill_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_other_04.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_kill_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_other_04.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_kill_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_kill1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_kill_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_kill1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_kill_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_kill2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_kill_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_kill2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_kill_13 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_kill2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_kill_14 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_other_02.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_kill_15 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_other_02.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_rival_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_kill2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_rival_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_kill2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_rival_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_kill2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_rival_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_kill2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_rival_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_kill2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_rival_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_kill2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_rival_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_kill2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_rival_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_kill2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_rival_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_kill2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_rival_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_kill2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_rival_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_kill2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_rival_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_kill2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_rival_13 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_kill2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_ally_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_ally_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_ally_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_ally_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_ally_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_ally_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_lasthit_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_lasthit_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_lasthit_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_lasthit_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_lasthit_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_lasthit_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_lasthit_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_lasthit_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_lasthit_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_death_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_die1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_death_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_die1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_death_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_die1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_death_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_die1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_death_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_die2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_death_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_die2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_death_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_die2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_death_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_die2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_death_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_die2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_death_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_die3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_death_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_die3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_death_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_die3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_death_13 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_die3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_fastres_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad_respawn1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_respawn_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad_respawn1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_respawn_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad_respawn2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_respawn_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad_respawn3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_respawn_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_respawn_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_respawn_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_respawn_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_respawn_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_respawn_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_respawn_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_rare_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_other_05.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_rare_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_other_06.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_rare_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_other_07.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_rare_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_other_02.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_purch_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_purch_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_purch_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_scepter_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_scepter_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_blink_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_blink_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_items_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_items_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_items_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_items_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_items_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_items_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_items_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_items_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_items_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_items_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_bottle_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_bottle_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_bottle_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_deny_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_deny_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_deny_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_deny_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_deny_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_deny_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_deny_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_deny_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_deny_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_deny_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_deny_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_deny_13 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_deny_14 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_deny_15 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_deny_16 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_itemcommon_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_itemmoderate_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_itemrare_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_immort_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_immort_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_haste_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_haste_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_doubdam_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_doubdam_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_regen_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_regen_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_illus_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_illus_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_invis_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_invis_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_notyet_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_hurt_01.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_notyet_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_hurt_01.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_notyet_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_hurt_01.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_notyet_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_hurt_01.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_notyet_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_hurt_01.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_notyet_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_hurt_01.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_notyet_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_hurt_01.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_notyet_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_hurt_01.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_notyet_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_hurt_01.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_nomana_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_hurt_01.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_nomana_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_hurt_01.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_nomana_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_hurt_01.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_nomana_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_hurt_01.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_nomana_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_hurt_01.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_nomana_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_hurt_01.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_nomana_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_hurt_01.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_nomana_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_hurt_01.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_nomana_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_hurt_01.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_thanks_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_thanks_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_thanks_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_thanks_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_thanks_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_underattack_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_hurt_02.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_inthebag_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_crumwiz_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_shiwiz_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_lose_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_lose_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_lose_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_win_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_win_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_win_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_pain_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_hurt_01.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_pain_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_hurt_01.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_pain_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_hurt_01.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_pain_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_hurt_02.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_pain_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_hurt_02.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_pain_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_hurt_02.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_pain_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_hurt_02.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_pain_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_hurt_02.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_pain_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_hurt_01.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_anger_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_anger_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_anger_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_anger_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_anger_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_happy_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_happy_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_happy_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_happy_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_laugh_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_laugh_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_laugh_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tidehunter_tide_laugh_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+
+}

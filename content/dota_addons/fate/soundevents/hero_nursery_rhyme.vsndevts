@@ -1,0 +1,503 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	NR.GlassGame.Begin = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/nursery/nursery_glass_game.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	NR.Chronosphere = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/weapons/hero/faceless_void/chronosphere.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	NR.Tick = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/weapons/hero/faceless_void/chronosphere_tick.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	NR.GlobalPing = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/weapons/hero/abaddon/borrowed_time.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	nursery_death = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nursery/nursery_death.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	nursery_glass_game = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nursery/nursery_glass_game.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	nursery_hurt = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nursery/nursery_hurt.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	nursery_kill_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nursery/nursery_kill_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	nursery_kill_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nursery/nursery_kill_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	nursery_kill_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nursery/nursery_kill_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	nursery_move_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nursery/nursery_move_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	nursery_move_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nursery/nursery_move_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	nursery_move_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nursery/nursery_move_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	nursery_move_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nursery/nursery_move_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	nursery_spawn_temp = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nursery/nursery_spawn_temp.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	nursery_start = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nursery/nursery_start.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	nursery_rhyme_combo_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nursery/nursery_rhyme_combo_1.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	nursery_rhyme_combo_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nursery/nursery_rhyme_combo_2.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	nursery_rhyme_combo_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nursery/nursery_rhyme_combo_3.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	nursery_rhyme_combo_4 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nursery/nursery_rhyme_combo_4.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Nursery_Rhyme_Clone = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nursery/Nursery_Rhyme_Clone.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Nursery_Rhyme_Death_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nursery/Nursery_Rhyme_Death_1.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Nursery_Rhyme_Death_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nursery/Nursery_Rhyme_Death_2.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Nursery_Rhyme_Death_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nursery/Nursery_Rhyme_Death_3.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Nursery_Rhyme_Hurt = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nursery/Nursery_Rhyme_Hurt.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Nursery_Rhyme_Kill_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nursery/Nursery_Rhyme_Kill_1.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Nursery_Rhyme_Kill_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nursery/Nursery_Rhyme_Kill_2.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Nursery_Rhyme_Kill_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nursery/Nursery_Rhyme_Kill_3.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Nursery_Rhyme_Kill_4 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nursery/Nursery_Rhyme_Kill_4.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Nursery_Rhyme_Kill_5 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nursery/Nursery_Rhyme_Kill_5.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Nursery_Rhyme_Kill_6 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nursery/Nursery_Rhyme_Kill_6.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Nursery_Rhyme_Kill_7 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nursery/Nursery_Rhyme_Kill_7.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Nursery_Rhyme_Level_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nursery/Nursery_Rhyme_Level_1.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Nursery_Rhyme_Level_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nursery/Nursery_Rhyme_Level_2.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Nursery_Rhyme_Level_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nursery/Nursery_Rhyme_Level_3.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Nursery_Rhyme_Level_4 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nursery/Nursery_Rhyme_Level_4.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Nursery_Rhyme_Level_5 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nursery/Nursery_Rhyme_Level_5.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Nursery_Rhyme_Level_6 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nursery/Nursery_Rhyme_Level_6.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Nursery_Rhyme_Level_7 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nursery/Nursery_Rhyme_Level_7.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Nursery_Rhyme_Level_8 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nursery/Nursery_Rhyme_Level_8.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Nursery_Rhyme_Laugh_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nursery/Nursery_Rhyme_Laugh_1.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Nursery_Rhyme_Laugh_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nursery/Nursery_Rhyme_Laugh_2.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Nursery_Rhyme_Summon = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nursery/Nursery_Rhyme_Summon.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Nursery_Rhyme_Thanks_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nursery/Nursery_Rhyme_Thanks_1.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Nursery_Rhyme_Thanks_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nursery/Nursery_Rhyme_Thanks_2.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+
+}

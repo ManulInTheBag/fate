@@ -1,0 +1,419 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	Vlad.Combo = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_combo.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	Vlad_Combo_1 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_combo_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	Vlad_Combo_2 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_combo_2.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	Vlad.KB = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_kazikli_bey.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	Vlad.FX1 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_fx1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	Vlad.FX2 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_fx2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	Vlad.Laugh = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_laugh.vsnd",
+		]
+		volume = "0.900000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	Vlad.Ohoo = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_ohoo.vsnd",
+		]
+		volume = "0.900000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	vlad_attack1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_attack1.vsnd",
+		]
+		volume = "0.800001"
+		pitch = "1.000000"
+	}
+
+	vlad_attack2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_attack2.vsnd",
+		]
+		volume = "0.800001"
+		pitch = "1.000000"
+	}
+
+	vlad_attack3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_attack3.vsnd",
+		]
+		volume = "0.800001"
+		pitch = "1.000000"
+	}
+
+	vlad_attack4 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_attack4.vsnd",
+		]
+		volume = "0.800001"
+		pitch = "1.000000"
+	}
+
+	vlad_spawn = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_spawn.vsnd",
+		]
+		volume = "0.800001"
+		pitch = "1.000000"
+	}
+
+	vlad_move1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_move1.vsnd",
+		]
+		volume = "0.800001"
+		pitch = "1.000000"
+	}
+
+	vlad_move2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_move2.vsnd",
+		]
+		volume = "0.800001"
+		pitch = "1.000000"
+	}
+
+	vlad_move3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_move3.vsnd",
+		]
+		volume = "0.800001"
+		pitch = "1.000000"
+	}
+
+	vlad_move4 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_move4.vsnd",
+		]
+		volume = "0.800001"
+		pitch = "1.000000"
+	}
+
+	vlad_cast1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_cast1.vsnd",
+		]
+		volume = "0.800001"
+		pitch = "1.000000"
+	}
+
+	vlad_cast2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_cast2.vsnd",
+		]
+		volume = "0.800001"
+		pitch = "1.000000"
+	}
+
+	vlad_hurt1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_hurt1.vsnd",
+		]
+		volume = "0.800001"
+		pitch = "1.000000"
+	}
+
+	vlad_hurt2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_hurt2.vsnd",
+		]
+		volume = "0.800001"
+		pitch = "1.000000"
+	}
+
+	vlad_hurt3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_hurt3.vsnd",
+		]
+		volume = "0.800001"
+		pitch = "1.000000"
+	}
+
+	vlad_hurt4 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_hurt4.vsnd",
+		]
+		volume = "0.800001"
+		pitch = "1.000000"
+	}
+
+	vlad_respawn1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_respawn1.vsnd",
+		]
+		volume = "0.800001"
+		pitch = "1.000000"
+	}
+
+	vlad_respawn2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_respawn2.vsnd",
+		]
+		volume = "0.800001"
+		pitch = "1.000000"
+	}
+
+	vlad_respawn3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_respawn3.vsnd",
+		]
+		volume = "0.800001"
+		pitch = "1.000000"
+	}
+
+	vlad_kill1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_kill1.vsnd",
+		]
+		volume = "0.800001"
+		pitch = "1.000000"
+	}
+
+	vlad_kill2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_kill2.vsnd",
+		]
+		volume = "0.800001"
+		pitch = "1.000000"
+	}
+
+	vlad_kill3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_kill3.vsnd",
+		]
+		volume = "0.800001"
+		pitch = "1.000000"
+	}
+
+	vlad_kill4 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_kill4.vsnd",
+		]
+		volume = "0.800001"
+		pitch = "1.000000"
+	}
+
+	vlad_kill5 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_kill5.vsnd",
+		]
+		volume = "0.800001"
+		pitch = "1.000000"
+	}
+
+	vlad_die1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_die1.vsnd",
+		]
+		volume = "0.800001"
+		pitch = "1.000000"
+	}
+
+	vlad_die2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_die2.vsnd",
+		]
+		volume = "0.800001"
+		pitch = "1.000000"
+	}
+
+	vlad_die3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_die3.vsnd",
+		]
+		volume = "0.800001"
+		pitch = "1.000000"
+	}
+
+	vlad_die4 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_die4.vsnd",
+		]
+		volume = "0.800001"
+		pitch = "1.000000"
+	}
+
+	vlad_summon = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_summon.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	vlad_thanks_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vlad/vlad_thanks_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+
+}

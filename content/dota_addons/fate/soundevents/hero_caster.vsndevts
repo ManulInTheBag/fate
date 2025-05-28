@@ -1,0 +1,612 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	Caster.RuleBreaker = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_rule_breaker.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	Caster.Hecatic = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_hecatic_graea.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	Caster.Hecatic_Spread = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_hecatic_graea_spread.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	caster_attack_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_attack_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	caster_attack_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_attack_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	caster_attack_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_attack_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	caster_attack_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_attack_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	caster_battle_start = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_battle_start.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	caster_death = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_death.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	caster_death01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_death01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	caster_death02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_death02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	caster_kill01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_kill01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	caster_move_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_move_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	caster_move_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_move_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	caster_move_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_move_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	caster_other_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_other_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	caster_other_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_other_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	caster_other_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_other_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	caster_other_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_other_05.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	caster_respawn01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_respawn01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	caster_respawn02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_respawn02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	caster_respawn03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_respawn03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	caster_respawn04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_respawn04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	caster_spawn = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_spawn.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Medea_Rule_Breaker_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/Medea_Rule_Breaker_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	Medea_Rule_Breaker_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/Medea_Rule_Breaker_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	Medea_Skill_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/Medea_Skill_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	Medea_Skill_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/Medea_Skill_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	Medea_Skill_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/Medea_Skill_3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	Medea_Skill_4 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/Medea_Skill_4.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	Medea_Skill_5 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/Medea_Skill_5.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	Medea_Skill_6 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/Medea_Skill_6.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	Medea_Skill_7 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/Medea_Skill_7.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	Medea_Skill_8 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/Medea_Skill_8.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	Medea_Steal_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/Medea_Steal_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	Medea_Steal_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/Medea_Steal_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	Medea_Combo_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/Medea_Combo_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	medea_kill_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_kill_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	medea_kill_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_kill_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	medea_kill_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_kill_3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	medea_kill_4 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_kill_4.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	medea_level_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_level_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	medea_level_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_level_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	medea_level_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_level_3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	medea_level_4 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_level_4.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	medea_level_5 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_level_5.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	medea_level_6 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_level_6.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	medea_level_7 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_level_7.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	medea_level_8 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_level_8.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	medea_level_9 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_level_9.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	medea_level_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_level_10.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	medea_thanks_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_thanks_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	medea_laugh = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_laugh.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	medea_death_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_death_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	medea_death_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_death_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+
+}

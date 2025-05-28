@@ -1,0 +1,755 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	FA.Windblade = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_windblade.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	FA.TGReady = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_tg_ready.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	FA.TG = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_tg.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	FA.Chop = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_chop_sound.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	FA.Quickdraw = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_quickdraw.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	FA.Owarida = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_owarida.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	FA.Kiero = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_kiero.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	FA.Omigoto = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_omigoto.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	fa_attack_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_attack_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	fa_attack_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_attack_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	fa_chop_sound = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_chop_sound.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	fa_death_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_death_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	fa_death_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_death_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	fa_hurt_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_hurt_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	fa_hurt_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_hurt_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	fa_kiero = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_kiero.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	fa_kill = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_kill.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	fa_move_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_move_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	fa_move_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_move_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	fa_move_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_move_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	fa_omigoto = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_omigoto.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	fa_other_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_other_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	fa_other_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_other_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	fa_other_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_other_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	fa_other_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_other_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	fa_other_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_other_05.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	fa_other_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_other_06.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	fa_other_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_other_07.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	fa_owarida = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_owarida.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	fa_quickdraw = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_quickdraw.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	fa_spawn = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_spawn.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	fa_tg = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_tg.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	fa_tg_ready = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_tg_ready.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	fa_windblade = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_windblade.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Sasaki_Counter_Fail_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/Sasaki_Counter_Fail_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	Sasaki_Counter_Fail_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/Sasaki_Counter_Fail_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	Sasaki_Counter_Success_2 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/fa/fa_omigoto.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	Sasaki_Counter_Success_1 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/fa/Sasaki_Counter_Success_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	Sasaki_Quickdraw_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/Sasaki_Quickdraw_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	Sasaki_Quickdraw_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/Sasaki_Quickdraw_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	Sasaki_Windblade_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/Sasaki_Windblade_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	Sasaki_Windblade_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/Sasaki_Windblade_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	Sasaki_Gatekeeper_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/Sasaki_Gatekeeper_1.vsnd",
+		]
+		volume = "0.700000"
+		pitch = "1.000000"
+	}
+
+	sasaki_battle_begins = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/sasaki_battle_begins.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	sasaki_kill_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/sasaki_kill_1.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	sasaki_kill_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/sasaki_kill_2.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	sasaki_kill_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/sasaki_kill_3.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	sasaki_kill_4 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/sasaki_kill_4.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	sasaki_level_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/sasaki_level_1.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	sasaki_level_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/sasaki_level_2.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	sasaki_level_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/sasaki_level_3.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	sasaki_level_4 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/sasaki_level_4.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	sasaki_level_5 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/sasaki_level_5.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	sasaki_level_6 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/sasaki_level_6.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	sasaki_level_7 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/sasaki_level_7.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	sasaki_level_8 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/sasaki_level_8.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	sasaki_level_9 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/sasaki_level_9.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	sasaki_level_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/sasaki_level_10.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	sasaki_level_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/sasaki_level_11.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	sasaki_level_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/sasaki_level_12.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	sasaki_thanks_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/sasaki_thanks_1.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	sasaki_laugh_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/sasaki_laugh_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	sasaki_laugh_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/fa/sasaki_laugh_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	Tsubame_Slash_1 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/fa/Tsubame_Slash_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	Tsubame_Slash_2 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/fa/Tsubame_Slash_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	Tsubame_Slash_3 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/fa/Tsubame_Slash_3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	Tsubame_Focus = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/fa/Tsubame_Focus.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+
+}

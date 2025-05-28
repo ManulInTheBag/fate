@@ -30,7 +30,8 @@ if not HeroSelection then
 	HeroSelection.RandomableHeroes = {}
 	HeroSelection.EmptyStateData = {
 		hero = "npc_dota_hero_abaddon",
-		status = "hover"
+		status = "hover",
+		skin = 0
 	}
 	HeroSelection.CurrentState = HERO_SELECTION_PHASE_NOT_STARTED
 	HeroSelection.GameStartTimers = {}

@@ -1,0 +1,197 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	Lancelot.SMG = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/lancelot/lancelot_smg.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+	Lancelot.Roar1 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/lancelot/lancelot_nine.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+		chan_type = "0"
+		memory_type = "0"
+	}
+	Lancelot.Roar2 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/lancelot/lancelot_tg.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+		chan_type = "0"
+		memory_type = "0"
+	}
+	Lancelot.Growl_Local = 
+	{
+		type = "dota_update_default"
+		vsnd_files = 
+		[
+			"sounds/lancelot/lancelot_tg_cast.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+		chan_type = "0"
+		memory_type = "0"
+	}
+	Lancelot.Growl = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/lancelot/lancelot_tg_cast.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+		chan_type = "0"
+		memory_type = "0"
+	}
+	Lancelot.Nuke_Alert = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/lancelot/lancelot_nuke_alert.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+		chan_type = "0"
+		memory_type = "0"
+	}
+	Lancelot.Nuke_Impact = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/weapons/hero/gyrocopter/call_down_impact.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+		chan_type = "0"
+		memory_type = "0"
+	}
+	Lancelot.Nuke_Beep = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/lancelot/lancelot_nuke_beep.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+		chan_type = "0"
+		memory_type = "0"
+	}
+	Lancelot.Helicoptor = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/lancelot/lancelot_helicoptor.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+		chan_type = "0"
+		memory_type = "0"
+	}
+	Lancelot.TacticalNuke = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/lancelot/lancelot_tactical_nuke.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+		chan_type = "0"
+		memory_type = "0"
+	}
+	Heckler_Koch_MP5 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/lancelot/HKMP5_Suppressed.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+	Heckler_Koch_MP5_Unsuppressed = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/lancelot/HKMP5_Live.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+	lancelot_arthur_1 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/lancelot/lancelot_arthur_1.vsnd",
+		]
+		volume = "12.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+	lancelot_arthur_2 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/lancelot/lancelot_arthur_2.vsnd",
+		]
+		volume = "12.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+	lancelot_arthur_3 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/lancelot/lancelot_arthur_3.vsnd",
+		]
+		volume = "12.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+	Lancelot_Level_1 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/lancelot/Lancelot_Level_1.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+}

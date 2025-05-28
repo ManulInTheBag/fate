@@ -1,0 +1,680 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	ZC.Torment = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/weapons/hero/doom_bringer/lvl_death.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	ZC.Tentacle1 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/zc/zc_tentacle_scream.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	ZC.Tentacle2 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/zc/zc_tentacle_wrap.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	ZC.Laugh = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/zc/zc_combo.vsnd",
+		]
+		volume = "1.200000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	ZC.Ravage = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/weapons/hero/tidehunter/tidehunter_ravage.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	zc_attack_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/zc/zc_attack_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	zc_combo = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/zc/zc_combo.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	zc_death_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/zc/zc_death_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	zc_death_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/zc/zc_death_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	zc_hurt_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/zc/zc_hurt_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	zc_hurt_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/zc/zc_hurt_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	zc_kill_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/zc/zc_kill_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	zc_kill_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/zc/zc_kill_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	zc_kill_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/zc/zc_kill_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	zc_kill_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/zc/zc_kill_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	zc_laugh = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/zc/zc_laugh.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	zc_move_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/zc/zc_move_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	zc_move_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/zc/zc_move_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	zc_move_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/zc/zc_move_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	zc_other_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/zc/zc_other_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	zc_other_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/zc/zc_other_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	zc_other_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/zc/zc_other_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	zc_respawn_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/zc/zc_respawn_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	zc_respawn_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/zc/zc_respawn_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	zc_spawn = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/zc/zc_spawn.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	zc_tentacle_scream = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/zc/zc_tentacle_scream.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	zc_tentacle_wrap = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/zc/zc_tentacle_wrap.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	zc_tentacle_wrap_temp = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/zc/zc_tentacle_wrap_temp.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Gilles_Cool = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/zc/Gilles_Greatest_Cool.vsnd",
+		]
+		volume = "5.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	Gilles_Aaaaaaaa = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/zc/Gilles_Aaaaaaaa.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	gilles_death_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/zc/gilles_death_1.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	gilles_death_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/zc/gilles_death_2.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	gilles_death_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/zc/gilles_death_3.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	gilles_hurt = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/zc/gilles_hurt.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	gilles_kill_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/zc/gilles_kill_1.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	gilles_kill_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/zc/gilles_kill_2.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	gilles_kill_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/zc/gilles_kill_3.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	gilles_kill_4 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/zc/gilles_kill_4.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	gilles_kill_5 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/zc/gilles_kill_5.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	gilles_kill_6 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/zc/gilles_kill_6.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	gilles_kill_7 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/zc/gilles_kill_7.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	gilles_laugh_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/zc/gilles_laugh_1.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	gilles_laugh_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/zc/gilles_laugh_2.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	gilles_level_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/zc/gilles_level_1.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	gilles_level_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/zc/gilles_level_2.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	gilles_level_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/zc/gilles_level_3.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	gilles_level_4 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/zc/gilles_level_4.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	gilles_level_5 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/zc/gilles_level_5.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	gilles_level_6 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/zc/gilles_level_6.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	gilles_level_7 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/zc/gilles_level_7.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	gilles_level_8 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/zc/gilles_level_8.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Gilles_Smother_Cast = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/zc/Gilles_Smother_Cast.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	Gilles_Smother_Explode = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/zc/Gilles_Smother_Explode.vsnd",
+		]
+		volume = "1.500000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	Gilles_Torment_Cast = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/zc/Gilles_Torment_Cast.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	Gilles_Cthulhu_Cast = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/zc/Gilles_Cthulhu_Cast.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	Gilles_Cthulhu_Explode = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/zc/Gilles_Cthulhu_Explode.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	Gilles_Cthulhu_Root = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/zc/Gilles_Cthulhu_Root.vsnd",
+		]
+		volume = "1.500000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	Gilles_Misery_Cast = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/zc/Gilles_Misery_Cast.vsnd",
+		]
+		volume = "1.500000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	Gilles_Grief_Cast = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/zc/Gilles_Grief_Cast.vsnd",
+		]
+		volume = "1.500000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	Gilles_Grief_Explode = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/zc/Gilles_Grief_Explode.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+
+}

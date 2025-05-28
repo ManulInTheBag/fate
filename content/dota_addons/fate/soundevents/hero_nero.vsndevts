@@ -1,0 +1,803 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	Nero.Rosa = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/nero/nero_rosa.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	Nero.Domus = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/nero/nero_domus.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	Nero.Laus = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/nero/nero_laus.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	nero_attack_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/nero_attack_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	nero_attack_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/nero_attack_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	nero_attack_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/nero_attack_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	nero_domus = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/nero_domus.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	nero_hurt = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/nero_hurt.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	nero_kill = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/nero_kill.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	nero_laus = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/nero_laus.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	nero_move_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/nero_move_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	nero_move_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/nero_move_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	nero_move_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/nero_move_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	nero_other_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/nero_other_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	nero_other_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/nero_other_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	nero_rosa = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/nero_rosa.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	nero_spawn = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/nero_spawn.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	nero_death = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/nero_death.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	nero_kill_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/nero_kill_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Nero.NP1 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/nero/Nero_NP1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	Nero.NP2 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/nero/Nero_NP2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	Nero.NP3 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/nero/Nero_NP3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	Nero.Praise = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/Nero_Praise.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Nero.Skill1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/Nero_Skill1.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Nero.Skill2 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/nero/Nero_Skill2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	Nero.NP1.1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/Nero_NP1_1.vsnd",
+		]
+		volume = "5.000000"
+		pitch = "1.000000"
+	}
+
+	Nero.NP1.2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/Nero_NP1_2.vsnd",
+		]
+		volume = "5.000000"
+		pitch = "1.000000"
+	}
+
+	Nero.NP1.3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/Nero_NP1_3.vsnd",
+		]
+		volume = "5.000000"
+		pitch = "1.000000"
+	}
+
+	Nero.NP2.1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/Nero_NP2_1.vsnd",
+		]
+		volume = "5.000000"
+		pitch = "1.000000"
+	}
+
+	Nero_Attack_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/Nero_Attack_1.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Nero_Attack_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/Nero_Attack_2.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Nero_Attack_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/Nero_Attack_3.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Nero_Attack_4 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/Nero_Attack_4.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Nero_Skill_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/Nero_Skill_1.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Nero_Skill_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/Nero_Skill_2.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Nero_Skill_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/Nero_Skill_3.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Nero_Skill_4 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/Nero_Skill_4.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Nero_NP4 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/Nero_NP4.vsnd",
+		]
+		volume = "7.000000"
+		pitch = "1.000000"
+	}
+
+	nero_death_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/nero_death_1.vsnd",
+		]
+		volume = "4.000000"
+		pitch = "1.000000"
+	}
+
+	nero_death_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/nero_death_2.vsnd",
+		]
+		volume = "4.000000"
+		pitch = "1.000000"
+	}
+
+	nero_death_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/nero_death_3.vsnd",
+		]
+		volume = "4.000000"
+		pitch = "1.000000"
+	}
+
+	nero_death_4 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/nero_death_4.vsnd",
+		]
+		volume = "4.000000"
+		pitch = "1.000000"
+	}
+
+	nero_battle_begins = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/nero_battle_begins.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	nero_kill_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/nero_kill_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	nero_kill_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/nero_kill_2.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	nero_kill_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/nero_kill_3.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	nero_kill_4 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/nero_kill_4.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	nero_kill_5 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/nero_kill_5.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	nero_kill_6 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/nero_kill_6.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	nero_kill_7 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/nero_kill_7.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	nero_kill_8 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/nero_kill_8.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	nero_level_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/nero_level_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	nero_level_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/nero_level_2.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	nero_level_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/nero_level_3.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	nero_level_4 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/nero_level_4.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	nero_level_5 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/nero_level_5.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	nero_level_6 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/nero_level_6.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	nero_level_7 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/nero_level_7.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	nero_level_8 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/nero_level_8.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	nero_level_9 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/nero_level_9.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	nero_level_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/nero_level_10.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	nero_thanks_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/nero_thanks_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	nero_thanks_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/nero_thanks_2.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	nero_thanks_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/nero_thanks_3.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	nero_aestus_cast_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/nero_np1_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	nero_aestus_cast_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/nero_np1_2.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	nero_aestus_cast_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/nero_np1_3.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	nero_aestus_cast_4 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/nero_np1_4.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	nero_aestus_cast_5 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/nero_np1_5.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	nero_summon_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/nero_summon_1.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	nero_summon_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/nero_summon_2.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	nero_summon_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/nero/nero_summon_3.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+
+}

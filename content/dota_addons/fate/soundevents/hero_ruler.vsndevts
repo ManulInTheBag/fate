@@ -1,0 +1,102 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	Ruler.Luminosite = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/ruler/ruler_split_luminosite.vsnd",
+		]
+		volume = "4.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+	}
+	Ruler.Eternelle = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/ruler/ruler_split_eternelle.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+	}
+	Hero_Mirana.Attack = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/weapons/hero/juggernaut/attack02.vsnd",
+		]
+		volume = "0.500000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+	}
+	jeanne_combo_1 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/ruler/jeanne_combo_1.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+	}
+	jeanne_combo_2 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/ruler/jeanne_combo_2.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+	}
+	jeanne_combo_3 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/ruler/jeanne_combo_3.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+	}
+	jeanne_combo_end = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/ruler/jeanne_combo_end.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+	}
+	jeanne_burn = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/ruler/jeanne_burn.vsnd",
+		]
+		volume = "14.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+	}
+	jeanne_final = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/ruler/jeanne_final.vsnd",
+		]
+		volume = "16.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+	}
+}

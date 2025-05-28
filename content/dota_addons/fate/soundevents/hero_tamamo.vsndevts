@@ -1,0 +1,692 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	Tamamo.Amaterasu = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/tamamo/tamamo_amaterasu.vsnd",
+		]
+		volume = "1.200000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	Tamamo.Mantra = 
+	{
+		type = "dota_update_default"
+		vsnd_files = 
+		[
+			"sounds/items/lotus_cast.vsnd",
+		]
+		volume = "1.200000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	Tamamo.Kick = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/tamamo/tamamo_kick.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	tamamo_amaterasu = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/tamamo/tamamo_amaterasu.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	tamamo_attack_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/tamamo/tamamo_attack_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	tamamo_attack_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/tamamo/tamamo_attack_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	tamamo_attack_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/tamamo/tamamo_attack_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	tamamo_attack_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/tamamo/tamamo_attack_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	tamamo_cast01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/tamamo/tamamo_cast01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	tamamo_death01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/tamamo/tamamo_death01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	tamamo_death02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/tamamo/tamamo_death02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	tamamo_death03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/tamamo/tamamo_death03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	tamamo_hurt = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/tamamo/tamamo_hurt.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	tamamo_kick = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/tamamo/tamamo_kick.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	tamamo_kill01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/tamamo/tamamo_kill01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	tamamo_kill02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/tamamo/tamamo_kill02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	tamamo_move04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/tamamo/tamamo_move04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	tamamo_move_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/tamamo/tamamo_move_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	tamamo_move_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/tamamo/tamamo_move_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	tamamo_move_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/tamamo/tamamo_move_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	tamamo_other_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/tamamo/tamamo_other_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	tamamo_other_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/tamamo/tamamo_other_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	tamamo_other_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/tamamo/tamamo_other_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	tamamo_other_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/tamamo/tamamo_other_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	tamamo_respawn01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/tamamo/tamamo_respawn01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	tamamo_respawn02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/tamamo/tamamo_respawn02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	tamamo_respawn03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/tamamo/tamamo_respawn03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	tamamo_respawn04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/tamamo/tamamo_respawn04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	tamamo_spawn = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/tamamo/tamamo_spawn.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Tamamo_Combo1 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/tamamo/Tamamo_Combo1.vsnd",
+		]
+		volume = "4.000000"
+		pitch = "1.000000"
+	}
+
+	Tamamo_Combo2 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/tamamo/Tamamo_Combo2.vsnd",
+		]
+		volume = "4.000000"
+		pitch = "1.000000"
+	}
+
+	Tamamo_Combo_Alt1 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/tamamo/Tamamo_Combo_Alt1.vsnd",
+		]
+		volume = "4.500000"
+		pitch = "1.000000"
+	}
+
+	Tamamo_Combo_Alt2 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/tamamo/Tamamo_Combo_Alt2.vsnd",
+		]
+		volume = "4.500000"
+		pitch = "1.000000"
+	}
+
+	Tamamo_NP1 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/tamamo/Tamamo_NP1.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Tamamo_NP2 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/tamamo/Tamamo_NP2.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Tamamo_Praise1 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/tamamo/Tamamo_Praise1.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Tamamo_Praise2 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/tamamo/Tamamo_Praise2.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	tamamo_amaterasu_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/tamamo/tamamo_amaterasu_1.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	tamamo_amaterasu_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/tamamo/tamamo_amaterasu_2.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	tamamo_amaterasu_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/tamamo/tamamo_amaterasu_3.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	tamamo_battle_begins = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/tamamo/tamamo_battle_begins.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tamamo_death_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/tamamo/tamamo_death_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tamamo_death_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/tamamo/tamamo_death_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tamamo_kill_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/tamamo/tamamo_kill_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tamamo_kill_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/tamamo/tamamo_kill_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tamamo_kill_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/tamamo/tamamo_kill_3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tamamo_kill_4 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/tamamo/tamamo_kill_4.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tamamo_laugh_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/tamamo/tamamo_laugh_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tamamo_level_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/tamamo/tamamo_level_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tamamo_level_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/tamamo/tamamo_level_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tamamo_level_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/tamamo/tamamo_level_3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tamamo_level_4 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/tamamo/tamamo_level_4.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tamamo_level_5 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/tamamo/tamamo_level_5.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tamamo_level_6 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/tamamo/tamamo_level_6.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tamamo_level_7 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/tamamo/tamamo_level_7.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tamamo_level_8 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/tamamo/tamamo_level_8.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tamamo_thanks_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/tamamo/tamamo_thanks_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	tamamo_castration_fist_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/tamamo/tamamo_castration_fist_1.vsnd",
+		]
+		volume = "3.500000"
+		pitch = "1.000000"
+	}
+
+	tamamo_castration_fist_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/tamamo/tamamo_castration_fist_2.vsnd",
+		]
+		volume = "2.500000"
+		pitch = "1.000000"
+	}
+
+	Fire_Explosion_Sound = 
+	{
+		type = "dota_update_default"
+		vsnd_files = 
+		[
+			"sounds/tamamo/Fire_Explosion_Sound.vsnd",
+		]
+		volume = "1.300000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	Ice_Explosion_Sound = 
+	{
+		type = "dota_update_default"
+		vsnd_files = 
+		[
+			"sounds/tamamo/Ice_Explosion_Sound.vsnd",
+		]
+		volume = "1.300000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	Tamamo_Kick_Sfx = 
+	{
+		type = "dota_update_default"
+		vsnd_files = 
+		[
+			"sounds/tamamo/Tamamo_Kick_Sfx.vsnd",
+		]
+		volume = "1.300000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+
+}

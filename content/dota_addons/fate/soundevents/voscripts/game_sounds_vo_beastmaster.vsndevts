@@ -1,0 +1,2578 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	beastmaster_beas_spawn_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_summon.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_spawn_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_summon.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_spawn_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_summon.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_spawn_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_summon.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_spawn_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_summon.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_spawn_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_summon.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_move_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_move_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_move_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_move_2.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_move_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_move_3.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_move_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_move_4.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_move_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_move_5.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_move_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_move_6.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_move_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_move_7.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_move_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_move_8.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_move_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_move_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_move_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_move_2.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_move_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_move_3.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_move_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_move_4.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_move_13 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_move_5.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_move_14 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_move_6.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_move_15 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_move_7.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_move_16 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_move_8.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_move_17 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_move_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_attack_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_attack_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_attack_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_attack_2.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_attack_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_attack_3.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_attack_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_attack_4.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_attack_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_attack_5.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_attack_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_attack_6.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_attack_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_attack_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_attack_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_attack_2.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_attack_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_attack_3.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_attack_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_attack_4.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_attack_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_attack_5.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_attack_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_attack_6.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_attack_13 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_attack_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_attack_14 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_attack_2.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_attack_15 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_attack_3.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_cast_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_cast_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_cast_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_cast_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_cast_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_cast_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_cast_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_ability_axes_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_ability_axes_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_ability_axes_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_ability_axes_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_ability_axes_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_ability_axes_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_ability_axes_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_ability_axes_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_ability_axes_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_ability_axes_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_ability_axes_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_ability_axes_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_ability_axes_13 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_ability_axes_14 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_longdistance_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_longdistance_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_longdistance_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_ability_failure_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_ability_failure_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_ability_failure_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_level_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_level_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_level_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_level_2.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_level_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_level_3.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_level_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_level_4.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_level_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_level_5.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_level_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_level_6.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_level_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_level_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_level_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_level_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_kill_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_kill_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_kill_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_kill_2.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_kill_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_kill_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_kill_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_kill_2.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_kill_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_kill_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_kill_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_kill_2.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_kill_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_kill_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_kill_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_kill_2.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_kill_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_kill_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_kill_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_kill_2.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_kill_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_kill_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_kill_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_kill_2.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_kill_13 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_kill_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_kill_14 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_kill_2.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_lasthit_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_lasthit_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_lasthit_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_lasthit_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_lasthit_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_lasthit_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_lasthit_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_lasthit_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_death_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_death_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_death_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_death_2.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_death_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_death_3.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_death_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_death_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_death_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_death_2.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_death_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_death_3.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_death_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_death_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_death_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_death_2.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_death_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_death_3.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_death_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_death_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_death_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_death_2.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_death_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_death_3.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_death_13 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_death_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_death_14 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_death_2.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_respawn_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_fastspawn.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_respawn_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_fastspawn.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_respawn_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_fastspawn.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_respawn_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_fastspawn.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_respawn_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_fastspawn.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_respawn_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_fastspawn.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_respawn_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_fastspawn.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_respawn_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_fastspawn.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_respawn_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_fastspawn.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_respawn_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_fastspawn.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_respawn_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_fastspawn.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_respawn_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_fastspawn.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_rare_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_rare_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_rare_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_rare_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_rare_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_purch_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_purch_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_purch_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_purch_basher_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_blink_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_blink_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_blink_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_scepter_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_scepter_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_divine_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_armlet_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_armlet_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_armlet_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_armlet_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_bottle_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_bottle_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_bottle_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_bottle_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_deny_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_deny_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_deny_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_deny_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_deny_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_deny_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_deny_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_deny_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_deny_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_lose_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_death_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_lose_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_death_2.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_lose_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_death_3.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_win_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_fastspawn.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_win_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_fastspawn.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_win_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_fastspawn.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_win_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_fastspawn.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_win_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_fastspawn.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_immort_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/slardar/slar_immort_01.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_immort_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/slardar/slar_immort_02.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_haste_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/slardar/slar_haste_01.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_haste_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/slardar/slar_haste_02.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_doubdam_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/slardar/slar_doubdam_01.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_doubdam_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/slardar/slar_doubdam_02.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_regen_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/slardar/slar_regen_01.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_regen_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/slardar/slar_regen_02.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_illus_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/slardar/slar_illus_01.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_illus_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/slardar/slar_illus_02.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_invis_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/slardar/slar_invis_01.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_invis_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/slardar/slar_invis_02.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_notyet_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_notyet.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_notyet_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_notyet.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_notyet_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_notyet.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_notyet_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_notyet.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_notyet_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_notyet.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_notyet_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_notyet.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_notyet_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_notyet.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_notyet_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_notyet.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_notyet_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_notyet.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_nomana_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_notyet.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_nomana_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_notyet.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_nomana_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_notyet.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_nomana_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_notyet.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_nomana_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_notyet.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_nomana_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_notyet.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_nomana_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_notyet.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_nomana_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_notyet.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_nomana_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_notyet.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_thanks_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_thanks_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_thanks_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_thanks_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_thanks_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_thanks_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_firstblood_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_battle_begins.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_underattack_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_damaged_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_inthebag_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/slardar/slar_inthebag_01.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_shitwiz_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/slardar/slar_shitwiz_01.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_crumwiz_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/slardar/slar_crumwiz_01.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_pain_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_damaged_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_pain_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_damaged_2.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_pain_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_damaged_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_pain_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_damaged_2.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_pain_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_damaged_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_pain_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_damaged_2.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_pain_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_damaged_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_pain_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_damaged_2.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_pain_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_damaged_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_pain_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_damaged_2.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_pain_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_damaged_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_pain_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_damaged_2.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_pain_13 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_damaged_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_pain_14 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_damaged_2.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_anger_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_damaged_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_anger_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_damaged_2.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_anger_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_damaged_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_anger_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_damaged_2.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_anger_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_damaged_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_anger_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_damaged_2.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_happy_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_thanks.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_happy_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_thanks.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_happy_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_thanks.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_happy_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_thanks.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_laugh_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_laugh_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_laugh_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_laugh_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_laugh_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_laugh_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_laugh_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_laugh_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_laugh_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_laugh_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_laugh_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_laugh_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_laugh_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_laugh_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_laugh_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_laugh_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_laugh_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_laugh_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_laugh_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_laugh_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	beastmaster_beas_laugh_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_laugh_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+
+}

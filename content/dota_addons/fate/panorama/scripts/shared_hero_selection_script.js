@@ -2,6 +2,10 @@ var HeroesData = {},
 	SelectedHeroName = '',
 	BannedHeroes = [],
 	LocalPlayerStatus = {};
+	EmptyStateData = {};
+	EmptyStateData.hero = 'npc_dota_hero_abaddon';
+	EmptyStateData.status = 'hover';
+	EmptyStateData.skin = 0;
 DynamicSubscribePTListener('hero_selection_heroes_data', function(tableName, changesObject, deletionsObject) {
 	HeroesData = changesObject;
 	//if (OnRecieveHeroesData) OnRecieveHeroesData();
@@ -186,6 +190,11 @@ function ChooseHeroUpdatePanels() {
 
 function FillSkinUI(rootPanel, skins) {
 	rootPanel.FindChildTraverse('SkinName').text = $.Localize('#' + skins.skin_0.loc_name);
+
+	var selectedHeroData = HeroesData[SelectedHeroName];
+	var max_skins = Object.keys(selectedHeroData.skins).length;
+
+	rootPanel.FindChildTraverse('SkinPanelText').text = 'Skin ' + 1 + '/' + max_skins;
 }
 
 function ChooseSkinUpdatePanels(number) {
@@ -193,7 +202,13 @@ function ChooseSkinUpdatePanels(number) {
 	var selectedHeroSkinData = HeroesData[SelectedHeroName].skins;
 	var name = 'skin_' + number;
 
+	var skin_number = number + 1;
+
+	var selectedHeroData = HeroesData[SelectedHeroName];
+	var max_skins = Object.keys(selectedHeroData.skins).length;
+
 	rootPanel.FindChildTraverse('SkinName').text = $.Localize('#' + selectedHeroSkinData['skin_' + number].loc_name);
+	rootPanel.FindChildTraverse('SkinPanelText').text = 'Skin ' + skin_number + '/' + max_skins;
 }
 
 function SwitchSkinsUp() {

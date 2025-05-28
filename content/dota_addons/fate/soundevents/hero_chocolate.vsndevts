@@ -1,0 +1,124 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	chloe_broken = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_broken.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+	}
+	chloe_excalibur = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_excalibur.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+	}
+	chloe_excalibur_sfx = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_excalibur_sfx.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+	}
+	chloe_gae_bolg = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_gae_bolg.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+	}
+	chloe_moonwalk = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_moonwalk.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+	}
+	chloe_crane_1 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_crane_1.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+	}
+	chloe_crane_2 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_crane_2.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+	}
+	chloe_crane_3 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_crane_3.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+	}
+	chloe_crane_4 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_crane_4.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+	}
+	chloe_pre_combo = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_pre_combo.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+	}
+	chloe_combo = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/kuro/chloe_combo.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+	}
+}

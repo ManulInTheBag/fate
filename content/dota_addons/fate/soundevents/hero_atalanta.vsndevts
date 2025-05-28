@@ -1,0 +1,540 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	Atalanta.TrapSnap = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/weapons/hero/puck/dream_coil_snap.vsnd",
+		]
+		volume = "4.000000"
+		pitch = "1.000000"
+		soundlevel = "80.000000"
+	}
+
+	Atalanta.RImpact = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/weapons/hero/brewmaster/thunder_clap.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+		soundlevel = "80.000000"
+	}
+
+	Atalanta.RImpact2 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/items/rod_of_atos.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "60.000000"
+	}
+
+	Atalanta.RLaunch = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/weapons/hero/windrunner/powershot_falcon_bow.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+		soundlevel = "40.000000"
+	}
+
+	Atalanta.RPull = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/weapons/hero/windrunner/powershot_channel_alt02.vsnd",
+		]
+		volume = "4.000000"
+		pitch = "1.000000"
+		soundlevel = "70.000000"
+	}
+
+	Atalanta.PhoebusCast = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/atalanta/atalanta_phoebus_catastrophe_cast.vsnd",
+		]
+		volume = "4.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	Atalanta.PhoebusRelease = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/atalanta/atalanta_phoebus_catastrophe_release.vsnd",
+		]
+		volume = "4.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	Atalanta.GoldenApple = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/weapons/hero/enchantress/natures_attendants.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	atalanta_attack_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/atalanta/atalanta_attack_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	atalanta_attack_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/atalanta/atalanta_attack_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	atalanta_attack_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/atalanta/atalanta_attack_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	atalanta_death_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/atalanta/atalanta_death_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	atalanta_death_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/atalanta/atalanta_death_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	atalanta_first_blood = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/atalanta/atalanta_first_blood.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	atalanta_hurt_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/atalanta/atalanta_hurt_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	atalanta_hurt_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/atalanta/atalanta_hurt_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	atalanta_kill_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/atalanta/atalanta_kill_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	atalanta_kill_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/atalanta/atalanta_kill_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	atalanta_levelup = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/atalanta/atalanta_levelup.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	atalanta_move_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/atalanta/atalanta_move_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	atalanta_move_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/atalanta/atalanta_move_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	atalanta_move_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/atalanta/atalanta_move_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	atalanta_move_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/atalanta/atalanta_move_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	atalanta_move_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/atalanta/atalanta_move_05.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	atalanta_move_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/atalanta/atalanta_move_06.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	atalanta_other_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/atalanta/atalanta_other_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	atalanta_other_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/atalanta/atalanta_other_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	atalanta_other_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/atalanta/atalanta_other_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	atalanta_phoebus_catastrophe = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/atalanta/atalanta_phoebus_catastrophe.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	atalanta_phoebus_catastrophe_cast = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/atalanta/atalanta_phoebus_catastrophe_cast.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	atalanta_phoebus_catastrophe_release = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/atalanta/atalanta_phoebus_catastrophe_release.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	atalanta_spawn = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/atalanta/atalanta_spawn.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Atalanta_Kill_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/atalanta/Atalanta_Kill_1.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Atalanta_Kill_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/atalanta/Atalanta_Kill_2.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Atalanta_Kill_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/atalanta/Atalanta_Kill_3.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Atalanta_Kill_4 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/atalanta/Atalanta_Kill_4.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Atalanta_Kill_5 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/atalanta/Atalanta_Kill_5.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Atalanta_Level_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/atalanta/Atalanta_Level_1.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Atalanta_Level_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/atalanta/Atalanta_Level_2.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Atalanta_Level_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/atalanta/Atalanta_Level_3.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Atalanta_Level_4 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/atalanta/Atalanta_Level_4.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Atalanta_Level_5 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/atalanta/Atalanta_Level_5.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Atalanta_Level_6 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/atalanta/Atalanta_Level_6.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Atalanta_Level_7 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/atalanta/Atalanta_Level_7.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Atalanta_Thanks_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/atalanta/Atalanta_Thanks_1.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Atalanta_Thanks_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/atalanta/Atalanta_Thanks_2.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Atalanta_Laugh = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/atalanta/Atalanta_Laugh.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Atalanta_Tauropolos = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/atalanta/Atalanta_Tauropolos.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+
+}

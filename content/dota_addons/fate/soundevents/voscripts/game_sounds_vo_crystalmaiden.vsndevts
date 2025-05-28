@@ -1,0 +1,3095 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	crystalmaiden_cm_spawn_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_spawn.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_spawn_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_spawn.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_spawn_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_spawn.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_spawn_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_spawn.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_spawn_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_spawn.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_spawn_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_spawn.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_spawn_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_spawn.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_spawn_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_spawn.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_battlebegins_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_spawn.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_firstblood_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_battle_start.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_move_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_move_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_move_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_move_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_move_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_move_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_move_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_move_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_move_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_move_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_move_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_move_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_move_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_move_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_move_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_move_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_move_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_move_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_move_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_move_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_move_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_move_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_move_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_move_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_move_13 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_move_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_move_14 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_move_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_move_15 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_move_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_acknow_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_move_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_acknow_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_move_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_acknow_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_move_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_acknow_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_move_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_attack_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_attack_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_attack_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_attack_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_attack_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_attack_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_attack_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_attack_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_attack_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_attack_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_attack_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_attack_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_attack_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_attack_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_attack_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_attack_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_attack_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_attack_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_cast_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_cast_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_cast_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_cast_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_cast_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_levelup_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_level_1.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_levelup_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_level_2.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_levelup_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_level_3.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_levelup_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_level_4.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_levelup_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_level_5.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_levelup_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_level_6.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_levelup_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_level_7.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_kill_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_kill_1.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_kill_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_kill_2.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_kill_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_kill_3.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_kill_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_kill_4.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_kill_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_kill_1.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_kill_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_kill_2.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_kill_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_kill_3.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_kill_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_kill_4.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_kill_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_kill_1.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_kill_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_kill_2.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_kill_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_kill_3.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_kill_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_kill_4.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_kill_13 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_kill_1.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_kill_14 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_kill_2.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_kill_15 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_kill_3.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_kill_16 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_kill_4.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_kill_17 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_kill_1.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_kill_18 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_kill_2.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_kill_19 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_kill_3.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_kill_20 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_kill_4.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_rival_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_kill_1.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_rival_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_kill_2.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_rival_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_kill_3.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_rival_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_kill_4.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_rival_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_kill_1.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_rival_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_kill_2.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_rival_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_kill_3.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_rival_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_kill_4.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_rival_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_kill_1.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_rival_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_kill_2.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_rival_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_kill_3.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_rival_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_kill_4.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_rival_13 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_kill_1.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_rival_14 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_kill_2.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_rival_15 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_kill_3.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_rival_16 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_kill_4.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_rival_17 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_kill_1.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_rival_18 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_kill_2.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_rival_19 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_kill_3.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_rival_21 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_kill_4.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_ally_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_other_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_ally_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_other_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_ally_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_other_05.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_ally_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_other_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_ally_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_other_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_ally_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_other_05.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_lina_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_other_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_lina_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_other_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_lina_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_other_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_lina_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_other_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_lina_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_other_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_lina_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_other_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_lina_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_other_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_lina_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_other_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_lina_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_other_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_lina_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_other_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_lina_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_other_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_lina_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_other_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_lina_13 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_other_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_lina_14 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_other_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_lina_15 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_other_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_lina_16 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_other_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_lina_17 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_other_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_lina_18 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_other_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_lina_19 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_other_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_death_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_death_1.vsnd",
+		]
+		volume = "1.500000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_death_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_death_2.vsnd",
+		]
+		volume = "1.500000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_death_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_death_1.vsnd",
+		]
+		volume = "1.500000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_death_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_death_2.vsnd",
+		]
+		volume = "1.500000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_death_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_death_1.vsnd",
+		]
+		volume = "1.500000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_death_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_death_2.vsnd",
+		]
+		volume = "1.500000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_death_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_death.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_fastres_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_spawn.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_respawn_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_battle_start.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_respawn_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_battle_start.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_respawn_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_battle_start.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_respawn_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_battle_start.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_respawn_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_battle_start.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_respawn_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_battle_start.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_respawn_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_battle_start.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_rare_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_spawn.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_rare_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_rare_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_rare_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_other_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_rare_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_other_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_lasthit_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_attack_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_lasthit_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_attack_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_lasthit_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_attack_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_lasthit_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_attack_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_lasthit_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_attack_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_lasthit_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_attack_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_lasthit_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_attack_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_lasthit_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_attack_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_lasthit_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_attack_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_lasthit_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_attack_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_lasthit_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_attack_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_lasthit_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_attack_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_lasthit_13 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_attack_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_deny_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_deny_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_deny_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_deny_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_deny_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_deny_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_deny_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_deny_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_deny_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_deny_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_deny_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_deny_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_deny_13 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_deny_14 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_deny_15 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_deny_16 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_deny_17 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_deny_18 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_deny_19 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_purch_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_move_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_purch_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_move_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_purch_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_move_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_sceptor_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_sceptor_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_blink_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_blink_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_item_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_item_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_item_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_item_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_item_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_item_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_item_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_bottle_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_bottle_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_bottle_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_immort_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_immort_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_haste_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_haste_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_doubdam_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_doubdam_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_regen_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_regen_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_illus_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_illus_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_invis_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_invis_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_invis_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_thanks_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_thanks_1.vsnd",
+		]
+		volume = "1.500000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_thanks_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_thanks_1.vsnd",
+		]
+		volume = "1.500000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_underattack_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_hurt.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_inthebag_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_shitwiz_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_crumwiz_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_drop_common_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_drop_medium_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_drop_rare_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_missing_lane_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_missing_lane_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_missing_lane_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_nomana_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_grail.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_nomana_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_grail.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_nomana_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_grail.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_nomana_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_grail.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_nomana_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_grail.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_nomana_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_grail.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_nomana_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_grail.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_nomana_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_grail.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_nomana_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_grail.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_notyet_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_grail.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_notyet_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_grail.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_notyet_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_grail.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_notyet_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_grail.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_notyet_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_grail.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_notyet_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_grail.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_notyet_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_grail.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_notyet_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_grail.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_notyet_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_grail.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_lose_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_lose_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_lose_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_lose_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_lose_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_win_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_victory.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_win_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_victory.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_win_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_victory.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_win_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_victory.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_win_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_victory.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_pain_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_hurt.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_pain_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_hurt.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_pain_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_hurt.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_pain_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_hurt.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_pain_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_hurt.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_anger_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_hurt.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_anger_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_hurt.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_anger_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_hurt.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_anger_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_hurt.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_anger_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_hurt.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_anger_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_hurt.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_anger_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_hurt.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_anger_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_hurt.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_anger_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_hurt.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_anger_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_hurt.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_anger_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_hurt.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_anger_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_hurt.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_anger_13 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_hurt.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_anger_14 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_hurt.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_happy_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_laugh.vsnd",
+		]
+		volume = "1.500000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_happy_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_laugh.vsnd",
+		]
+		volume = "1.500000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_happy_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_laugh.vsnd",
+		]
+		volume = "1.500000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_happy_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_laugh.vsnd",
+		]
+		volume = "1.500000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_happy_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_laugh.vsnd",
+		]
+		volume = "1.500000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_happy_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_laugh.vsnd",
+		]
+		volume = "1.500000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_happy_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_laugh.vsnd",
+		]
+		volume = "1.500000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_happy_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/medea_laugh.vsnd",
+		]
+		volume = "1.500000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_scream_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_death.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_scream_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_death.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_scream_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/caster/caster_death.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_laugh_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/laugh.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_laugh_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/laugh.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_laugh_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/laugh.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_laugh_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/laugh.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_laugh_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/laugh.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_laugh_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/laugh.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_laugh_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/laugh.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_laugh_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/laugh.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_laugh_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/laugh.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_laugh_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/laugh.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_laugh_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/laugh.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_laugh_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/laugh.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_laugh_13 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/laugh.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_laugh_14 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/laugh.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	crystalmaiden_cm_laugh_15 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/laugh.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+
+}

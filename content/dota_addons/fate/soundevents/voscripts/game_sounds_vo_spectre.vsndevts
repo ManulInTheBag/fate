@@ -1,0 +1,4998 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	spectre_spec_spawn_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_spawn.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_spawn_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_spawn.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_spawn_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_spawn.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_spawn_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_spawn.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_firstblood_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/alter_battle_begins_1.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_move_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_move_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_move_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_move_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_move_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_move_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_move_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_move_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_move_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_move_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_move_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_move_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_move_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_move_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_attack_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_attack_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_attack_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_attack_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_attack_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_attack_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_attack_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_attack_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_attack_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_attack_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_cast_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_cast_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_ability_haunt_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_ability_haunt_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_ability_haunt_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_level_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/alter_level_1.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_level_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/alter_level_2.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_level_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/alter_level_3.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_level_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/alter_level_4.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_level_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/alter_level_5.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_level_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/alter_level_6.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_level_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/alter_level_7.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_kill_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/alter_kill_1.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_kill_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/alter_kill_2.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_kill_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/alter_kill_3.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_kill_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/alter_kill_4.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_kill_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/alter_kill_5.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_kill_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/alter_kill_1.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_kill_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/alter_kill_2.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_lasthit_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_lasthit_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_lasthit_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_lasthit_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_lasthit_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_lasthit_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_lasthit_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_lasthit_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_lasthit_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_lasthit_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_lasthit_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_lasthit_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_death_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_hurt.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_death_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_hurt.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_death_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_hurt.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_death_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_hurt.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_death_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_hurt.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_death_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_hurt.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_death_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_hurt.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_fastres_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_spawn.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_respawn_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_spawn.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_respawn_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_spawn.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_respawn_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_spawn.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_respawn_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_spawn.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_respawn_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_spawn.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_rare_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_other_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_purch_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_move_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_blink_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_scepter_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_bottle_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_missing_lane_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_missing_lane_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_missing_lane_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_deny_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_deny_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_deny_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_deny_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_deny_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_deny_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_deny_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_deny_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_lose_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_lose_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_win_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_win_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_immort_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_immort_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_haste_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_haste_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_doubdam_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_doubdam_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_regen_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_regen_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_illus_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_illus_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_invis_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_invis_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_notyet_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_move_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_notyet_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_move_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_notyet_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_move_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_nomana_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_move_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_nomana_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_move_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_nomana_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/saber_alter_move_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_thanks_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/alter_thanks.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_thanks_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saberalter/alter_thanks.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_underattack_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_hurt.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_inthebag_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_shitwiz_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_crumwiz_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_pain_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_hurt.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_pain_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_hurt.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_pain_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_hurt.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_pain_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_hurt.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_pain_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_hurt.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_pain_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/saber/saber_hurt.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_anger_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_anger_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_anger_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_happy_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_happy_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_happy_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_laugh_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_laugh_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_laugh_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_laugh_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_laugh_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_laugh_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_laugh_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_laugh_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_laugh_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_laugh_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_laugh_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_laugh_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_laugh_13 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/null.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_spawn_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_spawn_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_spawn_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_spawn_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_spawn_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_spawn_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_spawn_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_spawn_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_spawn_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_spawn_05.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_begin_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_begin_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_begin_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_begin_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_begin_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_begin_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_firstblood_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_firstblood_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_firstblood_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_firstblood_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_firstblood_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_firstblood_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_firstblood_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_firstblood_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_move_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_move_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_move_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_move_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_move_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_move_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_move_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_move_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_move_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_move_05.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_move_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_move_06.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_move_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_move_07.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_move_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_move_08.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_move_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_move_09.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_move_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_move_10.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_move_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_move_11.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_move_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_move_12.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_move_13 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_move_13.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_move_14 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_move_14.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_move_15 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_move_15.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_move_16 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_move_16.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_move_17 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_move_17.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_attack_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_attack_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_attack_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_attack_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_attack_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_attack_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_attack_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_attack_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_attack_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_attack_05.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_attack_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_attack_06.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_attack_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_attack_07.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_attack_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_attack_08.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_attack_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_attack_09.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_attack_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_attack_10.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_attack_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_attack_11.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_cast_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_cast_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_cast_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_cast_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_cast_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_cast_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_cast_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_cast_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_spectraldagger_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_spectraldagger_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_spectraldagger_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_spectraldagger_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_spectraldagger_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_spectraldagger_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_spectraldagger_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_spectraldagger_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_spectraldagger_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_spectraldagger_05.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_spectraldagger_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_spectraldagger_06.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_spectraldagger_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_spectraldagger_07.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_haunt_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_haunt_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_haunt_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_haunt_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_haunt_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_haunt_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_haunt_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_haunt_05.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_haunt_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_haunt_06.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_haunt_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_haunt_07.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_haunt_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_haunt_08.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_haunt_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_haunt_09.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_reality_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_reality_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_reality_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_reality_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_reality_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_reality_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_reality_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_reality_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_reality_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_reality_06.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_reality_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_reality_07.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_reality_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_reality_08.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_failure_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_failure_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_failure_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_failure_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_failure_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_failure_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_failure_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_failure_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_failure_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_failure_06.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_failure_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_failure_07.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_failure_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_failure_08.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_failure_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_failure_09.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_levelup_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_levelup_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_levelup_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_levelup_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_levelup_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_levelup_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_levelup_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_levelup_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_levelup_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_levelup_05.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_levelup_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_levelup_06.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_levelup_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_levelup_07.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_levelup_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_levelup_08.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_levelup_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_levelup_09.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_levelup_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_levelup_10.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_levelup_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_levelup_11.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_levelup_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_levelup_12.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_levelup_13 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_levelup_13.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_levelup_14 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_levelup_14.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_levelup_15 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_levelup_15.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_levelup_16 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_levelup_16.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_levelup_17 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_levelup_17.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_levelup_18 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_levelup_18.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_levelup_19 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_levelup_19.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_levelup_20 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_levelup_20.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_kill_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_kill_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_kill_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_kill_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_kill_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_kill_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_kill_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_kill_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_kill_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_kill_06.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_kill_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_kill_07.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_kill_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_kill_08.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_kill_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_kill_09.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_kill_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_kill_10.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_kill_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_kill_11.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_kill_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_kill_12.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_kill_13 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_kill_13.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_kill_14 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_kill_14.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_kill_15 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_kill_15.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_rival_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_rival_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_rival_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_rival_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_rival_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_rival_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_rival_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_rival_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_rival_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_rival_05.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_rival_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_rival_06.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_rival_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_rival_07.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_rival_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_rival_08.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_rival_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_rival_09.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_rival_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_rival_10.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_rival_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_rival_11.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_rival_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_rival_12.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_rival_13 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_rival_13.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_rival_14 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_rival_14.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_rival_15 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_rival_15.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_rival_16 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_rival_16.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_rival_17 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_rival_17.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_rival_18 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_rival_18.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_rival_19 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_rival_19.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_rival_20 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_rival_20.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_rival_21 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_rival_21.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_rival_22 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_rival_22.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_lasthit_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_lasthit_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_lasthit_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_lasthit_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_lasthit_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_lasthit_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_lasthit_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_lasthit_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_lasthit_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_lasthit_05.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_lasthit_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_lasthit_06.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_lasthit_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_lasthit_07.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_lasthit_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_lasthit_08.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_lasthit_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_lasthit_10.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_lasthit_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_lasthit_11.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_lasthit_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_lasthit_12.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_lasthit_13 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_lasthit_13.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_death_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_death_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_death_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_death_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_death_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_death_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_death_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_death_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_death_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_death_05.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_death_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_death_06.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_death_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_death_07.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_death_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_death_08.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_death_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_death_09.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_death_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_death_10.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_death_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_death_11.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_death_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_death_12.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_death_14 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_death_14.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_death_15 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_death_15.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_fastres_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_fastres_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_fastres_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_fastres_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_respawn_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_respawn_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_respawn_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_respawn_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_respawn_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_respawn_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_respawn_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_respawn_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_respawn_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_respawn_05.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_respawn_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_respawn_07.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_respawn_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_respawn_08.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_respawn_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_respawn_09.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_respawn_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_respawn_10.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_respawn_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_respawn_11.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_purch_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_purch_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_purch_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_purch_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_purch_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_purch_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_purch_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_purch_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_purch_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_purch_05.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_scepter_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_scepter_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_scepter_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_scepter_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_scepter_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_scepter_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_scepter_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_scepter_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_blink_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_blink_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_blink_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_blink_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_items_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_items_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_items_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_items_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_items_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_items_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_items_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_items_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_items_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_items_05.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_items_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_items_06.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_items_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_items_07.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_items_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_items_08.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_items_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_items_09.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_items_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_items_10.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_items_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_items_11.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_items_13 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_items_13.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_items_14 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_items_14.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_items_15 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_items_15.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_items_16 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_items_16.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_items_17 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_items_17.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_items_18 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_items_18.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_items_19 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_items_19.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_items_20 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_items_20.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_bottle_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_bottle_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_bottle_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_bottle_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_bottle_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_bottle_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_bottle_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_bottle_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_deny_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_deny_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_deny_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_deny_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_deny_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_deny_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_deny_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_deny_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_deny_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_deny_05.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_deny_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_deny_06.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_deny_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_deny_07.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_deny_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_deny_08.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_deny_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_deny_09.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_deny_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_deny_10.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_deny_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_deny_11.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_deny_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_deny_12.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_deny_13 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_deny_13.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_deny_14 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_deny_14.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_deny_15 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_deny_15.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_deny_16 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_deny_16.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_deny_17 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_deny_17.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_deny_18 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_deny_18.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_deny_19 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_deny_19.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_rare_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_rare_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_rare_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_rare_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_rare_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_rare_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_lanemissing_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_lanemissing_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_lanemissing_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_lanemissing_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_lanemissing_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_lanemissing_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_itemdrop_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_itemdrop_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_itemdrop_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_itemdrop_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_itemdrop_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_itemdrop_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_itemdrop_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_itemdrop_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_itemdrop_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_itemdrop_05.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_immort_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_immort_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_immort_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_immort_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_bounty_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_bounty_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_haste_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_haste_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_haste_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_haste_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_doubdam_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_doubdam_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_doubdam_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_doubdam_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_regen_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_regen_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_regen_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_regen_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_illus_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_illus_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_illus_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_illus_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_illus_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_illus_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_illus_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_illus_05.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_invis_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_invis_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_invis_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_invis_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_notyet_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_notyet_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_notyet_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_notyet_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_notyet_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_notyet_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_notyet_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_notyet_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_notyet_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_notyet_05.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_notyet_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_notyet_06.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_notyet_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_notyet_07.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_notyet_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_notyet_08.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_notyet_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_notyet_09.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_nomana_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_nomana_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_nomana_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_nomana_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_nomana_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_nomana_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_nomana_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_nomana_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_nomana_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_nomana_05.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_nomana_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_nomana_06.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_nomana_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_nomana_07.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_nomana_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_nomana_08.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_nomana_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_nomana_09.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_thanks_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_thanks_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_thanks_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_thanks_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_thanks_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_thanks_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_underattack_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_underattack_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_intehbag_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_intehbag_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_crumwiz_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_crumwiz_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_crumwiz_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_crumwiz_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_lose_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_lose_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_lose_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_lose_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_lose_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_lose_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_lose_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_lose_05.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_win_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_win_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_win_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_win_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_win_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_win_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_win_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_win_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_win_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_win_05.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_pain_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_pain_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_pain_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_pain_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_pain_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_pain_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_pain_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_pain_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_pain_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_pain_05.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_pain_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_pain_06.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_pain_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_pain_07.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_pain_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_pain_08.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_pain_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_pain_09.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_pain_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_pain_10.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_pain_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_pain_11.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_pain_12 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_pain_12.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_grunt_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_grunt_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_grunt_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_grunt_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_grunt_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_grunt_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_grunt_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_grunt_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_grunt_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_grunt_05.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_grunt_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_grunt_06.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_anger_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_anger_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_anger_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_anger_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_anger_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_anger_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_anger_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_anger_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_anger_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_anger_05.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_anger_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_anger_06.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_anger_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_anger_07.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_happy_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_happy_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_happy_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_happy_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_happy_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_happy_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_happy_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_happy_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_happy_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_happy_05.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_happy_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_happy_06.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_happy_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_happy_07.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_happy_08 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_happy_08.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_happy_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_happy_09.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_laugh_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_laugh_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_laugh_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_laugh_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_laugh_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_laugh_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_laugh_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_laugh_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_laugh_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_laugh_05.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_laugh_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_laugh_06.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_laugh_07 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_laugh_07.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_laugh_09 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_laugh_09.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	spectre_spec_redux_laugh_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/vo/spectre/spec_redux_laugh_10.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+
+}

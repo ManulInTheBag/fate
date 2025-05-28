@@ -4548,7 +4548,7 @@ function FateGameMode:FinishRound(IsTimeOut, winner)
 
             if( _G.GameMap ~= "fate_ffa") then
         LoopOverPlayers(function(player, playerID, playerHero)
-            if(winnerEventData.winnerTeam == 0 and (self.nRadiantScore == 5 or self.nRadiantScore == 10 or self.nRadiantScore == 15)) then 
+            if(winnerEventData.winnerTeam == 0 and (self.nRadiantScore == 4 or self.nRadiantScore == 8 or self.nRadiantScore == 12)) then 
                  if playerHero:GetTeamNumber() == DOTA_TEAM_BADGUYS then
                     if playerHero.ShardAmount == nil then
                         playerHero.ShardAmount = 1
@@ -4563,9 +4563,9 @@ function FateGameMode:FinishRound(IsTimeOut, winner)
                     end
                     local statTable = CreateTemporaryStatTable(playerHero)
                     CustomGameEventManager:Send_ServerToPlayer( playerHero:GetPlayerOwner(), "servant_stats_updated", statTable ) -- Send the current stat info to JS
-                    Notifications:Top(player, {text= "<font color='#58ACFA'></font> Your team had lost 5 rounds, you are rewarded with a shard of Holy Grail.", duration=8, style={color="rgb(255,140,0)", ["font-size"]="45px"}, continue=true})
+                    Notifications:Top(player, {text= "<font color='#58ACFA'></font> Your team had lost 4 rounds, you are rewarded with a shard of Holy Grail.", duration=8, style={color="rgb(255,140,0)", ["font-size"]="45px"}, continue=true})
                 end
-            elseif winnerEventData.winnerTeam == 1 and (self.nDireScore == 5 or self.nDireScore == 10 or self.nDireScore == 15) then
+            elseif winnerEventData.winnerTeam == 1 and (self.nDireScore == 4 or self.nDireScore == 8 or self.nDireScore == 12) then
                 if playerHero:GetTeamNumber() == DOTA_TEAM_GOODGUYS then
 
                     if playerHero.ShardAmount == nil then
@@ -4581,7 +4581,7 @@ function FateGameMode:FinishRound(IsTimeOut, winner)
                     end
                     local statTable = CreateTemporaryStatTable(playerHero)
                     CustomGameEventManager:Send_ServerToPlayer( playerHero:GetPlayerOwner(), "servant_stats_updated", statTable ) -- Send the current stat info to JS
-                    Notifications:Top(player, {text= "<font color='#58ACFA'></font> Your team had lost 5 rounds, you are rewarded with a shard of Holy Grail.", duration=8, style={color="rgb(255,140,0)", ["font-size"]="45px"}, continue=true})
+                    Notifications:Top(player, {text= "<font color='#58ACFA'></font> Your team had lost 4 rounds, you are rewarded with a shard of Holy Grail.", duration=8, style={color="rgb(255,140,0)", ["font-size"]="45px"}, continue=true})
                 end
 
             end

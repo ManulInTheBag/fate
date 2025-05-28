@@ -1,0 +1,489 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	Lishuwen.NoSecondStrike = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/lishuwen/lishuwen_no_second_strike.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	Lishuwen.Shout = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/lishuwen/lishuwen_rds_shout.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	lishuwen_attack_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lishuwen/lishuwen_attack_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	lishuwen_attack_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lishuwen/lishuwen_attack_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	lishuwen_death_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lishuwen/lishuwen_death_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	lishuwen_hurt_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lishuwen/lishuwen_hurt_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	lishuwen_kill = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lishuwen/lishuwen_kill.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	lishuwen_move_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lishuwen/lishuwen_move_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	lishuwen_move_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lishuwen/lishuwen_move_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	lishuwen_move_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lishuwen/lishuwen_move_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	lishuwen_no_second_strike = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lishuwen/lishuwen_no_second_strike.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	lishuwen_no_second_strike_shout = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lishuwen/lishuwen_no_second_strike_shout.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	lishuwen_other_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lishuwen/lishuwen_other_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	lishuwen_other_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lishuwen/lishuwen_other_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	lishuwen_other_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lishuwen/lishuwen_other_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	lishuwen_rds_shout = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lishuwen/lishuwen_rds_shout.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	LiShuwen_Attack1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lishuwen/LiShuwen_Attack1.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	LiShuwen_Attack2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lishuwen/LiShuwen_Attack2.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	LiShuwen_Attack3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lishuwen/LiShuwen_Attack3.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	LiShuwen_Attack4 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lishuwen/LiShuwen_Attack4.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	LiShuwen_NP1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lishuwen/LiShuwen_NP1.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Lishuwen_Combo_3_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lishuwen/Lishuwen_Combo_3_1.vsnd",
+		]
+		volume = "5.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	Lishuwen_Combo_3_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lishuwen/Lishuwen_Combo_3_2.vsnd",
+		]
+		volume = "5.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	Lishuwen_Combo_3_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lishuwen/Lishuwen_Combo_3_3.vsnd",
+		]
+		volume = "5.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	lishuwen_death = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lishuwen/lishuwen_death.vsnd",
+		]
+		volume = "5.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	lishuwen_kill_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lishuwen/lishuwen_kill_1.vsnd",
+		]
+		volume = "5.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	lishuwen_kill_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lishuwen/lishuwen_kill_2.vsnd",
+		]
+		volume = "5.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	lishuwen_kill_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lishuwen/lishuwen_kill_3.vsnd",
+		]
+		volume = "5.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	lishuwen_kill_4 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lishuwen/lishuwen_kill_4.vsnd",
+		]
+		volume = "5.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	lishuwen_kill_5 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lishuwen/lishuwen_kill_5.vsnd",
+		]
+		volume = "5.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	lishuwen_kill_6 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lishuwen/lishuwen_kill_6.vsnd",
+		]
+		volume = "5.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	lishuwen_laugh = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lishuwen/lishuwen_laugh.vsnd",
+		]
+		volume = "5.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	lishuwen_laugh_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lishuwen/lishuwen_laugh_2.vsnd",
+		]
+		volume = "5.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	lishuwen_level_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lishuwen/lishuwen_level_1.vsnd",
+		]
+		volume = "5.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	lishuwen_level_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lishuwen/lishuwen_level_2.vsnd",
+		]
+		volume = "5.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	lishuwen_level_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lishuwen/lishuwen_level_3.vsnd",
+		]
+		volume = "5.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	lishuwen_level_4 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lishuwen/lishuwen_level_4.vsnd",
+		]
+		volume = "5.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	lishuwen_level_5 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lishuwen/lishuwen_level_5.vsnd",
+		]
+		volume = "5.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	lishuwen_level_6 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lishuwen/lishuwen_level_6.vsnd",
+		]
+		volume = "5.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	lishuwen_level_7 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lishuwen/lishuwen_level_7.vsnd",
+		]
+		volume = "5.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	lishuwen_thanks = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lishuwen/lishuwen_thanks.vsnd",
+		]
+		volume = "5.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	lishuwen_summon = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lishuwen/lishuwen_summon.vsnd",
+		]
+		volume = "5.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+
+}

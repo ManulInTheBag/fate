@@ -1,0 +1,626 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	Avenger.Berg = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/avenger/avenger_berg_avesta.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	Avenger.BergShout = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/avenger/avenger_berg_avesta_shout.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	Avenger.TransformLong = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/avenger/avenger_transform_a.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	Avenger.TransformShort = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/avenger/avenger_transform_b.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	Avenger.Darkness = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/weapons/hero/nightstalker/darkness.vsnd",
+		]
+		volume = "0.500000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	Avenger.Consume = 
+	{
+		type = "dota_update_default"
+		vsnd_files = 
+		[
+			"sounds/weapons/hero/lifestealer/consume.vsnd",
+		]
+		volume = "0.800000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	avenger_attack_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/avenger/avenger_attack_01.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	avenger_attack_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/avenger/avenger_attack_02.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	avenger_berg_avesta = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/avenger/avenger_berg_avesta.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	avenger_berg_avesta_shout = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/avenger/avenger_berg_avesta_shout.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	avenger_death = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/avenger/avenger_death.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	avenger_hurt_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/avenger/avenger_hurt_01.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	avenger_kill = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/avenger/avenger_kill.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	avenger_laugh = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/avenger/avenger_laugh.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	avenger_move_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/avenger/avenger_move_01.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	avenger_move_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/avenger/avenger_move_02.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	avenger_move_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/avenger/avenger_move_03.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	avenger_other_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/avenger/avenger_other_01.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	avenger_other_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/avenger/avenger_other_02.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	avenger_other_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/avenger/avenger_other_03.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	avenger_other_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/avenger/avenger_other_04.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	avenger_spawn = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/avenger/avenger_spawn.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	avenger_transform_a = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/avenger/avenger_transform_a.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	avenger_transform_b = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/avenger/avenger_transform_b.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	angra_death_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/avenger/angra_death_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	angra_death_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/avenger/angra_death_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	angra_death_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/avenger/angra_death_3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	angra_death_4 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/avenger/angra_death_4.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	angra_death_5 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/avenger/angra_death_5.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	angra_hurt_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/avenger/angra_hurt_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	angra_hurt_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/avenger/angra_hurt_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	angra_hurt_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/avenger/angra_hurt_3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	angra_kill_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/avenger/angra_kill_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	angra_kill_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/avenger/angra_kill_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	angra_kill_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/avenger/angra_kill_3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	angra_kill_4 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/avenger/angra_kill_4.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	angra_kill_5 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/avenger/angra_kill_5.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	angra_kill_6 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/avenger/angra_kill_6.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	angra_kill_7 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/avenger/angra_kill_7.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	angra_kill_8 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/avenger/angra_kill_8.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	angra_kill_9 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/avenger/angra_kill_9.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	angra_kill_10 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/avenger/angra_kill_10.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	angra_kill_11 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/avenger/angra_kill_11.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	angra_laugh_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/avenger/angra_laugh_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	angra_laugh_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/avenger/angra_laugh_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	angra_laugh_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/avenger/angra_laugh_3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	angra_level_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/avenger/angra_level_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	angra_level_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/avenger/angra_level_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	angra_level_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/avenger/angra_level_3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	angra_level_4 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/avenger/angra_level_4.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	angra_level_5 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/avenger/angra_level_5.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	angra_level_6 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/avenger/angra_level_6.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	angra_level_7 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/avenger/angra_level_7.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	angra_level_8 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/avenger/angra_level_8.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	angra_thanks_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/avenger/angra_thanks_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	angra_thanks_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/avenger/angra_thanks_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+
+}

@@ -1,0 +1,653 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	karna_attack_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_attack_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	karna_attack_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_attack_2.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	karna_attack_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_attack_3.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	karna_attack_4 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_attack_4.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	karna_attack_5 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_attack_5.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	karna_attack_6 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_attack_6.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	karna_battle_begins = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_battle_begins.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	karna_brahmastra_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_brahmastra_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	karna_brahmastra_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_brahmastra_2.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	karna_brahmastra_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_brahmastra_3.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	karna_brahmastra_4 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_brahmastra_4.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	karna_damaged_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_damaged_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	karna_damaged_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_damaged_2.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	karna_death_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_death_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	karna_death_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_death_2.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	karna_death_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_death_3.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	karna_fastspawn = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_fastspawn.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	karna_kill_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_kill_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	karna_kill_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_kill_2.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	karna_laugh_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_laugh_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	karna_level_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_level_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	karna_level_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_level_2.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	karna_level_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_level_3.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	karna_level_4 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_level_4.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	karna_level_5 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_level_5.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	karna_level_6 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_level_6.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	karna_move_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_move_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	karna_move_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_move_2.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	karna_move_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_move_3.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	karna_move_4 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_move_4.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	karna_move_5 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_move_5.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	karna_move_6 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_move_6.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	karna_move_7 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_move_7.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	karna_move_8 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_move_8.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	karna_notyet = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_notyet.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	karna_thanks = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_thanks.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	karna_skill_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_skill_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	karna_skill_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_skill_2.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	karna_skill_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_skill_3.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	karna_skill_4 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_skill_4.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	karna_sunstrike_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_sunstrike_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	karna_sunstrike_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_sunstrike_2.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	karna_vasavi_start_1 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_vasavi_start_1.vsnd",
+		]
+		volume = "4.000000"
+		pitch = "1.000000"
+	}
+
+	karna_vasavi_start_2 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_vasavi_start_2.vsnd",
+		]
+		volume = "4.000000"
+		pitch = "1.000000"
+	}
+
+	karna_vasavi_start_3 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_vasavi_start_3.vsnd",
+		]
+		volume = "4.000000"
+		pitch = "1.000000"
+	}
+
+	karna_vasavi_start_4 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_vasavi_start_4.vsnd",
+		]
+		volume = "4.000000"
+		pitch = "1.000000"
+	}
+
+	karna_vasavi_start_5 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_vasavi_start_5.vsnd",
+		]
+		volume = "4.000000"
+		pitch = "1.000000"
+	}
+
+	karna_vasavi_middle_1 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_vasavi_middle_1.vsnd",
+		]
+		volume = "4.000000"
+		pitch = "1.000000"
+	}
+
+	karna_vasavi_middle_2 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_vasavi_middle_2.vsnd",
+		]
+		volume = "4.000000"
+		pitch = "1.000000"
+	}
+
+	karna_vasavi_middle_3 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_vasavi_middle_3.vsnd",
+		]
+		volume = "4.000000"
+		pitch = "1.000000"
+	}
+
+	karna_vasavi_end = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_vasavi_end.vsnd",
+		]
+		volume = "6.000000"
+		pitch = "1.000000"
+	}
+
+	karna_vasavi_short_1 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_vasavi_short_1.vsnd",
+		]
+		volume = "4.000000"
+		pitch = "1.000000"
+	}
+
+	karna_vasavi_short_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_vasavi_short_2.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	karna_agni_explosion = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_agni_explosion.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	karna_brahmastra_kundala_explosion = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_brahmastra_kundala_explosion.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	karna_vasavi_explosion = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_vasavi_explosion.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	karna_brahmastra_kundala_cast = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_brahmastra_kundala_cast.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+	}
+
+	karna_brahmastra_laser = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_brahmastra_laser.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	karna_discern = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/karna/karna_discern.vsnd",
+		]
+		volume = "5.000000"
+		pitch = "1.000000"
+	}
+
+
+}

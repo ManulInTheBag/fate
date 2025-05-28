@@ -1,0 +1,677 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	Lancer.Entry1 = 
+	{
+		type = "dota_update_default"
+		vsnd_files = 
+		[
+			"sounds/lancer/lancer_entry1.vsnd",
+		]
+		volume_min = "1.000000"
+		volume_max = "1.000000"
+		pitch_min = "1.000000"
+		pitch_max = "1.000000"
+		chan_type = "0"
+		memory_type = "0"
+		soundlevel_min = "100.000000"
+		soundlevel_max = "100.000000"
+	}
+
+	Lancer.Entry2 = 
+	{
+		type = "dota_update_default"
+		vsnd_files = 
+		[
+			"sounds/lancer/lancer_entry2.vsnd",
+		]
+		volume_min = "1.000000"
+		volume_max = "1.000000"
+		pitch_min = "1.000000"
+		pitch_max = "1.000000"
+		chan_type = "0"
+		memory_type = "0"
+		soundlevel_min = "100.000000"
+		soundlevel_max = "100.000000"
+	}
+
+	Lancer.Entry3 = 
+	{
+		type = "dota_update_default"
+		vsnd_files = 
+		[
+			"sounds/lancer/lancer_entry3.vsnd",
+		]
+		volume_min = "1.000000"
+		volume_max = "1.000000"
+		pitch_min = "1.000000"
+		pitch_max = "1.000000"
+		chan_type = "0"
+		memory_type = "0"
+		soundlevel_min = "100.000000"
+		soundlevel_max = "100.000000"
+	}
+
+	Lancer.Entry4 = 
+	{
+		type = "dota_update_default"
+		vsnd_files = 
+		[
+			"sounds/lancer/lancer_entry4.vsnd",
+		]
+		volume_min = "1.000000"
+		volume_max = "1.000000"
+		pitch_min = "1.000000"
+		pitch_max = "1.000000"
+		chan_type = "0"
+		memory_type = "0"
+		soundlevel_min = "100.000000"
+		soundlevel_max = "100.000000"
+	}
+
+	Lancer.RelentlessSpear = 
+	{
+		type = "dota_update_default"
+		vsnd_files = 
+		[
+			"sounds/lancer/lancer_w_haa.vsnd",
+		]
+		volume_min = "1.000000"
+		volume_max = "1.000000"
+		pitch_min = "1.000000"
+		pitch_max = "1.000000"
+		chan_type = "0"
+		memory_type = "0"
+		soundlevel_min = "100.000000"
+		soundlevel_max = "100.000000"
+	}
+
+	Lancer.GaeBolg = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/lancer/lancer_gae_bolg.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	Lancer.Heartbreak = 
+	{
+		type = "dota_update_default"
+		vsnd_files = 
+		[
+			"sounds/lancer/lancer_heart_break.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	Lancer.Dead = 
+	{
+		type = "dota_update_default"
+		vsnd_files = 
+		[
+			"sounds/lancer/lancer_dead.vsnd",
+		]
+		volume_min = "1.000000"
+		volume_max = "1.000000"
+		pitch_min = "1.000000"
+		pitch_max = "1.000000"
+		chan_type = "0"
+		memory_type = "0"
+		soundlevel_min = "100.000000"
+		soundlevel_max = "100.000000"
+	}
+
+	lancer_attack_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lancer/lancer_attack_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	lancer_attack_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lancer/lancer_attack_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	lancer_attack_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lancer/lancer_attack_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	lancer_attack_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lancer/lancer_attack_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	lancer_dead = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lancer/lancer_dead.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	lancer_death = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lancer/lancer_death.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	lancer_entry1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lancer/lancer_entry1.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	lancer_entry2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lancer/lancer_entry2.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	lancer_entry3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lancer/lancer_entry3.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	lancer_entry4 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lancer/lancer_entry4.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	lancer_gae_bolg = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lancer/lancer_gae_bolg.vsnd",
+		]
+		volume = "1.500000"
+		pitch = "1.000000"
+	}
+
+	lancer_gae_bolg_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lancer/lancer_gae_bolg_2.vsnd",
+		]
+		volume = "1.500000"
+		pitch = "1.000000"
+	}
+
+	lancer_gae_bolg_thrust = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lancer/lancer_gae_bolg_thrust.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	lancer_heart_break = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lancer/lancer_heart_break.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	lancer_hurt = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lancer/lancer_hurt.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	lancer_ikuze = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lancer/lancer_ikuze.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	lancer_level_up = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lancer/lancer_level_up.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	lancer_move_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lancer/lancer_move_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	lancer_move_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lancer/lancer_move_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	lancer_move_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lancer/lancer_move_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	lancer_other_01 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lancer/lancer_other_01.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	lancer_other_02 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lancer/lancer_other_02.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	lancer_other_03 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lancer/lancer_other_03.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	lancer_other_04 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lancer/lancer_other_04.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	lancer_other_05 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lancer/lancer_other_05.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	lancer_other_06 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lancer/lancer_other_06.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	lancer_spawn = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lancer/lancer_spawn.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	lancer_victory = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lancer/lancer_victory.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	lancer_w_haa = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lancer/lancer_w_haa.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Cu_Combo_1 = 
+	{
+		type = "dota_update_default"
+		vsnd_files = 
+		[
+			"sounds/lancer/Cu_Combo_1.vsnd",
+		]
+		volume = "10.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	Cu_Combo_2 = 
+	{
+		type = "dota_update_default"
+		vsnd_files = 
+		[
+			"sounds/lancer/Cu_Combo_2.vsnd",
+		]
+		volume = "10.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	Cu_Combo_3 = 
+	{
+		type = "dota_update_default"
+		vsnd_files = 
+		[
+			"sounds/lancer/Cu_Combo_3.vsnd",
+		]
+		volume = "10.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	Cu_Skill_1 = 
+	{
+		type = "dota_update_default"
+		vsnd_files = 
+		[
+			"sounds/lancer/Cu_Skill_1.vsnd",
+		]
+		volume = "7.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	Cu_Skill_2 = 
+	{
+		type = "dota_update_default"
+		vsnd_files = 
+		[
+			"sounds/lancer/Cu_Skill_2.vsnd",
+		]
+		volume = "7.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	Cu_Skill_3 = 
+	{
+		type = "dota_update_default"
+		vsnd_files = 
+		[
+			"sounds/lancer/Cu_Skill_3.vsnd",
+		]
+		volume = "7.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	Cu_Skill_4 = 
+	{
+		type = "dota_update_default"
+		vsnd_files = 
+		[
+			"sounds/lancer/Cu_Skill_4.vsnd",
+		]
+		volume = "7.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	Cu_Battlecont = 
+	{
+		type = "dota_update_default"
+		vsnd_files = 
+		[
+			"sounds/lancer/Cu_Battlecont.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+		soundlevel = "81.000000"
+	}
+
+	cuchulain_battle_begins = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lancer/cuchulain_battle_begins.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	cuchulain_death_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lancer/cuchulain_death_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	cuchulain_kill_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lancer/cuchulain_kill_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	cuchulain_kill_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lancer/cuchulain_kill_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	cuchulain_laugh_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lancer/cuchulain_kill_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	cuchulain_level_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lancer/cuchulain_level_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	cuchulain_level_2 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lancer/cuchulain_level_2.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	cuchulain_level_3 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lancer/cuchulain_level_3.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	cuchulain_level_4 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lancer/cuchulain_level_4.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	cuchulain_level_5 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lancer/cuchulain_level_5.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	cuchulain_thanks_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lancer/cuchulain_thanks_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+	cuchulain_sorry_1 = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/lancer/cuchulain_sorry_1.vsnd",
+		]
+		volume = "1.000000"
+		pitch = "1.000000"
+	}
+
+
+}

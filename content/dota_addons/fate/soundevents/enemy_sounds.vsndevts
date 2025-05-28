@@ -1,0 +1,81 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	Gawain_Enemy_Saber = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enemy_sound/Gawain_Enemy_Saber.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Gilles_Enemy_Jeanne = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enemy_sound/Gilles_Enemy_Jeanne.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Gilgamesh_Enemy_Emiya = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enemy_sound/Gilgamesh_Enemy_Emiya.vsnd",
+		]
+		volume = "1.500000"
+		pitch = "1.000000"
+	}
+
+	Atalanta_Enemy_Jeanne = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enemy_sound/Atalanta_Enemy_Jeanne.vsnd",
+		]
+		volume = "1.500000"
+		pitch = "1.000000"
+	}
+
+	Gilles_Enemy_Arturia = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enemy_sound/Gilles_Enemy_Arturia.vsnd",
+		]
+		volume = "1.500000"
+		pitch = "1.000000"
+	}
+
+	Saber_Enemy_Gawain = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enemy_sound/Saber_Enemy_Gawain.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+	Diarmuid_Enemy_Arthuria = 
+	{
+		type = "dota_update_vo_switch"
+		vsnd_files = 
+		[
+			"sounds/enemy_sound/Diarmuid_Enemy_Arthuria.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+	}
+
+
+}
