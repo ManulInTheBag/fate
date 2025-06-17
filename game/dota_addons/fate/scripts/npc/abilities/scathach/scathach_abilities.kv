@@ -1,0 +1,235 @@
+#base "scathach_red_wind.kv"
+#base "scathach_gait_one.kv"
+#base "scathach_gait_two.kv"
+#base "scathach_gait_three.kv"
+#base "scathach_gae_bolg.kv"
+#base "scathach_pinning_thorn.kv"
+#base "scathach_wisdom_of_dun_scaith.kv"
+#base "scathach_gae_bolg_jump.kv"
+#base "scathach_gae_bolg_combo.kv"
+#base "scathach_red_creed_combo.kv"
+
+"DOTAAbilities"
+{
+	//=======================================★★★★★
+	// Attribute: Primeval Rune
+	//=======================================★★★★★
+	"scathach_primeval_rune_attribute"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/scathach/scathach_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/scathach/scathach_primeval_rune_attribute"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"14"
+
+		"precache"
+		{
+		}
+
+		"AbilityValues"
+        {
+            "red_wind_damage" "300"
+            "red_wind_range" "200"
+            "red_wind_stun" "0.2"
+            "gait_one_damage" "100"
+            "gait_two_damage" "125"
+            "gait_three_damage" "400"
+        }
+	}
+
+	//=======================================★★★★★
+	// Attribute: Branches of Tonelico
+	//=======================================★★★★★
+	"scathach_branches_of_tonelico_attribute"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/scathach/scathach_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/scathach/scathach_branches_of_tonelico_attribute"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"12"
+
+		"precache"
+		{
+		}
+
+		"AbilityValues"
+        {
+            "gae_bolg_jump_damage" "300"
+            "gae_bolg_jump_range" "800"
+            "atr_hb_pct" "10 13 16 19 22"
+        }
+	}
+
+	//=======================================★★★★★
+	// Attribute: Improve Pinning God Killer Thorns
+	//=======================================★★★★★
+	"scathach_pinning_thorn_attribute"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/scathach/scathach_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/scathach/scathach_pinning_thorn_attribute"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"12"
+
+		"precache"
+		{
+		}
+
+		"AbilityValues"
+        {
+            "base_damage" "600"
+            "explosion_damage" "400"
+            "agility_ratio" "3.5"
+            "gae_bolg_agi" "3"
+        }
+	}
+
+	//=======================================★★★★★
+	// Attribute: Wisdom of Dun Scaith
+	//=======================================★★★★★
+	"scathach_wisdom_of_dun_scaith_attribute"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/scathach/scathach_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/scathach/scathach_wisdom_of_dun_scaith"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"13"
+
+		"precache"
+		{
+		}
+
+		"AbilityValues"
+        {
+            "linken_duration" "3"
+            "agility_gain" "30"
+        }
+	}
+	
+	//=======================================★★★★★
+	// Attribute: God Slayer
+	//=======================================★★★★★
+	"scathach_god_slayer_attribute"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/scathach/scathach_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/scathach/scathach_god_slayer_attribute"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"9999"
+		"AbilityManaCost"				"14"
+
+		"precache"
+		{
+		}
+
+		"AbilityValues"
+        {
+            "agility_per_kill" "0.5"
+            "hp_per_kill" "3"
+            "agility_per_divine_kill" "1"
+            "hp_per_divine_kill" "6"
+        }
+	}
+	
+	//=======================================★★★★★
+	// Attribute: Combo List
+	//=======================================★★★★★
+	"scathach_combo_list"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/scathach/scathach_attributes"
+		"MaxLevel"						"1"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY" 
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/scathach/scathach_gae_bolg_combo"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"0"
+		"AbilityManaCost"				"0"
+
+		"precache"
+		{
+		}
+
+		"AbilityValues"
+        {
+            "radius" "3000"
+            "duration" "2"
+            "slow_duration" "7"
+            "crack_time" "2"
+            "crack_width" "500"
+            "crack_distance" "5000"
+            "damage" "600"
+            "slow_pct" "75"
+        }
+	}
+	
+	//=======================================★★★★★
+	// Combo: Scathach Red Creed
+	//=======================================★★★★★
+	"scathach_combo_2_proxy"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/scathach/scathach_attributes"
+		"MaxLevel"						"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/scathach/scathach_red_creed_combo"
+		
+		
+		"AbilityCastPoint"				"0.0"
+		"AbilityCooldown"				"110"
+		"AbilityManaCost"				"0"
+
+		"precache"
+		{
+		}
+
+		"AbilityValues"
+        {
+            "cast_delay" "1.3"
+            "range" "1200"
+            "projectiles" "12"
+            "radius" "600"
+            "explosion_radius" "1000"
+            "extra_projectiles" "11"
+            "damage_primary" "175"
+            "damage_secondary" "225"
+            "retreat_distance" "800"
+        }
+	}
+}

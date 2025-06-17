@@ -1,0 +1,49 @@
+"DOTAAbilities"
+{
+	//=======================================★★★★★
+	// Scathach: Funeral Gait - Curruid's Maw (W -> W)
+	//=======================================★★★★★
+	"scathach_gait_two"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/scathach/scathach_gait_two"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"25"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityTextureName"			"custom/scathach/scathach_gait"
+		
+		// Ability Stats		//------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"550"
+		"AbilityCastRangeBuffer"		"100"
+		"AbilityCastPoint"				"0.1"
+		"AbilityCooldown"				"20.0"
+		"AbilityManaCost"				"300"
+		
+		// Precache		//------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"			"particles/custom/scathach/scathach_gait_three_spin.vpcf"
+			"particle"			"particles/custom/scathach/gait_two_circle_swing.vpcf"
+			"particle"			"particles/custom/scathach/gait_two_circle_swing_left.vpcf"
+		}
+		
+		// Ability Special		//------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+        {
+            "duration" "1.6"
+            "radius" "550"
+            "damage" "100 125 150 175 200"
+            "damage_big" "250 275 300 325 350"
+            "armor_reduction" "-3"
+            "armor_reduction_duration" "4"
+            "stun_duration" "1.00"
+        }
+	}
+}

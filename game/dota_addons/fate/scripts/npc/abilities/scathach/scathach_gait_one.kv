@@ -1,0 +1,50 @@
+"DOTAAbilities"
+{
+	//=======================================★★★★★
+	// Scathach: Funeral Gait - Fangs of Earth (W)
+	//=======================================★★★★★
+	"scathach_gait_one"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/scathach/scathach_gait_one"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityType"					"DOTA_ABILITY_TYPE_BASIC"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"
+		"AbilityCastAnimation" 			"ACT_DOTA_ITEM_PICKUP"
+		"SpellImmunityType"				"SPELL_IMMUNITY_ENEMIES_NO"
+		"AbilityTextureName"			"custom/scathach/scathach_gait"
+		
+		// Ability Stats		//------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"500"
+		"AbilityCastPoint"				"0.25"
+		"AbilityCooldown"				"20"
+		"AbilityManaCost"				"200"
+		
+		// Precache		//------------------------------------------------------------------------------------------------------------
+		"precache"
+		{
+			"particle"			"particles/custom/scathach/scathach_gait_one.vpcf"
+			"particle"			"particles/custom/scathach/scathach_gait_one_second_swing.vpcf"
+			"particle"			"particles/custom/lu_bu/assault_two_crit.vpcf"
+		}
+		
+		// Ability Special		//------------------------------------------------------------------------------------------------------------
+		"AbilityValues"
+        {
+            "damage" "200 250 300 350 400"
+            "angle" "180"
+            "radius" "500"
+            "knockback_duration" "0.3"
+            "knockback_distance" "75"
+            "activity_duration" "2"
+            "armor_reduction_duration" "3.5"
+            "armor_reduction" "-4 -6 -8 -10 -12"
+        }
+	}
+}

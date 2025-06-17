@@ -1,0 +1,89 @@
+"DOTAHeroes"
+{
+	//=================================================================================================================
+	//	Scathach (Lancer)
+	//=================================================================================================================
+	"npc_dota_hero_scathach"
+	{
+		"override_hero"				"npc_dota_hero_monkey_king"
+		"DisableWearables" 			"1"
+		//"Model"					"models/development/invisiblebox.vmdl"
+		"Model"					"models/scathach/scathach.vmdl"
+		"ModelScale"			"1.44"
+		//"HeroID"					"24"
+		"DrawParticlesWhileHidden" "1"
+		"Skins"
+		{
+			"skin_1"
+			{
+				"loc_name"			"scat1"
+				"model"				"models/scathach/scathach_swimsuit.vmdl"
+			}
+		}
+		"precache"
+		{
+			"model"						"models/scathach/scathach_swimsuit.vmdl"		
+		}
+		"AbilityLayout"				"6"
+		"Ability1"					"scathach_red_wind"
+		"Ability2"					"scathach_gait_one"
+		"Ability3"					"scathach_gae_bolg"
+		"Ability4" 					"scathach_pinning_thorn"
+		"Ability5"					"scathach_wisdom_of_dun_scaith"
+		"Ability6"					"scathach_gae_bolg_jump"
+		//"Ability7"					"scathach_wisdom_of_haunt_ground"
+		//"Ability8"					"scathach_immortal"
+		"Ability9"					"scathach_red_creed_combo"
+		//"Ability10"					"scathach_combo_gate_of_sky"
+		"Ability11"					"presence_detection_passive"
+		"Ability12"					"attribute_bonus_custom"
+		"Ability13"					"hero_base_stats_bonus"
+		"Ability14"					"scathach_gait_two"
+		"Ability15"					"scathach_gait_three"
+		"Ability16"					"scathach_red_creed_combo"
+
+		"Combo"						"scathach_red_creed_combo"
+		//"Combo2"					"scathach_combo_gate_of_sky"
+		"AttributeNumber"			"4"
+		"Attribute1"				"scathach_primeval_rune_attribute"
+		"Attribute2"				"scathach_branches_of_tonelico_attribute"
+		"Attribute3"				"scathach_pinning_thorn_attribute"
+		"Attribute4"				"scathach_wisdom_of_dun_scaith_attribute"
+		
+		"StatusHealth"					"1350"
+		"StatusHealthRegen"				"6.5"
+		"StatusMana"					"1000"
+		"StatusManaRegen"				"5.0"
+		
+		"ArmorPhysical"					"5"
+		"MagicalResistance"				"5"
+		
+		"AttackCapabilities"			"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"AttackDamageMin"				"44"
+		"AttackDamageMax"				"51"
+		"AttackRate"					"1.00"
+		"AttackRange"					"300"
+		"AttackAcquisitionRange"		"550"
+		
+		"AttributePrimary"				"DOTA_ATTRIBUTE_AGILITY"
+		"AttributeBaseStrength"			"0"
+		"AttributeStrengthGain"			"2.2"
+		"AttributeBaseAgility"			"0"
+		"AttributeAgilityGain"			"3.6"
+		"AttributeBaseIntelligence"		"0"
+		"AttributeIntelligenceGain"		"2.2"
+		
+		"MovementCapabilities"			"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"					"425"
+		"MovementTurnRate"				"0.8"
+		
+		"VisionDaytimeRange"			"1000"
+		"VisionNighttimeRange"			"1000"
+
+		//-------------------------------------------------------------------------------------------------------------
+		// Voice
+		//-------------------------------------------------------------------------------------------------------------
+		"GameSoundsFile"				"soundevents/hero_scathach.vsndevts"
+		"VoiceFile"						"soundevents/voscripts/game_sounds_vo_monkey_king.vsndevts"
+	}
+}

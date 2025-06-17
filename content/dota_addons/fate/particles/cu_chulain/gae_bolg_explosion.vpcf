@@ -1,0 +1,91 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vrfunknown:version{73c3d623-a141-4df2-b548-41dd786e6300} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_bShouldHitboxesFallbackToRenderBounds = false
+	m_nMaxParticles = 1
+	m_nBehaviorVersion = 12
+	m_controlPointConfigurations = 
+	[
+		
+		{
+			m_name = "preview"
+			m_drivers = 
+			[
+				
+				{
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+				
+				{
+					m_iControlPoint = 1
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_vecOffset = 
+					[
+						1.000000,
+						1.000000,
+						1.000000,
+					]
+					m_entityName = "self"
+				},
+				
+				{
+					m_iControlPoint = 3
+					m_iAttachType = "PATTACH_WORLDORIGIN"
+					m_entityName = "self"
+				},
+			]
+		},
+	]
+	m_Children = 
+	[
+		
+		{
+			m_ChildRef = resource:"particles/custom/cu_chulainn/gae_bolg_explosion_h.vpcf"
+		},
+		
+		{
+			m_ChildRef = resource:"particles/custom/cu_chulainn/gae_bolg_explosion_k.vpcf"
+		},
+		
+		{
+			m_ChildRef = resource:"particles/custom/cu_chulainn/gae_bolg_explosion_d.vpcf"
+		},
+		
+		{
+			m_ChildRef = resource:"particles/custom/cu_chulainn/gae_bolg_explosion_l.vpcf"
+		},
+		
+		{
+			m_ChildRef = resource:"particles/custom/cu_chulainn/gae_bolg_explosion_g.vpcf"
+		},
+		
+		{
+			m_ChildRef = resource:"particles/custom/cu_chulainn/gae_bolg_explosion_j.vpcf"
+		},
+		
+		{
+			m_ChildRef = resource:"particles/custom/cu_chulainn/gae_bolg_explosion_a.vpcf"
+		},
+		
+		{
+			m_ChildRef = resource:"particles/custom/cu_chulainn/gae_bolg_explosion_b.vpcf"
+		},
+		
+		{
+			m_ChildRef = resource:"particles/custom/cu_chulainn/gae_bolg_explosion_e.vpcf"
+		},
+		
+		{
+			m_ChildRef = resource:"particles/custom/cu_chulainn/gae_bolg_explosion_c.vpcf"
+		},
+		
+		{
+			m_ChildRef = resource:"particles/custom/cu_chulainn/gae_bolg_explosion_i.vpcf"
+		},
+		
+		{
+			m_ChildRef = resource:"particles/custom/cu_chulainn/gae_bolg_explosion_f.vpcf"
+		},
+	]
+}

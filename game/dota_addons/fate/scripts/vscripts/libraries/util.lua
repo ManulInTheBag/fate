@@ -476,6 +476,9 @@ donotlevel = {
     "altera_adaptive",
     "nanaya_dash",
     "robin_faceless_king",
+
+    "scathach_pinning_god",
+    "scathach_wisdom_of_dun_scaith",
 }
 
 CannotReset = {
@@ -673,6 +676,13 @@ CannotReset = {
     "astolfo_hippogriff_vanish",
     "iskander_trap",
     "iskander_thunder_2",
+
+    "scathach_pinning_god",
+
+    "scathach_combo_double_gae_bolg",
+	"scathach_pinning_thorn",
+	"scathach_wisdom_of_dun_scaith",
+	"scathach_red_creed_combo",
 }
 
 
@@ -1473,6 +1483,10 @@ function IsSpellBlocked(target)
         EmitSoundWithCooldown("lancelot_eternal_prock", target, 1)
         target:FindModifierByName("modifier_eam_crit_active"):OnLinkenProcked()
         return false
+    elseif target:HasModifier("modifier_scathach_wisdom_of_dun_scaith") then
+        EmitSoundWithCooldown("DOTA_Item.LinkensSphere.Activate", target, 1)
+        ParticleManager:CreateParticle("particles/items_fx/immunity_sphere.vpcf", PATTACH_ABSORIGIN, target)
+        return true
     elseif target:HasModifier("modifier_saito_style_active") then
         local hLinkModifier = target:FindModifierByName("modifier_saito_style_active")
         if IsNotNull(hLinkModifier) and hLinkModifier:BlockSpellCheck() then
@@ -2472,6 +2486,7 @@ local heroNames = {
     ["npc_dota_hero_sniper"] = "Robin Hood",
     ["npc_dota_hero_spirit_breaker"] = "Hijikata Toshizo",
     ["npc_dota_hero_ogre_magi"] = "Aozaki Aoko",
+    ["npc_dota_hero_monkey_king"] = "Scathach",
 }
 
  
@@ -2538,6 +2553,7 @@ local heroCombos = {
     ["npc_dota_hero_centaur"] = "lu_bu_sky_piercer",
     ["npc_dota_hero_robin"] = "robin_yew_tree_combo",
     ["npc_dota_hero_aoko"] = "aoko_blue",
+    ["npc_dota_hero_monkey_king"] = "scathach_red_creed_combo",
 }
 
 function GetHeroCombo(hero)

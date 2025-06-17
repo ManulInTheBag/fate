@@ -315,6 +315,76 @@
 		"DOTA_Tooltip_modifier_merlin_garden_of_avalon"					"Garden of avalon"
 		"DOTA_Tooltip_modifier_merlin_garden_of_avalon_Description"		"Increased regeneration and debuff cleanse"
 
+		"DOTA_Tooltip_modifier_immortal_revive"						"Immortal"
+		"DOTA_Tooltip_modifier_immortal_revive_Description"			"Scathach is Immortal."
+
+		"DOTA_Tooltip_modifier_immortal_passive"						"Divinity Souls"
+		"DOTA_Tooltip_modifier_immortal_passive_Description"			"gain 3 agi per stacks."
+
+		"DOTA_Tooltip_modifier_scathach_spearmanship"						"Double Spearmanship"
+		"DOTA_Tooltip_modifier_scathach_spearmanship_Description"			"can do double attack."
+
+		"DOTA_Tooltip_modifier_gate_of_sky_cooldown"						"Gate Of Sky Cooldown"
+		"DOTA_Tooltip_modifier_gate_of_sky_cooldown_Description"			""
+
+		"DOTA_Tooltip_modifier_combo_double_gae_bolg_cooldown"						"Double Gae Bolg Cooldown"
+		"DOTA_Tooltip_modifier_combo_double_gae_bolg_cooldown_Description"			""
+
+		"DOTA_Tooltip_modifier_pinning_god_cooldown"						"Pinning God Killing Thorn Cooldown"
+		"DOTA_Tooltip_modifier_pinning_god_cooldown_Description"			""
+
+		"DOTA_Tooltip_modifier_scathach_rune_heal_buff"						"Primeval Rune : Rune of Protection"
+		"DOTA_Tooltip_modifier_scathach_rune_heal_buff_Description"			"Increase Armor and MR."
+
+		"DOTA_Tooltip_modifier_scathach_freeze"						"Primeval Rune : Freeze"
+		"DOTA_Tooltip_modifier_scathach_freeze_Description"			"Freeze, cannot blink, mana drain."
+
+		"DOTA_Tooltip_modifier_scathach_fire_burn"						"Primeval Rune : Burn"
+		"DOTA_Tooltip_modifier_scathach_fire_burn_Description"			"Deal damage per sec."
+
+		"DOTA_Tooltip_modifier_scathach_fire_burn_multiply"						"Primeval Rune : Burn Stack"
+		"DOTA_Tooltip_modifier_scathach_fire_burn_multiply_Description"			"Deal damage per sec."
+
+		"DOTA_Tooltip_modifier_wisdom_spell_block"						"Wisdom of Haunt Ground : Spell Block"
+		"DOTA_Tooltip_modifier_wisdom_spell_block_Description"			"Can block one target spell."
+
+		"DOTA_Tooltip_modifier_wisdom_spell_block_cooldown"						"Wisdom of Haunt Ground : Spell Block Cooldown"
+		"DOTA_Tooltip_modifier_wisdom_spell_block_cooldown_Description"			""
+
+		"DOTA_Tooltip_modifier_wisdom_passive"						"Wisdom of Haunt Ground : Detection"
+		"DOTA_Tooltip_modifier_wisdom_passive_Description"			""
+
+		"DOTA_Tooltip_modifier_wisdom_trigger"						"Wisdom of Haunt Ground : Detect"
+		"DOTA_Tooltip_modifier_wisdom_trigger_Description"			"Detect enemies that using skill in 2000 range."
+
+		"DOTA_Tooltip_modifier_wisdom_target"						"Wisdom of Haunt Ground : Target"
+		"DOTA_Tooltip_modifier_wisdom_target_Description"			"You get catch by Scathach."
+
+		"DOTA_Tooltip_modifier_gate_of_sky_pull"						"Gate of Sky : Pull"
+		"DOTA_Tooltip_modifier_gate_of_sky_pull_Description"			"Pull"
+
+		"DOTA_Tooltip_modifier_gate_of_sky_no_blink"						"Gate of Sky"
+		"DOTA_Tooltip_modifier_gate_of_sky_no_blink_Description"			"Cannot Blink"
+
+		"DOTA_Tooltip_modifier_gate_of_sky_buff"						"Gate of Sky Buff"
+		"DOTA_Tooltip_modifier_gate_of_sky_buff_Description"			"Can not knockback, decrease damage taken 50 percent."
+
+		"DOTA_Tooltip_modifier_gate_of_sky_check"						"Gate of Sky Check"
+		"DOTA_Tooltip_modifier_gate_of_sky_check_Description"			""
+
+		"DOTA_Tooltip_modifier_gate_of_sky_pull_aura"						"Gate of Sky"
+		"DOTA_Tooltip_modifier_gate_of_sky_pull_aura_Description"			""
+		
+		"DOTA_Tooltip_modifier_divine_a"						"Divinity Servant"
+		"DOTA_Tooltip_modifier_divine_a_Description"			"Get 5 percent damage taken reduction from skill."
+
+		"DOTA_Tooltip_modifier_divine_b"						"Divinity Servant"
+		"DOTA_Tooltip_modifier_divine_b_Description"			"Get 0 percent damage taken reduction from skill."
+		"DOTA_Tooltip_modifier_scathach_wisdom_of_dun_scaith"										"Wisdom of Dun Scaith"
+		"DOTA_Tooltip_modifier_scathach_wisdom_of_dun_scaith_Description"							"Infinite Linken Proc for a short period."
+				"DOTA_Tooltip_modifier_scathach_combo_2_cooldown"										"Combo: Creed Blast Cooldown"
+		"DOTA_Tooltip_modifier_scathach_combo_2_cooldown_Description"							""
+		
 		"DOTA_Tooltip_modifier_merlin_orb_silence"					"Silence"
 		"DOTA_Tooltip_modifier_merlin_orb_silence_Description"		""
 
@@ -9741,6 +9811,127 @@
 
 		"DOTA_Tooltip_modifier_hijikata_bc_cooldown"                                                    "Fierce journey cooldown"
 		"DOTA_Tooltip_modifier_hijikata_bc_cooldown_Description"                                        ""
+
+			//=================================================================================================================
+		//	Lancer (Grand Order, Extella Link)
+		//=================================================================================================================
+		"npc_dota_hero_monkey_king"			"Scathach"
+		"scat1"		"Swimsuit Scathach"
+		"DOTA_Tooltip_Ability_scathach_red_wind"				"<font color='#FFE56E'>Thorn Of The Red Wind</font>"
+		"DOTA_Tooltip_ability_scathach_red_wind_Description"	"Cast Point: <font color='#FFFFF9'>0.3</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Scathach quickly charges ahead.\n\nDealing <font color='#05CAFF'>magical damage</font> and <font color='#FF3399'>stunning</font> all enemies along her path."
+		"DOTA_Tooltip_ability_scathach_red_wind_stun_duration"			"STUN DURATION :"
+		"DOTA_Tooltip_ability_scathach_red_wind_damage"			"DAMAGE :"
+		"DOTA_Tooltip_ability_scathach_red_wind_distance"			"CHARGE DISTANCE:"
+		
+		"DOTA_Tooltip_Ability_scathach_gait_one"				"<font color='#FFE56E'>Funeral Gait - Fangs of Earth</font>"
+		"DOTA_Tooltip_ability_scathach_gait_one_Description"	"Cast Point: <font color='#FFFFF9'>0.25</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Scathach performs two swift swings in succession.\n\nDealing <font color='#C24401'>physical damage</font> to enemies directly infront of Scathach.\n\nOn the second strike, extra <font color='#C24401'>armor reduction</font> and <font color='#FF3399'>root</font> is applied to all enemies hit.\n\nInflicts <font color='#05CAFF'>50 mana burn</font> per hit.\n\nUpgradable by attribute Primeval Runes."
+		"DOTA_Tooltip_ability_scathach_gait_one_radius"			"RANGE:"
+		"DOTA_Tooltip_ability_scathach_gait_one_damage"			"DAMAGE :"
+		"DOTA_Tooltip_ability_scathach_gait_one_armor_reduction_duration"			"ARMOR REDUCTION AND ROOT DURATION:"
+		"DOTA_Tooltip_ability_scathach_gait_one_armor_reduction"			"ARMOR REDUCTION:"
+		
+		"DOTA_Tooltip_Ability_scathach_gait_two"				"<font color='#FFE56E'>Funeral Gait - Curruid's Maw</font>"
+		"DOTA_Tooltip_ability_scathach_gait_two_Description"	"Cast Point: <font color='#FFFFF9'>0.1</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Scathach strikes 4 times within an area over a duration.\n\nDealing <font color='#C24401'>physical damage</font> while inflicting <font color='#C24401'>armor reduction</font>.\n\nLast strike deals significantly more <font color='#FF5100'>damage</font> and <font color='#FF3399'>stuns</font> nearby enemies for 1 second.\n\nInflicts <font color='#05CAFF'>50 mana burn</font> per hit."
+		"DOTA_Tooltip_ability_scathach_gait_two_duration"			"DURATION:"
+		"DOTA_Tooltip_ability_scathach_gait_two_radius"			"RADIUS:"
+		"DOTA_Tooltip_ability_scathach_gait_two_damage"			"DAMAGE :"
+		"DOTA_Tooltip_ability_scathach_gait_two_damage_big"			"LAST HIT DAMAGE:"
+		"DOTA_Tooltip_ability_scathach_gait_two_armor_reduction_duration"			"ARMOR REDUCTION DURATION:"
+		"DOTA_Tooltip_ability_scathach_gait_two_armor_reduction"			"ARMOR REDUCTION:"
+		
+		"DOTA_Tooltip_Ability_scathach_gait_three"				"<font color='#FFE56E'>Funeral Gait - Legion's Bite</font>"
+		"DOTA_Tooltip_ability_scathach_gait_three_Description"	"Cast Point: <font color='#FFFFF9'>0.15</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Scathach leaps and strikes at the targeted area with both spears.\n\nInflicting half of the total <font color='#FF5100'>damage</font> as <font color='#C24401'>physical damage</font> and the other half as <font color='#05CAFF'>magical damage</font> to nearby enemies within the target area.\n\nAdditional damage is also added per <font color='#2CE300'>AGI</font>.\n\nInflicts <font color='#05CAFF'>200 mana burn</font> per hit."
+		"DOTA_Tooltip_ability_scathach_gait_three_cast_range"			"CAST RANGE:"
+		"DOTA_Tooltip_ability_scathach_gait_three_radius"			"RADIUS:"
+		"DOTA_Tooltip_ability_scathach_gait_three_damage"			"DAMAGE :"
+		"DOTA_Tooltip_ability_scathach_gait_three_agi_ratio"			"ADDITIONAL DAMAGE PER AGILITY:"
+
+		"DOTA_Tooltip_Ability_scathach_gae_bolg"				"<font color='#FFE56E'>Gae Bolg Alternative - Barbed Spear that Pierces with Death</font>"
+		"DOTA_Tooltip_ability_scathach_gae_bolg_Description"	"Cast Point: <font color='#FFFFF9'>0.8</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Scathach pierces the enemy with the cursed spear; Gae Bolg Alternative, dealing <font color='#FFE56E'>pure damage</font> and <font color='#FF3399'>stunning</font> the target.\n\nIf this blow would reduce the target's <font color='#ACFF05'>health</font> below a <font color='#FF5100'>certain threshold</font>, target is <font color='#FFE56E'>executed</font>.\n\nUpgradable by attribute Branch of Tonelico."
+		"DOTA_Tooltip_ability_scathach_gae_bolg_delay"			"CAST DELAY :"
+		"DOTA_Tooltip_ability_scathach_gae_bolg_damage"			"DAMAGE :"
+		"DOTA_Tooltip_ability_scathach_gae_bolg_heart_break"			"HEART BREAK THRESHOLD :"
+
+		"DOTA_Tooltip_Ability_scathach_gae_bolg_jump"				"<font color='#FFE56E'>Gae Bolg Alternative : Soaring Spear of Piercing Death</font>"
+		"DOTA_Tooltip_ability_scathach_gae_bolg_jump_Description"	"Cast Point: <font color='#FFFFF9'>0.6</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Scathach leaps into the air, becoming <font color='#FFE56E'>invulnerable</font> and <font color='#FFE56E'>untargetable</font>, and performs a powerful spear throw onto a targeted area.\n\nDealing significant <font color='#05CAFF'>magical damage</font> and <font color='#FF3399'>knocks</font> enemies into the air. \n\nUpgradable by attribute Branch of Tonelico."
+		"DOTA_Tooltip_ability_scathach_gae_bolg_jump_delay"			"CAST DELAY :"
+		"DOTA_Tooltip_ability_scathach_gae_bolg_jump_damage"			"DAMAGE :"
+		"DOTA_Tooltip_ability_scathach_gae_bolg_jump_radius"			"RADIUS :"
+		"DOTA_Tooltip_ability_scathach_gae_bolg_jump_cast_range"			"CAST RANGE :"
+		
+		"DOTA_Tooltip_ability_scathach_pinning_thorn"				"<font color='#FFE56E'>Pinning God Killer Thorns</font>"
+		"DOTA_Tooltip_ability_scathach_pinning_thorn_Description"	"Cast Point: <font color='#FFFFF9'>0.1</font>s    |    <font color='#EE5C29'>Unrefreshable</font><br><br>Scathach brandishes her spear with maximal power and throws it an enemy target.\n\nInflicting individual <font color='#05CAFF'>magical damage</font> to the target.\n\nAlso explodes, dealing <font color='#05CAFF'>magical damage</font> to surrounding enemies.\n\nAdditional damage added per <font color='#2CE300'>AGI</font> will be split between target and secondary damage." 
+		"DOTA_Tooltip_ability_scathach_pinning_thorn_range"			"RANGE:"
+		"DOTA_Tooltip_ability_scathach_pinning_thorn_radius"			"RADIUS:"
+		"DOTA_Tooltip_ability_scathach_pinning_thorn_damage"			"BASE DAMAGE:"
+		"DOTA_Tooltip_ability_scathach_pinning_thorn_damage_secondary"			"EXPLOSION DAMAGE:"
+		"DOTA_Tooltip_ability_scathach_pinning_thorn_agi_ratio"			"ADDITIONAL DAMAGE PER AGILITY:"
+
+		"DOTA_Tooltip_Ability_scathach_primeval_rune_attribute"				"<font color='#FFE56E'>Improve Primeval Rune</font>"
+		"DOTA_Tooltip_ability_scathach_primeval_rune_attribute_Description"	"Upgrades <font color='#FFE56E'>Thorn Of The Red Wind</font>, adding additional <font color='#05CAFF'>magical damage</font>, <font color='#FF3399'>cast range</font> and <font color='#FF3399'>stun</font>.\n\nUpgrades <font color='#FFE56E'>Funeral Gait - Fangs of Earth</font>, <font color='#FFE56E'>Funeral Gait - Curruid's Maw</font> and <font color='#FFE56E'>Funeral Gait - Legion's Bite</font>, adding additional <font color='#FF5100'>damage</font> respectively. "
+		"DOTA_Tooltip_ability_scathach_primeval_rune_attribute_red_wind_damage"	"RED WIND DAMAGE:"
+		"DOTA_Tooltip_ability_scathach_primeval_rune_attribute_red_wind_range"	"RED WIND RANGE:"
+		"DOTA_Tooltip_ability_scathach_primeval_rune_attribute_red_wind_stun"	"RED WIND STUN"
+		"DOTA_Tooltip_ability_scathach_primeval_rune_attribute_gait_one_damage"	"FANGS OF EARTH DAMAGE:"
+		"DOTA_Tooltip_ability_scathach_primeval_rune_attribute_gait_two_damage"	"CURRUID'S MAW DAMAGE:"
+		"DOTA_Tooltip_ability_scathach_primeval_rune_attribute_gait_three_damage"	"LEGION'S BITE DAMAGE:"
+
+		"DOTA_Tooltip_Ability_scathach_branches_of_tonelico_attribute"				"<font color='#FFE56E'>Branches of Tonelico</font>"
+		"DOTA_Tooltip_ability_scathach_branches_of_tonelico_attribute_Description"	"Upgrades <font color='#FFE56E'>Gae Bolg Alternative : Soaring Spear of Piercing Death</font>, adding additional <font color='#05CAFF'>magical damage</font> and <font color='#FF3399'>cast range</font>.\n\nUpgrades <font color='#FFE56E'>Gae Bolg Alternative - Barbed Spear that Pierces with Death</font>, adding % <font color='#FF0000'>Heartbreak</font> <font color='#FF5100'>Threshold</font>." 
+		"DOTA_Tooltip_ability_scathach_branches_of_tonelico_attribute_gae_bolg_jump_damage"			"GAE BOLG JUMP DAMAGE :"
+		"DOTA_Tooltip_ability_scathach_branches_of_tonelico_attribute_gae_bolg_jump_range"			"GAE BOLG JUMP RANGE :"
+		"DOTA_Tooltip_ability_scathach_branches_of_tonelico_attribute_atr_hb_pct"			"%E Heartbreak Threshold:"
+
+		"DOTA_Tooltip_Ability_scathach_wisdom_of_dun_scaith_attribute"				"<font color='#FFE56E'>Wisdom of Dún Scáith</font>"
+		"DOTA_Tooltip_ability_scathach_wisdom_of_dun_scaith_attribute_Description"	"Grants Scathach activatable linken for a duration.\n\nNote that the linken doesn't disappear upon proc."
+		"DOTA_Tooltip_ability_scathach_wisdom_of_dun_scaith_attribute_linken_duration"			"LINKEN DURATION :"
+		
+		"DOTA_Tooltip_Ability_scathach_wisdom_of_dun_scaith"				"<font color='#FFE56E'>Wisdom of Dún Scáith</font>"
+		"DOTA_Tooltip_ability_scathach_wisdom_of_dun_scaith_Description"	"Cast Point: <font color='#FFFFF9'>0</font>s    |    <font color='#EE5C29'>Unrefreshable</font><br><br>Grants Scathach activatable linken for a duration.\n\nNote that the linken doesn't disappear upon proc."
+		"DOTA_Tooltip_ability_scathach_wisdom_of_dun_scaith_duration"			"LINKEN DURATION :"
+
+		"DOTA_Tooltip_Ability_scathach_pinning_thorn_attribute"				"<font color='#FFE56E'>Improve Pinning God Killer Thorns</font>"
+		"DOTA_Tooltip_ability_scathach_pinning_thorn_attribute_Description"	"Upgrades <font color='#FFE56E'>Pinning God Killer Thorns</font>\n\nAdds additional <font color='#05CAFF'>magical damage</font> to <font color='#FFE56E'>Gae Bolg Alternative : Soaring Spear of Piercing Death</font> based on <font color='#2CE300'>AGI</font>." 
+		"DOTA_Tooltip_ability_scathach_pinning_thorn_attribute_base_damage"			"BASE DAMAGE:"
+		"DOTA_Tooltip_ability_scathach_pinning_thorn_attribute_explosion_damage"			"EXPLOSION DAMAGE:"
+		"DOTA_Tooltip_ability_scathach_pinning_thorn_attribute_agility_ratio"			"ADDITIONAL DAMAGE PER AGILITY:"
+		"DOTA_Tooltip_ability_scathach_pinning_thorn_attribute_gae_bolg_agi"			"ADDITIONAL GAE BOLG DAMAGE PER AGILITY:"
+
+		"DOTA_Tooltip_Ability_scathach_combo_gate_of_sky"				"<font color='#FFE56E'>Combo : Gate of Skye</font>"
+		"DOTA_Tooltip_ability_scathach_combo_gate_of_sky_Description"	"Cast Point: <font color='#FFFFF9'>1.0</font>s    |    <font color='#EE5C29'>Unrefreshable</font><br><br><font color='#58ACFA'>Combo Requirement : 30 all stats, Wisdom of Dún Scáith Attribute</font>\n\n<font color='#58ACFA'>Combo Sequence : F > F in 4 seconds</font>\n\nScathach temporarily summons a massive gate to her shadow realm.\n\nAfter 1 second pass the gate is open and start sucks in all enemies and drain enemies's mana in range while apply damage income reduction buff to Scathach.\n\nThe enemies will get mini stun when their mana run out. At the end of duration, the enemies that are sucked into point below the gate will be instantly killed.\n\nWhile the enemies that still in gate's range take proportion damage depend on how far they are." 
+		"DOTA_Tooltip_ability_scathach_combo_gate_of_sky_Lore"			"Enemies within gate's range can not blink."
+		"DOTA_Tooltip_ability_scathach_combo_gate_of_sky_range"			"GATE'S RANGE :"
+		"DOTA_Tooltip_ability_scathach_combo_gate_of_sky_dmg"			"MAX DAMAGE :"
+		"DOTA_Tooltip_ability_scathach_combo_gate_of_sky_mana_burn_sec"			"MANA BURN PER SEC :"
+		"DOTA_Tooltip_ability_scathach_combo_gate_of_sky_slow_debuff"			"%DECREASE MS :"
+		"DOTA_Tooltip_ability_scathach_combo_gate_of_sky_cooldown"			"COOLDOWN :"
+		"DOTA_Tooltip_ability_scathach_combo_gate_of_sky_pull_duration"			"GATE OPEN DURATION :"
+		"DOTA_Tooltip_ability_scathach_combo_gate_of_sky_reduction"			"DAMAGE INCOME REDUCTION :"
+		
+		"DOTA_Tooltip_ability_scathach_red_creed_combo"				"<font color='#FFE56E'>Creed Blast</font>"
+		"DOTA_Tooltip_ability_scathach_red_creed_combo_Description"	"Cast Point: <font color='#FFFFF9'>0.15</font>s    |    <font color='#EE5C29'>Unrefreshable</font><br><br>Scathach backflips a certain distance, becoming <font color='#FFE56E'>untargetable</font> and <font color='#FFE56E'>invulnerable</font> until a total of 12 Gae Bolg Alternatives are launched at enemy targets.\n\nInflicting individual <font color='#05CAFF'>magical damage</font> to the main target.\n\nAlso explodes, dealing <font color='#05CAFF'>magical damage</font> to surrounding enemies.\n\nOne spear is guaranteed to hit your main target while 5 secondary projectiles will search the area around the primary target randomly for additional targets.\n\nIf there are no other targets in sight, all 6 spears will hit your primary target." 
+		"DOTA_Tooltip_ability_scathach_red_creed_combo_cast_delay"			"CAST DELAY:"
+		"DOTA_Tooltip_ability_scathach_red_creed_combo_range"			"RANGE:"
+		"DOTA_Tooltip_ability_scathach_red_creed_combo_radius"			"SECONDARY TARGET SEARCH RADIUS:"
+		"DOTA_Tooltip_ability_scathach_red_creed_combo_explosion_radius"			"EXPLOSION RADIUS:"
+		"DOTA_Tooltip_ability_scathach_red_creed_combo_damage_primary"			"BASE DAMAGE:"
+		"DOTA_Tooltip_ability_scathach_red_creed_combo_damage_secondary"			"EXPLOSION DAMAGE:"
+		"DOTA_Tooltip_ability_scathach_red_creed_combo_retreat_distance"			"RETREAT DISTANCE:"
+		
+		"DOTA_Tooltip_ability_scathach_combo_2_proxy"				"<font color='#FFE56E'>Creed Blast</font>"
+		"DOTA_Tooltip_ability_scathach_combo_2_proxy_Description"	"Cast Point: <font color='#FFFFF9'>0.15</font>s    |    <font color='#EE5C29'>Unrefreshable</font><br><br><font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n\n<font color='#58ACFA'>Combo Sequence : Q > R in 4 seconds</font>\n\nScathach backflips a certain distance, becoming <font color='#FFE56E'>untargetable</font> and <font color='#FFE56E'>invulnerable</font> until a total of 12 Gae Bolg Alternatives are launched at enemy targets.\n\nInflicting individual <font color='#05CAFF'>magical damage</font> to the main target.\n\nAlso explodes, dealing <font color='#05CAFF'>magical damage</font> to surrounding enemies.\n\nOne spear is guaranteed to hit your main target while 5 secondary projectiles will search the area around the primary target randomly for additional targets.\n\nIf there are no other targets in sight, all 6 spears will hit your primary target." 
+		"DOTA_Tooltip_ability_scathach_combo_2_proxy_cast_delay"			"CAST DELAY:"
+		"DOTA_Tooltip_ability_scathach_combo_2_proxy_range"			"RANGE:"
+		"DOTA_Tooltip_ability_scathach_combo_2_proxy_radius"			"SECONDARY TARGET SEARCH RADIUS:"
+		"DOTA_Tooltip_ability_scathach_combo_2_proxy_explosion_radius"			"EXPLOSION RADIUS:"
+		"DOTA_Tooltip_ability_scathach_combo_2_proxy_damage_primary"			"BASE DAMAGE:"
+		"DOTA_Tooltip_ability_scathach_combo_2_proxy_damage_secondary"			"EXPLOSION DAMAGE:"
+		"DOTA_Tooltip_ability_scathach_combo_2_proxy_retreat_distance"			"RETREAT DISTANCE:"
+
+		"DOTA_Tooltip_Ability_scathach_combo_double_gae_bolg"				"Combo : Double Gae Bolg Alternative"
+		"DOTA_Tooltip_ability_scathach_combo_double_gae_bolg_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats, Scathach Attribute : Branch of Tonelico</font>\n\n<font color='#58ACFA'>Combo Sequence : W > R in 4 seconds</font>\n\nScathach summons Gae Bolg and Gae Bolg Alternative. First, 'Barbed Spear that pierce with death' to pinning target to the air. and the second 'Soaring Spear of Piercing Death' would strike through everything if thrown with her full migh. \n\nDamage of Barbed Spear that pierce with death is depended on Gae Bolg Alternative : Barbed Spear that pierce with death and damage of Soaring Spear of Piercing Death is depended on Gae Bolg Alternative : Soaring Spear of Piercing Death." 
+		"DOTA_Tooltip_ability_scathach_combo_double_gae_bolg_cooldown"			"COOLDOWN :"
+
 
 
         //     Archer(Extra)

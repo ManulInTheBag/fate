@@ -1,0 +1,267 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:generic:version{7412167c-06e9-4698-aff2-e63eb59037e7} -->
+{
+	Scathach.Gae_Bolg = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/scathach/scathach_gae_bolg.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+	}
+	Scathach.Gae_Bolg_Alternative = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/scathach/scathach_gae_bolg_alternative.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+	}
+	Scathach.Gae_Combo_Cast = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/scathach/scathach_gae_combo_cast.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+	}
+	Scathach.Gate_Cast = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/scathach/scathach_gate_cast.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+	}
+	Scathach.Gate_Of_Sky = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/scathach/scathach_gate_of_sky.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+	}
+	Scathach.Gate_Post = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/scathach/scathach_gate_post.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+	}
+	Scathach.Pinning_God = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/scathach/scathach_pinning_god.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+	}
+	Scathach.Rune_Blast = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/scathach/scathach_rune_blast.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+	}
+	Scathach.Rune_Fire = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/scathach/scathach_rune_fire.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+	}
+	Scathach.Rune_Frost = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/scathach/scathach_rune_frost.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+	}
+	CuChulain_Ally_Scathach = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/scathach/cu_scathach_ally.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+	}
+	Scathach_Ally_Cu = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/scathach/scathach_cu_ally.vsnd",
+		]
+		volume = "3.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+	}
+	scathach_gae_bolg_explosion = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/cu_chulainn/cu_gae_bolg_explosion.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+		vsnd_duration = 14.628572
+	}
+	scathach_gait_1 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/scathach/scathach_gait_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+		vsnd_duration = 0.534059
+	}
+	scathach_gait_2 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/scathach/scathach_gait_2.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+		vsnd_duration = 0.743039
+	}
+	scathach_gait_3 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/scathach/scathach_gait_3.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+		vsnd_duration = 2.832834
+	}
+	scathach_red_wind = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/scathach/scathach_red_wind.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+		vsnd_duration = 0.603719
+	}
+	scathach_red_wind_2 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/scathach/scathach_red_wind_2.vsnd",
+		]
+		volume = "4.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+		vsnd_duration = 0.441179
+	}
+	scathach_red_wind_3 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/scathach/scathach_red_wind_3.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+		vsnd_duration = 1.787936
+	}
+	scathach_gait_attack_1 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/scathach/scathach_gait_attack_1.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+		vsnd_duration = 0.566190
+	}
+	scathach_gait_attack_2 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/scathach/scathach_gait_attack_2.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+		vsnd_duration = 0.478413
+	}
+	scathach_gait_attack_3 = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/scathach/scathach_gait_attack_3.vsnd",
+		]
+		volume = "2.000000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+		vsnd_duration = 0.460952
+	}
+	scathach_creed_blast = 
+	{
+		type = "dota_src1_3d"
+		vsnd_files = 
+		[
+			"sounds/scathach/scathach_creed_blast.vsnd",
+		]
+		volume = "3.500000"
+		pitch = "1.000000"
+		soundlevel = "100.000000"
+		vsnd_duration = 2.972154
+	}
+}

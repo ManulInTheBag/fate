@@ -1,0 +1,60 @@
+"DOTAAbilities"
+{
+	//====================================
+	// Scathach : Gae Bolg Alternative - The Spear of Striking Death Flight
+	//====================================
+	"scathach_gae_bolg_jump"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/scathach/scathach_gae_bolg_jump"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_CREEP"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/scathach/scathach_gae_bolg_jump"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_2_ES_ROLL"
+		"AbilityType"					"DOTA_ABILITY_TYPE_ULTIMATE"
+		"AnimationPlaybackRate" 		"1"
+		"AOERadius"						"%radius"
+		"IsCastableWhileHidden"			"1"
+		"precache"
+		{
+			"particle"		"particles/units/heroes/hero_huskar/huskar_burning_spear.vpcf"
+			"particle"		"particles/custom/lancer/lancer_gae_bolg_projectile.vpcf"
+			"particle"		"particles/units/heroes/hero_warlock/warlock_rainofchaos_start_breakout_fallback_mid.vpcf"
+			"particle"		"particles/units/heroes/hero_elder_titan/elder_titan_echo_stomp_cracks.vpcf"
+			"particle"		"particles/custom/lancer/lancer_gae_bolg_hit.vpcf"
+			"particle"  		"particles/custom/lancer/soaring/spear.vpcf"
+			"particle"  		"particles/custom/cu_chulainn/gae_bolg.vpcf"
+			"particle"  		"particles/custom/cu_chulainn/gae_bolg_jump.vpcf"
+			"particle"  		"particles/units/heroes/hero_chaos_knight/chaos_knight_reality_rift.vpcf"
+		}
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"950"
+		"AbilityCastPoint"				"0.6"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"30.0"
+
+		// Cost
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityManaCost"				"800"
+		
+		"AbilityValues"
+        {
+            "delay" "0.6"
+            "damage" "700 925 1150 1375 1600"
+            "radius" "550"
+            "cast_range" "950"
+            "bonus_range" "800"
+        }
+	}
+}
