@@ -317,6 +317,8 @@ function modifier_aoko_3_beams:OnDestroy()
     if IsServer() then
         --StopSoundOn(self.sound, self.caster)
 
+        self.parent:Stop()
+
         if self.leg then
         	local pepega = 0
 

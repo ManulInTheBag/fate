@@ -8,9 +8,9 @@ altera_form_close = class({})
 
 local tStandardAbilities = {
     "altera_whip",
-    "altera_dash",
+    "altera_rift_open",
     "altera_rift",
-    "fate_empty1",
+    "altera_rift_travel",
     "altera_form_open",
     "altera_beam",
     "attribute_bonus_custom"
@@ -20,7 +20,7 @@ local tForms = {
     "altera_form_str",
     "altera_form_agi",
     "altera_form_int",
-    "fate_empty1",
+    "altera_rift_travel",
     "altera_form_close",
     "altera_beam",
     "attribute_bonus_custom"

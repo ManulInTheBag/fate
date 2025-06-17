@@ -202,8 +202,8 @@ function modifier_hijikata_rush:BOOM()
                 if self.parent:GetHealth() < self.parent:GetMaxHealth() then
                     local diff = self.parent:GetMaxHealth() - self.parent:GetHealth()
             
-                    if diff > self.parent:GetMaxHealth() * 0.2 then 
-                        diff = self.parent:GetMaxHealth() * 0.2
+                    if diff > self.parent:GetMaxHealth() * 0.1 then 
+                        diff = self.parent:GetMaxHealth() * 0.1
                     end
                     self.parent:Heal(diff, self.parent)
                  end

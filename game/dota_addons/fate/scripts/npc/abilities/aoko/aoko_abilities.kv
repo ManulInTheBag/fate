@@ -13,7 +13,7 @@
 		"LevelsBetweenUpgrades"			"1"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_CHANNELLED | DOTA_ABILITY_BEHAVIOR_AUTOCAST"
 		"AbilityTextureName"			"custom/aoko/aoko_shield"
-		"AbilityCastPoint"				"0.1"
+		"AbilityCastPoint"				"0.0"
 		"AbilityCooldown"				"7"
 		"AbilityManaCost"				"50"
 		"AbilityChannelTime"			"1"
@@ -30,12 +30,12 @@
 
 		"AbilityValues"
 		{	
-			"cast_point"				"0.2"
+			"cast_point"				"0.0"
 			"mana"						"20 25 30 35 40"
 			"mana_cost"					"50"
 			"channel_duration"			"1"
 			"shield_amount"				"400"
-			"distance"					"350"
+			"distance"					"450"
 			"cooldown_reduction"		"5"
 			"stack_gain"				"10"
 			"shield_damage_decrease_flat_value"				"300 375 450 525 600"
@@ -107,14 +107,14 @@
 		"ScriptFile"					"abilities/aoko/aoko_facebreaker"
 
 		"AbilityCastAnimation" 			"ACT_SCRIPT_CUSTOM_7"
-		"AnimationPlaybackRate" 		"1.0"
+		"AnimationPlaybackRate" 		"2.0"
 
 		"LinkedAbilities"				"aoko_sphere"
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
 		//"AbilityCastPoint"				"0.3"
-		"AbilityChannelTime"			"0.5"
+		"AbilityChannelTime"			"0.3"
 		"AbilityCastRange"				"600"
 
 		// Time		
@@ -135,7 +135,7 @@
 		"AbilityValues"
         {
         	"cast_point"				"0.0"
-        	"channel_duration"			"0.5"
+        	"channel_duration"			"0.3"
         	"mana_cost"					"100"
             "width" 					"300"
             "range" 					"600"
@@ -157,7 +157,7 @@
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_OVERSHOOT"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN | DOTA_ABILITY_BEHAVIOR_OVERSHOOT | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
 
@@ -344,7 +344,7 @@
 		"MaxLevel"						"2"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"25"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE"
 		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"AbilityTextureName"			"custom/aoko/aoko_circuits"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
@@ -379,6 +379,8 @@
 			"overload_duration"				"20"
 			"overload_threshold"			"100"
 			"overload_sphere_charge_time"	"4"
+			"overload_cc_immune_duration"	"0 1.5"
+			"blue_cc_immune_duration"		"0 7"
 		}		
 	}
 
@@ -409,7 +411,7 @@
 
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.45"
+		"AbilityCastPoint"				"0.35"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -430,7 +432,7 @@
 		//-------------------------------------------------------------------------------------------------------------
 		"AbilityValues"
         {
-        	"cast_point"			"0.45"
+        	"cast_point"			"0.35"
         	"mana_cost"				"400"
             "speed" 				"3000"
             "range" 				"1000"			
@@ -442,8 +444,8 @@
             "slow_pct"				"40 45 50 55 60"
             "lock_duration"			"1"
             "sphere_damage"			"0"
-            "grab_stacks"			"10"
-            "impact_stacks"			"20"
+            "grab_stacks"			"20"
+            "impact_stacks"			"40"
         }
 	}
 
@@ -495,7 +497,7 @@
             "attribute_int_scale"		"0.5"
             "attribute_int_scale_leg"	"0.75"
             "duration" 					"0.5"
-            "distance" 					"1200"
+            "distance" 					"1400"
             "radius" 					"200"
             "first_threshold"			"40"
             "second_threshold"			"80"
@@ -591,6 +593,8 @@
         	"shield_cooldown_reduction"		"5"
         	"jumpback_ms"					"30%"
 			"jumpback_ms_duration"			"6"
+			"overload_cc_immune_duration"	"1.5"
+			"blue_cc_immune_duration"		"7"
         }		
 	}
 

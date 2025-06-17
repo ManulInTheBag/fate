@@ -267,17 +267,17 @@ function modifier_aoko_intimidation_grab:OnCreated(args)
 	self.ability = self:GetAbility()
 	if IsServer() then
 		self.enemy = EntIndexToHScript(args.targetindex)
-		self.speed = 800--self.ability:GetSpecialValueFor("speed")
+		self.speed = 1200--self.ability:GetSpecialValueFor("speed")
 		self.distelapsed = 600--self.ability:GetSpecialValueFor("range")
 
 		EmitSoundOn("aoko_intimidation_grab_sfx", self.enemy)
 
-		StartAnimation(self.parent, {duration=1.1, activity=ACT_SCRIPT_CUSTOM_4, rate=1.0})
+		StartAnimation(self.parent, {duration=1.1, activity=ACT_SCRIPT_CUSTOM_4, rate=1.5})
 
         self.targetpos = self.parent:GetAbsOrigin() + self.parent:GetForwardVector()*self.ability:GetSpecialValueFor("range")
 
-        self.enemy:AddNewModifier(self.parent, self.ability, "modifier_aoko_intimidation_grab_enemy", {duration = 0.8})
-        self.enemy:AddNewModifier(self.parent, self.ability, "modifier_stunned", {duration = 0.8}) -- DOUBLING THIS BECAUSE OF "STUNNED" ANIMATION, DO NOT REMOVE
+        self.enemy:AddNewModifier(self.parent, self.ability, "modifier_aoko_intimidation_grab_enemy", {duration = 0.55})
+        self.enemy:AddNewModifier(self.parent, self.ability, "modifier_stunned", {duration = 0.55}) -- DOUBLING THIS BECAUSE OF "STUNNED" ANIMATION, DO NOT REMOVE
 
         --[[self.hand_fx_1 = ParticleManager:CreateParticle("particles/aoko/aoko_intimidation_hands_trail.vpcf", PATTACH_ABSORIGIN, self.parent)
 		ParticleManager:SetParticleControl(self.hand_fx_1, 1, self.parent:GetAttachmentOrigin(self.parent:ScriptLookupAttachment("attach_attack1")))
@@ -357,12 +357,12 @@ function modifier_aoko_intimidation_grab:Rush(me, dt)
 
     local target = pos + direction:Normalized() * (self.speed * dt)
 
-    if self.ticks < 5 then
-    	target = target + Vector(0, 0, 20)
-    elseif self.ticks < 17 then
-    	target = target + Vector(0, 0, 5)
+    if self.ticks < 3 then
+    	target = target + Vector(0, 0, 30)
+    elseif self.ticks < 13 then
+    	target = target + Vector(0, 0, 8)
     else
-    	target = target + Vector(0, 0, -10)
+    	target = target + Vector(0, 0, -15)
     end
 
     self.parent:SetOrigin(target)

@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc33:version{bed0390a-a564-41a6-9dc3-c9a293c8eea3} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc40:version{da0ab1f8-9722-4910-94b8-10b6a08c0934} -->
 {
 	rootNode = 
 	{
@@ -527,6 +527,7 @@
 					{
 						_class = "AnimFile"
 						name = "idle"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_IDLE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -539,16 +540,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/altera/altera.fbx"
 						import_bone_scales = false
 						start_frame = 10
 						end_frame = 76
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "stand2"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_IDLE_RARE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -561,16 +565,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/altera/altera.fbx"
 						import_bone_scales = false
 						start_frame = 90
 						end_frame = 225
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "run"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_RUN"
 						activity_weight = 1
 						weight_list_name = ""
@@ -583,16 +590,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/altera/altera.fbx"
 						import_bone_scales = false
 						start_frame = 245
 						end_frame = 260
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "attack1"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_ATTACK"
 						activity_weight = 1
 						weight_list_name = ""
@@ -605,16 +615,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/altera/altera.fbx"
 						import_bone_scales = false
 						start_frame = 280
 						end_frame = 316
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "attack2"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_ATTACK2"
 						activity_weight = 1
 						weight_list_name = ""
@@ -627,16 +640,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/altera/altera.fbx"
 						import_bone_scales = false
 						start_frame = 336
 						end_frame = 372
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "jump"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_4"
 						activity_weight = 1
 						weight_list_name = ""
@@ -649,16 +665,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/altera/altera.fbx"
 						import_bone_scales = false
 						start_frame = 392
 						end_frame = 464
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "whip_horiz"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_1"
 						activity_weight = 1
 						weight_list_name = ""
@@ -671,16 +690,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/altera/altera.fbx"
 						import_bone_scales = false
 						start_frame = 484
 						end_frame = 520
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "whip_horiz_2"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_1_END"
 						activity_weight = 1
 						weight_list_name = ""
@@ -693,16 +715,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/altera/altera.fbx"
 						import_bone_scales = false
 						start_frame = 1079
 						end_frame = 1115
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "jump_forw_whip"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_3"
 						activity_weight = 1
 						weight_list_name = ""
@@ -715,16 +740,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/altera/altera.fbx"
 						import_bone_scales = false
 						start_frame = 540
 						end_frame = 612
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "dash_question"
+						is_default_idle_anim = false
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -737,16 +765,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/altera/altera.fbx"
 						import_bone_scales = false
 						start_frame = 632
 						end_frame = 662
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "charge"
+						is_default_idle_anim = false
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -759,16 +790,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/altera/altera.fbx"
 						import_bone_scales = false
 						start_frame = 720
 						end_frame = 743
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "beam"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_6"
 						activity_weight = 1
 						weight_list_name = ""
@@ -781,16 +815,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/altera/altera.fbx"
 						import_bone_scales = false
 						start_frame = 763
 						end_frame = 799
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "charge_hard_atk"
+						is_default_idle_anim = false
 						activity_name = ""
 						activity_weight = 1
 						weight_list_name = ""
@@ -803,16 +840,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/altera/altera.fbx"
 						import_bone_scales = false
 						start_frame = 819
 						end_frame = 949
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "ready"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_RAZE_1"
 						activity_weight = 1
 						weight_list_name = ""
@@ -825,16 +865,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/altera/altera.fbx"
 						import_bone_scales = false
 						start_frame = 969
 						end_frame = 1005
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "go"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_RAZE_2"
 						activity_weight = 1
 						weight_list_name = ""
@@ -847,16 +890,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/altera/altera.fbx"
 						import_bone_scales = false
 						start_frame = 1025
 						end_frame = 1059
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "death"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_DIE"
 						activity_weight = 1
 						weight_list_name = ""
@@ -869,16 +915,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/altera/altera.fbx"
 						import_bone_scales = false
 						start_frame = 1135
 						end_frame = 1194
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "stun"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_DISABLED"
 						activity_weight = 1
 						weight_list_name = ""
@@ -891,12 +940,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/altera/altera.fbx"
 						import_bone_scales = false
 						start_frame = 743
 						end_frame = 743
 						framerate = 1.0
 						reverse = false
+						additional_anim_files = [  ]
 						anim_hold_list = 
 						[
 							{
@@ -908,6 +959,7 @@
 					{
 						_class = "AnimFile"
 						name = "dash_question_start"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CHANNEL_ABILITY_2"
 						activity_weight = 1
 						weight_list_name = ""
@@ -920,16 +972,19 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/altera/altera.fbx"
 						import_bone_scales = false
 						start_frame = 632
 						end_frame = 635
 						framerate = 8.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "dash_question_end"
+						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_2_END"
 						activity_weight = 1
 						weight_list_name = ""
@@ -942,12 +997,39 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/altera/altera.fbx"
 						import_bone_scales = false
 						start_frame = 636
 						end_frame = 662
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "charge_copy"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CAST_ABILITY_2"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/altera/altera.fbx"
+						import_bone_scales = false
+						start_frame = 680
+						end_frame = 718
+						framerate = -1.0
+						reverse = false
+						additional_anim_files = [  ]
 					},
 				]
 				default_root_bone_name = ""
@@ -989,5 +1071,6 @@
 		model_archetype = ""
 		primary_associated_entity = ""
 		anim_graph_name = ""
+		document_sub_type = "ModelDocSubType_None"
 	}
 }

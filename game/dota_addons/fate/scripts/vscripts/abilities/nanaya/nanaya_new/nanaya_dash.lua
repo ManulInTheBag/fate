@@ -141,7 +141,7 @@ end
 
 function modifier_nanaya_dash_invis:OnAbilityFullyCast(args)
     if args.unit == self:GetParent() then
-    	if not (args.ability == self:GetAbility()) then
+    	if not (args.ability == self:GetAbility() or args.ability:GetName() == "nanaya_instinct") then
     		self:Destroy()
     	end
     end

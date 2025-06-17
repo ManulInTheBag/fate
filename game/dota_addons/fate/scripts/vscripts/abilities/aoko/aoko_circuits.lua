@@ -1,5 +1,6 @@
 LinkLuaModifier("modifier_aoko_circuits_passive", "abilities/aoko/aoko_circuits", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_aoko_circuits_overload", "abilities/aoko/aoko_circuits", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_aoko_circuits_cc_immune", "abilities/aoko/aoko_circuits", LUA_MODIFIER_MOTION_NONE)
 
 local cd_ability_list = {
 	"aoko_shield",
@@ -186,6 +187,9 @@ function modifier_aoko_circuits_passive:StartOverload()
 		self.parent:EmitSound("aoko_overload_sfx")
 		self.parent:EmitSound("aoko_overload")
 		self.parent:AddNewModifier(self.parent, self.ability, "modifier_aoko_circuits_overload", {duration = self.ability:GetSpecialValueFor("overload_duration")})
+		if self.parent.CircuitsAcquired then
+			self.parent:AddNewModifier(self.parent, self.ability, "modifier_aoko_circuits_cc_immune", {duration = self.ability:GetSpecialValueFor("overload_cc_immune_duration")})
+		end
 		local stacks = self:GetStackCount()
 		if self.aoko ~= nil then 
 			ParticleManager:DestroyParticle(self.aoko, true)
@@ -205,6 +209,9 @@ function modifier_aoko_circuits_passive:StartComboOverload()
 	if IsServer() then
 		self.parent:EmitSound("aoko_overload_sfx")
 		self.parent:AddNewModifier(self.parent, self.ability, "modifier_aoko_circuits_overload", {duration = self.parent:FindAbilityByName("aoko_blue"):GetSpecialValueFor("duration")})
+		if self.parent.CircuitsAcquired then
+			self.parent:AddNewModifier(self.parent, self.ability, "modifier_aoko_circuits_cc_immune", {duration = self.ability:GetSpecialValueFor("blue_cc_immune_duration")})
+		end
 		local stacks = self:GetStackCount()
 		if self.aoko ~= nil then 
 			ParticleManager:DestroyParticle(self.aoko, true)
@@ -265,4 +272,18 @@ end
 
 function modifier_aoko_circuits_overload:GetEffectAttachType()
 	return PATTACH_CUSTOMORIGIN_FOLLOW
+end
+
+modifier_aoko_circuits_cc_immune = class({})
+
+function modifier_aoko_circuits_cc_immune:CheckState()
+	return {[MODIFIER_STATE_DEBUFF_IMMUNE] = true}
+end
+
+function modifier_aoko_circuits_cc_immune:IsHidden()
+	return false
+end
+
+function modifier_aoko_circuits_cc_immune:GetEffectName()
+	return "particles/aoko/aoko_cc_immune.vpcf"
 end

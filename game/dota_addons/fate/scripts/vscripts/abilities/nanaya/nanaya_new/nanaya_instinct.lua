@@ -7,6 +7,15 @@ function nanaya_instinct:GetIntrinsicModifierName()
     return "modifier_nanaya_instinct_passive"
 end
 
+function nanaya_instinct:OnSpellStart()
+    local caster = self:GetCaster()
+    local target = self:GetCursorPosition()
+
+    if caster:HasModifier("modifier_nanaya_instinct") then
+    	caster:FindModifierByName("modifier_nanaya_instinct"):NanayaBlink(target)
+    end
+end
+
 --
 
 modifier_nanaya_instinct_passive = class ({})
@@ -110,6 +119,7 @@ end
 
 function modifier_nanaya_instinct:NanayaBlink(location)
 	if (IsServer() and IsLocked(self:GetParent())) then return end
+	if self.sex ~= true then return end
 	self.sex = false
 
 	if (location - self.parent:GetAbsOrigin()):Length2D() > self.dist then 
@@ -136,7 +146,7 @@ end
 
 if IsServer() then 
 	function modifier_nanaya_instinct:OnAbilityFullyCast(args)
-		if args.unit ~= self:GetParent() or args.ability:IsItem() then return end
+		if args.unit ~= self:GetParent() or args.ability:IsItem() or (args.ability:GetName() == "nanaya_instinct") then return end
         self.sex = true
 	end
 end

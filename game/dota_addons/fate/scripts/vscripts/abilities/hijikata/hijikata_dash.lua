@@ -72,8 +72,8 @@ function hijikata_dash:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
 	 if hCaster:GetHealth() < hCaster:GetMaxHealth() then
 		local diff = hCaster:GetMaxHealth() - hCaster:GetHealth()
 
-		if diff > hCaster:GetMaxHealth() * 0.2 then 
-			diff = hCaster:GetMaxHealth() * 0.2
+		if diff > hCaster:GetMaxHealth() * 0.1 then 
+			diff = hCaster:GetMaxHealth() * 0.1
 		end
 		hCaster:Heal(diff, hCaster)
 	 end

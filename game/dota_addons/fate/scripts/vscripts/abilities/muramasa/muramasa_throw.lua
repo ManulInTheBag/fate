@@ -19,8 +19,10 @@ end
 function muramasa_throw:OnAbilityPhaseStart()
     local caster = self:GetCaster()
     if(caster.WickedSwordAcquired and caster.firstenemy ~= nil) then
-       FindClearSpaceForUnit(caster,caster.firstenemy:GetAbsOrigin() + caster.firstenemy:GetForwardVector() * -50,false) 
-       self.isAttri = true
+        if ((caster.firstenemy:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D() < 2000) then
+           FindClearSpaceForUnit(caster,caster.firstenemy:GetAbsOrigin() + caster.firstenemy:GetForwardVector() * -50,false) 
+           self.isAttri = true
+        end
     end
     local fire_location = caster:GetAttachmentOrigin(1) 
     local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, self:GetSpecialValueFor("range"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_CLOSEST, false)

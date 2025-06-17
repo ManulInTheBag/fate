@@ -14,8 +14,8 @@ function angra_mainyu_verg_avesta:GetManaCost()
 		self.spendHealth = 0
 		return 800
 	else
-		self.spendHealth = 800 - caster:GetMana()
-		return caster:GetMana()
+		self.spendHealth = math.min(800 - caster:GetMana(), 800 - self:GetSpecialValueFor("min_manacost"))
+		return 800 - self.spendHealth
 	end
 end
 
