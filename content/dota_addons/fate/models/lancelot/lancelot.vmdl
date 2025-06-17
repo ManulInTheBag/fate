@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc39:version{1ceecb0d-4093-4729-ab18-b76886c64cde} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc40:version{da0ab1f8-9722-4910-94b8-10b6a08c0934} -->
 {
 	rootNode = 
 	{
@@ -134,6 +134,15 @@
 						name = "attach_hand"
 						parent_bone = "RightHand"
 						relative_origin = [ 0.0, 0.0, 0.0 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "head"
+						parent_bone = "Head"
+						relative_origin = [ 0.087537, 3.223907, 7.680676 ]
 						relative_angles = [ 0.0, 0.0, 0.0 ]
 						weight = 1.0
 						ignore_rotation = false
@@ -1031,6 +1040,30 @@
 					{
 						_class = "AnimFile"
 						name = "arondight_overload"
+						children = 
+						[
+							{
+								_class = "AnimEvent"
+								disabled = true
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 49
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/lancelot/lancelot_overload_red_flash.vpcf"
+									detach_from_owner = false
+									always_run = false
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = "head"
+									attachment_type = "point_follow"
+									attachment_point_cp1 = "head"
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+						]
 						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_4_END"
 						activity_weight = 1
@@ -1044,12 +1077,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/lancelot/arondight_overload.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 168
 						framerate = 40.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1067,12 +1102,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/lancelot/arondight_powerup.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 152
 						framerate = 110.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1105,12 +1142,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/lancelot/attack2.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 120
 						framerate = 70.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1143,12 +1182,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/lancelot/attack3.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 95
 						framerate = 70.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1181,12 +1222,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/lancelot/attack4.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 123
 						framerate = 123.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1219,12 +1262,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/lancelot/death.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 119
 						framerate = 40.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1242,12 +1287,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/lancelot/gaebolg_strike.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 127
 						framerate = 25.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1265,12 +1312,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/lancelot/gaebolg1.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 79
 						framerate = 25.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1288,12 +1337,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/lancelot/gaebolg2.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 39
 						framerate = 100.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1311,12 +1362,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/lancelot/idle.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 479
 						framerate = 40.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1334,12 +1387,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/lancelot/minigun1.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 90
 						framerate = 90.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1357,12 +1412,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/lancelot/minigun2.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 179
 						framerate = 179.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1380,12 +1437,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/lancelot/minigun3.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 59
 						framerate = 59.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1412,12 +1471,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/lancelot/ninelives1.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 163
 						framerate = 163.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1444,12 +1505,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/lancelot/ninelives2.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 100
 						framerate = 100.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1476,12 +1539,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/lancelot/ninelivesdash.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 59
 						framerate = 59.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1499,12 +1564,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/lancelot/parry1.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 59
 						framerate = 51.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1522,12 +1589,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/lancelot/parry2.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 92
 						framerate = 120.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1545,12 +1614,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/lancelot/rosa1.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 15
 						framerate = 25.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1568,12 +1639,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/lancelot/rulebreaker1.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 34
 						framerate = 14.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1606,12 +1679,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/lancelot/run.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 39
 						framerate = 50.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1644,12 +1719,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/lancelot/attack1.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 80
 						framerate = 50.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1667,12 +1744,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/lancelot/arondight_powerup.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 152
 						framerate = 152.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1690,12 +1769,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/lancelot/idle.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 479
 						framerate = 40.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1707,6 +1788,26 @@
 								bone = "RightHand"
 								frame = 0
 								scale = 0.65
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 10
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/lancelot/lancelot_overload_red_flash.vpcf"
+									detach_from_owner = false
+									always_run = false
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = "head"
+									attachment_type = "point_follow"
+									attachment_point_cp1 = "head"
+									attachment_type_cp1 = "point_follow"
+								}
 							},
 						]
 						is_default_idle_anim = false
@@ -1722,12 +1823,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/lancelot/arondight_overload.fbx"
 						import_bone_scales = false
 						start_frame = 8
 						end_frame = 120
 						framerate = 120.0
 						reverse = false
+						additional_anim_files = [  ]
 						anim_hold_list = 
 						[
 							{

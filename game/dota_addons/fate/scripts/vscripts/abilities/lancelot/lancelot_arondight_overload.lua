@@ -15,7 +15,7 @@ end
 
 function lancelot_arondight_overload:OnAbilityPhaseStart()
 	local caster = self:GetCaster()
-	StartAnimation(caster, {duration=0.6, activity=ACT_DOTA_CAST_ABILITY_ROT, rate=2})
+	StartAnimation(caster, {duration=0.8, activity=ACT_DOTA_CAST_ABILITY_ROT, rate=1.3})
 end
 
 function lancelot_arondight_overload:OnAbilityPhaseInterrupted()
@@ -43,7 +43,7 @@ function lancelot_arondight_overload:OnSpellStart()
 		ParticleManager:ReleaseParticleIndex(particle)
 		
 	end)
-	Timers:CreateTimer(0.35, function()
+	Timers:CreateTimer(0.3, function()
 		if hCaster:IsAlive() then
 
 			local blastFx = ParticleManager:CreateParticle("particles/custom/lancelot/arondight_overload_new_explosion.vpcf", PATTACH_CUSTOMORIGIN, nil)
@@ -55,7 +55,7 @@ function lancelot_arondight_overload:OnSpellStart()
 				if v:GetName() ~= "npc_dota_ward_base" then
 					local origin_diff = v:GetAbsOrigin() - hCaster:GetAbsOrigin()
 					local origin_diff_norm = origin_diff:Normalized()
-					if hCaster:GetForwardVector():Dot(origin_diff_norm) > 0 then
+					if hCaster:GetForwardVector():Dot(origin_diff_norm) > -0.2 then
 						DoDamage(hCaster, v, aoe_damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
 						hCaster:PerformAttack(v, true, true, true, true, false, false, true)
 						giveUnitDataDrivenModifier(hCaster,v , "stunned", stun_duration)
