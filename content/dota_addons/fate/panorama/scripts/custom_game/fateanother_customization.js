@@ -25,6 +25,8 @@ function OnCustomizeButtonPressed()
 
 function CreateFateTalentButton(){
 	var fateButton = GetTalentButton()
+	fateButton.style.height = "64px";
+	fateButton.style.width = "64px";
 	
 	fateButton.SetPanelEvent("onmouseover", OnCustomizeButtonShowTooltip);
 	fateButton.SetPanelEvent("onmouseout", OnCustomizeButtonHideTooltip);

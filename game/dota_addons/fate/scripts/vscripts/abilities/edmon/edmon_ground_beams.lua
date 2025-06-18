@@ -113,7 +113,9 @@ function edmon_ground_beams:Impact(part1)
 	for _, enemy in pairs(enemies) do
 	    if enemy and not enemy:IsNull() and IsValidEntity(enemy) then
 	    	EmitSoundOn("edmon_beam_hit", enemy)
-	    	enemy:AddNewModifier(caster, self, "modifier_stunned", {duration = self:GetSpecialValueFor("stun_duration")})
+	    	giveUnitDataDrivenModifier(caster, enemy, "locked", self:GetSpecialValueFor("stun_duration"))
+			giveUnitDataDrivenModifier(caster, enemy, "rooted", self:GetSpecialValueFor("stun_duration"))
+	    	--enemy:AddNewModifier(caster, self, "modifier_stunned", {duration = self:GetSpecialValueFor("stun_duration")})
 	    	--[[local knockback = { should_stun = 1,
 		            knockback_duration = FrameTime(),
 		            duration = FrameTime(),

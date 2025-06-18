@@ -54,7 +54,9 @@ function nanaya_slashes:OnSpellStart()
 				local hit_particle = ParticleManager:CreateParticle("particles/nanaya_work_22.vpcf", PATTACH_ABSORIGIN, enemy)
 				ParticleManager:ReleaseParticleIndex(hit_particle)
 
-				giveUnitDataDrivenModifier(caster, enemy, "silenced", 0.3)
+				if slash_count == self:GetSpecialValueFor("slash_count") - 1 then
+					giveUnitDataDrivenModifier(caster, enemy, "silenced", 0.3)
+				end
 
 				--enemy:AddNewModifier(caster, self, "silenced", { Duration = 0.3 })
 			    DoDamage(caster, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)

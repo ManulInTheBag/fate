@@ -4642,7 +4642,7 @@
         "DOTA_Tooltip_ability_avenger_true_form_duration"   				"Duration:"
 
         "DOTA_Tooltip_Ability_angra_mainyu_verg_avesta"					"Verg Avesta"
-        "DOTA_Tooltip_ability_angra_mainyu_verg_avesta_Description"		"<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>0.5</font> \nAngra Mainyu curses enemies around himself dealing <font color='#58ACFA'>magical damage </font> immediately and then dealing same <font color='#58ACFA'>magical damage </font> over duration of 1.5 seconds.\nCasting this ability takes <font color='#FFFAFA'>10% of Angra's maximum health</font> and <font color='#FFFAFA'>increases its damage based on his lost health</font> up to a maximum of <font color='#FFFAFA'>50%</font>.\nIf caster has less mana then required, he will lose health equal to missing mana on cast. Resulting manacost can't be lower than %min_manacost%.\n<font color='#F1C40F'>Upgradable by attribute Demon Incarnate</font>"
+        "DOTA_Tooltip_ability_angra_mainyu_verg_avesta_Description"		"<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>0.5</font> \nAngra Mainyu curses enemies around himself dealing <font color='#58ACFA'>magical damage </font> immediately and then dealing same <font color='#58ACFA'>magical damage </font> over duration of 1.5 seconds.\nCasting this ability takes <font color='#FFFAFA'>10% of Angra's maximum health</font> and <font color='#FFFAFA'>increases its damage based on his lost health</font> up to a maximum of %lost_health_amp%%.\n<font color='#F1C40F'>Upgradable by attribute Demon Incarnate</font>"
         "DOTA_Tooltip_ability_angra_mainyu_verg_avesta_Lore"			"The killer of mankind assumes the simplest rule of the world - Retribution."
         "DOTA_Tooltip_ability_angra_mainyu_verg_avesta_radius"			"Radius:"
         "DOTA_Tooltip_ability_angra_mainyu_verg_avesta_damage"			"Base damage:"
@@ -7388,7 +7388,7 @@
 
 
 		"DOTA_Tooltip_ability_leonidas_pride"													"Shield wall"
-		"DOTA_Tooltip_ability_leonidas_pride_Description"										"Leonidas enters defence stance, locking himself on one place and gaining barrier, based on amount of allies inside, for a duration.\nWhile Leonidas is in the stance, all allies around him translate all damage taken to him.\nWhen barrier depletes, ability ends.\nOn cast, Leonidas comsumes all barriers he gave to his teammates into this one shield, as well as portion of barrier of his soldiers.\nSoldiers will die, when ability ends.\nALL AOE damage is dealt only ONCE if it hits units inside shield wall at one moment.\nWhile wall persists, Leonidas and all of his soldiers will attack enemies in front of the wall, dealing damage over time.\n[BERSERKED] dealt additional physical damage, based on Leonidas attack."
+		"DOTA_Tooltip_ability_leonidas_pride_Description"										"Leonidas enters defence stance, locking himself on one place and gaining barrier, based on amount of allies inside, for a duration.\nWhile Leonidas is in the stance, all allies around him taking damage from units outside of barrier translate all damage taken to him.\nWhen barrier depletes, ability ends.\nOn cast, Leonidas comsumes all barriers he gave to his teammates into this one shield, as well as portion of barrier of his soldiers.\nSoldiers will die, when ability ends.\nALL AOE damage is dealt only ONCE if it hits units inside shield wall at one moment.\nWhile wall persists, Leonidas and all of his soldiers will attack enemies in front of the wall, dealing damage over time.\n[BERSERKED] dealt additional physical damage, based on Leonidas attack."
 		"DOTA_Tooltip_ability_leonidas_pride_Note0"												""
 		"DOTA_Tooltip_ability_leonidas_pride_radius"										"RADIUS:"
 		"DOTA_Tooltip_ability_leonidas_pride_counter_duration"								"DURATION:"
@@ -8089,7 +8089,7 @@
 		"DOTA_Tooltip_ability_edmon_counter_silence_duration"	"Silence duration:"
 
 		"DOTA_Tooltip_ability_edmon_ground_beams"				"Revenge is Mine"
-		"DOTA_Tooltip_ability_edmon_ground_beams_Description"	"Dantes touches the ground, causing it to burst dark and light beams in a small area around him.\nDeals two instances of damage and stuns on each impact."
+		"DOTA_Tooltip_ability_edmon_ground_beams_Description"	"Dantes touches the ground, causing it to burst dark and light beams in a small area around him.\nDeals two instances of damage, roots and locks on each impact."
 		"DOTA_Tooltip_ability_edmon_ground_beams_damage"		"Damage per impact:"
 		"DOTA_Tooltip_ability_edmon_ground_beams_radius"		"Radius:"
 		"DOTA_Tooltip_ability_edmon_ground_beams_stun_duration"	"Stun duration:"

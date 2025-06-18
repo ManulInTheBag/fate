@@ -27,15 +27,15 @@ end
 function altera_whip:OnSpellStart()
 	local caster = self:GetCaster()
 
-	--[[if not self.anim then
+	if not self.anim then
 		caster:AddNewModifier(caster, self, "modifier_altera_whip_tracker", {duration = 2})
 		self:Whip1()
 	else
 		caster:RemoveModifierByName("modifier_altera_whip_tracker")
 		self:Whip2()
-	end]]
+	end
 
-	self:WhipSpam()
+	--self:WhipSpam()
 
 	local form = "int"
 

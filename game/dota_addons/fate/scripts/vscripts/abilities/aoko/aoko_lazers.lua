@@ -232,10 +232,10 @@ function modifier_aoko_lazers:FireBeamFromThere(pos, forward)
 
 		local enemies = FindUnitsInLine(
 									        caster:GetTeamNumber(),
-									        part9,
-									        part1,
+									        self.part9,
+									        self.part9 + range*forward,
 									        nil,
-									        135,
+									        290,
 											DOTA_UNIT_TARGET_TEAM_ENEMY,
 											DOTA_UNIT_TARGET_ALL,
 											0
@@ -256,10 +256,10 @@ function modifier_aoko_lazers:FireBeamFromThere(pos, forward)
 
 		local spherecheck = FindUnitsInLine(
 									        caster:GetTeamNumber(),
-									        part9,
-									        part1,
+									        self.part9,
+									        self.part9 + range*forward,
 									        nil,
-									        100,
+									        290,
 											DOTA_UNIT_TARGET_TEAM_FRIENDLY,
 											DOTA_UNIT_TARGET_ALL,
 											DOTA_UNIT_TARGET_FLAG_INVULNERABLE

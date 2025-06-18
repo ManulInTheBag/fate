@@ -10,13 +10,14 @@ end
 
 function angra_mainyu_verg_avesta:GetManaCost()
 	local caster = self:GetCaster()
-	if caster:GetMana() >= 800 then
+	self.spendHealth = 0
+	--[[if caster:GetMana() >= 800 then
 		self.spendHealth = 0
 		return 800
 	else
 		self.spendHealth = math.min(800 - caster:GetMana(), 800 - self:GetSpecialValueFor("min_manacost"))
 		return 800 - self.spendHealth
-	end
+	end]]
 end
 
 function angra_mainyu_verg_avesta:GetHealthCost()
@@ -50,7 +51,7 @@ function angra_mainyu_verg_avesta:OnSpellStart()
 		return nil
 	end)
 
-	damage = self:GetSpecialValueFor("damage") * (((1-caster:GetHealth()/caster:GetMaxHealth()) * self:GetSpecialValueFor("lost_health_amp")/100) + 1) + (caster.IsDIAcquired and caster:GetMaxHealth() * 0.1 or 0)
+	damage = self:GetSpecialValueFor("damage") * (((1-caster:GetHealth()/caster:GetMaxHealth()) * self:GetSpecialValueFor("lost_health_amp")/100) + 1) + (caster.IsDIAcquired and caster:GetMaxHealth() * 0.05 or 0)
 
 	local targets = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), caster, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER , false)
 	for k,v in pairs(targets) do
