@@ -2534,7 +2534,7 @@
 		//"DOTA_Tooltip_ability_cu_chulain_rune_of_ferocity_reset_timer"			"Reset Delay:"
 
 		"DOTA_Tooltip_Ability_cu_chulain_rune_of_protection"				"Rune of Protection"
-		"DOTA_Tooltip_ability_cu_chulain_rune_of_protection_Description"	"Activate a rune which for a short duration, blocks a single targetted ability for the next %duration% seconds.\nIf Cu Chulain's spellblock activates, he will search for the nearest enemy in %maximum_distance% range and rush towards him.\nUpon reaching his target, Cu Chulain will deal <font color='#58ACFA'>damage</font> and <font color='#FF3399'>silence</font> them.\nCu Chulain receives 30% less damage while performing this ability."
+		"DOTA_Tooltip_ability_cu_chulain_rune_of_protection_Description"	"Activate a rune which for a short duration, blocks a single targetted ability for the next %duration% seconds and grants %shield_amount% all-gamage shield.\nIf Cu Chulain's spellblock activates or shield is destroyed, he will search for the nearest enemy in %maximum_distance% range and rush towards him.\nUpon reaching his target, Cu Chulain will deal <font color='#58ACFA'>damage</font> and <font color='#FF3399'>silence</font> them."
 		"DOTA_Tooltip_ability_cu_chulain_rune_of_protection_Lore"			"Powerful runes inscribed onto Cu Chulainn's body armor enables them to ward off harmful magecraft."
 		//"DOTA_Tooltip_ability_cu_chulain_rune_of_protection_duration"		"Duration:"
 		"DOTA_Tooltip_ability_cu_chulain_rune_of_protection_break_distance"		"Dash break distance:"
@@ -2592,7 +2592,6 @@
 
 		"DOTA_Tooltip_Ability_cu_chulain_prot_arrows_attribute"					"Attribute: Protection from Arrows"
 		"DOTA_Tooltip_ability_cu_chulain_prot_arrows_attribute_Description"		"Activates <font color='#58ACFA'>Protection from Arrows</font> <font color='#79C7F0'>Passive</font>: Cu Chulainn has %evasion%%% Evasion.\n<font color='#79C7F0'>Active</font>: Cu Chulainn cannot be hit by targetted projectiles for %duration% seconds and completely ignores most projectile-based abilities.."
-		"DOTA_Tooltip_ability_cu_chulain_prot_arrows_attribute_Note0"			"Arrows include all of Atalanta's attacks, Emiya's Arrow Rain and Iskander's Annihilate."
 		"DOTA_Tooltip_ability_cu_chulain_prot_arrows_attribute_evasion_bonus"	"%Bonus Evasion:"
 		"DOTA_Tooltip_ability_cu_chulain_prot_arrows_attribute_duration"		"Active Duration:"
 
@@ -2604,8 +2603,9 @@
 		"DOTA_Tooltip_ability_cu_chulain_death_flight_attribute_bonus_range"	"Bonus Range:"
 
 		"DOTA_Tooltip_Ability_cu_chulain_heartseeker_attribute"				"Attribute: The Heartseeker"
-		"DOTA_Tooltip_ability_cu_chulain_heartseeker_attribute_Description"	"Significantly increases the threshold for Gae Bolg's execution condition. Once Wesen Gae Bolg is activated, regardless of Cu Chulainn's condition, the spear will always strike its target."
+		"DOTA_Tooltip_ability_cu_chulain_heartseeker_attribute_Description"	"\nThe Spear of Impaling Barbed Death damage based on Cu Chulain's level. \nIncreases Significantly increases the threshold for Gae Bolg's execution condition.\nOnce Wesen Gae Bolg is activated, regardless of Cu Chulainn's condition, the spear will always strike its target."
 		"DOTA_Tooltip_ability_cu_chulain_heartseeker_attribute_Lore"			"The heart of his opponent has already been pierced as Cu Chulainn declares. He merely thrust his opponent as an act of formality."
+		"DOTA_Tooltip_ability_cu_chulain_heartseeker_attribute_damage_per_level"		"Damage per level:"
 		"DOTA_Tooltip_ability_cu_chulain_heartseeker_attribute_heartbreak_threshold"	"%Heartbreak Threshold:"
 		"DOTA_Tooltip_ability_cu_chulain_heartseeker_attribute_combo_heartbreak"		"%Combo Heartbreak Threshold:"
 
@@ -2713,7 +2713,6 @@
 
 		"DOTA_Tooltip_Ability_lancer_attribute_protection_from_arrows"				"Protection from Arrows"
 		"DOTA_Tooltip_ability_lancer_attribute_protection_from_arrows_Description"	"Increases Cu Chulainn's evasion rate, and unlocks Protection of Arrows.\n<font color='#58ACFA'>Protection of Arrows</font>: Cu Chulainn disjoints projectiles continuously for a short duration and becomes immune to damage from most arrow-like projectiles."
-		"DOTA_Tooltip_ability_lancer_attribute_protection_from_arrows_Note0"			"Arrows include all of Atalanta's attacks, Emiya's Arrow Rain and Iskander's Annihilate."
 		"DOTA_Tooltip_ability_lancer_attribute_protection_from_arrows_evasion_bonus"	"%DODGE RATE:"
 		"DOTA_Tooltip_ability_lancer_attribute_protection_from_arrows_duration"			"ACTIVE DURATION:"
 

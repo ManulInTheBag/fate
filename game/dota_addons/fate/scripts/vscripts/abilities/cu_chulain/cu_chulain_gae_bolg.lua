@@ -55,6 +55,7 @@ function cu_chulain_gae_bolg:OnSpellStart()
 		return 
 	end
 	if caster.HeartSeekerImproved then 
+		damage = damage + caster:GetLevel() * self:GetSpecialValueFor("sa_damage_per_level")
 		local percentbreak = (target:GetMaxHealth() * self:GetSpecialValueFor("atr_hb_pct") / 100)
 		if(percentbreak	> hbThreshold ) then
 			hbThreshold = percentbreak

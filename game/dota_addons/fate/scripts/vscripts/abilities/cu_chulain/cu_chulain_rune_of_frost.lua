@@ -3,13 +3,14 @@ cu_chulain_rune_of_frost = class({})
 function cu_chulain_rune_of_frost:OnAbilityPhaseStart()
 	local caster = self:GetCaster()
 	StartAnimation(caster, {duration=0.2, activity=ACT_DOTA_ICE_VORTEX, rate=2.0})
-	caster:EmitSound("cu_rune_of_frost_cast") 
+	self.sound = "cu_rune_of_frost_cast_"..math.random(1,2)
+	caster:EmitSound(self.sound) 
 end
 
 function cu_chulain_rune_of_frost:OnAbilityPhaseInterrupted()
 	local caster = self:GetCaster()
     EndAnimation(caster)
-	caster:StopSound("cu_rune_of_frost_cast") 
+	caster:StopSound(self.sound) 
 end
 function cu_chulain_rune_of_frost:GetManaCost(iLevel)
 	if self:GetCaster():HasModifier("modifier_celtic_rune_attribute") then

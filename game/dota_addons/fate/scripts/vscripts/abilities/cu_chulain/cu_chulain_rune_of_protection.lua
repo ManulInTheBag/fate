@@ -12,7 +12,9 @@ function cu_chulain_rune_of_protection:OnAbilityPhaseInterrupted()
 	local caster = self:GetCaster()
     EndAnimation(caster)
 end
-
+function cu_chulain_rune_of_protection:GetAOERadius()
+	return self:GetSpecialValueFor("maximum_distance")
+end
 function cu_chulain_rune_of_protection:GetManaCost(iLevel)
 	if self:GetCaster():HasModifier("modifier_celtic_rune_attribute") then
 		return 0

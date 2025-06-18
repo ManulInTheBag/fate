@@ -1285,7 +1285,7 @@ function leonidas_pride:OnSpellStart()
     local nCounterDuration =  self:GetSpecialValueFor("counter_duration")
    
 
-    self:EndCooldown()
+    --self:EndCooldown()
 
     Timers:CreateTimer(0.5, function()
         if hCaster:GetAbilityByIndex(2):GetName() == "leonidas_pride"   and   hCaster:HasModifier("modifier_leonidas_pride_counter")  then
@@ -1795,7 +1795,7 @@ function modifier_leonidas_pride_counter:OnDestroy()
        -- self.hParent:SwapAbilities("leonidas_pride", "leonidas_pride_release", true, false)
        self.hCaster:RemoveModifierByName("modifier_merlin_self_pause")
         self.hAbility:StopShields_PFX(self.hAbility._nShieldsPFX, true)
-        self.hAbility:StartCooldown(self.hAbility:GetEffectiveCooldown(self.hAbility:GetLevel()))
+        --self.hAbility:StartCooldown(self.hAbility:GetEffectiveCooldown(self.hAbility:GetLevel()))
         for k, v in  pairs(self.hAbility.brothers) do
             v:Kill(self.hAbility, self.hCaster)
         end
@@ -1911,7 +1911,8 @@ function modifier_leonidas_pride_translator:GetTotalDamageNullify(keys)
         and IsNotNull(self.hCaster)
         and self.hCaster:IsAlive()
         and keys.original_damage > 0 then 
-        
+        print((keys.attacker:GetAbsOrigin() - self.hCaster:GetAbsOrigin()):Length2D())
+        if (keys.attacker:GetAbsOrigin() - self.hCaster:GetAbsOrigin()):Length2D() < self:GetAbility():GetSpecialValueFor("radius") then return DAMAGE_TYPE_NONE end
         if not self.hCaster:HasModifier("modifier_leonidas_enomotia_shield") then return DAMAGE_TYPE_NONE end
         local truedmg = CalculateDamagePostReduction(keys.damage_type, keys.original_damage*(1-self.percent), self.hParent )     
             for k, v in pairs( self.modifier.AbilitiesTable) do

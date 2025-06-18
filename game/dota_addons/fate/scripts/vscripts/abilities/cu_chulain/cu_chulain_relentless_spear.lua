@@ -167,7 +167,11 @@ end
 function cu_chulain_relentless_spear:TigerStrike1()
 	local caster = self:GetCaster()
 	local target  = self:GetCursorPosition()
-
+	if self:CheckSequence() == 2 then
+		caster:EmitSound("cu_dash_w_2")
+	else
+		caster:EmitSound("cu_dash_w_1")
+	end
 	local dist = (caster:GetAbsOrigin() - target):Length2D()
 
 

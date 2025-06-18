@@ -73,3 +73,9 @@ end
 function modifier_rune_of_combat:GetAttributes()
 	return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
+
+function modifier_rune_of_combat:GetStatusEffectName()
+    return "particles/status_fx/status_effect_pudge_dismember_default.vpcf"
+end
+
+ 

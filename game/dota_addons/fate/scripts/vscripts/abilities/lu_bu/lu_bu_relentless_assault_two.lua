@@ -102,7 +102,7 @@ function lu_bu_relentless_assault_two:OnSpellStart()
 				local angle_diff = math.abs( AngleDiff( cast_angle, enemy_angle ) )
 				if angle_diff<=angle then
 				-- attack
-				DoDamage(caster, enemy, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+				DoDamage(caster, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
 
 				-- knockback if not having spear stun
 				if not enemy:HasModifier( "modifier_lu_bu_halberd_throw_debuff" ) and not IsKnockbackImmune(enemy) then

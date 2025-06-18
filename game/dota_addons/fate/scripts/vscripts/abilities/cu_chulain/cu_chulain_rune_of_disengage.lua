@@ -7,7 +7,9 @@ function cu_chulain_rune_of_disengage:GetManaCost(iLevel)
 		return 100
 	end
 end
-
+function cu_chulain_rune_of_disengage:GetAOERadius()
+	return self:GetSpecialValueFor("distance")
+end
 function cu_chulain_rune_of_disengage:CastFilterResult()
     local hCaster = self:GetCaster()
     vLocation = true
