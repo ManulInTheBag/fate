@@ -392,7 +392,7 @@ function IsUltimateAbility(ability)
 end
 
 function IsUltimateAbilityKV(abilityname)
-	return GetKeyValue(abilityname, "AbilityType") == "DOTA_ABILITY_TYPE_ULTIMATE"
+	return GetKeyValue(abilityname, "AbilityType") == "ABILITY_TYPE_ULTIMATE"
 end
 
 function RandomPositionAroundPoint(pos, radius)

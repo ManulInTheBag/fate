@@ -8,7 +8,6 @@
  
 	"item_master_transfer_items1" 
 	{
-	    "ID"           "1998"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" "custom/master_transfer_items1"
 	    "Model"        "models/props_gameplay/tpscroll01.vmdl" 
@@ -50,7 +49,6 @@
 
 	"item_master_transfer_items2" 
 	{
-	    "ID"           "1997"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" "custom/master_transfer_items2"
 	    "Model"        "models/props_gameplay/tpscroll01.vmdl" 
@@ -90,7 +88,6 @@
 
 	"item_master_transfer_items3" 
 	{
-	    "ID"           "1996"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" "custom/master_transfer_items3"
 	    "Model"        "models/props_gameplay/tpscroll01.vmdl" 
@@ -130,7 +127,6 @@
 
 	"item_master_transfer_items4" 
 	{
-	    "ID"           "1995"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" "custom/master_transfer_items4"
 	    "Model"        "models/props_gameplay/tpscroll01.vmdl" 
@@ -170,7 +166,6 @@
 
 	"item_master_transfer_items5" 
 	{
-	    "ID"           "1994"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" "custom/master_transfer_items5"
 	    "Model"        "models/props_gameplay/tpscroll01.vmdl" 
@@ -210,7 +205,6 @@
 
 	"item_master_transfer_items6" 
 	{
-	    "ID"           "1993"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" "custom/master_transfer_items6"
 	    "Model"        "models/props_gameplay/tpscroll01.vmdl" 
@@ -252,7 +246,6 @@
 	{
 	    // General
 	    //-------------------------------------------------------------------------------------------------------------
-	    "ID"                            "1999"  
 	    "BaseClass"                     "item_datadriven"
 	    "ItemBaseLevel"                 "1"
 	    "ItemPurchasable" "0"
@@ -408,7 +401,6 @@
 	{
 		//		GENERAL
 		//-------------------------------------
-	    "ID"           			"1100"
 	    "BaseClass"    			"item_datadriven"
 	    "AbilityTextureName" 	"custom/mana_essence"
 	    "AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"	
@@ -486,7 +478,6 @@
 
 	"item_condensed_mana_essence" 
 	{
-	    "ID"           "1102"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" "custom/bottle_haste"
 	    "Model"        "models/props_gameplay/salve_red.vmdl" 
@@ -538,7 +529,6 @@
 
 	"item_teleport_scroll" 
 	{
-	    "ID"           "1103"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" "custom/teleport_scroll"
 	    "Model"        "models/props_gameplay/recipe.vmdl" 
@@ -609,7 +599,6 @@
 
 	"item_gem_of_speed" 
 	{
-	    "ID"           "1104"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" "custom/gem_of_speed"
 	    "Model"        "models/props_gameplay/crystal_ring01.vmdl" 
@@ -672,7 +661,6 @@
 
 	"item_relic_of_the_king" 
 	{
-	    "ID"           "1104"
 	    "BaseClass"    				"item_lua"
 	    "ScriptFile"				"items/item_relic_of_the_king"
 	    "AbilityTextureName" "custom/relic_of_the_king"
@@ -709,7 +697,6 @@
 	} 
 	"item_scout_familiar" 
 	{
-	    "ID"           "1105"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" "custom/scout_familiar"
 	    "Model"        "models/props_gameplay/roquelaire/roquelaire.vmdl" 
@@ -778,7 +765,6 @@
 	}
 	"item_attack_familiar" 
 	{
-	    "ID"           "1105"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" "custom/attack_familiar"
 	    "Model"        "models/items/beastmaster/hawk/ti9_cache_bm_chieftain_of_the_primal_tribes_bird/ti9_cache_bm_chieftain_of_the_primal_tribes_bird.vmdl" 
@@ -845,7 +831,6 @@
 	}
 	"item_berserk_scroll" 
 	{
-	    "ID"           "1106"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" "custom/berserk_scroll"
 	    "Model"        "models/props_gameplay/tpscroll01.vmdl" 
@@ -908,7 +893,6 @@
 
 	"item_ward_familiar" 
 	{
-	    "ID"           "1107"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT"
 		"Model"							"models/props_gameplay/observer_ward_bundle.vmdl"
@@ -967,7 +951,6 @@
 
 	"item_spirit_link" 
 	{
-	    "ID"           "1108"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" "custom/spirit_link"
 	    "Model"        "models/props_gameplay/tpscroll01.vmdl" 
@@ -1046,7 +1029,6 @@
 
 	"item_mass_teleport_scroll" 
 	{
-	    "ID"           "1109"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" "custom/item_recipe_scroll"
 	    "Model"        "models/props_gameplay/recipe.vmdl" 
@@ -1108,7 +1090,6 @@
 
 	"item_gem_of_resonance" 
 	{
-	    "ID"           "1110"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" "custom/gem_of_resonance"
 	    "Model"        "models/props_gameplay/gem01.vmdl" 
@@ -1150,7 +1131,6 @@
 
 	"item_healing_scroll" 
 	{
-	    "ID"           "1112"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" "custom/healing_scroll"
 	    "Model"        "models/props_gameplay/tpscroll01.vmdl" 
@@ -1224,7 +1204,6 @@
 
 	"item_blink_scroll_old" 
 	{
-	    "ID"           "1113"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" "custom/blink_scroll"
 	    "Model"        "models/props_gameplay/tpscroll01.vmdl" 
@@ -1275,7 +1254,6 @@
 
 	"item_c_scroll" 
 	{
-	    "ID"           "1114"
 	    "BaseClass"    				"item_lua"
 	    "ScriptFile"				"items/c_scroll"
 	    "AbilityTextureName" "custom/c_scroll"
@@ -1329,7 +1307,6 @@
 
 	"item_b_scroll" 
 	{
-	    "ID"           "1116"
 	    "BaseClass"    				"item_lua"
 	    "ScriptFile"				"items/b_scroll"
 	    "AbilityTextureName" "custom/b_scroll"
@@ -1398,7 +1375,6 @@
 
 	"item_a_scroll" 
 	{
-	    "ID"           "1118"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" "custom/a_scroll"
 	    "Model"        "models/props_gameplay/tpscroll01.vmdl" 
@@ -1470,7 +1446,6 @@
 
 	"item_a_plus_recipe" 
 	{
-	    "ID"           			"1119"
 	    "BaseClass"    			"item_datadriven"
 	    "AbilityTextureName" 	"custom/item_recipe_scroll"
 	    "Model"        			"models/props_gameplay/tpscroll01.vmdl" 
@@ -1505,7 +1480,6 @@
 
 	"item_a_plus_scroll" 
 	{
-	    "ID"           			"1120"
 	    "BaseClass"    			"item_datadriven"
 	    "AbilityTextureName" 	"custom/a_plus_scroll"
 	    "Model"        			"models/props_gameplay/tpscroll01.vmdl" 
@@ -1565,7 +1539,6 @@
 
 	"item_s_scroll" 
 	{
-	    "ID"           "1122"
 	    "BaseClass"    				"item_lua"
 	    "ScriptFile"				"items/sex_scrolls"
 	    "AbilityTextureName" "custom/s_scroll"
@@ -1668,7 +1641,6 @@
 
 	"item_summon_skeleton_warrior" 
 	{
-	    "ID"           "1125"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" "custom/summon_skeleton_warrior"
 	    "Model"        "models/props_gameplay/tpscroll01.vmdl" 
@@ -1724,7 +1696,6 @@
 
 	"item_summon_skeleton_archer" 
 	{
-	    "ID"           "1126"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" "custom/summon_skeleton_archer"
 	    "Model"        "models/props_gameplay/tpscroll01.vmdl" 
@@ -1781,7 +1752,6 @@
 
 	"item_summon_ancient_dragon" 
 	{
-	    "ID"           "1127"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" "custom/summon_ancient_dragon"
 	    "Model"        "models/props_gameplay/tpscroll01.vmdl" 
@@ -1842,7 +1812,6 @@
 
 	"item_all_seeing_orb" 
 	{
-	    "ID"           "1128"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" "custom/all_seeing_orb"
 	    "Model"        "models/props_gameplay/tpscroll01.vmdl" 
@@ -1898,7 +1867,6 @@
 
 	"item_caster_5th_mount" 
 	{
-	    "ID"           "1099"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" "custom/caster_5th_mount"
 	    "Model"        "models/props_gameplay/tpscroll01.vmdl" 
@@ -1993,7 +1961,6 @@
 
 	"item_shard_of_anti_magic" 
 	{
-	    "ID"           "1129"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" "custom/shard_of_anti_magic"
 	    "Model"        "models/props_gameplay/gem01.vmdl" 
@@ -2068,7 +2035,6 @@
 
 	"item_shard_of_replenishment_old" 
 	{
-	    "ID"           "1130"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" "custom/shard_of_replenishment"
 	    "Model"        "models/props_gameplay/gem01.vmdl" 
@@ -2126,7 +2092,6 @@
 
 	"item_gille_contaminate" 
 	{
-	    "ID"           "1131"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" "custom/gille_contaminate"
 	    "Model"        "models/props_gameplay/tpscroll01.vmdl" 
@@ -2218,7 +2183,6 @@
 
 	"item_gille_integrate" 
 	{
-	    "ID"           "1132"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" "custom/gille_integrate"
 	    "Model"        "models/props_gameplay/tpscroll01.vmdl" 
@@ -2319,7 +2283,6 @@
 
 	"item_gille_otherworldly_portal" 
 	{
-	    "ID"           "1133"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" "custom/gille_integrate"
 	    "Model"        "models/props_gameplay/tpscroll01.vmdl" 
@@ -2368,7 +2331,6 @@
 	"item_shard_drop" 
 	{
 		//-------------------------------------------------------------------------------------------------------------
-		"ID"							"1134"
 		"AbilityName"					"item_treasure_chest"
 		"BaseClass"						"item_bag_of_gold"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_ITEM"
@@ -2399,7 +2361,6 @@
 
 	"item_dummy_item" 
 	{
-	    "ID"           "1135"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" ""
 	    "Model"        "models/props_gameplay/tpscroll01.vmdl" 
@@ -2426,7 +2387,6 @@
 
 	"item_dummy_item_unusable" 
 	{
-	    "ID"           "1136"
 	    "BaseClass"    "item_datadriven"
 	    "AbilityTextureName" ""
 	    "Model"        "models/props_gameplay/tpscroll01.vmdl" 

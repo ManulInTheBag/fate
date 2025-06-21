@@ -78,7 +78,7 @@ function Verify:Levels()
 		if type(classEntry) == "table" then
 			local maxLevel = classEntry.MaxLevel or GetKeyValue(className, "MaxLevel") or classEntry.MaxUpgradeLevel or GetKeyValue(className, "MaxUpgradeLevel")
 			if not maxLevel then
-				maxLevel = GetKeyValue(className, "AbilityType") == "DOTA_ABILITY_TYPE_ULTIMATE" and 3 or 4
+				maxLevel = GetKeyValue(className, "AbilityType") == "ABILITY_TYPE_ULTIMATE" and 3 or 4
 			end
 			for k,v in pairs(classEntry) do
 				if type(v) ~= "table" and
