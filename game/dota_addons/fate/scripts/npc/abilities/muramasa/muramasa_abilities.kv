@@ -29,6 +29,10 @@
 			"particle"		"particles/muramasa/sword_glow.vpcf"
 			"particle"		"particles/muramasa/muramasa_blade.vpcf"
 			"particle"		"particles/gawain/gawain_heat.vpcf"
+			"particle"		"particles/muramasa/muramasa_sword_drop.vpcf"
+			"particle"		"particles/muramasa/muramasa_sword_drop_enemy.vpcf"
+			"particle"		"particles/muramasa/muramasa_soul_sword_attack.vpcf"
+
 		}
 		
 		"AbilityValues"
@@ -41,6 +45,8 @@
 			"attribute_armor"				"15"
 			"attribute_mr"				"15"
 			"attribute_ms"				"30"
+			"soul_sa_burn_base"							"10"
+			"soul_sa_burn_per_level"							"1"
 		}
 	}
 
@@ -229,6 +235,7 @@
 			"particle"		"particles/muramasa/muramasa_sword_drop_enemy.vpcf"
 			"particle"		"particles/muramasa/muramasa_atk_explosion_base.vpcf"
 			"particle"		"particles/muramasa/muramasa_atk_explosion_powered.vpcf"
+			"particle"		"particles/muramasa/soul_sword_counter/muramasa_soul_sword_counter.vpcf"
 		}
 		"AbilityValues"
         {
@@ -237,6 +244,8 @@
             "base_dmg" "130"
             "damage_per_level" "13"
             "dmg_berserker" "80"
+            "soul_sa_sword_damage" "100"
+            "soul_sa_sword_damage_per_level" "10"
         }
 	}		
 
@@ -503,12 +512,22 @@
 		"AbilityTextureName"			"custom/muramasa/muramasa_soul_sword_attribute"
 		"AbilityCooldown"				"9999"
 
-		"AbilityManaCost"				"9"
+		"AbilityManaCost"				"11"
 
 		 
 		"AbilityValues"
         {
             "sword_duration" "6"
+            "active_duration" "15"
+            "regen_pct" "25"
+            "damage_base" "100"
+            "damage_per_level" "10"
+            "prock_cooldown" "0.5"
+            "burn_damage_base" "50"
+            "burn_damage_per_level" "2.5"
+            "burn_radius" "550"
+            "ms_buff_pct" "30"
+            "sword_stacks" "5"
         }		
 	}
 

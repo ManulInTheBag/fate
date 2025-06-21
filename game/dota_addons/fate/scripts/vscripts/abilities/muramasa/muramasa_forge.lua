@@ -10,7 +10,7 @@ function muramasa_forge:OnSpellStart()
 
     self.forge_fx = ParticleManager:CreateParticle("particles/muramasa/muramasa_forge_zone.vpcf", PATTACH_WORLDORIGIN  , nil)
     ParticleManager:SetParticleControl(self.forge_fx, 0, forge_position)
-    ParticleManager:SetParticleControl(self.forge_fx, 1, Vector(1000,10,0))
+    ParticleManager:SetParticleControl(self.forge_fx, 1, Vector(875,10,0))
     ParticleManager:SetParticleControl(self.forge_fx, 2, Vector(10,0,0))
     ParticleManager:SetParticleShouldCheckFoW(self.forge_fx, false)
     ParticleManager:SetParticleAlwaysSimulate(self.forge_fx)
@@ -18,13 +18,7 @@ function muramasa_forge:OnSpellStart()
     ParticleManager:SetParticleControl(self.forge_fx_anvil, 0, forge_position)
     ParticleManager:SetParticleControl(self.forge_fx_anvil, 2, Vector(10,0,0))
     self.forge_position = forge_position
-    Timers:CreateTimer(10, function()
-        if caster.SoulSwordAcquired then
-            CreateModifierThinker(caster, self, "modifier_muramasa_sword_drop_forge", {duration = 6, Duration = 6, radius = 175,
-            x = self.forge_position.x, y = self.forge_position.y},  Vector(self.forge_position.x, self.forge_position.y), caster:GetTeamNumber(), false)
-        end
-    
-    end)
+
     CreateModifierThinker(caster, self, "modifier_muramasa_forge_aura", {duration = 10, x = forge_position.x, y = forge_position.y}, forge_position, caster:GetTeamNumber(), false)
     if(caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 and caster:GetIntellect() >= 29.1) then
         if caster:FindAbilityByName("muramasa_tsumukari_combo"):IsCooldownReady()  then
@@ -86,7 +80,10 @@ function modifier_muramasa_forge_aura:GetModifierAura()
 	return "modifier_muramasa_forge"
 end
 function modifier_muramasa_forge_aura:OnDestroy()
-
+    if self:GetCaster().SoulSwordAcquired then
+            CreateModifierThinker(self:GetCaster(), self:GetAbility(), "modifier_muramasa_sword_drop_forge", {duration = 6, Duration = 6, radius = 175,
+            x = self:GetParent():GetAbsOrigin().x, y = self:GetParent():GetAbsOrigin().y},  Vector(self:GetParent():GetAbsOrigin().x,self:GetParent():GetAbsOrigin().y, self:GetParent():GetAbsOrigin().z), self:GetCaster():GetTeamNumber(), false)
+     end
 end
 
 function modifier_muramasa_forge_aura:GetAuraSearchTeam()
@@ -145,7 +142,7 @@ function modifier_muramasa_forge:OnIntervalThink( )
     if not IsServer() then return end
     --if not self.caster:IsAlive() then self:Destroy() end
 	if self.parent:GetTeamNumber() ~=  self.caster:GetTeamNumber() then
-        if ( (self.parent:GetAbsOrigin() - self.ability.forge_position):Length2D() > 900 ) then
+        if ( (self.parent:GetAbsOrigin() - self.ability.forge_position):Length2D() > 800 ) then
             DoDamage(self.caster, self.parent, self.damage_ring, self.ability:GetAbilityDamageType(), 0, self.ability, false)
 
         else
@@ -264,7 +261,7 @@ function modifier_muramasa_sword_drop_forge:OnIntervalThink()
                                             FIND_CLOSEST, 
                                             false)
         if allies[1] ~= nil then 
-            allies[1]:AddNewModifier(self.caster, self.ability, "modifier_muramasa_sword_drop_forge_buff",{duration = self.duration })   
+            allies[1]:AddNewModifier(self.caster, self.ability, "modifier_muramasa_sword_drop_forge_buff",{duration = 15 })   
             self:Destroy()
         end
     end
@@ -284,7 +281,7 @@ function modifier_muramasa_sword_drop_forge_buff:OnCreated(args)
     self.parent = self:GetParent()
     self.caster = self:GetCaster()
     self.ability = self:GetAbility()
-    self.BurnDamage = 20
+    self.BurnDamage = self.ability:GetSpecialValueFor("soul_sa_burn_base") + self.ability:GetSpecialValueFor("soul_sa_burn_per_level") * self.parent:GetLevel()
     self.radius = 550
     self:StartIntervalThink(0.2)
 end
@@ -304,12 +301,14 @@ function modifier_muramasa_sword_drop_forge_buff:GetModifierMoveSpeedBonus_Perce
 end
 
 function modifier_muramasa_sword_drop_forge_buff:OnIntervalThink()	
-    local caster = self:GetCaster()
+    local caster = self.parent
 
     if caster ~= nil then
-        local targets = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetOrigin(), nil, self.radius , DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-        for k,v in pairs(targets) do
-            DoDamage(caster, v, self.BurnDamage, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
+        if IsServer() then 
+            local targets = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), nil, self.radius , DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+            for k,v in pairs(targets) do
+                DoDamage(caster, v, self.BurnDamage, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
+            end
         end
     end
 end

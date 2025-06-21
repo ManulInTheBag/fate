@@ -66,7 +66,7 @@ function modifier_muramasa_sword_drop_enemy:OnIntervalThink()
                                             FIND_CLOSEST, 
                                             false)
         if allies[1] ~= nil then 
-            allies[1]:AddNewModifier(self.caster, self.ability, "modifier_muramasa_sword_drop_enemy_buff",{duration = 10 })   
+            allies[1]:AddNewModifier(self.caster, self.ability, "modifier_muramasa_sword_drop_enemy_buff",{duration = 15 })   
             self:Destroy()
         end
     end
@@ -79,21 +79,78 @@ end
 
 
 modifier_muramasa_sword_drop_enemy_buff = class({})
+function modifier_muramasa_sword_drop_enemy_buff:OnDestroy()
+        ParticleManager:DestroyParticle(self.counterfx , true)
+		ParticleManager:ReleaseParticleIndex(self.counterfx )
+
+end
+function modifier_muramasa_sword_drop_enemy_buff:OnRefresh(args)
+        ParticleManager:DestroyParticle(self.counterfx , true)
+		ParticleManager:ReleaseParticleIndex(self.counterfx )
+    self:OnCreated(args)
+end
 
 function modifier_muramasa_sword_drop_enemy_buff:OnCreated(args)
     self.parent = self:GetParent()
     self.caster = self:GetCaster()
-    self.ability = self:GetAbility()
-    --self.parent:Heal(self.parent:GetMaxHealth()*0.15, self.parent)
+    self.ability = self:GetCaster():FindAbilityByName("muramasa_sword_creation")
+    if IsServer() then 
+        self.parent:Heal(self.parent:GetMaxHealth()*0.25, self:GetAbility())
+        self.parent:GiveMana(self.parent:GetMaxMana()*0.25)
+        self.counterfx =   ParticleManager:CreateParticle( "particles/muramasa/soul_sword_counter/muramasa_soul_sword_counter.vpcf", PATTACH_OVERHEAD_FOLLOW, self.parent )
+        ParticleManager:SetParticleControl( self.counterfx , 3, self.parent:GetAbsOrigin() + Vector(0,0,150)  )
+        ParticleManager:SetParticleControl( self.counterfx , 2, Vector(5,0,0) )
+    end
     self:SetStackCount(5)
+    self.isReady = true
 end
   
   
 function modifier_muramasa_sword_drop_enemy_buff:OnAttackLanded(args)
     local stackCount = self:GetStackCount()
-    if stackCount <= 1 then self:Destroy() end    ----idk if its needed
-    DoDamage(self.parent, args.target, self.parent:GetAttackDamage(), DAMAGE_TYPE_MAGICAL, 0, self.parent:FindAbilityByName("attribute_bonus_custom"), false)   
+    if self.isReady == false then return end
+    self.isReady = false
+    ----idk if its needed
+    local position = args.target:GetAbsOrigin() + (args.target:GetAbsOrigin() - args.attacker:GetAbsOrigin() ):Normalized() * 100
+	self.Dummy = CreateUnitByName("dummy_unit", args.target:GetAbsOrigin(), false, nil, nil, self.caster:GetTeamNumber())
+	self.Dummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1) 
+	self.Dummy:SetAbsOrigin(args.target:GetAbsOrigin())
+
+
+    self.Dummy:SetForwardVector((  args.target:GetAbsOrigin() - position ):Normalized())
+
+ 
+
+
+	local GunFx = ParticleManager:CreateParticle( "particles/muramasa/muramasa_soul_sword_attack.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.Dummy )
+  
+	ParticleManager:SetParticleControl(GunFx, 3, position ) 
+    ParticleManager:SetParticleControl(GunFx, 4,   args.target:GetAbsOrigin()- position  ) 
+    self.Dummy.GunFx = GunFx
+    local dummy = self.Dummy
+ 
+    Timers:CreateTimer(0.5, function()
+       if stackCount <= 1 then 
+        ParticleManager:DestroyParticle(self.counterfx , true)
+		ParticleManager:ReleaseParticleIndex(self.counterfx )
+        self:Destroy() 
+       end  
+       self.isReady = true
+        dummy:SetForwardVector((    args.target:GetAbsOrigin() - position ):Normalized())
+
+        ParticleManager:DestroyParticle(GunFx, false)
+		ParticleManager:ReleaseParticleIndex(GunFx)
+        dummy:EmitSound("muramasa_sword_slash_soul")
+        dummy:RemoveSelf()      
+    end)
+	Timers:CreateTimer(0.25, function()
+                DoDamage(self.parent, args.target, (self.ability:GetSpecialValueFor("soul_sa_sword_damage") +self.ability:GetSpecialValueFor("soul_sa_sword_damage_per_level") * self:GetParent():GetLevel() ), DAMAGE_TYPE_MAGICAL, 0, self.parent:FindAbilityByName("attribute_bonus_custom"), false)   
+
+	end)
+
+    --DoDamage(self.parent, args.target, self.parent:GetAttackDamage(), DAMAGE_TYPE_MAGICAL, 0, self.parent:FindAbilityByName("attribute_bonus_custom"), false)   
 	self:SetStackCount(stackCount-1)
+    ParticleManager:SetParticleControl( self.counterfx , 2, Vector((stackCount-1),0,0) )
 end
 
 function modifier_muramasa_sword_drop_enemy_buff:IsHidden()
@@ -119,7 +176,9 @@ end
 function modifier_muramasa_sword_drop_enemy_buff:GetAttributes()
   return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
-
+function modifier_muramasa_sword_drop_enemy_buff:GetTexture()
+  return "custom/muramasa/muramasa_soul_sword_attribute"
+end
  
  
 
@@ -172,7 +231,7 @@ function modifier_muramasa_sword_creation:OnHeroKilled(args)
     local hParent = self:GetParent()
     local hAbility = self:GetAbility()
 
-    if args.target:GetTeamNumber() ~= hParent:GetTeamNumber() and hParent:IsAlive() and hParent.SoulSwordAcquired then
+    if args.target:GetTeamNumber() ~= hParent:GetTeamNumber() and hParent:IsAlive() and hParent.SoulSwordAcquired and args.attacker == self:GetCaster() then
         local position = Vector(args.target:GetAbsOrigin().x, args.target:GetAbsOrigin().y, 0)
         Timers:CreateTimer(0.5, function()
             CreateModifierThinker(hParent, self, "modifier_muramasa_sword_drop_enemy", {duration = 6, Duration = 6, radius = 175,

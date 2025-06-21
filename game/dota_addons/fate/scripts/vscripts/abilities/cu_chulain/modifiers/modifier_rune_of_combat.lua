@@ -75,7 +75,7 @@ function modifier_rune_of_combat:GetAttributes()
 end
 
 function modifier_rune_of_combat:GetStatusEffectName()
-    return "particles/status_fx/status_effect_pudge_dismember_default.vpcf"
+    return "particles/status_fx/status_effect_beserkers_call.vpcf"
 end
 
  

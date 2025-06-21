@@ -9184,6 +9184,12 @@
 		"npc_dota_hero_magnataur_hype"						""
 		"npc_dota_hero_magnataur_bio"						""
 
+		"DOTA_Tooltip_modifier_muramasa_sword_drop_forge_buff"							"Forged sword"
+		"DOTA_Tooltip_modifier_muramasa_sword_drop_forge_buff_Description"				"Movement speed bonus and damage in radius"
+
+		"DOTA_Tooltip_modifier_muramasa_sword_drop_enemy_buff"							"Soul sword"
+		"DOTA_Tooltip_modifier_muramasa_sword_drop_enemy_buff_Description"				"Using basic attacks summons a sword, dealing damage"
+
 		"DOTA_Tooltip_modifier_muramasa_no_sword"							"No sword"
 		"DOTA_Tooltip_modifier_muramasa_no_sword_Description"				"Craft a new one."
 
@@ -9349,8 +9355,14 @@
         "DOTA_Tooltip_ability_muramasa_wicked_sword_attribute_cast_window"					"Cast window:"
 
 
-
-
+        "DOTA_Tooltip_ability_muramasa_soul_sword_attribute"				"Attribute: Improved sword crafting"
+        "DOTA_Tooltip_ability_muramasa_soul_sword_attribute_Description"	"When the <font color='#58ACFA'>Forge</font> ends, Muramasa summons <font color='#FFAE49'>Forged sword</font> in its center.\nKilling an enemy, Muramasa summons <font color='#8B0000'>Soul sword</font> on its corpse after 0.5 seconds.\nBoth swords stay on the ground for %sword_duration% seconds, and grant their effect for %active_duration% seconds when any ally comes in radius.\n<font color='#FFAE49'>Forged sword</font>: increases wearer's movement speed and deals damage in %burn_radius% radius around them.\n<font color='#8B0000'>Soul sword</font>: On pickup, restores a percentage of  wearer's <font color='#ACFF05'>health</font> and <font color='#58ACFA'>mana</font>. For a duration, upon making a basic attack, <font color='#8B0000'>Soul sword</font> appears near the enemy and attacks it, dealing  <font color='#05CAFF'>magical damage</font> for up to %sword_stacks% times, with a cooldown of %prock_cooldown% seconds."
+        "DOTA_Tooltip_ability_muramasa_soul_sword_attribute_damage_base"					"Base soul sword damage:"
+        "DOTA_Tooltip_ability_muramasa_soul_sword_attribute_damage_per_level"				"Soul sword damage per hero level:"
+        "DOTA_Tooltip_ability_muramasa_soul_sword_attribute_burn_damage_base"					"Base burn damage:"
+        "DOTA_Tooltip_ability_muramasa_soul_sword_attribute_burn_damage_per_level"				"Burn damage per hero level:"
+        "DOTA_Tooltip_ability_muramasa_soul_sword_attribute_regen_pct"				"%Health and mana restoration:"
+        "DOTA_Tooltip_ability_muramasa_soul_sword_attribute_ms_buff_pct"						"%Movement speed bonus:"
 
   		//====================================
         //  Nanaya
