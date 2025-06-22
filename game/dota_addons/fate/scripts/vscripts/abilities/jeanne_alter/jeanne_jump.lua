@@ -24,15 +24,16 @@ function jeanne_jump:OnSpellStart()
 	local damage_per_second = self:GetSpecialValueFor("damage_per_second")
 	local duration = self:GetSpecialValueFor("duration")
 	local counter = 0
-	local origin = caster:GetAbsOrigin()
 
 	--print(self:GetCursorTargetingNothing())
 
-	giveUnitDataDrivenModifier(caster, caster, "jump_pause_nosilence", delay)
+	giveUnitDataDrivenModifier(caster, caster, "jump_pause_noinvul", delay)
 	giveUnitDataDrivenModifier(caster, caster, "silenced", delay)
 	
 	Timers:CreateTimer(delay, function()
 		caster:EmitSound("jeanne_jump_sfx")
+        local origin = caster:GetAbsOrigin()
+
 		local enemies = FindUnitsInRadius(  caster:GetTeamNumber(),
                                             origin, 
                                             nil, 

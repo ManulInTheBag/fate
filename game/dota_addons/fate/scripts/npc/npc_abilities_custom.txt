@@ -687,6 +687,16 @@
 					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
 				}
 			}
+			"jump_pause_noinvul"
+			{
+				"TextureName"	"faceless_void_time_lock"
+				"States"
+				{
+					"MODIFIER_STATE_NO_HEALTH_BAR"	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_ROOTED" 	"MODIFIER_STATE_VALUE_ENABLED"
+					"MODIFIER_STATE_DISARMED"	"MODIFIER_STATE_VALUE_ENABLED"
+				}
+			}
 			"jump_pause_postdelay"
 			{
 				"TextureName"	"faceless_void_time_lock"

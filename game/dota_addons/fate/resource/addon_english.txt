@@ -7602,7 +7602,7 @@
 
 		"DOTA_Tooltip_ability_aoko_lazers"					"Browning Starmine - Barrage"
 		"DOTA_Tooltip_ability_aoko_lazers_Description"		"<font color='#FFFAFA'>Cast point:</font> <font color='#7FFF00'>%cast_point%</font> | <font color='#FFFAFA'>Channel duration:</font> <font color='#7FFF00'>%channel_duration%</font>\nAoko channels a barrage of beams, firing up to 12 beams in total and dealing %damage% damage per beam.\nDeals %circuit_amplify_per_stack%%  more damage per <font color='#00FFFF'>Circuit Charge</font> stack.\nHitting a <font color='#58ACFA'>Floating Starmine</font> triggers an explosion that deals %sphere_damage% damage and <font color='#9400D3'>slows</font> enemies for %sphere_slow%%  for %sphere_slow_duration% seconds. Hitting <font color='#58ACFA'>Floating Starmine</font> with all beams destroys it.\nIncreases <font color='#00FFFF'>Circuit Charge</font> once per beam if at least 1 enemy was hit, up to a maximum value.\nShares level with <font color='#58ACFA'>Browning Starmine - Burst</font>."
-		"DOTA_Tooltip_ability_aoko_lazers_range"			"Range:"
+		"DOTA_Tooltip_ability_aoko_lazers_range"			"Beams range:"
 		"DOTA_Tooltip_ability_aoko_lazers_stack_gain"		"\n<font color='#00FFFF'>Circuit Charge</font> gain ber beam:"
 		"DOTA_Tooltip_ability_aoko_lazers_max_stacks"		"<font color='#00FFFF'>Circuit Charge</font> maximum gain per use:"
 		"DOTA_Tooltip_ability_aoko_lazers_Lore"				"Aoko's magic bullets are simple spells utilizing her rapidly-spinning Magic Circuits as a barrel of a gun to fire magical energy."

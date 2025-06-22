@@ -230,15 +230,15 @@ function modifier_aoko_lazers:FireBeamFromThere(pos, forward)
 		--ParticleManager:SetParticleControlEnt(particle,	9, self.parent,	PATTACH_POINT, "attach_attack"..self.seq, self.parent:GetOrigin(), true)
 		ParticleManager:ReleaseParticleIndex(particle)
 
-		local enemies = FindUnitsInLine(
+		local enemies = FATE_FindUnitsInLine(
 									        caster:GetTeamNumber(),
-									        self.part9,
+									        self.part9 - 100*forward,
 									        self.part9 + range*forward,
-									        nil,
 									        290,
 											DOTA_UNIT_TARGET_TEAM_ENEMY,
 											DOTA_UNIT_TARGET_ALL,
-											0
+											0,
+											FIND_CLOSEST
 		   								)
 
 		for _, enemy in pairs(enemies) do
@@ -254,15 +254,15 @@ function modifier_aoko_lazers:FireBeamFromThere(pos, forward)
 			EmitSoundOn("edmon_beam_hit", enemy)
 		end
 
-		local spherecheck = FindUnitsInLine(
+		local spherecheck = FATE_FindUnitsInLine(
 									        caster:GetTeamNumber(),
 									        self.part9,
 									        self.part9 + range*forward,
-									        nil,
 									        290,
 											DOTA_UNIT_TARGET_TEAM_FRIENDLY,
 											DOTA_UNIT_TARGET_ALL,
-											DOTA_UNIT_TARGET_FLAG_INVULNERABLE
+											DOTA_UNIT_TARGET_FLAG_INVULNERABLE,
+											FIND_CLOSEST
 		   								)
 
 		for _, check in pairs(spherecheck) do
