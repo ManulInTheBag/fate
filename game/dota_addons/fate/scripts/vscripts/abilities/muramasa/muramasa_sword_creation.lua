@@ -11,6 +11,24 @@ LinkLuaModifier("modifier_muramasa_sword_drop_enemy_buff", "abilities/muramasa/m
 function muramasa_sword_creation:GetIntrinsicModifierName()
     return "modifier_muramasa_sword_creation"
 end
+ 
+
+ 
+
+function muramasa_sword_creation:OnHeroDiedNearby( hVictim, hKiller, kv )
+	if hVictim == nil or hKiller == nil then
+		return
+	end
+    if not self:GetCaster().SoulSwordAcquired then return end
+	if hKiller == self:GetCaster() or ((hVictim:GetAbsOrigin() - self:GetCaster():GetAbsOrigin()):Length2D() < 300 and hVictim:GetTeamNumber() ~= self:GetCaster():GetTeamNumber() )then
+        local position = Vector(hVictim:GetAbsOrigin().x, hVictim:GetAbsOrigin().y, 0)
+        Timers:CreateTimer(0.5, function()
+            CreateModifierThinker(self:GetCaster(), self, "modifier_muramasa_sword_drop_enemy", {duration = 6, Duration = 6, radius = 175,
+            x = position.x, y = position.y},  position, self:GetCaster():GetTeamNumber(), false)
+    
+        end)
+	end
+end
 
  
  
@@ -227,19 +245,19 @@ function modifier_muramasa_sword_creation:GetModifierAttackSpeedBaseOverride()
 end
 
  
-function modifier_muramasa_sword_creation:OnHeroKilled(args)
-    local hParent = self:GetParent()
-    local hAbility = self:GetAbility()
+-- function modifier_muramasa_sword_creation:OnHeroKilled(args)
+--     local hParent = self:GetParent()
+--     local hAbility = self:GetAbility()
 
-    if args.target:GetTeamNumber() ~= hParent:GetTeamNumber() and hParent:IsAlive() and hParent.SoulSwordAcquired and args.attacker == self:GetCaster() then
-        local position = Vector(args.target:GetAbsOrigin().x, args.target:GetAbsOrigin().y, 0)
-        Timers:CreateTimer(0.5, function()
-            CreateModifierThinker(hParent, self, "modifier_muramasa_sword_drop_enemy", {duration = 6, Duration = 6, radius = 175,
-            x = position.x, y = position.y},  position, hParent:GetTeamNumber(), false)
+--     if args.target:GetTeamNumber() ~= hParent:GetTeamNumber() and hParent:IsAlive() and hParent.SoulSwordAcquired and args.attacker == self:GetCaster() then
+--         local position = Vector(args.target:GetAbsOrigin().x, args.target:GetAbsOrigin().y, 0)
+--         Timers:CreateTimer(0.5, function()
+--             CreateModifierThinker(hParent, self, "modifier_muramasa_sword_drop_enemy", {duration = 6, Duration = 6, radius = 175,
+--             x = position.x, y = position.y},  position, hParent:GetTeamNumber(), false)
     
-        end)
-	end
-end
+--         end)
+-- 	end
+-- end
 
  
 

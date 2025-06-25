@@ -232,9 +232,10 @@ function OnTerritoryExplosion(keys)
 				DoDamage(hero, v, damage * multiplier, DAMAGE_TYPE_MAGICAL, 0, keys.ability, false)
 			end
 			-- particle
-			local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_sanity_eclipse_area.vpcf", PATTACH_CUSTOMORIGIN, caster)
+			local particle = ParticleManager:CreateParticle("particles/units/heroes/hero_obsidian_destroyer/obsidian_destroyer_sanity_eclipse_area.vpcf", PATTACH_WORLDORIGIN, nil)
 			ParticleManager:SetParticleControl(particle, 0, caster:GetAbsOrigin()) -- height of the bolt
 			ParticleManager:SetParticleControl(particle, 1, Vector(1000, 0, 0)) -- height of the bolt
+			ParticleManager:SetParticleShouldCheckFoW(particle, false)
 			ParticleManager:ReleaseParticleIndex(particle)
 			caster:Execute(keys.ability, caster)
 		end

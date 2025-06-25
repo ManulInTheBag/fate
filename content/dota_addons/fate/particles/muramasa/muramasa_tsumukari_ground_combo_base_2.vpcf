@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf37:version{f9a1c8c4-159b-4786-b740-4d1a118c8f46} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf62:version{c135a90d-ef52-47fa-a9b8-83a382a77471} -->
 {
 	_class = "CParticleSystemDefinition"
 	m_bShouldHitboxesFallbackToRenderBounds = false
@@ -142,12 +142,26 @@
 			}
 		},
 		{
-			_class = "C_INIT_RandomRadius"
-			m_flRadiusMin = 180.0
-			m_flRadiusMax = 200.0
+			_class = "C_INIT_InitFloat"
+			m_InputValue = 
+			{
+				m_nType = "PF_TYPE_RANDOM_UNIFORM"
+				m_flRandomMin = 180.0
+				m_flRandomMax = 200.0
+				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+			}
 		},
 		{
-			_class = "C_INIT_RandomRotation"
+			_class = "C_INIT_InitFloat"
+			m_InputValue = 
+			{
+				m_nType = "PF_TYPE_RANDOM_UNIFORM"
+				m_flRandomMin = 0.0
+				m_flRandomMax = 360.0
+				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+				m_bHasRandomSignFlip = true
+			}
+			m_nOutputField = 4
 		},
 		{
 			_class = "C_INIT_PositionOffset"
@@ -163,11 +177,18 @@
 			m_CollisionGroupName = "DEBRIS"
 		},
 		{
-			_class = "C_INIT_RemapScalar"
-			m_flInputMax = 3.0
-			m_nFieldOutput = 1
-			m_flOutputMin = 5.0
-			m_flOutputMax = 3.0
+			_class = "C_INIT_InitFloat"
+			m_InputValue = 
+			{
+				m_flInput0 = 0.0
+				m_flInput1 = 3.0
+				m_flOutput0 = 5.0
+				m_flOutput1 = 3.0
+				m_nMapType = "PF_MAP_TYPE_REMAP"
+				m_nType = "PF_TYPE_PARTICLE_FLOAT"
+				m_nScalarAttribute = 8
+			}
+			m_nOutputField = 1
 		},
 		{
 			_class = "C_INIT_RemapParticleCountToScalar"
@@ -253,6 +274,7 @@
 			]
 			m_nOutputBlendMode = "PARTICLE_OUTPUT_BLEND_MODE_MOD2X"
 			m_nColorBlendType = "PARTICLE_COLOR_BLEND_MOD2X"
+			m_bDisableZBuffering = true
 		},
 		{
 			_class = "C_OP_RenderRopes"
@@ -471,6 +493,7 @@
 			]
 			m_nOutputBlendMode = "PARTICLE_OUTPUT_BLEND_MODE_ADD"
 			m_bCannotBeRefracted = false
+			m_bDisableZBuffering = true
 		},
 	]
 	m_Children = 

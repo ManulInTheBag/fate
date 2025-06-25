@@ -2,7 +2,9 @@ karna_spin = class({})
 LinkLuaModifier("modifier_karna_self_pause","abilities/karna/karna_new_abilities/karna_spin", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_karna_self_pause_2","abilities/karna/karna_new_abilities/karna_spin", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_karna_ucm_sa_stacking","abilities/karna/karna_new_abilities/karna_spin", LUA_MODIFIER_MOTION_NONE)
-
+function karna_spin:GetAOERadius()
+	return self:GetSpecialValueFor("radius")
+end
 function karna_spin:OnUpgrade()
 	local caster = self:GetCaster()
     

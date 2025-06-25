@@ -104,7 +104,7 @@ function modifier_diar_dash_w:CheckState()
     local state =   { 
                         [MODIFIER_STATE_FLYING_FOR_PATHING_PURPOSES_ONLY] = true,
                         [MODIFIER_STATE_NO_UNIT_COLLISION] = true,
-                        [MODIFIER_STATE_ROOTED] = true,
+                        [MODIFIER_STATE_ROOTED] = false,
 
                     }
     return state

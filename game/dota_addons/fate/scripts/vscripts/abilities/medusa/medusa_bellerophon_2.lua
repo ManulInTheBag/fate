@@ -99,10 +99,10 @@ function medusa_bellerophon_2:OnSpellStart()
 	StartAnimation(caster, {duration=2.97, activity=ACT_DOTA_RAZE_2, rate=0.5})
 	StartAnimation(chTarget, {duration=2.97, activity=ACT_DOTA_RAZE_3, rate=0.5})
 
-	PlayerResource:SetCameraTarget(caster:GetPlayerOwnerID(), caster)
+	--PlayerResource:SetCameraTarget(caster:GetPlayerOwnerID(), caster)
 
 	Timers:CreateTimer(3.66, function()
-		PlayerResource:SetCameraTarget(caster:GetPlayerOwnerID(), nil)
+		--PlayerResource:SetCameraTarget(caster:GetPlayerOwnerID(), nil)
 		if IsValidEntity(chTarget) and not chTarget:IsNull() then 
 		    chTarget:ForceKill(false)
 		    chTarget:AddEffects(EF_NODRAW)
@@ -124,6 +124,9 @@ function medusa_bellerophon_2:OnSpellStart()
 			--print(caster:GetAbsOrigin())
 		 	return
 		end
+		-- if (ascendCount % 5) == 0  then  -----[[[ВКЛЮЧИ ПОРЖАТЬ]]]
+		-- 	MinimapEvent( caster:GetOpposingTeamNumber(), caster, caster:GetAbsOrigin().x, caster:GetAbsOrigin().y, DOTA_MINIMAP_EVENT_TEAMMATE_DIED   , 2)
+		-- end
 		if ascendCount < 46 then
 			asc_pepe = ascendCount
 		else

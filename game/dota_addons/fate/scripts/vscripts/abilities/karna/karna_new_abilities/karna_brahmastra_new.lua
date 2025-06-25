@@ -2,9 +2,9 @@ karna_brahmastra_new = class({})
 
 LinkLuaModifier("modifier_brahmastra_stun", "abilities/karna/modifiers/modifier_brahmastra_stun", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_karna_slow_jopa", "abilities/karna/karna_new_abilities/karna_brahmastra_new", LUA_MODIFIER_MOTION_NONE)
---[[function karna_brahmastra:GetAOERadius()
-	return self:GetSpecialValueFor("radius")
-end]]
+function karna_brahmastra_new:GetAOERadius()
+	return self:GetSpecialValueFor("range")
+end
 function karna_brahmastra_new:OnUpgrade()
 	local caster = self:GetCaster()
     

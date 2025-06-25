@@ -58,6 +58,9 @@ function lu_bu_sky_piercer:OnSpellStart()
 	local crack_ending_right = caster_position + caster_fw_right * crack_distance
 	local crack_ending_left_ext = caster_position + caster_fw_left_ext * crack_distance
 	local crack_ending_right_ext = caster_position + caster_fw_right_ext * crack_distance
+
+	local radius_indicator_right_pos_end = crack_ending_right_ext + caster_fw_right_ext * 150+ (Vector(caster_fw_right_ext.y, -caster_fw_right_ext.x, 0))* crack_width
+	local radius_indicator_left_pos_end = crack_ending_left_ext + caster_fw_left_ext * 150 + (Vector(-caster_fw_left_ext.y, caster_fw_left_ext.x, 0))* crack_width
 	
 	ScreenShake(caster:GetOrigin(), 15, 4, 8, 40000, 0, true)
 
@@ -81,6 +84,9 @@ function lu_bu_sky_piercer:OnSpellStart()
 		local particle_start_fx_right = ParticleManager:CreateParticle("particles/custom/lu_bu/lu_bu_sky_piercer_explosion.vpcf", PATTACH_WORLDORIGIN, caster)
 		local particle_start_fx_left_ext = ParticleManager:CreateParticle("particles/custom/lu_bu/lu_bu_sky_piercer_explosion.vpcf", PATTACH_WORLDORIGIN, caster)
 		local particle_start_fx_right_ext = ParticleManager:CreateParticle("particles/custom/lu_bu/lu_bu_sky_piercer_explosion.vpcf", PATTACH_WORLDORIGIN, caster)
+
+		local particle_radius_indicator_right = ParticleManager:CreateParticle("particles/lu_bu/lu_bu_combo_ground_line.vpcf", PATTACH_WORLDORIGIN, caster)
+		local particle_radius_indicator_left = ParticleManager:CreateParticle("particles/lu_bu/lu_bu_combo_ground_line.vpcf", PATTACH_WORLDORIGIN, caster)
 		
 		ParticleManager:SetParticleControl(particle_start_fx_center, 0, caster_position)
 		ParticleManager:SetParticleControl(particle_start_fx_center, 1, crack_ending_center)
@@ -101,6 +107,23 @@ function lu_bu_sky_piercer:OnSpellStart()
 		ParticleManager:SetParticleControl(particle_start_fx_right_ext, 0, caster_position)
 		ParticleManager:SetParticleControl(particle_start_fx_right_ext, 1, crack_ending_right_ext)
 		ParticleManager:SetParticleControl(particle_start_fx_right_ext, 3, Vector(0, effect_delay, 0))
+		
+		ParticleManager:SetParticleControl(particle_radius_indicator_right, 13, (caster_position + (Vector(caster_fw_right_ext.y, -caster_fw_right_ext.x, 0))* crack_width  + caster_fw_right_ext* -50))
+		ParticleManager:SetParticleControl(particle_radius_indicator_right, 14, radius_indicator_right_pos_end)
+		ParticleManager:SetParticleControl(particle_radius_indicator_right, 12, Vector(effect_delay - 0.5, 0, 0))
+		ParticleManager:SetParticleControl(particle_radius_indicator_right, 11, Vector(30, 0, 0))
+
+		ParticleManager:SetParticleControl(particle_radius_indicator_left, 13, (caster_position + (Vector(caster_fw_left_ext.y, -caster_fw_left_ext.x, 0))* -crack_width + caster_fw_left_ext* -50))
+		ParticleManager:SetParticleControl(particle_radius_indicator_left, 14, radius_indicator_left_pos_end)
+		ParticleManager:SetParticleControl(particle_radius_indicator_left, 12, Vector(effect_delay- 0.5, 0, 0))
+		ParticleManager:SetParticleControl(particle_radius_indicator_left, 11, Vector(30, 0, 0))
+		ParticleManager:SetParticleShouldCheckFoW(particle_start_fx_center, false)
+		ParticleManager:SetParticleShouldCheckFoW(particle_start_fx_left, false)
+		ParticleManager:SetParticleShouldCheckFoW(particle_start_fx_right, false)
+		ParticleManager:SetParticleShouldCheckFoW(particle_start_fx_left_ext, false)
+		ParticleManager:SetParticleShouldCheckFoW(particle_start_fx_right_ext, false)
+		ParticleManager:SetParticleShouldCheckFoW(particle_radius_indicator_right, false)
+		ParticleManager:SetParticleShouldCheckFoW(particle_radius_indicator_left, false)
 	end)
 	
 
@@ -163,12 +186,16 @@ function lu_bu_sky_piercer:OnSpellStart()
 		ParticleManager:ReleaseParticleIndex(particle_start_fx_right)
 		ParticleManager:ReleaseParticleIndex(particle_start_fx_left_ext)
 		ParticleManager:ReleaseParticleIndex(particle_start_fx_right_ext)
+		ParticleManager:ReleaseParticleIndex(particle_radius_indicator_right)
+		ParticleManager:ReleaseParticleIndex(particle_radius_indicator_left)
 		
 		ParticleManager:DestroyParticle( particle_start_fx_center, false )
 		ParticleManager:DestroyParticle( particle_start_fx_left, false )
 		ParticleManager:DestroyParticle( particle_start_fx_right, false )
 		ParticleManager:DestroyParticle( particle_start_fx_left_ext, false )
 		ParticleManager:DestroyParticle( particle_start_fx_right_ext, false )
+		ParticleManager:DestroyParticle( particle_radius_indicator_right, false )
+		ParticleManager:DestroyParticle( particle_radius_indicator_left, false )
 	end)
 end
 

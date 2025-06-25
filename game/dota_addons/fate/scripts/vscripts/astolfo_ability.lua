@@ -141,7 +141,7 @@ function OnDownStart(keys)
 		caster:GiveMana(ability:GetManaCost(1)) 
 		return 
 	end 
-	range = 350
+	range = 500
 	giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 0.5)
 	--giveUnitDataDrivenModifier(caster, caster, "zero_attack_damage", 0.5)
 	--giveUnitDataDrivenModifier(caster, caster, "modifier_astolfo_disable_mstrength", 0.5)

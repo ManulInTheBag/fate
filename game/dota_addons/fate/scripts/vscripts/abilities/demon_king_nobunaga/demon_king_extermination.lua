@@ -30,18 +30,14 @@ function demon_king_extermination:OnAbilityPhaseStart()
    end)
    local castfx = self.castfx
    local handfx = self.handfx
-   local swordblackfx = self.swordblackfx
-   local swordredfx = self.swordredfx
+
    Timers:CreateTimer(1.5, function()
       -----------------------------------------------
       ParticleManager:DestroyParticle(castfx, true)
       ParticleManager:ReleaseParticleIndex(castfx)
       ParticleManager:DestroyParticle(handfx, true)
       ParticleManager:ReleaseParticleIndex(handfx)
-      ParticleManager:DestroyParticle(swordblackfx, true)
-      ParticleManager:ReleaseParticleIndex(swordblackfx)
-      ParticleManager:DestroyParticle(swordredfx, true)
-      ParticleManager:ReleaseParticleIndex(swordredfx)
+
       -----------------------------------------------
    end)
    return true
@@ -61,10 +57,7 @@ function demon_king_extermination:OnAbilityPhaseInterrupted()
    ParticleManager:ReleaseParticleIndex(self.castfx)
    ParticleManager:DestroyParticle(self.handfx, true)
    ParticleManager:ReleaseParticleIndex(self.handfx)
-   ParticleManager:DestroyParticle(self.swordblackfx, true)
-   ParticleManager:ReleaseParticleIndex(self.swordblackfx)
-   ParticleManager:DestroyParticle(self.swordredfx, true)
-   ParticleManager:ReleaseParticleIndex(self.swordredfx)
+
    -----------------------------------------------
    if(target:IsAlive() and target ~= nil and distance<self:GetSpecialValueFor("dash_distance_max") and caster:IsAlive() and not caster:IsStunned() ) then
       StartAnimation(caster, {duration=delay, activity=ACT_DOTA_CAST_ABILITY_2_END, rate=1})

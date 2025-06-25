@@ -11,7 +11,7 @@ function true_assassin_selfmod:OnHeroDiedNearby( hVictim, hKiller, kv )
 		return
 	end
 
-	if hKiller == self:GetCaster() then
+	if hKiller == self:GetCaster() or ((hVictim:GetAbsOrigin() - self:GetCaster():GetAbsOrigin()):Length2D() < 300 and hVictim:GetTeamNumber() ~= self:GetCaster():GetTeamNumber()) then
 		if self.nKills == nil then
 			self.nKills = 0
 		end

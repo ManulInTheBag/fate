@@ -1,4 +1,8 @@
 karna_slashes = class({})
+
+function karna_slashes:GetAOERadius()
+	return self:GetSpecialValueFor("radius")
+end
 function karna_slashes:OnUpgrade()
 	local caster = self:GetCaster()
     
