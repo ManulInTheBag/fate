@@ -58,7 +58,11 @@ function modifier_arash_arrow_construction:DeclareFunctions()
 	}
 end
 
+function modifier_arash_arrow_construction:CheckState()
+    local state = { [MODIFIER_STATE_CANNOT_MISS ] = true,}
 
+    return state
+end
 function modifier_arash_arrow_construction:OnCreated(args)
 	if not IsServer() then return end
 	self.range = args.range

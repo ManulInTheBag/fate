@@ -32,6 +32,9 @@ function karna_upper_slash:OnSpellStart()
 	local aoe_radius = self:GetSpecialValueFor("radius")
 	local aoe_damage = self:GetSpecialValueFor("damage")
 	local forward2 = forward
+	local bArmorRestore = false
+	local bArmorActive = caster:FindModifierByName("modifier_karna_buff_melee")
+	local armor_modifier = caster:FindModifierByName("modifier_karna_armor") 
 	forward2.z = 0
 	caster:SetForwardVector(forward2)
 	caster:AddNewModifier(caster, self, "modifier_karna_self_pause_2", {Duration = 0.6}) 
@@ -60,6 +63,10 @@ function karna_upper_slash:OnSpellStart()
   				local origin_diff_norm = origin_diff:Normalized()
    				if caster:GetForwardVector():Dot(origin_diff_norm) > 0 then
 					DoDamage(caster, v, aoe_damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+					if not bArmorRestore and  bArmorActive ~= nil then 
+						armor_modifier:RestoreArmorPercentage(5)
+						bArmorRestore = true
+					end
 					if caster:HasModifier("modifier_karna_buff_melee") then
 						buff_ability:ApplyBurnStacks(v)
 					end

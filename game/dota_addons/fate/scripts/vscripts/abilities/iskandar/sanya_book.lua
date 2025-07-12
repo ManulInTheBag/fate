@@ -67,6 +67,7 @@ local tSanyaBook = {
 
 function sanya_book_open:OnSpellStart()
     local hCaster = self:GetCaster()
+    if hCaster:HasModifier("pause_sealenabled") then return end
     if hCaster.IsAOTKActive == true and hCaster.IsBeyondTimeAcquired then
         self:OpenSpellbookMarbleSA()
     elseif hCaster.IsAOTKActive == true then

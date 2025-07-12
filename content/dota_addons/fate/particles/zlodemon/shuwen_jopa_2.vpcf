@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf61:version{39d3ce1d-9442-4407-9b78-8317145b1732} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf62:version{c135a90d-ef52-47fa-a9b8-83a382a77471} -->
 {
 	_class = "CParticleSystemDefinition"
 	m_bShouldHitboxesFallbackToRenderBounds = false
@@ -1636,14 +1636,14 @@
 			_class = "C_INIT_InitialVelocityNoise"
 			m_vecOutputMin = 
 			{
-				m_nType = "PVEC_TYPE_LITERAL"
+				m_nType = "PVEC_TYPE_CP_VALUE"
 				m_vLiteralValue = [ -2000.0, 0.0, 0.0 ]
 				m_LiteralColor = [ 0, 0, 0 ]
 				m_NamedValue = ""
 				m_bFollowNamedValue = false
 				m_nVectorAttribute = 6
 				m_vVectorAttributeScale = [ 1.0, 1.0, 1.0 ]
-				m_nControlPoint = 0
+				m_nControlPoint = 5
 				m_nDeltaControlPoint = 0
 				m_vCPValueScale = [ 1.0, 1.0, 1.0 ]
 				m_vCPRelativePosition = [ 0.0, 0.0, 0.0 ]
@@ -1885,14 +1885,14 @@
 			}
 			m_vecOutputMax = 
 			{
-				m_nType = "PVEC_TYPE_LITERAL"
+				m_nType = "PVEC_TYPE_CP_VALUE"
 				m_vLiteralValue = [ -2000.0, 0.0, 0.0 ]
 				m_LiteralColor = [ 0, 0, 0 ]
 				m_NamedValue = ""
 				m_bFollowNamedValue = false
 				m_nVectorAttribute = 6
 				m_vVectorAttributeScale = [ 1.0, 1.0, 1.0 ]
-				m_nControlPoint = 0
+				m_nControlPoint = 5
 				m_nDeltaControlPoint = 0
 				m_vCPValueScale = [ 1.0, 1.0, 1.0 ]
 				m_vCPRelativePosition = [ 0.0, 0.0, 0.0 ]

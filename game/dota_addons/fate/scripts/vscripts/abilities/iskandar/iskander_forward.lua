@@ -85,6 +85,9 @@ function iskander_forward:OnSpellStart()
 		if(v:GetUnitName() == "iskander_archer") and caster.IsBeyondTimeAcquired then
 			if not v.iSShooting then
 				v:FindModifierByName("modifier_kill"):SetDuration(3, true)
+				if (castPosition - caster:GetAbsOrigin()):Length2D() > caster:FindAbilityByName("iskander_archers"):GetSpecialValueFor("range") * 1.1 then 
+					castPosition = v:GetAbsOrigin()  - (v:GetAbsOrigin() - castPosition):Normalized() * caster:FindAbilityByName("iskander_archers"):GetSpecialValueFor("range") * 1.1
+				end
 				caster:FindAbilityByName("iskander_archers"):ShootArrow(v,castPosition )
 			end
 

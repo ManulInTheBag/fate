@@ -56,6 +56,9 @@ function karna_slashes:OnSpellStart()
 	local saBool2 = false
 	local bMartialArts = caster.ManaBurstAttribute
 	local armor_modifier = caster:FindModifierByName("modifier_karna_armor") 
+	local bArmorRestore = false
+	local bArmorRestore2 = false
+	local bArmorActive = caster:FindModifierByName("modifier_karna_buff_melee")
 	Timers:CreateTimer(0.0, function()
 
 		--local particle = ParticleManager:CreateParticle("particles/karna/karna_spin_slash.vpcf", PATTACH_ABSORIGIN, caster)
@@ -68,6 +71,10 @@ function karna_slashes:OnSpellStart()
   				local origin_diff_norm = origin_diff:Normalized()
    				if caster:GetForwardVector():Dot(origin_diff_norm) > 0 then
 					DoDamage(caster, v, aoe_damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+					if not bArmorRestore and  bArmorActive ~= nil then 
+						armor_modifier:RestoreArmorPercentage(5)
+						bArmorRestore = true
+					end
 					if bMartialArts then 
 						if v:HasModifier("modifier_karna_ucm_sa_stacking") then
 							local stacks = v:GetModifierStackCount("modifier_karna_ucm_sa_stacking", caster)
@@ -116,6 +123,10 @@ function karna_slashes:OnSpellStart()
 				local origin_diff_norm = origin_diff:Normalized()
 				if caster:GetForwardVector():Dot(origin_diff_norm) > 0 then
 				    DoDamage(caster, v, aoe_damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+				if not bArmorRestore2 and  bArmorActive ~= nil then 
+					armor_modifier:RestoreArmorPercentage(5)
+					bArmorRestore2 = true
+				end
 					if bMartialArts then 
 						if v:HasModifier("modifier_karna_ucm_sa_stacking") then
 							local stacks = v:GetModifierStackCount("modifier_karna_ucm_sa_stacking", caster)

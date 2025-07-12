@@ -99,6 +99,11 @@ function karna_spin:OnSpellStart()
 	local aoe_radius = self:GetSpecialValueFor("radius")
 	local aoe_damage = self:GetSpecialValueFor("damage")
 	local bMartialArts = caster.ManaBurstAttribute
+	local bArmorRestore = false
+	local bArmorRestore2 = false
+	local bArmorRestore3 = false
+	local bArmorActive = caster:FindModifierByName("modifier_karna_buff_melee")
+	local armor_modifier = caster:FindModifierByName("modifier_karna_armor") 
 	caster:AddNewModifier(caster, self, "modifier_karna_self_pause", {Duration = 1.2}) 
 	local bMartialArts = caster.ManaBurstAttribute
 	local physics = Physics:Unit(caster)
@@ -119,6 +124,10 @@ function karna_spin:OnSpellStart()
 		for k,v in pairs(targets) do
 			if v:GetName() ~= "npc_dota_ward_base" then
 				DoDamage(caster, v, aoe_damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+				if not bArmorRestore and  bArmorActive ~= nil then 
+					armor_modifier:RestoreArmorPercentage(5)
+					bArmorRestore = true
+				end
 				if bMartialArts then 
 					if v:HasModifier("modifier_karna_ucm_sa_stacking") then
 						local stacks = v:GetModifierStackCount("modifier_karna_ucm_sa_stacking", caster)
@@ -155,6 +164,10 @@ function karna_spin:OnSpellStart()
 		for k,v in pairs(targets) do
 			if v:GetName() ~= "npc_dota_ward_base" then
 				DoDamage(caster, v, aoe_damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+				if not bArmorRestore1 and  bArmorActive ~= nil then 
+					armor_modifier:RestoreArmorPercentage(5)
+					bArmorRestore1 = true
+				end
 				if bMartialArts then 
 					if v:HasModifier("modifier_karna_ucm_sa_stacking") then
 						local stacks = v:GetModifierStackCount("modifier_karna_ucm_sa_stacking", caster)
@@ -201,6 +214,10 @@ function karna_spin:OnSpellStart()
 		for k,v in pairs(enemies) do
 			if v:GetName() ~= "npc_dota_ward_base" then
 				DoDamage(caster, v, aoe_damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+				if not bArmorRestore2 and  bArmorActive ~= nil then 
+					armor_modifier:RestoreArmorPercentage(5)
+					bArmorRestore2 = true
+				end
 				if bMartialArts then 
 					if v:HasModifier("modifier_karna_ucm_sa_stacking") then
 						local stacks = v:GetModifierStackCount("modifier_karna_ucm_sa_stacking", caster)

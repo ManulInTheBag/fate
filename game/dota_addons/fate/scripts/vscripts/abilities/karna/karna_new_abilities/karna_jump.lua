@@ -49,6 +49,9 @@ function karna_jump:OnSpellStart()
 	local buff_ability = caster:FindAbilityByName("karna_buff_melee")
 	local distance = (targetPoint - origin):Length2D()
 	local forward = (targetPoint - origin):Normalized()
+	local bArmorRestore = false
+	local bArmorActive = caster:FindModifierByName("modifier_karna_buff_melee")
+	local armor_modifier = caster:FindModifierByName("modifier_karna_armor") 
 	if forward:Length2D() < 1 then
 		forward = caster:GetForwardVector()
 	end
@@ -99,6 +102,10 @@ function karna_jump:OnSpellStart()
 		for k,v in pairs(targets) do
 			if v:GetName() ~= "npc_dota_ward_base" then
 					DoDamage(caster, v, aoe_damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+					if not bArmorRestore and  bArmorActive ~= nil then 
+						armor_modifier:RestoreArmorPercentage(5)
+						bArmorRestore = true
+					end
 						giveUnitDataDrivenModifier(caster, v, "rooted", self:GetSpecialValueFor("duration"))
 						giveUnitDataDrivenModifier(caster, v, "locked", self:GetSpecialValueFor("duration"))
 					if caster:HasModifier("modifier_karna_buff_melee") then

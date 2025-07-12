@@ -3043,6 +3043,13 @@
 		"DOTA_Tooltip_modifier_arash_stella_stacks"						"Stella stacks"
 		"DOTA_Tooltip_modifier_arash_stella_stacks_Description"			"Stella damage increased."
 
+		"DOTA_Tooltip_modifier_arash_combo_cd"						"Max stella cd"
+		"DOTA_Tooltip_modifier_arash_combo_cd_Description"			""
+
+		"DOTA_Tooltip_modifier_arash_clair_stacking"						"Arrow valley"
+		"DOTA_Tooltip_modifier_arash_clair_stacking_Description"			"Increases damage based on stack."
+
+
 		"DOTA_Tooltip_modifier_arash_arrow_construction"				"Arrow construction"
 		"DOTA_Tooltip_modifier_arash_arrow_construction_Description"	"Next attack deals bonus damage."
 
@@ -3060,14 +3067,14 @@
 
 
 		"DOTA_Tooltip_Ability_arash_toughness"				"Toughness"
-		"DOTA_Tooltip_ability_arash_toughness_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.15</font>\nGrants Arash bonus <font color='#FFFAFA'>magic resistance</font> and <font color='#FFFAFA'>armor</font> for a duration, values are based on <font color='#58ACFA'>Stella</font> stacks.\n<font color='#7CFC00'>Heals</font> Arash on cast."
+		"DOTA_Tooltip_ability_arash_toughness_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.15</font>\nGrants Arash bonus <font color='#FFFAFA'>magic resistance</font> and <font color='#FFFAFA'>armor</font> for a duration.\n<font color='#7CFC00'>Heals</font> Arash on cast."
 		"DOTA_Tooltip_Ability_arash_toughness_Lore"					"Great body to be sacrificed"
-		"DOTA_Tooltip_Ability_arash_toughness_base_armor"			"Base armor:"
-		"DOTA_Tooltip_Ability_arash_toughness_base_mr"				"Base resistance:"
-		"DOTA_Tooltip_Ability_arash_toughness_base_heal"			"Base heal:"
-		"DOTA_Tooltip_Ability_arash_toughness_armor_per_stack"		"Armor per stack:"
-		"DOTA_Tooltip_Ability_arash_toughness_mr_per_stack"			"Resistance per stack:"
-		"DOTA_Tooltip_Ability_arash_toughness_heal_per_stack"		"Heal per stack:"	
+		"DOTA_Tooltip_Ability_arash_toughness_base_armor"			"Armor:"
+		"DOTA_Tooltip_Ability_arash_toughness_base_mr"				"Resistance:"
+		"DOTA_Tooltip_Ability_arash_toughness_base_heal"			"Heal:"
+		//"DOTA_Tooltip_Ability_arash_toughness_armor_per_stack"		"Armor per stack:"
+		//"DOTA_Tooltip_Ability_arash_toughness_mr_per_stack"			"Resistance per stack:"
+		//"DOTA_Tooltip_Ability_arash_toughness_heal_per_stack"		"Heal per stack:"	
 		"DOTA_Tooltip_Ability_arash_toughness_duration"				"Duration:"	
 
 		"DOTA_Tooltip_Ability_arash_arrow_construction"				"Arrow construction"
@@ -3140,6 +3147,16 @@
 		"DOTA_Tooltip_Ability_arash_stella_outer_damage_pct"						"%Low damage:"
 		"DOTA_Tooltip_Ability_arash_stella_self_damage_percentage"					"%Self damage:"
 
+		"DOTA_Tooltip_Ability_arash_clair"				"Clairvoyance: Arrow volley"
+		"DOTA_Tooltip_Ability_arash_clair_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.1</font>\nArash casts a clairvoyance on the target point, providing his team with vision.\nAfter cast, Arash may cancel the channel at any time and shoot arrows into all enemies who were inside at the cancel time.\nArrows reach their targets and deal <font color='#58ACFA'>damage</font> based on how long target has been inside, with a maximum of %max_dmg_delay% seconds.\nEnemies that leave clairvoyance lose all stacks, but if they enter again, stacks will start to build up again too."
+		"DOTA_Tooltip_Ability_arash_stella_Lore"					"Behold my deeds, my death, and my Spənta Ārmaiti which I must carry out. After I unleash this last arrow with all my strength, my iron body shall shatter and annihilate me where I stand!"
+		"DOTA_Tooltip_Ability_arash_clair_range"									"Range:"
+		"DOTA_Tooltip_Ability_arash_clair_damage"									"Damage:"
+		"DOTA_Tooltip_Ability_arash_clair_radius"									"Radius:"
+		"DOTA_Tooltip_Ability_arash_clair_duration"									"Clair duration:"
+		"DOTA_Tooltip_Ability_arash_clair_dmg_on_minimum_charge_pct"				"%Min damage:"
+
+
 
 
 		"DOTA_Tooltip_Ability_arash_max_stella"				"Combo: MAX Stella"
@@ -3147,7 +3164,7 @@
 		"DOTA_Tooltip_Ability_arash_max_stella_Lore"					""
 		"DOTA_Tooltip_Ability_arash_max_stella_range"									"Range:"
 		"DOTA_Tooltip_Ability_arash_max_stella_damage"									"Damage:"
-		"DOTA_Tooltip_Ability_arash_max_stella_damage_per_stella_stack"					"Damage per stack:"
+		//"DOTA_Tooltip_Ability_arash_max_stella_damage_per_stella_stack"					"Damage per stack:"
 		"DOTA_Tooltip_Ability_arash_max_stella_radius"									"Low damage radius:"
 		"DOTA_Tooltip_Ability_arash_max_stella_small_radius"							"Max damage radius:"
 		"DOTA_Tooltip_Ability_arash_max_stella_mid_radius"								"Mid damage radius:"
@@ -3160,11 +3177,11 @@
 
 
 		"DOTA_Tooltip_Ability_arash_clairvoyance"				"Attribute: Clairvoyance"
-		"DOTA_Tooltip_Ability_arash_clairvoyance_Description"	"Upgrades <font color='#58ACFA'>Star arrow</font>, increasing its <font color='#58ACFA'>damage</font> and <font color='#FFFAFA'>range</font>\nEach time Arash hits an enemy with <font color='#58ACFA'>Star arrow</font>, he creates a little clairvoyance, granting true sight and vision for Arash's team for a short duration."
+		"DOTA_Tooltip_Ability_arash_clairvoyance_Description"	"Upgrades <font color='#58ACFA'>Star arrow</font> and <font color='#58ACFA'>Clairvoyance: Arrow volley</font>, increasing their <font color='#58ACFA'>damage</font>.\nIncreases <font color='#58ACFA'>Star arrow</font>'s <font color='#FFFAFA'>range</font>\nEach time Arash hits an enemy with <font color='#58ACFA'>Star arrow</font> or <font color='#58ACFA'>Clairvoyance: Arrow volley</font>, he creates a little clairvoyance, granting true sight and vision for Arash's team for a short duration.\n<font color='#58ACFA'>Clairvoyance: Arrow volley</font> now also gains true sight."
 		"DOTA_Tooltip_Ability_arash_clairvoyance_Lore"					""
 		"DOTA_Tooltip_Ability_arash_clairvoyance_clair_duration"				"Vision duration:"
 		"DOTA_Tooltip_Ability_arash_clairvoyance_clair_radius"					"Vision radius:"
-		"DOTA_Tooltip_Ability_arash_clairvoyance_star_arrow_bonus_damage"		"%Star arrow bonus damage:"
+		"DOTA_Tooltip_Ability_arash_clairvoyance_star_arrow_bonus_damage"		"%Bonus damage:"
 		"DOTA_Tooltip_Ability_arash_clairvoyance_star_arrow_bonus_range"		"Star arrow bonus range:"
 
 		"DOTA_Tooltip_Ability_arash_falling_stars"				"Attribute: Falling stars"
@@ -3282,16 +3299,16 @@
 
 
 		"DOTA_Tooltip_Ability_emiya_unlimited_bladeworks"					"Unlimited Blade Works"
-		"DOTA_Tooltip_ability_emiya_unlimited_bladeworks_Description"		"Chant a line of the <font color='#58ACFA'>Unlimited Blade Works</font>, decreasing the remaining cooldown of Emiya's <font color='#FFFAFA'>active</font> abilities.\nWhen the chant is completed, Emiya will lay his <font color='#FFFAFA'>Reality marble</font>. \nEmiya gains a set of new abilities, bonus <font color='#7CFC00'>health</font> and <font color='#FFFAFA'>resistances</font> inside his <font color='#FFFAFA'>Reality marble</font>.\nWhen Emiya dies, his <font color='#FFFAFA'>Reality marble</font> ends.\nCan be set on auto cast to perform combo instead of entering UBW, if Emiya fullfils combo requirements.\n<font color='#F1C40F'>Upgradable by attribute Improve projection.</font>"
+		"DOTA_Tooltip_ability_emiya_unlimited_bladeworks_Description"		"Chant a line of the <font color='#58ACFA'>Unlimited Blade Works</font>, decreasing the remaining cooldown of Emiya's <font color='#FFFAFA'>active</font> abilities.\nWhen the chant is completed, Emiya will lay his <font color='#FFFAFA'>Reality marble</font>. \nEmiya gains a set of new abilities inside his <font color='#FFFAFA'>Reality marble</font>.\nWhen Emiya dies, his <font color='#FFFAFA'>Reality marble</font> ends.\nCan be set on auto cast to perform combo instead of entering UBW, if Emiya fullfils combo requirements.\n<font color='#F1C40F'>Upgradable by attribute Improve projection.</font>"
 		"DOTA_Tooltip_ability_emiya_unlimited_bladeworks_Lore"				"An aria using a poem of the caster's life, used to activate high-thaumaturgy."
 		"DOTA_Tooltip_Ability_emiya_unlimited_bladeworks_Note0"				"In case UBW is overlapping with another Reality Marble, the battlefield takes place in the first Marble cast. When that Marble is broken, both Marbles cease to sustain."
 		"DOTA_Tooltip_ability_emiya_unlimited_bladeworks_form_delay"		"UBW Delay:"
 		"DOTA_Tooltip_ability_emiya_unlimited_bladeworks_cooldown_set"		"Cooldown Reduction:"
 		"DOTA_Tooltip_ability_emiya_unlimited_bladeworks_duration"			"Buff Duration:"
 		"DOTA_Tooltip_ability_emiya_unlimited_bladeworks_movespeed_bonus"	"Movement Speed Per Chant:"
-		"DOTA_Tooltip_ability_emiya_unlimited_bladeworks_bonus_health"		"Bonus health:"
-		"DOTA_Tooltip_ability_emiya_unlimited_bladeworks_bonus_armor"	"Bonus armor:"
-		"DOTA_Tooltip_ability_emiya_unlimited_bladeworks_bonus_mr"		"%Bonus MR:"
+		//"DOTA_Tooltip_ability_emiya_unlimited_bladeworks_bonus_health"		"Bonus health:"
+		//"DOTA_Tooltip_ability_emiya_unlimited_bladeworks_bonus_armor"	"Bonus armor:"
+		//"DOTA_Tooltip_ability_emiya_unlimited_bladeworks_bonus_mr"		"%Bonus MR:"
 
 		"DOTA_Tooltip_Ability_emiya_barrage_moonwalk"					"Sword Barrage - Retreat"
 		"DOTA_Tooltip_ability_emiya_barrage_moonwalk_Description"		"Emiya immediately retreats backward and strikes area in a line with several swords, each dealing damage."
@@ -6241,7 +6258,7 @@
         "DOTA_Tooltip_Ability_lishuwen_berserk_Note1"				"Purge only upon activation. CC applied after is ignored for its duration."
 
 		"DOTA_Tooltip_Ability_lishuwen_presence_concealment"					"Presence Concealment"
-        "DOTA_Tooltip_Ability_lishuwen_presence_concealment_Description"		"<font color='#FFFAFA'>Cast point:</font><font color='#7FFF00'>%cast_delay%</font>\n\n Li Shuwen hides and becomes invisible, gaining additional <font color='#ACFF05'>health</font> and <font color='#339FFF'>mana</font> regeneration as long as he does not move. \n\nUpon moving, after %break_delay% second delay, Li Shuwen breaks out of invisibility and his next <font color='#FFFAFA'>%number_attacks%</font> attacks deal <font color='#58ACFA'>bonus magical damage</font> while he moves at <font color='#FFFAFA'>maximum movement speed</font>. These efftects persists for <font color='#FFFAFA'>%atk_buff_duration%</font> seconds after break.\n\nUsing abilities or taking damage he would immediately break invisiblity and grant those effects as well. \n\n<font color='#F1C40F'>Upgradable by attribute: Improve Martial Arts.</font>"
+        "DOTA_Tooltip_Ability_lishuwen_presence_concealment_Description"		"<font color='#FFFAFA'>Cast point:</font><font color='#7FFF00'>%cast_delay%</font>\n\n Li Shuwen hides and becomes invisible, gaining additional <font color='#ACFF05'>health</font> and <font color='#339FFF'>mana</font> regeneration as long as he does not move. \n\nUpon moving, after %break_delay% second delay, Li Shuwen breaks out of invisibility and his next <font color='#FFFAFA'>%number_attacks%</font> attacks deal <font color='#58ACFA'>bonus magical damage</font> and apply one  <font color='#FF0000'>Circulatory shock</font> stack while he moves at <font color='#FFFAFA'>maximum movement speed</font>. These efftects persists for <font color='#FFFAFA'>%atk_buff_duration%</font> seconds after break.\n\nUsing abilities or taking damage he would immediately break invisiblity and grant those effects as well. \n\n<font color='#F1C40F'>Upgradable by attribute: Improve Martial Arts.</font>"
         "DOTA_Tooltip_Ability_lishuwen_presence_concealment_Note0"				""
         "DOTA_Tooltip_Ability_lishuwen_presence_concealment_Lore"				"Serene meditation within the Sphere Boundary hides his presence from the outer world, setting the stage for the ruthless hunter."
         "DOTA_Tooltip_Ability_lishuwen_presence_concealment_health_regen"		"%BONUS REGENERATION:"
@@ -8181,7 +8198,7 @@
         "DOTA_Tooltip_ability_karna_slashes_radius"							"Radius:"
 
         "DOTA_Tooltip_ability_karna_buff_melee"							"Mana burst: Flame"
-        "DOTA_Tooltip_ability_karna_buff_melee_Description"			"Cast point: <font color='#FFFFF9'>0.3</font>s\nKarna enchances his spear with mana, restoring percentage of <font color='#ff9900'>Kavacha and Kundala</font>'s shield, while gaining buff, which will apply stackable <font color='#FF0000'>Burn</font> effect on enemies on each of his basic attacks and skills and increase Karna's <font color='#FFFAFA'>movement speed</font>.<br>This buff only persists while Karna has <font color='#ff9900'>Kavacha and Kundala</font>.\n<font color='#FF0000'>Burn</font> deals magical damage every 0.5 second."
+        "DOTA_Tooltip_ability_karna_buff_melee_Description"			"Cast point: <font color='#FFFFF9'>0.3</font>s\nKarna enchances his spear with mana, restoring percentage of <font color='#ff9900'>Kavacha and Kundala</font>'s shield, while gaining buff, which will apply stackable <font color='#FF0000'>Burn</font> effect on enemies on each of his basic attacks and skills, increase Karna's <font color='#FFFAFA'>movement speed </font> and restore %armor_restore_percentage_hit%%% of his armor on each Martial arts abilities hit.<br>This buff only persists while Karna has <font color='#ff9900'>Kavacha and Kundala</font>.\n<font color='#FF0000'>Burn</font> deals magical damage every 0.5 second."
         "DOTA_Tooltip_ability_karna_buff_melee_armor_restore_percentage"							"%Shield restore:"
         "DOTA_Tooltip_ability_karna_buff_melee_duration"							"Duration:"
         "DOTA_Tooltip_ability_karna_buff_melee_movespeed_bonus"							"%Movespeed bonus:"

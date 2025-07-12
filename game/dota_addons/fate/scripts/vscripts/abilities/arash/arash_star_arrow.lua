@@ -21,7 +21,7 @@ function arash_star_arrow:OnSpellStart()
 	local caster = self:GetCaster()
 	if(not self.frames or self.frames == 0) then
 		self.frames = 0
-		self.maxtime = self:GetSpecialValueFor("charge_duration")
+		self.maxtime = 2--self:GetSpecialValueFor("charge_duration")
 		self:StartCharging()
 	end
 	caster:FindAbilityByName("arash_arrow_construction"):GetConstructionBuff()
@@ -242,7 +242,7 @@ function modifier_arash_star_arrow:GetActivityTranslationModifiers(keys)
 end
 
 function modifier_arash_star_arrow:GetModifierMoveSpeedBonus_Percentage(keys)
-    return  -50
+    return  -20
 end
  
  
@@ -265,7 +265,7 @@ end
  
 function modifier_arash_star_arrow:OnIntervalThink()
 	if IsServer() then
-    	self.ability.frames = self.ability.frames + 1	
+    	self.ability.frames = self.ability.frames + 2 --+1
 		if(self.ability.frames == 30) then
 			ParticleManager:SetParticleControl(self.nParticle, 1, Vector(5,75,0)) -- radius
 			ParticleManager:SetParticleControl(self.nParticle, 15, Vector(0,255,255)) -- color
@@ -279,7 +279,7 @@ end
  
 function modifier_arash_star_arrow:OnDestroy()
 	if type(self.nParticle) == "number" then
-		ParticleManager:DestroyParticle(self.nParticle, false)
+		ParticleManager:DestroyParticle(self.nParticle, true)
 		ParticleManager:ReleaseParticleIndex(self.nParticle)
 	end
 	if IsServer() then

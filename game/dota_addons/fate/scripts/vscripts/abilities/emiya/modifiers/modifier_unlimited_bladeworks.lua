@@ -58,9 +58,10 @@ function modifier_unlimited_bladeworks:OnCreated()
 end
 
 function modifier_unlimited_bladeworks:DeclareFunctions()
-	return { MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS, 
-			 MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
-			 MODIFIER_PROPERTY_HEALTH_BONUS, MODIFIER_EVENT_ON_ATTACK_FINISHED}
+	return { --MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS, 
+			 --MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
+			 --MODIFIER_PROPERTY_HEALTH_BONUS, MODIFIER_EVENT_ON_ATTACK_FINISHED}
+}
 end
 
 function modifier_unlimited_bladeworks:GetAttributes() 
@@ -83,14 +84,14 @@ function modifier_unlimited_bladeworks:GetTexture()
     return "custom/archer_5th_ubw"
 end
 
-function modifier_unlimited_bladeworks:GetModifierHealthBonus()
-	return self:GetAbility():GetSpecialValueFor("bonus_health") --+ (self:GetParent():HasModifier("modifier_shroud_of_martin") and self:GetParent():GetIntellect()*0 or 0)
-end
+-- function modifier_unlimited_bladeworks:GetModifierHealthBonus()
+-- 	return self:GetAbility():GetSpecialValueFor("bonus_health") --+ (self:GetParent():HasModifier("modifier_shroud_of_martin") and self:GetParent():GetIntellect()*0 or 0)
+-- end
 
-function modifier_unlimited_bladeworks:GetModifierPhysicalArmorBonus()
-	return self:GetAbility():GetSpecialValueFor("bonus_armor")
-end
+-- function modifier_unlimited_bladeworks:GetModifierPhysicalArmorBonus()
+-- 	return self:GetAbility():GetSpecialValueFor("bonus_armor")
+-- end
 
-function modifier_unlimited_bladeworks:GetModifierMagicalResistanceBonus()
-	return self:GetAbility():GetSpecialValueFor("bonus_mr")
-end
+-- function modifier_unlimited_bladeworks:GetModifierMagicalResistanceBonus()
+-- 	return self:GetAbility():GetSpecialValueFor("bonus_mr")
+-- end

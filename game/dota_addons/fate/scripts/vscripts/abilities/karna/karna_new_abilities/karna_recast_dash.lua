@@ -7,7 +7,9 @@ LinkLuaModifier("modifier_karna_self_pause_2","abilities/karna/karna_new_abiliti
 function karna_recast_dash:OnSpellStart()
 	
 	local caster = self:GetCaster()
-	
+	self.bArmorRestore = false
+	self.bArmorActive = caster:FindModifierByName("modifier_karna_buff_melee")
+	self.armor_modifier = caster:FindModifierByName("modifier_karna_armor") 
 	StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_CAST_ABILITY_2_END, rate=1.1})
 	local ability = self
 	caster:FindAbilityByName("karna_spin_2"):StartCooldown(1)
@@ -82,6 +84,10 @@ function karna_recast_dash:OnProjectileHit_ExtraData(hTarget, vLocation, table)
 	--giveUnitDataDrivenModifier(caster, hTarget, "locked", duration)
 
 	hTarget:EmitSound("Hero_Sniper.AssassinateDamage")
+	if not self.bArmorRestore and  self.bArmorActive ~= nil then 
+		self.armor_modifier:RestoreArmorPercentage(self:GetSpecialValueFor("armor_restore_percentage"))
+		self.bArmorRestore = true
+	end
 	DoDamage(caster, hTarget, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
 	if bMartialArts then 
 		if hTarget:HasModifier("modifier_karna_ucm_sa_stacking") then

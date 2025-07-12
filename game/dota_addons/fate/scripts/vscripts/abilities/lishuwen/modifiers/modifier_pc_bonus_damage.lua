@@ -36,6 +36,7 @@ function modifier_pc_bonus_damage:OnAttackLanded(keys)
 		end
 		--if caster:HasModifier("modifier_berserk") then return end
 		DoDamage(caster, target, self.BonusDamage, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
+		caster:FindAbilityByName("lishuwen_no_second_strike"):AddShock(target, 1)
 	end
 end
 

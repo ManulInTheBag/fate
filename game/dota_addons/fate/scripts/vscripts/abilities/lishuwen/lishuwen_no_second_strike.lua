@@ -268,8 +268,36 @@ function lishuwen_no_second_strike:OnSpellStart()
 	local dash_fx2 = ParticleManager:CreateParticle("particles/zlodemon/shuwen_jopa_2.vpcf", PATTACH_ABSORIGIN, caster)
 	ParticleManager:SetParticleControlTransformForward( dash_fx2, 0, caster:GetAbsOrigin() + vector*100, -vector )
 	ParticleManager:SetParticleControl( dash_fx2, 4, self:GetCursorPosition() )
+	if caster:IsRooted() then 
+		ParticleManager:SetParticleControl( dash_fx2, 5, Vector(-100,0,0) )
+	else
+		ParticleManager:SetParticleControl( dash_fx2, 5, Vector(-2000,0,0) )
+	end
+	
+	local proj = {}
+	if caster:IsRooted() then
+	 proj = 
+	{
+		Ability = ability,
+        EffectName = "",
+        iMoveSpeed = 2000,
+        vSpawnOrigin = caster:GetOrigin(),
+        fDistance = distance/2,
+        fStartRadius = 200,
+        fEndRadius = 200,
+        Source = caster,
+        bHasFrontalCone = true,
+        bReplaceExisting = true,
+        iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
+        iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES,
+        iUnitTargetType = DOTA_UNIT_TARGET_ALL,
+        fExpireTime = GameRules:GetGameTime() + 2.0,
+		bDeleteOnHit = false,
+		vVelocity = vector * 2000
+	}
+	else
 
-	local proj = 
+	 proj = 
 	{
 		Ability = ability,
         EffectName = "",
@@ -288,6 +316,8 @@ function lishuwen_no_second_strike:OnSpellStart()
 		bDeleteOnHit = false,
 		vVelocity = vector * 2000
 	}
+	end
+
 	--self.rushfx = ParticleManager:CreateParticle("particles/karna/karna_dash_cone.vpcf", PATTACH_ABSORIGIN_FOLLOW  , caster )
 	--ParticleManager:SetParticleControl(self.rushfx, 0, caster:GetAbsOrigin())
 	vector.z = 0
@@ -297,19 +327,25 @@ function lishuwen_no_second_strike:OnSpellStart()
 	giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 0.3)
 
 	local sin = Physics:Unit(caster)
-	caster:SetPhysicsFriction(0)
-	caster:SetPhysicsVelocity(vector * 2000)
-	caster:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
-
+	if not caster:IsRooted() then
+		caster:SetPhysicsFriction(0)
+		caster:SetPhysicsVelocity(vector * 2000)
+		caster:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
+	
+	end
 	Timers:CreateTimer("li_shuwen_r_dash", {
 		endTime = 0.3,
 		callback = function()
-		caster:OnPreBounce(nil)
-		caster:SetBounceMultiplier(0)
-		caster:PreventDI(false)
-		caster:SetPhysicsVelocity(Vector(0,0,0))
+		if not caster:IsRooted() then
+			caster:OnPreBounce(nil)
+			caster:SetBounceMultiplier(0)
+			caster:PreventDI(false)
+			caster:SetPhysicsVelocity(Vector(0,0,0))
+		end
 		caster:RemoveModifierByName("pause_sealenabled")
-		FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
+		if not caster:IsRooted() then
+			FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
+		end
 				ParticleManager:DestroyParticle(dash_fx2, false)
 		ParticleManager:ReleaseParticleIndex(dash_fx2)
 	return end
@@ -328,6 +364,7 @@ function lishuwen_no_second_strike:OnSpellStart()
 		ParticleManager:ReleaseParticleIndex(dash_fx2)
 
 	end)
+	
 end
 
 function lishuwen_no_second_strike:OnProjectileHit_ExtraData(hTarget, vLocation, table)
@@ -367,6 +404,7 @@ function lishuwen_no_second_strike:OnProjectileHit_ExtraData(hTarget, vLocation,
 			self.firsthit = true	
 		end
 	end
+	hTarget:RemoveModifierByName("modifier_nss_shock_stackable")
 	if caster:HasModifier("modifier_berserk") then
 		DoDamage(caster, hTarget, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
 	else

@@ -22,13 +22,15 @@ function gawain_excalibur_galatine_combo:OnSpellStart()
     masterCombo:EndCooldown()
     masterCombo:StartCooldown(ability:GetCooldown(1))
     caster:AddNewModifier(caster, self, "modifier_galatine_combo_cd", {duration = ability:GetCooldown(1)})
+    Timers:CreateTimer(0.5, function()
+        local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
+        
+        for k,v in pairs(targets) do
+            local sunAbility = caster:FindAbilityByName("gawain_artificial_sun")
+            sunAbility:GenerateArtificialSun(caster, v:GetAbsOrigin(), false, self:GetName())
+        end
 
-    local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
-    
-    for k,v in pairs(targets) do
-        local sunAbility = caster:FindAbilityByName("gawain_artificial_sun")
-        sunAbility:GenerateArtificialSun(caster, v:GetAbsOrigin(), false, self:GetName())
-    end
+    end)
     local fxIndexjopa = ParticleManager:CreateParticle("particles/zlodemon/zlodemon_basic_circle.vpcf", PATTACH_WORLDORIGIN, nil)
 	ParticleManager:SetParticleControl(fxIndexjopa, 0, caster:GetAbsOrigin())
 	ParticleManager:SetParticleControl(fxIndexjopa, 1, Vector(1,0.8,0.01))
@@ -40,6 +42,8 @@ function gawain_excalibur_galatine_combo:OnSpellStart()
     ParticleManager:SetParticleShouldCheckFoW(self.particleNew, false)
     ------Activating Meltdown
     if caster.IsMeltdownAcquired then
+
+        Timers:CreateTimer(0.75, function()
         local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 20000, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false) 
         for k,v in pairs(targets) do
             if v:GetUnitName() == "gawain_artificial_sun" then
@@ -60,6 +64,9 @@ function gawain_excalibur_galatine_combo:OnSpellStart()
                 end)
             end
         end
+        
+        end)
+        
     end
 
 
