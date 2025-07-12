@@ -12,6 +12,67 @@
 "DOTAAbilities"
 {
 	//=======================================★★★★★
+	// 
+	//=======================================★★★★★
+	"scathach_gae_bolg_spawn"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/scathach/scathach_gae_bolg_spawn"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET"
+		"AbilityTextureName"			"custom/scathach/scathach_gae_bolg_jump"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityCastPoint"				"0.5"
+		"AbilityCooldown"				"40 36 32 28 24"
+		"AbilityManaCost"				"800"
+		"AbilityCastAnimation" 			"ACT_DOTA_ITEM_PICKUP"
+		"AnimationPlaybackRate" 		"1.0"
+		
+
+		"precache"
+		{
+				"particle"		"particles/custom/scathach/gb_test_1.vpcf"
+				"particle"		"particles/custom/scathach/spear_trail_multiple.vpcf"
+		}
+
+		"AbilityValues"
+        {
+            "duration" "10"
+        }
+	}
+
+	//=================================================================================================================
+	// Nobu - Gun shot (Q)
+	//=================================================================================================================
+	"scathach_gae_bolg_shoot"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/scathach/scathach_gae_bolg_shoot"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT|DOTA_ABILITY_BEHAVIOR_HIDDEN|DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/nobu/nobu_shot"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
+		"AnimationPlaybackRate" 		"1.0"
+		"AbilityCastPoint"				"0.0"
+		"AbilityCastRange"				"1400"
+ 		"AbilityCooldown"				"0.75"
+		"AbilityManaCost"				"0"
+		"AbilityValues"
+        {
+
+        }
+	}
+	//=======================================★★★★★
 	// Attribute: Primeval Rune
 	//=======================================★★★★★
 	"scathach_primeval_rune_attribute"
