@@ -159,9 +159,9 @@ function robin_yew_bow:OnProjectileHit_ExtraData( target, location, extradata )
 			"modifier_robin_yew_bow_silence", -- modifier name
 			{ duration = silence_duration } -- kv
 		)
-		if target:GetMaxMana() > 0 then
-			target:Script_ReduceMana(600, nil)
-		end
+		-- if target:GetMaxMana() > 0 then
+		-- 	target:Script_ReduceMana(600, nil)
+		-- end
 	end
 	
 	local poison_stack = target:GetModifierStackCount("modifier_robin_poison_stack", caster)

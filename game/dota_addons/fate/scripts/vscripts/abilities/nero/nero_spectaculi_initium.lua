@@ -67,9 +67,9 @@ function nero_spectaculi_initium:OnSpellStart()
 
 		local duration = self:GetSpecialValueFor("invul_duration")
 
-		caster:AddEffects(EF_NODRAW)
-		giveUnitDataDrivenModifier(caster, caster, "jump_pause", duration)
-		caster:AddNewModifier(caster, self, "modifier_nero_spectaculi_delay", {duration = duration})
+		--caster:AddEffects(EF_NODRAW)
+		--giveUnitDataDrivenModifier(caster, caster, "jump_pause", duration)
+		--caster:AddNewModifier(caster, self, "modifier_nero_spectaculi_delay", {duration = duration})
 
 		local trail_fx = ParticleManager:CreateParticle("particles/nero/nero_trail.vpcf", PATTACH_ABSORIGIN, caster)
 		ParticleManager:SetParticleControl(trail_fx, 0, caster:GetAbsOrigin())

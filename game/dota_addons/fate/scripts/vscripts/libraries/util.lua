@@ -578,6 +578,7 @@ CannotReset = {
     "medusa_breaker",
     "medusa_monstrous_strength",
     "nero_heat",
+    "avenger_blood_mark",
 
 
     "gilles_prelati_spellbook",
