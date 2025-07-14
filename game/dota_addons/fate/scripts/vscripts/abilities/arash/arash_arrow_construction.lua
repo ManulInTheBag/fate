@@ -6,7 +6,7 @@ function arash_arrow_construction:OnSpellStart()
 	--self:GetConstructionBuff()
 	local caster = self:GetCaster()
 	if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 and caster:GetIntellect() >= 29.1 then      
-    	if caster:FindAbilityByName("arash_max_stella"):IsCooldownReady() and caster:FindAbilityByName("arash_stella"):IsCooldownReady() then
+    	if caster:FindAbilityByName("arash_max_stella"):IsCooldownReady() and caster:FindAbilityByName("arash_clair"):IsCooldownReady() then
     		caster:AddNewModifier(caster, self, "modifier_max_stella_window", { Duration = 4 })
         end
     end
@@ -17,7 +17,7 @@ modifier_max_stella_window = class({})
 if IsServer() then
 	function modifier_max_stella_window:OnCreated(args)
 		local hero = self:GetParent()
-		hero:SwapAbilities("arash_stella", "arash_max_stella", false, true) 
+		hero:SwapAbilities("arash_clair", "arash_max_stella", false, true) 
 	end
 
 	function modifier_max_stella_window:OnRefresh(args)
@@ -26,7 +26,7 @@ if IsServer() then
 	function modifier_max_stella_window:OnDestroy()	
 		local hero = self:GetParent()
 
-		hero:SwapAbilities("arash_stella", "arash_max_stella", true, false) 
+		hero:SwapAbilities("arash_clair", "arash_max_stella", true, false) 
 	end
 end
 
@@ -105,10 +105,10 @@ function modifier_arash_arrow_construction:OnAttackLanded(args)
 		if cd3 > 2 then 
 			self.parent:FindAbilityByName("arash_independent_action"):StartCooldown(cd3 - 2)
 		end
-		local cd4 = self.parent:FindAbilityByName("arash_stella"):GetCooldownTimeRemaining()
-		self.parent:FindAbilityByName("arash_stella"):EndCooldown()
+		local cd4 = self.parent:FindAbilityByName("arash_clair"):GetCooldownTimeRemaining()
+		self.parent:FindAbilityByName("arash_clair"):EndCooldown()
 		if cd4 > 2 then 
-			self.parent:FindAbilityByName("arash_stella"):StartCooldown(cd4 - 2)
+			self.parent:FindAbilityByName("arash_clair"):StartCooldown(cd4 - 2)
 		end
 	end
 	self:Destroy()

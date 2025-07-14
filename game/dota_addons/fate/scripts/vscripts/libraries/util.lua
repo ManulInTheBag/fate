@@ -194,6 +194,10 @@ deargdispellable = {
     "modifier_hijikata_madness_active",
     --"modifier_saito_mind_eye_buff",
     --"modifier_saito_quickslash_bonus",
+     "modifier_saito_mind_eye_shell",
+    "modifier_arash_toughness",
+    "modifier_karna_buff_melee",
+    "modifier_saito_mind_eye_active",
 }
 
 revokes = {
