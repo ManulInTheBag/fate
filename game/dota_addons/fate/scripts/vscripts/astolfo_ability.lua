@@ -235,7 +235,7 @@ function OnHornCast(keys)
 	StartAnimation(caster, {duration=4.6, activity=ACT_DOTA_CAST_ABILITY_3_END, rate=1.0})
 	--StartAnimation(caster, {duration=0.55, activity=ACT_DOTA_CAST_ABILITY_ROT, rate=1.0})
 end
-
+LinkLuaModifier("modifier_protection_from_arrows_active", "abilities/cu_chulain/modifiers/modifier_protection_from_arrows_active", LUA_MODIFIER_MOTION_NONE)
 function OnHornStart(keys)
 	local caster = keys.caster
 	local ability = keys.ability
@@ -249,7 +249,7 @@ function OnHornStart(keys)
 	end
 	caster.AstolfoSimpleFix = false
 	caster.rape_count = 1
-
+	caster:AddNewModifier(caster, self, "modifier_protection_from_arrows_active", { Duration =  4.1})
 	AstolfoCheckCombo(caster, ability)
 	caster.currentHornManaCost = ability:GetManaCost(ability:GetLevel())
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_la_black_luna", {})
@@ -258,7 +258,7 @@ function OnHornStart(keys)
 	for k,v in pairs(silenceTargets) do
 		if not v:IsMagicImmune() then 
 			-- apply silence
-			giveUnitDataDrivenModifier(caster, v, "silenced", 1.50)
+			giveUnitDataDrivenModifier(caster, v, "silenced", 1)
 		end
     end
 
@@ -328,7 +328,7 @@ function OnHornThink(keys)
 
 	if caster.IsDeafeningBlastAcquired then
     	ProjectileManager:ProjectileDodge(caster)
-    	damage = damage + 150
+    	damage = damage + 50
     	caster.rape_count = caster.rape_count + 1
     end
 
@@ -353,7 +353,7 @@ function OnHornThink(keys)
     local silenceTargets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, silenceRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	for k,v in pairs(silenceTargets) do
 		-- apply silence
-		giveUnitDataDrivenModifier(caster, v, "silenced", 1.53)
+		giveUnitDataDrivenModifier(caster, v, "silenced", 0.25)
     end
 
 end
@@ -361,8 +361,8 @@ end
 function OnHornInterrupted(keys)
 	local caster = keys.caster
 	local ability = keys.ability
-
-	if caster.rape_count == 5 and not keys.caster.AstolfoSimpleFix  then
+	caster:RemoveModifierByName("modifier_protection_from_arrows_active")
+	if caster.rape_count == 9 and not keys.caster.AstolfoSimpleFix  then
 		local rapeTargets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 900, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		for k,v in pairs(rapeTargets) do
 			ability:ApplyDataDrivenModifier(caster, v, "modifier_la_black_luna_slow2", {})

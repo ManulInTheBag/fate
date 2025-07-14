@@ -6810,7 +6810,7 @@
         "DOTA_Tooltip_Ability_astolfo_attribute_sanity_Description"			"Hippogriff: Vanish <font color='#FF3399'>stuns</font> target on exit.\n Astolfo becomes invulnerable and untargetable when he uses Hippogriff: Vanish, when it is set to autocast.\n If the target is hit by Hippogriff: Vanish, Astolfo reappears beside his target. \nEnables usage of Casa di Logistilla - magic-protection type Phantasm. \nTrap of argalia Astolfo performs an attack against all enemies hit by the ability applying all on-hit effects.\nDown with a touch now also disarms on hit."
 
         "DOTA_Tooltip_Ability_astolfo_deafening_blast_attribute"					"Attribute: Deafening Blast"
-        "DOTA_Tooltip_Ability_astolfo_deafening_blast_attribute_Description"		"La Black Luna's blast and push away all enemies within %area_of_effect% range on activation, as well as disjointing all disjointable projectiles, muting and slowing all enemies for 99% for 1 second.\nEach La Black Luna tick deals 150 more damage. Enemies pushed away this way are dealt 500 magical damage. \nIf Astolfo finishes casting without being interrupted, he will release an additional wave in 900 radius, that will deal 300 + STR * 10 pure damage, mute and slow all enemies for 99% for 2 seconds."
+        "DOTA_Tooltip_Ability_astolfo_deafening_blast_attribute_Description"		"La Black Luna's blast and push away all enemies within %area_of_effect% range on activation, as well as disjointing all disjointable projectiles, <font color='#FF3399'>muting</font> and <font color='#9400D3'>slowing</font> all enemies for <font color='#FFFFFF'>99%</font> for <font color='#FFFFFF'>1</font> second.\nEnemies pushed away this way are dealt <font color='#FFFFFF'>500</font> <font color='#58ACFA'>damage</font>. \nIf Astolfo finishes casting without being interrupted, he will release an additional wave in 900 radius, that will deal <font color='#FFFFFF'>300</font> + <font color='#FFFFFF'>10x</font> <font color='#FF0000'>STR</font> <font color='#D1A951'>damage</font>, <font color='#FF3399'>mute</font> and <font color='#9400D3'>slow</font> all enemies for <font color='#FFFFFF'>99%</font> for <font color='#FFFFFF'>2</font> seconds.\nEach La Black Luna tick deals <font color='#FFFFFF'>50</font> more <font color='#58ACFA'>damage</font>."
 
         //====================================
         //      Caster(Extra) - Nursery Rhyme
@@ -7321,18 +7321,19 @@
 		"DOTA_Tooltip_modifier_leonidas_attributes_Description"									"Just for showing u, allies and enemies what u have picked and prediction bugs"
 
 		"DOTA_Tooltip_ability_leonidas_math_attribute"											"Attribute: Math Is Great"
-		"DOTA_Tooltip_ability_leonidas_math_attribute_Description"								"Math is great. I feel so accomplished when my calculations are correct. \nGives Leonidas 30 intellect\n Calculate strategy options and increase abilities values from intellect. \n\n[VALUE SCALES BY % TO BASE VALUE PER EACH INT POINT]"
+		"DOTA_Tooltip_ability_leonidas_math_attribute_Description"								"Math is great. I feel so accomplished when my calculations are correct.\n Calculate strategy options and increase abilities values from intellect."
 		//"DOTA_Tooltip_ability_leonidas_math_attribute_int_to_str_pct"							"%INT TO STRENGTH:"
 		//"DOTA_Tooltip_ability_leonidas_math_attribute_bonus_int"								"BONUS INTELLECT:"
 		//"DOTA_Tooltip_ability_leonidas_math_attribute_kick_push_distance_pct_scale_per_int"		"%INT SCALE TO [Q] PUSH DISTANCE:"
 		//"DOTA_Tooltip_ability_leonidas_math_attribute_catch_radius_pct_scale_per_int"			"%INT RADIUS SCALE TO [W]:"
 		//"DOTA_Tooltip_ability_leonidas_math_attribute_pride_radius_pct_scale_per_int"			"%INT AOE RADIUS [E]:"
+		"DOTA_Tooltip_ability_leonidas_math_attribute_enomotia_radius_pct_scale_per_int"		"%INT AOE RADIUS [R]:"
 		"DOTA_Tooltip_ability_leonidas_math_attribute_soldiers_bonus_barrier_per_int"		"INT SCALE TO [W] BARRIERS GIVEN:"
 		"DOTA_Tooltip_ability_leonidas_math_attribute_wall_bonus_barrier_per_int"			"INT SCALE TO [E] BASE BARRIER:"
 
 
 		"DOTA_Tooltip_ability_leonidas_army_attribute"											"Attribute: Struggle of Three Hundred"
-		"DOTA_Tooltip_ability_leonidas_army_attribute_Description"								"Thermopylae Enomotia now scales from armor values. But Shield nullify all armor when active. Passivly, Grant bonus armor based on basic armor.\nShield wall now adds 2 additional soldiers into the wall."
+		"DOTA_Tooltip_ability_leonidas_army_attribute_Description"								"Thermopylae Enomotia now scales from armor values.\nPassivly, Grant bonus armor based on basic armor.\nShield wall now adds 2 additional soldiers into the wall."
 		"DOTA_Tooltip_ability_leonidas_army_attribute_bonus_armor_from_base_pct"				"%BONUS ARMOR BY BASE ARMOR:"
 		"DOTA_Tooltip_ability_leonidas_army_attribute_enomotia_damage_block_from_armor_pct"		"%[R][COMBO] BONUS BLOCK PER ARMOR:"
 		"DOTA_Tooltip_ability_leonidas_army_attribute_enomotia_nullify_armor_on_shield"			"[R][COMBO] NULLIFY SELF BASE ARMOR:"
@@ -9616,9 +9617,9 @@
 		"DOTA_Tooltip_Ability_robin_faceless_king_attribute_Lore"	"It does not hide magical energy, but it does completely conceal the wearer's sound and scent. It allows for Robin Hood to be a sniper who hides his figure in this cloak, exhibiting Assassin-like behavior."
 		
 		"DOTA_Tooltip_Ability_robin_of_sherwood_attribute"	"<font color='#FFE56E'>Attribute: Robin of Sherwood Forest</font>"
-		"DOTA_Tooltip_Ability_robin_of_sherwood_attribute_Description"	"Doubles the amount of <font color='#52b000'>poison stacks</font> generated by Robin's abilities.\n\nAdds <font color='#FF3399'>silence</font> and <font color='#05CAFF'>mana burn</font> to <font color='#FFE56E'>Yew Bow</font> and <font color='#FFE56E'>Combo: Yew Bow - The Bow of Prayer</font>."
+		"DOTA_Tooltip_Ability_robin_of_sherwood_attribute_Description"	"Doubles the amount of <font color='#52b000'>poison stacks</font> generated by Robin's abilities.\n\nAdds <font color='#FF3399'>silence</font> to <font color='#FFE56E'>Yew Bow</font> and <font color='#FFE56E'>Combo: Yew Bow - The Bow of Prayer</font>."
 		"DOTA_Tooltip_Ability_robin_of_sherwood_attribute_silence_duration"	"SILENCE DURATION:"
-		"DOTA_Tooltip_Ability_robin_of_sherwood_attribute_mana_burn"	"MANA BURN:"
+		//"DOTA_Tooltip_Ability_robin_of_sherwood_attribute_mana_burn"	"MANA BURN:"
 		"DOTA_Tooltip_Ability_robin_of_sherwood_attribute_Lore"	"Robin Hood is a legendary heroic outlaw originally depicted in English folklore and subsequently featured in literature and film.\n\nAccording to legend, he was a highly skilled archer and swordsman."
 		
 		"DOTA_Tooltip_Ability_robin_yew_bow_attribute"	"<font color='#FFE56E'>Attribute: The Wise Man's Yew Bow </font>"

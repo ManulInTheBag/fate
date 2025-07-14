@@ -128,9 +128,9 @@ function robin_yew_tree_combo:OnProjectileHit_ExtraData( target, location, extra
 				"modifier_robin_yew_bow_silence", -- modifier name
 				{ duration = silence_duration } -- kv
 			)
-			if target:GetMaxMana() > 0 then
-				target:Script_ReduceMana(600, nil)
-			end
+			-- if target:GetMaxMana() > 0 then
+			-- 	target:Script_ReduceMana(600, nil)
+			-- end
 		end
 	end
 	
