@@ -30,9 +30,9 @@ function gilles_cthulhu_favour:OnSpellStart()
 	
 	EmitSoundOnLocationWithCaster(vTargetLocation, "Gilles_Cthulhu_Cast", hCaster)
 
-	local particleIndex = ParticleManager:CreateParticle("particles/custom/gilles/cthulhu_favour_cast.vpcf", PATTACH_CUSTOMORIGIN, hCaster)
+	local particleIndex = ParticleManager:CreateParticle("particles/custom/gilles/cthulhu_favour_cast.vpcf", PATTACH_WORLDORIGIN, nil)
  	ParticleManager:SetParticleControl(particleIndex, 0, vTargetLocation) 
-
+	ParticleManager:SetParticleShouldCheckFoW(particleIndex, false)
 
 	Timers:CreateTimer(1.0, function()
 		local thinker = CreateModifierThinker(hCaster, self, "modifier_cthulhu_favour_thinker", tModifierArgs, vTargetLocation, hCaster:GetTeamNumber(), false)
@@ -63,7 +63,8 @@ end
 
 if IsServer() then 
 	function modifier_cthulhu_favour_thinker:OnCreated(args)
-		self.ParticleIndex = ParticleManager:CreateParticle("particles/custom/gilles/cthulhu_favour_circle.vpcf", PATTACH_CUSTOMORIGIN, self:GetCaster())
+		self.ParticleIndex = ParticleManager:CreateParticle("particles/custom/gilles/cthulhu_favour_circle.vpcf", PATTACH_WORLDORIGIN, nil)
+		ParticleManager:SetParticleShouldCheckFoW(self.ParticleIndex, false)
 	 	ParticleManager:SetParticleControl(self.ParticleIndex, 0, self:GetParent():GetAbsOrigin()) 
 	 	ParticleManager:SetParticleControl(self.ParticleIndex, 1, Vector(args.AOE, args.AOE, args.AOE))
 	 	ParticleManager:SetParticleControl(self.ParticleIndex, 2, Vector(args.AOE, 0, 0))
@@ -75,10 +76,13 @@ if IsServer() then
 
 	function modifier_cthulhu_favour_thinker:OnIntervalThink()
 		self.pepega = self.pepega + 0.2
-		if self:GetCaster():HasModifier("modifier_sunken_city_attribute") then
-			local tEnemies = FindUnitsInRadius(self:GetCaster():GetTeam(), self:GetParent():GetAbsOrigin(), nil, self:GetAbility():GetAOERadius() - 50, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-			for _,v in pairs(tEnemies) do
+		
+		local tEnemies = FindUnitsInRadius(self:GetCaster():GetTeam(), self:GetParent():GetAbsOrigin(), nil, self:GetAbility():GetAOERadius() - 50, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+		for _,v in pairs(tEnemies) do
+			DoDamage(self:GetCaster(), v, self:GetAbility():GetSpecialValueFor("prock_damage"), DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
+			if self:GetCaster():HasModifier("modifier_sunken_city_attribute") then
 				if not v:IsMagicImmune() and not v.GillesChtulhuRootApplied then
+					EmitSoundOnLocationWithCaster(v:GetAbsOrigin(), "Gilles_Cthulhu_Root", v)
 					giveUnitDataDrivenModifier(self:GetCaster(), v, "rooted", self:GetAbility():GetSpecialValueFor("root_duration"))
 					giveUnitDataDrivenModifier(self:GetCaster(), v, "locked", self:GetAbility():GetSpecialValueFor("lock_duration"))
 					v.GillesChtulhuRootApplied = true
@@ -89,6 +93,7 @@ if IsServer() then
 				end
 			end
 		end
+		
 		if self.pepega >= 3 then
 			self.pepega = 0
 			local fAOE = self:GetAbility():GetAOERadius()
@@ -122,7 +127,7 @@ if IsServer() then
 		
 		for _,v in pairs(targets) do			
 			v:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_stunned", { Duration = 0.01 })
-			DoDamage(self:GetCaster(), v, self:GetAbility():GetSpecialValueFor("spawn_damage"), DAMAGE_TYPE_PHYSICAL, 0, self:GetAbility(), false)
+			DoDamage(self:GetCaster(), v, self:GetAbility():GetSpecialValueFor("spawn_damage"), DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
 		end
 
 		EmitSoundOnLocationWithCaster(spawn_loc, "Gilles_Cthulhu_Explode", self:GetCaster())

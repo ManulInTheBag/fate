@@ -4936,9 +4936,10 @@
         "DOTA_Tooltip_ability_gilles_eye_for_art_passive_Description"	"Whenever an enemy within %radius% area of Gilles uses an ability, Gilles would gain vision over them for %duration% seconds."
 
         "DOTA_Tooltip_Ability_gilles_cthulhu_favour"     			"Cthulu's Favour"
-        "DOTA_Tooltip_ability_gilles_cthulhu_favour_Description" 	"Conjures a portal to Cthulu's realm. After a brief delay, countless tentacles sprout from within the circle, mini stunning and dealing damage to enemies from where they sprout. The tentacles remain until the portal closes and will attack enemies nearby its reach."
+        "DOTA_Tooltip_ability_gilles_cthulhu_favour_Description" 	"Conjures a portal to Cthulu's realm.\nAfter a brief delay, countless tentacles sprout from within the circle randomly, <font color='#FF3399'>mini-stunning</font> and dealing <font color='#58ACFA'>damage</font> to enemies from where they sprout.\nThe tentacles remain until the portal closes and will  <font color='#A72E28'>attack</font> enemies nearby its reach.\nAll enemies inside take <font color='#58ACFA'>damage</font> every 0.2 seconds.</font>\n<font color='#F1C40F'>Upgradable by attribute Sunken City of R'lyeh.</font>"
         "DOTA_Tooltip_ability_gilles_cthulhu_favour_radius"			"Area of Effect:"
         "DOTA_Tooltip_ability_gilles_cthulhu_favour_spawn_damage"	"Spawn damage:"
+        "DOTA_Tooltip_ability_gilles_cthulhu_favour_prock_damage"	"Prock damage:"
         "DOTA_Tooltip_ability_gilles_cthulhu_favour_duration"		"Portal duration:"
         "DOTA_Tooltip_ability_gilles_cthulhu_favour_Lore"  			"Cthulu extends its reach through this tiny portal."
         "DOTA_Tooltip_ability_gilles_cthulhu_favour_root_duration"					"SA Root duration:"
@@ -4970,7 +4971,7 @@
         "DOTA_Tooltip_ability_gilles_demonic_horde_attribute_Lore"			"The fresh terror brought to you, right from the days of Tiffauges."
  
         "DOTA_Tooltip_Ability_gilles_sunken_city_attribute"				"Attribute: Sunken City of R'lyeh"
-        "DOTA_Tooltip_Ability_gilles_sunken_city_attribute_Description"	"Upon the cast of Cthulhu's Favour, all enemies within the radius become rooted and dimensionally locked for 0.5 - 1 seconds. This effect may be applied again to all enemies within the area with a 2 second cooldown.\nAfter 3 seconds, all enemies within the circle are stunned for %stun_dur% seconds and dealt %end_damage% magic damage.\nCthulhu's Favour gains 200 bonus cast range."
+        "DOTA_Tooltip_Ability_gilles_sunken_city_attribute_Description"	"Upon the cast of Cthulhu's Favour, all enemies within the radius become <font color='#9400D3'>rooted</font> and <font color='#9400D3'>locked</font> for 0.5 seconds.\nThis effect may be applied again to all enemies within the area with a 2 second cooldown.\nAfter 3 seconds, all enemies within the circle are <font color='#FF3399'>stunned</font> for %stun_dur% seconds and dealt %end_damage% <font color='#58ACFA'>magical</font>.\nCthulhu's Favour gains 200 bonus cast range."
         "DOTA_Tooltip_ability_gilles_sunken_city_attribute_Lore"		""
  
         "DOTA_Tooltip_Ability_gilles_abyssal_connection_attribute"				"Attribute: Abyssal Connection"
