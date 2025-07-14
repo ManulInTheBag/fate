@@ -3046,7 +3046,7 @@
 		"DOTA_Tooltip_modifier_arash_combo_cd"						"Max stella cd"
 		"DOTA_Tooltip_modifier_arash_combo_cd_Description"			""
 
-		"DOTA_Tooltip_modifier_arash_clair_stacking"						"Arrow valley"
+		"DOTA_Tooltip_modifier_arash_clair_stacking"						"Arrow volley"
 		"DOTA_Tooltip_modifier_arash_clair_stacking_Description"			"Increases damage based on stack."
 
 
@@ -3148,10 +3148,11 @@
 		"DOTA_Tooltip_Ability_arash_stella_self_damage_percentage"					"%Self damage:"
 
 		"DOTA_Tooltip_Ability_arash_clair"				"Clairvoyance: Arrow volley"
-		"DOTA_Tooltip_Ability_arash_clair_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.1</font>\nArash casts a clairvoyance on the target point, providing his team with vision.\nAfter cast, Arash may cancel the channel at any time and shoot arrows into all enemies who were inside at the cancel time.\nArrows reach their targets and deal <font color='#58ACFA'>damage</font> based on how long target has been inside, with a maximum of %max_dmg_delay% seconds.\nEnemies that leave clairvoyance lose all stacks, but if they enter again, stacks will start to build up again too."
+		"DOTA_Tooltip_Ability_arash_clair_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.2</font>\nArash casts a clairvoyance on the target point, providing his team with vision.\nAfter cast, Arash may cancel the channel at any time and shoot arrows into all enemies who were inside at the cancel time.\nArrows reach their targets and deal <font color='#58ACFA'>damage</font> based on how long target has been inside, with a maximum of %max_dmg_delay% seconds.\nEnemies that leave clairvoyance lose all stacks, but if they enter again, stacks will start to build up again too.\n<font color='#58ACFA'>damage</font> is increased based on Arash's <font color='#00FF00'>agility</font>"
 		"DOTA_Tooltip_Ability_arash_stella_Lore"					"Behold my deeds, my death, and my Spənta Ārmaiti which I must carry out. After I unleash this last arrow with all my strength, my iron body shall shatter and annihilate me where I stand!"
 		"DOTA_Tooltip_Ability_arash_clair_range"									"Range:"
 		"DOTA_Tooltip_Ability_arash_clair_damage"									"Damage:"
+		"DOTA_Tooltip_Ability_arash_clair_agi_scale"								"Damage per AGI:"
 		"DOTA_Tooltip_Ability_arash_clair_radius"									"Radius:"
 		"DOTA_Tooltip_Ability_arash_clair_duration"									"Clair duration:"
 		"DOTA_Tooltip_Ability_arash_clair_dmg_on_minimum_charge_pct"				"%Min damage:"
@@ -3377,7 +3378,7 @@
 
 
 		"DOTA_Tooltip_Ability_emiya_attribute_shroud_of_martin"					"Attribute: Shroud of Martin"
-		"DOTA_Tooltip_ability_emiya_attribute_shroud_of_martin_Description"		"Increases Emiya's <font color='#FFFAFA'>magic resistance</font> and <font color='#FFFAFA'>armor</font>\nUpgrades <font color='#58ACFA'>Rho Aias</font> barrier amount.\n<font color='#58ACFA'>Rho Aias</font> now hard cleanses target.\nIncreases Emiya's health by 4x his INT."  
+		"DOTA_Tooltip_ability_emiya_attribute_shroud_of_martin_Description"		"Increases Emiya's <font color='#FFFAFA'>magic resistance</font> and <font color='#FFFAFA'>armor</font>\nUpgrades <font color='#58ACFA'>Rho Aias</font> barrier amount.\n<font color='#58ACFA'>Rho Aias</font> now hard cleanses target.\nIncreases Emiya's health by 2x his INT."  
 		"DOTA_Tooltip_Ability_emiya_attribute_shroud_of_martin_Lore"			"The shroud of Saint Martin protects the bearer from witchcraft and sorcery."
 		"DOTA_Tooltip_Ability_emiya_attribute_shroud_of_martin_magic_resist"	"%BONUS MAGIC RESISTANCE:"
 		"DOTA_Tooltip_Ability_emiya_attribute_shroud_of_martin_armor"			"BONUS ARMOR:"
