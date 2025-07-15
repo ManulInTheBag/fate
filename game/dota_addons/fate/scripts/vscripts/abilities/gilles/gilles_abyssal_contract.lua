@@ -120,7 +120,7 @@ function gilles_abyssal_contract:OnSpellStart()
 				DoDamage(hCaster, v, self:GetSpecialValueFor("damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
 				if not v:IsMagicImmune() then
 					ApplyAirborne(hCaster, v, 0.5)
-					giveUnitDataDrivenModifier(hCaster,v , "stunned", self:GetSpecialValueFor("stun_duration"))
+					--giveUnitDataDrivenModifier(hCaster,v , "stunned", self:GetSpecialValueFor("stun_duration"))
 					--v:AddNewModifier(hCaster, self, "modifier_rooted", { duration = self:GetSpecialValueFor("stun_duration") })					
 				end
 			end

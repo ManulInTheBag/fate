@@ -111,7 +111,7 @@ if IsServer() then
 				for _,v in pairs(tEnemies) do
 					if not v:IsMagicImmune() then
 						DoDamage(self:GetCaster(), v, 400, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
-						v:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_stunned", { Duration = 1.5})
+						--v:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_stunned", { Duration = 1.5})
 					end
 				end
 		 	end
@@ -122,13 +122,13 @@ if IsServer() then
 				return nil
 			end)
 		end
-		local spawn_loc = RandomPointInCircle(self:GetParent():GetAbsOrigin(), self:GetAbility():GetAOERadius() - 75)
-		local targets = FindUnitsInRadius(self:GetCaster():GetTeam(), spawn_loc, nil, 150, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+		-- local spawn_loc = RandomPointInCircle(self:GetParent():GetAbsOrigin(), self:GetAbility():GetAOERadius() - 75)
+		-- local targets = FindUnitsInRadius(self:GetCaster():GetTeam(), spawn_loc, nil, 150, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		
-		for _,v in pairs(targets) do			
-			v:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_stunned", { Duration = 0.01 })
-			DoDamage(self:GetCaster(), v, self:GetAbility():GetSpecialValueFor("spawn_damage"), DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
-		end
+		-- for _,v in pairs(targets) do			
+		-- 	--v:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_stunned", { Duration = 0.01 })
+		-- 	DoDamage(self:GetCaster(), v, 1000, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
+		-- end
 
 		EmitSoundOnLocationWithCaster(spawn_loc, "Gilles_Cthulhu_Explode", self:GetCaster())
 
@@ -141,13 +141,13 @@ if IsServer() then
 			return nil
 		end)
 
-		local tentacle = CreateUnitByName("gilles_cthulhu_tentacle", spawn_loc, true, self:GetCaster(), self:GetCaster(), self:GetCaster():GetTeamNumber())
-		local tentacle_damage = self:GetAbility():GetSpecialValueFor("spawn_damage")-- + (self:GetCaster():HasModifier("modifier_sunken_city_attribute") and self:GetCaster():GetAverageTrueAttackDamage(self:GetCaster()) or 0)
-		tentacle:SetControllableByPlayer(self:GetCaster():GetPlayerID(), true)
-		tentacle:SetOwner(self:GetCaster())
-		tentacle:SetBaseDamageMax(tentacle_damage) 
-		tentacle:SetBaseDamageMin(tentacle_damage) 
-		tentacle:AddNewModifier(self:GetCaster(), nil, "modifier_kill", {duration = self:GetRemainingTime() })		
+		-- local tentacle = CreateUnitByName("gilles_cthulhu_tentacle", spawn_loc, true, self:GetCaster(), self:GetCaster(), self:GetCaster():GetTeamNumber())
+		-- local tentacle_damage = self:GetAbility():GetSpecialValueFor("spawn_damage")-- + (self:GetCaster():HasModifier("modifier_sunken_city_attribute") and self:GetCaster():GetAverageTrueAttackDamage(self:GetCaster()) or 0)
+		-- tentacle:SetControllableByPlayer(self:GetCaster():GetPlayerID(), true)
+		-- tentacle:SetOwner(self:GetCaster())
+		-- tentacle:SetBaseDamageMax(tentacle_damage) 
+		-- tentacle:SetBaseDamageMin(tentacle_damage) 
+		-- tentacle:AddNewModifier(self:GetCaster(), nil, "modifier_kill", {duration = self:GetRemainingTime() })		
 	end
 
 	function modifier_cthulhu_favour_thinker:OnDestroy()

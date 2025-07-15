@@ -12,7 +12,7 @@ function gilles_prelati_spellbook:OnSpellStart()
 	local caster = self:GetCaster()
 
 	caster:EmitSound("Hero_Warlock.ShadowWord")
-	caster:AddNewModifier(caster, self, "modifier_selfish_self_invul", { Duration = self:GetSpecialValueFor("duration") })
+	--caster:AddNewModifier(caster, self, "modifier_selfish_self_invul", { Duration = self:GetSpecialValueFor("duration") })
     caster:AddNewModifier(caster, self, "modifier_prelati_regen_block", { Duration = self:GetSpecialValueFor("block_duration") })
 	
 	self.ShieldFX = ParticleManager:CreateParticle("particles/custom/gilles_prelati_shield_aura.vpcf", PATTACH_CUSTOMORIGIN, caster)

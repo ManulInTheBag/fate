@@ -67,7 +67,7 @@ if IsServer() then
 		ParticleManager:DestroyParticle( self.Particle, true )
         ParticleManager:ReleaseParticleIndex( self.Particle )
 		if self:GetRemainingTime()<= 0.05 then
-			local fExplosionDamage = (self:GetParent():GetMaxHealth() - self:GetParent():GetHealth()) / self:GetParent():GetMaxHealth() + 1
+			--local fExplosionDamage = (self:GetParent():GetMaxHealth() - self:GetParent():GetHealth()) / self:GetParent():GetMaxHealth() + 1
 			if self:GetParent():IsAlive() then
 				
 				--[[local tTargets = FindUnitsInRadius(hCaster:GetTeam(), self:GetParent():GetAbsOrigin(), nil, hAbility:GetAOERadius(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
@@ -80,7 +80,7 @@ if IsServer() then
 				self:GetParent():AddNewModifier(hCaster, hAbility, "modifier_stunned", {Duration = hAbility:GetSpecialValueFor("stun_duration") })
 			end
 			if not self:GetParent():IsMagicImmune() then
-				DoDamage(hCaster, self:GetParent(), fDamage * fExplosionDamage, DAMAGE_TYPE_MAGICAL, 0, hAbility, false)
+				DoDamage(hCaster, self:GetParent(), fDamage,  DAMAGE_TYPE_MAGICAL, 0, hAbility, false)
 			end
 		end
 		local particleIndex = ParticleManager:CreateParticle("particles/units/heroes/hero_sandking/sandking_caustic_finale_explode.vpcf", PATTACH_CUSTOMORIGIN, self:GetParent())

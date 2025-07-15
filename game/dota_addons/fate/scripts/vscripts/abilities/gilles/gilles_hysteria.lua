@@ -40,20 +40,21 @@ function gilles_hysteria:OnSpellStart()
 	if IsSpellBlocked(hTarget) then return end
 	--EmitSoundOnLocationWithCaster(vTargetLocation, "Hero_Nevermore.Shadowraze", hCaster)
 
-	hTarget:AddNewModifier(hCaster, self, "modifier_gilles_hysteria", { AttackSpeed = self:GetSpecialValueFor("attack_speed"),
+	hTarget:AddNewModifier(hCaster, self, "modifier_gilles_hysteria", { --AttackSpeed = self:GetSpecialValueFor("attack_speed"),
 																		Damage = self:GetSpecialValueFor("damage"),
 																	 	Duration = self:GetSpecialValueFor("duration") })
+	giveUnitDataDrivenModifier(hCaster, hTarget, "modifier_disarmed", self:GetSpecialValueFor("disarm_duration"))
 	hTarget:AddNewModifier(hCaster, self, "modifier_gilles_fear", {duration = 10})
 end
 
-function modifier_gilles_hysteria:DeclareFunctions()
-	return { MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT }
-end
+-- function modifier_gilles_hysteria:DeclareFunctions()
+-- 	return { MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT }
+-- end
 
 if IsServer() then 
 	function modifier_gilles_hysteria:OnCreated(args)
 		self.Damage = args.Damage
-		self.AttackSpeed = args.AttackSpeed
+		--self.AttackSpeed = args.AttackSpeed
 
 		CustomNetTables:SetTableValue("sync","gilles_hysteria_stat", { att_spd = self.AttackSpeed })
 
@@ -86,17 +87,17 @@ if IsServer() then
 	end	
 end
 
-function modifier_gilles_hysteria:GetModifierAttackSpeedBonus_Constant()
-	local att_spd = 0
+-- function modifier_gilles_hysteria:GetModifierAttackSpeedBonus_Constant()
+-- 	local att_spd = 0
 
-	if IsServer() then
-		att_spd = -1*self.AttackSpeed
-	else
-		att_spd = -1*CustomNetTables:GetTableValue("sync","gilles_hysteria_stat").att_spd
-	end
+-- 	if IsServer() then
+-- 		att_spd = -1*self.AttackSpeed
+-- 	else
+-- 		att_spd = -1*CustomNetTables:GetTableValue("sync","gilles_hysteria_stat").att_spd
+-- 	end
 
-	return att_spd
-end
+-- 	return att_spd
+-- end
 
 function modifier_gilles_hysteria:IsDebuff()
 	return true
