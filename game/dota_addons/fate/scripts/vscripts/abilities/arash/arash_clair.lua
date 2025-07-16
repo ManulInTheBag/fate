@@ -99,7 +99,7 @@ function arash_clair:OnChannelFinish(bInterrupted)
 	if #enemies > 0 then 
 
 		for _,enemy in pairs(enemies) do
-					local damage =  enemy:GetModifierStackCount( "modifier_arash_clair_stacking", caster)/100*(self:GetSpecialValueFor("damage")/2 + caster:GetAgility() * self:GetSpecialValueFor("agi_scale")/2) + self:GetSpecialValueFor("damage")/2  + caster:GetAgility() * self:GetSpecialValueFor("agi_scale")/2 
+					local damage =  enemy:GetModifierStackCount( "modifier_arash_clair_stacking", caster)/100*(self:GetSpecialValueFor("damage")/1.33 + caster:GetAgility() * self:GetSpecialValueFor("agi_scale")/1.33) + self:GetSpecialValueFor("damage")/4  + caster:GetAgility() * self:GetSpecialValueFor("agi_scale")/4 
 		damage = damage * (1 + (caster.ArashClairvoyance and caster.MasterUnit2:FindAbilityByName("arash_clairvoyance"):GetSpecialValueFor("star_arrow_bonus_damage")/100 or 0))
 			local info = {
 				Target = enemies[_],
