@@ -447,6 +447,111 @@
 		"VisionNighttimeRange"		"0"		// Range of vision at night time.
 	}
 
+	"kh_grab_unit"
+	{
+		"Model"				"models/updated_by_seva_and_hudozhestvenniy_film_spizdili/konomama_ta/konomama_ta.vmdl"
+		"BaseClass"			"npc_dota_base_additive"
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"	
+		"Ability1"					"dummy_unit_passive"			// Ability 1
+		"Ability2"					""			// Ability 2
+		"Ability3"					""			// Ability 3
+		"Ability4"					""			// Ability 4
+
+		"ArmorPhysical"				"-5"			// Physical protection.
+
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND" 
+		"MovementSpeed"				"300"		// Speed.
+		"MovementTurnRate"			"0.3"		// Turning rate.
+
+		"AttackCapabilities"			"DOTA_UNIT_CAP_NO_ATTACK"	
+		"AttackRange"					"0"
+		"AttackDamageMin"				"0"
+		"AttackDamageMax"				"0"
+		"AttackRate"					"0"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"500"		// Base health.
+		"StatusHealthRegen"			"0"		// Health regeneration rate.
+		"StatusMana"				"0"			// Base mana.
+		"StatusManaRegen"			"0"			// Mana regeneration rate.	
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"0"		// Range of vision during day light.
+		"VisionNighttimeRange"		"0"		// Range of vision at night time.
+	}
+
+	"kh_grab_unit_mirror"
+	{
+		"Model"				"models/updated_by_seva_and_hudozhestvenniy_film_spizdili/konomama_ta/konomama_ta_mirror.vmdl"
+		"BaseClass"			"npc_dota_base_additive"
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"	
+		"Ability1"					"dummy_unit_passive"			// Ability 1
+		"Ability2"					""			// Ability 2
+		"Ability3"					""			// Ability 3
+		"Ability4"					""			// Ability 4
+
+		"ArmorPhysical"				"-5"			// Physical protection.
+
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND" 
+		"MovementSpeed"				"300"		// Speed.
+		"MovementTurnRate"			"0.3"		// Turning rate.
+
+		"AttackCapabilities"			"DOTA_UNIT_CAP_NO_ATTACK"	
+		"AttackRange"					"0"
+		"AttackDamageMin"				"0"
+		"AttackDamageMax"				"0"
+		"AttackRate"					"0"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"500"		// Base health.
+		"StatusHealthRegen"			"0"		// Health regeneration rate.
+		"StatusMana"				"0"			// Base mana.
+		"StatusManaRegen"			"0"			// Mana regeneration rate.	
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"0"		// Range of vision during day light.
+		"VisionNighttimeRange"		"0"		// Range of vision at night time.
+	}
+
+	"kh_grab_unit_back"
+	{
+		"Model"				"models/updated_by_seva_and_hudozhestvenniy_film_spizdili/konomama_ta/konomama_ta_back.vmdl"
+		"BaseClass"			"npc_dota_base_additive"
+		"BoundsHullName"	"DOTA_HULL_SIZE_SMALL"	
+		"Ability1"					"dummy_unit_passive"			// Ability 1
+		"Ability2"					""			// Ability 2
+		"Ability3"					""			// Ability 3
+		"Ability4"					""			// Ability 4
+
+		"ArmorPhysical"				"-5"			// Physical protection.
+
+		"MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND" 
+		"MovementSpeed"				"300"		// Speed.
+		"MovementTurnRate"			"0.3"		// Turning rate.
+
+		"AttackCapabilities"			"DOTA_UNIT_CAP_NO_ATTACK"	
+		"AttackRange"					"0"
+		"AttackDamageMin"				"0"
+		"AttackDamageMax"				"0"
+		"AttackRate"					"0"
+
+		// Status
+		//----------------------------------------------------------------
+		"StatusHealth"				"500"		// Base health.
+		"StatusHealthRegen"			"0"		// Health regeneration rate.
+		"StatusMana"				"0"			// Base mana.
+		"StatusManaRegen"			"0"			// Mana regeneration rate.	
+
+		// Vision
+		//----------------------------------------------------------------
+		"VisionDaytimeRange"		"0"		// Range of vision during day light.
+		"VisionNighttimeRange"		"0"		// Range of vision at night time.
+	}
+
 	"f16_dummy"
 	{
 		"Model"				"models/lancelot/lancelot_f16.vmdl"

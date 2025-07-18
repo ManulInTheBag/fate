@@ -21,7 +21,8 @@ function modifier_khsn_bc_pepega:DeclareFunctions()
 end
 function modifier_khsn_bc_pepega:GetModifierTotal_ConstantBlock(keys)
     if IsServer()
-        and ( ( self.hParent.BattleContinuationAcquired and not self.hParent:HasModifier("modifier_khsn_bc_cooldown") ) or Convars:GetBool("dota_ability_debug") ) then
+        --and ( ( self.hParent.BattleContinuationAcquired and not self.hParent:HasModifier("modifier_khsn_bc_cooldown") ) or Convars:GetBool("dota_ability_debug") ) then
+        and ( self.hParent.BattleContinuationAcquired and not self.hParent:HasModifier("modifier_khsn_bc_cooldown") and not self.hParent:HasModifier("modifier_khsn_combo_arena_buff") ) then
         local fHealth = keys.target:GetHealth() - keys.damage
         if fHealth < 10 then
             --keys.target:ModifyHealth(fHealth, self.hAbility, false, DOTA_DAMAGE_FLAG_NONE)
@@ -37,7 +38,7 @@ function modifier_khsn_bc_pepega:GetModifierTotal_ConstantBlock(keys)
             local hMDE_Ability = self.hCaster:FindAbilityByName("khsn_mde")
             if hMDE_Ability
                 and hMDE_Ability:IsTrained() then
-                local hModifier = keys.target:AddNewModifier(self.hCaster, hMDE_Ability, "modifier_khsn_bc_active", {duration = hMDE_Ability:GetSpecialValueFor("duration")})
+                local hModifier = keys.target:AddNewModifier(self.hCaster, hMDE_Ability, "modifier_khsn_mde_active", {duration = hMDE_Ability:GetSpecialValueFor("duration")})
             end
 
             if not Convars:GetBool("dota_ability_debug") then

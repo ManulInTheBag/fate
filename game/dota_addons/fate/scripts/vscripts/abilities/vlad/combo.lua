@@ -79,7 +79,7 @@ function vlad_combo:OnSpellStart()
 			FxDestroyer(self.PI1, false)
 			for k,v in pairs(targets) do
 				if caster:IsAlive() then
-        	caster:ApplyHeal(heal,caster)
+        	caster:ApplyHeal(heal,self)
 				end
 				self:VFX3_OnTargetExecute(k,v)
 				v:SetAbsOrigin(GetGroundPosition(v:GetAbsOrigin(),v))

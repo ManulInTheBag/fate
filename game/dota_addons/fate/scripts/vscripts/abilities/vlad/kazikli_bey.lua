@@ -186,7 +186,7 @@ function vlad_kazikli_bey:OnSpellStart()
 
 		        if caster.ImprovedImpalingAcquired then
 		        	local heal_per_target = caster.MasterUnit2:FindAbilityByName("vlad_attribute_improved_impaling"):GetSpecialValueFor("kb_spike_heal_per_target")
-		        	caster:ApplyHeal(heal_per_target * #lasthitTargets, caster)
+		        	caster:ApplyHeal(heal_per_target * #lasthitTargets, self)
 		        end
 				--remove ontarget VFX
 				Timers:CreateTimer(1.5, function()

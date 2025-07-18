@@ -215,7 +215,7 @@ function PotInstantHeal(keys)
 		RefundItem(caster, ability)
 		return
 	end
-	caster:ApplyHeal(500, caster)
+	caster:ApplyHeal(500, ability)
 
 	if caster:GetName() ~= "npc_dota_hero_juggernaut" then
 		caster:GiveMana(500)
@@ -835,13 +835,13 @@ function HealingScroll(keys)
 	local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 600
             , DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false)
 	for k,v in pairs(targets) do
-		Timers:CreateTimer(0, function()
+		--Timers:CreateTimer(0, function()
 			if v:GetName() ~= "npc_dota_ward_base" then
 				ParticleManager:SetParticleControl(healFx, 1, v:GetAbsOrigin()) -- target effect location
-	    	    v:ApplyHeal(555, caster)
+	    	    v:ApplyHeal(555, ability)
 	       		--ability :ApplyDataDrivenModifier(caster, v, "modifier_healing_scroll", {})
 	       	end
-	    end)
+	    --end)
     end
 
    	Timers:CreateTimer(2.0, function()

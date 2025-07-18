@@ -1,5 +1,5 @@
 LinkLuaModifier("modifier_khsn_ambush", "abilities/kinghassan/khsn_ambush", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_khsn_ambush_as", "abilities/kinghassan/khsn_ambush", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_khsn_ambush_block", "abilities/kinghassan/khsn_ambush", LUA_MODIFIER_MOTION_NONE)
 
 khsn_ambush = class({})
 
@@ -12,84 +12,22 @@ function khsn_ambush:OnSpellStart()
 	--Timers:CreateTimer(fade_delay, function()
 		if caster:IsAlive() then
 			caster:AddNewModifier(caster, self, "modifier_khsn_ambush", {duration = self:GetSpecialValueFor("duration")})
+            if caster.BoundaryAcquired then
+                caster:AddNewModifier(caster, self, "modifier_item_ward_true_sight", {true_sight_range = self:GetSpecialValueFor("attribute_true_sight_range"), duration = self:GetSpecialValueFor("attribute_true_sight_duration")})
+            end
 		end
 	--end)
     if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 and caster:GetIntellect() >= 29.1 then		
-		if caster:FindAbilityByName("khsn_azrael"):IsCooldownReady() 
-			and caster:FindAbilityByName("khsn_combo"):IsCooldownReady()  
-	    	and caster:GetAbilityByIndex(3):GetName() == "khsn_azrael" then
-			caster:SwapAbilities("khsn_ambush", "khsn_mde_end", false, true)
+		if caster:FindAbilityByName("khsn_combo_arena"):IsCooldownReady()  
+	    	and caster:GetAbilityByIndex(4):GetName() == "khsn_bc" then
+			caster:SwapAbilities("khsn_bc", "khsn_combo_arena", false, true)
 			Timers:CreateTimer(3, function()
-				if caster:GetAbilityByIndex(0):GetName() ~= "khsn_ambush" then
-					caster:SwapAbilities("khsn_ambush", "khsn_mde_end", true, false)
+				if caster:GetAbilityByIndex(4):GetName() ~= "khsn_combo_arena_recast" then
+					caster:SwapAbilities("khsn_bc", "khsn_combo_arena", true, false)
 				end
 			end)
 		end
 	end
-end
-
-khsn_ambush_blink = class({})
-
-function khsn_ambush_blink:CastFilterResultLocation(vLocation)
-    local hCaster = self:GetCaster()
-
-    if vLocation
-        and hCaster and not hCaster:IsNull() then
-        if not (IsServer() and IsLocked(hCaster)) and not ( IsServer() and not IsInSameRealm(hCaster:GetAbsOrigin(), vLocation) ) then
-            return UF_SUCCESS
-        end
-    end
-    return UF_FAIL_CUSTOM
-end
-
-function khsn_ambush_blink:GetCustomCastErrorLocation(vLocation)
-    local hCaster = self:GetCaster()
-
-    if vLocation
-        and hCaster and not hCaster:IsNull() then
-        if IsServer() and IsInSameRealm(hCaster:GetAbsOrigin(), vLocation) then
-            return "#Is_Locked"
-        end
-    end
-    return "#Wrong_Target_Location"
-end
-
-function khsn_ambush_blink:OnSpellStart()
-	local hCaster = self:GetCaster()
-    local ability = self
-    local targetpoint = self:GetCursorPosition()
-
-
-
-    local particle = ParticleManager:CreateParticle("particles/econ/items/phantom_assassin/pa_crimson_witness_2021/pa_crimson_witness_blur_ambient_fleks.vpcf", PATTACH_ABSORIGIN_FOLLOW, hCaster)
-    ParticleManager:SetParticleControl(particle, 3, hCaster:GetAbsOrigin())
-    local particle1 = ParticleManager:CreateParticle("particles/econ/items/phantom_assassin/phantom_assassin_arcana_elder_smith/pa_arcana_death_black_steam.vpcf", PATTACH_ABSORIGIN_FOLLOW, hCaster)
-    ParticleManager:SetParticleControl(particle1, 3, hCaster:GetAbsOrigin())
-
-    hCaster:EmitSound("Hero_EmberSpirit.FireRemnant.Cast")
-    local tParams = {
-        sInEffect = "particles/units/heroes/hero_dragon_knight/dragon_knight_loadout.vpcf",   --NAGASIREN MIRROR IMAGE AND BLACKFOGS
-        sOutEffect = "particles/units/heroes/hero_dragon_knight/dragon_knight_loadout.vpcf"
-    }
-
-	local fRange = ability:GetSpecialValueFor("range")
-	if hCaster.BoundaryAcquired then
-		fRange = fRange + 300
-	end
- 	AbilityBlink(hCaster,targetpoint, fRange, tParams)
-
-
-	Timers:CreateTimer( 0.1, function()
-    	ParticleManager:SetParticleControl(particle, 3, hCaster:GetAbsOrigin())
-    	ParticleManager:SetParticleControl(particle1, 3, hCaster:GetAbsOrigin())
-	end
-	)
-	Timers:CreateTimer(300, function()
-		ParticleManager:DestroyParticle(particle, false)
-		ParticleManager:ReleaseParticleIndex(particle)
-		ParticleManager:DestroyParticle(particle1, false)
-		ParticleManager:ReleaseParticleIndex(particle1)
-	end)
 end
 
 modifier_khsn_ambush = class({})
@@ -97,29 +35,43 @@ modifier_khsn_ambush = class({})
 function modifier_khsn_ambush:DeclareFunctions()
     local funcs = {}
     funcs = { MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
-            MODIFIER_EVENT_ON_ATTACK,
-            --MODIFIER_EVENT_ON_ATTACK_LANDED,
+            MODIFIER_PROPERTY_ATTACK_RANGE_BONUS,
             MODIFIER_EVENT_ON_ABILITY_FULLY_CAST,
-            --MODIFIER_EVENT_ON_TAKEDAMAGE,
-            MODIFIER_EVENT_ON_ATTACK_START,
-            MODIFIER_EVENT_ON_ORDER
             }
     return funcs
 end
 
+function modifier_khsn_ambush:GetModifierAttackRangeBonus()
+    return self:GetAbility():GetSpecialValueFor("bonus_range")
+end
+
 function modifier_khsn_ambush:CheckState()
-   	return { [MODIFIER_STATE_INVISIBLE] = true,
-    		[MODIFIER_STATE_NO_UNIT_COLLISION] = true,
-    		 }
+    if not IsServer() then return end
+
+    return self.state
 end
 
 if IsServer() then
     function modifier_khsn_ambush:OnCreated(table)     
         local caster = self:GetParent()
+        self.ability = self:GetAbility()
+
+        self.state = {[MODIFIER_STATE_INVISIBLE] = true,
+                        [MODIFIER_STATE_NO_UNIT_COLLISION] = true}
 
         if not (caster:GetAbilityByIndex(0):GetName() == "khsn_ambush_blink") then
         	--caster:SwapAbilities("khsn_ambush", "khsn_ambush_blink", false, true)
         end
+
+        self:StartIntervalThink(self.ability:GetSpecialValueFor("invis_duration"))
+    end
+
+    function modifier_khsn_ambush:OnRefresh()
+        self:OnCreated()
+    end
+
+    function modifier_khsn_ambush:OnIntervalThink()
+        self.state = {}
     end
 
     function modifier_khsn_ambush:OnAttackLanded(args)	
@@ -129,15 +81,54 @@ if IsServer() then
         local target = args.target
         if caster == target then return end
 
-        --DoDamage(caster, target, self.bonusDamage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
-        --target:EmitSound("Hero_TemplarAssassin.Meld.Attack")
+        self.state = {}
+
+        local damage = self.ability:GetSpecialValueFor("damage")
+
+        local position = target:GetAbsOrigin() - target:GetForwardVector()*50
+
+        LoopOverPlayers(function(player, playerID, playerHero)
+            if playerHero.zlodemon == true    then
+                CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="zlodemon_kh_q" })
+            end
+        end)
+
+        local slashFx = ParticleManager:CreateParticle("particles/kinghassan/khsn_trail_scepter.vpcf", PATTACH_ABSORIGIN, caster )
+        ParticleManager:SetParticleControl( slashFx, 0, caster:GetAbsOrigin())
+        ParticleManager:SetParticleControl( slashFx, 1, position)
+
+        local slashIndex = ParticleManager:CreateParticle( "particles/custom/false_assassin/tsubame_gaeshi/tsubame_gaeshi_windup_indicator_flare.vpcf", PATTACH_CUSTOMORIGIN, nil )
+        ParticleManager:SetParticleControl(slashIndex, 0, target:GetAbsOrigin())
+        ParticleManager:SetParticleControl(slashIndex, 1, Vector(500,0,150))
+        ParticleManager:SetParticleControl(slashIndex, 2, Vector(0.2,0,0))
+
+        FindClearSpaceForUnit(caster, position, true)
+        caster:FaceTowards(target:GetAbsOrigin())
+
+        EmitSoundOnLocationWithCaster(target:GetAbsOrigin(), "Hero_SkeletonKing.Hellfire_BlastImpact", caster)
+        LoopOverPlayers(function(player, playerID, playerHero)
+            if playerHero.zlodemon == true   then
+                CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="zlodemon_kh_e_backstab" })
+            end
+        end)
+        caster:AddNewModifier(caster, self.ability, "modifier_khsn_ambush_block", {duration = self.ability:GetSpecialValueFor("shield_duration")})
+
+        local burn_fx = ParticleManager:CreateParticle("particles/kinghassan/khsn_shadowraze.vpcf", PATTACH_ABSORIGIN, target)
+        ParticleManager:SetParticleControl(burn_fx, 0, target:GetAbsOrigin())
+
+        local flame_fx = ParticleManager:CreateParticle("particles/kinghassan/khsn_flame_kappa.vpcf", PATTACH_ABSORIGIN, target)
+        ParticleManager:SetParticleControl(flame_fx, 0, target:GetAbsOrigin())
+        ParticleManager:SetParticleControl(flame_fx, 1, Vector(0, 0, 1000))
+
+        DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+
         self:Destroy()
     end
 
     function modifier_khsn_ambush:OnAbilityFullyCast(args)
         if args.unit == self:GetParent() then
         	if args.ability:GetName() ~= "khsn_ambush" and args.ability:GetName() ~= "khsn_mde_end" then
-            	self:Destroy()
+            	self.state = {}
             end
         end
     end
@@ -148,40 +139,9 @@ if IsServer() then
         --if not (caster:GetAbilityByIndex(0):GetName() == "khsn_ambush") then
         --	caster:SwapAbilities("khsn_ambush", "khsn_ambush_blink", true, false)
         --end
-        if caster.BoundaryAcquired then
+        --[[if caster.BoundaryAcquired then
         	caster:AddNewModifier(caster, self:GetAbility(), "modifier_khsn_ambush_as", {duration = self:GetAbility():GetSpecialValueFor("attr_duration")})
-        end
-    end
-end
-function modifier_khsn_ambush:OnOrder(args)
-    if( args.order_type ~= DOTA_UNIT_ORDER_ATTACK_TARGET ) then return end
-    if args.unit ~= self:GetParent() then return end
-    if args.target:GetTeamNumber() == args.unit:GetTeamNumber() then return end
-    if (IsServer() and  IsLocked(args.attacker) )then return end
-    local targetpos = args.target:GetAbsOrigin()
-    local casterpos = args.unit:GetAbsOrigin()
-    local distance = (casterpos-targetpos):Length2D()
-    local distanceCap = 350
-    if args.unit.BoundaryAcquired then
-        distanceCap = 600
-    end
-    if distance < distanceCap then 
-        FindClearSpaceForUnit(args.unit, targetpos + args.target:GetForwardVector() * -50, true)
-    end
-end
-function modifier_khsn_ambush:OnAttackStart(args)
-    if args.attacker ~= self:GetParent() then return end
-    if args.target:GetTeamNumber() == args.attacker:GetTeamNumber() then return end
-    if (IsServer() and  IsLocked(args.attacker) )then return end
-    local targetpos = args.target:GetAbsOrigin()
-    local casterpos = args.attacker:GetAbsOrigin()
-    local distance = (casterpos-targetpos):Length2D()
-    local distanceCap = 350
-    if args.attacker.BoundaryAcquired then
-        distanceCap = 600
-    end
-    if distance < distanceCap then 
-        FindClearSpaceForUnit(args.attacker, targetpos + args.target:GetForwardVector() * -50, true)
+        end]]
     end
 end
 function modifier_khsn_ambush:GetModifierMoveSpeedBonus_Percentage()
@@ -218,52 +178,79 @@ function modifier_khsn_ambush:GetTexture()
 end
 -----------------------------------------------------------------------------------
 
-modifier_khsn_ambush_as = class({})
+modifier_khsn_ambush_block = class({})
 
-function modifier_khsn_ambush_as:DeclareFunctions()
-	return {MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT,
-     --MODIFIER_EVENT_ON_ORDER,
-      MODIFIER_EVENT_ON_ATTACK_FINISHED}
-end
-function modifier_khsn_ambush_as:OnCreated()
-    if IsServer() then 
-        self:SetStackCount(3)   
-    end    
-end
-function modifier_khsn_ambush_as:OnRefresh()
-    if IsServer() then 
-        self:SetStackCount(3)   
-    end  
-end
-function modifier_khsn_ambush_as:IsHidden() return false end
-function modifier_khsn_ambush_as:IsDebuff() return false end
+function modifier_khsn_ambush_block:IsHidden() return false end
+function modifier_khsn_ambush_block:IsDebuff() return false end
 
-function modifier_khsn_ambush_as:GetModifierAttackSpeedBonus_Constant()
-	return self:GetAbility():GetSpecialValueFor("attr_as")
+function modifier_khsn_ambush_block:OnCreated()
+
 end
 
-function modifier_khsn_ambush_as:OnOrder(args)
-    if( args.order_type ~= DOTA_UNIT_ORDER_ATTACK_TARGET ) then return end
-    if args.unit ~= self:GetParent() then return end
-    if args.target:GetTeamNumber() == args.unit:GetTeamNumber() then return end
-    local targetpos = args.target:GetAbsOrigin()
-    local casterpos = args.unit:GetAbsOrigin()
-    local distance = (casterpos-targetpos):Length2D()
-    if distance < 350 then 
-        FindClearSpaceForUnit(args.unit, targetpos + args.target:GetForwardVector() * -50, true)
+function modifier_khsn_ambush_block:DeclareFunctions()
+    local hFunc =   {   
+                        MODIFIER_PROPERTY_INCOMING_DAMAGE_CONSTANT
+                    }
+    return hFunc
+end
+function modifier_khsn_ambush_block:GetModifierIncomingDamageConstant(keys)
+    if IsServer() then
+        if keys.damage > 0 then
+            local block_now   = self:GetStackCount()
+            local block_check = block_now - keys.original_damage
+            local blocked = 0
+            if block_check > 0 then
+                blocked = keys.original_damage
+                self:SetStackCount(block_check)
+                self.fBarrierBlock = block_check
+            else
+                blocked = keys.original_damage--block_now
+                local damage = keys.original_damage - block_now
+                local dmgtable = {
+                    attacker = keys.attacker,
+                    victim = keys.target,
+                    damage = damage,
+                    damage_type = keys.damage_type,
+                    damage_flags = keys.damage_flags,
+                    ability = keys.inflictor
+                }
+                self:Destroy()
+                ApplyDamage(dmgtable)
+            end
+
+            return -1*blocked
+        end
+    else
+        return self:GetStackCount()
     end
 end
-function modifier_khsn_ambush_as:OnAttackFinished(args)
-    if args.attacker ~= self:GetParent() then return end
-    if args.target:GetTeamNumber() == args.attacker:GetTeamNumber() then return end
-    if (IsServer() and  IsLocked(args.attacker) )then return end
-    if self:GetStackCount() <= 0 then return end
+function modifier_khsn_ambush_block:OnCreated(hTable)
+    self.hCaster  = self:GetCaster()
+    self.hParent  = self:GetParent()
+    self.hAbility = self:GetAbility()
+
+    if not self.fBarrierBlock then
+        self.fBarrierBlock = 0
+    end
+
+    self.fBarrierBlock = self.hAbility:GetSpecialValueFor("shield")
     
-    local targetpos = args.target:GetAbsOrigin()
-    local casterpos = args.attacker:GetAbsOrigin()
-    local distance = (casterpos-targetpos):Length2D()
-    if distance < 350 then 
-        self:SetStackCount(self:GetStackCount() - 1 )
-        FindClearSpaceForUnit(args.attacker, targetpos + args.target:GetForwardVector() * -50, true)
+    if not self.iShieldPFX then
+        self.iShieldPFX = ParticleManager:CreateParticle( "particles/king_hassan/khsn_shield.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.hParent ) 
+        ParticleManager:SetParticleControl(self.iShieldPFX, 0, self.hParent:GetAbsOrigin())
+
+        self:AddParticle(self.iShieldPFX, false, false, -1, false, false)
+    else
+        local flashFX = ParticleManager:CreateParticle("particles/kinghassan/khsn_shield_cast.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.hParent)
+        ParticleManager:SetParticleControl(flashFX, 0, self.hParent:GetAbsOrigin())
+
+        ParticleManager:ReleaseParticleIndex(flashFX)
     end
+
+    if IsServer() then
+        self:SetStackCount(self.fBarrierBlock)
+    end
+end
+function modifier_khsn_ambush_block:OnRefresh(hTable)
+    self:OnCreated(hTable)
 end

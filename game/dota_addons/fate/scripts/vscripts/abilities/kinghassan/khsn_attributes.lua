@@ -1,4 +1,4 @@
-LinkLuaModifier("modifier_khsn_presence_aura", "abilities/kinghassan/khsn_presence", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_khsn_presence_attribute", "abilities/kinghassan/khsn_attributes", LUA_MODIFIER_MOTION_NONE)
 
 khsn_boundary_attribute = class({})
 
@@ -8,15 +8,6 @@ function khsn_boundary_attribute:OnSpellStart()
 	local hero = caster:GetPlayerOwner():GetAssignedHero()
 
 	hero.BoundaryAcquired = true
-
-	--[[Timers:CreateTimer(function()
-		if hero:IsAlive() then 
-	    	hero:AddNewModifier(hero, self, "modifier_mordred_overload", {})
-			return nil
-		else
-			return 1
-		end
-	end)]]
 
 	-- Set master 1's mana 
 	local master = hero.MasterUnit
@@ -30,7 +21,7 @@ function khsn_bc_attribute:OnSpellStart()
 	local ply = caster:GetPlayerOwner()
 	local hero = caster:GetPlayerOwner():GetAssignedHero()
 
-	--hero:SwapAbilities("fate_empty6", "khsn_bc", false, true)
+	hero:FindAbilityByName("khsn_bc"):SetLevel(1)
 
 	hero.BattleContinuationAcquired = true
 
@@ -48,14 +39,14 @@ function khsn_presence_attribute:OnSpellStart()
 
 	--hero:SwapAbilities("fate_empty_nothidden", "khsn_presence", false, true)
 
-	--[[Timers:CreateTimer(function()
+	Timers:CreateTimer(function()
 		if hero:IsAlive() then 
-	    	hero:AddNewModifier(hero, self, "modifier_khsn_presence_aura", {})
+	    	hero:AddNewModifier(hero, self, "modifier_khsn_presence_attribute", {})
 			return nil
 		else
 			return 1
 		end
-	end)]]
+	end)
 
 	hero.PresenceAcquired = true
 
@@ -87,9 +78,28 @@ function khsn_flame_attribute:OnSpellStart()
 
 	hero.FlameAcquired = true
 
-	hero:SwapAbilities("fate_empty6", "khsn_blink", false, true)
+	hero:FindAbilityByName("khsn_grab"):SetLevel(2)
 
 	-- Set master 1's mana 
 	local master = hero.MasterUnit
 	master:SetMana(master:GetMana() - self:GetManaCost(self:GetLevel()))
+end
+
+
+modifier_khsn_presence_attribute = class({})
+
+function modifier_khsn_presence_attribute:IsHidden() 
+	return true
+end
+
+function modifier_khsn_presence_attribute:IsPermanent()
+	return true
+end
+
+function modifier_khsn_presence_attribute:RemoveOnDeath()
+	return false
+end
+
+function modifier_khsn_presence_attribute:GetAttributes()
+  return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end

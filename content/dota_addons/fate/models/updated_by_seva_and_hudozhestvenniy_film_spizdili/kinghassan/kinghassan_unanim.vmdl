@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc39:version{1ceecb0d-4093-4729-ab18-b76886c64cde} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc40:version{da0ab1f8-9722-4910-94b8-10b6a08c0934} -->
 {
 	rootNode = 
 	{
@@ -75,6 +75,15 @@
 						name = "left_eye"
 						parent_bone = "bone_new8"
 						relative_origin = [ 1.0, -1.16902, 0.552631 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "maw"
+						parent_bone = "bone_new8"
+						relative_origin = [ -0.044073, -1.206516, -0.420036 ]
 						relative_angles = [ 0.0, 0.0, 0.0 ]
 						weight = 1.0
 						ignore_rotation = false
@@ -419,12 +428,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/kinghassan/kinghassan.fbx"
 						import_bone_scales = false
 						start_frame = 63
 						end_frame = 125
 						framerate = 45.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -442,12 +453,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/kinghassan/kinghassan.fbx"
 						import_bone_scales = false
 						start_frame = 157
 						end_frame = 187
 						framerate = 60.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -465,12 +478,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/kinghassan/kinghassan.fbx"
 						import_bone_scales = false
 						start_frame = 218
 						end_frame = 250
 						framerate = 60.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -488,12 +503,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/kinghassan/kinghassan.fbx"
 						import_bone_scales = false
 						start_frame = 282
 						end_frame = 313
 						framerate = 20.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -511,12 +528,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/kinghassan/kinghassan.fbx"
 						import_bone_scales = false
 						start_frame = 343
 						end_frame = 375
 						framerate = 30.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -534,12 +553,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/kinghassan/kinghassan.fbx"
 						import_bone_scales = false
 						start_frame = 409
 						end_frame = 487
 						framerate = 30.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -611,12 +632,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/kinghassan/kinghassan.fbx"
 						import_bone_scales = false
 						start_frame = 530
 						end_frame = 656
 						framerate = 30.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -689,12 +712,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/kinghassan/kinghassan.fbx"
 						import_bone_scales = false
 						start_frame = 750
 						end_frame = 781
 						framerate = -1.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -712,12 +737,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/kinghassan/kinghassan.fbx"
 						import_bone_scales = false
 						start_frame = 687
 						end_frame = 730
 						framerate = 30.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -735,12 +762,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/kinghassan/kinghassan.fbx"
 						import_bone_scales = false
 						start_frame = 687
 						end_frame = 687
 						framerate = 1.0
 						reverse = false
+						additional_anim_files = [  ]
 						anim_hold_list = 
 						[
 							{
@@ -748,6 +777,74 @@
 								frame_count = 1
 							},
 						]
+					},
+					{
+						_class = "AnimFile"
+						name = "kinghassan_stare"
+						children = 
+						[
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 6
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/kinghassan/khsn_eye_long.vpcf"
+									detach_from_owner = false
+									always_run = true
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = "left_eye"
+									attachment_type = "point_follow"
+									attachment_point_cp1 = null
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 6
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/kinghassan/khsn_eye_long.vpcf"
+									detach_from_owner = false
+									always_run = true
+									stop_on_seq_change = false
+									stop_immediately = false
+									use_layer_sequence = false
+									tags = null
+									attachment_point = "right_eye"
+									attachment_type = "point_follow"
+									attachment_point_cp1 = null
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+						]
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CHANNEL_ABILITY_4"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/kinghassan/kinghassan.fbx"
+						import_bone_scales = false
+						start_frame = 63
+						end_frame = 125
+						framerate = 45.0
+						reverse = false
+						additional_anim_files = [  ]
 					},
 				]
 				default_root_bone_name = ""

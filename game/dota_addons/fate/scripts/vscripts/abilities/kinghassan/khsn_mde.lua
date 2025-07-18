@@ -1,9 +1,19 @@
 LinkLuaModifier("modifier_khsn_mde", "abilities/kinghassan/khsn_mde", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_khsn_mde_active", "abilities/kinghassan/khsn_mde", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_khsn_mde_enemy", "abilities/kinghassan/khsn_mde", LUA_MODIFIER_MOTION_NONE)
 
 khsn_mde = class({})
 
 function khsn_mde:GetIntrinsicModifierName() return "modifier_khsn_mde" end
+
+function khsn_mde:OnUpgrade()
+	local caster = self:GetCaster()
+    
+    if caster:FindAbilityByName("khsn_azrael"):GetLevel() ~= self:GetLevel() then
+    	caster:FindAbilityByName("khsn_azrael"):SetLevel(self:GetLevel())
+    end
+end
+
 function khsn_mde:OnSpellStart()
 	local caster = self:GetCaster()
 	LoopOverPlayers(function(player, playerID, playerHero)
@@ -95,30 +105,37 @@ end]]
 function modifier_khsn_mde_active:OnCreated()
 	if IsServer() then
 		self.parent = self:GetParent()
+		self.ability = self:GetAbility()
+
+		self.radius = self.ability:GetSpecialValueFor("radius")
 		
-		self:StartIntervalThink(0.25)
+		self:StartIntervalThink(FrameTime())
 		self:OnIntervalThink()
 
-		self.fRegenHP = self:GetAbility():GetSpecialValueFor("hp_regen")
-		self.fArmor   = self:GetAbility():GetSpecialValueFor("bonus_armor")
+		self.fRegenHP = self.ability:GetSpecialValueFor("hp_regen")
+		self.fArmor   = self.ability:GetSpecialValueFor("bonus_armor")
 
-		--[[if self.parent:HasModifier("modifier_khsn_bk_improved") then
-			self.fRegenHP = self.fRegenHP + 40
-			self.fArmor   = self.fArmor + 25
-		end]]
+		self.fx = ParticleManager:CreateParticle("particles/kinghassan/khsn_shroud/khsn_shroud.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.parent)
+		ParticleManager:SetParticleControl(self.fx, 1, Vector(self.radius, 0, 0))
 
-		--[[if self.parent:GetAbilityByIndex(1):GetName() ~= "khsn_mde_end" then
-			self.parent:SwapAbilities("khsn_mde", "khsn_mde_end", false, true)
-		end]]
+		self:AddParticle(self.fx, false, false, -1, false, false)
+
+		if self.parent:GetAbilityByIndex(1):GetName() ~= "khsn_azrael" then
+			self.parent:SwapAbilities("khsn_mde", "khsn_azrael", false, true)
+		end
 	end
 end
 function modifier_khsn_mde_active:OnRefresh(tTable)
-	self:OnCreated(tTable)
 end
 function modifier_khsn_mde_active:OnDestroy()
-	--[[if self.parent:GetAbilityByIndex(1):GetName() ~= "khsn_mde" then
-		self.parent:SwapAbilities("khsn_mde", "khsn_mde_end", true, false)
-	end]]
+	if not IsServer() then return end
+	if self.parent:GetAbilityByIndex(1):GetName() ~= "khsn_mde" then
+		self.parent:SwapAbilities("khsn_mde", "khsn_azrael", true, false)
+	end
+
+	local abi = self.parent:FindAbilityByName("khsn_mde")
+
+	abi:StartCooldown(abi:GetCooldown(-1))
 end
 
 function modifier_khsn_mde_active:OnIntervalThink()
@@ -126,15 +143,16 @@ function modifier_khsn_mde_active:OnIntervalThink()
 		local enemies2 = FindUnitsInRadius(  self.parent:GetTeamNumber(),
 	                                            self.parent:GetAbsOrigin(), 
 	                                            nil, 
-	                                            self:GetAbility():GetSpecialValueFor("attr_radius"), 
+	                                            self.radius, 
 	                                            DOTA_UNIT_TARGET_TEAM_ENEMY, 
 	                                            DOTA_UNIT_TARGET_HERO, 
 	                                            0, 
 	                                            FIND_ANY_ORDER, 
 	                                            false)
 		for _,enemy in ipairs(enemies2) do
-			DoDamage(self.parent, enemy, self:GetAbility():GetSpecialValueFor("dps")/4, self.parent.PresenceAcquired and DAMAGE_TYPE_PURE or DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
-			self.parent:Heal(self:GetAbility():GetSpecialValueFor("dps")/4, self.parent)
+			enemy:AddNewModifier(self.parent, self.ability, "modifier_khsn_mde_enemy", {duration = 0.1})
+			--[[DoDamage(self.parent, enemy, self:GetAbility():GetSpecialValueFor("dps")/4, self.parent.PresenceAcquired and DAMAGE_TYPE_PURE or DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
+			self.parent:Heal(self:GetAbility():GetSpecialValueFor("dps")/4, self.parent)]]
 	    end
 	end
 end
@@ -175,6 +193,101 @@ end
 
 
 
+modifier_khsn_mde_enemy = modifier_khsn_mde_enemy or class({})
+
+function modifier_khsn_mde_enemy:DeclareFunctions()
+    return { MODIFIER_PROPERTY_PROVIDES_FOW_POSITION,
+    		MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE,
+    		MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
+			MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE}
+end
+
+function modifier_khsn_mde_enemy:GetModifierHealAmplify_PercentageTarget()
+	if self:GetCaster():HasModifier("modifier_khsn_presence_attribute") then
+		return -1*self:GetAbility():GetSpecialValueFor("attribute_heal_reduction")
+	end
+	return 0
+end
+
+function modifier_khsn_mde_enemy:GetModifierHPRegenAmplify_Percentage()
+	if self:GetCaster():HasModifier("modifier_khsn_presence_attribute") then
+		return -1*self:GetAbility():GetSpecialValueFor("attribute_heal_reduction")
+	end
+	return 0
+end
+
+function modifier_khsn_mde_enemy:GetModifierTotalDamageOutgoing_Percentage()
+	if(self:GetCaster().PresenceAcquired == true) then
+		return -1*self:GetAbility():GetSpecialValueFor("attribute_damage_reduction")
+	end
+	return 0
+end
+
+function modifier_khsn_mde_enemy:GetModifierProvidesFOWVision()
+    return 1
+end
+
+function modifier_khsn_mde_enemy:IsHidden()
+    return false
+end
+
+function modifier_khsn_mde_enemy:IsDebuff()
+    return true
+end
+
+function modifier_khsn_mde_enemy:OnCreated()
+	if not IsServer() then return end
+
+	self.caster = self:GetCaster()
+	self.parent = self:GetParent()
+	self.ability = self:GetAbility()
+	self.radius = self.ability:GetSpecialValueFor("radius")
+	self.linger_duration = self.ability:GetSpecialValueFor("linger_duration")
+
+	self.timer = 0
+
+	self.fx = ParticleManager:CreateParticle("particles/kinghassan/khsn_siphon.vpcf", PATTACH_ABSORIGIN, self.caster)
+	self.attach_caster = self.caster:ScriptLookupAttachment("maw")
+	self.attach_parent = self.parent:ScriptLookupAttachment("attach_hitloc")
+	ParticleManager:SetParticleControl(self.fx, 0, self.caster:GetAttachmentOrigin(self.attach_caster))
+	ParticleManager:SetParticleControl(self.fx, 1, self.parent:GetAttachmentOrigin(self.attach_parent))
+
+	self:AddParticle(self.fx, false, false, -1, false, false)
+
+	self:StartIntervalThink(FrameTime())
+end
+
+function modifier_khsn_mde_enemy:OnRefresh()
+end
+
+function modifier_khsn_mde_enemy:OnIntervalThink()
+	if not IsServer() then return end
+
+	ParticleManager:SetParticleControl(self.fx, 0, self.caster:GetAttachmentOrigin(self.attach_caster))
+	ParticleManager:SetParticleControl(self.fx, 1, self.parent:GetAttachmentOrigin(self.attach_parent))
+
+	self.timer = self.timer + FrameTime()
+	if self.timer >= 0.1 then
+		self.timer = 0
+
+		if ((self.caster:GetAbsOrigin() - self.parent:GetAbsOrigin()):Length2D() > self.radius) or (not self.caster:IsAlive() or not (self.caster:HasModifier("modifier_khsn_mde_active"))) then
+			self:Destroy()
+			return
+		end
+
+		local damage = self.ability:GetSpecialValueFor("dps")
+		local heal = self.ability:GetSpecialValueFor("heal")
+
+		DoDamage(self.caster, self.parent, damage/10, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
+		self.caster:Heal(heal/10, self.caster)
+
+		if self.parent:IsHero() then
+			if self.caster.PresenceAcquired then
+				self.caster:AddNewModifier(self.caster, self.ability, "modifier_khsn_mde_active", {duration = self.linger_duration})
+			end
+		end
+	end
+end
 
 
 LinkLuaModifier("modifier_khsn_bk_improved", "abilities/kinghassan/khsn_mde", LUA_MODIFIER_MOTION_NONE)

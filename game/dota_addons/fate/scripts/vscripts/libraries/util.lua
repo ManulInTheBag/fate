@@ -379,6 +379,7 @@ cleansable = {
     "modifier_robin_tools_mysterious_substance_debuff",
     "modifier_robin_yew_bow_silence",
     "modifier_robin_yew_bow_combo_lock",
+    "modifier_khsn_grab_target",
 }
 
 
@@ -480,6 +481,7 @@ donotlevel = {
     "altera_adaptive",
     "nanaya_dash",
     "robin_faceless_king",
+    "khsn_bc",
 }
 
 CannotReset = {
@@ -678,6 +680,10 @@ CannotReset = {
     "astolfo_hippogriff_vanish",
     "iskander_trap",
     "iskander_thunder_2",
+
+    "khsn_grab",
+    "khsn_combo_arena",
+    "khsn_combo_arena_recast",
 }
 
 
@@ -744,6 +750,7 @@ tModifierKBImmune = {
     "modifier_merlin_avalon_self",
     "modifier_leonidas_enomotia_ignore_motion_controll",
     "modifier_kb_immune",
+    "modifier_khsn_grab_target",
 }
 
 tManalessHero = {

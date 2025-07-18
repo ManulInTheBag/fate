@@ -1,4 +1,5 @@
 LinkLuaModifier("modifier_king_hassan_block", "abilities/kinghassan/khsn_slash", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_king_hassan_slash_slow", "abilities/kinghassan/khsn_slash", LUA_MODIFIER_MOTION_NONE)
 khsn_slash = class({})
 
 function khsn_slash:OnAbilityPhaseStart()
@@ -20,8 +21,27 @@ function khsn_slash:OnSpellStart()
 	local range = ability:GetSpecialValueFor("length")
 	local speed = ability:GetSpecialValueFor("speed")
 
+	local ori = caster:GetAbsOrigin()
+
 	giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 0.5)
     caster:EmitSound("KingHassan.Azrael")
+
+    if caster.BoundaryAcquired then
+	    local enemies = FATE_FindUnitsInLine(
+										        caster:GetTeamNumber(),
+										        ori,
+										        ori + caster:GetForwardVector()*range,
+										        width/2,
+												DOTA_UNIT_TARGET_TEAM_ENEMY,
+												DOTA_UNIT_TARGET_HERO,
+												0,
+												FIND_CLOSEST
+			   								)
+
+	    for k,v in pairs(enemies) do
+	    	v:AddNewModifier(caster, self, "modifier_king_hassan_slash_slow", {duration = 0.5})
+	    end
+	end
 
 	local azrael = 
 	{
@@ -204,4 +224,18 @@ function modifier_king_hassan_block:OnCreated(hTable)
 end
 function modifier_king_hassan_block:OnRefresh(hTable)
 	self:OnCreated(hTable)
+end
+
+----
+
+modifier_king_hassan_slash_slow = class({})
+
+function modifier_king_hassan_slash_slow:IsHidden() return false end
+function modifier_king_hassan_slash_slow:IsDebuff() return true end
+function modifier_king_hassan_slash_slow:RemoveOnDeath() return true end
+function modifier_king_hassan_slash_slow:DeclareFunctions()
+  return {  MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE  }
+end
+function modifier_king_hassan_slash_slow:GetModifierMoveSpeedBonus_Percentage()
+  return -100
 end

@@ -9,7 +9,7 @@ if IsServer() then
 		local parent = self:GetParent()
     if parent:IsAlive() then
   		local bc_heal = parent.MasterUnit2:FindAbilityByName("vlad_attribute_protection_of_faith"):GetSpecialValueFor("bc_heal")
-  		parent:ApplyHeal(bc_heal,parent)
+  		parent:ApplyHeal(bc_heal,self:GetAbility())
     end
 	end
 

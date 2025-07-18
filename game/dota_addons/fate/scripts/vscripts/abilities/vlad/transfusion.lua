@@ -88,7 +88,7 @@ function vlad_transfusion:OnSpellStart()
   				local modbleed = v:FindModifierByName("modifier_bleed")
   				local count = modbleed:GetStackCount()
   				if count > 0 then
-            caster:ApplyHeal(heal, caster)
+            caster:ApplyHeal(heal, self)
             DoDamage(caster, v, dmg, DAMAGE_TYPE_MAGICAL, 0, self, false)
   					modbleed:SetStackCount(count - 1)
   					count = modbleed:GetStackCount()

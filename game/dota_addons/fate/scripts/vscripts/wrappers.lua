@@ -3,6 +3,8 @@ Wrappers = {}
 function Wrappers.WrapUnit(hUnit)
 	-- Heals
 	function hUnit:ApplyHeal(fAmount, hSource, ...)
+		if not hUnit then return end
+		
 		local fHeal = fAmount
 		local fMaxHealth = hUnit:GetMaxHealth()
 		local fCurrentHealth = hUnit:GetHealth()

@@ -44,7 +44,7 @@ if IsServer() then
       local PI1 = FxCreator("particles/custom/vlad/vlad_im_splash_blood.vpcf",PATTACH_ABSORIGIN,target,0,nil)
       local targets_splash = FindUnitsInRadius(parent:GetTeamNumber(), target:GetAbsOrigin(), nil, splash_aoe, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	    parent:AddBleedStack(target,true)
-      parent:ApplyHeal(damage*lifesteal,parent)
+      parent:ApplyHeal(damage*lifesteal,self:GetAbility())
       print(damage*lifesteal)
       print(damage)
       Timers:CreateTimer(1,function()

@@ -10,6 +10,14 @@ khsn_azrael = class({})
 
 function khsn_azrael:GetIntrinsicModifierName() return "modifier_khsn_azrael" end 
 
+function khsn_azrael:OnUpgrade()
+	local caster = self:GetCaster()
+    
+    if caster:FindAbilityByName("khsn_mde"):GetLevel() ~= self:GetLevel() then
+    	caster:FindAbilityByName("khsn_mde"):SetLevel(self:GetLevel())
+    end
+end
+
 function khsn_azrael:OnSpellStart()
 	local caster = self:GetCaster()
 	local target = self:GetCursorTarget()
@@ -23,105 +31,87 @@ function khsn_azrael:OnSpellStart()
 			--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
 		end
 	end)
-	--giveUnitDataDrivenModifier(caster, caster, "jump_pause_nosilence", 9999)
+
 	caster:AddNewModifier(caster, self, "modifier_azrael_stun", {duration = 1.37})
-	--caster:AddNewModifier(caster, self, "modifier_azrael_move", {duration = 1.63+3.25})
-	--caster:AddNewModifier(caster, self, "modifier_azrael_particle", {duration = 6.26 + 2.210})
 	caster:AddNewModifier(caster, self, "modifier_azrael_particle", {duration = 1.37})
-	--[[EmitGlobalSound("azrael_start")
-	Timers:CreateTimer(1.63, function()
-		if target and not target:IsNull() and target:IsAlive() then
-			EmitGlobalSound("azrael_middle")
-		end
-	end)
 
-	Timers:CreateTimer(1.63 + 3.25, function()
-		if target and not target:IsNull() and target:IsAlive() then
-			target:AddNewModifier(caster, self, "modifier_azrael_stun", {duration = 2.75})
-			EmitGlobalSound("azrael_end")
-		end
-	end)]]
-
-	local damage = self:GetSpecialValueFor("damage") + (caster.AzraelAcquired and 100 or 0)
+	local damage = self:GetSpecialValueFor("damage")
 	local modifier_damage = 0
 	local modifier_death = target:FindModifierByName("modifier_death_door")
-	if target:HasModifier("modifier_death_door_pepeg") then
-		modifier_death = target:FindModifierByName("modifier_death_door_pepeg")
-	end
+
 	local flag = DOTA_DAMAGE_FLAG_NONE
-	if caster.AzraelAcquired then
-        flag = DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY
-    end
-	local multiplier = self:GetSpecialValueFor("dmg_percent")/100 + (caster.AzraelAcquired and 0.1 or 0)
+	
 	if modifier_death then
-		modifier_damage = modifier_death.recieved_damage*multiplier
+		modifier_damage = modifier_death.received_damage
 	end
+		
+	if target and not target:IsNull() and target:IsAlive() then
+		local certain_execute = false
 
-	--StartAnimation(caster, {duration=6.26, activity=ACT_DOTA_CAST_ABILITY_4, rate=0.4})
-
-	--Timers:CreateTimer(6.26, function()
-		if target and not target:IsNull() and target:IsAlive() then
-			local light_index = ParticleManager:CreateParticle("particles/kinghassan/khsn_domus_ray.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
-			ParticleManager:SetParticleControl( light_index, 0, target:GetAbsOrigin())
-			ParticleManager:SetParticleControl( light_index, 7, target:GetAbsOrigin())
-			EmitGlobalSound("azrael_finish")
-			StartAnimation(caster, {duration=2.21, activity=ACT_DOTA_CAST_ABILITY_4_END, rate=1.0})
-			Timers:CreateTimer(1.370, function()
-				if target and not target:IsNull() and target:IsAlive() then
-					--[[if not target:IsRealHero() then
-						target:Kill(self, caster)
-						caster:RemoveModifierByName("jump_pause_nosilence")
-						caster:RemoveModifierByName("modifier_azrael_particle")
-						return
-					end]]
-					if not target:IsMagicImmune() then
-						DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, flag, self, false)
-					end
-					if not target:IsMagicImmune() then
-						DoDamage(caster, target, modifier_damage, caster.AzraelAcquired and DAMAGE_TYPE_PURE or DAMAGE_TYPE_MAGICAL, flag, self, false)
-					end
-					target:RemoveModifierByName("modifier_death_door")
-					caster:RemoveModifierByName("jump_pause_nosilence")
-					local targetpos = target:GetAbsOrigin() + target:GetForwardVector()*300
-					FindClearSpaceForUnit(caster, targetpos, true)
-            		caster:FaceTowards(target:GetAbsOrigin())
-					local slashFx = ParticleManager:CreateParticle("particles/kinghassan/khsn_feathers.vpcf", PATTACH_ABSORIGIN, target )
-					ParticleManager:SetParticleControl( slashFx, 0, target:GetAbsOrigin() + Vector(0,0,300))
-
-					Timers:CreateTimer( 2.0, function()
-						ParticleManager:DestroyParticle( slashFx, false )
-						ParticleManager:ReleaseParticleIndex( slashFx )
-					end)
-					EmitGlobalSound("azrael_bell")
-					Timers:CreateTimer(2.0, function()
-						EmitGlobalSound("azrael_bell")
-					end)
-					Timers:CreateTimer(4.0, function()
-						EmitGlobalSound("azrael_bell")
-					end)
-					if target:GetHealth() < self:GetSpecialValueFor("health_threshold")/100*target:GetMaxHealth() then
-						--[[target:AddNewModifier(caster, self, "modifier_death_door_pepeg", {duration = self:GetSpecialValueFor("sequence_duration"),
-																							damage = damage})]]
-						target:Execute(self, caster, { bExecution = true })
-					end
-					--[[if not target:IsAlive() and caster.AzraelAcquired then
-						self:EndCooldown()
-						caster:GiveMana(800)
-					end]]
-				else
-					caster:RemoveModifierByName("jump_pause_nosilence")
-					caster:RemoveModifierByName("modifier_azrael_particle")
-					--[[if caster.AzraelAcquired then
-						self:EndCooldown()
-						caster:GiveMana(800)
-					end]]
+		--[[if target:GetHealth() < self:GetSpecialValueFor("health_threshold")/100*target:GetMaxHealth() then
+			certain_execute = true
+		end]]
+		
+		local light_index = ParticleManager:CreateParticle("particles/kinghassan/khsn_domus_ray.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
+		ParticleManager:SetParticleControl( light_index, 0, target:GetAbsOrigin())
+		ParticleManager:SetParticleControl( light_index, 7, target:GetAbsOrigin())
+		
+		EmitGlobalSound("azrael_finish")
+		
+		StartAnimation(caster, {duration=2.21, activity=ACT_DOTA_CAST_ABILITY_4_END, rate=1.0})
+		
+		Timers:CreateTimer(1.370, function()
+			if target and not target:IsNull() and target:IsAlive() then
+				if not target:IsMagicImmune() then
+					DoDamage(caster, target, damage + modifier_damage, DAMAGE_TYPE_MAGICAL, flag, self, false)
 				end
-			end)
-		else
-			caster:RemoveModifierByName("jump_pause_nosilence")
-			caster:RemoveModifierByName("modifier_azrael_particle")
-		end
-	--end)
+			
+				--[[if not target:IsMagicImmune() then
+					DoDamage(caster, target, modifier_damage, caster.AzraelAcquired and DAMAGE_TYPE_PURE or DAMAGE_TYPE_MAGICAL, flag, self, false)
+				end]]
+			
+				target:RemoveModifierByName("modifier_death_door")
+				caster:RemoveModifierByName("jump_pause_nosilence")
+				
+				local targetpos = target:GetAbsOrigin() + target:GetForwardVector()*300
+				FindClearSpaceForUnit(caster, targetpos, true)
+            	caster:FaceTowards(target:GetAbsOrigin())
+				
+				local slashFx = ParticleManager:CreateParticle("particles/kinghassan/khsn_feathers.vpcf", PATTACH_ABSORIGIN, target )
+				ParticleManager:SetParticleControl( slashFx, 0, target:GetAbsOrigin() + Vector(0,0,300))
+
+				Timers:CreateTimer( 2.0, function()
+					ParticleManager:DestroyParticle( slashFx, false )
+					ParticleManager:ReleaseParticleIndex( slashFx )
+				end)
+			
+				EmitGlobalSound("azrael_bell")
+				Timers:CreateTimer(2.0, function()
+					EmitGlobalSound("azrael_bell")
+				end)
+				Timers:CreateTimer(4.0, function()
+					EmitGlobalSound("azrael_bell")
+				end)
+			
+				if (target:GetHealth() < self:GetSpecialValueFor("health_threshold")/100*target:GetMaxHealth()) then
+					target:Execute(self, caster, { bExecution = true })
+				end
+				if target:IsAlive() then
+					caster:RemoveModifierByName("modifier_khsn_mde_active")
+				end
+			else
+				caster:RemoveModifierByName("jump_pause_nosilence")
+				caster:RemoveModifierByName("modifier_azrael_particle")
+				--[[if caster.AzraelAcquired then
+					self:EndCooldown()
+					caster:GiveMana(800)
+				end]]
+			end
+		end)
+	else
+		caster:RemoveModifierByName("jump_pause_nosilence")
+		caster:RemoveModifierByName("modifier_azrael_particle")
+	end
 end
 
 modifier_khsn_azrael = class({})
@@ -157,7 +147,7 @@ function modifier_khsn_azrael:OnTakeDamage(args)
 
 	local target = args.unit
 	target:AddNewModifier(self.parent, self.ability, "modifier_death_door", {duration = self.ability:GetSpecialValueFor("death_door_duration"),
-																			damage = (target:FindModifierByName("modifier_death_door") and target:FindModifierByName("modifier_death_door").recieved_damage or args.damage)})
+																			damage = args.damage})
 end
 
 modifier_death_door = class({})
@@ -167,29 +157,66 @@ function modifier_death_door:IsDebuff() return true end
 function modifier_death_door:RemoveOnDeath() return true end
 function modifier_death_door:DeclareFunctions()
 	return {	--MODIFIER_EVENT_ON_TAKEDAMAGE,
-				MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,
-				MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE	}
+				--MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE
+			}
 end
 
-function modifier_death_door:GetModifierTotalDamageOutgoing_Percentage()
+--[[function modifier_death_door:GetModifierTotalDamageOutgoing_Percentage()
 	if(self:GetCaster().PresenceAcquired == true) then
 		return -self:GetAbility():GetSpecialValueFor("damage_reduction")
 	else return 0
 	end
-end
+end]]
 
 function modifier_death_door:OnCreated(kappa)
+	if not IsServer() then return end
+
 	self.parent = self:GetParent()
-	self.recieved_damage = kappa.damage
+	self.ability = self:GetAbility()
+
+	self.mult = self.ability:GetSpecialValueFor("dmg_percent")
+	self.threshold = self.ability:GetSpecialValueFor("health_threshold")
+	self.max_store = self.ability:GetSpecialValueFor("maximum_stored")
+
+	self.received_damage = kappa.damage*self.mult/100
+
+	self.fx = ParticleManager:CreateParticle("particles/kinghassan/khsn_azrael_skull/khsn_death_door_overhead_dynamic.vpcf", PATTACH_OVERHEAD_FOLLOW, self.parent)
+	ParticleManager:SetParticleControl(self.fx, 1, Vector(0, 0, 0)) --x enables particle (radius), y 0 == base skull 1 == exploding skull (seq), z == shaking strength (0 stop, 1 do)
+	ParticleManager:SetParticleControl(self.fx, 2, Vector(0, 0, 0)) --color, 0 240 0 green 240 0 0 red
+
+	self:AddParticle(self.fx, false, false, -1, false, false)
+
+	self:StartIntervalThink(FrameTime())
 end
+
+function modifier_death_door:OnRefresh()
+end
+
+function modifier_death_door:OnIntervalThink()
+	if not IsServer() then return end
+
+	local execute_check = self.threshold/100*self.parent:GetMaxHealth()
+	local health_check = CalculateDamagePostReduction(DAMAGE_TYPE_MAGICAL, self.received_damage, self.parent) + execute_check
+
+	if self.parent:GetHealth() < execute_check then
+		ParticleManager:SetParticleControl(self.fx, 1, Vector(1, 1, 1))
+		ParticleManager:SetParticleControl(self.fx, 2, Vector(240, 0, 0))
+	elseif self.parent:GetHealth() < health_check then
+		ParticleManager:SetParticleControl(self.fx, 1, Vector(1, 0, 0))
+		ParticleManager:SetParticleControl(self.fx, 2, Vector(0, 240, 0))
+	else
+		ParticleManager:SetParticleControl(self.fx, 1, Vector(0, 0, 0))
+		ParticleManager:SetParticleControl(self.fx, 2, Vector(0, 0, 0))
+	end
+end
+
 function modifier_death_door:OnTakeDamage(args)
 	if args.unit ~= self.parent then return end
 	if args.attacker ~= self:GetCaster() then return end
 
-	self.recieved_damage = self.recieved_damage + args.damage
-end
-function modifier_death_door:GetModifierMoveSpeedBonus_Percentage()
-	return -(self:GetCaster():FindAbilityByName("khsn_azrael"):GetSpecialValueFor("death_door_slow") + (self:GetCaster().AzraelAcquired and 0 or 0))
+	self.max_store = self.ability:GetSpecialValueFor("maximum_stored") --refresh in case of in-fight level up
+
+	self.received_damage = self.received_damage + args.damage*self.mult/100
 end
 
 modifier_death_door_pepeg = class({})
@@ -203,7 +230,7 @@ function modifier_death_door_pepeg:DeclareFunctions()
 end
 function modifier_death_door_pepeg:OnCreated(kappa)
 	self.parent = self:GetParent()
-	self.recieved_damage = kappa.damage
+	self.received_damage = kappa.damage
 	if IsServer() then
 		self:StartIntervalThink(FrameTime())
 	end
@@ -212,7 +239,7 @@ function modifier_death_door_pepeg:OnTakeDamage(args)
 	if args.unit ~= self.parent then return end
 	if args.attacker ~= self:GetCaster() then return end
 
-	self.recieved_damage = self.recieved_damage + args.damage
+	self.received_damage = self.received_damage + args.damage
 end
 function modifier_death_door_pepeg:GetModifierMoveSpeedBonus_Percentage()
 	return -10

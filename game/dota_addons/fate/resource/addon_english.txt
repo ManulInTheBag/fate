@@ -5375,10 +5375,11 @@
 		"npc_dota_hero_skeleton_king_bio"	""
 
 		"DOTA_Tooltip_Ability_khsn_ambush"				"Death's Approach"
-        "DOTA_Tooltip_ability_khsn_ambush_Description"	"King Hassan becomes invisible, gains bonus movement speed. Autoattacking, using abilities and items breaks invisibility.\nWhen sending an attack order, king hassan will teleport behind enemy's back if he is in 350 radius."
+        "DOTA_Tooltip_ability_khsn_ambush_Description"	"<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>Immediate</font>\nKing Hassan becomes invisible for a brief moment and gains bonus movement speed.\nHis next attack will have increased range, teleport him to the target, deal additional <font color='#58ACFA'>%damage%</font> magical damage and grant him a <font color='#FFFAFA'>%shield% all-damage barrier</font> for %shield_duration% seconds."
+        "DOTA_Tooltip_ability_khsn_ambush_invis_duration"	"Invisibility duration:"
         "DOTA_Tooltip_ability_khsn_ambush_duration"			"Duration:"
         "DOTA_Tooltip_ability_khsn_ambush_ms_bonus"			"%Movespeed bonus:"
-        //"DOTA_Tooltip_ability_khsn_ambush_range"				"Blink distance:"
+        "DOTA_Tooltip_ability_khsn_ambush_bonus_range"		"Additional attack range:"
 
         "DOTA_Tooltip_Ability_khsn_ambush_blink"				"Death's Arrival"
         "DOTA_Tooltip_ability_khsn_ambush_blink_Description"	"King Hassan blinks to the target location."
@@ -5395,18 +5396,23 @@
 		"DOTA_Tooltip_Ability_khsn_blink_turn_rate"	"%Turn rate slow:"
 
 		"DOTA_Tooltip_Ability_khsn_mde"		"Evening Bell"
-		"DOTA_Tooltip_Ability_khsn_mde_Description"	"Passive: knowing Death's ways made King Hassan nearly impossible enemy to fight with. Deals additional magical damage on attack, based on target's health.\nActive: King Hassan becomes partly ephemeral, gaining bonus physical resistance, increasing his movespeed and draining life force from nearby enemies."
-		"DOTA_Tooltip_Ability_khsn_mde_damage_percent"	"%Passive damage:"
-		"DOTA_Tooltip_Ability_khsn_mde_dps"		"Damage:"
-		"DOTA_Tooltip_Ability_khsn_mde_bonus_armor"	"Bonus armor:"
-		"DOTA_Tooltip_Ability_khsn_mde_ms_bonus"	"%Active movespeed bonus:"
+		"DOTA_Tooltip_Ability_khsn_mde_Description"	"<font color='#FFFAFA'>Passive</font>\nOn attack deals <font color='#58ACFA'>%damage_percent%% </font> of target's maximum health as magical damage.\nDealing damage applies <font color='#FF0033'>Death's Door</font> debuff to enemies for %death_door_duration% seconds.\n<font color='#FF0033'>Death's Door</font>: stores %dd_dmg_percent%%  of the damage King Hassan deals to this unit under the effect of the debuff, up to %azrael_max_storage%.\n<font color='#FFFAFA'>Active</font> | <font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%AbilityCastPoint%</font>\n King Hassan gains %ms_bonus%%  additional movement speed and starts draining life force from nearby enemies, dealing <font color='#58ACFA'>%dps%</font> magical damage per second and healing himself for %heal% per second for each enemy affected.\nEnables <font color='#ff9900'>Azrael</font>.\n<font color='#ff9900'>Azrael</font> - <font color='#FFFAFA'>Active</font> | <font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%azrael_cast_point%</font>\nAfter a 1.37 second delay, deals <font color='#58ACFA'>%azrael_damage%</font> + damage stored by the <font color='#FF0033'>Death's Door</font> on this enemy as <font color='#58ACFA'>magical</font> damage.\nIf enemy's health drops below %azrael_health_threshold%% , it will be executed.\nEnds Evening Bell if target was not killed."
 		"DOTA_Tooltip_Ability_khsn_mde_duration"	"Active duration:"
 
 		"DOTA_Tooltip_Ability_khsn_mde_end"		"Your Life is Near the End"
 		"DOTA_Tooltip_Ability_khsn_mde_end_Description"	"Enables Angel, That Announces Death."
 
-		"DOTA_Tooltip_Ability_khsn_aoe_flame"	"Phantasmal Flame"
-		"DOTA_Tooltip_Ability_khsn_aoe_flame_Description"	"King Hassan orders flames to incinerate everything around him, dealing damage, locking, slowing and igniting them. Also applies lock on targets while casting. Deals additional damage at the start of the cast.\nAt the end of the cast sends waves of fire in a bigger radius around him, dealing additional damage and igniting targets."
+		"DOTA_Tooltip_Ability_khsn_slash"				"Mortuary Slash"
+        "DOTA_Tooltip_ability_khsn_slash_Description"	"<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%AbilityCastPoint%</font> | <font color='#FFFAFA'>Cast delay</font>:  <font color='#7FFF00'>%cast_delay%</font>\nKing Hassan prepares for a moment, then releases a powerful swing in front of him, dealing damage and stunning impacted enemies.\nWhen hitting enemies with this ability, King Hassan gets magic damage barrier, stacking up to a cap."
+        "DOTA_Tooltip_ability_khsn_slash_stun"	"Stun duration:"
+        "DOTA_Tooltip_ability_khsn_slash_damage"			"Damage:"
+        "DOTA_Tooltip_ability_khsn_slash_length"			"Length:"
+        "DOTA_Tooltip_ability_khsn_slash_cast_delay"		"Delay:"
+        "DOTA_Tooltip_ability_khsn_slash_block_per_unit"		"Barrier per unit:"
+        "DOTA_Tooltip_ability_khsn_slash_block_max"				"Maximum barrier:"
+
+        "DOTA_Tooltip_Ability_khsn_aoe_flame"	"Phantasmal Flame"
+		"DOTA_Tooltip_Ability_khsn_aoe_flame_Description"	"<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%AbilityCastPoint%</font>\nKing Hassan orders flames to incinerate everything around him, dealing damage, locking, slowing and igniting them. Also applies lock on targets while casting. Deals additional damage at the start of the cast.\nAt the end of the cast sends waves of fire in a bigger radius around him, dealing additional damage and igniting targets."
 		"DOTA_Tooltip_Ability_khsn_aoe_flame_radius"		"Incineration radius:"
 		"DOTA_Tooltip_Ability_khsn_aoe_flame_damage_first"	"Start damage:"
 		"DOTA_Tooltip_Ability_khsn_aoe_flame_damage_burn"	"Total incineration damage:"
@@ -5415,6 +5421,61 @@
 		"DOTA_Tooltip_Ability_khsn_aoe_flame_flame_duration"			"Ignite duration:"
 		"DOTA_Tooltip_Ability_khsn_aoe_flame_flame_damage_per_second"	"Ignite DPS:"
 		"DOTA_Tooltip_Ability_khsn_aoe_flame_slow_percentage"			"%Ignite slow:"
+
+		"DOTA_Tooltip_Ability_khsn_grab"	"Gaze of Death"	
+		"DOTA_Tooltip_ability_khsn_grab_Description"	"<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%AbilityCastPoint%</font>\nOrders Hassan of the Hundred Faces to grab the target and stares at it, <font color='#FF3399'>stunning</font> the target until channeling ends or duration expires and dealing <font color='#58ACFA'>%damage_per_second%</font> magical damage per second."
+		"DOTA_Tooltip_Ability_khsn_grab_channel_duration"	"Channel duration:"	
+
+		"DOTA_Tooltip_Ability_khsn_bc"			"Abyss of Death"
+		"DOTA_Tooltip_Ability_khsn_bc_Description"	"This swordsman who is no longer certain whether he is alive or dead, even if he receives a fatal wound or loses half of his body, will keep snapping at the enemy as if he was in perfectly good health. When his health drops down to zero, he restores 25%% of his max health and activates Evening Bell instead of dying.\nCooldown: 99 seconds.\nKing Hassan also cannot be executed."
+
+		"DOTA_Tooltip_Ability_khsn_azrael"	"Azrael"
+		"DOTA_Tooltip_Ability_khsn_azrael_Description"	"<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%AbilityCastPoint%</font>\nAfter a 1.37 second delay, deals <font color='#58ACFA'>%damage%</font> + damage stored by the <font color='#FF0033'>Death's Door</font> on this enemy as <font color='#58ACFA'>magical</font> damage.\nIf enemy's health drops below %health_threshold%% , it will be executed.\nEnds Evening Bell if target was not killed."
+
+		"DOTA_Tooltip_Ability_khsn_combo_arena"	"Combo - Valley of the Shadow of Death"
+		"DOTA_Tooltip_Ability_khsn_combo_arena_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : Q-Q-F in 3 seconds</font>\nKing Hassan brings the Valley to the mortal realm for %duration% seconds, manifesting an area, where all enemies are affected by %heal_reduction%%  healing reduction and King Hassan himself is immortal.\nEnemies leaving the Valley will be hunted by the Hassan of Hundred Faces, taking <font color='#58ACFA'>%damage_punishment%</font> magical damage as a punishment.\nCan be recast after 4.8 seconds.\nRecast: All enemies inside the Valley will be stunned for 2.8 seconds and will take <font color='#58ACFA'>%damage%</font> magical damage when the stun ends."
+
+		"DOTA_Tooltip_Ability_khsn_combo_arena_recast"	"Combo - Valley of the Shadow of Death"
+		"DOTA_Tooltip_Ability_khsn_combo_arena_recast_Description"	""
+
+		"DOTA_Tooltip_Ability_khsn_boundary_attribute"	"Attribute - At The Boundary"
+		"DOTA_Tooltip_Ability_khsn_boundary_attribute_Description"	"Death's Approach grants King Hassan 800 radius true sight for 3 seconds.\nChanges Evening Bell passive damage type to pure.\nMortuary Slash applies 100%% slow to all enemies in the area King Hassan will hit on cast ."
+
+		"DOTA_Tooltip_Ability_khsn_bc_attribute"	"Attribute - Abyss of Death"
+		"DOTA_Tooltip_Ability_khsn_bc_attribute_Description"	"Abyss of Death: This swordsman who is no longer certain whether he is alive or dead, even if he receives a fatal wound or loses half of his body for example, will keep snapping at the enemy as if he was in perfectly good health. When his health drops down to zero, he restores 25%% of his max health and activates Evening Bell instead of dying.\nCooldown: 99 seconds.\nKing Hassan also cannot be executed."
+
+		"DOTA_Tooltip_Ability_khsn_presence_attribute"	"Attribute - Death's Presence"
+		"DOTA_Tooltip_Ability_khsn_presence_attribute_Description"	"Evening Bell's duration can't drop below %linger_duration% seconds while it affects enemy heroes.\nEnemies under Evening's Bell effect deal %damage_penalty%%  less damage and have their healing efficiency reduced by %heal_penalty%% ."
+
+		"DOTA_Tooltip_Ability_khsn_flame_attribute"	"Attribute - Being of Phantasm"
+		"DOTA_Tooltip_Ability_khsn_flame_attribute_Description"	"Upgrades Gaze of Death.\nGaze of Death also reduces target's healing by %heal_reduction%%  while active."
+		"DOTA_Tooltip_Ability_khsn_flame_attribute_range" "Range:"
+		"DOTA_Tooltip_Ability_khsn_blink_damage" "Damage:"
+		"DOTA_Tooltip_Ability_khsn_flame_attribute_duration"	"Slow duration:"
+		"DOTA_Tooltip_Ability_khsn_flame_attribute_silence_duration"	"Silence duration:"
+		"DOTA_Tooltip_Ability_khsn_flame_attribute_lock_duration"	"Lock duration:"
+		//"DOTA_Tooltip_Ability_khsn_flame_attribute_dmg_bonus"	"Bonus damage:"
+		"DOTA_Tooltip_Ability_khsn_flame_attribute_turn_rate"	"%Turn rate slow:"
+
+		"DOTA_Tooltip_Ability_khsn_azrael_attribute"	"Attribute - Valley of the Shadow of Death"
+		"DOTA_Tooltip_Ability_khsn_azrael_attribute_Description"	"Phantasmal Flame deals additional incineration and fire waves damage.\nPhantasmal Flame ignition duration increased."
+		"DOTA_Tooltip_Ability_khsn_azrael_attribute_first_dmg"	"Incineration bonus damage:"
+		"DOTA_Tooltip_Ability_khsn_azrael_attribute_second_dmg"	"Fire waves bonus damage:"
+		"DOTA_Tooltip_Ability_khsn_azrael_attribute_duration"	"Bonus fire duration:"
+
+		//unused kh shit
+
+		"DOTA_Tooltip_Ability_khsn_presence"		"Death's Presence"
+		"DOTA_Tooltip_Ability_khsn_presence_Description"	"Presence of a being heavily connected with Death fears even the bravest warriors. Enemies under this effect deal 25%% less damage. This effect cannot be evaded with any source of invulnerability."
+		"DOTA_Tooltip_Ability_khsn_presence_damage_reduction"	"%Damage reduction:"
+		"DOTA_Tooltip_Ability_khsn_presence_aura_radius"	"Radius:"
+
+		"DOTA_Tooltip_Ability_khsn_combo"	"Combo - The Angel That Announces Death, Azrael"
+		"DOTA_Tooltip_Ability_khsn_combo_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : Q-Q-D in 3 seconds</font>\nKing Hassan starts an execution of the target enemy, dealing a huge amount of magic damage over time. After a delay, teleports to the enemy and deals huge amount of pure damage based on how much damage was stored at enemy's Death's Door.\nExecutes the target with the final strike if it's health falls to low.\nKing Hassan is invulnerable while using this ability."
+		"DOTA_Tooltip_Ability_khsn_combo_damage"	"Base damage:"
+		"DOTA_Tooltip_Ability_khsn_combo_dmg_percent"	"%Death's Door stored damage multiplier:"
+		"DOTA_Tooltip_Ability_khsn_combo_health_threshold"	"%Execution threshold:"
+		//"DOTA_Tooltip_ability_khsn_combo_Note0"	"Hero 'hard' names: Arturia Pendragon, Cu Chulain, Arturia Alter, Emiya, Medusa, Heracles, Sasaki Kojiro, Hassan-i-Sabbah, Medea, Gilgamesh, Lancelot, Angra Mainyu, Diarmuid, Iskander, Gilles de Rais, Nero Claudius, Gawain, Tamamo no Mae, Li Shuwen, Jeanne d'Arc, Astolfo, Nursery Rhyme = Alice, Atalanta, Vlad, Karna, Chloe von Einzbern = Kuro, Jack the Ripper, Okita Souji, Mordred, Atalanta Alter. Hero 'easy' names: Saber, Lancer, Salter, Emiya, Medusa, Pepeg, Sasaki, Hassan, Medea, Gilgamesh, Lancelot, Angra, Diarmuid, Iskander, Gilles, Nero, Gawain, Tamamo, Shuwen, Jeanne, Astolfo, Alice, Atalanta, Vlad, Karna, Chloe, Jack, Okita, Mordred, Atalanta Alter."
 
 		"DOTA_Tooltip_Ability_khsn_flame"		"Phantasmal Flame"
 		"DOTA_Tooltip_Ability_khsn_flame_Description"	"King Hassan sears an enemy with spectral flame, dealing heavy magic damage and stunning it, and ignites all enemies in cone in front of him."
@@ -5454,71 +5515,11 @@
 		"DOTA_Tooltip_Ability_khsn_stab_silence_duration" "Silence duration:"
 		"DOTA_Tooltip_Ability_khsn_stab_Lore"	"Showing your back to the Death means you're already dead."
 
-		"DOTA_Tooltip_Ability_khsn_slash"				"Mortuary Slash"
-        "DOTA_Tooltip_ability_khsn_slash_Description"	"King Hassan prepares for a moment, then releases a powerful swing in front of him, dealing damage and stunning impacted enemies.\nWhen hitting enemies with this ability, King hassan gets magic damage barrier, stacking up to a cap."
-        "DOTA_Tooltip_ability_khsn_slash_stun"	"Stun duration:"
-        "DOTA_Tooltip_ability_khsn_slash_damage"			"Damage:"
-        "DOTA_Tooltip_ability_khsn_slash_length"			"Length:"
-        "DOTA_Tooltip_ability_khsn_slash_cast_delay"		"Delay:"
-        "DOTA_Tooltip_ability_khsn_slash_block_per_unit"		"Barrier per unit:"
-        "DOTA_Tooltip_ability_khsn_slash_block_max"				"Maximum barrier:"
-
 		"DOTA_Tooltip_Ability_khsn_flame_active"	"Eternal Flame"
 		"DOTA_Tooltip_Ability_khsn_flame_active_Description"	"\nToggle: <font color='#58ACFA'>Eternal Flame</font>: King Hassan ignites all enemies under the Death Door effect with the Phantasmal Flame, dealing 30/45/60/75/90 damage per second based on level of Azrael and providing vision of the ignited enemies. The longer this ability is active, the more mana will it cost.\nThis ability goes on cooldown whenever it deactivates."
 		"DOTA_Tooltip_Ability_khsn_flame_active_base_mana_per_second"	"Mana per second:"
 		"DOTA_Tooltip_Ability_khsn_flame_active_add_mana_per_second"	"Manacost increase per second:"
 		"DOTA_Tooltip_Ability_khsn_flame_active_cooldown"	"Cooldown:"
-
-		"DOTA_Tooltip_Ability_khsn_bc"			"Abyss of Death"
-		"DOTA_Tooltip_Ability_khsn_bc_Description"	"This swordsman who is no longer certain whether he is alive or dead, even if he receives a fatal wound or loses half of his body for example, will keep snapping at the enemy as if he was in perfectly good health. When his health drops down to zero, he restores 25%% of his max health and activates Evening Bell instead of dying.\nCooldown: 99 seconds.\nKing Hassan also cannot be executed."
-
-		"DOTA_Tooltip_Ability_khsn_presence"		"Death's Presence"
-		"DOTA_Tooltip_Ability_khsn_presence_Description"	"Presence of a being heavily connected with Death fears even the bravest warriors. Enemies under this effect deal 25%% less damage. This effect cannot be evaded with any source of invulnerability."
-		"DOTA_Tooltip_Ability_khsn_presence_damage_reduction"	"%Damage reduction:"
-		"DOTA_Tooltip_Ability_khsn_presence_aura_radius"	"Radius:"
-
-		"DOTA_Tooltip_Ability_khsn_azrael"	"Azrael"
-		"DOTA_Tooltip_Ability_khsn_azrael_Description"	"Passive: Each instance of damage King Hassan deals applies Death's Door debuff to the enemy for 6 seconds.\nDeath's Door: slows target for 6 seconds and remembers all the damage King Hassan deals to this unit under the effect of the debuff. Active: Old Man from the Mountian sentences the target to death, becoming invulnerable himself. After 1.37 seconds the execution becomes real, dealing an amount of magic damage based on how much damage was stored at enemy's Death's Door.\nExecutes the target if it's health falls to low.\nIf King Hassan has started Azrael, not even Death itself can stop him from performing it to the very end."
-		"DOTA_Tooltip_Ability_khsn_azrael_damage"	"Base damage:"
-		"DOTA_Tooltip_Ability_khsn_azrael_dmg_percent"	"%Death's Door stored damage multiplier:"
-		"DOTA_Tooltip_Ability_khsn_azrael_death_door_duration"	"Death's Door duration:"
-		"DOTA_Tooltip_Ability_khsn_azrael_death_door_slow"	"%Death's Door slow:"
-		"DOTA_Tooltip_Ability_khsn_azrael_health_threshold"	"%Execution threshold:"
-
-		"DOTA_Tooltip_Ability_khsn_combo"	"Combo - The Angel That Announces Death, Azrael"
-		"DOTA_Tooltip_Ability_khsn_combo_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : Q-Q-D in 3 seconds</font>\nKing Hassan starts an execution of the target enemy, dealing a huge amount of magic damage over time. After a delay, teleports to the enemy and deals huge amount of pure damage based on how much damage was stored at enemy's Death's Door.\nExecutes the target with the final strike if it's health falls to low.\nKing Hassan is invulnerable while using this ability."
-		"DOTA_Tooltip_Ability_khsn_combo_damage"	"Base damage:"
-		"DOTA_Tooltip_Ability_khsn_combo_dmg_percent"	"%Death's Door stored damage multiplier:"
-		"DOTA_Tooltip_Ability_khsn_combo_health_threshold"	"%Execution threshold:"
-		//"DOTA_Tooltip_ability_khsn_combo_Note0"	"Hero 'hard' names: Arturia Pendragon, Cu Chulain, Arturia Alter, Emiya, Medusa, Heracles, Sasaki Kojiro, Hassan-i-Sabbah, Medea, Gilgamesh, Lancelot, Angra Mainyu, Diarmuid, Iskander, Gilles de Rais, Nero Claudius, Gawain, Tamamo no Mae, Li Shuwen, Jeanne d'Arc, Astolfo, Nursery Rhyme = Alice, Atalanta, Vlad, Karna, Chloe von Einzbern = Kuro, Jack the Ripper, Okita Souji, Mordred, Atalanta Alter. Hero 'easy' names: Saber, Lancer, Salter, Emiya, Medusa, Pepeg, Sasaki, Hassan, Medea, Gilgamesh, Lancelot, Angra, Diarmuid, Iskander, Gilles, Nero, Gawain, Tamamo, Shuwen, Jeanne, Astolfo, Alice, Atalanta, Vlad, Karna, Chloe, Jack, Okita, Mordred, Atalanta Alter."
-
-		"DOTA_Tooltip_Ability_khsn_boundary_attribute"	"Attribute - At The Boundary"
-		"DOTA_Tooltip_Ability_khsn_boundary_attribute_Description"	"Upgrades Death's Approach and Death's Arrival. Grants additional attack speed for a duration after invisibility.\nChanges Evening Bell passive damage type to pure.\nWhile having this effect, King Hassan will be able to teleport behind enemy's back on attack end up to 3 times.\nIncreases Death's approach blink range to 600."
-		"DOTA_Tooltip_Ability_khsn_boundary_attribute_bonus_as"	"Bonus attack speed:"
-		"DOTA_Tooltip_Ability_khsn_boundary_attribute_as_duration"	"Bonus attack speed duration:"
-		//"DOTA_Tooltip_Ability_khsn_boundary_attribute_bonus_range"	"Bonus range:"
-
-		"DOTA_Tooltip_Ability_khsn_bc_attribute"	"Attribute - Abyss of Death"
-		"DOTA_Tooltip_Ability_khsn_bc_attribute_Description"	"Abyss of Death: This swordsman who is no longer certain whether he is alive or dead, even if he receives a fatal wound or loses half of his body for example, will keep snapping at the enemy as if he was in perfectly good health. When his health drops down to zero, he restores 25%% of his max health and activates Evening Bell instead of dying.\nCooldown: 99 seconds.\nKing Hassan also cannot be executed."
-
-		"DOTA_Tooltip_Ability_khsn_presence_attribute"	"Attribute - Death's Presence"
-		"DOTA_Tooltip_Ability_khsn_presence_attribute_Description"	"Death's Presence: Presence of a being heavily connected with Death fears even the bravest warriors. Enemies under Death's Door effect deal 10% less damage.\nEvening Bell active part does pure damage."
-
-		"DOTA_Tooltip_Ability_khsn_flame_attribute"	"Attribute - Being of Phantasm"
-		"DOTA_Tooltip_Ability_khsn_flame_attribute_Description"	"\nActive: <font color='#58ACFA'>Shadow Step</font>: King Hassan makes a swift-slash move, teleporting to the enemy and attacking it from the behind. Affected enemy is feared, so it can barely turn around for the duration of slow. Also applies silence and lock for different durations."
-		"DOTA_Tooltip_Ability_khsn_flame_attribute_range" "Range:"
-		"DOTA_Tooltip_Ability_khsn_blink_damage" "Damage:"
-		"DOTA_Tooltip_Ability_khsn_flame_attribute_duration"	"Slow duration:"
-		"DOTA_Tooltip_Ability_khsn_flame_attribute_silence_duration"	"Silence duration:"
-		"DOTA_Tooltip_Ability_khsn_flame_attribute_lock_duration"	"Lock duration:"
-		//"DOTA_Tooltip_Ability_khsn_flame_attribute_dmg_bonus"	"Bonus damage:"
-		"DOTA_Tooltip_Ability_khsn_flame_attribute_turn_rate"	"%Turn rate slow:"
-
-		"DOTA_Tooltip_Ability_khsn_azrael_attribute"	"Attribute - Valley of the Shadow of Death"
-		"DOTA_Tooltip_Ability_khsn_azrael_attribute_Description"	"Phantasmal Flame deals additional incineration and fire waves damage.\nPhantasmal Flame ignition duration increased."
-		"DOTA_Tooltip_Ability_khsn_azrael_attribute_first_dmg"	"Incineration bonus damage:"
-		"DOTA_Tooltip_Ability_khsn_azrael_attribute_second_dmg"	"Fire waves bonus damage:"
-		"DOTA_Tooltip_Ability_khsn_azrael_attribute_duration"	"Bonus fire duration:"
 
 		//====================================
 		//	Saber of Red
