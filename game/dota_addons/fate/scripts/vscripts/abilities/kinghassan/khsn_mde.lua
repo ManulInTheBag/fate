@@ -279,9 +279,9 @@ function modifier_khsn_mde_enemy:OnIntervalThink()
 		local heal = self.ability:GetSpecialValueFor("heal")
 
 		DoDamage(self.caster, self.parent, damage/10, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
-		self.caster:Heal(heal/10, self.caster)
 
 		if self.parent:IsHero() then
+			self.caster:Heal(heal/10, self.caster)
 			if self.caster.PresenceAcquired then
 				self.caster:AddNewModifier(self.caster, self.ability, "modifier_khsn_mde_active", {duration = self.linger_duration})
 			end
