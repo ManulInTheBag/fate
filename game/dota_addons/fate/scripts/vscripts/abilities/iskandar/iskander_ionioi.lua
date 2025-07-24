@@ -199,7 +199,7 @@ function iskander_ionioi:OnAOTKStart()
 	if(caster:GetAbilityByIndex(4):GetName() == "fate_empty1") then
 		caster:SwapAbilities("iskander_ionioi", "fate_empty1", true, false)
 	elseif(caster:GetAbilityByIndex(4):GetName() == "iskander_trap") then
-		caster:SwapAbilities("iskander_trap", "fate_empty1", true, false)
+		caster:SwapAbilities("iskander_ionioi", "iskander_trap", true, false)
 	end
 	caster:SwapAbilities("iskander_ionioi", "iskander_summon_hephaestion", false, true)
 	caster:SwapAbilities("iskandar_gordius_wheel", "iskandar_buc", false, true)

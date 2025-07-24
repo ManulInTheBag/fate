@@ -11,7 +11,11 @@ function iskander_drift:OnSpellStart()
 		caster:SetOriginalModel("models/sanya/sanya_telega.vmdl")
 		caster:SetModelScale(0.6)
 	end
+    local enemy = PickRandomEnemy(caster)
 
+    if enemy then
+        caster:AddNewModifier(enemy, nil, "modifier_vision_provider", { Duration = 2 })
+    end
 	--giveUnitDataDrivenModifier(caster, caster, "pause_sealdisabled", 1.5)
 	local currentMS = caster:GetMoveSpeedModifier(caster:GetBaseMoveSpeed(), false)
 	if currentMS > 1200 then
@@ -26,7 +30,7 @@ function iskander_drift:OnSpellStart()
 	caster:SetPhysicsVelocity(caster:GetForwardVector() * speed)
 	caster:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
 	local damage = self:GetSpecialValueFor("damage")
-	local base_damage = self:GetSpecialValueFor("base_damage")
+	local base_damage = self:GetSpecialValueFor("base_damage") + caster:GetLevel() * self:GetSpecialValueFor("base_damage_per_hero_level")
 	local stun_duration = self:GetSpecialValueFor("stun_duration")
 	local modifier = caster:FindModifierByName("modifier_gordius_wheel")
 	modifier.turnrate_pct = -1000
@@ -122,7 +126,7 @@ function iskander_drift:CreateLightningField(vector)
 					v.ChariotTrailHit = false
 				end)
 
-           		DoDamage(caster, v,damage * currentMS * 1 / 100 , DAMAGE_TYPE_MAGICAL, 0, self, false)
+           		DoDamage(caster, v,damage * currentMS * 0.6 / 100 , DAMAGE_TYPE_MAGICAL, 0, self, false)
            	end
         end
         local randomVec = RandomInt(-400,400)

@@ -12,32 +12,24 @@
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"2"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
 		"AbilityTextureName"			"custom/gilles/gilles_misery"
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_3"
-		"AnimationPlaybackRate" 		"1.5"
-		"AOERadius"						"%radius"		
+		"AnimationPlaybackRate" 		"1.5"	
 		
 		"precache"
 		{
-			"particle"		"particles/units/heroes/hero_viper/viper_viper_strike_debuff.vpcf"
-			"particle"		"particles/units/heroes/hero_phoenix/phoenix_fire_spirit_ground.vpcf"
-			"particle"		"particles/units/heroes/hero_shadow_demon/shadow_demon_soul_catcher.vpcf"
-			"particle"		"particles/units/heroes/hero_bloodseeker/bloodseeker_rupture.vpcf"
-			"particle"		"particles/units/heroes/hero_ursa/ursa_enrage_buff.vpcf"
-			"particle"		"particles/units/heroes/hero_phoenix/phoenix_supernova_reborn_shockwave.vpcf"
-			"particle"		"particles/custom/screen_scarlet_splash.vpcf"
-			"particle"		"particles/units/heroes/hero_pugna/pugna_decrepify.vpcf"
-			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_shadow_demon.vsndevts"
-			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_bloodseeker.vsndevts"
-			"soundfile"				"soundevents/game_sounds_heroes/game_sounds_obsidian_destroyer.vsndevts"
+			"particle"		"particles/econ/items/warlock/warlock_staff_hellborn/warlock_upheaval_hellborn_debuff"
+			"particle"		"particles/units/heroes/hero_enigma/enigma_malefice.vpcf"
+			"particle"		 "particles/status_fx/status_effect_enigma_malefice.vpcf"
+
 		}
 		
 		// Casting
 		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastRange"				"600"
+		"AbilityCastRange"				"900"
 		"AbilityCastPoint"				"0.25"
 
 		// Time		
@@ -48,10 +40,10 @@
 		"AbilityValues"
         {
             "mana_cost" "20"
-            "radius" "300"
-            "duration" "1 1.25 1.5 1.75 2"
-            "damage" "30"
-            "microcd" "0.4"
+            "duration" "2"
+            "damage" "80 100 120 140 160"
+            "microcd" "1"
+            "stun_duration" "0.2"
         }
 	}
 }

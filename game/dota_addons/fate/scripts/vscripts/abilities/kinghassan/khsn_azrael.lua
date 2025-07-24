@@ -217,6 +217,10 @@ function modifier_death_door:OnTakeDamage(args)
 	self.max_store = self.ability:GetSpecialValueFor("maximum_stored") --refresh in case of in-fight level up
 
 	self.received_damage = self.received_damage + args.damage*self.mult/100
+	
+	if self.max_store < self.received_damage then
+		self.received_damage = self.max_store
+	end
 end
 
 modifier_death_door_pepeg = class({})

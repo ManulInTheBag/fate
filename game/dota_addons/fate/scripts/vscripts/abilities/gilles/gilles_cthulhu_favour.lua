@@ -111,7 +111,7 @@ if IsServer() then
 				for _,v in pairs(tEnemies) do
 					if not v:IsMagicImmune() then
 						DoDamage(self:GetCaster(), v, 400, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
-						--v:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_stunned", { Duration = 1.5})
+						v:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_stunned", { Duration = 1})
 					end
 				end
 		 	end

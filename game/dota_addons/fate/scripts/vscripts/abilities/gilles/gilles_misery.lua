@@ -8,9 +8,6 @@ function gilles_misery:GetManaCost(iLevel)
 	return (self:GetCaster():GetMaxMana() * self:GetSpecialValueFor("mana_cost") / 100)
 end
 
-function gilles_misery:GetAOERadius()
-	return self:GetSpecialValueFor("radius")
-end
 
 function gilles_misery:IsHiddenAbilityCastable()
 	return true
@@ -18,18 +15,15 @@ end
 
 function gilles_misery:OnSpellStart()
 	local hCaster = self:GetCaster()
-	local vTargetLocation = self:GetCursorPosition()
+	local hTarget = self:GetCursorTarget()
 	
-	EmitSoundOnLocationWithCaster(vTargetLocation, "Gilles_Misery_Cast", hCaster)
+	EmitSoundOnLocationWithCaster(hTarget:GetAbsOrigin(), "Gilles_Misery_Cast", hCaster)
 
-	local tEnemies = FindUnitsInRadius(hCaster:GetTeam(), vTargetLocation, nil, self:GetAOERadius(), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-		
-	for _,v in pairs(tEnemies) do
-		if not v:IsMagicImmune() then
-			v:AddNewModifier(hCaster, self, "modifier_gilles_misery", { Duration =  self:GetSpecialValueFor("duration") + 0.033})
-			v:AddNewModifier(hCaster, self, "modifier_gilles_fear", {duration = 10})
-		end
+	if not hTarget:IsMagicImmune() then
+		hTarget:AddNewModifier(hCaster, self, "modifier_gilles_misery", { Duration =  self:GetSpecialValueFor("duration") + 0.3})
+		hTarget:AddNewModifier(hCaster, self, "modifier_gilles_fear", {duration = 10})
 	end
+
 end
 
 function modifier_gilles_misery:DeclareFunctions()
@@ -42,7 +36,7 @@ if IsServer() then
 		self.ParticleIndex = ParticleManager:CreateParticle("particles/econ/items/warlock/warlock_staff_hellborn/warlock_upheaval_hellborn_debuff", PATTACH_CUSTOMORIGIN, self:GetParent())
  		ParticleManager:SetParticleControl(self.ParticleIndex, 0, self:GetParent():GetAbsOrigin())
 
- 		self:SetStackCount(1)
+ 		self:SetStackCount(3)
 
  		self.cd = 0
  		self:StartIntervalThink(0.1)
@@ -50,10 +44,20 @@ if IsServer() then
 
 	function modifier_gilles_misery:OnIntervalThink()
 		self.cd = self.cd - 0.1
+		if self.cd <= 0 then
+			self:SetStackCount(self:GetStackCount() - 1)
+			local hCaster = self:GetCaster()
+			local hAbility = self:GetAbility()
+			self:GetParent():AddNewModifier(hCaster, hAbility, "modifier_stunned", { Duration = hAbility:GetSpecialValueFor("stun_duration")})
+			self.cd = hAbility:GetSpecialValueFor("microcd")
+			DoDamage(hCaster, self:GetParent(), hAbility:GetSpecialValueFor("damage"), DAMAGE_TYPE_MAGICAL, 0, hAbility, false)
+			local sound_cast = "Hero_Enigma.MaleficeTick"
+			EmitSoundOn( sound_cast, self:GetParent() )
+		end
 	end
 
 	function modifier_gilles_misery:OnRefresh(args)
-		self:SetStackCount(1)
+		self:SetStackCount(3)
 	end
 
 	function modifier_gilles_misery:OnDestroy()
@@ -61,16 +65,6 @@ if IsServer() then
         ParticleManager:ReleaseParticleIndex( self.ParticleIndex )
 	end
 
-	function modifier_gilles_misery:OnTakeDamage(args)
-		if args.unit ~= self:GetParent() then return end
-		if self.cd <= 0 then
-			local hCaster = self:GetCaster()
-			local hAbility = self:GetAbility()
-			self:GetParent():AddNewModifier(hCaster, hAbility, "modifier_stunned", { Duration = 0.033 * self:GetStackCount()})
-			self.cd = hAbility:GetSpecialValueFor("microcd")
-			DoDamage(hCaster, self:GetParent(), hAbility:GetSpecialValueFor("damage"), DAMAGE_TYPE_MAGICAL, 0, hAbility, false)
-		end
-	end
 end
 
 function modifier_gilles_misery:IsDebuff()
@@ -83,4 +77,16 @@ end
 
 function modifier_gilles_misery:GetTexture()
 	return "custom/gilles/gilles_misery"
+end
+
+function modifier_gilles_misery:GetEffectName()
+	return "particles/units/heroes/hero_enigma/enigma_malefice.vpcf"
+end
+
+function modifier_gilles_misery:GetEffectAttachType()
+	return PATTACH_ABSORIGIN_FOLLOW
+end
+
+function modifier_gilles_misery:GetStatusEffectName()
+	return "particles/status_fx/status_effect_enigma_malefice.vpcf"
 end

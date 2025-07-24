@@ -44,6 +44,7 @@ end
 LinkLuaModifier("modifier_khsn_grab_dummy", "abilities/kinghassan/khsn_grab", LUA_MODIFIER_MOTION_NONE)
 
 function khsn_combo_arena:HassanHunt(target)
+	if target.IsAlreadyDamagedByKHCombo then return end
 	local caster = self:GetCaster()
 	local damage = self:GetSpecialValueFor("damage_punishment")
 	local duration = self:GetSpecialValueFor("dummy_duration")
@@ -60,7 +61,11 @@ function khsn_combo_arena:HassanHunt(target)
 	dummy:EmitSound("hassanchik_laugh")
 
 	target:EmitSound("TA.SnatchStrike")
-
+	target.IsAlreadyDamagedByKHCombo = true
+	Timers:CreateTimer(10, function()
+	target.IsAlreadyDamagedByKHCombo = false
+	
+	end)
 	local fx = ParticleManager:CreateParticle("particles/kinghassan/khsn_grab_dummy_smoke_appear.vpcf", PATTACH_ABSORIGIN, dummy)
 	ParticleManager:ReleaseParticleIndex(fx)
 

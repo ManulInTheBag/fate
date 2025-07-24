@@ -684,7 +684,7 @@
 		"DOTA_Tooltip_modifier_gilles_grief_Description"		"Explodes and takes magical damage at the end of duration."
 
 		"DOTA_Tooltip_modifier_gilles_misery"					"Misery"
-		"DOTA_Tooltip_modifier_gilles_misery_Description"		"Stunned when taking damage"
+		"DOTA_Tooltip_modifier_gilles_misery_Description"		"Stun and damage after delay."
 
 		"DOTA_Tooltip_modifier_contaminate_poison"				"Contaminate"
 		"DOTA_Tooltip_modifier_contaminate_poison_Description"	"Taking magic damage over time"
@@ -4885,7 +4885,7 @@
         "DOTA_Tooltip_Ability_gilles_prelati_spellbook_Note0"			"Units dying within 900 area of effect of Gilles restores his mana."
 
         "DOTA_Tooltip_Ability_gilles_summon_jellyfish"				"Summon Oceanic Demon"
-        "DOTA_Tooltip_ability_gilles_summon_jellyfish_Description"	"Gilles summons %summon_count% demons from the depths of R'lyeh. These demons will explode when there are nearby enemies and corrupting them for %duration% seconds, dealing damage and slowing them by %slow_pct%%."
+        "DOTA_Tooltip_ability_gilles_summon_jellyfish_Description"	"Gilles summons %summon_count% demons from the depths of R'lyeh. These demons will explode when there are nearby enemies and corrupting them for %duration% seconds, dealing damage."
         "DOTA_Tooltip_ability_gilles_summon_jellyfish_mana_cost"	"%Mana Cost:"
         "DOTA_Tooltip_ability_gilles_summon_jellyfish_damage"		"Damage Per Creature:"
         "DOTA_Tooltip_ability_gilles_summon_jellyfish_radius"		"Area of Effect:"
@@ -4920,24 +4920,24 @@
         "DOTA_Tooltip_ability_gilles_hysteria_Note0"  				"Cannot be used on a target already affected by Hysteria."
 
         "DOTA_Tooltip_Ability_gilles_grief"     					"Grief"
-        "DOTA_Tooltip_ability_gilles_grief_Description" 			"Curse an enemy. After a short duration, the target takes magical damage which increases in proportion to the target's missing health and becomes stunned for %stun_duration% seconds."        
+        "DOTA_Tooltip_ability_gilles_grief_Description" 			"Curse an enemy. After a short duration, the target takes magical damage which increases in proportion to the target's missing health and becomes <font color='#FF3399'>muted</font> for %stun_duration% seconds."        
         "DOTA_Tooltip_ability_gilles_grief_damage"					"Damage:"
         "DOTA_Tooltip_ability_gilles_grief_duration"  				"Explosion delay:"
         "DOTA_Tooltip_ability_gilles_grief_Lore"  					"Confronted by their greatest fear, one can only put up a futile resistance in desperation."
         "DOTA_Tooltip_ability_gilles_grief_Note0"  					"Aoe damage will not be increased by damage taken from this ability."
 
         "DOTA_Tooltip_Ability_gilles_misery"     					"Misery"
-        "DOTA_Tooltip_ability_gilles_misery_Description" 			"Inflict a curse of misery on all enemies within %radius% area of target location. Whenever an enemy cursed this way takes damage, they become microstunned and take magical damage."
+        "DOTA_Tooltip_ability_gilles_misery_Description" 			"Inflict a curse of misery on target enemy.\nEnemy will be taking <font color='#58ACFA'>damage</font> and <font color='#FF3399'>stun</font> effect every %microcd% seconds."
         "DOTA_Tooltip_ability_gilles_misery_duration"  				"Duration:"
         "DOTA_Tooltip_ability_gilles_misery_damage"  				"Damage:"
-        "DOTA_Tooltip_ability_gilles_misery_microcd"  				"Proc cooldown:"
+        "DOTA_Tooltip_ability_gilles_misery_stun_duration"  		"Stun duration:"
         "DOTA_Tooltip_ability_gilles_misery_Lore"  					"A suffering from the outer god's torment is merely the prelude to another."
  	
         "DOTA_Tooltip_Ability_gilles_eye_for_art_passive"				"Eye for Art"
         "DOTA_Tooltip_ability_gilles_eye_for_art_passive_Description"	"Whenever an enemy within %radius% area of Gilles uses an ability, Gilles would gain vision over them for %duration% seconds."
 
         "DOTA_Tooltip_Ability_gilles_cthulhu_favour"     			"Cthulu's Favour"
-        "DOTA_Tooltip_ability_gilles_cthulhu_favour_Description" 	"Conjures a portal to Cthulu's realm.\nAfter a brief delay, countless tentacles sprout from within the circle randomly, <font color='#FF3399'>mini-stunning</font> and dealing <font color='#58ACFA'>damage</font> to enemies from where they sprout.\nThe tentacles remain until the portal closes and will  <font color='#A72E28'>attack</font> enemies nearby its reach.\nAll enemies inside take <font color='#58ACFA'>damage</font> every 0.2 seconds.</font>\n<font color='#F1C40F'>Upgradable by attribute Sunken City of R'lyeh.</font>"
+        "DOTA_Tooltip_ability_gilles_cthulhu_favour_Description" 	"Conjures a portal to Cthulu's realm.\nAll enemies inside take <font color='#58ACFA'>damage</font> every 0.2 seconds.</font>\n<font color='#F1C40F'>Upgradable by attribute Sunken City of R'lyeh.</font>"
         "DOTA_Tooltip_ability_gilles_cthulhu_favour_radius"			"Area of Effect:"
         "DOTA_Tooltip_ability_gilles_cthulhu_favour_spawn_damage"	"Spawn damage:"
         "DOTA_Tooltip_ability_gilles_cthulhu_favour_prock_damage"	"Prock damage:"
@@ -5150,11 +5150,12 @@
 
 
         "DOTA_Tooltip_Ability_iskander_drift"     "Via Expugnatio"
-        "DOTA_Tooltip_ability_iskander_drift_Description" "<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.15</font>\nRider charges in target direction on <font color='#58ACFA'>Gordius Wheel</font>, leaving a trail of thunder behind.\nCharge <font color='#FFFAFA'>speed</font> and <font color='#FFFAFA'>range</font> are based on Rider's <font color='#FFFAFA'>movement speed</font> on the moment of cast.\nEnemies tread atop are <font color='#FF3399'>stunned</font> and take <font color='#58ACFA'>damage</font> based on Iskandar <font color='#FFFAFA'>movement speed</font> and on amount of times Iskandar hit enemy <font color='#FFFAFA'>hero</font> with <font color='#58ACFA'>Gordius Wheel</font>.\nUpon finishing the charge, <font color='#58ACFA'>Gordius Wheel</font> disappears and Rider is <font color='#FF3399'>stunned</font> for <font color='#FFFAFA'>1</font> second."
+        "DOTA_Tooltip_ability_iskander_drift_Description" "<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>0.15</font>\nRider charges in target direction on <font color='#58ACFA'>Gordius Wheel</font>, leaving a trail of thunder behind.\nCharge <font color='#FFFAFA'>speed</font> and <font color='#FFFAFA'>range</font> are based on Rider's <font color='#FFFAFA'>movement speed</font> on the moment of cast.\nEnemies tread atop are <font color='#FF3399'>stunned</font> and take <font color='#58ACFA'>damage</font> based on Iskandar <font color='#FFFAFA'>movement speed</font>, hero level and amount of times Iskandar hit enemy <font color='#FFFAFA'>hero</font> with <font color='#58ACFA'>Gordius Wheel</font>.\nUpon finishing the charge, <font color='#58ACFA'>Gordius Wheel</font> disappears and Rider is <font color='#FF3399'>stunned</font> for <font color='#FFFAFA'>1</font> second."
         "DOTA_Tooltip_ability_iskander_drift_Lore"	"Alalalalalal---------!"
         "DOTA_Tooltip_ability_iskander_drift_damage"					"%MS TO CHARGE DAMAGE:"
         "DOTA_Tooltip_ability_iskander_drift_trail_damage"				"%TRAIL DAMAGE PER SECOND:"     
-        "DOTA_Tooltip_ability_iskander_drift_base_damage"				 "BASE DAMAGE:"    
+        "DOTA_Tooltip_ability_iskander_drift_base_damage"				 "BASE DAMAGE:"  
+        "DOTA_Tooltip_ability_iskander_drift_base_damage_per_hero_level"				 "DAMAGE PER HERO LEVEL:"  
         "DOTA_Tooltip_ability_iskander_drift_trail_duration"			 "TRAIL DURATION:"  
         "DOTA_Tooltip_ability_iskander_drift_stun_duration"				 "STUN DURATION:"
         "DOTA_Tooltip_ability_iskander_drift_damage_per_unit"			 "DAMAGE PER UNIT HIT:"
@@ -5616,7 +5617,7 @@
 		"DOTA_Tooltip_Ability_mordred_pedigree_attribute_Description"	"Gives additional armor and magic resistance from Secret of Pedigree."
 
 		"DOTA_Tooltip_Ability_mordred_overload_attribute"	"Attribute: Lightning Overload"
-		"DOTA_Tooltip_Ability_mordred_overload_attribute_Description"	"When Mordred casts a spell, she deals 10*(Slash + Hit + Rage Rush levels) magic damage to all enemies in 400 radius and reveals this area. Clarent Blood Arthur deals 40% more damage from mana."
+		"DOTA_Tooltip_Ability_mordred_overload_attribute_Description"	"When Mordred casts a spell, she deals 10*(Slash + Hit + Rage Rush levels) magic damage to all enemies in 400 radius and reveals this area. Clarent Blood Arthur deals 30% more damage from mana."
 		
 
 		//====================================

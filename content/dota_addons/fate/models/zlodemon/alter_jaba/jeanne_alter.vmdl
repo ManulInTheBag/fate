@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc39:version{1ceecb0d-4093-4729-ab18-b76886c64cde} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc40:version{da0ab1f8-9722-4910-94b8-10b6a08c0934} -->
 {
 	rootNode = 
 	{
@@ -598,12 +598,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/zlodemon/alter_jaba/jalter_skin1.fbx"
 						import_bone_scales = false
 						start_frame = 10
 						end_frame = 49
 						framerate = 30.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -621,12 +623,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/zlodemon/alter_jaba/jalter_skin1.fbx"
 						import_bone_scales = false
 						start_frame = 75
 						end_frame = 95
 						framerate = 30.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -644,12 +648,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/zlodemon/alter_jaba/jalter_skin1.fbx"
 						import_bone_scales = false
 						start_frame = 322
 						end_frame = 351
 						framerate = 30.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -667,12 +673,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/zlodemon/alter_jaba/jalter_skin1.fbx"
 						import_bone_scales = false
 						start_frame = 353
 						end_frame = 382
 						framerate = 30.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -690,12 +698,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/zlodemon/alter_jaba/jalter_skin1.fbx"
 						import_bone_scales = false
 						start_frame = 97
 						end_frame = 147
 						framerate = 30.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -713,12 +723,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/zlodemon/alter_jaba/jalter_skin1.fbx"
 						import_bone_scales = false
 						start_frame = 465
 						end_frame = 475
 						framerate = 30.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -736,12 +748,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/zlodemon/alter_jaba/jalter_skin1.fbx"
 						import_bone_scales = false
 						start_frame = 148
 						end_frame = 168
 						framerate = 30.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -760,12 +774,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/jeanne_alter/jeanne_alter.fbx"
 						import_bone_scales = false
 						start_frame = 369
 						end_frame = 394
 						framerate = 30.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -784,12 +800,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/jeanne_alter/jeanne_alter.fbx"
 						import_bone_scales = false
 						start_frame = 414
 						end_frame = 440
 						framerate = 30.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -807,12 +825,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/zlodemon/alter_jaba/jalter_skin1.fbx"
 						import_bone_scales = false
 						start_frame = 220
 						end_frame = 243
 						framerate = 30.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -830,12 +850,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/zlodemon/alter_jaba/jalter_skin1.fbx"
 						import_bone_scales = false
 						start_frame = 297
 						end_frame = 320
 						framerate = 30.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -853,12 +875,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/zlodemon/alter_jaba/jalter_skin1.fbx"
 						import_bone_scales = false
 						start_frame = 661
 						end_frame = 774
-						framerate = 60.0
+						framerate = 45.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -876,12 +900,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/zlodemon/alter_jaba/jalter_skin1.fbx"
 						import_bone_scales = false
 						start_frame = 224
 						end_frame = 243
 						framerate = 10.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 				]
 				default_root_bone_name = ""

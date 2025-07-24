@@ -77,7 +77,7 @@ if IsServer() then
 						DoDamage(hCaster, v, fExplosionDamage, DAMAGE_TYPE_MAGICAL, 0, hAbility, false)
 					end
 				end]]
-				self:GetParent():AddNewModifier(hCaster, hAbility, "modifier_stunned", {Duration = hAbility:GetSpecialValueFor("stun_duration") })
+				self:GetParent():AddNewModifier(hCaster, hAbility, "modifier_muted", {Duration = hAbility:GetSpecialValueFor("stun_duration") })
 			end
 			if not self:GetParent():IsMagicImmune() then
 				DoDamage(hCaster, self:GetParent(), fDamage,  DAMAGE_TYPE_MAGICAL, 0, hAbility, false)

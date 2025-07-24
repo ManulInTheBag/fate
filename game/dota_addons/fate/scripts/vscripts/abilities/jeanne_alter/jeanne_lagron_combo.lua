@@ -40,6 +40,14 @@ function jeanne_lagron_combo:OnSpellStart()
 	--giveUnitDataDrivenModifier(caster, caster, "jump_pause_postlock", delay + 1.65)
 	StartAnimation(caster, {duration=delay + 1.65, activity=ACT_DOTA_CAST_ABILITY_2_END, rate=1})
 
+	Timers:CreateTimer(delay - 1, function()
+		local fxIndexjopa = ParticleManager:CreateParticle("particles/zlodemon/zlodemon_basic_circle.vpcf", PATTACH_WORLDORIGIN, nil)
+		ParticleManager:SetParticleControl(fxIndexjopa, 0, target_point)
+		ParticleManager:SetParticleControl(fxIndexjopa, 1, Vector(1,0.01,1))
+		ParticleManager:SetParticleControl(fxIndexjopa, 2, Vector(self:GetAOERadius(),2.65,0))
+		ParticleManager:ReleaseParticleIndex(fxIndexjopa)
+	
+	end)
 	Timers:CreateTimer(delay, function()
 	   	if caster:IsAlive() then
 	   		local damage = math.min(self:GetSpecialValueFor("damage") + caster:FindModifierByName("modifier_jeanne_lagron_combo_block").stored_damage, self:GetSpecialValueFor("max_damage"))
