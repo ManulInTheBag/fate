@@ -6,12 +6,32 @@ local tStandardAbilities = {
     "gilles_rlyeh_text_open",
     "gilles_cthulhu_favour",
     "gilles_prelati_spellbook",
+    "gilles_combo_activator",
+    "gilles_abyssal_contract",
+    "attribute_bonus_custom"
+}
+
+local tStandardAbilitiesSA = {
+    "gilles_summon_jellyfish",
+    "gilles_rlyeh_text_open",
+    "gilles_cthulhu_favour",
+    "gilles_prelati_spellbook",
     "gilles_eye_for_art_passive",
     "gilles_abyssal_contract",
     "attribute_bonus_custom"
 }
 
 local tStandardAbilitiesCombo = {
+    "gilles_summon_jellyfish",
+    "gilles_rlyeh_text_open",
+    "gilles_cthulhu_favour",
+    "gilles_prelati_spellbook",
+    "gilles_combo_activator",
+    "gille_larret_de_mort",
+    "attribute_bonus_custom"
+}
+
+local tStandardAbilitiesComboSA = {
     "gilles_summon_jellyfish",
     "gilles_rlyeh_text_open",
     "gilles_cthulhu_favour",
@@ -49,8 +69,16 @@ end
 function gilles_rlyeh_text_close:OnSpellStart()
     local hCaster = self:GetCaster()
     if(hCaster:HasModifier("modifier_gilles_combo_window")) then
-        UpdateAbilityLayout(hCaster, tStandardAbilitiesCombo)
+        if hCaster:FindAbilityByName("gilles_eye_for_art_passive"):GetLevel() > 0 then
+            UpdateAbilityLayout(hCaster, tStandardAbilitiesComboSA)
+        else
+            UpdateAbilityLayout(hCaster, tStandardAbilitiesCombo)
+        end
     else
-        UpdateAbilityLayout(hCaster, tStandardAbilities)
+        if hCaster:FindAbilityByName("gilles_eye_for_art_passive"):GetLevel() > 0 then
+            UpdateAbilityLayout(hCaster, tStandardAbilitiesSA)
+        else
+            UpdateAbilityLayout(hCaster, tStandardAbilities)
+        end
     end
 end

@@ -568,10 +568,10 @@ function OnNineStart(keys)
 	local berserker = Physics:Unit(caster)
 	local origin = caster:GetAbsOrigin()
 	local distance = (targetPoint - origin):Length2D()
-	local forward = (targetPoint - origin):Normalized() * distance
+	local forward = (targetPoint - origin):Normalized() * distance*2
 	caster.bNineStarted = false
 	caster:SetPhysicsFriction(0)
-	caster:SetPhysicsVelocity(caster:GetForwardVector()*distance)
+	caster:SetPhysicsVelocity(caster:GetForwardVector()*distance*2)
 	--caster:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
 	giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 4.0)
 	caster:EmitSound("Hero_OgreMagi.Ignite.Cast")
@@ -607,7 +607,7 @@ function OnNineStart(keys)
 		return
 	end
 
-	caster.NineTimer = Timers:CreateTimer(1.0, function()
+	caster.NineTimer = Timers:CreateTimer(0.5, function()
 		DoNineLanded(caster)
 	end)
 

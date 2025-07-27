@@ -125,11 +125,11 @@ function gilles_abyssal_contract:OnSpellStart()
 				end
 			end
 
-			if hCaster:GetStrength() > 29.1 and hCaster:GetIntellect() > 29.1 and hCaster:GetAgility() > 29.1 then
-				if hCaster:FindAbilityByName("gille_larret_de_mort"):IsCooldownReady() then
-					hCaster:AddNewModifier(hCaster, self, "modifier_gilles_combo_window", { Duration = 4})
-				end
-			end
+			-- if hCaster:GetStrength() > 29.1 and hCaster:GetIntellect() > 29.1 and hCaster:GetAgility() > 29.1 then
+			-- 	if hCaster:FindAbilityByName("gille_larret_de_mort"):IsCooldownReady() then
+			-- 		hCaster:AddNewModifier(hCaster, self, "modifier_gilles_combo_window", { Duration = 4})
+			-- 	end
+			-- end
 
 			EmitGlobalSound("ZC.Ravage")
 			

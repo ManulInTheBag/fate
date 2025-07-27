@@ -36,7 +36,7 @@ function okita_zekken:OnSpellStart()
     local target = self:GetCursorTarget()
 
     local ability_cooldown = caster:FindAbilityByName("okita_sandanzuki")
-    ability_cooldown:StartCooldown(ability_cooldown:GetCooldown(1))
+    ability_cooldown:StartCooldown(ability_cooldown:GetCooldown(1) * caster:GetCooldownReduction())
 
     local masterCombo = caster.MasterUnit2:FindAbilityByName(self:GetAbilityName())
     masterCombo:EndCooldown()

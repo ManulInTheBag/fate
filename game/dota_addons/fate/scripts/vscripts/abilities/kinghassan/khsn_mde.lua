@@ -16,6 +16,7 @@ end
 
 function khsn_mde:OnSpellStart()
 	local caster = self:GetCaster()
+	self.isRefreshed = 0
 	LoopOverPlayers(function(player, playerID, playerHero)
 		--print("looping through " .. playerHero:GetName())
 		if playerHero.zlodemon == true   then
@@ -134,8 +135,9 @@ function modifier_khsn_mde_active:OnDestroy()
 	end
 
 	local abi = self.parent:FindAbilityByName("khsn_mde")
-
-	abi:StartCooldown(abi:GetCooldown(-1))
+	if  abi.isRefreshed == 0 then
+		abi:StartCooldown(abi:GetCooldown(-1)* self.parent:GetCooldownReduction())
+	end
 end
 
 function modifier_khsn_mde_active:OnIntervalThink()

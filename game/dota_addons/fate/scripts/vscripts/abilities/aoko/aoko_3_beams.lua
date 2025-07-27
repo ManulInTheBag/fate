@@ -61,6 +61,7 @@ end
 function aoko_3_beams:EndSequence()
 	self:GetCaster():RemoveModifierByName("modifier_aoko_3_beams_tracker")
 	self:GetCaster():RemoveModifierByName("modifier_aoko_3_beams_tracker_checker")
+
 end
 
 function aoko_3_beams:GetCastAnimation()
@@ -92,11 +93,11 @@ function aoko_3_beams:OnSpellStart()
     local second_threshold = self:GetSpecialValueFor("second_threshold")
 
     local seq = self:CheckSequence()
-
+	
     if seq == 1 then
     	EmitGlobalSound("aoko_sbs_1")
     	hCaster:AddNewModifier(hCaster, self, "modifier_aoko_3_beams", {duration = self:GetSpecialValueFor("duration") + FrameTime(), leg = 0})
-
+		self.isRefreshed = 0
     	if circuits:GetStacks() >= first_threshold then
     		self:EndCooldown()
 	    	self:SequenceSkill(2)
@@ -104,6 +105,9 @@ function aoko_3_beams:OnSpellStart()
 		else
 			self:SequenceTemporaryBreak()
 			self:SetSequenceChecker(2)
+			if self.isRefreshed == 1 then
+				self:EndCooldown()
+			end
 		end
     elseif seq == 2 then
     	EmitGlobalSound("aoko_sbs_2")
@@ -116,6 +120,9 @@ function aoko_3_beams:OnSpellStart()
 		else
 			self:SequenceTemporaryBreak()
 			self:SetSequenceChecker(3)
+			if self.isRefreshed == 1 then
+				self:EndCooldown()
+			end
 		end
 	else
     	hCaster:AddNewModifier(hCaster, self, "modifier_aoko_3_beams", {duration = self:GetSpecialValueFor("duration") + FrameTime() + 0.45, leg = 1})
@@ -372,7 +379,9 @@ function modifier_aoko_3_beams_tracker:OnDestroy()
 
 		local ability = self:GetAbility()
 		ability:EndCooldown()
-		ability:StartCooldown(ability:GetCooldown(ability:GetLevel() - 1))
+		if  ability.isRefreshed == 0 then
+			ability:StartCooldown(ability:GetCooldown(ability:GetLevel() - 1) * caster:GetCooldownReduction())
+		end
 	end
 end
 

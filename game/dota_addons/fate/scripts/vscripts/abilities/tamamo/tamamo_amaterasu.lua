@@ -38,6 +38,8 @@ local spellBooks = {
 	"aoko_swap",
 	"avenger_demon_core",
 	"avenger_dark_passage",
+	"gilles_combo_activator",
+	"gilles_eye_for_art_passive",
 }
 
 tamamo_amaterasu = class({})

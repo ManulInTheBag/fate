@@ -171,6 +171,7 @@ function cu_chulain_relentless_spear:TigerStrike1()
 		caster:EmitSound("cu_dash_w_2")
 	else
 		caster:EmitSound("cu_dash_w_1")
+		self.isRefreshed = 0
 	end
 	local dist = (caster:GetAbsOrigin() - target):Length2D()
 
@@ -267,7 +268,11 @@ modifier_cu_relentless_tracker = class({})
 function modifier_cu_relentless_tracker:OnDestroy()
 	if IsServer() then
 		local ability = self:GetAbility()
-		ability:StartCooldown(ability:GetCooldown(ability:GetLevel()))
+		if ability.isRefreshed == 0 then
+			ability:StartCooldown(ability:GetCooldown(ability:GetLevel()) * self:GetCaster():GetCooldownReduction())
+		else
+			ability:EndCooldown()
+		end
 	end
 end
 

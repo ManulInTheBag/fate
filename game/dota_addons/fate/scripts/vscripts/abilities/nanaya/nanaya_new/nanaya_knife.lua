@@ -171,7 +171,7 @@ function modifier_nanaya_combo_window:OnDestroy()
 		local caster = self:GetParent()
 
 		local ability = self:GetAbility()
-		ability:StartCooldown(ability:GetCooldown(-1))
+		ability:StartCooldown(ability:GetCooldown(-1) * caster:GetCooldownReduction())
 		--[[if caster:GetAbilityByIndex(1):GetName() == "nanaya_kekshi" then
 			caster:SwapAbilities("nanaya_kekshi", "nanaya_knife", false, true)
 		end]]

@@ -1939,8 +1939,14 @@
 		"DOTA_Tooltip_modifier_larret_de_mort_cooldown"                                   "Larret De Mort Cooldown"
 		"DOTA_Tooltip_modifier_larret_de_mort_cooldown_Description"                       ""
 
-		"DOTA_Tooltip_modifier_fiery_finale_cooldown"                                     "Fiery Finale Cooldown"
-		"DOTA_Tooltip_modifier_fiery_finale_cooldown_Description"                         "Fiery Finale is unavailable"
+		"DOTA_Tooltip_modifier_gilles_combo_cooldown"                                   "Larret De Mort Cooldown"
+		"DOTA_Tooltip_modifier_gilles_combo_cooldown_Description"                       ""
+
+		"DOTA_Tooltip_modifier_gilles_combo_cooldown"                                   "Larret De Mort Cooldown"
+		"DOTA_Tooltip_modifier_gilles_combo_cooldown_Description"                       ""
+
+		"DOTA_Tooltip_modifier_gilles_combo_new_blood"                                     "Larret De Mort"
+		"DOTA_Tooltip_modifier_gilles_combo_new_blood_Description"                         "Damage over time"
 
 		"DOTA_Tooltip_modifier_laus_saint_cladius_cooldown"                               "Laus Saint Cladius Cooldown"
 		"DOTA_Tooltip_modifier_laus_saint_cladius_cooldown_Description"                   "Laus Saint Claudius is unavailable"
@@ -4947,7 +4953,7 @@
         "DOTA_Tooltip_ability_gilles_cthulhu_favour_lock_duration"					"SA Lock duration:"
 
         "DOTA_Tooltip_Ability_gilles_eye_for_art_passive"				"Eye for Art"
-        "DOTA_Tooltip_ability_gilles_eye_for_art_passive_Description"	"Whenever an enemy within %radius% area of Gilles uses an ability, Gilles would gain vision over them for %duration% seconds."
+        "DOTA_Tooltip_ability_gilles_eye_for_art_passive_Description"	"<font color='#FFFAFA'>PASSIVE</font>: Whenever an enemy within %radius% area of Gilles uses an ability, Gilles would gain vision over them for %duration% seconds.\n<font color='#FFFAFA'>ACTIVE</font>: Combo sequence activator."
         "DOTA_Tooltip_Ability_gilles_eye_for_art_passive_Lore"			"Gilles vast collection of artworks has allowed him to identify servants from their appearance."
 
         "DOTA_Tooltip_Ability_gilles_abyssal_contract"					"Abyssal Contract"
@@ -4960,7 +4966,7 @@
         "DOTA_Tooltip_ability_gilles_abyssal_contract_Lore"				"The deep sea holds many surprises."
 
         "DOTA_Tooltip_Ability_gilles_eye_for_art_attribute"					"Attribute: Eye for Art"
-        "DOTA_Tooltip_ability_gilles_eye_for_art_attribute_Description"		"Whenever an enemy within %radius% area of Gilles uses an ability, Gilles would gain vision over them for %duration% seconds."
+        "DOTA_Tooltip_ability_gilles_eye_for_art_attribute_Description"		"<font color='#FFFAFA'>PASSIVE</font>: Whenever an enemy within %radius% area of Gilles uses an ability, Gilles would gain vision over them for %duration% seconds."
         "DOTA_Tooltip_Ability_gilles_eye_for_art_attribute_Lore"			"Gilles vast collection of artworks has allowed him to identify servants from their appearance."
  		
  		"DOTA_Tooltip_Ability_gilles_outer_god_attribute"				"Attribute: Outer God's Favour"
@@ -4996,7 +5002,7 @@
         "DOTA_Tooltip_ability_gille_tentacle_wrap_Lore"       ""
 
         "DOTA_Tooltip_Ability_gille_tentacle_wrap"     "Tentacle Wrap"
-        "DOTA_Tooltip_ability_gille_tentacle_wrap_Description" "Gigantic Horror gets grip of target, rooting them in place for 2 seconds."
+        "DOTA_Tooltip_ability_gille_tentacle_wrap_Description" "Gigantic Horror gets grip of target, rooting them in place for a duration."
         "DOTA_Tooltip_Ability_gille_tentacle_wrap_root_duration"     "ROOT DURATION:"
         "DOTA_Tooltip_ability_gille_tentacle_wrap_Lore"       ""
 
@@ -5038,6 +5044,20 @@
         "DOTA_Tooltip_ability_gille_larret_de_mort_initial_damage"		"%INITIAL DAMAGE:"
         "DOTA_Tooltip_ability_gille_larret_de_mort_blood_duration"		"PLAGUE DURATION:"
         "DOTA_Tooltip_ability_gille_larret_de_mort_damage_per_sec"		"%PLAGUE DAMAGE PER SEC:"
+
+
+         "DOTA_Tooltip_Ability_gilles_combo_new"						"Combo: L'Arret de Mort"
+        "DOTA_Tooltip_ability_gilles_combo_new_Description"			"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : F -> R in 3 seconds</font>\nGilles summons Gigantic Horror and explodes him in a blood ritual.\nEnemies in the %radius% radius take <font color='#58ACFA'>damage</font> over time.\nAfter %cast_delay% seconds, Gigantic Horror explodes, <font color='#FF3399'>stunning</font>, dealing <font color='#58ACFA'>damage</font> and applying strong <font color='#880808'>damage over time</font> effect on enemies, which deals percentage of their health as <font color='#58ACFA'>damage</font>."
+        "DOTA_Tooltip_ability_gilles_combo_new_Lore"				""
+        "DOTA_Tooltip_ability_gilles_combo_new_knockup_duration"	"KNOCKUP DURATION:"
+        "DOTA_Tooltip_ability_gilles_combo_new_explosion_damage"	"EXPLOSION DAMAGE:"
+        "DOTA_Tooltip_ability_gilles_combo_new_initial_damage"		"INITIAL DAMAGE TOTAL:"
+        "DOTA_Tooltip_ability_gilles_combo_new_blood_duration"		"DOT DURATION:"
+        "DOTA_Tooltip_ability_gilles_combo_new_damage_per_sec"		"%DAMAGE PER SEC:"
+
+         "DOTA_Tooltip_Ability_gilles_combo_activator"						"Combo activator"
+        "DOTA_Tooltip_ability_gilles_combo_activator_Description"			"\nCombo sequence activator."
+        "DOTA_Tooltip_ability_gilles_combo_new_Lore"				""
 
         
 
@@ -6695,7 +6715,7 @@
 	"DOTA_Tooltip_Ability_jeanne_lagron_combo_range"      "Cast range:"
 
 	"DOTA_Tooltip_Ability_jeanne_oblivion_attribute"      "Attribute: Oblivion Correction"
-	"DOTA_Tooltip_Ability_jeanne_oblivion_attribute_Description"      "Human memories may be fragile, but Avengers never forget.\nTrails of Torment cursed area lasts for additional 7 seconds.\nEnables <font color='#58ACFA'>The Final Judgement : </font>Jeanne uses her inextinguishable wrath to hex every area affected by the Trails of Torment for the second time, dealing damage and disabling enemies in those areas with the initial effect of Trails of Torment."
+	"DOTA_Tooltip_Ability_jeanne_oblivion_attribute_Description"      "Human memories may be fragile, but Avengers never forget.\nTrails of Torment cursed area lasts for additional duration.\nEnables <font color='#58ACFA'>The Final Judgement : </font>Jeanne uses her inextinguishable wrath to hex every area affected by the Trails of Torment for the second time, dealing damage and disabling enemies in those areas with the initial effect of Trails of Torment."
 	"DOTA_Tooltip_Ability_jeanne_oblivion_attribute_bonus_duration"      "Trails of Torment bonus duration:"
 
 	"DOTA_Tooltip_Ability_jeanne_ephemeral_attribute"      "Attribute: Ephemeral Dream"

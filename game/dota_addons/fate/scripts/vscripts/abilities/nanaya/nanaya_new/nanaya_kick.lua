@@ -85,6 +85,7 @@ function nanaya_kick:OnSpellStart()
 	if seq == 1 then
 		self.target = nil
 		self.target = self:GetCursorTarget()
+		self.isRefreshed = 0
 	end
 	local target = self.target
 
@@ -390,7 +391,9 @@ function modifier_nanaya_kick_tracker:OnDestroy()
 
 		local ability = self:GetAbility()
 		ability:EndCooldown()
-		ability:StartCooldown(ability:GetCooldown(ability:GetLevel() - 1))
+		if ability.isRefreshed == 0 then
+			ability:StartCooldown(ability:GetCooldown(ability:GetLevel() - 1) * caster:GetCooldownReduction())
+		end
 	end
 end
 

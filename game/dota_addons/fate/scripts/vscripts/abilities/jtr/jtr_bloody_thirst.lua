@@ -51,18 +51,32 @@ function modifier_jtr_bloody_thirst_passive:DeclareFunctions()
 	return {	MODIFIER_EVENT_ON_HERO_KILLED,
 	MODIFIER_PROPERTY_TRANSLATE_ACTIVITY_MODIFIERS	}
 end
-
-function modifier_jtr_bloody_thirst_passive:OnHeroKilled(args)
-	if args.target:IsHero() and args.attacker == self:GetParent() then
-		if not self.pepega then
+function jtr_bloody_thirst:OnHeroDiedNearby( hVictim, hKiller, kv )
+	if hVictim == nil or hKiller == nil then
+		return
+	end
+	if hKiller == self:GetCaster() or ((hVictim:GetAbsOrigin() - self:GetCaster():GetAbsOrigin()):Length2D() < 300 and hVictim:GetTeamNumber() ~= self:GetCaster():GetTeamNumber() )then
+		self:GetCaster():FindModifierByName("modifier_jtr_bloody_thirst_passive"):ActivateThirst()
+	end
+end
+function modifier_jtr_bloody_thirst_passive:ActivateThirst()
+	if not self.pepega then
 			self.pepega = 1
 			self.parent = self:GetParent()
 			self.player_id = self.parent:GetPlayerOwnerID()
 			self.player = PlayerResource:GetPlayer(self.player_id)
 			self.ability = self:GetAbility()
 			self:StartIntervalThink(FrameTime())
+	end
+	self.parent:AddNewModifier(self.parent, self.ability, "modifier_jtr_bloody_thirst_active", {duration = self.ability:GetSpecialValueFor("passive_duration")})
+
+
+end
+function modifier_jtr_bloody_thirst_passive:OnHeroKilled(args)
+	if args.target:IsHero() and args.attacker == self:GetParent() then
+		if IsServer() then
+			ActivateThirst()
 		end
-		self.parent:AddNewModifier(self.parent, self.ability, "modifier_jtr_bloody_thirst_active", {duration = self.ability:GetSpecialValueFor("passive_duration")})
 	end
 end
 

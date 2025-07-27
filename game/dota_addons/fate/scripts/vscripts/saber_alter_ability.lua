@@ -186,7 +186,7 @@ function OnMMBStart(keys)
 	masterCombo:StartCooldown(keys.ability:GetCooldown(1))
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_max_mana_burst_cooldown", {duration = ability:GetCooldown(ability:GetLevel())})
 
-	caster:FindAbilityByName("saber_alter_mana_burst"):StartCooldown(15.0)
+	caster:FindAbilityByName("saber_alter_mana_burst"):StartCooldown(caster:FindAbilityByName("saber_alter_mana_burst"):GetCooldown(-1))
 
 	local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	EmitGlobalSound("Saber_Alter.MMB" ) 

@@ -15,7 +15,9 @@ function gilles_eye_for_art_attribute:OnSpellStart()
 	if not hero then hero = caster.HeroUnit end
 
 	hero:FindAbilityByName("gilles_eye_for_art_passive"):SetLevel(1)
-
+	if IsServer() then
+		hero:SwapAbilities("gilles_eye_for_art_passive", "gilles_combo_activator", not hero:FindAbilityByName("gilles_combo_activator"):IsHidden(), false)
+	end
 	-- Set master 1's mana 
 	local master = hero.MasterUnit
 	master:SetMana(master:GetMana() - self:GetManaCost(self:GetLevel()))

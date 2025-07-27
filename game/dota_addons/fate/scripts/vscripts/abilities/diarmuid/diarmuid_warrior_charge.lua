@@ -97,7 +97,7 @@ function diarmuid_warrior_charge:OnSpellStart()
 
 	local targets = FindUnitsInRadius(caster:GetTeam(), target:GetOrigin(), nil, radius , DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	for k,v in pairs(targets) do
-    	DoDamage(caster, v, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+    	DoDamage(caster, v, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
 	end
 
 	--target:AddNewModifier(caster, v, "modifier_stunned", {Duration = 0.75})
@@ -107,14 +107,14 @@ function diarmuid_warrior_charge:OnSpellStart()
 	giveUnitDataDrivenModifier(caster, target, "locked", duration)
 	caster:PerformAttack(target, true, true, true, true, false, false, false)
 
-	if caster:HasModifier("modifier_doublespear_active") or caster:HasModifier("modifier_rampant_warrior") then 
-		local doubleTarget = FindUnitsInRadius(caster:GetTeam(), target:GetOrigin(), nil, radius , DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-		for k,v in pairs(doubleTarget) do
-	    	DoDamage(caster, v, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
-		end
+	-- if caster:HasModifier("modifier_doublespear_active") or caster:HasModifier("modifier_rampant_warrior") then 
+	-- 	local doubleTarget = FindUnitsInRadius(caster:GetTeam(), target:GetOrigin(), nil, radius , DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+	-- 	for k,v in pairs(doubleTarget) do
+	--     	DoDamage(caster, v, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+	-- 	end
 
-		caster:PerformAttack(target, true, true, true, true, false, false, false)
-	end
+	-- 	caster:PerformAttack(target, true, true, true, true, false, false, false)
+	-- end
 
 	caster:AddNewModifier(caster, self, "modifier_warrior_charge_attspd", { duration = 2.0 })
 	if target:HasModifier("modifier_diar_fw_controller") then

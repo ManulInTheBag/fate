@@ -71,6 +71,23 @@ function cmd_seal_2:OnSpellStart()
 		hero:FindModifierByName("modifier_saito_fds_cast_controller"):BreakCombo()
 		 
 	end
+
+	if(hero:GetName() == "npc_dota_hero_skeleton_king") then
+		hero:FindAbilityByName("khsn_mde").isRefreshed = 1
+		 
+	end
+
+	if(hero:GetName() == "npc_dota_hero_ogre_magi") then
+		hero:FindAbilityByName("aoko_3_beams").isRefreshed = 1
+		 
+	end
+
+	if(hero:GetName() == "npc_dota_hero_night_stalker") then
+		hero:FindAbilityByName("nanaya_kick").isRefreshed = 1
+	end
+	if(hero:GetName() == "npc_dota_hero_phantom_lancer") then
+		hero:FindAbilityByName("cu_chulain_relentless_spear").isRefreshed = 1
+	end
 	ResetAbilities(hero)
 	ResetItems(hero)
 	IncrementCharges(hero)

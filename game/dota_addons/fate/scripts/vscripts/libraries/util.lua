@@ -684,6 +684,7 @@ CannotReset = {
     "khsn_grab",
     "khsn_combo_arena",
     "khsn_combo_arena_recast",
+    "gilles_combo_new",
 }
 
 
@@ -2518,7 +2519,7 @@ local heroCombos = {
     ["npc_dota_hero_vengefulspirit"] = "avenger_endless_loop",
     ["npc_dota_hero_huskar"] = "diarmuid_new_combo",
     ["npc_dota_hero_chen"] = "iskander_ionioi",
-    ["npc_dota_hero_shadow_shaman"] = "gille_larret_de_mort",
+    ["npc_dota_hero_shadow_shaman"] = "gilles_combo_new",
     ["npc_dota_hero_lina"] = "nero_laus_saint_claudius_new",
     ["npc_dota_hero_omniknight"] = "gawain_supernova",
     ["npc_dota_hero_enchantress"] = "tamamo_polygamist_castration_fist",

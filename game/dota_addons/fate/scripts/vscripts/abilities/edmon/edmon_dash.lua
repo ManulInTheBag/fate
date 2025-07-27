@@ -140,19 +140,23 @@ function modifier_edmon_dash:UpdateHorizontalMotion(me, dt)
 
         return nil
     end]]
-
-    if not self.target or not self.target:IsAlive() then
-    	--self:Destroy()
-    	self.flytopoint = true
-
-    	--return nil
-    end
-
-    if (self.targetpos - self.target:GetAbsOrigin()):Length2D() > 300 then
-        --self:Destroy()
+    if not IsNotNull(self.target) then
         self.flytopoint = true
+    else 
 
-        --return nil
+        if not self.target or not self.target:IsAlive() then
+            --self:Destroy()
+            self.flytopoint = true
+
+            --return nil
+        end
+
+        if (self.targetpos - self.target:GetAbsOrigin()):Length2D() > 300 then
+            --self:Destroy()
+            self.flytopoint = true
+
+            --return nil
+        end
     end
 
     if not self.flytopoint then
@@ -160,7 +164,7 @@ function modifier_edmon_dash:UpdateHorizontalMotion(me, dt)
     end
 
     if (self.targetpos - self.parent:GetOrigin()):Length2D() < 200 then
-        self:BOOM()
+        --  self:BOOM()
 
         self:Destroy()
         return nil

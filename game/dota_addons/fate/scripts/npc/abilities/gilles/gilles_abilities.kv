@@ -6,6 +6,83 @@
 
 "DOTAAbilities"
 {	
+
+	//=================================================================================================================
+	// Combo activator
+	//=================================================================================================================
+	"gilles_combo_activator"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/gilles/gilles_combo_activator"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET|DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityTextureName"			"custom/gille_larret_de_mort"
+		"MaxLevel"						"1"
+		"AbilityCooldown"				"10"
+		
+		"AbilityValues"
+        {
+
+        }
+	}
+
+
+	//===================================================
+	// Gilles De Rais : L'Arret de Mort (COMBO NEW)
+	//===================================================
+	"gilles_combo_new"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/gilles/gilles_combo_new"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"25"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityTextureName"			"custom/gille_larret_de_mort"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_4"
+		"AnimationPlaybackRate" 		"1.0"
+		"AOERadius"						"%radius"		
+		
+		"precache"
+		{	
+			"particle"		"particles/gilles/new_combo/gilles_new_combo_1.vpcf"
+			"particle"		"particles/gilles/new_combo/gilles_new_combo_2.vpcf"
+			"particle"		"particles/gilles/new_combo/kraken_model_1.vpcf"
+			"particle"		"particles/gilles/new_combo/gilles_combo_kraken_2.vpcf"
+			"particle"		"particles/gilles/new_combo/gilles_new_combo_kraken_blood_kill.vpcf"
+			"particle"		"particles/zlodemon/zlodemon_basic_circle.vpcf"
+			"particle"		"particles/custom/screen_scarlet_splash.vpcf"
+			"particle"		"particles/units/heroes/hero_bloodseeker/bloodseeker_rupture.vpcf"
+			//"particle"		"particles/gilles/new_combo/blood_rain.vpcf"
+
+		}
+		
+		// Casting
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCastRange"				"1000"
+		"AbilityCastPoint"				"0.5"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+		"AbilityCooldown"				"150.0"
+
+		
+		"AbilityValues"
+        {
+            "radius" "1000"
+            "knockup_duration" "0.5"
+            "cast_delay" "2"
+            "initial_damage" "1000"
+            "explosion_damage" "1500"
+            "blood_duration" "8"
+            "damage_per_sec" "10"
+            "manacost" "80"
+        }
+		
+	
+		
+	}	
 	//=======================================
 	// Gilles De Rais Attribute : Eye for Art
 	//=======================================
@@ -39,10 +116,10 @@
 	{
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/gilles/gilles_eye_for_art"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE|DOTA_ABILITY_BEHAVIOR_HIDDEN|DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
 		"AbilityTextureName"			"custom/gille_attribute_eye_for_art"
 		"MaxLevel"						"1"
-		
+		"AbilityCooldown"				"10"
 		"precache"
 		{
 			"particle"					"particles/zlodemon/zlodemon_overhead_eye.vpcf"
