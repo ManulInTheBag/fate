@@ -1,7 +1,7 @@
 LinkLuaModifier("modifier_khsn_mde", "abilities/kinghassan/khsn_mde", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_khsn_mde_active", "abilities/kinghassan/khsn_mde", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_khsn_mde_enemy", "abilities/kinghassan/khsn_mde", LUA_MODIFIER_MOTION_NONE)
-
+LinkLuaModifier("modifier_heal_reduction_tier_1", "modifiers/modifier_heal_reduction", LUA_MODIFIER_MOTION_NONE)
 khsn_mde = class({})
 
 function khsn_mde:GetIntrinsicModifierName() return "modifier_khsn_mde" end
@@ -153,6 +153,9 @@ function modifier_khsn_mde_active:OnIntervalThink()
 	                                            false)
 		for _,enemy in ipairs(enemies2) do
 			enemy:AddNewModifier(self.parent, self.ability, "modifier_khsn_mde_enemy", {duration = 0.1})
+				if self.parent:HasModifier("modifier_khsn_presence_attribute") then
+					enemy:AddNewModifier(self.parent, self.ability, "modifier_heal_reduction_tier_1", {duration = 0.1})
+				end
 			--[[DoDamage(self.parent, enemy, self:GetAbility():GetSpecialValueFor("dps")/4, self.parent.PresenceAcquired and DAMAGE_TYPE_PURE or DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
 			self.parent:Heal(self:GetAbility():GetSpecialValueFor("dps")/4, self.parent)]]
 	    end
@@ -200,23 +203,24 @@ modifier_khsn_mde_enemy = modifier_khsn_mde_enemy or class({})
 function modifier_khsn_mde_enemy:DeclareFunctions()
     return { MODIFIER_PROPERTY_PROVIDES_FOW_POSITION,
     		MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE,
-    		MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
-			MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE}
+    		--MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
+			--MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE
+		}
 end
 
-function modifier_khsn_mde_enemy:GetModifierHealAmplify_PercentageTarget()
-	if self:GetCaster():HasModifier("modifier_khsn_presence_attribute") then
-		return -1*self:GetAbility():GetSpecialValueFor("attribute_heal_reduction")
-	end
-	return 0
-end
+-- function modifier_khsn_mde_enemy:GetModifierHealAmplify_PercentageTarget()
+-- 	if self:GetCaster():HasModifier("modifier_khsn_presence_attribute") then
+-- 		return -1*self:GetAbility():GetSpecialValueFor("attribute_heal_reduction")
+-- 	end
+-- 	return 0
+-- end
 
-function modifier_khsn_mde_enemy:GetModifierHPRegenAmplify_Percentage()
-	if self:GetCaster():HasModifier("modifier_khsn_presence_attribute") then
-		return -1*self:GetAbility():GetSpecialValueFor("attribute_heal_reduction")
-	end
-	return 0
-end
+-- function modifier_khsn_mde_enemy:GetModifierHPRegenAmplify_Percentage()
+-- 	if self:GetCaster():HasModifier("modifier_khsn_presence_attribute") then
+-- 		return -1*self:GetAbility():GetSpecialValueFor("attribute_heal_reduction")
+-- 	end
+-- 	return 0
+-- end
 
 function modifier_khsn_mde_enemy:GetModifierTotalDamageOutgoing_Percentage()
 	if(self:GetCaster().PresenceAcquired == true) then

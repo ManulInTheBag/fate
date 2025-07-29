@@ -468,6 +468,10 @@ function Precache( context )
     PrecacheResource("particle",  "particles/zlodemon/modifier_hvick.vpcf", context)
     PrecacheResource("particle",  "particles/zlodemon/toilet.vpcf", context)
     PrecacheResource("particle",  "particles/zlodemon/torrent.vpcf", context)
+    PrecacheResource("particle",  "particles/healres/hpbar_healres.vpcf", context)
+    PrecacheResource("particle",  "particles/healres/hpbar_healres_t2.vpcf", context)
+    PrecacheResource("particle",  "particles/healres/hpbar_healres_t3.vpcf", context)
+    PrecacheResource("particle",  "particles/healres/hpbar_healres_t4.vpcf", context)
     
     --PrecacheResource( "particle_folder", "particles/econ/items/windrunner", context )
 

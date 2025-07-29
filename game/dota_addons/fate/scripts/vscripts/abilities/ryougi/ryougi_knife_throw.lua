@@ -1,6 +1,6 @@
 LinkLuaModifier("modifier_ryougi_knife_target", "abilities/ryougi/ryougi_knife_throw", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_ryougi_knife_throw_slow", "abilities/ryougi/ryougi_knife_throw", LUA_MODIFIER_MOTION_NONE)
-
+LinkLuaModifier("modifier_heal_reduction_tier_2", "modifiers/modifier_heal_reduction", LUA_MODIFIER_MOTION_NONE)
 
 ryougi_knife_throw = class({})
 
@@ -64,6 +64,7 @@ function ryougi_knife_throw:OnProjectileHit_ExtraData(hTarget, vLocation, tData)
   	print("ryougi knife after modifier applied target "..hTarget:GetName())
   	if hCaster.BlackMoonAcquired then
       hTarget:AddNewModifier(hCaster, self, "modifier_ryougi_knife_throw_slow", {duration = self:GetSpecialValueFor("attribute_slow_duration")})
+	  hTarget:AddNewModifier(hCaster, self, "modifier_heal_reduction_tier_2", {duration = self:GetSpecialValueFor("attribute_slow_duration")})
     end
     eyes:CutLine(hTarget, "knife_throw")
     DoDamage(hCaster, hTarget, self:GetSpecialValueFor("damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)

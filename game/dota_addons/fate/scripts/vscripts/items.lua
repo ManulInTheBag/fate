@@ -217,10 +217,14 @@ function PotInstantHeal(keys)
 	end
 	caster:ApplyHeal(500, ability)
 
-	if caster:GetName() ~= "npc_dota_hero_juggernaut" then
+	if caster:GetName() ~= "npc_dota_hero_juggernaut" and caster:GetName() ~= "npc_dota_hero_shadow_shaman" then
 		caster:GiveMana(500)
 	end
 
+	if  caster:GetName() == "npc_dota_hero_shadow_shaman" then
+		caster:GiveMana(caster:GetMaxMana() * 0.4)
+
+	end
 	local healFx = ParticleManager:CreateParticle("particles/units/heroes/hero_omniknight/omniknight_purification_g.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 	ParticleManager:SetParticleControl(healFx, 1, caster:GetAbsOrigin()) -- target effect location
 

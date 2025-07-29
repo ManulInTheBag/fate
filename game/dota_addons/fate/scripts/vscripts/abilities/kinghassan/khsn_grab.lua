@@ -48,17 +48,19 @@ function modifier_khsn_grab_target:CheckState()
 end
 
 function modifier_khsn_grab_target:DeclareFunctions()
-    return { MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
-			MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE}
+    return { MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS}
+end
+function modifier_khsn_grab_target:GetModifierMagicalResistanceBonus()
+	return -self:GetAbility():GetSpecialValueFor("mr_reduction")
 end
 
-function modifier_khsn_grab_target:GetModifierHealAmplify_PercentageTarget()
-	return -1*self:GetAbility():GetSpecialValueFor("heal_reduction")
-end
+-- function modifier_khsn_grab_target:GetModifierHealAmplify_PercentageTarget()
+-- 	return -1*self:GetAbility():GetSpecialValueFor("heal_reduction")
+-- end
 
-function modifier_khsn_grab_target:GetModifierHPRegenAmplify_Percentage()
-	return -1*self:GetAbility():GetSpecialValueFor("heal_reduction")
-end
+-- function modifier_khsn_grab_target:GetModifierHPRegenAmplify_Percentage()
+-- 	return -1*self:GetAbility():GetSpecialValueFor("heal_reduction")
+-- end
 
 function modifier_khsn_grab_target:IsHidden() return false end
 function modifier_khsn_grab_target:IsDebuff() return true end

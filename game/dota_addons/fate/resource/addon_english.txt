@@ -1195,6 +1195,18 @@
 		"DOTA_Tooltip_modifier_healing_scroll"                                            "Healing Scroll"
 		"DOTA_Tooltip_modifier_healing_scroll_Description"                                "Armor increased"
 
+		"DOTA_Tooltip_modifier_heal_reduction_tier_1"                                            "Healres tier 1"
+		"DOTA_Tooltip_modifier_heal_reduction_tier_1_Description"                                "Healing reduced by 20%%"
+
+		"DOTA_Tooltip_modifier_heal_reduction_tier_2"                                            "Healres tier 2"
+		"DOTA_Tooltip_modifier_heal_reduction_tier_2_Description"                                "Healing reduced by 40%%"
+
+		"DOTA_Tooltip_modifier_heal_reduction_tier_3"                                            "Healres tier 3"
+		"DOTA_Tooltip_modifier_heal_reduction_tier_3_Description"                                "Healing reduced by 60%%"
+
+		"DOTA_Tooltip_modifier_heal_reduction_tier_4"                                            "Healres tier 4"
+		"DOTA_Tooltip_modifier_heal_reduction_tier_4_Description"                                "Healing reduced by 80%%"
+
 		"DOTA_Tooltip_modifier_nameless_forest"                                           "Nameless Forest"
 		"DOTA_Tooltip_modifier_nameless_forest_Description"                               ""
 
@@ -3925,7 +3937,7 @@
 		//"DOTA_Tooltip_ability_true_assassin_snatch_strike_Note0"		"STR reduction kicks in first before damage happens. Damage dealt is based on target's max health before the STR reduction."
 		
 		"DOTA_Tooltip_Ability_true_assassin_zabaniya"				"Zabaniya"
-		"DOTA_Tooltip_ability_true_assassin_zabaniya_Description"	"Hassan extends his demonic arm at enemy's heart, dealing damage. The target is then cursed for a short duration, having reduced healing efficiency."
+		"DOTA_Tooltip_ability_true_assassin_zabaniya_Description"	"Hassan extends his demonic arm at enemy's heart, dealing damage. The target is then cursed for a short duration, having <font color='#7F00FF'>healing reduction tier 4</font>."
 		"DOTA_Tooltip_ability_true_assassin_zabaniya_Lore"			"The cursing hand of Middle East creates a mirror image of the victim's heart with ether clump, claiming the original without actually touching it."
 		"DOTA_Tooltip_ability_true_assassin_zabaniya_delay"			"CAST DELAY:"
 		"DOTA_Tooltip_ability_true_assassin_zabaniya_damage"			"DAMAGE:"
@@ -4884,7 +4896,7 @@
         "gilles_cthulhu_tentacle"			"Hentai"
 
         "DOTA_Tooltip_Ability_gilles_prelati_spellbook"     			"Prelati's Spellbook"
-        "DOTA_Tooltip_ability_gilles_prelati_spellbook_Description" 	"<font color='#79C7F0'>Passive</font>: Prelati's Spellbook regenerates mana rapidly. Units dying nearby Gilles regenerates %creep_regen%% of his maximum mana. Heroes grants %hero_regen%%.\n<font color='#79C7F0'>Active</font>:Gilles becomes invulnerable for %duration% seconds. Prelati's Spellbook stops regenerating mana for a short duration."
+        "DOTA_Tooltip_ability_gilles_prelati_spellbook_Description" 	"<font color='#79C7F0'>Passive</font>: Prelati's Spellbook regenerates mana rapidly.\nUnits dying nearby Gilles regenerates %creep_regen%% of his maximum mana. Heroes grants %hero_regen%%.\n Condensed mana essense always restores 50%% of mana to Gilles\n<font color='#79C7F0'>Active</font>:Gilles becomes invulnerable for %duration% seconds. Prelati's Spellbook stops regenerating mana for a short duration."
         "DOTA_Tooltip_ability_gilles_prelati_spellbook_Lore"  			"The infamous, human-skin-made grimoire of Gilles functions as a mana furnace, conjuring powerful spells by itself without relying on owner's mana."
         "DOTA_Tooltip_Ability_gilles_prelati_spellbook_regen_pct"		"%Gilles Mana Regenration:"
         "DOTA_Tooltip_Ability_gilles_prelati_spellbook_block_duration"	"Mana Regeneration Pause Duration:"
@@ -4926,8 +4938,9 @@
         "DOTA_Tooltip_ability_gilles_hysteria_Note0"  				"Cannot be used on a target already affected by Hysteria."
 
         "DOTA_Tooltip_Ability_gilles_grief"     					"Grief"
-        "DOTA_Tooltip_ability_gilles_grief_Description" 			"Curse an enemy. After a short duration, the target takes magical damage which increases in proportion to the target's missing health and becomes <font color='#FF3399'>muted</font> for %stun_duration% seconds."        
+        "DOTA_Tooltip_ability_gilles_grief_Description" 			"Curse an enemy. After a short duration, the target takes magical damage which increases based on caster's <font color='#1E90FF'>intellect</font> and becomes <font color='#FF3399'>muted</font> for %stun_duration% seconds."        
         "DOTA_Tooltip_ability_gilles_grief_damage"					"Damage:"
+        "DOTA_Tooltip_ability_gilles_grief_int_damage"				"INT to damage:"
         "DOTA_Tooltip_ability_gilles_grief_duration"  				"Explosion delay:"
         "DOTA_Tooltip_ability_gilles_grief_Lore"  					"Confronted by their greatest fear, one can only put up a futile resistance in desperation."
         "DOTA_Tooltip_ability_gilles_grief_Note0"  					"Aoe damage will not be increased by damage taken from this ability."
@@ -5454,7 +5467,8 @@
 		"DOTA_Tooltip_Ability_khsn_azrael_Description"	"<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%AbilityCastPoint%</font>\nAfter a 1.37 second delay, deals <font color='#58ACFA'>%damage%</font> + damage stored by the <font color='#FF0033'>Death's Door</font> on this enemy as <font color='#58ACFA'>magical</font> damage.\nIf enemy's health drops below %health_threshold%% , it will be executed.\nEnds Evening Bell if target was not killed."
 
 		"DOTA_Tooltip_Ability_khsn_combo_arena"	"Combo - Valley of the Shadow of Death"
-		"DOTA_Tooltip_Ability_khsn_combo_arena_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : Q-Q-F in 3 seconds</font>\nKing Hassan brings the Valley to the mortal realm for %duration% seconds, manifesting an area, where all enemies are affected by %heal_reduction%%  healing reduction and King Hassan himself is immortal.\nEnemies leaving the Valley will be hunted by the Hassan of Hundred Faces, taking <font color='#58ACFA'>%damage_punishment%</font> magical damage as a punishment.\nCan be recast after 4.8 seconds.\nRecast: All enemies inside the Valley will be stunned for 2.8 seconds and will take <font color='#58ACFA'>%damage%</font> magical damage when the stun ends."
+		"DOTA_Tooltip_Ability_khsn_combo_arena_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : Q-Q-F in 3 seconds</font>\nKing Hassan brings the Valley to the mortal realm for %duration% seconds, manifesting an area, where all enemies are affected by <font color='#7F00FF'>healing reduction tier 3</font>.\nKing Hassan himself is immortal inside.\nEnemies leaving the Valley will be hunted by the Hassan of Hundred Faces, taking <font color='#58ACFA'>%damage_punishment%</font> magical damage as a punishment.\nCan be recast after 4.8 seconds.\nRecast: All enemies inside the Valley will be stunned for 2.8 seconds and will take <font color='#58ACFA'>%damage%</font> magical damage when the stun ends."
+		"DOTA_Tooltip_Ability_khsn_combo_arena_heal_reduction"	"%Healing reduction"
 
 		"DOTA_Tooltip_Ability_khsn_combo_arena_recast"	"Combo - Valley of the Shadow of Death"
 		"DOTA_Tooltip_Ability_khsn_combo_arena_recast_Description"	""
@@ -5466,10 +5480,11 @@
 		"DOTA_Tooltip_Ability_khsn_bc_attribute_Description"	"Abyss of Death: This swordsman who is no longer certain whether he is alive or dead, even if he receives a fatal wound or loses half of his body for example, will keep snapping at the enemy as if he was in perfectly good health. When his health drops down to zero, he restores 25%% of his max health and activates Evening Bell instead of dying.\nCooldown: 99 seconds.\nKing Hassan also cannot be executed."
 
 		"DOTA_Tooltip_Ability_khsn_presence_attribute"	"Attribute - Death's Presence"
-		"DOTA_Tooltip_Ability_khsn_presence_attribute_Description"	"Evening Bell's duration can't drop below %linger_duration% seconds while it affects enemy heroes.\nEnemies under Evening's Bell effect deal %damage_penalty%%  less damage and have their healing efficiency reduced by %heal_penalty%% ."
+		"DOTA_Tooltip_Ability_khsn_presence_attribute_Description"	"Evening Bell's duration can't drop below %linger_duration% seconds while it affects enemy heroes.\nEnemies under Evening's Bell effect deal %damage_penalty%%  less damage and have <font color='#7F00FF'>healing reduction tier 1</font>."
+		"DOTA_Tooltip_Ability_khsn_presence_attribute_heal_penalty"	"%Healing reduction:"
 
 		"DOTA_Tooltip_Ability_khsn_flame_attribute"	"Attribute - Being of Phantasm"
-		"DOTA_Tooltip_Ability_khsn_flame_attribute_Description"	"Upgrades Gaze of Death.\nGaze of Death also reduces target's healing by %heal_reduction%%  while active."
+		"DOTA_Tooltip_Ability_khsn_flame_attribute_Description"	"Upgrades Gaze of Death.\nGaze of Death also reduces target's  magic resistance by %mr_reduction%%% while active."
 		"DOTA_Tooltip_Ability_khsn_flame_attribute_range" "Range:"
 		"DOTA_Tooltip_Ability_khsn_blink_damage" "Damage:"
 		"DOTA_Tooltip_Ability_khsn_flame_attribute_duration"	"Slow duration:"
@@ -6143,9 +6158,10 @@
         "DOTA_Tooltip_Ability_tamamo_soulstream_Note1"		"Deals 175%% additional damage to Gigantic Horror."
  
         "DOTA_Tooltip_Ability_tamamo_subterranean_grasp"				"Subterranean Grasp"
-        "DOTA_Tooltip_ability_tamamo_subterranean_grasp_Description"	"Tamamo commands an earthbound spirit to <font color='#FF3399'>root</font> targets in place after a short delay.\n<font color='#ffa500'>Fire</font>: also reduces healing by %heal_reduction%% .\n<font color='#42aaff'>Ice</font>: also <font color='#FF3399'>locks</font>.\n<font color='#50c878'>Wind</font>: also <font color='#FF3399'>silences</font>.\n<font color='#7442c8'>Void</font>: also reduces magic resistance by %void_mr_reduction%%%."
+        "DOTA_Tooltip_ability_tamamo_subterranean_grasp_Description"	"Tamamo commands an earthbound spirit to <font color='#FF3399'>root</font> targets in place after a short delay.\n<font color='#ffa500'>Fire</font>: also applies <font color='#7F00FF'>healing reduction tier 3</font>.\n<font color='#42aaff'>Ice</font>: also <font color='#FF3399'>locks</font>.\n<font color='#50c878'>Wind</font>: also <font color='#FF3399'>silences</font>.\n<font color='#7442c8'>Void</font>: also reduces magic resistance by %void_mr_reduction%%%."
         "DOTA_Tooltip_Ability_tamamo_subterranean_grasp_Lore"			"The malicious spirit and lost traveler are two favorite ingredients of folklore." 
         "DOTA_Tooltip_Ability_tamamo_subterranean_grasp_delay"     		"Root delay:"
+        "DOTA_Tooltip_Ability_tamamo_subterranean_grasp_heal_reduction" "%Heal reduction:"
         "DOTA_Tooltip_Ability_tamamo_subterranean_grasp_duration"		"Root duration:"
         "DOTA_Tooltip_Ability_tamamo_subterranean_grasp_damage"		"Damage:"
         //"DOTA_Tooltip_Ability_tamamo_subterranean_grasp_void_mr_reduction"	"%<font color='#7442c8'>Void</font> MR reduction:"
@@ -6401,7 +6417,7 @@
 
 
         "DOTA_Tooltip_Ability_lishuwen_attribute_new"					"Attribute: Shock paralysis"
-        "DOTA_Tooltip_Ability_lishuwen_attribute_new_Description"		"Upgrades <font color='#FF0000'>Circulatory shock</font> effect, making it apply debuffs based on stack count.\nOn 10 or more stacks, <font color='#FF0000'>Circulatory shock</font> reduces enemy magical damage .\nOn 25 or more stacks enemies are slowed and get reduced healing.\nOn 50 stacks enemies have their magic resistance and armor reduced, they receive even less healing and deal even less magical damage."
+        "DOTA_Tooltip_Ability_lishuwen_attribute_new_Description"		"Upgrades <font color='#FF0000'>Circulatory shock</font> effect, making it apply debuffs based on stack count.\nOn 10 or more stacks, <font color='#FF0000'>Circulatory shock</font> reduces enemy magical damage .\nOn 25 or more stacks enemies are slowed and get <font color='#7F00FF'>healing reduction tier 2</font>.\nOn 50 stacks enemies have their magic resistance and armor reduced, they deal even less magical damage and get <font color='#7F00FF'>healing reduction tier 3</font>."
         "DOTA_Tooltip_Ability_lishuwen_attribute_new_magical_damage_reduction_1"			"%Magical damage reduction:"
         "DOTA_Tooltip_Ability_lishuwen_attribute_new_magical_damage_reduction_2"		"%Powerful magical damage reduction:"
         "DOTA_Tooltip_Ability_lishuwen_attribute_new_slow_power"			"%Slow power:"
@@ -7696,7 +7712,8 @@
 		"DOTA_Tooltip_ability_aoko_circuits_attribute_blue_cc_immune_duration"		"Combo CC immunity duration:"
 
 		"DOTA_Tooltip_ability_aoko_first_star_attribute"				"Attribute: First Star"
-		"DOTA_Tooltip_ability_aoko_first_star_attribute_Description"	"<font color='#58ACFA'>Workout Routine</font>:\nProvides a %facebreaker_shield_amount% <font color='#FFFAFA'>all-damage barrier</font> for the duration of the cast, rendering Aoko <font color='#ff9900'>immune to crowd control</font> while it persists.\n<font color='#58ACFA'>Floating Starmine</font>:\nBasic explosions apply %sphere_healres%%  healing reduction for %sphere_healres_duration% seconds."
+		"DOTA_Tooltip_ability_aoko_first_star_attribute_Description"	"<font color='#58ACFA'>Workout Routine</font>:\nProvides a %facebreaker_shield_amount% <font color='#FFFAFA'>all-damage barrier</font> for the duration of the cast, rendering Aoko <font color='#ff9900'>immune to crowd control</font> while it persists.\n<font color='#58ACFA'>Floating Starmine</font>:\nBasic explosions apply <font color='#7F00FF'>healing reduction tier 1</font> for %sphere_healres_duration% seconds."
+		"DOTA_Tooltip_ability_aoko_first_star_attribute_sphere_healres"	"%Healing reduction:"
 
 		"DOTA_Tooltip_ability_aoko_bullet_attribute"					"Attribute: Magic Bullet Load"
 		"DOTA_Tooltip_ability_aoko_bullet_attribute_Description"		"<font color='#58ACFA'>Browning Starmine - Burst:</font>\nApplies debuff that reduces outgoing <font color='#58ACFA'>magical</font> damage by %short_beam_debuff_power%%  for %short_beam_duration% seconds.\nDeals %short_beam_int_scale% <font color='#1E90FF'>INT</font> more damage.\n<font color='#58ACFA'>Browning Starmine - Barrage:</font>\nDeals %lazers_int_scale% <font color='#1E90FF'>INT</font> more damage and reveals them for %lazers_vision_duration% seconds."
@@ -7741,7 +7758,7 @@
 		"DOTA_Tooltip_ability_ryougi_knife_throw_Description"		"<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%cast_point%</font>\nShiki throws 1 dagger forward. It deals <font color='#58ACFA'>%damage%</font> magical damage to the target enemy.\n<font color='#FFFAFA'>Marks</font> the enemy hit for %mark_duration% seconds, allowing to cast <font color='#ff9900'>Bamboo Fence Melody</font> while the mark persists.\n<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%cast_point_2%</font>\n Dashes to the target hit with <font color='#ff9900'>Hidden Dagger (yang)</font>, dealing <font color='#D1A951'>%damage_first%</font> pure damage.\nAfter a small delay, dashes through the target again, microstunning it, dealing <font color='#D1A951'>%damage_second%</font> pure damage + <font color='#D1A951'>%damage_per_line%</font> pure damage per line."
 		"DOTA_Tooltip_ability_ryougi_knife_throw_range"				"Range:"
 		"DOTA_Tooltip_ability_ryougi_knife_throw_speed"				"Speed:"
-		"DOTA_Tooltip_ability_ryougi_knife_throw_attribute_slow_duration"	"Attribute slow duration:"
+		"DOTA_Tooltip_ability_ryougi_knife_throw_attribute_slow_duration"	"Attribute effects duration:"
 
 		"DOTA_Tooltip_ability_ryougi_knife_recast"					"Bamboo Fence Melody"
 		"DOTA_Tooltip_ability_ryougi_knife_recast_description"		"<font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%cast_point%</font>\nDashes to the target hit with <font color='#ff9900'>Hidden Dagger (yang)</font>, dealing <font color='#D1A951'>%damage_first%</font> pure damage.\nAfter a small delay, dashes through the target again, microstunning it, dealing <font color='#D1A951'>%damage_second%</font> pure damage."
@@ -7807,7 +7824,8 @@
 		"DOTA_Tooltip_ability_ryougi_kiyohime_passing_attribute_Description"	"Finishing Double Belfry - Row of Beads reduces it's cooldown to 8 seconds.\nKnife Fan hard cleanses Ryougi on use (not usable while stunned though).\nMystic Eyes of Death Perception restore 50 mana when line is cut."
 
 		"DOTA_Tooltip_ability_ryougi_black_moon_attribute"		"Attribute: Black Moon Kite"
-		"DOTA_Tooltip_ability_ryougi_black_moon_attribute_Description"		"Hidden Daggers recieve additional effects: <font color='#9400D3'>slow</font> (yang) and <font color='#FF3399'>silence</font> (ying)."
+		"DOTA_Tooltip_ability_ryougi_black_moon_attribute_Description"		"Hidden Daggers recieve additional effects: <font color='#9400D3'>slow</font> and <font color='#7F00FF'>healing reduction tier 2</font>.\n(yang) and <font color='#FF3399'>silence</font> (ying)."
+		"DOTA_Tooltip_ability_ryougi_black_moon_attribute_heal_reduction"		"%Healing reduction:"
 
 		"DOTA_Tooltip_modifier_relentless_assault_blocker"										"Insurmountable Assault In Place"
 		"DOTA_Tooltip_modifier_relentless_assault_blocker_Description"							"You must use up the swapped skill before gaining more charges."
@@ -8567,17 +8585,19 @@
 		"DOTA_Tooltip_modifier_murderer_mist_slow_Description"	"Slowed"
 
         "DOTA_Tooltip_ability_jtr_maria_the_ripper"						"Maria the Ripper"
-        "DOTA_Tooltip_ability_jtr_maria_the_ripper_Description"			"Jack reproduces the sublimation of her murder on the streets of London. Performs four quick attacks on the target dealing pure damage on each hit. Female targets take additional damage Jack is taking 45%% less damage while attacking. \nThis ability has reduced cast point if used while under the effect of Murderer of the Misty Night or The Whitechapel Murderer. \nUpgradeable by attribute Efficient Killer: iIf it is night, it is misty and the target is female, Jack will use the faster version of Maria the Ripper.\nWhile under effect of <font color='#FF0000'>Bloody Thirst</font> this ability has 300%% cooldown recovery speed."
+        "DOTA_Tooltip_ability_jtr_maria_the_ripper_Description"			"Jack reproduces the sublimation of her murder on the streets of London. Performs four quick attacks on the target dealing pure damage on each hit. Female targets take additional damage Jack is taking 45%% less damage while attacking.\nEach attack applies <font color='#7F00FF'>healing reduction tier 2</font> for 0.5 seconds.\nThis ability has reduced cast point if used while under the effect of Murderer of the Misty Night or The Whitechapel Murderer. \nUpgradeable by attribute Efficient Killer: iIf it is night, it is misty and the target is female, Jack will use the faster version of Maria the Ripper.\nWhile under effect of <font color='#FF0000'>Bloody Thirst</font> this ability has 300%% cooldown recovery speed."
         "DOTA_Tooltip_ability_jtr_maria_the_ripper_cast_point"			"Cast Time:"
         "DOTA_Tooltip_ability_jtr_maria_the_ripper_reduced_cast_point"	"Reduced Cast Time:"
         "DOTA_Tooltip_ability_jtr_maria_the_ripper_cast_range"			"Cast Range:"
         "DOTA_Tooltip_ability_jtr_maria_the_ripper_damage_per_hit"		"Damage Per Hit:"
+        "DOTA_Tooltip_ability_jtr_maria_the_ripper_heal_reduction"		"%Healing reduction"
 	"DOTA_Tooltip_ability_jtr_maria_the_ripper_female_damage"		"Additional damage to female servants:"
 
 	"DOTA_Tooltip_ability_jtr_mtr_new"						"Maria the Ripper"
-        "DOTA_Tooltip_ability_jtr_mtr_new_Description"			"Jack reproduces the sublimation of her murder on the streets of London. Performs three quick strikes and then a finishing blow on the target dealing pure damage on each hit.\nEach strike locks the target for 0.75 seconds.\nJack is taking 45%% less damage while attacking.\nWhile under effect of <font color='#FF0000'>Bloody Thirst</font> this ability has 300%% cooldown recovery speed."
+        "DOTA_Tooltip_ability_jtr_mtr_new_Description"			"Jack reproduces the sublimation of her murder on the streets of London. Performs three quick strikes and then a finishing blow on the target dealing pure damage on each hit.\nEach strike locks the target for 0.75 seconds \nEach attack applies <font color='#7F00FF'>healing reduction tier 2</font> for 0.5 seconds..\nJack is taking 45%% less damage while attacking.\nWhile under effect of <font color='#FF0000'>Bloody Thirst</font> this ability has 300%% cooldown recovery speed."
         "DOTA_Tooltip_ability_jtr_mtr_new_cast_range"			"Cast Range:"
         "DOTA_Tooltip_ability_jtr_mtr_new_damage_per_hit"		"Damage Per Hit:"
+        "DOTA_Tooltip_ability_jtr_mtr_new_heal_reduction"		"%Healing reduction"
 	"DOTA_Tooltip_ability_jtr_mtr_new_final_damage"		"Finishing Blow Damage:"
 
 	"DOTA_Tooltip_ability_jtr_bloody_thirst"		"<font color='#FF0000'>Bloody Thirst</font>"

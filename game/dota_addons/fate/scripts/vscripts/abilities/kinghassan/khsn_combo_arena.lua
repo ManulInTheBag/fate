@@ -3,7 +3,7 @@ LinkLuaModifier("modifier_khsn_combo_arena_buff", "abilities/kinghassan/khsn_com
 LinkLuaModifier("modifier_khsn_combo_arena_debuff", "abilities/kinghassan/khsn_combo_arena", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_khsn_combo_execute_anim", "abilities/kinghassan/khsn_combo_arena", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_azrael_combo_cd", "abilities/kinghassan/khsn_combo", LUA_MODIFIER_MOTION_NONE)
-
+LinkLuaModifier("modifier_heal_reduction_tier_3", "modifiers/modifier_heal_reduction", LUA_MODIFIER_MOTION_NONE)
 khsn_combo_arena = class({})
 
 function khsn_combo_arena:OnSpellStart()
@@ -216,6 +216,7 @@ function modifier_khsn_combo_arena:OnIntervalThink()
 	for k,v in pairs(enemies) do
 		if not self.fuck_table[v:entindex()] then
 			v:AddNewModifier(self.caster, self.ability, "modifier_khsn_combo_arena_debuff", {duration = FrameTime()*3})
+			v:AddNewModifier(self.caster, self.ability, "modifier_heal_reduction_tier_3", {duration = FrameTime()*3})
 		end
 	end
 
@@ -280,18 +281,18 @@ function modifier_khsn_combo_arena_debuff:RemoveOnDeath()
 	return true
 end
 
-function modifier_khsn_combo_arena_debuff:DeclareFunctions()
-	return {MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
-			MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE}
-end
+-- function modifier_khsn_combo_arena_debuff:DeclareFunctions()
+-- 	return {MODIFIER_PROPERTY_HEAL_AMPLIFY_PERCENTAGE_TARGET,
+-- 			MODIFIER_PROPERTY_HP_REGEN_AMPLIFY_PERCENTAGE}
+-- end
 
-function modifier_khsn_combo_arena_debuff:GetModifierHealAmplify_PercentageTarget()
-	return self:GetAbility():GetSpecialValueFor("heal_reduction")
-end
+-- function modifier_khsn_combo_arena_debuff:GetModifierHealAmplify_PercentageTarget()
+-- 	return self:GetAbility():GetSpecialValueFor("heal_reduction")
+-- end
 
-function modifier_khsn_combo_arena_debuff:GetModifierHPRegenAmplify_Percentage()
-	return self:GetAbility():GetSpecialValueFor("heal_reduction")
-end
+-- function modifier_khsn_combo_arena_debuff:GetModifierHPRegenAmplify_Percentage()
+-- 	return self:GetAbility():GetSpecialValueFor("heal_reduction")
+-- end
 
 function modifier_khsn_combo_arena_debuff:OnCreated()
 	if not IsServer() then return end

@@ -1,7 +1,7 @@
 LinkLuaModifier("modifier_subterranean_grasp", "abilities/tamamo/tamamo_subterranean_grasp", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_subterranean_grasp_fire", "abilities/tamamo/tamamo_subterranean_grasp", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_subterranean_grasp_void", "abilities/tamamo/tamamo_subterranean_grasp", LUA_MODIFIER_MOTION_NONE)
-
+LinkLuaModifier("modifier_heal_reduction_tier_3", "modifiers/modifier_heal_reduction", LUA_MODIFIER_MOTION_NONE)
 tamamo_subterranean_grasp = class({})
 
 function tamamo_subterranean_grasp:GetAOERadius()
@@ -37,7 +37,8 @@ function tamamo_subterranean_grasp:OnSpellStart()
 			giveUnitDataDrivenModifier(caster, tEnemies[i], "rooted", duration)
 
 			if caster:HasModifier("modifier_fiery_heaven_indicator") then
-				tEnemies[i]:AddNewModifier(caster, self, "modifier_subterranean_grasp_fire", {duration = duration})
+				--tEnemies[i]:AddNewModifier(caster, self, "modifier_subterranean_grasp_fire", {duration = duration})
+				tEnemies[i]:AddNewModifier(caster, self, "modifier_heal_reduction_tier_3", {duration = duration})
 			elseif caster:HasModifier("modifier_frigid_heaven_indicator") then 
 				giveUnitDataDrivenModifier(caster, tEnemies[i], "locked", duration)
 			elseif caster:HasModifier("modifier_gust_heaven_indicator") then

@@ -1,8 +1,8 @@
 LinkLuaModifier("modifier_aoko_sphere_dummy", "abilities/aoko/aoko_sphere", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_aoko_sphere_slow", "abilities/aoko/aoko_sphere", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_aoko_sphere_meltdown", "abilities/aoko/aoko_sphere", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_aoko_sphere_healres", "abilities/aoko/aoko_sphere", LUA_MODIFIER_MOTION_NONE)
-
+--LinkLuaModifier("modifier_aoko_sphere_healres", "abilities/aoko/aoko_sphere", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_heal_reduction_tier_1", "modifiers/modifier_heal_reduction", LUA_MODIFIER_MOTION_NONE)
 aoko_sphere = class({})
 
 function aoko_sphere:OnUpgrade()
@@ -209,7 +209,8 @@ function modifier_aoko_sphere_dummy:ProximityExplode()
 	        		enemy.AokoSphereExploded = false
 	        	end)
 	        	if caster.FirstStarAcquired then
-	        		enemy:AddNewModifier(caster, ability, "modifier_aoko_sphere_healres", {duration = attr_duration})
+	        		--enemy:AddNewModifier(caster, ability, "modifier_aoko_sphere_healres", {duration = attr_duration})
+					enemy:AddNewModifier(caster, ability, "modifier_heal_reduction_tier_1", {duration = attr_duration})
 	        	end
 	        	DoDamage(caster, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
 	        end

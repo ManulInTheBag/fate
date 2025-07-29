@@ -1,7 +1,7 @@
 true_assassin_zabaniya = class({})
 
 LinkLuaModifier("modifier_zabaniya_curse", "abilities/true_assassin/modifiers/modifier_zabaniya_curse", LUA_MODIFIER_MOTION_NONE)
-
+LinkLuaModifier("modifier_heal_reduction_tier_4", "modifiers/modifier_heal_reduction", LUA_MODIFIER_MOTION_NONE)
 function true_assassin_zabaniya:CastFilterResultTarget(hTarget)
 	local caster = self:GetCaster()
 	local target_flag = DOTA_UNIT_TARGET_FLAG_NONE
@@ -119,7 +119,8 @@ function true_assassin_zabaniya:OnProjectileHit_ExtraData(hTarget, vLocation, ta
 	DoDamage(caster, hTarget, damage, damage_type, 0, self, false)
 
 	if not hTarget:IsMagicImmune() and not hTarget:HasModifier("modifier_master_intervention") then
-		hTarget:AddNewModifier(caster, self, "modifier_zabaniya_curse", { Duration = curseDuration })
+		--hTarget:AddNewModifier(caster, self, "modifier_zabaniya_curse", { Duration = curseDuration })
+		hTarget:AddNewModifier(caster, self, "modifier_heal_reduction_tier_4", { Duration = curseDuration })
 	end
 end
 

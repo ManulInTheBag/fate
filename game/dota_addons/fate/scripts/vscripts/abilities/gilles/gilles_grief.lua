@@ -39,7 +39,7 @@ function gilles_grief:OnSpellStart()
 	if IsSpellBlocked(hTarget) then return end
 	EmitSoundOnLocationWithCaster(hTarget:GetAbsOrigin(), "Gilles_Grief_Cast", hCaster)
 
-	hTarget:AddNewModifier(hCaster, self, "modifier_gilles_grief", { Damage = self:GetSpecialValueFor("damage"),
+	hTarget:AddNewModifier(hCaster, self, "modifier_gilles_grief", { Damage = self:GetSpecialValueFor("damage") + hCaster:GetIntellect() * self:GetSpecialValueFor("int_damage"),
 																	 Duration = self:GetSpecialValueFor("duration") })
 	hTarget:AddNewModifier(hCaster, self, "modifier_gilles_fear", {duration = 10})
 end

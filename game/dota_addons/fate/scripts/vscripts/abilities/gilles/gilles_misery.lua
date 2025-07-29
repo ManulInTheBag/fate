@@ -20,7 +20,7 @@ function gilles_misery:OnSpellStart()
 	EmitSoundOnLocationWithCaster(hTarget:GetAbsOrigin(), "Gilles_Misery_Cast", hCaster)
 
 	if not hTarget:IsMagicImmune() then
-		hTarget:AddNewModifier(hCaster, self, "modifier_gilles_misery", { Duration =  self:GetSpecialValueFor("duration") + 0.3})
+		hTarget:AddNewModifier(hCaster, self, "modifier_gilles_misery", { Duration =  self:GetSpecialValueFor("duration") + 0.5})
 		hTarget:AddNewModifier(hCaster, self, "modifier_gilles_fear", {duration = 10})
 	end
 

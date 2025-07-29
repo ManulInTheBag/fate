@@ -4,7 +4,7 @@ LinkLuaModifier("modifier_mtr_night_checker", "abilities/jtr/modifiers/modifier_
 LinkLuaModifier("modifier_mtr_night_checker_tick", "abilities/jtr/modifiers/modifier_mtr_night_checker_tick", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_mtr_particle", "abilities/jtr/modifiers/modifier_mtr_particle", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_jtr_dmg_reduct", "abilities/jtr/maria_the_ripper_new", LUA_MODIFIER_MOTION_NONE)
-
+LinkLuaModifier("modifier_heal_reduction_tier_2", "modifiers/modifier_heal_reduction", LUA_MODIFIER_MOTION_NONE)
 
 
 modifier_jtr_dmg_reduct = class({})
@@ -266,6 +266,7 @@ function jtr_mtr_new:NotTrue(caster, target)
 	            ParticleManager:SetParticleControl( trailFx, 0, newpoint ) 
 	        end
 	        giveUnitDataDrivenModifier(caster, target, "locked", self:GetSpecialValueFor("duration"))
+			target:AddNewModifier(caster, self, "modifier_heal_reduction_tier_2", { Duration = 0.5 })
 			self:PerformSlash(caster, target, FrameTime())
 		else
 			caster:RemoveModifierByName("jump_pause")
@@ -323,6 +324,7 @@ function jtr_mtr_new:NotTrue(caster, target)
 	            ParticleManager:SetParticleControl( trailFx, 0, newpoint ) 
 	        end
 	        giveUnitDataDrivenModifier(caster, target, "locked", self:GetSpecialValueFor("duration"))
+			target:AddNewModifier(caster, self, "modifier_heal_reduction_tier_2", { Duration = 0.5 })
 			self:PerformSlash(caster, target, FrameTime())
 		else
 			caster:RemoveModifierByName("jump_pause")
@@ -377,6 +379,7 @@ function jtr_mtr_new:NotTrue(caster, target)
 	            ParticleManager:SetParticleControl( trailFx, 0, newpoint )
 	        end
 	        giveUnitDataDrivenModifier(caster, target, "locked", self:GetSpecialValueFor("duration"))
+			target:AddNewModifier(caster, self, "modifier_heal_reduction_tier_2", { Duration = 0.5 })
 			self:PerformSlash(caster, target, FrameTime())
 		else
 			caster:RemoveModifierByName("jump_pause")
@@ -389,6 +392,7 @@ function jtr_mtr_new:NotTrue(caster, target)
 	Timers:CreateTimer(0.8, function()  
 		if caster:IsAlive() and target:IsAlive() then
 			giveUnitDataDrivenModifier(caster, target, "locked", self:GetSpecialValueFor("duration"))
+			target:AddNewModifier(caster, self, "modifier_heal_reduction_tier_2", { Duration = 0.5 })
 			self:PerformEmpoweredSlash(caster, target, 0.125)
 			HardCleanse(caster)
 		else
@@ -455,7 +459,7 @@ function jtr_mtr_new:PerformSlash(caster, target, delay)
 
 	if caster:HasModifier("modifier_efficient_killer") then
 		damage = damage + caster:GetAgility() * (IsFemaleServant(target) and 0.6 or 0.5)
-		--target:AddNewModifier(caster, self, "modifier_stunned", { Duration = 0.1 })
+		--target:AddNewModifier(caster, self, "modifier_heal_reduction_tier_2", { Duration = 0.5 })
 	end
 
 	--caster:SetAbsOrigin(target:GetAbsOrigin() - diff * 100) 

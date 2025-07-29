@@ -7,8 +7,8 @@ LinkLuaModifier("modifier_berserk","abilities/lishuwen/modifiers/modifier_berser
 LinkLuaModifier("modifier_nss_shock_stackable", "abilities/lishuwen/lishuwen_no_second_strike.lua", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_shuwen_passive_nss_attack_stacking", "abilities/lishuwen/lishuwen_no_second_strike.lua", LUA_MODIFIER_MOTION_NONE)
 
-
-
+LinkLuaModifier("modifier_heal_reduction_tier_2", "modifiers/modifier_heal_reduction", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_heal_reduction_tier_3", "modifiers/modifier_heal_reduction", LUA_MODIFIER_MOTION_NONE)
 function lishuwen_no_second_strike:AddShock(target, amount)
 	local caster = self:GetCaster()
 	local stacks = 0
@@ -93,13 +93,13 @@ end
 
 
 
-function modifier_nss_shock_stackable:GetModifierHealAmplify_PercentageTarget()
-	return -self.heal_reduction
-end
+-- function modifier_nss_shock_stackable:GetModifierHealAmplify_PercentageTarget()
+-- 	return -self.heal_reduction
+-- end
 
-function modifier_nss_shock_stackable:GetModifierHPRegenAmplify_Percentage()
-	return -self.heal_reduction
-end
+-- function modifier_nss_shock_stackable:GetModifierHPRegenAmplify_Percentage()
+-- 	return -self.heal_reduction
+-- end
 
 
 function modifier_nss_shock_stackable:GetModifierPhysicalArmorBonus()
@@ -141,13 +141,16 @@ function modifier_nss_shock_stackable:OnCreated(tTable)
 		end
 		if self.stacks>= 25 then
 			self.slow_power = self.hAbility:GetSpecialValueFor("slow_power")
-			self.heal_reduction = self.hAbility:GetSpecialValueFor("heal_reduction_1")
+			--self.heal_reduction = self.hAbility:GetSpecialValueFor("heal_reduction_1")
+			 self.hParent:AddNewModifier( self.hCaster ,  self.hAbility, "modifier_heal_reduction_tier_2", { Duration = 3 })
 		end
 		if self.stacks >= 50 then
 			self.reduction = self.hAbility:GetSpecialValueFor("magical_damage_reduction_2")
 			self.armor_reduction = self.hAbility:GetSpecialValueFor("armor_reduction")
 			self.mr_reduction = self.hAbility:GetSpecialValueFor("mr_reduction")
-			self.heal_reduction = self.hAbility:GetSpecialValueFor("heal_reduction_2")
+			--self.heal_reduction = self.hAbility:GetSpecialValueFor("heal_reduction_2")
+			 self.hParent:AddNewModifier( self.hCaster ,  self.hAbility, "modifier_heal_reduction_tier_3", { Duration = 3 })
+			 self.hCaster:RemoveModifierByNameAndCaster("modifier_heal_reduction_tier_2", self.hCaster)
 		end
 		CustomNetTables:SetTableValue("sync","nss_variables", { ms_reduction =  -self.slow_power, mr_reduction = -self.mr_reduction, armor_reduction = -self.armor_reduction })
 

@@ -369,6 +369,10 @@ cleansable = {
     "modifier_gilles_torment",
     "modifier_lu_bu_halberd_throw_debuff",
 	"modifier_lu_bu_sky_piercer",
+    "modifier_heal_reduction_tier_1",
+    "modifier_heal_reduction_tier_2",
+    "modifier_heal_reduction_tier_3",
+    "modifier_heal_reduction_tier_4",
 
     "modifier_hijikata_ult_slow",
     "modifier_hijikata_slow",
