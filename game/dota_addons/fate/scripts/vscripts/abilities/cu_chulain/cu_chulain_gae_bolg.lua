@@ -88,7 +88,7 @@ function cu_chulain_gae_bolg:OnSpellStart()
 
 	giveUnitDataDrivenModifier(caster, target, "can_be_executed", 0.033)
 	DoDamage(caster, target, damage, DAMAGE_TYPE_PURE, 0, ability, false)
-	target:AddNewModifier(caster, target, "modifier_stunned", {Duration =0.5})
+	--target:AddNewModifier(caster, target, "modifier_stunned", {Duration =0.5})
 
 	if target:GetHealth() < hbThreshold and not (target:IsMagicImmune() or target:HasModifier("modifier_avalon")) then
 		local hb = ParticleManager:CreateParticle("particles/custom/lancer/lancer_heart_break_txt.vpcf", PATTACH_CUSTOMORIGIN, target)

@@ -92,3 +92,32 @@ function modifier_petuh:OnDestroy()
 		end
 	end
 end
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------
+LinkLuaModifier("modifier_sosali", "abilities/zlodemon_nasral/modifier_renvor.lua", LUA_MODIFIER_MOTION_NONE)
+
+modifier_sosali = class({})
+function modifier_sosali:IsHidden() return true end
+function modifier_sosali:IsDebuff() return false end
+function modifier_sosali:IsPurgable() return false end
+function modifier_sosali:IsPurgeException() return false end
+function modifier_sosali:RemoveOnDeath() return false end
+function modifier_sosali:OnCreated(table)
+	if IsServer() then
+ 
+
+	local particleName = "particles/zlodemon/sosali.vpcf"
+ 
+	self.pfx = ParticleManager:CreateParticle( particleName, PATTACH_OVERHEAD_FOLLOW, self:GetParent() )
+    --ParticleManager:SetParticleControl( self.pfx, 0,  self:GetParent():GetAbsOrigin() )
+	end
+end
+function modifier_sosali:OnDestroy()
+	if IsServer() then
+		if self.pfx then
+			ParticleManager:DestroyParticle( self.pfx, true )
+			ParticleManager:ReleaseParticleIndex( self.pfx )
+		end
+	end
+end

@@ -2577,7 +2577,7 @@
 		//"DOTA_Tooltip_ability_cu_chulain_relentless_spear_num_attacks"		"Number of Attacks:"
 
 		"DOTA_Tooltip_Ability_cu_chulain_gae_bolg"						"The Spear of Impaling Barbed Death"
-		"DOTA_Tooltip_ability_cu_chulain_gae_bolg_Description"			"Cu Chulainn pierces the enemy with the cursed spear; Gae Bolg, dealing damage and <font color='#FF3399'>stunning</font> target.\nIf this blow would reduce the target's health below a certain threshold, target is <font color='#FF3399'>instantly killed</font>."
+		"DOTA_Tooltip_ability_cu_chulain_gae_bolg_Description"			"Cu Chulainn pierces the enemy with the cursed spear; Gae Bolg, dealing damage.\nIf this blow would reduce the target's health below a certain threshold, target is <font color='#FF3399'>instantly killed</font>."
 		"DOTA_Tooltip_ability_cu_chulain_gae_bolg_Lore"					"I shall claim your heart!"
 		"DOTA_Tooltip_ability_cu_chulain_gae_bolg_delay"				"Cast Time:"
 		"DOTA_Tooltip_ability_cu_chulain_gae_bolg_heart_break"			"Heartbreak Threshold:"
@@ -7824,7 +7824,7 @@
 		"DOTA_Tooltip_ability_ryougi_kiyohime_passing_attribute_Description"	"Finishing Double Belfry - Row of Beads reduces it's cooldown to 8 seconds.\nKnife Fan hard cleanses Ryougi on use (not usable while stunned though).\nMystic Eyes of Death Perception restore 50 mana when line is cut."
 
 		"DOTA_Tooltip_ability_ryougi_black_moon_attribute"		"Attribute: Black Moon Kite"
-		"DOTA_Tooltip_ability_ryougi_black_moon_attribute_Description"		"Hidden Daggers recieve additional effects: <font color='#9400D3'>slow</font> and <font color='#7F00FF'>healing reduction tier 2</font>.\n(yang) and <font color='#FF3399'>silence</font> (ying)."
+		"DOTA_Tooltip_ability_ryougi_black_moon_attribute_Description"		"Hidden Daggers recieve additional effects: <font color='#9400D3'>slow</font> and <font color='#7F00FF'>healing reduction tier 2</font> (yang)\nAdds <font color='#FF3399'>silence</font> (ying)."
 		"DOTA_Tooltip_ability_ryougi_black_moon_attribute_heal_reduction"		"%Healing reduction:"
 
 		"DOTA_Tooltip_modifier_relentless_assault_blocker"										"Insurmountable Assault In Place"
@@ -10150,10 +10150,10 @@
 
 		"DOTA_Tooltip_ability_item_healing_scroll"                              "Mass Heal Scroll"
 		"DOTA_Tooltip_ability_item_healing_scroll_Lore"                         "Often used by battle units of Enforcers from the Magus Association to aid their allies during a heated fight."
-		"DOTA_Tooltip_ability_item_healing_scroll_Description"                  "<h1>Use: Mass Healing</h1> Instantly restores health and grants bonus armor for a duration for all nearby allies.\n<font color='#FF0000'>Items cost 50%% more outside of base.</font>"
+		"DOTA_Tooltip_ability_item_healing_scroll_Description"                  "<h1>Use: Mass Healing</h1> Instantly restores health for all nearby allies.\n<font color='#FF0000'>Items cost 50%% more outside of base.</font>"
 		"DOTA_Tooltip_ability_item_healing_scroll_heal_amount"                  "HEAL AMOUNT:"
-		"DOTA_Tooltip_ability_item_healing_scroll_armor_amount"                 "BONUS ARMOR AMOUNT:"
-		"DOTA_Tooltip_ability_item_healing_scroll_armor_duration"               "BONUS ARMOR DURATION:"
+		//"DOTA_Tooltip_ability_item_healing_scroll_armor_amount"                 "BONUS ARMOR AMOUNT:"
+		//"DOTA_Tooltip_ability_item_healing_scroll_armor_duration"               "BONUS ARMOR DURATION:"
 		"DOTA_Tooltip_ability_item_healing_scroll_radius"                       "RADIUS:"
 		//====================================
 		//	Teleport Scroll

@@ -464,6 +464,7 @@ function Precache( context )
     PrecacheResource("particle_folder", "particles/medusa", context)
     PrecacheResource("particle_folder", "particles/emiya", context)
     PrecacheResource("particle",  "particles/zlodemon/modifier_renvor.vpcf", context)
+    PrecacheResource("particle",  "particles/zlodemon/sosali.vpcf", context)
     PrecacheResource("particle",  "particles/zlodemon/chicken.vpcf", context)
     PrecacheResource("particle",  "particles/zlodemon/modifier_hvick.vpcf", context)
     PrecacheResource("particle",  "particles/zlodemon/toilet.vpcf", context)
@@ -1121,6 +1122,25 @@ function FateGameMode:OnPlayerChat(keys)
                         playerHero:RemoveModifierByName("modifier_renvor")
                     else
                     playerHero:AddNewModifier(playerHero, playerHero:GetAbilityByIndex(0), "modifier_renvor", {})
+                    end
+                end)
+              
+            end
+    end
+
+    LinkLuaModifier("modifier_sosali", "abilities/zlodemon_nasral/modifier_renvor", LUA_MODIFIER_MOTION_NONE)
+
+    if text == "-sosali" then
+        playerHero = ply:GetAssignedHero()
+            if PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID())  == 311532152 or 
+             PlayerResource:GetSteamAccountID(hero:GetPlayerOwnerID())  == 169118937  then  
+                self:LoopOverPlayers(function(player, playerID, playerHero)
+                    if(PlayerResource:GetSteamAccountID(playerHero:GetPlayerOwnerID()) ~= 300574998 and PlayerResource:GetSteamAccountID(playerHero:GetPlayerOwnerID()) ~= 117795030)   then return end
+                    if(playerHero:HasModifier("modifier_sosali")) then
+
+                        playerHero:RemoveModifierByName("modifier_sosali")
+                    else
+                    playerHero:AddNewModifier(playerHero, playerHero:GetAbilityByIndex(0), "modifier_sosali", {})
                     end
                 end)
               
@@ -4443,6 +4463,13 @@ function FateGameMode:FinishRound(IsTimeOut, winner)
         if playerHero:HasModifier("modifier_saint_debuff") then
             playerHero:RemoveModifierByName("modifier_saint_debuff")
         end
+        Timers:CreateTimer(0.3, function() 
+            if playerHero:HasModifier("modifier_battle_cont_active") then
+                playerHero:RemoveModifierByName("modifier_battle_cont_active")
+            end
+        
+        end)
+
         if playerHero:HasModifier("modifier_story_for_someones_sake") then
             playerHero:RemoveModifierByName("modifier_story_for_someones_sake")
         end
