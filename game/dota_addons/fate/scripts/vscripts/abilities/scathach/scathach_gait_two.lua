@@ -1,12 +1,8 @@
 scathach_gait_two = class({})
 LinkLuaModifier( "modifier_scathach_gait_two", "abilities/scathach/modifiers/modifier_scathach_gait_two", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_scathach_gait_two_armor_reduction_1", "abilities/scathach/modifiers/modifier_scathach_gait_two_armor_reduction_1", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_scathach_gait_two_armor_reduction_2", "abilities/scathach/modifiers/modifier_scathach_gait_two_armor_reduction_2", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_scathach_gait_two_armor_reduction_3", "abilities/scathach/modifiers/modifier_scathach_gait_two_armor_reduction_3", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_scathach_gait_two_armor_reduction_4", "abilities/scathach/modifiers/modifier_scathach_gait_two_armor_reduction_4", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_scathach_gait_two_stun", "abilities/scathach/modifiers/modifier_scathach_gait_two_stun", LUA_MODIFIER_MOTION_NONE )
-LinkLuaModifier( "modifier_scathach_gait_three_window", "abilities/scathach/modifiers/modifier_scathach_gait_three_window", LUA_MODIFIER_MOTION_BOTH )
 
+LinkLuaModifier( "modifier_scathach_gait_three_window", "abilities/scathach/modifiers/modifier_scathach_gait_three_window", LUA_MODIFIER_MOTION_BOTH )
+LinkLuaModifier("modifier_stachach_gae_bolg_curse", "abilities/scathach/scathach_gae_bolg.lua", LUA_MODIFIER_MOTION_NONE)
 --------------------------------------------------------------------------------
 -- Ability Start
 function scathach_gait_two:OnSpellStart()
@@ -49,13 +45,13 @@ function scathach_gait_two:OnSpellStart()
 		
 			for k,spin_target_1 in pairs(targets) do
 			
-				DoDamage(caster, spin_target_1, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+				DoDamage(caster, spin_target_1, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+				spin_target_1:AddNewModifier(caster, self, "modifier_stachach_gae_bolg_curse", {duration = 10})
+				--spin_target_1:AddNewModifier(caster, self, "modifier_scathach_gait_two_armor_reduction_1", { Duration = armor_reduction_duration })
 				
-				spin_target_1:AddNewModifier(caster, self, "modifier_scathach_gait_two_armor_reduction_1", { Duration = armor_reduction_duration })
-				
-				if spin_target_1:GetMaxMana() > 0 then
-					spin_target_1:Script_ReduceMana(50, nil)
-				end
+				-- if spin_target_1:GetMaxMana() > 0 then
+				-- 	spin_target_1:Script_ReduceMana(50, nil)
+				-- end
 			end
 			ScreenShake(caster:GetOrigin(), 1, 0.5, 2, 3000, 0, true)
 		end
@@ -70,13 +66,13 @@ function scathach_gait_two:OnSpellStart()
 		
 			for k,spin_target_2 in pairs(targets) do
 			
-				DoDamage(caster, spin_target_2, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+				DoDamage(caster, spin_target_2, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+				spin_target_2:AddNewModifier(caster, self, "modifier_stachach_gae_bolg_curse", {duration = 10})
+				-- spin_target_2:AddNewModifier(caster, self, "modifier_scathach_gait_two_armor_reduction_2", { Duration = armor_reduction_duration })
 				
-				spin_target_2:AddNewModifier(caster, self, "modifier_scathach_gait_two_armor_reduction_2", { Duration = armor_reduction_duration })
-				
-				if spin_target_2:GetMaxMana() > 0 then
-					spin_target_2:Script_ReduceMana(50, nil)
-				end
+				-- if spin_target_2:GetMaxMana() > 0 then
+				-- 	spin_target_2:Script_ReduceMana(50, nil)
+				-- end
 			end
 			ScreenShake(caster:GetOrigin(), 1, 0.5, 2, 3000, 0, true)
 		end
@@ -91,13 +87,13 @@ function scathach_gait_two:OnSpellStart()
 		
 			for k,spin_target_3 in pairs(targets) do
 			
-				DoDamage(caster, spin_target_3, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+				DoDamage(caster, spin_target_3, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+				spin_target_3:AddNewModifier(caster, self, "modifier_stachach_gae_bolg_curse", {duration = 10})
+				-- spin_target_3:AddNewModifier(caster, self, "modifier_scathach_gait_two_armor_reduction_3", { Duration = armor_reduction_duration })
 				
-				spin_target_3:AddNewModifier(caster, self, "modifier_scathach_gait_two_armor_reduction_3", { Duration = armor_reduction_duration })
-				
-				if spin_target_3:GetMaxMana() > 0 then
-					spin_target_3:Script_ReduceMana(50, nil)
-				end
+				-- if spin_target_3:GetMaxMana() > 0 then
+				-- 	spin_target_3:Script_ReduceMana(50, nil)
+				-- end
 			end
 			ScreenShake(caster:GetOrigin(), 1, 0.5, 2, 3000, 0, true)
 		end
@@ -112,14 +108,15 @@ function scathach_gait_two:OnSpellStart()
 		
 			for k,spin_target_4 in pairs(targets) do
 			
-				DoDamage(caster, spin_target_4, damage_big, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+				DoDamage(caster, spin_target_4, damage_big, DAMAGE_TYPE_MAGICAL, 0, self, false)
+				spin_target_4:AddNewModifier(caster, self, "modifier_stachach_gae_bolg_curse", {duration = 10})
+				spin_target_4:AddNewModifier(caster, self, "modifier_stunned", {Duration =stun_duration})
+
+				-- spin_target_4:AddNewModifier(caster, self, "modifier_scathach_gait_two_armor_reduction_4", { Duration = armor_reduction_duration })
 				
-				spin_target_4:AddNewModifier(caster, self, "modifier_scathach_gait_two_stun", { Duration = stun_duration })
-				spin_target_4:AddNewModifier(caster, self, "modifier_scathach_gait_two_armor_reduction_4", { Duration = armor_reduction_duration })
-				
-				if spin_target_4:GetMaxMana() > 0 then
-					spin_target_4:Script_ReduceMana(50, nil)
-				end
+				-- if spin_target_4:GetMaxMana() > 0 then
+				-- 	spin_target_4:Script_ReduceMana(50, nil)
+				-- end
 			end
 			ScreenShake(caster:GetOrigin(), 3, 0.5, 2, 4000, 0, true)
 		end

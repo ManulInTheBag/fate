@@ -1,3 +1,6 @@
+
+LinkLuaModifier("modifier_heal_reduction_tier_2", "modifiers/modifier_heal_reduction", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_stachach_gae_bolg_curse", "abilities/scathach/scathach_gae_bolg.lua", LUA_MODIFIER_MOTION_NONE)
 scathach_gae_bolg = class({})
 
 function scathach_gae_bolg:CastFilterResultTarget(hTarget)
@@ -45,51 +48,70 @@ function scathach_gae_bolg:OnSpellStart()
 	local target = self:GetCursorTarget()
 	local ability = self
 	local damage = self:GetSpecialValueFor("damage")
-	local hbThreshold = self:GetSpecialValueFor("heart_break")
-	
-	if caster:HasModifier("modifier_scathach_branches_of_tonelico_attribute") then
-		hbThreshold = (target:GetMaxHealth() * self:GetSpecialValueFor("atr_hb_pct") / 100)	
-	elseif IsSpellBlocked(target) then 
+	local damage_per_stack = self:GetSpecialValueFor("damage_per_stack")
+	if IsSpellBlocked(target) then 
 		return 
 	end
+	local target_stacks = target:GetModifierStackCount("modifier_stachach_gae_bolg_curse", caster)
+	if type(target_stacks) == "number" then
+		damage = damage + target_stacks * damage_per_stack
+		target:RemoveModifierByName("modifier_stachach_gae_bolg_curse")
+	end
+	-- if caster:HasModifier("modifier_scathach_branches_of_tonelico_attribute") then
+	-- 	hbThreshold = (target:GetMaxHealth() * self:GetSpecialValueFor("atr_hb_pct") / 100)	
+	-- elseif IsSpellBlocked(target) then 
+	-- 	return 
+	-- end
 	local original_pos = caster:GetAbsOrigin()
 
 	local diff = (target:GetAbsOrigin() - caster:GetAbsOrigin()):Normalized()
 	caster:SetAbsOrigin(target:GetAbsOrigin() - diff * 200)
 	FindClearSpaceForUnit( caster, caster:GetAbsOrigin(), true )
 
+
+
+	--giveUnitDataDrivenModifier(caster, target, "can_be_executed", 0.033)
+	DoDamage(caster, target, damage, DAMAGE_TYPE_PURE, 0, ability, false)
+	target:AddNewModifier(caster, self, "modifier_stunned", {Duration = self:GetSpecialValueFor("stun_duration")})
+ 	target:AddNewModifier(caster, self, "modifier_heal_reduction_tier_2", {duration = self:GetSpecialValueFor("healres_duration")})
+	-- if target:GetHealth() < hbThreshold and not (target:IsMagicImmune()) then
+	-- 	local hb = ParticleManager:CreateParticle("particles/custom/lancer/lancer_heart_break_txt.vpcf", PATTACH_CUSTOMORIGIN, target)
+	-- 	ParticleManager:SetParticleControl( hb, 0, target:GetAbsOrigin())
+	-- 	target:Execute(ability, caster, { bExecution = true })
+		
+	-- 	Timers:CreateTimer( 3.0, function()
+	-- 		ParticleManager:DestroyParticle( hb, false )
+	-- 		ParticleManager:ReleaseParticleIndex(hb)
+	-- 	end)
+	-- end
+	
+	-- Add dagon particle
 	local flashIndex = ParticleManager:CreateParticle( "particles/custom/diarmuid/gae_dearg_slash.vpcf", PATTACH_CUSTOMORIGIN, caster )
     ParticleManager:SetParticleControl( flashIndex, 2, original_pos )
     ParticleManager:SetParticleControl( flashIndex, 3, caster:GetAbsOrigin() )
 
-	giveUnitDataDrivenModifier(caster, target, "can_be_executed", 0.033)
-	DoDamage(caster, target, damage, DAMAGE_TYPE_PURE, 0, ability, false)
-	target:AddNewModifier(caster, target, "modifier_stunned", {Duration = 1.0})
+	local particle = ParticleManager:CreateParticle("particles/scathach/gae_bolg_pierce_alt.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	ParticleManager:SetParticleControlTransformForward(particle, 0, caster:GetAbsOrigin() + Vector(0,0,130)+caster:GetRightVector() * - 20,caster:GetForwardVector())
+    ParticleManager:SetParticleControlTransformForward(particle, 1, caster:GetAbsOrigin()+ Vector(0,0,130)+caster:GetRightVector() * - 20,caster:GetForwardVector())
+	ParticleManager:SetParticleControlTransformForward(particle, 5, target:GetAbsOrigin()+ Vector(0,0,130) + caster:GetForwardVector() * - 50,caster:GetForwardVector())
 
-	if target:GetHealth() < hbThreshold and not (target:IsMagicImmune() or IsUnExecute(target)) then
-		local hb = ParticleManager:CreateParticle("particles/custom/lancer/lancer_heart_break_txt.vpcf", PATTACH_CUSTOMORIGIN, target)
-		ParticleManager:SetParticleControl( hb, 0, target:GetAbsOrigin())
-		target:Execute(ability, caster, { bExecution = true })
-		
-		Timers:CreateTimer( 3.0, function()
-			ParticleManager:DestroyParticle( hb, false )
-			ParticleManager:ReleaseParticleIndex(hb)
-		end)
-	end
-	
-	-- Add dagon particle
-	local dagon_particle = ParticleManager:CreateParticle("particles/items_fx/dagon.vpcf",  PATTACH_ABSORIGIN_FOLLOW, caster)
-	ParticleManager:SetParticleControlEnt(dagon_particle, 1, target, PATTACH_POINT_FOLLOW, "attach_hitloc", target:GetAbsOrigin(), false)
-	local particle_effect_intensity = 600
-	ParticleManager:SetParticleControl(dagon_particle, 2, Vector(particle_effect_intensity))
+
+
+	Timers:CreateTimer( 2.0, function()
+		ParticleManager:DestroyParticle( particle, false )
+		ParticleManager:ReleaseParticleIndex( particle )
+				ParticleManager:DestroyParticle( flashIndex, false )
+		ParticleManager:ReleaseParticleIndex( flashIndex )
+	end)
 	target:EmitSound("Hero_Lion.Impale")
 	
 	-- Blood splat
 	local splat = ParticleManager:CreateParticle("particles/generic_gameplay/screen_blood_splatter.vpcf", PATTACH_EYES_FOLLOW, target)
 
 	Timers:CreateTimer( 3.0, function()
-		ParticleManager:DestroyParticle( dagon_particle, false )
 		ParticleManager:DestroyParticle( splat, false )
+
+		ParticleManager:ReleaseParticleIndex( splat )
 	end)
 
 	local culling_kill_particle = ParticleManager:CreateParticle("particles/custom/lancer/lancer_culling_blade_kill.vpcf", PATTACH_CUSTOMORIGIN, target)
@@ -104,4 +126,42 @@ function scathach_gae_bolg:OnSpellStart()
 		ParticleManager:ReleaseParticleIndex(culling_kill_particle)		
 	end)
 	--target:Execute(ability, killer, { bExecution = true })
+end
+
+
+
+modifier_stachach_gae_bolg_curse = class({})
+function modifier_stachach_gae_bolg_curse:IsHidden() return false end
+function modifier_stachach_gae_bolg_curse:IsDebuff() return true end
+function modifier_stachach_gae_bolg_curse:DeclareFunctions()
+	return { MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,}
+end
+function modifier_stachach_gae_bolg_curse:GetModifierTotalDamageOutgoing_Percentage(keys)
+    if IsNotNull(self.hCaster)
+        and IsNotNull(self.hParent) then
+        if IsClient() or bit.band(keys.damage_type or DAMAGE_TYPE_NONE, DAMAGE_TYPE_MAGICAL) ~= 0 then
+            return -self.reduction
+        end
+    end
+end
+
+function modifier_stachach_gae_bolg_curse:OnCreated(tTable)
+	self:SetStackCount(1)
+end
+function modifier_stachach_gae_bolg_curse:OnRefresh(tTable)
+    self:IncrementStackCount()
+	if self:GetStackCount() > 10 then
+		self:SetStackCount(10)
+	end
+end
+
+function modifier_stachach_gae_bolg_curse:GetModifierMoveSpeedBonus_Percentage()
+	return self:GetStackCount() * -5
+end
+
+function modifier_stachach_gae_bolg_curse:GetEffectName()
+    return "particles/custom/scathach/bramble_scathach.vpcf"
+end
+function modifier_stachach_gae_bolg_curse:GetEffectAttachType()
+    return PATTACH_ABSORIGIN_FOLLOW
 end

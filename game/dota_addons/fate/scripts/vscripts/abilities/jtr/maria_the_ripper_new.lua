@@ -458,7 +458,7 @@ function jtr_mtr_new:PerformSlash(caster, target, delay)
 	target:EmitSound("Hero_Riki.Backstab")
 
 	if caster:HasModifier("modifier_efficient_killer") then
-		damage = damage + caster:GetAgility() * (IsFemaleServant(target) and 0.6 or 0.5)
+		damage = damage + caster:GetAgility() * (IsFemaleServant(target) and 0.7 or 0.8)
 		--target:AddNewModifier(caster, self, "modifier_heal_reduction_tier_2", { Duration = 0.5 })
 	end
 
@@ -490,7 +490,7 @@ function jtr_mtr_new:PerformEmpoweredSlash(caster, target, delay)
 	target:EmitSound("Hero_Riki.Backstab")
 
 	if caster:HasModifier("modifier_efficient_killer") then
-		damage = damage + caster:GetAgility() * (IsFemaleServant(target) and 0.8 or 0.7)
+		damage = damage + caster:GetAgility() * (IsFemaleServant(target) and 1.1 or 0.9)
 	end
 
 	--caster:SetAbsOrigin(target:GetAbsOrigin() - diff * 100) 

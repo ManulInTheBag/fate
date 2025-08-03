@@ -21,6 +21,7 @@ function scathach_gae_bolg_shoot:OnSpellStart()
 		end
 	end
 	modifier:ShootGaeBolg(target)
+	caster:SetModifierStackCount("modifier_scat_gae_bolg_replicas", caster, caster:GetModifierStackCount("modifier_scat_gae_bolg_replicas", caster)-1)
 end
 
 function scathach_gae_bolg_shoot:RestoreAbilityLayout()

@@ -1,6 +1,7 @@
 scathach_gae_bolg_spawn = class({})
 LinkLuaModifier("modifier_scat_gae_bolg_replicas", "abilities/scathach/scathach_gae_bolg_spawn", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_scat_gae_bolg_replicas_movement_controller", "abilities/scathach/scathach_gae_bolg_spawn", LUA_MODIFIER_MOTION_HORIZONTAL)
+LinkLuaModifier("modifier_scat_gae_bolg_replicas_movement_controller", "abilities/scathach/scathach_gae_bolg_spawn", LUA_MODIFIER_MOTION_BOTH)
+LinkLuaModifier("modifier_stachach_gae_bolg_curse", "abilities/scathach/scathach_gae_bolg.lua", LUA_MODIFIER_MOTION_NONE)
 function scathach_gae_bolg_spawn:OnUpgrade()
 	local caster = self:GetCaster()
     
@@ -23,7 +24,9 @@ modifier_scat_gae_bolg_replicas = class({})
 
 
 function modifier_scat_gae_bolg_replicas:OnCreated(args)
-	self:SetStackCount(4)
+	if IsServer() then
+		self:SetStackCount(args.gb_count)
+	end
 	local caster = self:GetParent()
 	if IsServer() then 
 		if IsNotNull(self.gb_list) then 
@@ -77,7 +80,7 @@ end
 function modifier_scat_gae_bolg_replicas:RemoveGBs()
 	for i = #self.gb_list , 1, -1 do
 		if IsNotNull(self.gb_list[i]) then 
-			if self.gb_list[i].state ~= 1 then 
+			if self.gb_list[i].state ~= 1  and self.gb_list[i].state ~= 2 then 
 				self:RemoveSpecificGb(self.gb_list[i], self.gb_particle_indexes_list[i], i)
 			end
 		end
@@ -91,26 +94,28 @@ function modifier_scat_gae_bolg_replicas:InitGaeBolg(pos,height, rw_component_sc
 		local right_vector = -caster:GetLeftVector()
 		local back_vector = caster:GetForwardVector() * -1
 
-		local gaeDummy = CreateUnitByName("dummy_unit", caster:GetAbsOrigin(), false, nil, nil, caster:GetTeamNumber())
-		gaeDummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1) 
+		local gaeDummy = CreateUnitByName("gae_bolg_alternative", caster:GetAbsOrigin(), false, nil, nil, caster:GetTeamNumber())
+		--gaeDummy:FindAbilityByName("dummy_unit_passive"):SetLevel(1) 
+		local unseen = gaeDummy:FindAbilityByName("dummy_unit_passive")
+		unseen:SetLevel(1)
 		gaeDummy:SetAbsOrigin(pos + Vector(0, 0, height) + right_vector * rw_component_scale + back_vector * bw_component_scale)
 		gaeDummy:SetForwardVector(caster:GetForwardVector())
-		local particle_gb_fx = ParticleManager:CreateParticle("particles/custom/scathach/gb_test_1.vpcf", PATTACH_ABSORIGIN_FOLLOW, gaeDummy)
-		ParticleManager:SetParticleControl(particle_gb_fx, 0, gaeDummy:GetAbsOrigin())
-		ParticleManager:SetParticleControl(particle_gb_fx, 1, Vector(1,0,height))
+
+	
+		--gaeDummy:SetModel("models/scathach/scathach_weapon.vmdl")
 		
-		gaeDummy:AddNewModifier(caster, self:GetAbility(), "modifier_scat_gae_bolg_replicas_movement_controller", { rw_component_scale = rw_component_scale, bw_component_scale = bw_component_scale, height = height, particleIndex = particle_gb_fx })
+		gaeDummy:AddNewModifier(caster, self:GetAbility(), "modifier_scat_gae_bolg_replicas_movement_controller", { rw_component_scale = rw_component_scale, bw_component_scale = bw_component_scale, height1 = height, particleIndex = particle_gb_fx })
 		table.insert(self.gb_list, gaeDummy)
-		table.insert(self.gb_particle_indexes_list, particle_gb_fx)
+		--table.insert(self.gb_particle_indexes_list, particle_gb_fx)
 	end
 end
 
 function modifier_scat_gae_bolg_replicas:CreateMultimpleGBs()
 	local caster_abs_origin = self:GetCaster():GetAbsOrigin()
-	self:InitGaeBolg(caster_abs_origin, 80, 110, 20)
-	self:InitGaeBolg(caster_abs_origin, 80, -110, 20)
-	self:InitGaeBolg(caster_abs_origin, 120, 130, 20)
-	self:InitGaeBolg(caster_abs_origin, 120, -130, 20)
+	self:InitGaeBolg(caster_abs_origin, 80, 110, 300)
+	self:InitGaeBolg(caster_abs_origin, 80, -110, 300)
+	self:InitGaeBolg(caster_abs_origin, 150, 130, 300)
+	self:InitGaeBolg(caster_abs_origin, 150, -130, 300)
 end
 
 function modifier_scat_gae_bolg_replicas:OnStackCountChanged(stackCount)
@@ -126,12 +131,18 @@ function modifier_scat_gae_bolg_replicas:ShootGaeBolg(targetpos)
 		local random = self:GetStackCount()
 		self.gb_list[random]:FindModifierByName("modifier_scat_gae_bolg_replicas_movement_controller"):ShootIntoDirection(targetpos)
 		local trail_fx =   ParticleManager:CreateParticle("particles/custom/scathach/spear_trail_multiple.vpcf", PATTACH_ABSORIGIN_FOLLOW, self.gb_list[random])
+		local particle_gb_fx = ParticleManager:CreateParticle("particles/custom/scathach/gae_bolg_alt_outline.vpcf", PATTACH_ABSORIGIN_FOLLOW,  self.gb_list[random])
+		ParticleManager:SetParticleControlEnt(particle_gb_fx, 2, self.gb_list[random], PATTACH_POINT_FOLLOW, "1", self:GetParent():GetAbsOrigin(), true)
+		ParticleManager:SetParticleControlEnt(particle_gb_fx, 0, self.gb_list[random],  PATTACH_POINT_FOLLOW ,"2", self:GetParent():GetAbsOrigin(), true)
 		Timers:CreateTimer(0.75, function()
 			self:RemoveSpecificGb(self.gb_list[random], self.gb_particle_indexes_list[random], random)
-		
+				ParticleManager:DestroyParticle(trail_fx, false)
+				ParticleManager:ReleaseParticleIndex(trail_fx)
+				ParticleManager:DestroyParticle(particle_gb_fx, false)
+				ParticleManager:ReleaseParticleIndex(particle_gb_fx)
 		end)
 	end
-		self:DecrementStackCount()
+		--self:DecrementStackCount()
 end
 
 
@@ -142,14 +153,16 @@ function modifier_scat_gae_bolg_replicas_movement_controller:OnCreated(hui)
 	self.casterToFollow = self:GetCaster()
 	self.rw_component_scale = hui.rw_component_scale
 	self.bw_component_scale = hui.bw_component_scale
-	self.height = hui.height
+	self.height = hui.height1
 	self.dtTotal = 0
 	self.parent.state = 0
-	self.speed = 2000
+	self.speed = 3000
 	self.ability = self:GetAbility()
 	self.particleIndex = hui.particleIndex
+	self.parentOldPos = Vector(0,0,0)
 	self.damage = 100
-	self.hit_radius = 50
+	self.hit_radius = 100
+	self.height_addi = RandomInt(-50, 50)
 	self.HittedTargets = {}
 	self.target_vector_jopa = Vector(0,0,0)
 	if IsServer() then
@@ -182,15 +195,17 @@ end
 function modifier_scat_gae_bolg_replicas_movement_controller:OnDestroy()
 	
 end
+
 function modifier_scat_gae_bolg_replicas_movement_controller:UpdateHorizontalMotion(me, dt)
 	if self.parent.state == 0 then
 		self.dtTotal = self.dtTotal + dt
 		if self.dtTotal > 0.5 then
 			self.dtTotal = self.dtTotal - 0.5
 			self.randomPositionVector = RandomInt(-100, 100) * self.casterToFollow:GetRightVector() + RandomInt(-100, 100) * self.casterToFollow:GetForwardVector() + RandomInt(-100, 100) * Vector(0,0,1) 
+			self.height_addi = RandomInt(-50, 50)
 		end
-		local pos = self.parent:GetOrigin()
-		local targetpos = self.casterToFollow:GetOrigin()  + self.casterToFollow:GetForwardVector() * - self.bw_component_scale + Vector(0,0,self.height ) 
+		local pos = self.parent:GetAbsOrigin()
+		local targetpos = self.casterToFollow:GetAbsOrigin()  + self.casterToFollow:GetForwardVector() * - self.bw_component_scale + Vector(0,0,self.height  + self.height_addi) 
 		+ self.casterToFollow:GetRightVector() * self.rw_component_scale + self.randomPositionVector
 
 		local distance =  (pos - targetpos):Length()
@@ -198,14 +213,12 @@ function modifier_scat_gae_bolg_replicas_movement_controller:UpdateHorizontalMot
 		
 		local direction = targetpos - pos
 		local target = pos + direction:Normalized() * (speed * dt)
-		if (false) then 
-			self.parent:FaceTowards(targetpos)
-		else 
-			self.parent:FaceTowards(self.casterToFollow:GetForwardVector() * 500 + self.casterToFollow:GetAbsOrigin())
-		end
-		ParticleManager:SetParticleControl(self.particleIndex, 1, Vector(1,0,targetpos.z - GetGroundHeight(self.parent:GetAbsOrigin(), self.parent)))
-		self.parent:SetOrigin(target)
-	else
+
+		self.parent:FaceTowards(self.casterToFollow:GetForwardVector() * 500 + self.casterToFollow:GetAbsOrigin())
+
+		--ParticleManager:SetParticleControl(self.particleIndex, 1, Vector(1,0,targetpos.z - GetGroundHeight(self.parent:GetAbsOrigin(), self.parent)))
+		self.parent:SetAbsOrigin(target)
+	elseif self.parent.state == 1 then
 		self:SearchTargetsAndDealDamage()
 		local pos = self.parent:GetOrigin()
 		local speed = self.speed
@@ -214,14 +227,33 @@ function modifier_scat_gae_bolg_replicas_movement_controller:UpdateHorizontalMot
 
 		self.parent:FaceTowards(direction * 500 + target)
 		
-		ParticleManager:SetParticleControl(self.particleIndex, 1, Vector(1,0,pos.z - GetGroundHeight(self.parent:GetAbsOrigin(), self.parent)))
-		self.parent:SetOrigin(target)
+		--ParticleManager:SetParticleControl(self.particleIndex, 1, Vector(1,0,pos.z - GetGroundHeight(self.parent:GetAbsOrigin(), self.parent)))
+		self.parent:SetAbsOrigin(target)
+	else
+		local pos = self.parent:GetAbsOrigin()
+		local targetpos = self.parentOldPos
+
+		local distance =  (pos - targetpos):Length()
+		local speed =distance*10 + 10
+
+		if distance <= 10 then
+			self.parent.state = 1
+		end
+		
+		local direction = targetpos - pos
+		local target = pos + direction:Normalized() * (speed * dt) 
+
+		self.parent:FaceTowards(-self.target_vector_jopa * 500 + self.casterToFollow:GetAbsOrigin())
+		self.parent:SetAbsOrigin(target)
 	end
 		
 end
 function modifier_scat_gae_bolg_replicas_movement_controller:ShootIntoDirection(pos)
-	self.target_vector_jopa = (self.parent:GetAbsOrigin() - pos):Normalized()
-	self.parent.state = 1
+	self.parentOldPos = self.casterToFollow:GetAbsOrigin()
+	self.parent.state = 2 
+
+	self.target_vector_jopa = (self.casterToFollow:GetAbsOrigin() - pos):Normalized()
+	--self.parent.state = 1
 
 end
 
@@ -249,6 +281,7 @@ function modifier_scat_gae_bolg_replicas_movement_controller:SearchTargetsAndDea
                                         enemy:EmitSound("Hero_Juggernaut.OmniSlash.Damage")
 
                     DoDamage(self.casterToFollow, enemy, self.damage, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
+					enemy:AddNewModifier(self.casterToFollow, self.ability, "modifier_stachach_gae_bolg_curse", {duration = 10})
                 end
             end
         end

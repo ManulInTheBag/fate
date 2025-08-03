@@ -443,6 +443,7 @@ function Precache( context )
     PrecacheResource("model", "models/rin/rin.vmdl", context)
     PrecacheResource("model", "models/altera/altera.vmdl", context)
     PrecacheResource("model", "models/okita/okita.vmdl", context)    
+     PrecacheResource("model", "models/scathach/scathach_weapon.vmdl", context)    
 
     PrecacheResource( "particle", "particles/units/heroes/hero_silencer/silencer_global_silence_sparks.vpcf", context)
     PrecacheResource( "particle", "particles/custom/system/damage_popup.vpcf", context)

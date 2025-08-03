@@ -2,7 +2,7 @@ scathach_pinning_thorn = class({})
 
 LinkLuaModifier("modifier_vision_provider", "abilities/general/modifiers/modifier_vision_provider", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_scathach_pinning_god_self_stun", "abilities/scathach/modifiers/modifier_scathach_pinning_god_self_stun", LUA_MODIFIER_MOTION_NONE)
-
+LinkLuaModifier("modifier_stachach_gae_bolg_curse", "abilities/scathach/scathach_gae_bolg.lua", LUA_MODIFIER_MOTION_NONE)
 function scathach_pinning_thorn:CastFilterResultTarget(hTarget)
 	local caster = self:GetCaster()
 	local filter = UnitFilter(hTarget, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, caster:GetTeamNumber())
@@ -80,7 +80,7 @@ function scathach_pinning_thorn:OnProjectileHit_ExtraData(hTarget, vLocation, ta
 	
 	hTarget:EmitSound("scathach_gae_bolg_explosion")
 
-	local blastFx = ParticleManager:CreateParticle("particles/custom/cu_chulainn/gae_bolg_explosion.vpcf", PATTACH_CUSTOMORIGIN, nil)
+	local blastFx = ParticleManager:CreateParticle("particles/cu_chulain/gae_bolg_explosion.vpcf", PATTACH_CUSTOMORIGIN, nil)
     ParticleManager:SetParticleControl( blastFx, 0, hTarget:GetAbsOrigin())
 	
 	Timers:CreateTimer( 2.0, function()
@@ -93,7 +93,7 @@ function scathach_pinning_thorn:OnProjectileHit_ExtraData(hTarget, vLocation, ta
 	--hTarget:RemoveModifierByName("modifier_master_intervention")
 
 	DoDamage(hCaster, hTarget, damage, DAMAGE_TYPE_MAGICAL, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self, false)
-	
+	hTarget:AddNewModifier(hCaster, self, "modifier_stachach_gae_bolg_curse", {duration = 10})
 	ScreenShake(hTarget:GetOrigin(), 15, 0.5, 2, 20000, 0, true)
 	
 	local targets = FindUnitsInRadius(caster:GetTeam(), hTarget:GetOrigin(), nil, radius , DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
@@ -105,13 +105,6 @@ function scathach_pinning_thorn:OnProjectileHit_ExtraData(hTarget, vLocation, ta
 			
 		DoDamage(caster, blast_radius_target, damage_secondary, DAMAGE_TYPE_MAGICAL, 0, self, false)
 			
-		local slashParticleName = "particles/custom/saber/caliburn/slash.vpcf"
-		local explodeParticleName = "particles/custom/saber/caliburn/explosion.vpcf"
-
-
-			-- Create particle
-		local slashFxIndex = ParticleManager:CreateParticle( slashParticleName, PATTACH_ABSORIGIN, blast_radius_target )
-		local explodeFxIndex = ParticleManager:CreateParticle( explodeParticleName, PATTACH_ABSORIGIN, blast_radius_target )
 	end
 
 	local culling_kill_particle = ParticleManager:CreateParticle("particles/custom/lancer/lancer_culling_blade_kill.vpcf", PATTACH_CUSTOMORIGIN, hTarget)

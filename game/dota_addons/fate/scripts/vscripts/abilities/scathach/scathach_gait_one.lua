@@ -1,10 +1,10 @@
 
 --------------------------------------------------------------------------------
 scathach_gait_one = class({})
-LinkLuaModifier( "modifier_scathach_gait_one_armor_reduction", "abilities/scathach/modifiers/modifier_scathach_gait_one_armor_reduction", LUA_MODIFIER_MOTION_NONE )
+
 LinkLuaModifier( "modifier_scathach_gait_one_knockback", "abilities/scathach/modifiers/modifier_scathach_gait_one_knockback", LUA_MODIFIER_MOTION_BOTH )
 LinkLuaModifier( "modifier_scathach_gait_two_window", "abilities/scathach/modifiers/modifier_scathach_gait_two_window", LUA_MODIFIER_MOTION_BOTH )
-
+LinkLuaModifier("modifier_stachach_gae_bolg_curse", "abilities/scathach/scathach_gae_bolg.lua", LUA_MODIFIER_MOTION_NONE)
 --------------------------------------------------------------------------------
 -- Ability Start
 function scathach_gait_one:OnSpellStart()
@@ -59,12 +59,12 @@ function scathach_gait_one:OnSpellStart()
 				local angle_diff = math.abs( AngleDiff( cast_angle, enemy_angle ) )
 				if angle_diff<=angle then
 				-- attack
-				DoDamage(caster, enemy, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
-				
-				if enemy:GetMaxMana() > 0 then
-					enemy:Script_ReduceMana(50, nil)
-				end
-				enemy:AddNewModifier(caster, self, "modifier_scathach_gait_one_armor_reduction", { Duration = armor_reduction_duration })
+				DoDamage(caster, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+				enemy:AddNewModifier(caster, self, "modifier_stachach_gae_bolg_curse", {duration = 10})
+				-- if enemy:GetMaxMana() > 0 then
+				-- 	enemy:Script_ReduceMana(50, nil)
+				-- end
+				--enemy:AddNewModifier(caster, self, "modifier_scathach_gait_one_armor_reduction", { Duration = armor_reduction_duration })
 
 					enemy:AddNewModifier(
 						caster, -- player source
@@ -105,10 +105,10 @@ function scathach_gait_one:OnSpellStart()
 				if angle_diff<=angle then
 				-- attack
 				DoDamage(caster, enemy, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
-				
-				if enemy:GetMaxMana() > 0 then
-					enemy:Script_ReduceMana(50, nil)
-				end
+				enemy:AddNewModifier(caster, self, "modifier_stachach_gae_bolg_curse", {duration = 10})
+				-- if enemy:GetMaxMana() > 0 then
+				-- 	enemy:Script_ReduceMana(50, nil)
+				-- end
 
 					enemy:AddNewModifier(
 						caster, -- player source

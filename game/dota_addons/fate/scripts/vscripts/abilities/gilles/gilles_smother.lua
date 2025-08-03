@@ -27,7 +27,7 @@ function gilles_smother:OnSpellStart()
 		
 	for _,v in pairs(tEnemies) do
 		if not v:IsMagicImmune() then
-			v:AddNewModifier(hCaster, self, "modifier_gilles_smother", { ExplosionDamage = self:GetSpecialValueFor("explosion_damage"),
+			v:AddNewModifier(hCaster, self, "modifier_gilles_smother", { ExplosionDamage = self:GetSpecialValueFor("explosion_damage") + hCaster:GetIntellect() * self:GetSpecialValueFor("int_damage"),
 																		 Damage = self:GetSpecialValueFor("damage"),
 																		 Duration =  self:GetSpecialValueFor("duration") + 0.1})
 			v:AddNewModifier(hCaster, self, "modifier_gilles_fear", {duration = 10})

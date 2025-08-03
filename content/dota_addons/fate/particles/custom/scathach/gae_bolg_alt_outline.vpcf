@@ -34,6 +34,7 @@
 			m_vecCP2Pos = [ 0.0, 600.0, 0.0 ]
 			m_vecCP1Pos = [ 0.0, 0.0, 0.0 ]
 			m_nCP1 = 35
+			m_bDisableOperator = true
 		},
 	]
 	m_Emitters = 
@@ -60,8 +61,8 @@
 		},
 		{
 			_class = "C_INIT_RandomColor"
-			m_ColorMin = [ 89, 0, 13 ]
-			m_ColorMax = [ 84, 0, 0 ]
+			m_ColorMin = [ 177, 0, 26 ]
+			m_ColorMax = [ 146, 0, 48 ]
 		},
 		{
 			_class = "C_INIT_InitFloat"
@@ -929,6 +930,15 @@
 			m_nFirstControlPoint = 2
 			m_bDisableOperator = true
 		},
+		{
+			_class = "C_OP_PositionLock"
+		},
+		{
+			_class = "C_OP_SetControlPointsToParticle"
+			m_nFirstControlPoint = 2
+			m_bSetOrientation = true
+			m_bDisableOperator = true
+		},
 	]
 	m_Renderers = 
 	[
@@ -972,7 +982,6 @@
 					m_hTexture = resource:"materials/particle/particle_flares/particle_flare_004_mod.vtex"
 				},
 			]
-			m_bDisableOperator = true
 		},
 		{
 			_class = "C_OP_RenderRopes"
@@ -1061,7 +1070,7 @@
 			{
 				m_nType = "PVEC_TYPE_LITERAL_COLOR"
 				m_vLiteralValue = [ 0.0, 0.0, 0.0 ]
-				m_LiteralColor = [ 52, 0, 14 ]
+				m_LiteralColor = [ 190, 0, 53 ]
 				m_NamedValue = ""
 				m_bFollowNamedValue = false
 				m_nVectorAttribute = 6
@@ -1518,7 +1527,7 @@
 			{
 				m_nType = "PVEC_TYPE_LITERAL_COLOR"
 				m_vLiteralValue = [ 0.0, 0.0, 0.0 ]
-				m_LiteralColor = [ 144, 0, 0 ]
+				m_LiteralColor = [ 220, 0, 88 ]
 				m_NamedValue = ""
 				m_bFollowNamedValue = false
 				m_nVectorAttribute = 6
@@ -1817,7 +1826,7 @@
 			{
 				m_nType = "PVEC_TYPE_LITERAL_COLOR"
 				m_vLiteralValue = [ 0.0, 0.0, 0.0 ]
-				m_LiteralColor = [ 99, 0, 0 ]
+				m_LiteralColor = [ 206, 0, 0 ]
 				m_NamedValue = ""
 				m_bFollowNamedValue = false
 				m_nVectorAttribute = 6

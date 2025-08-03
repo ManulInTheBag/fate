@@ -1,3 +1,4 @@
+LinkLuaModifier("modifier_stachach_gae_bolg_curse", "abilities/scathach/scathach_gae_bolg.lua", LUA_MODIFIER_MOTION_NONE)
 scathach_gait_three = class({})
 
 function scathach_gait_three:GetAOERadius()
@@ -44,9 +45,9 @@ function scathach_gait_three:OnSpellStart()
 		damage = damage + 400
 	end
 	
-	local half_damage = damage/2
 
-	giveUnitDataDrivenModifier(caster, caster, "jump_pause", 0.59)
+
+	giveUnitDataDrivenModifier(caster, caster, "jump_pause_noinvul", 0.59)
     local archer = Physics:Unit(caster)
     caster:PreventDI()
     caster:SetPhysicsFriction(0)
@@ -119,11 +120,11 @@ function scathach_gait_three:OnSpellStart()
 		
         local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		for k,v in pairs(targets) do
-			DoDamage(caster, v, half_damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
-	        DoDamage(caster, v, half_damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
-			if v:GetMaxMana() > 0 then
-				v:Script_ReduceMana(200, nil)
-			end
+	        DoDamage(caster, v, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+			v:AddNewModifier(caster, self, "modifier_stachach_gae_bolg_curse", {duration = 10})
+			-- if v:GetMaxMana() > 0 then
+			-- 	v:Script_ReduceMana(200, nil)
+			-- end
 	    end	    
 	end
 	})

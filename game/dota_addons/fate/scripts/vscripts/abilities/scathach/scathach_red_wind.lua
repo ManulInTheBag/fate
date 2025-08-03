@@ -1,7 +1,6 @@
 scathach_red_wind = class({})
-LinkLuaModifier("modifier_scathach_red_wind_stun", "abilities/scathach/modifiers/modifier_scathach_red_wind_stun", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_scathach_combo_2_window", "abilities/scathach/modifiers/modifier_scathach_combo_2_window", LUA_MODIFIER_MOTION_NONE)
-
+LinkLuaModifier("modifier_stachach_gae_bolg_curse", "abilities/scathach/scathach_gae_bolg.lua", LUA_MODIFIER_MOTION_NONE)
 function scathach_red_wind:GetCastRange(vLocation, hTarget)
     local range = self:GetSpecialValueFor("distance")
 
@@ -134,7 +133,9 @@ function scathach_red_wind:OnProjectileHit_ExtraData(hTarget, vLocation, table)
 	end
 	
 	DoDamage(caster, hTarget, chaindamage, DAMAGE_TYPE_MAGICAL, 0, self, false)
-	hTarget:AddNewModifier(caster, self, "modifier_scathach_red_wind_stun", { Duration = stun_duration })
+	hTarget:AddNewModifier(caster, self, "modifier_stachach_gae_bolg_curse", {duration = 10})
+	hTarget:AddNewModifier(caster, self, "modifier_stunned", {Duration = stun_duration})
+	--hTarget:AddNewModifier(caster, self, "modifier_scathach_red_wind_stun", { Duration = stun_duration })
 end
 
 function scathach_red_wind:CheckCombo()

@@ -1,5 +1,5 @@
 LinkLuaModifier("modifier_okita_jce_active", "abilities/okita/okita_channel_slashes", LUA_MODIFIER_MOTION_NONE)
-
+LinkLuaModifier("modifier_protection_from_arrows_active", "abilities/cu_chulain/modifiers/modifier_protection_from_arrows_active", LUA_MODIFIER_MOTION_NONE)
 okita_jce = class({})
 
 --[[function okita_jce:OnAbilityPhaseStart()
@@ -54,6 +54,7 @@ function okita_jce:OnSpellStart()
 
 	if caster.IsReducedWindAcquired then
 		caster:AddNewModifier(caster, self, "modifier_okita_jce_active", {duration = 0.5})
+		caster:AddNewModifier(caster, self, "modifier_protection_from_arrows_active", { Duration = 0.5})
 	end
 
 	AddFOWViewer(2,self.origin, 10, 3, false)
