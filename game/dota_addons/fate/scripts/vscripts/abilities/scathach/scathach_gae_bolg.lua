@@ -71,7 +71,7 @@ function scathach_gae_bolg:OnSpellStart()
 
 
 	--giveUnitDataDrivenModifier(caster, target, "can_be_executed", 0.033)
-	DoDamage(caster, target, damage, DAMAGE_TYPE_PURE, 0, ability, false)
+	DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
 	target:AddNewModifier(caster, self, "modifier_stunned", {Duration = self:GetSpecialValueFor("stun_duration")})
  	target:AddNewModifier(caster, self, "modifier_heal_reduction_tier_2", {duration = self:GetSpecialValueFor("healres_duration")})
 	-- if target:GetHealth() < hbThreshold and not (target:IsMagicImmune()) then
@@ -144,19 +144,25 @@ function modifier_stachach_gae_bolg_curse:GetModifierTotalDamageOutgoing_Percent
         end
     end
 end
+if IsServer() then
+	function modifier_stachach_gae_bolg_curse:OnCreated(tTable)
+		self:SetStackCount(1)
+	end
+	function modifier_stachach_gae_bolg_curse:OnRefresh(tTable)
+		if self:GetStackCount() == 1 then
+			self:SetStackCount(2)
+		else
+			self:IncrementStackCount()
+			if self:GetStackCount() > 10 then
+				self:SetStackCount(10)
+			end
+		end
 
-function modifier_stachach_gae_bolg_curse:OnCreated(tTable)
-	self:SetStackCount(1)
-end
-function modifier_stachach_gae_bolg_curse:OnRefresh(tTable)
-    self:IncrementStackCount()
-	if self:GetStackCount() > 10 then
-		self:SetStackCount(10)
 	end
 end
 
 function modifier_stachach_gae_bolg_curse:GetModifierMoveSpeedBonus_Percentage()
-	return self:GetStackCount() * -5
+	return self:GetStackCount() * -3
 end
 
 function modifier_stachach_gae_bolg_curse:GetEffectName()

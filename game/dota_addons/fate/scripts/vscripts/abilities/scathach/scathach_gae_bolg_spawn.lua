@@ -160,7 +160,7 @@ function modifier_scat_gae_bolg_replicas_movement_controller:OnCreated(hui)
 	self.ability = self:GetAbility()
 	self.particleIndex = hui.particleIndex
 	self.parentOldPos = Vector(0,0,0)
-	self.damage = 100
+	self.damage = self:GetAbility():GetSpecialValueFor("damage")
 	self.hit_radius = 100
 	self.height_addi = RandomInt(-50, 50)
 	self.HittedTargets = {}

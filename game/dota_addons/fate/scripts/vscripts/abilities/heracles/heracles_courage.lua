@@ -61,7 +61,7 @@ function heracles_courage:OnSpellStart()
 	--[[if caster.IsEternalRageAcquired then
 		ReduceCooldown(caster:FindAbilityByName("heracles_nine_lives"), 5)
 	end]]
-	if caster:GetStrength() >= 39.1 and caster:GetAgility() >= 39.1 then
+	if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 then
 		if caster.QUsed and caster:FindAbilityByName("berserker_5th_madmans_roar"):IsCooldownReady() then
 			caster:AddNewModifier(caster, self, "modifier_heracles_combo_window", { Duration = 3 })
 		end

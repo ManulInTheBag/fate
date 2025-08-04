@@ -47,8 +47,9 @@ function scathach_gait_two:OnSpellStart()
 			
 				DoDamage(caster, spin_target_1, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
 				spin_target_1:AddNewModifier(caster, self, "modifier_stachach_gae_bolg_curse", {duration = 10})
+				giveUnitDataDrivenModifier(caster, spin_target_1, "locked", self:GetSpecialValueFor("lock_duration"))
 				--spin_target_1:AddNewModifier(caster, self, "modifier_scathach_gait_two_armor_reduction_1", { Duration = armor_reduction_duration })
-				
+				spin_target_1:AddNewModifier(caster, self, "modifier_disarmed", {duration = self:GetSpecialValueFor("lock_duration")})
 				-- if spin_target_1:GetMaxMana() > 0 then
 				-- 	spin_target_1:Script_ReduceMana(50, nil)
 				-- end
@@ -68,8 +69,9 @@ function scathach_gait_two:OnSpellStart()
 			
 				DoDamage(caster, spin_target_2, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
 				spin_target_2:AddNewModifier(caster, self, "modifier_stachach_gae_bolg_curse", {duration = 10})
+				giveUnitDataDrivenModifier(caster, spin_target_2, "locked", self:GetSpecialValueFor("lock_duration"))
 				-- spin_target_2:AddNewModifier(caster, self, "modifier_scathach_gait_two_armor_reduction_2", { Duration = armor_reduction_duration })
-				
+				spin_target_2:AddNewModifier(caster, self, "modifier_disarmed", {duration = self:GetSpecialValueFor("lock_duration")})
 				-- if spin_target_2:GetMaxMana() > 0 then
 				-- 	spin_target_2:Script_ReduceMana(50, nil)
 				-- end
@@ -89,6 +91,8 @@ function scathach_gait_two:OnSpellStart()
 			
 				DoDamage(caster, spin_target_3, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
 				spin_target_3:AddNewModifier(caster, self, "modifier_stachach_gae_bolg_curse", {duration = 10})
+				giveUnitDataDrivenModifier(caster, spin_target_3, "locked", self:GetSpecialValueFor("lock_duration"))
+				spin_target_3:AddNewModifier(caster, self, "modifier_disarmed", {duration = self:GetSpecialValueFor("lock_duration")})
 				-- spin_target_3:AddNewModifier(caster, self, "modifier_scathach_gait_two_armor_reduction_3", { Duration = armor_reduction_duration })
 				
 				-- if spin_target_3:GetMaxMana() > 0 then
@@ -111,6 +115,8 @@ function scathach_gait_two:OnSpellStart()
 				DoDamage(caster, spin_target_4, damage_big, DAMAGE_TYPE_MAGICAL, 0, self, false)
 				spin_target_4:AddNewModifier(caster, self, "modifier_stachach_gae_bolg_curse", {duration = 10})
 				spin_target_4:AddNewModifier(caster, self, "modifier_stunned", {Duration =stun_duration})
+				giveUnitDataDrivenModifier(caster, spin_target_4, "locked", self:GetSpecialValueFor("lock_duration"))
+				spin_target_4:AddNewModifier(caster, self, "modifier_disarmed", {duration = self:GetSpecialValueFor("lock_duration")})
 
 				-- spin_target_4:AddNewModifier(caster, self, "modifier_scathach_gait_two_armor_reduction_4", { Duration = armor_reduction_duration })
 				
@@ -125,7 +131,7 @@ function scathach_gait_two:OnSpellStart()
 	caster:RemoveModifierByName("modifier_scathach_gait_two_window")
 	
 	Timers:CreateTimer(0.1, function()
-		caster:AddNewModifier(caster, self, "modifier_scathach_gait_three_window", { Duration = 4 })
+		caster:AddNewModifier(caster, self, "modifier_scathach_gait_three_window", { Duration = self:GetSpecialValueFor("activity_duration") })
 	end)
 end
 
@@ -134,7 +140,7 @@ function scathach_gait_two:PlayEffects1( caught, direction )
 	local particle_cast = "particles/custom/scathach/gait_two_circle_swing_left.vpcf"
 
 	-- Create Particle
-	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_WORLDORIGIN, self:GetCaster() )
+	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetCaster() )
 	ParticleManager:SetParticleControl( effect_cast, 0, self:GetCaster():GetOrigin() )
 	ParticleManager:SetParticleControlForward( effect_cast, 0, direction )
 	ParticleManager:ReleaseParticleIndex( effect_cast )
@@ -153,7 +159,7 @@ function scathach_gait_two:PlayEffects2( caught, direction )
 	local particle_cast = "particles/custom/scathach/gait_two_circle_swing.vpcf"
 
 	-- Create Particle
-	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_WORLDORIGIN, self:GetCaster() )
+	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetCaster() )
 	ParticleManager:SetParticleControl( effect_cast, 0, self:GetCaster():GetOrigin() )
 	ParticleManager:SetParticleControlForward( effect_cast, 0, direction )
 	ParticleManager:ReleaseParticleIndex( effect_cast )

@@ -156,8 +156,8 @@ function medea_hecatic_graea:DropRay(caster, damage, radius, ability, targetPoin
 	local targets = FindUnitsInRadius(caster:GetTeam(), targetPoint, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
 	for k,v in pairs(targets) do
     	DoDamage(caster, v, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
-    	if not v:IsNull() then
-    		v:AddNewModifier(caster, v, "modifier_stunned", {Duration = 0.01})
-    	end
+    	-- if not v:IsNull() then
+    	-- 	v:AddNewModifier(caster, v, "modifier_stunned", {Duration = 0.01})
+    	-- end
 	end
 end

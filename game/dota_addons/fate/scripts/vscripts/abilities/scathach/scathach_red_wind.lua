@@ -2,7 +2,7 @@ scathach_red_wind = class({})
 LinkLuaModifier("modifier_scathach_combo_2_window", "abilities/scathach/modifiers/modifier_scathach_combo_2_window", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_stachach_gae_bolg_curse", "abilities/scathach/scathach_gae_bolg.lua", LUA_MODIFIER_MOTION_NONE)
 function scathach_red_wind:GetCastRange(vLocation, hTarget)
-    local range = self:GetSpecialValueFor("distance")
+    local range = 1100
 
     if self:GetCaster():HasModifier("modifier_scathach_primeval_rune_attribute") then
         range = range + 200
@@ -16,7 +16,8 @@ function scathach_red_wind:OnSpellStart()
 	 local randomVec = RandomInt(-400,400)
 
 	StartAnimation(caster, {duration=1.00, activity=ACT_DOTA_CAST_ABILITY_1, rate=1.0})
-	
+	local point = self:GetCursorPosition()
+	local distance = (point - caster:GetAbsOrigin()):Length2D()
 	local proc = RandomInt(1, 100)
 	
 	if 0 < proc and proc < 33 then
@@ -31,17 +32,12 @@ function scathach_red_wind:OnSpellStart()
 	
 	stun_duration = self:GetSpecialValueFor("stun_duration")
 	
-	chain_distance = self:GetSpecialValueFor("distance")
+	charge_distance = self:GetSpecialValueFor("distance")
 	
-	charge_distance = self:GetSpecialValueFor("charge_distance")
-	
-	if caster:HasModifier("modifier_scathach_primeval_rune_attribute") then
-		chain_distance = chain_distance + 200
+	if distance > charge_distance then
+		distance = charge_distance
 	end
-	
-	if caster:HasModifier("modifier_scathach_primeval_rune_attribute") then
-		charge_distance = charge_distance + 500
-	end
+
 
 	local bindingchain_projectile = 
 	{
@@ -49,9 +45,9 @@ function scathach_red_wind:OnSpellStart()
         EffectName = nil,
         iMoveSpeed = 1500,
         vSpawnOrigin = caster:GetOrigin(),
-        fDistance = chain_distance,
-        fStartRadius = 300,
-        fEndRadius = 300,
+        fDistance = distance,
+        fStartRadius = 150,
+        fEndRadius = 150,
         Source = caster,
         bHasFrontalCone = true,
         bReplaceExisting = true,
@@ -64,12 +60,13 @@ function scathach_red_wind:OnSpellStart()
 	}
 
 	local projectile = ProjectileManager:CreateLinearProjectile(bindingchain_projectile)
-	caster:AddNewModifier(caster, self, "modifier_scathach_red_wind_stun", { Duration = 0.75 })
+	caster:AddNewModifier(caster, self, "modifier_stunned", { Duration = 0.75 })
 	caster:EmitSound("caster_PhantomLancer.Doppelwalk") 
 	local sin = Physics:Unit(caster)
 	caster:SetPhysicsFriction(0)
-	caster:SetPhysicsVelocity(caster:GetForwardVector() * charge_distance)
+	caster:SetPhysicsVelocity(caster:GetForwardVector() * charge_distance*2)
 	caster:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
+	local dash_time = distance/(charge_distance*2)
 	
 	local particle3 = ParticleManager:CreateParticle("particles/custom/scathach/red_wind_lightning_2.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 	
@@ -96,7 +93,7 @@ function scathach_red_wind:OnSpellStart()
 	end)
 
 	Timers:CreateTimer("scathach_red_wind", {
-		endTime = 0.5,
+		endTime = dash_time,
 		callback = function()
 		caster:OnPreBounce(nil)
 		caster:SetBounceMultiplier(0)

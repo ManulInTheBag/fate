@@ -92,7 +92,7 @@ function iskander_phalanx:PhalanxPull(caster, soldier, targetPoint, damage, abil
 		if v.PhalanxSoldiersHit ~= true and v:GetName() ~= "npc_dota_ward_base" then
 			DoDamage(caster, v, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
 			v.PhalanxSoldiersHit = true
-				Timers:CreateTimer(0.5, function()
+				Timers:CreateTimer(0.2, function()
 					v.PhalanxSoldiersHit = false
 				end)
 			if not IsKnockbackImmune(v) then

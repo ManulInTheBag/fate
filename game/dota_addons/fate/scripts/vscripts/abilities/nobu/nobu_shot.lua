@@ -114,8 +114,9 @@ function nobu_shot:OnProjectileHit(target, location )
         center_x = hCaster:GetAbsOrigin().x,
         center_y = hCaster:GetAbsOrigin().y,
         center_z = hCaster:GetAbsOrigin().z }
-
-        target:AddNewModifier(hCaster, self, "modifier_knockback", knockback)
+        if not IsKnockbackImmune(target) then
+             target:AddNewModifier(hCaster, self, "modifier_knockback", knockback)
+        end
         
     end
     if(hCaster.ISDOW) then

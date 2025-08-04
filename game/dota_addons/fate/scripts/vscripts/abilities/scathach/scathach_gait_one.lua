@@ -17,7 +17,7 @@ function scathach_gait_one:OnSpellStart()
 	local radius = self:GetSpecialValueFor("radius")
 	local angle = self:GetSpecialValueFor("angle")/2
 	local duration = self:GetSpecialValueFor("knockback_duration")
-	local armor_reduction_duration = self:GetSpecialValueFor("armor_reduction_duration")
+	local root duration = self:GetSpecialValueFor("root_duration")
 	local distance = self:GetSpecialValueFor("knockback_distance")
 	local damage = self:GetSpecialValueFor("damage")
 	
@@ -65,7 +65,7 @@ function scathach_gait_one:OnSpellStart()
 				-- 	enemy:Script_ReduceMana(50, nil)
 				-- end
 				--enemy:AddNewModifier(caster, self, "modifier_scathach_gait_one_armor_reduction", { Duration = armor_reduction_duration })
-
+				if not IsKnockbackImmune(enemy) then
 					enemy:AddNewModifier(
 						caster, -- player source
 						self, -- ability source
@@ -78,6 +78,7 @@ function scathach_gait_one:OnSpellStart()
 							direction_y = enemy_direction.y,
 						} -- kv
 					)
+				end
 
 			caught = true
 			-- play effects
@@ -106,10 +107,11 @@ function scathach_gait_one:OnSpellStart()
 				-- attack
 				DoDamage(caster, enemy, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
 				enemy:AddNewModifier(caster, self, "modifier_stachach_gae_bolg_curse", {duration = 10})
+				enemy:AddNewModifier(caster, self, "modifier_rooted", {duration = self:GetSpecialValueFor("root_duration")})
 				-- if enemy:GetMaxMana() > 0 then
 				-- 	enemy:Script_ReduceMana(50, nil)
 				-- end
-
+				if not IsKnockbackImmune(enemy) then
 					enemy:AddNewModifier(
 						caster, -- player source
 						self, -- ability source
@@ -122,6 +124,7 @@ function scathach_gait_one:OnSpellStart()
 							direction_y = enemy_direction.y,
 						} -- kv
 					)
+				end
 
 			caught = true
 			-- play effects
@@ -134,7 +137,7 @@ function scathach_gait_one:OnSpellStart()
 	Timers:CreateTimer(0.5, function()
 		if caster:IsAlive() then
 			
-			caster:AddNewModifier(caster, self, "modifier_scathach_gait_two_window", { Duration = 4 })
+			caster:AddNewModifier(caster, self, "modifier_scathach_gait_two_window", { Duration = self:GetSpecialValueFor("activity_duration") })
 		end
 	end)
 
@@ -151,7 +154,7 @@ function scathach_gait_one:PlayEffects1( caught, direction )
 	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_WORLDORIGIN, self:GetCaster() )
 	ParticleManager:SetParticleControl( effect_cast, 0, self:GetCaster():GetOrigin() )
 	ParticleManager:SetParticleControlForward( effect_cast, 0, direction )
-	ParticleManager:ReleaseParticleIndex( effect_cast )
+	--ParticleManager:ReleaseParticleIndex( effect_cast )
 	
 	Timers:CreateTimer( 2.0, function()
 		ParticleManager:DestroyParticle( effect_cast, false )
@@ -167,11 +170,11 @@ function scathach_gait_one:PlayEffects2( target, origin, direction )
 	local particle_cast = "particles/custom/lu_bu/assault_two_crit.vpcf"
 
 	-- Create Particle
-	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_WORLDORIGIN, target )
+	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, target )
 	ParticleManager:SetParticleControl( effect_cast, 0, target:GetOrigin() )
 	ParticleManager:SetParticleControl( effect_cast, 1, target:GetOrigin() )
 	ParticleManager:SetParticleControlForward( effect_cast, 1, direction )
-	ParticleManager:ReleaseParticleIndex( effect_cast )
+	--ParticleManager:ReleaseParticleIndex( effect_cast )
 	
 	Timers:CreateTimer( 2.0, function()
 		ParticleManager:DestroyParticle( effect_cast, false )
@@ -187,10 +190,10 @@ function scathach_gait_one:PlayEffects3( caught, direction )
 	local particle_cast = "particles/custom/scathach/scathach_gait_one_second_swing.vpcf"
 
 	-- Create Particle
-	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_WORLDORIGIN, self:GetCaster() )
+	local effect_cast = ParticleManager:CreateParticle( particle_cast, PATTACH_ABSORIGIN_FOLLOW, self:GetCaster() )
 	ParticleManager:SetParticleControl( effect_cast, 0, self:GetCaster():GetOrigin() )
 	ParticleManager:SetParticleControlForward( effect_cast, 0, direction )
-	ParticleManager:ReleaseParticleIndex( effect_cast )
+	--ParticleManager:ReleaseParticleIndex( effect_cast )
 	
 	Timers:CreateTimer( 2.0, function()
 		ParticleManager:DestroyParticle( effect_cast, false )

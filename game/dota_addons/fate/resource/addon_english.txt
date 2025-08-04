@@ -5431,7 +5431,7 @@
 		"DOTA_Tooltip_Ability_khsn_blink_turn_rate"	"%Turn rate slow:"
 
 		"DOTA_Tooltip_Ability_khsn_mde"		"Evening Bell"
-		"DOTA_Tooltip_Ability_khsn_mde_Description"	"<font color='#FFFAFA'>Passive</font>\nOn attack deals <font color='#58ACFA'>%damage_percent%% </font> of target's maximum health as magical damage.\nDealing damage applies <font color='#FF0033'>Death's Door</font> debuff to enemies for %death_door_duration% seconds.\n<font color='#FF0033'>Death's Door</font>: stores %dd_dmg_percent%%  of the damage King Hassan deals to this unit under the effect of the debuff, up to %azrael_max_storage%.\n<font color='#FFFAFA'>Active</font> | <font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%AbilityCastPoint%</font>\n King Hassan gains %ms_bonus%%  additional movement speed and starts draining life force from nearby enemies, dealing <font color='#58ACFA'>%dps%</font> magical damage per second and healing himself for %heal% per second for each enemy affected.\nEnables <font color='#ff9900'>Azrael</font>.\n<font color='#ff9900'>Azrael</font> - <font color='#FFFAFA'>Active</font> | <font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%azrael_cast_point%</font>\nAfter a 1.37 second delay, deals <font color='#58ACFA'>%azrael_damage%</font> + damage stored by the <font color='#FF0033'>Death's Door</font> on this enemy as <font color='#58ACFA'>magical</font> damage.\nIf enemy's health drops below %azrael_health_threshold%% , it will be executed.\nEnds Evening Bell if target was not killed."
+		"DOTA_Tooltip_Ability_khsn_mde_Description"	"<font color='#FFFAFA'>Passive</font>\nOn attack deals <font color='#58ACFA'>%damage_percent%% </font> of target's maximum health as magical damage.\nDealing damage applies <font color='#FF0033'>Death's Door</font> debuff to enemies for %death_door_duration% seconds.\n<font color='#FF0033'>Death's Door</font>: stores %dd_dmg_percent%%  of the damage King Hassan deals to this unit under the effect of the debuff, up to %azrael_max_storage%.\n<font color='#FFFAFA'>Active</font> | <font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%AbilityCastPoint%</font>\n King Hassan gains %ms_bonus%%  additional movement speed, %bonus_armor% armor and starts draining life force from nearby enemies, dealing <font color='#58ACFA'>%dps%</font> magical damage per second and healing himself for %heal% per second for each enemy affected.\nEnables <font color='#ff9900'>Azrael</font>.\n<font color='#ff9900'>Azrael</font> - <font color='#FFFAFA'>Active</font> | <font color='#FFFAFA'>Cast point</font>:  <font color='#7FFF00'>%azrael_cast_point%</font>\nAfter a 1.37 second delay, deals <font color='#58ACFA'>%azrael_damage%</font> + damage stored by the <font color='#FF0033'>Death's Door</font> on this enemy as <font color='#58ACFA'>magical</font> damage.\nIf enemy's health drops below %azrael_health_threshold%% , it will be executed.\nEnds Evening Bell if target was not killed."
 		"DOTA_Tooltip_Ability_khsn_mde_duration"	"Active duration:"
 
 		"DOTA_Tooltip_Ability_khsn_mde_end"		"Your Life is Near the End"
@@ -9897,40 +9897,54 @@
 		//=================================================================================================================
 		"npc_dota_hero_monkey_king"			"Scathach"
 		"scat1"		"Swimsuit Scathach"
+
+		"DOTA_Tooltip_Ability_scathach_gae_bolg_spawn"				"<font color='#FFE56E'>Gae Bolg Alternative summon</font>"
+		"DOTA_Tooltip_ability_scathach_gae_bolg_spawn_Description"	"Cast Point: <font color='#FFFFF9'>0.5</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Scathach summons %gb_spawn_amount% Gae Bolg Alternatives, which follow her for %duration% seconds.\nReusing this ability, Scathach sends one of Gae Bolgs in target direction swiftly.\nGae Bolg deals <font color='#05CAFF'>damage</font> to all enemies on its path.\nScathach has %shoot_cd% second cd after shooting a Gae Bolg."
+		"DOTA_Tooltip_Ability_scathach_gae_bolg_spawn_range"			"SHOOT RANGE:"
+		"DOTA_Tooltip_Ability_scathach_gae_bolg_spawn_damage"			"DAMAGE:"
+		"DOTA_Tooltip_Ability_scathach_gae_bolg_spawn_speed"			"GAE BOLG SPEED:"
+		"DOTA_Tooltip_Ability_scathach_gae_bolg_spawn_hit_radius"		"GAE BOLG HIT RADIUS:"
+
+
 		"DOTA_Tooltip_Ability_scathach_red_wind"				"<font color='#FFE56E'>Thorn Of The Red Wind</font>"
-		"DOTA_Tooltip_ability_scathach_red_wind_Description"	"Cast Point: <font color='#FFFFF9'>0.3</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Scathach quickly charges ahead.\n\nDealing <font color='#05CAFF'>magical damage</font> and <font color='#FF3399'>stunning</font> all enemies along her path."
+		"DOTA_Tooltip_ability_scathach_red_wind_Description"	"Cast Point: <font color='#FFFFF9'>0.3</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Scathach quickly dashes to the target point.\n\nDealing <font color='#05CAFF'>damage</font> and <font color='#FF3399'>stunning</font> all enemies along her path."
 		"DOTA_Tooltip_ability_scathach_red_wind_stun_duration"			"STUN DURATION :"
 		"DOTA_Tooltip_ability_scathach_red_wind_damage"			"DAMAGE :"
 		"DOTA_Tooltip_ability_scathach_red_wind_distance"			"CHARGE DISTANCE:"
 		
 		"DOTA_Tooltip_Ability_scathach_gait_one"				"<font color='#FFE56E'>Funeral Gait - Fangs of Earth</font>"
-		"DOTA_Tooltip_ability_scathach_gait_one_Description"	"Cast Point: <font color='#FFFFF9'>0.25</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Scathach performs two swift swings in succession.\n\nDealing <font color='#C24401'>physical damage</font> to enemies directly infront of Scathach.\n\nOn the second strike, extra <font color='#C24401'>armor reduction</font> and <font color='#FF3399'>root</font> is applied to all enemies hit.\n\nInflicts <font color='#05CAFF'>50 mana burn</font> per hit.\n\nUpgradable by attribute Primeval Runes."
+		"DOTA_Tooltip_ability_scathach_gait_one_Description"	"Cast Point: <font color='#FFFFF9'>0.25</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Scathach may use this ability for up to 3 times in succession, with different effects.\nFirst use: Scathach performs two swift swings in succession.\n\nDealing <font color='#05CAFF'>damage</font> to enemies directly infront of her and <font color='#FF3399'>knocking them back</font> slightly.\n\nOn the second strike, Scathach applies <font color='#9400D3'>root</font> debuff to enemies hit.\n\nUpgradable by attribute Primeval Runes."
 		"DOTA_Tooltip_ability_scathach_gait_one_radius"			"RANGE:"
 		"DOTA_Tooltip_ability_scathach_gait_one_damage"			"DAMAGE :"
-		"DOTA_Tooltip_ability_scathach_gait_one_armor_reduction_duration"			"ARMOR REDUCTION AND ROOT DURATION:"
-		"DOTA_Tooltip_ability_scathach_gait_one_armor_reduction"			"ARMOR REDUCTION:"
+		"DOTA_Tooltip_ability_scathach_gait_one_knockback_distance"			"KNOCKBACK DISTANCE:"
+		"DOTA_Tooltip_ability_scathach_gait_one_activity_duration"			"RECAST TIME:"
+		"DOTA_Tooltip_ability_scathach_gait_one_root_duration"					"ROOT DURATION:"
+
 		
 		"DOTA_Tooltip_Ability_scathach_gait_two"				"<font color='#FFE56E'>Funeral Gait - Curruid's Maw</font>"
-		"DOTA_Tooltip_ability_scathach_gait_two_Description"	"Cast Point: <font color='#FFFFF9'>0.1</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Scathach strikes 4 times within an area over a duration.\n\nDealing <font color='#C24401'>physical damage</font> while inflicting <font color='#C24401'>armor reduction</font>.\n\nLast strike deals significantly more <font color='#FF5100'>damage</font> and <font color='#FF3399'>stuns</font> nearby enemies for 1 second.\n\nInflicts <font color='#05CAFF'>50 mana burn</font> per hit."
-		"DOTA_Tooltip_ability_scathach_gait_two_duration"			"DURATION:"
+		"DOTA_Tooltip_ability_scathach_gait_two_Description"	"Cast Point: <font color='#FFFFF9'>IMMEDIATE</font>    |    <font color='#29EE32'>Refreshable</font><br><br>Scathach strikes 4 times within an area over a duration.\n\nDealing <font color='#05CAFF'>damage</font> while inflicting <font color='#9400D3'>disarm</font> and <font color='#9400D3'>lock</font> .\n\nLast strike deals significantly more <font color='#05CAFF'>damage</font> and <font color='#FF3399'>stuns</font> nearby enemies for %stun_duration% second."
+		"DOTA_Tooltip_ability_scathach_gait_two_duration"			"PERFORM TIME:"
 		"DOTA_Tooltip_ability_scathach_gait_two_radius"			"RADIUS:"
 		"DOTA_Tooltip_ability_scathach_gait_two_damage"			"DAMAGE :"
 		"DOTA_Tooltip_ability_scathach_gait_two_damage_big"			"LAST HIT DAMAGE:"
-		"DOTA_Tooltip_ability_scathach_gait_two_armor_reduction_duration"			"ARMOR REDUCTION DURATION:"
-		"DOTA_Tooltip_ability_scathach_gait_two_armor_reduction"			"ARMOR REDUCTION:"
-		
+		"DOTA_Tooltip_ability_scathach_gait_two_activity_duration"			"RECAST TIME:"
+		"DOTA_Tooltip_ability_scathach_gait_two_lock_duration"			"DISARM AND LOCK DURATION:"
+
 		"DOTA_Tooltip_Ability_scathach_gait_three"				"<font color='#FFE56E'>Funeral Gait - Legion's Bite</font>"
-		"DOTA_Tooltip_ability_scathach_gait_three_Description"	"Cast Point: <font color='#FFFFF9'>0.15</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Scathach leaps and strikes at the targeted area with both spears.\n\nInflicting half of the total <font color='#FF5100'>damage</font> as <font color='#C24401'>physical damage</font> and the other half as <font color='#05CAFF'>magical damage</font> to nearby enemies within the target area.\n\nAdditional damage is also added per <font color='#2CE300'>AGI</font>.\n\nInflicts <font color='#05CAFF'>200 mana burn</font> per hit."
+		"DOTA_Tooltip_ability_scathach_gait_three_Description"	"Cast Point: <font color='#FFFFF9'>0.15</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Scathach leaps and strikes at the targeted area with both spears.\n\nInflicting <font color='#05CAFF'>magical damage</font> in two instances to nearby enemies within the target area.\n\nAdditional damage is also added per <font color='#2CE300'>AGI</font>.\n"
 		"DOTA_Tooltip_ability_scathach_gait_three_cast_range"			"CAST RANGE:"
 		"DOTA_Tooltip_ability_scathach_gait_three_radius"			"RADIUS:"
 		"DOTA_Tooltip_ability_scathach_gait_three_damage"			"DAMAGE :"
 		"DOTA_Tooltip_ability_scathach_gait_three_agi_ratio"			"ADDITIONAL DAMAGE PER AGILITY:"
 
 		"DOTA_Tooltip_Ability_scathach_gae_bolg"				"<font color='#FFE56E'>Gae Bolg Alternative - Barbed Spear that Pierces with Death</font>"
-		"DOTA_Tooltip_ability_scathach_gae_bolg_Description"	"Cast Point: <font color='#FFFFF9'>0.8</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Scathach pierces the enemy with the cursed spear; Gae Bolg Alternative, dealing <font color='#FFE56E'>pure damage</font> and <font color='#FF3399'>stunning</font> the target.\n\nIf this blow would reduce the target's <font color='#ACFF05'>health</font> below a <font color='#FF5100'>certain threshold</font>, target is <font color='#FFE56E'>executed</font>.\n\nUpgradable by attribute Branch of Tonelico."
-		"DOTA_Tooltip_ability_scathach_gae_bolg_delay"			"CAST DELAY :"
-		"DOTA_Tooltip_ability_scathach_gae_bolg_damage"			"DAMAGE :"
-		"DOTA_Tooltip_ability_scathach_gae_bolg_heart_break"			"HEART BREAK THRESHOLD :"
+		"DOTA_Tooltip_ability_scathach_gae_bolg_Description"	"<font color='#FFFAFA'>PASSIVE:</font>\nAll of Scathach's abilities apply <font color='#C437B6'>Gae Bolg curse</font> for %curse_duration% seconds.\n<font color='#C437B6'>Gae Bolg curse</font> stacks for up to %max_stacks%. Each stack <font color='#9400D3'>slows</font> by %slow_per_stack%% \n<font color='#FFFAFA'>ACTIVE</font>:\nCast Point: <font color='#FFFFF9'>0.6</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Scathach pierces the enemy with the cursed spear; Gae Bolg Alternative, dealing <font color='#05CAFF'>damage</font>  and <font color='#FF3399'>microstunning</font> the target and applying <font color='#7F00FF'>healing reduction tier 2</font> for %healres_duration% seconds.\nDamage is increased based on <font color='#C437B6'>Gae Bolg curse</font> stacks, which are removed after dealing damage.\n\nUpgradable by attribute Branch of Tonelico."
+		"DOTA_Tooltip_ability_scathach_gae_bolg_delay"					"CAST DELAY:"
+		"DOTA_Tooltip_ability_scathach_gae_bolg_damage"					"DAMAGE:"
+		"DOTA_Tooltip_ability_scathach_gae_bolg_damage_per_stack"		"DAMAGE PER STACK:"
+		"DOTA_Tooltip_ability_scathach_gae_bolg_stun_duration"			"STUN DURATION:"
+		"DOTA_Tooltip_ability_scathach_gae_bolg_healing_reduction"			"%HEALING REDUCTION:"
+		"DOTA_Tooltip_ability_scathach_gae_bolg_heart_break"			"HEART BREAK THRESHOLD:"
 
 		"DOTA_Tooltip_Ability_scathach_gae_bolg_jump"				"<font color='#FFE56E'>Gae Bolg Alternative : Soaring Spear of Piercing Death</font>"
 		"DOTA_Tooltip_ability_scathach_gae_bolg_jump_Description"	"Cast Point: <font color='#FFFFF9'>0.6</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Scathach leaps into the air, becoming <font color='#FFE56E'>invulnerable</font> and <font color='#FFE56E'>untargetable</font>, and performs a powerful spear throw onto a targeted area.\n\nDealing significant <font color='#05CAFF'>magical damage</font> and <font color='#FF3399'>knocks</font> enemies into the air. \n\nUpgradable by attribute Branch of Tonelico."

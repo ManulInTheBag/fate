@@ -185,7 +185,10 @@ function nobu_dash:OnProjectileHit(target, location )
         center_y = hCaster:GetAbsOrigin().y,
         center_z = hCaster:GetAbsOrigin().z }
 
-        target:AddNewModifier(hCaster, self, "modifier_knockback", knockback)
+		if not IsKnockbackImmune(target) then
+
+        	target:AddNewModifier(hCaster, self, "modifier_knockback", knockback)
+		end
     if(hCaster.ISDOW) then
         local gun_spawn = hCaster:GetAbsOrigin()
         local random1 = RandomInt(25, 150) -- position of gun spawn
