@@ -48,20 +48,19 @@ function scathach_gae_bolg:OnSpellStart()
 	local target = self:GetCursorTarget()
 	local ability = self
 	local damage = self:GetSpecialValueFor("damage")
+	local totalDamage = damage
 	local damage_per_stack = self:GetSpecialValueFor("damage_per_stack")
 	if IsSpellBlocked(target) then 
 		return 
 	end
 	local target_stacks = target:GetModifierStackCount("modifier_stachach_gae_bolg_curse", caster)
 	if type(target_stacks) == "number" then
-		damage = damage + target_stacks * damage_per_stack
+		totalDamage = damage + target_stacks * damage_per_stack
 		target:RemoveModifierByName("modifier_stachach_gae_bolg_curse")
 	end
-	-- if caster:HasModifier("modifier_scathach_branches_of_tonelico_attribute") then
-	-- 	hbThreshold = (target:GetMaxHealth() * self:GetSpecialValueFor("atr_hb_pct") / 100)	
-	-- elseif IsSpellBlocked(target) then 
-	-- 	return 
-	-- end
+	if caster:HasModifier("modifier_scathach_branches_of_tonelico_attribute") then
+
+	end
 	local original_pos = caster:GetAbsOrigin()
 
 	local diff = (target:GetAbsOrigin() - caster:GetAbsOrigin()):Normalized()
@@ -71,9 +70,19 @@ function scathach_gae_bolg:OnSpellStart()
 
 
 	--giveUnitDataDrivenModifier(caster, target, "can_be_executed", 0.033)
-	DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+	if caster:HasModifier("modifier_scathach_branches_of_tonelico_attribute") then
+		DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+		if (totalDamage - damage) > 0 then
+			DoDamage(caster, target, totalDamage - damage, DAMAGE_TYPE_PURE, 0, ability, false)
+		end
+	else
+		DoDamage(caster, target, totalDamage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+	end
+
 	target:AddNewModifier(caster, self, "modifier_stunned", {Duration = self:GetSpecialValueFor("stun_duration")})
- 	target:AddNewModifier(caster, self, "modifier_heal_reduction_tier_2", {duration = self:GetSpecialValueFor("healres_duration")})
+	if caster:HasModifier("modifier_scathach_branches_of_tonelico_attribute") then
+ 		target:AddNewModifier(caster, self, "modifier_heal_reduction_tier_2", {duration = self:GetSpecialValueFor("healres_duration")})
+	end
 	-- if target:GetHealth() < hbThreshold and not (target:IsMagicImmune()) then
 	-- 	local hb = ParticleManager:CreateParticle("particles/custom/lancer/lancer_heart_break_txt.vpcf", PATTACH_CUSTOMORIGIN, target)
 	-- 	ParticleManager:SetParticleControl( hb, 0, target:GetAbsOrigin())

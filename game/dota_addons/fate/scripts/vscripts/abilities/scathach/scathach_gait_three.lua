@@ -31,7 +31,7 @@ function scathach_gait_three:OnSpellStart()
 	local castRange = self:GetCastRange()
 	local damage = self:GetSpecialValueFor("damage") + caster:GetAgility() * self:GetSpecialValueFor("agi_ratio")
 	local radius = self:GetSpecialValueFor("radius")
-	
+	local agi_scale = self:GetSpecialValueFor("agi_scale")
 	caster:RemoveModifierByName("modifier_scathach_gait_three_window")
 
 	-- When you exit the ubw on the last moment, dist is going to be a pretty high number, since the targetPoint is on ubw but you are outside it
@@ -42,7 +42,7 @@ function scathach_gait_three:OnSpellStart()
 	end
 
 	if caster:HasModifier("modifier_scathach_primeval_rune_attribute") then
-		damage = damage + 400
+		damage = damage + caster:GetAgility() * agi_scale
 	end
 	
 

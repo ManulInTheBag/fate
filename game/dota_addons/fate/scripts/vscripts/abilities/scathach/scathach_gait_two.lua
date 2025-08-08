@@ -18,10 +18,10 @@ function scathach_gait_two:OnSpellStart()
 	local damage = self:GetSpecialValueFor("damage")
 	local damage_big = self:GetSpecialValueFor("damage_big")
 	local radius = self:GetSpecialValueFor("radius")
-	
+	local agi_scale = self:GetSpecialValueFor("agi_scale")
 	if caster:HasModifier("modifier_scathach_primeval_rune_attribute") then
-		damage = damage + 125
-		damage_big = damage_big + 125
+		damage = damage + caster:GetAgility() * agi_scale
+		damage_big = damage_big + caster:GetAgility() * agi_scale
 	end
 	
 	StartAnimation(caster, {duration = 2.5, activity=ACT_DOTA_CAST_ABILITY_3, rate = 1.0})

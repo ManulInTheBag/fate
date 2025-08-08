@@ -125,7 +125,7 @@ function scathach_red_wind:OnProjectileHit_ExtraData(hTarget, vLocation, table)
 	local stun_duration = self:GetSpecialValueFor("stun_duration")
 	
 	if caster:HasModifier("modifier_scathach_primeval_rune_attribute") then
-		chaindamage = chaindamage + 300
+		chaindamage = chaindamage + 100
 		stun_duration = stun_duration + 0.2
 	end
 	

@@ -20,9 +20,9 @@ function scathach_gait_one:OnSpellStart()
 	local root duration = self:GetSpecialValueFor("root_duration")
 	local distance = self:GetSpecialValueFor("knockback_distance")
 	local damage = self:GetSpecialValueFor("damage")
-	
+	local agi_scale = self:GetSpecialValueFor("agi_scale")
 	if caster:HasModifier("modifier_scathach_primeval_rune_attribute") then
-		damage = damage + 100
+		damage = damage + caster:GetAgility() * agi_scale
 	end
 	
 	caster:EmitSound("scathach_gait_1")
