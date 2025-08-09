@@ -82,7 +82,7 @@ function scathach_gait_one:OnSpellStart()
 
 			caught = true
 			-- play effects
-			self:PlayEffects2( enemy, origin, cast_direction )
+			--self:PlayEffects2( enemy, origin, cast_direction )
 			end
 		end
 		end
@@ -128,7 +128,7 @@ function scathach_gait_one:OnSpellStart()
 
 			caught = true
 			-- play effects
-			self:PlayEffects2( enemy, origin, cast_direction )
+			--self:PlayEffects2( enemy, origin, cast_direction )
 			end
 		end
 		end

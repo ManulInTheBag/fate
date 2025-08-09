@@ -58,9 +58,7 @@ function scathach_gae_bolg:OnSpellStart()
 		totalDamage = damage + target_stacks * damage_per_stack
 		target:RemoveModifierByName("modifier_stachach_gae_bolg_curse")
 	end
-	if caster:HasModifier("modifier_scathach_branches_of_tonelico_attribute") then
 
-	end
 	local original_pos = caster:GetAbsOrigin()
 
 	local diff = (target:GetAbsOrigin() - caster:GetAbsOrigin()):Normalized()

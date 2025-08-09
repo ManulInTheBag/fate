@@ -2159,6 +2159,16 @@
 		"DOTA_Tooltip_modifier_transfusion_target"							"Transfusion (Slowed)"
 		"DOTA_Tooltip_modifier_transfusion_target_Description"				""		
 
+
+		"DOTA_Tooltip_modifier_scat_gae_bolg_replicas"                                    "Gae Bolg Replicas"
+		"DOTA_Tooltip_modifier_scat_gae_bolg_replicas_Description"                               "Amount of spears left"
+		"DOTA_Tooltip_modifier_stachach_gae_bolg_curse"                                    "Gae Bolg Curse"
+		"DOTA_Tooltip_modifier_stachach_gae_bolg_curse_Description"                               "Slowed"		"DOTA_Tooltip_modifier_scathach_sa_stacks"                                    "Branch of Tonelico stacks"
+		"DOTA_Tooltip_modifier_scathach_sa_stacks_Description"                               "If reached 4, will get stun and damage"		"DOTA_Tooltip_modifier_scathach_sa_cd"                                   	 "Branch of Tonelico cooldown"
+		"DOTA_Tooltip_modifier_scathach_sa_cd_Description"                               "Unable to apply Branch of Tonelico stacks."		
+
+
+
 		"DOTA_Tooltip_locked"                                                             "Locked"
 		"DOTA_Tooltip_locked_Description"                                                 ""
 
@@ -9905,6 +9915,13 @@
 		"DOTA_Tooltip_Ability_scathach_gae_bolg_spawn_speed"			"GAE BOLG SPEED:"
 		"DOTA_Tooltip_Ability_scathach_gae_bolg_spawn_hit_radius"		"GAE BOLG HIT RADIUS:"
 
+		"DOTA_Tooltip_Ability_scathach_gae_bolg_shoot"				"<font color='#FFE56E'>Gae Bolg Alternative -  Shoot</font>"
+		"DOTA_Tooltip_ability_scathach_gae_bolg_shoot_Description"	"Cast Point: <font color='#FFFFF9'>IMMEDIATE</font>s    |    <font color='#EE5C29'>Unrefreshable</font><br><br>Scathach sends one of the Gae Bolgs in the targetted direction."
+		"DOTA_Tooltip_Ability_scathach_gae_bolg_spawn_range"			"SHOOT RANGE:"
+		"DOTA_Tooltip_Ability_scathach_gae_bolg_spawn_damage"			"DAMAGE:"
+		"DOTA_Tooltip_Ability_scathach_gae_bolg_spawn_speed"			"GAE BOLG SPEED:"
+		"DOTA_Tooltip_Ability_scathach_gae_bolg_spawn_hit_radius"		"GAE BOLG HIT RADIUS:"
+
 
 		"DOTA_Tooltip_Ability_scathach_red_wind"				"<font color='#FFE56E'>Thorn Of The Red Wind</font>"
 		"DOTA_Tooltip_ability_scathach_red_wind_Description"	"Cast Point: <font color='#FFFFF9'>0.3</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Scathach quickly dashes to the target point.\n\nDealing <font color='#05CAFF'>damage</font> and <font color='#FF3399'>stunning</font> all enemies along her path."
@@ -9972,9 +9989,12 @@
 
 		"DOTA_Tooltip_Ability_scathach_branches_of_tonelico_attribute"				"<font color='#FFE56E'>Branches of Tonelico</font>"
 		"DOTA_Tooltip_ability_scathach_branches_of_tonelico_attribute_Description"	"Upgrades <font color='#FFE56E'>Gae Bolg Alternative -  Summon</font>, adding additional <font color='#05CAFF'>damage</font>, based on Scathach's <font color='#2CE300'>AGI</font>.\nNow if Scathach succeeds to hit enemy with this ability 4 times in quick succession, she will deal additional damage and <font color='#FF3399'>stun</font> them. This effect has unrefreshable cooldown.\n\nUpgrades <font color='#FFE56E'>Gae Bolg Alternative - Barbed Spear that Pierces with Death</font>, adding <font color='#7F00FF'>healing reduction tier 2</font> for %healres_duration% seconds and converting damage from <font color='#C437B6'>Gae Bolg curse</font> to <font color='#D1A951'>pure</font>."
-		"DOTA_Tooltip_ability_scathach_branches_of_tonelico_attribute_gae_bolg_jump_damage"			"GAE BOLG JUMP DAMAGE :"
-		"DOTA_Tooltip_ability_scathach_branches_of_tonelico_attribute_gae_bolg_jump_range"			"GAE BOLG JUMP RANGE :"
-		"DOTA_Tooltip_ability_scathach_branches_of_tonelico_attribute_atr_hb_pct"			"%E Heartbreak Threshold:"
+		//"DOTA_Tooltip_ability_scathach_branches_of_tonelico_attribute_gae_bolg_jump_damage"			"GAE BOLG JUMP DAMAGE :"
+		"DOTA_Tooltip_ability_scathach_branches_of_tonelico_attribute_agi_scaling"			"AGI TO DAMAGE:"
+		"DOTA_Tooltip_ability_scathach_branches_of_tonelico_attribute_sa_cd"			"PROCK CD:"
+		"DOTA_Tooltip_ability_scathach_branches_of_tonelico_attribute_sa_dmg"			"PROCK DANAGE:"
+		"DOTA_Tooltip_ability_scathach_branches_of_tonelico_attribute_sa_stun_duration"			"PROCK STUN DURATION:"
+		//"DOTA_Tooltip_ability_scathach_branches_of_tonelico_attribute_atr_hb_pct"			"%E Heartbreak Threshold:"
 
 		"DOTA_Tooltip_Ability_scathach_wisdom_of_dun_scaith_attribute"				"<font color='#FFE56E'>Wisdom of Dún Scáith</font>"
 		"DOTA_Tooltip_ability_scathach_wisdom_of_dun_scaith_attribute_Description"	"Grants Scathach activatable linken for a duration.\n\nNote that the linken doesn't disappear upon proc."
@@ -9985,11 +10005,11 @@
 		"DOTA_Tooltip_ability_scathach_wisdom_of_dun_scaith_duration"			"LINKEN DURATION :"
 
 		"DOTA_Tooltip_Ability_scathach_pinning_thorn_attribute"				"<font color='#FFE56E'>Improve Pinning God Killer Thorns</font>"
-		"DOTA_Tooltip_ability_scathach_pinning_thorn_attribute_Description"	"Upgrades <font color='#FFE56E'>Pinning God Killer Thorns</font>\n\nAdds additional base <font color='#05CAFF'>damage</font> to <font color='#FFE56E'>Gae Bolg Alternative : Soaring Spear of Piercing Death</font> and bonus <font color='#05CAFF'>damage</font> based on <font color='#2CE300'>AGI</font>." 
+		"DOTA_Tooltip_ability_scathach_pinning_thorn_attribute_Description"	"Upgrades <font color='#FFE56E'>Pinning God Killer Thorns</font>\n\nAdds additional base <font color='#05CAFF'>damage</font> to <font color='#FFE56E'>Pinning God Killer Thorns</font> and bonus <font color='#05CAFF'>damage</font> based on <font color='#2CE300'>AGI</font>." 
 		"DOTA_Tooltip_ability_scathach_pinning_thorn_attribute_base_damage"			"BASE DAMAGE:"
 		"DOTA_Tooltip_ability_scathach_pinning_thorn_attribute_explosion_damage"			"EXPLOSION DAMAGE:"
 		"DOTA_Tooltip_ability_scathach_pinning_thorn_attribute_agility_ratio"			"ADDITIONAL DAMAGE PER AGILITY:"
-		"DOTA_Tooltip_ability_scathach_pinning_thorn_attribute_gae_bolg_agi"			"ADDITIONAL GAE BOLG DAMAGE PER AGILITY:"
+		//"DOTA_Tooltip_ability_scathach_pinning_thorn_attribute_gae_bolg_agi"			"ADDITIONAL GAE BOLG DAMAGE PER AGILITY:"
 
 		"DOTA_Tooltip_Ability_scathach_combo_gate_of_sky"				"<font color='#FFE56E'>Combo : Gate of Skye</font>"
 		"DOTA_Tooltip_ability_scathach_combo_gate_of_sky_Description"	"Cast Point: <font color='#FFFFF9'>1.0</font>s    |    <font color='#EE5C29'>Unrefreshable</font><br><br><font color='#58ACFA'>Combo Requirement : 30 all stats, Wisdom of Dún Scáith Attribute</font>\n\n<font color='#58ACFA'>Combo Sequence : F > F in 4 seconds</font>\n\nScathach temporarily summons a massive gate to her shadow realm.\n\nAfter 1 second pass the gate is open and start sucks in all enemies and drain enemies's mana in range while apply damage income reduction buff to Scathach.\n\nThe enemies will get mini stun when their mana run out. At the end of duration, the enemies that are sucked into point below the gate will be instantly killed.\n\nWhile the enemies that still in gate's range take proportion damage depend on how far they are." 

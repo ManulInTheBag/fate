@@ -58,15 +58,15 @@ function scathach_red_wind:OnSpellStart()
 		bDeleteOnHit = false,
 		vVelocity = caster:GetForwardVector() * 1250
 	}
-
+	local dash_time = distance/(charge_distance*2)
 	local projectile = ProjectileManager:CreateLinearProjectile(bindingchain_projectile)
-	caster:AddNewModifier(caster, self, "modifier_stunned", { Duration = 0.75 })
+	caster:AddNewModifier(caster, self, "modifier_stunned", { Duration = dash_time+0.1})
 	caster:EmitSound("caster_PhantomLancer.Doppelwalk") 
 	local sin = Physics:Unit(caster)
 	caster:SetPhysicsFriction(0)
 	caster:SetPhysicsVelocity(caster:GetForwardVector() * charge_distance*2)
 	caster:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
-	local dash_time = distance/(charge_distance*2)
+	
 	
 	local particle3 = ParticleManager:CreateParticle("particles/custom/scathach/red_wind_lightning_2.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
 	

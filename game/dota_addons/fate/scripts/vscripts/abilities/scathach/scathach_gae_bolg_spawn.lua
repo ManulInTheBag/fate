@@ -1,4 +1,6 @@
 scathach_gae_bolg_spawn = class({})
+LinkLuaModifier("modifier_scathach_sa_stacks", "abilities/scathach/scathach_gae_bolg_spawn", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_scathach_sa_cd", "abilities/scathach/scathach_gae_bolg_spawn", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_scat_gae_bolg_replicas", "abilities/scathach/scathach_gae_bolg_spawn", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_scat_gae_bolg_replicas_movement_controller", "abilities/scathach/scathach_gae_bolg_spawn", LUA_MODIFIER_MOTION_BOTH)
 LinkLuaModifier("modifier_stachach_gae_bolg_curse", "abilities/scathach/scathach_gae_bolg.lua", LUA_MODIFIER_MOTION_NONE)
@@ -16,10 +18,29 @@ function scathach_gae_bolg_spawn:OnSpellStart()
 	if caster:GetAbilityByIndex(5):GetName() == "scathach_gae_bolg_spawn"  then
 		caster:SwapAbilities("scathach_gae_bolg_spawn", "scathach_gae_bolg_shoot", false, true)
 	end
-	
-	
+	if IsServer() then
+		caster:EmitSound("scathach_sumon_4")
+	end
+end
+function scathach_gae_bolg_spawn:OnAbilityPhaseStart()
+	if IsServer() then
+		self:GetCaster():EmitSound("scathach_sumon_1")
+	end
 end
 
+function scathach_gae_bolg_spawn:OnAbilityPhaseInterrupted()
+	if IsServer() then
+		self:GetCaster():StopSound("scathach_sumon_1")
+	end
+end
+function scathach_gae_bolg_spawn:PerformSaAttack(unit)
+	local caster = self:GetCaster()
+	if IsServer() then
+		caster:AddNewModifier(caster, self, "modifier_scathach_sa_cd", { Duration = self:GetSpecialValueFor("sa_cd")})
+		unit:AddNewModifier(caster, self, "modifier_stunned", { Duration = self:GetSpecialValueFor("sa_stun_duration")})
+		-- deal damage with some particle
+	end
+end
 modifier_scat_gae_bolg_replicas = class({})
 
 
@@ -161,6 +182,9 @@ function modifier_scat_gae_bolg_replicas_movement_controller:OnCreated(hui)
 	self.particleIndex = hui.particleIndex
 	self.parentOldPos = Vector(0,0,0)
 	self.damage = self:GetAbility():GetSpecialValueFor("damage")
+	if self.casterToFollow:HasModifier("modifier_scathach_branches_of_tonelico_attribute") then
+		self.damage = self.damage + self.casterToFollow:GetAgility() * self.ability:GetSpecialValueFor("agi_scaling")
+	end
 	self.hit_radius = 100
 	self.height_addi = RandomInt(-50, 50)
 	self.HittedTargets = {}
@@ -278,10 +302,13 @@ function modifier_scat_gae_bolg_replicas_movement_controller:SearchTargetsAndDea
                                         ParticleManager:SetParticleControlEnt(slash_pfx, 0, enemy, PATTACH_POINT_FOLLOW, "attach_hitloc", enemy:GetAbsOrigin(), true)
                                         ParticleManager:ReleaseParticleIndex(slash_pfx)
 
-                                        enemy:EmitSound("Hero_Juggernaut.OmniSlash.Damage")
+                                        enemy:EmitSound("scathach_sumon_5")
 
                     DoDamage(self.casterToFollow, enemy, self.damage, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
 					enemy:AddNewModifier(self.casterToFollow, self.ability, "modifier_stachach_gae_bolg_curse", {duration = 10})
+					if self.casterToFollow:HasModifier("modifier_scathach_branches_of_tonelico_attribute") and not self.casterToFollow:HasModifier("modifier_scathach_sa_cd") then
+						enemy:AddNewModifier(self.casterToFollow, self.ability, "modifier_scathach_sa_stacks", {duration = 3})
+					end
                 end
             end
         end
@@ -299,3 +326,80 @@ function modifier_scat_gae_bolg_replicas_movement_controller:DeclareFunctions()
 end
 
 function modifier_scat_gae_bolg_replicas_movement_controller:OnHorizontalMotionInterrupted()  end
+
+
+modifier_scathach_sa_stacks = class({})
+
+function modifier_scathach_sa_stacks:DeclareFunctions()
+	local func = { --MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS}
+					}
+	return func
+end
+
+function modifier_scathach_sa_stacks:OnCreated(args)
+	if IsServer() then
+	   self:SetStackCount(math.min(args.Stacks or 1, 4))
+
+		-- local hero_armor = self:GetParent():GetPhysicalArmorValue(false) + ((self.Reduction or 0) * -1)
+		-- self.Reduction = (1 * self:GetStackCount()) * -1
+		-- if -self.Reduction > hero_armor then self.Reduction = math.abs(hero_armor) * -1 end
+		-- CustomNetTables:SetTableValue("sync","eternal_flame_shred", { armor_shred = self.Reduction })
+	end
+end
+
+function modifier_scathach_sa_stacks:OnRefresh(args)
+	if IsServer() then
+		args.Stacks = self:GetStackCount() + 1
+		self:OnCreated(args)
+		if (self:GetStackCount()) >= 4 then
+			self:Destroy()
+			self:GetAbility():PerformSaAttack(self:GetParent())
+		end
+	end
+end
+
+-- function modifier_eternal_flame_shred:GetModifierPhysicalArmorBonus() 
+--     if IsServer() then
+-- 		return self.Reduction
+-- 	elseif IsClient() then
+-- 		local armor_shred = CustomNetTables:GetTableValue("sync","eternal_flame_shred").armor_shred
+--         return armor_shred 
+-- 	end
+-- end
+
+function modifier_scathach_sa_stacks:IsDebuff()
+    return true
+end
+
+function modifier_scathach_sa_stacks:RemoveOnDeath()
+    return true
+end
+
+function modifier_scathach_sa_stacks:IsHidden()
+    return false
+end
+function modifier_scathach_sa_stacks:GetTexture()
+	return "custom/scathach/scathach_branches_of_tonelico_attribute"
+end
+
+modifier_scathach_sa_cd = class({})
+
+function modifier_scathach_sa_cd:GetTexture()
+	return "custom/scathach/scathach_branches_of_tonelico_attribute"
+end
+
+function modifier_scathach_sa_cd:IsHidden()
+	return false 
+end
+
+function modifier_scathach_sa_cd:RemoveOnDeath()
+	return false
+end
+
+function modifier_scathach_sa_cd:IsDebuff()
+	return true 
+end
+
+function modifier_scathach_sa_cd:GetAttributes()
+	return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
+end

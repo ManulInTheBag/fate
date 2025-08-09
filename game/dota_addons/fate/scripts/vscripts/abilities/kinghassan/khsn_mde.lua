@@ -289,7 +289,11 @@ function modifier_khsn_mde_enemy:OnIntervalThink()
 		if self.parent:IsHero() then
 			self.caster:Heal(heal/10, self.caster)
 			if self.caster.PresenceAcquired then
-				self.caster:AddNewModifier(self.caster, self.ability, "modifier_khsn_mde_active", {duration = self.linger_duration})
+				if self.caster:HasModifier("modifier_khsn_mde_active") then
+					if self.caster:FindModifierByName("modifier_khsn_mde_active"):GetRemainingTime() < self.linger_duration then
+						self.caster:AddNewModifier(self.caster, self.ability, "modifier_khsn_mde_active", {duration = self.linger_duration})
+					end
+				end
 			end
 		end
 	end
