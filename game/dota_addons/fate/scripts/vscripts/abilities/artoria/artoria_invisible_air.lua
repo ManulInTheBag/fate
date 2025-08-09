@@ -160,7 +160,7 @@ function modifier_artoria_upstream:OnAttackLanded(args)
 	local ability = self:GetAbility()
 	local damage = caster:GetAverageTrueAttackDamage(caster) * 0.3 + 75
 	DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
-	ApplyAirborne(caster, target, 1.25)
+	ApplyAirborne(caster, target, 0.6)
 	local sound = RandomInt(1,2)
 	if sound == 1 then caster:EmitSound("Saber.StrikeAir_Release1") else caster:EmitSound("Saber.StrikeAir_Release2") end
 	local upstreamFx = ParticleManager:CreateParticle( "particles/custom/saber/strike_air_upstream/strike_air_upstream.vpcf", PATTACH_CUSTOMORIGIN, nil )

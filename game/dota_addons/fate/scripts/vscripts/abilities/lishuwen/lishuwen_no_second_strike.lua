@@ -328,25 +328,25 @@ function lishuwen_no_second_strike:OnSpellStart()
 	local projectile = ProjectileManager:CreateLinearProjectile(proj)
 
 	giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 0.3)
-
+	local dashStart = false
 	local sin = Physics:Unit(caster)
 	if not caster:IsRooted() then
 		caster:SetPhysicsFriction(0)
 		caster:SetPhysicsVelocity(vector * 2000)
 		caster:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
-	
+		dashStart = true
 	end
 	Timers:CreateTimer("li_shuwen_r_dash", {
 		endTime = 0.3,
 		callback = function()
-		if not caster:IsRooted() then
+		if dashStart then
 			caster:OnPreBounce(nil)
 			caster:SetBounceMultiplier(0)
 			caster:PreventDI(false)
 			caster:SetPhysicsVelocity(Vector(0,0,0))
 		end
 		caster:RemoveModifierByName("pause_sealenabled")
-		if not caster:IsRooted() then
+		if dashStart then
 			FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
 		end
 				ParticleManager:DestroyParticle(dash_fx2, false)

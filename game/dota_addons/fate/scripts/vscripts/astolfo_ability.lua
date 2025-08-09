@@ -353,7 +353,7 @@ function OnHornThink(keys)
     local silenceTargets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, silenceRadius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 	for k,v in pairs(silenceTargets) do
 		-- apply silence
-		giveUnitDataDrivenModifier(caster, v, "silenced", 0.25)
+		giveUnitDataDrivenModifier(caster, v, "silenced", 0.15)
     end
 
 end

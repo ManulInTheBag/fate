@@ -20,9 +20,9 @@ function modifier_furious_chain_regen:GetModifierConstantHealthRegen()
 	return self:GetRegenAmount()
 end
 
-function modifier_furious_chain_regen:GetModifierConstantManaRegen()
-	return self:GetRegenAmount()
-end
+-- function modifier_furious_chain_regen:GetModifierConstantManaRegen()
+-- 	return self:GetRegenAmount()
+-- end
 
 function modifier_furious_chain_regen:GetModifierAttackSpeedBonus_Constant()
 	if IsServer() then
