@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc39:version{1ceecb0d-4093-4729-ab18-b76886c64cde} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc40:version{da0ab1f8-9722-4910-94b8-10b6a08c0934} -->
 {
 	rootNode = 
 	{
@@ -964,12 +964,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/scathach/idle.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 59
 						framerate = 59.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1002,12 +1004,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/scathach/run.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 39
 						framerate = 7.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1040,12 +1044,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/scathach/attack_1.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 55
 						framerate = 55.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1078,12 +1084,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/scathach/attack_2.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 75
 						framerate = 75.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1116,12 +1124,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/scathach/attack_3.fbx"
 						import_bone_scales = false
 						start_frame = 5
 						end_frame = 95
 						framerate = 90.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1139,12 +1149,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/scathach/backflip.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 219
 						framerate = 100.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1162,12 +1174,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/scathach/buff.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 127
 						framerate = 100.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1185,18 +1199,20 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/scathach/cast_1.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 79
 						framerate = 25.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
 						name = "cast_2"
 						is_default_idle_anim = false
-						activity_name = ""
+						activity_name = "ACT_DOTA_ITEM_PICKUP"
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -1208,12 +1224,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/scathach/cast_2.fbx"
 						import_bone_scales = false
 						start_frame = 0
-						end_frame = 59
-						framerate = 25.0
+						end_frame = 48
+						framerate = 75.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1231,12 +1249,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/scathach/charge.fbx"
 						import_bone_scales = false
 						start_frame = 2
 						end_frame = 111
 						framerate = 90.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1269,12 +1289,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/scathach/death.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 119
 						framerate = 60.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1292,12 +1314,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/scathach/double_swing.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 159
 						framerate = 64.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1330,12 +1354,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/scathach/FGO_combo.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 155
 						framerate = 25.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1353,12 +1379,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/scathach/gae_bolg_e.fbx"
 						import_bone_scales = false
 						start_frame = 2
 						end_frame = 119
-						framerate = 65.0
+						framerate = 90.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1379,7 +1407,7 @@
 							},
 						]
 						is_default_idle_anim = false
-						activity_name = ""
+						activity_name = "ACT_DOTA_CAST_ABILITY_6"
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -1391,12 +1419,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/scathach/gae_bolg_jump.fbx"
 						import_bone_scales = false
 						start_frame = 260
 						end_frame = 440
 						framerate = 140.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1414,12 +1444,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/scathach/gos.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 139
 						framerate = 30.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1437,12 +1469,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/scathach/leap.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 179
 						framerate = 80.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1460,12 +1494,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/scathach/pinning god.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 70
 						framerate = 31.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1483,12 +1519,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/scathach/spawn.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 375
 						framerate = 40.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1506,12 +1544,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/scathach/stunned.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 59
 						framerate = 59.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1544,12 +1584,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/scathach/attack_3.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 95
 						framerate = 60.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1567,12 +1609,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/scathach/gae_bolg_e.fbx"
 						import_bone_scales = false
 						start_frame = 30
 						end_frame = 90
 						framerate = 60.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -1590,18 +1634,20 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/scathach/gae_bolg_e.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 30
 						framerate = 100.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
-						name = "gae_bolg_kick"
+						name = "grab_gae_bolg"
 						is_default_idle_anim = false
-						activity_name = "ACT_DOTA_CAST_ABILITY_6"
+						activity_name = "ACT_DOTA_RAZE_1"
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -1613,12 +1659,54 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
-						source_filename = "models/scathach/gae_bolg_kick.fbx"
+						delete_from_compiled_model = false
+						source_filename = "models/scathach/spawn.fbx"
 						import_bone_scales = false
-						start_frame = 30
-						end_frame = 100
-						framerate = 66.0
+						start_frame = 92
+						end_frame = 152
+						framerate = 120.0
 						reverse = false
+						additional_anim_files = [  ]
+					},
+					{
+						_class = "AnimFile"
+						name = "Send_spear_forward"
+						children = 
+						[
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = true
+								extract_rz = false
+								linear = false
+								quadratic = false
+								extract_initial_offset = false
+								root_bone_name = "Waist"
+								motion_type = "Uniform"
+							},
+						]
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_CAST_DRAGONBREATH"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/scathach/backflip.fbx"
+						import_bone_scales = false
+						start_frame = 100
+						end_frame = 219
+						framerate = 100.0
+						reverse = false
+						additional_anim_files = [  ]
 					},
 				]
 				default_root_bone_name = ""

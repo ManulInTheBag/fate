@@ -4253,6 +4253,9 @@ function FateGameMode:InitializeRound()
             --local xpBonus = 100 + 
 
             hero:AddExperience(self.nCurrentRound * 100, false, false)
+            if  hero:HasModifier("modifier_scathach_pupil")  then
+                hero:AddExperience(hero:GetLevel() * 25, false, false)
+            end
             if(hero.AvariceCount ~= nil) then
                 --hero:AddExperience(self.nCurrentRound * 50 * hero.AvariceCount, false, false)
             end

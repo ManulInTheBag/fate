@@ -28,7 +28,7 @@ function lu_bu_god_force:OnSpellStart()
 	local distance = (targetPoint - origin):Length2D()
 	local forward = (targetPoint - origin):Normalized() * distance
 
-	giveUnitDataDrivenModifier(caster, caster, "silenced", 2)
+	--giveUnitDataDrivenModifier(caster, caster, "silenced", 2)
 	caster:AddNewModifier(caster, self, "modifier_lu_bu_god_force_mute", { Duration = 2.0 })
 	caster:EmitSound("Hero_OgreMagi.Ignite.Cast")
 

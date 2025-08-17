@@ -27,10 +27,10 @@ end
 -- Status Effects
 function modifier_scathach_gait_two:CheckState()
 	local state = {
-		[MODIFIER_STATE_ROOTED] = false, 
+		--[MODIFIER_STATE_ROOTED] = false, 
 		[MODIFIER_STATE_DISARMED] = true,
 		[MODIFIER_STATE_SILENCED] = true,
-		[MODIFIER_STATE_MUTED] = false,
+		--[MODIFIER_STATE_MUTED] = false,
 	}
 	return state
 end

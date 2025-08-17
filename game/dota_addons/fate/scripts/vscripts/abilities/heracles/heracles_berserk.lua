@@ -25,7 +25,9 @@ function heracles_berserk:EnterBerserk(duration)
 	local radius = 300
 	caster.BerserkDamageTaken = 0
 	if caster:IsStunned() then
-		giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 0.3)
+		if not caster:HasModifier("pause_sealenabled") then
+			giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", 0.3)
+		end
 		caster:StartGestureWithPlaybackRate(ACT_DOTA_CAST_ABILITY_4, 3)
 		Timers:CreateTimer(0.3, function()
 			local particle = ParticleManager:CreateParticle("particles/zlodemon/heracles/heracles_puk.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)

@@ -1,7 +1,8 @@
 modifier_lu_bu_god_force_mute = class({})
 
 function modifier_lu_bu_god_force_mute:CheckState()
-	return { [MODIFIER_STATE_MUTED] = true }
+	return { [MODIFIER_STATE_MUTED] = true,
+			[MODIFIER_STATE_SILENCED] = true}
 end
 
 function modifier_lu_bu_god_force_mute:IsHidden()

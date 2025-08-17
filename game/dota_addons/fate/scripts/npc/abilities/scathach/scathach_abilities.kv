@@ -40,6 +40,9 @@
 				"particle"		"particles/custom/scathach/gb_test_1.vpcf"
 				"particle"		"particles/custom/scathach/spear_trail_multiple.vpcf"
 				"particle"		"particles/custom/scathach/gae_bolg_alt_outline.vpcf"
+				"particle"		"particles/scathach/scathach_barrage_spear.vpcf"
+				"particle"		"particles/custom/scathach/gae_bolg_alt_outline.vpcf"
+				"particle"		"particles/scathach/scat_barrage_spear_explosion.vpcf"
 		}
 
 		"AbilityValues"
@@ -53,7 +56,7 @@
             "speed"		   "3000"
             "agi_scaling"		   "1.5"
             "sa_cd"		   "30"
-            "sa_dmg"		   "500"
+            "sa_dmg"		   "100"
             "sa_stun_duration"		   "1"
         }
 	}
@@ -78,6 +81,29 @@
 		"AbilityCastPoint"				"0.0"
 		"AbilityCastRange"				"1400"
  		"AbilityCooldown"				"1"
+		"AbilityManaCost"				"0"
+		"AbilityValues"
+        {
+
+        }
+	}
+
+	//=================================================================================================================
+	// Nobu - Gun shot (Q)
+	//=================================================================================================================
+	"scathach_mentor"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/scathach/scathach_mentor"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"25"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET|DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_FRIENDLY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+		"AbilityTextureName"			"custom/scathach/scathach_wisdom_of_dun_scaith"
+		"AbilityCastRange"				"1000"
+ 		"AbilityCooldown"				"0"
 		"AbilityManaCost"				"0"
 		"AbilityValues"
         {
@@ -144,6 +170,8 @@
             "sa_cd"		   "30"
             "sa_dmg"		   "500"
             "sa_stun_duration"		   "1"
+            "sa_radius"		   "200"
+            "sa_time"		   "3"
         }
 	}
 

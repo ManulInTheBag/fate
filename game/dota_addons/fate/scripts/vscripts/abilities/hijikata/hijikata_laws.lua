@@ -78,7 +78,7 @@ function modifier_hijikata_laws:TakeDamage()
         --self:GetCaster():SetHealth(1)
         damage = self:GetCaster():GetHealth() - 1
     else
-        DoDamage( self:GetCaster(),  self:GetCaster(), damage, DAMAGE_TYPE_PURE, 0, self, false)
+        DoDamage( self:GetCaster(),  self:GetCaster(), damage, DAMAGE_TYPE_PURE, DOTA_DAMAGE_FLAG_NON_LETHAL, self, false)
     end
 end
 
@@ -98,7 +98,7 @@ function modifier_hijikata_laws:OnStackCountChanged(stacks)
                     damage = self:GetCaster():GetHealth() - 1
                     --self:GetCaster():SetHealth(1)
                 else
-                    DoDamage( self:GetCaster(),  self:GetCaster(), damage, DAMAGE_TYPE_PURE, 0, self, false)
+                    DoDamage( self:GetCaster(),  self:GetCaster(), damage, DAMAGE_TYPE_PURE, DOTA_DAMAGE_FLAG_NON_LETHAL, self, false)
                 end
 
         end

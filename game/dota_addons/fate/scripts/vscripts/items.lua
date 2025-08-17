@@ -252,13 +252,107 @@ function TPScroll(keys)
 	end
 
 	caster.TPLoc = nil
+	local distanceForMentorship = 11000
+	local unitForMentorship = nil
+	if caster:HasModifier("modifier_scathach_pupil") or caster:GetName() == "npc_dota_hero_monkey_king" then
+		local targets = FindUnitsInRadius(caster:GetTeam(), targetPoint, nil, 10000, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_OTHER + DOTA_UNIT_TARGET_HERO, 0, FIND_CLOSEST, false)
+		if targets[1] == nil or targets[1]:GetAbsOrigin().y < -2000 then
+			SendErrorMessage(caster:GetPlayerOwnerID(), "#Invalid_Location")
+			RefundItem(caster, ability)
+			caster:Stop()
+			return
+		else
+			if caster:GetName() == "npc_dota_hero_monkey_king" and  targets[1]:HasModifier("modifier_scathach_pupil") and targets[1]:IsAlive() and IsInSameRealm(caster:GetAbsOrigin(), targets[1]:GetAbsOrigin()) then
+				caster.TPLoc = targets[1]:GetAbsOrigin()
+				local pfx = ParticleManager:CreateParticle( "particles/units/heroes/hero_wisp/wisp_relocate_teleport.vpcf", PATTACH_CUSTOMORIGIN, nil )
+				ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
+
+
+				local pfx2 = ParticleManager:CreateParticle( "particles/units/heroes/hero_wisp/wisp_relocate_teleport.vpcf", PATTACH_CUSTOMORIGIN, nil )
+				ParticleManager:SetParticleControl(pfx2, 0, caster.TPLoc)
+
+				caster:EmitSound("Hero_Wisp.Relocate")
+				EmitSoundOnLocationWithCaster(caster.TPLoc, "Hero_Wisp.Relocate", targets[1])
+
+				-- Destroy particle
+				Timers:CreateTimer(2.0, function()
+					ParticleManager:DestroyParticle(pfx, false)
+					ParticleManager:DestroyParticle(pfx2, false)
+				end)
+				return
+			elseif caster:HasModifier("modifier_scathach_pupil") and targets[1]:GetName() == "npc_dota_hero_monkey_king" and targets[1]:IsAlive()  and IsInSameRealm(caster:GetAbsOrigin(), targets[1]:GetAbsOrigin()) then
+				caster.TPLoc = targets[1]:GetAbsOrigin()
+				local pfx = ParticleManager:CreateParticle( "particles/units/heroes/hero_wisp/wisp_relocate_teleport.vpcf", PATTACH_CUSTOMORIGIN, nil )
+				ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
+
+
+				local pfx2 = ParticleManager:CreateParticle( "particles/units/heroes/hero_wisp/wisp_relocate_teleport.vpcf", PATTACH_CUSTOMORIGIN, nil )
+				ParticleManager:SetParticleControl(pfx2, 0, caster.TPLoc)
+
+				caster:EmitSound("Hero_Wisp.Relocate")
+				EmitSoundOnLocationWithCaster(caster.TPLoc, "Hero_Wisp.Relocate", targets[1])
+
+				-- Destroy particle
+				Timers:CreateTimer(2.0, function()
+					ParticleManager:DestroyParticle(pfx, false)
+					ParticleManager:DestroyParticle(pfx2, false)
+				end)
+				return
+
+
+			end
+
+			local targets = FindUnitsInRadius(caster:GetTeam(),targetPoint, nil, 10000, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER, false) 
+			for k,v in pairs(targets) do
+				if v:GetUnitName() == "npc_dota_hero_monkey_king" and caster:HasModifier("modifier_scathach_pupil") and v:IsAlive() and IsInSameRealm(caster:GetAbsOrigin(), v:GetAbsOrigin()) then
+					distanceForMentorship = (v:GetAbsOrigin() - targetPoint):Length2D()
+					unitForMentorship = v
+
+				elseif caster:GetName() == "npc_dota_hero_monkey_king" and v:HasModifier("modifier_scathach_pupil") and v:IsAlive() and IsInSameRealm(caster:GetAbsOrigin(), v:GetAbsOrigin()) then
+					distanceForMentorship = (v:GetAbsOrigin() - targetPoint):Length2D()
+					unitForMentorship = v
+					-- 					print("jopa")
+					-- print(distanceForMentorship)
+					-- print(v)
+				end
+			end
+		end
+	end
 	local targets = FindUnitsInRadius(caster:GetTeam(), targetPoint, nil, 10000, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_OTHER, 0, FIND_CLOSEST, false)
 	if targets[1] == nil or targets[1]:GetAbsOrigin().y < -2000 then
-		SendErrorMessage(caster:GetPlayerOwnerID(), "#Invalid_Location")
-		RefundItem(caster, ability)
-		caster:Stop()
-		return
+		if distanceForMentorship < 10000 then
+		targets[1] = unitForMentorship
+
+		caster.TPLoc = targets[1]:GetAbsOrigin()
+		local pfx = ParticleManager:CreateParticle( "particles/units/heroes/hero_wisp/wisp_relocate_teleport.vpcf", PATTACH_CUSTOMORIGIN, nil )
+		ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())
+
+
+		local pfx2 = ParticleManager:CreateParticle( "particles/units/heroes/hero_wisp/wisp_relocate_teleport.vpcf", PATTACH_CUSTOMORIGIN, nil )
+		ParticleManager:SetParticleControl(pfx2, 0, caster.TPLoc)
+
+		caster:EmitSound("Hero_Wisp.Relocate")
+		EmitSoundOnLocationWithCaster(caster.TPLoc, "Hero_Wisp.Relocate", targets[1])
+
+		-- Destroy particle
+		Timers:CreateTimer(2.0, function()
+			ParticleManager:DestroyParticle(pfx, false)
+			ParticleManager:DestroyParticle(pfx2, false)
+		end)	
+
+		else
+			SendErrorMessage(caster:GetPlayerOwnerID(), "#Invalid_Location")
+			RefundItem(caster, ability)
+			caster:Stop()
+			return
+		end
 	else
+		--print((caster:GetAbsOrigin() - targets[1]:GetAbsOrigin()):Length2D())
+		--print(distanceForMentorship)
+		if (targetPoint- targets[1]:GetAbsOrigin()):Length2D() > distanceForMentorship then
+			targets[1] = unitForMentorship
+				--print("tp to unit")
+		end
 		caster.TPLoc = targets[1]:GetAbsOrigin()
 		local pfx = ParticleManager:CreateParticle( "particles/units/heroes/hero_wisp/wisp_relocate_teleport.vpcf", PATTACH_CUSTOMORIGIN, nil )
 		ParticleManager:SetParticleControl(pfx, 0, caster:GetAbsOrigin())

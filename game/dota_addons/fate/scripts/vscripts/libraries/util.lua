@@ -486,6 +486,7 @@ donotlevel = {
     "nanaya_dash",
     "robin_faceless_king",
     "khsn_bc",
+    "scathach_wisdom_of_dun_scaith",
 }
 
 CannotReset = {
@@ -689,6 +690,9 @@ CannotReset = {
     "khsn_combo_arena",
     "khsn_combo_arena_recast",
     "gilles_combo_new",
+    "scathach_gae_bolg_shoot",
+    "scathach_wisdom_of_dun_scaith",
+    "scathach_pinning_thorn",
 }
 
 
@@ -713,6 +717,7 @@ femaleservant = {
     "npc_dota_hero_tiny",
     "npc_dota_hero_faceless_void",
     "npc_dota_hero_ogre_magi",
+    "npc_dota_hero_monkey_king",
 }
 
 tCannotDetect = {
@@ -787,6 +792,7 @@ tDivineHeroes = {
     "npc_dota_hero_enchantress",
     "npc_dota_hero_beastmaster",
     "npc_dota_hero_faceless_void",
+    "npc_dota_hero_monkey_king",
 }
 
 tKnightClass = {
@@ -811,6 +817,7 @@ tKnightClass = {
     "npc_dota_hero_faceless_void",
     "npc_dota_hero_clinkz",
     "npc_dota_hero_sniper",
+    "npc_dota_hero_monkey_king",
 }
 
 tHorsemanClass = {
@@ -1475,6 +1482,12 @@ function IsSpellBlocked(target)
         target:FindAbilityByName("cu_chulain_rune_of_protection"):OnRuneProck()
         --ParticleManager:CreateParticle("particles/items_fx/immunity_sphere.vpcf", PATTACH_ABSORIGIN, target)
         target:RemoveModifierByName("modifier_rune_of_protection")
+        return true
+    elseif target:HasModifier("modifier_scathach_wisdom_of_dun_scaith") then
+        EmitSoundWithCooldown("DOTA_Item.LinkensSphere.Activate", target, 1)
+        --target:FindAbilityByName("modifier_scathach_wisdom_of_dun_scaith"):OnRuneProck()
+        --ParticleManager:CreateParticle("particles/items_fx/immunity_sphere.vpcf", PATTACH_ABSORIGIN, target)
+        --target:RemoveModifierByName("modifier_rune_of_protection")
         return true
     elseif target:HasModifier("modifier_jtr_mental_pollution_shield") then
         EmitSoundWithCooldown("DOTA_Item.LinkensSphere.Activate", target, 1)
@@ -2489,6 +2502,7 @@ local heroNames = {
     ["npc_dota_hero_sniper"] = "Robin Hood",
     ["npc_dota_hero_spirit_breaker"] = "Hijikata Toshizo",
     ["npc_dota_hero_ogre_magi"] = "Aozaki Aoko",
+    ["npc_dota_hero_monkey_king"] = "Scathach",
 }
 
  

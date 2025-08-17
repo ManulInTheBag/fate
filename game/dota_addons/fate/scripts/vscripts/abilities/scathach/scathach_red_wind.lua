@@ -60,7 +60,8 @@ function scathach_red_wind:OnSpellStart()
 	}
 	local dash_time = distance/(charge_distance*2)
 	local projectile = ProjectileManager:CreateLinearProjectile(bindingchain_projectile)
-	caster:AddNewModifier(caster, self, "modifier_stunned", { Duration = dash_time+0.1})
+
+	giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", dash_time+0.1)
 	caster:EmitSound("caster_PhantomLancer.Doppelwalk") 
 	local sin = Physics:Unit(caster)
 	caster:SetPhysicsFriction(0)

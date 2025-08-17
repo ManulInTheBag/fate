@@ -2165,7 +2165,15 @@
 		"DOTA_Tooltip_modifier_stachach_gae_bolg_curse"                                    "Gae Bolg Curse"
 		"DOTA_Tooltip_modifier_stachach_gae_bolg_curse_Description"                               "Slowed"		"DOTA_Tooltip_modifier_scathach_sa_stacks"                                    "Branch of Tonelico stacks"
 		"DOTA_Tooltip_modifier_scathach_sa_stacks_Description"                               "If reached 4, will get stun and damage"		"DOTA_Tooltip_modifier_scathach_sa_cd"                                   	 "Branch of Tonelico cooldown"
-		"DOTA_Tooltip_modifier_scathach_sa_cd_Description"                               "Unable to apply Branch of Tonelico stacks."		
+		"DOTA_Tooltip_modifier_scathach_sa_cd_Description"                               "Unable to apply Branch of Tonelico stacks."	
+		"DOTA_Tooltip_modifier_scathach_pupil"                                   	 "Scathach's pupil"
+		"DOTA_Tooltip_modifier_scathach_pupil_Description"                               "Able to teleport to Scathach with teleport scroll"	
+		"DOTA_Tooltip_modifier_scathach_pupil_str_quest"                                   	 "Strength training"
+		"DOTA_Tooltip_modifier_scathach_pupil_str_quest_Description"                               "Percentage of damage taken from requested"	
+		"DOTA_Tooltip_modifier_scathach_pupil_agi_quest"                                   	 "Agility training"
+		"DOTA_Tooltip_modifier_scathach_pupil_agi_quest_Description"                               "Percentage of kills and assists from requested"	
+		"DOTA_Tooltip_modifier_scathach_pupil_int_quest"                                   	 "Intellect training"
+		"DOTA_Tooltip_modifier_scathach_pupil_int_quest_Description"                               "Percentage of mana spent from requested"		
 
 
 
@@ -9908,6 +9916,16 @@
 		"npc_dota_hero_monkey_king"			"Scathach"
 		"scat1"		"Swimsuit Scathach"
 
+
+		"DOTA_Tooltip_Ability_scathach_mentor"				"<font color='#FFE56E'>Mentorship</font>"
+		"DOTA_Tooltip_ability_scathach_mentor_Description"	"Cast Point: <font color='#FFFFF9'>IMMEDIATE</font><br><br>ONE TIME ONLY!\nScathach selects an ally hero to make them her pupil.\nScathach and her pupil may use <font color='#FFFAFA'>Teleport scroll</font> item on each other.\nScathach's pupil gains additional 25 <font color='#ff9900'>experience</font> per hero level on round start.\nScathach's pupil must complete 3 trainings to unlock additional effects:\n<font color='#FF0000'>Strength</font> training: take <font color='#FFFAFA'>30 + 5 per each hero in enemy team</font> thousands damage;\n\n<font color='#00FF00'>Agility</font> training: take part in <font color='#FFFAFA'>3 per each hero in enemy team</font> kills (assists counts as half);\n <font color='#1E90FF'>Intellect</font> training: spend <font color='#FFFAFA'>30 + 5 each hero in enemy team</font> thousand mana.\nUpon completing each training, pupil gains <font color='#FFFAFA'>5</font> of corresponding stat.\nWhen all trainings are completed, Scathach and her pupil gain additional bonuses:\nWhen Scathach and her pupil are in <font color='#FFFAFA'>1000</font> range from each other, Scathach deals <font color='#FFFAFA'>10%%</font> more damage, and her pupil gains <font color='#FFFAFA'>10%%</font><font color='#58ACFA'> magic resistance</font> and <font color='#FFFAFA'>10</font> <font color='#ACFF05'>armor</font>"
+		"DOTA_Tooltip_Ability_scathach_gae_bolg_spawn_range"			"SHOOT RANGE:"
+		"DOTA_Tooltip_Ability_scathach_gae_bolg_spawn_damage"			"DAMAGE:"
+		"DOTA_Tooltip_Ability_scathach_gae_bolg_spawn_speed"			"GAE BOLG SPEED:"
+		"DOTA_Tooltip_Ability_scathach_gae_bolg_spawn_hit_radius"		"GAE BOLG HIT RADIUS:"
+
+
+
 		"DOTA_Tooltip_Ability_scathach_gae_bolg_spawn"				"<font color='#FFE56E'>Gae Bolg Alternative -  Summon</font>"
 		"DOTA_Tooltip_ability_scathach_gae_bolg_spawn_Description"	"Cast Point: <font color='#FFFFF9'>0.5</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Scathach summons %gb_spawn_amount% Gae Bolg Alternatives, which follow her for %duration% seconds.\nReusing this ability, Scathach sends one of Gae Bolgs in target direction swiftly.\nGae Bolg deals <font color='#05CAFF'>damage</font> to all enemies on its path.\nScathach has %shoot_cd% second cd after shooting a Gae Bolg."
 		"DOTA_Tooltip_Ability_scathach_gae_bolg_spawn_range"			"SHOOT RANGE:"
@@ -9988,7 +10006,7 @@
 		"DOTA_Tooltip_ability_scathach_primeval_rune_attribute_gait_three_damage"	"LEGION'S BITE DAMAGE PER AGI:"
 
 		"DOTA_Tooltip_Ability_scathach_branches_of_tonelico_attribute"				"<font color='#FFE56E'>Branches of Tonelico</font>"
-		"DOTA_Tooltip_ability_scathach_branches_of_tonelico_attribute_Description"	"Upgrades <font color='#FFE56E'>Gae Bolg Alternative -  Summon</font>, adding additional <font color='#05CAFF'>damage</font>, based on Scathach's <font color='#2CE300'>AGI</font>.\nNow if Scathach succeeds to hit enemy with this ability 4 times in quick succession, she will deal additional damage and <font color='#FF3399'>stun</font> them. This effect has unrefreshable cooldown.\n\nUpgrades <font color='#FFE56E'>Gae Bolg Alternative - Barbed Spear that Pierces with Death</font>, adding <font color='#7F00FF'>healing reduction tier 2</font> for %healres_duration% seconds and converting damage from <font color='#C437B6'>Gae Bolg curse</font> to <font color='#D1A951'>pure</font>."
+		"DOTA_Tooltip_ability_scathach_branches_of_tonelico_attribute_Description"	"Upgrades <font color='#FFE56E'>Gae Bolg Alternative -  Summon</font>, adding additional <font color='#05CAFF'>damage</font>, based on Scathach's <font color='#2CE300'>AGI</font>.\nNow if Scathach succeeds to hit enemy with this ability 4 times in no longer than %sa_time% seconds between hits, she will deal additional %sa_dmg% <font color='#05CAFF'>damage</font> in %sa_radius% radius and <font color='#FF3399'>stun</font> all enemies hit for %sa_stun_duration% seconds.\nThis effect has unrefreshable cooldown of  %sa_cd% seconds.\n\nUpgrades <font color='#FFE56E'>Gae Bolg Alternative - Barbed Spear that Pierces with Death</font>, adding <font color='#7F00FF'>healing reduction tier 2</font> for %healres_duration% seconds and converting damage from <font color='#C437B6'>Gae Bolg curse</font> to <font color='#D1A951'>pure</font>."
 		//"DOTA_Tooltip_ability_scathach_branches_of_tonelico_attribute_gae_bolg_jump_damage"			"GAE BOLG JUMP DAMAGE :"
 		"DOTA_Tooltip_ability_scathach_branches_of_tonelico_attribute_agi_scaling"			"AGI TO DAMAGE:"
 		"DOTA_Tooltip_ability_scathach_branches_of_tonelico_attribute_sa_cd"			"PROCK CD:"
@@ -9997,11 +10015,11 @@
 		//"DOTA_Tooltip_ability_scathach_branches_of_tonelico_attribute_atr_hb_pct"			"%E Heartbreak Threshold:"
 
 		"DOTA_Tooltip_Ability_scathach_wisdom_of_dun_scaith_attribute"				"<font color='#FFE56E'>Wisdom of Dún Scáith</font>"
-		"DOTA_Tooltip_ability_scathach_wisdom_of_dun_scaith_attribute_Description"	"Grants Scathach activatable linken for a duration.\n\nNote that the linken doesn't disappear upon proc."
+		"DOTA_Tooltip_ability_scathach_wisdom_of_dun_scaith_attribute_Description"	"Grants Scathach activatable linken for a duration.\n\nNote that the linken doesn't disappear upon proc.\nIf Scathach's pupil is in <font color='#FFFAFA'>1000</font> range from her, he also gains this effect."
 		"DOTA_Tooltip_ability_scathach_wisdom_of_dun_scaith_attribute_linken_duration"			"LINKEN DURATION :"
 		
 		"DOTA_Tooltip_Ability_scathach_wisdom_of_dun_scaith"				"<font color='#FFE56E'>Wisdom of Dún Scáith</font>"
-		"DOTA_Tooltip_ability_scathach_wisdom_of_dun_scaith_Description"	"Cast Point: <font color='#FFFFF9'>0</font>s    |    <font color='#EE5C29'>Unrefreshable</font><br><br>Grants Scathach activatable linken for a duration.\n\nNote that the linken doesn't disappear upon proc."
+		"DOTA_Tooltip_ability_scathach_wisdom_of_dun_scaith_Description"	"Cast Point: <font color='#FFFFF9'>0</font>s    |    <font color='#EE5C29'>Unrefreshable</font><br><br>Grants Scathach activatable linken for a duration.\n\nNote that the linken doesn't disappear upon proc.\nIf Scathach's pupil is in <font color='#FFFAFA'>1000</font> range from her, he also gains this effect."
 		"DOTA_Tooltip_ability_scathach_wisdom_of_dun_scaith_duration"			"LINKEN DURATION :"
 
 		"DOTA_Tooltip_Ability_scathach_pinning_thorn_attribute"				"<font color='#FFE56E'>Improve Pinning God Killer Thorns</font>"

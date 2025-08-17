@@ -37,7 +37,88 @@ function scathach_gae_bolg_spawn:PerformSaAttack(unit)
 	local caster = self:GetCaster()
 	if IsServer() then
 		caster:AddNewModifier(caster, self, "modifier_scathach_sa_cd", { Duration = self:GetSpecialValueFor("sa_cd")})
-		unit:AddNewModifier(caster, self, "modifier_stunned", { Duration = self:GetSpecialValueFor("sa_stun_duration")})
+
+		local delay = 0.0
+		local scale_vector_1 = 0.35
+		local spawn_delay = 0.1
+		local count = 4
+		local damage = self:GetSpecialValueFor("sa_dmg")
+		self.counter = 0
+		local duration = 0
+		local radius = 200
+		local targetPoint = unit:GetAbsOrigin()
+		self.spears = {}
+		self.vectors = {}
+		self.vectors_point = {}
+		self.counter2 = 0
+		Timers:CreateTimer("scathach_spear_barrage", {callback = function()
+			if self.counter >= (count+1) then
+				Timers:CreateTimer("scathach_spear_barrage_2", {endtime = delay * 0.5, callback = function()
+					if self.counter2 >= (count+1) then	 
+						self.spears = {}
+						self.vectors = {}
+						self.vectors_point = {}
+						return  
+					else
+
+						ParticleManager:SetParticleControl( self.spears[self.counter2], 1, Vector(self.vectors[self.counter2][1],self.vectors[self.counter2][2],self.vectors[self.counter2][3]) *2)
+						--Timers:CreateTimer(delay* 0.25, function()
+
+							ParticleManager:DestroyParticle( self.spears[self.counter2], false )
+							ParticleManager:ReleaseParticleIndex( self.spears[self.counter2] )
+							local vector_point = Vector(self.vectors_point[self.counter2][1],self.vectors_point[self.counter2][2],self.vectors_point[self.counter2][3]) * scale_vector_1
+							local targets = FindUnitsInRadius(caster:GetTeam(), targetPoint  , nil, 100, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
+							for k,v in pairs(targets) do
+								if not v:HasModifier("modifier_protection_from_arrows_active") then 
+									DoDamage(caster, v, damage , DAMAGE_TYPE_MAGICAL, 0, self, false)
+									v:AddNewModifier(caster, self, "modifier_stachach_gae_bolg_curse", {duration = 10})
+									v:AddNewModifier(caster, self, "modifier_stunned", { Duration = self:GetSpecialValueFor("sa_stun_duration")})
+								end
+							end
+							EmitSoundOnLocationWithCaster(targetPoint, "karna_new_fire_thunder", caster)
+							local impactFxIndex = ParticleManager:CreateParticle( "particles/scathach/scat_barrage_spear_explosion.vpcf", PATTACH_WORLDORIGIN, nil )
+							ParticleManager:SetParticleControl( impactFxIndex, 0, targetPoint+ vector_point )
+							ParticleManager:SetParticleShouldCheckFoW(impactFxIndex, false)
+							
+							-- Destroy Particle
+							Timers:CreateTimer( 0.5, function()
+								ParticleManager:DestroyParticle( impactFxIndex, false )
+								ParticleManager:ReleaseParticleIndex( impactFxIndex )
+							end)
+						--end)
+						self.counter2 = self.counter2 + 1
+						return spawn_delay
+					end
+				end})
+				return		
+			end
+
+				duration = duration + spawn_delay
+				local swordVector = Vector(RandomFloat(-radius, radius), RandomFloat(-radius, radius), 0)
+				local height = RandomFloat(700, 700)
+				local speed = height * 2	
+				local spawn_location = ( targetPoint + swordVector*0.9 )-- - ( distance * forwardVec )
+				spawn_location = spawn_location + Vector( 0, 0, height )
+				local target_location = targetPoint + swordVector * scale_vector_1
+				local newForwardVec = ( target_location - spawn_location ):Normalized()
+				table.insert(self.vectors_point, self.counter, {swordVector.x, swordVector.y,swordVector.z})
+				local swordFxIndex = ParticleManager:CreateParticle( "particles/scathach/scathach_barrage_spear.vpcf", PATTACH_WORLDORIGIN, nil )
+				ParticleManager:SetParticleControl( swordFxIndex, 0, spawn_location )
+				ParticleManager:SetParticleControl( swordFxIndex, 1, newForwardVec *1 )
+				ParticleManager:SetParticleShouldCheckFoW(swordFxIndex, false)
+				newForwardVec = newForwardVec * speed
+				table.insert(self.vectors, self.counter, {newForwardVec.x, newForwardVec.y,newForwardVec.z})
+				table.insert(self.spears, self.counter, swordFxIndex)
+				self.counter = self.counter  + 1
+
+				return spawn_delay
+			
+
+
+	
+	end})
+
+
 		-- deal damage with some particle
 	end
 end
@@ -297,17 +378,18 @@ function modifier_scat_gae_bolg_replicas_movement_controller:SearchTargetsAndDea
             if enemy and not enemy:IsNull() then
                 if not self.HittedTargets[enemy:entindex()] then
                     self.HittedTargets[enemy:entindex()] = true
+					if not enemy:HasModifier("modifier_protection_from_arrows_active") then 
+						local slash_pfx =   ParticleManager:CreateParticle("particles/emiya/emiya_swords_hit.vpcf", PATTACH_ABSORIGIN_FOLLOW, enemy)
+											ParticleManager:SetParticleControlEnt(slash_pfx, 0, enemy, PATTACH_POINT_FOLLOW, "attach_hitloc", enemy:GetAbsOrigin(), true)
+											ParticleManager:ReleaseParticleIndex(slash_pfx)
 
-                    local slash_pfx =   ParticleManager:CreateParticle("particles/emiya/emiya_swords_hit.vpcf", PATTACH_ABSORIGIN_FOLLOW, enemy)
-                                        ParticleManager:SetParticleControlEnt(slash_pfx, 0, enemy, PATTACH_POINT_FOLLOW, "attach_hitloc", enemy:GetAbsOrigin(), true)
-                                        ParticleManager:ReleaseParticleIndex(slash_pfx)
+											enemy:EmitSound("scathach_sumon_5")
 
-                                        enemy:EmitSound("scathach_sumon_5")
-
-                    DoDamage(self.casterToFollow, enemy, self.damage, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
-					enemy:AddNewModifier(self.casterToFollow, self.ability, "modifier_stachach_gae_bolg_curse", {duration = 10})
-					if self.casterToFollow:HasModifier("modifier_scathach_branches_of_tonelico_attribute") and not self.casterToFollow:HasModifier("modifier_scathach_sa_cd") then
-						enemy:AddNewModifier(self.casterToFollow, self.ability, "modifier_scathach_sa_stacks", {duration = 3})
+						DoDamage(self.casterToFollow, enemy, self.damage, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
+						enemy:AddNewModifier(self.casterToFollow, self.ability, "modifier_stachach_gae_bolg_curse", {duration = 10})
+						if self.casterToFollow:HasModifier("modifier_scathach_branches_of_tonelico_attribute") and not self.casterToFollow:HasModifier("modifier_scathach_sa_cd") then
+							enemy:AddNewModifier(self.casterToFollow, self.ability, "modifier_scathach_sa_stacks", {duration = 3})
+						end
 					end
                 end
             end
