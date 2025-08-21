@@ -693,6 +693,7 @@ CannotReset = {
     "scathach_gae_bolg_shoot",
     "scathach_wisdom_of_dun_scaith",
     "scathach_pinning_thorn",
+    "scathach_gate_of_skye",
 }
 
 
@@ -2569,6 +2570,7 @@ local heroCombos = {
     ["npc_dota_hero_centaur"] = "lu_bu_sky_piercer",
     ["npc_dota_hero_robin"] = "robin_yew_tree_combo",
     ["npc_dota_hero_aoko"] = "aoko_blue",
+    ["npc_dota_hero_scathach"] = "scathach_gate_of_skye",
 }
 
 function GetHeroCombo(hero)

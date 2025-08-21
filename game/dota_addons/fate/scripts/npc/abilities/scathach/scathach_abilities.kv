@@ -62,6 +62,49 @@
 	}
 
 	//=================================================================================================================
+	// Combo - Gate of Skye
+	//=================================================================================================================
+	"scathach_gate_of_skye"
+	{
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/scathach/scathach_gate_of_skye"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/scathach/scathach_combo_gate_of_sky"
+		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ABILITY_1"
+		"AnimationPlaybackRate" 		"1.0"
+		"AbilityCastPoint"				"0.3"
+		"AbilityCastRange"				"800"
+ 		"AbilityCooldown"				"180"
+		"AbilityManaCost"				"800"
+		"precache"
+		{
+				"particle"		"particles/custom/scathach/scathach_gate.vpcf"
+				"particle"		"particles/scathach/scathach_gate_debuff.vpcf"
+				"particle"		"particles/scathach/scathach_gate_aoe_ring.vpcf"
+				"particle"		"particles/custom/scathach/gate_of_skye_field.vpcf"
+				"soundfile"		"soundevents/game_sounds_heroes/game_sounds_mars.vsndevts"
+				"soundfile"		"soundevents/game_sounds_heroes/game_sounds_crystal_maiden.vsndevts"
+		}
+		"AbilityValues"
+        {
+        	"anim_duration"				"3"
+        	"active_duration"			"9" //better not touch both durations or else sounds will fuck up
+        	"radius"					"3000"
+        	"damage_per_second"			"100"
+        	"healing_reduction"			"40"
+        	"slow"						"20"
+        	"execute_threshold"			"40"
+        	"execute_duration"			"2"
+        }
+	}
+
+	//=================================================================================================================
 	// Nobu - Gun shot (Q)
 	//=================================================================================================================
 	"scathach_gae_bolg_shoot"
