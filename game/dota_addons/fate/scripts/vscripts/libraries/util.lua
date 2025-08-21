@@ -1488,7 +1488,7 @@ function IsSpellBlocked(target)
         EmitSoundWithCooldown("DOTA_Item.LinkensSphere.Activate", target, 1)
         --target:FindAbilityByName("modifier_scathach_wisdom_of_dun_scaith"):OnRuneProck()
         --ParticleManager:CreateParticle("particles/items_fx/immunity_sphere.vpcf", PATTACH_ABSORIGIN, target)
-        --target:RemoveModifierByName("modifier_rune_of_protection")
+        target:RemoveModifierByName("modifier_scathach_wisdom_of_dun_scaith")
         return true
     elseif target:HasModifier("modifier_jtr_mental_pollution_shield") then
         EmitSoundWithCooldown("DOTA_Item.LinkensSphere.Activate", target, 1)

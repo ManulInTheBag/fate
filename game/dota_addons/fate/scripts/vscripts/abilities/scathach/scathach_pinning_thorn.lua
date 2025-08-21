@@ -2,7 +2,7 @@ scathach_pinning_thorn = class({})
 
 LinkLuaModifier("modifier_vision_provider", "abilities/general/modifiers/modifier_vision_provider", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_scathach_pinning_god_self_stun", "abilities/scathach/modifiers/modifier_scathach_pinning_god_self_stun", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_stachach_gae_bolg_curse", "abilities/scathach/scathach_gae_bolg.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_stachach_gae_bolg_curse", "abilities/scathach/scathach_gae_bolg", LUA_MODIFIER_MOTION_NONE)
 function scathach_pinning_thorn:CastFilterResultTarget(hTarget)
 	local caster = self:GetCaster()
 	local filter = UnitFilter(hTarget, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, caster:GetTeamNumber())

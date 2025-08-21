@@ -30,7 +30,7 @@ function modifier_scathach_gait_two:CheckState()
 		--[MODIFIER_STATE_ROOTED] = false, 
 		[MODIFIER_STATE_DISARMED] = true,
 		[MODIFIER_STATE_SILENCED] = true,
-		--[MODIFIER_STATE_MUTED] = false,
+		[MODIFIER_STATE_MUTED] = true,
 	}
 	return state
 end

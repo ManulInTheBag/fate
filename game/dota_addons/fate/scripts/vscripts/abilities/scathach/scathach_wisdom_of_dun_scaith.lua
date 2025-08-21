@@ -1,7 +1,7 @@
 scathach_wisdom_of_dun_scaith = class({})
 
 LinkLuaModifier("modifier_scathach_wisdom_of_dun_scaith", "abilities/scathach/modifiers/modifier_scathach_wisdom_of_dun_scaith", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_scathach_combo_window", "abilities/scathach/modifiers/modifier_scathach_combo_window", LUA_MODIFIER_MOTION_NONE)
+
 
 function scathach_wisdom_of_dun_scaith:OnSpellStart()
 	local caster = self:GetCaster()
@@ -13,7 +13,7 @@ function scathach_wisdom_of_dun_scaith:OnSpellStart()
 			v:AddNewModifier(caster, self, "modifier_scathach_wisdom_of_dun_scaith", { Duration = self:GetSpecialValueFor("duration")})
 		end
 	end
-	self:CheckCombo()
+	--self:CheckCombo()
 end
 
 function scathach_wisdom_of_dun_scaith:CheckCombo()

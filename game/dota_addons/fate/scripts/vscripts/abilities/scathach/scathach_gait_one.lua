@@ -4,7 +4,7 @@ scathach_gait_one = class({})
 
 LinkLuaModifier( "modifier_scathach_gait_one_knockback", "abilities/scathach/modifiers/modifier_scathach_gait_one_knockback", LUA_MODIFIER_MOTION_BOTH )
 LinkLuaModifier( "modifier_scathach_gait_two_window", "abilities/scathach/modifiers/modifier_scathach_gait_two_window", LUA_MODIFIER_MOTION_BOTH )
-LinkLuaModifier("modifier_stachach_gae_bolg_curse", "abilities/scathach/scathach_gae_bolg.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_stachach_gae_bolg_curse", "abilities/scathach/scathach_gae_bolg", LUA_MODIFIER_MOTION_NONE)
 --------------------------------------------------------------------------------
 -- Ability Start
 function scathach_gait_one:OnSpellStart()

@@ -2173,7 +2173,11 @@
 		"DOTA_Tooltip_modifier_scathach_pupil_agi_quest"                                   	 "Agility training"
 		"DOTA_Tooltip_modifier_scathach_pupil_agi_quest_Description"                               "Percentage of kills and assists from requested"	
 		"DOTA_Tooltip_modifier_scathach_pupil_int_quest"                                   	 "Intellect training"
-		"DOTA_Tooltip_modifier_scathach_pupil_int_quest_Description"                               "Percentage of mana spent from requested"		
+		"DOTA_Tooltip_modifier_scathach_pupil_int_quest_Description"                               "Percentage of mana spent from requested"	
+		"DOTA_Tooltip_modifier_scathach_pupil_buff"                                   	 "Training completed"
+		"DOTA_Tooltip_modifier_scathach_pupil_buff_Description"                               "Gain armor and magic resistance"
+		"DOTA_Tooltip_modifier_scathach_pupil_scatha_bufft"                                   	 "Successful mentor"
+		"DOTA_Tooltip_modifier_scathach_pupil_scatha_buff_Description"                               "Deal increased damage"	
 
 
 
@@ -9918,7 +9922,7 @@
 
 
 		"DOTA_Tooltip_Ability_scathach_mentor"				"<font color='#FFE56E'>Mentorship</font>"
-		"DOTA_Tooltip_ability_scathach_mentor_Description"	"Cast Point: <font color='#FFFFF9'>IMMEDIATE</font><br><br>ONE TIME ONLY!\nScathach selects an ally hero to make them her pupil.\nScathach and her pupil may use <font color='#FFFAFA'>Teleport scroll</font> item on each other.\nScathach's pupil gains additional 25 <font color='#ff9900'>experience</font> per hero level on round start.\nScathach's pupil must complete 3 trainings to unlock additional effects:\n<font color='#FF0000'>Strength</font> training: take <font color='#FFFAFA'>30 + 5 per each hero in enemy team</font> thousands damage;\n\n<font color='#00FF00'>Agility</font> training: take part in <font color='#FFFAFA'>3 per each hero in enemy team</font> kills (assists counts as half);\n <font color='#1E90FF'>Intellect</font> training: spend <font color='#FFFAFA'>30 + 5 each hero in enemy team</font> thousand mana.\nUpon completing each training, pupil gains <font color='#FFFAFA'>5</font> of corresponding stat.\nWhen all trainings are completed, Scathach and her pupil gain additional bonuses:\nWhen Scathach and her pupil are in <font color='#FFFAFA'>1000</font> range from each other, Scathach deals <font color='#FFFAFA'>10%%</font> more damage, and her pupil gains <font color='#FFFAFA'>10%%</font><font color='#58ACFA'> magic resistance</font> and <font color='#FFFAFA'>10</font> <font color='#ACFF05'>armor</font>"
+		"DOTA_Tooltip_ability_scathach_mentor_Description"	"Cast Point: <font color='#FFFFF9'>IMMEDIATE</font><br><br>ONE TIME ONLY!\nScathach selects an ally hero to make them her pupil.\nScathach and her pupil may use <font color='#FFFAFA'>Teleport scroll</font> item on each other.\nScathach's pupil gains additional 25 <font color='#ff9900'>experience</font> per hero level on round start.\nScathach's pupil must complete 3 trainings to unlock additional effects:\n<font color='#FF0000'>Strength</font> training: take <font color='#FFFAFA'>30</font> thousands damage;\n\n<font color='#00FF00'>Agility</font> training: take part in <font color='#FFFAFA'>12</font> kills (assists counts as half);\n <font color='#1E90FF'>Intellect</font> training: spend <font color='#FFFAFA'>30</font> thousand mana (mana burn and direct mana spend doesnt count).\nUpon completing each training, pupil gains <font color='#FFFAFA'>5</font> of corresponding stat.\nWhen all trainings are completed, Scathach and her pupil gain additional bonuses:\nWhen Scathach and her pupil are in <font color='#FFFAFA'>1000</font> range from each other, Scathach deals <font color='#FFFAFA'>10%%</font> more damage, and her pupil gains <font color='#FFFAFA'>10%%</font><font color='#58ACFA'> magic resistance</font> and <font color='#FFFAFA'>10</font> <font color='#ACFF05'>armor</font>"
 		"DOTA_Tooltip_Ability_scathach_gae_bolg_spawn_range"			"SHOOT RANGE:"
 		"DOTA_Tooltip_Ability_scathach_gae_bolg_spawn_damage"			"DAMAGE:"
 		"DOTA_Tooltip_Ability_scathach_gae_bolg_spawn_speed"			"GAE BOLG SPEED:"
@@ -10015,22 +10019,23 @@
 		//"DOTA_Tooltip_ability_scathach_branches_of_tonelico_attribute_atr_hb_pct"			"%E Heartbreak Threshold:"
 
 		"DOTA_Tooltip_Ability_scathach_wisdom_of_dun_scaith_attribute"				"<font color='#FFE56E'>Wisdom of Dún Scáith</font>"
-		"DOTA_Tooltip_ability_scathach_wisdom_of_dun_scaith_attribute_Description"	"Grants Scathach activatable linken for a duration.\n\nNote that the linken doesn't disappear upon proc.\nIf Scathach's pupil is in <font color='#FFFAFA'>1000</font> range from her, he also gains this effect."
+		"DOTA_Tooltip_ability_scathach_wisdom_of_dun_scaith_attribute_Description"	"Grants Scathach activatable linken for a duration.\n\nIf Scathach's pupil is in <font color='#FFFAFA'>1000</font> range from her, he also gains this effect."
 		"DOTA_Tooltip_ability_scathach_wisdom_of_dun_scaith_attribute_linken_duration"			"LINKEN DURATION :"
 		
 		"DOTA_Tooltip_Ability_scathach_wisdom_of_dun_scaith"				"<font color='#FFE56E'>Wisdom of Dún Scáith</font>"
-		"DOTA_Tooltip_ability_scathach_wisdom_of_dun_scaith_Description"	"Cast Point: <font color='#FFFFF9'>0</font>s    |    <font color='#EE5C29'>Unrefreshable</font><br><br>Grants Scathach activatable linken for a duration.\n\nNote that the linken doesn't disappear upon proc.\nIf Scathach's pupil is in <font color='#FFFAFA'>1000</font> range from her, he also gains this effect."
+		"DOTA_Tooltip_ability_scathach_wisdom_of_dun_scaith_Description"	"Cast Point: <font color='#FFFFF9'>0</font>s    |    <font color='#EE5C29'>Unrefreshable</font><br><br>Grants Scathach activatable linken for a duration.\n\nIf Scathach's pupil is in <font color='#FFFAFA'>1000</font> range from her, he also gains this effect."
 		"DOTA_Tooltip_ability_scathach_wisdom_of_dun_scaith_duration"			"LINKEN DURATION :"
 
 		"DOTA_Tooltip_Ability_scathach_pinning_thorn_attribute"				"<font color='#FFE56E'>Improve Pinning God Killer Thorns</font>"
-		"DOTA_Tooltip_ability_scathach_pinning_thorn_attribute_Description"	"Upgrades <font color='#FFE56E'>Pinning God Killer Thorns</font>\n\nAdds additional base <font color='#05CAFF'>damage</font> to <font color='#FFE56E'>Pinning God Killer Thorns</font> and bonus <font color='#05CAFF'>damage</font> based on <font color='#2CE300'>AGI</font>." 
+		"DOTA_Tooltip_ability_scathach_pinning_thorn_attribute_Description"	"Upgrades <font color='#FFE56E'>Pinning God Killer Thorns</font>\n\nAdds additional base <font color='#05CAFF'>damage</font> to <font color='#FFE56E'>Pinning God Killer Thorns</font>." 
 		"DOTA_Tooltip_ability_scathach_pinning_thorn_attribute_base_damage"			"BASE DAMAGE:"
 		"DOTA_Tooltip_ability_scathach_pinning_thorn_attribute_explosion_damage"			"EXPLOSION DAMAGE:"
-		"DOTA_Tooltip_ability_scathach_pinning_thorn_attribute_agility_ratio"			"ADDITIONAL DAMAGE PER AGILITY:"
+		//"DOTA_Tooltip_ability_scathach_pinning_thorn_attribute_agility_ratio"			"ADDITIONAL DAMAGE PER AGILITY:"
 		//"DOTA_Tooltip_ability_scathach_pinning_thorn_attribute_gae_bolg_agi"			"ADDITIONAL GAE BOLG DAMAGE PER AGILITY:"
 
 		"DOTA_Tooltip_Ability_scathach_gate_of_skye"				"<font color='#FFE56E'>Combo: Gate of Skye</font>"
-		"DOTA_Tooltip_ability_scathach_gate_of_skye_Description"	"Cast Point: <font color='#FFFFF9'>0.3</font><br><br><font color='#58ACFA'>Combo Requirement : 30 all stats\n\n<font color='#58ACFA'>Combo Sequence : autocast Q > D in 3 seconds</font>\n\nScathach summons a massive gate to her shadow realm.\n\nAfter %anim_duration% seconds the gate opens.\nWhile gate is opened, enemies in %radius% radius are slowed by %slow%% , get <font color='#7F00FF'>healing reduction tier 2</font> and take %damage_per_second% magical damage per second.\n\nIf enemy health drops <%execute_threshold%%, they will be inflicted with Soul Chill effect for the next %execute_duration% seconds.\n\nSoul Chill:\ninflicted unit will be executed when the duration of this debuff runs out.\nIf unit gets it's health above %execute_threshold%%, the debuff is removed with no penalty."
+		"DOTA_Tooltip_ability_scathach_gate_of_skye_Description"	"Cast Point: <font color='#FFFFF9'>0.3</font><br><br><font color='#58ACFA'>Combo Requirement : 30 all stats\n\n<font color='#58ACFA'>Combo Sequence : autocast Q > D in 3 seconds</font>\n\nScathach summons a massive gate to her shadow realm.\n\nAfter %anim_duration% seconds the gate opens.\nWhile gate is opened, enemies in %radius% radius are slowed by %slow%% , get <font color='#7F00FF'>healing reduction tier 2</font> and take %damage_per_second% magical damage per second.\n\nIf enemy health drops below <%execute_threshold%%, they will be inflicted with Soul Chill effect for the next %execute_duration% seconds.\n\nSoul Chill:\ninflicted unit will be executed when the duration of this debuff runs out.\nIf unit gets it's health above %execute_threshold%%, the debuff is removed with no penalty."
+		"DOTA_Tooltip_Ability_scathach_gate_of_skye_active_duration"				"Duration:"
 
 		"DOTA_Tooltip_Ability_scathach_combo_gate_of_sky"				"<font color='#FFE56E'>Combo : Gate of Skye</font>"
 		"DOTA_Tooltip_ability_scathach_combo_gate_of_sky_Description"	"Cast Point: <font color='#FFFFF9'>1.0</font>s    |    <font color='#EE5C29'>Unrefreshable</font><br><br><font color='#58ACFA'>Combo Requirement : 30 all stats, Wisdom of Dún Scáith Attribute</font>\n\n<font color='#58ACFA'>Combo Sequence : F > F in 4 seconds</font>\n\nScathach temporarily summons a massive gate to her shadow realm.\n\nAfter 1 second pass the gate is open and start sucks in all enemies and drain enemies's mana in range while apply damage income reduction buff to Scathach.\n\nThe enemies will get mini stun when their mana run out. At the end of duration, the enemies that are sucked into point below the gate will be instantly killed.\n\nWhile the enemies that still in gate's range take proportion damage depend on how far they are." 

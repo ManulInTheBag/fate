@@ -1,5 +1,7 @@
 scathach_mentor = class({})
 LinkLuaModifier("modifier_scathach_pupil", "abilities/scathach/scathach_mentor", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_scathach_pupil_buff", "abilities/scathach/scathach_mentor", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_scathach_pupil_scatha_buff", "abilities/scathach/scathach_mentor", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_scathach_pupil_str_quest", "abilities/scathach/scathach_mentor", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_scathach_pupil_agi_quest", "abilities/scathach/scathach_mentor", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_scathach_pupil_int_quest", "abilities/scathach/scathach_mentor", LUA_MODIFIER_MOTION_NONE)
@@ -31,6 +33,7 @@ function modifier_scathach_pupil:OnCreated()
 	self.str_bonus = 0
 	self.agi_bonus = 0
 	self.int_bonus = 0
+	self.isFinished = 0
 end
 
 function modifier_scathach_pupil:IsHidden()
@@ -40,6 +43,34 @@ end
 function modifier_scathach_pupil:RemoveOnDeath()
 	return false
 end
+function modifier_scathach_pupil:CheckForConditions()
+	local parent = self:GetParent()
+	if self.str_bonus == 5 and self.agi_bonus == 5 and self.int_bonus == 5 then
+		local caster_name =  PlayerResource:GetPlayerName(self:GetParent():GetPlayerID())
+		GameRules:SendCustomMessage("".. caster_name .." completed all their trainings!", 0, 0)
+		self.isFinished = 1
+		self:StartIntervalThink(0.5)
+	end
+	if parent:GetName() == "npc_dota_hero_juggernaut" then 
+		if self.str_bonus == 5 and self.agi_bonus == 5 then
+			local caster_name =  PlayerResource:GetPlayerName(self:GetParent():GetPlayerID())
+			GameRules:SendCustomMessage("".. caster_name .." completed all their trainings!", 0, 0)
+			self.isFinished = 1
+			self:StartIntervalThink(0.5)
+		end
+
+	end
+end
+
+function modifier_scathach_pupil:OnIntervalThink()
+	if self.isFinished ~= 1 then return end
+	local distance = (self:GetCaster():GetAbsOrigin() - self:GetParent():GetAbsOrigin()):Length2D()
+	if distance <= 1000 then 
+		self:GetParent():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_scathach_pupil_buff", {duration = 0.75})
+		self:GetCaster():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_scathach_pupil_scatha_buff", {duration = 0.75})
+	end
+end
+
 
 function modifier_scathach_pupil:IsDebuff()
 	return false 
@@ -62,15 +93,19 @@ end
 function modifier_scathach_pupil:DeclareFunctions()
 	return { MODIFIER_PROPERTY_STATS_STRENGTH_BONUS, 
 	MODIFIER_PROPERTY_STATS_AGILITY_BONUS,
-    MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,  }
+    MODIFIER_PROPERTY_STATS_INTELLECT_BONUS, }
 end
+
+
+
+
 
 modifier_scathach_pupil_str_quest = class({})
 
 function modifier_scathach_pupil_str_quest:OnCreated()
 	
 	self.damage_taken_total = 0
-	self.damage_taken_request = 5000
+	self.damage_taken_request = 30000
 	self:SetStackCount(0)
 end
 
@@ -82,6 +117,9 @@ function modifier_scathach_pupil_str_quest:OnTakeDamage(args)
 		self:GetParent():FindModifierByName("modifier_scathach_pupil").str_bonus = 5
 		local caster_name =  PlayerResource:GetPlayerName(self:GetParent():GetPlayerID())
 		GameRules:SendCustomMessage("".. caster_name .." just completed strength training!", 0, 0)
+		if IsServer() then
+			self:GetParent():FindModifierByName("modifier_scathach_pupil"):CheckForConditions()
+		end
 		self:Destroy()
 		return
 	end
@@ -113,7 +151,7 @@ modifier_scathach_pupil_agi_quest = class({})
 
 function modifier_scathach_pupil_agi_quest:OnCreated()
 	self.asisst_count = 0
-	self.assist_request = 10
+	self.assist_request = 12
 	self:SetStackCount(0)
 	self:StartIntervalThink(3)
 end
@@ -126,6 +164,9 @@ function modifier_scathach_pupil_agi_quest:OnIntervalThink()
 			self:GetParent():FindModifierByName("modifier_scathach_pupil").agi_bonus = 5
 			local caster_name =  PlayerResource:GetPlayerName(self:GetParent():GetPlayerID())
 			GameRules:SendCustomMessage("".. caster_name .." just completed agility training!", 0, 0)
+			if IsServer() then
+				self:GetParent():FindModifierByName("modifier_scathach_pupil"):CheckForConditions()
+			end
 			self:Destroy()
 		return
 	end
@@ -152,7 +193,7 @@ modifier_scathach_pupil_int_quest = class({})
 
 function modifier_scathach_pupil_int_quest:OnCreated()
 	self.mana_spent = 0
-	self.mana_spent_request = 5000
+	self.mana_spent_request = 30000
 	self:SetStackCount(0)
 end
 
@@ -164,6 +205,9 @@ function modifier_scathach_pupil_int_quest:OnSpentMana(args)
 			self:GetParent():FindModifierByName("modifier_scathach_pupil").int_bonus = 5
 			local caster_name =  PlayerResource:GetPlayerName(self:GetParent():GetPlayerID())
 			GameRules:SendCustomMessage("".. caster_name .." just completed intellect training!", 0, 0)
+			if IsServer() then
+				self:GetParent():FindModifierByName("modifier_scathach_pupil"):CheckForConditions()
+			end
 			self:Destroy()
 		return
 	end
@@ -191,3 +235,76 @@ end
 function modifier_scathach_pupil_int_quest:GetAttributes()
 	return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
+
+
+
+
+modifier_scathach_pupil_buff = class({})
+
+
+
+
+
+function modifier_scathach_pupil_buff:IsHidden()
+	return false 
+end
+
+function modifier_scathach_pupil_buff:RemoveOnDeath()
+	return true
+end
+
+function modifier_scathach_pupil_buff:IsDebuff()
+	return false 
+end
+
+
+
+function modifier_scathach_pupil_buff:DeclareFunctions()
+	return { MODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS,
+			MODIFIER_PROPERTY_PHYSICAL_ARMOR_BONUS }
+end
+
+
+
+function modifier_scathach_pupil_buff:GetModifierMagicalResistanceBonus()
+	return 10
+end
+
+ 
+
+function modifier_scathach_pupil_buff:GetModifierPhysicalArmorBonus()
+	return 10
+end
+
+
+modifier_scathach_pupil_scatha_buff = class({})
+
+
+
+
+
+function modifier_scathach_pupil_scatha_buff:IsHidden()
+	return false 
+end
+
+function modifier_scathach_pupil_scatha_buff:RemoveOnDeath()
+	return true
+end
+
+function modifier_scathach_pupil_scatha_buff:IsDebuff()
+	return false 
+end
+
+
+
+function modifier_scathach_pupil_scatha_buff:DeclareFunctions()
+	return { MODIFIER_PROPERTY_TOTALDAMAGEOUTGOING_PERCENTAGE, }
+end
+
+
+function modifier_scathach_pupil_scatha_buff:GetModifierTotalDamageOutgoing_Percentage()
+	return 10
+end
+
+
+ 

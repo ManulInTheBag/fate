@@ -3,7 +3,7 @@ LinkLuaModifier("modifier_scathach_sa_stacks", "abilities/scathach/scathach_gae_
 LinkLuaModifier("modifier_scathach_sa_cd", "abilities/scathach/scathach_gae_bolg_spawn", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_scat_gae_bolg_replicas", "abilities/scathach/scathach_gae_bolg_spawn", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_scat_gae_bolg_replicas_movement_controller", "abilities/scathach/scathach_gae_bolg_spawn", LUA_MODIFIER_MOTION_BOTH)
-LinkLuaModifier("modifier_stachach_gae_bolg_curse", "abilities/scathach/scathach_gae_bolg.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_stachach_gae_bolg_curse", "abilities/scathach/scathach_gae_bolg", LUA_MODIFIER_MOTION_NONE)
 function scathach_gae_bolg_spawn:OnUpgrade()
 	local caster = self:GetCaster()
     

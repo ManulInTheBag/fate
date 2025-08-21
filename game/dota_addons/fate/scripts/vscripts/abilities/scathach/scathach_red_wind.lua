@@ -1,6 +1,7 @@
-scathach_red_wind = class({})
 LinkLuaModifier("modifier_scathach_combo_window", "abilities/scathach/scathach_red_wind", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_stachach_gae_bolg_curse", "abilities/scathach/scathach_gae_bolg.lua", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_stachach_gae_bolg_curse", "abilities/scathach/scathach_gae_bolg", LUA_MODIFIER_MOTION_NONE)
+scathach_red_wind = class({})
+
 function scathach_red_wind:GetCastRange(vLocation, hTarget)
     local range = 1100
 
@@ -14,7 +15,7 @@ function scathach_red_wind:OnSpellStart()
 	local caster = self:GetCaster()
 
 	if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 and caster:GetIntellect() >= 29.1 then
-	    if self:GetAutoCastState() and caster:FindAbilityByName("scathach_gate_of_skye"):IsCooldownReady() and caster:IsAlive() then	    		
+	    if self:GetAutoCastState() and caster:FindAbilityByName("scathach_gate_of_skye"):IsCooldownReady() and caster:IsAlive() then 		
 	    	caster:AddNewModifier(caster, self, "modifier_scathach_combo_window", {duration = 3})
 		end
 	end
@@ -49,7 +50,7 @@ function scathach_red_wind:OnSpellStart()
 	{
 		Ability = self,
         EffectName = nil,
-        iMoveSpeed = 1500,
+        iMoveSpeed =  charge_distance*2,
         vSpawnOrigin = caster:GetOrigin(),
         fDistance = distance,
         fStartRadius = 150,
@@ -159,6 +160,7 @@ function modifier_scathach_combo_window:IsDebuff() return false end
 function modifier_scathach_combo_window:OnCreated()
 	if IsServer() then
 		local caster = self:GetParent()
+			print("3")
 		if caster:GetAbilityByIndex(3):GetName() == "scathach_pinning_thorn" then	    		
 			caster:SwapAbilities("scathach_gate_of_skye", "scathach_pinning_thorn", true, false)	
 		end
