@@ -156,7 +156,7 @@ function diarmuid_new_combo:OnProjectileHit(target, location, tData )
     Timers:CreateTimer(0.033,function()
         ProjectileManager:DestroyLinearProjectile(caster.diar_combo_projectile )
     end)
-
+	self:ActivateCombo(target)
     return true
 end
 
@@ -278,7 +278,7 @@ function modifier_diar_combo_sequence_controller:OnIntervalThink()
 		nStacks = math.ceil(healthDiff/10)
 		if self.target:GetHealth() > 0 and self.target:IsAlive() and self.hCaster:IsAlive() and nStacks > 1 then
 			--target:RemoveModifierByName("modifier_gae_buidhe") 
-			self.target:AddNewModifier(self.hCaster, self.hAbility, "modifier_gae_buidhe", { Stacks = currentStack + nStacks, Duration = 70})
+			self.target:AddNewModifier(self.hCaster, self.hAbility, "modifier_gae_buidhe", { Stacks = currentStack + nStacks, Duration = 25})
 		end
 
 		self.target:EmitSound("diar_new_combo_attack_3")
@@ -308,7 +308,7 @@ function modifier_diar_combo_sequence_controller:OnIntervalThink()
 			nStacks = math.ceil(healthDiff/10)
 			if v:GetHealth() > 0 and v:IsAlive() and self.hCaster:IsAlive() and nStacks > 1 then
 				--target:RemoveModifierByName("modifier_gae_buidhe") 
-				v:AddNewModifier(self.hCaster, self.hAbility, "modifier_gae_buidhe", { Stacks = currentStack + nStacks, Duration = 70})
+				v:AddNewModifier(self.hCaster, self.hAbility, "modifier_gae_buidhe", { Stacks = currentStack + nStacks, Duration = 25})
 			end
         end
 		local knockback = { should_stun = false,

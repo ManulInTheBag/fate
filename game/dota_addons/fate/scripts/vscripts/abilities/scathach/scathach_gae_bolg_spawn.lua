@@ -228,7 +228,7 @@ function modifier_scat_gae_bolg_replicas:OnStackCountChanged(stackCount)
 end
 function modifier_scat_gae_bolg_replicas:ShootGaeBolg(targetpos)
 
-	print(self:GetStackCount())
+	self:GetCaster():EmitSound("scathach_sumon_7")
 	if IsServer() then 
 		local random = self:GetStackCount()
 		self.gb_list[random]:FindModifierByName("modifier_scat_gae_bolg_replicas_movement_controller"):ShootIntoDirection(targetpos)

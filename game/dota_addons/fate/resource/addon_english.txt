@@ -4883,7 +4883,7 @@
 
 
         "DOTA_Tooltip_Ability_diarmuid_new_combo"					"Combo: Rampant Warrior"
-        "DOTA_Tooltip_Ability_diarmuid_new_combo_Description"		"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : W-W in 4 seconds, Q in 4 seconds, Q in %recast_timer% seconds</font>\nDiarmuid throws Gae Dearg in the targetted direction, applying all Gae Dearg effects with decreased damage as pure. If Warrior's charge is used on the same enemy in %recast_timer% seconds, on arrival Diarmuid will start slashing them in a small radius with Gae Buidhe, dealing magical damage and reducing their maximum health based on damage dealt.\nDiarmuid will follow enemy on any movement, but cannot act until combo ends.\nMissing Gae Dearg will render ability to go on a lowered cooldown.\nDiarmuid takes 40%% less damage while performing combo."
+        "DOTA_Tooltip_Ability_diarmuid_new_combo_Description"		"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : W-W in 4 seconds, Q in 4 seconds</font>\nDiarmuid throws Gae Dearg in the targetted direction, applying all Gae Dearg effects with decreased damage as pure.\nThen Diarmuid jumps onto the spear, on arrival Diarmuid will start slashing them in a small radius with Gae Buidhe, dealing magical damage and reducing their maximum health based on damage dealt.\nDiarmuid will follow enemy on any movement, but cannot act until combo ends.\nMissing Gae Dearg will render ability to go on a lowered cooldown.\nDiarmuid takes 40%% less damage while performing combo."
         "DOTA_Tooltip_Ability_diarmuid_new_combo_Lore"			""
         "DOTA_Tooltip_Ability_diarmuid_new_combo_damage"		"Gae Dearg damage:"
  		"DOTA_Tooltip_Ability_diarmuid_new_combo_radius"		"Aoe radius:"
@@ -7943,7 +7943,7 @@
 		"DOTA_Tooltip_Ability_lu_bu_god_force_stun_duration"				"LAST HIT STUN DURATION:"
 		
 		"DOTA_Tooltip_Ability_lu_bu_relentless_assault_one"				"<font color='#FFE56E'>Insurmountable Assault: Ground Slam</font>"
-		"DOTA_Tooltip_Ability_lu_bu_relentless_assault_one_Description"				"Cast Point: <font color='#FFFFF9'>0.6</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Lu Bu slams the ground, inflicting <font color='#05CAFF'>magical damage</font>, <font color='#FF3399'>slowing</font> and <font color='#FF3399'>disarming</font> nearby enemies."
+		"DOTA_Tooltip_Ability_lu_bu_relentless_assault_one_Description"				"Cast Point: <font color='#FFFFF9'>0.3</font>s    |    <font color='#29EE32'>Refreshable</font><br><br>Lu Bu slams the ground, inflicting <font color='#05CAFF'>magical damage</font>, <font color='#FF3399'>slowing</font> and <font color='#FF3399'>disarming</font> nearby enemies."
 		"DOTA_Tooltip_Ability_lu_bu_relentless_assault_one_Lore"				"The earth shakes, revealing itself to be your grave."
 		"DOTA_Tooltip_Ability_lu_bu_relentless_assault_one_shock_radius"				"RADIUS:"
 		"DOTA_Tooltip_Ability_lu_bu_relentless_assault_one_damage"				"DAMAGE:"
