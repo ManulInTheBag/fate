@@ -2143,10 +2143,10 @@
 		"DOTA_Tooltip_modifier_protection_of_faith_proc_cd_Description"		"Protection of Faith is unavailable"
 		
 		"DOTA_Tooltip_modifier_protection_of_faith_proc"					"Protection of Faith"
-		"DOTA_Tooltip_modifier_protection_of_faith_proc_Description"		"Immune to magic"		
+		"DOTA_Tooltip_modifier_protection_of_faith_proc_Description"		"Increased magic resistance"		
 			
 		"DOTA_Tooltip_modifier_protection_of_faith"							"Protection of Faith"
-		"DOTA_Tooltip_modifier_protection_of_faith_Description"				"Becomes immune to magic if health falls dangerously low."
+		"DOTA_Tooltip_modifier_protection_of_faith_Description"				"Gains huge magic resistance if health falls dangerously low."
 		
 		"DOTA_Tooltip_modifier_transfusion_bloodpower"						"Bloodpower"
 		"DOTA_Tooltip_modifier_transfusion_bloodpower_Description"			""		
@@ -6191,11 +6191,12 @@
         "DOTA_Tooltip_Ability_tamamo_subterranean_grasp_Note0"			"Grants vision of the area for delay + duration." 
  
         "DOTA_Tooltip_Ability_tamamo_mantra"     "Mantra"
-        "DOTA_Tooltip_ability_tamamo_mantra_Description" "Surrounds target with several mana-infused orbs. Whenever target receives damage, one orb is destroyed and the damage taken is reduced if target is an ally, or increased if it is an enemy.\n<font color='#ffa500'>Fire</font>: each orb deals damage around the target.\n<font color='#42aaff'>Ice</font>: each orb heals allies around the target.\n<font color='#50c878'>Wind</font>: each orb burns mana from enemies around the target.\n<font color='#7442c8'>Void</font>: each orb deals damage in area scaling with enemies missing health."
+        "DOTA_Tooltip_ability_tamamo_mantra_Description" "Surrounds target with several mana-infused orbs. Whenever target receives damage, one orb is destroyed and the damage taken is reduced if target is an ally, or increased if it is an enemy\nDamage modification is increased based on Tamamo's <font color='#1E90FF'>intellect</font>.\n<font color='#ffa500'>Fire</font>: each orb deals damage around the target.\n<font color='#42aaff'>Ice</font>: each orb heals allies around the target.\n<font color='#50c878'>Wind</font>: each orb burns mana from enemies around the target.\n<font color='#7442c8'>Void</font>: each orb deals damage in area scaling with enemies missing health."
         "DOTA_Tooltip_ability_tamamo_mantra_Lore"      "The orb of harmony conjures thick layer of mana, which resonates with external source of magic or shuts it down at Caster's will."
         "DOTA_Tooltip_Ability_tamamo_mantra_cast_delay"     "CAST DELAY:"
         "DOTA_Tooltip_Ability_tamamo_mantra_damage_modifier"     "DAMAGE MODIFICATION ON ALLY:"
         "DOTA_Tooltip_Ability_tamamo_mantra_damage_modifier_enemy"	"DAMAGE MODIFICATION ON ENEMY:"
+        "DOTA_Tooltip_Ability_tamamo_mantra_int_to_damage_mod"     "DAMAGE MODIFICATION PER INT:"
         "DOTA_Tooltip_Ability_tamamo_mantra_orb_amount"     "NUMBER OF ORBS:"
         "DOTA_Tooltip_Ability_tamamo_mantra_duration"     "DURATION:"
         "DOTA_Tooltip_Ability_tamamo_mantra_ally_radius"  "Ally radius:"
@@ -7253,7 +7254,7 @@
 		"DOTA_Tooltip_ability_vlad_attribute_innocent_monster_lifesteal__TT"						"%LIFESTEAL PERCENTAGE:"
 		
 		"DOTA_Tooltip_ability_vlad_attribute_protection_of_faith" 									"Attribute: Protection of Faith"
-		"DOTA_Tooltip_ability_vlad_attribute_protection_of_faith_Description"						"Allows Vlad to become immune to magic for a moment after his health drops critically low.\nLowers Battle Continuation’s HP condition activation threshold and additionally using Battle Continuation heals Lancer over time.\nPassively increases movement speed."
+		"DOTA_Tooltip_ability_vlad_attribute_protection_of_faith_Description"						"Allows Vlad to get 80%% increase for magic resistance for a moment after his health drops critically low.\nLowers Battle Continuation’s HP condition activation threshold and additionally using Battle Continuation heals Lancer over time.\nPassively increases movement speed."
 		"DOTA_Tooltip_ability_vlad_attribute_protection_of_faith_Note0"								"Applies a strong dispel when triggered."
 		"DOTA_Tooltip_ability_vlad_attribute_protection_of_faith_bonus_ms"							"BONUS MOVEMENT SPEED:"
 		"DOTA_Tooltip_ability_vlad_attribute_protection_of_faith_pof_condition"						"HEALTH ACTIVATION THRESHOLD:"
@@ -8225,7 +8226,7 @@
 		"DOTA_Tooltip_ability_karna_combo_Note0"					"Enemies hit by beam and explosion takes damage in 2 instance totalling to explosion damage."
 
         "DOTA_Tooltip_ability_karna_armor"							"<font color='#ff9900'>Kavacha and Kundala</font>"
-        "DOTA_Tooltip_ability_karna_armor_Description"			"Delay: <font color='#FFFFF9'>0.5</font>s    |    <font color='#A72E28'>Unrefreshable</font><br><br><font color='#FFFAFA'>Passive:</font>Karna passively has replenishable <font color='#ff9900'>armor</font>, which protects him from any damage, scaling from Karna's level. Armor counts resistances.<br>While <font color='#ff9900'>armor</font> persists, Karna gains additional resistances.<br>Armor starts recharging once Karna is not taking any damage for set amount of time\nKarna always starts the round in <font color='#ff9900'>armor</font>.\n<font color='#FFFAFA'>Active:</font>Karna restores 50^^ of his shield and then explodes his <font color='#ff9900'>armor</font>, dealing <font color='#58ACFA'>magical</font> damage based on armor block left, <font color='#FF3399'>stunning</font> and knockbacking all enemies hit.\nWhen Karna changes stances, he replenishes mana for himself.\nHealing, overcapping Karna's MAX health will be converted to barrier.\nUsing E seal fully replenishes shield."
+        "DOTA_Tooltip_ability_karna_armor_Description"			"Delay: <font color='#FFFFF9'>0.5</font>s    |    <font color='#A72E28'>Unrefreshable</font><br><br><font color='#FFFAFA'>Passive:</font>Karna passively has replenishable <font color='#ff9900'>armor</font>, which protects him from any damage, scaling from Karna's level. Armor counts resistances.<br>While <font color='#ff9900'>armor</font> persists, Karna gains additional resistances.<br>Armor starts recharging once Karna is not taking any damage for set amount of time\nKarna always starts the round in <font color='#ff9900'>armor</font>.\n<font color='#FFFAFA'>Active:</font>Karna restores 50%% of his shield and then explodes his <font color='#ff9900'>armor</font>, dealing <font color='#58ACFA'>magical</font> damage based on armor block left, <font color='#FF3399'>stunning</font> and knockbacking all enemies hit.\nWhen Karna changes stances, he replenishes mana for himself.\nHealing, overcapping Karna's MAX health will be converted to barrier.\nUsing E seal fully replenishes shield."
         "DOTA_Tooltip_ability_karna_armor_armor_base"								"Shield:"
         "DOTA_Tooltip_ability_karna_armor_armor_per_level"							"Shield per level:"
         "DOTA_Tooltip_ability_karna_armor_bonus_armor"								"Bonus armor:"
@@ -10010,7 +10011,7 @@
 		"DOTA_Tooltip_ability_scathach_primeval_rune_attribute_gait_three_damage"	"LEGION'S BITE DAMAGE PER AGI:"
 
 		"DOTA_Tooltip_Ability_scathach_branches_of_tonelico_attribute"				"<font color='#FFE56E'>Branches of Tonelico</font>"
-		"DOTA_Tooltip_ability_scathach_branches_of_tonelico_attribute_Description"	"Upgrades <font color='#FFE56E'>Gae Bolg Alternative -  Summon</font>, adding additional <font color='#05CAFF'>damage</font>, based on Scathach's <font color='#2CE300'>AGI</font>.\nNow if Scathach succeeds to hit enemy with this ability 4 times in no longer than %sa_time% seconds between hits, she will deal additional %sa_dmg% <font color='#05CAFF'>damage</font> in %sa_radius% radius and <font color='#FF3399'>stun</font> all enemies hit for %sa_stun_duration% seconds.\nThis effect has unrefreshable cooldown of  %sa_cd% seconds.\n\nUpgrades <font color='#FFE56E'>Gae Bolg Alternative - Barbed Spear that Pierces with Death</font>, adding <font color='#7F00FF'>healing reduction tier 2</font> for %healres_duration% seconds and converting damage from <font color='#C437B6'>Gae Bolg curse</font> to <font color='#D1A951'>pure</font>."
+		"DOTA_Tooltip_ability_scathach_branches_of_tonelico_attribute_Description"	"Upgrades <font color='#FFE56E'>Gae Bolg Alternative -  Summon</font>, adding additional <font color='#05CAFF'>damage</font>, based on Scathach's <font color='#2CE300'>AGI</font>.\nNow if Scathach succeeds to hit enemy with this ability 3 times in no longer than %sa_time% seconds between hits, she will deal additional %sa_dmg% <font color='#05CAFF'>damage</font> in %sa_radius% radius and <font color='#FF3399'>stun</font> all enemies hit for %sa_stun_duration% seconds.\nThis effect has unrefreshable cooldown of  %sa_cd% seconds.\n\nUpgrades <font color='#FFE56E'>Gae Bolg Alternative - Barbed Spear that Pierces with Death</font>, adding <font color='#7F00FF'>healing reduction tier 2</font> for %healres_duration% seconds and converting damage from <font color='#C437B6'>Gae Bolg curse</font> to <font color='#D1A951'>pure</font>."
 		//"DOTA_Tooltip_ability_scathach_branches_of_tonelico_attribute_gae_bolg_jump_damage"			"GAE BOLG JUMP DAMAGE :"
 		"DOTA_Tooltip_ability_scathach_branches_of_tonelico_attribute_agi_scaling"			"AGI TO DAMAGE:"
 		"DOTA_Tooltip_ability_scathach_branches_of_tonelico_attribute_sa_cd"			"PROCK CD:"
@@ -10027,10 +10028,10 @@
 		"DOTA_Tooltip_ability_scathach_wisdom_of_dun_scaith_duration"			"LINKEN DURATION :"
 
 		"DOTA_Tooltip_Ability_scathach_pinning_thorn_attribute"				"<font color='#FFE56E'>Improve Pinning God Killer Thorns</font>"
-		"DOTA_Tooltip_ability_scathach_pinning_thorn_attribute_Description"	"Upgrades <font color='#FFE56E'>Pinning God Killer Thorns</font>\n\nAdds additional base <font color='#05CAFF'>damage</font> to <font color='#FFE56E'>Pinning God Killer Thorns</font>." 
+		"DOTA_Tooltip_ability_scathach_pinning_thorn_attribute_Description"	"Upgrades <font color='#FFE56E'>Pinning God Killer Thorns</font>\n\nAdds additional base <font color='#05CAFF'>damage</font> to <font color='#FFE56E'>Pinning God Killer Thorns</font> and bonus damage based on <font color='#2CE300'>AGI</font>." 
 		"DOTA_Tooltip_ability_scathach_pinning_thorn_attribute_base_damage"			"BASE DAMAGE:"
 		"DOTA_Tooltip_ability_scathach_pinning_thorn_attribute_explosion_damage"			"EXPLOSION DAMAGE:"
-		//"DOTA_Tooltip_ability_scathach_pinning_thorn_attribute_agility_ratio"			"ADDITIONAL DAMAGE PER AGILITY:"
+		"DOTA_Tooltip_ability_scathach_pinning_thorn_attribute_agility_ratio"			"ADDITIONAL DAMAGE PER AGILITY:"
 		//"DOTA_Tooltip_ability_scathach_pinning_thorn_attribute_gae_bolg_agi"			"ADDITIONAL GAE BOLG DAMAGE PER AGILITY:"
 
 		"DOTA_Tooltip_Ability_scathach_gate_of_skye"				"<font color='#FFE56E'>Combo: Gate of Skye</font>"

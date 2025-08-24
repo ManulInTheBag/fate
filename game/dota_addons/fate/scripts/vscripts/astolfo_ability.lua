@@ -321,7 +321,6 @@ function OnHornThink(keys)
 	local caster = keys.caster
 	local ability = keys.ability
 	local slowRadius = keys.Radius
-	if caster.bIsSanityAcquired then slowRadius = 3500 end
 	local damageRadius = keys.DamageRadius
 	local silenceRadius = keys.SilenceRadius
 	local damage = keys.Damage

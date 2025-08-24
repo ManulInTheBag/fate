@@ -198,6 +198,7 @@ function modifier_scathach_pupil_int_quest:OnCreated()
 end
 
 function modifier_scathach_pupil_int_quest:OnSpentMana(args)
+	if args.unit ~= self:GetParent() then return end
 	self.mana_spent = self.mana_spent + args.ability:GetManaCost(args.ability:GetLevel()) 
 	self:SetStackCount(100 * self.mana_spent / self.mana_spent_request)
 	--print(self.mana_spent)

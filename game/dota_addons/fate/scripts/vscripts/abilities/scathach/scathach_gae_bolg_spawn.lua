@@ -258,7 +258,7 @@ function modifier_scat_gae_bolg_replicas_movement_controller:OnCreated(hui)
 	self.height = hui.height1
 	self.dtTotal = 0
 	self.parent.state = 0
-	self.speed = 3000
+	self.speed = 4000
 	self.ability = self:GetAbility()
 	self.particleIndex = hui.particleIndex
 	self.parentOldPos = Vector(0,0,0)
@@ -266,7 +266,7 @@ function modifier_scat_gae_bolg_replicas_movement_controller:OnCreated(hui)
 	if self.casterToFollow:HasModifier("modifier_scathach_branches_of_tonelico_attribute") then
 		self.damage = self.damage + self.casterToFollow:GetAgility() * self.ability:GetSpecialValueFor("agi_scaling")
 	end
-	self.hit_radius = 100
+	self.hit_radius = 150
 	self.height_addi = RandomInt(-50, 50)
 	self.HittedTargets = {}
 	self.target_vector_jopa = Vector(0,0,0)
@@ -338,10 +338,10 @@ function modifier_scat_gae_bolg_replicas_movement_controller:UpdateHorizontalMot
 		local pos = self.parent:GetAbsOrigin()
 		local targetpos = self.parentOldPos
 
-		local distance =  (pos - targetpos):Length()
-		local speed =distance*10 + 10
+		local distance =  (pos - targetpos):Length2D()
+		local speed =distance*10 + 50
 
-		if distance <= 10 then
+		if distance <= 30 then
 			self.parent.state = 1
 		end
 		
@@ -420,7 +420,7 @@ end
 
 function modifier_scathach_sa_stacks:OnCreated(args)
 	if IsServer() then
-	   self:SetStackCount(math.min(args.Stacks or 1, 4))
+	   self:SetStackCount(math.min(args.Stacks or 1, 3))
 
 		-- local hero_armor = self:GetParent():GetPhysicalArmorValue(false) + ((self.Reduction or 0) * -1)
 		-- self.Reduction = (1 * self:GetStackCount()) * -1
@@ -433,7 +433,7 @@ function modifier_scathach_sa_stacks:OnRefresh(args)
 	if IsServer() then
 		args.Stacks = self:GetStackCount() + 1
 		self:OnCreated(args)
-		if (self:GetStackCount()) >= 4 then
+		if (self:GetStackCount()) >= 3 then
 			self:Destroy()
 			self:GetAbility():PerformSaAttack(self:GetParent())
 		end

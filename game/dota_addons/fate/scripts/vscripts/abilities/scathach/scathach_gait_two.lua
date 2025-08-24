@@ -24,7 +24,7 @@ function scathach_gait_two:OnSpellStart()
 		damage_big = damage_big + caster:GetAgility() * agi_scale
 	end
 	
-	StartAnimation(caster, {duration = 2.5, activity=ACT_DOTA_CAST_ABILITY_3, rate = 1.0})
+	StartAnimation(caster, {duration = 1.3, activity=ACT_DOTA_CAST_ABILITY_3, rate = 2})
 	
 	caster:EmitSound("scathach_gait_2")
 
@@ -36,7 +36,7 @@ function scathach_gait_two:OnSpellStart()
 		{ duration = duration } -- kv
 	)
 	
-	Timers:CreateTimer(0.40, function()
+	Timers:CreateTimer(0.3, function()
 		if caster:IsAlive() then
 			self:PlayEffects1( caught, origin:Normalized() )
 			caster:EmitSound("scathach_gait_attack_1")
@@ -58,7 +58,7 @@ function scathach_gait_two:OnSpellStart()
 		end
 	end)
 	
-	Timers:CreateTimer(0.78, function()
+	Timers:CreateTimer(0.56, function()
 		if caster:IsAlive() then
 			self:PlayEffects2( caught, origin:Normalized() )
 			caster:EmitSound("scathach_gait_attack_2")
@@ -80,7 +80,7 @@ function scathach_gait_two:OnSpellStart()
 		end
 	end)
 	
-	Timers:CreateTimer(1.17, function()
+	Timers:CreateTimer(0.84, function()
 		if caster:IsAlive() then
 			self:PlayEffects2( caught, origin:Normalized() )
 			caster:EmitSound("scathach_gait_attack_3")
@@ -103,7 +103,7 @@ function scathach_gait_two:OnSpellStart()
 		end
 	end)
 	
-	Timers:CreateTimer(1.56, function()
+	Timers:CreateTimer(1.08, function()
 		if caster:IsAlive() then
 			self:PlayEffects1( caught, origin:Normalized() )
 			caster:EmitSound("scathach_gait_attack_1")

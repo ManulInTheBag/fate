@@ -50,11 +50,11 @@ function scathach_red_wind:OnSpellStart()
 	{
 		Ability = self,
         EffectName = nil,
-        iMoveSpeed =  charge_distance*2,
+        iMoveSpeed =  charge_distance*2.5,
         vSpawnOrigin = caster:GetOrigin(),
-        fDistance = distance,
-        fStartRadius = 150,
-        fEndRadius = 150,
+        fDistance = distance*1.2,
+        fStartRadius = 200,
+        fEndRadius = 200,
         Source = caster,
         bHasFrontalCone = true,
         bReplaceExisting = true,
@@ -72,7 +72,7 @@ function scathach_red_wind:OnSpellStart()
 	caster:EmitSound("caster_PhantomLancer.Doppelwalk") 
 	local sin = Physics:Unit(caster)
 	caster:SetPhysicsFriction(0)
-	caster:SetPhysicsVelocity(caster:GetForwardVector() * charge_distance*2)
+	caster:SetPhysicsVelocity(caster:GetForwardVector() * charge_distance*2.5)
 	caster:SetNavCollisionType(PHYSICS_NAV_BOUNCE)
 	
 	
