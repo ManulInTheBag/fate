@@ -90,6 +90,15 @@
 						weight = 1.0
 						ignore_rotation = false
 					},
+					{
+						_class = "Attachment"
+						name = "attach_attack"
+						parent_bone = "pepega35"
+						relative_origin = [ -155.448685, -0.19416, -0.785049 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
 				]
 			},
 			{
@@ -516,6 +525,7 @@
 											attachment_type = "point_follow"
 											attachment_point_cp1 = "attach_spear_start"
 											attachment_type_cp1 = "point_follow"
+											aggregate = false
 										}
 									},
 									{
@@ -548,6 +558,7 @@
 											attachment_type = "point_follow"
 											attachment_point_cp1 = "attach_right_eye"
 											attachment_type_cp1 = "point_follow"
+											aggregate = false
 										}
 									},
 									{
@@ -568,6 +579,7 @@
 											attachment_type = "point_follow"
 											attachment_point_cp1 = "attach_left_eye"
 											attachment_type_cp1 = "point_follow"
+											aggregate = false
 										}
 									},
 									{
@@ -653,6 +665,7 @@
 											attachment_type = "point_follow"
 											attachment_point_cp1 = "attach_spear_start"
 											attachment_type_cp1 = "point_follow"
+											aggregate = false
 										}
 									},
 									{
@@ -959,6 +972,7 @@
 											attachment_type = "point_follow"
 											attachment_point_cp1 = "attach_spear_start"
 											attachment_type_cp1 = "point_follow"
+											aggregate = false
 										}
 									},
 									{
@@ -991,6 +1005,7 @@
 											attachment_type = "point_follow"
 											attachment_point_cp1 = "attach_right_eye"
 											attachment_type_cp1 = "point_follow"
+											aggregate = false
 										}
 									},
 									{
@@ -1011,6 +1026,7 @@
 											attachment_type = "point_follow"
 											attachment_point_cp1 = "attach_left_eye"
 											attachment_type_cp1 = "point_follow"
+											aggregate = false
 										}
 									},
 									{
@@ -1103,6 +1119,7 @@
 											attachment_type = "point_follow"
 											attachment_point_cp1 = "attach_spear_start"
 											attachment_type_cp1 = "point_follow"
+											aggregate = false
 										}
 									},
 									{
@@ -1135,6 +1152,7 @@
 											attachment_type = "point_follow"
 											attachment_point_cp1 = "attach_right_eye"
 											attachment_type_cp1 = "point_follow"
+											aggregate = false
 										}
 									},
 									{
@@ -1155,6 +1173,7 @@
 											attachment_type = "point_follow"
 											attachment_point_cp1 = "attach_left_eye"
 											attachment_type_cp1 = "point_follow"
+											aggregate = false
 										}
 									},
 									{
@@ -1379,6 +1398,7 @@
 											attachment_type = "point_follow"
 											attachment_point_cp1 = "attach_spear_start"
 											attachment_type_cp1 = "point_follow"
+											aggregate = false
 										}
 									},
 									{
@@ -1411,6 +1431,7 @@
 											attachment_type = "point_follow"
 											attachment_point_cp1 = "attach_right_eye"
 											attachment_type_cp1 = "point_follow"
+											aggregate = false
 										}
 									},
 									{
@@ -1431,6 +1452,7 @@
 											attachment_type = "point_follow"
 											attachment_point_cp1 = "attach_left_eye"
 											attachment_type_cp1 = "point_follow"
+											aggregate = false
 										}
 									},
 									{
@@ -1468,6 +1490,107 @@
 								reverse = false
 								additional_anim_files = [  ]
 							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_jump_combo"
+								children = 
+								[
+									{
+										_class = "AnimEvent"
+										event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+										event_frame = 12
+										event_end_frame = -1
+										event_keys = 
+										{
+											name = resource:"particles/cu_chulain/gae_bolg_proj_outline_2.vpcf"
+											detach_from_owner = false
+											always_run = false
+											stop_on_seq_change = false
+											stop_immediately = false
+											use_layer_sequence = false
+											tags = null
+											attachment_point = "attach_spear_end"
+											attachment_type = "point_follow"
+											attachment_point_cp1 = "attach_spear_start"
+											attachment_type_cp1 = "point_follow"
+											aggregate = false
+										}
+									},
+									{
+										_class = "AnimEvent"
+										event_class = "AE_CL_STOP_PARTICLE_EFFECT"
+										event_frame = 35
+										event_end_frame = -1
+										event_keys = 
+										{
+											name = resource:"particles/cu_chulain/gae_bolg_proj_outline_2.vpcf"
+											stop_instantly = true
+											play_endcap = false
+										}
+									},
+								]
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_CAST_ICE_WALL"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.2
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/cu_chulain/cu_chulain.fbx"
+								import_bone_scales = false
+								start_frame = 553
+								end_frame = 613
+								framerate = 30.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
+							{
+								_class = "AnimFile"
+								name = "lancer2_jump_back1"
+								children = 
+								[
+									{
+										_class = "ExtractMotion"
+										extract_tx = true
+										extract_ty = true
+										extract_tz = true
+										extract_rz = false
+										linear = false
+										quadratic = false
+										extract_initial_offset = false
+										root_bone_name = ""
+										motion_type = "Uniform"
+									},
+								]
+								is_default_idle_anim = false
+								activity_name = "ACT_DOTA_CAST_REFRACTION"
+								activity_weight = 1
+								weight_list_name = ""
+								fade_in_time = 0.0
+								fade_out_time = 0.2
+								looping = false
+								delta = false
+								worldSpace = false
+								hidden = false
+								anim_markup_ordered = false
+								disable_compression = false
+								animgraph_additive = false
+								delete_from_compiled_model = false
+								source_filename = "models/cu_chulain/cu_chulain.fbx"
+								import_bone_scales = false
+								start_frame = 384
+								end_frame = 420
+								framerate = 60.0
+								reverse = false
+								additional_anim_files = [  ]
+							},
 						]
 					},
 				]
@@ -1501,6 +1624,7 @@
 						]
 						hidden_in_tools = false
 						non_bodygroup_single_choice = false
+						suppress_missing_warnings = false
 					},
 				]
 			},

@@ -72,7 +72,7 @@ function diarmuid_new_combo:OnSpellStart()
         bReplaceExisting = false,
         bDeleteOnHit = true,
         iUnitTargetTeam = DOTA_UNIT_TARGET_TEAM_ENEMY,
-        iUnitTargetFlags = 0,
+        iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES ,
         iUnitTargetType = DOTA_UNIT_TARGET_HERO + DOTA_UNIT_TARGET_BASIC,
         flExpireTime = GameRules:GetGameTime() + 0.1,
         --iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_HITLOCATION,
@@ -299,7 +299,7 @@ function modifier_diar_combo_sequence_controller:OnIntervalThink()
 		local petals = ParticleManager:CreateParticle("particles/zlodemon/diar_combo/petals.vpcf", PATTACH_POINT_FOLLOW, self.target)
 		ParticleManager:SetParticleControl(petals, 0, self.target:GetAbsOrigin())
 		ParticleManager:ReleaseParticleIndex(petals)
-		local targets = FindUnitsInRadius(self.hCaster:GetTeamNumber(), self.hCaster:GetOrigin(), nil, self.radius , DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
+		local targets = FindUnitsInRadius(self.hCaster:GetTeamNumber(), self.hCaster:GetOrigin(), nil, self.radius , DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
         for k,v in pairs(targets) do
 			local currentStack = v:GetModifierStackCount("modifier_gae_buidhe", self.hAbility)
 			local healthDiff = v:GetHealth()

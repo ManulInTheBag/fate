@@ -175,41 +175,44 @@ function cu_chulain_gae_bolg_jump:OnGaeBolgHit(position, projectile)
 			ParticleManager:DestroyParticle( crack, false )
 			ParticleManager:DestroyParticle( fire, false )
 			ParticleManager:DestroyParticle( explodeFx1, false )
+			ParticleManager:ReleaseParticleIndex( explodeFx1 )
+			ParticleManager:ReleaseParticleIndex( fire )
+			ParticleManager:ReleaseParticleIndex( crack )
 		end)
 	end)
 
 	Timers:CreateTimer(0.75, function()
 		local hCaster = self:GetCaster()
-		self.Dummy = CreateUnitByName("dummy_unit_ground", targetPoint, false, nil, nil, hCaster:GetTeamNumber())
-		self.Dummy:FindAbilityByName("dummy_unit_passive_no_fly"):SetLevel(1)
+		hCaster.gbDummy = CreateUnitByName("dummy_unit_ground", targetPoint, false, nil, nil, hCaster:GetTeamNumber())
+		hCaster.gbDummy:FindAbilityByName("dummy_unit_passive_no_fly"):SetLevel(1)
 
 	    local tProjectile = {
 	        Target = hCaster,
-	        Source = self.Dummy,
+	        Source = hCaster.gbDummy,
 	        Ability = self,
 	        level = 0,
 	        EffectName = "particles/custom/lancer/soaring/spear.vpcf",
 	        iMoveSpeed = 3000,
-	        vSourceLoc = self.Dummy:GetAbsOrigin(),
+	        vSourceLoc = hCaster.gbDummy:GetAbsOrigin(),
 	        bDodgeable = false,
 	        flExpireTime = GameRules:GetGameTime() + 10,
 	        iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_ATTACK_1
 	    }
 
-	    self.iProjectile = FATE_ProjectileManager:CreateTrackingProjectile(tProjectile)
+	    hCaster.gbProjectile = FATE_ProjectileManager:CreateTrackingProjectile(tProjectile)
 	end)	
 end
 
 function cu_chulain_gae_bolg_jump:OnProjectileHit_ExtraData(hTarget, vLocation, table)
 	if hTarget == nil then return end
-	caster = self:GetCaster()
+	local caster = self:GetCaster()
 	caster:SetBodygroup(0,0)
 	hTarget:RemoveModifierByName("modifier_self_disarm")
-	self.Dummy:RemoveSelf()
+	caster.gbDummy:RemoveSelf()
 	StartAnimation(caster, {duration=0.5, activity=ACT_DOTA_ALCHEMIST_CHEMICAL_RAGE_START, rate=2})
 	caster:EmitSound("cu_chulain_gae_bolg_retrieve")
 	Timers:CreateTimer(0.033,function()
-		ProjectileManager:DestroyLinearProjectile(self.iProjectile)
+		ProjectileManager:DestroyLinearProjectile(caster.gbProjectile)
    end)
 	return true
 end

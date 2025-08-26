@@ -67,7 +67,7 @@ function scathach_gae_bolg_spawn:PerformSaAttack(unit)
 							ParticleManager:DestroyParticle( self.spears[self.counter2], false )
 							ParticleManager:ReleaseParticleIndex( self.spears[self.counter2] )
 							local vector_point = Vector(self.vectors_point[self.counter2][1],self.vectors_point[self.counter2][2],self.vectors_point[self.counter2][3]) * scale_vector_1
-							local targets = FindUnitsInRadius(caster:GetTeam(), targetPoint  , nil, 100, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
+							local targets = FindUnitsInRadius(caster:GetTeam(), targetPoint  , nil, 200, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false) 
 							for k,v in pairs(targets) do
 								if not v:HasModifier("modifier_protection_from_arrows_active") then 
 									DoDamage(caster, v, damage , DAMAGE_TYPE_MAGICAL, 0, self, false)

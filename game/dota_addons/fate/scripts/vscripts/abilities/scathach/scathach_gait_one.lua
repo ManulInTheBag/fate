@@ -105,7 +105,7 @@ function scathach_gait_one:OnSpellStart()
 				local angle_diff = math.abs( AngleDiff( cast_angle, enemy_angle ) )
 				if angle_diff<=angle then
 				-- attack
-				DoDamage(caster, enemy, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+				DoDamage(caster, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
 				enemy:AddNewModifier(caster, self, "modifier_stachach_gae_bolg_curse", {duration = 10})
 				enemy:AddNewModifier(caster, self, "modifier_rooted", {duration = self:GetSpecialValueFor("root_duration")})
 				-- if enemy:GetMaxMana() > 0 then
