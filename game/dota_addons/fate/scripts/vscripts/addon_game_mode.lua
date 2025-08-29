@@ -453,6 +453,8 @@ function Precache( context )
     PrecacheResource( "particle", "particles/custom/system/damage_popup_pure.vpcf", context)
     PrecacheResource( "particle", "particles/custom/system/gold_popup.vpcf", context)
 
+     PrecacheResource("particle", "particles/revoked_test.vpcf", context)
+
     PrecacheResource("particle", "particles/custom/gilles/gilles_summon_jellyfish.vpcf", context)
     PrecacheResource("particle", "particles/custom/tamamo/frigid_heaven.vpcf", context)
     PrecacheResource("particle", "particles/custom/tamamo/gust_heaven_static.vpcf", context)

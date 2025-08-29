@@ -3,7 +3,9 @@ cu_new_combo = class({})
 LinkLuaModifier("modifier_self_disarm", "abilities/cu_chulain/modifiers/modifier_self_disarm", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_cu_combo_self", "abilities/cu_chulain/cu_new_combo", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_wesen_cooldown", "abilities/cu_chulain/modifiers/modifier_wesen_cooldown", LUA_MODIFIER_MOTION_NONE)
-
+LinkLuaModifier("modifier_heal_reduction_tier_3_uncleansable", "modifiers/modifier_heal_reduction", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_cu_chulain_combo", "abilities/cu_chulain/cu_new_combo", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_cu_chulain_combo_weak", "abilities/cu_chulain/cu_new_combo", LUA_MODIFIER_MOTION_NONE)
 function cu_new_combo:CastFilterResultTarget(hTarget)
 	local caster = self:GetCaster()
 	local filter = UnitFilter(hTarget, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, caster:GetTeamNumber())
@@ -32,7 +34,7 @@ end
 function cu_new_combo:OnSpellStart()
 	local hCaster = self:GetCaster()
 	local hTarget = self:GetCursorTarget()
-	local ability = hCaster:FindAbilityByName("cu_chulain_gae_bolg")
+	local ability = hCaster:FindAbilityByName("cu_chulain_gae_bolg_jump")
 		vLookatTarget = -(hCaster:GetAbsOrigin() - hTarget:GetAbsOrigin()):Normalized()
 		vLookatTarget.z = 0
 		self.ForwardVector = vLookatTarget
@@ -63,7 +65,7 @@ function cu_new_combo:OnSpellStart()
 
 	--giveUnitDataDrivenModifier(hCaster, hCaster, "pause_sealdisabled", 2.6)
 
-	ability:StartCooldown(ability:GetCooldown(ability:GetLevel()))
+	ability:StartCooldown(ability:GetCooldown(-1)* hCaster:GetCooldownReduction())
 
 	hCaster:AddNewModifier(hCaster, self, "modifier_self_disarm", { Duration = 3 })
 	hCaster:AddNewModifier(hCaster, self, "modifier_wesen_cooldown", { Duration = self:GetCooldown(1) })
@@ -80,6 +82,12 @@ function cu_new_combo:OnSpellStart()
 	local vLookatTarget = -(hCaster:GetAbsOrigin() - hTarget:GetAbsOrigin()):Normalized()
 	vLookatTarget.z = 0
 
+	local caster_name =  PlayerResource:GetPlayerName(hCaster:GetPlayerID())
+	local target_name =  PlayerResource:GetPlayerName(hTarget:GetPlayerID())
+
+
+	
+	GameRules:SendCustomMessage("<font color='#0083E3'>".. caster_name .." :</font> I shall claim your heart <font color='#FF0000'>".. target_name .."</font>, your heart is mine!", 0, 0)
 	self.ForwardVector =vLookatTarget
 	hCaster:SetForwardVector(self.ForwardVector)
 	hCaster:FaceTowards(hTarget:GetAbsOrigin())
@@ -157,7 +165,7 @@ function cu_new_combo:OnSpellStart()
 		hCaster:SetForwardVector(self.ForwardVector)
 		hCaster:FaceTowards(hTarget:GetAbsOrigin())
 		hCaster:SetBodygroup(0,1)
-		if (hCaster.HeartSeekerImproved or hCaster:IsAlive()) and hTarget:IsAlive() then
+		if (hCaster.HeartSeekerImproved or hCaster:IsAlive())  then
 			self.target = hTarget 
 			local tProjectile = {
 		        Target = hTarget,
@@ -166,13 +174,14 @@ function cu_new_combo:OnSpellStart()
 		        level = 0,
 		        EffectName = "particles/cu_chulain/combo_gb_targetted.vpcf",
 		        iMoveSpeed = 5000,
+				iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_DEAD + DOTA_UNIT_TARGET_FLAG_INVULNERABLE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES ,
 		        vSourceLoc = hCaster:GetAbsOrigin(),
 		        bDodgeable = false,
 		        flExpireTime = GameRules:GetGameTime() + 10,
 		        iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_ATTACK_1
 		    }
 
-		    FATE_ProjectileManager:CreateTrackingProjectile(tProjectile)
+		    ProjectileManager:CreateTrackingProjectile(tProjectile)
 
 		end
 	end)   
@@ -182,7 +191,7 @@ end
 function cu_new_combo:OnProjectileThink_ExtraData(vLocation, table)
 	local caster = self:GetCaster()
 
-	vLocation = GetGroundPosition(vLocation, nil)
+	--vLocation = GetGroundPosition(vLocation, nil)
 
 	--caster:SetAbsOrigin(vLocation)
 	--caster:SetForwardVector(self.target:GetAbsOrigin() - caster:GetAbsOrigin())
@@ -190,7 +199,6 @@ end
 
 function cu_new_combo:OnProjectileHit_ExtraData(hTarget, vLocation, table)
 	if hTarget == nil then return end
-
 	local hCaster = self:GetCaster()
 	local damage = self:GetSpecialValueFor("damage")
 	local radius = self:GetSpecialValueFor("radius")
@@ -225,8 +233,12 @@ function cu_new_combo:OnProjectileHit_ExtraData(hTarget, vLocation, table)
 	Timers:CreateTimer( 1, function()
 		EndAnimation(hCaster)
 	end)
-
-	DoDamage(hCaster, hTarget, damage, DAMAGE_TYPE_PURE, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self, false)
+	 if hTarget:IsAlive() then 
+		hTarget:AddNewModifier(hCaster, self, "modifier_heal_reduction_tier_3_uncleansable", {Duration = self:GetSpecialValueFor("target_debuffs_duration_strong")})
+		hTarget:AddNewModifier(hCaster, self, "modifier_cu_chulain_combo", {Duration = self:GetSpecialValueFor("target_debuffs_duration_strong")})
+		hTarget:AddNewModifier(hCaster, self, "modifier_cu_chulain_combo_weak", {Duration = self:GetSpecialValueFor("target_debuffs_duration_weak")})
+		DoDamage(hCaster, hTarget, damage, DAMAGE_TYPE_PURE, DOTA_DAMAGE_FLAG_BYPASSES_INVULNERABILITY, self, false)
+	 end
 	local targets = FindUnitsInRadius(hCaster:GetTeam(), hTarget:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		for k,v in pairs(targets) do
 	        DoDamage(hCaster, v, damage_aoe, DAMAGE_TYPE_MAGICAL, 0, self, false)
@@ -272,12 +284,13 @@ function cu_new_combo:OnProjectileHit_ExtraData(hTarget, vLocation, table)
 			EffectName = "particles/custom/lancer/soaring/spear.vpcf",
 			iMoveSpeed = 3000,
 			vSourceLoc = hCaster.gbDummy:GetAbsOrigin(),
+			iUnitTargetFlags = DOTA_UNIT_TARGET_FLAG_DEAD + DOTA_UNIT_TARGET_FLAG_INVULNERABLE + DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES ,
 			bDodgeable = false,
 			flExpireTime = GameRules:GetGameTime() + 10,
 			iSourceAttachment = DOTA_PROJECTILE_ATTACHMENT_ATTACK_1
 		}
 
-		hCaster.gbProjectile = FATE_ProjectileManager:CreateTrackingProjectile(tProjectile)
+		hCaster.gbProjectile = ProjectileManager:CreateTrackingProjectile(tProjectile)
 
 
 	
@@ -347,3 +360,73 @@ function modifier_cu_combo_self:CheckState()
     return state
     
 end
+
+
+modifier_cu_chulain_combo = class({})
+
+function modifier_cu_chulain_combo:OnCreated()
+	self.speedEffect = self:GetAbility():GetSpecialValueFor("slow_powerful")
+end
+
+
+function modifier_cu_chulain_combo:DeclareFunctions()
+	return {  MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE
+				}
+end
+
+
+
+function modifier_cu_chulain_combo:GetModifierMoveSpeedBonus_Percentage()
+	return -self.speedEffect 
+end
+
+
+function modifier_cu_chulain_combo:GetAttributes()
+	return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
+end
+
+ 
+ 
+function modifier_cu_chulain_combo:GetStatusEffectName()
+    return "particles/cu_chulain/cu_combo_status.vpcf"
+end
+
+ 
+
+function modifier_cu_chulain_combo:IsHidden() return false end
+function modifier_cu_chulain_combo:RemoveOnDeath() return true end
+function modifier_cu_chulain_combo:IsDebuff() return true end
+ 
+ 
+modifier_cu_chulain_combo_weak = class({})
+
+function modifier_cu_chulain_combo_weak:OnCreated()
+	self.speedEffect = self:GetAbility():GetSpecialValueFor("slow_weak")
+end
+
+
+function modifier_cu_chulain_combo_weak:DeclareFunctions()
+	return {  MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE, MODIFIER_PROPERTY_PROVIDES_FOW_POSITION
+				}
+end
+
+function modifier_cu_chulain_combo_weak:GetModifierProvidesFOWVision()
+    return 1
+end
+
+function modifier_cu_chulain_combo_weak:GetModifierMoveSpeedBonus_Percentage()
+	return -self.speedEffect 
+end
+
+
+function modifier_cu_chulain_combo_weak:GetAttributes()
+	return MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
+end
+
+ 
+
+function modifier_cu_chulain_combo_weak:IsHidden() return false end
+function modifier_cu_chulain_combo_weak:RemoveOnDeath() return true end
+function modifier_cu_chulain_combo_weak:IsDebuff() return true end
+ 
+ 

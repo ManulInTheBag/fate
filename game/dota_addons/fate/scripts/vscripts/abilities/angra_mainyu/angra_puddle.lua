@@ -169,6 +169,11 @@ function modifier_angra_puddle:OnIntervalThink()
                 
                 if self.caster.PuddleArmy then
                     giveUnitDataDrivenModifier(self.caster, enemy , "revoked", self:GetAbility():GetSpecialValueFor("revoke_duration"))
+                    LoopOverPlayers(function(player, playerID, playerHero)
+					if playerHero == enemy then
+						CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="angra_revoke"})
+						end
+				   end)
                 end
                 enemy:RemoveModifierByName("modifier_puddle_debuff")
             end

@@ -1207,6 +1207,16 @@
 		"DOTA_Tooltip_modifier_heal_reduction_tier_4"                                            "Healres tier 4"
 		"DOTA_Tooltip_modifier_heal_reduction_tier_4_Description"                                "Healing reduced by 80%%"
 
+		"DOTA_Tooltip_modifier_heal_reduction_tier_3_uncleansable"                                            "Heart Break"
+		"DOTA_Tooltip_modifier_heal_reduction_tier_3_uncleansable_Description"                                "Healing reduced by 60%%. Uncleansable"
+
+
+		"DOTA_Tooltip_modifier_cu_chulain_combo"                                            "Heart Break"
+		"DOTA_Tooltip_modifier_cu_chulain_combo_Description"                                "Dimensional lock and powerful slow. Uncleansable"
+
+		"DOTA_Tooltip_modifier_cu_chulain_combo_weak"                                            "Heart Break"
+		"DOTA_Tooltip_modifier_cu_chulain_combo_weak_Description"                                "Slow and visible to enemies. Uncleansable"
+
 		"DOTA_Tooltip_modifier_nameless_forest"                                           "Nameless Forest"
 		"DOTA_Tooltip_modifier_nameless_forest_Description"                               ""
 
@@ -2613,15 +2623,16 @@
 		"DOTA_Tooltip_ability_cu_chulain_gae_bolg_jump_range"		"Range:"
 		"DOTA_Tooltip_ability_cu_chulain_gae_bolg_jump_Note0"		"Invulnerability causes Cu Chulainn to not be transported into Reality Marbles as well."
 
-		"DOTA_Tooltip_Ability_cu_chulain_gae_bolg_combo"				"Combo: Wesen Gae Bolg"
-		"DOTA_Tooltip_ability_cu_chulain_gae_bolg_combo_Description"		"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : Third cast W - E in 3 seconds</font>\nCu Chulainn marks the target with curse of Gae Bolg. After a short delay, he rushes towards target to land the undodgeable blow, dealing damage and executing target if it would reduce target's health below threshold based on maximum health of target. Once activated, Cu Chulainn will follow the target no matter how far they run."
+		"DOTA_Tooltip_Ability_cu_new_combo"				"Combo: Wesen Gae Bolg"
+		"DOTA_Tooltip_ability_cu_new_combo_Description"		"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : Second cast W - R in 3 seconds</font>\nCu Chulainn rushes to the enemy.\nAfter a short delay, he jumps into the air, becoming <font color='#ff9900'>invulnerable</font> and soonely after throws his Gae Bolg into the target.\nUpon hit, he deals <font color='#D1A951'>damage</font> to the target and <font color='#58ACFA'>damage</font> in %radius% radius to all enemies near it, <font color='#FF3399'>stunning</font> for %stun_duration% seconds.\nMain target also receaves <font color='#780606'>Hearthbreak</font> effect.\n<font color='#780606'>Hearthbreak</font>: 60%% healing reduction, %slow_powerful_desc%% <font color='#9400D3'>slow</font> and <font color='#9400D3'>dimensional lock</font> (undispellable) for %target_debuffs_duration_strong% seconds, %slow_weak%% <font color='#9400D3'>slow</font> and vision over target for %target_debuffs_duration_weak% seconds."
 		"DOTA_Tooltip_ability_cu_chulain_gae_bolg_combo_Lore"		"The heartseeking spear of Lancer, no matter in what circumstance, claims a heart of adversary."
 		//"DOTA_Tooltip_ability_cu_chulain_gae_bolg_combo_silence_duration"	"SILENCE DURATION:"
-		"DOTA_Tooltip_ability_cu_chulain_gae_bolg_combo_cast_delay"			"DASH DELAY:"
-		"DOTA_Tooltip_ability_cu_chulain_gae_bolg_combo_damage"				"DAMAGE:"
-		"DOTA_Tooltip_ability_cu_chulain_gae_bolg_combo_heartbreak_threshold_percentage"	"%EXECUTION THRESHOLD:"
-		"DOTA_Tooltip_ability_cu_chulain_gae_bolg_combo_Note0"		"Heart Break is considered a forced kill, and bypasses most of revival abilities."
-		"DOTA_Tooltip_ability_cu_chulain_gae_bolg_combo_Note1"		"Pierces B Scroll and ignores most defensive buff."
+		"DOTA_Tooltip_ability_cu_new_combo_cast_delay"			"THROW DELAY:"
+		"DOTA_Tooltip_ability_cu_new_combo_damage"				"TARGET DAMAGE (PURE):"
+		"DOTA_Tooltip_ability_cu_new_combo_damage_aoe"				"AOE DAMAGE (MAGICAL):"
+		//"DOTA_Tooltip_ability_cu_chulain_gae_bolg_combo_heartbreak_threshold_percentage"	"%EXECUTION THRESHOLD:"
+		//"DOTA_Tooltip_ability_cu_chulain_gae_bolg_combo_Note0"		"Heart Break is considered a forced kill, and bypasses most of revival abilities."
+		//"DOTA_Tooltip_ability_cu_chulain_gae_bolg_combo_Note1"		"Pierces B Scroll and ignores most defensive buff."
 
 		"DOTA_Tooltip_Ability_cu_chulain_battle_cont_attribute"				"Attribute: Improved Battle Continuation"
 		"DOTA_Tooltip_ability_cu_chulain_battle_cont_attribute_Description"	"Increases the duration in which Cu Chulainn cannot be killed."
@@ -2647,7 +2658,7 @@
 		"DOTA_Tooltip_ability_cu_chulain_heartseeker_attribute_Lore"			"The heart of his opponent has already been pierced as Cu Chulainn declares. He merely thrust his opponent as an act of formality."
 		"DOTA_Tooltip_ability_cu_chulain_heartseeker_attribute_damage_per_level"		"Damage per level:"
 		"DOTA_Tooltip_ability_cu_chulain_heartseeker_attribute_heartbreak_threshold"	"%Heartbreak Threshold:"
-		"DOTA_Tooltip_ability_cu_chulain_heartseeker_attribute_combo_heartbreak"		"%Combo Heartbreak Threshold:"
+		//"DOTA_Tooltip_ability_cu_chulain_heartseeker_attribute_combo_heartbreak"		"%Combo Heartbreak Threshold:"
 
 		"DOTA_Tooltip_Ability_cu_chulain_celtic_runes_attribute"				"Attribute: Celtic Runes"
 		"DOTA_Tooltip_ability_cu_chulain_celtic_runes_attribute_Description"	"Removes the global cooldown of Rune Magic and significantly reduces the cooldown of every rune within his arsenal."
@@ -6526,11 +6537,11 @@
         "DOTA_Tooltip_Ability_jeanne_luminosite_eternelle_Lore"				""
 
         "DOTA_Tooltip_Ability_jeanne_crimson_saint"				"Combo: La Pucelle - The Crimson Holy Maiden"
-        "DOTA_Tooltip_Ability_jeanne_crimson_saint_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats.</font>\n<font color='#58ACFA'>Combo Sequence : Q self > R in 1 second</font>\n<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>%cast_point%</font>\nJeanne starts a prayer to release her ultimate Noble Phantasm. After a %delay_duration%-second delay she erupts with holy flames, dealing %damage% <font color='#05CAFF'>magical damage</font> to enemies in %radius% radius around her.\nAfter that Jeanne starts to slowly burn herself up, losing %self_damage%%  of her maximum health each second, but dealing %burn_damage% <font color='#05CAFF'>magical damage</font> in %burn_radius% radius each second and burning enemies for %attack_damage%%  of their maximum health as <font color='#05CAFF'>magical damage</font> on her attacks.\nAfter 4 seconds, Jeanne will be able to recast the ability to burn herself with her enemies, <font color='#FFFAFA'>heavily damaging herself</font> and dealing up to %recast_damage% + %recast_hp_damage%%  of her remaining health as <font color='#05CAFF'>magical damage</font> to all enemies in %recast_radius% radius, depending on how far are they from Jeanne.\nCombo is 30 seconds long."
+        "DOTA_Tooltip_Ability_jeanne_crimson_saint_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats.</font>\n<font color='#58ACFA'>Combo Sequence : Q self > R in 1 second</font>\n<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>%cast_point%</font>\nJeanne starts a prayer to release her ultimate Noble Phantasm. After a %delay_duration%-second delay she erupts with holy flames, dealing %damage% <font color='#05CAFF'>magical damage</font> to enemies in %radius% radius around her.\nAfter that Jeanne starts to slowly burn herself up, losing %self_damage%%  of her maximum health each second, but dealing %burn_damage% <font color='#05CAFF'>magical damage</font> in %burn_radius% radius each second and burning enemies for %attack_damage%%  of their maximum health as <font color='#05CAFF'>magical damage</font> on her attacks.\nAfter 4 seconds, Jeanne will be able to recast the ability to burn herself with her enemies, <font color='#FFFAFA'>heavily damaging herself</font> and dealing up to %recast_damage% + %recast_hp_damage%%  of her remaining health as <font color='#05CAFF'>magical damage</font> to all enemies in %recast_radius% radius, depending on how far are they from Jeanne and <font color='#FF3399'>stunning</font> them for %recast_stun_duration% seconds.\nCombo is 30 seconds long."
         "DOTA_Tooltip_Ability_jeanne_crimson_saint_Note0"		"Maximum damage reduction from distance is 50%%."
 		
 		"DOTA_Tooltip_Ability_jeanne_crimson_saint_la_pucelle"				"Combo: La Pucelle - Final Act"
-        "DOTA_Tooltip_Ability_jeanne_crimson_saint_la_pucelle_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>%cast_point%</font>\nAfter a short prayer, Jeanne burns herself with her enemies, <font color='#FFFAFA'>heavily damaging herself</font> and dealing up to %recast_damage% + %recast_hp_damage%%  of her remaining health as <font color='#05CAFF'>magical damage</font> to all enemies in %recast_radius% radius, depending on how far are they from Jeanne."
+        "DOTA_Tooltip_Ability_jeanne_crimson_saint_la_pucelle_Description"	"<font color='#FFFAFA'>Cast point</font>: <font color='#7FFF00'>%cast_point%</font>\nAfter a short prayer, Jeanne burns herself with her enemies, <font color='#FFFAFA'>heavily damaging herself</font> and dealing up to %recast_damage% + %recast_hp_damage%%  of her remaining health as <font color='#05CAFF'>magical damage</font> to all enemies in %recast_radius% radius, depending on how far are they from Jeanne and <font color='#FF3399'>stunning</font> them for %stun_duration% seconds."
 
 		"DOTA_Tooltip_Ability_jeanne_flag"		"Luminosite Eternelle"
         "DOTA_Tooltip_Ability_jeanne_flag_Description"	"Ruler plants her flag into the ground, creating a sacred zone for next 5 seconds that absorbs all damage for allied heroes and cleanses all cleansable debuffs with each tick. Damage accumulated within the flag requires Jeanne to spend mana to keep the flag untorn. If Jeanne runs out of mana, the barrier will disappear.\nJeanne herself needs to be fully concentrated on her Noble Phantasm, so she can't act without dropping the barrier.\nJeanne is invulnerable during the effect."

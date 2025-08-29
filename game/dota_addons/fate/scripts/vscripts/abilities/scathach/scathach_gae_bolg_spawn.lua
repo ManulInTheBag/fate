@@ -40,7 +40,7 @@ function scathach_gae_bolg_spawn:PerformSaAttack(unit)
 
 		local delay = 0.0
 		local scale_vector_1 = 0.35
-		local spawn_delay = 0.1
+		local spawn_delay = 0.05
 		local count = 4
 		local damage = self:GetSpecialValueFor("sa_dmg")
 		self.counter = 0

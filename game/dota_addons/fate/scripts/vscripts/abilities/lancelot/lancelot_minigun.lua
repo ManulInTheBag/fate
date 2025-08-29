@@ -42,7 +42,7 @@ end
 
 function lancelot_minigun:OnSpellStart()
     local hCaster   = self:GetCaster()
-
+    self.isRefreshed = 0
     local modifier = hCaster:AddNewModifier(hCaster, self, "modifier_lancelot_minigun", {duration = 5})
 
 end
@@ -307,8 +307,9 @@ function modifier_lancelot_minigun:OnDestroy()
         if not (self.hCaster:GetAbilityByIndex(1):GetName() == "lancelot_parry") then
             self.hCaster:SwapAbilities("lancelot_parry", "lancelot_dash", true, false)
         end
-
-        self.hCaster:FindAbilityByName("lancelot_minigun"):StartCooldown(self.full_timer*self.hAbility:GetSpecialValueFor("cooldown_per_second"))
+        if self:GetAbility().isRefreshed == 0 then
+             self.hCaster:FindAbilityByName("lancelot_minigun"):StartCooldown(self.full_timer*self.hAbility:GetSpecialValueFor("cooldown_per_second")*  self.hCaster:GetCooldownReduction())
+        end
 
         StopSoundOn(self.sEmitSound, self.hParent)
     end

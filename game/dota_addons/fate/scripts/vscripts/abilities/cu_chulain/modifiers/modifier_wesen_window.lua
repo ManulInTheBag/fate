@@ -3,8 +3,8 @@ modifier_wesen_window = class({})
 if IsServer() then
 	function modifier_wesen_window:OnCreated(args)
 		local caster = self:GetParent()
-		if caster:GetAbilityByIndex(2):GetName() == "cu_chulain_gae_bolg" then
-			caster:SwapAbilities("cu_chulain_gae_bolg", "cu_chulain_gae_bolg_combo", false, true)
+		if caster:GetAbilityByIndex(5):GetName() == "cu_chulain_gae_bolg_jump" then
+			caster:SwapAbilities("cu_chulain_gae_bolg_jump", "cu_new_combo", false, true)
 		end
 	end
 
@@ -14,8 +14,8 @@ if IsServer() then
 
 	function modifier_wesen_window:OnDestroy()	
 		local caster = self:GetParent()	
-		if caster:GetAbilityByIndex(2):GetName() == "cu_chulain_gae_bolg_combo" then
-			caster:SwapAbilities("cu_chulain_gae_bolg", "cu_chulain_gae_bolg_combo", true, false)
+		if caster:GetAbilityByIndex(5):GetName() == "cu_new_combo" then
+			caster:SwapAbilities("cu_chulain_gae_bolg_jump", "cu_new_combo", true, false)
 		end
 	end
 end

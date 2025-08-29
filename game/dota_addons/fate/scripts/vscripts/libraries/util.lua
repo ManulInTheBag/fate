@@ -246,6 +246,7 @@ locks = {
     "modifier_altera_dash",
     "modifier_robin_yew_bow_combo_lock",
     "modifier_robin_tools_its_a_trap",
+    "modifier_cu_chulain_combo",
 }
 
 goesthruB = {
@@ -694,6 +695,7 @@ CannotReset = {
     "scathach_wisdom_of_dun_scaith",
     "scathach_pinning_thorn",
     "scathach_gate_of_skye",
+    "cu_new_combo",
 }
 
 

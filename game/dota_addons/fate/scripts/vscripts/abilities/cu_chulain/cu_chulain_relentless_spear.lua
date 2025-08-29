@@ -38,8 +38,8 @@ function cu_chulain_relentless_spear:CheckCombo()
 	local caster = self:GetCaster()
 
 	if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 and caster:GetIntellect() >= 29.1 then
-		if caster:FindAbilityByName("cu_chulain_gae_bolg"):IsCooldownReady() 
-		and caster:FindAbilityByName("cu_chulain_gae_bolg_combo"):IsCooldownReady() then
+		if caster:FindAbilityByName("cu_chulain_gae_bolg_jump"):IsCooldownReady() 
+		and caster:FindAbilityByName("cu_new_combo"):IsCooldownReady() then
 			caster:AddNewModifier(caster, self, "modifier_wesen_window", { Duration = 4 })
 		end
 	end
@@ -169,6 +169,7 @@ function cu_chulain_relentless_spear:TigerStrike1()
 	local target  = self:GetCursorPosition()
 	if self:CheckSequence() == 2 then
 		caster:EmitSound("cu_dash_w_2")
+		self:CheckCombo()
 	else
 		caster:EmitSound("cu_dash_w_1")
 		self.isRefreshed = 0
@@ -258,7 +259,7 @@ function cu_chulain_relentless_spear:TigerStrike3()
 	end
 
 	
-	self:CheckCombo()
+
 
 end
 

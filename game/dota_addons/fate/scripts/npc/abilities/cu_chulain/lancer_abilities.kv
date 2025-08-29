@@ -23,12 +23,13 @@
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/cu_chulain/cu_new_combo"
 		"MaxLevel"						"1"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET | DOTA_ABILITY_BEHAVIOR_HIDDEN"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
 		"AbilityUnitDamageType"			"DAMAGE_TYPE_PURE"
 		"AbilityTextureName"			"custom/lancer_5th_wesen_gae_bolg"
 		"AbilityCastAnimation" 			"ACT_DOTA_CAST_ALACRITY"
+		"AbilityUnitTargetFlags"		"DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
 		"AnimationPlaybackRate" 		"0.5"
 		
 		"precache"
@@ -36,7 +37,8 @@
 			"particle"		"particles/cu_chulain/combo_gb_targetted.vpcf"
 			"particle"		"particles/cu_chulain/combo_gb_targetted_explosion.vpcf"
 			"particle"		"particles/cu_chulain/combo_gb_targetted_jumo.vpcf"
-
+			"particle"		"particles/healres/hpbar_healres_t3_uncleansable.vpcf"
+			"particle"		"particles/cu_chulain/cu_combo_status.vpcf"
 		}
 		
 		// Casting
@@ -62,8 +64,10 @@
             "radius" "550"
             "damage_aoe" "1000"
             "target_debuffs_duration_strong" "3"
-            "target_debuffs_duration_weak" "10"
-
+            "target_debuffs_duration_weak" "7"
+            "slow_powerful" "40"
+            "slow_powerful_desc" "70" // 40+ 30
+            "slow_weak" "30"
         }
 	}	
 	"cu_chulain_rune_of_frost"
