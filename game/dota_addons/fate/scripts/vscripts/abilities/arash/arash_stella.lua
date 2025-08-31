@@ -173,7 +173,7 @@ function modifier_arash_stella_stacks:IsDebuff()                                
 function modifier_arash_stella_stacks:IsPurgable()                                                           return false end
 function modifier_arash_stella_stacks:IsPurgeException()                                                     return false end
 function modifier_arash_stella_stacks:RemoveOnDeath()                                                        return false end
-function modifier_arash_stella_stacks:IsHidden()															  return false end
+function modifier_arash_stella_stacks:IsHidden()															  return true end
 
  
  

@@ -249,7 +249,7 @@ function OnHornStart(keys)
 	end
 	caster.AstolfoSimpleFix = false
 	caster.rape_count = 1
-	caster:AddNewModifier(caster, self, "modifier_protection_from_arrows_active", { Duration =  4.1})
+	caster:AddNewModifier(caster, self, "modifier_protection_from_arrows_active", { Duration =  1})
 	AstolfoCheckCombo(caster, ability)
 	caster.currentHornManaCost = ability:GetManaCost(ability:GetLevel())
 	ability:ApplyDataDrivenModifier(caster, caster, "modifier_la_black_luna", {})

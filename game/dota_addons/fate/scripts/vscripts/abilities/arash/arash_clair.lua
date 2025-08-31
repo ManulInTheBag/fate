@@ -6,7 +6,24 @@ function arash_clair:GetAOEradius()
 	return self:GetSpecialValueFor("radius")
 end
 
+function arash_clair:CastFilterResultLocation(hLocation)
+    local caster = self:GetCaster()
+    if IsServer() and not IsInSameRealm(caster:GetAbsOrigin(), hLocation) then
+        return UF_FAIL_CUSTOM
+    elseif IsServer() and caster:FindModifierByName("modifier_arash_star_arrow") then
+    	return UF_FAIL_CUSTOM
+    else
+        return UF_SUCESS
+    end
+end
 
+function arash_clair:GetCustomCastErrorLocation(hLocation)
+	local caster = self:GetCaster()
+	if caster:FindModifierByName("modifier_arash_star_arrow") then
+		return "#Star arrow active"
+	end
+    return "#Must be in same realm"
+end
 
 
 function arash_clair:OnSpellStart()

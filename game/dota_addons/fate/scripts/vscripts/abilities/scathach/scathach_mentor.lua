@@ -65,7 +65,7 @@ end
 function modifier_scathach_pupil:OnIntervalThink()
 	if self.isFinished ~= 1 then return end
 	local distance = (self:GetCaster():GetAbsOrigin() - self:GetParent():GetAbsOrigin()):Length2D()
-	if distance <= 1000 then 
+	if distance <= 1200 then 
 		self:GetParent():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_scathach_pupil_buff", {duration = 0.75})
 		self:GetCaster():AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_scathach_pupil_scatha_buff", {duration = 0.75})
 	end
@@ -193,7 +193,7 @@ modifier_scathach_pupil_int_quest = class({})
 
 function modifier_scathach_pupil_int_quest:OnCreated()
 	self.mana_spent = 0
-	self.mana_spent_request = 30000
+	self.mana_spent_request = 25000
 	self:SetStackCount(0)
 end
 

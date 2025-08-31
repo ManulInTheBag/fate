@@ -85,16 +85,20 @@ function lancelot_rosa:OnSpellStart()
 						if hCaster.ImproveKnightOfOwner then
 							hCaster:PerformAttack(v, true, true, true, true, false, false, true)
 						end
-						local knockback = { should_stun = true,
-											knockback_duration = stun_duration,
-											duration = stun_duration,
-											knockback_distance = -math.min((v:GetAbsOrigin()-move_pos):Length2D(),300),
-											knockback_height = 0,
-											center_x = move_pos.x,
-											center_y = move_pos.y,
-											center_z = move_pos.z }
-						if( not IsKnockbackImmune(v)) then
-							v:AddNewModifier(hCaster, self, "modifier_knockback", knockback)
+						if self:GetAutoCastState() then 
+							local knockback = { should_stun = true,
+												knockback_duration = stun_duration,
+												duration = stun_duration,
+												knockback_distance = -math.min((v:GetAbsOrigin()-move_pos):Length2D(),300),
+												knockback_height = 0,
+												center_x = move_pos.x,
+												center_y = move_pos.y,
+												center_z = move_pos.z }
+							if( not IsKnockbackImmune(v)) then
+								v:AddNewModifier(hCaster, self, "modifier_knockback", knockback)
+							end
+						else
+							v:AddNewModifier(hCaster, self, "modifier_stunned", {duration = stun_duration})
 						end
 					end
 				end

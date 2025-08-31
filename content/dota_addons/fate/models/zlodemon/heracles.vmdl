@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc39:version{1ceecb0d-4093-4729-ab18-b76886c64cde} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc40:version{da0ab1f8-9722-4910-94b8-10b6a08c0934} -->
 {
 	rootNode = 
 	{
@@ -395,12 +395,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/zlodemon/heracless.fbx"
 						import_bone_scales = false
 						start_frame = 10
 						end_frame = 100
 						framerate = 30.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -418,12 +420,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/zlodemon/heracless.fbx"
 						import_bone_scales = false
 						start_frame = 583
 						end_frame = 605
 						framerate = 30.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -441,12 +445,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/zlodemon/heracless.fbx"
 						import_bone_scales = false
 						start_frame = 754
 						end_frame = 834
 						framerate = 40.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -464,12 +470,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/zlodemon/heracless.fbx"
 						import_bone_scales = false
 						start_frame = 418
 						end_frame = 478
 						framerate = 35.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -487,12 +495,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/zlodemon/heracless.fbx"
 						import_bone_scales = false
 						start_frame = 259
 						end_frame = 299
 						framerate = 30.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -510,12 +520,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/zlodemon/heracless.fbx"
 						import_bone_scales = false
 						start_frame = 364
 						end_frame = 364
 						framerate = 1.0
 						reverse = false
+						additional_anim_files = [  ]
 						anim_hold_list = 
 						[
 							{
@@ -540,12 +552,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/zlodemon/heracless.fbx"
 						import_bone_scales = false
 						start_frame = 311
 						end_frame = 357
 						framerate = 30.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -564,12 +578,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/updated_by_seva_and_hudozhestvenniy_film_spizdili/pepeg/berserker_ceva.fbx"
 						import_bone_scales = false
 						start_frame = 308
 						end_frame = 440
 						framerate = 40.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -587,12 +603,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/zlodemon/heracless.fbx"
 						import_bone_scales = false
 						start_frame = 610
 						end_frame = 645
 						framerate = 30.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -610,12 +628,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/zlodemon/heracless.fbx"
 						import_bone_scales = false
 						start_frame = 101
 						end_frame = 125
 						framerate = 30.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -633,12 +653,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/zlodemon/heracless.fbx"
 						import_bone_scales = false
 						start_frame = 177
 						end_frame = 215
 						framerate = 17.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -656,12 +678,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/zlodemon/heracless.fbx"
 						import_bone_scales = false
 						start_frame = 219
 						end_frame = 259
 						framerate = 17.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -679,12 +703,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/zlodemon/heracless.fbx"
 						import_bone_scales = false
 						start_frame = 916
 						end_frame = 936
 						framerate = 15.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -702,12 +728,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/zlodemon/heracless.fbx"
 						import_bone_scales = false
 						start_frame = 937
 						end_frame = 957
 						framerate = 15.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -725,12 +753,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/zlodemon/heracless.fbx"
 						import_bone_scales = false
 						start_frame = 685
 						end_frame = 725
 						framerate = 135.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -749,12 +779,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/zlodemon/heracless.fbx"
 						import_bone_scales = false
 						start_frame = 0
 						end_frame = 957
 						framerate = 30.0
 						reverse = false
+						additional_anim_files = [  ]
 					},
 					{
 						_class = "AnimFile"
@@ -772,12 +804,14 @@
 						anim_markup_ordered = false
 						disable_compression = false
 						animgraph_additive = false
+						delete_from_compiled_model = false
 						source_filename = "models/zlodemon/heracless.fbx"
 						import_bone_scales = false
 						start_frame = 841
 						end_frame = 900
 						framerate = 115.0
 						reverse = false
+						additional_anim_files = [  ]
 						anim_hold_list = 
 						[
 							{
@@ -785,6 +819,32 @@
 								frame_count = 10
 							},
 						]
+					},
+					{
+						_class = "AnimFile"
+						name = "pepeg_idle1"
+						disabled = true
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_IDLE"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = true
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/zlodemon/heracless.fbx"
+						import_bone_scales = false
+						start_frame = 10
+						end_frame = 957
+						framerate = 30.0
+						reverse = false
+						additional_anim_files = [  ]
 					},
 				]
 				default_root_bone_name = ""
