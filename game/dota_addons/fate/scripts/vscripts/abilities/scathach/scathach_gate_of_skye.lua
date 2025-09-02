@@ -144,16 +144,17 @@ function modifier_scathach_gate_of_skye_dummy_active:OnIntervalThink()
 	                                            0, 
 	                                            FIND_ANY_ORDER, 
 	                                            false)
-	for _,enemy in ipairs(enemies) do
-		if self.timer2 <= 0 then
+	if self.timer2 <= 0 then
 			self.timer2 = 0.1
+		for _,enemy in ipairs(enemies) do
 			DoDamage(self.caster, enemy, self.damage/10, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
+		
+			if (not enemy:HasModifier("modifier_scathach_gate_of_skye_execute")) and ((enemy:GetHealth()/enemy:GetMaxHealth()*100) < self.execute_threshold) then
+				enemy:AddNewModifier(self.caster, self.ability, "modifier_scathach_gate_of_skye_execute", {duration = self.execute_duration, center_unit = self.parent:entindex()})
+			end
+			enemy:AddNewModifier(self.caster, self.ability, "modifier_heal_reduction_tier_2", {duration = FrameTime()*3})
+			enemy:AddNewModifier(self.caster, self.ability, "modifier_scathach_gate_of_skye_slow", {duration = FrameTime()*3})
 		end
-		if (not enemy:HasModifier("modifier_scathach_gate_of_skye_execute")) and ((enemy:GetHealth()/enemy:GetMaxHealth()*100) < self.execute_threshold) then
-			enemy:AddNewModifier(self.caster, self.ability, "modifier_scathach_gate_of_skye_execute", {duration = self.execute_duration, center_unit = self.parent:entindex()})
-		end
-		enemy:AddNewModifier(self.caster, self.ability, "modifier_heal_reduction_tier_2", {duration = FrameTime()*3})
-		enemy:AddNewModifier(self.caster, self.ability, "modifier_scathach_gate_of_skye_slow", {duration = FrameTime()*3})
 	end
 end
 
