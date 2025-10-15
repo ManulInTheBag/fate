@@ -102,7 +102,12 @@ function modifier_tsubame_mai_omnislash:TsubameMai(initialtarget)
 
 			--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
 		else
-			CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="FA.Owarida"})
+			if caster:HasModifier("modifier_hero_selection_skin") then
+				CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="patrick_owarida"})
+			else
+				CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="FA.Owarida"})
+			end
+
 		end
 
 	end)
@@ -139,7 +144,12 @@ function modifier_tsubame_mai_omnislash:TsubameMai(initialtarget)
 		
 					--caster:EmitSound("Hero_LegionCommander.PressTheAttack")
 				else
-					CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="FA.TGReady"})
+					if caster:HasModifier("modifier_hero_selection_skin") then
+						CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="patrick_hiken"})
+					else
+						CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="FA.TGReady"})
+					end
+					
 				end
 		
 			end)

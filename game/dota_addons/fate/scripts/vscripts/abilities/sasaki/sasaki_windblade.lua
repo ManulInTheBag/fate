@@ -26,7 +26,12 @@ function sasaki_windblade:OnSpellStart()
 		--	caster:FindAbilityByName("sasaki_tsubame_gaeshi"):EndCooldown()
 	--	end
 	--else
-		caster:EmitSound("Sasaki_Windblade_1")
+		
+		if caster:HasModifier("modifier_hero_selection_skin") then
+			caster:EmitSound("patrick_windblade_1")
+		else
+			caster:EmitSound("Sasaki_Windblade_1")
+		end
 		LoopOverPlayers(function(player, playerID, playerHero)
 			--print("looping through " .. playerHero:GetName())
 			if playerHero.zlodemon == true then

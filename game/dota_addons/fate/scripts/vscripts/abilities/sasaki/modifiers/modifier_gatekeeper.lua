@@ -127,7 +127,12 @@ function modifier_gatekeeper:RemoveParticlesAndDummy()
 		end
 
 		if math.abs((caster:GetAbsOrigin() - self.Anchor):Length2D()) > self.LeashDistance then
-			caster:EmitSound("Sasaki_Gatekeeper_1")
+			
+			if caster:HasModifier("modifier_hero_selection_skin") then
+				caster:EmitSound("patrick_gatekeeper_1")
+			else
+				caster:EmitSound("Sasaki_Gatekeeper_1")
+			end
 			LoopOverPlayers(function(player, playerID, playerHero)
 				--print("looping through " .. playerHero:GetName())
 				if playerHero.zlodemon == true then

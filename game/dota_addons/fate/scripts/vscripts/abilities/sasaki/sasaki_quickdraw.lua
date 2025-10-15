@@ -35,7 +35,12 @@ function sasaki_quickdraw:OnSpellStart()
 
 	--if caster:GetMana() > 99 then
 		caster:AddNewModifier(caster, self, "modifier_quickdraw_empowered_tracker", { Duration = 2 })
-		caster:EmitSound("Sasaki_Quickdraw_" .. math.random(1,2))
+		
+		if caster:HasModifier("modifier_hero_selection_skin") then
+			caster:EmitSound("patrick_quickdraw_" .. math.random(1,2))
+		else
+			caster:EmitSound("Sasaki_Quickdraw_" .. math.random(1,2))
+		end
 		if caster.IsGanryuAcquired then
 			caster:FindAbilityByName("sasaki_tsubame_gaeshi"):EndCooldown()
 		end

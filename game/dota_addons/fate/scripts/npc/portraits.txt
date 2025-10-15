@@ -2718,6 +2718,34 @@
 		}
 	}
 
+	"models/zlodemon/sasaki_skin/sasaki_skin_patrick.vmdl"
+	{
+		"PortraitLightPosition"		"112.73 -41.13 0.53"
+		"PortraitLightAngles"		"180.54 149.30 0.00"
+		"PortraitLightFOV"		"1"
+		"PortraitLightDistance"		"133"
+		"PortraitLightColor"		"185 216 254"
+		"PortraitShadowColor"		"69 84 56"
+		"PortraitShadowScale"		"5.000000"
+		"PortraitAmbientColor"		"192 0 56"
+		"PortraitAmbientScale"		"1.000000"
+		"PortraitSpecularColor"		"251 74 84"
+		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/patrick_fon.vmat"
+		"PortraitLightScale"		"1.950000"
+		"PortraitGroundShadowScale"		"1.500000"
+		"PortraitAmbientDirection"		"-31.670 34.840 37.060"
+		"PortraitAnimationActivity"		"ACT_DOTA_IDLE"
+		"cameras"
+		{
+			"default"
+			{
+				"PortraitPosition"		"300.17 -60.29 120.69"
+				"PortraitAngles"		"355.89 166.83 0.00"
+				"PortraitFOV"		"16"
+			}
+		}
+	}
+
 	"models/rider/rider.vmdl"
 	{
 		"PortraitLightPosition"		"53.39 26.85 164.37"
