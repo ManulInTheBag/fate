@@ -81,6 +81,8 @@
 			"particle"		"particles/demon_king_nobunaga/extermination_cast_sword_glow.vpcf"
 			"particle"		"particles/demon_king_nobunaga/extermination_cast_sword_glow_red.vpcf"
 			"particle"		"particles/muramasa/muramasa_rush_burn.vpcf"
+			"particle"		"particles/maou/w_hit/maou_w_hit.vpcf"
+			"particle"		"particles/maou_w_slash/maou_w_slash.vpcf"
 		}
 		"AbilityValues"
 		{
@@ -93,6 +95,87 @@
 			"burn_duration"			"2.5"
 			"dash_delay"				"0.25"
 			"dash_speed"				"2500"
+		}
+	}
+
+
+	//=======================================
+	// Demon king nobunaga - Extermination (W)
+	//=======================================
+	"demon_king_blink"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/demon_king_nobunaga/demon_king_blink"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT|DOTA_ABILITY_BEHAVIOR_IMMEDIATE|DOTA_ABILITY_BEHAVIOR_AOE|DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL" 
+		"AbilityTextureName"			"custom/demon_king_nobunaga/demon_king_blink"
+
+		"AbilityCastRange"				"400"
+		"AbilityCooldown"				"18"
+		"AbilityManaCost"				"400"
+		"precache"
+		{
+			"particle"		"particles/maou/maou_invis.vpcf"
+
+			"particle"		"particles/maou_blink/maou_blink_main.vpcf"
+			"particle"		"particles/maou_blink/maou_blink_main_ground.vpcf"
+			"particle"		"particles/maou_blink/maou_blink_land.vpcf"
+			"particle"		"particles/maou_blink/maou_burning_hand.vpcf"
+
+		}
+		"AbilityValues"
+		{
+			"damage_total"				"600 750 900 1050 1200"
+			"invis_dur"					"0.5"
+			"range"						"400"
+			"total_duration"						"0.4"
+			"damage_ticks"						"4"
+			"aoe_radius"						"400"
+		}
+	}
+
+
+	//=======================================
+	// Demon king nobunaga - Release (D)
+	//=======================================
+	"demon_king_release"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/demon_king_nobunaga/demon_king_release"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET|DOTA_ABILITY_BEHAVIOR_IMMEDIATE|DOTA_ABILITY_BEHAVIOR_AOE|DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL" 
+		"AbilityTextureName"			"custom/demon_king_nobunaga/demon_king_blink"
+
+		"AbilityCastRange"				"500"
+		"AbilityCooldown"				"30"
+		"AbilityManaCost"				"0"
+		"precache"
+		{
+			"particle"		"particles/maou/maou_invis.vpcf"
+
+			"particle"		"particles/maou_blink/maou_blink_main.vpcf"
+			"particle"		"particles/maou_blink/maou_blink_main_ground.vpcf"
+			"particle"		"particles/maou_blink/maou_blink_land.vpcf"
+			"particle"		"particles/maou_blink/maou_burning_hand.vpcf"
+
+		}
+		"AbilityValues"
+		{
+			"damage_total_max"				"1500"
+			"aoe_radius"						"500"
+			"total_duration"						"1"
+			"damage_ticks"						"5"
+			"damage_per_stack"						"200"
 		}
 	}
 

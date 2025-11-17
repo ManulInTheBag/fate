@@ -849,6 +849,7 @@
 									attachment_type = "point_follow"
 									attachment_point_cp1 = null
 									attachment_type_cp1 = "point_follow"
+									aggregate = false
 								}
 							},
 							{
@@ -994,13 +995,61 @@
 					{
 						_class = "AnimFile"
 						name = "sky_attack"
+						children = 
+						[
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 0
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/maou_blink/maou_burning_hand.vpcf"
+									detach_from_owner = false
+									always_run = false
+									stop_on_seq_change = true
+									stop_immediately = true
+									use_layer_sequence = false
+									tags = null
+									attachment_point = "sword_base"
+									attachment_type = "point_follow"
+									attachment_point_cp1 = null
+									attachment_type_cp1 = "point_follow"
+									aggregate = false
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_STOP_PARTICLE_EFFECT"
+								event_frame = 25
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/maou_blink/maou_burning_hand.vpcf"
+									stop_instantly = true
+									play_endcap = false
+								}
+							},
+							{
+								_class = "ExtractMotion"
+								extract_tx = true
+								extract_ty = true
+								extract_tz = false
+								extract_rz = false
+								linear = false
+								quadratic = false
+								extract_initial_offset = false
+								root_bone_name = ""
+								motion_type = "Uniform"
+							},
+						]
 						is_default_idle_anim = false
-						activity_name = ""
+						activity_name = "ACT_DOTA_CAST_DEAFENING_BLAST"
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
 						fade_out_time = 0.2
-						looping = true
+						looping = false
 						delta = false
 						worldSpace = false
 						hidden = false
@@ -1012,7 +1061,7 @@
 						import_bone_scales = false
 						start_frame = 666
 						end_frame = 726
-						framerate = -1.0
+						framerate = 35.0
 						reverse = false
 						additional_anim_files = [  ]
 					},
@@ -1094,6 +1143,54 @@
 					{
 						_class = "AnimFile"
 						name = "slow_strike"
+						children = 
+						[
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_CREATE_PARTICLE_EFFECT"
+								event_frame = 30
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/maou_w_slash/maou_w_slash.vpcf"
+									detach_from_owner = false
+									always_run = false
+									aggregate = false
+									stop_on_seq_change = true
+									stop_immediately = true
+									use_layer_sequence = false
+									tags = null
+									attachment_point = null
+									attachment_type = "point_follow"
+									attachment_point_cp1 = null
+									attachment_type_cp1 = "point_follow"
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_SV_STOP_PARTICLE_EFFECT"
+								event_frame = 50
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/maou_w_slash/maou_w_slash.vpcf"
+									stop_instantly = true
+									play_endcap = false
+								}
+							},
+							{
+								_class = "AnimEvent"
+								event_class = "AE_CL_STOP_PARTICLE_EFFECT"
+								event_frame = 45
+								event_end_frame = -1
+								event_keys = 
+								{
+									name = resource:"particles/maou_w_slash/maou_w_slash.vpcf"
+									stop_instantly = true
+									play_endcap = false
+								}
+							},
+						]
 						is_default_idle_anim = false
 						activity_name = "ACT_DOTA_CAST_ABILITY_2"
 						activity_weight = 1
@@ -1120,12 +1217,12 @@
 						_class = "AnimFile"
 						name = "energy_release"
 						is_default_idle_anim = false
-						activity_name = ""
+						activity_name = "ACT_DOTA_RAZE_1"
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
 						fade_out_time = 0.2
-						looping = true
+						looping = false
 						delta = false
 						worldSpace = false
 						hidden = false
@@ -1137,7 +1234,7 @@
 						import_bone_scales = false
 						start_frame = 1026
 						end_frame = 1117
-						framerate = -1.0
+						framerate = 60.0
 						reverse = false
 						additional_anim_files = [  ]
 					},

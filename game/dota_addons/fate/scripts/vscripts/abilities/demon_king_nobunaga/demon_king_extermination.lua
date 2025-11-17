@@ -10,12 +10,15 @@ function demon_king_extermination:OnSpellStart()
    giveUnitDataDrivenModifier(caster, target, "locked", self:GetSpecialValueFor("lock_duration"))
    giveUnitDataDrivenModifier(caster, target, "stunned", 0.3)
    target:AddNewModifier(caster, self, "modifier_demon_king_extermination_burn",{duration = self:GetSpecialValueFor("burn_duration") })
+   local damage_fx = ParticleManager:CreateParticle("particles/maou/w_hit/maou_w_hit.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
+   ParticleManager:ReleaseParticleIndex(damage_fx)
 end
 
 function demon_king_extermination:OnAbilityPhaseStart()
    local caster = self:GetCaster()
    StartAnimation(caster, {duration=1, activity=ACT_DOTA_CAST_ABILITY_2, rate=1})
-
+   caster:EmitSound("maou_w_1")
+   caster:EmitSound("maou_w_explosion")
    self.castfx = ParticleManager:CreateParticle("particles/demon_king_nobunaga/extermination_cast_base.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
    ParticleManager:SetParticleControl(self.castfx, 1, caster:GetAbsOrigin()+caster:GetForwardVector()*-4 + caster:GetRightVector()*-3)
    ParticleManager:SetParticleControl(self.castfx, 0, caster:GetAbsOrigin()+caster:GetForwardVector()*-4 + caster:GetRightVector()*-3)
@@ -51,23 +54,43 @@ function demon_king_extermination:OnAbilityPhaseInterrupted()
    local speed = self:GetSpecialValueFor("dash_speed")
    local distance = (caster:GetAbsOrigin()-target:GetAbsOrigin()):Length2D()
    local vector =  -1*(caster:GetAbsOrigin()-target:GetAbsOrigin()):Normalized() 
-   print("WTF")
+   caster:StopSound("maou_w_1")
+   caster:StopSound("maou_w_explosion")
    -----------------------------------------------
    ParticleManager:DestroyParticle(self.castfx, true)
    ParticleManager:ReleaseParticleIndex(self.castfx)
    ParticleManager:DestroyParticle(self.handfx, true)
    ParticleManager:ReleaseParticleIndex(self.handfx)
-
+    vector.z = 0
    -----------------------------------------------
    if(target:IsAlive() and target ~= nil and distance<self:GetSpecialValueFor("dash_distance_max") and caster:IsAlive() and not caster:IsStunned() ) then
-      StartAnimation(caster, {duration=delay, activity=ACT_DOTA_CAST_ABILITY_2_END, rate=1})
+      EndAnimation(caster)
+      StartAnimation(caster, {duration=delay, activity=ACT_DOTA_CAST_ABILITY_2_END, rate=1.5})
       self:StartCooldown(self:GetCooldown(self:GetLevel()))
+      caster:SetForwardVector(vector)
+      caster:FaceTowards(target:GetAbsOrigin())
       caster:Stop()
+      caster:EmitSound("maou_w_2")
+        local knockback1 = { should_stun = false,
+                              knockback_duration = delay,
+                              duration = delay,
+                              knockback_distance = 350,
+                              knockback_height = 0,
+                              center_x = target:GetAbsOrigin().x,
+                              center_y = target:GetAbsOrigin().y,
+                              center_z = target:GetAbsOrigin().z }
+      caster:RemoveModifierByName("modifier_knockback")
+      caster:AddNewModifier(caster, self, "modifier_knockback", knockback1)
       Timers:CreateTimer( delay, function()
-				caster:StopAnimation()
+            caster:EmitSound("maou_w_dash_slash")
+				EndAnimation(caster)
+            vector =  -1*(caster:GetAbsOrigin()-target:GetAbsOrigin()):Normalized() 
             vector.z = 0
+
+            local distance = (caster:GetAbsOrigin()-target:GetAbsOrigin()):Length2D()
             caster:SetForwardVector(vector)
-            local dash_duration =  (distance + 150)/speed
+            caster:FaceTowards(target:GetAbsOrigin())
+            local dash_duration =  (distance + 250)/speed
 				StartAnimation(caster, {duration=dash_duration, activity=ACT_DOTA_ALCHEMIST_CHEMICAL_RAGE_END, rate=1})
             local sin = Physics:Unit(caster)
             caster:SetPhysicsFriction(0)
@@ -78,7 +101,7 @@ function demon_king_extermination:OnAbilityPhaseInterrupted()
             local dashProjectile = 
             {
                Ability = self,
-                 --EffectName = "particles/saito/saitoquickslash.vpcf",
+                 EffectName = "particles/demon_king_nobunaga/extermenation_proj_test.vpcf",
                  iMoveSpeed = speed,
                  vSpawnOrigin = caster:GetOrigin(),
                  fDistance =  (distance + 150),
