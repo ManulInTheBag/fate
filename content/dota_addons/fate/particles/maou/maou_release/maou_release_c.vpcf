@@ -3,7 +3,7 @@
 	_class = "CParticleSystemDefinition"
 	m_bShouldHitboxesFallbackToRenderBounds = false
 	m_nMaxParticles = 1
-	m_flConstantRadius = 180.0
+	m_flConstantRadius = 285.7
 	m_nBehaviorVersion = 12
 	m_nFirstMultipleOverride_BackwardCompat = 6
 	m_controlPointConfigurations = 
@@ -179,6 +179,7 @@
 				m_bHasRandomSignFlip = true
 			}
 			m_nOutputField = 4
+			m_bDisableOperator = true
 		},
 		{
 			_class = "C_INIT_RandomColor"
@@ -197,8 +198,6 @@
 		},
 		{
 			_class = "C_INIT_RandomColor"
-			m_ColorMin = [ 199, 245, 251 ]
-			m_ColorMax = [ 199, 245, 251 ]
 		},
 		{
 			_class = "C_INIT_InitFloat"
@@ -370,6 +369,7 @@
 			m_vecTexturesInput = 
 			[
 				{
+					m_hTexture = resource:"materials/particle/particle_flares/particle_flare_002.vtex"
 				},
 			]
 			m_nOutputBlendMode = "PARTICLE_OUTPUT_BLEND_MODE_ADD"

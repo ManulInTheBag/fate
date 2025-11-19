@@ -52,6 +52,53 @@
 		}
 	}
    
+   	//=======================================
+	// Demon king nobunaga - hueta (Q)
+	//=======================================
+	"demon_king_beam"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/demon_king_nobunaga/demon_king_beam"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET|DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL" 
+		"AbilityTextureName"			"custom/demon_king_nobunaga/demon_king_blink"
+
+		"AbilityCastRange"				"1000"
+		"AbilityCastRangeBuffer"		"100"
+		"AbilityCastPoint"				"0.2"
+		"AbilityCooldown"				"5"
+		"AbilityManaCost"				"100"
+		"precache"
+		{
+			"particle"		"particles/maou/hand_beam/maou_hand_beam_.vpcf"
+
+			"particle"		"particles/maou/ground_slam/maou_ground_slam_.vpcf"
+
+			"particle"		"particles/maou/maou_nobu_gun.vpcf"
+
+
+		}
+		"AbilityValues"
+		{
+			"slam_damage"				"200 250 300 350 400"
+			"slam_aoe_radius"						"400"
+			"slam_air_dur"							"0.3"
+
+			"beam_damage"						"300 375 450 525 600"
+			"beam_search_radius"				"500"
+			"beam_max_bounces"						"3"
+
+			"gun_max_range"						"1500"
+			"gun_laser_width"					"200"
+			"guns_damage"					"300 375 450 525 600"
+		}
+	}
+
 
 	//=======================================
 	// Demon king nobunaga - Extermination (W)
@@ -109,7 +156,7 @@
 		"ScriptFile"					"abilities/demon_king_nobunaga/demon_king_blink"
 		"MaxLevel"						"5"
 		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"1"
+		"LevelsBetweenUpgrades"			"2"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT|DOTA_ABILITY_BEHAVIOR_IMMEDIATE|DOTA_ABILITY_BEHAVIOR_AOE|DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL" 
@@ -161,12 +208,10 @@
 		"AbilityManaCost"				"0"
 		"precache"
 		{
-			"particle"		"particles/maou/maou_invis.vpcf"
+			"particle"		"particles/maou/maou_release/maou_release_.vpcf"
 
-			"particle"		"particles/maou_blink/maou_blink_main.vpcf"
-			"particle"		"particles/maou_blink/maou_blink_main_ground.vpcf"
-			"particle"		"particles/maou_blink/maou_blink_land.vpcf"
-			"particle"		"particles/maou_blink/maou_burning_hand.vpcf"
+			"particle"		"particles/maou/ambient_jopa/ambient_jopa.vpcf"
+
 
 		}
 		"AbilityValues"

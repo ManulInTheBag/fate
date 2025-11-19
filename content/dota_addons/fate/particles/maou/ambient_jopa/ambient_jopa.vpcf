@@ -32,6 +32,7 @@
 		},
 		{
 			m_ChildRef = resource:"particles/maou/ambient_jopa/ambient_jopa_c.vpcf"
+			m_bDisableChild = true
 		},
 	]
 }

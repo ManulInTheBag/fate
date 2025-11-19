@@ -36,7 +36,10 @@ function demon_king_release:PerformAttackTimer()
    ParticleManager:SetParticleControl(effect_ground_hit, 0, caster:GetAbsOrigin())
    ParticleManager:SetParticleControl(effect_ground_hit,1, Vector(500, 0,0))
 
+   local onHeroEffect = ParticleManager:CreateParticle("particles/maou/ambient_jopa/ambient_jopa.vpcf", PATTACH_CUSTOMORIGIN_FOLLOW, caster)
+   ParticleManager:SetParticleControl(onHeroEffect, 0, caster:GetAbsOrigin())
 
+   caster:EmitSound("maou_release_voice")
 
    Timers:CreateTimer(0, function()
       self:PerformDealingDamage(tick_damage, aoe_radius)
@@ -49,6 +52,10 @@ function demon_king_release:PerformAttackTimer()
             return tick_duration
         else
             --FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)
+            ParticleManager:DestroyParticle(effect_ground_hit, false)
+            ParticleManager:ReleaseParticleIndex(effect_ground_hit)
+            ParticleManager:DestroyParticle(onHeroEffect, false)
+            ParticleManager:ReleaseParticleIndex(onHeroEffect)
             return
         end
    
