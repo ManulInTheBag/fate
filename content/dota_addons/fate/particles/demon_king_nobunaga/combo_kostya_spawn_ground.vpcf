@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf51:version{6d03d500-2498-454e-b833-f654e870bb3d} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf63:version{a6e6a69e-52d3-4527-8b9c-ff3bb91aca3e} -->
 {
 	_class = "CParticleSystemDefinition"
 	m_nBehaviorVersion = 12
@@ -91,12 +91,6 @@
 			m_ChildRef = resource:"particles/demon_king_nobunaga/combo_kostya_spawn_ground_inner_glow.vpcf"
 		},
 		{
-			m_ChildRef = resource:"particles/units/heroes/hero_snapfire/hero_snapfire_ult_ground_bloom.vpcf"
-		},
-		{
-			m_ChildRef = resource:"particles/units/heroes/hero_snapfire/hero_snapfire_ultimate_linger_steam.vpcf"
-		},
-		{
 			m_ChildRef = resource:"particles/demon_king_nobunaga/combo_kostya_spawn_ground_embers.vpcf"
 			m_flDelay = 0.5
 		},
@@ -119,6 +113,13 @@
 		},
 		{
 			m_ChildRef = resource:"particles/demon_king_nobunaga/combo_kostya_spawn_ground_inner_2.vpcf"
+			m_bDisableChild = true
+		},
+		{
+			m_ChildRef = resource:"particles/maou/combo_bloom_maou.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/maou/maou_combo_linger_smoke.vpcf"
 		},
 	]
 }
