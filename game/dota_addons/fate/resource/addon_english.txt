@@ -3082,8 +3082,92 @@
 		"DOTA_Tooltip_Ability_medusa_gorgon_attribute_damage_per_agi"		"Damage per agility:"
 		"DOTA_Tooltip_Ability_medusa_riding_attribute"		"Attribute: Riding"
 		"DOTA_Tooltip_Ability_medusa_riding_attribute_Description"		"Increases Bellerophon's damage by %bonus_belle_damage% plus %belle_damage% per point of agility.\nIncreases Bellerophon 2's by %bonus_belle2_damage% plus %belle_2_damage% per point of agility. \nAlso increases Bellerophon's range by %attribute_range%"
-
 		//=================================================================================================================
+		//	DEMON KING NOBUNAGA (FGO avenger)
+		//=================================================================================================================
+		"npc_dota_hero_nevermore"				"Demon king Nobunaga"
+
+		"npc_dota_hero_nevermore_hype"			""
+		"npc_dota_hero_nevermore_bio"			""
+
+		"DOTA_Tooltip_modifier_maou_invis"						"Invisible"
+		"DOTA_Tooltip_modifier_maou_invis_Description"			""
+
+		"DOTA_Tooltip_modifier_demon_king_release"						"Energy release"
+		"DOTA_Tooltip_modifier_demon_king_release_Description"			"Immune to physical and magical damage"	
+
+		"DOTA_Tooltip_modifier_cc_immune"						"CC immune"
+		"DOTA_Tooltip_modifier_cc_immune_Description"			"Immune to crowd control effects"
+
+		"DOTA_Tooltip_modifier_demon_king_combo_counter"						"Combo counter"
+		"DOTA_Tooltip_modifier_demon_king_combo_counter_Description"			"Combo casts remaining"
+
+		"DOTA_Tooltip_modifier_demon_king_extermination_burn"						"Burn"
+		"DOTA_Tooltip_modifier_demon_king_extermination_burn_Description"			"Damage over time"
+
+
+		"DOTA_Tooltip_Ability_demon_king_beam"				"Demon king figthing style"
+		"DOTA_Tooltip_ability_demon_king_beam_Description"	"Cast point: <font color='#FFFAFA'>%AbilityCastPoint%</font>s   |    <font color='#29EE32'>Refreshable</font>\nDemon king uses various moves:\nWhen casted on self, <font color='#AA4A44'>Demon king slam</font>, when casted on enemy hero below 30%% health, <font color='#880808'>Demon king guns</font>, otherwise she will use <font color='#C41E3A'>Demon king beam</font>.\n<font color='#AA4A44'>Demon king slam</font>: Demon king slams the ground around herself, dealing <font color='#58ACFA'>damage</font> and knocking enemies around <font color='#FF3399'>airborne</font>.\n<font color='#880808'>Demon king guns</font>: After a short delay, Demon king shoots 2 beams with her guns into the target enemy, dealing <font color='#58ACFA'>damage</font> to all enemies on its way.\n<font color='#C41E3A'>Demon king beam</font>: Demon king shoots beam with her hand, that will bounce on targets within range, dealing <font color='#58ACFA'>damage</font> to all enemies on its way. Beam can only bounce once from every hero."
+		"DOTA_Tooltip_Ability_demon_king_beam_Lore"					"Demon king pushes herself to her very limit with every move"
+		"DOTA_Tooltip_Ability_demon_king_beam_slam_damage"			"Slam damage:"
+		"DOTA_Tooltip_Ability_demon_king_beam_slam_aoe_radius"		"Slam radius:"
+		"DOTA_Tooltip_Ability_demon_king_beam_slam_air_dur"			"Slam airborne duration:"
+
+		"DOTA_Tooltip_Ability_demon_king_beam_beam_damage"				"Beam damage:"	
+		"DOTA_Tooltip_Ability_demon_king_beam_beam_search_radius"		"Beam search radius:"	
+		"DOTA_Tooltip_Ability_demon_king_beam_beam_max_bounces"			"Beam max bounces:"	
+		"DOTA_Tooltip_Ability_demon_king_beam_beam_width"				"Beam width:"
+
+		"DOTA_Tooltip_Ability_demon_king_beam_gun_max_range"			"Guns max range:"	
+		"DOTA_Tooltip_Ability_demon_king_beam_gun_laser_width"			"Guns width:"	
+		"DOTA_Tooltip_Ability_demon_king_beam_guns_damage"				"Guns damage:"	
+		"DOTA_Tooltip_Ability_demon_king_beam_guns_delay"				"Guns delay:"
+
+		"DOTA_Tooltip_Ability_demon_king_extermination"				"Extermination"
+		"DOTA_Tooltip_ability_demon_king_extermination_Description"	"Cast point: <font color='#FFFAFA'>%AbilityCastPoint%</font>s   |    <font color='#29EE32'>Refreshable</font>\nDemon king charges a slow and powerful attack, which will deal <font color='#58ACFA'>damage</font>, apply <font color='#9400D3'>lock</font>, <font color='#FF3399'>stun</font> and <font color='#FF5A00'>burn</font>.\nIf she fails to land this strike, however, due to enemy going out of range or by interrupting the skill herself, she will use <font color='#C41E3A'>Demon king dash</font> instead.\n<font color='#C41E3A'>Demon king dash</font>: Demon king jumps back a little, preparing for a long-range dash to the enemy current position, dealing <font color='#58ACFA'>damage</font> to all enemies on her way and applying same <font color='#FF5A00'>burn</font> debuff but for twice lower duration."
+		"DOTA_Tooltip_Ability_demon_king_extermination_Lore"					"She will destroy everything you believe in, only to prove that human abilities have no limit."
+		"DOTA_Tooltip_Ability_demon_king_extermination_damage_hit"				"Strike damage:"
+		"DOTA_Tooltip_Ability_demon_king_extermination_lock_duration"			"Strike lock duration:"
+		"DOTA_Tooltip_Ability_demon_king_extermination_stun_duration"			"Strike stun duration:"
+		"DOTA_Tooltip_Ability_demon_king_extermination_lock_duration"			"Strike lock duration:"
+		"DOTA_Tooltip_Ability_demon_king_extermination_dash_distance_max"		"Dash maximum distance:"
+		"DOTA_Tooltip_Ability_demon_king_extermination_damage_dash"				"Dash damage:"
+		"DOTA_Tooltip_Ability_demon_king_extermination_burn_dps"				"Burn damage per second:"
+		"DOTA_Tooltip_Ability_demon_king_extermination_burn_duration"			"Burn duration:"
+		"DOTA_Tooltip_Ability_demon_king_extermination_dash_delay"				"Dash delay:"
+		"DOTA_Tooltip_Ability_demon_king_extermination_dash_speed"				"Dash speed:"
+
+
+		"DOTA_Tooltip_Ability_demon_king_blink"				"Like a Fleeting Dream"
+		"DOTA_Tooltip_ability_demon_king_blink_Description"	"Cast point: <font color='#FFFAFA'>immediate</font>   |    <font color='#29EE32'>Refreshable</font>\nDemon king blinks to the target point, becoming <font color='#83B3BE'>invisible</font> while preparing a powerful attack.\nAfter a delay, she slams into the ground, dealing <font color='#58ACFA'>damage</font> to all enemies in radius in %damage_ticks% ticks, last dealing slightly more."
+		"DOTA_Tooltip_Ability_demon_king_blink_Lore"					"Her power may be suppressed, but she never forgets still."
+		"DOTA_Tooltip_Ability_demon_king_blink_damage_total"		"Total damage:"
+		"DOTA_Tooltip_Ability_demon_king_blink_invis_dur"			"Invis duration:"
+		"DOTA_Tooltip_Ability_demon_king_blink_total_duration"		"Damage duration:"
+		"DOTA_Tooltip_Ability_demon_king_blink_aoe_radius"			"Radius:"
+
+
+		"DOTA_Tooltip_Ability_demon_king_release"				"It Can't Be Helped"
+		"DOTA_Tooltip_ability_demon_king_release_Description"	"Cast point: <font color='#FFFAFA'>immediate</font>    |    <font color='#EE5C29'>Unrefreshable</font>\nDemon king releases all of her magical energy, dealing <font color='#58ACFA'>damage</font> around, while burning herself.\nWhile performing, she is completely immune to all <font color='#58ACFA'>magical</font> and <font color='#A72E28'>physical</font> damage.\nDamage she deals depends on <font color='#DDB334'>materialization</font> stacks, which are nullified after use.\nTotal damage cannot exceed her max health, and her health cannot drop below a certain percentage due to use of this ability."
+		"DOTA_Tooltip_Ability_demon_king_release_Lore"					"Is this the verdict handed down on herself that disappeared among the flames, or perhaps..."
+		"DOTA_Tooltip_Ability_demon_king_release_total_damage_base"		"Basic total damage:"
+		"DOTA_Tooltip_Ability_demon_king_release_aoe_radius"			"Radius:"
+		"DOTA_Tooltip_Ability_demon_king_release_total_duration"		"Duration:"
+		"DOTA_Tooltip_Ability_demon_king_release_damage_per_stack"		"Damage per stack:"
+
+
+		"DOTA_Tooltip_Ability_demon_king_breath"				"Singularity"
+		"DOTA_Tooltip_ability_demon_king_breath_Description"	"Cast point: <font color='#FFFAFA'>%AbilityCastPoint%</font>s; Cast Delay: <font color='#FFFFF9'>%total_duration%</font>s   |    <font color='#29EE32'>Refreshable</font>\nDemon king breathes out fire to the target point, with a minimal range, dealing <font color='#58ACFA'>damage</font> to all enemies hit.\nAfter fire reaches the point, after a delay it will summon a singularity.\nSingularity will deal <font color='#58ACFA'>damage</font> over time an <font color='#FF3399'>pull</font> all enemies inside to its center.\nSingularity's pull is strong enough to completely nullify movement and most dashes.\nOnly one singularity can persist at a time."
+		"DOTA_Tooltip_Ability_demon_king_release_Lore"					"Origin of oblivion, creating singularity beyond the aeons"
+		"DOTA_Tooltip_Ability_demon_king_breath_damage_fire"			"Breathe damage:"
+		"DOTA_Tooltip_Ability_demon_king_breath_minimal_range"			"Minimal range:"
+		"DOTA_Tooltip_Ability_demon_king_breath_black_hole_duration"	"Active duration:"
+		"DOTA_Tooltip_Ability_demon_king_breath_aoe_radius"				"Active radius:"
+		"DOTA_Tooltip_Ability_demon_king_breath_black_hole_delay"		"Activation delay:"
+		"DOTA_Tooltip_Ability_demon_king_breath_black_hole_damage"		"Active damage per sec:"
+		"DOTA_Tooltip_Ability_demon_king_breath_black_hole_pull_str"	"Active pull per sec:"
+
+		//================================================================================================================
 		//	Arash (Babylonia archer)
 		//=================================================================================================================
 		"npc_dota_hero_clinkz"				"Arash"

@@ -45,18 +45,13 @@ function demon_king_blink:OnSpellStart()
     if (target - caster:GetAbsOrigin()):Length2D() > self:GetSpecialValueFor("range") then
          target = caster:GetAbsOrigin() + vector * self:GetSpecialValueFor("range")
     end
-    if target == caster:GetAbsOrigin() then
+    if (target - caster:GetAbsOrigin()):Length2D() < 30 then
          target = caster:GetAbsOrigin() + vector * 30
+    else
+           caster:SetForwardVector(vector)
     end
  
-   caster:SetForwardVector(vector)
-   --- [[[[[Пофиксить каст в себя ]]]]
-   --- [[[[[Пофиксить каст в себя ]]]]
-   --- [[[[[Пофиксить каст в себя ]]]]
-   --- [[[[[Пофиксить каст в себя ]]]]
-   --- [[[[[Пофиксить каст в себя ]]]]
 
-   
    -- DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
    -- giveUnitDataDrivenModifier(caster, target, "locked", self:GetSpecialValueFor("lock_duration"))
    -- giveUnitDataDrivenModifier(caster, target, "stunned", 0.3)

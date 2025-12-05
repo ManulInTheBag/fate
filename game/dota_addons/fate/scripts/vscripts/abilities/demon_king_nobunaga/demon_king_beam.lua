@@ -115,7 +115,7 @@ function demon_king_beam:ShootBeam(startpos, endpos, bounces)
 													        startpos,
 													        endpos,
 													        nil,
-													        150,
+													        self:GetSpecialValueFor("beam_width"),
 															DOTA_UNIT_TARGET_TEAM_ENEMY,
 															DOTA_UNIT_TARGET_ALL,
 															0

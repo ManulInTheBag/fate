@@ -198,6 +198,7 @@ deargdispellable = {
     "modifier_arash_toughness",
     "modifier_karna_buff_melee",
     "modifier_saito_mind_eye_active",
+    "modifier_demon_king_release",
 }
 
 revokes = {
@@ -385,6 +386,7 @@ cleansable = {
     "modifier_robin_yew_bow_silence",
     "modifier_robin_yew_bow_combo_lock",
     "modifier_khsn_grab_target",
+    "modifier_demon_king_extermination_burn"
 }
 
 
@@ -696,6 +698,10 @@ CannotReset = {
     "scathach_pinning_thorn",
     "scathach_gate_of_skye",
     "cu_new_combo",
+
+    "demon_king_combo",
+    "demon_king_combo_recast",
+    "demon_king_release",
 }
 
 
@@ -721,6 +727,7 @@ femaleservant = {
     "npc_dota_hero_faceless_void",
     "npc_dota_hero_ogre_magi",
     "npc_dota_hero_monkey_king",
+    "npc_dota_hero_nevermore",
 }
 
 tCannotDetect = {
@@ -2506,6 +2513,7 @@ local heroNames = {
     ["npc_dota_hero_spirit_breaker"] = "Hijikata Toshizo",
     ["npc_dota_hero_ogre_magi"] = "Aozaki Aoko",
     ["npc_dota_hero_monkey_king"] = "Scathach",
+    ["npc_dota_hero_nevermore"] = "Demon king Nobunaga",
 }
 
  
@@ -2573,6 +2581,7 @@ local heroCombos = {
     ["npc_dota_hero_robin"] = "robin_yew_tree_combo",
     ["npc_dota_hero_aoko"] = "aoko_blue",
     ["npc_dota_hero_scathach"] = "scathach_gate_of_skye",
+    ["npc_dota_hero_demon_king_nobunaga"] = "demon_king_combo",
 }
 
 function GetHeroCombo(hero)

@@ -957,12 +957,12 @@
 						_class = "AnimFile"
 						name = "breathe_startup"
 						is_default_idle_anim = false
-						activity_name = ""
+						activity_name = "ACT_DOTA_CAST_ABILITY_6"
 						activity_weight = 1
 						weight_list_name = ""
-						fade_in_time = 0.2
+						fade_in_time = 0.0
 						fade_out_time = 0.2
-						looping = true
+						looping = false
 						delta = false
 						worldSpace = false
 						hidden = false
@@ -972,9 +972,9 @@
 						delete_from_compiled_model = false
 						source_filename = "models/maounobu/maounobu.fbx"
 						import_bone_scales = false
-						start_frame = 506
-						end_frame = 546
-						framerate = -1.0
+						start_frame = 500
+						end_frame = 580
+						framerate = 60.0
 						reverse = false
 						additional_anim_files = [  ]
 					},
@@ -982,7 +982,7 @@
 						_class = "AnimFile"
 						name = "breathe_channel"
 						is_default_idle_anim = false
-						activity_name = ""
+						activity_name = "ACT_DOTA_CAST_ABILITY_7"
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -1160,7 +1160,7 @@
 						weight_list_name = ""
 						fade_in_time = 0.2
 						fade_out_time = 0.2
-						looping = true
+						looping = false
 						delta = false
 						worldSpace = false
 						hidden = false
@@ -1232,7 +1232,7 @@
 						source_filename = "models/maounobu/maounobu.fbx"
 						import_bone_scales = false
 						start_frame = 936
-						end_frame = 1007
+						end_frame = 981
 						framerate = 35.0
 						reverse = false
 						additional_anim_files = [  ]
@@ -1340,7 +1340,7 @@
 						import_bone_scales = false
 						start_frame = 1247
 						end_frame = 1276
-						framerate = 15.0
+						framerate = 30.0
 						reverse = false
 						additional_anim_files = [  ]
 					},
@@ -1373,7 +1373,7 @@
 						_class = "AnimFile"
 						name = "fly_into_air"
 						is_default_idle_anim = false
-						activity_name = ""
+						activity_name = "ACT_DOTA_SAND_KING_BURROW_IN"
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -1390,7 +1390,7 @@
 						import_bone_scales = false
 						start_frame = 1640
 						end_frame = 1660
-						framerate = 10.0
+						framerate = 20.0
 						reverse = false
 						additional_anim_files = [  ]
 					},
@@ -1398,7 +1398,7 @@
 						_class = "AnimFile"
 						name = "combo_cast_flying"
 						is_default_idle_anim = false
-						activity_name = ""
+						activity_name = "ACT_DOTA_CAST_BURROW_END"
 						activity_weight = 1
 						weight_list_name = ""
 						fade_in_time = 0.2
@@ -1469,6 +1469,31 @@
 						reverse = false
 						additional_anim_files = [  ]
 					},
+					{
+						_class = "AnimFile"
+						name = "death1"
+						is_default_idle_anim = false
+						activity_name = "ACT_DOTA_DISABLED"
+						activity_weight = 1
+						weight_list_name = ""
+						fade_in_time = 0.2
+						fade_out_time = 0.2
+						looping = false
+						delta = false
+						worldSpace = false
+						hidden = false
+						anim_markup_ordered = false
+						disable_compression = false
+						animgraph_additive = false
+						delete_from_compiled_model = false
+						source_filename = "models/maounobu/maounobu.fbx"
+						import_bone_scales = false
+						start_frame = 1296
+						end_frame = 1310
+						framerate = 25.0
+						reverse = false
+						additional_anim_files = [  ]
+					},
 				]
 				default_root_bone_name = ""
 			},
@@ -1517,6 +1542,15 @@
 						name = "leg"
 						parent_bone = "Bip001_R_Foot"
 						relative_origin = [ 3.592411, 0.227432, -2.507866 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "mouth"
+						parent_bone = "Bip001_Head"
+						relative_origin = [ 0.0, -7.0, 0.0 ]
 						relative_angles = [ 0.0, 0.0, 0.0 ]
 						weight = 1.0
 						ignore_rotation = false

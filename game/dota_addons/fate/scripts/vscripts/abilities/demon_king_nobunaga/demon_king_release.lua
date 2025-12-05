@@ -1,7 +1,7 @@
 
 demon_king_release = class({})
 
-
+LinkLuaModifier("modifier_demon_king_release", "abilities/demon_king_nobunaga/demon_king_release", LUA_MODIFIER_MOTION_NONE)
 function demon_king_release:GetAOERadius()
    
 	return self:GetSpecialValueFor("aoe_radius")
@@ -26,8 +26,8 @@ function demon_king_release:PerformAttackTimer()
    local max_counter = self:GetSpecialValueFor("damage_ticks")
    local duration = self:GetSpecialValueFor("total_duration")
    local tick_duration = self:GetSpecialValueFor("total_duration") / max_counter
-
-   local damage_total = math.min(self:GetSpecialValueFor("damage_total_max"), 500)
+   local stacks = caster:GetModifierStackCount("demon_king_materialization", caster)
+   local damage_total = math.min(caster:GetMaxHealth(), self:GetSpecialValueFor("total_damage_base")  + self:GetSpecialValueFor("damage_per_stack") * stacks)
 
    local tick_damage =  damage_total/ self:GetSpecialValueFor("damage_ticks")
    local aoe_radius = self:GetSpecialValueFor("aoe_radius")
@@ -40,6 +40,7 @@ function demon_king_release:PerformAttackTimer()
    ParticleManager:SetParticleControl(onHeroEffect, 0, caster:GetAbsOrigin())
 
    caster:EmitSound("maou_release_voice")
+   caster:AddNewModifier(caster, self, "modifier_demon_king_release", {duration = duration})
 
    Timers:CreateTimer(0, function()
       self:PerformDealingDamage(tick_damage, aoe_radius)
@@ -56,6 +57,7 @@ function demon_king_release:PerformAttackTimer()
             ParticleManager:ReleaseParticleIndex(effect_ground_hit)
             ParticleManager:DestroyParticle(onHeroEffect, false)
             ParticleManager:ReleaseParticleIndex(onHeroEffect)
+            caster:RemoveModifierByName("demon_king_materialization")
             return
         end
    
@@ -73,5 +75,36 @@ function demon_king_release:PerformDealingDamage(tick_damage, aoe_radius)
 					
 			end
 		end
+      if caster:GetHealthPercent() > 20 then
+         DoDamage(caster, caster, tick_damage, DAMAGE_TYPE_PURE, 0, self, false)
+      end
 
+end
+
+modifier_demon_king_release = class({})
+
+function modifier_demon_king_release:IsHidden()
+	return false 
+end
+
+function modifier_demon_king_release:RemoveOnDeath()
+	return true
+end
+
+
+
+
+function modifier_demon_king_release:DeclareFunctions()
+	local funcs = {MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_PHYSICAL,
+	MODIFIER_PROPERTY_ABSOLUTE_NO_DAMAGE_MAGICAL }
+
+	return funcs
+end
+
+function modifier_demon_king_release:GetAbsoluteNoDamagePhysical() 
+	return 1
+end
+
+function modifier_demon_king_release:GetAbsoluteNoDamageMagical() 
+	return 1
 end

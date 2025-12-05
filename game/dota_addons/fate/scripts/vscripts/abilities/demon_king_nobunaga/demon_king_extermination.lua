@@ -8,7 +8,7 @@ function demon_king_extermination:OnSpellStart()
    local damage = self:GetSpecialValueFor("damage_hit")
    DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
    giveUnitDataDrivenModifier(caster, target, "locked", self:GetSpecialValueFor("lock_duration"))
-   giveUnitDataDrivenModifier(caster, target, "stunned", 0.3)
+   giveUnitDataDrivenModifier(caster, target, "stunned", self:GetSpecialValueFor("stun_duration"))
    target:AddNewModifier(caster, self, "modifier_demon_king_extermination_burn",{duration = self:GetSpecialValueFor("burn_duration") })
    local damage_fx = ParticleManager:CreateParticle("particles/maou/w_hit/maou_w_hit.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
    ParticleManager:ReleaseParticleIndex(damage_fx)
@@ -142,11 +142,10 @@ end
 
 function demon_king_extermination:OnProjectileHit_ExtraData(hTarget, vLocation, table)
 	if hTarget == nil then return end
-   print("damage_dash")
 	local caster = self:GetCaster()
 	local damage = self:GetSpecialValueFor("damage_dash") 
 	DoDamage(caster, hTarget, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
-   hTarget:AddNewModifier(caster, self, "modifier_demon_king_extermination_burn",{duration = self:GetSpecialValueFor("burn_duration")})
+   hTarget:AddNewModifier(caster, self, "modifier_demon_king_extermination_burn",{duration = self:GetSpecialValueFor("burn_duration")/2})
 
 end
 

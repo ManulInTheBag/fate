@@ -19,7 +19,7 @@
                     }
                     "volume"
                     {
-                        "value"        "7.000000"
+                        "value"        "5.000000"
                     }
                     "pitch"
                     {
@@ -51,7 +51,7 @@
                     }
                     "volume"
                     {
-                        "value"        "7.000000"
+                        "value"        "5.000000"
                     }
                     "pitch"
                     {
@@ -116,7 +116,7 @@
                     }
                     "volume"
                     {
-                        "value"        "20.000000"
+                        "value"        "10.000000"
                     }
                     "pitch"
                     {
@@ -148,7 +148,7 @@
                     }
                     "volume"
                     {
-                        "value"        "20.000000"
+                        "value"        "10.000000"
                     }
                     "pitch"
                     {
@@ -284,7 +284,7 @@
                     }
                     "volume"
                     {
-                        "value"        "9.000000"
+                        "value"        "7.000000"
                     }
                     "pitch"
                     {
@@ -317,7 +317,7 @@
                     }
                     "volume"
                     {
-                        "value"        "9.000000"
+                        "value"        "5.000000"
                     }
                     "pitch"
                     {
@@ -383,7 +383,7 @@
                     }
                     "volume"
                     {
-                        "value"        "9.000000"
+                        "value"        "5.000000"
                     }
                     "pitch"
                     {
@@ -428,3 +428,589 @@
     }
 }
 
+"kostya_appear_laughter"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/maou/kostya_appear_laughter.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "4.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+
+"kostya_appear_phrase"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/maou/kostya_appear_phrase.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "4.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+
+"kostya_bgm"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/maou/kostya_bgm.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "5.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+
+"kostya_bonus"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/maou/kostya_bonus.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "9.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+
+"kostya_cracks"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/maou/kostya_cracks.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "30.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+
+"kostya_fire_ambient"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/maou/kostya_fire_ambient.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "15.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+
+"kostya_release_voice"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/maou/kostya_release_voice.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "4.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+
+"kostya_last_blast"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/maou/kostya_last_blast.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "7.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+
+"kostya_generic_blast"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/maou/kostya_generic_blast.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "6.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+
+"maou_breath_cast"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/maou/maou_breath_cast.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "7.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+
+"maou_breath_cast_2"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/maou/maou_breath_cast_2.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "9.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"maou_breath_projectile_release"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/maou/maou_breath_projectile_release.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "40.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"maou_blackhole_1"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/maou/maou_blackhole_1.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "4.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"maou_blackhole_2"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/maou/maou_blackhole_2.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "4.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"maou_blackhole_3"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/maou/maou_blackhole_3.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "10.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"maou_blackhole_4"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/maou/maou_blackhole_4.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "25.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"maou_blackhole_deploy"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/maou/maou_blackhole_deploy.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "9.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}
+"kostya_blast_fly_sound"
+{
+    "operator_stacks"
+    {
+        "update_stack"
+        {
+            "reference_operator"
+            {
+                "operator"        "sos_reference_stack"
+                "reference_stack"        "dota_src1_3d"
+                "operator_variables"
+                {
+                    "vsnd_files"
+                    {
+                        "value"
+                        {
+                            "value0"        "sounds/maou/kostya_blast_fly_sound.vsnd"
+                        }
+                    }
+                    "volume"
+                    {
+                        "value"        "50.000000"
+                    }
+                    "pitch"
+                    {
+                        "value"        "1.000000"
+                    }
+                }
+            }
+        }
+    }
+}

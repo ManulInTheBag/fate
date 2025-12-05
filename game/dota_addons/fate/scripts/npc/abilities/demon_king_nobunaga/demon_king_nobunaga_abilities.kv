@@ -1,56 +1,5 @@
 "DOTAAbilities"
 {
-	//=====================================
-	// Demon king nobunaga - Materialization (F)
-	//=====================================
-	"demon_king_materialization"
-	{
-		"BaseClass"          			    "ability_lua"
-		"ScriptFile"					    "abilities/demon_king_nobunaga/demon_king_materialization"
-		"AbilityTextureName"				"custom/saito/saito_fdb"
-		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"MaxLevel"							"1"
-		"precache"
-		{
-			"particle"		"particles/hijikata/hijikata_dash_radius.vpcf"
-			"particle"		"particles/hijikata/hijikata_bullet.vpcf"
-		}
-		"AbilityValues"
-		{
-			"maximum_stage"				"4"
-		}
-	}
-
-    //=====================================
-	// Demon king nobunaga - Ignition (D)
-	//=====================================
-	"demon_king_ignition"
-	{
-		"BaseClass"          			    "ability_lua"
-		"ScriptFile"					    "abilities/demon_king_nobunaga/demon_king_ignition"
-		"AbilityTextureName"				"custom/saito/saito_fdb"
-		"AbilityBehavior"					"DOTA_ABILITY_BEHAVIOR_IMMEDIATE|DOTA_ABILITY_BEHAVIOR_NO_TARGET"
-		"MaxLevel"							"1"
-		"AbilityCooldown"				"45"
-		"precache"
-		{
-			"particle"		"particles/demon_king_nobunaga/demon_king_nobunaga_ignition.vpcf"
-		}
-		"AbilityValues"
-		{
-
-			"damage_per_second_base"				"0"
-			"dmg_increase_per_second"				"0.25"
-			"dmg_per_second_cap"				"5"
-			"dmg_amp_base"				"10"
-			"dmg_amp_per_second"				"1"
-			"dmg_amp_cap"				"30"
-			"maximum_duration"				"30"
-			"tick_interval"				"0.5"
-			"deactivate_cooldown"				"10"
-			
-		}
-	}
    
    	//=======================================
 	// Demon king nobunaga - hueta (Q)
@@ -66,7 +15,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET|DOTA_ABILITY_BEHAVIOR_AOE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL" 
-		"AbilityTextureName"			"custom/demon_king_nobunaga/demon_king_blink"
+		"AbilityTextureName"			"custom/maou/q"
 
 		"AbilityCastRange"				"1000"
 		"AbilityCastRangeBuffer"		"100"
@@ -92,10 +41,13 @@
 			"beam_damage"						"300 375 450 525 600"
 			"beam_search_radius"				"500"
 			"beam_max_bounces"						"3"
+			"beam_width"						"150"
 
 			"gun_max_range"						"1500"
 			"gun_laser_width"					"200"
 			"guns_damage"					"300 375 450 525 600"
+			"guns_delay"					"0.2"
+
 		}
 	}
 
@@ -114,13 +66,15 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL" 
-		"AbilityTextureName"			"custom/demon_king_nobunaga/demon_king_extermination"
+		"AbilityTextureName"			"custom/maou/w"
 
 		"AbilityCastRange"				"250"
 		"AbilityCastRangeBuffer"		"0"
 		"AbilityCastPoint"				"1"
 		"AbilityCooldown"				"15 14 13 12 11"
 		"AbilityManaCost"				"200"
+		"AbilityCastAnimation" 			"ACT_DOTA_ITEM_PICKUP"
+		"AnimationPlaybackRate" 		"1"
 		"precache"
 		{
 			"particle"		"particles/demon_king_nobunaga/extermination_cast_base.vpcf"
@@ -135,11 +89,12 @@
 		{
 			"damage_hit"				"500 600 700 800 900"
 			"lock_duration"				"0.8 1 1.2 1.4 1.6"
+			"stun_duration"				"0.3"
+			"burn_dps"			"100 125 150 175 200"
+			"burn_duration"			"2.5"
 			"dash_distance_trigger"				"250" // castrange + buffer, not active
 			"dash_distance_max"					"1000"
 			"damage_dash"			"300 350 400 450 500"
-			"burn_dps"			"100 125 150 175 200"
-			"burn_duration"			"2.5"
 			"dash_delay"				"0.25"
 			"dash_speed"				"2500"
 		}
@@ -147,7 +102,7 @@
 
 
 	//=======================================
-	// Demon king nobunaga - Extermination (W)
+	// Demon king nobunaga - BLINK (E)
 	//=======================================
 	"demon_king_blink"
 	{
@@ -160,7 +115,7 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT|DOTA_ABILITY_BEHAVIOR_IMMEDIATE|DOTA_ABILITY_BEHAVIOR_AOE|DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL" 
-		"AbilityTextureName"			"custom/demon_king_nobunaga/demon_king_blink"
+		"AbilityTextureName"			"custom/maou/e"
 
 		"AbilityCastRange"				"400"
 		"AbilityCooldown"				"18"
@@ -195,13 +150,13 @@
 		// General		//------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/demon_king_nobunaga/demon_king_release"
-		"MaxLevel"						"5"
+		"MaxLevel"						"2"
 		"RequiredLevel"					"1"
-		"LevelsBetweenUpgrades"			"1"
+		"LevelsBetweenUpgrades"			"25"
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET|DOTA_ABILITY_BEHAVIOR_IMMEDIATE|DOTA_ABILITY_BEHAVIOR_AOE|DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL" 
-		"AbilityTextureName"			"custom/demon_king_nobunaga/demon_king_blink"
+		"AbilityTextureName"			"custom/maou/d"
 
 		"AbilityCastRange"				"500"
 		"AbilityCooldown"				"30"
@@ -216,7 +171,7 @@
 		}
 		"AbilityValues"
 		{
-			"damage_total_max"				"1500"
+			"total_damage_base"				"500"
 			"aoe_radius"						"500"
 			"total_duration"						"1"
 			"damage_ticks"						"5"
@@ -224,6 +179,50 @@
 		}
 	}
 
+
+
+	//=======================================
+	// Demon king nobunaga - breath (R)
+	//=======================================
+	"demon_king_breath"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/demon_king_nobunaga/demon_king_breath"
+		"MaxLevel"						"5"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"2"
+		"AbilityBehavior"				" DOTA_ABILITY_BEHAVIOR_POINT|DOTA_ABILITY_BEHAVIOR_AOE"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL" 
+		"AbilityTextureName"			"custom/maou/r"	
+		"AbilityCastAnimation" 			"ACT_DOTA_ITEM_PICKUP"
+		"AnimationPlaybackRate" 		"1"
+		"AbilityCastRange"				"1500"
+		"AbilityCooldown"				"30"
+		"AbilityManaCost"				"600"
+		"AbilityCastPoint"				"0.3"
+		"precache"
+		{
+			"particle"		"particles/maou/fire_breath/maou_breathe_fire_.vpcf"
+			"particle"		"particles/zlodemon/zlodemon_basic_circle.vpcf"
+			"particle"		"particles/maou/breath_blackhole/enigma_blackhole_ti5_2.vpcf"
+			"particle"		"particles/maou/breath_blackhole/maou_black_hole_center_precast.vpcf"
+
+		}
+		"AbilityValues"
+		{
+			"damage_fire"				"400 500 600 700 800"
+			"range"						"1500"
+			"minimal_range"				"1000"
+			"total_duration"						"0.5"
+			"black_hole_duration"						"3"
+			"aoe_radius"						"500"
+			"black_hole_delay"				"0.7"
+			"black_hole_damage"				"100 125 150 175 200" //per sec
+			"black_hole_pull_str"			"200"					  //per sec
+		}
+	}
 
 	//=======================================
 	// Demon king nobunaga - Combo
@@ -239,23 +238,194 @@
 		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_POINT|DOTA_ABILITY_BEHAVIOR_AOE|DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL" 
-		"AbilityTextureName"			"custom/demon_king_nobunaga/demon_king_combo"
+		"AbilityTextureName"			"custom/maou/combo"
 
 		"AbilityCastRange"				"3000"
-		"AbilityCastPoint"				"0.5"
+		"AbilityCastPoint"				"0.2"
 		"AbilityCooldown"				"150"
 		"AbilityManaCost"				"400"
 		"precache"
 		{
 			"particle"		"particles/demon_king_nobunaga/combo_kostya_spawn_ground.vpcf"
+			"particle"		"particles/maou_combo/maou_combo_shrapnel.vpcf"
 		}
 		"AbilityValues"
 		{
-			"damage_hit"				"500 600 700 800 900"
-			
+
+			"duration"					"10"
+			"aoe_damage_passive"					"300"
+			"combo_damage_reduction_pct"					"50"
+			"recast_damage"				"750"
+			"last_explosion_radius" "1000"
+            "last_explosion_damage" "2000"
+			"passive_damage_area"				"700"
+			"radius_blast"				"600"
+			"radius"				"1500"
+			"recast_counter"				"5"
 		}
 	}
 
-	 
+	 "demon_king_combo_recast"
+	{		
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/demon_king_nobunaga/demon_king_combo_recast"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_HIDDEN|DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE|DOTA_ABILITY_BEHAVIOR_IGNORE_SILENCE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_BACKSWING"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY" 
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL"
+		"AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+		"AbilityTextureName"			"custom/maou/combo_recast"
+		
+		"precache"
+		{
+			"particle"			"particles/custom/karna/brahmastra_kundala/brahmastra_kundala_ray.vpcf"
+			"particle"			"particles/custom/karna/brahmastra_kundala/brahmastra_kundala_explosion_beam.vpcf"
+			"particle"			"particles/karna/kundala_aoe.vpcf"	
+			"particle"			"particles/custom/lancer/lancer_gae_bolg_projectile.vpcf"			
+				
+		}
+
+		"AbilityCooldown"				"1"
+		"AbilityManaCost"				"0"
+		
+		"AbilityValues"
+        {
+        	"combo_damage_reduction_pct" "50"
+            "radius" "550"
+            "small_radius" "300"
+            "damage" "750"
+            "delay" "1.5"
+            "last_explosion_radius" "1000"
+            "last_explosion_damage" "2000"
+        }
+	}
+
+	"demon_king_attribute_1"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/demon_king_nobunaga/demon_king_attributes"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/maou/sa_1"
+		"AbilityCooldown"				"9999"
+
+		"AbilityManaCost"				"10"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+
+		"AbilityValues"
+        {
+        	"blue_bonus_range"			"0"
+        	"blue_shield_amount"		"1500"
+
+        }		
+	}
+	"demon_king_attribute_2"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/demon_king_nobunaga/demon_king_attributes"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/maou/sa_2"
+		"AbilityCooldown"				"9999"
+
+		"AbilityManaCost"				"10"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+
+		"AbilityValues"
+        {
+        	"blue_bonus_range"			"0"
+        	"blue_shield_amount"		"1500"
+
+        }		
+	}
+	"demon_king_attribute_3"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/demon_king_nobunaga/demon_king_attributes"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/maou/sa_3"
+		"AbilityCooldown"				"9999"
+
+		"AbilityManaCost"				"10"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+
+		"AbilityValues"
+        {
+        	"blue_bonus_range"			"0"
+        	"blue_shield_amount"		"1500"
+
+        }		
+	}
+	"demon_king_attribute_4"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/demon_king_nobunaga/demon_king_attributes"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/maou/sa_4"
+		"AbilityCooldown"				"9999"
+
+		"AbilityManaCost"				"10"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+
+		"AbilityValues"
+        {
+        	"blue_bonus_range"			"0"
+        	"blue_shield_amount"		"1500"
+
+        }		
+	}
+	"demon_king_attribute_5"
+	{
+		// General
+		//-------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/demon_king_nobunaga/demon_king_attributes"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"1"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE | DOTA_ABILITY_BEHAVIOR_IGNORE_PSEUDO_QUEUE | DOTA_ABILITY_BEHAVIOR_IGNORE_CHANNEL"
+		"AbilityTextureName"			"custom/maou/sa_5"
+		"AbilityCooldown"				"9999"
+
+		"AbilityManaCost"				"10"
+
+		// Time		
+		//-------------------------------------------------------------------------------------------------------------
+
+		"AbilityValues"
+        {
+        	"blue_bonus_range"			"0"
+        	"blue_shield_amount"		"1500"
+
+        }		
+	}
  
 }

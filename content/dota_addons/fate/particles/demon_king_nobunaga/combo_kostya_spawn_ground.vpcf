@@ -35,16 +35,19 @@
 			{
 				m_nType = "PF_TYPE_LITERAL"
 				m_nMapType = "PF_MAP_TYPE_DIRECT"
-				m_flLiteralValue = 8.0
+				m_flLiteralValue = 10.0
 				m_NamedValue = ""
 				m_nControlPoint = 0
 				m_nScalarAttribute = 3
 				m_nVectorAttribute = 6
 				m_nVectorComponent = 0
+				m_bReverseOrder = false
 				m_flRandomMin = 0.0
 				m_flRandomMax = 1.0
 				m_bHasRandomSignFlip = false
+				m_nRandomSeed = -1
 				m_nRandomMode = "PF_RANDOM_MODE_CONSTANT"
+				m_strSnapshotSubset = ""
 				m_flLOD0 = 0.0
 				m_flLOD1 = 0.0
 				m_flLOD2 = 0.0
@@ -63,6 +66,8 @@
 				m_flNoiseTurbulenceMix = 0.5
 				m_flNoiseImgPreviewScale = 1.0
 				m_bNoiseImgPreviewLive = true
+				m_flNoCameraFallback = 0.0
+				m_bUseBoundsCenter = false
 				m_nInputMode = "PF_INPUT_MODE_CLAMPED"
 				m_flMultFactor = 1.0
 				m_flInput0 = 0.0
@@ -73,6 +78,7 @@
 				m_flNotchedRangeMax = 1.0
 				m_flNotchedOutputOutside = 0.0
 				m_flNotchedOutputInside = 1.0
+				m_nRoundType = "PF_ROUND_TYPE_NEAREST"
 				m_nBiasType = "PF_BIAS_TYPE_STANDARD"
 				m_flBiasParameter = 0.0
 				m_Curve = 
@@ -83,6 +89,7 @@
 					m_vDomainMaxs = [ 0.0, 0.0 ]
 				}
 			}
+			m_bDisableOperator = true
 		},
 	]
 	m_Children = 
@@ -96,11 +103,11 @@
 		},
 		{
 			m_ChildRef = resource:"particles/demon_king_nobunaga/combo_kostya_spawn_ground_flames.vpcf"
-			m_flDelay = 0.5
+			m_flDelay = 0.75
 		},
 		{
 			m_ChildRef = resource:"particles/demon_king_nobunaga/combo_kostya_spawn_ground_flames_black.vpcf"
-			m_flDelay = 0.5
+			m_flDelay = 0.75
 		},
 		{
 			m_ChildRef = resource:"particles/demon_king_nobunaga/combo_kostya_spawn_ground_wave.vpcf"
@@ -110,6 +117,7 @@
 		},
 		{
 			m_ChildRef = resource:"particles/demon_king_nobunaga/combo_kostya_spawn_model.vpcf"
+			m_bDisableChild = true
 		},
 		{
 			m_ChildRef = resource:"particles/demon_king_nobunaga/combo_kostya_spawn_ground_inner_2.vpcf"
@@ -120,6 +128,19 @@
 		},
 		{
 			m_ChildRef = resource:"particles/maou/maou_combo_linger_smoke.vpcf"
+		},
+		{
+			m_ChildRef = resource:"particles/maou/combo_fire_maou.vpcf"
+			m_flDelay = 0.75
+		},
+		{
+			m_ChildRef = resource:"particles/maou/maou_combo_ground_test.vpcf"
+			m_flDelay = 1.0
+			m_bDisableChild = true
+		},
+		{
+			m_ChildRef = resource:"particles/maou/maou_combo_test_rocks.vpcf"
+			m_flDelay = 0.7
 		},
 	]
 }

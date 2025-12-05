@@ -61,6 +61,34 @@
 			}
 		}
 	}
+
+	"models/maounobu/maounobu.vmdl"
+	{
+		"PortraitLightPosition"		"112.73 -41.13 174.53"
+		"PortraitLightAngles"		"42.54 149.30 0.00"
+		"PortraitLightFOV"		"90"
+		"PortraitLightDistance"		"133"
+		"PortraitLightColor"		"255 30 30"
+		"PortraitShadowColor"		"69 84 56"
+		"PortraitShadowScale"		"1.000000"
+		"PortraitAmbientColor"		"255 0 56"
+		"PortraitAmbientScale"		"5.000000"
+		"PortraitSpecularColor"		"251 30 30"
+		"PortraitBackgroundTexture"		"materials/vgui/hud/heroportraits/maou_fon.vmat"
+		"PortraitLightScale"		"1.950000"
+		"PortraitGroundShadowScale"		"1.500000"
+		"PortraitAmbientDirection"		"-31.670 34.840 37.060"
+		"PortraitAnimationActivity"		"ACT_DOTA_CAPTURE"
+		"cameras"
+		{
+			"default"
+			{
+				"PortraitPosition"		"700.07 40 140"
+				"PortraitAngles"		"1.85 183.19 0.00"
+				"PortraitFOV"		"4"
+			}
+		}
+	}
 	
 	"models/scathach/scathach_swimsuit.vmdl"
 	{
