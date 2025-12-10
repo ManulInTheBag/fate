@@ -29,7 +29,7 @@ function demon_king_combo:OnSpellStart()
     self.point = self:GetCursorPosition()
 
     self:PlayStartEffects()
-     
+     caster:FindAbilityByName("demon_king_materialization"):IncreaseStackCount(100)
     self.comboEnd = 0
     giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled", duration)  
     caster:AddNewModifier(caster,self, "modifier_kb_immune", {Duration = duration})
@@ -173,8 +173,9 @@ end
 
 
 
-if IsServer() then
+
     modifier_demon_king_combo_burn = class({})
+if IsServer() then
 	function modifier_demon_king_combo_burn:OnCreated(args)
 		self.BurnDamage = args.BurnDamage
 	  	self.Radius = args.Radius

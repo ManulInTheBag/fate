@@ -1,7 +1,6 @@
 
 
-demon_king_attribute_1 = class({})
-
+demon_king_attribute_1 = class({}) -- CLASSIC NOBU /// FIRE GROUND SA  FUNC IS WRITTEN INSIDE MATERIALIZATION 
 function demon_king_attribute_1:OnSpellStart()
 	local caster = self:GetCaster()
 	local ply = caster:GetPlayerOwner()
@@ -15,7 +14,7 @@ function demon_king_attribute_1:OnSpellStart()
 	master:SetMana(master:GetMana() - self:GetManaCost(self:GetLevel()))
 end
 
-demon_king_attribute_2 = class({})
+demon_king_attribute_2 = class({}) -- KIPPOSHI NOBU
 
 function demon_king_attribute_2:OnSpellStart()
 	local caster = self:GetCaster()
@@ -30,7 +29,7 @@ function demon_king_attribute_2:OnSpellStart()
 	master:SetMana(master:GetMana() - self:GetManaCost(self:GetLevel()))
 end
 
-demon_king_attribute_3 = class({})
+demon_king_attribute_3 = class({}) -- KAISERE NOBu
 
 function demon_king_attribute_3:OnSpellStart()
 	local caster = self:GetCaster()
@@ -45,7 +44,7 @@ function demon_king_attribute_3:OnSpellStart()
 	master:SetMana(master:GetMana() - self:GetManaCost(self:GetLevel()))
 end
 
-demon_king_attribute_4 = class({})
+demon_king_attribute_4 = class({}) -- SUMMER NOBU
 
 function demon_king_attribute_4:OnSpellStart()
 	local caster = self:GetCaster()
@@ -60,7 +59,7 @@ function demon_king_attribute_4:OnSpellStart()
 	master:SetMana(master:GetMana() - self:GetManaCost(self:GetLevel()))
 end
 
-demon_king_attribute_5 = class({})
+demon_king_attribute_5 = class({}) -- HUMAN NOBU
 
 function demon_king_attribute_5:OnSpellStart()
 	local caster = self:GetCaster()

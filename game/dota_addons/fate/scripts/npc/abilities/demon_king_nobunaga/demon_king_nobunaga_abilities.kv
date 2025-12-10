@@ -79,11 +79,10 @@
 		{
 			"particle"		"particles/demon_king_nobunaga/extermination_cast_base.vpcf"
 			"particle"		"particles/demon_king_nobunaga/extermination_cast_hand_smoke.vpcf"
-			"particle"		"particles/demon_king_nobunaga/extermination_cast_sword_glow.vpcf"
-			"particle"		"particles/demon_king_nobunaga/extermination_cast_sword_glow_red.vpcf"
 			"particle"		"particles/muramasa/muramasa_rush_burn.vpcf"
 			"particle"		"particles/maou/w_hit/maou_w_hit.vpcf"
 			"particle"		"particles/maou_w_slash/maou_w_slash.vpcf"
+			"particle"		"particles/demon_king_nobunaga/fire_ground.vpcf"
 		}
 		"AbilityValues"
 		{
@@ -93,10 +92,11 @@
 			"burn_dps"			"100 125 150 175 200"
 			"burn_duration"			"2.5"
 			"dash_distance_trigger"				"250" // castrange + buffer, not active
-			"dash_distance_max"					"1000"
+			"dash_distance_max"					"1300"
 			"damage_dash"			"300 350 400 450 500"
 			"dash_delay"				"0.25"
 			"dash_speed"				"2500"
+
 		}
 	}
 
@@ -176,10 +176,51 @@
 			"total_duration"						"1"
 			"damage_ticks"						"5"
 			"damage_per_stack"						"200"
+			"sa_barrier_duration"						"10"
 		}
 	}
 
 
+	//=======================================
+	// Demon king nobunaga - Materialization (F)
+	//=======================================
+	"demon_king_materialization"
+	{
+		// General		//------------------------------------------------------------------------------------------------------------
+		"BaseClass"						"ability_lua"
+		"ScriptFile"					"abilities/demon_king_nobunaga/demon_king_materialization"
+		"MaxLevel"						"1"
+		"RequiredLevel"					"1"
+		"LevelsBetweenUpgrades"			"25"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET|DOTA_ABILITY_BEHAVIOR_IMMEDIATE|DOTA_ABILITY_BEHAVIOR_AOE|DOTA_ABILITY_BEHAVIOR_HIDDEN"
+		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL" 
+		"AbilityTextureName"			"custom/maou/d"
+
+		"AbilityCastRange"				"500"
+		"AbilityCooldown"				"0"
+		"AbilityManaCost"				"0"
+
+		"precache"
+		{
+			"particle"		"particles/demon_king_nobunaga/fire_ground.vpcf"
+		}
+
+		"AbilityValues"
+		{
+			"maximum_stack_count"					"10"
+			"sa_1_damage_min"						"200"
+			"sa_1_mana"								"50"
+			"sa_1_cd"								"2"
+			"sa_2_spell_amp"						"15"
+			"sa_2_spell_amp_duration"				"2"
+			"sa_4_stat_bonus"						"2"
+			//burning ground SA
+			"sa_dps"				"50"
+			"sa_aoe_radius"				"500"
+			"sa_duration"				"7"
+		}
+	}
 
 	//=======================================
 	// Demon king nobunaga - breath (R)

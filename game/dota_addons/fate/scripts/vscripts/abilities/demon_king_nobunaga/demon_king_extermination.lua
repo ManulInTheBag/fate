@@ -6,17 +6,34 @@ function demon_king_extermination:OnSpellStart()
    local caster = self:GetCaster() 
    local target = self:GetCursorTarget()
    local damage = self:GetSpecialValueFor("damage_hit")
+   if IsSpellBlocked(target) then 
+		return 
+	end
    DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
    giveUnitDataDrivenModifier(caster, target, "locked", self:GetSpecialValueFor("lock_duration"))
    giveUnitDataDrivenModifier(caster, target, "stunned", self:GetSpecialValueFor("stun_duration"))
    target:AddNewModifier(caster, self, "modifier_demon_king_extermination_burn",{duration = self:GetSpecialValueFor("burn_duration") })
    local damage_fx = ParticleManager:CreateParticle("particles/maou/w_hit/maou_w_hit.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
    ParticleManager:ReleaseParticleIndex(damage_fx)
+   if caster.demon_king_attribute_3 then
+      caster:FindAbilityByName("demon_king_beam"):CreateGun(caster:GetAbsOrigin() + caster:GetRightVector() * 200 + caster:GetForwardVector() * -200 + Vector(0,0, 150), target)
+      caster:FindAbilityByName("demon_king_beam"):CreateGun(caster:GetAbsOrigin() + caster:GetRightVector() * -200 + caster:GetForwardVector() * -200 + Vector(0,0, 150), target)
+   end
+   if caster.demon_king_attribute_2 then 
+      caster:FindAbilityByName("demon_king_beam"):EndCooldown()
+   end
+   if caster.demon_king_attribute_1 then 
+      caster:FindAbilityByName("demon_king_materialization"):CreateFireGroundSa(target:GetAbsOrigin())
+   end
 end
+
 
 function demon_king_extermination:OnAbilityPhaseStart()
    local caster = self:GetCaster()
    StartAnimation(caster, {duration=1, activity=ACT_DOTA_CAST_ABILITY_2, rate=1})
+   -- 	if IsSpellBlocked(self:GetCursorTarget()) then 
+	-- 	return 
+	-- end
    caster:EmitSound("maou_w_1")
    caster:EmitSound("maou_w_explosion")
    self.castfx = ParticleManager:CreateParticle("particles/demon_king_nobunaga/extermination_cast_base.vpcf", PATTACH_ABSORIGIN_FOLLOW, caster)
@@ -67,6 +84,9 @@ function demon_king_extermination:OnAbilityPhaseInterrupted()
       EndAnimation(caster)
       StartAnimation(caster, {duration=delay, activity=ACT_DOTA_CAST_ABILITY_2_END, rate=1.5})
       self:StartCooldown(self:GetCooldown(self:GetLevel()))
+      if caster.demon_king_attribute_2 then 
+         caster:FindAbilityByName("demon_king_beam"):EndCooldown()
+      end
       caster:SetForwardVector(vector)
       caster:FaceTowards(target:GetAbsOrigin())
       caster:Stop()
@@ -81,13 +101,18 @@ function demon_king_extermination:OnAbilityPhaseInterrupted()
                               center_z = target:GetAbsOrigin().z }
       caster:RemoveModifierByName("modifier_knockback")
       caster:AddNewModifier(caster, self, "modifier_knockback", knockback1)
+      if caster.demon_king_attribute_3 then
+         Timers:CreateTimer(delay/2, function()
+            caster:FindAbilityByName("demon_king_beam"):CreateGun(caster:GetAbsOrigin() + caster:GetRightVector() * 100 + Vector(0,0, 150), target)
+         end)
+      end
       Timers:CreateTimer( delay, function()
             caster:EmitSound("maou_w_dash_slash")
 				EndAnimation(caster)
             vector =  -1*(caster:GetAbsOrigin()-target:GetAbsOrigin()):Normalized() 
             vector.z = 0
 
-            local distance = (caster:GetAbsOrigin()-target:GetAbsOrigin()):Length2D()
+            local distance = math.min((caster:GetAbsOrigin()-target:GetAbsOrigin()):Length2D(), self:GetSpecialValueFor("dash_distance_max") )
             caster:SetForwardVector(vector)
             caster:FaceTowards(target:GetAbsOrigin())
             local dash_duration =  (distance + 250)/speed

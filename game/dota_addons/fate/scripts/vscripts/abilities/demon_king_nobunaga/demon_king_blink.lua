@@ -36,6 +36,9 @@ function demon_king_blink:OnSpellStart()
    if IsServer() then
     EndAnimation(caster)
     StartAnimation(caster, {duration=1, activity=ACT_DOTA_CAST_DEAFENING_BLAST, rate=1})
+   end 
+   if caster.demon_king_attribute_2 then 
+      caster:FindAbilityByName("demon_king_beam"):EndCooldown()
    end
    ProjectileManager:ProjectileDodge(caster) 
    local target = self:GetCursorPosition()
@@ -98,11 +101,14 @@ function demon_king_blink:PerformAttackTimer()
        end
         counter = counter + 1
         if counter == (3) then
-                self.effect_ground_hit2 = ParticleManager:CreateParticle("particles/maou_blink/maou_blink_land.vpcf", PATTACH_WORLDORIGIN, caster)
+            self.effect_ground_hit2 = ParticleManager:CreateParticle("particles/maou_blink/maou_blink_land.vpcf", PATTACH_WORLDORIGIN, caster)
             ParticleManager:SetParticleControl(self.effect_ground_hit2, 0, caster:GetAbsOrigin() + caster:GetForwardVector()*100)
             ParticleManager:SetParticleControl(self.effect_ground_hit2, 1, caster:GetAbsOrigin() + caster:GetForwardVector()*100)
             ParticleManager:SetParticleControl(self.effect_ground_hit2, 2, Vector(aoe_radius,aoe_radius,aoe_radius))
             caster:EmitSound("maou_blink_explosion")
+            if caster.demon_king_attribute_1 then 
+                caster:FindAbilityByName("demon_king_materialization"):CreateFireGroundSa(caster:GetAbsOrigin())
+            end
         end
         if counter < max_counter then
 

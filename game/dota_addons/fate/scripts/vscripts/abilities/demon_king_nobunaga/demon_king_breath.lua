@@ -1,6 +1,7 @@
 
 demon_king_breath = class({})
 LinkLuaModifier("modifier_merlin_self_pause","abilities/merlin/merlin_orbs", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_vision_provider", "abilities/general/modifiers/modifier_vision_provider", LUA_MODIFIER_MOTION_NONE)
 function demon_king_breath:OnAbilityPhaseStart()
 	local caster = self:GetCaster()
 	StartAnimation(caster, {duration=0.9, activity=ACT_DOTA_CAST_ABILITY_6, rate=1.2})
@@ -115,6 +116,9 @@ function demon_king_breath:CreateBlackHole(position, duration, radius, pull_str,
     ParticleManager:SetParticleControl(self.BasicRadius2, 0, position)
 	ParticleManager:SetParticleControl(self.BasicRadius2, 1, Vector(1,0.1,0.1))
 	ParticleManager:SetParticleControl(self.BasicRadius2, 2, Vector(radius,duration,0))	
+    if caster.demon_king_attribute_1 then 
+      caster:FindAbilityByName("demon_king_materialization"):CreateFireGroundSa(position)
+   end
 
     ParticleManager:SetParticleShouldCheckFoW(self.BasicRadius2, false)
     local knockback1 = { should_stun = false,

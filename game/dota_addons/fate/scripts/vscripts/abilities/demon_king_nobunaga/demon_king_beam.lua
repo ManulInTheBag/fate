@@ -30,10 +30,16 @@ function demon_king_beam:OnSpellStart()
     if target == caster then
         self:CastGroundSlam()
     elseif hpPercentage > 30 then
+        if IsSpellBlocked(target) then 
+		    return 
+	    end
         self.unitsTable = {}
         self.unitsDamageTable = {}
         self:CastHandBeam(target)
     else
+        if IsSpellBlocked(target) then 
+		    return 
+	    end
         self:CastGunOrder(target)
     end
 

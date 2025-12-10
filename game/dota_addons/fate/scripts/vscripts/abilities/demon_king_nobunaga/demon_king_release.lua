@@ -2,6 +2,7 @@
 demon_king_release = class({})
 
 LinkLuaModifier("modifier_demon_king_release", "abilities/demon_king_nobunaga/demon_king_release", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_barrier_new", "modifiers/modifier_barrier_new", LUA_MODIFIER_MOTION_NONE)
 function demon_king_release:GetAOERadius()
    
 	return self:GetSpecialValueFor("aoe_radius")
@@ -16,6 +17,7 @@ function demon_king_release:OnSpellStart()
    caster:EmitSound("maou_release_start")
    giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled",  time)  
    self:PerformAttackTimer()
+   self.damageDealtCounter =  0
 end
 
 
@@ -26,7 +28,7 @@ function demon_king_release:PerformAttackTimer()
    local max_counter = self:GetSpecialValueFor("damage_ticks")
    local duration = self:GetSpecialValueFor("total_duration")
    local tick_duration = self:GetSpecialValueFor("total_duration") / max_counter
-   local stacks = caster:GetModifierStackCount("demon_king_materialization", caster)
+   local stacks = caster:GetModifierStackCount("modifier_demon_king_materialization", caster)
    local damage_total = math.min(caster:GetMaxHealth(), self:GetSpecialValueFor("total_damage_base")  + self:GetSpecialValueFor("damage_per_stack") * stacks)
 
    local tick_damage =  damage_total/ self:GetSpecialValueFor("damage_ticks")
@@ -57,7 +59,11 @@ function demon_king_release:PerformAttackTimer()
             ParticleManager:ReleaseParticleIndex(effect_ground_hit)
             ParticleManager:DestroyParticle(onHeroEffect, false)
             ParticleManager:ReleaseParticleIndex(onHeroEffect)
-            caster:RemoveModifierByName("demon_king_materialization")
+            caster:RemoveModifierByName("modifier_demon_king_materialization")
+            if caster.demon_king_attribute_4 then
+               caster:AddNewModifier(caster, self,"modifier_barrier_new", {duration = self:GetSpecialValueFor("sa_barrier_duration"), beforeBScroll = false,  ShouldEndChannel = false,  decreaseDamageOnProck = 0,
+                                                                           shield_amount = math.min(self.damageDealtCounter, caster:GetMaxHealth()), HasCounter = false} )
+            end
             return
         end
    
@@ -72,6 +78,7 @@ function demon_king_release:PerformDealingDamage(tick_damage, aoe_radius)
 		for k,v in pairs(targets) do
 			if v:GetName() ~= "npc_dota_ward_base" then
 					DoDamage(caster, v, tick_damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+               self.damageDealtCounter = self.damageDealtCounter + tick_damage
 					
 			end
 		end
