@@ -15,7 +15,7 @@
 						[
 							{
 								from = ""
-								to = "models/maounobu/nobujopa.vmat"
+								to = "maps/backgrounds/models/fairy_showcase_hero_shield/fairy_showcase_hero_shield.vmat"
 							},
 						]
 						use_global_default = false
@@ -30,7 +30,7 @@
 					{
 						_class = "RenderMeshFile"
 						name = "maounobu"
-						filename = "models/test/102_skin5.fbx"
+						filename = "models/maounobu/nobus/herc/herc.fbx"
 						import_scale = 1.0
 						import_filter = 
 						{
@@ -46,7 +46,7 @@
 				[
 					{
 						_class = "AnimFile"
-						name = "fist_attack_series"
+						name = "1"
 						children = 
 						[
 							{
@@ -85,11 +85,11 @@
 						disable_compression = false
 						animgraph_additive = false
 						delete_from_compiled_model = false
-						source_filename = "models/test/102_skin5.fbx"
-						import_bone_scales = false
-						start_frame = 359
+						source_filename = "models/maounobu/nobus/herc/herc.fbx"
+						import_bone_scales = true
+						start_frame = 0
 						end_frame = 360
-						framerate = 1.0
+						framerate = 30.0
 						reverse = false
 						additional_anim_files = [  ]
 					},

@@ -203,6 +203,9 @@ function modifier_jeanne_trail:OnIntervalThink()
 
         for _, enemy in pairs(enemies2) do
             DoDamage(self.caster, enemy, self.ability:GetSpecialValueFor("burn_damage")/4, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
+            if enemy:GetName() == "npc_dota_hero_nevermore" then
+				enemy:FindAbilityByName("demon_king_materialization"):ProckSpellAmpBonus()
+			end
             if self.caster.CursedGroundAcquired then
                 if enemy:HasModifier("modifier_jeanne_curse_active") then
                     local modifier = enemy:FindModifierByName("modifier_jeanne_curse_active")

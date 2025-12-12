@@ -144,7 +144,9 @@ function demon_king_combo:PlayStartEffects()
 
     Timers:CreateTimer(1.5, function()
          ParticleManager:SetParticleControl(self.castfx, 8, Vector(0,0,0))
-
+            if caster.demon_king_attribute_1 then 
+                caster:FindAbilityByName("demon_king_materialization"):CreateFireGroundSa(caster:GetAbsOrigin())
+            end
             self.shrapnelFx = ParticleManager:CreateParticle("particles/maou_combo/maou_combo_shrapnel.vpcf", PATTACH_WORLDORIGIN, nil)
             ParticleManager:SetParticleControl(self.shrapnelFx, 0, self.point)
             ParticleManager:SetParticleControl(self.shrapnelFx, 1, Vector(self.radius,0,0))

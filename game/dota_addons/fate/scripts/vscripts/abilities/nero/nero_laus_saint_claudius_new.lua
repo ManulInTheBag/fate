@@ -41,6 +41,9 @@ function nero_laus_saint_claudius_new:OnSpellStart()
 				for k,v in pairs(targets) do
 					DoDamage(caster, v, ability:GetSpecialValueFor("explosion_damage") , DAMAGE_TYPE_MAGICAL, 0, self, false)
 					v:AddNewModifier(caster, self, "modifier_stunned", {Duration = 0.1})
+					if v:GetName() == "npc_dota_hero_nevermore" then
+						v:FindAbilityByName("demon_king_materialization"):ProckSpellAmpBonus()
+					end
 				end
 			end
 			counter = counter+1

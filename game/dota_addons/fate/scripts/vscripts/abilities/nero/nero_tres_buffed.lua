@@ -238,6 +238,9 @@ end
 
 function modifier_nero_tres_enemy:OnIntervalThink()
     if IsServer() then
+        	if self.parent:GetName() == "npc_dota_hero_nevermore" then
+                self.parent:FindAbilityByName("demon_king_materialization"):ProckSpellAmpBonus()
+            end
         DoDamage(self.caster, self.parent, self.damage/4, DAMAGE_TYPE_MAGICAL, 0, self.ability, false)
     end
 end

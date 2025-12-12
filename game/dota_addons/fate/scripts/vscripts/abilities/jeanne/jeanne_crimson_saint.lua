@@ -88,6 +88,9 @@ function jeanne_crimson_saint:OnSpellStart()
 	
 			for _,enemy in pairs(enemies) do
 				DoDamage(caster, enemy, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+				if enemy:GetName() == "npc_dota_hero_nevermore" then
+					enemy:FindAbilityByName("demon_king_materialization"):ProckSpellAmpBonus()
+				end
 				--enemy:AddNewModifier(caster, self, "modifier_stunned", { Duration = stun_duration })
 			end
 		end

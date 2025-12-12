@@ -3086,7 +3086,9 @@
 		//	DEMON KING NOBUNAGA (FGO avenger)
 		//=================================================================================================================
 		"npc_dota_hero_nevermore"				"Demon king Nobunaga"
-
+		"maou_nobus_tank"				"Demon Nobbu TANK"
+		"maou_nobus_shinsengumi"				"Demon Nobbugumi"
+		"maou_nobus_heracles"				"Demon NobbuSerker"
 		"npc_dota_hero_nevermore_hype"			""
 		"npc_dota_hero_nevermore_bio"			""
 
@@ -3106,9 +3108,11 @@
 		"DOTA_Tooltip_modifier_demon_king_extermination_burn_Description"			"Damage over time"
 		"DOTA_Tooltip_modifier_demon_king_sa2_spell_amp"						"Burning will"
 		"DOTA_Tooltip_modifier_demon_king_sa2_spell_amp_Description"			"Increased spell damage"
+		"DOTA_Tooltip_modifier_maou_nobbus_tank_ram"						"RAMMING"
+		"DOTA_Tooltip_modifier_maou_nobbus_tank_ram_Description"			"MOVEMENOBB INCRNOBB"
 
 
-		"DOTA_Tooltip_Ability_demon_king_beam"				"Demon king figthing style"
+		"DOTA_Tooltip_Ability_demon_king_beam"				"Demon king fighting style"
 		"DOTA_Tooltip_ability_demon_king_beam_Description"	"Cast point: <font color='#FFFAFA'>%AbilityCastPoint%</font>s   |    <font color='#29EE32'>Refreshable</font>\nDemon king uses various moves:\nWhen casted on self, <font color='#AA4A44'>Demon king slam</font>, when casted on enemy hero below 30%% health, <font color='#880808'>Demon king guns</font>, otherwise she will use <font color='#C41E3A'>Demon king beam</font>.\n<font color='#AA4A44'>Demon king slam</font>: Demon king slams the ground around herself, dealing <font color='#58ACFA'>damage</font> and knocking enemies around <font color='#FF3399'>airborne</font>.\n<font color='#880808'>Demon king guns</font>: After a short delay, Demon king shoots 2 beams with her guns into the target enemy, dealing <font color='#58ACFA'>damage</font> to all enemies on its way.\n<font color='#C41E3A'>Demon king beam</font>: Demon king shoots beam with her hand, that will bounce on targets within range, dealing <font color='#58ACFA'>damage</font> to all enemies on its way. Beam can only bounce once from every hero."
 		"DOTA_Tooltip_Ability_demon_king_beam_Lore"					"Demon king pushes herself to her very limit with every move"
 		"DOTA_Tooltip_Ability_demon_king_beam_slam_damage"			"Slam damage:"
@@ -3168,6 +3172,39 @@
 		"DOTA_Tooltip_Ability_demon_king_breath_black_hole_delay"		"Activation delay:"
 		"DOTA_Tooltip_Ability_demon_king_breath_black_hole_damage"		"Active damage per sec:"
 		"DOTA_Tooltip_Ability_demon_king_breath_black_hole_pull_str"	"Active pull per sec:"
+
+
+
+
+
+
+		//////////NOBBU ABILITIES
+		"DOTA_Tooltip_Ability_maou_nobbus_herc_slam"				"Nobbu SLAM!"
+		"DOTA_Tooltip_Ability_maou_nobbus_herc_slam_Description"	"Cast point: <font color='#FFFAFA'>%AbilityCastPoint%</font>s;\nNobbu jumps into the target point, dealing <font color='#58ACFA'>damage</font> and <font color='#FF3399'>stunning</font> in a line"
+		"DOTA_Tooltip_Ability_maou_nobbus_herc_slam_width"			"Lone width:"
+		"DOTA_Tooltip_Ability_maou_nobbus_herc_slam_damage"			"Damage:"
+		"DOTA_Tooltip_Ability_maou_nobbus_herc_slam_range"			"Line range:"
+		"DOTA_Tooltip_Ability_maou_nobbus_herc_slam_stun_duration"				"Stun duration:"
+
+		"DOTA_Tooltip_Ability_maou_nobbus_gumi_dash"				"Nobbu DASH!"
+		"DOTA_Tooltip_Ability_maou_nobbus_gumi_dash_Description"	"Cast point: <font color='#FFFAFA'>%AbilityCastPoint%</font>s;\nNobbu dashes in the direction, dealing <font color='#D1A951'>damage</font> 3 times after a delay."
+		"DOTA_Tooltip_Ability_maou_nobbus_gumi_dash_base_damage"			"Damage:"
+		"DOTA_Tooltip_Ability_maou_nobbus_gumi_dash_range"				"Max range:"
+		"DOTA_Tooltip_Ability_maou_nobbus_gumi_dash_speed"				"Dash speed:"
+
+
+		"DOTA_Tooltip_Ability_maou_nobbus_tank_rockets"				"Nobbu ROCKETS!"
+		"DOTA_Tooltip_Ability_maou_nobbus_tank_rockets_Description"	"Cast point: <font color='#FFFAFA'>IMMEDIATE</font>\nNobbu starts shooting rockets 1 sec to the random targets in radius, each dealing <font color='#58ACFA'>damage</font>."
+		"DOTA_Tooltip_Ability_maou_nobbus_tank_rockets_damage"			"Damage:"
+		"DOTA_Tooltip_Ability_maou_nobbus_tank_rockets_amount"				"Total rockets"
+		"DOTA_Tooltip_Ability_maou_nobbus_tank_rockets_search_radius"		"Search radius:"
+
+		"DOTA_Tooltip_Ability_maou_nobbus_tank_ram"				"Nobbu RAM!"
+		"DOTA_Tooltip_Ability_maou_nobbus_tank_ram_Description"	"Cast point: <font color='#FFFAFA'>IMMEDIATE</font>\nNobbu gains massive movement speed bonus and slow immune for a duration."
+		"DOTA_Tooltip_Ability_maou_nobbus_tank_ram_speed_const"				"Speed:"
+		"DOTA_Tooltip_Ability_maou_nobbus_tank_ram_duration"				"Duration"
+
+
 
 		//================================================================================================================
 		//	Arash (Babylonia archer)

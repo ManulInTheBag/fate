@@ -98,7 +98,9 @@ function demon_king_combo_recast:OnSpellStart()
 	Timers:CreateTimer(delay, function()  
         local full_damage_targets = FindUnitsInRadius(caster:GetTeam(), target_point, nil, small_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
         local half_damage_targets = FindUnitsInRadius(caster:GetTeam(), target_point, nil, large_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
-
+		if caster.demon_king_attribute_1 then 
+			caster:FindAbilityByName("demon_king_materialization"):CreateFireGroundSa(target_point)
+		end
         for i = 1, #full_damage_targets do
             DoDamage(caster, full_damage_targets[i], full_damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
             full_damage_targets[i]:AddNewModifier(caster, self, "modifier_maou_combo_hit", { Duration = 0.1 })

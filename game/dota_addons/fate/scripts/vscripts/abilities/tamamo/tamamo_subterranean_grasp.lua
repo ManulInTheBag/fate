@@ -39,6 +39,9 @@ function tamamo_subterranean_grasp:OnSpellStart()
 			if caster:HasModifier("modifier_fiery_heaven_indicator") then
 				--tEnemies[i]:AddNewModifier(caster, self, "modifier_subterranean_grasp_fire", {duration = duration})
 				tEnemies[i]:AddNewModifier(caster, self, "modifier_heal_reduction_tier_3", {duration = duration})
+					if tEnemies[i]:GetName() == "npc_dota_hero_nevermore" then
+						tEnemies[i]:FindAbilityByName("demon_king_materialization"):ProckSpellAmpBonus()
+					end
 			elseif caster:HasModifier("modifier_frigid_heaven_indicator") then 
 				giveUnitDataDrivenModifier(caster, tEnemies[i], "locked", duration)
 			elseif caster:HasModifier("modifier_gust_heaven_indicator") then

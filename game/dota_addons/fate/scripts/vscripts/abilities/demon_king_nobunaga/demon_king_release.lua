@@ -18,8 +18,76 @@ function demon_king_release:OnSpellStart()
    giveUnitDataDrivenModifier(caster, caster, "pause_sealenabled",  time)  
    self:PerformAttackTimer()
    self.damageDealtCounter =  0
-end
 
+   self:SummonNobbus()
+
+end
+function demon_king_release:SummonNobbus()
+   local caster = self:GetCaster()
+   local randomVec = Vector(math.random(), math.random(), math.random())
+   local spawn_location = caster:GetAbsOrigin() + math.random(-200, 200) * randomVec
+   local nobbus1 = CreateUnitByName("maou_nobus_heracles", spawn_location, true, caster, caster, caster:GetTeamNumber())
+   nobbus1:SetControllableByPlayer(caster:GetPlayerID(), true)
+   nobbus1:SetOwner(caster)
+   nobbus1.Caster = caster
+   nobbus1.Ability = self
+
+   local knockback1 = { should_stun = true,
+                           knockback_duration = 1,
+                           duration = 1,
+                           knockback_distance = 500,
+                           knockback_height = 400,
+                           center_x = caster:GetAbsOrigin().x,
+                           center_y = caster:GetAbsOrigin().y,
+                           center_z = caster:GetAbsOrigin().z }
+	nobbus1:RemoveModifierByName("modifier_knockback")
+	nobbus1:AddNewModifier(caster, self, "modifier_knockback", knockback1)
+   giveUnitDataDrivenModifier(nobbus1, nobbus1, "jump_pause", 1)
+   nobbus1:AddNewModifier(caster, nil, "modifier_kill", {duration = 30})
+
+   randomVec = Vector(math.random(), math.random(), math.random())
+   spawn_location = caster:GetAbsOrigin() + math.random(-200, 200) * randomVec
+   local nobbus2 = CreateUnitByName("maou_nobus_shinsengumi", spawn_location, true, caster, caster, caster:GetTeamNumber())
+   nobbus2:SetControllableByPlayer(caster:GetPlayerID(), true)
+   nobbus2:SetOwner(caster)
+   nobbus1.Caster = caster
+   nobbus1.Ability = self
+
+       knockback1 = { should_stun = true,
+                           knockback_duration = 1,
+                           duration = 1,
+                           knockback_distance = 500,
+                           knockback_height = 400,
+                           center_x = caster:GetAbsOrigin().x,
+                           center_y = caster:GetAbsOrigin().y,
+                           center_z = caster:GetAbsOrigin().z }
+	nobbus2:RemoveModifierByName("modifier_knockback")
+	nobbus2:AddNewModifier(caster, self, "modifier_knockback", knockback1)
+   giveUnitDataDrivenModifier(nobbus2, nobbus2, "jump_pause", 1)
+   nobbus2:AddNewModifier(caster, nil, "modifier_kill", {duration = 30})
+
+   randomVec = Vector(math.random(), math.random(), math.random())
+   spawn_location = caster:GetAbsOrigin() + math.random(-200, 200) * randomVec
+   local nobbus3 = CreateUnitByName("maou_nobus_tank", spawn_location, true, caster, caster, caster:GetTeamNumber())
+   nobbus3:SetControllableByPlayer(caster:GetPlayerID(), true)
+   nobbus3:SetOwner(caster)
+   nobbus3.Caster = caster
+   nobbus3.Ability = self
+
+       knockback1 = { should_stun = true,
+                           knockback_duration = 1,
+                           duration = 1,
+                           knockback_distance = 500,
+                           knockback_height = 400,
+                           center_x = caster:GetAbsOrigin().x,
+                           center_y = caster:GetAbsOrigin().y,
+                           center_z = caster:GetAbsOrigin().z }
+	nobbus3:RemoveModifierByName("modifier_knockback")
+	nobbus3:AddNewModifier(caster, self, "modifier_knockback", knockback1)
+   giveUnitDataDrivenModifier(nobbus3, nobbus3, "jump_pause", 1)
+   nobbus3:AddNewModifier(caster, nil, "modifier_kill", {duration = 30})
+
+end
 
 
 function demon_king_release:PerformAttackTimer()
@@ -43,7 +111,9 @@ function demon_king_release:PerformAttackTimer()
 
    caster:EmitSound("maou_release_voice")
    caster:AddNewModifier(caster, self, "modifier_demon_king_release", {duration = duration})
-
+   if caster.demon_king_attribute_1 then 
+         caster:FindAbilityByName("demon_king_materialization"):CreateFireGroundSa(caster:GetAbsOrigin())
+   end
    Timers:CreateTimer(0, function()
       self:PerformDealingDamage(tick_damage, aoe_radius)
          if counter == 1 then
@@ -74,7 +144,7 @@ end
 
 function demon_king_release:PerformDealingDamage(tick_damage, aoe_radius)
    local caster = self:GetCaster()
-      local targets = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), caster, aoe_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER , false)
+      local targets = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), caster, aoe_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER , false)
 		for k,v in pairs(targets) do
 			if v:GetName() ~= "npc_dota_ward_base" then
 					DoDamage(caster, v, tick_damage, DAMAGE_TYPE_MAGICAL, 0, self, false)

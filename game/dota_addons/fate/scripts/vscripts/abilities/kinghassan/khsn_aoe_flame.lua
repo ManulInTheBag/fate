@@ -91,6 +91,9 @@ function khsn_aoe_flame:OnSpellStart()
 				for k,v in pairs(targets) do
 					v:AddNewModifier(caster, self, "modifier_khsn_aoe_flame", {duration = duration})
 					DoDamage(caster, v, damage_per_tick, DAMAGE_TYPE_MAGICAL, 0, self, false)
+					 if v:GetName() == "npc_dota_hero_nevermore" then
+						v:FindAbilityByName("demon_king_materialization"):ProckSpellAmpBonus()
+					end
 					giveUnitDataDrivenModifier(caster, v, "locked", 0.2)
 					--v:AddNewModifier(caster, v, "modifier_stunned", { Duration = 0.4 })
 
@@ -137,6 +140,9 @@ function khsn_aoe_flame:OnProjectileHit(hTarget, vLocation)
 
 	hTarget:AddNewModifier(caster, self, "modifier_khsn_aoe_flame", {duration = duration + (caster.AzraelAcquired and 2 or 0)})
 	DoDamage(caster, hTarget, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+	if hTarget:GetName() == "npc_dota_hero_nevermore" then
+		hTarget:FindAbilityByName("demon_king_materialization"):ProckSpellAmpBonus()
+	end
 end
 
 ------
@@ -188,5 +194,8 @@ end
 function modifier_khsn_aoe_flame:OnIntervalThink()
 	if IsServer() then
 		DoDamage(self.caster, self.parent, self.flame_damage_second, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
+		if self.parent:GetName() == "npc_dota_hero_nevermore" then
+			self.parent:FindAbilityByName("demon_king_materialization"):ProckSpellAmpBonus()
+		end
 	end
 end

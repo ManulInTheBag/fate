@@ -50,6 +50,9 @@ if IsServer() then
 				local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetOrigin(), nil, self.burn_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 				for k,v in pairs(targets) do						
 				    DoDamage(caster, v, self.burn_damage * self.interval, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
+					if v:GetName() == "npc_dota_hero_nevermore" then
+						v:FindAbilityByName("demon_king_materialization"):ProckSpellAmpBonus()
+					end
 				end
 			end
 		end

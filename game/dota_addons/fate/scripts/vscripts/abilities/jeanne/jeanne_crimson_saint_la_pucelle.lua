@@ -79,6 +79,9 @@ function jeanne_crimson_saint_la_pucelle:OnSpellStart()
 
 				local enemy_damage = (1 - 0.5*(caster:GetAbsOrigin() - enemy:GetAbsOrigin()):Length2D()/radius)*damage
 				DoDamage(caster, enemy, enemy_damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+				if enemy:GetName() == "npc_dota_hero_nevermore" then
+					enemy:FindAbilityByName("demon_king_materialization"):ProckSpellAmpBonus()
+				end
 				enemy:AddNewModifier(caster, self, "modifier_stunned", { Duration = stun_duration })
 
 				local rope_fx = ParticleManager:CreateParticle("particles/jeanne/jeanne_la_pucelle_rope.vpcf", PATTACH_POINT_FOLLOW, caster)

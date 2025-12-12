@@ -43,8 +43,8 @@ function demon_king_materialization:CreateFireGroundSa(position)
 		for k,v in pairs(targets) do
 			DoDamage(caster, v, damage_per_sec*tick_time, DAMAGE_TYPE_MAGICAL, 0, self, false)	
 		end
-        if (caster:GetAbsOrigin() - position):Length2D() <= aoe_radius and caster.demon_king_attribute_2 then
-            caster:AddNewModifier(caster,self, "modifier_demon_king_sa2_spell_amp", {duration = self:GetSpecialValueFor("sa_2_spell_amp_duration")})
+        if (caster:GetAbsOrigin() - position):Length2D() <= aoe_radius then
+            self:ProckSpellAmpBonus()
         end
 
         return tick_time

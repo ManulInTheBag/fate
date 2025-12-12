@@ -148,7 +148,11 @@ function modifier_muramasa_forge:OnIntervalThink( )
         else
             DoDamage(self.caster, self.parent, self.damage, self.ability:GetAbilityDamageType(), 0, self.ability, false)
         end
+        if self.parent:GetName() == "npc_dota_hero_nevermore" then
+            self.parent:FindAbilityByName("demon_king_materialization"):ProckSpellAmpBonus()
+        end
     end
+
     if self.parent:HasModifier("modifier_muramasa_no_sword") and self.createdBySA ~= 1 then 
         self.parent:RemoveModifierByName("modifier_muramasa_no_sword")
     end
