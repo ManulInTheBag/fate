@@ -139,6 +139,9 @@ function demon_king_blink:PerformDealingDamage(tick_damage, aoe_radius)
 					
 			end
 		end
+    if #targets > 0 then
+        caster:FindAbilityByName("demon_king_materialization"):IncreaseStackCount(1)
+    end
 
 end
 

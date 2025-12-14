@@ -247,6 +247,9 @@ function OnBurnDamageTick(keys)
 	local damage = keys.Damage/4
 
 	DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, 0, keys.ability, false)
+	if target:GetName() == "npc_dota_hero_nevermore" then
+		target:FindAbilityByName("demon_king_materialization"):ProckSpellAmpBonus()
+	end
 end
 
 --------------------------------------------------------------------------------------------------------------------------------------------------------------

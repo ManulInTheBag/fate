@@ -12,12 +12,13 @@ function demon_king_extermination:OnSpellStart()
    DoDamage(caster, target, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
    giveUnitDataDrivenModifier(caster, target, "locked", self:GetSpecialValueFor("lock_duration"))
    giveUnitDataDrivenModifier(caster, target, "stunned", self:GetSpecialValueFor("stun_duration"))
+   caster:FindAbilityByName("demon_king_materialization"):IncreaseStackCount(3)
    target:AddNewModifier(caster, self, "modifier_demon_king_extermination_burn",{duration = self:GetSpecialValueFor("burn_duration") })
    local damage_fx = ParticleManager:CreateParticle("particles/maou/w_hit/maou_w_hit.vpcf", PATTACH_ABSORIGIN_FOLLOW, target)
    ParticleManager:ReleaseParticleIndex(damage_fx)
    if caster.demon_king_attribute_3 then
-      caster:FindAbilityByName("demon_king_beam"):CreateGun(caster:GetAbsOrigin() + caster:GetRightVector() * 200 + caster:GetForwardVector() * -200 + Vector(0,0, 150), target)
-      caster:FindAbilityByName("demon_king_beam"):CreateGun(caster:GetAbsOrigin() + caster:GetRightVector() * -200 + caster:GetForwardVector() * -200 + Vector(0,0, 150), target)
+      caster:FindAbilityByName("demon_king_beam"):CreateGun(caster:GetAbsOrigin() + caster:GetRightVector() * 200 + caster:GetForwardVector() * -200 + Vector(0,0, 150), target, 0.5)
+      caster:FindAbilityByName("demon_king_beam"):CreateGun(caster:GetAbsOrigin() + caster:GetRightVector() * -200 + caster:GetForwardVector() * -200 + Vector(0,0, 150), target, 0.5)
    end
    if caster.demon_king_attribute_2 then 
       caster:FindAbilityByName("demon_king_beam"):EndCooldown()
@@ -171,6 +172,7 @@ function demon_king_extermination:OnProjectileHit_ExtraData(hTarget, vLocation, 
 	local damage = self:GetSpecialValueFor("damage_dash") 
 	DoDamage(caster, hTarget, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
    hTarget:AddNewModifier(caster, self, "modifier_demon_king_extermination_burn",{duration = self:GetSpecialValueFor("burn_duration")/2})
+   caster:FindAbilityByName("demon_king_materialization"):IncreaseStackCount(1)
 
 end
 

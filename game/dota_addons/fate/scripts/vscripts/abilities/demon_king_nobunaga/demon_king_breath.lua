@@ -187,7 +187,7 @@ function demon_king_breath:OnProjectileHit_ExtraData(hTarget, vLocation, table)
 	local caster = self:GetCaster()
 	local damage = self:GetSpecialValueFor("damage_fire")
 	DoDamage(caster, hTarget, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
-
+    caster:FindAbilityByName("demon_king_materialization"):IncreaseStackCount(1)
 
 end
 

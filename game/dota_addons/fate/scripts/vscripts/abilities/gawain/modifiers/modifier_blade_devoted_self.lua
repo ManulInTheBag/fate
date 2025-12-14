@@ -39,6 +39,9 @@ if IsServer() then
 	        for k, v in pairs(aoeTargets) do
 	        	if v ~= target then
 	        		DoDamage(caster, v, self.Damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+					if v:GetName() == "npc_dota_hero_nevermore" then
+						v:FindAbilityByName("demon_king_materialization"):ProckSpellAmpBonus()
+					end
 					if self.FirstHit then
 						if not target:IsMagicImmune() and not target:HasModifier("modifier_master_intervention") then
 							target:AddNewModifier(caster, target, "modifier_stunned", {Duration = self.StunDuration})
@@ -63,6 +66,9 @@ if IsServer() then
 			target:EmitSound("Hero_Invoker.ColdSnap")
 			caster:EmitSound("Gawain_Attack" .. soundQueue)
 			DoDamage(caster, target, self.Damage, DAMAGE_TYPE_MAGICAL, 0, ability, false)
+			if target:GetName() == "npc_dota_hero_nevermore" then
+				target:FindAbilityByName("demon_king_materialization"):ProckSpellAmpBonus()
+			end
 			local sunAbility = caster:FindAbilityByName("gawain_artificial_sun")
 			sunAbility:GenerateArtificialSun(caster, target:GetAbsOrigin(), true, ability:GetName())
 			self.Damage = self.SubDamage

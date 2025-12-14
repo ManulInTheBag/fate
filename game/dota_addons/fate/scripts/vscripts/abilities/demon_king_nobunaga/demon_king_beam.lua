@@ -40,7 +40,7 @@ function demon_king_beam:OnSpellStart()
         if IsSpellBlocked(target) then 
 		    return 
 	    end
-        self:CastGunOrder(target)
+        self:CastGunOrder(target, 1)
     end
 
    
@@ -74,8 +74,12 @@ function demon_king_beam:CastGroundSlam()
 					DoDamage(caster, v, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
 				    ApplyAirborneOnly(v, 2000, stun_dur)
                     v:AddNewModifier(caster, v, "modifier_stunned", { Duration = stun_dur })
+
 			end
 		end
+    if #targets > 0 then 
+        caster:FindAbilityByName("demon_king_materialization"):IncreaseStackCount(1)
+    end
     caster:EmitSound("maou_slam")
     ScreenShake(caster:GetOrigin(), 15, 0.5, 0.5, 2000, 0, true)
     local particle = ParticleManager:CreateParticle("particles/maou/ground_slam/maou_ground_slam_.vpcf", PATTACH_WORLDORIGIN, nil)
@@ -95,6 +99,7 @@ function demon_king_beam:CastHandBeam(target)
     local casterpos = caster:GetAttachmentOrigin(caster:ScriptLookupAttachment("left_hand")) + caster:GetForwardVector()*25 
     local endpos = GetGroundPosition(target:GetAbsOrigin(), target) +Vector(0,0,100)
     self:ShootBeam(casterpos, endpos, 0)
+    caster:FindAbilityByName("demon_king_materialization"):IncreaseStackCount(1)
 
 end
 
@@ -152,15 +157,16 @@ function demon_king_beam:ShootBeam(startpos, endpos, bounces)
 end
 
 
-function demon_king_beam:CastGunOrder(target)
+function demon_king_beam:CastGunOrder(target, dmgMod)
     local casterOrigin = self:GetCaster():GetAbsOrigin()
     local rightVector = self:GetCaster():GetRightVector()
-    self:CreateGun(casterOrigin + rightVector * 150 + Vector(0,0, 150), target)
-    self:CreateGun(casterOrigin + rightVector * -150 + Vector(0,0, 150), target)
+    self:CreateGun(casterOrigin + rightVector * 150 + Vector(0,0, 150), target, dmgMod)
+    self:CreateGun(casterOrigin + rightVector * -150 + Vector(0,0, 150), target, dmgMod)
     self:GetCaster():EmitSound("maou_shinei")
+    self:GetCaster():FindAbilityByName("demon_king_materialization"):IncreaseStackCount(1)
 end
 
-function demon_king_beam:CreateGun(position, target)
+function demon_king_beam:CreateGun(position, target, dmgMod)
     local caster = self:GetCaster()
 	local casterFw = caster:GetForwardVector()
 	local Dummy = CreateUnitByName("dummy_unit", position, false, nil, nil, caster:GetTeamNumber())
@@ -184,7 +190,7 @@ function demon_king_beam:CreateGun(position, target)
         local endPos = position + vector
         Dummy:SetForwardVector((vector):Normalized())
         Timers:CreateTimer(0.1, function()
-            self:GunShootLaser(position + vector:Normalized() * 100, endPos + Vector(0,0, 150))
+            self:GunShootLaser(position + vector:Normalized() * 100, endPos + Vector(0,0, 150), dmgMod)
 
         end)
     end)
@@ -197,9 +203,9 @@ function demon_king_beam:CreateGun(position, target)
    
 end
 
-function demon_king_beam:GunShootLaser(gunPos, targetPos)
+function demon_king_beam:GunShootLaser(gunPos, targetPos, dmgMod)
     local caster = self:GetCaster()
-    local damage = self:GetSpecialValueFor("guns_damage")
+    local damage = self:GetSpecialValueFor("guns_damage") * dmgMod
     local targets = FindUnitsInLine(  caster:GetTeamNumber(),
                                             gunPos,
                                             targetPos ,

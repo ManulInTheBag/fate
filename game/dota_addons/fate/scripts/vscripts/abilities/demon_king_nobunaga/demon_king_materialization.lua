@@ -55,7 +55,7 @@ function demon_king_materialization:CreateFireGroundSa(position)
 end
 function demon_king_materialization:ProckSpellAmpBonus()
     local caster = self:GetCaster()
-    if caster.demon_king_attribute_2 then
+    if caster.demon_king_attribute_2  and caster:IsAlive() then
        caster:AddNewModifier(caster,self, "modifier_demon_king_sa2_spell_amp", {duration = self:GetSpecialValueFor("sa_2_spell_amp_duration")})
     end
 end

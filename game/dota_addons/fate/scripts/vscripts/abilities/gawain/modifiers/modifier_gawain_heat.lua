@@ -37,6 +37,9 @@ if IsServer() then
 				end
 								
 		        DoDamage(caster, v, self.BurnDamage * 0.2, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
+				if v:GetName() == "npc_dota_hero_nevermore" then
+					v:FindAbilityByName("demon_king_materialization"):ProckSpellAmpBonus()
+				end
 		    end
 		end
 	end
@@ -63,6 +66,9 @@ if IsServer() then
 		end
 		
 		DoDamage(caster, target, damage, DAMAGE_TYPE_PHYSICAL, 0, self:GetAbility(), false)
+		if target:GetName() == "npc_dota_hero_nevermore" then
+			target:FindAbilityByName("demon_king_materialization"):ProckSpellAmpBonus()
+		end
 
 		
 		

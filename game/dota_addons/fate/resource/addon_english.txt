@@ -3161,6 +3161,11 @@
 		"DOTA_Tooltip_Ability_demon_king_release_total_duration"		"Duration:"
 		"DOTA_Tooltip_Ability_demon_king_release_damage_per_stack"		"Damage per stack:"
 
+		"DOTA_Tooltip_Ability_demon_king_materialization"				"Materialization"
+		"DOTA_Tooltip_ability_demon_king_materialization_Description"	"<font color='#FFFAFA'>Passive</font>\nDemon king is yet to fully appear in this world.\nEach time should her ability deal damage, Demon king gains set amount of <font color='#ff2635'>materialization</font> stacks.<br/><font color='#C41E3A'>Demon king fighting style</font> can only give 1 stack<br/><font color='#C41E3A'>Extermination</font> strike gives 3 stacks.<br/><font color='#C41E3A'>Pāpīyas Metamorphosis - Demon King of a Billionfold Heavens</font> gives max amount of stacks.<br/>Other abilities give 1 stack per damage instance." 
+		"DOTA_Tooltip_Ability_demon_king_materialization_Lore"					"Hollow as existence she is, but should she fully exist, will this world be still intact?"
+		"DOTA_Tooltip_Ability_demon_king_materialization_maximum_stack_count"		"Max materialization stacks:"
+
 
 		"DOTA_Tooltip_Ability_demon_king_breath"				"Singularity"
 		"DOTA_Tooltip_ability_demon_king_breath_Description"	"Cast point: <font color='#FFFAFA'>%AbilityCastPoint%</font>s; Cast Delay: <font color='#FFFFF9'>%total_duration%</font>s   |    <font color='#29EE32'>Refreshable</font>\nDemon king breathes out fire to the target point, with a minimal range, dealing <font color='#58ACFA'>damage</font> to all enemies hit.\nAfter fire reaches the point, after a delay it will summon a singularity.\nSingularity will deal <font color='#58ACFA'>damage</font> over time an <font color='#FF3399'>pull</font> all enemies inside to its center.\nSingularity's pull is strong enough to completely nullify movement and most dashes.\nOnly one singularity can persist at a time."
@@ -3173,9 +3178,32 @@
 		"DOTA_Tooltip_Ability_demon_king_breath_black_hole_damage"		"Active damage per sec:"
 		"DOTA_Tooltip_Ability_demon_king_breath_black_hole_pull_str"	"Active pull per sec:"
 
+		"DOTA_Tooltip_Ability_demon_king_attribute_1"					"Materialization: Oda Nobunaga"
+		"DOTA_Tooltip_ability_demon_king_attribute_1_Description"		"After hitting most of her abilities, Demon King will unleash a <font color='#fa921b'>burning battlefield</font> effect, which will last on the ground, dealing <font color='#58ACFA'>damage</font>\nAdds additional effect to <font color='#ff2635'>Materialization</font>:<br/>Their cries fuel me: When any other hero around Demon King takes damage over the threshold, she will restore <font color='#58ACFA'>mana</font> to herself with a short cooldown."
+		"DOTA_Tooltip_Ability_demon_king_attribute_1_sa_1_damage_min"			"Damage to prock:"
+		"DOTA_Tooltip_Ability_demon_king_attribute_1_sa_1_mana"					"Mana restore:"
+		"DOTA_Tooltip_Ability_demon_king_attribute_1_sa_1_cd"					"Mana restore cd:"
+		"DOTA_Tooltip_Ability_demon_king_attribute_1_sa_1_radius"				"Mana restore radius:"
+		"DOTA_Tooltip_Ability_demon_king_attribute_1_sa_dps"					"Battlefield dps:"
+		"DOTA_Tooltip_Ability_demon_king_attribute_1_sa_aoe_radius"					"Battlefield radius:"
+		"DOTA_Tooltip_Ability_demon_king_attribute_1_sa_duration"					"Battlefield duration"
 
+		"DOTA_Tooltip_Ability_demon_king_attribute_2"					"Materialization: Oda Kipposhi"
+		"DOTA_Tooltip_ability_demon_king_attribute_2_Description"		"<font color='#C41E3A'>Extermination</font> and <font color='#AA4A44'>Like a Fleeting Dream</font> will refresh cooldown of <font color='#C41E3A'>Demon king fighting style</font> upon use.\nAdds additional effect to <font color='#ff2635'>Materialization</font>:<br/>Burning will: When standing on the <font color='#fa921b'>burning battlefield</font> or taking damage from burn-related abilities, Demon King will gain an effect, which will increase all her damage output for a duration."
+		"DOTA_Tooltip_Ability_demon_king_attribute_2_sa_2_spell_amp"					"%Damage increase:"
+		"DOTA_Tooltip_Ability_demon_king_attribute_2_sa_2_spell_amp_duration"			"Damage increase duration:"
 
+		"DOTA_Tooltip_Ability_demon_king_attribute_3"					"Materialization: Kaiser Nobunaga"
+		"DOTA_Tooltip_ability_demon_king_attribute_3_Description"		"<font color='#C41E3A'>Extermination</font> will now shoot <font color='#880808'>Demon king guns</font>: 2 if strike landed or 1 when canceled into <font color='#C41E3A'>Demon king dash</font>.\nAdds additional effect to <font color='#ff2635'>Materialization</font>:<br/>Stable manifestation: After death, Demon King will summon 3 different Nobbus with unique abilities.<br/>Nobbus will last for %life_time% seconds."
+		"DOTA_Tooltip_Ability_demon_king_attribute_3_guns_dmg_mod"					"%Guns damage:"
 
+		"DOTA_Tooltip_Ability_demon_king_attribute_4"					"Materialization: Nobunaga THE Rock 'n' Roll "
+		"DOTA_Tooltip_ability_demon_king_attribute_4_Description"		"After using <font color='#C41E3A'>It Can't Be Helped</font>, Demon King will gain <font color='#FFFAFA'>all-damage barrier</font>, equal to damage dealt, capped at her max health.\nAdds additional effect to <font color='#ff2635'>Materialization</font>:<br/>Madness enchancement: <font color='#ff2635'>materialization</font> stacks now provide additional stats."
+		"DOTA_Tooltip_Ability_demon_king_attribute_4_sa_4_stat_bonus"					"Stats per stack:"
+		"DOTA_Tooltip_Ability_demon_king_attribute_sa_barrier_duration"					"Barrier duration:"
+
+		"DOTA_Tooltip_Ability_demon_king_attribute_5"					"Materialization: Genuine Nobunaga"
+		"DOTA_Tooltip_ability_demon_king_attribute_5_Description"		"\nAdds additional effect to <font color='#ff2635'>Materialization</font>:<br/>"
 
 
 		//////////NOBBU ABILITIES

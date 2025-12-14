@@ -18,6 +18,10 @@ if IsServer() then
 			for i = 1, #targets do
 				DoDamage(caster, targets[i], self.Damage, DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
 				targets[i]:AddNewModifier(caster, self:GetAbility(), "modifier_stunned", { Duration = self.StunDuration })
+				if targets[i]:GetName() == "npc_dota_hero_nevermore" then
+					targets[i]:FindAbilityByName("demon_king_materialization"):ProckSpellAmpBonus()
+				end
+
 			end
 
 			parent:EmitSound("Hero_TemplarAssassin.Trap.Explode")

@@ -49,6 +49,9 @@ function gawain_sun_of_galatine:OnChannelFinish(bInterrupted)
     for k,v in pairs(targets) do            
         DoDamage(caster, v, self.damage/2, DAMAGE_TYPE_MAGICAL, 0, ability, false)
         v:AddNewModifier(caster, self, "modifier_stunned", {Duration = self:GetSpecialValueFor("stun_duration")* self.ChannelTime/self:GetChannelTime()})     
+        if v:GetName() == "npc_dota_hero_nevermore" then
+            v:FindAbilityByName("demon_king_materialization"):ProckSpellAmpBonus()
+        end
     end 
     if(caster.IsBeltAcquired) then
         local RunesFx = ParticleManager:CreateParticle("particles/gawain/gawain_sun_of_galatine_atribute_indicator.vpcf", PATTACH_CUSTOMORIGIN, nil)
@@ -65,6 +68,9 @@ function gawain_sun_of_galatine:OnChannelFinish(bInterrupted)
             for k,v in pairs(targets) do            
                 DoDamage(caster, v, self.damage*0.5*self.ChannelTime/self:GetChannelTime(), DAMAGE_TYPE_MAGICAL, 0, ability, false)
                 v:AddNewModifier(caster, self, "modifier_stunned", {Duration = 0.1})     
+                if v:GetName() == "npc_dota_hero_nevermore" then
+                    v:FindAbilityByName("demon_king_materialization"):ProckSpellAmpBonus()
+                end
             end 
         end)
 
