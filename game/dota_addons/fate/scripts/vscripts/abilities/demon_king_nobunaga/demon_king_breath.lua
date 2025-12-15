@@ -88,7 +88,8 @@ function demon_king_breath:OnSpellStart()
    end)
    Timers:CreateTimer(additionalCastPoint +self:GetSpecialValueFor("black_hole_delay") + 0.5, function()
         
-        self:CreateBlackHole(point, self:GetSpecialValueFor("black_hole_duration"), self:GetSpecialValueFor("aoe_radius"), self:GetSpecialValueFor("black_hole_pull_str"), self:GetSpecialValueFor("black_hole_damage"))
+        self:CreateBlackHole(point, self:GetSpecialValueFor("black_hole_duration"), self:GetSpecialValueFor("aoe_radius"), self:GetSpecialValueFor("black_hole_pull_str"), 
+                    self:GetSpecialValueFor("black_hole_damage") + ( caster.demon_king_attribute_5 and caster.MasterUnit2:FindAbilityByName("demon_king_attribute_5"):GetSpecialValueFor("hole") * caster:GetIntellect() or 0))
         caster:EmitSound("maou_breath_cast_2")
 
    end)
@@ -185,7 +186,7 @@ function demon_king_breath:OnProjectileHit_ExtraData(hTarget, vLocation, table)
 	if hTarget == nil then return end
 
 	local caster = self:GetCaster()
-	local damage = self:GetSpecialValueFor("damage_fire")
+	local damage = self:GetSpecialValueFor("damage_fire") + ( caster.demon_king_attribute_5 and caster.MasterUnit2:FindAbilityByName("demon_king_attribute_5"):GetSpecialValueFor("fire") * caster:GetIntellect() or 0)
 	DoDamage(caster, hTarget, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
     caster:FindAbilityByName("demon_king_materialization"):IncreaseStackCount(1)
 

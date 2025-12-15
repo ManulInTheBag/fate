@@ -5,7 +5,7 @@ LinkLuaModifier("modifier_demon_king_extermination_burn", "abilities/demon_king_
 function demon_king_extermination:OnSpellStart()
    local caster = self:GetCaster() 
    local target = self:GetCursorTarget()
-   local damage = self:GetSpecialValueFor("damage_hit")
+   local damage = self:GetSpecialValueFor("damage_hit") + ( caster.demon_king_attribute_5 and caster.MasterUnit2:FindAbilityByName("demon_king_attribute_5"):GetSpecialValueFor("strike") * caster:GetAgility() or 0)
    if IsSpellBlocked(target) then 
 		return 
 	end
@@ -169,7 +169,7 @@ end
 function demon_king_extermination:OnProjectileHit_ExtraData(hTarget, vLocation, table)
 	if hTarget == nil then return end
 	local caster = self:GetCaster()
-	local damage = self:GetSpecialValueFor("damage_dash") 
+	local damage = self:GetSpecialValueFor("damage_dash")  + ( caster.demon_king_attribute_5 and caster.MasterUnit2:FindAbilityByName("demon_king_attribute_5"):GetSpecialValueFor("dash") * caster:GetAgility() or 0)
 	DoDamage(caster, hTarget, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
    hTarget:AddNewModifier(caster, self, "modifier_demon_king_extermination_burn",{duration = self:GetSpecialValueFor("burn_duration")/2})
    caster:FindAbilityByName("demon_king_materialization"):IncreaseStackCount(1)

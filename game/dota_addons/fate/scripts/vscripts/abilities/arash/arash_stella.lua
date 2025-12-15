@@ -150,7 +150,6 @@ function modifier_arash_stella_stacks:OnDeath(args)
 		local armor = caster:FindAbilityByName("arash_toughness"):GetSpecialValueFor("base_armor") + caster:FindAbilityByName("arash_toughness"):GetSpecialValueFor("armor_per_stack") * stacks	
 		local targets = FindUnitsInRadius(caster:GetTeam(), caster:GetAbsOrigin(), nil, 20000, DOTA_UNIT_TARGET_TEAM_FRIENDLY, DOTA_UNIT_TARGET_HERO, DOTA_UNIT_TARGET_FLAG_INVULNERABLE, FIND_ANY_ORDER, false) 
 		for k,v in pairs(targets) do
-			print("govno")
 			if IsInSameRealm(caster:GetAbsOrigin(), v:GetAbsOrigin()) then
 				if (not (v:GetName() == "master_1")) or (not (v:GetName() == "master_2")) then
 					v:AddNewModifier(caster, caster:FindAbilityByName("arash_toughness"), "modifier_arash_toughness", {duration = 5, mr = mr, armor = armor})

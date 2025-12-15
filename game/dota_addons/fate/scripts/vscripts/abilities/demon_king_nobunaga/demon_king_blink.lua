@@ -78,7 +78,7 @@ function demon_king_blink:PerformAttackTimer()
    local max_counter = self:GetSpecialValueFor("damage_ticks")
    local duration = self:GetSpecialValueFor("total_duration")
    local tick_duration = self:GetSpecialValueFor("total_duration") / max_counter
-   local tick_damage =  self:GetSpecialValueFor("damage_total")/ (self:GetSpecialValueFor("damage_ticks") + 1)
+   local tick_damage =  (self:GetSpecialValueFor("damage_total") + ( caster.demon_king_attribute_5 and caster.MasterUnit2:FindAbilityByName("demon_king_attribute_5"):GetSpecialValueFor("blink") * caster:GetStrength() or 0) )/ (self:GetSpecialValueFor("damage_ticks") + 1)
    local aoe_radius = self:GetSpecialValueFor("aoe_radius")
 
 

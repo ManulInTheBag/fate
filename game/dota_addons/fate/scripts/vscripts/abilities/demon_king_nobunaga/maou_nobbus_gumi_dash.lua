@@ -133,7 +133,7 @@ function modifier_nobbus_dash:PlayEffects(pos1, pos2)
             if not (enemy:GetName() == "npc_dota_ward_base") then
                 self.FirstTarget = true
 
-                local caster = self:GetParent()
+                local caster = self:GetCaster()
                 local ability = self:GetAbility()
 
                 local slashIndex = ParticleManager:CreateParticle( "particles/custom/false_assassin/tsubame_gaeshi/tsubame_gaeshi_windup_indicator_flare.vpcf", PATTACH_CUSTOMORIGIN, nil )
@@ -152,7 +152,7 @@ function modifier_nobbus_dash:PlayEffects(pos1, pos2)
                     local damage = ability:GetSpecialValueFor("base_damage")
 
 
-                    DoDamage(caster.Caster, enemy, damage, DAMAGE_TYPE_PURE, 0, caster.Ability, false)
+                    DoDamage(caster, enemy, damage, DAMAGE_TYPE_PURE, 0, caster.Ability, false)
 
 
 
@@ -163,7 +163,7 @@ function modifier_nobbus_dash:PlayEffects(pos1, pos2)
                     local damage = ability:GetSpecialValueFor("base_damage")
 
 
-                    DoDamage(caster.Caster, enemy, damage, DAMAGE_TYPE_PURE, 0, caster.Ability, false)
+                    DoDamage(caster, enemy, damage, DAMAGE_TYPE_PURE, 0, caster.Ability, false)
 
 
 
@@ -174,7 +174,7 @@ function modifier_nobbus_dash:PlayEffects(pos1, pos2)
                     local damage = ability:GetSpecialValueFor("base_damage")
 
 
-                     DoDamage(caster.Caster, enemy, damage, DAMAGE_TYPE_PURE, 0, caster.Ability, false)
+                     DoDamage(caster, enemy, damage, DAMAGE_TYPE_PURE, 0, caster.Ability, false)
 
 
                     enemy:EmitSound("Tsubame_Focus")

@@ -4,6 +4,54 @@ LinkLuaModifier("modifier_demon_king_materialization", "abilities/demon_king_nob
 LinkLuaModifier("modifier_demon_king_sa2_spell_amp", "abilities/demon_king_nobunaga/demon_king_materialization", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_demon_king_sa_aura", "abilities/demon_king_nobunaga/demon_king_materialization", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_demon_king_sa_auramod", "abilities/demon_king_nobunaga/demon_king_materialization", LUA_MODIFIER_MOTION_NONE)
+
+
+function demon_king_materialization:GetBehavior()
+	if self:GetLevel() == 1 then
+		return DOTA_ABILITY_BEHAVIOR_PASSIVE
+	else
+		return  DOTA_ABILITY_BEHAVIOR_POINT + DOTA_ABILITY_BEHAVIOR_AOE + DOTA_ABILITY_BEHAVIOR_IMMEDIATE
+	end
+end
+
+
+function demon_king_materialization:OnSpellStart()
+    local caster = self:GetCaster()
+    caster:EmitSound("nobbus_summon")
+    local random  = math.random(0, 100)
+    local nobbusToSpawn = "maou_nobus_heracles"
+    if random > 67 then
+        nobbusToSpawn = "maou_nobus_shinsengumi"
+    end
+    if random < 33 then
+        nobbusToSpawn = "maou_nobus_tank"
+    end
+    local point = self:GetCursorPosition()
+    local vector = point - caster:GetAbsOrigin() 
+   local spawn_location = caster:GetAbsOrigin() + vector:Normalized() * 50
+   local distance = math.min(vector:Length2D(), 750)
+   local nobbus1 = CreateUnitByName(nobbusToSpawn, spawn_location, true, caster, caster, caster:GetTeamNumber())
+   nobbus1:SetControllableByPlayer(caster:GetPlayerID(), true)
+   nobbus1:SetOwner(caster)
+   nobbus1.Caster = caster
+   nobbus1.Ability = self
+
+   local knockback1 = { should_stun = true,
+                           knockback_duration = 1,
+                           duration = 1,
+                           knockback_distance = distance,
+                           knockback_height = distance * 0.8,
+                           center_x = caster:GetAbsOrigin().x,
+                           center_y = caster:GetAbsOrigin().y,
+                           center_z = caster:GetAbsOrigin().z }
+	nobbus1:RemoveModifierByName("modifier_knockback")
+	nobbus1:AddNewModifier(caster, self, "modifier_knockback", knockback1)
+   giveUnitDataDrivenModifier(nobbus1, nobbus1, "jump_pause", 1)
+   nobbus1:AddNewModifier(caster, nil, "modifier_kill", {duration = 30})
+
+end
+
+
 function demon_king_materialization:IncreaseStackCount(count)
     local caster = self:GetCaster()
     local modifier = caster:FindModifierByName("modifier_demon_king_materialization")
@@ -19,6 +67,73 @@ function demon_king_materialization:IncreaseStackCount(count)
          caster:SetModifierStackCount("modifier_demon_king_materialization", caster, math.min(count, self:GetSpecialValueFor("maximum_stack_count")))
     end
 end
+function demon_king_materialization:SummonNobbus()
+   local caster = self:GetCaster()
+   local randomVec = Vector(math.random(), math.random(), math.random())
+   local spawn_location = caster:GetAbsOrigin() + math.random(-200, 200) * randomVec
+   local nobbus1 = CreateUnitByName("maou_nobus_heracles", spawn_location, true, caster, caster, caster:GetTeamNumber())
+   nobbus1:SetControllableByPlayer(caster:GetPlayerID(), true)
+   nobbus1:SetOwner(caster)
+   nobbus1.Caster = caster
+   nobbus1.Ability = self
+
+   local knockback1 = { should_stun = true,
+                           knockback_duration = 1,
+                           duration = 1,
+                           knockback_distance = 500,
+                           knockback_height = 400,
+                           center_x = caster:GetAbsOrigin().x,
+                           center_y = caster:GetAbsOrigin().y,
+                           center_z = caster:GetAbsOrigin().z }
+	nobbus1:RemoveModifierByName("modifier_knockback")
+	nobbus1:AddNewModifier(caster, self, "modifier_knockback", knockback1)
+   giveUnitDataDrivenModifier(nobbus1, nobbus1, "jump_pause", 1)
+   nobbus1:AddNewModifier(caster, nil, "modifier_kill", {duration = 30})
+
+   randomVec = Vector(math.random(), math.random(), math.random())
+   spawn_location = caster:GetAbsOrigin() + math.random(-200, 200) * randomVec
+   local nobbus2 = CreateUnitByName("maou_nobus_shinsengumi", spawn_location, true, caster, caster, caster:GetTeamNumber())
+   nobbus2:SetControllableByPlayer(caster:GetPlayerID(), true)
+   nobbus2:SetOwner(caster)
+   nobbus1.Caster = caster
+   nobbus1.Ability = self
+
+       knockback1 = { should_stun = true,
+                           knockback_duration = 1,
+                           duration = 1,
+                           knockback_distance = 500,
+                           knockback_height = 400,
+                           center_x = caster:GetAbsOrigin().x,
+                           center_y = caster:GetAbsOrigin().y,
+                           center_z = caster:GetAbsOrigin().z }
+	nobbus2:RemoveModifierByName("modifier_knockback")
+	nobbus2:AddNewModifier(caster, self, "modifier_knockback", knockback1)
+   giveUnitDataDrivenModifier(nobbus2, nobbus2, "jump_pause", 1)
+   nobbus2:AddNewModifier(caster, nil, "modifier_kill", {duration = 30})
+
+   randomVec = Vector(math.random(), math.random(), math.random())
+   spawn_location = caster:GetAbsOrigin() + math.random(-200, 200) * randomVec
+   local nobbus3 = CreateUnitByName("maou_nobus_tank", spawn_location, true, caster, caster, caster:GetTeamNumber())
+   nobbus3:SetControllableByPlayer(caster:GetPlayerID(), true)
+   nobbus3:SetOwner(caster)
+   nobbus3.Caster = caster
+   nobbus3.Ability = self
+
+       knockback1 = { should_stun = true,
+                           knockback_duration = 1,
+                           duration = 1,
+                           knockback_distance = 500,
+                           knockback_height = 400,
+                           center_x = caster:GetAbsOrigin().x,
+                           center_y = caster:GetAbsOrigin().y,
+                           center_z = caster:GetAbsOrigin().z }
+	nobbus3:RemoveModifierByName("modifier_knockback")
+	nobbus3:AddNewModifier(caster, self, "modifier_knockback", knockback1)
+   giveUnitDataDrivenModifier(nobbus3, nobbus3, "jump_pause", 1)
+   nobbus3:AddNewModifier(caster, nil, "modifier_kill", {duration = 30})
+
+end
+
 function demon_king_materialization:CreateFireGroundSa(position)
    local caster = self:GetCaster()
    local aoe_radius = self:GetSpecialValueFor("sa_aoe_radius")
@@ -112,6 +227,19 @@ function modifier_demon_king_sa_aura:GetAttributes()
 end
 
 
+function modifier_demon_king_sa_aura:DeclareFunctions()
+	return {
+		MODIFIER_EVENT_ON_DEATH
+	}
+end
+
+function modifier_demon_king_sa_aura:OnDeath(args)
+	local caster = self:GetCaster() 
+    if(caster ~= args.unit) then return end
+	if caster.demon_king_attribute_3 then
+        self:GetAbility():SummonNobbus()
+    end
+end
 
 -----------------------------------------------SA 1 aura modificator ----------------------------------------
 

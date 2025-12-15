@@ -189,16 +189,16 @@
 		// General		//------------------------------------------------------------------------------------------------------------
 		"BaseClass"						"ability_lua"
 		"ScriptFile"					"abilities/demon_king_nobunaga/demon_king_materialization"
-		"MaxLevel"						"1"
+		"MaxLevel"						"2"
 		"RequiredLevel"					"1"
 		"LevelsBetweenUpgrades"			"25"
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET|DOTA_ABILITY_BEHAVIOR_IMMEDIATE|DOTA_ABILITY_BEHAVIOR_AOE|DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
+		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE|DOTA_ABILITY_BEHAVIOR_AOE|DOTA_ABILITY_BEHAVIOR_NOT_LEARNABLE"
 		"AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
 		"AbilityUnitTargetType"			"DOTA_UNIT_TARGET_ALL" 
 		"AbilityTextureName"			"custom/maou/f"
 
-		"AbilityCastRange"				"500"
-		"AbilityCooldown"				"0"
+		"AbilityCastRange"				"750"
+		"AbilityCooldown"				"30"
 		"AbilityManaCost"				"0"
 
 		"precache"
@@ -469,8 +469,14 @@
 
 		"AbilityValues"
         {
-        	"blue_bonus_range"			"0"
-        	"blue_shield_amount"		"1500"
+        	"slam"			"1"
+        	"beam"		"1"
+        	"guns"		"1"
+        	"strike"	"2"
+        	"dash"		"1"
+        	"blink"		"2"
+        	"fire"		"1"
+        	"hole"		"1"
 
         }		
 	}

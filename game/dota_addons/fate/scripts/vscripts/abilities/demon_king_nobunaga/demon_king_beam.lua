@@ -65,7 +65,7 @@ end
 function demon_king_beam:CastGroundSlam()
     local caster = self:GetCaster()
     local aoe_radius = self:GetSpecialValueFor("slam_aoe_radius")
-    local damage = self:GetSpecialValueFor("slam_damage")
+    local damage = self:GetSpecialValueFor("slam_damage") + ( caster.demon_king_attribute_5 and caster.MasterUnit2:FindAbilityByName("demon_king_attribute_5"):GetSpecialValueFor("slam") * caster:GetStrength() or 0)
     local stun_dur = self:GetSpecialValueFor("slam_air_dur")
 
       local targets = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), caster, aoe_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER , false)
@@ -108,7 +108,7 @@ end
 function demon_king_beam:ShootBeam(startpos, endpos, bounces)
     if bounces >= 3 then return end
     local caster = self:GetCaster()
-    local damage = self:GetSpecialValueFor("beam_damage")
+    local damage = self:GetSpecialValueFor("beam_damage") + ( caster.demon_king_attribute_5 and caster.MasterUnit2:FindAbilityByName("demon_king_attribute_5"):GetSpecialValueFor("beam") * caster:GetIntellect() or 0)
     local search_radius = self:GetSpecialValueFor("beam_search_radius")
     local particle = ParticleManager:CreateParticle("particles/maou/hand_beam/maou_hand_beam_.vpcf", PATTACH_WORLDORIGIN, nil)
     ParticleManager:SetParticleControl(particle, 0, startpos)
@@ -205,7 +205,7 @@ end
 
 function demon_king_beam:GunShootLaser(gunPos, targetPos, dmgMod)
     local caster = self:GetCaster()
-    local damage = self:GetSpecialValueFor("guns_damage") * dmgMod
+    local damage = (self:GetSpecialValueFor("guns_damage") + ( caster.demon_king_attribute_5 and caster.MasterUnit2:FindAbilityByName("demon_king_attribute_5"):GetSpecialValueFor("guns") * caster:GetAgility() or 0)) * dmgMod 
     local targets = FindUnitsInLine(  caster:GetTeamNumber(),
                                             gunPos,
                                             targetPos ,

@@ -37,6 +37,7 @@ function demon_king_attribute_3:OnSpellStart()
 	local hero = caster:GetPlayerOwner():GetAssignedHero()
 
 	hero.demon_king_attribute_3 = true
+	hero:FindAbilityByName("demon_king_materialization"):SetLevel(2)
 
 
 	-- Set master 1's mana 
