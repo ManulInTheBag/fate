@@ -237,7 +237,7 @@ function OnVortigernStart(keys)
 	local caster = keys.caster
 	local ability = keys.ability
 	local ply = caster:GetPlayerOwner()
-	local forward = ( keys.target_points[1] - caster:GetAbsOrigin() ):Normalized() -- caster:GetForwardVector() 
+	local forward = ( keys.ability:GetCursorPosition() - caster:GetAbsOrigin() ):Normalized() -- caster:GetForwardVector() 
 	local angle = 120
 	local increment_factor = 30
 	local origin = caster:GetAbsOrigin()

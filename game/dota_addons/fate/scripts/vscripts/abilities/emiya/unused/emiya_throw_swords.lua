@@ -134,9 +134,9 @@ function KBStart(keys)
 	local ability = keys.ability
 
 	local ply = caster:GetPlayerOwner()
-	local forward = ( keys.target_points[1] - caster:GetOrigin() ):Normalized()
+	local forward = ( keys.ability:GetCursorPosition() - caster:GetOrigin() ):Normalized()
 	local origin = keys.caster:GetOrigin()
-	local target_destination = keys.target_points[1]
+	local target_destination = keys.ability:GetCursorPosition()
 
 	local forwardVec = caster:GetForwardVector()
 	local leftVec = Vector(-forwardVec.y, forwardVec.x, 0)

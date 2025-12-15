@@ -242,7 +242,7 @@ function TPScroll(keys)
 		caster:Stop()
 		return
 	end
-	local targetPoint = keys.target_points[1]
+	local targetPoint = keys.ability:GetCursorPosition()
 	--print(caster:GetAbsOrigin().y .. " and " .. caster:GetAbsOrigin().x)
 	if caster:GetAbsOrigin().y < -2000 or targetPoint.y < -2000 then
 		SendErrorMessage(caster:GetPlayerOwnerID(), "#Invalid_Location")
@@ -418,7 +418,7 @@ function WardFam(keys)
 		return
 	end
 	hero.ServStat:useWard()
-	local targetPoint = keys.target_points[1]
+	local targetPoint = keys.ability:GetCursorPosition()
 	caster.ward = CreateUnitByName("ward_familiar", targetPoint, true, nil, nil, caster:GetTeamNumber())
 
 	caster.ward:SetDayTimeVisionRange(keys.Radius)
@@ -569,7 +569,7 @@ function Blink(keys)
 	local caster = keys.caster
 	local ability = keys.ability
 	local casterPos = caster:GetAbsOrigin()
-	local targetPoint = keys.target_points[1]
+	local targetPoint = keys.ability:GetCursorPosition()
 	local newTargetPoint = nil
 
 	if IsLocked(caster) or caster:HasModifier("jump_pause_nosilence") or caster:HasModifier("modifier_story_for_someones_sake") then
@@ -651,7 +651,7 @@ end
 function StashBlink(keys)
 	local caster = keys.caster
 	local casterinitloc = caster:GetAbsOrigin()
-	local targetPoint = keys.target_points[1]
+	local targetPoint = keys.ability:GetCursorPosition()
 	local hero = caster:GetPlayerOwner():GetAssignedHero()
 	caster:SetAbsOrigin(hero:GetAbsOrigin())
 	FindClearSpaceForUnit(caster, caster:GetAbsOrigin(), true)

@@ -114,7 +114,7 @@ function OnBGStart(keys)
 	local caster = keys.caster
 	local ability = keys.ability
 	local ply = keys.caster:GetPlayerOwner()
-	local targetPoint = keys.target_points[1]
+	local targetPoint = keys.ability:GetCursorPosition()
 
 	caster:EmitSound("Medusa_Skill1")
     local pcGlyph = ParticleManager:CreateParticle("particles/custom/rider/rider_breaker_gorgon_mark.vpcf", PATTACH_CUSTOMORIGIN, caster)
@@ -359,7 +359,7 @@ LinkLuaModifier("modifier_belle_hit", "abilities/medusa/modifiers/modifier_belle
 
 function OnBelleStart(keys)
 	local caster = keys.caster
-	local targetPoint = keys.target_points[1]
+	local targetPoint = keys.ability:GetCursorPosition()
 	local radius = keys.Radius
 	local ply = caster:GetPlayerOwner()
 	local origin = caster:GetAbsOrigin()

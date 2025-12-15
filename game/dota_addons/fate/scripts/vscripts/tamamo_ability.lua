@@ -285,7 +285,7 @@ end
 
 function OnSoulstreamStart(keys)
 	local caster = keys.caster
-	local targetPoint = keys.target_points[1]
+	local targetPoint = keys.ability:GetCursorPosition()
 	local frontward = caster:GetForwardVector()
 	local ability = keys.ability
 
@@ -1256,7 +1256,7 @@ end
 
 function OnFatesCallStart(keys)
 	local caster = keys.caster
-	local targetPoint = keys.target_points[1]
+	local targetPoint = keys.ability:GetCursorPosition()
 	local dist = (caster.TetheredTarget:GetAbsOrigin() - caster:GetAbsOrigin()):Length2D()
 	local delay = dist*0.002
 	caster.IsStunnedDuringFatesCall = false

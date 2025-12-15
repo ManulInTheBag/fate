@@ -81,7 +81,7 @@ function OnSMGStart(keys)
     local currentForwardVec = forwardVec
     local current_radius = start_radius
     local current_distance = 0
-    local forwardVec = ( keys.target_points[1] - current_point ):Normalized()
+    local forwardVec = ( keys.ability:GetCursorPosition() - current_point ):Normalized()
     local end_point = current_point + range * forwardVec
     local difference = end_radius - start_radius
     
@@ -451,7 +451,7 @@ end
 function OnNukeStart(keys)
     local caster = keys.caster
     local ability = keys.ability
-    local targetPoint = keys.target_points[1]
+    local targetPoint = keys.ability:GetCursorPosition()
     if not IsInSameRealm(caster:GetAbsOrigin(), targetPoint) then 
         caster:SetMana(caster:GetMana()+keys.ability:GetManaCost(keys.ability:GetLevel()-1)) 
         keys.ability:EndCooldown()
