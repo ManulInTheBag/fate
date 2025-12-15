@@ -175,7 +175,7 @@ end
 
 function Trap(keys)
 	local caster = keys.caster
-	local targetPoint = keys.target_points[1]
+	local targetPoint = keys.ability:GetCursorPosition()
 	local stunDuration = keys.StunDuration
 	local trapDuration = 0
 	local radius = keys.Radius
@@ -536,7 +536,7 @@ function OnGBAOEStart(keys)
 	ArsenalReturnMana(keys.caster)
 	local caster = keys.caster
 	local ability = keys.ability
-	local targetPoint = keys.target_points[1]
+	local targetPoint = keys.ability:GetCursorPosition()
 	local radius = keys.Radius
 	local projectileSpeed = 1900
 	local ply = caster:GetPlayerOwner()
@@ -606,7 +606,7 @@ end
 
 function OnGBAOEHit(keys, projectile)
 	local caster = keys.caster
-	local targetPoint = keys.target_points[1]
+	local targetPoint = keys.ability:GetCursorPosition()
 	local radius = keys.ability:GetSpecialValueFor("radius")
 	local damage = keys.ability:GetSpecialValueFor("damage")
 	local ply = caster:GetPlayerOwner()

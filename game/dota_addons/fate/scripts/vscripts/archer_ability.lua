@@ -16,7 +16,7 @@ function FarSightVision(keys)
 	local caster = keys.caster
 	local ply = caster:GetPlayerOwner()
 	local radius = keys.ability:GetLevelSpecialValueFor( "radius", keys.ability:GetLevel() - 1 )
-	local targetLoc = keys.target_points[1]
+	local targetLoc = keys.ability:GetCursorPosition()
 
 	local visiondummy = SpawnVisionDummy(caster, targetLoc, radius, keys.Duration, false)
 	
@@ -85,9 +85,9 @@ function KBStart(keys)
 	local ability = keys.ability
 
 	local ply = caster:GetPlayerOwner()
-	local forward = ( keys.target_points[1] - caster:GetOrigin() ):Normalized()
+	local forward = ( keys.ability:GetCursorPosition() - caster:GetOrigin() ):Normalized()
 	local origin = keys.caster:GetOrigin()
-	local target_destination = keys.target_points[1]
+	local target_destination = keys.ability:GetCursorPosition()
 
 	local forwardVec = caster:GetForwardVector()
 	local leftVec = Vector(-forwardVec.y, forwardVec.x, 0)
@@ -1022,7 +1022,7 @@ end
 function OnUBWBarrageStart(keys)
 	local caster = keys.caster
 	local ability = keys.ability
-	local targetPoint = keys.target_points[1]
+	local targetPoint = keys.ability:GetCursorPosition()
 	local radius = keys.Radius
 	local ply = caster:GetPlayerOwner()
 	
@@ -1191,7 +1191,7 @@ end
 function OnUBWBarrageConfineStart(keys)
 	local caster = keys.caster
 	local ability = keys.ability
-	local targetPoint = keys.target_points[1]
+	local targetPoint = keys.ability:GetCursorPosition()
 	local radius = keys.Radius
 	local delay = keys.Delay
 	local ply = caster:GetPlayerOwner()
@@ -1367,7 +1367,7 @@ end
 function OnOveredgeStart(keys)
 	local caster = keys.caster 
 	local ability = keys.ability
-	local targetPoint = keys.target_points[1]
+	local targetPoint = keys.ability:GetCursorPosition()
 	local dist = (caster:GetAbsOrigin() - targetPoint):Length2D() * 10/6
 	local castRange = keys.castRange
 	local damage = keys.Damage

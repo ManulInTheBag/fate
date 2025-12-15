@@ -4,7 +4,7 @@ LinkLuaModifier("modifier_tawrich_crit", "abilities/angra_mainyu/modifiers/modif
 function OnDPStart(keys)
 	local caster = keys.caster
 	local casterPos = caster:GetAbsOrigin()
-	local targetPoint = keys.target_points[1]
+	local targetPoint = keys.ability:GetCursorPosition()
 	local currentHealthCost = 0
     local ply = caster:GetPlayerOwner()
     if caster.IsDPImproved then

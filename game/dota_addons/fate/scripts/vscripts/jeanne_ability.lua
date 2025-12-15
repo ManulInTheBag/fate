@@ -294,7 +294,7 @@ end
 function OnPurgeStart(keys)
 	local caster = keys.caster
 	local ability = keys.ability
-	local targetPoint = keys.target_points[1]
+	local targetPoint = keys.ability:GetCursorPosition()
 	local radius = keys.Radius
 	local delay = keys.Delay
 	local baseDamage = keys.Damage

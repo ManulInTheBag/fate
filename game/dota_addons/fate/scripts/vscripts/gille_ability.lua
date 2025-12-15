@@ -87,7 +87,7 @@ end
 function OnThrowCorpseStart(keys)
 	local caster = keys.caster
 	local ply = caster:GetPlayerOwner()
-	local targetPoint = keys.target_points[1]
+	local targetPoint = keys.ability:GetCursorPosition()
 	local frontward = caster:GetForwardVector()
 
 	if caster.MadnessStackCount == 0 then
@@ -117,7 +117,7 @@ end
 function OnSummonDemonStart(keys)
 	local caster = keys.caster
 	local ply = caster:GetPlayerOwner()
-	local targetPoint = keys.target_points[1]
+	local targetPoint = keys.ability:GetCursorPosition()
 	local number = keys.Number
 	local targets = Entities:FindAllByNameWithin("npc_dota_creature", targetPoint, keys.Radius)
 	if caster.IsAbyssalConnection2Acquired then
@@ -166,7 +166,7 @@ function OnDemonSuicideStart(keys)
 end
 function OnTormentStart(keys)
 	local caster = keys.caster
-	local targetPoint = keys.target_points[1]
+	local targetPoint = keys.ability:GetCursorPosition()
 	local duration = keys.StunDuration
 
 	local madnessCost = math.floor(caster.MadnessStackCount / 2)
@@ -227,7 +227,7 @@ end
 function OnECStart(keys)
 	local caster = keys.caster
 	local ability = keys.ability
-	local targetPoint = keys.target_points[1]
+	local targetPoint = keys.ability:GetCursorPosition()
 
 	--[[
 	-- check if combo can be cast
@@ -353,7 +353,7 @@ end
 function OnContractStart(keys)
 	local caster = keys.caster
 	local ply = caster:GetPlayerOwner()
-	local targetPoint = keys.target_points[1]
+	local targetPoint = keys.ability:GetCursorPosition()
 	local delay = keys.Delay
 
 	EmitGlobalSound("Gilles_Cool")
@@ -533,7 +533,7 @@ function OnTentacleSummon(keys)
 	local caster = keys.caster
 	local ply = caster:GetPlayerOwner() 
 	local hero = caster:GetPlayerOwner():GetAssignedHero()
-	local targetPoint = keys.target_points[1]
+	local targetPoint = keys.ability:GetCursorPosition()
 	if hero.IsAbyssalConnection2Acquired then
 		keys.Health = keys.Health * 1.3
 	end
@@ -569,7 +569,7 @@ end
 
 function OnTentacleHookStart(keys)
 	local caster = keys.caster
-	local targetPoint = keys.target_points[1]
+	local targetPoint = keys.ability:GetCursorPosition()
 	caster.unithit = false 
 end
 
@@ -639,7 +639,7 @@ end
 function OnSubSkewerStart(keys)
 	local caster = keys.caster
 	local casterLoc = caster:GetAbsOrigin()
-	local targetPoint = keys.target_points[1]
+	local targetPoint = keys.ability:GetCursorPosition()
 	local diff = (targetPoint - casterLoc):Normalized()
 	local frontward = caster:GetForwardVector()
 	local skewer = 
@@ -824,7 +824,7 @@ end
 function OnHorrorTeleport(keys)
 	local caster = keys.caster
 	local hero = PlayerResource:GetSelectedHeroEntity(caster:GetPlayerOwnerID())
-	local targetPoint = keys.target_points[1]
+	local targetPoint = keys.ability:GetCursorPosition()
 	local delay = keys.Delay
 	if (targetPoint - hero:GetAbsOrigin()):Length2D() > 1000 then 
 		keys.ability:EndCooldown()

@@ -2,7 +2,7 @@ enkiduTarget = nil
 
 function OnBarrageStart(keys)
 	local caster = keys.caster
-	local targetPoint = keys.target_points[1]
+	local targetPoint = keys.ability:GetCursorPosition()
 	local dot = keys.Damage
 
 	if caster.IsRainAcquired then
@@ -181,7 +181,7 @@ end
 function OnGOBStart(keys)
 	local caster = keys.caster
 	local ability = keys.ability
-	local targetPoint = keys.target_points[1]
+	local targetPoint = keys.ability:GetCursorPosition()
 	local duration = keys.Duration
 	local frontward = caster:GetForwardVector()
 	local casterloc = caster:GetAbsOrigin()
@@ -217,7 +217,7 @@ end
 function CreateGOB(keys, proj)
 	local caster = keys.caster
 	local ability = keys.ability
-	local targetPoint = keys.target_points[1]
+	local targetPoint = keys.ability:GetCursorPosition()
 	local duration = keys.Duration
 	local frontward = caster:GetForwardVector()
 	local casterloc = caster:GetAbsOrigin()
@@ -339,7 +339,7 @@ function OnEnumaStart(keys)
 	local caster = keys.caster
 	local ability = keys.ability
 	local ply = caster:GetPlayerOwner()
-	local targetPoint = keys.target_points[1]
+	local targetPoint = keys.ability:GetCursorPosition()
 	local frontward = caster:GetForwardVector()
 	giveUnitDataDrivenModifier(keys.caster, keys.caster, "pause_sealdisabled", 5.0)
 	
@@ -436,7 +436,7 @@ function OnMaxEnumaStart(keys)
 	local ability = keys.ability
 	local ply = caster:GetPlayerOwner()
 	caster:FindAbilityByName("gilgamesh_enuma_elish"):StartCooldown(47)
-	local targetPoint = keys.target_points[1]
+	local targetPoint = keys.ability:GetCursorPosition()
 	local frontward = caster:GetForwardVector()
 	giveUnitDataDrivenModifier(keys.caster, keys.caster, "pause_sealdisabled", 5.0)
 	--giveUnitDataDrivenModifier(caster, caster, "jump_pause", 5.0)

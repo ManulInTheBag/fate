@@ -125,7 +125,7 @@ end
 
 function OnDownStart(keys)
 	local caster = keys.caster
-	local targetPoint = keys.target_points[1]
+	local targetPoint = keys.ability:GetCursorPosition()
 	local ability = keys.ability
 	local damage = keys.Damage
 	local range = keys.Range

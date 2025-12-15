@@ -82,7 +82,7 @@ function OnPhalanxStart(keys)
 	end
 	--if caster.AOTKSoldierCount == nil then caster.AOTKSoldierCount = 0 end --initialize soldier count if its not made yet
 	local aotkAbility = caster:FindAbilityByName("iskander_army_of_the_king")
-    local targetPoint = keys.target_points[1]
+    local targetPoint = keys.ability:GetCursorPosition()
     local forwardVec = caster:GetForwardVector()
     caster.PhalanxSoldiers = {}
 
@@ -967,7 +967,7 @@ end
 function OnCavalrySummon(keys)
 	local caster = keys.caster
 	local hero = caster:GetPlayerOwner():GetAssignedHero()
-	local targetPoint = keys.target_points[1]
+	local targetPoint = keys.ability:GetCursorPosition()
 	IskanderCheckCombo(caster, keys.ability)
 	--caster.AOTKCavalryTable = {}
 	caster:EmitSound("Hero_KeeperOfTheLight.SpiritForm")
@@ -996,7 +996,7 @@ end
 function OnMageSummon(keys)
 	local caster = keys.caster
 	local hero = caster:GetPlayerOwner():GetAssignedHero()
-	local targetPoint = keys.target_points[1]
+	local targetPoint = keys.ability:GetCursorPosition()
 	caster:EmitSound("Hero_Silencer.Curse.Cast")
 	local aotkAbilityHandle = caster:FindAbilityByName("iskander_army_of_the_king")
 	for i=0,5 do
@@ -1038,7 +1038,7 @@ end
 function OnBattleHornStart(keys)
 	local caster = keys.caster
 	local hero = caster:GetPlayerOwner():GetAssignedHero()
-	local targetPoint = keys.target_points[1]
+	local targetPoint = keys.ability:GetCursorPosition()
 	caster:EmitSound("Hero_LegionCommander.PressTheAttack")
 	local marbleCenter = 0
 	local aotkCenter = Vector(500, -4800, 208)

@@ -32,7 +32,7 @@ itemModifiers = {"modifier_b_scroll","modifier_a_scroll","modifier_healing_scrol
 function OnShapeShiftStart(keys)
 	local caster = keys.caster
 	local ability = keys.ability
-	local targetPoint = keys.target_points[1]
+	local targetPoint = keys.ability:GetCursorPosition()
 	local duration = keys.Duration
 	local pid = caster:GetPlayerID()
 
@@ -126,7 +126,7 @@ function OnShapeShiftTargetLookout(keys)
 	local ability = keys.ability
 	local radius = keys.Radius
 	local target = keys.target
-	local targetPoint = keys.target_points[1]
+	local targetPoint = keys.ability:GetCursorPosition()
 
 	target:MoveToPosition(caster.ShapeShiftDest)
 	local targets = FindUnitsInRadius(caster:GetTeam(), target:GetAbsOrigin(), nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES, FIND_ANY_ORDER, false)
@@ -219,7 +219,7 @@ LinkLuaModifier("modifier_white_queen_slow", "abilities/nursery_rhyme/modifiers/
 function OnEnigmaStart(keys)
 	local caster = keys.caster
 	local ability = keys.ability
-	local targetPoint = keys.target_points[1]
+	local targetPoint = keys.ability:GetCursorPosition()
 
 	local enigmaProjectile = 
 	{

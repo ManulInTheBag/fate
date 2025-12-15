@@ -83,7 +83,7 @@ function OnGalatineStart(keys)
 	local ability = keys.ability
 	--local ply = caster:GetPlayerOwner()
 	local casterLoc = caster:GetAbsOrigin()
-	local targetPoint = keys.target_points[1]
+	local targetPoint = keys.ability:GetCursorPosition()
 	local dist = keys.Max_range    --(targetPoint - casterLoc):Length2D()
 	local orbLoc = caster:GetAbsOrigin()
 	local diff = caster:GetForwardVector()
