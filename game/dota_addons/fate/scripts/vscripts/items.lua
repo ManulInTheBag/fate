@@ -515,7 +515,7 @@ function BecomeWard(keys)
 	transform:AddNewModifier(hero, hero, "modifier_kill", {duration = 30})
 	giveUnitDataDrivenModifier(hero, transform, "modifier_ward_dmg_reduce", {duration = 30})
 	caster:EmitSound("DOTA_Item.ObserverWard.Activate")
-	caster:RemoveSelf()
+	caster:ForceKill(false)
 end
 
 function SpiritLink(keys)
