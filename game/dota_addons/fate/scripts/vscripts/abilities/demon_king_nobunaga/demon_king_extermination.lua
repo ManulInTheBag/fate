@@ -104,7 +104,7 @@ function demon_king_extermination:OnAbilityPhaseInterrupted()
       caster:AddNewModifier(caster, self, "modifier_knockback", knockback1)
       if caster.demon_king_attribute_3 then
          Timers:CreateTimer(delay/2, function()
-            caster:FindAbilityByName("demon_king_beam"):CreateGun(caster:GetAbsOrigin() + caster:GetRightVector() * 100 + Vector(0,0, 150), target)
+            caster:FindAbilityByName("demon_king_beam"):CreateGun(caster:GetAbsOrigin() + caster:GetRightVector() * 100 + Vector(0,0, 150), target, 0.5)
          end)
       end
       Timers:CreateTimer( delay, function()

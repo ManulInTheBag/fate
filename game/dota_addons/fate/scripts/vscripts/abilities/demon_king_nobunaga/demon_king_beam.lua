@@ -190,6 +190,7 @@ function demon_king_beam:CreateGun(position, target, dmgMod)
         local endPos = position + vector
         Dummy:SetForwardVector((vector):Normalized())
         Timers:CreateTimer(0.1, function()
+
             self:GunShootLaser(position + vector:Normalized() * 100, endPos + Vector(0,0, 150), dmgMod)
 
         end)
@@ -205,6 +206,7 @@ end
 
 function demon_king_beam:GunShootLaser(gunPos, targetPos, dmgMod)
     local caster = self:GetCaster()
+
     local damage = (self:GetSpecialValueFor("guns_damage") + ( caster.demon_king_attribute_5 and caster.MasterUnit2:FindAbilityByName("demon_king_attribute_5"):GetSpecialValueFor("guns") * caster:GetAgility() or 0)) * dmgMod 
     local targets = FindUnitsInLine(  caster:GetTeamNumber(),
                                             gunPos,

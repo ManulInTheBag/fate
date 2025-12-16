@@ -19,6 +19,7 @@ function demon_king_materialization:OnSpellStart()
     local caster = self:GetCaster()
     caster:EmitSound("nobbus_summon")
     local random  = math.random(0, 100)
+
     local nobbusToSpawn = "maou_nobus_heracles"
     if random > 67 then
         nobbusToSpawn = "maou_nobus_shinsengumi"

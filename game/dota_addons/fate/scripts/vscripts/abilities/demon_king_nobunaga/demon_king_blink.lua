@@ -37,6 +37,7 @@ function demon_king_blink:OnSpellStart()
     EndAnimation(caster)
     StartAnimation(caster, {duration=1, activity=ACT_DOTA_CAST_DEAFENING_BLAST, rate=1})
    end 
+   
    if caster.demon_king_attribute_2 then 
       caster:FindAbilityByName("demon_king_beam"):EndCooldown()
    end
@@ -95,9 +96,9 @@ function demon_king_blink:PerformAttackTimer()
 
    Timers:CreateTimer(0, function()
        if (counter+1) >= max_counter then
-            self:PerformDealingDamage(tick_damage*2, aoe_radius)
+            self:PerformDealingDamage(tick_damage*2, aoe_radius, true)
        else
-             self:PerformDealingDamage(tick_damage, aoe_radius)
+             self:PerformDealingDamage(tick_damage, aoe_radius, false)
        end
         counter = counter + 1
         if counter == (3) then
@@ -130,7 +131,7 @@ function demon_king_blink:PerformAttackTimer()
 
 end
 
-function demon_king_blink:PerformDealingDamage(tick_damage, aoe_radius)
+function demon_king_blink:PerformDealingDamage(tick_damage, aoe_radius, shouldGiveStack)
    local caster = self:GetCaster()
       local targets = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), caster, aoe_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER , false)
 		for k,v in pairs(targets) do
@@ -139,8 +140,10 @@ function demon_king_blink:PerformDealingDamage(tick_damage, aoe_radius)
 					
 			end
 		end
-    if #targets > 0 then
-        caster:FindAbilityByName("demon_king_materialization"):IncreaseStackCount(1)
+    if shouldGiveStack then
+        if #targets > 0 then
+            caster:FindAbilityByName("demon_king_materialization"):IncreaseStackCount(1)
+        end
     end
 
 end
