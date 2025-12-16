@@ -2793,6 +2793,8 @@ function UpdateAbilityLayout(hHero, tAbilities)
             hHero:GetAbilityByIndex(i - 1):SetHidden(true)
         elseif hHero:GetAbilityByIndex(i - 1):GetAbilityName() ~= tAbilities[i] then
             hHero:SwapAbilities(hHero:GetAbilityByIndex(i - 1):GetAbilityName(), tAbilities[i], true, true)
+        else
+            hHero:GetAbilityByIndex(i - 1):SetHidden(false)
         end
     end
 end
