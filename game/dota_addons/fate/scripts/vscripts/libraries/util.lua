@@ -2789,10 +2789,16 @@ function UpdateAbilityLayout(hHero, tAbilities)
     local tAbilities = tAbilities or hHero.AbilityLayout
     for i = 1, hHero:GetAbilityCount() do
         if hHero:GetAbilityByIndex(i - 1) == nil then
-        elseif i > #tAbilities then
-            hHero:GetAbilityByIndex(i - 1):SetHidden(true)
         elseif hHero:GetAbilityByIndex(i - 1):GetAbilityName() ~= tAbilities[i] then
             hHero:SwapAbilities(hHero:GetAbilityByIndex(i - 1):GetAbilityName(), tAbilities[i], true, true)
+        end
+    end
+    for i = 1, hHero:GetAbilityCount() do
+        if hHero:GetAbilityByIndex(i - 1) == nil then
+        elseif i > #tAbilities then
+            hHero:GetAbilityByIndex(i - 1):SetHidden(true)
+        else
+            hHero:GetAbilityByIndex(i - 1):SetHidden(false)
         end
     end
 end

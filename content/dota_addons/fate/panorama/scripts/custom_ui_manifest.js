@@ -206,6 +206,10 @@ GameUI.CustomUIConfig().multiteam_top_scoreboard =
         // roshtimer
         var roshantimerUI = UIRoot.FindChildTraverse("HUDElements").FindChildTraverse("minimap_container").FindChildTraverse("RoshanTimerContainer");
         roshantimerUI.style.visibility = "collapse";
+        //tormentimer
+        var tormentimerUI = UIRoot.FindChildTraverse("HUDElements").FindChildTraverse("minimap_container").FindChildTraverse("TormentorTimerContainer");
+        tormentimerUI.style.visibility = "collapse";
+
         // neutraltimer
         var neutraltimerUI = UIRoot.FindChildTraverse("HUDElements").FindChildTraverse("lower_hud").FindChildTraverse("center_with_stats").FindChildTraverse("center_block").FindChildTraverse("inventory_composition_layer_container").FindChildTraverse("inventory_neutral_craft_holder");
         neutraltimerUI.style.visibility = "collapse";
