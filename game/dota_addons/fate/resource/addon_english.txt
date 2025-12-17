@@ -3104,8 +3104,14 @@
 		"DOTA_Tooltip_modifier_demon_king_combo_counter"						"Combo counter"
 		"DOTA_Tooltip_modifier_demon_king_combo_counter_Description"			"Combo casts remaining"
 
+		"DOTA_Tooltip_modifier_demon_king_combo_burn"						"Demon flames"
+		"DOTA_Tooltip_modifier_demon_king_combo_burn_Description"			"Everything shall burn"
+
 		"DOTA_Tooltip_modifier_demon_king_materialization"						"Materialization"
 		"DOTA_Tooltip_modifier_demon_king_materialization_Description"			""
+
+		"DOTA_Tooltip_modifier_demon_king_release_burn"						"Burn"
+		"DOTA_Tooltip_modifier_demon_king_release_burn_Description"			"Damage over time"
 
 		"DOTA_Tooltip_modifier_demon_king_extermination_burn"						"Burn"
 		"DOTA_Tooltip_modifier_demon_king_extermination_burn_Description"			"Damage over time"
@@ -3157,7 +3163,7 @@
 
 
 		"DOTA_Tooltip_Ability_demon_king_release"				"It Can't Be Helped"
-		"DOTA_Tooltip_ability_demon_king_release_Description"	"Cast point: <font color='#FFFAFA'>immediate</font>    |    <font color='#EE5C29'>Unrefreshable</font>\nDemon king releases all of her magical energy, dealing <font color='#58ACFA'>damage</font> around, while burning herself.\nWhile performing, she is completely immune to all <font color='#58ACFA'>magical</font> and <font color='#A72E28'>physical</font> damage.\nDamage she deals depends on <font color='#DDB334'>materialization</font> stacks, which are nullified after use.\nTotal damage cannot exceed her max health, and her health cannot drop below a certain percentage due to use of this ability."
+		"DOTA_Tooltip_ability_demon_king_release_Description"	"Cast point: <font color='#FFFAFA'>immediate</font>    |    <font color='#EE5C29'>Unrefreshable</font>\nDemon king releases all of her magical energy, dealing <font color='#58ACFA'>damage</font> around, while burning herself.\nWhile performing, she is completely immune to all <font color='#58ACFA'>magical</font> and <font color='#A72E28'>physical</font> damage.\nDamage she deals depends on <font color='#DDB334'>materialization</font> stacks, which are nullified after use.\nHalf of the damage ius dealt over 4.5 seconds.\nTotal damage cannot exceed her max health, and her health cannot drop below a certain percentage due to use of this ability."
 		"DOTA_Tooltip_Ability_demon_king_release_Lore"					"Is this the verdict handed down on herself that disappeared among the flames, or perhaps..."
 		"DOTA_Tooltip_Ability_demon_king_release_total_damage_base"		"Basic total damage:"
 		"DOTA_Tooltip_Ability_demon_king_release_aoe_radius"			"Radius:"
@@ -3172,7 +3178,7 @@
 
 		"DOTA_Tooltip_Ability_demon_king_breath"				"Singularity"
 		"DOTA_Tooltip_ability_demon_king_breath_Description"	"Cast point: <font color='#FFFAFA'>%AbilityCastPoint%</font>s; Cast Delay: <font color='#FFFFF9'>%total_duration%</font>s   |    <font color='#29EE32'>Refreshable</font>\nDemon king breathes out fire to the target point, with a minimal range, dealing <font color='#58ACFA'>damage</font> to all enemies hit.\nAfter fire reaches the point, after a delay it will summon a singularity.\nSingularity will deal <font color='#58ACFA'>damage</font> over time an <font color='#FF3399'>pull</font> all enemies inside to its center.\nSingularity's pull is strong enough to completely nullify movement and most dashes.\nOnly one singularity can persist at a time."
-		"DOTA_Tooltip_Ability_demon_king_release_Lore"					"Origin of oblivion, creating singularity beyond the aeons"
+		"DOTA_Tooltip_Ability_demon_king_breath_Lore"					"Origin of oblivion, creating singularity beyond the aeons"
 		"DOTA_Tooltip_Ability_demon_king_breath_damage_fire"			"Breathe damage:"
 		"DOTA_Tooltip_Ability_demon_king_breath_minimal_range"			"Minimal range:"
 		"DOTA_Tooltip_Ability_demon_king_breath_black_hole_duration"	"Active duration:"
@@ -3217,17 +3223,36 @@
 		"DOTA_Tooltip_Ability_demon_king_attribute_5_hole"					"Singularity scale:"
 
 
+		"DOTA_Tooltip_Ability_demon_king_combo"				"Combo: Pāpīyas Metamorphosis - Demon King of a Billionfold Heavens"
+		"DOTA_Tooltip_Ability_demon_king_combo_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : Q on self - F in 2 seconds</font>\nDemon king becomes Pāpīyas  herself.\nFor the duration, all enemies around Demon King will burn with <font color='#D1A951'>pure</font> damage, while she gains <font color='#FFFAFA'>damage reduction</font>.\nIn a radius around target point, enemies will be taking <font color='#58ACFA'>damage</font> over time.\nWhile active, Demon King may use this ability again, to shoot at the target points with a delay, for up to %recast_counter% times, only withing area.\nLast shot is much bigger in radius and damage and will end combo early after cast."
+		"DOTA_Tooltip_Ability_demon_king_combo_Lore"					"The past, present, and future... All of me...assemble and unleash!"
+		"DOTA_Tooltip_Ability_demon_king_combo_duration"									"Duration:"
+		"DOTA_Tooltip_Ability_demon_king_combo_aoe_damage_passive"							"Burn damage passive:"
+		"DOTA_Tooltip_Ability_demon_king_combo_aoe_damage_passive_shrapnel"					"Area damage passive:"
+		"DOTA_Tooltip_Ability_demon_king_combo_combo_damage_reduction_pct"					"%Damage reduction:"
+		"DOTA_Tooltip_Ability_demon_king_combo_radius"										"Radius:"
+		"DOTA_Tooltip_Ability_demon_king_combo_radius_blast"								"Blast radius:"
+		"DOTA_Tooltip_Ability_demon_king_combo_recast_damage"								"Explosion damage:"
+		"DOTA_Tooltip_Ability_demon_king_combo_last_explosion_radius"						"Last blast radius:"
+		"DOTA_Tooltip_Ability_demon_king_combo_last_explosion_damage"						"Last explosion damage:"
+		"DOTA_Tooltip_Ability_demon_king_combo_delay"										"Explosion delay:"
+
+		"DOTA_Tooltip_Ability_demon_king_combo_recast"				"Shoot"
+
+
 		//////////NOBBU ABILITIES
 		"DOTA_Tooltip_Ability_maou_nobbus_herc_slam"				"Nobbu SLAM!"
-		"DOTA_Tooltip_Ability_maou_nobbus_herc_slam_Description"	"Cast point: <font color='#FFFAFA'>%AbilityCastPoint%</font>s;\nNobbu jumps into the target point, dealing <font color='#58ACFA'>damage</font> and <font color='#FF3399'>stunning</font> in a line"
+		"DOTA_Tooltip_Ability_maou_nobbus_herc_slam_Description"	"Cast point: <font color='#FFFAFA'>%AbilityCastPoint%</font>s;\nNobbu jumps into the target point, dealing <font color='#58ACFA'>damage</font> and <font color='#FF3399'>stunning</font> in a line."
 		"DOTA_Tooltip_Ability_maou_nobbus_herc_slam_width"			"Lone width:"
 		"DOTA_Tooltip_Ability_maou_nobbus_herc_slam_damage"			"Damage:"
+		"DOTA_Tooltip_Ability_maou_nobbus_herc_slam_damage_per_caster_level"			"Damage per caster level:"
 		"DOTA_Tooltip_Ability_maou_nobbus_herc_slam_range"			"Line range:"
 		"DOTA_Tooltip_Ability_maou_nobbus_herc_slam_stun_duration"				"Stun duration:"
 
 		"DOTA_Tooltip_Ability_maou_nobbus_gumi_dash"				"Nobbu DASH!"
 		"DOTA_Tooltip_Ability_maou_nobbus_gumi_dash_Description"	"Cast point: <font color='#FFFAFA'>%AbilityCastPoint%</font>s;\nNobbu dashes in the direction, dealing <font color='#D1A951'>damage</font> 3 times after a delay."
 		"DOTA_Tooltip_Ability_maou_nobbus_gumi_dash_base_damage"			"Damage:"
+		"DOTA_Tooltip_Ability_maou_nobbus_gumi_dash_damage_per_caster_level"			"Damage per caster level:"
 		"DOTA_Tooltip_Ability_maou_nobbus_gumi_dash_range"				"Max range:"
 		"DOTA_Tooltip_Ability_maou_nobbus_gumi_dash_speed"				"Dash speed:"
 
@@ -3235,6 +3260,7 @@
 		"DOTA_Tooltip_Ability_maou_nobbus_tank_rockets"				"Nobbu ROCKETS!"
 		"DOTA_Tooltip_Ability_maou_nobbus_tank_rockets_Description"	"Cast point: <font color='#FFFAFA'>IMMEDIATE</font>\nNobbu starts shooting rockets 1 sec to the random targets in radius, each dealing <font color='#58ACFA'>damage</font>."
 		"DOTA_Tooltip_Ability_maou_nobbus_tank_rockets_damage"			"Damage:"
+		"DOTA_Tooltip_Ability_maou_nobbus_tank_rockets_damage_per_caster_level"			"Damage per caster level:"
 		"DOTA_Tooltip_Ability_maou_nobbus_tank_rockets_amount"				"Total rockets"
 		"DOTA_Tooltip_Ability_maou_nobbus_tank_rockets_search_radius"		"Search radius:"
 

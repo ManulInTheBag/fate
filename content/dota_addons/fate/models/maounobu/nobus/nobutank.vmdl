@@ -17,10 +17,6 @@
 								from = ""
 								to = "models/maounobu/nobus/text_tank.vmat"
 							},
-							{
-								from = "material.vmat"
-								to = "models/maounobu/nobus/text_tank.vmat"
-							},
 						]
 						use_global_default = false
 						global_default_material = ""
@@ -34,8 +30,8 @@
 					{
 						_class = "RenderMeshFile"
 						name = "tank"
-						filename = "models/maounobu/nobus/tanl/nobu1.fbx"
-						import_scale = 0.3
+						filename = "models/maounobu/nobus/tanl/nobu2.fbx"
+						import_scale = 0.7
 						import_filter = 
 						{
 							exclude_by_default = false
@@ -43,35 +39,6 @@
 						}
 					},
 				]
-			},
-			{
-				_class = "Skeleton"
-				children = 
-				[
-					{
-						_class = "Bone"
-						name = "1"
-						origin = [ 0.0, 0.0, 0.0 ]
-						angles = [ 0.0, 0.0, 0.0 ]
-						do_not_discard = false
-					},
-				]
-			},
-			{
-				_class = "PhysicsShapeList"
-				children = 
-				[
-					{
-						_class = "PhysicsShapeSphere"
-						parent_bone = "1"
-						surface_prop = "default"
-						collision_prop = "default"
-						tool_material = ""
-						radius = 300.0
-						center = [ 0.0, 0.0, 0.0 ]
-					},
-				]
-				leave_body_collision_unmodified = false
 			},
 			{
 				_class = "HitboxSetList"
@@ -84,12 +51,12 @@
 						[
 							{
 								_class = "Hitbox"
-								parent_bone = "1"
+								parent_bone = "Nobu_Tank_bone"
 								surface_property = ""
 								translation_only = false
 								group_id = 0
-								hitbox_mins = [ -130.332138, -216.941864, -1.0 ]
-								hitbox_maxs = [ 128.273605, 185.511658, 269.859131 ]
+								hitbox_mins = [ -64.003845, -68.467865, -41.256187 ]
+								hitbox_maxs = [ 60.01638, 38.494934, 79.94574 ]
 							},
 						]
 					},
@@ -102,8 +69,8 @@
 					{
 						_class = "Attachment"
 						name = "attach_attack"
-						parent_bone = "1"
-						relative_origin = [ 43.444149, -62.985695, 70.711395 ]
+						parent_bone = "Nobu_Tank_bone"
+						relative_origin = [ 23.383518, -26.124981, 44.325733 ]
 						relative_angles = [ 0.0, 0.0, 0.0 ]
 						weight = 1.0
 						ignore_rotation = false
@@ -111,8 +78,17 @@
 					{
 						_class = "Attachment"
 						name = "attach_attack1"
-						parent_bone = "1"
-						relative_origin = [ 42.600399, 58.743637, 71.937248 ]
+						parent_bone = "Nobu_Tank_bone"
+						relative_origin = [ -22.968151, -25.997988, 42.687962 ]
+						relative_angles = [ 0.0, 0.0, 0.0 ]
+						weight = 1.0
+						ignore_rotation = false
+					},
+					{
+						_class = "Attachment"
+						name = "attach_hitloc"
+						parent_bone = "Nobu_Tank_bone"
+						relative_origin = [ -1.117246, -20.900265, 24.305857 ]
 						relative_angles = [ 0.0, 0.0, 0.0 ]
 						weight = 1.0
 						ignore_rotation = false

@@ -118,7 +118,7 @@
 		"AbilityTextureName"			"custom/maou/e"
 
 		"AbilityCastRange"				"400"
-		"AbilityCooldown"				"18"
+		"AbilityCooldown"				"22"
 		"AbilityManaCost"				"400"
 		"precache"
 		{
@@ -241,8 +241,8 @@
 		"AbilityCastAnimation" 			"ACT_DOTA_ITEM_PICKUP"
 		"AnimationPlaybackRate" 		"1"
 		"AbilityCastRange"				"1500"
-		"AbilityCooldown"				"30"
-		"AbilityManaCost"				"600"
+		"AbilityCooldown"				"35"
+		"AbilityManaCost"				"800"
 		"AbilityCastPoint"				"0.3"
 		"precache"
 		{
@@ -291,19 +291,22 @@
 			"particle"		"particles/demon_king_nobunaga/combo_kostya_spawn_ground.vpcf"
 			"particle"		"particles/maou_combo/maou_combo_shrapnel.vpcf"
 		}
+		
 		"AbilityValues"
 		{
 
-			"duration"					"10"
-			"aoe_damage_passive"					"300"
+			"duration"			"10"
 			"combo_damage_reduction_pct"					"50"
+			"radius"				"1500"
+			"aoe_damage_passive"					"300"
+			"aoe_damage_passive_shrapnel"					"200"
+			"recast_counter"				"5"
+			"passive_damage_area"				"700"
+			"delay"				"1.5"
+			"radius_blast"				"600"
 			"recast_damage"				"750"
 			"last_explosion_radius" "1000"
             "last_explosion_damage" "2000"
-			"passive_damage_area"				"700"
-			"radius_blast"				"600"
-			"radius"				"1500"
-			"recast_counter"				"5"
 		}
 	}
 
@@ -325,7 +328,8 @@
 			"particle"			"particles/custom/karna/brahmastra_kundala/brahmastra_kundala_ray.vpcf"
 			"particle"			"particles/custom/karna/brahmastra_kundala/brahmastra_kundala_explosion_beam.vpcf"
 			"particle"			"particles/karna/kundala_aoe.vpcf"	
-			"particle"			"particles/custom/lancer/lancer_gae_bolg_projectile.vpcf"			
+			"particle"			"particles/maou/combo_explosion_test.vpcf"	
+			"particle"			"particles/maou/combo_bullets/maou_combo_bullets_sky.vpcf"			
 				
 		}
 
@@ -387,7 +391,7 @@
 		"AbilityTextureName"			"custom/maou/sa_2"
 		"AbilityCooldown"				"9999"
 
-		"AbilityManaCost"				"10"
+		"AbilityManaCost"				"12"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -413,6 +417,7 @@
 		"AbilityCooldown"				"9999"
 
 		"AbilityManaCost"				"10"
+		"LinkedAbilities"				"maou_nobbus_herc_slam maou_nobbus_gumi_dash maou_nobbus_tank_rockets maou_nobbus_tank_ram"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -437,7 +442,7 @@
 		"AbilityTextureName"			"custom/maou/sa_4"
 		"AbilityCooldown"				"9999"
 
-		"AbilityManaCost"				"10"
+		"AbilityManaCost"				"12"
 
 		// Time		
 		//-------------------------------------------------------------------------------------------------------------
@@ -523,9 +528,10 @@
         {
             "width" "125"
             "damage" "300"
+            "damage_per_caster_level" "10"
             "range" "500"
             "jump_range" "500"
-            "stun_duration" "0.4"
+            "stun_duration" "0.6"
         }		
 	}
 
@@ -573,6 +579,7 @@
         {
             "width" "150"
             "base_damage" "50"
+            "damage_per_caster_level" "2.5"
             "range" "700"
             "speed" "1400"
             "damage_per_hit" "0"
@@ -616,7 +623,8 @@
 
 		"AbilityValues"
         {
-            "damage" "20"
+            "damage" "10"
+            "damage_per_caster_level" "1"
             "amount" "16"
             "search_radius" "300"
         }		

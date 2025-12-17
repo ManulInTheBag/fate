@@ -178,6 +178,9 @@ function modifier_jeanne_jump_buff:OnAttackLanded(args)
     ParticleManager:SetParticleControl( lightning_Fx, 1, args.target:GetAbsOrigin())]]
 
 	DoDamage(args.attacker, args.target, self.damage , DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
+	if args.target:GetName() == "npc_dota_hero_nevermore" then
+		args.target:FindAbilityByName("demon_king_materialization"):ProckSpellAmpBonus()
+	end
 
 	self:Explode()
 

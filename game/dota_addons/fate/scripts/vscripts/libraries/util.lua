@@ -702,6 +702,7 @@ CannotReset = {
     "demon_king_combo",
     "demon_king_combo_recast",
     "demon_king_release",
+    "demon_king_materialization",
 }
 
 
@@ -791,6 +792,7 @@ tRemoveTheseModifiers = {
     "modifier_ryougi_lines",
     "modifier_ubw_chant_count",
     "modifier_lancelot_minigun",
+    "modifier_demon_king_materialization",
 }
 
 tDivineHeroes = {

@@ -5,6 +5,8 @@ LinkLuaModifier("modifier_demon_king_sa2_spell_amp", "abilities/demon_king_nobun
 LinkLuaModifier("modifier_demon_king_sa_aura", "abilities/demon_king_nobunaga/demon_king_materialization", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_demon_king_sa_auramod", "abilities/demon_king_nobunaga/demon_king_materialization", LUA_MODIFIER_MOTION_NONE)
 
+LinkLuaModifier("modifier_demon_king_extermination_burn", "abilities/demon_king_nobunaga/demon_king_extermination", LUA_MODIFIER_MOTION_NONE)
+
 
 function demon_king_materialization:GetBehavior()
 	if self:GetLevel() == 1 then
@@ -19,13 +21,15 @@ function demon_king_materialization:OnSpellStart()
     local caster = self:GetCaster()
     caster:EmitSound("nobbus_summon")
     local random  = math.random(0, 100)
-
+    local nobbusHealth = caster:GetMaxHealth() * 1.2
     local nobbusToSpawn = "maou_nobus_heracles"
     if random > 67 then
-        nobbusToSpawn = "maou_nobus_shinsengumi"
+        nobbusToSpawn = "maou_nobus_shinsengumi" 
+        nobbusHealth = nobbusHealth * 0.5
     end
     if random < 33 then
-        nobbusToSpawn = "maou_nobus_tank"
+        nobbusToSpawn = "maou_nobus_tank" 
+        nobbusHealth = nobbusHealth *0.8
     end
     local point = self:GetCursorPosition()
     local vector = point - caster:GetAbsOrigin() 
@@ -36,6 +40,9 @@ function demon_king_materialization:OnSpellStart()
    nobbus1:SetOwner(caster)
    nobbus1.Caster = caster
    nobbus1.Ability = self
+   nobbus1.Level = caster:GetLevel()
+   nobbus1:SetBaseMaxHealth(nobbusHealth)
+   nobbus1:SetHealth(nobbusHealth)
 
    local knockback1 = { should_stun = true,
                            knockback_duration = 1,
@@ -73,10 +80,14 @@ function demon_king_materialization:SummonNobbus()
    local randomVec = Vector(math.random(), math.random(), math.random())
    local spawn_location = caster:GetAbsOrigin() + math.random(-200, 200) * randomVec
    local nobbus1 = CreateUnitByName("maou_nobus_heracles", spawn_location, true, caster, caster, caster:GetTeamNumber())
+   local nobbusHealth = caster:GetMaxHealth() * 1.2
    nobbus1:SetControllableByPlayer(caster:GetPlayerID(), true)
    nobbus1:SetOwner(caster)
    nobbus1.Caster = caster
    nobbus1.Ability = self
+   nobbus1.Level = caster:GetLevel()
+   nobbus1:SetBaseMaxHealth(nobbusHealth)
+   nobbus1:SetHealth(nobbusHealth)
 
    local knockback1 = { should_stun = true,
                            knockback_duration = 1,
@@ -95,9 +106,13 @@ function demon_king_materialization:SummonNobbus()
    spawn_location = caster:GetAbsOrigin() + math.random(-200, 200) * randomVec
    local nobbus2 = CreateUnitByName("maou_nobus_shinsengumi", spawn_location, true, caster, caster, caster:GetTeamNumber())
    nobbus2:SetControllableByPlayer(caster:GetPlayerID(), true)
+    nobbusHealth = nobbusHealth * 0.5
    nobbus2:SetOwner(caster)
-   nobbus1.Caster = caster
-   nobbus1.Ability = self
+   nobbus2.Caster = caster
+   nobbus2.Ability = self
+   nobbus2.Level = caster:GetLevel()
+   nobbus2:SetBaseMaxHealth(nobbusHealth)
+   nobbus2:SetHealth(nobbusHealth)
 
        knockback1 = { should_stun = true,
                            knockback_duration = 1,
@@ -119,6 +134,10 @@ function demon_king_materialization:SummonNobbus()
    nobbus3:SetOwner(caster)
    nobbus3.Caster = caster
    nobbus3.Ability = self
+    nobbus3.Level = caster:GetLevel()
+    nobbusHealth = caster:GetMaxHealth() * 1.2 * 0.8
+   nobbus3:SetBaseMaxHealth(nobbusHealth)
+   nobbus3:SetHealth(nobbusHealth)
 
        knockback1 = { should_stun = true,
                            knockback_duration = 1,
@@ -383,3 +402,5 @@ end
 
 
 function modifier_demon_king_sa2_spell_amp:IsHidden() 	return false end
+
+

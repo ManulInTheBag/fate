@@ -3,6 +3,8 @@ demon_king_release = class({})
 
 LinkLuaModifier("modifier_demon_king_release", "abilities/demon_king_nobunaga/demon_king_release", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_barrier_new", "modifiers/modifier_barrier_new", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_demon_king_release_burn", "abilities/demon_king_nobunaga/demon_king_release", LUA_MODIFIER_MOTION_NONE)
+
 function demon_king_release:GetAOERadius()
    
 	return self:GetSpecialValueFor("aoe_radius")
@@ -81,13 +83,14 @@ function demon_king_release:PerformDealingDamage(tick_damage, aoe_radius)
       local targets = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), caster, aoe_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_HERO, 0, FIND_ANY_ORDER , false)
 		for k,v in pairs(targets) do
 			if v:GetName() ~= "npc_dota_ward_base" then
-					DoDamage(caster, v, tick_damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
-               self.damageDealtCounter = self.damageDealtCounter + tick_damage
+					DoDamage(caster, v, tick_damage/2, DAMAGE_TYPE_MAGICAL, 0, self, false)
+               self.damageDealtCounter = self.damageDealtCounter + tick_damage/2
+               v:AddNewModifier(caster, self, "modifier_demon_king_release_burn", {damage = tick_damage/10, duration = 4.5})
 					
 			end
 		end
       if caster:GetHealthPercent() > 20 then
-         DoDamage(caster, caster, tick_damage, DAMAGE_TYPE_PURE, 0, self, false)
+         caster:SetHealth(caster:GetHealth() - tick_damage)
       end
 
 end
@@ -119,3 +122,44 @@ end
 function modifier_demon_king_release:GetAbsoluteNoDamageMagical() 
 	return 1
 end
+
+
+
+modifier_demon_king_release_burn = class({})
+
+function modifier_demon_king_release_burn:GetEffectName()
+   return "particles/muramasa/muramasa_rush_burn.vpcf"
+end
+function modifier_demon_king_release_burn:GetEffectAttachType()
+   return PATTACH_ABSORIGIN_FOLLOW
+end
+
+function modifier_demon_king_release_burn:OnCreated(args)
+   local interval = 0.25
+   self.caster = self:GetCaster()
+   self.target = self:GetParent()
+   self.ability = self:GetAbility()
+   self.damage = args.damage*interval
+   self:StartIntervalThink(interval)
+end
+function modifier_demon_king_release_burn:OnRefresh(args)
+   if(not IsServer() ) then return end
+      self.damage = args.damage * 0.25 + self.damage
+end
+ 
+ 
+
+function modifier_demon_king_release_burn:OnIntervalThink()
+   if(not IsServer() ) then return end
+   DoDamage(self.caster, self.target, self.damage, DAMAGE_TYPE_MAGICAL, 0,  self.ability, false)
+end
+ 
+ 
+
+ 
+
+function modifier_demon_king_release_burn:IsHidden()	return false end
+function modifier_demon_king_release_burn:RemoveOnDeath()return true end 
+function modifier_demon_king_release_burn:IsDebuff() 	return false end
+
+ 

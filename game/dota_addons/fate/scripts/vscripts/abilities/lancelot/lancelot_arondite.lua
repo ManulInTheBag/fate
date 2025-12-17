@@ -116,6 +116,10 @@ function lancelot_arondite:OnProjectileHit_ExtraData(hTarget, vLocation, table)
 	if not hTarget:IsMagicImmune() then
 		DoDamage(hCaster, hTarget, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
 
+		if hTarget:GetName() == "npc_dota_hero_nevermore" then
+			hTarget:FindAbilityByName("demon_king_materialization"):ProckSpellAmpBonus()
+		end
+
 		--if hCaster:HasModifier("modifier_eternal_flame_attribute") then
 		--	hTarget:AddNewModifier(hCaster, self, "modifier_eternal_flame_shred", { Duration = self:GetSpecialValueFor("ef_dur") })
 		--end

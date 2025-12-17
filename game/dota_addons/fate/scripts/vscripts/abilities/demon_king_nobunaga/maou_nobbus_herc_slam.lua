@@ -29,7 +29,7 @@ function maou_nobbus_herc_slam:OnSpellStart()
 						center_z = self:GetCursorPosition().z }
 	caster:RemoveModifierByName("modifier_knockback")
 	caster:AddNewModifier(caster, self, "modifier_knockback", knockback1)
-	local damage = self:GetSpecialValueFor("damage")
+	local damage = self:GetSpecialValueFor("damage")  + caster.Level * self:GetSpecialValueFor("damage_per_caster_level")
 	local range = self:GetSpecialValueFor("range")
 	local stun_duration = self:GetSpecialValueFor("stun_duration")
 	local width = self:GetSpecialValueFor("width")

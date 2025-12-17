@@ -60,6 +60,11 @@ function demon_king_combo:PlayEndEffects()
             caster:RemoveModifierByNameAndCaster("modifier_demon_king_combo_burn", caster)
             caster:RemoveModifierByNameAndCaster("modifier_demon_king_combo_counter", caster)
             caster:RemoveModifierByNameAndCaster("pause_sealenabled", caster)
+            if caster:GetAbilityByIndex(4):GetName() ~= "demon_king_materialization" then
+                 if caster:GetAbilityByIndex(4):GetName() == "demon_king_combo" then
+                    caster:SwapAbilities("demon_king_materialization", "demon_king_combo", true, false)
+                 end
+            end
 		   	return 
 		end
 		caster:SetAbsOrigin(Vector(caster:GetAbsOrigin().x,caster:GetAbsOrigin().y,caster:GetAbsOrigin().z-13))
@@ -92,7 +97,7 @@ function demon_king_combo:PlayStartEffects()
     local duration = self:GetSpecialValueFor("duration")
     self.point = self:GetCursorPosition()
     self.radius = self:GetSpecialValueFor("radius")
-    self.shrapnelDamage = 200
+    self.shrapnelDamage = self:GetSpecialValueFor("aoe_damage_passive_shrapnel")
     caster:EmitSound("kostya_cracks")
     caster:EmitSound("kostya_fire_ambient")
     --caster:EmitSound("kostya_bgm")
@@ -217,12 +222,23 @@ end
 if IsServer() then
 	function modifier_demon_king_combo_counter:OnCreated(args)
 		local caster = self:GetParent()
-		caster:SwapAbilities("demon_king_combo", "demon_king_combo_recast", false, true)
+         if caster:GetAbilityByIndex(4):GetName() == "demon_king_combo" then
+		     caster:SwapAbilities("demon_king_combo", "demon_king_combo_recast", false, true)
+         end
+         if caster:GetAbilityByIndex(4):GetName() == "demon_king_materialization" then
+		    caster:SwapAbilities("demon_king_materialization", "demon_king_combo_recast", false, true)
+         end
 	end
 
 	function modifier_demon_king_combo_counter:OnDestroy()	
 		local caster = self:GetParent()	
-		caster:SwapAbilities("demon_king_combo", "demon_king_combo_recast", true, false)
+
+        if caster:GetAbilityByIndex(4):GetName() == "demon_king_combo_recast" then
+		     caster:SwapAbilities("demon_king_materialization", "demon_king_combo_recast", true, false)
+        end
+         if caster:GetAbilityByIndex(4):GetName() == "demon_king_combo_recast" then
+		    caster:SwapAbilities("demon_king_materialization", "demon_king_combo_recast", true, false)
+         end
         self:GetAbility():PlayEndEffects()
 	end
 end

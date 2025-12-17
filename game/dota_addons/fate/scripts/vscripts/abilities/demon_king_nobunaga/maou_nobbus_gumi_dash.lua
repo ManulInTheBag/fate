@@ -149,10 +149,10 @@ function modifier_nobbus_dash:PlayEffects(pos1, pos2)
                     caster:EmitSound("nobusengumi_1")
 
                   
-                    local damage = ability:GetSpecialValueFor("base_damage")
+                    local damage = ability:GetSpecialValueFor("base_damage") + caster.Level * ability:GetSpecialValueFor("damage_per_caster_level")
 
 
-                    DoDamage(caster, enemy, damage, DAMAGE_TYPE_PURE, 0, caster.Ability, false)
+                    DoDamage(caster.Caster, enemy, damage, DAMAGE_TYPE_PURE, 0, caster.Ability, false)
 
 
 
@@ -160,10 +160,10 @@ function modifier_nobbus_dash:PlayEffects(pos1, pos2)
                 end)
                 Timers:CreateTimer(1, function()
 
-                    local damage = ability:GetSpecialValueFor("base_damage")
+                    local damage = ability:GetSpecialValueFor("base_damage")  + caster.Level * ability:GetSpecialValueFor("damage_per_caster_level")
 
 
-                    DoDamage(caster, enemy, damage, DAMAGE_TYPE_PURE, 0, caster.Ability, false)
+                    DoDamage(caster.Caster, enemy, damage, DAMAGE_TYPE_PURE, 0, caster.Ability, false)
 
 
 
@@ -171,10 +171,10 @@ function modifier_nobbus_dash:PlayEffects(pos1, pos2)
                 end)
                 Timers:CreateTimer(1.2, function()
 
-                    local damage = ability:GetSpecialValueFor("base_damage")
+                    local damage = ability:GetSpecialValueFor("base_damage")  + caster.Level * ability:GetSpecialValueFor("damage_per_caster_level")
 
 
-                     DoDamage(caster, enemy, damage, DAMAGE_TYPE_PURE, 0, caster.Ability, false)
+                     DoDamage(caster.Caster, enemy, damage, DAMAGE_TYPE_PURE, 0, caster.Ability, false)
 
 
                     enemy:EmitSound("Tsubame_Focus")

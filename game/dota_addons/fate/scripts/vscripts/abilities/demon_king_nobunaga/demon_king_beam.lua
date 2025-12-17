@@ -1,5 +1,6 @@
 
 demon_king_beam = class({})
+LinkLuaModifier("modifier_demon_king_combo_switch", "abilities/demon_king_nobunaga/demon_king_beam", LUA_MODIFIER_MOTION_NONE)
 
 
 function demon_king_beam:GetAOERadius()
@@ -84,6 +85,9 @@ function demon_king_beam:CastGroundSlam()
     ScreenShake(caster:GetOrigin(), 15, 0.5, 0.5, 2000, 0, true)
     local particle = ParticleManager:CreateParticle("particles/maou/ground_slam/maou_ground_slam_.vpcf", PATTACH_WORLDORIGIN, nil)
     ParticleManager:SetParticleControl(particle, 0, caster:GetAbsOrigin() + caster:GetForwardVector()* 100)
+    if self:CheckCombo() then
+         caster:AddNewModifier(caster, self, "modifier_demon_king_combo_switch", { Duration = 2 })
+    end
 
     Timers:CreateTimer(0.5, function()
         ParticleManager:DestroyParticle(particle, false)
@@ -232,3 +236,45 @@ function demon_king_beam:GunShootLaser(gunPos, targetPos, dmgMod)
     end
 
 end
+
+
+
+function demon_king_beam:CheckCombo()
+	local caster = self:GetCaster()
+	if caster:GetStrength() >= 29.1 and caster:GetAgility() >= 29.1 and caster:GetIntellect() >= 29.1 then
+		if caster:FindAbilityByName("demon_king_combo"):IsCooldownReady()  then
+			return true
+		end
+	end
+    return false
+end
+
+
+
+modifier_demon_king_combo_switch = class({})
+
+function modifier_demon_king_combo_switch:IsHidden()
+	return true 
+end
+
+function modifier_demon_king_combo_switch:RemoveOnDeath()
+	return true
+end
+
+if IsServer() then
+	function modifier_demon_king_combo_switch:OnCreated(args)
+		local caster = self:GetParent()
+         if caster:GetAbilityByIndex(4):GetName() == "demon_king_materialization" then
+		     caster:SwapAbilities("demon_king_materialization", "demon_king_combo", false, true)
+         end
+	end
+
+	function modifier_demon_king_combo_switch:OnDestroy()	
+		local caster = self:GetParent()	
+        if caster:GetAbilityByIndex(4):GetName() == "demon_king_combo" then
+		     caster:SwapAbilities("demon_king_materialization", "demon_king_combo", true, false)
+        end
+      
+	end
+end
+

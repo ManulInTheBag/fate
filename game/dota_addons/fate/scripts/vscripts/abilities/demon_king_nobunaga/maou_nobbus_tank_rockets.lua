@@ -57,7 +57,7 @@ function maou_nobbus_tank_rockets:OnProjectileHit_ExtraData(target, location, ta
 
 		--target:EmitSound("merlin_orbs_explosion")
 		local caster = self:GetCaster()
-		local damage = self:GetSpecialValueFor("damage")
+		local damage = self:GetSpecialValueFor("damage")  + caster.Level * self:GetSpecialValueFor("damage_per_caster_level")
 		target:EmitSound("nobu_shoot_laser")
 
 		-- local explosionFx = ParticleManager:CreateParticle("particles/merlin/orb_explosion.vpcf", PATTACH_CUSTOMORIGIN, nil)
