@@ -1,0 +1,34 @@
+// THIS FILE IS AUTO-GENERATED
+
+Layer0
+{
+	shader "deferred_post_process_outlines.vfx"
+
+	//---- FogOfWar ----
+	g_flFogOfWarStrength "0.900"
+	g_flFogOfWarStrengthSaturation "0.800"
+	g_vFogOfWarTint "[0.643137 0.643137 0.643137 0.000000]"
+
+	//---- Layer 0 ----
+	FogModulationTexture ""
+
+	//---- Outline ----
+	g_flOutlineDepthTolerance "3.660"
+	g_flOutlineStrength "2.000"
+	g_flOutlineWidth "0.100"
+	g_vOutlineColor "[0.078431 0.086275 0.074510 0.000000]"
+
+
+	VariableState
+	{
+		"FogOfWar"
+		{
+		}
+		"Layer 0"
+		{
+		}
+		"Outline"
+		{
+		}
+	}
+}

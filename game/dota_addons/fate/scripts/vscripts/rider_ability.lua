@@ -207,9 +207,13 @@ function OnBloodfortStart(keys)
 				local target_absorb = keys.AbsorbAmount + (v:HasModifier("modifier_medusa_bleed") and v:FindModifierByName("modifier_medusa_bleed"):GetStackCount()*ability:GetSpecialValueFor("bleed_absorb") or 0)
 
 		        DoDamage(caster, v, target_damage * 0.5, DAMAGE_TYPE_MAGICAL, 0, keys.ability, false)
-		        v:SetMana(v:GetMana() - (target_damage * 0.175)) 
+		        if v:IsHero() then
+		        	v:SetMana(v:GetMana() - (target_damage * 0.175))
+		        end
 		        caster:ApplyHeal(target_absorb * 0.5, caster)
-		        caster:GiveMana(target_absorb * 0.175)
+		        if v:IsHero() then
+		        	caster:GiveMana(target_absorb * 0.175)
+		        end
 
 				if caster.SealAcquired and (bloodfortCount % 2 == 0) then  
 					--[[

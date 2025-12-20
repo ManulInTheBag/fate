@@ -2624,7 +2624,7 @@
 		"DOTA_Tooltip_ability_cu_chulain_gae_bolg_jump_Note0"		"Invulnerability causes Cu Chulainn to not be transported into Reality Marbles as well."
 
 		"DOTA_Tooltip_Ability_cu_new_combo"				"Combo: Wesen Gae Bolg"
-		"DOTA_Tooltip_ability_cu_new_combo_Description"		"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : Second cast W - R in 3 seconds</font>\nCu Chulainn rushes to the enemy.\nAfter a short delay, he jumps into the air, becoming <font color='#ff9900'>invulnerable</font> and soonely after throws his Gae Bolg into the target.\nUpon hit, he deals <font color='#D1A951'>damage</font> to the target and <font color='#58ACFA'>damage</font> in %radius% radius to all enemies near it, <font color='#FF3399'>stunning</font> for %stun_duration% seconds.\nMain target also receaves <font color='#780606'>Hearthbreak</font> effect.\n<font color='#780606'>Hearthbreak</font>: 60%% healing reduction, %slow_powerful_desc%% <font color='#9400D3'>slow</font> and <font color='#9400D3'>dimensional lock</font> (undispellable) for %target_debuffs_duration_strong% seconds, %slow_weak%% <font color='#9400D3'>slow</font> and vision over target for %target_debuffs_duration_weak% seconds."
+		"DOTA_Tooltip_ability_cu_new_combo_Description"		"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : Second cast W - R in 3 seconds</font>\nCu Chulainn rushes to the enemy.\nAfter a short delay, he jumps into the air, becoming <font color='#ff9900'>invulnerable</font> and soonely after throws his Gae Bolg into the target.\nUpon hit, he deals <font color='#D1A951'>damage</font> to the target and <font color='#58ACFA'>damage</font> in %radius% radius to all enemies near it, <font color='#FF3399'>stunning</font> for %stun_duration% seconds.\nMain target also receives <font color='#780606'>Heartbreak</font> effect and is strong dispelled.\n<font color='#780606'>Heartbreak</font>: 60%% healing reduction, %slow_powerful_desc%% <font color='#9400D3'>slow</font> and <font color='#9400D3'>dimensional lock</font> (undispellable) for %target_debuffs_duration_strong% seconds, %slow_weak%% <font color='#9400D3'>slow</font> and vision over target for %target_debuffs_duration_weak% seconds."
 		"DOTA_Tooltip_ability_cu_chulain_gae_bolg_combo_Lore"		"The heartseeking spear of Lancer, no matter in what circumstance, claims a heart of adversary."
 		//"DOTA_Tooltip_ability_cu_chulain_gae_bolg_combo_silence_duration"	"SILENCE DURATION:"
 		"DOTA_Tooltip_ability_cu_new_combo_cast_delay"			"THROW DELAY:"
@@ -2965,6 +2965,7 @@
 		"DOTA_Tooltip_ability_rider_5th_bloodfort_andromeda_damage"	"Damage per second:"
 		"DOTA_Tooltip_ability_rider_5th_bloodfort_andromeda_absorb"	"Absorbed HP per unit:"
 		"DOTA_Tooltip_ability_rider_5th_bloodfort_andromeda_duration"	"Duration:"
+		"DOTA_Tooltip_ability_rider_5th_bloodfort_andromeda_Note0"	"Does not steal mana from non-hero units."
 		
 		"DOTA_Tooltip_Ability_rider_5th_bellerophon"	"Bellerophon"	
 		"DOTA_Tooltip_ability_rider_5th_bellerophon_Description"	"Rider ascends into sky, becoming untargetable and invulnerable, and then slams down to the target location. Enemies struck are dealt damage and <font color='#FF3399'>stunned</font>.\n\nUpgradable by attribute Riding."
@@ -3112,6 +3113,8 @@
 
 		"DOTA_Tooltip_modifier_demon_king_release_burn"						"Burn"
 		"DOTA_Tooltip_modifier_demon_king_release_burn_Description"			"Damage over time"
+
+		"DOTA_Tooltip_modifier_demon_king_combo_cd"							"Combo - Pāpīyas Metamorphosis cooldown"
 
 		"DOTA_Tooltip_modifier_demon_king_extermination_burn"						"Burn"
 		"DOTA_Tooltip_modifier_demon_king_extermination_burn_Description"			"Damage over time"

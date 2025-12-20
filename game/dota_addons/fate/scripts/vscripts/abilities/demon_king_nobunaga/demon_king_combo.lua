@@ -4,6 +4,7 @@ LinkLuaModifier("modifier_demon_king_combo_burn", "abilities/demon_king_nobunaga
 LinkLuaModifier("modifier_kb_immune", "abilities/zlodemon_nasral/modifier_kb_immune", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_cc_immune", "modifiers/modifier_cc_immune", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_demon_king_combo_counter", "abilities/demon_king_nobunaga/demon_king_combo", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_demon_king_combo_cd", "abilities/demon_king_nobunaga/demon_king_combo", LUA_MODIFIER_MOTION_NONE)
 function demon_king_combo:GetAOERadius()
 	return self:GetSpecialValueFor("radius")
 end
@@ -26,6 +27,15 @@ end
 function demon_king_combo:OnSpellStart()
     local caster = self:GetCaster()
     local duration = self:GetSpecialValueFor("duration")
+
+    local masterCombo = caster.MasterUnit2:FindAbilityByName(self:GetAbilityName())
+    masterCombo:EndCooldown()
+    masterCombo:StartCooldown(self:GetCooldown(1))
+    local abil = caster:FindAbilityByName("demon_king_combo")
+    abil:StartCooldown(abil:GetCooldown(abil:GetLevel() - 1))
+
+    caster:AddNewModifier(caster, self, "modifier_demon_king_combo_cd", {duration = self:GetCooldown(1)})
+
     self.point = self:GetCursorPosition()
 
     self:PlayStartEffects()
@@ -254,4 +264,26 @@ end
 
 function modifier_demon_king_combo_counter:GetModifierIncomingDamage_Percentage() 
 	return -self:GetAbility():GetSpecialValueFor("combo_damage_reduction_pct")
+end
+
+modifier_demon_king_combo_cd = class({})
+
+function modifier_demon_king_combo_cd:GetTexture()
+    return "custom/maou/combo"
+end
+
+function modifier_demon_king_combo_cd:IsHidden()
+    return false 
+end
+
+function modifier_demon_king_combo_cd:RemoveOnDeath()
+    return false
+end
+
+function modifier_demon_king_combo_cd:IsDebuff()
+    return true 
+end
+
+function modifier_demon_king_combo_cd:GetAttributes()
+    return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
 end
