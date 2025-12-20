@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc32:version{c5dcef98-b629-46ab-88e3-a17c005c935e} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc41:version{12fc9d44-453a-4ae4-b4d9-7e2ac0bbd4e0} -->
 {
 	rootNode = 
 	{
@@ -15,7 +15,7 @@
 						[
 							{
 								from = "fateavenger1.vmat"
-								to = "materials/dev/primary_black.vmat"
+								to = "materials/dev/hero_black.vmat"
 							},
 							{
 								from = "fateavenger2.vmat"
@@ -370,6 +370,7 @@
 							{
 								_class = "AnimFile"
 								name = "trueform_cast_one"
+								is_default_idle_anim = false
 								activity_name = "ACT_DOTA_CAST_ABILITY_6"
 								activity_weight = 1
 								weight_list_name = ""
@@ -382,16 +383,19 @@
 								anim_markup_ordered = false
 								disable_compression = false
 								animgraph_additive = false
+								delete_from_compiled_model = false
 								source_filename = "models/avenger/avenger_anim.FBX"
 								import_bone_scales = false
 								start_frame = 660
 								end_frame = 706
 								framerate = 30.0
 								reverse = false
+								additional_anim_files = [  ]
 							},
 							{
 								_class = "AnimFile"
 								name = "trueform_run"
+								is_default_idle_anim = false
 								activity_name = "ACT_DOTA_RUN"
 								activity_weight = 1
 								weight_list_name = ""
@@ -404,16 +408,19 @@
 								anim_markup_ordered = false
 								disable_compression = false
 								animgraph_additive = false
+								delete_from_compiled_model = false
 								source_filename = "models/avenger/avenger_anim.FBX"
 								import_bone_scales = false
 								start_frame = 737
 								end_frame = 790
 								framerate = 50.0
 								reverse = false
+								additional_anim_files = [  ]
 							},
 							{
 								_class = "AnimFile"
 								name = "trueform_death"
+								is_default_idle_anim = false
 								activity_name = "ACT_DOTA_DIE"
 								activity_weight = 1
 								weight_list_name = ""
@@ -426,16 +433,19 @@
 								anim_markup_ordered = false
 								disable_compression = false
 								animgraph_additive = false
+								delete_from_compiled_model = false
 								source_filename = "models/avenger/avenger_anim.FBX"
 								import_bone_scales = false
 								start_frame = 0
 								end_frame = 132
 								framerate = 75.0
 								reverse = false
+								additional_anim_files = [  ]
 							},
 							{
 								_class = "AnimFile"
 								name = "trueform_idle"
+								is_default_idle_anim = false
 								activity_name = "ACT_DOTA_IDLE"
 								activity_weight = 1
 								weight_list_name = ""
@@ -448,16 +458,19 @@
 								anim_markup_ordered = false
 								disable_compression = false
 								animgraph_additive = false
+								delete_from_compiled_model = false
 								source_filename = "models/avenger/avenger_anim.FBX"
 								import_bone_scales = false
 								start_frame = 434
 								end_frame = 435
 								framerate = 30.0
 								reverse = false
+								additional_anim_files = [  ]
 							},
 							{
 								_class = "AnimFile"
 								name = "trueform_attack_one"
+								is_default_idle_anim = false
 								activity_name = "ACT_DOTA_ATTACK"
 								activity_weight = 1
 								weight_list_name = ""
@@ -470,16 +483,19 @@
 								anim_markup_ordered = false
 								disable_compression = false
 								animgraph_additive = false
+								delete_from_compiled_model = false
 								source_filename = "models/avenger/avenger_anim.FBX"
 								import_bone_scales = false
 								start_frame = 434
 								end_frame = 475
 								framerate = 40.0
 								reverse = false
+								additional_anim_files = [  ]
 							},
 							{
 								_class = "AnimFile"
 								name = "trueform_attack_two"
+								is_default_idle_anim = false
 								activity_name = "ACT_DOTA_ATTACK2"
 								activity_weight = 1
 								weight_list_name = ""
@@ -492,12 +508,14 @@
 								anim_markup_ordered = false
 								disable_compression = false
 								animgraph_additive = false
+								delete_from_compiled_model = false
 								source_filename = "models/avenger/avenger_anim.FBX"
 								import_bone_scales = false
 								start_frame = 476
 								end_frame = 541
 								framerate = 75.0
 								reverse = false
+								additional_anim_files = [  ]
 							},
 						]
 					},
@@ -509,5 +527,6 @@
 		primary_associated_entity = ""
 		anim_graph_name = ""
 		importer_notes = "Imported from VMDL"
+		document_sub_type = "ModelDocSubType_None"
 	}
 }
