@@ -1,4 +1,4 @@
-<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc31:version{165d48dd-8adc-4f1d-abf7-4992e04ad577} -->
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:modeldoc41:version{12fc9d44-453a-4ae4-b4d9-7e2ac0bbd4e0} -->
 {
 	rootNode = 
 	{
@@ -48,7 +48,7 @@
 							},
 							{
 								from = "blinn6.vmat"
-								to = "materials/dev/primary_black.vmat"
+								to = "materials/dev/hero_black.vmat"
 							},
 							{
 								from = "blinn8.vmat"
@@ -80,8 +80,7 @@
 		model_archetype = ""
 		primary_associated_entity = ""
 		anim_graph_name = ""
-		importer_notes = """
-Imported from VMDL
-"""
+		importer_notes = "Imported from VMDL"
+		document_sub_type = "ModelDocSubType_None"
 	}
 }

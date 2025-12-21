@@ -23,7 +23,7 @@ Timers:CreateTimer(0, function()
     EmitGlobalSound("muramasa_combo_cast")
 
 end)
-
+print("debug1")
 local marble_fx = ParticleManager:CreateParticle("particles/muramasa/muramasa_combo_swords_base.vpcf", PATTACH_ABSORIGIN_FOLLOW  , caster)
 ParticleManager:SetParticleControl(marble_fx, 0, caster:GetAbsOrigin()) 
 
@@ -79,7 +79,7 @@ Timers:CreateTimer(0, function()
     end)
 end)
 
-
+print("debug2")
  
 caster:AddNewModifier(caster, self, "modifier_merlin_self_pause", {Duration = 2}) 
 caster:AddNewModifier(caster, self, "modifier_muramasa_combo_cd", {Duration = self:GetCooldown(-1)}) 

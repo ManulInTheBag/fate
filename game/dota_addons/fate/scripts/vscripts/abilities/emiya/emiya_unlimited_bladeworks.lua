@@ -161,6 +161,8 @@ function emiya_unlimited_bladeworks:StartUBW(boolsoundOn)
                 else
                     if caster:HasModifier("modifier_hero_selection_skin") then
                         CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="emiya_skin_ubw_chant_7"})
+                    else
+                        CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="emiya_ubw7"})
                     end
                 end
             else

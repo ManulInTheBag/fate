@@ -18,7 +18,9 @@ function emiya_combo:OnSpellStart()
 			else
 				if caster:HasModifier("modifier_hero_selection_skin") then
 					CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="emiya_skin_ubw_chant_7"})
-				end
+				else
+                    CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="emiya_ubw7"})
+                end
 			end
 		else
 			CustomGameEventManager:Send_ServerToPlayer(player, "emit_horn_sound", {sound="emiya_ubw7"})
