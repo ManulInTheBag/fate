@@ -366,6 +366,14 @@ modifier_cu_chulain_combo = class({})
 
 function modifier_cu_chulain_combo:OnCreated()
 	self.speedEffect = self:GetAbility():GetSpecialValueFor("slow_powerful")
+
+	self:StartIntervalThink(FrameTime())
+end
+
+function modifier_cu_chulain_combo:OnIntervalThink()
+	if not IsServer() then return end
+
+	ApplyStrongDispel(self:GetParent())
 end
 
 

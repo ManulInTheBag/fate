@@ -73,33 +73,43 @@ function lancelot_parry:Counter()
 	StartAnimation(caster, {duration=0.4, activity=ACT_DOTA_CAST_GHOST_SHIP, rate=1.8})
 	local aoe_radius = 450
 	caster:EmitSound("lancelot_parry")
-	local damage = self:GetSpecialValueFor("damage")
-	caster:FindAbilityByName("lancelot_arondight_overload"):EndCooldown()
-	local particle = ParticleManager:CreateParticle("particles/lancelot/lancelot_slash_parry.vpcf", PATTACH_ABSORIGIN, caster)
-	ParticleManager:SetParticleControlTransformForward(particle, 0, caster:GetAbsOrigin(), dir)
-	ParticleManager:ReleaseParticleIndex(particle)
-	caster:GiveMana(self:GetSpecialValueFor("mana_gain"))
-	local targets = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), caster, aoe_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER , false)
-		for k,v in pairs(targets) do
-			if v:GetName() ~= "npc_dota_ward_base" then
-				local origin_diff = v:GetAbsOrigin() - caster:GetAbsOrigin()
-  				local origin_diff_norm = origin_diff:Normalized()
-   				if caster:GetForwardVector():Dot(origin_diff_norm) > 0 then
-					DoDamage(caster, v, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
-					giveUnitDataDrivenModifier(caster, v, "rooted", self:GetSpecialValueFor("root_dur"))
-					giveUnitDataDrivenModifier(caster, v, "disarmed", self:GetSpecialValueFor("root_dur"))
-					caster:PerformAttack( v, true, true, true, true, false, false, false )
-				end
-			end
-		end
-
 
 	HardCleanse(caster)
 	Timers:CreateTimer(FrameTime(), function()
 		HardCleanse(caster)
 	end)
 
+	local abil = caster:FindAbilityByName("lancelot_arondite")
+	local modi = caster:FindModifierByName("modifier_arondite")
+	local dur = self:GetSpecialValueFor("arondite_duration")
+	if modi then
+		dur = dur + modi:GetRemainingTime()
+	end
+	abil:ActivateArondite(dur)
+
+	local damage = self:GetSpecialValueFor("damage")
 	
+	caster:FindAbilityByName("lancelot_arondight_overload"):EndCooldown()
+	
+	local particle = ParticleManager:CreateParticle("particles/lancelot/lancelot_slash_parry.vpcf", PATTACH_ABSORIGIN, caster)
+	ParticleManager:SetParticleControlTransformForward(particle, 0, caster:GetAbsOrigin(), dir)
+	ParticleManager:ReleaseParticleIndex(particle)
+	
+	caster:GiveMana(self:GetSpecialValueFor("mana_gain"))
+	
+	local targets = FindUnitsInRadius(caster:GetTeamNumber(), caster:GetAbsOrigin(), caster, aoe_radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER , false)
+	for k,v in pairs(targets) do
+		if v:GetName() ~= "npc_dota_ward_base" then
+			local origin_diff = v:GetAbsOrigin() - caster:GetAbsOrigin()
+  			local origin_diff_norm = origin_diff:Normalized()
+   			if caster:GetForwardVector():Dot(origin_diff_norm) > 0 then
+				DoDamage(caster, v, damage, DAMAGE_TYPE_MAGICAL, 0, self, false)
+				giveUnitDataDrivenModifier(caster, v, "rooted", self:GetSpecialValueFor("root_dur"))
+				giveUnitDataDrivenModifier(caster, v, "disarmed", self:GetSpecialValueFor("root_dur"))
+				caster:PerformAttack( v, true, true, true, true, false, false, false )
+			end
+		end
+	end
 end
 
 modifier_lancelot_parry = class({})
