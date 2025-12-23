@@ -100,6 +100,7 @@ strongdispellable = {
     "modifier_jeanne_luminosite_eternelle_barrier",
     "modifier_li_shuwen_barrier",
     "modifier_nero_spectaculi_shield",
+    "modifier_barrier_new",
     "modifier_jeanne_mrex",
     "modifier_jeanne_mrex_allies",
     "modifier_jeanne_regen_allies",

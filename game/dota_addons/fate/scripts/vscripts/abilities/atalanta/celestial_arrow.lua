@@ -1,5 +1,6 @@
 atalanta_celestial_arrow = class({})
 LinkLuaModifier("modifier_celestial_arrow", "abilities/atalanta/modifier_celestial_arrow", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_celestial_arrow_stacking_debuff", "abilities/atalanta/celestial_arrow", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_celestial_arrow_onhit", "abilities/atalanta/modifier_celestial_arrow_onhit", LUA_MODIFIER_MOTION_NONE)
 
 function atalanta_celestial_arrow:OnUpgrade()
@@ -46,6 +47,21 @@ function atalanta_celestial_arrow:GetCastRange(location, target)
 
     return range
 end
+
+function atalanta_celestial_arrow:ApplyStacks(target, amount)
+	local caster = self:GetCaster()
+	local stacks = 0
+
+	if not target or not target:IsAlive() or target:IsNull() then return end
+
+	if target:HasModifier("modifier_celestial_arrow_stacking_debuff") then
+		stacks = target:FindModifierByName("modifier_celestial_arrow_stacking_debuff"):GetStackCount()
+	end
+
+	target:AddNewModifier(caster, self, "modifier_celestial_arrow_stacking_debuff", {duration = self:GetSpecialValueFor("stacking_debuff_duration")})
+	target:FindModifierByName("modifier_celestial_arrow_stacking_debuff"):SetStackCount(stacks + amount)
+end
+
 
 function atalanta_celestial_arrow:GetCooldown()
     --local cast_point = 2.5
@@ -176,20 +192,23 @@ function atalanta_celestial_arrow:ArrowHit(target, slow, bIsPhoebus, bIsCombo)
 
     caster:AddHuntStack(target, 1)
     local damage = self:GetSpecialValueFor("bonus_damage") + caster:GetLevel() * self:GetSpecialValueFor("damage_per_level")
-
+    local dmgMod = 1
+    if  caster.CalydonianSnipeAcquired then
+        self:ApplyStacks(target, 1)
+        dmgMod = dmgMod + target:GetModifierStackCount("modifier_celestial_arrow_stacking_debuff", caster)/100
+        
+    end
     if caster.ArrowsOfTheBigDipperAcquired then
 
-        DoDamage(caster, target, caster:GetAgility(), DAMAGE_TYPE_MAGICAL, 0, self, false)
+        DoDamage(caster, target, caster:GetAgility() * dmgMod, DAMAGE_TYPE_MAGICAL, 0, self, false)
 
     end
 
     if target:HasModifier("modifier_calydonian_hunt") then
-        DoDamage(caster, target, target:GetMaxHealth() * 0.03, DAMAGE_TYPE_PURE, 0, self, false)
+        DoDamage(caster, target, target:GetMaxHealth() * 0.03 * dmgMod, DAMAGE_TYPE_PURE, 0, self, false)
     end
 
-    if target:HasModifier("modifier_atalanta_big_dipper_slow") and caster.CalydonianSnipeAcquired then
-        damage = damage * 1.1
-    end
+
 
     if not (bIsPhoebus) and not (bIsCombo) then
         --if not (bIsCombo and bIsCombo == 1) then
@@ -235,7 +254,7 @@ function atalanta_celestial_arrow:ArrowHit(target, slow, bIsPhoebus, bIsCombo)
             DoDamage(caster, target, damage * 0.5, DAMAGE_TYPE_MAGICAL, 0, self, false)
         end
     else]]
-        DoDamage(caster, target, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+    DoDamage(caster, target, damage * dmgMod, DAMAGE_TYPE_PHYSICAL, 0, self, false)
     --end
 
     if slow and slow > 0 and not IsImmuneToSlow(target) then
@@ -318,4 +337,17 @@ end
 
 function atalanta_celestial_arrow:GetAbilityTextureName()
     return "windrunner_powershot"
+end
+
+
+modifier_celestial_arrow_stacking_debuff = class({})
+
+
+function modifier_celestial_arrow_stacking_debuff:IsDebuff() return true end
+function modifier_celestial_arrow_stacking_debuff:RemoveOnDeath() return true end
+function modifier_celestial_arrow_stacking_debuff:IsHidden() return false end
+function modifier_celestial_arrow_stacking_debuff:OnCreated(args)
+end
+function modifier_celestial_arrow_stacking_debuff:OnRefresh(args)
+
 end

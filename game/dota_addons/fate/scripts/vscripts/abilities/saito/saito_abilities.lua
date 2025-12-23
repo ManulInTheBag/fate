@@ -1216,7 +1216,7 @@ function saito_steelwing:OnSpellStart()
     for _, hEntity in pairs(hEntities) do
         if IsNotNull(hEntity) then
             --=================================--
-            fApplyKnockbackSpecial(hEntity, nRadius - GetDistance(hEntity, vCasterLoc), 0.2, GetDirection(hEntity, vCasterLoc))
+            --fApplyKnockbackSpecial(hEntity, nRadius - GetDistance(hEntity, vCasterLoc), 0.2, GetDirection(hEntity, vCasterLoc))
             --=================================--
             giveUnitDataDrivenModifier(hCaster, hEntity, "stunned", nStunDuration)
             --=================================--
@@ -1381,7 +1381,7 @@ function saito_shadowslash:OnSpellStart()
             local vEntLoc = hEntity:GetAbsOrigin()
             --=================================--
             if not IsKnockbackImmune(hEntity) then
-             FindClearSpaceForUnit(hEntity, vPullPoint, true) --Set and clear space with interrupting motion and etc.
+             --FindClearSpaceForUnit(hEntity, vPullPoint, true) --Set and clear space with interrupting motion and etc.
             end
             --=================================--
             if nAttr_MRR_Duraiton > 0 then

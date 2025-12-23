@@ -183,12 +183,12 @@ function nobu_combo:OnProjectileHit(target, location )
     end
     target:EmitSound("nobu_shot_impact_"..math.random(1,2))
      if hCaster.is3000Acquired then
-        DoDamage(hCaster, target, damage*0.85, DAMAGE_TYPE_PHYSICAL, 0, self, false)
-        DoDamage(hCaster, target, damage*0.15, DAMAGE_TYPE_PURE, 0, self, false)
+        DoDamage(hCaster, target, damage*0.8, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+        DoDamage(hCaster, target, damage*0.2, DAMAGE_TYPE_PURE, 0, self, false)
     else
         DoDamage(hCaster, target, damage, DAMAGE_TYPE_PHYSICAL, 0, self, false)
     end
-    if( hCaster:FindModifierByName("modifier_nobu_dash_dmg") ) then
+    if( hCaster.NobuActionAcquired) then
         DoDamage(hCaster, target, hCaster:FindAbilityByName("nobu_dash"):GetSpecialValueFor("attr_damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)
     end
     return true 

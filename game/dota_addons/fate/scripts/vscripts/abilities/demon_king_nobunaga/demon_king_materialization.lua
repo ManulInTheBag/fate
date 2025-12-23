@@ -21,7 +21,7 @@ function demon_king_materialization:OnSpellStart()
     local caster = self:GetCaster()
     caster:EmitSound("nobbus_summon")
     local random  = math.random(0, 100)
-    local nobbusHealth = caster:GetMaxHealth() * 1.2
+    local nobbusHealth = caster:GetMaxHealth() * 1
     local nobbusToSpawn = "maou_nobus_heracles"
     if random > 67 then
         nobbusToSpawn = "maou_nobus_shinsengumi" 
@@ -80,7 +80,7 @@ function demon_king_materialization:SummonNobbus()
    local randomVec = Vector(math.random(), math.random(), math.random())
    local spawn_location = caster:GetAbsOrigin() + math.random(-200, 200) * randomVec
    local nobbus1 = CreateUnitByName("maou_nobus_heracles", spawn_location, true, caster, caster, caster:GetTeamNumber())
-   local nobbusHealth = caster:GetMaxHealth() * 1.2
+   local nobbusHealth = caster:GetMaxHealth() * 1
    nobbus1:SetControllableByPlayer(caster:GetPlayerID(), true)
    nobbus1:SetOwner(caster)
    nobbus1.Caster = caster
@@ -135,7 +135,7 @@ function demon_king_materialization:SummonNobbus()
    nobbus3.Caster = caster
    nobbus3.Ability = self
     nobbus3.Level = caster:GetLevel()
-    nobbusHealth = caster:GetMaxHealth() * 1.2 * 0.8
+    nobbusHealth = caster:GetMaxHealth()  * 0.8
    nobbus3:SetBaseMaxHealth(nobbusHealth)
    nobbus3:SetHealth(nobbusHealth)
 

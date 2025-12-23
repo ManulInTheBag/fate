@@ -259,8 +259,8 @@ function nobu_3000:Shoot(keys)
                 if IsDivineServant(v) and self.caster.UnifyingAcquired then 
                     damage= damage*1.2
                 end
-                    DoDamage(self.caster, v, damage*0.85, DAMAGE_TYPE_PHYSICAL, 0, self, false)
-                    DoDamage(self.caster, v, damage*0.15, DAMAGE_TYPE_PURE, 0, self, false)
+                    DoDamage(self.caster, v, damage*0.8, DAMAGE_TYPE_PHYSICAL, 0, self, false)
+                    DoDamage(self.caster, v, damage*0.2, DAMAGE_TYPE_PURE, 0, self, false)
             
                 if( self.caster:FindModifierByName("modifier_nobu_dash_dmg") ) then
                     DoDamage(self.caster, v, self.caster:FindAbilityByName("nobu_dash"):GetSpecialValueFor("attr_damage"), DAMAGE_TYPE_MAGICAL, 0, self, false)

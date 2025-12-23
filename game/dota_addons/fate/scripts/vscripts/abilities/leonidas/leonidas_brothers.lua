@@ -1,9 +1,13 @@
 leonidas_brothers = class({})
 LinkLuaModifier("modifier_leonidas_brother", "abilities/leonidas/leonidas_brothers", LUA_MODIFIER_MOTION_NONE)
+LinkLuaModifier("modifier_leonidas_brother_self", "abilities/leonidas/leonidas_brothers", LUA_MODIFIER_MOTION_NONE)
 
+function leonidas_brothers:GetIntrinsicModifierName()
+	return "modifier_leonidas_brother_self"
+end
 function leonidas_brothers:CheckComboIsReadyIncrement(hUnit, iPreviousStackShouldBe)
     local iPreviousStackShouldBe = iPreviousStackShouldBe or 0
-	print("jopa")
+
     if IsNotNull(hUnit)
         and hUnit:GetStrength() >= 29.1
         and hUnit:GetAgility() >= 29.1
@@ -49,7 +53,7 @@ function leonidas_brothers:OnSpellStart()
 	soldier1:SetHealth(10)
 	soldier1:SetBaseDamageMax(caster:GetBaseDamageMax()) 
 	soldier1:SetBaseDamageMin(caster:GetBaseDamageMin()) 
-	soldier1:SetBaseAttackTime( 0.3)
+	soldier1:SetBaseAttackTime( 1 - 0.03 * caster:GetLevel())
 	
 	soldier1:SetBaseMagicalResistanceValue(self:GetSpecialValueFor("mr")) 
 	soldier1:SetPhysicalArmorBaseValue(self:GetSpecialValueFor("armor")) 
@@ -58,7 +62,7 @@ function leonidas_brothers:OnSpellStart()
 	soldier2:SetHealth(10)
 	soldier2:SetBaseDamageMax(caster:GetBaseDamageMax()) 
 	soldier2:SetBaseDamageMin(caster:GetBaseDamageMin()) 
-	soldier2:SetBaseAttackTime( 0.3)
+	soldier2:SetBaseAttackTime( 1 - 0.03 * caster:GetLevel())
 
 	soldier2:SetBaseMagicalResistanceValue(self:GetSpecialValueFor("mr")) 
 	soldier2:SetPhysicalArmorBaseValue(self:GetSpecialValueFor("armor")) 
@@ -104,6 +108,7 @@ function modifier_leonidas_brother:OnCreated(table)
 	self.right = table.right
 	self.caster_pos = self.caster:GetAbsOrigin()
 	self.barrier_give_counter = 0
+	self.moveOrderDistance = 20
 	if IsServer() then
 		self:SetStackCount(self.fBarrierBlock)
 	end
@@ -113,9 +118,10 @@ end
 function modifier_leonidas_brother:OnIntervalThink()
 	if self.state == 0 then 
 		local new_caster_pos = self.caster:GetAbsOrigin()
-		if (new_caster_pos - self.caster_pos):Length2D() > 20 then 
+		if (new_caster_pos - self.caster_pos):Length2D() > self.moveOrderDistance then 
 			self.parent:SetBaseMoveSpeed(self.caster:GetIdealSpeed()) 
 			self.caster_pos = new_caster_pos
+			self.moveOrderDistance = 20
 			self.parent:MoveToPosition(self.caster:GetAbsOrigin() + self.caster:GetRightVector() * self.right * 125)
 		end
 		local distance = (self.parent:GetAbsOrigin() - (self.caster:GetAbsOrigin() + self.caster:GetRightVector() * self.right * 125)):Length2D()
@@ -248,4 +254,52 @@ function modifier_leonidas_brother:GetModifierIncomingDamageConstant(keys)
     end
 end
 
+function modifier_leonidas_brother:OnAttackLanded(args)
+	if args.attacker ~= self:GetParent() then return end
+	local caster = self:GetParent()
 
+	if IsNotNull(args.target) then
+		if args.target:IsAlive() and not (self.state == 1) then
+			DoDamage(caster, args.target, self:GetAbility():GetSpecialValueFor("soldier_attack_damage"), DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
+				EmitSoundOn("Anime_Hero_Leonidas.Attack", self:GetParent())
+		end
+	end
+
+
+end
+
+
+
+modifier_leonidas_brother_self = class({})
+
+function modifier_leonidas_brother_self:IsDebuff()
+	return false
+end
+function modifier_leonidas_brother_self:IsHidden()
+	return true
+end
+
+function modifier_leonidas_brother_self:OnAttackLanded(args)
+	if args.attacker ~= self:GetParent() then return end
+	local caster = self:GetParent()
+	if IsNotNull(caster.soldier1) then
+		if IsNotNull(args.target) then
+			if args.target:IsAlive() and caster.soldier1:IsAlive() and not (caster.soldier1:FindModifierByName("modifier_leonidas_brother").state == 1) then
+				caster.soldier1:MoveToTargetToAttack(args.target)
+				caster.soldier1:FindModifierByName("modifier_leonidas_brother").moveOrderDistance = 450
+				
+			end
+		end
+	
+	end
+	if IsNotNull(caster.soldier2) then
+		if IsNotNull(args.target) then
+			if args.target:IsAlive() and caster.soldier2:IsAlive() and not (caster.soldier2:FindModifierByName("modifier_leonidas_brother").state == 1) then
+				caster.soldier2:MoveToTargetToAttack(args.target)
+				caster.soldier2:FindModifierByName("modifier_leonidas_brother").moveOrderDistance = 450
+			end
+		end
+	
+	end
+
+end

@@ -1,6 +1,6 @@
 
 modifier_barrier_new = class({})
-
+function modifier_barrier_new:GetAttributes()                                                                  return MODIFIER_ATTRIBUTE_MULTIPLE end
 function modifier_barrier_new:IsHidden() return false end
 function modifier_barrier_new:IsDebuff() return false end
 
@@ -17,7 +17,6 @@ function modifier_barrier_new:OnCreated(args)
 	end
 	self.fBarrierBlock = args.shield_amount
 	self.HasCounter = args.HasCounter
-	print(self.HasCounter)
 	self.hAbility = self:GetAbility()
 
 	if IsServer() then

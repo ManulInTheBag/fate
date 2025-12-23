@@ -2,7 +2,7 @@ gilles_combo_new = class({})
 
 LinkLuaModifier("modifier_gilles_combo_cooldown", "abilities/gilles/gilles_combo_new", LUA_MODIFIER_MOTION_NONE)
 LinkLuaModifier("modifier_gilles_combo_new_blood", "abilities/gilles/gilles_combo_new", LUA_MODIFIER_MOTION_NONE)
-
+LinkLuaModifier("modifier_gilles_combo_new_slow", "abilities/gilles/gilles_combo_new", LUA_MODIFIER_MOTION_NONE)
 function gilles_combo_new:GetManaCost(iLevel)
 	return self:GetCaster():GetMaxMana() * 0.8
 end
@@ -64,6 +64,7 @@ function gilles_combo_new:OnSpellStart()
 		local targets = FindUnitsInRadius(caster:GetTeam(),point, nil, radius, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, 0, FIND_ANY_ORDER, false)
 		for k,v in pairs(targets) do
 			DoDamage(caster, v, initial_damage/9, DAMAGE_TYPE_MAGICAL, 0, self, false)
+			v:AddNewModifier(caster, self, "modifier_gilles_combo_new_slow", {duration = 0.5})
 		end
 		indexer = indexer + 1
 		if indexer % 2 == 0 then 
@@ -169,6 +170,16 @@ end
 function modifier_gilles_combo_new_blood:GetEffectAttachType()
     return PATTACH_ABSORIGIN_FOLLOW
 end
+function modifier_gilles_combo_new_blood:CheckState()
+    local tState =  {
+                        [MODIFIER_STATE_PROVIDES_VISION] = true,
+                    }
+    return tState
+end
+
+function modifier_gilles_combo_new_blood:GetModifierProvidesFOWVision(keys)
+   return true
+end
 function modifier_gilles_combo_new_blood:IsDebuff() return true end
 function modifier_gilles_combo_new_blood:OnCreated()
 	if IsServer() then
@@ -186,7 +197,7 @@ function modifier_gilles_combo_new_blood:OnIntervalThink()
     local target = self:GetParent()
     local damage = self:GetAbility():GetSpecialValueFor("damage_per_sec")
 
-    DoDamage(caster, target, damage/100 * target:GetMaxHealth(), DAMAGE_TYPE_MAGICAL, 0, self:GetAbility(), false)
+    DoDamage(caster, target, damage/100 * target:GetMaxHealth(), DAMAGE_TYPE_PURE, 0, self:GetAbility(), false)
 
 end
 
@@ -207,4 +218,19 @@ end
 
 function modifier_gilles_combo_cooldown:GetAttributes()
     return MODIFIER_ATTRIBUTE_PERMANENT + MODIFIER_ATTRIBUTE_IGNORE_INVULNERABLE
+end
+
+modifier_gilles_combo_new_slow = class({})
+function modifier_gilles_combo_new_slow:IsHidden() return false end
+function modifier_gilles_combo_new_slow:IsDebuff() return true end
+function modifier_gilles_combo_new_slow:IsPurgable() return true end
+function modifier_gilles_combo_new_slow:IsPurgeException() return true end
+function modifier_gilles_combo_new_slow:RemoveOnDeath() return true end
+function modifier_gilles_combo_new_slow:DeclareFunctions()
+    local funcs = { MODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE,}
+    return funcs
+end
+
+function modifier_gilles_combo_new_slow:GetModifierMoveSpeedBonus_Percentage()
+    return -self:GetAbility():GetSpecialValueFor("slow")
 end

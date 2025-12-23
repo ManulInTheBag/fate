@@ -432,7 +432,7 @@
 
 
 		"DOTA_Tooltip_modifier_nobu_charisma"									"Demon charisma"
-		"DOTA_Tooltip_modifier_nobu_charisma_Description"				"Armor and MS increased"
+		"DOTA_Tooltip_modifier_nobu_charisma_Description"				"Armor and MS increased, dash buffed"
 		
 		"DOTA_Tooltip_modifier_nobu_combo_cd"									"Demon king of the sixth heaven cd"
 		"DOTA_Tooltip_modifier_nobu_combo_cd_Description"				"Demon king of the sixth heaven is on cd"
@@ -450,7 +450,7 @@
 		"DOTA_Tooltip_modifier_nobu_divinity_mark_activated_Description"				"You are divine and have armor reduced."
 
 		"DOTA_Tooltip_modifier_nobu_slow"									"Slowed"
-		"DOTA_Tooltip_modifier_nobu_slow_Description"				""
+		"DOTA_Tooltip_modifier_nobu_slow_Description"				"Slow by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 
 		"DOTA_Tooltip_modifier_nobu_dash_dmg"									"Dash buff"
 		"DOTA_Tooltip_modifier_nobu_dash_dmg_Description"				"Next shoot will deal additional damage."
@@ -459,7 +459,7 @@
 		"DOTA_Tooltip_modifier_nobu_strategy_attribute_cooldown_Description"				""
 		
 		"DOTA_Tooltip_modifier_white_queen_slow"						"White Queen's Enigma Slow"
-		"DOTA_Tooltip_modifier_white_queen_slow_Description"			"Slowed"
+		"DOTA_Tooltip_modifier_white_queen_slow_Description"			"Slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 
 		"DOTA_Tooltip_modifier_mordred_mmb_cooldown"		"Combo: Max Mana Burst Thunder Cooldown"
 		"DOTA_Tooltip_modifier_mordred_mmb_cooldown_Description"	""
@@ -519,10 +519,10 @@
 		"DOTA_Tooltip_modifier_lagron_damage_checker_enemy_Description"	"Jeanne hates you."
 
 		"DOTA_Tooltip_modifier_jeanne_curse_active"		"Curse of the Dragon Witch"
-		"DOTA_Tooltip_modifier_jeanne_curse_active_Description"	"Slowed and taking damage."
+		"DOTA_Tooltip_modifier_jeanne_curse_active_Description"	"Slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%and taking damage."
 
 		"DOTA_Tooltip_modifier_jeanne_curse_weak"		"Curse of the Dragon Witch (weaker)"
-		"DOTA_Tooltip_modifier_jeanne_curse_weak_Description"	"Slowed and taking damage, but not so much."
+		"DOTA_Tooltip_modifier_jeanne_curse_weak_Description"	"Slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% and taking damage, but not so much."
 
 		"DOTA_Tooltip_modifier_jeanne_curse_buff"		"Curse of the Dragon Witch (buff)"
 		"DOTA_Tooltip_modifier_jeanne_curse_buff_Description"	"Their suffering is her strength. Makes Jeanne faster and restores her health per each enemy under CotD effect."
@@ -540,7 +540,7 @@
 		"DOTA_Tooltip_modifier_jeanne_lagron_combo_cooldown_Description"	"Is on cooldown."
 
 		"DOTA_Tooltip_modifier_roar_slow"	"Slowed"
-		"DOTA_Tooltip_modifier_roar_slow_Description"	"Movement speed and attack speed slowed"
+		"DOTA_Tooltip_modifier_roar_slow_Description"	"Movement speed slow by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% and attack speed slowed"
 
 		"DOTA_Tooltip_modifier_atalanta_curse"	"Cursed"
 		"DOTA_Tooltip_modifier_atalanta_curse_Description"	"You take 0.3%% more damage from each source, twice more if source is Alter Atalanta."
@@ -576,13 +576,13 @@
 		"DOTA_Tooltip_modifier_calydonian_snipe_window_Description"		"Massive range increase and attacks ignore armor"
 
 		"DOTA_Tooltip_modifier_plains_of_water_slow"					"The Plains of Water"
-		"DOTA_Tooltip_modifier_plains_of_water_slow_Description"		"Slowed"
+		"DOTA_Tooltip_modifier_plains_of_water_slow_Description"		"Slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 
 		"DOTA_Tooltip_modifier_tamamo_fire_debuff"						"Fiery Heaven"
 		"DOTA_Tooltip_modifier_tamamo_fire_debuff_Description"			"Taking damage every second"
 
 		"DOTA_Tooltip_modifier_tamamo_ice_debuff"						"Frigid Heaven"
-		"DOTA_Tooltip_modifier_tamamo_ice_debuff_Description"			"Slowed"
+		"DOTA_Tooltip_modifier_tamamo_ice_debuff_Description"			"Slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 
 		"DOTA_Tooltip_modifier_tamamo_wind_debuff"						"Gust Heaven"
 		"DOTA_Tooltip_modifier_tamamo_wind_debuff_Description"			"Releasing static shock on nearby allies"
@@ -755,7 +755,7 @@
 		"DOTA_Tooltip_angra_mainyu_verg_avesta_dot"					"Verg Avesta curse"
 		"DOTA_Tooltip_angra_mainyu_verg_avesta_dot_Description"		"Taking damage from Verg avesta."
 		"DOTA_Tooltip_angra_mainyu_verg_avesta_slow"					"Verg Avesta slow"
-		"DOTA_Tooltip_angra_mainyu_verg_avesta_slow_Description"		"Movement speed decreased."
+		"DOTA_Tooltip_angra_mainyu_verg_avesta_slow_Description"		"Movement speed decreased by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
 		
 		"DOTA_Tooltip_modifier_gawain_revive_regen"					"Blessing of the Fairy"
 		"DOTA_Tooltip_modifier_gawain_revive_regen_Description"		"Regenerating health."
@@ -951,7 +951,7 @@
 		"DOTA_Tooltip_modifier_ubw_chant_count_Description"				"People die if they are killed."
 
 		"DOTA_Tooltip_modifier_calydonian_hunt_slow"					"Calydonian Hunt"
-		"DOTA_Tooltip_modifier_calydonian_hunt_slow_Description"		"Slowed"
+		"DOTA_Tooltip_modifier_calydonian_hunt_slow_Description"		"Slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 
 		"DOTA_Tooltip_modifier_calydonian_hunt_sight"					"Calydonian Hunt"
 		"DOTA_Tooltip_modifier_calydonian_hunt_sight_Description"		"Visible to enemy"
@@ -981,13 +981,13 @@
 		"DOTA_Tooltip_modifier_sun_of_galatine_self_Description"	""
 
 		"DOTA_Tooltip_modifier_sun_of_galatine_slow"				"Sun of Galatine"
-		"DOTA_Tooltip_modifier_sun_of_galatine_slow_Description"	"Slowed"
+		"DOTA_Tooltip_modifier_sun_of_galatine_slow_Description"	"Slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 
 		"DOTA_Tooltip_modifier_tiger_strike_marker"					"Fierce Tiger Strike"
 		"DOTA_Tooltip_modifier_tiger_strike_marker_Description"		"Target of Furious Chain"
 
 		"DOTA_Tooltip_modifier_sex_scroll_slow"										"Scroll Slow"
-		"DOTA_Tooltip_modifier_sex_scroll_slow_Description"							"Slowed"
+		"DOTA_Tooltip_modifier_sex_scroll_slow_Description"							"Slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 
 		"DOTA_Tooltip_modifier_sex_scroll_root"										"Scroll Root"
 		"DOTA_Tooltip_modifier_sex_scroll_root_Description"							"Rooted"
@@ -1009,7 +1009,7 @@
 		"DOTA_Tooltip_modifier_furious_chain_regen_Description"						"Regeneration increased."
 
 		"DOTA_Tooltip_modifier_tiger_strike_slow"									"Fierce Tiger Strike"
-		"DOTA_Tooltip_modifier_tiger_strike_slow_Description"						"Slowed."
+		"DOTA_Tooltip_modifier_tiger_strike_slow_Description"						"Slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
 
 		"DOTA_Tooltip_modifier_nss_knockback_stun"									"No Second Strike"
 		"DOTA_Tooltip_modifier_nss_knockback_stun_Description"						"Stunned and Revoked."
@@ -1048,7 +1048,7 @@
 		"DOTA_Tooltip_modifier_breaker_gorgon_turnrate_Description"                       ""
 
 		"DOTA_Tooltip_modifier_barrage_retreat_shot_slow"                                 "Barrage Retreat Shot Slow"
-		"DOTA_Tooltip_modifier_barrage_retreat_shot_slow_Description"                     ""
+		"DOTA_Tooltip_modifier_barrage_retreat_shot_slow_Description"                     "MS slow by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 
 		"DOTA_Tooltip_modifier_arrow_rain_cooldown"                                       "Combo cooldown"
 		"DOTA_Tooltip_modifier_arrow_rain_cooldown_Description"                           "Combo is unavailable"
@@ -1126,10 +1126,10 @@
 		"DOTA_Tooltip_modifier_jeanne_charisma_int_Description"                           "Intelligence increased"
 
 		"DOTA_Tooltip_modifier_purge_the_unjust_slow"                                     "Purge The Unjust Slow"
-		"DOTA_Tooltip_modifier_purge_the_unjust_slow_Description"                         ""
+		"DOTA_Tooltip_modifier_purge_the_unjust_slow_Description"                         "Ms slow by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 
 		"DOTA_Tooltip_modifier_gods_resolution_slow"                                      "Gods Resolution Slow"
-		"DOTA_Tooltip_modifier_gods_resolution_slow_Description"                          ""
+		"DOTA_Tooltip_modifier_gods_resolution_slow_Description"                          "Ms slow by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 
 		"DOTA_Tooltip_modifier_gods_resolution_active_buff"                               "Gods Resolution Active Buff"
 		"DOTA_Tooltip_modifier_gods_resolution_active_buff_Description"                   ""
@@ -1169,13 +1169,13 @@
 		"DOTA_Tooltip_modifier_hippogriff_vanish_banish_Description"                      ""
 
 		"DOTA_Tooltip_modifier_down_with_a_touch_slow"                                    "Down With A Touch Slow"
-		"DOTA_Tooltip_modifier_down_with_a_touch_slow_Description"                        ""
+		"DOTA_Tooltip_modifier_down_with_a_touch_slow_Description"                        "Ms slow by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 
 		"DOTA_Tooltip_modifier_down_with_a_touch_slow_2"                                  "Down With A Touch Slow 2"
-		"DOTA_Tooltip_modifier_down_with_a_touch_slow_2_Description"                      ""
+		"DOTA_Tooltip_modifier_down_with_a_touch_slow_2_Description"                      "Ms slow by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 
 		"DOTA_Tooltip_modifier_down_with_a_touch_slow_3"                                  "Down With A Touch Slow 3"
-		"DOTA_Tooltip_modifier_down_with_a_touch_slow_3_Description"                      ""
+		"DOTA_Tooltip_modifier_down_with_a_touch_slow_3_Description"                      "Ms slow by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 
 		"DOTA_Tooltip_modifier_la_black_luna"                                             "La Black Luna"
 		"DOTA_Tooltip_modifier_la_black_luna_Description"                                 ""
@@ -1184,13 +1184,13 @@
 		"DOTA_Tooltip_modifier_la_black_luna_deaf_Description"                            ""
 
 		"DOTA_Tooltip_modifier_la_black_luna_slow"                                        "La Black Luna Slow"
-		"DOTA_Tooltip_modifier_la_black_luna_slow_Description"                            ""
+		"DOTA_Tooltip_modifier_la_black_luna_slow_Description"                            "Ms slow by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 
 		"DOTA_Tooltip_modifier_hippogriff_ride_ascended"                                  "Hippogriff Ride Ascended"
 		"DOTA_Tooltip_modifier_hippogriff_ride_ascended_Description"                      ""
 
 		"DOTA_Tooltip_modifier_nursery_rhyme_shapeshift_slow"                             "Nursery Rhyme Shapeshift Slow"
-		"DOTA_Tooltip_modifier_nursery_rhyme_shapeshift_slow_Description"                 ""
+		"DOTA_Tooltip_modifier_nursery_rhyme_shapeshift_slow_Description"                 "Ms slow by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 
 		"DOTA_Tooltip_modifier_healing_scroll"                                            "Healing Scroll"
 		"DOTA_Tooltip_modifier_healing_scroll_Description"                                "Armor increased"
@@ -1233,7 +1233,7 @@
 		"DOTA_Tooltip_modifier_doppelganger_enemy_Description"                            ""
 
 		"DOTA_Tooltip_modifier_doppelganger_lookaway_slow"                                "Doppelganger Lookaway Slow"
-		"DOTA_Tooltip_modifier_doppelganger_lookaway_slow_Description"                    ""
+		"DOTA_Tooltip_modifier_doppelganger_lookaway_slow_Description"                    "Ms slow by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 
 		"DOTA_Tooltip_modifier_queens_glass_game_hp_regen"                                "Queens Glass Game"
 		"DOTA_Tooltip_modifier_queens_glass_game_hp_regen_Description"                    ""
@@ -1371,7 +1371,7 @@
 		"DOTA_Tooltip_modifier_murderous_instinct_bash_checker_Description"               ""
 
 		"DOTA_Tooltip_modifier_tawrich_slow"                                              "Tawrich Slow"
-		"DOTA_Tooltip_modifier_tawrich_slow_Description"                                  ""
+		"DOTA_Tooltip_modifier_tawrich_slow_Description"                                  "Ms slow by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 
 		"DOTA_Tooltip_modifier_vengeance_mark"                                            "Vengeance Mark"
 		"DOTA_Tooltip_modifier_vengeance_mark_Description"                                ""
@@ -1392,7 +1392,7 @@
 		"DOTA_Tooltip_modifier_overdrive_Description"                                     ""
 
 		"DOTA_Tooltip_modifier_warriors_charge_slow"                                      "Warriors Charge Slow"
-		"DOTA_Tooltip_modifier_warriors_charge_slow_Description"                          ""
+		"DOTA_Tooltip_modifier_warriors_charge_slow_Description"                          "Ms slow by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 
 		"DOTA_Tooltip_modifier_double_spearsmanship"                                      "Double Spearsmanship"
 		"DOTA_Tooltip_modifier_double_spearsmanship_Description"                          ""
@@ -1428,7 +1428,7 @@
 		"DOTA_Tooltip_modifier_gordius_wheel_freeze_Description"                          ""
 
 		"DOTA_Tooltip_modifier_gordius_wheel_thunder_slow"                                "Gordius Wheel Thunder Slow"
-		"DOTA_Tooltip_modifier_gordius_wheel_thunder_slow_Description"                    ""
+		"DOTA_Tooltip_modifier_gordius_wheel_thunder_slow_Description"                    "Ms slow by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 
 		"DOTA_Tooltip_modifier_army_of_the_king_freeze"                                   "Army Of The King Freeze"
 		"DOTA_Tooltip_modifier_army_of_the_king_freeze_Description"                       ""
@@ -1503,7 +1503,7 @@
 		"DOTA_Tooltip_modifier_selfish_debuff_Description"                                ""
 
 		"DOTA_Tooltip_modifier_oceanic_demon_slow"                                        "Oceanic Demon Slow"
-		"DOTA_Tooltip_modifier_oceanic_demon_slow_Description"                            ""
+		"DOTA_Tooltip_modifier_oceanic_demon_slow_Description"                            "Ms slow by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 
 		"DOTA_Tooltip_modifier_torment"                                                   "Torment"
 		"DOTA_Tooltip_modifier_torment_Description"                                       ""
@@ -1635,7 +1635,7 @@
 		"DOTA_Tooltip_modifier_instinct_active_Description"                               ""
 
 		"DOTA_Tooltip_modifier_caliburn_slow"                                             "Caliburn Slow"
-		"DOTA_Tooltip_modifier_caliburn_slow_Description"                                 ""
+		"DOTA_Tooltip_modifier_caliburn_slow_Description"                                 "Ms slow by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 
 		"DOTA_Tooltip_saber_pause"                                                        "Saber Pause"
 		"DOTA_Tooltip_saber_pause_Description"                                            ""
@@ -1686,7 +1686,7 @@
 		"DOTA_Tooltip_modifier_breaker_gorgon_Description"                                ""
 
 		"DOTA_Tooltip_modifier_bloodfort_slow"                                            "Bloodfort Slow"
-		"DOTA_Tooltip_modifier_bloodfort_slow_Description"                                ""
+		"DOTA_Tooltip_modifier_bloodfort_slow_Description"                                "Ms slow by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 
 		"DOTA_Tooltip_modifier_medusa_bleed"                                          	 "Bleeding"
 		"DOTA_Tooltip_modifier_medusa_bleed_Description"                              	 "You are bleeding. It's easier to suck your energy."
@@ -1824,7 +1824,7 @@
 		"DOTA_Tooltip_modifier_recall_Description"                                        ""
 
 		"DOTA_Tooltip_chilling_breath_slow"                                               "Chilling Breath Slow"
-		"DOTA_Tooltip_chilling_breath_slow_Description"                                   ""
+		"DOTA_Tooltip_chilling_breath_slow_Description"                                   "Ms slow by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 
 		"DOTA_Tooltip_modifier_argos_shield"                                              "Argos Shield"
 		"DOTA_Tooltip_modifier_argos_shield_Description"                                  ""
@@ -1872,7 +1872,7 @@
 		"DOTA_Tooltip_modifier_hrunting_cooldown_Description"                             ""
 
 		"DOTA_Tooltip_modifier_fissure_strike_slow"                                       "Fissure Strike Slow"
-		"DOTA_Tooltip_modifier_fissure_strike_slow_Description"                           ""
+		"DOTA_Tooltip_modifier_fissure_strike_slow_Description"                           "Ms slow by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 
 		"DOTA_Tooltip_modifier_courage_attack_damage_debuff"                              "Courage Attack Damage Debuff"
 		"DOTA_Tooltip_modifier_courage_attack_damage_debuff_Description"                  ""
@@ -1887,10 +1887,10 @@
 		"DOTA_Tooltip_modifier_madmans_roar_cooldown_Description"                         ""
 
 		"DOTA_Tooltip_modifier_madmans_roar_slow_strong"                                  "Madmans Roar Slow Strong"
-		"DOTA_Tooltip_modifier_madmans_roar_slow_strong_Description"                      ""
+		"DOTA_Tooltip_modifier_madmans_roar_slow_strong_Description"                      "Ms slow by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 
 		"DOTA_Tooltip_modifier_madmans_roar_slow_moderate"                                "Madmans Roar Slow Moderate"
-		"DOTA_Tooltip_modifier_madmans_roar_slow_moderate_Description"                    ""
+		"DOTA_Tooltip_modifier_madmans_roar_slow_moderate_Description"                    "Ms slow by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 
 		"DOTA_Tooltip_modifier_berserk_eternal_rage_passive"                              "Berserk Eternal Rage"
 		"DOTA_Tooltip_modifier_berserk_eternal_rage_passive_Description"                  ""
@@ -1989,7 +1989,7 @@
 		"DOTA_Tooltip_modifier_frigid_heaven_indicator_enemy_Description"                 ""
 
 		"DOTA_Tooltip_modifier_frigid_heaven_slow"                                        "Frigid Heaven Slow"
-		"DOTA_Tooltip_modifier_frigid_heaven_slow_Description"                            ""
+		"DOTA_Tooltip_modifier_frigid_heaven_slow_Description"                            "Ms slow by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 
 		"DOTA_Tooltip_modifier_gust_heaven_indicator_enemy"                               "Gust Heaven Indicator Enemy"
 		"DOTA_Tooltip_modifier_gust_heaven_indicator_enemy_Description"                   ""
@@ -1998,13 +1998,16 @@
 		"DOTA_Tooltip_modifier_gust_heaven_purge_Description"                             ""
 
 		"DOTA_Tooltip_modifier_gust_heaven_purge_slow_tier1"                              "Gust Heaven Purge Slow Tier1"
-		"DOTA_Tooltip_modifier_gust_heaven_purge_slow_tier1_Description"                  ""
+		"DOTA_Tooltip_modifier_gust_heaven_purge_slow_tier1_Description"                  "Ms slow by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 
 		"DOTA_Tooltip_modifier_gust_heaven_purge_slow_tier2"                              "Gust Heaven Purge Slow Tier2"
-		"DOTA_Tooltip_modifier_gust_heaven_purge_slow_tier2_Description"                  ""
+		"DOTA_Tooltip_modifier_gust_heaven_purge_slow_tier2_Description"                  "Ms slow by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 
 		"DOTA_Tooltip_modifier_karna_slow_jopa"                              "Slowed"
-		"DOTA_Tooltip_modifier_karna_slow_jopa_Description"                  ""
+		"DOTA_Tooltip_modifier_karna_slow_jopa_Description"                  "Slow by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
+
+		"DOTA_Tooltip_modifier_gilles_combo_new_slow"                              "Slowed"
+		"DOTA_Tooltip_modifier_gilles_combo_new_slow_Description"                  "Slow by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 
 		"DOTA_Tooltip_modifier_mantra_tether"                                             "Mantra Tether"
 		"DOTA_Tooltip_modifier_mantra_tether_Description"                                 ""
@@ -2022,10 +2025,10 @@
 		"DOTA_Tooltip_modifier_amaterasu_ally_Description"                                "Increased mana regeneration"
 
 		"DOTA_Tooltip_modifier_amaterasu_enemy"                                           "Blessing of Amaterasu"
-		"DOTA_Tooltip_modifier_amaterasu_enemy_Description"                               "Slowed and losing mana"
+		"DOTA_Tooltip_modifier_amaterasu_enemy_Description"                               "Slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% and losing mana"
 
 		"DOTA_Tooltip_modifier_amaterasu_witchcraft_slow"                                 "Amaterasu Witchcraft Slow"
-		"DOTA_Tooltip_modifier_amaterasu_witchcraft_slow_Description"                     ""
+		"DOTA_Tooltip_modifier_amaterasu_witchcraft_slow_Description"                     "Ms slow by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 
 		"DOTA_Tooltip_modifier_polygamist_cooldown"                                       "Polygamist Cooldown"
 		"DOTA_Tooltip_modifier_polygamist_cooldown_Description"                           ""
@@ -2064,10 +2067,10 @@
 		"DOTA_Tooltip_modifier_lishuwen_cosmic_orbit_momentary_resistance_Description"    ""
 
 		"DOTA_Tooltip_modifier_fierce_tiger_strike_1_slow"                                "Fierce Tiger Strike 1 Slow"
-		"DOTA_Tooltip_modifier_fierce_tiger_strike_1_slow_Description"                    ""
+		"DOTA_Tooltip_modifier_fierce_tiger_strike_1_slow_Description"                    "Ms slow by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 
 		"DOTA_Tooltip_modifier_fierce_tiger_strike_3_slow"                                "Fierce Tiger Strike 3 Slow"
-		"DOTA_Tooltip_modifier_fierce_tiger_strike_3_slow_Description"                    ""
+		"DOTA_Tooltip_modifier_fierce_tiger_strike_3_slow_Description"                    "Ms slow by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 
 		"DOTA_Tooltip_modifier_no_second_strike_delay_indicator"                          "No Second Strike Delay Indicator"
 		"DOTA_Tooltip_modifier_no_second_strike_delay_indicator_Description"              ""
@@ -2076,7 +2079,7 @@
 		"DOTA_Tooltip_modifier_raging_dragon_strike_cooldown_Description"                 ""
 
 		"DOTA_Tooltip_modifier_raging_dragon_strike_1_slow"                               "Raging Dragon Strike 1 Slow"
-		"DOTA_Tooltip_modifier_raging_dragon_strike_1_slow_Description"                   ""
+		"DOTA_Tooltip_modifier_raging_dragon_strike_1_slow_Description"                   "Ms slow by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 
 		"DOTA_Tooltip_modifier_arrows_of_the_big_dipper"                                  "Arrows of the Big Dipper"
 		"DOTA_Tooltip_modifier_arrows_of_the_big_dipper_Description"                      "Does not fire extra arrow when reaches 7 stacks."
@@ -2118,7 +2121,7 @@
 		"DOTA_Tooltip_modifier_sting_shot_Description"                         ""
 
 		"DOTA_Tooltip_modifier_tauropolos_slow"                                     "Tauropolos Slow"
-		"DOTA_Tooltip_modifier_tauropolos_slow_Description"                         ""
+		"DOTA_Tooltip_modifier_tauropolos_slow_Description"                         "Ms slow by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 
 		"DOTA_Tooltip_modifier_traps_gcd"                                     "Hunting Tools Cooldown"
 		"DOTA_Tooltip_modifier_traps_gcd_Description"                         ""
@@ -2136,7 +2139,7 @@
 		"DOTA_Tooltip_modifier_bleed_Description"							"Taking magic damage."
 
 		"DOTA_Tooltip_modifier_ceremonial_purge_slow"						"Slowed"
-		"DOTA_Tooltip_modifier_ceremonial_purge_slow_Description"			""
+		"DOTA_Tooltip_modifier_ceremonial_purge_slow_Description"			"Slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 		
 		"DOTA_Tooltip_modifier_cursed_lance"								"Cursed Lance Shield"
 		"DOTA_Tooltip_modifier_cursed_lance_Description"					""
@@ -2173,7 +2176,8 @@
 		"DOTA_Tooltip_modifier_scat_gae_bolg_replicas"                                    "Gae Bolg Replicas"
 		"DOTA_Tooltip_modifier_scat_gae_bolg_replicas_Description"                               "Amount of spears left"
 		"DOTA_Tooltip_modifier_stachach_gae_bolg_curse"                                    "Gae Bolg Curse"
-		"DOTA_Tooltip_modifier_stachach_gae_bolg_curse_Description"                               "Slowed"		"DOTA_Tooltip_modifier_scathach_sa_stacks"                                    "Branch of Tonelico stacks"
+		"DOTA_Tooltip_modifier_stachach_gae_bolg_curse_Description"                               "Slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
+				"DOTA_Tooltip_modifier_scathach_sa_stacks"                                    "Branch of Tonelico stacks"
 		"DOTA_Tooltip_modifier_scathach_sa_stacks_Description"                               "If reached 4, will get stun and damage"		"DOTA_Tooltip_modifier_scathach_sa_cd"                                   	 "Branch of Tonelico cooldown"
 		"DOTA_Tooltip_modifier_scathach_sa_cd_Description"                               "Unable to apply Branch of Tonelico stacks."	
 		"DOTA_Tooltip_modifier_scathach_pupil"                                   	 "Scathach's pupil"
@@ -2274,10 +2278,10 @@
 		"DOTA_Tooltip_modifier_purge_Description"                                         ""
 
 		"DOTA_Tooltip_modifier_slow_tier1"                                                "Slow Tier1"
-		"DOTA_Tooltip_modifier_slow_tier1_Description"                                    ""
+		"DOTA_Tooltip_modifier_slow_tier1_Description"                                    "Ms slow by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 
 		"DOTA_Tooltip_modifier_slow_tier2"                                                "Slow Tier2"
-		"DOTA_Tooltip_modifier_slow_tier2_Description"                                    ""
+		"DOTA_Tooltip_modifier_slow_tier2_Description"                                    "Ms slow by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 
 		"DOTA_Tooltip_modifier_magic_immunity"                                            "Magic Immunity"
 		"DOTA_Tooltip_modifier_magic_immunity_Description"                                ""
@@ -2295,7 +2299,7 @@
 		"master_2"	"Tohsaka Rin"
 
 		"DOTA_Tooltip_li_shuwen_new_w_slow"                                                "Slow"
-		"DOTA_Tooltip_li_shuwen_new_w_slow_Description"                                    "Movement speed reduced"
+		"DOTA_Tooltip_li_shuwen_new_w_slow_Description"                                    "Ms slow by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 
 		//=================================================================================================================
 		//	Saber
@@ -2526,7 +2530,7 @@
 		"DOTA_Tooltip_modifier_cu_disengage_ms"						"Disengage"
 		"DOTA_Tooltip_modifier_cu_disengage_ms_Description"			"Movement speed increased."
 		"DOTA_Tooltip_modifier_cu_frost_slow"						"Rune of frost"
-		"DOTA_Tooltip_modifier_cu_frost_slow_Description"			"Movement speed decreased."
+		"DOTA_Tooltip_modifier_cu_frost_slow_Description"			"MS slow by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
 		"DOTA_Tooltip_modifier_cu_relentless_tracker"						"Relentless spear cast tracker"
 		"DOTA_Tooltip_modifier_cu_relentless_tracker_Description"			"Displays current cast number."
 
@@ -3093,6 +3097,9 @@
 		"npc_dota_hero_nevermore_hype"			""
 		"npc_dota_hero_nevermore_bio"			""
 
+		"DOTA_Tooltip_modifier_barrier_new"						"Barrier"
+		"DOTA_Tooltip_modifier_barrier_new_Description"			"ALL-DAMAGE barrier"
+
 		"DOTA_Tooltip_modifier_maou_invis"						"Invisible"
 		"DOTA_Tooltip_modifier_maou_invis_Description"			""
 
@@ -3166,7 +3173,7 @@
 
 
 		"DOTA_Tooltip_Ability_demon_king_release"				"It Can't Be Helped"
-		"DOTA_Tooltip_ability_demon_king_release_Description"	"Cast point: <font color='#FFFAFA'>immediate</font>    |    <font color='#EE5C29'>Unrefreshable</font>\nDemon king releases all of her magical energy, dealing <font color='#58ACFA'>damage</font> around, while burning herself.\nWhile performing, she is completely immune to all <font color='#58ACFA'>magical</font> and <font color='#A72E28'>physical</font> damage.\nDamage she deals depends on <font color='#DDB334'>materialization</font> stacks, which are nullified after use.\nHalf of the damage ius dealt over 4.5 seconds.\nTotal damage cannot exceed her max health, and her health cannot drop below a certain percentage due to use of this ability."
+		"DOTA_Tooltip_ability_demon_king_release_Description"	"Cast point: <font color='#FFFAFA'>immediate</font>    |    <font color='#EE5C29'>Unrefreshable</font>\nDemon king releases all of her magical energy, dealing <font color='#58ACFA'>damage</font> around, while burning herself for half of the damage.\nWhile performing, she is completely immune to all <font color='#58ACFA'>magical</font> and <font color='#A72E28'>physical</font> damage.\nDamage she deals depends on <font color='#DDB334'>materialization</font> stacks, which are nullified after use.\nHalf of the damage ius dealt over 4.5 seconds.\nTotal damage cannot exceed her max health, and her health cannot drop below a certain percentage due to use of this ability."
 		"DOTA_Tooltip_Ability_demon_king_release_Lore"					"Is this the verdict handed down on herself that disappeared among the flames, or perhaps..."
 		"DOTA_Tooltip_Ability_demon_king_release_total_damage_base"		"Basic total damage:"
 		"DOTA_Tooltip_Ability_demon_king_release_aoe_radius"			"Radius:"
@@ -3302,7 +3309,7 @@
 		"DOTA_Tooltip_modifier_arash_toughness_Description"	"Resistances increased."
 
 		"DOTA_Tooltip_modifier_arash_slow"				"Slow"
-		"DOTA_Tooltip_modifier_arash_slow_Description"	"Movement speed decreased."
+		"DOTA_Tooltip_modifier_arash_slow_Description"	"Movement speed decreased by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
 
 		"DOTA_Tooltip_modifier_arash_star_arrow"				"Star arrow"
 		"DOTA_Tooltip_modifier_arash_star_arrow_Description"	"Star arrow is being charged."
@@ -4808,7 +4815,7 @@
         "DOTA_Tooltip_modifier_eternal_flame_shred_Description"					"You will be rooted and locked upon reaching 10 stacks"
 
         "DOTA_Tooltip_modifier_lancelot_minigun_slow"					"Slowed"
-		"DOTA_Tooltip_modifier_lancelot_minigun_slow_Description"		""
+		"DOTA_Tooltip_modifier_lancelot_minigun_slow_Description"		"Slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 
         "DOTA_Tooltip_Ability_lancelot_attribute_improve_eternal"               	"Attribute: Eternal Arms Mastership"
         "DOTA_Tooltip_ability_lancelot_attribute_improve_eternal_Description"		"Unlocks <font color='#58ACFA'>Eternal arms mastership</font>.\nRemoves <font color='#FFFAFA'>global cooldown</font> from <font color='#58ACFA'>Knight of Honor</font>."
@@ -4953,7 +4960,7 @@
  		"DOTA_Tooltip_ability_angra_puddle_revoke_duration"	"Revoke duration:"
 
  		"DOTA_Tooltip_modifier_puddle_debuff"										"Pool of corruption"
-		"DOTA_Tooltip_modifier_puddle_debuff_Description"							"Slowed, will be locked at 100 stacks"
+		"DOTA_Tooltip_modifier_puddle_debuff_Description"							"Slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%, will be locked at 100 stacks"
 
 		"DOTA_Tooltip_Ability_avenger_endless_loop"				"Combo: Endless Loop"
 		"DOTA_Tooltip_ability_avenger_endless_loop_Description"	"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : E(set to autocast)-R in 4 seconds</font>\nAvenger brings upon him the miracle of tainted Holy Grail, reverting health back to health at cast and resetting the cooldowns of all abilities and items every 3 seconds."
@@ -5286,7 +5293,7 @@
 
 
          "DOTA_Tooltip_Ability_gilles_combo_new"						"Combo: L'Arret de Mort"
-        "DOTA_Tooltip_ability_gilles_combo_new_Description"			"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : F -> R in 3 seconds</font>\nGilles summons Gigantic Horror and explodes him in a blood ritual.\nEnemies in the %radius% radius take <font color='#58ACFA'>damage</font> over time.\nAfter %cast_delay% seconds, Gigantic Horror explodes, <font color='#FF3399'>stunning</font>, dealing <font color='#58ACFA'>damage</font> and applying strong <font color='#880808'>damage over time</font> effect on enemies, which deals percentage of their health as <font color='#58ACFA'>damage</font>."
+        "DOTA_Tooltip_ability_gilles_combo_new_Description"			"<font color='#58ACFA'>Combo Requirement : 30 all stats</font>\n<font color='#58ACFA'>Combo Sequence : F -> R in 3 seconds</font>\nGilles summons Gigantic Horror and explodes him in a blood ritual.\nEnemies in the %radius% radius take <font color='#58ACFA'>damage</font> over time and are slowed by %slow%%%.\nAfter %cast_delay% seconds, Gigantic Horror explodes, <font color='#FF3399'>stunning</font>, dealing <font color='#58ACFA'>damage</font> and applying strong <font color='#880808'>damage over time</font> effect on enemies, which deals percentage of their health as <font color='#D1A951'>damage</font>."
         "DOTA_Tooltip_ability_gilles_combo_new_Lore"				""
         "DOTA_Tooltip_ability_gilles_combo_new_knockup_duration"	"KNOCKUP DURATION:"
         "DOTA_Tooltip_ability_gilles_combo_new_explosion_damage"	"EXPLOSION DAMAGE:"
@@ -6264,7 +6271,7 @@
 		"DOTA_Tooltip_ability_gawain_attribute_kots_stun_dur"			"Stun Duration:"
 
 		"DOTA_Tooltip_modifier_gawain_kots_slow"						"Knight of the Sun"
-		"DOTA_Tooltip_modifier_gawain_kots_slow_Description"			"Slowed"
+		"DOTA_Tooltip_modifier_gawain_kots_slow_Description"			"Slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 
 		//------------------------------------------------------------------------------------------------------
 
@@ -6666,7 +6673,7 @@
 		"DOTA_Tooltip_modifier_jeanne_gods_resolution_active_buff_Description"	"Gains magic resistance and deals damage around herself"
 
 		"DOTA_Tooltip_modifier_jeanne_gods_resolution_slow"			"God's Resolution"
-		"DOTA_Tooltip_modifier_jeanne_gods_resolution_slow_Description"			"Slowed"
+		"DOTA_Tooltip_modifier_jeanne_gods_resolution_slow_Description"			"Slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 
 		"DOTA_Tooltip_modifier_jeanne_mrex"	"Magic Resistance: EX"
 		"DOTA_Tooltip_modifier_jeanne_mrex_Description"	"Gains anti-magic barrier"
@@ -6801,7 +6808,7 @@
 		"DOTA_Tooltip_modifier_altera_combo_window_Description"	"PRESS THE BUTTON"
 
 		"DOTA_Tooltip_modifier_altera_whip"	"Energy Whip"
-		"DOTA_Tooltip_modifier_altera_whip_Description"	"Slowed."
+		"DOTA_Tooltip_modifier_altera_whip_Description"	"Slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
 
 		"DOTA_Tooltip_modifier_altera_whip_stats"	"Energy Whip"
 		"DOTA_Tooltip_modifier_altera_whip_stats_Description"	"Gains bonus stats."
@@ -7222,6 +7229,11 @@
 
 	"npc_dota_hero_drow_ranger_hype"		""
 	"npc_dota_hero_drow_ranger_bio"			""
+		"DOTA_Tooltip_modifier_celestial_arrow_stacking_debuff"												"Calydonian Snipe"
+		"DOTA_Tooltip_modifier_celestial_arrow_stacking_debuff_Description"									"Damage taken from arrows increased by persentage"
+
+		"DOTA_Tooltip_modifier_atalanta_big_dipper_slow"												"Big Dipper slow"
+		"DOTA_Tooltip_modifier_atalanta_big_dipper_slow_Description"									"Movement slow by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 
         "DOTA_Tooltip_ability_atalanta_celestial_arrow"                                   "Celestial Arrow"
         "DOTA_Tooltip_ability_atalanta_celestial_arrow_Description"                       "<font color='#FF6600'>Arrows Used: 1</font>\nFires an single powerful shot, dealing physical damage to all enemies in a straight line equal to base damage. \nBase damage from Celestial Arrow applies to both versions of Phoebus Catastrophe."
@@ -7429,9 +7441,10 @@
         "DOTA_Tooltip_ability_atalanta_attribute_crossing_arcadia_plus_bonus_range"       "BONUS RANGE:"
 
         "DOTA_Tooltip_ability_atalanta_calydonian_snipe_attribute"				"Attribute: Calydonian Snipe"
-        "DOTA_Tooltip_ability_atalanta_calydonian_snipe_attribute_Description"	"Arrow of the Big Dipper now pierces the enemies. \nEnemies affected by the effect take 10% more damage from Atalanta's arrows."
+        "DOTA_Tooltip_ability_atalanta_calydonian_snipe_attribute_Description"	"Arrow of the Big Dipper now pierces the enemies. \nWhenever Atalanta's arrow hit an enemy, it will apply stacking debuff, which will increase all arrows damage by 1%% per stack.<br/>Arrow of the Big Dipper applies 10 stacks."
         "DOTA_Tooltip_ability_atalanta_calydonian_snipe_attribute_Lore"			"Once the hunt is on, there is no hiding from the arrows of the huntress."
         //"DOTA_Tooltip_ability_atalanta_calydonian_snipe_attribute_Note0"		"Arrows can be disjointed."
+        "DOTA_Tooltip_ability_atalanta_calydonian_snipe_attribute_stacks_duration"		"Duration:"
 		
 		"DOTA_Tooltip_ability_atalanta_attribute_bow_of_heaven"                   "Attribute: Bow of Heaven"
         "DOTA_Tooltip_ability_atalanta_attribute_bow_of_heaven_Description"       "Tauropolos improvements: ability gains bonus range and deals extra damage based on Archer's total Agility. \nAdditionally, successfully landing Tauropolos allows you to cast Phoebus Catastrophe: Barrage during next 5 seconds (available on F slot), Barrage can be used even outside of current range but only if its area close to Tauropolos' impact.\n<font color='#58ACFA'>Phoebus Catastrophe: Barrage</font>: A barrage of arrows rains on the area after a delay. Arrows slow enemies on hit."
@@ -7661,7 +7674,7 @@
 		"DOTA_Tooltip_ability_leonidas_catch_slow_pct"											"%EFFECT SLOW:"
 
 		"DOTA_Tooltip_ability_leonidas_brothers"													"БРАТЬЯ СОЛДАТЫ!"
-		"DOTA_Tooltip_ability_leonidas_brothers_Description"										"Leonidas summons two soldiers, who will follow him around at all times until they die.\nSoldiers have barrier as health calculated as percentage of Leonidas's health.\nSoldiers do nothing by themselfs, but when kicked with <font color='#FFFAFA'>This is sparta</font>, they will try to find enemy around themself and kick them back to leonidas if possible.\nIf there is no enemies around them, or after the kick, soldiers will provide barriers to all allies in radius every 0.5 seconds for 3 seconds total, dealing same damage to all enemies in radius.\n\n[BERSERKED] When berserk is casted while soldiers alive, they will go and try to attack closest enemy."
+		"DOTA_Tooltip_ability_leonidas_brothers_Description"										"Leonidas summons two soldiers, who will follow him around at all times until they die.\nSoldiers have barrier as health calculated as percentage of Leonidas's health.\nSoldiers will attack same target as Leonidas, dealing additional magic damage on attacks, but when kicked with <font color='#FFFAFA'>This is sparta</font>, they will try to find enemy around themself and kick them back to leonidas if possible.\nIf there is no enemies around them, or after the kick, soldiers will provide barriers to all allies in radius every 0.5 seconds for 3 seconds total, dealing same damage to all enemies in radius.\n\n[BERSERKED] When berserk is casted while soldiers alive, they will go and try to attack closest enemy."
 		"DOTA_Tooltip_ability_leonidas_pride_Note0"												""
 		"DOTA_Tooltip_ability_leonidas_brothers_radius"										"BARRIER GIVE RADIUS:"
 		"DOTA_Tooltip_ability_leonidas_brothers_duration"									"SOLDIERS DURATION:"
@@ -7670,6 +7683,7 @@
 		"DOTA_Tooltip_ability_leonidas_brothers_mr"											"%SOLDIER MAGIC RESISTANCE:"
 		"DOTA_Tooltip_ability_leonidas_brothers_enomotia_shield_duration"					"BARRIER DURATION:"
 		"DOTA_Tooltip_ability_leonidas_brothers_enomotia_shield_block"						"BARRIER PER TICK:"
+		"DOTA_Tooltip_ability_leonidas_brothers_soldier_attack_damage"						"DAMAGE ON ATTACK:"
 
 
 		"DOTA_Tooltip_ability_leonidas_pride"													"Shield wall"
@@ -7827,15 +7841,15 @@
 		"DOTA_Tooltip_modifier_aoko_shield"							"Shielded"
 		"DOTA_Tooltip_modifier_aoko_shield_Description"				""
 
-		"DOTA_Tooltip_modifier_aoko_sphere_slow"					"Slowed"
-
+		"DOTA_Tooltip_modifier_aoko_sphere_slow"					"Slowed" 
+		"DOTA_Tooltip_modifier_aoko_sphere_slow_Description"					"Slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 		"DOTA_Tooltip_modifier_aoko_sphere_meltdown"				"Floating Starmine ignition"
-		"DOTA_Tooltip_modifier_aoko_sphere_meltdown_Description"	"Slowed, taking damage."
+		"DOTA_Tooltip_modifier_aoko_sphere_meltdown_Description"	"Slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%, taking damage."
 
 		"DOTA_Tooltip_modifier_aoko_intimidation_slow"				"Slowed"
-
+		"DOTA_Tooltip_modifier_aoko_intimidation_slow_Description"					"Slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 		"DOTA_Tooltip_modifier_aoko_jumpback_ms"					"Movespeed increase"
-
+		"DOTA_Tooltip_modifier_aoko_jumpback_ms_Description"					"Movespeed increase by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% "
 		"DOTA_Tooltip_modifier_aoko_facebreaker_shield"				"Shielded"
 
 		"DOTA_Tooltip_modifier_aoko_blue_shield"					"Shielded"
@@ -7967,7 +7981,7 @@
 		"npc_dota_hero_phantom_assassin_bio"		""
 
 		"DOTA_Tooltip_modifier_ryougi_knife_throw_slow"				"Hidden Dagger (yang)"
-		"DOTA_Tooltip_modifier_ryougi_knife_throw_slow_Description"	"Slowed"
+		"DOTA_Tooltip_modifier_ryougi_knife_throw_slow_Description"	"Slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 
 		"DOTA_Tooltip_modifier_ryougi_lines"						"Mystic Eyes of Death Perception"
 		"DOTA_Tooltip_modifier_ryougi_lines_Description"			"You are not alive. Partially."
@@ -8247,10 +8261,10 @@
 		"npc_dota_hero_tiny_bio"					""
 
 		"DOTA_Tooltip_modifier_arcueid_shut_up_slow"			"Shut Up And Fly!"
-		"DOTA_Tooltip_modifier_arcueid_shut_up_slow_Description"	"Slowed"
+		"DOTA_Tooltip_modifier_arcueid_shut_up_slow_Description"	"Slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 
 		"DOTA_Tooltip_modifier_arcueid_what"			"Remains Recycle"
-		"DOTA_Tooltip_modifier_arcueid_what_Description"	"Slowed and providing healing to the attackers"
+		"DOTA_Tooltip_modifier_arcueid_what_Description"	"Slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%% and providing healing to the attackers"
 
 		"DOTA_Tooltip_modifier_arcueid_regen"			"Body Reconstruction"
 		"DOTA_Tooltip_modifier_arcueid_regen_Description"	"Regenerating"
@@ -8259,7 +8273,7 @@
 		"DOTA_Tooltip_modifier_arcueid_impulses_Description"	"Gains additional attack speed and magical on-hit damage while has stacks. Attacking decreases stack count."
 
 		"DOTA_Tooltip_modifier_arcueid_melty"				"Melty Blood"
-		"DOTA_Tooltip_modifier_arcueid_melty_Description"	"Slowed, locked and harassed by chains"
+		"DOTA_Tooltip_modifier_arcueid_melty_Description"	"Slowed by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%, locked and harassed by chains"
 
 		"DOTA_Tooltip_modifier_arcueid_melty_cd"				"Combo: Melty Blood"
 		"DOTA_Tooltip_modifier_arcueid_melty_cd_Description"	"Is on cooldown."
@@ -8811,7 +8825,7 @@
 	"DOTA_Tooltip_ability_jtr_murderer_mist_blood_rage_agility"	"\n<font color='#FF0000'>Bloody Thirst</font> bonus agility:"
 
 		"DOTA_Tooltip_modifier_murderer_mist_slow"				"Murderer of the Misty Night"
-		"DOTA_Tooltip_modifier_murderer_mist_slow_Description"	"Slowed"
+		"DOTA_Tooltip_modifier_murderer_mist_slow_Description"	"Slowed by by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 
         "DOTA_Tooltip_ability_jtr_maria_the_ripper"						"Maria the Ripper"
         "DOTA_Tooltip_ability_jtr_maria_the_ripper_Description"			"Jack reproduces the sublimation of her murder on the streets of London. Performs four quick attacks on the target dealing pure damage on each hit. Female targets take additional damage Jack is taking 45%% less damage while attacking.\nEach attack applies <font color='#7F00FF'>healing reduction tier 2</font> for 0.5 seconds.\nThis ability has reduced cast point if used while under the effect of Murderer of the Misty Night or The Whitechapel Murderer. \nUpgradeable by attribute Efficient Killer: iIf it is night, it is misty and the target is female, Jack will use the faster version of Maria the Ripper.\nWhile under effect of <font color='#FF0000'>Bloody Thirst</font> this ability has 300%% cooldown recovery speed."
@@ -9381,7 +9395,7 @@
         "DOTA_Tooltip_ability_nobu_dogab_Lore" ""
 
         "DOTA_Tooltip_ability_nobu_fool_of_owari"				"Spirit altering: Fool of Owari"
-        "DOTA_Tooltip_ability_nobu_fool_of_owari_Description"	"Grants oda nobunaga Charisma aura in 1000 range, increasing all allies armor by 12 and movement speed by 10%%.\n With Demon King Expanding attribute this choice will grant both Fool of Owari and King of innovation bonuses."
+        "DOTA_Tooltip_ability_nobu_fool_of_owari_Description"	"Grants oda nobunaga Charisma aura in 1500 range, increasing all allies armor by 12 and movement speed by 10%%.\nUsing dash will provide all-damage barrier to all allies in radius.\n With Demon King Expanding attribute this choice will grant both Fool of Owari and King of innovation bonuses."
         "DOTA_Tooltip_ability_nobu_fool_of_owari_Lore" ""
 
         "DOTA_Tooltip_ability_nobu_king_of_innovation"				"Spirit altering: King of innovation"
@@ -9394,10 +9408,14 @@
  
 
         "DOTA_Tooltip_ability_nobu_charisma"						"Demon Charisma"
-        "DOTA_Tooltip_ability_nobu_charisma_Description"			"Increases all allies around armor and movement speed."
+        "DOTA_Tooltip_ability_nobu_charisma_Description"			"Increases all allies around armor and movement speed.\nUsing dash will provide all-damage barrier to all allies in radius."
         "DOTA_Tooltip_ability_nobu_charisma_aura_radius"						"Aura radius:"
         "DOTA_Tooltip_ability_nobu_charisma_ms_bonus"								"%MS bonus:"
         "DOTA_Tooltip_ability_nobu_charisma_armor_bonus"							"Armor bonus:"
+    	"DOTA_Tooltip_ability_nobu_charisma_charisma_barrier_duration"							"Barrier duration:"
+      	"DOTA_Tooltip_ability_nobu_charisma_charisma_barrier_radius"							"Barrier radius:"
+        "DOTA_Tooltip_ability_nobu_charisma_charisma_barrier_base"								"Barrier base:"
+        "DOTA_Tooltip_ability_nobu_charisma_charisma_barrier_per_hero_level"					"Barrier per hero level:"
         "DOTA_Tooltip_ability_nobu_charisma_Lore"								""
 
         "DOTA_Tooltip_ability_nobu_dow_passive"						"Destroyer of worlds"
@@ -10078,10 +10096,10 @@
 		"DOTA_Tooltip_modifier_demon_buff_hijikata_Description"                                        			"Increased attackspeed and on-hit effect"
 
 		"DOTA_Tooltip_modifier_hijikata_slow"                                                    				"Slow"
-		"DOTA_Tooltip_modifier_hijikata_slow_Description"                                        				"MS decreased."
+		"DOTA_Tooltip_modifier_hijikata_slow_Description"                                        				"MS decreased by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%."
 
 		"DOTA_Tooltip_modifier_hijikata_slow_powerful"                                                    				"Slow"
-		"DOTA_Tooltip_modifier_hijikata_slow_powerful_Description"                                        				"Demon is coming."
+		"DOTA_Tooltip_modifier_hijikata_slow_powerful_Description"                                        				"Demon is coming. Ms slow by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 
 		"DOTA_Tooltip_modifier_hijikata_ult_stacks"                                                    				"Shinsengumi"
 		"DOTA_Tooltip_modifier_hijikata_ult_stacks_Description"                                        				"Ult charge percentage."
@@ -10103,7 +10121,7 @@
 
 
 		"DOTA_Tooltip_modifier_hijikata_ult_slow"                                                    "Slow"
-		"DOTA_Tooltip_modifier_hijikata_ult_slow_Description"                                        "You survived, huh?"
+		"DOTA_Tooltip_modifier_hijikata_ult_slow_Description"                                        "You survived, huh? Slow by %dMODIFIER_PROPERTY_MOVESPEED_BONUS_PERCENTAGE%%%"
 
 		"DOTA_Tooltip_modifier_hijikata_combo_ticker"                                                    "Unstoppable Shinsengumi"
 		"DOTA_Tooltip_modifier_hijikata_combo_ticker_Description"                                        "Speed increasing with time"

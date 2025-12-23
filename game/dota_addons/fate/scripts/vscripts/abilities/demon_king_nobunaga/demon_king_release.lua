@@ -90,7 +90,7 @@ function demon_king_release:PerformDealingDamage(tick_damage, aoe_radius)
 			end
 		end
       if caster:GetHealthPercent() > 20 then
-         caster:SetHealth(caster:GetHealth() - tick_damage)
+         caster:SetHealth(caster:GetHealth() - tick_damage/2)
       end
 
 end

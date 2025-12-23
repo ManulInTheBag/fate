@@ -104,6 +104,9 @@ function atalanta_big_dipper:OnProjectileHit_ExtraData(hTarget, vLocation, table
                 self:GetCaster():AddHuntStack(enemy, 1)
 
                 enemy:AddNewModifier(self:GetCaster(), self, "modifier_atalanta_big_dipper_slow", {duration = table.duration})
+                if self:GetCaster().CalydonianSnipeAcquired then
+                    self:GetCaster():FindAbilityByName("atalanta_celestial_arrow"):ApplyStacks(enemy, 10)
+                end
             end
         end
 
